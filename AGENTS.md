@@ -22,6 +22,12 @@ Do not duplicate the full gate definitions in this file. Read the relevant secti
 
 ## Scope of a Refactor
 
+To randomly select an unrefactored skill when no specific skill is specified:
+
+```bash
+ls skills/ | while read d; do grep -q "^| $d " docs/refactored-skills.md || echo "$d"; done | shuf -n 1
+```
+
 - Refactor one explicitly selected `skills/<slug>/` package at a time.
 - Keep unrelated skills and user changes untouched.
 - Read every file in the selected package before deciding what to move, rewrite, or remove.
@@ -90,11 +96,22 @@ Re-run the applicable checks, then create one commit containing the content, org
 
 Run `/darwin-skill` against the refactored skill and iterate on its evidence-backed feedback until the score is at least 80.
 
+Before evaluation, create `test-prompts.json` in the skill directory with 2-3 test prompts:
+
+```json
+[
+  {"id": 1, "prompt": "typical user request", "expected": "expected behavior", "actual": "actual output after running", "pass": true},
+  {"id": 2, "prompt": "complex or ambiguous scenario", "expected": "expected behavior", "actual": "actual output after running", "pass": true}
+]
+```
+
+Cover the most common use case (happy path) and one complex or ambiguous scenario. After running each prompt, fill in the `actual` and `pass` fields.
+
 - Re-run the evaluator after each revision and retain the strongest valid result rather than blindly applying every suggestion.
 - Do not sacrifice correctness, safety, source fidelity, portability, or the completion-definition gates merely to increase the score.
 - Record the final score and the command or evaluation evidence used to obtain it.
 
-After the score reaches at least 80 and all applicable checks still pass, create one commit containing the Darwin-guided optimization.
+After the score reaches at least 80 and all applicable checks still pass, create one commit containing the Darwin-guided optimization and the test-prompts.json file.
 
 ### 5. Create the Gitea pull request
 
@@ -146,7 +163,7 @@ A skill PR should be small, reviewable, and limited to one skill unless a shared
 3. best-practices, organization, ordering, and description optimization; and
 4. Darwin-guided optimization to a score of at least 80.
 
-Include:
+Use the template at `docs/pull-request-template.md` for the pull request description. Include:
 
 - the selected skill and why it was chosen;
 - the nonconformities found, classified by evidence type;
