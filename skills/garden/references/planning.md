@@ -15,19 +15,20 @@
 
 ### Rotation Principles
 
-1. **3-year minimum** before same family returns to a spot
+1. **3-4 year minimum** before same family returns to a spot (Iowa State Extension, April 2025). 5+ years is better if space allows.
 2. **Heavy feeders → light feeders → soil builders**
    - Year 1: Tomatoes (heavy)
    - Year 2: Lettuce, carrots (light)
    - Year 3: Beans (nitrogen fixing)
 3. **Legumes before heavy feeders** → free nitrogen boost
+4. **Weeds and cover crops count** — they belong to plant families too and can harbor the same pests/diseases. Good weed control supports rotation effectiveness.
 
 ### Tracking Rotation
 
 Zone file maintains history:
 
 ```markdown
-# zones/bed-1.md
+# <state_root>/zones/bed-1.md
 
 ## Rotation History
 | Year | Spring | Summer | Fall |
@@ -45,7 +46,7 @@ Zone file maintains history:
 
 ### Spring Planning (Do in February/March)
 
-1. **Review last year's harvests.md** → What worked? What disappointed?
+1. **Review `<state_root>/harvests.md` from last year** → What worked? What disappointed?
 2. **Check rotation constraints** → What CAN'T go where?
 3. **Order seeds early** → Popular varieties sell out
 4. **Plan succession planting** → Stagger lettuce, beans for continuous harvest
@@ -72,7 +73,7 @@ For continuous harvest, stagger plantings:
 
 ## Calendar Generation
 
-Based on climate.md frost dates, generate:
+Based on frost dates in `<state_root>/climate.md`, generate:
 
 ```markdown
 # 2026 Planting Calendar
@@ -122,7 +123,7 @@ Quick reference for what grows well together:
 5. Suggest specific zones
 
 **"Plan next year's garden"**
-1. Load all zone rotation histories
+1. Load all rotation histories from `<state_root>/zones/`
 2. Generate family constraints
 3. Suggest optimal placements
 4. Calculate seed/start dates

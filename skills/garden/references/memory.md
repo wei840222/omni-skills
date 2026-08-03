@@ -2,18 +2,13 @@
 
 ## Initial Setup
 
-Create on first use:
+After the state-location procedure in `SKILL.md` selects `<state_root>`, create that actual directory and write `<state_root>/memory.md` on first use. Do not create the other candidate directories, and never create a directory whose literal name is `<state_root>`.
 
-```bash
-mkdir -p ~/garden
-touch ~/Clawic/data/garden/memory.md
-```
-
-Additional files (plants/, zones/, climate.md, harvests.md) only if the user wants detailed tracking.
+Create `<state_root>/plants/`, `<state_root>/zones/`, `<state_root>/log/`, `<state_root>/climate.md`, and `<state_root>/harvests.md` only if the user wants the corresponding detailed tracking.
 
 ---
 
-## memory.md Template
+## `<state_root>/memory.md` Template
 
 ```markdown
 # Garden Memory
@@ -69,7 +64,7 @@ integration: pending
 
 Only create these if the user wants detailed tracking:
 
-### climate.md
+### `<state_root>/climate.md`
 ```markdown
 # Climate
 
@@ -78,7 +73,7 @@ Last frost: [date]
 First frost: [date]
 ```
 
-### harvests.md
+### `<state_root>/harvests.md`
 ```markdown
 # Harvests
 
@@ -86,7 +81,7 @@ First frost: [date]
 |------|-------|-------|-------|
 ```
 
-### plants/{name}.md
+### `<state_root>/plants/{name}.md`
 ```markdown
 # [Plant Name]
 
@@ -99,6 +94,6 @@ Notes: [care observations]
 
 ## Key Principles
 
-- **Start minimal** — most users just need memory.md
+- **Start minimal** — most users just need `<state_root>/memory.md`
 - **Natural language** — use "they want reminders" not "reminders: proactive"
 - **Ask before saving** — confirm preferences with the user first

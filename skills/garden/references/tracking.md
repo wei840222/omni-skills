@@ -2,7 +2,7 @@
 
 ## Plant File Template
 
-Create `plants/{name}.md` for each plant:
+Create `<state_root>/plants/{name}.md` for each plant:
 
 ```markdown
 # Tomato Cherry
@@ -37,7 +37,7 @@ Create `plants/{name}.md` for each plant:
 
 ## Zone File Template
 
-Create `zones/{name}.md` for each garden area:
+Create `<state_root>/zones/{name}.md` for each garden area:
 
 ```markdown
 # Raised Bed 1
@@ -69,7 +69,7 @@ Create `zones/{name}.md` for each garden area:
 
 ## Activity Log Format
 
-Monthly file `log/YYYY-MM.md`:
+Monthly file `<state_root>/log/YYYY-MM.md`:
 
 ```markdown
 # 2026-06
@@ -118,4 +118,4 @@ When user mentions garden activity, log it:
 ```
 - 🍅 Harvested zucchini x3
 ```
-Plus update `harvests.md` with yield estimate.
+Plus update `<state_root>/harvests.md` with the yield estimate.

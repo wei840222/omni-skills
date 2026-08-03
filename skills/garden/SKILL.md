@@ -1,123 +1,145 @@
 ---
-name: Garden
-slug: garden
-version: 1.1.6
-description: Track your entire garden with structured memory for plants, zones, tasks, harvests, and climate-aware planning that compounds over seasons.
-homepage: https://clawic.com/skills/garden
-changelog: Natural setup flow, explicit consent, no technical jargon
+name: garden
+description: Track plants, zones, tasks, harvests, and climate-aware rotations across seasons. Use when managing gardens, diagnosing plant issues, planning rotations, or reviewing yields. Also use for plant care questions, seasonal planning, or when the user mentions their garden, plants, or growing conditions.
 metadata:
-  clawdbot:
-    emoji: 🌱
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Garden
+  version: "1.1.6"
+  openclaw: '{"emoji":"🌱"}'
+  related-skills: '{"daily-planner":"Places garden work into daily priorities and time blocks.","habits":"Turns recurring garden care into trackable routines.","journal":"Captures free-form garden observations outside structured records.","plants":"Extends garden with plant-specific care and identification.","remind":"Schedules watering and seasonal task reminders."}'
 ---
+
+## State Location
+
+Garden state may exist in `<workspace>/garden/`, `<workspace>/memory/garden/`, or `~/garden/`. `<workspace>` means the workspace root provided by the host/runtime, not the shell's current working directory.
+
+Before any state read, query, create, update, or delete, resolve `<state_root>` once:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/garden/`, `<workspace>/memory/garden/`, `~/garden/`.
+3. If none exists and state must be created, default to `<workspace>/garden/`.
+
+If multiple candidate directories exist, use only the first one, tell the user that multiple state directories were found, and do not merge or modify the others. Use the selected `<state_root>` for every state operation during the run. Never create a directory whose literal name is `<state_root>`.
 
 ## Setup
 
-If `~/Clawic/data/garden/` doesn't exist or is empty, read `setup.md` and follow it. The user engaging with the skill implies interest — start helping them naturally.
+After resolving `<state_root>`, if `<state_root>/memory.md` doesn't exist or is empty, read `references/setup.md` and follow it.
 
-## When to Use
+## Core Workflows
 
-User needs help managing their garden: tracking plants, logging activities, planning rotations, diagnosing problems, or reviewing harvests. Agent maintains structured memory across seasons.
+### First-Time Setup
+1. Resolve `<state_root>` using State Location procedure
+2. If `<state_root>/memory.md` missing → read `references/setup.md`, gather user context
+3. Create `<state_root>/memory.md` using template from `references/memory.md`
+4. Ask: "Do you want detailed tracking for plants, zones, and harvests?" → if yes, create additional files
+
+### Adding a Plant
+1. User says "I planted tomatoes" or similar
+2. Create `<state_root>/plants/{name}.md` using template from `references/tracking.md`
+3. Update `<state_root>/memory.md` → add to "Current Plants" section
+4. Log action in `<state_root>/log/YYYY-MM.md` with 🌱 icon
+
+### Diagnosing a Problem
+1. User reports issue (yellow leaves, pests, etc.)
+2. Load `<state_root>/plants/{name}.md` → check health history
+3. Load `<state_root>/zones/{zone}.md` → check conditions
+4. Read `references/diagnostics.md` → follow IPM framework
+5. Update plant's health log with diagnosis and treatment
+6. 🔴 **CHECKPOINT**: If recommending chemical treatment → confirm with user before proceeding
+
+### Planning Next Season
+1. User asks "What should I plant?"
+2. Load all `<state_root>/zones/*.md` → check rotation history
+3. Load `<state_root>/climate.md` → check frost dates
+4. Read `references/planning.md` → apply rotation rules
+5. Suggest crops that fit rotation constraints and climate window
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/garden/`. See `memory-template.md` for templates.
+State lives under the resolved `<state_root>`. See `references/memory.md` for templates.
 
-```
-~/Clawic/data/garden/
+```text
+<state_root>/
 ├── memory.md      # REQUIRED: context and status
 ├── climate.md     # Optional: zone, frost dates
 ├── plants/        # Optional: detailed plant files
 ├── zones/         # Optional: zone tracking
-└── harvests.md    # Optional: yield records
+├── harvests.md    # Optional: yield records
+└── log/           # Optional: monthly activity logs
 ```
 
-Start minimal (just memory.md). Add others only if user wants detailed tracking.
+Start minimal (just `<state_root>/memory.md`). Add others only if the user wants detailed tracking.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Plant & zone templates | `tracking.md` |
-| Climate configuration | `climate-setup.md` |
-| Problem diagnosis | `diagnostics.md` |
-| Rotation planning | `planning.md` |
+| Topic | File | When to Load |
+|-------|------|--------------|
+| Setup process | `references/setup.md` | First use, or when `<state_root>/memory.md` is missing |
+| Memory template | `references/memory.md` | Creating or updating `<state_root>/memory.md` |
+| Plant & zone templates | `references/tracking.md` | Creating new plant or zone files |
+| Climate configuration | `references/climate.md` | Setting up climate, planning planting dates |
+| Problem diagnosis | `references/diagnostics.md` | User reports plant health issues |
+| Rotation planning | `references/planning.md` | Planning next season, checking rotation constraints |
+| Data templates | `assets/garden-data-templates.md` | Need copyable templates for state files |
 
 ## Core Rules
 
 ### 1. Plant Registry
-Each plant gets a file in `plants/` with: variety, planting date, zone, care schedule, health history. Load on request, not by default.
+Each plant gets a file at `<state_root>/plants/{name}.md` with: variety, planting date, zone, care schedule, health history. Load on request, not by default.
 
 ### 2. Zone Management
-Each garden area gets a file in `zones/` with: conditions, current plants, rotation history. Enforce 3-year minimum before repeating same plant family.
+Each garden area gets a file at `<state_root>/zones/{name}.md` with: conditions, current plants, rotation history. Enforce 3-4 year minimum before repeating same plant family (Iowa State Extension, 2025).
 
 ### 3. Activity Logging
-Log actions in `log/YYYY-MM.md` with icons: 🌱 plant, 💧 water, 🐛 pest, 🍅 harvest, ✂️ prune, 🌡️ weather event.
+Log actions in `<state_root>/log/YYYY-MM.md` with icons: 🌱 plant, 💧 water, 🐛 pest, 🍅 harvest, ✂️ prune, 🌡️ weather event.
 
 ### 4. Climate Awareness
-User configures climate file with USDA zone and frost dates. Use for planting window calculations and seasonal alerts.
+The user configures `<state_root>/climate.md` with USDA zone and frost dates. Use it for planting window calculations and seasonal alerts.
 
 ### 5. Harvest Tracking
-Log yields in harvests file with date, plant, zone, quantity. Enables season-over-season comparison and variety evaluation.
+Log yields in `<state_root>/harvests.md` with date, plant, zone, and quantity. This enables season-over-season comparison and variety evaluation.
 
 ### 6. Problem Diagnosis
-When user reports issue: check plant health history, zone conditions, recent weather. See `diagnostics.md` for symptom reference.
+When user reports issue: check plant health history, zone conditions, recent weather. Apply IPM framework (identify, assess threshold, prevent, control with least-risk methods). See `references/diagnostics.md` for symptom reference.
 
 ### 7. Tiered Storage
-- Memory file = current focus, always loaded first
-- Plant/zone files = load on demand
-- Log archives = historical reference only
+- `<state_root>/memory.md` = current focus, always loaded first
+- `<state_root>/plants/` and `<state_root>/zones/` = load on demand
+- `<state_root>/log/` = historical reference only
 
 ## Common Queries
 
-- "What needs water?" - check care schedules vs last log
+- "What needs water?" - check care schedules against `<state_root>/log/`
 - "What can I plant now?" - frost dates + rotation rules
-- "Why yellow leaves?" - diagnostic flow in `diagnostics.md`
-- "Show tomato history" - load plant file
-- "Last year's harvest?" - aggregate from harvests file
+- "Why yellow leaves?" - diagnostic flow in `references/diagnostics.md`
+- "Show tomato history" - load `<state_root>/plants/{name}.md`
+- "Last year's harvest?" - aggregate from `<state_root>/harvests.md`
 
-## Garden Traps
+## Gotchas
 
-- Planting same family in same zone within 3 years - diseases compound
-- Ignoring microclimate differences between zones - timing varies
-- Not logging problems when they occur - diagnosis harder later
-- Overwatering based on schedule not soil - check before watering
+- **Rotation enforcement**: Always check `<state_root>/zones/{zone}.md` rotation history before planting. Same family in same zone within 3-4 years = disease buildup.
+- **Microclimate variance**: Different zones may have different frost dates. Check `<state_root>/climate.md` microclimate notes, not just USDA zone.
+- **Log before you forget**: Record problems immediately in `<state_root>/plants/{name}.md` health log. Delayed diagnosis is harder.
+- **Soil over schedule**: Don't water on calendar alone. Check soil moisture first — overwatering kills more plants than underwatering.
+- **Hardiness zone drift**: USDA zones shifted in 2023. Verify current zone at planthardiness.ars.usda.gov before planting zone-sensitive crops.
+
+## Failure Modes
+
+### State location not found
+- If `<state_root>` resolution fails (no workspace, no candidates exist) → 🔴 **STOP**: Ask user "Where should I store garden data?" before creating files.
+- If multiple candidate directories exist → Use highest-precedence only, inform user "Found multiple garden directories, using {path}". Do not merge.
+
+### Missing plant/zone files
+- If user references a plant that doesn't exist in `<state_root>/plants/` → Create the file first, then proceed. Do not skip tracking.
+- If zone file missing when planning → Create `<state_root>/zones/{name}.md` with basic conditions before suggesting crops.
+
+### Diagnosis without history
+- If plant has no health log → Record "First diagnosis" in health log. Do not assume prior treatments.
+- If climate file missing → Skip climate-dependent recommendations, note "Climate data not configured" in response.
+
+### Chemical treatment
+- If IPM framework reaches chemical control step → 🔴 **CHECKPOINT**: Must confirm with user before recommending any pesticide. Explain risks and alternatives first.
 
 ## Security & Privacy
 
-**Data that stays local:**
-- All garden data stored in `~/Clawic/data/garden/`
-- No external APIs or network calls
-- No telemetry, analytics, or data collection
-
-**What this skill writes:**
-- Files in `~/Clawic/data/garden/` (memory.md, plants/, etc.)
-- Optionally: one line in user's workspace MEMORY.md (e.g., ~/MEMORY.md or equivalent) — **only after asking and receiving explicit "yes"**
-
-**This skill does NOT:**
-- Infer or save preferences without user confirmation
-- Access weather APIs (climate is manually configured)
-- Control hardware or irrigation systems
-- Write outside `~/Clawic/data/garden/` without asking first
-- Make any network requests
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `plants` — Plant care and identification
-- `habits` — Daily habit tracking
-- `journal` — General journaling
-- `remind` — Reminder scheduling
-- `daily-planner` — Day planning
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/garden
-- Latest version: https://clawic.com/skills/garden
+- All state lives under `<state_root>`. No network calls, no telemetry.
+- Writes: files under `<state_root>`, plus optionally one line in host-provided workspace `MEMORY.md` **only after explicit "yes"**.
+- Does not: infer preferences without confirmation, access weather APIs, control hardware, or write outside `<state_root>` without asking.

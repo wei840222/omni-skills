@@ -1,8 +1,14 @@
-# Climate Configuration
+## Climate Configuration
 
-## Setup climate.md
+### USDA Hardiness Zone
 
-Create `~/Clawic/data/garden/climate.md` with your garden's climate profile:
+The USDA Plant Hardiness Zone Map was updated in 2023 (previously 2012). The new map incorporates data from 13,412 weather stations and shows warming trends, particularly in the Northeast and Midwest. Many gardeners shifted up half a zone.
+
+**Action:** Verify your current zone at [planthardiness.ars.usda.gov](https://planthardiness.ars.usda.gov/). Update `<state_root>/climate.md` if your zone changed.
+
+### Setup `<state_root>/climate.md`
+
+Create `<state_root>/climate.md` with the garden's climate profile:
 
 ```markdown
 # Climate Profile
@@ -88,7 +94,7 @@ When user reports weather:
 Link microclimate data to zones:
 
 ```markdown
-# zones/bed-3.md
+# <state_root>/zones/bed-3.md
 ...
 ## Microclimate
 - **Frost risk:** HIGH (cold air pocket)
@@ -98,7 +104,7 @@ Link microclimate data to zones:
 
 ## Tracking Weather Impact
 
-Log significant weather in monthly log:
+Log significant weather in `<state_root>/log/YYYY-MM.md`:
 
 ```
 ## 2026-06-15
