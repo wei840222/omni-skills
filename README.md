@@ -1,5 +1,7 @@
 # Clawic Skills
 
+> New name "Omni Skills" means everything.
+
 This directory is structured as a standalone open source repository for the Clawic skills catalog.
 
 Clawic Skills is a curated open source skills collection by Ivan G. Davila.
