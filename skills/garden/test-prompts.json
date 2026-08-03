@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just planted some tomatoes in my raised bed. Can you help me track them?",
+    "expected": "Create plants/tomatoes.md with identity, care schedule, and harvest window. Update memory.md Current Plants section. Log action in log/YYYY-MM.md with 🌱 icon.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "My tomato leaves are turning yellow from the bottom up. What's wrong?",
+    "expected": "Load plants/tomatoes.md history. Check zone conditions. Follow IPM framework: identify (nitrogen deficiency likely), assess threshold, recommend prevention (fertilizer) before chemical control. Update health log.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "What should I plant in my raised bed next season?",
+    "expected": "Load zones/raised-bed.md rotation history. Check climate.md frost dates. Apply 3-4 year rotation rule. Suggest crops that don't repeat Solanaceae family if tomatoes were planted recently.",
+    "actual": "",
+    "pass": false
+  }
+]
