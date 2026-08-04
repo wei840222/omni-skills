@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm shooting portraits outdoors in harsh midday sun. My photos look flat with harsh shadows on faces. What settings and techniques should I use?",
+    "expected": "Should recommend using open shade or backlighting, specific aperture/shutter/ISO settings, fill flash technique, and exposure compensation. Should address the specific problem of harsh shadows.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "My night photos are all blurry and noisy. I'm using a Sony A7III with a 50mm f/1.8 lens. How do I fix this?",
+    "expected": "Should diagnose shutter speed too slow (recommend IBIS compensation or tripod), suggest raising ISO to dual native ISO (640 on Sony), recommend wider aperture, and mention AI denoise as post-processing fix.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "What's the best way to back up my wedding photography files? I have about 2TB of RAW files.",
+    "expected": "Should explain 3-2-1-1-0 rule with specific media recommendations, folder naming convention, rename pattern, checksum verification, and test-restore advice. Should address the scale of wedding shoots.",
+    "actual": "",
+    "pass": false
+  }
+]

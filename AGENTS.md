@@ -122,6 +122,7 @@ Use the Gitea skill to publish the completed refactor as a pull request:
 - Create a pull request from the refactor branch into the `local` branch.
 - Assign `wei840222` as the reviewer.
 - Populate the pull request description with all evidence required by the Pull Request Rules below.
+- Update `docs/refactored-skills.md` to add a new row with the skill name, PR link, date, and final Darwin score.
 - Verify the resulting pull request URL or identifier, source branch, `local` target branch, and reviewer assignment from Gitea before reporting completion.
 
 Creating the pull request does not authorize merging it. Leave the pull request open for review unless the active task explicitly authorizes the merge.
@@ -198,6 +199,7 @@ A skill refactor is done only when:
 - the skill has been reviewed against the official best-practices guide and its description has been optimized for accurate triggering;
 - `/darwin-skill` reports a final score of at least 80 without regressing correctness, safety, portability, or source fidelity;
 - a verified Gitea pull request targets `local`, preserves the four phase commits, and assigns `wei840222` as reviewer;
+- `docs/refactored-skills.md` has been updated with the skill name, PR link, date, and final Darwin score;
 - the package contains no unresolved local references, secrets, Clawic promotion, or unintended mutable state;
 - promised scripts and workflows have been exercised safely where feasible;
 - the final diff contains only authorized, relevant changes;
