@@ -10,6 +10,7 @@ The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 
 - Record automated checks separately from human or model judgment; subjective commentary must not replace specification validation.
 - Every refactor must preserve the pre-change issue inventory, post-change validation results, and the specification sources used.
 - Do not open a pull request while any required gate is failing.
+- Every research source used to update skill knowledge must be recorded with its full URL, grouped by topic (e.g., retention benchmarks, CAC benchmarks, experimentation frameworks), and included in the pull request description. Source links must be verifiable and point to the actual page where the data or guidance was found.
 
 ## Gate 1: Agent Skills specification compatibility
 

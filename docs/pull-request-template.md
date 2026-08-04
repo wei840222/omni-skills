@@ -52,7 +52,16 @@ Use this template when creating a skill refactor pull request. Replace all place
 
 ## Research Sources and Knowledge Updates
 
-- **<source title>** (<url>) — <what changed and why>
+### <Topic 1> (e.g., Retention Benchmarks)
+- **<source title>** — <what data or guidance was taken> via <full URL>
+- ...
+
+### <Topic 2> (e.g., CAC Benchmarks)
+- **<source title>** — <what data or guidance was taken> via <full URL>
+- ...
+
+### Obsolete Knowledge Corrected
+- <what was removed or replaced and why>
 - ...
 
 ## Best-Practices and Description Optimization
@@ -86,9 +95,11 @@ Use this template when creating a skill refactor pull request. Replace all place
 
 ## Test Prompts and Results
 
+All test prompts must be written in English for consistency across the skill library.
+
 ```json
 [
-  {"id": 1, "prompt": "<prompt text>", "expected": "<expected behavior>", "actual": "<actual output>", "pass": <true|false>},
+  {"id": 1, "prompt": "<typical user request in English>", "expected": "<expected behavior>", "actual": "<actual output>", "pass": <true|false>},
   ...
 ]
 ```

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We're a B2B SaaS startup and our D7 retention is only 15%. What should we do?",
+    "expected": "Should diagnose retention problem, reference SaaS B2B retention benchmarks, suggest activation analysis and churn intervention strategies, load references/retention.md",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "We're spending $50k/month on paid acquisition but growth has stalled. Help me diagnose the problem and design a growth loop strategy.",
+    "expected": "Should analyze CAC benchmarks by segment and channel, evaluate channel fit, design compounding loops, check LTV:CAC ratio, load references/acquisition.md and references/metrics.md for unit economics",
+    "actual": "",
+    "pass": false
+  }
+]
