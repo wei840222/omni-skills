@@ -1,6 +1,6 @@
 # Setup — Groq API Inference
 
-Read this when `~/Clawic/data/groq-api/` does not exist or is empty. Start naturally and focus on fast value.
+Read this when `<state_root>` does not exist or is empty. Start naturally and focus on fast value.
 
 ## Your Attitude
 
@@ -14,7 +14,7 @@ Within the first 2-3 exchanges, ask:
 - "Should this activate whenever you mention Groq, LLM latency, or inference tuning?"
 - "Do you want proactive routing suggestions, or only when you ask?"
 
-Save only activation trigger preferences to the user's global memory (no keys, no payload content). Mirror a short summary in `~/Clawic/data/groq-api/memory.md`.
+Save only activation trigger preferences to the user's global memory (no keys, no payload content). Mirror a short summary in `<state_root>/memory.md`.
 
 ### 2. Then: Credentials and Connectivity
 
@@ -39,7 +39,7 @@ Capture their default priorities and preferred output format.
 
 ## What You're Saving (internally)
 
-In `~/Clawic/data/groq-api/memory.md`:
+In `<state_root>/memory.md`:
 - Activation preference
 - Credentials verified state (`yes/no`)
 - Default model or routing strategy

@@ -1,124 +1,168 @@
 ---
-name: Groq API Inference
-slug: groq-api
-version: 1.0.0
-description: Build and debug Groq API chat and speech workflows with low-latency routing, structured outputs, and production-safe patterns.
-homepage: https://clawic.com/skills/groq-api
-changelog: Initial release with Groq API workflows, model routing guidance, and troubleshooting playbooks for chat and speech.
+name: groq-api
+description: Use when building, integrating, or debugging Groq API chat completions, structured JSON output, tool calling, or speech transcription. Handles request shaping, model routing (Llama 3.1/3.3, GPT-OSS, Whisper), rate limit management, and production retry patterns. Activate for Groq inference tasks even if user doesn't explicitly mention "Groq API."
 metadata:
-  clawdbot:
-    emoji: ⚡
-    requires:
-      bins:
-      - curl
-      - jq
-      env:
-      - GROQ_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Groq API Inference
+  version: "1.0.0"
+  openclaw: '{"emoji":"⚡","requires":{"bins":["curl","jq"],"env":["GROQ_API_KEY"]}}'
+  related-skills: '{"api":"Provides reusable REST auth and error-handling patterns that complement Groq endpoint usage.","ai":"Landscape check before committing to a specific Groq model or provider.","fine-tuning":"Adaptation path when Groq prompting alone is insufficient.","langchain":"Orchestration layer for multi-step Groq-backed pipelines.","models":"Cross-provider model comparison when Groq is one of several options."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` for activation preferences, credential verification, and default workflow setup.
+Groq API state may exist in `<workspace>/groq-api/`, `<workspace>/memory/groq-api/`, or `~/groq-api/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/groq-api/`, `<workspace>/memory/groq-api/`, `~/groq-api/`.
+3. If none exists and state must be created, default to `<workspace>/groq-api/`.
 
-User needs to build, integrate, or troubleshoot Groq API inference for chat, tool calling, or speech transcription. Agent handles request shaping, model routing, failure recovery, and safe production patterns.
+Use the selected `<state_root>` for every state operation in this skill.
 
-## Architecture
-
-Memory lives in `~/Clawic/data/groq-api/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/groq-api/
-├── memory.md           # Status, activation preference, and defaults
+```text
+<state_root>/
+├── memory.md           # Status, activation preference, defaults
 ├── requests/           # Reusable payload snippets
 ├── logs/               # Optional debug snapshots
 └── experiments/        # Prompt/model A-B notes
 ```
 
+## Setup
+
+On first use, read `references/setup.md` for activation preferences, credential verification, and default workflow setup.
+
 ## Quick Reference
 
-Use these files as decision aids, not as static docs: pick the smallest file that resolves the current blocker.
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup process | `references/setup.md` | First use or when `<state_root>` doesn't exist |
+| Memory template | `references/memory.md` | Creating or updating `<state_root>/memory.md` |
+| Request patterns | `references/api-patterns.md` | Building chat, structured output, or transcription requests |
+| Model routing | `references/model-selection.md` | Choosing models, setting up fallback chains, checking rate limits |
+| Failures and recovery | `references/troubleshooting.md` | On 401, 404, 429, 5xx, JSON parse failures, or transcription quality issues |
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Request patterns | `api-patterns.md` |
-| Model routing | `model-selection.md` |
-| Failures and recovery | `troubleshooting.md` |
+## Core Workflow
 
-## Core Rules
+### 1. Verify Auth (mandatory first step)
 
-### 1. Verify Auth and Endpoint Before Any Work
-Check `GROQ_API_KEY` first and use `Authorization: Bearer $GROQ_API_KEY` for every request. Use `https://api.groq.com/openai/v1` as the base URL and confirm access with `/models`.
+🔴 **CHECKPOINT — STOP here until auth is verified.** Do not proceed to any API call until `/models` returns a valid model ID.
 
 ```bash
 curl -s https://api.groq.com/openai/v1/models \
-  -H "Authorization: Bearer $GROQ_API_KEY" | jq '.data[0].id'
+  -H "Authorization: Bearer ***" | jq '.data[0].id'
 ```
 
-### 2. Start with a Minimal Deterministic Payload
-Begin with small prompts and explicit format instructions. Add complexity only after the baseline call is stable.
+If this fails with 401:
+- Check `GROQ_API_KEY` is set: `echo $GROQ_API_KEY`
+- Remove trailing spaces or quotes
+- Verify key is active at https://console.groq.com/keys
 
-### 3. Route by Task, Not by Habit
-Use separate model choices for:
-- Fast interactive chat
-- High-accuracy reasoning
-- Speech transcription
+### 2. Start Minimal, Then Add Complexity
 
-Choose from live `/models` output instead of hardcoding assumptions.
+Begin with a small deterministic payload:
+- Use `temperature: 0` for structured output
+- Keep system prompt < 500 tokens
+- Test with one message before adding history
 
-### 4. Design for Retry and Degradation
-For `429` and `5xx`, retry with exponential backoff and capped attempts. If a model is overloaded, fail over to a compatible backup model and log the swap.
+Add complexity only after baseline call succeeds.
 
-### 5. Validate Output Before Downstream Actions
-If output feeds code execution or data writes, enforce JSON schema or strict parsing before acting. Reject malformed output early.
+### 3. Route by Task
 
-### 6. Treat Speech as a Separate Reliability Path
-Speech uploads have different failure modes than chat. Validate input format, check file size, and surface transcription confidence when available.
+Default routing (change only if task requires):
+- Fast interactive chat: `llama-3.1-8b-instant` (560 T/sec, $0.05/$0.08)
+- High-accuracy reasoning: `openai/gpt-oss-120b` (500 T/sec, $0.15/$0.60)
+- Structured JSON output: `openai/gpt-oss-20b` with `strict: true`
+- Speech transcription: `whisper-large-v3-turbo` ($0.04/hour)
 
-### 7. Keep Secrets and User Data Scoped
-Never store API keys in files. Keep request logs sanitized and avoid persisting full sensitive prompts unless the user explicitly asks.
+🔴 **CHECKPOINT — STOP and verify model availability.** Before switching models, run `/models` to confirm target ID exists. Do not hardcode model IDs — they change without notice.
 
-## Common Traps
+### 4. Design for Failure
 
-- Using stale model IDs copied from old examples -> call `/models` and select available IDs at runtime.
-- Sending giant prompts without truncation -> latency spikes and timeout risk.
-- Ignoring `429` backoff guidance -> repeated failures under load.
-- Mixing chat and transcription assumptions -> wrong endpoint and payload format.
-- Trusting free-form text for automation -> parse and validate before executing.
+If 429 rate limit:
+1. Read `retry-after` header
+2. Exponential backoff: 1s -> 2s -> 4s (max 3 attempts)
+3. Switch to fallback model if still rate-limited
+4. Log switch to `<state_root>/logs/`
+
+If 5xx server error:
+1. Retry capped attempts (max 3)
+2. Shorten payload
+3. Fail over to fallback immediately
+4. If persistent (> 5 min), reduce request rate
+
+If JSON parse fails:
+1. For strict mode: verify model supports it (`openai/gpt-oss-20b` or `openai/gpt-oss-120b`)
+2. Ensure all fields in `required`, objects have `additionalProperties: false`
+3. Fall back to `response_format.json_object` with explicit schema in system prompt
+
+### 5. Validate Output Before Acting
+
+🔴 **CHECKPOINT — STOP and validate before downstream actions.** If output feeds code execution or data writes, you must parse and validate first.
+
+If output feeds code execution or data writes:
+- Parse JSON before using (never trust raw text)
+- Validate against schema
+- Reject malformed output early with clear error message
+
+### 6. Speech is a Separate Path
+
+Speech uploads have different failure modes:
+- Validate input format (mp3, wav, m4a, flac, ogg, webm)
+- Check file size (max 100 MB)
+- Split long audio into < 25 MB segments
+- For critical transcription: use `whisper-large-v3` (accuracy)
+- For bulk processing: use `whisper-large-v3-turbo` (speed)
+
+### 7. Keep Secrets Scoped
+
+- Never store `GROQ_API_KEY` in files
+- Sanitize request logs (no full prompts unless user explicitly asks)
+- State goes to `<state_root>/`, not skill package
+
+## Gotchas
+
+- Model IDs are case-sensitive and versioned: Use exact IDs from `/models` (e.g., `llama-3.1-8b-instant`, not `llama-3.1-8b`)
+- Structured output strict mode requires all fields: Every property must be in `required` array, objects need `additionalProperties: false`
+- Rate limits are per-organization, not per-user: Hitting TPM limit blocks entire org, not just your key
+- Whisper has 10-second minimum billing: Short audio clips still billed as 10 seconds
+- Cached tokens don't count toward rate limits: Use prompt caching to reduce TPM usage
+- Preview models can disappear without warning: Use production models for anything beyond testing
+- 429 `retry-after` is in seconds: Don't confuse with milliseconds
+
+## Common Traps (do NOT do these)
+
+- Using stale model IDs copied from old examples -> call `/models` at runtime
+- Sending 100K+ token prompts without truncation -> latency spikes and timeout
+- Ignoring 429 backoff -> repeated failures under load
+- Mixing chat and transcription endpoints -> wrong payload format
+- Trusting free-form text for automation -> parse and validate first
+- Hardcoding model IDs in production -> models get deprecated
+- Using strict mode with unsupported models -> falls back to best-effort silently
+- Storing API keys in `<state_root>/memory.md` -> security risk
 
 ## External Endpoints
-
-All network traffic should be limited to these Groq endpoints for explicit inference tasks requested by the user.
 
 | Endpoint | Data Sent | Purpose |
 |----------|-----------|---------|
 | https://api.groq.com/openai/v1/models | None (GET) | Discover available models |
 | https://api.groq.com/openai/v1/chat/completions | Prompt messages and options | Chat completions |
-| https://api.groq.com/openai/v1/audio/transcriptions | Audio file and transcription params | Speech-to-text |
+| https://api.groq.com/openai/v1/audio/transcriptions | Audio file and params | Speech-to-text |
 
 No other data is sent externally.
 
 ## Security & Privacy
 
-**Data that leaves your machine:**
+Data that leaves your machine:
 - Prompt content sent to Groq inference endpoints
 - Audio content sent to Groq transcription endpoint when requested
 
-**Data that stays local:**
-- Workflow preferences in `~/Clawic/data/groq-api/memory.md`
-- Optional local debug notes in `~/Clawic/data/groq-api/logs/`
+Data that stays local:
+- Workflow preferences in `<state_root>/memory.md`
+- Optional debug notes in `<state_root>/logs/`
 
-**This skill does NOT:**
+This skill does NOT:
 - Store `GROQ_API_KEY` in project files
-- Access files outside `~/Clawic/data/groq-api/` for persistence
+- Access files outside `<state_root>/` for persistence
 - Call undeclared third-party endpoints
 - Modify itself or other skills
 
@@ -126,16 +170,3 @@ No other data is sent externally.
 
 By using this skill, prompts and optional audio content are sent to Groq.
 Only install if you trust Groq with that data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` — reusable REST patterns, auth, and error handling
-- `models` — model comparison and selection heuristics
-- `ai` — current AI landscape checks before implementation decisions
-- `fine-tuning` — adaptation workflows when prompting is not enough
-- `langchain` — orchestration patterns for multi-step LLM pipelines
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/groq-api
-- Latest version: https://clawic.com/skills/groq-api
