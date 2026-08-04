@@ -1,12 +1,12 @@
 # Setup — Stock Market
 
-Read this when `~/Clawic/data/stock-market/` is missing or empty.
+Read this when `<state_root>` is missing or empty.
 
 ## First-Run Transparency
 
 Tell the user what can be created locally:
-- Workspace path: `~/Clawic/data/stock-market/`
-- Decision memory: `~/Clawic/data/stock-market/memory.md`
+- Workspace path: `<state_root>`
+- Decision memory: `<state_root>/memory.md`
 - Optional planning files for watchlists, briefings, and risk rules
 
 Create files only after user confirmation.
@@ -47,6 +47,6 @@ Do not infer hidden preferences from passive behavior.
 
 ## Boundaries
 
-- Keep local files inside `~/Clawic/data/stock-market/`
+- Keep local files inside `<state_root>`
 - Do not place real orders or connect brokers automatically
 - Ask before creating or modifying any local planning file

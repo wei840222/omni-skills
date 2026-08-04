@@ -18,12 +18,12 @@ If the size is too large for liquidity, reduce size or skip.
 
 | Control | Suggested Limit |
 |---------|-----------------|
-| Max risk per trade | 0.25% to 1.00% of account |
-| Max daily loss | 1.0% to 2.0% of account |
+| Max risk per trade | 1% to 2% of account (2% rule) |
+| Max daily loss | 3% to 5% of account |
 | Max concurrent correlated positions | 2 to 3 |
-| Max total open risk | 2.0% to 3.0% of account |
+| Max total open risk | 5% to 6% of account |
 
-User-approved limits always override defaults.
+The 2% rule is the industry standard for retail traders. User-approved limits always override defaults.
 
 ## Volatility Adjustment
 
@@ -31,6 +31,7 @@ During high-volatility sessions:
 - Cut normal size by 30-50%
 - Widen invalidation only if thesis still holds
 - Avoid adding to losers
+- Account for gap risk: halve position size before earnings or major events
 
 During low-volatility sessions:
 - Keep realistic target assumptions

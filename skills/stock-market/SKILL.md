@@ -1,36 +1,30 @@
 ---
-name: Stock Market
-slug: stock-market
-version: 1.0.0
-description: Analyze stock market setups with thesis checks, catalyst mapping, risk controls, and explicit trade or no-trade decisions.
-homepage: https://clawic.com/skills/stock-market
-changelog: Initial release with a market briefing workflow, watchlist template, and risk controls for disciplined stock analysis.
+name: stock-market
+description: Analyze stocks with thesis validation, catalyst timing, position sizing, and explicit trade or no-trade decisions. Use when the user wants stock analysis, pre-market or post-market briefings, watchlist planning, trade thesis validation, catalyst tracking, or risk-managed execution planning for individual equities or ETFs.
 metadata:
-  clawdbot:
-    emoji: 📈
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Stock Market
+  version: "1.0.0"
+  openclaw: '{"emoji":"📈"}'
+  related-skills: '{"business-intelligence":"Converts market analysis outputs into dashboards and decision reporting.","economics":"Interprets macro indicators and policy signals that move markets.","market-research":"Builds sector and theme landscape analysis that feeds stock-level thesis work.","trading":"Structures trade execution plans and operational checklists for approved candidates."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/stock-market/` does not exist or is empty, explain that local planning files can be created for this skill and follow `setup.md`.
+Stock market state may exist in `<workspace>/stock-market/`, `<workspace>/memory/stock-market/`, or `~/stock-market/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/stock-market/`, `<workspace>/memory/stock-market/`, `~/stock-market/`.
+3. If none exists and state must be created, default to `<workspace>/stock-market/`.
 
-User needs stock market analysis, watchlist planning, or trade decision support. Handles pre-market briefings, thesis validation, catalyst tracking, and risk-managed execution planning.
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/stock-market/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>`. See `references/memory.md` for structure.
 
 ```
-~/Clawic/data/stock-market/
+<state_root>/
 ├── memory.md         # Status, constraints, and recurring preferences
 ├── watchlist.md      # Active tickers and setup notes
 ├── briefing-log.md   # Pre-market and post-market summaries
@@ -39,67 +33,83 @@ Memory lives in `~/Clawic/data/stock-market/`. See `memory-template.md` for stru
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup and integration | `setup.md` |
-| Memory template | `memory-template.md` |
-| Analysis workflow | `analysis-framework.md` |
-| Watchlist structure | `watchlist-template.md` |
-| Risk controls | `risk-playbook.md` |
-| Daily briefing format | `briefing-template.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup and integration | `references/setup.md` | First run or when `<state_root>` is missing/empty |
+| Memory template | `references/memory.md` | Creating or updating `<state_root>/memory.md` |
+| Analysis workflow | `references/analysis.md` | Validating a ticker thesis or building a trade candidate |
+| Watchlist structure | `references/watchlist.md` | Building or re-ranking the watchlist |
+| Risk controls | `references/risk.md` | Before selecting position size or validating a trade |
+| Daily briefing format | `references/briefing.md` | Creating pre-market or post-market briefings |
 
-## Core Rules
+## Core Workflow
 
-### 1. Define Market Objective First
+### Step 1: Define Objective
 Set the objective before analysis: intraday trade, swing setup, position build, or no-trade monitoring. Every recommendation must match the selected horizon.
 
-### 2. Separate Facts, Assumptions, and Narrative
+### Step 2: Separate Facts, Assumptions, and Narrative
 Tag each statement as market data, inferred assumption, or narrative hypothesis. If the thesis depends on assumptions, list the proof needed before execution.
 
-### 3. Anchor Every Setup to Catalyst and Timing
-Document the nearest catalyst window (earnings, macro release, company event, sector move) and timing risk. Avoid entries without a clear catalyst or structural setup.
+### Step 3: Anchor to Catalyst and Timing
+Document the nearest catalyst window (earnings, macro release, company event, sector move) and timing risk. Require a clear catalyst or structural setup before entry.
 
-### 4. Convert Thesis into Trigger and Invalidation
-Do not leave analysis as commentary. Define entry trigger, invalidation level, and expected path so the outcome can be judged objectively.
+### Step 4: Convert Thesis into Trigger and Invalidation
+Define entry trigger, invalidation level, and expected path so the outcome can be judged objectively.
 
-### 5. Enforce Position Risk Before Opportunity
-Use `risk-playbook.md` before selecting size. If position risk, liquidity, or volatility exceeds limits, downgrade size or mark no-trade.
+### Step 5: Enforce Position Risk
+Load `references/risk.md` before selecting size. Apply the 2% rule: risk no more than 2% of account on any single trade.
 
-### 6. Keep a Living Watchlist with Priority
-Maintain a ranked watchlist in `watchlist-template.md` format: setup quality, catalyst proximity, and risk-adjusted upside. Re-rank after major market events.
+### Step 6: Maintain Living Watchlist
+Rank watchlist by setup quality, catalyst proximity, and risk-adjusted upside. Re-rank after major market events.
 
-### 7. Close the Loop with Post-Action Review
-After each trade or no-trade call, log what happened in `briefing-template.md` format and update `~/Clawic/data/stock-market/memory.md` with reusable lessons.
+### Step 7: Post-Action Review
+Log outcomes using `references/briefing.md` format and update `<state_root>/memory.md` with reusable lessons.
 
-## Stock Market Traps
+## 🔴 Pre-Trade Validation Gate
 
-- Treating broad market direction as enough evidence -> low conviction entries with weak asymmetric upside.
-- Ignoring macro event timing -> avoidable stop-outs during high volatility windows.
-- Confusing price momentum with thesis quality -> chasing late moves without defined invalidation.
-- Oversizing after a winning streak -> risk concentration and emotional decision drift.
-- Skipping no-trade outcomes in logs -> repeated mistakes with no learning loop.
+**Proceed only when all five checks pass:**
+
+1. ✅ Thesis has ≥2 `A`-grade evidence lines (or 1× `A` + near-term catalyst)
+2. ✅ Entry trigger, invalidation level, and target path are defined
+3. ✅ Position size calculated via `references/risk.md` formula (max 2% account risk per trade)
+4. ✅ Total open risk ≤ 5-6% of account, max 2-3 correlated positions
+5. ✅ Decision logged in `<state_root>/briefing-log.md`
+
+**Decision heuristic when checks fail:**
+- Evidence insufficient → revise thesis, downgrade to watchlist
+- Structure unclear → mark no-trade until clarity emerges
+
+## Fallback Decision Tree
+
+| Symptom | First-line fix | If still failing |
+|---------|----------------|------------------|
+| Thesis lacks `A`-grade evidence | Downgrade to watchlist-only | Wait for catalyst confirmation |
+| No clear invalidation level | Use ATR-based stop (2× ATR from entry) | Mark no-trade until structure clarifies |
+| Position size exceeds liquidity | Halve size, widen invalidation | Skip trade entirely |
+| High volatility session | Cut size 30-50%, use limit orders only | Mark no-trade |
+| Daily loss cap hit | Stop trading for session | Review rules before next session |
+| Emotional override detected | Mark no-trade immediately | Take break, review process |
+
+## Gotchas
+
+- **Time commitment**: Allocate 5-10 hours for thorough thesis validation per company.
+- **Gap risk**: Before earnings or major events, halve position size to account for overnight gap risk.
+- **Correlation trap**: Max 2-3 concurrent correlated positions. Two tech stocks with the same risk driver count as one bet.
+- **No-trade is a decision**: Log every no-trade outcome explicitly. This builds the learning loop from avoided losses.
+- **Momentum ≠ thesis**: Require structural setup for momentum-based entries; define invalidation before entry.
+- **Emotional override**: When daily loss cap is hit or emotional state overrides process, mark no-trade until next session.
+
+## Operational Boundaries
+
+- Require explicit user approval before executing trades
+- Confine all file operations to `<state_root>`
+- Store only explicit user preferences, not inferred ones
+- Define invalidation level before proceeding with any trade
+- Maintain consistent position sizing regardless of recent outcomes
+- Log every trade and no-trade decision
+- Check macro event calendar before entry
+- Require ticker-specific evidence beyond broad market direction
 
 ## Security & Privacy
 
-**Data that leaves your machine:**
-- None by default. This skill is designed for local analysis and planning artifacts.
-
-**Data that stays local:**
-- Watchlists, briefings, and user preferences in `~/Clawic/data/stock-market/`.
-
-**This skill does NOT:**
-- Place broker orders automatically.
-- Execute trades without explicit user approval.
-- Access files outside `~/Clawic/data/stock-market/` for memory storage.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `trading` — structure trade execution plans and operational checklists.
-- `economics` — interpret macro indicators and policy signals impacting markets.
-- `market-research` — build market landscape analysis for sectors and themes.
-- `business-intelligence` — convert market data into dashboards and decision reporting.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/stock-market
-- Latest version: https://clawic.com/skills/stock-market
+All data stays local in `<state_root>`. This skill produces analysis and planning artifacts only — it does not connect to brokers, place orders, or transmit data externally.

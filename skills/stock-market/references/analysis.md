@@ -2,6 +2,8 @@
 
 Use this framework to turn broad market commentary into a decision-ready setup.
 
+**Time commitment**: Proper stock analysis requires 5-10 hours per company. There are no shortcuts. This framework structures that work efficiently.
+
 ## 1) Context Snapshot
 
 Capture market context in one pass:

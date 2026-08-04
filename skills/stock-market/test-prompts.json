@@ -1,0 +1,5 @@
+[
+  {"id": 1, "prompt": "I want to analyze AAPL stock for a potential swing trade. Can you help me validate the thesis and set up risk controls?", "expected": "Load analysis framework, guide through thesis validation with catalyst timing, define entry trigger and invalidation level, calculate position size using 2% rule"},
+  {"id": 2, "prompt": "Create a pre-market briefing for today's trading session", "expected": "Load briefing template, check overnight market performance, identify key catalysts, review watchlist priorities, set daily risk limits"},
+  {"id": 3, "prompt": "I have a watchlist with 10 tickers. Help me rank them by setup quality and catalyst proximity", "expected": "Load watchlist structure, apply ranking rules (setup quality > catalyst proximity > risk-adjusted upside), identify Priority A (max 3-5 names), move others to Priority B/C"}
+]
