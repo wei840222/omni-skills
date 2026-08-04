@@ -28,13 +28,13 @@ After resolving `<state_root>`, if `<state_root>/memory.md` doesn't exist or is 
 ### First-Time Setup
 1. Resolve `<state_root>` using State Location procedure
 2. If `<state_root>/memory.md` missing → read `references/setup.md`, gather user context
-3. 🔴 **CHECKPOINT**: Before creating files, confirm with user: "I'll create garden tracking files at `<state_root>`. OK?"
+3. Before creating files, confirm with user: "I'll create garden tracking files at `<state_root>`. OK?"
 4. Create `<state_root>/memory.md` using template from `references/memory.md`
 5. Ask: "Do you want detailed tracking for plants, zones, and harvests?" → if yes, create additional files
 
 ### Adding a Plant
 1. User says "I planted tomatoes" or similar
-2. 🔴 **CHECKPOINT**: If plant name already exists in `<state_root>/plants/`, ask: "This plant already exists. Update existing or create new variety?"
+2. If plant name already exists in `<state_root>/plants/`, ask: "This plant already exists. Update existing or create new variety?"
 3. Create `<state_root>/plants/{name}.md` using template from `references/tracking.md`
 4. Update `<state_root>/memory.md` → add to "Current Plants" section
 5. Log action in `<state_root>/log/YYYY-MM.md` with 🌱 icon
@@ -45,7 +45,7 @@ After resolving `<state_root>`, if `<state_root>/memory.md` doesn't exist or is 
 3. Load `<state_root>/zones/{zone}.md` → check conditions
 4. Read `references/diagnostics.md` → follow IPM framework
 5. Update plant's health log with diagnosis and treatment
-6. 🔴 **CHECKPOINT**: If recommending chemical treatment → confirm with user before proceeding
+6. When recommending chemical treatment, confirm with user before proceeding
 
 ### Planning Next Season
 1. User asks "What should I plant?"
@@ -120,61 +120,57 @@ When user reports issue: check plant health history, zone conditions, recent wea
 - **Rotation enforcement**: Always check `<state_root>/zones/{zone}.md` rotation history before planting. Same family in same zone within 3-4 years = disease buildup.
 - **Microclimate variance**: Different zones may have different frost dates. Check `<state_root>/climate.md` microclimate notes, not just USDA zone.
 - **Log before you forget**: Record problems immediately in `<state_root>/plants/{name}.md` health log. Delayed diagnosis is harder.
-- **Soil over schedule**: Don't water on calendar alone. Check soil moisture first — overwatering kills more plants than underwatering.
+- **Soil over schedule**: Check soil moisture first — overwatering kills more plants than underwatering.
 - **Hardiness zone drift**: USDA zones shifted in 2023. Verify current zone at planthardiness.ars.usda.gov before planting zone-sensitive crops.
-- **Don't skip state resolution**: Never write to `./garden/` or guess paths. Always resolve `<state_root>` first.
-- **Don't assume climate data**: Check `<state_root>/climate.md` exists before using frost dates. If missing, ask user to configure.
-- **Don't recommend chemicals without confirmation**: IPM chemical control step requires explicit user approval.
-- **Don't create files without consent**: First-time setup requires user confirmation before writing to `<state_root>`.
-- **Don't delete without confirmation**: Deletion is irreversible. Always confirm with user before removing records.
-- **Don't mix garden state**: Each `<state_root>` is one garden. Don't cross-reference between different gardens.
-- **Don't guess missing data**: Ask user for required fields (dates in YYYY-MM-DD, numeric quantities, non-empty names).
-- **Don't write to CWD**: Always use resolved `<state_root>`, never current working directory.
-- **Don't create partial files**: If write fails, clean up and report. Don't leave incomplete records.
+- **Resolve state first**: Resolve `<state_root>` before any file operation; write only to the resolved `<state_root>`.
+- **Verify climate data**: Check `<state_root>/climate.md` exists before using frost dates. If missing, ask user to configure.
+- **Confirm chemical treatment**: IPM chemical control step requires explicit user approval.
+- **Confirm file creation**: First-time setup requires user confirmation before writing to `<state_root>`.
+- **Confirm before deletion**: Deletion is irreversible. Confirm with user before removing records.
+- **Request missing data**: Ask user for required fields (dates in YYYY-MM-DD, numeric quantities, non-empty names).
+- **Use resolved state root**: Use resolved `<state_root>` for all state writes; the current working directory is unrelated.
+- **Report write failures**: If write fails, clean up and report. Leave no incomplete records.
 
 ## Failure Modes
 
 ### State location not found
 If no candidate directory exists and user hasn't specified a location:
-- 🔴 **STOP**: Ask user "Where should I store garden data?" before creating files.
-- Do not guess or create files in current working directory.
+- Ask user "Where should I store garden data?" before creating files.
+- Use the resolved `<state_root>` for all file operations.
 
 ### File write errors
 If file creation or update fails (disk full, permission denied, invalid path):
-- 🔴 **STOP**: Report error to user: "Cannot write to `<path>`: <error message>"
-- Do not retry automatically or create partial files.
+- Report error to user: "Cannot write to `<path>`: <error message>"
 - Ask user to resolve the issue before continuing.
 
 ### Invalid input
 If user provides invalid data (wrong date format, missing required fields):
-- 🔴 **STOP**: Ask user to correct: "I need <field> in <format>. Can you provide it?"
-- Do not guess or use placeholder values.
+- Ask user to correct: "I need <field> in <format>. Can you provide it?"
 - Examples: planting date must be YYYY-MM-DD, zone name cannot be empty, quantity must be numeric.
 
 ### Missing plant/zone files
 If user references a plant or zone that doesn't exist:
 - Create the file first using templates from `references/tracking.md`
 - Then proceed with the requested operation
-- Do not skip tracking or leave incomplete records.
+- Ensure complete records for every tracked item.
 
 ### Diagnosis without history
 If user asks for diagnosis but plant has no health log:
 - Record "First diagnosis" in health log
-- Do not assume prior treatments or conditions.
+- Treat this as the baseline; prior treatments or conditions are unknown.
 
 ### Chemical treatment
 If IPM framework reaches chemical control step:
-- 🔴 **CHECKPOINT**: Must confirm with user before recommending any pesticide.
+- Confirm with user before recommending any pesticide.
 - Explain risks and alternatives first.
 
 ### Deleting records
 If user asks to delete a plant, zone, or log entry:
-- 🔴 **CHECKPOINT**: Confirm deletion: "Delete <record>? This cannot be undone."
+- Confirm deletion: "Delete <record>? This cannot be undone."
 - Wait for explicit "yes" before proceeding.
-- Do not delete without confirmation.
 
 ## Security & Privacy
 
 - All state lives under `<state_root>`. No network calls, no telemetry.
 - Writes: files under `<state_root>`, plus optionally one line in host-provided workspace `MEMORY.md` **only after explicit "yes"**.
-- Does not: infer preferences without confirmation, access weather APIs, control hardware, or write outside `<state_root>` without asking.
+- Confirm preferences before inferring them; access weather APIs or control hardware only with user authorization; write outside `<state_root>` only after asking.

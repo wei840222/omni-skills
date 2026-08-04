@@ -45,7 +45,7 @@ On first use, read `references/setup.md` for activation preferences, credential 
 
 ### 1. Verify Auth (mandatory first step)
 
-🔴 **CHECKPOINT — STOP here until auth is verified.** Do not proceed to any API call until `/models` returns a valid model ID.
+Verify auth before any API call. Confirm `/models` returns a valid model ID before proceeding.
 
 ```bash
 curl -s https://api.groq.com/openai/v1/models \
@@ -74,7 +74,7 @@ Default routing (change only if task requires):
 - Structured JSON output: `openai/gpt-oss-20b` with `strict: true`
 - Speech transcription: `whisper-large-v3-turbo` ($0.04/hour)
 
-🔴 **CHECKPOINT — STOP and verify model availability.** Before switching models, run `/models` to confirm target ID exists. Do not hardcode model IDs — they change without notice.
+Verify model availability before switching models. Run `/models` to confirm target ID exists. Query model IDs at runtime rather than hardcoding — they change without notice.
 
 ### 4. Design for Failure
 
@@ -97,14 +97,14 @@ If JSON parse fails:
 
 ### 5. Validate Output Before Acting
 
-🔴 **CHECKPOINT — STOP and validate before downstream actions.** If output feeds code execution or data writes, you must parse and validate first.
+Validate output before downstream actions. If output feeds code execution or data writes, parse and validate first.
 
 If output feeds code execution or data writes:
 - Parse JSON before using (never trust raw text)
 - Validate against schema
 - Reject malformed output early with clear error message
 
-### 6. Speech is a Separate Path
+### 6. Speech is a separate path
 
 Speech uploads have different failure modes:
 - Validate input format (mp3, wav, m4a, flac, ogg, webm)
@@ -115,7 +115,7 @@ Speech uploads have different failure modes:
 
 ### 7. Keep Secrets Scoped
 
-- Never store `GROQ_API_KEY` in files
+- Store `GROQ_API_KEY` only in environment variables
 - Sanitize request logs (no full prompts unless user explicitly asks)
 - State goes to `<state_root>/`, not skill package
 
@@ -127,18 +127,18 @@ Speech uploads have different failure modes:
 - Whisper has 10-second minimum billing: Short audio clips still billed as 10 seconds
 - Cached tokens don't count toward rate limits: Use prompt caching to reduce TPM usage
 - Preview models can disappear without warning: Use production models for anything beyond testing
-- 429 `retry-after` is in seconds: Don't confuse with milliseconds
+- 429 `retry-after` is in seconds: Use seconds for backoff calculations
 
-## Common Traps (do NOT do these)
+## Best Practices
 
-- Using stale model IDs copied from old examples -> call `/models` at runtime
-- Sending 100K+ token prompts without truncation -> latency spikes and timeout
-- Ignoring 429 backoff -> repeated failures under load
-- Mixing chat and transcription endpoints -> wrong payload format
-- Trusting free-form text for automation -> parse and validate first
-- Hardcoding model IDs in production -> models get deprecated
-- Using strict mode with unsupported models -> falls back to best-effort silently
-- Storing API keys in `<state_root>/memory.md` -> security risk
+- Query current model IDs from `/models` at runtime instead of copying from old examples
+- Truncate prompts to reasonable length to avoid latency spikes and timeouts
+- Implement exponential backoff for 429 responses to handle rate limits gracefully
+- Use the correct endpoint for each payload type (chat vs. transcription)
+- Parse and validate free-form text before using it in automation
+- Query model IDs at runtime; models get deprecated without notice
+- Verify model support for strict mode before using it; unsupported models fall back to best-effort silently
+- Store API keys in environment variables, not in `<state_root>/memory.md`
 
 ## External Endpoints
 

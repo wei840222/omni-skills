@@ -23,9 +23,9 @@ metadata:
 4. **Select method** — match test to data structure and research question
 5. **Report completely** — effect sizes + confidence intervals + p-values + sample sizes
 
-## 🔴 CHECKPOINT: Before Running Any Test
+## Pre-Test Verification
 
-**STOP and verify:**
+Verify these conditions before running any test:
 - [ ] Data quality: missing values handled, outliers documented
 - [ ] Assumptions checked (normality, equal variance, independence)
 - [ ] Exploratory vs confirmatory: same data cannot do both
@@ -34,7 +34,7 @@ metadata:
 
 **If any check fails → load `references/teaching-guide.md` for common pitfalls**
 
-## Common Pitfalls to Avoid
+## Common Pitfalls
 
 **p-value misinterpretations** (ASA 2016):
 - ❌ p-value = probability null hypothesis is true
@@ -80,7 +80,7 @@ metadata:
   - Difference-in-differences (DiD): need parallel trends assumption
   - Regression discontinuity (RD): need clear cutoff, no manipulation
   - Propensity score matching: need all confounders measured
-- Cannot claim causation from correlation alone
+- Causal claims require an identification strategy; correlation alone is insufficient
 
 ## Reporting Standards
 
@@ -96,17 +96,17 @@ Follow domain-specific guidelines:
 - Software and version (e.g., "R version 4.3.1", "Python 3.11 with scipy 1.11")
 - All analyses conducted, not just significant ones
 
-## 🛑 STOP: Red-Light Dangerous Actions
+## Critical Safeguards
 
-**NEVER do these without explicit justification:**
-1. Run multiple tests without correction → inflates false positive rate
-2. Claim causation from observational data without identification strategy
-3. Use post-hoc power analysis → circular reasoning
-4. Interpret p > 0.05 as "no effect" → check confidence interval width
-5. Ignore assumption violations → results may be invalid
-6. Report only significant results → publication bias
+These practices protect result validity — apply them as standard procedure:
+1. Apply multiple comparison correction when testing >1 hypothesis → controls false positive rate
+2. Use identification strategy for causal claims from observational data → separates correlation from causation
+3. Report confidence intervals alongside p-values → provides effect magnitude and precision
+4. Check confidence interval width when p > 0.05 → distinguishes "no effect" from "insufficient data"
+5. Address assumption violations before interpreting results → ensures result validity
+6. Report all analyses conducted → maintains reproducibility and avoids publication bias
 
-**If user insists on these → explain why it's problematic, document the issue**
+**If any safeguard cannot be met → explain why it matters, document the limitation**
 
 ## References
 

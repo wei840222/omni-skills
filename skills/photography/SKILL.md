@@ -12,7 +12,7 @@ When the user describes a photo problem, follow this sequence:
 
 1. **Identify the symptom**: blurry, dark, bright, noisy, wrong color, bad composition
 2. **Ask clarifying questions if needed**: camera model, lens, lighting conditions, shooting mode
-3. **🔴 CHECKPOINT**: Before recommending settings, confirm you understand the user's goal (sharp action shot vs. artistic motion blur, bright and airy vs. moody and dark)
+3. **Confirm the user's goal** before recommending settings (sharp action shot vs. artistic motion blur, bright and airy vs. moody and dark)
 4. **Diagnose the root cause**: use the Troubleshooting section to match symptom → cause
 5. **Provide specific settings**: give exact aperture, shutter speed, ISO values
 6. **Suggest post-processing fix if applicable**: AI denoise, WB correction, exposure adjustment
@@ -20,7 +20,7 @@ When the user describes a photo problem, follow this sequence:
 
 If the user asks "how to photograph X" (not a problem), skip to step 5 and provide genre-specific settings from the Settings by Genre section.
 
-**🛑 STOP if**: The user's question is ambiguous between multiple genres (e.g., "photograph my kid" could be indoor portraits or outdoor action). Ask which scenario applies before giving settings.
+**Clarify ambiguous genres**: When the question spans multiple scenarios (e.g., "photograph my kid" could be indoor portraits or outdoor action), ask which scenario applies before giving settings.
 
 ## Exposure Triangle
 
@@ -33,9 +33,9 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 
 - Focus on the nearest eye for portraits. Enable real-time eye-AF on mirrorless bodies — it tracks humans, animals, and vehicles.
 - Use AF-ON (back-button focus) to separate focus from shutter. Single-point AF for precision, wide-area tracking for movement.
-- Modern phase-detect AF covers 90%+ of the frame. Trust it; stop manually repositioning focus points for static subjects.
+- Modern phase-detect AF covers 90%+ of the frame. Trust it; use single-point repositioning only for precision work on static subjects.
 - Hyperfocal for landscapes: focus 1/3 into scene at f/8–11. Use focus peaking + magnification to confirm.
-- Diffraction is real — don't stop past f/11 (APS-C) or f/16 (FF) just for more DOF.
+- Diffraction is real — stay within f/11 (APS-C) or f/16 (FF) for sharpness; use focus stacking when more DOF is needed.
 
 ## Troubleshooting
 
@@ -135,23 +135,23 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 - Portrait mode simulates bokeh computationally — struggles with fine hair, glasses, complex edges.
 - Third-party clip-on lenses (Moment, Sandmarc) add wide-angle, macro, or anamorphic.
 
-## Don't Do This
+## Best Practices
 
-**Don't chimp constantly** — checking the LCD after every shot means you miss the next moment. Review histograms periodically, not every frame.
+**Review histograms periodically** — checking the LCD after every shot means you miss the next moment. Use histograms to confirm exposure, not every-frame chimping.
 
-**Don't shoot wide open for groups** — f/1.8 gives shallow DOF that will leave some faces out of focus. Use f/4 or narrower for groups of 3+ people.
+**Use adequate DOF for groups** — f/4 or narrower for groups of 3+ people ensures all faces are sharp.
 
-**Don't stop down past diffraction limit** — f/16 on APS-C or f/22 on full frame softens the entire image. If you need more DOF, use focus stacking instead.
+**Stay within diffraction limits** — f/11 (APS-C) or f/16 (full frame) is the practical aperture ceiling. Use focus stacking when more DOF is needed.
 
-**Don't trust the LCD for exposure** — LCD brightness deceives, especially in bright sunlight. Always check the histogram for highlight clipping on the right side.
+**Check histogram for exposure** — LCD brightness deceives, especially in bright sunlight. Verify highlight clipping on the right side of the histogram.
 
-**Don't use direct flash** — bouncing off ceiling/wall at -1 to -2 EV blends with ambient. Direct flash is harsh, flat, and creates red-eye.
+**Bounce flash for natural light** — bouncing off ceiling/wall at -1 to -2 EV blends with ambient and creates dimension.
 
-**Don't crop at joints** — cutting at ankles, wrists, or knees looks awkward. Crop mid-limb or show the full body.
+**Crop mid-limb or show full body** — cutting at ankles, wrists, or knees looks awkward. Frame cleanly.
 
-**Don't ignore lens distortion** — wide-angle lenses bend straight lines at edges. Correct in post or keep critical lines away from frame edges.
+**Correct lens distortion in post** — wide-angle lenses bend straight lines at edges. Keep critical lines away from frame edges or correct in post.
 
-**Don't assume phone portrait mode is real bokeh** — computational bokeh fails on fine hair, glasses, and complex edges. Use it for simple subjects against clean backgrounds.
+**Use phone portrait mode for simple subjects** — computational bokeh works best with simple subjects against clean backgrounds. For fine hair, glasses, and complex edges, use the regular camera mode.
 
 ## Validation Checklist
 
