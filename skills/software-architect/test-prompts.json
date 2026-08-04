@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We're building an e-commerce platform that needs to handle 10,000 orders per day. Should we use microservices or a monolith? What database should we pick?",
+    "expected": "Apply trade-off analysis and system boundaries principles; present options with explicit trade-offs; consider scalability, data ownership, team structure; recommend based on constraints rather than giving a generic answer",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "Our payment service keeps failing during peak hours and it's cascading to other services. How do we fix this?",
+    "expected": "Apply reliability patterns (circuit breakers, bulkhead, timeouts); identify the cascade failure mode; provide specific remediation steps with concrete parameters; reference relevant anti-patterns",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "We need to add audit logging for compliance. Should we use event sourcing?",
+    "expected": "Apply 'When to Use Event Sourcing' decision guide; evaluate audit requirements against event sourcing criteria; present trade-offs; consider team experience and access patterns; avoid golden hammer anti-pattern",
+    "actual": "",
+    "pass": false
+  }
+]
