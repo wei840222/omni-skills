@@ -39,7 +39,7 @@ Wrap third-party plugins behind your own interface in the data layer: they are t
 ## Native Dependency Layers
 
 - Android: each plugin contributes Gradle configuration. A plugin upgrade that requires a newer Android Gradle Plugin, Kotlin version, or compile SDK forces an app-wide bump — that is the most common Flutter upgrade tax. Gradle's error names the module; start there.
-- iOS: plugins arrive through CocoaPods. After adding, removing, or upgrading any plugin, run `pod install` in `ios/`. A stale `Podfile.lock` produces "works after a clean checkout, fails on mine" reports.
+- iOS/macOS (Flutter 3.44+): **SPM (Swift Package Manager) is the default**. `flutter pub get` resolves SPM dependencies automatically. For legacy projects or plugins without SPM support, `cd ios && pod install` still works. CocoaPods trunk becomes read-only December 2, 2026 — migrate to SPM: `flutter config --ios-deployment-target=15`, then rebuild (`release.md`).
 - Minimum OS versions come from the strictest plugin in the graph. Raising them drops real users — check the store's device report before accepting a bump that a single convenience package forced.
 - Native transitive conflicts (two plugins embedding different versions of the same SDK) surface as duplicate-symbol or manifest-merger errors, not as pub errors. The fix is at the plugin level: upgrade, or drop one.
 

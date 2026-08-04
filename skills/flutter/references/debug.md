@@ -21,7 +21,7 @@ Work symptom-first. Each chain below is ordered by probability, and every step i
 | `Multiple widgets used the same GlobalKey` | One key on two live widgets, or a key recreated on rebuild | Make the key a field of the `State`, or stop using a `GlobalKey` (`widgets.md`) |
 | `Bad state: Stream has already been listened to` | A single-subscription stream re-listened after a rebuild | Cache the stream in a field, or make it broadcast (`async.md`) |
 | `A Ticker was started and is still running` | An `AnimationController` was never disposed | Dispose it (SKILL.md rule 3) |
-| `MissingPluginException` | The plugin was added without a full restart, or this platform has no implementation | Stop and re-run; `pod install` for iOS (`platform.md`) |
+| `MissingPluginException` | The plugin was added without a full restart, or this platform has no implementation | Stop and re-run; for iOS/macOS on Flutter <3.44 or legacy projects, `pod install` (`platform.md`) |
 | `PlatformException(code, message)` | Native code answered with a failure | Branch on `code`; read the native log for the real reason (`platform.md`) |
 | `type 'Null' is not a subtype of type 'String'` | JSON parsed with an unchecked cast | Parse defensively at the boundary (`data.md`) |
 | `Scaffold.of() called with a context that does not contain a Scaffold` | The context is above the Scaffold it created | `Builder`, an extracted widget, or `ScaffoldMessenger.of` (`widgets.md`) |
@@ -43,8 +43,8 @@ Hot reload re-runs `build` with the new code and keeps state. It does NOT re-run
 
 - Changes inside `main()`, `initState`, a top-level or static field initializer, or a `const` value need a hot RESTART (`R`).
 - Enum changes, generic type parameter changes, and changes to a class's supertype require a restart, sometimes a full rebuild.
-- Adding or removing a PLUGIN requires a full stop and re-run: the native side registers at startup (`platform.md`).
-- Changing native code (Kotlin/Swift/Gradle/Podfile), assets declared in `pubspec.yaml`, or the app icon all require a rebuild.
+- Adding or removing a PLUGIN requires a full restart: the native side registers at startup (`platform.md`).
+- Changing native code (Kotlin/Swift/Gradle/Podfile or Package.swift), assets declared in `pubspec.yaml`, or the app icon all require a rebuild.
 - If a restart also does nothing, the artifact is stale: `flutter clean` earns its keep exactly here and nowhere else (`commands.md`).
 
 ## The App Is Slow or Janky
@@ -92,7 +92,7 @@ Check in this order; each is a one-minute test.
 - Dart-level errors: `flutter analyze` first — it names the file and line the build tool buries under a hundred lines of Gradle output.
 - Version solving failed: `dependencies.md`.
 - Gradle failures mentioning a plugin: usually a Kotlin, AGP, or compile-SDK mismatch introduced by a plugin upgrade. Read which module Gradle names.
-- CocoaPods failures: `pod repo update`, then `cd ios && pod install`. After changing plugins, delete `Podfile.lock` only when you intend to re-resolve everything (`destructive_confirm`).
+- CocoaPods failures (legacy projects or plugins without SPM support): `pod repo update`, then `cd ios && pod install`. After changing plugins, delete `Podfile.lock` only when you intend to re-resolve everything (`destructive_confirm`). For new projects on Flutter 3.44+, SPM is the default — no `pod install` needed.
 - "It compiled yesterday": check what changed in `pubspec.lock` before touching anything else — the SDK, a plugin, or a transitive constraint moved.
 
 ## Inspection Toolkit

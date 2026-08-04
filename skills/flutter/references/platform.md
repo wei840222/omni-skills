@@ -2,6 +2,28 @@
 
 Reaching native code means crossing an async boundary with a codec on it. Everything below follows from that: calls are asynchronous, arguments are serialized, and either side can be missing.
 
+## iOS/macOS: Swift Package Manager (SPM) — Default since Flutter 3.44
+
+As of Flutter 3.44 (May 2026), **Swift Package Manager is the default** for iOS and macOS dependency management. CocoaPods is in maintenance mode; the CocoaPods trunk becomes **read-only on December 2, 2026**.
+
+- **New projects**: SPM is automatic. No `Podfile`, no `pod install`.
+- **Existing projects**: Run `flutter config --ios-deployment-target=15` (minimum for SPM), then `flutter build ios`. Flutter migrates dependencies automatically. If a plugin lacks SPM support, Flutter falls back to CocoaPods for that plugin only.
+- **Manual migration**: Delete `ios/Podfile`, `ios/Podfile.lock`, `ios/Runner.xcworkspace`. Run `flutter clean && flutter pub get && flutter build ios`.
+- **Troubleshooting**: If build fails with "package not found", check `pubspec.yaml` — the plugin may need a version bump. Run `flutter pub upgrade --major-versions` to get SPM-compatible releases.
+
+## Android: Hybrid Composition++ (HCPP) — Opt-in since Flutter 3.44
+
+**HCPP** replaces the old Hybrid Composition for platform views (native Android views embedded in Flutter). It uses Vulkan swapchains and `SurfaceControl` for zero-copy layer compositing, eliminating the frame drops and touch-input lag of the old mode.
+
+- **Enable**: Add to `android/app/src/main/AndroidManifest.xml` inside `<application>`:
+  ```xml
+  <meta-data android:name="io.flutter.embedding.android.EnableHCPP" android:value="true" />
+  ```
+  Or run with `flutter run --enable-hcpp`.
+- **Requirements**: Android API 29+ (Android 10), Vulkan-capable GPU. Devices without Vulkan fall back to old Hybrid Composition automatically.
+- **When to enable**: If your app uses `AndroidView` (web views, maps, camera previews) and you see jank during scrolling or touch-input lag. HCPP is the future default; enabling now tests compatibility.
+- **Known issues**: Some older plugins may not render correctly under HCPP. Test on low-end devices. Report bugs to the plugin maintainer or Flutter issue tracker.
+
 ## Choosing the Mechanism
 
 | Need | Mechanism | Cost |

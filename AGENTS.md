@@ -37,7 +37,7 @@ ls skills/ | while read d; do grep -q "^| $d " docs/refactored-skills.md || echo
 
 ## Required Workflow
 
-Complete one skill through the following phases in order. Each of phases 1–4 must end with one focused commit, and phase 5 must publish those commits as a Gitea pull request. Do not combine phase commits or begin the next phase while the current phase has failing checks.
+Complete one skill through the following phases in order. Each of phases 1–5 must end with one focused commit, and phase 6 must publish those commits as a Gitea pull request. Do not combine phase commits or begin the next phase while the current phase has failing checks.
 
 ### 0. Create a branch and establish the baseline
 
@@ -114,7 +114,46 @@ Cover the most common use case (happy path) and one complex or ambiguous scenari
 
 After the score reaches at least 80 and all applicable checks still pass, create one commit containing the Darwin-guided optimization and the test-prompts.json file.
 
-### 5. Create the Gitea pull request
+### 5. Check for cognitive load and white bear effects with Freud skill
+
+Darwin's dim4 (checkpoint design) may reward visual stop markers like `🔴 STOP` or `🛑 CHECKPOINT`, but these can trigger white bear effects—the agent's working space becomes occupied with "should I stop?" rather than "how do I proceed."
+
+Use `/freud-skill` (Mode 2: Diagnostic Optimization) to scan the skill for patterns that increase cognitive load or trigger white bear effects. Apply only the 4 lenses appropriate for skills (not personas):
+
+**Lens 2: Positive vs Negative**
+- Search for prohibitions ("don't", "never", "avoid") that make prohibited behavior more salient
+- Convert to positive statements: "don't do X" → "do Y instead"
+
+**Lens 3: Consistency**
+- Check for contradictory instructions that could cause unstable behavior
+- Resolve conflicts by clarifying priorities or removing one requirement
+
+**Lens 4: Anchoring precision**
+- Ensure instructions are concrete, not vague ("best practices" → specific steps)
+- Add decision heuristics and mental models where helpful
+
+**Lens 6: Working space hygiene**
+- Check if critical instructions are buried in the middle of long sections
+- Ensure the skill doesn't exceed cognitive load limits (25 concepts in working memory)
+- Move important instructions to the beginning or end, or break into smaller chunks
+
+**Skip these lenses (designed for persona, not skill):**
+- Lens 1 (Identity vs Rules): Skills are knowledge libraries, not personas
+- Lens 5 (Multi-perspective collision): Skills are single-domain, not multi-viewpoint
+
+For each white bear pattern found, convert it to positive definition:
+
+| White bear (prohibition) | Positive definition |
+|---|---|
+| "Don't execute without confirmation" | "Verify conditions through output gates and proceed when met" |
+| "Stop and ask before dangerous operations" | "Confirm before irreversible actions" |
+| "Never interrupt the user to ask preferences" | "Use sensible defaults and record stated preferences" |
+
+The goal is a skill that expresses checkpoint behavior through positive definition rather than prohibition. This reduces workflow interruptions while maintaining safety.
+
+After applying Freud-based corrections, re-run the validator to ensure no gates regressed. Create one commit containing the cognitive load and white bear corrections.
+
+### 6. Create the Gitea pull request
 
 Use the Gitea skill to publish the completed refactor as a pull request:
 
@@ -158,12 +197,13 @@ Changes to shared validators, automation, repository documentation, or the compl
 
 ## Pull Request Rules
 
-A skill PR should be small, reviewable, and limited to one skill unless a shared rule or tool must change with it. Its history must preserve the four phase commits in order:
+A skill PR should be small, reviewable, and limited to one skill unless a shared rule or tool must change with it. Its history must preserve the five phase commits in order:
 
 1. specification-compliance refactor;
 2. researched knowledge update;
-3. best-practices, organization, ordering, and description optimization; and
-4. Darwin-guided optimization to a score of at least 80.
+3. best-practices, organization, ordering, and description optimization;
+4. Darwin-guided optimization to a score of at least 80; and
+5. white bear effect corrections using `/freud-skill`.
 
 Use the template at `docs/pull-request-template.md` for the pull request description. Include:
 

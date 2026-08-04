@@ -50,6 +50,16 @@ Release builds differ from debug in ways that only appear in release (SKILL.md r
 | Web | `flutter build web --release` | Ships the engine plus your app; measure the initial download |
 | Desktop | `flutter build macos` / `windows` / `linux` | Packaging, notarization, and installers are per-platform work |
 
+## iOS/macOS Dependency Management: SPM (Default since 3.44)
+
+Flutter 3.44 (May 2026) switched the default iOS/macOS dependency manager from CocoaPods to **Swift Package Manager (SPM)**. CocoaPods is in maintenance mode; the CocoaPods trunk becomes read-only on December 2, 2026.
+
+- **New projects**: SPM is used automatically. No `Podfile`, no `pod install`.
+- **Migrating existing projects**: Run `flutter config --ios-deployment-target=15` (SPM requires iOS 15+), then `flutter build ios`. Flutter migrates dependencies automatically. If a plugin lacks SPM support, Flutter falls back to CocoaPods for that plugin only.
+- **Manual migration**: Delete `ios/Podfile`, `ios/Podfile.lock`, `ios/Runner.xcworkspace`. Run `flutter clean && flutter pub get && flutter build ios`.
+- **Troubleshooting**: If build fails with "package not found", check `pubspec.yaml` — the plugin may need a version bump. Run `flutter pub upgrade --major-versions` to get SPM-compatible releases.
+- **CI/CD**: Remove any `pod install` steps from your build scripts. SPM dependencies resolve automatically during `flutter build`.
+
 ## Obfuscation and Symbols
 
 ```

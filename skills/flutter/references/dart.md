@@ -2,6 +2,14 @@
 
 Only what changes Flutter code. Sound null safety and the Dart 3 features below are available on any SDK a current Flutter release ships with (`dart >=3.0`).
 
+## Dart 3.12 (Flutter 3.44, May 2026)
+
+- **Private named parameters (stable)**: Named constructor parameters can now map to private fields directly — `Hummingbird({required this._petName})` compiles; call-site uses the public name `petName:`. Eliminates the boilerplate initializer list that just stripped underscores.
+- **Primary constructors (experimental)**: `class Point(final int x, final int y);` replaces the field declarations + constructor in one line. Enable with `--enable-experiment=primary-constructors`. Not production-ready yet — use for new code only, behind a feature flag.
+- **Agentic Hot Reload**: The Dart MCP server auto-exposes DTD connection URIs so coding agents (Gemini CLI, etc.) can hot-reload running apps without manual URI copy-paste. Zero-config for agent-assisted Flutter development.
+- **Genkit Dart (preview)**: Model-agnostic AI framework (`package:genkit`) for structured output, tool calling, and multi-step flows. Supports Google, Anthropic, OpenAI. Runs server-side or client-side in Flutter.
+- **Native git LFS in `dart pub`**: Git dependencies with large files resolve automatically when `git lfs` is installed — no custom config needed.
+
 ## Null Safety in Practice
 
 - `T?` is a different type from `T`; the compiler will not let you use one as the other. That is the point, and fighting it with `!` reintroduces exactly the crashes the system exists to prevent.

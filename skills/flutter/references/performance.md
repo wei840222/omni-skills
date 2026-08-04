@@ -64,4 +64,15 @@ Measure in profile mode on a physical device (SKILL.md rule 7). A debug-mode num
 
 ## Shader and First-Run Jank
 
-Historically, the first play of an animation compiled its shaders on demand and dropped frames exactly once per effect — the "first run is janky, then it's fine" signature. Impeller precompiles instead, and is the default renderer on iOS since `flutter >=3.10` and on Vulkan-capable Android in later releases; `flutter run --verbose` logs which renderer started. If you see this signature on a current SDK, confirm the renderer before chasing it as a code problem.
+Historically, the first play of an animation compiled its shaders on demand and dropped frames exactly once per effect — the "first run is janky, then it's fine" signature. **Impeller** eliminates this by precompiling shaders at build time.
+
+**Impeller status (2026)**:
+- **iOS**: Default since Flutter 3.10 (May 2023). Metal backend.
+- **Android**: Default since Flutter 3.22 (May 2024) on Vulkan-capable devices. Falls back to Skia on older GPUs.
+- **Web**: Experimental WebGPU backend in progress; not production-ready.
+- **Desktop**: macOS uses Metal; Windows and Linux use Vulkan.
+
+If you still see first-run jank on a current SDK:
+1. Run `flutter run --verbose` and check the renderer line: "Using Impeller" vs "Using Skia".
+2. If Skia on Android, the device lacks Vulkan support — no fix, the fallback is correct.
+3. If Impeller but jank persists, file a bug with `flutter doctor -v` output and a screen recording.

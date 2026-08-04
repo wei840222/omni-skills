@@ -73,11 +73,15 @@ Archive the symbol directory per released version, or crashes from that build st
 ## Native Side
 
 ```bash
-cd ios && pod install              # after ANY plugin change (platform.md)
-cd ios && pod repo update          # when CocoaPods cannot find a version that exists
+flutter pub get                    # resolves dependencies (SPM for iOS/macOS since 3.44, Gradle for Android)
 flutter logs                       # device logs, including native output
 adb logcat | grep -i flutter       # Android, when the Dart console is not attached
 ```
+
+**iOS/macOS dependency management (Flutter 3.44+):**
+- SPM (Swift Package Manager) is the default. No `pod install` needed for new projects.
+- Legacy projects or plugins without SPM support: `cd ios && pod install` after plugin changes.
+- CocoaPods trunk becomes read-only December 2, 2026. Migrate to SPM: `flutter config --ios-deployment-target=15`, then rebuild.
 
 Android and Xcode build failures are usually clearer in their own tools: open `android/` in Android Studio or `ios/Runner.xcworkspace` in Xcode and build there once — the message is specific in a way the Flutter wrapper's output is not.
 
