@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "I ran a t-test and got p = 0.03. Is this significant?",
+    "expected": "Should explain what p-value means, avoid dichotomous thinking, mention effect size and confidence intervals, check assumptions"
+  },
+  {
+    "id": 2,
+    "prompt": "I have 3 groups and want to compare their means. What test should I use?",
+    "expected": "Should recommend ANOVA if assumptions met, Kruskal-Wallis if not, mention checking normality and equal variance"
+  },
+  {
+    "id": 3,
+    "prompt": "My correlation coefficient is r = 0.8. Does this mean X causes Y?",
+    "expected": "Should clearly state correlation ≠ causation, explain confounders, mention need for experimental design or causal inference methods"
+  }
+]

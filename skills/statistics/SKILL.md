@@ -1,61 +1,115 @@
 ---
-name: Statistics
-slug: statistics
-version: 1.0.0
-description: Build statistical intuition from basic probability to advanced inference.
-homepage: https://clawic.com/skills/statistics
+name: statistics
+description: Guide statistical reasoning from probability to inference. Use when the user asks about probability distributions, hypothesis testing, confidence intervals, regression analysis, p-values, effect sizes, sampling methods, Bayesian inference, causal inference, or interpreting statistical output from software.
 metadata:
-  clawdbot:
-    emoji: 📊
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Statistics
+  version: "1.0.0"
+  openclaw: '{"emoji":"📊"}'
 ---
 
-## Detect Level, Adapt Everything
-- Context reveals level: notation familiarity, software mentioned, problem complexity
-- When unclear, start with concrete examples and adjust based on response
-- Never condescend to experts or overwhelm beginners
+## Workflow
 
-## For Beginners: Intuition Before Formulas
-- Probability through physical objects — dice, coins, cards, colored balls in bags
-- Averages as balance points — "If everyone shared equally, each would get..."
-- Variation matters as much as center — two classes with same average, very different spreads
-- Graphs before numbers — show the shape, then quantify it
-- Sampling as tasting soup — one spoonful tells you about the pot if well stirred
-- Correlation isn't causation — ice cream sales and drowning both rise in summer
-- Connect to their decisions — weather forecasts, medical tests, sports statistics
+1. **Assess user level** — notation familiarity, software mentioned, problem complexity
+   - If user mentions R/Python/Stata → assume intermediate, use technical terms
+   - If user describes data in plain language → assume beginner, start with concrete examples
+   - If user asks about formulas or proofs → assume advanced, provide mathematical detail
+2. **Visualize first** — always plot data before computing statistics
+   - Histogram for distribution shape
+   - Scatter plot for relationships
+   - Box plot for group comparisons
+3. **State assumptions** — every test has assumptions; check them explicitly
+   - Normality: Shapiro-Wilk (n < 50) or visual inspection of QQ plot
+   - Equal variance: Levene's test or ratio of largest/smallest SD < 2
+   - Independence: study design, not testable statistically
+4. **Select method** — match test to data structure and research question
+5. **Report completely** — effect sizes + confidence intervals + p-values + sample sizes
 
-## For Students: Frameworks and Assumptions
-- Name the test AND its assumptions — normality, independence, equal variance
-- Effect size alongside p-value — statistical significance ≠ practical importance
-- Confidence intervals tell richer stories than hypothesis tests alone
-- Distinguish population parameters from sample statistics — Greek vs Roman letters matter
-- Simulation builds intuition — bootstrap, permutation tests show what formulas hide
-- Regression diagnostics before interpretation — residual plots catch violations
-- Bayesian vs frequentist — acknowledge the philosophical divide, explain context for each
+## 🔴 CHECKPOINT: Before Running Any Test
 
-## For Researchers: Rigor and Honesty
-- Pre-registration prevents p-hacking — specify analysis before seeing data
-- Power analysis before collecting — underpowered studies waste resources
-- Multiple comparisons require adjustment — Bonferroni, FDR, or justify why not
-- Report effect sizes and confidence intervals — not just p-values
-- Missing data mechanisms matter — MCAR, MAR, MNAR require different treatments
-- Causal inference needs design — DAGs, potential outcomes, state assumptions explicitly
-- Reproducibility means code and data — "available upon request" is not reproducible
+**STOP and verify:**
+- [ ] Data quality: missing values handled, outliers documented
+- [ ] Assumptions checked (normality, equal variance, independence)
+- [ ] Exploratory vs confirmatory: same data cannot do both
+- [ ] Multiple comparisons: if testing >1 hypothesis, apply correction
+- [ ] Effect size will be reported alongside p-value
 
-## For Teachers: Common Misconceptions
-- p-value is NOT probability hypothesis is true — it's probability of data given null
-- Failing to reject ≠ accepting null — absence of evidence isn't evidence of absence
-- Large samples don't fix bias — garbage in, garbage out regardless of n
-- Standard deviation vs standard error — population spread vs sampling precision
-- Correlation coefficient hides nonlinearity — always plot first
-- Use real messy data — textbook examples with clean answers mislead
-- Teach skepticism — "How was this measured? Who was sampled? What's missing?"
+**If any check fails → load `references/teaching-guide.md` for common pitfalls**
 
-## Always
-- Visualize data before computing anything
-- State assumptions explicitly — every test has them
-- Distinguish exploratory from confirmatory — same data can't do both
+## Common Pitfalls to Avoid
+
+**p-value misinterpretations** (ASA 2016):
+- ❌ p-value = probability null hypothesis is true
+- ✅ p-value = probability of data this extreme IF null is true
+- ❌ p < 0.05 means effect is real
+- ✅ p < 0.05 means data are unusual under null (could still be bias/confounding)
+- ❌ "Non-significant" (p > 0.05) = no effect
+- ✅ p > 0.05 = insufficient evidence against null (check confidence interval width)
+
+**Other frequent errors**:
+- ❌ Correlation implies causation → ✅ Always consider confounders, need experimental/causal design
+- ❌ Large samples fix bias → ✅ Large n reduces random error, not systematic error
+- ❌ Post-hoc power analysis → ✅ Determined by p-value; use confidence intervals instead
+- ❌ Failing to reject H₀ = accepting H₀ → ✅ Absence of evidence ≠ evidence of absence
+- ❌ SD = SE → ✅ SD = population spread, SE = sampling precision
+
+## When to Use Each Method
+
+**Comparing groups** (continuous outcome):
+- 2 groups, independent → Independent t-test (if normal + equal variance) OR Mann-Whitney U (if not)
+- 2 groups, paired → Paired t-test (if differences normal) OR Wilcoxon signed-rank
+- 3+ groups, independent → One-way ANOVA (if normal + equal variance) OR Kruskal-Wallis
+- 3+ groups, repeated → Repeated-measures ANOVA OR Friedman test
+
+**Decision rules for normality**:
+- n < 30: Shapiro-Wilk test (p < 0.05 → non-normal)
+- n ≥ 30: Visual inspection of QQ plot + histogram
+- Severe skewness or outliers → use non-parametric alternative
+
+**Decision rules for equal variance**:
+- Levene's test p < 0.05 → unequal variance
+- Ratio of largest SD / smallest SD > 2 → unequal variance
+- If unequal: use Welch's t-test (not Student's t-test), or Welch's ANOVA
+
+**Relationships**:
+- 2 continuous variables → Pearson correlation (if both normal) OR Spearman correlation (if not) + scatter plot
+- Predict continuous outcome from predictors → Linear regression (check residuals, multicollinearity VIF < 5, influence Cook's D < 1)
+- Predict binary outcome → Logistic regression (check linearity of logit, no multicollinearity)
+
+**Causal claims**:
+- Observational data → need identification strategy:
+  - Instrumental variables (IV): need valid instrument (relevant, exogenous)
+  - Difference-in-differences (DiD): need parallel trends assumption
+  - Regression discontinuity (RD): need clear cutoff, no manipulation
+  - Propensity score matching: need all confounders measured
+- Cannot claim causation from correlation alone
+
+## Reporting Standards
+
+Follow domain-specific guidelines:
+- **Randomized trials**: CONSORT — [consort-statement.org](http://www.consort-statement.org)
+- **Observational studies**: STROBE — [strobe-statement.org](https://www.strobe-statement.org)
+- **Systematic reviews**: PRISMA — [prisma-statement.org](http://www.prisma-statement.org)
+
+**Always report**:
+- Effect size with 95% confidence interval (e.g., "mean difference = 2.3, 95% CI [1.1, 3.5]")
+- Exact p-value (e.g., "p = 0.023", not "p < 0.05")
+- Sample size for each group/analysis
+- Software and version (e.g., "R version 4.3.1", "Python 3.11 with scipy 1.11")
+- All analyses conducted, not just significant ones
+
+## 🛑 STOP: Red-Light Dangerous Actions
+
+**NEVER do these without explicit justification:**
+1. Run multiple tests without correction → inflates false positive rate
+2. Claim causation from observational data without identification strategy
+3. Use post-hoc power analysis → circular reasoning
+4. Interpret p > 0.05 as "no effect" → check confidence interval width
+5. Ignore assumption violations → results may be invalid
+6. Report only significant results → publication bias
+
+**If user insists on these → explain why it's problematic, document the issue**
+
+## References
+
+Load when needed:
+- `references/asa-statements.md` — ASA 2016/2019 guidance on p-values, effect sizes, and moving beyond significance thresholds
+- `references/teaching-guide.md` — 13 common misconceptions with corrections and teaching analogies (load when user shows misunderstanding)
