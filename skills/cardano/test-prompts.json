@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to delegate my ADA to a stake pool. Which pool should I choose and how do I do it?",
+    "expected": "Provide pool selection criteria (saturation, block production, cost structure, pledge, uptime) and step-by-step delegation workflow with cardano-cli commands",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "I'm trying to build a transaction but getting 'Insufficient funds for fee' error. What's wrong and how do I fix it?",
+    "expected": "Explain the error cause (inputs < outputs + fee), provide diagnostic steps, and show how to add more UTxOs or reduce output value",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "How do I mint an NFT on Cardano with a time-locked policy?",
+    "expected": "Show policy script creation with time-lock, metadata format (CIP-25), minting transaction with cardano-cli, and verification checkpoints",
+    "actual": "",
+    "pass": false
+  }
+]

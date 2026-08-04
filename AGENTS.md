@@ -162,7 +162,7 @@ Use the Gitea skill to publish the completed refactor as a pull request:
 - Create a pull request from the refactor branch into the `local` branch.
 - Assign `wei840222` as the reviewer.
 - Populate the pull request description with all evidence required by the Pull Request Rules below.
-- Update `docs/refactored-skills.md` to add a new row with the skill name, PR link, date, and final Darwin score.
+- Update `docs/refactored-skills.md` to add a new row with the skill name, PR link, date, and final Darwin score (update locally but do not commit — this file is gitignored).
 - Verify the resulting pull request URL or identifier, source branch, `local` target branch, and reviewer assignment from Gitea before reporting completion.
 
 Creating the pull request does not authorize merging it. Leave the pull request open for review unless the active task explicitly authorizes the merge.

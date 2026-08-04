@@ -93,6 +93,41 @@ Use this template when creating a skill refactor pull request. Replace all place
 - <improvement>
 - ...
 
+## Freud Cognitive Load and White Bear Corrections
+
+Use `/freud-skill` (Mode 2: Diagnostic Optimization) to scan for patterns that increase cognitive load or trigger white bear effects. Apply only the 4 lenses appropriate for skills (Lens 1 and Lens 5 are for personas, not skills).
+
+### Lenses Applied
+
+| Lens | Focus | Patterns Found |
+|------|-------|----------------|
+| Lens 2: Positive vs Negative | Prohibitions that make prohibited behavior more salient | <count or "none"> |
+| Lens 3: Consistency | Contradictory instructions causing unstable behavior | <count or "none"> |
+| Lens 4: Anchoring precision | Vague instructions without concrete steps | <count or "none"> |
+| Lens 6: Working space hygiene | Critical instructions buried, cognitive load exceeded | <count or "none"> |
+
+### White Bear Corrections
+
+For each prohibition pattern found, convert to positive definition:
+
+| White bear (prohibition) | Positive definition |
+|---|---|
+| "Don't execute without confirmation" | "Verify conditions through output gates and proceed when met" |
+| <pattern found or "No corrections required"> | <positive reframing or "N/A"> |
+
+### Validator Regression Check
+
+After applying Freud-based corrections, re-run the validator:
+
+```bash
+$ uvx --from skills-ref agentskills validate skills/<slug>
+<output>
+exit=<code>
+```
+
+- Validator still passes: <✓|✗>
+- Gates regressed: <none or list specific regressions>
+
 ## Test Prompts and Results
 
 All test prompts must be written in English for consistency across the skill library.
