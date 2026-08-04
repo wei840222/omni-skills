@@ -1,19 +1,10 @@
 ---
-name: Sydney
-slug: sydney
-version: 1.0.0
-description: Navigate Sydney as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, beaches, transport, visas, and local insights.
-homepage: https://clawic.com/skills/sydney
+name: sydney
+description: Navigate Sydney as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, beaches, transport, visas, cost of living, and local insights. Use when the user asks about visiting, moving to, working in, studying in, or starting a business in Sydney.
 metadata:
-  clawdbot:
-    emoji: 🏖️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Sydney
+  version: "1.0.0"
+  openclaw: '{"emoji":"🏖️"}'
+  related-skills: '{"australia":"Provides broader Australian context for Sydney-specific questions.","travel-planning":"Helps structure multi-city itineraries that may include Sydney."}'
 ---
 
 ## When to Use
@@ -25,42 +16,42 @@ User asks about Sydney for any purpose: visiting, moving, working, studying, or 
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| CBD, The Rocks, Barangaroo | `neighborhoods-cbd.md` |
-| Surry Hills, Paddington, Potts Point | `neighborhoods-inner-east.md` |
-| Newtown, Marrickville, Balmain | `neighborhoods-inner-west.md` |
-| Bondi, Manly, Northern Beaches | `neighborhoods-beach.md` |
-| North Shore, Parramatta, Western | `neighborhoods-suburban.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| CBD, The Rocks, Barangaroo | `references/neighborhoods-cbd.md` |
+| Surry Hills, Paddington, Potts Point | `references/neighborhoods-inner-east.md` |
+| Newtown, Marrickville, Balmain | `references/neighborhoods-inner-west.md` |
+| Bondi, Manly, Northern Beaches | `references/neighborhoods-beach.md` |
+| North Shore, Parramatta, Western | `references/neighborhoods-suburban.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Australian & local cuisine | `food-local.md` |
-| International & multicultural | `food-international.md` |
-| Best dining precincts | `food-areas.md` |
-| Dietary, alcohol, coffee | `food-practical.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Australian & local cuisine | `references/food-local.md` |
+| International & multicultural | `references/food-international.md` |
+| Best dining precincts | `references/food-areas.md` |
+| Dietary, alcohol, coffee | `references/food-practical.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (Opal, trains, ferries) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & wildlife | `safety.md` |
-| Weather & seasons | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
+| Moving & settling | `references/resident.md` |
+| Transport (Opal, trains, ferries) | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety & wildlife | `references/safety.md` |
+| Weather & seasons | `references/climate.md` |
+| Local services (banking, SIM) | `references/local.md` |
 | **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup | `business.md` |
-| Visas (skilled, working holiday) | `visas.md` |
-| Startups & funding | `startup.md` |
+| Tech industry & salaries | `references/tech.md` |
+| Business setup | `references/business.md` |
+| Visas (skilled, working holiday) | `references/visas.md` |
+| Startups & funding | `references/startup.md` |
 | **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & Medicare | `healthcare.md` |
-| Schools & universities | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Driving & car ownership | `driving.md` |
+| Culture & customs | `references/culture.md` |
+| Healthcare & Medicare | `references/healthcare.md` |
+| Schools & universities | `references/education.md` |
+| Expat lifestyle & social | `references/lifestyle.md` |
+| Driving & car ownership | `references/driving.md` |
 
 ## Core Rules
 
@@ -75,7 +66,7 @@ Sydney's identity revolves around its beaches and harbour:
 - Harbor lifestyle (ferries, sailing, waterfront dining)
 - Outdoor culture year-round
 - Beach safety critical (rips, UV)
-See `visitor-tips.md` for beach safety and `neighborhoods-beach.md` for living near beaches.
+See `references/visitor-tips.md` for beach safety and `references/neighborhoods-beach.md` for living near beaches.
 
 ### 3. Multicultural Reality
 Sydney is one of the world's most diverse cities:
@@ -83,7 +74,7 @@ Sydney is one of the world's most diverse cities:
 - 200+ languages spoken
 - Ethnic precincts: Chinatown, Cabramatta (Vietnamese), Harris Park (Indian), Lakemba (Lebanese)
 - Food reflects global diversity
-See `culture.md` and `food-international.md` for cultural guidance.
+See `references/culture.md` and `references/food-international.md` for cultural guidance.
 
 ### 4. Climate & UV Reality
 - **Mild year-round** compared to Europe/Americas
@@ -91,7 +82,7 @@ See `culture.md` and `food-international.md` for cultural guidance.
 - **Winter (Jun-Aug)**: 8-18°C, mild, rarely below 5°C
 - **UV is extreme**: Australia has highest skin cancer rates
 - **Bushfire season**: Summer, affects air quality
-See `climate.md` for monthly breakdown and `safety.md` for UV/wildlife.
+See `references/climate.md` for monthly breakdown and `references/safety.md` for UV/wildlife.
 
 ### 5. Current Data (Feb 2026)
 
@@ -119,7 +110,7 @@ Sydney has diverse transport options:
 - **Light rail**: CBD to Inner West and Eastern Suburbs
 - **Buses**: Fill the gaps
 - **Car**: Needed for Northern Beaches, Western suburbs
-Most inner city residents don't need cars. See `transport.md` and `driving.md`.
+Most inner city residents don't need cars. See `references/transport.md` and `references/driving.md`.
 
 ### 8. Neighborhood Matching
 
@@ -165,4 +156,4 @@ Key laws visitors/residents must know:
 - **Smoking**: Banned in outdoor dining, beaches, playgrounds.
 - **Fireworks**: Illegal for public use (NYE is official display only).
 
-See `safety.md` for comprehensive legal guidance.
+See `references/safety.md` for comprehensive legal guidance.
