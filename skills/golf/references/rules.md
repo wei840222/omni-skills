@@ -60,7 +60,6 @@ Three options (1 stroke penalty each):
 | Unplayable | 1 stroke (2 for bunker exit option) |
 | Grounding club in bunker | None (removed 2019) |
 | Double hit | None (removed 2019) |
-| Ball moves after address | None (replace) |
 | Wrong ball | 2 strokes (match play: loss of hole) |
 | Playing from wrong place | 2 strokes |
 | Touched line of putt | None (removed 2019) |

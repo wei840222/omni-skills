@@ -105,7 +105,7 @@
 
 Move old season data to `<state_root>/archive/`:
 ```text
-archive/
+<state_root>/archive/
 ├── rounds-2025.md
 ├── rounds-2024.md
 └── handicap-history.md
