@@ -19,7 +19,7 @@ Based on the 2023 Rules of Golf (USGA/R&A), effective January 2023 with clarific
 **Red stakes/markings (lateral):**
 All yellow options plus:
 4. Lateral relief: drop within 2 club-lengths of where ball last crossed edge, not nearer the hole (1 stroke)
-5. Opposite-side lateral relief: drop within 2 club-lengths on opposite side of penalty area, equidistant from hole (1 stroke)
+5. Opposite-side lateral relief (Local Rule only): drop within 2 club-lengths on opposite side of penalty area, equidistant from hole (1 stroke). This option is available only when the Committee has adopted the applicable Local Rule.
 
 **Key difference from pre-2019 rules:** You may now ground your club and take practice swings in penalty areas (same as general area).
 
@@ -55,7 +55,7 @@ Three options (1 stroke penalty each):
 ## Stroke Penalties Quick Reference
 
 | Situation | Penalty |
-|-----------|---------| 
+|-----------|---------|
 | Ball in penalty area | 1 stroke |
 | Lost ball / OB | 1 stroke (+ distance) |
 | Unplayable | 1 stroke (2 for bunker exit option) |
@@ -78,10 +78,28 @@ Score Differential = (113 / Slope Rating) × (Adjusted Gross Score - Course Rati
 - **PCC** (Playing Conditions Calculation): daily adjustment for abnormal conditions (wind, rain, course setup). Ranges from -1 to +3. Check with your handicap committee or posting system.
 - **Adjusted Gross Score**: apply net double bogey maximum per hole (par + 2 - handicap strokes received on that hole).
 
-### Handicap Index
-- Average of the best 8 Score Differentials from the most recent 20 scores
-- Truncated to one decimal place (no rounding)
-- Updated overnight after posting
+### Handicap Index Calculation
+
+**For 20 or more scores:** Average of the best 8 Score Differentials from the most recent 20 scores, truncated to one decimal place (no rounding).
+
+**For fewer than 20 scores:** Use the following table to determine how many differentials to average, then subtract a adjustment factor:
+
+| Number of Scores | Differentials Used | Adjustment |
+|------------------|-------------------|------------|
+| 3 | 1 (lowest - 2.0) | -2.0 |
+| 4 | 1 (lowest - 2.0) | -2.0 |
+| 5 | 1 (lowest - 2.0) | -2.0 |
+| 6 | Average of best 2 | -1.0 |
+| 7-8 | Average of best 2 | -1.0 |
+| 9-11 | Average of best 3 | -1.0 |
+| 12-14 | Average of best 4 | -1.0 |
+| 15-16 | Average of best 5 | -1.0 |
+| 17-18 | Average of best 6 | -1.0 |
+| 19 | Average of best 7 | -1.0 |
+
+After calculating the average, round to the nearest tenth (not truncate).
+
+Updated overnight after posting.
 
 ### 2024 Revision Changes
 - **9-hole scores:** Now combined with the player's expected Score Differential (based on Handicap Index at time of round) for immediate use, rather than waiting to pair with another 9-hole score.

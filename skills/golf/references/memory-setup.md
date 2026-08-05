@@ -2,19 +2,22 @@
 
 ## Initial Setup
 
-On first use, create the state directory and state files:
+On first use, create only the required state file:
 ```bash
-mkdir -p <state_root>/archive
+mkdir -p <state_root>
 touch <state_root>/memory.md
-touch <state_root>/rounds.md
-touch <state_root>/courses.md
 ```
 
 Replace `<state_root>` with the resolved state location from SKILL.md before executing.
 
+Create optional state files only when the user's action requires them:
+- `<state_root>/rounds.md` — create when user logs their first round
+- `<state_root>/courses.md` — create when user saves a course
+- `<state_root>/archive/` — create when user archives past season data
+
 ## Templates
 
-Copy the appropriate template from `assets/golf-data-templates.md` into each state file:
+Copy the appropriate template from `assets/golf-data-templates.md` into each state file when creating it:
 
 - `<state_root>/memory.md` — use the "memory.md Template" section
 - `<state_root>/rounds.md` — use the "rounds.md Template" section

@@ -13,9 +13,13 @@ Golf state may exist in `<workspace>/golf/`, `<workspace>/memory/golf/`, or `~/g
 Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
-2. Otherwise use the first existing directory in this order:
+2. Otherwise check each candidate in order:
    `<workspace>/golf/`, `<workspace>/memory/golf/`, `~/golf/`.
-3. If none exists and state must be created, default to `<workspace>/golf/`.
+3. The first existing directory becomes `<state_root>`.
+4. If multiple candidates exist, use the highest-precedence one. Report to the user that multiple state copies were detected; do not merge or synchronize them.
+5. If none exists and state must be created, default to `<workspace>/golf/`.
+6. If `<workspace>` is unavailable (host cannot supply it), an existing `~/golf/` may be read. If it also does not exist, ask the user or host to specify a state root before creating data.
+7. Once selected, `<state_root>` remains fixed for the invocation.
 
 Use the selected `<state_root>` for every state operation in this skill.
 
@@ -23,11 +27,13 @@ Use the selected `<state_root>` for every state operation in this skill.
 
 ```text
 <state_root>/
-├── memory.md          # HOT: handicap, clubs, goals, preferences
-├── rounds.md          # WARM: round log with scores, stats
-├── courses.md         # WARM: saved courses with notes
-└── archive/           # COLD: past seasons
+├── memory.md          # Required — handicap, clubs, goals, preferences
+├── rounds.md          # Optional — create when user logs first round
+├── courses.md         # Optional — create when user saves a course
+└── archive/           # Optional — create when archiving past seasons
 ```
+
+Create only the files the user's actions require. `memory.md` is created on first use; `rounds.md`, `courses.md`, and `archive/` are created only when the corresponding feature is needed.
 
 ## Quick Reference
 
@@ -57,7 +63,7 @@ After user reports a round, update `<state_root>/rounds.md`:
 Record: date (YYYY-MM-DD), course name, tee color, total score, GIR (X/18), FIR (X/14), total putts, and any notable patterns.
 
 ### Track patterns
-After 3+ rounds logged, analyze `rounds.md` to identify:
+After 3+ rounds logged, analyze `<state_root>/rounds.md` to identify:
 - Consistent misses (slice, hook, short-sided)
 - Scoring zones (par 3s vs par 5s)
 - Putting trends (3-putts, distance)
@@ -76,25 +82,21 @@ Use stats to suggest focused practice:
 - Target the category where the most strokes are lost, not the most frustrating
 
 ### Update handicap
-After 3+ rounds posted with Course Rating and Slope, recalculate using the World Handicap System (WHS):
-```
-Score Differential = (113 / Slope Rating) × (Adjusted Gross Score - Course Rating - PCC)
-```
-Handicap Index = average of best 8 of last 20 differentials. See `references/rules.md` for full WHS details including 2024 revisions.
+After 3+ rounds posted with Course Rating and Slope, recalculate using the World Handicap System (WHS). See `references/rules.md` for full WHS details including 2024 revisions and the special formula for fewer than 20 scores.
 
 ## Common pitfalls
 
 - Generic swing tips → reference their specific miss pattern
 - Ignoring conditions → factor wind, wet, altitude
 - Club suggestions without knowing their bag → check inventory
-- Forgetting course notes → review `courses.md` before rounds
+- Forgetting course notes → review `<state_root>/courses.md` before rounds
 
 ## Failure recovery
 
 | If | Then | Fallback |
 |----|------|----------|
 | `<state_root>/memory.md` missing or empty | Prompt user for handicap, clubs, goals; create from `assets/golf-data-templates.md` | Proceed without personalization; mark recommendations as "general guidance" |
-| User reports round but `rounds.md` missing | Create from template; log the round | Ask user for course rating/slope if handicap update needed |
+| User reports round but `<state_root>/rounds.md` missing | Create from template; log the round | Ask user for course rating/slope if handicap update needed |
 | User asks handicap update but no Course Rating/Slope available | Explain that official handicap requires posted scores through authorized system | Provide educational calculation using estimated rating; clarify this is not an official index |
 | Stats sample too small (<3 rounds) for pattern analysis | Report available data; note insufficient sample for trends | Recommend logging 3-5 rounds before drawing conclusions |
 | User asks about club fitting without swing speed data | Ask for swing speed or driver carry distance | Provide general guidelines by handicap level from `references/clubs.md` |

@@ -6,10 +6,10 @@
 # Golf Memory
 
 ## Profile
-- **Handicap Index:** 
-- **Home course:** 
+- **Handicap Index:**
+- **Home course:**
 - **Skill level:** beginner | intermediate | advanced
-- **Goals:** 
+- **Goals:**
 
 ## Bag Inventory
 
@@ -27,18 +27,18 @@
 
 ### Putter
 - **Type:** blade | mallet
-- **Length:** 
+- **Length:**
 
 ## Tendencies
 - **Driver miss:** slice | hook | straight
-- **Iron miss:** 
-- **Short game:** 
-- **Putting:** 
+- **Iron miss:**
+- **Short game:**
+- **Putting:**
 
 ## Practice Focus
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ---
 *Last updated: YYYY-MM-DD*
@@ -56,11 +56,11 @@
 
 ## Stats Summary
 - Rounds: 0
-- Scoring avg: 
-- Best round: 
+- Scoring avg:
+- Best round:
 - GIR avg: /18
 - FIR avg: /14
-- Putts avg: 
+- Putts avg:
 
 ## Handicap Differentials
 | Date | Course | Rating/Slope | Score | Differential |
@@ -78,10 +78,10 @@
 ## Home Course
 
 ### [Course Name]
-- **Location:** 
+- **Location:**
 - **Rating/Slope:** White: 70.1/125
 - **Par:** 72
-- **Best score:** 
+- **Best score:**
 
 #### Hole Notes
 | Hole | Par | Yards | Club | Notes |
@@ -93,9 +93,9 @@
 ## Other Courses
 
 ### [Course Name]
-- **Location:** 
-- **Rating/Slope:** 
-- **Notes:** 
+- **Location:**
+- **Rating/Slope:**
+- **Notes:**
 
 ---
 *Last updated: YYYY-MM-DD*
