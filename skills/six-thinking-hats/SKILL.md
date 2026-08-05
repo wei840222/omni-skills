@@ -1,6 +1,6 @@
 ---
 name: six-thinking-hats
-description: Analyze decisions, problems, or ideas using De Bono's Six Thinking Hats parallel thinking method. Use when the user needs structured multi-perspective analysis, wants to evaluate options from different angles, or mentions six thinking hats, parallel thinking, or decision analysis.
+description: Use this skill when the user needs to analyze a decision, evaluate options from multiple perspectives, or solve a complex problem. Applies De Bono's Six Thinking Hats parallel thinking method to explore facts (White), emotions (Red), risks (Black), benefits (Yellow), alternatives (Green), and process (Blue) in structured sequences. Use when the user mentions six thinking hats, parallel thinking, multi-perspective analysis, decision analysis, or wants to evaluate options systematically — even if they don't explicitly name the method.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🎩"}'
@@ -122,6 +122,14 @@ When analyzing a decision, structure output as:
 [Summary, recommendation, next steps]
 ```
 
+## Gotchas
+
+- **Black hat dominance**: Humans naturally default to critical thinking. Enforce equal time for Yellow hat to balance risk identification with benefit exploration.
+- **Red hat skipping**: Teams often skip emotions because it feels unprofessional. Surface feelings early to prevent them from derailing logical analysis later.
+- **Mixed hats**: When someone argues benefits while another raises risks, the analysis becomes confused. Return to Blue hat, restate the current hat, and restart that section.
+- **No Blue closure**: Analysis without a Blue hat conclusion lacks actionable next steps. Always close with a summary and decision.
+- **Green hat premature judgment**: Evaluating ideas during Green hat kills creativity. Generate at least 3 alternatives before any criticism.
+
 ## AI-Specific Guidance
 
 When applying Six Thinking Hats as an AI agent:
@@ -132,17 +140,17 @@ When applying Six Thinking Hats as an AI agent:
 4. **Red hat framing**: When expressing Red hat perspective, use "This feels [exciting/concerning/risky] because..." — the user wants the AI's assessment, not genuine emotion.
 5. **Blue hat synthesis**: Always close with Blue hat. Summarize findings across all hats and provide a clear recommendation with next steps.
 
-## Common Traps and Recovery
+## Recovery Actions
 
-| Trap | Consequence | Recovery |
-|------|-------------|----------|
-| Mixing hats | Analysis becomes confused, key perspectives missed | Return to Blue hat, restate current hat, restart that section |
-| Skipping Red | Intuition that might catch what logic misses is ignored | Add Red hat after Black/Yellow evaluation |
-| Black without Yellow | Decisions feel negative, good options get rejected | Always pair Black with Yellow for balance |
-| Green without constraints | Impractical ideas waste time | Follow Green with Black to evaluate feasibility |
-| No Blue at end | Analysis without actionable conclusion | Always close with Blue hat summary and next steps |
-| Black hat dominance | Natural critical bias makes Black hat overwhelm other perspectives | Enforce equal time for each hat; Yellow must match Black's depth |
-| Skipping hats entirely | Analysis lacks structure, becomes unstructured opinion | Use the sequence table above to select an appropriate sequence |
+When a trap occurs, apply the matching recovery:
+
+| Trap | Recovery |
+|------|----------|
+| Mixing hats | Blue hat → restate current hat → restart that section |
+| Skipping Red | Add Red hat after Black/Yellow evaluation |
+| Black without Yellow | Immediately follow with Yellow hat at equal depth |
+| Green without constraints | Follow Green with Black hat to evaluate feasibility |
+| No Blue at end | Close with Blue hat summary, recommendation, and next steps |
 
 ## Persistent State
 
