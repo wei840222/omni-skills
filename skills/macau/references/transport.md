@@ -13,14 +13,19 @@ Do not describe it like a big metro city.
 ### Public Buses
 
 - Backbone of everyday movement
-- Flat fare is currently MOP 6
+- Flat fare is MOP 6
+- Pay with Macau Pass, MPay (澳門錢包), or exact cash (MOP or HKD at 1:1)
+- Apple Pay, Visa, Mastercard contactless, and Octopus are NOT accepted on buses
 - Strong practical coverage, but slower at peak times and on crowded weekends
 
-### LRT
+### LRT (Light Rapid Transit)
 
-- Best for parts of Taipa, Cotai, airport access, and some border-linked movement
-- Fare currently runs about MOP 6-12 depending on stations
-- Helpful, but not a citywide substitute for buses
+- Currently operating: Taipa Line (A-Ma Temple ↔ Taipa), Hengqin Line, Seac Pai Van Line
+- Fare runs about MOP 6–12 depending on stations
+- East Line under construction — will connect Macau Peninsula (Border Gate) to Taipa when complete
+- Government announced six new lines for the peninsula (Jan 2026): East Line extension, West Line, South Line, Seac Pai Van extension, Taipa North Line, Taipa Central Line
+- West Line and South Line will run underground; tunnel completion target ~1,035 days from mid-2026
+- Helpful for specific corridors, but not yet a citywide substitute for buses
 
 ### Taxis
 
@@ -48,6 +53,7 @@ Do not describe it like a big metro city.
 
 - Ferry, bridge bus, and Zhuhai crossing times matter more than in-city distance.
 - Weekend and holiday timing can break overly neat plans.
+- Nine border checkpoints: Border Gate, Qingmao, Cross-border Industrial Zone, HZMB, Hengqin Port, Outer Harbour Ferry, Taipa Ferry, Inner Harbour Ferry, Airport.
 
 ## Wrong Assumptions
 

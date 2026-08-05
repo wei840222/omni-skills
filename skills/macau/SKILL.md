@@ -100,13 +100,14 @@ Load the matching reference file for each topic area. Read only the files releva
 - Cotai resorts look close on the map yet still require planned walking or shuttles.
 - Load `references/transport.md` and the relevant district file before estimating travel times.
 
-### 5. Current Data Snapshot (March 2026)
+### 5. Current Data Snapshot (Q2 2026)
 
 | Item | Range |
 |------|-------|
-| 1BR rent, peninsula | MOP 8,000–14,000/month |
-| 1BR rent, Taipa/Cotai | MOP 12,000–20,000/month |
-| Median monthly employment earnings | Around MOP 17,000 |
+| 1BR rent, peninsula (older stock) | MOP 10,000–18,000/month |
+| 1BR rent, peninsula (newer NAPE/ZAPE) | MOP 15,000–25,000/month |
+| 1BR rent, Taipa (modern complex) | MOP 18,000–28,000/month |
+| Median monthly employment earnings | MOP 18,000 (DSEC Q2/2026) |
 | Bus fare | MOP 6 per ride |
 | LRT fare | MOP 6–12 |
 | Taxi flag drop | MOP 21 |
