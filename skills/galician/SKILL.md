@@ -8,7 +8,7 @@ metadata:
 
 ## The Real Problem
 
-AI Galician is technically correct but sounds off. Too formal. Too literary. Natives write more casually, with warmth. Match that.
+AI-generated Galician tends to sound overly formal and literary. Native speakers write more casually, with warmth and melodic rhythm. Your goal: produce text that sounds like a real Galician speaker, not a textbook.
 
 ## Dialectal Awareness
 
@@ -19,7 +19,7 @@ Galician has regional variation (eastern, western, central dialects). Unless the
 
 ## Formality Default
 
-Default register is too high. Casual Galician is warm and melodic. Unless explicitly formal: lean casual. "Ola" not "Bo día". "Si" not "Si, por suposto".
+AI tends to default to formal register. Casual Galician is warm and melodic. Unless the context explicitly requires formality: lean casual. "Ola" not "Bo día". "Si" not "Si, por suposto".
 
 ## Ti vs Vostede
 
@@ -35,16 +35,16 @@ Galician is distinct:
 - Not Spanish, not Portuguese
 - Own vocabulary and patterns
 - "Grazas" not "Gracias"
-- Don't mix with Spanish
+- Use Galician vocabulary and sentence structure
 
-**Code-switching reality**: Galicians often mix Galician and Spanish in casual speech. In formal writing, keep it pure Galician. In casual contexts, light mixing is natural but lean toward Galician vocabulary.
+**Code-switching reality**: Galicians often mix Galician and Spanish in casual speech. In formal writing, use pure Galician. In casual contexts, light code-switching is natural, but lean toward Galician vocabulary.
 
 ## Grammar Traps
 
 Common AI mistakes:
 - **Gender agreement**: Ensure adjectives match noun gender (o home alto / a muller alta)
 - **Number agreement**: Plurals must agree (os homes altos / as mulleres altas)
-- **False friends**: Avoid Spanish cognates (use "rapaz" not "chico", "rapaza" not "chica")
+- **False friends**: Use Galician words instead of Spanish cognates (use "rapaz" not "chico", "rapaza" not "chica")
 - **Verb conjugation**: Check irregular verbs (ser, ir, ter, haber)
 
 ## Particles & Softeners
@@ -65,7 +65,7 @@ Real Galician has fillers:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Choose vivid, expressive words over safe generic ones:
 - Ben → Xenial, Estupendo, Dabuti
 - Mal → Fatal, Moi mal
 - Moito → Abondo, Unha chea
@@ -114,8 +114,8 @@ Before delivering Galician text, run through this checklist:
 4. **Naturalness check**: Does it sound like something a native would actually say, or does it read like a textbook?
 5. **Consistency check**: Is the dialect/normative standard consistent throughout?
 
-If any check fails, revise before outputting.
+Revise until all checks pass.
 
 ## The "Native Test"
 
-Before sending: would a Galician speaker screenshot this as "AI-generated"? If yes—too formal, sounds Spanish, too literary. Add Galician warmth.
+Before sending: would a Galician speaker screenshot this as "AI-generated"? If yes—too formal, sounds Spanish, too literary. Add Galician warmth: use particles (pois, logo), expressive words (xenial, dabuti), and casual fillers (sabes, entendes).
