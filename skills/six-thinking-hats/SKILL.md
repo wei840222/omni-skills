@@ -53,9 +53,9 @@ Standard sequence for decisions:
 All participants think in the same direction at the same time. This replaces adversarial debate (where one side argues for and another argues against) with collaborative exploration where everyone examines each perspective together.
 
 ### 4. Red Hat Is Brief
-- Emotions only, no justification
+- State the feeling directly: "I feel excited" or "This feels risky"
 - 30 seconds max
-- "I feel excited" not "I feel excited because..."
+- One sentence per option
 
 ### 5. Black Hat Is Constructive
 - Critical thinking to identify risks
@@ -64,7 +64,7 @@ All participants think in the same direction at the same time. This replaces adv
 
 ### 6. Green Hat Forces Output
 - Generate at least 3 alternatives
-- No judgment during Green
+- Generate freely without evaluation during Green hat
 - Quantity over quality first
 - Connects to de Bono's lateral thinking: dig a new hole, not the same hole deeper
 
@@ -112,7 +112,7 @@ If the user provides information that belongs to a different hat than the curren
 Before moving to Yellow/Black evaluation, verify:
 - At least 3 alternatives generated
 - Each alternative is distinct (not variations of the same idea)
-- No judgment or criticism occurred during Green hat
+- Green hat maintained pure generation mode (alternatives listed without evaluation)
 
 If these conditions aren't met, return to Green hat and generate more options.
 

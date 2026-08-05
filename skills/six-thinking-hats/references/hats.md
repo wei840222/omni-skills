@@ -19,12 +19,12 @@ De Bono's Six Thinking Hats (1985) implements **parallel thinking**: all partici
 - Bullet points of facts
 - Clear "known" vs "unknown" sections
 - Sources where applicable
-- No interpretation or opinion
+- State facts only, separate from interpretation
 
 ### Common Mistakes
-- Including opinions disguised as facts
-- Ignoring inconvenient data
-- Not identifying what's missing
+- Mixing opinions with facts → Keep them in separate sections
+- Overlooking inconvenient data → Include all relevant data
+- Failing to identify gaps → Explicitly list what information is missing
 
 ---
 
@@ -41,14 +41,14 @@ De Bono's Six Thinking Hats (1985) implements **parallel thinking**: all partici
 
 ### Output Style
 - Brief, direct statements
-- "I feel..." not "I think because..."
-- No justification required
+- Use "I feel..." language to express intuition
+- State feelings without requiring justification
 - 30 seconds max
 
 ### Common Mistakes
-- Trying to justify feelings
-- Dismissing intuition as irrational
-- Spending too long analyzing emotions
+- Justifying feelings with logic → State the feeling directly
+- Dismissing intuitive responses → Trust gut reactions as valid data
+- Spending too long analyzing emotions → Keep it brief and move on
 
 ---
 
@@ -66,13 +66,13 @@ De Bono's Six Thinking Hats (1985) implements **parallel thinking**: all partici
 ### Output Style
 - List of specific risks
 - Likelihood and impact where possible
-- Factual concerns, not negativity
-- Paired with potential mitigations
+- Focus on factual concerns and constructive criticism
+- Pair each risk with potential mitigations
 
 ### Common Mistakes
-- Being negative instead of critical
-- Using it to kill ideas instead of improve them
-- Not pairing with Yellow hat
+- Being negative instead of critical → Focus on constructive risk identification
+- Using Black hat to kill ideas → Use it to improve ideas by addressing risks
+- Evaluating risks without Yellow hat → Always pair with Yellow hat for balance
 
 ### Research Note
 Black hat naturally dominates because humans have a negativity bias. Research on design thinking shows that dedicated critical-evaluator roles (analogous to Black hat) produce higher-quality ideas by surfacing hidden assumptions. Counter this by enforcing equal time for Yellow hat.
@@ -97,9 +97,9 @@ Black hat naturally dominates because humans have a negativity bias. Research on
 - Reasons for optimism
 
 ### Common Mistakes
-- Unrealistic optimism
-- Ignoring obvious problems
-- Not being specific about benefits
+- Unrealistic optimism → Ground benefits in evidence and realistic scenarios
+- Overlooking obvious problems → Acknowledge known issues while exploring benefits
+- Being vague about benefits → Specify concrete, measurable advantages
 
 ---
 
@@ -116,14 +116,14 @@ Black hat naturally dominates because humans have a negativity bias. Research on
 
 ### Output Style
 - Multiple options (minimum 3)
-- No judgment yet
+- Generate freely without evaluation
 - Build on others' ideas
-- Quantity first, quality later
+- Prioritize quantity first, refine quality later
 
 ### Common Mistakes
-- Judging ideas too early
-- Settling for first idea
-- Not pushing past obvious options
+- Judging ideas too early → Suspend evaluation during generation phase
+- Settling for first idea → Push for at least 3 distinct alternatives
+- Staying with obvious options → Explore unconventional possibilities
 
 ### Research Note
 Green hat connects to de Bono's lateral thinking (1967): instead of digging the same hole deeper (vertical thinking), dig a new hole in a new place. Generate divergent options before converging on evaluation.
@@ -148,9 +148,9 @@ Green hat connects to de Bono's lateral thinking (1967): instead of digging the 
 - Final recommendations
 
 ### Common Mistakes
-- Skipping the summary
-- Not defining the problem clearly
-- Forgetting to conclude
+- Skipping the summary → Always conclude with a clear synthesis
+- Failing to define the problem clearly → State the problem explicitly at the start
+- Forgetting to conclude → End with a decision or next steps
 
 ---
 
