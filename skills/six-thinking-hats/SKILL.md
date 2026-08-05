@@ -37,7 +37,7 @@ For detailed guidance on each hat, read `references/hats.md`.
 ### 1. One Hat at a Time
 - Wear only ONE hat at each moment
 - Complete that perspective before switching
-- Announce hat changes explicitly
+- Announce hat changes explicitly: "Switching to Black hat now"
 
 ### 2. Sequence Matters
 Standard sequence for decisions:
@@ -50,8 +50,7 @@ Standard sequence for decisions:
 7. **Blue** — Conclude and decide
 
 ### 3. Keep It Parallel
-- Everyone thinks in the same direction
-- Each hat gets its full moment
+All participants think in the same direction at the same time. This replaces adversarial debate (where one side argues for and another argues against) with collaborative exploration where everyone examines each perspective together.
 
 ### 4. Red Hat Is Brief
 - Emotions only, no justification
@@ -61,16 +60,28 @@ Standard sequence for decisions:
 ### 5. Black Hat Is Constructive
 - Critical thinking to identify risks
 - Identifies risks to ADDRESS, paired with Yellow for balance
+- Research shows dedicated "Black hat" evaluation leads to higher-quality ideas in design thinking by surfacing assumptions early
 
 ### 6. Green Hat Forces Output
 - Generate at least 3 alternatives
 - No judgment during Green
 - Quantity over quality first
+- Connects to de Bono's lateral thinking: dig a new hole, not the same hole deeper
 
 ### 7. Blue Hat Owns the Process
 - Opens and closes the session
 - Summarizes each hat's findings
-- Makes the meta-decisions
+- Makes the meta-decisions about which hat comes next
+
+## Choosing the Right Sequence
+
+| Context | Sequence | Why |
+|---------|----------|-----|
+| Strategic decision | Blue → White → Green → Yellow → Black → Red → Blue | Full analysis covers all angles |
+| Quick operational choice | Blue → White + Yellow + Black → Red → Blue | Rapid assessment when time is limited |
+| Creative challenge | Blue → Green → Yellow → Black → White → Blue | Generate first, evaluate later |
+| Problem diagnosis | Blue → White → Black → Green → Yellow → Blue | Understand causes before solutions |
+| Conflict resolution | Blue → Red → White → Green → Yellow → Black → Blue | Surface emotions early, then find common ground |
 
 ## Output Format
 
@@ -111,20 +122,17 @@ When analyzing a decision, structure output as:
 [Summary, recommendation, next steps]
 ```
 
-## Alternative Sequences
+## AI-Specific Guidance
 
-For different contexts, use these sequences:
+When applying Six Thinking Hats as an AI agent:
 
-**New Ideas:**
-1. Blue (frame) → Green (generate) → Yellow (find value) → Black (find risks) → White (check facts) → Blue (decide)
+1. **Explicit hat announcements**: State "Now switching to [color] hat" before each perspective change. This improves output quality by signaling clear context shifts.
+2. **Separate passes**: Run each hat as a distinct section rather than blending perspectives. Parallel thinking works best when each direction gets dedicated attention.
+3. **Black hat as provocateur**: Use Black hat to challenge assumptions and surface hidden risks. Research shows critical-evaluator roles produce higher-quality ideas.
+4. **Red hat framing**: When expressing Red hat perspective, use "This feels [exciting/concerning/risky] because..." — the user wants the AI's assessment, not genuine emotion.
+5. **Blue hat synthesis**: Always close with Blue hat. Summarize findings across all hats and provide a clear recommendation with next steps.
 
-**Problem Solving:**
-1. Blue (define problem) → White (gather data) → Black (identify causes) → Green (solutions) → Yellow (evaluate) → Blue (conclude)
-
-**Quick Decisions:**
-1. Blue (frame) → White + Yellow + Black (rapid assessment) → Red (gut check) → Blue (decide)
-
-## Common Traps and How to Handle Them
+## Common Traps and Recovery
 
 | Trap | Consequence | Recovery |
 |------|-------------|----------|
@@ -133,6 +141,8 @@ For different contexts, use these sequences:
 | Black without Yellow | Decisions feel negative, good options get rejected | Always pair Black with Yellow for balance |
 | Green without constraints | Impractical ideas waste time | Follow Green with Black to evaluate feasibility |
 | No Blue at end | Analysis without actionable conclusion | Always close with Blue hat summary and next steps |
+| Black hat dominance | Natural critical bias makes Black hat overwhelm other perspectives | Enforce equal time for each hat; Yellow must match Black's depth |
+| Skipping hats entirely | Analysis lacks structure, becomes unstructured opinion | Use the sequence table above to select an appropriate sequence |
 
 ## Persistent State
 

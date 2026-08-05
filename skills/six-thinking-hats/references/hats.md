@@ -1,5 +1,9 @@
 # Hats Deep Dive — Six Thinking Hats
 
+De Bono's Six Thinking Hats (1985) implements **parallel thinking**: all participants explore the same perspective together, replacing adversarial debate where sides argue against each other. Each hat is a dedicated thinking mode — wear one at a time, complete it, then switch with an explicit announcement.
+
+---
+
 ## White Hat: Facts and Information
 
 **Focus:** Objective data only
@@ -70,6 +74,9 @@
 - Using it to kill ideas instead of improve them
 - Not pairing with Yellow hat
 
+### Research Note
+Black hat naturally dominates because humans have a negativity bias. Research on design thinking shows that dedicated critical-evaluator roles (analogous to Black hat) produce higher-quality ideas by surfacing hidden assumptions. Counter this by enforcing equal time for Yellow hat.
+
 ---
 
 ## Yellow Hat: Benefits and Value
@@ -118,6 +125,9 @@
 - Settling for first idea
 - Not pushing past obvious options
 
+### Research Note
+Green hat connects to de Bono's lateral thinking (1967): instead of digging the same hole deeper (vertical thinking), dig a new hole in a new place. Generate divergent options before converging on evaluation.
+
 ---
 
 ## Blue Hat: Process and Control
@@ -144,26 +154,29 @@
 
 ---
 
-## Alternative Sequences
+## Sequence Selection Guide
 
-### For New Ideas
-1. Blue (frame)
-2. Green (generate)
-3. Yellow (find value)
-4. Black (find risks)
-5. White (check facts)
-6. Blue (decide)
+### Standard Decision Sequence
+Blue → White → Green → Yellow → Black → Red → Blue
 
-### For Problem Solving
-1. Blue (define problem)
-2. White (gather data)
-3. Black (identify causes)
-4. Green (solutions)
-5. Yellow (evaluate)
-6. Blue (conclude)
+Best for: Major decisions where all perspectives matter equally.
 
-### For Quick Decisions
-1. Blue (frame)
-2. White + Yellow + Black (rapid assessment)
-3. Red (gut check)
-4. Blue (decide)
+### New Ideas Sequence
+Blue → Green → Yellow → Black → White → Blue
+
+Best for: Creative challenges where generating options comes before fact-checking.
+
+### Problem Solving Sequence
+Blue → White → Black → Green → Yellow → Blue
+
+Best for: Diagnosing root causes before generating solutions.
+
+### Quick Decision Sequence
+Blue → White + Yellow + Black → Red → Blue
+
+Best for: Time-constrained situations where rapid parallel assessment suffices.
+
+### Conflict Resolution Sequence
+Blue → Red → White → Green → Yellow → Black → Blue
+
+Best for: Situations where surfacing emotions early prevents them from derailing logical analysis later.
