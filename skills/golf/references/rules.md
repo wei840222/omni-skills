@@ -29,17 +29,16 @@ Three options (1 stroke penalty each):
 2. Lateral relief: drop within 2 club-lengths of where ball lies, not nearer the hole
 3. Back-on-line relief: drop back on line from hole through ball's position (any distance)
 
-**In a bunker:** Options 2 and 3 require dropping in the bunker. Option 1 (stroke and distance) allows playing from outside the bunker. Since 2023, an additional option exists: for 2 penalty strokes, you may take back-on-line relief outside the bunker.
+**In a bunker:** Options 2 and 3 require dropping in the bunker. Option 1 (stroke and distance) allows playing from outside the bunker. Since 2019, an additional option exists: for 2 penalty strokes, you may take back-on-line relief outside the bunker.
 
 ### Ball Movement
 
 | Situation | Ruling |
 |-----------|--------|
-| Wind or water moves ball | Play from new position, no penalty |
-| Player, opponent, or outside influence causes ball to move | Replace, 1 stroke penalty (player) or no penalty (opponent/OI) |
-| Ball moves after address (not caused by player) | Replace, no penalty |
-| Ball moves on green after marking and lifting | Replace, no penalty |
-| Ball accidentally moved during search | Replace, no penalty (changed 2019) |
+| Wind or natural forces move ball | Play from new position, no penalty |
+| Player causes ball to move | Replace, 1 stroke penalty |
+| Opponent or outside influence causes ball to move | Replace, no penalty |
+| Ball on green moves after being lifted and replaced | Replace, no penalty |
 
 ### Relief Without Penalty
 
@@ -56,7 +55,7 @@ Three options (1 stroke penalty each):
 
 | Situation | Penalty |
 |-----------|---------|
-| Ball in penalty area | 1 stroke |
+| Taking penalty relief from penalty area | 1 stroke |
 | Lost ball / OB | 1 stroke (+ distance) |
 | Unplayable | 1 stroke (2 for bunker exit option) |
 | Grounding club in bunker | None (removed 2019) |
@@ -80,7 +79,7 @@ Score Differential = (113 / Slope Rating) × (Adjusted Gross Score - Course Rati
 
 ### Handicap Index Calculation
 
-**For 20 or more scores:** Average of the best 8 Score Differentials from the most recent 20 scores, truncated to one decimal place (no rounding).
+**For 20 or more scores:** Average of the best 8 Score Differentials from the most recent 20 scores, rounded to the nearest tenth (0.05 rounds up).
 
 **For fewer than 20 scores:** Use the following table to determine how many differentials to average and any adjustment that applies:
 
