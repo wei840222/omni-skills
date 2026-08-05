@@ -1,13 +1,9 @@
 ---
-name: Galician
-slug: galician
-version: 1.0.0
-description: Write Galician that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/galician
+name: galician
+description: Write natural, human-sounding Galician (galego). Use when the user asks to write, translate, edit, or review text in Galician, or when the user mentions Galician language, galego, or Galicia.
 metadata:
-  clawdbot:
-    emoji: 🌐
-    displayName: Galician
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌐"}'
 ---
 
 ## The Real Problem
