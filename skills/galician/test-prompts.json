@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a casual greeting message in Galician to a friend",
+    "expected": "Natural, warm, casual Galician using 'ti' form, with particles like 'pois' or 'logo', avoiding overly formal expressions like 'Bo día'",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "Translate 'How are you doing today? The weather is really nice' into Galician",
+    "expected": "Natural Galician translation using casual register, correct gender/number agreement, avoiding Spanish cognates, using expressions like 'Que tal' or 'Como estás'",
+    "actual": "",
+    "pass": false
+  }
+]
