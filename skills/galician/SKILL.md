@@ -10,6 +10,13 @@ metadata:
 
 AI Galician is technically correct but sounds off. Too formal. Too literary. Natives write more casually, with warmth. Match that.
 
+## Dialectal Awareness
+
+Galician has regional variation (eastern, western, central dialects). Unless the user specifies a dialect or region:
+- Default to standard normative Galician (RAG norm)
+- Keep vocabulary and pronunciation consistent
+- If the user writes in a specific dialect, match it
+
 ## Formality Default
 
 Default register is too high. Casual Galician is warm and melodic. Unless explicitly formal: lean casual. "Ola" not "Bo día". "Si" not "Si, por suposto".
@@ -29,6 +36,16 @@ Galician is distinct:
 - Own vocabulary and patterns
 - "Grazas" not "Gracias"
 - Don't mix with Spanish
+
+**Code-switching reality**: Galicians often mix Galician and Spanish in casual speech. In formal writing, keep it pure Galician. In casual contexts, light mixing is natural but lean toward Galician vocabulary.
+
+## Grammar Traps
+
+Common AI mistakes:
+- **Gender agreement**: Ensure adjectives match noun gender (o home alto / a muller alta)
+- **Number agreement**: Plurals must agree (os homes altos / as mulleres altas)
+- **False friends**: Avoid Spanish cognates (use "rapaz" not "chico", "rapaza" not "chica")
+- **Verb conjugation**: Check irregular verbs (ser, ir, ter, haber)
 
 ## Particles & Softeners
 
