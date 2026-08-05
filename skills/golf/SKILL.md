@@ -88,3 +88,14 @@ Handicap Index = average of best 8 of last 20 differentials. See `references/rul
 - Ignoring conditions → factor wind, wet, altitude
 - Club suggestions without knowing their bag → check inventory
 - Forgetting course notes → review `courses.md` before rounds
+
+## Failure recovery
+
+| If | Then | Fallback |
+|----|------|----------|
+| `<state_root>/memory.md` missing or empty | Prompt user for handicap, clubs, goals; create from `assets/golf-data-templates.md` | Proceed without personalization; mark recommendations as "general guidance" |
+| User reports round but `rounds.md` missing | Create from template; log the round | Ask user for course rating/slope if handicap update needed |
+| User asks handicap update but no Course Rating/Slope available | Explain that official handicap requires posted scores through authorized system | Provide educational calculation using estimated rating; clarify this is not an official index |
+| Stats sample too small (<3 rounds) for pattern analysis | Report available data; note insufficient sample for trends | Recommend logging 3-5 rounds before drawing conclusions |
+| User asks about club fitting without swing speed data | Ask for swing speed or driver carry distance | Provide general guidelines by handicap level from `references/clubs.md` |
+| User reports unusual score (±20 of handicap) | Verify score entry; check for transcription errors | Accept user confirmation and log as-is |

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just finished a round: 87 strokes, par 72, GIR 9/18, FIR 8/14, 34 putts. Log this round and analyze my performance.",
+    "expected": "Read memory.md for context, update rounds.md, analyze GIR/FIR/putting data, identify weaknesses, give specific practice recommendations",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "My last 5 rounds show putting averages of 2.3, 2.1, 2.4, 2.2, 2.3 putts/GIR. How should I practice?",
+    "expected": "Read memory.md for overall context, analyze putting trends, give specific putting practice suggestions (e.g. lag putting), track to rounds.md",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "I want to update my handicap. My last three Score Differentials are 14.2, 13.8, 15.1.",
+    "expected": "Read memory.md for existing handicap, calculate new handicap index (best 8 of last 20), explain calculation, update memory.md",
+    "actual": "",
+    "pass": false
+  }
+]
