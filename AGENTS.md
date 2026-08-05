@@ -37,7 +37,7 @@ ls skills/ | while read d; do grep -q "^| $d " docs/refactored-skills.md || echo
 
 ## Required Workflow
 
-Complete one skill through the following phases in order. Each of phases 1–5 must end with one focused commit, and phase 6 must publish those commits as a Gitea pull request. Do not combine phase commits or begin the next phase while the current phase has failing checks.
+Complete one skill through the following phases **in strict sequential order**. Each of phases 1–5 must end with one focused commit, and phase 6 must publish those commits as a Gitea pull request. **Do not combine phase commits, reorder phases, or begin the next phase while the current phase has failing checks.** The commit history must reflect the exact sequence: refactor → research → optimize → darwin → freud.
 
 ### 0. Create a branch and establish the baseline
 
@@ -60,6 +60,7 @@ Refactor the selected package according to every applicable gate in `docs/skill-
 - Resolve every local reference relative to `SKILL.md`; do not use repository-root-relative paths for package resources.
 - Keep the core instructions vendor-neutral. Host-specific integration may be optional metadata or a clearly scoped reference, but must not be required for unrelated hosts.
 - For stateful skills, apply the workspace-first state-root policy and use `<state_root>` consistently after resolution.
+- **Verify that all state file references (e.g., memory.md, state.md) are consistent across SKILL.md and all supporting files in references/, assets/, and scripts/.** If the skill defines a state file name, ensure every reference to that file uses the same name throughout the entire package.
 - Represent related skills through the approved `metadata.related-skills` JSON string. Every related key must resolve to an existing repository skill; never install or execute a related skill automatically.
 - Remove Clawic feedback, advertising, catalog calls to action, and package-local `clawic.com` references.
 - Remove obsolete files only after their useful content has been migrated or intentionally rejected with evidence.
@@ -106,13 +107,13 @@ Before evaluation, create `test-prompts.json` in the skill directory with 2-3 te
 ]
 ```
 
-Cover the most common use case (happy path) and one complex or ambiguous scenario. After running each prompt, fill in the `actual` and `pass` fields.
+Cover the most common use case (happy path) and one complex or ambiguous scenario. **You must actually execute each test prompt and record the real output in the `actual` field. Do not leave `actual` empty or write placeholder text. The `pass` field must reflect whether the actual output meets the expected behavior.**
 
 - Re-run the evaluator after each revision and retain the strongest valid result rather than blindly applying every suggestion.
 - Do not sacrifice correctness, safety, source fidelity, portability, or the completion-definition gates merely to increase the score.
 - Record the final score and the command or evaluation evidence used to obtain it.
 
-After the score reaches at least 80 and all applicable checks still pass, create one commit containing the Darwin-guided optimization and the test-prompts.json file.
+After the score reaches at least 80 and all applicable checks still pass, create one commit containing the Darwin-guided optimization and the test-prompts.json file with all test results recorded.
 
 ### 5. Check for cognitive load and white bear effects with Freud skill
 
@@ -157,7 +158,7 @@ After applying Freud-based corrections, re-run the validator to ensure no gates 
 
 Use the Gitea skill to publish the completed refactor as a pull request:
 
-- Confirm the branch contains the four required phase commits and the final package still passes all applicable checks.
+- Confirm the branch contains the five required phase commits and the final package still passes all applicable checks.
 - Push the dedicated refactor branch to the configured Gitea remote without force-pushing.
 - Create a pull request from the refactor branch into the `local` branch.
 - Assign `wei840222` as the reviewer.
@@ -233,7 +234,7 @@ The current completion definition is the baseline, not a frozen document. During
 
 A skill refactor is done only when:
 
-- the dedicated branch contains the four required phase commits in the prescribed order;
+- the dedicated branch contains the five required phase commits in the prescribed order;
 - the official validator exits successfully;
 - every applicable repository gate passes;
 - current, verifiable research has corrected obsolete guidance and filled material knowledge gaps;
