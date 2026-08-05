@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "I have $5,000 in credit card debt at 24% APR and $3,000 in student loans at 5%. How should I think about paying these down?", "expected": "Should explain the math of both debts, compare avalanche vs snowball approaches with real numbers, mention behavioral research on motivation, and avoid giving a specific personalized recommendation", "actual": "", "pass": false},
+  {"id": 2, "prompt": "Can you explain how the stock market works? I'm 25 and want to start investing but I don't understand P/E ratios or what factors actually drive returns.", "expected": "Should explain P/E ratio with concrete examples, cover Fama-French factors, distinguish academic findings from popular wisdom, and adapt explanation to a beginner level", "actual": "", "pass": false}
+]
