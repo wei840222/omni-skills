@@ -1,27 +1,15 @@
-# Memory Setup — Golf
-
-## Initial Setup
-
-Create on first use:
-```bash
-mkdir -p ~/Clawic/data/golf/archive
-touch ~/Clawic/data/golf/memory.md
-touch ~/Clawic/data/golf/rounds.md
-touch ~/Clawic/data/golf/courses.md
-```
+# Golf Data Templates
 
 ## memory.md Template
-
-Copy to `~/Clawic/data/golf/memory.md`:
 
 ```markdown
 # Golf Memory
 
 ## Profile
-- **Handicap Index:** 
-- **Home course:** 
+- **Handicap Index:**
+- **Home course:**
 - **Skill level:** beginner | intermediate | advanced
-- **Goals:** 
+- **Goals:**
 
 ## Bag Inventory
 
@@ -39,26 +27,24 @@ Copy to `~/Clawic/data/golf/memory.md`:
 
 ### Putter
 - **Type:** blade | mallet
-- **Length:** 
+- **Length:**
 
 ## Tendencies
 - **Driver miss:** slice | hook | straight
-- **Iron miss:** 
-- **Short game:** 
-- **Putting:** 
+- **Iron miss:**
+- **Short game:**
+- **Putting:**
 
 ## Practice Focus
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ---
 *Last updated: YYYY-MM-DD*
 ```
 
 ## rounds.md Template
-
-Copy to `~/Clawic/data/golf/rounds.md`:
 
 ```markdown
 # Round Log
@@ -70,11 +56,11 @@ Copy to `~/Clawic/data/golf/rounds.md`:
 
 ## Stats Summary
 - Rounds: 0
-- Scoring avg: 
-- Best round: 
+- Scoring avg:
+- Best round:
 - GIR avg: /18
 - FIR avg: /14
-- Putts avg: 
+- Putts avg:
 
 ## Handicap Differentials
 | Date | Course | Rating/Slope | Score | Differential |
@@ -86,18 +72,16 @@ Copy to `~/Clawic/data/golf/rounds.md`:
 
 ## courses.md Template
 
-Copy to `~/Clawic/data/golf/courses.md`:
-
 ```markdown
 # Courses
 
 ## Home Course
 
 ### [Course Name]
-- **Location:** 
+- **Location:**
 - **Rating/Slope:** White: 70.1/125
 - **Par:** 72
-- **Best score:** 
+- **Best score:**
 
 #### Hole Notes
 | Hole | Par | Yards | Club | Notes |
@@ -109,9 +93,9 @@ Copy to `~/Clawic/data/golf/courses.md`:
 ## Other Courses
 
 ### [Course Name]
-- **Location:** 
-- **Rating/Slope:** 
-- **Notes:** 
+- **Location:**
+- **Rating/Slope:**
+- **Notes:**
 
 ---
 *Last updated: YYYY-MM-DD*
@@ -119,9 +103,9 @@ Copy to `~/Clawic/data/golf/courses.md`:
 
 ## Archive Structure
 
-Move old season data to `~/Clawic/data/golf/archive/`:
-```
-archive/
+Move old season data to `<state_root>/archive/`:
+```text
+<state_root>/archive/
 ├── rounds-2025.md
 ├── rounds-2024.md
 └── handicap-history.md

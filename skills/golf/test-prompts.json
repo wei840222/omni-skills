@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just finished a round: 87 strokes, par 72, GIR 9/18, FIR 8/14, 34 putts. Log this round and analyze my performance.",
+    "expected": "Read <state_root>/memory.md for context, update <state_root>/rounds.md, analyze GIR/FIR/putting data, identify weaknesses, give specific practice recommendations",
+    "actual": "Read <state_root>/memory.md: Handicap Index 14.2, intermediate skill level, home course Pine Valley. Driver miss: slice, putting tendency: tends to leave first putt short. Practice focus: lag putting from 30+ feet, driver alignment, wedge distance control.\n\nUpdated <state_root>/rounds.md with new entry: 2026-08-05, Pine Valley, White tees, 87 (+15), GIR 9/18, FIR 8/14, 34 putts.\n\nAnalysis (6 rounds total):\n- Scoring average: 87.0 (target: break 85)\n- GIR: 8.7/18 (48%) — below intermediate benchmark of 10+/18\n- FIR: 7.5/14 (54%) — driver slice contributing to low FIR\n- Putts per round: 34.0 — consistent but high\n- Biggest stroke loss: approach play (low GIR) and driving accuracy\n\nRecommendations:\n1. FIR 54% with driver slice → practice draw-bias alignment, consider 3-wood off tight tees\n2. GIR 48% → focus on approach iron distance control (7i-9i from 130-155 yards per bag inventory)\n3. Putting 34.0 avg → continue lag putting drill from 30+ feet, focus on pace to leave return putt within 2 feet\n4. Target approach play as biggest improvement area (lowest GIR drives highest scores)",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My last 5 rounds show putting averages of 2.3, 2.1, 2.4, 2.2, 2.3 putts/GIR. How should I practice?",
+    "expected": "Read <state_root>/memory.md for overall context, analyze putting trends, give specific putting practice suggestions (e.g. lag putting), track to <state_root>/rounds.md",
+    "actual": "Read <state_root>/memory.md: Putting tendency is 'tends to leave first putt short', practice focus includes 'lag putting from 30+ feet'.\n\nPutting trend analysis (5 rounds):\n- Average: 2.26 putts/GIR\n- Range: 2.1 to 2.4 (spread: 0.3)\n- Trend: relatively stable, slight inconsistency in best/worst rounds\n\nAssessment: 2.26 putts/GIR is acceptable for intermediate level (benchmark: 2.0-2.5). Main issue is consistency, not average. Memory notes tendency to leave first putt short.\n\nPractice plan:\n1. Lag putting drill (30-40 ft): focus on pace to leave return putt within 2 feet — 20 putts from 35 ft, target landing in 3ft circle\n2. Distance progression: 30ft → 40ft → 50ft, track proximity to hole\n3. First-putt focus: aim for center of green on long putts rather than hole\n\nTrack over next 5 rounds; target reducing spread from 0.3 to <0.2",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I want to update my handicap. My last three Score Differentials are 14.2, 13.8, 15.1.",
+    "expected": "Read <state_root>/memory.md for existing handicap, calculate new handicap index per USGA Rule 5.2a (8 total scores: use 2 lowest, no adjustment, round to nearest tenth), explain calculation, update <state_root>/memory.md",
+    "actual": "Read <state_root>/memory.md: Current Handicap Index is 14.2.\n\nTotal Score Differentials: 8 (5 existing + 3 new)\n- Existing: 14.8, 13.7, 15.7, 13.0, 14.0\n- New: 14.2, 13.8, 15.1\n\nPer USGA Rule 5.2a (fewer than 20 scores):\n- For 7-8 scores: use 2 lowest differentials, no adjustment\n- All differentials sorted: 13.0, 13.7, 13.8, 14.0, 14.2, 14.8, 15.1, 15.7\n- Two lowest: 13.0, 13.7\n- Average: (13.0 + 13.7) / 2 = 13.35\n- No adjustment (0)\n- Rounded to nearest tenth: 13.4\n\nNew Handicap Index: 13.4\nPrevious: 14.2\nChange: -0.8 (improvement)\n\nNote: This calculation is for educational purposes. Official Handicap Index must be posted through an authorized golf association or handicap system (e.g., GHIN).\n\nUpdated <state_root>/memory.md with new Handicap Index: 13.4",
+    "pass": true
+  }
+]
