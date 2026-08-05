@@ -1,46 +1,23 @@
 ---
-name: Six Thinking Hats
-slug: six-thinking-hats
-version: 1.0.0
-description: Analyze decisions using six perspectives with structured parallel thinking.
-homepage: https://clawic.com/skills/six-thinking-hats
+name: six-thinking-hats
+description: Analyze decisions, problems, or ideas using De Bono's Six Thinking Hats parallel thinking method. Use when the user needs structured multi-perspective analysis, wants to evaluate options from different angles, or mentions six thinking hats, parallel thinking, or decision analysis.
 metadata:
-  clawdbot:
-    emoji: 🎩
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Six Thinking Hats
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎩"}'
+  related-skills: '{"brainstorm":"Generates creative ideas before or after structured hat analysis.","decide":"Applies decision frameworks to evaluate options produced by hat analysis.","first-principles-thinking":"Breaks problems to foundational truths, complementing hat-based perspective exploration."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/six-thinking-hats/` doesn't exist, or memory shows setup incomplete, read `setup.md` first.
+Six Thinking Hats state may exist in `<workspace>/six-thinking-hats/`, `<workspace>/memory/six-thinking-hats/`, or `~/six-thinking-hats/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/six-thinking-hats/`, `<workspace>/memory/six-thinking-hats/`, `~/six-thinking-hats/`.
+3. If none exists and state must be created, default to `<workspace>/six-thinking-hats/`.
 
-User needs to analyze a decision, problem, or idea thoroughly. Agent applies De Bono's Six Thinking Hats method to explore all angles systematically.
-
-## Architecture
-
-Memory lives in `~/Clawic/data/six-thinking-hats/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/six-thinking-hats/
-├── memory.md       # Preferences + past analyses
-└── archive/        # Completed analyses
-```
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Hat details | `hats.md` |
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## The Six Hats
 
@@ -52,6 +29,8 @@ Memory lives in `~/Clawic/data/six-thinking-hats/`. See `memory-template.md` for
 | Yellow | Benefits, value | What are the advantages? Best case? |
 | Green | Creativity, alternatives | What else is possible? New ideas? |
 | Blue | Process, control | What's the next step? Summary? |
+
+For detailed guidance on each hat, read `references/hats.md`.
 
 ## Core Rules
 
@@ -72,7 +51,6 @@ Standard sequence for decisions:
 
 ### 3. Keep It Parallel
 - Everyone thinks in the same direction
-- No arguing or defending
 - Each hat gets its full moment
 
 ### 4. Red Hat Is Brief
@@ -80,10 +58,9 @@ Standard sequence for decisions:
 - 30 seconds max
 - "I feel excited" not "I feel excited because..."
 
-### 5. Black Hat Is Not Negative
-- Critical thinking, not negativity
-- Identifies risks to ADDRESS, not to reject
-- Paired with Yellow for balance
+### 5. Black Hat Is Constructive
+- Critical thinking to identify risks
+- Identifies risks to ADDRESS, paired with Yellow for balance
 
 ### 6. Green Hat Forces Output
 - Generate at least 3 alternatives
@@ -134,21 +111,52 @@ When analyzing a decision, structure output as:
 [Summary, recommendation, next steps]
 ```
 
-## Common Traps
+## Alternative Sequences
 
-- Mixing hats → analysis becomes confused, key perspectives missed
-- Skipping Red → ignoring intuition that might catch what logic misses
-- Black without Yellow → decisions feel negative, good options get rejected
-- Green without constraints → impractical ideas waste time
-- No Blue at end → analysis without actionable conclusion
+For different contexts, use these sequences:
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `decide` — decision frameworks
-- `brainstorm` — creative idea generation
-- `first-principles-thinking` — foundational analysis
+**New Ideas:**
+1. Blue (frame) → Green (generate) → Yellow (find value) → Black (find risks) → White (check facts) → Blue (decide)
 
-## Feedback
+**Problem Solving:**
+1. Blue (define problem) → White (gather data) → Black (identify causes) → Green (solutions) → Yellow (evaluate) → Blue (conclude)
 
-- If useful, star it: https://clawic.com/skills/six-thinking-hats
-- Latest version: https://clawic.com/skills/six-thinking-hats
+**Quick Decisions:**
+1. Blue (frame) → White + Yellow + Black (rapid assessment) → Red (gut check) → Blue (decide)
+
+## Common Traps and How to Handle Them
+
+| Trap | Consequence | Recovery |
+|------|-------------|----------|
+| Mixing hats | Analysis becomes confused, key perspectives missed | Return to Blue hat, restate current hat, restart that section |
+| Skipping Red | Intuition that might catch what logic misses is ignored | Add Red hat after Black/Yellow evaluation |
+| Black without Yellow | Decisions feel negative, good options get rejected | Always pair Black with Yellow for balance |
+| Green without constraints | Impractical ideas waste time | Follow Green with Black to evaluate feasibility |
+| No Blue at end | Analysis without actionable conclusion | Always close with Blue hat summary and next steps |
+
+## Persistent State
+
+When the user wants to save analyses or track preferences, create `<state_root>/memory.md` with this structure:
+
+```markdown
+# Six Thinking Hats Memory
+
+## Status
+setup: ongoing | complete | paused | never_ask
+version: 1.0.0
+last_interaction: YYYY-MM-DD
+
+## Preferences
+output_format: full | abbreviated
+archive_analyses: yes | no
+favorite_sequence: standard | custom
+emphasis_hats: [list of hats to spend more time on]
+
+## Custom Sequences
+<!-- If user prefers different hat orders for different contexts -->
+
+## Recent Analyses
+<!-- Last 3-5 analyses with dates and outcomes -->
+```
+
+Save incrementally — capture preferences as they emerge. Archive completed analyses if the user wants history.
