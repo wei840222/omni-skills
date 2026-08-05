@@ -1,6 +1,6 @@
 ---
 name: galician
-description: Write natural, human-sounding Galician (galego). Use when the user asks to write, translate, edit, or review text in Galician, or when the user mentions Galician language, galego, or Galicia.
+description: Write natural, human-sounding Galician (galego) that avoids AI-sounding formality. Use when the user asks to write, translate, edit, or review text in Galician, mentions Galician language or galego, or references Galicia in a linguistic context.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌐"}'
