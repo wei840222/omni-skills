@@ -1,6 +1,6 @@
 ---
 name: macau
-description: "Navigate Macau as visitor, resident, worker, student, or founder — districts, transport, costs, borders, culture, and practical local context. Use when the user asks about visiting, relocating to, working in, studying in, or setting up cross-border plans involving Macau, Taipa, Cotai, Coloane, or the Greater Bay Area."
+description: "Plan Macau trips, relocations, work, study, or cross-border logistics — covering districts (Peninsula, Taipa, Cotai, Coloane), transport, costs, borders with Hong Kong and Zhuhai, food, culture, and Greater Bay Area context. Use when the user mentions Macau, Macao, Taipa, Cotai, Coloane, HZMB, or asks about visiting, moving to, working in, or studying in Macau, even if they don't explicitly say 'Macau guide' or 'relocation plan'."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇲🇴"}'
@@ -29,10 +29,6 @@ Use the selected `<state_root>` for every state operation in this skill.
 ```
 
 If `<state_root>/memory.md` is missing or empty, initialize it from `references/memory-template.md`.
-
-## When to Use
-
-User asks about Macau for any purpose: visiting, relocating, working in hospitality or gaming-adjacent roles, studying, or setting up cross-border plans with Hong Kong or Zhuhai.
 
 ## Resource routing
 
@@ -80,27 +76,14 @@ Load the matching reference file for each topic area. Read only the files releva
 | Expat and local lifestyle | `references/lifestyle.md` |
 | Driving, parking, and scooter logic | `references/driving.md` |
 
-## Core Rules
+## Core workflow
 
-### 1. Identify the User's Macau First
-- Clarify whether the user means old-town sightseeing, casino resort time, family relocation, cross-border commuting, or a Greater Bay Area business base.
-- Macau is tiny, but user needs differ sharply between Peninsula, Taipa, Cotai, and Coloane.
+1. **Clarify the user's Macau context** — old-town sightseeing, casino resort, family relocation, cross-border commute, or GBA business base. Needs differ sharply between Peninsula, Taipa, Cotai, and Coloane.
+2. **Establish origin and border plan** — ask where the person is arriving from (Hong Kong, Zhuhai, mainland China, or direct flight). Most friction comes from entry rules, ferry/bridge timing, and day-trip assumptions.
+3. **Load relevant references** — read `references/visas.md` before claiming border certainty; load `references/transport.md` and the relevant district file before estimating travel times.
+4. **Provide context beyond casinos** — useful guidance includes heritage streets, Portuguese legacy, food, family logistics, universities, and GBA positioning. Provide casino-only itineraries only when the user explicitly wants that.
 
-### 2. Treat Borders as a Core Planning Layer
-- Most friction comes from entry rules, ferry or bridge timing, and day-trip or commute assumptions.
-- Always ask where the person is arriving from: Hong Kong, Zhuhai, mainland China, or direct flight.
-- Re-check current entry rules in `references/visas.md` before claiming certainty.
-
-### 3. Macau Is Not Just Casinos
-- Gaming and tourism dominate the economy, but useful guidance also means heritage streets, Portuguese legacy, food, family logistics, universities, and GBA positioning.
-- Provide casino-only itineraries only when the user explicitly wants that.
-
-### 4. Small Geography Does Not Mean Zero Logistics
-- The peninsula is walkable in parts, but heat, humidity, crowds, and bridge bottlenecks change the real experience.
-- Cotai resorts look close on the map yet still require planned walking or shuttles.
-- Load `references/transport.md` and the relevant district file before estimating travel times.
-
-### 5. Current Data Snapshot (Q2 2026)
+## Current data snapshot (Q2 2026)
 
 | Item | Range |
 |------|-------|
@@ -113,12 +96,14 @@ Load the matching reference file for each topic area. Read only the files releva
 | Taxi flag drop | MOP 21 |
 | Casual meal | MOP 60–120 |
 
-### 6. Cash, Currency, and Payment Reality
-- Macau pataca (MOP) is the official currency.
-- Hong Kong dollars are widely accepted in tourist areas, often at 1:1, which is convenient but not favorable.
-- Smaller shops, bakeries, taxis, and some old-town spots work better with cash or local e-wallets than with foreign cards.
+## Payment reality
 
-### 7. Match the District to the User
+- Macau pataca (MOP) is the official currency.
+- Hong Kong dollars are widely accepted in tourist areas, often at 1:1 — convenient but not favorable.
+- Smaller shops, bakeries, taxis, and old-town spots work better with cash or local e-wallets (Macau Pass, MPay) than with foreign cards.
+- Buses do NOT accept Apple Pay, Visa, Mastercard contactless, or Octopus. Pay with Macau Pass, MPay, or exact cash.
+
+## District matching
 
 | Profile | Best Areas |
 |---------|------------|
@@ -129,18 +114,18 @@ Load the matching reference file for each topic area. Read only the files releva
 | Budget-conscious stay | Inner peninsula and simple Taipa hotels |
 | Quiet escape | Coloane |
 
-## Macau-Specific Traps
+## Gotchas
 
-- Assuming Macau and Hong Kong share the same entry rules or money behavior.
-- Staying only in Cotai, then claiming "Macau has no local character."
-- Treating a casino resort as a normal urban neighborhood.
-- Assuming all vendors take cards and all prices are quoted in HKD.
-- Underestimating weekend or holiday queues at ports and the bridge.
-- Planning heavy outdoor walking in July or August afternoons.
-- Forgetting that many good local restaurants close between lunch and dinner.
-- Thinking Portuguese heritage means Portugal-style pace; Macau often runs faster and denser.
+- Macau and Hong Kong have separate entry rules and currency behavior.
+- Staying only in Cotai gives a distorted view — Macau has deep local character outside the resorts.
+- Casino resorts are not normal urban neighborhoods — plan shuttle/walking logistics.
+- Many local restaurants close between lunch and dinner (roughly 3pm–6pm).
+- Weekend and holiday queues at ports and the HZMB bridge can add hours.
+- July/August afternoon outdoor walking is punishing — plan for heat and humidity.
+- Portuguese heritage does not mean Portugal-style pace; Macau runs faster and denser.
+- LRT does not yet cover the peninsula like Hong Kong's MTR — it serves specific corridors (Taipa, Cotai, airport, Hengqin). East Line under construction.
 
-## Legal Awareness
+## Legal awareness
 
 - Gambling is legal only in licensed venues.
 - Drugs are a serious offense.
@@ -148,7 +133,7 @@ Load the matching reference file for each topic area. Read only the files releva
 - Public order, smoking, and customs rules tighten around ports, casinos, and transport areas.
 - Verify immigration and visa details against the latest official notices in `references/visas.md`.
 
-## Greater Bay Area Context
+## Greater Bay Area context
 
 Macau works best when framed correctly inside the Greater Bay Area:
 - Tourism and hospitality hub with deep China-facing visitor flows
