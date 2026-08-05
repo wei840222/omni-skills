@@ -1,6 +1,6 @@
 # Macau - Memory Template
 
-Create `~/Clawic/data/macau/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Macau Memory
@@ -40,4 +40,4 @@ integration: pending
 - Store natural-language context, not rigid config keys.
 - Update `last` whenever the skill is used.
 - Keep only durable preferences and constraints.
-- Do not store sensitive personal data that the skill does not need.
+- Store only what the skill needs to serve the user well.
