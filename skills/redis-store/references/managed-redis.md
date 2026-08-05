@@ -39,12 +39,17 @@ Verify the current per-provider details in their documentation before making a p
 
 ## Redis vs Valkey
 
-The 2024 licence change (Redis moved off the BSD licence) produced Valkey, a Linux Foundation fork of the last BSD version, adopted by several cloud providers as the default engine. Practical consequences for this skill:
+The 2024 licence change (Redis moved off the BSD licence to SSPL/RSALv2) produced Valkey, a Linux Foundation fork of Redis 7.2.4 (the last BSD version), adopted by several cloud providers as the default engine. Practical consequences for this skill:
 
-- The command set, RESP protocol, RDB format and every pattern in these files are shared — nothing you learn here stops applying.
-- Divergence is in threading work, module ecosystems, and version numbering. Feature gates written as `feature >=X` refer to Redis version numbers; check the Valkey equivalent before relying on one.
-- Migration between them is a replication or RDB-import exercise, not a rewrite.
-- Which engine a provider actually runs behind the name "Redis" is worth confirming — several switched. (State of the split verified 2026-07.)
+- **Protocol and data compatibility**: Valkey uses the RESP wire protocol (RESP2 and RESP3), supports existing Redis client libraries without code changes, and reads/writes RDB and AOF files compatible with Redis OSS 7.2 and earlier.
+- **Critical incompatibility**: Redis Community Edition 7.4 and later produce data files that are **not compatible** with Valkey. RDB files from Redis CE 7.4+ cannot be read by Valkey.
+- **Command set**: The classic command set is shared — nothing in this skill stops applying. `redis-cli` works with Valkey servers, and `valkey-cli` works with Redis OSS servers.
+- **INFO output**: Valkey reports `redis_version:7.2.4` for backward compatibility. Use `server_name` and `valkey_version` fields to detect the actual server.
+- **Lua scripting**: Existing scripts using the `redis` namespace continue to work. Valkey also supports the `server` namespace and `SERVER_NAME`, `SERVER_VERSION`, `SERVER_VERSION_NUM` globals.
+- **Modules**: Modules written for Redis OSS using the `RedisModule_` API work in Valkey. Valkey also provides the `ValkeyModule_` API and `valkeymodule.h` header.
+- **Divergence**: Threading work (Valkey 8.0 has native multi-threaded I/O), module ecosystems, and version numbering. Feature gates written as `feature >=X` refer to Redis version numbers; check the Valkey equivalent before relying on one.
+- **Migration**: Between Redis OSS ≤7.2 and Valkey is a replication or RDB-import exercise, not a rewrite. From Redis CE 7.4+ to Valkey requires data migration via replication or key-by-key transfer.
+- **Provider reality**: Which engine a provider actually runs behind the name "Redis" is worth confirming — several switched to Valkey. (State of the split verified 2026-08.)
 
 ## Choosing
 

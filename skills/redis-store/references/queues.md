@@ -94,7 +94,7 @@ return due
 - Per-stream ordering is total; per-consumer ordering is not, because entries are distributed round-robin within a group. Work that must stay ordered per entity needs one stream per entity (or a hash-partitioned set of streams, `app:jobs:<n>`).
 - Throughput ceiling is the single-threaded server: batched `XADD` via pipeline and `COUNT>1` reads matter more than worker count. Adding workers to a saturated instance adds round trips, not throughput.
 - Under Cluster, one stream is one slot and therefore one node. Partition into `app:jobs:{0}` … `app:jobs:{15}` to spread load, and give each worker a subset.
-- Eviction is a correctness hazard: on an `allkeys-*` policy the queue itself can be evicted, and a `volatile-*` policy only protects the stream for as long as nobody sets a TTL on it — the moment one exists, the queue joins the candidate pool. Queues belong on a `noeviction` instance, full stop (→ `locks.md`, same rule for locks).
+- Eviction is a correctness hazard: on an `allkeys-*` policy the queue itself can be evicted, and a `volatile-*` policy only protects the stream for as long as nobody sets a TTL on it — the moment one exists, the queue joins the candidate pool. Queues belong on a `noeviction` instance, full stop (→ `references/locks.md`, same rule for locks).
 
 ## Observability
 

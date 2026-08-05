@@ -1,6 +1,6 @@
 # Memory Template — Redis
 
-Create `~/Clawic/data/redis-store/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Redis Memory

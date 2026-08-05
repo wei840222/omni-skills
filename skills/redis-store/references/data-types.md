@@ -37,7 +37,7 @@ Budget on the order of 60-100 bytes per top-level key before its value: the dict
 ## Hashes
 
 - Field-level operations (`HSET`, `HINCRBY`, `HDEL`) beat serializing a JSON blob whenever two writers touch different fields.
-- No TTL per field before Redis 7.4 (`HEXPIRE` and friends). Below that, model per-field expiry as separate keys or a sorted set of due timestamps.
+- **Hash field expiration** (Redis 7.4+): `HEXPIRE`, `HPEXPIRE`, `HEXPIREAT`, `HPEXPIREAT`, `HTTL`, `HPTTL`, `HPERSIST` set and query TTL per field. Below 7.4, model per-field expiry as separate keys or a sorted set of due timestamps.
 - `HRANDFIELD` (>=6.2) samples without pulling the whole hash.
 - `HGETALL` on a large hash is the most common accidental O(N): fetch named fields with `HMGET`, or iterate with `HSCAN`.
 

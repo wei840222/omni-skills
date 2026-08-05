@@ -22,7 +22,7 @@ redis-cli --scan --pattern 'app:tmp:*' | xargs -L 500 redis-cli UNLINK
 redis-cli SCAN 0 TYPE zset COUNT 500                       # server-side type filter (>=6.0)
 ```
 
-Batch at 500 keys per call: one round trip per batch, and no single `UNLINK` argument list long enough to become its own stall (→ `keys-ttl.md`).
+Batch at 500 keys per call: one round trip per batch, and no single `UNLINK` argument list long enough to become its own stall (→ `references/keys-ttl.md`).
 
 ## Finding The Problem Key
 

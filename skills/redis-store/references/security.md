@@ -69,3 +69,15 @@ ACL SAVE                 # persist to aclfile; without it, changes die at restar
 - Is TLS on for every connection that leaves a host, with certificate expiry monitored?
 - Do backups live somewhere with the same access controls as the live data?
 - Does `ACL LOG` get read by anyone, or is it just accumulating?
+
+## Recent CVEs (2024-2025)
+
+Stay current with the [Redis Security Advisories](https://github.com/redis/redis/security/advisories) and upgrade promptly:
+
+- **CVE-2025-49844** (Redis ≤8.2.1): Specially crafted Lua script can manipulate LUA objects and run arbitrary code in another user's context. Upgrade to 8.2.2+.
+- **CVE-2025-46818** (RedisBloom): Cuckoo filter counter overflow; invalid Bloom filters can cause arbitrary memory reads/writes. Update RedisBloom module.
+- **CVE-2025-46819** (Redis CE): Database DoS vulnerability. Patch in 8.2.2+.
+- **CVE-2024-46981, CVE-2024-51737, CVE-2024-51480, CVE-2024-55656**: Multiple vulnerabilities in 2024. Check advisories and apply patches.
+- **Stream RESTORE use-after-free** (Redis CE 7.4.10, July 2026): Crafted stream RESTORE payload can cause two consumers to share the same NACK, leading to RCE. Upgrade immediately.
+
+**Mitigation**: Subscribe to the Redis security mailing list, pin versions in production, and test upgrades in staging. Never expose Redis to untrusted networks.
