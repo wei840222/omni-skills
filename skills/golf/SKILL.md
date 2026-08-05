@@ -1,6 +1,6 @@
 ---
 name: golf
-description: Track golf rounds, handicap, clubs, and courses with personalized improvement tips. Use when the user wants to log a round, manage handicap, review club selection, analyze scoring patterns, or get practice recommendations based on their golf history.
+description: Track golf rounds, handicap, club distances, and course notes with personalized improvement tips. Use this skill when the user wants to log a round, manage handicap, review club selection, analyze scoring patterns, or get practice recommendations based on their golf history. Also use when they discuss golf stats, scoring, course strategy, or ask about their golf performance—even if they don't explicitly mention "handicap" or "rounds."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⛳"}'
@@ -19,7 +19,7 @@ Before reading or writing state, resolve `<state_root>` as follows:
 
 Use the selected `<state_root>` for every state operation in this skill.
 
-## Architecture
+## State tree
 
 ```text
 <state_root>/
@@ -31,52 +31,58 @@ Use the selected `<state_root>` for every state operation in this skill.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Memory setup and templates | `references/memory-setup.md` |
-| State data templates | `assets/golf-data-templates.md` |
-| Clubs guide | `references/clubs.md` |
-| Rules reference | `references/rules.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Memory setup | `references/memory-setup.md` | First use, when initializing state files |
+| Data templates | `assets/golf-data-templates.md` | Creating or reviewing state file format |
+| Clubs guide | `references/clubs.md` | Questions about distances, selection, fitting, adjustments |
+| Rules reference | `references/rules.md` | Questions about rules, penalties, relief, handicap calculations |
 
-Read `references/memory-setup.md` on first use to initialize state files.
-Read `assets/golf-data-templates.md` when creating new state files or reviewing the expected data format.
-Read `references/clubs.md` when the user asks about club distances, selection, fitting, or wind/elevation adjustments.
-Read `references/rules.md` when the user asks about golf rules, penalties, relief, or handicap calculations.
+## Core workflow
 
-## Core Rules
-
-### 1. Check Memory First
+### Check memory first
 Before any recommendation, read `<state_root>/memory.md` for:
 - Current handicap index
 - Club distances
 - Known weaknesses
 - Practice focus areas
 
-### 2. Log Rounds Proactively
+### Log rounds proactively
 After user reports a round, update `<state_root>/rounds.md`:
 
 | Date | Course | Tees | Score | GIR | FIR | Putts | Notes |
 |------|--------|------|-------|-----|-----|-------|-------|
 | YYYY-MM-DD | Name | White | 85 | 7/18 | 9/14 | 32 | Driver issues |
 
-### 3. Track Patterns
-Analyze `rounds.md` to identify:
+Record: date (YYYY-MM-DD), course name, tee color, total score, GIR (X/18), FIR (X/14), total putts, and any notable patterns.
+
+### Track patterns
+After 3+ rounds logged, analyze `rounds.md` to identify:
 - Consistent misses (slice, hook, short-sided)
 - Scoring zones (par 3s vs par 5s)
 - Putting trends (3-putts, distance)
+- Strokes Gained categories: off the tee, approach, around the green, putting
 
-### 4. Personalize Practice
+Use this 4-category stats framework:
+- Off the tee: FIR %, penalty rate, average drive
+- Approach: GIR %, proximity to hole
+- Short game: scrambling %, up-and-down %
+- Putting: putts/round, 3-putt rate, putts per GIR
+
+### Personalize practice
 Use stats to suggest focused practice:
 - "Last 5 rounds: 2.1 putts/GIR → work on lag putting"
 - "FIR 50% with driver → consider 3-wood off tee"
+- Target the category where the most strokes are lost, not the most frustrating
 
-### 5. Update Handicap
-After posting rounds, recalculate handicap differential:
+### Update handicap
+After 3+ rounds posted with Course Rating and Slope, recalculate using the World Handicap System (WHS):
 ```
-Differential = (Score - Course Rating) x 113 / Slope
+Score Differential = (113 / Slope Rating) × (Adjusted Gross Score - Course Rating - PCC)
 ```
+Handicap Index = average of best 8 of last 20 differentials. See `references/rules.md` for full WHS details including 2024 revisions.
 
-## Golf Traps
+## Common pitfalls
 
 - Generic swing tips → reference their specific miss pattern
 - Ignoring conditions → factor wind, wet, altitude
