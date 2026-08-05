@@ -1,6 +1,6 @@
 # Setup - Macau Guide
 
-Read this when `~/Clawic/data/macau/` is missing or empty.
+Read this when `<state_root>` is missing or empty.
 Keep first-use setup short and practical.
 
 ## First Activation Priorities
@@ -22,24 +22,24 @@ Keep first-use setup short and practical.
 If approved by user context, initialize local memory:
 
 ```bash
-mkdir -p ~/macau
-touch ~/Clawic/data/macau/memory.md
-chmod 700 ~/macau
-chmod 600 ~/Clawic/data/macau/memory.md
+mkdir -p <state_root>
+touch <state_root>/memory.md
+chmod 700 <state_root>
+chmod 600 <state_root>/memory.md
 ```
 
-If `~/Clawic/data/macau/memory.md` is empty, initialize it from `memory-template.md`.
+If `<state_root>/memory.md` is empty, initialize it from `references/memory-template.md`.
 
 ## Returning Users
 
-- Read `~/Clawic/data/macau/memory.md` before responding.
+- Read `<state_root>/memory.md` before responding.
 - Reuse known budget, district, border, and purpose context.
 - Ask only what changed since last conversation.
 - Update memory with new dates, accommodation logic, and relocation signals.
 
 ## Guardrails
 
-- Do not promise immigration or border outcomes.
-- Do not collapse Macau into "just casinos" if the user is asking about culture, schooling, or residence.
-- Do not give travel-time estimates without checking port, bridge, or weather context.
-- Do not assume cards or HKD work everywhere just because they work in hotels and casinos.
+- Verify conditions through output gates before providing immigration or border guidance.
+- Provide cultural, schooling, and residence guidance beyond casino-only framing.
+- Check port, bridge, or weather context before giving travel-time estimates.
+- Use sensible defaults for payment assumptions; verify card and HKD acceptance for specific venues.
