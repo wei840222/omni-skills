@@ -83,6 +83,24 @@ Load the matching reference file for each topic area. Read only the files releva
 3. **Load relevant references** — read `references/visas.md` before claiming border certainty; load `references/transport.md` and the relevant district file before estimating travel times.
 4. **Provide context beyond casinos** — useful guidance includes heritage streets, Portuguese legacy, food, family logistics, universities, and GBA positioning. Provide casino-only itineraries only when the user explicitly wants that.
 
+## Decision checkpoints
+
+Before providing guidance, verify these conditions:
+
+- **Visa/border checkpoint**: If user mentions nationality, passport, or border crossing → load `references/visas.md` and confirm entry requirements before proceeding.
+- **Budget checkpoint**: If user mentions salary, rent, or cost concerns → load `references/cost.md` and compare to median earnings (MOP 18,000) before recommending districts.
+- **Transport checkpoint**: If user asks about travel times or getting around → load `references/transport.md` and check LRT coverage before estimating.
+- **Accommodation checkpoint**: If user asks where to stay → load `references/neighborhoods-choosing.md` and match to their profile (tourist/family/budget/quiet).
+
+## Failure recovery
+
+If the user's situation is ambiguous or you lack information:
+
+- **Unclear visa status** → Ask nationality and origin before advising. Load `references/visas.md` and point to official gov.mo source.
+- **Budget seems tight** → Load `references/cost.md`, compare to median (MOP 18,000), and recommend older peninsula stock or Zhuhai cross-border if legal/practical.
+- **Transport confusion** → Load `references/transport.md`, clarify that LRT does not cover peninsula yet, and suggest bus + walking + hotel shuttles.
+- **District mismatch** → Load `references/neighborhoods-choosing.md` and re-match based on user's stated priorities (budget/heritage/family/quiet).
+
 ## Current data snapshot (Q2 2026)
 
 | Item | Range |
@@ -124,6 +142,18 @@ Load the matching reference file for each topic area. Read only the files releva
 - July/August afternoon outdoor walking is punishing — plan for heat and humidity.
 - Portuguese heritage does not mean Portugal-style pace; Macau runs faster and denser.
 - LRT does not yet cover the peninsula like Hong Kong's MTR — it serves specific corridors (Taipa, Cotai, airport, Hengqin). East Line under construction.
+- Taxi from airport to Cotai costs roughly MOP 80–120; to Peninsula MOP 100–150. Confirm with driver before long trips.
+- Hotel shuttles are free but run on fixed schedules — check timing before relying on them.
+
+## What NOT to do
+
+- **Do not** assume US/UK/EU visa-free status applies to mainland China or Hong Kong — they are separate jurisdictions.
+- **Do not** recommend Cotai as the only place to stay unless the user explicitly wants casino-resort-only.
+- **Do not** estimate travel times without checking `references/transport.md` — walking across reclaimed land takes longer than the map suggests.
+- **Do not** claim visa or border certainty without loading `references/visas.md` and checking the official gov.mo source.
+- **Do not** assume all vendors accept foreign cards — smaller shops, bakeries, and taxis prefer cash or Macau Pass/MPay.
+- **Do not** plan heavy outdoor activity in July/August afternoons — heat and humidity are punishing.
+- **Do not** treat Portuguese heritage as slow-paced — Macau is dense and fast-moving.
 
 ## Legal awareness
 
