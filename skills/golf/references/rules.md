@@ -1,86 +1,115 @@
 # Rules Reference — Golf
 
+Based on the 2023 Rules of Golf (USGA/R&A), effective January 2023 with clarifications updated through October 2025.
+
 ## Common Situations
 
 ### Ball Lost or Out of Bounds
 - **Penalty:** Stroke and distance (replay from original spot + 1 stroke)
-- **Local rule option:** Drop in fairway near where ball crossed OB (2 strokes)
-- **Time limit:** 3 minutes to search
+- **Local rule option (alternative to stroke and distance):** Drop in fairway near where ball crossed OB line (2 strokes). This is an optional local rule — confirm the course is using it before advising.
+- **Time limit:** 3 minutes to search. If not found within 3 minutes, ball is lost.
 
-### Water Hazards (Penalty Areas)
+### Penalty Areas (replaced "Water Hazards" in 2019)
 
-**Yellow stakes (regular):**
+**Yellow stakes/markings:**
 1. Play as it lies (no penalty)
-2. Drop behind hazard on line to flag (1 stroke)
+2. Back-on-line relief: drop behind on line from hole through where ball last crossed edge (1 stroke)
 3. Replay from original spot (1 stroke)
 
-**Red stakes (lateral):**
+**Red stakes/markings (lateral):**
 All yellow options plus:
-4. Drop within 2 club-lengths of crossing point (1 stroke)
-5. Drop on opposite side equidistant from hole (1 stroke)
+4. Lateral relief: drop within 2 club-lengths of where ball last crossed edge, not nearer the hole (1 stroke)
+5. Opposite-side lateral relief: drop within 2 club-lengths on opposite side of penalty area, equidistant from hole (1 stroke)
+
+**Key difference from pre-2019 rules:** You may now ground your club and take practice swings in penalty areas (same as general area).
 
 ### Unplayable Lie
 Three options (1 stroke penalty each):
-1. Replay from previous spot
-2. Drop within 2 club-lengths, not closer to hole
-3. Drop back on line from hole through ball (any distance)
+1. Stroke and distance: replay from previous spot
+2. Lateral relief: drop within 2 club-lengths of where ball lies, not nearer the hole
+3. Back-on-line relief: drop back on line from hole through ball's position (any distance)
 
-**In bunker:** Same options, but must stay in bunker unless taking stroke-and-distance
+**In a bunker:** Options 2 and 3 require dropping in the bunker. Option 1 (stroke and distance) allows playing from outside the bunker. Since 2023, an additional option exists: for 2 penalty strokes, you may take back-on-line relief outside the bunker.
 
 ### Ball Movement
 
 | Situation | Ruling |
 |-----------|--------|
-| Wind moves ball | Play from new position, no penalty |
-| You cause ball to move | Replace, 1 stroke penalty |
-| Ball moves after address | Replace, no penalty (changed 2019) |
-| Ball moves on green after marking | Replace, no penalty |
+| Wind or water moves ball | Play from new position, no penalty |
+| Player, opponent, or outside influence causes ball to move | Replace, 1 stroke penalty (player) or no penalty (opponent/OI) |
+| Ball moves after address (not caused by player) | Replace, no penalty |
+| Ball moves on green after marking and lifting | Replace, no penalty |
+| Ball accidentally moved during search | Replace, no penalty (changed 2019) |
 
 ### Relief Without Penalty
 
 | Situation | Relief |
 |-----------|--------|
-| Ground under repair | Nearest point + 1 club-length |
-| Casual water | Nearest point + 1 club-length |
-| Immovable obstruction | Nearest point + 1 club-length |
-| Embedded ball (fairway) | Drop at spot, clean ball |
-| Wrong putting green | Nearest point off green |
+| Ground under repair (GUR) | Nearest point of complete relief + 1 club-length, not nearer the hole |
+| Casual water | Nearest point of complete relief + 1 club-length |
+| Immovable obstruction | Nearest point of complete relief + 1 club-length |
+| Embedded ball (own pitch-mark in general area) | Free drop at spot, clean ball |
+| Wrong putting green | Nearest point of complete relief off the green |
+| Dangerous animal condition | Nearest point of complete relief |
 
 ## Stroke Penalties Quick Reference
 
 | Situation | Penalty |
-|-----------|---------|
-| Ball in water | 1 stroke |
+|-----------|---------| 
+| Ball in penalty area | 1 stroke |
 | Lost ball / OB | 1 stroke (+ distance) |
-| Unplayable | 1 stroke |
-| Grounding club in bunker (removed 2019) | None |
-| Double hit (removed 2019) | None |
+| Unplayable | 1 stroke (2 for bunker exit option) |
+| Grounding club in bunker | None (removed 2019) |
+| Double hit | None (removed 2019) |
 | Ball moves after address | None (replace) |
-| Wrong ball | 2 strokes (match: loss of hole) |
+| Wrong ball | 2 strokes (match play: loss of hole) |
 | Playing from wrong place | 2 strokes |
+| Touched line of putt | None (removed 2019) |
+| Flagstick attended while ball in motion | None (removed 2019) |
 
-## Handicap Basics
+## Handicap — World Handicap System (WHS)
 
-### Calculating Differential
+The WHS (effective 2020, revised January 2024) is the global standard.
+
+### Score Differential
 ```
-Differential = (Adjusted Score - Course Rating) x 113 / Slope Rating
+Score Differential = (113 / Slope Rating) × (Adjusted Gross Score - Course Rating - PCC adjustment)
 ```
+- **PCC** (Playing Conditions Calculation): daily adjustment for abnormal conditions (wind, rain, course setup). Ranges from -1 to +3. Check with your handicap committee or posting system.
+- **Adjusted Gross Score**: apply net double bogey maximum per hole (par + 2 - handicap strokes received on that hole).
 
-### Index Calculation
-- Average of best 8 of last 20 differentials
-- Multiply by 0.96
+### Handicap Index
+- Average of the best 8 Score Differentials from the most recent 20 scores
+- Truncated to one decimal place (no rounding)
+- Updated overnight after posting
+
+### 2024 Revision Changes
+- **9-hole scores:** Now combined with the player's expected Score Differential (based on Handicap Index at time of round) for immediate use, rather than waiting to pair with another 9-hole score.
+- **Holes not played (10–17 holes played):** An 18-hole Score Differential is calculated by combining actual holes played with expected Score Differential for unplayed holes, replacing the old net-par method.
+- **Minimum course length:** Reduced to 1,500 yards (18 holes) / 750 yards (9 holes) for Course Rating eligibility.
 
 ### Course Handicap
 ```
-Course Handicap = Index x (Slope / 113) + (Rating - Par)
+Course Handicap = Handicap Index × (Slope Rating / 113) + (Course Rating - Par)
 ```
+The `(Course Rating - Par)` adjustment was added in 2020 to ensure players receive strokes relative to the course they are playing.
+
+### Playing Handicap
+```
+Playing Handicap = Course Handicap × Handicap Allowance
+```
+Handicap allowance varies by format:
+- Individual stroke play: 95% (recommended by USGA)
+- Individual match play: 100%
+- Four-ball better-ball: 90%
+- Team scramble (2 players): 35% of combined Course Handicaps
 
 ## Etiquette Essentials
 
-- Ready golf (play when ready, safely)
-- Repair ball marks on green
+- Ready golf: play when ready, safely
+- Repair ball marks on greens
 - Replace divots or fill with sand
-- Rake bunkers
-- Keep pace (4 hours or less)
-- Quiet during others' shots
+- Rake bunkers after playing from them
+- Maintain pace (under 4 hours for 18 holes)
+- Stay quiet during others' shots
 - Let faster groups play through
