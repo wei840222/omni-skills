@@ -82,22 +82,22 @@ Score Differential = (113 / Slope Rating) × (Adjusted Gross Score - Course Rati
 
 **For 20 or more scores:** Average of the best 8 Score Differentials from the most recent 20 scores, truncated to one decimal place (no rounding).
 
-**For fewer than 20 scores:** Use the following table to determine how many differentials to average, then subtract a adjustment factor:
+**For fewer than 20 scores:** Use the following table to determine how many differentials to average and any adjustment that applies:
 
 | Number of Scores | Differentials Used | Adjustment |
 |------------------|-------------------|------------|
-| 3 | 1 (lowest - 2.0) | -2.0 |
-| 4 | 1 (lowest - 2.0) | -2.0 |
-| 5 | 1 (lowest - 2.0) | -2.0 |
-| 6 | Average of best 2 | -1.0 |
-| 7-8 | Average of best 2 | -1.0 |
-| 9-11 | Average of best 3 | -1.0 |
-| 12-14 | Average of best 4 | -1.0 |
-| 15-16 | Average of best 5 | -1.0 |
-| 17-18 | Average of best 6 | -1.0 |
-| 19 | Average of best 7 | -1.0 |
+| 3 | Lowest 1 | -2.0 |
+| 4 | Lowest 1 | -1.0 |
+| 5 | Lowest 1 | 0 |
+| 6 | Average of lowest 2 | -1.0 |
+| 7-8 | Average of lowest 2 | 0 |
+| 9-11 | Average of lowest 3 | 0 |
+| 12-14 | Average of lowest 4 | 0 |
+| 15-16 | Average of lowest 5 | 0 |
+| 17-18 | Average of lowest 6 | 0 |
+| 19 | Average of lowest 7 | 0 |
 
-After calculating the average, round to the nearest tenth (not truncate).
+After calculating the average of the selected differentials and applying any adjustment, round to the nearest tenth (0.05 rounds up).
 
 Updated overnight after posting.
 
