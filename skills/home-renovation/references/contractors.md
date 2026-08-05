@@ -3,7 +3,7 @@
 ## Before Hiring: Questions to Ask
 
 ### Licensing & Insurance
-1. "Are you licensed in [state/city]?" — Verify online, don't just trust the answer
+1. "Are you licensed in [state/city]?" — Verify online with official state records.
 2. "Can I see your insurance certificate?" — Should have liability AND workers comp
 3. "Who pulls the permits?" — Ideally them, not you
 
@@ -19,7 +19,7 @@
 10. "What warranty do you offer on your work?"
 
 ### Money
-11. "What's your payment schedule?" — Red flag if >30% upfront
+11. "What's your payment schedule?" — Red flag if >10% upfront (CA limit) or >30% elsewhere
 12. "Is this quote fixed or can it change?"
 13. "What's included and what's extra?"
 14. "How do you handle unexpected issues?"
@@ -44,15 +44,18 @@ When you have multiple quotes, verify each includes:
 ## Red Flags
 
 **Run away if:**
-- No license or won't show it
+- No license or won't show it (verify online at your state's licensing board)
 - No insurance or expired
-- Demands >30% deposit
+- Demands >10% deposit (California limit) or >30% elsewhere
 - Cash only, no contract
 - Can start tomorrow (why are they free?)
 - Pressure tactics ("price only good today")
 - Bad reviews mentioning same issues repeatedly
 - Won't provide references
 - Won't pull permits ("saves you money")
+- Slow or vague responses before contract signing
+- No clear project manager or single point of contact
+- Subcontracts everything without oversight
 
 **Yellow flags (proceed with caution):**
 - Very new business (<2 years)
@@ -87,7 +90,7 @@ Before signing, verify the contract includes:
 | Substantial completion | 20-25% | 70-100% |
 | Punch list complete | 0-10% | 100% |
 
-**Golden rule:** Never get ahead of the work. If 50% is done, never have paid more than 50%.
+**Golden rule:** Keep payments aligned with completed work. If 50% is done, have paid no more than 50%.
 
 **Final payment:** Hold 5-10% until punch list complete and you're satisfied.
 
@@ -113,7 +116,7 @@ Every change should be:
 - Signed by both parties
 - Added to timeline
 
-Never approve verbal changes. "They said it wouldn't cost extra" isn't enforceable.
+Approve changes only with a signed written order. "They said it wouldn't cost extra" isn't enforceable.
 
 ## After Completion
 

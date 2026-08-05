@@ -37,7 +37,10 @@
 
 ## Bathroom Remodel
 
-**Typical cost:** $8K-$40K+
+**Typical cost (2026 Angi data):**
+- Full remodel: $25K-$80K+ (strip to studs, replace all fixtures)
+- Partial remodel: $10K-$25K (replace 1-2 main fixtures)
+- Minor remodel: $3K-$10K (refinish, paint, vanity swap)
 
 ### Phases
 1. Design and material selection (1-2 weeks)
@@ -49,14 +52,14 @@
 7. Vanity and fixtures (1-2 days)
 8. Final touches (1 day)
 
-### Cost Breakdown
+### Cost Breakdown (full remodel, typical mid-range)
 | Item | % of Budget | Typical Cost |
 |------|------------|--------------|
-| Tile (floor/walls) | 20-30% | $2K-$8K |
-| Vanity/sink | 10-15% | $1K-$3K |
-| Shower/tub | 15-25% | $2K-$6K |
-| Labor | 30-40% | $4K-$10K |
-| Fixtures | 5-10% | $500-$2K |
+| Tile (floor/walls) | 20-30% | $5K-$24K |
+| Vanity/sink | 10-15% | $2.5K-$12K |
+| Shower/tub | 15-25% | $3.75K-$20K |
+| Labor | 30-40% | $7.5K-$32K |
+| Fixtures | 5-10% | $1.25K-$8K |
 
 ### Common Traps
 - Skipping waterproofing (catastrophic later)
