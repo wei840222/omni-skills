@@ -78,7 +78,7 @@ Load the matching reference file for each topic area. Read only the files releva
 
 ## Core workflow
 
-1. **Clarify the user's Macau context** — old-town sightseeing, casino resort, family relocation, cross-border commute, or GBA business base. Needs differ sharply between Peninsula, Taipa, Cotai, and Coloane.
+1. **Clarify the user's Macau context** — ask whether they mean old-town sightseeing, casino resort time, family relocation, cross-border commuting, or a Greater Bay Area business base. If the user's intent is ambiguous, ask one targeted question before proceeding. Needs differ sharply between Peninsula, Taipa, Cotai, and Coloane.
 2. **Establish origin and border plan** — ask where the person is arriving from (Hong Kong, Zhuhai, mainland China, or direct flight). Most friction comes from entry rules, ferry/bridge timing, and day-trip assumptions.
 3. **Load relevant references** — read `references/visas.md` before claiming border certainty; load `references/transport.md` and the relevant district file before estimating travel times.
 4. **Provide context beyond casinos** — useful guidance includes heritage streets, Portuguese legacy, food, family logistics, universities, and GBA positioning. Provide casino-only itineraries only when the user explicitly wants that.
@@ -134,26 +134,19 @@ If the user's situation is ambiguous or you lack information:
 
 ## Gotchas
 
-- Macau and Hong Kong have separate entry rules and currency behavior.
-- Staying only in Cotai gives a distorted view — Macau has deep local character outside the resorts.
-- Casino resorts are not normal urban neighborhoods — plan shuttle/walking logistics.
-- Many local restaurants close between lunch and dinner (roughly 3pm–6pm).
-- Weekend and holiday queues at ports and the HZMB bridge can add hours.
-- July/August afternoon outdoor walking is punishing — plan for heat and humidity.
-- Portuguese heritage does not mean Portugal-style pace; Macau runs faster and denser.
-- LRT does not yet cover the peninsula like Hong Kong's MTR — it serves specific corridors (Taipa, Cotai, airport, Hengqin). East Line under construction.
-- Taxi from airport to Cotai costs roughly MOP 80–120; to Peninsula MOP 100–150. Confirm with driver before long trips.
-- Hotel shuttles are free but run on fixed schedules — check timing before relying on them.
-
-## What NOT to do
-
-- **Do not** assume US/UK/EU visa-free status applies to mainland China or Hong Kong — they are separate jurisdictions.
-- **Do not** recommend Cotai as the only place to stay unless the user explicitly wants casino-resort-only.
-- **Do not** estimate travel times without checking `references/transport.md` — walking across reclaimed land takes longer than the map suggests.
-- **Do not** claim visa or border certainty without loading `references/visas.md` and checking the official gov.mo source.
-- **Do not** assume all vendors accept foreign cards — smaller shops, bakeries, and taxis prefer cash or Macau Pass/MPay.
-- **Do not** plan heavy outdoor activity in July/August afternoons — heat and humidity are punishing.
-- **Do not** treat Portuguese heritage as slow-paced — Macau is dense and fast-moving.
+- Macau and Hong Kong operate as separate jurisdictions — verify entry rules and currency behavior for each independently.
+- Show the full Macau experience beyond Cotai — heritage streets, Portuguese legacy, local food, and family logistics matter as much as casinos.
+- Treat casino resorts as specialized destinations — plan shuttle and walking logistics explicitly rather than assuming urban proximity.
+- Schedule local restaurant visits outside the 3pm–6pm closure window — many close between lunch and dinner.
+- Budget extra time for weekend and holiday queues at ports and the HZMB bridge — they can add hours.
+- Plan outdoor activities for morning or evening in July/August — afternoon heat and humidity are punishing.
+- Match the pace to Macau's reality — Portuguese heritage coexists with a dense, fast-moving urban environment.
+- Use the LRT for specific corridors (Taipa, Cotai, airport, Hengqin) — it does not yet cover the peninsula like Hong Kong's MTR. East Line is under construction.
+- Confirm taxi fares before long trips — airport to Cotai runs MOP 80–120; to Peninsula MOP 100–150.
+- Check hotel shuttle schedules in advance — they are free but run on fixed timetables.
+- Verify visa and border requirements against the official gov.mo source before advising — entry rules differ by nationality and origin.
+- Recommend payment methods that match venue reality — smaller shops, bakeries, and taxis prefer cash or Macau Pass/MPay over foreign cards.
+- Estimate travel times using `references/transport.md` — walking across reclaimed land takes longer than the map suggests.
 
 ## Legal awareness
 
