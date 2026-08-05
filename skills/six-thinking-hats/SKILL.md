@@ -83,6 +83,54 @@ All participants think in the same direction at the same time. This replaces adv
 | Problem diagnosis | Blue → White → Black → Green → Yellow → Blue | Understand causes before solutions |
 | Conflict resolution | Blue → Red → White → Green → Yellow → Black → Blue | Surface emotions early, then find common ground |
 
+## Workflow
+
+### Step 1: Classify the Task
+
+Determine which sequence fits the user's context:
+
+- **Decision between options** → Standard sequence (Blue → White → Green → Yellow → Black → Red → Blue)
+- **Time pressure** → Quick sequence (Blue → White + Yellow + Black → Red → Blue)
+- **Creative block** → Creative sequence (Blue → Green → Yellow → Black → White → Blue)
+- **Root cause unknown** → Diagnosis sequence (Blue → White → Black → Green → Yellow → Blue)
+- **Team conflict** → Conflict sequence (Blue → Red → White → Green → Yellow → Black → Blue)
+
+If the user's context doesn't match any of these, default to the standard sequence.
+
+### Step 2: Execute the Sequence
+
+For each hat in the chosen sequence:
+
+1. Announce the hat switch: "Switching to [Color] hat"
+2. Generate content for that perspective only
+3. Complete the hat before moving to the next
+
+If the user provides information that belongs to a different hat than the current one, note it and return to it when that hat's turn comes.
+
+**Checkpoint: After Green Hat**
+
+Before moving to Yellow/Black evaluation, verify:
+- At least 3 alternatives generated
+- Each alternative is distinct (not variations of the same idea)
+- No judgment or criticism occurred during Green hat
+
+If these conditions aren't met, return to Green hat and generate more options.
+
+**Checkpoint: After Yellow and Black Hats**
+
+Before moving to Red hat, verify:
+- Yellow hat explored benefits for each option
+- Black hat identified risks for each option
+- Both hats gave equal attention to each option (not favoring one)
+
+If Black hat dominated, return to Yellow hat and explore benefits at the same depth.
+
+### Step 3: Close with Blue Hat
+
+Summarize findings across all hats. Provide a clear recommendation with next steps.
+
+If the analysis reveals missing information (White hat gaps), list what data is needed before the decision can be finalized.
+
 ## Output Format
 
 When analyzing a decision, structure output as:
@@ -139,6 +187,38 @@ When applying Six Thinking Hats as an AI agent:
 3. **Black hat as provocateur**: Use Black hat to challenge assumptions and surface hidden risks. Research shows critical-evaluator roles produce higher-quality ideas.
 4. **Red hat framing**: When expressing Red hat perspective, use "This feels [exciting/concerning/risky] because..." — the user wants the AI's assessment, not genuine emotion.
 5. **Blue hat synthesis**: Always close with Blue hat. Summarize findings across all hats and provide a clear recommendation with next steps.
+
+## Anti-Patterns
+
+| Anti-Pattern | Why It Fails | Correct Approach |
+|---|---|---|
+| Skipping the method and jumping to a recommendation | Defeats the purpose — value is in systematic exploration, not the conclusion | Follow the full sequence; let each hat contribute |
+| Blending hats within a single section | Perspectives contaminate each other; risks leak into brainstorming | Each hat gets its own dedicated section |
+| Rushing Red hat with lengthy analysis | Red hat captures intuition, not reasoning | Keep Red hat to 1-2 sentences per option |
+| Using standard sequence for time-pressure decisions | Wastes time on full analysis when a quick assessment suffices | Match sequence to context (see Choosing the Right Sequence) |
+| Ending without Blue hat closure | Analysis lacks actionable output | Always close with summary, recommendation, and next steps |
+| Generating only one Green hat option | Single-option "brainstorming" is not lateral thinking | Force at least 3 distinct alternatives |
+
+## Failure Modes and Recovery
+
+### If the user's request is unclear
+- Ask one clarifying question to determine the decision context
+- If they still can't articulate it, default to standard sequence and let the Blue hat framing reveal the actual problem
+
+### If a hat produces no content
+- White hat: State "No additional facts available" and move to next hat
+- Green hat: Generate at least one alternative, even if it seems obvious
+- Other hats: Skip with a note and return after completing the sequence
+
+### If the user interrupts with off-hat information
+- Acknowledge it: "That's a [Color] hat point, I'll capture it for that section"
+- Continue with the current hat
+- Return to the interrupted point when that hat's turn comes
+
+### If the analysis reveals the decision can't be made yet
+- Blue hat should explicitly state: "Decision deferred — need [specific data] before proceeding"
+- List the missing information as actionable next steps
+- Save the partial analysis to `<state_root>/memory.md` if state is configured
 
 ## Recovery Actions
 
