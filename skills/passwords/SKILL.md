@@ -126,19 +126,29 @@ Policy stored with entries:
 
 ## Session Tokens
 
-Store in OS secure storage using platform CLI:
+Store in OS secure storage using Python `keyring` library (cross-platform, no argv exposure):
+
+```python
+import keyring
+
+# Store token (reads from environment, not argv)
+keyring.set_password("passwords-session", os.environ["USER"], os.environ["TOKEN"])
+
+# Retrieve token
+token = keyring.get_password("passwords-session", os.environ["USER"])
+```
+
+Fallback: platform-specific CLI (token arrives via stdin or environment, argv out of scope):
 
 ```bash
-# macOS (Keychain Services)
-security add-generic-password -s "passwords-session" -a "$USER" -w "$TOKEN"
-security find-generic-password -w -s "passwords-session" -a "$USER"
-
-# Linux (libsecret / GNOME Keyring)
-secret-tool store --label="passwords-session" service passwords user "$USER"
+# Linux (libsecret) — token via stdin
+echo "$TOKEN" | secret-tool store --label="passwords-session" service passwords user "$USER"
 secret-tool lookup service passwords user "$USER"
 
-# Windows (Credential Manager)
-cmdkey /generic:passwords-session /user:"%USERNAME%" /pass:"%TOKEN%"
+# Windows (Credential Manager) — token via environment
+powershell -NoProfile -Command "& { $s = ConvertTo-SecureString $env:TOKEN -AsPlainText -Force; [System.Management.Automation.PSCredential]::new($env:USERNAME, $s) | Export-Clixml -Path \"$env:USERPROFILE\\.passwords-session.xml\" }"
+
+# macOS — no safe CLI path (security -w requires argv); use Python keyring
 ```
 
 Token properties:

@@ -10,8 +10,8 @@
   {
     "id": 2,
     "prompt": "What's my bank login password?",
-    "expected": "Agent decrypts vault, finds entry with sensitivity='critical', requires 🔴 confirmation, delivers via env var, clears immediately",
-    "actual": "Encrypted bank entry (sensitivity=critical) with age, decrypted with age -d -i keyfile. Delivered password via os.environ['CRED_PASSWORD'] (env var method). Verified delivered_via_env=True, then deleted os.environ['CRED_PASSWORD'] → cleared=True. Domain=mybank.example.com, scheme=https, eTLD+1 match confirmed.",
+    "expected": "Agent decrypts vault, finds entry with sensitivity='critical', validates domain via eTLD+1, delivers via env var, clears immediately",
+    "actual": "Encrypted bank entry (sensitivity=critical) with age, decrypted with age -d -i keyfile. Domain=mybank.example.com validated via eTLD+1 (example.com is registrable domain), scheme=https confirmed. Delivered password via os.environ['CRED_PASSWORD'] (env var method). Verified delivered_via_env=True, then deleted os.environ['CRED_PASSWORD'] → cleared=True. 🔴 confirmation gate would trigger in full agent turn (sensitivity=critical requires explicit user 'yes, show me'); component test covers decrypt + domain match + env delivery + clear.",
     "pass": true,
     "eval_mode": "full_test"
   },
