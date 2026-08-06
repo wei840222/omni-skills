@@ -32,18 +32,21 @@ All data encrypted at rest using `age` (ChaCha20-Poly1305).
 
 ## Key Derivation
 
-```
+```text
 password → Argon2id (m=64MiB, t=3, p=4) → master_key → HKDF-SHA256 → subkeys
 ```
 
 Subkeys: one for vault encryption, one for integrity verification, one for logs.
 
+**Note:** Parameters exceed OWASP Password Storage Cheat Sheet minimum (19 MiB, t=2, p=1) for improved security margin.
+
 ## Master Password Setup
 
 Requirements:
-- Minimum 16 characters
-- Check against known leaked password lists (k-anonymity API)
-- Entropy score via zxcvbn ≥ 3
+- Minimum 16 characters (exceeds NIST SP 800-63B Rev 4 minimum of 15 for single-factor)
+- Check against known leaked password lists via HIBP Pwned Passwords API:
+  `GET https://api.pwnedpasswords.com/range/{SHA1_prefix_5_chars}` (k-anonymity, no API key required)
+- Entropy score via zxcvbn (`npm: zxcvbn` v4.4.2 or `npm: @zxcvbn-ts/core` v3.x) ≥ 3
 
 ## Entry Structure
 
