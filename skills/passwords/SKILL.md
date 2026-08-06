@@ -150,6 +150,25 @@ Default policy (no configuration):
 
 Override: user types entry-specific confirmation phrase.
 
+## Critical Decision Checkpoints
+
+🔴 **BEFORE revealing any credential**: Verify user identity and confirm intent. If sensitivity is `critical` (financial, email), require explicit "yes, show me" confirmation.
+
+🔴 **BEFORE creating vault**: Confirm master password meets requirements (≥16 chars, not in HIBP, zxcvbn ≥ 3). If failed, reject and explain why.
+
+🔴 **BEFORE auto-filling**: Validate domain match via eTLD+1. If mismatch or non-HTTPS, abort and warn user.
+
+## Failure Recovery
+
+| Failure | Recovery |
+|---------|----------|
+| Master password forgotten | Use BIP39 recovery key (24 words) to decrypt vault backup |
+| Vault file corrupted | Check integrity hash; if mismatch, restore from backup or re-authenticate |
+| Session token expired | Re-authenticate with master password; new 15-min token issued |
+| 3 failed attempts | 1-minute delay enforced; 5 fails → 15 min; 10 fails → 1 hour |
+| State decryption fails | Treat as tampering; require full re-authentication |
+| HIBP API unreachable | Fall back to local zxcvbn score only; warn user breach check skipped |
+
 ## Gotchas
 
 - **LLM context leakage**: Credentials stored in agent context may appear in conversation history, logs, or error messages. Zero memory immediately after use and avoid echoing values.

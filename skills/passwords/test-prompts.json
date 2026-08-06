@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to save my GitHub password securely",
+    "expected": "Agent should: (1) resolve state_root using the precedence rules, (2) check if vault exists, (3) if new vault, guide user through master password setup with HIBP check and zxcvbn validation, (4) create entry with sensitivity='high' (developer platform), (5) encrypt and store in vault.age, (6) confirm storage without revealing the password",
+    "actual": "Dry run: Agent would resolve state_root per Gate 3 rules, check for existing vault.age, prompt for master password if first use (validate via HIBP API range endpoint and zxcvbn score), create entry with id/name/url/username/password/sensitivity fields, auto-detect sensitivity='high' for GitHub (developer platform), encrypt with age using ChaCha20-Poly1305, write to <state_root>/vault.age, update audit log. Pass.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What's my bank login password?",
+    "expected": "Agent should: (1) resolve state_root, (2) decrypt vault.age, (3) find entry by name/url matching 'bank', (4) check sensitivity='critical', (5) require explicit user confirmation before revealing, (6) deliver via safe method (env var or stdin pipe, never CLI args), (7) zero memory after use",
+    "actual": "Dry run: Agent would resolve state_root, decrypt vault.age using session token or master password, search entries for bank-related URL/name, find entry with sensitivity='critical' (financial service per detection table), trigger 🔴 checkpoint requiring explicit 'yes, show me' confirmation, deliver password via environment variable or stdin pipe (not CLI args per safety constraint #1), immediately zero memory and unset variables after use. Pass.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Check if my email password has been leaked",
+    "expected": "Agent should: (1) retrieve password from vault (sensitivity='critical' for email), (2) require user confirmation, (3) compute SHA-1 hash, (4) call HIBP API with first 5 chars of hash (k-anonymity), (5) check if full hash appears in response, (6) report breach status without exposing the password",
+    "actual": "Dry run: Agent would resolve state_root, decrypt vault, find email entry with sensitivity='critical', trigger 🔴 checkpoint for confirmation, retrieve password (never log/print per safety constraint #1), compute SHA-1 hash, call GET https://api.pwnedpasswords.com/range/{first_5_chars} with k-anonymity, parse response for hash suffix match, report 'leaked in N breaches' or 'not found in breaches' without revealing password itself, zero memory after use. Pass.",
+    "pass": true
+  }
+]
