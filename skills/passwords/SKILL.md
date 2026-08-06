@@ -148,7 +148,7 @@ secret-tool lookup service passwords user "$USER"
 # Windows (Credential Manager) — token via environment
 powershell -NoProfile -Command "& { $s = ConvertTo-SecureString $env:TOKEN -AsPlainText -Force; [System.Management.Automation.PSCredential]::new($env:USERNAME, $s) | Export-Clixml -Path \"$env:USERPROFILE\\.passwords-session.xml\" }"
 
-# macOS — no safe CLI path (security -w requires argv); use Python keyring
+# macOS — no stdin-safe CLI path; use Python keyring above
 ```
 
 Token properties:
