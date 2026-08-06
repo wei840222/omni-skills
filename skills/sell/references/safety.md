@@ -5,9 +5,20 @@
 - "I'll send my driver to pick up" + overpayment
 - Wants to pay outside the platform
 - Sends check/money order for MORE than asking
-- Requests personal info before making offer
+- Requests personal info (email, phone) before making offer
 - Excessive urgency + unusual payment method
 - "Is this still available?" followed by copy-paste scam message
+- QR code payment requests (fake payment confirmation)
+- "I'll buy it sight unseen at full price" on high-value items
+- Requests your email to "send payment" — phishing for account credentials
+
+## Current Scam Patterns (2025)
+
+- **Fake payment confirmation emails:** Scammer sends a spoofed email that looks like PayPal/eBay/Poshmark confirming payment. Always verify payment status by logging into the platform directly — never click links in emails.
+- **Overpayment + refund request:** Buyer sends a fake payment for more than asking, then asks for the difference back. The original payment never clears.
+- **Shipping label scam:** "I've prepaid shipping, just send the item." The label is fraudulent or charged to a stolen account; seller is liable.
+- **Google Voice / verification code scam:** Buyer asks you to "verify you're real" by reading them a code. That code is your Google Voice forwarding number — they hijack it for spam.
+- **Zelle/Venmo "business" payment trick:** Buyer claims they sent a business payment that requires you to "upgrade" your account or pay a fee. No such thing exists.
 
 ## Payment Safety
 
@@ -21,17 +32,17 @@
 | **Gift cards** | NEVER | Never |
 | **Crypto** | NEVER | Never |
 
-**PayPal caution:** Wait until funds are "available" AND marked "eligible for seller protection" before shipping.
+**PayPal caution:** Wait until funds are "available" AND marked "eligible for seller protection" before shipping. Fake confirmation emails are common.
 
 ## Meeting Strangers
 
 **Safe locations:**
-- Police station parking lots (many have designated spots)
+- Police station parking lots (many have designated exchange zones)
 - Bank lobbies (cameras, security)
 - Busy coffee shops during day
 - Inside malls
 
-**Never:**
+**Avoid:**
 - Your home (for first-time buyers)
 - Their home alone
 - Isolated locations
@@ -75,4 +86,4 @@ Walk away. This is a manipulation tactic.
 - Require signature for items >$100
 - Photo the item packed + shipping label
 - Save tracking until delivery confirmed
-- Don't ship to address different from payment address
+- Ship only to the address on the payment — do not accept address change requests after payment

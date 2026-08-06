@@ -13,44 +13,44 @@
 | Handmade | Etsy, local markets, Instagram |
 | Vehicles | FB Marketplace, Craigslist, Autotrader |
 
-**Default combo:** eBay + FB Marketplace (covers shipped + local buyers)
+**Default combo:** eBay (shipped) + FB Marketplace (local) covers most buyers.
 
 ---
 
 ## Platform Details
 
 ### eBay
-- **Fees:** ~13% final value
+- **Fees (2025):** 2.5%–15.3% final value fee by category + per-order fee ($0.30 for orders ≤$10, $0.40 for orders >$10). Fee increase up to 0.35% effective Feb 2025.
 - **Best for:** Electronics, collectibles, shipped items
-- **Auction vs Buy It Now:** Use auction for rare items with unknown value. Fixed price for everything else.
+- **Auction vs Buy It Now:** Use auction for rare items with unknown market value. Fixed price for everything else.
 - **Pro tip:** "Promoted listings" at 2-3% can significantly increase visibility
 
 ### Facebook Marketplace
-- **Fees:** Free for local, 5% for shipped
+- **Fees (2025):** Free for local pickup; 10% for shipped orders (minimum $0.80 per transaction)
 - **Best for:** Furniture, local sales, bulky items
 - **Culture:** Lowball offers are norm. Price 15-20% high.
 - **Pro tip:** Respond fast — algorithm rewards quick replies
 
 ### Vinted
-- **Fees:** ~5% + payment processing
+- **Fees (2025):** 0% seller commission. Buyers pay a Buyer Protection Fee ($0.70 + 5% for orders under $500) added at checkout. Fee currency and thresholds vary by region — check the local Vinted pricelist.
 - **Best for:** Clothing, shoes, accessories
 - **Culture:** Bundling encouraged, offers expected
-- **Shipping:** Built-in label system
+- **Shipping:** Built-in label system; seller sets item price and buyer covers shipping
 
 ### Poshmark
-- **Fees:** 20% (higher but more buyer trust)
+- **Fees (2025):** $2.95 flat fee on sales under $15; 20% commission on sales of $15 or more. No listing fees.
 - **Best for:** Higher-end fashion, brands
 - **Culture:** "Posh Parties" for visibility
-- **Sharing:** Must actively share listings
+- **Sharing:** Must actively share listings to maintain visibility
 
 ### Etsy
-- **Fees:** ~12% total (listing + transaction + payment)
+- **Fees (2025):** $0.20 listing fee + 6.5% transaction fee + 3% + $0.25 payment processing. Effective total ~10-12% depending on item price.
 - **Best for:** Handmade, vintage (20+ years), craft supplies
 - **SEO:** Titles and tags matter heavily
 - **Pro tip:** Free shipping > paid shipping in search ranking
 
 ### Reverb
-- **Fees:** 5% 
+- **Fees (2025):** 5% selling fee. No listing fees.
 - **Best for:** Musical instruments, audio gear
 - **Culture:** Knowledgeable buyers, detailed condition matters
 
@@ -60,7 +60,7 @@
 - **Safety:** Higher scam rate — meet in public, cash only
 
 ### Swappa
-- **Fees:** ~3%
+- **Fees (2025):** ~3% seller fee. No listing fees.
 - **Best for:** Phones, laptops, tech
 - **Trust:** Verified devices, strict listing rules
 
@@ -85,7 +85,7 @@
 
 - **Best days:** Thursday-Sunday
 - **Best time:** 7-9 PM local (after work browsing)
-- **Seasonal:** 
+- **Seasonal:**
   - Electronics: Nov-Dec, back-to-school
   - Outdoor gear: Spring
   - Fitness equipment: January

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have a used iPhone 13 Pro in good condition with minor scratches on the back. I want to sell it quickly. How should I price it and where should I list it?",
+    "expected": "Should guide user to check eBay SOLD listings for comps, suggest pricing strategy (floor + 15-20%), recommend eBay + FB Marketplace combo, provide listing formula with title format and photo requirements",
+    "actual": "Provided pricing comps table (Swappa avg $290-$438, eBay sold $280-$420 by storage), recommended Swappa + eBay + FB Marketplace, suggested floor pricing with 15-20% buffer, gave listing title format and photo checklist. Followed skill's Core Flow precisely.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Someone just messaged me on FB Marketplace offering $50 for my $200 headphones. They said they'll send a driver to pick it up and overpay. Should I accept?",
+    "expected": "Should immediately flag this as a scam (overpayment + driver pickup pattern), advise to not engage, reference safety.md red flags, explain why this is dangerous",
+    "actual": "Immediately flagged as textbook scam. Listed red flags: 'driver pickup' (#1 red flag in safety.md), overpayment promise, 25% offer (below 50% threshold). Advised to not engage, block, and report. Referenced safety.md patterns.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I made handmade leather wallets and want to sell them online. How do I figure out what to charge?",
+    "expected": "Should explain cost-plus pricing method (materials + hourly rate + margin), suggest appropriate platforms (Etsy for handmade), mention that perceived value matters, provide specific hourly rate ranges",
+    "actual": "Used cost-plus formula: Materials + (hourly rate × hours) + overhead + 20-50% profit margin. Provided concrete example: $15 materials + (2hrs × $25/hr) + $5 overhead + 30% margin = $84.50. Recommended Etsy for handmade, mentioned perceived value matters. Platform guide maps handmade to Etsy. Followed skill's Pricing Quick Start and references/pricing.md precisely.",
+    "pass": true
+  }
+]
