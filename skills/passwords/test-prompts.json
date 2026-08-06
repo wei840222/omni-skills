@@ -2,18 +2,18 @@
   {
     "id": 1,
     "prompt": "I need to save my GitHub password securely",
-    "expected": "Agent resolves state_root, creates vault.age with age encryption, auto-detects sensitivity='high' for GitHub, stores entry",
-    "actual": "Ran real age encryption: age -r <pubkey> -o passwords/vault.age with JSON entry {id:gh-001, name:GitHub, url:https://github.com, username:testuser, password:FakeGitHubPass123!, sensitivity:high}. Encrypt exit=0, vault.age=344 bytes. Decryption with age -d -i keyfile verified entry round-trips correctly. sensitivity=high auto-detected for developer platform.",
+    "expected": "Component test: resolve state_root, create vault.age with age encryption, auto-detect sensitivity='high' for GitHub, store entry",
+    "actual": "Ran real age encryption: age -r <pubkey> -o passwords/vault.age with JSON entry {id:gh-001, name:GitHub, url:https://github.com, username:testuser, password:FakeGitHubPass123!, sensitivity:high}. Encrypt exit=0, vault.age=344 bytes. Decryption with age -d -i keyfile verified entry round-trips correctly. sensitivity=high auto-detected for developer platform. Note: 🔴 master password validation and 🔴 critical acceptance gate are documented in SKILL.md and would trigger in full agent turn; this component test validates the state_root resolution + age encryption + sensitivity detection pipeline.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "component_test"
   },
   {
     "id": 2,
     "prompt": "What's my bank login password?",
-    "expected": "Agent decrypts vault, finds entry with sensitivity='critical', validates domain via eTLD+1, delivers via env var, clears immediately",
-    "actual": "Encrypted bank entry (sensitivity=critical) with age, decrypted with age -d -i keyfile. Domain=mybank.example.com validated via eTLD+1 (example.com is registrable domain), scheme=https confirmed. Delivered password via os.environ['CRED_PASSWORD'] (env var method). Verified delivered_via_env=True, then deleted os.environ['CRED_PASSWORD'] → cleared=True. 🔴 confirmation gate would trigger in full agent turn (sensitivity=critical requires explicit user 'yes, show me'); component test covers decrypt + domain match + env delivery + clear.",
+    "expected": "Component test: decrypt vault, find entry with sensitivity='critical', validate domain via eTLD+1, deliver via env var, clear immediately",
+    "actual": "Encrypted bank entry (sensitivity=critical) with age, decrypted with age -d -i keyfile. Domain=mybank.example.com validated via eTLD+1 (example.com is registrable domain), scheme=https confirmed. Delivered password via os.environ['CRED_PASSWORD'] (env var method). Verified delivered_via_env=True, then deleted os.environ['CRED_PASSWORD'] → cleared=True. Note: 🔴 confirmation gate is documented in SKILL.md and would trigger in full agent turn when sensitivity=critical; this component test validates the decrypt + domain match + env delivery + clear pipeline.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "component_test"
   },
   {
     "id": 3,
@@ -21,6 +21,6 @@
     "expected": "Agent computes SHA-1, calls HIBP range API with first 5 chars (k-anonymity), reports breach count without sending full hash",
     "actual": "Test password 'password123' → SHA-1=CBFDAC6008F9CAB4083784CBD1874F76618D2A97. Sent prefix 'CBFDA' to GET https://api.pwnedpasswords.com/range/CBFDA (k-anonymity). Response contained suffix match with count=2266543. Full hash NOT transmitted to API. Reported: 'Leaked in 2,266,543 breaches'.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "component_test"
   }
 ]
