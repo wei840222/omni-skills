@@ -25,6 +25,65 @@ Use the selected `<state_root>` for every state operation in this skill.
 
 Existing data under `~/.vault/` is a legacy location. Treat it only as a migration source; create new state in the resolved `<state_root>`.
 
+## Primary Workflow
+
+Execute in order. Each branch has done-when criteria.
+
+### Step 1: Resolve state
+
+1. Apply State location rules to determine `<state_root>`.
+2. Check `<state_root>/vault.age` exists.
+3. 🔴 If vault missing → go to **Step 2 (Setup)**. If vault present → go to **Step 3 (Authenticate)**.
+
+Done when: `<state_root>` is a fixed absolute path for this invocation.
+
+### Step 2: Setup (first-time vault creation)
+
+1. 🔴 Prompt user for master password.
+2. Validate: length ≥ 16, HIBP range API returns 0 matches, zxcvbn score ≥ 3.
+3. If any check fails → reject with specific reason; return to step 1.
+4. Generate 256-bit recovery key → display as BIP39 24-word list.
+5. User confirms by typing back 3 random words.
+6. Derive master_key via Argon2id → HKDF-SHA256 → subkeys.
+7. Create empty `<state_root>/vault.age` and `<state_root>/state.age`.
+8. Write initial policy + integrity hash.
+
+Done when: `vault.age` and `state.age` exist and decrypt successfully with master password.
+
+### Step 3: Authenticate / session
+
+1. Prompt master password → derive key → decrypt `vault.age`.
+2. If decryption fails → check `state.age` for attempt count → enforce progressive delay.
+3. Generate 256-bit session token → store in OS keychain.
+4. Set 15-minute expiry.
+
+Done when: vault decrypted, session token valid, expiry timer started.
+
+### Step 4: Operate
+
+Branch on user intent:
+
+**Store**: Collect name/url/username/password → auto-detect sensitivity → 🔴 if critical, warn and require explicit acceptance → encrypt entry → append to vault → update integrity hash.
+
+**Retrieve**: Match by name/url → 🔴 if sensitivity ≥ medium, require user confirmation → validate domain via eTLD+1 → deliver via env var or stdin → zero memory after use.
+
+**Rotate**: Retrieve current → generate new password (zxcvbn ≥ 3) → update entry → re-encrypt vault → deliver new credential via safe method.
+
+**Audit**: Decrypt audit log → summarize access counts, unusual times, frequency changes → display plaintext summary only.
+
+**Leak check**: Retrieve password → compute SHA-1 → `GET https://api.pwnedpasswords.com/range/{first_5_chars}` → check suffix match → report breach count → zero password from memory.
+
+Done when: operation complete, credential delivered via safe method (or summary displayed for audit), memory zeroed.
+
+### Step 5: Close session
+
+1. Zero all credential variables.
+2. Unset environment variables.
+3. Invalidate session token in OS keychain.
+4. Write audit log entry.
+
+Done when: no credential material remains in process memory or environment.
+
 ## Storage
 
 ```text
@@ -67,10 +126,20 @@ Policy stored with entries:
 
 ## Session Tokens
 
-Store in OS secure storage:
-- macOS: Keychain Services
-- Linux: libsecret / GNOME Keyring
-- Windows: Credential Manager
+Store in OS secure storage using platform CLI:
+
+```bash
+# macOS (Keychain Services)
+security add-generic-password -s "passwords-session" -a "$USER" -w "$TOKEN"
+security find-generic-password -w -s "passwords-session" -a "$USER"
+
+# Linux (libsecret / GNOME Keyring)
+secret-tool store --label="passwords-session" service passwords user "$USER"
+secret-tool lookup service passwords user "$USER"
+
+# Windows (Credential Manager)
+cmdkey /generic:passwords-session /user:"%USERNAME%" /pass:"%TOKEN%"
+```
 
 Token properties:
 - 256-bit random value
@@ -80,7 +149,8 @@ Token properties:
 
 ## Credential Delivery
 
-Safe methods (use environment variables or stdin for credential delivery):
+Deliver only via env var, stdin pipe, secure IPC, or file descriptor. Process argv is out of scope — command-line arguments are visible in `ps` output and shell history.
+
 1. Environment variables (unset immediately after use)
 2. Stdin pipe to target process
 3. Direct memory via secure IPC
@@ -122,7 +192,7 @@ Auto-suggest based on URL/name patterns:
 | Social platforms | medium |
 | Forums, newsletters | low |
 
-Critical items: suggest using a dedicated password manager; require explicit acceptance to store locally.
+Critical items: use a dedicated password manager (1Password, Bitwarden, KeePass). Store locally only after explicit user override.
 
 ## Domain Matching
 
@@ -152,11 +222,11 @@ Override: user types entry-specific confirmation phrase.
 
 ## Critical Decision Checkpoints
 
-🔴 **BEFORE revealing any credential**: Verify user identity and confirm intent. If sensitivity is `critical` (financial, email), require explicit "yes, show me" confirmation.
+🔴 **BEFORE revealing any credential**: Verify user identity and confirm intent. If sensitivity is `critical` (financial, email), require explicit "yes, show me" confirmation. **Must refuse** if user cannot provide confirmation phrase.
 
-🔴 **BEFORE creating vault**: Confirm master password meets requirements (≥16 chars, not in HIBP, zxcvbn ≥ 3). If failed, reject and explain why.
+🔴 **BEFORE creating vault**: Confirm master password meets requirements (≥16 chars, not in HIBP, zxcvbn ≥ 3). If failed, **must reject** and explain why. **Must not proceed** with weak passwords.
 
-🔴 **BEFORE auto-filling**: Validate domain match via eTLD+1. If mismatch or non-HTTPS, abort and warn user.
+🔴 **BEFORE auto-filling**: Validate domain match via eTLD+1. If mismatch or non-HTTPS, **must abort** and warn user. **Must not autofill** on untrusted domains.
 
 ## Failure Recovery
 
