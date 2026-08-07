@@ -11,8 +11,9 @@ Use this precedence order:
 1. The user's current instructions.
 2. The current official Agent Skills specification and official validator behavior.
 3. `docs/refactor-guide.md`, the repository's canonical quality contract and refactor standard.
-4. Target skill files and verified runtime requirements.
-5. Existing repository conventions, only when they do not conflict with the sources above.
+4. `docs/review-guide.md`, the repository's canonical Skill Review procedure, three-lens quality bar, and PR review comment templates.
+5. Target skill files and verified runtime requirements.
+6. Existing repository conventions, only when they do not conflict with the sources above.
 
 ## Global Safety and Data Boundaries
 
@@ -77,37 +78,46 @@ Complete the refactor through the following phases **in strict sequential order*
 
 ### 1. Scope & Objectives
 
-Review an open Gitea Pull Request against the complete Agent Skills specification and Gates 1 through 9 defined in `docs/refactor-guide.md`.
+Review an open Gitea Pull Request against:
+
+- Agent Skills specification + official validator
+- Gates 1–9 in `docs/refactor-guide.md`
+- Three mandatory quality lenses: `code-review-and-quality` + `writing-great-skills` + `darwin-skill`
+
+Default repository: `wei840222/clawic-skills` on Gitea. Target base branch: `local`.
 
 ### 2. Review Procedure
 
-1. **Step 1: PR Checkout & Commit History Audit**
-   - Fetch and checkout the target PR branch.
-   - Inspect the commit history (`git log -n 10 --oneline`): verify exactly 5 phase commits exist in prescribed order (`refactor` → `research` → `optimize` → `darwin` → `freud`).
-   - Inspect the changed file list (`git diff --stat local...HEAD`): ensure no unrelated files or unintended modifications are included.
+> [!IMPORTANT]
+> Detailed reviewer steps, severity rubric, re-review flow, Gitea commands, and PR review comment templates are canonicalized in `docs/review-guide.md`. Follow that document for all Skill Review work.
 
-2. **Step 2: Automated Validation & Integrity Check**
-   - Run official validator: `uvx --from skills-ref agentskills validate skills/<slug>` (must exit 0 with no errors).
-   - Run `git diff --check` to verify zero trailing whitespaces or formatting issues.
-   - Verify all relative paths and state references resolve correctly.
-   - Scan for hardcoded `clawic.com` or secrets.
+1. **Step 0–1: Identity, PR fetch, checkout**
+   - Confirm reviewer identity (`tea whoami`, usually `ani6439walc`).
+   - Fetch/checkout the PR head and record PR number, head SHA, and target skill slug(s).
 
-3. **Step 3: Quality Gates Audit (Gates 1–9 Verification)**
-   - Cross-check PR description and code against Gates 1–9 in `docs/refactor-guide.md`:
-     - **Gates 1–5**: Frontmatter valid, relative paths resolved, `<state_root>` consistent, `metadata.related-skills` JSON valid and existing in repository, zero `clawic.com`.
-     - **Gate 6**: Check Research Sources section in PR; verify research URLs are real, relevant, and properly grouped.
-     - **Gate 7**: Verify `SKILL.md` uses progressive disclosure and description is imperative/intent-focused.
-     - **Gate 8**: Verify `test-prompts.json` contains English prompts with real executed `actual` outputs and `pass: true`. Verify Darwin score >= 80.
-     - **Gate 9**: Verify prohibitions are reframed positively and no disruptive stop markers exist.
+2. **Step 2: History & diff audit**
+   - Inspect phase commits (`refactor` → `research` → `optimize` → `darwin` → `freud`) and any later `fix(<slug>)` review-response commits.
+   - Read `git diff --stat` and the full diff; reject unrelated file scope.
 
-4. **Step 4: Live Smoke Test & Test Prompt Verification**
-   - Safely smoke-test any included scripts or workflows where feasible.
-   - Verify that test prompt outputs in `test-prompts.json` are reproducible.
+3. **Step 3: Automated validation**
+   - `uvx --from skills-ref agentskills validate skills/<slug>` must exit 0.
+   - `git diff --check`, path resolution, secret scan, and `clawic.com` scan.
 
-5. **Step 5: Gitea Review Submission**
-   - Use the Gitea skill to submit a structured review on the Pull Request:
-     - **Approve**: If all 5 commits, validator, and Gates 1–9 pass completely. Summarize verified gates.
-     - **Request Changes / Comment**: If any gate fails, commits are disordered, or sources/prompts are missing. Provide concrete, actionable findings specifying which Gate failed and how to fix it.
+4. **Step 4: Gates 1–9 verification**
+   - Audit against `docs/refactor-guide.md` and classify each gap as Required / Optional / Nit.
+
+5. **Step 5: Three-lens quality review (mandatory)**
+   - Load and apply `code-review-and-quality`, `writing-great-skills`, and `darwin-skill`.
+   - Block on wrong commands, unsafe defaults, broken recovery paths, and mixed security controls.
+   - Do not treat a claimed Darwin number as sufficient evidence by itself.
+
+6. **Step 6: Gitea verdict**
+   - **Request changes**: post a structured reject review immediately with concrete fixes.
+   - **Approve**: post an approve review; merge when authorized (default squash onto `local`).
+   - Use the comment templates in `docs/review-guide.md`.
+
+7. **Step 7: Re-review**
+   - On author update, verify each prior Required item with fresh evidence, re-run validator, then approve+merge or reject again.
 
 ---
 
@@ -115,5 +125,5 @@ Review an open Gitea Pull Request against the complete Agent Skills specificatio
 
 1. Apply existing gates without inventing hidden requirements.
 2. Record any newly discovered anti-pattern with concrete evidence.
-3. Propose a narrowly scoped update to `docs/refactor-guide.md` for reusable rules.
+3. Propose a narrowly scoped update to `docs/refactor-guide.md` for reusable author-side rules, or `docs/review-guide.md` for reusable reviewer-side rules and templates.
 4. Keep this `AGENTS.md` focused on stable operating principles and workflow dispatching.
