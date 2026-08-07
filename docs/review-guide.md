@@ -10,6 +10,33 @@ This document defines the canonical **Skill Review** procedure for open Gitea pu
 - Approve only when required gates and required findings are clean; then merge when the task authorizes merge.
 - Prefer actionable fixes over style preferences. Approve when the change clearly improves overall skill health, even if optional nits remain.
 
+### Oracle-style review craft
+
+Borrow the dense staff-engineer consultation style used by Oracle-class advisors. Apply it to PR reviews without turning the reviewer into a pure advisor that never acts.
+
+1. **One clear path**
+   - Each Required finding offers exactly one recommended fix.
+   - Mention an alternative only when trade-offs differ substantially; state when the alternative becomes worth it.
+   - Do not dump option menus that force the author to re-decide the review.
+2. **Actionable, not advisory mush**
+   - Every Required item includes Current → Evidence → Fix.
+   - The Fix must be concrete enough to implement or verify immediately.
+   - Prefer verified replacement commands, acceptance criteria, or exact wording over “consider improving…”.
+3. **Bottom line first, no filler**
+   - Open with verdict + 2–3 sentence bottom line.
+   - No praise-first openings, no “Great work but…”, no service filler.
+   - Match depth to complexity: full refactor reviews can be thorough; re-review deltas stay short.
+4. **Evidence anchors**
+   - Tie claims to `skills/<slug>/...`, section names, validator output, commit SHAs, or quoted wrong instructions.
+   - Never invent paths, syntax, scores, or external behavior.
+   - If confidence is not high, say so and avoid promoting a soft concern into Required.
+5. **Signal investment and stop at working-well**
+   - Tag findings with Effort: `Quick` (<1h), `Short` (1–4h), `Medium` (1–2d), `Large` (3d+).
+   - Tag uncertain judgment with Confidence: `high` / `medium` / `low`.
+   - Prefer existing refactored-skill patterns over inventing new metadata shapes or toolchains.
+   - Cap non-blocking noise: Optional ≤3, Nit ≤3 unless the user asks for exhaustive notes.
+   - “Working well and safer than base” beats theoretical perfection.
+
 ## Required review skills
 
 Always load and apply these three skills before issuing a verdict:
@@ -34,7 +61,7 @@ Use this precedence order:
 1. Current user instructions for the review task (for example: request changes must comment; approve must merge).
 2. Official Agent Skills specification + reference validator behavior.
 3. `docs/refactor-guide.md` Gates 1–9 and commit-phase contract.
-4. This guide’s three-lens review and comment templates.
+4. This guide’s three-lens review, Oracle-style craft rules, and `docs/pull-request-review-template.md`.
 5. Target skill package files and verified runtime/tool evidence.
 6. Existing repository conventions, only when they do not conflict with the sources above.
 
@@ -207,6 +234,15 @@ Choose exactly one primary outcome:
 | **Request changes** | Any Required finding, missing phase evidence when required, or broken validator | `tea pulls reject <n> "<body>"` |
 | **Comment only** | Need clarification without blocking, or partial note while waiting on author | `tea comments add <n> --description "<body>"` |
 
+Before posting, run this self-check:
+
+- [ ] Bottom line is first and filler-free
+- [ ] Each Required item has one clear fix path plus evidence anchor
+- [ ] Effort (and Confidence when not high) are tagged
+- [ ] No Optional/Nit item was silently upgraded to Required
+- [ ] Review stays inside PR scope; extras are capped
+- [ ] Body uses `docs/pull-request-review-template.md`
+
 Default authorization for this repository’s review tasks:
 
 - Request changes → post the reject review immediately.
@@ -229,8 +265,9 @@ When the author says the review findings are fixed:
 1. Fetch the updated head commit.
 2. Inspect only the delta since the previous review commit first, then spot-check full package integrity.
 3. Re-run validator.
-4. Confirm each previous Required item is actually fixed (not merely mentioned).
-5. Approve + merge if clean; otherwise reject again with a short delta-focused review.
+4. Confirm each previous Required item is actually fixed (not merely mentioned), with one-line evidence per item.
+5. Do not rebuild a full first-pass essay. Keep the re-review delta-focused unless a new systemic defect appears.
+6. Approve + merge if clean; otherwise reject again with Template D.
 
 ---
 
@@ -260,6 +297,20 @@ When the author says the review findings are fixed:
 - Darwin score numerology without structural failure
 - Pure prose style preferences
 - Empty `actual` / `pass: false` harness residue when house style still treats Darwin as in-progress **and** the skill body itself is structurally sound — prefer Optional unless the PR claims Gate 8 complete
+- Theoretical perfection beyond “working well and safer than base”
+
+### Finding shape (Required)
+
+Use this shape for every Required item:
+
+```text
+<title> (`<path or section>`)
+- Current: <what is wrong now>
+- Evidence: <file/section/command/validator output>
+- Fix: <single recommended repair or acceptance criteria>
+- Effort: Quick|Short|Medium|Large
+- Confidence: high|medium|low   # required when not high
+```
 
 ---
 

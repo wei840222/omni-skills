@@ -11,7 +11,7 @@ Use this precedence order:
 1. The user's current instructions.
 2. The current official Agent Skills specification and official validator behavior.
 3. `docs/refactor-guide.md`, the repository's canonical quality contract and refactor standard.
-4. `docs/review-guide.md`, the repository's canonical Skill Review procedure and three-lens quality bar; PR review comment bodies use `docs/pull-request-review-template.md`.
+4. `docs/review-guide.md`, the repository's canonical Skill Review procedure, three-lens quality bar, and Oracle-style craft rules; PR review comment bodies use `docs/pull-request-review-template.md`.
 5. Target skill files and verified runtime requirements.
 6. Existing repository conventions, only when they do not conflict with the sources above.
 
@@ -89,7 +89,7 @@ Default repository: `wei840222/clawic-skills` on Gitea. Target base branch: `loc
 ### 2. Review Procedure
 
 > [!IMPORTANT]
-> Detailed reviewer steps, severity rubric, re-review flow, and Gitea commands are canonicalized in `docs/review-guide.md`. PR review comment bodies use `docs/pull-request-review-template.md`. Follow those documents for all Skill Review work.
+> Detailed reviewer steps, severity rubric, Oracle-style craft rules, re-review flow, and Gitea commands are canonicalized in `docs/review-guide.md`. PR review comment bodies use `docs/pull-request-review-template.md`. Follow those documents for all Skill Review work.
 
 1. **Step 0–1: Identity, PR fetch, checkout**
    - Confirm reviewer identity (`tea whoami`, usually `ani6439walc`).
@@ -114,6 +114,7 @@ Default repository: `wei840222/clawic-skills` on Gitea. Target base branch: `loc
 6. **Step 6: Gitea verdict**
    - **Request changes**: post a structured reject review immediately with concrete fixes.
    - **Approve**: post an approve review; merge when authorized (default squash onto `local`).
+   - Use Oracle-style craft: bottom line first, one clear fix path, evidence anchors, Effort/Confidence tags.
    - Use the comment templates in `docs/pull-request-review-template.md`.
 
 7. **Step 7: Re-review**
