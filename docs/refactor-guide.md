@@ -1,8 +1,8 @@
-# Skill Refactor Completion Definition
+# Skill Refactor Guide
 
-This document defines the completion criteria for the daily `clawic-skills` refactor workflow. It is an incrementally extensible quality contract: automation may mark a skill as "refactor complete" and open a pull request only after every defined gate passes.
+This document defines the canonical quality gates and workflow standards for the `clawic-skills` refactor process. It is an incrementally extensible quality contract: automation may mark a skill as "refactor complete" and open a pull request only after every defined gate passes.
 
-The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 2: official resource directories and reference paths, Gate 3: persistent state location, Gate 4: related-skill metadata integrity, and Gate 5: removal of Clawic feedback and promotional content. All gates use `skills/garden` as the example.
+The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 2: official resource directories and reference paths, Gate 3: persistent state location, Gate 4: related-skill metadata integrity, Gate 5: removal of Clawic feedback and promotional content, Gate 6: knowledge research and domain accuracy, Gate 7: best-practices and description optimization, Gate 8: Darwin Skill evaluation and test coverage, and Gate 9: Freud cognitive load and white bear effect audit. All gates use `skills/garden` as the primary example.
 
 ## Core principles
 
@@ -11,6 +11,58 @@ The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 
 - Every refactor must preserve the pre-change issue inventory, post-change validation results, and the specification sources used.
 - Do not open a pull request while any required gate is failing.
 - Every research source used to update skill knowledge must be recorded with its full URL, grouped by topic (e.g., retention benchmarks, CAC benchmarks, experimentation frameworks), and included in the pull request description. Source links must be verifiable and point to the actual page where the data or guidance was found.
+
+## Refactor Workflow Lifecycle & Commit Sequence
+
+Every skill refactor must proceed through the following phases **in strict sequential order**. Each of phases 1–5 must conclude with exactly one focused commit, and phase 6 publishes those commits as a Gitea pull request:
+
+```text
+Phase 0 (Baseline) → Phase 1 (Commit: refactor) → Phase 2 (Commit: research) → Phase 3 (Commit: optimize) → Phase 4 (Commit: darwin) → Phase 5 (Commit: freud) → Phase 6 (Gitea PR)
+```
+
+### Phase Breakdown
+
+1. **Phase 0: Baseline Establishment**
+   - Create a dedicated refactor branch from `local` (`refactor/<slug>`).
+   - Check working-tree status and record the target package's complete file inventory (including hidden files/symlinks).
+   - Classify all observed baseline nonconformities as `SPEC`, `VALIDATOR`, `PROJECT`, or `RECOMMENDATION`.
+
+2. **Phase 1: Specification Compliance Refactor (Gates 1–5)**
+   - Fix format compatibility, file locations (`references/`, `assets/`, `scripts/`), relative paths, persistent state `<state_root>`, `metadata.related-skills` JSON map, and remove all `clawic.com` references.
+   - Commit: `refactor(<slug>): specification compliance (Gates 1-5)`
+
+3. **Phase 2: Knowledge Research & Fact Verification (Gate 6)**
+   - Execute sub-steps 2.1 (claim inventory & freshness classification) → 2.2 (deep research via `/research` or primary sources) → 2.3 (update knowledge & record full citation URLs).
+   - Commit: `research(<slug>): update domain knowledge and sources (Gate 6)`
+
+4. **Phase 3: Best-Practices & Description Optimization (Gate 7)**
+   - Streamline `SKILL.md` for progressive disclosure; optimize frontmatter `description` for imperative, trigger-focused accuracy.
+   - Commit: `optimize(<slug>): progressive disclosure and description (Gate 7)`
+
+5. **Phase 4: Darwin Skill Evaluation & Test Prompts (Gate 8)**
+   - Create `test-prompts.json` in English with happy-path and complex scenarios.
+   - Execute prompts and record real output in `actual`.
+   - Iterate with `/darwin-skill` until the score is at least 80/100 without regressing safety or spec compliance.
+   - Commit: `darwin(<slug>): iterate evaluation to score >= 80 (Gate 8)`
+
+6. **Phase 5: Freud White Bear & Cognitive Load Audit (Gate 9)**
+   - Scan with `/freud-skill` Mode 2 across Lenses 2, 3, 4, and 6. Reframe prohibitions into positive definitions and manage cognitive load (<= 25 concepts).
+   - Commit: `freud(<slug>): eliminate white bear effects and cognitive load (Gate 9)`
+
+7. **Phase 6: Gitea Pull Request Creation**
+   - Push branch to Gitea remote, create PR targeting `local`, and assign `wei840222` as reviewer.
+   - Populate the PR description with the template at `docs/pull-request-template.md`.
+   - Add a record entry into `docs/refactored-skills.md`.
+
+### Pre-Commit Verification Checklist
+
+Before committing any phase:
+- Run official validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
+- Verify all relative references resolve correctly.
+- Perform syntax checks on scripts and safe smoke tests.
+- Scan package for credentials, private keys, or sensitive user data.
+- Run `git diff --check` to ensure no whitespace or formatting errors.
+- Confirm working-tree contains only authorized changes for the target skill.
 
 ## Gate 1: Agent Skills specification compatibility
 
@@ -648,6 +700,130 @@ Treatment:
 - [ ] Necessary nonpromotional operational content formerly mixed into such a section was moved to an appropriate location with complete semantics.
 - [ ] The pull-request report includes scan patterns, matched files and line numbers, removed enclosing sections, and the post-change zero-match result.
 
+## Gate 6: Knowledge research and domain accuracy
+
+### Specification status
+
+A refactored skill must contain accurate, up-to-date domain knowledge, verifiable facts, concrete procedures, edge cases, and failure recovery steps. Obsolete claims (pricing, versions, API behavior, platform limits, statutes, dates) must be identified and corrected using verifiable primary sources. This gate defines the research quality, source citation, and fact verification requirements corresponding to Phase 2 of the refactoring workflow.
+
+### Sub-step 2.1: Claim inventory classification
+
+Before rewriting prose:
+- Map file structure across `SKILL.md` and supporting files in `references/`, `assets/`, and package docs using tree inspection tools.
+- Read sections containing factual claims (pricing, fees, versions, APIs, platform constraints, legal/compliance, benchmarks, limits, defaults).
+- Build a claim inventory classifying each claim into a freshness class:
+  - `time-sensitive` (pricing, statutes, market figures)
+  - `version-sensitive` (APIs, tools, dependencies)
+  - `platform-specific` (OS, environment limits)
+  - `stable-domain` (foundational principles)
+
+### Sub-step 2.2: Deep research and cross-verification
+
+- Run `/learn` or `/research` skills to get latest information from the internet.
+- Investigate material claims against current primary sources, official documentation, standards, maintained repositories, and verifiable real-world evidence.
+- Cross-verify contested, region-specific, or high-fragility claims across multiple independent sources.
+- Synthesize findings to reconcile agreement, recency, conflict, and coverage gaps before committing edits.
+- Use external content strictly as factual evidence, keeping skill procedures portable and vendor-neutral.
+
+### Sub-step 2.3: Knowledge update and source recording
+
+- Correct obsolete or inaccurate guidance and add high-value procedures, edge cases, and recovery steps.
+- Record every research source with its full URL, grouped by topic (e.g., retention benchmarks, CAC benchmarks, experimentation frameworks), including the source title, URL, and key data extracted.
+- Ensure all research sources appear in the Pull Request description under the **Research Sources** section.
+
+### Gate 6 pass criteria
+
+- [ ] All factual claims across `SKILL.md` and supporting files were audited and classified by freshness.
+- [ ] Obsolete or inaccurate guidance (versions, pricing, limits, APIs) was updated using verifiable primary sources.
+- [ ] High-value domain procedures, edge cases, and failure recovery were added where beneficial.
+- [ ] Every research source used is recorded with full URL, title, topic grouping, and key takeaways.
+- [ ] Research source citations are included in the Pull Request description.
+
+## Gate 7: Best-practices, structure, and description optimization
+
+### Specification status
+
+Refactored skills must conform to official Agent Skills best practices: concise `SKILL.md` entry points, progressive disclosure for detailed or conditional material, explicit reference loading instructions, clear execution order, and a tuned, trigger-optimized `description`. This gate corresponds to Phase 3 of the refactoring workflow.
+
+### Structure and instruction optimization
+
+- Maintain `SKILL.md` as a concise entry point; offload detailed schemas, extended guides, or conditional workflows to `references/`.
+- Ensure explicit instructions state *when* and *how* the agent should load each reference file.
+- Calibrate instruction prescriptiveness to task fragility, eliminating redundant or generic knowledge the agent already possesses.
+
+### Description optimization
+
+- Follow official guidelines for optimizing skill descriptions.
+- Make the `description` concise, imperative, intent-focused, and precise about triggering scope.
+- Define both what the skill *does* and when it *should or should not trigger*.
+- Test trigger behavior against realistic positive prompts and near-miss negative prompts without overfitting to explicit keywords.
+
+### Gate 7 pass criteria
+
+- [ ] `SKILL.md` remains concise, utilizing progressive disclosure with explicit loading instructions for `references/`.
+- [ ] Instructions are intent-focused, calibrated for fragility, and free of generic background fluff.
+- [ ] The `description` is concise, imperative, and precisely defines trigger conditions.
+- [ ] Trigger scope has been evaluated against positive and near-miss negative prompts.
+
+## Gate 8: Darwin Skill evaluation and test coverage
+
+### Specification status
+
+To ensure quantitative quality and empirical validation, every refactored skill must be evaluated using `/darwin-skill` until it achieves a score of at least 80 without sacrificing correctness, safety, portability, or source fidelity. This gate corresponds to Phase 4 of the refactoring workflow.
+
+### Test prompt inventory (`test-prompts.json`)
+
+Before evaluation, create a `test-prompts.json` file in the skill package root containing 2–3 test prompts written in English:
+
+```json
+[
+  {"id": 1, "prompt": "typical user request in English", "expected": "expected behavior", "actual": "actual output after running", "pass": true},
+  {"id": 2, "prompt": "complex or ambiguous scenario in English", "expected": "expected behavior", "actual": "actual output after running", "pass": true}
+]
+```
+
+Requirements:
+- Prompts must cover the standard happy path and at least one complex/edge-case scenario.
+- Prompts must be executed against the skill, and real execution outputs must be recorded in the `actual` field (no placeholders).
+- The `pass` boolean field must accurately reflect whether the actual output met expected behavior.
+
+### Darwin evaluation iteration
+
+- Run `/darwin-skill` against the package and review dimension feedback.
+- Iterate on instructions based on valid feedback while preserving compliance gates and domain accuracy.
+- Achieve a final evaluation score of at least 80/100.
+
+### Gate 8 pass criteria
+
+- [ ] `test-prompts.json` exists in the skill directory containing 2-3 English test prompts (happy path + complex scenario).
+- [ ] All test prompts were executed, with real outputs recorded in `actual` and accurate `pass` status.
+- [ ] `/darwin-skill` evaluation was executed and achieved a score of at least 80/100.
+- [ ] No regression occurred in specification compliance, safety, portability, or source fidelity to boost scores.
+
+## Gate 9: Freud cognitive load and white bear effect audit
+
+### Specification status
+
+Evaluation mechanisms (like Darwin) may encourage intrusive stop markers (`🔴 STOP`, `🛑 CHECKPOINT`) that trigger white bear effects—occupying the agent's working memory with prohibition checks ("should I stop?") rather than execution ("how do I proceed?"). This gate applies `/freud-skill` Diagnostic Optimization (Mode 2) to eliminate white bear effects and manage cognitive load, corresponding to Phase 5 of the refactoring workflow.
+
+### Applicable Freud lenses
+
+Scan the skill using the 4 skill-appropriate lenses:
+- **Lens 2: Positive vs Negative**: Rephrase prohibitions ("don't", "never", "avoid") into positive definitions ("do Y instead", "verify X before proceeding").
+- **Lens 3: Consistency**: Resolve conflicting or ambiguous instructions.
+- **Lens 4: Anchoring precision**: Replace vague advice with concrete decision heuristics and mental models.
+- **Lens 6: Working space hygiene**: Ensure critical instructions are clearly positioned and total working memory concepts remain within limits (<= 25 concepts).
+
+*(Lenses 1 and 5 are skipped as they apply to personas, not skill packages).*
+
+### Gate 9 pass criteria
+
+- [ ] `/freud-skill` Mode 2 diagnostic optimization was performed across Lenses 2, 3, 4, and 6.
+- [ ] Prohibition statements ("don't", "never") were converted into positive execution definitions.
+- [ ] Visual stop markers (`🔴 STOP`, `🛑 CHECKPOINT`) causing white bear effects were removed or rephrased positively.
+- [ ] Critical instructions are prominently structured and concept load stays under cognitive thresholds (<= 25 concepts).
+- [ ] Re-ran reference validator to ensure Freud corrections did not break any Gate 1-5 compliance rules.
+
 ## Current scope of this document
 
-"Refactor complete" currently defines format compatibility, resource classification, reference integrity, persistent-state location, related-skill metadata, and removal of Clawic feedback and promotional content. Even if Garden passes Gates 1 through 5, this proves only that it is specification-valid, structurally consistent, explicit about state location, complete in its relationship index, and free of project-referral advertising. It does not prove that its content is correct, safe, concise, triggerable, or capable of improving agent results. Those quality dimensions will become independent gates in later discussions so that distinct judgments are not collapsed into an irreproducible "looks better" assessment.
+"Refactor complete" defines full multi-phase quality compliance across Gates 1 through 9: format compatibility (Gate 1), resource classification (Gate 2), persistent state location (Gate 3), related-skill metadata (Gate 4), removal of promotional content (Gate 5), knowledge research and accuracy (Gate 6), best-practices and description optimization (Gate 7), Darwin evaluation and test coverage (Gate 8), and Freud cognitive load audit (Gate 9). A skill refactor is complete and ready for pull request merge only when every applicable gate passes.
