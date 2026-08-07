@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to deploy my Kubernetes application with zero downtime. What strategy should I use and what should I check before deploying?",
+    "expected": "Should recommend specific zero-downtime strategies (rolling, blue-green, canary) with concrete pre-deploy checklist items including health checks, graceful shutdown, database compatibility, and PreStop hooks.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "How do I secure my GitHub Actions CI/CD pipeline? I'm worried about supply chain attacks and credential exposure.",
+    "expected": "Should cover SHA pinning, permissions lockdown, OIDC federation, expression injection prevention, CODEOWNERS for workflows, and supply chain security (cosign, SLSA, SBOM).",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "My database migration is blocking writes for 10 minutes on a table with 5 million rows. How do I fix this?",
+    "expected": "Should identify the exclusive lock issue, recommend expand-contract pattern, online migration tools like pg_repack, and backwards-compatible migration strategies.",
+    "actual": "",
+    "pass": false
+  }
+]
