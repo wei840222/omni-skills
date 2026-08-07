@@ -265,131 +265,15 @@ When the author says the review findings are fixed:
 
 ## PR review comment templates
 
-Copy a template, replace placeholders, and submit through `tea`. Keep the review in English unless the PR discussion is already localized and the user asks otherwise.
+Canonical templates live in `docs/pull-request-review-template.md`:
 
-### Template A — Request changes
+- **A** Request changes
+- **B** Approve
+- **C** Re-review approve after fixes
+- **D** Re-review still blocked
+- **E** Comment only (clarification)
 
-```markdown
-## Review: <short title> — request changes
-
-Reviewed with **code-review-and-quality** + **writing-great-skills** + **darwin-skill** (structural / dry-run).
-
-### Context
-- Target: `skills/<slug>`
-- Head: `<branch>` @ `<short-sha>`
-- Diff focus: <1-3 bullets>
-- Gate 1: `uvx --from skills-ref agentskills validate skills/<slug>` → **<Valid / FAIL>**
-
-### Verdict
-**Request changes** — <N> required fix(es) before merge.
-
-### Required
-1. **<title>** (`<section or file>`)
-   - Current: <what is wrong>
-   - Evidence: <command, docs, or observed behavior>
-   - Fix: <concrete replacement or acceptance criteria>
-
-2. **<title>** (`<section or file>`)
-   - ...
-
-### Optional / Consider
-3. **Consider: <title>**
-   - <non-blocking guidance>
-
-### Nit
-- <tiny cleanup>
-
-### What looks solid
-- <keep momentum; list real strengths>
-
-### Axis snapshot
-| Axis | Notes |
-|---|---|
-| Correctness | <pass / blocked by ...> |
-| writing-great-skills | <notes> |
-| darwin (structural) | <notes; no fake precision score required> |
-| Gates 1–9 | <pass list / fail list> |
-
-After the Required items are fixed, this should be a straightforward approve.
-```
-
-### Template B — Approve
-
-```markdown
-## Review: <short title> — approve
-
-Reviewed with **code-review-and-quality** + **writing-great-skills** + **darwin-skill** (structural / dry-run).
-
-### Context
-- Target: `skills/<slug>`
-- Head: `<branch>` @ `<short-sha>`
-- Gate 1: `uvx --from skills-ref agentskills validate skills/<slug>` → **Valid**
-
-### Verdict
-**Approve** — no Required findings.
-
-### Verified
-- [ ] Commit/diff scope intentional
-- [ ] Validator clean
-- [ ] Gates 1–5 compliance signals present
-- [ ] Gate 6 sources adequate or N/A with reason
-- [ ] Gate 7 description / disclosure acceptable
-- [ ] Gate 8 structural quality acceptable (tests noted if present)
-- [ ] Gate 9 no blocking white-bear / load issues
-- [ ] Three-lens review: no wrong commands, unsafe defaults, or broken recoveries
-
-### Notes (non-blocking)
-- <optional follow-ups, if any>
-
-Merging as authorized.
-```
-
-### Template C — Re-review approve after fixes
-
-```markdown
-## Re-review: <short title> — approve
-
-Delta reviewed at `<short-sha>` (`<fix-commit subject>`).
-
-### Previous Required items
-1. <item> → **Fixed** — <one-line evidence>
-2. <item> → **Fixed** — <one-line evidence>
-
-### Recheck
-- Gate 1: `uvx --from skills-ref agentskills validate skills/<slug>` → **Valid**
-- No new Required findings in the delta
-
-**Approve** and merge.
-```
-
-### Template D — Re-review still blocked
-
-```markdown
-## Re-review: <short title> — request changes
-
-Delta reviewed at `<short-sha>`.
-
-### Previous Required items
-1. <item> → **Fixed** — <evidence>
-2. <item> → **Still open** — <what remains wrong>
-3. <new item if introduced> → **New Required** — <fix>
-
-### Verdict
-**Request changes** — remaining Required item(s) must land before merge.
-```
-
-### Template E — Comment only (clarification)
-
-```markdown
-## Review note on PR #<n>
-
-Need clarification before a full verdict:
-
-1. <question about intent/scope>
-2. <question about claimed gate evidence>
-
-No approve/reject yet.
-```
+Copy a template from that file, replace placeholders, and submit through `tea`. Keep the review in English unless the PR discussion is already localized and the user asks otherwise.
 
 ---
 
@@ -451,6 +335,7 @@ These are recurring Required classes. Treat them as calibrated examples, not an 
 | `AGENTS.md` | Workflow dispatch and stable operating principles |
 | `docs/refactor-guide.md` | Author-side Gates 1–9 and refactor commit contract |
 | `docs/pull-request-template.md` | Author-side PR description evidence layout |
-| `docs/review-guide.md` | Reviewer-side procedure, three-lens quality bar, and review comment templates |
+| `docs/pull-request-review-template.md` | Reviewer-side PR review comment templates |
+| `docs/review-guide.md` | Reviewer-side procedure, three-lens quality bar, and severity rubric |
 
 When a reusable review anti-pattern appears twice, add a narrow section here rather than expanding `AGENTS.md`.
