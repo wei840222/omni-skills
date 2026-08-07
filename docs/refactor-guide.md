@@ -824,6 +824,55 @@ Scan the skill using the 4 skill-appropriate lenses:
 - [ ] Critical instructions are prominently structured and concept load stays under cognitive thresholds (<= 25 concepts).
 - [ ] Re-ran reference validator to ensure Freud corrections did not break any Gate 1-5 compliance rules.
 
+## Common pitfalls
+
+### `age` encryption passphrase mode
+
+`age -p` requires a TTY for interactive passphrase input. In non-interactive contexts (subprocess, kanban worker, cron script), use `age -r <pubkey>` with a keyfile instead:
+
+```bash
+# Encrypt
+age -r <pubkey> -o output.age < input
+
+# Decrypt
+age -d -i keyfile -o - output.age
+```
+
+### `metadata.openclaw` format
+
+`metadata.openclaw` must be a JSON **string** in YAML, not a nested YAML object. Example:
+
+```yaml
+metadata:
+  openclaw: '{"emoji":"🔐"}'
+```
+
+Do not write:
+
+```yaml
+metadata:
+  openclaw:
+    emoji: 🔐
+```
+
+### Gitea reviewer assignment
+
+`tea pulls edit --add-reviewers` silently fails even when the command appears successful. Use the REST API or `@mention` comment as fallback:
+
+```bash
+# REST API method
+TOKEN=$(grep -A5 '<login-name>' ~/.config/tea/config.yml | grep token | awk '{print $3}')
+curl -s -X POST "https://<host>/api/v1/repos/<owner>/<repo>/pulls/<number>/requested_reviewers" \
+  -H "Authorization: token $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"reviewers":["<username>"]}'
+
+# Or @mention comment
+tea comments add <PR-number> --repo <owner/repo> --login <account> -d "@<reviewer> please review, thank you!"
+```
+
+**CRITICAL**: The reviewer must NOT be the PR author. Gitea returns HTTP 422 if you try to assign the PR author as their own reviewer. The default reviewer is `ani6439walc` (not `wei840222`, who is the PR author).
+
 ## Current scope of this document
 
 "Refactor complete" defines full multi-phase quality compliance across Gates 1 through 9: format compatibility (Gate 1), resource classification (Gate 2), persistent state location (Gate 3), related-skill metadata (Gate 4), removal of promotional content (Gate 5), knowledge research and accuracy (Gate 6), best-practices and description optimization (Gate 7), Darwin evaluation and test coverage (Gate 8), and Freud cognitive load audit (Gate 9). A skill refactor is complete and ready for pull request merge only when every applicable gate passes.
