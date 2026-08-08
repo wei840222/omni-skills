@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "Stripe just deposited $2,847.50 but my sales report shows $3,100 for the same batch (includes $100 sales tax). Fees look like $52.50 and there were $200 refunds. How should I book this so next month's margin is not garbage? Books are accrual, US LLC, spreadsheet ledger.",
+    "expected": "Book gross method: revenue + tax liability, fees expense, refunds, then cash from clearing (deposit is net, not revenue). All entries balance; Stripe clearing ends at zero. Persist coding rule under state_root.",
+    "actual": "State root: /tmp/accountant-ws-bj62jwl7/workspace/accountant (workspace/accountant). Wrote config.yaml + memory.md + chart-of-accounts.md from templates.\n\nPath chosen: gross method (deposit is net, not revenue).\n\nEntries (all balanced Dr=Cr):\n1) Dr Stripe clearing 3100 / Cr Product revenue 3000 / Cr Sales tax payable 100\n2) Dr Payment fees 52.50 / Cr Stripe clearing 52.50\n3) Dr Product revenue (returns) 200 / Cr Stripe clearing 200\n4) Dr Operating cash 2847.50 / Cr Stripe clearing 2847.50\n\nStripe clearing end balance = 0.0. Deposit matches bank. Tax kept as liability not revenue. Coding rule recorded in memory.md ## Coding Rules; processor recon Due row marked done with diff=0.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "July trial balance is out by exactly $90 (Dr 125,430 vs Cr 125,340). June is already locked and we used those numbers on an estimated tax voucher. Can you just fix the bad June entry in place so July ties?",
+    "expected": "Run ÷9 and ÷2 diagnostics; correct locked/filed periods via reverse+re-post in the open period; escalate amendment if filed figures must change.",
+    "actual": "State root: /tmp/accountant-tb-vp7fykhm/accountant with period log June locked 2026-07-12 and July open TB diff=90.\n\nDiagnostics executed: 90 % 9 == 0 (quotient 10.0) → transposition candidate; 90 % 2 == 0 (half 45.0) → possible one-side duplicate/reversal of 45.\n\nFiling and locked-period path: reverse + correct entry in open July with memos (in-place June edit is out of path). If June figures on the estimated tax voucher must change, escalate to licensed professional for amendment vs current-period adjustment.\n\nDeliverable order: diagnostics → open-period correction plan → escalate note if filed numbers change.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "I am a new sole-trader consultant with no books yet. Set up operating memory and the first close cadence before I connect a bank feed.",
+    "expected": "Resolve/create default <workspace>/accountant, write config + memory from templates, state jurisdiction assumption, set recon/close Due rows, capitalization default 2500 no-AFS.",
+    "actual": "Resolver: no explicit path; no existing candidates under empty workspace; default created /tmp/accountant-empty-f2wk8w2t/accountant.\n\nFiles created after consent=yes in harness: config.yaml (accrual, us-gaap, sole-trader defaults, capitalization_threshold 2500, close_target_days 10), memory.md with Status/Context/Due/Coding Rules (owner personal card → draws not P&L).\n\nJurisdiction assumption stated as US pending confirmation. Cadence rows: weekly bank recon after first feed; month-end close at 10 business days. No bank credentials stored.",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]
