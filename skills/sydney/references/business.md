@@ -102,17 +102,11 @@
 ## 3. Legal Requirements for Employers
 
 ### Superannuation (Pension)
-- **Rate:** **11.5%** of ordinary time earnings (2024-25)
-- **Increasing to:** 12% from 1 July 2025
-- **Required when:** Employee earns $450+/month
-- **Payment:** Quarterly (28th of month after quarter ends)
+- **Rate:** 12% of eligible employees' qualifying earnings from 1 July 2026
+- **Payment:** Payday Super applies from 1 July 2026; pay the minimum contribution on each payday
 - **Platform:** Use a compliant super fund or clearing house
 
-**Key dates:**
-- Q1 (Jul-Sep): Due 28 October
-- Q2 (Oct-Dec): Due 28 January
-- Q3 (Jan-Mar): Due 28 April
-- Q4 (Apr-Jun): Due 28 July
+Confirm eligibility, qualifying earnings, and the current contribution rules with the [ATO Super guarantee guidance](https://www.ato.gov.au/tax-rates-and-codes/key-superannuation-rates-and-thresholds/super-guarantee) before payroll is run.
 
 ### Workers Compensation Insurance
 - **Required:** YES, in NSW (all employers)
@@ -123,7 +117,7 @@
 ### Fair Work Compliance
 - **National Employment Standards (NES):** 11 minimum entitlements
 - **Modern Awards:** Industry-specific minimum conditions
-- **Minimum wage:** $24.10/hour (from July 2024)
+- **National Minimum Wage:** $26.44/hour from 1 July 2026 for employees not covered by an award or registered agreement; the applicable award or agreement may set a different minimum rate
 
 **Key obligations:**
 - Written employment contracts (or letter of offer)

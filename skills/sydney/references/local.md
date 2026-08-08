@@ -277,7 +277,7 @@ Online portal linking:
 ### Tips
 - **Chemist Warehouse** for cheapest OTC medicines and vitamins
 - **Priceline Sister Club** — Good loyalty rewards
-- **PBS (Pharmaceutical Benefits Scheme)** — Makes many prescriptions cheap ($7.70 concession, $31.60 general)
+- **PBS (Pharmaceutical Benefits Scheme)** — Makes many prescriptions more affordable; check the current PBS fee and Safety Net table for the applicable co-payment
 - **Scripts:** Can fill at ANY pharmacy — shop around for price
 
 ### After-Hours Pharmacies

@@ -336,7 +336,7 @@ Sydney has world-class coffee. In 2025, **Toby's Estate (Chippendale)** was crow
 
 ### The Basics
 
-**Tipping is NOT expected in Australia.** Staff earn minimum wage ($24.10/hour as of 2025 for casual hospitality workers).
+**Tipping is generally optional in Australia.** Service expectations vary by venue; check Fair Work guidance for the applicable wage rather than inferring it from a hospitality bill.
 
 **Guidelines:**
 

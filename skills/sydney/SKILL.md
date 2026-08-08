@@ -11,6 +11,8 @@ metadata:
 
 User asks about Sydney for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
 
+For fares, visa conditions, regulated costs, or service eligibility, load the matching reference and use its linked primary source before presenting a current figure or requirement.
+
 ## Quick Reference
 
 | Topic | File |
@@ -84,24 +86,22 @@ See `references/culture.md` and `references/food-international.md` for cultural 
 - **Bushfire season**: Summer, affects air quality
 See `references/climate.md` for monthly breakdown and `references/safety.md` for UV/wildlife.
 
-### 5. Current Data (Feb 2026)
+### 5. Current Planning Data
 
-| Item | Range |
-|------|-------|
-| 1BR rent (Inner City) | AUD $550-750/week (~$28K-39K/year) |
-| 1BR rent (Bondi) | AUD $600-900/week (~$31K-47K/year) |
-| Senior SWE salary | AUD $180,000-220,000/year |
-| Opal weekly cap | AUD $50 |
-| Brunch (mid-range) | AUD $25-45/person |
-| School fees (private) | AUD $20,000-45,000/year |
+Use the detailed reference that matches the question rather than repeating dated prices here:
+
+- Housing, food, healthcare, and transport budgets: `references/cost.md`
+- Current public-transport fares and airport-access fees: `references/transport.md`
+- School and university costs: `references/education.md`
+- Tech compensation and hiring conditions: `references/tech.md`
+- Visa charges, conditions, and processing guidance: `references/visas.md`
 
 ### 6. Cost Reality
 Sydney is expensive but with good wages:
 - **Housing**: Most expensive in Australia, 35-45% of budget
-- **Childcare**: Very expensive ($120-180/day), subsidies available
-- **Healthcare**: Medicare free for citizens/PR, insurance for others
-- **No tipping**: Staff paid minimum wage
-- **Hidden costs**: Bond (4 weeks rent), utilities (electricity expensive)
+- **Childcare and healthcare**: eligibility and out-of-pocket costs depend on visa status, provider, and household circumstances
+- **Tipping**: generally optional; service norms vary by venue
+- **Hidden costs**: account for bond, utilities, and move-in expenses
 
 ### 7. Transport Mix
 Sydney has diverse transport options:
@@ -145,15 +145,6 @@ Common comparison for migrants/visitors:
 - **Speed cameras everywhere** — Hidden, mobile, average speed. Don't speed.
 - **Tipping not expected** — But tourists often do, confusing service staff.
 
-## Legal Awareness
+## Regulated Activities
 
-Key laws visitors/residents must know:
-- **Seatbelts**: Mandatory all passengers. Heavy fines.
-- **Jaywalking**: Technically illegal, fines issued.
-- **Alcohol**: Legal at 18. No drinking in many public places.
-- **Cannabis**: Still illegal federally (some states decriminalized).
-- **Phone while driving**: Huge fines, loss of license.
-- **Smoking**: Banned in outdoor dining, beaches, playgrounds.
-- **Fireworks**: Illegal for public use (NYE is official display only).
-
-See `references/safety.md` for comprehensive legal guidance.
+For immigration, driving, alcohol, smoking, fireworks, or other regulated activities, load the relevant reference and verify the applicable government rules before advising on eligibility, penalties, or permissions.

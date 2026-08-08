@@ -147,12 +147,7 @@ All prices in **AUD**. Data sourced from Numbeo, Transport NSW, and local market
 | Ferry (most routes) | $6.79 | $4.75 |
 | Light rail | $3.20 | $2.24 |
 
-**Weekly Caps:**
-- **Adult:** $50/week (after reaching this, travel is free)
-- **Concession:** $25/week (students, seniors)
-- **Daily cap:** $17.80 (adult)
-
-**Monthly cost estimate:** $200–$220/month for regular commuters
+For current fares, caps, transfer treatment, and a trip-specific estimate, use the Transport for NSW fare tool linked in `references/transport.md`. Build a monthly transport budget from the traveller's actual commute rather than multiplying a stale cap.
 
 ### Car Costs (Annual)
 
@@ -199,7 +194,7 @@ All prices in **AUD**. Data sourced from Numbeo, Transport NSW, and local market
 | GP visit (non bulk-billed) | $80–$120 (partial rebate) |
 | Public hospital | **FREE** |
 | Specialist (referred) | Partial rebate |
-| Prescription (PBS) | Max $31.60/script |
+| Prescription (PBS) | Up to $25.00 per general-patient script before the Safety Net; eligible concession patients pay up to $7.70, plus any applicable premiums or service fees |
 
 **Note:** Only citizens and PRs get Medicare. Temporary visa holders need private insurance.
 

@@ -177,21 +177,19 @@ Australia's research-intensive universities (equivalent to "Ivy League"):
 ### Student Visa (Subclass 500)
 - Required for full-time study in Australia
 - Apply through ImmiAccount online
-- Processing: 1-4 months
-- Cost: ~$710 (2024)
+- Use Home Affairs' current processing-time guide and Visa Pricing Estimator before setting a deadline or budget
 
 **Requirements:**
 - Confirmation of Enrolment (CoE) from registered institution
-- Genuine Temporary Entrant (GTE) statement
+- Genuine Student requirement
 - English proficiency (IELTS 5.5-7.0 depending on course)
-- Financial capacity proof (~$24,505/year living costs + tuition + travel)
+- Financial capacity evidence for tuition, living costs, travel, and any accompanying family members
 - Overseas Student Health Cover (OSHC)
 - Health examinations if required
 
 ### Work Rights
-- **20 hours/week** during semester (was unlimited during COVID, reverted)
-- **Unlimited hours** during scheduled breaks
-- Partner visa (subclass 500 dependent) also gets work rights
+- While a course is in session, the Student visa permits work for up to 48 hours a fortnight
+- Check VEVO for the individual holder's course-break, partner, and research-degree conditions
 
 ### OSHC (Overseas Student Health Cover)
 - **Mandatory** for student visa

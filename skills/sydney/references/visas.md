@@ -1,7 +1,7 @@
 # Australian Visas Guide
 *For Sydney/Australia - Updated February 2026*
 
-> ⚠️ **Always verify current rules at [immi.homeaffairs.gov.au](https://immi.homeaffairs.gov.au)** - visa rules change frequently.
+> Verify current visa conditions, charges, and processing guidance at [Home Affairs](https://immi.homeaffairs.gov.au) before presenting eligibility or an application plan.
 
 ---
 
@@ -47,23 +47,8 @@
 
 ## 2. Work Visas
 
-### Temporary Skill Shortage (Subclass 482) - "TSS Visa"
-**The main employer-sponsored work visa**
-
-- **Streams:**
-  - **Short-term:** Up to 2 years (some countries 4 years)
-  - **Medium-term:** Up to 4 years, pathway to PR
-  - **Labour Agreement:** Industry-specific arrangements
-- **Requirements:**
-  - Employer sponsors you
-  - Job on Skilled Occupation List
-  - Minimum 2 years relevant work experience
-  - Skills assessment (for some occupations)
-  - English: IELTS 5.0+ overall (varies by stream)
-  - Minimum salary: AUD $73,150/year (2025 TSMIT threshold) ← *verify current amount*
-- **Cost:** ~AUD $3,115 (worker) + sponsorship costs to employer
-- **Path to PR:** Medium-term stream → eligible for 186 visa after 2-3 years
-- **Processing:** 2-6 months typically
+### Skills in Demand Visa (Subclass 482)
+This is an employer-sponsored pathway. Its streams, occupation eligibility, salary threshold, application charge, and permanent-residence options are time-sensitive. Identify the applicant's occupation and employer first, then use the [Visa Finder](https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing) and [Visa Pricing Estimator](https://immi.homeaffairs.gov.au/visas/visa-pricing-estimator) for the applicable current requirements.
 
 ### Skilled Independent (Subclass 189)
 **Points-tested, no sponsor needed, direct PR**
@@ -189,42 +174,23 @@
 
 ### Basic Requirements
 - Enrolled in registered course (CRICOS)
-- Genuine Temporary Entrant (GTE) requirement
+- Genuine Student requirement
 - English proficiency (varies by course level)
 - Health insurance (OSHC)
 - Financial capacity (show funds or sponsor)
 
 ### Cost
-- **Primary:** AUD $1,600
-- **Partner:** AUD $1,600
-- **Children:** AUD $405 each
+- **Primary application charge:** from AUD $2,500 as of 1 July 2026
+- **Additional applicants:** use the [Visa Pricing Estimator](https://immi.homeaffairs.gov.au/visas/visa-pricing-estimator) for the current charge and any concession
 
 ### Work Rights
 
-**Current Rules (as of mid-2024):**
-- **During semester:** 48 hours per fortnight (increased from 40 hours)
-- **During breaks:** Unlimited
-- **Masters by Research/PhD:** Unlimited work
-
-⚠️ **2024 Changes:** The 48-hour limit was made permanent after temporary COVID relaxations ended. Some sectors (aged care) may have special provisions.
+When a course is in session, the visa permits work for up to 48 hours a fortnight. Course breaks and research-degree arrangements can differ; check the visa holder's current conditions in [VEVO](https://immi.homeaffairs.gov.au/visas/already-have-a-visa/check-visa-details-and-conditions/overview).
 
 ### Post-Study Work Rights (Subclass 485)
 After completing Australian study:
 
-| Qualification | Duration |
-|--------------|----------|
-| Bachelor's | 2 years |
-| Master's (Coursework) | 2 years |
-| Master's (Research) | 3 years |
-| PhD | 4 years |
-| Priority occupations | +2 years bonus |
-| Regional study | +1-2 years bonus |
-
-**Requirements:**
-- Completed 2+ years study in Australia
-- Applied within 6 months of completing
-- Under 50 years old
-- Competent English
+Post-study duration and eligibility depend on the qualification, course, and current visa settings. Use Home Affairs' current [Temporary Graduate visa (subclass 485) guidance](https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485) before recommending a pathway.
 
 ### Partner Rights
 - Student visa primary holder can add partner
@@ -437,13 +403,11 @@ Processing: 1-4 months depending on authority. Start this EARLY.
 
 ### Common Mistakes to Avoid
 
-1. **Letting visa expire without applying for next one** - Don't become unlawful
-2. **Not declaring health conditions** - Can cause visa cancellation later
-3. **Overstaying** - Even 1 day = 3 year ban from most visas
-4. **Working more than allowed hours** - Students: 48hrs/fortnight is serious
-5. **Not meeting PR residency requirements** - Travel too much = lose PR
-6. **Fake documents** - 10 year ban, possible lifetime ban
-7. **Not checking condition codes** - Your visa conditions are online, check them!
+1. Apply for the next visa before the current visa expires, and confirm the bridging-visa conditions in VEVO.
+2. Provide complete, accurate health information and supporting documents required by the application.
+3. Keep travel and work within the conditions shown in VEVO; use the Home Affairs conditions page for any uncertainty.
+4. Maintain evidence of study, work, residence, and relationship requirements for the selected pathway.
+5. Use genuine documents and retain the originals for verification.
 
 ### Useful Resources
 

@@ -39,12 +39,11 @@ Look for:
 This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outside the flags = your own risk.
 
 ### If Caught in a Rip
-1. **DON'T PANIC** - Rips don't pull you under
-2. **DON'T swim against it** - You'll exhaust yourself
-3. **Float or tread water** to conserve energy
-4. **Swim PARALLEL to the beach** until out of the current
-5. **Then swim back to shore at an angle**
-6. **Raise an arm** if you need help - lifeguards are watching
+1. **Stay calm** — rips do not pull swimmers under
+2. **Float or tread water** to conserve energy, then signal for help or swim parallel to shore when safe
+3. **Swim PARALLEL to the beach** until out of the current
+4. **Then swim back to shore at an angle**
+5. **Raise an arm** if you need help - lifeguards are watching
 
 ### Surf Life Saving
 - Volunteer lifeguards patrol most Sydney beaches on weekends/holidays (September-April)
@@ -53,11 +52,9 @@ This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outs
 - **When no flags are up, the beach is unpatrolled** - swim with extreme caution
 
 ### Beach Safety Rules
-- Never swim alone
-- Never swim at night
-- Never swim under the influence of alcohol
-- Check conditions before entering
-- If in doubt, don't go out
+- Swim with others, in daylight, and between the red and yellow flags when they are present
+- Enter the water sober and after checking conditions
+- Choose a supervised beach or stay ashore when conditions are uncertain
 
 ---
 
@@ -79,7 +76,7 @@ This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outs
 3. Bandage the bite site firmly
 4. Wrap the entire limb with bandages
 5. Keep victim still and calm
-6. **DO NOT wash the bite** (venom ID may be needed)
+6. Leave the bite area intact so clinicians can identify venom if needed
 7. Get to hospital - antivenom is effective
 
 **Redback Spider**
@@ -94,7 +91,7 @@ This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outs
 - Shake out shoes/clothes left outside
 - Wear gloves when gardening
 - Check under outdoor furniture before sitting
-- Don't put hands where you can't see
+- Keep hands clear of concealed spaces
 
 ### Snakes
 
@@ -106,7 +103,7 @@ This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outs
 
 **Rules:**
 - Watch where you step on bush walks
-- Don't put hands in rock crevices or hollow logs
+- Keep hands clear of rock crevices and hollow logs
 - If you see a snake, back away slowly
 - Snakes don't chase - they want to escape
 - **If bitten**: Pressure immobilization bandage, call 000, don't move
@@ -117,9 +114,7 @@ This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outs
 
 **Precautions:**
 - Swim between flags (sharks avoid busy areas)
-- Don't swim at dawn/dusk (feeding times)
-- Don't swim near river mouths after rain
-- Avoid swimming alone in remote areas
+- Choose daylight swims away from river mouths after rain, and use supervised locations rather than remote beaches
 - Check the SharkSmart app for recent sightings
 
 **Perspective**: You're more likely to die from a bee sting than a shark attack.
@@ -191,7 +186,7 @@ This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outs
 ### What to Do
 1. **Check conditions**: NSW RFS (Rural Fire Service) app and website
 2. **Follow instructions**: If told to evacuate, evacuate
-3. **Don't go to national parks during Total Fire Bans**
+3. Follow park closures and Total Fire Ban advice; choose an open alternative when access is restricted
 4. **Have a plan** if staying in bushland areas
 
 ---
@@ -201,7 +196,7 @@ This is the **#1 rule**. Flags mark the area patrolled by Surf Life Savers. Outs
 ### Flooding (La Niña Years)
 - Sydney experiences flash flooding, especially in La Niña cycles
 - Low-lying areas near rivers (Hawkesbury, Georges River) affected
-- **Never drive through floodwater** - #1 cause of flood deaths
+- Turn around before floodwater; driving through it is a leading cause of flood deaths
 - Heavy rain warnings: stay out of stormwater drains, avoid coastal walks
 
 ### Hail Storms
