@@ -8,10 +8,10 @@ Measure in profile mode on a physical device (SKILL.md rule 7). A debug-mode num
 
 1. **Confirm which thread.** DevTools' Performance view colors each frame's UI and raster time separately; the overlay (`flutter run --profile` then `P`) shows two graphs. Tall UI bars → build/layout work. Tall raster bars → painting and GPU work. Both tall → usually a huge widget tree being rebuilt and repainted together.
 2. **UI thread: find what rebuilds.** DevTools' rebuild counter (or "Track widget builds") names the widget rebuilding thousands of times. Apply the Rebuild Scope Ladder (SKILL.md).
-3. **UI thread with few rebuilds: find the expensive build.** A single widget over budget means computation inside `build` — sorting, filtering, date formatting, regexes (`widgets.md`).
+3. **UI thread with few rebuilds: find the expensive build.** A single widget over budget means computation inside `build` — sorting, filtering, date formatting, regexes (`references/widgets.md`).
 4. **Raster thread: find the expensive paint.** `saveLayer` (opacity on a subtree, `ClipRRect` with antialiasing, blend modes), shadows, blurs, and overlapping translucent layers. The "Highlight layers that need repainting" toggle shows what repaints per frame.
-5. **Neither, but the app stalls entirely.** A synchronous block on the UI isolate: a big `jsonDecode`, a file read, a crypto call (`async.md`, isolates).
-6. **Nothing reproduces in profile mode.** Then it is a debug-only cost (assertions, the inspector) or a release-only cost (`release.md`) — say which, and stop optimizing.
+5. **Neither, but the app stalls entirely.** A synchronous block on the UI isolate: a big `jsonDecode`, a file read, a crypto call (`references/async.md`, isolates).
+6. **Nothing reproduces in profile mode.** Then it is a debug-only cost (assertions, the inspector) or a release-only cost (`references/release.md`) — say which, and stop optimizing.
 
 ## Rebuild Cost
 
@@ -26,7 +26,7 @@ Measure in profile mode on a physical device (SKILL.md rule 7). A debug-mode num
 - `itemExtent` (or `prototypeItem`) lets the viewport compute positions arithmetically instead of measuring children — required for a scrollbar that behaves and for instant `jumpTo` in long lists.
 - `addAutomaticKeepAlives: false` and `addRepaintBoundaries: false` are worth setting on very long simple lists: keep-alives defeat recycling, and a repaint boundary per item costs a layer each.
 - Per-item work that recurs on every build (date formatting, regex, sorting) should be precomputed into the model once, not recalculated per frame per visible row.
-- Nested scrollables and `shrinkWrap: true` are performance bugs disguised as layout fixes (`layout.md`).
+- Nested scrollables and `shrinkWrap: true` are performance bugs disguised as layout fixes (`references/layout.md`).
 - `ListView` with thousands of items and heavy tiles: measure the tile's build in isolation before restructuring the list. Usually one image or one shadow is the whole cost.
 
 ## Images
@@ -50,16 +50,16 @@ Measure in profile mode on a physical device (SKILL.md rule 7). A debug-mode num
 
 ## Startup Time
 
-- The first frame cannot render until `runApp` runs. Everything awaited before it — reading preferences, opening a database, initializing a crash reporter, fetching remote config — is added directly to the user's wait (`architecture.md`, bootstrap).
+- The first frame cannot render until `runApp` runs. Everything awaited before it — reading preferences, opening a database, initializing a crash reporter, fetching remote config — is added directly to the user's wait (`references/architecture.md`, bootstrap).
 - Move anything not needed for the first screen behind the first frame: show the UI, then hydrate.
 - The native splash screen covers the gap only up to the first Flutter frame; a slow first build shows a blank window after the splash disappears.
-- Deferred loading matters most on web, where code the user has not reached should not be in the initial bundle (`release.md`).
+- Deferred loading matters most on web, where code the user has not reached should not be in the initial bundle (`references/release.md`).
 
 ## Memory
 
 - DevTools' Memory view: a sawtooth that always returns to the same floor is healthy; a floor that climbs across navigation cycles is a leak.
 - The standard leak test: push a screen, pop it, force a GC, and check whether its `State` is still reachable. The usual culprits are an uncancelled subscription, a listener never removed, a `Timer.periodic`, or a static/global reference to a widget's state (SKILL.md rule 3).
-- Keep-alives and `IndexedStack` retain whole subtrees deliberately (`state.md`) — count that as expected usage, not a leak, and bound how many pages you keep.
+- Keep-alives and `IndexedStack` retain whole subtrees deliberately (`references/state.md`) — count that as expected usage, not a leak, and bound how many pages you keep.
 - Image memory dominates most Flutter apps' footprint; check it before hunting for object leaks.
 
 ## Shader and First-Run Jank
@@ -67,12 +67,12 @@ Measure in profile mode on a physical device (SKILL.md rule 7). A debug-mode num
 Historically, the first play of an animation compiled its shaders on demand and dropped frames exactly once per effect — the "first run is janky, then it's fine" signature. **Impeller** eliminates this by precompiling shaders at build time.
 
 **Impeller status (2026)**:
-- **iOS**: Default since Flutter 3.10 (May 2023). Metal backend.
-- **Android**: Default since Flutter 3.22 (May 2024) on Vulkan-capable devices. Falls back to Skia on older GPUs.
-- **Web**: Experimental WebGPU backend in progress; not production-ready.
-- **Desktop**: macOS uses Metal; Windows and Linux use Vulkan.
+- **iOS**: The only supported rendering engine; it uses Metal.
+- **Android**: Enabled by default on Android API 29+ when Vulkan is available; lower API levels or devices without Vulkan fall back to the legacy OpenGL renderer.
+- **Web**: Uses Skia; Impeller might be used in a future release.
+- **macOS**: Available behind an opt-in flag; test it deliberately before relying on it.
 
 If you still see first-run jank on a current SDK:
 1. Run `flutter run --verbose` and check the renderer line: "Using Impeller" vs "Using Skia".
-2. If Skia on Android, the device lacks Vulkan support — no fix, the fallback is correct.
+2. If the legacy Android renderer is active, confirm the device API level and Vulkan support before treating the fallback as an application bug.
 3. If Impeller but jank persists, file a bug with `flutter doctor -v` output and a screen recording.

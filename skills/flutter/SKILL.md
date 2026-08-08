@@ -156,7 +156,7 @@ Before emitting Flutter code, verify:
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`. You record preferences the moment they are stated, maintaining continuous workflow without interruption.
+User-dependent variables. Defaults apply until the user states a preference. When the user authorizes persistent preferences, store them in `<state_root>/config.yaml`; otherwise apply them for the current task only.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -168,7 +168,7 @@ User-dependent variables. Defaults apply until the user states a preference; sto
 | codegen | allowed \| avoid | allowed | `avoid` bans `build_runner` solutions (freezed, json_serializable, route generators) and emits hand-written equivalents in `references/data.md` and `references/architecture.md` |
 | destructive_confirm | bool | true | Confirms before `flutter clean`, `--update-goldens`, and deleting `Podfile.lock`/`pubspec.lock` (`references/commands.md`) |
 
-Preference areas — customizable dimensions; a stated preference gets recorded in config.yaml and applied:
+Preference areas — customizable dimensions; record an authorized preference in `<state_root>/config.yaml` and apply it:
 
 - **Tooling**: DI (`get_it` vs scoped providers), HTTP client (`http` vs `dio`), local storage (`drift`, `isar`, `sqflite`, `hive`), image caching package, lint set — affects every "add a package" recommendation in `references/data.md` and `references/dependencies.md`
 - **Conventions**: widget file granularity, naming of state and notifier classes, private-widget vs builder-method style, `const`-everywhere policy — affects the shape of emitted code in `references/widgets.md`

@@ -7,7 +7,7 @@ Flutter paints to a canvas: the platform's screen reader sees nothing except the
 The user's system font size multiplies your text sizes. On both platforms the accessibility settings reach well beyond the default, and a design that only works at 1.0× is broken for a large group of real users.
 
 - `MediaQuery.textScalerOf(context)` returns the current `TextScaler` (`flutter >=3.16`; it replaced the numeric `textScaleFactor`, which is why older snippets no longer compile).
-- Fixed-height containers around text are the number-one scaling bug: the text grows, the box does not, and it clips or throws a `RenderFlex overflowed` (`layout.md`). Use intrinsic height or `minHeight` instead of a hard `height`.
+- Fixed-height containers around text are the number-one scaling bug: the text grows, the box does not, and it clips or throws a `RenderFlex overflowed` (`references/layout.md`). Use intrinsic height or `minHeight` instead of a hard `height`.
 - `maxLines` + `TextOverflow.ellipsis` prevents overflow and hides content; that is a real tradeoff for a title and unacceptable for an error message or a price. Let critical text wrap.
 - Do not clamp scaling globally to "fix" the layout. If a specific surface genuinely cannot scale (a dense data table, a chart axis), clamp it there with a documented reason and provide another path to the same information.
 - Test at the largest supported setting, not at 1.5×. Screens with a form, a dialog, and a bottom bar are where it breaks first.
@@ -18,7 +18,7 @@ The user's system font size multiplies your text sizes. On both platforms the ac
 - `MaterialTapTargetSize.shrinkWrap` removes that guarantee — it exists for dense desktop layouts, not for a tighter phone design.
 - The visual size and the hit area can differ: wrap a small visual in a larger `GestureDetector` with `behavior: HitTestBehavior.opaque`, or use `SizedBox` around the button.
 - Adjacent targets need spacing, not just size: two 48 px buttons touching produce mis-taps at the boundary.
-- Flutter's own widget tests can assert this: `meetsGuideline(androidTapTargetGuideline)` and `iOSTapTargetGuideline` (`testing.md`).
+- Flutter's own widget tests can assert this: `meetsGuideline(androidTapTargetGuideline)` and `iOSTapTargetGuideline` (`references/testing.md`).
 
 ## The Semantics Tree
 
@@ -32,7 +32,7 @@ The user's system font size multiplies your text sizes. On both platforms the ac
 ## Order and Focus
 
 - Reading order follows the widget tree and the visual position Flutter derives from it, which is why a `Stack`-based layout can read in an order nobody expects. Verify with the semantics tree, and reorder with `Semantics(sortKey: OrdinalSortKey(n))` when the tree cannot be restructured.
-- Keyboard focus and screen-reader focus are different systems. Keyboard traversal matters on web and desktop (`adaptive.md`); `FocusTraversalGroup` groups a region so Tab moves through it coherently.
+- Keyboard focus and screen-reader focus are different systems. Keyboard traversal matters on web and desktop (`references/adaptive.md`); `FocusTraversalGroup` groups a region so Tab moves through it coherently.
 - When a dialog or sheet opens, focus must move into it and be trapped there until it closes — otherwise the reader keeps walking the page behind it.
 - After an action that changes the page (a filter applied, a step completed), move or announce focus. Silence is indistinguishable from a failed tap.
 
@@ -45,12 +45,12 @@ The user's system font size multiplies your text sizes. On both platforms the ac
 
 ## Motion and Timing
 
-- `MediaQuery.disableAnimationsOf(context)` reflects "reduce motion". Honor it by cross-fading or cutting instead of sliding, and never make content unreachable until an animation ends (`animations.md`).
+- `MediaQuery.disableAnimationsOf(context)` reflects "reduce motion". Honor it by cross-fading or cutting instead of sliding, and never make content unreachable until an animation ends (`references/animations.md`).
 - Auto-advancing carousels, toasts that vanish, and timed dialogs are all barriers. Provide a pause or a persistent path to the same content.
-- A snackbar is not an accessible error report: it is transient and often unannounced. Attach errors to the field or the region they belong to (`forms.md`).
+- A snackbar is not an accessible error report: it is transient and often unannounced. Attach errors to the field or the region they belong to (`references/forms.md`).
 
 ## Making It Stick
 
-- Add the checks to the test suite once and they stop regressing: `expect(tester, meetsGuideline(textContrastGuideline))`, plus the tap-target guidelines and `labeledTapTargetGuideline` (`testing.md`).
+- Add the checks to the test suite once and they stop regressing: `expect(tester, meetsGuideline(textContrastGuideline))`, plus the tap-target guidelines and `labeledTapTargetGuideline` (`references/testing.md`).
 - Every icon-only control gets a label at the moment it is written — retrofitting labels across a shipped app is an order of magnitude more work.
 - A screen counts as verified when it has been driven end to end with the platform's own screen reader (TalkBack, VoiceOver). The semantics tree tells you what exists; only the reader tells you whether it makes sense.

@@ -3,21 +3,24 @@
     "id": 1,
     "prompt": "I'm getting a 'RenderFlex overflowed by 24 pixels' error in my Column widget. How do I fix this?",
     "expected": "Should explain the overflow cause (child wants more space than available), suggest Expanded/Flexible or making axis scrollable, and reference layout.md for deeper understanding",
-    "actual": "",
-    "pass": false
+    "actual": "The Column has less vertical space than its children request. Put the child that should take remaining space in Expanded or Flexible; if the content is legitimately taller than the viewport, make that axis scrollable with a ListView or SingleChildScrollView. Check references/layout.md to identify which constraint is unbounded before applying shrinkWrap.",
+    "pass": true,
+    "eval_mode": "full_test"
   },
   {
     "id": 2,
     "prompt": "My ListView is scrolling slowly and memory keeps growing when I load images from the network. What's wrong?",
     "expected": "Should identify image decode size issue (width × height × 4 bytes), recommend cacheWidth/cacheHeight, mention Impeller's role, and reference performance.md",
-    "actual": "",
-    "pass": false
+    "actual": "The likely memory cost is decoded image size, not JPEG download size: width × height × 4 bytes. Use ListView.builder and pass cacheWidth or cacheHeight at the display size, then profile on a physical device. Impeller can reduce shader-compilation jank, but it does not reduce decoded image memory; inspect references/performance.md for the image-cache and raster triage steps.",
+    "pass": true,
+    "eval_mode": "full_test"
   },
   {
     "id": 3,
     "prompt": "Should I use Provider, Riverpod, or Bloc for my new Flutter app? What's the best practice in 2026?",
     "expected": "Should explain there's no single best answer, mention repo consistency matters most, note that setState is fine for widget-local state, and reference architecture.md for detailed comparison",
-    "actual": "",
-    "pass": false
+    "actual": "There is no universal best choice. Keep state owned by one widget in setState, then match the repository's existing provider, Riverpod, or Bloc convention for shared and async state; adding a second state-management pattern increases maintenance cost. For a greenfield app, choose one convention deliberately and follow references/architecture.md's ownership and listener rules.",
+    "pass": true,
+    "eval_mode": "full_test"
   }
 ]

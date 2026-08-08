@@ -17,14 +17,14 @@ flutter config                    # which platforms are enabled for this install
 
 ```bash
 flutter run                                   # debug on the only/attached device
-flutter run -d <deviceId> --flavor staging    # pick device and flavor (release.md)
+flutter run -d <deviceId> --flavor staging    # pick device and flavor (references/release.md)
 flutter run --profile                         # the ONLY mode for performance work (SKILL.md rule 7)
 flutter run --release                         # verify release behavior; not available on the iOS Simulator
 flutter run --dart-define=API_URL=https://…   # compile-time configuration, not a secret store
 flutter attach                                # reconnect tooling to an already-running app
 ```
 
-In a running session: `r` hot reload, `R` hot restart, `p` debug paint, `o` toggle platform, `v` open DevTools, `q` quit. What each of hot reload and restart can and cannot pick up: `debug.md`.
+In a running session: `r` hot reload, `R` hot restart, `p` debug paint, `o` toggle platform, `v` open DevTools, `q` quit. What each of hot reload and restart can and cannot pick up: `references/debug.md`.
 
 ## Analyze, Format, Fix
 
@@ -41,7 +41,7 @@ dart fix --apply                  # apply them — a deprecation sweep after an 
 flutter test                                        # all widget and unit tests
 flutter test test/foo_test.dart --name 'submits'    # one file, one test by name
 flutter test --coverage                             # writes coverage/lcov.info
-flutter test --update-goldens                       # DESTRUCTIVE: rewrites golden files (testing.md)
+flutter test --update-goldens                       # DESTRUCTIVE: rewrites golden files (references/testing.md)
 flutter test integration_test/app_test.dart -d <id> # on a real device
 ```
 
@@ -49,7 +49,7 @@ flutter test integration_test/app_test.dart -d <id> # on a real device
 
 ```bash
 flutter pub get                        # resolve per the lockfile
-flutter pub outdated                   # read the "Resolvable" column first (dependencies.md)
+flutter pub outdated                   # read the "Resolvable" column first (references/dependencies.md)
 flutter pub upgrade                    # move within constraints, rewrite the lock
 flutter pub upgrade --major-versions   # rewrite the CONSTRAINTS; its own commit
 flutter pub deps                       # the tree — who is blocking whom
@@ -59,7 +59,7 @@ dart run build_runner build --delete-conflicting-outputs   # codegen: allowed on
 ## Build Artifacts
 
 ```bash
-flutter build appbundle --release                 # Play (release.md)
+flutter build appbundle --release                 # Play (references/release.md)
 flutter build apk --split-per-abi --release       # sideload / other stores
 flutter build ipa                                 # App Store / TestFlight
 flutter build web --release
@@ -68,20 +68,20 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/symbols/<
 flutter symbolize -i stack.txt -d build/symbols/<version>/app.android-arm64.symbols
 ```
 
-Archive the symbol directory per released version, or crashes from that build stay unreadable forever (`release.md`).
+Archive the symbol directory per released version, or crashes from that build stay unreadable forever (`references/release.md`).
 
 ## Native Side
 
 ```bash
-flutter pub get                    # resolves dependencies (SPM for iOS/macOS since 3.44, Gradle for Android)
+flutter pub get                    # resolves Dart packages from pubspec.yaml and pubspec.lock
 flutter logs                       # device logs, including native output
 adb logcat | grep -i flutter       # Android, when the Dart console is not attached
 ```
 
 **iOS/macOS dependency management (Flutter 3.44+):**
-- SPM (Swift Package Manager) is the default. No `pod install` needed for new projects.
-- Legacy projects or plugins without SPM support: `cd ios && pod install` after plugin changes.
-- CocoaPods trunk becomes read-only December 2, 2026. Migrate to SPM: `flutter config --ios-deployment-target=15`, then rebuild.
+- Swift Package Manager (SwiftPM) is enabled by default; after upgrading Flutter, run the app and let Flutter add the integration automatically.
+- Flutter resolves native SwiftPM or CocoaPods descriptors during the native build. A project that still uses CocoaPods continues to need its established CocoaPods workflow.
+- If a SwiftPM plugin requires a higher minimum deployment version, change the target in Xcode and regenerate configuration with `flutter build ios --config-only` or `flutter build macos --config-only`.
 
 Android and Xcode build failures are usually clearer in their own tools: open `android/` in Android Studio or `ios/Runner.xcworkspace` in Xcode and build there once — the message is specific in a way the Flutter wrapper's output is not.
 
@@ -90,7 +90,7 @@ Android and Xcode build failures are usually clearer in their own tools: open `a
 ```bash
 flutter clean                      # DESTRUCTIVE: deletes build/, forces a full rebuild
 rm ios/Podfile.lock                # DESTRUCTIVE: re-resolves every pod
-rm pubspec.lock                    # DESTRUCTIVE: re-resolves every package (dependencies.md)
+rm pubspec.lock                    # DESTRUCTIVE: re-resolves every package (references/dependencies.md)
 ```
 
 `flutter clean` fixes stale-artifact problems and nothing else: after an SDK change, a plugin add or remove, or a native-config edit. Reaching for it before reading the first exception costs a full rebuild and teaches nothing (SKILL.md Traps).

@@ -17,11 +17,11 @@ Future<void> _load() async {
 - The `use_build_context_synchronously` lint catches `context` after a gap. It does NOT catch a controller write, an animation start, or a `ScaffoldMessenger` call — those need the same guard with no warning.
 - Need navigation or a snackbar after the gap? Capture the object BEFORE awaiting: `final nav = Navigator.of(context); await save(); nav.pop();`. This survives the widget going away in a way that a late `Navigator.of(context)` does not.
 - `context.mounted` (`flutter >=3.7`) is the check inside a `StatelessWidget` callback where there is no `State.mounted`.
-- Two rapid taps start two overlapping requests. Guard with a `bool _busy` set before the await and cleared in a `finally`, or debounce at the source (`forms.md`).
+- Two rapid taps start two overlapping requests. Guard with a `bool _busy` set before the await and cleared in a `finally`, or debounce at the source (`references/forms.md`).
 
 ## FutureBuilder
 
-- **Store the future in a field, never create it in `build`.** `FutureBuilder(future: repo.fetch(), ...)` re-fires the request on every rebuild — including rebuilds caused by the keyboard, the theme, or a parent's `setState`. Create it in `initState`, and recreate it in `didUpdateWidget` when the input prop changes (`state.md`).
+- **Store the future in a field, never create it in `build`.** `FutureBuilder(future: repo.fetch(), ...)` re-fires the request on every rebuild — including rebuilds caused by the keyboard, the theme, or a parent's `setState`. Create it in `initState`, and recreate it in `didUpdateWidget` when the input prop changes (`references/state.md`).
 - Always handle three states: `snapshot.hasError` first, then `connectionState != done`, then data. A builder that only checks `hasData` renders the loading spinner forever when the future throws.
 - `snapshot.data` is null on the first frame even for a completed future — `initialData` removes the flash of empty state.
 - Errors inside a `FutureBuilder` do not reach `runZonedGuarded` or the error reporter unless you forward them: log in the builder's error branch, or attach a `.catchError` that reports before rethrowing.
@@ -47,7 +47,7 @@ Dart has no built-in future cancellation. The three real options:
 
 For search-as-you-type, the id comparison matters: responses can arrive out of order, and the last response is not necessarily for the last query. Store an incrementing `_requestId`, capture it before the await, and drop the result if it no longer matches.
 
-`Future.timeout(Duration(...))` bounds the wait, not the work — the underlying request continues. Combine it with a client-level timeout (`data.md`).
+`Future.timeout(Duration(...))` bounds the wait, not the work — the underlying request continues. Combine it with a client-level timeout (`references/data.md`).
 
 ## Isolates
 
@@ -61,12 +61,12 @@ final parsed2 = await compute(_parse, body);                                    
 - Arguments and results are COPIED between isolates (except immutable data and `TransferableTypedData`). A payload big enough to need an isolate is also big enough that the copy costs something — measure the whole round trip, not just the parse.
 - The isolate entry point must be a top-level or static function, and its captured state must be sendable: no `BuildContext`, no widgets, no platform plugin objects, no open database handles.
 - An isolate hop costs spawn plus two copies. Below one frame's worth of work it is a net loss — keep small parsing on the main isolate.
-- Platform channels from a background isolate need `BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken)` (`flutter >=3.7`), with the token obtained on the root isolate and passed in (`platform.md`).
+- Platform channels from a background isolate need `BackgroundIsolateBinaryMessenger.ensureInitialized(rootIsolateToken)` (`flutter >=3.7`), with the token obtained on the root isolate and passed in (`references/platform.md`).
 - Long-lived worker isolates (`Isolate.spawn` + `SendPort`) are for repeated work; they must be killed explicitly or they outlive the screen that made them.
 
 ## Timers, Debounce, Throttle
 
-- `Timer.periodic` keeps firing after the widget is gone until you `cancel()` it (SKILL.md rule 3) — and it keeps firing while the app is backgrounded, which is a battery bug (`state.md`, app lifecycle).
+- `Timer.periodic` keeps firing after the widget is gone until you `cancel()` it (SKILL.md rule 3) — and it keeps firing while the app is backgrounded, which is a battery bug (`references/state.md`, app lifecycle).
 - Debounce (act after quiet): cancel the pending timer on each event, start a new one. Typical for search input at a few hundred milliseconds — tune against the backend's cost, not a folklore number.
 - Throttle (act at most every N): ignore events while a flag is set, clear it on a timer. Typical for scroll-driven loads.
 - Both must cancel their timer in `dispose`, and both must re-check `mounted` in the callback.

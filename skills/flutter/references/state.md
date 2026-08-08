@@ -43,7 +43,7 @@ Consequences worth memorizing:
 - **Where the key goes**: on the outermost widget of the item, at the same level as its siblings. A key on an inner child does nothing for the sibling-matching pass.
 - The canonical demonstration: two stateful colored boxes in a `Row`, swapped on tap. Without keys the colors swap and the internal state stays put; with a `ValueKey` on each, the state travels with the item.
 - `AnimatedList` and `ReorderableListView` require stable keys as a hard precondition — reorders corrupt silently without them.
-- `GlobalKey<FormState>` is the one routinely justified `GlobalKey`: `Form` exposes no other access path (`forms.md`).
+- `GlobalKey<FormState>` is the one routinely justified `GlobalKey`: `Form` exposes no other access path (`references/forms.md`).
 
 ## Preserving State Deliberately
 
@@ -52,8 +52,8 @@ Consequences worth memorizing:
 | Scroll offset inside a tab or page | `PageStorageKey` on the scrollable |
 | Tab content must not rebuild when you leave the tab | `AutomaticKeepAliveClientMixin`: `wantKeepAlive => true`, and call `super.build(context)` |
 | Several screens alive at once | `IndexedStack` — every child is built and retained |
-| State across app restarts | Persist it (`data.md`); no widget mechanism survives process death |
-| State across a hot reload | Hot reload preserves `State`; hot restart does not (`debug.md`) |
+| State across app restarts | Persist it (`references/data.md`); no widget mechanism survives process death |
+| State across a hot reload | Hot reload preserves `State`; hot restart does not (`references/debug.md`) |
 | Restore after Android kills a backgrounded app | `RestorationMixin` + `restorationId`, verified with "Don't keep activities" enabled |
 
 `AutomaticKeepAliveClientMixin` and `IndexedStack` both trade memory for retention: every retained page keeps its widget tree, its decoded images, and its subscriptions alive. Inside a list, keeping items alive defeats the viewport's recycling entirely — set `addAutomaticKeepAlives: false` on long lists whose items do not need it.
@@ -72,4 +72,4 @@ Consequences worth memorizing:
 
 - `paused` is the last reliable point to persist unsaved user input; `detached` may not run at all.
 - Register in `initState` (`WidgetsBinding.instance.addObserver(this)`) and remove in `dispose` — a missed removal leaves a dead `State` receiving callbacks for the life of the app.
-- On resume, re-check anything the OS may have revoked while you were away: permissions, Bluetooth state, an expired auth token (`platform.md`).
+- On resume, re-check anything the OS may have revoked while you were away: permissions, Bluetooth state, an expired auth token (`references/platform.md`).

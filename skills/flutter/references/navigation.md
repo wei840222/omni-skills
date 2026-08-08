@@ -17,7 +17,7 @@ Both can coexist inside one screen's local flow (a dialog stack, a nested wizard
 ## Push, Pop, and Results
 
 - `Navigator.push<T>` returns `Future<T?>`. The result is `null` when the user backs out — handle it, do not force-unwrap.
-- After awaiting a push, the widget may be gone: `mounted` check before touching anything (`async.md`).
+- After awaiting a push, the widget may be gone: `mounted` check before touching anything (`references/async.md`).
 - `pop` with a result must match the push's type parameter, or you get a runtime cast error nobody sees until that path runs. Typed helpers per route are worth the boilerplate.
 - `pushReplacement` disposes the previous route immediately — its `State`, controllers, and scroll positions are gone. Use it for login → home, never for a step in a flow the user might return to.
 - `pushAndRemoveUntil(route, (r) => false)` clears the whole stack; `(r) => r.isFirst` keeps the root. Getting this wrong strands the user with no back button, or with a back button into a logged-out screen.
@@ -36,18 +36,18 @@ Both can coexist inside one screen's local flow (a dialog stack, a nested wizard
 - `PopScope` (`flutter >=3.16`) replaced `WillPopScope`. The modern shape is: `canPop: false` plus a pop-invoked callback that decides what to do (show a confirm dialog, then pop manually). Newer SDKs supply a result-aware callback (`onPopInvokedWithResult`) — check which one your SDK exposes and use that.
 - The old `WillPopScope` returned a `Future<bool>`; that model is gone because it cannot support predictive back on Android, where the system needs to know up front whether the pop is allowed.
 - Interception applies to the system back gesture, the hardware button, AND `Navigator.pop` from your own code. An unsaved-changes guard must therefore also cover the app bar's back button.
-- On iOS the swipe-back gesture is provided by `CupertinoPageRoute`; a `MaterialPageRoute` on iOS still gets it through the platform-adaptive page transition, but a custom `PageRouteBuilder` does not unless you build it in (`adaptive.md`).
+- On iOS the swipe-back gesture is provided by `CupertinoPageRoute`; a `MaterialPageRoute` on iOS still gets it through the platform-adaptive page transition, but a custom `PageRouteBuilder` does not unless you build it in (`references/adaptive.md`).
 
 ## Nested Navigators and Tabs
 
 - Persistent bottom navigation with per-tab history needs a `Navigator` per tab (a `StatefulShellRoute` in go_router, or `IndexedStack` of `Navigator`s manually). Without it, switching tabs resets the inner stack.
 - A nested `Navigator` swallows pops: the system back button pops the inner stack first. Wire the root's back handling to check the inner navigator's `canPop()`.
 - `Navigator.of(context)` finds the NEAREST navigator. Pushing a full-screen route from inside a tab pushes it inside the tab (under the bottom bar) — `Navigator.of(context, rootNavigator: true)` is the fix, and it is what dialogs and full-screen modals want.
-- Preserve scroll and form state across tab switches with `IndexedStack` or keep-alives (`state.md`), and be explicit about the memory cost.
+- Preserve scroll and form state across tab switches with `IndexedStack` or keep-alives (`references/state.md`), and be explicit about the memory cost.
 
 ## Deep Links and URLs
 
-- Two platform pieces are required and are the usual cause of "the link opens the app but lands on home": Android `intent-filter` with `android:autoVerify` plus an `assetlinks.json` on the domain; iOS Associated Domains entitlement plus an `apple-app-site-association` file. Neither is Dart code (`platform.md`, `release.md`).
+- Two platform pieces are required and are the usual cause of "the link opens the app but lands on home": Android `intent-filter` with `android:autoVerify` plus an `assetlinks.json` on the domain; iOS Associated Domains entitlement plus an `apple-app-site-association` file. Neither is Dart code (`references/platform.md`, `references/release.md`).
 - Cold start vs warm start take different paths: the initial link arrives as the app's initial route, later links arrive as a stream. Handle both, or links work only while the app is already running.
 - Test the cold path with the platform tools, not by tapping a link in a note app — the debug launch flow differs.
 - On web, the browser URL is the state. Use path-based URLs (not the leading `#`) only if the host can serve `index.html` for every path, or refresh on a deep route 404s.
@@ -63,6 +63,6 @@ Both can coexist inside one screen's local flow (a dialog stack, a nested wizard
 
 - `showDialog`/`showModalBottomSheet` push a route and return a future with the dismissal result; `null` means barrier-dismissed. Treat that as "cancel", explicitly.
 - The builder's context is a DIALOG context — `Navigator.pop(context)` there pops the dialog. Popping the underlying screen from inside a dialog requires the captured outer navigator.
-- Showing a dialog from `initState` throws (no route yet): defer with `addPostFrameCallback` (`widgets.md`).
+- Showing a dialog from `initState` throws (no route yet): defer with `addPostFrameCallback` (`references/widgets.md`).
 - A dialog opened during a route transition can end up on the wrong navigator; `useRootNavigator: true` is the predictable default for app-level dialogs.
 - `Overlay` entries (tooltips, custom toasts, drag feedback) are not routes: the back button does not dismiss them, and they must be removed manually or they persist across navigation.

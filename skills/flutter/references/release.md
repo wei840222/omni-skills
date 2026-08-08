@@ -30,7 +30,7 @@ Release builds differ from debug in ways that only appear in release (SKILL.md r
 
 - Flavors are a native build concept (Android product flavors, iOS schemes/configurations) plus `--flavor` on the Flutter command. Dart-only "environments" cannot change the bundle id, the app name, or the icon — which is what actually keeps two builds installable side by side.
 - The minimum useful set: dev, staging, production, each with its own application id suffix, display name, and icon. Anything less and testers install over their production app.
-- Configuration values enter with `--dart-define` (or `--dart-define-from-file`). They are compiled in and readable in the artifact: they select an environment, they are not a secret store (`data.md`).
+- Configuration values enter with `--dart-define` (or `--dart-define-from-file`). They are compiled in and readable in the artifact: they select an environment, they are not a secret store (`references/data.md`).
 - Firebase and other services need per-flavor config files wired into the native build, not chosen at runtime.
 
 ## Signing
@@ -50,15 +50,14 @@ Release builds differ from debug in ways that only appear in release (SKILL.md r
 | Web | `flutter build web --release` | Ships the engine plus your app; measure the initial download |
 | Desktop | `flutter build macos` / `windows` / `linux` | Packaging, notarization, and installers are per-platform work |
 
-## iOS/macOS Dependency Management: SPM (Default since 3.44)
+## iOS/macOS Dependency Management: SwiftPM (Enabled by Default since 3.44)
 
-Flutter 3.44 (May 2026) switched the default iOS/macOS dependency manager from CocoaPods to **Swift Package Manager (SPM)**. CocoaPods is in maintenance mode; the CocoaPods trunk becomes read-only on December 2, 2026.
+Flutter 3.44 (May 2026) enabled **Swift Package Manager (SwiftPM)** by default for iOS/macOS native dependencies. CocoaPods remains in maintenance mode; its registry becomes read-only on December 2, 2026.
 
-- **New projects**: SPM is used automatically. No `Podfile`, no `pod install`.
-- **Migrating existing projects**: Run `flutter config --ios-deployment-target=15` (SPM requires iOS 15+), then `flutter build ios`. Flutter migrates dependencies automatically. If a plugin lacks SPM support, Flutter falls back to CocoaPods for that plugin only.
-- **Manual migration**: Delete `ios/Podfile`, `ios/Podfile.lock`, `ios/Runner.xcworkspace`. Run `flutter clean && flutter pub get && flutter build ios`.
-- **Troubleshooting**: If build fails with "package not found", check `pubspec.yaml` — the plugin may need a version bump. Run `flutter pub upgrade --major-versions` to get SPM-compatible releases.
-- **CI/CD**: Remove any `pod install` steps from your build scripts. SPM dependencies resolve automatically during `flutter build`.
+- **Typical migration**: Upgrade Flutter and run the app. Flutter adds SwiftPM integration automatically and falls back to CocoaPods for a dependency that does not support SwiftPM.
+- **Manual recovery**: When automatic migration fails, add the official `FlutterGeneratedPluginSwiftPackage` dependency and Flutter prepare pre-action to the affected Xcode target and scheme. Preserve the existing workspace and lockfiles while diagnosing the migration.
+- **Deployment target**: A SwiftPM plugin can require a higher target. Change Minimum Deployments in Xcode only for that requirement, then run `flutter build ios --config-only` or `flutter build macos --config-only`.
+- **CI/CD**: Keep a CocoaPods step only for projects that still use CocoaPods. Let the normal native build resolve SwiftPM dependencies for migrated projects.
 
 ## Obfuscation and Symbols
 
@@ -73,7 +72,7 @@ flutter build appbundle --release --obfuscate --split-debug-info=build/symbols/<
 ## Size
 
 - Measure, do not estimate: `flutter build apk --analyze-size` (and the equivalents for other targets) emits a breakdown that DevTools can open. The usual top entries are the engine, uncompressed images, and fonts.
-- Highest-yield reductions, in order: ship an app bundle (per-device delivery), compress and right-size images, subset fonts to the glyphs you use, and remove packages that pull in large native dependencies (`dependencies.md`).
+- Highest-yield reductions, in order: ship an app bundle (per-device delivery), compress and right-size images, subset fonts to the glyphs you use, and remove packages that pull in large native dependencies (`references/dependencies.md`).
 - Deferred components (Android) and deferred imports (web) move rarely used code out of the initial download. On mobile the complexity rarely pays unless the app is large; on web it usually does.
 - Adding a locale, an ABI, or a large plugin all move the number — check size in CI on a schedule so a regression is attributable to one merge.
 
@@ -88,5 +87,5 @@ Before submitting:
 - Crash reporting and analytics initialize in release (they are frequently wired only in debug)
 - Debug-only paths are gone: verbose logs, test endpoints, seeded accounts, and any dev banner
 - Permissions in the manifest and `Info.plist` match what the app actually uses, each with a purpose string a reviewer will accept
-- Deep links resolve from a cold start on a real device (`navigation.md`)
+- Deep links resolve from a cold start on a real device (`references/navigation.md`)
 - The store listing's minimum OS versions match what the build actually supports
