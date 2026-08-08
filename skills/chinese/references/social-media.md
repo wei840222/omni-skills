@@ -1,320 +1,112 @@
-# Social Media — Platform-Specific Chinese Writing
+# Social Media — Audience-Calibrated Chinese Writing
 
-Each Chinese social platform has distinct register, formatting norms, and audience expectations.
+Use this reference for Chinese social posts, captions, community replies, and creator drafts. A platform name does not determine a permanent voice: account history, intended reader, content type, and the platform’s current rules do.
 
----
+## Intake
 
-## Platform Comparison
+Before drafting, collect or state these assumptions:
 
-| Platform | Audience | Tone | Length | Key feature |
-|----------|----------|------|--------|-------------|
-| 小红书 | 18-35F, lifestyle | Casual, enthusiastic | 300-800字 | Visual-first, emoji-heavy |
-| 公众号 | 25-45, mixed | Semi-formal to formal | 1500-3000字 | Long-form articles |
-| 微博 | 18-40, mixed | Casual, punchy | ≤140字 (expandable) | Hashtags, trending |
-| 抖音 | 18-35, mass | Very casual, energetic | ≤300字 (captions) | Video-first, short text |
-| B站 | 16-30, ACG/tech | Casual, insider | 500-2000字 | Community slang |
-| 知乎 | 25-40, educated | Formal, analytical | 1000-5000字 | Q&A, expertise |
+1. Target variant: Mainland Simplified, Taiwanese Traditional, Hong Kong Traditional, or another requested variant.
+2. Account context: existing-post samples, verified brand voice, or no history available.
+3. Reader and purpose: inform, document, invite discussion, explain, or sell.
+4. Available facts: names, dates, prices, products, results, sponsorship, and personal experience.
+5. Publication constraints: current official rules, required disclosures, and character or media limits.
 
----
+If the user provides no account samples, use a neutral, readable voice. Do not represent audience reactions, product effects, personal experience, or policy limits as facts unless the user provides or verifies them.
 
-## 小红书 (Xiaohongshu / RED)
+## Choose a Draft Shape
 
-### Register
+Use the request and supplied examples to select one shape. These are drafting patterns, not claims about any particular platform.
 
-- Enthusiastic, personal, like talking to friends
-- Heavy emoji use (5-15 per post)
-- First person, share personal experience
-- Use 姐妹/宝子 for addressing audience
+### Personal discovery or review
 
-### Title Mechanics
+```text
+[Specific, factual hook]
 
-- Must include emoji: ✨🔥💕🎀
-- Use numbers: 5个方法 / 30天见效
-- Emotional hooks: 绝绝子 / 救命 / 真的会谢
-- Example: 救命！这个面膜真的绝绝子✨ 3天见效💕
+[What happened or what was tried]
+[One or two supplied observations]
 
-### Format
+[Who might find it useful, qualified by the supplied facts]
 
-```
-[Title with emoji]
-
-[Opening hook, 1-2 sentences]
-
-[Body with line breaks every 1-2 sentences]
-[Emoji at emotional peaks]
-[Use ！frequently]
-
-[Call to action: 姐妹们快试试！]
-
-#标签1 #标签2 #标签3
+[Optional truthful question or invitation]
+[Relevant tags only when the user requests them]
 ```
 
-### Emoji Density
+Keep first-person claims tied to the user’s reported experience. Use `[placeholders]` for every missing venue, product, price, outcome, date, intention, reaction, recommendation, and comparative detail. The title and hook follow the same boundary: do not imply an unprovided discovery, surprise, or evaluation.
 
-- High: 1 emoji per 2-3 sentences minimum
-- Place at line breaks for visual rhythm
-- Common: ✨💕🔥🎀💫🌟❤️‍🔥
+### Short update or community reply
 
----
+```text
+[Main point in the first sentence]
 
-## 公众号 (WeChat Official Account)
+[Context or evidence]
 
-### Register
-
-- Semi-formal to formal
-- Structured like articles, not chat
-- Can be personal but polished
-- No heavy emoji (0-3 per article)
-
-### Title Mechanics
-
-- Clear, informative, sometimes clickbaity
-- No emoji in title (unlike 小红书)
-- Use numbers or questions: 为什么XXX / 3个方法让你XXX
-- Example: 为什么年轻人开始逃离大城市
-
-### Format
-
-```
-[Title]
-
-[Opening paragraph: hook + context]
-
-[Subheading 1]
-[2-3 paragraphs]
-
-[Subheading 2]
-[2-3 paragraphs]
-
-[Conclusion]
-
-[Author bio / call to action]
+[Optional question that invites a specific response]
 ```
 
-### Style Notes
+Use conversational fragments only when the requested voice or account samples support them. Prefer a direct statement over a slogan or artificial urgency.
 
-- Long paragraphs OK (3-5 sentences)
-- Can use bold for emphasis
-- Quotes and citations add credibility
-- End with reflection or call to action
+### Long-form explanation
 
----
+```text
+[Clear title]
 
-## 微博 (Weibo)
+[Opening: scope and context]
 
-### Register
+[Subheading]
+[Claim, evidence, and limitation]
 
-- Casual, punchy, conversational
-- Like Twitter: short, immediate, reactive
-- Can be sarcastic, humorous, emotional
-- Heavy use of internet slang
+[Subheading]
+[Claim, evidence, and limitation]
 
-### Title Mechanics
-
-- No title (just the post)
-- First sentence is the hook
-- Use 【】for topic markers: 【突发】/【热议】
-
-### Format
-
-```
-[Hook sentence]
-
-[Body, 2-5 sentences]
-
-[Hashtags at end]
-
-#话题1# #话题2#
+[Conclusion: what follows from the evidence]
 ```
 
-### Hashtag Format
+Attribute quotes, statistics, and external claims to a source supplied by the user or verified for the publication. Separate fact, interpretation, and recommendation.
 
-- Weibo uses #话题# (hash on both sides)
-- Place at end of post
-- 2-3 hashtags max
+### Video caption or script support
 
-### Style Notes
+```text
+[One-sentence hook that matches the supplied footage]
 
-- Can be fragmented, stream-of-consciousness
-- Emojis OK but not excessive
-- @mentions for tagging
-- Retweet-friendly: make it quotable
+[Context or key detail]
 
----
-
-## 抖音 (Douyin / TikTok China)
-
-### Register
-
-- Very casual, energetic, youth-oriented
-- Video-first, text is secondary (captions)
-- Heavy internet slang, memes
-- Trending sounds/challenges
-
-### Caption Mechanics
-
-- ≤300 characters (shorter is better)
-- Hook in first line
-- Use trending phrases
-- Example: 谁懂啊！这个方法真的绝了😭 #生活小妙招
-
-### Format
-
-```
-[Hook]
-
-[Context, 1-2 sentences]
-
-[Call to action or question]
-
-#标签1 #标签2
+[Optional, truthful action or question]
 ```
 
-### Style Notes
+The caption must describe the actual media. When the footage or current character limit is unavailable, use placeholders and ask the user to verify them before publishing.
 
-- Emoji OK but not heavy
-- Use 谁懂啊 / 救命 / 笑死 for emotional peaks
-- Ask questions to drive comments
-- Reference trending topics
+## Voice Controls
 
----
+| Requested effect | Use | Check before delivery |
+|---|---|---|
+| Warm and personal | concrete first-person detail, short paragraphs, natural questions | Every personal detail came from the user |
+| Professional | clear subject, measured claims, sourced evidence | The register matches the brand and audience |
+| Energetic | active verbs and concise rhythm | The urgency is supported, not manufactured |
+| Community-native | terms found in current account examples | The term is appropriate for the intended audience |
+| Accessible | plain language and explained jargon | The post works without insider knowledge |
 
-## B站 (Bilibili)
+Emoji, hashtags, honorifics, slang, and punctuation density should follow the user’s stated preference or provided account samples. If neither exists, use them sparingly and remove anything that obscures the message.
 
-### Register
+## Platform-policy Check
 
-- Insider, community-driven
-- ACG (anime/comic/game) culture influence
-- Heavy use of platform-specific slang
-- Can be technical or meme-heavy
+🔴 Before publication, obtain the current official rules for the destination, account type, and content type. Apply the rule by correcting the factual claim, disclosure, or scope. If the material cannot be published under the current rule, explain the constraint and offer a compliant substantive revision; do not disguise restricted wording.
 
-### Platform-Specific Vocabulary
+For a post that uses generated or altered media, determine whether the destination requires a label from its current official guidance. Do not claim a label is required, optional, or sufficient without checking that guidance.
 
-| Term | Meaning |
-|------|---------|
-| 弹幕 | Danmaku (bullet comments) |
-| 一键三连 | Like + coin + favorite (all three) |
-| 下次一定 | "Next time for sure" (won't actually do it) |
-| 爷青回 | "My youth is back" (nostalgia) |
-| awsl | 啊我死了 (so cute/amazing) |
-| 2333 | Laughing (from old forum) |
+### Verified policy references (accessed 2026-08-08)
 
-### Title Mechanics
+- Weibo Service Agreement: https://weibo.com/signup/v5/protocol — the service can change rules and imposes publication and account-use conditions.
+- Zhihu Terms: https://www.zhihu.com/terms — the service incorporates current rules and community guidance and conditions publication on them.
 
-- Can be long, descriptive
-- Use 【】for categories: 【教程】/【测评】
-- Numbers work: 10个你不知道的XXX
-- Example: 【干货】10个Python技巧让你效率翻倍
+For any other destination, retrieve its current official author, community, advertising, or disclosure policy before asserting a limit, format rule, or moderation outcome. Record only the URL and decision relevant to the user’s requested publication; do not copy account credentials or private analytics into skill state.
 
-### Format
+## Delivery Checklist
 
-```
-[Title]
-
-[Opening: context or hook]
-
-[Body: detailed, can be long]
-[Use line breaks for readability]
-[Can include technical details]
-
-[Closing: ask for 一键三连]
-
-[Tags]
-```
-
-### Style Notes
-
-- Can be very long (video descriptions)
-- Technical content OK
-- Community references expected
-- End with 求三连 / 别忘了点赞
-
----
-
-## 知乎 (Zhihu)
-
-### Register
-
-- Formal, analytical, expert tone
-- Long-form, structured arguments
-- First person OK but professional
-- Citations and evidence valued
-
-### Title Mechanics
-
-- Question format (it's Q&A): 如何评价XXX / XXX是什么体验
-- Or declarative: 为什么XXX / XXX有哪些特点
-- No emoji, no clickbait
-- Example: 如何评价中国新能源汽车产业的发展
-
-### Format
-
-```
-[Answer to question]
-
-[Introduction: establish credibility or context]
-
-[Main argument, structured]
-[Use subheadings if long]
-[Cite sources]
-
-[Conclusion]
-
-[Edit history if updated]
-```
-
-### Style Notes
-
-- Long paragraphs OK
-- Can use bold, italics, blockquotes
-- Numbered lists for steps
-- Professional tone throughout
-- Avoid internet slang (unless ironic)
-
----
-
-## Platform Filter Awareness (谐音 Alternatives)
-
-Chinese platforms censor certain words. Users develop homophone alternatives:
-
-| Censored | Alternative | Meaning |
-|----------|-------------|---------|
-| 钱 | 💰 / qian / 米 | Money |
-| 死 | si / 去世 / 走了 | Death |
-| 杀 | sha / S | Kill |
-| 政治 | zz / 那个 | Politics |
-| 微信 | wx / V | WeChat |
-| 抖音 | dy | Douyin |
-| 淘宝 | tb | Taobao |
-
-### Rules
-
-- Use alternatives in titles and hashtags (more visible)
-- Body text can be more direct
-- When in doubt, use pinyin or emoji
-- Platform filters change — stay updated
-
----
-
-## Emoji Density by Platform
-
-| Platform | Density | Notes |
-|----------|---------|-------|
-| 小红书 | High | 5-15 per post |
-| 公众号 | Low | 0-3 per article |
-| 微博 | Medium | 2-5 per post |
-| 抖音 | Medium | 2-5 in caption |
-| B站 | Low-Medium | 1-3, community-dependent |
-| 知乎 | Very Low | 0-1, formal tone |
-
----
-
-## Key Principles
-
-1. **Platform dictates register** — 小红书 is casual, 知乎 is formal
-2. **Title mechanics vary** — emoji OK on 小红书, not on 知乎
-3. **Emoji density scales with platform casualness**
-4. **Know the filter workarounds** — homophones, pinyin, emoji
-5. **Community slang is platform-specific** — B站 has its own vocabulary
-6. **Length norms differ** — 微博 is short, 公众号 is long
-7. **Call to action varies** — 一键三连 on B站, 点赞关注 on 抖音
+- [ ] Variant and register match the requested reader and account evidence.
+- [ ] Every name, number, result, testimonial, and personal detail was supplied or is visibly a placeholder.
+- [ ] The title, caption, and calls to action match the actual content.
+- [ ] Hashtags, emoji, slang, and formatting serve readability rather than imitate a stereotype.
+- [ ] Current official platform constraints were checked when publication is in scope.
+- [ ] Required disclosure or attribution is present when verified.
+- [ ] The output is presented as a draft unless the user supplied final, publishable facts.

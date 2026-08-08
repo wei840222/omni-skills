@@ -14,19 +14,19 @@ AI loves three-part structures:
 - "一方面…另一方面…" (On one hand…on the other hand…)
 - Numbered lists for everything (1. 2. 3. even in casual chat)
 
-**Human pattern**: Humans jump around, repeat themselves, use fragments. A real person might say "其实吧，这事挺复杂的，怎么说呢…" before getting to the point.
+**Natural pattern**: Vary sentence shape only when it fits the channel. Keep the point easy to find; a fragment or a conversational opener should carry real tone or context rather than simulated messiness.
 
 ### Uniform Paragraph Length
 
 AI writes paragraphs of similar length (3-5 sentences each). Humans vary: one-sentence paragraphs, then a long rambling one, then a fragment.
 
-**Fix**: Deliberately vary paragraph length. Mix single sentences with longer blocks.
+**Fix**: Let paragraph breaks follow the message's meaning and channel. Vary rhythm where it improves readability; do not pad or split solely to imitate a person.
 
 ### Perfect Topic Sentences
 
-AI starts every paragraph with a clear topic sentence. Humans often bury the point or start with context.
+AI may make every paragraph sound like an essay section. Conversational Chinese can begin with context, but the reader should still be able to identify the point.
 
-**Human pattern**: "昨天遇到个事，就是那个…算了从头说，上周我不是请假了吗…"
+**Natural pattern**: "上周请假的事，我想补充一下后续安排。"
 
 ---
 
@@ -105,7 +105,7 @@ Before finalizing any Chinese output, run this check:
 
 - [ ] Are there "首先/其次/最后" patterns? → Break them up
 - [ ] Are all paragraphs similar length? → Vary deliberately
-- [ ] Is every paragraph led by a topic sentence? → Bury the point sometimes
+- [ ] Does the structure fit the channel rather than reading like a generic essay? → Keep the point clear while varying rhythm where useful
 
 ### 2. Vocabulary Check
 

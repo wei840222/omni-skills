@@ -117,14 +117,14 @@ The Register Ladder in detail: choosing and maintaining formality levels.
 - **您 → 你**: A warming gesture the senior party offers. Accept it gracefully.
 - **你 → 您**: Reads as cold anger or sarcasm. Avoid this shift.
 
-### Recording the choice
-When you first address someone, record their 你/您 preference in `## Recipients`:
+### Saving an approved choice
+When the user asks to retain a 你/您 preference, record a pseudonymous key and the decision in `<state_root>/memory.md`:
 
 ```
-| key | display_name | address_form | notes |
-|-----|-------------|--------------|-------|
-| @王总 | 王建国 | 您 | 客户，第一次见面用您 |
-| @小李 | 李明 | 你 | 同事，同组 |
+| key | address_form | register | evidence |
+|-----|--------------|----------|----------|
+| client-1 | 您 | 正式 | User confirmed preference |
+| colleague-1 | 你 | 日常 | User confirmed preference |
 ```
 
 ---
@@ -140,7 +140,7 @@ Once you pick a register, maintain it throughout the text.
 - Using 进行 in casual chat
 
 ### Prevention
-1. **Decide before writing** — check `## Recipients` or channel default
+1. **Decide before writing** — check an existing, approved `## Recipients` entry or use the channel default
 2. **Consistency check** — before delivering, scan for pronoun shifts
 3. **Read aloud** — drift sounds jarring
 
@@ -216,7 +216,7 @@ Exception: Formal contexts override age (a 25-year-old CEO gets 您 from older e
 
 1. **Inconsistent 你/您** — switching mid-conversation
 2. **Wrong default** — using 你 with a client, 您 with a close friend
-3. **Not recording the choice** — re-deciding every time
+3. **Saving an unapproved choice** — retaining recipient data without a user request
 4. **Drift** — starting formal, ending casual
 5. **Over-formal in chat** — 您 in a friend group
 6. **Under-formal in email** — 你 with a new client
