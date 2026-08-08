@@ -3,8 +3,7 @@ name: redis-store
 description: 'Design, tune, and debug Redis: data structures, memory limits, persistence, Streams and queues, locks, replication, and cluster. Use when writing Redis commands or Lua, choosing between a hash, sorted set and stream, setting expirations on cache keys, building a queue, distributed lock, rate limiter, leaderboard, session store or counter, or when Redis answers OOM, MISCONF, CROSSSLOT, MOVED, BUSY, LOADING or WRONGTYPE, latency spikes, memory keeps growing, keys vanish early or never expire, a replica lags or a failover loses writes, KEYS or a big DEL freezes the server, connections are refused, or a cluster reshard, a Valkey / ElastiCache / MemoryDB / Upstash move, or a persistence and backup plan is on the table. Covers redis-cli forensics, pipelining, eviction policies, keyspace notifications, ACLs and exposed-instance hardening, and the JSON, Search and TimeSeries modules. Not for store-agnostic cache hierarchy strategy (caching) or picking a rate-limit algorithm (rate-limiting).'
 metadata:
   version: "1.0.1"
-  openclaw: '{"emoji":"🔴","requires":{"anyBins":["redis-cli"],"config":["<state_root>/config.yaml"]}}'
-  related-skills: '{}'
+  openclaw: '{"emoji":"🔴"}'
 ---
 
 ## State Root Resolution
@@ -16,11 +15,11 @@ User preferences are stored in `<state_root>/config.yaml`; observed context (wor
    - `<workspace>/redis-store/`
    - `<workspace>/memory/redis-store/`
    - `~/redis-store/`
-3. **Default creation**: If none exist and `<workspace>` is defined, create `<workspace>/redis-store/`. If `<workspace>` is not defined, **do not silently create `~/redis-store/`** — ask the user or host to supply a state root before writing any data.
+3. **Default creation**: If none exist and `<workspace>` is defined, use `<workspace>/redis-store/` as the creation target after the user authorizes persistent storage. If `<workspace>` is not defined, obtain a user- or host-supplied state root before writing any data.
 
 **Conflict behavior**: If multiple locations exist, use the first in the lookup order. Report the conflict to the user so they can decide whether to consolidate or keep them separate. Do not merge or sync between locations silently.
 
-See `references/setup.md` on first use, `references/memory-template.md` for the file format. If you have data at an old location, move it to the resolved `<state_root>/`.
+See `references/setup.md` on first use and `references/memory-template.md` for the file format. Treat data outside the resolver candidates as a legacy source: keep it in place until a separately authorized migration has copied, validated, cut over, and retained a rollback path.
 
 ## When To Use
 

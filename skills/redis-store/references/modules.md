@@ -14,7 +14,7 @@ Modules add commands and index structures that core Redis has no answer for. Bef
 | Time series with retention and downsampling | Sorted set by timestamp + a trim job | TimeSeries with rules, labels, compaction | You need downsampling and label queries, not just a window |
 | Anything else | Core structures | — | Stay in core: no extra dependency, no availability question |
 
-Redis 8 (May 2025) ships several of these capabilities in the core distribution rather than as separate installs (under a tri-license); older self-hosted versions and some providers require explicit modules. Confirm against your actual server with `MODULE LIST` (state of packaging verified 2026-08).
+Redis 8 includes several of these capabilities in the core distribution rather than as separate installs; older self-hosted versions and some providers require explicit modules. Confirm availability against the actual server with `MODULE LIST`.
 
 ## Secondary Indexes: The Real Trade
 
