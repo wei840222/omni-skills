@@ -44,13 +44,13 @@ class _S extends State<X> with SingleTickerProviderStateMixin {
 
 - `Hero` requires the same `tag` on both routes. A tag repeated twice on the same screen throws "There are multiple heroes that share the same tag".
 - Hero flights are built from a snapshot: a hero whose child depends on `MediaQuery` or a provider can flash mid-flight. Keep the hero child simple, and use `flightShuttleBuilder` when it must change during the flight.
-- Heroes across nested navigators need the flight to happen on the navigator that owns both routes (`navigation.md`).
-- Custom route transitions come from `PageRouteBuilder(transitionsBuilder:)`. Building one loses the platform-adaptive defaults, including the iOS swipe-back gesture — re-add it deliberately (`adaptive.md`).
+- Heroes across nested navigators need the flight to happen on the navigator that owns both routes (`references/navigation.md`).
+- Custom route transitions come from `PageRouteBuilder(transitionsBuilder:)`. Building one loses the platform-adaptive defaults, including the iOS swipe-back gesture — re-add it deliberately (`references/adaptive.md`).
 - `PageTransitionsTheme` sets transitions app-wide per platform; that beats overriding the transition on every route.
 
 ## Performance of Motion
 
-- An animation that drops frames is a raster-thread problem more often than a UI-thread one: check for `Opacity`, clipping, shadows, and `BackdropFilter` inside the animating subtree (`performance.md`).
+- An animation that drops frames is a raster-thread problem more often than a UI-thread one: check for `Opacity`, clipping, shadows, and `BackdropFilter` inside the animating subtree (`references/performance.md`).
 - Wrap the animating subtree in a `RepaintBoundary` so the static background does not repaint with it — this is one of the few places a boundary always pays for itself.
 - Animating layout properties (width, padding, position in a flex) forces a layout pass on every frame; animating transform, opacity, or color only repaints. Prefer `SlideTransition`/`ScaleTransition` over animating `Padding` or `Positioned` when the visual result is the same.
 - Implicit animations on many list items at once means many controllers ticking simultaneously — stagger them or animate the container instead.
@@ -58,6 +58,6 @@ class _S extends State<X> with SingleTickerProviderStateMixin {
 
 ## Motion and Accessibility
 
-- `MediaQuery.disableAnimationsOf(context)` reports the OS "reduce motion" setting. Respect it: replace slides and scales with a cross-fade or an immediate change, and never gate content behind an animation that may not play (`accessibility.md`).
+- `MediaQuery.disableAnimationsOf(context)` reports the OS "reduce motion" setting. Respect it: replace slides and scales with a cross-fade or an immediate change, and never gate content behind an animation that may not play (`references/accessibility.md`).
 - Duration discipline: short interface feedback in the low hundreds of milliseconds, longer for full-screen transitions. Anything past roughly half a second reads as sluggish in a tap-driven interface; match the platform's own transitions rather than inventing timings.
-- An infinitely repeating animation (`controller.repeat()`) makes `pumpAndSettle` never settle in tests — this is the number-one cause of a hanging widget test (`testing.md`).
+- An infinitely repeating animation (`controller.repeat()`) makes `pumpAndSettle` never settle in tests — this is the number-one cause of a hanging widget test (`references/testing.md`).

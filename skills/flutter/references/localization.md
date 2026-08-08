@@ -21,16 +21,16 @@ Localization is four separate problems: extracting strings, choosing the right v
 
 ## Runtime Resolution
 
-- `Localizations.of(context)` — and the generated `AppLocalizations.of(context)` — read from the tree, so strings need a `BuildContext` below `MaterialApp`. Code in the data or application layer must return keys or typed errors, and let the UI render them (`architecture.md`).
+- `Localizations.of(context)` — and the generated `AppLocalizations.of(context)` — read from the tree, so strings need a `BuildContext` below `MaterialApp`. Code in the data or application layer must return keys or typed errors, and let the UI render them (`references/architecture.md`).
 - `localeResolutionCallback` decides what happens when the device locale is not supported. The default picks a language match ignoring the country, then falls back to the first supported locale — verify that fallback is the one you want, because it is what most users of unsupported locales will see.
 - Locale is language + optional script + optional country: `zh_Hans` and `zh_Hant` are not interchangeable, and `pt_BR` and `pt_PT` differ enough to matter.
-- An in-app language switch means storing the choice (`data.md`) and passing `locale:` to `MaterialApp` explicitly; the OS setting is only the default.
-- Changing locale rebuilds the app: any widget caching a localized string in `initState` keeps the old language. Read strings in `build` or `didChangeDependencies` (`state.md`).
+- An in-app language switch means storing the choice (`references/data.md`) and passing `locale:` to `MaterialApp` explicitly; the OS setting is only the default.
+- Changing locale rebuilds the app: any widget caching a localized string in `initState` keeps the old language. Read strings in `build` or `didChangeDependencies` (`references/state.md`).
 
 ## Numbers, Dates, and Units
 
 - `package:intl` formats per locale: `NumberFormat.currency(locale: ..., name: 'EUR')`, `DateFormat.yMMMd(locale)`. `DateTime.toString()` and manual `'$d/$m/$y'` are wrong in most of the world.
-- Decimal separators, thousands separators, and currency symbol position all vary. A parser that assumes `.` as the decimal point rejects perfectly valid input in much of Europe — parse with `NumberFormat.parse`, not `double.parse`, on user input (`forms.md`).
+- Decimal separators, thousands separators, and currency symbol position all vary. A parser that assumes `.` as the decimal point rejects perfectly valid input in much of Europe — parse with `NumberFormat.parse`, not `double.parse`, on user input (`references/forms.md`).
 - Dates are the classic ambiguity: 03/04 is two different days depending on the locale. Use a format with a named month wherever a mistake would matter.
 - Time zones: `DateTime` is either local or UTC. Store UTC, format local, and never subtract two dates across a DST boundary without a time-zone-aware library.
 - `DateFormat` for a non-current locale requires that locale's data to be initialized first (`initializeDateFormatting`), or it throws at the first format call.
@@ -41,18 +41,18 @@ Localization is four separate problems: extracting strings, choosing the right v
 - **Use the directional variants**: `EdgeInsetsDirectional` (`start`/`end`) instead of `EdgeInsets` (`left`/`right`), `AlignmentDirectional`, `BorderRadiusDirectional`, and `PositionedDirectional`. Every hardcoded `left` is a bug in RTL.
 - `MainAxisAlignment.start` already flips; `Alignment.centerLeft` does not. That asymmetry is the source of most half-mirrored screens.
 - Icons that indicate direction (back arrows, next chevrons, undo) must mirror; icons that represent objects (a camera, a clock) must not. `Transform.flip` on the whole icon set is the wrong fix.
-- `Directionality` is the ambient value. Wrapping a preview in `Directionality(textDirection: TextDirection.rtl, ...)` — including in a widget test — is the cheapest way to check a screen (`testing.md`).
+- `Directionality` is the ambient value. Wrapping a preview in `Directionality(textDirection: TextDirection.rtl, ...)` — including in a widget test — is the cheapest way to check a screen (`references/testing.md`).
 - Mixed-direction content (an English brand name in an Arabic sentence, a phone number) renders through the Unicode bidi algorithm; test with real strings, not with reversed Latin text.
 
 ## Layout Under Translation
 
-- Translated text is routinely longer than the source: German and Finnish commonly overflow buttons and tabs sized to fit English. Design for growth or let the text wrap; a fixed-width button with a centered label is the widget that breaks first (`layout.md`).
-- Combine with text scaling: a long translation at a large accessibility text size is the real worst case, and it is the one to test (`accessibility.md`).
+- Translated text is routinely longer than the source: German and Finnish commonly overflow buttons and tabs sized to fit English. Design for growth or let the text wrap; a fixed-width button with a centered label is the widget that breaks first (`references/layout.md`).
+- Combine with text scaling: a long translation at a large accessibility text size is the real worst case, and it is the one to test (`references/accessibility.md`).
 - Never bake text into images — it cannot be translated, and it fails accessibility at the same time.
 - Sorting a list of names alphabetically is locale-dependent; the default `compareTo` is code-point order, which puts accented characters in the wrong place for most languages.
 
 ## Verifying
 
 - A pseudo-locale pass (wrap every string in markers and pad its length) exposes both hardcoded strings and layouts that cannot grow, before any translation exists.
-- Widget tests can pump a screen once per supported locale plus one RTL locale, asserting no overflow — that catches the whole category cheaply (`testing.md`).
+- Widget tests can pump a screen once per supported locale plus one RTL locale, asserting no overflow — that catches the whole category cheaply (`references/testing.md`).
 - Audit for hardcoded strings periodically: any user-visible literal in a widget file is a missed translation. A lint rule for literal strings in widget constructors keeps it from regressing.

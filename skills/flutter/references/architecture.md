@@ -11,7 +11,7 @@ Everything here follows one question: **who owns this state, and who is allowed 
 | Whole app reads it (session, theme, locale, connectivity) | An app-level provider or repository | You pass it into every route's constructor |
 | Server data with loading and error states | A repository + an async-aware provider or bloc | Every screen re-implements loading, retry, and caching |
 | Only this route cares, and must die with it | A route-scoped provider (`autoDispose`, or a provider inside the route's subtree) | Stale data appears when you reopen the screen |
-| Ephemeral form draft | `StatefulWidget` until it must survive navigation | The draft clears when the keyboard opens (`state.md` element reuse) |
+| Ephemeral form draft | `StatefulWidget` until it must survive navigation | The draft clears when the keyboard opens (`references/state.md` element reuse) |
 
 Prefer the lowest scope that works. Global state is the default in the codebases that are hardest to change, and lifting state one level too high is the most common cause of "everything rebuilds".
 
@@ -51,7 +51,7 @@ Prefer the lowest scope that works. Global state is the default in the codebases
 **Plain `InheritedWidget`**
 
 - Still correct for a small, stable dependency (a theme extension, a config object). `updateShouldNotify` decides who rebuilds; returning `true` unconditionally rebuilds every dependent on every parent rebuild.
-- `dependOnInheritedWidgetOfExactType` in `initState` does not subscribe — that is what `didChangeDependencies` is for (`state.md`).
+- `dependOnInheritedWidgetOfExactType` in `initState` does not subscribe — that is what `didChangeDependencies` is for (`references/state.md`).
 
 ## Layering
 
@@ -66,7 +66,7 @@ data/          repositories → API clients + local stores; owns DTOs and mappin
 ```
 
 - The rule that makes layering real: **domain models never carry JSON**. Parse a DTO at the data boundary and map it to a model the UI understands; otherwise a field rename in the API reaches into widget code.
-- Repositories return domain types and throw domain failures — not `DioException`, not `SocketException`. Translation happens where the client lives (`data.md`).
+- Repositories return domain types and throw domain failures — not `DioException`, not `SocketException`. Translation happens where the client lives (`references/data.md`).
 - `application/` must not import `package:flutter/material.dart`. If it needs `BuildContext`, the side effect belongs in the UI layer.
 - `project_layout: feature-first` puts these three folders inside each feature (`features/checkout/{ui,application,data}`) and keeps a `core/` for shared plumbing; `layer-first` puts features inside each layer. Feature-first survives growth better because a feature can be deleted in one move; layer-first reads better in an app with fewer than a handful of features.
 
@@ -74,12 +74,12 @@ data/          repositories → API clients + local stores; owns DTOs and mappin
 
 - Constructor injection is the baseline: a class that takes its dependencies is testable without any framework.
 - A service locator (`get_it`) is the pragmatic top-level wiring: one `setup()` at startup, no `BuildContext` needed in the data layer. Its cost is compile-time invisibility — a missing registration is a runtime error, so register everything in one file and cover it with a startup test.
-- Scoped providers give override-per-subtree for free, which is what makes widget tests cheap: pump the widget with a fake repository injected above it (`testing.md`).
+- Scoped providers give override-per-subtree for free, which is what makes widget tests cheap: pump the widget with a fake repository injected above it (`references/testing.md`).
 - Do not mix both for the same dependency. Pick the one the repo uses and keep the other out of that layer.
 - Async initialization (opening a database, reading secure storage) belongs in a single `bootstrap()` awaited before `runApp`, or behind a provider that exposes a loading state — not in `main()` with a fire-and-forget call that later races the first screen.
 
 ## Immutability and Equality
 
-- State objects compared by identity re-render on every emit; state objects with value equality skip no-op updates. Implement `==`/`hashCode`, or generate them (`codegen: allowed`), or use records for small value bundles (`dart.md`).
+- State objects compared by identity re-render on every emit; state objects with value equality skip no-op updates. Implement `==`/`hashCode`, or generate them (`codegen: allowed`), or use records for small value bundles (`references/dart.md`).
 - `copyWith` on a class with nullable fields cannot express "set this to null" — the standard workaround is a sentinel or a wrapper type. Generated `copyWith` from `freezed` handles it; a hand-written one usually does not, and that silently ignores clears.
 - Mutating a list or map held inside an immutable state object defeats the whole mechanism: the reference is unchanged, so `==` is true, so nothing rebuilds.

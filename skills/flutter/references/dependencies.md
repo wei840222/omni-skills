@@ -31,23 +31,23 @@ Before adding a dependency, check, in this order:
 1. **Is it a plugin?** A pure Dart package is a version bump; a plugin adds native build configuration, per-platform behavior, and store-review surface (permissions).
 2. **Last publish and open-issue trend.** An unmaintained plugin blocks your next SDK upgrade for the whole app.
 3. **Platform support** against `target_platforms` (SKILL.md Configuration) — a plugin missing web or desktop fails to compile or throws `UnimplementedError` the day that platform is added.
-4. **What it drags in.** One convenience package can pull a dozen transitive dependencies and megabytes of native code (`release.md`, size).
+4. **What it drags in.** One convenience package can pull a dozen transitive dependencies and megabytes of native code (`references/release.md`, size).
 5. **Whether you would write it in an afternoon.** For a formatter, a debouncer, or a small extension, the dependency costs more over time than the code.
 
-Wrap third-party plugins behind your own interface in the data layer: they are the most churn-prone dependency in a Flutter app, and a wrapper turns a migration into one file (`architecture.md`).
+Wrap third-party plugins behind your own interface in the data layer: they are the most churn-prone dependency in a Flutter app, and a wrapper turns a migration into one file (`references/architecture.md`).
 
 ## Native Dependency Layers
 
 - Android: each plugin contributes Gradle configuration. A plugin upgrade that requires a newer Android Gradle Plugin, Kotlin version, or compile SDK forces an app-wide bump — that is the most common Flutter upgrade tax. Gradle's error names the module; start there.
-- iOS/macOS (Flutter 3.44+): **SPM (Swift Package Manager) is the default**. `flutter pub get` resolves SPM dependencies automatically. For legacy projects or plugins without SPM support, `cd ios && pod install` still works. CocoaPods trunk becomes read-only December 2, 2026 — migrate to SPM: `flutter config --ios-deployment-target=15`, then rebuild (`release.md`).
+- iOS/macOS (Flutter 3.44+): **Swift Package Manager (SwiftPM) is enabled by default**. Flutter resolves SwiftPM descriptors or CocoaPods pod files during the native build. Existing projects with unsupported plugin dependencies can continue using CocoaPods; if a SwiftPM plugin needs a higher deployment target, change it in Xcode and regenerate the platform configuration (`references/release.md`).
 - Minimum OS versions come from the strictest plugin in the graph. Raising them drops real users — check the store's device report before accepting a bump that a single convenience package forced.
 - Native transitive conflicts (two plugins embedding different versions of the same SDK) surface as duplicate-symbol or manifest-merger errors, not as pub errors. The fix is at the plugin level: upgrade, or drop one.
 
 ## Upgrading Flutter Itself
 
-- Pin the SDK version for the whole team and CI. Analyzer rules, generated code, goldens, and default theming all move between releases (`testing.md`).
+- Pin the SDK version for the whole team and CI. Analyzer rules, generated code, goldens, and default theming all move between releases (`references/testing.md`).
 - Upgrade deliberately, on its own branch: bump the SDK, run `dart fix --apply` for mechanical deprecations, then `flutter pub outdated` and move the packages that were waiting on it.
-- Read the release notes' breaking-change section before debugging: a widget that "suddenly looks different" after an upgrade is usually a documented default change, not a regression in your code (`widgets.md`, theming).
+- Read the release notes' breaking-change section before debugging: a widget that "suddenly looks different" after an upgrade is usually a documented default change, not a regression in your code (`references/widgets.md`, theming).
 - Keep the previous SDK installed until the upgraded build ships. Rolling back an SDK mid-release is otherwise its own incident.
 
 ## Codegen
@@ -55,7 +55,7 @@ Wrap third-party plugins behind your own interface in the data layer: they are t
 Only when `codegen: allowed` (SKILL.md Configuration).
 
 - `dart run build_runner build --delete-conflicting-outputs` for a one-shot; `watch` during development. The `--delete-conflicting-outputs` flag is what clears the stale-output error most people hit first.
-- Generated files (`*.g.dart`, `*.freezed.dart`) are either committed or generated in CI — pick one and enforce it. The mixed state, where some are committed and some are not, produces the classic "compiles locally, fails in CI" failure (`debug.md`).
+- Generated files (`*.g.dart`, `*.freezed.dart`) are either committed or generated in CI — pick one and enforce it. The mixed state, where some are committed and some are not, produces the classic "compiles locally, fails in CI" failure (`references/debug.md`).
 - Generation runs over the whole package: in a large app it is slow enough to belong in a watch process, not in the edit-run loop.
 - A generator that fails after a dependency upgrade usually needs its own upgrade in lockstep (`json_serializable` with `build_runner`, `freezed` with `freezed_annotation`) — bump the pair together.
 - Codegen failures often mask a real analyzer error: run `flutter analyze` first, because the generator's message rarely names the actual broken annotation.

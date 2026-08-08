@@ -27,7 +27,7 @@ One rule generates every layout behavior and every layout exception: **constrain
 |---|---|---|
 | Content is legitimately taller than the screen | Overflow grows with more items or with larger text | Make the axis scrollable (`SingleChildScrollView`, or a `ListView`) |
 | One child wants more than its share | Overflow is stable, one child is a text or an image | `Expanded`/`Flexible` on that child |
-| The keyboard shrank the viewport | Overflow appears only when a field is focused | `SingleChildScrollView` + `resizeToAvoidBottomInset` (`forms.md`) |
+| The keyboard shrank the viewport | Overflow appears only when a field is focused | `SingleChildScrollView` + `resizeToAvoidBottomInset` (`references/forms.md`) |
 
 `SingleChildScrollView` + `Column` is the right answer for a form-shaped screen with a small, bounded number of children. For anything list-shaped it is the wrong answer: it builds all children eagerly.
 
@@ -78,6 +78,6 @@ Reach for `CustomScrollView` the moment a screen mixes shapes in one scroll view
 | Aspect ratio | `AspectRatio` | Needs at least one bounded axis |
 | Cap a size but allow smaller | `ConstrainedBox(maxWidth:)` | Applies only where the parent's constraints permit |
 | Ignore the parent's constraints | `UnconstrainedBox` | Creates unbounded constraints for the child — usually a new bug |
-| Scale a fixed-size widget to fit | `FittedBox` | Also scales text; verify against text scaling (`accessibility.md`) |
+| Scale a fixed-size widget to fit | `FittedBox` | Also scales text; verify against text scaling (`references/accessibility.md`) |
 | Percentage of the parent | `FractionallySizedBox`, or `LayoutBuilder` | Percentage of the SCREEN is `MediaQuery.sizeOf` — different thing, and it ignores insets |
 | Anything else | `LayoutBuilder` and print the constraints | The answer is always in the constraints that arrive |

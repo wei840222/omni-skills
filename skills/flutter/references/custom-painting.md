@@ -27,11 +27,11 @@ class RingPainter extends CustomPainter {
 ```
 
 - **`shouldRepaint` is the performance contract.** Returning `true` unconditionally repaints on every parent rebuild; returning `false` when a field changed leaves stale pixels on screen. Compare exactly the fields `paint` reads.
-- The painter is given a `Size`, not constraints. `CustomPaint` sizes to its `child`, or to `size:` when there is none, or to zero if it has neither — the "my painter draws nothing" bug is usually a zero-size box (`layout.md`).
-- The canvas is not clipped to `size` by default: drawing outside it bleeds over siblings. Set `Canvas.clipRect` or `CustomPaint(isComplex:)`-adjacent properties deliberately, and remember that painting outside the box is still not hit-testable (`widgets.md`).
+- The painter is given a `Size`, not constraints. `CustomPaint` sizes to its `child`, or to `size:` when there is none, or to zero if it has neither — the "my painter draws nothing" bug is usually a zero-size box (`references/layout.md`).
+- The canvas is not clipped to `size` by default: drawing outside it bleeds over siblings. Set `Canvas.clipRect` or `CustomPaint(isComplex:)`-adjacent properties deliberately, and remember that painting outside the box is still not hit-testable (`references/widgets.md`).
 - Coordinates are logical pixels with the origin at the top-left of the paint box. Nothing converts device pixels for you; `MediaQuery.devicePixelRatioOf` only matters when you rasterize to an image.
 - Create `Paint`, `Path`, `TextPainter`, and `Shader` objects OUTSIDE `paint` when they do not depend on the animated value. Allocating them per frame is the most common cost in a slow painter.
-- `shouldRebuildSemantics` and `semanticsBuilder` exist because a painted chart is invisible to a screen reader; supply a summary or a data alternative (`accessibility.md`).
+- `shouldRebuildSemantics` and `semanticsBuilder` exist because a painted chart is invisible to a screen reader; supply a summary or a data alternative (`references/accessibility.md`).
 
 ## Canvas Operations Worth Knowing
 
@@ -42,7 +42,7 @@ class RingPainter extends CustomPainter {
 | Arcs and pie segments | `drawArc` | Angles are RADIANS and start at 3 o'clock, not 12 — subtract π/2 for a clock-style start |
 | Text | `TextPainter(...)..layout()` then `paint` | `layout()` is mandatory; skipping it throws. Reuse the painter across frames |
 | Gradients | `Paint()..shader = LinearGradient(...).createShader(rect)` | The shader is bound to that rect; recreate it when the size changes |
-| Images | `drawImageRect` | Decode once and cache; decoding per frame is a guaranteed jank source (`performance.md`) |
+| Images | `drawImageRect` | Decode once and cache; decoding per frame is a guaranteed jank source (`references/performance.md`) |
 | Grouping with opacity or a blend | `saveLayer` + `restore` | Allocates an offscreen buffer — the single most expensive canvas operation |
 | Transform a subsection | `save`, `translate`/`rotate`/`scale`, draw, `restore` | Every `save` needs its `restore`, or subsequent drawing inherits the transform |
 | Shadows | `drawShadow`, or `Path` + `MaskFilter.blur` | Blur cost scales with radius and area |
@@ -56,8 +56,8 @@ class RingPainter extends CustomPainter {
 
 ## Animating a Painter
 
-- Drive it with an `AnimationController` passed to the painter through `repaint:` — `CustomPainter(repaint: animation)` repaints on every tick WITHOUT rebuilding the widget tree, which is strictly cheaper than rebuilding a `CustomPaint` inside an `AnimatedBuilder` (`animations.md`).
-- Wrap the `CustomPaint` in a `RepaintBoundary` so the surrounding UI does not repaint with it (`performance.md`).
+- Drive it with an `AnimationController` passed to the painter through `repaint:` — `CustomPainter(repaint: animation)` repaints on every tick WITHOUT rebuilding the widget tree, which is strictly cheaper than rebuilding a `CustomPaint` inside an `AnimatedBuilder` (`references/animations.md`).
+- Wrap the `CustomPaint` in a `RepaintBoundary` so the surrounding UI does not repaint with it (`references/performance.md`).
 - Keep `paint` allocation-free on the animated path: precompute paths and reuse `Paint` objects; a per-frame `Path` build over thousands of points is what turns a chart into a slideshow.
 
 ## When You Need a Custom RenderObject
@@ -67,10 +67,10 @@ Painting is not layout. Write a `RenderBox` only when you must decide how childr
 - Implement `performLayout` (size yourself within `constraints`, lay out and position children), `paint`, and `hitTestChildren`. Getting `size` from anything but the constraints is the standard first mistake (SKILL.md rule 1).
 - Call `markNeedsLayout` when a property changes geometry, `markNeedsPaint` when it only changes appearance. Calling the former for a color change discards a layout pass every frame.
 - `MultiChildRenderObjectWidget` with a `ContainerRenderObjectMixin` is the pattern for multiple children; parent data holds each child's computed offset.
-- Before committing: `Flow` and `CustomMultiChildLayout` solve many custom-positioning problems with far less code, and `Wrap`, `Stack`, and slivers cover more than most people assume (`layout.md`).
+- Before committing: `Flow` and `CustomMultiChildLayout` solve many custom-positioning problems with far less code, and `Wrap`, `Stack`, and slivers cover more than most people assume (`references/layout.md`).
 
 ## Testing Painted Output
 
-- Golden tests are the natural fit here — the pixels ARE the contract, which is exactly the case where goldens pay for themselves (`testing.md`).
+- Golden tests are the natural fit here — the pixels ARE the contract, which is exactly the case where goldens pay for themselves (`references/testing.md`).
 - Unit-test the geometry separately: a function mapping data to points is testable without a canvas, and it is where the bugs actually live.
-- Verify the painter at several sizes and both text scales; a chart hardcoded around one width breaks on a tablet (`adaptive.md`).
+- Verify the painter at several sizes and both text scales; a chart hardcoded around one width breaks on a tablet (`references/adaptive.md`).

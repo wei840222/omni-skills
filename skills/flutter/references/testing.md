@@ -23,9 +23,9 @@ testWidgets('submits when the form is valid', (tester) async {
 });
 ```
 
-- `pump()` advances one frame. `pump(Duration)` advances virtual time by that much. `pumpAndSettle()` pumps until no frames are scheduled — and **hangs on any repeating animation** (`animations.md`), returning only when its timeout expires, which defaults to 10 minutes. A test that "takes forever" is almost always this.
+- `pump()` advances one frame. `pump(Duration)` advances virtual time by that much. `pumpAndSettle()` pumps until no frames are scheduled — and **hangs on any repeating animation** (`references/animations.md`), returning only when its timeout expires, which defaults to 10 minutes. A test that "takes forever" is almost always this.
 - The default test surface is 800 × 600 logical pixels. A layout that assumes a phone width overflows in tests and nowhere else; set `tester.view.physicalSize` and `devicePixelRatio` (and reset them with `addTearDown(tester.view.reset)`) when the size matters.
-- Overflow errors FAIL widget tests. That is a feature: a test that pumps every screen at a couple of sizes catches the whole `RenderFlex overflowed` category (`layout.md`).
+- Overflow errors FAIL widget tests. That is a feature: a test that pumps every screen at a couple of sizes catches the whole `RenderFlex overflowed` category (`references/layout.md`).
 - `pumpWidget` with a bare widget throws `No Material widget found` or `No Directionality widget found` — wrap in `MaterialApp` (or `Directionality` for a pure text widget).
 - Async work must be pumped: after an `await`-based action, `pump()` once for the state change, or use `tester.runAsync` when the code needs real async I/O (which most test doubles should make unnecessary).
 - Finders: prefer `find.byKey` for the things a test drives and `find.text` for what the user sees. `find.byType` couples the test to the widget hierarchy and breaks on refactors.
@@ -34,19 +34,19 @@ testWidgets('submits when the form is valid', (tester) async {
 ## Fakes over Mocks
 
 - A fake repository (a real class returning canned data) reads better and breaks less than a mock with stubbed methods. Reserve mocks for verifying that a call HAPPENED.
-- Inject the dependency; do not reach for a global. Scoped providers and constructor injection both make this one line in the test (`architecture.md`); a service locator needs a per-test registration and a teardown.
+- Inject the dependency; do not reach for a global. Scoped providers and constructor injection both make this one line in the test (`references/architecture.md`); a service locator needs a per-test registration and a teardown.
 - Fake time with `fakeAsync` (or `tester.pump(Duration)`) rather than sleeping. A test containing a real delay is a test that will flake in CI.
 - `HttpOverrides` in `setUpAll` stops any forgotten real request; a test suite that silently hits the network is the classic source of CI-only failures.
-- Plugins are unavailable in widget tests: any code path touching a `MethodChannel` needs a mock handler (`TestDefaultBinaryMessengerBinding...setMockMethodCallHandler`) or an injected fake at the boundary (`platform.md`).
+- Plugins are unavailable in widget tests: any code path touching a `MethodChannel` needs a mock handler (`TestDefaultBinaryMessengerBinding...setMockMethodCallHandler`) or an injected fake at the boundary (`references/platform.md`).
 
 ## What to Test
 
 - Every bug fixed gets a test that fails without the fix. This is the only rule that reliably grows a useful suite.
 - State transitions in notifiers and blocs: input event → expected state sequence, including the failure branch.
-- Parsing and mapping against a real captured payload, including a null-heavy and a malformed one (`data.md`).
+- Parsing and mapping against a real captured payload, including a null-heavy and a malformed one (`references/data.md`).
 - Screens: renders loading, renders data, renders error, and the primary interaction works.
 - Disposal: pump the widget, pump an empty tree, and assert no exception — that catches uncancelled tickers and subscriptions (SKILL.md rule 3).
-- Accessibility guidelines as assertions: `meetsGuideline(textContrastGuideline)`, `androidTapTargetGuideline`, `labeledTapTargetGuideline` (`accessibility.md`).
+- Accessibility guidelines as assertions: `meetsGuideline(textContrastGuideline)`, `androidTapTargetGuideline`, `labeledTapTargetGuideline` (`references/accessibility.md`).
 - Not worth testing: that a `Text` renders the string you passed it, or that Flutter's own widgets work.
 
 ## Golden Tests
@@ -68,6 +68,6 @@ testWidgets('submits when the form is valid', (tester) async {
 ## In CI
 
 - `flutter test --coverage` produces `lcov.info`. Coverage is a conversation starter, not a gate on its own — a suite at 90% that never asserts behavior is worse than one at 50% that does.
-- Pin the SDK version in CI to the one the team develops on: analyzer rules, goldens, and generated code all move between versions (`dependencies.md`).
+- Pin the SDK version in CI to the one the team develops on: analyzer rules, goldens, and generated code all move between versions (`references/dependencies.md`).
 - `flutter analyze` runs before tests; a type error found by the analyzer is cheaper than the same error found by a failed test.
 - Run `dart run build_runner build --delete-conflicting-outputs` in CI when `codegen: allowed`, and commit or verify — a stale generated file that compiles locally and not in CI is the classic Monday-morning failure.

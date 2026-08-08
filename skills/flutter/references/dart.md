@@ -22,14 +22,14 @@ Only what changes Flutter code. Sound null safety and the Dart 3 features below 
 ## Records and Patterns
 
 - Records are lightweight unnamed tuples with value equality: `(int, String)` positional, `({int id, String name})` named. Perfect for returning two values without a class, and for a `Map` key that must compare by content.
-- Value equality is the reason they matter in Flutter: a record in a state object compares by content, so a rebuild is skipped when nothing changed (`architecture.md`).
-- Destructuring: `final (id, name) = fetchPair();` and `if (json case {'id': int id, 'name': String name})` — the pattern form validates the shape AND binds typed variables in one step, which is a genuinely better JSON guard than a chain of casts (`data.md`).
+- Value equality is the reason they matter in Flutter: a record in a state object compares by content, so a rebuild is skipped when nothing changed (`references/architecture.md`).
+- Destructuring: `final (id, name) = fetchPair();` and `if (json case {'id': int id, 'name': String name})` — the pattern form validates the shape AND binds typed variables in one step, which is a genuinely better JSON guard than a chain of casts (`references/data.md`).
 - Switch expressions return a value and are exhaustive over sealed hierarchies: `final label = switch (status) { Loading() => '…', Error(:final msg) => msg, Data(:final n) => '$n' };`. The compiler flags a missing case — that is what makes sealed state classes worth the ceremony.
 - `sealed class` permits subtypes only in the same library, which is what enables that exhaustiveness. `final class` forbids extension; `base` forbids implementation. Use them to make illegal states unrepresentable in view state.
 
 ## Equality and Immutability
 
-- The default `==` is identity. Two structurally identical objects are unequal, so every rebuild re-renders and every state emit is treated as a change (`architecture.md`).
+- The default `==` is identity. Two structurally identical objects are unequal, so every rebuild re-renders and every state emit is treated as a change (`references/architecture.md`).
 - Override `==` and `hashCode` together, always, and only over the fields that define identity. An overridden `==` without `hashCode` breaks `Set` and `Map` in ways that surface far from the mistake.
 - Prefer records for small value bundles, generated equality for models, and hand-written only for a handful of classes.
 - `const` constructors give compile-time canonicalization: two identical `const` instances ARE the same object, which is what makes `const` widgets skip rebuilds (SKILL.md rule 5). A class whose fields are all final can and should have one.
@@ -37,15 +37,15 @@ Only what changes Flutter code. Sound null safety and the Dart 3 features below 
 
 ## Collections
 
-- Collection-if and collection-for build widget lists cleanly: `[ const Header(), if (showBanner) const Banner(), for (final i in items) ItemTile(i) ]` — no `.where().map().toList()` chains inside `build` (`widgets.md`).
+- Collection-if and collection-for build widget lists cleanly: `[ const Header(), if (showBanner) const Banner(), for (final i in items) ItemTile(i) ]` — no `.where().map().toList()` chains inside `build` (`references/widgets.md`).
 - Spread `...` and null-aware spread `...?` merge lists; `...?maybeList` is the clean way to include an optional group.
 - `map`, `where`, and `expand` are lazy: nothing runs until iterated. A `map` whose result is iterated twice runs twice — add `.toList()` when the result is reused.
 - `firstWhere` throws when nothing matches; pass `orElse: () => null` with a nullable element type, or use `firstWhereOrNull` from `package:collection`.
-- Sorting mutates in place and returns void: `final sorted = [...items]..sort(compare);` is the non-destructive form, and it is what a state object needs (`architecture.md`).
+- Sorting mutates in place and returns void: `final sorted = [...items]..sort(compare);` is the non-destructive form, and it is what a state object needs (`references/architecture.md`).
 
 ## Async Language Semantics
 
-- `async` functions run synchronously up to the first `await`, then return a `Future`. Code after an `await` runs in a later microtask — that is the async gap `mounted` protects (`async.md`).
+- `async` functions run synchronously up to the first `await`, then return a `Future`. Code after an `await` runs in a later microtask — that is the async gap `mounted` protects (`references/async.md`).
 - `Future.wait([a, b])` runs concurrently and fails as a unit on the first error; `eagerError: false` still waits for all. Sequential awaits run serially — a page loading three independent resources one after another is a common, silent slowness.
 - `async*` produces a `Stream`, `sync*` an `Iterable`; `yield*` delegates to another. A `async*` generator pauses when its listener pauses, which is the backpressure most manual controllers forget.
 - Unawaited futures swallow their errors into an unhandled-exception log. Mark deliberate ones with `unawaited(...)` and attach error handling.
@@ -62,5 +62,5 @@ Only what changes Flutter code. Sound null safety and the Dart 3 features below 
 
 - `Error` signals a programming bug (`StateError`, `ArgumentError`, `LateInitializationError`) and should not be caught in production paths. `Exception` signals an expected failure (network, parsing) and should be.
 - `catch (e, st)` captures the stack trace; forwarding the trace is what keeps a crash report readable. `Error.throwWithStackTrace(e, st)` preserves the original origin across a boundary, where a bare rethrow of a stored error would not.
-- `on SomeType catch (e)` filters by type; a bare `catch` also catches `Error`, which is how a real bug ends up reported as "network unavailable" (`data.md`).
-- `finally` runs on both paths — the correct home for the `_busy = false` that re-enables a submit button (`forms.md`).
+- `on SomeType catch (e)` filters by type; a bare `catch` also catches `Error`, which is how a real bug ends up reported as "network unavailable" (`references/data.md`).
+- `finally` runs on both paths — the correct home for the `_busy = false` that re-enables a submit button (`references/forms.md`).

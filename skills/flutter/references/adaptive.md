@@ -9,9 +9,9 @@ Two separate questions, routinely conflated: **how much room do I have** (respon
 | How much room does MY parent give me | `LayoutBuilder` | The honest answer; works inside splits, sheets, and panes |
 | How big is the window | `MediaQuery.sizeOf(context)` (`flutter >=3.10`) | Rebuilds only on size change, unlike `MediaQuery.of` |
 | Where are the system bars and notches | `MediaQuery.paddingOf`, or `SafeArea` | `padding` already subtracts what `SafeArea` consumed above you |
-| How tall is the keyboard right now | `MediaQuery.viewInsetsOf(context).bottom` | Zero when closed (`forms.md`) |
+| How tall is the keyboard right now | `MediaQuery.viewInsetsOf(context).bottom` | Zero when closed (`references/forms.md`) |
 | Is the device in landscape | `MediaQuery.orientationOf` | Derived from the aspect ratio, not from a sensor |
-| Text size the user chose | `MediaQuery.textScalerOf` | A layout input (`accessibility.md`) |
+| Text size the user chose | `MediaQuery.textScalerOf` | A layout input (`references/accessibility.md`) |
 
 `MediaQuery.of(context)` for any single field subscribes to all of them: the widget then rebuilds on keyboard open, rotation, and inset changes (SKILL.md Traps). Use the aspect accessors.
 
@@ -30,7 +30,7 @@ Material 3's window size classes give a defensible default set — compact below
 
 - Use these as defaults, not doctrine: the honest breakpoint is where YOUR content breaks. Widen the window until the design fails, and put the boundary there.
 - Cap the content width on large windows (a `ConstrainedBox` around the reading column). Full-width body text on a desktop monitor is unreadable no matter how correct the layout code is.
-- List-detail is the payoff pattern: on compact, tapping a row pushes a route; on expanded, it selects into the second pane. That means the selection must live above both panes, not inside the list (`architecture.md`).
+- List-detail is the payoff pattern: on compact, tapping a row pushes a route; on expanded, it selects into the second pane. That means the selection must live above both panes, not inside the list (`references/architecture.md`).
 
 ## Platform Conventions
 
@@ -42,7 +42,7 @@ Material 3's window size classes give a defensible default set — compact below
 
 ## Web
 
-- The URL is application state. Path-based routing requires the host to serve `index.html` for unknown paths, or a refresh on a deep route returns 404 (`navigation.md`).
+- The URL is application state. Path-based routing requires the host to serve `index.html` for unknown paths, or a refresh on a deep route returns 404 (`references/navigation.md`).
 - There is no `dart:io`: file paths, `Platform`, and most local-storage plugins are unavailable or shimmed. Guard imports with conditional imports rather than runtime checks, since the import itself fails to compile.
 - The first load downloads the engine plus your app. Treat initial bundle size as a product requirement, use deferred loading for routes users may never reach, and measure on a throttled connection.
 - Text selection, right-click menus, hover states, and browser zoom all exist on web and nowhere else on mobile. Hover in particular changes layout expectations — `MouseRegion` and `InkWell`'s hover states are not decoration.
@@ -52,13 +52,13 @@ Material 3's window size classes give a defensible default set — compact below
 ## Desktop
 
 - Windows can be resized to absurd shapes at runtime: a layout that assumes a minimum width breaks live, not at launch. Set a minimum window size, and test by dragging.
-- Keyboard is a first-class input: every action needs a reachable focus path, `Shortcuts`/`Actions` for accelerators, and Escape to dismiss. Focus traversal order follows the widget tree, not the visual layout (`forms.md`).
+- Keyboard is a first-class input: every action needs a reachable focus path, `Shortcuts`/`Actions` for accelerators, and Escape to dismiss. Focus traversal order follows the widget tree, not the visual layout (`references/forms.md`).
 - Mouse affordances: hover feedback, correct cursors (`MouseRegion(cursor:)`), right-click context menus, and scroll-wheel behavior that does not fight trackpad momentum.
-- Multi-window, menu bars, tray icons, and file drag-and-drop come from packages, not the framework — check maintenance before designing around them (`dependencies.md`).
-- Desktop text conventions differ from mobile: dense layouts, smaller tap targets are acceptable for mouse input but the keyboard path must still work (`accessibility.md`).
+- Multi-window, menu bars, tray icons, and file drag-and-drop come from packages, not the framework — check maintenance before designing around them (`references/dependencies.md`).
+- Desktop text conventions differ from mobile: dense layouts, smaller tap targets are acceptable for mouse input but the keyboard path must still work (`references/accessibility.md`).
 
 ## Foldables and Unusual Shapes
 
 - `MediaQuery.of(context).displayFeatures` reports hinges and cutouts; `DisplayFeatureSubScreen` keeps a dialog off the fold.
 - A hinge splits the window into two logical panes: the two-pane layout you built for tablets is the right answer, keyed on display features rather than on width alone.
-- Orientation changes and fold/unfold rebuild with a new size and can destroy state if the layout swaps widget types at the boundary (`state.md` element reuse). Keep the same widget types across breakpoints where state must survive; where it cannot, lift the state above the branch.
+- Orientation changes and fold/unfold rebuild with a new size and can destroy state if the layout swaps widget types at the boundary (`references/state.md` element reuse). Keep the same widget types across breakpoints where state must survive; where it cannot, lift the state above the branch.
