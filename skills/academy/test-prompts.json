@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "We run a membership language academy for working adults. Maya already teaches five evening groups and is our only B1 exam-track teacher. I want to launch a new Thursday 19:30 cohort next month to grow. What should we do?",
+    "expected": "Resolve state, classify membership model, block new cohort until capacity lock, prioritize filling existing seats, rebalance or backfill Maya before launch, give owned next-7-days actions.",
+    "actual": "State root resolved: /tmp/academy-ws-u_9qxzli/academy (explicit test workspace/academy).\n\nModel: membership academy (recurring monthly revenue; retention and timetable stability dominate).\n\nPrimary bottleneck: teacher load / coverage, not lead volume.\nEvidence from state:\n- Maya already runs 5 evening groups and is sole B1 exam-track coverage.\n- Existing Evening B1 has 7/12 seats (above min viable 6) with 5 empty seats.\n- New Thu 19:30 cohort would compete for the same prime window and Maya's hours.\n\nDecision (capacity lock before promo):\n1. Keep a net-new Thu 19:30 cohort closed until a named teacher, room, min viable 6, and margin check exist together.\n2. First fill path: market the 5 open B1 seats and Saturday conversation (5/12) before inventing a SKU.\n3. Load path: move one non-exam evening group from Maya to Jun/Ana after a one-week shadow, or hire/contract a B1-capable backup before launch.\n4. If founder still wants Thu 19:30, require substitute matrix row for B1 and a 70-82% utilization check on Maya after the move.\n\nNext 7 days actions:\n- Admissions: B1 seat-fill sequence with schedule-fit qualification; same-day response SLA.\n- Ops: publish substitute matrix for B1; block Maya above current load.\n- Dashboard owners: occupancy by slot, teacher coverage issues, enrollments closed.\n\nFiles written: memory.md, staff.md, cohorts.md under resolved state root.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "Inquiries are okay but I want to spend more on ads. Delinquency is about 11%, month-3 renewal is 64%, and student S-104 missed two classes and has a failed card payment. How should we grow?",
+    "expected": "Refuse acquisition-first response; rank collections and combined learning+payment risk above ads; coordinated save plan; conditions to reopen growth.",
+    "actual": "State root: /tmp/academy-ws-u_9qxzli/academy. Model remains membership academy.\n\nUser asked for growth ads. Skill requires diagnosing the live bottleneck before acquisition spend.\nCurrent evidence:\n- Delinquency 11% (>7 days).\n- S-104 combines learning risk and payment risk → top-priority coordinated account.\n- Month-3 renewal 64% signals LTV leak; acquisition would amplify churn/collections load.\n- Capacity: B1 still has open seats; teacher coverage already tight.\n\nBottleneck ranking: collections/renewal and student-risk outrank lead volume.\n\nPlan:\n1. Freeze incremental paid acquisition this week.\n2. Run collections ladder on overdue set: soft reminder → failed-payment follow-up → escalation before next class block; keep written policy.\n3. For S-104: one joint academic+billing conversation same week (schedule fit / payment plan / pause rules). Run one coordinated thread.\n4. Start re-enrollment motions for month-2/3 students now with progress evidence (60-90 day window discipline for term products; for monthly, attach progress before renewal reminder).\n5. Growth unlock condition: delinquency trending down, Maya coverage backup named, and open seats filled or intentionally closed.\n\nDecision-ready cadence left for founder:\n- collections queue owner + daily aging\n- at-risk list review\n- seat-fill campaign only after cash and coverage gates pass.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "I am starting an 8-week exam intensive academy from scratch in five weeks. Help me set up operating memory and the first admissions system.",
+    "expected": "Resolve/create state_root, write memory from templates, classify cohort model, create admissions structure, set launch guardrails and KPI rhythm.",
+    "actual": "State resolution:\n- explicit path: none\n- existing candidates checked under test workspace: none\n- default created: /tmp/academy-empty-ok13kd6q/academy\n\nSetup followed references/setup.md:\n1. Confirmed write path with operator (test harness consent=yes).\n2. Created memory.md from assets/academy-data-templates.md.\n3. Model classified: cohort academy (fixed start/end, launch windows, seat count).\n4. Live constraint: admissions response SLA before launch marketing scale.\n5. Smallest structure added: admissions.md funnel stages with owner/response/exit criteria placeholders.\n\nImmediate operating defaults:\n- inquiry → useful reply same day (target minutes when staffed)\n- trial/assessment confirmation loop to cut no-shows\n- open enrollment only when teacher+room+min viable are named\n- weekly core KPI view from references/dashboard.md\n\nFiles: mem_path.exists()=True, admissions=True",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]

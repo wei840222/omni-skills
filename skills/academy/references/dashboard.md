@@ -50,3 +50,24 @@ Show different slices:
 Dashboards are for decisions, not decoration.
 
 If a metric does not change behavior, remove it or move it to an occasional report.
+
+## Evidence anchors
+
+Track rates with explicit stage definitions so teams do not argue past each other:
+
+- speed-to-first-useful-contact (target: same day at minimum; best practice aims at minutes, not hours)
+- trial/assessment show-up rate
+- offer-to-enroll rate
+- occupancy by slot and teacher utilization
+- attendance and at-risk count
+- delinquency and renewal rate
+
+If a metric does not change an owner decision this week, demote it to monthly.
+
+## Failure recovery
+
+| Trigger | First repair | If still failing |
+|---|---|---|
+| Dashboard longer than one screen | Cut to the weekly core view in this file | Split role views; keep founder view cash/occupancy/risk only |
+| Meeting becomes status theater | Require one decision or killed initiative per item | Cancel the recurring meeting until owners return with decisions |
+| KPI without owner | Assign owner and due window before closing the review | Park the metric |

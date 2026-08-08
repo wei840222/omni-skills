@@ -15,7 +15,7 @@ One person can hold multiple roles, but the responsibilities still need names.
 
 ## Hiring Lens
 
-Do not hire only for subject mastery.
+Hire for subject mastery plus operating fit.
 
 Check:
 - reliability
@@ -60,3 +60,11 @@ Massive feedback documents usually get ignored.
 If discounts rise and payroll is fixed, margins disappear quietly.
 
 Whenever the user changes pricing, class size, or teacher hours, review staffing economics too.
+
+## Failure recovery
+
+| Trigger | First repair | If still failing |
+|---|---|---|
+| Teacher absence inside 24 hours | Activate substitute matrix and handoff materials | Combine groups temporarily or cancel with makeup path |
+| Quality complaint | Observe or review, give one concrete correction, recheck | Reassign students; pause new assignments to that teacher |
+| Payroll fixed while discounts rise | Recalculate revenue per teacher hour before approving more discounts | Cap discounts or raise min group size |

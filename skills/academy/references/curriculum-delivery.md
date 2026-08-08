@@ -25,7 +25,7 @@ Standardize:
 - homework or follow-up
 - progress evidence
 
-Do not standardize personality. Standardize reliability.
+Standardize reliability and materials; leave teacher personality free.
 
 ## Level Placement
 
@@ -52,6 +52,14 @@ One bad teacher-fit problem can look like a curriculum problem unless you inspec
 
 ## Promise Control
 
-Never market outcomes that operations cannot support consistently.
+Market only outcomes that operations can support consistently.
 
 If admissions promises flexibility, fast progress, or premium support, delivery must have a repeatable way to provide it.
+
+## Failure recovery
+
+| Trigger | First repair | If still failing |
+|---|---|---|
+| Students stall after placement | Re-run level check within first sessions | Move level or change teacher fit |
+| Teachers improvise conflicting methods | Publish session objective, materials, and progress evidence standard | Academic lead shadows one cycle |
+| Marketing promise exceeds delivery | Rewrite offer to match repeatable operations | Pause the promise until support capacity exists |

@@ -74,3 +74,10 @@ If unclear, identify:
 3. what capacity actually limits growth
 
 Those three answers reveal the right model faster than labels do.
+
+## Failure recovery
+
+| Trigger | First repair | If still failing |
+|---|---|---|
+| Advice keeps failing in practice | Re-check revenue collection, delivery format, and binding capacity limit | Switch primary model label and rebuild the operating cadence |
+| Team copies another academy's playbook | Map which model that playbook assumed | Keep only tactics that match this academy's constraint |
