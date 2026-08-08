@@ -4,7 +4,7 @@ description: "Deploy, configure, and tune Meilisearch for production search: ind
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🔎"}'
-  related-skills: '{"elasticsearch":"Elasticsearch/OpenSearch cluster operations and advanced query DSL.","database-manager":"Relational database schema governance and recovery playbooks.","docker":"Containerizing Meilisearch with proper volume and secret handling.","api":"REST API integration patterns including auth, rate limits, and retries."}'
+  related-skills: '{"api":"REST API integration patterns including auth, rate limits, and retries.","database-manager":"Relational database schema governance and recovery playbooks.","docker":"Containerizing Meilisearch with proper volume and secret handling.","elasticsearch":"Elasticsearch/OpenSearch cluster operations and advanced query DSL."}'
 ---
 
 ## State location
@@ -64,7 +64,7 @@ Before deploying Meilisearch to any non-local environment, verify all of the fol
 1. **Master key is set** — without it, all endpoints are public and unauthenticated.
 2. **Search-only API keys are created for frontend use** — use scoped keys with `actions: ["search"]` for client-side access.
 3. **API key scoping is configured** — restrict keys to specific indexes and actions (`search`, `documents.get`) for multi-tenant isolation.
-4. **Snapshots are scheduled** — they are the only backup method; there is no continuous replication.
+4. **Backups are configured** — schedule snapshots for regular recovery, create dumps before version upgrades, store backup artifacts off-server, and test restores periodically.
 5. **`MEILI_ENV` is set to `production`** — enables authentication and disables the search preview UI.
 
 If any check fails, resolve it before serving traffic.
