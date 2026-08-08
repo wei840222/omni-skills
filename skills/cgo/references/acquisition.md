@@ -1,26 +1,8 @@
 # Acquisition and Growth Loops
 
-## CAC Benchmarks (2024-2026)
+## CAC comparison procedure
 
-### By Company Size and Segment
-
-| Segment | Median CAC | Top Quartile | Notes |
-|---------|-----------|--------------|-------|
-| SMB SaaS | $200-500 | < $150 | Self-serve PLG models |
-| Mid-market SaaS | $1,000-3,000 | < $800 | Sales-assisted |
-| Enterprise SaaS | $10,000-50,000 | < $5,000 | Complex sales cycles |
-| Fintech | $300-800 | < $200 | Higher LTV offsets |
-| E-commerce (DTC) | $30-80 | < $20 | Repeat purchase critical |
-
-### By Channel
-
-| Channel | Median CAC | Best For |
-|---------|-----------|----------|
-| SEO/Organic | $50-150 | Evergreen content, information-seeking users |
-| Paid Social | $80-200 | Visual products, impulse purchases |
-| Content Marketing | $100-250 | B2B, complex decisions |
-| Referral Programs | $30-100 | High NPS products |
-| Sales (Enterprise) | $5,000-20,000 | High ACV, complex needs |
+CAC is not portable across segments, geography, attribution windows, margin models, or acquisition definitions. Before comparing a channel with an external source, record its publisher, date, population, geography, cost inclusion, attribution model, and customer definition. Use the comparison as a hypothesis, not a spend gate.
 
 ## Growth Loop Types
 
@@ -31,8 +13,8 @@
 - **Social proof** — Usage visible to others triggers curiosity (e.g., "Sent from iPhone")
 
 ### Paid Loops
-- **CAC < LTV** — Unit economics must work at scale (3:1+ ratio target)
-- **Payback period** — How fast you recover acquisition cost (< 12 months for venture-backed)
+- **Unit economics** — Evaluate contribution margin, cash availability, retention, attribution confidence, and expected payback for the actual segment.
+- **Payback period** — Model recovery timing with the company’s margin, cash, and growth constraints rather than a universal target.
 - **Channel diversification** — Don't depend on one platform (platform risk)
 - **Creative velocity** — Fresh ads beat audience fatigue (test 10+ creatives/month)
 

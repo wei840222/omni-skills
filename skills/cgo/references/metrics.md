@@ -55,29 +55,9 @@ CAC = Total acquisition spend / New customers acquired
 LTV = ARPU × Gross margin × Average customer lifespan
 ```
 
-### LTV:CAC Ratio Benchmarks (2025-2026)
+### Unit-economics interpretation
 
-| Industry | Median | Good | Great |
-|----------|--------|------|-------|
-| SaaS (B2B) | 3.2:1 | 5.0:1 | 7.0:1 |
-| Fintech | 3.0:1 | 4.5:1 | 6.0:1 |
-| E-commerce | 2.5:1 | 4.0:1 | 5.5:1 |
-| Marketplace | 2.8:1 | 4.2:1 | 6.0:1 |
-
-- **< 1:1** — Losing money on every customer
-- **1:1 - 3:1** — Unsustainable for venture-backed; may work for bootstrapped
-- **3:1 - 5:1** — Healthy, room to invest in growth
-- **5:1+** — Potentially under-investing in growth
-
-### Payback Period Benchmarks
-
-| Business Model | Median | Good | Excellent |
-|---------------|--------|------|-----------|
-| SMB SaaS | 18 months | < 12 months | < 6 months |
-| Mid-market SaaS | 24 months | < 18 months | < 12 months |
-| Enterprise SaaS | 36 months | < 24 months | < 18 months |
-| PLG (self-serve) | 6 months | < 3 months | < 1 month |
-| E-commerce | 3 months | < 2 months | < 1 month |
+Interpret LTV:CAC and payback only after defining the acquisition-cost scope, gross/contribution margin, retention model, attribution method, segment, and cash constraint. A ratio or payback value is a decision input, not a universal health classification. When using an external benchmark, retain its source URL, publication date, population, geography, and metric definitions alongside the comparison.
 
 ```
 Payback months = CAC / (ARPU × Gross margin)
