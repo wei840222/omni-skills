@@ -8,37 +8,32 @@ metadata:
 
 ## Workflow
 
-1. **Assess user level** — notation familiarity, software mentioned, problem complexity
-   - If user mentions R/Python/Stata → assume intermediate, use technical terms
-   - If user describes data in plain language → assume beginner, start with concrete examples
-   - If user asks about formulas or proofs → assume advanced, provide mathematical detail
+1. **Assess user level** — start with a plain-language explanation, then offer notation, software detail, or proofs when the user asks for them.
 2. **Visualize first** — always plot data before computing statistics
    - Histogram for distribution shape
    - Scatter plot for relationships
    - Box plot for group comparisons
-3. **State assumptions** — every test has assumptions; check them explicitly
-   - Normality: Shapiro-Wilk (n < 50) or visual inspection of QQ plot
-   - Equal variance: Levene's test or ratio of largest/smallest SD < 2
-   - Independence: study design, not testable statistically
-4. **Select method** — match test to data structure and research question
-5. **Report completely** — effect sizes + confidence intervals + p-values + sample sizes
+3. **Specify the estimand and model** — identify the outcome, design/dependence, comparison or association of interest, and analysis model before selecting a test.
+4. **Assess model fit in context** — use plots, residuals, design knowledge, and sensitivity analyses; a diagnostic does not create a universal pass/fail threshold.
+5. **Select method and recovery path** — match the method to the estimand, then state how dependence, missingness, heteroscedasticity, nonlinearity, outliers, or multiplicity changes the analysis.
+6. **Report completely** — effect sizes + confidence intervals + p-values + sample sizes
 
 ## Pre-Test Verification
 
 Verify these conditions before running any test:
 - [ ] Data quality: missing values handled, outliers documented
-- [ ] Assumptions checked (normality, equal variance, independence)
+- [ ] Design, estimand, missing-data handling, dependence, and model diagnostics documented
 - [ ] Exploratory vs confirmatory: same data cannot do both
-- [ ] Multiple comparisons: if testing >1 hypothesis, apply correction
+- [ ] Multiple comparisons: define the confirmatory family and select a justified error-control or estimation strategy
 - [ ] Effect size will be reported alongside p-value
 
-**If any check fails → load `references/teaching-guide.md` for common pitfalls**
+**If a condition is uncertain or violated:** describe it, select a condition-specific recovery (for example Welch/robust methods for variance differences, clustered or repeated-measures models for dependence, multiple imputation/sensitivity analysis for missingness, or a transformed/nonlinear model), and report the limitation. Load `references/teaching-guide.md` only when correcting a user misconception.
 
 ## Common Pitfalls
 
 **p-value misinterpretations** (ASA 2016):
 - ❌ p-value = probability null hypothesis is true
-- ✅ p-value = probability of data this extreme IF null is true
+- ✅ p-value = compatibility of the data with a specified statistical model, including its null hypothesis and assumptions
 - ❌ p < 0.05 means effect is real
 - ✅ p < 0.05 means data are unusual under null (could still be bias/confounding)
 - ❌ "Non-significant" (p > 0.05) = no effect
@@ -54,25 +49,21 @@ Verify these conditions before running any test:
 ## When to Use Each Method
 
 **Comparing groups** (continuous outcome):
-- 2 groups, independent → Independent t-test (if normal + equal variance) OR Mann-Whitney U (if not)
-- 2 groups, paired → Paired t-test (if differences normal) OR Wilcoxon signed-rank
-- 3+ groups, independent → One-way ANOVA (if normal + equal variance) OR Kruskal-Wallis
-- 3+ groups, repeated → Repeated-measures ANOVA OR Friedman test
+- 2 independent groups → estimate a mean difference with its interval; use a model appropriate to the design. Welch methods are often preferable when variances or group sizes differ.
+- 2 paired observations → model the paired differences or use a paired/resampling method; do not treat repeated observations as independent.
+- 3+ independent groups → estimate planned contrasts or use a regression/ANOVA model that matches the design; define the multiplicity family before follow-up comparisons.
+- 3+ repeated groups → use a repeated-measures, mixed-effects, or other dependence-aware model; choose a rank-based method only when its estimand answers the question.
 
-**Decision rules for normality**:
-- n < 30: Shapiro-Wilk test (p < 0.05 → non-normal)
-- n ≥ 30: Visual inspection of QQ plot + histogram
-- Severe skewness or outliers → use non-parametric alternative
-
-**Decision rules for equal variance**:
-- Levene's test p < 0.05 → unequal variance
-- Ratio of largest SD / smallest SD > 2 → unequal variance
-- If unequal: use Welch's t-test (not Student's t-test), or Welch's ANOVA
+**Diagnostics and recovery**:
+- Use QQ/residual plots and subject-matter knowledge alongside diagnostics. Shapiro–Wilk is applicable to 3–5000 non-missing observations, but it is not a method-selection cutoff.
+- For heteroscedasticity, use Welch/heteroscedasticity-robust estimation, a suitable variance model, or sensitivity analyses; report the choice.
+- For skewness, outliers, or nonlinearity, inspect influence and consider transformation, robust, generalized, or resampling approaches that preserve the stated estimand.
+- Mann–Whitney and Kruskal–Wallis assess distributional/rank differences; describe that estimand rather than presenting them as automatic replacements for a mean comparison.
 
 **Relationships**:
-- 2 continuous variables → Pearson correlation (if both normal) OR Spearman correlation (if not) + scatter plot
-- Predict continuous outcome from predictors → Linear regression (check residuals, multicollinearity VIF < 5, influence Cook's D < 1)
-- Predict binary outcome → Logistic regression (check linearity of logit, no multicollinearity)
+- 2 continuous variables → inspect a scatter plot, define the association of interest, and use Pearson, rank, robust, or model-based measures with their assumptions stated.
+- Predict continuous outcome from predictors → use a regression model; inspect residual pattern, functional form, leverage/influence, and collinearity in context rather than universal VIF or Cook's-D cutoffs.
+- Predict binary outcome → use a logistic or other appropriate model; assess functional form, separation, dependence, calibration, and collinearity in context.
 
 **Causal claims**:
 - Observational data → need identification strategy:
@@ -99,7 +90,7 @@ Follow domain-specific guidelines:
 ## Critical Safeguards
 
 These practices protect result validity — apply them as standard procedure:
-1. Apply multiple comparison correction when testing >1 hypothesis → controls false positive rate
+1. For confirmatory families, predefine the estimands and select a justified FWER, FDR, hierarchical, or estimation-focused strategy
 2. Use identification strategy for causal claims from observational data → separates correlation from causation
 3. Report confidence intervals alongside p-values → provides effect magnitude and precision
 4. Check confidence interval width when p > 0.05 → distinguishes "no effect" from "insufficient data"

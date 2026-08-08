@@ -2,12 +2,12 @@
 
 ## 2016 Statement: Context, Process, and Purpose
 
-**Source**: Wasserman & Lazar, "The ASA's Statement on p-Values: Context, Process, and Purpose," *The American Statistician* 70(2), 2016. [DOI: 10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108)
+**Source**: Ronald L. Wasserstein & Nicole A. Lazar, "The ASA's Statement on p-Values: Context, Process, and Purpose," *The American Statistician* 70(2), 2016. [DOI: 10.1080/00031305.2016.1154108](https://doi.org/10.1080/00031305.2016.1154108). See also the [ASA release](https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf).
 
 ### Key Principles
 
 1. **P-values measure compatibility, not truth probability**
-   - A p-value is the probability of observing data this extreme or more extreme, assuming the null hypothesis is true
+   - A p-value measures the compatibility of the observed data with a specified statistical model, including the null hypothesis and its analysis assumptions; in a tail-area formulation it is the probability, under that model, of data at least this incompatible.
    - It does NOT measure the probability that the null hypothesis is true
    - It does NOT measure the probability that the data arose by random chance alone
 
@@ -39,7 +39,7 @@
 
 ## 2019 Statement: Moving to a World Beyond "p < 0.05"
 
-**Source**: Wasserman et al., "Moving to a World Beyond 'p < 0.05'," *The American Statistician* 73(sup1), 2019. [DOI: 10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913)
+**Source**: Ronald L. Wasserstein, Allen L. Schirm & Nicole A. Lazar, "Moving to a World Beyond 'p < 0.05'," *The American Statistician* 73(sup1), 2019. [DOI: 10.1080/00031305.2019.1583913](https://doi.org/10.1080/00031305.2019.1583913)
 
 ### Key Recommendations
 
