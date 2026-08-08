@@ -42,7 +42,26 @@ When given a task, determine which workflow to execute based on the user's inten
 To randomly select an unrefactored skill when no specific skill is specified:
 
 ```bash
-ls skills/ | while read d; do grep -q "^| $d " docs/refactored-skills.md || echo "$d"; done | shuf -n 1
+if ! open_prs_json=$(curl -fsS 'https://gitea.home-infra.weii.cloud/api/v1/repos/wei840222/clawic-skills/pulls?state=open'); then
+  echo "Failed to fetch open pull requests" >&2
+  exit 1
+fi
+
+open_refactor_skills=$(printf '%s' "$open_prs_json" | jq -r '
+  .[]
+  | .title
+  | select(startswith("refactor("))
+  | capture("^refactor\\((?<skill>[^)]+)\\)")
+  | .skill
+')
+
+for skill_path in skills/*; do
+  [ -d "$skill_path" ] || continue
+  skill=${skill_path##*/}
+  grep -q "^| $skill " CHANGELOG.md && continue
+  grep -Fqx "$skill" <<< "$open_refactor_skills" && continue
+  echo "$skill"
+done | shuf -n 1
 ```
 
 - Refactor one explicitly selected `skills/<slug>/` package at a time on a dedicated branch.
@@ -67,9 +86,9 @@ Complete the refactor through the following phases **in strict sequential order*
 ### 3. Pull Request & Documentation Rules
 
 - Push the dedicated refactor branch to Gitea without force-pushing.
-- Create a pull request targeting `local` and assign `wei840222` as reviewer.
+- Create a pull request targeting `local` and assign `ani6439walc` as reviewer.
 - Populate the pull request description with `docs/pull-request-template.md`.
-- Update `docs/refactored-skills.md` locally with the skill name, PR link, date, and final Darwin score (do not commit — this file is gitignored).
+- After Gitea assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
 - Do not merge the PR or delete branches without explicit authorization.
 
 ---

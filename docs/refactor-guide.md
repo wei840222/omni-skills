@@ -50,9 +50,9 @@ Phase 0 (Baseline) → Phase 1 (Commit: refactor) → Phase 2 (Commit: research)
    - Commit: `freud(<slug>): eliminate white bear effects and cognitive load (Gate 9)`
 
 7. **Phase 6: Gitea Pull Request Creation**
-   - Push branch to Gitea remote, create PR targeting `local`, and assign `wei840222` as reviewer.
+   - Push branch to Gitea remote, create PR targeting `local`, and assign `ani6439walc` as reviewer.
    - Populate the PR description with the template at `docs/pull-request-template.md`.
-   - Add a record entry into `docs/refactored-skills.md`.
+   - After Gitea assigns the PR number, add the skill name, PR number, date, and final Darwin score to the root `CHANGELOG.md` table on the same branch; commit and push the update so it lands with the merged PR.
 
 ### Pre-Commit Verification Checklist
 
