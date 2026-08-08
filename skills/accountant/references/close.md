@@ -4,7 +4,7 @@ Load for month-end or year-end close, reopening a period, or setting close caden
 
 ## Dependency-ordered checklist
 
-1. **Bank, card, loan, processor recon** complete for the period (or explicitly excepted with impact stated).
+1. **Bank, card, loan, processor recon** complete for the period. Keep unresolved accounts open and state their impact; do not lock the period while they remain unresolved.
 2. **AR and AP subledgers** tie to control accounts.
 3. **Payroll** period posts complete; employer taxes and PTO accruals recorded.
 4. **Inventory** count or perpetual roll-forward ties; COGS updated.
@@ -36,6 +36,6 @@ Target calendar: `close_target_days` business days after period end (default 10)
 
 | Trigger | First fix | Still failing |
 |---|---|---|
-| Close blocked on one recon | Finish that account or quantify uncertainty and exception | Split close: lock what ties, flag exception accounts |
-| Suspense not empty | Force-code remaining items with owner | Park only with named owner and due date — lock only after suspense is empty or every parked item has owner + due |
+| Close blocked on one recon | Finish that account and quantify its impact | Keep the period open, assign an owner and due date, then re-run the close checklist |
+| Suspense not empty | Research and code the remaining items with owner | Keep the period open until suspense is zero; track owner and due date outside the locked close result |
 | Accrual vs invoice double-count | Inspect open accruals list | Reverse the duplicate; record discipline in coding rules |

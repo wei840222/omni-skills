@@ -31,7 +31,7 @@ Every accepted cadence becomes a row: close, recon, AR review, payroll deposit, 
 
 ## Write discipline
 
-- Write before the session ends whenever something durable was produced.
+- After the user explicitly authorizes the named current-task write, persist the approved durable outcome; otherwise return a proposed diff in chat.
 - In shared external boxes, update or delete only rows this skill authored (match identity key).
 - Name every write and deletion in one line as it happens.
 - Prefer append + status change over silent rewrite of history.
