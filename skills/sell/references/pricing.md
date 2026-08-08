@@ -30,7 +30,7 @@ Use either a markup or a margin calculation and name it accurately. For a desire
 
 **Setting your hourly rate:** Base it on the creator's local target wage, experience, taxes, and business costs. Compare the resulting price with current listings for comparable work before publishing.
 
-**Perceived value matters:** A $45 necklace often sells better than a $15 one. Price reflects quality signal.
+**Perceived value matters:** Price and presentation can communicate quality. Validate that positioning against comparable completed sales rather than assuming a universal premium works.
 
 ---
 

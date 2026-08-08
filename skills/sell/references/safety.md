@@ -18,6 +18,8 @@ A low offer alone is a negotiation event, not proof of fraud. Treat the combinat
 
 Describe a suspicious payment as unverified rather than predicting its outcome. The seller can establish the next safe action—end the path, preserve evidence, and verify in the official service—without claiming that a payment will fail, reverse, use stolen credentials, or that a particular amount proves fraud. Use this form: "The payment is unverified. End this transaction path, preserve the message, and check only the official service."
 
+For a buyer-risk response, identify the combined terms that trigger escalation and give the safe action. Do not label the message a "textbook" scam, narrate a predicted fraud sequence, or infer the payment outcome; the seller needs the verified next action, not a speculative story.
+
 ## Common Scam Patterns
 
 - **Fake payment confirmation emails:** A spoofed email may claim that PayPal, eBay, or another platform confirmed payment. Verify the transaction by opening the platform directly from a trusted bookmark or app.

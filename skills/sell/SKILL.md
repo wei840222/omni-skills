@@ -13,6 +13,16 @@ When exact current comps, platform availability, fee terms, or payment eligibili
 
 For a price-or-platform answer without the seller's live account data, explicitly preserve the unknowns: state that the seller must verify completed comps, the platform's available delivery/payment flow, and the resulting net payout. Do not rank platforms by speed or state that a local flow is fee-free without evidence from that account and region.
 
+## Verification Gates
+
+🔴 **Pricing gate:** Gather the exact item model, condition, location, sale timeline, delivery method, and target net return. Use completed comps and current costs before naming a price; otherwise state the missing input and the verification step.
+
+🔴 **Platform gate:** Match the item and delivery method to a candidate platform, then confirm the seller's current account flow, fees, payout, restricted-item rules, and protection conditions before calculating net return.
+
+🔴 **Transaction gate:** For an offer, payment, pickup, address change, or dispute, load `references/safety.md` first. Keep the recommendation tied to the verified transaction view and retained evidence.
+
+**Unverified-facts boundary:** Until the seller provides a current comp, current account term, or verified transaction detail, do not supply a currency amount, percentage, fee, ranking, protection outcome, or predicted payment result. Ask for the missing fact or give the verification path instead.
+
 ## Core Flow
 
 1. **Identify** — What is it? Condition? Complete?
@@ -112,3 +122,13 @@ Set a review date before publishing. At each review, compare views, messages, co
 - **Mark sold on every platform.** Cross-listing without marking sold leads to double-selling. Update all listings the moment an item sells.
 - **Email "payment confirmed" is not payment confirmed.** Scammers send spoofed PayPal/eBay/Poshmark emails. Always log into the platform directly to verify funds cleared.
 - **Use the transaction's verified delivery details.** A post-payment address change can remove seller-protection eligibility; confirm the current terms and retain tracking evidence.
+
+## Anti-Pattern Replacements
+
+| Fragile shortcut | Reliable replacement |
+|------------------|----------------------|
+| Historical fee figure or platform feature | Current account flow and official terms for the seller's region and category |
+| Active listing or one anecdotal price | Multiple comparable completed sales matched to model and condition |
+| Offer percentage as a fraud verdict | Combined payment, pickup, address, and verification-code behavior |
+| Payment email, screenshot, or QR code as confirmation | Official transaction view, verified address, and required delivery evidence |
+| Blanket "as-is" refund conclusion | Preserved evidence, platform process, and applicable local rules |
