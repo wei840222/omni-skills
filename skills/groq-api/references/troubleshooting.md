@@ -7,15 +7,15 @@ Symptoms:
 - `/models` fails immediately
 
 Checks:
-1. Confirm `GROQ_API_KEY` is set in current shell: `echo $GROQ_API_KEY`
+1. Confirm without printing it: `: "${GROQ_API_KEY:?Set GROQ_API_KEY in the environment}"`
 2. Remove trailing spaces or quotes in env var value
 3. Re-run the `/models` check request
 4. Verify key is active at https://console.groq.com/keys
 
 Recovery:
 ```bash
-export GROQ_API_KEY="gsk_..."
-curl -s https://api.groq.com/openai/v1/models -H "Authorization: Bearer *** | jq '.data[0].id'
+export GROQ_API_KEY="<set-through-your-secret-manager>"
+curl -s https://api.groq.com/openai/v1/models -H "Authorization: Bearer $GROQ_API_KEY" | jq '.data[0].id'
 ```
 
 ## 404 or Model Not Found

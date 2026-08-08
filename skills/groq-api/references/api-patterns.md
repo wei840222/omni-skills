@@ -6,21 +6,21 @@ Base URL:
 `https://api.groq.com/openai/v1`
 
 Required headers:
-- `Authorization: Bearer ***
+- `Authorization: Bearer $GROQ_API_KEY`
 - `Content-Type: application/json`
 
 ## Health Check
 
 ```bash
 curl -s https://api.groq.com/openai/v1/models \
-  -H "Authorization: Bearer ***" | jq '.data | length'
+  -H "Authorization: Bearer $GROQ_API_KEY" | jq '.data | length'
 ```
 
 ## Chat Completion (minimal)
 
 ```bash
 curl -s https://api.groq.com/openai/v1/chat/completions \
-  -H "Authorization: Bearer ***" \
+  -H "Authorization: Bearer $GROQ_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "llama-3.1-8b-instant",
@@ -38,7 +38,7 @@ Use `response_format.json_schema` with `strict: true` for guaranteed schema comp
 
 ```bash
 curl -s https://api.groq.com/openai/v1/chat/completions \
-  -H "Authorization: Bearer ***" \
+  -H "Authorization: Bearer $GROQ_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "openai/gpt-oss-20b",
@@ -77,7 +77,7 @@ For other models, use best-effort mode (`strict: false`) or `response_format.jso
 
 ```bash
 curl -s https://api.groq.com/openai/v1/audio/transcriptions \
-  -H "Authorization: Bearer ***" \
+  -H "Authorization: Bearer $GROQ_API_KEY" \
   -F "model=whisper-large-v3-turbo" \
   -F "file=@sample.wav" | jq
 ```

@@ -49,11 +49,11 @@ Verify auth before any API call. Confirm `/models` returns a valid model ID befo
 
 ```bash
 curl -s https://api.groq.com/openai/v1/models \
-  -H "Authorization: Bearer ***" | jq '.data[0].id'
+  -H "Authorization: Bearer $GROQ_API_KEY" | jq '.data[0].id'
 ```
 
 If this fails with 401:
-- Check `GROQ_API_KEY` is set: `echo $GROQ_API_KEY`
+- Check without printing it: `: "${GROQ_API_KEY:?Set GROQ_API_KEY in the environment}"`
 - Remove trailing spaces or quotes
 - Verify key is active at https://console.groq.com/keys
 
@@ -144,7 +144,7 @@ Speech uploads have different failure modes:
 
 | Endpoint | Data Sent | Purpose |
 |----------|-----------|---------|
-| https://api.groq.com/openai/v1/models | None (GET) | Discover available models |
+| https://api.groq.com/openai/v1/models | API credential; no prompt or audio payload | Discover available models |
 | https://api.groq.com/openai/v1/chat/completions | Prompt messages and options | Chat completions |
 | https://api.groq.com/openai/v1/audio/transcriptions | Audio file and params | Speech-to-text |
 
