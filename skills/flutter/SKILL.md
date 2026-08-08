@@ -1,6 +1,6 @@
 ---
 name: flutter
-description: 'Builds, debugs, and ships Flutter apps. Use when writing Dart widgets or screens, decoding framework exceptions (overflow, unbounded constraints, setState during build, deactivated ancestor), fixing jank or memory issues, routing with Navigator or go_router, handling platform channels, localizing strings, or shipping release builds. Not for React Native or native-only Swift/Kotlin work.'
+description: 'Build, debug, and ship Flutter apps. Use when writing Dart widgets or screens, decoding framework exceptions (overflow, unbounded constraints, setState during build, deactivated ancestor), fixing jank or memory issues, routing with Navigator or go_router, handling platform channels, localizing strings, or shipping release builds. Scope: Flutter and Dart app work; React Native and native-only Swift/Kotlin work use their respective skills.'
 metadata:
   version: "1.0.3"
   openclaw: '{"emoji":"🐦"}'
@@ -10,14 +10,16 @@ metadata:
 ## State location
 
 Flutter skill state may exist in `<workspace>/flutter/`, `<workspace>/memory/flutter/`, or `~/flutter/`.
-Before reading or writing state, resolve `<state_root>` as follows:
+Before the first state operation, resolve `<state_root>` once per invocation:
 
-1. Use an explicitly configured path when one exists.
+1. Use an explicitly configured, host-provided path when one exists.
 2. Otherwise use the first existing directory in this order:
    `<workspace>/flutter/`, `<workspace>/memory/flutter/`, `~/flutter/`.
-3. If none exists and state must be created, default to `<workspace>/flutter/`.
+3. When multiple candidates exist, use only the highest-precedence directory. Report the conflict; keep the locations separate rather than merging, synchronizing, or cross-writing them.
+4. `<workspace>` comes from the host/runtime and is never inferred from the shell working directory. When the host provides no workspace, consider only an existing `~/flutter/`; if none exists, retain state in the current task and request a state location before creating persistent data.
+5. When the host provides a workspace and no candidate exists, create `<workspace>/flutter/` only when persistent state is authorized and needed.
 
-Use the selected `<state_root>` for every state operation in this skill.
+Use the resolved `<state_root>` for every state operation in this skill. Keep runtime state outside the skill package and repository.
 
 ## Quick Reference
 
@@ -30,7 +32,7 @@ Use the selected `<state_root>` for every state operation in this skill.
 | "setState() called after dispose()" | An `await` outlived the widget — `if (!mounted) return;` after every await (rule 2) → `references/async.md` |
 | "Looking up a deactivated widget's ancestor" | A captured `BuildContext` used after its widget left the tree — capture the `NavigatorState` or `ScaffoldMessengerState` BEFORE the await → `references/async.md` |
 | "Incorrect use of ParentDataWidget" | `Expanded`/`Flexible`/`Positioned` is not a direct child of `Row`/`Column`/`Flex`/`Stack` → `references/layout.md` |
-| List items keep the wrong state after reorder or delete | Missing or unstable keys — `ValueKey(item.id)`, never `UniqueKey()` in a builder (rule 4) → `references/state.md` |
+| List items keep the wrong state after reorder or delete | Missing or unstable keys — `ValueKey(item.id)` preserves identity; a `UniqueKey()` in a builder recreates it on every build (rule 4) → `references/state.md` |
 | A widget rebuilds far more than it should | Climb the Rebuild Scope Ladder below, then confirm in DevTools' rebuild counter → `references/performance.md` |
 | Scrolling stutters, frames dropped | Profile mode on a real device first, then image decode size, `saveLayer`, and per-item work → `references/performance.md` |
 | Memory climbs while scrolling images | Decoded bytes = width × height × 4, independent of file size — set `cacheWidth`/`cacheHeight` → `references/performance.md` |
@@ -77,6 +79,7 @@ Load the matching reference only when the task requires it:
 | pub resolution, version solving, codegen | `references/dependencies.md` |
 | Dart language features (records, patterns, null safety, Dart 3.12) | `references/dart.md` |
 | CLI commands, `flutter clean`, native-side troubleshooting | `references/commands.md` |
+| Reviewing or editing this skill's activation boundary | `references/trigger-evaluation.md` |
 
 ## Core Rules
 
@@ -86,7 +89,7 @@ Load the matching reference only when the task requires it:
 4. **Keys decide identity; without a key, position does.** Flutter matches a new widget to an existing `Element` by `runtimeType` + `key` at the same position, so inserting, removing, or reordering stateful children without keys hands state to the wrong item. Use `ValueKey(item.id)` for stable identity. `UniqueKey()` inside a builder creates a fresh key every build, destroying and recreating the subtree — including its scroll offset and running animations — on every frame.
 5. **`const` is the rebuild firewall.** Identical `const` widget expressions are canonicalized to a single instance, so `Element.update` sees `identical(oldWidget, newWidget)` and skips that subtree entirely. This is why extracting a static subtree into a `const` widget beats trying to "scope" a `setState` that still sits above it. A widget cannot be `const` if anything inside it reads `context` or a runtime value — that, not style, is the real constraint.
 6. **Frame budget = 1000 / refresh rate ms — 16.7 ms at 60 Hz, 8.3 ms at 120 Hz — shared by the UI thread (build, layout, paint) and the raster thread (GPU).** Any single synchronous unit of work that can exceed it (decoding a large JSON payload, image processing, crypto, sorting tens of thousands of items) belongs in an isolate (`references/async.md`). Wrapping it in a `Future` changes nothing: the work still runs on the same isolate and still blocks the frame.
-7. **Only profile mode produces real numbers.** Debug builds run the JIT with assertions, service extensions, and widget-inspector instrumentation; frame timings there are noise. `flutter run --profile` on a physical device — simulators and emulators have GPU behavior the shipped app never sees.
+7. **Profile mode supplies the representative numbers.** Debug builds run the JIT with assertions, service extensions, and widget-inspector instrumentation; use `flutter run --profile` on a physical device for release-relevant timing.
 8. **Side effects go in callbacks or post-frame hooks, not in `build`.** Navigation, snackbars, dialogs, notifier writes, network calls: each marks something dirty while the tree is building, which is exactly the "setState() or markNeedsBuild() called during build" exception. Put them in an event callback, a listener (`ref.listen`, `BlocListener`, `addListener`), or `WidgetsBinding.instance.addPostFrameCallback` when no other hook exists.
 9. **A feature is not done until its release artifact runs.** AOT compilation, icon tree-shaking, stripped `assert`s, obfuscation, and asset declarations change behavior only in release. Build and launch the `--release` artifact on a device before calling it finished (`references/release.md`).
 
