@@ -2,24 +2,14 @@
 
 ## Integrated Pest Management (IPM) Framework
 
-Follow the EPA/USDA four-tier IPM approach when diagnosing problems:
+Follow the EPA four-tier IPM approach when diagnosing problems. It applies to home gardens and selects controls by effectiveness and risk. [EPA, Integrated Pest Management Principles](https://www.epa.gov/safepestcontrol/integrated-pest-management-ipm-principles)
 
 1. **Set Action Thresholds** — One pest doesn't mean control is needed. Determine when pest populations become an economic threat.
-2. **Monitor and Identify** — Not all insects are harmful. Accurately identify pests before taking action. Less than 1% of insect species are considered harmful (USDA).
+2. **Monitor and Identify** — Accurately identify the organism and assess whether control is needed before taking action.
 3. **Prevention** — Use cultural methods first: crop rotation, resistant varieties, pest-free rootstock, clean tools.
 4. **Control** — If prevention fails, evaluate controls by effectiveness and risk:
-   - **First:** Biological control (predators, parasitoids, pathogens)
-   - **Second:** Mechanical control (trapping, weeding, row covers)
-   - **Third:** Targeted chemicals (pheromones to disrupt mating)
-   - **Last resort:** Broadcast spraying of pesticides
-
-### Biological Control Agents
-
-- **Predators:** Lady beetles eat aphids; predatory mites eat thrips and scales
-- **Parasitoids:** Tiny parasitic wasps lay eggs in host insects
-- **Pathogens:** Beneficial nematodes, Bt (Bacillus thuringiensis) for caterpillars
-
-**Habitat for beneficials:** Plant marigolds, provide habitat for beneficial insects, bats, and birds. This is the most cost-effective long-term pest control strategy (USDA).
+   - Choose less-risky, effective controls first, such as targeted chemicals or mechanical methods.
+   - Escalate only when monitoring and thresholds support the change; use pesticide products according to their labels and local guidance.
 
 ## Diagnostic Flow
 
@@ -34,47 +24,47 @@ When user reports a problem:
 7. **Recommend IPM-appropriate treatment** starting with least-risk options
 8. **Log the diagnosis** in `<state_root>/plants/{name}.md`
 
-## Common Symptoms → Causes
+## Common Symptoms → Questions to Investigate
 
 ### Yellow Leaves
 
 | Pattern | Likely Cause | Check |
 |---------|--------------|-------|
-| Lower leaves first | Nitrogen deficiency | When last fertilized? |
-| Between veins (interveinal) | Iron/magnesium deficiency | Soil pH? |
-| All over, plus wilting | Overwatering | Soil moisture? Drainage? |
-| Spots with yellow halo | Fungal infection | Recent rain/humidity? |
-| New growth yellow | pH lock-out | Soil test needed |
+| Lower leaves first | Nutrient, moisture, or age-related factors | When was the plant fertilized and watered? |
+| Between veins (interveinal) | Nutrient availability or root-zone factors | Is a soil test available? |
+| All over, plus wilting | Root-zone moisture or drainage factors | What is the soil moisture and drainage? |
+| Spots with yellow halo | Disease, injury, or environmental factors | Was there recent rain, humidity, or damage? |
+| New growth yellow | Nutrient availability or root-zone factors | Is a soil test available? |
 
 ### Wilting
 
 | Pattern | Likely Cause | Check |
 |---------|--------------|-------|
-| Midday only, recovers evening | Heat stress | Normal for hot days |
-| Constant, soil is wet | Root rot | Drainage, reduce water |
-| Constant, soil is dry | Underwatering | Increase frequency |
-| Sudden, one side of plant | Bacterial wilt | Inspect stem, may be fatal |
-| Progressive from bottom | Fusarium/Verticillium | Check rotation history |
+| Midday only, recovers evening | Heat or water-demand factors | Check temperature and soil moisture |
+| Constant, soil is wet | Root-zone or drainage factors | Check drainage and roots before treating |
+| Constant, soil is dry | Water availability factors | Check soil moisture and irrigation |
+| Sudden, one side of plant | Local injury, root, or vascular factors | Inspect without assuming a diagnosis |
+| Progressive from bottom | Disease, root-zone, or age factors | Check history and consider local diagnosis support |
 
 ### Spots & Discoloration
 
 | Pattern | Likely Cause | Treatment |
 |---------|--------------|-----------|
-| Brown spots, concentric rings | Early blight | Remove affected leaves, fungicide |
-| Black spots on roses | Black spot fungus | Improve air circulation, fungicide |
-| White powder on leaves | Powdery mildew | Baking soda spray, improve airflow |
-| Rust-colored spots underside | Rust fungus | Remove affected parts, avoid wetting leaves |
-| Mosaic pattern, distortion | Virus | Remove plant, control aphids |
+| Brown spots, concentric rings | Disease or injury patterns | Document symptoms; seek local diagnosis before treatment |
+| Black spots on roses | Disease or environmental patterns | Improve airflow and seek local diagnosis before treatment |
+| White powder on leaves | Fungal or environmental patterns | Improve airflow and seek local diagnosis before treatment |
+| Rust-colored spots underside | Disease patterns | Document symptoms and seek local diagnosis before treatment |
+| Mosaic pattern, distortion | Virus, pest, or nutrient patterns | Seek local diagnosis before treatment |
 
 ### Pest Identification
 
 | Signs | Pest | IPM Response |
 |-------|------|--------|
-| Sticky residue, tiny insects | Aphids | Spray off with water; encourage ladybugs; neem if threshold exceeded |
-| Silver trails, holes | Slugs/snails | Beer traps, diatomaceous earth, handpick at dusk |
-| Webbing under leaves | Spider mites | Increase humidity; predatory mites; neem if severe |
-| Holes in leaves, green caterpillars | Caterpillars | Handpick; Bt spray; row covers for prevention |
-| Wilting despite water, grubs in soil | Root pests | Beneficial nematodes; crop rotation next season |
+| Sticky residue, tiny insects | Sap-feeding insects may be present | Identify the organism and apply IPM thresholds |
+| Silver trails, holes | Mollusc or chewing-pest damage may be present | Identify the organism and apply IPM thresholds |
+| Webbing under leaves | Mites or other arthropods may be present | Identify the organism and apply IPM thresholds |
+| Holes in leaves, green caterpillars | Chewing insects may be present | Identify the organism and apply IPM thresholds |
+| Wilting despite water, grubs in soil | Root-zone pests or disease may be present | Identify the cause before selecting control |
 
 ## Questions to Ask
 

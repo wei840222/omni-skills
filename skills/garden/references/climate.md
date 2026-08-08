@@ -2,48 +2,45 @@
 
 ### USDA Hardiness Zone
 
-The USDA Plant Hardiness Zone Map was updated in 2023 (previously 2012). The new map incorporates data from 13,412 weather stations and shows warming trends, particularly in the Northeast and Midwest. Many gardeners shifted up half a zone.
+USDA released an updated Plant Hardiness Zone Map in 2023. It uses 1991–2020 observations from 13,412 weather stations and represents 30-year average annual extreme minimum temperature. The map is a planting-hardiness input, not a complete local forecast or a standalone climate-change indicator. [USDA ARS, 2023](https://www.ars.usda.gov/news-events/news/research-news/2023/usda-unveils-updated-plant-hardiness-zone-map/)
 
 **Action:** Verify your current zone at [planthardiness.ars.usda.gov](https://planthardiness.ars.usda.gov/). Update `<state_root>/climate.md` if your zone changed.
 
 ### Setup `<state_root>/climate.md`
 
-Create `<state_root>/climate.md` with the garden's climate profile:
+After the user chooses climate tracking, create `<state_root>/climate.md` from this placeholder template and fill it only with user-provided or user-approved local data:
 
 ```markdown
 # Climate Profile
 
 ## Location
-- **USDA Zone:** 9b
-- **Latitude:** 37.7749° N
-- **Elevation:** 50m
+- **USDA Zone:** [zone]
+- **Latitude:** [latitude, optional]
+- **Elevation:** [elevation, optional]
 
 ## Frost Dates
-- **Last spring frost:** March 15 (average)
-- **First fall frost:** November 15 (average)
-- **Growing season:** ~245 days
+- **Last spring frost:** [local average date]
+- **First fall frost:** [local average date]
+- **Growing season:** [local estimate]
 
 ## Temperature Ranges
-- **Record low:** -7°C (rare, 1-2 times per decade)
-- **Typical winter low:** 2-5°C
-- **Summer high:** 30-35°C (July-August peaks)
+- **Record low:** [local value, optional]
+- **Typical winter low:** [local range, optional]
+- **Summer high:** [local range, optional]
 
 ## Precipitation
-- **Annual:** 500mm
-- **Dry season:** June-September (minimal rain)
-- **Wet season:** November-March
-- **Irrigation needed:** May-October
+- **Annual:** [local average, optional]
+- **Dry season:** [local months, optional]
+- **Wet season:** [local months, optional]
+- **Irrigation notes:** [user-approved observations]
 
 ## Microclimate Notes
-- South-facing garden, good sun exposure
-- North fence creates wind shelter
-- Low corner (bed-3) collects cold air = frost pocket
-- Stone wall retains heat, extends season for tender plants
+- [user-approved sun, wind, drainage, or frost observations]
 
 ## Alert Thresholds
-- **Frost alert:** Forecast below 2°C
-- **Heat alert:** Forecast above 35°C
-- **Wind alert:** Gusts above 50 km/h
+- **Frost alert:** [user-selected threshold]
+- **Heat alert:** [user-selected threshold]
+- **Wind alert:** [user-selected threshold]
 ```
 
 ## Seasonal Planting Windows
@@ -78,7 +75,7 @@ When user reports weather:
 3. Note affected zones (especially frost pockets)
 
 **"Heat wave coming"**
-1. Increase watering schedule
+1. Check soil moisture and follow the plant's care needs
 2. Consider shade cloth for sensitive plants
 3. Harvest cool-season crops before bolting
 4. Early morning watering preferred
@@ -89,29 +86,6 @@ When user reports weather:
 3. Check drainage in problem areas
 4. Secure garden structures
 
-## Zone-Specific Climate
+## Zone-Specific Climate and Weather Impact
 
-Link microclimate data to zones:
-
-```markdown
-# <state_root>/zones/bed-3.md
-...
-## Microclimate
-- **Frost risk:** HIGH (cold air pocket)
-- **Adjustment:** Plant 1 week later than general date
-- **Best for:** Cold-hardy crops, late-season extension
-```
-
-## Tracking Weather Impact
-
-Log significant weather in `<state_root>/log/YYYY-MM.md`:
-
-```
-## 2026-06-15
-- 🌡️ Heat wave day 3 (38°C recorded)
-- 💧 Emergency watering at 6pm
-- 💀 Lost lettuce to bolt
-- 📝 Note: move lettuce to shaded bed next year
-```
-
-This builds historical data for better predictions.
+After tracking consent, attach user-approved microclimate observations to the relevant zone and significant weather observations to `<state_root>/log/YYYY-MM.md` using the asset templates.

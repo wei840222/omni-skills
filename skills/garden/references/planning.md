@@ -2,7 +2,7 @@
 
 ## Crop Rotation Rules
 
-### Plant Families (Never Follow Same Family)
+### Plant Families
 
 | Family | Members | Notes |
 |--------|---------|-------|
@@ -15,13 +15,9 @@
 
 ### Rotation Principles
 
-1. **3-4 year minimum** before same family returns to a spot (Iowa State Extension, April 2025). 5+ years is better if space allows.
-2. **Heavy feeders → light feeders → soil builders**
-   - Year 1: Tomatoes (heavy)
-   - Year 2: Lettuce, carrots (light)
-   - Year 3: Beans (nitrogen fixing)
-3. **Legumes before heavy feeders** → free nitrogen boost
-4. **Weeds and cover crops count** — they belong to plant families too and can harbor the same pests/diseases. Good weed control supports rotation effectiveness.
+1. Use crop-family history to reduce repeated host exposure when local pests or diseases make that useful.
+2. Choose rotation intervals with local extension guidance because appropriate intervals vary by crop, pathogen, and available space.
+3. Include cover crops and relevant volunteer plants in the recorded history when they affect the garden plan.
 
 ### Tracking Rotation
 
@@ -38,8 +34,7 @@ Zone file maintains history:
 | 2024 | Tomatoes | Squash | — |
 
 ## Rotation Notes
-- No solanaceae until 2027 (tomatoes 2024, peppers 2025)
-- Good candidate for brassicas (never grown here)
+- Record crop-family constraints and their local rationale here.
 ```
 
 ## Seasonal Planning
@@ -101,17 +96,6 @@ Based on frost dates in `<state_root>/climate.md`, generate:
 - Nov 1: Sow cover crops
 ```
 
-## Companion Planting
-
-Quick reference for what grows well together:
-
-| Plant | Good Companions | Bad Companions |
-|-------|-----------------|----------------|
-| Tomato | Basil, carrot, parsley | Brassicas, fennel |
-| Pepper | Tomato, basil, spinach | Fennel |
-| Squash | Corn, beans (three sisters) | Potato |
-| Beans | Corn, squash, carrot | Onion, garlic |
-| Carrot | Tomato, lettuce, onion | Dill |
 
 ## Queries Supported
 

@@ -33,7 +33,7 @@ Start broad, then narrow based on what interests them.
 
 Some users want detailed tracking (harvests, rotations, varieties). Others just want "remind me to water."
 
-Adapt to them. Don't push for details they don't care about.
+Adapt to their requested level of detail.
 
 ## How to Handle the Conversation
 
@@ -48,7 +48,7 @@ Only save after the user explicitly agrees:
 - Their integration preference (when to activate) — save to `<state_root>/memory.md` after they answer the integration question
 - Their garden context (what they have, preferences) — save to `<state_root>/memory.md` as they share it
 
-Do not create or write any other candidate state directory after `<state_root>` has been selected.
+Keep every non-selected candidate state directory unchanged after `<state_root>` has been selected.
 
 Always confirm what you're doing: "Got it, I'll remind you to water." Be transparent about outcomes.
 

@@ -1,6 +1,6 @@
 ---
 name: garden
-description: Track plants, zones, tasks, harvests, and climate-aware rotations across seasons. Use when managing gardens, diagnosing plant issues, planning rotations, or reviewing yields. Also use for plant care questions, seasonal planning, or when the user mentions their garden, plants, or growing conditions.
+description: Track plants, zones, tasks, harvests, and climate-aware rotations across seasons. Use when managing a garden, diagnosing garden-context plant issues, planning garden rotations, or reviewing garden yields. Also use for garden-context seasonal planning and ongoing garden records.
 metadata:
   version: "1.1.6"
   openclaw: '{"emoji":"🌱"}'
@@ -9,15 +9,16 @@ metadata:
 
 ## State Location
 
-Garden state may exist in `<workspace>/garden/`, `<workspace>/memory/garden/`, or `~/garden/`. `<workspace>` means the workspace root provided by the host/runtime, not the shell's current working directory.
+Garden state may exist in `<workspace>/garden/`, `<workspace>/memory/garden/`, or `~/garden/`. `<workspace>` is the workspace root supplied by the host/runtime.
 
 Before any state read, query, create, update, or delete, resolve `<state_root>` once:
 
-1. Use an explicitly configured path when one exists.
+1. Use an explicitly configured path supplied by the user or host when one exists.
 2. Otherwise use the first existing directory in this order: `<workspace>/garden/`, `<workspace>/memory/garden/`, `~/garden/`.
-3. If none exists and state must be created, default to `<workspace>/garden/`.
+3. When no candidate exists and the host supplied `<workspace>`, propose `<workspace>/garden/` as the creation target and obtain named consent before creating it.
+4. When no candidate exists and no host workspace is available, ask for an explicit state path before creating state.
 
-If multiple candidate directories exist, use only the first one, tell the user that multiple state directories were found, and do not merge or modify the others. Use the selected `<state_root>` for every state operation during the run. Never create a directory whose literal name is `<state_root>`.
+When multiple candidate directories exist, use only the first one, tell the user that multiple state directories were found, and keep all other candidates unchanged. Use the selected `<state_root>` for every state operation during the run. Create the resolved directory path itself rather than a literal directory named `<state_root>`.
 
 ## Setup
 
@@ -29,22 +30,22 @@ After resolving `<state_root>`, if `<state_root>/memory.md` doesn't exist or is 
 1. Resolve `<state_root>` using State Location procedure
 2. If `<state_root>/memory.md` missing → read `references/setup.md`, gather user context
 3. Before creating files, confirm with user: "I'll create garden tracking files at `<state_root>`. OK?"
-4. Create `<state_root>/memory.md` using template from `references/memory.md`
+4. Create `<state_root>/memory.md` using the template in `assets/garden-data-templates.md`
 5. Ask: "Do you want detailed tracking for plants, zones, and harvests?" → if yes, create additional files
 
 ### Adding a Plant
-1. User says "I planted tomatoes" or similar
-2. If plant name already exists in `<state_root>/plants/`, ask: "This plant already exists. Update existing or create new variety?"
-3. Create `<state_root>/plants/{name}.md` using template from `references/tracking.md`
-4. Update `<state_root>/memory.md` → add to "Current Plants" section
-5. Log action in `<state_root>/log/YYYY-MM.md` with 🌱 icon
+1. When the user says "I planted tomatoes" or similar, provide gardening help immediately.
+2. For the first record in a session without an enabled tracking preference, ask whether the user wants the activity recorded at `<state_root>`.
+3. After recorded-tracking consent, if the plant name already exists in `<state_root>/plants/`, ask: "This plant already exists. Update existing or create new variety?"
+4. Create or update `<state_root>/plants/{name}.md` using the template in `assets/garden-data-templates.md`.
+5. Update `<state_root>/memory.md` and `<state_root>/log/YYYY-MM.md` with the same confirmed activity.
 
 ### Diagnosing a Problem
 1. User reports issue (yellow leaves, pests, etc.)
-2. Load `<state_root>/plants/{name}.md` → check health history
-3. Load `<state_root>/zones/{zone}.md` → check conditions
+2. When recorded state exists, load `<state_root>/plants/{name}.md` → check health history
+3. When a recorded zone exists, load `<state_root>/zones/{zone}.md` → check conditions
 4. Read `references/diagnostics.md` → follow IPM framework
-5. Update plant's health log with diagnosis and treatment
+5. Offer to update the plant's health log after the user confirms the record
 6. When recommending chemical treatment, confirm with user before proceeding
 
 ### Planning Next Season
@@ -56,7 +57,7 @@ After resolving `<state_root>`, if `<state_root>/memory.md` doesn't exist or is 
 
 ## Architecture
 
-State lives under the resolved `<state_root>`. See `references/memory.md` for templates.
+State lives under the resolved `<state_root>`. Copyable state-file templates live in `assets/garden-data-templates.md`.
 
 ```text
 <state_root>/
@@ -75,11 +76,12 @@ Start minimal (just `<state_root>/memory.md`). Add others only if the user wants
 | Topic | File | When to Load |
 |-------|------|--------------|
 | Setup process | `references/setup.md` | First use, or when `<state_root>/memory.md` is missing |
-| Memory template | `references/memory.md` | Creating or updating `<state_root>/memory.md` |
-| Plant & zone templates | `references/tracking.md` | Creating new plant or zone files |
+| State write procedure | `references/memory.md` | Confirming and creating/updating garden state |
+| Plant & activity procedure | `references/tracking.md` | Recording a confirmed plant, zone, harvest, or activity |
 | Climate configuration | `references/climate.md` | Setting up climate, planning planting dates |
 | Problem diagnosis | `references/diagnostics.md` | User reports plant health issues |
 | Rotation planning | `references/planning.md` | Planning next season, checking rotation constraints |
+| Trigger evaluation | `references/trigger-evaluation.md` | Reviewing Garden activation scope and near-miss routing |
 | Data templates | `assets/garden-data-templates.md` | Need copyable templates for state files |
 
 ## Core Rules
@@ -88,10 +90,10 @@ Start minimal (just `<state_root>/memory.md`). Add others only if the user wants
 Each plant gets a file at `<state_root>/plants/{name}.md` with: variety, planting date, zone, care schedule, health history. Load on request, not by default.
 
 ### 2. Zone Management
-Each garden area gets a file at `<state_root>/zones/{name}.md` with: conditions, current plants, rotation history. Enforce 3-4 year minimum before repeating same plant family (Iowa State Extension, 2025).
+Each garden area gets a file at `<state_root>/zones/{name}.md` with conditions, current plants, and rotation history. Use crop-family history together with local extension guidance to select an appropriate rotation interval.
 
 ### 3. Activity Logging
-Log actions in `<state_root>/log/YYYY-MM.md` with icons: 🌱 plant, 💧 water, 🐛 pest, 🍅 harvest, ✂️ prune, 🌡️ weather event.
+Log confirmed activities in `<state_root>/log/YYYY-MM.md` with icons: 🌱 plant, 💧 water, 🐛 pest, 🍅 harvest, ✂️ prune, 🌡️ weather event.
 
 ### 4. Climate Awareness
 The user configures `<state_root>/climate.md` with USDA zone and frost dates. Use it for planting window calculations and seasonal alerts.
@@ -117,11 +119,11 @@ When user reports issue: check plant health history, zone conditions, recent wea
 
 ## Gotchas
 
-- **Rotation enforcement**: Always check `<state_root>/zones/{zone}.md` rotation history before planting. Same family in same zone within 3-4 years = disease buildup.
+- **Rotation planning**: Check `<state_root>/zones/{zone}.md` rotation history before planting. Apply a crop-family interval appropriate to the local pest, disease, and space constraints.
 - **Microclimate variance**: Different zones may have different frost dates. Check `<state_root>/climate.md` microclimate notes, not just USDA zone.
-- **Log before you forget**: Record problems immediately in `<state_root>/plants/{name}.md` health log. Delayed diagnosis is harder.
+- **Activity records**: Record confirmed activities in `<state_root>/plants/{name}.md` health log while the details are available.
 - **Soil over schedule**: Check soil moisture first — overwatering kills more plants than underwatering.
-- **Hardiness zone drift**: USDA zones shifted in 2023. Verify current zone at planthardiness.ars.usda.gov before planting zone-sensitive crops.
+- **Hardiness zone update**: USDA published a 2023 hardiness-zone map. Verify the garden's current zone at planthardiness.ars.usda.gov before planning zone-sensitive crops.
 - **Resolve state first**: Resolve `<state_root>` before any file operation; write only to the resolved `<state_root>`.
 - **Verify climate data**: Check `<state_root>/climate.md` exists before using frost dates. If missing, ask user to configure.
 - **Confirm chemical treatment**: IPM chemical control step requires explicit user approval.
@@ -134,8 +136,9 @@ When user reports issue: check plant health history, zone conditions, recent wea
 ## Failure Modes
 
 ### State location not found
-If no candidate directory exists and user hasn't specified a location:
-- Ask user "Where should I store garden data?" before creating files.
+If no candidate directory exists:
+- With a host-provided `<workspace>`, propose `<workspace>/garden/` and obtain named creation consent.
+- Without a host-provided `<workspace>`, ask user "Where should I store garden data?" and use their explicit path after confirmation.
 - Use the resolved `<state_root>` for all file operations.
 
 ### File write errors
@@ -149,15 +152,14 @@ If user provides invalid data (wrong date format, missing required fields):
 - Examples: planting date must be YYYY-MM-DD, zone name cannot be empty, quantity must be numeric.
 
 ### Missing plant/zone files
-If user references a plant or zone that doesn't exist:
-- Create the file first using templates from `references/tracking.md`
-- Then proceed with the requested operation
-- Ensure complete records for every tracked item.
+If a user references a plant or zone that does not yet have a record:
+- Provide the requested advice from the available information.
+- Offer a new record using the template in `assets/garden-data-templates.md` after recorded-tracking consent.
 
 ### Diagnosis without history
-If user asks for diagnosis but plant has no health log:
-- Record "First diagnosis" in health log
-- Treat this as the baseline; prior treatments or conditions are unknown.
+If a user asks for diagnosis but the plant has no health log:
+- Treat the report as the baseline; prior treatments or conditions are unknown.
+- Offer to record the diagnosis after the user confirms the update.
 
 ### Chemical treatment
 If IPM framework reaches chemical control step:
