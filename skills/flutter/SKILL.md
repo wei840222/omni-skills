@@ -12,7 +12,7 @@ metadata:
 Flutter skill state may exist in `<workspace>/flutter/`, `<workspace>/memory/flutter/`, or `~/flutter/`.
 Before the first state operation, resolve `<state_root>` once per invocation:
 
-1. Use an explicitly configured, host-provided path when one exists.
+1. Use an explicitly configured path supplied by the user or host when one exists.
 2. Otherwise use the first existing directory in this order:
    `<workspace>/flutter/`, `<workspace>/memory/flutter/`, `~/flutter/`.
 3. When multiple candidates exist, use only the highest-precedence directory. Report the conflict; keep the locations separate rather than merging, synchronizing, or cross-writing them.
