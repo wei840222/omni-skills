@@ -1,6 +1,6 @@
 ---
 name: photography
-description: Advise on camera settings, exposure, focus, composition, lighting, flash, RAW editing, and genre-specific workflows (portrait, landscape, action, street, smartphone). Use when the user asks how to photograph something, what settings to use, how to fix a photo problem, or how to improve their photos — including phone photography.
+description: Advise on camera settings, exposure, focus, composition, lighting, flash, RAW editing, and genre-specific workflows. Use when the user wants to plan a photo, diagnose an image problem, choose camera settings, edit a photo, or organize photo backups — including phone photography. This advisory skill does not create or persist user state.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📷"}'
@@ -22,20 +22,22 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 
 **Clarify ambiguous genres**: When the question spans multiple scenarios (e.g., "photograph my kid" could be indoor portraits or outdoor action), ask which scenario applies before giving settings.
 
+For activation-scope evidence and near-miss routing, read `references/trigger-evaluation.md`.
+
 ## Exposure Triangle
 
-- ISO: double ISO = double brightness + double noise. Stay at base ISO when possible. Dual native ISO cameras (Sony, Panasonic) have a second clean base — use it in low light instead of pushing the first ISO.
-- Aperture: f/2.8 = shallow DOF, f/8–11 = sharp across frame. Most lenses peak 2 stops down from wide open. Diffraction softens past f/11 (APS-C) or f/16 (full frame).
-- Shutter: 1/focal-length minimum handheld without stabilization. With IBIS, expect 3–5 stops of compensation — a 50mm lens can shoot 1/15s or slower.
-- Expose for highlights — blown highlights are unrecoverable. ETTR (Expose To The Right) maximizes SNR; pull exposure down in post.
+- ISO: Raise ISO only as needed to reach the chosen shutter speed and aperture; the usable range is camera-dependent.
+- Aperture: Choose aperture for the desired depth of field, then check the lens and sensor behavior at that setting.
+- Shutter: Start from a shutter speed appropriate to subject motion and handholding; confirm stabilization capability in the camera manual before relying on it.
+- Exposure: Use the histogram and highlight warnings to preserve important highlights; scene intent and camera dynamic range affect the final exposure choice.
 
 ## Focus
 
 - Focus on the nearest eye for portraits. Enable real-time eye-AF on mirrorless bodies — it tracks humans, animals, and vehicles.
 - Use AF-ON (back-button focus) to separate focus from shutter. Single-point AF for precision, wide-area tracking for movement.
-- Modern phase-detect AF covers 90%+ of the frame. Trust it; use single-point repositioning only for precision work on static subjects.
-- Hyperfocal for landscapes: focus 1/3 into scene at f/8–11. Use focus peaking + magnification to confirm.
-- Diffraction is real — stay within f/11 (APS-C) or f/16 (FF) for sharpness; use focus stacking when more DOF is needed.
+- Configure AF coverage, tracking, and subject-recognition features according to the camera manual and scene.
+- For landscapes, use magnification or focus peaking where available to confirm the chosen focus point.
+- Compare depth of field and sharpness at the selected aperture; use focus stacking when it serves the scene.
 
 ## Troubleshooting
 
@@ -55,7 +57,7 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 - If backlighting face → use fill flash or reflector to illuminate subject
 
 **Problem: Noisy/grainy images**
-- If shot at high ISO → use AI denoise (Topaz, DxO PureRAW, Lightroom Denoise)
+- If shot at high ISO → consider the denoise capability available in the editing application
 - If underexposed and lifted → expose brighter next time (ETTR), noise is worse in shadows
 - If old camera with poor high-ISO performance → stay at base ISO, use tripod or flash
 
@@ -73,8 +75,8 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 
 ## Natural Light
 
-- Golden hour (1h after sunrise / before sunset): warm, soft, directional.
-- Blue hour (20–30min after sunset): even, moody.
+- Golden hour: warm, soft, directional light.
+- Blue hour: lower-light conditions around twilight.
 - Overcast = giant softbox — ideal for portraits.
 - Midday sun: backlight or open shade, never direct overhead.
 - Window light: subject faces the window, not the camera.
@@ -84,7 +86,7 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 
 - Bounce off ceiling/wall — direct flash is harsh and flat.
 - Flash exposure compensation: start at -1 to -2 stops to blend with ambient.
-- HSS (high-speed sync) allows wide aperture in daylight beyond the camera's sync speed (typically 1/200–1/250s).
+- Consult the camera and flash manuals for sync-speed and high-speed-sync behavior before using wide apertures in daylight.
 - Off-camera flash: 45° from subject, elevated — creates dimension.
 - TTL works for most situations; switch to manual power when background exposure must stay constant across recompositions.
 
@@ -107,8 +109,8 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 5. Color grade: consistent look across set.
 6. Export: sRGB for web, AdobeRGB for print. Sharpen per output size.
 
-- Calibrated monitor + hardware calibrator (X-Rite, Datacolor) quarterly. Laptop screens lie.
-- AI denoise (Topaz, DxO PureRAW, Lightroom Denoise) recovers previously unusable high-ISO shots.
+- Use a calibrated display when color-critical work requires it, and verify the chosen editing application's export settings.
+- Denoise can improve high-ISO images; compare the result at the intended output size.
 - Sharpen last, after resize. If you notice the edit, you went too far.
 
 ## Gear
@@ -118,22 +120,21 @@ If the user asks "how to photograph X" (not a problem), skip to step 5 and provi
 - Carbon fiber tripod saves weight; flimsy tripod is worse than none.
 - One good light > three bad ones. Start with a single speedlight or LED.
 
-## Backup: 3-2-1-1-0
+## Backup
 
-3 copies, 2 media types, 1 offsite (cloud), 1 offline/air-gapped, 0 errors (verify checksums).
+Maintain multiple copies on more than one storage medium, keep one copy in a separate location, and test restores periodically.
 
 - Folder: `YYYY/YYYY-MM-DD_EventName`
 - Rename on import: `YYYYMMDD_ProjectName_0001.ext`
-- Archive RAW forever, even rejects — storage is cheap, moments aren't.
+- Keep originals and selected exports according to the user's retention and storage constraints.
 - Test-restore a random sample periodically to confirm integrity.
 
 ## Smartphone Photography
 
-- Default camera app handles most scenes via computational photography (multi-frame HDR, Night mode). Use it.
-- For manual control: ProCam (iOS), ProShot (Android) — set ISO, shutter, focus manually.
-- Phone RAW = DNG. Edit in Lightroom Mobile, Snapseed, or Darkroom.
-- Portrait mode simulates bokeh computationally — struggles with fine hair, glasses, complex edges.
-- Third-party clip-on lenses (Moment, Sandmarc) add wide-angle, macro, or anamorphic.
+- Start with the phone's default camera application and its documented scene modes.
+- For manual control, select an application that supports the controls available on the device.
+- Check the device and application documentation for RAW support and output format.
+- Test portrait or background-blur modes on fine detail and complex edges before relying on the result.
 
 ## Best Practices
 
