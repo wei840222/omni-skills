@@ -77,3 +77,7 @@ Load [current-market-verification.md](references/current-market-verification.md)
 - Read the wallet's exact chain, token contract, spender, allowance, transaction simulation, and gas estimate before authorizing an action.
 - Distinguish token approvals from supply, borrow, repay, withdrawal, and collateral-setting transactions.
 - Use the intended market's interface and current network fees; fee levels and interface capabilities differ across networks.
+
+## Package evaluation records
+
+For package-evaluation provenance, read `references/darwin-evaluation.md` and `test-prompts.json`. These are audit records, not market-analysis inputs.
