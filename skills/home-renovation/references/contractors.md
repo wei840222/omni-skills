@@ -4,8 +4,8 @@
 
 ### Licensing & Insurance
 1. "Are you licensed in [state/city]?" — Verify online with official state records.
-2. "Can I see your insurance certificate?" — Should have liability AND workers comp
-3. "Who pulls the permits?" — Ideally them, not you
+2. "Can I see your insurance certificate?" — Verify the coverage and any workers' compensation obligation that applies to this project.
+3. "Who is responsible for permits?" — Put the responsible party and required permits in the contract.
 
 ### Experience
 4. "How long have you been doing this specific type of work?"
@@ -19,7 +19,7 @@
 10. "What warranty do you offer on your work?"
 
 ### Money
-11. "What's your payment schedule?" — Red flag if >10% upfront (CA limit) or >30% elsewhere
+11. "What's your payment schedule?" — Compare the down payment with the applicable local legal cap and tie later payments to completed work or delivered materials.
 12. "Is this quote fixed or can it change?"
 13. "What's included and what's extra?"
 14. "How do you handle unexpected issues?"
@@ -46,7 +46,7 @@ When you have multiple quotes, verify each includes:
 **Run away if:**
 - No license or won't show it (verify online at your state's licensing board)
 - No insurance or expired
-- Demands >10% deposit (California limit) or >30% elsewhere
+- Demands an upfront payment above the applicable local legal cap or a payment schedule detached from completed work and delivered materials
 - Cash only, no contract
 - Can start tomorrow (why are they free?)
 - Pressure tactics ("price only good today")
@@ -84,13 +84,13 @@ Before signing, verify the contract includes:
 
 | Milestone | Payment | Running Total |
 |-----------|---------|---------------|
-| Contract signed | 10-20% | 10-20% |
+| Contract signed | Up to the applicable legal cap | Up to the applicable legal cap |
 | Materials delivered | 20-30% | 30-50% |
 | Rough-in complete | 20-25% | 50-75% |
 | Substantial completion | 20-25% | 70-100% |
 | Punch list complete | 0-10% | 100% |
 
-**Golden rule:** Keep payments aligned with completed work. If 50% is done, have paid no more than 50%.
+**Golden rule:** Keep payments aligned with completed work and delivered materials. Local law may impose stricter rules on the down payment and progress payments.
 
 **Final payment:** Hold 5-10% until punch list complete and you're satisfied.
 
