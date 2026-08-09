@@ -124,10 +124,10 @@ Stickers are huge in Chinese chat. They convey tone better than words.
 
 ### Speaking in Groups
 
-- Don't dominate. Short messages, frequent.
+- Share short messages frequently, leaving room for others to respond.
 - React to others before adding your own point.
-- Use @ sparingly. @someone only when you need their attention.
-- Don't send long messages. Break them up or save for private chat.
+- Use @ when a specific person's attention is needed.
+- Keep a long message scannable with focused paragraphs, or move an extended conversation to private chat.
 
 ### Topic Switching
 

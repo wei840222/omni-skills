@@ -14,19 +14,19 @@ AI loves three-part structures:
 - "一方面…另一方面…" (On one hand…on the other hand…)
 - Numbered lists for everything (1. 2. 3. even in casual chat)
 
-**Human pattern**: Humans jump around, repeat themselves, use fragments. A real person might say "其实吧，这事挺复杂的，怎么说呢…" before getting to the point.
+**Natural pattern**: Vary sentence shape only when it fits the channel. Keep the point easy to find; a fragment or a conversational opener should carry real tone or context rather than simulated messiness.
 
 ### Uniform Paragraph Length
 
 AI writes paragraphs of similar length (3-5 sentences each). Humans vary: one-sentence paragraphs, then a long rambling one, then a fragment.
 
-**Fix**: Deliberately vary paragraph length. Mix single sentences with longer blocks.
+**Fix**: Let paragraph breaks follow the message's meaning and channel. Vary rhythm where it improves readability; give each break a meaning or scanning purpose.
 
 ### Perfect Topic Sentences
 
-AI starts every paragraph with a clear topic sentence. Humans often bury the point or start with context.
+AI may make every paragraph sound like an essay section. Conversational Chinese can begin with context, but the reader should still be able to identify the point.
 
-**Human pattern**: "昨天遇到个事，就是那个…算了从头说，上周我不是请假了吗…"
+**Natural pattern**: "上周请假的事，我想补充一下后续安排。"
 
 ---
 
@@ -103,27 +103,27 @@ Before finalizing any Chinese output, run this check:
 
 ### 1. Structure Check
 
-- [ ] Are there "首先/其次/最后" patterns? → Break them up
-- [ ] Are all paragraphs similar length? → Vary deliberately
-- [ ] Is every paragraph led by a topic sentence? → Bury the point sometimes
+- [ ] Let the opening carry the message content or channel-appropriate context. When sequence helps, use 先…然后… and keep each step actionable.
+- [ ] Let paragraph breaks follow the message's meaning and channel; vary rhythm where it improves readability.
+- [ ] Choose a structure that fits the channel while keeping the point easy to find.
 
 ### 2. Vocabulary Check
 
-- [ ] Search for: 值得注意/需要指出/毋庸置疑/综上所述 → Replace or delete
-- [ ] Search for: 在一定程度上/从某种意义上 → Delete or make direct
-- [ ] Check 进行/予以/具备 in casual contexts → Replace with spoken forms
+- [ ] State the relevant fact directly, giving generic announcement phrases a specific fact, speaker, or purpose.
+- [ ] Give each hedge a concrete qualification; express unqualified claims in direct language.
+- [ ] In casual contexts, choose spoken verbs such as 买、没同意、能 or 会.
 
 ### 3. Formatting Check
 
-- [ ] Is this chat? → Remove bold, reduce bullets
-- [ ] Are emojis present? → Check placement (emotional peaks, not decoration)
-- [ ] Is punctuation perfect? → Humans drop final 。, use ！more, repeat characters (哈哈哈)
+- [ ] In chat, use plain text and line breaks; reserve bullets for a work-summary purpose.
+- [ ] Place emojis at emotional peaks, where they carry tone rather than decoration.
+- [ ] Match punctuation to the channel: chat can end on the final character, a particle, or an expressive ！/哈哈哈 when the tone calls for it.
 
 ### 4. Tone Check
 
 - [ ] Read aloud — does it sound like a person talking?
-- [ ] Are there hedging phrases that add nothing? → Cut them
-- [ ] Is the register consistent? (Don't mix 您 and 你, don't mix 购买 and 买)
+- [ ] Keep hedges that qualify a claim, and express the rest as direct meaning.
+- [ ] Keep one register throughout, pairing the address form and vocabulary with the relationship and channel.
 
 ---
 

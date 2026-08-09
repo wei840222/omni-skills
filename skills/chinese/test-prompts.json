@@ -2,22 +2,25 @@
   {
     "id": 1,
     "prompt": "Write a WeChat message to my boss asking for next Monday off because I have a dentist appointment",
-    "expected": "Should produce a casual but respectful Chinese message using 您, appropriate particles, drop final period, include context about dentist appointment, and use proper WeChat conventions (no bold, no emoji overuse)",
-    "actual": "您好，下周一想跟您请一天假，那天约了牙医看牙，不知道方不方便",
-    "pass": true
+    "expected": "Produce a respectful mainland-Simplified Chinese work WeChat message that asks directly for leave, gives the dental-appointment context, uses 您, and avoids invented facts.",
+    "actual": "语言：以下使用中国大陆简体中文。\n\n您好，我想申请下周一请假一天，因有牙科预约。工作安排：[placeholder]。烦请您批准，谢谢您",
+    "pass": true,
+    "eval_mode": "full_test"
   },
   {
     "id": 2,
     "prompt": "Help me write a formal email to a potential client introducing our company's new product",
-    "expected": "Should produce formal business Chinese with proper email skeleton (您好→content→此致敬礼), use 您 throughout, professional vocabulary, clear structure, and appropriate register for external client communication",
-    "actual": "王總，您好！\n\n我是XX公司的張偉。感謝您上週撥冗與我會面，針對我們的新產品「智能分析平台」，謹向您做進一步說明。\n\n該平台主要針對企業數據分析需求，提供即時數據視覺化與智能預測功能。相較於市面現有方案，我們的優勢在於：\n一、部署時間縮短60%\n二、支援多種數據源無縫整合\n三、介面直觀，無需專業技術背景即可操作\n\n隨信附上產品簡介與客戶案例，供您參考。若有任何疑問，歡迎隨時與我聯繫。\n\n期待有機會與貴公司合作。\n\n此致\n敬禮！\n\n張偉\nXX公司\n2025年1月17日",
-    "pass": true
+    "expected": "Produce a formal mainland-Simplified Chinese email with a clear subject, respectful 您 address, a business-email structure, and placeholders instead of unprovided product claims.",
+    "actual": "语言：以下使用中国大陆简体中文。\n\n主题：[产品名称]产品介绍\n\n尊敬的[客户称谓]：\n\n您好！\n\n我是[公司名称]的[姓名/职位]。现向您介绍我们的新产品：[产品名称]。\n\n[产品定位/适用场景]。\n\n产品信息：\n— [产品特点/功能]\n— [产品特点/功能]\n— [产品特点/功能]\n\n如您希望进一步了解，[后续安排/演示方式]。\n\n此致\n敬礼！\n\n[姓名]\n[职位]\n[公司名称]\n[联系方式]",
+    "pass": true,
+    "eval_mode": "full_test"
   },
   {
     "id": 3,
     "prompt": "I need to write a 小红书 post about my experience trying a new cafe in Taipei, make it sound natural and engaging",
-    "expected": "Should produce casual Taiwanese Mandarin with appropriate emoji density, use 軟體 not 軟件, include particles for natural flow, match 小红书 platform voice (enthusiastic but not over-the-top), and use traditional characters if variant is taiwan",
-    "actual": "台北新發現！這間巷弄咖啡廳也太好拍了吧✨\n\n上週去大安區找朋友\n偶然走到一條超安靜的巷子\n結果發現一間超可愛的咖啡廳☕\n\n門口就是一整面老磚牆\n搭配木質門框\n推門進去\n整個空間都是暖色調\n感覺像走進某個日劇場景🎬\n\n我點了一杯手沖\n和一份巴斯克蛋糕\n老實說\n原本沒抱太大期望\n結果第一口咖啡下去\n直接驚豔到我😳\n\n豆子是老闆自己烘的\n帶有淡淡的柑橘香\n搭配巴斯克的焦香\n真的絕配💕\n\n而且老闆超親切\n會跟你聊豆子的故事\n不是那種敷衍的介紹\n是真的在分享他熱愛的事情\n這種感覺真的很加分🥹\n\n座位不多\n大概就十來個位子\n但每個角落都很好拍\n窗邊的位置光線超好\n隨便拍都美✨\n\n下次想帶媽媽來\n她應該會喜歡這裡的氛圍\n已經先存進我的「台北咖啡廳清單」了📝\n\n你們有去過類似的店嗎？\n推薦給我啊～\n\n#台北咖啡廳 #巷弄咖啡 #手沖咖啡 #咖啡廳推薦 #大安區咖啡廳",
-    "pass": true
+    "expected": "State the assumed variant when it is not specified, then produce a natural social-post draft that uses placeholders for unprovided venue, order, and first-hand-experience details, without an unsupported audience CTA or unrequested hashtags.",
+    "actual": "默认按中国大陆简体中文、小红书日常口吻起草：\n\n台北［咖啡馆名称］｜一次尝试记录\n\n这次去台北的［咖啡馆名称］，点了［饮品／餐点］。\n\n店里的［环境／座位／音乐］是［具体观察］，［饮品／餐点］的味道［实际感受］。\n\n这次最让我［感受］的是［具体细节］。［是否会再去／是否推荐］，还要看［依据］。",
+    "pass": true,
+    "eval_mode": "full_test"
   }
 ]

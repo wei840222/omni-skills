@@ -4,7 +4,7 @@ description: Write native-quality Mandarin Chinese for any context — WeChat me
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🇨🇳"}'
-  related-skills: '{"translate":"Bound to an existing source text in another language.","traditional-chinese":"Traditional-only writing for Taiwan and Hong Kong readers.","china":"Travelling in the country these texts are read in.","writing":"The craft of prose itself, once the language question is settled.","japanese":"The same problem in the neighbouring language."}'
+  related-skills: '{"china":"Travelling in the country these texts are read in.","japanese":"The same problem in the neighbouring language.","traditional-chinese":"Traditional-only writing for Taiwan and Hong Kong readers.","translate":"Bound to an existing source text in another language.","writing":"The craft of prose itself, once the language question is settled."}'
 ---
 
 ## State location
@@ -13,19 +13,14 @@ Chinese state may exist in `<workspace>/chinese/`, `<workspace>/memory/chinese/`
 Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
-2. Otherwise use the first existing directory in this order:
-   `<workspace>/chinese/`, `<workspace>/memory/chinese/`, `~/chinese/`.
-3. If none exists and state must be created, default to `<workspace>/chinese/`.
+2. When the host supplies `<workspace>`, inspect all three candidate directories in this order:
+   `<workspace>/chinese/`, `<workspace>/memory/chinese/`, `~/chinese/`. When it does not, inspect an existing `~/chinese/` only.
+3. If two or three candidate directories exist, tell the user that multiple state copies were detected. Use only the highest-precedence existing directory; do not merge, cross-read, or cross-write the others.
+4. If none exists and the user asks to save a preference, create `<workspace>/chinese/` as `<state_root>` only when the host supplies `<workspace>`. When the host cannot supply `<workspace>`, ask the user or host for an explicit state root before creating data; do not infer one from the current working directory.
 
 Use the selected `<state_root>` for every state operation in this skill.
 
-**Data.** At the start of every session, read `<state_root>/config.yaml` (what the user declared) and `<state_root>/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — treat the index as dynamic, refreshing it each session. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under `<state_root>` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Before writing to a named person or on a named channel, read that person's row in `## Recipients` and the channel's style box `## Boxes` names for it: dropping to 你 after a month of 您, or renaming a term that was settled last release, is a defect even when both forms are grammatical. If none of it exists, work from defaults and say nothing about it.
-
-**Write before the session ends** whenever it produced something durable: a term, product or person's name rendered in Chinese for the first time; a correction from a native reader; a register or address-form decision for a person or a channel; a slang term retired as stale; a piece delivered and how it landed; an environment fact that cost effort to find (a platform that strips emoji, a font missing a character, an audience that skews older than assumed); or something the user will re-read — a template that finally worked, a Chinese naming decision, a review of someone else's text, a speech script. `references/memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
-
-**People and ongoing work go to the shared boxes, not here.** A recipient, a native reviewer, a client or an editor is a row in `<workspace>/contacts/contacts.md`; a Chinese-language effort the user tracks as work in progress — a 公众号 launch, a market entry, a book — is `<workspace>/projects/<project>.md`. Read the box before adding and update the existing entry in place. The register and address form for that person stay here, in `## Recipients`, keyed by their contacts key: the person belongs to everyone, how you address them in Chinese belongs to this skill. Formats and identity keys travel in `references/memory-template.md`, so this works whether or not the owning skills are installed.
-
-**No credential is ever written anywhere under `<state_root>`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Platform accounts are the temptation: store the pointer and strip the value — `env:WECHAT_APP_SECRET`, `keychain:xiaohongshu-login`, `1password:Work/Weibo/ops`.
+**Optional preferences.** Read `<state_root>/config.yaml` and `<state_root>/memory.md` only after the resolver selects an existing state root, or after the user explicitly asks to save a preference. Keep all state in those two files; the skill neither creates nor edits host-shared contact or project records. Use `references/memory-template.md` only when saving an approved preference. State is local plain text: store language decisions and style preferences, never credentials, account identifiers, or content that belongs in another system.
 
 Model-written Chinese is almost always grammatical and almost always wrong at the register: one notch too formal, particle-free, and structured like an English essay wearing Chinese words. The job is to put back what a native adds without thinking — the 语气词, the fragment, the right 量词, the 全角 comma — and to take out what English pushed in: 进行 + verb, 一个 as an article, a 30-character attributive stacked before 的. Produce the Chinese first; explain in English only when asked. Work from defaults immediately: start writing in the assumed variant and register, adjusting only when the user states a preference. The one exception to silence is script — while `variant` is unset, state which variant and script you are writing in before writing it (Rule 2). That is a statement, not a question. Precedence for any value: `config.yaml` → `<workspace>/profile.yaml` (shared universals: locale, timezone) → the Configuration table default.
 
@@ -35,11 +30,15 @@ Resolve these in order before producing any Chinese text:
 
 1. **Channel** → What platform or context? (WeChat / email / 小红书 / document / …) → Sets default register and emoji density.
 2. **Audience** → Who reads this? → Check `## Recipients` for existing address form; if new, pick from the Register Ladder.
-3. **Variant & script** → Mainland simplified? Taiwan traditional? → State the assumed variant before writing (Rule 2). Load `references/regions.md` for vocabulary divergence.
+3. **Variant & script** → Mainland simplified? Taiwan traditional? → When the request and state provide no preference, label and write Mainland Simplified Chinese; otherwise state and apply the selected variant before writing (Rule 2). Load `references/regions.md` for vocabulary divergence.
 4. **Register rung** → Which of the five rungs? → Lock it for the entire text; mid-text drift is the most visible failure.
 5. **Slang appetite** → How much internet language? → From config or default `light`. Load `references/slang.md` when using any term.
 6. **Write** → Produce the Chinese.
 7. **Output Gates** → Run the checklist below before delivering.
+
+### Fact boundary
+
+Keep every clause grounded in the request. When a name, date, price, result, personal reaction, work arrangement, or comparative claim is missing, use a visible `[placeholder]` or omit it. This applies to titles, hooks, softeners, calls to action, and conventional business boilerplate as well as the body. For an unspecified first-person experience, produce a neutral placeholder draft: each scene-setting, reaction, recommendation, and promise must come from the user or remain a placeholder.
 
 ## When To Use
 
@@ -70,22 +69,22 @@ Resolve these in order before producing any Chinese text:
 | Something to be said aloud: call, voice note, toast, presentation | Spoken Chinese is shorter, more particled, and repeats the topic | `references/speaking.md` |
 | Refusing, apologising, thanking, complimenting, asking a favour | The refusal ladder; 不好意思 vs 对不起 vs 抱歉 | `references/etiquette.md` |
 | Checking someone else's Chinese, or hunting 错别字 and mojibake | IME homophone sweep, then register drift, then encoding | `references/proofreading.md` |
-| Which 你/您 and how casual, for this person or this channel | The Register Ladder below, then record the decision in `## Recipients` | `references/register.md` |
+| Which 你/您 and how casual, for this person or this channel | The Register Ladder below; save the decision only if the user asks | `references/register.md` |
 | Anything else in Chinese | Write it at the register the channel implies, then state the two assumptions you made — audience and formality — so the user can correct one | — |
 
 Coverage map: `references/register.md` formality and address form · `references/chat.md` WeChat and messaging · `references/business.md` workplace and email · `references/social-media.md` platform voices · `references/documents.md` formal paperwork · `references/academic.md` research and technical writing · `references/speaking.md` spoken scripts · `references/etiquette.md` politeness and face · `references/grammar.md` the mechanics that break · `references/punctuation.md` typography · `references/numbers-and-names.md` numbers, dates, names, addresses · `references/idioms.md` 成语 and 俗语 · `references/slang.md` internet language and its shelf life · `references/regions.md` variants and scripts · `references/ai-tells.md` machine fingerprints · `references/proofreading.md` reviewing existing Chinese.
 
 ## Core Rules
 
-1. **Register comes from the relationship and the channel, never from the topic.** Decide before the first character; the Register Ladder below is the table. 您 belongs to elders, officials, customers, and first contact with a stranger who outranks the user; 你 covers everyone else including most colleagues. The asymmetry that matters: moving from 您 to 你 is a warming gesture the senior party offers, while moving from 你 back to 您 reads as cold anger, so a wrong 您 costs less than a wrong 你 only on first contact — after that it costs more. 您 has no standard plural: address a group as 大家 or 各位, never 您们. Record the choice per person in `## Recipients` the first time it is made.
+1. **Register comes from the relationship and the channel, not the topic alone.** Decide before the first character; the Register Ladder below is the table. 您 is a prudent default for a customer, official, or first contact where the relationship is unknown; 你 fits established peers and most colleagues. Keep the established form unless the relationship changes. Address a group as 大家 or 各位 rather than 您们. Save a recipient-specific choice only after the user asks to retain it.
 2. **Variant and script are one decision, taken before writing and stated out loud when unset.** A glyph converter is not a variant converter: it produces 繁體字 carrying mainland vocabulary, which a Taiwanese reader spots in one line (視頻 for 影片, 軟件 for 軟體). It also guesses wrong on the one-to-many mappings, where one simplified character maps to several traditional ones — 发 → 發/髮, 干 → 幹/乾/干, 后 → 後/后, 里 → 裡/里, 面 → 麵/面, 只 → 隻/只, 云 → 雲/云, 松 → 鬆/松, 台 → 臺/檯/颱/台. Convert the vocabulary and re-read those characters by hand (`references/regions.md`).
 3. **Numbers group by four, not by three.** 万 = 10⁴, 亿 = 10⁸. Convert by dividing: `value ÷ 10,000` → 万, `value ÷ 100,000,000` → 亿. So 1,200,000 → 120万 and 3,500,000,000 → 35亿; "3.5 billion" written as 三十五亿 is right and as 3.5十亿 is not Chinese. A seven-digit comma-grouped figure in Chinese prose is a translation artefact. Before a measure word the number two is 两 (两个人, 两天), while 二 stays in ordinals and compounds (第二, 十二, 二十). Full table in `references/numbers-and-names.md`.
-4. **Casual Chinese carries a 语气词 roughly every three to four short sentences; zero across a whole message is the machine signature.** Working target, not a measurement — the particle goes where the feeling is, and one on every sentence reads as a cartoon. Each carries a distinct job: 啊/呀 soften, 呢 hand the turn back, 吧 propose or hedge, 嘛 mark the obvious, 啦 close something off, 哦/噢 acknowledge, 呗 shrug. Formal writing takes none of them: a 通知 with 吧 in it is a different failure (`references/register.md`).
+4. **Use particles when the register calls for them, not as a quota.** In casual text, place 啊/呀 to soften, 呢 to hand back the turn, 吧 to propose or hedge, 嘛 to mark the obvious, 啦 to close, 哦/噢 to acknowledge, and 呗 to shrug. Omit them from formal documents unless the document's genre calls for one (`references/register.md`).
 5. **Cut the attributive at about twelve characters before 的.** Chinese stacks every modifier ahead of the noun, so an English relative clause moved across in place forces the reader to hold the whole modifier in memory before learning what it modifies. Working threshold: past ~12 characters, break it into its own clause and let the noun arrive first — 我昨天在楼下咖啡店遇到的那个人 becomes 那个人，我昨天在楼下咖啡店遇到的. 余光中's essays on 欧化中文 are the standard treatment; this is their operational form, and the full table of Europeanised patterns with their rewrites is in `references/grammar.md`.
 6. **Delete 进行/作出/给予/予以 plus a noun and put the verb back.** 进行讨论 → 讨论, 作出决定 → 决定, 给予支持 → 支持, 予以考虑 → 考虑. Each deletion removes two characters and one degree of bureaucratic distance. Same family: 一个 used as an English indefinite article, 们 stacked on a noun already marked plural (三个学生们), 性/化 suffixes on words that do not need them (可行性方案 → 可行的方案), and 被 on anything that is not adverse (被讨论 is un-Chinese; 被表扬 has been naturalised and is fine).
 7. **的/地/得 are decided by what follows them, not by how they sound.** Formula: `X的 + 名词` · `X地 + 动词` · `动词/形容词得 + 补语`. Worked: 高兴**的**孩子 (noun follows) · 高兴**地**说 (verb follows) · 说**得**很高兴 (complement follows). This is the single most common 错别字 in native writing too, so an error here does not read as foreign — it reads as careless, which for a 公文 or a resume is worse (`references/grammar.md`).
-8. **Full-width punctuation throughout, and never a space after it.** ，。、；：？！ are full-width; a half-width comma inside Chinese text is the loudest non-native mark there is. 、 separates items inside a list and never joins clauses. Ellipsis is …… (two characters, six dots), the dash is —— (two characters), and titles of books, films and articles take 《》 rather than italics. Quote marks follow the variant: " " ' ' on the mainland, 「」『』 in Taiwan and Hong Kong. Spacing between Han and Latin or digits is a house style, not a national standard — `latin_spacing` decides, and whichever way it goes it is applied to every occurrence (`references/punctuation.md`).
-9. **Slang is dated the moment it is used, so only use a term you can date.** If the era it peaked in cannot be named, do not use it. A term that peaked more than roughly three years ago and never became ordinary vocabulary reads as a dead meme, which is worse than plain writing — 然并卵 and 我伙呆 (2015) are now period costume, while 打工人 and 内卷 (2020) crossed into ordinary speech and are safe. Governed by `slang_appetite`; the calibration sample rots, so re-check it on the `## Due` cadence rather than trusting the list (`references/slang.md`).
+8. **Use the target variant's punctuation and the channel's established style.** In normal Chinese prose, use full-width ，。、；：？！; use 、 for list items rather than clauses; use …… for an ellipsis and —— for a dash. Use 《》 for titles when the genre calls for book-title marks. Mainland writing commonly uses “”, while Taiwan and Hong Kong commonly use 「」; preserve the publication's house style when it differs. Apply `latin_spacing` consistently (`references/punctuation.md`).
+9. **Treat slang as current only with audience evidence.** Match `slang_appetite`, region, platform, and the reader's own language. When a term's currency or meaning is uncertain, use plain language rather than guessing; `references/slang.md` gives a verification procedure.
 
 ## AI Tells In Chinese
 
@@ -119,7 +118,7 @@ Five rungs. Pick by the relationship, then keep it for the whole text — mid-te
 | 日常 | Colleagues, friends, group chats, most 小红书 copy | 你 | 啊, 呢, 吧, 嘛 | 在忙吗？想问个事儿 |
 | 亲近 | Close friends, family, same-age group chat | 你 plus nicknames | all of them, plus slang | 诶你看这个 |
 
-Defaults when nothing is known: 客气 in writing to a person, 日常 on social copy, 正式 in email. `formality` overrides; a stated preference for one person overrides both and gets a `## Recipients` row.
+Defaults when nothing is known: 客气 in writing to a person, 日常 on social copy, 正式 in email. `formality` overrides; a stated preference for one person overrides both for the current work and may be saved in `## Recipients` on the user's request.
 
 ## Word Choice: Safe → Native
 
@@ -168,11 +167,11 @@ Before delivering any Chinese text, run each check. If any fails, fix before del
 - [ ] Dates and money in the local shape
 
 **GATE E — AI-Tell Sweep**
-- [ ] No opener scaffolding (首先/其次/最後)
-- [ ] No 值得注意的是 / 需要注意的是
-- [ ] Paragraph lengths vary (not uniform)
-- [ ] No stacked 四字格 (≥3 in a row)
-- [ ] Casual text has 语气词 (not zero)
+- [ ] Open with the message content or channel-appropriate context; use 先…然后… when sequence helps the reader act.
+- [ ] State the relevant fact directly instead of using generic announcement phrases such as 值得注意的是 / 需要注意的是.
+- [ ] Let paragraph lengths follow the message's meaning and channel, with rhythm changes where they improve readability.
+- [ ] Use four-character phrases only when they add precise meaning; unfold stacked phrases into concrete verbs and nouns.
+- [ ] Place 语气词 where the casual register needs tone, while keeping formal prose aligned with its genre.
 
 **GATE F — Grammar (Rules 6, 7)**
 - [ ] 的/地/得 checked at every occurrence
@@ -186,11 +185,11 @@ Before delivering any Chinese text, run each check. If any fails, fix before del
 - [ ] Read once aloud in the target register: is there a sentence a native would not say out loud?
 
 **GATE I — Persist**
-- [ ] Did anything durable come out of this — a term or name rendered, a native correction, a register decision, a retired slang term, a delivered piece, a template, an environment fact? Then it is written to its box in `references/memory-template.md`, with its `## Boxes` line, in this same turn.
+- [ ] If the user asked to retain a durable preference, record it using `references/memory-template.md`; otherwise complete the writing task without state changes.
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; save a preference in `<state_root>/config.yaml` only when the user asks to retain it.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -203,17 +202,16 @@ User-dependent variables. Defaults apply until the user states a preference; sto
 | default_channel | wechat \| xiaohongshu \| weibo \| gongzhonghao \| douyin \| zhihu \| email \| document \| none | none | Channel assumed when a request does not name one; picks the style box and the platform conventions in `references/social-media.md` |
 | latin_spacing | bool | true | Whether a half-width space separates Han from Latin letters and digits; applied to every occurrence or none (Rule 8) |
 | crude_ok | bool | false | Whether 卧槽-tier and 牛逼-tier words may appear at all |
-| platform_filter_aware | bool | true | Whether to avoid wording that gets a post limited on mainland platforms and offer the 谐音 alternative instead (`references/social-media.md`) |
 | emoji_density | none \| sparse \| native \| heavy | sparse | Emoji and 表情包 per paragraph in chat and social copy; `native` matches the platform norm, which on 小红书 is far higher than on WeChat |
 
-Preference areas — customizable dimensions; a stated preference gets recorded in `config.yaml` and applied from then on:
+Preference areas — customizable dimensions; apply a stated preference to the current work and save it only when the user asks:
 
-- **Voice** — how blunt, how warm, sentence length, whether fragments are welcome, self-reference (我 / 本人 / 笔者 / 小编), signature sign-offs — affects every piece and belongs in a `styles/<channel>.md` box once it outgrows a line
+- **Voice** — how blunt, how warm, sentence length, whether fragments are welcome, self-reference (我 / 本人 / 笔者 / 小编), and signature sign-offs — affects every piece and may be saved as an approved preference
 - **Conventions** — quote-mark style, whether 星期六 or 周六 or 礼拜六, 元 or 块, 号 or 日, half-width digits in Chinese text, paragraph indent (首行缩进两字) or blank-line separation — affects `references/punctuation.md` and `references/numbers-and-names.md`
 - **Platform** — which channels the user writes on, their audience age band and region, account type and its limits, whether a piece is read on a phone — affects `references/social-media.md` and `emoji_density`
-- **Relationships** — the standing address form and register for named people and groups — every stated one becomes a `## Recipients` row rather than a config key
-- **Risk posture** — appetite for crude words, politically sensitive topics, direct disagreement, humour that could be misread by a superior — affects `references/etiquette.md` and `platform_filter_aware`
-- **Cadence** — slang re-calibration, native review of the style boxes, glossary consolidation, re-check after a platform changes its rules — every accepted cadence becomes a row in the `## Due` table of `memory.md`
+- **Relationships** — a standing address form and register for a named person or group; save it in `## Recipients` only on the user's request
+- **Risk posture** — appetite for crude words, sensitive topics, direct disagreement, and humour that could be misread by a superior — affects `references/etiquette.md`
+- **Cadence** — slang re-calibration, native review, glossary consolidation, and review after a platform changes its rules; perform these only when the user requests them
 - **Output register** — Chinese only, Chinese plus back-translation, Chinese plus pinyin, whether alternatives are offered by default, how much of the reasoning to show — affects the shape of every answer
 
 ## Traps
@@ -236,7 +234,7 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 | 加油 as the answer to any difficulty | Fine for exams and matches, hollow after bad news | Name the specific thing: 有事随时说 / 需要我做什么 |
 | Writing ... instead of …… | Three ASCII dots are a Latin ellipsis; Chinese uses two ellipsis characters | …… (Rule 8) |
 | Using 、 to join two clauses | 、 lists items inside one clause and nothing else | ，between clauses, 、inside a list |
-| A term, name or register decision that lives only in the chat | Re-decided differently next month, and the reader notices the drift before the user does | Glossary row, `## Recipients` row, or `artifacts/`, in the same turn (`references/memory-template.md`) |
+| A term, name or register decision that should be reused | It may be re-decided differently in later work | Ask whether to save it, then record it in `<state_root>/memory.md` or `<state_root>/config.yaml` only with approval (`references/memory-template.md`) |
 
 ## Where Experts Disagree
 
