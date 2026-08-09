@@ -18,8 +18,8 @@
   {
     "id": 3,
     "prompt": "I need to write a 小红书 post about my experience trying a new cafe in Taipei, make it sound natural and engaging",
-    "expected": "State the assumed variant when it is not specified, then produce a natural social-post draft that uses placeholders for unprovided venue, order, and first-hand-experience details.",
-    "actual": "语言：以下使用中国大陆简体中文。\n\n标题：台北咖啡馆体验｜[咖啡馆名称]\n\n[日期]去了台北[区域/地址]的[咖啡馆名称]。\n\n店里的[环境/光线/音乐/座位情况]。\n\n这次点了[饮品名称]和[餐点/甜点名称]，[具体品项]的[口味/口感/摆盘]：[第一手体验或感受]。\n\n[适合拍照/工作/约会/独处等场景的实际观察]\n\n[是否推荐、推荐给谁，以及原因]\n\n你们最近去了哪些台北咖啡馆？\n\n#台北咖啡馆 #[咖啡馆名称] #[区域]",
+    "expected": "State the assumed variant when it is not specified, then produce a natural social-post draft that uses placeholders for unprovided venue, order, and first-hand-experience details, without an unsupported audience CTA or unrequested hashtags.",
+    "actual": "默认按中国大陆简体中文、小红书日常口吻起草：\n\n台北［咖啡馆名称］｜一次尝试记录\n\n这次去台北的［咖啡馆名称］，点了［饮品／餐点］。\n\n店里的［环境／座位／音乐］是［具体观察］，［饮品／餐点］的味道［实际感受］。\n\n这次最让我［感受］的是［具体细节］。［是否会再去／是否推荐］，还要看［依据］。",
     "pass": true,
     "eval_mode": "full_test"
   }
