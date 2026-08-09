@@ -6,7 +6,7 @@ Do not blend Macau rules with Hong Kong or mainland China.
 ## Visitor Entry
 
 - Many passport holders can enter visa-free for short stays (14–180 days depending on nationality).
-- US citizens: 30 days visa-free. UK citizens: 180 days. EU citizens: 30 days.
+- US citizens: 30 days visa-free. UK citizens: 6 months. EU/Schengen passport holders: 90 days.
 - Some nationalities must obtain advance entry documentation or a visa-on-arrival.
 - Advance visa required for: Bangladesh, Nepal, Nigeria, Pakistan, Sri Lanka, Vietnam (confirm current list before advising).
 - Visa-on-arrival (Entry Permit) available at border checkpoints for eligible nationalities.
