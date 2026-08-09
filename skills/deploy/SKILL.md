@@ -67,15 +67,23 @@ No universal best exists. Match strategy to your risk tolerance and available re
 
 **OIDC Federation Example (AWS):**
 ```yaml
-permissions:
-  id-token: write
-  contents: read
+name: Configure AWS credentials with OIDC
 
-- name: Configure AWS Credentials
-  uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
-  with:
-    role-to-assume: arn:aws:iam::123456789012:role/GitHubActions
-    aws-region: us-east-1
+on:
+  workflow_dispatch:
+
+jobs:
+  configure-aws-credentials:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActions
+          aws-region: us-east-1
 ```
 
 **If OIDC token expires mid-workflow:**
