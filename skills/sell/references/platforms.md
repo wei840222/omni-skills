@@ -13,54 +13,44 @@
 | Handmade | Etsy, local markets, Instagram |
 | Vehicles | FB Marketplace, Craigslist, Autotrader |
 
-**Default combo:** eBay (shipped) + FB Marketplace (local) covers most buyers.
+Use this table as a starting hypothesis, not a universal recommendation. Confirm that the platform, payment flow, delivery option, restricted-item policy, and seller terms are available for the seller's country and account.
 
 ---
 
 ## Platform Details
 
 ### eBay
-- **Fees (2025):** 2.5%–15.3% final value fee by category + per-order fee ($0.30 for orders ≤$10, $0.40 for orders >$10). Fee increase up to 0.35% effective Feb 2025.
+- **Fees:** eBay charges insertion and final value fees. The amount depends on the item price, format, category, optional upgrades, and seller conduct; calculate from the current [Selling fees](https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees?id=4822) page before setting a net-price target.
 - **Best for:** Electronics, collectibles, shipped items
 - **Auction vs Buy It Now:** Use auction for rare items with unknown market value. Fixed price for everything else.
-- **Pro tip:** "Promoted listings" at 2-3% can significantly increase visibility
 
 ### Facebook Marketplace
-- **Fees (2025):** Free for local pickup; 10% for shipped orders (minimum $0.80 per transaction)
+- **Terms:** Local pickup, checkout, shipping, payment, and seller features vary by country, account, and current Marketplace availability. Confirm the flow shown in the seller's Marketplace account instead of quoting a historical shipping fee.
 - **Best for:** Furniture, local sales, bulky items
-- **Culture:** Lowball offers are norm. Price 15-20% high.
-- **Pro tip:** Respond fast — algorithm rewards quick replies
 
 ### Vinted
-- **Fees (2025):** 0% seller commission. Buyers pay a Buyer Protection Fee ($0.70 + 5% for orders under $500) added at checkout. Fee currency and thresholds vary by region — check the local Vinted pricelist.
+- **Fees:** Vinted's [Buyer Protection fee](https://www.vinted.com/help/342-buyer-protection-fee-on-vinted) commonly includes a percentage plus a fixed amount, but terms vary by region. Confirm the local pricelist and checkout screen before explaining who pays which fee.
 - **Best for:** Clothing, shoes, accessories
-- **Culture:** Bundling encouraged, offers expected
-- **Shipping:** Built-in label system; seller sets item price and buyer covers shipping
 
 ### Poshmark
-- **Fees (2025):** $2.95 flat fee on sales under $15; 20% commission on sales of $15 or more. No listing fees.
+- **Fees:** Review the current seller fee and payout display for the seller's market before using it in a price calculation.
 - **Best for:** Higher-end fashion, brands
-- **Culture:** "Posh Parties" for visibility
-- **Sharing:** Must actively share listings to maintain visibility
 
 ### Etsy
-- **Fees (2025):** $0.20 listing fee + 6.5% transaction fee + 3% + $0.25 payment processing. Effective total ~10-12% depending on item price.
-- **Best for:** Handmade, vintage (20+ years), craft supplies
-- **SEO:** Titles and tags matter heavily
-- **Pro tip:** Free shipping > paid shipping in search ranking
+- **Fees:** Include the current listing, transaction, payment-processing, advertising, and regional charges that apply to the shop before quoting a net return.
+- **Best for:** Handmade, qualifying vintage, and craft-supply listings
 
 ### Reverb
-- **Fees (2025):** 5% selling fee. No listing fees.
+- **Fees:** Check the current selling-fee and shipping-protection terms before listing an instrument or audio item.
 - **Best for:** Musical instruments, audio gear
-- **Culture:** Knowledgeable buyers, detailed condition matters
 
 ### Craigslist
-- **Fees:** Free
+- **Fees:** Check the category-specific terms before publishing; some listing categories can be charged.
 - **Best for:** Large items, cash sales, "come pick it up"
-- **Safety:** Higher scam rate — meet in public, cash only
+- **Safety:** Use the meeting and payment checks in `references/safety.md`.
 
 ### Swappa
-- **Fees (2025):** ~3% seller fee. No listing fees.
+- **Fees:** Confirm the seller payout and listing requirements in the current selling flow before using the platform as a comp or a net-price target.
 - **Best for:** Phones, laptops, tech
 - **Trust:** Verified devices, strict listing rules
 
@@ -68,14 +58,9 @@
 
 ## Multi-Platform Strategy
 
-**Week 1:** List on 2-3 platforms
-- eBay (shipped) + FB Marketplace (local) minimum
-- Category-specific platform if applicable
+**First listing cycle:** Start with the one or two platforms that match the item and delivery method. Cross-list only when the seller can promptly mark every listing sold.
 
-**If no bites after week 2:**
-- Add Craigslist, OfferUp
-- Share to local Facebook groups
-- Consider consignment for high-value items
+**If response is weak after a defined review period:** Recheck completed comps, listing quality, and the selected audience before adding another platform or considering consignment.
 
 **Mark as sold everywhere** when it sells to avoid double-selling headaches.
 
@@ -83,10 +68,4 @@
 
 ## Listing Timing
 
-- **Best days:** Thursday-Sunday
-- **Best time:** 7-9 PM local (after work browsing)
-- **Seasonal:**
-  - Electronics: Nov-Dec, back-to-school
-  - Outdoor gear: Spring
-  - Fitness equipment: January
-  - Winter clothing: Sep-Nov
+Test timing with the seller's own listing data rather than assuming universal best days or hours. Compare views, saves, messages, and completed sales across at least two comparable listing windows, while keeping price and photos stable enough to interpret the result.

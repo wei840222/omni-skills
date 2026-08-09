@@ -8,7 +8,7 @@
 2. Check 2+ local platforms (FB Marketplace, OfferUp)
 3. Note condition differences — adjust accordingly
 4. Set floor price before listing
-5. List at floor + 15-20%
+5. Choose a listing price with a negotiation buffer supported by current comps
 
 **Floor price** = minimum you'll accept. Set this BEFORE listing to avoid emotional decisions during negotiation.
 
@@ -22,16 +22,15 @@
 Materials cost
 + (Your hourly rate × hours spent)
 + Overhead (packaging, platform fees, shipping supplies)
-+ Profit margin (20-50%)
++ Desired profit
 = Price
 ```
 
-**Setting your hourly rate:**
-- Beginner: $15-25/hr
-- Experienced: $25-50/hr
-- Expert/known: $50-100+/hr
+Use either a markup or a margin calculation and name it accurately. For a desired profit of 30% of cost, multiply cost by 1.30. For a 30% margin of the final sale price, divide cost by 0.70. Include marketplace fees, taxes you bear, payment processing, packing, and shipping supplies in the cost model that applies to the sale.
 
-**Perceived value matters:** A $45 necklace often sells better than a $15 one. Price reflects quality signal.
+**Setting your hourly rate:** Base it on the creator's local target wage, experience, taxes, and business costs. Compare the resulting price with current listings for comparable work before publishing.
+
+**Perceived value matters:** Price and presentation can communicate quality. Validate that positioning against comparable completed sales rather than assuming a universal premium works.
 
 ---
 
@@ -51,20 +50,19 @@ Materials cost
 ## Bulk / Lot Selling
 
 **When to bundle:**
-- Individual items worth <$10
+- Individual items whose net return does not justify separate photos, messages, and shipping
 - Related items (cables, accessories)
 - Incomplete sets
 
-**Pricing:** 60-70% of combined individual value. Buyer pays less, you save time.
+**Pricing:** Start below the combined proven individual-sale value, then compare the expected net return and time saved against selling pieces separately.
 
 ---
 
 ## Commission Pricing (Custom Orders)
 
-- **Deposit:** 30-50% upfront, non-refundable
-- **Revisions:** Define limit (e.g., "2 rounds included")
-- **Rush fee:** +25-50% for faster turnaround
-- **Scope creep:** New scope = new quote
+- Put the scope, materials, revisions, delivery date, cancellation, and refund terms in writing before accepting a custom order.
+- State any deposit or rush charge as an agreed term that complies with the seller's local law and the selected platform's rules.
+- Treat material scope changes as a new written quote before starting the added work.
 
 ---
 
@@ -73,8 +71,8 @@ Materials cost
 | Item type | Research method | Typical margin |
 |-----------|-----------------|----------------|
 | Used electronics | eBay sold, Swappa | List at market |
-| Furniture | FB Marketplace local | 10-20% negotiation buffer |
+| Furniture | Local marketplace | Compare local completed or recent comparable listings |
 | Clothing | Vinted, Poshmark comps | Aggressive pricing for speed |
-| Handmade | Cost-plus calculation | 30-50% profit margin |
+| Handmade | Cost-plus calculation | Net return after labor, overhead, and current fees |
 | Collectibles | Specialist sources | Varies wildly |
-| Bulk lots | Time-value tradeoff | 60-70% of individual total |
+| Bulk lots | Time-value tradeoff | Discount justified by lower handling time |
