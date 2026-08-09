@@ -18,13 +18,13 @@ Submit through `tea`:
 
 ```bash
 # Request changes
-tea pulls reject <n> "$(cat /tmp/pr-review.md)" --repo wei840222/clawic-skills
+tea pulls reject <n> "$(cat /tmp/pr-review.md)" --repo wei840222/omni-skills
 
 # Approve
-tea pulls approve <n> "$(cat /tmp/pr-review.md)" --repo wei840222/clawic-skills
+tea pulls approve <n> "$(cat /tmp/pr-review.md)" --repo wei840222/omni-skills
 
 # Comment only
-tea comments add <n> --description "$(cat /tmp/pr-review.md)" --repo wei840222/clawic-skills
+tea comments add <n> --description "$(cat /tmp/pr-review.md)" --repo wei840222/omni-skills
 ```
 
 ---

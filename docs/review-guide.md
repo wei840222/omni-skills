@@ -1,6 +1,6 @@
 # Skill Review Guide
 
-This document defines the canonical **Skill Review** procedure for open Gitea pull requests in `clawic-skills`. It is the review counterpart to `docs/refactor-guide.md`: refactor authors prove Gates 1–9; reviewers verify those gates **and** apply three quality lenses before approving or requesting changes.
+This document defines the canonical **Skill Review** procedure for open Gitea pull requests in `omni-skills`. It is the review counterpart to `docs/refactor-guide.md`: refactor authors prove Gates 1–9; reviewers verify those gates **and** apply three quality lenses before approving or requesting changes.
 
 ## Core principles
 
@@ -86,11 +86,11 @@ If the active Gitea login is not the reviewer account, switch before any approve
 
 ### Step 1: Locate and fetch the PR
 
-Default repository: `wei840222/clawic-skills` on Gitea.
+Default repository: `wei840222/omni-skills` on Gitea.
 
 ```bash
-tea pulls <n> --repo wei840222/clawic-skills
-tea pulls checkout <n> --repo wei840222/clawic-skills
+tea pulls <n> --repo wei840222/omni-skills
+tea pulls checkout <n> --repo wei840222/omni-skills
 # or clean clone + fetch head branch when the working tree is dirty
 ```
 
@@ -250,12 +250,12 @@ Default authorization for this repository’s review tasks:
 - Prefer squash merge for refactor PRs unless the user specifies otherwise:
 
 ```bash
-tea pulls approve <n> "$(cat /tmp/pr-review-approve.md)" --repo wei840222/clawic-skills
-tea pulls merge <n> --style squash --repo wei840222/clawic-skills
+tea pulls approve <n> "$(cat /tmp/pr-review-approve.md)" --repo wei840222/omni-skills
+tea pulls merge <n> --style squash --repo wei840222/omni-skills
 ```
 
 ```bash
-tea pulls reject <n> "$(cat /tmp/pr-review-request-changes.md)" --repo wei840222/clawic-skills
+tea pulls reject <n> "$(cat /tmp/pr-review-request-changes.md)" --repo wei840222/omni-skills
 ```
 
 ### Step 7: Re-review after author updates

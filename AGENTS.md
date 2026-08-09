@@ -2,7 +2,7 @@
 
 ## Mission
 
-Turn `clawic-skills` into a vendor-neutral, reusable skill library conforming to the current [Agent Skills specification](https://agentskills.io/specification). Maintain rigorous quality through structured **Refactor** and **Review** workflows.
+Turn `omni-skills` into a vendor-neutral, reusable skill library conforming to the current [Agent Skills specification](https://agentskills.io/specification). Maintain rigorous quality through structured **Refactor** and **Review** workflows.
 
 ## Sources of Authority
 
@@ -42,7 +42,7 @@ When given a task, determine which workflow to execute based on the user's inten
 To randomly select an unrefactored skill when no specific skill is specified:
 
 ```bash
-if ! open_prs_json=$(curl -fsS 'https://gitea.home-infra.weii.cloud/api/v1/repos/wei840222/clawic-skills/pulls?state=open'); then
+if ! open_prs_json=$(curl -fsS 'https://gitea.home-infra.weii.cloud/api/v1/repos/wei840222/omni-skills/pulls?state=open'); then
   echo "Failed to fetch open pull requests" >&2
   exit 1
 fi
@@ -103,7 +103,7 @@ Review an open Gitea Pull Request against:
 - Gates 1–9 in `docs/refactor-guide.md`
 - Three mandatory quality lenses: `code-review-and-quality` + `writing-great-skills` + `darwin-skill`
 
-Default repository: `wei840222/clawic-skills` on Gitea. Target base branch: `local`.
+Default repository: `wei840222/omni-skills` on Gitea. Target base branch: `local`.
 
 ### 2. Review Procedure
 

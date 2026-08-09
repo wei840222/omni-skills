@@ -1,6 +1,6 @@
 # Skill Refactor Guide
 
-This document defines the canonical quality gates and workflow standards for the `clawic-skills` refactor process. It is an incrementally extensible quality contract: automation may mark a skill as "refactor complete" and open a pull request only after every defined gate passes.
+This document defines the canonical quality gates and workflow standards for the `omni-skills` refactor process. It is an incrementally extensible quality contract: automation may mark a skill as "refactor complete" and open a pull request only after every defined gate passes.
 
 The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 2: official resource directories and reference paths, Gate 3: persistent state location, Gate 4: related-skill metadata integrity, Gate 5: removal of Clawic feedback and promotional content, Gate 6: knowledge research and domain accuracy, Gate 7: best-practices and description optimization, Gate 8: Darwin Skill evaluation and test coverage, and Gate 9: Freud cognitive load and white bear effect audit. All gates use `skills/garden` as the primary example.
 
@@ -355,7 +355,7 @@ planning.md         -> references/planning.md
 
 ### Specification status
 
-Agent Skills does not define a runtime-state location. First-party source research and recommendations for this project are collected in `docs/research/skill-state-storage.md`. This gate is a `clawic-skills` project specification and must not be presented as the official Agent Skills or OpenClaw state layout.
+Agent Skills does not define a runtime-state location. First-party source research and recommendations for this project are collected in `docs/research/skill-state-storage.md`. This gate is an `omni-skills` project specification and must not be presented as the official Agent Skills or OpenClaw state layout.
 
 This project adopts a workspace-first state convention. Every stateful skill must define candidate locations, lookup order, creation behavior, and a single placeholder near the beginning of `SKILL.md`, so every file in the same skill uses consistent semantics.
 
@@ -512,7 +512,7 @@ Create optional state only when the corresponding feature is actually needed. Do
 
 ### Specification status
 
-`metadata.related-skills` is a project-level `clawic-skills` extension that turns cross-skill relationships inside a skill package into one machine-readable index. The Agent Skills specification supplies only the string-to-string `metadata` container. This gate defines the JSON schema for the `related-skills` string value and must not present this field as a built-in Agent Skills or OpenClaw relationship mechanism.
+`metadata.related-skills` is a project-level `omni-skills` extension that turns cross-skill relationships inside a skill package into one machine-readable index. The Agent Skills specification supplies only the string-to-string `metadata` container. This gate defines the JSON schema for the `related-skills` string value and must not present this field as a built-in Agent Skills or OpenClaw relationship mechanism.
 
 After `metadata.related-skills` is added, it becomes the canonical relationship list. A dedicated `Related Skill`, `Related Skills`, or equivalent section in `SKILL.md` that enumerates other skills must be removed so metadata and prose do not maintain two lists.
 
@@ -633,7 +633,7 @@ The dedicated `Related Skills` section was removed from `SKILL.md`; Garden curre
 
 ### Specification status
 
-A skill package should contain only instructions, resources, and compatible metadata needed to execute the skill. It should not include requests to rate or star it, check the latest version, browse a catalog, or follow traffic to `clawic.com`. This gate is a project-level `clawic-skills` content-cleanup rule.
+A skill package should contain only instructions, resources, and compatible metadata needed to execute the skill. It should not include requests to rate or star it, check the latest version, browse a catalog, or follow traffic to `clawic.com`. This gate is a project-level `omni-skills` content-cleanup rule.
 
 ### Scan scope
 
