@@ -67,11 +67,23 @@ No universal best exists. Match strategy to your risk tolerance and available re
 
 **OIDC Federation Example (AWS):**
 ```yaml
-- name: Configure AWS Credentials
-  uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
-  with:
-    role-to-assume: arn:aws:iam::123456789012:role/GitHubActions
-    aws-region: us-east-1
+name: Configure AWS credentials with OIDC
+
+on:
+  workflow_dispatch:
+
+jobs:
+  configure-aws-credentials:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActions
+          aws-region: us-east-1
 ```
 
 **If OIDC token expires mid-workflow:**
@@ -125,12 +137,14 @@ cosign verify \
 - Expand-contract pattern for schema changes — add new, dual-write, migrate readers, migrate writers, drop old
 
 **If migration blocks writes on large table:**
-1. Find the blocking query's PID and cancel it:
+1. Identify the blocked migration and its actual blockers before selecting a session for cancellation:
    ```sql
-   SELECT pid, query FROM pg_stat_activity WHERE state = 'active';
-   SELECT pg_cancel_backend(<pid>);  -- graceful cancel
-   SELECT pg_terminate_backend(<pid>);  -- force terminate if cancel fails
+   SELECT a.pid AS blocked_pid, a.query AS blocked_query,
+          pg_blocking_pids(a.pid) AS blocking_pids
+   FROM pg_stat_activity AS a
+   WHERE a.wait_event_type = 'Lock';
    ```
+   Review the returned blocking session, owner, query, and business impact. Cancel only the selected blocker with authorization; terminate only after cancellation fails and its owner approves.
 2. Use online migration tool: `pg_repack` for PostgreSQL, `gh-ost` for MySQL
 3. Break migration into smaller batches with `LIMIT` clauses
 4. Schedule migration during low-traffic window
