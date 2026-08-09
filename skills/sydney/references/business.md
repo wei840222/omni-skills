@@ -103,10 +103,10 @@
 
 ### Superannuation (Pension)
 - **Rate:** 12% of eligible employees' qualifying earnings from 1 July 2026
-- **Payment:** Payday Super applies from 1 July 2026; pay the minimum contribution on each payday
+- **Payment:** Payday Super applies from 1 July 2026; process the minimum contribution for each payday so it reaches the employee's fund within 7 business days after payday
 - **Platform:** Use a compliant super fund or clearing house
 
-Confirm eligibility, qualifying earnings, and the current contribution rules with the [ATO Super guarantee guidance](https://www.ato.gov.au/tax-rates-and-codes/key-superannuation-rates-and-thresholds/super-guarantee) before payroll is run.
+Confirm eligibility, qualifying earnings, and the current contribution rules with the [ATO Super guarantee guidance](https://www.ato.gov.au/tax-rates-and-codes/key-superannuation-rates-and-thresholds/super-guarantee) and [Payday Super payment deadlines](https://www.ato.gov.au/businesses-and-organisations/super-for-employers/paying-super-on-payday/payment-deadlines-for-payday-super) before payroll is run.
 
 ### Workers Compensation Insurance
 - **Required:** YES, in NSW (all employers)
@@ -134,7 +134,7 @@ Confirm eligibility, qualifying earnings, and the current contribution rules wit
 | BAS/GST | Quarterly | 28th after quarter |
 | PAYG Withholding | With BAS | 28th after quarter |
 | Company Tax | Annual | Within 5 months of year end |
-| Superannuation | Quarterly | 28th after quarter |
+| Superannuation | Each payday | Reach the fund within 7 business days after payday; verify the current ATO deadline |
 
 ---
 
