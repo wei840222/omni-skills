@@ -72,7 +72,7 @@
 - HVAC permit (new systems, ductwork)
 - Sometimes: zoning, historic review
 
-**Skip permits?** Don't. Insurance won't cover. Resale nightmare. Code violations.
+**Permit check:** Confirm requirements with the local building authority before work begins. Work that requires a permit should proceed only after the permit process and responsibility are clear; coverage and resale consequences vary by jurisdiction and policy.
 
 ### 3. Demolition (Days to 1 week)
 **What happens:**
@@ -203,7 +203,7 @@
 | Trap | Impact | Prevention |
 |------|--------|------------|
 | Ordering cabinets late | Delays everything 6-12 weeks | Order in planning phase |
-| Skipping permits | Rework, fines, insurance issues | Always pull permits |
+| Starting work before confirming permit requirements | Rework, fines, or transaction and coverage complications | Confirm local requirements and assign permit responsibility before work begins |
 | Rushing drywall mud | Visible seams, cracking | Allow proper dry time |
 | Painting before electrical trim | Have to paint again | Follow the sequence |
 | Not scheduling inspections early | Idle crews waiting | Schedule 1+ week ahead |

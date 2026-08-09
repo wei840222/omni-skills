@@ -15,9 +15,9 @@ Before reading or writing state, resolve `<state_root>` as follows:
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
    `<workspace>/home-renovation/`, `<workspace>/memory/home-renovation/`, `~/home-renovation/`.
-3. If none exists and state must be created, default to `<workspace>/home-renovation/`.
+3. If none exists and state must be created, use `<workspace>/home-renovation/` only when a host-provided workspace is available; otherwise request an explicit state path.
 
-Use the selected `<state_root>` for every state operation in this skill. All persistent state stays under `<state_root>`.
+If multiple candidate directories exist, use only the highest-precedence directory, tell the user duplicate state was found, and do not merge, cross-read, or cross-write the others. Use the selected `<state_root>` for every state operation in this skill. All persistent state stays under `<state_root>`.
 
 ## Architecture
 
@@ -46,7 +46,7 @@ These construction-sequence mistakes cause expensive rework. Check before any ph
 1. **Cabinets have 6-12 week lead time** — Order in planning phase, not after demo. Everything waits for them.
 2. **Countertops measured AFTER cabinets installed** — Cabinets shift during install. Template requires exact fit.
 3. **Wrong sequence = costly rework** — Painting before electrical trim = repaint. Flooring before cabinets = wasted material. Follow `references/phases.md` order.
-4. **Permits affect insurance and resale** — Unpermitted work often isn't covered by insurance. Disclosure required at sale.
+4. **Permit requirements have downstream consequences** — Confirm the required permits with the local building authority before work begins. Insurance coverage and sale-disclosure consequences depend on the jurisdiction and policy.
 
 ## Anti-Patterns (Contract & Cashflow Errors)
 
@@ -54,9 +54,9 @@ These decision and money mistakes cause financial loss or legal exposure:
 
 | Anti-pattern | Why it fails | Positive alternative |
 |-------------|-------------|---------------------|
-| Paying >30% deposit (or >10% in CA) | No leverage if contractor underperforms or disappears | Tie payments to completed milestones; hold 5-10% until punch list |
+| Paying a deposit above the applicable local legal cap | No leverage if contractor underperforms or disappears | Verify the jurisdictional cap, then tie payments to completed milestones; hold 5-10% until punch list |
 | Accepting verbal agreements | Unenforceable. "They said" has no legal weight | Every agreement in writing, signed by both parties |
-| Skipping permits to "save money" | Insurance won't cover. Fines. Resale disclosure nightmare. | Always pull permits. Contractor should handle this. |
+| Starting work that requires a permit without confirming the local requirement | Can trigger enforcement, rework, and transaction or coverage complications that vary by jurisdiction | Confirm requirements with the local building authority and assign permit responsibility in the contract |
 | Choosing the lowest bid | Usually means missing scope, cheap materials, or incoming change orders | Compare bids line-by-line. Middle bid often safest. |
 | Starting construction without finalizing design | Changes mid-project = delays + cost overruns | Complete all design and material selections before permits |
 | No contingency fund | Something ALWAYS comes up once walls open. | Budget 15-20% contingency from day one. |
@@ -73,9 +73,9 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 
 1. Resolve `<state_root>` using the State location procedure above.
 2. Read `references/setup.md` and run first-time setup.
-3. Ask the user's integration preference: full tracking, occasional advice, or one-off answers.
-4. If tracking is wanted → create `<state_root>/memory.md` and `<state_root>/projects/{project-name}.md` using the template from `references/memory.md` § "Project File Template".
-5. If only advice is wanted → skip file creation; answer directly and offer tracking later.
+3. Ask the user's integration preference: full tracking, occasional advice, or one-off answers. Keep the answer in the conversation until they choose full tracking.
+4. If the user explicitly chooses full tracking → create `<state_root>/memory.md`, write `integration: always`, then create `<state_root>/projects/{project-name}.md` using the template from `references/memory.md` § "Project File Template".
+5. If they choose occasional advice or one-off answers → do not create files; answer directly and offer tracking later.
 
 **Output:** User preference recorded. Project file created only if tracking is enabled.
 
@@ -114,10 +114,10 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 2. For each contractor, verify: license status, insurance certificate, 3+ recent references, written contract with scope/timeline/payment schedule.
 3. Compare quotes using the Quote Comparison Checklist from `references/contractors.md`.
 4. 🔴 **CHECKPOINT before signing:** Confirm all of these with the user:
-   - [ ] Deposit ≤ state legal limit (CA: 10%/$1K, others: 30%)
+   - [ ] Deposit complies with the applicable local legal cap (California home-improvement contracts: $1,000 or 10% of the contract price, whichever is less)
    - [ ] Payment schedule tied to milestones (payments follow completed work)
    - [ ] Written contract includes: scope, materials (brand/model), start/end dates, change order process, warranty terms, permit responsibility
-   - [ ] Contractor pulls permits (not the homeowner)
+   - [ ] Contract assigns permit responsibility and the responsible party will obtain any locally required permits
    - [ ] 5-10% retainage held until punch list complete
 5. If any box unchecked → 🔴 **STOP: resolve gaps before signing**. Address each unchecked item first.
 6. If a project file exists → record selected contractor, quote amount, and contract terms.
@@ -154,7 +154,7 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 | Contractor disappeared mid-project | Document last work date and payment. Send written notice. Review contract dispute clause. | Consult construction attorney. File complaint with state licensing board. |
 | Inspection failed | Get inspector's written list of deficiencies. Contractor fixes at their cost if code violation. | Escalate per contract dispute resolution clause. |
 | Budget overrun >20% | Pause all non-essential change orders. Audit every line item. | Rebid remaining scope with 2+ contractors. |
-| Contractor doing unpermitted work | 🔴 STOP work immediately. Verify with local building department. | Require contractor to pull retroactive permits or face contract termination. |
+| Contractor may be performing work without a required permit | Pause affected work when it is safe to do so; confirm the requirement with the local building authority and review the contract. | Obtain written legal or local-authority guidance before agreeing on correction, payment, or termination. |
 | Quality dispute (bad tile, uneven paint) | Document with photos. Reference contract specs (brand/model/grade). | Withhold payment per contract retainage clause. Hire independent inspector. |
 
 ## Cost Estimation Guidelines

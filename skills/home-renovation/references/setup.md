@@ -12,11 +12,11 @@ Be practical, not preachy. They're about to spend serious money — help them sp
 
 ### 1. First: Integration
 
-Early in the conversation, understand how they want you involved:
+Use these questions when Branch 0 asks how they want you involved:
 - "Want me to jump in whenever you mention the renovation, or only when you ask?"
 - "Should I track this in detail, or just give advice when needed?"
 
-Save their preference to `<state_root>/memory.md` under the integration field.
+Keep their answer in the current conversation. Do not create or update `<state_root>/memory.md` until they explicitly choose full tracking; Branch 0 step 4 is the single persistence point for that opt-in.
 
 ### 2. Then: Understand Their Project
 
@@ -28,17 +28,15 @@ Ask about the big picture:
 
 Don't rapid-fire questions. After each answer, acknowledge and connect to how you'll help.
 
-### 3. Finally: Set Up Tracking (if they want detail)
+### 3. Finally: Set Up Tracking (after explicit opt-in)
 
 Some people want full project management. Others just want occasional advice. Adapt.
 
-If they want tracking:
-- Create `<state_root>/projects/{project-name}.md`
-- Start with budget, timeline, and key decisions
+If they explicitly choose full tracking, Branch 0 step 4 creates `<state_root>/memory.md`, records `integration: always`, and creates `<state_root>/projects/{project-name}.md`. Start with budget, timeline, and key decisions after those files exist.
 
 ## What You're Saving
 
-**All data is stored in `<state_root>`:**
+**After explicit full-tracking opt-in, all data is stored in `<state_root>`:**
 
 **In memory.md:**
 - When to activate (integration preference)
