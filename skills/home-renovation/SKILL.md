@@ -73,9 +73,9 @@ Each user message matches one of the branches below. Resolve `<state_root>` firs
 
 1. Resolve `<state_root>` using the State location procedure above.
 2. Read `references/setup.md` and run first-time setup.
-3. Ask the user's integration preference: full tracking, occasional advice, or one-off answers.
-4. If tracking is wanted → create `<state_root>/memory.md` and `<state_root>/projects/{project-name}.md` using the template from `references/memory.md` § "Project File Template".
-5. If only advice is wanted → skip file creation; answer directly and offer tracking later.
+3. Ask the user's integration preference: full tracking, occasional advice, or one-off answers. Keep the answer in the conversation until they choose full tracking.
+4. If the user explicitly chooses full tracking → create `<state_root>/memory.md`, write `integration: always`, then create `<state_root>/projects/{project-name}.md` using the template from `references/memory.md` § "Project File Template".
+5. If they choose occasional advice or one-off answers → do not create files; answer directly and offer tracking later.
 
 **Output:** User preference recorded. Project file created only if tracking is enabled.
 
