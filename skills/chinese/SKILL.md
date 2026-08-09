@@ -13,10 +13,10 @@ Chinese state may exist in `<workspace>/chinese/`, `<workspace>/memory/chinese/`
 Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
-2. Otherwise inspect all three candidate directories in this order:
-   `<workspace>/chinese/`, `<workspace>/memory/chinese/`, `~/chinese/`.
+2. When the host supplies `<workspace>`, inspect all three candidate directories in this order:
+   `<workspace>/chinese/`, `<workspace>/memory/chinese/`, `~/chinese/`. When it does not, inspect an existing `~/chinese/` only.
 3. If two or three candidate directories exist, tell the user that multiple state copies were detected. Use only the highest-precedence existing directory; do not merge, cross-read, or cross-write the others.
-4. If none exists and the user asks to save a preference, create `<workspace>/chinese/` as `<state_root>`.
+4. If none exists and the user asks to save a preference, create `<workspace>/chinese/` as `<state_root>` only when the host supplies `<workspace>`. When the host cannot supply `<workspace>`, ask the user or host for an explicit state root before creating data; do not infer one from the current working directory.
 
 Use the selected `<state_root>` for every state operation in this skill.
 
@@ -167,11 +167,11 @@ Before delivering any Chinese text, run each check. If any fails, fix before del
 - [ ] Dates and money in the local shape
 
 **GATE E — AI-Tell Sweep**
-- [ ] No opener scaffolding (首先/其次/最後)
-- [ ] No 值得注意的是 / 需要注意的是
-- [ ] Paragraph lengths vary (not uniform)
-- [ ] No stacked 四字格 (≥3 in a row)
-- [ ] Casual text has 语气词 (not zero)
+- [ ] Open with the message content or channel-appropriate context; use 先…然后… when sequence helps the reader act.
+- [ ] State the relevant fact directly instead of using generic announcement phrases such as 值得注意的是 / 需要注意的是.
+- [ ] Let paragraph lengths follow the message's meaning and channel, with rhythm changes where they improve readability.
+- [ ] Use four-character phrases only when they add precise meaning; unfold stacked phrases into concrete verbs and nouns.
+- [ ] Place 语气词 where the casual register needs tone, while keeping formal prose aligned with its genre.
 
 **GATE F — Grammar (Rules 6, 7)**
 - [ ] 的/地/得 checked at every occurrence
