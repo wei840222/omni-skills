@@ -4,7 +4,7 @@ description: Write native-quality Mandarin Chinese for any context — WeChat me
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"🇨🇳"}'
-  related-skills: '{"translate":"Bound to an existing source text in another language.","traditional-chinese":"Traditional-only writing for Taiwan and Hong Kong readers.","china":"Travelling in the country these texts are read in.","writing":"The craft of prose itself, once the language question is settled.","japanese":"The same problem in the neighbouring language."}'
+  related-skills: '{"china":"Travelling in the country these texts are read in.","japanese":"The same problem in the neighbouring language.","traditional-chinese":"Traditional-only writing for Taiwan and Hong Kong readers.","translate":"Bound to an existing source text in another language.","writing":"The craft of prose itself, once the language question is settled."}'
 ---
 
 ## State location
@@ -13,9 +13,10 @@ Chinese state may exist in `<workspace>/chinese/`, `<workspace>/memory/chinese/`
 Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
-2. Otherwise use the first existing directory in this order:
+2. Otherwise inspect all three candidate directories in this order:
    `<workspace>/chinese/`, `<workspace>/memory/chinese/`, `~/chinese/`.
-3. If none exists and state must be created, default to `<workspace>/chinese/`.
+3. If two or three candidate directories exist, tell the user that multiple state copies were detected. Use only the highest-precedence existing directory; do not merge, cross-read, or cross-write the others.
+4. If none exists and the user asks to save a preference, create `<workspace>/chinese/` as `<state_root>`.
 
 Use the selected `<state_root>` for every state operation in this skill.
 
@@ -29,7 +30,7 @@ Resolve these in order before producing any Chinese text:
 
 1. **Channel** → What platform or context? (WeChat / email / 小红书 / document / …) → Sets default register and emoji density.
 2. **Audience** → Who reads this? → Check `## Recipients` for existing address form; if new, pick from the Register Ladder.
-3. **Variant & script** → Mainland simplified? Taiwan traditional? → State the assumed variant before writing (Rule 2). Load `references/regions.md` for vocabulary divergence.
+3. **Variant & script** → Mainland simplified? Taiwan traditional? → When the request and state provide no preference, label and write Mainland Simplified Chinese; otherwise state and apply the selected variant before writing (Rule 2). Load `references/regions.md` for vocabulary divergence.
 4. **Register rung** → Which of the five rungs? → Lock it for the entire text; mid-text drift is the most visible failure.
 5. **Slang appetite** → How much internet language? → From config or default `light`. Load `references/slang.md` when using any term.
 6. **Write** → Produce the Chinese.
@@ -37,7 +38,7 @@ Resolve these in order before producing any Chinese text:
 
 ### Fact boundary
 
-Keep every clause grounded in the request. When a name, date, price, result, personal reaction, work arrangement, or comparative claim is missing, use a visible `[placeholder]` or omit it. This applies to titles, hooks, softeners, calls to action, and conventional business boilerplate as well as the body; do not add reassuring promises such as “I will arrange the work” unless the user supplied them.
+Keep every clause grounded in the request. When a name, date, price, result, personal reaction, work arrangement, or comparative claim is missing, use a visible `[placeholder]` or omit it. This applies to titles, hooks, softeners, calls to action, and conventional business boilerplate as well as the body. For an unspecified first-person experience, produce a neutral placeholder draft: each scene-setting, reaction, recommendation, and promise must come from the user or remain a placeholder.
 
 ## When To Use
 

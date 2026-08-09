@@ -3,7 +3,7 @@
     "id": 1,
     "prompt": "Write a WeChat message to my boss asking for next Monday off because I have a dentist appointment",
     "expected": "Produce a respectful mainland-Simplified Chinese work WeChat message that asks directly for leave, gives the dental-appointment context, uses 您, and avoids invented facts.",
-    "actual": "（以下按默认假设使用大陆简体中文。）\n\n您好，想申请下周一请假一天，因有牙医预约。麻烦您批准，谢谢您",
+    "actual": "您好，我想申请下周一请假一天，因为我有牙科预约。工作安排：[placeholder]。谢谢您。",
     "pass": true,
     "eval_mode": "full_test"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "prompt": "Help me write a formal email to a potential client introducing our company's new product",
     "expected": "Produce a formal mainland-Simplified Chinese email with a clear subject, respectful 您 address, a business-email structure, and placeholders instead of unprovided product claims.",
-    "actual": "（以下按默认假设使用大陆简体中文。）\n\n主题：关于［产品名称］的介绍\n\n尊敬的［客户称谓］：\n\n您好！\n\n我是［公司名称］的［姓名／职务］。现向您介绍我司新推出的［产品名称］。\n\n关于该产品的具体功能、适用场景及合作方式，可根据您的需求进一步说明。\n\n此致\n敬礼！\n\n［姓名］\n［公司名称］\n［日期］",
+    "actual": "主题：[placeholder]｜[placeholder]新产品介绍\n\n尊敬的[placeholder]：\n\n您好！\n\n我是[placeholder]公司的[placeholder]。我们近期推出了[placeholder]，旨在帮助[placeholder]实现[placeholder]。\n\n该产品具备以下特点：\n- [placeholder]\n- [placeholder]\n- [placeholder]\n\n我们相信，[placeholder]可为贵公司带来[placeholder]等价值。\n\n随信附上[placeholder]，供您参考。若您对此产品感兴趣，欢迎通过[placeholder]与我联系；也期待有机会进一步了解贵公司的需求，并安排[placeholder]。\n\n感谢您拨冗阅读，期待您的回复！\n\n此致  \n敬礼！\n\n[placeholder]  \n[placeholder]  \n[placeholder]公司  \n[placeholder]  \n[placeholder]",
     "pass": true,
     "eval_mode": "full_test"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "prompt": "I need to write a 小红书 post about my experience trying a new cafe in Taipei, make it sound natural and engaging",
     "expected": "State the assumed variant when it is not specified, then produce a natural social-post draft that uses placeholders for unprovided venue, order, and first-hand-experience details.",
-    "actual": "（以下按默认假设使用大陆简体中文。）\n\n台北第一次去这家咖啡馆，想和你们聊聊☕\n\n这次在台北试了［咖啡馆名称］，点了［饮品／餐点］。最想分享的是［你对环境、服务或食物的真实感受］。\n\n如果你也去过，欢迎告诉我你推荐什么～\n\n#台北咖啡馆 #咖啡探店 #台北",
+    "actual": "假设：未指定语言偏好，以下使用中国大陆简体中文；所有未提供的地点、点单、日期、场景、推荐和亲身体验均以占位符表示。\n\n标题：台北探店｜[咖啡馆名称]，一次[体验关键词]的午后\n\n正文：\n[日期]在台北的[区域/街道]，去了这家[咖啡馆名称]。\n\n店里的[环境/光线/音乐/座位情况]，很适合[适合的活动/场景]。这次点了[饮品名称]和[餐点/甜点名称]，其中[具体品项]的[口味/口感/摆盘]让我印象很深。\n\n[你与店铺相关的第一手体验或感受]  \n[适合拍照/工作/约会/独处等场景的实际观察]  \n[是否推荐、推荐给谁，以及原因]\n\n如果你最近也在台北寻找[咖啡馆类型/需求]，可以把[咖啡馆名称]加入清单。  \n你们还去过哪些台北咖啡馆？[互动问题]\n\n#台北咖啡厅 #台北探店 #[咖啡馆名称] #[区域] #咖啡馆推荐",
     "pass": true,
     "eval_mode": "full_test"
   }
