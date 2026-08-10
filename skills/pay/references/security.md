@@ -26,17 +26,16 @@
 
 ## Fraud Red Flags
 
-**Never do these:**
-- Give card number to unsolicited callers ("We're calling from your bank")
-- Pay for anything via gift cards (100% scam indicator)
-- Click links in fraud alert texts (go to bank app directly)
-- Wire money to "fix" a problem
-- Pay someone who overpaid you and wants difference back
+**High-Risk Actions (Avoid):**
+- Provide card numbers only to trusted parties when you initiate the call.
+- Use standard payment methods (avoid gift cards or wires).
+- Access bank apps directly rather than through text links.
+- Refuse requests to return overpaid funds from unknown parties.
 
 **Legitimate fraud alerts:**
 - Come from number you recognize OR
 - Ask you to call number on back of card
-- Never ask for full card number (bank already has it)
+- Verify full card numbers are omitted (bank already has it)
 - Never pressure you to act immediately
 
 ## Card Declined

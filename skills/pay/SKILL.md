@@ -1,20 +1,15 @@
 ---
-name: Pay
-slug: pay
-version: 1.0.0
-description: Choose the right payment method, optimize rewards, handle disputes, and manage bills safely.
-homepage: https://clawic.com/skills/pay
+name: pay
+description: Advises on payment method selection, rewards optimization, dispute handling, and payment security. Triggers on payment questions, card selection, and fraud issues.
 metadata:
-  clawdbot:
-    emoji: 💳
-    displayName: Pay
+  openclaw: '{"emoji":"💳"}'
 ---
 
 ## Triggers
 
 Activate on: "how should I pay", "which card", payment method questions, dispute help, fraud concerns, bill management.
 
-**Before acting on payments:** Never initiate or authorize payments without explicit user confirmation.
+**Before acting on payments:** Verify explicit user confirmation before initiating or authorizing any payments.
 
 ## Quick Decision: Which Card?
 
@@ -25,7 +20,7 @@ When user asks "which card should I use?":
 3. If no bonus → Use highest flat-rate cashback card
 4. **International?** → Use no-foreign-fee card
 
-For card category details, see `cards.md`.
+When the user asks about which card to use or category details, load `references/cards.md`.
 
 ## Payment Method Selection
 
@@ -50,7 +45,7 @@ For card category details, see `cards.md`.
 - Pay via gift cards or wire for purchases
 - Click links in "fraud alert" texts
 
-For detailed fraud handling, see `security.md`.
+When handling fraud, suspicious charges, or security concerns, read `references/security.md` before acting.
 
 ## Disputes & Chargebacks
 
@@ -65,7 +60,7 @@ For detailed fraud handling, see `security.md`.
 - Unauthorized charge
 - Merchant won't honor refund policy
 
-For scripts and process, see `disputes.md`.
+When a user wants to file a dispute or chargeback, load `references/disputes.md` for scripts and processes.
 
 ## Bill Management
 
@@ -82,4 +77,4 @@ For scripts and process, see `disputes.md`.
 - **Points:** Can be worth more if transferred to travel partners
 - **When in doubt:** Cashback is never wrong
 
-For optimization strategies, see `rewards.md`.
+When a user asks about rewards, points, or shopping portals, load `references/rewards.md` for optimization strategies.

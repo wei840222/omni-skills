@@ -23,6 +23,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | galician | #20 | 2026-08-05 | 82/100 |
 | macau | #19 | 2026-08-05 | 82/100 |
 | six-thinking-hats | #21 | 2026-08-05 | Not recorded |
+| pay | TBD | 2026-08-10 | 94/100 |
 | home-renovation | #22 | 2026-08-05 | 85/100 |
 | sell | #23 | 2026-08-06 | ~82/100 |
 | passwords | #25 | 2026-08-06 | 82/100 |

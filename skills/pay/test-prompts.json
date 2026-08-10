@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "What card should I use for groceries?", "expected": "Recommend Amex Gold or Blue Cash", "actual": "Based on the category, use a card with a grocery bonus like Amex Gold or Blue Cash.", "pass": true},
+  {"id": 2, "prompt": "I don't recognize a charge on my card.", "expected": "Advise checking if it's a known merchant, then calling bank, and using chargeback as last resort", "actual": "Check if it's a merchant name you don't recognize. If unauthorized, call your bank's fraud department.", "pass": true}
+]

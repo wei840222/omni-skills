@@ -39,6 +39,8 @@
 
 **Start early** — banks need time to investigate.
 
+**Late Payments Context:** Credit card companies generally can’t treat a payment as late if it’s received by 5 p.m. on the day it’s due (in the time zone stated on the billing statement), or the next business day if the due date is a Sunday or holiday (Source: [CFPB](https://www.consumerfinance.gov/ask-cfpb/when-is-my-credit-card-payment-considered-to-be-late-en-79/)).
+
 ## How to File
 
 1. **Call or use bank app** — Most have dispute buttons
