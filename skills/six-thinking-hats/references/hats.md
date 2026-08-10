@@ -41,9 +41,9 @@ De Bono's Six Thinking Hats (1985) implements **parallel thinking**: all partici
 
 ### Output Style
 - Brief, direct statements
-- Use "I feel..." language to express intuition
-- State feelings without requiring justification
-- 30 seconds max
+- Human participants can use "I feel..." language to express intuition
+- An AI states a concise provisional reaction and its basis rather than claiming a genuine feeling
+- Keep each reaction to one sentence per option
 
 ### Common Mistakes
 - Justifying feelings with logic → State the feeling directly
@@ -74,8 +74,8 @@ De Bono's Six Thinking Hats (1985) implements **parallel thinking**: all partici
 - Using Black hat to kill ideas → Use it to improve ideas by addressing risks
 - Evaluating risks without Yellow hat → Always pair with Yellow hat for balance
 
-### Research Note
-Black hat naturally dominates because humans have a negativity bias. Research on design thinking shows that dedicated critical-evaluator roles (analogous to Black hat) produce higher-quality ideas by surfacing hidden assumptions. Counter this by enforcing equal time for Yellow hat.
+### Balance Check
+Give Yellow and Black hats comparable attention for each option. The pair keeps potential value, constraints, and mitigations visible in the same analysis.
 
 ---
 
@@ -125,8 +125,8 @@ Black hat naturally dominates because humans have a negativity bias. Research on
 - Settling for first idea → Push for at least 3 distinct alternatives
 - Staying with obvious options → Explore unconventional possibilities
 
-### Research Note
-Green hat connects to de Bono's lateral thinking (1967): instead of digging the same hole deeper (vertical thinking), dig a new hole in a new place. Generate divergent options before converging on evaluation.
+### Facilitation Note
+Use Green hat for divergent options before Yellow and Black hats compare their value and constraints.
 
 ---
 

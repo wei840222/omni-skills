@@ -10,14 +10,16 @@ metadata:
 ## State location
 
 Six Thinking Hats state may exist in `<workspace>/six-thinking-hats/`, `<workspace>/memory/six-thinking-hats/`, or `~/six-thinking-hats/`.
-Before reading or writing state, resolve `<state_root>` as follows:
+Before the first state operation, resolve `<state_root>` once as follows:
 
-1. Use an explicitly configured path when one exists.
+1. Use a state root explicitly provided by the user or host configuration.
 2. Otherwise use the first existing directory in this order:
    `<workspace>/six-thinking-hats/`, `<workspace>/memory/six-thinking-hats/`, `~/six-thinking-hats/`.
-3. If none exists and state must be created, default to `<workspace>/six-thinking-hats/`.
+3. If multiple candidate directories exist, use only the highest-precedence directory and tell the user that multiple copies were found.
+4. If none exists and the user asks to persist state, create `<workspace>/six-thinking-hats/`.
+5. If the host cannot supply `<workspace>`, use an existing `~/six-thinking-hats/`; otherwise ask the user or host for a state root before creating data.
 
-Use the selected `<state_root>` for every state operation in this skill.
+Keep the selected `<state_root>` for every state operation in the invocation. State resolution selects a location, while the user's request to save authorizes a persistent write.
 
 ## The Six Hats
 
@@ -53,14 +55,13 @@ Standard sequence for decisions:
 All participants think in the same direction at the same time. This replaces adversarial debate (where one side argues for and another argues against) with collaborative exploration where everyone examines each perspective together.
 
 ### 4. Red Hat Is Brief
-- State the feeling directly: "I feel excited" or "This feels risky"
-- 30 seconds max
+- For human participants, state the feeling directly; for an AI, state a concise provisional reaction such as "This trade-off appears risky because..."
 - One sentence per option
 
 ### 5. Black Hat Is Constructive
 - Critical thinking to identify risks
 - Identifies risks to ADDRESS, paired with Yellow for balance
-- Research shows dedicated "Black hat" evaluation leads to higher-quality ideas in design thinking by surfacing assumptions early
+- Surface assumptions, constraints, and mitigations that each option needs
 
 ### 6. Green Hat Forces Output
 - Generate at least 3 alternatives
@@ -130,6 +131,14 @@ If Black hat dominated, return to Yellow hat and explore benefits at the same de
 Summarize findings across all hats. Provide a clear recommendation with next steps.
 
 If the analysis reveals missing information (White hat gaps), list what data is needed before the decision can be finalized.
+
+### Release Gate for External Actions
+
+For a recommendation that launches, deploys, publishes, purchases, or otherwise creates an external commitment, use the Blue hat to classify unresolved Black-hat risks:
+
+1. Treat unresolved safety, security, data-loss, legal, or compliance risks as a decision-deferred gate.
+2. State the evidence, owner, and resolution needed to clear that gate.
+3. Recommend a bounded, reversible next step only after those critical risks are cleared; otherwise keep the decision deferred.
 
 ## Output Format
 
@@ -218,7 +227,7 @@ When applying Six Thinking Hats as an AI agent:
 ### If the analysis reveals the decision can't be made yet
 - Blue hat should explicitly state: "Decision deferred — need [specific data] before proceeding"
 - List the missing information as actionable next steps
-- Save the partial analysis to `<state_root>/memory.md` if state is configured
+- Save the partial analysis to `<state_root>/memory.md` only when the user asks to save it
 
 ## Recovery Actions
 
@@ -234,7 +243,7 @@ When a trap occurs, apply the matching recovery:
 
 ## Persistent State
 
-When the user wants to save analyses or track preferences, create `<state_root>/memory.md` with this structure:
+When the user explicitly asks to save analyses or track preferences, create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Six Thinking Hats Memory
@@ -257,4 +266,4 @@ emphasis_hats: [list of hats to spend more time on]
 <!-- Last 3-5 analyses with dates and outcomes -->
 ```
 
-Save incrementally — capture preferences as they emerge. Archive completed analyses if the user wants history.
+After the user opts in, record only the preferences or analysis summary they ask to retain. Add completed analyses when the user asks for history; keep every persistent write under `<state_root>/memory.md`.
