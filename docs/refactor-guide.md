@@ -719,7 +719,7 @@ Before rewriting prose:
 
 #### Sub-step 2.2: Deep research and cross-verification
 
-- Run `/learn` or `/research` skills to get latest information from the internet.
+- Run the `grounding` skill to get latest information from the internet.
 - Investigate material claims against current primary sources, official documentation, standards, maintained repositories, and verifiable real-world evidence.
 - Cross-verify contested, region-specific, or high-fragility claims across multiple independent sources.
 - Synthesize findings to reconcile agreement, recency, conflict, and coverage gaps before committing edits.
