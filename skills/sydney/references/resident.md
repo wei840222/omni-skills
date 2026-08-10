@@ -159,10 +159,7 @@ If your country has an agreement, you get basic Medicare while in Australia.
 
 **Or use contactless:** Your Visa/Mastercard works directly on readers (same price, less admin)
 
-**Caps:**
-- Daily cap: ~$17.80 (unlimited travel after that)
-- Weekly cap: ~$50
-- Sunday cap: $2.90 (all-day travel)
+**Fares and caps:** Use the current Transport for NSW fare tool before budgeting. It reflects the traveller's payment method, concession status, route, and any current caps or discounts.
 
 ### 5. Council Registration?
 

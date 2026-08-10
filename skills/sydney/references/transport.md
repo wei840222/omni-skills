@@ -1,4 +1,4 @@
-# Sydney Transport Guide (Feb 2026)
+# Sydney Transport Guide
 
 ## 1. Opal Card System
 
@@ -15,22 +15,9 @@
 3. Fare is based on distance travelled
 4. **Don't forget to tap off!** You'll be charged the maximum fare for that mode
 
-### Caps & Discounts (Adult Fares, Feb 2026)
+### Fares, Caps, and Discounts
 
-| Cap Type | Amount |
-|----------|--------|
-| **Weekly cap** | $50 |
-| **Daily cap (Mon-Thu)** | $19.30 |
-| **Daily cap (Fri/Sat/Sun/Public Holidays)** | $9.65 |
-
-**Off-Peak Discount**: 30% discount when travelling:
-- Fridays (all day)
-- Weekends and public holidays
-- Monday-Thursday: Outside 6:30-10am and 3-7pm
-
-**Transfer Discount**: $2 off for each transfer between modes (metro/train, bus, ferry, light rail) within 60 minutes
-
-**Opal Trip Advantage**: Multiple trips on the same mode within 60 minutes = one fare (based on total distance)
+Use Transport for NSW's current [fares information](https://transportnsw.info/tickets-fares/fares) or its fare calculator before quoting a fare, cap, transfer rule, discount, or airport-access charge. These amounts and rules change independently of the network map.
 
 ### Contactless Payment Alternative
 You can tap on/off with:
@@ -75,23 +62,11 @@ You can tap on/off with:
 - **After midnight**: NightRide buses replace trains (N-routes)
 - Generally reliable; trackwork mainly on weekends (check alerts on app)
 
-### ⚠️ Airport Line - EXPENSIVE!
+### Airport Line Access Fee
 
 The **T8 Airport & South Line** has a SEPARATE station access fee charged by the private Airport Link Company.
 
-| Ticket Type | Station Access Fee | Weekly Cap |
-|-------------|-------------------|------------|
-| Adult Opal/Contactless | $17.92 | $36.36 |
-| Opal Single Ticket | $18.30 | N/A |
-
-**Total typical fare CBD ↔ Airport**: ~$20-22 (train fare + access fee)
-
-**Important Notes**:
-- Airport fee is NOT included in daily/weekly Opal caps
-- No 60-minute transfer rule at airport stations
-- Tap off → Tap on = 2 journeys + 2 fees
-
-**Pro tip**: Take bus 420 or 350 instead - no station access fee, just normal Opal fare (~$3-5)!
+Check the current airport-station access fee and fare treatment in the Transport for NSW fare tool before comparing airport routes. For a lower-cost alternative, compare the live timetable and ordinary fare for the 420 or 350 bus with the traveller's terminal and destination.
 
 ---
 
@@ -322,20 +297,10 @@ Add $5-10 for Cross City Tunnel toll if going to eastern suburbs.
 4. **Uber** - Rideshare
 5. **Lime** - E-bikes/scooters
 
-## Key Prices Summary (Adult, Feb 2026)
+### Live Fare Check
 
-| Item | Price |
-|------|-------|
-| Weekly Opal cap | $50 |
-| Daily cap (Mon-Thu) | $19.30 |
-| Daily cap (Fri-Sun) | $9.65 |
-| Airport train (incl. access fee) | ~$20-22 |
-| Airport taxi flat fare | $60 |
-| Ferry to Manly | ~$8 |
-| Off-peak discount | 30% |
-| Transfer discount | $2 |
+Before selecting a route by price, check the Transport for NSW fare tool for the traveller's date, payment method, concessions, route, and airport-station treatment. Compare taxi and rideshare quotes in their current apps at the time of travel.
 
 ---
 
-*Last updated: February 2026*
-*Source: Transport for NSW (transportnsw.info)*
+*For current public-transport rules, use Transport for NSW (transportnsw.info).*

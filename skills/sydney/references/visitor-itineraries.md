@@ -1,6 +1,6 @@
 # Sydney Visitor Itineraries
 
-> Practical, day-by-day guides for visitors. All prices in AUD, current as of February 2026.
+> Practical, day-by-day guides for visitors. Confirm time-sensitive prices, availability, and opening hours before booking.
 
 ---
 
@@ -8,10 +8,7 @@
 
 ### Getting Around
 - **Opal Card**: Contactless payments accepted (credit/debit card, Apple Pay, Google Pay)
-- **Daily Cap**: $19.30 Mon-Thu, $9.65 Fri-Sun & holidays
-- **Weekly Cap**: $50
-- **30% off**: Off-peak travel discount
-- **$2 transfer discount**: Between different transport modes
+- Use the current Transport for NSW fare tool for caps, discounts, transfer treatment, and airport-station access charges.
 
 ### Key Ferry Routes
 | Route | Duration | Frequency |

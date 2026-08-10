@@ -269,7 +269,7 @@ Since COVID, telehealth is mainstream:
 ## 5. Pharmacy (PBS)
 
 ### Pharmaceutical Benefits Scheme
-The PBS subsidizes most prescription medications. As of **January 2026**:
+The PBS subsidizes most prescription medications. As of **1 July 2026**:
 
 | Patient Type | Max Cost Per Script |
 |--------------|---------------------|
@@ -277,8 +277,10 @@ The PBS subsidizes most prescription medications. As of **January 2026**:
 | Concession card holder | $7.70 |
 
 **Safety Net:** After spending a threshold in a year, scripts become cheaper/free:
-- General: After ~$1,692.40/year → pay $0 per script
-- Concession: After ~$262.80/year → pay $0 per script
+- General: After $1,748.20/year → pay the concession co-payment per script
+- Concession: After $277.20/year → pay $0 per script
+
+Use the [PBS fee and Safety Net table](https://www.pbs.gov.au/info/healthpro/explanatory-notes/front/fee) before giving a current medicine-cost estimate; premiums, delivery, after-hours, and service fees can still apply.
 
 ### Chemist Warehouse
 The "Costco of pharmacies" — dramatically cheaper for:

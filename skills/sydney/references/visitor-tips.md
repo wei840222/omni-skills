@@ -20,17 +20,11 @@ Sydney's public transport runs on the **Opal system** — a contactless smartcar
 - **Tap off** when you arrive — this is critical! Forgetting costs you the maximum fare
 - Works on trains, buses, ferries, and light rail
 
-**Daily & Weekly Caps (Adult, 2026):**
-| Day | Cap |
-|-----|-----|
-| Mon-Thu | $19.30/day |
-| Fri-Sun + Public Holidays | $9.65/day |
-| Weekly | $50/week |
+**Fares, caps, and discounts:** Use Transport for NSW's current fare tool for the traveller's payment method, route, day, concession status, and airport-station treatment.
 
 **Pro tips:**
-- The **Sunday cap is incredible** — travel all day for $9.65. Perfect for day trips!
-- 30% discount for off-peak travel (after 9am weekdays, all day weekends)
-- Free transfers within 60 minutes between modes
+- Choose ferries or trains when traffic is likely to affect the route
+- Check the current transfer and off-peak rules in the fare tool before planning a day trip
 - The Opal network covers Sydney, Blue Mountains, Central Coast, Hunter, and Illawarra
 
 ### Best Transport Apps
@@ -390,7 +384,7 @@ Skip Bondi on weekends and try:
 
 | Topic | Key Point |
 |-------|-----------|
-| Transport | Opal or contactless tap; Sunday cap $9.65 |
+| Transport | Opal or contactless tap; confirm the current fare rules before travel |
 | Money | Tap everywhere, tipping not expected |
 | Sun | SPF 50+, reapply, take seriously |
 | Beaches | Swim between red/yellow flags only |
