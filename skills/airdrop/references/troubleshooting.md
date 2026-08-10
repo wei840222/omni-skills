@@ -5,7 +5,7 @@ Use this guide when the handoff does not behave as expected.
 ## `swift` or `xcrun` not available
 
 - Check `xcrun swift --version`.
-- If unavailable, either install Xcode Command Line Tools or switch to Shortcut mode.
+- If unavailable, run `xcode-select --install` to install Xcode Command Line Tools, or switch to Shortcut mode.
 - Do not pretend direct mode exists without a Swift runtime.
 
 ## Chooser launched but no device appears

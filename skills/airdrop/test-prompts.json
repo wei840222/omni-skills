@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Typical user request to share a single file",
+    "prompt": "AirDrop the release-notes.pdf file",
+    "expected": "Resolves exact local path and executes scripts/airdrop-send.sh ./release-notes.pdf or equivalent Swift launch",
+    "actual": "Executed scripts/airdrop-send.sh with explicit local path",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex request with vague targets",
+    "prompt": "AirDrop the project folder and the summary text I just generated",
+    "expected": "Refuses vague payload, requires staging the summary text to a file first, and confirms curation of the project folder before sharing.",
+    "actual": "Requested staging for text and curation for folder before executing share",
+    "pass": true
+  }
+]

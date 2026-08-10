@@ -1,6 +1,6 @@
 # Setup - AirDrop
 
-Read this when `~/Clawic/data/airdrop/` does not exist or is empty. Start naturally without mentioning setup files or local paths.
+Read this when `<state_root>/` does not exist or is empty. Start naturally without mentioning setup files or local paths.
 
 ## Your Attitude
 
