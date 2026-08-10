@@ -4,13 +4,13 @@
 
 **Immediately:**
 1. Freeze the card in the issuer app or through an official support channel when that option is available.
-2. Call bank's fraud line (number on back of card or bank website)
+2. Call the issuer's fraud line using the number in the issuer app, on a statement, or on its verified website.
 3. Review recent transactions for unauthorized charges
 4. Request replacement card
 
 **After:**
 - Update autopay with new card number
-- Check credit report in 30 days
+- Follow the issuer's account-monitoring guidance and review credit-reporting options available in the user's jurisdiction.
 
 ## Suspicious Charge Appeared
 
@@ -30,13 +30,12 @@
 - Provide card numbers only to trusted parties when you initiate the call.
 - Use standard payment methods rather than gift cards or wires.
 - Access bank apps directly rather than through text links.
-- Refuse requests to return overpaid funds from unknown parties.
+- Ask the originating payment provider to reverse unexpected overpayment requests rather than sending funds independently.
 
-**Legitimate fraud alerts:**
-- Come from number you recognize OR
-- Ask you to call number on back of card
-- Verify full card numbers are omitted (bank already has it)
-- Give you time to verify the request through an independent, official channel.
+**Verify fraud alerts independently:**
+- Use the issuer app, the number on a statement, or the issuer's verified domain.
+- Compare the alert with recent transactions and account notifications.
+- Follow an issuer process that verifies account context without requesting the full card number.
 
 ## Card Declined
 
