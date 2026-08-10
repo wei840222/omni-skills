@@ -62,10 +62,10 @@ Good exits protect reputation and team energy.
 
 ## Evidence anchors
 
-- **Retention leverage:** classic service economics show small retention gains can move profit disproportionately; treat renewal and save motions as growth work, not back-office cleanup.
-- **Re-enrollment timing:** start enrollment/re-enrollment communication **60–90 days** before the earliest due date, inside the channels families already use for schedules and progress.
+- **Retention leverage:** treat renewal and save motions as growth work, not back-office cleanup; calculate the academy's own retention, occupancy, and contribution effects before choosing an intervention.
+- **Re-enrollment timing:** start enrollment/re-enrollment communication early enough to resolve fit, timetable, and payment friction before the academy's renewal decision point, inside the channels families already use for schedules and progress.
 - **Policy simplicity:** a few clear payment plans plus autopay beat a maze of one-off exceptions that staff cannot administer evenly.
-- **Early delinquency talks:** wait until a family is multiple periods behind and catch-up becomes unlikely. Use a written ladder, offer partial-payment plans, and keep academic and billing owners coordinated.
+- **Early delinquency talks:** address delinquency before a family is multiple periods behind and catch-up becomes unlikely. Use a written ladder, offer partial-payment plans, and keep academic and billing owners coordinated.
 - **Internal collection rhythm (adapt to local law):** clear invoice → soft reminders in the first period → personal outreach with options → formal notice with stated consequences → pause/stop or external referral only per published policy.
 
 ## Failure recovery

@@ -55,7 +55,7 @@ If a metric does not change behavior, remove it or move it to an occasional repo
 
 Track rates with explicit stage definitions so teams do not argue past each other:
 
-- speed-to-first-useful-contact (target: same day at minimum; best practice aims at minutes, not hours)
+- speed-to-first-useful-contact (with an academy-owned target that matches staffed operating hours)
 - trial/assessment show-up rate
 - offer-to-enroll rate
 - occupancy by slot and teacher utilization

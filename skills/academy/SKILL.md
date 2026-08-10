@@ -165,11 +165,11 @@ Adjust detail, time horizon, ownership, and commercial vs pedagogical focus to t
 
 ## Gotchas
 
-- **Speed-to-contact before ad spend:** slow inquiry response burns paid leads; measure first useful human contact, not auto-replies.
+- **Speed-to-contact before ad spend:** slow inquiry response burns paid leads; measure first useful human contact, not auto-replies, and set an internal response target that the staffed operating hours can sustain.
 - **Stage-defined conversion only:** lead-to-enroll and applicant-to-enroll are different denominators; mix them and the funnel looks fake-healthy or fake-broken.
-- **Utilization bands:** staff utilization near **70–82%** is often healthier than chronic **85%+** overload or launch-level **55–65%** idle time.
+- **Utilization review:** calculate delivered learner time ÷ paid staff time from the academy's own timetable. Set a workload band only after accounting for preparation, transitions, substitute coverage, and retention; a universal percentage is not a decision rule.
 - **Delivered vs scheduled:** collections, payroll, and break-even must use delivered sessions; scheduled slots overstate revenue.
-- **Re-enrollment window:** start renewal communication **60–90 days** before the earliest due date with progress evidence attached.
+- **Re-enrollment window:** start renewal communication early enough to address fit, timetable, and payment friction before the academy's renewal decision point; attach progress evidence.
 - **Capacity lock before promo:** seats, teacher, room, and minimum viable size must all be named before opening enrollment.
 - **Learning + payment risk:** combined signals need one coordinated plan the same week they appear.
 

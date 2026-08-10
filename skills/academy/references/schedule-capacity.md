@@ -62,10 +62,10 @@ Choose the simplest plan that still feels reliable and fair to students and teac
 ## Evidence anchors
 
 - **Utilization beats headline rate:** tutor or teacher economics follow *paid student time ÷ paid staff time*. Cancellations, prep gaps, and subject mismatch raise true labor cost even when the list price looks healthy.
-- **Planning bands for staff utilization:** roughly **55–65%** is common during launch or weak cancellation control; **70–82%** is often a healthier steady state; **85%+** can look efficient while creating burnout, weak prep, and churn.
+- **Planning workload:** calculate delivered learner time ÷ paid staff time, then account for preparation, transitions, substitute coverage, and retention signals before setting an academy-specific workload band. A single percentage cannot decide staffing health across delivery models.
 - **Delivered sessions, not scheduled sessions:** break-even planning should use delivered sessions and contribution per session after staff pay, payment fees, and materials.
-- **Peak-hour clustering:** evening demand often concentrates in a few prime windows. Idle off-peak rooms or underfilled groups are structural occupancy problems, not marketing failures.
-- **Course capacity headroom:** many education programs run with unused seats; fill empty seats in existing slots before opening low-occupancy fringe groups.
+- **Peak-hour clustering:** inspect demand by timetable window. Idle off-peak rooms or underfilled groups can be structural occupancy problems rather than marketing failures.
+- **Course capacity headroom:** inspect unused seats in existing viable slots before opening a low-occupancy fringe group.
 
 ## Failure recovery
 

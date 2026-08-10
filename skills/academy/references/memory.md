@@ -2,7 +2,7 @@
 
 ## Initial setup
 
-After the state-location procedure in `SKILL.md` selects `<state_root>`, create that actual directory and write `<state_root>/memory.md` on first use. Create only the selected path; leave other candidates untouched, and treat `<state_root>` as a placeholder rather than a folder name.
+After the state-location procedure in `SKILL.md` selects `<state_root>` and the user confirms the first persistent write, create that actual directory and write `<state_root>/memory.md` on first use. Create only the selected path; leave other candidates untouched, and treat `<state_root>` as a placeholder rather than a folder name.
 
 Create companion files only when the corresponding feature is in use. Copyable templates live in `assets/academy-data-templates.md`.
 

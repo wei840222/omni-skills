@@ -81,10 +81,10 @@ Default to funnel diagnosis before buying more ads.
 
 Use these as diagnostic baselines, then replace with the academy's own funnel data:
 
-- **Speed-to-first-contact:** enrollment teams should measure live human contact, not auto-reply. Widely cited lead-response research (MIT/Oldroyd) treats contact inside **5 minutes** as the high-leverage window versus waiting **30+ minutes**. Many education funnels still respond in **tens of hours**, which loses first-mover advantage when families submit multiple inquiries in one sitting.
-- **Stage definitions matter:** lead-to-enroll often lands near **3–5%**, while applicant-to-enroll can sit near **~20%**. Compare rates only when denominators match the same stage.
-- **Show-up risk:** education appointments and trials commonly see **high no-show** without reminders and confirmation loops; treat confirmation, calendar hold, and same-day ping as part of the offer system.
-- **Payment friction:** flexible or deferred payment paths can lift conversion when cash timing—not fit—is the blocker. Keep payment terms inside the offer, not as a surprise at checkout.
+- **Speed-to-first-contact:** measure a live useful human contact rather than an auto-reply. Set a response target that the staffed operating hours can sustain, then improve it with the academy's own response-time and conversion data.
+- **Stage definitions matter:** calculate lead-to-enroll and applicant-to-enroll separately because they use different denominators. Compare a rate only to the same stage in the academy's own history.
+- **Show-up risk:** track no-shows by appointment type; treat confirmation, calendar hold, and same-day ping as part of the offer system when the academy's data shows a preventable no-show pattern.
+- **Payment friction:** when cash timing—not fit—is the blocker, make approved payment terms visible inside the offer rather than surprising the prospect at checkout.
 
 ## Failure recovery
 

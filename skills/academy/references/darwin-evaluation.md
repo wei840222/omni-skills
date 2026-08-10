@@ -1,6 +1,6 @@
 # Darwin evaluation — academy
 
-Triage-only absolute scoring (paired keep/revert not required for this gate once ≥80). Eval mode: full_test via `test-prompts.json` harness that resolves `<state_root>`, writes templates, and exercises capacity / growth / setup branches against skill procedures.
+Triage-only absolute scoring (paired keep/revert not required for this gate once ≥80). Eval mode: full_test via independent skill-loaded executions recorded in `test-prompts.json`. The response-only tests verify state resolution, persistent-write consent, and the capacity, growth, and setup branches without creating user state.
 
 ## Dimension scores (after Gate 8 edits)
 
@@ -19,8 +19,8 @@ Triage-only absolute scoring (paired keep/revert not required for this gate once
 
 ## Test summary
 
-1. Membership growth via new prime-time cohort → blocked pending capacity lock; fill existing seats; rebalance Maya.
-2. Ads request with 11% delinquency + combined-risk student → acquisition frozen; coordinated save + collections ladder.
-3. Greenfield cohort academy setup → default `<workspace>/academy`, memory + admissions templates, launch SLA guardrails.
+1. Membership growth via new prime-time cohort → capacity lock required; fill existing seats and create B1 coverage before launch.
+2. Ads request with 11% delinquency + combined-risk student → collections and renewal repair precede acquisition; use one coordinated save plan.
+3. Greenfield cohort academy setup → resolve `<state_root>`, request first-write confirmation, then create memory, admissions, and cohort structure with launch guardrails.
 
-All three marked `pass: true`, `eval_mode: full_test`.
+All three independently executed after remediation and marked `pass: true`, `eval_mode: full_test`.
