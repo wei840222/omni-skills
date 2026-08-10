@@ -2,10 +2,15 @@
 
 ## Before Filing a Dispute
 
-**Try merchant first:**
+**For recognized transactions, try the merchant first:**
 - Often faster than bank dispute
 - Email creates paper trail
 - Many have chat support for quick resolution
+
+**For unauthorized transactions:**
+- Contact the issuer's fraud department first.
+- Follow the security workflow in `security.md`.
+- Use the issuer's guidance to determine whether a dispute is needed.
 
 **Document everything:**
 - Screenshots of order, confirmation, ads
@@ -22,24 +27,14 @@
 - Duplicate charge
 - Unauthorized transaction
 
-**Not valid reasons:**
-- Buyer's remorse
-- Forgot about subscription
-- Didn't read return policy
-- Quality didn't meet expectations (subjective)
+**Confirm the issuer's reason code before filing:**
+- Match the claim to the transaction facts and supporting records.
+- Use merchant support or subscription management for buyer's-remorse and forgotten-subscription cases.
+- Check the merchant's return policy and the issuer's guidance for quality disputes.
 
 ## Time Limits
 
-| Card network | Dispute window |
-|--------------|----------------|
-| Visa | 120 days from transaction |
-| Mastercard | 120 days |
-| Amex | 60-120 days depending on reason |
-| Discover | 120 days |
-
-**Start early** — banks need time to investigate.
-
-**Late Payments Context:** Credit card companies generally can’t treat a payment as late if it’s received by 5 p.m. on the day it’s due (in the time zone stated on the billing statement), or the next business day if the due date is a Sunday or holiday (Source: [CFPB](https://www.consumerfinance.gov/ask-cfpb/when-is-my-credit-card-payment-considered-to-be-late-en-79/)).
+Confirm the dispute deadline with the issuer as soon as the problem is identified. The applicable window varies by network, issuer, transaction type, and reason code.
 
 ## How to File
 
@@ -53,11 +48,11 @@
 
 ## What Happens Next
 
-1. Bank issues **provisional credit** (usually within days)
-2. Bank contacts merchant
-3. Merchant can respond with evidence
-4. Bank makes final decision (30-90 days)
-5. Credit becomes permanent OR reversed
+1. The issuer may issue provisional credit when it applies.
+2. The issuer contacts the merchant or payment network.
+3. The merchant can respond with evidence.
+4. The issuer gives the final decision and timeline for the case.
+5. Any provisional credit becomes permanent or is reversed according to the outcome.
 
 ## Scripts
 
@@ -67,11 +62,6 @@
 **Emailing merchant first:**
 > "Order #[number] placed [date] has not arrived / arrived damaged / is not as described. I'm requesting a full refund. Please respond within 48 hours or I will need to dispute through my bank."
 
-## Merchant Blacklist Risk
+## When to Escalate
 
-Chargebacks cost merchants $20-100 in fees. Some merchants:
-- Ban customers who file chargebacks
-- Send to collections (rare but possible)
-- Report to chargeback databases
-
-**Use chargebacks as last resort**, not first response.
+Use a chargeback when the transaction fits the issuer's reason code and merchant resolution has not resolved a recognized-transaction problem. Keep the case focused on the transaction facts and documentation.

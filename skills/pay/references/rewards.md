@@ -17,7 +17,7 @@
 - Gas → Gas bonus card
 - Everything else → Best flat-rate card
 
-**Don't overthink it.** Using the "wrong" card loses maybe 1-2%. Not worth stress.
+**Keep the decision proportional.** Prefer a simple, repeatable choice when the incremental reward does not justify extra effort.
 
 ## Signup Bonuses
 

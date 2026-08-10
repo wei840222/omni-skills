@@ -3,7 +3,7 @@
 ## Card Lost or Stolen
 
 **Immediately:**
-1. Freeze card in app (most banks have instant freeze)
+1. Freeze the card in the issuer app or through an official support channel when that option is available.
 2. Call bank's fraud line (number on back of card or bank website)
 3. Review recent transactions for unauthorized charges
 4. Request replacement card
@@ -20,15 +20,15 @@
 3. Check subscriptions you forgot about
 
 **If truly unauthorized:**
-1. Don't contact the merchant (they may be the scammer)
-2. Call your bank's fraud department
-3. They'll investigate and issue provisional credit
+1. Call the issuer's fraud department through the number on the card, statement, or official app.
+2. Follow the issuer's investigation and documentation process.
+3. Ask the issuer whether provisional credit applies to the case.
 
 ## Fraud Red Flags
 
 **High-Risk Actions (Avoid):**
 - Provide card numbers only to trusted parties when you initiate the call.
-- Use standard payment methods (avoid gift cards or wires).
+- Use standard payment methods rather than gift cards or wires.
 - Access bank apps directly rather than through text links.
 - Refuse requests to return overpaid funds from unknown parties.
 
@@ -36,7 +36,7 @@
 - Come from number you recognize OR
 - Ask you to call number on back of card
 - Verify full card numbers are omitted (bank already has it)
-- Never pressure you to act immediately
+- Give you time to verify the request through an independent, official channel.
 
 ## Card Declined
 
@@ -53,19 +53,19 @@
 
 ## Online Payment Safety
 
-**Safer:**
-- Virtual card numbers (Capital One, Citi offer these)
-- PayPal (hides card from merchant)
-- Apple Pay / Google Pay (tokenized)
+**Safer options when available:**
+- Virtual card numbers offered by the issuer
+- A payment intermediary that limits merchant access to the card number
+- Mobile wallets that tokenize card details
 
-**Check before entering card:**
-- URL starts with https://
-- Site isn't a typo of real site (amaz0n.com)
-- Payment page isn't an iframe from random domain
+**Check before entering card details:**
+- Navigate from a saved bookmark, the issuer app, or the merchant's verified domain.
+- Confirm the domain spelling and merchant identity.
+- Confirm that the checkout page belongs to the merchant or its known payment provider.
 
 ## If Data Breach Affects You
 
-1. Change password for that site
-2. Watch statements closely for 90 days
-3. Consider freezing credit (free at all bureaus)
-4. Don't panic — banks usually catch fraud quickly
+1. Change the password for the affected site and any account that reused it.
+2. Monitor statements and account alerts for the period recommended by the issuer.
+3. Consider credit-monitoring or credit-freeze options available in the user's jurisdiction.
+4. Follow the issuer's recovery instructions and retain case records.
