@@ -190,112 +190,19 @@ Review the COMPLETE diff, not just the truncated excerpt above.
 - URL: {pr_url}
 - Diff fully provided: {not truncated}
 {full_diff_block}
-## Review Guidelines & Standards
-Read and strictly adhere to the repository review standards in `docs/review-guide.md`, `docs/refactor-guide.md` (Gates 1–9), and `docs/pull-request-review-template.md`.
+## Instructions & Reference Standards
+Perform a complete Skill Review by referencing the canonical repository docs:
 
-### 1. Mandatory Three-Lens Quality Audit
-Evaluate the PR diff using these 3 mandatory lenses:
-1. **code-review-and-quality**: Correctness (valid commands/APIs), readability, architecture, security (no credentials/unsafe defaults), performance.
-2. **writing-for-agents**: Trigger-focused description (<= 60 chars ending in period), progressive disclosure, clear information hierarchy, explicit failure recovery.
-3. **darwin-skill**: Structural evaluation of workflow clarity, failure encoding, checkpoints, actionable specificity, and blacklist/anti-patterns.
+1. **Review Standards & Three-Lens Quality Audit**:
+   Read and follow `docs/review-guide.md` (Procedure, Decision Rubric, and 3-lens review: `code-review-and-quality`, `writing-for-agents`, `darwin-skill`).
 
-### 2. Gates 1–9 Verification
-- **Gate 1**: Spec compatibility (`agentskills validate`, lowercase name matching directory, valid frontmatter, no deprecated fields).
-- **Gate 2**: Resource organization (`references/`, `assets/`, `scripts/` with 1-level relative paths).
-- **Gate 3**: Portable state location (`<state_root>` semantics; no hardcoded paths).
-- **Gate 4**: Related skills (`metadata.related-skills` JSON map, valid target skills).
-- **Gate 5**: Zero `clawic.com` references and no `_meta.json`.
-- **Gate 6**: Research sources with full URLs grouped by topic.
-- **Gate 7**: Progressive disclosure and trigger-focused description.
-- **Gate 8**: Darwin evaluation & test prompts (`test-prompts.json`).
-- **Gate 9**: Freud cognitive load audit (positively-framed instructions, no white-bear prohibitions).
+2. **Quality Gates 1–9 Verification**:
+   Verify the diff against Gates 1–9 defined in `docs/refactor-guide.md`.
 
-### 3. Oracle-Style Craft Rules
-- **Bottom line first**: Verdict followed by 2–3 sentences.
-- **One clear path**: Each Required item must use `Current` → `Evidence` → `Fix`.
-- **Tags**: Every Required/Optional item must include `Effort` (`Quick` | `Short` | `Medium` | `Large`) and `Confidence` (`high` | `medium` | `low`).
-- **Limits**: Maximum 3 Optional items and 3 Nit items.
-
-## Output Format Requirements
-You MUST format your final response using one of the templates in `docs/pull-request-review-template.md`:
-
-- If there are blocking **Required** findings, use **Template A (Request changes)**:
-```markdown
-## Review: <short title> — request changes
-
-Reviewed with **code-review-and-quality** + **writing-for-agents** + **darwin-skill** (structural / dry-run).
-
-### Bottom line
-<2-3 sentences: overall direction, why blocked, what must change.>
-
-### Context
-- Target: `skills/<slug>`
-- Head: `<branch>` @ `{head_sha[:7]}`
-- Diff focus: <1-3 bullets>
-- Gate 1: `uvx --from skills-ref agentskills validate skills/<slug>` → **<Valid / FAIL>**
-
-### Verdict
-**Request changes** — <N> required fix(es) before merge.
-
-### Required
-1. **<title>** (`<section or file>`)
-   - Current: <what is wrong>
-   - Evidence: <command, docs, quoted text, or observed behavior>
-   - Fix: <single concrete replacement or acceptance criteria>
-   - Effort: <Quick|Short|Medium|Large>
-   - Confidence: <high|medium|low>
-
-### Optional / Consider
-<!-- max 3 -->
-- **Consider: <title>** — Effort: <Quick|Short|Medium|Large>
-
-### Nit
-<!-- max 3 -->
-- <tiny cleanup>
-
-### What looks solid
-- <strengths>
-
-### Axis snapshot
-| Axis | Notes |
-|---|---|
-| Correctness | <pass / blocked by ...> |
-| writing-for-agents | <notes> |
-| darwin (structural) | <notes> |
-| Gates 1–9 | <pass list / fail list> |
-```
-
-- If there are NO Required findings, use **Template B (Approve)**:
-```markdown
-## Review: <short title> — approve
-
-Reviewed with **code-review-and-quality** + **writing-for-agents** + **darwin-skill** (structural / dry-run).
-
-### Bottom line
-<2-3 sentences: why this is safe to merge now.>
-
-### Context
-- Target: `skills/<slug>`
-- Head: `<branch>` @ `{head_sha[:7]}`
-- Gate 1: `uvx --from skills-ref agentskills validate skills/<slug>` → **Valid**
-
-### Verdict
-**Approve** — no Required findings.
-
-### Verified
-- [ ] Commit/diff scope intentional
-- [ ] Validator clean
-- [ ] Gates 1–5 compliance signals present
-- [ ] Gate 6 sources adequate or N/A with reason
-- [ ] Gate 7 description / disclosure acceptable
-- [ ] Gate 8 structural quality acceptable
-- [ ] Gate 9 no blocking white-bear / load issues
-- [ ] Three-lens review: no wrong commands, unsafe defaults, or broken recoveries
-
-### Notes (non-blocking)
-<!-- max 3 optional follow-ups -->
-- <optional follow-up> — Effort: <Quick|Short|Medium|Large>
-```
+3. **Output Report Format**:
+   You MUST format your final response strictly using the templates in `docs/pull-request-review-template.md`:
+   - Use **Template A (Request changes)** if there are any blocking Required findings.
+   - Use **Template B (Approve)** if there are NO Required findings.
 
 <diff>
 {diff_for_prompt}
