@@ -9,28 +9,40 @@ Cardano staking is non-custodial and permissionless:
 - Rewards are distributed by epoch under the active network schedule
 - Initial delegation and rewards take multiple epochs; confirm the current schedule before giving a date
 
+Before using an artifact-producing command, define this preflight and call it with every new output path:
+
+```bash
+require_new_outputs() {
+  for output_path in "$@"; do
+    [ -n "$output_path" ] || { printf '%s\n' 'Set every output path before continuing.' >&2; return 2; }
+    [ ! -e "$output_path" ] || { printf 'Refusing to overwrite: %s\n' "$output_path" >&2; return 1; }
+  done
+}
+```
+
 ## Delegation Process
 
 ```bash
 # 1. Register staking key (one-time)
+require_new_outputs "$STAKE_CERT_FILE" "$DELEG_CERT_FILE" "$DELEG_TX_DRAFT_FILE" || exit $?
 cardano-cli stake-address registration-certificate \
   --staking-verification-key-file stake.vkey \
-  --out-file stake.cert
+  --out-file "$STAKE_CERT_FILE"
 
 # 2. Build delegation certificate
 cardano-cli stake-address delegation-certificate \
   --staking-verification-key-file stake.vkey \
   --stake-pool-id POOL_ID_HEX \
-  --out-file deleg.cert
+  --out-file "$DELEG_CERT_FILE"
 
 # 3. Submit transaction with certificates
 cardano-cli transaction build \
   --tx-in "$TX_IN" \
   --change-address "$ADDRESS" \
-  --certificate-file stake.cert \
-  --certificate-file deleg.cert \
+  --certificate-file "$STAKE_CERT_FILE" \
+  --certificate-file "$DELEG_CERT_FILE" \
   --mainnet \
-  --out-file deleg.tx
+  --out-file "$DELEG_TX_DRAFT_FILE"
 ```
 
 ## Stake Pool Evaluation

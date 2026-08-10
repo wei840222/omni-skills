@@ -14,6 +14,17 @@ Governance-action types, required voting bodies, and ratification thresholds are
 
 ## DRep Delegation
 
+Before using an artifact-producing command, define this preflight and call it with every new output path:
+
+```bash
+require_new_outputs() {
+  for output_path in "$@"; do
+    [ -n "$output_path" ] || { printf '%s\n' 'Set every output path before continuing.' >&2; return 2; }
+    [ ! -e "$output_path" ] || { printf 'Refusing to overwrite: %s\n' "$output_path" >&2; return 1; }
+  done
+}
+```
+
 ### Decision workflow
 
 1. **Do you want to vote directly?**
@@ -29,19 +40,20 @@ Governance-action types, required voting bodies, and ratification thresholds are
 ### Delegate to a DRep
 
 ```bash
+require_new_outputs "$DREP_DELEG_CERT_FILE" "$DREP_DELEG_TX_DRAFT_FILE" || exit $?
 # Create DRep delegation certificate
 cardano-cli stake-address vote-delegation-certificate \
   --staking-verification-key-file stake.vkey \
   --drep-verification-key-file drep.vkey \
-  --out-file drep-deleg.cert
+  --out-file "$DREP_DELEG_CERT_FILE"
 
 # Submit in transaction
 cardano-cli transaction build \
   --tx-in "$TX_IN" \
   --change-address "$ADDRESS" \
-  --certificate-file drep-deleg.cert \
+  --certificate-file "$DREP_DELEG_CERT_FILE" \
   --mainnet \
-  --out-file drep-deleg.tx
+  --out-file "$DREP_DELEG_TX_DRAFT_FILE"
 ```
 
 **Important:** DRep delegation is independent from stake pool delegation. Same ADA, two separate signals:
@@ -51,11 +63,12 @@ cardano-cli transaction build \
 ## Registering as a DRep
 
 ```bash
+require_new_outputs "$DREP_REG_CERT_FILE" || exit $?
 # Create DRep registration certificate
 cardano-cli governance drep-registration-certificate \
   --drep-verification-key-file drep.vkey \
   --key-registration-metadata-file drep-metadata.json \
-  --out-file drep-reg.cert
+  --out-file "$DREP_REG_CERT_FILE"
 
 # Query the current DRep deposit parameter and submit in an explicitly approved transaction.
 ```

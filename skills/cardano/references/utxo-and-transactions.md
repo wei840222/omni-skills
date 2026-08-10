@@ -1,5 +1,16 @@
 # UTxO Model and Transactions
 
+Before using an artifact-producing command, define this preflight and call it with every new output path:
+
+```bash
+require_new_outputs() {
+  for output_path in "$@"; do
+    [ -n "$output_path" ] || { printf '%s\n' 'Set every output path before continuing.' >&2; return 2; }
+    [ ! -e "$output_path" ] || { printf 'Refusing to overwrite: %s\n' "$output_path" >&2; return 1; }
+  done
+}
+```
+
 ## UTxO Fundamentals
 
 Cardano uses the Extended UTxO (EUTxO) model, fundamentally different from account-based chains like Ethereum.
@@ -26,12 +37,12 @@ Transaction fees are deterministic and calculated before submission:
 ```bash
 # Calculate fee (example)
 cardano-cli transaction calculate-min-fee \
-  --tx-body-file tx.draft \
+  --tx-body-file "$TX_DRAFT_FILE" \
   --tx-in-count 2 \
   --tx-out-count 2 \
   --witness-count 1 \
   --byron-witness-count 0 \
-  --protocol-params-file protocol.json
+  --protocol-params-file "$PROTOCOL_PARAMS_FILE"
 ```
 
 Fetch protocol parameters for the intended network before building. The current fee coefficients and output-cost parameter are network configuration, not constants for this skill.
@@ -43,7 +54,7 @@ Every output must contain at least the minimum ADA value to cover the cost of st
 ```bash
 cardano-cli transaction calculate-min-required-utxo \
   --tx-out "addr1...+1000000+policyid.assetname" \
-  --protocol-params-file protocol.json
+  --protocol-params-file "$PROTOCOL_PARAMS_FILE"
 ```
 
 The result depends on the actual address, datum, reference script, and asset bundle. Use the command result for the output you will include in the draft rather than a rule-of-thumb ADA amount.
@@ -77,7 +88,7 @@ The maximum transaction size is a current protocol parameter. When a draft excee
 ```bash
 cardano-cli transaction calculate-min-required-utxo \
   --tx-out "ADDRESS+VALUE+ASSETS" \
-  --protocol-params-file protocol.json
+  --protocol-params-file "$PROTOCOL_PARAMS_FILE"
 ```
 
 **Fix:** Increase output value to meet minimum
@@ -91,19 +102,21 @@ cardano-cli transaction calculate-min-required-utxo \
 
 **Diagnosis:** Count UTxOs in wallet
 ```bash
-cardano-cli query utxo --address addr1... --out-file utxos.json
-cat utxos.json | jq 'length'
+require_new_outputs "$UTXO_REPORT_FILE" || exit $?
+cardano-cli query utxo --address addr1... --out-file "$UTXO_REPORT_FILE"
+cat "$UTXO_REPORT_FILE" | jq 'length'
 ```
 
 **Fix:** Consolidate with self-transfer
 ```bash
 # Build a self-transfer from explicitly selected inputs.
 # First inspect every input and present the draft for user approval.
+require_new_outputs "$CONSOLIDATION_DRAFT_FILE" || exit $?
 cardano-cli transaction build \
   --tx-in "$SELECTED_TX_IN" \
   --change-address "$ADDRESS" \
   --mainnet \
-  --out-file consolidate.tx
+  --out-file "$CONSOLIDATION_DRAFT_FILE"
 ```
 
 ### "Collateral required"
@@ -133,8 +146,9 @@ Collateral is only consumed if the transaction fails on-chain (which shouldn't h
 Transaction metadata limits are protocol parameters. Check the current limit before preparing metadata:
 
 ```bash
-# Create metadata file
-cat << EOF > metadata.json
+# Create metadata at a new, user-selected path.
+require_new_outputs "$METADATA_FILE" || exit $?
+cat << EOF > "$METADATA_FILE"
 {
   "674": {
     "msg": ["Transaction message"]
@@ -144,7 +158,7 @@ EOF
 
 # Include in transaction
 cardano-cli transaction build \
-  --metadata-json-file metadata.json \
+  --metadata-json-file "$METADATA_FILE" \
   ...
 ```
 

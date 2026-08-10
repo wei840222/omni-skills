@@ -8,6 +8,17 @@ Cardano tokens are first-class protocol citizens — not smart contracts:
 - Tokens can be transferred alongside ADA in same transaction
 - Policy ID uniquely identifies the token family
 
+Before using an artifact-producing command, define this preflight and call it with every new output path:
+
+```bash
+require_new_outputs() {
+  for output_path in "$@"; do
+    [ -n "$output_path" ] || { printf '%s\n' 'Set every output path before continuing.' >&2; return 2; }
+    [ ! -e "$output_path" ] || { printf 'Refusing to overwrite: %s\n' "$output_path" >&2; return 1; }
+  done
+}
+```
+
 ## Token Standards
 
 | Standard | Purpose | Notes |
@@ -24,31 +35,35 @@ Cardano tokens are first-class protocol citizens — not smart contracts:
 ### Step 1: Create policy script
 
 ```bash
-# Time-locked policy (expires after deadline)
-cat << EOF > policy.script
+# Time-locked policy (expires after deadline). Choose a new path and stop if it exists.
+require_new_outputs "$POLICY_SCRIPT_FILE" || exit $?
+: "${EXPIRY_SLOT:?Set EXPIRY_SLOT for the intended network}"
+: "${POLICY_KEY_HASH:?Set POLICY_KEY_HASH for the intended signing key}"
+cat << EOF > "$POLICY_SCRIPT_FILE"
 {
   "type": "all",
   "scripts": [
     {
       "type": "before",
-      "slot": EXPIRY_SLOT
+      "slot": $EXPIRY_SLOT
     },
     {
       "type": "sig",
-      "keyHash": "YOUR_KEY_HASH"
+      "keyHash": "$POLICY_KEY_HASH"
     }
   ]
 }
 EOF
 
-# Calculate policy ID
-cardano-cli transaction policyid --script-file policy.script > policy.id
+# Calculate policy ID without creating another file.
+POLICY_ID=$(cardano-cli transaction policyid --script-file "$POLICY_SCRIPT_FILE")
 ```
 
 ### Step 2: Create metadata (CIP-25 for NFTs)
 
 ```bash
-cat << EOF > metadata.json
+require_new_outputs "$METADATA_FILE" || exit $?
+cat << EOF > "$METADATA_FILE"
 {
   "721": {
     "POLICY_ID": {
@@ -67,16 +82,17 @@ EOF
 ### Step 3: Build minting transaction
 
 ```bash
+require_new_outputs "$MINT_DRAFT_FILE" || exit $?
 cardano-cli transaction build \
   --mint "1 $POLICY_ID.$ASSET_NAME_HEX" \
-  --minting-script-file policy.script \
-  --metadata-json-file metadata.json \
+  --minting-script-file "$POLICY_SCRIPT_FILE" \
+  --metadata-json-file "$METADATA_FILE" \
   --tx-in "$TX_IN" \
   --tx-out "$RECIPIENT+$MIN_OUTPUT_LOVELACE+1 $POLICY_ID.$ASSET_NAME_HEX" \
   --change-address "$ADDRESS" \
-  --invalid-hereafter EXPIRY_SLOT \
+  --invalid-hereafter "$EXPIRY_SLOT" \
   --mainnet \
-  --out-file mint.tx
+  --out-file "$MINT_DRAFT_FILE"
 ```
 
 ### Verification checkpoints before minting
@@ -92,14 +108,15 @@ cardano-cli transaction build \
 Burning requires the same policy script that was used for minting:
 
 ```bash
+require_new_outputs "$BURN_DRAFT_FILE" || exit $?
 cardano-cli transaction build \
   --mint "-1 $POLICY_ID.$ASSET_NAME_HEX" \
-  --minting-script-file policy.script \
+  --minting-script-file "$POLICY_SCRIPT_FILE" \
   --tx-in "$TOKEN_TX_IN" \
   --change-address "$ADDRESS" \
-  --invalid-hereafter EXPIRY_SLOT \
+  --invalid-hereafter "$EXPIRY_SLOT" \
   --mainnet \
-  --out-file burn.tx
+  --out-file "$BURN_DRAFT_FILE"
 ```
 
 **Time-locked policies:** If the policy has expired (current slot > `before` slot), tokens cannot be minted OR burned. This is irreversible — verify time-locks carefully.

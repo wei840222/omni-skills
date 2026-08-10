@@ -15,6 +15,25 @@ Operational guide for Cardano blockchain tasks. This knowledge skill has no pers
 
 Use this skill to explain, inspect, and prepare transactions. Before a command can sign, submit, mint, delegate, or register a governance credential, present the complete transaction details (network, inputs, outputs, fee, certificates, policy ID, and validity interval) and obtain the user's explicit approval. Use testnet for first execution of a new policy or validator. Keep signing keys outside the skill package and use paths supplied by the user.
 
+Every command that writes an artifact must use a new, user-selected path variable (for example, `$TX_DRAFT_FILE`), never a fixed sample filename. Before writing, confirm the path is non-empty and does not already exist; stop rather than overwrite an existing policy, certificate, draft, or signed transaction.
+
+Use this preflight immediately before each artifact-producing command below. It accepts one or more output-path variables and refuses both empty and existing paths:
+
+```bash
+require_new_outputs() {
+  for output_path in "$@"; do
+    if [ -z "$output_path" ]; then
+      printf '%s\n' 'Set every output path before continuing.' >&2
+      return 2
+    fi
+    if [ -e "$output_path" ]; then
+      printf 'Refusing to overwrite: %s\n' "$output_path" >&2
+      return 1
+    fi
+  done
+}
+```
+
 ## Gotchas
 
 **UTxO model is not accounts** — You cannot spend "part" of a UTxO. Transactions consume entire UTxOs and create change outputs automatically. This is fundamentally different from Ethereum's account model.
@@ -47,8 +66,9 @@ Use this skill to explain, inspect, and prepare transactions. Before a command c
 **Workflow:**
 ```bash
 # 1. Query UTxOs and current parameters on the intended network.
+require_new_outputs "$PROTOCOL_PARAMS_FILE" "$TX_DRAFT_FILE" "$TX_SIGNED_FILE" || exit $?
 cardano-cli query utxo --address "$ADDRESS" --mainnet
-cardano-cli query protocol-parameters --mainnet --out-file protocol.json
+cardano-cli query protocol-parameters --mainnet --out-file "$PROTOCOL_PARAMS_FILE"
 
 # 2. Build an unsigned draft. LOVELACE_AMOUNT is an integer in lovelace.
 cardano-cli transaction build \
@@ -56,11 +76,11 @@ cardano-cli transaction build \
   --tx-out "$RECIPIENT+$LOVELACE_AMOUNT" \
   --change-address "$ADDRESS" \
   --mainnet \
-  --out-file tx.draft
+  --out-file "$TX_DRAFT_FILE"
 
 # 3. After the user approves the inspected draft, sign and submit.
-cardano-cli transaction sign --tx-body-file tx.draft --signing-key-file "$SIGNING_KEY_FILE" --mainnet --out-file tx.signed
-cardano-cli transaction submit --tx-file tx.signed --mainnet
+cardano-cli transaction sign --tx-body-file "$TX_DRAFT_FILE" --signing-key-file "$SIGNING_KEY_FILE" --mainnet --out-file "$TX_SIGNED_FILE"
+cardano-cli transaction submit --tx-file "$TX_SIGNED_FILE" --mainnet
 ```
 
 **If transaction fails:**
@@ -84,24 +104,25 @@ cardano-cli transaction submit --tx-file tx.signed --mainnet
 **Workflow:**
 ```bash
 # 1. Register staking key (one-time)
+require_new_outputs "$STAKE_CERT_FILE" "$DELEG_CERT_FILE" "$TX_DRAFT_FILE" || exit $?
 cardano-cli stake-address registration-certificate \
   --staking-verification-key-file stake.vkey \
-  --out-file stake.cert
+  --out-file "$STAKE_CERT_FILE"
 
 # 2. Build delegation certificate
 cardano-cli stake-address delegation-certificate \
   --staking-verification-key-file stake.vkey \
   --stake-pool-id POOL_ID \
-  --out-file deleg.cert
+  --out-file "$DELEG_CERT_FILE"
 
 # 3. Submit transaction with certificates
 cardano-cli transaction build \
   --tx-in "$TX_IN" \
   --change-address "$ADDRESS" \
-  --certificate-file stake.cert \
-  --certificate-file deleg.cert \
+  --certificate-file "$STAKE_CERT_FILE" \
+  --certificate-file "$DELEG_CERT_FILE" \
   --mainnet \
-  --out-file tx.draft
+  --out-file "$TX_DRAFT_FILE"
 ```
 
 **Pool selection criteria (in priority order):**
@@ -125,31 +146,34 @@ cardano-cli transaction build \
 
 **Workflow:**
 ```bash
-# 1. Create policy script
-cat > policy.script << EOF
+# 1. Create a policy script at a new, user-selected path.
+require_new_outputs "$POLICY_SCRIPT_FILE" "$TX_DRAFT_FILE" || exit $?
+: "${EXPIRY_SLOT:?Set EXPIRY_SLOT for the intended network}"
+: "${POLICY_KEY_HASH:?Set POLICY_KEY_HASH for the intended signing key}"
+cat > "$POLICY_SCRIPT_FILE" << EOF
 {
   "type": "all",
   "scripts": [
-    {"type": "before", "slot": EXPIRY_SLOT},
-    {"type": "sig", "keyHash": "YOUR_KEY_HASH"}
+    {"type": "before", "slot": $EXPIRY_SLOT},
+    {"type": "sig", "keyHash": "$POLICY_KEY_HASH"}
   ]
 }
 EOF
 
-# 2. Get policy ID
-cardano-cli transaction policyid --script-file policy.script > policy.id
+# 2. Get policy ID without creating another file.
+POLICY_ID=$(cardano-cli transaction policyid --script-file "$POLICY_SCRIPT_FILE")
 
 # 3. Build minting transaction
 cardano-cli transaction build \
   --mint "1 $POLICY_ID.$ASSET_NAME_HEX" \
-  --minting-script-file policy.script \
-  --metadata-json-file metadata.json \
+  --minting-script-file "$POLICY_SCRIPT_FILE" \
+  --metadata-json-file "$METADATA_FILE" \
   --tx-in "$TX_IN" \
   --tx-out "$RECIPIENT+$MIN_OUTPUT_LOVELACE+1 $POLICY_ID.$ASSET_NAME_HEX" \
   --change-address "$ADDRESS" \
-  --invalid-hereafter EXPIRY_SLOT \
+  --invalid-hereafter "$EXPIRY_SLOT" \
   --mainnet \
-  --out-file tx.draft
+  --out-file "$TX_DRAFT_FILE"
 ```
 
 **Token safety:**
@@ -172,12 +196,13 @@ cardano-cli transaction build \
 **Workflow:**
 ```bash
 # 1. Prepare collateral
+require_new_outputs "$COLLATERAL_DRAFT_FILE" "$SCRIPT_TX_DRAFT_FILE" || exit $?
 cardano-cli transaction build \
   --tx-in "$TX_IN" \
   --tx-out "$ADDRESS+$COLLATERAL_LOVELACE" \
   --change-address "$ADDRESS" \
   --mainnet \
-  --out-file collateral.draft
+  --out-file "$COLLATERAL_DRAFT_FILE"
 
 # 2. Build script transaction
 cardano-cli transaction build \
@@ -189,7 +214,7 @@ cardano-cli transaction build \
   --tx-out "$RECIPIENT+$LOVELACE_AMOUNT" \
   --change-address "$ADDRESS" \
   --mainnet \
-  --out-file tx.draft
+  --out-file "$SCRIPT_TX_DRAFT_FILE"
 ```
 
 **If script fails:**
@@ -211,18 +236,19 @@ cardano-cli transaction build \
 **Workflow:**
 ```bash
 # Delegate voting power to DRep
+require_new_outputs "$DREP_DELEG_CERT_FILE" "$TX_DRAFT_FILE" || exit $?
 cardano-cli stake-address vote-delegation-certificate \
   --stake-verification-key-file stake.vkey \
   --drep-verification-key-file drep.vkey \
-  --out-file drep-deleg.cert
+  --out-file "$DREP_DELEG_CERT_FILE"
 
 # Submit in transaction
 cardano-cli transaction build \
   --tx-in "$TX_IN" \
   --change-address "$ADDRESS" \
-  --certificate-file drep-deleg.cert \
+  --certificate-file "$DREP_DELEG_CERT_FILE" \
   --mainnet \
-  --out-file tx.draft
+  --out-file "$TX_DRAFT_FILE"
 ```
 
 **Governance actions:** Action type, required voting bodies, and thresholds vary. Review the action's current on-chain details and protocol parameters rather than applying a fixed percentage.
