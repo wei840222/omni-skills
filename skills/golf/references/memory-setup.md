@@ -2,7 +2,7 @@
 
 ## Initial Setup
 
-On first use, create only the required state file:
+After the user confirms that golf records should be saved, create only the required state file:
 ```bash
 mkdir -p <state_root>
 touch <state_root>/memory.md
@@ -10,7 +10,7 @@ touch <state_root>/memory.md
 
 Replace `<state_root>` with the resolved state location from SKILL.md before executing.
 
-Create optional state files only when the user's action requires them:
+Create optional state files after the user asks to save the relevant records:
 - `<state_root>/rounds.md` — create when user logs their first round
 - `<state_root>/courses.md` — create when user saves a course
 - `<state_root>/archive/` — create when user archives past season data

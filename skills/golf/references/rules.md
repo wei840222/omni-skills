@@ -1,6 +1,6 @@
 # Rules Reference — Golf
 
-Based on the 2023 Rules of Golf (USGA/R&A), effective January 2023 with clarifications updated through October 2025.
+This is an educational summary of the 2023 Rules of Golf and the 2024 World Handicap System revisions. For a tournament, current clarification, or Committee-specific ruling, verify the applicable Rule and Local Rules with the USGA or The R&A before advising.
 
 ## Common Situations
 
@@ -36,19 +36,19 @@ Three options (1 stroke penalty each):
 | Situation | Ruling |
 |-----------|--------|
 | Wind or natural forces move ball | Play from new position, no penalty |
-| Player causes ball to move | Replace, 1 stroke penalty |
-| Opponent or outside influence causes ball to move | Replace, no penalty |
+| Player causes ball to move | Replace, with a one-stroke penalty unless a Rule 9.4 exception applies |
+| Opponent or outside influence causes ball to move | Replace with no penalty when it is known or virtually certain that the outside influence caused the movement |
 | Ball on green moves after being lifted and replaced | Replace, no penalty |
 
 ### Relief Without Penalty
 
 | Situation | Relief |
 |-----------|--------|
-| Ground under repair (GUR) | Nearest point of complete relief + 1 club-length, not nearer the hole |
-| Casual water | Nearest point of complete relief + 1 club-length |
-| Immovable obstruction | Nearest point of complete relief + 1 club-length |
-| Embedded ball (own pitch-mark in general area) | Free drop at spot, clean ball |
-| Wrong putting green | Nearest point of complete relief off the green |
+| Ground under repair (GUR) | Determine the nearest point of complete relief, then drop within one club-length, not nearer the hole |
+| Temporary water | Determine the nearest point of complete relief, then drop within one club-length, not nearer the hole |
+| Immovable obstruction | Determine the nearest point of complete relief, then drop within one club-length, not nearer the hole |
+| Embedded ball (own pitch-mark in general area) | Take free relief within one club-length of the reference point, not nearer the hole; the ball may be cleaned |
+| Wrong putting green | Complete relief is required; find the nearest point of complete relief off the green, then drop within one club-length, not nearer the hole |
 | Dangerous animal condition | Nearest point of complete relief |
 
 ## Stroke Penalties Quick Reference
@@ -114,11 +114,7 @@ The `(Course Rating - Par)` adjustment was added in 2020 to ensure players recei
 ```
 Playing Handicap = Course Handicap × Handicap Allowance
 ```
-Handicap allowance varies by format:
-- Individual stroke play: 95% (recommended by USGA)
-- Individual match play: 100%
-- Four-ball better-ball: 90%
-- Team scramble (2 players): 35% of combined Course Handicaps
+The Handicap Allowance depends on the format and the Committee's Terms of Competition. Check the applicable authorized allowance table before calculating a Playing Handicap.
 
 ## Etiquette Essentials
 
@@ -126,6 +122,6 @@ Handicap allowance varies by format:
 - Repair ball marks on greens
 - Replace divots or fill with sand
 - Rake bunkers after playing from them
-- Maintain pace (under 4 hours for 18 holes)
+- Follow the facility's pace-of-play policy
 - Stay quiet during others' shots
 - Let faster groups play through

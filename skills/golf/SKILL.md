@@ -1,6 +1,6 @@
 ---
 name: golf
-description: Track golf rounds, handicap, club distances, and course notes with personalized improvement tips. Use this skill when the user wants to log a round, manage handicap, review club selection, analyze scoring patterns, or get practice recommendations based on their golf history. Also use when they discuss golf stats, scoring, course strategy, or ask about their golf performance—even if they don't explicitly mention "handicap" or "rounds."
+description: Track golf rounds, handicap, club distances, and course notes with personalized improvement tips. Use when the user wants to log or analyze a round, manage a handicap, choose clubs, review scoring patterns, plan course strategy, or get practice recommendations from golf history.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⛳"}'
@@ -22,6 +22,8 @@ Before reading or writing state, resolve `<state_root>` as follows:
 7. Once selected, `<state_root>` remains fixed for the invocation.
 
 Use the selected `<state_root>` for every state operation in this skill.
+
+Persistent changes require the user's request to save, log, update, or archive golf records. A request for advice or analysis alone uses existing state read-only and leaves it unchanged. Before creating a new state root or file, explain what will be saved and obtain the user's confirmation.
 
 ## State tree
 
@@ -47,14 +49,16 @@ Create only the files the user's actions require. `memory.md` is created on firs
 ## Core workflow
 
 ### Check memory first
-Before any recommendation, read `<state_root>/memory.md` for:
+Before a personalized recommendation, read `<state_root>/memory.md` when it exists for:
 - Current handicap index
 - Club distances
 - Known weaknesses
 - Practice focus areas
 
-### Log rounds proactively
-After user reports a round, update `<state_root>/rounds.md`:
+If no state exists, ask whether the user wants to create and save a golf record; otherwise provide general guidance without creating files.
+
+### Log rounds
+When the user asks to log or save a round, confirm the record details and update `<state_root>/rounds.md`:
 
 | Date | Course | Tees | Score | GIR | FIR | Putts | Notes |
 |------|--------|------|-------|-----|-----|-------|-------|
@@ -82,7 +86,7 @@ Use stats to suggest focused practice:
 - Target the category where the most strokes are lost, not the most frustrating
 
 ### Update handicap
-After 3+ rounds posted with Course Rating and Slope, recalculate using the World Handicap System (WHS). See `references/rules.md` for full WHS details including 2024 revisions and the special formula for fewer than 20 scores.
+When the user requests a saved handicap update and supplies qualifying Score Differentials, calculate an educational estimate using the World Handicap System (WHS). Confirm whether to save the estimate in `<state_root>/memory.md`; an authorized posting system determines the official Handicap Index. See `references/rules.md` for the calculation and current-rule checks.
 
 ## Common pitfalls
 
@@ -95,9 +99,9 @@ After 3+ rounds posted with Course Rating and Slope, recalculate using the World
 
 | If | Then | Fallback |
 |----|------|----------|
-| `<state_root>/memory.md` missing or empty | Prompt user for handicap, clubs, goals; create from `assets/golf-data-templates.md` | Proceed without personalization; mark recommendations as "general guidance" |
-| User reports round but `<state_root>/rounds.md` missing | Create from template; log the round | Ask user for course rating/slope if handicap update needed |
-| User asks handicap update but no Course Rating/Slope available | Explain that official handicap requires posted scores through authorized system | Provide educational calculation using estimated rating; clarify this is not an official index |
+| `<state_root>/memory.md` missing or empty | Explain the profile fields and ask whether to create it from `assets/golf-data-templates.md` | Proceed without personalization; mark recommendations as "general guidance" |
+| User asks to log a round but `<state_root>/rounds.md` is missing | Explain that the round log will be created, then create it from the template after confirmation | Ask for course rating/slope only if an educational handicap calculation is also requested |
+| User asks handicap update but has no qualifying Score Differentials | Explain that an official Handicap Index comes from an authorized posting system | Use available scores only for a clearly labeled educational estimate; do not invent rating or slope values |
 | Stats sample too small (<3 rounds) for pattern analysis | Report available data; note insufficient sample for trends | Recommend logging 3-5 rounds before drawing conclusions |
 | User asks about club fitting without swing speed data | Ask for swing speed or driver carry distance | Provide general guidelines by handicap level from `references/clubs.md` |
-| User reports unusual score (±20 of handicap) | Verify score entry; check for transcription errors | Accept user confirmation and log as-is |
+| User asks to save an unusual score (±20 of handicap) | Verify score entry and check for transcription errors | Save the confirmed record as provided |

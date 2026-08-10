@@ -1,8 +1,8 @@
 # Clubs Guide — Golf
 
-## Standard Distances (varies significantly by player)
+## Starting Points for Distance Discussion
 
-Distances below are approximate averages. Always use the player's actual tracked carries from `<state_root>/memory.md` when available.
+The figures below are illustrative, not fitting standards. Use the player's tracked carries from `<state_root>/memory.md` when available; otherwise state the uncertainty and suggest a launch-monitor session or on-course carry tracking before changing equipment.
 
 ### Driver
 | Handicap | Carry | Total |
@@ -39,23 +39,20 @@ Note: Modern "strong-lofted" irons may carry 5–10 yards farther than tradition
 ## Club Selection Adjustments
 
 ### Wind
-| Wind | Adjustment |
-|------|------------|
-| 10 mph into | +1 club |
-| 10 mph tailwind | -1 club |
-| 20 mph into | +2 clubs |
-| Crosswind | Aim for center, let drift; consider a lower-trajectory club |
+- Start with the player's observed carry and trajectory rather than a fixed club adjustment.
+- Into-wind shots generally need more carry or a lower trajectory; tailwinds can reduce the required carry but may increase rollout.
+- For a crosswind, choose a conservative target and trajectory, then adjust after observing conditions.
 
 ### Elevation
-- **Uphill:** +1 club per 10 yards elevation gain
-- **Downhill:** -1 club per 10 yards drop
+- Uphill shots generally play longer and downhill shots generally play shorter.
+- Use the actual vertical change, wind, lie, and the player's carry data; a fixed club-per-distance rule is not reliable across players or courses.
 
 ### Temperature
-- **Cold (<50°F / 10°C):** Ball flies 5–10% shorter; also affects muscle and flexibility
-- **Hot (>90°F / 32°C):** Ball flies slightly longer
+- Cold conditions can reduce carry and affect comfort; warm conditions can change carry and rollout.
+- Treat the player's observed carry and comfort as the decision input rather than applying a universal percentage.
 
 ### Altitude
-- Every 1,000 feet above sea level adds roughly 2% carry distance (thinner air)
+- Higher altitude can increase carry. Confirm the player's observed carry or local course guidance before changing club selection.
 
 ### Lie Adjustments
 | Lie | Adjustment |
@@ -71,19 +68,11 @@ Note: Modern "strong-lofted" irons may carry 5–10 yards farther than tradition
 ## Fitting Basics
 
 ### Driver
-- **Slice:** Consider draw bias, closed face, lighter shaft
-- **Hook:** Neutral or fade bias
-- **Low launch:** More loft, lighter shaft
-- **High launch:** Less loft, stiffer shaft
+- Treat a slice, hook, launch, or spin concern as a fitting question, not a universal equipment prescription.
+- Gather current club specifications, carry, launch, spin, and strike pattern when available; recommend an in-person fitting when a change in head, loft, or shaft is being considered.
 
 ### Irons
-| Swing Speed | Shaft Flex |
-|-------------|------------|
-| <75 mph | Senior/Ladies |
-| 75–85 mph | Regular |
-| 85–95 mph | Stiff |
-| 95+ mph | X-Stiff |
+- Shaft-flex labels are not standardized across manufacturers. Use swing speed only as one input alongside tempo, delivery, launch, spin, and dispersion; a fitter can compare measured outcomes.
 
 ### Putter
-- **Arc stroke:** Toe hang putter
-- **Straight stroke:** Face-balanced putter
+- Compare aim, start line, speed control, and consistency with the current putter before selecting toe-hang or face-balanced designs.
