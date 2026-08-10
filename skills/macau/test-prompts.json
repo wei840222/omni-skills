@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 3-day trip to Macau with my family. We want to see the historic sites, eat local food, and maybe spend one evening at a casino resort. What districts should we stay in and how should we get around?",
+    "expected": "Load visitor-itineraries.md, visitor-lodging.md, neighborhoods-choosing.md, food-overview.md, transport.md. Recommend historic peninsula + Taipa for heritage/food, Cotai for casino evening. Suggest walking + bus + hotel shuttles. Provide district-specific guidance.",
+    "actual": "For this family-focused three-day trip, stay in Taipa as the balanced base: it has a more livable rhythm, Taipa Village dining, and convenient access to both the historic peninsula and Cotai. Choose the historic peninsula instead if being able to walk to heritage streets matters most.\n\nPlan Day 1 around Senado Square, the Ruins of St. Paul's, and Monte Fort, with local snack stops. On Day 2, see Barra and A-Ma Temple, then make a slower visit to Coloane if weather allows. Keep Day 3 for Cotai's resort interiors, shopping or a show, and your casino evening.\n\nWalk within the historic core and Taipa Village. Use buses for everyday links, hotel shuttles for resort and port journeys, and taxis or shuttles when travelling with luggage or avoiding heat. Do not treat the LRT as citywide coverage: it is useful on selected Taipa, Cotai, airport, and Hengqin corridors, not for peninsula sightseeing.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "I got a job offer in Macau. The salary is MOP 22,000/month. Can I afford to live there? What should I budget for rent and daily expenses? I'm single and prefer modern apartments.",
+    "expected": "Load cost.md and neighborhoods-choosing.md. Use current comparable listings or quotes rather than stale rate cards; request the user's rent ceiling and explain which listing and contract facts determine affordability. Recommend a lower-cost district only after comparing current options.",
+    "actual": "A salary of MOP 22,000 may be workable for one person, but a modern apartment can make the budget tight; do not decide from a static rent table. Your affordability depends on current comparable listings, your net pay, and lease terms.\n\nPlease set a monthly rent ceiling and send three to five live comparable listings (or agent quotes) for the districts you would accept—especially Taipa and newer NAPE/ZAPE stock. For each, check the actual rent, size and condition, management fees, furnished status, utilities, deposit, agency fee, lease length, and whether the unit is genuinely available.\n\nThen compare the remaining income against groceries, transport, utilities, phone, and savings. If current modern options exceed your ceiling, broaden the search to newer peninsula buildings before accepting a lower-cost district. Do not assume a Zhuhai commute is a simple substitute: its legality and border practicality need separate checking.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "I'm a US citizen. Can I just fly into Macau and stay for a month? Do I need a visa? Also, can I work remotely from there on a tourist stay?",
+    "expected": "Load visas.md. Confirm that a US passport is listed for a maximum 30-day stay, distinguish that from a calendar month, state the 90-day passport-validity requirement, and link the official gov.mo Immigration page. Treat remote-work authorization as a separate, fact-specific immigration or employment question requiring official confirmation rather than asserting a legal conclusion.",
+    "actual": "For a US passport holder, the cited Macau guidance lists visa-free entry for up to 30 days, provided the passport remains valid for at least 90 days beyond the intended stay. Treat 30 days as the legal limit, not automatically as a calendar month; confirm the dates on your entry record. Macau rules are separate from Hong Kong and mainland China rules.\n\nCheck the current official Immigration information before booking or travelling: https://www.gov.mo/en/services/ps-1474/ps-1474b/\n\nRemote work is a separate, fact-specific question from visitor entry. A tourist stay does not by itself establish permission to work, while employment-linked stays require the appropriate permit and employer process. Whether work for a foreign employer from Macau is allowed can depend on the activity, employer relationship, duration, and the authorities' interpretation. Ask Macau Immigration for written or direct confirmation for your exact arrangement; do not rely on forum advice or assume visa-free entry authorizes it.",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]

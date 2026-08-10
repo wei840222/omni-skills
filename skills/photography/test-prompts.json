@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm shooting portraits outdoors in harsh midday sun. My photos look flat with harsh shadows on faces. What settings and techniques should I use?",
+    "expected": "Should recommend using open shade or backlighting, specific aperture/shutter/ISO settings, fill flash technique, and exposure compensation. Should address the specific problem of harsh shadows.",
+    "actual": "For harsh midday portraits, start by moving the subject into open shade or place the sun behind them and add gentle fill with a reflector or flash. Use a moderate portrait aperture such as f/2.8 to f/4, choose a shutter speed that prevents subject motion, and set ISO only as high as needed. Check the histogram and highlight warnings, then use exposure compensation or flash compensation to protect bright skin and background detail. Confirm the final settings against your camera and flash manuals because sync speed and stabilization vary by model.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "My night photos are all blurry and noisy. I'm using a Sony A7III with a 50mm f/1.8 lens. How do I fix this?",
+    "expected": "Should separate motion blur from camera shake, choose a shutter speed appropriate to the scene, select a usable aperture and ISO, verify A7III stabilization capability from its manual, and suggest denoise only after exposure is improved.",
+    "actual": "First separate motion blur from camera shake: inspect whether the subject is streaked or the whole frame is soft. For a 50mm lens, select a shutter speed that matches the subject motion and handholding conditions; use a tripod for static scenes when the required exposure remains long. Open the f/1.8 lens when the depth of field suits the scene, then raise ISO only enough to support the selected shutter speed. Check the A7III manual for stabilization and ISO behavior rather than assuming a universal compensation value. Improve exposure before relying on denoise, then compare the denoised result at the intended output size.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "What's the best way to back up my wedding photography files? I have about 2TB of RAW files.",
+    "expected": "Should recommend multiple copies across more than one medium, a separately located copy, restore testing, stable naming, and retention choices appropriate to a 2TB wedding archive.",
+    "actual": "For a 2TB wedding archive, keep multiple copies on more than one storage medium and keep one copy in a separate location. Import into a stable structure such as YYYY/YYYY-MM-DD_EventName and use a consistent file name such as YYYYMMDD_ProjectName_0001.ext. Retain originals and selected exports according to your storage and delivery obligations. After each backup cycle, test-restoring a sample from each destination; periodic restore tests are more useful than assuming a backup is usable. Choose storage capacity and offsite service based on current cost, privacy, and recovery-time needs.",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]

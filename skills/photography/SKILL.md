@@ -1,122 +1,167 @@
 ---
-name: Photography
-slug: photography
-version: 1.0.0
-description: Camera settings, composition, lighting, editing workflow, and genre-specific techniques.
-homepage: https://clawic.com/skills/photography
+name: photography
+description: Advise on camera settings, exposure, focus, composition, lighting, flash, RAW editing, and genre-specific workflows. Use when the user wants to plan a photo, diagnose an image problem, choose camera settings, edit a photo, or organize photo backups — including phone photography. This advisory skill does not create or persist user state.
 metadata:
-  category: creative
-  skills:
-  - photography
-  - camera
-  - lighting
-  - editing
-  - composition
-  clawdbot:
-    emoji: 📷
-    displayName: Photography
+  version: "1.0.0"
+  openclaw: '{"emoji":"📷"}'
 ---
+
+## Diagnostic Workflow
+
+When the user describes a photo problem, follow this sequence:
+
+1. **Identify the symptom**: blurry, dark, bright, noisy, wrong color, bad composition
+2. **Ask clarifying questions if needed**: camera model, lens, lighting conditions, shooting mode
+3. **Confirm the user's goal** before recommending settings (sharp action shot vs. artistic motion blur, bright and airy vs. moody and dark)
+4. **Diagnose the root cause**: use the Troubleshooting section to match symptom → cause
+5. **Provide specific settings**: give exact aperture, shutter speed, ISO values
+6. **Suggest post-processing fix if applicable**: AI denoise, WB correction, exposure adjustment
+7. **Prevent recurrence**: explain the principle so the user can self-diagnose next time
+
+If the user asks "how to photograph X" (not a problem), skip to step 5 and provide genre-specific settings from the Settings by Genre section.
+
+**Clarify ambiguous genres**: When the question spans multiple scenarios (e.g., "photograph my kid" could be indoor portraits or outdoor action), ask which scenario applies before giving settings.
+
+For activation-scope evidence and near-miss routing, read `references/trigger-evaluation.md`.
 
 ## Exposure Triangle
 
-- ISO: double ISO = double brightness, but also double noise. Stay lowest possible
-- Aperture: f/2.8 = shallow depth of field (blurry background), f/11 = everything sharp
-- Shutter: 1/focal length minimum for handheld — 50mm lens needs 1/50s or faster
-- Expose for highlights — blown highlights unrecoverable, shadows can be lifted in post
+- ISO: Raise ISO only as needed to reach the chosen shutter speed and aperture; the usable range is camera-dependent.
+- Aperture: Choose aperture for the desired depth of field, then check the lens and sensor behavior at that setting.
+- Shutter: Start from a shutter speed appropriate to subject motion and handholding; confirm stabilization capability in the camera manual before relying on it.
+- Exposure: Use the histogram and highlight warnings to preserve important highlights; scene intent and camera dynamic range affect the final exposure choice.
 
-## Focus Fundamentals
+## Focus
 
-- Focus on eyes for portraits — always the nearest eye
-- Back-button focus separates focus from shutter — press once to lock, recompose freely
-- Single-point AF for precision, tracking AF for movement
-- Hyperfocal distance for landscapes: focus 1/3 into scene, everything sharp at f/8-11
-- When in doubt, stop down — f/8 is sharper than wide open for most lenses
+- Focus on the nearest eye for portraits. Enable real-time eye-AF on mirrorless bodies — it tracks humans, animals, and vehicles.
+- Use AF-ON (back-button focus) to separate focus from shutter. Single-point AF for precision, wide-area tracking for movement.
+- Configure AF coverage, tracking, and subject-recognition features according to the camera manual and scene.
+- For landscapes, use magnification or focus peaking where available to confirm the chosen focus point.
+- Compare depth of field and sharpness at the selected aperture; use focus stacking when it serves the scene.
 
-## Composition Beyond Rule of Thirds
+## Troubleshooting
 
-- Leading lines pull eyes into frame — roads, fences, rivers toward subject
-- Frame within frame: doorways, windows, arches add depth
-- Negative space: empty area emphasizes subject — don't fill every corner
-- Odd numbers: 3 or 5 subjects more pleasing than 2 or 4
-- Break rules intentionally: centered subject with symmetry works
+**Problem: Blurry photos**
+- If motion blur (subject moving) → increase shutter speed to 1/500s+ for action, 1/250s for people moving
+- If camera shake (entire image soft) → use 1/focal-length rule minimum, enable IBIS, or use tripod
+- If out of focus → check focus point placement, switch to single-point AF for precision, use back-button focus
+
+**Problem: Too dark or too bright**
+- If underexposed → check histogram (not LCD), increase ISO or open aperture, use ETTR technique
+- If overexposed → expose for highlights, use -1 to -2 EV compensation for bright scenes, bracket exposures
+- If high contrast scene → use graduated ND filter, bracket for HDR, or expose for highlights and lift shadows in post
+
+**Problem: Harsh shadows or flat lighting**
+- If harsh midday sun → move subject to open shade, use as backlight, or add fill flash at -2 EV
+- If flat/overcast → add directional light with flash, or use reflector to add dimension
+- If backlighting face → use fill flash or reflector to illuminate subject
+
+**Problem: Noisy/grainy images**
+- If shot at high ISO → consider the denoise capability available in the editing application
+- If underexposed and lifted → expose brighter next time (ETTR), noise is worse in shadows
+- If old camera with poor high-ISO performance → stay at base ISO, use tripod or flash
+
+**Problem: Colors look wrong**
+- If wrong white balance → set custom WB or shoot RAW and adjust in post
+- If mixed lighting → set WB to dominant source, correct rest in post with local adjustments
+- If colors look different on different screens → calibrate monitor, export with correct color space (sRGB for web)
+
+## Composition Gotchas
+
+- Level the horizon — it's the first thing viewers notice is wrong. Enable grid overlay.
+- Leading lines, frame-within-frame, and negative space work. Odd subject counts (3, 5) read better than even.
+- Color/tonal contrast draws the eye without any compositional rule — warm subject on cool background.
+- Take one step left or right to clear busy backgrounds before recomposing.
 
 ## Natural Light
 
-- Golden hour: 1 hour after sunrise, 1 hour before sunset — warm, soft, directional
-- Blue hour: 20-30 minutes after sunset — even, moody, no harsh shadows
-- Overcast is giant softbox — ideal for portraits, no squinting
-- Midday sun: use as backlight or find open shade — avoid direct overhead
-- Window light: subject facing window, not camera — soft directional light
+- Golden hour: warm, soft, directional light.
+- Blue hour: lower-light conditions around twilight.
+- Overcast = giant softbox — ideal for portraits.
+- Midday sun: backlight or open shade, never direct overhead.
+- Window light: subject faces the window, not the camera.
+- Mixed lighting: set WB to dominant source, correct the rest in post.
 
-## Flash Basics
+## Flash
 
-- Bounce off ceiling/wall — direct flash is harsh and flat
-- Flash exposure compensation: start at -1 to -2 stops — blend with ambient
-- High-speed sync for daylight fill — allows wide aperture outdoors
-- Off-camera flash: 45 degrees from subject, elevated — creates dimension
-- Catch light in eyes: small light source close beats large source far
+- Bounce off ceiling/wall — direct flash is harsh and flat.
+- Flash exposure compensation: start at -1 to -2 stops to blend with ambient.
+- Consult the camera and flash manuals for sync-speed and high-speed-sync behavior before using wide apertures in daylight.
+- Off-camera flash: 45° from subject, elevated — creates dimension.
+- TTL works for most situations; switch to manual power when background exposure must stay constant across recompositions.
 
-## Common Mistakes
+## Settings by Genre
 
-- Horizon not level — first thing viewers notice is wrong
-- Cutting at joints: ankles, wrists, knees — crop mid-limb or full body
-- Busy backgrounds: poles from heads, distracting elements
-- Chimping constantly — looking at screen after every shot instead of moments
-- Not checking histogram — LCD brightness deceives, histogram doesn't lie
+**Portraits:** f/1.8–2.8 (f/4 for groups), eye-AF, +1/3 EV for skin.
 
-## Camera Settings by Genre
+**Landscapes:** f/8–11, tripod + 2s timer (mirror lock only for DSLRs), bracket for HDR or use graduated ND.
 
-**Portraits:**
-- Aperture priority, f/1.8-2.8
-- Single-point AF on eye
-- +1/3 exposure for skin brightness
+**Sports/Action:** 1/500s minimum (1/1000s+ for motorsport), continuous AF + subject recognition, burst at max fps.
 
-**Landscapes:**
-- Aperture priority, f/8-11
-- Tripod, mirror lock, remote/timer
-- Bracket exposures for HDR
+**Street:** f/5.6–8, zone focus at 2–3m, silent/electronic shutter for discretion.
 
-**Sports/Action:**
-- Shutter priority, 1/500s minimum
-- Continuous AF tracking
-- Burst mode, anticipate peak action
+## RAW Editing Workflow
 
-**Street:**
-- Aperture priority, f/5.6-8
-- Zone focus preset at 3m
-- Shoot from hip if needed
+1. Import with keywords, ratings, color labels — not later when context is gone.
+2. Cull: reject blur, blink, miss immediately.
+3. Global: exposure, WB, contrast, highlight/shadow recovery.
+4. Local: dodge/burn, graduated/radial filters, subject/sky masks.
+5. Color grade: consistent look across set.
+6. Export: sRGB for web, AdobeRGB for print. Sharpen per output size.
 
-## RAW vs JPEG
+- Use a calibrated display when color-critical work requires it, and verify the chosen editing application's export settings.
+- Denoise can improve high-ISO images; compare the result at the intended output size.
+- Sharpen last, after resize. If you notice the edit, you went too far.
 
-- Shoot RAW for editing flexibility — recovers 2-3 stops of exposure
-- JPEG for volume without editing — events with hundreds of shots
-- RAW + JPEG: preview immediately, edit RAW later
-- RAW files need processing — they look flat by design, not a problem
+## Gear
 
-## Editing Workflow
+- Lenses > bodies. A great lens on an older body beats a kit lens on the latest body.
+- 50mm f/1.8: cheap, sharp, teaches DOF and composition. Best first prime.
+- Carbon fiber tripod saves weight; flimsy tripod is worse than none.
+- One good light > three bad ones. Start with a single speedlight or LED.
 
-1. Cull ruthlessly: delete obvious failures first
-2. Global adjustments: exposure, white balance, contrast
-3. Local adjustments: dodge/burn, graduated filters
-4. Color grading: consistent look across set
-5. Export: sRGB for web, AdobeRGB for print
+## Backup
 
-- Edit on calibrated monitor — laptop screens lie about color
-- Sharpening last, after resize — oversharpening destroys detail
-- Less is more: if you notice the edit, you went too far
+Maintain multiple copies on more than one storage medium, keep one copy in a separate location, and test restores periodically.
 
-## Gear Reality
+- Folder: `YYYY/YYYY-MM-DD_EventName`
+- Rename on import: `YYYYMMDD_ProjectName_0001.ext`
+- Keep originals and selected exports according to the user's retention and storage constraints.
+- Test-restore a random sample periodically to confirm integrity.
 
-- Best camera is the one you have — phone beats DSLR at home
-- Lenses matter more than bodies — invest in glass first
-- 50mm f/1.8 is best first prime — cheap, sharp, teaches composition
-- Tripod: don't cheap out — flimsy tripod is worse than none
-- One good light > three bad ones — start with single source
+## Smartphone Photography
 
-## File Management
+- Start with the phone's default camera application and its documented scene modes.
+- For manual control, select an application that supports the controls available on the device.
+- Check the device and application documentation for RAW support and output format.
+- Test portrait or background-blur modes on fine detail and complex edges before relying on the result.
 
-- Backup same day: 3-2-1 rule (3 copies, 2 media types, 1 offsite)
-- Folder structure: YYYY/YYYY-MM-DD_EventName
-- Rename files: YYYYMMDD_ProjectName_0001.ext
-- Keywords and ratings during import — not later when you forget context
-- Archive RAW files forever, even rejected ones — storage is cheap, moments aren't
+## Best Practices
+
+**Review histograms periodically** — checking the LCD after every shot means you miss the next moment. Use histograms to confirm exposure, not every-frame chimping.
+
+**Use adequate DOF for groups** — f/4 or narrower for groups of 3+ people ensures all faces are sharp.
+
+**Stay within diffraction limits** — f/11 (APS-C) or f/16 (full frame) is the practical aperture ceiling. Use focus stacking when more DOF is needed.
+
+**Check histogram for exposure** — LCD brightness deceives, especially in bright sunlight. Verify highlight clipping on the right side of the histogram.
+
+**Bounce flash for natural light** — bouncing off ceiling/wall at -1 to -2 EV blends with ambient and creates dimension.
+
+**Crop mid-limb or show full body** — cutting at ankles, wrists, or knees looks awkward. Frame cleanly.
+
+**Correct lens distortion in post** — wide-angle lenses bend straight lines at edges. Keep critical lines away from frame edges or correct in post.
+
+**Use phone portrait mode for simple subjects** — computational bokeh works best with simple subjects against clean backgrounds. For fine hair, glasses, and complex edges, use the regular camera mode.
+
+## Validation Checklist
+
+After recommending settings, verify:
+
+- [ ] Shutter speed is fast enough for the subject motion (1/500s+ for action, 1/250s for people moving)
+- [ ] Aperture gives sufficient DOF for the subject (f/4+ for groups, f/1.8–2.8 for single portraits)
+- [ ] ISO is as low as possible while maintaining shutter speed (base ISO or dual native ISO)
+- [ ] Exposure is set for highlights (check histogram, not LCD)
+- [ ] Focus mode matches subject behavior (single-point for static, tracking for moving)
+- [ ] White balance matches dominant light source
+- [ ] Backup strategy is in place before shooting (3-2-1-1-0 rule)

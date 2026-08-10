@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to deploy my Kubernetes application with zero downtime. What strategy should I use and what should I check before deploying?",
+    "expected": "Recommend a strategy matched to risk/resources and concrete zero-downtime checks.",
+    "actual": "Choose rolling deployment when capacity is tight and rollback can be version-based; use blue-green when parallel capacity and instant traffic cutover are worth the cost; use canary when progressive traffic routing and observability are available. Before deployment, verify CI tests, target configuration and secrets, artifact provenance, a tested rollback path, backwards-compatible database changes, readiness/liveness behavior, resource limits, graceful shutdown, and a PreStop/drain period. Keep old and new application versions compatible through the deployment window, and route traffic only after readiness succeeds.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "How do I secure my GitHub Actions CI/CD pipeline? I'm worried about supply chain attacks and credential exposure.",
+    "expected": "Cover SHA pinning, least privilege, OIDC, injection prevention, workflow review, and artifact integrity.",
+    "actual": "Set workflow permissions to read-only by default and grant each job only the scopes it needs. For AWS OIDC, grant `id-token: write` and use short-lived federation rather than static cloud keys. Pin third-party actions to full commit SHAs and automate reviewed updates; protect workflow files with CODEOWNERS; use `pull_request` rather than privileged PR-head execution for forks; pass user-controlled values through environment variables. Build provenance, SBOMs, and signed artifacts, then verify expected identity and provenance before deployment. Keep secrets in a secret manager and use protected GitHub Environments for production approvals.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "My database migration is blocking writes for 10 minutes on a table with 5 million rows. How do I fix this?",
+    "expected": "Identify actual lock blockers before intervention and use backwards-compatible online migration practices.",
+    "actual": "First identify the waiting migration and its real blockers with `pg_blocking_pids()`; inspect the returned sessions, query, owner, and business impact. Do not cancel an arbitrary active query. Obtain authorization before cancelling a selected blocker, and terminate only after a failed cancellation and owner approval. Then redesign the change with expand-contract: add compatible schema first, backfill in bounded batches, migrate readers/writers, and remove the old shape later. Evaluate online tooling such as pg_repack where appropriate, test on production-scale data, schedule low-traffic work, and retain a rollback or stop procedure.",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]

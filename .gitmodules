@@ -1,0 +1,20 @@
+[submodule ".agents/skills/darwin-skill"]
+	path = .agents/skills/darwin-skill
+	url = https://github.com/alchaincyf/darwin-skill.git
+	branch = master
+[submodule ".agents/skills/freud-skill"]
+	path = .agents/skills/freud-skill
+	url = https://github.com/alchaincyf/freud-skill.git
+	branch = master
+[submodule ".agents/skills/agent-skills"]
+	path = .agents/skills/agent-skills
+	url = https://github.com/addyosmani/agent-skills.git
+	branch = main
+[submodule ".agents/skills/mattpocock-skills"]
+	path = .agents/skills/mattpocock-skills
+	url = https://github.com/mattpocock/skills.git
+	branch = main
+[submodule ".agents/skills/anysearch-skill"]
+	path = .agents/skills/anysearch-skill
+	url = https://github.com/anysearch-ai/anysearch-skill.git
+	branch = main

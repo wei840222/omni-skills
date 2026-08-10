@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a short casual greeting in Galician to a close friend, asking how their week is going.",
+    "expected": "A concise, natural Galician greeting that uses familiar address consistently and does not add unsupported dialect markers.",
+    "actual": "Ola! Como che vai a semana?",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "Translate 'How are you doing today? The weather is really nice' into neutral standard Galician.",
+    "expected": "A faithful, neutral standard-Galician translation with coherent grammar and no unrequested code-switching.",
+    "actual": "Como estás hoxe? O tempo está moi agradable.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "Edit this message for a formal recipient in Galician: 'Ola, podes mandarme o informe hoxe? Grazas!'. Explain any change to the form of address.",
+    "expected": "A polite Galician revision using a consistent courtesy form and a concise explanation of the address-form change.",
+    "actual": "Bo día, podería enviarme o informe hoxe? Grazas!\n\nCambiei «podes» por «podería» para empregar a forma de cortesía en terceira persoa, correspondente ao tratamento de «vostede».",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]

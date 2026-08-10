@@ -1,100 +1,83 @@
 ---
-name: Aave
-slug: aave
-version: 1.0.0
-description: Assist with Aave lending, borrowing, liquidations, and risk management across chains.
-homepage: https://clawic.com/skills/aave
+name: aave
+description: Use when analyzing or planning an Aave supply, borrow, withdrawal, liquidation, E-Mode, GHO, or market-specific risk position, including a Health Factor question where Aave is implicit.
 metadata:
-  clawdbot:
-    emoji: 👻
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Aave
+  version: "1.0.0"
+  openclaw: '{"emoji":"👻"}'
 ---
 
-## Core Concepts
-- Supply assets to earn interest — deposit, receive aTokens representing position
-- Borrow against collateral — must supply first, then borrow up to limit
-- aTokens accrue interest — balance grows over time automatically
-- Health Factor determines liquidation risk — below 1.0 = liquidation
-- Variable and stable rates available — stable costs more but predictable
+## State location
 
-## Health Factor (Critical)
-- Health Factor = (Collateral × Liquidation Threshold) / Borrowed
-- Above 1.0 is safe — higher is safer
-- At 1.0, liquidation begins — partial position closed
-- Monitor actively during volatility — prices move, health factor changes
-- Add collateral or repay debt to improve — before liquidation happens
+Aave is a stateless knowledge skill. Analyze user-provided information and facts read from the intended public market; the wallet owner retains transaction signing and wallet control.
 
-## Supplying (Lending)
-- Deposit supported assets — ETH, stablecoins, various tokens
-- Receive aTokens 1:1 — aETH, aUSDC, etc.
-- Interest accrues in real-time — aToken balance grows
-- Can withdraw anytime if liquidity available — high utilization may block withdrawals
-- Enable as collateral to borrow against — optional per asset
+## Operating principle
 
-## Borrowing
-- Must have collateral supplied first — can't borrow without
-- Borrow up to LTV (Loan-to-Value) ratio — varies by asset, usually 70-85%
-- Interest accrues on borrowed amount — must repay more than borrowed
-- Variable rate changes with market — stable rate fixed but higher
-- Debt tokens represent borrowing — not transferable
+Treat every market configuration, displayed rate, and position value as time-sensitive. Identify the exact chain, Aave market, supplied and borrowed assets, collateral setting, and user goal before interpreting a position or suggesting a next step.
 
-## Liquidations
-- Triggered when Health Factor < 1 — automated, permissionless
-- Liquidators repay portion of debt — receive collateral + bonus
-- Liquidation penalty 5-10% — you lose this bonus amount
-- Up to 50% of debt liquidated at once — may need multiple liquidations
-- Prevention: monitor and manage HF actively
+Load [current-market-verification.md](references/current-market-verification.md) when the request needs a live market, contract address, protocol-version detail, GHO, E-Mode, liquidation, permit, or Umbrella fact.
 
-## Multi-Chain Deployment
-- Aave V3 on Ethereum, Polygon, Arbitrum, Optimism, Avalanche, more
-- Same interface, different markets — assets and rates differ
-- Bridged assets may differ — USDC vs USDC.e
-- Portals enable cross-chain — supply on one chain, borrow on another
+## Evidence foundation
 
-## E-Mode (Efficiency Mode)
-- Higher LTV for correlated assets — stablecoins to stablecoins, ETH to stETH
-- Up to 97% LTV in E-Mode — vs ~80% normally
-- Only borrow assets in same E-Mode category — restricted but efficient
-- Higher liquidation risk — narrow margin, monitor closely
+- **Deployment identity:** resolve a chain ID, market address, and token contract for every position; tickers and interface labels are secondary identifiers.
+- **Live position:** gather current collateral flags, debt, and eligibility data; a dashboard starts discovery, while a current position snapshot supports risk characterization.
+- **Reproducible addresses:** pin a versioned Aave Address Book release when the analysis needs stable addresses; use its `latest` manifest for live discovery.
+- **Authorizations:** check permit support on the selected reserve and execution plan before presenting an approval and operation as one wallet flow.
 
-## GHO Stablecoin
-- Aave's native stablecoin — minted by borrowing
-- Backed by Aave collateral — overcollateralized
-- Interest paid to Aave DAO — different from regular borrowing
-- stkAAVE holders get discount — reduced borrow rate
+## Decision gates
 
-## AAVE Token
-- Governance token — vote on proposals
-- Staking in Safety Module — earn rewards, risk of slashing in shortfall
-- stkAAVE for staking — represents staked position
-- 10-day cooldown to unstake — plus 2-day unstake window
+- **Known deployment and position:** continue with quantified analysis after resolving the chain ID, market address and version, token addresses, and relevant user position state. When a required input is unavailable, open with the exact evidence request and keep the result qualitative.
+- **Position-changing plan:** before comparing a withdrawal, borrow, repay, collateral, swap, or cross-chain option, obtain its current simulation or preview and the reserve status. When a simulation is unavailable, name that analysis boundary and present conditional options.
+- **Liquidation exposure:** when the live Health Factor is near or below `1`, organize the response around current position data and modelled repayment, added-collateral, or reduced-exposure paths before discussing a withdrawal or transfer.
 
-## Risk Management
-- Don't max out borrowing — leave buffer for price movements
-- Diversify collateral — single asset concentration increases risk
-- Use stablecoins for lower volatility — stable collateral = stable HF
-- Set alerts for Health Factor — services like DefiSaver
-- Consider automation — automatic deleveraging tools
+## Core concepts
 
-## Common Mistakes
-- Borrowing at max LTV — immediate liquidation risk
-- Ignoring variable rate changes — rates can spike quickly
-- Not monitoring during volatility — HF changes fast with price
-- Supplying without enabling collateral — can't borrow if not enabled
-- Forgetting about interest — debt grows over time
+- **Supply:** deposit a supported asset and receive an interest-bearing position token.
+- **Collateral:** enable an eligible supplied asset before borrowing against it; eligibility is configured per reserve and market.
+- **Borrow:** debt accrues interest under the selected market's current rate model.
+- **Health Factor (HF):** the protocol's current measure of liquidation exposure; `HF < 1` signals liquidation eligibility.
+- **Market configuration:** loan-to-value, liquidation threshold, liquidation bonus, borrow modes, caps, and available reserves vary by market and may change through governance.
 
-## Gas Considerations
-- Approvals needed for each new asset — first-time gas cost
-- Supply and borrow are separate transactions — plan gas for both
-- L2 deployments much cheaper — Arbitrum, Optimism save significantly
-- Batch operations where possible — some aggregators help
+## Position review workflow
 
-## Integrations
-- DefiSaver for automation — auto-repay, auto-leverage
-- Instadapp for advanced management — DeFi dashboard
-- 1inch, Paraswap for swaps — swap and supply in one transaction
-- Flash loans for advanced users — borrow without collateral, repay in same tx
+1. Identify the network and exact Aave market. Keep bridged and native asset variants distinct.
+2. Collect the current `chainId`, market address, supplied assets, collateral-enabled flags, debt assets, HF, reserve state, and user-specific supply/borrow/withdraw eligibility from the intended market.
+3. Validate the collected values against the selected market and state which missing input prevents a conclusion.
+4. Report the result in this order: scope and evidence, current HF, material price/rate dependencies, withdrawal constraints, liquidation consequence, and user-controlled options with their assumptions.
+5. Leave execution to the user's wallet after they review the current transaction details.
+
+## Health Factor and liquidations
+
+- HF changes with collateral and debt values, accrued interest, reserve parameters, and oracle prices.
+- A position with `HF < 1` becomes eligible for permissionless liquidation according to the current market's close-factor and liquidation-bonus rules. The outcome can be partial or complete, depending on the version, position, and protocol conditions.
+- A liquidation repays eligible debt and transfers collateral under the market's configured incentive; the amount is market- and position-specific.
+- For a position near its threshold, use current values and show how each proposed action changes the relevant exposure.
+
+## Supplying and borrowing
+
+- Confirm the reserve is active, unfrozen, and unpaused; check user-specific supply, borrow, and withdrawal eligibility before modeling a borrow or withdrawal.
+- A supplied asset can remain non-collateral by choice; clarify that distinction before explaining borrowing capacity.
+- Review the current rate data and implementation for the chosen reserve. Rate availability and pricing vary by market and protocol version.
+- Model approvals, supply, borrow, repay, withdrawal, and collateral toggles as distinct actions. When a reserve supports a verified permit flow, inspect the permit's spender, amount, deadline, chain, and verifying contract before treating it as a bundled action.
+
+## Market-specific features
+
+- **E-Mode:** use the active market's category membership and risk parameters. An asset can belong to more than one category, and the selected category sets its own asset permissions, LTV, liquidation threshold, and liquidation bonus.
+- **GHO:** verify whether the selected market supports GHO, its current facilitator capacity, borrowing configuration, and applicable discount conditions. In the Aave V3 Ethereum Pool, a facilitator mints GHO for the position.
+- **AAVE and protocol-risk staking:** distinguish governance-token holdings from protocol positions. Aave currently documents Umbrella as replacing the legacy Safety Module; resolve its asset-, network-, reward-, cooldown-, and slashing-specific terms from current official sources.
+- **Cross-market activity:** treat each network and market as separate. GHO's official CCIP transfer path moves the token; analyze the source-market collateral position and debt as separate changes.
+
+## Risk framing
+
+- Set a buffer from the user's own volatility and repayment assumptions, then compare it with the displayed borrowing capacity.
+- Explain concentration risk when collateral and debt values move together or when a bridged asset has different liquidity or oracle behavior.
+- Treat automated deleveraging, swap, and flash-loan flows as advanced actions: inspect their current permissions, fees, slippage constraints, and failure behavior before use.
+
+## Transaction and gas considerations
+
+- Read the wallet's exact chain, token contract, spender, allowance, transaction simulation, and gas estimate before authorizing an action.
+- Distinguish token approvals from supply, borrow, repay, withdrawal, and collateral-setting transactions.
+- Use the intended market's interface and current network fees; fee levels and interface capabilities differ across networks.
+
+## Package evaluation records
+
+For package-evaluation provenance, read `references/darwin-evaluation.md` and `test-prompts.json`. These are audit records, not market-analysis inputs.

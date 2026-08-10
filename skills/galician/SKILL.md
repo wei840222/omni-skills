@@ -1,85 +1,55 @@
 ---
-name: Galician
-slug: galician
-version: 1.0.0
-description: Write Galician that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/galician
+name: galician
+description: Write, translate, edit, and linguistically review text in natural Galician (galego). Use when the user needs Galician-language copy, a Galician translation, or a Galician grammar, vocabulary, register, or orthography review.
 metadata:
-  clawdbot:
-    emoji: 🌐
-    displayName: Galician
+  version: "1.0.1"
+  openclaw: '{"emoji":"🌐"}'
 ---
 
-## The Real Problem
+## Scope and state
 
-AI Galician is technically correct but sounds off. Too formal. Too literary. Natives write more casually, with warmth. Match that.
+This is a language-only skill. It creates no persistent state and writes no files unless the user separately requests an artifact.
 
-## Formality Default
+## Default workflow
 
-Default register is too high. Casual Galician is warm and melodic. Unless explicitly formal: lean casual. "Ola" not "Bo día". "Si" not "Si, por suposto".
+1. Identify the task: write, translate, edit, or explain a linguistic choice. Preserve names, quotations, technical terms, and any requested format.
+2. Identify the requested variety and register. Honor an explicitly requested regional or reintegrationist spelling. Otherwise, write clear standard Galician; use the source text and audience to set the register.
+3. Translate or revise for meaning first, then make grammar, spelling, and vocabulary internally consistent. For uncertain normative choices, read `references/authorities.md` and use the linked Real Academia Galega resources.
+4. Deliver only the requested text by default. Add a brief note on material choices when the user asks for an explanation, review, or alternatives.
 
-## Ti vs Vostede
+If the intended audience, register, or variety would materially change the result, ask one focused question. When a default is sufficient, use neutral standard Galician rather than adding invented regional or colloquial markers.
 
-Distinction:
-- Vostede: formal, elderly, respect
-- Ti: friends, peers, casual
-- Galician casual uses ti widely
-- Vostede in formal contexts only
+## Register and address
 
-## Galician vs Spanish vs Portuguese
+- Derive formality from the audience, purpose, and source text; a greeting such as `Ola` or `Bo día` can be appropriate in different contexts.
+- Use `ti` when the context establishes familiar address. Use `vostede` for courtesy address or when the user requests formal treatment. Keep the chosen address form consistent.
+- Preserve source-language code-switching only when the user requests it or it is meaningful to the source. Otherwise, produce coherent Galician rather than adding Spanish words or fillers for effect.
 
-Galician is distinct:
-- Not Spanish, not Portuguese
-- Own vocabulary and patterns
-- "Grazas" not "Gracias"
-- Don't mix with Spanish
+## Accuracy checks
 
-## Particles & Softeners
+Before sending text, check:
 
-These make Galician natural:
-- Pois: "well", "so"
-- Non si: tag question
-- Home/Muller: casual address
-- Logo: "then"
+1. **Meaning:** The translation or edit preserves the source intent, constraints, and names.
+2. **Agreement:** Articles, nouns, adjectives, pronouns, and verbs agree in gender, number, and person.
+3. **Galician choices:** Prefer established Galician spelling and vocabulary when standard Galician is requested. For example, use `grazas`; use `rapaz` and `rapaza` when those meanings fit.
+4. **Consistency:** Keep the chosen orthography, address form, and register stable throughout the output.
+5. **Audience fit:** Read the result as the target recipient would; remove unexplained formality, slang, or dialect signals that the request does not support.
 
-## Fillers & Flow
+## Common risks
 
-Real Galician has fillers:
-- Pois, logo, ben
-- Sabes, entendes
-- Ou sexa, vamos
-- Mira, escoita
+| Situation | Reliable approach |
+| --- | --- |
+| Formality is unspecified | Use neutral, clear standard Galician and let the content determine the greeting and tone. |
+| `ti` or `vostede` is unclear | Ask who the recipient is when the distinction changes the text; otherwise keep the source’s address form. |
+| A word may be Spanish, Portuguese, regional, or nonstandard | Check the RAG dictionary through `references/authorities.md`; preserve an explicitly requested variety. |
+| An authority is unavailable or leaves a form unresolved | State that the normative check is unresolved, preserve the supplied form when possible, and ask a focused question before making a meaning-changing substitution. |
+| The user asks for reintegrationist spelling | Follow the user’s stated convention and keep it consistent; ask for a model text when the convention is not specified. |
+| The source mixes languages | Retain meaningful source code-switching or explain a standard-Galician normalization when requested. |
 
-## Expressiveness
+## Review output
 
-Don't pick the safe word:
-- Ben → Xenial, Estupendo, Dabuti
-- Mal → Fatal, Moi mal
-- Moito → Abondo, Unha chea
+For a language review, return:
 
-## Common Expressions
-
-Natural expressions:
-- Vale, Ben, Dabondo
-- Non pasa nada, Tranquilo
-- De verdade?, En serio?, Que?
-- Xenial!, Estupendo!, Moi ben!
-
-## Reactions
-
-React naturally:
-- De verdade?, En serio?, Que dis?
-- Carai!, Carallo!, Miña nai!
-- Xenial!, Dabuti!, Moi ben!
-- Jajaja in text
-
-## Reintegrationism
-
-Some use Portuguese-aligned spelling:
-- Reintegrationist vs normative
-- Most use normative (RAG standard)
-- Stay consistent
-
-## The "Native Test"
-
-Before sending: would a Galician speaker screenshot this as "AI-generated"? If yes—too formal, sounds Spanish, too literary. Add Galician warmth.
+1. the corrected Galician text;
+2. the material corrections, grouped by grammar, vocabulary, spelling, or register; and
+3. one alternative only when it represents a genuine register or variety choice.

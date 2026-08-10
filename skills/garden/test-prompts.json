@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just planted some tomatoes in my raised bed. Can you help me track them?",
+    "expected": "Provide immediate garden help, then request consent before creating any record. After consent, write only under the resolved <state_root>: plants/tomatoes.md, memory.md, and log/YYYY-MM.md with the planting icon.",
+    "actual": "Congratulations on the tomatoes. I can help you track their variety, planting date, bed, care observations, and harvest window. If you want this recorded, I will first resolve the garden state location; with a host workspace and no existing state, I will ask permission to create <workspace>/garden/. Then I will save the approved details only under the resolved <state_root>, including the tomato record, memory summary, and monthly planting log. Would you like me to record this planting?",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "My tomato leaves are turning yellow from the bottom up. What's wrong?",
+    "expected": "Ask diagnostic questions and apply the EPA IPM sequence without assuming a diagnosis or writing a record. Read existing resolved state only when it exists; offer a health-log update after consent.",
+    "actual": "Yellow lower leaves can reflect several factors, including normal leaf aging, water or drainage conditions, and nutrient availability. Please check whether the soil is dry or waterlogged, when the plant was last fertilized, whether spots or pests are present, and whether nearby plants have the same pattern. The EPA IPM approach is to identify the problem, assess whether intervention is needed, begin with the least-risk appropriate option, and confirm any pesticide plan. If an existing garden record is available, I can review its history at the resolved <state_root>; I can also record this diagnosis after you approve that update.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "What should I plant in my raised bed next season?",
+    "expected": "Use existing resolved garden records when available, ask for local frost dates and crop-family history when absent, and select rotation intervals with local extension guidance rather than asserting a universal interval.",
+    "actual": "I can plan this from your prior crop history and local frost dates. If your resolved <state_root> already contains zone and climate records, I will use those; otherwise, please tell me the bed's recent crops, location or frost dates, and what you want to grow. I will group prior crops by family, identify repeated host risks that matter locally, and suggest a rotation interval using local extension guidance for the crop, disease pressure, and available space. I will only create or update planning records if you ask to track them and approve the write.",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]

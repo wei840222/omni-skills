@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I ran a t-test and got p = 0.03. Is this significant?",
+    "expected": "Explain model-conditional p-value evidence without dichotomous claims; discuss effect size, interval, design, and assumptions.",
+    "actual": "A p-value of 0.03 is evidence that the observed data are relatively incompatible with the specified t-test model and its null hypothesis; it is not the probability that the null is true or proof that the effect matters. Report the estimated mean difference with a confidence interval, each group size, the design and missing-data handling, and the model diagnostics. Check whether the independent-observation and outcome-model assumptions are plausible; if variance differs materially, use a Welch or robust analysis and report that sensitivity. Interpret the estimated magnitude and interval against a practically important effect, not only a threshold.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 2,
+    "prompt": "I have 3 groups and want to compare their means. What test should I use?",
+    "expected": "Identify estimand and design first; recommend a model with appropriate diagnostics, contrasts, and multiplicity handling rather than a fixed cutoff.",
+    "actual": "First identify whether the groups are independent or repeated, the outcome type, and the mean contrast or other estimand you need. For three independent groups with a continuous outcome, fit a regression/ANOVA model and report planned contrasts with intervals. Inspect residual patterns, unequal variance, outliers, and missingness in context; Welch or heteroscedasticity-robust methods are appropriate sensitivity options when variances or group sizes differ. If observations are repeated or clustered, use a repeated-measures or mixed-effects model instead. Define the confirmatory comparison family before post-hoc contrasts and choose a justified multiplicity or estimation-focused strategy.",
+    "pass": true,
+    "eval_mode": "full_test"
+  },
+  {
+    "id": 3,
+    "prompt": "My correlation coefficient is r = 0.8. Does this mean X causes Y?",
+    "expected": "Distinguish association from causation; discuss confounding and a stated identification strategy.",
+    "actual": "No. A correlation of 0.8 describes a strong association in the analyzed data under the chosen correlation measure; it does not establish that changing X would change Y. Inspect the scatter plot, measurement process, timing, selection, and plausible confounders, and report an interval for the association. A causal claim needs an identification strategy matched to the design, such as a randomized intervention or a defensible observational design with explicit assumptions (for example an instrument, discontinuity, or difference-in-differences). State which assumptions are unverified and perform sensitivity analysis where possible.",
+    "pass": true,
+    "eval_mode": "full_test"
+  }
+]
