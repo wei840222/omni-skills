@@ -1,121 +1,55 @@
 ---
 name: galician
-description: Write natural, human-sounding Galician (galego) that avoids AI-sounding formality. Use when the user asks to write, translate, edit, or review text in Galician, mentions Galician language or galego, or references Galicia in a linguistic context.
+description: Write, translate, edit, and linguistically review text in natural Galician (galego). Use when the user needs Galician-language copy, a Galician translation, or a Galician grammar, vocabulary, register, or orthography review.
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   openclaw: '{"emoji":"🌐"}'
 ---
 
-## The Real Problem
+## Scope and state
 
-AI-generated Galician tends to sound overly formal and literary. Native speakers write more casually, with warmth and melodic rhythm. Your goal: produce text that sounds like a real Galician speaker, not a textbook.
+This is a language-only skill. It creates no persistent state and writes no files unless the user separately requests an artifact.
 
-## Dialectal Awareness
+## Default workflow
 
-Galician has regional variation (eastern, western, central dialects). Unless the user specifies a dialect or region:
-- Default to standard normative Galician (RAG norm)
-- Keep vocabulary and pronunciation consistent
-- If the user writes in a specific dialect, match it
+1. Identify the task: write, translate, edit, or explain a linguistic choice. Preserve names, quotations, technical terms, and any requested format.
+2. Identify the requested variety and register. Honor an explicitly requested regional or reintegrationist spelling. Otherwise, write clear standard Galician; use the source text and audience to set the register.
+3. Translate or revise for meaning first, then make grammar, spelling, and vocabulary internally consistent. For uncertain normative choices, read `references/authorities.md` and use the linked Real Academia Galega resources.
+4. Deliver only the requested text by default. Add a brief note on material choices when the user asks for an explanation, review, or alternatives.
 
-## Formality Default
+If the intended audience, register, or variety would materially change the result, ask one focused question. When a default is sufficient, use neutral standard Galician rather than adding invented regional or colloquial markers.
 
-AI tends to default to formal register. Casual Galician is warm and melodic. Unless the context explicitly requires formality: lean casual. "Ola" not "Bo día". "Si" not "Si, por suposto".
+## Register and address
 
-## Ti vs Vostede
+- Derive formality from the audience, purpose, and source text; a greeting such as `Ola` or `Bo día` can be appropriate in different contexts.
+- Use `ti` when the context establishes familiar address. Use `vostede` for courtesy address or when the user requests formal treatment. Keep the chosen address form consistent.
+- Preserve source-language code-switching only when the user requests it or it is meaningful to the source. Otherwise, produce coherent Galician rather than adding Spanish words or fillers for effect.
 
-Distinction:
-- Vostede: formal, elderly, respect
-- Ti: friends, peers, casual
-- Galician casual uses ti widely
-- Vostede in formal contexts only
+## Accuracy checks
 
-## Galician vs Spanish vs Portuguese
+Before sending text, check:
 
-Galician is distinct:
-- Not Spanish, not Portuguese
-- Own vocabulary and patterns
-- "Grazas" not "Gracias"
-- Use Galician vocabulary and sentence structure
+1. **Meaning:** The translation or edit preserves the source intent, constraints, and names.
+2. **Agreement:** Articles, nouns, adjectives, pronouns, and verbs agree in gender, number, and person.
+3. **Galician choices:** Prefer established Galician spelling and vocabulary when standard Galician is requested. For example, use `grazas`; use `rapaz` and `rapaza` when those meanings fit.
+4. **Consistency:** Keep the chosen orthography, address form, and register stable throughout the output.
+5. **Audience fit:** Read the result as the target recipient would; remove unexplained formality, slang, or dialect signals that the request does not support.
 
-**Code-switching reality**: Galicians often mix Galician and Spanish in casual speech. In formal writing, use pure Galician. In casual contexts, light code-switching is natural, but lean toward Galician vocabulary.
+## Common risks
 
-## Grammar Traps
+| Situation | Reliable approach |
+| --- | --- |
+| Formality is unspecified | Use neutral, clear standard Galician and let the content determine the greeting and tone. |
+| `ti` or `vostede` is unclear | Ask who the recipient is when the distinction changes the text; otherwise keep the source’s address form. |
+| A word may be Spanish, Portuguese, regional, or nonstandard | Check the RAG dictionary through `references/authorities.md`; preserve an explicitly requested variety. |
+| An authority is unavailable or leaves a form unresolved | State that the normative check is unresolved, preserve the supplied form when possible, and ask a focused question before making a meaning-changing substitution. |
+| The user asks for reintegrationist spelling | Follow the user’s stated convention and keep it consistent; ask for a model text when the convention is not specified. |
+| The source mixes languages | Retain meaningful source code-switching or explain a standard-Galician normalization when requested. |
 
-Common AI mistakes:
-- **Gender agreement**: Ensure adjectives match noun gender (o home alto / a muller alta)
-- **Number agreement**: Plurals must agree (os homes altos / as mulleres altas)
-- **False friends**: Use Galician words instead of Spanish cognates (use "rapaz" not "chico", "rapaza" not "chica")
-- **Verb conjugation**: Check irregular verbs (ser, ir, ter, haber)
+## Review output
 
-## Particles & Softeners
+For a language review, return:
 
-These make Galician natural:
-- Pois: "well", "so"
-- Non si: tag question
-- Home/Muller: casual address
-- Logo: "then"
-
-## Fillers & Flow
-
-Real Galician has fillers:
-- Pois, logo, ben
-- Sabes, entendes
-- Ou sexa, vamos
-- Mira, escoita
-
-## Expressiveness
-
-Choose vivid, expressive words over safe generic ones:
-- Ben → Xenial, Estupendo, Dabuti
-- Mal → Fatal, Moi mal
-- Moito → Abondo, Unha chea
-
-## Common Expressions
-
-Natural expressions:
-- Vale, Ben, Dabondo
-- Non pasa nada, Tranquilo
-- De verdade?, En serio?, Que?
-- Xenial!, Estupendo!, Moi ben!
-
-## Reactions
-
-React naturally:
-- De verdade?, En serio?, Que dis?
-- Carai!, Carallo!, Miña nai!
-- Xenial!, Dabuti!, Moi ben!
-- Jajaja in text
-
-## Reintegrationism
-
-Some use Portuguese-aligned spelling:
-- Reintegrationist vs normative
-- Most use normative (RAG standard)
-- Stay consistent
-
-## Anti-Patterns: What to Avoid
-
-| ❌ Wrong | ✅ Right | Why |
-|---|---|---|
-| "Bo día, como está vostede?" (casual context) | "Ola, que tal?" | Default to casual unless told otherwise |
-| "Gracias" | "Grazas" | Galician, not Spanish |
-| "chico/chica" | "rapaz/rapaza" | Galician vocabulary |
-| "Estupendo, moi ben, si" (all safe words) | "Xenial! Dabuti!" | Use expressive vocabulary |
-| Mixing Spanish syntax with Galician words | Pure Galician sentence structure | Galician has its own syntax patterns |
-| Overly literary tone in casual chat | Warm, melodic casual register | Match native speech patterns |
-
-## Pre-Output Validation
-
-Before delivering Galician text, run through this checklist:
-
-1. **Register check**: Is the formality level appropriate for the context? (Default: casual)
-2. **Vocabulary check**: Any Spanish words that should be Galician? (gracias→grazas, chico→rapaz)
-3. **Agreement check**: Do adjectives match noun gender and number?
-4. **Naturalness check**: Does it sound like something a native would actually say, or does it read like a textbook?
-5. **Consistency check**: Is the dialect/normative standard consistent throughout?
-
-Revise until all checks pass.
-
-## The "Native Test"
-
-Before sending: would a Galician speaker screenshot this as "AI-generated"? If yes—too formal, sounds Spanish, too literary. Add Galician warmth: use particles (pois, logo), expressive words (xenial, dabuti), and casual fillers (sabes, entendes).
+1. the corrected Galician text;
+2. the material corrections, grouped by grammar, vocabulary, spelling, or register; and
+3. one alternative only when it represents a genuine register or variety choice.
