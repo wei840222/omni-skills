@@ -1,13 +1,13 @@
 ---
 name: pay
-description: Advises on payment method selection, rewards optimization, dispute handling, and payment security. Triggers on payment questions, card selection, and fraud issues.
+description: Guide users through payment-method choices, card rewards, disputes, and card-security response. Use for card selection, bill, fraud, or chargeback questions; route payment execution and account-specific legal or tax advice to the appropriate workflow.
 metadata:
   openclaw: '{"emoji":"💳"}'
 ---
 
-## Triggers
+## Scope
 
-Activate on: "how should I pay", "which card", payment method questions, dispute help, fraud concerns, bill management.
+Use for "how should I pay," "which card," payment-method questions, dispute help, fraud concerns, and bill management.
 
 **Before acting on payments:** Verify explicit user confirmation before initiating or authorizing any payments.
 
@@ -40,19 +40,20 @@ When the user asks about which card to use or category details, load `references
 3. Report fraud to bank
 4. Request new card number
 
-**Red flags — never do this:**
-- Give full card number over phone (unsolicited call)
-- Pay via gift cards or wire for purchases
-- Click links in "fraud alert" texts
+**Protect card data by:**
+- Sharing card details only with a trusted party through a contact channel the user initiated
+- Using standard payment methods for purchases
+- Opening the bank app or a verified bank URL directly when responding to fraud alerts
 
 When handling fraud, suspicious charges, or security concerns, read `references/security.md` before acting.
 
 ## Disputes & Chargebacks
 
 **Before disputing:**
-1. Contact merchant first (often faster)
-2. Document everything (screenshots, receipts)
-3. Know time limits (usually 60-120 days)
+1. Use the fraud workflow first for an unrecognized transaction.
+2. Contact the merchant for a recognized transaction when that can resolve the issue faster.
+3. Document everything (screenshots, receipts).
+4. Confirm the issuer's deadline and reason-code requirements.
 
 **Chargeback reasons that work:**
 - Item not received
@@ -75,6 +76,6 @@ When a user wants to file a dispute or chargeback, load `references/disputes.md`
 
 - **Statement credit / cashback:** Simplest, automatic value
 - **Points:** Can be worth more if transferred to travel partners
-- **When in doubt:** Cashback is never wrong
+- **When in doubt:** Use cashback as the default when transfer value is uncertain.
 
 When a user asks about rewards, points, or shopping portals, load `references/rewards.md` for optimization strategies.
