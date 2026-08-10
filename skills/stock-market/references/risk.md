@@ -6,51 +6,53 @@ Apply this before validating any trade candidate.
 
 Use:
 
-`position_size = max_risk_amount / (entry_price - invalidation_price)`
+`maximum_units = max_risk_amount / abs(entry_price - invalidation_price)`
+
+Before applying the formula, confirm that `entry_price` and `invalidation_price` are finite, positive, and different. For a long candidate, require `invalidation_price < entry_price`; for a short candidate, require `invalidation_price > entry_price`. If any condition fails, keep the candidate un-sized and state the failed condition.
 
 Where:
-- `max_risk_amount` is the pre-defined loss limit for one idea
-- `entry_price - invalidation_price` is the per-share risk
+- `max_risk_amount` is the user's approved loss limit for one idea; for a percentage limit, calculate it as `account_value × approved_risk_percentage`
+- `abs(entry_price - invalidation_price)` is the per-share risk for either a long or short setup
 
-If the size is too large for liquidity, reduce size or skip.
+The formula returns a maximum unit count, not an order. Use fractional units only after confirming that the user's broker supports them for the instrument. Otherwise calculate `whole_units = floor(maximum_units)`, then recompute `planned_loss = whole_units × abs(entry_price - invalidation_price)` and confirm it does not exceed `max_risk_amount`. If the supported unit count is zero or cannot be established, keep the candidate un-sized. If the size is too large for liquidity or the approved exposure limit, reduce the unit count or exclude the candidate; preserve the thesis-derived invalidation rather than widening it to fit a larger position.
 
-## Baseline Limits
+## User-Approved Limits
 
-| Control | Suggested Limit |
-|---------|-----------------|
-| Max risk per trade | 1% to 2% of account (2% rule) |
-| Max daily loss | 3% to 5% of account |
-| Max concurrent correlated positions | 2 to 3 |
-| Max total open risk | 5% to 6% of account |
+| Control | Record before sizing |
+|---------|----------------------|
+| Max risk per trade | User-approved monetary amount or account percentage |
+| Max daily loss | User-approved monetary amount or account percentage |
+| Correlated exposure | User-defined aggregation method and limit |
+| Total open risk | User-approved monetary amount or account percentage |
 
-The 2% rule is the industry standard for retail traders. User-approved limits always override defaults.
+Risk tolerance and time horizon are personal; record the user's limit rather than presenting a universal percentage as a standard.
 
 ## Volatility Adjustment
 
 During high-volatility sessions:
-- Cut normal size by 30-50%
-- Widen invalidation only if thesis still holds
-- Avoid adding to losers
-- Account for gap risk: halve position size before earnings or major events
+- Recalculate per-share risk from the updated invalidation and current price data.
+- Compare the resulting exposure with the user's approved limits.
+- Model gap scenarios separately for earnings and major events.
 
-During low-volatility sessions:
-- Keep realistic target assumptions
-- Avoid oversizing due to tighter stops
+During low-volatility sessions, keep targets and liquidity assumptions explicit; a tighter invalidation does not by itself justify a larger position.
 
-## No-Trade Conditions
+## Conditions for an Un-sized Candidate
 
-Mark no-trade when any condition is true:
-- No invalidation level can be defined
-- Catalyst window is unclear
-- Bid/ask spread or liquidity makes exits unreliable
-- Emotional state overrides process
-- Daily loss cap is already hit
+Keep the candidate un-sized when any condition is true:
+- No invalidation condition can be defined.
+- Entry or invalidation is non-finite, non-positive, or equal to the other price.
+- The invalidation is not below entry for a long candidate or above entry for a short candidate.
+- The supported unit format is unknown, or whole-unit rounding produces zero units.
+- Catalyst timing or current data source is unclear.
+- Bid/ask spread or liquidity makes exits unreliable.
+- The written plan is being overridden by emotion.
+- The user-approved daily loss limit is already reached.
 
 ## Post-Trade Risk Review
 
-After close, log:
+After close, present the review in the response. Record it in persistent state only when persistent state is enabled and the user approves that review update:
 - Planned risk vs realized loss/gain
 - Whether rules were followed
 - Which limit prevented larger damage, if any
 
-The objective is stable process quality, not short-term win rate.
+The objective is a documented, repeatable planning process rather than a short-term win-rate target.

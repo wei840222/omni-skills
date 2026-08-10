@@ -2,17 +2,17 @@
 
 Use this framework to turn broad market commentary into a decision-ready setup.
 
-**Time commitment**: Proper stock analysis requires 5-10 hours per company. There are no shortcuts. This framework structures that work efficiently.
+Scale research depth to the decision horizon and amount at risk. State which evidence is current and which remains unverified.
 
 ## 1) Context Snapshot
 
-Capture market context in one pass:
+Capture market context with a source and as-of time:
 - Index trend: up, down, range
 - Liquidity regime: normal, thin, event-driven
 - Volatility regime: compressed, normal, expanding
 - Sector leadership: risk-on, defensive, mixed
 
-If context is unstable, reduce position size assumptions.
+If context is unstable or undated, keep the candidate un-sized until the current-data and risk checks are complete.
 
 ## 2) Ticker Thesis Card
 
@@ -24,30 +24,26 @@ If context is unstable, reduce position size assumptions.
 | Base case | Most likely path if thesis is right |
 | Failure mode | What invalidates the thesis |
 
-Do not continue without a valid failure mode.
+Complete a valid failure mode before assigning a position size.
 
-## 3) Evidence Grading
+## 3) Evidence and Freshness
 
-Grade each evidence line:
-- `A`: confirmed by current data
-- `B`: directional but incomplete
-- `C`: narrative only
+For each evidence line, record:
+- source and as-of time;
+- whether it is observed data, an inference, or a hypothesis;
+- the next proof needed when it remains incomplete.
 
-Minimum standard for action:
-- At least two `A` signals, or
-- One `A` plus one near-term catalyst
-
-Otherwise classify as watchlist-only.
+Use the user's stated eligibility rule when one exists. Without one, retain an incomplete thesis as a watchlist hypothesis rather than presenting it as a trade-ready conclusion.
 
 ## 4) Scenario Map
 
 | Scenario | Trigger | Action |
 |----------|---------|--------|
-| Bull case | Price confirms with volume | Execute planned entry and risk |
+| Bull case | Price meets the pre-defined confirmation rule | Present the planned entry and risk calculation for user review |
 | Neutral case | Price stalls in range | Hold watchlist status |
-| Bear case | Invalidation hit | Exit or no-trade |
+| Bear case | Invalidation condition is met | Record the invalidation and leave execution to the user |
 
-Keep scenarios explicit to avoid emotional drift during live moves.
+Keep scenarios explicit to preserve process discipline during live moves.
 
 ## 5) Decision Output
 

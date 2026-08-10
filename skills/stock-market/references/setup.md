@@ -13,21 +13,14 @@ Create files only after user confirmation.
 
 ## First Conversation Flow
 
-### 1. Integration preference
-Ask once how this skill should activate:
-- Automatically when the user discusses stock market analysis, watchlists, or trade planning
-- Only when explicitly requested
-
-Store this decision in `Status.integration` inside `memory.md`.
-
-### 2. Situation mapping
+### 1. Situation mapping
 Collect minimum context before recommendations:
 - Trading horizon (intraday, swing, long-term)
 - Preferred instruments (single stocks, ETFs, sectors)
-- Risk tolerance and max drawdown limits
+- User-approved risk amount or percentage, if sizing is requested
 - Tools already used (broker, screener, research workflow)
 
-### 3. Scope the immediate objective
+### 2. Scope the immediate objective
 Clarify the single priority for this session:
 - Build watchlist
 - Validate a specific ticker thesis
@@ -43,10 +36,10 @@ Store only explicit user information that improves future decisions:
 - Approved setup filters and catalyst preferences
 - Past mistakes and rule updates the user agrees to keep
 
-Do not infer hidden preferences from passive behavior.
+Use only explicit user preferences; do not infer hidden preferences from passive behavior.
 
 ## Boundaries
 
 - Keep local files inside `<state_root>`
-- Do not place real orders or connect brokers automatically
-- Ask before creating or modifying any local planning file
+- Keep execution outside this skill; it neither connects to brokers nor places orders.
+- Ask before creating or modifying any local planning file.

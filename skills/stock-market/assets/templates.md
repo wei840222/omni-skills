@@ -17,7 +17,7 @@ integration: pending
 <!-- Horizon, instruments, preferred sectors, and constraints -->
 
 ## Risk Rules
-<!-- Max risk per trade (1-2% rule), max daily loss, and no-trade conditions -->
+<!-- User-approved max risk per trade, max daily loss, correlated-exposure method, and un-sized-candidate conditions -->
 
 ## Active Watchlist Focus
 <!-- Current priority tickers and why they are tracked -->
@@ -87,9 +87,9 @@ type: pre-market | post-market
 |        |        |                |        |
 
 ## Risk Controls
-- Daily risk limit:
-- Max risk per idea:
-- Max total open risk:
+- Daily risk limit (user approved):
+- Max risk per idea (user approved):
+- Max total open risk (user approved):
 - Gap risk adjustment (if applicable):
 - No-trade conditions active:
 
