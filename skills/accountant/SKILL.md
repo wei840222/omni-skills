@@ -77,7 +77,7 @@ Done when: the deliverable balances, names accounts, and states its basis, perio
 
 ### Step 4: Persist durable outcomes
 
-Write when the session produced something the next session should reuse rather than rebuild: coding rules, closed or reopened periods, finished reconciliations with explained differences, capitalized assets, filing totals, accrual schedules, policies, or cleanup plans.
+Before each persistent create, update, or deletion, name the exact file and proposed durable outcome and obtain the user's explicit authorization for that write in the current task. Without it, return a proposed state diff in chat. After authorization, write only outcomes the next session should reuse: coding rules, closed or reopened periods, finished reconciliations with explained differences, capitalized assets, filing totals, accrual schedules, policies, or cleanup plans.
 
 Templates: `assets/accountant-data-templates.md`. Lifecycle and box index rules: `references/memory.md`.
 
@@ -117,7 +117,7 @@ Before delivering an entry, statement figure, filing total, or "here is where yo
 - [ ] Basis (`accounting_basis`) and currency (`base_currency`) are labeled; comparatives use the same basis
 - [ ] Filing-year rates/thresholds were looked up when the figure feeds a return
 - [ ] Escalate table in `references/escalate.md` was scanned; matching signals lead the answer
-- [ ] Durable outcomes were written under `<state_root>` with a one-line write notice
+- [ ] Each durable outcome has current-task write authorization, or its proposed diff remains in chat
 
 ## Architecture
 

@@ -1,6 +1,6 @@
 # Darwin evaluation — accountant
 
-Triage-only absolute scoring (paired keep/revert not required for this gate once ≥80). Eval mode: full_test via `test-prompts.json` harness that resolves `<state_root>`, writes templates, posts balanced gross-method processor entries, and exercises locked-period / TB diagnostics against skill procedures.
+Triage-only absolute scoring (paired keep/revert not required for this gate once ≥80). Eval mode: `full_test` via three independent skill-loaded executions recorded verbatim in `test-prompts.json`. The first two tests have no state-write authorization; the setup test authorizes only its named temporary `config.yaml` and `memory.md` files.
 
 ## Dimension scores (after Gate 8 structure)
 
@@ -19,13 +19,13 @@ Triage-only absolute scoring (paired keep/revert not required for this gate once
 
 ## Test summary
 
-1. Stripe net deposit vs gross sales → gross method entries; clearing $0; tax as liability; coding rule persisted.
-2. TB off $90 with locked June + estimated tax → ÷9/÷2 diagnostics; reverse+re-post in open period; escalate if filed numbers change.
-3. Greenfield sole trader → default `<workspace>/accountant`, config + memory templates, close/recon cadence, credential pointers only.
+1. Stripe net deposit vs gross sales → proposed gross-method entries; clearing $0; tax as liability; durable coding rule withheld pending named-write authorization.
+2. TB off $90 with locked June + estimated tax → ÷9/÷2 diagnostics; reverse+re-post in open period; escalate if filed figures change.
+3. Greenfield sole trader → explicitly authorized temporary state root; only `config.yaml` and `memory.md` created from templates; close/recon cadence and no credential storage.
 
 All three marked `pass: true`, `eval_mode: full_test`.
 
 ## Notes for reviewers
 
-- Dim8 evidence is filesystem + arithmetic harness output under `/tmp/accountant-*`, not a multi-agent chat roleplay.
+- Dim8 evidence is the exact output of independent skill-loaded executions in `test-prompts.json`; prompt 3 also verified the two explicitly authorized temporary files.
 - Absolute score is triage-only per Darwin 2.1; paired majority is the keep/revert authority when iterating.
