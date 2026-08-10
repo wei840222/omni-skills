@@ -17,7 +17,7 @@ Every managed offering removes some commands, renames some settings, and reserve
 | Reserved memory | You size it (Core Rule 2) | `reserved-memory-percent`, default 25 | Plan-defined | Plan-defined | N/A |
 | Per-command billing | No | No | No | No | Yes — round trips cost money |
 
-Verify the current per-provider details in their documentation before making a plan depend on a row: these matrices move (row detail verified 2026-07).
+Verify the current per-provider details in their documentation before making a plan depend on a row: provider capability matrices change frequently.
 
 ## The Consequences That Bite
 
@@ -49,7 +49,7 @@ The 2024 licence change (Redis moved off the BSD licence to SSPL/RSALv2) produce
 - **Modules**: Modules written for Redis OSS using the `RedisModule_` API work in Valkey. Valkey also provides the `ValkeyModule_` API and `valkeymodule.h` header.
 - **Divergence**: Threading work (Valkey 8.0 has native multi-threaded I/O), module ecosystems, and version numbering. Feature gates written as `feature >=X` refer to Redis version numbers; check the Valkey equivalent before relying on one.
 - **Migration**: Between Redis OSS ≤7.2 and Valkey is a replication or RDB-import exercise, not a rewrite. From Redis CE 7.4+ to Valkey requires data migration via replication or key-by-key transfer.
-- **Provider reality**: Which engine a provider actually runs behind the name "Redis" is worth confirming — several switched to Valkey. (State of the split verified 2026-08.)
+- **Provider reality**: Which engine a provider actually runs behind the name "Redis" is worth confirming — several switched to Valkey.
 
 ## Choosing
 
