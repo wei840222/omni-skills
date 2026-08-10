@@ -2,10 +2,11 @@
 
 This document defines the canonical quality gates and workflow standards for the `omni-skills` refactor process. It is an incrementally extensible quality contract: automation may mark a skill as "refactor complete" and open a pull request only after every defined gate passes.
 
-The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 2: official resource directories and reference paths, Gate 3: persistent state location, Gate 4: related-skill metadata integrity, Gate 5: removal of Clawic feedback and promotional content, Gate 6: knowledge research and domain accuracy, Gate 7: best-practices and description optimization, Gate 8: Darwin Skill evaluation and test coverage, and Gate 9: Freud cognitive load and white bear effect audit. All gates use `skills/garden` as the primary example.
+The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 2: official resource directories and reference paths, Gate 3: persistent state location, Gate 4: related-skill metadata integrity, Gate 5: removal of Clawic feedback and promotional content, Gate 6: knowledge research and domain accuracy, Gate 7: best-practices and description optimization, Gate 8: Darwin Skill evaluation and test coverage, and Gate 9: Freud cognitive load and white bear effect audit. Every gate defines generic, skill-agnostic rules (`skills/<slug>/`) as the primary normative specification, accompanied by `skills/garden` as a concrete worked example (Case Study).
 
 ## Core principles
 
+- **Dual-Layer Presentation Pattern**: Quality gates define generic, skill-agnostic rules (`skills/<slug>/`) first as the primary normative specification, followed by concrete worked examples (`skills/garden`) to illustrate real-world baseline nonconformities and migration decisions.
 - "Complete" means reproducible check results, not merely rewritten prose.
 - Record automated checks separately from human or model judgment; subjective commentary must not replace specification validation.
 - Every refactor must preserve the pre-change issue inventory, post-change validation results, and the specification sources used.
@@ -72,7 +73,7 @@ uvx --from skills-ref agentskills validate skills/<slug>
 
 The official specification page currently shows `skills-ref validate ./my-skill`. Automation must use the executable actually provided by the installed package and record this documentation/package-interface difference in its report.
 
-#### `skills/garden` baseline audit
+#### Worked Example: `skills/garden` baseline audit
 
 Audit target: `skills/garden/SKILL.md`, currently declaring version `1.1.6`.
 
@@ -173,7 +174,7 @@ description: Track your entire garden with structured memory for plants, zones, 
 
 The specification recommends that a description explain both what the skill does and when to use it, with keywords that help an agent recognize appropriate trigger conditions. The refactor should explicitly cover user intents such as garden planning, plant tracking, watering tasks, harvest logging, crop rotation, and plant problem diagnosis. Final wording must still avoid over-triggering adjacent skills.
 
-##### Target frontmatter for Garden
+##### Worked Example: Target frontmatter for Garden
 
 After Gate 1, Garden should use the following frontmatter shape:
 
@@ -267,7 +268,7 @@ Store only programs an agent can actually execute. Every script must be self-con
 - Every referenced target must exist. Every moved file must be reachable through routing in `SKILL.md`; stale references and orphaned resources are forbidden.
 - This rule governs resource references in skill source code only. User-data paths created at runtime, such as `<state_root>/memory.md`, must instead be reviewed under Gate 3's state-location resolver and safety rules; they must not be moved into skill resources.
 
-#### Target directory for Garden
+#### Worked Example: Target directory for Garden
 
 ```text
 skills/garden/
@@ -285,7 +286,7 @@ skills/garden/
 
 Garden currently has no executable program, so it does not create `scripts/`.
 
-#### Garden file migration
+#### Worked Example: Garden file migration
 
 | Current file | Target | Treatment |
 | --- | --- | --- |
@@ -426,7 +427,7 @@ Rules:
 - Scripts must receive or resolve the actual state root before reading or writing child paths. They must not treat the literal string `<state_root>` as a filesystem path.
 - Host-owned shared memory such as workspace `MEMORY.md` is outside `<state_root>`. If a skill needs to write there, it must separately list the external write, actual host-provided path, content scope, and consent.
 
-#### Garden state inventory
+#### Worked Example: Garden state inventory
 
 After selecting `<state_root>`, Garden uses this state tree:
 
@@ -455,7 +456,7 @@ After selecting `<state_root>`, Garden uses this state tree:
 
 Create optional state only when the corresponding feature is actually needed. Do not pre-expand every template into empty files or directories.
 
-#### Garden decisions and results for this rewrite
+#### Worked Example: Garden decisions and results for this rewrite
 
 1. `~/Clawic/data/garden/` was removed from Garden's active instructions; skill content now uses the State location resolver and `<state_root>`.
 2. `memory-template.md` no longer creates `~/garden/` unconditionally or writes to `~/Clawic/data/garden/memory.md`; it now creates only the resolved `<state_root>` and required child paths.
@@ -568,7 +569,7 @@ After metadata is created and validated, normalize content as follows:
 - If a retained inline reference includes a link, verify the actual target. Remove or correct dead and 404 URLs.
 - Installing, downloading, or enabling a related skill still requires user authorization; the presence of a metadata key is not installation consent.
 
-#### Garden decisions and results for this rewrite
+#### Worked Example: Garden decisions and results for this rewrite
 
 Garden's original `Related Skills` section listed five skills. Before creating metadata, the following targets were individually verified to contain `SKILL.md` in the repository:
 
@@ -653,7 +654,7 @@ A human or model must also inspect sections named `Feedback`, `Support`, `More S
 - Gate 4 already requires removing dedicated Related Skills lists; catalog URLs within those lists are also subject to this gate's zero-match rule.
 - This gate is not based solely on whether a URL is dead. Feedback and advertising calls to action must be removed even when their links still work.
 
-#### Garden decisions and results for this rewrite
+#### Worked Example: Garden decisions and results for this rewrite
 
 Garden originally contained three `clawic.com` occurrences:
 
