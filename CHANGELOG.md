@@ -31,6 +31,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | aave | #27 | 2026-08-08 | 82.6/100 |
 | accountant | #29 | 2026-08-08 | 84.7/100 |
 | welsh | #31 | 2026-08-08 | 84.7/100 |
+| prayers | #32 | 2026-08-10 | 93/100 |
 
 ## Updating This Changelog
 
