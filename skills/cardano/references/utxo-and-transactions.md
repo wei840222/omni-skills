@@ -9,7 +9,7 @@ Cardano uses the Extended UTxO (EUTxO) model, fundamentally different from accou
 - Wallet balance = sum of all UTxOs, not a single account balance
 - Transaction fees depend on transaction size (bytes), not gas
 - Change outputs are created automatically when consuming full UTxOs
-- Minimum UTxO value required (~1 ADA) to prevent dust accumulation
+- Minimum ADA value is required for each output to prevent dust accumulation; calculate it from current protocol parameters and the exact output shape
 
 **Implications for transaction building:**
 - You cannot spend "part" of a UTxO — you must consume the entire output and create change
@@ -34,10 +34,7 @@ cardano-cli transaction calculate-min-fee \
   --protocol-params-file protocol.json
 ```
 
-Current fee structure (as of Conway era):
-- Base fee: 155381 lovelace
-- Per-byte fee: 44 lovelace
-- Per-word fee: 0 lovelace (deprecated)
+Fetch protocol parameters for the intended network before building. The current fee coefficients and output-cost parameter are network configuration, not constants for this skill.
 
 ### Minimum UTxO value
 
@@ -49,13 +46,11 @@ cardano-cli transaction calculate-min-required-utxo \
   --protocol-params-file protocol.json
 ```
 
-Typical minimums:
-- ADA-only output: ~1 ADA
-- Output with native tokens: ~1.2-1.5 ADA (depends on token count)
+The result depends on the actual address, datum, reference script, and asset bundle. Use the command result for the output you will include in the draft rather than a rule-of-thumb ADA amount.
 
 ### Transaction size limits
 
-Maximum transaction size: 16384 bytes. When transactions exceed this:
+The maximum transaction size is a current protocol parameter. When a draft exceeds the active limit:
 - Split into multiple transactions
 - Consolidate UTxOs first to reduce input count
 - Reduce output count if possible
@@ -102,11 +97,12 @@ cat utxos.json | jq 'length'
 
 **Fix:** Consolidate with self-transfer
 ```bash
-# Send all UTxOs back to yourself in one transaction
+# Build a self-transfer from explicitly selected inputs.
+# First inspect every input and present the draft for user approval.
 cardano-cli transaction build \
-  --tx-in $(cardano-cli query utxo --address addr1... | awk 'NR>2 {print $1"#"$2}' | tr '\n' ' ') \
-  --tx-out "addr1...+TOTAL_VALUE" \
-  --change-address addr1... \
+  --tx-in "$SELECTED_TX_IN" \
+  --change-address "$ADDRESS" \
+  --mainnet \
   --out-file consolidate.tx
 ```
 
@@ -114,7 +110,7 @@ cardano-cli transaction build \
 
 **Cause:** Smart contract interaction requires collateral UTxO
 
-**Fix:** Designate a collateral UTxO (typically 5 ADA)
+**Fix:** Designate an ADA-only collateral UTxO sized for the active protocol parameters and draft transaction
 ```bash
 cardano-cli transaction build \
   --tx-in-collateral COLLATERAL_UTXO \
@@ -125,7 +121,7 @@ Collateral is only consumed if the transaction fails on-chain (which shouldn't h
 
 ### "Transaction too large"
 
-**Cause:** Transaction exceeds 16384 bytes
+**Cause:** Transaction exceeds the current maximum transaction size
 
 **Fix:**
 - Reduce input count (consolidate UTxOs first)
@@ -134,7 +130,7 @@ Collateral is only consumed if the transaction fails on-chain (which shouldn't h
 
 ## Metadata
 
-Transactions can include up to 16KB of arbitrary metadata:
+Transaction metadata limits are protocol parameters. Check the current limit before preparing metadata:
 
 ```bash
 # Create metadata file

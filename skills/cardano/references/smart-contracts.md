@@ -43,28 +43,13 @@ minting_policy(redeemer, context) -> bool
 
 ### Reference scripts
 
-Scripts stored on-chain and referenced by transactions (use reference scripts to reduce transaction size):
-
-```bash
-# Attach script as reference to a UTxO
-cardano-cli transaction build \
-  --tx-out "ADDRESS+VALUE+1 POLICY_ID.ASSET_NAME" \
-  --tx-out-reference-script-file script.plutus \
-  ...
-
-# Reference in spending transaction
-cardano-cli transaction build \
-  --tx-in "UTXO#0" \
-  --tx-in-script-file script.plutus \
-  --tx-in-reference-script \
-  ...
-```
+Scripts can be stored on-chain and referenced by later transactions to reduce repeated witness size. The witness flags vary with the CLI release and Plutus version. Before preparing a reference-script transaction, inspect the installed CLI help for `transaction build`, select the matching `--spending-tx-in-reference` or minting-reference form, and include the required script version, datum, and redeemer.
 
 ## Transaction Building for Plutus
 
 ### Collateral
 
-Smart contract interactions require collateral (typically 5 ADA):
+Smart contract interactions require an ADA-only collateral input. Its required value depends on the active protocol parameters and draft transaction:
 
 ```bash
 cardano-cli transaction build \
@@ -76,22 +61,13 @@ cardano-cli transaction build \
   ...
 ```
 
-Collateral is consumed only if the script fails on-chain. With proper off-chain validation, this should not happen.
+Collateral is consumed only if the script transaction is invalid on-chain. Evaluate the draft before asking for user approval.
 
 ### Execution units
 
 Scripts consume execution units (CPU steps and memory). Fees depend on units consumed:
 
-```bash
-# Check execution units for a script
-cardano-cli transaction build \
-  --tx-in SCRIPT_UTXO \
-  --tx-in-script-file validator.plutus \
-  --tx-in-execution-units "(EX_CPU, EX_MEM)" \
-  ...
-```
-
-Optimize scripts to reduce execution units and lower fees.
+Use the installed CLI or the relevant application to evaluate execution units for the exact draft, then inspect the resulting fee and validity interval before approval. Optimize scripts only after measuring their actual execution units.
 
 ## Common Plutus Issues
 
@@ -108,7 +84,7 @@ Optimize scripts to reduce execution units and lower fees.
 
 **Cause:** Collateral UTxO too small or missing
 
-**Fix:** Provide adequate collateral (default: 5 ADA)
+**Fix:** Provide an ADA-only collateral input sized for the active protocol parameters and draft transaction
 
 ### "Script execution failed on-chain"
 
@@ -124,9 +100,9 @@ Optimize scripts to reduce execution units and lower fees.
 **Cause:** Serialized script exceeds limits
 
 **Fix:**
-- Use reference scripts to reduce transaction size
+- Use reference scripts where the matching CLI witness form is available
 - Optimize script code
-- Split logic across multiple validators when script size exceeds 4KB serialized
+- Split logic only after comparing the serialized script against the active protocol limit
 
 ## PlutusV3 Features (Conway era)
 

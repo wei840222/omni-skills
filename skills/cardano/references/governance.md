@@ -10,17 +10,7 @@ Cardano governance operates through CIP-1694 (Conway era, September 2024). Three
 
 ## Governance Actions
 
-Seven types of governance actions exist:
-
-| Type | Description | Approval threshold |
-|------|-------------|-------------------|
-| Motion of no-confidence | Remove constitutional committee | 50%+1 of voting stake |
-| New constitutional committee | Elect committee members | 50%+1 of voting stake |
-| Constitution update | Modify the constitution | 50%+1 of voting stake |
-| Hard-fork initiation | Trigger protocol upgrade | 50%+1 of voting stake |
-| Protocol parameter changes | Adjust protocol parameters | 50%+1 of voting stake |
-| Treasury withdrawals | Fund projects from treasury | 50%+1 of voting stake |
-| Info actions | Non-binding signals | 50%+1 of voting stake |
+Governance-action types, required voting bodies, and ratification thresholds are defined by the current protocol and can differ by action. Derive guidance from the current on-chain action and its governance metadata rather than a fixed percentage.
 
 ## DRep Delegation
 
@@ -34,23 +24,23 @@ Seven types of governance actions exist:
    - Check their voting history on governance tools (GovTools, DRepTalk)
    - Review their stated positions and manifesto
    - Verify they are actively participating (voted in recent epochs)
-   - Prefer DReps with < 1M ADA delegated — your vote carries more weight
+   - Choose based on the DRep's published rationale, voting history, and current participation; delegation size does not make an individual delegator's vote intrinsically more influential
 
 ### Delegate to a DRep
 
 ```bash
 # Create DRep delegation certificate
-cardano-cli governance vote-delegation-certificate \
+cardano-cli stake-address vote-delegation-certificate \
   --staking-verification-key-file stake.vkey \
   --drep-verification-key-file drep.vkey \
   --out-file drep-deleg.cert
 
 # Submit in transaction
 cardano-cli transaction build \
-  --tx-in YOUR_UTXO \
-  --tx-out "YOUR_ADDRESS+5000000" \
-  --change-address YOUR_ADDRESS \
+  --tx-in "$TX_IN" \
+  --change-address "$ADDRESS" \
   --certificate-file drep-deleg.cert \
+  --mainnet \
   --out-file drep-deleg.tx
 ```
 
@@ -67,8 +57,7 @@ cardano-cli governance drep-registration-certificate \
   --key-registration-metadata-file drep-metadata.json \
   --out-file drep-reg.cert
 
-# Deposit required (configurable protocol parameter, currently 500 ADA)
-# Submit in transaction with certificate
+# Query the current DRep deposit parameter and submit in an explicitly approved transaction.
 ```
 
 DRep responsibilities:

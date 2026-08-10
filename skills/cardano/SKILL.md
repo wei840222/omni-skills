@@ -1,33 +1,37 @@
 ---
 name: cardano
-description: Cardano blockchain operations — build and submit transactions, delegate staking to stake pools, mint and manage native tokens and NFTs, interact with Plutus smart contracts, and participate in on-chain governance. Use when the user mentions ADA, Cardano transactions, staking delegation, stake pool selection, token minting, NFT creation, Plutus validators, or governance voting — even if they don't explicitly say "Cardano" (e.g., "delegate my ADA", "mint a token on the blockchain", "which stake pool should I choose").
+description: "Guide Cardano operations: inspect and prepare transactions, explain stake-pool and DRep delegation, mint native assets, work with Plutus, and review governance actions. Use when the request explicitly mentions Cardano, ADA, Plutus, a Cardano stake pool, DRep, CIP-25/CIP-68, or a Cardano `addr1` address."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"₳"}'
-  related-skills: '{"bitcoin":"Cardano uses UTxO like Bitcoin; understanding Bitcoin''s model helps explain Cardano''s design.","ethereum":"Contrasts Cardano''s UTxO model with Ethereum''s account model and EVM.","blockchain":"Provides foundational blockchain concepts underlying Cardano.","polkadot":"Another proof-of-stake blockchain with cross-chain capabilities; compares governance and staking models.","crypto-tools":"Real-time Cardano price data, portfolio tracking, and transaction monitoring.","trading":"ADA trading analysis, technical patterns, and risk management for Cardano positions."}'
+  related-skills: '{"bitcoin":"Cardano uses UTxO like Bitcoin; understanding Bitcoin''s model helps explain Cardano''s design.","blockchain":"Provides foundational blockchain concepts underlying Cardano.","crypto-tools":"Real-time Cardano price data, portfolio tracking, and transaction monitoring.","ethereum":"Contrasts Cardano''s UTxO model with Ethereum''s account model and EVM.","polkadot":"Another proof-of-stake blockchain with cross-chain capabilities; compares governance and staking models.","trading":"ADA trading analysis, technical patterns, and risk management for Cardano positions."}'
 ---
 
 # Cardano Operations Guide
 
-Operational guide for Cardano blockchain tasks. This skill assumes you have `cardano-cli` installed and configured.
+Operational guide for Cardano blockchain tasks. This knowledge skill has no persistent state. It assumes a compatible `cardano-cli`, current node connection configuration, and an explicitly selected user network.
+
+## Safety boundary
+
+Use this skill to explain, inspect, and prepare transactions. Before a command can sign, submit, mint, delegate, or register a governance credential, present the complete transaction details (network, inputs, outputs, fee, certificates, policy ID, and validity interval) and obtain the user's explicit approval. Use testnet for first execution of a new policy or validator. Keep signing keys outside the skill package and use paths supplied by the user.
 
 ## Gotchas
 
 **UTxO model is not accounts** — You cannot spend "part" of a UTxO. Transactions consume entire UTxOs and create change outputs automatically. This is fundamentally different from Ethereum's account model.
 
-**Fees are deterministic** — Calculate fees before building transactions. Fees depend on transaction size (bytes), not gas or complexity.
+**Fees and minimum output ADA are protocol parameters** — Query current protocol parameters and calculate the minimum required ADA for each actual output. Values depend on the active network, transaction, and output shape.
 
-**Minimum UTxO value** — Every output must contain at least ~1 ADA (varies with token count). Outputs below this threshold are rejected.
+**Minimum UTxO value** — Every output must contain the current minimum ADA required for its serialized shape. Outputs below that value are rejected.
 
-**Staking rewards delay** — First rewards appear 15-20 days after delegation (3-4 epochs), not immediately.
+**Staking rewards delay** — Delegation and reward timing span multiple epochs; confirm the current schedule before promising an arrival date.
 
-**Pool saturation** — Pools above saturation threshold give diminishing rewards. Always check saturation before delegating.
+**Pool saturation** — Evaluate saturation and recent performance with current explorer or pool data before delegating; protocol parameters and pool metrics change.
 
 **Policy ID is the token identifier** — Token names can be faked. Always verify by policy ID, not name.
 
 **Time-locked policies are irreversible** — Once a time-lock expires, tokens cannot be minted or burned. Verify slot numbers carefully.
 
-**Smart contracts require collateral** — Plutus interactions need a collateral UTxO (typically 5 ADA) that is consumed only if the script fails on-chain.
+**Smart contracts require collateral** — Plutus interactions need an ADA-only collateral UTxO sized for the current protocol parameters. Collateral is consumed only when the script transaction is invalid on-chain.
 
 **Governance delegation is separate from staking** — Same ADA, two independent signals: stake pool delegation earns rewards, DRep delegation assigns voting power.
 
@@ -37,41 +41,35 @@ Operational guide for Cardano blockchain tasks. This skill assumes you have `car
 
 **Check first:**
 - [ ] Have enough ADA for outputs + fees + minimum UTxO values
-- [ ] UTxOs are not overly fragmented (< 50 UTxOs ideal)
-- [ ] Network parameters are current (`cardano-cli query protocol-parameters`)
+- [ ] Current protocol parameters and minimum-output calculation are available
+- [ ] The target network is explicit (`--mainnet` or its testnet equivalent)
 
 **Workflow:**
 ```bash
-# 1. Query UTxOs
-cardano-cli query utxo --address $ADDR --mainnet
+# 1. Query UTxOs and current parameters on the intended network.
+cardano-cli query utxo --address "$ADDRESS" --mainnet
+cardano-cli query protocol-parameters --mainnet --out-file protocol.json
 
-# 2. Calculate fee
-cardano-cli transaction calculate-min-fee \
-  --tx-body-file tx.draft \
-  --tx-in-count 2 \
-  --tx-out-count 2 \
-  --witness-count 1 \
-  --protocol-params-file protocol.json
-
-# 3. Build transaction
+# 2. Build an unsigned draft. LOVELACE_AMOUNT is an integer in lovelace.
 cardano-cli transaction build \
-  --tx-in TXHASH#IX \
-  --tx-out "RECIPIENT+AMOUNT" \
-  --change-address $ADDR \
+  --tx-in "$TX_IN" \
+  --tx-out "$RECIPIENT+$LOVELACE_AMOUNT" \
+  --change-address "$ADDRESS" \
+  --mainnet \
   --out-file tx.draft
 
-# 4. Sign and submit
-cardano-cli transaction sign --tx-body-file tx.draft --signing-key-file $ADDR.skey --out-file tx.signed
+# 3. After the user approves the inspected draft, sign and submit.
+cardano-cli transaction sign --tx-body-file tx.draft --signing-key-file "$SIGNING_KEY_FILE" --mainnet --out-file tx.signed
 cardano-cli transaction submit --tx-file tx.signed --mainnet
 ```
 
 **If transaction fails:**
 - "Insufficient funds for fee" → Add more UTxOs or reduce output
-- "Minimum UTxO not met" → Increase output to ≥ 1 ADA
+- "Minimum UTxO not met" → Recalculate the required ADA for that exact output and increase it accordingly
 - "UTxO too fragmented" → Consolidate with self-transfer first
 - "Transaction too large" → Split into multiple transactions
 
-🔴 **CHECKPOINT: Before signing** — Verify recipient address (first/last 4 chars), confirm amount + fee, ensure correct network (mainnet vs testnet).
+🔴 **CHECKPOINT: Before signing** — Present the complete draft for explicit user approval: recipient address, lovelace and asset quantities, fee, certificates, validity interval, and exact network.
 
 **Load for details:** [references/utxo-and-transactions.md](references/utxo-and-transactions.md) — fee calculation, minimum UTxO, metadata standards, and advanced transaction building.
 
@@ -79,8 +77,8 @@ cardano-cli transaction submit --tx-file tx.signed --mainnet
 
 **Check first:**
 - [ ] Staking key is registered
-- [ ] Pool is not oversaturated (< 100% saturation)
-- [ ] Pool has produced blocks in last 30 epochs
+- [ ] Current pool saturation and performance data are available
+- [ ] The user has selected the pool after reviewing its current metrics
 - [ ] Pool cost structure matches your delegation size
 
 **Workflow:**
@@ -98,22 +96,22 @@ cardano-cli stake-address delegation-certificate \
 
 # 3. Submit transaction with certificates
 cardano-cli transaction build \
-  --tx-in TXHASH#IX \
-  --tx-out "$ADDR+5000000" \
-  --change-address $ADDR \
+  --tx-in "$TX_IN" \
+  --change-address "$ADDRESS" \
   --certificate-file stake.cert \
   --certificate-file deleg.cert \
+  --mainnet \
   --out-file tx.draft
 ```
 
 **Pool selection criteria (in priority order):**
-1. Saturation < 100% (select pools with saturation below 100%)
-2. Block production ratio ≥ 0.8 (actual/expected blocks)
-3. Cost structure appropriate for your stake size
-4. Operator pledge > 1% of pool stake
-5. Uptime > 99%
+1. Current saturation relative to the network target
+2. Recent block-production history and operator reliability
+3. Cost structure appropriate for the user's stake size
+4. Operator pledge and published operational information
+5. Pool's current status from an independent explorer or the operator
 
-🔴 **CHECKPOINT: Before delegating** — Verify pool is not oversaturated, has produced blocks in last 30 epochs, and cost structure matches your delegation size. Delegation takes effect at next epoch boundary; rewards appear 15-20 days later.
+🔴 **CHECKPOINT: Before delegating** — Present the selected pool ID, current metrics, certificate contents, transaction fee, and network for explicit user approval. Explain that delegation and rewards take effect over future epochs, not immediately.
 
 **Load for details:** [references/staking.md](references/staking.md) — pool evaluation workflow, reward calculation, epoch timing, and verification checkpoints.
 
@@ -121,7 +119,7 @@ cardano-cli transaction build \
 
 **Check first:**
 - [ ] Policy script is correctly configured (time-lock, signatures)
-- [ ] Metadata follows CIP-25 (NFT) or CIP-68 (fungible) standard
+- [ ] Metadata follows the applicable standard: CIP-25 for NFT transaction metadata, CIP-67 for asset-name labels, or CIP-68 for datum metadata/reference-NFT patterns
 - [ ] Asset name is hex-encoded
 - [ ] Minimum UTxO value calculated for token output
 
@@ -143,13 +141,14 @@ cardano-cli transaction policyid --script-file policy.script > policy.id
 
 # 3. Build minting transaction
 cardano-cli transaction build \
-  --mint "1 POLICY_ID.ASSET_NAME" \
+  --mint "1 $POLICY_ID.$ASSET_NAME_HEX" \
   --minting-script-file policy.script \
   --metadata-json-file metadata.json \
-  --tx-in TXHASH#IX \
-  --tx-out "RECIPIENT+2000000+1 POLICY_ID.ASSET_NAME" \
-  --change-address $ADDR \
+  --tx-in "$TX_IN" \
+  --tx-out "$RECIPIENT+$MIN_OUTPUT_LOVELACE+1 $POLICY_ID.$ASSET_NAME_HEX" \
+  --change-address "$ADDRESS" \
   --invalid-hereafter EXPIRY_SLOT \
+  --mainnet \
   --out-file tx.draft
 ```
 
@@ -158,14 +157,14 @@ cardano-cli transaction build \
 - Check IPFS pinning is permanent before buying NFTs
 - Time-locked policies cannot mint/burn after expiry
 
-🔴 **CHECKPOINT: Before minting** — Test policy script on testnet first, verify metadata format matches CIP standard, confirm time-lock slot is in the future (calculate current slot: `cardano-cli query tip --mainnet | jq .slot`). Once minted, policy ID is permanent.
+🔴 **CHECKPOINT: Before minting** — First exercise the policy on testnet. Then present the policy ID, asset name, mint/burn quantity, metadata, validity interval, fee, and mainnet transaction details for explicit user approval.
 
 **Load for details:** [references/tokens-and-nfts.md](references/tokens-and-nfts.md) — policy script types, CIP standards, minting/burning workflows, and marketplace verification.
 
 ### 4. Interacting with Smart Contracts
 
 **Check first:**
-- [ ] Collateral UTxO available (typically 5 ADA)
+- [ ] ADA-only collateral UTxO sized for the current protocol parameters is available
 - [ ] Datum and redeemer formats match validator expectations
 - [ ] Script version is compatible with current era
 - [ ] Execution units are estimated
@@ -174,9 +173,10 @@ cardano-cli transaction build \
 ```bash
 # 1. Prepare collateral
 cardano-cli transaction build \
-  --tx-in TXHASH#IX \
-  --tx-out "$ADDR+5000000" \
-  --change-address $ADDR \
+  --tx-in "$TX_IN" \
+  --tx-out "$ADDRESS+$COLLATERAL_LOVELACE" \
+  --change-address "$ADDRESS" \
+  --mainnet \
   --out-file collateral.draft
 
 # 2. Build script transaction
@@ -186,8 +186,9 @@ cardano-cli transaction build \
   --tx-in-script-file validator.plutus \
   --tx-in-redeemer-value '{"constructor": 0, "fields": []}' \
   --tx-in-datum-value '{"constructor": 0, "fields": []}' \
-  --tx-out "RECIPIENT+AMOUNT" \
-  --change-address $ADDR \
+  --tx-out "$RECIPIENT+$LOVELACE_AMOUNT" \
+  --change-address "$ADDRESS" \
+  --mainnet \
   --out-file tx.draft
 ```
 
@@ -196,7 +197,7 @@ cardano-cli transaction build \
 - "Insufficient collateral" → Provide adequate collateral
 - "Script execution failed on-chain" → Verify context requirements
 
-🔴 **CHECKPOINT: Before submitting Plutus transaction** — Verify collateral UTxO is available (5 ADA), datum/redeemer JSON matches validator expectations, and execution units are estimated. Collateral is consumed only if script fails on-chain.
+🔴 **CHECKPOINT: Before submitting a Plutus transaction** — Present the collateral input and size, datum/redeemer, script version, evaluated execution units, fee, validity interval, outputs, and network for explicit user approval.
 
 **Load for details:** [references/smart-contracts.md](references/smart-contracts.md) — EUTxO model, development languages, validator scripts, execution units, and PlutusV3 features.
 
@@ -210,28 +211,21 @@ cardano-cli transaction build \
 **Workflow:**
 ```bash
 # Delegate voting power to DRep
-cardano-cli governance vote-delegation-certificate \
+cardano-cli stake-address vote-delegation-certificate \
   --stake-verification-key-file stake.vkey \
   --drep-verification-key-file drep.vkey \
   --out-file drep-deleg.cert
 
 # Submit in transaction
 cardano-cli transaction build \
-  --tx-in TXHASH#IX \
-  --tx-out "$ADDR+5000000" \
-  --change-address $ADDR \
+  --tx-in "$TX_IN" \
+  --change-address "$ADDRESS" \
   --certificate-file drep-deleg.cert \
+  --mainnet \
   --out-file tx.draft
 ```
 
-**Governance actions:**
-- Motion of no-confidence
-- Constitutional committee election
-- Constitution updates
-- Hard-fork initiation
-- Protocol parameter changes
-- Treasury withdrawals
-- Info actions
+**Governance actions:** Action type, required voting bodies, and thresholds vary. Review the action's current on-chain details and protocol parameters rather than applying a fixed percentage.
 
 **Load for details:** [references/governance.md](references/governance.md) — CIP-1694, DRep delegation, registration, governance tools, and verification checkpoints.
 
@@ -275,19 +269,13 @@ cardano-cli transaction build \
 - Eternl — Advanced features, multi-wallet support
 
 **Development** — Smart contracts
-- Aiken — Most popular in 2025, purpose-built for Cardano
+- Aiken — purpose-built for Cardano
 - Plutus (Haskell) — Original, full-featured
 - OpShin — Python-based, lower barrier
 
-## Network Parameters
+## Current protocol values
 
-**Epoch:** 5 days
-**Slot time:** 1 second
-**Block time:** ~20 seconds average
-**Minimum UTxO:** ~1 ADA (varies with token count)
-**Transaction fee:** Base 155381 lovelace + 44 lovelace per byte
-**Max transaction size:** 16384 bytes
-**Staking rewards:** ~3-5% APY (varies with total staked ratio)
+Do not copy fixed values for fees, minimum output ADA, transaction-size limits, collateral, deposits, or reward expectations. Query current parameters for the intended network and calculate against the actual draft transaction.
 
 ## Security Checklist
 
@@ -306,7 +294,7 @@ Before delegating:
 Before minting:
 - [ ] Test policy script on testnet first
 - [ ] Verify metadata format and IPFS links
-- [ ] Confirm time-lock slot is in the future
+- [ ] Confirm the validity interval and policy time-lock match the intended network
 
 ## References
 

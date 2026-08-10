@@ -16,8 +16,8 @@ Cardano tokens are first-class protocol citizens — not smart contracts:
 | CIP-25 | NFT metadata | JSON metadata with media links |
 | CIP-26 | Token registry | Off-chain metadata registration |
 | CIP-27 | Royalties | CNFT royalty standard |
-| CIP-67 | Fungible token metadata | Asset name label scheme |
-| CIP-68 | Token metadata | Reference NFT pattern |
+| CIP-67 | Asset-name labels | Label scheme used with other token conventions |
+| CIP-68 | Datum metadata | Reference-NFT and user-token pattern |
 
 ## Minting Workflow
 
@@ -68,13 +68,14 @@ EOF
 
 ```bash
 cardano-cli transaction build \
-  --mint "1 POLICY_ID.ASSET_NAME" \
+  --mint "1 $POLICY_ID.$ASSET_NAME_HEX" \
   --minting-script-file policy.script \
   --metadata-json-file metadata.json \
-  --tx-in YOUR_UTXO \
-  --tx-out "RECIPIENT_ADDRESS+2000000+1 POLICY_ID.ASSET_NAME" \
-  --change-address YOUR_ADDRESS \
+  --tx-in "$TX_IN" \
+  --tx-out "$RECIPIENT+$MIN_OUTPUT_LOVELACE+1 $POLICY_ID.$ASSET_NAME_HEX" \
+  --change-address "$ADDRESS" \
   --invalid-hereafter EXPIRY_SLOT \
+  --mainnet \
   --out-file mint.tx
 ```
 
@@ -92,12 +93,12 @@ Burning requires the same policy script that was used for minting:
 
 ```bash
 cardano-cli transaction build \
-  --mint "-1 POLICY_ID.ASSET_NAME" \
+  --mint "-1 $POLICY_ID.$ASSET_NAME_HEX" \
   --minting-script-file policy.script \
-  --tx-in YOUR_UTXO_WITH_TOKEN \
-  --tx-out "YOUR_ADDRESS+ADA_AMOUNT" \
-  --change-address YOUR_ADDRESS \
+  --tx-in "$TOKEN_TX_IN" \
+  --change-address "$ADDRESS" \
   --invalid-hereafter EXPIRY_SLOT \
+  --mainnet \
   --out-file burn.tx
 ```
 
@@ -109,11 +110,7 @@ cardano-cli transaction build \
 
 Scam tokens can copy names and metadata. Always verify by policy ID:
 
-```bash
-# Check policy ID against known legitimate projects
-# Official project channels publish their policy ID
-cardano-cli transaction txid --tx-file tx.body
-```
+Compare the policy ID in the asset unit with the ID published by the project's authenticated official channel. A transaction ID does not prove an asset's policy identity.
 
 ### Common token anti-patterns
 

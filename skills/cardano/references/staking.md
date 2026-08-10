@@ -6,8 +6,8 @@ Cardano staking is non-custodial and permissionless:
 - ADA stays in your wallet at all times — fully liquid
 - No minimum delegation amount
 - No lockup period
-- Rewards distributed every epoch (5 days)
-- First rewards appear 15-20 days after delegation (3-4 epochs)
+- Rewards are distributed by epoch under the active network schedule
+- Initial delegation and rewards take multiple epochs; confirm the current schedule before giving a date
 
 ## Delegation Process
 
@@ -25,11 +25,11 @@ cardano-cli stake-address delegation-certificate \
 
 # 3. Submit transaction with certificates
 cardano-cli transaction build \
-  --tx-in YOUR_UTXO \
-  --tx-out "YOUR_ADDRESS+2000000" \
-  --change-address YOUR_ADDRESS \
+  --tx-in "$TX_IN" \
+  --change-address "$ADDRESS" \
   --certificate-file stake.cert \
   --certificate-file deleg.cert \
+  --mainnet \
   --out-file deleg.tx
 ```
 
@@ -39,42 +39,33 @@ cardano-cli transaction build \
 
 Evaluate pools in this order. Eliminate at each step:
 
-1. **Check saturation** — Pools above saturation threshold give diminishing rewards
+1. **Check current saturation** — compare the pool's current saturation against the network target
    ```bash
    # Query pool metrics
    cardano-cli query pool-params --stake-pool-id POOL_ID_HEX
    ```
-   - Saturation < 100%: proceed
-   - Saturation ≥ 100%: skip (rewards reduced)
-   - Target: 50-80% saturation for optimal rewards
+   - Record the source and observation time; explorer-derived metrics are time-sensitive
 
 2. **Check block production** — Missed blocks = missed rewards
-   - Query last 30 epochs of block production
-   - Expected blocks = (pool stake / total stake) × blocks per epoch
-   - Actual/Expected ratio < 0.8: skip
-   - Actual/Expected ratio ≥ 0.8: proceed
+   - Review a meaningful recent period and compare actual production with the explorer's expected-production metric
 
 3. **Evaluate cost structure**
-   - Fixed cost: minimum 340 ADA/epoch (protocol parameter)
-   - Margin: operator's percentage of rewards after fixed cost
-   - For small delegators (<10k ADA): fixed cost dominates — prefer lower fixed cost
-   - For large delegators (>100k ADA): margin matters more — prefer lower margin
+   - Check the current fixed cost and margin from current pool data
+   - Explain that relative impact depends on the user's stake and describe rewards as variable
 
 4. **Check pledge**
    - Higher pledge signals operator commitment
    - Pledge ratio = pledge / pool stake
-   - Pledge ratio < 1%: caution
-   - Pledge ratio > 5%: strong signal
+   - Treat pledge as one current signal, not a return guarantee
 
 5. **Verify reliability**
-   - Uptime > 99%
-   - Consistent block production over 3+ months
+   - Seek consistent recent block production and an operator status channel
    - Active operator presence (check pool homepage/social)
 
 ### Pool selection anti-patterns
 
 - **Chasing lowest margin alone** — a 0% margin pool with poor uptime earns nothing
-- **Ignoring fixed cost for small stakes** — 340 ADA fixed cost on 100 ADA delegation is devastating
+- **Ignoring fixed cost for small stakes** — compare the current fixed cost and margin with the stake size
 - **Delegating to friends/family pools without analysis** — sentiment ≠ returns
 - **Splitting delegation across many pools** — reduces effectiveness, increases complexity
 - **Ignoring saturation** — oversaturated pools give reduced rewards to all delegators
@@ -86,14 +77,12 @@ Approximate annual return:
 Annual reward ≈ (delegated ADA / total staked ADA) × total rewards per year
 ```
 
-Current approximate APY: 3-5% (varies with total staked ratio and pool performance)
+Rewards are variable and are not a promised yield. Use current network and pool data only to illustrate the calculation.
 
 ### Epoch timing
 
-- 1 epoch = 5 days
-- Delegation takes effect at next epoch boundary
-- Rewards for epoch N appear in epoch N+2
-- First reward: ~15-20 days after initial delegation
+- Confirm the current epoch schedule from a current network source
+- Delegation and rewards take effect in subsequent epochs rather than immediately
 
 ## Verification checkpoints
 
