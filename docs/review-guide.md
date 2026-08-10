@@ -1,6 +1,6 @@
 # Skill Review Guide
 
-This document defines the canonical **Skill Review** procedure for open Gitea pull requests in `omni-skills`. It is the review counterpart to `docs/refactor-guide.md`: refactor authors prove Gates 1–9; reviewers verify those gates **and** apply three quality lenses before approving or requesting changes.
+This document defines the canonical **Skill Review** procedure for open GitHub pull requests in `omni-skills`. It is the review counterpart to `docs/refactor-guide.md`: refactor authors prove Gates 1–9; reviewers verify those gates **and** apply three quality lenses before approving or requesting changes.
 
 ## Core principles
 
@@ -41,17 +41,17 @@ Borrow the dense staff-engineer consultation style used by Oracle-class advisors
 
 Always load and apply these three skills before issuing a verdict:
 
-| Skill | Role in this review |
-|---|---|
-| `code-review-and-quality` | Correctness, readability, architecture fit, security, and performance axes. Prefer required vs optional severity. |
-| `writing-great-skills` | Skill craft: description triggers, progressive disclosure, failure modes, anti-patterns, concrete commands, and information hierarchy. |
-| `darwin-skill` | Structural / dry-run evaluation of workflow clarity, checkpoints, failure recovery, specificity, and blacklist quality. Use absolute score only as secondary signal; do not keep/revert solely on a claimed score. |
+| Skill | Relative Path | Role in this review |
+|---|---|---|
+| `code-review-and-quality` | `.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md` | Correctness, readability, architecture fit, security, and performance axes. Prefer required vs optional severity. |
+| `writing-for-agents` | `.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md` | Skill craft: description triggers, progressive disclosure, failure modes, anti-patterns, concrete commands, and information hierarchy. |
+| `darwin-skill` | `.agents/skills/darwin-skill/SKILL.md` | Structural / dry-run evaluation of workflow clarity, checkpoints, failure recovery, specificity, and blacklist quality. Use absolute score only as secondary signal; do not keep/revert solely on a claimed score. |
 
 Also load operational helpers as needed:
 
 | Skill | When |
 |---|---|
-| `gitea` | Checkout, comment, approve, reject, merge on Gitea. |
+| `gh CLI` | Checkout, comment, approve, reject, merge on GitHub using `gh`. |
 | `git-master` | Local branch inspection, atomic history checks, safe push/merge hygiene. |
 
 ## Sources of truth during review
@@ -71,26 +71,25 @@ Use this precedence order:
 
 ```text
 Step 0 Identity → Step 1 Fetch PR → Step 2 History/Diff → Step 3 Automated checks
-→ Step 4 Gates 1–9 → Step 5 Three-lens quality review → Step 6 Verdict & Gitea action
+→ Step 4 Gates 1–9 → Step 5 Three-lens quality review → Step 6 Verdict & GitHub action
 → (if updated) Step 7 Re-review
 ```
 
 ### Step 0: Reviewer identity
 
 ```bash
-tea whoami
-# Expected for Ani reviews: ani6439walc
+gh api user | jq -r .login
 ```
 
-If the active Gitea login is not the reviewer account, switch before any approve/reject/merge action.
+If the active GitHub login is not the reviewer account, switch before any approve/reject/merge action.
 
 ### Step 1: Locate and fetch the PR
 
-Default repository: `wei840222/omni-skills` on Gitea.
+Default repository: `wei840222/omni-skills` on GitHub.
 
 ```bash
-tea pulls <n> --repo wei840222/omni-skills
-tea pulls checkout <n> --repo wei840222/omni-skills
+gh pr list --repo wei840222/omni-skills
+gh pr checkout <n> --repo wei840222/omni-skills
 # or clean clone + fetch head branch when the working tree is dirty
 ```
 
@@ -189,7 +188,7 @@ Severity rule of thumb from this lens:
 - Missing related-skill pointer / mild sprawl → **Optional**
 - Wording polish → **Nit**
 
-#### Lens B — `writing-great-skills`
+#### Lens B — `writing-for-agents`
 
 Review the package as a model-facing skill:
 
@@ -224,15 +223,15 @@ Do **not** invent a floating total score as the merge decision. Evaluate structu
 
 Use claimed Darwin scores in the PR only as author evidence. Reviewer judgment comes from the package itself.
 
-### Step 6: Verdict and Gitea action
+### Step 6: Verdict and GitHub action
 
 Choose exactly one primary outcome:
 
-| Outcome | Condition | Gitea action |
+| Outcome | Condition | GitHub action |
 |---|---|---|
-| **Approve** | Validator clean, required gates pass, no Required findings | `tea pulls approve <n> "<body>"` then merge if authorized |
-| **Request changes** | Any Required finding, missing phase evidence when required, or broken validator | `tea pulls reject <n> "<body>"` |
-| **Comment only** | Need clarification without blocking, or partial note while waiting on author | `tea comments add <n> --description "<body>"` |
+| **Approve** | Validator clean, required gates pass, no Required findings | `gh pr review <n> --approve --body-file <file>` then merge if authorized |
+| **Request changes** | Any Required finding, missing phase evidence when required, or broken validator | `gh pr review <n> --request-changes --body-file <file>` |
+| **Comment only** | Need clarification without blocking, or partial note while waiting on author | `gh pr comment <n> --body-file <file>` |
 
 Before posting, run this self-check:
 
@@ -250,12 +249,12 @@ Default authorization for this repository’s review tasks:
 - Prefer squash merge for refactor PRs unless the user specifies otherwise:
 
 ```bash
-tea pulls approve <n> "$(cat /tmp/pr-review-approve.md)" --repo wei840222/omni-skills
-tea pulls merge <n> --style squash --repo wei840222/omni-skills
+gh pr review <n> --approve --body-file /tmp/pr-review-approve.md --repo wei840222/omni-skills
+gh pr merge <n> --squash --repo wei840222/omni-skills
 ```
 
 ```bash
-tea pulls reject <n> "$(cat /tmp/pr-review-request-changes.md)" --repo wei840222/omni-skills
+gh pr review <n> --request-changes --body-file /tmp/pr-review-request-changes.md --repo wei840222/omni-skills
 ```
 
 ### Step 7: Re-review after author updates
@@ -324,7 +323,7 @@ Canonical templates live in `docs/pull-request-review-template.md`:
 - **D** Re-review still blocked
 - **E** Comment only (clarification)
 
-Copy a template from that file, replace placeholders, and submit through `tea`. Keep the review in English unless the PR discussion is already localized and the user asks otherwise.
+Copy a template from that file, replace placeholders, and submit through `gh`. Keep the review in English unless the PR discussion is already localized and the user asks otherwise.
 
 ---
 
@@ -355,7 +354,7 @@ These are recurring Required classes. Treat them as calibrated examples, not an 
 ### Optional sprawl
 
 - Symptom: useful but rarely needed platform essays inflate always-loaded `SKILL.md`.
-- Lens: `writing-great-skills` progressive disclosure.
+- Lens: `writing-for-agents` progressive disclosure.
 - Severity: **Optional** unless the file is so large it crowds out the critical path.
 
 ---
@@ -363,7 +362,7 @@ These are recurring Required classes. Treat them as calibrated examples, not an 
 ## Reviewer checklist (copy into working notes)
 
 ```text
-[ ] tea whoami is the intended reviewer
+[ ] gh api user is the intended reviewer
 [ ] PR metadata + head SHA recorded
 [ ] git log phase/fix history inspected
 [ ] full diff read (not only stat)
@@ -371,10 +370,10 @@ These are recurring Required classes. Treat them as calibrated examples, not an 
 [ ] git diff --check clean
 [ ] Gates 1–9 checked against refactor-guide.md
 [ ] code-review-and-quality lens done
-[ ] writing-great-skills lens done
+[ ] writing-for-agents lens done
 [ ] darwin-skill structural lens done
 [ ] findings split Required / Optional / Nit
-[ ] Gitea review posted with template
+[ ] GitHub review posted with template
 [ ] merge performed only when approved and authorized
 [ ] re-review verifies each prior Required item with evidence
 ```

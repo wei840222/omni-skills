@@ -12,61 +12,34 @@ The currently defined gates are Gate 1: Agent Skills format compatibility, Gate 
 - Do not open a pull request while any required gate is failing.
 - Every research source used to update skill knowledge must be recorded with its full URL, grouped by topic (e.g., retention benchmarks, CAC benchmarks, experimentation frameworks), and included in the pull request description. Source links must be verifiable and point to the actual page where the data or guidance was found.
 
-## Refactor Workflow Lifecycle & Commit Sequence
+## Sequential Refactor Workflow (Phase 0 to Phase 6)
 
-Every skill refactor must proceed through the following phases **in strict sequential order**. Each of phases 1–5 must conclude with exactly one focused commit, and phase 6 publishes those commits as a Gitea pull request:
+Every skill refactor must proceed through the following phases **in strict sequential order**. Each of phases 1–5 must conclude with exactly one focused commit, and phase 6 publishes those commits as a GitHub pull request:
 
 ```text
-Phase 0 (Baseline) → Phase 1 (Commit: refactor) → Phase 2 (Commit: research) → Phase 3 (Commit: optimize) → Phase 4 (Commit: darwin) → Phase 5 (Commit: freud) → Phase 6 (Gitea PR)
+Phase 0 (Baseline Audit) → Phase 1 (Gates 1–5: refactor) → Phase 2 (Gate 6: research) → Phase 3 (Gate 7: optimize) → Phase 4 (Gate 8: darwin) → Phase 5 (Gate 9: freud) → Phase 6 (PR & CHANGELOG)
 ```
 
-### Phase Breakdown
+---
 
-1. **Phase 0: Baseline Establishment**
-   - Create a dedicated refactor branch from `local` (`refactor/<slug>`).
-   - Check working-tree status and record the target package's complete file inventory (including hidden files/symlinks).
-   - Classify all observed baseline nonconformities as `SPEC`, `VALIDATOR`, `PROJECT`, or `RECOMMENDATION`.
+## Phase 0: Baseline Audit & Environment Setup
 
-2. **Phase 1: Specification Compliance Refactor (Gates 1–5)**
-   - Fix format compatibility, file locations (`references/`, `assets/`, `scripts/`), relative paths, persistent state `<state_root>`, `metadata.related-skills` JSON map, and remove all `clawic.com` references.
-   - Commit: `refactor(<slug>): specification compliance (Gates 1-5)`
+1. Create a dedicated refactor branch from `local` (`refactor/<slug>`).
+2. Check working-tree status and record the target package's complete file inventory (including hidden files/symlinks).
+3. Classify all observed baseline nonconformities as `SPEC`, `VALIDATOR`, `PROJECT`, or `RECOMMENDATION`.
+4. Read every file in the package before moving, rewriting, or removing content. Preserve useful intent and workflows; do not perform an unrelated redesign.
 
-3. **Phase 2: Knowledge Research & Fact Verification (Gate 6)**
-   - Execute sub-steps 2.1 (claim inventory & freshness classification) → 2.2 (deep research via `/research` or primary sources) → 2.3 (update knowledge & record full citation URLs).
-   - Commit: `research(<slug>): update domain knowledge and sources (Gate 6)`
+---
 
-4. **Phase 3: Best-Practices & Description Optimization (Gate 7)**
-   - Streamline `SKILL.md` for progressive disclosure; optimize frontmatter `description` for imperative, trigger-focused accuracy.
-   - Commit: `optimize(<slug>): progressive disclosure and description (Gate 7)`
+## Phase 1: Specification Compliance Refactor (Gates 1–5)
 
-5. **Phase 4: Darwin Skill Evaluation & Test Prompts (Gate 8)**
-   - Create `test-prompts.json` in English with happy-path and complex scenarios.
-   - Execute prompts and record real output in `actual`.
-   - Iterate with `/darwin-skill` until the score is at least 80/100 without regressing safety or spec compliance.
-   - Commit: `darwin(<slug>): iterate evaluation to score >= 80 (Gate 8)`
+**Phase 1 Commit Requirement**: `refactor(<slug>): specification compliance (Gates 1-5)`
 
-6. **Phase 5: Freud White Bear & Cognitive Load Audit (Gate 9)**
-   - Scan with `/freud-skill` Mode 2 across Lenses 2, 3, 4, and 6. Reframe prohibitions into positive definitions and manage cognitive load (<= 25 concepts).
-   - Commit: `freud(<slug>): eliminate white bear effects and cognitive load (Gate 9)`
+Phase 1 fixes format compatibility, resource file organization, relative path references, workspace persistent state semantics, related-skill metadata, and cleans up promotional content.
 
-7. **Phase 6: Gitea Pull Request Creation**
-   - Push branch to Gitea remote, create PR targeting `local`, and assign `ani6439walc` as reviewer.
-   - Populate the PR description with the template at `docs/pull-request-template.md`.
-   - After Gitea assigns the PR number, add the skill name, PR number, date, and final Darwin score to the root `CHANGELOG.md` table on the same branch; commit and push the update so it lands with the merged PR.
+### Gate 1: Agent Skills specification compatibility
 
-### Pre-Commit Verification Checklist
-
-Before committing any phase:
-- Run official validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
-- Verify all relative references resolve correctly.
-- Perform syntax checks on scripts and safe smoke tests.
-- Scan package for credentials, private keys, or sensitive user data.
-- Run `git diff --check` to ensure no whitespace or formatting errors.
-- Confirm working-tree contains only authorized changes for the target skill.
-
-## Gate 1: Agent Skills specification compatibility
-
-### Specification sources
+#### Specification sources
 
 1. Read the document index first: <https://agentskills.io/llms.txt>
 2. Then read the normative specification: <https://agentskills.io/specification>
@@ -80,7 +53,7 @@ If the specification and validator differ, report the findings separately:
 
 Do not misreport recommendations as hard errors, and do not ignore a specification requirement merely because the validator does not check it.
 
-### Check procedure
+#### Check procedure
 
 For each candidate skill, perform these steps in order:
 
@@ -99,13 +72,13 @@ uvx --from skills-ref agentskills validate skills/<slug>
 
 The official specification page currently shows `skills-ref validate ./my-skill`. Automation must use the executable actually provided by the installed package and record this documentation/package-interface difference in its report.
 
-## `skills/garden` baseline audit
+#### `skills/garden` baseline audit
 
 Audit target: `skills/garden/SKILL.md`, currently declaring version `1.1.6`.
 
-### Nonconformities
+##### Nonconformities
 
-#### 1. `name` violates the naming rules (SPEC)
+###### 1. `name` violates the naming rules (SPEC)
 
 Current value:
 
@@ -125,7 +98,7 @@ Skill name 'Garden' must be lowercase
 Directory name 'garden' must match skill name 'Garden'
 ```
 
-#### 2. Frontmatter contains unsupported top-level fields (VALIDATOR)
+###### 2. Frontmatter contains unsupported top-level fields (VALIDATOR)
 
 Current additional fields:
 
@@ -144,7 +117,7 @@ allowed-tools, compatibility, description, license, metadata, name
 
 The validator therefore rejects `slug`, `version`, `homepage`, and `changelog`. This project applies one consistent treatment: remove `slug`, `homepage`, and `changelog`; move `version` to `metadata.version` and retain it as a string. Daily refactor tasks must not invent alternative locations or compatibility fields for individual skills.
 
-#### 3. YAML cannot be parsed by the reference validator (VALIDATOR)
+###### 3. YAML cannot be parsed by the reference validator (VALIDATOR)
 
 The original file contains:
 
@@ -162,7 +135,7 @@ Found ugly disallowed JSONesque flow mapping
 
 This is an actual constraint of the reference validator. Even if a general YAML parser accepts a flow-style empty array, completion still requires an exit code of 0 from the official reference-validation command.
 
-#### 4. `metadata` is not a string-to-string mapping (SPEC)
+###### 4. `metadata` is not a string-to-string mapping (SPEC)
 
 The specification defines `metadata` as an arbitrary string-to-string mapping. Garden uses a nested structure containing mappings, lists, and empty arrays:
 
@@ -190,7 +163,7 @@ Handle Garden's fields as follows:
 
 Currently documented `metadata.openclaw` fields include `emoji`, `homepage`, `os`, `always`, `skillKey`, `primaryEnv`, `envVars`, `requires`, `install`, `nix`, and `config`. Within `requires`, OpenClaw supports `bins`, `anyBins`, `env`, and `config`. A refactor may preserve only fields that the skill actually uses and OpenClaw officially supports; empty arrays, all-platform filters, and unsupported display fields must not remain.
 
-#### 5. `description` does not clearly state when to trigger the skill (RECOMMENDATION)
+###### 5. `description` does not clearly state when to trigger the skill (RECOMMENDATION)
 
 The current description explains the capability, but readers must infer most of the "when to use" behavior:
 
@@ -200,7 +173,7 @@ description: Track your entire garden with structured memory for plants, zones, 
 
 The specification recommends that a description explain both what the skill does and when to use it, with keywords that help an agent recognize appropriate trigger conditions. The refactor should explicitly cover user intents such as garden planning, plant tracking, watering tasks, harvest logging, crop rotation, and plant problem diagnosis. Final wording must still avoid over-triggering adjacent skills.
 
-### Target frontmatter for Garden
+##### Target frontmatter for Garden
 
 After Gate 1, Garden should use the following frontmatter shape:
 
@@ -226,7 +199,7 @@ Repository-metadata single-source rules:
 - Store all OpenClaw-specific metadata in the `metadata.openclaw` JSON string.
 - Garden currently needs only OpenClaw's `emoji`; omit every other field because it has no practical effect.
 
-### Already conforming items
+##### Already conforming items
 
 Garden already satisfies these baseline requirements:
 
@@ -240,9 +213,9 @@ Garden already satisfies these baseline requirements:
 
 "Already conforming" means only that this gate does not require changing the item. It does not establish content quality or actual behavior under later gates.
 
-## Gate 1 pass criteria
+#### Gate 1 pass criteria
 
-A skill passes only when every item below is satisfied:
+A skill passes Gate 1 only when every item below is satisfied:
 
 - [ ] `SKILL.md` exists, and both its frontmatter and Markdown body are parseable.
 - [ ] `name` is 1–64 characters using lowercase letters, digits, and hyphens; it has no leading, trailing, or consecutive hyphens and exactly matches its parent directory name.
@@ -260,29 +233,31 @@ A skill passes only when every item below is satisfied:
 - [ ] `uvx --from skills-ref agentskills validate skills/<slug>` exits with code 0.
 - [ ] The pull-request report includes the specification URL, validator version, execution command, and before/after results.
 
-## Gate 2: Official resource directories and reference paths
+---
 
-### Specification sources and project requirements
+### Gate 2: Official resource directories and reference paths
+
+#### Specification sources and project requirements
 
 This gate is based on Agent Skills [Optional directories](https://agentskills.io/specification#optional-directories), [Progressive disclosure](https://agentskills.io/specification#progressive-disclosure), and [File references](https://agentskills.io/specification#file-references).
 
 The Agent Skills specification allows other additional files at the skill root, so a root-level supporting document is not itself a format error. To make daily refactors consistent, predictable, and progressively loadable, this project applies a stricter completion standard: every supporting file other than `SKILL.md` must be classified by official purpose under `references/`, `assets/`, or `scripts/`. Supporting files must not remain flattened at the skill root, and empty directories must not be created merely to imitate the format.
 
-### Directory classification rules
+#### Directory classification rules
 
-#### `references/`
+##### `references/`
 
 Store supplemental documents that an agent reads only in specific situations, such as operating procedures, domain rules, diagnostic knowledge, data semantics, and detailed references. Each reference file should focus on one topic, and `SKILL.md` must explicitly explain when to read it.
 
-#### `assets/`
+##### `assets/`
 
 Store static resources that an agent uses, copies, or emits, such as document templates, configuration templates, images, schemas, lookup tables, and sample data. Assets must not contain the primary decision process. If an original file mixes operating rules with templates, split it by role into one reference and one asset, each with a single source of truth.
 
-#### `scripts/`
+##### `scripts/`
 
 Store only programs an agent can actually execute. Every script must be self-contained or clearly document its dependencies, provide useful errors, and handle reasonable edge cases. A skill with no executable logic must not create `scripts/`; Markdown instructions or documents containing example commands must not be misclassified as scripts because of their extension or presentation.
 
-### Reference-path rules
+#### Reference-path rules
 
 - Resolve every internal skill-file reference from the skill root containing `SKILL.md`.
 - `SKILL.md` uses one-level relative paths such as `references/setup.md`, `assets/garden-data-templates.md`, or `scripts/validate.py`.
@@ -292,7 +267,7 @@ Store only programs an agent can actually execute. Every script must be self-con
 - Every referenced target must exist. Every moved file must be reachable through routing in `SKILL.md`; stale references and orphaned resources are forbidden.
 - This rule governs resource references in skill source code only. User-data paths created at runtime, such as `<state_root>/memory.md`, must instead be reviewed under Gate 3's state-location resolver and safety rules; they must not be moved into skill resources.
 
-### Target directory for Garden
+#### Target directory for Garden
 
 ```text
 skills/garden/
@@ -310,7 +285,7 @@ skills/garden/
 
 Garden currently has no executable program, so it does not create `scripts/`.
 
-### Garden file migration
+#### Garden file migration
 
 | Current file | Target | Treatment |
 | --- | --- | --- |
@@ -335,7 +310,7 @@ diagnostics.md      -> references/diagnostics.md
 planning.md         -> references/planning.md
 ```
 
-### Gate 2 pass criteria
+#### Gate 2 pass criteria
 
 - [ ] The skill root retains only `SKILL.md` and the actually used `references/`, `assets/`, and `scripts/` directories.
 - [ ] Every supporting file is classified by official purpose; files mixing operating rules with static templates are split by role.
@@ -351,15 +326,17 @@ planning.md         -> references/planning.md
 - [ ] `SKILL.md` remains under 500 lines, resources load only when needed, and there are no unnecessary deep reference chains.
 - [ ] The pull-request report includes before/after directory trees, a complete migration table, and reference-path audit results.
 
-## Gate 3: Workspace-relative persistent state location
+---
 
-### Specification status
+### Gate 3: Workspace-relative persistent state location
+
+#### Specification status
 
 Agent Skills does not define a runtime-state location. First-party source research and recommendations for this project are collected in `docs/research/skill-state-storage.md`. This gate is an `omni-skills` project specification and must not be presented as the official Agent Skills or OpenClaw state layout.
 
 This project adopts a workspace-first state convention. Every stateful skill must define candidate locations, lookup order, creation behavior, and a single placeholder near the beginning of `SKILL.md`, so every file in the same skill uses consistent semantics.
 
-### Terms
+#### Terms
 
 - `<workspace>`: the current agent workspace root supplied by the host/runtime. Do not substitute the shell's current working directory or guess when it cannot be resolved.
 - `<skill>`: the skill's specification name, which must equal both the `name` in `SKILL.md` and the parent directory name.
@@ -367,7 +344,7 @@ This project adopts a workspace-first state convention. Every stateful skill mus
 
 This project consistently uses `<state_root>`, not synonyms such as `<status_folder>`, `<data_dir>`, or `<memory_path>`, which could make different files appear to refer to different locations.
 
-### Candidate locations and precedence
+#### Candidate locations and precedence
 
 For Garden, permitted state roots are, in order:
 
@@ -387,7 +364,7 @@ Generalized order:
 
 If the user or host configuration explicitly defines a state root, that explicit path takes precedence over all candidates above. Resolve the explicit path to an actual location and record it as `<state_root>`; do not mix candidate directories afterward.
 
-### State-root resolution procedure
+#### State-root resolution procedure
 
 Before the first state read, query, create, update, or delete in each skill invocation:
 
@@ -401,7 +378,7 @@ Before the first state read, query, create, update, or delete in each skill invo
 
 Search for existing locations before performing default creation. Creating `<workspace>/<skill>/` first is forbidden because a new empty directory could shadow existing user data at a lower-precedence location. The state resolver chooses a location; it does not grant permission to write. Creating or modifying persistent state must still comply with the skill's declared consent rules and host policy.
 
-### Required section near the beginning of `SKILL.md`
+#### Required section near the beginning of `SKILL.md`
 
 Every stateful skill must provide a State location section immediately after frontmatter and before other operating instructions. Garden's target semantics are:
 
@@ -427,7 +404,7 @@ The actual rewrite may match the skill's voice, but it must not omit:
 - the default creation location when none exists; and
 - consistent use of `<state_root>` afterward.
 
-### State-path notation in skill content
+#### State-path notation in skill content
 
 Outside the State location section, every skill-state path in `SKILL.md`, `references/`, `assets/`, and `scripts/` uses `<state_root>`:
 
@@ -449,7 +426,7 @@ Rules:
 - Scripts must receive or resolve the actual state root before reading or writing child paths. They must not treat the literal string `<state_root>` as a filesystem path.
 - Host-owned shared memory such as workspace `MEMORY.md` is outside `<state_root>`. If a skill needs to write there, it must separately list the external write, actual host-provided path, content scope, and consent.
 
-### Garden state inventory
+#### Garden state inventory
 
 After selecting `<state_root>`, Garden uses this state tree:
 
@@ -478,7 +455,7 @@ After selecting `<state_root>`, Garden uses this state tree:
 
 Create optional state only when the corresponding feature is actually needed. Do not pre-expand every template into empty files or directories.
 
-### Garden decisions and results for this rewrite
+#### Garden decisions and results for this rewrite
 
 1. `~/Clawic/data/garden/` was removed from Garden's active instructions; skill content now uses the State location resolver and `<state_root>`.
 2. `memory-template.md` no longer creates `~/garden/` unconditionally or writes to `~/Clawic/data/garden/memory.md`; it now creates only the resolved `<state_root>` and required child paths.
@@ -487,7 +464,7 @@ Create optional state only when the corresponding feature is actually needed. Do
 5. `log/YYYY-MM.md` was added to the Architecture tree and normalized as `<state_root>/log/YYYY-MM.md`.
 6. Existing user data under `~/Clawic/data/garden/` must not be automatically moved or deleted during content refactoring. It is not in the new active lookup order. Migration requires a separate user decision and must provide copy, validation, cutover, and rollback steps.
 
-### Gate 3 pass criteria
+#### Gate 3 pass criteria
 
 - [ ] A stateful skill lists `<workspace>/<skill>/`, `<workspace>/memory/<skill>/`, and `~/<skill>/` near the beginning of `SKILL.md`.
 - [ ] The documentation explicitly defines the override and first-existing lookup order.
@@ -508,15 +485,17 @@ Create optional state only when the corresponding feature is actually needed. Do
 - [ ] `SKILL.md`, every supporting file, template, and script uses fully consistent `<state_root>` semantics.
 - [ ] The pull-request report includes before/after state inventories, resolver order, removed hard-coded paths, conflict behavior, and external-write inventory.
 
-## Gate 4: Related-skill metadata integrity
+---
 
-### Specification status
+### Gate 4: Related-skill metadata integrity
+
+#### Specification status
 
 `metadata.related-skills` is a project-level `omni-skills` extension that turns cross-skill relationships inside a skill package into one machine-readable index. The Agent Skills specification supplies only the string-to-string `metadata` container. This gate defines the JSON schema for the `related-skills` string value and must not present this field as a built-in Agent Skills or OpenClaw relationship mechanism.
 
 After `metadata.related-skills` is added, it becomes the canonical relationship list. A dedicated `Related Skill`, `Related Skills`, or equivalent section in `SKILL.md` that enumerates other skills must be removed so metadata and prose do not maintain two lists.
 
-### Trigger conditions and scan scope
+#### Trigger conditions and scan scope
 
 Before deleting any section during refactoring, scan the complete skill package, not only `SKILL.md`:
 
@@ -527,7 +506,7 @@ Before deleting any section during refactoring, scan the complete skill package,
 
 Create a relationship only when the text genuinely identifies another skill. General domain vocabulary does not count. For example, the ordinary noun "plants" in Garden does not become a relationship merely because the repository contains a `plants` skill; there must be an explicit skill mention, handoff, installation suggestion, or capability boundary.
 
-### Repository existence gate
+#### Repository existence gate
 
 Every related skill must actually exist in the current repository:
 
@@ -543,7 +522,7 @@ Validation rules:
 - Do not create an empty placeholder skill to make validation pass.
 - The current skill must not include itself in the relation map.
 
-### `metadata.related-skills` format
+#### `metadata.related-skills` format
 
 The field must be under `metadata` in `SKILL.md`, and its YAML value must be a single string containing a valid JSON object:
 
@@ -569,7 +548,7 @@ Required rules:
 - When no related skill exists, omit `related-skills`; do not write `'{}'`, `'[]'`, or an empty string.
 - `related-skills` describes relationships only. It does not replace dependencies, runtime requirements, installation procedures, or user authorization.
 
-### Prose deduplication and inline-reference rules
+#### Prose deduplication and inline-reference rules
 
 After metadata is created and validated, normalize content as follows:
 
@@ -582,14 +561,14 @@ After metadata is created and validated, normalize content as follows:
 - If one related skill appears in multiple places, metadata keeps one key whose value summarizes the primary relationship to the current skill.
 - If a mention represents a required dependency, declare it through the runtime's formal dependency or requirement mechanism in addition to `related-skills`. The agent must not infer and install dependencies from this field.
 
-### Link and installation safety
+#### Link and installation safety
 
 - The `related-skills` JSON stores canonical names and reasons only, not catalog URLs.
 - When deleting a dedicated Related Skills section, also remove generic catalog links and `<slug>` placeholder links in that section.
 - If a retained inline reference includes a link, verify the actual target. Remove or correct dead and 404 URLs.
 - Installing, downloading, or enabling a related skill still requires user authorization; the presence of a metadata key is not installation consent.
 
-### Garden decisions and results for this rewrite
+#### Garden decisions and results for this rewrite
 
 Garden's original `Related Skills` section listed five skills. Before creating metadata, the following targets were individually verified to contain `SKILL.md` in the repository:
 
@@ -610,7 +589,7 @@ metadata:
 
 The dedicated `Related Skills` section was removed from `SKILL.md`; Garden currently has no other inline related-skill reference that needs to remain. The original section's `https://clawic.com/skills/<slug>` placeholder was removed with it.
 
-### Gate 4 pass criteria
+#### Gate 4 pass criteria
 
 - [ ] Before deleting a relationship section, `SKILL.md`, `references/`, `assets/`, `scripts/`, and every other package file were scanned.
 - [ ] Every candidate mention was classified as a genuine skill identity or ordinary domain vocabulary.
@@ -629,13 +608,15 @@ The dedicated `Related Skills` section was removed from `SKILL.md`; Garden curre
 - [ ] No unresolved `<slug>`, dead catalog URL, or URL stored in a JSON value remains.
 - [ ] The pull-request report includes the pre-change relationship inventory, mention sources, resolved canonical names, existence checks, JSON parse result, removed dedicated sections, and unresolved references.
 
-## Gate 5: Removal of Clawic feedback and promotional content
+---
 
-### Specification status
+### Gate 5: Removal of Clawic feedback and promotional content
+
+#### Specification status
 
 A skill package should contain only instructions, resources, and compatible metadata needed to execute the skill. It should not include requests to rate or star it, check the latest version, browse a catalog, or follow traffic to `clawic.com`. This gate is a project-level `omni-skills` content-cleanup rule.
 
-### Scan scope
+#### Scan scope
 
 Scan every file under `skills/<name>/`, including:
 
@@ -655,7 +636,7 @@ https://clawic.com
 
 A human or model must also inspect sections named `Feedback`, `Support`, `More Skills`, `Discover`, `Explore`, `Star`, `Latest version`, and similar headings that may contain promotional calls to action, so removing a URL cannot leave empty advertising copy behind.
 
-### Removal rules
+#### Removal rules
 
 - No occurrence of the `clawic.com` domain may remain in a skill package. This applies to frontmatter, prose, references, assets, scripts, comments, and examples.
 - If a dedicated feedback, advertising, catalog, rating, starring, latest-version, or referral section contains `clawic.com`, delete the **entire dedicated section**, including its heading, introduction, list, and whitespace remnants—not only the URL.
@@ -666,13 +647,13 @@ A human or model must also inspect sections named `Feedback`, `Support`, `More S
 - This gate does not require removing genuine third-party official documentation needed by the skill. There is no exception for `clawic.com` inside this project's skill packages.
 - Repository- or registry-level publication information should be managed by an external index, Git history, or pull requests and must not be copied back into individual skill content.
 
-### Relationship to other gates
+#### Relationship to other gates
 
 - Gate 1 already requires removing top-level `homepage`; this gate additionally ensures supporting files and prose contain no `clawic.com` promotion.
 - Gate 4 already requires removing dedicated Related Skills lists; catalog URLs within those lists are also subject to this gate's zero-match rule.
 - This gate is not based solely on whether a URL is dead. Feedback and advertising calls to action must be removed even when their links still work.
 
-### Garden decisions and results for this rewrite
+#### Garden decisions and results for this rewrite
 
 Garden originally contained three `clawic.com` occurrences:
 
@@ -688,7 +669,7 @@ Treatment:
 - Removed the complete `## Feedback` section rather than leaving an empty heading or an unlinked call to action.
 - The other Garden supporting files and `_meta.json` contained no `clawic.com` occurrence. Gate 1 remains responsible for deleting `_meta.json`; this gate does not expand its scope.
 
-### Gate 5 pass criteria
+#### Gate 5 pass criteria
 
 - [ ] Every file in the skill directory was scanned, not only `SKILL.md`.
 - [ ] A case-insensitive search for `clawic.com` returns zero matches.
@@ -700,13 +681,32 @@ Treatment:
 - [ ] Necessary nonpromotional operational content formerly mixed into such a section was moved to an appropriate location with complete semantics.
 - [ ] The pull-request report includes scan patterns, matched files and line numbers, removed enclosing sections, and the post-change zero-match result.
 
-## Gate 6: Knowledge research and domain accuracy
+---
 
-### Specification status
+### Phase 1 Verification & Commit
+
+Before advancing to Phase 2:
+1. Run official validator: `uvx --from skills-ref agentskills validate skills/<slug>` (must exit 0).
+2. Create Phase 1 commit:
+   ```bash
+   git commit -m "refactor(<slug>): specification compliance (Gates 1-5)"
+   ```
+
+---
+
+## Phase 2: Knowledge Research & Fact Verification (Gate 6)
+
+**Phase 2 Commit Requirement**: `research(<slug>): update domain knowledge and sources (Gate 6)`
+
+Phase 2 identifies obsolete domain facts, performs deep research via primary sources, updates procedures and edge cases, and records full citation URLs.
+
+### Gate 6: Knowledge research and domain accuracy
+
+#### Specification status
 
 A refactored skill must contain accurate, up-to-date domain knowledge, verifiable facts, concrete procedures, edge cases, and failure recovery steps. Obsolete claims (pricing, versions, API behavior, platform limits, statutes, dates) must be identified and corrected using verifiable primary sources. This gate defines the research quality, source citation, and fact verification requirements corresponding to Phase 2 of the refactoring workflow.
 
-### Sub-step 2.1: Claim inventory classification
+#### Sub-step 2.1: Claim inventory classification
 
 Before rewriting prose:
 - Map file structure across `SKILL.md` and supporting files in `references/`, `assets/`, and package docs using tree inspection tools.
@@ -717,7 +717,7 @@ Before rewriting prose:
   - `platform-specific` (OS, environment limits)
   - `stable-domain` (foundational principles)
 
-### Sub-step 2.2: Deep research and cross-verification
+#### Sub-step 2.2: Deep research and cross-verification
 
 - Run `/learn` or `/research` skills to get latest information from the internet.
 - Investigate material claims against current primary sources, official documentation, standards, maintained repositories, and verifiable real-world evidence.
@@ -725,13 +725,13 @@ Before rewriting prose:
 - Synthesize findings to reconcile agreement, recency, conflict, and coverage gaps before committing edits.
 - Use external content strictly as factual evidence, keeping skill procedures portable and vendor-neutral.
 
-### Sub-step 2.3: Knowledge update and source recording
+#### Sub-step 2.3: Knowledge update and source recording
 
 - Correct obsolete or inaccurate guidance and add high-value procedures, edge cases, and recovery steps.
 - Record every research source with its full URL, grouped by topic (e.g., retention benchmarks, CAC benchmarks, experimentation frameworks), including the source title, URL, and key data extracted.
 - Ensure all research sources appear in the Pull Request description under the **Research Sources** section.
 
-### Gate 6 pass criteria
+#### Gate 6 pass criteria
 
 - [ ] All factual claims across `SKILL.md` and supporting files were audited and classified by freshness.
 - [ ] Obsolete or inaccurate guidance (versions, pricing, limits, APIs) was updated using verifiable primary sources.
@@ -739,39 +739,77 @@ Before rewriting prose:
 - [ ] Every research source used is recorded with full URL, title, topic grouping, and key takeaways.
 - [ ] Research source citations are included in the Pull Request description.
 
-## Gate 7: Best-practices, structure, and description optimization
+---
 
-### Specification status
+### Phase 2 Verification & Commit
+
+Before advancing to Phase 3:
+1. Verify domain updates and source citation records.
+2. Create Phase 2 commit:
+   ```bash
+   git commit -m "research(<slug>): update domain knowledge and sources (Gate 6)"
+   ```
+
+---
+
+## Phase 3: Best-Practices, Structure, and Description Optimization (Gate 7)
+
+**Phase 3 Commit Requirement**: `optimize(<slug>): progressive disclosure and description (Gate 7)`
+
+Phase 3 streamlines `SKILL.md` for progressive disclosure and optimizes the frontmatter `description` for imperative, trigger-focused accuracy.
+
+### Gate 7: Best-practices, structure, and description optimization
+
+#### Specification status
 
 Refactored skills must conform to official Agent Skills best practices: concise `SKILL.md` entry points, progressive disclosure for detailed or conditional material, explicit reference loading instructions, clear execution order, and a tuned, trigger-optimized `description`. This gate corresponds to Phase 3 of the refactoring workflow.
 
-### Structure and instruction optimization
+#### Structure and instruction optimization
 
 - Maintain `SKILL.md` as a concise entry point; offload detailed schemas, extended guides, or conditional workflows to `references/`.
 - Ensure explicit instructions state *when* and *how* the agent should load each reference file.
 - Calibrate instruction prescriptiveness to task fragility, eliminating redundant or generic knowledge the agent already possesses.
 
-### Description optimization
+#### Description optimization
 
 - Follow official guidelines for optimizing skill descriptions.
 - Make the `description` concise, imperative, intent-focused, and precise about triggering scope.
 - Define both what the skill *does* and when it *should or should not trigger*.
 - Test trigger behavior against realistic positive prompts and near-miss negative prompts without overfitting to explicit keywords.
 
-### Gate 7 pass criteria
+#### Gate 7 pass criteria
 
 - [ ] `SKILL.md` remains concise, utilizing progressive disclosure with explicit loading instructions for `references/`.
 - [ ] Instructions are intent-focused, calibrated for fragility, and free of generic background fluff.
 - [ ] The `description` is concise, imperative, and precisely defines trigger conditions.
 - [ ] Trigger scope has been evaluated against positive and near-miss negative prompts.
 
-## Gate 8: Darwin Skill evaluation and test coverage
+---
 
-### Specification status
+### Phase 3 Verification & Commit
 
-To ensure quantitative quality and empirical validation, every refactored skill must be evaluated using `/darwin-skill` until it achieves a score of at least 80 without sacrificing correctness, safety, portability, or source fidelity. This gate corresponds to Phase 4 of the refactoring workflow.
+Before advancing to Phase 4:
+1. Rerun reference validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
+2. Create Phase 3 commit:
+   ```bash
+   git commit -m "optimize(<slug>): progressive disclosure and description (Gate 7)"
+   ```
 
-### Test prompt inventory (`test-prompts.json`)
+---
+
+## Phase 4: Darwin Skill Evaluation & Test Coverage (Gate 8)
+
+**Phase 4 Commit Requirement**: `darwin(<slug>): iterate evaluation to score >= 80 (Gate 8)`
+
+Phase 4 creates `test-prompts.json` in English with happy-path and complex scenarios, records real execution outputs, and iterates evaluation with `/darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`) until achieving a score >= 80/100.
+
+### Gate 8: Darwin Skill evaluation and test coverage
+
+#### Specification status
+
+To ensure quantitative quality and empirical validation, every refactored skill must be evaluated using `/darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`) until it achieves a score of at least 80 without sacrificing correctness, safety, portability, or source fidelity. This gate corresponds to Phase 4 of the refactoring workflow.
+
+#### Test prompt inventory (`test-prompts.json`)
 
 Before evaluation, create a `test-prompts.json` file in the skill package root containing 2–3 test prompts written in English:
 
@@ -787,26 +825,46 @@ Requirements:
 - Prompts must be executed against the skill, and real execution outputs must be recorded in the `actual` field (no placeholders).
 - The `pass` boolean field must accurately reflect whether the actual output met expected behavior.
 
-### Darwin evaluation iteration
+#### Darwin evaluation iteration
 
 - Run `/darwin-skill` against the package and review dimension feedback.
 - Iterate on instructions based on valid feedback while preserving compliance gates and domain accuracy.
 - Achieve a final evaluation score of at least 80/100.
 
-### Gate 8 pass criteria
+#### Gate 8 pass criteria
 
 - [ ] `test-prompts.json` exists in the skill directory containing 2-3 English test prompts (happy path + complex scenario).
 - [ ] All test prompts were executed, with real outputs recorded in `actual` and accurate `pass` status.
 - [ ] `/darwin-skill` evaluation was executed and achieved a score of at least 80/100.
 - [ ] No regression occurred in specification compliance, safety, portability, or source fidelity to boost scores.
 
-## Gate 9: Freud cognitive load and white bear effect audit
+---
 
-### Specification status
+### Phase 4 Verification & Commit
 
-Evaluation mechanisms (like Darwin) may encourage intrusive stop markers (`🔴 STOP`, `🛑 CHECKPOINT`) that trigger white bear effects—occupying the agent's working memory with prohibition checks ("should I stop?") rather than execution ("how do I proceed?"). This gate applies `/freud-skill` Diagnostic Optimization (Mode 2) to eliminate white bear effects and manage cognitive load, corresponding to Phase 5 of the refactoring workflow.
+Before advancing to Phase 5:
+1. Verify `test-prompts.json` contains real execution logs and pass status.
+2. Confirm `/darwin-skill` score >= 80/100.
+3. Create Phase 4 commit:
+   ```bash
+   git commit -m "darwin(<slug>): iterate evaluation to score >= 80 (Gate 8)"
+   ```
 
-### Applicable Freud lenses
+---
+
+## Phase 5: Freud Cognitive Load and White Bear Effect Audit (Gate 9)
+
+**Phase 5 Commit Requirement**: `freud(<slug>): eliminate white bear effects and cognitive load (Gate 9)`
+
+Phase 5 applies `/freud-skill` (`.agents/skills/freud-skill/SKILL.md`) Diagnostic Optimization (Mode 2) across Lenses 2, 3, 4, and 6 to eliminate white bear effects and manage cognitive load.
+
+### Gate 9: Freud cognitive load and white bear effect audit
+
+#### Specification status
+
+Evaluation mechanisms (like Darwin) may encourage intrusive stop markers (`🔴 STOP`, `🛑 CHECKPOINT`) that trigger white bear effects—occupying the agent's working memory with prohibition checks ("should I stop?") rather than execution ("how do I proceed?"). This gate applies `/freud-skill` (`.agents/skills/freud-skill/SKILL.md`) Diagnostic Optimization (Mode 2) to eliminate white bear effects and manage cognitive load, corresponding to Phase 5 of the refactoring workflow.
+
+#### Applicable Freud lenses
 
 Scan the skill using the 4 skill-appropriate lenses:
 - **Lens 2: Positive vs Negative**: Rephrase prohibitions ("don't", "never", "avoid") into positive definitions ("do Y instead", "verify X before proceeding").
@@ -816,7 +874,7 @@ Scan the skill using the 4 skill-appropriate lenses:
 
 *(Lenses 1 and 5 are skipped as they apply to personas, not skill packages).*
 
-### Gate 9 pass criteria
+#### Gate 9 pass criteria
 
 - [ ] `/freud-skill` Mode 2 diagnostic optimization was performed across Lenses 2, 3, 4, and 6.
 - [ ] Prohibition statements ("don't", "never") were converted into positive execution definitions.
@@ -824,7 +882,48 @@ Scan the skill using the 4 skill-appropriate lenses:
 - [ ] Critical instructions are prominently structured and concept load stays under cognitive thresholds (<= 25 concepts).
 - [ ] Re-ran reference validator to ensure Freud corrections did not break any Gate 1-5 compliance rules.
 
-## Common pitfalls
+---
+
+### Phase 5 Verification & Commit
+
+Before advancing to Phase 6:
+1. Rerun reference validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
+2. Create Phase 5 commit:
+   ```bash
+   git commit -m "freud(<slug>): eliminate white bear effects and cognitive load (Gate 9)"
+   ```
+
+---
+
+## Phase 6: GitHub Pull Request Creation & CHANGELOG
+
+1. Push the dedicated refactor branch to GitHub remote without force-pushing:
+   ```bash
+   git push origin refactor/<slug>
+   ```
+2. Create a pull request targeting `local` and assign a reviewer:
+   ```bash
+   gh pr create --base local --reviewer <reviewer> --body-file docs/pull-request-template.md
+   ```
+3. Populate the pull request description with `docs/pull-request-template.md` (including Gate 6 Research Sources).
+4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
+5. Do not merge the PR or delete branches without explicit authorization.
+
+---
+
+## Pre-Commit Verification Checklist (Universal)
+
+Before committing any phase:
+- Run official validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
+- Verify all relative references resolve correctly.
+- Perform syntax checks on scripts and safe smoke tests.
+- Scan package for credentials, private keys, or sensitive user data.
+- Run `git diff --check` to ensure no whitespace or formatting errors.
+- Confirm working-tree contains only authorized changes for the target skill.
+
+---
+
+## Common Pitfalls
 
 ### `age` encryption passphrase mode
 
@@ -855,23 +954,17 @@ metadata:
     emoji: 🔐
 ```
 
-### Gitea reviewer assignment
+### GitHub reviewer assignment (`gh` CLI)
 
-`tea pulls edit --add-reviewers` silently fails even when the command appears successful. Use the REST API or `@mention` comment as fallback:
+Assign reviewers using the `gh` CLI command:
 
 ```bash
-# REST API method
-TOKEN=$(grep -A5 '<login-name>' ~/.config/tea/config.yml | grep token | awk '{print $3}')
-curl -s -X POST "https://<host>/api/v1/repos/<owner>/<repo>/pulls/<number>/requested_reviewers" \
-  -H "Authorization: token $TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"reviewers":["<username>"]}'
-
-# Or @mention comment
-tea comments add <PR-number> --repo <owner/repo> --login <account> -d "@<reviewer> please review, thank you!"
+gh pr edit <PR-number> --add-reviewer <reviewer>
 ```
 
-**CRITICAL**: The reviewer must NOT be the PR author. Gitea returns HTTP 422 if you try to assign the PR author as their own reviewer. The default reviewer is `ani6439walc` (not `wei840222`, who is the PR author).
+**CRITICAL**: The reviewer must NOT be the PR author.
+
+---
 
 ## Current scope of this document
 

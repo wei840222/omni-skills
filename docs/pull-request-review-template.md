@@ -1,6 +1,6 @@
 # Pull Request Review Templates
 
-Use these templates when submitting a Skill Review on Gitea. Replace all placeholder text with evidence from the review. Keep the review in English unless the PR discussion is already localized and the user asks otherwise.
+Use these templates when submitting a Skill Review on GitHub. Replace all placeholder text with evidence from the review. Keep the review in English unless the PR discussion is already localized and the user asks otherwise.
 
 Canonical procedure, severity rubric, three-lens quality bar, and Oracle-style craft rules live in `docs/review-guide.md`. Author-side PR descriptions use `docs/pull-request-template.md`.
 
@@ -14,17 +14,17 @@ Canonical procedure, severity rubric, three-lens quality bar, and Oracle-style c
 - **Confidence tags.** Add `high` / `medium` / `low` when the judgment is not high-confidence.
 - **Stop at working-well.** Optional ≤3, Nit ≤3 unless exhaustive notes were requested.
 
-Submit through `tea`:
+Submit through `gh`:
 
 ```bash
 # Request changes
-tea pulls reject <n> "$(cat /tmp/pr-review.md)" --repo wei840222/omni-skills
+gh pr review <n> --request-changes --body-file /tmp/pr-review.md --repo wei840222/omni-skills
 
 # Approve
-tea pulls approve <n> "$(cat /tmp/pr-review.md)" --repo wei840222/omni-skills
+gh pr review <n> --approve --body-file /tmp/pr-review.md --repo wei840222/omni-skills
 
 # Comment only
-tea comments add <n> --description "$(cat /tmp/pr-review.md)" --repo wei840222/omni-skills
+gh pr comment <n> --body-file /tmp/pr-review.md --repo wei840222/omni-skills
 ```
 
 ---
@@ -34,7 +34,7 @@ tea comments add <n> --description "$(cat /tmp/pr-review.md)" --repo wei840222/o
 ```markdown
 ## Review: <short title> — request changes
 
-Reviewed with **code-review-and-quality** + **writing-great-skills** + **darwin-skill** (structural / dry-run).
+Reviewed with **code-review-and-quality** + **writing-for-agents** + **darwin-skill** (structural / dry-run).
 
 ### Bottom line
 <2-3 sentences: overall direction, why blocked, what must change.>
@@ -79,7 +79,7 @@ Reviewed with **code-review-and-quality** + **writing-great-skills** + **darwin-
 | Axis | Notes |
 |---|---|
 | Correctness | <pass / blocked by ...> |
-| writing-great-skills | <notes> |
+| writing-for-agents | <notes> |
 | darwin (structural) | <notes; no fake precision score required> |
 | Gates 1–9 | <pass list / fail list> |
 
@@ -93,7 +93,7 @@ After the Required items are fixed, this should be a straightforward approve.
 ```markdown
 ## Review: <short title> — approve
 
-Reviewed with **code-review-and-quality** + **writing-great-skills** + **darwin-skill** (structural / dry-run).
+Reviewed with **code-review-and-quality** + **writing-for-agents** + **darwin-skill** (structural / dry-run).
 
 ### Bottom line
 <2-3 sentences: why this is safe to merge now.>

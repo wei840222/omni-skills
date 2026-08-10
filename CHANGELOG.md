@@ -38,5 +38,5 @@ For every skill-refactor pull request:
 
 1. Complete and validate all refactor phases.
 2. Create the pull request targeting `local`.
-3. After Gitea assigns the pull request number, add a row on the same branch with the skill name, PR number, date, and final Darwin score.
+3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, PR number, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
