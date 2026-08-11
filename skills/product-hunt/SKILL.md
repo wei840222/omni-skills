@@ -8,27 +8,27 @@ metadata:
 
 ## State location
 
-Product Hunt state may exist in `$WORKSPACE/product-hunt/`, `$WORKSPACE/memory/product-hunt/`, or `~/product-hunt/`.
-Before reading or writing state, resolve `$STATE_ROOT` as follows:
+Product Hunt state may exist in `<workspace>/product-hunt/`, `<workspace>/memory/product-hunt/`, or `~/product-hunt/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
-   `$WORKSPACE/product-hunt/`, `$WORKSPACE/memory/product-hunt/`, `~/product-hunt/`.
-3. If none exists and state must be created, default to `$WORKSPACE/product-hunt/`.
+   `<workspace>/product-hunt/`, `<workspace>/memory/product-hunt/`, `~/product-hunt/`.
+3. If none exists and state must be created, default to `<workspace>/product-hunt/`.
 
-Use the selected `$STATE_ROOT` for every state operation in this skill.
+Use the selected `<state_root>` for every state operation in this skill. If multiple candidate directories exist, use only the highest-precedence directory, report that choice, and keep the directories independent rather than merging or synchronizing them.
 
 ## Skill Workflows
 
 When to load references:
-- **`references/launch.md`**: Load when preparing or executing a product launch. Contains critical timing (12:01 AM PT) and asset specifications (1270x760px).
+- **`references/launch.md`**: Load when preparing or executing a product launch. Confirm current platform timing and asset requirements in Product Hunt's live submission guidance before acting.
 - **`references/hunting.md`**: Load when hunting a product or building hunter credibility. Contains rules on maker coordination and hunter mechanics.
 - **`references/engagement.md`**: Load when engaging with the community or checking for vote manipulation. Contains anti-patterns to avoid.
 - **`references/research.md`**: Load when conducting competitive research or analyzing launch velocity. Details what signals are useful vs misleading.
 
 ## Critical Launch Guidelines
 
-- **Timing**: Launch window is 12:01 AM to 11:59 PM Pacific Time. Tuesday-Thursday are best.
-- **Assets**: Use a 1270x760px gallery image. GIFs/videos under 30s perform best.
+- **Timing**: Verify the current launch window and any date cutoff in Product Hunt's live submission guidance before scheduling.
+- **Assets**: Verify accepted asset types and dimensions in the current Product Hunt uploader before producing launch media.
 - **Maker Comment**: Hook must be in the first sentence. Tell a personal story.
 - **Scope**: Covers launching, hunting, research, and engagement. Excludes product building or paid acquisition outside of Product Hunt.
