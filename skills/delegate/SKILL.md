@@ -1,13 +1,9 @@
 ---
-name: Delegate
-slug: delegate
-version: 1.0.0
-description: Route tasks to sub-agents with optimal model selection, error recovery, and result verification.
-homepage: https://clawic.com/skills/delegate
+name: delegate
+description: Delegate bounded, independent tasks to sub-agents when parallel work costs less than manual execution; select capability tiers, recover from failures, and verify results.
 metadata:
-  clawdbot:
-    emoji: 📤
-    displayName: Delegate
+  version: "1.0.0"
+  openclaw: '{"emoji":"📤"}'
 ---
 
 ## Core Rule
@@ -16,11 +12,13 @@ Spawn cost < task cost → delegate. Otherwise, do it yourself.
 
 ## Model Tiers
 
-| Tier | Models | Cost | Use for |
-|------|--------|------|---------|
-| Small | Haiku, GPT-4o-mini, Gemini Flash | ~$0.25/1M | Search, summarize, format, classify |
-| Medium | Sonnet, GPT-4o, Gemini Pro | ~$3/1M | Code, analysis, synthesis |
-| Large | Opus, o1, Gemini Ultra | ~$15/1M | Architecture, complex reasoning |
+Choose from the models available in the current runtime. Confirm model availability, limits, and pricing with that runtime's current provider documentation before spawning.
+
+| Tier | Capability profile | Relative cost | Use for |
+|------|--------------------|---------------|---------|
+| Small | Fast execution for straightforward, high-volume work | Low | Search, summarize, format, classify |
+| Medium | Strong reasoning and code generation | Moderate | Code, analysis, synthesis |
+| Large | Frontier reasoning for difficult, multi-step work | High | Architecture, complex reasoning |
 
 **Rule of thumb:** Start with smallest tier. Escalate only if output quality insufficient.
 
@@ -35,7 +33,7 @@ Every spawn must include:
 5. DONE: How to signal completion
 ```
 
-Check `templates.md` for copy-paste spawn templates.
+Load `assets/templates.md` for copy-paste spawn templates when preparing a spawn checklist.
 
 ## Error Recovery
 
@@ -46,7 +44,7 @@ Check `templates.md` for copy-paste spawn templates.
 | Task too complex for tier | Escalate: Small→Medium→Large |
 | Repeated failures (3x) | Abort, report to user |
 
-Check `errors.md` for recovery patterns and escalation logic.
+Load `references/errors.md` for recovery patterns and escalation logic when encountering an error or sub-agent timeout.
 
 ## Verification
 
@@ -56,8 +54,9 @@ Never trust "done" without checking:
 - **Data:** Spot-check 2-3 items
 - **Research:** Confirm sources exist
 
-## Don't Delegate
+## Manual Execution
 
-- Quick tasks (<30 seconds to do yourself)
-- Tasks needing conversation context
-- Anything requiring user clarification mid-task
+Execute tasks manually yourself instead of delegating if:
+- They are quick to complete (<30 seconds)
+- They require continuous conversation context
+- They require user clarification mid-task

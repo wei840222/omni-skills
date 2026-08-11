@@ -5,7 +5,7 @@ Copy-paste and fill in brackets.
 ## Research Task
 ```
 TASK: Find [specific info] about [topic]. Return [N] sources.
-MODEL: Small (Haiku/GPT-4o-mini)
+MODEL: Small
 CONTEXT: [constraints, e.g. "only sources from 2024"]
 OUTPUT: Bullet list with URL for each finding
 DONE: End message with "RESEARCH_COMPLETE"
@@ -14,7 +14,7 @@ DONE: End message with "RESEARCH_COMPLETE"
 ## Code Implementation
 ```
 TASK: Implement [feature] in [file path]
-MODEL: Medium (Sonnet/GPT-4o)
+MODEL: Medium
 CONTEXT: 
 - Read [relevant files]
 - Follow [coding standards]
