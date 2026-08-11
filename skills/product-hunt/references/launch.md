@@ -50,15 +50,7 @@ I'll be here all day answering questions — ask me anything!
 - Creates goodwill for future support
 
 **Question types to expect:**
-- "How is this different from X?" → Be specific, don't dismiss
+- "How is this different from X?" → Be specific, verify X first
 - "What's the pricing?" → Be transparent
 - "Does it work with Y?" → If no, say "not yet" with timeline
 - "I found a bug" → Thank them, fix if possible, update comment
-
-## What NOT to Do
-
-- Don't ask for upvotes anywhere
-- Don't have team members post fake testimonials
-- Don't get defensive about criticism
-- Don't disappear after posting
-- Don't launch and immediately go to sleep

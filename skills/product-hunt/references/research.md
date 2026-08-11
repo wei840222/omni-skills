@@ -14,10 +14,10 @@
 ### Misleading Signals
 | Signal | Why It's Misleading |
 |--------|---------------------|
-| Total upvotes | Often gamed, doesn't correlate with revenue |
-| "Product of the Day" | 80%+ dead within 2 years |
+| Total upvotes | Often gamed, lacks correlation with revenue |
+| "Product of the Day" | 80%+ defunct within 2 years |
 | High rank + low comments | Likely vote manipulation |
-| Category leadership | PH audience ≠ your actual market |
+| Category leadership | PH audience differs from mass market |
 
 ## Research Tasks
 
@@ -47,12 +47,11 @@ Before YOUR launch:
 
 **PH Audience Bias:**
 - Heavily indie hackers, designers, early adopters
-- NOT enterprise buyers, mass market consumers
-- English-language, US-timezone skewed
+- Skews towards English-language, US-timezone
 - Tech bubble — what excites PH may bore the world
 
-**Data You Won't Find:**
-- Actual conversion rates (upvotes ≠ signups ≠ revenue)
+**Data You Will NOT Find:**
+- Actual conversion rates (upvotes lack direct correlation to signups or revenue)
 - Churn rates post-launch
 - Real business metrics
 - Whether the maker has other revenue sources
