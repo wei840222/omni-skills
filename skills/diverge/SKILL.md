@@ -1,13 +1,10 @@
 ---
-name: Diverge
-slug: diverge
-version: 1.0.0
-description: Spawn multiple perspectives to evaluate a problem before converging on a solution.
-homepage: https://clawic.com/skills/diverge
+name: diverge
+description: Evaluate complex questions through multiple perspectives before reaching a reasoned synthesis.
 metadata:
-  clawdbot:
-    emoji: 🌿
-    displayName: Diverge
+  openclaw: '{"emoji":"🌿"}'
+  related-skills: '{"delegate":"Routes approved work to sub-agents.","loop":"Iterates a validated workflow until its completion criteria are met."}'
+  version: "1.0.0"
 ---
 
 ## When to Diverge
@@ -43,7 +40,7 @@ Match perspectives to the problem:
 - **Technical:** Security, performance, maintainability
 - **Content:** Target audience, critic, competitor
 
-Check `personas.md` for common perspective templates.
+Load `references/personas.md` for common perspective templates.
 
 ## Synthesis
 
@@ -53,14 +50,10 @@ After collecting perspectives:
 3. **Weigh by stakes** — Safety concerns > preferences
 4. **Decide** — Make a call, document trade-offs
 
-Check `synthesis.md` for conflict resolution patterns.
+Load `references/synthesis.md` for conflict resolution patterns.
 
 ## Learning User Preferences
 
 Track when divergence helped vs. was overkill. Adapt:
 - User who values speed → diverge less, ask before spawning
 - User who values thoroughness → diverge more proactively
-
----
-
-**Related:** For routing tasks to sub-agents, see `delegate`. For iterating until success, see `loop`.
