@@ -1,27 +1,21 @@
 ---
-name: Diverge
-slug: diverge
-version: 1.0.0
-description: Spawn multiple perspectives to evaluate a problem before converging on a solution.
-homepage: https://clawic.com/skills/diverge
+name: diverge
+description: Evaluate complex questions through multiple perspectives before reaching a reasoned synthesis. Use when the user requests competing viewpoints for product decisions, safety-critical evaluations, creative choices, or consequential trade-offs.
 metadata:
-  clawdbot:
-    emoji: 🌿
-    displayName: Diverge
+  openclaw: '{"emoji":"🌿"}'
+  related-skills: '{"delegate":"Routes approved work to sub-agents.","loop":"Iterates a validated workflow until its completion criteria are met."}'
+  version: "1.0.0"
 ---
 
 ## When to Diverge
 
-Diverge when a single viewpoint isn't enough:
+Diverge when a single viewpoint isn't enough. For a parallel-thinking framing, load `references/parallel-thinking.md`:
 - **Product decisions** — Different user types have conflicting needs
 - **Safety-critical** — Need doctor, lawyer, security expert perspectives
 - **Creative work** — Multiple aesthetic directions before choosing
 - **Complex trade-offs** — No obvious "right" answer
 
-Don't diverge for:
-- Simple tasks with clear answers
-- Speed-critical requests
-- Tasks where you already have high confidence
+Use direct analysis when the answer is clear, the request is speed-critical, or the available evidence already supports a high-confidence decision.
 
 ## How Many Perspectives
 
@@ -33,6 +27,10 @@ Don't diverge for:
 
 **Rule:** Enough to cover blind spots, not so many you can't synthesize.
 
+### Dispatch Boundary
+
+Before launching personas, confirm the host permits parallel work and that any required approval is already in scope. If dispatch is unavailable, present the selected perspectives as an explicit dry run and label the result accordingly.
+
 ## Choosing Perspectives
 
 Match perspectives to the problem:
@@ -43,7 +41,7 @@ Match perspectives to the problem:
 - **Technical:** Security, performance, maintainability
 - **Content:** Target audience, critic, competitor
 
-Check `personas.md` for common perspective templates.
+Load `references/personas.md` for common perspective templates.
 
 ## Synthesis
 
@@ -53,14 +51,10 @@ After collecting perspectives:
 3. **Weigh by stakes** — Safety concerns > preferences
 4. **Decide** — Make a call, document trade-offs
 
-Check `synthesis.md` for conflict resolution patterns.
+Load `references/synthesis.md` for conflict resolution patterns.
 
 ## Learning User Preferences
 
 Track when divergence helped vs. was overkill. Adapt:
 - User who values speed → diverge less, ask before spawning
 - User who values thoroughness → diverge more proactively
-
----
-
-**Related:** For routing tasks to sub-agents, see `delegate`. For iterating until success, see `loop`.
