@@ -1,12 +1,12 @@
 # Product Hunt Launch Execution
 
-## Pre-Launch Checklist (2-4 weeks before)
+## Pre-Launch Checklist
 
 ### Assets
-- [ ] Gallery images (1270x760px) — 5-8 images, first one is scroll-stopper
-- [ ] GIF or video (<30 seconds) showing product in action
-- [ ] Logo (240x240px)
-- [ ] Tagline draft (60 chars, no buzzwords)
+- [ ] Gallery images that meet the current Product Hunt uploader requirements
+- [ ] Demo media that the current uploader accepts
+- [ ] Logo that meets the current uploader requirements
+- [ ] Concise tagline and description with a clear first sentence
 - [ ] Description with hook in first sentence
 
 ### Community Prep
@@ -30,24 +30,18 @@ I'll be here all day answering questions — ask me anything!
 
 ## Launch Day Timeline
 
-| Time (PT) | Action |
+| Sequence | Action |
 |-----------|--------|
-| 11:30 PM (day before) | Final asset check, everything ready |
-| 12:01 AM | Product goes live — you or hunter submits |
-| 12:15 AM | Post maker comment immediately |
-| 12:30 AM | Launch tweets, email blast, community shares |
-| 6:00 AM | Check ranking, respond to any comments |
-| 9:00 AM | Peak US activity — amplify sharing |
-| 12:00 PM | Update maker comment with new info |
-| 6:00 PM | Thank top commenters |
-| 11:59 PM | Day ends — ranking locked |
+| Before submission | Confirm the current platform deadline and asset rules |
+| When the listing is live | Post the maker comment and announce through approved channels |
+| During the launch window | Monitor questions and update launch material when needed |
+| After the window closes | Record lessons and follow up with interested users |
 
 ## Response Strategy
 
-**Reply to every comment within 30 minutes:**
-- Algorithm rewards engagement
-- Builds comment count (visible metric)
-- Creates goodwill for future support
+**Reply promptly to relevant comments:**
+- Clarifies buyer questions while interest is active
+- Builds goodwill for future support
 
 **Question types to expect:**
 - "How is this different from X?" → Be specific, verify X first
