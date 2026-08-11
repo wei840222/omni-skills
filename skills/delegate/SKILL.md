@@ -54,8 +54,9 @@ Never trust "done" without checking:
 - **Data:** Spot-check 2-3 items
 - **Research:** Confirm sources exist
 
-## Don't Delegate
+## Manual Execution
 
-- Quick tasks (<30 seconds to do yourself)
-- Tasks needing conversation context
-- Anything requiring user clarification mid-task
+Execute tasks manually yourself instead of delegating if:
+- They are quick to complete (<30 seconds)
+- They require continuous conversation context
+- They require user clarification mid-task
