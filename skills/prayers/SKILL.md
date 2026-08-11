@@ -1,116 +1,60 @@
 ---
-name: Prayers
-slug: prayers
-version: 1.0.0
-description: Build a personal prayer system for any faith tradition with scheduling, logging, and spiritual tracking.
-homepage: https://clawic.com/skills/prayers
+name: prayers
+description: Manage personal prayer routines across faith traditions. Use to configure prayer schedules, track intentions, log reflections, and receive spiritual reminders.
 metadata:
-  clawdbot:
-    emoji: 🙏
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Prayers
+  version: "1.0.0"
+  openclaw: '{"emoji":"🙏"}'
 ---
+
+## State location
+
+Prayers state may exist in `<workspace>/prayers/`, `<workspace>/memory/prayers/`, or `~/prayers/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/prayers/`, `<workspace>/memory/prayers/`, `~/prayers/`.
+3. If none exists and state must be created, default to `<workspace>/prayers/`.
+
+Use the selected `<state_root>` for every state operation in this skill. If multiple candidate directories exist, use only the highest-precedence directory, report that choice, and keep the directories independent rather than merging or synchronizing them.
 
 ## Core Behavior
 - Support any faith tradition without assumption
 - Help with prayer schedules and reminders
-- Log prayers and spiritual reflections
-- Create `~/Clawic/data/prayers/` as workspace
+- Keep optional prayer records in `<state_root>/` after the user consents to persistent tracking
+- Create `<state_root>/` only when persistent tracking is requested
 - Deeply respectful, never prescriptive
 
 ## File Structure
 ```
-~/Clawic/data/prayers/
+<state_root>/
 ├── practice.md       # User's tradition and preferences
 ├── schedule.md       # Prayer times and routines
 ├── log/
-│   └── 2024/
+│   └── YYYY/MM/DD.md
 ├── prayers/          # Saved prayers and texts
 ├── intentions.md     # Prayer intentions
 └── reflections.md
 ```
 
 ## Initial Setup
+Before creating persistent records, confirm that the user wants prayer data retained in `<state_root>/`; otherwise keep the exchange session-only.
+
 Ask gently:
 - "What faith tradition do you follow, if any?"
 - "Do you have set prayer times or is it flexible?"
 - "Would you like reminders?"
 - "How would you like to use this?"
 
-## Practice Configuration
-```markdown
-# practice.md
-## Tradition
-[User's faith: Catholic, Muslim, Jewish, Buddhist, Hindu, Orthodox, Protestant, Non-denominational, Spiritual, Other]
+## Asset Loading Instructions
+When creating or updating files in `<state_root>/`, follow the corresponding templates in `assets/` and load only the template needed for that file:
 
-## Prayer Times
-- Fixed times: [e.g., Fajr, Lauds, Shacharit]
-- Flexible: when moved to pray
-- Daily routine: morning, evening
-
-## Reminders
-- Notify at prayer times: yes/no
-- Gentle or silent: [preference]
-```
-
-## Schedule Examples
-```markdown
-# schedule.md
-## Islamic
-- Fajr: dawn
-- Dhuhr: midday
-- Asr: afternoon
-- Maghrib: sunset
-- Isha: night
-
-## Christian Liturgy of Hours
-- Lauds: morning
-- Vespers: evening
-- Compline: night
-
-## Jewish
-- Shacharit: morning
-- Mincha: afternoon
-- Maariv: evening
-
-## Custom
-- Morning: 7am
-- Evening: 9pm
-```
-
-## Prayer Log
-```markdown
-# log/2024/02/11.md
-## Morning — 7:00 AM
-Prayer: Morning offering
-Duration: 10 min
-Intentions: Family, gratitude
-Notes: Felt peaceful
-
-## Evening — 9:00 PM
-Prayer: Rosary / Evening reflection
-Duration: 15 min
-State: Distracted but persevered
-```
-
-## Intentions Tracking
-```markdown
-# intentions.md
-## Ongoing
-- Family health
-- Guidance on decision
-- Gratitude practice
-
-## Specific
-- Mom's surgery (Feb 15)
-- Friend going through difficulty
-
-## Answered/Resolved
-- Job situation — resolved Jan 2024
-```
+- For user's tradition and preferences (`<state_root>/practice.md`), read `assets/practice-template.md`.
+- For prayer times and routines (`<state_root>/schedule.md`), read `assets/schedule-template.md`.
+- For logging daily prayers (`<state_root>/log/`), read `assets/log-template.md`.
+- For tracking intentions (`<state_root>/intentions.md`), read `assets/intentions-template.md`.
+- For saving favorite texts (`<state_root>/prayers/`), read `assets/saved-prayers-template.md`.
+- For recording reflections (`<state_root>/reflections.md`), read `assets/reflections-template.md`.
 
 ## What To Pray
 When user asks "what should I pray" or "help me pray":
@@ -118,20 +62,6 @@ When user asks "what should I pray" or "help me pray":
 - Offer specific prayer from their tradition — actual text, not just name
 - Adapt to their level (full prayer or shorter version)
 - Walk through step by step if learning
-
-## Saved Prayers
-```markdown
-# prayers/favorites.md
-[Prayers that resonate with user]
-```
-
-## Reflections
-```markdown
-# reflections.md
-## Feb 11, 2024
-Struggled to focus today but showed up.
-Grateful for the discipline even when feelings aren't there.
-```
 
 ## What To Surface
 - "Maghrib in 15 minutes"
@@ -146,15 +76,15 @@ Grateful for the discipline even when feelings aren't there.
 - "You usually pray at this time"
 
 ## What To Track
-- Prayer completed (simple check-in)
+- Prayer completed (simple check-in, do not induce guilt for missed streaks)
 - Duration (optional)
 - Intentions held
 - State/quality (optional, personal)
-- Reflections (optional)
+- Reflections (optional, strictly private and local)
 
-## What NOT To Do
-- Assume any tradition
-- Judge frequency or quality
-- Push specific prayers or practices
-- Be preachy or prescriptive
-- Treat any tradition as default
+## Engagement Principles
+- Ask gently about their tradition
+- Support all levels of practice
+- Wait for requests to provide specific prayers
+- Be supportive and encouraging
+- Treat all traditions equally
