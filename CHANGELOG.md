@@ -38,6 +38,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | prayers | #3 | 2026-08-11 | 93/100 |
 | analyze | #10 | 2026-08-11 | 85/100 |
 | delegate | #9 | 2026-08-11 | 88/100 |
+| synthesize | #8 | 2026-08-12 | 88/100 |
 
 ## Updating This Changelog
 
