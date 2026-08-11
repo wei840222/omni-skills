@@ -1,20 +1,10 @@
 ---
-name: Analyze
-slug: analyze
-version: 1.0.0
+name: analyze
 description: Structured analysis for any input. Data, code, text, decisions, visuals. Prioritize, question, conclude.
-homepage: https://clawic.com/skills/analyze
 metadata:
-  clawdbot:
-    emoji: 🧩
-    displayName: Analyze
+  version: "1.0.0"
+  openclaw: '{"emoji":"🧩"}'
 ---
-
-## Pattern
-
-```
-Purpose → Structure → Analyze → Prioritize → Conclude
-```
 
 Before analyzing: State what decision this serves. Pick a framework. Note first impression to challenge later.
 
@@ -73,7 +63,3 @@ Pick one before starting:
 ⚠️ COUNTER: [Contradictions]
 ➡️ ACTION: [Recommendation]
 ```
-
----
-
-*Channels, not teaches. Ensures prioritization, questioning, and conclusions.*
