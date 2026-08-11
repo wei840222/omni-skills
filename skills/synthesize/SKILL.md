@@ -1,13 +1,9 @@
 ---
-name: Synthesize
-slug: synthesize
-version: 1.0.0
-description: Combine multiple sources into unified insights with source tracking, conflict resolution, and coverage verification.
-homepage: https://clawic.com/skills/synthesize
+name: synthesize
+description: Combine multiple sources into unified, attributed insights. Use when the user asks to synthesize, compare, reconcile, or summarize multiple documents, articles, or data points.
 metadata:
-  clawdbot:
-    emoji: 🧬
-    displayName: Synthesize
+  version: "1.0.0"
+  openclaw: '{"emoji":"🧬"}'
 ---
 
 ## Core Principle
@@ -80,4 +76,7 @@ Coverage check before delivering:
 
 Sources too heterogeneous, scope undefined, or time insufficient for proper reconciliation.
 
-References: `source-types.md`, `conflict-resolution.md`, `coverage-matrix.md`
+References:
+- `references/source-types.md`: Read when assessing source type and credibility.
+- `references/conflict-resolution.md`: Read when reconciling contradictory claims.
+- `references/coverage-matrix.md`: Read before delivery to verify coverage.
