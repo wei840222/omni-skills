@@ -55,7 +55,9 @@ All data stored in `<state_root>/`. See `assets/memory-template.md` for setup.
 
 All data stored in `<state_root>/`. Create on first use:
 ```bash
-mkdir -p <state_root>/{transcripts,notes,archive}
+# Example (replace with your actual state directory)
+STATE_ROOT="$HOME/.openclaw/state/voice-notes"
+mkdir -p "$STATE_ROOT"/{transcripts,notes,archive}
 ```
 
 ## Scope

@@ -18,7 +18,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | software-architect | #11 | 2026-08-04 | 81/100 |
 | sydney | #12 | 2026-08-04 | 83/100 |
 | financial-literacy | #13 | 2026-08-05 | 82.3/100 |
-| voice-notes | #42 | 2026-08-11 | 85/100 |
+| voice-notes | #5 | 2026-08-11 | 85/100 |
 | chinese | #16 | 2026-08-05 | 80.3/100 |
 | redis-store | #17 | 2026-08-05 | 84.7/100 |
 | golf | #18 | 2026-08-05 | ~75 |
