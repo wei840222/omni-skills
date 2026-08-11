@@ -12,11 +12,13 @@ Spawn cost < task cost → delegate. Otherwise, do it yourself.
 
 ## Model Tiers
 
-| Tier | Models | Cost | Use for |
-|------|--------|------|---------|
-| Small | Haiku, GPT-4o-mini, Gemini Flash | ~$0.25/1M | Search, summarize, format, classify |
-| Medium | Sonnet, GPT-4o, Gemini Pro | ~$3/1M | Code, analysis, synthesis |
-| Large | Opus, o1, Gemini Ultra | ~$15/1M | Architecture, complex reasoning |
+Choose from the models available in the current runtime. Confirm model availability, limits, and pricing with that runtime's current provider documentation before spawning.
+
+| Tier | Capability profile | Relative cost | Use for |
+|------|--------------------|---------------|---------|
+| Small | Fast execution for straightforward, high-volume work | Low | Search, summarize, format, classify |
+| Medium | Strong reasoning and code generation | Moderate | Code, analysis, synthesis |
+| Large | Frontier reasoning for difficult, multi-step work | High | Architecture, complex reasoning |
 
 **Rule of thumb:** Start with smallest tier. Escalate only if output quality insufficient.
 
