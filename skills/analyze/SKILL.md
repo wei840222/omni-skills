@@ -49,10 +49,10 @@ Before analyzing: State what decision this serves. Pick a framework. Note first 
 
 Pick one before starting:
 
-- **MECE**: Mutually exclusive, collectively exhaustive
+- **MECE**: Mutually exclusive, collectively exhaustive. Ensure all categories are disjoint and cover the entire possible scope of the problem.
 - **Pros/Cons+**: Add reversibility + cost of inaction
-- **Pre-mortem**: Assume failure — why?
-- **Steel man**: Best opposing argument
+- **Pre-mortem**: Assume the project or strategy has already failed spectacularly in the near future, then work backward to determine what led to this failure. Helps counter overconfidence and groupthink.
+- **Steel man**: Address the strongest form of an opponent's argument (or the strongest counter-argument to a thesis), even if it was not presented, by applying the principle of charity. Doing so tests the true robustness of the position.
 
 ## Output
 
