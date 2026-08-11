@@ -15,6 +15,11 @@ Proceed once the purpose, framework, and unknowns are recorded.
 - **What's missing**: 3+ unknowns that would change conclusions
 - **First impression**: Write it — then seek counter-evidence
 
+## Failure Recovery
+
+- If the selected framework does not yield clear priorities, switch to an alternative framework (for example, from MECE to Pre-mortem).
+- If key data sources cannot be verified, mark the analysis as low confidence and identify the data validation needed before acting.
+
 ## 2. Execution
 
 - **Prioritize always**: 🔴 Critical (1-2 max) · 🟡 Important (2-3) · ⚪ Minor
