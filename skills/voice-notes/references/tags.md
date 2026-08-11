@@ -9,7 +9,7 @@
 
 ## Tag Registry
 
-All tags in `~/Clawic/data/voice-notes/memory.md` under `## Tag Registry`:
+All tags in `<state_root>/memory.md` under `## Tag Registry`:
 
 ```markdown
 ## Tag Registry
@@ -60,4 +60,4 @@ First session, establish preference:
 Periodically:
 - Merge similar tags (ask user)
 - Archive unused tags
-- Never delete - mark deprecated
+- Mark tags as deprecated instead of deleting them
