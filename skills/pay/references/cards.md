@@ -18,7 +18,7 @@ Many cards give extra rewards (3-5%) in specific categories:
 
 If you only want to remember one rule:
 - **One card for everything:** Pick your highest flat-rate cashback (2%+)
-- Use it everywhere, don't think about it
+- Use it for purchases outside stronger bonus categories.
 - That's 80% of the benefit with 0% of the effort
 
 ## Choosing Between Cards
