@@ -1,3 +1,0 @@
-### Digital Spiritual Tracking Guidelines
-- **Christian Prayer Journal App (Google Play)** — Emphasizes "100% Private & Offline" tracking where "all data is stored exclusively on your device" and "We have zero access to your entries, ensuring total privacy." via https://play.google.com/store/apps/details?id=com.yidisov.PrayerApp
-- **PrayLog App Privacy Policy** — Stresses that "Your prayer journal entries, prayers, and personal reflections are deeply personal" and data is strictly stored locally (or personal iCloud) with no analytics or third-party sharing. via https://www.coolafisher.com/privacy/praylog/en/
