@@ -9,7 +9,7 @@ metadata:
 
 ## When to Diverge
 
-Diverge when a single viewpoint isn't enough:
+Diverge when a single viewpoint isn't enough. For a parallel-thinking framing, load `references/parallel-thinking.md`:
 - **Product decisions** — Different user types have conflicting needs
 - **Safety-critical** — Need doctor, lawyer, security expert perspectives
 - **Creative work** — Multiple aesthetic directions before choosing
