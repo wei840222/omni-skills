@@ -32,7 +32,7 @@ When interacting with an Oracle Database or when the user needs Oracle-specific 
 
 ## Anti-patterns (Blacklist)
 
--   Use `VARCHAR2` exclusively instead of `VARCHAR`.
--   Use `||` for string concatenation instead of `CONCAT()`.
--   Treat the empty string `''` as `NULL` rather than a length-0 string, matching Oracle behavior.
--   Ensure `EXCEPTION WHEN OTHERS` is handled in PL/SQL blocks.
+-   Do not use `VARCHAR`; use `VARCHAR2` exclusively.
+-   Do not use `CONCAT()`; use `||` for string concatenation.
+-   Do not treat the empty string `''` as non-NULL; treat it as `NULL` to match Oracle behavior.
+-   Do not omit exception handling; always include `EXCEPTION WHEN OTHERS` in PL/SQL blocks.
