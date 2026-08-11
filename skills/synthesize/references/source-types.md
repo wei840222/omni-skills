@@ -15,6 +15,22 @@
 - **News reporting** — journalism (verify with primary when possible)
 - **Social/Community** — forums, discussions, anecdotal
 
+## Credibility Evaluation
+
+Apply the CRAAP Test to each source before assigning a relative credibility weight:
+
+| Criterion | Question |
+| --- | --- |
+| Currency | Is the information current enough for this subject? |
+| Relevance | Does it directly answer the question or theme? |
+| Authority | Is the author or publisher qualified? |
+| Accuracy | Is the claim supported and independently verifiable? |
+| Purpose | Is the source's intent clear, and could it bias the claim? |
+
+Use the answers as evidence, not as a mechanical score. Assess sample size and research design through the conflict-resolution hierarchy when sources make competing empirical claims.
+
+Source: California State University, Chico, [Evaluating Information — Applying the CRAAP Test](https://library.csuchico.edu/sites/default/files/craap-test.pdf).
+
 ## Credibility Signals
 
 | Signal | Increases | Decreases |

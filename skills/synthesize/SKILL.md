@@ -1,18 +1,18 @@
 ---
-name: Synthesize
-slug: synthesize
-version: 1.0.0
-description: Combine multiple sources into unified insights with source tracking, conflict resolution, and coverage verification.
-homepage: https://clawic.com/skills/synthesize
+name: synthesize
+description: Combine multiple sources into unified, attributed insights. Use when the user asks to synthesize, compare, reconcile, or summarize multiple documents, articles, or data points.
 metadata:
-  clawdbot:
-    emoji: 🧬
-    displayName: Synthesize
+  version: "1.0.0"
+  openclaw: '{"emoji":"🧬"}'
 ---
 
 ## Core Principle
 
 Synthesis fails when sources contradict silently or coverage has gaps. Track everything, resolve conflicts explicitly.
+
+## Scope
+
+Use this workflow when the input contains multiple sources that need comparison or reconciliation. For a single source, produce a direct summary instead.
 
 ## Protocol
 
@@ -49,7 +49,7 @@ For conflicts:
 - Weight by: recency, authority, evidence quality
 - Choose position OR present both with reasoning
 
-Never silently pick one. Conflicts = valuable signal.
+Document the selected position and reasoning explicitly. Conflicts = valuable signal.
 
 ### 5. Synthesize
 
@@ -76,8 +76,12 @@ Coverage check before delivering:
 🕳️ GAPS: [what wasn't covered, needs more research]
 ```
 
-## Decline When
+## Scope Recovery
 
-Sources too heterogeneous, scope undefined, or time insufficient for proper reconciliation.
+When sources are too heterogeneous, scope is undefined, or time is insufficient, ask for a narrower source set, split the request into coherent groups, or deliver the available synthesis with its limitations stated.
 
-References: `source-types.md`, `conflict-resolution.md`, `coverage-matrix.md`
+References:
+- `references/source-types.md`: Read when assessing source type and credibility.
+- `references/conflict-resolution.md`: Read when reconciling contradictory claims.
+- `references/coverage-matrix.md`: Read before delivery to verify coverage.
+- `references/darwin-evaluation.md`: Read when auditing the recorded structural evaluation and dry-run evidence.
