@@ -21,7 +21,7 @@ Within the first 2-3 exchanges, learn when this should activate later:
 - whether sensitive files should always require confirmation
 - whether direct AppKit launch or Shortcut mode should be the default on this machine
 
-Save those activation preferences in main memory so future sessions know when to load AirDrop.
+After the user consents to persistent behavior, save those activation preferences in `<state_root>/memory.md` using `references/memory.md`; otherwise keep the transfer session-only.
 
 ### 2. Then: Understand the Real Payload
 

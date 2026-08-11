@@ -18,6 +18,7 @@ Before reading or writing state, resolve `<state_root>` as follows:
 3. If none exists and state must be created, default to `<workspace>/airdrop/`.
 
 Use the selected `<state_root>` for every state operation in this skill.
+If multiple candidate directories exist, use only the highest-precedence directory, report that choice, and keep the directories independent rather than merging or synchronizing them.
 
 ## When to Use
 
@@ -72,7 +73,7 @@ Agent handles file staging, confirmation, local handoff, and mode selection betw
 
 ## Architecture
 
-Memory lives in `<state_root>/`. If `<state_root>/` does not exist, run `references/setup.md`. See `references/memory.md` for structure.
+Memory lives in `<state_root>/`. When the user wants persistent behavior and `<state_root>/` does not exist, read `references/setup.md`; read `references/memory.md` for the state structure.
 
 ```text
 <state_root>/

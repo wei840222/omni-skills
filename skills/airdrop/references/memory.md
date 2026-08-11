@@ -1,6 +1,6 @@
 # Memory
 
-Create `<state_root>/memory.md` with the structure shown in `assets/memory-template.md`.
+Create `<state_root>/memory.md` with the structure shown in `../assets/memory-template.md`.
 
 ## Status Values
 
