@@ -28,13 +28,13 @@ Proceed once the purpose, framework, and unknowns are recorded.
 - **So what?**: End with action, not summary
 - **Obviousness test**: Would someone say this without reading? → Deeper
 
-## Traps
+## Quality Controls
 
-- **Superficial**: Paraphrasing ≠ analysis
-- **Equal weight**: Everything yellow = nothing prioritized
-- **Confirmation bias**: First impression became conclusion
-- **Missing denominator**: "500 cancellations" of 600 or 50,000?
-- **Invented data**: Stats without source = hallucination
+- **Depth**: Produce deep analysis rather than simple paraphrasing.
+- **Prioritization**: Ensure clear distinction between critical and minor items.
+- **Objectivity**: Challenge the first impression to ensure it does not become the conclusion.
+- **Context**: Provide complete denominators (for example, "500 cancellations out of 50,000 total").
+- **Verification**: Verify and cite sources for all data.
 
 ## By Domain
 
