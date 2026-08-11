@@ -1,6 +1,6 @@
 ---
 name: delegate
-description: Route tasks to sub-agents with optimal model selection, error recovery, and result verification.
+description: Delegate bounded, independent tasks to sub-agents when parallel work costs less than manual execution; select capability tiers, recover from failures, and verify results.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📤"}'
