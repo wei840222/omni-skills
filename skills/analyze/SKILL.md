@@ -1,27 +1,28 @@
 ---
 name: analyze
-description: Structured analysis for any input. Data, code, text, decisions, visuals. Prioritize, question, conclude.
+description: Analyze data, code, text, decisions, or visuals using structured frameworks. Use when the user wants to prioritize, question assumptions, or form conclusions.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧩"}'
 ---
 
-Before analyzing: State what decision this serves. Pick a framework. Note first impression to challenge later.
+## 1. Setup
 
-## Before
+State what decision the analysis serves. Pick a framework. Record the first impression to challenge later.
+Proceed once the purpose, framework, and unknowns are recorded.
 
 - **Purpose in one line**: "This analysis helps decide ___"
 - **What's missing**: 3+ unknowns that would change conclusions
 - **First impression**: Write it — then seek counter-evidence
 
-## During
+## 2. Execution
 
 - **Prioritize always**: 🔴 Critical (1-2 max) · 🟡 Important (2-3) · ⚪ Minor
 - **Mark sources**: Every claim gets `[from input]` or `[inferred]`
 - **Seek disconfirmation**: Dedicate space to "why I might be wrong"
 - **Distinguish**: Facts vs opinions. Correlation vs causation.
 
-## After
+## 3. Synthesis
 
 - **One-line summary**: Force analysis into one sentence
 - **So what?**: End with action, not summary
