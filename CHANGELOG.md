@@ -43,4 +43,4 @@ For every skill-refactor pull request:
 2. Create the pull request targeting `local`.
 3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, PR number, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
-| product-hunt | #42 | 2026-08-11 | 80 |
+| product-hunt | #4 | 2026-08-11 | 80/100 |
