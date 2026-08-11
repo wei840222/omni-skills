@@ -49,7 +49,7 @@ For conflicts:
 - Weight by: recency, authority, evidence quality
 - Choose position OR present both with reasoning
 
-Never silently pick one. Conflicts = valuable signal.
+Document the selected position and reasoning explicitly. Conflicts = valuable signal.
 
 ### 5. Synthesize
 
@@ -76,9 +76,9 @@ Coverage check before delivering:
 🕳️ GAPS: [what wasn't covered, needs more research]
 ```
 
-## Decline When
+## Scope Recovery
 
-Sources too heterogeneous, scope undefined, or time insufficient for proper reconciliation.
+When sources are too heterogeneous, scope is undefined, or time is insufficient, ask for a narrower source set, split the request into coherent groups, or deliver the available synthesis with its limitations stated.
 
 References:
 - `references/source-types.md`: Read when assessing source type and credibility.

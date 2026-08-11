@@ -30,12 +30,12 @@ Map sources (rows) against themes/topics (columns):
 ### Weak Coverage (1 source)
 - Flag explicitly: "Based solely on [source]"
 - Seek additional sources if critical
-- Don't over-generalize single-source claims
+- State the narrow scope of each single-source claim
 
 ### Gap (0 sources)
 - Acknowledge explicitly
 - Either: seek sources, or note as limitation
-- Never invent to fill gaps
+- State missing information as a limitation
 
 ## Pre-Synthesis Checklist
 
