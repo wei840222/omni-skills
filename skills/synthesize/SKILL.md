@@ -10,6 +10,10 @@ metadata:
 
 Synthesis fails when sources contradict silently or coverage has gaps. Track everything, resolve conflicts explicitly.
 
+## Scope
+
+Use this workflow when the input contains multiple sources that need comparison or reconciliation. For a single source, produce a direct summary instead.
+
 ## Protocol
 
 ```
