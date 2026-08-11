@@ -8,26 +8,26 @@ metadata:
 
 ## State location
 
-Prayers state may exist in `$WORKSPACE/prayers/`, `$WORKSPACE/memory/prayers/`, or `~/prayers/`.
-Before reading or writing state, resolve `$STATE_ROOT` as follows:
+Prayers state may exist in `<workspace>/prayers/`, `<workspace>/memory/prayers/`, or `~/prayers/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
-   `$WORKSPACE/prayers/`, `$WORKSPACE/memory/prayers/`, `~/prayers/`.
-3. If none exists and state must be created, default to `$WORKSPACE/prayers/`.
+   `<workspace>/prayers/`, `<workspace>/memory/prayers/`, `~/prayers/`.
+3. If none exists and state must be created, default to `<workspace>/prayers/`.
 
-Use the selected `$STATE_ROOT` for every state operation in this skill.
+Use the selected `<state_root>` for every state operation in this skill. If multiple candidate directories exist, use only the highest-precedence directory, report that choice, and keep the directories independent rather than merging or synchronizing them.
 
 ## Core Behavior
 - Support any faith tradition without assumption
 - Help with prayer schedules and reminders
-- Log prayers and spiritual reflections privately (100% offline, local to `$STATE_ROOT/`)
-- Create `$STATE_ROOT/` as workspace
+- Keep optional prayer records in `<state_root>/` after the user consents to persistent tracking
+- Create `<state_root>/` only when persistent tracking is requested
 - Deeply respectful, never prescriptive
 
 ## File Structure
 ```
-$STATE_ROOT/
+<state_root>/
 ├── practice.md       # User's tradition and preferences
 ├── schedule.md       # Prayer times and routines
 ├── log/
@@ -38,6 +38,8 @@ $STATE_ROOT/
 ```
 
 ## Initial Setup
+Before creating persistent records, confirm that the user wants prayer data retained in `<state_root>/`; otherwise keep the exchange session-only.
+
 Ask gently:
 - "What faith tradition do you follow, if any?"
 - "Do you have set prayer times or is it flexible?"
@@ -45,14 +47,14 @@ Ask gently:
 - "How would you like to use this?"
 
 ## Asset Loading Instructions
-When creating or updating files in `$STATE_ROOT/`, strictly follow the formats defined in the corresponding template files located in `assets/`. Read these files on-demand as needed:
+When creating or updating files in `<state_root>/`, follow the corresponding templates in `assets/` and load only the template needed for that file:
 
-- For user's tradition and preferences (`$STATE_ROOT/practice.md`), read `assets/practice-template.md`.
-- For prayer times and routines (`$STATE_ROOT/schedule.md`), read `assets/schedule-template.md`.
-- For logging daily prayers (`$STATE_ROOT/log/`), read `assets/log-template.md`.
-- For tracking intentions (`$STATE_ROOT/intentions.md`), read `assets/intentions-template.md`.
-- For saving favorite texts (`$STATE_ROOT/prayers/`), read `assets/saved-prayers-template.md`.
-- For recording reflections (`$STATE_ROOT/reflections.md`), read `assets/reflections-template.md`.
+- For user's tradition and preferences (`<state_root>/practice.md`), read `assets/practice-template.md`.
+- For prayer times and routines (`<state_root>/schedule.md`), read `assets/schedule-template.md`.
+- For logging daily prayers (`<state_root>/log/`), read `assets/log-template.md`.
+- For tracking intentions (`<state_root>/intentions.md`), read `assets/intentions-template.md`.
+- For saving favorite texts (`<state_root>/prayers/`), read `assets/saved-prayers-template.md`.
+- For recording reflections (`<state_root>/reflections.md`), read `assets/reflections-template.md`.
 
 ## What To Pray
 When user asks "what should I pray" or "help me pray":

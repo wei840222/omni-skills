@@ -3,12 +3,18 @@
     "id": 1,
     "scenario": "typical user request",
     "prompt": "Set up a morning and evening prayer routine for me.",
-    "expected": "Asks clarifying questions based on Initial Setup, then creates schedule.md."
+    "expected": "Asks about tradition, preferred times, reminders, and persistent-record consent before creating a schedule in the resolved state root.",
+    "actual": "Manual dry-run: asks the four setup questions and waits for consent before creating any persistent schedule file.",
+    "mode": "manual_dry_run",
+    "pass": true
   },
   {
     "id": 2,
     "scenario": "complex or ambiguous scenario",
     "prompt": "I missed my prayers for three days and feel bad. How should I record this?",
-    "expected": "Responds gently without judgment, focuses on starting again, and optionally updates the log without marking a failure."
+    "expected": "Responds gently without judgment, focuses on restarting, and offers an optional private log update without marking a failure.",
+    "actual": "Manual dry-run: acknowledges the missed days without guilt, offers a small restart, and asks before retaining any reflection or log entry.",
+    "mode": "manual_dry_run",
+    "pass": true
   }
 ]
