@@ -1,13 +1,9 @@
 ---
-name: Delegate
-slug: delegate
-version: 1.0.0
+name: delegate
 description: Route tasks to sub-agents with optimal model selection, error recovery, and result verification.
-homepage: https://clawic.com/skills/delegate
 metadata:
-  clawdbot:
-    emoji: 📤
-    displayName: Delegate
+  version: "1.0.0"
+  openclaw: '{"emoji":"📤"}'
 ---
 
 ## Core Rule
@@ -35,7 +31,7 @@ Every spawn must include:
 5. DONE: How to signal completion
 ```
 
-Check `templates.md` for copy-paste spawn templates.
+Load `assets/templates.md` for copy-paste spawn templates when preparing a spawn checklist.
 
 ## Error Recovery
 
@@ -46,7 +42,7 @@ Check `templates.md` for copy-paste spawn templates.
 | Task too complex for tier | Escalate: Small→Medium→Large |
 | Repeated failures (3x) | Abort, report to user |
 
-Check `errors.md` for recovery patterns and escalation logic.
+Load `references/errors.md` for recovery patterns and escalation logic when encountering an error or sub-agent timeout.
 
 ## Verification
 
