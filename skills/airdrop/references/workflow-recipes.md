@@ -2,10 +2,17 @@
 
 Use these patterns when the user wants nearby local delivery from the agent.
 
+Before running a recipe, resolve `<state_root>` with `SKILL.md`, then replace both variables with actual absolute paths.
+
+```bash
+skill_root="/absolute/path/to/skills/airdrop"
+state_root="/absolute/path/to/resolved/airdrop-state"
+```
+
 ## Direct Mode: Share One File
 
 ```bash
-/path/to/airdrop-send.sh ./dist/release-notes.pdf
+"$skill_root/scripts/airdrop-send.sh" ./dist/release-notes.pdf
 ```
 
 Best for:
@@ -17,7 +24,7 @@ Best for:
 ## Direct Mode: Share Multiple Files
 
 ```bash
-/path/to/airdrop-send.sh ./build/app.dmg ./build/checksums.txt
+"$skill_root/scripts/airdrop-send.sh" ./build/app.dmg ./build/checksums.txt
 ```
 
 Use this when the recipient needs a small fixed bundle and no extra packaging.
@@ -27,11 +34,11 @@ Use this when the recipient needs a small fixed bundle and no extra packaging.
 When the source is noisy, reduce it first:
 
 ```bash
-mkdir -p <state_root>/staging/review-bundle
-cp ./output/final-review.pdf <state_root>/staging/review-bundle/
-cp ./output/diff-summary.txt <state_root>/staging/review-bundle/
-zip -r <state_root>/staging/review-bundle.zip <state_root>/staging/review-bundle
-/path/to/airdrop-send.sh <state_root>/staging/review-bundle.zip
+mkdir -p "$state_root/staging/review-bundle"
+cp ./output/final-review.pdf "$state_root/staging/review-bundle/"
+cp ./output/diff-summary.txt "$state_root/staging/review-bundle/"
+zip -r "$state_root/staging/review-bundle.zip" "$state_root/staging/review-bundle"
+"$skill_root/scripts/airdrop-send.sh" "$state_root/staging/review-bundle.zip"
 ```
 
 Use this for:
@@ -45,8 +52,9 @@ Use this for:
 If the user says "AirDrop this summary", stage it first:
 
 ```bash
-printf '%s\n' "summary text here" > <state_root>/staging/session-summary.txt
-/path/to/airdrop-send.sh <state_root>/staging/session-summary.txt
+mkdir -p "$state_root/staging"
+printf '%s\n' "summary text here" > "$state_root/staging/session-summary.txt"
+"$skill_root/scripts/airdrop-send.sh" "$state_root/staging/session-summary.txt"
 ```
 
 Do not claim chat text can be AirDropped directly without a shareable item.
@@ -56,7 +64,7 @@ Do not claim chat text can be AirDropped directly without a shareable item.
 If the user already has a Shortcut that accepts file input:
 
 ```bash
-/path/to/airdrop-send.sh --shortcut "Send via AirDrop" ./exports/demo.mp4
+"$skill_root/scripts/airdrop-send.sh" --shortcut "Send via AirDrop" ./exports/demo.mp4
 ```
 
 Use this when:
