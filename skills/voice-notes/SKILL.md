@@ -1,40 +1,42 @@
 ---
-name: Voice Notes
-slug: voice-notes
-version: 1.0.2
-description: Organize voice message transcripts into a structured, searchable knowledge base with tags, links, and progressive note-taking.
-homepage: https://clawic.com/skills/voice-notes
+name: voice-notes
+description: Organize voice message transcripts into a structured, searchable knowledge base. Use when the user sends voice messages and wants to process transcripts into notes, tags, and links.
 metadata:
-  clawdbot:
-    emoji: 🎤
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Voice Notes
+  version: "1.0.2"
+  openclaw: '{"emoji":"🎤"}'
 ---
+
+## State location
+
+Voice Notes state may exist in `<workspace>/voice-notes/`, `<workspace>/memory/voice-notes/`, or `~/voice-notes/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/voice-notes/`, `<workspace>/memory/voice-notes/`, `~/voice-notes/`.
+3. If none exists and state must be created, default to `<workspace>/voice-notes/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## When to Use
 
 User sends voice messages. The agent platform handles transcription (via its configured STT). This skill organizes the resulting transcripts into structured notes, links related content, and maintains a scalable tag-based system.
 
-## Important: Transcription is Platform-Handled
+## Transcription is Platform-Handled
 
-This skill does NOT perform transcription. It expects the agent platform to:
+This skill delegates transcription to the platform. It expects the agent platform to:
 1. Receive audio from the user
 2. Transcribe it using the platform's configured STT (local or cloud)
 3. Pass the transcript text to this skill for organization
 
-The skill only organizes and stores text transcripts locally in `~/Clawic/data/voice-notes/`. Audio files are never accessed or stored by this skill.
+The skill only organizes and stores text transcripts locally in `<state_root>/`. Audio files are never accessed or stored by this skill.
 
 ## Architecture
 
-All data stored in `~/Clawic/data/voice-notes/`. See `memory-template.md` for setup.
+All data stored in `<state_root>/`. See `assets/memory-template.md` for setup.
 
 ```
-~/Clawic/data/voice-notes/
+<state_root>/
 +-- memory.md           # HOT: tag registry + recent activity
 +-- index.md            # Note index with tags and links
 +-- transcripts/        # Raw transcriptions (text only)
@@ -44,44 +46,42 @@ All data stored in `~/Clawic/data/voice-notes/`. See `memory-template.md` for se
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Note processing | `processing.md` |
-| Linking system | `linking.md` |
-| Tag management | `tags.md` |
+- Read `assets/memory-template.md` for memory setup.
+- Read `references/processing.md` for note processing.
+- Read `references/linking.md` for linking system.
+- Read `references/tags.md` for tag management.
 
 ## Data Storage
 
-All data stored in `~/Clawic/data/voice-notes/`. Create on first use:
+All data stored in `<state_root>/`. Create on first use:
 ```bash
-mkdir -p ~/Clawic/data/voice-notes/{transcripts,notes,archive}
+mkdir -p <state_root>/{transcripts,notes,archive}
 ```
 
 ## Scope
 
 This skill ONLY:
 - Receives transcript text from the agent platform
-- Stores transcripts and notes in `~/Clawic/data/voice-notes/`
+- Stores transcripts and notes in `<state_root>/`
 - Links related notes based on content
 - Manages user-defined tags
 
-This skill NEVER:
-- Performs audio transcription (platform responsibility)
-- Accesses audio files
-- Deletes content without explicit user confirmation
-- Accesses files outside `~/Clawic/data/voice-notes/`
-- Sends data externally
-- Requires API keys or credentials
+This skill is restricted to:
+- Relying on the platform for audio transcription
+- Ignoring audio files
+- Deleting content only with explicit user confirmation
+- Accessing files only within `<state_root>/`
+- Operating entirely locally without external requests
+- Operating without API keys or credentials
 
 ## Self-Modification
 
-This skill NEVER modifies its own SKILL.md.
-All data stored in `~/Clawic/data/voice-notes/` files.
+This skill preserves its own SKILL.md without modification.
+All data stored in `<state_root>/` files.
 
 ## Core Rules
 
-### 1. Never Lose Information
+### 1. Always Preserve Information
 | Event | Action |
 |-------|--------|
 | New transcript | Save immediately to `transcripts/` |
@@ -90,7 +90,7 @@ All data stored in `~/Clawic/data/voice-notes/` files.
 | User deletes | Confirm first, then move to `archive/` |
 
 ### 2. Tag System Over Folders
-- Tags defined in `~/Clawic/data/voice-notes/memory.md` under `## Tag Registry`
+- Tags defined in `<state_root>/memory.md` under `## Tag Registry`
 - User defines granularity (broad vs specific)
 - Reuse existing tags before creating new
 - Each note can have multiple tags
@@ -112,8 +112,8 @@ When note exceeds ~100 lines:
 ### 5. Progressive Disclosure
 | Tier | When Loaded |
 |------|-------------|
-| `~/Clawic/data/voice-notes/memory.md` | Always (tags, recent) |
-| `~/Clawic/data/voice-notes/index.md` | When searching |
+| `<state_root>/memory.md` | Always (tags, recent) |
+| `<state_root>/index.md` | When searching |
 | Individual notes | On demand |
 | Transcripts | For verification only |
 
@@ -134,4 +134,4 @@ Ask user on first use:
 - Creating new note when should append -> always search first
 - Losing tag consistency -> check registry before creating tags
 - Over-condensing -> preserve user's intent and nuance
-- Deleting "outdated" content -> archive, never delete
+- Deleting "outdated" content -> archive instead of deleting
