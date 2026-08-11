@@ -84,3 +84,4 @@ References:
 - `references/source-types.md`: Read when assessing source type and credibility.
 - `references/conflict-resolution.md`: Read when reconciling contradictory claims.
 - `references/coverage-matrix.md`: Read before delivery to verify coverage.
+- `references/darwin-evaluation.md`: Read when auditing the recorded structural evaluation and dry-run evidence.
