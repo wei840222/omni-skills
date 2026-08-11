@@ -17,11 +17,6 @@ Diverge when a single viewpoint isn't enough. For a parallel-thinking framing, l
 
 Use direct analysis when the answer is clear, the request is speed-critical, or the available evidence already supports a high-confidence decision.
 
-Don't diverge for:
-- Simple tasks with clear answers
-- Speed-critical requests
-- Tasks where you already have high confidence
-
 ## How Many Perspectives
 
 | Complexity | Perspectives | Examples |
