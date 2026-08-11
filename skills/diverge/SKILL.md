@@ -1,6 +1,6 @@
 ---
 name: diverge
-description: Evaluate complex questions through multiple perspectives before reaching a reasoned synthesis.
+description: Evaluate complex questions through multiple perspectives before reaching a reasoned synthesis. Use when the user requests competing viewpoints for product decisions, safety-critical evaluations, creative choices, or consequential trade-offs.
 metadata:
   openclaw: '{"emoji":"🌿"}'
   related-skills: '{"delegate":"Routes approved work to sub-agents.","loop":"Iterates a validated workflow until its completion criteria are met."}'
@@ -14,6 +14,8 @@ Diverge when a single viewpoint isn't enough. For a parallel-thinking framing, l
 - **Safety-critical** — Need doctor, lawyer, security expert perspectives
 - **Creative work** — Multiple aesthetic directions before choosing
 - **Complex trade-offs** — No obvious "right" answer
+
+Use direct analysis when the answer is clear, the request is speed-critical, or the available evidence already supports a high-confidence decision.
 
 Don't diverge for:
 - Simple tasks with clear answers
@@ -29,6 +31,10 @@ Don't diverge for:
 | High | 5-7 | Safety-critical, legal |
 
 **Rule:** Enough to cover blind spots, not so many you can't synthesize.
+
+### Dispatch Boundary
+
+Before launching personas, confirm the host permits parallel work and that any required approval is already in scope. If dispatch is unavailable, present the selected perspectives as an explicit dry run and label the result accordingly.
 
 ## Choosing Perspectives
 
