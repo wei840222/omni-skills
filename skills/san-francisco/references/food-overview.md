@@ -73,6 +73,6 @@ SF pioneered farm-to-table dining. Exceptional for Mission burritos, sourdough, 
 
 | Topic | File |
 |-------|------|
-| SF specialties | `food-local.md` |
-| By neighborhood | `food-areas.md` |
-| Coffee, dietary, tips | `food-practical.md` |
+| SF specialties | `references/food-local.md` |
+| By neighborhood | `references/food-areas.md` |
+| Coffee, dietary, tips | `references/food-practical.md` |

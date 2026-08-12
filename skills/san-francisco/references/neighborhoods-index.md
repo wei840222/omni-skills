@@ -42,7 +42,7 @@
 
 | Area Type | File |
 |-----------|------|
-| Central neighborhoods | `neighborhoods-central.md` |
-| South/Mission area | `neighborhoods-south.md` |
-| North/Marina area | `neighborhoods-north.md` |
-| Outer/Quiet areas | `neighborhoods-outer.md` |
+| Central neighborhoods | `references/neighborhoods-central.md` |
+| South/Mission area | `references/neighborhoods-south.md` |
+| North/Marina area | `references/neighborhoods-north.md` |
+| Outer/Quiet areas | `references/neighborhoods-outer.md` |
