@@ -2,8 +2,8 @@
   {
     "id": 1,
     "prompt": "I have 18 hours of work due this week, only 10 focused hours available, and I keep trying to fit everything in. Help me make a plan.",
-    "expected": "Names overcommitment, compares load with capacity, requires a specific cut or renegotiation, and gives an immediate next action.",
-    "actual": "Primary bottleneck: capacity, not effort. Your committed load is 18 h against 10 focused hours, so the plan is over by 8 h before interruptions. Today: rank the work by consequence, choose at least 8 h to defer, reduce, delegate, or renegotiate, and send one deadline message before planning the remaining 10 h. Then select one must-win outcome and write its first physical action.",
+    "expected": "Names overcommitment, applies the provisional calibration ratio, compares load with capacity, requires a specific cut or renegotiation, and gives an immediate next action.",
+    "actual": "Primary bottleneck: capacity, not effort. With no local calibration history, apply the provisional 1.5 ratio: 18 estimated hours becomes 27 h of committed load against 10 focused hours. The plan is over by 17 h before interruptions. Today: rank the work by consequence, choose at least 17 h to defer, reduce, delegate, or renegotiate, and send one deadline message before planning the remaining 10 h. Then select one must-win outcome and write its first physical action.",
     "pass": true
   },
   {
