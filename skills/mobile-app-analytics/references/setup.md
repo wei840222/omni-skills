@@ -38,14 +38,14 @@ Once you understand the app:
 
 ## What You're Saving (internally)
 
-Create `<state_root>/memory.md` with:
+After the user authorizes persistent tracking, create `<state_root>/memory.md` with:
 - App name and platforms
 - Analytics tools they use
 - Key metrics they care about
 - Current goals or concerns
 - When to activate
 
-Create `<state_root>/apps/{app-name}.md` for each app with:
+After that authorization, create `<state_root>/apps/{app-name}.md` for each app with:
 - Platform(s)
 - Analytics stack
 - Key events tracked

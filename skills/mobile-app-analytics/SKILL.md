@@ -17,6 +17,7 @@ Before reading or writing state, resolve `<state_root>` as follows:
 3. If none exists and state must be created, default to `<workspace>/mobile-app-analytics/`.
 
 Use the selected `<state_root>` for every state operation in this skill.
+State resolution does not authorize persistence: create or modify `<state_root>` only with explicit user confirmation or an applicable host policy. Otherwise, provide guidance without storing app data.
 
 ## Setup
 
@@ -129,12 +130,12 @@ No other data is sent externally.
 - Analytics queries to Firebase/Apple/Google APIs when you provide credentials
 
 **Data that stays local:**
-- Your tracked apps and goals in `~/Clawic/data/mobile-app-analytics/`
+- Your tracked apps and goals in `<state_root>/`
 - Benchmark comparisons and notes
 
 **This skill does NOT:**
 - Store credentials (use your platform's standard credential methods)
-- Access files outside `~/Clawic/data/mobile-app-analytics/`
+- Access files outside `<state_root>/`
 - Make requests to undeclared endpoints
 
 ## Scope
@@ -149,4 +150,3 @@ This skill explicitly avoids:
 - Accesses files outside `<state_root>/`
 - Makes requests to undeclared endpoints
 - Modifies global agent memory or other skills
-
