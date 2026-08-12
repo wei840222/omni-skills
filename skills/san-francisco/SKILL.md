@@ -18,9 +18,11 @@ Before reading or writing state, resolve `<state_root>` as follows:
 
 Use the selected `<state_root>` for every state operation in this skill.
 
+State resolution does not authorize persistence: create or modify `<state_root>` only with explicit user confirmation or an applicable host policy. Otherwise, provide guidance without storing app data.
+
 ## When to Use
 
-User asks about San Francisco for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+User asks about San Francisco for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical planning guidance and verifies live sources before reporting time-sensitive facts.
 
 ## On-Demand Resources
 
@@ -81,13 +83,16 @@ See `references/safety.md` for specifics.
 
 **Best weather:** September-October (SF's real summer)
 
-### 4. Current Data
+### 4. Planning Baselines
+
+The following 2024-2025 planning ranges are not live quotes. Before making a recommendation that depends on price, transit fare, salary, availability, or local safety conditions, verify an authoritative current source for the relevant date, route, and neighborhood.
+
 | Item | Range |
 |------|-------|
 | 1BR rent | $2,900-3,400 (varies by neighborhood) |
 | Senior SWE salary | $200K-400K+ total comp |
 | Burrito | $14-18 |
-| BART to SFO | ~$10.55 |
+| BART to SFO | Route-dependent; use the BART Fare Calculator |
 
 ### 5. Tourist Traps
 - Skip: Most of Fisherman's Wharf, Lombard Street drive, Union Square
