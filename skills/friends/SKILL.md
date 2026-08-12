@@ -14,7 +14,8 @@ Before reading or writing state, resolve `<state_root>` as follows:
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
    `<workspace>/friends/`, `<workspace>/memory/friends/`, `~/friends/`.
-3. If none exists and state must be created, default to `<workspace>/friends/`.
+3. If multiple candidate directories exist, use the highest-priority one, keep the others independent, and tell the user which location was selected.
+4. If none exists and state must be created, default to `<workspace>/friends/`.
 
 Use the selected `<state_root>` for every state operation in this skill.
 
