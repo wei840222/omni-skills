@@ -64,4 +64,5 @@ Keep `<state_root>` fixed for the operation. It stores only operation metadata:
 
 ## Reference routing
 
+- Read `references/operation-safeguards.md` before planning or executing any bulk rename, move, cleanup, or undo. It contains mandatory platform boundaries, undo retention, large-batch, capacity, and operation-specific safeguards that complement this entry-point workflow.
 - Read `references/knowledge-sources.md` only when explaining the digest or trash-standard basis for this skill's safety choices.
