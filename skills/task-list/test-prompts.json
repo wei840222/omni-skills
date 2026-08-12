@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Add these to my task list: email Marta the contract by Friday, someday redesign the landing page, and I am waiting on Finance to approve the budget.",
+    "expected": "Creates separate task records, keeps the explicit due date, routes the idea to Someday, and creates a Waiting record with a missing chase date left visible rather than invented.",
+    "actual": "Captured three separate records: (1) `Email contract to Marta` with due date Friday; (2) `Redesign landing page` in Someday; (3) `Finance approval for budget` in Waiting, with Finance as the dependency. I did not invent a chase date; which date should the budget follow-up surface?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Mark my weekly cash-runway review done and make it repeat every Friday. Also move every overdue task to Today.",
+    "expected": "Separates completion, recurrence, and a bulk move; asks for confirmation before all three high-trust changes, and explains that overdue tasks are risks rather than automatic Today items.",
+    "actual": "I can prepare those changes, but need confirmation before writing them: mark the current cash-runway review complete, create a Friday recurrence anchored to the calendar date, and bulk-promote overdue tasks. For the last change, the safer review is to surface overdue items as risks and choose which belong in Today; should I use that review instead, or move every overdue item?",
+    "pass": true
+  }
+]
