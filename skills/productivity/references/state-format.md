@@ -27,4 +27,4 @@ Create only the files that a requested feature needs:
 
 ## Migration
 
-Treat an older path as a migration source, never as an active fallback. Inventory it first, propose a copy-and-verify plan, wait for explicit confirmation, and retain the source until the user confirms the cutover. Do not combine state from several candidate roots automatically.
+Treat an older path as a migration source only. Inventory it first, propose a copy-and-verify plan, wait for explicit confirmation, retain the source until the user confirms the cutover, and keep candidate roots separate.

@@ -15,7 +15,7 @@ Before a state read or write, resolve `<state_root>` once for the invocation:
 
 1. Use a user- or host-configured state path when one exists.
 2. Otherwise use the first existing directory in this order: `<workspace>/productivity/`, `<workspace>/memory/productivity/`, `~/productivity/`.
-3. If multiple candidates exist, use only the highest-precedence directory and report the split state; do not merge or synchronize it.
+3. If multiple candidates exist, use only the highest-precedence directory, report the split state, and leave lower-precedence roots unchanged.
 4. If none exists and the user explicitly wants persistent notes, create `<workspace>/productivity/`.
 
 If the host cannot identify `<workspace>`, use an existing `~/productivity/` only; otherwise request a state location before creating notes. Keep all state operations in the selected `<state_root>`.

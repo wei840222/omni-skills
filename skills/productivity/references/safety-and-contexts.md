@@ -2,7 +2,7 @@
 
 ## Safety routing
 
-When someone mentions immediate self-harm, prioritize local emergency or crisis support and a trusted person over productivity work. Broad, persistent loss of interest, substantial sleep or appetite changes, panic symptoms, or exhaustion that rest does not repair warrant clinical support. WHO classifies burnout as an occupational phenomenon rather than a medical condition, so describe observed workload and recovery patterns without diagnosing. A formal performance, HR, legal, or employment-risk process warrants appropriate workplace or professional advice. Productivity techniques can reduce friction around those supports but must not diagnose the person or substitute for them.
+When someone mentions immediate self-harm, prioritize local emergency or crisis support and a trusted person over productivity work. Broad, persistent loss of interest, substantial sleep or appetite changes, panic symptoms, or exhaustion that rest does not repair warrant clinical support. WHO classifies burnout as an occupational phenomenon rather than a medical condition, so describe observed workload and recovery patterns and route diagnosis or treatment decisions to qualified care. A formal performance, HR, legal, or employment-risk process warrants appropriate workplace or professional advice. Productivity techniques can reduce friction around those supports while preserving those professional boundaries.
 
 ## Context adjustments
 
@@ -17,4 +17,4 @@ When someone mentions immediate self-harm, prioritize local emergency or crisis 
 | ADHD or executive-function difficulty | Time blindness, initiation, and task switching | Externalize the next action, reduce activation energy, and use reminders or body doubling if welcome; leave assessment and treatment to qualified care. |
 | Burnout or rest guilt | Depletion, overload, or worth tied to output | Reduce demand first, protect recovery, and encourage appropriate human support. |
 
-Use the person's stated constraints as facts. Avoid forcing early schedules, long focus blocks, detailed tracking, or a standard productivity system when those conflict with the environment or the user's preferences.
+Use the person's stated constraints as facts. Adapt schedule timing, focus-block length, tracking, and system complexity to the environment and the user's preferences.
