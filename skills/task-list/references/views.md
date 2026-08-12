@@ -14,4 +14,4 @@
 
 Within a view, order overdue due dates, due today, reached start dates, high priority, intentional manual order, then oldest unresolved change. Preserve prior visible order for a complete tie.
 
-Overdue work is a risk signal. Surface it and let the user promote, defer, renegotiate, or drop it; do not automatically flood Today. Show recurrence only at its next intended appearance, and expose the owner, blocker, and chase date for Waiting.
+Overdue work is a risk signal. Surface it and let the user promote, defer, renegotiate, or drop it; populate Today only with work the user selected for immediate attention. Show recurrence only at its next intended appearance, and expose the owner, blocker, and chase date for Waiting.
