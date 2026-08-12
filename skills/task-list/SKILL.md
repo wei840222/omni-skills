@@ -1,143 +1,45 @@
 ---
-name: Task List
-slug: task-list
-version: 1.0.0
-description: Run a conversational task list with Inbox, Today, Upcoming, recurring tasks, waiting items, projects, and review loops that stay trustworthy.
-homepage: https://clawic.com/skills/task-list
-changelog: Initial release with a conversational task-list workspace, stable views, and Things or Todoist-style operating rules.
+name: task-list
+description: Capture, clarify, organize, and review a conversational task list with stable views, projects, recurrence, and waiting work. Use when the user wants to add, update, prioritize, defer, or review tasks; not for calendar-service automation or broad productivity diagnosis.
 metadata:
-  clawdbot:
-    emoji: 📋
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/task-list/
-    displayName: Task List
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/task-list/
+  version: "1.0.0"
+  openclaw: '{"emoji":"📋"}'
+  related-skills: "{\"assistant\":\"Coordinates broader chief-of-staff work that may include tasks, messages, and follow-through.\",\"daily-planner\":\"Turns a selected task list into a realistic day plan with focus blocks.\",\"memory\":\"Maintains broader durable context outside the task-list state root.\",\"plan\":\"Builds a structured initiative plan when a task expands beyond list management.\",\"projects\":\"Provides deeper project tracking when task-list project records are insufficient.\"}"
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` for activation boundaries, continuity rules, and how to introduce the system without turning it into a form.
+Task-list state may exist in `<workspace>/task-list/`, `<workspace>/memory/task-list/`, or `~/task-list/`.
 
-## When to Use
+Resolve `<state_root>` before the first state operation in an invocation:
 
-User wants to manage a task list by talking naturally instead of filling a UI. The agent should capture tasks, clarify them into clean next actions, and maintain stable views like Inbox, Today, Upcoming, Anytime, Someday, and Waiting.
+1. Use an explicit user- or host-configured state path when available.
+2. Otherwise use the first existing directory in this order: `<workspace>/task-list/`, `<workspace>/memory/task-list/`, `~/task-list/`.
+3. When several candidates exist, use the highest-precedence directory, report the split state, and leave other candidates unchanged.
+4. When no candidate exists and the user requests persistent task-list state, create `<workspace>/task-list/`.
 
-Use this when the user wants Things or Todoist behavior from conversation: quick capture, predictable sorting, recurring work, project structure, and weekly review without silent changes.
+When the host cannot identify `<workspace>`, use an existing `~/task-list/`; otherwise request a state location before creating notes. Use the selected `<state_root>` consistently for the rest of the invocation.
 
-## Architecture
+## Workflow
 
-Memory lives in `~/Clawic/data/task-list/`. If the user wants continuity and `~/Clawic/data/task-list/` does not exist, run `setup.md`. See `memory-template.md` for the durable context file and `workspace-format.md` for the local file layout.
+1. Handle the user’s immediate request first. For a raw capture, create an Inbox item without requiring metadata.
+2. Clarify only information that changes execution: next action, due versus start date, recurrence anchor, project boundary, or waiting owner.
+3. Keep projects (finite outcomes), areas (ongoing responsibilities), and waiting work as distinct records.
+4. Apply the deterministic view rules before listing tasks. Today is a focused working set, not an archive of overdue work.
+5. Treat an explicit request to add or update a named task as consent for that non-destructive edit. Confirm deletion, completion, recurrence changes, rescheduling, and bulk moves before writing.
+6. State exactly what changed after each state update. Load `references/state-guide.md` before creating, migrating, or maintaining persistent files.
 
-```
-~/Clawic/data/task-list/
-├── memory.md       # Durable preferences and activation boundaries
-├── inbox.md        # Raw captures that still need clarification
-├── tasks.md        # Active tasks across Today, Upcoming, Anytime, Someday
-├── projects.md     # Finite outcomes with next actions and deadlines
-├── areas.md        # Ongoing responsibilities without end dates
-├── recurring.md    # Recurrence rules and regeneration behavior
-├── waiting.md      # Delegated or blocked work with chase dates
-└── log.md          # Recently completed, dropped, or major field changes
-```
+## Reference routing
 
-## Quick Reference
+Load a matching reference only after the workflow identifies that branch; routine capture and one-task updates use the entry workflow alone.
 
-| Topic | File |
-|-------|------|
-| First-use behavior | `setup.md` |
-| Durable memory | `memory-template.md` |
-| Local workspace files | `workspace-format.md` |
-| Capture and clarification | `capture-and-clarify.md` |
-| Views and sorting rules | `views-and-sorting.md` |
-| Dates, recurrence, and waiting | `recurrence-and-waiting.md` |
-| Daily and weekly review loops | `review-rhythm.md` |
+- Read `references/capture.md` for brain dumps, title rewrites, or uncertainty about which fields to ask for.
+- Read `references/views.md` before presenting Inbox, Today, Upcoming, Anytime, Someday, or Waiting.
+- Read `references/recurrence-and-waiting.md` for dates, snoozes, recurring tasks, blocked work, or follow-up dates.
+- Read `references/reviews.md` for daily triage, weekly reset, stale tasks, or overload.
+- Read `references/state-guide.md` for first-time setup, persistent storage, migration, or file updates; copy formats from `assets/task-file-templates.md` only when creating the corresponding state file.
+- Read `references/knowledge-sources.md` only when auditing date and recurrence semantics or explaining their interoperability limits.
 
-## Core Rules
+## Boundaries
 
-### 1. Capture first, clarify second
-- Never block raw capture on missing metadata.
-- If the user brain-dumps multiple items, capture them all first, then clarify only the fields that materially change execution.
-- Default ambiguous items to `Inbox` instead of pretending certainty.
-- Use `capture-and-clarify.md` to decide what to infer versus what to ask.
-
-### 2. Preserve task semantics exactly
-- Keep due date, start or defer date, recurrence rule, completion time, and waiting state as separate concepts.
-- "Due Friday" is different from "show me this Friday" and different again from "snooze until Friday."
-- If a date phrase could change the outcome, ask once and record the clarified meaning.
-- Use `recurrence-and-waiting.md` for exact date and repeat behavior.
-
-### 3. One task equals one visible next action
-- Rewrite vague items into a task title that starts with a verb and can be advanced in one focused work block.
-- If the user names an outcome with multiple steps, create a project plus the next visible action instead of one bloated task.
-- Preserve important original wording in notes or context when rewriting could hide nuance.
-- Use `workspace-format.md` for the project and task record shape.
-
-### 4. Keep views stable and predictable
-- The same task should land in the same view every time given the same fields.
-- Sort by bucket first, then date, then urgency, then intentional manual order.
-- `Today` is for work that should be seen now, not for every overdue item in the system.
-- Use `views-and-sorting.md` whenever listing or re-listing tasks.
-
-### 5. Separate projects, areas, and waiting work
-- Projects are finite outcomes with a defined done condition.
-- Areas are ongoing responsibilities such as finance, health, hiring, or household operations.
-- Waiting work must keep owner, blocker, last follow-up, and next chase date visible so delegated tasks do not disappear.
-- Never collapse all of this into one flat list.
-
-### 6. Make every structural change explicit
-- Confirm destructive or high-trust changes: delete, archive, mark done, recur, reschedule, or bulk move.
-- When you change a task, say what changed in plain language.
-- Never silently merge duplicates, invent deadlines, or mark something completed without the user's intent.
-- Use the logging patterns from `workspace-format.md` for meaningful changes only, not noisy chatter.
-
-### 7. Review ruthlessly to keep trust
-- Run lightweight daily triage to empty `Inbox`, refresh `Today`, and surface real blockers.
-- Run a weekly reset to prune stale tasks, expose overcommitment, and ensure every active project has a next action.
-- Suggest defer, drop, delegate, or Someday when the list exceeds realistic capacity.
-- Use `review-rhythm.md` for the minimum review loop.
-
-## Common Traps
-
-- Turning every conversation into a questionnaire -> capture becomes slower than opening a task app.
-- Mixing due dates and start dates -> tasks appear too early, too late, or in the wrong view.
-- Treating projects and areas as the same thing -> review quality collapses as the list grows.
-- Hiding delegated work inside generic blocked tasks -> follow-up risk becomes invisible.
-- Keeping everything in `Today` -> the user stops trusting the list and avoids it.
-- Rewriting task meaning too aggressively -> clean titles look nice but destroy intent.
-- Auto-completing or auto-rescheduling without saying so -> trust is lost immediately.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- None by default.
-
-**Data that stays local:**
-- Task records and preferences under `~/Clawic/data/task-list/` if the user wants continuity.
-
-**This skill does NOT:**
-- Access files outside `~/Clawic/data/task-list/` for storage.
-- Make undeclared network requests.
-- Send reminders or run automations without explicit user approval.
-- Modify its own skill instructions.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `assistant` - Chief-of-staff style execution across tasks, messages, and follow-through.
-- `daily-planner` - Turn tasks into a realistic day plan with protected focus blocks.
-- `memory` - Keep durable context when the user wants broader long-term recall.
-- `plan` - Build structured plans when a task grows into a multi-step initiative.
-- `projects` - Manage deeper project tracking beyond a simple task list.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/task-list
-- Latest version: https://clawic.com/skills/task-list
+Use `daily-planner` after the user has selected work to schedule. Use `plan` or `projects` when a request needs initiative-level planning rather than task-list maintenance. Keep secrets, private third-party notes, and unrelated durable history out of `<state_root>`.

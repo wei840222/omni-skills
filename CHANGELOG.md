@@ -41,6 +41,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | synthesize | #8 | 2026-08-12 | 88/100 |
 | diverge | #7 | 2026-08-12 | 85/100 |
 | san-francisco | #16 | 2026-08-12 | 98/100 |
+| task-list | #19 | 2026-08-12 | 85/100 |
 
 ## Updating This Changelog
 
