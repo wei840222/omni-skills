@@ -45,6 +45,8 @@ This table is the canonical record of skill refactor pull requests merged into `
 | task-list          | 2026-08-12 | 85/100                   |
 | productivity       | 2026-08-12 | 85.4/100                 |
 | files              | 2026-08-12 | 85/100 (author-reported) |
+| product-hunt       | 2026-08-11 | 80/100                   |
+| projects           | 2026-08-12 | 90                       |
 
 ## Updating This Changelog
 
@@ -54,5 +56,3 @@ For every skill-refactor pull request:
 2. Create the pull request targeting `main`.
 3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
-   | product-hunt | 2026-08-11 | 80/100 |
-   | projects | 2026-08-12 | 90 |
