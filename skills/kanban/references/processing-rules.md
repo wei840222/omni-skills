@@ -22,13 +22,13 @@ If tie remains, prefer the smallest executable task.
 
 ## WIP Enforcement
 
-- Read limits from `board.md` or `rules.md`.
+- Read limits from the resolved board and rules files.
 - If target lane is full, do not move cards into it.
 - Suggest the highest-value card to finish first to free capacity.
 
 ## Update Procedure
 
-1. Load board using `discovery-protocol.md`.
+1. Load the board using `references/discovery-protocol.md`.
 2. Compute intended transition and validate against rules.
 3. Apply the board update.
 4. Append matching log row with timestamp and rationale.
@@ -37,5 +37,5 @@ If tie remains, prefer the smallest executable task.
 ## Conflict Handling
 
 - If two instructions conflict, ask for priority override.
-- If a card appears duplicated, keep the oldest ID and merge notes.
+- If a card appears duplicated, report the candidate IDs and request approval before merging or deleting any card data.
 - If owner is unknown, set `owner` to `unassigned` and flag for assignment.

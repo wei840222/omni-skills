@@ -17,7 +17,7 @@ In the first natural exchanges, confirm when this system should activate:
 - Only when user explicitly asks for Kanban
 - Only for selected projects
 
-Save this behavior in `<state_root>/memory.md`.
+After the user confirms persistent state, save this behavior in `<state_root>/memory.md`.
 
 ### 2. Route Each Project Once
 
@@ -28,29 +28,31 @@ For each project, resolve and store:
 - Primary board path
 - Aliases users might use in chat
 
-Write this registry entry in `<state_root>/index.md`.
+After the user confirms the board location and write, record this registry entry in `<state_root>/index.md`.
 
 ### 3. Initialize the Board Skeleton
 
-Create board files using `assets/kanban-data-templates.md`:
-- `board.md`
-- `rules.md`
-- `log.md`
+For a confirmed `home-shared` board, create only the required files under `<state_root>/projects/{project-id}/` using `assets/kanban-data-templates.md`:
+- `<state_root>/projects/{project-id}/board.md`
+- `<state_root>/projects/{project-id}/rules.md`
+- `<state_root>/projects/{project-id}/log.md`
+
+For confirmed `workspace-local` mode, use the host-supplied `<workspace>/.kanban/` path and create only its `board.md`, `rules.md`, and `log.md` files. Record the project-local paths in `<state_root>/index.md`; never infer `<workspace>` from the shell working directory.
 
 If the user already has a preferred structure, preserve it and only add missing core fields.
 
 ### 4. Start with Real Work
 
-Capture the first actionable tasks immediately:
+After the user confirms board creation, capture the first actionable tasks:
 - Add backlog cards
 - Assign initial priority and owner
 - Move at least one card to ready or in progress if clear
 
 ## What You Save Internally
 
-- `memory.md`: integration preference, defaults, and operating notes
-- `index.md`: per-project routing table and last-used timestamps
-- `projects/{project-id}/` or `{workspace}/.kanban/`: board state and write log
+- `<state_root>/memory.md`: integration preference, defaults, and operating notes
+- `<state_root>/index.md`: per-project routing table and last-used timestamps
+- `<state_root>/projects/{project-id}/` or the confirmed `<workspace>/.kanban/`: board state and write log
 
 ## Guardrails
 
