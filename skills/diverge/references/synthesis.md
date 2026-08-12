@@ -58,9 +58,9 @@ Rationale: [why]
 - [things that need stakeholder input]
 ```
 
-## When to Escalate
+## Stakeholder Escalation
 
-Don't decide yourself when:
+Escalate for stakeholder decision when:
 - Legal/compliance implications
 - Significant cost trade-offs
 - Conflicting stakeholder priorities
