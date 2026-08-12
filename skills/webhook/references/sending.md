@@ -1,9 +1,10 @@
 # Webhook Sending: Best Practices
 
 ## Delivery Strategy and Retries
-* Implement an exponential backoff strategy for retries (e.g., 1m, 5m, 30m, 2h, 8h).
+* Implement an exponential backoff strategy with jitter for retries (e.g., 1m, 5m, 30m, 2h, 8h).
 * Limit the maximum number of retry attempts (e.g., 5-10 times) to prevent infinite loops.
-* Stop retrying if the receiver returns a 4xx status code, as these typically indicate permanent configuration errors.
+* Classify responses through an explicit delivery policy: terminal configuration or authentication failures complete the delivery, while documented transient statuses continue through the retry schedule.
+* Honor `Retry-After` and apply the receiver contract to 408, 425, and 429 rather than treating every 4xx response as terminal.
 * Treat timeouts as failures and schedule a retry.
 
 ## Signature Generation

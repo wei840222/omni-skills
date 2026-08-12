@@ -1,16 +1,16 @@
 # Webhook Receiving: Best Practices
 
 ## Signature Verification
-* Verify the HMAC signature for every request to confirm the payload's origin.
-* Extract the raw body bytes. Parsed JSON objects might reorder keys, which breaks the signature generation.
-* Use a timing-safe string comparison function to validate the signature and prevent timing attacks.
-* If the signature is missing or invalid, reject the request with HTTP 401 Unauthorized and log the attempt for investigation.
+* Verify every request with the provider's documented signature scheme to confirm the payload's origin.
+* Extract the raw body bytes. Parsed JSON objects might reorder keys, which breaks body-signature verification.
+* Use a timing-safe string comparison function whenever validating a secret-derived signature.
+* If the signature is missing or invalid, return the delivery contract's documented 4xx response and log the attempt for investigation.
 
 ## Replay Prevention
-* Extract the timestamp from the webhook payload or headers.
-* Compare the timestamp with the current server time.
-* Reject requests older than the acceptable tolerance (usually 5 minutes). This prevents captured webhooks from being replayed.
-* Allow a small clock skew (1-2 minutes) to account for time drift between servers.
+* Extract and verify the timestamp when the provider includes it in the signed input.
+* Compare the timestamp with the current server time using the provider's documented tolerance; five minutes is a common provider policy, not a universal default.
+* Reject requests older than the accepted tolerance to prevent captured webhooks from being replayed.
+* Allow the provider's documented clock-skew margin for time drift between servers.
 * Store processed event IDs and reject duplicates, even if they arrive within the valid time window.
 
 ## Idempotency (Critical)
@@ -25,6 +25,6 @@
 
 ## Error Handling
 * Return 2xx to indicate successful receipt. The sender will mark the event as delivered.
-* Return 4xx for permanent failures (e.g., invalid signature, unrecognized event type). This signals the sender to stop retrying.
-* Return 5xx for temporary failures (e.g., database unavailable). The sender will retry using exponential backoff.
+* Return the documented 4xx response for terminal failures (e.g., invalid signature, unrecognized event type).
+* Return 5xx for temporary failures (e.g., database unavailable) so a compliant sender can retry.
 * Log the full payload on error, taking care to redact sensitive fields.
