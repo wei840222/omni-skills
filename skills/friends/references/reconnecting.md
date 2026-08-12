@@ -38,7 +38,7 @@ With context:
 After something triggered it:
 > "I was just [doing thing you used to do together] and it made me miss hanging out. Any interest in catching up?"
 
-### Step 2: Don't Over-Apologize
+### Step 2: Keep Apologies Brief
 
 "I'm so sorry I've been terrible at staying in touch" puts pressure on them. Keep it light. Friendship isn't a performance review.
 
@@ -65,11 +65,11 @@ Make it easy to say yes.
 - Reminisce briefly (bonds) but focus on now
 - Acknowledge the gap without dwelling
 
-### Don'ts:
-- Interrogate about why they didn't reach out
-- Guilt trip about lost time
-- Treat it as a one-time nostalgia hit
-- Expect immediate closeness
+### Alternative Approaches:
+- Focus on the present rather than why they didn't reach out.
+- Focus on the future rather than lost time.
+- Treat the catch-up as a potential new beginning rather than a one-time nostalgia hit.
+- Expect that closeness will take time to rebuild.
 
 ---
 
