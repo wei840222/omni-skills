@@ -103,7 +103,7 @@ Anyone else been through this? Drop a 🙋 below
 
 ## Content Calendar Template
 
-Store in `schedule.md`:
+Store in `$STATE_ROOT/{persona-slug}/schedule.md`:
 
 ```markdown
 # Week of [Date]
@@ -191,7 +191,7 @@ Long YouTube video
 
 ## Performance Tracking
 
-Log in `analytics.md`:
+Log in `$STATE_ROOT/{persona-slug}/analytics.md`:
 
 ```markdown
 # Week of [Date]

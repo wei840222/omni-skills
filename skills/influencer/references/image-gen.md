@@ -135,7 +135,7 @@ AI-generated images can be detected. Reduce risk:
 ## Storage Organization
 
 ```
-content/photos/
+$STATE_ROOT/{persona-slug}/content/photos/
 ├── 2026-02/
 │   ├── gym/
 │   ├── lifestyle/

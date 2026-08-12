@@ -9,7 +9,7 @@
    - Various emotional tones for range
 2. **Create voice clone** in ElevenLabs dashboard
 3. **Test with sample scripts** before production
-4. **Save voice_id** in persona's `tools.md`
+4. **Save voice_id** in persona's `$STATE_ROOT/tools.md`
 
 ```bash
 # Generate audio via API

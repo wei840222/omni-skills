@@ -32,13 +32,13 @@ AI-generated influencers MUST disclose:
 ## What IS and ISN'T Allowed
 
 ### ✅ Allowed
-- Creating fictional AI personas
+- Creating fictional AI person's
 - AI-generated lifestyle content
 - Sponsored posts with proper disclosure
 - Educational content
 - Entertainment content
 
-### ❌ Prohibited
+### Prohibited Actions
 - Claiming AI influencer is a real person
 - Using real person's likeness without consent
 - Generating content that impersonates public figures
@@ -52,8 +52,8 @@ AI-generated influencers MUST disclose:
 ### Using Generated Faces
 ✅ Safe — fully AI-generated faces with no resemblance to real people
 ✅ Safe — licensed stock model faces as reference
-⚠️ Risky — faces that closely resemble celebrities
-❌ Illegal — using real person's face without consent
+Avoid faces that closely resemble celebrities
+Do not use a real person's face without consent
 
 ### Training Data Considerations
 - Don't train LoRAs on copyrighted images without license

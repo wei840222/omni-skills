@@ -1,20 +1,28 @@
 ---
-name: Influencer
-slug: influencer
-version: 1.0.0
-description: Create, manage, and scale AI-generated virtual influencers with consistent characters, multi-platform content, and monetization workflows.
-homepage: https://clawic.com/skills/influencer
+name: influencer
+description: Create, manage, and scale AI-generated virtual influencers. Define consistent characters, generate multi-platform content, and execute monetization workflows. Use when the user wants to launch or operate a virtual influencer persona.
 metadata:
-  clawdbot:
-    emoji: ⭐
-    displayName: Influencer
+  version: "1.0.0"
+  openclaw: '{"emoji":"⭐"}'
 ---
+
+## State location
+
+Influencer state may exist in `$WORKSPACE/influencer/`, `$WORKSPACE/memory/influencer/`, or `~/influencer/`.
+Before reading or writing state, resolve `$STATE_ROOT` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `$WORKSPACE/influencer/`, `$WORKSPACE/memory/influencer/`, `~/influencer/`.
+3. If none exists and state must be created, default to `$WORKSPACE/influencer/`.
+
+Use the selected `$STATE_ROOT` for every state operation in this skill.
 
 ## Workspace Structure
 
 Each influencer lives in a dedicated folder:
 ```
-~/influencers/
+$STATE_ROOT/
 ├── {persona-slug}/
 │   ├── identity.md        # Name, niche, voice, personality
 │   ├── reference/         # Base images for consistency
@@ -35,26 +43,26 @@ Each influencer lives in a dedicated folder:
 
 | Task | Load |
 |------|------|
-| Create new persona (identity, niche, aesthetics) | `persona.md` |
-| Generate consistent photos | `image-gen.md` |
-| Generate videos (talking head, lifestyle) | `video-gen.md` |
-| Voice and audio (TTS, voice cloning) | `voice.md` |
-| Content strategy and captions | `content.md` |
-| Platform optimization (IG, TikTok, YT) | `platforms.md` |
-| Monetization (brand deals, affiliates) | `monetization.md` |
-| Legal and disclosure requirements | `compliance.md` |
+| Create new persona (identity, niche, aesthetics) | `references/persona.md` |
+| Generate consistent photos | `references/image-gen.md` |
+| Generate videos (talking head, lifestyle) | `references/video-gen.md` |
+| Voice and audio (TTS, voice cloning) | `references/voice.md` |
+| Content strategy and captions | `references/content.md` |
+| Platform optimization (IG, TikTok, YT) | `references/platforms.md` |
+| Monetization (brand deals, affiliates) | `references/monetization.md` |
+| Legal and disclosure requirements | `references/compliance.md` |
 
 ---
 
 ## Persona Creation Checklist
 
 Before generating any content:
-- [ ] Define niche (fitness, lifestyle, tech, fashion, etc.)
-- [ ] Create identity document (name, age, location, backstory)
-- [ ] Generate 5-10 reference images for face consistency
-- [ ] Define visual style (lighting, colors, settings)
-- [ ] Create voice profile (if using TTS/videos)
-- [ ] Draft personality guidelines for captions
+- Define niche (fitness, lifestyle, tech, fashion, etc.)
+- Create identity document (name, age, location, backstory)
+- Generate 5-10 reference images for face consistency
+- Define visual style (lighting, colors, settings)
+- Create voice profile (if using TTS/videos)
+- Draft personality guidelines for captions
 
 ---
 
@@ -77,12 +85,12 @@ Maintaining the same face/body across all content is CRITICAL.
 
 ## Content Generation Flow
 
-1. **Plan** — Check schedule.md for what's needed today
-2. **Generate** — Use appropriate tool (see image-gen.md or video-gen.md)
+1. **Plan** — Check `$STATE_ROOT/{persona-slug}/schedule.md` for what's needed today
+2. **Generate** — Use appropriate tool (see `references/image-gen.md` or `references/video-gen.md`)
 3. **Review** — Verify character consistency, quality
 4. **Caption** — Write engaging copy matching persona voice
 5. **Schedule** — Queue for optimal posting time
-6. **Track** — Log in analytics.md after posting
+6. **Track** — Log in `$STATE_ROOT/{persona-slug}/analytics.md` after posting
 
 ---
 
@@ -101,7 +109,7 @@ Maintaining the same face/body across all content is CRITICAL.
 
 ## Tool Configuration
 
-Store active tools in `~/influencers/tools.md`:
+Store active tools in `$STATE_ROOT/tools.md`:
 
 ```markdown
 ## Active Tools

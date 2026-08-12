@@ -182,7 +182,7 @@ Create PDF with:
 
 ## Revenue Tracking
 
-Log in `analytics.md`:
+Log in `$STATE_ROOT/{persona-slug}/analytics.md`:
 
 ```markdown
 ## Revenue - [Month]
