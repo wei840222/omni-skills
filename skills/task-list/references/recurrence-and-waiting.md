@@ -12,7 +12,9 @@ For ambiguous language, ask which field changes before editing. “Move to Somed
 
 ## Recurrence
 
-Record the user’s recurrence wording and its anchor. Calendar-based rules use the calendar date; completion-based rules use the completion timestamp. Confirm a recurrence change before writing it. On completion, create only the next occurrence and record the regeneration in `<state_root>/log.md`.
+Record the user’s recurrence wording, anchor, and timezone when it affects the date. Calendar-based rules use the calendar date; completion-based rules use the completion timestamp. Confirm a recurrence change before writing it. On completion, create only the next occurrence and record the regeneration in `<state_root>/log.md`.
+
+This skill stores human-readable recurrence rules; it does not claim to parse or export RFC 5545 recurrence syntax. When interoperating with a calendar, preserve the original service rule and timezone rather than translating it by inference.
 
 ## Waiting
 

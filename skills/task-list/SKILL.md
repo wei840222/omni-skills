@@ -36,6 +36,7 @@ When the host cannot identify `<workspace>`, use an existing `~/task-list/`; oth
 - Read `references/recurrence-and-waiting.md` for dates, snoozes, recurring tasks, blocked work, or follow-up dates.
 - Read `references/reviews.md` for daily triage, weekly reset, stale tasks, or overload.
 - Read `references/state-guide.md` for first-time setup, persistent storage, migration, or file updates; copy formats from `assets/task-file-templates.md` only when creating the corresponding state file.
+- Read `references/knowledge-sources.md` only when auditing date and recurrence semantics or explaining their interoperability limits.
 
 ## Boundaries
 
