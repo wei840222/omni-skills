@@ -7,7 +7,7 @@
 * Include an `api_version` field to manage breaking changes to the payload schema over time.
 
 ## Security Checklist
-* Enforce HTTPS for all webhook endpoints. Never transmit data over plain HTTP.
+* Accept and register HTTPS endpoints only.
 * Provide a mechanism for users to rotate webhook secrets. Support multiple active secrets concurrently during the rotation window.
-* Do not include sensitive information (e.g., passwords, API keys) in the webhook payload. The webhook URL and signature provide authentication, but payload confidentiality relies on transport encryption.
-* Rate limit outgoing webhooks per receiver endpoint. A slow or misconfigured receiver must not consume resources that affect deliveries to other users.
+* Keep sensitive information (e.g., passwords, API keys) out of webhook payloads. The webhook URL and signature provide authentication, while transport encryption provides payload confidentiality.
+* Apply a separate delivery quota to each receiver endpoint so a slow or misconfigured receiver remains isolated from other deliveries.

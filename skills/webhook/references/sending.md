@@ -14,9 +14,9 @@
 * Provide clear verification code examples in multiple languages to reduce integration friction for receivers.
 
 ## Timeouts and Network
-* Enforce a strict timeout (e.g., 5-10 seconds) on the HTTP request. Do not allow the sender thread to hang indefinitely.
-* Do not follow HTTP redirects, or limit them strictly to 1-2 hops, to prevent redirect loops and server-side request forgery (SSRF) risks.
-* Always validate the receiver's HTTPS certificate. Disallow connections to endpoints with invalid or self-signed certificates.
+* Set a strict request timeout (for example, 5-10 seconds) and release the delivery worker for the next scheduled attempt when it expires.
+* Deliver each attempt to the registered endpoint with redirects disabled; require a subscription update before changing the destination.
+* Require a valid HTTPS certificate chain for every delivery endpoint.
 
 ## Delivery Tracking
 * Record the details of every delivery attempt, including the URL, HTTP status code, response time, and response body.

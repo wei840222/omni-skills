@@ -11,7 +11,7 @@
 * Compare the timestamp with the current server time using the provider's documented tolerance; five minutes is a common provider policy, not a universal default.
 * Reject requests older than the accepted tolerance to prevent captured webhooks from being replayed.
 * Allow the provider's documented clock-skew margin for time drift between servers.
-* Store processed event IDs and reject duplicates, even if they arrive within the valid time window.
+* Store processed event IDs and classify duplicate deliveries as already handled, including duplicates that arrive inside the valid time window.
 
 ## Idempotency (Critical)
 * Treat webhook delivery as at-least-once. Senders will retry on timeouts or network issues.
@@ -19,12 +19,12 @@
 * Ensure all webhook handlers are idempotent. Processing the exact same event multiple times must yield the same system state as processing it once.
 
 ## Fast Response
-* Acknowledge the webhook with HTTP 200 or 202 immediately after signature validation.
+* Acknowledge the webhook with the contract's HTTP 2xx response after signature validation and durable queue acceptance.
 * Defer actual processing to an asynchronous background job or queue.
-* Respond quickly because senders typically enforce a 5-30 second timeout. Slow responses lead to retries and duplicate events.
+* Set a receiver latency budget below the provider's documented timeout so retries remain exceptional.
 
 ## Error Handling
-* Return 2xx to indicate successful receipt. The sender will mark the event as delivered.
+* Document the response classification for the sender integration: successful receipt, terminal validation failures, and retryable temporary failures.
 * Return the documented 4xx response for terminal failures (e.g., invalid signature, unrecognized event type).
 * Return 5xx for temporary failures (e.g., database unavailable) so a compliant sender can retry.
 * Log the full payload on error, taking care to redact sensitive fields.
