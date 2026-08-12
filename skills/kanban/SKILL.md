@@ -1,6 +1,6 @@
 ---
 name: kanban
-description: Create, update, and manage multi-project Kanban boards with deterministic rules, persistent routing, and consistent task processing across sessions. Use when the user wants to organize tasks visually, manage project queues, or track status of ongoing work.
+description: Create, update, and manage multi-project Kanban boards with deterministic rules, persistent routing, and consistent task processing across sessions. Use when the user wants to organize work visually, manage project queues, or track ongoing delivery; not for calendar scheduling or a standalone task list.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📋"}'
