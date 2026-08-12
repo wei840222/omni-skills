@@ -29,6 +29,27 @@ If the host cannot identify `<workspace>`, use an existing `~/productivity/` onl
 5. Deliver an executable plan with an owner, time horizon, and first physical action. A plan with no action possible in the next two minutes is incomplete.
 6. When the user asks to persist a result, read `references/state-format.md` and make the smallest requested update under `<state_root>`; report the exact file and change.
 
+## Missing-input fallback
+
+Use the available facts first; collect only the missing input that changes the next decision.
+
+| Missing input | Provisional action | Next question when needed |
+| --- | --- | --- |
+| Focused hours | Reserve one protected block and defer detailed allocation. | "How many focused hours are actually available before the deadline?" |
+| Estimates | Choose one must-win outcome and split it into a two-minute action. | "What is the smallest deliverable that counts as done this week?" |
+| Calibration pairs | Apply the 1.5 provisional ratio and label it as a placeholder. | "Which two recent completed tasks have both an estimate and an actual duration?" |
+| Deadline or consequence | Keep the item out of the committed plan. | "When is it due, and what changes if it moves?" |
+
+## Plan validity
+
+Treat a plan as ready when it meets all of these conditions:
+
+- The committed load, including the calibration ratio, fits available focused hours and leaves a buffer.
+- Every active outcome has one owner, one horizon, and one two-minute physical next action.
+- Sleep, care, health, and stated non-negotiables are represented as capacity constraints.
+- Persistent notes are written only after the user requests them and the selected `<state_root>` is known.
+- Clinical, crisis, HR, legal, and employment-risk signals are routed to the relevant human support before productivity tactics.
+
 ## Safety boundary
 
 Pause productivity coaching and use `references/safety-and-contexts.md` when the user describes self-harm, broad loss of interest, severe exhaustion, panic, or a workplace process that needs clinical, emergency, HR, legal, or managerial support. The skill can support planning around professional care; it does not diagnose or replace it.
