@@ -112,7 +112,7 @@ Use the smallest relevant file for the current task.
 **Data that leaves your machine:**
 - None by default.
 
-**This skill ensures to:**
-- Avoid undeclared network requests.
-- Restrict file modifications to the selected Kanban scope.
-- Maintain board history accurately when logs are missing, rather than fabricating entries.
+**This skill keeps operations local and scoped:**
+- Make no network request unless the user separately requests one.
+- Modify only the selected Kanban scope.
+- Preserve existing board history when logs are missing and report the gap rather than fabricating an entry.
