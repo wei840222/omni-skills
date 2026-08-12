@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "Organize my downloads folder by date", "expected": "Files moved into date-based subdirectories with undo metadata", "actual": "Organized 45 files into 3 date folders. Manifest saved to .file-organizer-manifest.json", "pass": true},
+  {"id": 2, "prompt": "Find and delete duplicate videos in /media", "expected": "Identifies duplicates using 3-phase hash, prompts before deletion", "actual": "Found 12 duplicate videos. Prompts for deletion. Moved to trash.", "pass": true}
+]

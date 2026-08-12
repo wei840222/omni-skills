@@ -1,17 +1,8 @@
 ---
-name: Files
-slug: files
-version: 1.0.0
-description: Safely organize, deduplicate, and analyze files with intelligent bulk operations and full undo support.
-homepage: https://clawic.com/skills/files
+name: files
+description: Organize, deduplicate, and analyze files with bulk operations. Trigger this skill to reorganize directories or analyze disk space, but do not use it for basic file creation, copying, or extraction tasks.
 metadata:
-  clawdbot:
-    emoji: 📁
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Files
+  clawdbot: '{"emoji":"📁","os":["linux","darwin","win32"],"displayName":"Files"}'
 ---
 
 ## What This Skill Does (and Doesn't)
@@ -25,7 +16,7 @@ This is a power tool for reorganization, not a replacement for basic file comman
 
 - Canonicalize ALL paths before any operation: resolve `..`, `~`, symlinks, then validate
 - After canonicalization, reject if path is outside user's home or explicitly allowed directories
-- NEVER follow symlinks during traversal — report them as "symlink to X, skipped" and let user decide
+- Treat symlinks as boundaries during traversal — report them as "symlink to X, skipped" and let user decide
 - Block these paths absolutely: `/`, `/etc`, `/var`, `/usr`, `/System`, `/Library`, `C:\Windows`, `C:\Program Files`
 - Paths containing `..` after canonicalization = reject with explanation
 
@@ -41,7 +32,7 @@ This prevents confirmation fatigue for simple operations while protecting bulk a
 - Use the operating system's native trash: `trash` CLI on macOS/Linux, Recycle Bin API on Windows
 - If OS trash unavailable, move to `~/.local/share/file-organizer-trash/` with metadata sidecar
 - Metadata sidecar (JSON): original path, deletion timestamp, operation ID — NOT path-in-filename
-- Never permanently delete without explicit "permanently delete" or "empty trash" command
+- Require explicit "permanently delete" or "empty trash" command to remove files permanently
 
 ## Undo System
 
@@ -55,7 +46,7 @@ This prevents confirmation fatigue for simple operations while protecting bulk a
 
 - During directory traversal: skip symlinks, report them separately
 - "This folder contains 12 symlinks pointing outside — review before proceeding?"
-- Never follow symlinks automatically — they're a classic attack vector
+- Always require user confirmation to follow symlinks to avoid directory traversal vulnerabilities
 - User can explicitly request "follow symlinks" but must confirm each external target
 
 ## Duplicate Detection (Scalable)
@@ -65,6 +56,7 @@ This prevents confirmation fatigue for simple operations while protecting bulk a
 - Phase 3: Full hash only for files matching phase 2
 - For >10,000 files, require confirmation: "This will take ~15 minutes. Proceed?"
 - Cache hashes in `~/.local/share/file-organizer/hash-cache.db` (SQLite) with mtime invalidation
+- Employ chunking for large files to optimize data deduplication performance (deduplicate unchanged blocks).
 
 ## Bulk Operations
 
