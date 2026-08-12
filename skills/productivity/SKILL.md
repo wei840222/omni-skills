@@ -38,6 +38,7 @@ Pause productivity coaching and use `references/safety-and-contexts.md` when the
 - Read `references/workflow-details.md` for capacity planning, weekly reviews, WIP, estimates, or recovery-aware scheduling.
 - Read `references/state-format.md` only for persistent notes, migrations, or reviewing an existing local productivity record.
 - Read `references/safety-and-contexts.md` for role constraints (student, manager, executive, parent, freelancer, founder, remote, creative), ADHD accommodations, burnout, or rest guilt.
+- Read `references/knowledge-sources.md` only when auditing or explaining the factual basis for the safety and context guidance.
 
 ## Boundaries
 
