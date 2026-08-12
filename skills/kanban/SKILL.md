@@ -1,40 +1,36 @@
 ---
-name: Kanban
-slug: kanban
-version: 1.0.0
-description: Build multi-project Kanban systems with deterministic board discovery, consistent task processing, and persistent routing memory across sessions.
-homepage: https://clawic.com/skills/kanban
-changelog: Initial release with project routing, board templates, and deterministic Kanban processing rules.
+name: kanban
+description: Create, update, and manage multi-project Kanban boards with deterministic rules, persistent routing, and consistent task processing across sessions. Use when the user wants to organize tasks visually, manage project queues, or track status of ongoing work.
 metadata:
-  clawdbot:
-    emoji: 📋
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Kanban
+  version: "1.0.0"
+  openclaw: '{"emoji":"📋"}'
+  related-skills: '{"daily-planner":"Incorporates Kanban tasks into daily planning and time block execution.","delegate":"Handles owner assignment and task handoff protocols for items on the board.","projects":"Manages cross-project governance that feeds into specific Kanban boards.","workflow":"Provides operational workflow design and execution loops connected to Kanban tasks."}'
 ---
+
+## State location
+
+Kanban state may exist in `<workspace>/kanban/`, `<workspace>/memory/kanban/`, or `~/kanban/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/kanban/`, `<workspace>/memory/kanban/`, `~/kanban/`.
+3. If none exists and state must be created, default to `<workspace>/kanban/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-If `~/Clawic/data/kanban/` does not exist or is empty, read `setup.md` silently and initialize only after user confirmation.
-
-## When to Use
-
-Use this skill when the user wants a Kanban system the agent can maintain across projects and conversations. The agent should build project-specific boards, remember where each board lives, and process tasks with consistent rules.
+If `<state_root>` does not exist or is empty, read `references/setup.md` silently and initialize only after user confirmation.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/kanban/`. See `memory-template.md` for base files, `board-template.md` for board structure, and `discovery-protocol.md` for project routing.
+Memory lives in `<state_root>`. See `references/memory.md` for base files, `assets/kanban-data-templates.md` for board structure templates, and `references/discovery-protocol.md` for project routing.
 
 ```
-~/Clawic/data/kanban/
+<state_root>/
 ├── memory.md                  # Global status, integration, defaults
 ├── index.md                   # Project registry and board location map
-├── templates/
-│   └── board-template.md      # Canonical board format copy
 └── projects/
     └── {project-id}/
         ├── board.md           # Active board for this project
@@ -58,16 +54,16 @@ Use the smallest relevant file for the current task.
 
 | Topic | File |
 |-------|------|
-| Setup behavior | `setup.md` |
-| Memory and registry template | `memory-template.md` |
-| Board schema and examples | `board-template.md` |
-| Where to find each project board | `discovery-protocol.md` |
-| How to process and update cards | `processing-rules.md` |
+| Setup behavior | `references/setup.md` |
+| Memory and registry structure | `references/memory.md` |
+| Board schema and templates | `assets/kanban-data-templates.md` |
+| Where to find each project board | `references/discovery-protocol.md` |
+| How to process and update cards | `references/processing-rules.md` |
 
 ## Core Rules
 
 ### 1. Resolve Project Context Before Reading or Writing
-- Run the discovery sequence in `discovery-protocol.md` at the start of each conversation.
+- Run the discovery sequence in `references/discovery-protocol.md` at the start of each conversation.
 - If project scope is ambiguous, ask once before writing.
 
 ### 2. Persist Routing So Any Agent Can Continue
@@ -79,20 +75,20 @@ Use the smallest relevant file for the current task.
 - Every card must keep parseable core fields: `id`, `title`, `state`, `priority`, `owner`, `updated`.
 
 ### 4. Process Cards Deterministically
-- Follow the exact decision order in `processing-rules.md` for prioritization and movement.
-- Never skip blockers, dependencies, or explicit WIP limits.
+- Follow the exact decision order in `references/processing-rules.md` for prioritization and movement.
+- Ensure blockers, dependencies, and explicit WIP limits are respected.
 
 ### 5. Keep Writes Atomic and Logged
 - Update the board file and append one line to the project log in the same operation cycle.
 - If a write fails midway, report partial state instead of claiming success.
 
 ### 6. Keep Project Boards Isolated
-- Never move or edit cards across different project boards without explicit user intent.
+- Move or edit cards across different project boards only with explicit user intent.
 - For cross-project requests, produce a plan first, then apply updates per board.
 
 ### 7. Preserve Continuity Across Conversations
 - On first message of a new conversation, resolve board location and load current state before proposing work.
-- If no board exists, initialize from `board-template.md`, register it in the index file, and continue.
+- If no board exists, initialize from `assets/kanban-data-templates.md`, register it in the index file, and continue.
 
 ## Common Traps
 
@@ -105,24 +101,12 @@ Use the smallest relevant file for the current task.
 ## Security & Privacy
 
 **Data that stays local:**
-- Board files and project registry in `~/Clawic/data/kanban/` or `{workspace}/.kanban/`.
+- Board files and project registry in `<state_root>` or `{workspace}/.kanban/`.
 
 **Data that leaves your machine:**
 - None by default.
 
-**This skill does NOT:**
-- Make undeclared network requests.
-- Modify files outside the selected Kanban scope.
-- Invent board history when logs are missing.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `workflow` - operational workflow design and execution loops
-- `projects` - project organization and cross-project governance
-- `delegate` - owner assignment and task handoff protocols
-- `daily-planner` - daily planning and task sequencing
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/kanban
-- Latest version: https://clawic.com/skills/kanban
+**This skill ensures to:**
+- Avoid undeclared network requests.
+- Restrict file modifications to the selected Kanban scope.
+- Maintain board history accurately when logs are missing, rather than fabricating entries.

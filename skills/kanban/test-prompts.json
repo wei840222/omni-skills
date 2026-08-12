@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new kanban board for the 'marketing' project and add a task to 'draft email campaign'",
+    "expected": "Resolves kanban board state and location correctly, initializes the board if it doesn't exist, adds the card in the backlog, and returns a summary.",
+    "actual": "Resolved `<state_root>` to `~/kanban/`. Detected 'marketing' project. Created `<state_root>/projects/marketing/board.md` from template. Added card 'KB-001: draft email campaign' to 'backlog'. Updated `<state_root>/projects/marketing/log.md` with creation event.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm blocked on the 'api redesign' task in the 'backend' project because the database schema isn't ready. Update the board.",
+    "expected": "Finds the 'backend' project, moves the 'api redesign' card to 'blocked', records the dependency/blocker in the log, and reports back the state change.",
+    "actual": "Resolved `<state_root>` to `<workspace>/kanban/`. Found project 'backend'. Moved card 'api redesign' to 'blocked'. Appended reason 'database schema isn't ready' to `<workspace>/kanban/projects/backend/log.md`.",
+    "pass": true
+  }
+]

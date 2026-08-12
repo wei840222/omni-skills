@@ -11,7 +11,7 @@ Collect available signals:
 
 ## Step 2: Resolve Project Entry
 
-Search `~/Clawic/data/kanban/index.md` in this order:
+Search `<state_root>/index.md` in this order:
 1. exact workspace root match
 2. alias match
 3. explicit project id match
@@ -23,9 +23,9 @@ If no entry matches, initialize a new project entry.
 
 Use `board_mode` from the resolved entry:
 - `workspace-local` -> `{workspace}/.kanban/board.md`
-- `home-shared` -> `~/Clawic/data/kanban/projects/{project-id}/board.md`
+- `home-shared` -> `<state_root>/projects/{project-id}/board.md`
 
-If board file is missing, create it from `board-template.md`.
+If board file is missing, create it from `assets/kanban-data-templates.md`.
 
 ## Step 4: Load and Validate
 
