@@ -44,7 +44,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | san-francisco | #16 | 2026-08-12 | 98/100 |
 | task-list | #19 | 2026-08-12 | 85/100 |
 | productivity | #17 | 2026-08-12 | 85.4/100 |
-| files | #1 | 2026-08-12 | 85/100 |
+| files | #22 | 2026-08-12 | 85/100 (author-reported) |
 
 ## Updating This Changelog
 
