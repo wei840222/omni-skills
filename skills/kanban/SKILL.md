@@ -64,6 +64,7 @@ Use the smallest relevant file for the current task.
 | Board schema and templates | `assets/kanban-data-templates.md` |
 | Where to find each project board | `references/discovery-protocol.md` |
 | How to process and update cards | `references/processing-rules.md` |
+| Kanban practices and source record | `references/knowledge-sources.md` |
 
 ## Core Rules
 
