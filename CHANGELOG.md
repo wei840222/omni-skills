@@ -47,6 +47,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | files              | 2026-08-12 | 85/100 (author-reported) |
 | product-hunt       | 2026-08-11 | 80/100                   |
 | projects           | 2026-08-12 | 90                       |
+| friends            | 2026-08-12 | 95/100 (author-reported) |
 
 ## Updating This Changelog
 

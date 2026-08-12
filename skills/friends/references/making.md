@@ -90,3 +90,5 @@ Introversion affects energy, not ability. Schedule social time, then recovery ti
 - **Close friend:** 200+ hours together
 
 This takes months to years. There are no shortcuts.
+
+*Note: Human cognitive capacity for maintaining stable social relationships is limited to approximately 150 people (Dunbar's number).*
