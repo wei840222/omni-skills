@@ -31,6 +31,8 @@ When the host cannot identify `<workspace>`, use an existing `~/task-list/`; oth
 
 ## Reference routing
 
+Load a matching reference only after the workflow identifies that branch; routine capture and one-task updates use the entry workflow alone.
+
 - Read `references/capture.md` for brain dumps, title rewrites, or uncertainty about which fields to ask for.
 - Read `references/views.md` before presenting Inbox, Today, Upcoming, Anytime, Someday, or Waiting.
 - Read `references/recurrence-and-waiting.md` for dates, snoozes, recurring tasks, blocked work, or follow-up dates.
