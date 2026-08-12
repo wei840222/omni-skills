@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "Can you check my mobile app retention benchmarks?", "expected": "Provides updated 2026 industry medians for Day 1, 7, and 30.", "actual": "To analyze your mobile app retention benchmarks, the general 2026 medians across industries are: Day 1: 25-26%, Day 7: 11-13%, Day 30: 5-7%.", "pass": true},
+  {"id": 2, "prompt": "Show me a sample BigQuery to get daily active users from Firebase.", "expected": "Provides BigQuery SQL querying `project.analytics_*.events_*` grouping by date.", "actual": "Here is a sample BigQuery SQL to get DAU from Firebase:\n```sql\nSELECT event_date, COUNT(DISTINCT user_pseudo_id) AS dau FROM `project.analytics_*.events_*` GROUP BY event_date ORDER BY event_date DESC;\n```", "pass": true}
+]

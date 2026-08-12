@@ -39,9 +39,9 @@ User asks about mobile app KPIs, needs metric definitions, or wants to understan
 
 | Day | Definition | Good Benchmark |
 |-----|------------|----------------|
-| D1 | % returning next day | >25% |
-| D7 | % returning after 7 days | >15% |
-| D30 | % returning after 30 days | >10% |
+| D1 | % returning next day | 25-26% (2026 median) |
+| D7 | % returning after 7 days | 11-13% (2026 median) |
+| D30 | % returning after 30 days | 5-7% (2026 median) |
 | D90 | % returning after 90 days | >5% |
 
 **Formula:**

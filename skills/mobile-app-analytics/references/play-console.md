@@ -91,7 +91,7 @@ A/B test with Experiments:
 | Feature graphic | Medium | 1-2 weeks |
 | Screenshots | High | 2+ weeks |
 | Short description | Medium | 1 week |
-| Full description | Low | Don't bother |
+| Full description | Low | Skip full description optimization |
 
 ## API Access
 

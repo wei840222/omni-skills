@@ -1,35 +1,37 @@
 ---
-name: Mobile App Analytics
-slug: mobile-app-analytics
-version: 1.0.0
-description: Track mobile app metrics with Firebase, App Store Connect, Play Console, retention, funnels, and cohort analysis.
-homepage: https://clawic.com/skills/mobile-app-analytics
+name: mobile-app-analytics
+description: Track mobile app metrics with Firebase, App Store Connect, Play Console, retention, funnels, and cohort analysis. Use when the user needs to track, analyze, or optimize mobile app performance metrics.
 metadata:
-  clawdbot:
-    emoji: 📱
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Mobile App Analytics
+  version: "1.0.0"
+  openclaw: '{"emoji":"📱"}'
 ---
+
+## State location
+
+Mobile App Analytics state may exist in `<workspace>/mobile-app-analytics/`, `<workspace>/memory/mobile-app-analytics/`, or `~/mobile-app-analytics/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/mobile-app-analytics/`, `<workspace>/memory/mobile-app-analytics/`, `~/mobile-app-analytics/`.
+3. If none exists and state must be created, default to `<workspace>/mobile-app-analytics/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines. Create `~/Clawic/data/mobile-app-analytics/` if it doesn't exist.
+On first use, read `references/setup.md` for integration guidelines.
 
 ## When to Use
 
-User needs to track, analyze, or optimize mobile app performance metrics. Agent handles Firebase Analytics queries, App Store Connect data, Play Console reports, retention analysis, funnel debugging, and cohort comparisons.
+Use when the user needs to track, analyze, or optimize mobile app performance metrics. Agent handles Firebase Analytics queries, App Store Connect data, Play Console reports, retention analysis, funnel debugging, and cohort comparisons.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/mobile-app-analytics/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/`. See `references/memory.md` for setup.
 
 ```
-~/Clawic/data/mobile-app-analytics/
+<state_root>/
 ├── memory.md          # Apps tracked, goals, alerts
 ├── apps/              # Per-app analytics configs
 │   └── {app-name}.md  # Events, funnels, KPIs per app
@@ -38,14 +40,12 @@ Memory lives in `~/Clawic/data/mobile-app-analytics/`. See `memory-template.md` 
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Firebase Analytics | `firebase.md` |
-| App Store Connect | `app-store.md` |
-| Play Console | `play-console.md` |
-| Core metrics | `metrics.md` |
+- Load `references/setup.md` for setup process.
+- Load `references/memory.md` for memory template.
+- Load `references/firebase.md` for Firebase Analytics.
+- Load `references/app-store.md` for App Store Connect.
+- Load `references/play-console.md` for Play Console.
+- Load `references/metrics.md` for Core metrics.
 
 ## Core Rules
 
@@ -63,7 +63,7 @@ Always prioritize metrics in this order:
 4. **Acquisition metrics** (installs, sources) — growth levers
 
 ### 3. Cohort-First Analysis
-Never report aggregate numbers alone. Always segment by:
+Always segment numbers by:
 - Install cohort (when users joined)
 - Acquisition source (organic, paid, referral)
 - User tier (free, trial, paid)
@@ -88,7 +88,7 @@ Know platform data delays:
 | Play Console | 24-48h |
 
 ### 6. Privacy Compliance
-- Never track PII in custom events
+- Ensure custom events exclude PII
 - Respect ATT (iOS) and consent requirements
 - User properties: demographics OK, personal identifiers NOT OK
 - GDPR: support data deletion requests
@@ -108,7 +108,7 @@ Examples:
 ## Common Traps
 
 - **Vanity metrics obsession** → Total downloads means nothing; track active users and retention instead
-- **Ignoring platform differences** → iOS users often have 20-30% higher LTV; don't merge data blindly
+- **Ignoring platform differences** → iOS users often have 20-30% higher LTV; analyze iOS and Android data separately before merging
 - **Wrong attribution window** → 7-day attribution misses subscription conversions; use 30-day for subscriptions
 - **Survivorship bias** → Analyzing only current users ignores why churned users left
 - **Timezone mismatches** → Firebase uses UTC by default; App Store uses your configured timezone
@@ -141,22 +141,12 @@ No other data is sent externally.
 
 This skill ONLY:
 - Provides guidance on mobile app analytics platforms
-- Stores your app configurations in `~/Clawic/data/mobile-app-analytics/`
+- Stores your app configurations in `<state_root>/`
 - Queries Firebase, App Store Connect, and Play Console when you provide credentials
 
-This skill NEVER:
+This skill explicitly avoids:
 - Stores credentials in files (use environment variables)
-- Accesses files outside `~/Clawic/data/mobile-app-analytics/`
+- Accesses files outside `<state_root>/`
 - Makes requests to undeclared endpoints
 - Modifies global agent memory or other skills
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `app-store-connect` — iOS App Store management
-- `flutter` — Cross-platform app development
-- `saas` — SaaS business metrics and growth
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/mobile-app-analytics
-- Latest version: https://clawic.com/skills/mobile-app-analytics

@@ -1,6 +1,6 @@
 # Setup — Mobile App Analytics
 
-Read this on first use when `~/Clawic/data/mobile-app-analytics/` doesn't exist.
+Read this on first use when `<state_root>/` doesn't exist.
 
 ## Your Attitude
 
@@ -16,7 +16,7 @@ Early in the conversation, ask:
 - "Should I jump in whenever you mention app metrics or analytics?"
 - "Want me to track specific KPIs proactively, or only when you ask?"
 
-Save their preference to `~/Clawic/data/mobile-app-analytics/memory.md` under integration status.
+Save their preference to `<state_root>/memory.md` under integration status.
 
 ### 2. Then: Understand Their App
 
@@ -38,14 +38,14 @@ Once you understand the app:
 
 ## What You're Saving (internally)
 
-Create `~/Clawic/data/mobile-app-analytics/memory.md` with:
+Create `<state_root>/memory.md` with:
 - App name and platforms
 - Analytics tools they use
 - Key metrics they care about
 - Current goals or concerns
 - When to activate
 
-Create `~/Clawic/data/mobile-app-analytics/apps/{app-name}.md` for each app with:
+Create `<state_root>/apps/{app-name}.md` for each app with:
 - Platform(s)
 - Analytics stack
 - Key events tracked
