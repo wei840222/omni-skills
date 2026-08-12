@@ -30,16 +30,16 @@ Keep `<state_root>` fixed for the operation. It stores only operation metadata:
 2. **Establish the boundary.** Ask for the target when it is ambiguous. Normalize `~`, `.`, and `..`; inspect filesystem entries without following symlinks; then verify every selected target is inside the user-approved directory. `/`, OS directories, and the user's home directory as a bulk target require a narrower path.
 3. **Inspect before mutating.** Report the candidate count, total size, operation type, affected paths or a paginated manifest, destination, and recovery method. For duplicates, use size grouping, a small-content digest filter, then a full digest before treating files as identical.
 4. **Obtain explicit confirmation.** Every mutation—rename, move, trash, permanent deletion, state creation, manifest creation, or symlink traversal—requires confirmation after the preview. A permanent deletion requires the user to say `permanently delete` or `empty trash`.
-5. **Execute in recoverable units.** After confirmation, create `<state_root>/undo/<operation-id>.json`, perform one item at a time, record each committed result, and stop on the first unexpected error. Do not claim a completed batch when a partial failure occurred.
+5. **Execute in recoverable units.** After confirmation, create `<state_root>/undo/<operation-id>.json`, perform one item at a time, record each committed result, and stop on the first unexpected error. Report a partial batch as partial, with its committed and failed items.
 6. **Report and recover.** State the changed, skipped, and failed paths; give the operation ID; and offer `undo <operation-id>` when the operation was recoverable.
 
 ## Safety rules
 
 - Treat symlinks as traversal boundaries. Report each link and its target; follow one only after the user confirms that specific resolved target remains in scope.
 - Keep project and user data inside the approved target boundary. If canonicalization resolves a selected entry outside that boundary, exclude it and explain why.
-- For a confirmed cleanup, prefer the host's native trash interface. If unavailable, ask the user to approve a recoverable trash location under `<state_root>/trash/`; do not permanently delete as a fallback.
+- For a confirmed cleanup, prefer the host's native trash interface. If unavailable, ask the user to approve a recoverable trash location under `<state_root>/trash/` and keep the operation recoverable.
 - Preserve original filenames unless a confirmed rename rule says otherwise.
-- Store metadata, paths, timestamps, and digests in operation state; do not copy file content, credentials, or private file text into state.
+- Store only metadata, paths, timestamps, and digests in operation state; file content, credentials, and private file text remain outside it.
 
 ## Scale and failure handling
 
@@ -55,11 +55,11 @@ Keep `<state_root>` fixed for the operation. It stores only operation metadata:
 
 ## Operating details
 
-- **Organization:** inspect the directory before proposing groups; show concrete source → destination examples; create an operation manifest in `<state_root>/undo/<operation-id>.json`, not silently in the user's destination.
+- **Organization:** inspect the directory before proposing groups; show concrete source → destination examples; create the confirmed operation manifest in `<state_root>/undo/<operation-id>.json`.
 - **Batch rename:** preview every rename for up to 50 files; for larger batches show the first and last 10 plus total count. Detect destination-name collisions before writing.
 - **Batch move:** preflight destination space and access; record each completed move in the undo record so a later failure can be recovered.
 - **Duplicate cleanup:** retain one selected canonical copy, state the selection rule in the preview, and move only confirmed duplicate copies to recoverable trash.
-- **Disk analysis:** report top directories, actual versus apparent size when the host can provide both, and classify cleanup suggestions by recoverability. Analysis alone does not create state.
+- **Disk analysis:** report top directories, actual versus apparent size when the host can provide both, and classify cleanup suggestions by recoverability. Treat analysis as read-only.
 - **Hash cache:** use it only as an optimization after `<state_root>` exists; invalidate an entry when its path, size, or mtime differs from the current file.
 
 ## Reference routing
