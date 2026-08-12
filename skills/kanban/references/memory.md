@@ -1,6 +1,6 @@
 # Memory and Index Procedures - Kanban
 
-Create and manage `<state_root>/memory.md` and `<state_root>/index.md`. Use `assets/kanban-data-templates.md` for their structure.
+Create or update `<state_root>/memory.md` and `<state_root>/index.md` only after the user requests persistent Kanban state and confirms the write. Use `assets/kanban-data-templates.md` for their structure.
 
 ## Status Values in `memory.md`
 

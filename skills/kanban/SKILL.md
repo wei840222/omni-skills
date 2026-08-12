@@ -15,7 +15,10 @@ Before reading or writing state, resolve `<state_root>` as follows:
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
    `<workspace>/kanban/`, `<workspace>/memory/kanban/`, `~/kanban/`.
-3. If none exists and state must be created, default to `<workspace>/kanban/`.
+3. If multiple candidates exist, use only the highest-precedence directory, report the split state, and leave lower-precedence directories unchanged.
+4. If none exists and the user explicitly requests persistent board state, create `<workspace>/kanban/` only after confirming the write.
+5. If the host cannot supply `<workspace>`, use an existing `~/kanban/` only; otherwise ask for a state location before creating data.
+6. Keep `<state_root>` fixed for the invocation; do not switch roots or merge state during the operation.
 
 Use the selected `<state_root>` for every state operation in this skill.
 
@@ -42,11 +45,13 @@ Memory lives in `<state_root>`. See `references/memory.md` for base files, `asse
 Optional project-local mode:
 
 ```
-{workspace}/.kanban/
+<workspace>/.kanban/
 ├── board.md
 ├── rules.md
 └── log.md
 ```
+
+Project-local mode is an external project write, separate from `<state_root>`. Use it only after the host supplies the actual workspace path and the user explicitly selects that project-local board; then record its resolved paths in `<state_root>/index.md`.
 
 ## Quick Reference
 
@@ -88,7 +93,7 @@ Use the smallest relevant file for the current task.
 
 ### 7. Preserve Continuity Across Conversations
 - On first message of a new conversation, resolve board location and load current state before proposing work.
-- If no board exists, initialize from `assets/kanban-data-templates.md`, register it in the index file, and continue.
+- If no board exists, show the intended board location and initialize from `assets/kanban-data-templates.md` only after the user confirms the persistent write.
 
 ## Common Traps
 
