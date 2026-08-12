@@ -1,6 +1,6 @@
 ---
 name: productivity
-description: Diagnose workload, priorities, initiation, focus, habits, and reviews, then create a small sustainable plan. Use for overwhelm, procrastination, missed deadlines, scattered work, weekly planning, or rebuilding a personal productivity practice; not for calendar API automation or operating a task app.
+description: Diagnose a failing personal productivity practice and create the smallest sustainable plan. Use for overwhelm, procrastination, missed deadlines, scattered work, weekly planning, focus, habits, or workload triage; not for calendar API automation or operating a task app.
 metadata:
   version: "1.0.6"
   openclaw: '{"emoji":"⚡"}'
@@ -34,6 +34,8 @@ If the host cannot identify `<workspace>`, use an existing `~/productivity/` onl
 Pause productivity coaching and use `references/safety-and-contexts.md` when the user describes self-harm, broad loss of interest, severe exhaustion, panic, or a workplace process that needs clinical, emergency, HR, legal, or managerial support. The skill can support planning around professional care; it does not diagnose or replace it.
 
 ## Reference routing
+
+Load one reference only after the workflow identifies the relevant branch; the entry workflow remains the default for a straightforward request.
 
 - Read `references/workflow-details.md` for capacity planning, weekly reviews, WIP, estimates, or recovery-aware scheduling.
 - Read `references/state-format.md` only for persistent notes, migrations, or reviewing an existing local productivity record.
