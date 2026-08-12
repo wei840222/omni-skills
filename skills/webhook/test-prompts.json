@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Implementing a secure webhook receiver",
+    "prompt": "I need to implement a webhook endpoint in Node.js to receive events from Stripe. What are the core security and reliability checks I must include?",
+    "expected": "Instructions to verify the HMAC signature using raw bytes, check timestamps for replay prevention, make the handler idempotent, and return a 200 immediately while processing asynchronously.",
+    "actual": "Load `references/receiving.md`. Preserve the raw request bytes and verify the provider's documented signature before parsing JSON. When the provider signs a timestamp, compare it with the current time using that provider's tolerance, then deduplicate the delivery ID in durable storage. Return the documented 2xx response after the event is durably queued, process it asynchronously, classify invalid signatures as terminal 4xx failures, and use 5xx only when durable acceptance is temporarily unavailable. Redact sensitive fields in failure logs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Designing a webhook sender service",
+    "prompt": "We are building an API and want to notify our customers via webhooks when a resource changes. How should we handle retries and timeouts for slow receivers?",
+    "expected": "Instructions to use exponential backoff, cap retries, enforce a 5-10s timeout, treat timeouts as failures for retry, and drop retries on 4xx responses.",
+    "actual": "Load `references/sending.md`. Keep a delivery record with attempt count, response status, latency, and retry schedule. Use exponential backoff with jitter and a bounded attempt limit. Classify authentication and configuration failures as terminal, but honor `Retry-After` and apply the endpoint policy to 408, 425, and 429 rather than treating all 4xx responses as permanent. Set a 5-10 second request timeout, retry timed-out attempts, send each attempt to the registered HTTPS endpoint with redirects disabled, and require a valid certificate chain.",
+    "pass": true
+  }
+]
