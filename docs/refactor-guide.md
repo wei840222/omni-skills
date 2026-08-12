@@ -335,7 +335,10 @@ planning.md         -> references/planning.md
 
 Agent Skills does not define a runtime-state location. First-party source research and recommendations for this project are collected in `docs/research/skill-state-storage.md`. This gate is an `omni-skills` project specification and must not be presented as the official Agent Skills or OpenClaw state layout.
 
-This project adopts a workspace-first state convention. Every stateful skill must define candidate locations, lookup order, creation behavior, and a single placeholder near the beginning of `SKILL.md`, so every file in the same skill uses consistent semantics.
+This project adopts a workspace-first state convention:
+
+- **Stateful skills**: Every stateful skill must define candidate locations, lookup order, creation behavior, and a single placeholder near the beginning of `SKILL.md`, so every file in the same skill uses consistent semantics.
+- **Stateless / Knowledge-only skills**: Skills that do not generate, read, or persist user state across sessions (such as pure reference guides, language tools, or stateless workflow instructions) must NOT introduce a `## State location` section or invent unneeded persistent configurations; omit the section entirely.
 
 #### Terms
 
@@ -381,7 +384,7 @@ Search for existing locations before performing default creation. Creating `<wor
 
 #### Required section near the beginning of `SKILL.md`
 
-Every stateful skill must provide a State location section immediately after frontmatter and before other operating instructions. Garden's target semantics are:
+Every stateful skill must provide a State location section immediately after frontmatter and before other operating instructions. Stateless skills must omit `## State location` entirely. Garden's target semantics are:
 
 ```markdown
 ## State location
@@ -467,6 +470,7 @@ Create optional state only when the corresponding feature is actually needed. Do
 
 #### Gate 3 pass criteria
 
+- [ ] A stateless / knowledge-only skill omits the `## State location` section and does not invent persistent configuration schemas.
 - [ ] A stateful skill lists `<workspace>/<skill>/`, `<workspace>/memory/<skill>/`, and `~/<skill>/` near the beginning of `SKILL.md`.
 - [ ] The documentation explicitly defines the override and first-existing lookup order.
 - [ ] Reads, queries, updates, and deletes use the first existing directory found by precedence.
