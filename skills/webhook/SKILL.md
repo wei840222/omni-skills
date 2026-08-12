@@ -1,23 +1,23 @@
 ---
 name: webhook
-description: Implement secure webhook receivers and senders with proper verification, replay prevention, and idempotency.
+description: Design, implement, or review secure webhook receivers and senders. Use when integrating provider event callbacks or delivering events to customer endpoints.
 metadata:
   openclaw: '{"emoji":"🪝"}'
 ---
 
-## Webhook Architecture Guidelines
+## Webhook Delivery Workflow
 
-This skill provides comprehensive guidelines for designing, receiving, and sending webhooks securely and reliably.
+Use this skill to establish a portable webhook delivery contract before implementation or review:
 
-When building or reviewing a webhook integration, always verify the following core principles:
-1. **Security**: Webhooks must authenticate the sender via signature verification and prevent replay attacks.
-2. **Reliability**: Receivers must be idempotent and respond quickly. Senders must implement exponential backoff retries.
-3. **Traceability**: All events and delivery attempts must be logged for debugging.
+1. Identify the direction: consume a provider's events or publish events to customer endpoints.
+2. Define authentication, replay prevention, idempotency, response semantics, and delivery observability before handling production traffic.
+3. Keep provider-specific signature formats and retry rules in the integration's own documentation and configuration.
 
 ## References
 
 Load the following references based on the task context:
 
-* If the user is building an endpoint to consume webhooks from a third-party service, read `references/receiving.md` for signature verification, idempotency, and fast response guidelines.
-* If the user is designing a system that publishes webhooks to customer endpoints, read `references/sending.md` for retry strategies, signature generation, and timeout configurations.
-* For guidelines on structuring the JSON payload and general security posture, read `references/design.md`.
+* For an endpoint that consumes third-party webhooks, read `references/receiving.md` for signature verification, idempotency, response classification, and fast acknowledgment.
+* For a service that publishes webhooks to customer endpoints, read `references/sending.md` for delivery classification, retries, signing, timeouts, and delivery records.
+* For event payload structure and endpoint security, read `references/design.md`.
+* For claim freshness, primary-source provenance, and scope limits, read `references/research.md`.
