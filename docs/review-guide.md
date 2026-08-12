@@ -95,7 +95,7 @@ gh pr checkout <n> --repo wei840222/omni-skills
 
 Capture:
 
-- PR number, title, author, base (`local`), head branch
+- PR number, title, author, base (`main`), head branch
 - mergeability / conflicts
 - current review state (`OPEN`, `APPROVED`, `REQUEST_CHANGES`)
 - linked skill slug(s) from paths under `skills/<slug>/`
@@ -103,10 +103,10 @@ Capture:
 ### Step 2: Commit history and diff audit
 
 ```bash
-git fetch origin local <head-branch>
-git log --oneline origin/local..<head>
-git diff --stat origin/local...<head>
-git diff origin/local...<head>
+git fetch origin main <head-branch>
+git log --oneline origin/main..<head>
+git diff --stat origin/main...<head>
+git diff origin/main...<head>
 ```
 
 Check:
@@ -123,7 +123,7 @@ From the checked-out PR head:
 
 ```bash
 uvx --from skills-ref agentskills validate skills/<slug>
-git diff --check origin/local...<head>
+git diff --check origin/main...<head>
 ```
 
 Also verify manually:

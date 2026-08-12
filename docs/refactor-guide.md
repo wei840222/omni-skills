@@ -25,7 +25,7 @@ Phase 0 (Baseline Audit) → Phase 1 (Gates 1–5: refactor) → Phase 2 (Gate 6
 
 ## Phase 0: Baseline Audit & Environment Setup
 
-1. Create a dedicated refactor branch from `local` (`refactor/<slug>`).
+1. Create a dedicated refactor branch from `main` (`refactor/<slug>`).
 2. Check working-tree status and record the target package's complete file inventory (including hidden files/symlinks).
 3. Classify all observed baseline nonconformities as `SPEC`, `VALIDATOR`, `PROJECT`, or `RECOMMENDATION`.
 4. Read every file in the package before moving, rewriting, or removing content. Preserve useful intent and workflows; do not perform an unrelated redesign.
@@ -906,9 +906,9 @@ Before advancing to Phase 6:
    ```bash
    git push origin refactor/<slug>
    ```
-2. Create a pull request targeting `local` and assign a reviewer:
+2. Create a pull request targeting `main` and assign a reviewer:
    ```bash
-   gh pr create --base local --reviewer <reviewer> --body-file docs/pull-request-template.md
+   gh pr create --base main --reviewer <reviewer> --body-file docs/pull-request-template.md
    ```
 3. Populate the pull request description with `docs/pull-request-template.md` (including Gate 6 Research Sources).
 4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.

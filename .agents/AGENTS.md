@@ -86,7 +86,7 @@ Complete the refactor through the following phases **in strict sequential order*
 ### 3. Pull Request & Documentation Rules
 
 - Push the dedicated refactor branch to GitHub without force-pushing.
-- Create a pull request targeting `local` and assign a reviewer.
+- Create a pull request targeting `main` and assign a reviewer.
 - Populate the pull request description with `docs/pull-request-template.md`.
 - After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
 - Do not merge the PR or delete branches without explicit authorization.
@@ -103,7 +103,7 @@ Review an open GitHub Pull Request against:
 - Gates 1–9 in `docs/refactor-guide.md`
 - Three mandatory quality lenses: `code-review-and-quality` (`skills/agent-skills/skills/code-review-and-quality/SKILL.md`) + `writing-for-agents` (`skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`) + `darwin-skill` (`skills/darwin-skill/SKILL.md`)
 
-Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `local`.
+Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `main`.
 
 ### 2. Review Procedure
 
@@ -132,7 +132,7 @@ Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `loca
 
 6. **Step 6: GitHub verdict**
    - **Request changes**: post a structured reject review immediately with concrete fixes.
-   - **Approve**: post an approve review; merge when authorized (default squash onto `local`).
+   - **Approve**: post an approve review; merge when authorized (default squash onto `main`).
    - Use Oracle-style craft: bottom line first, one clear fix path, evidence anchors, Effort/Confidence tags.
    - Use the comment templates in `docs/pull-request-review-template.md`.
 

@@ -2,7 +2,7 @@
 
 ## Merged Skill Refactors
 
-This table is the canonical record of skill refactor pull requests merged into `local`. It is used by the refactor workflow and automation when selecting the next skill.
+This table is the canonical record of skill refactor pull requests merged into `main`. It is used by the refactor workflow and automation when selecting the next skill.
 
 | Skill | PR | Date | Darwin Score |
 |-------|----|------|--------------|
@@ -47,7 +47,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 For every skill-refactor pull request:
 
 1. Complete and validate all refactor phases.
-2. Create the pull request targeting `local`.
+2. Create the pull request targeting `main`.
 3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, PR number, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
 | product-hunt | #4 | 2026-08-11 | 80/100 |
