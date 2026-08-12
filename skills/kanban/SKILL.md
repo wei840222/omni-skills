@@ -107,7 +107,7 @@ Use the smallest relevant file for the current task.
 ## Security & Privacy
 
 **Data that stays local:**
-- Board files and project registry in `<state_root>` or `{workspace}/.kanban/`.
+- Board files and project registry in `<state_root>` or the confirmed `<workspace>/.kanban/` board.
 
 **Data that leaves your machine:**
 - None by default.

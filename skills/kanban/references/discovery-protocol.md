@@ -22,7 +22,7 @@ If no entry matches, propose the project identifier and board mode, then obtain 
 ## Step 3: Resolve Board Path
 
 Use `board_mode` from the resolved entry:
-- `workspace-local` -> `{workspace}/.kanban/board.md`
+- `workspace-local` -> confirmed `<workspace>/.kanban/board.md`
 - `home-shared` -> `<state_root>/projects/{project-id}/board.md`
 
 If the board file is missing, show the resolved path and create it from `assets/kanban-data-templates.md` only after the user confirms the persistent write.
