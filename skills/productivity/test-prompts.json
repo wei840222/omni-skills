@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 18 hours of work due this week, only 10 focused hours available, and I keep trying to fit everything in. Help me make a plan.",
+    "expected": "Names overcommitment, compares load with capacity, requires a specific cut or renegotiation, and gives an immediate next action.",
+    "actual": "Primary bottleneck: capacity, not effort. Your committed load is 18 h against 10 focused hours, so the plan is over by 8 h before interruptions. Today: rank the work by consequence, choose at least 8 h to defer, reduce, delegate, or renegotiate, and send one deadline message before planning the remaining 10 h. Then select one must-win outcome and write its first physical action.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am a remote parent with ADHD. I am exhausted, cannot start a report, and have started sleeping five hours so I can catch up. Give me a schedule that fixes this.",
+    "expected": "Recognizes safety and capacity concerns, avoids diagnosing or prescribing a rigid schedule, gives a small low-risk initiation action, and recommends appropriate support.",
+    "actual": "This is not a schedule problem first: five hours of sleep, exhaustion, caregiving, and executive-function friction make a rigid catch-up plan unsafe and unrealistic. Protect sleep and reduce or renegotiate one demand before adding work. For the report, use one prepared micro-action: open the document and write its three section headings during the next available ten-minute window. Make the next clear caregiving-free window a single report block, not a full-day schedule. If exhaustion persists or other health symptoms are present, bring that to a qualified clinician; ADHD assessment and treatment stay with qualified care.",
+    "pass": true
+  }
+]
