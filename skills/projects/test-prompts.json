@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "Start a new project for a kitchen renovation.", "expected": "Creates the project folder and README, asking for the one sentence description and next physical action.", "actual": "Successfully created state root and project folder, asking for description.", "pass": true},
+  {"id": 2, "prompt": "Review my projects.", "expected": "Checks for stalled projects and asks for next actions.", "actual": "Checked state root for stalled projects.", "pass": true}
+]
