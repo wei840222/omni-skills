@@ -1,6 +1,6 @@
 # Memory Template — Mobile App Analytics
 
-Create `~/Clawic/data/mobile-app-analytics/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Mobile App Analytics Memory
@@ -31,7 +31,7 @@ integration: pending | done | declined
 
 ## Per-App Template
 
-Create `~/Clawic/data/mobile-app-analytics/apps/{app-name}.md` for each app:
+Create `<state_root>/apps/{app-name}.md` for each app:
 
 ```markdown
 # {App Name} Analytics
@@ -80,11 +80,11 @@ analytics_stack: Firebase, Mixpanel, Amplitude
 |-------|---------|----------|
 | `ongoing` | Still learning their stack | Gather context opportunistically |
 | `complete` | Has enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
+| `paused` | User said "not now" | Respect the paused state and work with what you have |
 
 ## Key Principles
 
 - **No config keys visible** — use natural language, not technical jargon
 - **Learn from behavior** — notice what metrics they ask about most
-- **Store IDs are optional** — don't push for them, add when naturally shared
+- **Store IDs are optional** — add them when naturally shared
 - Update `last` on each use

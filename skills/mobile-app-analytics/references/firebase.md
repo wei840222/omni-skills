@@ -112,12 +112,12 @@ ORDER BY 1 DESC
 ### DebugView
 Enable debug mode to see events in real-time:
 ```bash
-# iOS Simulator
-adb shell setprop debug.firebase.analytics.app com.your.app
-
 # Android
 adb shell setprop debug.firebase.analytics.app com.your.app
+adb shell setprop debug.firebase.analytics.app .none. # Disable debug mode
 ```
+
+For iOS+, add `-FIRDebugEnabled` to the Xcode scheme's **Arguments Passed On Launch**. Use `-FIRDebugDisabled` to turn it off.
 
 ### Common Issues
 
