@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new kanban board for the 'marketing' project and add a task to 'draft email campaign'",
+    "expected": "Resolves Kanban state and location correctly, asks for confirmation before creating a missing board, then adds the card in the backlog and returns a summary after confirmation.",
+    "actual": "No existing Kanban state root was supplied. With a host workspace, the proposed persistent location is `<workspace>/kanban/`; creating the marketing board and its first card requires confirmation. After confirmation, create `<state_root>/projects/marketing/{board,rules,log}.md`, register the board in `<state_root>/index.md`, add `KB-001: draft email campaign` to `backlog`, and report the changed files.",
+    "pass": true,
+    "eval_mode": "manual_skill_run"
+  },
+  {
+    "id": 2,
+    "prompt": "I'm blocked on the 'api redesign' task in the 'backend' project because the database schema isn't ready. Update the board.",
+    "expected": "Finds the 'backend' project, moves the 'api redesign' card to `blocked`, records the dependency in the resolved log, and reports the state change without touching another board.",
+    "actual": "The request identifies one project and one blocker. Resolve the backend entry through `<state_root>/index.md`, verify that the card exists and that no higher-priority instruction conflicts, then update only the resolved backend board to `blocked` and append `database schema is not ready` to that board's log. Report the board and log paths plus the card transition; do not create, merge, or modify another project board.",
+    "pass": true,
+    "eval_mode": "manual_skill_run"
+  }
+]
