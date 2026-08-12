@@ -2,7 +2,7 @@
 
 Use these templates when submitting a Skill Review on GitHub. Replace all placeholder text with evidence from the review. Keep the review in English unless the PR discussion is already localized and the user asks otherwise.
 
-Canonical procedure, severity rubric, three-lens quality bar, and Oracle-style craft rules live in `docs/review-guide.md`. Author-side PR descriptions use `docs/pull-request-template.md`.
+Canonical procedure, severity rubric, three-lens quality bar, and Oracle-style craft rules live in `.agents/workflows/skill-review.md`. Author-side PR descriptions use `.agents/templates/pull-request-refactor.md`.
 
 ## Craft rules for every review body
 

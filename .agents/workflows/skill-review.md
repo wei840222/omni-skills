@@ -1,6 +1,10 @@
+---
+description: Execute the 3-lens PR review procedure (code-review, writing, darwin)
+---
+
 # Skill Review Guide
 
-This document defines the canonical **Skill Review** procedure for open GitHub pull requests in `omni-skills`. It is the review counterpart to `docs/refactor-guide.md`: refactor authors prove Gates 1–9; reviewers verify those gates **and** apply three quality lenses before approving or requesting changes.
+This document defines the canonical **Skill Review** procedure for open GitHub pull requests in `omni-skills`. It is the review counterpart to `.agents/workflows/skill-refactor.md`: refactor authors prove Gates 1–9; reviewers verify those gates **and** apply three quality lenses before approving or requesting changes.
 
 ## Core principles
 
@@ -60,8 +64,8 @@ Use this precedence order:
 
 1. Current user instructions for the review task (for example: request changes must comment; approve must merge).
 2. Official Agent Skills specification + reference validator behavior.
-3. `docs/refactor-guide.md` Gates 1–9 and commit-phase contract.
-4. This guide’s three-lens review, Oracle-style craft rules, and `docs/pull-request-review-template.md`.
+3. `.agents/workflows/skill-refactor.md` Gates 1–9 and commit-phase contract.
+4. This guide’s three-lens review, Oracle-style craft rules, and `.agents/templates/pull-request-review-template.md`.
 5. Target skill package files and verified runtime/tool evidence.
 6. Existing repository conventions, only when they do not conflict with the sources above.
 
@@ -138,7 +142,7 @@ Gate 1 fails if the validator does not exit 0.
 
 ### Step 4: Gates 1–9 verification
 
-Cross-check the PR description and package against `docs/refactor-guide.md`.
+Cross-check the PR description and package against `.agents/workflows/skill-refactor.md`.
 
 | Gate | Reviewer checks |
 |---|---|
@@ -240,7 +244,7 @@ Before posting, run this self-check:
 - [ ] Effort (and Confidence when not high) are tagged
 - [ ] No Optional/Nit item was silently upgraded to Required
 - [ ] Review stays inside PR scope; extras are capped
-- [ ] Body uses `docs/pull-request-review-template.md`
+- [ ] Body uses `.agents/templates/pull-request-review-template.md`
 
 Default authorization for this repository’s review tasks:
 
@@ -315,7 +319,7 @@ Use this shape for every Required item:
 
 ## PR review comment templates
 
-Canonical templates live in `docs/pull-request-review-template.md`:
+Canonical templates live in `.agents/templates/pull-request-review-template.md`:
 
 - **A** Request changes
 - **B** Approve
@@ -383,9 +387,9 @@ These are recurring Required classes. Treat them as calibrated examples, not an 
 | Doc | Owns |
 |---|---|
 | `AGENTS.md` | Workflow dispatch and stable operating principles |
-| `docs/refactor-guide.md` | Author-side Gates 1–9 and refactor commit contract |
-| `docs/pull-request-template.md` | Author-side PR description evidence layout |
-| `docs/pull-request-review-template.md` | Reviewer-side PR review comment templates |
-| `docs/review-guide.md` | Reviewer-side procedure, three-lens quality bar, and severity rubric |
+| `.agents/workflows/skill-refactor.md` | Author-side Gates 1–9 and refactor commit contract |
+| `.agents/templates/pull-request-refactor.md` | Author-side PR description evidence layout |
+| `.agents/templates/pull-request-review-template.md` | Reviewer-side PR review comment templates |
+| `.agents/workflows/skill-review.md` | Reviewer-side procedure, three-lens quality bar, and severity rubric |
 
 When a reusable review anti-pattern appears twice, add a narrow section here rather than expanding `AGENTS.md`.

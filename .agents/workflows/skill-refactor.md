@@ -1,3 +1,7 @@
+---
+description: Execute the 7-phase omni-skills refactor process following the 9 quality gates
+---
+
 # Skill Refactor Guide
 
 This document defines the canonical quality gates and workflow standards for the `omni-skills` refactor process. It is an incrementally extensible quality contract: automation may mark a skill as "refactor complete" and open a pull request only after every defined gate passes.
@@ -908,9 +912,9 @@ Before advancing to Phase 6:
    ```
 2. Create a pull request targeting `main` and assign a reviewer:
    ```bash
-   gh pr create --base main --reviewer <reviewer> --body-file docs/pull-request-template.md
+   gh pr create --base main --reviewer <reviewer> --body-file .agents/templates/pull-request-refactor.md
    ```
-3. Populate the pull request description with `docs/pull-request-template.md` (including Gate 6 Research Sources).
+3. Populate the pull request description with `.agents/templates/pull-request-refactor.md` (including Gate 6 Research Sources).
 4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
 5. Do not merge the PR or delete branches without explicit authorization.
 
