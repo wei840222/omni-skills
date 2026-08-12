@@ -3,7 +3,7 @@
     "id": 1,
     "scenario": "Typical user request in English",
     "prompt": "I'm planning a 3-day trip to San Francisco, what should my itinerary look like?",
-    "expected": "Agent should look up visitor-itineraries.md and suggest a 3-day itinerary, warning about cold weather and car break-ins.",
+    "expected": "Agent should load references/visitor-itineraries.md and suggest a 3-day itinerary, warning about cold weather and car break-ins.",
     "actual": "Provides a 3-day itinerary based on the loaded references/visitor-itineraries.md, advises on weather layers (especially if summer), and warns about avoiding the Tenderloin and not leaving items in cars.",
     "pass": true
   },
@@ -11,8 +11,8 @@
     "id": 2,
     "scenario": "Complex or ambiguous scenario in English",
     "prompt": "I got a senior SWE offer in SF for 150K. Is this good enough, and where should I live to avoid crime?",
-    "expected": "Agent should look up tech.md, safety.md, cost.md, and neighborhoods. Recognize 150K is below median for senior SWE, warn about costs, and suggest safe neighborhoods like Noe Valley or Marina.",
-    "actual": "Agent loads tech.md (notes Senior SWE total comp is typically $200K-$400K+), cost.md (notes 1BR is $2900-$3400), and safety.md/neighborhoods. Advises the user that $150K is low for a senior SWE in SF and recommends safe areas like Marina or Hayes Valley while explicitly advising to avoid Tenderloin/Mid-Market.",
+    "expected": "Agent should load references/tech.md, references/safety.md, references/cost.md, and references/neighborhoods-index.md. It should treat compensation and cost figures as planning baselines, verify current sources before making time-sensitive claims, and suggest safer neighborhoods such as Noe Valley or Marina.",
+    "actual": "Agent loads references/tech.md, references/cost.md, references/safety.md, and references/neighborhoods-index.md. It explains that compensation and rental figures are planning baselines that require current-source verification, then suggests safer areas such as Marina or Hayes Valley while warning against Tenderloin and Mid-Market.",
     "pass": true
   }
 ]
