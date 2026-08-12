@@ -55,3 +55,4 @@ For every skill-refactor pull request:
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
 | product-hunt | #4 | 2026-08-11 | 80/100 |
 | projects | pending | 2026-08-12 | 90 |
+| expenses | pending | 2026-08-12 | 85/100 |

@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "I just paid 12 EUR for lunch with my AMEX.", "expected": "Logs 12 EUR for lunch to the current month.", "actual": "Logged 12 EUR for lunch with AMEX.", "pass": true},
+  {"id": 2, "prompt": "Split a $100 dinner, I paid, Alice owes $30, Bob owes $20.", "expected": "Records $100 expense and creates receivables from Alice and Bob.", "actual": "Recorded $100 total, $50 my share, Alice owes $30, Bob owes $20.", "pass": true}
+]
