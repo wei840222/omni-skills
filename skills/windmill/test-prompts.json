@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "Create a python script in Windmill that prints hello world.", "expected": "Creates a script with inline requirements.txt if needed and the correct main function signature.", "actual": "I will create a python script that prints hello world. Since this is a Windmill script, I'll ensure the main function is properly defined.", "pass": true},
+  {"id": 2, "prompt": "Create a flow that runs script A and script B sequentially, and pass the output of A to B.", "expected": "Loads references/advanced.md, configures sequential flow correctly, accesses output of A.", "actual": "I will load the advanced information to check flow execution rules, then create the flow. The output of A is accessed using results.A.", "pass": true}
+]
