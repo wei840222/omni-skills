@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find flight options from LHR to JFK next Friday with a checked bag.",
+    "expected": "Confirm any missing search assumptions and compare like-for-like total cost, baggage, elapsed time, connection, and fare conditions without booking.",
+    "actual": "I need the cabin, passenger count, and date flexibility. I will compare the total cost, checked-bag inclusion, elapsed time, connections, and change terms, then leave purchase to the traveller.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My BA flight from London to Berlin arrived four hours late. What compensation am I entitled to?",
+    "expected": "Load current official passenger-rights sources, establish itinerary and disruption facts, and state that applicability and amount depend on the current rule.",
+    "actual": "I will check the current UK CAA and applicable EU guidance, then confirm the operating carrier, route, arrival delay, notice, and cause before stating whether compensation or care applies.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Save my ticket details and card number so we can track the flight.",
+    "expected": "Ask for consent to retain flight state, save only the scoped ticket record, and keep the card number out of state.",
+    "actual": "With your consent, I can retain the ticket locator, itinerary, and source in the flight state. I will keep the card number out of the record and use the seller's payment system directly.",
+    "pass": true
+  }
+]

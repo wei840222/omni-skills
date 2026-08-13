@@ -1,8 +1,8 @@
 # Points, Miles, and Elite Status
 
-Scope: earning, valuing and protecting a balance, and whether a tier is worth chasing. Spending points on a specific ticket is `awards.md`.
+Scope: earning, valuing, and protecting a balance, plus whether a tier is worth pursuing. Verify programme rules and award availability before a transfer or redemption.
 
-**Before answering anything about balances, tiers or requalification**, read `## Loyalty` in `~/Clawic/data/flight/memory.md` — or `loyalty.md` if the `## Boxes` index points there — and `flown/<year>.md` for what has actually been flown this qualifying year.
+**Before answering anything about balances, tiers, or requalification**, read `## Loyalty` in `<state_root>/memory.md` and `<state_root>/flown/<year>.md` when those records exist.
 
 **Contents:** [Three Currencies, Not One](#three-currencies-not-one) · [Valuation](#valuation) · [Earning From Flying](#earning-from-flying) · [Earning Without Flying](#earning-without-flying) · [Crediting Decisions](#crediting-decisions) · [Elite Status](#elite-status) · [Is The Tier Worth It](#is-the-tier-worth-it) · [Expiry And Housekeeping](#expiry-and-housekeeping) · [Cards And Annual Fees](#cards-and-annual-fees)
 
@@ -35,9 +35,9 @@ Worked: a £480 cash fare, an award at 25,000 points plus £180 in surcharges. (
 ## Earning From Flying
 
 - Most programmes now earn on **money spent with the airline**, not distance flown; distance-based earning survives mainly for partner flights, where a published table maps the operating carrier's fare class to a percentage of distance.
-- Deep-discount fare classes earn a small percentage or nothing at all, including on partner metal. Check the class before assuming a flight earns (`fares.md`).
+- Earning can vary by fare class, operating carrier, and crediting programme. Check the current programme rule before assuming a flight earns.
 - Elite tiers multiply earning, which is where most of a tier's redeemable value actually comes from.
-- Credit posts within days; if it has not posted within about a week, claim it retroactively with the boarding pass and the receipt. Retro-claim windows are typically 6-12 months and are one of the reasons `flown/<year>.md` exists.
+- Credit-posting and retro-claim windows vary by programme. Verify the current programme policy before action; when the user asks to retain flight history, use `<state_root>/flown/<year>.md`.
 
 ## Earning Without Flying
 
@@ -54,7 +54,7 @@ For most people this dwarfs earning from flying:
 Every flight can usually be credited to any programme in the alliance, and the choice is made **at check-in at the latest**.
 
 - Credit where the earning table is best for that fare class, or where the tier progress matters most — those are frequently different programmes, and one must be chosen.
-- Concentrating in one programme reaches a tier; spreading maximises redeemable points. Decide once, record it as `loyalty_focus` in `config.yaml`, and stop re-litigating per trip.
+- Concentrating in one programme reaches a tier; spreading can maximise redeemable points. When the user asks to retain the preference, record `loyalty_focus` in `<state_root>/config.yaml`.
 - Some programmes earn on partner flights but do not count them for their own tier. Read both tables, not one.
 
 ## Elite Status
@@ -85,11 +85,11 @@ Record the requalification date and the current progress in `## Loyalty`, and pu
 - Orphan balances too small to redeem are worth burning on magazines, upgrades of ancillaries, or charity transfers before they expire worthless.
 - Household pooling exists in several programmes and quietly rescues balances that would each be useless.
 - Family accounts, programme mergers and airline consolidations all produce forced conversions; when one is announced, check the ratio and the deadline.
-- Points are not currency and are generally not property: programmes reserve the right to change terms, and an account can be closed for ticketing abuse (`fares.md`).
+- Loyalty programmes can change earning, redemption, and account terms. Verify the programme's current rules before a transfer or redemption.
 
 ## Cards And Annual Fees
 
-The annual fee is a subscription and belongs with the other subscriptions: `~/Clawic/data/finances/subscriptions.md`, one row per card — name, provider, annual fee **with currency**, renewal date, and the benefits that expire unused (travel credits, companion vouchers, lounge visits). Read the file before adding, update in place, delete the row when the card closes, and do not rewrite a header another skill wrote. Card numbers never appear there or anywhere else under `~/Clawic/data/`.
+When the user asks to track a card's travel benefits, store the non-sensitive subscription information in `<state_root>/finances/subscriptions.md`: name, provider, annual fee with currency, renewal date, and expiring benefits. Keep card numbers out of `<state_root>/`.
 
 The retention question — keep, downgrade or close — is answered by comparing the fee against benefits actually used in the last twelve months, which is exactly what that row records.
 
