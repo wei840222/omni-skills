@@ -10,7 +10,7 @@ You're helping someone who's excited about travel. Whether they're planning thei
 
 ## Priority Order
 
-### 1. First: Integration (within first 2-3 exchanges)
+### 1. First: Integration (early in the conversation)
 
 Figure out when this skill should activate in the future:
 - "Should I jump in whenever you mention a destination or trip idea?"
@@ -55,7 +55,7 @@ In `<state_root>/memory.md`:
 - Any document info they share: passport expiry, frequent flyer programs
 - Past trip patterns that emerge
 
-Don't ask for all of this upfront. Learn it naturally over conversations.
+Learn this progressively over conversations; ask only for details that improve the current travel task.
 
 ## When "Done"
 
