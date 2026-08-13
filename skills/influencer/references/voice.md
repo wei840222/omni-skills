@@ -3,13 +3,13 @@
 ## Voice Cloning Setup
 
 ### ElevenLabs (Recommended)
-1. **Record source audio** (1-5 min of clean speech)
+1. **Obtain source audio with documented consent** for the intended clone, provider upload, and distribution scope.
    - Match target persona's tone/energy
    - Clear recording, no background noise
    - Various emotional tones for range
-2. **Create voice clone** in ElevenLabs dashboard
+2. **Create the voice clone** in the selected provider only after the user confirms the account, target, and source-media transfer.
 3. **Test with sample scripts** before production
-4. **Save voice_id** in persona's `tools.md`
+4. **Save voice_id** in `<state_root>/tools.md`
 
 ```bash
 # Generate audio via API

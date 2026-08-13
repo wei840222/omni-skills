@@ -103,10 +103,10 @@ Generate any video → swap face with reference → more work but flexible.
 ## Audio for Videos
 
 ### Voice Cloning (ElevenLabs)
-1. Record 1-3 min of clean audio (any voice that fits persona)
-2. Upload to ElevenLabs for cloning
+1. Record clean audio only from a voice owner who has given documented consent for the intended clone and provider upload.
+2. Upload to the chosen provider only after the user confirms the account, target, and source-media transfer.
 3. Use cloned voice for all content
-4. Save voice_id in tools.md
+4. Save the provider voice identifier in `<state_root>/tools.md`
 
 ### Music
 - Epidemic Sound (paid, unlimited)
@@ -146,10 +146,6 @@ Before posting ANY video:
 
 ---
 
-## Avoiding Detection
+## Authenticity and disclosure
 
-1. **Vary content types** — don't only post AI talking heads
-2. **Add real footage** — b-roll of hands, products, environments
-3. **Imperfect audio** — slight room tone, not too clean
-4. **Natural mistakes** — small pauses, filler words in script
-5. **Behind the scenes** — generated "candid" content
+Use a clear disclosure when the applicable platform or jurisdiction requires one. Add footage, sound design, and natural pacing only when they accurately represent the content; do not use them to obscure that a video is synthetic or materially altered.

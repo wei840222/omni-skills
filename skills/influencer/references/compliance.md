@@ -2,30 +2,14 @@
 
 ## ⚠️ Critical Disclosure Requirements
 
-### FTC Guidelines (USA)
-AI-generated influencers MUST disclose:
-- **#AIGenerated** or **#VirtualInfluencer** in visible location
-- **Clear statement** that content is AI-generated
-- **Sponsored content** disclosed same as human influencers
+Commercial endorsements and materially altered or synthetic content can require disclosure. Before preparing a post, check the current law for the target jurisdiction and the platform's current disclosure flow. Make disclosures clear and prominent in the format the platform supports; do not rely on a hidden profile note or an ambiguous hashtag.
 
-**Placement rules:**
-- Beginning of caption (not buried)
-- In video itself (not just description)
-- Visible without clicking "more"
+Use these primary sources for the current rules:
 
-### EU AI Act (Europe)
-- AI-generated content must be labeled
-- Deepfakes require clear identification
-- More stringent than US requirements
-
-### Platform Requirements
-
-| Platform | Requirement |
-|----------|-------------|
-| TikTok | Label AI-generated content, no deceptive AI |
-| Instagram | Disclosure in posts, Stories exempt for now |
-| YouTube | Check "altered/synthetic" in upload if applicable |
-| Twitter/X | No specific AI disclosure yet (subject to change) |
+- FTC disclosure guidance: https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers
+- TikTok AI-generated content policy: https://support.tiktok.com/en/using-tiktok/creating-videos/ai-generated-content
+- YouTube altered or synthetic content policy: https://support.google.com/youtube/answer/14328491
+- Instagram help centre guidance: https://help.instagram.com/620311668117034
 
 ---
 
@@ -38,7 +22,7 @@ AI-generated influencers MUST disclose:
 - Educational content
 - Entertainment content
 
-### ❌ Prohibited
+### Prohibited Actions
 - Claiming AI influencer is a real person
 - Using real person's likeness without consent
 - Generating content that impersonates public figures
@@ -52,25 +36,25 @@ AI-generated influencers MUST disclose:
 ### Using Generated Faces
 ✅ Safe — fully AI-generated faces with no resemblance to real people
 ✅ Safe — licensed stock model faces as reference
-⚠️ Risky — faces that closely resemble celebrities
-❌ Illegal — using real person's face without consent
+Avoid faces that closely resemble celebrities
+Do not use a real person's face without consent
 
 ### Training Data Considerations
-- Don't train LoRAs on copyrighted images without license
-- Don't train on real people without consent
-- Keep records of what data was used
+- Train only on images covered by an appropriate licence or permission.
+- Use a real person's images or voice only with documented consent and permitted scope.
+- Keep records of the data source, licence, consent, and intended model use.
 
 ---
 
 ## Sponsored Content Rules
 
-AI influencers follow SAME rules as human influencers:
+AI influencers follow the applicable endorsement and consumer-protection rules:
 
 1. **#Ad or #Sponsored** clearly visible
 2. **"Paid partnership"** tag if available
-3. **No fake reviews** or misleading claims
+3. **Use truthful, supportable reviews and product claims**
 4. **Material connection** must be disclosed
-5. **FTC Endorsement Guidelines** fully apply
+5. **Check the current applicable regulator guidance before publishing**
 
 ---
 
@@ -86,21 +70,15 @@ AI influencers follow SAME rules as human influencers:
 - Stock footage: verify license covers AI/synthetic use
 - Brands: get permission before using logos
 
-### Platform TOS
-Each platform has specific AI content rules:
-- TikTok: no deceptive synthetic media
-- Instagram: may require AI labels
-- YouTube: must label synthetic content in certain cases
+### Platform Terms
+Each platform has its own and frequently changing synthetic-content, disclosure, and enforcement rules. Verify the current platform policy and available disclosure controls immediately before scheduling or publishing.
 
 ---
 
 ## Age-Related Content
 
 ### Minor Personas
-⚠️ HIGH RISK — Do not create AI influencers that appear to be minors
-- Legal issues across all jurisdictions
-- Platform bans likely
-- Reputational damage
+⚠️ HIGH RISK — Design personas and content to avoid sexualization, exploitation, or deceptive representation of minors. If a concept could reasonably be interpreted as involving a minor, stop at a non-publishable draft and request legal review before generating or distributing it.
 
 ### Adult Content
 - Age verification required on platforms that allow it
@@ -115,13 +93,15 @@ AI influencer laws vary by country:
 
 | Region | Strictness | Key Requirements |
 |--------|------------|------------------|
-| USA | Medium | FTC disclosure |
-| EU | High | AI Act labeling |
-| UK | Medium | ASA guidelines |
-| China | Very High | AI registration |
-| Japan | Low | Few specific rules |
+| Region | Review focus |
+|--------|--------------|
+| USA | Endorsement disclosures and consumer-protection rules |
+| EU | AI transparency requirements and local consumer law |
+| UK | Advertising disclosures and consumer protection |
+| China | Applicable synthetic-content and platform requirements |
+| Japan | Applicable consumer, copyright, and platform rules |
 
-**Best practice:** Follow the strictest rules (EU) to be safe globally.
+**Best practice:** Identify the target jurisdiction and platform before production, then apply the strictest applicable rule for that campaign.
 
 ---
 

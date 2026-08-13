@@ -50,6 +50,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | friends            | 2026-08-12 | 95/100 (author-reported) |
 | webhook            | 2026-08-12 | 85/100 (author-reported) |
 | expenses           | 2026-08-12 | 85/100 (author-reported) |
+| influencer         | 2026-08-12 | 88/100 (author-reported) |
 
 ## Updating This Changelog
 
