@@ -19,7 +19,7 @@ Scope: building something that searches, prices, tracks or books flights. Pricin
 
 - **Amadeus for Developers** — the widest airline coverage of the self-serve options, with search, pricing, ancillaries and booking. Free test environment with synthetic or cached data; production requires an agreement and behaves differently from test. The test-to-production gap is the standard first surprise.
 - **Duffel** — modern REST, NDC-first, a smaller but growing airline set, and the easiest path from zero to a real ticket. Subscription plus a per-booking fee; low-cost carriers are covered unevenly.
-- **Kiwi's partner API** — the virtual-interlining inventory, including combinations no airline sells, and multi-modal options. Revenue-share model. Everything in `connections.md` about the risks of self-transfer applies to what you would be selling.
+- **Kiwi's partner API** — virtual-interlining inventory, including combinations no airline sells, and multi-modal options. Verify self-transfer risk and the provider's current commercial terms before use.
 - **Sabre and Travelport** — the other GDSs, enterprise sales cycles, not self-serve.
 - Booking through any of these makes you a seller of travel, with the consumer-protection, refund and insolvency obligations that follow in most jurisdictions. That is a business decision before it is a technical one.
 
@@ -36,21 +36,21 @@ Scope: building something that searches, prices, tracks or books flights. Pricin
 - **FlightRadar24** — best-in-class positional and ADS-B data, tiered from hobbyist to enterprise.
 - **AviationStack**, **AeroDataBox** and similar — schedules and status at low cost through API marketplaces, with correspondingly variable coverage outside major carriers.
 - **OpenSky Network** — community ADS-B data, free for non-commercial use, with coverage gaps and no schedule layer.
-- What to check before choosing: update latency, whether the aircraft's *previous* leg is exposed (that is the delay predictor in `tracking.md`), coverage of the specific carriers you care about, and whether historical data is included or extra.
+- What to check before choosing: update latency, coverage of the specific carriers, historical-data availability, provider terms, and the intended use of operational data.
 
 ## Reference Data
 
 - Airport, airline and aircraft codes, timezones and runway data are available from open datasets and from the paid providers as a bundled endpoint.
 - IATA and ICAO codes are not interchangeable, and both exist for airports and airlines. Store both; resolving one to the other later is a data-cleaning project.
 - Timezones are the quiet killer: schedule times are local, offsets change with daylight saving on different dates in different countries, and elapsed-time calculations silently break twice a year. Store UTC alongside local, always.
-- Great-circle distance is needed for compensation bands and award charts and is trivial to compute — but must be origin to final destination, not summed per segment (`disruptions.md`).
+- Use the regulator or loyalty programme's published distance and applicability method when a compensation band or award chart depends on distance.
 
 ## Awards And Loyalty
 
 - **No official award-availability API exists**, from any airline or alliance. Every product in this space scrapes, and each breaks when a carrier changes its site or blocks them.
-- Balance-aggregation services require the user's programme credentials, which is a category of risk to avoid entirely rather than to secure: never ask a user for a loyalty password, and never store one (`memory-template.md`).
+- Keep loyalty-programme passwords out of agent-managed state. Prefer manual, user-supplied balances and retain only non-secret context (`memory-template.md`).
 - Airline programme APIs, where they exist, are partner-only.
-- The maintainable design here is manual entry into `## Loyalty` in `memory.md`, refreshed on a cadence in `## Due` — unglamorous, and it does not break.
+- The maintainable design is manual entry into `## Loyalty` in `<state_root>/memory.md`, refreshed on a user-approved cadence.
 
 ## What Does Not Exist
 
@@ -72,6 +72,6 @@ Worth saying early in any project, because these are the four things people assu
 
 ## Credentials
 
-API keys, client secrets and OAuth tokens for any of these providers are never written under `~/Clawic/data/`. Store the pointer in its place: `env:AMADEUS_CLIENT_SECRET`, `env:DUFFEL_API_KEY`, `keychain:flightaware-aeroapi`, `1password:Dev/Kiwi`. If the user pastes a configuration file to be saved, strip each value and leave the pointer visible before writing anything (`memory-template.md`).
+Store API keys, client secrets, and OAuth tokens outside `<state_root>/`. Retain only a pointer such as `env:AMADEUS_CLIENT_SECRET`, `env:DUFFEL_API_KEY`, `keychain:flightaware-aeroapi`, or `1password:Dev/Kiwi`. When the user asks to save supplied configuration, retain the pointer and remove the secret value (`memory-template.md`).
 
-**When a provider is chosen for a project**, record the choice — the provider, not the key — as a preference in `config.yaml` under `tooling`, so the next session does not re-run this comparison.
+**When a provider is chosen for a project**, record the choice — the provider, not the key — as a preference in `<state_root>/config.yaml` under `tooling`, so the next session does not re-run this comparison.
