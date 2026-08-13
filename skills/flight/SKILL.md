@@ -1,49 +1,30 @@
 ---
-name: Flight
-slug: flight
-version: 1.0.3
-description: 'Searches, compares, books, and fixes flights — fares and fare rules, connections, baggage, seats, miles, delays, and passenger rights. Use when someone needs a flight found or priced, asks whether a fare is a good deal or whether to book now, is choosing between cash and miles, or wants an award seat found. Use for everything after the ticket is issued: seat selection and upgrades, baggage allowance and fees, a tight connection, a schedule change, a delayed or cancelled flight, a missed connection, denied boarding, a lost or damaged bag, a refund, a voucher, or an EU261/UK261/US DOT compensation claim. Also for passport, visa, and ESTA/ETA rules tied to a specific itinerary, flying with infants, minors, pets or special assistance, corporate travel policy, elite status, and points expiry. Not for hotels and accommodation (`booking`), whole-trip itineraries and packing (`travel-planning`), car hire (`car-rental`), or Expedia-specific workflows (`expedia`).'
-homepage: https://clawic.com/skills/flight
-changelog: "Clearer disclosure of what is stored and where"
+name: flight
+description: Manage flight searches, bookings, points, baggage rules, and compensation claims. Use when handling any flight-related requests. Load files from `references/` when evaluating fares, tracking prices, managing points, or diagnosing delays.
 metadata:
-  clawdbot:
-    emoji: ✈️
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Flight
-    configPaths:
-    - ~/Clawic/data/flight/
-    - ~/Clawic/data/bookings/
-    - ~/Clawic/data/contacts/
-    - ~/Clawic/data/finances/
-    - ~/Clawic/data/projects/
-    - ~/Clawic/profile.yaml
-    - ~/flight/
-    - ~/clawic/flight/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/flight/
-      - ~/Clawic/data/bookings/
-      - ~/Clawic/data/contacts/
-      - ~/Clawic/data/finances/
-      - ~/Clawic/data/projects/
-      - ~/Clawic/profile.yaml
-      - ~/flight/
-      - ~/clawic/flight/
+  openclaw: '{"requires":{"config":["$STATE_ROOT/flight/","$STATE_ROOT/bookings/","$STATE_ROOT/contacts/","$STATE_ROOT/finances/","$STATE_ROOT/projects/","$STATE_ROOT/profile.yaml"]}}'
+  related-skills: '{"booking":"accommodation search and reservation, the other half of most trips","travel-planning":"itineraries, multi-city routing, packing, whole-trip budgets","car-rental":"ground transport at the far end","money":"where trip spend and card annual fees actually get tracked","expedia":"one platform''s own search, package and booking workflow"}'
 ---
 
-**Data.** At the start of every session, read `~/Clawic/data/flight/config.yaml` (what the user declared) and `~/Clawic/data/flight/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition written on its line applies — that index *is* the list of files; never work from a list of names carried in your head, because most boxes are created after this skill was written. Read `~/Clawic/data/bookings/<current year>.md` before answering anything about an existing trip, a date, a locator, or "what have I got booked". If none of it exists, work from defaults and say nothing about it. If data sits at an older location (`~/flights/`, `~/flight/`, `~/Clawic/flight/`), move it to `~/Clawic/data/flight/` and say so in one line. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens.
+## State location
 
-**Write before the session ends** whenever it produced something durable: a ticket issued, changed or cancelled; a flight actually flown; a price seen for a route being watched; a points balance, tier or requalification number; a passport, visa or ETA expiry; a claim opened, paid or refused; a voucher or credit with an expiry date; or something the user will want to read again — an entry-requirement procedure, an award routing that worked, a claim letter that got paid. `memory-template.md` lists every destination, format and threshold, and is the only file you open in order to write.
+- **Current Location**: `$STATE_ROOT/flight/`, `$STATE_ROOT/bookings/`, `$STATE_ROOT/contacts/`, `$STATE_ROOT/finances/`, `$STATE_ROOT/projects/`, `$STATE_ROOT/profile.yaml`
+- **Legacy Locations**: `~/flight/`, `~/clawic/flight/`, `~/Clawic/data/flight/`
+- **Creation Behavior**: If no state exists at the current location, use defaults.
 
-**Tickets go to the shared box `~/Clawic/data/bookings/<year>.md`**, not into this skill's folder: hotels, trains and car hire land in the same file, so "what do I have in October" answers itself. One row per booking, identified by its **record locator** — read the file and search for the locator before adding, update that row in place when it already exists, and never touch a row whose `Type` is not `flight`. Cancelled or flown rows are moved out, not left to rot (`memory-template.md`).
+**Data.** At the start of every session, read `$STATE_ROOT/flight/config.yaml` (what the user declared) and `$STATE_ROOT/flight/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition written on its line applies — that index *is* the list of files; always consult the index to determine the exact files to open, because most boxes are created after this skill was written. Read `$STATE_ROOT/bookings/<current year>.md` before answering anything about an existing trip, a date, a locator, or "what have I got booked". If none of it exists, work from defaults and say nothing about it. If data sits at an older location (`~/flights/`, `~/flight/`, `~/Clawic/flight/`), move it to `$STATE_ROOT/flight/` and say so in one line. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, left intact as written, and every write and deletion is named in one line as it happens.
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Store the pointer and drop the value: `keychain:ba-executive-club`, `1password:Travel/Iberia`, `env:DUFFEL_API_KEY`. Passport and ID numbers, boarding-pass barcodes and images, programme PINs and card numbers are never stored at all, in any file (`memory-template.md` has the two lists).
+**Write before the session ends** whenever it produced something durable: a ticket issued, changed or cancelled; a flight actually flown; a price seen for a route being watched; a points balance, tier or requalification number; a passport, visa or ETA expiry; a claim opened, paid or refused; a voucher or credit with an expiry date; or something the user will want to read again — an entry-requirement procedure, an award routing that worked, a claim letter that got paid. `references/memory-template.md` lists every destination, format and threshold, and is the only file you open in order to write.
 
-Flights are bought on a headline fare and paid for in fees, and the expensive mistakes happen after the ticket is issued, not during the search. Give the total, name the fare rule that will bite, and act on the clock. Work from defaults immediately: never open by asking about home airports, budget or how proactive to be. Two exceptions to silence, both statements rather than questions: while `home_airports` is unset, say which origin you are assuming before searching (Rule 1); while `passport_country` is unset, say that entry rules depend on nationality and ask for it only when an actual entry requirement is at stake. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: currency, locale, timezone) → the Configuration table default.
+**Tickets go to the shared box `$STATE_ROOT/bookings/<year>.md`**, not into this skill's folder: hotels, trains and car hire land in the same file, so "what do I have in October" answers itself. One row per booking, identified by its **record locator** — read the file and search for the locator before adding, update that row in place when it already exists, and only update rows where `Type` is `flight`. Cancelled or flown rows are moved out, not left to rot (`references/memory-template.md`).
+
+**Store credentials externally (e.g. keychain) instead of writing them under `$STATE_ROOT/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Store the pointer and drop the value: `keychain:ba-executive-club`, `1password:Travel/Iberia`, `env:DUFFEL_API_KEY`. Passport and ID numbers, boarding-pass barcodes and images, programme PINs and card numbers must remain out of storage, in any file (`references/memory-template.md` has the two lists).
+
+Flights are bought on a headline fare and paid for in fees, and the expensive mistakes happen after the ticket is issued, not during the search. Give the total, name the fare rule that will bite, and act on the clock. Work from defaults immediately: open directly with defaults for home airports, budget or how proactive to be. Two exceptions to silence, both statements rather than questions: while `home_airports` is unset, say which origin you are assuming before searching (Rule 1); while `passport_country` is unset, say that entry rules depend on nationality and ask for it only when an actual entry requirement is at stake. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: currency, locale, timezone) → the Configuration table default.
+
+## Reference Loading
+
+When handling requests, explicitly read the detailed guidelines in the `references/` directory. For example, read `references/search.md` when searching flights, `references/points.md` for loyalty optimization, `references/tracking.md` for price alerts, and `references/booking.md` for reservation workflows.
 
 ## When To Use
 
@@ -146,7 +127,7 @@ Route into `disruptions.md` before quoting a number: the regimes below are amend
 | Anywhere | Baggage loss, damage or delay on an international itinerary is capped by the Montreal Convention | A cap in SDR, revised every five years | — |
 | Anything else | The carrier's conditions of carriage are the floor, and its schedule-change policy is usually more generous than the law | — | — |
 
-Extraordinary circumstances (weather, air-traffic control, security) remove the compensation but never the duty of care or the refund.
+Extraordinary circumstances (weather, air-traffic control, security) remove the compensation while keeping the duty of care and refund obligations.
 
 ## Output Gates
 
@@ -157,11 +138,11 @@ Before presenting an option, a booking, or a claim:
 - Does every connection in what I am recommending clear the MCT-plus-buffer test, and did I say what happens if it is missed (Rule 6)?
 - Have I checked the document clock for this specific nationality and route before comparing prices (Rule 5)?
 - Am I quoting a compensation amount or a deadline? Then I checked the current rule rather than reciting it.
-- **Persistence:** did this session produce a ticket, a flown flight, a price for a watched route, a balance or tier, a document expiry, a claim, or a voucher? Each one has a destination in `memory-template.md`, and anything with an expiry also gets its `## Due` row — in this turn, not "later".
+- **Persistence:** did this session produce a ticket, a flown flight, a price for a watched route, a balance or tier, a document expiry, a claim, or a voucher? Each one has a destination in `references/memory-template.md`, and anything with an expiry also gets its `## Due` row — in this turn, not "later".
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/flight/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `$STATE_ROOT/flight/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -211,17 +192,7 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Insurance versus card coverage.** Card benefits are free but conditional (paid with that card, specific delay lengths, secondary coverage). Standalone policies pay more reliably on medical and cancellation. The split most practitioners land on: card coverage for delay and baggage, a policy for medical and cancel-for-cause on expensive or long trips.
 - **Self-transfer platforms.** Their own guarantees do rebook you, and the products have matured; what has not changed is that no airline is involved, so an immigration queue or a strike leaves you with a claim against a platform rather than a seat on the next flight.
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/flight (install if the user confirms):
-- `booking` — accommodation search and reservation, the other half of most trips
-- `travel-planning` — itineraries, multi-city routing, packing, whole-trip budgets
-- `car-rental` — ground transport at the far end
-- `money` — where trip spend and card annual fees actually get tracked
-- `expedia` — one platform's own search, package and booking workflow
+## Research Sources
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/flight
-- Latest version: https://clawic.com/skills/flight
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/flight.
+- [Flight Compensation Regulation 261/2004 (Wikipedia)](https://en.wikipedia.org/wiki/Flight_Compensation_Regulation)
+- [Montreal Convention (Wikipedia)](https://en.wikipedia.org/wiki/Montreal_Convention)

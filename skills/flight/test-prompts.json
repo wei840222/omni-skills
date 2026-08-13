@@ -1,0 +1,4 @@
+[
+  {"id": 1, "scenario": "Find flights", "prompt": "Find me the cheapest flight from LHR to JFK next Friday.", "expected": "Checks flight options and baggage constraints, explains total costs before booking.", "actual": "Searched multiple carriers from LHR to JFK, evaluated base fares versus carry-on baggage costs, and presented a comparative table.", "pass": true},
+  {"id": 2, "scenario": "Delayed flight compensation", "prompt": "My BA flight from London to Berlin was delayed by 4 hours. What am I entitled to?", "expected": "References UK261/EU261 rights, asks for delay reason, and calculates potential compensation.", "actual": "Loaded disruption references, verified UK261 applicability for a 4-hour delay, and explained the £220 compensation criteria if not extraordinary circumstances.", "pass": true}
+]
