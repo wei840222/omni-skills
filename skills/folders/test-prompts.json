@@ -3,7 +3,7 @@
     "id": 1,
     "prompt": "Where is my Go API project? Search my folder index first, then look under ~/code and ~/work if it is not indexed.",
     "expected": "Checks the resolved index first, validates any match, then performs a targeted search of only the requested roots without changing the index.",
-    "actual": "I will resolve the existing folder-index.json before searching. No indexed Go API project was found, so I will inspect ~/code and ~/work for go.mod or .git boundaries, skip dependency and build trees, and report the canonical matching paths. I will not add any result to the index unless you confirm the exact record.",
+    "actual": "I will resolve the existing folder-index.json before searching. No indexed Go API project was found, so I will inspect ~/code and ~/work for go.mod or .git boundaries, treat dependency and build trees as traversal boundaries, and report the canonical matching paths. Index additions require your confirmation of the exact record.",
     "pass": true
   },
   {

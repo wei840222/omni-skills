@@ -4,7 +4,7 @@
 
 Resolve `~`, `..`, and symlinks to canonical paths before evaluating an operation. Treat `/`, `/etc`, `/var`, `/usr`, `/System`, `/Library`, `C:\\Windows`, and `C:\\Program Files` as protected roots: report the conflict and ask for a narrower, non-system target. During discovery, list symlinks separately instead of traversing them.
 
-Before a move or cleanup, list the exact canonical targets, estimate their size when practical, identify active repositories or mounted/network paths, and state whether the operation can be recovered. Do not infer that similar-looking folders are safe to combine or remove.
+Before a move or cleanup, list the exact canonical targets, estimate their size when practical, identify active repositories or mounted/network paths, and state whether the operation can be recovered. Require a separately named target and confirmation for every folder selected for combining or removal.
 
 ## Recoverable cleanup
 
