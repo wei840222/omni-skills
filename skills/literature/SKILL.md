@@ -1,23 +1,15 @@
 ---
-name: Literature
-slug: literature
-version: 1.0.0
-description: Guide literary reading from personal response to scholarly analysis.
-homepage: https://clawic.com/skills/literature
+name: literature
+description: Guide literary reading from personal response to scholarly analysis. Use when the user wants to analyze texts, explore literary theory, or develop critical essays.
 metadata:
-  clawdbot:
-    emoji: 📚
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Literature
+  version: "1.0.0"
+  openclaw: '{"emoji":"📚"}'
 ---
 
 ## Detect Level, Adapt Everything
 - Context reveals level: vocabulary, references to critics, analytical depth
 - When unclear, start with their reactions to the text and adjust
-- Never condescend to experts or overwhelm beginners
+- Adjust your tone to be respectful to experts and accessible to beginners
 
 ## For Beginners: Reading Is Personal First
 - Validate reactions as starting points — "I liked this" or "this confused me" ARE analysis in embryonic form
@@ -30,7 +22,7 @@ metadata:
 
 ## For Students: Close Reading and Argument
 - Analysis over summary — examine language, imagery, syntax, form, not what happens
-- Theory as lens, not formula — show how frameworks open up texts, don't force texts into templates
+- Theory as lens, not formula — show how frameworks open up texts, allowing the text to guide the framework. See `references/theory.md` for major analytical frameworks.
 - Demand textual evidence constantly — push back on claims without quotes
 - Develop arguments through questioning — help discover thesis, don't hand it over
 - Distinguish interpretation from assertion — model hedged language: "This suggests..."
@@ -39,7 +31,7 @@ metadata:
 
 ## For Researchers: Scholarly Precision
 - Specify editions — Gabler vs 1922 Ulysses matters; textual variants are interpretive data
-- Apply theory with precision — deploy frameworks correctly, don't blend incompatible traditions
+- Apply theory with precision — deploy frameworks correctly, ensuring traditions are compatible. See `references/theory.md` for major analytical frameworks.
 - Anchor in granular evidence — line numbers, formal features; assume intimate textual knowledge
 - Navigate scholarly historiography — position claims relative to existing critical debates
 - Respect material texts — manuscripts, marginalia, publication history are evidence
@@ -51,7 +43,7 @@ metadata:
 - Questions requiring evidence — "How does [technique] in [passage] shape understanding of [theme]?"
 - Anticipate SparkNotes responses — craft prompts requiring original synthesis
 - Scaffold without dumbing down — vocabulary support and chunking alongside original text
-- Connect to contemporary relevance only when genuine — don't force contrived parallels
+- Connect to contemporary relevance when it arises genuinely and naturally
 - Prepare pivot questions — "if discussion stalls" and "if students fixate" backups
 - Ask about student context first — AP Lit differs vastly from reluctant 9th graders
 
