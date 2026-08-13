@@ -21,7 +21,7 @@ Use the selected `<state_root>` for every state operation in this skill. Legacy 
 
 When `<state_root>` exists, read `<state_root>/config.yaml` and `<state_root>/memory.md` before using saved preferences or prior balances. Store durable records only after the user asks to record or change them, and name every file changed. Keep configuration in `<state_root>/config.yaml`, current balances and due dates in `<state_root>/memory.md`, monthly entries in `<state_root>/ledger/YYYY-MM.md`, and finalized settlements or reports in `<state_root>/reports/` when the user asks to retain them.
 
-Record an entry with date, amount and currency, vendor, category, payer, and payment method. Mark unavailable fields as `unknown`, report totals with their currency and as-of date, and use the defaults in `references/expenses-guide.md` when no saved configuration exists. Keep card numbers, CVVs, PINs, banking logins, and tokens out of every state file; retain only a last four digits, card nickname, or a controlled-secret pointer such as `keychain:amex-personal`.
+Record an entry with date, amount and currency, vendor, category, payer, and payment method. Mark unavailable fields as `unknown`, report totals with their currency and as-of date, and use the defaults below when no saved configuration exists. Keep card numbers, CVVs, PINs, banking logins, and tokens out of every state file; retain only a last four digits, card nickname, or a controlled-secret pointer such as `keychain:amex-personal`.
 
 Treat related skill data as separate unless the user explicitly asks to coordinate it. For example, `subscriptions` owns recurring-charge inventory, `personal-finance-tracker` owns net worth, and `accountant` owns bookkeeping and tax filing.
 
@@ -48,7 +48,7 @@ Treat related skill data as separate unless the user explicitly asks to coordina
 | Work owes me money | Record the claim packet, policy limit, submission deadline, and status. |
 | Per diem or mileage instead of receipts | Use the configured rate and units; verify the current applicable official rate before quoting one. |
 | "Can I deduct this?" or rebill a client | Record the business purpose, mixed-use basis, and evidence needed for the applicable jurisdiction. |
-| Receipt handling, budget, trip, foreign currency, reconciliation, or reports | Load `references/expenses-guide.md` for configuration, common traps, and taxonomy guidance. |
+| Receipt handling, budget, trip, foreign currency, reconciliation, or reports | Apply the configuration, traps, and taxonomy guidance below. |
 | Refund, chargeback, deposit, duplicate charge | Record a negative entry against the original month and category, with a reference to the original entry. |
 
 ## Core Rules
@@ -73,4 +73,44 @@ Before delivering a number, a settlement, a claim or a report:
 - Did I strip every card number, PIN, login and token from anything pasted in, leaving a `<kind>:<locator>` pointer in its place?
 - Did I report the number without an opinion attached to it?
 
-Load `references/expenses-guide.md` for configurations, traps, and taxonomy rules when requested.
+## Configuration
+
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
+
+| Variable | Type | Default | Effect |
+|---|---|---|---|
+| home_currency | text (ISO 4217) | USD | Currency for converted totals; entries retain the currency actually paid. |
+| tax_year_start | text (MM-DD) | 01-01 | Boundary of the business year and receipt-retention clock. |
+| receipt_threshold | number (home currency) | 75 | Amount at or above which a receipt pointer is required. |
+| close_day | number (1-28) | 1 | Day the previous month is closed and reported. |
+| settle_cadence | week \| month \| trip \| on_request | month | How often shared balances are netted. |
+| default_split | equal \| by_income \| custom | equal | Split used when people are named but proportions are not. |
+| budget_alert_pct | number (50-100) | 80 | Spend share at which a budget is flagged. |
+| mileage_rate | number (home currency per km or mi) | none | Rate for mileage; verify the current official jurisdictional rate before quoting one. |
+| private_categories | list | none | Categories excluded from shared or exported reports; their totals fold into `other`. |
+
+Store stated preferences for tooling, conventions, platform/jurisdiction, safety posture, output format, cadence, and standing split policy in `config.yaml`. A preference changes future behavior only after the user states it.
+
+## Traps
+
+| Trap | Do instead |
+|---|---|
+| Designing categories before logging | Log flat first; split a category only when its number would change a decision. |
+| Settling every pair separately | Net balances, then minimize transfers. |
+| Booking a refund as income | Use a negative entry against the original month and category. |
+| Keeping only a converted foreign amount | Store original amount, rate, and rate date. |
+| Reconstructing business purpose at tax time | Record the purpose with the payment. |
+| Treating a project budget as paid-to-date | Track committed and paid amounts separately. |
+| Accepting dynamic currency conversion | Pay in the local currency after comparing disclosed options. |
+| Waiting for every receipt before claiming | Submit partial reimbursement packets on the configured cadence. |
+| Using one shared category with no participants | Record payer and beneficiaries per entry. |
+| Changing categories only from today onward | Apply the change across history or retain the current categories. |
+| Importing bank CSV without a dedupe key | Dedupe on date, amount, and safe account identifier. |
+| Adding guilt to a report | Report the number and trend; the judgment belongs to the user. |
+
+## Where experts disagree
+
+- **Broad versus granular categories:** broad categories last; granular categories answer more questions. The boundary is decision value, with tags for secondary slicing.
+- **Complete versus threshold logging:** complete logs support reconciliation, audits, shared settlement, and tax evidence; a sustainable personal log may use a floor for discretionary spending.
+- **Equal versus income-based splits:** equal is simple; proportional may fit materially different incomes. Record the group rule before a disagreement.
+- **Cash tracking:** itemized cash preserves category detail; treating a withdrawal as spent is easier to maintain but loses that detail.
