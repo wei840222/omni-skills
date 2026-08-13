@@ -1,6 +1,6 @@
 # Memory Template — Travel Planning
 
-Create `~/Clawic/data/travel-planning/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure after resolving `<state_root>` in `SKILL.md`:
 
 ```markdown
 # Travel Planning Memory
@@ -12,7 +12,7 @@ last: YYYY-MM-DD
 integration: pending | done | declined
 
 ## Travel Style
-<!-- Learn these naturally, don't ask directly -->
+<!-- Learn these naturally; use open questions only when context is useful -->
 <!-- Examples: spontaneous, detailed planner, budget-conscious, luxury, solo, couple, family -->
 
 ## Preferences
@@ -47,12 +47,12 @@ travel_insurance: [provider]
 |-------|---------|----------|
 | `ongoing` | Still learning preferences | Gather context from trip planning |
 | `complete` | Has solid profile | Work with established preferences |
-| `paused` | User said "not now" | Don't ask, work with what you have |
-| `never_ask` | User said stop | Never ask for more context |
+| `paused` | User said "not now" | Work with the existing context until the user reopens the topic |
+| `never_ask` | User said stop | Continue only with context the user volunteers |
 
 ## Wishlist Entry Template
 
-Create `~/Clawic/data/travel-planning/wishlist/{destination}.md`:
+Create `<state_root>/wishlist/{destination}.md`:
 
 ```markdown
 # {Destination}
@@ -78,7 +78,7 @@ Create `~/Clawic/data/travel-planning/wishlist/{destination}.md`:
 
 ## Trip Folder Template
 
-Create `~/Clawic/data/travel-planning/trips/{trip-name}/overview.md`:
+Create `<state_root>/trips/{trip-name}/overview.md`:
 
 ```markdown
 # {Trip Name}

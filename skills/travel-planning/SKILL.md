@@ -1,25 +1,27 @@
 ---
-name: Travel Planning
-slug: travel-planning
-version: 1.0.1
-description: Plan trips with itineraries, multi-city routing, budget optimization, family logistics, packing lists, and visa timelines.
-homepage: https://clawic.com/skills/travel-planning
-changelog: Fixed all references to use travel-planning consistently.
+name: travel-planning
+description: Plan trips with itineraries, multi-city routing, budget optimization, and packing lists. Use when coordinating travel bookings, tracking trip expenses, or organizing family logistics.
 metadata:
-  clawdbot:
-    emoji: ✈️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Travel Planning
+  version: "1.0.1"
+  openclaw: '{"emoji":"✈️"}'
+  related-skills: '{"daily-planner":"Places trip activities into daily schedules.","expenses":"Tracks complex travel expenses against the budget.","plan":"Provides generalized project planning for long-term trip preparation."}'
 ---
+
+## State location
+
+Travel Planning state may exist in `<workspace>/travel-planning/`, `<workspace>/memory/travel-planning/`, or `~/travel-planning/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/travel-planning/`, `<workspace>/memory/travel-planning/`, `~/travel-planning/`.
+3. If none exists and state must be created, default to `<workspace>/travel-planning/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, read `setup.md` for onboarding guidelines. Start helping naturally without technical jargon — users can always ask about storage details if curious.
+On first use, read `references/setup.md` for onboarding guidelines. Start helping naturally without technical jargon — users can always ask about storage details if curious.
 
 ## When to Use
 
@@ -27,10 +29,10 @@ User wants to plan a trip, track travel expenses, organize bookings, coordinate 
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/travel-planning/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/travel-planning/
+<state_root>/
 ├── memory.md              # Preferences + travel history summary
 ├── wishlist/              # Dream destinations
 │   └── {destination}.md
@@ -49,22 +51,24 @@ Memory lives in `~/Clawic/data/travel-planning/`. See `memory-template.md` for s
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Booking timing | `booking-guide.md` |
-| Packing templates | `packing-templates.md` |
-| Multi-city planning | `multi-city.md` |
+| Topic | File | Load Instruction |
+|-------|------|------------------|
+| Setup process | `references/setup.md` | Read on first use or setup |
+| Memory template | `assets/memory-template.md` | Read when establishing user history/preferences |
+| Booking timing | `references/booking-guide.md` | Read when advising on when to book |
+| Packing templates | `assets/packing-templates.md` | Read when creating a packing list |
+| Multi-city planning | `references/multi-city.md` | Read when the trip spans multiple destinations |
 
 ## Core Rules
 
-### 1. Check Memory First
-Before any trip planning, read `~/Clawic/data/travel-planning/memory.md` for:
+### 1. Check Existing Memory First
+When `<state_root>/memory.md` exists, read it before trip planning for:
 - Travel style preferences (budget, pace, accommodation type)
 - Past trip patterns (average daily spend, packing habits)
 - Document status (passport expiry, frequent flyer numbers)
 - Family/group composition if applicable
+
+When the state root or memory file is absent, read `references/setup.md` before creating the initial trip records.
 
 ### 2. Trip Lifecycle
 | Phase | Action |
@@ -75,14 +79,12 @@ Before any trip planning, read `~/Clawic/data/travel-planning/memory.md` for:
 | Travel | Reference itinerary, log actual expenses |
 | Return | Move to `completed/`, document highlights and lessons |
 
-### 3. Booking Timeline Reminders
-Proactively remind based on trip dates:
-- 90 days out: Complex visas (China, Russia, India), group bookings
-- 60 days out: International flights, travel insurance for pre-existing conditions
-- 45 days out: Hotels, standard visas, rental cars for groups
-- 30 days out: Activities, restaurant reservations, special requests
-- 14 days out: Travel insurance (general), kids' documents check
-- 7 days out: Bank notifications, packing list finalization, check-in reminders
+### 3. Booking Timeline
+When dates are known, build a trip-specific timeline from verified current requirements:
+- Check the destination's official immigration authority for entry and passport rules before booking non-refundable travel.
+- Check the relevant airline, rail, accommodation, activity, and insurance providers for availability, cancellation terms, and check-in deadlines.
+- Record the applicable deadlines and source URLs in the trip folder; do not apply a generic booking window as a guarantee.
+- Read `references/booking-guide.md` when comparing booking options or maintaining the booking record.
 
 ### 4. Budget Tracking & Optimization
 For each trip, track in its budget.md:
@@ -94,7 +96,7 @@ For each trip, track in its budget.md:
 |----------|-------|-------|
 | Adult 1 | $X | Organizer |
 | Adult 2 | $X | |
-| Child | $X | 50% activities |
+| Child | $X | Child-rate activities, when applicable |
 
 ### Planned
 | Category | Estimate | Optimization Applied |
@@ -113,56 +115,50 @@ For each trip, track in its budget.md:
 
 ### 5. Multi-City & Complex Itineraries
 For trips with 2+ cities:
-- Plan minimum 2 nights per city (avoid one-night stays)
+- Start with enough nights to cover the traveller's priorities and transfer time; validate the cadence against the itinerary.
 - Group geographically close destinations
-- Consider open-jaw flights (fly into A, out of B) — often same price
-- Build connection buffers: 4+ hours international, 2+ hours domestic
+- Compare open-jaw flights (fly into A, out of B) with the round-trip alternative
+- Set connection buffers from the carrier, airport, immigration, baggage, and transfer constraints for that itinerary.
 - Track different currencies and exchange rates per leg
 
 ### 6. Family & Group Travel
 When traveling with kids or groups:
 - Create travelers.md in trip folder with each person's details (dietary, medical, seat prefs)
 - Plan kid-friendly activities with energy breaks
-- Book accommodations with kitchen access (saves 30%+ on food)
-- Check child visa/consent requirements (some countries need notarized letters)
+- Compare accommodations with kitchen access against realistic meal costs for the group.
+- Check child visa and consent requirements through the destination's official authority.
 - Pack shared items list to avoid duplication
 - Assign roles: navigator, budget tracker, activity planner
 
 ### 7. Document Safety (with user consent)
-Only store document info if user explicitly shares it:
+Store only the minimum document information the user explicitly asks to track:
 - Passport expiry dates (for validity warnings)
 - Visa requirements per destination
-- Travel insurance policy numbers
-- Emergency contacts (embassy, bank, family)
-- Never store full document images — only reference numbers
+- Travel-insurance coverage notes
+- Emergency contact details supplied for that trip
+- Keep full document images, payment data, and unnecessary reference numbers out of the trip record.
 
 ## Booking Optimization
 
 ### Timing
-| Booking | Optimal Window | Why |
-|---------|----------------|-----|
-| Domestic flights | 6-8 weeks out | Price sweet spot |
-| International flights | 3-4 months out | 10-20% savings |
-| Hotels | 2-3 months out | Best selection + rates |
-| Rental cars | 2-6 weeks out | Prices fluctuate less |
-| Group activities | 4-6 weeks out | Availability for large groups |
+See `references/booking-guide.md` for timing guidance.
 
-### Cost Optimization Tactics
-| Strategy | Typical Savings | When to Use |
-|----------|-----------------|-------------|
-| Shoulder season | 30-40% | Flexible dates |
-| Off-airport car rental | 30-40% | Any rental |
-| Kitchen accommodation | 30%+ food costs | Family trips, 5+ days |
-| City passes | 20-40% on activities | 3+ attractions planned |
-| Open-jaw flights | $0-100 | Multi-city, different endpoints |
-| Tuesday flight booking | 5-15% | Flexible booking day |
-| Bundle hotel+flight | 10-20% | Package deals available |
+### Cost Comparison Tactics
+| Strategy | Compare | When to Use |
+|----------|---------|-------------|
+| Shoulder season | Dates, weather, closures, and total price | Flexible dates |
+| Off-airport car rental | Transfer cost, operating hours, and total rental price | Car rental is needed |
+| Kitchen accommodation | Total accommodation cost against realistic meal costs | Family trips or longer stays |
+| City passes | Included attractions against the itinerary | Several covered attractions are planned |
+| Open-jaw flights | Fare plus the cost and time of backtracking | Multi-city trip with different endpoints |
+| Flight dates | Total fare across flexible dates | Dates are flexible |
+| Flight and hotel bundle | Package total, cancellation terms, and loyalty benefits | Comparable package is available |
 
 ### Group Booking Tips
-- Book flights separately for flexibility (one delay shouldn't cancel all)
+- Compare separate and shared flight bookings on price, fare conditions, connection protection, and disruption handling.
 - Hotels: request adjoining rooms at booking, confirm before arrival
-- Activities: ask for group discounts (10+ people often qualify)
-- Car rentals: compare 2 cars vs 1 large van (often cheaper + more flexible)
+- Activities: ask the provider whether a group rate applies
+- Car rentals: compare 2 cars with 1 large van on total price, capacity, and flexibility
 
 ## Itinerary Structure
 
@@ -190,7 +186,7 @@ Only store document info if user explicitly shares it:
 - Backup plan: {if weather/energy fails}
 ```
 
-Keep 2-3 hours buffer daily. Mark must-dos vs nice-to-haves.
+Reserve a daily buffer that fits the itinerary's transfer effort and the traveller's pace. Mark must-dos vs nice-to-haves.
 
 ## Multi-City Connection Planning
 
@@ -213,35 +209,23 @@ Keep 2-3 hours buffer daily. Mark must-dos vs nice-to-haves.
 
 ## Common Traps
 
-- Over-scheduling → leave discovery room (max 3 planned activities/day)
-- Forgetting to document after trip → memories fade in days, not months
-- Booking without checking visa requirements → some need 90+ days
-- Ignoring passport validity → many countries require 6 months beyond trip dates
+- Over-scheduling → use the traveller's pace and transfer effort to leave discovery room
+- Forgetting to document after trip → capture highlights and lessons while the experience is fresh
+- Booking without checking visa requirements → confirm the destination's current rule first
+- Ignoring passport validity → confirm the destination-specific entry rule first
 - Not saving confirmation numbers → create bookings.md immediately
-- One-night stays in cities → exhausting, skip or extend
+- One-night stays in cities → show the transfer and recovery trade-off before keeping the stop
 - Ignoring jet lag recovery → plan light first day after long-haul
-- Group booking all together → one problem cancels everyone
+- Group booking strategy → compare shared and separate reservations against the provider's disruption terms
 
 ## Scope
 
 This skill ONLY:
-- Manages travel planning in `~/Clawic/data/travel-planning/`
+- Manages travel planning in `<state_root>/`
 - Reads/writes markdown files for trips, budgets, packing
 - Reminds about deadlines based on trip dates
 
-This skill NEVER:
-- Makes actual bookings (provides info for user to book)
-- Accesses email or calendar directly
-- Stores payment information
-- Reads files outside `~/Clawic/data/travel-planning/`
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `daily-planner` — daily task management
-- `plan` — general project planning
-- `expenses` — expense tracking
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/travel-planning
-- Latest version: https://clawic.com/skills/travel-planning
+This skill provides planning information and trip records; the user completes bookings directly.
+Use booking or calendar details the user provides or explicitly authorizes for the current task.
+Keep payment information out of travel-planning records.
+Read and write trip state only within `<state_root>/`; skill resources are read from this package.

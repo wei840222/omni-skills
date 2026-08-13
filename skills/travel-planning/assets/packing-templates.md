@@ -3,14 +3,14 @@
 ## Base Template (7-day trip)
 
 ### Documents (CARRY-ON ONLY)
-- [ ] Passport (check 6-month validity)
+- [ ] Passport (check the destination-specific validity rule)
 - [ ] Visa / travel authorization
 - [ ] Travel insurance card
 - [ ] Flight confirmations
 - [ ] Hotel confirmations
 - [ ] Driver's license (if renting)
 - [ ] Credit cards (notify bank)
-- [ ] Local currency (20% of budget)
+- [ ] Arrival cash amount appropriate to the destination and travel plan
 - [ ] Photo copies of all documents (separate from originals)
 
 ### Electronics
@@ -41,7 +41,7 @@
 - [ ] Shampoo/conditioner (travel size)
 - [ ] Skincare basics
 - [ ] Sunscreen
-- [ ] Medications (1.5x supply + prescriptions)
+- [ ] Medications and prescriptions for the planned trip, with an appropriate contingency supply
 - [ ] First aid basics (bandaids, pain reliever)
 - [ ] Glasses/contacts + solution
 
@@ -147,7 +147,7 @@ Add:
 - Multi-use items (sarong = beach cover + scarf + blanket)
 
 ### Before Departure Checklist
-- [ ] Passport validity: 6+ months?
+- [ ] Passport validity meets the destination-specific entry rule?
 - [ ] Visa: required and obtained?
 - [ ] Bank notified?
 - [ ] Phone plan / roaming sorted?

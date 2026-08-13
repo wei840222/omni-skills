@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to plan a trip to Paris next month. Can you help me set up an itinerary?",
+    "expected": "The agent resolves <state_root>, checks relevant preferences, asks for any missing trip constraints, then proposes an itinerary and the appropriate trip-record updates.",
+    "actual": "Dry-run trace: resolve <state_root>; if memory.md exists, read it; otherwise load references/setup.md before creating records. Gather the dates, origin, budget, traveller constraints, and pacing preference; then build the itinerary and write only the selected trip records under <state_root>.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a multi-city plan for Tokyo and Kyoto, including budget estimates and connection planning.",
+    "expected": "The agent loads the multi-city reference, compares connection constraints, and creates a budget record only in <state_root>/trips/{trip-name}/.",
+    "actual": "Dry-run trace: load references/multi-city.md, compare each connection using current operator rules and the door-to-door transfer plan, then create the trip-scoped budget and itinerary only under <state_root>/trips/{trip-name}/.",
+    "pass": true
+  }
+]
