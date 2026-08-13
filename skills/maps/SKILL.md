@@ -1,24 +1,22 @@
 ---
 name: maps
-description: Plan place search, geocoding, routing, and map-link workflows across Google Maps, Apple Maps, OpenStreetMap, and other providers.
+description: Plan place search, geocoding, routing, and map-link workflows across Google Maps, Apple Maps, OpenStreetMap, and other providers. Use when a task needs provider selection, normalized map data, route estimates, or a safe map link.
 metadata:
-  clawdbot:
-    emoji: MAP
-    requires:
-      config:
-      - $STATE_ROOT/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - $STATE_ROOT/
-    displayName: Maps
-  openclaw:
-    requires:
-      config:
-      - $STATE_ROOT/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🗺️"}'
+  related-skills: '{"apple-maps":"Handles Apple Maps search and route flows on macOS.","travel":"Turns approved routes and place constraints into trip plans.","tripadvisor":"Compares venues for map-based shortlists.","car-rental":"Connects route assumptions and pickup zones to rental decisions."}'
 ---
+
+## State location
+
+Maps state may exist in `<workspace>/maps/`, `<workspace>/memory/maps/`, or `~/maps/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/maps/`, `<workspace>/memory/maps/`, `~/maps/`.
+3. If none exists and state must be created, default to `<workspace>/maps/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## When to Use
 
@@ -27,18 +25,10 @@ Use this skill when the agent must move between Google Maps, Apple Maps, OpenStr
 
 ## Architecture
 
-## State location
-
-1. $WORKSPACE/maps/
-2. $WORKSPACE/memory/maps/
-3. ~/maps/
-
-If none exist, create `$WORKSPACE/maps/`.
-
-Memory lives in `$STATE_ROOT/`. If `$STATE_ROOT/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.
+Memory lives in `<state_root>/`. When state needs to be created, read `references/setup.md`; use `references/memory-template.md` for its structure.
 
 ```text
-$STATE_ROOT/
+<state_root>/
 |-- memory.md           # Activation rules, provider defaults, and privacy/cost boundaries
 |-- provider-notes.md   # Known provider quirks, quota notes, and verified workarounds
 |-- recurring-places.md # User-approved recurring origins, destinations, and map contexts
@@ -144,7 +134,7 @@ Data that may leave your machine:
 - optional static-map parameters
 
 Data that stays local:
-- notes in `$STATE_ROOT/`
+- notes in `<state_root>/`
 - provider preferences and fallback rules
 - user-approved recurring contexts
 - failure logs and verified fixes
@@ -172,4 +162,3 @@ Always enforce these restrictions:
 - Access providers only through official, declared APIs.
 - Obtain explicit user approval before sharing any map link externally.
 - Inform the user explicitly before persisting any sensitive location history.
-
