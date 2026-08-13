@@ -3,7 +3,7 @@
 ## Base Template (7-day trip)
 
 ### Documents (CARRY-ON ONLY)
-- [ ] Passport (check 6-month validity)
+- [ ] Passport (check the destination-specific validity rule)
 - [ ] Visa / travel authorization
 - [ ] Travel insurance card
 - [ ] Flight confirmations
@@ -147,7 +147,7 @@ Add:
 - Multi-use items (sarong = beach cover + scarf + blanket)
 
 ### Before Departure Checklist
-- [ ] Passport validity: 6+ months?
+- [ ] Passport validity meets the destination-specific entry rule?
 - [ ] Visa: required and obtained?
 - [ ] Bank notified?
 - [ ] Phone plan / roaming sorted?
