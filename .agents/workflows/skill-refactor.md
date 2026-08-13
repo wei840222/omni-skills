@@ -248,7 +248,7 @@ A skill passes Gate 1 only when every item below is satisfied:
 
 This gate is based on Agent Skills [Optional directories](https://agentskills.io/specification#optional-directories), [Progressive disclosure](https://agentskills.io/specification#progressive-disclosure), and [File references](https://agentskills.io/specification#file-references).
 
-The Agent Skills specification allows other additional files at the skill root, so a root-level supporting document is not itself a format error. To make daily refactors consistent, predictable, and progressively loadable, this project applies a stricter completion standard: every supporting file other than `SKILL.md` must be classified by official purpose under `references/`, `assets/`, or `scripts/`. Supporting files must not remain flattened at the skill root, and empty directories must not be created merely to imitate the format.
+The Agent Skills specification allows other additional files at the skill root, so a root-level supporting document is not itself a format error. To make daily refactors consistent and predictable, classify and relocate every existing supporting file outside `SKILL.md` by official purpose under `references/`, `assets/`, or `scripts/`. This rule does not authorize extracting content that already lives in `SKILL.md`: adjust that content in place. Empty directories must not be created merely to imitate the format.
 
 #### Directory classification rules
 
@@ -276,14 +276,15 @@ Store only programs an agent can actually execute. Every script must be self-con
 
 #### Semantic-preservation rules
 
-Progressive disclosure is a relocation technique, not authorization to discard executable knowledge. Before removing or compressing content, compare it against the Phase 0 inventory and apply these rules:
+Progressive disclosure organizes pre-existing supporting files; it is not a requirement to decompose `SKILL.md`. Before removing or compressing content, compare it against the Phase 0 inventory and apply these rules:
 
-- Move detailed operating procedures, safety constraints, recovery behavior, thresholds, platform caveats, data semantics, and non-obvious examples to focused `references/` files unless they are demonstrably obsolete, incorrect, duplicated by a canonical source, or prohibited by a higher-priority requirement.
+- Keep the original `SKILL.md` body in `SKILL.md`. When its procedures, safety constraints, recovery behavior, thresholds, platform caveats, data semantics, or examples need improvement, revise them in place.
+- Move an existing, separate supporting file into `references/`, `assets/`, or `scripts/` only when its content matches that directory's purpose. Do not manufacture a reference file by splitting existing `SKILL.md` content.
 - A broad summary is not an equivalent replacement for a specific constraint. For example, replacing a platform caveat, an undo-retention policy, a hard operation limit, or an explicit failure path with “operate safely” fails this gate.
 - A replacement may be accepted only when it preserves the original outcome or is explicitly stronger and does not remove a necessary user decision, recovery path, or portability boundary.
-- `SKILL.md` must route directly to a reference containing mandatory details and state the trigger for reading it. Do not rely on an agent to infer that a generic “operating details” reference exists.
+- When a supporting file is moved, `SKILL.md` must route directly to its new location and state the trigger for reading it. Do not rely on an agent to infer that a generic “operating details” reference exists.
 - Each removed inventory item needs a concrete reason and evidence. “Keeping the entry point concise” is not a valid removal reason by itself.
-- When an original file mixes primary workflow, detailed procedures, and templates, split by purpose; retain the detailed procedures in `references/` rather than silently collapsing them into a summary.
+- When an original supporting file mixes operating rules with templates, split it by purpose; retain the detailed procedures in `references/` rather than silently collapsing them into a summary.
 
 #### Worked Example: Target directory for Garden
 
@@ -330,21 +331,21 @@ planning.md         -> references/planning.md
 
 #### Gate 2 pass criteria
 
-- [ ] The skill root retains only `SKILL.md` and the actually used `references/`, `assets/`, and `scripts/` directories.
-- [ ] Every supporting file is classified by official purpose; files mixing operating rules with static templates are split by role.
+- [ ] Original `SKILL.md` instructions remain in `SKILL.md`; edits improve those instructions in place rather than creating references from them.
+- [ ] Every pre-existing supporting file is classified and relocated by official purpose; supporting files mixing operating rules with static templates are split by role.
 - [ ] `references/` contains only on-demand instructions, procedures, and domain knowledge, with each file remaining focused.
 - [ ] `assets/` contains only templates and other static resources and does not duplicate rules defined in references.
 - [ ] If present, `scripts/` contains only executable programs; dependencies, errors, and edge cases are handled.
 - [ ] No empty optional directory exists, and no useless script was added merely for form.
-- [ ] `SKILL.md` clearly explains the purpose of every reference, asset, or script and when to load or execute it.
+- [ ] `SKILL.md` clearly explains the purpose of every relocated reference, asset, or script and when to load or execute it.
 - [ ] Every internal skill reference is relative to the skill root containing `SKILL.md` and uses a one-level relative path.
 - [ ] Every legacy path was updated after moving, renaming, or splitting files; no stale reference remains.
 - [ ] Every referenced target exists, and every resource is directly discoverable from `SKILL.md`; no orphaned resource remains.
 - [ ] Templates and operating rules each have one source of truth, with no duplication or contradiction introduced by splitting.
 - [ ] The pre-change content inventory has an accounted disposition for every operational rule, safety boundary, recovery path, threshold, platform caveat, state/data semantic, and user-visible example.
-- [ ] Every retained behavior is either still in `SKILL.md` or available through direct, trigger-specific routing to one `references/` file; summary prose has not replaced a more specific requirement.
+- [ ] Every original `SKILL.md` behavior remains in `SKILL.md`; every moved supporting-file behavior is available through direct, trigger-specific routing to one `references/` file; summary prose has not replaced a more specific requirement.
 - [ ] Every intentional removal is documented with a concrete rationale and evidence that it is obsolete, incorrect, duplicate, or prohibited; concision alone is not sufficient.
-- [ ] `SKILL.md` remains under 500 lines, resources load only when needed, and there are no unnecessary deep reference chains.
+- [ ] `SKILL.md` remains under 500 lines without artificial splitting, resources load only when a relocated supporting file is needed, and there are no unnecessary deep reference chains.
 - [ ] The pull-request report includes before/after directory trees, a complete migration table, the content inventory/disposition record, and reference-path audit results.
 
 ---
