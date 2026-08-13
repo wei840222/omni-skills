@@ -1,86 +1,47 @@
 # Booking Guide — Travel Planning
 
-## Optimal Booking Windows
+## Booking Workflow
 
-| Category | Window | Notes |
-|----------|--------|-------|
-| **International flights** | 2-6 months | Varies by region; sweet spot often 3-5 months out |
-| **Domestic flights** | 1-3 months | Price sweet spot |
-| **Hotels** | 1-3 months | Best selection + free cancellation |
-| **Rental cars** | 2-6 weeks | Prices stable, rebook if drops |
-| **Activities/tours** | 2-4 weeks | Popular ones sell out earlier |
-| **Restaurants** | 1-4 weeks | Fine dining needs more lead time |
+1. Gather fixed dates, destination, traveller constraints, bags, cancellation needs, and budget.
+2. Verify entry requirements through the destination's official immigration authority before choosing a non-refundable option.
+3. Compare the same itinerary across the airline, accommodation, rental-car, activity, and rail providers that operate the route. Compare the final price, baggage or add-on cost, cancellation terms, transfer time, and loyalty benefits.
+4. Check local holidays, major events, seasonal weather, and provider operating dates. If these make the plan unsuitable, offer a nearby date or itinerary alternative.
+5. Present options and trade-offs to the user. The user makes the booking.
 
-## Day-of-Week Pricing
-
-- **Flights:** Tuesday 3pm typically lowest demand
-- **Hotels:** Avoid weekend bookings (10-15% weekend premium on rates)
-- **Rental cars:** Weekday pickup/return cheaper than weekend
-
-## Seasonal Intelligence
-
-### Shoulder Season (30-40% savings)
-- **Europe:** April-May, September-October
-- **Asia:** March-April, October-November
-- **Americas:** March-April, September-November
-
-### Peak Season Markup (80-120%)
-- **Europe:** June-August, Christmas
-- **Asia:** Chinese New Year, Golden Week
-- **Americas:** Summer, spring break, holidays
-
-### Watch Out For
-- Local holidays affect domestic pricing significantly
-- Weather backup plans for outdoor activities
-- Events/conferences spike hotel prices locally
+Do not claim a universal best booking day or savings percentage. Prices, availability, entry rules, and insurance terms are route-, provider-, and traveller-specific.
 
 ## Money-Saving Tactics
 
 ### Flights
-- Flexible dates: +/- 3 days can save 20-40%
-- Nearby airports: often 30%+ cheaper
-- Split bookings: sometimes cheaper than round-trip
-- Points/miles: check before booking cash
+- Compare flexible dates and nearby airports when the traveller can accept the transfer time.
+- Compare separate tickets with a through itinerary only after explaining the connection and disruption risk.
+- Compare points or miles against the cash fare, taxes, change terms, and value of preserving the balance.
 
 ### Hotels
-- Direct booking: often matches OTA + better perks
-- Loyalty rates: 10-15% off for members (free to join)
-- Prepaid rates: 15-20% off but non-refundable
-- Extended stay: many offer 5th/7th night free
+- Compare direct and third-party offers on the final price, cancellation terms, and loyalty benefits.
+- Mark prepaid options as non-refundable or restricted when the provider says so.
+- Check extended-stay offers directly with the property or booking provider.
 
 ### Rental Cars
-- **Avoid airport pickup:** 30-40% markup
-- Return same location: one-way fees are brutal
-- Check credit card coverage before buying insurance
-- Rebook if price drops (most are free cancellation)
+- Compare airport and off-airport pickup only after including the transfer cost, hours, and total rental price.
+- Compare one-way and same-location returns using the provider's final quote.
+- Read the rental agreement and the traveller's insurance or card coverage terms before relying on coverage.
+- Rebook only when the existing reservation's cancellation terms permit it.
 
 ### Currency
-- Exchange only 20% before departure
-- ATMs usually better rates than exchange offices
-- Avoid airport exchange: 5-8% worse rates
-- Notify bank 7+ days before departure
+- Compare the total exchange rate and fee for card payments, ATM withdrawals, and exchange services.
+- Keep a backup payment method and enough local cash for the expected arrival needs.
+- Check the payment provider's current travel guidance; do not assume a travel notice is required.
 
-## Visa Timeline
+## Entry Documents and Insurance
 
-| Complexity | Lead Time | Examples |
-|------------|-----------|----------|
-| No visa / e-visa | 1-2 weeks | EU (for some), ESTA, eTA |
-| Standard tourist | 30-45 days | Most countries |
-| Complex | 90+ days | China, Russia, India, Brazil |
-| Passport renewal | 6-8 weeks | Routine processing |
-
-### Passport Validity Rule
-Many countries require **6 months validity beyond travel dates**. Check before booking.
-
-## Insurance Timing
-
-- **Within 14 days of first deposit:** Full coverage including pre-existing conditions
-- **After 14 days:** May exclude pre-existing conditions
-- **Cost:** 4-6% of trip cost (adventure coverage adds 2-4%)
+- Check passport validity, visa or travel authorization, transit rules, and health requirements through the destination's official authority. Requirements vary by nationality, route, and date.
+- Treat a six-month passport-validity guideline as a destination-specific possibility, not a universal rule.
+- Read the actual insurance policy for coverage, exclusions, purchase deadlines, and cancellation conditions before treating it as protection for a trip.
 
 ## Confirmation Checklist
 
-Save immediately in `<state_root>/bookings.md`:
+Save immediately in `<state_root>/trips/{trip-name}/bookings.md`:
 - Confirmation numbers
 - Dates and times
 - Addresses
