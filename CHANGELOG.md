@@ -52,6 +52,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | expenses           | 2026-08-12 | 85/100 (author-reported) |
 | influencer         | 2026-08-12 | 88/100 (author-reported) |
 | folders            | 2026-08-13 | 89/100 (author-reported; dry-run) |
+| csv                | 2026-08-13 | 85.7/100 (author-reported; dry-run; PR #31) |
 
 ## Updating This Changelog
 
