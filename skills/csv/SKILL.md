@@ -36,6 +36,10 @@ Validate the output contract before delivery:
 3. Compare row count and a representative set of exact field values with the source.
 4. Report the delimiter, encoding, header decision, and any normalization performed.
 
+## Recovery path
+
+If parsing, field-count validation, or the reparse check fails, retain the original input and report the selected dialect, encoding, physical record number, and parser error. Continue only with an explicit producer contract or a user-selected candidate profile that passes the same validation checks. Preserve an untouched source copy whenever a normalization changes values or delimiters.
+
 ## Quoting and value semantics
 
 - Enclose fields containing the delimiter, a double quote, or a line break in double quotes; an embedded double quote becomes `""`.
@@ -50,6 +54,10 @@ For data that will be opened in spreadsheet software, evaluate every untrusted f
 For Microsoft Excel recipients, OWASP documents a tab prefix inside the quoted field as an Excel-resistant mitigation for `=`, `+`, `-`, and `@`. It deliberately changes the underlying value, so disclose that transformation and keep a separate lossless export profile for programmatic consumers. Re-opening and saving a CSV in Excel can invalidate weaker escaping strategies.
 
 Excel stores at most 15 digits of numeric precision. Deliver identifiers with 16 or more digits, leading-zero codes, and literal scientific-notation-looking values as text according to the recipient's documented import process.
+
+## Delivery boundaries
+
+Use a native-workbook workflow for `.xlsx` formatting, formulas, charts, or workbook-level editing. Keep CSV delivery focused on the declared text interchange contract and the validation evidence for that output.
 
 ## Source anchors
 

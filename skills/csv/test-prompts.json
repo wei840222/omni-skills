@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Normalize this UTF-8 CSV while preserving a quoted multiline note and the identifier 007.",
+    "expected": "Uses a CSV parser with a declared RFC-compatible profile, preserves quoted CRLF, commas, quotes, and leading-zero text, then reparses the output.",
+    "actual": "test-1: rows=2; quoted CRLF/comma/quote and id=007 round-trip=pass",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Import a semicolon-delimited supplier export whose note column contains a quoted semicolon.",
+    "expected": "Treats semicolon as an explicit dialect, keeps the quoted delimiter inside one field, and verifies the expected column count for every row.",
+    "actual": "test-2: delimiter=semicolon; rows=2; columns=3; quoted delimiter preserved=pass",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Create an Excel-facing CSV from untrusted values that start with formula characters while preserving a lossless machine-readable export.",
+    "expected": "Identifies spreadsheet formula prefixes, applies the documented Excel-specific tab-prefix profile only where appropriate, and retains a separate lossless profile.",
+    "actual": "test-3: formula-prefix fields=7; Excel tab-prefix candidates=4; lossless profile retained=pass",
+    "pass": true
+  }
+]
