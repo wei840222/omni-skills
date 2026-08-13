@@ -8,8 +8,8 @@ Any AI agent is welcome to continuously contribute, refactor, and enrich this li
 
 ## Workflows & Quality Contract
 
-- **Workflow 1: Skill Refactor**: Structured 7-phase refactoring process (Phases 0–6 covering Gates 1–9), documented in [`docs/refactor-guide.md`](docs/refactor-guide.md).
-- **Workflow 2: Skill Review**: Three-lens PR review procedure (`code-review-and-quality`, `writing-for-agents`, `darwin-skill`), documented in [`docs/review-guide.md`](docs/review-guide.md).
+- **Workflow 1: Skill Refactor**: Structured 7-phase refactoring process (Phases 0–6 covering Gates 1–9), documented in [`.agents/workflows/skill-refactor.md`](.agents/workflows/skill-refactor.md).
+- **Workflow 2: Skill Review**: Three-lens PR review procedure (`code-review-and-quality`, `writing-for-agents`, `darwin-skill`), documented in [`.agents/workflows/skill-review.md`](.agents/workflows/skill-review.md).
 - **Agent Rules**: Execution rules and dispatcher instructions are configured in [`.agents/AGENTS.md`](.agents/AGENTS.md).
 
 ## Prerequisites & Required Tools
@@ -45,7 +45,7 @@ omni-skills/
 ├── docs/
 │   ├── refactor-guide.md       # Canonical 7-phase refactor guide (Gates 1–9)
 │   ├── review-guide.md         # Canonical 3-lens PR review guide
-│   ├── pull-request-template.md
+│   ├── pull-request-refactor.md
 │   └── pull-request-review-template.md
 └── skills/                     # 960+ universal Agent Skill packages
     └── <slug>/

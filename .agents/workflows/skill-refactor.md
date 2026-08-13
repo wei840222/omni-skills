@@ -1,3 +1,7 @@
+---
+description: Execute the 7-phase omni-skills refactor process following the 9 quality gates
+---
+
 # Skill Refactor Guide
 
 This document defines the canonical quality gates and workflow standards for the `omni-skills` refactor process. It is an incrementally extensible quality contract: automation may mark a skill as "refactor complete" and open a pull request only after every defined gate passes.
@@ -29,6 +33,8 @@ Phase 0 (Baseline Audit) → Phase 1 (Gates 1–5: refactor) → Phase 2 (Gate 6
 2. Check working-tree status and record the target package's complete file inventory (including hidden files/symlinks).
 3. Classify all observed baseline nonconformities as `SPEC`, `VALIDATOR`, `PROJECT`, or `RECOMMENDATION`.
 4. Read every file in the package before moving, rewriting, or removing content. Preserve useful intent and workflows; do not perform an unrelated redesign.
+5. Create a pre-change content inventory for every operational rule, safety boundary, recovery path, threshold, platform caveat, state/data semantic, and user-visible example. For each item, record its source file, category, and planned disposition: retain, move, split, replace with an explicitly equivalent-or-stronger rule, or remove with a concrete rationale.
+6. Treat the inventory as a semantic-preservation baseline. A shorter `SKILL.md`, a new directory layout, or a passing validator does not prove that behavior was preserved.
 
 ---
 
@@ -268,6 +274,17 @@ Store only programs an agent can actually execute. Every script must be self-con
 - Every referenced target must exist. Every moved file must be reachable through routing in `SKILL.md`; stale references and orphaned resources are forbidden.
 - This rule governs resource references in skill source code only. User-data paths created at runtime, such as `<state_root>/memory.md`, must instead be reviewed under Gate 3's state-location resolver and safety rules; they must not be moved into skill resources.
 
+#### Semantic-preservation rules
+
+Progressive disclosure is a relocation technique, not authorization to discard executable knowledge. Before removing or compressing content, compare it against the Phase 0 inventory and apply these rules:
+
+- Move detailed operating procedures, safety constraints, recovery behavior, thresholds, platform caveats, data semantics, and non-obvious examples to focused `references/` files unless they are demonstrably obsolete, incorrect, duplicated by a canonical source, or prohibited by a higher-priority requirement.
+- A broad summary is not an equivalent replacement for a specific constraint. For example, replacing a platform caveat, an undo-retention policy, a hard operation limit, or an explicit failure path with “operate safely” fails this gate.
+- A replacement may be accepted only when it preserves the original outcome or is explicitly stronger and does not remove a necessary user decision, recovery path, or portability boundary.
+- `SKILL.md` must route directly to a reference containing mandatory details and state the trigger for reading it. Do not rely on an agent to infer that a generic “operating details” reference exists.
+- Each removed inventory item needs a concrete reason and evidence. “Keeping the entry point concise” is not a valid removal reason by itself.
+- When an original file mixes primary workflow, detailed procedures, and templates, split by purpose; retain the detailed procedures in `references/` rather than silently collapsing them into a summary.
+
 #### Worked Example: Target directory for Garden
 
 ```text
@@ -324,8 +341,11 @@ planning.md         -> references/planning.md
 - [ ] Every legacy path was updated after moving, renaming, or splitting files; no stale reference remains.
 - [ ] Every referenced target exists, and every resource is directly discoverable from `SKILL.md`; no orphaned resource remains.
 - [ ] Templates and operating rules each have one source of truth, with no duplication or contradiction introduced by splitting.
+- [ ] The pre-change content inventory has an accounted disposition for every operational rule, safety boundary, recovery path, threshold, platform caveat, state/data semantic, and user-visible example.
+- [ ] Every retained behavior is either still in `SKILL.md` or available through direct, trigger-specific routing to one `references/` file; summary prose has not replaced a more specific requirement.
+- [ ] Every intentional removal is documented with a concrete rationale and evidence that it is obsolete, incorrect, duplicate, or prohibited; concision alone is not sufficient.
 - [ ] `SKILL.md` remains under 500 lines, resources load only when needed, and there are no unnecessary deep reference chains.
-- [ ] The pull-request report includes before/after directory trees, a complete migration table, and reference-path audit results.
+- [ ] The pull-request report includes before/after directory trees, a complete migration table, the content inventory/disposition record, and reference-path audit results.
 
 ---
 
@@ -774,6 +794,7 @@ Refactored skills must conform to official Agent Skills best practices: concise 
 - Maintain `SKILL.md` as a concise entry point; offload detailed schemas, extended guides, or conditional workflows to `references/`.
 - Ensure explicit instructions state *when* and *how* the agent should load each reference file.
 - Calibrate instruction prescriptiveness to task fragility, eliminating redundant or generic knowledge the agent already possesses.
+- Concision applies to the entry point, not to the skill's behavioral contract. Do not delete or weaken a safety rule, recovery path, threshold, platform caveat, state semantic, or non-obvious example merely to reduce `SKILL.md` length; relocate it and route to it instead.
 
 #### Description optimization
 
@@ -786,6 +807,7 @@ Refactored skills must conform to official Agent Skills best practices: concise 
 
 - [ ] `SKILL.md` remains concise, utilizing progressive disclosure with explicit loading instructions for `references/`.
 - [ ] Instructions are intent-focused, calibrated for fragility, and free of generic background fluff.
+- [ ] The Phase 0 content inventory was reconciled after optimization: each removed item has an evidence-backed rationale, and each retained mandatory detail remains reachable by direct routing.
 - [ ] The `description` is concise, imperative, and precisely defines trigger conditions.
 - [ ] Trigger scope has been evaluated against positive and near-miss negative prompts.
 
@@ -908,9 +930,9 @@ Before advancing to Phase 6:
    ```
 2. Create a pull request targeting `main` and assign a reviewer:
    ```bash
-   gh pr create --base main --reviewer <reviewer> --body-file docs/pull-request-template.md
+   gh pr create --base main --reviewer <reviewer> --body-file .agents/templates/pull-request-refactor.md
    ```
-3. Populate the pull request description with `docs/pull-request-template.md` (including Gate 6 Research Sources).
+3. Populate the pull request description with `.agents/templates/pull-request-refactor.md` (including Gate 6 Research Sources).
 4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
 5. Do not merge the PR or delete branches without explicit authorization.
 

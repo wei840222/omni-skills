@@ -1,0 +1,4 @@
+[
+  {"id": 1, "prompt": "I just paid 12 EUR for lunch with my AMEX.", "expected": "Records a six-field 12 EUR entry in the current monthly ledger, preserving unknown fields explicitly.", "actual": "Recorded a 12 EUR lunch entry in <state_root>/ledger/YYYY-MM.md with category lunch, payment method AMEX, and unknown values only for unprovided fields.", "pass": true},
+  {"id": 2, "prompt": "Split a $100 dinner, I paid, Alice owes $30, Bob owes $20.", "expected": "Records the expense, separates payer from beneficiaries, and updates balances that sum to zero.", "actual": "Recorded the 100 USD dinner, assigned a 50 USD personal share, Alice 30 USD and Bob 20 USD, then updated balances in <state_root>/memory.md with a zero-sum check.", "pass": true}
+]

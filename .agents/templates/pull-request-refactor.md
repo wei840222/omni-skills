@@ -50,6 +50,16 @@ Use this template when creating a skill refactor pull request. Replace all place
 - `<path>` — <summary of changes>
 - ...
 
+## Semantic-Preservation Inventory
+
+Record every pre-refactor operational rule, safety boundary, recovery path, threshold, platform caveat, state/data semantic, and user-visible example. A concise entry point is not evidence that the original behavior survived.
+
+| Original item | Source | Disposition (`retain` / `move` / `split` / `replace` / `remove`) | Destination or replacement | Evidence / rationale |
+|---|---|---|---|---|
+| `<specific behavior>` | `<old-path>#<section>` | `<disposition>` | `<new-path>#<section>` | `<why this is equivalent-or-stronger, or why removal is justified>` |
+
+For every `remove` entry, cite evidence that the content is obsolete, incorrect, duplicate of a canonical source, or prohibited. “Keep `SKILL.md` concise” is not a sufficient rationale. For every `replace` entry, explain why the replacement preserves the same outcome or is explicitly stronger without removing a user decision, recovery path, or portability boundary.
+
 ## Research Sources and Knowledge Updates
 
 ### <Topic 1> (e.g., Retention Benchmarks)
