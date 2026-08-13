@@ -1,55 +1,23 @@
 ---
-name: Folders
-slug: folders
-version: 1.0.0
-description: Index important directories and perform safe folder operations with proper security checks.
-homepage: https://clawic.com/skills/folders
+name: folders
+description: Find, index, organize, or clean up project folders and build artifacts safely. Use when the user asks where a directory is, wants a folder inventory, or requests a folder operation.
 metadata:
-  clawdbot:
-    emoji: 📂
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Folders
+  version: "1.0.0"
+  openclaw: '{"emoji":"📂"}'
 ---
 
-## Folder Index
+## Workflow
 
-Maintain a lightweight index at `~/.config/folder-index.json` to know where important things are without rescanning.
+1. Clarify the requested outcome: locate, inventory, index, organize, or remove a folder or artifact.
+2. For lookups, resolve the existing folder index first. If it has no match, run targeted discovery rather than a broad filesystem scan.
+3. Before changing an index, moving content, or removing content, present the exact targets, expected effects, and recovery path; proceed only after the user confirms.
+4. For a deletion request, use the platform trash or recycle bin. State what can be restored and what can be regenerated.
 
-```json
-{
-  "folders": [
-    {"path": "/Users/alex/projects/webapp", "type": "project", "note": "Main client project"}
-  ]
-}
-```
+Read [references/index-and-discovery.md](references/index-and-discovery.md) before resolving state, searching for folders, or editing the index. Read [references/safe-operations.md](references/safe-operations.md) before moving or removing anything.
 
-When user asks "where is X" or "find my project Y", check the index first. If not found, do targeted discovery then offer to add the result.
+## Outcome checks
 
-## Discovery
-
-When asked to find or index folders:
-- Scan likely locations: ~/projects, ~/Documents, ~/code, ~/dev, ~/work
-- Detect projects by markers: .git, package.json, pubspec.yaml, Cargo.toml, go.mod, pyproject.toml, *.sln
-- Stop at first marker (don't recurse into node_modules, vendor, build)
-- Propose what was found, don't auto-add: "Found 8 projects in ~/code. Add to index?"
-
-## Path Security
-
-- Canonicalize paths (resolve `~`, `..`, symlinks) before any operation
-- Reject system paths: /, /etc, /var, /usr, /System, /Library, C:\Windows, C:\Program Files
-- Skip symlinks during traversal, report them separately
-
-## Destructive Operations
-
-- Use OS trash instead of permanent delete
-- State recoverability: "node_modules: recoverable with npm install"
-- Build artifacts safe to delete: node_modules, __pycache__, .gradle, build/, target/, Pods/, .next/
-
-## Platform Quirks
-
-- **macOS:** .DS_Store alone = effectively empty. Treat .app as single item.
-- **Windows:** Paths >260 chars need `\\?\` prefix.
-- **Network drives:** Warn before bulk ops — may be slow or offline.
+- A lookup reports either matching canonical paths or that no match was found in the checked locations.
+- An index update reports the selected state root and the exact added, changed, or removed record.
+- A folder operation reports every affected path, whether it was completed, and its recovery method.
+- If path resolution, permission checks, or the requested confirmation fails, leave the filesystem and index unchanged and explain the blocking condition.
