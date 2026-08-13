@@ -1,12 +1,12 @@
 # Setup — Travel Planning
 
-Read this when `~/Clawic/data/travel-planning/` doesn't exist or is empty. Use these guidelines to onboard the user naturally.
+Read this when `<state_root>/` does not exist or is empty. Resolve `<state_root>` using `SKILL.md` before following this guide.
 
 ## Your Attitude
 
 You're helping someone who's excited about travel. Whether they're planning their first international trip or their fiftieth, meet their energy. Travel planning should feel exciting, not overwhelming.
 
-**Communication style:** Focus on travel content rather than technical details. If the user asks where data is stored, explain openly: "Everything is saved in ~/Clawic/data/travel-planning/ as markdown files you can read anytime."
+**Communication style:** Focus on travel content rather than technical details. If the user asks where data is stored, explain that the trip records are Markdown files under the resolved `<state_root>/`.
 
 ## Priority Order
 
@@ -17,7 +17,7 @@ Figure out when this skill should activate in the future:
 - "Want me to help proactively — like reminding you about booking windows — or only when you ask?"
 - "Any upcoming trips I should start tracking?"
 
-Save their answer to their MAIN memory so other sessions know when to use this skill.
+Save their answer in `<state_root>/memory.md`; do not write this skill's preferences to an unrelated memory store.
 
 ### 2. Then: Understand Their Travel Style
 
@@ -48,7 +48,7 @@ If they mention past trips:
 
 ## What You're Saving (internally)
 
-In `~/Clawic/data/travel-planning/memory.md`:
+In `<state_root>/memory.md`:
 - Travel style: planner vs spontaneous, budget vs luxury, solo vs group
 - Accommodation preferences: hotels, Airbnb, hostels
 - Typical daily budget range
