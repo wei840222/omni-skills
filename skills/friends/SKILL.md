@@ -1,31 +1,39 @@
 ---
-name: Friends
-slug: friends
-version: 1.0.0
-description: Build a personal friendship system with interaction tracking, relationship health, and proactive maintenance reminders.
-homepage: https://clawic.com/skills/friends
+name: friends
+description: Track interactions, relationship health, and proactive maintenance reminders for friends. Trigger when the user mentions meeting a friend, discusses relationships, or asks about their social circle.
 metadata:
-  clawdbot:
-    emoji: 👥
-    displayName: Friends
+  version: "1.0.0"
+  openclaw: '{"emoji":"👥"}'
 ---
+
+## State location
+
+Friends state may exist in `<workspace>/friends/`, `<workspace>/memory/friends/`, or `~/friends/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/friends/`, `<workspace>/memory/friends/`, `~/friends/`.
+3. If multiple candidate directories exist, use the highest-priority one, keep the others independent, and tell the user which location was selected.
+4. If none exists and state must be created, default to `<workspace>/friends/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Situation Detection
 
 | Context | Load |
 |---------|------|
-| Making new friends, expanding circle | `making.md` |
-| Strengthening existing friendships | `deepening.md` |
-| Handling disagreements, hurt feelings | `conflicts.md` |
-| Reaching out to lost friends | `reconnecting.md` |
+| Making new friends, expanding circle | `references/making.md` |
+| Strengthening existing friendships | `references/deepening.md` |
+| Handling disagreements, hurt feelings | `references/conflicts.md` |
+| Reaching out to lost friends | `references/reconnecting.md` |
 
 ---
 
 ## Core Behavior
-- User mentions a friend → check if exists, offer to create/update
-- Interaction detected → log it, note context
-- Friendship fading → surface proactively with reconnection prompt
-- Create `~/Clawic/data/friends/` as workspace
+- When the user mentions a friend, check if they exist in `<state_root>`, and offer to create or update their record.
+- When an interaction is detected, log it with context in the appropriate file.
+- If a friendship is fading, proactively surface it with a reconnection prompt.
 
 ## When User Mentions Someone
 - "Had dinner with Carlos" → log interaction, create if new
@@ -73,7 +81,7 @@ metadata:
 
 ## Folder Structure
 ```
-~/Clawic/data/friends/
+<state_root>/
 ├── inner-circle/
 │   ├── carlos-martinez.md
 │   └── ana-lopez.md
@@ -109,11 +117,11 @@ metadata:
 - "You mentioned things were weird with Pedro — resolved?"
 - Flag: needs hard conversation
 
-## What NOT To Track
-- Surface-level acquaintances — that's contacts
-- Professional relationships — that's contacts or networking
-- Every small interaction — only meaningful ones
-- Social media activity — this is real connection
+## Exclusive Tracking Scope
+- Track only meaningful interactions and real connections.
+- Delegate surface-level acquaintances to contacts.
+- Delegate professional relationships to contacts or networking.
+- Focus on in-person or direct communication rather than social media activity.
 
 ## Progressive Enhancement
 - Week 1: add friends as they come up naturally

@@ -64,11 +64,11 @@ You've grown apart. Political, lifestyle, or ethical differences.
 - Assume good intent until proven otherwise
 - Focus on repair, not winning
 
-### What Doesn't Work
-- Bringing up old incidents
-- "You always..." / "You never..."
-- Expecting mind-reading
-- Texting serious conversations
+### Alternative Approaches
+- Focus only on the current incident rather than old issues.
+- Use specific phrasing instead of "You always..." or "You never...".
+- Communicate your needs explicitly rather than expecting mind-reading.
+- Have serious conversations over a call or in person instead of text.
 
 ---
 
