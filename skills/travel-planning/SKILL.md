@@ -77,14 +77,12 @@ Before any trip planning, read `<state_root>/memory.md` for:
 | Travel | Reference itinerary, log actual expenses |
 | Return | Move to `completed/`, document highlights and lessons |
 
-### 3. Booking Timeline Reminders
-Proactively remind based on trip dates:
-- 90 days out: Complex visas (China, Russia, India), group bookings
-- 60 days out: International flights, travel insurance for pre-existing conditions
-- 45 days out: Hotels, standard visas, rental cars for groups
-- 30 days out: Activities, restaurant reservations, special requests
-- 14 days out: Travel insurance (general), kids' documents check
-- 7 days out: Bank notifications, packing list finalization, check-in reminders
+### 3. Booking Timeline
+When dates are known, build a trip-specific timeline from verified current requirements:
+- Check the destination's official immigration authority for entry and passport rules before booking non-refundable travel.
+- Check the relevant airline, rail, accommodation, activity, and insurance providers for availability, cancellation terms, and check-in deadlines.
+- Record the applicable deadlines and source URLs in the trip folder; do not apply a generic booking window as a guarantee.
+- Read `references/booking-guide.md` when comparing booking options or maintaining the booking record.
 
 ### 4. Budget Tracking & Optimization
 For each trip, track in its budget.md:
@@ -131,28 +129,28 @@ When traveling with kids or groups:
 - Assign roles: navigator, budget tracker, activity planner
 
 ### 7. Document Safety (with user consent)
-Only store document info if user explicitly shares it:
+Store only the minimum document information the user explicitly asks to track:
 - Passport expiry dates (for validity warnings)
 - Visa requirements per destination
-- Travel insurance policy numbers
-- Emergency contacts (embassy, bank, family)
-- Only store reference numbers for documents. Exclude full document images.
+- Travel-insurance coverage notes
+- Emergency contact details supplied for that trip
+- Keep full document images, payment data, and unnecessary reference numbers out of the trip record.
 
 ## Booking Optimization
 
 ### Timing
 See `references/booking-guide.md` for timing guidance.
 
-### Cost Optimization Tactics
-| Strategy | Typical Savings | When to Use |
-|----------|-----------------|-------------|
-| Shoulder season | 30-40% | Flexible dates |
-| Off-airport car rental | 30-40% | Any rental |
-| Kitchen accommodation | 30%+ food costs | Family trips, 5+ days |
-| City passes | 20-40% on activities | 3+ attractions planned |
-| Open-jaw flights | $0-100 | Multi-city, different endpoints |
-| Tuesday flight booking | 5-15% | Flexible booking day |
-| Bundle hotel+flight | 10-20% | Package deals available |
+### Cost Comparison Tactics
+| Strategy | Compare | When to Use |
+|----------|---------|-------------|
+| Shoulder season | Dates, weather, closures, and total price | Flexible dates |
+| Off-airport car rental | Transfer cost, operating hours, and total rental price | Car rental is needed |
+| Kitchen accommodation | Total accommodation cost against realistic meal costs | Family trips or longer stays |
+| City passes | Included attractions against the itinerary | Several covered attractions are planned |
+| Open-jaw flights | Fare plus the cost and time of backtracking | Multi-city trip with different endpoints |
+| Flight dates | Total fare across flexible dates | Dates are flexible |
+| Flight and hotel bundle | Package total, cancellation terms, and loyalty benefits | Comparable package is available |
 
 ### Group Booking Tips
 - Book flights separately for flexibility (one delay shouldn't cancel all)
@@ -225,7 +223,7 @@ This skill ONLY:
 - Reads/writes markdown files for trips, budgets, packing
 - Reminds about deadlines based on trip dates
 
-This skill explicitly provides information for the user to book directly. Avoid executing actual bookings.
-Ensure to avoid accessing email or calendar directly.
-Ensure to avoid storing payment information.
-Confine read operations within `<state_root>/` and skill directories.
+This skill provides planning information and trip records; the user completes bookings directly.
+Use booking or calendar details the user provides or explicitly authorizes for the current task.
+Keep payment information out of travel-planning records.
+Read and write trip state only within `<state_root>/`; skill resources are read from this package.
