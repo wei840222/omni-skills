@@ -1,29 +1,22 @@
 ---
-name: Maps
-slug: maps
-version: 1.0.0
-description: Plan place search, geocoding, routing, and map-link workflows across Google Maps, Apple Maps, OpenStreetMap, and other providers.
-homepage: https://clawic.com/skills/maps
-changelog: Initial release with provider selection rules, normalized map workflows, and safer route and link execution patterns.
+name: maps
+description: Plan place search, geocoding, routing, and map-link workflows across Google Maps, Apple Maps, OpenStreetMap, and other providers. Use when a task needs provider selection, normalized map data, route estimates, or a safe map link.
 metadata:
-  clawdbot:
-    emoji: MAP
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/maps/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/maps/
-    displayName: Maps
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/maps/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🗺️"}'
+  related-skills: '{"apple-maps":"Handles Apple Maps search and route flows on macOS.","travel":"Turns approved routes and place constraints into trip plans.","tripadvisor":"Compares venues for map-based shortlists.","car-rental":"Connects route assumptions and pickup zones to rental decisions."}'
 ---
+
+## State location
+
+Maps state may exist in `<workspace>/maps/`, `<workspace>/memory/maps/`, or `~/maps/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/maps/`, `<workspace>/memory/maps/`, `~/maps/`.
+3. If none exists and state must be created, default to `<workspace>/maps/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## When to Use
 
@@ -32,10 +25,10 @@ Use this skill when the agent must move between Google Maps, Apple Maps, OpenStr
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/maps/`. If `~/Clawic/data/maps/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. When state needs to be created, read `references/setup.md`; use `references/memory-template.md` for its structure.
 
 ```text
-~/Clawic/data/maps/
+<state_root>/
 |-- memory.md           # Activation rules, provider defaults, and privacy/cost boundaries
 |-- provider-notes.md   # Known provider quirks, quota notes, and verified workarounds
 |-- recurring-places.md # User-approved recurring origins, destinations, and map contexts
@@ -48,13 +41,14 @@ Load only the file needed for the current map task.
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory schema and status model | `memory-template.md` |
-| Provider choice by task and constraint | `provider-matrix.md` |
-| Canonical schema and coordinate normalization | `normalization-guide.md` |
-| Search, route, and launch workflows | `execution-patterns.md` |
-| Cost controls and fallback logic | `cost-controls.md` |
-| Common failures and recovery steps | `troubleshooting.md` |
+| Setup and activation behavior | `references/setup.md` |
+| Memory schema and status model | `references/memory-template.md` |
+| Provider choice by task and constraint | `references/provider-matrix.md` |
+| Canonical schema and coordinate normalization | `references/normalization-guide.md` |
+| Search, route, and launch workflows | `references/execution-patterns.md` |
+| Cost controls and fallback logic | `references/cost-controls.md` |
+| Common failures and recovery steps | `references/troubleshooting.md` |
+| Provider documentation and public-service policies | `references/provider-sources.md` |
 
 ## Requirements
 
@@ -82,7 +76,7 @@ This skill is designed for mixed map work that usually fails when an agent treat
 ### 2. Normalize every provider before comparing results
 - Keep coordinates internally as decimal `lat` and `lng`, then serialize per provider.
 - Track result type, confidence, place status, provider ID, timezone, and distance units before merging outputs.
-- Use `normalization-guide.md` whenever provider schemas disagree.
+- Use `references/normalization-guide.md` whenever provider schemas disagree.
 
 ### 3. Bound ambiguous searches with context and confidence
 - Add city, region, postal code, country, or nearby coordinates before calling search or geocode endpoints.
@@ -95,7 +89,8 @@ This skill is designed for mixed map work that usually fails when an agent treat
 - Explicitly set travel mode and units before comparing providers.
 
 ### 5. Choose the provider by task, cost, and privacy
-- Use `provider-matrix.md` to pick the cheapest provider that still meets the accuracy and policy needs of the task.
+- Use `references/provider-matrix.md` to pick the cheapest provider that still meets the accuracy and policy needs of the task. (Load only when switching providers or assessing cost vs coverage tradeoffs)
+- Before sending a live request, load `references/provider-sources.md` for the chosen provider's current request requirements and public-service policy.
 - Default to Apple Maps for app-launch workflows, Google for broad place detail coverage, and the OpenStreetMap stack for low-cost open-data fallback.
 - Switch providers only when the delta is clear: richer data, safer privacy posture, better coverage, or lower cost.
 
@@ -126,7 +121,7 @@ This skill is designed for mixed map work that usually fails when an agent treat
 | https://maps.googleapis.com | addresses, coordinates, place queries, route parameters | Google geocoding, places, routes, and static maps |
 | https://maps.apple.com | search text, coordinates, and route parameters | Apple Maps links and app or browser launch |
 | https://nominatim.openstreetmap.org | address text or reverse-geocode coordinates | OpenStreetMap geocoding fallback |
-| https://router.project-osrm.org | coordinates and route mode | Open-source route estimates when supported |
+| https://router.project-osrm.org | coordinates and routing profile | Open-source route estimates when the selected endpoint supports that profile |
 | https://api.mapbox.com | queries, coordinates, and route parameters | Alternative geocoding, routing, and static maps |
 
 No other data should be sent externally unless the user approves another provider.
@@ -141,16 +136,16 @@ Data that may leave your machine:
 - optional static-map parameters
 
 Data that stays local:
-- notes in `~/Clawic/data/maps/`
+- notes in `<state_root>/`
 - provider preferences and fallback rules
 - user-approved recurring contexts
 - failure logs and verified fixes
 
-This skill does NOT:
-- store API keys in local notes
-- guess precise destinations from vague requests
-- treat a launch URL as proof of data accuracy
-- modify its own `SKILL.md`
+Always adhere to these boundaries:
+- Exclude API keys from local notes.
+- Ask for clarification instead of guessing precise destinations from vague requests.
+- Treat launch URLs merely as UI elements, not as proof of structured data accuracy.
+- Operate without modifying `SKILL.md`.
 
 ## Trust
 
@@ -164,20 +159,8 @@ This skill ONLY:
 - normalizes place, geocode, route, and link workflows
 - prepares safe request plans, links, or structured summaries
 
-This skill NEVER:
-- invent place data, ETAs, or coverage claims
-- scrape undeclared providers behind anti-bot flows
-- share map links externally without approval
-- persist sensitive location history without telling the user first
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `apple-maps` - Open Apple Maps search and route flows on macOS with local command automation.
-- `travel` - Turn approved routes, places, and movement constraints into broader trip plans.
-- `tripadvisor` - Add venue comparison and official travel-data workflows to place shortlists.
-- `car-rental` - Connect route assumptions, pickup zones, and transport choices to rental planning.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/maps
-- Latest version: https://clawic.com/skills/maps
+Always enforce these restrictions:
+- Rely solely on provider-returned place data, ETAs, and coverage claims.
+- Access providers only through official, declared APIs.
+- Obtain explicit user approval before sharing any map link externally.
+- Inform the user explicitly before persisting any sensitive location history.

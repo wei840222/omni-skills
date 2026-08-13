@@ -1,6 +1,6 @@
 # Setup - Maps
 
-Use this file when `~/Clawic/data/maps/` is missing or empty.
+Use this file when the resolved `<state_root>/` is missing or its initial records must be created.
 Keep onboarding short and centered on the real map task in front of you.
 
 ## Operating Posture
@@ -49,7 +49,7 @@ Use natural language and avoid long API-history lectures unless requested.
 
 ## Internal Notes Policy
 
-Maintain concise records in `memory.md`:
+Maintain concise records in `<state_root>/memory.md`:
 - activation and execution preferences
 - provider defaults and no-go providers
 - units, locale, and recurring geography context
