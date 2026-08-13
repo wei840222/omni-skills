@@ -10,7 +10,7 @@
 - [ ] Hotel confirmations
 - [ ] Driver's license (if renting)
 - [ ] Credit cards (notify bank)
-- [ ] Local currency (20% of budget)
+- [ ] Arrival cash amount appropriate to the destination and travel plan
 - [ ] Photo copies of all documents (separate from originals)
 
 ### Electronics
@@ -41,7 +41,7 @@
 - [ ] Shampoo/conditioner (travel size)
 - [ ] Skincare basics
 - [ ] Sunscreen
-- [ ] Medications (1.5x supply + prescriptions)
+- [ ] Medications and prescriptions for the planned trip, with an appropriate contingency supply
 - [ ] First aid basics (bandaids, pain reliever)
 - [ ] Glasses/contacts + solution
 
