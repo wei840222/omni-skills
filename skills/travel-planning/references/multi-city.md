@@ -10,14 +10,9 @@ Use multi-city planning when:
 
 ## Planning Principles
 
-### 1. Minimum Stay Rule
-| Trip Length | Min Nights/City | Why |
-|-------------|-----------------|-----|
-| 1 week | 2 nights | Avoid exhaustion |
-| 2 weeks | 3 nights | Time to explore |
-| 3+ weeks | 3-4 nights | Deep immersion |
+### 1. Set a Sustainable Stay Length
 
-**One-night stays:** Only acceptable for transit cities or rest stops.
+Start from the traveller's priorities, arrival/departure times, transfer effort, and energy needs. A one-night stop can work for a deliberate transit or rest stop; otherwise, show the trade-off before adding it.
 
 ### 2. Geographic Clustering
 
@@ -32,7 +27,7 @@ Group destinations by region to minimize backtracking:
 
 ### 3. Open-Jaw Flights
 
-Fly into city A, out of city B. Often same price as round-trip but saves:
+Compare flying into city A and out of city B with a round trip. It can reduce:
 - One internal flight/train
 - Backtracking time
 - A full travel day
@@ -43,17 +38,11 @@ Fly into city A, out of city B. Often same price as round-trip but saves:
 
 ### 4. Connection Time Buffers
 
-| Connection Type | Minimum Buffer | Why |
-|-----------------|----------------|-----|
-| International flight | 4 hours | Immigration, customs, re-check |
-| Domestic flight | 2 hours | Gate changes, delays |
-| Train (same station) | 30-45 min | Walk time, platform finding |
-| Train (different stations) | 1.5 hours | Cross-city transport |
-| Flight → Train | 3 hours | Baggage claim, station transfer |
+Set each buffer from the current carrier or rail operator rules, the airport or station transfer plan, immigration and baggage steps, and the traveller's tolerance for disruption. For separate tickets, make the self-transfer risk explicit and offer a more resilient alternative when practical.
 
 ### 5. Rest Days
 
-For every 3 cities, build in 1 "slow day":
+Add recovery time after demanding transfers or whenever the itinerary has little slack:
 - Sleep in
 - No scheduled activities
 - Explore spontaneously
@@ -86,10 +75,10 @@ For every 3 cities, build in 1 "slow day":
 
 When visiting multiple currency zones:
 
-1. **Research ATM networks** — some charge less (Santander, HSBC global)
-2. **Exchange small amounts** — €100-200 per country at most
-3. **Credit card fees** — use no-FTF cards (Revolut, Wise, etc.)
-4. **Track rates** — note exchange rate used for budget accuracy
+1. **Research payment access** — compare the traveller's bank, ATM, and card fees for each destination.
+2. **Plan arrival cash** — carry only the cash that fits the expected arrival needs and the traveller's risk tolerance.
+3. **Check card terms** — compare foreign-transaction fees, acceptance, exchange-rate method, and fraud controls.
+4. **Track rates** — note the exchange rate used for budget accuracy.
 
 ```markdown
 ## Currency Tracker — {Trip Name}
@@ -115,17 +104,17 @@ When visiting multiple currency zones:
 - [ ] Passport + travel docs
 - [ ] Phone + chargers
 - [ ] Change of clothes
-- [ ] Toiletries (3-1-1 compliant)
+- [ ] Toiletries that meet the departure airport's current security rules
 - [ ] Medications
 - [ ] Entertainment
 - [ ] Snacks
 
-**Checked bag rule:** Assume it might be delayed 24h. Pack anything critical in carry-on.
+**Carry-on principle:** Keep documents, medication, essential electronics, and the first day's necessities with the traveller.
 
 ## Common Multi-City Mistakes
 
-- **Too many cities:** 4+ cities in 1 week = exhausting
-- **Ignoring travel days:** A 3-hour train still "costs" a half-day
+- **Too many cities:** test each stop against the available time after transfers and recovery.
+- **Ignoring travel days:** include the full door-to-door transfer time in each day's plan.
 - **Not booking connections:** Flexible is nice until it's sold out
 - **Uniform packing:** Amsterdam in October ≠ Barcelona in October
 - **Skipping rest:** Burn out by city 3, hate city 4
