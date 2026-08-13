@@ -4,9 +4,9 @@
 
 | Category | Window | Notes |
 |----------|--------|-------|
-| **International flights** | 3-4 months | 10-20% savings vs last-minute |
-| **Domestic flights** | 6-8 weeks | Price sweet spot |
-| **Hotels** | 2-3 months | Best selection + free cancellation |
+| **International flights** | 2-6 months | Varies by region; sweet spot often 3-5 months out |
+| **Domestic flights** | 1-3 months | Price sweet spot |
+| **Hotels** | 1-3 months | Best selection + free cancellation |
 | **Rental cars** | 2-6 weeks | Prices stable, rebook if drops |
 | **Activities/tours** | 2-4 weeks | Popular ones sell out earlier |
 | **Restaurants** | 1-4 weeks | Fine dining needs more lead time |
@@ -80,7 +80,7 @@ Many countries require **6 months validity beyond travel dates**. Check before b
 
 ## Confirmation Checklist
 
-Save immediately in `bookings.md`:
+Save immediately in `<state_root>/bookings.md`:
 - Confirmation numbers
 - Dates and times
 - Addresses

@@ -1,25 +1,27 @@
 ---
-name: Travel Planning
-slug: travel-planning
-version: 1.0.1
-description: Plan trips with itineraries, multi-city routing, budget optimization, family logistics, packing lists, and visa timelines.
-homepage: https://clawic.com/skills/travel-planning
-changelog: Fixed all references to use travel-planning consistently.
+name: travel-planning
+description: Plan trips with itineraries, multi-city routing, budget optimization, and packing lists. Use when coordinating travel bookings, tracking trip expenses, or organizing family logistics.
 metadata:
-  clawdbot:
-    emoji: ✈️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Travel Planning
+  version: "1.0.1"
+  openclaw: '{"emoji":"✈️"}'
+  related-skills: '{"daily-planner":"Places trip activities into daily schedules.","expenses":"Tracks complex travel expenses against the budget.","plan":"Provides generalized project planning for long-term trip preparation."}'
 ---
+
+## State location
+
+Travel Planning state may exist in `<workspace>/travel-planning/`, `<workspace>/memory/travel-planning/`, or `~/travel-planning/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/travel-planning/`, `<workspace>/memory/travel-planning/`, `~/travel-planning/`.
+3. If none exists and state must be created, default to `<workspace>/travel-planning/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, read `setup.md` for onboarding guidelines. Start helping naturally without technical jargon — users can always ask about storage details if curious.
+On first use, read `references/setup.md` for onboarding guidelines. Start helping naturally without technical jargon — users can always ask about storage details if curious.
 
 ## When to Use
 
@@ -27,10 +29,10 @@ User wants to plan a trip, track travel expenses, organize bookings, coordinate 
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/travel-planning/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/travel-planning/
+<state_root>/
 ├── memory.md              # Preferences + travel history summary
 ├── wishlist/              # Dream destinations
 │   └── {destination}.md
@@ -49,18 +51,18 @@ Memory lives in `~/Clawic/data/travel-planning/`. See `memory-template.md` for s
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Booking timing | `booking-guide.md` |
-| Packing templates | `packing-templates.md` |
-| Multi-city planning | `multi-city.md` |
+| Topic | File | Load Instruction |
+|-------|------|------------------|
+| Setup process | `references/setup.md` | Read on first use or setup |
+| Memory template | `assets/memory-template.md` | Read when establishing user history/preferences |
+| Booking timing | `references/booking-guide.md` | Read when advising on when to book |
+| Packing templates | `assets/packing-templates.md` | Read when creating a packing list |
+| Multi-city planning | `references/multi-city.md` | Read when the trip spans multiple destinations |
 
 ## Core Rules
 
 ### 1. Check Memory First
-Before any trip planning, read `~/Clawic/data/travel-planning/memory.md` for:
+Before any trip planning, read `<state_root>/memory.md` for:
 - Travel style preferences (budget, pace, accommodation type)
 - Past trip patterns (average daily spend, packing habits)
 - Document status (passport expiry, frequent flyer numbers)
@@ -134,18 +136,12 @@ Only store document info if user explicitly shares it:
 - Visa requirements per destination
 - Travel insurance policy numbers
 - Emergency contacts (embassy, bank, family)
-- Never store full document images — only reference numbers
+- Only store reference numbers for documents. Exclude full document images.
 
 ## Booking Optimization
 
 ### Timing
-| Booking | Optimal Window | Why |
-|---------|----------------|-----|
-| Domestic flights | 6-8 weeks out | Price sweet spot |
-| International flights | 3-4 months out | 10-20% savings |
-| Hotels | 2-3 months out | Best selection + rates |
-| Rental cars | 2-6 weeks out | Prices fluctuate less |
-| Group activities | 4-6 weeks out | Availability for large groups |
+See `references/booking-guide.md` for timing guidance.
 
 ### Cost Optimization Tactics
 | Strategy | Typical Savings | When to Use |
@@ -225,23 +221,11 @@ Keep 2-3 hours buffer daily. Mark must-dos vs nice-to-haves.
 ## Scope
 
 This skill ONLY:
-- Manages travel planning in `~/Clawic/data/travel-planning/`
+- Manages travel planning in `<state_root>/`
 - Reads/writes markdown files for trips, budgets, packing
 - Reminds about deadlines based on trip dates
 
-This skill NEVER:
-- Makes actual bookings (provides info for user to book)
-- Accesses email or calendar directly
-- Stores payment information
-- Reads files outside `~/Clawic/data/travel-planning/`
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `daily-planner` — daily task management
-- `plan` — general project planning
-- `expenses` — expense tracking
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/travel-planning
-- Latest version: https://clawic.com/skills/travel-planning
+This skill explicitly provides information for the user to book directly. Avoid executing actual bookings.
+Ensure to avoid accessing email or calendar directly.
+Ensure to avoid storing payment information.
+Confine read operations within `<state_root>/` and skill directories.

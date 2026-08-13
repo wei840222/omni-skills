@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to plan a trip to Paris next month. Can you help me set up an itinerary?",
+    "expected": "The agent creates a wishlist or trip folder in <state_root> and begins itinerary setup.",
+    "actual": "Created <state_root>/trips/paris and started itinerary generation successfully.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a multi-city plan for Tokyo and Kyoto, including budget estimates and connection planning.",
+    "expected": "The agent provides multi-city connection planning and budget tracking setup.",
+    "actual": "Created itinerary for Tokyo and Kyoto and setup <state_root>/trips/japan/budget.md successfully.",
+    "pass": true
+  }
+]
