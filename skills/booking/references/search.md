@@ -11,10 +11,10 @@
 
 ## Location Intelligence
 
-**Never trust:**
-- "Central location" — verify actual walking distance
-- "Near the beach" — could be 2km
-- "5 min walk" — with luggage? With kids?
+**Verify actual conditions:**
+- "Central location" — verify actual walking distance.
+- "Near the beach" — verify actual distance (could be 2km).
+- "5 min walk" — verify if feasible with luggage or kids.
 
 **Always calculate:**
 - Walking time to stated destination (use maps)
