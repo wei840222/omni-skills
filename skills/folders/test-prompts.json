@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Where is my Go API project? Search my folder index first, then look under ~/code and ~/work if it is not indexed.",
+    "expected": "Checks the resolved index first, validates any match, then performs a targeted search of only the requested roots without changing the index.",
+    "actual": "I will resolve the existing folder-index.json before searching. No indexed Go API project was found, so I will inspect ~/code and ~/work for go.mod or .git boundaries, skip dependency and build trees, and report the canonical matching paths. I will not add any result to the index unless you confirm the exact record.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Save /Users/alex/projects/webapp as my main client project in the folder index.",
+    "expected": "Resolves or proposes a portable state root, shows the canonical record, and waits for confirmation before writing persistent state.",
+    "actual": "The requested record is path=/Users/alex/projects/webapp, type=project, note=Main client project. I found no existing state root, so the default would be <workspace>/folders/folder-index.json. Confirm this state root and record, and I will create the directory and save only this entry.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Clean node_modules and .next from the attached project folder on a network drive.",
+    "expected": "Canonicalizes and inspects exact targets, warns about network-drive behavior, explains regeneration and recovery, and requires confirmation before a trash-based cleanup.",
+    "actual": "I will resolve the project path and list the exact node_modules and .next directories with their sizes. Because this is a network drive, the cleanup can be slow or fail when offline. Both directories are normally regenerable from project metadata; node_modules can be restored with npm install when the dependency metadata is available. After you confirm the listed targets, I will send them to the recycle bin or trash and report each completed or skipped path.",
+    "pass": true
+  }
+]
