@@ -1,6 +1,6 @@
 ---
 name: csv
-description: Parse, validate, or generate CSV data safely across spreadsheets and programs. Use when importing, exporting, cleaning, or troubleshooting CSV, TSV, or delimited text files.
+description: Parse, validate, and generate CSV or delimited text safely across spreadsheets and programs. Use when importing, exporting, cleaning, or troubleshooting CSV, TSV, or delimiter-separated data; not for native spreadsheet workbook editing.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊"}'
