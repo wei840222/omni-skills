@@ -8,21 +8,22 @@ metadata:
 
 ## State location
 
-Influencer state may exist in `$WORKSPACE/influencer/`, `$WORKSPACE/memory/influencer/`, or `~/influencer/`.
-Before reading or writing state, resolve `$STATE_ROOT` as follows:
+Influencer state may exist in `<workspace>/influencer/`, `<workspace>/memory/influencer/`, or `~/influencer/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order:
-   `$WORKSPACE/influencer/`, `$WORKSPACE/memory/influencer/`, `~/influencer/`.
-3. If none exists and state must be created, default to `$WORKSPACE/influencer/`.
+   `<workspace>/influencer/`, `<workspace>/memory/influencer/`, `~/influencer/`.
+3. If multiple candidate directories exist, use the highest-priority one, keep the others independent, and tell the user which location was selected.
+4. If none exists and the user asks to save influencer state, default to `<workspace>/influencer/`.
 
-Use the selected `$STATE_ROOT` for every state operation in this skill.
+Use the selected `<state_root>` for every state operation in this skill. Treat legacy locations as migration sources only: propose a copy, validation, cutover, and rollback plan before any migration; do not move or delete existing state automatically.
 
 ## Workspace Structure
 
 Each influencer lives in a dedicated folder:
 ```
-$STATE_ROOT/
+<state_root>/
 ├── {persona-slug}/
 │   ├── identity.md        # Name, niche, voice, personality
 │   ├── reference/         # Base images for consistency
@@ -36,6 +37,10 @@ $STATE_ROOT/
 │   └── analytics.md       # Performance tracking
 └── tools.md               # Configured generation tools
 ```
+
+## Consent and publication boundary
+
+Drafting personas, captions, schedules, and local state is reversible. Before creating a paid provider account, uploading source media, training or cloning a voice, signing a brand agreement, scheduling content, or publishing to a platform, show the target, data that will leave the workspace, cost or contractual commitment, and request explicit confirmation. Use only fully synthetic identities or source media, likenesses, and voices for which the user has documented rights and consent.
 
 ---
 
@@ -85,12 +90,12 @@ Maintaining the same face/body across all content is CRITICAL.
 
 ## Content Generation Flow
 
-1. **Plan** — Check `$STATE_ROOT/{persona-slug}/schedule.md` for what's needed today
+1. **Plan** — Check `<state_root>/{persona-slug}/schedule.md` for what's needed today
 2. **Generate** — Use appropriate tool (see `references/image-gen.md` or `references/video-gen.md`)
 3. **Review** — Verify character consistency, quality
 4. **Caption** — Write engaging copy matching persona voice
 5. **Schedule** — Queue for optimal posting time
-6. **Track** — Log in `$STATE_ROOT/{persona-slug}/analytics.md` after posting
+6. **Track** — Log in `<state_root>/{persona-slug}/analytics.md` after posting
 
 ---
 
@@ -98,18 +103,18 @@ Maintaining the same face/body across all content is CRITICAL.
 
 | User says | Agent does |
 |-----------|------------|
-| "Create new influencer" | Run persona creation flow, set up workspace |
+| "Create new influencer" | Draft the persona creation flow; create local state only when the user asks to save it |
 | "Generate photos for today" | Check schedule, generate with consistency refs |
 | "Make a TikTok video" | Generate 9:16 video with talking head or lifestyle footage |
 | "Write captions for these" | Draft captions matching persona voice + niche hashtags |
 | "How is she performing?" | Summarize analytics.md, suggest improvements |
-| "Add brand deal content" | Generate sponsored content with disclosure |
+| "Add brand deal content" | Draft sponsored content and disclosure; request confirmation before any external send or post |
 
 ---
 
 ## Tool Configuration
 
-Store active tools in `$STATE_ROOT/tools.md`:
+Store active tools in `<state_root>/tools.md`:
 
 ```markdown
 ## Active Tools

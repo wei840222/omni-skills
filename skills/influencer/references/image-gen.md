@@ -120,22 +120,16 @@ For efficient content creation:
 
 ---
 
-## Avoiding Detection
+## Authenticity and disclosure
 
-AI-generated images can be detected. Reduce risk:
-
-1. **Add subtle imperfections** (not too perfect)
-2. **Vary lighting** (not always studio perfect)
-3. **Use realistic settings** (avoid fantasy/impossible)
-4. **Post-process slightly** (minor adjustments in Lightroom)
-5. **Mix with real elements** (real backgrounds when possible)
+Use a clear disclosure when the applicable platform or jurisdiction requires one. Review images for quality, factual context, and potential resemblance to real people; correct visual artifacts for quality rather than trying to evade detection of synthetic media.
 
 ---
 
 ## Storage Organization
 
 ```
-$STATE_ROOT/{persona-slug}/content/photos/
+<state_root>/{persona-slug}/content/photos/
 ├── 2026-02/
 │   ├── gym/
 │   ├── lifestyle/
