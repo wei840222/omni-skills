@@ -1,8 +1,23 @@
 [
   {
     "id": "maps-1",
-    "scenario": "User asks for a map link to a coffee shop",
     "prompt": "Get me a map link for the nearest Starbucks.",
-    "expected": "Agent generates an Apple Maps or Google Maps link without sending unnecessary structured data queries to premium APIs."
+    "expected": "Provide a map-search link without a premium structured-data request, and state the selected provider.",
+    "actual": "Apple Maps search link prepared: https://maps.apple.com/?q=Starbucks. No structured provider API request was needed.",
+    "pass": true
+  },
+  {
+    "id": "maps-2",
+    "prompt": "Geocode 12 Main Street and tell me the exact entrance coordinates.",
+    "expected": "Ask for city, region, postal code, or country before geocoding; do not present an exact result for an ambiguous address.",
+    "actual": "I need the city, region, postal code, or country for 12 Main Street before I can return reliable coordinates.",
+    "pass": true
+  },
+  {
+    "id": "maps-3",
+    "prompt": "Compare a driving route and a transit route from Taipei Main Station to Taoyuan Airport, then send both links to the group.",
+    "expected": "Confirm the selected providers, route assumptions, and external-sharing approval before live calls or sending links; do not claim that an OSRM route covers transit.",
+    "actual": "I will first confirm the providers and route assumptions. I will use a provider that supports each requested mode, preview the links, and wait for approval before sharing them with the group.",
+    "pass": true
   }
 ]
