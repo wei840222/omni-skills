@@ -54,9 +54,7 @@ trip_stage: planning | booked | traveling | completed
 
 ## Useful Info Saved
 
-- **Preview password preview:** 
 - **Restaurant recommendations:** 
 - **Local tips received:** 
 
 ## Notes
-

@@ -7,6 +7,18 @@ metadata:
   related-skills: '{"travel": "General travel planning and logistics", "dubai": "Compare luxury city destination", "toronto": "Compare with another major city skill"}'
 ---
 
+## State Location
+
+Venice trip state may exist in `<workspace>/venice/`, `<workspace>/memory/venice/`, or `~/venice/`.
+
+Before reading or writing trip state, resolve `<state_root>` once:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/venice/`, `<workspace>/memory/venice/`, `~/venice/`.
+3. If none exists and the user requests persistent trip memory, create `<workspace>/venice/`.
+
+Use the selected `<state_root>` for every state operation in this skill. State resolution does not authorize persistence: create or modify state only with explicit user confirmation or an applicable host policy. When creating `memory.md`, copy the structure from `references/memory-template.md`.
+
 ## When to Use
 
 User asks about Venice for any purpose: visiting, understanding the city, planning trips, or exploring Venetian culture. Agent provides practical guidance avoiding tourist traps.
@@ -158,15 +170,3 @@ Venice is challenging for mobility issues:
 - **Strollers**: Possible but exhausting — consider baby carrier
 
 See `references/transport.md` for accessible route information.
-
-## Architecture
-
-```
-~/Clawic/data/venice/
-├── memory.md          # Trip state, bookings, visited spots
-```
-
-## State location
-- Workspace-first: `~/workspace/venice/memory.md` (fallback: `~/Clawic/data/venice/memory.md`)
-- Creation behavior: Create from `references/memory-template.md` if not exists.
-
