@@ -94,7 +94,9 @@ Venice's relationship with water defines daily life:
 - **Summer**: Hot, crowded, mosquitoes near canals
 See `references/climate.md` for monthly breakdown and preparation.
 
-### 5. Current Data (Feb 2026)
+### 5. Time-Sensitive Prices and Fees
+
+Verify prices and visitor-access requirements before booking. Check ACTV fares at <https://actv.avmspa.it/en/content/venice-urban-services-0> and the Access Contribution portal at <https://cda.ve.it/en/> for the visit date.
 
 | Item | Range |
 |------|-------|
@@ -106,14 +108,14 @@ See `references/climate.md` for monthly breakdown and preparation.
 | Espresso at bar | €1.20-1.50 (standing), €3-6 (seated San Marco) |
 | Spritz | €3-4 (bacaro), €12-18 (San Marco terrace) |
 | Museum Pass (11 museums) | €40 |
-| Day trip entry fee | €5 (peak days, required) |
+| Access Contribution | Seasonal; check the official portal for eligible dates, exemptions, and the current advance/late fee |
 
 ### 6. Cost Reality
 Venice is expensive but manageable with strategy:
 - **Accommodation**: 2-3x mainland prices. Mestre as budget alternative.
 - **Food**: Eat where locals eat (bacari, away from San Marco)
 - **Transport**: Passes pay off quickly (individual tickets expensive)
-- **Entry fee**: €5 day-tripper fee on peak days (2024+)
+- **Access Contribution**: The seasonal day-visitor scheme, eligibility, and fee can change; check the official portal for the visit date.
 - **Booking fees**: Major sites charge €1-5 booking fees
 
 ### 7. Sestiere (Neighborhood) Matching
