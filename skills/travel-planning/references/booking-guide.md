@@ -8,7 +8,7 @@
 4. Check local holidays, major events, seasonal weather, and provider operating dates. If these make the plan unsuitable, offer a nearby date or itinerary alternative.
 5. Present options and trade-offs to the user. The user makes the booking.
 
-Do not claim a universal best booking day or savings percentage. Prices, availability, entry rules, and insurance terms are route-, provider-, and traveller-specific.
+Treat prices, availability, entry rules, and insurance terms as route-, provider-, and traveller-specific; present the current comparison rather than a universal booking rule.
 
 ## Money-Saving Tactics
 
@@ -47,6 +47,5 @@ Save immediately in `<state_root>/trips/{trip-name}/bookings.md`:
 - Addresses
 - Contact numbers
 - Cancellation policies
-- Payment method used
 
-Print or screenshot essential confirmations — don't rely on email access abroad.
+Keep an offline copy of essential confirmations in addition to any email record.

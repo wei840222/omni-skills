@@ -61,12 +61,14 @@ Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ## Core Rules
 
-### 1. Check Memory First
-Before any trip planning, read `<state_root>/memory.md` for:
+### 1. Check Existing Memory First
+When `<state_root>/memory.md` exists, read it before trip planning for:
 - Travel style preferences (budget, pace, accommodation type)
 - Past trip patterns (average daily spend, packing habits)
 - Document status (passport expiry, frequent flyer numbers)
 - Family/group composition if applicable
+
+When the state root or memory file is absent, read `references/setup.md` before creating the initial trip records.
 
 ### 2. Trip Lifecycle
 | Phase | Action |
@@ -94,7 +96,7 @@ For each trip, track in its budget.md:
 |----------|-------|-------|
 | Adult 1 | $X | Organizer |
 | Adult 2 | $X | |
-| Child | $X | 50% activities |
+| Child | $X | Child-rate activities, when applicable |
 
 ### Planned
 | Category | Estimate | Optimization Applied |
@@ -113,18 +115,18 @@ For each trip, track in its budget.md:
 
 ### 5. Multi-City & Complex Itineraries
 For trips with 2+ cities:
-- Plan minimum 2 nights per city (avoid one-night stays)
+- Start with enough nights to cover the traveller's priorities and transfer time; validate the cadence against the itinerary.
 - Group geographically close destinations
-- Consider open-jaw flights (fly into A, out of B) — often same price
-- Build connection buffers: 4+ hours international, 2+ hours domestic
+- Compare open-jaw flights (fly into A, out of B) with the round-trip alternative
+- Set connection buffers from the carrier, airport, immigration, baggage, and transfer constraints for that itinerary.
 - Track different currencies and exchange rates per leg
 
 ### 6. Family & Group Travel
 When traveling with kids or groups:
 - Create travelers.md in trip folder with each person's details (dietary, medical, seat prefs)
 - Plan kid-friendly activities with energy breaks
-- Book accommodations with kitchen access (saves 30%+ on food)
-- Check child visa/consent requirements (some countries need notarized letters)
+- Compare accommodations with kitchen access against realistic meal costs for the group.
+- Check child visa and consent requirements through the destination's official authority.
 - Pack shared items list to avoid duplication
 - Assign roles: navigator, budget tracker, activity planner
 
@@ -153,10 +155,10 @@ See `references/booking-guide.md` for timing guidance.
 | Flight and hotel bundle | Package total, cancellation terms, and loyalty benefits | Comparable package is available |
 
 ### Group Booking Tips
-- Book flights separately for flexibility (one delay shouldn't cancel all)
+- Compare separate and shared flight bookings on price, fare conditions, connection protection, and disruption handling.
 - Hotels: request adjoining rooms at booking, confirm before arrival
-- Activities: ask for group discounts (10+ people often qualify)
-- Car rentals: compare 2 cars vs 1 large van (often cheaper + more flexible)
+- Activities: ask the provider whether a group rate applies
+- Car rentals: compare 2 cars with 1 large van on total price, capacity, and flexibility
 
 ## Itinerary Structure
 
@@ -184,7 +186,7 @@ See `references/booking-guide.md` for timing guidance.
 - Backup plan: {if weather/energy fails}
 ```
 
-Keep 2-3 hours buffer daily. Mark must-dos vs nice-to-haves.
+Reserve a daily buffer that fits the itinerary's transfer effort and the traveller's pace. Mark must-dos vs nice-to-haves.
 
 ## Multi-City Connection Planning
 
@@ -207,14 +209,14 @@ Keep 2-3 hours buffer daily. Mark must-dos vs nice-to-haves.
 
 ## Common Traps
 
-- Over-scheduling → leave discovery room (max 3 planned activities/day)
-- Forgetting to document after trip → memories fade in days, not months
-- Booking without checking visa requirements → some need 90+ days
-- Ignoring passport validity → many countries require 6 months beyond trip dates
+- Over-scheduling → use the traveller's pace and transfer effort to leave discovery room
+- Forgetting to document after trip → capture highlights and lessons while the experience is fresh
+- Booking without checking visa requirements → confirm the destination's current rule first
+- Ignoring passport validity → confirm the destination-specific entry rule first
 - Not saving confirmation numbers → create bookings.md immediately
-- One-night stays in cities → exhausting, skip or extend
+- One-night stays in cities → show the transfer and recovery trade-off before keeping the stop
 - Ignoring jet lag recovery → plan light first day after long-haul
-- Group booking all together → one problem cancels everyone
+- Group booking strategy → compare shared and separate reservations against the provider's disruption terms
 
 ## Scope
 
