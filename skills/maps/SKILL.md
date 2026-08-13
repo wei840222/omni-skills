@@ -48,6 +48,7 @@ Load only the file needed for the current map task.
 | Search, route, and launch workflows | `references/execution-patterns.md` |
 | Cost controls and fallback logic | `references/cost-controls.md` |
 | Common failures and recovery steps | `references/troubleshooting.md` |
+| Provider documentation and public-service policies | `references/provider-sources.md` |
 
 ## Requirements
 
@@ -89,6 +90,7 @@ This skill is designed for mixed map work that usually fails when an agent treat
 
 ### 5. Choose the provider by task, cost, and privacy
 - Use `references/provider-matrix.md` to pick the cheapest provider that still meets the accuracy and policy needs of the task. (Load only when switching providers or assessing cost vs coverage tradeoffs)
+- Before sending a live request, load `references/provider-sources.md` for the chosen provider's current request requirements and public-service policy.
 - Default to Apple Maps for app-launch workflows, Google for broad place detail coverage, and the OpenStreetMap stack for low-cost open-data fallback.
 - Switch providers only when the delta is clear: richer data, safer privacy posture, better coverage, or lower cost.
 
@@ -119,7 +121,7 @@ This skill is designed for mixed map work that usually fails when an agent treat
 | https://maps.googleapis.com | addresses, coordinates, place queries, route parameters | Google geocoding, places, routes, and static maps |
 | https://maps.apple.com | search text, coordinates, and route parameters | Apple Maps links and app or browser launch |
 | https://nominatim.openstreetmap.org | address text or reverse-geocode coordinates | OpenStreetMap geocoding fallback |
-| https://router.project-osrm.org | coordinates and route mode | Open-source route estimates when supported |
+| https://router.project-osrm.org | coordinates and routing profile | Open-source route estimates when the selected endpoint supports that profile |
 | https://api.mapbox.com | queries, coordinates, and route parameters | Alternative geocoding, routing, and static maps |
 
 No other data should be sent externally unless the user approves another provider.
