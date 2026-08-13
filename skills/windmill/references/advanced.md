@@ -1,25 +1,20 @@
-## Flow Execution
-- `results.step_name` fails if step hasn't run yet — conditional branches cause undefined access errors
-- Parallel branches need explicit configuration — default is sequential, not concurrent
-- Suspend steps wait forever without timeout — set explicit timeout or flow hangs indefinitely
-- Error handlers only catch step failures — script syntax errors bypass handlers
+## Official Reference Routing
 
-## Scheduling Pitfalls
-- Timezone defaults to server timezone — set explicitly or jobs fire at unexpected times
-- Concurrent execution allowed by default — add mutex lock if jobs shouldn't overlap
-- Schedules attach to scripts/flows — no standalone schedule entities, delete script = delete schedule
+Read the matching official Windmill documentation before applying an advanced configuration. Platform behavior can vary by deployment and version.
 
-## Self-Hosting
-- PostgreSQL is the only state — workers are stateless, back up only the database
-- Single container includes workers — fine for small loads, separate workers for scale
-- Worker count determines parallelism — one worker = one concurrent script execution
+- **Python scripts and dependencies:** https://www.windmill.dev/docs/getting_started/scripts_quickstart/python
+  - Scripts use a `main` entrypoint; its signature drives the generated input schema.
+  - Windmill resolves Python dependencies from top-level imports.
+- **Flow architecture and data exchange:** https://www.windmill.dev/docs/flows/architecture
+  - Sequential modules run in order; explicit parallel branches are queued together.
+  - Use `results.{id}` in an input transform to consume an earlier step result.
+  - Use workspace resources or states only when data must persist beyond one flow execution.
+- **Variables, secrets, and permissions:** https://www.windmill.dev/docs/core_concepts/variables_and_secrets
+  - Use a secret variable for sensitive values and grant access through the intended path and permissions.
+  - Do not log secret values; job logs mask tracked secret values, but scripts should still avoid exposing them.
 
-## Webhook Triggers
-- Each script/flow gets unique webhook URL — changes if you rename the script
-- Webhook payload becomes script input — schema must match expected arguments
-- No built-in auth on webhooks — validate tokens in script logic or use reverse proxy
+## Safe Delivery Checks
 
-## Common Mistakes
-- Testing flows without testing scripts first — debug scripts individually
-- Expecting state between runs — use variables or external storage for persistence
-- Hardcoding paths — use `wmill.get_resource()` for portability between workspaces
+1. Test each script with representative inputs before composing it into a flow.
+2. Confirm the workspace path, execution trigger, and required permissions before deploying a script, flow, variable, or secret.
+3. For schedules, webhooks, concurrency, worker topology, or external exposure, read the official documentation for that exact feature and verify the deployment's version and settings.
