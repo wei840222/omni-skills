@@ -1,17 +1,9 @@
 ---
-name: CSV
-slug: csv
-version: 1.0.0
-description: Parse and generate RFC 4180 compliant CSV that works across tools.
-homepage: https://clawic.com/skills/csv
+name: csv
+description: Parse, validate, or generate CSV data safely across spreadsheets and programs. Use when importing, exporting, cleaning, or troubleshooting CSV, TSV, or delimited text files.
 metadata:
-  clawdbot:
-    emoji: 📊
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CSV
+  version: "1.0.0"
+  openclaw: '{"emoji":"📊"}'
 ---
 
 ## Quoting Rules
