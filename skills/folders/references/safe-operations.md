@@ -17,3 +17,8 @@ Send removals to the operating system trash or recycle bin. Explain that build a
 - For network drives, warn about latency or offline failure before a bulk operation and wait for confirmation.
 
 After an operation, report completed targets, skipped targets and reasons, and the location or method for recovery.
+
+## Verified guidance
+
+- [Microsoft: Maximum Path Length Limitation](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation) documents the `MAX_PATH` limit, the `\\?\\` extended-length prefix, and the application opt-in constraints for many Windows 10 version 1607+ APIs. Use the prefix only for a compatible operation that needs an absolute extended-length path.
+- [npm Docs: npm install](https://docs.npmjs.com/cli/v11/commands/npm-install) documents that `npm install` installs a package and its dependencies, using lockfiles when present. This supports describing `node_modules` as regenerable only when the project metadata is available and the user accepts the install's normal network and dependency effects.
