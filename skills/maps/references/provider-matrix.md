@@ -34,3 +34,6 @@ Use this matrix to choose the first provider instead of defaulting blindly.
 ### HERE or Other Providers
 - Best for: enterprise contracts, regional coverage, or a user-mandated stack
 - Watch for: schema drift, custom auth rules, and provider-specific licensing constraints
+
+## Recent Updates (2024)
+- Note on OSM: OpenStreetMap (OSM) is a map database maintained by a community of volunteers via open collaboration. Ensure queries respect open-data policies and community infrastructure (https://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=OpenStreetMap&exsentences=2&explaintext=1&format=json).

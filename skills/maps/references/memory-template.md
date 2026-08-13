@@ -1,6 +1,6 @@
 # Memory Template - Maps
 
-Create `~/Clawic/data/maps/memory.md` with this structure:
+Create `$STATE_ROOT/memory.md` with this structure:
 
 ```markdown
 # Maps Memory

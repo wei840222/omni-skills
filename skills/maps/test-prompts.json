@@ -1,0 +1,8 @@
+[
+  {
+    "id": "maps-1",
+    "scenario": "User asks for a map link to a coffee shop",
+    "prompt": "Get me a map link for the nearest Starbucks.",
+    "expected": "Agent generates an Apple Maps or Google Maps link without sending unnecessary structured data queries to premium APIs."
+  }
+]
