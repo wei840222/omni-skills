@@ -2,15 +2,15 @@
   {
     "id": 1,
     "prompt": "I want to plan a trip to Paris next month. Can you help me set up an itinerary?",
-    "expected": "The agent creates a wishlist or trip folder in <state_root> and begins itinerary setup.",
-    "actual": "Created <state_root>/trips/paris and started itinerary generation successfully.",
+    "expected": "The agent resolves <state_root>, checks relevant preferences, asks for any missing trip constraints, then proposes an itinerary and the appropriate trip-record updates.",
+    "actual": "Dry run: the skill routes state resolution before setup and routes booking timing to the reference; no hardcoded state path is needed.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "Create a multi-city plan for Tokyo and Kyoto, including budget estimates and connection planning.",
-    "expected": "The agent provides multi-city connection planning and budget tracking setup.",
-    "actual": "Created itinerary for Tokyo and Kyoto and setup <state_root>/trips/japan/budget.md successfully.",
+    "expected": "The agent loads the multi-city reference, compares connection constraints, and creates a budget record only in <state_root>/trips/{trip-name}/.",
+    "actual": "Dry run: the skill directly routes multi-city planning and uses the trip-scoped budget layout.",
     "pass": true
   }
 ]
