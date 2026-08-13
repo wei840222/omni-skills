@@ -6,14 +6,14 @@ metadata:
   openclaw: '{"emoji":"📂"}'
 ---
 
-## Workflow
+## Choose the task path
 
-1. Clarify the requested outcome: locate, inventory, index, organize, or remove a folder or artifact.
-2. For lookups, resolve the existing folder index first. If it has no match, run targeted discovery rather than a broad filesystem scan.
-3. Before changing an index, moving content, or removing content, present the exact targets, expected effects, and recovery path; proceed only after the user confirms.
-4. For a deletion request, use the platform trash or recycle bin. State what can be restored and what can be regenerated.
+- **Locate:** resolve the existing index first, then run targeted discovery for an index miss.
+- **Inventory:** search only the user-named or user-relevant roots and present the findings before indexing them.
+- **Index:** show the exact records and state root, then save only the user-confirmed change.
+- **Organize or clean up:** inspect canonical targets, present effects and recovery, then complete the confirmed operation through the trash or recycle bin when removal is requested.
 
-Read [references/index-and-discovery.md](references/index-and-discovery.md) before resolving state, searching for folders, or editing the index. Read [references/safe-operations.md](references/safe-operations.md) before moving or removing anything.
+Read [references/index-and-discovery.md](references/index-and-discovery.md) before locating, inventorying, or indexing folders. Read [references/safe-operations.md](references/safe-operations.md) before organizing, moving, or removing anything.
 
 ## Outcome checks
 
