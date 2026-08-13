@@ -2,25 +2,19 @@
 
 ## Revenue Streams
 
-| Stream | Difficulty | Revenue Potential | Time to First $ |
-|--------|------------|-------------------|-----------------|
-| Creator funds | Easy | Low | 1-3 months |
-| Affiliate marketing | Easy | Medium | 1 month |
-| Sponsored posts | Medium | High | 3-6 months |
-| Digital products | Medium | Very High | 2-4 months |
-| Merchandise | Hard | Medium | 6+ months |
-| Subscriptions | Hard | High | 6+ months |
+| Stream | Typical trade-off |
+|--------|-------------------|
+| Platform creator programs | Eligibility and payout terms vary by account, region, and time. |
+| Affiliate marketing | Requires a compatible product, clear disclosure, and conversion tracking. |
+| Sponsored posts | Requires a contract, truthful claims, disclosure, and explicit approval before outreach or publishing. |
+| Digital products | Requires rights to the content, a fulfilment plan, and clear customer terms. |
+| Merchandise or subscriptions | Requires ongoing fulfilment, customer support, payment handling, and platform-policy review. |
 
 ---
 
-## Creator Fund Requirements
+## Creator Program Eligibility
 
-| Platform | Requirements | Est. Revenue |
-|----------|--------------|--------------|
-| TikTok Creator Fund | 10K followers, 100K views/30d | $0.02-0.04/1K views |
-| YouTube Partner | 1K subs, 4K watch hours | $1-3/1K views |
-| Instagram Bonuses | Invite only | Varies |
-| Twitter/X | Premium subscriber | Tips only |
+Program names, eligibility thresholds, countries, and payout terms change frequently. Before presenting earnings projections or applying, verify the program's current official terms for the target account and region; record the source URL and access date with the decision.
 
 ---
 
@@ -39,28 +33,16 @@
 - Track performance by product/platform
 
 ### Commission Structures
-| Category | Typical Commission |
-|----------|-------------------|
-| Physical products | 3-10% |
-| Software/SaaS | 20-40% |
-| Digital courses | 30-50% |
-| Financial products | $50-200 per signup |
+
+Use the commission, attribution window, payout schedule, and permitted promotional channels in the specific program agreement. Do not infer a rate from a broad category.
 
 ---
 
 ## Sponsored Content
 
 ### Rate Calculation
-```
-Base rate = (Followers / 1000) × $10-20
-Adjust for: engagement rate, niche, deliverables
-```
 
-**Example rates (10K followers):**
-- Single post: $100-300
-- Reel/TikTok: $150-500
-- Story series: $200-400
-- Package deal: $500-1000
+Set a proposed rate from defined deliverables, production cost, usage rights, exclusivity, audience quality, and the current market evidence the user provides. Treat any public benchmark as context rather than a formula, and do not present a price or enter negotiations without explicit user approval.
 
 ### Pitch Template
 ```
@@ -90,7 +72,7 @@ Best,
 - Offer package deals for more content
 - Usage rights cost extra
 - Exclusivity costs extra
-- Payment terms: 50% upfront standard
+- Payment terms: document the agreed deposit, milestones, acceptance criteria, cancellation terms, and final-payment trigger in the contract.
 
 ---
 
@@ -118,13 +100,12 @@ Best,
 ## Subscription/Membership
 
 ### Platform Options
-| Platform | Best For | Cut |
-|----------|----------|-----|
-| Patreon | Exclusive content | 5-12% |
-| Ko-fi | Tips + memberships | 0-5% |
-| Substack | Newsletters | 10% |
-| Gumroad | Products + memberships | 10% |
-| Own site | Full control | Payment fees only |
+| Platform type | Decision criteria |
+|---------------|-------------------|
+| Membership platform | Verify the current fees, payout availability, tax handling, and content-policy fit. |
+| Newsletter platform | Verify current revenue share, payment processing, and subscriber-data controls. |
+| Digital-product platform | Verify current fees, fulfilment options, refund policy, and rights terms. |
+| Own site | Account for payment processing, taxes, security, fulfilment, and support. |
 
 ### Tier Structure
 ```
@@ -138,7 +119,7 @@ $50/mo: 1-on-1 access, custom content
 
 ## Brand Deal Workflow
 
-1. **Receive inquiry** → Respond within 24h
+1. **Receive inquiry** → Draft a response; send it only after the user confirms the recipient and terms.
 2. **Qualify opportunity**
    - Does it fit persona?
    - Reasonable budget?
@@ -150,7 +131,7 @@ $50/mo: 1-on-1 access, custom content
    - Usage rights
    - Exclusivity
 4. **Create contract** (or sign theirs, reviewed)
-5. **Receive payment** (50% upfront preferred)
+5. **Receive payment** according to the mutually executed contract.
 6. **Create content** with brand input
 7. **Submit for approval**
 8. **Post on agreed date**
@@ -182,7 +163,7 @@ Create PDF with:
 
 ## Revenue Tracking
 
-Log in `$STATE_ROOT/{persona-slug}/analytics.md`:
+Log in `<state_root>/{persona-slug}/analytics.md`:
 
 ```markdown
 ## Revenue - [Month]
@@ -207,7 +188,7 @@ Log in `$STATE_ROOT/{persona-slug}/analytics.md`:
 
 Once established:
 
-1. **Raise rates** every 3-6 months
+1. **Review rates** when scope, performance evidence, costs, or market conditions materially change.
 2. **Long-term brand partnerships** (retainers)
 3. **Create own products** (highest margin)
 4. **Multiple influencer personas** (portfolio approach)
