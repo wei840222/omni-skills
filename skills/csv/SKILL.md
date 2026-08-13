@@ -1,6 +1,6 @@
 ---
 name: csv
-description: Parse, validate, and generate CSV or delimited text safely across spreadsheets and programs. Use when importing, exporting, cleaning, or troubleshooting CSV, TSV, or delimiter-separated data; not for native spreadsheet workbook editing.
+description: Parse, validate, and generate CSV or delimited text safely across spreadsheets and programs. Use when importing, exporting, cleaning, or troubleshooting CSV, TSV, or delimiter-separated data; route formulas, charts, and workbook editing to a native-workbook workflow.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊"}'
@@ -8,7 +8,7 @@ metadata:
 
 ## Choose an interchange contract
 
-Before parsing or generating data, identify the producer, consumer, delimiter, encoding, header policy, and whether a spreadsheet will open the file. Treat semicolon-, tab-, and pipe-delimited data as explicit dialects rather than assuming they are RFC 4180 CSV. When the producer contract is unavailable, sample multiple records, test a small delimiter allowlist, and validate the selected dialect against the full file before transforming it.
+Before parsing or generating data, identify the producer, consumer, delimiter, encoding, header policy, and whether a spreadsheet will open the file. Treat semicolon-, tab-, and pipe-delimited data as explicit dialects; reserve an RFC 4180 profile for comma-delimited interchange. When the producer contract is unavailable, sample multiple records, test a small delimiter allowlist, and validate the selected dialect against the full file before transforming it.
 
 For an RFC 4180-compatible profile, use commas, `CRLF` record terminators, an optional first-row header, and a consistent field count. The final record may include or omit its terminating line break.
 
