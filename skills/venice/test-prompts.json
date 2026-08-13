@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Visitor planning to avoid tourist traps",
+    "prompt": "I'm planning a 3-day trip to Venice in May. Where should I stay and what are the best ways to get around managing tourist areas?",
+    "expected": "Recommendations for staying in Cannaregio or Dorsoduro, buying a vaporetto pass, and eating away from San Marco.",
+    "actual": "Recommendations for staying in Cannaregio, purchasing a 3-day vaporetto pass, and dining in local bacari.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Visitor with mobility challenges",
+    "prompt": "My elderly mother uses a cane. How do we get from the train station to our hotel near St. Mark's Basilica?",
+    "expected": "Advice on taking the vaporetto (line 1 or 2) directly to San Marco to avoid bridges, and considering a water taxi if budget allows.",
+    "actual": "Take Vaporetto Line 1 or 2 from Ferrovia to San Marco Vallaresso or San Zaccaria to minimize bridge crossings with steps.",
+    "pass": true
+  }
+]
