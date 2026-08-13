@@ -1,19 +1,10 @@
 ---
-name: Venice
-slug: venice
-version: 1.0.0
-description: Navigate Venice as visitor or resident with neighborhoods, transport by water, costs, local insights, and authentic experiences beyond tourist traps.
-homepage: https://clawic.com/skills/venice
+name: venice
+description: Navigate Venice as a visitor or resident using practical guidance on neighborhoods, water transport, costs, local dining, and managing tourist areas.
 metadata:
-  clawdbot:
-    emoji: 🏛️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Venice
+  version: "1.0.0"
+  clawdbot: '{"emoji":"🏛️","requires":{"bins":[]},"os":["linux","darwin","win32"],"displayName":"Venice"}'
+  related-skills: '{"travel": "General travel planning and logistics", "dubai": "Compare luxury city destination", "toronto": "Compare with another major city skill"}'
 ---
 
 ## When to Use
@@ -25,39 +16,39 @@ User asks about Venice for any purpose: visiting, understanding the city, planni
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Must-see vs skip | `visitor-attractions.md` |
-| Itineraries (1/3/5 days) | `visitor-itineraries.md` |
-| Where to stay by area | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Must-see vs skip | `references/visitor-attractions.md` |
+| Itineraries (1/3/5 days) | `references/visitor-itineraries.md` |
+| Where to stay by area | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods (Sestieri)** | |
-| Quick comparison | `neighborhoods-index.md` |
-| San Marco & Castello | `neighborhoods-sanmarco.md` |
-| Dorsoduro & Giudecca | `neighborhoods-dorsoduro.md` |
-| San Polo & Santa Croce | `neighborhoods-sanpolo.md` |
-| Cannaregio & Jewish Ghetto | `neighborhoods-cannaregio.md` |
-| Islands (Murano, Burano, Lido) | `neighborhoods-islands.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| San Marco & Castello | `references/neighborhoods-sanmarco.md` |
+| Dorsoduro & Giudecca | `references/neighborhoods-dorsoduro.md` |
+| San Polo & Santa Croce | `references/neighborhoods-sanpolo.md` |
+| Cannaregio & Jewish Ghetto | `references/neighborhoods-cannaregio.md` |
+| Islands (Murano, Burano, Lido) | `references/neighborhoods-islands.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Venetian cuisine | `food-local.md` |
-| Cicchetti & bacari culture | `food-cicchetti.md` |
-| Best areas for dining | `food-areas.md` |
-| Practical (reservations, tourist traps) | `food-practical.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Venetian cuisine | `references/food-local.md` |
+| Cicchetti & bacari culture | `references/food-cicchetti.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Practical (reservations, tourist traps) | `references/food-practical.md` |
 | **Practical** | |
-| Transport (vaporetti, water taxis) | `transport.md` |
-| Cost of living & visiting | `cost.md` |
-| Safety & scams | `safety.md` |
-| Weather & acqua alta | `climate.md` |
-| Local services | `local.md` |
+| Transport (vaporetti, water taxis) | `references/transport.md` |
+| Cost of living & visiting | `references/cost.md` |
+| Safety & scams | `references/safety.md` |
+| Weather & acqua alta | `references/climate.md` |
+| Local services | `references/local.md` |
 | **Culture** | |
-| History & context | `history.md` |
-| Art & museums | `art.md` |
-| Carnevale & festivals | `festivals.md` |
-| Venetian customs | `culture.md` |
+| History & context | `references/history.md` |
+| Art & museums | `references/art.md` |
+| Carnevale & festivals | `references/festivals.md` |
+| Venetian customs | `references/culture.md` |
 | **Sustainability** | |
-| Overtourism & responsible visit | `sustainability.md` |
+| Overtourism & responsible visit | `references/sustainability.md` |
 | **Memory** | |
-| Trip state template | `memory-template.md` |
+| Trip state template | `references/memory-template.md` |
 
 ## Core Rules
 
@@ -73,7 +64,7 @@ Venice is 118 small islands connected by 400+ bridges:
 - **Walking + boats** are the only options
 - **Getting lost is inevitable** — and part of the charm
 - **Bridges have steps** — no ramps in most places
-See `transport.md` for navigation strategies.
+See `references/transport.md` for navigation strategies.
 
 ### 3. Tourist Trap Capital
 Venice has more tourist traps per square meter than anywhere in Europe:
@@ -81,7 +72,7 @@ Venice has more tourist traps per square meter than anywhere in Europe:
 - **"Tourist menus"**: Poor quality at premium prices
 - **Gondola scams**: Always agree price before boarding
 - **Glass "Murano"**: Much sold in Venice is Chinese-made
-See `food-practical.md` and `safety.md` for avoidance strategies.
+See `references/food-practical.md` and `references/safety.md` for avoidance strategies.
 
 ### 4. Water & Weather
 Venice's relationship with water defines daily life:
@@ -89,7 +80,7 @@ Venice's relationship with water defines daily life:
 - **Humidity**: High year-round, affects comfort and art preservation
 - **Fog (nebbia)**: Winter mornings can be atmospheric but disorienting
 - **Summer**: Hot, crowded, mosquitoes near canals
-See `climate.md` for monthly breakdown and preparation.
+See `references/climate.md` for monthly breakdown and preparation.
 
 ### 5. Current Data (Feb 2026)
 
@@ -148,7 +139,7 @@ Venice is expensive but manageable with strategy:
 
 - **Standing vs sitting prices** — Coffee €1.50 standing, €6+ at table (especially San Marco). Ask "al banco?" for bar price.
 - **Restaurant "cover charge"** (coperto) — €2-5/person is normal. Check menu for it.
-- **"Menu turistico"** — Fixed menus near San Marco = tourist trap food. Avoid.
+- **"Menu turistico"** — Fixed menus near San Marco are typically tourist traps. Select alternative local restaurants.
 - **Fake Murano glass** — Ask for certificate. If price seems too good, it's Chinese.
 - **Gondola overcharging** — Official rate €80/30min. Agree price AND duration before boarding.
 - **Wrong vaporetto direction** — San Marco has multiple stops. Check direction on digital signs.
@@ -166,7 +157,7 @@ Venice is challenging for mobility issues:
 - **"Accessible" routes exist** but are limited and indirect
 - **Strollers**: Possible but exhausting — consider baby carrier
 
-See `transport.md` for accessible route information.
+See `references/transport.md` for accessible route information.
 
 ## Architecture
 
@@ -175,14 +166,7 @@ See `transport.md` for accessible route information.
 ├── memory.md          # Trip state, bookings, visited spots
 ```
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
+## State location
+- Workspace-first: `~/workspace/venice/memory.md` (fallback: `~/Clawic/data/venice/memory.md`)
+- Creation behavior: Create from `references/memory-template.md` if not exists.
 
-- `travel` — General travel planning and logistics
-- `dubai` — Compare luxury city destination
-- `toronto` — Compare with another major city skill
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/venice
-- Latest version: https://clawic.com/skills/venice
