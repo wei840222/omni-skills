@@ -2,15 +2,22 @@
   {
     "id": 1,
     "prompt": "I want to buy a 3-bedroom apartment in Madrid for under 400k.",
-    "expected": "Creates client profile, tracks preferences, suggests portals like Idealista",
-    "actual": "Created a client profile in $STATE_ROOT/memory.md tracking a budget of 400k for a 3-bedroom apartment in Madrid. Suggested Idealista to begin the search and queued an alert for new listings.",
-    "pass": true
+    "expected": "Confirm role/timeline, resolve or create <state_root> only with consent, capture budget/location in memory.md, and suggest relevant portals such as Idealista with alert opt-in.",
+    "actual": "",
+    "pass": false
   },
   {
     "id": 2,
     "prompt": "I need to sell my house in London, but it's been on Rightmove for 2 months with no viewings.",
-    "expected": "Asks for listing details to audit, suggests price review or photo optimization.",
-    "actual": "Requested the Rightmove listing URL to audit photos and description. Noted the 2-month DOM indicates a possible price or presentation issue and recommended reviewing the 'hero shot' per listing-optimization guidelines.",
-    "pass": true
+    "expected": "Ask for listing details/URL, audit presentation and price position using listing-optimization guidance, and propose concrete next steps.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "Is this London flat a good buy at £650k?",
+    "expected": "Request comps/context, load analysis.md valuation framework, stay inside agent scope, and hand deep investment or legal review to related skills when needed.",
+    "actual": "",
+    "pass": false
   }
 ]
