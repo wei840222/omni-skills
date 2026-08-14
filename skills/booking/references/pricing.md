@@ -16,7 +16,7 @@
 | Fee Type | Platform | Notes |
 |----------|----------|-------|
 | Cleaning fee | Airbnb, VRBO | Often €50-150, kills short stays |
-| Service fee | Airbnb, Booking | 12-15% typically |
+| Service fee | Airbnb, Booking | Varies by platform (e.g. Airbnb guest service fee usually ~14.2%, but varies based on factors; some Airbnb hosts use a 15.5% host-only fee. Ref: https://www.airbnb.com/help/article/1857) |
 | Tourist/city tax | Hotels, Airbnb | €1-5/night/person, varies by city |
 | Resort fee | US hotels | $25-50/night, often hidden until checkout |
 | Extra person fee | Airbnb | Per additional guest/night |
@@ -24,7 +24,7 @@
 
 ## Monthly Stay Pricing
 
-**Never multiply nightly × 30.**
+**Always check for monthly rates instead of multiplying nightly by 30.**
 
 Most platforms offer monthly discounts:
 - Airbnb: 20-50% off for 28+ nights

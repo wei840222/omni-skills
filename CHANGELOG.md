@@ -53,6 +53,13 @@ This table is the canonical record of skill refactor pull requests merged into `
 | influencer         | 2026-08-12 | 88/100 (author-reported) |
 | folders            | 2026-08-13 | 89/100 (author-reported; dry-run) |
 | csv                | 2026-08-13 | 85.7/100 (author-reported; dry-run; PR #31) |
+| venice             | 2026-08-13 | 86/100                   |
+| literature         | 2026-08-13 | 82/100                   |
+| windmill           | 2026-08-13 | 85/100 (author-reported) |
+| travel-planning    | 2026-08-13 | 85/100 (author-reported) |
+| maps               | 2026-08-13 | 85/100 (author-reported) |
+| flight             | 2026-08-14 | 85/100 (author-reported) |
+| booking            | 2026-08-14 | 85/100 (author-reported; dry-run; PR #38) |
 
 ## Updating This Changelog
 
@@ -62,5 +69,3 @@ For every skill-refactor pull request:
 2. Create the pull request targeting `main`.
 3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
-| venice             | 2026-08-13 | 86/100                   |
-| literature         | 2026-08-13 | 82/100                   |

@@ -5,7 +5,7 @@
 | Platform | Best For | Watch Out |
 |----------|----------|-----------|
 | **Booking.com** | Hotels, last-minute, free cancellation | Prices sometimes beat Airbnb after fees |
-| **Airbnb** | Apartments, kitchen access, monthly stays | Fees can add 20-40% to listed price |
+| **Airbnb** | Apartments, kitchen access, monthly stays | Fees can add significantly to listed price. Review service fee structures (Ref: https://www.airbnb.com/help/article/1857) |
 | **Hotels.com** | Loyalty rewards, business travel | Collect 10 nights → 1 free night |
 | **Hostelworld** | Hostels, backpackers | Book direct on hostel site often 10-15% cheaper |
 | **VRBO** | Family vacation rentals | US-focused, less international |
@@ -45,9 +45,9 @@ Many hostels offer 10-15% cheaper rates on their own website vs Hostelworld.
 ## API/Scraping Notes
 
 **Live data priority:**
-- Never recommend based on training data prices
+- Base every quote on a live availability and price check
 - Use web_fetch or browser to check current availability
-- If unable to verify live: state "prices may have changed, verify before booking"
+- If unable to verify live: state "prices may have changed, verify before booking" and exclude that option from a firm recommendation
 
 ## Loyalty Program Considerations
 
