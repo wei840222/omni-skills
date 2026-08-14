@@ -61,6 +61,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | flight             | 2026-08-14 | 85/100 (author-reported) |
 | booking            | 2026-08-14 | 85/100 (author-reported; dry-run; PR #38) |
 | documents          | 2026-08-14 | 85/100 (author-reported; dry-run; PR #39) |
+| real-estate-agent  | 2026-08-14 | 90/100 (author-reported; dry-run; PR #40) |
 
 ## Updating This Changelog
 
