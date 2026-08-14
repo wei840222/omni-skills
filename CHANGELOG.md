@@ -60,6 +60,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | maps               | 2026-08-13 | 85/100 (author-reported) |
 | flight             | 2026-08-14 | 85/100 (author-reported) |
 | booking            | 2026-08-14 | 85/100 (author-reported; dry-run; PR #38) |
+| documents          | 2026-08-14 | 85/100 (author-reported; dry-run; PR #39) |
 
 ## Updating This Changelog
 
