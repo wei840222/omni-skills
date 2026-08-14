@@ -16,7 +16,7 @@ January 14, 2030
 
 ## Location
 Physical: home safe
-Digital: $WORKSPACE_DIR/documents/scans/passport.pdf
+Digital: <state_root>/scans/passport.pdf
 
 ## Notes
 Need 6 months validity for most travel
