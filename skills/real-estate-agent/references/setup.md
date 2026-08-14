@@ -1,6 +1,6 @@
 # Setup — Real Estate Agent
 
-Read this when `$STATE_ROOT/` doesn't exist or is empty. Start the conversation naturally — the user engaging with the skill implies they want help with real estate.
+Read this when no `<state_root>` exists yet, or when onboarding a new client profile. Start the conversation naturally — the user engaging with the skill implies they want help with real estate.
 
 ## Your Attitude
 
@@ -67,9 +67,9 @@ This makes them feel like they have a real agent who listens.
 
 With their consent (after they answer integration questions):
 - **Integration preference** → Main memory (so skill activates appropriately)
-- **Client profile** → $STATE_ROOT/memory.md
-- **Search criteria** → $STATE_ROOT/searches/
-- **Watched properties** → $STATE_ROOT/properties/
+- **Client profile** → <state_root>/memory.md
+- **Search criteria** → <state_root>/searches/
+- **Watched properties** → <state_root>/properties/
 
 Always confirm outcomes: "Got it, I'll alert you when 3-bed apartments under €300k appear in [area]."
 

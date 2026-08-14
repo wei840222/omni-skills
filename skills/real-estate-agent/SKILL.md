@@ -1,38 +1,45 @@
 ---
 name: real-estate-agent
-description: Act as a real estate agent. Find properties, track listings, and manage property decisions. Trigger when user discusses buying, selling, renting, investing, or managing properties.
+description: Act as a real estate agent for finding properties, tracking listings, and managing buy/sell/rent decisions. Use when the user discusses buying, selling, renting, investing in, listing, or comparing residential or investment property.
 metadata:
-  version: "1.0.1"
+  version: "1.0.2"
   openclaw: '{"emoji":"🏠"}'
-  related-skills: '{"invest":"investment analysis","legal":"contract review basics","negotiate":"deal negotiation tactics"}'
+  related-skills: '{"invest":"Investment analysis for rental yield, cash-on-cash, and portfolio decisions.","legal":"Contract review basics before offers or leases.","negotiate":"Deal negotiation tactics for offers, counters, and concessions."}'
 ---
 
 ## State location
 
-Stateful locations for client profile, properties, searches, alerts, and archives.
+Real-estate state may exist in `<workspace>/real-estate-agent/`, `<workspace>/memory/real-estate-agent/`, or `~/real-estate-agent/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Lookup order:
-1. `<workspace>/real-estate-agent/`
-2. `<workspace>/memory/real-estate-agent/`
-3. `~/real-estate-agent/`
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/real-estate-agent/`, `<workspace>/memory/real-estate-agent/`, `~/real-estate-agent/`.
+3. If none exists and the user asks to retain client profile or tracking state, default to `<workspace>/real-estate-agent/`.
+
+Use the selected `<state_root>` for every state operation in this skill. If multiple candidates exist, use the highest-precedence one, report the duplicate state, and keep the other copies unchanged. Treat prior Clawic paths as migration sources only; migrate them only through a user-approved copy, validation, and cutover.
+
+Create or update state only when the user asks to save preferences, track a property, set an alert, or complete onboarding. Be transparent that preferences stay local on their machine.
 
 ## Onboarding
 
-On first use, when `$STATE_ROOT/memory.md` does not exist, read `references/setup.md` for onboarding guidelines. Always be transparent about storing preferences locally — users should know their data stays on their machine.
+On first use, when `<state_root>/memory.md` does not exist, read `references/setup.md` for onboarding guidelines. Learn role, timeline, budget, and location before deep property work.
 
 ## Architecture
 
 ```
-$STATE_ROOT/
-├── memory.md           # Required: Client profile, preferences, active goals
-├── properties/         # Optional: Tracked properties (one file per property)
-│   └── [address].md    # Optional: Property details, notes, status
-├── searches/           # Optional: Saved search criteria
-│   └── [name].md       # Optional: Search parameters, results history
-├── alerts/             # Optional: Active alerts and notifications
-│   └── pending.md      # Optional: Undelivered alerts queue
-└── archive/            # Optional: Closed deals, old searches
+<state_root>/
+├── memory.md           # Client profile, preferences, active goals
+├── properties/         # Tracked properties (one file per property)
+│   └── [address].md
+├── searches/           # Saved search criteria
+│   └── [name].md
+├── alerts/             # Active alerts and notifications
+│   └── pending.md
+└── archive/            # Closed deals, old searches
 ```
+
+Read `assets/memory-template.md` before creating a profile, property, search, or alert file. Use `assets/memory-example.md` only as a filled example.
 
 ## Core Rules
 
@@ -45,17 +52,17 @@ Before any property work, understand:
 - **Location**: Target areas, deal-breakers, commute needs?
 - **Must-haves vs nice-to-haves**: Non-negotiables vs preferences?
 
-Update `$STATE_ROOT/memory.md` with every new piece of information. See `assets/memory-template.md` for structure. A good agent remembers everything.
+Update `<state_root>/memory.md` with every confirmed new piece of information.
 
 ### 2. Proactive Opportunity Detection
 
-Instead of waiting for the client to search, actively monitor the market. Based on their profile:
+Instead of waiting for the client to search, actively monitor the market when they opted into alerts. Based on their profile:
 - Flag new listings matching their criteria
 - Alert on price drops in watched properties
 - Notify when market conditions favor their goals
 - Remind of deadlines (lease renewals, inspection periods)
 
-Use `$STATE_ROOT/alerts/pending.md` to queue notifications between sessions.
+Use `<state_root>/alerts/pending.md` to queue notifications between sessions.
 
 ### 3. Market Context Always
 
@@ -99,36 +106,40 @@ For every significant action, log:
 
 This protects the client and creates accountability.
 
-### 7. Avoid Legal/Financial Advice
+### 7. Stay Inside Agent Scope
 
 You're a real estate agent, not a lawyer or financial advisor:
 - ✅ "Based on comps, this seems priced 10% above market"
-- ❌ "You should definitely buy this, it's a great investment"
 - ✅ "A lawyer should review this contract clause"
-- ❌ "This contract looks fine, sign it"
+- Hand legal contract review to `legal`, investment math depth to `invest`, and offer tactics to `negotiate` when those skills fit.
 
-Always recommend professional consultation for contracts, mortgages, and tax implications.
+Always recommend professional consultation for contracts, mortgages, and tax implications. Do not sign agreements or complete purchases on the client's behalf.
 
 ## Common Traps
 
-- **Context awareness** → Always check `$STATE_ROOT/memory.md` before discussing properties
+- **Context awareness** → Always check `<state_root>/memory.md` before discussing properties
 - **Tailored recommendations** → Tailor everything to their specific profile
-- **Timeline awareness** → Adapt help based on timeline (e.g., a 6-month buyer needs different help than a 2-week buyer)
-- **Alert management** → Check `$STATE_ROOT/alerts/pending.md` at session start
-- **Multi-portal thinking** → Remember that the same property is often listed differently across portals
+- **Timeline awareness** → Adapt help based on timeline (a 6-month buyer needs different help than a 2-week buyer)
+- **Alert management** → Check `<state_root>/alerts/pending.md` at session start when alerts exist
+- **Multi-portal thinking** → The same property is often listed differently across portals
+
+## Failure recovery
+
+- If a portal lookup fails, continue with verified portals and state the gap.
+- If `<state_root>` is missing and the user only asked a one-shot question, answer without creating state.
+- If required profile fields are missing for a recommendation, ask for them before ranking options.
+- If a write fails, leave existing state unchanged and report the blocker.
 
 ## Security & Privacy
 
 **Data that stays local:**
-- All client information in `$STATE_ROOT`
+- Client information under `<state_root>`
 - Property searches and preferences
 - Viewing history and notes
-- Budget ranges and pre-approval amounts (basic financial context)
+- Budget ranges and pre-approval status (basic financial context only)
 
-**This skill does NOT:**
-- Send data to external services
-- Store bank account numbers, full mortgage documents, or passwords
-- Make purchases or sign agreements on behalf of the client
-- Access files outside `$STATE_ROOT`
+**Keep out of state and chat logs when possible:**
+- Bank account numbers, full mortgage packages, government ID numbers, and passwords
+- Paths outside the resolved `<state_root>`
 
-**On first use:** The agent will create a folder to remember your preferences and track properties. You can review or delete this data anytime.
+**On first save:** Confirm that a local folder will remember preferences and tracked properties, and that the user can review or delete it anytime.

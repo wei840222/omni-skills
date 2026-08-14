@@ -2,7 +2,7 @@
 
 ## Main Memory File
 
-Create `$STATE_ROOT/memory.md`:
+Create `<state_root>/memory.md`:
 
 ```markdown
 # Real Estate Agent — Client Profile
@@ -70,7 +70,7 @@ portals_used:
 
 ## Property File Template
 
-Create `$STATE_ROOT/properties/[address-or-id].md`:
+Create `<state_root>/properties/[address-or-id].md`:
 
 ```markdown
 # [Address or Property ID]
@@ -113,7 +113,7 @@ opportunities:
 
 ## Search Criteria Template
 
-Create `$STATE_ROOT/searches/[search-name].md`:
+Create `<state_root>/searches/[search-name].md`:
 
 ```markdown
 # [Search Name] — Search Criteria
@@ -144,7 +144,7 @@ last_checked: YYYY-MM-DD
 
 ## Alerts Queue Template
 
-Create `$STATE_ROOT/alerts/pending.md`:
+Create `<state_root>/alerts/pending.md`:
 
 ```markdown
 # Pending Alerts
@@ -170,4 +170,4 @@ Create `$STATE_ROOT/alerts/pending.md`:
 2. **Track everything** — Properties discussed, prices seen, decisions made
 3. **Price history matters** — Always log price changes for context
 4. **Separate concerns** — One file per property, one file per search
-5. **Archive don't delete** — Move closed deals to archive/, never lose history
+5. **Archive closed work** — Move closed deals to archive/ so history stays recoverable
