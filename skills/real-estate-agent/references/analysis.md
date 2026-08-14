@@ -253,3 +253,6 @@ Real estate is seasonal in most markets:
 - Expected DOM: X-Y days
 - Offer range expectation: €XXX,XXX - €XXX,XXX
 ```
+
+### Reference
+- [Real estate appraisal / Comparable sales](https://en.wikipedia.org/wiki/Real_estate_appraisal)

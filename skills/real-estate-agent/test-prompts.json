@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to buy a 3-bedroom apartment in Madrid for under 400k.",
+    "expected": "Confirm role/timeline, resolve or create <state_root> only with consent, capture budget/location in memory.md, and suggest relevant portals such as Idealista with alert opt-in.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "I need to sell my house in London, but it's been on Rightmove for 2 months with no viewings.",
+    "expected": "Ask for listing details/URL, audit presentation and price position using listing-optimization guidance, and propose concrete next steps.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "Is this London flat a good buy at £650k?",
+    "expected": "Request comps/context, load analysis.md valuation framework, stay inside agent scope, and hand deep investment or legal review to related skills when needed.",
+    "actual": "",
+    "pass": false
+  }
+]
