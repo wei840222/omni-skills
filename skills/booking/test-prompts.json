@@ -1,4 +1,23 @@
 [
-  {"id": 1, "prompt": "Find a 2-bedroom Airbnb in Lisbon for next weekend under €150/night total.", "expected": "Calculates total price including service/cleaning fees and provides 3 options.", "actual": "Provides 3 options with full fee calculation.", "pass": true},
-  {"id": 2, "prompt": "Book a cheap hostel in Berlin for tonight.", "expected": "Checks Hostelworld and direct sites, compares prices, provides cancellation policy.", "actual": "Compares Hostelworld and direct, notes cancellation terms.", "pass": true}
+  {
+    "id": 1,
+    "prompt": "Find a 2-bedroom Airbnb in Lisbon for next weekend under €150/night total for 2 adults.",
+    "expected": "Confirms dates/party, compares 3+ platforms, quotes all-in totals with fee breakdown, shortlists 3-5 options with cancellation and location context.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "Book a cheap hostel in Berlin for tonight.",
+    "expected": "Checks Hostelworld and direct hostel sites, compares live totals, states cancellation policy, and stops at a checkout checkpoint for user confirmation before payment.",
+    "actual": "",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "I need a one-month furnished place in Barcelona under €1800 all-in for remote work.",
+    "expected": "Uses monthly rates instead of nightly×30, checks long-stay platforms, verifies wifi/review patterns for workers, and presents total monthly cost with deposit/utilities caveats.",
+    "actual": "",
+    "pass": false
+  }
 ]

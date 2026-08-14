@@ -45,9 +45,9 @@ Many hostels offer 10-15% cheaper rates on their own website vs Hostelworld.
 ## API/Scraping Notes
 
 **Live data priority:**
-- Never recommend based on training data prices
+- Base every quote on a live availability and price check
 - Use web_fetch or browser to check current availability
-- If unable to verify live: state "prices may have changed, verify before booking"
+- If unable to verify live: state "prices may have changed, verify before booking" and exclude that option from a firm recommendation
 
 ## Loyalty Program Considerations
 
