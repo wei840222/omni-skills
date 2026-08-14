@@ -1,0 +1,14 @@
+[
+  {
+    "id": "doc_1",
+    "scenario": "User asks where to find their lease agreement",
+    "prompt": "Where is my lease agreement?",
+    "expected": "Check $WORKSPACE_DIR/documents/property/lease.md"
+  },
+  {
+    "id": "doc_2",
+    "scenario": "User asks when their passport expires and it is in 5 months",
+    "prompt": "When does my passport expire?",
+    "expected": "Flag the passport as expiring within 6 months and warn the user."
+  }
+]

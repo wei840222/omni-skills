@@ -1,28 +1,22 @@
 ---
-name: Documents
-slug: documents
-version: 1.0.0
+name: documents
 description: Build a personal document system for instant access to IDs, contracts, certificates, and important files.
-homepage: https://clawic.com/skills/documents
 metadata:
-  clawdbot:
-    emoji: 📄
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Documents
+  clawdbot: '{"emoji":"📄","os":["linux","darwin","win32"],"displayName":"Documents"}'
 ---
+
+## State location
+- Workspace docs: `$WORKSPACE_DIR/documents/`
 
 ## Core Behavior
 - User needs a document → locate instantly
 - User receives important doc → help catalog it
 - User asks "where is my X" → answer in seconds
-- Create `~/docs/` as workspace
+- Create `$WORKSPACE_DIR/documents/` as workspace
 
 ## File Structure
 ```
-~/docs/
+$WORKSPACE_DIR/documents/
 ├── identity/
 │   ├── passport.md
 │   ├── drivers-license.md
@@ -49,45 +43,8 @@ metadata:
 └── index.md
 ```
 
-## Document Entry Format
-```markdown
-# passport.md
-## Document
-US Passport
-
-## Number
-[stored securely, reference only]
-
-## Issued
-January 15, 2020
-
-## Expires
-January 14, 2030
-
-## Location
-Physical: home safe
-Digital: ~/Clawic/data/documents/scans/passport.pdf
-
-## Notes
-Need 6 months validity for most travel
-Renew by July 2029
-```
-
-## Quick Reference Index
-```markdown
-# index.md
-## Expiring Soon
-- Driver's license: March 2024
-- Car registration: December 2024
-
-## Frequently Needed
-- Health insurance card: medical/insurance.md
-- Lease agreement: property/lease.md
-
-## Emergency Access
-- Passport number: identity/passport.md
-- Insurance policy: property/insurance.md
-```
+## Reference Formats
+- See `references/document_formats.md` for Document Entry Format and Quick Reference Index formats.
 
 ## Identity Documents
 - Passport: number, issue/expiry, renewal timeline
@@ -140,7 +97,7 @@ Renew by July 2029
 
 ## Expiry Tracking
 Flag documents expiring within:
-- 6 months: passport (travel requirement)
+- 6 months: passport (travel requirement - many countries require passport validity of at least 6 months on arrival, see https://en.wikipedia.org/wiki/Passport_validity)
 - 2 months: licenses, registrations
 - 1 month: insurance renewals
 
@@ -156,8 +113,8 @@ Flag documents expiring within:
 - Week 3: medical and vehicles
 - Ongoing: add as documents arrive
 
-## What NOT To Do
-- Store full sensitive numbers in plain text
-- Forget to update after renewals
-- Lose track of physical locations
-- Skip expiry date tracking
+## Best Practices
+- Always store sensitive numbers securely and avoid plain text.
+- Always update documents immediately after renewals.
+- Always maintain accurate records of physical locations.
+- Always track expiry dates and flag appropriately.
