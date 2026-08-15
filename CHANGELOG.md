@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill              | Date       | Darwin Score             |
 | ------------------ | ---------- | ------------------------ |
 | coin-identifier    | 2026-08-15 | 84/100 (reviewer structural dry-run; PR #44) |
+| android            | 2026-08-16 | 84/100 (reviewer structural dry-run; PR #45) |
 | app-store-connect  | 2026-08-15 | 89/100 (author-reported; dry-run; PR #43) |
 | hiring             | 2026-08-15 | 90/100                   |
 | accounting         | 2026-08-15 | 85/100                   |
