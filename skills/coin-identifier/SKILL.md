@@ -1,6 +1,6 @@
 ---
 name: coin-identifier
-description: Identify coins from photos using visual checks and mint marks. Provides ranked candidates and asks for specific views if evidence is incomplete.
+description: Identify coins from photos using visual checks, legends, dates, and mint marks. Use when a user needs a ranked coin identification, an evidence checklist, or a precise follow-up photo request.
 metadata:
   openclaw: '{"emoji":"🪙"}'
   related-skills: '{"image":"inspect and optimize photos before identification","image-edit":"crop, isolate, and clean up the subject for clearer review","inventory":"maintain a broader catalog once coins are identified","scanner":"improve flat top-down captures of coins, cards, or documents"}'
@@ -100,4 +100,3 @@ Safety Boundaries:
 - Treating any silver-colored coin as silver bullion -> composition and coin type get conflated.
 - Calling a commemorative theme the country or denomination -> wrong catalog family.
 - Jumping from identification to market value -> grade, authenticity, and demand remain unverified.
-
