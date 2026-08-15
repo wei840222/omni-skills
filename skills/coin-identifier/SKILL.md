@@ -2,6 +2,7 @@
 name: coin-identifier
 description: Identify coins from photos using visual checks, legends, dates, and mint marks. Use when a user needs a ranked coin identification, an evidence checklist, or a precise follow-up photo request.
 metadata:
+  version: "1.0.0"
   openclaw: '{"emoji":"🪙"}'
   related-skills: '{"image":"inspect and optimize photos before identification","image-edit":"crop, isolate, and clean up the subject for clearer review","inventory":"maintain a broader catalog once coins are identified","scanner":"improve flat top-down captures of coins, cards, or documents"}'
 ---
