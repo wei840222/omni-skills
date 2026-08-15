@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy path with clear obverse and reverse",
+    "prompt": "Here are photos of a coin (straight obverse and reverse). It has 'LIBERTY' and '1909' on the front, and 'ONE CENT' with wheat ears on the back.",
+    "expected": "Uses evidence guide to rank 1909 Lincoln Wheat Cent candidates. Notes missing V.D.B. or mint mark (S) evidence and asks for a closer view of those areas. Does not guarantee value.",
+    "actual": "Identified as 1909 Lincoln Wheat Cent. Confidence: High (90%). Listed missing evidence for 'S' mint mark and 'V.D.B.' initials. Requested close crop of reverse bottom and obverse below date.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex edge case with reflective angled photo",
+    "prompt": "What is this silver colored coin? (user provides one blurry, angled photo where only a profile is barely visible)",
+    "expected": "Refuses to guess a single answer. Asks for a tighter, straight-on view to see date, country, and mint marks. States it cannot confirm if it is silver bullion.",
+    "actual": "Noted the angled/reflective view. Provided a low-confidence shortlist (US Quarter, Silver Eagle, generic round) but requested a straight-on photo to read legends and confirm metal type.",
+    "pass": true
+  }
+]
