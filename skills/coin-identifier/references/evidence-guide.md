@@ -32,5 +32,7 @@ State these limitations clearly when evaluating evidence:
 - Photos alone cannot prove mint error rarity.
 
 ## Research Sources
-- Numismatics Overview: https://en.wikipedia.org/wiki/Numismatics
-- Coin Grading Standards: https://en.wikipedia.org/wiki/Coin_grading
+Use these for terminology and the distinction between identification and grading; they do not turn a photo review into authentication.
+
+- Numismatics overview: https://en.wikipedia.org/wiki/Numismatics
+- Coin grading overview: https://en.wikipedia.org/wiki/Coin_grading
