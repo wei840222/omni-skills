@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "I need to check why my Android Gradle build fails with 'OutOfMemoryError: Java heap space'.",
+    "expected": "Advises increasing the JVM heap size in gradle.properties.",
+    "actual": "To fix the 'OutOfMemoryError: Java heap space' during a Gradle build, you should increase the JVM memory allocation for the Gradle daemon. Add or update this line in your `gradle.properties` file: `org.gradle.jvmargs=-Xmx2048m` (you can increase it to `4096m` or higher depending on your project size and machine RAM).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "My Compose app is losing state on rotation but keeps it fine otherwise, what's wrong?",
+    "expected": "Explains remember vs rememberSaveable or ViewModel.",
+    "actual": "The state loss on rotation happens because `remember` only survives recomposition, not configuration changes like rotation. To fix this, you should use `rememberSaveable` instead, which saves the state across activity recreation. Alternatively, if the state is complex or shared, move it into a `ViewModel`, which is also retained during configuration changes.",
+    "pass": true
+  }
+]
