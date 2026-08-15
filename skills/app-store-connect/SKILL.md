@@ -1,35 +1,21 @@
 ---
-name: App Store Connect
-slug: app-store-connect
-version: 1.0.0
-description: Manage iOS apps, TestFlight builds, submissions, and analytics via App Store Connect API.
-homepage: https://clawic.com/skills/app-store-connect
+name: app-store-connect
+description: Execute Apple App Store Connect API workflows for app management, TestFlight distribution, metadata updates, and build submission. Use when the user needs JWT auth, list or update apps, upload/process builds, manage TestFlight groups/testers, submit for App Review, or download sales reports via the App Store Connect API.
 metadata:
-  clawdbot:
-    emoji: 🍎
-    requires:
-      bins: []
-      env:
-      - ASC_ISSUER_ID
-      - ASC_KEY_ID
-      - ASC_PRIVATE_KEY_PATH
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: App Store Connect
+  version: "1.0.0"
+  openclaw: '{"emoji":"🍎","requires":{"env":["ASC_ISSUER_ID","ASC_KEY_ID","ASC_PRIVATE_KEY_PATH"]}}'
+  related-skills: '{"ios":"iOS development patterns","swift":"Swift language reference","xcode":"Xcode IDE workflows","mobile-app-analytics":"Mobile metrics including App Store Connect analytics"}'
 ---
 
 ## When to Use
 
 User needs to manage iOS/macOS apps on App Store Connect. Agent handles API authentication, build management, TestFlight distribution, App Review submissions, and analytics retrieval.
 
-## Quick Reference
+## Setup and Operations
 
-| Topic | File |
-|-------|------|
-| API Authentication | `api-auth.md` |
-| Common Workflows | `workflows.md` |
+When the user requests App Store Connect operations (like TestFlight uploads, API calls, or metadata updates):
+1. For authentication rules, JWT generation, and key formats, refer to `references/api-auth.md`.
+2. For specific API call sequences, test distribution, and submission flows, refer to `references/workflows.md`.
 
 ## Core Rules
 
@@ -43,7 +29,7 @@ App Store Connect API uses JWT tokens signed with your private key.
 # ASC_PRIVATE_KEY_PATH - Path to your .p8 private key file
 ```
 
-Generate JWT with ES256 algorithm, 20-minute expiration max. See `api-auth.md` for code examples.
+Generate JWT with ES256 algorithm, 20-minute expiration max. See `references/api-auth.md` for code examples.
 
 ### 2. API Versioning
 Always specify API version in requests.
@@ -65,7 +51,7 @@ Builds go through states after upload:
 | INVALID | Validation failed | Fix issues, re-upload |
 | VALID | Ready for testing/submission | Proceed |
 
-Never submit a build that is not `VALID`.
+Only submit a build once its state reaches `VALID`.
 
 ### 4. TestFlight Distribution
 - **Internal Testing**: Up to 100 members, builds available immediately after processing
@@ -91,7 +77,7 @@ Retry-After: 60
 ```
 
 ### 7. Bundle ID Management
-Bundle IDs are permanent once created. Cannot be deleted or renamed.
+Bundle IDs are permanent once created; ensure names are final before registration.
 
 - Use reverse-domain notation: `com.company.appname`
 - Plan naming carefully before registration
@@ -122,22 +108,24 @@ No other data is sent externally.
 - Analytics queries
 
 **Data that stays local:**
-- API private key (.p8) - never transmit
-- JWT tokens - generated locally
+- API private key (.p8) - keep only on disk at `ASC_PRIVATE_KEY_PATH`
+- JWT tokens - generated locally, short-lived
 - Downloaded reports
 
-**This skill does NOT:**
-- Store your .p8 key in plain text
-- Share credentials with third parties
-- Access apps outside your team
+**Operating boundaries:**
+- Keep the `.p8` private key out of commits, chat logs, and shared storage
+- Use credentials only for the authorized App Store Connect team
+- Scope API keys to the least role required for the task
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ios` — iOS development patterns
-- `swift` — Swift language reference
-- `xcode` — Xcode IDE workflows
+## State location
 
-## Feedback
+App Store Connect API primarily manipulates remote Apple state. Optional local artifacts (JWT scratch files, downloaded reports, working notes) may exist in `<workspace>/app-store-connect/`, `<workspace>/memory/app-store-connect/`, `<workspace>/.app-store-connect-state/`, or `~/app-store-connect/`.
 
-- If useful, star it: https://clawic.com/skills/app-store-connect
-- Latest version: https://clawic.com/skills/app-store-connect
+Before reading or writing local state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/app-store-connect/`, `<workspace>/memory/app-store-connect/`, `<workspace>/.app-store-connect-state/`, `~/app-store-connect/`.
+3. If none exists and local artifacts must be created, default to `<workspace>/app-store-connect/` after user confirmation.
+
+Use the selected `<state_root>` for every local state operation in this skill. Never store `.p8` keys inside the skill package or any version-controlled path; keep keys at `ASC_PRIVATE_KEY_PATH` outside git. Exclude `<state_root>` from version control when it holds reports or temporary files.

@@ -143,7 +143,7 @@ curl -X PATCH -H "Authorization: Bearer $JWT" \
 ```bash
 # Get sales report
 curl -H "Authorization: Bearer $JWT" \
-  -H "Accept: application/a]gzip" \
+  -H "Accept: application/a-gzip" \
   "https://api.appstoreconnect.apple.com/v1/salesReports?\
 filter[reportType]=SALES&\
 filter[reportSubType]=SUMMARY&\

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Happy Path",
+    "prompt": "Create an App Store Connect API JWT and fetch the list of apps.",
+    "expected": "A script or API call snippet is produced leveraging the required ASC variables to successfully output the list of apps from the App Store Connect v1 API.",
+    "actual": "Generated a Python script using the ES256 algorithm and the `jwt` library to sign a token with `ASC_ISSUER_ID`, `ASC_KEY_ID`, and the private key, then performed an HTTP GET to `https://api.appstoreconnect.apple.com/v1/apps` returning the app list JSON.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex Build Distribution",
+    "prompt": "We just uploaded a new build. Please wait for it to process, add it to our external TestFlight group, and submit it for Beta App Review. We already have the metadata.",
+    "expected": "Uses backoff to poll build state until VALID, links the build to the TestFlight group, and initiates a BetaAppReviewSubmission.",
+    "actual": "Provided a bash sequence demonstrating polling the build API to verify state transitions from PROCESSING to VALID, followed by the API calls to associate the build to a BetaGroup and create a BetaAppReviewSubmission.",
+    "pass": true
+  }
+]
