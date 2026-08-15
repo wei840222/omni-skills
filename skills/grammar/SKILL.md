@@ -1,54 +1,32 @@
 ---
-name: Grammar
-slug: grammar
-version: 1.0.0
-description: Correct grammar and spelling without changing meaning or style.
-homepage: https://clawic.com/skills/grammar
+name: grammar
+description: Correct grammar, spelling, punctuation, and agreement while preserving intended meaning, voice, formatting, language variety, and register. Use when a user asks to proofread text, fix writing errors, or explain corrections.
 metadata:
-  clawdbot:
-    emoji: ✏️
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Grammar
+  version: "1.0.0"
+  openclaw: '{"emoji":"✏️"}'
 ---
 
-## Core Principle
+## Workflow
 
-- Fix only actual errors: spelling, grammar, punctuation, agreement
-- Preserve the author's voice, word choices, and sentence structure
-- Never rewrite for "improvement" unless explicitly asked
-- When uncertain if something is an error, leave it unchanged
+1. Identify the text's language, regional variety, register, and intended meaning before editing.
+2. Correct actual spelling, grammar, punctuation, and agreement errors.
+3. Preserve the author's voice, word choices, sentence structure, capitalization, and formatting. Treat intentional fragments, dialect, informal constructions, code-switching, and loanwords as valid unless the user asks to standardize them.
+4. Keep regional conventions consistent with the source text, such as British or American spelling.
+5. If a possible correction could change meaning, ask a focused clarification question or retain the original wording.
 
-## Correction Output
+## Output
 
-- Return corrected text only, no explanations, unless user asks why
-- For longer texts, use a diff format or highlight changes when the interface supports it
-- Match the original formatting: if input has no capitals, output should match
+Use the narrowest correction that makes the text grammatically correct while retaining the author's intended meaning and established variety.
 
-## Language Handling
+After correcting the text:
 
-- Detect language automatically from input text
-- Apply that language's grammar rules, not English defaults
-- Respect regional variants: British vs American spelling, formal vs informal registers
-- Code-switching and loanwords are often intentional, do not "correct" them
+- Return the corrected text only unless the user asks for explanations.
+- For a longer text, use the interface's supported diff or change-highlighting format when the user asks to see edits.
+- Match the original formatting, including intentional capitalization choices.
+- State that no corrections are needed when the text contains no actual errors.
 
-## Common Traps
+## Explanations and learning support
 
-- Overcorrection: changing style or "improving" phrasing when only errors were requested
-- False positives: flagging intentional fragments, informal constructions, or dialect features
-- Changing meaning: "fix" that alters what the author intended to say
-- Adding words: inserting articles, conjunctions, or transitions not in the original
+Load `references/grammar-guidelines.md` when explaining corrections, reviewing mixed language varieties, or deciding whether an apparent error is intentional style.
 
-## Academic Support
-
-- When helping students learn, explain the rule behind each correction if asked
-- Distinguish between error types: spelling, subject-verb agreement, tense, punctuation
-- For language learners, note if an error is common at their level without being patronizing
-
-## Always
-
-- Ask clarification only when text is ambiguous enough that correction could change meaning
-- State when a text has no errors rather than inventing corrections
-- Respect that some "errors" are stylistic choices in creative or informal writing
+When the user asks why, explain each correction in plain language and identify its type, such as spelling, subject-verb agreement, tense, or punctuation. For a language learner, describe the relevant rule at an appropriate level without changing the requested correction into a broader rewrite.

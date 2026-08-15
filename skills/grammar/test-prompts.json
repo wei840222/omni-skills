@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "Direct correction",
+    "prompt": "Fix this: Their going to the store.",
+    "expected": "They're going to the store.",
+    "actual": "They're going to the store.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Preserve regional spelling and informal style",
+    "prompt": "Proofread this without Americanizing it: The colour is brill, innit?",
+    "expected": "The text remains unchanged because its British spelling and informal register are intentional.",
+    "actual": "The colour is brill, innit?",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "Explain an error",
+    "prompt": "Correct and explain: The dogs barks a lot when it rain.",
+    "expected": "The dogs bark a lot when it rains, followed by concise subject-verb agreement explanations.",
+    "actual": "The dogs bark a lot when it rains. \"Dogs\" takes \"bark\", and singular \"it\" takes \"rains\".",
+    "pass": true
+  }
+]
