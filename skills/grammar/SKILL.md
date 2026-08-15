@@ -23,4 +23,6 @@ metadata:
 
 ## Explanations and learning support
 
+Load `references/grammar-guidelines.md` when explaining corrections, reviewing mixed language varieties, or deciding whether an apparent error is intentional style.
+
 When the user asks why, explain each correction in plain language and identify its type, such as spelling, subject-verb agreement, tense, or punctuation. For a language learner, describe the relevant rule at an appropriate level without changing the requested correction into a broader rewrite.
