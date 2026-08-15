@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill              | Date       | Darwin Score             |
 | ------------------ | ---------- | ------------------------ |
+| app-store-connect  | 2026-08-15 | 89/100 (author-reported; dry-run; PR #43) |
 | hiring             | 2026-08-15 | 90/100                   |
 | oracle-db          | 2026-08-11 | 85/100                   |
 | kanban             | 2026-08-12 | 95/100 (author-reported) |

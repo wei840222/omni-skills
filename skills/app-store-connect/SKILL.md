@@ -1,9 +1,10 @@
 ---
 name: app-store-connect
-description: Execute Apple App Store Connect API workflows for app management, TestFlight distribution, metadata updates, and build submission.
+description: Execute Apple App Store Connect API workflows for app management, TestFlight distribution, metadata updates, and build submission. Use when the user needs JWT auth, list or update apps, upload/process builds, manage TestFlight groups/testers, submit for App Review, or download sales reports via the App Store Connect API.
 metadata:
-  openclaw: '{"emoji":"🍎","requires":{"env":["ASC_ISSUER_ID","ASC_KEY_ID","ASC_PRIVATE_KEY_PATH"],"os":["linux","darwin","win32"]},"displayName":"App Store Connect"}'
-  related-skills: '{"ios":"iOS development patterns","swift":"Swift language reference","xcode":"Xcode IDE workflows"}'
+  version: "1.0.0"
+  openclaw: '{"emoji":"🍎","requires":{"env":["ASC_ISSUER_ID","ASC_KEY_ID","ASC_PRIVATE_KEY_PATH"]}}'
+  related-skills: '{"ios":"iOS development patterns","swift":"Swift language reference","xcode":"Xcode IDE workflows","mobile-app-analytics":"Mobile metrics including App Store Connect analytics"}'
 ---
 
 ## When to Use
@@ -107,15 +108,24 @@ No other data is sent externally.
 - Analytics queries
 
 **Data that stays local:**
-- API private key (.p8) - never transmit
-- JWT tokens - generated locally
+- API private key (.p8) - keep only on disk at `ASC_PRIVATE_KEY_PATH`
+- JWT tokens - generated locally, short-lived
 - Downloaded reports
 
-**This skill does NOT:**
-- Store your .p8 key in plain text
-- Share credentials with third parties
-- Access apps outside your team
+**Operating boundaries:**
+- Keep the `.p8` private key out of commits, chat logs, and shared storage
+- Use credentials only for the authorized App Store Connect team
+- Scope API keys to the least role required for the task
 
 ## State location
-App Store Connect API primarily manipulates remote states.
-If temporary files (like `.p8` keys, JWTs, or reports) are required locally, store them in the workspace under `.app-store-connect-state/` and explicitly exclude this directory from version control.
+
+App Store Connect API primarily manipulates remote Apple state. Optional local artifacts (JWT scratch files, downloaded reports, working notes) may exist in `<workspace>/app-store-connect/`, `<workspace>/memory/app-store-connect/`, `<workspace>/.app-store-connect-state/`, or `~/app-store-connect/`.
+
+Before reading or writing local state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/app-store-connect/`, `<workspace>/memory/app-store-connect/`, `<workspace>/.app-store-connect-state/`, `~/app-store-connect/`.
+3. If none exists and local artifacts must be created, default to `<workspace>/app-store-connect/` after user confirmation.
+
+Use the selected `<state_root>` for every local state operation in this skill. Never store `.p8` keys inside the skill package or any version-controlled path; keep keys at `ASC_PRIVATE_KEY_PATH` outside git. Exclude `<state_root>` from version control when it holds reports or temporary files.
