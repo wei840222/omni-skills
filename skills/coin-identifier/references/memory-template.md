@@ -1,6 +1,6 @@
 # Memory Template - Coin Identifier
 
-Create `$STATE_ROOT/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Coin Identifier Memory
@@ -37,7 +37,7 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-Create `$STATE_ROOT/identifications/YYYY-MM/{entry-id}.md`:
+Create `<state_root>/identifications/YYYY-MM/{entry-id}.md`:
 
 ```markdown
 # Coin Identification - {entry-id}

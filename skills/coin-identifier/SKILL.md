@@ -12,10 +12,10 @@ Use when the user wants to identify a coin from one or more photos, narrow down 
 
 ## Architecture
 
-Memory lives in `$STATE_ROOT/`. If `$STATE_ROOT/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.
+Resolve `<state_root>` before reading or writing memory: use `STATE_ROOT` when set; otherwise use `$XDG_STATE_HOME/coin-identifier/` when set; otherwise use `~/.local/state/coin-identifier/`. If the resolved directory does not exist, follow `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text
-$STATE_ROOT/
+<state_root>/
 ├── memory.md
 ├── identifications/
 │   └── YYYY-MM/
@@ -25,9 +25,7 @@ $STATE_ROOT/
 
 ## State location
 
-- First choice: Directory specified by `$STATE_ROOT` (if set)
-- Second choice: `$XDG_STATE_HOME/coin-identifier/` (if set)
-- Fallback: `~/.local/state/coin-identifier/`
+Use the resolved `<state_root>` in every path below. Do not create or write it until the user has approved local storage.
 
 ## Quick Reference
 
@@ -53,8 +51,8 @@ Safety Boundaries:
 ## Security & Privacy
 
 **Data stored locally if approved by the user:**
-- activation and response preferences in `$STATE_ROOT/memory.md`
-- one note per saved identification in `$STATE_ROOT/identifications/`
+- activation and response preferences in `<state_root>/memory.md`
+- one note per saved identification in `<state_root>/identifications/`
 
 **Skill Boundaries:**
 - Keep operations local without making network requests.
