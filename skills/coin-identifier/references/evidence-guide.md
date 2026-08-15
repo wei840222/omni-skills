@@ -24,9 +24,13 @@ Best next evidence when confidence is weak:
 - scale reference or diameter
 - weight if the user has it
 
-Do not overclaim from these alone:
+State these limitations clearly when evaluating evidence:
 
-- photo does not prove authenticity
-- photo does not prove grade
-- photo does not prove silver or gold purity
-- photo does not prove mint error rarity
+- Photos alone cannot prove authenticity.
+- Photos alone cannot prove grade.
+- Photos alone cannot prove silver or gold purity.
+- Photos alone cannot prove mint error rarity.
+
+## Research Sources
+- Numismatics Overview: https://en.wikipedia.org/wiki/Numismatics
+- Coin Grading Standards: https://en.wikipedia.org/wiki/Coin_grading
