@@ -16,6 +16,8 @@ metadata:
 
 ## Output
 
+Use the narrowest correction that makes the text grammatically correct while retaining the author's intended meaning and established variety.
+
 After correcting the text:
 
 - Return the corrected text only unless the user asks for explanations.
