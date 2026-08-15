@@ -1,6 +1,6 @@
 # Memory Template - Coin Identifier
 
-Create `~/Clawic/data/coin-identifier/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Coin Identifier Memory
@@ -37,7 +37,7 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/coin-identifier/identifications/YYYY-MM/{entry-id}.md`:
+Create `<state_root>/identifications/YYYY-MM/{entry-id}.md`:
 
 ```markdown
 # Coin Identification - {entry-id}
