@@ -1,26 +1,13 @@
 ---
-name: Hiring
-slug: hiring
-version: 1.0.0
-description: Hire humans or AI agents for tasks you cannot do yourself, with platform selection, vetting, contracts, and payment management.
-homepage: https://clawic.com/skills/hiring
+name: hiring
+description: Execute contractor hiring workflows including platform selection, vetting, contracting, and payment management for human and AI agents.
 metadata:
-  clawdbot:
-    emoji: 🧑‍💼
-    displayName: Hiring
+  openclaw: '{"emoji":"🧑‍💼"}'
 ---
 
 ## Platform Selection
 
-| Task Type | Platform | Why |
-|-----------|----------|-----|
-| Development, design, writing | Upwork, Freelancer.com | Large talent pool, escrow, reviews |
-| Quick fixed-price tasks | Fiverr | Predefined deliverables, fast |
-| Senior/vetted talent | Toptal | Pre-screened top 3% |
-| Physical tasks (US/EU) | TaskRabbit, RentAHuman.ai | Local presence, verification |
-| Design contests | 99designs | Multiple concepts, competition |
-
-For API integration details, see `platforms.md`.
+Evaluate and select platforms based on project scope, required expertise, and delivery model. For detailed marketplace benchmarks, API integration patterns, and platform-specific capabilities, refer to `references/platforms.md`.
 
 ## Hiring Checklist
 
@@ -31,7 +18,7 @@ For API integration details, see `platforms.md`.
 5. **Negotiate rates** — Know market rates; prefer fixed-price or milestones over hourly
 6. **Contract before work** — IP assignment, NDA, payment terms, termination clause
 7. **Structured onboarding** — Access credentials, project brief, communication channels
-8. **Milestone payments** — Never 100% upfront; tie payments to deliverables
+8. **Milestone payments** — Retain funds until delivery; tie payments to completed milestones
 9. **Track and document** — Log hours, deliverables, feedback for future reference
 
 ## Red Flags
@@ -47,18 +34,18 @@ For API integration details, see `platforms.md`.
 
 ## Rate Benchmarks
 
-Check current market rates at `platforms.md`. General guidance:
+Check current market rates at `references/platforms.md`. General guidance:
 - Below market = quality or availability issues likely
 - 20-30% above market = acceptable for proven performers
 - Get 3+ quotes before committing on large projects
 
 ## Contracts
 
-For contract templates and payment structures, see `contracts.md`.
+For contract templates and payment structures, see `references/contracts.md`.
 
 ## Legal Essentials
 
-Before engaging contractors, review `legal.md` for:
+Before engaging contractors, review `references/legal.md` for:
 - Worker classification (IC vs employee)
 - Required tax documents (W-9/W-8BEN)
 - IP assignment language
@@ -66,11 +53,11 @@ Before engaging contractors, review `legal.md` for:
 
 ## Physical Tasks
 
-For dispatching humans for real-world tasks (pickups, inspections, deliveries), see `physical.md`.
+For dispatching humans for real-world tasks (pickups, inspections, deliveries), see `references/physical.md`.
 
 ## Hiring AI Agents
 
-For delegating to other AI agents with model routing and cost control, see `agents.md`.
+For delegating to other AI agents with model routing and cost control, see `references/agents.md`.
 
 ## Contractor Management
 
@@ -85,3 +72,17 @@ For delegating to other AI agents with model routing and cost control, see `agen
 - Document what worked/didn't
 - Update reliability score
 - Note for future matching ("great for React, slow on mobile")
+
+## State location
+
+When saving state or logs, follow this priority:
+1. `workspace/state/hiring/` (preferred)
+2. `.state/hiring/` (fallback)
+3. Do not hardcode absolute paths. Create the directory if it does not exist.
+
+
+## References
+
+- https://en.wikipedia.org/wiki/Freelancer
+- https://en.wikipedia.org/wiki/Upwork
+- https://en.wikipedia.org/wiki/Fiverr
