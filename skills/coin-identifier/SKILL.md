@@ -94,9 +94,9 @@ Safety Boundaries:
 - Highlight wear, glare, missing edge data, foreign-script ambiguity, and similar commemoratives when they limit certainty.
 - Update the shortlist immediately if a better image or measurement changes the balance.
 
-## Common Traps
+## Common Traps and Recovery
 
-- Guessing from one reflective angled photo -> dates, mint marks, and legends disappear.
-- Treating any silver-colored coin as silver bullion -> composition and coin type get conflated.
-- Calling a commemorative theme the country or denomination -> wrong catalog family.
-- Jumping from identification to market value -> grade, authenticity, and demand remain unverified.
+- For a reflective or angled photo, request a straight-on view before evaluating dates, mint marks, or legends.
+- Treat visible silver color as an appearance clue; confirm composition and coin type separately.
+- Separate a commemorative theme from the issuing country and denomination before selecting a catalog family.
+- Present identification before any value discussion, then state that grade, authenticity, and demand remain unverified.
