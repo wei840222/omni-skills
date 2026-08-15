@@ -1,17 +1,10 @@
 ---
-name: Accounting
-slug: accounting
-version: 1.0.0
-description: Support accounting understanding from basic bookkeeping to professional practice and research.
-homepage: https://clawic.com/skills/accounting
+description: Assist with accounting workflows including double-entry bookkeeping,
+  GAAP/IFRS standards application, and financial reporting. Trigger on requests involving
+  transactions, ledgers, depreciation, or tax categorization.
 metadata:
-  clawdbot:
-    emoji: 📒
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Accounting
+  openclaw: '{"emoji": "\ud83d\udcd2"}'
+name: accounting
 ---
 
 ## Detect Level, Adapt Everything
@@ -41,12 +34,12 @@ metadata:
 
 ## For Professionals: Standards and Judgment
 - Clarify framework first — US GAAP, IFRS, or local GAAP; flag material differences (LIFO, leases, development costs)
-- Apply revenue recognition properly — 5-step model (ASC 606/IFRS 15): contract, obligations, price, allocation, recognition; never one-liner answers
+- Apply revenue recognition properly — 5-step model (ASC 606/IFRS 15): contract, obligations, price, allocation, recognition; always provide comprehensive analysis including contract, obligations, price, allocation, and recognition
 - Handle leases precisely — finance vs operating under GAAP; IFRS 16 treats nearly all as finance for lessees; prompt for term, rate, options, modifications
 - Map entity relationships for consolidation — ownership %, voting rights, control indicators, VIE; distinguish full consolidation vs equity method
 - Maintain audit-ready standards — structure by assertions (existence, completeness, valuation, rights, presentation); reference ASC/IFRS paragraphs
 - Apply professional skepticism — probe for related parties, side agreements, unusual terms; ask materiality before detailed analysis
-- Respect ethics and liability — never definitive "book X" without disclaiming; flag when external consultation required; refuse earnings management structures
+- Respect ethics and liability — Always include appropriate disclaimers when providing definitive statements; flag when external consultation required; refuse earnings management structures
 - Flag uncertainty and currency — guidance changes (ASUs, IASB amendments); distinguish authoritative vs interpretive; present alternatives when defensible
 
 ## For Researchers: Rigor and Evidence
@@ -66,16 +59,19 @@ metadata:
 - Connect rules to real situations — show how textbook entries appear in actual financial statements and software
 
 ## For Bookkeepers: Daily Transactions
-- Ask for source document first — invoice, receipt, bank statement; never create entries from verbal descriptions alone
+- Ask for source document first — invoice, receipt, bank statement; always request source documents (invoice, receipt, bank statement) before creating entries
 - Clarify ambiguous categorization — "Is this $500 for supplies (expense) or equipment (asset)? Capitalization threshold is typically $2,500"
 - Guide reconciliation step-by-step — ending bank balance, add deposits in transit, subtract outstanding checks, compare to book balance
 - Provide troubleshooting sequence — difference divisible by 9 (transposition), half the difference (wrong direction), exact amount in uncleared items
 - Warn about duplicates — "I see matching vendor + amount + date—is this the same transaction?"
 - Catch posting mistakes — prior period dates, round number estimates needing follow-up
-- Adapt to specific software — provide exact menu paths for QuickBooks Online, Xero, Desktop; never generic instructions
+- Adapt to specific software — provide exact menu paths for QuickBooks Online, Xero, Desktop; always provide exact menu paths for specific software
 
 ## Always
 - Distinguish rules from judgment areas; accounting often requires professional assessment
 - Flag when standards may have changed; effective dates matter
 - Separate authoritative guidance from common practice
-- Never provide tax advice without jurisdiction and entity type confirmation
+- Always confirm jurisdiction and entity type before providing tax advice
+
+## References
+- To learn more about standard frameworks like IFRS and GAAP, refer to `references/standards.md`.
