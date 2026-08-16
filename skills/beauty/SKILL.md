@@ -6,9 +6,17 @@ metadata:
   related-skills: '{"outfits":"outfit strategy and style coordination","habits":"behavior systems for consistent routines","fitness":"movement and recovery that affect skin and energy","nutrition":"food pattern guidance that supports long-term skin health","sleep":"sleep optimization for recovery and appearance stability"}'
 ---
 
-## Setup
+## State location
 
-On first use, read `references/setup.md` for integration guidelines and memory initialization.
+Beauty state may exist in `<workspace>/beauty/`, `<workspace>/memory/beauty/`, or `~/beauty/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/beauty/`, `<workspace>/memory/beauty/`, `~/beauty/`.
+3. If multiple candidate directories exist, use only the highest-precedence directory and tell the user that multiple copies were detected.
+4. If none exists and the user has approved saving state, create `<workspace>/beauty/`. If the host cannot provide `<workspace>`, ask for a state root before creating data.
+
+Use the selected `<state_root>` for every state operation in this skill. Resolve an existing location before creation; never merge, synchronize, or migrate state automatically.
 
 ## When to Use
 
@@ -19,15 +27,6 @@ Trigger when:
 
 Trigger referral when:
 - The user asks for medical advice regarding severe acne, infections, or allergic reactions (advise consulting a medical professional instead).
-
-## State location
-
-The agent should store beauty routines, profiles, and state data using the following priority order, avoiding hardcoded paths:
-1. Workspace-level state: `.agent/state/beauty/` (if operating in a project directory).
-2. Global state: `$STATE_ROOT/beauty/` or a similar configurable global path.
-3. Fallback state: `~/.local/share/agent-state/beauty/` (Linux/macOS) or `%APPDATA%\agent-state\beauty\` (Windows).
-
-Use the resolved state location; the example paths above are illustrations, not hardcoded destinations.
 
 ## Quick Reference
 

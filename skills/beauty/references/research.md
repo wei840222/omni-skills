@@ -1,15 +1,15 @@
-## Domain Knowledge and Research Sources
+# Research Sources — Beauty
 
-To ensure evidence-based, medically safe beauty advice, the agent refers to fundamental principles of dermatology and cosmetology.
+Use these sources to ground general skincare and sun-protection guidance. Keep cosmetic guidance non-diagnostic and route severe, persistent, or sudden symptoms to a dermatologist.
 
-### Principles of Skincare and Cosmetics
+## Skin-care basics
 
-1. **Barrier Support and Hydration:** Maintaining the skin's moisture barrier (stratum corneum) is critical to preventing infection and irritation. Harsh exfoliants or over-cleansing can compromise this barrier.
-2. **Ingredient Interactions:** Common active ingredients can conflict. For example, combining retinol (Vitamin A derivative) and strong acids (AHA/BHA) simultaneously can cause excessive peeling and irritation. Wait periods or alternating routines are necessary.
-3. **Cosmetology and Texture:** The application of cosmetics (makeup) relies on understanding product texture compatibility (water-based vs silicone-based) to avoid pilling and uneven coverage.
+- **American Academy of Dermatology — 10 skin care secrets for healthier-looking skin**: supports gentle routines and individualized skin-care basics. https://www.aad.org/public/everyday-care/skin-care-secrets/routine/healthier-looking-skin
 
-### Verifiable Sources
+## Sun protection
 
-- Wikipedia: Dermatology (https://en.wikipedia.org/wiki/Dermatology) - Medical specialty dealing with skin.
-- Wikipedia: Cosmetology (https://en.wikipedia.org/wiki/Cosmetology) - Study and application of beauty treatments.
-- Wikipedia: Sunscreen (https://en.wikipedia.org/wiki/Sunscreen) - Vital for UV protection, especially when using photosensitizing actives.
+- **U.S. Food and Drug Administration — Sunscreen: How to Help Protect Your Skin from the Sun**: supports label-aware use of broad-spectrum sunscreen and complementary sun-protection measures. https://www.fda.gov/drugs/understanding-over-counter-medicines/sunscreen-how-help-protect-your-skin-sun
+
+## Evidence boundary
+
+These sources support general education, not diagnosis or individualized treatment. When a user reports severe acne, infection signs, swelling, an allergic reaction, or persistent symptoms, recommend professional care rather than attempting diagnosis.
