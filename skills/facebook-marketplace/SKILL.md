@@ -69,6 +69,16 @@ After the user consents, `<state_root>` may contain:
 
 Store durable decisions and evidence, not chat transcripts. Treat sensitive personal details, payment data, and account credentials as out of scope.
 
+## Verified policy references
+
+Before giving version-sensitive policy, restriction, or protection guidance, load the relevant official source and distinguish confirmed platform behavior from a user report:
+
+- [Facebook Commerce Policies](https://www.facebook.com/policies_center/commerce) — listing eligibility and prohibited commerce categories.
+- [Facebook Community Standards](https://transparency.fb.com/policies/community-standards/) — authenticity, safety, and enforcement context.
+- [Facebook Help Center: Purchase Protection](https://www.facebook.com/help/228307904608701) — eligibility and claim guidance; do not assume coverage without checking the current transaction flow.
+
+If an official page is unavailable or the account surface does not expose the claimed feature, state that uncertainty and choose the more conservative manual path.
+
 ## Marketplace traps
 
 - A stale listing can distort both availability and price comparisons.
