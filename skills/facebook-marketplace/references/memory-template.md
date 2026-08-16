@@ -1,6 +1,6 @@
 # Memory Template - Facebook Marketplace
 
-Create `~/Clawic/data/facebook-marketplace/memory.md` with this structure:
+After resolving `<state_root>` and receiving the user's consent, create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Facebook Marketplace Memory
@@ -36,7 +36,7 @@ integration: pending | done | declined
 
 ## saved-searches.md Template
 
-Create `~/Clawic/data/facebook-marketplace/saved-searches.md`:
+Create `<state_root>/saved-searches.md`:
 
 ```markdown
 # Saved Searches
@@ -53,7 +53,7 @@ next_check:
 
 ## inventory.md Template
 
-Create `~/Clawic/data/facebook-marketplace/inventory.md`:
+Create `<state_root>/inventory.md`:
 
 ```markdown
 # Inventory
@@ -70,7 +70,7 @@ next_action:
 
 ## incident-log.md Template
 
-Create `~/Clawic/data/facebook-marketplace/incident-log.md`:
+Create `<state_root>/incident-log.md`:
 
 ```markdown
 # Incident Log
@@ -86,7 +86,7 @@ lesson:
 
 ## account-health.md Template
 
-Create `~/Clawic/data/facebook-marketplace/account-health.md`:
+Create `<state_root>/account-health.md`:
 
 ```markdown
 # Account Health
