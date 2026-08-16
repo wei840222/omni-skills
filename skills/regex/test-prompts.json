@@ -1,0 +1,29 @@
+[
+  {
+    "id": "regex-1",
+    "scenario": "Python email-like input validation",
+    "prompt": "Write a regex to match a standard email address in Python.",
+    "expected": "Supplies a deliberately limited pattern, a Python raw-string example, component explanations, representative test cases, and a note that full RFC mailbox validation needs a dedicated library or policy.",
+    "actual": "Dry-run: the workflow identifies Python, supplies a raw-string pattern with anchors, explains the local and domain parts, gives accepted and rejected examples, and limits the claim instead of presenting RFC-complete validation.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  },
+  {
+    "id": "regex-2",
+    "scenario": "Catastrophic backtracking diagnosis",
+    "prompt": "My regex `(a+)+` takes forever to run on `aaaaaaaaaab`. Why is this happening and how can I fix it?",
+    "expected": "Explains backtracking from overlapping nested quantifiers, asks for the engine where a precise replacement depends on support, and offers mutually exclusive or bounded alternatives plus possessive or atomic options only where supported.",
+    "actual": "Dry-run: the workflow identifies the near-match failure mode, warns against applying engine-specific syntax without confirmation, and directs the responder to use a bounded or mutually exclusive rewrite before considering supported possessive or atomic constructs.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  },
+  {
+    "id": "regex-3",
+    "scenario": "Structured HTML extraction request",
+    "prompt": "I need a regex to extract all the div tags from this HTML file.",
+    "expected": "Explains that nested HTML requires an HTML parser for robust extraction, while offering a narrow regex only when the user explicitly limits the input and accepts those limitations.",
+    "actual": "Dry-run: the scope-boundary section routes nested HTML to a parser, preserving regex for narrow text extraction rather than asserting a fragile general solution.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  }
+]
