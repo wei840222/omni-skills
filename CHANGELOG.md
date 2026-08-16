@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill              | Date       | Darwin Score             |
 | ------------------ | ---------- | ------------------------ |
+| facebook-marketplace | 2026-08-16 | 84/100 (reviewer structural dry-run; PR #48) |
 | coin-identifier    | 2026-08-15 | 84/100 (reviewer structural dry-run; PR #44) |
 | grammar            | 2026-08-16 | 84/100 (reviewer structural dry-run; PR #46) |
 | beauty             | 2026-08-16 | 84/100 (reviewer structural dry-run; PR #47) |
