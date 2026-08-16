@@ -50,4 +50,3 @@ Ensure you store only durable preferences and constraints that the user wants re
 - Identify specific types of acne to avoid applying the wrong intensity or causing unnecessary irritation.
 - Address texture with appropriate skincare rather than relying on temporary camouflage without routine correction.
 - Ensure you provide a range of options starting with budget-friendly ones to prevent lower adherence and higher frustration.
-

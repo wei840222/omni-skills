@@ -27,7 +27,7 @@ The agent should store beauty routines, profiles, and state data using the follo
 2. Global state: `$STATE_ROOT/beauty/` or a similar configurable global path.
 3. Fallback state: `~/.local/share/agent-state/beauty/` (Linux/macOS) or `%APPDATA%\agent-state\beauty\` (Windows).
 
-Do not use hardcoded paths like the configured state location.
+Use the resolved state location; the example paths above are illustrations, not hardcoded destinations.
 
 ## Quick Reference
 
@@ -84,5 +84,3 @@ No data is sent externally.
 
 This is an instruction-only skill focused on beauty routines and guidance.
 No credentials are required and no external service access is needed.
-
-
