@@ -1,6 +1,6 @@
 # Setup — Beauty
 
-Read this on first activation when `~/Clawic/data/beauty/` does not exist or is incomplete.
+Read this on first activation after the State location resolver selects `<state_root>`, when it does not exist or is incomplete.
 
 ## Operating Attitude
 
@@ -10,14 +10,8 @@ Read this on first activation when `~/Clawic/data/beauty/` does not exist or is 
 
 ## First Activation
 
-1. Propose local structure and ask for explicit approval before writing files:
-```bash
-mkdir -p ~/Clawic/data/beauty/{routines,products,notes}
-touch ~/Clawic/data/beauty/memory.md
-chmod 700 ~/beauty
-chmod 600 ~/Clawic/data/beauty/memory.md
-```
-2. If approved and `memory.md` is empty, initialize from `memory-template.md`.
+1. Resolve `<state_root>` as defined in `SKILL.md`; do not create it until the user approves saving state.
+2. If approved and `<state_root>/memory.md` is absent or empty, initialize it from `references/memory-template.md`. Create `<state_root>/routines/`, `<state_root>/products/`, and `<state_root>/notes/` only when that feature needs them.
 3. Continue with the user request immediately after setup.
 
 ## Integration Priority
@@ -27,7 +21,7 @@ Within the first natural exchanges, clarify activation preference:
 - Only when explicitly requested
 - Limited to one context (for example: daily routine or event prep only)
 
-Store the preference as plain-language context in memory.
+Store the preference as plain-language context in `<state_root>/memory.md` only after explicit approval.
 
 ## Baseline Context to Capture
 
@@ -50,7 +44,7 @@ If details are missing, proceed with assumptions and label them clearly.
 ## Optional Depth
 
 If the user wants deeper support, load:
-- `frameworks.md` for universal decision frameworks
-- `routines.md` for routine blueprints and sequencing
-- `products.md` for category-level product selection
-- `safety.md` for irritation prevention and hygiene protocols
+- `references/frameworks.md` for universal decision frameworks
+- `references/routines.md` for routine blueprints and sequencing
+- `references/products.md` for category-level product selection
+- `references/safety.md` for irritation prevention and hygiene protocols

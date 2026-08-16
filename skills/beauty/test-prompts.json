@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a basic skincare routine. I have combination skin and I'm on a tight budget.",
+    "expected": "The agent should load `references/budget.md` and `references/beginner.md`, ask to lock profile constraints, and recommend a minimal viable routine (cleanse, moisturize, protect) emphasizing affordable category options rather than expensive brands.",
+    "actual": "Agent loaded budget and beginner references. Suggested a 3-step routine (gentle foaming cleanser, lightweight gel-cream moisturizer, SPF 30+) with drug-store category recommendations. Asked for confirmation before saving to state.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a wedding this weekend and my skin is suddenly extremely red and sensitive. I need a rapid fix and heavy makeup plan.",
+    "expected": "The agent should prioritize safety (`references/safety.md`), warn against introducing new harsh actives right before an event, and suggest a gentle, barrier-supporting approach along with makeup techniques for sensitive skin, while explicitly refusing to offer medical advice for the sudden redness.",
+    "actual": "Agent loaded safety and sensitive-skin references. Advised skipping harsh treatments. Recommended a soothing barrier cream and color-correcting makeup techniques suitable for sensitive skin. Explicitly stated it cannot diagnose the redness and recommended seeing a doctor if it worsens.",
+    "pass": true
+  }
+]
