@@ -153,7 +153,7 @@ Cross-check the PR description and package against `.agents/workflows/skill-refa
 | 5 Clawic removal | No `clawic.com` homepage/feedback promo; `_meta.json` removed when that is project policy |
 | 6 Research | PR lists verifiable full URLs grouped by topic; claims in the skill match cited guidance |
 | 7 Best practices | Progressive disclosure; description is imperative and trigger-rich; always-needed content stays in `SKILL.md` |
-| 8 Darwin + tests | `test-prompts.json` present when claimed; prefer real `actual` + `pass: true` for completed Darwin work; claimed score is not a substitute for structural quality |
+| 8 Darwin + tests | `test-prompts.json` present at skill root (`skills/<slug>/test-prompts.json`, not inside `references/`) when claimed; prefer real `actual` + `pass: true` for completed Darwin work; claimed score is not a substitute for structural quality |
 | 9 Freud | Prohibitions reframed positively where required; no disruptive stop-only markers that increase cognitive load without a recovery path |
 
 Record each failed gate with severity:

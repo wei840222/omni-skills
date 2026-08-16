@@ -221,6 +221,6 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 ## Review resources
 
-- Load `references/test-prompts.json` when evaluating representative build and lifecycle scenarios.
+- Load `test-prompts.json` when evaluating representative build and lifecycle scenarios.
 - Load `references/memory-template.md` before creating or updating local state.
 - Load `references/official-sources.md` before making a version-specific Android, Android Gradle Plugin, or Google Play claim.

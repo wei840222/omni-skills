@@ -839,6 +839,8 @@ To ensure quantitative quality and empirical validation, every refactored skill 
 
 #### Test prompt inventory (`test-prompts.json`)
 
+**File location rule**: `test-prompts.json` must be placed at the skill root (`skills/<slug>/test-prompts.json`), not inside `references/`. It is an evaluation artifact, not a reference document the agent loads during normal execution.
+
 Before evaluation, create a `test-prompts.json` file in the skill package root containing 2–3 test prompts written in English:
 
 ```json
