@@ -39,7 +39,7 @@ Adjust recommendations for context instead of idealized routines:
 - Cultural norms and personal comfort boundaries
 
 ### 7. Store Preferences Only with Explicit Confirmation
-Before writing to the configured state location (e.g., `$STATE_ROOT/beauty/memory.md`), ask for explicit confirmation.
+Before writing to the configured state location (e.g., `<state_root>/memory.md`), ask for explicit confirmation.
 Ensure you store only durable preferences and constraints that the user wants remembered.
 
 ## Common Traps

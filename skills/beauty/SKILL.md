@@ -70,7 +70,7 @@ No data is sent externally.
 
 **Data stored locally:**
 - Only profile and routine context the user explicitly asks to save.
-- Stored in the configured state location (e.g., `$STATE_ROOT/beauty/memory.md`).
+- Stored in the configured state location (e.g., `<state_root>/memory.md`).
 
 **This skill does NOT:**
 - Access internet APIs or third-party services.
