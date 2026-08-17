@@ -25,9 +25,9 @@ metadata:
 
 ## Safe Change Boundary
 
-- Keep superuser credentials and client secrets out of browser code, logs, and repositories.
+- Store superuser credentials and client secrets only in trusted runtime secret stores; browser code, logs, and repositories use non-secret placeholders.
 - Confirm the intended collection and rule outcome before changing access rules, deleting records, or applying migrations.
-- If a proposed API or hook call is not documented for the installed version, stop and verify it in that version's official documentation before implementing it.
+- Use API and hook calls documented for the installed version. When the version-specific documentation is unavailable, pause implementation and obtain that verification first.
 
 ## Sources
 
