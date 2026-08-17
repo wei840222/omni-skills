@@ -9,11 +9,13 @@ metadata:
 
 # Network Fundamentals
 
+Load [`references/network-standards.md`](references/network-standards.md) when verifying a port-range, private-address, DNS, TLS, or certificate-lifetime claim before advising a user or changing configuration.
+
 ## TCP/IP Basics
 - TCP guarantees delivery with retransmission — use for reliability (HTTP, SSH, databases)
 - UDP is fire-and-forget — use for speed when loss is acceptable (video, gaming, DNS queries)
 - Port numbers: 0-1023 privileged (need root), 1024-65535 available — common services have well-known ports
-- Ephemeral ports for client connections — OS assigns randomly from high range
+- Ephemeral ports for client connections — OS assigns an available client-side port for the connection; validate the platform’s configured range when it matters
 
 ## DNS
 - DNS resolution is cached at multiple levels — browser, OS, router, ISP — flush all when debugging
