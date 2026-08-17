@@ -20,7 +20,7 @@ Keep every state operation in the selected `<state_root>`. When multiple candida
 
 1. Establish the goal, target model, output contract, available context, and any cost or latency limit. For an iteration, capture the failing input and expected result.
 2. Draft the smallest prompt that states the task, supplied context, constraints, and required output. Add examples only when they improve a measured failure.
-3. Test the draft against the original case, normal cases, and relevant boundaries. Compare results to explicit success criteria.
+3. Test the draft against the original case, normal cases, and relevant boundaries. Compare results to explicit success criteria. For a near-miss request outside this skill—such as choosing a model, retrieving missing source facts, or configuring an API—route to the appropriate specialist workflow before prompt iteration.
 4. Change one variable at a time, then re-run the same cases. Preserve the strongest version and record the evidence for a durable improvement.
 5. Deliver the prompt with its intended model, input assumptions, output contract, and the next test to run.
 
