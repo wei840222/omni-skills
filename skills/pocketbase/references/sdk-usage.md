@@ -38,3 +38,7 @@ Send file fields with the SDK's documented `FormData` or object input for the in
 
 - https://github.com/pocketbase/js-sdk
 - https://pocketbase.io/docs/
+
+## Server runtimes and duplicate requests
+
+In Node.js, provide an `EventSource` implementation before using realtime subscriptions. The SDK automatically cancels duplicate in-flight requests by default; set a unique `requestKey` or `requestKey: null` only when concurrent requests are intentionally distinct. For server-side rendering, create a PocketBase client for each incoming request and load/export its auth state with the framework's cookie boundary rather than sharing one auth store across users.
