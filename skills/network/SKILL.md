@@ -14,7 +14,7 @@ Load [`references/network-standards.md`](references/network-standards.md) when v
 ## TCP/IP Basics
 - TCP guarantees delivery with retransmission — use for reliability (HTTP, SSH, databases)
 - UDP is fire-and-forget — use for speed when loss is acceptable (video, gaming, DNS queries)
-- Port numbers: 0-1023 privileged (need root), 1024-65535 available — common services have well-known ports
+- On Unix-like systems, binding ports below 1024 normally requires privilege (subject to host policy or capabilities); higher ports are not reserved by that rule — common services have well-known ports
 - Ephemeral ports for client connections — OS assigns an available client-side port for the connection; validate the platform’s configured range when it matters
 
 ## DNS
