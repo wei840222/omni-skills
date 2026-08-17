@@ -126,13 +126,10 @@ import fitz
 
 try:
     doc = fitz.open("protected.pdf")
-except fitz.PasswordError:
-    doc = fitz.open("protected.pdf", password="secret123")
-
-# Or check first
 doc = fitz.open("protected.pdf")
 if doc.is_encrypted:
-    doc.authenticate("secret123")
+    if not doc.authenticate("<user-supplied-password>"):
+        raise ValueError("The supplied password did not unlock the PDF")
 ```
 
 ## Word Count Function
