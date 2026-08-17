@@ -33,7 +33,7 @@ import fitz
 
 doc = fitz.open("protected.pdf")
 if doc.is_encrypted:
-    success = doc.authenticate("password")
+    success = doc.authenticate("<user-supplied-password>")
     if not success:
         print("Wrong password")
 ```

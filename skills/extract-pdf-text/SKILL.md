@@ -3,7 +3,7 @@ name: extract-pdf-text
 description: Extract text, tables, and structured data from local PDFs with PyMuPDF, and use Tesseract OCR only for scanned or image-only pages. Use when a user needs to read, parse, search, summarize, or analyze a PDF without sending its contents to an external service.
 metadata:
   version: "1.0.2"
-  openclaw: '{"emoji":"📄","requires":{"bins":["python3","tesseract"],"pip":["pymupdf","pytesseract","pillow"]},"install":[{"id":"pymupdf","kind":"pip","package":"PyMuPDF","label":"Install PyMuPDF"},{"id":"pytesseract","kind":"pip","package":"pytesseract","label":"Install pytesseract"},{"id":"pillow","kind":"pip","package":"Pillow","label":"Install Pillow"}]}'
+  openclaw: '{"emoji":"📄","requires":{"bins":["python3"],"pip":["pymupdf"]},"install":[{"id":"pymupdf","kind":"pip","package":"PyMuPDF","label":"Install PyMuPDF"}]}'
 ---
 
 ## Workflow
