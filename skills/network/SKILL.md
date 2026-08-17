@@ -1,17 +1,10 @@
 ---
-name: Network
-slug: network
-version: 1.0.0
-description: Understand and troubleshoot computer networks with TCP/IP, DNS, routing, and diagnostic tools.
-homepage: https://clawic.com/skills/network
+name: network
+description: Diagnose network reachability, DNS, routing, firewall, NAT, VPN, port, and TLS issues. Use when the user needs to troubleshoot connectivity, interpret network behavior, or plan a safe network change.
 metadata:
-  clawdbot:
-    emoji: 🌐
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Network
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌐"}'
+  related-skills: '{"vpn":"Covers VPN selection and configuration beyond network diagnosis.","wifi":"Covers wireless-network setup and troubleshooting.","wireguard":"Covers WireGuard-specific configuration and operations."}'
 ---
 
 # Network Fundamentals
