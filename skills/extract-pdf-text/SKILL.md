@@ -54,9 +54,9 @@ PDFs may encode text in an unexpected order. Use `sort=True` for a simple top-le
 
 ## Boundaries and completion
 
-- Access a PDF only after the user supplies or authorizes its path.
-- Keep files and extracted content local; this skill makes no external API calls.
-- Preserve the source PDF. Write any derived text, JSON, or OCR output to a separate user-approved path.
+- Use a PDF path the user supplies or explicitly authorizes.
+- Process the file locally; this skill makes no external API calls.
+- Keep the source PDF read-only. Write any derived text, JSON, or OCR output to a separate user-approved path.
 - Verify the page count and report the method for every page before presenting extraction as complete.
 
 ## Common failure patterns
