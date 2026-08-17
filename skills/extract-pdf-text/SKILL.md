@@ -22,7 +22,7 @@ Install PyMuPDF in the active Python environment:
 python3 -m pip install PyMuPDF
 ```
 
-PyMuPDF is imported as `fitz`:
+PyMuPDF is imported as `fitz`. Extract page by page and keep page boundaries, so the result can identify failures and OCR fallbacks:
 
 ```python
 import fitz
@@ -39,7 +39,7 @@ def needs_ocr(page, minimum_characters=50):
     return len(page.get_text().strip()) < minimum_characters
 ```
 
-For code patterns, page ranges, metadata, blocks, tables, and password handling, read `references/examples.md`.
+For code patterns, page ranges, metadata, blocks, tables, batch extraction, and password handling, read `references/examples.md`.
 
 ## Output choices
 
@@ -58,6 +58,16 @@ PDFs may encode text in an unexpected order. Use `sort=True` for a simple top-le
 - Keep files and extracted content local; this skill makes no external API calls.
 - Preserve the source PDF. Write any derived text, JSON, or OCR output to a separate user-approved path.
 - Verify the page count and report the method for every page before presenting extraction as complete.
+
+## Common failure patterns
+
+| Situation | Reliable response |
+| --- | --- |
+| Password is unavailable or rejected | Report that the document remains locked; request a valid user-supplied password. |
+| Native text is empty | Inspect the page and follow `references/ocr.md`; report OCR confidence limits. |
+| Reading order is wrong | Retry with `sort=True`; return positioned blocks when layout still matters. |
+| Tables do not extract cleanly | Use `find_tables()` where suitable and label imperfect results rather than inventing cell structure. |
+| File is corrupt or memory is constrained | Follow `references/troubleshooting.md` and process one page at a time. |
 
 ## On-demand references
 
