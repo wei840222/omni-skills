@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | ------------------ | ---------- | ------------------------ |
 | extract-pdf-text   | 2026-08-17 | structural dry-run; 3/3 prompts passed (PR #51) |
 | pocketbase         | 2026-08-17 | structural dry-run; 3/3 prompts passed (PR #52) |
+| network            | 2026-08-17 | structural dry-run; 3/3 prompts passed (PR #pending) |
 | regex              | 2026-08-16 | structural dry-run; 3/3 prompts passed (PR #49) |
 | facebook-marketplace | 2026-08-16 | 84/100 (reviewer structural dry-run; PR #48) |
 | coin-identifier    | 2026-08-15 | 84/100 (reviewer structural dry-run; PR #44) |
