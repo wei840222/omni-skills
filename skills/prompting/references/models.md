@@ -1,54 +1,23 @@
-# Model-Specific Quirks
+# Model and platform adaptation
 
-## Claude (Sonnet, Opus, Haiku)
-- Follows explicit constraints well
-- Less scaffolding needed than GPT
-- Strong at structured output without JSON mode
-- System prompt is heavily weighted
-- Haiku: brevity critical, skip few-shot when possible
+Use this reference when moving a prompt between model families, changing a deployed model version, or selecting platform features.
 
-**Works well:** Direct instructions, constraints first
-**Avoid:** Overly verbose system prompts
+## Adapt through evaluation
 
-## GPT-4 / GPT-4o
-- Benefits from "Let's think step by step"
-- More tolerant of verbose prompts
-- JSON mode available and reliable
-- User message can override system
-- Good at creative variation
+1. Pin the deployed model version or snapshot when the platform supports it.
+2. Run the same evaluation set on the candidate model with the existing prompt.
+3. Diagnose the observed regression before changing prompt wording: model capability, context-window fit, tool/structured-output behavior, cost, or latency can be the limiting factor.
+4. Change the smallest relevant prompt component and repeat the evaluation.
 
-**Works well:** Chain-of-thought, detailed examples
-**Avoid:** Assuming constraints are remembered
+## Portable guidance
 
-## GPT-3.5-turbo
-- Needs more explicit examples
-- Format breaks more common
-- Keep prompts shorter
-- Temperature sensitive
+- Use high-authority instruction channels for stable behavior, goals, and output rules; keep task-specific input in the user or input content according to the platform's role model.
+- Define a schema and validate the returned value when structured output is required. Prefer the platform's supported structured-output feature to a prompt-only JSON request when it is available.
+- Use examples when the desired mapping, format, or edge behavior is difficult to express as a rule. Keep them representative of the real evaluation cases.
+- Let results determine whether additional reasoning scaffolding helps. It can add latency and token cost without improving simple tasks.
+- Treat model-family labels as insufficient compatibility evidence: validate the actual model and version used in production.
 
-**Works well:** Few-shot examples, strict format specs
-**Avoid:** Complex multi-step instructions
+## Official references
 
-## Gemini
-- Strong at multimodal
-- Can be verbose by default
-- Good at following format
-- Less consistent on edge cases
-
-**Works well:** Clear structure, explicit length limits
-**Avoid:** Ambiguous format expectations
-
-## Mistral / Open Models
-- Vary significantly by fine-tune
-- Generally need more examples
-- Format enforcement weaker
-- Test thoroughly
-
-**Works well:** Explicit examples, simple tasks
-**Avoid:** Assuming GPT-4 level instruction following
-
-## Cross-Model Translation
-When adapting prompts:
-1. Claude → GPT: Add more scaffolding, examples
-2. GPT → Claude: Remove unnecessary structure
-3. Any → Fast/cheap: Compress aggressively, fewer examples
+- OpenAI, *Prompt engineering*: https://developers.openai.com/api/docs/guides/prompt-engineering
+- Anthropic, *Prompt engineering overview*: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview

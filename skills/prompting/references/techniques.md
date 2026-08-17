@@ -1,49 +1,32 @@
-# Advanced Prompting Techniques
+# Advanced prompting techniques
 
-## Chain-of-Thought
-**When:** Complex reasoning, math, multi-step logic
-**How:** "Think step by step before answering"
-**Warning:** Adds tokens, not always needed. Don't cargo-cult.
+Load this reference when the minimal prompt fails a measured success criterion. Add one technique, then compare it to the baseline on the same evaluation set.
 
-## Few-Shot Examples
-**When:** Format is critical, task is unusual
-**How:** 2-5 examples covering edge cases
-**Warning:** Examples dominate output style. Choose carefully.
+## Examples
 
-## Negative Examples
-**When:** Model keeps making specific mistake
-**How:** "Here's an INCORRECT response: [X]. Don't do this."
-**Often overlooked.** Very effective for stubborn patterns.
+Use two to five representative input/output examples when a format, transformation, or classification boundary is hard to describe. Include a boundary case when it represents a real user request.
 
-## Self-Consistency
-**When:** Factual accuracy matters
-**How:** Sample 3-5 times, take majority answer
-**Warning:** 3-5x cost. Worth it for high-stakes.
+## Decomposition
 
-## Prompt Chaining
-**When:** Task is complex, single prompt fails
-**How:** Break into 2-3 simpler prompts, pass output forward
-**Often beats one complex prompt.**
+Split a task into staged prompts when an intermediate result can be inspected, validated, or safely corrected before it becomes input to the next stage. Define the input and output contract for each stage.
 
-## Constraint Placement
-- **Start of prompt:** Sets overall behavior
-- **End of prompt:** Last thing model "remembers"
-- **Both:** For critical constraints
-- **In user message:** Can override system prompt
+## Structured output
 
-## Output Anchoring
-Start the assistant response:
-```
-Assistant: {"result":
-```
-Forces model to continue in that format.
+State the desired schema, required fields, and invalid-output recovery. When the target platform supports structured outputs, use that mechanism and validate the returned value before downstream use.
 
-## Role/Persona
-**When:** Consistent voice matters
-**How:** "You are a [specific role] who [specific behavior]"
-**Warning:** Can cause refusals if role conflicts with request
+## Sampling and comparison
 
-## The "Just Ask" Principle
-Before adding complexity, try the simple version.
-"Translate this to Spanish" needs no scaffolding.
-Add complexity only when simple fails.
+For uncertainty-sensitive tasks, generate multiple candidate answers only when the evaluation plan explains how to select or reconcile them. Record the added cost and latency with the quality result.
+
+## Constraint placement
+
+Keep the task, constraints, supplied context, and output contract in clear labeled sections. Repeat only the constraints that evaluation shows are being lost; remove redundant wording during the compression pass.
+
+## Roles and voice
+
+Specify a role only when it changes useful behavior. For voice work, include observable style evidence and test the complete output rather than relying on the role label alone.
+
+## Sources
+
+- OpenAI, *Prompt engineering*: https://developers.openai.com/api/docs/guides/prompt-engineering
+- Anthropic, *Prompt engineering overview*: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
