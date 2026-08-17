@@ -11,7 +11,7 @@ if len(text.strip()) < 50:
     print("Likely scanned — use OCR")
 ```
 
-**Fix:** See `ocr.md` for OCR setup.
+**Fix:** Read `references/ocr.md` from the skill root for the OCR setup and page-routing workflow.
 
 ## Import Error
 
@@ -21,7 +21,7 @@ if len(text.strip()) < 50:
 pip install PyMuPDF
 ```
 
-**Note:** Import as `fitz`, not `pymupdf`:
+**Note:** Import as `fitz`:
 ```python
 import fitz  # Correct
 ```
@@ -33,7 +33,7 @@ import fitz
 
 doc = fitz.open("protected.pdf")
 if doc.is_encrypted:
-    success = doc.authenticate("password")
+    success = doc.authenticate("<user-supplied-password>")
     if not success:
         print("Wrong password")
 ```
@@ -59,13 +59,13 @@ doc = fitz.open("huge.pdf")
 for i, page in enumerate(doc):
     text = page.get_text()
     process(text)  # Handle immediately
-    # Don't accumulate in memory
+    # Process immediately instead of accumulating in memory
 doc.close()
 ```
 
 ## Wrong Character Encoding
 
-**Cause:** Usually not PyMuPDF's fault — PDF has bad encoding.
+**Cause:** The PDF can use non-standard encoding or fonts, or the visible page may be an image.
 
 PyMuPDF handles UTF-8 automatically. If you see garbled text:
 1. Try `page.get_text("text")` explicitly

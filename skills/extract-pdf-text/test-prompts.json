@@ -1,0 +1,29 @@
+[
+  {
+    "id": "extract-pdf-text-1",
+    "scenario": "Native text extraction with reading order",
+    "prompt": "Extract the text from report.pdf, preserve each page boundary, and summarize the first page. Keep the original PDF unchanged.",
+    "expected": "Confirms the local file path, extracts native text page by page with PyMuPDF and sort=True, preserves page boundaries, and reports that the source PDF was not modified.",
+    "actual": "Dry-run: the workflow selects native PyMuPDF extraction, retains page boundaries, and requires a page-count and extraction-method check before reporting a result.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  },
+  {
+    "id": "extract-pdf-text-2",
+    "scenario": "Scanned document OCR fallback",
+    "prompt": "This scanned invoice PDF has no selectable text. Extract it in English and tell me if any page needs review.",
+    "expected": "Checks native extraction first, routes empty pages to the OCR reference, verifies Tesseract availability and language choice, uses OCR only where needed, and labels pages with unreliable output for review.",
+    "actual": "Dry-run: the workflow detects insufficient native text, applies the OCR routing branch with an English language setting, and requires page-level method and reliability reporting.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  },
+  {
+    "id": "extract-pdf-text-3",
+    "scenario": "Complex layout and table extraction",
+    "prompt": "Extract the tables from page 3 of this financial PDF. If rows are ambiguous, do not guess values.",
+    "expected": "Uses the examples reference for page targeting and find_tables(), returns extracted values with the page context, and explicitly reports any unreliable table structure rather than fabricating cells.",
+    "actual": "Dry-run: the workflow routes to the table example, uses page-scoped table extraction, and preserves the limitation boundary for ambiguous layouts.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  }
+]

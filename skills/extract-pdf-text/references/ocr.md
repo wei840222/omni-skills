@@ -7,21 +7,25 @@ PyMuPDF extracts embedded text instantly. OCR is only needed for:
 - PDFs where text is actually an image
 - Very old PDFs with non-standard encoding
 
-## Install Tesseract
+## Install the OCR dependencies
 
-**macOS:**
+Install the Tesseract executable with the host package manager, then install the Python bindings in the active environment:
+
 ```bash
+# macOS
 brew install tesseract
-```
 
-**Ubuntu/Debian:**
-```bash
+# Ubuntu/Debian
 sudo apt install tesseract-ocr
+
+# Python packages
+python3 -m pip install pytesseract Pillow
 ```
 
-**Python binding:**
+Confirm the executable is reachable before running OCR:
+
 ```bash
-pip install pytesseract
+tesseract --version
 ```
 
 ## OCR with PyMuPDF + Tesseract
@@ -49,7 +53,7 @@ for page in doc:
     print(text)
 ```
 
-## Auto-Detect: Text vs Scanned
+## Route each page: native text first, OCR only when needed
 
 ```python
 def extract_smart(pdf_path, ocr_lang="eng"):
@@ -60,8 +64,8 @@ def extract_smart(pdf_path, ocr_lang="eng"):
     for page in doc:
         text = page.get_text().strip()
         
-        if len(text) > 50:
-            # Has text, no OCR needed
+        if len(text) >= 50:
+            # Has enough native text; OCR is unnecessary
             results.append({"text": text, "method": "native"})
         else:
             # Likely scanned, use OCR
@@ -87,9 +91,11 @@ def extract_smart(pdf_path, ocr_lang="eng"):
 text = pytesseract.image_to_string(img, lang="eng+spa")
 ```
 
-## Tips for Better OCR
+## Verify and improve OCR quality
 
-1. **Use 300 DPI** — lower quality = worse accuracy
-2. **Specify language** — don't rely on auto-detect
-3. **Clean images** — remove noise before OCR
-4. **Check results** — OCR isn't perfect
+1. Render at **at least 300 DPI**; lower-resolution images commonly reduce recognition accuracy.
+2. Pass the appropriate Tesseract language code, such as `eng` or `chi_sim`; install the corresponding language data before relying on it.
+3. Compare OCR text with the page image. If it is unreliable, inspect orientation, skew, contrast, noise, borders, and page-segmentation mode before retrying.
+4. For a small region, set a suitable Tesseract page-segmentation mode, for example `config="--psm 6"` for a uniform text block. Verify the selected mode against the input layout.
+
+For known Tesseract preprocessing limits and recovery options, see https://tesseract-ocr.github.io/tessdoc/ImproveQuality.html.

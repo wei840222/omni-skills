@@ -1,186 +1,76 @@
 ---
-name: Extract PDF Text
-slug: extract-pdf-text
-version: 1.0.2
-description: Extract text from PDF files using PyMuPDF. Parse tables, forms, and complex layouts. Supports OCR for scanned documents.
-homepage: https://clawic.com/skills/extract-pdf-text
-changelog: Remove internal build file that was accidentally included
+name: extract-pdf-text
+description: Extract text, tables, and structured data from local PDFs with PyMuPDF, and use Tesseract OCR only for scanned or image-only pages. Use when a user needs to read, parse, search, summarize, or analyze a PDF without sending its contents to an external service.
 metadata:
-  clawdbot:
-    emoji: 📄
-    requires:
-      bins:
-      - python3
-      pip:
-      - pymupdf
-    os:
-    - linux
-    - darwin
-    - win32
-    install:
-    - id: pymupdf
-      kind: pip
-      package: PyMuPDF
-      label: Install PyMuPDF
-    displayName: Extract PDF Text
+  version: "1.0.2"
+  openclaw: '{"emoji":"📄","requires":{"bins":["python3"],"pip":["pymupdf"]},"install":[{"id":"pymupdf","kind":"pip","package":"PyMuPDF","label":"Install PyMuPDF"}]}'
 ---
 
-## When to Use
+## Workflow
 
-Agent needs to extract text from PDFs. Use PyMuPDF (fitz) for fast local extraction. Works with text-based documents, scanned pages with OCR, forms, and complex layouts.
+1. Confirm the PDF path and the requested output: plain text, reading-order text, blocks, tables, or JSON. Treat the original PDF as read-only and keep processing local.
+2. Open the PDF with PyMuPDF and extract native text first. Use `page.get_text(sort=True)` when a human reading order is important.
+3. For each page with no meaningful native text, read `references/ocr.md` and use the documented OCR path. Keep native-text pages on the faster native path.
+4. For a corrupt, password-protected, empty, misordered, table-heavy, or large file, read `references/troubleshooting.md` before reporting the failure or choosing a recovery.
+5. Return the requested result with the extraction method used and page coverage. State any pages where OCR or native extraction could not produce reliable text.
 
-## Quick Reference
+## Setup and native extraction
 
-| Topic | File |
-|-------|------|
-| Code examples | `examples.md` |
-| OCR setup | `ocr.md` |
-| Troubleshooting | `troubleshooting.md` |
-
-## Core Rules
-
-### 1. Install PyMuPDF First
+Install PyMuPDF in the active Python environment:
 
 ```bash
-pip install PyMuPDF
+python3 -m pip install PyMuPDF
 ```
 
-Import as `fitz` (historical name):
-```python
-import fitz  # PyMuPDF
-```
-
-### 2. Basic Text Extraction
+PyMuPDF is imported as `fitz`. Extract page by page and keep page boundaries, so the result can identify failures and OCR fallbacks:
 
 ```python
 import fitz
 
-doc = fitz.open("document.pdf")
-text = ""
-for page in doc:
-    text += page.get_text()
-doc.close()
+with fitz.open("document.pdf") as doc:
+    pages = [page.get_text(sort=True) for page in doc]
+text = "\n\f\n".join(pages)
 ```
 
-### 3. Pick the Right Method
-
-| PDF Type | Method |
-|----------|--------|
-| Text-based | `page.get_text()` — fast, accurate |
-| Scanned | OCR with pytesseract — slower |
-| Mixed | Check each page, use OCR when needed |
-
-### 4. Check for Text Before OCR
+Use native extraction before OCR. A page with very little extracted text may be scanned, but treat the threshold as a signal to inspect rather than proof:
 
 ```python
-def needs_ocr(page):
-    text = page.get_text().strip()
-    return len(text) < 50  # Likely scanned if very little text
+def needs_ocr(page, minimum_characters=50):
+    return len(page.get_text().strip()) < minimum_characters
 ```
 
-### 5. Handle Errors Gracefully
+For code patterns, page ranges, metadata, blocks, tables, batch extraction, and password handling, read `references/examples.md`.
 
-```python
-try:
-    doc = fitz.open(path)
-except fitz.FileDataError:
-    print("Invalid or corrupted PDF")
-except fitz.PasswordError:
-    doc = fitz.open(path, password="secret")
-```
+## Output choices
 
-## Extraction Traps
+| Need | PyMuPDF method |
+| --- | --- |
+| Plain text | `page.get_text(sort=True)` |
+| Positioned text blocks | `page.get_text("dict")["blocks"]` |
+| JSON | `page.get_text("json")` then `json.loads(...)` |
+| Tables | `page.find_tables()` then `table.extract()` |
 
-| Trap | What Happens | Fix |
-|------|--------------|-----|
-| OCR on text PDF | Slow + worse accuracy | Check `get_text()` first |
-| Forget to close doc | Memory leak | Use `with` or `doc.close()` |
-| Assume page order | Wrong reading flow | Use `sort=True` in get_text() |
-| Ignore encoding | Garbled characters | PyMuPDF handles UTF-8 |
+PDFs may encode text in an unexpected order. Use `sort=True` for a simple top-left-to-bottom-right order; for complex layouts, return blocks or explain the limitation instead of silently presenting a reordered result as exact.
 
-## Scope
+## Boundaries and completion
 
-This skill provides instructions for using PyMuPDF to extract PDF text.
+- Use a PDF path the user supplies or explicitly authorizes.
+- Process the file locally; this skill makes no external API calls.
+- Keep the source PDF read-only. Write any derived text, JSON, or OCR output to a separate user-approved path.
+- Verify the page count and report the method for every page before presenting extraction as complete.
 
-This skill ONLY:
-- Gives code examples for PyMuPDF
-- Explains OCR setup when needed
-- Troubleshoots common issues
+## Common failure patterns
 
-This skill NEVER:
-- Accesses files without user request
-- Sends data externally
-- Modifies original PDFs
+| Situation | Reliable response |
+| --- | --- |
+| Password is unavailable or rejected | Report that the document remains locked; request a valid user-supplied password. |
+| Native text is empty | Inspect the page and follow `references/ocr.md`; report OCR confidence limits. |
+| Reading order is wrong | Retry with `sort=True`; return positioned blocks when layout still matters. |
+| Tables do not extract cleanly | Use `find_tables()` where suitable and label imperfect results rather than inventing cell structure. |
+| File is corrupt or memory is constrained | Follow `references/troubleshooting.md` and process one page at a time. |
 
-## Security & Privacy
+## On-demand references
 
-**All processing is local:**
-- PyMuPDF runs entirely on your machine
-- No external API calls
-- No data leaves your system
-
-## Output Formats
-
-### Plain Text
-```python
-text = page.get_text()
-```
-
-### Structured (dict)
-```python
-blocks = page.get_text("dict")["blocks"]
-for b in blocks:
-    if b["type"] == 0:  # text block
-        for line in b["lines"]:
-            for span in line["spans"]:
-                print(span["text"], span["size"])
-```
-
-### JSON
-```python
-import json
-data = page.get_text("json")
-parsed = json.loads(data)
-```
-
-## Full Example
-
-```python
-import fitz
-
-def extract_pdf(path):
-    """Extract text from PDF, with OCR fallback for scanned pages."""
-    doc = fitz.open(path)
-    results = []
-    
-    for i, page in enumerate(doc):
-        text = page.get_text()
-        method = "text"
-        
-        # If very little text, might be scanned
-        if len(text.strip()) < 50:
-            # OCR would go here (see ocr.md)
-            method = "needs_ocr"
-        
-        results.append({
-            "page": i + 1,
-            "text": text,
-            "method": method
-        })
-    
-    doc.close()
-    return {
-        "pages": len(results),
-        "content": results,
-        "word_count": sum(len(r["text"].split()) for r in results)
-    }
-
-# Usage
-result = extract_pdf("document.pdf")
-print(f"Extracted {result['word_count']} words from {result['pages']} pages")
-```
-
-## Feedback
-
-- Useful? Star it: https://clawic.com/skills/extract-pdf-text
-- Latest version: https://clawic.com/skills/extract-pdf-text
+- Read `references/examples.md` for copy-ready patterns: specific pages, metadata, blocks, tables, batches, and encrypted PDFs.
+- Read `references/ocr.md` when a page has no usable native text or the user explicitly requests OCR.
+- Read `references/troubleshooting.md` for errors, poor text order, unreliable OCR, memory pressure, or table-extraction limits.
