@@ -15,11 +15,13 @@ metadata:
 3. Apply the smallest change in the relevant layer, then verify it against a local development instance and the current official documentation for that PocketBase version.
 4. Keep runtime data outside this skill package. PocketBase creates `pb_data/` beside its executable; treat it as application data and keep it out of source control. Version JavaScript migrations in `pb_migrations/` when the application uses them.
 
-## Load the Relevant Guide
+## Choose the Relevant Guide
 
-- For JavaScript SDK queries, auth-store use, realtime subscriptions, or file uploads, read `references/sdk-usage.md`.
-- For password or OAuth2 login, superusers, and API-rule semantics, read `references/auth-and-rules.md`.
-- For server-side JavaScript event hooks, read `references/hooks.md`.
+| Task | Read first |
+| --- | --- |
+| JavaScript SDK queries, auth-store use, realtime subscriptions, or file uploads | `references/sdk-usage.md` |
+| Password or OAuth2 login, superusers, or API-rule semantics | `references/auth-and-rules.md` |
+| Server-side JavaScript event hooks | `references/hooks.md` |
 
 ## Safe Change Boundary
 
