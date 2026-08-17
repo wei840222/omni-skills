@@ -1,60 +1,35 @@
 ---
-name: PocketBase
-slug: pocketbase
-version: 1.0.0
-description: Build backends with PocketBase collections, auth, and realtime.
-homepage: https://clawic.com/skills/pocketbase
+name: pocketbase
+description: Build and maintain PocketBase backends with collections, authentication, API rules, realtime subscriptions, file uploads, and JavaScript event hooks. Use when implementing or troubleshooting a PocketBase application with its JavaScript SDK or server runtime.
 metadata:
-  clawdbot:
-    emoji: 📦
-    requires:
-      bins:
-      - pocketbase
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: PocketBase
+  version: "1.0.0"
+  openclaw: '{"emoji":"📦","requires":{"bins":["pocketbase"]}}'
 ---
 
-## SDK Basics
-- Import from `pocketbase` not `pocketbase/dist` — the dist path is internal and breaks on updates
-- Always check `pb.authStore.isValid` before using `pb.authStore.model` — expired tokens return stale data without error
-- After login, token is auto-attached to requests — no need to manually set Authorization headers
+# PocketBase
 
-## Fetching Records
-- Use `expand` parameter to load relations: `pb.collection('posts').getList(1, 20, { expand: 'author,comments' })`
-- Expanded records appear in `record.expand.fieldName` — not directly on the record object
-- Filter syntax is SQL-like but uses single quotes: `filter: "status = 'active' && created >= '2024-01-01'"`
-- Combine conditions with `&&` and `||`, not `AND`/`OR` — SQL keywords don't work
+## Workflow
 
-## Authentication
-- Users collection is `users` (lowercase) — `_users` or `Users` returns empty results
-- `authWithPassword(email, password)` returns the full user record plus token
-- OAuth flow: `authWithOAuth2({ provider: 'google' })` opens popup automatically in browser
-- Logout requires both `pb.authStore.clear()` and invalidating server-side if using tokens elsewhere
+1. Identify the running PocketBase version, the target collection name, and whether the task affects client SDK code, API rules, or server hooks.
+2. Inspect the application's collection schema and current rules before changing authentication, access, or data behavior. Collection names are application-defined; `users` below is only an example.
+3. Apply the smallest change in the relevant layer, then verify it against a local development instance and the current official documentation for that PocketBase version.
+4. Keep runtime data outside this skill package. PocketBase creates `pb_data/` beside its executable; treat it as application data and keep it out of source control. Version JavaScript migrations in `pb_migrations/` when the application uses them.
 
-## Realtime
-- Subscribe with `pb.collection('posts').subscribe('*', callback)` — the `'*'` means all record changes
-- Callback receives `{ action: 'create'|'update'|'delete', record }` — check action before processing
-- Always unsubscribe on cleanup: `pb.collection('posts').unsubscribe()` — orphan subscriptions leak memory
+## Choose the Relevant Guide
 
-## File Uploads
-- Files require FormData, not JSON: `formData.append('document', file)` then pass to `create()`
-- Get file URL with `pb.files.getURL(record, record.filename)` — don't construct URLs manually
-- Multiple files to same field: append with same key multiple times
+| Task | Read first |
+| --- | --- |
+| JavaScript SDK queries, auth-store use, realtime subscriptions, or file uploads | `references/sdk-usage.md` |
+| Password or OAuth2 login, superusers, or API-rule semantics | `references/auth-and-rules.md` |
+| Server-side JavaScript event hooks | `references/hooks.md` |
 
-## Collection Rules
-- Empty rule = blocked for everyone, `""` (empty string) rule = open to everyone — counterintuitive
-- Use `@request.auth.id` to reference logged-in user, `@request.data` for submitted data
-- Example restrict to owner: `@request.auth.id = user.id` in View/Update/Delete rules
+## Safe Change Boundary
 
-## Hooks (pb_hooks/)
-- JavaScript hooks go in `pb_hooks/*.pb.js` — the `.pb.js` extension is required
-- Hooks run synchronously and block the request — keep them fast or use routines
-- Access app with `$app`, event data with `e` — common: `e.record`, `e.httpContext`
+- Store superuser credentials and client secrets only in trusted runtime secret stores; browser code, logs, and repositories use non-secret placeholders.
+- Confirm the intended collection and rule outcome before changing access rules, deleting records, or applying migrations.
+- Use API and hook calls documented for the installed version. When the version-specific documentation is unavailable, pause implementation and obtain that verification first.
 
-## Admin API
-- Admin endpoints need superuser auth, not regular user tokens
-- Create admin token: `pb.admins.authWithPassword(email, password)`
-- Admin operations use `pb.admins` or `pb.collections`, not `pb.collection()`
+## Sources
+
+- PocketBase documentation: https://pocketbase.io/docs/
+- PocketBase JavaScript SDK: https://github.com/pocketbase/js-sdk
