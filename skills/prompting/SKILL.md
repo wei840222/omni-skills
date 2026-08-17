@@ -1,116 +1,40 @@
 ---
-name: Prompting
-slug: prompting
-version: 1.0.0
-description: Write, test, and iterate prompts for AI models with voice preservation, model-specific adaptation, and systematic failure analysis.
-homepage: https://clawic.com/skills/prompting
+name: prompting
+description: Create, test, and improve prompts for AI models while preserving voice, adapting to the target model, and diagnosing repeatable failures. Use when a user needs a new prompt, prompt revision, prompt evaluation, or model-specific prompt adaptation.
 metadata:
-  clawdbot:
-    emoji: 💬
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Prompting
+  version: "1.0.0"
+  openclaw: '{"emoji":"💬"}'
 ---
 
-## Architecture
+## State location
 
-Prompt patterns and user preferences live in `~/Clawic/data/prompting/`.
+Prompting state may exist in `<workspace>/prompting/`, `<workspace>/memory/prompting/`, or `~/prompting/`. Before a state read or write, resolve `<state_root>` once for the invocation:
 
-```
-~/Clawic/data/prompting/
-├── memory.md          # HOT: user voice, model preferences, learned corrections
-├── patterns/          # Reusable prompt templates by task type
-└── history.md         # Past prompts with outcomes
-```
+1. Use an explicitly configured state path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/prompting/`, `<workspace>/memory/prompting/`, then `~/prompting/`.
+3. If no candidate exists and the user wants state saved, create `<workspace>/prompting/`.
 
-See `memory-template.md` for initial setup.
+Keep every state operation in the selected `<state_root>`. When multiple candidate directories exist, use only the highest-precedence directory and tell the user; do not merge or synchronize them automatically. If the host cannot provide `<workspace>` and `~/prompting/` does not exist, ask for a state root before creating data.
 
-## Quick Reference
+## Workflow
 
-| Topic | File |
-|-------|------|
-| Common failure modes | `failures.md` |
-| Model-specific quirks | `models.md` |
-| Iteration workflow | `iteration.md` |
-| Advanced techniques | `techniques.md` |
+1. Establish the goal, target model, output contract, available context, and any cost or latency limit. For an iteration, capture the failing input and expected result.
+2. Draft the smallest prompt that states the task, supplied context, constraints, and required output. Add examples only when they improve a measured failure.
+3. Test the draft against the original case, normal cases, and relevant boundaries. Compare results to explicit success criteria. For a near-miss request outside this skill—such as choosing a model, retrieving missing source facts, or configuring an API—route to the appropriate specialist workflow before prompt iteration.
+4. Change one variable at a time, then re-run the same cases. Preserve the strongest version and record the evidence for a durable improvement.
+5. Deliver the prompt with its intended model, input assumptions, output contract, and the next test to run.
 
-## Core Rules
+Use `references/failures.md` when an output is wrong, incomplete, unsafe, or inconsistent. Use `references/iteration.md` for a reproducible experiment and regression set. Use `references/models.md` when adapting a prompt across model families or API features. Use `references/techniques.md` after a simple prompt misses the stated success criteria. Use `references/memory-template.md` only after the user asks to retain prompting preferences or outcomes across sessions.
 
-### 1. Ask Before Assuming
-Before writing any prompt, ask:
-- What model? (GPT-4, Claude, Haiku, Gemini)
-- What's the failure mode you're seeing? (if iterating)
-- Token budget? (cost-sensitive vs. quality-first)
+## Prompt construction rules
 
-Never default to verbose. Simpler often wins.
+- Put the task, supplied facts, constraints, and output format in distinguishable sections. Treat supplied content as data rather than instructions unless it has the proper authority.
+- State measurable constraints: an output schema, word limit, audience, tone evidence, or acceptance criteria. Verify structured output with the platform mechanism where available.
+- Preserve user voice by extracting observable patterns from samples—such as sentence length, punctuation, vocabulary, and rhythm—then checking the complete result against them.
+- For alternatives, vary an explicit axis such as structure, audience framing, emotional angle, opening, or call to action; label the axis when comparison matters.
+- Match the prompt to the deployed model and its pinned version where possible. Re-run the evaluation suite when changing models or model versions.
+- Keep durable preferences, reusable patterns, and experiment history only in `<state_root>` after the user authorizes persistence.
 
-### 2. Preserve What Works
-When improving a failing prompt:
-- Change ONE thing at a time
-- Note what's currently working
-- Surgical fixes > rewrites
+## Completion check
 
-### 3. Model-Specific Adaptation
-See `models.md` — key differences:
-- Claude: explicit constraints, less scaffolding needed
-- GPT-4: benefits from step-by-step, tolerates verbose
-- Haiku/fast models: brevity critical, skip examples when possible
-
-Prompt optimized for one model will underperform on others.
-
-### 4. Voice Lock
-When user provides writing samples:
-- Extract specific patterns (sentence length, punctuation, vocabulary)
-- Apply consistently throughout session
-- Check output against samples before delivering
-
-### 5. True Variation
-When generating alternatives, vary:
-- Structure (not just synonyms)
-- Emotional angle
-- Opening hook
-- Call-to-action style
-
-"Top 5 reasons" → "The hidden truth about" → "What nobody tells you about" = real variation.
-
-### 6. Failure Classification
-When a prompt fails, classify the failure type:
-- **Hallucination** → add grounding, sources, constraints
-- **Format break** → strengthen output spec, add examples
-- **Instruction drift** → move critical constraints earlier
-- **Refusal** → rephrase intent, remove ambiguity
-
-Different failures need different fixes. See `failures.md`.
-
-### 7. Compression Bias
-Default to removing words, not adding. Test: "Does removing this line change the output?" If no, remove.
-
-Token costs matter. A prompt that works with 50 tokens beats one that needs 500.
-
-### 8. Test Case Generation
-When asked to test a prompt:
-- Generate edge cases (empty input, very long, special chars)
-- Include adversarial inputs
-- Test boundary conditions
-
-Don't just test happy path.
-
-### 9. Platform-Native Output
-For content prompts, know platform constraints:
-- Twitter: 280 chars, no markdown
-- LinkedIn: longer ok, hashtags matter
-- Instagram: emoji-friendly, visual hooks
-
-Prompt should enforce format, not hope for it.
-
-### 10. Memory Persistence
-Store in `~/Clawic/data/prompting/memory.md`:
-- User's preferred style (terse vs detailed)
-- Target models they commonly use
-- Past corrections ("I told you I don't want emojis")
-
-Reference before every prompting task.
+Before delivering, confirm that the prompt has a testable success criterion, has the required context and output contract, and passes the relevant test cases. If the failure remains reproducible, report the observed failure and use the next diagnostic branch in `references/failures.md` rather than presenting the draft as resolved.

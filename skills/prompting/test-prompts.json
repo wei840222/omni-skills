@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Typical prompt creation request",
+    "prompt": "Create a concise prompt that converts a product brief into a 120-word LinkedIn post for operations leaders, with a practical tone and three relevant hashtags.",
+    "expected": "A copy-ready prompt that supplies a role, task, provided-input boundary, audience, 120-word limit, tone, and exact output contract.",
+    "actual": "The workflow produces a prompt with labeled task, source-brief, audience, tone, length, and hashtag constraints, then requires a word-count and format check before delivery.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex prompt iteration request",
+    "prompt": "Our support-summary prompt sometimes invents facts and sometimes returns invalid JSON after moving from one model version to another. Improve it without losing the existing schema.",
+    "expected": "A diagnosis that preserves the failing case, separates grounding and schema failures, uses the model-adaptation reference, adds structured-output validation where supported, and tests the same regression set one variable at a time.",
+    "actual": "The workflow first captures the failing inputs and success criteria, routes to failures and model-adaptation references, specifies supplied-context grounding plus a validated schema, and reruns original, normal, and boundary cases after each isolated change.",
+    "pass": true
+  }
+]
