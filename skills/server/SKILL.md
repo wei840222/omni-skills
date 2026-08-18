@@ -38,6 +38,8 @@ A server is not interesting; the request path through it is. Before configuring 
 
 ## Workflow
 
+Use this ordered path for every service incident, deployment, or exposure change.
+
 1. Map the request path: client → proxy → app → dependency. Identify the hop that reports the symptom and the adjacent hop most likely to own it.
 2. Gather read-only evidence first: listener addresses, supervisor state, logs, and the effective proxy/application configuration.
 3. Choose one smallest reversible change. Validate configuration syntax before a graceful reload; present restarts, stop commands, firewall changes, and destructive cleanup with impact plus an explicit confirmation step.
