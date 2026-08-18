@@ -24,7 +24,7 @@ Mnemonics store arbitrary mappings; they rate low for durable meaning (Dunlosky)
 
 - First-letter reduction: write only each word's first letter, recall the full text from the cues; over sessions degrade the cues (full text → first letters → blank page).
 - Criterion is stricter than the fact track: Rule 3 applies but "correct" means flawless — a legal definition that is 90% right can be 100% wrong.
-- Formulas: each session pairs one cold recall with one applied use — a formula recalled but never applied fails the transfer question (`problem-subjects.md`).
+- Formulas: each session pairs one cold recall with one applied use — a formula recalled but never applied fails the transfer question (`references/problem-subjects.md`).
 - Chunk at natural boundaries (clause, line, equation term), not at arbitrary lengths.
 
 ## Ordered and Spatial Material
@@ -36,4 +36,4 @@ Mnemonics store arbitrary mappings; they rate low for durable meaning (Dunlosky)
 ## What Memorization Cannot Fix
 
 - An item that keeps slipping despite clean reps usually has no structure to hang on: one comprehension pass (why is this list in this order? what generates this formula?) before more reps — then back to the schedule.
-- Check the past papers' verbs before sizing this track: "list/name/state" justifies heavy memorization; "explain/evaluate/calculate" means facts are feedstock for `problem-subjects.md` or `essays-and-reading.md`, and pure card time is capped accordingly.
+- Check the past papers' verbs before sizing this track: "list/name/state" justifies heavy memorization; "explain/evaluate/calculate" means facts are feedstock for `references/problem-subjects.md` or `references/essays-and-reading.md`, and pure card time is capped accordingly.

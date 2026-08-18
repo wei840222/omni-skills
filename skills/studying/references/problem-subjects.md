@@ -20,7 +20,7 @@ One line per miss: problem ID · error type · fix. Reread the log before every 
 | Setup | Right method, wrong translation of the problem | Translate-only drills: set up 5 problems, solve none |
 | Execution | Algebra/arithmetic slip | Slow the written steps, add a check step; not more content |
 
-Same error type recurring across sets is a targeting signal; scattered types under time pressure is a pacing signal (`test-day.md`).
+Same error type recurring across sets is a targeting signal; scattered types under time pressure is a pacing signal (`references/test-day.md`).
 
 ## Recognition vs Generation
 
@@ -29,7 +29,7 @@ Same error type recurring across sets is a targeting signal; scattered types und
 
 ## Timed and Constrained Practice
 
-- Per-question budget (`test-day.md`) applies from the FIRST mixed set, not just mock exams.
+- Per-question budget (`references/test-day.md`) applies from the FIRST mixed set, not just mock exams.
 - Match exam constraints exactly: calculator model, formula sheet, open/closed book. Practicing with a tool the exam removes trains a dependency.
 - Show-your-work courses: practice writing the steps that earn partial credit. A correct answer with skipped steps trains the wrong artifact.
 
@@ -43,5 +43,5 @@ Same error type recurring across sets is a targeting signal; scattered types und
 ## Derivations and Proofs
 
 - Re-derive key results closed-book; memorizing endpoints fails the "show that" question.
-- Ask the course which derivations are examinable verbatim — those move to the verbatim track (`memorization.md`); the rest need only the generating idea.
+- Ask the course which derivations are examinable verbatim — those move to the verbatim track (`references/memorization.md`); the rest need only the generating idea.
 - Proof courses: for each theorem, log the one non-obvious move; the retrieval item is "what is the trick in proof X", not the full transcript.

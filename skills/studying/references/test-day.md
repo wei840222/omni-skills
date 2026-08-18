@@ -1,6 +1,6 @@
 # Test Day — Execution Under Time
 
-Preparation ends the night before (`exam-countdown.md`); this file is what happens once seated. Points are lost on execution that practice already earned.
+Preparation ends the night before (`references/exam-countdown.md`); this file is what happens once seated. Points are lost on execution that practice already earned.
 
 ## Before the First Question
 
@@ -35,5 +35,5 @@ Preparation ends the night before (`exam-countdown.md`); this file is what happe
 
 ## After
 
-- Same-day 10-minute post-mortem while details persist (`exam-countdown.md`).
+- Same-day 10-minute post-mortem while details persist (`references/exam-countdown.md`).
 - No answer-key rumination before remaining exams in the same week — it changes nothing and taxes the next exam.

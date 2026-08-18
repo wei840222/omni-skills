@@ -1,6 +1,6 @@
 # Memory Template — Studying
 
-Create `~/Clawic/data/studying/memory.md` with this structure:
+Create `<state_root>/studying/memory.md` with this structure:
 
 ```markdown
 # Studying Memory
@@ -37,8 +37,8 @@ last: YYYY-MM-DD
 
 - `observed` → `confirmed` after 2+ consistent signals; confirmed entries override the skill's defaults except Core Rules 1, 2, and 6 (non-negotiable floors).
 - An observation never overwrites a declared preference in `config.yaml` without the student's confirmation — config is what they said, memory is what you saw.
-- The Session Log is the data source for `block_length` calibration (Session Protocol 5), the 60%/90% hit-rate adjustments (Session Protocol 4), and time-of-day placement (`scheduling.md`).
-- The Exams section feeds every next countdown (`exam-countdown.md` post-mortem) and cert planning estimates (`certifications.md`).
+- The Session Log is the data source for `block_length` calibration (Session Protocol 5), the 60%/90% hit-rate adjustments (Session Protocol 4), and time-of-day placement (`references/scheduling.md`).
+- The Exams section feeds every next countdown (`references/exam-countdown.md` post-mortem) and cert planning estimates (`references/certifications.md`).
 
 ## Status Values
 

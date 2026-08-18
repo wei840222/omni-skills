@@ -10,7 +10,7 @@ The plan is arithmetic first, calendar second: gaps from Rule 2, session counts 
 | 14 | 1-3 days | 4-7 |
 | 30 | 3-6 days | 5-8 |
 | 60 | 6-12 days | 5-9 |
-| 120+ | drifts toward 5-10% (6-12 days) | weekly cadence → `certifications.md` |
+| 120+ | drifts toward 5-10% (6-12 days) | weekly cadence → `references/certifications.md` |
 
 - Sessions per topic ≈ days remaining ÷ chosen gap. If that yields fewer than 3 relearning sessions for a fact-heavy topic, shorten the gap below the formula rather than dropping sessions — the Rule 3 floor beats the Rule 2 optimum.
 - When unsure between two gaps, take the longer (Rule 2's tiebreak).
@@ -42,4 +42,4 @@ Worked example: Course A is 50% of the grade at 60% mastery → 50×40 = 2000. C
 - Missed one session: do not double tomorrow. Re-space the remaining gaps with the Rule 2 formula from today; the gap widens slightly and the plan survives.
 - Behind for a week or more: cut topics by ascending syllabus weight — never cut the retrieval share or sleep. A plan covering 70% of topics at criterion beats 100% seen once (Rule 1).
 - New fixed obligation: shrink the number of blocks, not their quality; re-anchor the week from step 1.
-- Chronic slippage (third re-plan in a month): the problem is entry or volume, not the calendar → `troubleshooting.md`, "Always behind the plan".
+- Chronic slippage (third re-plan in a month): the problem is entry or volume, not the calendar → `references/troubleshooting.md`, "Always behind the plan".

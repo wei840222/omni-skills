@@ -6,14 +6,14 @@ Working adults rarely fail cert exams; they fail to ever sit them. The design pr
 
 - Book the exam date FIRST (reschedulable where the vendor allows). The date creates the countdown everything hangs on; "I'll book when I'm ready" is the perpetual-prep trap.
 - Horizon of 2-6 months: Rule 2's ratio drifts down toward 5-10% — weekly relearning slots per topic, not daily cramming.
-- The vendor blueprint (published domain weightings) IS the syllabus. Allocate hours by blueprint percentage × current weakness — the `scheduling.md` formula with the vendor's weights plugged in.
+- The vendor blueprint (published domain weightings) IS the syllabus. Allocate hours by blueprint percentage × current weakness — the `references/scheduling.md` formula with the vendor's weights plugged in.
 - `education_level: professional-cert` in config.yaml routes planning here by default.
 
 ## Weekly Shape (job-compatible)
 
 - Default: `study_days_per_week` slots of `block_length` at the same time daily — same-time beats more-time for adherence over months.
 - New material goes to the freshest slots (mornings, weekends); post-work evenings default to review-only — unless memory.md shows this student runs otherwise.
-- Fragments (commute, lunch) follow the `focus.md` fragment table: reviews only.
+- Fragments (commute, lunch) follow the `references/focus.md` fragment table: reviews only.
 - One weekend slot is reserved for full-length practice sets; weekday slots are too short to simulate the exam.
 
 ## Question Banks

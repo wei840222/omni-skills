@@ -33,7 +33,7 @@ Most "focus problems" are entry problems: the session never starts, or starts on
 
 | Fragment | Use it for |
 |---|---|
-| Under 15 min | Flashcard reviews only (`memorization.md` queue) |
+| Under 15 min | Flashcard reviews only (`references/memorization.md` queue) |
 | 15-30 min | One question-list pass, or one full problem with the error log |
 | 30+ min | A real block: run the Session Protocol at reduced scale |
 

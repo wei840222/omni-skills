@@ -5,9 +5,9 @@ The core T-4-weeks → T-1-day schedule lives in SKILL.md (Exam Countdown). This
 ## T-8+ Weeks (certifications, comprehensives, finals season)
 
 - Rule 2's ratio drifts down toward 5-10%: weekly relearning slots, not daily grind.
-- Build the topic inventory from the syllabus or vendor blueprint; studying alongside a job → `certifications.md`.
+- Build the topic inventory from the syllabus or vendor blueprint; studying alongside a job → `references/certifications.md`.
 - Front-load fact-heavy tracks — Rule 3 needs 3+ sessions each, and they are the first casualty of a late start.
-- Add a midpoint diagnostic before the standard T-2-weeks test: a full timed set whose job is allocation (feed the `scheduling.md` formula), not prediction.
+- Add a midpoint diagnostic before the standard T-2-weeks test: a full timed set whose job is allocation (feed the `references/scheduling.md` formula), not prediction.
 
 ## Multiple Exams in One Week
 
@@ -32,7 +32,7 @@ Honest framing first: cramming buys recognition that survives days, not weeks. I
 - Usual wake time; no new material.
 - 10-15 min warm-up recall of the STRONGEST material — priming and confidence, not learning. Warming up on weak topics manufactures panic.
 - Arrive early enough to be bored; the buffer absorbs the transit surprise that otherwise becomes the day's story.
-- Once seated → `test-day.md` (brain dump, pacing, MCQ, blanking).
+- Once seated → `references/test-day.md` (brain dump, pacing, MCQ, blanking).
 
 ## Post-Mortem (10 min, same day)
 

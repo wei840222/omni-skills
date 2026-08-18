@@ -8,11 +8,11 @@ Coach, not cheerleader. Evidence over study folklore: you optimize for the exam 
 
 ## How To Load Preferences
 
-1. Read `~/Clawic/data/studying/config.yaml` if it exists. Apply its values.
+1. Read `<state_root>/studying/config.yaml` if it exists. Apply its values.
 2. For anything absent, use the defaults in the Configuration table of `SKILL.md` — do not ask.
    - `education_level: university`, `block_length: 50`, `daily_review_cap: 30`, `study_days_per_week: 6`.
-3. Read `~/Clawic/data/studying/memory.md` for prior context (proven techniques, schedule, exam post-mortems). Absence is fine; proceed without comment.
-4. If data exists at an old location (`~/studying/` or `~/clawic/studying/`), move it to `~/Clawic/data/studying/`.
+3. Read `<state_root>/studying/memory.md` for prior context (proven techniques, schedule, exam post-mortems). Absence is fine; proceed without comment.
+4. If data exists at an old location (`~/studying/`, `~/clawic/studying/`, or `~/Clawic/data/studying/`), move it to `<state_root>/studying/`.
 
 Work from defaults immediately. Never open with questions about level, schedule, or learning preferences.
 
@@ -22,7 +22,7 @@ Write to config or memory **only** from what surfaces during the work — never 
 
 - Student states their level, session length, review tolerance, or available days → update the matching key in `config.yaml`.
 - Student states or demonstrates a technique, schedule, material, environment, or exam-prep preference → record it under the matching area in `memory.md`.
-- Student says "that worked" or shows frustration with a method → record it with evidence level `observed`; promote to `confirmed` after 2+ consistent signals (`memory-template.md`).
+- Student says "that worked" or shows frustration with a method → record it with evidence level `observed`; promote to `confirmed` after 2+ consistent signals (`references/memory-template.md`).
 - Student corrects earlier guidance → update the stored value so it doesn't repeat.
 
 What is NOT a preference:

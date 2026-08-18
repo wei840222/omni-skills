@@ -27,18 +27,18 @@ Second reads of the same chapter are banned until the question list is exhausted
 
 ## Essay Exam Prep
 
-- Predict questions: past papers + lecture emphasis + seminar recurrences. Maintain a candidate-question list per course; brainstorming it is a legitimate group activity (`techniques.md`).
+- Predict questions: past papers + lecture emphasis + seminar recurrences. Maintain a candidate-question list per course; brainstorming it is a legitimate group activity (`references/techniques.md`).
 - The prep artifact is an outline from memory, timed: thesis, argument blocks with evidence tags (names, dates, quotes, studies), counterargument, so-what. Outlines are cheap enough to spar against every predicted question; full essays are not.
 - At least one full timed essay before the exam (SKILL.md, T-1 week) — outlining skill does not automatically become paragraph-under-pressure skill.
-- Evidence bank per theme: the quotes, dates, and study names go into the fact track (`memorization.md`) as cards; essays are assembled from retrieved evidence, not from vibes.
+- Evidence bank per theme: the quotes, dates, and study names go into the fact track (`references/memorization.md`) as cards; essays are assembled from retrieved evidence, not from vibes.
 - If a marking rubric is published, write to it; graders read with it open.
 
 ## In-Exam Essay Execution
 
-Outline-first timing, mark-based allocation, and answering the verb: `test-day.md`.
+Outline-first timing, mark-based allocation, and answering the verb: `references/test-day.md`.
 
 ## Hybrid Subjects (languages, history, law)
 
-- Split the material explicitly into tracks: vocab/grammar/case facts/dates = fact track (`memorization.md`); production (essays, speaking, argumentation) = generation practice with correction.
+- Split the material explicitly into tracks: vocab/grammar/case facts/dates = fact track (`references/memorization.md`); production (essays, speaking, argumentation) = generation practice with correction.
 - Studying a hybrid subject with one method is the classic mismatch — flashcards alone fail the essay; essay practice alone fails the vocab section.
 - Language production: writing and speaking attempts with correction beat comprehension input once basics exist; the exam's active/passive split decides the practice ratio.
