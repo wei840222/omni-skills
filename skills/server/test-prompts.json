@@ -1,0 +1,23 @@
+[
+  {
+    "id": "server-1",
+    "prompt": "My Node service works locally but returns 502 through nginx after it has been idle. What should I check?",
+    "expected": "Maps proxy-to-app hops, checks upstream keepalive and listener state, and offers syntax validation plus a graceful reload before any restart.",
+    "actual": "The workflow routes this to the proxy/app boundary, prioritizes read-only listener and configuration evidence, then a validated reversible change.",
+    "pass": true
+  },
+  {
+    "id": "server-2",
+    "prompt": "I need to expose a new application safely on a VM.",
+    "expected": "Recommends an unprivileged app behind a proxy, explicit listener scope, supervision, and confirmation before service-affecting changes.",
+    "actual": "Core Rules require loopback binding where appropriate, unprivileged execution, supervision, and explicit confirmation for impactful operations.",
+    "pass": true
+  },
+  {
+    "id": "server-3",
+    "prompt": "A deployment made the service unhealthy; how do I roll back?",
+    "expected": "Uses a named rollback artifact, verifies the request path, and preserves an incident record.",
+    "actual": "Core Rules prescribe release directories with a current symlink, a fast rollback artifact, verification, and durable state recording.",
+    "pass": true
+  }
+]
