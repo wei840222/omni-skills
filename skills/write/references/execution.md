@@ -1,9 +1,9 @@
 # Execution Reference
 
 ## Core Rules
-- Main agent stays free — delegate all writing to sub-agents
-- ALWAYS use scripts for editing (never direct file writes)
-- Complete drafts without asking "should I continue?"
+- Keep the primary conversation available by delegating substantial drafting work when delegation is available.
+- Apply each workspace-content change with `scripts/edit.sh <state_root> <piece-id> <new-content-file>` so it receives a version snapshot.
+- Complete the agreed draft without an unnecessary continuation check.
 
 ## Draft Workflow
 
@@ -19,7 +19,7 @@
 
 3. **Sub-agent calls edit script:**
    ```bash
-   ./scripts/edit.sh ~/writing {piece-id} /tmp/{piece-id}-draft.md
+   ./scripts/edit.sh <state_root> <piece-id> /tmp/<piece-id>-draft.md
    ```
 
 4. **Sub-agent reports completion**

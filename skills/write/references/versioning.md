@@ -1,7 +1,7 @@
 # Versioning Reference
 
 ## Golden Rule
-**NEVER edit content.md directly. ALWAYS use `./scripts/edit.sh`.**
+Use `scripts/edit.sh <state_root> <piece-id> <new-content-file>` for every workspace-content revision so the prior content is retained.
 
 The script enforces:
 1. Copy current content to versions/ with timestamp
@@ -26,7 +26,7 @@ versions/{piece-id}/
 
 1. **Create piece**
    ```bash
-   ./scripts/new-piece.sh ~/writing article "My Article Title"
+   ./scripts/new-piece.sh <state_root> article "My Article Title"
    ```
 
 2. **Write draft** to temp file
@@ -36,19 +36,19 @@ versions/{piece-id}/
 
 3. **Apply edit** (versions automatically)
    ```bash
-   ./scripts/edit.sh ~/writing article-20260211-143052 /tmp/draft.md
+   ./scripts/edit.sh <state_root> article-20260211-143052 /tmp/draft.md
    ```
 
 4. **Revise** (repeat step 2-3)
 
 5. **Restore if needed**
    ```bash
-   ./scripts/restore.sh ~/writing article-20260211-143052 v2
+   ./scripts/restore.sh <state_root> article-20260211-143052 v2
    ```
 
 6. **Cleanup when done** (optional, with confirmation)
    ```bash
-   ./scripts/cleanup.sh ~/writing article-20260211-143052 3  # keep last 3
+   ./scripts/cleanup.sh <state_root> article-20260211-143052 3  # keep last 3
    ```
 
 ## Never Do

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy path",
+    "prompt": "Draft a short blog post about the benefits of using a structured writing workflow.",
+    "expected": "The agent creates a workspace, drafts the content using versioning scripts, and performs an audit.",
+    "actual": "Successfully initialized workspace, created new piece via new-piece.sh, drafted content using edit.sh, and ran audit.sh. The final piece was delivered and verified.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex scenario",
+    "prompt": "Review and refine an existing draft of an essay on version control, apply feedback from an audit, and ensure the tone is professional.",
+    "expected": "The agent uses edit.sh to version the existing piece, applies the feedback, runs verification/audits, and outputs the refined piece.",
+    "actual": "Loaded existing piece, generated new version via edit.sh with tone adjustments, ran audit.sh, passed criteria, and presented final version.",
+    "pass": true
+  }
+]
