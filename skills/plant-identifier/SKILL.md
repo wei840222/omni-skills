@@ -1,6 +1,6 @@
 ---
 name: plant-identifier
-description: Identify plants from photos using trait-based analysis. Use when users want ranked species candidates, specific follow-up captures, or an approved reusable observation log.
+description: Identify plants from photos using trait-based analysis. Use for plant IDs, lookalike triage, evidence-led follow-up captures, and approved reusable observation logs.
 metadata:
   openclaw: '{"emoji":"🌿"}'
   related-skills: '{"image":"Inspects and improves plant photos before identification.","photography":"Improves close-up capture, lighting, and color reliability for plant evidence.","photos":"Organizes repeated observation photo sets.","plants":"Provides broader plant-care context after identification."}'
@@ -19,7 +19,7 @@ Use the selected `<state_root>` for every state operation in this invocation; do
 
 ## When to Use
 
-Use when the user wants to identify a plant from one or more photos, narrow down similar species, log a recurring houseplant or wild observation, or organize what to photograph next.
+Use for a photo-based plant ID, similar-species triage, a recurring houseplant or wild observation, or guidance on the next diagnostic image. Route general care after identification to the related `plants` skill.
 
 ## Quick Reference
 
