@@ -1,70 +1,30 @@
 ---
-name: Roblox
-slug: roblox
-version: 1.0.0
-description: Avoid common Roblox mistakes — server/client security, DataStore pitfalls, memory leaks, and replication gotchas.
-homepage: https://clawic.com/skills/roblox
+name: roblox
+description: Build or review Roblox Luau game logic with secure client/server boundaries, DataStore updates, lifecycle cleanup, replication, and RunService guidance. Use when implementing or auditing Roblox scripts, RemoteEvents, player data, or gameplay systems.
+compatibility: "Roblox Studio and Luau"
 metadata:
-  clawdbot:
-    emoji: 🎲
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Roblox
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎲"}'
+  related-skills: '{"review-code":"Review Roblox Luau changes for correctness, security, and maintainability."}'
 ---
 
-## Server vs Client
-- Server scripts in ServerScriptService — never trust client data
-- LocalScripts in StarterPlayerScripts or StarterGui — client-only
-- RemoteEvent for fire-and-forget — RemoteFunction when server needs to return value
-- ALWAYS validate on server — client can send anything, exploiters will
+## Scope
+Use this skill for Roblox Studio and Luau code. The server is authoritative for game rules and persistent player data.
 
-## Security
-- Never trust client input — validate everything server-side
-- Server-side sanity checks — is player allowed? Is value reasonable?
-- FilteringEnabled is always on — but doesn't protect your RemoteEvents
-- Don't expose admin commands via RemoteEvents — check permissions server-side
+## Workflow
+1. Identify whether each action belongs on the server or in a LocalScript.
+2. Validate every client-supplied value, target, and permission on the server before changing game state.
+3. Select RemoteEvent for one-way messages; use RemoteFunction only when the client needs a result.
+4. For persistent data, wrap service calls in `pcall` and use `UpdateAsync()` for read-modify-write operations.
+5. Verify cleanup, replication visibility, and frame-loop cost before shipping.
 
-## DataStore
-- `:GetAsync()` and `:SetAsync()` can fail — wrap in pcall, retry with backoff
-- Rate limits: 60 + numPlayers × 10 requests/minute — queue writes, batch when possible
-- `:UpdateAsync()` for read-modify-write — prevents race conditions
-- Session locking — prevent data loss on rejoin, use `:UpdateAsync()` with check
-- Test with Studio API access enabled — Settings → Security → API Services
+## State location
+This skill does not persist local state. Roblox game state belongs to the experience and its configured DataStores.
 
-## Memory Leaks
-- Connections not disconnected — store and `:Disconnect()` when done
-- `:Destroy()` instances when removed — sets Parent to nil and disconnects events
-- Player leaving without cleanup — `Players.PlayerRemoving` to clean up
-- Tables holding references — nil out references you don't need
+## Load detailed guidance
+For task-specific implementation details, read `references/roblox-security-and-practices.md` for DataStore handling, RemoteEvent security, lifecycle cleanup, replication, character events, service access, and RunService details.
 
-## Character Handling
-- Character may not exist at PlayerAdded — use `player.CharacterAdded:Wait()` or event
-- Character respawns = new character — reconnect events on CharacterAdded
-- `Humanoid.Died` fires on death — for death handling logic
-- `LoadCharacter()` to force respawn — but prefer natural respawn usually
-
-## Replication
-- ServerStorage: server-only — clients can't see
-- ReplicatedStorage: both see — shared modules and assets
-- ReplicatedFirst: loads first on client — loading screens
-- Workspace replicates to clients — but server is authority
-
-## Services Pattern
-- `game:GetService("ServiceName")` — don't index directly, fails in different contexts
-- Cache service references — `local Players = game:GetService("Players")`
-- Common: Players, ReplicatedStorage, ServerStorage, RunService, DataStoreService
-
-## RunService
-- `Heartbeat` after physics — most gameplay logic
-- `RenderStepped` client only, before render — camera, visual updates
-- `Stepped` before physics — physics manipulation
-- Avoid heavy computation every frame — spread over multiple frames
-
-## Common Mistakes
-- `wait()` deprecated — use `task.wait()` for reliable timing
-- `spawn()` deprecated — use `task.spawn()` or `task.defer()`
-- Module require returns cached — same table across requires, changes shared
-- `:Clone()` doesn't fire events — manually fire if needed
-- Part collisions with CanCollide false — still fire Touched, use CanTouch
+## Safety boundaries
+- Keep authority checks and sensitive game logic on the server.
+- Before handling an administrative RemoteEvent action, check permissions on the server.
+- Validate client requests on the server even when a client UI already restricts input.
