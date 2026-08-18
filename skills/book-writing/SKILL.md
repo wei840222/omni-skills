@@ -71,11 +71,11 @@ After each interaction, leave a precise next step the user can execute immediate
 
 ## Common Traps
 
-- Drafting before scope is defined -> bloated manuscript and major rewrites.
-- Treating every chapter the same -> flat pacing and repetitive structure.
-- Line editing too early -> local polish over global coherence.
-- Changing voice mid-book -> reader trust drops quickly.
-- Ignoring chapter outcomes -> chapters feel busy but non-essential.
+- Establish the book's scope and promise before drafting, so the manuscript has a stable boundary.
+- Give each chapter a distinct outcome and escalation point to keep pacing purposeful.
+- Reserve line editing for the final revision pass, after structural coherence is established.
+- Record a voice profile and check it at chapter boundaries to protect reader trust.
+- Confirm each chapter earns its place by advancing the book promise.
 
 ## Security & Privacy
 
