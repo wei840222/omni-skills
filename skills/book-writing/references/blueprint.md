@@ -7,7 +7,7 @@ Use this before drafting large sections.
 - Reader: Who is this for?
 - Problem: What pain or ambition is driving them?
 - Transformation: What changes after finishing the book?
-- Constraint: What this book intentionally does not cover.
+- Constraint: The explicitly excluded topics to keep the scope tight.
 
 ## Positioning Choices
 

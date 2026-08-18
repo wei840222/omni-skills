@@ -12,7 +12,7 @@ Run this loop per chapter to protect quality and momentum.
 
 - Draft from opening to close without micro-editing.
 - Mark uncertain points inline with simple placeholders like `[verify source]`.
-- Avoid perfection passes during first draft flow.
+- Defer perfection passes until the revision stage.
 
 ## 3. Validate Coherence
 
