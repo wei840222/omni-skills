@@ -15,7 +15,7 @@ Examples:
 ## Project Structure
 
 ```
-~/writing/
+<state_root>/
   config.json           # workspace settings
   index.json            # all pieces index
   pieces/

@@ -45,14 +45,14 @@
 
 1. Run audit script
    ```bash
-   ./scripts/audit.sh ~/writing article-20260211-143052
+   ./scripts/audit.sh <state_root> article-20260211-143052
    ```
 
 2. Sub-agent fills in the audit report with scores + issues
 
 3. If overall < 7/10 or any "Must Fix":
    - Spawn rewrite sub-agent for specific issues
-   - Apply rewrite via edit.sh (versions automatically)
+   - Apply the rewrite via `scripts/edit.sh <state_root> <piece-id> <new-content-file>` (versions automatically)
    - Re-audit
 
 4. If overall ≥ 8/10 and no blockers:
