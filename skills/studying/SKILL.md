@@ -38,6 +38,10 @@ Preference areas to record as the user reveals them:
 - Focus problems inside study work: procrastination, distraction, burnout mid-plan
 - Mode: advise — this skill coaches a human student. Not for doing the assignment itself (`homework`), designing flashcards (`flashcards`, `anki`), or generating practice tests (`exam`)
 
+## Load References on Demand
+
+Load `references/setup.md` before using or changing learner state. Then load the matching direct reference before providing a specialized plan: `references/scheduling.md` for a calendar or missed-session recovery; `references/exam-countdown.md` for a deadline under eight weeks; `references/memorization.md` for fact-heavy or verbatim material; `references/problem-subjects.md` for quantitative or coding practice; `references/essays-and-reading.md` for readings or essay exams; `references/focus.md` for procrastination, distraction, or burnout; `references/test-day.md` for in-exam execution; `references/certifications.md` for a job-compatible certification plan; and `references/troubleshooting.md` when prior attempts are failing.
+
 ## Quick Reference
 
 | Situation | Play |
@@ -76,7 +80,7 @@ Depth on demand: `references/techniques.md` what works, when, and what to retire
 1. Open with recall, not review: 5-10 min writing everything remembered from last session, blank page, book closed. Then check and mark gaps.
 2. New material pass: for every section, generate 2-5 test questions (definition, why, applied case) and log them; questions are the session's durable artifact, highlights are not.
 3. Close the loop: answer today's new questions plus all questions missed last session, cold. Anything missed twice gets flagged for the next session's opening.
-4. Log one line to memory.md: date, topic, minutes, retrieval hit rate (correct / attempted). Hit rate below 60% next session means gaps are too long or items too big: split items or halve the gap. Above 90% two sessions running means gaps are too short: lengthen toward the Rule 2 ceiling.
+4. Log one line to `<state_root>/studying/memory.md`: date, topic, minutes, retrieval hit rate (correct / attempted). Hit rate below 60% next session means gaps are too long or items too big: split items or halve the gap. Above 90% two sessions running means gaps are too short: lengthen toward the Rule 2 ceiling.
 5. Session length: start from `block_length`; stop when retrieval accuracy visibly degrades within the session, not at a fixed timer; log the duration where that happened and treat it as this student's default block length.
 
 ## Exam Countdown
@@ -87,7 +91,7 @@ Full horizon protocols, multi-exam weeks, and the cram triage live in `reference
 - T-2 weeks: first full-length timed practice test under exam conditions (same time limit, no notes, same allowed tools). Score it, then re-plan: topics below ~70% get double slots, topics above 90% drop to maintenance (one retrieval pass per week).
 - T-1 week: second timed test; practice the exam's actual format (essay outlines in essay courses, problem sets in problem courses). Format-mismatched practice inflates confidence without transferring.
 - T-1 day: retrieval-only, no new topics, half-length day, full night of sleep. Prepare logistics (location, materials, ID) the evening before, not the morning of.
-- Post-exam, 10 min: log to memory.md what the exam actually tested versus what the plan predicted; this calibrates the next countdown.
+- Post-exam, 10 min: log to `<state_root>/studying/memory.md` what the exam actually tested versus what the plan predicted; this calibrates the next countdown.
 
 ## Diagnosing Misses
 
@@ -114,7 +118,7 @@ Before emitting a study plan or session design, verify:
 - Full night of sleep intact every night, including the last (Rule 6)?
 - At least one exam-condition practice test on the calendar (T-2 weeks)?
 - Plan survives one missed session (re-space rule in `references/scheduling.md`), or does it require perfection?
-- Values pulled from config.yaml and memory.md where they exist, not defaults the student already overrode?
+- Values pulled from `<state_root>/studying/config.yaml` and `<state_root>/studying/memory.md` where they exist, not defaults the student already overrode?
 
 ## Red Flags
 
@@ -145,7 +149,7 @@ Anything in this table suspends the protocols above: route to a clinician or cou
 
 - **Longhand vs laptop notes.** The original finding favored longhand for conceptual learning; direct replications have been mixed. The stable boundary: transcription is the failure mode on either medium — capture sparsely and process into questions within a day (`references/essays-and-reading.md`).
 - **Pomodoro vs long blocks.** Timers beat blocks for aversive starts; blocks beat timers once engaged in problem sets or essays. Default: `block_length` with degradation-point stopping; pomodoro as the entry device for procrastination (`references/focus.md`).
-- **Music while studying.** Lyrics compete with verbal encoding; instrumental is tolerable for routine problem practice, silence wins for reading and memorization. Treat the student's proven preference in memory.md as data that beats the default.
+- **Music while studying.** Lyrics compete with verbal encoding; instrumental is tolerable for routine problem practice, silence wins for reading and memorization. Treat the student's proven preference in `<state_root>/studying/memory.md` as data that beats the default.
 - **Group study.** Works as solo-solve-then-compare with explained disagreements; fails as shared rereading. The boundary is whether every member retrieves before the group talks (`references/techniques.md`).
 
 ## Related Skills
