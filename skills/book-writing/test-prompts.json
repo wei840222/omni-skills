@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Happy path - user asks to start a new book",
+    "prompt": "I want to start writing a new science fiction book. Help me set it up.",
+    "expected": "The agent should load `references/setup.md`, ask about the target reader and core promise, and propose a starting blueprint or memory structure.",
+    "actual": "Agent successfully loaded `references/setup.md`, asked clarifying questions about the core promise and target reader, and prepared a minimal book promise sentence and chapter map.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex path - user wants to revise a messy chapter",
+    "prompt": "I have a draft of chapter 3 but it's a mess. The arguments are weak and the pacing is off. How should we fix it?",
+    "expected": "The agent should load `references/revision-rubric.md` and propose a structured, multi-pass revision (Structural first, then Argument/Narrative, etc.) instead of trying to fix everything at once.",
+    "actual": "Agent loaded `references/revision-rubric.md` and correctly proposed addressing Pass 1 (Structural Integrity) and Pass 2 (Argument and Narrative Strength) before looking at line edits.",
+    "pass": true
+  }
+]
