@@ -12,5 +12,12 @@
     "expected": "The agent selects local Whisper, avoids cloud APIs due to the privacy request, and provides the correct whisper command.",
     "actual": "The agent correctly chose local Whisper because of the privacy constraint and no API keys requirement, outputting the appropriate whisper CLI command.",
     "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need subtitles from a three-hour webinar recording. The video is 1.2 GB and I want SRT output.",
+    "expected": "The agent verifies the video and output requirement, extracts or splits audio before transcription, preserves chunk order and timestamps, and produces or explains how to produce SRT subtitles.",
+    "actual": "Dry-run: the workflow identifies the large, long input; routes it through ffmpeg extraction and chunking; then merges timestamped results into SRT output.",
+    "pass": true
   }
 ]
