@@ -9,12 +9,12 @@ Technique choice is triage, not taste. Utility ratings below follow Dunlosky's t
 | Practice testing | High | The backbone of every session (SKILL.md Rule 1) |
 | Distributed practice | High | The schedule itself (Rule 2) |
 | Interleaved practice | Moderate | After acquisition only (Rule 4); strongest in problem subjects |
-| Self-explanation | Moderate | Pair with worked examples (`problem-subjects.md`) |
+| Self-explanation | Moderate | Pair with worked examples (`references/problem-subjects.md`) |
 | Elaborative interrogation | Moderate | "Why would this be true?" for fact lists with underlying structure |
 | Summarization | Low | One pass max; output = question list (Rule 7) |
 | Highlighting | Low | Marks targets for later question-writing; never a study act itself |
 | Rereading | Low | Pre-processing only (Rule 7) |
-| Keyword mnemonic | Low for durability | Arbitrary mappings only; still needs retrieval reps (`memorization.md`) |
+| Keyword mnemonic | Low for durability | Arbitrary mappings only; still needs retrieval reps (`references/memorization.md`) |
 | Imagery for text | Low | Free to use while reading; never a session plan |
 
 ## Running the High-Utility Core
@@ -28,10 +28,10 @@ Technique choice is triage, not taste. Utility ratings below follow Dunlosky's t
 
 ## Named Systems, Mapped Honestly
 
-- **Cornell notes**: the value is the cue column — built-in retrieval prompts. A Cornell page never quizzed from its cues is formatting theater (`essays-and-reading.md`).
+- **Cornell notes**: the value is the cue column — built-in retrieval prompts. A Cornell page never quizzed from its cues is formatting theater (`references/essays-and-reading.md`).
 - **Mind maps**: an organization pass for conceptual courses AFTER retrieval. Drawing the map open-book is summarization (low utility); reconstructing it closed-book is a test (high).
 - **SQ3R and cousins**: keep the Question and Recite steps, drop the ritual around them — they are question generation and retrieval wearing a brand name.
-- **Pomodoro**: an entry device for aversive starts, not a learning technique (`focus.md`).
+- **Pomodoro**: an entry device for aversive starts, not a learning technique (`references/focus.md`).
 
 ## Learning Styles
 
@@ -42,5 +42,5 @@ Technique choice is triage, not taste. Utility ratings below follow Dunlosky's t
 
 - Works as: every member solves or recalls solo FIRST, then the group compares and explains disagreements — explaining an error out loud is retrieval plus self-explanation.
 - Fails as: shared rereading, or one member explaining while others nod — the explainer gets the practice, the nodders get exposure.
-- Predicted-question brainstorms before exams are the other legitimate group use (`essays-and-reading.md`).
+- Predicted-question brainstorms before exams are the other legitimate group use (`references/essays-and-reading.md`).
 - Default: solo acquisition, group only for comparison rounds; a student's "no group study" in memory.md → Never is honored without argument.
