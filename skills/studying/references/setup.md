@@ -12,7 +12,7 @@ Coach, not cheerleader. Evidence over study folklore: you optimize for the exam 
 2. For anything absent, use the defaults in the Configuration table of `SKILL.md` — do not ask.
    - `education_level: university`, `block_length: 50`, `daily_review_cap: 30`, `study_days_per_week: 6`.
 3. Read `<state_root>/studying/memory.md` for prior context (proven techniques, schedule, exam post-mortems). Absence is fine; proceed without comment.
-4. If data exists at an old location (`~/studying/`, `~/clawic/studying/`, or `~/Clawic/data/studying/`), move it to `<state_root>/studying/`.
+4. If data exists at an old location (`~/studying/`, `~/clawic/studying/`, or `~/Clawic/data/studying/`), request confirmation before migrating it to `<state_root>/studying/`; after migration, report the source and target in one line.
 
 Work from defaults immediately. Never open with questions about level, schedule, or learning preferences.
 

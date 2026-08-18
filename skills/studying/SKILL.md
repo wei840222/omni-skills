@@ -36,7 +36,7 @@ Preference areas to record as the user reveals them:
 - A user reports "I studied hard but forgot everything", failed a practice test, or scores have plateaued
 - Building a weekly revision schedule across multiple courses, or fitting cert study around a job
 - Focus problems inside study work: procrastination, distraction, burnout mid-plan
-- Mode: advise — this skill coaches a human student. Not for doing the assignment itself (`homework`), designing flashcards (`flashcards`, `anki`), or generating practice tests (`exam`)
+- Mode: advise — this skill coaches a human student. Route assignment completion to `homework`, deck creation to `anki`, and practice-test generation to `exam`.
 
 ## Load References on Demand
 
@@ -125,7 +125,7 @@ Before emitting a study plan or session design, verify:
 | Signal (observable) | Suspicion | Action |
 |---|---|---|
 | Second consecutive night under ~4h sleep to study | Sleep deprivation degrading the memory being built | Stop the plan, sleep first; replan with cut topics |
-| Escalating stimulant use (doubling caffeine, borrowed prescription drugs) | Dependence or dangerous dosing | Do not optimize around it; flag it and route to a clinician |
+| Escalating stimulant use (doubling caffeine, borrowed prescription drugs) | Dependence or dangerous dosing | Flag it and route to a clinician before changing the study plan |
 | Panic symptoms during study or exams (racing heart, blanking, nausea) | Anxiety condition beyond technique fixes | Suggest campus counseling or a clinician; keep sessions short meanwhile |
 | Skipped meals across multiple days to extend study time | Disordered eating pattern | Rebuild schedule around fixed meals; persistent pattern goes to a clinician |
 
