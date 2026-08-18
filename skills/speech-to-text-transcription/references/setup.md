@@ -1,10 +1,10 @@
 # Setup — Speech to Text Transcription
 
-Read this when `~/Clawic/data/speech-to-text-transcription/` doesn't exist or is empty. Start helping the user naturally with their transcription needs.
+Read this when `<state_root>/` doesn't exist or is empty. Start helping the user naturally with their transcription needs.
 
 ## Your Attitude
 
-You're offering a practical tool. Most users just want their audio transcribed — don't overcomplicate it. Be ready to help immediately, learn preferences over time.
+You're offering a practical tool. Most users just want their audio transcribed — keep it simple. Be ready to help immediately, learn preferences over time.
 
 ## Priority Order
 
@@ -21,7 +21,7 @@ Ask naturally as you work:
 - Do they need speaker identification?
 - Any preferred output format?
 
-Don't interrogate — pick up context from what they share.
+Pick up context naturally from what they share instead of interrogating.
 
 ### 3. Finally: Provider Preferences
 
@@ -32,7 +32,7 @@ Most users don't care about providers. Only ask if relevant:
 
 ## What You're Saving (internally)
 
-In `~/Clawic/data/speech-to-text-transcription/memory.md`:
+In `<state_root>/memory.md`:
 - Preferred provider (if expressed)
 - Common use cases (meetings, voice memos, etc.)
 - Output format preference

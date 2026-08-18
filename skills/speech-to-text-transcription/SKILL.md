@@ -1,26 +1,28 @@
 ---
-name: Speech to Text Transcription
-slug: speech-to-text-transcription
-version: 1.0.0
-description: Transcribe audio and video files to text with speaker detection, timestamps, and format conversion.
-homepage: https://clawic.com/skills/speech-to-text-transcription
-changelog: Initial release with multi-provider support and batch processing.
+name: speech-to-text-transcription
+description: Transcribe local audio, video, and downloaded recordings into text, speaker-labeled segments, or subtitle files. Use when a user asks to transcribe a voice memo, meeting, interview, podcast, lecture, or video.
 metadata:
-  clawdbot:
-    emoji: 🎤
-    requires:
-      bins:
-      - ffmpeg
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Speech to Text Transcription
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎤","requires":{"bins":["ffmpeg"]}}'
+  related-skills: '{"audio":"General audio processing.","ffmpeg":"Video and audio conversion.","podcast":"Podcast creation and editing."}'
 ---
+
+
+## State location
+
+Transcription state may exist in `<workspace>/speech-to-text-transcription/`, `<workspace>/memory/speech-to-text-transcription/`, or `~/speech-to-text-transcription/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/speech-to-text-transcription/`, `<workspace>/memory/speech-to-text-transcription/`, `~/speech-to-text-transcription/`.
+3. If none exists and state must be created, default to `<workspace>/speech-to-text-transcription/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, read `setup.md` and start helping with transcription needs.
+On first use, read `references/setup.md` and start helping with transcription needs.
 
 ## When to Use
 
@@ -28,10 +30,10 @@ User has audio or video files that need transcription. Agent handles local files
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/speech-to-text-transcription/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/speech-to-text-transcription/
+<state_root>/
 ├── memory.md        # Provider preferences, defaults
 ├── transcripts/     # Saved transcriptions
 └── temp/            # Processing workspace
@@ -41,8 +43,8 @@ Memory lives in `~/Clawic/data/speech-to-text-transcription/`. See `memory-templ
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
 
 ## Core Rules
 
@@ -67,7 +69,7 @@ Files over 25MB or 2 hours:
 1. Split into chunks (use ffmpeg)
 2. Process each chunk
 3. Merge transcripts with proper timestamps
-4. Never attempt single upload for large files
+4. Always split large files before uploading
 
 ### 4. Preserve Context
 After transcription:
@@ -161,7 +163,7 @@ ffmpeg -i long.mp3 -f segment -segment_time 600 -c copy chunk_%03d.mp3
 ## Security & Privacy
 
 **Data that stays local:**
-- Transcripts in ~/Clawic/data/speech-to-text-transcription/transcripts/
+- Transcripts in <state_root>/transcripts/
 - Local Whisper processes entirely on-device
 
 **Data that leaves your machine (if using APIs):**
@@ -186,14 +188,3 @@ Only called when user explicitly chooses cloud provider. Local Whisper sends not
 ## Trust
 
 By using cloud transcription providers, audio data is sent to OpenAI, AssemblyAI, or Deepgram. Only install if you trust these services with your audio. For sensitive content, use local Whisper.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `audio` — General audio processing
-- `ffmpeg` — Video and audio conversion
-- `podcast` — Podcast creation and editing
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/speech-to-text-transcription
-- Latest version: https://clawic.com/skills/speech-to-text-transcription
