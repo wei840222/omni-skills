@@ -22,7 +22,7 @@ Use this skill for Roblox Studio and Luau code. The server is authoritative for 
 This skill does not persist local state. Roblox game state belongs to the experience and its configured DataStores.
 
 ## Load detailed guidance
-Read `references/roblox-security-and-practices.md` for DataStore handling, RemoteEvent security, lifecycle cleanup, replication, character events, service access, and RunService details.
+For task-specific implementation details, read `references/roblox-security-and-practices.md` for DataStore handling, RemoteEvent security, lifecycle cleanup, replication, character events, service access, and RunService details.
 
 ## Safety boundaries
 - Keep authority checks and sensitive game logic on the server.
