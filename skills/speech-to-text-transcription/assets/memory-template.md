@@ -1,6 +1,6 @@
 # Memory Template — Speech to Text Transcription
 
-Create `~/Clawic/data/speech-to-text-transcription/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Speech to Text Memory
@@ -30,13 +30,13 @@ integration: pending
 |-------|---------|----------|
 | `ongoing` | Still learning | Gather context from each transcription |
 | `complete` | Knows preferences | Work with established defaults |
-| `paused` | User said "not now" | Don't ask, use sensible defaults |
+| `paused` | User said "not now" | Use sensible defaults silently |
 
 ## Directory Structure
 
 After first use:
 ```
-~/Clawic/data/speech-to-text-transcription/
+<state_root>/
 ├── memory.md
 ├── transcripts/
 │   └── [saved transcriptions]
@@ -46,7 +46,7 @@ After first use:
 
 ## Key Principles
 
-- Learn from what they transcribe, don't ask directly
+- Learn from what they transcribe, observe implicitly
 - Default to local Whisper unless they need cloud features
 - Auto-clean temp files after successful transcription
 - Save transcripts only when asked

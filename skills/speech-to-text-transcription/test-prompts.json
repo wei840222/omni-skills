@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have an audio file named interview.mp3. It's a recording of a 30-minute interview with two people. Please transcribe it for me and identify who is speaking.",
+    "expected": "The agent identifies the local file `interview.mp3`, notes that diarization is needed for an interview, chooses AssemblyAI (or suggests it), and explains the command to run.",
+    "actual": "The agent identified the file, correctly recognized the need for speaker diarization since it's an interview, and selected AssemblyAI as the provider since it supports diarization, outputting the correct curl command.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to quickly transcribe a 2-minute voice memo located at /tmp/memo.m4a. No API keys, keep it private.",
+    "expected": "The agent selects local Whisper, avoids cloud APIs due to the privacy request, and provides the correct whisper command.",
+    "actual": "The agent correctly chose local Whisper because of the privacy constraint and no API keys requirement, outputting the appropriate whisper CLI command.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need subtitles from a three-hour webinar recording. The video is 1.2 GB and I want SRT output.",
+    "expected": "The agent verifies the video and output requirement, extracts or splits audio before transcription, preserves chunk order and timestamps, and produces or explains how to produce SRT subtitles.",
+    "actual": "Dry-run: the workflow identifies the large, long input; routes it through ffmpeg extraction and chunking; then merges timestamped results into SRT output.",
+    "pass": true
+  }
+]

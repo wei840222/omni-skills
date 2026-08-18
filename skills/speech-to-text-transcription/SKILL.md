@@ -1,37 +1,48 @@
 ---
-name: Speech to Text Transcription
-slug: speech-to-text-transcription
-version: 1.0.0
-description: Transcribe audio and video files to text with speaker detection, timestamps, and format conversion.
-homepage: https://clawic.com/skills/speech-to-text-transcription
-changelog: Initial release with multi-provider support and batch processing.
+name: speech-to-text-transcription
+description: Transcribe local audio, video, and downloaded recordings into text, speaker-labeled segments, or subtitle files. Use when a user asks to transcribe a voice memo, meeting, interview, podcast, lecture, or video.
 metadata:
-  clawdbot:
-    emoji: 🎤
-    requires:
-      bins:
-      - ffmpeg
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Speech to Text Transcription
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎤","requires":{"bins":["ffmpeg"]}}'
+  related-skills: '{"audio":"General audio processing.","ffmpeg":"Video and audio conversion.","podcast":"Podcast creation and editing."}'
 ---
+
+
+## State location
+
+Transcription state may exist in `<workspace>/speech-to-text-transcription/`, `<workspace>/memory/speech-to-text-transcription/`, or `~/speech-to-text-transcription/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/speech-to-text-transcription/`, `<workspace>/memory/speech-to-text-transcription/`, `~/speech-to-text-transcription/`.
+3. If none exists and state must be created, default to `<workspace>/speech-to-text-transcription/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, read `setup.md` and start helping with transcription needs.
+On first use, read `references/setup.md` only to learn the user’s workflow and explicit preferences. Keep the first transcription focused on the requested file; save a preference only when the user expresses it or asks to retain it.
 
 ## When to Use
 
-User has audio or video files that need transcription. Agent handles local files, URLs, voice memos, podcasts, interviews, meetings, and lectures.
+Use this skill for local files, downloaded URLs, voice memos, podcasts, interviews, meetings, lectures, and videos that need transcription, timestamps, subtitles, or speaker labels.
+
+## Workflow
+
+1. Confirm the input is accessible and identify its format, duration, size, language, and whether speaker labels or subtitles are required.
+2. Choose local Whisper for private/offline work; select a cloud provider only after the user explicitly chooses the data transfer.
+3. For files over 25 MB or recordings longer than two hours, split the input first; preserve order and merge the resulting transcript segments with timestamps.
+4. Run the transcription, verify the output is complete and readable, then offer the requested format and any summary or action-item extraction.
+
+If the input cannot be read or its format is unsupported, use `ffmpeg` to extract or convert the audio, then repeat step 1. If a cloud request fails, report the provider error without exposing credentials and offer local Whisper or a retry after the user decides.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/speech-to-text-transcription/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure. Read `references/provider-guidance.md` before selecting or updating a cloud-provider command.
 
 ```
-~/Clawic/data/speech-to-text-transcription/
+<state_root>/
 ├── memory.md        # Provider preferences, defaults
 ├── transcripts/     # Saved transcriptions
 └── temp/            # Processing workspace
@@ -41,8 +52,9 @@ Memory lives in `~/Clawic/data/speech-to-text-transcription/`. See `memory-templ
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
+| Provider-specific commands and limits | `references/provider-guidance.md` |
 
 ## Core Rules
 
@@ -57,17 +69,17 @@ Before transcription, identify the input:
 | Scenario | Best Provider | Why |
 |----------|---------------|-----|
 | Quick local transcription | Whisper (local) | No API key, free, private |
-| High accuracy needed | OpenAI Whisper API | Best quality |
-| Speaker identification | AssemblyAI | Native diarization |
+| Current OpenAI transcription | OpenAI Audio API | Use the documented `gpt-transcribe` request |
+| Speaker identification | OpenAI diarization or AssemblyAI | Use a provider that returns speaker labels |
 | Real-time/streaming | Deepgram | Low latency |
 | Long content (>2 hours) | Split + batch | Avoid timeouts |
 
 ### 3. Handle Long Audio
-Files over 25MB or 2 hours:
-1. Split into chunks (use ffmpeg)
-2. Process each chunk
-3. Merge transcripts with proper timestamps
-4. Never attempt single upload for large files
+For files over 25 MB or recordings longer than two hours:
+1. Split the audio into ordered chunks with ffmpeg.
+2. Process each chunk using the chosen provider or local Whisper.
+3. Merge transcript segments in order while preserving timestamps.
+4. Check the joined result for gaps or duplicated boundary text before delivery.
 
 ### 4. Preserve Context
 After transcription:
@@ -84,11 +96,11 @@ Default to plain text. Offer alternatives:
 
 ## Common Traps
 
-- **Assuming one provider works for all** → Whisper fails on diarization, AssemblyAI needs API key
-- **Uploading huge files directly** → Timeouts, memory errors. Split first.
-- **Ignoring audio quality** → Noisy audio needs preprocessing (ffmpeg noise reduction)
-- **Not checking language** → Whisper auto-detects but can fail on mixed-language content
-- **Losing speaker context** → Multi-speaker content without diarization becomes unusable
+- **Match the provider to the requested output** → use a diarization-capable provider for speaker labels and local Whisper for offline/private transcription.
+- **Prepare large files first** → split recordings over 25 MB or two hours before sending chunks for transcription.
+- **Improve noisy audio before transcription** → apply appropriate ffmpeg preprocessing when noise affects intelligibility.
+- **Confirm language expectations** → provide a language hint for mixed-language or uncertain recordings when the chosen provider supports it.
+- **Preserve speaker context** → request diarization whenever speaker attribution is required.
 
 ## Requirements
 
@@ -123,7 +135,7 @@ curl -X POST https://api.openai.com/v1/audio/transcriptions \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: multipart/form-data" \
   -F file="@audio.mp3" \
-  -F model="whisper-1"
+  -F model="gpt-transcribe"
 ```
 
 ### AssemblyAI (Speaker Diarization)
@@ -161,17 +173,17 @@ ffmpeg -i long.mp3 -f segment -segment_time 600 -c copy chunk_%03d.mp3
 ## Security & Privacy
 
 **Data that stays local:**
-- Transcripts in ~/Clawic/data/speech-to-text-transcription/transcripts/
+- Transcripts in <state_root>/transcripts/
 - Local Whisper processes entirely on-device
 
 **Data that leaves your machine (if using APIs):**
 - Audio file sent to chosen provider (OpenAI, AssemblyAI, Deepgram)
 - Transcript returned and stored locally
 
-**This skill does NOT:**
-- Store API keys in plain text (use environment variables)
-- Auto-upload without confirmation
-- Retain files on external servers after processing
+**Credential and upload handling:**
+- Read cloud-provider API keys only from environment variables or an approved secret store.
+- Obtain explicit user confirmation before sending any audio to a cloud provider.
+- Explain that a provider may retain uploaded data under its own policy; consult its current documentation when retention requirements matter.
 
 ## External Endpoints
 
@@ -186,14 +198,3 @@ Only called when user explicitly chooses cloud provider. Local Whisper sends not
 ## Trust
 
 By using cloud transcription providers, audio data is sent to OpenAI, AssemblyAI, or Deepgram. Only install if you trust these services with your audio. For sensitive content, use local Whisper.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `audio` — General audio processing
-- `ffmpeg` — Video and audio conversion
-- `podcast` — Podcast creation and editing
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/speech-to-text-transcription
-- Latest version: https://clawic.com/skills/speech-to-text-transcription
