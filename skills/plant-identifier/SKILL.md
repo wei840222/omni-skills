@@ -1,125 +1,58 @@
 ---
-name: Plant Identifier
-slug: plant-identifier
-version: 1.0.0
-description: Identify plants from photos using trait-based analysis, ranked species candidates, follow-up capture guidance, and a reusable local log.
-homepage: https://clawic.com/skills/plant-identifier
-changelog: Initial release with ranked plant identification, trait-based follow-up, and optional local observation memory.
+name: plant-identifier
+description: Identify plants from photos using trait-based analysis. Use when users want ranked species candidates, specific follow-up captures, or an approved reusable observation log.
 metadata:
-  clawdbot:
-    emoji: P
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/plant-identifier/
-    displayName: Plant Identifier
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/plant-identifier/
+  openclaw: '{"emoji":"🌿"}'
+  related-skills: '{"image":"Inspects and improves plant photos before identification.","photography":"Improves close-up capture, lighting, and color reliability for plant evidence.","photos":"Organizes repeated observation photo sets.","plants":"Provides broader plant-care context after identification."}'
 ---
+
+## State location
+
+Plant Identifier state may exist in `<workspace>/plant-identifier/`, `<workspace>/memory/plant-identifier/`, or `~/plant-identifier/`. Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured state root when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/plant-identifier/`, `<workspace>/memory/plant-identifier/`, `~/plant-identifier/`.
+3. If multiple candidate directories exist, use only the highest-precedence directory and tell the user that multiple copies were found.
+4. If none exists and the user approves saving state, create `<workspace>/plant-identifier/` and use it for the invocation. If the host cannot provide `<workspace>`, ask for a state root before creation.
+
+Use the selected `<state_root>` for every state operation in this invocation; do not merge or synchronize other candidate directories.
 
 ## When to Use
 
 Use when the user wants to identify a plant from one or more photos, narrow down similar species, log a recurring houseplant or wild observation, or organize what to photograph next.
 
-## Architecture
-
-Memory lives in `~/Clawic/data/plant-identifier/`. If `~/Clawic/data/plant-identifier/` does not exist, run `setup.md`. See `memory-template.md` for structure.
-
-```text
-~/Clawic/data/plant-identifier/
-├── memory.md
-├── observations/
-│   └── YYYY-MM/
-│       └── {entry-id}.md
-└── exports/
-```
-
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Plant evidence checklist | `evidence-guide.md` |
+- **Setup and consent**: On first activation or when state is incomplete, read `references/setup.md`.
+- **Memory structure**: Before formatting an approved observation log, read `references/memory-template.md`.
+- **Evidence checklist**: Before locking an identification result, read `references/evidence-guide.md`.
 
 ## Scope
 
-This skill ONLY:
-- identifies plants from visible traits in user-supplied images
-- returns ranked candidates with explicit uncertainty
-- asks for the next best photo when the signal is incomplete
-- stores local observation notes only if the user approves
+This skill:
+- identifies plants from visible traits in user-supplied images;
+- returns one to three ranked candidates with explicit uncertainty;
+- asks for the single most useful next photo when evidence is incomplete; and
+- stores local observation notes only with user approval.
 
-This skill NEVER:
-- declare a plant safe to eat, touch, burn, or medicate from chat alone
-- guarantee species-level certainty when the plant lacks flowers, fruit, bark, or leaf details
-- upload images or plant data to external services
+## Safety and Privacy
 
-## Security & Privacy
+- Treat plant identifications as provisional until diagnostic traits are visible.
+- For eating, touching, burning, or medicinal use, provide conservative guidance and direct the user to qualified local expertise rather than safety clearance from chat alone.
+- Keep image processing local and ask before writing any local observation data.
 
-**Data stored locally if approved by the user:**
-- activation and response preferences in `~/Clawic/data/plant-identifier/memory.md`
-- one note per saved observation in `~/Clawic/data/plant-identifier/observations/`
+## Core Workflow
 
-**This skill does NOT:**
-- make network requests
-- give safety-critical edible or medicinal clearance
-- write local files without user approval
-
-## Core Rules
-
-### 1. Start with image quality and plant completeness
-- Check whether the image shows the whole plant, leaves, flower, fruit, stem, or bark.
-- If the subject is distant, cropped, wilted, or mixed with other plants, ask for the most useful missing view first.
-
-### 2. Return ranked candidates with evidence and uncertainty
-- Give one to three candidates with confidence bands: High 85-95, Medium 60-84, Low 35-59.
-- For each candidate, say which visible traits support it and which missing traits keep it tentative.
-- If the evidence only supports genus or family level, say so directly.
-
-### 3. Use plant evidence in a fixed order
-- Open `evidence-guide.md` before deciding.
-- Work from growth habit, leaf arrangement, margin, venation, flower structure, fruit or seed, stem or bark, then habitat context.
-- Avoid jumping straight to flower color, which is often too generic by itself.
-
-### 4. Ask for the next best plant photo, not more photos in general
-- Prefer whole-plant shot, leaf top and underside, node or stem view, flower front and side, fruit, and bark if relevant.
-- Explain which missing trait would separate candidate A from candidate B.
-
-### 5. Separate identification from safety claims
-- Plant identification can narrow likely species without proving edibility, toxicity, or medical use.
-- If the user asks whether it is safe to eat, touch, or use medicinally, keep the answer conservative and provisional.
-
-### 6. Keep memory around repeated observations, not noise
-- Save only durable preferences and approved observation notes.
-- One saved entry should record date, location context, best match, confidence, and what evidence was missing.
-- Do not write files unless the user approves local storage.
-
-### 7. Say what could change the answer
-- Call out missing flowers, missing fruit, juvenile growth, pruning, indoor stress, and hybrid cultivars when they weaken certainty.
-- Update the shortlist immediately if a better plant part is shown later.
+1. **Assess image quality and coverage.** Check for whole-plant view, leaves, flowers, fruit, stem, or bark. If the subject is distant, cropped, wilted, or mixed with other plants, request the highest-value missing view.
+2. **Read `references/evidence-guide.md` and assess evidence in its stated order.** Work from growth habit through habitat context rather than using leaf color alone.
+3. **Return a ranked, bounded result.** Give one to three candidates with High (85–95), Medium (60–84), or Low (35–59) confidence. Name supporting traits, missing traits, and the level of identification supported (species, genus, or family).
+4. **Resolve conflict with a decisive next observation.** When candidates differ in genus or family, state the conflict and request the plant part that distinguishes them. For a possible toxic lookalike, treat the highest-risk candidate as the safety baseline until diagnostic evidence arrives.
+5. **Handle high-stakes uncertainty.** If confidence remains low or use could cause harm, recommend qualified local verification; Pl@ntNet can supply an additional image-based hypothesis but does not replace such verification.
+6. **Save only approved durable state.** After resolving `<state_root>`, read `references/memory-template.md` before creating an observation or preference record.
 
 ## Common Traps
 
-- Guessing species from leaf color alone -> many unrelated plants share the same color.
-- Treating houseplant stress damage as a species marker -> environment gets mistaken for identity.
-- Ignoring the leaf underside, stem nodes, or bark -> key differentiators stay hidden.
-- Turning a tentative ID into edibility advice -> that creates avoidable safety risk.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `image` - inspect and optimize plant photos before identification
-- `photos` - organize photo sets across repeated observations
-- `plants` - broader plant care context once the plant is identified
-- `photography` - improve close-up capture, lighting, and color reliability
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/plant-identifier
-- Latest version: https://clawic.com/skills/plant-identifier
+- Leaf color alone is shared by many unrelated plants; combine diagnostic traits before ranking candidates.
+- Houseplant stress damage can reflect environment rather than species identity.
+- Missing leaf undersides, stem nodes, bark, flowers, or fruit can limit confidence.
+- A tentative ID does not establish edibility, toxicity thresholds, or medicinal safety.
