@@ -16,7 +16,7 @@ This skill follows the workspace-first state convention. Resolve `<state_root>` 
 
 **Data.** At the start of every session, read `<state_root>/config.yaml` (what the user declared) and `<state_root>/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, and it is a dynamically generated list based on active conditions. What the user declared wins: an observation always preserves existing `config.yaml` values unless explicit user override is provided. Read `<workspace>/servers/servers.md` before any deploy, sizing, capacity or "what is running where" question, and `<workspace>/domains/domains.md` before touching a hostname, vhost, or certificate. If none of it exists, work from defaults and say nothing about it. If you have data at an old location (`~/.clawic/server/` or `~/server/`), move it to `<state_root>/`, and say in one line that you moved it and from where. Everything this skill reads or writes is a plain local note under `<state_root>` — nothing leaves the machine and ensure all credentials use safe pointer references (e.g. env:KEY). In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, is strictly read-only and must be preserved, and every write and deletion is named in one line as it happens.
 
-**Write before the session ends** whenever the session produced something durable: a service deployed, moved, renamed or retired; a host discovered or decommissioned; a hostname or certificate wired; a release or a rollback; an outage and what actually caused it; a measured number (worker count, RSS per worker, requests per second, p95); or something the user will want to read again — a runbook, a unit file or vhost that finally worked, a topology decision, a load-test report. `memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
+**Write before the session ends** whenever the session produced something durable: a service deployed, moved, renamed or retired; a host discovered or decommissioned; a hostname or certificate wired; a release or a rollback; an outage and what actually caused it; a measured number (worker count, RSS per worker, requests per second, p95); or something the user will want to read again — a runbook, a unit file or vhost that finally worked, a topology decision, or a load-test report. Record it under the resolved `<state_root>` using the existing local format.
 
 **Hosts go to the shared inventory `<workspace>/servers/servers.md`** and **domains to `<workspace>/domains/domains.md`**, not here: those files are shared with every other infrastructure skill, so "what do I have" answers itself whoever wrote the row. What belongs to this skill is the *service* layer — which process runs where, on which port, under which supervisor. A person or a project that turns up in this work has its own shared box as well (`<workspace>/contacts/`, `<workspace>/projects/`): the record lives there, only the name stays here.
 
@@ -80,7 +80,7 @@ Decode rule: the error names the hop that *noticed*, not the hop at fault. Refus
 | `Too many open files` under load | fd limit is per-process and services do not inherit your shell's `ulimit` | Raise `LimitNOFILE` in the unit and `worker_rlimit_nofile` in the proxy (≥ 2 × worker_connections) |
 | Uploads or downloads truncate at a size, not a time | Buffering to a temp dir that is full or read-only | Check the proxy's temp path and disk, then decide buffering vs streaming |
 | WebSocket connects then drops at ~60s | Proxy idle timeout closing an idle tunnel | Raise the read timeout on that route only, and send application-level pings |
-| Anything else | Reproduce at the hop closest to the app, then walk outward one hop at a time | `debug.md` |
+| Anything else | Reproduce at the hop closest to the app, then walk outward one hop at a time | Trace the request path |
 
 ## Defaults That Decide Behavior
 
@@ -101,7 +101,7 @@ Numbers you did not choose are still numbers you are running. These are the defa
 
 ## Stack Defaults
 
-One default per need, with the condition that overrides it. Selection logic and break-evens: `stack.md`.
+One default per need, with the condition that overrides it.
 
 | Need | Default | Switch when |
 |---|---|---|
@@ -124,7 +124,7 @@ Before delivering a config, a unit, a deploy plan, or a diagnosis:
 - Is anything binding to `0.0.0.0` that only the proxy needs to reach (Rule 7)?
 - Does this survive a reboot — unit enabled, or restart policy set — and is there a named rollback artifact?
 - Is the command I am about to give service-affecting (`restart`, `down`, `stop`, `rm`, `prune`, `-v`)? Then it ships with the reload alternative and an explicit confirmation step, must be clearly separated from read-only commands.
-- Did this session change what runs where, produce a measured number, or resolve an outage? Then the service row, the baseline, or the incident is written before I finish — `## Services`, `## Baselines`, `incidents/<year>.md`.
+- Did this session change what runs where, produce a measured number, or resolve an outage? Then record the service state, baseline, or incident before finishing under `<state_root>`.
 
 ## Configuration
 
@@ -143,12 +143,12 @@ User-dependent variables. Defaults apply until the user states a preference; sto
 
 Preference areas — customizable dimensions; a stated preference gets recorded in `config.yaml` and applied from then on:
 
-- **Tooling** — proxy and supervisor flavor already covered above, plus the release mechanism (rsync, `git pull`, image pull) and the container runtime (Docker, Podman, none) — affects `deployment.md` and `containers.md`
+- **Tooling** — proxy and supervisor flavor already covered above, plus the release mechanism (rsync, `git pull`, image pull) and the container runtime (Docker, Podman, none) — affects deployment and container examples
 - **Conventions** — service naming, port allocation ranges, socket paths, vhost file layout, release directory format, log filenames — affects every generated unit and vhost
 - **Platform** — architecture, memory and core count of the target box, whether a CDN or load balancer sits in front, IPv6 posture — affects the concurrency math and where TLS terminates
-- **Safety posture** — appetite for in-place edits on a live box, whether destructive commands are emitted at all, mandatory dry runs, backup-before-change — affects Output Gates and `maintenance.md`
-- **Observability** — access-log format and destination, whether request ids are propagated, uptime checker in use, alert routing — affects `logs.md`
-- **Delivery** — deploy style (symlink releases, containers, platform push), migration-before-or-after policy, canary appetite — affects `deployment.md`
+- **Safety posture** — appetite for in-place edits on a live box, whether destructive commands are emitted at all, mandatory dry runs, backup-before-change — affects Output Gates and maintenance work
+- **Observability** — access-log format and destination, whether request ids are propagated, uptime checker in use, alert routing — affects logging and rotation guidance
+- **Delivery** — deploy style (symlink releases, containers, platform push), migration-before-or-after policy, canary appetite — affects deployment guidance
 - **Constraints** — no-root requirements, no-Docker boxes, air-gapped hosts, compliance regimes, distro versions frozen by policy — affects stack selection and hardening defaults
 
 ## Traps
