@@ -38,7 +38,7 @@ This skill:
 ## Safety and Privacy
 
 - Treat plant identifications as provisional until diagnostic traits are visible.
-- For eating, touching, burning, or medicinal use, provide conservative guidance and direct the user to qualified local expertise rather than safety clearance from chat alone.
+- For eating, touching, burning, or medicinal use, preserve an unresolved-safety status and direct the user to qualified local expertise for a decision.
 - Keep image processing local and ask before writing any local observation data.
 
 ## Core Workflow

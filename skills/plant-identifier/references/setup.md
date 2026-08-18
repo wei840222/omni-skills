@@ -16,4 +16,4 @@ Solve the current request before collecting optional defaults. Ask whether the u
 
 ## State Consent
 
-Ask before creating or changing `<state_root>` data. With approval, record only durable preferences: general region or climate, confidence-band preference, preferred response style, and whether local observation logs are allowed. If storage is declined, complete the in-session identification without repeatedly prompting for state.
+Ask before creating or changing `<state_root>` data. With approval, record only durable preferences: general region or climate, confidence-band preference, preferred response style, and whether local observation logs are allowed. When storage is declined, complete the in-session identification and retain that preference for the conversation.
