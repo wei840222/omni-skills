@@ -1,6 +1,6 @@
 # Memory Template - Plant Identifier
 
-Create `~/Clawic/data/plant-identifier/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Plant Identifier Memory
@@ -37,7 +37,7 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/plant-identifier/observations/YYYY-MM/{entry-id}.md`:
+Create `<state_root>/observations/YYYY-MM/{entry-id}.md`:
 
 ```markdown
 # Plant Observation - {entry-id}
@@ -68,5 +68,5 @@ Create `~/Clawic/data/plant-identifier/observations/YYYY-MM/{entry-id}.md`:
 
 - Store durable plant context, not every chat detail.
 - Keep recent history short in hot memory and use per-entry files for saved observations.
-- Never store precise home addresses or unrelated personal information.
+- Store only general regions or broad context instead of precise home addresses or personal information.
 - Update `last` whenever a meaningful identification or preference changes.

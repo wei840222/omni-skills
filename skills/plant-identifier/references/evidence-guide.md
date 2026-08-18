@@ -26,9 +26,13 @@ Best next evidence when confidence is weak:
 - fruit or seed structure
 - bark photo for woody plants
 
-Do not overclaim from these alone:
+Keep these limits explicit:
 
-- photo does not prove edibility
-- photo does not prove toxicity thresholds
-- photo does not prove medicinal safety
-- hybrid and cultivar IDs often stay tentative
+- Treat edibility, toxicity thresholds, and medicinal safety as unresolved from photos alone.
+- Keep hybrid and cultivar identifications tentative unless diagnostic traits are available.
+
+## Supplemental Image Identification
+
+Pl@ntNet is an image-based plant-identification project. Use it only as an additional hypothesis when a user asks for another image-based check; preserve the evidence, uncertainty, and qualified-local-verification workflow for high-stakes decisions.
+
+Source: Pl@ntNet, "Home" — https://plantnet.org/en/
