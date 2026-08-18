@@ -1,12 +1,12 @@
 # Setup - Book Writing
 
-Use this setup the first time the skill is activated, or when `~/Clawic/data/book-writing/memory.md` is missing.
+Use this setup the first time the skill is activated, or when `<state_root>/memory.md` is missing.
 
 Start by explaining that you can keep local project memory for long manuscripts, then ask whether the user wants this workflow to auto-activate whenever they ask for book writing help.
 
 ## Integration First
 
-Capture and store these activation preferences in `~/Clawic/data/book-writing/memory.md`:
+Capture and store these activation preferences in `<state_root>/memory.md`:
 
 - Activation scope: always for book work, or only on request.
 - Proactivity level: proactive suggestions, balanced, or on-demand only.
@@ -23,7 +23,7 @@ Collect the smallest useful baseline in natural conversation:
 - Current stage: idea, outline, drafting, revision, or near-finish.
 - Immediate priority: what must move forward today.
 
-Do not run a long questionnaire. Ask one high-value question at a time.
+Ask one high-value question at a time.
 
 ## First-Session Deliverable
 
@@ -38,7 +38,7 @@ Before ending setup, produce one practical artifact:
 
 When local memory is enabled:
 
-- Create `~/Clawic/data/book-writing/memory.md` from `memory-template.md`.
+- Create `<state_root>/memory.md` from `references/memory-template.md`.
 - Update `last` after each meaningful session.
 - Keep summaries short and decision-focused.
-- Never store secrets, credentials, or unrelated personal data.
+- Store only project-related structure and context. Exclude any personal credentials or secrets.

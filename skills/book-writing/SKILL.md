@@ -1,36 +1,32 @@
 ---
-name: Book Writing
-slug: book-writing
-version: 1.0.0
-description: Plan, draft, and revise complete books with chapter architecture, voice consistency, and finish-ready revision workflows.
-homepage: https://clawic.com/skills/book-writing
-changelog: Initial release with end-to-end book planning, drafting, and revision workflows that preserve voice and narrative coherence.
+name: book-writing
+description: Plan, draft, and revise long-form books and manuscripts with a structural blueprint, chapter outcomes, voice continuity, and staged revision passes. Use when a user needs book planning, drafting, manuscript revision, or progress control across multiple chapters.
 metadata:
-  clawdbot:
-    emoji: 📚
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Book Writing
+  openclaw: '{"emoji":"📚"}'
+  related-skills: '{"writing": "voice adaptation and writing preference memory", "writer": "anti-robotic writing patterns and rhythm control", "write": "general-purpose drafting support for fast composition", "article": "long-form article structuring and editorial flow", "content-marketing": "audience-driven messaging and conversion framing"}'
 ---
+
+## State location
+
+Book-writing state may exist in `<workspace>/book-writing/`, `<workspace>/memory/book-writing/`, or `~/book-writing/`. Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured state path when one exists.
+2. Otherwise, use the first existing directory in this order: `<workspace>/book-writing/`, `<workspace>/memory/book-writing/`, then `~/book-writing/`.
+3. If more than one directory exists, use only the highest-precedence directory and tell the user that multiple copies were found; do not merge or synchronize them.
+4. If none exists and the user opts into saved project state, create `<workspace>/book-writing/`; if `<workspace>` is unavailable, ask for a state root rather than guessing from the current directory.
+
+Use the same resolved `<state_root>` for the entire invocation. See `references/memory-template.md` for the state schema.
 
 ## Setup
 
-On first use, read `setup.md` to initialize local memory and capture activation preferences.
+On first use, read `references/setup.md` to initialize local memory and capture activation preferences.
 
 ## When to Use
 
 Use this skill when the user is writing a nonfiction or fiction book and needs structure, drafting support, revisions, or progress control across many chapters.
 
-## Architecture
-
-Working memory lives in `~/Clawic/data/book-writing/`. See `memory-template.md` for setup and status fields.
-
 ```
-~/Clawic/data/book-writing/
+<state_root>/
 ├── memory.md          # HOT: status, voice, manuscript state, next actions
 ├── chapters/          # WARM: chapter-level notes and draft checkpoints
 ├── revisions/         # WARM: pass-by-pass revision logs
@@ -39,15 +35,16 @@ Working memory lives in `~/Clawic/data/book-writing/`. See `memory-template.md` 
 
 ## Quick Reference
 
-Use these files progressively to keep runtime context focused and avoid loading unnecessary detail.
+Load these references only when performing the specific phase:
 
-| Topic | File |
-|-------|------|
-| Setup and integration | `setup.md` |
-| Memory schema | `memory-template.md` |
-| Book blueprint design | `blueprint.md` |
-| Chapter drafting loop | `chapter-loop.md` |
-| Revision and finish criteria | `revision-rubric.md` |
+| Phase | Action | Load |
+|-------|--------|------|
+| **Setup** | Initialize project state | `references/setup.md` |
+| **Planning** | Define structure and promises | `references/blueprint.md` |
+| **Drafting** | Write new chapters | `references/chapter-loop.md` |
+| **Revising** | Polish and structural checks | `references/revision-rubric.md` |
+| **Context** | Check project memory | `references/memory-template.md` |
+| **Theory** | Review domain principles | `references/knowledge-sources.md` |
 
 ## Core Rules
 
@@ -55,7 +52,7 @@ Use these files progressively to keep runtime context focused and avoid loading 
 Define audience, core promise, transformation, and scope before generating large text blocks. If these are unclear, pause drafting and clarify first.
 
 ### 2. Keep a Living Book Blueprint
-Use `blueprint.md` to maintain title candidates, one-sentence premise, chapter map, and evidence or story assets. Update this blueprint whenever the direction changes.
+Use `references/blueprint.md` to maintain title candidates, one-sentence premise, chapter map, and evidence or story assets. Update this blueprint whenever the direction changes.
 
 ### 3. Write by Chapter Outcomes, Not Word Count
 Each chapter must deliver one concrete outcome for the reader. Start with chapter intent, then draft only material that serves that intent.
@@ -64,7 +61,7 @@ Each chapter must deliver one concrete outcome for the reader. Start with chapte
 Track voice profile in memory and enforce consistent point of view, tense, reading level, and sentence rhythm across chapters.
 
 ### 5. Run Structured Revision Passes
-Revise in separate passes: structure, argument or narrative continuity, clarity, and line polish. Do not mix all passes at once.
+Revise in separate passes: structure, argument or narrative continuity, clarity, and line polish. Run each revision pass sequentially, completing one before starting the next.
 
 ### 6. Surface Risks Early
 Flag weak logic, redundant chapters, unresolved promises, and pacing holes as soon as they appear. Propose fixes with concrete rewrite options.
@@ -74,16 +71,16 @@ After each interaction, leave a precise next step the user can execute immediate
 
 ## Common Traps
 
-- Drafting before scope is defined -> bloated manuscript and major rewrites.
-- Treating every chapter the same -> flat pacing and repetitive structure.
-- Line editing too early -> local polish over global coherence.
-- Changing voice mid-book -> reader trust drops quickly.
-- Ignoring chapter outcomes -> chapters feel busy but non-essential.
+- Establish the book's scope and promise before drafting, so the manuscript has a stable boundary.
+- Give each chapter a distinct outcome and escalation point to keep pacing purposeful.
+- Reserve line editing for the final revision pass, after structural coherence is established.
+- Record a voice profile and check it at chapter boundaries to protect reader trust.
+- Confirm each chapter earns its place by advancing the book promise.
 
 ## Security & Privacy
 
 **Data that stays local:**
-- Project memory in `~/Clawic/data/book-writing/`.
+- Project memory in `<state_root>/`.
 - Chapter and revision notes created during sessions.
 
 **Data that leaves your machine:**
@@ -91,18 +88,5 @@ After each interaction, leave a precise next step the user can execute immediate
 
 **This skill does NOT:**
 - Send manuscript data to external APIs.
-- Access files outside `~/Clawic/data/book-writing/` for memory storage.
+- Access files outside `<state_root>/` for memory storage.
 - Delete user writing without explicit confirmation.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `writing` — voice adaptation and writing preference memory.
-- `writer` — anti-robotic writing patterns and rhythm control.
-- `write` — general-purpose drafting support for fast composition.
-- `article` — long-form article structuring and editorial flow.
-- `content-marketing` — audience-driven messaging and conversion framing.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/book-writing
-- Latest version: https://clawic.com/skills/book-writing
