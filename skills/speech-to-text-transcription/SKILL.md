@@ -26,7 +26,16 @@ On first use, read `references/setup.md` and start helping with transcription ne
 
 ## When to Use
 
-User has audio or video files that need transcription. Agent handles local files, URLs, voice memos, podcasts, interviews, meetings, and lectures.
+Use this skill for local files, downloaded URLs, voice memos, podcasts, interviews, meetings, lectures, and videos that need transcription, timestamps, subtitles, or speaker labels.
+
+## Workflow
+
+1. Confirm the input is accessible and identify its format, duration, size, language, and whether speaker labels or subtitles are required.
+2. Choose local Whisper for private/offline work; select a cloud provider only after the user explicitly chooses the data transfer.
+3. For files over 25 MB or recordings longer than two hours, split the input first; preserve order and merge the resulting transcript segments with timestamps.
+4. Run the transcription, verify the output is complete and readable, then offer the requested format and any summary or action-item extraction.
+
+If the input cannot be read or its format is unsupported, use `ffmpeg` to extract or convert the audio, then repeat step 1. If a cloud request fails, report the provider error without exposing credentials and offer local Whisper or a retry after the user decides.
 
 ## Architecture
 
