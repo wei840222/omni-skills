@@ -30,3 +30,9 @@ Keep these limits explicit:
 
 - Treat edibility, toxicity thresholds, and medicinal safety as unresolved from photos alone.
 - Keep hybrid and cultivar identifications tentative unless diagnostic traits are available.
+
+## Supplemental Image Identification
+
+Pl@ntNet is an image-based plant-identification project. Use it only as an additional hypothesis when a user asks for another image-based check; preserve the evidence, uncertainty, and qualified-local-verification workflow for high-stakes decisions.
+
+Source: Pl@ntNet, "Home" — https://plantnet.org/en/
