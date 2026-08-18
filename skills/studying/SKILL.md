@@ -152,6 +152,10 @@ Anything in this table suspends the protocols above: route to a clinician or cou
 - **Music while studying.** Lyrics compete with verbal encoding; instrumental is tolerable for routine problem practice, silence wins for reading and memorization. Treat the student's proven preference in `<state_root>/studying/memory.md` as data that beats the default.
 - **Group study.** Works as solo-solve-then-compare with explained disagreements; fails as shared rereading. The boundary is whether every member retrieves before the group talks (`references/techniques.md`).
 
+## Test Coverage
+
+`test-prompts.json` records three dry-run cases: an imminent exam, a multi-course procrastination plan, and confirmed legacy-state migration. Each case routes to a defined workflow or confirmation boundary.
+
 ## Related Skills
 
 - `exam` — generates the practice tests and timed simulations this skill schedules.
