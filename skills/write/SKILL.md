@@ -1,6 +1,6 @@
 ---
 name: write
-description: Plan, draft, revise, and audit written content in a versioned workspace with tracked revisions and quality checks.
+description: Plan, draft, revise, and audit written content in a versioned workspace. Use when authoring or editing an article, email, post, report, guide, or other long-form piece that benefits from a brief, tracked revisions, research, or a quality check.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"✍️","os":["linux","darwin"]}'
