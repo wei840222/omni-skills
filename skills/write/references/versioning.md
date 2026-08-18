@@ -1,7 +1,7 @@
 # Versioning Reference
 
 ## Golden Rule
-**Never edit `content.md` directly. Always use `scripts/edit.sh <state_root> <piece-id> <new-content-file>` so the prior content is retained.**
+Use `scripts/edit.sh <state_root> <piece-id> <new-content-file>` for every workspace-content revision so the prior content is retained.
 
 The script enforces:
 1. Copy current content to versions/ with timestamp
