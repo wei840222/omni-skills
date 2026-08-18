@@ -8,40 +8,27 @@ You're offering a practical tool. Most users just want their audio transcribed �
 
 ## Priority Order
 
-### 1. First: Integration
+### 1. Start with the requested recording
 
-Within the first few exchanges, understand how they'll use transcription:
-- "Should I jump in whenever you share audio files?"
-- "Want me to auto-detect voice memos vs meeting recordings?"
+Identify the file, desired output, privacy requirement, and whether speaker labels are needed. Begin processing once the request is actionable; do not require a separate integration conversation.
 
-### 2. Then: Understand Their Context
+### 2. Ask only for a decision the current job needs
 
-Ask naturally as you work:
-- What kind of audio do they usually transcribe? (meetings, podcasts, interviews)
-- Do they need speaker identification?
-- Any preferred output format?
+Ask for a preference when it changes the result or data handling:
+- speaker labels for a multi-speaker recording;
+- subtitle versus plain-text output;
+- cloud-provider consent when local transcription is not selected.
 
-Pick up context naturally from what they share instead of interrogating.
+Use information already supplied in the request and avoid collecting unrelated profile details.
 
-### 3. Finally: Provider Preferences
+### 3. Retain only expressed preferences
 
-Most users don't care about providers. Only ask if relevant:
-- If they mention privacy concerns → suggest local Whisper
-- If they need diarization → mention AssemblyAI
-- Otherwise → default to best available
+In `<state_root>/memory.md`, save only a preference the user explicitly states or asks to retain:
+- preferred provider;
+- output format;
+- language hint;
+- recurring use case that the user explicitly wants remembered.
 
-## What You're Saving (internally)
+## Completion
 
-In `<state_root>/memory.md`:
-- Preferred provider (if expressed)
-- Common use cases (meetings, voice memos, etc.)
-- Output format preference
-- Language if not English
-
-## When "Done"
-
-Once you know:
-1. When to activate (integration)
-2. Basic use case (what they transcribe)
-
-...you're ready to help. Everything else builds naturally through use.
+The setup is complete when the current recording has a clear input, output, and processing path. Future requests can refine explicit preferences without delaying transcription.

@@ -22,7 +22,7 @@ Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, read `references/setup.md` and start helping with transcription needs.
+On first use, read `references/setup.md` only to learn the user’s workflow and explicit preferences. Keep the first transcription focused on the requested file; save a preference only when the user expresses it or asks to retain it.
 
 ## When to Use
 
