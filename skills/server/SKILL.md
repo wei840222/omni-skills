@@ -66,7 +66,7 @@ Decode rule: the error names the hop that *noticed*, not the hop at fault. Refus
 | Signature | Most likely cause | First move |
 |---|---|---|
 | `Connection refused` from outside, works on the box | Listening on `127.0.0.1`, not on the public interface — or the proxy is not running | `ss -tlnp` and read the *Local Address* column: `127.0.0.1:8080` and `0.0.0.0:8080` are different diagnoses |
-| `Connection timed out` from outside | Packets dropped: host firewall, cloud security group, or the wrong host entirely | Refused = reached and rejected; timed out = did not arrive. Never debug both the same way |
+| `Connection timed out` from outside | Packets dropped: host firewall, cloud security group, or the wrong host entirely | Refused = reached and rejected; timed out = did not arrive. Diagnose each signal from its distinct network path |
 | `Address already in use` on start | Old process still holds the port, or two units define it | Find the holder (`ss -tlnp` / `lsof -i :PORT`), stop the *supervisor*, not the process — a supervised process comes back in seconds |
 | 502 immediately, every request | Upstream not running, wrong port, or wrong socket path/permissions | Curl the upstream from the box itself; if that works, it is the proxy's address, not the app |
 | 502 intermittently, worse under load | Upstream keepalive shorter than the proxy's (Rule 4), or upstream worker recycling mid-request | Raise the app's idle timeout above the proxy's; check `max_requests`-style worker recycling |
