@@ -75,11 +75,11 @@ Before transcription, identify the input:
 | Long content (>2 hours) | Split + batch | Avoid timeouts |
 
 ### 3. Handle Long Audio
-Files over 25MB or 2 hours:
-1. Split into chunks (use ffmpeg)
-2. Process each chunk
-3. Merge transcripts with proper timestamps
-4. Always split large files before uploading
+For files over 25 MB or recordings longer than two hours:
+1. Split the audio into ordered chunks with ffmpeg.
+2. Process each chunk using the chosen provider or local Whisper.
+3. Merge transcript segments in order while preserving timestamps.
+4. Check the joined result for gaps or duplicated boundary text before delivery.
 
 ### 4. Preserve Context
 After transcription:
@@ -96,11 +96,11 @@ Default to plain text. Offer alternatives:
 
 ## Common Traps
 
-- **Assuming one provider works for all** → Whisper fails on diarization, AssemblyAI needs API key
-- **Uploading huge files directly** → Timeouts, memory errors. Split first.
-- **Ignoring audio quality** → Noisy audio needs preprocessing (ffmpeg noise reduction)
-- **Not checking language** → Whisper auto-detects but can fail on mixed-language content
-- **Losing speaker context** → Multi-speaker content without diarization becomes unusable
+- **Match the provider to the requested output** → use a diarization-capable provider for speaker labels and local Whisper for offline/private transcription.
+- **Prepare large files first** → split recordings over 25 MB or two hours before sending chunks for transcription.
+- **Improve noisy audio before transcription** → apply appropriate ffmpeg preprocessing when noise affects intelligibility.
+- **Confirm language expectations** → provide a language hint for mixed-language or uncertain recordings when the chosen provider supports it.
+- **Preserve speaker context** → request diarization whenever speaker attribution is required.
 
 ## Requirements
 
@@ -180,10 +180,10 @@ ffmpeg -i long.mp3 -f segment -segment_time 600 -c copy chunk_%03d.mp3
 - Audio file sent to chosen provider (OpenAI, AssemblyAI, Deepgram)
 - Transcript returned and stored locally
 
-**This skill does NOT:**
-- Store API keys in plain text (use environment variables)
-- Auto-upload without confirmation
-- Retain files on external servers after processing
+**Credential and upload handling:**
+- Read cloud-provider API keys only from environment variables or an approved secret store.
+- Obtain explicit user confirmation before sending any audio to a cloud provider.
+- Explain that a provider may retain uploaded data under its own policy; consult its current documentation when retention requirements matter.
 
 ## External Endpoints
 
