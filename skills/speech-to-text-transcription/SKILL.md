@@ -30,7 +30,7 @@ User has audio or video files that need transcription. Agent handles local files
 
 ## Architecture
 
-Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure. Read `references/provider-guidance.md` before selecting or updating a cloud-provider command.
 
 ```
 <state_root>/
@@ -45,6 +45,7 @@ Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 |-------|------|
 | Setup process | `references/setup.md` |
 | Memory template | `assets/memory-template.md` |
+| Provider-specific commands and limits | `references/provider-guidance.md` |
 
 ## Core Rules
 
@@ -59,8 +60,8 @@ Before transcription, identify the input:
 | Scenario | Best Provider | Why |
 |----------|---------------|-----|
 | Quick local transcription | Whisper (local) | No API key, free, private |
-| High accuracy needed | OpenAI Whisper API | Best quality |
-| Speaker identification | AssemblyAI | Native diarization |
+| Current OpenAI transcription | OpenAI Audio API | Use the documented `gpt-transcribe` request |
+| Speaker identification | OpenAI diarization or AssemblyAI | Use a provider that returns speaker labels |
 | Real-time/streaming | Deepgram | Low latency |
 | Long content (>2 hours) | Split + batch | Avoid timeouts |
 
@@ -125,7 +126,7 @@ curl -X POST https://api.openai.com/v1/audio/transcriptions \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: multipart/form-data" \
   -F file="@audio.mp3" \
-  -F model="whisper-1"
+  -F model="gpt-transcribe"
 ```
 
 ### AssemblyAI (Speaker Diarization)
