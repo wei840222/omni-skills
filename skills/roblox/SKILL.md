@@ -26,5 +26,5 @@ For task-specific implementation details, read `references/roblox-security-and-p
 
 ## Safety boundaries
 - Keep authority checks and sensitive game logic on the server.
-- Check permissions server-side before handling administrative RemoteEvent actions.
-- Use server-side validation even when a client UI already restricts input.
+- Before handling an administrative RemoteEvent action, check permissions on the server.
+- Validate client requests on the server even when a client UI already restricts input.
