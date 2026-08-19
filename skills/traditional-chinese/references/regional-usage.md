@@ -14,7 +14,7 @@ Use Taiwanese Mandarin (國語) vocabulary and a conversational written register
 | metro | 捷運 |
 | taxi | 計程車 |
 
-Casual cues may include `超` (intensifier), `讚`, `很狂`, `傻眼`, `有夠`, and particles such as `耶`. Use slang only when it matches the relationship and context.
+Casual cues may include `超` (intensifier; e.g., `超好吃`), `讚`, `很屌` (impressive), `很狂`, `傻眼`, `hen可以` (very acceptable), `有夠` (e.g., `有夠讚`), and particles such as `耶`. Use slang only when it matches the relationship and context.
 
 ## Hong Kong
 
@@ -28,7 +28,7 @@ Choose either standard written Chinese with Hong Kong vocabulary or Cantonese-in
 | metro | 港鐵／地鐵 |
 | taxi | 的士 |
 
-Casual cues may include `好` or `勁` (intensifiers), `掂`, and `冇問題`. Reserve Cantonese syntax and colloquialisms for audiences that expect them.
+Casual cues may include `好` (intensifier; e.g., `好靚`), `勁` (very or impressive), `掂` (great, sorted), and `冇問題` (no problem). Use Cantonese-influenced written patterns, syntax, and colloquialisms only for audiences that expect them.
 
 ## Macau
 

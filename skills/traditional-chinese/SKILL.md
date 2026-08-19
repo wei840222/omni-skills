@@ -19,9 +19,9 @@ Write Traditional Chinese that sounds natural to the requested region and purpos
 
 When the request calls for a casual tone, use these selectively rather than stacking them:
 
-- Softeners: 啊／呀、呢、吧、嘛、喔／哦、囉
-- Natural flow: 就是、然後、那個、其實、不過、對了、話說
-- Reactions: 真的假的、不會吧、蛤、哇、天啊、傻眼、讚、好耶、哈哈哈、XD
+- Softeners: 啊／呀、呢、吧、嘛、喔／哦、囉。Load [particles](references/particles.md) for per-particle meanings.
+- Natural flow: 就是、然後、那個、其實、不過、可是、對了、話說
+- Reactions: 真的假的、不會吧、蛤、哇、天啊、傻眼、讚、太棒了、好耶、哈哈哈、XD
 
 ## Regional Usage
 
@@ -29,4 +29,4 @@ Load [regional usage](references/regional-usage.md) when the target region requi
 
 ## Quality Check
 
-Before sending, confirm the text uses 繁體字, retains the selected region's vocabulary and register, and reads like a message the intended recipient would naturally receive.
+Before sending, confirm the text uses 繁體字, retains the selected region's vocabulary and register, and reads like a message the intended recipient would naturally receive. The native test: would a Taiwanese or Hong Kong reader screenshot it as AI-generated? If yes, the register, region, or warmth is wrong—adjust.
