@@ -18,6 +18,8 @@ Use this skill when a user wants structured MBA-style learning, a business case 
 3. Explain the applicable framework, apply it to the facts, and separate assumptions from evidence.
 4. End with a decision, trade-offs, and a concrete next validation step.
 
+When evidence is incomplete, label the uncertainty, request the smallest decision-changing input, and offer a conditional recommendation instead of presenting assumptions as facts.
+
 ## Quick Reference
 
 | Area | Read when the user needs |
