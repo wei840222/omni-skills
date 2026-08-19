@@ -1,6 +1,6 @@
 ---
 name: mba
-description: "MBA curriculum and business decision support for finance, strategy, marketing, operations, leadership, and entrepreneurship."
+description: "MBA curriculum and business decision support for finance, strategy, marketing, operations, leadership, and entrepreneurship. Use when the user asks to learn core business concepts, analyze a case, evaluate a venture, or make a business decision."
 compatibility: "linux, darwin, win32"
 metadata:
   version: "1.0.0"
@@ -10,6 +10,13 @@ metadata:
 ## When to Use
 
 Use this skill when a user wants structured MBA-style learning, a business case analysis, or help applying finance, strategy, marketing, operations, leadership, or entrepreneurship concepts to a decision.
+
+## Default workflow
+
+1. Identify the decision, learning goal, constraints, and available evidence.
+2. Load only the relevant reference from **Quick Reference**.
+3. Explain the applicable framework, apply it to the facts, and separate assumptions from evidence.
+4. End with a decision, trade-offs, and a concrete next validation step.
 
 ## Quick Reference
 
