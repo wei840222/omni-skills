@@ -1,82 +1,32 @@
 ---
-name: Traditional Chinese
-slug: traditional-chinese
-version: 1.0.0
-description: Write Traditional Chinese that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/traditional-chinese
+name: traditional-chinese
+description: Write natural Traditional Chinese for Taiwan, Hong Kong, or Macau. Use when adapting copy, messages, translations, or localized text to the target region's vocabulary, register, and natural particles.
 metadata:
-  clawdbot:
-    emoji: 🇹🇼
-    displayName: Traditional Chinese
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇹🇼"}'
 ---
 
-## The Real Problem
+Write Traditional Chinese that sounds natural to the requested region and purpose.
 
-AI Traditional Chinese is technically correct but sounds off. Too formal. Too 書面語. Natives in Taiwan and Hong Kong write more casually, with local flavor. Match that.
+## Workflow
 
-## Traditional vs Simplified
+1. Identify the target region (Taiwan, Hong Kong, or Macau) and intended register. Ask a concise clarification when the region materially changes vocabulary and the request does not establish it.
+2. Use 繁體字 throughout. Keep the region's vocabulary consistent; load [regional usage](references/regional-usage.md) when selecting regional terms or colloquialisms.
+3. Match the requested register. For casual writing, favor short, warm phrasing and natural particles; for formal writing, use clear standard written Chinese without forcing slang.
+4. Read the completed text once for script consistency, regional vocabulary, and whether its tone fits the recipient.
 
-Never mix scripts:
-- 繁體字 (Traditional): Taiwan, Hong Kong, Macau
-- This skill is for Traditional only
-- Different vocabulary, not just characters
+## Casual Language Cues
 
-## Taiwan vs Hong Kong
+When the request calls for a casual tone, use these selectively rather than stacking them:
 
-Regional differences matter:
-- Taiwan: 影片、軟體、網路、捷運
-- Hong Kong: 短片、軟件、網絡、地鐵
-- Different slang and expressions
-- Ask which, stay consistent
+- Softeners: 啊／呀、呢、吧、嘛、喔／哦、囉
+- Natural flow: 就是、然後、那個、其實、不過、對了、話說
+- Reactions: 真的假的、不會吧、蛤、哇、天啊、傻眼、讚、好耶、哈哈哈、XD
 
-## Formality Default
+## Regional Usage
 
-Default register is too high. Casual Traditional Chinese is warm. Unless explicitly formal: lean casual.
+Load [regional usage](references/regional-usage.md) for Taiwan, Hong Kong, and Macau vocabulary, examples, and register guidance. Preserve the target region's wording from the opening through the final sentence.
 
-## Particles & Softeners
+## Quality Check
 
-These make it natural:
-- 啊/呀: softening
-- 呢: follow-up, "what about"
-- 吧: suggestion, uncertainty
-- 嘛: obviousness
-- 喔/哦: acknowledgment
-- 耶: excitement (Taiwan)
-- 囉: completed action
-
-## Taiwan Expressions
-
-Common in Taiwan:
-- 超: intensifier (超好吃)
-- 很屌、很狂: impressive
-- 傻眼: shocked, disbelief
-- hen可以: very acceptable
-- 有夠: very (有夠讚)
-
-## Hong Kong Expressions
-
-Common in HK:
-- 好: intensifier (好靚)
-- 勁: very, impressive
-- 掂: great, sorted
-- 冇問題: no problem
-- Cantonese-influenced written patterns
-
-## Fillers & Flow
-
-Natural fillers:
-- 就是、然後、那個
-- 其實、不過、可是
-- 對了、話說
-
-## Reactions
-
-React naturally:
-- 真的假的、不會吧、蛤?
-- 哇、天啊、傻眼
-- 讚、太棒了、好耶
-- 哈哈哈、XD in text
-
-## The "Native Test"
-
-Before sending: would a Taiwanese/HK person screenshot this as "AI-generated"? If yes—too formal, wrong region, too stiff. Add local flavor.
+Before sending, confirm the text uses 繁體字, fits the selected region and register, and reads like a message the intended recipient would naturally receive.
