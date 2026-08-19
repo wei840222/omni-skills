@@ -1,6 +1,6 @@
 ---
 name: traditional-chinese
-description: Write natural Traditional Chinese for Taiwan, Hong Kong, or Macau. Use when adapting copy, messages, translations, or localized text to the target region's vocabulary, register, and natural particles.
+description: Write natural Traditional Chinese for Taiwan, Hong Kong, or Macau. Use when adapting copy, messages, translations, or localized text for a Taiwan, Hong Kong, or Macau audience; select the region's vocabulary, register, and natural particles.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇹🇼"}'
@@ -25,7 +25,7 @@ When the request calls for a casual tone, use these selectively rather than stac
 
 ## Regional Usage
 
-Load [regional usage](references/regional-usage.md) for Taiwan, Hong Kong, and Macau vocabulary, examples, and register guidance. Preserve the target region's wording from the opening through the final sentence.
+Load [regional usage](references/regional-usage.md) when the target region requires vocabulary, examples, or register guidance. Preserve the target region's wording from the opening through the final sentence.
 
 ## Quality Check
 
