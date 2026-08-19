@@ -37,3 +37,11 @@
 - **Descriptive and Inferential Statistics**: Hypothesis testing, regression analysis.
 - **Decision Trees and Expected Value**: Making decisions under uncertainty.
 - **Optimization**: Linear programming and resource allocation.
+
+## Sources
+
+- Corporate finance and financial management: https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html
+- Marketing segmentation, targeting, and positioning: https://www.ama.org/topics/marketing-strategy/
+- Operations and supply-chain management: https://www.apics.org/credentials-education/credentials/cpim
+- Strategy frameworks: https://www.isc.hbs.edu/strategy/creatingcompetitiveadvantage/Pages/default.aspx
+- Organizational behavior and leadership: https://www.mindtools.com/a4wo118/leadership-styles
