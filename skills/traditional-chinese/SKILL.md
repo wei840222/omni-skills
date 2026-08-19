@@ -29,4 +29,4 @@ Load [regional usage](references/regional-usage.md) when the target region requi
 
 ## Quality Check
 
-Before sending, confirm the text uses 繁體字, fits the selected region and register, and reads like a message the intended recipient would naturally receive.
+Before sending, confirm the text uses 繁體字, retains the selected region's vocabulary and register, and reads like a message the intended recipient would naturally receive.
