@@ -73,4 +73,4 @@ After each case:
 3. What would you do differently?
 4. What's the generalizable lesson?
 
-Save your case analyses in ~/Clawic/data/mba/cases/ for reference.
+When persistent tracking is enabled, save case analyses in `<state_root>/mba/cases/` for reference; resolve `<state_root>` and obtain confirmation as described in `SKILL.md`.
