@@ -1,193 +1,83 @@
-# Templates: Copy, Edit, Use
+# Templates: Adapt With Evidence
 
-Replace [BRACKETS]. Keep it simple.
+Replace bracketed text only after validating the claim, price, capacity, and customer terms. Keep the pricing period, renewal terms, refund/cancellation path, and support contact visible where relevant.
 
-## Pricing Page
+## Pricing page
 
-```
-[PRODUCT] — Simple pricing
+```text
+[PRODUCT] — [customer outcome]
 
-"[Specific result quote]" — [Customer name]
+For [customer segment] who need [job-to-be-done].
 
-[NUMBER] people already use [Product]
+[PLAN] — $[PRICE] per [billing period]
+Includes: [outcome, limit, and support boundary]
+Renews: [renewal term]
+Change or cancel: [self-service path or support contact]
 
-─────────────────────────────
-FREE — $0/mo
-[One-line value]
-• [Core thing you get]
-• [Limit]
-→ Start Free
-
-─────────────────────────────  
-PRO — $[X]/mo (or $[Y]/year — save $[Z])
-★ Most popular
-[One-line value]
-• Everything in Free
-• [Pro benefit → outcome]
-• [Pro benefit → outcome]
-→ Start Free Trial
-
-─────────────────────────────
-TEAM — $[A]/mo
-[One-line value]  
-• Everything in Pro
-• [Team benefit]
-• [Support level]
-→ Talk to Us
-
-─────────────────────────────
-✓ Cancel anytime
-✓ 30-day money back
+Evidence: [truthful customer quote or measurable proof, with permission]
 ```
 
-## Tier Comparison
+## Launch email
 
-```
-| Feature | Free | Pro | Team |
-|---------|------|-----|------|
-| [Core feature] | ✓ | ✓ | ✓ |
-| [Limited thing] | [X]/mo | Unlimited | Unlimited |
-| [Pro feature] | — | ✓ | ✓ |
-| [Team feature] | — | — | ✓ |
-| Support | Docs | Email | Priority |
-```
-
-## Launch Email (Simple)
-
-```
-Subject: I made a thing
-
-Hey [name],
-
-Built [product] because I needed it myself.
-
-It [one sentence outcome].
-
-If you have [problem], try it: [link]
-
-If not, no worries.
-
-[your name]
-```
-
-## Follow-Up (Day 3)
-
-```
-Subject: Quick question
-
-Hey [name],
-
-Did you get a chance to try [product]?
-
-If anything's confusing, just reply.
-
-[your name]
-```
-
-## Last Chance (Only If Real Deadline)
-
-```
-Subject: [Offer] ends tomorrow
-
-Hey [name],
-
-Tomorrow the founding rate ends.
-
-After that: $[X] → $[Y]
-
-If you're on the fence, try it.
-30-day refund, no questions.
-
-[link]
-
-[your name]
-```
-
-## Social Post
-
-```
-🚀 [Product] is live
-
-Built this because I needed it.
-
-[One sentence what it does]
-
-First 100 people: 50% off forever
-→ [link]
-```
-
-## Sponsorship Pitch
-
-```
-Subject: [Your channel] × [Their brand]?
+```text
+Subject: [Outcome] for [customer segment]
 
 Hi [name],
 
-I run [channel] — [one line what it is].
+[Product] helps [customer] [achieve outcome].
 
-[X] subscribers, [Y]% engagement, mostly [demographic].
+[What is included], for $[price] per [period or one-time].
+[Truthful capacity or deadline, if applicable].
 
-Looking for sponsors for [content type].
+Details and support: [link]
 
-Past partners: [Brand 1], [Brand 2]
-
-Happy to share our media kit.
-
-[your name]
-[channel link]
+[name]
 ```
 
-## Price Increase
+## Clarifying follow-up
 
-```
-Subject: [Product] pricing update
+```text
+Subject: A detail about [product]
 
-Hey [name],
+Hi [name],
 
-On [date], prices change:
-[Plan]: $[old] → $[new]
+A few people asked about [specific question].
+[Clear answer, including price/terms where relevant].
 
-You're locked at $[current] forever.
-No action needed.
+If it is not a fit, no action is needed. [unsubscribe or preference path when required]
 
-Thanks for being early.
-
-[your name]
+[name]
 ```
 
-## Cancellation Survey
+## Sponsorship pitch
 
-```
-Before you go — one question:
+```text
+Subject: [Creator/channel] × [Brand] — [deliverable]
 
-What would have made [Product] worth keeping?
+Hi [name],
 
-□ Lower price
-□ Feature I needed: ___
-□ Didn't have time to use it
-□ Found something else: ___
-□ Other: ___
+I create [format] for [audience]. I propose [deliverable], including [usage rights / reporting / timing].
 
-[optional] Anything else?
+My audience evidence: [verified recent reach and fit].
+Rate: $[amount], with [payment terms].
 
-Thanks for trying [Product].
-Your data stays here for 90 days if you change your mind.
+If relevant, sponsored content will include a clear disclosure.
 
-[your name]
+[name]
 ```
 
-## Grandfather Announcement
+## Price-change notice
 
-```
-Subject: You're locked in ✓
+```text
+Subject: [Product] pricing change on [date]
 
-[name],
+Hi [name],
 
-Prices go up [date].
+On [date], [plan] changes from $[old] to $[new] per [period].
+[Who is affected and available options].
 
-Your price never changes.
+Reason: [truthful short reason].
+Help or changes: [contact/path]
 
-Thanks for believing early.
-
-[your name]
+[name]
 ```

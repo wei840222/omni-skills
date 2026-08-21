@@ -1,128 +1,42 @@
-# Mobile Apps: Real Monetization
+# Mobile Apps: Monetization Plan
 
-## Choose Your Model
+## Choose the value and model
 
-| Model | Best For | Reality Check |
-|-------|----------|---------------|
-| Subscription | Recurring value, habit apps | 2-5% free→paid conversion typical |
-| IAP consumables | Games, AI credits | High volume needed |
-| IAP unlock | One-time features | Declining, but works for pro tools |
-| Paid upfront | Strong brand, niche pro | Hard to compete with free |
-| Ads | Millions of users, low engagement | $0.50-10 CPM, often disappointing |
+| Model | Value pattern | First question |
+|---|---|---|
+| Subscription | Repeated, continuing value | What value recurs each billing period? |
+| Consumable purchase | A replenished unit such as credits | Can customers understand and control consumption? |
+| One-time unlock | Durable feature value | Does the feature remain valuable without ongoing service cost? |
+| Paid app | Clear value before purchase | Can the listing establish the outcome before trial? |
+| Advertising | Free experience with attention inventory | Does ad load preserve the core experience? |
 
-**Default to subscription** if your app provides ongoing value. But know: the "78% of App Store revenue is subscriptions" stat includes Netflix and Spotify. Indie reality is harder.
+Select a model only after naming the customer outcome, cost to serve, expected usage, refund path, and support capacity. A subscription fits continuing value; it is not a default for a static utility.
 
-## Pricing That Makes $10K/month
+## Price and receipt model
 
-The math most people get wrong:
+For each candidate price, calculate:
 
-| Price | Apple Cut | You Get | Users Needed for $10K/mo |
-|-------|-----------|---------|--------------------------|
-| $2.99/mo | 15% | $2.54 | 3,937 active subs |
-| $4.99/mo | 15% | $4.24 | 2,358 active subs |
-| $9.99/mo | 15% | $8.49 | 1,178 active subs |
-| $6.99/week | 15% | $5.94 | ~420 active subs* |
-
-*Weekly has higher churn but much higher ARPU. The "secret" of top-grossing apps.
-
-## Weekly Pricing (The Uncomfortable Truth)
-
-Top indie apps often use weekly:
-- Impulse purchase (feels small)
-- Filters to high-intent users
-- Higher churn but 3-4x ARPU
-
-**Structure that works:**
-- $6.99/week (impulse buyers, ~40% of revenue)
-- $9.99/month (comparison anchor)
-- $59.99/year (best value, ~50% of revenue)
-- $149.99 lifetime (whales, ~10% of revenue)
-
-## Paywall Placement
-
-| When | Conversion Rate |
-|------|-----------------|
-| First screen | 1-2% (too aggressive) |
-| After value demo (3-5 screens) | 4-6% |
-| When limit hit ("3/3 uses today") | 6-10% |
-
-**Rule**: Show paywall AFTER the user experiences value. Not before.
-
-## Paywall That Converts
-
-Structure:
-1. **Benefit headline** — "Unlock unlimited [thing]" not "Go Premium"
-2. **3-4 outcomes** — What they GET, not feature list
-3. **Social proof** — "Join 50,000+ users"
-4. **Price** — Highlight annual, show per-day ("$0.27/day")
-5. **CTA** — "Start Free Trial" not "Subscribe"
-6. **Skip option** — Visible but subtle
-
-Copy that works:
-- ✗ "Upgrade to Premium"
-- ✓ "Never miss a workout again"
-- ✓ "Edit photos like a pro"
-
-## Introductory Offers (Critical)
-
-Set up in App Store Connect → Subscriptions → Intro Offers
-
-| Offer Type | Best For |
-|------------|----------|
-| Free trial (3-7 days) | Complex apps needing time to show value |
-| Pay up front ($0.99 first week) | Simple apps, filters tire-kickers |
-
-**Optimal setup:**
-- Weekly: 3 days free OR $0.99 first week
-- Monthly: 7 days free OR $1.99 first month
-- Annual: 7 days free OR $9.99 first year
-
-## RevenueCat Setup (Correct)
-
-```dart
-// pubspec.yaml: purchases_flutter: ^6.0.0
-
-// Initialize
-await Purchases.configure(
-  PurchasesConfiguration('appl_your_key')
-);
-
-// Get offerings for paywall
-final offerings = await Purchases.getOfferings();
-if (offerings.current != null) {
-  // Show paywall with offerings.current.availablePackages
-}
-
-// Make purchase
-try {
-  await Purchases.purchasePackage(package);
-} on PurchasesErrorCode catch (e) {
-  // Handle: userCancelled, paymentPending, etc.
-}
-
-// Check access anywhere
-final info = await Purchases.getCustomerInfo();
-bool isPro = info.entitlements.all['premium']?.isActive ?? false;
+```
+net receipts = list price - store fee - applicable taxes - refunds/chargebacks - variable delivery cost
+active customers needed = target monthly contribution / net monthly contribution per active customer
 ```
 
-## A/B Testing
+Read `references/industry-benchmarks.md` to identify the applicable current Apple or Google Play fee. Model a range when eligibility, country, taxes, or billing route varies.
 
-| Test | Impact | Min Sample |
-|------|--------|------------|
-| Paywall timing | ±50% revenue | 1,000/variant |
-| Trial length | ±30% conversion | 1,000/variant |
-| Price point | ±40% revenue | 2,000/variant |
-| CTA copy | ±15% | 500/variant |
+## Paywall experiment
 
-**Don't bother**: Button colors, icon changes.
+1. Define the value moment the customer experiences before the paywall.
+2. Choose one change to test: offer framing, timing, package, price, or trial terms.
+3. Set a primary metric (for example, completed purchase per eligible user) and guardrails (refunds, early cancellation, support contacts, and review sentiment).
+4. Record audience eligibility, dates, assignment, sample/decision rule, and results.
+5. Keep the winning variant only when it improves the primary metric without violating guardrails; otherwise restore the baseline and document the learning.
 
-## Platform Differences
+Show a clear price, billing period, renewal terms, and a reachable way to restore purchases or obtain support. Use the current store documentation for platform-specific paywall, refund, grace-period, and introductory-offer implementation.
 
-| | iOS | Android |
-|---|-----|---------|
-| Commission | 15% (<$1M), 30% | 15% (first $1M), 30% |
-| Trial | 3-30 days | Min 3 days |
-| Grace period | 16 days | 30 days |
-| Refunds | Apple decides | User gets 48h |
+## Offer design
 
-**Action**: Set maximum grace period on both. Free retention.
+Offer packages that map to distinct customer needs. Present the recurring period and total commitment clearly. A trial is useful only when the product can demonstrate continuing value during the trial; measure post-trial retention before scaling it.
+
+## Implementation handoff
+
+Provide the chosen billing products, entitlement rules, restore-purchase behavior, analytics events, and customer-support path to the implementation owner. Confirm SDK APIs and store configuration in their current official documentation instead of copying a version-specific code snippet from this skill.

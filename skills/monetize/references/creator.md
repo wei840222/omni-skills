@@ -1,119 +1,31 @@
-# Creator: Turn Audience Into Money
+# Creator: Audience Revenue With Trust
 
-## The Math First
+## Choose the offer from evidence
 
-| Your Numbers | Target |
-|--------------|--------|
-| Followers → Email list | >10% conversion |
-| Email list → Buyers | >2% per launch |
-| Average order value | Track and increase |
+Start with the audience’s recurring problem, demonstrated demand, creator capacity, delivery cost, and the trust required to sell. Useful signals include replies, waitlist intent, completed purchases, repeat attendance, referrals, and support requests. Treat followers and engagement as context, not a pricing formula.
 
-Example: 10K followers → 1K email → 20 buyers at $100 = $2K launch
+| Offer | Evidence to seek | Delivery boundary |
+|---|---|---|
+| Service or UGC | A defined customer need and portfolio fit | Scope, revisions, usage rights, payment terms |
+| Template or resource | Repeated request for a reusable outcome | Version, support window, license, update policy |
+| Workshop or course | Attendees commit to a defined transformation | Curriculum, capacity, access period, refund policy |
+| Sponsorship | Audience fit and documented deliverable | Deliverables, usage rights, exclusivity, disclosure |
+| Membership | Repeatable reason to return | Cadence, access level, moderation, capacity |
 
-**If your funnel math doesn't work, no amount of "engagement" fixes it.**
+## Sponsorship proposal
 
-## What to Sell (By Stage, Not Followers)
+Define the deliverable before the rate: format, platform, placement, usage rights, exclusivity window, approvals, reporting, payment terms, and cancellation terms. Estimate value from the creator’s own historical reach and audience fit; label any external rate card as a negotiation reference rather than a guarantee.
 
-### Stage 0: Pre-Audience (0-500 followers)
-**Goal**: Validate someone would pay
-- UGC for brands: $150-500/video (no audience needed)
-- Services: Your skill applied (not taught)
-- **Don't sell courses yet** — no credibility
+For endorsements affecting U.S. consumers, disclose a material brand connection clearly and with the endorsement. Read `references/industry-benchmarks.md` for the FTC source and place the disclosure in the same language where viewers can notice it. Check the relevant jurisdiction and platform policy before publishing.
 
-### Stage 1: Small but Engaged (500-5K)
-**Signal**: >5% engagement OR >50 DMs/week asking for something
-- Workshop: $47-97 (validate with 30+ attendees)
-- Templates/resources: $19-29
-- First sponsors: Accept product or $200-500 to build portfolio
+## Audience-product validation
 
-### Stage 2: Validated (5K-25K)
-**Signal**: Already sold something to >100 people
-- Course: $197-497 (wait for 500+ waitlist)
-- Sponsors: $500-2,500/post
-- Community: Not yet (requires time you need for content)
+1. Describe the promised outcome and customer segment.
+2. Collect interest, then invite a bounded group to a paid pilot or pre-sale with clear terms.
+3. Deliver the smallest version that can produce the outcome.
+4. Measure completion, refund requests, support burden, testimonials with permission, and repeat demand.
+5. Use the results to refine scope, price, or positioning before scaling.
 
-### Stage 3: Creator Business (25K+)
-**Signal**: >$10K/month consistently
-- High-ticket: $1,997-4,997 (cohort or coaching)
-- Membership: Now, with content system
-- Equity/licensing: Take meetings with startups
+## Membership capacity
 
-## Sponsorship Rates
-
-**Base CPM by niche:**
-- Finance/B2B: $50-80
-- Tech: $30-50  
-- Lifestyle: $15-25
-- Entertainment: $8-15
-
-**Formula:**
-```
-Rate = (Avg Views × CPM ÷ 1000) × Engagement Multiplier
-
-Multipliers:
-- Engagement >5%: ×1.5
-- Dedicated video: ×2.5
-- 60-sec read: ×1.5
-
-Example: 25K views × $40 CPM × 1.5 = $1,500
-```
-
-## How to Get 2-3x More From Sponsors
-
-Never sell just one post. Sell a package:
-
-| They Ask | You Offer | Rate Multiplier |
-|----------|-----------|-----------------|
-| 1 post | Post + 3 stories + link 7 days | ×1.5 |
-| Integration | Integration + dedicated + whitelisting | ×2.5 |
-| 1 video | Video + short + community post | ×2 |
-
-**Script:**
-> "My base rate is $X, but for best ROI I recommend [package]. This gives [specific benefit]. Does that fit your goal?"
-
-## Membership Tiers (What Works)
-
-Don't sell content. Sell **access**.
-
-| Tier | Price | What You Really Sell |
-|------|-------|---------------------|
-| Community | $9/mo | Chat + people like them + belonging |
-| Access | $49/mo | Access to YOU: AMAs, responses, early looks |
-| Inner Circle | $199/mo | Direct access: DMs, feedback, monthly calls |
-
-**Reality:**
-- 80% stay tier 1-2
-- Cap tier 3 at <50 people (your time is finite)
-
-## Course Launch (Quick Version)
-
-**Pre-launch:**
-1. Waitlist with 500+ signups
-2. 3 free content pieces on topic
-3. Email sequence: 5 emails over 7 days
-
-**Launch week:**
-- Day 1: Open cart everywhere
-- Day 3: Testimonial email
-- Day 5: FAQ/objections
-- Day 7: "48 hours left"
-
-**Pricing:**
-- Mini-course (2-3h): $97
-- Flagship (5-10h): $197-297
-- Premium + community: $497-997
-
-## The Test Before Any Product
-
-Don't build a 10-hour course without validating.
-
-1. Post: "Thinking of creating [thing]. 🙋 if interested"
-2. <20 responses = no traction, pivot
-3. >50 responses = DM 10: "Would you pay $X?"
-4. 3+ yes = open pre-sale with 50% early bird
-
-## Platform Rule
-
-**No platform should be >50% of your revenue.** But don't diversify too early — dominate one first.
-
-Email is the only asset you truly own.
+Price access from the time and quality the creator can reliably provide. Define tier boundaries, response expectations, moderation, renewal terms, and a pause/cancellation process. Limit access according to operational capacity and explain the reason plainly.

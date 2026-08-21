@@ -1,105 +1,40 @@
-# SaaS: Subscriptions That Scale
+# SaaS: Subscription Decisions
 
-## Freemium vs Trial
+## Freemium or trial
 
-No universal rule. Consider:
+Choose the access model from the product’s time-to-value, recurring cost, collaboration/network value, and path from free use to a paid outcome.
 
-| Factor | → Freemium | → Trial |
-|--------|------------|---------|
-| Network effects | Strong | Weak |
-| Time to value | <5 min | >30 min |
-| Viral coefficient | >0.5 | <0.3 |
-| Sales cycle | Self-serve | Touch needed |
+| Signal | Freemium fits when | Trial fits when |
+|---|---|---|
+| Free use | Creates durable value or qualified demand | Has ongoing cost without a paid path |
+| Time to value | The core benefit is immediate | Onboarding needs time to demonstrate value |
+| Upgrade | A clear limit aligns with a larger customer outcome | Full value needs to be experienced before commitment |
 
-**The real question:** Do free users CREATE value for paid users?
-- Yes → Freemium (Slack, Figma)
-- No → Trial (Superhuman, Linear)
+Write the upgrade moment in customer terms. If free users do not receive a meaningful path to value or paid users cannot identify a stronger outcome, redesign the offer before optimizing conversion.
 
-## Tier Structure
+## Value metric and packages
 
-Three tiers. Make the middle one a decoy.
+A value metric is fair when customers can predict it, influence it, and associate growth in the metric with growth in value. Test the metric with customer interviews and billing data.
 
-| | Starter | Pro | Team |
-|---|---------|-----|------|
-| Price | $29/mo | $79/mo | $99/mo |
-| Core features | ✓ | ✓ | ✓ |
-| Limits | Low | High | Unlimited |
-| Key differentiator | — | Main feature | + Team features |
+| Metric | Suitable when |
+|---|---|
+| Per seat | Value grows with active collaborators |
+| Usage | Cost and customer value rise with consumption |
+| Feature/package | Customer segments need distinct outcomes |
+| Flat base plus overage | A predictable baseline has variable expansion |
 
-Pro at $79 makes Team at $99 obvious value.
+Describe each package’s intended customer, included outcome, limits, price, billing period, support, and upgrade path.
 
-**Per-seat?** Only if value scales with people. If not, usage-based or flat.
+## Expansion and retention
 
-## Value Metric Selection
-
-**Test:** If customer doubles the metric, do they pay 2x AND feel good about it?
-
-| Metric | Works For |
-|--------|-----------|
-| Per seat | Collaboration (Slack, Notion) |
-| Per usage | APIs, infrastructure (Twilio) |
-| Per feature | Horizontal (Zapier) |
-| Flat + overage | Predictable + growth (Intercom) |
-
-## Annual vs Monthly
-
-- Discount: 15-20% (more devalues)
-- Frame as savings: "$79/year (save $79)" not "17% off"
-- Default UI to annual
-- Target: 60% annual, 40% monthly
-
-## Enterprise Readiness
-
-**Don't build enterprise features until enterprises ask.**
-
-When they do, minimum requirements:
-
-| Feature | Why |
-|---------|-----|
-| SSO (SAML) | Security compliance |
-| SCIM | Auto user provisioning |
-| Audit logs | Who did what, when |
-| Role-based access | Admin/Member/Viewer |
-
-**If they ask for SSO, price floor is $1,000/month.** They can pay it.
-
-## Expansion Revenue
-
-Target: Net Revenue Retention >110%
-
-| Tactic | When to Trigger |
-|--------|-----------------|
-| Seat expansion | Team invites increase |
-| Usage upsell | 80% of limit |
-| Tier upgrade | Request Pro feature |
-
-**Automate:** Emails at 70%, 90%, 100% of limits.
-
-## Churn Prevention
-
-**Warning signs:**
-- Login <1x/week
-- Core features unused
-- Support tickets spike then silence
-
-**Actions:**
-- Health score alerts to CS
-- Offer "pause" instead of cancel
-- Exit survey with retention offer (meaningful, not desperate)
-
-## Quick NRR Formula
+Measure expansion and contraction by cohort. A common NRR calculation is:
 
 ```
-NRR = (Start MRR + Expansion - Contraction - Churn) ÷ Start MRR
-
-Target: >110%
-Great: >120%
+NRR = (starting recurring revenue + expansion - contraction - churn) / starting recurring revenue
 ```
 
-## What to Avoid
+Use observed activation, usage, support, and renewal signals to trigger helpful education or plan conversations. Offer a pause, downgrade, or cancellation path that the product can honor; capture the reason without obstructing the customer.
 
-- Pricing tables copied from competitors without understanding why
-- "Contact us" as the only enterprise option (lazy)
-- Free tier that's 90% of the product (no urgency)
-- Discounting to close every deal (trains customers)
-- Grandfathering everyone forever (pricing debt)
+## Enterprise requests
+
+Treat security and administrative requirements as a discovery conversation. Confirm the requested assurance, data handling, access controls, provisioning, auditability, support expectations, contractual terms, and delivery cost. Quote only after the scope and viable delivery model are clear.

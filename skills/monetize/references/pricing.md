@@ -1,93 +1,45 @@
-# Pricing: Get a Number, Not Theory
+# Pricing: Decide, Measure, Learn
 
-## The Simple Method (Works)
+## Inputs before a recommendation
 
-1. Set a price that makes you slightly uncomfortable
-2. Offer to 10 real people
-3. 0 buy → lower price OR fix value proposition
-4. 2-3 buy → probably right
-5. All buy immediately → raise price
+Collect the customer segment, job-to-be-done, alternatives, measurable value, delivery cost, support capacity, geographic/tax context, existing prices, and evidence from completed purchases or usage. State which inputs are unknown; a precise-looking price without those inputs is a hypothesis.
 
-Surveys lie. Credit cards don't.
+## Value discovery
 
-## Value-Based Discovery (5 Questions)
+Use customer conversations to learn the current alternative and its cost:
 
-In customer conversations:
-1. "What problem does this solve for you?"
-2. "How do you solve it today? What does that cost in time/money?"
-3. "If this saved you X hours/week, what would that be worth?"
-4. "What would you compare this to?"
-5. "What would make it worth double?"
+1. What are you trying to accomplish?
+2. How do you solve it now, and what does that cost in time, money, or risk?
+3. What outcome would make a change worthwhile?
+4. What would you compare this to?
+5. Which constraint would prevent purchase?
 
-Use their answers to anchor your price to value they stated.
+Use the answers to frame packages around an outcome and boundary, not a feature checklist alone.
 
-## The Math That Matters
+## Unit economics
 
-### LTV (Lifetime Value)
 ```
-SaaS: LTV = (Monthly × Margin) ÷ Churn
-Example: $50 × 80% ÷ 5% = $800
-
-E-commerce: LTV = Order Value × Frequency × Lifespan
-Example: $75 × 4/year × 3 years = $900
+monthly contribution = monthly revenue - variable delivery cost
+LTV (simple steady-state estimate) = monthly contribution / monthly churn rate
+CAC payback (months) = acquisition cost / monthly contribution
+LTV:CAC = LTV / acquisition cost
 ```
 
-### Payback Period
-```
-Months = CAC ÷ (Monthly Revenue × Margin)
-Example: $200 ÷ ($50 × 80%) = 5 months
-Target: <12 months
-```
+Document whether revenue is gross or net of store fees, taxes, refunds, discounts, and chargebacks. These formulas are planning estimates; cohort behavior and seasonality can make them unreliable for a new product.
 
-### LTV:CAC
-```
-Ratio = LTV ÷ CAC
-Example: $800 ÷ $200 = 4:1
-Target: >3:1
-```
+## Package and price test
 
-## Pricing Power
+1. Write a single hypothesis: “For [segment], [package] at [price] improves [primary metric] because [value evidence].”
+2. Choose one material variable to change and preserve a baseline.
+3. Define a primary metric and guardrails before launch: refunds, cancellation, churn, complaints, support load, or margin.
+4. Predefine the decision rule and review date, then record the result and next action.
 
-Your price is sustainable if you have:
-- **Lock-in**: Data, integrations, workflows built on you
-- **Switching costs**: Learning curve, migration pain
-- **Network effects**: More users = more value
+Three packages can clarify who each offer serves when their limits and outcomes are genuinely distinct. Avoid manufactured tiers or feature withholding that prevents customers from receiving the advertised core outcome.
 
-Without these, you compete on price. With them, you set price.
+## Annual and monthly options
 
-## Tier Structure (The Decoy Trick)
+Choose billing periods from value cadence and cash-flow needs. Show the period, renewal terms, total annual cost, and any savings calculation clearly. Evaluate early retention, refunds, and support burden alongside conversion before making an annual option prominent.
 
-Three tiers work. Make the middle tier a decoy that pushes to the one you want:
+## Price changes
 
-| | Starter | Pro (DECOY) | Team |
-|---|---------|-------------|------|
-| Price | $19/mo | $49/mo | $59/mo |
-| Core features | ✓ | ✓ | ✓ |
-| Key feature | Limited | Unlimited | Unlimited |
-| Team features | — | — | ✓ |
-
-Pro at $49 makes Team at $59 look like obvious value.
-
-## Annual vs Monthly
-
-- Discount: 15-20% (2 months free)
-- More than 20% devalues the product
-- Frame as savings: "$99/year (save $79)" not "17% off"
-- Default UI to annual, monthly as alternative
-- Target mix: 60% annual, 40% monthly
-
-## When to Raise Prices
-
-- Demand exceeds your capacity
-- Support is overwhelming
-- LTV:CAC > 5:1
-- 6+ months since last raise
-- Customers stop complaining about price
-
-## What to Avoid
-
-- **Copying competitor prices** without understanding their costs/value
-- **Psychology tricks as strategy** — $9.99 vs $10 is 2% of the equation
-- **Surveys to set price** — people don't know what they'd pay
-- **Discounting to close** — trains customers to wait for deals
-- **Grandfathering everyone forever** — creates pricing debt
+Raise or restructure prices when value, cost to serve, demand, or positioning supports it. Segment existing and new customers deliberately, communicate the effective date and options clearly, and verify consumer-protection and contractual obligations for the relevant jurisdiction.
