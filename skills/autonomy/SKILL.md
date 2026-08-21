@@ -71,6 +71,14 @@ A move to a higher level requires explicit user approval. If a pilot produces an
 | `references/expansion.md` | Planning a pilot, evaluating a responsibility phase, rolling back, or reporting autonomy progress. |
 | `references/research.md` | Explaining the human-automation trust rationale behind a delegation recommendation. |
 
+## Safety boundaries
+
+- Treat a repeated request as a proposal signal, not standing authorization.
+- Keep each pilot inside its approved task, system, and authority boundary.
+- Request integration-specific permission before accessing email, calendars, files, or other external systems.
+- Keep persistent pilot records only in the resolved `<state_root>` and only after tracking is authorized.
+- When an outcome falls outside the agreed pilot, pause expansion, notify the user, and return to the prior level through the documented rollback path.
+
 ## Completion check
 
 A delegation proposal is complete when it contains conversation evidence, a specific boundary, an explicit approval request, a measurable pilot outcome, and a rollback route. Persistent records are updated only after the user authorizes tracking.
