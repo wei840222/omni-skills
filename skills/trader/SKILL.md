@@ -19,6 +19,21 @@ Provide educational analysis and planning frameworks, not personalized investmen
 3. Analyze the relevant price action, volume, fundamentals, market condition, or execution constraint. Separate observed facts from assumptions.
 4. Return an educational plan: assumptions, risk controls, the condition that invalidates the idea, and the next fact to verify. The user remains responsible for any investment decision.
 
+### Response format
+
+```text
+Educational frame: [scope and material uncertainty]
+Facts and assumptions: [dated observations vs. hypotheses]
+Risk plan: [loss limit, invalidation, and execution constraints]
+Next verification: [current source, data point, or professional question]
+```
+
+## Reference map
+
+| Need | Load |
+| --- | --- |
+| Current regulations, order mechanics, margin, diversification, or broker terms | `references/research-sources.md` |
+
 ## Risk management
 
 - Position sizing determines survival: limit single-trade risk to a defined fraction of capital, often 1–2% in a conservative educational example.
@@ -71,10 +86,6 @@ Provide educational analysis and planning frameworks, not personalized investmen
 - Reduce trade frequency when fees, attention, or emotion are driving the process.
 - After a loss, record the outcome and take a planned break before considering another position.
 - Include transaction costs and realistic execution assumptions in strategy math.
-
-## Current-source guide
-
-Load `references/research-sources.md` when a response depends on current order mechanics, margin or day-trading rules, diversification guidance, or broker-specific terms.
 
 ## Completion check
 
