@@ -1,63 +1,54 @@
 ---
-name: Monetize
-slug: monetize
-version: 1.0.2
-description: Pricing, launch, and revenue strategies for indie products, SaaS, mobile apps, and creators. Concrete prices, not theory.
-homepage: https://clawic.com/skills/monetize
+name: monetize
+description: Build evidence-based pricing, launch, and revenue plans for indie products, SaaS, mobile apps, and creators. Use when a user needs to choose a monetization model, price or package an offer, prepare a launch, measure unit economics, or evaluate a revenue experiment; use finance, legal, or implementation-specific guidance for tax, legal, or SDK decisions.
 metadata:
-  clawdbot:
-    emoji: 💰
-    displayName: Monetize
+  openclaw: '{"emoji":"💰"}'
 ---
 
-## How This Works
+# Monetize
 
-Tell me what you're building and your situation. I'll give you specific prices, a launch plan, and templates you can use today.
+Turn a product and its evidence into a testable revenue decision. Start with the user's market, customer, product value, current traction, costs, region, and constraints; ask for the missing inputs that change the recommendation.
 
-No "it depends." No theory. Decisions made for you.
+## Workflow
 
-## Load the Right Guide
+1. **Classify the request.** Read one matching guide: mobile app → `references/mobile-apps.md`; SaaS/subscription → `references/saas.md`; creator sponsorships or audience products → `references/creator.md`; pricing → `references/pricing.md`; launch → `references/launch.md`; reusable copy → `references/templates.md`.
+2. **Collect decision inputs.** Capture customer, job-to-be-done, value evidence, current alternatives, costs, market/region, capacity, and constraints. Mark unknown inputs rather than inventing them. Use `references/success.md` for operating patterns, not forecasts.
+3. **Recommend one testable offer.** Specify package, price or range, value metric, and why it matches the evidence. Use `references/pricing.md` for the economics and `references/industry-benchmarks.md` for current policy-sensitive assumptions.
+4. **Define the learning loop.** Set a primary metric, a guardrail (such as refunds, churn, support load, or complaint rate), audience/eligibility, decision rule, and review date. Change one material variable at a time.
+5. **Return a decision packet.** Include recommendation, assumptions, math, test plan, launch sequence or template, risks, and next measurement date. Describe uncertainty plainly when evidence is thin.
 
-| Situation | Read |
-|-----------|------|
-| Mobile app | `mobile-apps.md` |
-| SaaS/subscription | `saas.md` |
-| Content/creator | `creator.md` |
-| Need pricing math | `pricing.md` |
-| Ready to launch | `launch.md` |
-| Need copy/templates | `templates.md` |
-| Real success patterns | `success.md` |
+### Output format
 
-## Universal Truths
+```text
+Decision: [offer, price/range, and customer]
+Evidence and assumptions: [known facts + explicit unknowns]
+Economics: [formula inputs and result]
+Experiment: [hypothesis, primary metric, guardrail, audience, decision rule]
+Execution: [launch steps or selected template]
+Risks and next review: [policy/compliance/capacity checks + date]
+```
 
-**You're probably underpriced.** Data across 25K+ companies shows the median leaves 30% on the table. Price higher than comfortable, validate with real sales.
+## Decision Principles
 
-**Packaging > Pricing.** How you bundle features matters more than the number. Get packaging right first.
+- Package outcomes and constraints before optimizing a price number.
+- Treat stated interest as a lead; use completed payments or other defined commitment events as validation evidence.
+- Keep offers, scarcity, guarantees, and testimonials truthful and operationally supportable.
+- Preserve a customer path to manage billing, cancellation, refunds, and support.
+- Use current platform documentation and jurisdiction-specific professional advice for payments, taxes, consumer protection, privacy, and advertising disclosures.
 
-**10 happy customers who'd recommend > 100 customers.** Quality matters more than quantity.
+## Reference map
 
-**Charge from day one.** No "free beta." If people won't pay $1, they won't pay $100. Credit cards validate, promises don't.
+| Need | Read |
+|---|---|
+| Pricing research, economics, packaging, experiments | `references/pricing.md` |
+| SaaS model, value metric, expansion, churn | `references/saas.md` |
+| Mobile store model, paywall, offers, platform checks | `references/mobile-apps.md` |
+| Audience products, sponsorships, memberships | `references/creator.md` |
+| Validation and launch sequence | `references/launch.md` |
+| Adaptable customer copy | `references/templates.md` |
+| Operating patterns and limits of anecdotal advice | `references/success.md` |
+| Freshness classes and authoritative research links | `references/research-sources.md` |
 
-**Build for yourself first.** You should be user #1. If you don't need it, you'll quit when it gets hard.
+## Trigger boundary
 
-## Unit Economics (Know These)
-
-Before pitching anyone (VCs, partners, yourself):
-
-| Metric | Target | How to Calculate |
-|--------|--------|------------------|
-| LTV:CAC | >3:1 | Lifetime value ÷ acquisition cost |
-| Payback | <12 months | CAC ÷ (monthly revenue × margin) |
-| Gross margin | >70% | (Revenue - variable costs) ÷ revenue |
-| Monthly churn | <5% | Lost customers ÷ start customers |
-
-**If you can't answer these with data, you're not ready.**
-
-## Red Flags
-
-- Building for months without $1 of revenue
-- "I'll figure out pricing later"
-- Free tier has >90% of the value
-- Discounting to close every deal
-- No idea who your best customers are
-- Copying competitor prices without understanding why
+Use this skill for a product or offer revenue decision. Route tax filing, legal interpretation, payment integration, financial reporting, and ad-buy execution to the relevant specialist guidance; this skill can supply the commercial brief those tasks need.
