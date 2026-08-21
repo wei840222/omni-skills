@@ -1,5 +1,5 @@
 ---
-name: Google Reviews
+name: google-reviews
 slug: google-reviews
 version: 1.0.0
 description: Research Google Maps and Shopping reviews for any company. Run multi-brand monitoring with heartbeat refreshes and sentiment reports.

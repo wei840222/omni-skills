@@ -1,5 +1,5 @@
 ---
-name: Groupon
+name: groupon
 slug: groupon
 version: 1.0.0
 description: Find, compare, and vet Groupon vouchers with fine-print checks, refund rules, and redemption planning.

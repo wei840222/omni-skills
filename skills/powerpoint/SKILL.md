@@ -1,5 +1,5 @@
 ---
-name: PowerPoint
+name: powerpoint
 slug: powerpoint
 version: 1.0.0
 description: Control PowerPoint app sessions, slides, notes, export, and presentation state with osascript workflows.

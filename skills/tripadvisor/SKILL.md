@@ -1,5 +1,5 @@
 ---
-name: Tripadvisor
+name: tripadvisor
 slug: tripadvisor
 version: 1.0.0
 description: Find and compare Tripadvisor hotels, restaurants, and attractions with official API workflows, URL-first navigation, and policy-safe data handling.

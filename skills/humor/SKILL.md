@@ -1,5 +1,5 @@
 ---
-name: Humor
+name: humor
 slug: humor
 version: 1.0.3
 description: 'Calibrates when and how an agent uses humor: wit, jokes, banter, and playful tone matched to each user, context, and platform. Use when adding humor or personality to replies, deciding if a joke is appropriate, mirroring or building on a user''s joke, punching up a toast, caption, or message on request, recovering after a joke falls flat or draws silence, joking in group chats or across languages, or when the user says be funnier, lighten up, or tone it down.'

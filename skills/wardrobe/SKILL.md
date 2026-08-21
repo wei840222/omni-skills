@@ -1,5 +1,5 @@
 ---
-name: Wardrobe
+name: wardrobe
 slug: wardrobe
 version: 1.0.0
 description: Build a personal wardrobe system for cataloging clothes, planning outfits, and mindful shopping.

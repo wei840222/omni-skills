@@ -1,5 +1,5 @@
 ---
-name: Podcast
+name: podcast
 slug: podcast
 version: 1.0.1
 description: Create and grow podcasts by planning episodes, producing audio or video, generating clips, and building audience across formats.

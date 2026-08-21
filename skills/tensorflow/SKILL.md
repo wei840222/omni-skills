@@ -1,5 +1,5 @@
 ---
-name: TensorFlow
+name: tensorflow
 slug: tensorflow
 version: 1.0.0
 description: Avoid common TensorFlow mistakes — tf.function retracing, GPU memory, data pipeline bottlenecks, and gradient traps.

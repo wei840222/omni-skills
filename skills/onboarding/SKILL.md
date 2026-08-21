@@ -1,5 +1,5 @@
 ---
-name: Onboarding
+name: onboarding
 slug: onboarding
 version: 1.0.0
 description: Design user onboarding flows that maximize activation and time-to-value.

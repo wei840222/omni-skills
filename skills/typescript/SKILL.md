@@ -1,5 +1,5 @@
 ---
-name: TypeScript
+name: typescript
 slug: typescript
 version: 1.0.5
 description: 'Writes, reviews, and debugs type-safe TypeScript: type errors, narrowing, generics, tsconfig strictness, and declaration files. Use when a build hits type errors ("not assignable", "possibly undefined", "excessively deep", "cannot find module"), when eliminating any or unchecked as casts, designing generics or discriminated unions, writing .d.ts files or typing untyped npm packages, configuring tsconfig or module resolution, fixing ESM/CJS import crashes ("ERR_REQUIRE_ESM", "x is not a function"), validating API or JSON data at runtime, migrating JavaScript to TypeScript or upgrading the TypeScript version, or when tsc or the editor gets slow or runs out of memory.'

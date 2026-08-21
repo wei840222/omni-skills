@@ -1,5 +1,5 @@
 ---
-name: Review Code
+name: review-code
 slug: review-code
 version: 1.0.0
 description: Review code with risk-first analysis, reproducible evidence, and patch-ready guidance for correctness, security, performance, and maintainability.

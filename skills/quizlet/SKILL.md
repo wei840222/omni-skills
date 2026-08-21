@@ -1,5 +1,5 @@
 ---
-name: Quizlet
+name: quizlet
 slug: quizlet
 version: 1.0.0
 description: Build high-yield Quizlet study sets, tune Learn and Test sessions, and improve weak cards with spaced repetition diagnostics.

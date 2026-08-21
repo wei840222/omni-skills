@@ -1,5 +1,5 @@
 ---
-name: Auto-Update (OpenClaw + Skills)
+name: auto-update
 slug: auto-update
 version: 1.0.0
 description: Auto-update OpenClaw and skills with OpenClaw cron, per-skill defaults, backups, and migration-aware summaries.

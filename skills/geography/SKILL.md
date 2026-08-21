@@ -1,5 +1,5 @@
 ---
-name: Geography
+name: geography
 slug: geography
 version: 1.0.0
 description: Teach physical and human geography from map reading to spatial analysis.

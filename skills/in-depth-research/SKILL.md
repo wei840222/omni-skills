@@ -1,5 +1,5 @@
 ---
-name: Deep Research
+name: in-depth-research
 slug: in-depth-research
 version: 1.0.0
 description: Conduct exhaustive multi-source investigation with methodology tracking, source evaluation, and iterative depth.

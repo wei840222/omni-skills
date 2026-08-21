@@ -1,5 +1,5 @@
 ---
-name: Italy
+name: italy
 slug: italy
 version: 1.0.0
 description: Discover Italy beyond the clichés with specific restaurants, hidden gems, and insights that only locals know.

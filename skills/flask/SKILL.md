@@ -1,5 +1,5 @@
 ---
-name: Flask
+name: flask
 slug: flask
 version: 1.0.0
 description: Avoid common Flask mistakes — context errors, circular imports, session configuration, and production gotchas.

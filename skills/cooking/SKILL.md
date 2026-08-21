@@ -1,5 +1,5 @@
 ---
-name: Cooking
+name: cooking
 slug: cooking
 version: 1.0.2
 description: 'Cooks and rescues real dishes at the stove: heat control, seasoning, doneness, timing, substitutions, and food safety. Use when a dish is bland, too salty, burnt, tough, dry, watery, rubbery, greasy, or gummy; when a sauce breaks, splits, curdles, or will not thicken; when meat, fish, eggs, rice, pasta, beans, bread, or a cake come out wrong; when adapting a recipe for a missing ingredient, a different pan, an air fryer, altitude, or a doubled batch; when asking what temperature something is done at, how long to rest it, how much salt, or whether leftovers are still safe; when searing, braising, roasting, frying, grilling, baking, fermenting, or curing; or when ordering the work so a whole meal lands hot at once. Not for weekly menus and shopping lists (`meal-planner`, `grocery`), recipe collections and recipe walkthroughs (`recipe`, `chef`), calorie or macro counting (`calories`), or micronutrients (`nutrition`).'

@@ -1,5 +1,5 @@
 ---
-name: Dates
+name: dates
 slug: dates
 version: 1.0.0
 description: Build a personal dating system for tracking connections, planning dates, and remembering details.

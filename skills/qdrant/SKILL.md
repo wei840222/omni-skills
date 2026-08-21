@@ -1,5 +1,5 @@
 ---
-name: Qdrant
+name: qdrant
 slug: qdrant
 version: 1.0.0
 description: Build vector search with Qdrant using collections, payloads, filtering, and optimized indexing for semantic similarity.

@@ -1,5 +1,5 @@
 ---
-name: AGI / Artificial General Intelligence
+name: agi
 slug: agi
 version: 1.0.0
 description: Think like a human. Reason, plan, adapt, create, and know your limits.

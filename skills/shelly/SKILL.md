@@ -1,5 +1,5 @@
 ---
-name: Shelly
+name: shelly
 slug: shelly
 version: 1.0.0
 description: Control and automate Shelly devices with local RPC workflows, secure access modes, cloud API coordination, and safe multi-device execution.

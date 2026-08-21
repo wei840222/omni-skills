@@ -1,5 +1,5 @@
 ---
-name: Mindfulness (Tracker, Logger, Guided Practice)
+name: mindfulness
 slug: mindfulness
 version: 1.0.0
 description: Track mindfulness habits, run guided meditations, and improve calm focus with adaptive routines, reflective logs, and context-aware practice plans.

@@ -1,5 +1,5 @@
 ---
-name: Trader
+name: trader
 slug: trader
 version: 1.0.0
 description: Analyze markets, manage risk, and execute trades with disciplined strategies and emotional control.

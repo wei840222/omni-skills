@@ -1,5 +1,5 @@
 ---
-name: Lawyer
+name: lawyer
 slug: lawyer
 version: 1.0.2
 description: 'Works as counsel: reviews and redlines agreements, negotiates the terms that cost money, and prices the risk before signature. Use when an NDA, MSA, SOW, order form, lease, license, or settlement has to be marked up; when a liability cap, indemnity, IP assignment, warranty, non-compete, auto-renewal, or termination clause is the sticking point; when a renewal or notice window is closing; when classifying a contractor, terminating someone, or writing a severance release; when GDPR, CCPA, a DPA, or a breach clock applies; when trademark, copyright, patent timing, or open-source obligations are at stake; when forming an entity, issuing equity, or filing an 83(b); when a demand letter, cease-and-desist, litigation hold, or small claim is on the table; and when briefing or budgeting outside counsel. Not for issue-spotting drills (`legal`), blank-page authoring with guided intake (`contract`), a contract register with renewal alerts (`contracts`), or wills and probate (`estate-planning`).'

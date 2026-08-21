@@ -1,5 +1,5 @@
 ---
-name: B2B
+name: b2b
 slug: b2b
 version: 1.0.0
 description: Close enterprise deals with qualification frameworks, prospecting research, pipeline management, and outreach personalization.

@@ -1,5 +1,5 @@
 ---
-name: Japan
+name: japan
 slug: japan
 version: 1.0.0
 description: Discover Japan like a local with concrete city tips, regional route planning, food context, and practical travel logistics.

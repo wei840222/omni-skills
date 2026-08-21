@@ -1,5 +1,5 @@
 ---
-name: Icons
+name: icons
 slug: icons
 version: 1.0.0
 description: Implement accessible icons with proper sizing, color inheritance, and performance.

@@ -1,5 +1,5 @@
 ---
-name: Restaurants
+name: restaurants
 slug: restaurants
 version: 1.0.0
 description: Build a personal restaurant system for tracking places to try, favorites, and dining memories.

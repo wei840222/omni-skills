@@ -1,5 +1,5 @@
 ---
-name: France
+name: france
 slug: france
 version: 1.0.0
 description: Discover France like a local with concrete city advice, regional route planning, food context, and practical travel logistics.

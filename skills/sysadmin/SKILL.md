@@ -1,5 +1,5 @@
 ---
-name: Sysadmin
+name: sysadmin
 slug: sysadmin
 version: 1.0.0
 description: Manage Linux servers with user administration, process control, storage, and system maintenance.

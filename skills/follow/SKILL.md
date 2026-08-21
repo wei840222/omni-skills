@@ -1,5 +1,5 @@
 ---
-name: Follow
+name: follow
 slug: follow
 version: 1.0.0
 description: Monitor content from people, topics, and sources across platforms with smart filtering, tiered alerts, and searchable archives.

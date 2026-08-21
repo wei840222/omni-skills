@@ -1,5 +1,5 @@
 ---
-name: Coach
+name: coach
 slug: coach
 version: 1.0.2
 description: 'Coaches a person toward a goal, and runs the professional coaching craft: sessions, questions, accountability, and clients who will not move. Use when someone asks to be coached, held accountable, or pushed on a goal; when they restate the same intention for weeks without acting, over-plan instead of starting, answer every option with "yes, but", or miss the same commitment again; when a session needs an arc, an opening question, or a closing commitment; when the user is a coach and needs a chemistry call, intake, a coaching agreement, pricing and packages, a stalled client, group or team work, supervision, or credential hours; and when the line between coaching, therapy, consulting, and mentoring has to be drawn. Covers executive, career, business, health, life, creative, and ADHD coaching. Not for clinical care (`therapist`, `psychologist`), personal productivity systems (`productivity`), or habit streaks (`habits`).'

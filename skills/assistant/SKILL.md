@@ -1,5 +1,5 @@
 ---
-name: Assistant
+name: assistant
 slug: assistant
 version: 1.0.0
 description: Manage tasks, communications, and scheduling with proactive and organized support.

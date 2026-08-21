@@ -1,5 +1,5 @@
 ---
-name: Seville
+name: seville
 slug: seville
 version: 1.0.0
 description: Navigate Seville as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, flamenco, and local insights.

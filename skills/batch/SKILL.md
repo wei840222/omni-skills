@@ -1,5 +1,5 @@
 ---
-name: Batch
+name: batch
 slug: batch
 version: 1.0.0
 description: Process multiple items with progress tracking, checkpointing, and failure recovery.

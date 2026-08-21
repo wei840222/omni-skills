@@ -1,5 +1,5 @@
 ---
-name: Growth
+name: growth
 slug: growth
 version: 1.0.2
 description: 'Runs growth as a system: finds which funnel stage is the constraint, picks the loop that compounds, and sizes the channel and experiment program. Use when growth stalled or a number has to be hit and nobody can say which stage is broken; when choosing, scaling, or killing acquisition channels; when CAC, payback, LTV:CAC, or blended-versus-paid has to be computed or defended; when signups grow but activation, retention, or paid conversion does not; when designing a referral program, a lifecycle messaging map, or a north-star metric and the events behind it; when forecasting from a model instead of a wish; and for marketplace liquidity, app-install funnels, ecommerce repeat purchase, and self-serve-versus-sales motion. Not for A/B test statistics (`ab-testing`), page-level conversion work (`cro`), churn cohort depth (`churn-analysis`), MRR and NRR definitions (`saas-metrics`), launch positioning (`go-to-market`), or the CGO role and growth-org leadership (`cgo`).'

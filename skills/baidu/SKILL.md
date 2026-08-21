@@ -1,5 +1,5 @@
 ---
-name: Baidu
+name: baidu
 slug: baidu
 version: 1.0.0
 description: Navigate Baidu Search, Maps, Baike, Wenku, and Qianfan with region-aware routing, official-source checks, and China-specific guidance.

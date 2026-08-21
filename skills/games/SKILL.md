@@ -1,5 +1,5 @@
 ---
-name: Games
+name: games
 slug: games
 version: 1.0.0
 description: Build a personal gaming system for video games, board games, party games, and family activities.

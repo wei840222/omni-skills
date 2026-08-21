@@ -1,5 +1,5 @@
 ---
-name: Chainlink
+name: chainlink
 slug: chainlink
 version: 1.0.0
 description: Assist with Chainlink LINK tokens, oracle integrations, staking, and price feed usage.

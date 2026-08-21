@@ -1,5 +1,5 @@
 ---
-name: Slovak
+name: slovak
 slug: slovak
 version: 1.0.0
 description: Write Slovak that sounds human. Not formal, not robotic, not AI-generated.

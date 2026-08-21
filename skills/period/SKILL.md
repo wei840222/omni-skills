@@ -1,5 +1,5 @@
 ---
-name: Period Tracker
+name: period
 slug: period
 version: 1.0.3
 description: Tracks menstrual cycles, logs symptoms, and predicts periods, ovulation, and fertile windows from her own logged data. Use when a period starts, is late, or is missed, when logging cramps, PMS, PMDD, mood, spotting, or flow, when asking whether a cycle is irregular, heavy, or too long, when tracking basal temperature, LH tests, or cervical mucus to conceive or avoid pregnancy, when bleeding changes on the pill, IUD, or implant, or when cycles shift in perimenopause, postpartum, or after stopping contraception. Not for prenatal tracking once pregnancy is confirmed.

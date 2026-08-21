@@ -1,5 +1,5 @@
 ---
-name: Astronomy
+name: astronomy
 slug: astronomy
 version: 1.0.0
 description: Explore the cosmos from backyard stargazing to astrophysics research.

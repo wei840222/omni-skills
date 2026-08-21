@@ -1,5 +1,5 @@
 ---
-name: Remind
+name: remind
 slug: remind
 version: 1.0.4
 changelog: Display name shown correctly

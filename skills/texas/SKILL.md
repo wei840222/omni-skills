@@ -1,5 +1,5 @@
 ---
-name: Texas
+name: texas
 slug: texas
 version: 1.0.0
 description: Navigate Texas for living, moving, working, and road trips with region fit, state rules, weather risk, and daily logistics.

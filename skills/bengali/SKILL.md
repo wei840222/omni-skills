@@ -1,5 +1,5 @@
 ---
-name: Bengali
+name: bengali
 slug: bengali
 version: 1.0.0
 description: Write Bengali that sounds human. Not formal, not robotic, not AI-generated.

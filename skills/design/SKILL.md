@@ -1,5 +1,5 @@
 ---
-name: Design
+name: design
 slug: design
 version: 1.0.3
 changelog: Display name shown correctly

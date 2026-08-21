@@ -1,5 +1,5 @@
 ---
-name: Hosting
+name: hosting
 slug: hosting
 version: 1.0.0
 description: Choose and manage web hosting services for websites and apps without server administration.

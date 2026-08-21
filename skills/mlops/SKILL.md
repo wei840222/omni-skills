@@ -1,5 +1,5 @@
 ---
-name: MLOps
+name: mlops
 slug: mlops
 version: 1.0.0
 description: Deploy ML models to production with pipelines, monitoring, serving, and reproducibility best practices.

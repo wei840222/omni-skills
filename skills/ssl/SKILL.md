@@ -1,5 +1,5 @@
 ---
-name: SSL
+name: ssl
 slug: ssl
 version: 1.0.2
 description: Set up HTTPS, manage TLS certificates, and debug secure connection issues.

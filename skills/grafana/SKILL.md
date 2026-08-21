@@ -1,5 +1,5 @@
 ---
-name: Grafana
+name: grafana
 slug: grafana
 version: 1.0.0
 description: Avoid common Grafana mistakes — query pitfalls, variable templating, alerting traps, and provisioning gotchas.

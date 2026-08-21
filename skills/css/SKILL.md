@@ -1,5 +1,5 @@
 ---
-name: CSS
+name: css
 slug: css
 version: 1.0.4
 description: 'Writes and debugs CSS: flexbox and grid layout, z-index and stacking, responsive breakpoints, theming, and render performance. Use when a layout breaks or overflows, z-index does nothing, the page scrolls sideways, `position: sticky` won''t stick, text won''t truncate, styles lose the cascade or need `!important`, content jumps while loading (CLS), transitions stutter, fonts flash, a modal or dropdown sits behind other content, form controls need restyling, a table needs sticky headers, printing comes out wrong, or a style works in Chrome but not Safari. Also for starting a stylesheet from scratch (reset and base layer), centering, container queries, fluid type with clamp(), design tokens and dark mode, RTL and logical properties, and modernizing old stylesheets with `:has()`, `@layer`, and nesting. Not for visual design taste — palettes, spacing scales, typeface choice.'

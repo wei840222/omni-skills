@@ -1,5 +1,5 @@
 ---
-name: Bluetooth
+name: bluetooth
 slug: bluetooth
 version: 1.0.0
 description: Discover, connect, and control Bluetooth devices with automatic profile learning, cross-platform tools, and device management.

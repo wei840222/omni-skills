@@ -1,5 +1,5 @@
 ---
-name: Miami
+name: miami
 slug: miami
 version: 1.0.0
 description: Navigate Miami as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, beaches, costs, safety, and local insights.

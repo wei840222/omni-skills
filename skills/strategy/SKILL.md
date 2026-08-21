@@ -1,5 +1,5 @@
 ---
-name: Strategy
+name: strategy
 slug: strategy
 version: 1.0.0
 description: Design robust strategies for any domain with proven frameworks, cognitive bias protection, and constraint-aware recommendations.

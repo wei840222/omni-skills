@@ -1,5 +1,5 @@
 ---
-name: Colors
+name: colors
 slug: colors
 version: 1.0.0
 description: Build accessible color palettes with proper contrast ratios and semantic tokens.

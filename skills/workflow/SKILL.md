@@ -1,5 +1,5 @@
 ---
-name: Workflow
+name: workflow
 slug: workflow
 version: 1.0.0
 description: Build automated pipelines with reusable components, data flow between nodes, and state management.

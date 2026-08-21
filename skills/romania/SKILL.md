@@ -1,5 +1,5 @@
 ---
-name: Romania
+name: romania
 slug: romania
 version: 1.0.0
 description: Plan Romania trips with regional contrasts, Transylvania and Black Sea logistics, local food cues, and practical local guidance.

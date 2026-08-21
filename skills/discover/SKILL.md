@@ -1,5 +1,5 @@
 ---
-name: Discover
+name: discover
 slug: discover
 version: 1.0.1
 description: Discover new ideas, sources, opportunities, and angles with durable watchlists, novelty rules, and heartbeat-backed finding logs.

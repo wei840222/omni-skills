@@ -1,5 +1,5 @@
 ---
-name: Spaced Repetition
+name: spaced-repetition
 slug: spaced-repetition
 version: 1.0.0
 description: Scheduling review of material at expanding intervals to optimize long-term retention.

@@ -1,5 +1,5 @@
 ---
-name: Nuxt
+name: nuxt
 slug: nuxt
 version: 1.0.0
 description: Build Vue 3 SSR/SSG applications with proper data fetching, hydration, and server patterns.

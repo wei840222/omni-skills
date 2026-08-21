@@ -1,5 +1,5 @@
 ---
-name: Suno
+name: suno
 slug: suno
 version: 1.0.4
 description: 'Creates music with Suno: crafts style prompts and structured lyrics, generates via API or browser, builds long tracks, covers, and personas. Use when the user wants a song, jingle, anthem, podcast intro, or background track, wants lyrics turned into audio or written for singing, asks to sound like an artist, or when a generation comes out generic, off-genre, cuts off mid-song, sings the style description, garbles words, or gets rejected by moderation. Also covers extending and stitching songs, stems, WAV export, credits, and commercial-use rights. Not for editing or mixing existing audio files.'

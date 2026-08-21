@@ -1,5 +1,5 @@
 ---
-name: Typography Foundations
+name: typography
 slug: typography
 version: 1.0.0
 description: 'Set type for screen and print: measure, leading, tracking, optical sizes, weight axes, and the difference between display and text cuts.'

@@ -1,5 +1,5 @@
 ---
-name: Business Administration
+name: business-administration
 slug: business-administration
 version: 1.0.0
 description: Support business understanding from small ventures to corporate strategy and academic research.

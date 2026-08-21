@@ -1,5 +1,5 @@
 ---
-name: CDO / Chief Data Officer
+name: cdo
 slug: cdo
 version: 1.0.1
 description: Drive data strategy with governance frameworks, analytics platforms, AI/ML initiatives, and privacy compliance.

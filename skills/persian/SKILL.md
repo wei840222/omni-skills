@@ -1,5 +1,5 @@
 ---
-name: Persian
+name: persian
 slug: persian
 version: 1.0.0
 description: Write Persian that sounds human. Not formal, not robotic, not AI-generated.

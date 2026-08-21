@@ -1,5 +1,5 @@
 ---
-name: London
+name: london
 slug: london
 version: 1.0.0
 description: Navigate London as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, safety, and local insights.

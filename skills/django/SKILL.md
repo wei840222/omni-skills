@@ -1,5 +1,5 @@
 ---
-name: Django
+name: django
 slug: django
 version: 1.0.3
 description: 'Builds, debugs, and hardens Django apps: models, the ORM, views, templates, forms, the admin, DRF APIs, and deployment. Use when a page fires one query per row (N+1, select_related, prefetch_related, annotate double-counting); when makemigrations conflicts, a migration locks a live table, or InconsistentMigrationHistory blocks a deploy; on 403 CSRF verification failed, DEBUG=False turning every request into 400 DisallowedHost or a blank 500, or SECURE_SSL_REDIRECT looping behind a proxy; on SynchronousOnlyOperation, AppRegistryNotReady, or NoReverseMatch; when a background task runs before its transaction commits, signals fire on rows that roll back, or update() skips auto_now; when the admin times out on a big table, collectstatic breaks static files, or workers exhaust database connections; when writing serializers, formsets, a custom user model, permissions, or assertNumQueries tests; or upgrading Django across a deprecation. Not for plain Python, FastAPI or Flask services, or engine-level SQL tuning.'

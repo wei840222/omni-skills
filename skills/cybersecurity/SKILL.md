@@ -1,5 +1,5 @@
 ---
-name: Cybersecurity
+name: cybersecurity
 slug: cybersecurity
 version: 1.0.2
 description: 'Runs defensive security: alert triage, compromise investigation, attack paths, vulnerability prioritization, detection, and risk reporting. Use when an alert, a suspicious login, a reported email, encrypted files, or a possible compromise needs scoping and containment; when deciding what to patch first out of a scanner or pentest backlog; when hardening identity, endpoints, segmentation, cloud tenants, or a build pipeline; when writing or tuning detections nobody trusts; when a vendor questionnaire, SOC 2, ISO 27001, PCI, HIPAA, GDPR or NIS2 evidence is due; when a notification clock may already be running; when scoping an authorized test or a disclosure; or when a finding has to be written so an engineer, an executive or a board decides. Covers evidence handling, token eviction, and building a security program from nothing. Not for line-by-line secure code fixes (`security-best-practices`), STRIDE notation depth (`threat-modeling`), or implementing login flows (`auth`).'

@@ -1,5 +1,5 @@
 ---
-name: Tools
+name: tools
 slug: tools
 version: 1.0.0
 description: Learns your tool preferences while staying capable of using anything. Adapts to your stack.

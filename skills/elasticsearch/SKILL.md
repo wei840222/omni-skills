@@ -1,5 +1,5 @@
 ---
-name: Elasticsearch
+name: elasticsearch
 slug: elasticsearch
 version: 1.0.2
 description: 'Designs, queries, and operates Elasticsearch: mappings, analyzers, query DSL, aggregations, bulk indexing, shard sizing, and cluster health. Use when writing a search query or an index mapping, when a search returns nothing or the wrong documents, when a term query on a text field returns zero hits without an error, when results rank badly, when aggregations fail with "fielddata is disabled", when the cluster turns yellow or red, when shards stay unassigned, when indexing is slow or a bulk request returns per-item errors, when disk hits the flood-stage watermark and indices go read-only, when circuit breakers trip, or when paging past 10,000 hits breaks. Covers ILM rollover, reindexing, snapshots, upgrades, kNN and hybrid vector search, autocomplete, synonyms and analyzers, nested modeling, geo queries, ES|QL, Painless, ingest pipelines, data streams, security, language clients, and OpenSearch compatibility. Not for standalone vector stores (vector-databases) or lightweight site search (meilisearch).'

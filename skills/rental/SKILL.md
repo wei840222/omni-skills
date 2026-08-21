@@ -1,5 +1,5 @@
 ---
-name: Rental
+name: rental
 slug: rental
 version: 1.0.0
 description: Find, negotiate, and manage rentals as tenant, landlord, host, or guest with market analysis, scam detection, and lease review.

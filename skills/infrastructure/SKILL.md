@@ -1,5 +1,5 @@
 ---
-name: Infrastructure
+name: infrastructure
 slug: infrastructure
 version: 1.0.1
 description: Design, provision, and connect cloud resources across servers, networks, and services.

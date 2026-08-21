@@ -1,5 +1,5 @@
 ---
-name: Postman
+name: postman
 slug: postman
 version: 1.0.0
 description: Build, test, and automate APIs with Postman collections, environments, and Newman CLI.

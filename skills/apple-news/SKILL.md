@@ -1,5 +1,5 @@
 ---
-name: Apple News (MacOS)
+name: apple-news
 slug: apple-news
 version: 1.0.0
 description: Open Apple News, read Apple News links, and run local News workflows on macOS using deterministic CLI commands and shortcut-based search fallback.

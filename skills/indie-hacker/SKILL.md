@@ -1,5 +1,5 @@
 ---
-name: Indie Hacker
+name: indie-hacker
 slug: indie-hacker
 version: 1.0.0
 description: Build profitable products as a solo founder with validation-first approach, time protection, and brutal honesty.

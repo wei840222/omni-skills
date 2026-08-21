@@ -1,5 +1,5 @@
 ---
-name: Betting
+name: betting
 slug: betting
 version: 1.0.0
 description: Evaluate betting opportunities with line shopping, bankroll discipline, market checks, and risk filters before any stake is placed.

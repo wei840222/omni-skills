@@ -1,5 +1,5 @@
 ---
-name: NestJS
+name: nestjs
 slug: nestjs
 version: 1.0.0
 description: Avoid common NestJS mistakes — DI scoping, circular dependencies, validation pipes, and module organization traps.

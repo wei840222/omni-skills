@@ -1,5 +1,5 @@
 ---
-name: Greek
+name: greek
 slug: greek
 version: 1.0.0
 description: Write Greek that sounds human. Not formal, not robotic, not AI-generated.

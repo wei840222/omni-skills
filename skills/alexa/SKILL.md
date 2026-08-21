@@ -1,5 +1,5 @@
 ---
-name: Alexa
+name: alexa
 slug: alexa
 version: 1.0.0
 description: Control devices, run automations, and help users get more from Alexa with smart home, routines, and skill development guidance.

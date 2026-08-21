@@ -1,5 +1,5 @@
 ---
-name: Beijing
+name: beijing
 slug: beijing
 version: 1.0.3
 description: 'Guides visits, relocation, work, and daily life in Beijing: attractions, neighborhoods, rent, visas, transport, food, and the local app ecosystem. Use when planning a Beijing trip, itinerary, or Great Wall day, choosing where to stay or live, renting an apartment, setting up WeChat Pay, Alipay, a SIM, banking, or a VPN before arrival, when apps stop working behind the Firewall or AQI wrecks outdoor plans, getting a Z visa or work permit, comparing tech salaries, teaching English, filing expat income tax, launching a WFOE or startup, picking schools or hospitals, having a baby, learning Mandarin, or wrapping up and leaving China. Not for the rest of China — pair with the china skill for other cities.'

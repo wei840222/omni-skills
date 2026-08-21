@@ -1,5 +1,5 @@
 ---
-name: FFmpeg
+name: ffmpeg
 slug: ffmpeg
 version: 1.0.0
 description: Process video and audio with correct codec selection, filtering, and encoding settings.

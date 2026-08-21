@@ -1,5 +1,5 @@
 ---
-name: Competitor Research
+name: competitor-research
 slug: competitor-research
 version: 1.0.0
 description: Deep competitor audits with market positioning, gap analysis, and actionable insights for winning strategies.

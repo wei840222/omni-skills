@@ -1,5 +1,5 @@
 ---
-name: Apple Health
+name: apple-health
 slug: apple-health
 version: 1.0.0
 description: Connect agents to Apple Health exports with MCP setup, schema validation, and privacy-safe analysis.

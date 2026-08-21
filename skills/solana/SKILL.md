@@ -1,5 +1,5 @@
 ---
-name: Solana
+name: solana
 slug: solana
 version: 1.0.0
 description: Assist with Solana transactions, token accounts, priority fees, and program interactions.

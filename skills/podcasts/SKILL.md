@@ -1,5 +1,5 @@
 ---
-name: Podcasts
+name: podcasts
 slug: podcasts
 version: 1.0.0
 description: Track and synthesize podcasts with subscriptions, briefings, progress tracking, and smart alerts for new episodes and guests.

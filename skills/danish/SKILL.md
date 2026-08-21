@@ -1,5 +1,5 @@
 ---
-name: Danish
+name: danish
 slug: danish
 version: 1.0.0
 description: Write Danish that sounds human. Not formal, not robotic, not AI-generated.

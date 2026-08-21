@@ -1,5 +1,5 @@
 ---
-name: Kotlin
+name: kotlin
 slug: kotlin
 version: 1.0.3
 changelog: Display name shown correctly

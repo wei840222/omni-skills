@@ -1,5 +1,5 @@
 ---
-name: Arduino
+name: arduino
 slug: arduino
 version: 1.0.0
 description: Develop Arduino projects avoiding common wiring, power, and code pitfalls.

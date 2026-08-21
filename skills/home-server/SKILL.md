@@ -1,5 +1,5 @@
 ---
-name: Home Server
+name: home-server
 slug: home-server
 version: 1.0.0
 description: Plan, secure, and maintain a home server with Docker services, remote access, backups, and incident recovery.

@@ -1,5 +1,5 @@
 ---
-name: VSCode
+name: vscode
 slug: vscode
 version: 1.0.2
 description: 'Configures, debugs, and speeds up Visual Studio Code: settings scopes, launch.json, tasks.json, extensions, keybindings, formatters, and remote work. Use when a setting has no effect because something else overrides it, when format-on-save runs the wrong formatter or two formatters fight, when a breakpoint stays hollow, F5 does nothing, or a debug config will not attach, when a watch task hangs preLaunchTask forever, when the extension host crashes or two extensions collide, when IntelliSense dies and the TypeScript server or Python interpreter stops resolving, when a keyboard shortcut is swallowed by the terminal, when Remote-SSH, WSL, dev containers, or tunnels misbehave, when startup, search, or file watching is slow, or when deciding what belongs in .vscode/ and which extensions a fork like VSCodium or Cursor can install. Not for language semantics (`typescript`, `py`), Docker image authoring (`docker`), or general bug isolation (`debugging`).'

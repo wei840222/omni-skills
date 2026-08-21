@@ -1,5 +1,5 @@
 ---
-name: Invoices
+name: invoices
 slug: invoices
 version: 1.0.3
 description: 'Files, checks, and audits the invoices you receive: OCR and e-invoice XML, duplicate and fraud checks, VAT deduction, and a searchable archive. Use when an invoice, bill, or receipt arrives as a PDF, photo, email attachment, or portal download and has to be filed; when asked where an old invoice is, or what was spent with a supplier last quarter; when preparing a VAT return or an export for an accountant; when an invoice looks wrong, duplicated, or larger than usual; when a supplier''s bank details changed on the document; when a recurring invoice never arrived; and when a credit note, reverse charge, import VAT, or a foreign currency has to be booked correctly. Covers Factur-X/ZUGFeRD, XRechnung, Peppol, supplier normalization, and retention mandates. Not for issuing invoices to your own clients (`invoice`), tracking personal spending (`expenses`), chasing a client who owes you money (`clients`), or building a billing system (`billing`).'

@@ -1,5 +1,5 @@
 ---
-name: CSO / Chief Strategy Officer
+name: cso
 slug: cso
 version: 1.0.2
 description: Lead strategy with competitive analysis, strategic planning, growth roadmaps, and business portfolio management.

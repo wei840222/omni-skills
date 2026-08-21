@@ -1,5 +1,5 @@
 ---
-name: Internet
+name: internet
 slug: internet
 version: 1.0.0
 description: Manage internet connectivity, compare providers, diagnose issues, optimize performance, and handle mobile data when away from home.

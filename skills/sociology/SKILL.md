@@ -1,5 +1,5 @@
 ---
-name: Sociology
+name: sociology
 slug: sociology
 version: 1.0.0
 description: Support sociological thinking from first observations to academic research.

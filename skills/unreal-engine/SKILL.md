@@ -1,5 +1,5 @@
 ---
-name: Unreal Engine
+name: unreal-engine
 slug: unreal-engine
 version: 1.0.0
 description: Avoid common Unreal mistakes — garbage collection, UPROPERTY macros, replication authority, and asset reference pitfalls.

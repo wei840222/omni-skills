@@ -1,5 +1,5 @@
 ---
-name: Thailand
+name: thailand
 slug: thailand
 version: 1.0.0
 description: Choose the best Thailand base for travel, remote work, expat life, or business with visa clarity, cost reality, and local operating playbooks.

@@ -1,5 +1,5 @@
 ---
-name: Mercado Libre
+name: mercado-libre
 slug: mercado-libre
 version: 1.0.0
 description: Use Mercado Libre to search, compare, buy, sell, and automate decisions with pricing, safety, and dispute workflows.

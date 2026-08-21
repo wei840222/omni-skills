@@ -1,5 +1,5 @@
 ---
-name: Tapo Camera
+name: tapo-camera
 slug: tapo-camera
 version: 1.0.0
 description: Connect to Tapo cameras, verify local access, capture snapshots, and inspect frames with local-first RTSP workflows and safe fallbacks.

@@ -1,5 +1,5 @@
 ---
-name: Geology
+name: geology
 slug: geology
 version: 1.0.0
 description: Explain Earth's rocks, processes, and history from field trips to research.

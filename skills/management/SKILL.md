@@ -1,5 +1,5 @@
 ---
-name: Management
+name: management
 slug: management
 version: 1.0.0
 description: Management principles, team leadership, and organizational effectiveness.

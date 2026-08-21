@@ -1,5 +1,5 @@
 ---
-name: Alerts
+name: alerts
 slug: alerts
 version: 1.0.0
 description: Smart alerting patterns for AI agents - deduplication, routing, escalation, and fatigue prevention

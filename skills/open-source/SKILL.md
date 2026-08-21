@@ -1,5 +1,5 @@
 ---
-name: Open Source
+name: open-source
 slug: open-source
 version: 1.0.0
 description: Find, evaluate, self-host, maintain, and publish open source projects with due diligence scoring, contributor workflows, and release governance.

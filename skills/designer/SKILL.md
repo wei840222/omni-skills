@@ -1,5 +1,5 @@
 ---
-name: Designer
+name: designer
 slug: designer
 version: 1.0.2
 description: 'Operates as the designer on a job: decides what to make, makes it, defends it in review, and hands over files that can actually be built. Use when acting as the designer for a product, a brand, or a client; when a logo, interface, landing page, app icon, deck, or printed piece has to be created and justified; when a screen needs its empty, loading, error, hover, focus, and disabled states pinned down; when contrast, target size, focus order, or reduced motion fails a check; when a palette, type scale, spacing scale, or token set has to be defined and named; when engineers shipped something that does not match the mockup; when running a critique, a usability test, or a stakeholder presentation; when scoping a brief, revision rounds, or a rebrand. Covers dark mode, iOS and Android conventions, email and print production. Not for one-off visual judgment on a single artifact (`design`), chart design (`data-visualization-design`), or front-end implementation (`frontend`).'

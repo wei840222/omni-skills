@@ -1,5 +1,5 @@
 ---
-name: Habits
+name: habits
 slug: habits
 version: 1.0.2
 description: Designs, tracks, and repairs personal habits — streaks, completion rates, routines, and quitting an unwanted one. Use when someone wants to start exercising, reading, meditating, or doing anything every day; when a habit keeps collapsing, a streak just broke, or nothing sticks past week two; when they ask how they are doing with a habit, want a daily check-in, a weekly review, or their completion rate; when quitting smoking, vaping, drinking, sugar, nail biting, or doomscrolling, and when a relapse needs a restart plan; when building a morning or evening routine or stacking a new behavior onto an existing cue; when travel, illness, shift work, ADHD, low mood, or a newborn wrecked the routine; and when accountability partners, stakes, rewards, or environment changes are the lever. Covers frequency rules, streak freezes, habit graduation and retirement. Not for goal setting and milestones (`goals`), whole-life productivity systems (`productivity`), or workout programming (`fitness`).

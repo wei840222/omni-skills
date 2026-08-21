@@ -1,5 +1,5 @@
 ---
-name: Collaborate
+name: collaborate
 slug: collaborate
 version: 1.0.3
 changelog: Display name shown correctly

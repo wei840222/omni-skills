@@ -1,5 +1,5 @@
 ---
-name: LM Studio
+name: lm-studio
 slug: lm-studio
 version: 1.0.0
 description: Run and integrate LM Studio with local model lifecycle control, OpenAI-compatible APIs, embeddings, and MCP-aware workflows.

@@ -1,5 +1,5 @@
 ---
-name: Sleep
+name: sleep
 slug: sleep
 version: 1.0.4
 changelog: Display name shown correctly

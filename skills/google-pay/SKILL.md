@@ -1,5 +1,5 @@
 ---
-name: Google Pay
+name: google-pay
 slug: google-pay
 version: 1.0.0
 description: Implement Google Pay for web and Android with tokenization safety, gateway alignment, and production-ready checkout operations.

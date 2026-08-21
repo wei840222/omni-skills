@@ -1,5 +1,5 @@
 ---
-name: Chief Business Officer
+name: cbo
 slug: cbo
 version: 1.0.0
 description: Drive business growth with partnerships, market expansion, deal-making, and commercial strategy.

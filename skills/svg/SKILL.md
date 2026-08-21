@@ -1,5 +1,5 @@
 ---
-name: SVG
+name: svg
 slug: svg
 version: 1.1.0
 description: Create and optimize SVG graphics with proper viewBox, accessibility, and CSS styling.

@@ -1,5 +1,5 @@
 ---
-name: SEM
+name: sem
 slug: sem
 version: 1.0.0
 description: Search engine marketing strategy, keyword bidding, quality score optimization, and paid search campaign management

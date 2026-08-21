@@ -1,5 +1,5 @@
 ---
-name: Estonian
+name: estonian
 slug: estonian
 version: 1.0.0
 description: Write Estonian that sounds human. Not formal, not robotic, not AI-generated.

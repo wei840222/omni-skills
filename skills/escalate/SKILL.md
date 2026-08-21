@@ -1,5 +1,5 @@
 ---
-name: Escalate
+name: escalate
 slug: escalate
 version: 1.0.2
 description: Self-learn to decide when to act, when to ask, and which actions should always need approval.

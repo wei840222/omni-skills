@@ -1,5 +1,5 @@
 ---
-name: Weaviate
+name: weaviate
 slug: weaviate
 version: 1.0.0
 description: Build vector search with Weaviate using v4 syntax, proper module configuration, and production-ready patterns.

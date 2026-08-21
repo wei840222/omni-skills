@@ -1,5 +1,5 @@
 ---
-name: Convex
+name: convex
 slug: convex
 version: 1.0.0
 description: Build and maintain Convex backends with schema-safe modeling, query and mutation patterns, auth guards, and production rollout checks.

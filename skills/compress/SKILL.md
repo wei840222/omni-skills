@@ -1,5 +1,5 @@
 ---
-name: Compress
+name: compress
 slug: compress
 version: 1.0.0
 description: Compress text semantically with iterative validation, anchor checksums, and verified information preservation.

@@ -1,5 +1,5 @@
 ---
-name: Song
+name: song
 slug: song
 version: 1.0.0
 description: Write original songs with guided lyric development, chord progressions, melody contours, and AI music generator prompts for composers at any level.

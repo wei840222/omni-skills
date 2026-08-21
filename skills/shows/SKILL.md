@@ -1,5 +1,5 @@
 ---
-name: Shows
+name: shows
 slug: shows
 version: 1.0.0
 description: Track movies and series with progress, watchlist, ratings, and proactive alerts for new releases and platform changes.

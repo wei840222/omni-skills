@@ -1,5 +1,5 @@
 ---
-name: Loop
+name: loop
 slug: loop
 version: 1.0.2
 description: Run iterative agent loops until success criteria are met. Controlled autonomous iteration.

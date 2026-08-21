@@ -1,5 +1,5 @@
 ---
-name: Ireland
+name: ireland
 slug: ireland
 version: 1.0.1
 description: Discover Ireland like a local with concrete pubs, coastal routes, city guides, and practical trip-planning tips.

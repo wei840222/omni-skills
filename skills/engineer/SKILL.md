@@ -1,5 +1,5 @@
 ---
-name: Engineer
+name: engineer
 slug: engineer
 version: 1.0.0
 description: Apply engineering judgment across systems, constraints, trade-offs, failure modes, and verification before acting.

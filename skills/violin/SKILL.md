@@ -1,5 +1,5 @@
 ---
-name: Violin
+name: violin
 slug: violin
 version: 1.0.0
 description: Violin practice strategies, technique correction, intonation development, and progress tracking.

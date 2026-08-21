@@ -1,5 +1,5 @@
 ---
-name: Multi-Engine Web Search
+name: multi-engine-web-search
 slug: multi-engine-web-search
 version: 1.0.0
 description: Search Google, Bing, DuckDuckGo, Brave, Startpage, Yahoo, Yandex, Baidu, Sogou, Qwant, Ecosia, Mojeek, and WolframAlpha from one skill.

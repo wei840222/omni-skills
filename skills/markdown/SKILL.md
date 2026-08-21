@@ -1,5 +1,5 @@
 ---
-name: Markdown
+name: markdown
 slug: markdown
 version: 1.0.3
 description: Writes, fixes, and converts Markdown that renders the same in every parser — GitHub, MDX, Pandoc, docs sites, Slack, Notion. Use when a list stops nesting, a table renders as literal pipes, a code fence swallows the rest of the file, half a document turns italic, or an anchor link 404s; when frontmatter shows up as text; when footnotes, task lists, callouts, math, or Mermaid render on GitHub but not on the docs site; when MDX rejects `{`, `<`, or an HTML comment; when a README's images break on npm or PyPI; when converting Markdown to PDF, DOCX, or HTML, or HTML back to Markdown; when markdownlint or Prettier fights the file in CI; when pasting into Slack, Discord, Notion, Confluence, or Jira; and when Markdown from an untrusted source has to be rendered safely. Not for LaTeX documents (`latex`), Word files (`word-docx`), templated PDF deliverables such as reports, invoices, and contracts (`pdf-generator`), or documentation strategy and information architecture (`documentation`).

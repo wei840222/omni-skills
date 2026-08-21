@@ -1,5 +1,5 @@
 ---
-name: Open Router
+name: open-router
 slug: open-router
 version: 1.0.0
 description: Configure OpenRouter model routing with provider auth, model selection, fallback chains, and cost-aware defaults for stable multi-model workflows.

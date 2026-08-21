@@ -1,5 +1,5 @@
 ---
-name: GitLab
+name: gitlab
 slug: gitlab
 version: 1.0.0
 description: Avoid common GitLab CI/CD mistakes — rules gotchas, silent failures, and YAML merge traps.

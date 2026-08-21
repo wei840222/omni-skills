@@ -1,5 +1,5 @@
 ---
-name: Duolingo Learning OS
+name: duolingo
 slug: duolingo
 version: 1.0.0
 description: Run a Duolingo-like multi-topic learning system with AGENTS routing, lesson loops, streaks, and spaced review.

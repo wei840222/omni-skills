@@ -1,5 +1,5 @@
 ---
-name: Tencent
+name: tencent
 slug: tencent
 version: 1.0.0
 description: Navigate Tencent products, Tencent Cloud services, and WeChat ecosystem decisions with region-aware planning and official-source verification.

@@ -1,5 +1,5 @@
 ---
-name: CI-CD
+name: ci-cd
 slug: ci-cd
 version: 1.0.0
 description: Automate builds, tests, and deployments across web, mobile, and backend applications.

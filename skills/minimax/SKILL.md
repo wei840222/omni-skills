@@ -1,5 +1,5 @@
 ---
-name: MiniMax
+name: minimax
 slug: minimax
 version: 1.0.0
 description: Build with MiniMax text, speech, video, and music APIs using model routing, compatible SDKs, and safer multimodal workflows.

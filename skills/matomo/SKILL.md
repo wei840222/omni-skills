@@ -1,5 +1,5 @@
 ---
-name: Matomo Analytics
+name: matomo
 slug: matomo
 version: 1.0.1
 description: Query, analyze, and manage Matomo Analytics with API integration, custom reports, and goal tracking.

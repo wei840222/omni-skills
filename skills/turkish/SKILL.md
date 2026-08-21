@@ -1,5 +1,5 @@
 ---
-name: Turkish
+name: turkish
 slug: turkish
 version: 1.0.0
 description: Write Turkish that sounds human. Not formal, not robotic, not AI-generated.

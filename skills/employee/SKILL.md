@@ -1,5 +1,5 @@
 ---
-name: Employee
+name: employee
 slug: employee
 version: 1.0.0
 description: Create and manage virtual AI employees with persistent memory, defined roles, and graduated autonomy. Hire, train, and delegate tasks to specialized workers.

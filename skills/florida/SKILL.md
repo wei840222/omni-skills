@@ -1,5 +1,5 @@
 ---
-name: Florida
+name: florida
 slug: florida
 version: 1.0.0
 description: Navigate Florida for living, moving, working, seasonal stays, and road trips with region fit, storm planning, insurance reality, and daily logistics.

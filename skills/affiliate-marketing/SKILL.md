@@ -1,5 +1,5 @@
 ---
-name: Affiliate Marketing
+name: affiliate-marketing
 slug: affiliate-marketing
 version: 1.0.0
 description: Design and optimize affiliate programs with partner scoring, commission economics, tracking QA, fraud controls, and compliance reviews.

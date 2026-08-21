@@ -1,5 +1,5 @@
 ---
-name: Argentina
+name: argentina
 slug: argentina
 version: 1.0.0
 description: Plan Argentina trips with region-specific routing, money strategy, seasonal timing, and practical travel logistics.

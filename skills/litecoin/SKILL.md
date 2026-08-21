@@ -1,5 +1,5 @@
 ---
-name: Litecoin
+name: litecoin
 slug: litecoin
 version: 1.0.0
 description: Assist with Litecoin LTC transactions, address formats, fees, and MWEB privacy features.

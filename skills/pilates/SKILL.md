@@ -1,5 +1,5 @@
 ---
-name: Pilates (Session Planner, Form Coach, Progress Tracker)
+name: pilates
 slug: pilates
 version: 1.0.0
 description: Plan Pilates sessions, refine form, and track steady progress with equipment-aware modifications, core-focused cues, and weekly reviews.

@@ -1,5 +1,5 @@
 ---
-name: Self Discipline
+name: self-discipline
 slug: self-discipline
 version: 1.0.1
 description: Guarantee instruction compliance with root cause analysis, flow verification, and automated validators that make future failures impossible.

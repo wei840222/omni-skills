@@ -1,5 +1,5 @@
 ---
-name: Couple
+name: couple
 slug: couple
 version: 1.0.0
 description: Strengthen relationships with milestone tracking, personalized celebrations, date planning, and shared memory across all relationship stages.

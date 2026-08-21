@@ -1,5 +1,5 @@
 ---
-name: Skill Update
+name: skill-update
 slug: skill-update
 version: 1.0.3
 description: 'Updates installed agent skills safely: version check, diff preview, backup, approval, data migration, and rollback. Use when updating or upgrading a skill, checking for newer versions, previewing what changed before applying, when a skill breaks, misbehaves, or loses data right after an update, when saved data or config must migrate across a version bump, when local edits to an installed skill would collide with the new version, or when bringing every skill or every agent''s copy current. Not for installing new skills (skill-finder) or publishing skills you own (skill-publish).'

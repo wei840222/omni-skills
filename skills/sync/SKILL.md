@@ -1,5 +1,5 @@
 ---
-name: Sync
+name: sync
 slug: sync
 version: 1.0.0
 description: Synchronize files and directories between local, remote, and cloud storage reliably.

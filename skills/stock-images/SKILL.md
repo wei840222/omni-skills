@@ -1,5 +1,5 @@
 ---
-name: Stock Images
+name: stock-images
 slug: stock-images
 version: 1.0.0
 description: Source free stock photos and placeholder images with direct URLs for Unsplash, Pexels, Pixabay, and Lorem Picsum.

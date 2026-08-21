@@ -1,5 +1,5 @@
 ---
-name: Price
+name: price
 slug: price
 version: 1.0.0
 description: Track prices, detect deals and manipulation, time purchases, and make informed buying decisions as a consumer or business buyer.

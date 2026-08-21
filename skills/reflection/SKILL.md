@@ -1,5 +1,5 @@
 ---
-name: Self Reflection
+name: reflection
 slug: reflection
 version: 1.1.0
 description: Learns when to stop and review. Self-critiques before showing you, fewer revision rounds.

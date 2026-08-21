@@ -1,5 +1,5 @@
 ---
-name: ClickHouse
+name: clickhouse
 slug: clickhouse
 version: 1.0.1
 description: Query, optimize, and administer ClickHouse OLAP databases with schema design, performance tuning, and data ingestion patterns.

@@ -1,5 +1,5 @@
 ---
-name: AI Video Generation
+name: video-generation
 slug: video-generation
 version: 1.0.1
 description: Create AI videos with Sora 2, Veo 3, Seedance, Runway, and modern APIs using reliable prompt and rendering workflows.

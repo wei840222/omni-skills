@@ -1,5 +1,5 @@
 ---
-name: Journal
+name: journal
 slug: journal
 version: 1.0.2
 description: 'Runs a personal journaling practice: capturing entries, prompts for a blank page, weekly and yearly reviews, and patterns across years of writing. Use when the user wants to write, vent, dictate, or get something out of their head; when they ask for a prompt or say they are stuck; for morning pages, bullet journal, five-minute, interstitial, dream, travel, decision, or work journaling; for a weekly, monthly, or annual review; when they ask what they have been writing about, whether a mood or theme keeps recurring, or what they wrote a year ago; when the practice lapsed and they want to restart; when entries need naming, tagging, searching, encrypting, backing up, or migrating out of Day One, Notion, or an Obsidian vault; when writing through grief, anger, shame, or a decision that will not settle; or when a work journal must become performance-review evidence. Not for retrieval-oriented notes (`notes`), gratitude logging alone (`gratitude`), or live emotional support (`psychologist`).'

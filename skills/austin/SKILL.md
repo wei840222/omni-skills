@@ -1,5 +1,5 @@
 ---
-name: Austin
+name: austin
 slug: austin
 version: 1.0.0
 description: Navigate Austin as visitor, relocator, tech worker, or entrepreneur with neighborhoods, transport, costs, visas, and Texas-specific insights.

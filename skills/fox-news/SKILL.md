@@ -1,5 +1,5 @@
 ---
-name: Fox News Monitor
+name: fox-news
 slug: fox-news
 version: 1.0.0
 description: Monitor Fox News sections and breaking updates with official RSS routes, live-event tracking, and optional outside verification.

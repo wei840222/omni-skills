@@ -1,5 +1,5 @@
 ---
-name: Interior Design
+name: interior-design
 slug: interior-design
 version: 1.0.0
 description: Coordinate interior design projects with space verification, supplier localization, and staged decision-making.

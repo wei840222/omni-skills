@@ -1,5 +1,5 @@
 ---
-name: Writer
+name: writer
 slug: writer
 version: 1.0.2
 description: Fix AI writing patterns that create repetitive and robotic content

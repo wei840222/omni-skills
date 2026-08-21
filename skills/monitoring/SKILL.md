@@ -1,5 +1,5 @@
 ---
-name: Monitoring
+name: monitoring
 slug: monitoring
 version: 1.0.0
 description: Set up observability for applications and infrastructure with metrics, logs, traces, and alerts.

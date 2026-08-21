@@ -1,5 +1,5 @@
 ---
-name: Business Ideas
+name: business-ideas
 slug: business-ideas
 version: 1.0.0
 description: Generate unlimited business ideas with validation frameworks, market filters, and viability scoring.

@@ -1,5 +1,5 @@
 ---
-name: Chat Rooom
+name: chat-rooom
 slug: chat-rooom
 version: 1.0.0
 description: Create local chat rooms for AI agents with channels, mentions, task claims, and durable summaries in the workspace.

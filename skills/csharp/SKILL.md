@@ -1,5 +1,5 @@
 ---
-name: C#
+name: csharp
 slug: csharp
 version: 1.0.1
 description: Write robust C# avoiding null traps, async deadlocks, and LINQ pitfalls.

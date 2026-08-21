@@ -1,5 +1,5 @@
 ---
-name: Raspberry Pi
+name: raspberry
 slug: raspberry
 version: 1.0.0
 description: Set up and maintain Raspberry Pi avoiding common hardware and configuration pitfalls.

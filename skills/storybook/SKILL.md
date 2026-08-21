@@ -1,5 +1,5 @@
 ---
-name: Storybook
+name: storybook
 slug: storybook
 version: 1.0.0
 description: Build component stories with proper args, controls, decorators, and testing patterns.

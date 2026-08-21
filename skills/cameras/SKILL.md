@@ -1,5 +1,5 @@
 ---
-name: Cameras
+name: cameras
 slug: cameras
 version: 1.0.1
 description: Connect to security cameras, capture snapshots, and process video feeds with protocol support.

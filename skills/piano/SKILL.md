@@ -1,5 +1,5 @@
 ---
-name: Piano
+name: piano
 slug: piano
 version: 1.0.0
 description: Piano practice strategies, technique correction, repertoire guidance, and progress tracking.

@@ -1,5 +1,5 @@
 ---
-name: Pets
+name: pets
 slug: pets
 version: 1.0.1
 description: Track and care for your pets with profiles, routines, behavior logging, training progress, and creative projects.

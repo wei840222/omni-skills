@@ -1,5 +1,5 @@
 ---
-name: Binance API
+name: binance
 slug: binance
 version: 1.0.0
 description: Operate Binance Spot APIs through safe REST, WebSocket, and SDK workflows with signed requests, rate-limit control, and testnet-first execution.

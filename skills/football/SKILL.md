@@ -1,5 +1,5 @@
 ---
-name: Football
+name: football
 slug: football
 version: 1.0.0
 description: Analyze football and soccer matches, squads, players, and training plans with tactical frameworks, scouting grids, and session blueprints.

@@ -1,5 +1,5 @@
 ---
-name: ACT
+name: act-prep
 slug: act-prep
 version: 1.0.0
 description: Prepare for the ACT with adaptive practice, score tracking, weak area analysis, and college targeting.

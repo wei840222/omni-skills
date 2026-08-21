@@ -1,5 +1,5 @@
 ---
-name: Housing
+name: housing
 slug: housing
 version: 1.0.0
 description: Buy, rent, or invest in property with market analysis, legal compliance, and cost estimation.

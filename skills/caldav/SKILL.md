@@ -1,5 +1,5 @@
 ---
-name: CalDAV
+name: caldav
 slug: caldav
 version: 1.0.0
 description: Sync, inspect, and modify CalDAV calendars with vdirsyncer and khal using deterministic windows, verified writes, and recurrence-aware workflows.

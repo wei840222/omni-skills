@@ -1,5 +1,5 @@
 ---
-name: CTO / Chief Technology Officer
+name: cto
 slug: cto
 version: 1.0.6
 description: 'Acts as a chief technology officer: architecture calls, build vs buy, hiring and team scaling, tech debt, engineering metrics. Use when making technical strategy decisions or advising founders as CTO.'

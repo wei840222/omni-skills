@@ -1,5 +1,5 @@
 ---
-name: TikTok Ads
+name: tiktok-ads
 slug: tiktok-ads
 version: 1.0.0
 description: TikTok advertising strategy, creative best practices, Spark Ads, and platform-specific optimization

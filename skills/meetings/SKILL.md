@@ -1,5 +1,5 @@
 ---
-name: Meetings
+name: meetings
 slug: meetings
 version: 1.0.2
 description: 'Designs, runs, records, and closes out meetings: agendas, facilitation, decisions, minutes, and follow-up. Use when preparing or chairing a 1-on-1, standup, retro, planning session, all-hands, kickoff, design review, client or board call, or offsite; when a meeting ends with no decision, runs long, or relitigates last week; when action items vanish, owners are vague, or nobody chased them; when a transcript or raw notes must become a record with owners and dates; when a recap or formal minutes have to go out; when a recurring meeting has outlived its purpose or the calendar is too full to build anything; when an invite should be declined or replaced by a written update; when a remote or hybrid room leaves half the attendees silent; and when bad news, conflict, or an escalation has to be handled live. Not for note apps and vaults (`notes`), day and calendar planning (`calendar-planner`), or the address book itself (`people`).'

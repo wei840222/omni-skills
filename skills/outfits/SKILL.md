@@ -1,5 +1,5 @@
 ---
-name: Outfits
+name: outfits
 slug: outfits
 version: 1.0.1
 description: Build an outfit planning system for saving inspiration, creating combinations, and dressing for any occasion.

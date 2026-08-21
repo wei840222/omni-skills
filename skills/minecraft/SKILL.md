@@ -1,5 +1,5 @@
 ---
-name: Minecraft
+name: minecraft
 slug: minecraft
 version: 1.0.0
 description: Plan, build, troubleshoot, and optimize Minecraft worlds, commands, redstone, mods, and servers without mixing Java and Bedrock advice.

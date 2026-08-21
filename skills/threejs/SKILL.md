@@ -1,5 +1,5 @@
 ---
-name: Three.js
+name: threejs
 slug: threejs
 version: 1.0.0
 description: Build 3D web experiences with proper resource management and performance patterns.

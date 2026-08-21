@@ -1,5 +1,5 @@
 ---
-name: Cofounder
+name: cofounder
 slug: cofounder
 version: 1.0.0
 description: Balance your entrepreneurial blind spots with adaptive counterweight across technical, strategic, and behavioral dimensions.

@@ -1,5 +1,5 @@
 ---
-name: TicketMaster
+name: ticketmaster
 slug: ticketmaster
 version: 1.0.0
 description: Search Ticketmaster events, venues, and attractions with Discovery API filters, market-aware queries, and copy-ready curl and shell helpers.

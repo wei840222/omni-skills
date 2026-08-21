@@ -1,5 +1,5 @@
 ---
-name: Real Estate
+name: real-estate-skill
 slug: real-estate-skill
 version: 1.0.0
 description: Guide any property decision for buyers, sellers, landlords, investors, or agents in any jurisdiction.

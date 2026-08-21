@@ -1,5 +1,5 @@
 ---
-name: Nutritionist
+name: nutritionist
 slug: nutritionist
 version: 1.0.0
 description: Holistic nutrition guidance — food-health relationships, eating behaviors, sustainable habits, and nutritional education.

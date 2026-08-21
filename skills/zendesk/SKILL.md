@@ -1,5 +1,5 @@
 ---
-name: Zendesk
+name: zendesk
 slug: zendesk
 version: 1.0.0
 description: Manage Zendesk tickets, users, and support workflows with API integration and automation.

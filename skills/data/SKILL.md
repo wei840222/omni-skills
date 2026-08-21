@@ -1,5 +1,5 @@
 ---
-name: Data
+name: data
 slug: data
 version: 1.0.1
 description: Work with data across the full lifecycle from extraction and cleaning to analysis, visualization, and reporting.

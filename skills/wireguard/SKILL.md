@@ -1,5 +1,5 @@
 ---
-name: WireGuard
+name: wireguard
 slug: wireguard
 version: 1.0.0
 description: Configure WireGuard VPN tunnels with secure routing and key management.

@@ -1,5 +1,5 @@
 ---
-name: Hugging Face
+name: hugging-face
 slug: hugging-face
 version: 1.0.0
 description: Discover, evaluate, and run Hugging Face models, datasets, and spaces with license checks, benchmark prompts, and reproducible integration plans.

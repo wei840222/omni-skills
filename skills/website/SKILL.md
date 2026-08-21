@@ -1,5 +1,5 @@
 ---
-name: Website
+name: website
 slug: website
 version: 1.0.0
 description: Build fast, accessible, and SEO-friendly websites with modern best practices.

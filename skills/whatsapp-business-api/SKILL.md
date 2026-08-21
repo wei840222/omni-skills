@@ -1,5 +1,5 @@
 ---
-name: WhatsApp Business API
+name: whatsapp-business-api
 slug: whatsapp-business-api
 version: 1.0.0
 description: Complete WhatsApp Business Cloud API for messages, templates, media, webhooks, flows, and business profiles.

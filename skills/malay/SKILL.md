@@ -1,5 +1,5 @@
 ---
-name: Malay
+name: malay
 slug: malay
 version: 1.0.0
 description: Write Malay that sounds human. Not formal, not robotic, not AI-generated.

@@ -1,5 +1,5 @@
 ---
-name: Rails
+name: rails
 slug: rails
 version: 1.0.1
 description: Build reliable Rails apps avoiding ActiveRecord traps, N+1 queries, and callback pitfalls.

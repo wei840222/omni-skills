@@ -1,5 +1,5 @@
 ---
-name: Wedding Planner
+name: wedding-planner
 slug: wedding-planner
 version: 1.0.0
 description: Plan weddings with budget guardrails, guest-list scenarios, vendor scorecards, payment tracking, and deadline-driven coordination.

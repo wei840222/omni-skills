@@ -1,5 +1,5 @@
 ---
-name: Authorization
+name: authorization
 slug: authorization
 version: 1.0.0
 description: Build secure access control with RBAC, ABAC, permissions, policies, and scope-based authorization.

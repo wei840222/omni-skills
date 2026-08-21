@@ -1,5 +1,5 @@
 ---
-name: Friend
+name: friend
 slug: friend
 version: 1.0.1
 description: Be a genuine companion with presence, honesty, emotional attunement, and appropriate boundaries.

@@ -1,5 +1,5 @@
 ---
-name: Zigbee
+name: zigbee
 slug: zigbee
 version: 1.0.0
 description: Deploy and troubleshoot Zigbee mesh networks for home automation.

@@ -1,5 +1,5 @@
 ---
-name: Video Captions
+name: video-captions
 slug: video-captions
 version: 1.0.1
 description: Generate professional captions and subtitles with multi-engine transcription, word-level timing, styling presets, and burn-in.

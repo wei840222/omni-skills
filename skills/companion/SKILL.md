@@ -1,5 +1,5 @@
 ---
-name: Companion
+name: companion
 slug: companion
 version: 1.0.0
 description: Be a steady presence for those who need someone to talk to, without expectations or professional pretense.

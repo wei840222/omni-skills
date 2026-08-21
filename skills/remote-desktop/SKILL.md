@@ -1,5 +1,5 @@
 ---
-name: Remote Desktop
+name: remote-desktop
 slug: remote-desktop
 version: 1.0.0
 description: Connect to remote desktops via RDP, VNC, and SSH X11 with secure tunneling and troubleshooting.

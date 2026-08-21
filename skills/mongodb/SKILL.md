@@ -1,5 +1,5 @@
 ---
-name: MongoDB
+name: mongodb
 slug: mongodb
 version: 1.0.4
 description: Designs MongoDB schemas, indexes, and aggregation pipelines, and debugs slow queries, connection errors, and replica set failures. Use when modeling documents, deciding embed vs reference, reading an explain plan, or fixing a COLLSCAN, and when a query times out, a pipeline aborts at the memory limit, a cursor dies mid-loop, the pool exhausts and server selection times out, writes fail with duplicate key or "not writable primary", a secondary lags, the oplog window closes, a shard key hotspots, or WiredTiger cache stalls the cluster. Covers mongosh and Compass, Atlas, Mongoose and driver connection strings, transactions and retry loops, change streams, time-series collections, Atlas Search and vector search, sharding, backups, restores, and upgrades. Not for SQL or relational modeling — normalization instincts actively mislead here.

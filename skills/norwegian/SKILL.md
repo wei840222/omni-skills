@@ -1,5 +1,5 @@
 ---
-name: Norwegian
+name: norwegian
 slug: norwegian
 version: 1.0.0
 description: Write Norwegian that sounds human. Not formal, not robotic, not AI-generated.

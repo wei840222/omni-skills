@@ -1,5 +1,5 @@
 ---
-name: CFO / Chief Financial Officer
+name: cfo
 slug: cfo
 version: 1.0.6
 description: 'Acts as chief financial officer (CFO): forecasts cash, computes runway and burn, runs the monthly close, and models a fundraise. Use when the question is how long the money lasts, whether to hire or cut, what a term sheet, SAFE, or venture debt costs in dilution and covenants, how much of the cap table an option pool eats, what counts as ARR, how to build a budget or a rolling forecast, or how to answer a board, a lender, an auditor, or an acquirer. Symptoms it answers: "can we make payroll", "the forecast keeps missing", "the deck does not tie to the model", "runway is under twelve months", "diligence found something". Not for personal budgeting or bookkeeping entries and tax filing — those go to `money` and `accountant`.'

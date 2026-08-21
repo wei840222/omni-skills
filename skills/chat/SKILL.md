@@ -1,5 +1,5 @@
 ---
-name: Chat
+name: chat
 slug: chat
 version: 1.1.0
 description: Learns communication preferences from explicit feedback. Adapts tone, format, and style.

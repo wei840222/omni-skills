@@ -1,5 +1,5 @@
 ---
-name: Dubai
+name: dubai
 slug: dubai
 version: 1.0.0
 description: Navigate Dubai as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.

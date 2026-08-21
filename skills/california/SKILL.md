@@ -1,5 +1,5 @@
 ---
-name: California
+name: california
 slug: california
 version: 1.0.0
 description: Navigate California for living, moving, working, and road trips with region fit, housing reality, hazard planning, and daily logistics.

@@ -1,5 +1,5 @@
 ---
-name: Animate
+name: animate
 slug: animate
 version: 1.0.0
 description: Animate app and web UIs across Flutter, React, SwiftUI, Compose, and React Native with motion systems, guardrails, and reduced-motion fallbacks.

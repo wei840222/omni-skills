@@ -1,5 +1,5 @@
 ---
-name: COO / Chief Operations Officer
+name: coo
 slug: coo
 version: 1.0.2
 description: Be the COO with process design, organizational scaling, cross-functional execution, and operational excellence.

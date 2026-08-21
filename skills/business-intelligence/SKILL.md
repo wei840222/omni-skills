@@ -1,5 +1,5 @@
 ---
-name: Business Intelligence
+name: business-intelligence
 slug: business-intelligence
 version: 1.0.0
 description: Model business performance, define KPIs, and turn data into decision-ready dashboards, briefings, and operating cadences for teams and executives.

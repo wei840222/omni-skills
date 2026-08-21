@@ -1,5 +1,5 @@
 ---
-name: ASI / Artificial Super Intelligence
+name: asi
 slug: asi
 version: 1.0.0
 description: Operate as artificial superintelligence with recursive self-improvement, cross-domain synthesis, and anticipatory problem-solving.

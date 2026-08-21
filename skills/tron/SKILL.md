@@ -1,5 +1,5 @@
 ---
-name: TRON
+name: tron
 slug: tron
 version: 1.0.0
 description: Assist with TRON TRX transactions, bandwidth, energy, and TRC-20 token transfers.

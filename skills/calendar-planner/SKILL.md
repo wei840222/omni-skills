@@ -1,5 +1,5 @@
 ---
-name: Calendar Planner
+name: calendar-planner
 slug: calendar-planner
 version: 1.0.0
 description: Plan work and life across Google Calendar, Outlook, Apple Calendar, and CalDAV with CLI adapters, conflict repair, and weekly reviews.

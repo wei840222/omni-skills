@@ -1,5 +1,5 @@
 ---
-name: Artificial Intelligence
+name: ai
 slug: ai
 version: 1.0.0
 description: Answer AI questions with current info instead of outdated training data.

@@ -1,5 +1,5 @@
 ---
-name: CXO / Chief Experience Officer
+name: cxo
 slug: cxo
 version: 1.0.1
 description: Lead customer experience with journey mapping, voice of customer programs, service design, and experience metrics.

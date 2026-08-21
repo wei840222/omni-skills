@@ -1,5 +1,5 @@
 ---
-name: Enterprise
+name: enterprise
 slug: enterprise
 version: 1.0.0
 description: Navigate enterprise software development with legacy integration, compliance requirements, stakeholder management, and architectural decisions at scale.

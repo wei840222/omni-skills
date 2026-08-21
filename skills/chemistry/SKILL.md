@@ -1,5 +1,5 @@
 ---
-name: Chemistry
+name: chemistry
 slug: chemistry
 version: 1.0.0
 description: Support chemistry learning from kitchen experiments to molecular research.

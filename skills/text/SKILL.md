@@ -1,5 +1,5 @@
 ---
-name: Text
+name: text
 slug: text
 version: 1.0.0
 description: Transform, format, and process text with patterns for writing, data cleaning, localization, citations, and copywriting.

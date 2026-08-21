@@ -1,5 +1,5 @@
 ---
-name: B2C Strategy
+name: b2c
 slug: b2c
 version: 1.0.0
 description: Build consumer apps with validated demand, sustainable unit economics, and growth loops that compound.

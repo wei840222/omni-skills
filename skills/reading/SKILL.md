@@ -1,5 +1,5 @@
 ---
-name: Reading
+name: reading
 slug: reading
 version: 1.0.0
 description: Help users read better — book recommendations, retention strategies, and matching reading approach to goals.

@@ -1,5 +1,5 @@
 ---
-name: Self-Host
+name: self-host
 slug: self-host
 version: 1.0.0
 description: Deploy and maintain self-hosted services with security, backups, and long-term reliability.

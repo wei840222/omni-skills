@@ -1,5 +1,5 @@
 ---
-name: Photos
+name: photos
 slug: photos
 version: 1.0.0
 description: Organize, index, and search local photo libraries with AI-powered metadata and safe file handling.

@@ -1,5 +1,5 @@
 ---
-name: Competitor Monitoring
+name: competitor-monitoring
 slug: competitor-monitoring
 version: 1.0.0
 description: Track competitors with pricing alerts, feature changes, positioning analysis, and strategic dossiers.

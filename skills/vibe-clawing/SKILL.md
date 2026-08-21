@@ -1,5 +1,5 @@
 ---
-name: Vibe Clawing
+name: vibe-clawing
 slug: vibe-clawing
 version: 1.0.1
 description: Transition from vibe coding to vibe clawing by trusting agents with full responsibilities, designing self-closing loops, and climbing the bottleneck ladder.

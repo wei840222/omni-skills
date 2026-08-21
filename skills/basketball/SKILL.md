@@ -1,5 +1,5 @@
 ---
-name: Basketball
+name: basketball
 slug: basketball
 version: 1.0.0
 description: Analyze basketball games, lineups, players, and practice plans with film-room structure, scouting grids, and possession-based coaching tools.

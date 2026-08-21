@@ -1,5 +1,5 @@
 ---
-name: Money
+name: money
 slug: money
 version: 1.0.2
 description: 'Decides where money goes next: which debt to clear first, how big the emergency fund must be, what to save, and whether a purchase is affordable. Use when the question is "should I pay this off or invest it", "how much do I need saved", "can I afford this", "rent or buy", "am I on track to stop working", or "where does my money even go"; when a raise, bonus, inheritance, equity vest or business sale lands and nobody has decided what to do with it; when a card is at 20% and only minimums are going out; when a job ends, a diagnosis arrives, a marriage ends, or income suddenly swings; when a credit score drops or a loan is refused; or when judging a pitch, an adviser''s fee, or a "guaranteed" return. Covers savings rate, order of operations, real-versus-nominal maths, and fee drag. Not for picking funds or brokers (`invest`), building a tracker or importing statements (`personal-finance-tracker`), a recurring-payment list (`subscriptions`), or company finance (`cfo`).'

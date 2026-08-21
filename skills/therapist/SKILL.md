@@ -1,5 +1,5 @@
 ---
-name: Therapist
+name: therapist
 slug: therapist
 version: 1.0.0
 description: Evidence-based therapeutic techniques — CBT, ACT, mindfulness, and reframing for anxiety, rumination, and behavioral patterns.

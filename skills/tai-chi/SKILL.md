@@ -1,5 +1,5 @@
 ---
-name: Tai Chi (Practice Planner, Form Coach, Balance Tracker)
+name: tai-chi
 slug: tai-chi
 version: 1.0.0
 description: Build tai chi practice plans, improve form, and track balance-focused sessions with safe progressions, concise coaching cues, and weekly reviews.

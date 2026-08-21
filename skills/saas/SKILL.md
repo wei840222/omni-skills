@@ -1,5 +1,5 @@
 ---
-name: SaaS
+name: saas
 slug: saas
 version: 1.0.2
 description: 'Runs a SaaS business: subscription revenue, plan packaging, trials, retention, expansion, and enterprise readiness. Use when MRR or ARR has to be computed, reconciled, or explained; when NRR, gross margin, CAC payback, burn multiple, or rule of 40 is the question; when designing plans, seats, usage limits, add-ons, or a free tier; when trials sign up but never convert; when failed payments leak revenue; when a renewal, downgrade, or cancellation flow needs building; when expansion has stalled; when an enterprise buyer demands SSO, SCIM, audit logs, SOC 2, a DPA, or an uptime SLA; when per-tenant cost or AI inference COGS breaks the margin; when designing multi-tenant isolation, metering, or entitlements; or when an investor questions ARR quality. Not for setting the price itself (`pricing`), acquisition channels and funnel diagnosis (`growth`), building the payment integration (`billing`), company financial models (`cfo`), or closing an individual deal (`b2b`).'

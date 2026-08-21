@@ -1,5 +1,5 @@
 ---
-name: Paddle
+name: paddle
 slug: paddle
 version: 1.0.0
 description: Integrate Paddle payments with subscriptions, webhooks, checkout, and tax compliance.

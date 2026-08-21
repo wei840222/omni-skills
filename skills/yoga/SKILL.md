@@ -1,5 +1,5 @@
 ---
-name: Yoga
+name: yoga
 slug: yoga
 version: 1.0.0
 description: Yoga instruction, pose alignment, sequencing, breathwork, and modifications for different levels.

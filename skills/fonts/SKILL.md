@@ -1,5 +1,5 @@
 ---
-name: Fonts
+name: fonts
 slug: fonts
 version: 1.0.0
 description: Choose and implement web typography avoiding common rendering, pairing, and hierarchy mistakes.

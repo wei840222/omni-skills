@@ -1,5 +1,5 @@
 ---
-name: Speak
+name: speak
 slug: speak
 version: 1.0.3
 description: 'Writes and converts text into natural speech-ready output for any TTS engine: normalization, prosody, pronunciation, and voice preferences. Use when a reply will be read aloud or sent to a voice channel, when writing voiceover scripts, spoken briefings, voice notifications, or dialogue turns, when TTS sounds robotic, reads markdown, URLs, or code aloud, mispronounces names, garbles numbers, dates, or acronyms, speaks too fast or in the wrong accent, or when the user corrects pronunciation, pacing, or voice choice. Not for speech-to-text or live two-way call setup.'

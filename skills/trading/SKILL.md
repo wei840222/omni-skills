@@ -1,5 +1,5 @@
 ---
-name: Trading
+name: trading
 slug: trading
 version: 1.0.1
 description: Trading analysis and education. Technical analysis, chart patterns, risk management, and position sizing for stocks, forex, and crypto.

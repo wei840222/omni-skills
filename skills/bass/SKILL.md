@@ -1,5 +1,5 @@
 ---
-name: Bass
+name: bass
 slug: bass
 version: 1.0.0
 description: Bass guitar practice strategies, groove development, technique correction, and progress tracking.

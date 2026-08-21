@@ -1,5 +1,5 @@
 ---
-name: Homework
+name: homework
 slug: homework
 version: 1.0.0
 description: Help students with assignments while building real understanding.

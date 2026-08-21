@@ -1,5 +1,5 @@
 ---
-name: Music
+name: music
 slug: music
 version: 1.0.0
 description: Build a personal music system for tracking discoveries, favorites, concerts, and listening memories.

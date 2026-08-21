@@ -1,5 +1,5 @@
 ---
-name: Design System
+name: design-system
 slug: design-system
 version: 1.0.0
 description: Build design systems with tokens, components, and documentation that scale across teams and products.

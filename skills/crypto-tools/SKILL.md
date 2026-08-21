@@ -1,5 +1,5 @@
 ---
-name: Crypto Tools
+name: crypto-tools
 slug: crypto-tools
 version: 1.0.0
 description: Access crypto data, monitor portfolios, detect scams, and navigate exchanges with real-time APIs and security tools.

@@ -1,5 +1,5 @@
 ---
-name: Windows
+name: windows
 slug: windows
 version: 1.0.0
 description: Windows-specific patterns, security practices, and operational traps that cause silent failures.

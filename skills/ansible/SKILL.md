@@ -1,5 +1,5 @@
 ---
-name: Ansible
+name: ansible
 slug: ansible
 version: 1.0.0
 description: Avoid common Ansible mistakes — YAML syntax traps, variable precedence, idempotence failures, and handler gotchas.

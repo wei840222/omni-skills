@@ -1,5 +1,5 @@
 ---
-name: Company
+name: company
 slug: company
 version: 1.0.0
 description: Build an agent-powered organization by mapping functions to skills and iterating on structure.

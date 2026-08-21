@@ -1,5 +1,5 @@
 ---
-name: CRO / Chief Revenue Officer
+name: cro
 slug: cro
 version: 1.0.1
 description: Optimize conversion rates with funnel analysis, A/B testing, statistical significance, and compliance-safe experiments.

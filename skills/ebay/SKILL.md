@@ -1,5 +1,5 @@
 ---
-name: eBay
+name: ebay
 slug: ebay
 version: 1.0.1
 description: Buy, sell, and flip on eBay with listing optimization, pricing research, shipping calculations, and scam detection.

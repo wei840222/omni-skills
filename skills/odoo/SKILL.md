@@ -1,5 +1,5 @@
 ---
-name: Odoo
+name: odoo
 slug: odoo
 version: 1.0.0
 description: Operate Odoo across CRM, sales, inventory, purchasing, and accounting with module-aware planning, read-before-write checks, and safe execution.

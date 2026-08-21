@@ -1,5 +1,5 @@
 ---
-name: Prediction
+name: prediction
 slug: prediction
 version: 1.0.0
 description: Forecast uncertain outcomes with base rates, reference classes, calibration loops, and explicit scorekeeping.

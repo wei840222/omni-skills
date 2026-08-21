@@ -1,5 +1,5 @@
 ---
-name: React
+name: react
 slug: react
 version: 1.0.7
 description: 'Builds, debugs, and reviews React apps: components, hooks, state, Server Components, forms, performance, testing. Use when writing or refactoring components, choosing state management (useState, Context, Zustand, TanStack Query, Redux), when a component rerenders too often, loops infinitely ("too many re-renders"), shows stale or not-updating state, fails with a hydration mismatch or hook-order error, when an effect fires twice or fetches race, when typing lags or long lists scroll slowly, when adopting React 19, Server Actions, or the React Compiler, when testing components with Testing Library, typing props in TypeScript, or reviewing AI-generated React code. Not for React Native (mobile) or Next.js routing and deployment — use react-native or nextjs.'

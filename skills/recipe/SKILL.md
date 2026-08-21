@@ -1,5 +1,5 @@
 ---
-name: Recipes
+name: recipe
 slug: recipe
 version: 1.0.2
 description: Captures, standardizes, scales, and files recipes into a personal collection that stays searchable and cookable. Use when the user pastes a recipe URL, photo, screenshot, video, voice note, or handwritten card to save; asks to halve, double, or triple a dish, or fit it to a different pan or tin; converts cups to grams, ounces to millilitres, Fahrenheit to Celsius, or gas marks, or adjusts for a fan oven or altitude; asks what to cook from what is saved, or searches by ingredient, tag, time, or rating; builds a week from the collection with one combined shopping list; swaps a missing, disliked, or off-limits ingredient; rewrites a dish for a pressure cooker, air fryer, or slow cooker; works out cost per serving; writes or tests an original recipe; preserves a family recipe; or moves a collection between apps. Not for stove-side rescue (`cooking`), general cooking help (`chef`), household meal systems (`meal-planner`), calories and macros (`calories`), or pantry lists (`grocery`).

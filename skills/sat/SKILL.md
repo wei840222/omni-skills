@@ -1,5 +1,5 @@
 ---
-name: SAT
+name: sat
 slug: sat
 version: 1.0.1
 description: Prepare for the SAT with adaptive practice, score prediction, weak area targeting, and college admissions planning.

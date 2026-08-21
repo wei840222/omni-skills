@@ -1,5 +1,5 @@
 ---
-name: XML
+name: xml
 slug: xml
 version: 1.0.0
 description: Parse, generate, and transform XML with correct namespace handling and encoding.

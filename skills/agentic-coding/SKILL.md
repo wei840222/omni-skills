@@ -1,5 +1,5 @@
 ---
-name: Agentic Coding
+name: agentic-coding
 slug: agentic-coding
 version: 1.0.0
 description: Ship production code with AI agents through acceptance contracts, micro diffs, red green loops, and deterministic handoff checkpoints.

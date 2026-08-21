@@ -1,5 +1,5 @@
 ---
-name: Personal Finance Tracker
+name: personal-finance-tracker
 slug: personal-finance-tracker
 version: 1.0.0
 description: Track personal finances with cashflow reviews, recurring bill detection, debt triage, CSV imports, and net worth snapshots.

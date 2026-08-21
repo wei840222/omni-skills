@@ -1,5 +1,5 @@
 ---
-name: Finland
+name: finland
 slug: finland
 version: 1.0.0
 description: Plan Finland trips with verified entry rules, season-aware routing, rail-and-Lapland logistics, and practical tourist safety.

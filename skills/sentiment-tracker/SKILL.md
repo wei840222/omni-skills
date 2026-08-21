@@ -1,5 +1,5 @@
 ---
-name: Sentiment Tracker
+name: sentiment-tracker
 slug: sentiment-tracker
 version: 1.0.0
 description: Monitor brand sentiment, crypto opinions, and product perception across social media with automated tracking, alerts, and multi-entity dashboards.

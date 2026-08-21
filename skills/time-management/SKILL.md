@@ -1,5 +1,5 @@
 ---
-name: Time Management
+name: time-management
 slug: time-management
 version: 1.0.0
 description: Plan days, prioritize tasks, and protect focus time with time blocking, weekly reviews, and energy-aware scheduling.

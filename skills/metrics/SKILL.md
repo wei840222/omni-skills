@@ -1,5 +1,5 @@
 ---
-name: Metrics
+name: metrics
 slug: metrics
 version: 1.0.0
 description: Capture, normalize, and report metrics across any domain with reusable dimensions, programmable formulas, and scalable reporting workflows.

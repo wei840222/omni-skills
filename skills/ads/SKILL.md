@@ -1,5 +1,5 @@
 ---
-name: Ads
+name: ads
 slug: ads
 version: 1.0.0
 description: Paid acquisition strategy, budget allocation, and avoiding common advertising mistakes across platforms

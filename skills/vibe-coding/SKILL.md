@@ -1,5 +1,5 @@
 ---
-name: Vibe Coding
+name: vibe-coding
 slug: vibe-coding
 version: 1.0.0
 description: Build software with AI by describing what you want. Covers prompting techniques, workflow patterns, rules files, and when to intervene.

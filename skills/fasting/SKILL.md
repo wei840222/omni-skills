@@ -1,5 +1,5 @@
 ---
-name: Fasting Tracker
+name: fasting
 slug: fasting
 version: 1.0.3
 description: 'Tracks intermittent fasting and extended fasts: logs start and break times, computes elapsed hours, fasting stages, and eating windows. Use when the user starts, breaks, or checks a fast, plans 16:8, 18:6, OMAD, 5:2, alternate-day, time-restricted eating, or multi-day water fasts, asks whether coffee, sweeteners, gum, or supplements break a fast, or when ketosis or autophagy starts, reports headaches, dizziness, hunger waves, or insomnia while fasting, needs electrolyte or refeeding guidance past 24h, checks fasting against medications, diabetes, or the menstrual cycle, observes Ramadan or another religious fast, trains fasted, hits a weight-loss plateau, or interprets glucose and ketone readings.'

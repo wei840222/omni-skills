@@ -1,5 +1,5 @@
 ---
-name: Technical Debt
+name: tech-debt
 slug: tech-debt
 version: 1.0.0
 description: Reckless versus prudent categorization, tracking the inventory, and a payoff cadence that does not freeze delivery.

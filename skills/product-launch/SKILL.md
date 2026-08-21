@@ -1,5 +1,5 @@
 ---
-name: Product Launch
+name: product-launch
 slug: product-launch
 version: 1.0.0
 description: Orchestrates the announcement, assets, channels, and timing for shipping a product, covering the arc from teaser to launch day to post-launch momentum.

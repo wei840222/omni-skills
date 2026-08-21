@@ -1,5 +1,5 @@
 ---
-name: Email Management
+name: email-management
 slug: email-management
 version: 1.0.0
 description: Triage inbox email, draft clear replies, and manage follow-ups with priority routing, commitment tracking, and reusable templates.

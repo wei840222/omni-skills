@@ -1,5 +1,5 @@
 ---
-name: Wishlist
+name: wishlist
 slug: wishlist
 version: 1.0.0
 description: Build a personal wishlist system for capturing wants, tracking prices, and smart purchasing decisions.

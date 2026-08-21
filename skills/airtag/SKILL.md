@@ -1,5 +1,5 @@
 ---
-name: AirTag
+name: airtag
 slug: airtag
 version: 1.0.0
 description: Give your agent controlled access to all AirTags in your Apple account to locate items, run diagnostics, and recover setup failures.

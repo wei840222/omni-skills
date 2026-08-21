@@ -1,5 +1,5 @@
 ---
-name: Robot
+name: robot
 slug: robot
 version: 1.0.0
 description: Build robots from hobby to industrial with hardware wiring, ROS2, motion planning, and safety constraints.

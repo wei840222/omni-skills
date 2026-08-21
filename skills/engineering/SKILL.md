@@ -1,5 +1,5 @@
 ---
-name: Engineering
+name: engineering
 slug: engineering
 version: 1.0.0
 description: Support engineering understanding from DIY projects to professional practice and research.

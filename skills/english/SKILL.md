@@ -1,5 +1,5 @@
 ---
-name: English
+name: english
 slug: english
 version: 1.0.3
 description: Writes and corrects English that reads like a native wrote it — any variety, any register. Use when text sounds stiff, robotic, translated, or AI-generated; when a sentence is grammatically fine but "sounds wrong"; when choosing between US, UK, Australian, Canadian, Irish or Indian spelling, vocabulary and punctuation, or when a document mixes them; when a first language keeps leaking through — articles, prepositions, tense, false friends, word order; when formality must be calibrated for an email, a client, or a meeting; when idioms, phrasal verbs, slang or collocations land wrong or sound dated; when commas, hyphens, capitalization, quotes, dates or numbers need a house rule; when confusable words, jargon or hedging blur the meaning; and for pronunciation, small talk, and improving on purpose. Not for grammar-only fixes (`grammar`), translation (`translate`), IELTS or TOEFL prep (`ielts`, `toefl`), or drafting in your own voice (`writing`).

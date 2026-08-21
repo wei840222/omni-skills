@@ -1,5 +1,5 @@
 ---
-name: Compare
+name: compare
 slug: compare
 version: 1.0.0
 description: Rigorous comparisons with confidence parity, weighted criteria, and research depth tracking.

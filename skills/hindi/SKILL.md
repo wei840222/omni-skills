@@ -1,5 +1,5 @@
 ---
-name: Hindi
+name: hindi
 slug: hindi
 version: 1.0.0
 description: Write Hindi that sounds human. Not formal, not robotic, not AI-generated.

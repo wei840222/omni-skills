@@ -1,5 +1,5 @@
 ---
-name: Image Editing
+name: image-edit
 slug: image-edit
 version: 1.0.0
 description: Edit images with AI inpainting, outpainting, background removal, upscaling, and restoration tools.

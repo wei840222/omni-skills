@@ -1,5 +1,5 @@
 ---
-name: AI Image Generation
+name: image-generation
 slug: image-generation
 version: 1.0.3
 description: Create AI images with GPT Image, Gemini Nano Banana, FLUX, Imagen, and top providers using prompt engineering, style control, and smart editing.

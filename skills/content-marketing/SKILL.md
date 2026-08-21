@@ -1,5 +1,5 @@
 ---
-name: Content Marketing
+name: content-marketing
 slug: content-marketing
 version: 1.0.0
 description: Plan, create, and distribute content with editorial calendars, funnel strategy, and repurposing workflows.

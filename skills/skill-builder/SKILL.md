@@ -1,5 +1,5 @@
 ---
-name: Skill Builder / Creator
+name: skill-builder
 slug: skill-builder
 version: 1.0.5
 description: Create high-quality skills with modular structure, progressive disclosure, and token-efficient design.

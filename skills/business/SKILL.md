@@ -1,5 +1,5 @@
 ---
-name: Business Strategy
+name: business
 slug: business
 version: 1.1.0
 description: Validate ideas, build strategy, and make decisions with proven frameworks.

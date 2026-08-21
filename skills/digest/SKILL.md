@@ -1,5 +1,5 @@
 ---
-name: Digest
+name: digest
 slug: digest
 version: 1.0.3
 description: 'Curates news, feeds, and industry sources into personalized recurring digests: sourcing, filtering, ranking, and delivery. Use to set up a daily briefing or morning/evening news roundup, track competitors, an industry, people, or markets, or run a scheduled or weekly update. Also when a digest feels too long or repetitive, keeps missing stories, or a rumor needs checking before it ships. Covers source vetting, deduplication, single-source holds, corrections, urgent alerts, slow news days, and channel formats (email, Slack, Telegram, audio); learns format, timing, and depth preferences from reactions. Not for summarizing documents the user provides or internal business reporting.'

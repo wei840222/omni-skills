@@ -1,5 +1,5 @@
 ---
-name: Austria
+name: austria
 slug: austria
 version: 1.0.0
 description: Plan Austria trips with rail and road logic, alpine season timing, region-specific routing, and practical local execution.

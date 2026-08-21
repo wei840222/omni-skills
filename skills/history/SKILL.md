@@ -1,5 +1,5 @@
 ---
-name: History
+name: history
 slug: history
 version: 1.0.0
 description: Navigate the past from engaging stories to scholarly analysis at any depth.

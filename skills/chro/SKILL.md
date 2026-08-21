@@ -1,5 +1,5 @@
 ---
-name: CHRO / Chief Human Resources Officer
+name: chro
 slug: chro
 version: 1.0.1
 description: Manage HR operations with hiring pipelines, compliance frameworks, compensation strategy, and workforce analytics.

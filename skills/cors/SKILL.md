@@ -1,5 +1,5 @@
 ---
-name: CORS
+name: cors
 slug: cors
 version: 1.0.0
 description: Configure Cross-Origin Resource Sharing correctly to avoid security issues and debugging pain.

@@ -1,5 +1,5 @@
 ---
-name: Qwen
+name: qwen
 slug: qwen
 version: 1.0.0
 description: Build and route Qwen chat, coding, reasoning, and vision workflows across hosted and self-hosted endpoints with safer debugging.

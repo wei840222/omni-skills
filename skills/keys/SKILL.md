@@ -1,5 +1,5 @@
 ---
-name: Keys
+name: keys
 slug: keys
 version: 1.0.0
 description: Secure API key management with broker. Keys never exposed to agent context.

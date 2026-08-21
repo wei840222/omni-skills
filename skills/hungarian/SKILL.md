@@ -1,5 +1,5 @@
 ---
-name: Hungarian
+name: hungarian
 slug: hungarian
 version: 1.0.0
 description: Write Hungarian that sounds human. Not formal, not robotic, not AI-generated.

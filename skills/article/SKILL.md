@@ -1,5 +1,5 @@
 ---
-name: Article
+name: article
 slug: article
 version: 1.0.0
 description: Create compelling articles using journalistic standards and engagement optimization for maximum reader impact.

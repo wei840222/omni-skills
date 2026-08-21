@@ -1,5 +1,5 @@
 ---
-name: Medicine
+name: medicine
 slug: medicine
 version: 1.0.0
 description: Support medical understanding from patient education to clinical practice and research.

@@ -1,5 +1,5 @@
 ---
-name: Secretary
+name: secretary
 slug: secretary
 version: 1.0.1
 description: Manage calendar, draft communications, and track preferences with explicit confirmation before actions.

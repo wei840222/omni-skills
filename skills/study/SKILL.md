@@ -1,5 +1,5 @@
 ---
-name: Study
+name: study
 slug: study
 version: 1.0.3
 description: 'Runs a student''s whole term: course load, weekly plan, lectures, notes, retrieval practice, coursework deadlines, grades, and exams. Use when a syllabus, reading list, or semester has to become a weekly schedule; when an exam, midterm, final, viva, or professional certification sits on a date; when revision is not sticking, rereading has replaced recall, or a topic will not stay in memory; when review intervals, decks, or a past-paper plan need designing; when assignments, problem sets, lab reports, essays, or a thesis stack up against deadlines; when several courses compete for the same hours; when procrastination, cramming, or a missed week has to be recovered; when a bad mark needs a post-mortem; or when the question is what to study first and for how long. Covers note systems, study groups, tutors, open-book and adaptive tests, and exam-day tactics. Not for teaching a concept on the spot (`learning`), self-teaching with no course or exam (`learn`), or authoring decks (`anki`).'

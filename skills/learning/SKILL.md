@@ -1,5 +1,5 @@
 ---
-name: Learning
+name: learning
 slug: learning
 version: 1.0.3
 changelog: Display name shown correctly

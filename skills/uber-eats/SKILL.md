@@ -1,5 +1,5 @@
 ---
-name: Uber Eats
+name: uber-eats
 slug: uber-eats
 version: 1.0.0
 description: Navigate Uber Eats in a live browser or app handoff to compare merchants, manage carts, and reach checkout safely.

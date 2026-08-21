@@ -1,5 +1,5 @@
 ---
-name: LaTeX
+name: latex
 slug: latex
 version: 1.0.0
 description: Write LaTeX documents with correct syntax, packages, and compilation workflow.

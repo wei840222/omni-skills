@@ -1,5 +1,5 @@
 ---
-name: Apple Search Ads
+name: apple-search-ads
 slug: apple-search-ads
 version: 1.0.3
 description: 'Plans, launches, and optimizes Apple Search Ads (Apple Ads, ASA) campaigns for iOS apps: bids, keywords, budgets, CPA, attribution. Use for paid iOS user acquisition and App Store ads — launching or restructuring campaigns, mining search-term reports, graduating keywords, defending brand terms, scaling spend, expanding to new countries, testing Custom Product Pages, wiring AdServices or SKAdNetwork attribution, automating reports and changes via the Campaign Management API, or diagnosing why CPA spiked, keywords get no impressions, a campaign stops spending its budget, ads got rejected, or ASA, SKAN, and MMP install counts disagree. Not for App Store listing optimization itself (ASO).'

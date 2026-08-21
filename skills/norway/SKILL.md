@@ -1,5 +1,5 @@
 ---
-name: Norway
+name: norway
 slug: norway
 version: 1.0.0
 description: Plan Norway trips with fjord and Arctic routing, verified entry rules, multimodal logistics, and practical seasonal safety.

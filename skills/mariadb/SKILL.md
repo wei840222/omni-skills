@@ -1,5 +1,5 @@
 ---
-name: MariaDB
+name: mariadb
 slug: mariadb
 version: 1.0.0
 description: Write efficient MariaDB queries with proper indexing, temporal tables, and clustering.

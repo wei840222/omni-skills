@@ -1,5 +1,5 @@
 ---
-name: Budapest
+name: budapest
 slug: budapest
 version: 1.0.0
 description: Navigate Budapest as visitor, expat, digital nomad, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.

@@ -1,5 +1,5 @@
 ---
-name: Startup
+name: startup
 slug: startup
 version: 1.0.3
 description: 'Orchestrates startup work: routes tasks to specialized agents and applies stage-appropriate priorities. Use when advising founders on product-market fit, growth, hiring, fundraising, runway, or burn decisions.'

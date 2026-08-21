@@ -1,5 +1,5 @@
 ---
-name: Pricing
+name: pricing
 slug: pricing
 version: 1.0.2
 description: 'Sets, tests, and changes prices: value metric, tier packaging, discounts, price increases, and willingness-to-pay research. Use when deciding what to charge for a new product, when nobody knows what it is worth, when a raise is overdue but churn is feared, when every deal closes at a discount, when the free plan never converts, when a competitor undercuts, when choosing per-seat versus usage-based versus flat, when designing a pricing page, when quoting an enterprise deal or a day rate, when entering a new country or currency, or when setting a marketplace take rate. Covers Van Westendorp and conjoint research, grandfathering, annual prepay maths, price tests, and auto-renewal and price-display rules. Not for consumer buying decisions (`price`), indie launch sequencing and revenue mix (`monetize`), building the billing system (`billing`), CAC and LTV decomposition (`unit-economics`), or company financial models (`cfo`).'

@@ -1,5 +1,5 @@
 ---
-name: Canada
+name: canada
 slug: canada
 version: 1.0.0
 description: Discover Canada like a local with concrete city recommendations, regional insights, nature routes, and practical planning tips.

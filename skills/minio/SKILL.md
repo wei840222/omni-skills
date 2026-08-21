@@ -1,5 +1,5 @@
 ---
-name: MinIO S3 (Object Storage)
+name: minio
 slug: minio
 version: 1.0.0
 description: Deploy, secure, and operate MinIO object storage using mc workflows, policy controls, replication, and incident-safe runbooks.

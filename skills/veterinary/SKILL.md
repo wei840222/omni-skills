@@ -1,5 +1,5 @@
 ---
-name: Veterinary
+name: veterinary
 slug: veterinary
 version: 1.0.0
 description: Support veterinary understanding from pet care to clinical practice and research.

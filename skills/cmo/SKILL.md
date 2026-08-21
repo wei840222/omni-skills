@@ -1,5 +1,5 @@
 ---
-name: CMO / Chief Marketing Officer
+name: cmo
 slug: cmo
 version: 1.0.5
 description: 'Operates as a chief marketing officer (CMO): sets marketing strategy, owns the pipeline number, allocates budget, picks channels, builds the team. Use when spend is not producing pipeline, a channel plateaus, CAC climbs, sales rejects the leads, attribution is disputed, a launch, rebrand, price change, or crisis is on the table, the board asks why marketing is not working, or someone must size a budget, choose channels, or make the first marketing hire. Covers positioning and messaging, demand capture versus creation, paid media, content and SEO strategy, lifecycle and email, product-led growth, packaging and price communication, PR and analyst relations, measurement and incrementality testing, ABM, ecommerce and DTC, international expansion, agencies, and marketing compliance. Not for executing a single ad, post, or landing-page test.'

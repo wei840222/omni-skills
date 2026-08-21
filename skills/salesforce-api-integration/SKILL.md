@@ -1,5 +1,5 @@
 ---
-name: Salesforce API Integration
+name: salesforce-api-integration
 slug: salesforce-api-integration
 version: 1.0.3
 description: 'Calls the Salesforce REST, Bulk, Composite, and Metadata APIs: SOQL, record CRUD, upserts, OAuth, sync, and error handling. Use when querying, loading, exporting or syncing Salesforce data, when writing SOQL or SOSL against Account, Contact, Opportunity, Lead, Case or a `__c` custom object, when a call returns INVALID_SESSION_ID, MALFORMED_QUERY, INVALID_FIELD, REQUEST_LIMIT_EXCEEDED, UNABLE_TO_LOCK_ROW, or DUPLICATES_DETECTED, when importing tens of thousands of records or migrating from another CRM, when setting up server-to-server auth with a Connected App, JWT bearer or refresh token, when keeping an external database in step through Change Data Capture or Platform Events, or when calling a custom Apex REST endpoint or invoking a Flow. Covers sandboxes, API versioning, external IDs, and field-level security. Not for designing a personal CRM (`crm`), generic third-party API mechanics (`api`), or authoring Apex code.'

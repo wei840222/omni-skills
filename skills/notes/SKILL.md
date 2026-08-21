@@ -1,5 +1,5 @@
 ---
-name: Notes (Local, Apple, Notion, Obsidian & more)
+name: notes
 slug: notes
 version: 1.1.5
 description: Captures, structures, and retrieves notes in local markdown, Apple Notes, Bear, Obsidian, Notion, or Evernote. Use when the user says take notes, write this up, capture this, or turn this transcript into a note; for meeting, 1-on-1, decision, journal, project, or research notes; when a note must land in a specific app or vault; when action items need owners and real dates; when a note cannot be found again and titles, tags, folders, or an index are the problem; when quick captures pile up untriaged; when a decision needs a durable record; when a vault shows conflicted copies, duplicates, or links broken by a rename; when notes must move between apps, be exported, or be backed up; and when something is too sensitive to write down at all. Not for journaling practice and prompts (`journal`), meeting facilitation and agendas (`meetings`), Notion API development (`notion-api-integration`), running a to-do list (`task-list`), or growing a linked atomic-note knowledge base (`pkm`).

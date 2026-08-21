@@ -1,5 +1,5 @@
 ---
-name: Writing
+name: writing
 slug: writing
 version: 1.1.2
 description: Drafts, edits, and rewrites prose in the user's own voice — emails, posts, essays, memos, proposals, social copy. Use when asked to write, draft, edit, tighten, shorten, rewrite, or proofread something; when a draft reads flat, wordy, robotic, or "not like me"; when a piece will not start, a sentence will not come out right, or the ending trails off; when an email has to deliver bad news, say no, chase a reply, or make an ask that lands; when a post needs a hook, a headline, or a cut to fit a limit; when order, transitions, or paragraph structure are the real problem; when writing in a second language, or matching a house style, spelling variant, or word count. Learns and reuses their voice across sessions. Not for grammar-only fixes (`grammar`), sales copy (`copywriting`), book manuscripts (`book-writing`), journal papers (`academic-writing`), narrative craft (`storytelling`), versioned draft-and-audit workflows (`write`), or inbox triage and follow-ups (`email-management`).

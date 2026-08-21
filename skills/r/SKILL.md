@@ -1,5 +1,5 @@
 ---
-name: R
+name: r
 slug: r
 version: 1.0.0
 description: Avoid common R mistakes — vectorization traps, NA propagation, factor surprises, and indexing gotchas.

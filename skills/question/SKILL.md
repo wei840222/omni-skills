@@ -1,5 +1,5 @@
 ---
-name: Question
+name: question
 slug: question
 version: 1.0.0
 description: Ask better questions in any context with Socratic method, follow-up generation, and bias detection.

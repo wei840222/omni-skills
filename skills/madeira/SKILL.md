@@ -1,5 +1,5 @@
 ---
-name: Madeira
+name: madeira
 slug: madeira
 version: 1.0.0
 description: Navigate Madeira as visitor, digital nomad, or resident with neighborhoods, levadas, costs, visas, and local insights for the Atlantic island.

@@ -1,5 +1,5 @@
 ---
-name: Workouts
+name: workouts
 slug: workouts
 version: 1.0.0
 description: Build a personal workout tracking system with exercises, routines, progression, and PRs.

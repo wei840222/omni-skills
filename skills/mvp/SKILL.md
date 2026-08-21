@@ -1,5 +1,5 @@
 ---
-name: MVP
+name: mvp
 slug: mvp
 version: 1.0.0
 description: Build, validate, and launch minimum viable products with scope discipline, user signals, and iteration speed.

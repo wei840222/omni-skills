@@ -1,5 +1,5 @@
 ---
-name: Bangkok
+name: bangkok
 slug: bangkok
 version: 1.0.4
 description: 'Plans Bangkok trips, relocations, and nomad stays: neighborhoods, visas, costs, transport, street food, and Thai law. Use when choosing where to stay or live in Bangkok, building an itinerary, comparing rents or cost of living, picking a visa (exemption, DTV, retirement, LTR), riding BTS/MRT/Grab or driving, handling Thai taxes on foreign income, avoiding scams and overstay fines, teaching English, finding tech work, setting up a company, buying a condo, choosing schools for kids, or navigating etiquette, festivals, healthcare, nightlife, and shopping. Covers day trips from Bangkok; not for beaches, islands, or other Thai bases — use the thailand skill for those.'

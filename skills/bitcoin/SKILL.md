@@ -1,5 +1,5 @@
 ---
-name: Bitcoin
+name: bitcoin
 slug: bitcoin
 version: 1.0.0
 description: Assist with Bitcoin transactions, wallets, Lightning, and security decisions.

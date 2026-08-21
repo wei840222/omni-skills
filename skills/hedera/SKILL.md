@@ -1,5 +1,5 @@
 ---
-name: Hedera
+name: hedera
 slug: hedera
 version: 1.0.0
 description: Assist with Hedera HBAR transactions, account creation, token service, and consensus features.

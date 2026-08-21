@@ -1,5 +1,5 @@
 ---
-name: Career
+name: career
 slug: career
 version: 1.0.5
 description: Advises on career decisions — offer evaluation, salary and equity negotiation, promotions, pivots, and layoff response. Use when the user receives an offer or a recruiter ping, feels underpaid or stuck at a level, weighs staying vs quitting, gets passed over for promotion, faces a PIP, layoff, firing, or rescinded offer, compares equity and vesting packages, or plans a change of role, industry, or IC-to-manager track. Not for writing the resume itself (resume) or running the application pipeline (job-search).

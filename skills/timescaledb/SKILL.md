@@ -1,5 +1,5 @@
 ---
-name: TimescaleDB
+name: timescaledb
 slug: timescaledb
 version: 1.0.0
 description: Store and query time-series data with hypertables, compression, and continuous aggregates.

@@ -1,5 +1,5 @@
 ---
-name: Render Deploy
+name: render-deploy
 slug: render-deploy
 version: 1.0.0
 description: Deploy applications on Render with codebase analysis, render.yaml Blueprint generation, MCP direct provisioning, and post-deploy verification.

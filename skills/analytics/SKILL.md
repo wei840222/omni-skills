@@ -1,5 +1,5 @@
 ---
-name: Analytics
+name: analytics
 slug: analytics
 version: 1.0.0
 description: Deploy privacy-first analytics with correct API patterns, rate limits, and GDPR compliance.

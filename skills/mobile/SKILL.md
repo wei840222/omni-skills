@@ -1,5 +1,5 @@
 ---
-name: Mobile
+name: mobile
 slug: mobile
 version: 1.0.0
 description: Build mobile applications with proper lifecycle handling, offline support, and platform conventions.

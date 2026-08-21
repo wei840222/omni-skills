@@ -1,5 +1,5 @@
 ---
-name: Java
+name: java
 slug: java
 version: 1.0.3
 changelog: Display name shown correctly

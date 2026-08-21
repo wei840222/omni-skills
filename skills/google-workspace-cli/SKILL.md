@@ -1,5 +1,5 @@
 ---
-name: Google Workspace CLI
+name: google-workspace-cli
 slug: google-workspace-cli
 version: 1.0.3
 description: 'Automates Google Workspace from the terminal with the gws CLI: search, send, upload, export, share, and administer 20+ Google APIs. Use when driving Gmail, Drive, Calendar, Sheets, Docs, or the Admin SDK — bulk mail search and send, file sharing and export, event, user, and group management — when a Google API call fails with 403, invalid_grant, quota errors, or empty results, or when exposing Workspace operations as MCP tools. Not for Google Cloud infrastructure (gcloud) or local macOS mail and calendar apps.'

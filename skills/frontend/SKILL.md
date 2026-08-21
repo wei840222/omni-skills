@@ -1,5 +1,5 @@
 ---
-name: Frontend Design
+name: frontend
 slug: frontend
 version: 1.0.2
 description: Frontend development with React, Next.js, Tailwind CSS. Build landing pages, dashboards, forms, components. Responsive, accessible, performant UI.

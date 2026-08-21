@@ -1,5 +1,5 @@
 ---
-name: Vibe Design
+name: vibe-design
 slug: vibe-design
 version: 1.0.0
 description: Create visual designs with AI tools. Covers prompting for UI/graphics, Midjourney techniques, Figma AI workflow, and iteration patterns.

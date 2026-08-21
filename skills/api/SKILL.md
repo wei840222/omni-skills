@@ -1,5 +1,5 @@
 ---
-name: API / Application Programming Interface
+name: api
 slug: api
 version: 1.3.7
 description: 'Integrates and debugs third-party REST and GraphQL APIs: auth, rate limits, pagination, webhooks, with reference for 147 services. Use when calling Stripe, OpenAI, GitHub, Slack, Twilio, or any external service, when a request that should work returns 401, 403, or 429, times out, hits a CORS error, or silently returns wrong data, when choosing an OAuth flow, signing requests, adding retries with backoff and idempotency keys, verifying webhook signatures, consuming SSE streams, uploading files, polling async jobs, caching with ETags, or syncing API data into a local database — with per-service gotchas and curl examples. Not for designing or building your own API.'

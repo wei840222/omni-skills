@@ -1,5 +1,5 @@
 ---
-name: Seoul
+name: seoul
 slug: seoul
 version: 1.0.0
 description: Navigate Seoul as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
