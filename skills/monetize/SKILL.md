@@ -11,11 +11,22 @@ Turn a product and its evidence into a testable revenue decision. Start with the
 
 ## Workflow
 
-1. **Choose the route.** Read the matching guide: mobile app → `references/mobile-apps.md`; SaaS/subscription → `references/saas.md`; creator sponsorships or audience products → `references/creator.md`; pricing → `references/pricing.md`; launch → `references/launch.md`; reusable copy → `references/templates.md`.
-2. **State the decision and evidence.** Name the customer, the job-to-be-done, the chosen value metric, alternatives, and a price or offer hypothesis. Use `references/success.md` for operating patterns, not universal forecasts.
-3. **Calculate economics.** Use `references/pricing.md` to calculate contribution margin, CAC payback, LTV:CAC, and—where applicable—NRR. Use actual costs, tax treatment, refund rates, and platform fees; write assumptions beside the calculation.
-4. **Design one measured experiment.** Define a primary metric, a guardrail (for example, refunds, churn, support load, or complaint rate), audience/eligibility, duration or decision rule, and the next action for each result. Read `references/industry-benchmarks.md` before relying on platform policy or regulatory guidance.
-5. **Deliver a decision packet.** Return the recommendation, assumptions, math, test plan, launch sequence or template, risks, and the next measurement date. Describe uncertainty plainly when evidence is thin.
+1. **Classify the request.** Read one matching guide: mobile app → `references/mobile-apps.md`; SaaS/subscription → `references/saas.md`; creator sponsorships or audience products → `references/creator.md`; pricing → `references/pricing.md`; launch → `references/launch.md`; reusable copy → `references/templates.md`.
+2. **Collect decision inputs.** Capture customer, job-to-be-done, value evidence, current alternatives, costs, market/region, capacity, and constraints. Mark unknown inputs rather than inventing them. Use `references/success.md` for operating patterns, not forecasts.
+3. **Recommend one testable offer.** Specify package, price or range, value metric, and why it matches the evidence. Use `references/pricing.md` for the economics and `references/industry-benchmarks.md` for current policy-sensitive assumptions.
+4. **Define the learning loop.** Set a primary metric, a guardrail (such as refunds, churn, support load, or complaint rate), audience/eligibility, decision rule, and review date. Change one material variable at a time.
+5. **Return a decision packet.** Include recommendation, assumptions, math, test plan, launch sequence or template, risks, and next measurement date. Describe uncertainty plainly when evidence is thin.
+
+### Output format
+
+```text
+Decision: [offer, price/range, and customer]
+Evidence and assumptions: [known facts + explicit unknowns]
+Economics: [formula inputs and result]
+Experiment: [hypothesis, primary metric, guardrail, audience, decision rule]
+Execution: [launch steps or selected template]
+Risks and next review: [policy/compliance/capacity checks + date]
+```
 
 ## Decision Principles
 
@@ -37,3 +48,7 @@ Turn a product and its evidence into a testable revenue decision. Start with the
 | Adaptable customer copy | `references/templates.md` |
 | Operating patterns and limits of anecdotal advice | `references/success.md` |
 | Freshness classes and authoritative research links | `references/research-sources.md` |
+
+## Trigger boundary
+
+Use this skill for a product or offer revenue decision. Route tax filing, legal interpretation, payment integration, financial reporting, and ad-buy execution to the relevant specialist guidance; this skill can supply the commercial brief those tasks need.
