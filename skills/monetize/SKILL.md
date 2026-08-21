@@ -1,13 +1,8 @@
 ---
-name: Monetize
-slug: monetize
-version: 1.0.2
+name: monetize
 description: Pricing, launch, and revenue strategies for indie products, SaaS, mobile apps, and creators. Concrete prices, not theory.
-homepage: https://clawic.com/skills/monetize
 metadata:
-  clawdbot:
-    emoji: 💰
-    displayName: Monetize
+  openclaw: '{"emoji":"💰","displayName":"Monetize"}'
 ---
 
 ## How This Works
@@ -20,13 +15,13 @@ No "it depends." No theory. Decisions made for you.
 
 | Situation | Read |
 |-----------|------|
-| Mobile app | `mobile-apps.md` |
-| SaaS/subscription | `saas.md` |
-| Content/creator | `creator.md` |
-| Need pricing math | `pricing.md` |
-| Ready to launch | `launch.md` |
-| Need copy/templates | `templates.md` |
-| Real success patterns | `success.md` |
+| Mobile app | `references/mobile-apps.md` |
+| SaaS/subscription | `references/saas.md` |
+| Content/creator | `references/creator.md` |
+| Need pricing math | `references/pricing.md` |
+| Ready to launch | `references/launch.md` |
+| Need copy/templates | `references/templates.md` |
+| Real success patterns | `references/success.md` |
 
 ## Universal Truths
 
