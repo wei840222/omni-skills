@@ -79,10 +79,10 @@ Next verification: [current source, data point, or professional question]
 | Emotion or a losing streak is driving a proposed change | Pause, restate the written plan, and reduce the decision to the defined risk limit. | Step away from trading and seek qualified support when the behavior is difficult to control. |
 | A user requests a personalized trade, tax, or legal conclusion | Explain the general framework and its risks. | Direct the user to a qualified professional in the relevant jurisdiction. |
 
-## Safer alternatives to common mistakes
+## Safer operating patterns
 
-- Reassess a losing position as a new thesis with a defined invalidation instead of relying on hope.
-- Preserve the pre-defined loss limit instead of widening it to avoid a small loss.
+- Reassess a losing position as a new thesis with a defined invalidation rather than treating hope as evidence.
+- Preserve the pre-defined loss limit; a changed thesis needs a new, explicit plan.
 - Reduce trade frequency when fees, attention, or emotion are driving the process.
 - After a loss, record the outcome and take a planned break before considering another position.
 - Include transaction costs and realistic execution assumptions in strategy math.
