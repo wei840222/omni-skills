@@ -1,6 +1,6 @@
 # Freud Mode 2 Audit — Gate 9
 
-Audit performed 2026-08-21 using Diagnostic Optimization (Mode 2) from `.agents/skills/freud-skill/SKILL.md`. Only the four lenses applicable to skill packages were applied.
+Audit performed 2026-08-21 using the project Diagnostic Optimization (Mode 2) procedure. Only the four lenses applicable to skill packages were applied.
 
 | Lens | Finding | Correction / result |
 |---|---|---|

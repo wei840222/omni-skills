@@ -1,6 +1,6 @@
 # Darwin Evaluation — Gate 8
 
-Evaluated 2026-08-21 against the nine-dimension rubric in `.agents/skills/darwin-skill/SKILL.md`. Test execution records are retained in `../test-prompts.json`; three English scenarios were executed as decision-packet dry runs against the refactored skill and met their expected behavior (3/3 pass).
+Evaluated 2026-08-21 against the project nine-dimension Darwin rubric. Test execution records are retained in `test-prompts.json`; three English scenarios were executed as decision-packet dry runs against the refactored skill and met their expected behavior (3/3 pass).
 
 | Dimension | Weight | Rating /10 | Weighted score | Evidence |
 |---|---:|---:|---:|---|

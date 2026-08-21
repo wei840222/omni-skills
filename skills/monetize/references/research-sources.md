@@ -23,7 +23,6 @@ Research completed 2026-08-21. Use the linked primary sources for platform polic
 
 ## Measurement and experimentation
 
-- **Google Analytics Help, “Create an A/B test”** — use controlled comparison and a defined objective when evaluating variants. https://support.google.com/analytics/answer/9367342?hl=en
 - **NIST/SEMATECH e-Handbook, “What are the elements of a good experimental design?”** — define objectives, factors, responses, and analysis before collecting data. https://www.itl.nist.gov/div898/handbook/pri/section1/pri11.htm
 
 ## Research-based operating rule
