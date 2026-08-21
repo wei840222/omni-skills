@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill              | Date       | Darwin Score             |
 | ------------------ | ---------- | ------------------------ |
 | monetize | 2026-08-21 | 89.2/100 (author-evaluated; 3/3 dry-run prompts passed; PR #65) |
+| autonomy | 2026-08-21 | structural dry-run; 3/3 prompts passed (PR #66) |
 | traditional-chinese | 2026-08-19 | structural dry-run; 3/3 prompts passed (PR #63) |
 | mba | 2026-08-19 | structural dry-run; 2/2 prompts passed (PR #61) |
 | write | 2026-08-19 | 85 (author-reported; 2/2 dry-run prompts passed; PR #60) |
