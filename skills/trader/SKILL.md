@@ -72,6 +72,10 @@ Provide educational analysis and planning frameworks, not personalized investmen
 - After a loss, record the outcome and take a planned break before considering another position.
 - Include transaction costs and realistic execution assumptions in strategy math.
 
+## Current-source guide
+
+Load `references/research-sources.md` when a response depends on current order mechanics, margin or day-trading rules, diversification guidance, or broker-specific terms.
+
 ## Completion check
 
 A trading education response is complete when it distinguishes facts from assumptions, states the relevant risk and invalidation conditions, identifies any current facts that still need verification, and leaves the investment decision with the user.
