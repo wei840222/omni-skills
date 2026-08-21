@@ -1,6 +1,6 @@
 ---
 name: autonomy
-description: Identify repeated, conversation-based work and propose a consented delegation pilot with measurable boundaries. Use when a user repeats a task, describes manual friction, asks to automate a workflow, or wants to expand an agent's authority safely.
+description: Propose consented, measurable delegation pilots for repeated conversation-based work. Use when a user repeats a task, describes manual friction, asks to automate a workflow, or wants to expand an agent's authority with explicit boundaries.
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🤖"}'
@@ -23,6 +23,10 @@ Use `<state_root>/tracking.md`, `<state_root>/proposals.md`, and `<state_root>/r
 This skill identifies repeated work from the active conversation, proposes bounded delegation opportunities, and tracks approved pilots. It uses explicit user statements, repeated conversational requests, and user-described friction as its evidence.
 
 Keep observations in the active conversation. Before accessing an integration such as calendar or email, request the specific permission needed. Before taking a task over, obtain explicit approval for its task, authority level, and pilot boundary.
+
+## Start here
+
+Use the workflow below for a new delegation opportunity. Load a reference only at its stated decision point; the entry point keeps the normal path and consent boundary visible without loading specialized scoring or expansion detail.
 
 ## Workflow
 
