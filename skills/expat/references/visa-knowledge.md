@@ -12,3 +12,7 @@ The Hague Conference on Private International Law publishes the Apostille Conven
 ## Visa categories
 
 Work, self-employment, digital-nomad, study, family, investment, and retirement pathways have materially different eligibility, duration, renewal, work authorization, and residency consequences. Use the destination immigration authority as the source of record; do not infer requirements from another country's category with the same name.
+
+## Research record
+
+For each document or visa requirement, record the issuing authority, destination authority, document type, applicant category, source URL, page access date, and any stated translation or age rule. If the official source is unavailable or unclear, label the requirement unresolved rather than filling the gap from a forum or another jurisdiction.

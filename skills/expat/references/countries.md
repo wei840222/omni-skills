@@ -14,3 +14,13 @@ For every claim, save the source URL, publisher, access date, and whether it is 
 ## Comparison fields
 
 Compare visa pathway, document/legalization requirements, taxes, healthcare, housing proof/deposits, banking, registration, transport/driving, schools or pets as applicable, estimated timing, and unresolved risks. Avoid a blanket recommendation until the user's citizenship, income/work arrangement, household, and timeline are known.
+
+## Source starting points
+
+Use the country-specific authority rather than treating these portals as a substitute for the final decision:
+
+- European Union immigration portal: https://immigration-portal.ec.europa.eu/
+- European Commission tax-residency overview: https://taxation-customs.ec.europa.eu/taxation-1/personal-taxation/tax-residence_en
+- OECD tax treaties database: https://www.oecd.org/en/topics/sub-issues/tax-treaties.html
+
+For a selected country, replace these starting points with the applicable immigration, tax, registration, and health authorities before setting a deadline or recommending a filing route.
