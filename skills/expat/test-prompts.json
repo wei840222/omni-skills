@@ -14,5 +14,13 @@
     "expected": "Mark the document at risk, request destination and issuing-authority details, investigate verified options only with user direction, and avoid promising an expedited result or legal exception.",
     "actual": "Dry-run: workflow escalates the deadline risk and requires authority verification before changing the plan.",
     "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "conflicting requirements",
+    "prompt": "A blog says I need a six-month-old police certificate, but an embassy page says three months. Which should I follow?",
+    "expected": "Preserve both sources, prioritize and verify the current destination authority guidance, record access dates, and avoid treating a blog as a legal requirement.",
+    "actual": "Dry-run: destination-research and document rules identify the conflict, retain provenance, and direct verification before a submission decision.",
+    "pass": true
   }
 ]
