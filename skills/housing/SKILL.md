@@ -5,9 +5,11 @@ metadata:
   openclaw: '{"emoji":"🏠"}'
 ---
 
-## When to Use
+## Default Workflow
 
-User needs help with real estate decisions: buying first home, renting apartments, investing in property, or managing rentals as landlord. Agent handles research, analysis, comparisons, and compliance checks.
+1. Identify the user's role: buyer, renter, investor, or landlord.
+2. Ask for the jurisdiction before giving legal, tax, pricing, or financing guidance.
+3. Read the matching reference below, then provide a transparent analysis with current-data limits and applicable professional-review boundaries.
 
 ## Quick Reference
 
