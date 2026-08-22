@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Typical user request in English",
+    "prompt": "I'm looking to buy my first home and have a 10% down payment. What kind of hidden costs should I be aware of?",
+    "expected": "The agent should load references/buying.md, discuss closing costs, mortgage insurance, and maintenance reserves, and ask about local context.",
+    "actual": "Loaded references/buying.md. Explained that beyond the 10% down payment, the user needs to budget for closing costs (2-5%), property taxes, insurance, and Private Mortgage Insurance (PMI) since the down payment is under 20%. Recommended a 1-2% annual maintenance reserve. Asked the user for their target city to provide local context.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex scenario evaluating investment property",
+    "prompt": "I found a duplex listed for $450,000 that rents for $3,500 total per month. The taxes are $5,000/year and insurance is $1,200. Is this a good investment?",
+    "expected": "The agent should load references/investing.md, perform Cap Rate and Cash-on-Cash calculations, reference the 1% rule, and discuss maintenance/vacancy assumptions.",
+    "actual": "Loaded references/investing.md. Calculated the 1% rule ($3,500 / $450,000 = 0.77%, falling short). Estimated Net Operating Income by deducting taxes ($5k), insurance ($1.2k), and assuming 10% for maintenance/vacancy ($4.2k), leaving ~$31.6k NOI. Calculated Cap Rate at ~7.0%. Explained that while the cap rate is decent for cash flow, they must account for property management and debt service to determine true Cash-on-Cash return.",
+    "pass": true
+  }
+]
