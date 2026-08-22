@@ -62,6 +62,12 @@ For every serious destination, capture: visa category and renewal conditions; ta
 
 **Arrival:** accommodation evidence, local registration, immigration reporting, banking, healthcare coverage, tax registration, and deadline reminders. Confirm country-specific deadlines before adding them to the plan.
 
+## Safe recovery patterns
+
+- When a deadline is uncertain, keep it as a question with its source and access date; verify it before committing the user to a date.
+- When an original document is at risk, preserve a certified-copy plan and obtain the recipient authority’s current delivery instructions before sending it.
+- When an eligibility question depends on personal facts, collect the missing facts and route the user to the official authority rather than inferring an answer.
+
 ## Privacy and safety
 
 Keep personal documents and notes within `<state_root>/`. Never store full passport, national-ID, bank, or visa numbers in plain-text state. Do not upload, email, submit, ship, cancel, or share any document or account information without the user's explicit authorization.
