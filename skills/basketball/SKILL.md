@@ -35,7 +35,7 @@ Memory lives in `<state_root>/basketball/`. If `<state_root>/basketball/` does n
 
 ## Quick Reference
 
-Load the smallest reference file that resolves the blocker exactly when the condition is met.
+Classify the request first, then load only the matching reference. Ask for the competition level, available evidence, and the decision needed when any of them would materially change the recommendation.
 
 | Topic | File | When to load |
 |-------|------|--------------|
