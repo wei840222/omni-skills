@@ -1,40 +1,31 @@
 ---
 name: basketball
-slug: basketball
-version: 1.0.0
-description: Analyze basketball games, lineups, players, and practice plans with film-room structure, scouting grids, and possession-based coaching tools.
-homepage: https://clawic.com/skills/basketball
-changelog: Initial release with the Possession Map Protocol, scouting grids, and practice blueprints for practical basketball work.
+description: "Analyze games, scout players, plan practices, and structure possession-based game reviews. Triggers on basketball strategy, lineup, or practice requests."
 metadata:
-  clawdbot:
-    emoji: 🏀
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/basketball/
-    displayName: Basketball
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/basketball/
+  openclaw: '{"emoji": "\ud83c\udfc0", "requires": {"configPaths": ["<state_root>/basketball/"]}}'
+  related-skills: '{"analysis": "Structure trade-offs, assumptions, and decision quality.", "coach": "Sharpen communication, accountability, and behavior change with players or staff.", "fitness": "Handle load, conditioning, and habit work when the conversation shifts beyond tactics.", "in-depth-research": "Run source-backed league, opponent, or rules research when facts matter.", "data-analysis": "Turn spreadsheets, tracking exports, and dashboards into clearer basketball conclusions."}'
 ---
 
 ## When to Use
 
 Use this for basketball work: game prep, post-game review, lineup fit, player scouting, role definition, shot-profile discussion, and weekly practice planning.
 
-Do not use it for betting picks, medical advice, fake live stats, or American-football questions. This skill is for usable basketball decisions, not sports chatter.
+Restrict usage exclusively to actionable basketball decisions. Refuse requests for betting picks, medical advice, live stats, or American-football analysis.
+
+## State location
+
+Memory and state files are located at `<state_root>/basketball/`.
+
+- **Primary resolution**: Look in `<workspace>/.agents/state/basketball/` first.
+- **Fallback resolution**: If the workspace state does not exist, use `~/.agents/state/basketball/`.
+- **Creation behavior**: If neither exists and the user approves memory storage, create the directory at `<workspace>/.agents/state/basketball/`.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/basketball/`. If `~/Clawic/data/basketball/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/basketball/`. If `<state_root>/basketball/` does not exist, run `setup.md`. See `memory-template.md` for structure.
 
 ```text
-~/Clawic/data/basketball/
+<state_root>/basketball/
 ├── memory.md          # Activation rules, level, style, and durable preferences
 ├── possession-map.md  # Recent game plans, reviews, and possession themes
 ├── roster-notes.md    # Lineups, roles, pairings, and scouting conclusions
@@ -44,17 +35,18 @@ Memory lives in `~/Clawic/data/basketball/`. If `~/Clawic/data/basketball/` does
 
 ## Quick Reference
 
-Use the smallest file that resolves the blocker.
+Load the smallest reference file that resolves the blocker exactly when the condition is met.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory and local file templates | `memory-template.md` |
-| Film-room and game-review workflow | `possession-map.md` |
-| Opponent scout template | `opponent-scout.md` |
-| Player evaluation rubric | `scouting-grid.md` |
-| Practice planning and drill logic | `practice-week.md` |
-| Role and lineup fit logic | `lineup-cards.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup and activation behavior | `references/setup.md` | When `<state_root>/basketball/` does not exist or user asks about memory setup |
+| Memory templates | `references/memory-template.md` | When structuring or reading memory files |
+| Film-room and game-review | `references/possession-map.md` | When reviewing game film or breaking down a match |
+| Opponent scout template | `references/opponent-scout.md` | When generating a game preview or scouting an opponent |
+| Player evaluation rubric | `references/scouting-grid.md` | When analyzing player role fit or draft prospects |
+| Practice planning | `references/practice-week.md` | When designing drills or a practice microcycle |
+| Role and lineup fit | `references/lineup-cards.md` | When discussing roster balance and player roles |
+| Advanced Analytics | `references/analytics.md` | When evaluating player stats, tracking efficiency, or comparing advanced metrics |
 
 ## Requirements
 
@@ -65,7 +57,7 @@ Use the smallest file that resolves the blocker.
 
 ## Data Storage
 
-Local notes in `~/Clawic/data/basketball/` may include:
+Local notes in `<state_root>/basketball/` may include:
 - activation rules and the situations where basketball help should appear
 - level, region, offensive style, defensive scheme, and analysis preferences
 - recurring opponents, player-role notes, and roster needs
@@ -114,8 +106,8 @@ Default output should be usable in a locker room, staff meeting, film session, o
 - If the answer cannot be used by a coach, analyst, scout, or player in under five minutes, tighten it.
 
 ### 7. Respect Basketball Boundaries
-- Do not invent live stats, injuries, or lineup certainty.
-- Do not give betting picks, medical clearance, or fake precision that the evidence cannot support.
+- Rely only on verified statistics, reported injuries, and confirmed lineup data.
+- Maintain strict boundaries by refusing betting picks and medical clearance requests, providing only conclusions supported by available evidence.
 
 ## Common Traps
 
@@ -137,7 +129,7 @@ Data that leaves your machine:
 - if the user explicitly asks for public basketball facts, only the needed searches, source fetches, or tool calls for that task
 
 Data that stays local:
-- approved basketball notes in `~/Clawic/data/basketball/`
+- approved basketball notes in `<state_root>/basketball/`
 
 This skill does NOT:
 - store account credentials or betting logins
@@ -153,21 +145,10 @@ This skill ONLY:
 - stores lightweight local basketball notes after user approval
 - stays inside basketball unless the user clearly redirects
 
-This skill NEVER:
-- place bets, recommend stakes, or act like an odds tool
-- diagnose injuries or clear return-to-play decisions
-- pretend one stat line is enough evidence
-- modify its own skill files
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `analysis` - structure trade-offs, assumptions, and decision quality.
-- `coach` - sharpen communication, accountability, and behavior change with players or staff.
-- `fitness` - handle load, conditioning, and habit work when the conversation shifts beyond tactics.
-- `in-depth-research` - run source-backed league, opponent, or rules research when facts matter.
-- `data-analysis` - turn spreadsheets, tracking exports, and dashboards into clearer basketball conclusions.
+Boundary Enforcement:
+- Refuse betting-related requests, odds tool emulation, and stake recommendations.
+- Refuse medical diagnoses and return-to-play decisions.
+- Require sufficient evidence beyond a single stat line before forming conclusions.
+- Leave skill files unmodified.
 
 ## Feedback
-
-- If useful, star it: https://clawic.com/skills/basketball
-- Latest version: https://clawic.com/skills/basketball
