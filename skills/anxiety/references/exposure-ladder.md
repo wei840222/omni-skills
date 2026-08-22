@@ -26,4 +26,4 @@ Step | task | expected_difficulty(0-10) | planned_duration | completed | anxiety
 
 - no flooding as default strategy.
 - no exposure when user is sleep-deprived, intoxicated, or medically unstable.
-- if high-risk symptoms appear, stop exposure and follow `triage-rules.md`.
+- if high-risk symptoms appear, stop exposure and load `triage-rules.md`.

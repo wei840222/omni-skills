@@ -16,7 +16,7 @@ Run this review every 7 days to keep the plan adaptive.
 - improving trend (frequency or intensity down) -> keep plan and refine one variable.
 - flat trend for 2 weeks -> swap one coping strategy or adjust exposure step size.
 - worsening trend with functional impact -> shift to `recover` mode and tighten support cadence.
-- new severe symptoms -> run `triage-rules.md` immediately.
+- new severe symptoms -> load `triage-rules.md` immediately.
 
 ## Weekly Output Template
 

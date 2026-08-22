@@ -1,37 +1,34 @@
 ---
 name: anxiety
-slug: anxiety
-version: 1.0.0
-description: Track anxiety episodes, triggers, thoughts, and coping responses with therapy-ready logs, weekly trend reviews, and safety-first escalation cues.
-homepage: https://clawic.com/skills/anxiety
-changelog: Initial release with therapist-aligned anxiety tracking, trigger mapping, coping playbooks, and graded exposure planning support.
+description: Record anxiety episodes, build trigger maps, and plan coping strategies. Trigger when the user wants to log anxiety symptoms, conduct thought records, or create exposure ladders. Route diagnosis requests to appropriate medical care rather than treating this as a diagnostic skill.
 metadata:
-  clawdbot:
-    emoji: A
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Anxiety (Tracker, Trigger Map, Coping Planner)
+  version: "1.0.0"
+  openclaw: '{"emoji":"A"}'
+  related-skills: '{"therapist":"supportive therapeutic conversation framing","psychologist":"structured behavior and cognition guidance","mindfulness":"grounding and attention training practices","journal":"reflective writing and pattern capture","sleep":"sleep stability support for anxiety management"}'
 ---
 
 ## Setup
 
-On first use, read `setup.md` for integration guidance and local memory initialization.
+On first use, read `references/setup.md` for integration guidance and local memory initialization.
 
 ## When to Use
 
 User wants to track anxiety symptoms, panic episodes, worry spirals, avoidance patterns, or coping outcomes.
 Agent keeps logs clinically useful for therapy, supports anxiety reduction with structured plans, and escalates safety-sensitive situations immediately.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/anxiety/`. See `memory-template.md` for structure and starter templates.
+Resolve `<state_root>` before reading, creating, updating, or deleting anxiety records:
+
+1. Use an explicitly configured state path when the user or host provides one.
+2. Otherwise use the first existing directory in this order: `<workspace>/anxiety/`, `<workspace>/memory/anxiety/`, then `~/anxiety/`.
+3. If none exists and the user confirms they want persistent tracking, create `<workspace>/anxiety/` and use it as `<state_root>` for this invocation.
+4. If more than one candidate exists, use only the highest-precedence directory and tell the user that separate copies exist; do not merge or synchronize them automatically.
+
+Use the selected `<state_root>` for every anxiety record. See `references/memory-template.md` for the record structure and starter templates.
 
 ```text
-~/Clawic/data/anxiety/
+<state_root>/
 ├── memory.md                 # Status, mode, baseline, and active priorities
 ├── logs/events.md            # Episode-level anxiety event logs
 ├── logs/thought-records.md   # CBT-style thought records for reframing
@@ -43,61 +40,62 @@ Memory lives in `~/Clawic/data/anxiety/`. See `memory-template.md` for structure
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and templates | `memory-template.md` |
-| Goal modes and switching logic | `tracking-modes.md` |
-| Anxiety event logging format | `event-log-template.md` |
-| Thought record workflow | `thought-record.md` |
-| Coping responses by intensity | `regulation-playbook.md` |
-| Graded exposure planning | `exposure-ladder.md` |
-| Weekly review and decision rules | `weekly-review.md` |
-| Red and amber triage rules | `triage-rules.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Domain Knowledge | `references/domain-knowledge.md` | When seeking clinical guidelines on anxiety, CBT, or exposure therapy |
+| Setup and activation behavior | `references/setup.md` | When initializing the skill for the first time |
+| Memory structure and templates | `references/memory-template.md` | When setting up or modifying memory structure |
+| Goal modes and switching logic | `references/tracking-modes.md` | When determining tracking approach (track, reduce, recover) |
+| Anxiety event logging format | `references/event-log-template.md` | When capturing a new anxiety event |
+| Thought record workflow | `references/thought-record.md` | When user wants reframing or pattern analysis |
+| Coping responses by intensity | `references/regulation-playbook.md` | When selecting responses by anxiety intensity |
+| Graded exposure planning | `references/exposure-ladder.md` | When building an exposure ladder |
+| Weekly review and decision rules | `references/weekly-review.md` | When performing a weekly trend review |
+| Red and amber triage rules | `references/triage-rules.md` | When observing severe symptoms or red flags |
 
 ## Data Storage
 
-Local notes stay in `~/Clawic/data/anxiety/`.
+Local notes stay in `<state_root>`.
 Before creating or changing local files, present the planned write and ask for user confirmation.
 
 ## Core Rules
 
 ### 1. Set the Active Goal Mode Before Intervention
-Start with mode selection from `tracking-modes.md`:
+Start with mode selection from `references/tracking-modes.md`:
 - `track` for observation without behavior change pressure
 - `reduce` for gradual anxiety intensity and frequency reduction
 - `recover` for post-episode stabilization and relapse prevention
-Do not force reduction or exposure if the user only asked for tracking.
+Only initiate reduction or exposure planning if the user explicitly requests it; otherwise, default to observation mode.
 
 ### 2. Capture Episodes With Therapy-Relevant Fields
-Use `event-log-template.md` for each meaningful event.
+Use `references/event-log-template.md` for each meaningful event.
 At minimum capture time, context, trigger, body symptoms, anxiety intensity, behavior, and short outcome.
-Do not accept vague entries that cannot be reviewed later.
+Ensure all entries capture specific, reviewable details before saving.
 
 ### 3. Separate Event Logging From Cognitive Work
-Use `logs/events.md` for what happened and `logs/thought-records.md` for interpretation.
-Apply `thought-record.md` only when the user wants reframing or pattern analysis.
-Do not blend raw observations with conclusions in the same entry.
+Use `<state_root>/logs/events.md` for what happened and `<state_root>/logs/thought-records.md` for interpretation.
+Apply `references/thought-record.md` only when the user wants reframing or pattern analysis.
+Keep raw observations in `<state_root>/logs/events.md` and cognitive conclusions in `<state_root>/logs/thought-records.md` separately.
 
 ### 4. Track Avoidance and Safety Behaviors Explicitly
 Log what the user avoided and what they did to feel temporarily safe.
-Use these patterns to guide exposure planning from `exposure-ladder.md`.
+Use these patterns to guide exposure planning from `references/exposure-ladder.md`.
 If avoidance is shrinking life function, name it clearly and propose one small reversal step.
 
 ### 5. Match Regulation Strategy to Intensity Zone
-Use `regulation-playbook.md` to select responses by intensity:
+Use `references/regulation-playbook.md` to select responses by intensity:
 - low: prevent escalation and maintain function
 - medium: down-regulate physiology and narrow focus
 - high: safety-first grounding and immediate support routing
-Do not recommend a generic coping list without selecting a zone.
+Always select a specific intensity zone before recommending coping strategies.
 
 ### 6. Use Graded Exposures Only With Consent and Structure
-When the user wants long-term anxiety reduction, build a ladder using `exposure-ladder.md`.
+When the user wants long-term anxiety reduction, build a ladder using `references/exposure-ladder.md`.
 Use small, repeatable steps with before/after ratings and recovery windows.
-Never push flooding or high-intensity tasks as default.
+Always start with low-intensity, repeatable tasks when building an exposure ladder.
 
 ### 7. Escalate Risk Signals Immediately
-Use `triage-rules.md` whenever severe symptoms, self-harm thoughts, substance crisis, or medical red flags appear.
+Use `references/triage-rules.md` whenever severe symptoms, self-harm thoughts, substance crisis, or medical red flags appear.
 For emergency patterns, provide urgent care guidance first and pause routine coaching.
 This skill supports tracking and behavior change planning, not diagnosis or emergency treatment.
 
@@ -128,7 +126,7 @@ No other data is sent externally.
 
 **Data stored locally:**
 - anxiety logs, thought records, trigger patterns, exposure outcomes, and weekly reviews approved by the user.
-- stored in `~/Clawic/data/anxiety/`.
+- stored in `<state_root>`.
 
 **This skill does NOT:**
 - diagnose psychiatric or medical conditions.
@@ -141,16 +139,3 @@ No other data is sent externally.
 
 This is an instruction-only anxiety tracking and coping support skill.
 No credentials are required and no third-party service access is needed.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `therapist` - supportive therapeutic conversation framing.
-- `psychologist` - structured behavior and cognition guidance.
-- `mindfulness` - grounding and attention training practices.
-- `journal` - reflective writing and pattern capture.
-- `sleep` - sleep stability support for anxiety management.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/anxiety
-- Latest version: https://clawic.com/skills/anxiety

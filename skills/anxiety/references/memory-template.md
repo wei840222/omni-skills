@@ -1,6 +1,6 @@
 # Memory Template - Anxiety (Tracker, Trigger Map, Coping Planner)
 
-Create `~/Clawic/data/anxiety/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Anxiety Memory
@@ -59,7 +59,7 @@ professional_support_status:
 
 ## File Templates
 
-Create `~/Clawic/data/anxiety/logs/events.md`:
+Create `<state_root>/logs/events.md`:
 
 ```markdown
 # Anxiety Event Log
@@ -69,7 +69,7 @@ Create `~/Clawic/data/anxiety/logs/events.md`:
 - Event: HH:MM | context | trigger | body_signals | intensity_before_0_to_10 | behavior | intensity_after_0_to_10 | notes
 ```
 
-Create `~/Clawic/data/anxiety/logs/thought-records.md`:
+Create `<state_root>/logs/thought-records.md`:
 
 ```markdown
 # Thought Records
@@ -84,7 +84,7 @@ Create `~/Clawic/data/anxiety/logs/thought-records.md`:
 - Re-rated intensity:
 ```
 
-Create `~/Clawic/data/anxiety/plans/current.md`:
+Create `<state_root>/plans/current.md`:
 
 ```markdown
 # Current Anxiety Plan
@@ -108,7 +108,7 @@ Create `~/Clawic/data/anxiety/plans/current.md`:
 - Follow-up within 24h:
 ```
 
-Create `~/Clawic/data/anxiety/triggers.md`:
+Create `<state_root>/triggers.md`:
 
 ```markdown
 # Trigger Map
@@ -123,7 +123,7 @@ Create `~/Clawic/data/anxiety/triggers.md`:
 - Next adjustment:
 ```
 
-Create `~/Clawic/data/anxiety/exposures.md`:
+Create `<state_root>/exposures.md`:
 
 ```markdown
 # Exposure Ladder
@@ -136,7 +136,7 @@ Create `~/Clawic/data/anxiety/exposures.md`:
 - Step | difficulty_0_to_10 | duration | completed_yes_no | notes
 ```
 
-Create `~/Clawic/data/anxiety/reviews/weekly.md`:
+Create `<state_root>/reviews/weekly.md`:
 
 ```markdown
 # Weekly Anxiety Review
