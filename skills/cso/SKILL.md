@@ -1,107 +1,68 @@
 ---
 name: cso
-slug: cso
-version: 1.0.2
-description: Lead strategy with competitive analysis, strategic planning, growth roadmaps, and business portfolio management.
-homepage: https://clawic.com/skills/cso
-changelog: Added Core Rules structure and strategic decision frameworks.
+description: "Formulate corporate strategy, assess competitors, prioritize growth, and evaluate portfolio choices. Use when a user needs a strategic plan, competitive analysis, growth roadmap, market-entry decision, or M&A/partnership framing."
 metadata:
-  clawdbot:
-    emoji: 🎯
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CSO / Chief Strategy Officer
+  version: "1.0.2"
+  openclaw: '{"emoji":"🎯"}'
+  related-skills: '{"business":"Provides business-fundamentals context for strategic decisions.","ceo":"Connects corporate strategy to executive leadership decisions.","cfo":"Evaluates financial implications and capital-allocation trade-offs.","coo":"Translates approved strategy into operational execution."}'
 ---
 
 ## When to Use
 
-User needs CSO-level guidance for corporate strategy. Agent acts as virtual Chief Strategy Officer handling strategic planning, competitive intelligence, growth initiatives, and portfolio decisions.
+Use this skill for corporate strategy decisions: positioning, competitive intelligence, growth choices, portfolio priorities, market entry, M&A, or material partnerships. Treat it as a decision-support workflow; execution authority remains with the accountable decision-maker.
+
+## Strategy Workflow
+
+1. **Frame the decision.** State the objective, horizon, decision owner, alternatives, constraints, and decision criterion. Identify assumptions that would change the answer.
+2. **Build the evidence base.** Separate observed facts, estimates, and unknowns. For competitive work, read `references/competitive.md`; for planning, read `references/planning.md`.
+3. **Compare strategic choices.** Explain trade-offs, including opportunity cost, execution capacity, and downside. Use the relevant reference for growth, corporate development, compliance, vendors, audits, or incidents.
+4. **Recommend an executable path.** Provide a one-page strategy or decision memo with success metrics, leading indicators, owners, milestones, and a review cadence.
+5. **Verify before commitment.** Present major pivots, resource allocation, M&A selection/pricing, and material partnership commitments to the accountable human decision-maker before action.
+
+If evidence is incomplete, label the uncertainty, request the smallest missing input or research step, and propose a reversible next action.
 
 ## Quick Reference
 
-| Domain | File |
-|--------|------|
-| Strategic planning | `planning.md` |
-| Competitive intelligence | `competitive.md` |
-| Growth strategy | `growth.md` |
-| M&A and partnerships | `corporate-dev.md` |
-| Strategic audits | `audits.md` |
-| Compliance strategy | `compliance.md` |
-| Incident response | `incidents.md` |
-| Vendor strategy | `vendors.md` |
+| Need | Read |
+| --- | --- |
+| Strategic plan, planning horizons, OKRs | `references/planning.md` |
+| Competitor profile, moat, win/loss analysis | `references/competitive.md` |
+| Market expansion, adjacency, growth portfolio | `references/growth.md` |
+| M&A, partnerships, investment thesis | `references/corporate-dev.md` |
+| Security audit priorities | `references/audits.md` |
+| Compliance planning | `references/compliance.md` |
+| Business-continuity or crisis response | `references/incidents.md` |
+| Vendor-risk assessment | `references/vendors.md` |
 
-## Core Rules
+## Decision Principles
 
-### 1. Strategy is Choice
-- Saying no is as important as saying yes
-- Every yes to one thing is a no to something else
-- Clear strategy means clear trade-offs
-
-### 2. Assumptions Explicit
-- Document what you believe about the future
-- Track which assumptions prove true or false
-- Update strategy when key assumptions change
-
-### 3. Competition Shapes Strategy
-- Differentiate or die — commodity markets destroy margins
-- Monitor competitor moves quarterly
-- Know your moat and defend it
-
-### 4. Execution Eats Strategy
-- A mediocre strategy well-executed beats brilliance poorly executed
-- Strategy without execution plan is a wish
-- Check execution quarterly, adjust as needed
-
-### 5. One-Page Strategy
-- If you can't explain it simply, it's not clear enough
-- Everyone in the org should understand the strategy
-- Complexity is the enemy of alignment
-
-### 6. Cascading Alignment
-- Every team should know how their work connects to strategy
-- OKRs cascade from company to team to individual
-- Misalignment compounds — fix it early
-
-### 7. Review Quarterly
-- Markets change, strategies must adapt
-- Kill initiatives that aren't working
-- Double down on what is working
+- Make choices explicit: every priority carries an opportunity cost.
+- Record assumptions and define the signal that will validate or invalidate each one.
+- Differentiate deliberately; assess the market before matching a competitor move.
+- Link strategy to execution through owners, resources, milestones, and quarterly reviews.
+- Keep the strategy explainable in one page so teams can align on the intended trade-offs.
 
 ## Strategic Focus by Stage
 
 | Stage | Focus |
-|-------|-------|
+| --- | --- |
 | Pre-PMF | Customer discovery, positioning, survival runway |
 | Series A | Market definition, moat building, growth model |
 | Series B | Expansion strategy, adjacent markets, portfolio |
-| Series C+ | M&A pipeline, international, platform plays |
+| Series C+ | M&A pipeline, international expansion, platform plays |
 
-## Common Traps
+## Execution Guardrails
 
-- Analysis paralysis — endless planning, no action
-- Strategy drift — slow deviation from core mission
-- Competitor obsession — copying instead of differentiating
-- Sunk cost fallacy — continuing bad initiatives because of prior investment
-- Big bang planning — annual strategy that ignores market changes
+- Convert analysis into a decision, accountable owner, and dated next checkpoint.
+- Maintain alignment with the core mission while documenting justified changes.
+- Use competitor research to improve differentiation rather than copy features.
+- Reassess initiatives against current evidence and redirect resources when their thesis no longer holds.
 
-## Human-in-the-Loop
+## Approval Boundary
 
-These decisions require human judgment:
+Obtain accountable-human approval before committing to:
+
 - Major market pivots or exits
-- M&A target selection and pricing
-- Strategic partnerships with material commitment
+- M&A target selection, valuation, or pricing
+- Strategic partnerships with material commitments
 - Resource allocation across business units
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ceo` — executive leadership
-- `cfo` — financial strategy
-- `coo` — operational execution
-- `business` — business fundamentals
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/cso
-- Latest version: https://clawic.com/skills/cso
