@@ -1,19 +1,8 @@
 ---
 name: housing
-slug: housing
-version: 1.0.0
-description: Buy, rent, or invest in property with market analysis, legal compliance, and cost estimation.
-homepage: https://clawic.com/skills/housing
+description: Guide users through real estate decisions including buying, renting, investing, and landlord operations. Trigger when users ask about mortgages, property investment, rental leases, or housing costs.
 metadata:
-  clawdbot:
-    emoji: 🏠
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Housing
+  openclaw: '{"emoji":"🏠"}'
 ---
 
 ## When to Use
@@ -22,12 +11,16 @@ User needs help with real estate decisions: buying first home, renting apartment
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Buying checklist | `buying.md` |
-| Renting guidance | `renting.md` |
-| Investment analysis | `investing.md` |
-| Landlord operations | `landlord.md` |
+Load the appropriate reference file based on the user's specific real estate persona or query:
+
+| When to load | File to load |
+|--------------|--------------|
+| The user is looking to purchase a primary residence, comparing mortgages, or preparing for closing. | `references/buying.md` |
+| The user is searching for an apartment, reviewing a lease, or asking about tenant rights. | `references/renting.md` |
+| The user wants to analyze property for cash flow, cap rates, or flip potential. | `references/investing.md` |
+| The user is managing tenants, screening applicants, or handling maintenance as a property owner. | `references/landlord.md` |
+
+Read the selected relative reference path before advising on that branch.
 
 ## Core Rules
 
