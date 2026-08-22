@@ -12,7 +12,7 @@ Operating Expenses = Property tax + Insurance + Maintenance + Management + Vacan
 
 | Cap Rate | Market interpretation |
 |----------|----------------------|
-| <4% | Premium market, appreciation play |
+| <4% | Premium market, appreciation play (or negative leverage in high-rate environments) |
 | 4-6% | Balanced market |
 | 6-8% | Cash flow focused |
 | >8% | Higher risk or emerging market |
@@ -32,7 +32,7 @@ Monthly rent should be ≥1% of purchase price for positive cash flow.
 
 $200,000 property → should rent for ≥$2,000/month
 
-Not a hard rule — adjust for market, property type, financing.
+Not a hard rule — extremely difficult to find in many modern markets; adjust for market, property type, and interest rate environments.
 
 ## Due Diligence Checklist
 

@@ -102,7 +102,7 @@
 - Home office (if managing from home)
 
 ### Depreciation
-Residential rental property: 27.5 years straight-line.
+Residential rental property: 27.5 years straight-line (US IRS standard).
 Building value only (not land) — get proper allocation.
 
 ### Record Retention
