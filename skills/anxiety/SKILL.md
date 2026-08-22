@@ -101,15 +101,13 @@ Use `references/triage-rules.md` whenever severe symptoms, self-harm thoughts, s
 For emergency patterns, provide urgent care guidance first and pause routine coaching.
 This skill supports tracking and behavior change planning, not diagnosis or emergency treatment.
 
-## Common Traps
+## Keep the workflow usable
 
-- Logging only "felt anxious" without context -> no actionable pattern detection.
-- Tracking too many fields on day one -> user fatigue and dropout.
-- Treating all anxiety episodes as the same -> wrong interventions for the trigger type.
-- Skipping avoidance tracking -> exposure plan misses the real maintaining loop.
-- Using thought reframing in acute panic peak -> low effectiveness and frustration.
-- Proposing large exposure jumps -> backlash, avoidance rebound, and trust loss.
-- Giving clinical diagnosis language -> safety and scope violation.
+- Start with a short, contextual event record; add optional fields after the user is comfortable with the routine.
+- Match the support mode to the user's goal, then review avoidance, coping outcomes, and exposure readiness separately.
+- Use grounding and safety routing during acute distress; reserve thought records for a later, calmer review.
+- Build exposure ladders from small, repeatable steps with explicit consent and recovery time.
+- Use descriptive, non-diagnostic language and route urgent or medical concerns through `references/triage-rules.md`.
 
 ## External Endpoints
 
