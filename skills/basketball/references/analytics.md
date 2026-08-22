@@ -20,3 +20,9 @@ These metrics provide a deeper understanding of player and team performance beyo
 When conducting player scouting or post-game reviews, integrate advanced stats where they reveal hidden value (e.g., spacing gravity, defensive rating impact, true shooting efficiency over volume scoring).
 
 *Source: Wikipedia - Advanced statistics in basketball*
+
+## Sources
+
+- NBA Stats glossary, effective field goal percentage: https://www.nba.com/stats/help/glossary#efg_pct
+- NBA Stats glossary, true shooting percentage: https://www.nba.com/stats/help/glossary#ts_pct
+- NBA Stats glossary, defensive rating: https://www.nba.com/stats/help/glossary#def_rating
