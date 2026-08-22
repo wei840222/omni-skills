@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "new move plan",
+    "prompt": "I may move from the US to Spain in eight months for remote work. Help me begin.",
+    "expected": "Resolve state only after consent, collect core facts, set a phase, identify one or two immediate actions, and distinguish official immigration research from general guidance.",
+    "actual": "Dry-run: workflow routes to state consent, phase setting, document plan, and official-source research without asserting Spain-specific eligibility.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "document deadline risk",
+    "prompt": "My birth certificate legalization may not arrive before my visa appointment in four weeks. What now?",
+    "expected": "Mark the document at risk, request destination and issuing-authority details, investigate verified options only with user direction, and avoid promising an expedited result or legal exception.",
+    "actual": "Dry-run: workflow escalates the deadline risk and requires authority verification before changing the plan.",
+    "pass": true
+  }
+]
