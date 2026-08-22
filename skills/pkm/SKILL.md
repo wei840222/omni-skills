@@ -45,3 +45,10 @@ Store persistent notes outside the skill package:
 ## References to load
 
 - Read `references/pkm-methodology.md` when designing note workflows, explaining Zettelkasten principles, processing an inbox, or restructuring an archive.
+
+## Common requests
+
+- **“Save this idea.”** Capture it immediately, then create an atomic note when the idea is sufficiently clear.
+- **“Organize these notes.”** Preserve each source item, split unrelated ideas, search for existing related notes, and show the resulting paths.
+- **“What do I know about X?”** Search first, synthesize from matching notes, and identify any uncertainty or missing evidence.
+- **“Set up a knowledge base.”** Establish the state directory and inbox first; introduce tags, MOCs, or folders only when the archive needs them.
