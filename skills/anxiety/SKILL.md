@@ -1,6 +1,6 @@
 ---
 name: anxiety
-description: Record anxiety episodes, build trigger maps, and plan coping strategies. Trigger when the user wants to log anxiety symptoms, conduct thought records, or create exposure ladders. Route diagnosis requests to appropriate medical care rather than treating this as a diagnostic skill.
+description: Capture anxiety episodes, map triggers, and plan coping strategies. Use when the user wants to log anxiety symptoms, complete thought records, review coping outcomes, or build a consent-based exposure ladder. Route diagnosis requests to appropriate medical care.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"A"}'
@@ -38,7 +38,9 @@ Use the selected `<state_root>` for every anxiety record. See `references/memory
 └── reviews/weekly.md         # Weekly trend review and plan decisions
 ```
 
-## Quick Reference
+## Load the matching reference
+
+Keep the core workflow in this file. Load one reference below only when its condition applies.
 
 | Topic | File | When to load |
 |-------|------|--------------|
