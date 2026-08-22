@@ -19,7 +19,6 @@ These metrics provide a deeper understanding of player and team performance beyo
 ## Use Cases in Scouting and Review
 When conducting player scouting or post-game reviews, integrate advanced stats where they reveal hidden value (e.g., spacing gravity, defensive rating impact, true shooting efficiency over volume scoring).
 
-*Source: Wikipedia - Advanced statistics in basketball*
 
 ## Sources
 

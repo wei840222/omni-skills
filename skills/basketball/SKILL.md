@@ -22,7 +22,7 @@ Memory and state files are located at `<state_root>/basketball/`.
 
 ## Architecture
 
-Memory lives in `<state_root>/basketball/`. If `<state_root>/basketball/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/basketball/`. If `<state_root>/basketball/` does not exist, read `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text
 <state_root>/basketball/
