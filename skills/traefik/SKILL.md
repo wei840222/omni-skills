@@ -1,68 +1,48 @@
 ---
 name: traefik
-slug: traefik
-version: 1.0.0
-description: Avoid common Traefik mistakes — router priority, TLS configuration, Docker labels syntax, and middleware ordering.
-homepage: https://clawic.com/skills/traefik
+description: Configure and troubleshoot Traefik HTTP routing, TLS certificates, Docker labels, entrypoints, middlewares, services, and file-provider rules. Use when creating a Traefik-enabled Docker Compose deployment or diagnosing routes, redirects, certificates, dashboard exposure, or upstream-port errors.
 metadata:
-  clawdbot:
-    emoji: 🔀
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Traefik
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔀"}'
 ---
 
-## Router Basics
-- Router must have `rule` AND `service` — missing either = not working
-- Rule priority: longer rules win by default — explicit `priority` to override
-- `Host()` is case-insensitive — `Host(\`example.com\`)` matches Example.com
-- Multiple hosts: `Host(\`a.com\`) || Host(\`b.com\`)` — OR logic
+# Traefik Configuration
 
-## Docker Labels Syntax
-- Labels on container, not compose service level — `deploy.labels` for Swarm
-- Backticks for rules in Docker Compose — `Host(\`example.com\`)` with escaping
-- Enable per-container: `traefik.enable=true` — if `exposedByDefault=false`
-- Service name auto-generated from container — or set explicitly with `traefik.http.services.myservice.loadbalancer.server.port=80`
+## Configure a route
 
-## TLS and Certificates
-- EntryPoint `websecure` needs TLS config — otherwise plain HTTP on 443
-- Let's Encrypt: `certificatesResolvers.myresolver.acme.email` required — registration fails without
-- HTTP challenge needs port 80 open — DNS challenge for wildcard or closed 80
-- `tls=true` on router activates TLS — `tls.certresolver=myresolver` for auto-cert
-- Staging ACME for testing — `caServer` to staging URL, avoids rate limits
+1. Define the router rule and its target service; a router needs both.
+2. Bind the router to explicit entrypoints such as `web` and `websecure`.
+3. Set the service's `loadbalancer.server.port` whenever the container exposes more than one port.
+4. Apply TLS deliberately: enable `tls=true`, select a `certresolver` when automatic certificates are needed, and test ACME against staging before production.
+5. Verify the router, service, middleware chain, and certificate in the dashboard or debug logs before treating the route as ready.
 
-## EntryPoints
-- Define in static config — `--entrypoints.web.address=:80`
-- Redirect HTTP to HTTPS at entrypoint level — cleaner than per-router middleware
-- Router binds to entrypoint with `entryPoints=web,websecure` — comma-separated list
+## Router and Docker labels
 
-## Middlewares
-- Chain order matters — first middleware wraps all following
-- Middleware defined once, used by many routers — `middlewares=auth,compress`
-- Common: `stripPrefix`, `redirectScheme`, `basicAuth`, `rateLimit`
-- BasicAuth: use `htpasswd` format — escape `$` in Docker Compose with `$$`
+- Router priority defaults to rule length; set an explicit `priority` when overlapping rules need a deterministic winner.
+- `Host()` matching is case-insensitive. Combine hosts with `Host(\`a.example\`) || Host(\`b.example\`)`.
+- Put Docker labels on the container service. In Docker Swarm, use `deploy.labels`.
+- Use backticks in `Host()` rules within Compose labels, and set `traefik.enable=true` when `exposedByDefault=false`.
+- Set `traefik.docker.network` if a container has multiple networks so Traefik selects the intended one.
 
-## Service Configuration
-- `loadbalancer.server.port` when container exposes multiple — Traefik can't guess
-- Health check: `healthcheck.path=/health` — removes unhealthy from rotation
-- Sticky sessions: `loadbalancer.sticky.cookie.name=srv_id` — for stateful apps
+## TLS and entrypoints
 
-## Common Mistakes
-- Router without entryPoint — defaults may not be what you expect
-- Forgetting `traefik.docker.network` with multiple networks — Traefik picks wrong one
-- ACME storage not persisted — certificates regenerated, hits rate limit
-- Dashboard exposed without auth — `api.insecure=true` is dangerous in production
-- PathPrefix without StripPrefix — backend receives full path, may 404
-- Services on different ports — each needs explicit port label
+- Define entrypoints in static configuration, for example `--entrypoints.web.address=:80` and `--entrypoints.websecure.address=:443`.
+- Redirect HTTP to HTTPS at the entrypoint layer when every route should be secure.
+- `websecure` requires a TLS-enabled router. Configure `certificatesResolvers.<name>.acme.email` for ACME registration.
+- Keep port 80 reachable for an HTTP challenge; use a DNS challenge for wildcard certificates or environments where port 80 is unavailable.
+- Persist ACME storage to retain certificates and avoid rate-limit pressure.
 
-## File Provider
-- `watch=true` for hot reload — otherwise restart Traefik on changes
-- Can coexist with Docker provider — useful for external services
-- Define routers, services, middlewares in YAML — same concepts as labels
+## Middlewares and services
 
-## Debugging
-- `--log.level=DEBUG` for troubleshooting — verbose but helpful
-- Dashboard shows routers, services, middlewares — verify configuration
-- `--api.insecure=true` for local dev only — secure with auth in production
+- Middleware order is significant: the first middleware wraps those that follow. Reuse named chains across routers where the behavior is shared.
+- Common middlewares include `stripPrefix`, `redirectScheme`, `basicAuth`, `rateLimit`, and `compress`.
+- BasicAuth labels use `htpasswd` values; write `$` as `$$` in `docker-compose.yml`.
+- Use `stripPrefix` with `PathPrefix` when the upstream expects a path without the public prefix.
+- Configure service health checks to remove unhealthy upstreams, and sticky cookies only for stateful workloads.
+
+## File provider and troubleshooting
+
+- Enable `watch=true` in the file provider for hot reload. Docker and file providers can operate together.
+- Raise the log level with `--log.level=DEBUG` to trace router matching and provider configuration.
+- Review dashboard exposure as a protected administrative endpoint; `api.insecure=true` is suitable only for isolated local development.
+- When a request fails, verify in order: router rule and entrypoint, TLS/ACME prerequisites, selected Docker network, middleware order, then the upstream port and health check.
