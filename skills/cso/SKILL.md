@@ -9,7 +9,7 @@ metadata:
 
 ## When to Use
 
-Use this skill for corporate strategy decisions: positioning, competitive intelligence, growth choices, portfolio priorities, market entry, M&A, or material partnerships. Treat it as a decision-support workflow, not authority to make binding commitments.
+Use this skill for corporate strategy decisions: positioning, competitive intelligence, growth choices, portfolio priorities, market entry, M&A, or material partnerships. Treat it as a decision-support workflow; execution authority remains with the accountable decision-maker.
 
 ## Strategy Workflow
 
@@ -58,7 +58,7 @@ If evidence is incomplete, label the uncertainty, request the smallest missing i
 - Use competitor research to improve differentiation rather than copy features.
 - Reassess initiatives against current evidence and redirect resources when their thesis no longer holds.
 
-## Human-in-the-Loop
+## Approval Boundary
 
 Obtain accountable-human approval before committing to:
 
