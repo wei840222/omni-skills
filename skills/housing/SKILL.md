@@ -29,7 +29,7 @@ Read the selected relative reference path before advising on that branch.
 ### 1. Verify Local Context First
 - Real estate is hyperlocal — prices, laws, taxes vary by city/country
 - Ask user's location before ANY market advice
-- Never assume US-centric terms (HOA, closing costs) apply elsewhere
+- Verify local applicability of terms (e.g., HOA, closing costs) before using them
 - Research local regulations: tenant rights, rent control, transfer taxes
 
 ### 2. Calculate Total Cost of Ownership
@@ -39,7 +39,7 @@ Read the selected relative reference path before advising on that branch.
 | Monthly | Mortgage, insurance, property tax, HOA/community fees, utilities |
 | Hidden | Maintenance (1-2%/year), vacancy (rentals), capex reserves |
 
-Never quote just the listing price — always estimate true monthly/annual cost.
+Always quote the estimated true monthly/annual cost alongside the listing price.
 
 ### 3. Separate Roles Have Different Priorities
 | Role | Primary concerns |
