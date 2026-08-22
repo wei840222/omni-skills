@@ -33,7 +33,7 @@
 3. **Purpose limitation** — use data only for stated purposes
 4. **Storage limitation** — delete when no longer needed
 5. **Data subject rights** — access, rectification, erasure, portability
-6. **Breach notification** — 72 hours to supervisory authority
+6. **Breach notification** — for a personal-data breach, notify the supervisory authority without undue delay and, where feasible, within 72 hours; document a reason for any delay.
 
 ### Required Documentation
 - Privacy policy (public)

@@ -84,7 +84,7 @@
 
 **Immediate Actions**:
 1. Isolate affected systems (network disconnect)
-2. Do NOT pay ransom (yet)
+2. Preserve evidence, assess backup integrity, and obtain legal and incident-response guidance before any decision about a ransom demand
 3. Identify patient zero
 4. Assess backup integrity
 5. Engage incident response firm if needed
@@ -122,9 +122,9 @@
 5. Prepare notification materials
 
 **Legal/Regulatory**:
-- GDPR: 72 hours to notify supervisory authority
-- HIPAA: 60 days to notify affected individuals
-- State laws vary (check breach notification requirements)
+- GDPR: notify the supervisory authority without undue delay and, where feasible, within 72 hours; document any delay
+- HIPAA: notify affected individuals without unreasonable delay and no later than 60 days after discovery, subject to applicable exceptions
+- State and sector-specific laws vary; obtain qualified legal advice before filing notifications
 
 **Follow-up**:
 - Offer credit monitoring if PII involved
