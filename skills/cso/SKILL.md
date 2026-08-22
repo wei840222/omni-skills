@@ -19,7 +19,7 @@ Use this skill for corporate strategy decisions: positioning, competitive intell
 4. **Recommend an executable path.** Provide a one-page strategy or decision memo with success metrics, leading indicators, owners, milestones, and a review cadence.
 5. **Verify before commitment.** Present major pivots, resource allocation, M&A selection/pricing, and material partnership commitments to the accountable human decision-maker before action.
 
-If evidence is incomplete, label the uncertainty, request the smallest missing input or research step, and provide a reversible next action rather than fabricating precision.
+If evidence is incomplete, label the uncertainty, request the smallest missing input or research step, and propose a reversible next action.
 
 ## Quick Reference
 
