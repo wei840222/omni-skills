@@ -35,7 +35,7 @@ Store persistent notes outside the skill package:
 - Use wiki-style links when the host supports them, otherwise use relative Markdown links.
 - Keep a flat structure while the archive is small. Add a consistent tagging system around 20 notes, an index or Map of Content (MOC) around 50, and domain folders only after recurring navigation patterns emerge.
 
-## Safety and recovery
+## Safe operation and recovery
 
 - Preserve the original text in `inbox.md` when classification, fetching, or summarization is uncertain; mark the item for follow-up instead of discarding it.
 - Treat a reminder as captured context, not as a scheduled task. Ask before creating reminders or changing external calendars.
