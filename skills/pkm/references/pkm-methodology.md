@@ -23,3 +23,8 @@ A Zettelkasten-style personal knowledge base is a web of connected thoughts, not
 ## Practical checks
 
 Before adding a note, check whether the archive already contains the concept. Before adding folders or a complex taxonomy, verify that the current archive is hard to navigate. Before syncing or sharing, confirm the user wants the selected notes to leave their local workspace.
+
+## Sources
+
+- Zettelkasten Method, “Introduction to the Zettelkasten Method”: https://zettelkasten.de/introduction/
+- Zettelkasten Method, “Getting Started”: https://zettelkasten.de/overview/
