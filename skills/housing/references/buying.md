@@ -36,7 +36,7 @@
 |------|----------|-----------|
 | Fixed-rate | Stability seekers, long-term hold | Higher initial rate |
 | ARM (adjustable) | Short-term owners, rate-drop bettors | Payment shock risk |
-| FHA (US) | Low down payment, lower credit | Mortgage insurance required |
+| FHA (US) | Low down payment (3.5%), lower credit (580+) | Upfront and annual Mortgage Insurance Premium (MIP) required |
 | VA (US) | Veterans | Funding fee, property restrictions |
 | Interest-only | Investors, high earners | Principal never decreases |
 
@@ -56,7 +56,7 @@ Beyond price:
 |-------|----------|--------|
 | Foundation cracks | High | Structural engineer required |
 | Active water damage | High | Renegotiate or walk |
-| Roof age >20 years | Medium | Budget $10-30k replacement |
+| Roof age >20 years | Medium-High | Budget $10-30k+ replacement; may affect insurance eligibility |
 | Knob-and-tube wiring | Medium | Insurance may decline, rewire cost |
 | Unpermitted additions | Medium | May affect resale, insurance |
 | Mold presence | Variable | Remediation quote before proceeding |

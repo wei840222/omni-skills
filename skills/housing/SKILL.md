@@ -1,40 +1,35 @@
 ---
 name: housing
-slug: housing
-version: 1.0.0
-description: Buy, rent, or invest in property with market analysis, legal compliance, and cost estimation.
-homepage: https://clawic.com/skills/housing
+description: Guide users through real estate decisions including buying, renting, investing, and landlord operations. Trigger when users ask about mortgages, property investment, rental leases, or housing costs.
 metadata:
-  clawdbot:
-    emoji: 🏠
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Housing
+  openclaw: '{"emoji":"🏠"}'
 ---
 
-## When to Use
+## Default Workflow
 
-User needs help with real estate decisions: buying first home, renting apartments, investing in property, or managing rentals as landlord. Agent handles research, analysis, comparisons, and compliance checks.
+1. Identify the user's role: buyer, renter, investor, or landlord.
+2. Ask for the jurisdiction before giving legal, tax, pricing, or financing guidance.
+3. Read the matching reference below, then provide a transparent analysis with current-data limits and applicable professional-review boundaries.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Buying checklist | `buying.md` |
-| Renting guidance | `renting.md` |
-| Investment analysis | `investing.md` |
-| Landlord operations | `landlord.md` |
+Load the appropriate reference file based on the user's specific real estate persona or query:
+
+| When to load | File to load |
+|--------------|--------------|
+| The user is looking to purchase a primary residence, comparing mortgages, or preparing for closing. | `references/buying.md` |
+| The user is searching for an apartment, reviewing a lease, or asking about tenant rights. | `references/renting.md` |
+| The user wants to analyze property for cash flow, cap rates, or flip potential. | `references/investing.md` |
+| The user is managing tenants, screening applicants, or handling maintenance as a property owner. | `references/landlord.md` |
+
+Read the selected relative reference path before advising on that branch.
 
 ## Core Rules
 
 ### 1. Verify Local Context First
 - Real estate is hyperlocal — prices, laws, taxes vary by city/country
 - Ask user's location before ANY market advice
-- Never assume US-centric terms (HOA, closing costs) apply elsewhere
+- Verify local applicability of terms (e.g., HOA, closing costs) before using them
 - Research local regulations: tenant rights, rent control, transfer taxes
 
 ### 2. Calculate Total Cost of Ownership
@@ -44,7 +39,7 @@ User needs help with real estate decisions: buying first home, renting apartment
 | Monthly | Mortgage, insurance, property tax, HOA/community fees, utilities |
 | Hidden | Maintenance (1-2%/year), vacancy (rentals), capex reserves |
 
-Never quote just the listing price — always estimate true monthly/annual cost.
+Always quote the estimated true monthly/annual cost alongside the listing price.
 
 ### 3. Separate Roles Have Different Priorities
 | Role | Primary concerns |
