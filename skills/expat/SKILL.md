@@ -45,6 +45,8 @@ Create files only when needed; do not pre-create every directory or archive comp
 
 ## Document and deadline rules
 
+Read `references/visa-knowledge.md` only when legalization or visa-category context is needed; use `references/countries.md` for destination comparisons.
+
 - Track originals and certified copies separately. Keep sensitive identifiers out of notes; use a masked reference such as `passport ending 1234`.
 - Treat passport validity, translation, apostille/legalization, police certificates, medical certificates, and visa forms as destination-specific requirements. Confirm them on the destination authority's site before relying on them.
 - If a required document will miss its deadline, label it **at risk**, identify the responsible authority, ask whether the user wants an expedited or alternative route investigated, and update the timeline only after verification.
