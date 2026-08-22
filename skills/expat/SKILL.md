@@ -1,202 +1,82 @@
 ---
 name: expat
-slug: expat
-version: 1.0.0
-description: Plan and track international moves with visa timelines, document checklists, and country-specific guides.
-homepage: https://clawic.com/skills/expat
+description: "Help plan and track an international move: compare destinations, organize visa and document deadlines, prepare departure and arrival tasks, and maintain a relocation checklist. Use when a user is researching, planning, or carrying out a cross-border move."
 metadata:
-  clawdbot:
-    emoji: 🌍
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Expat Companion
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌍"}'
+  related-skills: '{"travel":"Plan travel and packing for a move.","money":"Track a relocation budget and financial tasks.","projects":"Coordinate a complex multi-stage relocation plan."}'
 ---
 
 # Expat Companion 🌍
 
-Your relocation co-pilot. From first research to fully settled.
+## State location
 
-## Setup
+Expat state may exist in `<workspace>/expat/`, `<workspace>/memory/expat/`, or `~/expat/`. Before any state operation, resolve `<state_root>` once for this invocation:
 
-On first use, read `setup.md` for onboarding guidelines. Start the conversation naturally — focus on understanding their situation rather than explaining the skill's file structure.
+1. Use a user- or host-configured state path when provided.
+2. Otherwise use the first existing directory in this order: `<workspace>/expat/`, `<workspace>/memory/expat/`, then `~/expat/`.
+3. If more than one candidate exists, use only the highest-precedence directory and tell the user that separate copies exist.
+4. If none exists and the user asks to save relocation state, create `<workspace>/expat/` by default. If `<workspace>` is unavailable, ask for a state path rather than guessing from the current directory.
 
-## When to Use
+Keep the selected `<state_root>` for every state path in this invocation. Read `references/setup.md` when beginning a new relocation, and `references/memory-template.md` when creating or updating state.
 
-User is planning or executing an international move. Agent tracks documents, deadlines, and country-specific requirements across multiple phases.
+## Use this workflow
 
-## Architecture
+1. **Establish the move.** Ask for origin, destination candidates, target move date, citizenship or residency constraints, household, and the user's top concern. Record only information the user wants saved.
+2. **Set the phase.** Classify the work as Research (6–12 months), Planning (3–6 months), Pre-Move (1–3 months), Moving (move week), or Settling (first 1–3 months). Give the next one or two actions for that phase before expanding the checklist.
+3. **Build a dated document plan.** Record each required document, owner, expiry, original/copy location, legalization status, official source, and deadline. Work backward from the target move date with buffers; do not present generic processing times as destination-specific facts.
+4. **Research the destination from official sources.** Read `references/countries.md` for the research checklist. Separate confirmed official requirements from community experience, retain source URLs and access dates, and flag conflicts for verification.
+5. **Cover both sides of the move.** Include exit tasks in the origin country and arrival, registration, banking, housing, healthcare, and tax follow-up in the destination.
+6. **Verify before irreversible action.** Before submitting a visa application, sending an original document, shipping household goods, ending insurance, or changing tax residency, confirm the current official requirement and ask the user to confirm the action.
 
-Memory lives in `~/Clawic/data/expat/`. See `memory-template.md` for structure.
+## State layout
 
-```
-~/Clawic/data/expat/
-├── memory.md           # Status, timeline, key dates
-├── documents.md        # Document tracking & checklist
-├── countries/          # Country-specific notes
-│   └── {country}.md    # Research per destination
-└── archive/            # Completed moves
-```
+Use only the selected `<state_root>`:
 
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Country research | `countries.md` |
-
-## Core Rules
-
-### 1. Phase-Aware Guidance
-
-Every relocation has phases. Always know which phase they're in:
-
-| Phase | Focus | Timeline |
-|-------|-------|----------|
-| **Research** | Compare destinations, visa options | 6-12 months before |
-| **Planning** | Lock destination, start visa process | 3-6 months |
-| **Pre-Move** | Documents, logistics, housing | 1-3 months |
-| **Moving** | Travel, arrival tasks | Move week |
-| **Settling** | Local registration, banking, health | 1-3 months after |
-
-Adapt advice to their current phase. Don't overwhelm with settling tasks when they're still researching.
-
-### 2. Document Tracking Is Sacred
-
-Lost documents = delays, stress, money. Track religiously:
-
-```markdown
-## Document Status
-| Document | Status | Expiry | Location | Notes |
-|----------|--------|--------|----------|-------|
-| Passport | ✅ Valid | 2028-03 | Home safe | Renewed 2023 |
-| Birth cert | ✅ Apostilled | N/A | With lawyer | Original + copy |
-| Visa | 🔄 In progress | - | Embassy | Applied 2024-01-15 |
+```text
+<state_root>/
+├── memory.md              # Move phase, timeline, sources, decisions
+├── documents.md           # Document checklist and provenance
+├── countries/{country}.md # Destination research
+└── archive/               # Closed move records, only on user request
 ```
 
-Always ask: "Where is the original? Do you have a certified copy?"
+Create files only when needed; do not pre-create every directory or archive completed records without the user's direction.
 
-### 3. Deadlines Drive Everything
+## Document and deadline rules
 
-Visa processing times vary wildly. Build buffers:
+Read `references/visa-knowledge.md` only when legalization or visa-category context is needed; use `references/countries.md` for destination comparisons.
 
-- **Passport renewal:** 6-8 weeks (expedited: 2-3)
-- **Apostilles:** 2-4 weeks per document
-- **Visa applications:** 2-12 weeks depending on country
-- **Background checks:** 2-6 weeks
-- **Shipping belongings:** 4-12 weeks by sea
+- Track originals and certified copies separately. Keep sensitive identifiers out of notes; use a masked reference such as `passport ending 1234`.
+- Treat passport validity, translation, apostille/legalization, police certificates, medical certificates, and visa forms as destination-specific requirements. Confirm them on the destination authority's site before relying on them.
+- If a required document will miss its deadline, label it **at risk**, identify the responsible authority, ask whether the user wants an expedited or alternative route investigated, and update the timeline only after verification.
+- If two sources disagree, prefer the destination government's current published requirement; keep the conflicting source and its date in the notes.
 
-When user shares a target move date, work backwards to create a realistic timeline.
+## Destination research
 
-### 4. Country-Specific Research
+For every serious destination, capture: visa category and renewal conditions; tax-residency and treaty questions; bank-account prerequisites; healthcare and insurance; housing deposits and proof-of-address requirements; registration deadlines; driving-license rules; and family, school, or pet requirements where relevant. Read `references/visa-knowledge.md` when discussing legalization or visa categories.
 
-Every destination has quirks. Before diving into logistics:
+## Departure and arrival checks
 
-1. **Visa requirements** — What category? Duration? Renewability?
-2. **Tax implications** — Tax treaties? Exit tax from origin? New tax obligations?
-3. **Banking** — Can they open accounts before arriving? Which banks accept expats?
-4. **Healthcare** — Required insurance? Public system access timeline?
-5. **Housing** — Can they rent without local history? Typical deposits?
-6. **Legal status** — Registration deadlines? Proof of address requirements?
+**Departure:** tax-residency notice, address forwarding, subscriptions, bank and pension decisions, phone plan, insurance end date, and document copies.
 
-Save findings to `~/Clawic/data/expat/countries/{country}.md`.
+**Arrival:** accommodation evidence, local registration, immigration reporting, banking, healthcare coverage, tax registration, and deadline reminders. Confirm country-specific deadlines before adding them to the plan.
 
-### 5. Don't Forget the Origin Country
+## Safe recovery patterns
 
-Moving OUT requires tasks too:
+- When a deadline is uncertain, keep it as a question with its source and access date; verify it before committing the user to a date.
+- When an original document is at risk, preserve a certified-copy plan and obtain the recipient authority’s current delivery instructions before sending it.
+- When an eligibility question depends on personal facts, collect the missing facts and route the user to the official authority rather than inferring an answer.
 
-- [ ] Tax residency end date notification
-- [ ] Address forwarding / mail redirection
-- [ ] Cancel or transfer subscriptions
-- [ ] Bank accounts — keep one? Close? Inform of new address?
-- [ ] Pension/retirement — portability?
-- [ ] Driver's license validity abroad
-- [ ] Phone number — port? Keep? International plan?
-- [ ] Healthcare coverage end date
+## Privacy and safety
 
-### 6. Proactive Reminders
+Keep personal documents and notes within `<state_root>/`. Never store full passport, national-ID, bank, or visa numbers in plain-text state. Do not upload, email, submit, ship, cancel, or share any document or account information without the user's explicit authorization.
 
-Based on their timeline, remind about:
+## On-demand references
 
-- Document expirations approaching
-- Visa application windows opening
-- Deadlines for housing search (lease timing)
-- Registration requirements after arrival
-- Tax filing obligations in both countries
-
-### 7. Connect the Scattered Information
-
-Expats research across dozens of sources: forums, embassy sites, Facebook groups, Reddit. Help them:
-
-- Consolidate findings in one place
-- Flag conflicting information
-- Note sources with dates (rules change!)
-- Distinguish official requirements from advice
-
-## Common Traps
-
-| Trap | Consequence | Prevention |
-|------|-------------|------------|
-| Passport expires during visa processing | Application rejected | Check 6-month validity rule |
-| Original documents sent without copies | Lost forever | Always keep certified copies |
-| Assuming tax residency ends on move date | Double taxation | Research tax treaty specifics |
-| Shipping belongings before visa approved | Stuck in customs | Wait for visa confirmation |
-| Opening foreign bank account too late | Can't pay rent/deposit | Research remote account opening |
-| Missing registration deadline | Fines, visa issues | Calendar the deadline immediately |
-| Not informing home bank of move | Card blocked abroad | Notify before traveling |
-| Assuming driver's license works | Can't rent car | Check validity period + IDP |
-
-## Visa Category Quick Guide
-
-Common visa categories (research specifics for destination):
-
-| Category | Typical For | Duration | Path to Residency |
-|----------|-------------|----------|-------------------|
-| **Work visa** | Employed by local company | 1-5 years | Often yes |
-| **Freelancer/Self-employed** | Remote workers, entrepreneurs | 1-2 years | Varies |
-| **Digital nomad** | Remote employees | 6-24 months | Usually no |
-| **Student** | Education | Duration of study | Limited |
-| **Family reunion** | Spouse/children of resident | Tied to sponsor | Yes |
-| **Investment** | High net worth | 2-5 years | Often yes |
-| **Retirement** | Retirees with income | 1-5 years | Varies |
-
-Always verify current requirements — immigration rules change frequently.
-
-## Moving Day Essentials
-
-Must have IN HAND (not in luggage):
-
-- [ ] Passport + visa
-- [ ] Flight/travel documents
-- [ ] Cash in destination currency
-- [ ] Phone with eSIM/international plan
-- [ ] Copies of ALL important documents (digital + paper)
-- [ ] First week accommodation confirmation
-- [ ] Emergency contacts in destination
-- [ ] Prescription medications + doctor letter
-
-## Security & Privacy
-
-**Data that stays local:**
-- All personal documents and notes in ~/Clawic/data/expat/
-- No external services or APIs used
-
-**This skill does NOT:**
-- Store passport numbers or sensitive data in plain text
-- Access files outside ~/Clawic/data/expat/
-- Share any information externally
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — trip planning and packing
-- `money` — budgeting and finance tracking
-- `projects` — complex project management
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/expat
-- Latest version: https://clawic.com/skills/expat
+| Read | When |
+|---|---|
+| `references/setup.md` | Starting a move or initializing state |
+| `references/memory-template.md` | Creating or updating `memory.md` or `documents.md` |
+| `references/countries.md` | Comparing or researching a destination |
+| `references/visa-knowledge.md` | Explaining document legalization or common visa categories |
