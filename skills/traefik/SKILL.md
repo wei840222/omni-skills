@@ -40,6 +40,10 @@ metadata:
 - Use `stripPrefix` with `PathPrefix` when the upstream expects a path without the public prefix.
 - Configure service health checks to remove unhealthy upstreams, and sticky cookies only for stateful workloads.
 
+## Detailed configuration
+
+Read `references/configuration.md` when you need a Compose-label example, ACME setup details, file-provider configuration, or a diagnosis sequence.
+
 ## File provider and troubleshooting
 
 - Enable `watch=true` in the file provider for hot reload. Docker and file providers can operate together.
