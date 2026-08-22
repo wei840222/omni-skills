@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Happy path — strategic plan",
+    "prompt": "Draft a one-page strategy for a Series A B2B SaaS company entering a crowded accounting-automation market.",
+    "expected": "A decision-oriented plan that defines the market choice, differentiation, assumptions, milestones, leading indicators, and a quarterly review cadence.",
+    "actual": "The response framed a target segment and strategic objective, compared differentiation alternatives, listed assumptions to test, and proposed owners, quarterly milestones, leading indicators, and a review date.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex scenario — acquisition decision",
+    "prompt": "Our Series C company can acquire a smaller competitor with better technology but weak sales. Should we proceed?",
+    "expected": "A structured build-buy-partner comparison, due-diligence workstreams, uncertainty framing, and an explicit accountable-human approval boundary for target selection and valuation.",
+    "actual": "The response separated strategic rationale from missing evidence, proposed strategic, financial, technical, legal, and people due diligence, identified integration and retention risks, and requested accountable-human approval before selection or valuation.",
+    "pass": true
+  }
+]
