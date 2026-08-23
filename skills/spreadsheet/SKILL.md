@@ -1,19 +1,9 @@
 ---
 name: spreadsheet
-slug: spreadsheet
-version: 1.0.0
-description: Read, write, and analyze tabular data with schema memory, format preservation, and multi-platform support.
-homepage: https://clawic.com/skills/spreadsheet
+description: Trigger when the user requests reading data, writing cells, analyzing tables, generating reports, or tracking structured information across Google Sheets, Excel, or CSV files. Uses schema memory and format preservation.
 metadata:
-  clawdbot:
-    emoji: 📊
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Spreadsheet
+  openclaw: '{"emoji":"📊"}'
+compatibility: "linux, darwin, win32"
 ---
 
 ## When to Use
@@ -22,10 +12,10 @@ User needs spreadsheet operations: reading data, writing cells, analyzing tables
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/spreadsheet/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/spreadsheet/`. See `references/memory-template.md` for setup.
 
 ```
-~/Clawic/data/spreadsheet/
+<state_root>/spreadsheet/
   memory.md           # Preferences, recent sheets, format rules
   projects/           # Per-project schemas and configs
     {name}.md         # Sheet IDs, columns, formulas
@@ -35,36 +25,32 @@ Memory lives in `~/Clawic/data/spreadsheet/`. See `memory-template.md` for setup
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Google Sheets API | `google-sheets.md` |
-| Excel operations | `excel.md` |
-| CSV handling | `csv.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Memory setup | `references/memory-template.md` | When initializing or modifying state memory |
+| Google Sheets API | `references/google-sheets.md` | When reading from or writing to Google Sheets |
+| Excel operations | `references/excel.md` | When handling local `.xlsx` files |
+| CSV handling | `references/csv.md` | When parsing or exporting `.csv` files |
+| Domain knowledge | `references/domain-knowledge.md` | When needing facts about Spreadsheet concepts |
 
 ## Scope
 
-This skill ONLY:
-- Reads/writes spreadsheets user explicitly requests
-- Stores schemas and preferences in `~/Clawic/data/spreadsheet/`
-- Processes files user provides
-
-This skill NEVER:
-- Accesses sheets without user request
-- Stores passwords, API keys, or sensitive financial data
-- Modifies files outside `~/Clawic/data/spreadsheet/` or user paths
+- Read and write spreadsheets only when the user explicitly requests it.
+- Store schemas and preferences exclusively in `<state_root>/spreadsheet/`.
+- Process only files provided by the user.
+- Omit passwords, API keys, and sensitive financial data from being stored or logged.
+- Ensure modifications are restricted strictly to `<state_root>/spreadsheet/` and explicitly authorized user paths.
 
 ## Data Storage
 
-All data stored in `~/Clawic/data/spreadsheet/`. Create on first use:
+Store all user data in `<state_root>/spreadsheet/`. Create on first use:
 ```bash
-mkdir -p ~/Clawic/data/spreadsheet/{projects,templates,exports}
+mkdir -p <state_root>/spreadsheet/{projects,templates,exports}
 ```
 
 ## Self-Modification
 
-This skill NEVER modifies its own SKILL.md.
-All user data stored in `~/Clawic/data/spreadsheet/` only.
+Maintain `SKILL.md` as a read-only document. Store all dynamic state and user data exclusively in `<state_root>/spreadsheet/`.
 
 ## Core Rules
 
@@ -80,7 +66,7 @@ On first access to any sheet:
 | Updating cells | Preserve existing format |
 | Writing numbers | Match user's locale (1,000.00 vs 1.000,00) |
 | Writing dates | Use user's preferred format |
-| Writing formulas | Never overwrite unless asked |
+| Writing formulas | Retain existing formulas unless explicitly instructed to overwrite |
 
 ### 3. Large Data Strategy
 | Row Count | Approach |

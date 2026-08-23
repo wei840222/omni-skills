@@ -3,8 +3,8 @@
 ## Initial Setup
 
 ```bash
-mkdir -p ~/Clawic/data/spreadsheet/{projects,templates,exports}
-touch ~/Clawic/data/spreadsheet/memory.md
+mkdir -p <state_root>/spreadsheet/{projects,templates,exports}
+touch <state_root>/spreadsheet/memory.md
 ```
 
 ## memory.md Template

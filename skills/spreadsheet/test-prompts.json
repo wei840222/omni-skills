@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy path CSV read",
+    "prompt": "Read the sales.csv file and summarize the total revenue.",
+    "expected": "Uses pandas to read the CSV and calculates the sum of the revenue column.",
+    "actual": "Used pandas to read 'sales.csv' and printed the sum of the 'revenue' column.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex excel formula write",
+    "prompt": "Create an Excel file named budget.xlsx with a formula that sums up cells B2 through B10 and place it in cell B11 without overwriting existing formats.",
+    "expected": "Uses openpyxl to create the file, preserves format, and inserts '=SUM(B2:B10)' into B11.",
+    "actual": "Used openpyxl to create 'budget.xlsx', wrote the SUM formula to B11, and saved the file preserving formats.",
+    "pass": true
+  }
+]
