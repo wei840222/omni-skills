@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill              | Date       | Darwin Score             |
 | ------------------ | ---------- | ------------------------ |
+| grocery | 2026-08-23 | structural dry-run; 2/2 prompts passed (PR #79) |
 | branding | 2026-08-23 | structural dry-run; 2/2 prompts passed (PR #78) |
 | pull-request | 2026-08-23 | structural dry-run; 2/2 prompts passed (PR #76) |
 | cso | 2026-08-23 | 90/100 (author-reported; 2/2 dry-run prompts passed; PR #74) |
