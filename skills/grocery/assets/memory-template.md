@@ -2,33 +2,34 @@
 
 ## Initial Setup
 
-Create directory on first use:
+Create the resolved `<state_root>` directory, then create the files used below:
+
 ```bash
-mkdir -p ~/grocery
-touch ~/Clawic/data/grocery/memory.md
-touch ~/Clawic/data/grocery/pantry.md
+mkdir -p <state_root>
+touch <state_root>/memory.md
+touch <state_root>/pantry.md
 ```
 
 ## memory.md Template
 
-Copy to `~/Clawic/data/grocery/memory.md`:
+Copy to `<state_root>/memory.md`:
 
 ```markdown
 # Grocery Memory
 
 ## Household
 <!-- Size, members, special notes -->
-- Size: 
-- Members: 
+- Size:
+- Members:
 
 ## Restrictions
 <!-- Allergies, diets, strong dislikes -->
 
 ## Preferences
 <!-- Brands, stores, typical quantities -->
-- Primary store: 
-- Backup store: 
-- Quantities: 
+- Primary store:
+- Backup store:
+- Quantities:
 
 ## Current List
 <!-- Active shopping list -->
@@ -42,7 +43,7 @@ Copy to `~/Clawic/data/grocery/memory.md`:
 
 ## pantry.md Template
 
-Copy to `~/Clawic/data/grocery/pantry.md`:
+Copy to `<state_root>/pantry.md`:
 
 ```markdown
 # Pantry Inventory
@@ -66,27 +67,6 @@ Copy to `~/Clawic/data/grocery/pantry.md`:
 *Updated: YYYY-MM-DD*
 ```
 
-## stores.md Template (optional)
+## Optional Files
 
-```markdown
-# Store Information
-
-## Primary: [Store Name]
-- Typical aisle order: produce → dairy → meat → frozen → pantry
-
-## Backup: [Store Name]
-- Notes: better prices on X, worse selection on Y
-```
-
-## history.md Template (optional)
-
-```markdown
-# Purchase History
-
-## Recent Trips
-| Date | Store | Items | Notes |
-|------|-------|-------|-------|
-
-## Patterns
-<!-- Observed buying patterns for suggestions -->
-```
+Use `<state_root>/stores.md` for store order and notes, and `<state_root>/history.md` for past purchases and patterns.
