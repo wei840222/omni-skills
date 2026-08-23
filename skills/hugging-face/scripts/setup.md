@@ -17,7 +17,7 @@ touch <state_root>/{memory.md,shortlists.md,evaluations.md,endpoints.md}
 chmod 700 <state_root>
 chmod 600 <state_root>/{memory.md,shortlists.md,evaluations.md,endpoints.md}
 ```
-2. If approved and `memory.md` is empty, initialize it using `memory-template.md`.
+2. If approved and `memory.md` is empty, initialize it using `references/memory-template.md`.
 3. Continue with the user task immediately after setup.
 
 ## Integration Priority
@@ -48,7 +48,7 @@ If context is missing, proceed with explicit assumptions and keep moving.
 ## Optional Depth
 
 If the user wants deeper rigor, load:
-- `discovery.md` for search and filtering strategy
-- `evaluation.md` for comparable scoring rubric
-- `inference.md` for endpoint execution patterns
-- `troubleshooting.md` for failure recovery
+- `references/discovery.md` for search and filtering strategy
+- `references/evaluation.md` for comparable scoring rubric
+- `references/inference.md` for endpoint execution patterns
+- `references/troubleshooting.md` for failure recovery

@@ -7,7 +7,6 @@ metadata:
   related-skills: '{"ai": "general AI strategy and model-selection framing", "api": "API-first integration patterns and HTTP debugging", "data-analysis": "dataset inspection and quality interpretation", "data": "structured data workflows and extraction patterns", "code": "implementation support for scripts and adapters"}'
 ---
 
-
 ## State location
 
 Memory and reusable artifacts live in `<state_root>/`.
@@ -26,7 +25,7 @@ Agent handles discovery, filtering, license checks, quick benchmarking, and inte
 
 ## Architecture
 
-Memory and reusable artifacts live in `<state_root>/`. See `memory-template.md` for structure and status fields.
+Memory and reusable artifacts live in `<state_root>/`. See `references/memory-template.md` for structure and status fields.
 
 ```text
 <state_root>/
@@ -63,9 +62,7 @@ Use this minimum scope packet:
 - Compliance constraints: license, region, or private data limits
 
 ### 2. Separate Discovery from Execution
-First create a shortlist of at least three candidates before running inference.
-
-First create a shortlist of at least three candidates, then execute only on finalists that pass compatibility and license checks.
+Create a shortlist of at least three candidates, then execute only on finalists that pass compatibility and license checks.
 
 ### 3. Validate License and Access Before Recommendation
 For every candidate, verify license, gated access status, model size, and framework compatibility.
