@@ -103,10 +103,10 @@ Output should include:
 
 ## Common Traps
 
-- Treat Sweden as a compact city-break country where south, center, and far north fit naturally into one short itinerary.
-- Assume Schengen administration is trivial because the first arrival point is outside Sweden.
-- Choose a rental car before checking whether rail plus one strategic base solves the trip better.
-- Plan Lapland around aurora certainty instead of darkness, forecasts, and backup activities.
-- Ignore ferry or island timetables in the archipelago and on Gotland.
-- Underestimate how much alcohol, dining, and airport transfers move the real budget.
-- Book scenic summer trips before confirming sharply seasonal services.
+- Scope short itineraries to one Sweden corridor; south, center, and far north deserve separate trips.
+- Calculate Schengen limits across the full itinerary, including the first arrival country.
+- Compare rail plus one strategic base with rental-car costs before selecting transport.
+- Build Lapland plans around darkness, forecasts, and backup activities rather than aurora certainty.
+- Cross-check ferry and island timetables for the archipelago and Gotland.
+- Include alcohol, dining, and airport transfers in the real budget.
+- Confirm seasonal service availability before finalizing scenic summer travel.
