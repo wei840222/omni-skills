@@ -96,6 +96,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | booking            | 2026-08-14 | 85/100 (author-reported; dry-run; PR #38) |
 | documents          | 2026-08-14 | 85/100 (author-reported; dry-run; PR #39) |
 | real-estate-agent  | 2026-08-14 | 90/100 (author-reported; dry-run; PR #40) |
+| daily-planner | 2026-08-23 | 85/100 | [#80](https://github.com/wei840222/omni-skills/pull/80) |
 
 ## Updating This Changelog
 
