@@ -49,7 +49,7 @@ URGENT ─┼───────────┼──────────�
 
 **Red flag patterns:**
 - Spending >50% in "Urgent Not Important" = someone else's priorities
-- Never touching "Important Not Urgent" = reactive mode, no progress on goals
+- Skipping "Important Not Urgent" leads to reactive mode and halts progress on goals. Allocate time to it.
 - Too much in "Eliminate" = boundary problem
 
 ---
@@ -94,7 +94,7 @@ On first use, ask: "When do you feel most focused?" Store in `config.md`.
 - Same day: Nothing else until done
 
 **Buffer rule:**
-Never plan to finish on deadline day. Target: deadline minus 1 day.
+Always plan to finish before deadline day. Target: deadline minus 1 day.
 - Reason: Unexpected issues, reviews needed, life happens
 
 **Conflict detection:**

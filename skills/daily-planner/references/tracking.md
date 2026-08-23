@@ -2,7 +2,7 @@
 
 ## What Gets Tracked
 
-Every promise or commitment made in conversation:
+When the user authorizes persistent tracking and a writable `<state_root>` is available, track promises or commitments made in conversation:
 
 **Trigger phrases:**
 - "I'll send you..."
@@ -24,7 +24,7 @@ Every promise or commitment made in conversation:
 
 ## Storage Format
 
-In `~/planner/commitments`:
+In `<state_root>/planner/commitments`:
 
 ```markdown
 ## Open Commitments
@@ -63,7 +63,9 @@ In `~/planner/commitments`:
 
 ## Reminder System
 
-**Automatic reminders:**
+**Reminder plan:**
+
+Create automated reminders only with user approval and a supported scheduling integration. Otherwise, include the applicable deadline in an on-demand briefing or propose a reminder for confirmation.
 
 | Time before deadline | Action |
 |---------------------|--------|
@@ -74,7 +76,7 @@ In `~/planner/commitments`:
 | Overdue | Flag daily until resolved |
 
 **Overdue handling:**
-Don't nag constantly. Daily morning briefing includes:
+Limit reminders to appropriate frequency. Daily morning briefing includes:
 "Overdue: 2 items. [Show them]. Update status or mark done?"
 
 ---
@@ -92,7 +94,7 @@ For things waiting on others:
 **Follow-up rules:**
 - After 72h with no response: "Want me to draft a follow-up?"
 - After 1 week: "X hasn't replied. Priority: high/low?"
-- Passive mode: just track, don't prompt (for low-priority)
+- Passive mode: just track silently without prompting (for low-priority)
 
 **Storage in commitments file:**
 

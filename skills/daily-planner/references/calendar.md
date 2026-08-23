@@ -12,24 +12,24 @@
 | Admin | 30 min | Allowed | Email, messages |
 | Buffer | 15 min | Open | Between blocks |
 
-**Never do:**
-- Deep work in <60min blocks (not enough ramp-up time)
-- Back-to-back meetings without buffer
-- Schedule >80% of available time
+**Planning safeguards:**
+- Schedule deep work in blocks of at least 60 minutes to allow ramp-up.
+- Place a buffer between meetings.
+- Keep planned work at or below 80% of available time.
 
 ---
 
 ## Deep Work Protection
 
 **Before blocking:**
-1. Identify when user's energy peaks (config.md)
-2. Check existing calendar for that window
-3. If open: block automatically
-4. If meeting: suggest moving the meeting
+1. Identify when the user's energy peaks from planner configuration or by asking the user.
+2. Check the calendar only when a connected calendar is available; otherwise ask for the relevant time window.
+3. If the window is open, propose a deep-work block and obtain confirmation before creating or changing calendar events.
+4. If a meeting occupies it, suggest a move; apply a calendar change only after confirmation.
 
 **During deep work:**
-- All notifications paused (if agent has control)
-- Auto-reply enabled: "In focused work. Responding in X hours."
+- When the user authorizes available integrations, pause notifications.
+- Draft an auto-reply such as "In focused work. Responding in X hours." and send or enable it only with user confirmation.
 - Only true emergencies interrupt (production down, family emergency)
 
 **What qualifies as emergency:**
@@ -132,6 +132,7 @@ Late PM: Wrap-up, tomorrow prep
 - Last hour of day (wrap-up)
 - Friday PM (buffer for week overflow)
 
-**Agent enforcement:**
-If user tries to book meeting in no-meeting zone:
+**Agent guidance:**
+If the user proposes a meeting in a no-meeting zone:
 "That's during your protected morning time. Still want to schedule, or move to 10am?"
+Create or change the event only after confirmation.
