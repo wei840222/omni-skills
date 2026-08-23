@@ -24,7 +24,7 @@ Every promise or commitment made in conversation:
 
 ## Storage Format
 
-In `~/planner/commitments`:
+In `<state_root>/planner/commitments`:
 
 ```markdown
 ## Open Commitments

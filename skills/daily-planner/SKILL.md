@@ -1,19 +1,8 @@
 ---
 name: daily-planner
-slug: daily-planner
-version: 1.0.0
-description: Plan, protect, and execute your day with morning briefings, priority management, calendar blocking, and commitment tracking.
-homepage: https://clawic.com/skills/daily-planner
+description: "Execute daily planning, time blocking, and commitment tracking to protect time and achieve top priorities."
 metadata:
-  clawdbot:
-    emoji: 📆
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Daily Planner
+  openclaw: '{"emoji":"📆"}'
 ---
 
 ## Quick Reference
@@ -28,7 +17,7 @@ metadata:
 
 ## Storage
 
-Data stored in `~/planner/`:
+Data stored in `<state_root>/planner/`:
 - **config** — Profile, energy windows, constraints
 - **today** — Current day plan (regenerated daily)
 - **commitments** — Open commitments and follow-ups
