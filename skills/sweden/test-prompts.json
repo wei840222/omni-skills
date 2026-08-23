@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Happy path - basic trip planning",
+    "prompt": "I want to plan a 7-day trip to Sweden in July with my family. We want to see Stockholm and maybe some nature.",
+    "expected": "The agent should load references/memory-template.md and references/setup.md to establish trip frame, then reference itineraries.md and family-travel.md to suggest a 7-day family-friendly route focusing on Stockholm and the archipelago or central lakes. It should flag Schengen rules.",
+    "actual": "Agent successfully loaded references/setup.md and established the memory frame in <state_root>/. It then loaded references/stockholm.md, references/stockholm-archipelago.md, and references/family-travel.md. Suggested a 4-day Stockholm city stay and 3-day archipelago trip using ferry network. Mentioned right-to-roam in nature. Verified EU/Schengen status.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex/edge case - winter Lapland + southern city",
+    "prompt": "I want to visit Malmo and Abisko (Lapland) in one week in February. We are from the US and want to rent a car.",
+    "expected": "The agent should warn about the massive geographic distance between Malmo and Abisko. It should check road-trips-and-driving.md and swedish-lapland.md to emphasize winter driving risks, and recommend flying or night train instead. It should check Schengen entry rules.",
+    "actual": "Agent loaded references/regions.md and references/road-trips-and-driving.md. Immediately flagged the 'Nordic Overreach' trap of combining Malmo and Lapland in 7 days. Strongly advised against renting a car for that distance in February due to winter road conditions and distance (over 1800km). Recommended the night train (SJ) or flying via Arlanda. Checked references/entry-and-documents.md for US citizens (visa-free 90 days).",
+    "pass": true
+  }
+]
