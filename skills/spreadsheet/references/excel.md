@@ -41,12 +41,12 @@ wb.save('output.xlsx')
 wb = load_workbook('file.xlsx')  # data_only=False default
 formula = ws['A1'].value  # Returns '=SUM(B:B)'
 
-# TRAP: data_only=True loses formulas forever
+# Do not save after loading with data_only=True when formulas must be preserved.
 ```
 
 ## Traps
 
-- **data_only=True** — Loads values, destroys formulas
+- **data_only=True** — Loads cached values instead of formulas; do not save that workbook when formulas must be preserved
 - **Large files** — Use `read_only=True`, `write_only=True`
 - **Dates** — Excel stores as floats; use datetime objects
 - **Number format** — Set explicitly: `ws['B2'].number_format = '#,##0.00'`
