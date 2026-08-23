@@ -1,0 +1,18 @@
+[
+  {
+    "id": "add-household-items",
+    "scenario": "happy path",
+    "prompt": "We are two people. Add milk, eggs, and bread to this week’s grocery list.",
+    "expected": "Create or update household state, choose or ask for appropriate quantities, and return an organized shopping list.",
+    "actual": "Dry-run: resolves state, records household size, and routes list edits through references/lists.md.",
+    "pass": true
+  },
+  {
+    "id": "restriction-conflict",
+    "scenario": "allergen uncertainty",
+    "prompt": "I avoid dairy. Add ingredients for carbonara; I already have black pepper.",
+    "expected": "Reconcile pantry stock, flag dairy-containing ingredients, and ask for a label or offer a substitution instead of asserting product safety.",
+    "actual": "Dry-run: preserves black pepper pantry stock and identifies the dairy conflict before adding an unsafe item.",
+    "pass": true
+  }
+]
