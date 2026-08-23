@@ -1,17 +1,17 @@
 # Spreadsheet Domain Knowledge
 
 ## Pandas
-Pandas is a software library written for the Python programming language for data manipulation and analysis. It offers data structures and operations for manipulating numerical tables and time series.
-Source: https://en.wikipedia.org/wiki/Pandas_(software)
+Pandas provides data structures and analysis operations for tabular and time-series data.
+Source: https://pandas.pydata.org/docs/
 
 ## Microsoft Excel
-Microsoft Excel, or simply Excel, is a spreadsheet editor developed by Microsoft for Windows, macOS, Android, iOS and iPadOS. It features calculation or computation capabilities, graphing tools, pivot tables, and a macro programming language called Visual Basic for Applications (VBA).
-Source: https://en.wikipedia.org/wiki/Microsoft_Excel
+Excel formulas are stored in workbooks and may need recalculation by Excel or another compatible calculation engine after programmatic edits.
+Source: https://support.microsoft.com/en-us/office/overview-of-formulas-in-excel-ecfdc708-9162-49e8-b993-c311f47ca173
 
 ## CSV
-A comma-separated values (CSV) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record. Each record consists of one or more fields, separated by commas.
-Source: https://en.wikipedia.org/wiki/Comma-separated_values
+CSV is a common format for exchanging tabular data; fields, records, line breaks, and quoting conventions are specified in RFC 4180.
+Source: https://www.rfc-editor.org/rfc/rfc4180
 
 ## Google Sheets
-Google Sheets is a spreadsheet program included as part of the free, web-based Google Docs Editors suite offered by Google.
-Source: https://en.wikipedia.org/wiki/Google_Sheets
+The Google Sheets API reads and modifies spreadsheet data using `spreadsheets.values` endpoints.
+Source: https://developers.google.com/workspace/sheets/api/reference/rest/v4/spreadsheets.values
