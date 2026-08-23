@@ -2,6 +2,8 @@
 
 ## Authentication
 
+Use a user-authorized credential source. Never place a service-account key in the skill package, a spreadsheet, or logs. The `credentials.json` name below is a placeholder for an authorized local credential path.
+
 ```python
 # Service Account (automation)
 from google.oauth2.service_account import Credentials

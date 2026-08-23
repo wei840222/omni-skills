@@ -41,7 +41,7 @@ wb.save('output.xlsx')
 wb = load_workbook('file.xlsx')  # data_only=False default
 formula = ws['A1'].value  # Returns '=SUM(B:B)'
 
-# TRAP: data_only=True loses formulas forever
+# Do not save after loading with data_only=True when formulas must be preserved.
 ```
 
 ## Traps
