@@ -8,7 +8,7 @@ metadata:
 
 ## When to Use
 
-Use this skill before creating, submitting, or reviewing a pull request. It provides a quality gate that protects maintainer time and makes the contributor accountable for the change.
+Use this skill before creating, submitting, or reviewing a pull request. It provides a quality gate that protects maintainer time and creates clear contributor accountability.
 
 ## Workflow
 
