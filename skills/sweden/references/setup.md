@@ -3,10 +3,10 @@
 Create the workspace the first time Sweden comes up, but answer the user's immediate question first.
 
 ```bash
-mkdir -p ~/sweden
+mkdir -p <state_root>
 ```
 
-Create `~/Clawic/data/sweden/memory.md` from `memory-template.md` when there is enough signal to store:
+Create `<state_root>/memory.md` from `references/memory-template.md` when there is enough signal to store:
 - travel window or month range
 - likely bases or regions
 - budget band
@@ -17,7 +17,7 @@ Create `~/Clawic/data/sweden/memory.md` from `memory-template.md` when there is 
 Work naturally:
 - If the user asks one focused question, solve it first and only store what was clearly revealed.
 - If the user wants a full plan, gather the minimum route-shaping facts in conversation.
-- If `~/Clawic/data/sweden/memory.md` already exists, reuse it silently and ask only what changed.
+- If `<state_root>/memory.md` already exists, reuse it silently and ask only what changed.
 
 Useful first-pass questions when the trip is still fuzzy:
 - What month or season is the trip?
