@@ -12,10 +12,10 @@
 ## Scope Validation
 
 - [ ] **Small enough** — Under 5 files and 200 lines? If not, needs discussion first
-- [ ] **No API changes** — Public interfaces unchanged? If changed, needs discussion
-- [ ] **No security-sensitive code** — Auth, crypto, permissions left alone?
-- [ ] **No governance changes** — License, CoC, README philosophy unchanged?
-- [ ] **Not in freeze** — Project not in release freeze or code lockdown?
+- [ ] **Verify public interfaces are unchanged** — Public interfaces unchanged? If changed, needs discussion
+- [ ] **Leave Auth, crypto, permissions alone** — Auth, crypto, permissions left alone?
+- [ ] **Leave License, CoC, README philosophy unchanged** — License, CoC, README philosophy unchanged?
+- [ ] **Verify project is actively accepting changes** — Project not in release freeze or code lockdown?
 
 ## Before Committing
 
@@ -23,9 +23,9 @@
 - [ ] **Linting passes** — Use project's config, not your IDE defaults
 - [ ] **Build succeeds** — If applicable
 - [ ] **If can't run checks** — Note this explicitly in PR description
-- [ ] **No debug code** — `console.log`, `print()`, `debugger`, `TODO: remove`
-- [ ] **No commented code** — Delete or explain
-- [ ] **No unrelated changes** — Diff is surgical
+- [ ] **Remove debug code** — `console.log`, `print()`, `debugger`, `TODO: remove`
+- [ ] **Remove or explain commented code** — Delete or explain
+- [ ] **Ensure diff is surgical and focused** — Diff is surgical
 - [ ] **Matches project style** — Check configs: `.editorconfig`, `.prettierrc`, `.eslintrc`
 
 ## Branch Hygiene
@@ -38,7 +38,7 @@
 
 - [ ] **Message format** — Matches project requirements (conventional commits, etc.)
 - [ ] **Atomic commits** — Each is one logical change
-- [ ] **No WIP commits** — Squashed before pushing
+- [ ] **Squash WIP commits** — Squashed before pushing
 - [ ] **DCO sign-off** — If required: `git commit -s`
 
 ## Dependencies (If Any)
@@ -63,8 +63,8 @@
 
 ## Security
 
-- [ ] **No secrets** — Not even "example" keys; use `<PLACEHOLDER>`
-- [ ] **No unsafe patterns** — eval(), exec(), verify=False, debug=True
+- [ ] **Replace secrets with `<PLACEHOLDER>`** — Not even "example" keys; use `<PLACEHOLDER>`
+- [ ] **Remove unsafe patterns** — eval(), exec(), verify=False, debug=True
 - [ ] **Input validation** — User input is sanitized
 
 ## AI-Assisted PR Requirements

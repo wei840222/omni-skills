@@ -2,11 +2,11 @@
 
 ## Instant Rejection Signals
 
-These patterns cause maintainers to close PRs within 30 seconds:
+Avoid the following patterns so maintainers can evaluate the pull request on its merits:
 
-### No Context
+### Provide Context
 - PR appears out of nowhere for unsolicited feature
-- No discussion, no approval, just code dump
+- Provide discussion, approval, or concrete rationale before submitting
 - "I thought this would be cool" without checking if wanted
 
 ### Breaks CI Immediately
@@ -42,7 +42,7 @@ Patterns that signal "an AI wrote this poorly":
 ### Generic Everything
 - Commit message: "Update file.js"
 - PR description: "This PR fixes the bug"
-- No specific references to actual changes
+- Include specific references to actual changes
 
 ### Inconsistent Style
 - Project uses snake_case, PR uses camelCase
@@ -58,7 +58,7 @@ Patterns that signal "an AI wrote this poorly":
 - Renamed variables "for clarity" without asking
 - Reformatted unrelated code
 
-### No AI Disclosure
+### Disclose AI Assistance
 - Clearly AI-generated but not marked
 - Makes maintainers feel deceived when they realize
 
@@ -93,5 +93,5 @@ Patterns that signal "an AI wrote this poorly":
 
 ### Abandonment
 - Opens PR, disappears
-- Never responds to review comments
+- Respond to review comments promptly
 - WIP PR that stays WIP forever
