@@ -12,7 +12,7 @@
 | Admin | 30 min | Allowed | Email, messages |
 | Buffer | 15 min | Open | Between blocks |
 
-**Never do:**
+**Actions to prevent:**
 - Deep work in <60min blocks (not enough ramp-up time)
 - Back-to-back meetings without buffer
 - Schedule >80% of available time

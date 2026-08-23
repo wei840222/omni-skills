@@ -40,7 +40,7 @@ Each profile has different planning needs. Detect or ask on first use.
 - Add 50% buffer to all time estimates automatically
 - Alert before accepting new work if at capacity
 - Group admin (emails, invoices) in single daily block
-- Never interrupt during deep work blocks
+- Defer all interruptions until after deep work blocks
 
 **Energy windows:**
 - Peak hours: creative/complex work (protect aggressively)

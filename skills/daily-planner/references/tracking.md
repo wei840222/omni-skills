@@ -74,7 +74,7 @@ In `<state_root>/planner/commitments`:
 | Overdue | Flag daily until resolved |
 
 **Overdue handling:**
-Don't nag constantly. Daily morning briefing includes:
+Limit reminders to appropriate frequency. Daily morning briefing includes:
 "Overdue: 2 items. [Show them]. Update status or mark done?"
 
 ---
@@ -92,7 +92,7 @@ For things waiting on others:
 **Follow-up rules:**
 - After 72h with no response: "Want me to draft a follow-up?"
 - After 1 week: "X hasn't replied. Priority: high/low?"
-- Passive mode: just track, don't prompt (for low-priority)
+- Passive mode: just track silently without prompting (for low-priority)
 
 **Storage in commitments file:**
 

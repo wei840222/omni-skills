@@ -61,7 +61,7 @@ Load `references/routines.md` for full workflow details.
 - **Top 3 only** — if user lists >3, force ranking
 - **Important > Urgent** — deadline pressure ≠ high impact
 - **Energy match** — hard tasks to peak hours, admin to low-energy
-- **Buffer mandatory** — never 100% scheduled, leave 20% slack
+- **Buffer mandatory** — keep schedule to a maximum of 80% capacity, leaving 20% slack
 
 Load `references/priorities.md` for prioritization framework.
 

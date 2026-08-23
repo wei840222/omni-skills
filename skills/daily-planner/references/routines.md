@@ -50,7 +50,7 @@ When user asks "plan my day" or triggered automatically:
 
 **Step 2: Assign Top 3 to peak energy**
 - Hardest task → best energy block
-- Never split deep work <90min
+- Ensure deep work is scheduled in continuous blocks of at least 90min
 - Always buffer 15min between blocks
 
 **Step 3: Fill remaining time**
