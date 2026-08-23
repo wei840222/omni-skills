@@ -1,6 +1,6 @@
 # Setup - Hugging Face
 
-Read this on first activation when `~/Clawic/data/hugging-face/` does not exist or is incomplete.
+Read this on first activation when `<state_root>/` does not exist or is incomplete.
 
 ## Operating Attitude
 
@@ -12,12 +12,12 @@ Read this on first activation when `~/Clawic/data/hugging-face/` does not exist 
 
 1. Propose local structure and ask for explicit approval before writing files:
 ```bash
-mkdir -p ~/Clawic/data/hugging-face/exports
-touch ~/Clawic/data/hugging-face/{memory.md,shortlists.md,evaluations.md,endpoints.md}
-chmod 700 ~/hugging-face
-chmod 600 ~/Clawic/data/hugging-face/{memory.md,shortlists.md,evaluations.md,endpoints.md}
+mkdir -p <state_root>/exports
+touch <state_root>/{memory.md,shortlists.md,evaluations.md,endpoints.md}
+chmod 700 <state_root>
+chmod 600 <state_root>/{memory.md,shortlists.md,evaluations.md,endpoints.md}
 ```
-2. If approved and `memory.md` is empty, initialize it using `memory-template.md`.
+2. If approved and `memory.md` is empty, initialize it using `references/memory-template.md`.
 3. Continue with the user task immediately after setup.
 
 ## Integration Priority
@@ -48,7 +48,7 @@ If context is missing, proceed with explicit assumptions and keep moving.
 ## Optional Depth
 
 If the user wants deeper rigor, load:
-- `discovery.md` for search and filtering strategy
-- `evaluation.md` for comparable scoring rubric
-- `inference.md` for endpoint execution patterns
-- `troubleshooting.md` for failure recovery
+- `references/discovery.md` for search and filtering strategy
+- `references/evaluation.md` for comparable scoring rubric
+- `references/inference.md` for endpoint execution patterns
+- `references/troubleshooting.md` for failure recovery

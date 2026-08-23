@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Happy Path - Find a text classification model",
+    "prompt": "Find a good Hugging Face model for sentiment analysis in English. Provide the model ID.",
+    "expected": "Model ID is returned, such as distilbert-base-uncased-finetuned-sst-2-english",
+    "actual": "I queried the Hugging Face API for models with task 'text-classification' and searched for 'sentiment'. The top recommended model is `distilbert-base-uncased-finetuned-sst-2-english`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex - Try to run an inference on a gated model without access",
+    "prompt": "Try to run inference using the Hugging Face API for the model 'meta-llama/Llama-2-7b-chat-hf'.",
+    "expected": "The agent identifies the model is gated or fails gracefully with a 401/403 and consults troubleshooting.",
+    "actual": "The inference API request returned a 403 Forbidden because 'meta-llama/Llama-2-7b-chat-hf' is a gated model. You need to accept the terms on the Hugging Face hub and provide an HF_TOKEN with access.",
+    "pass": true
+  }
+]
