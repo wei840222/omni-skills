@@ -1,10 +1,20 @@
 ---
 name: spreadsheet
-description: Trigger when the user requests reading data, writing cells, analyzing tables, generating reports, or tracking structured information across Google Sheets, Excel, or CSV files. Uses schema memory and format preservation.
+description: Read, write, and analyze spreadsheets with schema memory and format preservation. Use when the user requests table analysis, cell edits, reports, or structured tracking in Google Sheets, Excel, or CSV files.
 metadata:
   openclaw: '{"emoji":"📊"}'
 compatibility: "linux, darwin, win32"
 ---
+
+## State location
+
+Spreadsheet state may exist in `<workspace>/spreadsheet/`, `<workspace>/memory/spreadsheet/`, or `~/spreadsheet/`. Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured state path when one exists.
+2. Otherwise, use the first existing directory in this order: `<workspace>/spreadsheet/`, `<workspace>/memory/spreadsheet/`, then `~/spreadsheet/`.
+3. If no candidate exists and the user asks to save state, create `<workspace>/spreadsheet/` after checking all candidates.
+
+Use the selected `<state_root>` for every state operation during this invocation; do not merge or cross-read lower-precedence copies.
 
 ## When to Use
 
@@ -12,10 +22,10 @@ User needs spreadsheet operations: reading data, writing cells, analyzing tables
 
 ## Architecture
 
-Memory lives in `<state_root>/spreadsheet/`. See `references/memory-template.md` for setup.
+Memory lives in `<state_root>/`. See `references/memory-template.md` for setup.
 
 ```
-<state_root>/spreadsheet/
+<state_root>/
   memory.md           # Preferences, recent sheets, format rules
   projects/           # Per-project schemas and configs
     {name}.md         # Sheet IDs, columns, formulas
@@ -36,21 +46,21 @@ Memory lives in `<state_root>/spreadsheet/`. See `references/memory-template.md`
 ## Scope
 
 - Read and write spreadsheets only when the user explicitly requests it.
-- Store schemas and preferences exclusively in `<state_root>/spreadsheet/`.
+- Store schemas and preferences exclusively in `<state_root>/`.
 - Process only files provided by the user.
 - Omit passwords, API keys, and sensitive financial data from being stored or logged.
-- Ensure modifications are restricted strictly to `<state_root>/spreadsheet/` and explicitly authorized user paths.
+- Ensure modifications are restricted strictly to `<state_root>/` and explicitly authorized user paths.
 
 ## Data Storage
 
-Store all user data in `<state_root>/spreadsheet/`. Create on first use:
+Store all user data in `<state_root>/`. Create on first use:
 ```bash
-mkdir -p <state_root>/spreadsheet/{projects,templates,exports}
+mkdir -p <state_root>/{projects,templates,exports}
 ```
 
 ## Self-Modification
 
-Maintain `SKILL.md` as a read-only document. Store all dynamic state and user data exclusively in `<state_root>/spreadsheet/`.
+Maintain `SKILL.md` as a read-only document. Store all dynamic state and user data exclusively in `<state_root>/`.
 
 ## Core Rules
 

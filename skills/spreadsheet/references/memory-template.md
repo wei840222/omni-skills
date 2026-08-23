@@ -3,8 +3,8 @@
 ## Initial Setup
 
 ```bash
-mkdir -p <state_root>/spreadsheet/{projects,templates,exports}
-touch <state_root>/spreadsheet/memory.md
+mkdir -p <state_root>/{projects,templates,exports}
+touch <state_root>/memory.md
 ```
 
 ## memory.md Template
