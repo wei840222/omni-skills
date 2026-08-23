@@ -68,7 +68,7 @@ Each profile has different planning needs. Detect or ask on first use.
 
 **Agent behavior:**
 - Unify calendars: work + school + medical + family
-- Family events = BLOCKED in work calendar automatically
+- Treat family events as blocked time in planning; create work-calendar blocks only after confirmation
 - Evening prep reminder: what to prepare for tomorrow
 - Contingency plans visible: who's backup if emergency
 
@@ -99,7 +99,7 @@ Each profile has different planning needs. Detect or ask on first use.
 **Agent behavior:**
 - Track ALL deliverables: assignments, projects, exams
 - Staggered reminders: 1 week, 3 days, 1 day before
-- Auto-create study blocks when exam added
+- Propose study blocks when an exam is added; create calendar events only after confirmation
 - Balance ratio: 50% study, 30% work, 20% life (adjust in exam periods)
 
 **Study techniques:**

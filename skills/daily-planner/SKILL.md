@@ -31,8 +31,8 @@ Resolve `<state_root>` from the runtime-approved writable state location; if no 
 |-----------|--------------|
 | "Plan my day" | Generate time-blocked schedule based on priorities and energy |
 | "What's urgent?" | Filter top 3 from calendar/tasks, show deadline proximity |
-| "Protect my morning" | Block deep work, defer non-critical, enable DND mode |
-| "I promised X to Y" | Log commitment with deadline, set follow-up reminder |
+| "Protect my morning" | Propose a deep-work block, defer non-critical work, and prepare DND actions for confirmation |
+| "I promised X to Y" | Propose a commitment record and follow-up reminder; save or schedule only with authorization |
 | "Am I overcommitted?" | Analyze week, flag conflicts, suggest cuts |
 | "Weekly review" | Summarize done/pending, adjust next week, archive completed |
 
@@ -46,9 +46,9 @@ Resolve `<state_root>` from the runtime-approved writable state location; if no 
 5. Produce briefing: 5 bullets max, critical first.
 
 **During day:**
-- Track new commitments from conversations
-- Alert on deadline proximity (48h, 24h, 2h)
-- Batch interruptions, filter by configured urgency
+- Propose new commitments from conversations; persist them only with the authorization described below.
+- Surface deadline proximity (48h, 24h, 2h) from available authorized data.
+- Batch interruptions and filter by configured urgency.
 
 **Evening:**
 - What got done, what moved forward
