@@ -18,7 +18,7 @@ metadata:
 
 ## Storage
 
-Data stored in `<state_root>/planner/`:
+Resolve `<state_root>` from the runtime-approved writable state location; if no state location is available, ask the user before creating persistent planner data. Store planner state in `<state_root>/planner/`:
 - **config** — Profile, energy windows, constraints
 - **today** — Current day plan (regenerated daily)
 - **commitments** — Open commitments and follow-ups
@@ -39,10 +39,11 @@ Data stored in `<state_root>/planner/`:
 ## Core Loop
 
 **Morning (configurable time):**
-1. Pull calendar events, pending tasks, open commitments
-2. Apply profile rules (energy windows, constraints)
-3. Generate Top 3 priorities (what MUST happen today)
-4. Produce briefing: 5 bullets max, critical first
+1. Pull calendar events, pending tasks, and open commitments only from connected tools the runtime makes available.
+2. If calendar or task access is unavailable, ask the user for their fixed commitments and task list; produce a planning draft from supplied information rather than claiming a live check.
+3. Apply profile rules (energy windows, constraints).
+4. Generate Top 3 priorities (what MUST happen today).
+5. Produce briefing: 5 bullets max, critical first.
 
 **During day:**
 - Track new commitments from conversations
@@ -79,10 +80,12 @@ Load `references/profiles.md` for profile-specific behaviors.
 
 ## Commitment Tracking
 
-Every promise made = logged automatically:
-- Extract from conversations: "I'll send you X by Y"
-- Add to commitments file with deadline
-- Remind before deadline (configurable: 24h, 48h)
-- Flag overdue until resolved
+When the user authorizes persistent tracking and a writable `<state_root>` is available:
+- Extract a promise from conversation, such as "I'll send you X by Y".
+- Add it to the commitments file with its deadline.
+- Remind before the deadline (configurable: 24h, 48h).
+- Flag overdue commitments until resolved.
+
+Otherwise, return the proposed commitment and deadline for the user to confirm or save.
 
 Load `references/tracking.md` for commitment workflow.

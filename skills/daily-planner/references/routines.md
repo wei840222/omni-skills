@@ -2,13 +2,15 @@
 
 ## Morning Briefing
 
-Run at configured time (default: 7:30 for exec, 8:00 for others).
+Run when the user asks for a morning briefing, or schedule it only after explicit user approval (default: 7:30 for exec, 8:00 for others).
 
 **Input sources:**
-- Calendar events for today
-- Open commitments from `commitments.md`
-- Pending tasks from previous day
-- Emails flagged as "needs decision" (if email access)
+- Calendar events for today, when connected calendar access is available
+- Open commitments from `<state_root>/planner/commitments`, when persistent tracking is authorized
+- Pending tasks from the previous day, when supplied or stored with authorization
+- Emails flagged as "needs decision", only when email access is available and authorized
+
+If a source is unavailable, ask for the missing facts and label the result as a draft rather than implying a live retrieval.
 
 **Output format (max 5 bullets):**
 
@@ -41,12 +43,12 @@ Run at configured time (default: 7:30 for exec, 8:00 for others).
 
 ## Time-Blocking Process
 
-When user asks "plan my day" or triggered automatically:
+When the user asks "plan my day":
 
 **Step 1: Identify constraints**
-- Fixed meetings/appointments
-- Hard deadlines today
-- Energy windows from profile
+- Fixed meetings/appointments from available calendar data or user input
+- Hard deadlines today from available tasks or user input
+- Energy windows from profile or a user-provided preference
 
 **Step 2: Assign Top 3 to peak energy**
 - Hardest task → best energy block
@@ -90,7 +92,7 @@ When user asks "plan my day" or triggered automatically:
 
 ## Evening Review
 
-Run at configured time (default: 21:00).
+Run when the user asks for an evening review, or schedule it only after explicit user approval (default: 21:00).
 
 **Questions to answer:**
 1. Did Top 3 get done? (celebrate or understand why not)
@@ -126,7 +128,7 @@ Run at configured time (default: 21:00).
 
 ## Weekly Planning
 
-Run Sunday evening or Monday morning (configurable).
+Run when the user asks for weekly planning, or schedule it only after explicit user approval (Sunday evening or Monday morning by default).
 
 **Review section:**
 - What got done last week (celebrate wins)
@@ -181,7 +183,7 @@ Run Sunday evening or Monday morning (configurable).
 1. List what's scheduled
 2. Identify what can move (not hard deadlines)
 3. Suggest: "Move X to tomorrow, cancel/async Y"
-4. After approval: reschedule and draft notifications
+4. Draft proposed rescheduling and notifications; apply changes only after approval.
 
 **"What did I promise this week?"**
 1. Pull all commitments from `commitments.md`

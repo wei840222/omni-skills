@@ -2,7 +2,7 @@
 
 ## What Gets Tracked
 
-Every promise or commitment made in conversation:
+When the user authorizes persistent tracking and a writable `<state_root>` is available, track promises or commitments made in conversation:
 
 **Trigger phrases:**
 - "I'll send you..."
@@ -63,7 +63,9 @@ In `<state_root>/planner/commitments`:
 
 ## Reminder System
 
-**Automatic reminders:**
+**Reminder plan:**
+
+Create automated reminders only with user approval and a supported scheduling integration. Otherwise, include the applicable deadline in an on-demand briefing or propose a reminder for confirmation.
 
 | Time before deadline | Action |
 |---------------------|--------|
