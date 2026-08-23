@@ -1,27 +1,22 @@
 ---
 name: sweden
-slug: sweden
-version: 1.0.0
 description: Plan Sweden trips with verified entry rules, region-specific routing, rail-ferry logistics, and practical seasonal safety.
-homepage: https://clawic.com/skills/sweden
-changelog: Added verified Sweden entry rules, regional playbooks, rail and road logistics, and practical seasonal travel guidance.
 metadata:
-  clawdbot:
-    emoji: 🇸🇪
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/sweden/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Sweden
+  openclaw: '{"emoji":"🇸🇪"}'
+  related-skills: '{"travel":"General trip planning and itinerary structure","europe":"Broader Schengen and multi-country Europe planning","booking":"Reservation workflows and total-cost booking hygiene","food":"Deeper restaurant and cuisine planning","english":"Language support for bookings and practical interactions"}'
 ---
+
+## State location
+
+- **Working Directory:** `<state_root>/`
+- **Location precedence:**
+  1. `<workspace>/sweden/`
+  2. `<workspace>/data/sweden/`
+- **Behavior:** If neither path exists, use standard file tools to create `<workspace>/sweden/` as `<state_root>/`. All memory updates and artifacts must be confined to this local state directory.
 
 ## Setup
 
-If `~/Clawic/data/sweden/` does not exist or is empty, read `setup.md` and start naturally.
+If `<state_root>/` is absent, read `references/setup.md`; answer the immediate request before creating local state.
 
 ## When to Use
 
@@ -29,47 +24,48 @@ User is planning a Sweden trip and needs operational guidance beyond generic Nor
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/sweden/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/sweden/
+<state_root>/
 └── memory.md     # Trip context, constraints, booking status, and route decisions
 ```
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Entry and Compliance** | |
-| Tourist entry, Schengen limits, EES, ETIAS, IDs | `entry-and-documents.md` |
-| Customs, alcohol, cash, restricted goods | `customs-and-border.md` |
-| **Planning Backbone** | |
-| Macro-regions and route logic | `regions.md` |
-| Sample itineraries for 5-14 days | `itineraries.md` |
-| Where to stay by trip style | `accommodation.md` |
-| Daily budget framing and hidden costs | `budget-and-costs.md` |
-| Cards, cash, tax-free, alcohol buying reality | `payments-and-alcohol.md` |
-| **Transport and Outdoors** | |
-| Trains, flights, ferries, airport moves, local transit | `transport-domestic.md` |
-| Self-drive, winter roads, ferries, parking | `road-trips-and-driving.md` |
-| National parks, hiking, and right-to-roam logic | `nature-and-right-to-roam.md` |
-| **Major Regions and Bases** | |
-| Stockholm city playbook | `stockholm.md` |
-| Stockholm archipelago strategy | `stockholm-archipelago.md` |
-| Gothenburg and the west coast | `gothenburg-and-west-coast.md` |
-| Malmo, Lund, and Skane routing | `malmo-and-skane.md` |
-| Swedish Lapland and the far north | `swedish-lapland.md` |
-| Dalarna and central Sweden | `dalarna-and-central-sweden.md` |
-| Gotland and island planning | `gotland.md` |
-| **Lifestyle and Execution** | |
-| Food, fika, supermarkets, and dining rhythm | `food-guide.md` |
-| Nightlife, festivals, alcohol, and late hours | `nightlife.md` |
-| Traveling with children | `family-travel.md` |
-| Accessibility and low-mobility planning | `accessibility.md` |
-| Emergencies, alerts, and practical safety | `safety-and-emergencies.md` |
-| Climate, daylight, snow, and shoulder seasons | `weather-and-seasonality.md` |
-| Connectivity, apps, and payment tools | `telecoms-and-apps.md` |
-| Official source map | `sources.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Entry and Compliance** | | |
+| Tourist entry, Schengen limits, EES, ETIAS, IDs | `references/entry-and-documents.md` | User asks about visa rules or entry requirements. |
+| Customs, alcohol, cash, restricted goods | `references/customs-and-border.md` | User asks what they can bring into Sweden. |
+| Domain knowledge context | `references/domain_knowledge.md` | For general background on Schengen policies. |
+| **Planning Backbone** | | |
+| Macro-regions and route logic | `references/regions.md` | Structuring a multi-region trip. |
+| Sample itineraries for 5-14 days | `references/itineraries.md` | Creating daily travel plans. |
+| Where to stay by trip style | `references/accommodation.md` | Deciding on lodging or base locations. |
+| Daily budget framing and hidden costs | `references/budget-and-costs.md` | User is estimating trip costs. |
+| Cards, cash, tax-free, alcohol buying reality | `references/payments-and-alcohol.md` | User is asking about transactions and local payment norms. |
+| **Transport and Outdoors** | | |
+| Trains, flights, ferries, airport moves, local transit | `references/transport-domestic.md` | Planning transit between cities or airports. |
+| Self-drive, winter roads, ferries, parking | `references/road-trips-and-driving.md` | User is renting a car or planning a road trip. |
+| National parks, hiking, and right-to-roam logic | `references/nature-and-right-to-roam.md` | User is planning outdoor activities. |
+| **Major Regions and Bases** | | |
+| Stockholm city playbook | `references/stockholm.md` | Planning activities within Stockholm. |
+| Stockholm archipelago strategy | `references/stockholm-archipelago.md` | Planning trips to the islands near Stockholm. |
+| Gothenburg and the west coast | `references/gothenburg-and-west-coast.md` | Visiting the western side of Sweden. |
+| Malmo, Lund, and Skane routing | `references/malmo-and-skane.md` | Visiting southern Sweden. |
+| Swedish Lapland and the far north | `references/swedish-lapland.md` | Planning trips involving the Arctic, aurora, or northern nature. |
+| Dalarna and central Sweden | `references/dalarna-and-central-sweden.md` | Planning a trip to the lakes and cultural heartland. |
+| Gotland and island planning | `references/gotland.md` | Visiting Gotland or planning Baltic island trips. |
+| **Lifestyle and Execution** | | |
+| Food, fika, supermarkets, and dining rhythm | `references/food-guide.md` | User asks about Swedish dining or groceries. |
+| Nightlife, festivals, alcohol, and late hours | `references/nightlife.md` | User is asking about evening activities. |
+| Traveling with children | `references/family-travel.md` | User mentions traveling with kids. |
+| Accessibility and low-mobility planning | `references/accessibility.md` | User mentions mobility constraints. |
+| Emergencies, alerts, and practical safety | `references/safety-and-emergencies.md` | Reviewing travel safety and risks. |
+| Climate, daylight, snow, and shoulder seasons | `references/weather-and-seasonality.md` | Deciding when to visit or what to pack based on weather. |
+| Connectivity, apps, and payment tools | `references/telecoms-and-apps.md` | Setting up data, phones, and digital payments. |
+| Official source map | `references/sources.md` | Seeking primary reference links. |
 
 ## Core Rules
 
@@ -80,7 +76,7 @@ For short trips, choose one main Sweden corridor: Stockholm and archipelago, wes
 The correct Sweden plan changes radically by month. Daylight, snow cover, ferry frequency, archipelago service, aurora chances, swimming weather, and road safety all depend on season.
 
 ### 3. Confirm Schengen Math Before Locking Plans
-Use `entry-and-documents.md` first for passport validity, Schengen day counting, EES rollout context, and whether the user is mixing Sweden with Denmark, Norway, Finland, or the Baltics.
+Use `references/entry-and-documents.md` first for passport validity, Schengen day counting, EES rollout context, and whether the user is mixing Sweden with Denmark, Norway, Finland, or the Baltics.
 
 ### 4. Always Offer Two Transport Models
 For any multi-stop trip, provide at least two viable patterns:
@@ -88,7 +84,7 @@ For any multi-stop trip, provide at least two viable patterns:
 - Flight or self-drive heavy: more reach, higher transfer or weather friction
 
 ### 5. Budget with Sweden Reality
-Do not price from hotel headlines alone. Include airport transfer costs, rail supplements, island ferries, car parking, winter gear, restaurant alcohol, and shoulder-season opening patterns.
+Calculate full costs including hotel headlines, airport transfer costs, rail supplements, island ferries, car parking, winter gear, restaurant alcohol, and shoulder-season opening patterns.
 
 ### 6. Protect the User from Nordic Overreach
 Flag bad combinations early:
@@ -107,29 +103,10 @@ Output should include:
 
 ## Common Traps
 
-- Treating Sweden as a compact city-break country where south, center, and far north fit naturally into one short itinerary.
-- Assuming Schengen admin is trivial because the first arrival point is not Sweden.
-- Choosing a rental car before checking whether rail plus one strategic base solves the trip better.
-- Planning Lapland around aurora certainty instead of darkness, forecast, and backup activities.
-- Ignoring ferry or island timetables in the archipelago and on Gotland.
-- Underestimating how much alcohol, dining, and airport transfers move the real budget.
-- Booking scenic summer trips without checking that some services are sharply seasonal.
-
-## Security & Privacy
-
-**Data that stays local:** Trip preferences in `~/Clawic/data/sweden/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/sweden/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structure
-- `europe` — Broader Schengen and multi-country Europe planning
-- `booking` — Reservation workflows and total-cost booking hygiene
-- `food` — Deeper restaurant and cuisine planning
-- `english` — Language support for bookings and practical interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/sweden
-- Latest version: https://clawic.com/skills/sweden
+- Treat Sweden as a compact city-break country where south, center, and far north fit naturally into one short itinerary.
+- Assume Schengen administration is trivial because the first arrival point is outside Sweden.
+- Choose a rental car before checking whether rail plus one strategic base solves the trip better.
+- Plan Lapland around aurora certainty instead of darkness, forecasts, and backup activities.
+- Ignore ferry or island timetables in the archipelago and on Gotland.
+- Underestimate how much alcohol, dining, and airport transfers move the real budget.
+- Book scenic summer trips before confirming sharply seasonal services.
