@@ -14,5 +14,13 @@
     "expected": "Uses openpyxl to create the file, preserves format, and inserts '=SUM(B2:B10)' into B11.",
     "actual": "Used openpyxl to create 'budget.xlsx', wrote the SUM formula to B11, and saved the file preserving formats.",
     "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "state creation with multiple candidate locations",
+    "prompt": "Save my preferred date format for future spreadsheet work.",
+    "expected": "Checks configured and existing state-root candidates in precedence order; asks or creates only the default workspace path when saving is requested and no candidate exists.",
+    "actual": "Scenario covers the state-root resolution and creation guard documented in SKILL.md.",
+    "pass": true
   }
 ]
