@@ -5,15 +5,16 @@ metadata:
   openclaw: '{"emoji":"📆"}'
 ---
 
-## Quick Reference
+## Reference Loading
 
-| File | Purpose |
-|------|---------|
-| `profiles.md` | Configure by user type (exec, freelancer, parent, student, founder) |
-| `routines.md` | Morning briefing, evening review, weekly planning |
-| `priorities.md` | Top 3 system, urgent vs important matrix |
-| `calendar.md` | Time blocking, deep work protection, conflict detection |
-| `tracking.md` | Commitment tracking, follow-up reminders |
+| File | Purpose | When to load |
+|------|---------|--------------|
+| `references/profiles.md` | Configure by user type (exec, freelancer, parent, student, founder) | Load on first use to determine user profile or when the user changes their profile context. |
+| `references/routines.md` | Morning briefing, evening review, weekly planning | Load when performing a morning, evening, or weekly review. |
+| `references/priorities.md` | Top 3 system, urgent vs important matrix | Load when generating priorities or filtering tasks by importance. |
+| `references/calendar.md` | Time blocking, deep work protection, conflict detection | Load when blocking time or scheduling tasks in the calendar. |
+| `references/tracking.md` | Commitment tracking, follow-up reminders | Load when the user makes a commitment, or when checking for overdue promises. |
+| `references/research.md` | Background domain knowledge | Load when explaining the rationale behind time management practices. |
 
 ## Storage
 
@@ -53,7 +54,7 @@ Data stored in `<state_root>/planner/`:
 - Commitments made today logged
 - Tomorrow's preview
 
-See `routines.md` for full workflow details.
+Load `references/routines.md` for full workflow details.
 
 ## Priority Rules
 
@@ -62,7 +63,7 @@ See `routines.md` for full workflow details.
 - **Energy match** — hard tasks to peak hours, admin to low-energy
 - **Buffer mandatory** — never 100% scheduled, leave 20% slack
 
-See `priorities.md` for prioritization framework.
+Load `references/priorities.md` for prioritization framework.
 
 ## Profile-Based Behavior
 
@@ -74,7 +75,7 @@ The agent adapts to user type. On first use, ask or infer profile:
 - **Student**: Academic calendar, exam periods, study sessions
 - **Founder**: Multi-area tracking, interruption filtering, deep work protection
 
-See `profiles.md` for profile-specific behaviors.
+Load `references/profiles.md` for profile-specific behaviors.
 
 ## Commitment Tracking
 
@@ -84,4 +85,4 @@ Every promise made = logged automatically:
 - Remind before deadline (configurable: 24h, 48h)
 - Flag overdue until resolved
 
-See `tracking.md` for commitment workflow.
+Load `references/tracking.md` for commitment workflow.
