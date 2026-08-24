@@ -1,68 +1,60 @@
 ---
 name: singapore
-slug: singapore
-version: 1.0.0
-description: Navigate Singapore as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/singapore
+description: Guide users on visiting, living, working, or doing business in Singapore using current practical data and legal awareness.
 metadata:
-  clawdbot:
-    emoji: 🦁
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Singapore
+  openclaw: '{"emoji":"🦁","os":["linux","darwin","win32"],"displayName":"Singapore"}'
+  related-skills: '{"travel-planning":"For flight/hotel bookings beyond the skill scope","expat":"For general expatriate advice"}'
 ---
-
-## When to Use
-
-User asks about Singapore for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
 
 ## Quick Reference
 
+**Trigger:** Use this skill when the user asks about visiting, moving to, working in, studying in, or starting a business in Singapore.
+**Action:** Provide practical, current guidance tailored to their specific role and timeline.
+
+| Topic | File | When to load |
+|-------|------|--------------|
+
 | Topic | File |
 |-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| CBD, Marina Bay, Raffles | `neighborhoods-central.md` |
-| Orchard, Newton, River Valley | `neighborhoods-orchard.md` |
-| Katong, East Coast, Bedok | `neighborhoods-east.md` |
-| Novena, Toa Payoh, Bishan | `neighborhoods-suburbs.md` |
-| Holland Village, Clementi, Jurong | `neighborhoods-west.md` |
-| Woodlands, Yishun, Punggol | `neighborhoods-north.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & hawker culture | `food-overview.md` |
-| Local cuisine (chicken rice, laksa) | `food-local.md` |
-| International & fine dining | `food-international.md` |
-| Michelin stars & speakeasies | `food-fine-dining.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary, alcohol, practical | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (MRT, buses, Grab) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & survival tips | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
-| **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & ACRA | `business.md` |
-| Visas (EP, S Pass, PR) | `visas.md` |
-| Startups & funding | `startup.md` |
-| **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & insurance | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Driving & COE system | `driving.md` |
+| **Visitors** | | |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` | User asks what to see |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | User needs a day-by-day plan |
+| Where to stay | `references/visitor-lodging.md` | User needs hotel recommendations |
+| Tips & day trips | `references/visitor-tips.md` | General tourist advice |
+| **Neighborhoods** | | |
+| Quick comparison | `references/neighborhoods-index.md` | User wants to compare living areas |
+| CBD, Marina Bay, Raffles | `references/neighborhoods-central.md` | Specific central area queries |
+| Orchard, Newton, River Valley | `references/neighborhoods-orchard.md` | Specific orchard area queries |
+| Katong, East Coast, Bedok | `references/neighborhoods-east.md` | Specific east area queries |
+| Novena, Toa Payoh, Bishan | `references/neighborhoods-suburbs.md` | Specific suburb queries |
+| Holland Village, Clementi, Jurong | `references/neighborhoods-west.md` | Specific west area queries |
+| Woodlands, Yishun, Punggol | `references/neighborhoods-north.md` | Specific north area queries |
+| Choosing guide | `references/neighborhoods-choosing.md` | User needs help picking a neighborhood |
+| **Food** | | |
+| Overview & hawker culture | `references/food-overview.md` | General dining questions |
+| Local cuisine (chicken rice, laksa) | `references/food-local.md` | User wants local food recommendations |
+| International & fine dining | `references/food-international.md` | Non-local food recommendations |
+| Michelin stars & speakeasies | `references/food-fine-dining.md` | High-end dining queries |
+| Best areas for dining | `references/food-areas.md` | Where to go for food |
+| Dietary, alcohol, practical | `references/food-practical.md` | Specific dietary needs |
+| **Practical** | | |
+| Moving & settling | `references/resident.md` | User is moving to Singapore |
+| Transport (MRT, buses, Grab) | `references/transport.md` | Commuting questions |
+| Cost of living | `references/cost.md` | Budgeting and expenses |
+| Safety & laws | `references/safety.md` | Legal and safety questions |
+| Weather & survival tips | `references/climate.md` | Weather and packing advice |
+| Local services (banking, SIM) | `references/local.md` | Practical setup queries |
+| **Career** | | |
+| Tech industry & salaries | `references/tech.md` | Tech job market |
+| Business setup & ACRA | `references/business.md` | Starting a company |
+| Visas (EP, S Pass, PR) | `references/visas.md` | Immigration and work pass queries |
+| Startups & funding | `references/startup.md` | Startup ecosystem |
+| **Lifestyle** | | |
+| Culture & customs | `references/culture.md` | Social norms |
+| Healthcare & insurance | `references/healthcare.md` | Medical queries |
+| Schools & education | `references/education.md` | Finding schools |
+| Expat lifestyle & social | `references/lifestyle.md` | Social life for expats |
+| Driving & COE system | `references/driving.md` | Car ownership queries |
 
 ## Core Rules
 
@@ -80,11 +72,11 @@ Singapore is a city-state with unique characteristics:
 
 ### 3. Visa Categories
 Employment requires proper visa sponsorship:
-- **EP (Employment Pass)**: S$5,600+ salary, COMPASS framework (40 points)
+- **EP (Employment Pass)**: S$5,600+ salary (increases to S$6,200 for financial services), COMPASS framework (40 points)
 - **S Pass**: S$3,300+ salary, quota-limited
 - **Dependent Pass**: Requires S$6,000+ sponsor salary
 - **PR pathway**: Typically 2-5 years with stable employment
-See `visas.md` for current requirements (Feb 2026).
+See `references/visas.md` for current requirements (Feb 2026).
 
 ### 4. Weather Reality
 Singapore is tropical year-round:
@@ -92,7 +84,7 @@ Singapore is tropical year-round:
 - **Humidity**: 80%+ average — acclimatization takes 2-4 weeks
 - **Rain**: Afternoon thunderstorms common, carry umbrella always
 - **Monsoons**: NE (Dec-Mar), SW (Jun-Sep) — affects outdoor activities
-See `climate.md` for monthly breakdown.
+See `references/climate.md` for monthly breakdown.
 
 ### 5. Current Data (Feb 2026)
 
@@ -122,7 +114,7 @@ Unlike most cities, Singapore has world-class public transport:
 - **Buses**: Extensive network, same EZ-Link/SimplyGo card
 - **Grab**: Primary ride-hailing, S$8-25 for most trips
 - **No car needed**: 90%+ of residents don't own cars
-See `transport.md` for complete guide.
+See `references/transport.md` for complete guide.
 
 ### 8. Neighborhood Matching
 
@@ -144,21 +136,21 @@ Singapore is a UNESCO-recognized hawker food destination:
 - **Speakeasies**: Jigger & Pony (#3 Asia), 28 Hong Kong Street
 - **Halal**: Widely available, MUIS certification
 
-See `food-overview.md` for complete guide.
+See `references/food-overview.md` for complete guide.
 
 ## Singapore-Specific Traps
 
-- **Chewing gum ban** — Importing gum for personal use is illegal. Don't bring it.
+- **Chewing gum ban** — Importing gum for personal use is illegal. Ensure you arrive without it.
 - **Drug laws** — Zero tolerance. Death penalty for trafficking. Even trace amounts = prison.
-- **Vandalism** — Criminal offense including caning. Don't graffiti anything.
+- **Vandalism** — Criminal offense including caning. Keep public surfaces clean.
 - **Jaywalking** — S$50 fine within 50m of crossing. Police do enforce.
 - **Smoking** — Banned in most public areas. S$200+ fines.
 - **Littering** — S$300 first offense, S$1,000+ repeat. Very enforced.
 - **Public intoxication** — Liquor control areas 10:30pm-7am in some zones.
 - **LGBTQ+** — 377A repealed (2022) but limited protections. Discretion advised.
-- **Criticism of government** — Defamation laws strict. Avoid public criticism.
-- **Photography** — No photos at government/military installations.
-- **Overstaying visa** — Criminal offense, caning possible. Don't overstay.
+- **Criticism of government** — Defamation laws strict. Maintain a respectful public stance regarding the government.
+- **Photography** — Only take photos in permitted tourist or public areas, avoiding government or military sites.
+- **Overstaying visa** — Criminal offense, caning possible. Depart before your visa expires.
 
 ## Legal Awareness
 
@@ -170,4 +162,20 @@ Key laws every visitor/resident must know:
 - **Internet**: VPNs legal but bypassing government blocks is not.
 - **Employment**: Working without valid pass = deportation + ban.
 
-See `safety.md` for comprehensive legal guidance.
+See `references/safety.md` for comprehensive legal guidance.
+
+## State location
+
+Singapore visitor planning requires storing user preferences (visa status, dietary needs, role). Store this state in:
+
+1. `<state_root>/singapore/preferences.json`
+
+Do not use absolute paths.
+
+## State location
+
+Singapore visitor planning requires storing user preferences (visa status, dietary needs, role). Store this state in:
+
+1. `<state_root>/singapore/preferences.json`
+
+Do not use absolute paths.
