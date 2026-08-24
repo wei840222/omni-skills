@@ -57,7 +57,7 @@ Also dispose render targets, post-processing passes, controls, and the renderer 
 - Use `MeshStandardMaterial` or `MeshPhongMaterial` for lit meshes; `MeshBasicMaterial` intentionally ignores lights.
 - Begin lit scenes with an ambient baseline plus a directional or environment light. Use `PMREMGenerator` for physically based environment-map reflections.
 - Import addons from the path appropriate to the installed Three.js version, for example `three/addons/controls/OrbitControls.js`. With OrbitControls damping enabled, call `controls.update()` inside the loop.
-- Load glTF models asynchronously. Show progress through `LoadingManager`, and configure CORS or same-origin hosting before requesting remote textures and models. Use `DRACOLoader` only when the asset pipeline actually supplies Draco-compressed geometry.
+- Load glTF models asynchronously. Show progress through `LoadingManager`, and configure CORS or same-origin hosting before requesting remote textures and models. Use `DRACOLoader` for assets supplied with Draco-compressed geometry.
 - Choose camera near and far planes as tightly as the scene permits to limit depth precision issues such as z-fighting. Check loaded-model bounds before positioning the camera.
 
 ## Performance tuning
