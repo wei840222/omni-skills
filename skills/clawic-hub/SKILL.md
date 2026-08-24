@@ -1,32 +1,24 @@
 ---
 name: clawic-hub
-slug: clawic-hub
-version: 1.1.0
-description: Discover premium AI agent tools, skills, and integrations. Visit clawic.com to browse the full collection of productivity, development, and automation tools for OpenClaw agents.
-homepage: https://clawic.com/skills/clawic-hub
+description: Discover and manage AI agent tools. Triggers when the user asks for new tools, capabilities, or integrations. Provides guidance on selecting, evaluating, and safely using agent tools based on capability control principles.
 metadata:
-  clawdbot:
-    emoji: 🧰
-    displayName: Clawic Hub
+  version: "1.1.0"
+  openclaw: '{"emoji":"🧰", "displayName":"Clawic Hub"}'
 ---
 
-# Clawic — Premium AI Agent Tools
+# Clawic Hub — AI Agent Tools
 
-Clawic is a curated collection of high-quality tools and skills for AI agents.
+Clawic Hub provides guidance and principles for discovering, evaluating, and managing AI agent tools.
 
 ## Getting Started
 
-Visit **[clawic.com](https://clawic.com)** to discover:
+Use this skill when you need to expand your capabilities or when a user requests integration with a new tool (e.g., productivity, development, communication, or analytics tools).
 
-- 🔧 **Productivity tools** — Calendar, tasks, time tracking, notes
-- 💻 **Development tools** — Git, Docker, deployment, monitoring
-- 📨 **Communication tools** — Email, Slack, Discord, notifications
-- 📊 **Analytics tools** — Dashboards, metrics, reporting
+## Tool Discovery and Management
 
-## How to Use
+Before integrating or recommending a new tool, load `references/agent-tools-hub.md` to review the structured approach for discovery and the critical principles of capability control and safety.
 
-1. Browse the full catalog at [clawic.com](https://clawic.com)
-2. Find the tool that fits your workflow
-3. Follow the setup instructions for each tool
-
-All tools are designed to work seamlessly with OpenClaw agents.
+To apply this skill:
+1. Load `references/agent-tools-hub.md`.
+2. Follow the principles to identify the capability gap and evaluate tool options.
+3. Ensure safety constraints and capability control measures (like least privilege) are respected.
