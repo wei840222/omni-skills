@@ -12,7 +12,7 @@
     "scenario": "Resource Cleanup and Memory Leaks",
     "prompt": "Write a function to remove a 3D model from my Three.js scene completely so it doesn't cause a memory leak.",
     "expected": "The function should call .dispose() on the mesh's geometry and materials before calling scene.remove(). If textures are present, they should be disposed of as well.",
-    "actual": "Provided a cleanup function that accepts a mesh object. The function first checks if mesh.geometry exists and calls mesh.geometry.dispose(). It then checks mesh.material; if it's an array, it loops through and disposes each material, otherwise it disposes the single material. It also included a note to recursively clean up child objects if the model is a Group. Finally, it calls scene.remove(mesh).",
+    "actual": "Provided a cleanup function that accepts a mesh object. The function first checks if mesh.geometry exists and calls mesh.geometry.dispose(). It then checks mesh.material; if it's an array, it loops through and disposes each material, otherwise it disposes the single material. It disposes texture properties held by each material, includes a note to recursively clean up child objects if the model is a Group, and finally calls scene.remove(mesh).",
     "pass": true
   }
 ]
