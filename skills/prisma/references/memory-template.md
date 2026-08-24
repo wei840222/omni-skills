@@ -1,6 +1,6 @@
 # Memory Template — Prisma
 
-Create `~/Clawic/data/prisma/memory.md` with this structure:
+Create `<state_root>/prisma/memory.md` with this structure:
 
 ```markdown
 # Prisma Memory
