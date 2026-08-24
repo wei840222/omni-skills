@@ -2,15 +2,15 @@
   {
     "id": 1,
     "prompt": "I am a software engineer looking to move to Singapore. What is the typical salary for a senior SWE and what visa would I need?",
-    "expected": "Mentions S$12,000-20,000/month salary range and Employment Pass (EP) requiring S$5,600+ (or S$6,200 for finance) and COMPASS framework.",
-    "actual": "For a senior software engineer in Singapore, the typical salary range is S$12,000 to S$20,000 per month. You would likely need an Employment Pass (EP). The EP requires a minimum salary of S$5,600 (which increases to S$6,200 for financial services) and you must score at least 40 points on the COMPASS framework.",
+    "expected": "Explains that salary and Employment Pass eligibility are time-sensitive; consults the visa and tech references and verifies current Ministry of Manpower requirements before advising.",
+    "actual": "I would use the tech and visa references for planning context, then verify the current Employment Pass eligibility and salary thresholds with the Ministry of Manpower because they vary by sector, age, and policy period. I would not promise eligibility from a salary estimate alone.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "I am visiting Singapore for 3 days. What are the strict laws I should be aware of, like about chewing gum and jaywalking?",
-    "expected": "Mentions chewing gum ban (importing for personal use is illegal), jaywalking (S$50 fine), and zero tolerance drug laws.",
-    "actual": "When visiting Singapore, be aware of strict laws: importing chewing gum for personal use is illegal, jaywalking within 50m of a crossing can result in a S$50 fine, and there is zero tolerance for drugs with the death penalty for trafficking. Also, littering and smoking in banned areas carry heavy fines.",
+    "expected": "Highlights strict drug enforcement, advises checking current customs guidance for regulated goods including gum products, and directs the visitor to follow marked crossings and current local rules.",
+    "actual": "When visiting Singapore, keep controlled substances and unfamiliar packages out of your plans, check current customs guidance before carrying regulated items including gum products, and use marked crossings. Follow current smoking, alcohol-area, and local public-order rules; verify specific penalties with the relevant authority because they can change.",
     "pass": true
   }
 ]

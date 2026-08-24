@@ -2,20 +2,17 @@
 name: singapore
 description: Guide users on visiting, living, working, or doing business in Singapore using current practical data and legal awareness.
 metadata:
-  openclaw: '{"emoji":"🦁","os":["linux","darwin","win32"],"displayName":"Singapore"}'
+  openclaw: '{"emoji":"🦁"}'
   related-skills: '{"travel-planning":"For flight/hotel bookings beyond the skill scope","expat":"For general expatriate advice"}'
 ---
 
 ## Quick Reference
 
 **Trigger:** Use this skill when the user asks about visiting, moving to, working in, studying in, or starting a business in Singapore.
-**Action:** Provide practical, current guidance tailored to their specific role and timeline.
+**Action:** Provide practical guidance tailored to their role and timeline; verify time-sensitive legal, immigration, fare, and price claims with the relevant official source before relying on them.
 
 | Topic | File | When to load |
 |-------|------|--------------|
-
-| Topic | File |
-|-------|------|
 | **Visitors** | | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` | User asks what to see |
 | Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | User needs a day-by-day plan |
@@ -70,51 +67,20 @@ Singapore is a city-state with unique characteristics:
 - **Language**: English is primary business language; Singlish widely spoken
 - **Government**: Highly efficient, strict laws, low corruption
 
-### 3. Visa Categories
-Employment requires proper visa sponsorship:
-- **EP (Employment Pass)**: S$5,600+ salary (increases to S$6,200 for financial services), COMPASS framework (40 points)
-- **S Pass**: S$3,300+ salary, quota-limited
-- **Dependent Pass**: Requires S$6,000+ sponsor salary
-- **PR pathway**: Typically 2-5 years with stable employment
-See `references/visas.md` for current requirements (Feb 2026).
+### 3. Immigration and work passes
+Employment and residence eligibility depend on the applicant, employer, sector, age, and current Ministry of Manpower rules. Read `references/visas.md` for the background, then verify the current requirements at the Ministry of Manpower before advising on an application. Do not present salary thresholds, quotas, or timelines as guaranteed outcomes.
 
-### 4. Weather Reality
-Singapore is tropical year-round:
-- **Temperature**: 27-32°C constant, no seasons
-- **Humidity**: 80%+ average — acclimatization takes 2-4 weeks
-- **Rain**: Afternoon thunderstorms common, carry umbrella always
-- **Monsoons**: NE (Dec-Mar), SW (Jun-Sep) — affects outdoor activities
-See `references/climate.md` for monthly breakdown.
+### 4. Weather and packing
+Singapore is hot and humid year-round, with frequent rain. Read `references/climate.md` for planning context; check an up-to-date forecast for specific travel dates.
 
-### 5. Current Data (Feb 2026)
+### 5. Costs and transport
+Housing, fares, food, and car costs change. Use `references/cost.md` and `references/transport.md` for planning context, then verify live prices or service changes with the provider before making a booking or budget decision.
 
-| Item | Range |
-|------|-------|
-| 1BR rent (CBD) | S$3,000-5,000/month |
-| 1BR rent (suburbs) | S$2,000-3,500/month |
-| HDB room rental | S$800-1,500/month |
-| Senior SWE salary | S$12,000-20,000/month |
-| MRT monthly pass | S$128 (adult) |
-| Hawker meal | S$4-8 |
-| Restaurant dinner | S$30-100/person |
-| International school | S$30,000-55,000/year |
+### 6. Business and career
+For business formation or employment questions, route to `references/business.md` or `references/tech.md`. Confirm any filing, pass, tax, salary, or licensing requirement with the responsible Singapore authority before treating it as current.
 
-### 6. Cost Reality
-Singapore is expensive but tax-efficient:
-- **No capital gains tax, no inheritance tax**
-- **Income tax**: 0-24% progressive (most pay 7-15%)
-- **Housing**: 30-50% of budget typical for expats
-- **COE (car permit)**: S$100,000-150,000 for 10 years — most don't drive
-- **Hidden costs**: Agent fees (1 month rent), security deposits (2 months)
-- **Hawker centres**: Affordable meals (S$4-8) offset restaurant costs
-
-### 7. Transit Excellence
-Unlike most cities, Singapore has world-class public transport:
-- **MRT**: 6 lines, 140+ stations, S$1-2.50 per trip
-- **Buses**: Extensive network, same EZ-Link/SimplyGo card
-- **Grab**: Primary ride-hailing, S$8-25 for most trips
-- **No car needed**: 90%+ of residents don't own cars
-See `references/transport.md` for complete guide.
+### 7. Food and culture
+Singapore’s hawker culture, multilingual setting, and varied neighborhoods shape most visitor and relocation decisions. Read `references/food-overview.md` for food questions and select a neighborhood reference for location-specific advice.
 
 ### 8. Neighborhood Matching
 
@@ -138,44 +104,16 @@ Singapore is a UNESCO-recognized hawker food destination:
 
 See `references/food-overview.md` for complete guide.
 
-## Singapore-Specific Traps
+## Legal and safety awareness
 
-- **Chewing gum ban** — Importing gum for personal use is illegal. Ensure you arrive without it.
-- **Drug laws** — Zero tolerance. Death penalty for trafficking. Even trace amounts = prison.
-- **Vandalism** — Criminal offense including caning. Keep public surfaces clean.
-- **Jaywalking** — S$50 fine within 50m of crossing. Police do enforce.
-- **Smoking** — Banned in most public areas. S$200+ fines.
-- **Littering** — S$300 first offense, S$1,000+ repeat. Very enforced.
-- **Public intoxication** — Liquor control areas 10:30pm-7am in some zones.
-- **LGBTQ+** — 377A repealed (2022) but limited protections. Discretion advised.
-- **Criticism of government** — Defamation laws strict. Maintain a respectful public stance regarding the government.
-- **Photography** — Only take photos in permitted tourist or public areas, avoiding government or military sites.
-- **Overstaying visa** — Criminal offense, caning possible. Depart before your visa expires.
+Use `references/safety.md` as background, but verify current rules with an official Singapore government source when the user needs legal, immigration, customs, alcohol, public-order, or controlled-substance advice. Communicate uncertainty clearly and direct the user to qualified legal or immigration advice for consequential decisions.
 
-## Legal Awareness
-
-Key laws every visitor/resident must know:
-- **Drugs**: Zero tolerance. Death penalty for 15g heroin, 500g cannabis.
-- **Weapons**: Strictly prohibited including pocket knives.
-- **Alcohol**: Legal at 18+, retail sales end 10:30pm.
-- **Public order**: Unlicensed gatherings >1 person in public can be illegal.
-- **Internet**: VPNs legal but bypassing government blocks is not.
-- **Employment**: Working without valid pass = deportation + ban.
-
-See `references/safety.md` for comprehensive legal guidance.
+- Keep controlled substances and unfamiliar packages out of travel plans; Singapore enforces serious drug offences strictly.
+- Use marked crossings, follow smoking and alcohol-area rules, and check venue or authority guidance for location-specific restrictions.
+- Check customs guidance before carrying regulated goods, including gum products, medicines, vaping products, and food.
+- Keep valid immigration status and leave or extend permission before expiry.
+- Take photographs only where access and signage permit.
 
 ## State location
 
-Singapore visitor planning requires storing user preferences (visa status, dietary needs, role). Store this state in:
-
-1. `<state_root>/singapore/preferences.json`
-
-Do not use absolute paths.
-
-## State location
-
-Singapore visitor planning requires storing user preferences (visa status, dietary needs, role). Store this state in:
-
-1. `<state_root>/singapore/preferences.json`
-
-Do not use absolute paths.
+Only persist travel preferences when the user asks to save them. Resolve `<state_root>` from an explicit user- or host-configured path; if no state root is available, ask for one before creating files. After the user confirms the write, store preferences such as visa status, dietary needs, and role at `<state_root>/singapore/preferences.json`. Keep this state outside the skill package and do not store passport, national-ID, bank, or full visa numbers.
