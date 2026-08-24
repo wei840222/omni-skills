@@ -1,6 +1,6 @@
 # Memory Template — TypeScript
 
-Create `~/Clawic/data/typescript/memory.md` with this structure:
+Create `<state_root>/typescript/memory.md` with this structure:
 
 ```markdown
 # TypeScript Memory
