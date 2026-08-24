@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Select database for a highly relational app",
+    "prompt": "I need to store user profiles and their order history. The schema is well defined and requires complex joins.",
+    "expected": "Recommends PostgreSQL based on the need for joins and complex queries.",
+    "actual": "PostgreSQL is recommended because you need complex joins for user profiles and order history.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Storage for user uploaded media",
+    "prompt": "Users will upload large video files to the platform. How should I store them?",
+    "expected": "Recommends object storage (like S3/R2) using presigned URLs and explicitly warns against storing user uploads on local application instances.",
+    "actual": "Use Object Storage (e.g. S3, R2, GCS) for user uploaded media. Object storage scales infinitely, is cheaper, and is ideal for immutable blobs like videos. Ensure you use presigned URLs to handle uploads directly to the cloud storage instead of routing large video files through your app servers. Never store user uploads only on local disk.",
+    "pass": true
+  }
+]
