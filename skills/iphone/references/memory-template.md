@@ -1,6 +1,6 @@
 # Memory Template - iPhone
 
-Create `~/Clawic/data/iphone/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # iPhone Memory
@@ -51,7 +51,7 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | Context still evolving | Keep learning through active missions |
 | `complete` | Enough context captured | Move directly into execution mode |
 | `paused` | Setup prompts paused by user | Work with existing context only |
-| `never_ask` | User rejected setup prompts | Never ask setup questions again |
+| `never_ask` | User rejected setup prompts | Skip setup questions in the future |
 
 ## Principles
 

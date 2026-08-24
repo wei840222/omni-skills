@@ -18,6 +18,6 @@ Use iOS Shortcuts to make mission outcomes reusable.
 
 ## Safety Rules
 
-- Never automate destructive actions without confirmation.
+- Always require explicit confirmation before automating destructive actions.
 - Keep a manual override path.
 - Document what each shortcut changes and why.
