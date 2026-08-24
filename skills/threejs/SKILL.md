@@ -1,20 +1,9 @@
 ---
 name: threejs
-slug: threejs
-version: 1.0.0
-description: Build 3D web experiences with proper resource management and performance patterns.
-homepage: https://clawic.com/skills/threejs
+description: Generate, debug, and optimize Three.js 3D web scenes. Use when building WebGL/WebXR scenes, configuring cameras, lighting, controls, models, animation loops, responsive canvases, GPU cleanup, or render performance.
 metadata:
-  clawdbot:
-    emoji: 🎮
-    requires:
-      bins:
-      - node
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Three.js
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎮"}'
 ---
 
 # Three.js Production Patterns
