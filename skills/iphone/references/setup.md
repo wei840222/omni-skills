@@ -1,6 +1,6 @@
 # Setup - iPhone
 
-Read this when `~/Clawic/data/iphone/` does not exist or is empty.
+Read this when the resolved `<state_root>` does not exist or is empty.
 
 ## Your Attitude
 
@@ -35,7 +35,7 @@ Configure how the user wants help delivered.
 
 ## What to Capture Internally
 
-Keep concise notes in `~/Clawic/data/iphone/memory.md`.
+Keep concise notes in `<state_root>/memory.md`.
 
 - Activation boundaries and preferred mode.
 - Recurring incidents and proven fixes.
