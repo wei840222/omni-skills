@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Basic document parsing without styles",
+    "prompt": "Extract all the text from the provided report.docx.",
+    "expected": "Extract the text content from the word/document.xml while ignoring formatting drift or styles. Use structured extraction.",
+    "actual": "Extracted text by reading word/document.xml, successfully retrieved paragraph contents without applying OOXML format parsing overhead.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Modifying a fragile document with tracked changes",
+    "prompt": "Update the title in the contract.docx to 'Final Agreement' and make sure the tracked changes are preserved.",
+    "expected": "Load the OOXML structure, modify only the specific run elements for the title in word/document.xml, preserve the w:ins/w:del tags and comments. Save without altering numbering.xml or styles.xml.",
+    "actual": "Preserved styles and tracked change tags by strictly locating the title node. Modified text runs safely, leaving comment wrappers intact.",
+    "pass": true
+  }
+]
