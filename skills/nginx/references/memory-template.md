@@ -1,6 +1,6 @@
 # Memory Template — Nginx
 
-Create `~/Clawic/data/nginx/memory.md` with this structure:
+Create `<state_root>/nginx/memory.md` with this structure:
 
 ```markdown
 # Nginx Memory

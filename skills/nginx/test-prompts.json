@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Create an nginx config for a Node.js app running on port 3000 at example.com. I want standard HTTP to HTTPS redirection, and the proxy should set the correct real IP headers.",
+    "expected": "A configuration including a server block for port 80 redirecting to 443, a server block for 443 with SSL directives, and a location block with `proxy_pass http://127.0.0.1:3000;` and standard `proxy_set_header` rules for Host, X-Real-IP, etc. It should mention `nginx -t`.",
+    "actual": "Here is the nginx configuration for your Node.js app at example.com. I've set up an HTTP to HTTPS redirect, and configured the proxy block to forward the necessary headers so your app sees the real client IPs.\n\n```nginx\nserver {\n    listen 80;\n    server_name example.com;\n    return 301 https://$host$request_uri;\n}\n\nserver {\n    listen 443 ssl;\n    server_name example.com;\n\n    ssl_certificate /etc/nginx/ssl/fullchain.pem;\n    ssl_certificate_key /etc/nginx/ssl/privkey.pem;\n\n    location / {\n        proxy_pass http://127.0.0.1:3000;\n        proxy_set_header Host $host;\n        proxy_set_header X-Real-IP $remote_addr;\n        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n        proxy_set_header X-Forwarded-Proto $scheme;\n    }\n}\n```\n\nRun `nginx -t` to test the configuration before reloading.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "My Nginx proxy serves a WebSocket application on /ws, but connections keep dropping after 60 seconds and new connections take a long time to reflect changes. How do I fix this?",
+    "expected": "An explanation that `proxy_read_timeout` defaults to 60s and needs to be increased for long-lived WebSockets. It should also specify adding `proxy_http_version 1.1;` and setting the `Upgrade` and `Connection` headers for WebSockets. The response should load `references/proxy.md`.",
+    "actual": "To fix the WebSocket connection drops, you need to increase the `proxy_read_timeout` (which defaults to 60s) and ensure Nginx is configured to properly proxy WebSocket upgrades. Here's how to configure your `/ws` location:\n\n```nginx\nlocation /ws {\n    proxy_pass http://backend;\n    proxy_http_version 1.1;\n    proxy_set_header Upgrade $http_upgrade;\n    proxy_set_header Connection \"Upgrade\";\n    proxy_read_timeout 3600s; # Adjust to your desired timeout\n}\n```\n\nThis passes the Upgrade headers required for WebSockets to remain open.",
+    "pass": true
+  }
+]

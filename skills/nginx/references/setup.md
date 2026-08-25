@@ -8,10 +8,10 @@ Nginx config reads simple and behaves subtle — inheritance, location matching,
 
 ## How To Load Preferences
 
-1. Read `~/Clawic/data/nginx/config.yaml` if it exists. Apply its values.
+1. Read `<state_root>/nginx/config.yaml` if it exists. Apply its values.
 2. For anything absent, use the defaults in the Configuration table of `SKILL.md` — do not ask.
    - `os_family: debian`, `deployment: systemd`, `edge_position: standalone`.
-3. Read `~/Clawic/data/nginx/memory.md` for prior context (their stack, past incidents). Absence is fine; proceed without comment.
+3. Read `<state_root>/nginx/memory.md` for prior context (their stack, past incidents). Absence is fine; proceed without comment.
 
 Work from defaults immediately. Never open with questions about their distro, their CDN, or how cautious to be.
 
@@ -19,8 +19,8 @@ Work from defaults immediately. Never open with questions about their distro, th
 
 Write to config or memory **only** when the user states a preference in the course of the work — never as a preflight questionnaire.
 
-- User names their distro, deployment target, or an LB/CDN in front → update the matching key in `~/Clawic/data/nginx/config.yaml`.
-- User expresses a habit or stance (config layout, module set, rollout caution, mainline vs stable) → record it under the relevant preference area (tooling, conventions, safety posture, platform) in `~/Clawic/data/nginx/memory.md`.
+- User names their distro, deployment target, or an LB/CDN in front → update the matching key in `<state_root>/nginx/config.yaml`.
+- User expresses a habit or stance (config layout, module set, rollout caution, mainline vs stable) → record it under the relevant preference area (tooling, conventions, safety posture, platform) in `<state_root>/nginx/memory.md`.
 - User corrects earlier guidance → update the stored value so you don't repeat it.
 
 If the user has said nothing, store nothing.
