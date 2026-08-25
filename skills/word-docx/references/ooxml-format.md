@@ -8,3 +8,8 @@ Office Open XML (OOXML) is a zipped, XML-based file format developed by Microsof
 - **Structure**: A `.docx` file is a ZIP archive containing multiple XML parts and relationships. The key document parts include `word/document.xml` (main content), `styles.xml` (style definitions), `numbering.xml` (list styles), and various header/footer parts.
 - **Complexity**: OOXML is highly complex compared to plain text or standard HTML. Features like tracked changes, numbering lists, section properties, and styles interact intricately. Direct formatting can override named styles, but relying on styles is best for document stability.
 - **References**: Wikipedia (Office Open XML, ECMA-376, ISO/IEC 29500).
+
+## Sources
+- https://en.wikipedia.org/wiki/Office_Open_XML
+- https://en.wikipedia.org/wiki/ECMA-376
+- https://www.iso.org/standard/71691.html
