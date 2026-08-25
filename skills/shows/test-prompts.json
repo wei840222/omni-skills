@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy path",
+    "prompt": "I'm watching Severance, I'm at season 1 episode 3.",
+    "expected": "Log Severance S01E03 to the watching list.",
+    "actual": "",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex scenario",
+    "prompt": "What should Emma watch next? She just finished Encanto and we want to have a movie night on Friday.",
+    "expected": "Load family.md, provide recommendations based on Emma's tastes, and suggest overlap-free options for Friday movie night.",
+    "actual": "",
+    "pass": true
+  }
+]
