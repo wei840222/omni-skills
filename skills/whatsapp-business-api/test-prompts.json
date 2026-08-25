@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Happy Path",
+    "prompt": "Send a 'hello' text message to 1234567890.",
+    "expected": "Executes a curl POST to WhatsApp Cloud API sending a text message.",
+    "actual": "Sends a curl POST with proper Authorization and messaging_product='whatsapp' to the recipient 1234567890.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex Edge Case",
+    "prompt": "Upload an image and then send it as a media message to 1234567890.",
+    "expected": "Handles media upload to get an ID, then sends the media message using that ID.",
+    "actual": "Checks media upload endpoint, receives ID, and successfully posts a media message referencing the ID.",
+    "pass": true
+  }
+]

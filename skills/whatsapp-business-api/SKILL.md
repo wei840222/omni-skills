@@ -1,23 +1,9 @@
 ---
 name: whatsapp-business-api
-slug: whatsapp-business-api
-version: 1.0.0
-description: Complete WhatsApp Business Cloud API for messages, templates, media, webhooks, flows, and business profiles.
-homepage: https://clawic.com/skills/whatsapp-business-api
-changelog: Initial release with full Cloud API coverage.
+description: Manage WhatsApp Business Cloud API. Use this to send messages, templates, media, handle webhooks, and manage business profiles.
 metadata:
-  clawdbot:
-    emoji: 💬
-    requires:
-      env:
-      - WHATSAPP_ACCESS_TOKEN
-      - WHATSAPP_PHONE_NUMBER_ID
-    primaryEnv: WHATSAPP_ACCESS_TOKEN
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: WhatsApp Business API
+  openclaw: '{"emoji":"💬","requires":{"env":["WHATSAPP_ACCESS_TOKEN","WHATSAPP_PHONE_NUMBER_ID"]},"primaryEnv":"WHATSAPP_ACCESS_TOKEN","os":["linux","darwin","win32"],"displayName":"WhatsApp Business API"}'
+  related-skills: '{"api":"REST API patterns","webhook":"Webhook handling","chat":"Conversational patterns"}'
 ---
 
 # WhatsApp Business API
@@ -35,16 +21,20 @@ curl -X POST "https://graph.facebook.com/v21.0/$WHATSAPP_PHONE_NUMBER_ID/message
 
 ## Setup
 
-On first use, read `setup.md`. Preferences stored in `~/Clawic/data/whatsapp-business-api/memory.md`.
+On first use, read `references/setup.md`. Preferences stored in `<state_root>/memory.md`.
 
 ## When to Use
 
 Any WhatsApp Business operation: send messages, templates, media, interactive elements, manage webhooks, handle conversations, update business profiles.
 
-## Architecture
+## State Location
+
+Follow the workspace-first state convention.
+1. Local: `<workspace>/.agents/whatsapp-business-api/`
+2. User: `~/.agents/whatsapp-business-api/`
 
 ```
-~/Clawic/data/whatsapp-business-api/
+<state_root>/
 ├── memory.md      # Account context + phone numbers
 ├── templates.md   # Approved templates reference
 └── webhooks.md    # Webhook configurations
@@ -52,16 +42,17 @@ Any WhatsApp Business operation: send messages, templates, media, interactive el
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup & memory | `setup.md`, `memory-template.md` |
-| Messages (text, media, interactive) | `messages.md` |
-| Templates (create, manage, send) | `templates.md` |
-| Media (upload, download, manage) | `media.md` |
-| Webhooks & Events | `webhooks.md` |
-| Business Profile & Phone Numbers | `business.md` |
-| Flows (interactive forms) | `flows.md` |
-| Best practices & limits | `best-practices.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup & memory | `references/setup.md`, `references/memory-template.md` | When initializing the skill or accessing persistent state. |
+| Messages (text, media, interactive) | `references/messages.md` | When constructing or sending a direct message. |
+| Templates (create, manage, send) | `references/templates.md` | When dealing with pre-approved message templates. |
+| Media (upload, download, manage) | `references/media.md` | When handling attachments, images, videos, or documents. |
+| Webhooks & Events | `references/webhooks.md` | When configuring or receiving incoming events. |
+| Business Profile & Phone Numbers | `references/business.md` | When updating business info or checking number status. |
+| Flows (interactive forms) | `references/flows.md` | When building interactive forms or advanced conversational flows. |
+| Best practices & limits | `references/best-practices.md` | When optimizing message throughput or avoiding rate limits. |
+| Meta API Knowledge | `references/meta-api-knowledge.md` | When verifying Cloud API requirements, URLs, or endpoint behaviors. |
 
 ## Core Rules
 
@@ -115,20 +106,10 @@ curl "https://graph.facebook.com/v21.0/$WHATSAPP_PHONE_NUMBER_ID" \
 - `WHATSAPP_APP_SECRET` — for webhook signature verification
 
 **Sent to Meta:** Messages, media, customer phone numbers via graph.facebook.com
-**Stays local:** Tokens (never logged), ~/Clawic/data/whatsapp-business-api/ preferences
-**Never:** Log message content, skip webhook verification, store tokens in code
+**Stays local:** Tokens (never logged), <state_root>/ preferences
+**Security requirement:** Redact message content in logs, actively verify all webhook signatures, and store tokens only in secure environment variables.
 
 ## Trust
 
 This skill sends data to Meta (facebook.com/whatsapp).
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` — REST API patterns
-- `webhook` — Webhook handling
-- `chat` — Conversational patterns
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/whatsapp-business-api
-- Latest version: https://clawic.com/skills/whatsapp-business-api
