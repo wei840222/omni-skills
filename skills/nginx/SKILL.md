@@ -1,43 +1,30 @@
 ---
 name: nginx
-slug: nginx
-version: 1.0.5
-description: 'Configures and debugs nginx: reverse proxy, load balancing, SSL/TLS termination, caching, redirects, and static file serving. Use when writing or reviewing nginx.conf, server blocks, locations, upstreams, or proxy_pass, when a site behind nginx throws 502, 504, 413, 403, or a redirect loop, when WebSockets, SSE, or gRPC break through the proxy, when a certificate works in curl but warns in browsers, when requests hit the wrong location or the backend sees the wrong path, when tuning workers, buffers, gzip, or proxy cache, when rate limiting or blocking abuse, when proxying raw TCP/UDP, or when nginx runs in Docker or Kubernetes. Not for certificate issuance or renewal (ACME, Let''s Encrypt) — that is the ssl skill.'
-homepage: https://clawic.com/skills/nginx
-changelog: Display name shown correctly
+description: "Configure and debug Nginx servers for reverse proxying, load balancing, static file serving, and SSL/TLS termination. Trigger this skill to analyze and fix `nginx.conf`, `server` blocks, and `location` routing; to resolve 502/504/413 errors, proxy path mismatches, or redirect loops; and to configure WebSockets, caching, and rate limiting. For ACME/Let's Encrypt certificate issuance, redirect the user to the `ssl` skill."
 metadata:
-  clawdbot:
-    emoji: 🌐
-    displayName: Nginx
-    configPaths:
-    - ~/Clawic/data/nginx/
-    - ~/nginx/
-    - ~/clawic/nginx/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/nginx/
-      - ~/nginx/
-      - ~/clawic/nginx/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🌐","requires":{"config":["<state_root>/nginx/"]}}'
+  related-skills: '{"ssl":"certificate issuance, renewal, and TLS debugging beyond nginx directives","docker":"nginx in containers: images, networks, and the resolver at 127.0.0.11","caddy":"when automatic HTTPS and a simpler config beat nginx''s control","vps":"server provisioning and hardening around the nginx install","dns":"records and propagation issues upstream of the proxy"}'
 ---
 
-User preferences and memory live in `~/Clawic/data/nginx/` (see `setup.md` on first use, `memory-template.md` for the file format). If you have data at an old location (`~/nginx/` or `~/clawic/nginx/`), move it to `~/Clawic/data/nginx/`, and say in one line that you moved it and from where.
+## State location
+User preferences and memory live in `<state_root>/nginx/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location, move it to `<state_root>/nginx/`, and say in one line that you moved it and from where.
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/nginx/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/nginx/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
-| os_family | debian \| rhel \| alpine | debian | Selects package/config layout (sites-enabled vs conf.d), makes SELinux the first 502/403 suspect on rhel (`debug.md`), and sets module install paths |
-| deployment | systemd \| docker \| kubernetes | systemd | Selects reload commands and resolver address; docker/kubernetes routes advice through `containers.md` |
+| os_family | debian \| rhel \| alpine | debian | Selects package/config layout (sites-enabled vs conf.d), makes SELinux the first 502/403 suspect on rhel (`references/debug.md`), and sets module install paths |
+| deployment | systemd \| docker \| kubernetes | systemd | Selects reload commands and resolver address; docker/kubernetes routes advice through `references/containers.md` |
 | edge_position | standalone \| behind-cdn-lb | standalone | behind-cdn-lb turns on realip guidance, switches redirect logic from `$scheme` to `X-Forwarded-Proto`, and flags rate-limit keying on the LB address |
 
 Preference areas to record as the user reveals them:
 
 - **tooling** — OSS vs Plus, mainline vs stable channel, dynamic modules in use (brotli, headers-more, njs); governs which directives are assumed available
 - **conventions** — config layout (conf.d vs sites-enabled vs single file), snippet/include organization, upstream and zone naming; governs where examples place directives
-- **safety posture** — 302-before-301 rollout ramp, HSTS ramp speed, confirm-before-reload on production hosts; governs pacing in `redirects.md` and `ssl.md`
+- **safety posture** — 302-before-301 rollout ramp, HSTS ramp speed, confirm-before-reload on production hosts; governs pacing in `references/redirects.md` and `references/ssl.md`
 - **platform** — IPv6 listeners, HTTP/2/3 adoption, which CDN/LB sits in front; governs listen directives and header-trust guidance
 
 ## When To Use
@@ -51,31 +38,31 @@ Preference areas to record as the user reveals them:
 
 ## Quick Reference
 
-| Situation | Play |
-|-----------|------|
-| Random 502 after a container/backend redeploy | DNS cached at startup — use variable in `proxy_pass` + `resolver` (`proxy.md`) |
-| 502 immediately vs 504 after ~60s | 502 = refused/reset/bad response; 504 = timeout. Different fixes (`proxy.md`) |
-| 413 on uploads | `client_max_body_size` — default is 1m; raise in `http` or the exact `server`/`location` |
-| WebSocket connects then dies, or never upgrades | Upgrade trio + timeout (`proxy.md`) |
-| SSE/streaming arrives all at once | `proxy_buffering off` for that location (`proxy.md`) |
-| gRPC calls fail through nginx, direct works | `grpc_pass`, not `proxy_pass` — trailers and HTTP/2 (`proxy.md`) |
-| Wrong file served / 403 on aliased path | `root` vs `alias` semantics and the alias-traversal slash bug (`semantics.md`) |
-| Request hits wrong location block | Re-derive with the matching algorithm below; `nginx -T` to see effective config |
-| Backend receives wrong path (`/api/api/...` or missing prefix) | proxy_pass trailing-slash rules (below) |
-| Browser cert warning, curl works | Missing intermediates — serve fullchain (`ssl.md`) |
-| 80→443 redirect loop behind a CDN/LB | Trust `X-Forwarded-Proto`, don't redirect on `$scheme` alone (`ssl.md`) |
-| Redirect fixed in config but browser still loops | Cached 301 — test in curl or a private window (`redirects.md`) |
-| PHP blank page, "File not found", or browser downloads .php source | SCRIPT_FILENAME and location order (`fastcgi.md`) |
-| nginx container exits instantly, or template renders empty values | Foreground mode and the envsubst collision (`containers.md`) |
-| Proxy a database / route TLS by SNI without terminating / forward syslog | `stream {}` block, `ssl_preread` (`stream.md`) |
-| Upgrade the nginx binary or a module without dropping connections | USR2/WINCH signal sequence (`operations.md`) |
-| "Is nginx overloaded?" / capacity monitoring | `stub_status` and what its numbers mean (`operations.md`) |
-| Slow under load, high CPU or connection errors | `performance.md` |
-| Security headers vanished on some routes | `add_header` inheritance trap (`semantics.md`) |
-| Config behaves unlike it reads (`if`, variables, includes, root/alias) | `semantics.md` |
-| Anything else | Debugging Order below, then the closest file above |
+| Situation | Play | When to Load Reference |
+|-----------|------|------------------------|
+| Random 502 after a container/backend redeploy | DNS cached at startup — use variable in `proxy_pass` + `resolver` (`references/proxy.md`) | Load references/proxy.md before executing. |
+| 502 immediately vs 504 after ~60s | 502 = refused/reset/bad response; 504 = timeout. Different fixes (`references/proxy.md`) | Load references/proxy.md before executing. |
+| 413 on uploads | `client_max_body_size` — default is 1m; raise in `http` or the exact `server`/`location` | N/A |
+| WebSocket connects then dies, or never upgrades | Upgrade trio + timeout (`references/proxy.md`) | Load references/proxy.md before executing. |
+| SSE/streaming arrives all at once | `proxy_buffering off` for that location (`references/proxy.md`) | Load references/proxy.md before executing. |
+| gRPC calls fail through nginx, direct works | `grpc_pass`, not `proxy_pass` — trailers and HTTP/2 (`references/proxy.md`) | Load references/proxy.md before executing. |
+| Wrong file served / 403 on aliased path | `root` vs `alias` semantics and the alias-traversal slash bug (`references/semantics.md`) | Load references/semantics.md before executing. |
+| Request hits wrong location block | Re-derive with the matching algorithm below; `nginx -T` to see effective config | N/A |
+| Backend receives wrong path (`/api/api/...` or missing prefix) | proxy_pass trailing-slash rules (below) | N/A |
+| Browser cert warning, curl works | Missing intermediates — serve fullchain (`references/ssl.md`) | Load references/ssl.md before executing. |
+| 80→443 redirect loop behind a CDN/LB | Trust `X-Forwarded-Proto`, don't redirect on `$scheme` alone (`references/ssl.md`) | Load references/ssl.md before executing. |
+| Redirect fixed in config but browser still loops | Cached 301 — test in curl or a private window (`references/redirects.md`) | Load references/redirects.md before executing. |
+| PHP blank page, "File not found", or browser downloads .php source | SCRIPT_FILENAME and location order (`references/fastcgi.md`) | Load references/fastcgi.md before executing. |
+| nginx container exits instantly, or template renders empty values | Foreground mode and the envsubst collision (`references/containers.md`) | Load references/containers.md before executing. |
+| Proxy a database / route TLS by SNI without terminating / forward syslog | `stream {}` block, `ssl_preread` (`references/stream.md`) | N/A |
+| Upgrade the nginx binary or a module without dropping connections | USR2/WINCH signal sequence (`references/operations.md`) | Load references/operations.md before executing. |
+| "Is nginx overloaded?" / capacity monitoring | `stub_status` and what its numbers mean (`references/operations.md`) | Load references/operations.md before executing. |
+| Slow under load, high CPU or connection errors | `references/performance.md` | N/A |
+| Security headers vanished on some routes | `add_header` inheritance trap (`references/semantics.md`) | Load references/semantics.md before executing. |
+| Config behaves unlike it reads (`if`, variables, includes, root/alias) | `references/semantics.md` | Load references/semantics.md before executing. |
+| Anything else | Debugging Order below, then the closest file above | N/A |
 
-Depth on demand: `debug.md` startup failures, status-code decoder, tracing · `proxy.md` 502/504, DNS trap, WebSocket, gRPC, buffering, retries · `semantics.md` root/alias, inheritance, `if`, variables, includes, server selection · `redirects.md` return/rewrite, status codes, canonical host · `ssl.md` chain, baseline, HSTS, OCSP, mTLS, HTTP/3 · `performance.md` workers, buffers, gzip, proxy cache · `security.md` rate/conn limits, auth, hardening · `fastcgi.md` PHP-FPM · `containers.md` Docker/K8s · `stream.md` TCP/UDP, TLS passthrough · `operations.md` signals, upgrades, monitoring, log rotation.
+Depth on demand: `references/debug.md` startup failures, status-code decoder, tracing · `references/proxy.md` 502/504, DNS trap, WebSocket, gRPC, buffering, retries · `references/semantics.md` root/alias, inheritance, `if`, variables, includes, server selection · `references/redirects.md` return/rewrite, status codes, canonical host · `references/ssl.md` chain, baseline, HSTS, OCSP, mTLS, HTTP/3 · `references/performance.md` workers, buffers, gzip, proxy cache · `references/security.md` rate/conn limits, auth, hardening · `references/fastcgi.md` PHP-FPM · `references/containers.md` Docker/K8s · `references/stream.md` TCP/UDP, TLS passthrough · `references/operations.md` signals, upgrades, monitoring, log rotation.
 
 ## Core Rules
 
@@ -156,7 +143,7 @@ upstream backend {
 - `ssl_ciphers` only governs ≤TLS1.2; TLS1.3 suites need `ssl_conf_command Ciphersuites` (OpenSSL) — a source of "my cipher config does nothing".
 - `ssl_prefer_server_ciphers off` is the modern recommendation (client-hardware-aware selection); `on` was TLS1.2-era advice.
 - `ssl_session_cache shared:SSL:10m;` — ~4000 sessions per MB, shared across workers. Skipping it costs a full handshake per returning client.
-- Redirect loops, HSTS rollout, OCSP, client certs → `ssl.md`.
+- Redirect loops, HSTS rollout, OCSP, client certs → `references/ssl.md`.
 
 ## Rate Limiting
 
@@ -169,7 +156,7 @@ location /api/ { limit_req zone=api burst=20 nodelay; limit_req_status 429; }
 - `nodelay` = serve the burst immediately, refill over time; without it, burst requests queue and add latency.
 - Default rejection status is 503 — set 429 so clients and monitoring can tell throttling from outage.
 - Behind a CDN/LB without realip configured, `$binary_remote_addr` is the LB's address — you rate-limit everyone as one client.
-- Zone sizing, tiered keys, connection/bandwidth limits → `security.md`.
+- Zone sizing, tiered keys, connection/bandwidth limits → `references/security.md`.
 
 ## Debugging Order
 
@@ -192,11 +179,11 @@ location /api/ { limit_req zone=api burst=20 nodelay; limit_req_status 429; }
 
 Before emitting an nginx config or config advice, verify:
 
-- Apply instructions end with `nginx -t` then reload — never a restart?
+- Apply instructions end with `nginx -t` then reload — always prefer reload over restart?
 - Every location that sets any `proxy_set_header` or `add_header` re-declares the full inherited set (rule 4)?
 - `proxy_pass` URI part checked against the trailing-slash rules — the backend receives the path you intend?
 - Upload-handling routes have `client_max_body_size` above the real payload size?
-- New permanent redirects shipped as 302 first, 301 only after verification (`redirects.md` ramp)?
+- New permanent redirects shipped as 302 first, 301 only after verification (`references/redirects.md` ramp)?
 - If `edge_position` is behind-cdn-lb: realip configured before anything keys on client IP, and redirects read `X-Forwarded-Proto`?
 
 ## Traps
@@ -205,32 +192,15 @@ Before emitting an nginx config or config advice, verify:
 |---|---|---|
 | `worker_processes auto` in containers | Reads host CPU count, not cgroup quota — 64 workers on a 2-CPU limit | Set explicitly to the container's CPU limit |
 | Editing config, reloading, no change | Distro includes another file that wins | `nginx -T \| less`, find who owns the directive |
-| Hostname in `proxy_pass` to dynamic infra | Resolved once at startup, cached forever | Variable + `resolver` (`proxy.md`) |
+| Hostname in `proxy_pass` to dynamic infra | Resolved once at startup, cached forever | Variable + `resolver` (`references/proxy.md`) |
 | `gzip on` for images/zip/woff2 | Recompressing compressed data: CPU spent, bytes gained | `gzip_types` with text formats only |
 | `if` for routing logic | Pseudo-location; directives inside behave unpredictably | `map` + variable, or separate locations |
-| Log rotation without signal | nginx keeps writing to the deleted inode; disk fills with no visible file | `nginx -s reopen` (USR1) in the rotate script (`operations.md`) |
+| Log rotation without signal | nginx keeps writing to the deleted inode; disk fills with no visible file | `nginx -s reopen` (USR1) in the rotate script (`references/operations.md`) |
 | Reload "not taking" with WebSockets | Old workers stay alive until long-lived connections close | `worker_shutdown_timeout 30s;` to bound the drain |
-| No `default_server` defined | First server block silently catches all unmatched Hosts | Explicit `listen 80 default_server; return 444;` catch-all (`semantics.md`) |
+| No `default_server` defined | First server block silently catches all unmatched Hosts | Explicit `listen 80 default_server; return 444;` catch-all (`references/semantics.md`) |
 
 ## Where Experts Disagree
 
-- **Mainline vs stable channel.** The nginx team recommends mainline for most users; "stable" means fewer feature changes, not more reliability. Default: mainline from nginx.org repos when you control the host; pinned distro/stable inside images where reproducibility wins (`operations.md`).
+- **Mainline vs stable channel.** The nginx team recommends mainline for most users; "stable" means fewer feature changes, not more reliability. Default: mainline from nginx.org repos when you control the host; pinned distro/stable inside images where reproducibility wins (`references/operations.md`).
 - **conf.d vs sites-enabled.** Debian's symlink pattern adds an explicit enable/disable step; flat conf.d is simpler. Either works — the failure mode is mixing both and losing track of what's live; `nginx -T` is the referee (rule 2).
-- **Terminate TLS at the CDN/LB or at nginx.** Edge termination centralizes cert management; nginx termination keeps encryption to the box. The boundary is compliance scope and who owns header trust — whoever terminates must set `X-Forwarded-Proto` and realip correctly (`ssl.md`).
-
-## Related Skills
-
-More Clawic skills, get them at https://clawic.com/skills/nginx (install if the user confirms):
-
-- `ssl` — certificate issuance, renewal, and TLS debugging beyond nginx directives
-- `docker` — nginx in containers: images, networks, and the resolver at 127.0.0.11
-- `caddy` — when automatic HTTPS and a simpler config beat nginx's control
-- `vps` — server provisioning and hardening around the nginx install
-- `dns` — records and propagation issues upstream of the proxy
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/nginx
-- Latest version: https://clawic.com/skills/nginx
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/nginx.
+- **Terminate TLS at the CDN/LB or at nginx.** Edge termination centralizes cert management; nginx termination keeps encryption to the box. The boundary is compliance scope and who owns header trust — whoever terminates must set `X-Forwarded-Proto` and realip correctly (`references/ssl.md`).
