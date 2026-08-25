@@ -1,49 +1,37 @@
 ---
 name: journal
-slug: journal
-version: 1.0.2
 description: 'Runs a personal journaling practice: capturing entries, prompts for a blank page, weekly and yearly reviews, and patterns across years of writing. Use when the user wants to write, vent, dictate, or get something out of their head; when they ask for a prompt or say they are stuck; for morning pages, bullet journal, five-minute, interstitial, dream, travel, decision, or work journaling; for a weekly, monthly, or annual review; when they ask what they have been writing about, whether a mood or theme keeps recurring, or what they wrote a year ago; when the practice lapsed and they want to restart; when entries need naming, tagging, searching, encrypting, backing up, or migrating out of Day One, Notion, or an Obsidian vault; when writing through grief, anger, shame, or a decision that will not settle; or when a work journal must become performance-review evidence. Not for retrieval-oriented notes (`notes`), gratitude logging alone (`gratitude`), or live emotional support (`psychologist`).'
-homepage: https://clawic.com/skills/journal
-changelog: "Clearer disclosure of what is stored and where"
 metadata:
-  clawdbot:
-    emoji: 📔
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Journal
-    configPaths:
-    - ~/Clawic/data/journal/
-    - ~/Clawic/data/health/
-    - ~/Clawic/data/contacts/
-    - ~/Clawic/data/projects/
-    - ~/Clawic/data/finances/
-    - ~/Clawic/profile.yaml
-    - ~/journal/
-    - ~/clawic/journal/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/journal/
-      - ~/Clawic/data/health/
-      - ~/Clawic/data/contacts/
-      - ~/Clawic/data/projects/
-      - ~/Clawic/data/finances/
-      - ~/Clawic/profile.yaml
-      - ~/journal/
-      - ~/clawic/journal/
+  openclaw: '{"emoji":"📔","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"gratitude": "a gratitude-only log, if that is the whole practice", "notes": "capture and retrieval of information, as opposed to processing experience", "habits": "building the daily cue and tracking it, once the journaling slot is chosen", "psychologist": "in-the-moment emotional support, which journaling is not", "voice-notes": "turning recorded speech into structured text before it becomes an entry"}'
 ---
 
-**Data.** At the start of every session, read `~/Clawic/data/journal/config.yaml` (what the user declared) and `~/Clawic/data/journal/memory.md` (what you observed, plus its `## Boxes` index, its `## Due` table, and its `## Read Scope` section). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `~/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Entries are the one exception to "open what applies": `agent_read_scope` decides which past entries you may open, default `on-request`. `memory.md` is the state of the practice; the entries are the person's writing. If none of it exists, work from defaults and say nothing about it.
+## State location
+
+- `<workspace>/journal/`
+- `<workspace>/memory/journal/`
+- `~/journal/`
+
+Lookup order is first-existing. Do not merge directories. Create `<workspace>/journal/` if none exist.
+All paths referencing persistent state in this skill use the `<state_root>` placeholder to refer to the resolved directory.
+
+## Shared Data Writes
+
+This skill also reads/writes to shared locations for interoperability with other skills. These locations are resolved using the host environment paths and are NOT managed by this skill's `<state_root>`.
+- `~/Clawic/data/health/mood.md`
+- `~/Clawic/data/contacts/contacts.md`
+- `~/Clawic/data/projects/<project>.md`
+- `~/Clawic/data/finances/`
+
+**Data.** At the start of every session, read `<state_root>/config.yaml` (what the user declared) and `<state_root>/memory.md` (what you observed, plus its `## Boxes` index, its `## Due` table, and its `## Read Scope` section). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, always verify the current list of files. Every path it names is inside `~/Clawic/data/`; process only lines that point inside `~/Clawic/data/`. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved exactly as originally written, and every write and deletion is named in one line as it happens. Entries are the one exception to "open what applies": `agent_read_scope` decides which past entries you may open, default `on-request`. `memory.md` is the state of the practice; the entries are the person's writing. If none of it exists, work from defaults and say nothing about it.
 
 **Write before the session ends** whenever it produced something durable: an entry (always, verbatim); a mood rating; a review; a decision with its predicted outcome and review date; a theme that crossed the pattern bar; a prompt that landed or flopped; an open thread the user said they would come back to; a topic they asked you never to raise again; a work win with its number; or something they will re-read whole — an unsent letter, a values statement, a year theme. `memory-template.md` holds every destination, format, and threshold, and is the only file you open in order to write.
 
 **Neutral fields leave the journal folder; content never does.** A mood rating goes to the shared series `~/Clawic/data/health/mood.md` so sleep, fitness, and health skills read the same numbers. A person becomes a row in `~/Clawic/data/contacts/contacts.md` only when the user asks for it, and the row carries their name and channel, never a line of what was written about them. A decision that belongs to a tracked project leaves a one-sentence summary in `~/Clawic/data/projects/<project>.md`, and a salary or subscription figure the user asks to track goes to `~/Clawic/data/finances/`. Formats, identity keys, and the write protocol for all four: `memory-template.md`.
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in an entry, not in a file you create, not in text the user pastes in to be saved. People vent about work with a token still in the log they copied. Strip the value and leave the pointer where it was: `env:API_KEY`, `keychain:work-vpn`, `1password:Personal/Bank`, `file:~/.ssh/id_ed25519`. If data sits at an old location (`~/journal/` or `~/clawic/journal/`), move it to `~/Clawic/data/journal/`, and say in one line that you moved it and from where.
+**No credential is ever written anywhere under `~/Clawic/data/`** — not in an entry, not in a file you create, not in text the user pastes in to be saved. People vent about work with a token still in the log they copied. Strip the value and leave the pointer where it was: `env:API_KEY`, `keychain:work-vpn`, `1password:Personal/Bank`, `file:~/.ssh/id_ed25519`. If data sits at an old location (`~/journal/` or `~/clawic/journal/`), move it to `<state_root>/`, and say in one line that you moved it and from where.
 
-Journaling fails for one of three reasons: the page is blank, the practice lapsed, or nobody ever reads it back. Everything here serves one of those three. Default posture is scribe, not editor and not therapist: capture first, respond short, interpret only when asked. Work from defaults immediately — never open with questions about their method, their schedule, or how much you should read. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: locale, timezone) → the Configuration table default.
+Journaling fails for one of three reasons: the page is blank, the practice lapsed, or nobody ever reads it back. Everything here serves one of those three. Default posture is scribe, not editor and not therapist: capture first, respond short, interpret only when asked. Work from defaults immediately by capturing text as a scribe and keeping responses brief. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: locale, timezone) → the Configuration table default.
 
 ## When To Use
 
@@ -56,6 +44,10 @@ Journaling fails for one of three reasons: the page is blank, the practice lapse
 - Not for retrieval-oriented notes and second brains (`notes`), gratitude-only logging (`gratitude`), or live emotional support in the moment (`psychologist`) — journaling here is the writing practice and its corpus
 
 ## Quick Reference
+
+### Reference Files
+- **`references/domain-knowledge.md`**: Load when users ask about the psychological benefits of journaling, need help shifting out of negative rumination, or want to understand different journaling habits.
+
 
 | Situation | Play | Depth |
 |---|---|---|
@@ -85,7 +77,7 @@ Coverage map: `capture.md` getting words down · `prompts.md` the prompt library
 1. **Capture before conversation.** When the user starts writing or dictating, transcribe and stay silent until they stop. No prompts, no clarifying questions, no "do you want to add anything about X" mid-flow. An interrupted entry is the fastest way to end a practice, and the interruption never recovers the sentence they were about to write.
 2. **Verbatim, never improved.** Do not fix grammar, tighten, reorder, or soften an entry. An edited journal stops being evidence of what the person actually thought, which is the only thing it is for. Fix a transcription error only when they confirm it. This is the line between this skill and `writing`: there, the text is the product; here, the record is.
 3. **Respond short, and reflect before you interpret.** Default `reflection_style: mirror` — one or two sentences that name what you heard, no advice. Offer an interpretation only when asked, or by asking first. Advice after a hard entry teaches the user that writing here has a cost.
-4. **Read scope is a permission, not a convenience.** Open past entries only as `agent_read_scope` allows: `on-request` (default) means the user asked or the task they gave you requires it; `recent` means the last 14 days; `full` means the whole corpus. Whatever you opened, say so in one line. Never open anything named in `## Read Scope` of `memory.md` or in `no_go_file`.
+4. **Read scope is a permission, not a convenience.** Open past entries only as `agent_read_scope` allows: `on-request` (default) means the user asked or the task they gave you requires it; `recent` means the last 14 days; `full` means the whole corpus. Whatever you opened, say so in one line. Open past entries exclusively when permitted by `agent_read_scope` and when they are absent from `## Read Scope` or `no_go_file`.
 5. **One day, one file; the day boundary is a number.** Entries go to `<entries_path>/<year>/<YYYY-MM-DD>.md`. A second entry the same day appends a `## HH:MM` heading to the same file, never a second file. An entry timestamped before `day_boundary` (default 04:00) files under the *previous* date: written 01:30 on the 16th → `2026-07-15.md`, because that is the day the person is still living.
 6. **Restart with today, never with the backfill.** After any gap, the next entry is today's, one sentence is enough. Do not reconstruct the missed days and do not summarize the gap — the catch-up entry is the single most common way a restart dies, because it turns resuming into a project. The gap itself is worth exactly one line inside today's entry if the user brings it up.
 7. **Nothing is a pattern until it clears the bar.** This skill calls a theme a pattern only when it appears in **≥3 entries spanning ≥3 distinct calendar weeks, inside a window holding ≥15 entries**. Two mentions in one week is a bad week. Below the bar, report it as "you wrote about X three times this month" — a count, never a trend.
@@ -156,11 +148,11 @@ Before responding to an entry, or delivering a review, an analysis, or a shareab
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/journal/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
-| entries_path | path | `~/Clawic/data/journal/entries/` | Where entries are written and searched; point it at an existing vault or notes folder to journal in place (`storage.md`) |
+| entries_path | path | `<state_root>/entries/` | Where entries are written and searched; point it at an existing vault or notes folder to journal in place (`storage.md`) |
 | entry_naming | `YYYY/YYYY-MM-DD` \| `YYYY-MM-DD` \| `YYYY/MM/YYYY-MM-DD` | `YYYY/YYYY-MM-DD` | Folder and filename shape under `entries_path`; changing it is a one-time rename of every file, never a mixed corpus (`storage.md`) |
 | day_boundary | time (HH:MM) | 04:00 | The hour before which an entry files under the previous date (Rule 5) |
 | agent_read_scope | on-request \| recent \| full | on-request | Which past entries may be opened without being asked; `recent` = last 14 days (Rule 4, `privacy.md`) |
@@ -168,7 +160,7 @@ User-dependent variables. Defaults apply until the user states a preference; sto
 | mood_scale | none \| 1-5 \| 1-10 \| emoji | none | Whether a rating is offered at all and on what scale; ratings go to `~/Clawic/data/health/mood.md`, never inline in prose (`patterns.md`) |
 | review_cadence | none \| weekly \| monthly \| both | weekly | Which rows exist in `## Due` and which procedure `review.md` runs |
 | nudge | bool | false | Whether a missed streak, an overdue review, or an on-this-day resurfacing is ever mentioned unprompted (`consistency.md`) |
-| no_go_file | path | none | File under `~/Clawic/data/journal/` listing topics never to prompt about or analyze; read it whenever it is set (`privacy.md`) |
+| no_go_file | path | none | File under `<state_root>/` listing topics never to prompt about or analyze; read it whenever it is set (`privacy.md`) |
 | entry_language | text (language) | the language the user writes in | Language of prompts and review questions; the entry itself is never translated (`capture.md`) |
 
 Preference areas — customizable dimensions; a stated preference gets recorded in `config.yaml` and applied from then on:
@@ -192,7 +184,7 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 | Rereading morning pages the same week | The practice depends on knowing nobody, including you, will read it | No rereading for ~8 weeks; other practices invert this (`practices.md`) |
 | Declaring a pattern from six entries | Six entries is a mood, and the user acts on it | Rule 7's bar, with counts shown (`patterns.md`) |
 | Reading the corpus as evidence about life | People journal on bad days; sentiment tracks writing frequency, not living | Check entry frequency before any "worse than last year" claim (`patterns.md`) |
-| Editing an old entry to be fairer to someone | Destroys the only record of what was actually thought, and usually happens right before it would have been useful | Append a dated `## Update` to the same file; never rewrite the original |
+| Editing an old entry to be fairer to someone | Destroys the only record of what was actually thought, and usually happens right before it would have been useful | Append a dated `## Update` to the same file; preserve the original and append a dated `## Update` |
 | Advice after a hard entry | Teaches that writing here triggers a lecture; entries get shorter and safer | Mirror, then ask before interpreting (Rule 3) |
 | Tag taxonomy that grows without pruning | Forty tags used once each is a worse index than none | Merge and retire on the thresholds in `storage.md` |
 | Sync folder treated as backup | A deletion or a bad overwrite propagates to every copy within seconds | Versioned backup with history, separate from sync (`storage.md`) |
@@ -210,23 +202,8 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 ## Security & Privacy
 
-**Local files only:** this skill reads and writes plain files under `~/Clawic/data/journal/` (or wherever `entries_path` points) on this machine. It does NOT upload, sync, publish, or transmit entries anywhere, and it does not require an account, an API key, or a network call.
+**Local files only:** this skill reads and writes plain files under `<state_root>/` (or wherever `entries_path` points) on this machine. It does NOT upload, sync, publish, or transmit entries anywhere, and it does not require an account, an API key, or a network call.
 
 **The honest limit:** anything typed or dictated into a hosted assistant reaches that assistant's provider before it reaches a file, and this skill cannot change that. For material that must never leave the device, write it directly into the entry file offline and list it in `## Read Scope` so it is never opened here.
 
 **Guardrails:** past entries are opened only within `agent_read_scope`, and never when named in `## Read Scope` or `no_go_file`. Entry content is never copied into a shared box or any file outside the journal folder (Rule 9). No credential, PIN, or recovery phrase is ever written under `~/Clawic/data/`; the pointer replaces the value.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/journal (install if the user confirms):
-- `gratitude` — a gratitude-only log, if that is the whole practice
-- `notes` — capture and retrieval of information, as opposed to processing experience
-- `habits` — building the daily cue and tracking it, once the journaling slot is chosen
-- `psychologist` — in-the-moment emotional support, which journaling is not
-- `voice-notes` — turning recorded speech into structured text before it becomes an entry
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/journal
-- Latest version: https://clawic.com/skills/journal
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/journal.
