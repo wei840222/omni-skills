@@ -1,53 +1,46 @@
 ---
 name: udemy
-slug: udemy
-version: 1.0.0
-description: Create, publish, and monetize Udemy courses with curriculum design, AI-assisted content creation, and platform compliance.
-homepage: https://clawic.com/skills/udemy
-changelog: Initial release
+description: "Design and manage Udemy courses by assisting with curriculum planning, script writing, and compliance while strictly adhering to human-in-the-loop and GenAI disclosure policies."
 metadata:
-  clawdbot:
-    emoji: 🎓
-    displayName: Udemy
+  openclaw: '{"emoji":"🎓","displayName":"Udemy"}'
 ---
 
 ## Quick Reference
 
-| Area | What the Agent Does |
-|------|---------------------|
-| Planning | Niche research, competitor analysis, curriculum design |
-| Production | Scripts, slides, quizzes, supplementary materials |
-| Publishing | Description, SEO, pricing, thumbnails |
-| Management | Q&A drafts, review responses, content updates |
-| Compliance | AI disclosure, quality standards, ToS guidance |
+| Area | What the Agent Does | When to load | Reference |
+|------|---------------------|--------------|-----------|
+| Domain Info | Understand Udemy policies, GenAI rules, and SEO trends | When initiating a new course project or checking compliance | `references/research.md` |
+| Planning | Niche research, competitor analysis, curriculum design | When the user asks to brainstorm or plan a course | `references/planning.md` |
+| Production | Scripts, slides, quizzes, supplementary materials | When creating the actual course content | `references/production.md` |
+| Publishing | Description, SEO, pricing, thumbnails | When preparing to launch or market the course | `references/marketing.md` |
+| Management | Q&A drafts, review responses, content updates | When the course is live and the user needs to engage students | `references/management.md` |
+| Workspace | Organizing the course files and tracking status | When managing local course files and tracking states | `references/workspace.md` |
+| Compliance | General legal and terms of service guidelines | When handling sensitive topics or platform policies | `references/legal.md` |
+
+## State Location
+This skill maintains state for course workspaces.
+1. The canonical state directory is `<state_root>/udemy/`.
+2. Rely exclusively on the `<state_root>` convention for all path resolutions.
+3. If the directory does not exist, create it.
 
 ## Critical Rules
 
 1. **Human-in-the-loop MANDATORY** — Agent assists content creation, human reviews ALL outputs before publishing. Udemy prohibits fully AI-generated courses.
 2. **Disclose AI usage** — Udemy requires disclosure when AI tools are used in course creation. Add disclosure to course description.
-3. **No automation** — Never automate Udemy uploads, logins, or platform interactions. User handles all platform actions manually.
+3. **Manual Execution** — Instruct the user to handle all platform actions, uploads, and logins manually.
 4. **Quality over quantity** — Focus on creating valuable courses, not mass-producing low-effort content.
 5. **Verify policies** — Udemy's GenAI policy changes. User must verify current terms at udemy.com before publishing.
 
-## AI Content Policy (Nov 2025)
+## AI Content Policy
 
 - ✅ AI-assisted content creation (outlines, scripts, drafts)
 - ✅ AI-generated visuals/graphics (if high quality)
 - ✅ AI for research and information gathering
-- ❌ Fully AI-generated courses with minimal instructor input
-- ❌ Low-quality AI outputs without human polish
+- ❌ Minimal instructor input (Fully AI-generated courses)
+- ❌ Raw AI outputs without human polish
 - ❌ Hiding AI usage from students
 
 **Disclosure required**: "This course contains content created with the assistance of AI tools."
-
-## Workflow
-
-**For course planning:** See `planning.md`
-**For content production:** See `production.md`
-**For publishing and marketing:** See `marketing.md`
-**For ongoing management:** See `management.md`
-**For organizing your courses:** See `workspace.md`
-**For legal compliance:** See `legal.md`
 
 ## Disclaimer
 

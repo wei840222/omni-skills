@@ -5,7 +5,7 @@ Organize your course production with this folder structure.
 ## Directory Layout
 
 ```
-~/Clawic/data/udemy/
+<state_root>/udemy/
 ├── index.md                    # Portfolio overview
 ├── _templates/                 # Reusable templates
 │   ├── script-template.md
@@ -79,7 +79,7 @@ In each course's `README.md`:
 
 ## Portfolio Index
 
-In `~/Clawic/data/udemy/index.md`:
+In `<state_root>/udemy/index.md`:
 
 ```markdown
 # Udemy Course Portfolio
@@ -110,8 +110,8 @@ In `~/Clawic/data/udemy/index.md`:
 
 ## Workflow Tips
 
-1. **Start in planning/** — Don't produce until research is complete
+1. **Start in planning/** — Ensure research is fully complete before beginning production.
 2. **Scripts before slides** — Write what you'll say, then visualize it
 3. **Batch similar tasks** — Write all scripts, then all slides, then record
 4. **Track everything** — Future-you will thank present-you
-5. **Archive, don't delete** — Move old versions to `_archive/`
+5. **Archive** — Preserve old versions by moving them to `_archive/` instead of removing them.

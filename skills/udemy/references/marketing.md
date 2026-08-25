@@ -46,7 +46,7 @@ Credentials without bragging
 
 - Include primary keyword in first 100 characters
 - Use secondary keywords naturally
-- Avoid keyword stuffing
+- Distribute keywords naturally throughout the text
 - Match language to how students search
 
 ## Pricing Strategy
@@ -71,11 +71,11 @@ Credentials without bragging
 - High contrast colors
 - Works at small size (search results)
 
-**Avoid:**
-- Too much text
-- Cluttered design
-- Overused stock photos
-- Hard-to-read fonts
+**Design Constraints:**
+- Limit text to 3-4 words
+- Keep design clean and minimal
+- Use original or unique imagery
+- Select highly legible fonts
 
 ## Promotional Video
 

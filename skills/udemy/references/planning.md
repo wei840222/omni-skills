@@ -67,7 +67,7 @@ Final Section: Wrap-up (10-15 min)
 Each section should have 2-4 specific, measurable objectives:
 - "By the end of this section, you will be able to [action verb] [specific skill]"
 - Use: build, create, implement, configure, troubleshoot
-- Avoid: understand, know, learn (too vague)
+- Use precise verbs like build, create, implement, configure, troubleshoot instead of vague ones.
 
 ## For Non-Experts (Side Hustlers)
 
@@ -78,7 +78,7 @@ If you're curating rather than teaching from expertise:
 3. **Validation** — Have an expert review for accuracy (or state your limitations)
 4. **Unique value** — Your organization and presentation IS the value
 
-**Warning:** Don't misrepresent expertise. Be honest about being a "guide" vs "guru."
+**Warning:** Clearly state your role as a "guide" rather than a "guru" to accurately represent your expertise.
 
 ## For Educators Converting Classroom Content
 
