@@ -2,7 +2,8 @@
 name: nginx
 description: "Configure and debug Nginx servers for reverse proxying, load balancing, static file serving, and SSL/TLS termination. Trigger this skill to analyze and fix `nginx.conf`, `server` blocks, and `location` routing; to resolve 502/504/413 errors, proxy path mismatches, or redirect loops; and to configure WebSockets, caching, and rate limiting. For ACME/Let's Encrypt certificate issuance, redirect the user to the `ssl` skill."
 metadata:
-  openclaw: '{"requires":{"config":["<state_root>/nginx/"]}}'
+  version: "1.1.0"
+  openclaw: '{"emoji":"🌐","requires":{"config":["<state_root>/nginx/"]}}'
   related-skills: '{"ssl":"certificate issuance, renewal, and TLS debugging beyond nginx directives","docker":"nginx in containers: images, networks, and the resolver at 127.0.0.11","caddy":"when automatic HTTPS and a simpler config beat nginx''s control","vps":"server provisioning and hardening around the nginx install","dns":"records and propagation issues upstream of the proxy"}'
 ---
 
