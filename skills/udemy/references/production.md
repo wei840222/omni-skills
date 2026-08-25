@@ -27,7 +27,7 @@ Given rough notes, generate conversational scripts:
 
 If generating multiple scripts, maintain:
 - Same level of formality throughout
-- Consistent terminology (don't alternate "app/application")
+- Consistent terminology (stick strictly to one term, e.g. always "app")
 - Similar pacing and structure
 - Unified personality (enthusiastic, calm, technical, etc.)
 
@@ -49,7 +49,7 @@ If generating multiple scripts, maintain:
 - One idea per slide
 - Readable font size (24pt minimum)
 - Consistent color scheme throughout course
-- Avoid walls of text — bullets or visuals
+- Restrict slide content to short bullets or clear visuals
 - Include instructor video overlay where possible
 
 ## Quiz & Assignment Creation
@@ -95,7 +95,7 @@ Prepare multiple lectures before recording:
 Before uploading:
 - [ ] Audio clear, consistent volume
 - [ ] Video 1080p minimum
-- [ ] No long pauses or "ums"
+- [ ] Edit out long pauses and filler words
 - [ ] Captions accurate
 - [ ] Links/resources work
 - [ ] Code runs correctly
