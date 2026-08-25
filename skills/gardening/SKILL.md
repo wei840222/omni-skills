@@ -11,7 +11,7 @@ metadata:
 
 - Test soil before amending — pH and nutrients determine what to add, not guessing
 - Most plants prefer pH 6.0-7.0 — blueberries need acidic (4.5-5.5), lavender needs alkaline
-- Compost fixes almost everything — improite clay drainage, sandy retention, feeds soil life
+- Compost fixes almost everything — improves clay drainage, sandy retention, feeds soil life
 - Wait for soil to dry before working it — working wet soil compacts structure and takes years to recover
 - Mulch 2-3 inches around plants — retains moisture, suppresses weeds, regulates temperature
 
