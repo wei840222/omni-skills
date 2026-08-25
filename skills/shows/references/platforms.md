@@ -31,7 +31,7 @@ When user asks "where can I watch X?":
 2. Suggest checking JustWatch or similar aggregator
 3. Note: availability varies by region
 
-**Don't promise availability**—platforms change constantly. Always frame as "last known" or suggest user verify.
+Frame availability as "last known" and suggest the user verify on aggregators like JustWatch, as platforms change constantly.
 
 ---
 

@@ -6,7 +6,7 @@ When tracking for a family, maintain separate watch status per person.
 
 ### File Structure
 ```
-~/Clawic/data/shows/people.md
+<state_root>/shows/people.md
 # Family Members
 - Emma (age 8)
 - Lucas (age 12)

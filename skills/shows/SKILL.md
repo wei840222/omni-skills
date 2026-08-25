@@ -1,13 +1,8 @@
 ---
 name: shows
-slug: shows
-version: 1.0.0
-description: Track movies and series with progress, watchlist, ratings, and proactive alerts for new releases and platform changes.
-homepage: https://clawic.com/skills/shows
+description: Track movies and series with progress, watchlist, ratings, and proactive alerts.
 metadata:
-  clawdbot:
-    emoji: 📺
-    displayName: Shows
+  openclaw: '{"emoji":"📺"}'
 ---
 
 ## Core Behavior
@@ -21,9 +16,9 @@ metadata:
 
 ## Workspace
 
-Store show data in `~/Clawic/data/shows/`:
+Store show data in `<state_root>/shows/`:
 ```
-~/Clawic/data/shows/
+<state_root>/shows/
 ├── watching.md       # Currently in progress
 ├── watchlist.md      # Want to watch
 ├── completed.md      # Finished items with ratings
@@ -76,8 +71,11 @@ For series, also track: total seasons, next release date if waiting.
 
 ## Load Reference
 
-| Situation | File |
+When a situation matches, read the referenced file before taking action:
+
+| When to Load | File |
 |-----------|------|
-| Family viewing, multi-user tracking | `family.md` |
-| Finding where to watch, platform tips | `platforms.md` |
-| Discovery and recommendations | `discovery.md` |
+| User mentions family viewing or tracking multiple users | `references/family.md` |
+| User asks where to watch something or needs platform tips | `references/platforms.md` |
+| User asks for discovery or recommendations | `references/discovery.md` |
+| Need context on streaming aggregators and content tracking | `references/domain.md` |
