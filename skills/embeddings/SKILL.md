@@ -1,13 +1,8 @@
 ---
 name: embeddings
-slug: embeddings
-version: 1.0.0
 description: Generate, store, and search vector embeddings with provider selection, chunking strategies, and similarity search optimization.
-homepage: https://clawic.com/skills/embeddings
 metadata:
-  clawdbot:
-    emoji: 🧮
-    displayName: Embeddings
+  openclaw: '{"emoji":"🧮","displayName":"Embeddings"}'
 ---
 
 ## When to Use
@@ -16,12 +11,13 @@ User wants to convert text/images to vectors, build semantic search, or integrat
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Provider comparison & selection | `providers.md` |
-| Chunking strategies & code | `chunking.md` |
-| Vector database patterns | `storage.md` |
-| Search & retrieval tuning | `search.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Provider comparison & selection | `references/providers.md` | Load when deciding which embedding model or provider to use. |
+| Chunking strategies & code | `references/chunking.md` | Load when implementing document splitting before generating embeddings. |
+| Vector database patterns | `references/storage.md` | Load when setting up vector storage like Pinecone, Weaviate, Qdrant, or pgvector. |
+| Search & retrieval tuning | `references/search.md` | Load when optimizing queries, implementing hybrid search, or improving relevance scores. |
+| Domain knowledge | `references/knowledge.md` | Load when needing foundational context on vector databases and embeddings. |
 
 ## Core Capabilities
 
@@ -43,11 +39,11 @@ Before recommending approach, ask:
 
 ## Critical Rules
 
-- **Same model everywhere** — Query embeddings MUST use identical model as document embeddings
-- **Normalize before storage** — Most similarity metrics assume unit vectors
-- **Chunk with overlap** — 10-20% overlap prevents context loss at boundaries
-- **Batch API calls** — Never embed one item at a time in production
-- **Cache embeddings** — Regenerating is expensive; store with source hash
+- **Same model everywhere** — Query embeddings MUST use identical model as document embeddings.
+- **Normalize before storage** — Most similarity metrics assume unit vectors.
+- **Chunk with overlap** — Ensure 10-20% overlap to maintain context at boundaries.
+- **Batch API calls** — Process items in batches when calling embedding APIs to optimize throughput.
+- **Cache embeddings** — Store embeddings with a source hash to avoid expensive regeneration.
 - **Monitor dimensions** — Higher isn't always better; 768-1536 is usually optimal
 
 ## Provider Quick Selection
