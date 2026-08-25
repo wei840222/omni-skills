@@ -1,6 +1,6 @@
 # Memory Template — CFO
 
-Create `~/Clawic/data/cfo/memory.md` with this structure:
+Create `<state_root>/cfo/memory.md` with this structure:
 
 ```markdown
 # CFO Memory
