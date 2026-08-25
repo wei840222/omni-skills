@@ -1,28 +1,18 @@
 ---
 name: gardening
-slug: gardening
-version: 1.0.0
-description: Plant care, soil management, seasonal timing, pest control, and garden planning.
-homepage: https://clawic.com/skills/gardening
+description: Provides gardening advice on soil management, watering, planting timing, spacing, fertilizing, pest control, pruning, composting, and companion planting.
 metadata:
+  openclaw: '{"emoji":"🌱","displayName":"Gardening"}'
   category: lifestyle
-  skills:
-  - gardening
-  - plants
-  - vegetables
-  - landscaping
-  - horticulture
-  clawdbot:
-    emoji: 🌱
-    displayName: Gardening
+  related-skills: '{"plants":"Focuses on specific plant types"}'
 ---
 
 ## Soil Fundamentals
 
 - Test soil before amending — pH and nutrients determine what to add, not guessing
 - Most plants prefer pH 6.0-7.0 — blueberries need acidic (4.5-5.5), lavender needs alkaline
-- Compost fixes almost everything — improite clay drainage, sandy retention, feeds soil life
-- Never work wet soil — compacts structure, takes years to recover
+- Compost fixes almost everything — improves clay drainage, sandy retention, feeds soil life
+- Wait for soil to dry before working it — working wet soil compacts structure and takes years to recover
 - Mulch 2-3 inches around plants — retains moisture, suppresses weeds, regulates temperature
 
 ## Watering Mistakes
@@ -81,7 +71,7 @@ metadata:
 - Prune spring bloomers after flowering — they set buds on old wood
 - Prune summer bloomers in late winter — they bloom on new growth
 - Remove dead/diseased/crossing branches first — the 3 Ds
-- Never remove more than 1/3 at once — stresses plant, triggers excessive regrowth
+- Limit pruning to a maximum of 1/3 at once — heavier pruning stresses the plant and triggers excessive regrowth
 
 ## Composting
 
@@ -114,3 +104,11 @@ metadata:
 - Native plants easier — adapted to local conditions, support local wildlife
 - Start small, expand later — better to maintain small garden well than large garden poorly
 - Keep garden journal — what worked, what failed, when planted
+
+## Quick Reference
+
+| Reference File | When to load |
+|----------------|--------------|
+| `references/companion_planting.md` | When the user asks about which plants grow well together or companion planting strategies. |
+
+Load these files strictly when their specific topic is requested.
