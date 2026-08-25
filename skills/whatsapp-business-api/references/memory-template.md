@@ -1,6 +1,6 @@
 # Memory Template — WhatsApp Business API
 
-Create `~/Clawic/data/whatsapp-business-api/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # WhatsApp Business API Memory
