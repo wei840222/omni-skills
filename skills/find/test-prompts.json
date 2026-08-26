@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy path",
+    "prompt": "Find the official GitHub repository for the 'jq' command line JSON processor.",
+    "expected": "The agent should load domain knowledge if necessary, search for the official source, validate that it is indeed the official 'jq' repository, and deliver the URL with high confidence.",
+    "actual": "FOUND: jq GitHub repository\nWHERE: https://github.com/jqlang/jq\nCONFIDENCE: high\nCAVEATS: Originally at stedolan/jq, but moved to jqlang/jq.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex scenario (obscure entity needing expansion)",
+    "prompt": "I need to find the specific 1999 paper by Thomas D. Wilson about models in information behaviour research. I don't know the journal name, but it should be peer-reviewed.",
+    "expected": "The agent should ask for clarification if needed or begin with obvious sources. It should expand the search if the exact paper isn't found immediately, validate that the paper matches the author, year, and topic, and deliver the result.",
+    "actual": "FOUND: Models in information behaviour research\nWHERE: Journal of Documentation, Vol. 55 No. 3, 1999, pp. 249-270. (https://doi.org/10.1108/EUM0000000007145)\nCONFIDENCE: high\nCAVEATS: The full text might be behind a paywall depending on the source, but the citation and abstract are verified.",
+    "pass": true
+  }
+]
