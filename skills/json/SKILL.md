@@ -1,45 +1,27 @@
 ---
 name: json
-slug: json
-version: 1.0.2
-description: Parses, validates, transforms, and designs JSON payloads that survive real parsers, real clients, and real data sizes. Use when a parse fails at a byte offset or on a trailing comma, an id or an amount loses precision, accents and emoji come back as mojibake, a field is null when it should be absent, duplicate keys silently win, a JSON Schema passes what it should reject or a `$ref` will not resolve, a multi-gigabyte file will not fit in memory, a jq, JMESPath, or JSONPath expression returns nothing, two documents must be diffed or patched, a webhook signature fails after the body was re-serialized, untrusted input must be parsed safely, or a response shape has to change without breaking existing clients. Covers NDJSON, JSON Patch, canonical form, JSON columns in SQL, and JSON5/JSONC config files. Not for constraining LLM output (`structured-output`), for YAML, TOML, XML, or CSV (their own skills), or for designing REST endpoints (`rest-api`).
-homepage: https://clawic.com/skills/json
-changelog: "Clearer disclosure of what is stored and where"
+description: "Parses, validates, transforms, and designs JSON payloads that survive real parsers, real clients, and real data sizes. Use when a parse fails at a byte offset or on a trailing comma, an id or an amount loses precision, accents and emoji come back as mojibake, a field is null when it should be absent, duplicate keys silently win, a JSON Schema passes what it should reject or a $ref will not resolve, a multi-gigabyte file will not fit in memory, a jq, JMESPath, or JSONPath expression returns nothing, two documents must be diffed or patched, a webhook signature fails after the body was re-serialized, untrusted input must be parsed safely, or a response shape has to change without breaking existing clients. Covers NDJSON, JSON Patch, canonical form, JSON columns in SQL, and JSON5/JSONC config files. Not for YAML, TOML, XML, or CSV (their own skills), or for designing REST endpoints (rest-api)."
 metadata:
-  clawdbot:
-    emoji: 📦
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: JSON
-    configPaths:
-    - ~/Clawic/data/json/
-    - ~/Clawic/data/projects/
-    - ~/Clawic/data/contacts/
-    - ~/Clawic/profile.yaml
-    - ~/json/
-    - ~/clawic/json/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/json/
-      - ~/Clawic/data/projects/
-      - ~/Clawic/data/contacts/
-      - ~/Clawic/profile.yaml
-      - ~/json/
-      - ~/clawic/json/
+  openclaw: '{"emoji": "📦", "os": ["linux", "darwin", "win32"], "displayName": "JSON", "requires": {"config": ["<state_root>/", "<state_root>/projects/", "<state_root>/contacts/", "<state_root>/profile.yaml"]}}'
+  related-skills: '{"api": "consuming someone else''s API: auth, retries, pagination, webhook delivery", "rest-api": "designing and building your own endpoints around these payloads", "yaml": "the same documents in a config-first format, with its own quoting traps", "sql": "querying JSON columns as part of a relational schema"}'
 ---
+## State location
 
-**Data.** At the start of every session, read `~/Clawic/data/json/config.yaml` (what the user declared) and `~/Clawic/data/json/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `~/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `~/Clawic/data/projects/<project>.md` before proposing a payload shape, a schema, or a format change for work the user tracks as a project. If none of it exists, work from defaults and say nothing about it.
+- **Candidate locations**:
+  1. `$WORKSPACE_ROOT/.json_state` (if in a project workspace)
+  2. `~/.config/json_state` (global fallback)
+- **Lookup order**: The skill should first check the workspace root. If not present or not in a workspace context, it should fall back to the global location.
+- **Creation behavior**: The skill should create the state directory in the workspace root by default when initiating state, unless otherwise configured.
 
-**Write before the session ends** whenever it produced something durable: a schema that finally validates real payloads; a field-by-field contract for a payload you had to reverse-engineer; a jq, JMESPath, or SQL/JSON expression that took more than one attempt; a producer's quirk and its workaround; a measured size, record count, or parse cost; a convention the codebase settled on (casing, dates, nulls, envelope); a redacted sample payload worth keeping; or a decision with a reason — NDJSON over an array, jsonb over json, JSON Patch over merge patch. `memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
+**Data.** At the start of every session, read `<state_root>/config.yaml` (what the user declared) and `<state_root>/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, treat the index list as dynamic. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserve rows written by other skills without modification, and every write and deletion is named in one line as it happens. Read `<state_root>/projects/<project>.md` before proposing a payload shape, a schema, or a format change for work the user tracks as a project. If none of it exists, work from defaults and say nothing about it.
 
-**Format decisions and payload contracts that belong to a tracked piece of work go to the shared box `~/Clawic/data/projects/<project>.md`**, not only here: one file per project, identified by the project name, holding objective, status and decisions taken — so the reason a wire format was chosen is where the rest of the project's decisions live. Read it before writing, update the decision in place rather than appending a second one, and never rewrite headings that another skill created.
+**Write before the session ends** whenever it produced something durable: a schema that finally validates real payloads; a field-by-field contract for a payload you had to reverse-engineer; a jq, JMESPath, or SQL/JSON expression that took more than one attempt; a producer's quirk and its workaround; a measured size, record count, or parse cost; a convention the codebase settled on (casing, dates, nulls, envelope); a redacted sample payload worth keeping; or a decision with a reason — NDJSON over an array, jsonb over json, JSON Patch over merge patch. `<state_root>/memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in the files named here, not in a file you create, not in a payload, curl command, or `.env` the user pastes in to be saved. Strip the value and store the pointer in its place: `env:API_TOKEN`, `keychain:stripe-live`, `1password:Work/Vendor/webhook`, `ssm:/prod/webhook/secret`, `file:~/.config/app/creds.json`. Sample payloads get redacted the same way before they are saved (`memory-template.md`). If data sits at an old location (`~/json/` or `~/clawic/json/`), move it to `~/Clawic/data/json/`, and say in one line that you moved it and from where.
+**Format decisions and payload contracts that belong to a tracked piece of work go to the shared box `<state_root>/projects/<project>.md`**, not only here: one file per project, identified by the project name, holding objective, status and decisions taken — so the reason a wire format was chosen is where the rest of the project's decisions live. Read it before writing, update the decision in place rather than appending a second one, and preserve existing headings created by other skills.
 
-Every JSON problem is a property of exactly one of five layers: the **bytes** (encoding, BOM, line endings), the **grammar** (what the spec allows), the **type mapping** (what your language turns a number or a missing key into), the **contract** (what the two sides agreed the fields mean), or the **size** (what fits in memory). Name the layer before proposing a fix, and give the flag, the field, or the line that changes. Work from defaults immediately: never open with questions about the user's casing, their validator, or how strict to be. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: locale, timezone, currency) → the Configuration table default.
+**No credential is ever written anywhere under `<state_root>/`** — not in the files named here, not in a file you create, not in a payload, curl command, or `.env` the user pastes in to be saved. Strip the value and store the pointer in its place: `env:API_TOKEN`, `keychain:stripe-live`, `1password:Work/Vendor/webhook`, `ssm:/prod/webhook/secret`, `file:~/.config/app/creds.json`. Sample payloads get redacted the same way before they are saved (`<state_root>/memory-template.md`). If data sits at an old location (`~/json/` or `~/clawic/json/`), move it to `<state_root>/`, and say in one line that you moved it and from where.
+
+Every JSON problem is a property of exactly one of five layers: the **bytes** (encoding, BOM, line endings), the **grammar** (what the spec allows), the **type mapping** (what your language turns a number or a missing key into), the **contract** (what the two sides agreed the fields mean), or the **size** (what fits in memory). Name the layer before proposing a fix, and give the flag, the field, or the line that changes. Work from defaults immediately: open directly with actionable solutions based on defaults about the user's casing, their validator, or how strict to be. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: locale, timezone, currency) → the Configuration table default.
 
 ## When To Use
 
@@ -74,7 +56,7 @@ Every JSON problem is a property of exactly one of five layers: the **bytes** (e
 | Fixtures drift, snapshots are noisy, mocks lie | Canonical golden files, redaction, schema-driven data, contract tests | `testing.md` |
 | Anything else JSON | Reduce to the smallest document that still fails, then name which of the five layers it belongs to | — |
 
-Coverage map: `debug.md` parse and value symptoms → cause · `languages.md` per-language encoder/decoder behavior · `numbers.md` precision, money, ids · `encoding.md` Unicode and bytes · `schema.md` JSON Schema authoring and validation · `api-payloads.md` request/response shape · `evolution.md` changing a contract safely · `streaming.md` files bigger than memory · `querying.md` jq/JMESPath/JSONPath/Pointer · `patching.md` diff, patch, merge · `security.md` untrusted input · `signing.md` canonical form, signatures, ETags · `databases.md` JSON columns and document stores · `config.md` JSON as configuration · `performance.md` speed and size · `testing.md` fixtures and contract tests.
+Coverage map (topic labels for the inline sections above; load `references/` when you need the distilled traps/domain/best-practice layer): parse/debug · languages · numbers · encoding · schema · api-payloads · evolution · streaming · querying · patching · security · signing · databases · config · performance · testing.
 
 ## Core Rules
 
@@ -95,7 +77,7 @@ Coverage map: `debug.md` parse and value symptoms → cause · `languages.md` pe
 | Value | What comes back | Why |
 |---|---|---|
 | `9007199254740993` | `9007199254740992` | Above 2^53−1 the nearest double is a different integer (Rule 2) |
-| `0.1 + 0.2` | `0.30000000000000004` | Binary floating point; never a JSON problem, always a float problem |
+| `0.1 + 0.2` | `0.30000000000000004` | Binary floating point; treat this strictly as a floating-point representation issue |
 | `-0` | `0` | Most serializers emit `0`; the sign is gone, and `Object.is` will tell you so later |
 | `1e400` | `Infinity`, then `null` | Valid JSON grammar, no finite double; the next serialization writes `null` |
 | `undefined` (JS) | Key vanishes in objects, `null` in arrays | Two different behaviors for the same value in one document |
@@ -116,7 +98,7 @@ Every one of these is accepted by at least one popular tool and rejected by the 
 | `{"a": 1,}` trailing comma | No | The single most common parse failure; legal in JSON5 and JSONC (`config.md`) |
 | `// comment` or `/* */` | No | JSON has no comments by design; `tsconfig.json` is JSONC, not JSON |
 | `{'a': 1}` single quotes | No | Python's `str(dict)` output is not JSON |
-| `{a: 1}` unquoted key | No | Legal in JavaScript object literals and JSON5, never in JSON |
+| `{a: 1}` unquoted key | No | Legal in JavaScript object literals and JSON5, strictly avoid in JSON |
 | `01`, `+1`, `.5`, `5.` | No | Leading zeros, leading plus, and bare decimal points are all rejected |
 | `NaN`, `Infinity`, `-Infinity` | No | Emitted by Python and some C++ encoders anyway |
 | Raw newline or tab inside a string | No | Control characters U+0000-U+001F must be escaped |
@@ -166,15 +148,15 @@ Before emitting a payload, a schema, a query, or a parsing snippet:
 - Does the shape state, per field, whether absent and null mean different things, and does the schema encode that (Rule 3)?
 - If this document crosses a trust boundary: byte cap, depth cap, duplicate-key policy, and validation before any business logic (Rule 9)?
 - Are timestamps RFC 3339 with an explicit offset — and, if a wall-clock time was meant, is the IANA zone in a separate field?
-- If anything is signed, hashed, or cached by ETag: is the value computed over the received bytes or a canonical form, never an incidental re-serialization (Rule 5)?
+- If anything is signed, hashed, or cached by ETag: is the value computed over the received bytes or a canonical form, use only the received bytes or a canonical form, omitting incidental re-serialization (Rule 5)?
 - Would this document round-trip through the *other* side's stack unchanged (Round-Trip Losses, Defaults That Decide Behavior)?
 - Is this a contract change? Then it is additive, or it has a new field name plus a deprecation window (Rule 7).
-- No secret, token, or personal record inside a payload that gets written under `~/Clawic/data/` — pointer or redaction placeholder instead?
-- Did anything durable come out of this — a working schema, a contract, an expression that took effort, a producer quirk, a measured size, a settled convention, a format decision? Then it is written to its box in `memory-template.md`, with its `## Boxes` line, in this same turn.
+- No secret, token, or personal record inside a payload that gets written under `<state_root>/` — pointer or redaction placeholder instead?
+- Did anything durable come out of this — a working schema, a contract, an expression that took effort, a producer quirk, a measured size, a settled convention, a format decision? Then it is written to its box in `<state_root>/memory-template.md`, with its `## Boxes` line, in this same turn.
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/json/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -200,51 +182,18 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Restrictions** — banned constructs (comments in shipped config, JSON5, floats for money, arrays at the top level of an API response), compliance rules on what may appear in a stored sample — affects generated artifacts and fixtures
 - **Cadence** — re-validating stored schemas against live payloads, refreshing fixtures, reviewing deprecated fields for zero traffic, upgrading parser and validator dependencies — every accepted cadence becomes a row in the `## Due` table of `memory.md`
 
-## Traps
+## Reference Loading
 
-| Trap | Why it fails | Do instead |
-|------|-------------|------------|
-| Building JSON with string concatenation or templates | One quote, newline, or backslash in a value produces a document that no longer parses — and an injection point | Build a native structure and serialize it once |
-| `try { JSON.parse(x) } catch { return {} }` | Turns a malformed upstream payload into a silent empty result that surfaces three layers away as a missing field | Fail loudly with the byte offset and the first 200 characters (`debug.md`) |
-| `additionalProperties: false` inside an `allOf` branch | A subschema cannot see the sibling's properties, so a valid document fails | `unevaluatedProperties: false` at the composition root, draft 2019-09+ (`schema.md`) |
-| Trusting `format: "date-time"` to reject a bad date | `format` is an annotation by default; most validators only assert it with a plugin enabled | Turn assertion on explicitly, or add a `pattern` (`schema.md`) |
-| Verifying a webhook signature after the JSON middleware | The framework parsed and discarded the raw body; your re-serialization is not what was signed | Capture raw bytes in the body reader, verify, then parse (`signing.md`) |
-| `if (obj.field)` for an optional boolean or number | `false` and `0` are falsy, so a present value reads as absent | `'field' in obj` / `!= null`, and decide the three states first (Rule 3) |
-| Recursive merge of user-supplied JSON | `__proto__`, `constructor`, `prototype` keys reach the object prototype and poison every object in the process | Null-prototype targets and a key blocklist at the merge, not at the parse (`security.md`) |
-| Sorting keys to make a diff readable, then hashing it | Sorted output is not the canonical form any spec defines, and the sort is shallow | RFC 8785 for hashing; sort only for human diffs (`signing.md`, `testing.md`) |
-| Epoch seconds for a future appointment | An instant is not a wall-clock time; a DST change moves the meeting | RFC 3339 local time plus an IANA zone field, or state that instants are what you mean |
-| Storing a whole document in a column "to decide later" | It becomes a schema nobody wrote and everybody depends on; queries end up scanning | Promote queried fields to real columns or generated columns with indexes (`databases.md`) |
-| Streaming an array by splitting on `,` or `}` | Commas and braces appear inside strings; the split corrupts records at random | A real incremental parser, or NDJSON where the delimiter is a newline outside strings (`streaming.md`) |
-| Snapshot tests over unsorted, unredacted output | Every unrelated change produces a diff, so the snapshot gets regenerated unread | Canonicalize and redact before writing the golden file (`testing.md`) |
-| A payload decision that lives only in the chat | Re-litigated by the next person who finds the field confusing | `artifacts/` with the date and what was rejected (`memory-template.md`) |
-
-## Where Experts Disagree
-
-- **Envelope vs bare resource.** `{"data": …, "meta": …}` gives room for pagination and warnings without breaking clients and standardizes error placement; a bare resource is smaller, cacheable as-is, and needs no unwrapping. The frontier is whether responses ever need out-of-band metadata: if pagination or partial failure exists anywhere in the API, envelope everything, because a mixed API is worse than either choice.
-- **Reject or ignore unknown fields.** Rejecting catches typos and stale clients at the boundary; ignoring is what makes additive evolution possible (Rule 7). The stable answer is asymmetric and both camps use it in practice: **strict when reading your own config and internal producers, tolerant when reading someone else's API**.
-- **JSON Schema depth.** One camp models everything, including cross-field conditionals; the other validates types and required fields and puts business rules in code, where the error messages are legible. Conditional-heavy schemas produce validation output no support engineer can act on, which is a real cost — the split is roughly whether the schema is also the published contract.
-- **`json` vs `jsonb` in Postgres.** `jsonb` wins for anything queried: it indexes, it supports containment, and it is what almost everyone should default to. `json` is not obsolete — it preserves byte order, whitespace and duplicate keys, which is exactly what a signature-verified or audit-logged document needs (`databases.md`).
-- **Leaving JSON for a binary format.** Measured wins are real for high-frequency internal traffic and for payloads that are mostly numbers or bytes. They are usually not real for a public API: gzip erases most of the size argument, and debuggability disappears the day it matters. Require a measurement of gzipped JSON first (`performance.md`).
+| Reference File | When to load | How to use |
+|----------------|--------------|------------|
+| `references/domain-knowledge.md` | When you need foundational context on JSON, formats, parsing, schemas, and security. | Read to understand limits and base standards. |
+| `references/traps.md` | When debugging JSON errors, designing schemas, or implementing streams. | Look up common failure patterns and their workarounds. |
+| `references/best-practices.md` | When deciding on API envelopes, schema depth, Postgres types, or strictness. | Use to guide architectural decisions based on expert consensus. |
 
 ## Security & Privacy
 
 **Credentials:** this skill reads and writes JSON documents that frequently contain tokens, keys, and personal data. It does NOT store, log, or transmit any secret value; secrets found in a payload, a curl command, or a pasted `.env` are replaced with a `<kind>:<locator>` pointer before anything is written.
 
-**Local storage:** preferences, memory, schemas, contracts, saved expressions and redacted fixtures stay in `~/Clawic/data/json/` on this machine, plus decision entries in the shared `~/Clawic/data/projects/`. Field names, types, sizes and shapes only — never live payload contents with real personal data.
+**Local storage:** preferences, memory, schemas, contracts, saved expressions and redacted fixtures stay in `<state_root>/` on this machine, plus decision entries in the shared `<state_root>/projects/`. Field names, types, sizes and shapes only — omit live payload contents with real personal data.
 
-**Guardrails:** untrusted input is parsed with explicit size and depth limits and no reviver that can reach a prototype. Sample payloads are redacted with stable placeholders before being saved, so a fixture can never become a data leak in a backup.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/json (install if the user confirms):
-- `api` — consuming someone else's API: auth, retries, pagination, webhook delivery
-- `rest-api` — designing and building your own endpoints around these payloads
-- `structured-output` — constraining an LLM's output to a schema, function calling, grammars
-- `yaml` — the same documents in a config-first format, with its own quoting traps
-- `sql` — querying JSON columns as part of a relational schema
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/json
-- Latest version: https://clawic.com/skills/json
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/json.
+**Guardrails:** untrusted input is parsed with explicit size and depth limits and no reviver that can reach a prototype. Sample payloads are redacted with stable placeholders before being saved, so a fixture remain safe from data leaks in a backup.
