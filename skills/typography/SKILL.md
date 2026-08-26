@@ -19,7 +19,7 @@ metadata:
 
 ## Tracking, optical size, and cuts
 
-- Tracking (letter-spacing) is global; kerning is pair-specific. Tighten display (-10 to -40 / 1000 em), leave body alone or open slightly (+5 to +15) for small sizes, open caps (+50 to +100). Never track body negative on screen.
+- Tracking (letter-spacing) is global; kerning is pair-specific. Tighten display (-10 to -40 / 1000 em), leave body alone or open slightly (+5 to +15) for small sizes, open caps (+50 to +100). Avoid negative tracking on screen body text; it reduces legibility.
 - Optical size (`opsz`) is a designed cut for a size band, not a scale of the same outlines. Display cuts at text sizes clog; text cuts at display sizes look anemic. Prefer a variable face with an `opsz` axis, or load separate display/text files.
 - Weight axes are continuous; named weights are marketing. Prefer `font-variation-settings: "wght" 450` over hopping Regular→Medium when the face supports it, then lock to the nearest static weight if the design system requires named tokens.
 - Italics are a cut, not a slant. Synthetic oblique (`font-style: oblique` without an italic file, or faux italic) distorts counters; load the real italic.
