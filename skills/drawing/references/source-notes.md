@@ -41,3 +41,13 @@ Takeaways used here:
 - OpenClaw supports a separate image model slot
 - the safest skill behavior is to stay model-agnostic by default
 - users who want generation inside OpenClaw can configure or inspect the image model without changing the core prompt system
+
+## General Principles of Coloring Books
+
+Source: Wikipedia (Coloring book)
+- https://en.wikipedia.org/wiki/Coloring_book
+
+Takeaways used here:
+- The fundamental requirement of a coloring page is clean line art that provides closed boundaries for filling in color.
+- Crayon, marker, and pencil use requires thick, unbroken outlines without shading or halftones which would interfere with the coloring activity.
+- The cognitive load for children (especially younger ones) necessitates large shapes and minimized background clutter compared to full illustrations.
