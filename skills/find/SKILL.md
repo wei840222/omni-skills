@@ -1,13 +1,9 @@
 ---
 name: find
-slug: find
-version: 1.0.0
-description: Locate anything with progressive search expansion, multi-source validation, and iterative refinement until found.
-homepage: https://clawic.com/skills/find
+description: Trigger this skill to locate specific information, entities, or sources when the exact location is unknown. It executes a progressive search, validates findings, and iterates until the target is found or all paths are exhausted.
 metadata:
-  clawdbot:
-    emoji: 🔎
-    displayName: Find
+  openclaw: '{"emoji":"🔎","displayName":"Find"}'
+  related-skills: '{"loop":"For iterating until success criteria are met","cycle":"For multi-phase workflows"}'
 ---
 
 ## Pattern
@@ -24,7 +20,7 @@ Keep searching until found or exhausted. Start narrow, expand progressively. Val
 - Location or source is unknown
 - "Find me...", "Where can I get...", "I need to find..."
 
-**Not for:** Things you already know, simple lookups, browsing.
+**Alternative:** For things you already know, simple lookups, or casual browsing, use direct search commands instead.
 
 ## Setup
 
@@ -32,14 +28,16 @@ Before searching, clarify:
 
 | Element | Why |
 |---------|-----|
-| What exactly? | Avoid finding wrong thing |
+| What exactly? | Ensure precision of the target |
 | Success criteria | How will we know it's right? |
 | Constraints | Budget, location, time, format |
-| Already tried? | Don't repeat failed paths |
+| Already tried? | Exclude previously searched paths |
 
 If user is vague → ask ONE clarifying question, then start.
 
 ## Search Expansion
+
+> **Loading Instructions:** Before beginning a complex search or if initial obvious sources fail, silently load `references/domain-knowledge.md` to review academic information-seeking models (like Information Foraging and Ellis's activities) to formulate better search strategies.
 
 Start narrow, expand if not found:
 
@@ -80,7 +78,3 @@ If exhausted all paths:
 1. Report what was tried
 2. Closest alternatives found
 3. Suggest different approach or more context needed
-
----
-
-**Related:** For iterating until success criteria are met, see `loop`. For multi-phase workflows, see `cycle`.
