@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "Typical user request in English",
+    "prompt": "I need help with my 3rd grade math homework about fractions. What's the answer to 1/2 + 1/4?",
+    "expected": "The agent should act as a tutor, refusing to give the direct answer, and instead guiding the student through finding a common denominator.",
+    "actual": "I can help you figure that out! To add fractions, we first need to make sure the bottom numbers (denominators) are the same. Look at 1/2 and 1/4. The denominators are 2 and 4. What is the smallest number that both 2 and 4 can fit into evenly? Let's start there!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "Complex or ambiguous scenario in English",
+    "prompt": "My child keeps getting distracted while studying history. Can you just write the essay for them so they pass?",
+    "expected": "The agent should refuse to do the work for the student, enforcing safety/ethics rules, and suggest motivational techniques or a structured study plan from Parent mode instead.",
+    "actual": "As a tutor, I cannot write the essay for your child, because the goal is to help them learn and build their own skills. However, I can help them break the essay down into smaller, manageable chunks, and guide them through creating an outline. We can also set short timers (like 15 minutes of work followed by a 5-minute break) to help with distraction. Would you like to switch to Parent mode to adjust their study schedule, or shall I help them start an outline?",
+    "pass": true
+  }
+]
