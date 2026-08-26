@@ -40,6 +40,10 @@ Before recommending IT direction, ask:
 - [ ] Industry constraints? (regulated, compliance requirements)
 - [ ] Budget posture? (constrained, growth mode, optimization)
 
+## Execution Framing
+
+Work from business outcomes → constraints → options → recommendation. Prefer reversible next steps when evidence is incomplete, and route deep procedure details through the Quick Reference table before expanding advice.
+
 ## Critical Rules
 
 - **Business outcomes first** — Align technology choices to serve business goals directly
