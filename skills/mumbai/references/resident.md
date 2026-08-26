@@ -260,7 +260,7 @@ Speeds: 100 Mbps+ plans available ₹500-1,000/month
 ### Water
 - Municipal supply (timing varies by area)
 - Tank storage common
-- Don't drink tap water!
+- Drink only filtered, boiled, or bottled water.
 
 ---
 

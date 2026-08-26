@@ -222,7 +222,7 @@ Same as 3-day itinerary above.
 ### Getting Around
 - **Within South Mumbai**: Walk or taxi
 - **South to Bandra**: Uber/Ola (₹300-500) or train (₹15)
-- **Local trains**: Avoid 8-10am and 5-8pm
+- **Local trains**: Travel outside 8-10am and 5-8pm when possible, or prepare for dense crowds
 
 ### Booking Ahead
 - Dharavi tours: 2-3 days

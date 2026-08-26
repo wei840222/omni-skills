@@ -16,4 +16,4 @@ Mumbai, also known as Bombay, is the capital city of the Indian state of Maharas
 - Mumbai is highly reliant on its extensive local train network.
 - The monsoon season significantly affects daily life, requiring specific preparedness.
 
-*Source:* Wikipedia (https://en.wikipedia.org/wiki/Mumbai)
+*Source:* Wikipedia — https://en.wikipedia.org/wiki/Mumbai
