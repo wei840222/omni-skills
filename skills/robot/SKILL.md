@@ -33,6 +33,7 @@ Memory lives in `<state_root>/` with tiered structure. See `references/memory-te
 
 | Topic | File | When to load |
 |-------|------|--------------|
+| Domain knowledge & sources | `references/domain-knowledge.md` | When verifying ROS distros, industrial safety standards, or hardware constraints. |
 | Memory setup | `references/memory-template.md` | When initializing a new robotics project or interpreting memory. |
 | Arduino, ESP32, RPi wiring | `references/hardware.md` | When answering questions about microcontrollers or pinouts. |
 | Sensors: wiring + code | `references/sensors.md` | When integrating or debugging environmental/spatial sensors. |
