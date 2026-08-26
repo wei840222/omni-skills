@@ -1,5 +1,13 @@
 # Unreal Engine Concepts
 
+Primary sources used for this refactor (Gate 6):
+
+- Unreal Engine Garbage Collection Overview — https://dev.epicgames.com/documentation/unreal-engine/garbage-collection-overview-in-unreal-engine
+- Unreal Engine UPROPERTY Specifiers — https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-uproperty-specifiers
+- Unreal Engine Actor Lifecycle — https://dev.epicgames.com/documentation/unreal-engine/unreal-engine-actor-lifecycle
+- Unreal Engine Networking and Multiplayer — https://dev.epicgames.com/documentation/unreal-engine/networking-and-multiplayer-in-unreal-engine
+- Soft Object Pointers — https://dev.epicgames.com/documentation/unreal-engine/soft-object-pointers-in-unreal-engine
+
 ## Garbage Collection
 - Raw pointers to UObjects get garbage collected — use `UPROPERTY()` to prevent.
 - `UPROPERTY()` marks for GC tracking. Ensure `UPROPERTY()` is used to avoid dangling pointers.
