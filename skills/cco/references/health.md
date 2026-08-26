@@ -79,7 +79,7 @@ Adjust weights based on what actually predicts churn in your data.
 1. **Start simple** — Usage + engagement + relationship
 2. **Validate against outcomes** — Does low score predict churn?
 3. **Iterate quarterly** — Add/remove signals based on data
-4. **Automate alerts** — Don't rely on manual review
+4. **Automate alerts** — Use automated alerts as your primary review mechanism
 5. **Trust but verify** — Health scores lie sometimes; investigate anomalies
 
 ## Common Health Score Mistakes
