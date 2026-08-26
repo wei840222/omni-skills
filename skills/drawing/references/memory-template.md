@@ -1,6 +1,6 @@
 # Memory Template — Drawing
 
-Create `~/Clawic/data/drawing/memory.md` with this structure:
+Create `<state_root>/drawing/memory.md` with this structure:
 
 ```markdown
 # Drawing Memory

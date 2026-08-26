@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path coloring page",
+    "prompt": "I need a coloring page for a 4-year-old child featuring a simple, happy dinosaur.",
+    "expected": "The agent creates a prompt following the D.R.A.W. protocol using the coloring-page mode, simple shapes, thick outlines, and age-appropriate complexity.",
+    "actual": "Agent loaded prompt-system.md, chose 'coloring-page' mode, and provided a prompt: 'Create a printable black-and-white coloring page for ages 3-5. Subject: simple, happy dinosaur. Use thick clean outlines, large closed shapes, minimal background, white page, and no shading. Keep only the essential elements needed to recognize the scene. No text, no gray fill, no tiny decorations, no cropped objects, no watermark.'",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex illustration with mixed styles",
+    "prompt": "I want a very detailed, cinematic, watercolor painting of a busy city street, with neon lights and dark shadows, suitable for a coloring book.",
+    "expected": "The agent recognizes the contradiction between 'detailed cinematic watercolor' and 'coloring book' requirements, and advises simplifying the scene, removing shading, and dropping the mixed styles to adhere to coloring page rules.",
+    "actual": "Agent referenced coloring-pages.md and model-portability.md, recognized the trap of mixing complex styles in coloring pages, and guided me to simplify the scene to 'thick clean outlines' without shading, omitting the 'cinematic watercolor' and 'dark shadows' to make it actually colorable by a child.",
+    "pass": true
+  }
+]

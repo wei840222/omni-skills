@@ -1,28 +1,9 @@
 ---
 name: drawing
-slug: drawing
-version: 1.0.0
 description: Generate children's drawings and coloring pages with modular prompts, style packs, and print-ready constraints across image models.
-homepage: https://clawic.com/skills/drawing
-changelog: Initial release with a reusable prompt protocol, style packs, coloring-page rules, and model-portable adapters for image generation.
 metadata:
-  clawdbot:
-    emoji: 🎨
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/drawing/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/drawing/
-    displayName: Drawing
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/drawing/
+  openclaw: '{"emoji":"🎨"}'
+  related-skills: '{"art":"Broader art direction, critique, and technique guidance beyond image prompting","logo":"Prompt patterns for icons, marks, and other cleaner graphic outputs","design":"Clarify visual taste and creative direction before locking a drawing style","graphic-design":"Improve layout, print choices, and supporting visual materials around the drawing"}'
 ---
 
 ## When to Use
@@ -31,31 +12,28 @@ User needs original AI drawings, coloring pages, or simple educational illustrat
 
 Use this when the real problem is not "pick the best model" but "get a clean result fast": full color vs coloring page, preschool vs older kids, one-off scene vs consistent series, or first prompt vs refinement loop.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/drawing/`. If `~/Clawic/data/drawing/` does not exist, run `setup.md`. See `memory-template.md` for structure and status fields.
+Memory lives in `<state_root>/drawing/` by default. Use workspace-first resolution:
+1. `$CLAWIC_STATE_ROOT/drawing/` if defined
+2. `~/.clawic/drawing/` if `~/.clawic` exists
+3. `<state_root>/drawing/`
 
-```text
-~/Clawic/data/drawing/
-|- memory.md            # Default age bands, style preferences, and output habits
-|- winning-prompts.md   # Prompts that already worked well for this user
-|- style-notes.md       # Preferred palettes, line weight, and recurring motifs
-`- series.md            # Character and scene anchors for multi-page sets
-```
+If the directory does not exist, run `references/setup.md`. See `references/memory-template.md` for structure and status fields.
 
 ## Quick Reference
 
-Load only the smallest file needed for the current bottleneck.
+Load only the smallest file needed for the current bottleneck using explicit commands like `cat references/prompt-system.md` when the user asks for a specific step or when the current workflow matches the trigger condition in the table.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and status model | `memory-template.md` |
-| Universal prompt scaffold and iteration loop | `prompt-system.md` |
-| Coloring-page rules by age and print target | `coloring-pages.md` |
-| Ready-to-use visual directions | `style-packs.md` |
-| OpenClaw integration and model adapters | `model-portability.md` |
-| Source-backed prompt notes | `source-notes.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup and activation behavior | `references/setup.md` | When `<state_root>/drawing/` is empty |
+| Memory structure and status model | `references/memory-template.md` | When updating preferences |
+| Universal prompt scaffold and iteration loop | `references/prompt-system.md` | When writing a new prompt |
+| Coloring-page rules by age and print target | `references/coloring-pages.md` | When the mode is `coloring-page` |
+| Ready-to-use visual directions | `references/style-packs.md` | When selecting visual style |
+| OpenClaw integration and model adapters | `references/model-portability.md` | When dealing with model specifics |
+| Source-backed prompt notes | `references/source-notes.md` | When needing evidence for prompt guidelines |
 
 ## D.R.A.W. Protocol
 
@@ -77,7 +55,7 @@ Keep 1-3 focal elements. If the user wants a coloring page, simplify harder than
 
 ### Anchor the style
 
-Pick one style pack and one composition. Do not stack "watercolor + kawaii + paper cut + cinematic" in the same prompt. The style must support the use case:
+Pick one style pack and one composition. Select a single, consistent style instead of combining conflicting modifiers like "watercolor + kawaii + paper cut + cinematic". The style must support the use case:
 - soft color illustration for story or gift
 - bold cartoon for fast recognizability
 - black outline sheet for coloring
@@ -88,11 +66,10 @@ Pick one style pack and one composition. Do not stack "watercolor + kawaii + pap
 End with non-negotiables:
 - age appropriateness
 - original characters only unless the user explicitly asks otherwise
-- no scary mood, no violence, no text unless essential
-- no watermark, no logo, no cropped subject
+- ensure friendly mood, calm scenes, text-free images, uncropped subjects, and clean unmarked graphics
 - print target if relevant: A4 or US Letter, portrait or landscape
 
-For full templates and slot order, load `prompt-system.md`.
+For full templates and slot order, load `references/prompt-system.md`.
 
 ## Fast Prompt Starters
 
@@ -105,7 +82,7 @@ Scene: [simple setting with 1-2 supporting elements].
 Style: [style pack].
 Composition: [portrait or landscape], centered focal point, generous breathing room.
 Color: [palette or mood].
-Keep it friendly, clear, and easy to recognize. No text, no watermark, no scary details.
+Keep it friendly, clear, and easy to recognize. Ensure images are text-free, unmarked, and friendly.
 ```
 
 ### Coloring page
@@ -115,7 +92,7 @@ Create a printable black-and-white coloring page for ages [age range].
 Subject: [main subject].
 Use thick clean outlines, large closed shapes, minimal background, white page, and no shading.
 Keep only the essential elements needed to recognize the scene.
-No text, no gray fill, no tiny decorations, no cropped objects, no watermark.
+Ensure images are text-free, use solid shapes over gray fill, omit tiny decorations, keep objects fully visible, and remain unmarked.
 ```
 
 ### Educational drawing
@@ -136,7 +113,7 @@ Make it accurate, friendly, uncluttered, and easy to print.
 
 ### 2. Separate subject, style, and constraints
 - Prompts work better when the main subject, scene, style, and restrictions are stated in distinct blocks.
-- Avoid vague adjectives like "nice", "professional", or "beautiful" unless you translate them into visual traits.
+- Translate vague adjectives like "nice", "professional", or "beautiful" into concrete visual traits.
 - Reusable prompts should keep variables obvious: subject, age, style, color mode, page format.
 
 ### 3. Match detail level to coloring difficulty
@@ -152,7 +129,7 @@ Make it accurate, friendly, uncluttered, and easy to print.
 
 ### 5. Design for print when print matters
 - Explicitly request white background, clean margins, uncropped subject, and portrait or landscape orientation.
-- Coloring pages should be ink-friendly: no halftones, no gray textures, no faux paper grain.
+- Coloring pages should be ink-friendly: use solid black lines and pure white spaces instead of halftones, gray textures, or faux paper grain.
 - If the result will be printed at home, prefer centered compositions and avoid edge-to-edge details.
 
 ### 6. Run a tight validation loop
@@ -162,8 +139,8 @@ Make it accurate, friendly, uncluttered, and easy to print.
 
 ### 7. Keep the output kid-safe and IP-safe by default
 - Default to friendly expressions, calm scenes, and original characters.
-- Avoid brand characters, copyrighted mascots, or lookalikes unless the user accepts that risk.
-- Do not use real child photos as references unless the user explicitly wants that workflow and trusts the selected provider.
+- Use original characters by default, and include brand characters only if the user explicitly accepts the IP risk.
+- Use generic descriptions instead of real child photos, requesting photos only if the user explicitly requires that workflow and trusts the provider.
 
 ## Common Traps
 
@@ -180,7 +157,7 @@ Make it accurate, friendly, uncluttered, and easy to print.
 - Prompt text and any reference images sent to the selected image provider through OpenClaw or another image client.
 
 **Data that stays local:**
-- Style preferences, winning prompts, and recurring constraints under `~/Clawic/data/drawing/`.
+- Style preferences, winning prompts, and recurring constraints under `<state_root>/drawing/`.
 
 **This skill does NOT:**
 - Force a specific model purchase or provider.
@@ -191,15 +168,3 @@ Make it accurate, friendly, uncluttered, and easy to print.
 ## Trust
 
 By using image generation, prompt text and optional reference images may be sent to third-party model providers. Only use providers you trust, and avoid sending unnecessary personal details or identifiable child photos when a generic description would work.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `art` - Broader art direction, critique, and technique guidance beyond image prompting.
-- `logo` - Prompt patterns for icons, marks, and other cleaner graphic outputs.
-- `design` - Clarify visual taste and creative direction before locking a drawing style.
-- `graphic-design` - Improve layout, print choices, and supporting visual materials around the drawing.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/drawing
-- Latest version: https://clawic.com/skills/drawing
