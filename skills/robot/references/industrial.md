@@ -1,13 +1,13 @@
 # Industrial Robotics — Safety Critical
 
-## ⚠️ SIMULATION vs REAL HARDWARE
+## Hardware & Safety Verification
 
-Before generating ANY motion code, clarify:
+Before generating motion code, confirm the following with the user:
 1. **Target:** Simulation (RobotStudio, KUKA.Sim) or real robot?
 2. **Safety:** If real, what safety systems are in place?
 3. **Speed:** Start at ≤10% speed for testing
 
-Code that works in simulation can cause injury on real hardware.
+Verify real hardware safety constraints, as simulation code can be dangerous if applied directly.
 
 ## Motion Types
 
@@ -83,7 +83,13 @@ def main():
     set_digital_out(0, False)
 ```
 
-## Safety Interlocks — NEVER Bypass
+
+## Safety Standards (ISO 10218 & ISO/TS 15066)
+- **ISO 10218-1/2**: Defines safety requirements for industrial robots.
+- **ISO/TS 15066**: Specifies safety requirements for collaborative robots (cobots).
+- **Rule**: When working with cobots (e.g., UR), strictly enforce speed and separation monitoring, hand-guiding safety, and power/force limiting based on ISO/TS 15066.
+
+## Safety Interlocks — Mandatory Enforcement
 
 ```
 // BAD — ignores safety, robot continues
@@ -116,4 +122,4 @@ Tool Center Point requires physical measurement:
 2. Controller calculates offset
 3. Store named tool
 
-**Never assume TCP values.** Always ask: "Is the tool calibrated? What's the tool name?"
+**Always verify TCP calibration before generating paths.** Always ask: "Is the tool calibrated? What's the tool name?"

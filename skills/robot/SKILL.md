@@ -1,31 +1,26 @@
 ---
 name: robot
-slug: robot
-version: 1.0.0
-description: Build robots from hobby to industrial with hardware wiring, ROS2, motion planning, and safety constraints.
-homepage: https://clawic.com/skills/robot
+description: Assist with robotics hardware wiring, ROS2 setup, motor control, and industrial programming. Trigger when the user needs help with Arduino/ESP32 robotics, ROS1/2, sensors, actuators, or robotic arms.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Robot
+  version: "1.0.0"
+  openclaw: '{"emoji":"🤖","os":["linux","darwin","win32"]}'
+  related-skills: '{"arduino":"For Arduino specific hardware wiring.","linux":"For ROS2 environment configuration.","cpp":"For writing embedded and ROS2 C++ code."}'
 ---
 
-## When to Use
+## State location
 
-User needs robotics help — Arduino/ESP32 wiring, ROS2 configuration, motor control, sensor integration, or industrial robot programming. Agent handles hardware selection, code generation, and debugging across hobby to professional contexts.
+Use `<state_root>` as the persistent storage directory for this skill following these lookup rules:
+1. Workspace-local: `./.robot/` (Preferred for project-specific context)
+2. Global fallback: `~/.local/state/robot/`
+
+Create this directory structure if it does not exist.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/robot/` with tiered structure. See `memory-template.md` for initial setup.
+Memory lives in `<state_root>/` with tiered structure. See `references/memory-template.md` for initial setup.
 
 ```
-~/Clawic/data/robot/
+<state_root>/
 ├── memory.md          # HOT: inventory + active project
 ├── inventory.md       # Hardware owned (boards, sensors, motors)
 ├── projects/          # Per-project configs and learnings
@@ -36,24 +31,26 @@ Memory lives in `~/Clawic/data/robot/` with tiered structure. See `memory-templa
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Arduino, ESP32, RPi wiring | `hardware.md` |
-| Sensors: wiring + code | `sensors.md` |
-| Motors: types + drivers | `motors.md` |
-| ROS1/ROS2, Gazebo, MoveIt | `ros.md` |
-| Industrial arms (ABB, KUKA, UR) | `industrial.md` |
-| Systematic troubleshooting | `debugging.md` |
-| Common project templates | `projects.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Domain knowledge & sources | `references/domain-knowledge.md` | When verifying ROS distros, industrial safety standards, or hardware constraints. |
+| Memory setup | `references/memory-template.md` | When initializing a new robotics project or interpreting memory. |
+| Arduino, ESP32, RPi wiring | `references/hardware.md` | When answering questions about microcontrollers or pinouts. |
+| Sensors: wiring + code | `references/sensors.md` | When integrating or debugging environmental/spatial sensors. |
+| Motors: types + drivers | `references/motors.md` | When selecting or controlling servos, steppers, or DC motors. |
+| ROS1/ROS2, Gazebo, MoveIt | `references/ros.md` | When working on ROS frameworks, simulation, or node communication. |
+| Industrial arms (ABB, KUKA, UR) | `references/industrial.md` | When writing robotic arm paths or safety-critical industrial logic. |
+| Systematic troubleshooting | `references/debugging.md` | When diagnosing hardware failures, compilation issues, or unexpected behavior. |
+| Common project templates | `references/projects.md` | When planning standard project architectures. |
+
 
 ## Core Rules
 
 ### 1. Check Memory First
 Before ANY recommendation:
-1. Read ~/Clawic/data/robot/memory.md — what hardware does user have?
-2. Check ~/Clawic/data/robot/projects/ — is there an active project?
-3. Check ~/Clawic/data/robot/corrections.md — past failures to avoid?
+1. Read <state_root>/memory.md — what hardware does user have?
+2. Check <state_root>/projects/ — is there an active project?
+3. Check <state_root>/corrections.md — past failures to avoid?
 
 ### 2. ASK Exact Hardware
 Before ANY code: exact board model, exact sensor/motor models, voltage rails.
@@ -70,13 +67,13 @@ Before ANY code: exact board model, exact sensor/motor models, voltage rails.
 ### 4. Version Everything
 Always ask and specify:
 - Arduino core version, library versions
-- ROS distro (Humble, Iron, Foxy, Noetic)
+- ROS distro (Humble, Jazzy, Kilted; treat Iron/Noetic as legacy)
 - Firmware versions for industrial controllers
 
 ### 5. Simulation First for Industrial
 For ABB/KUKA/Fanuc/UR code:
 - Always clarify: simulation or real hardware?
-- Never generate motion code without safety discussion
+- Verify safety and hardware constraints before generating motion code
 - Include speed limits and safety checks in ALL code
 
 ## Hardware Traps
