@@ -2,7 +2,7 @@
 
 ## ROS1 vs ROS2 Compatibility Matrix
 
-| Feature | ROS1 (Noetic) | ROS2 (Humble/Iron) |
+| Feature | ROS1 (Noetic, legacy) | ROS2 (Humble/Jazzy+) |
 |---------|---------------|---------------------|
 | Python API | `rospy` | `rclpy` |
 | C++ API | `roscpp` | `rclcpp` |
@@ -12,7 +12,7 @@
 | Param server | Global | Per-node, namespaced |
 | Discovery | rosmaster | DDS (no master) |
 
-**NEVER mix these.** `import rospy` in ROS2 = `ModuleNotFoundError`.
+**Keep APIs separated by distro.** `import rospy` in ROS2 raises `ModuleNotFoundError`; use `rclpy` on ROS2 and `rospy` only on ROS1.
 
 ## Package Creation
 
