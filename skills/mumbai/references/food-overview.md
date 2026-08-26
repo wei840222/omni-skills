@@ -176,7 +176,7 @@ Mumbai is extremely vegetarian-friendly:
 ## Food Safety Tips
 
 1. **Street food**: Eat where there's turnover (fresh food)
-2. **Water**: Never drink tap water
+2. **Water**: Drink only filtered, boiled, or bottled water
 3. **Ice**: Only in good restaurants (made from purified water)
 4. **Salads**: Be cautious with raw vegetables in basic places
 5. **Crowds = safety**: Popular stalls have fresh ingredients

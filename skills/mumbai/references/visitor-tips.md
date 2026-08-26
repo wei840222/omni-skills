@@ -7,7 +7,7 @@
 - **Terminal 2**: International flights, beautiful terminal (Jaya He installation)
 - **Terminal 1**: Domestic, being upgraded
 - **To city center**: Prepaid taxi (₹500-800 to South Mumbai), Uber/Ola (₹400-600)
-- **Avoid**: Random taxi touts. Use official prepaid booth or app.
+- Prefer official prepaid taxi booths or ride-hailing apps over random taxi touts.
 - **Time to city**: 1-3 hours depending on traffic (yes, that much variance)
 
 ### Money
@@ -54,7 +54,7 @@
 - **Lines**: Western, Central, Harbour
 - **Cost**: ₹5-20 per ride
 - **Classes**: First class (less crowded, ₹10-40), Second class (packed)
-- **Avoid**: 8-10am and 5-8pm (dangerously crowded)
+- **Peak hours**: Prefer travel outside 8-10am and 5-8pm, or prepare for dense crowds
 - **App**: m-Indicator for schedules
 
 ### Auto Rickshaws

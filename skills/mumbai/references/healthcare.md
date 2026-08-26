@@ -317,7 +317,7 @@ Mumbai has **excellent healthcare** — among the best in India:
 ## Health Tips for Mumbai
 
 ### Water
-- Never drink tap water
+- Drink only filtered, boiled, or bottled water
 - Bottled or RO filtered only
 - Ice in good restaurants usually safe
 

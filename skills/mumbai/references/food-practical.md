@@ -161,7 +161,7 @@ Mohammed Ali Road after sunset during Ramadan is a **must-visit** food experienc
 ## Water & Hygiene
 
 ### Water Rules
-- **Never drink tap water**
+- **Drink only filtered, boiled, or bottled water**
 - Bottled water everywhere: Bisleri, Kinley, Aquafina
 - Check seal is intact
 - Restaurant water usually safe (filtered)
