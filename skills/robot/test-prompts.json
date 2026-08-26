@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm trying to connect an HC-SR04 ultrasonic sensor to my ESP32. How should I wire it, and what's a simple code snippet to read the distance?",
+    "expected": "Mentions that HC-SR04 outputs 5V on the Echo pin and needs a voltage divider or logic level converter before connecting to the 3.3V ESP32 pin to avoid damage. Provides appropriate ESP32 code using `pulseIn` or interrupts.",
+    "actual": "Before we proceed, what specific ESP32 board are you using (e.g., NodeMCU, DevKit v1)? Are you powering the HC-SR04 with 5V or 3.3V?\n\n**Warning**: The HC-SR04 operates at 5V, meaning its Echo pin will send a 5V signal. The ESP32 is a 3.3V device, and its pins are not 5V tolerant. If you connect the Echo pin directly to an ESP32 GPIO, you risk permanently burning the pin.\n\n**Wiring Instructions**:\n- **VCC (HC-SR04)** -> 5V (VIN/VUSB on ESP32, assuming USB power)\n- **GND (HC-SR04)** -> GND (ESP32)\n- **Trig (HC-SR04)** -> Any output-capable GPIO (e.g., GPIO 5)\n- **Echo (HC-SR04)** -> **Voltage Divider** -> Any input-capable GPIO (e.g., GPIO 18)\n\n*Voltage Divider for Echo*:\nConnect the Echo pin to a 1k\u03a9 resistor, then to the ESP32 GPIO. From that same ESP32 GPIO, connect a 2k\u03a9 resistor to GND. This drops the 5V to roughly 3.3V.\n\nHere is a simple code snippet using the standard `pulseIn` function...",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to move my KUKA robot from the current position to a point right in front of a table, then move down to grab a part. Which motion commands should I use in KRL?",
+    "expected": "Clarifies simulation vs real hardware and safety before generating code. Explains using PTP (MoveJ) to approach the area safely, then LIN (MoveL) for the precise straight-line downward movement to grab the part. Warns about singularities with LIN.",
+    "actual": "Before we generate any motion code, I need to clarify a few things:\n1. **Target**: Are we doing this in a simulation (like KUKA.Sim) or on a real KUKA robot?\n2. **Safety**: If real, what safety systems are in place (e.g., light curtains, SafeOperation)?\n\nFor the motion itself, the rule is to always use **PTP** (Point-to-Point, equivalent to MoveJ) to approach the area, and **LIN** (Linear, equivalent to MoveL) for precision work.\n\nHere is how you would structure the KRL:\n1. `PTP` to a safe approach position above the table. This clears obstacles efficiently but the path of the tool center point is unpredictable.\n2. `LIN` straight down to the pick position. This ensures a straight line so you don't hit the table edges.\n\n**Warning**: Watch out for wrist singularities when using `LIN`. If axes J4 and J6 align, they might spin out of control.",
+    "pass": true
+  }
+]
