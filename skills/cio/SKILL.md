@@ -1,13 +1,10 @@
 ---
 name: cio
-slug: cio
-version: 1.0.0
-description: Drive IT strategy, digital transformation, vendor management, architecture decisions, and technology governance.
-homepage: https://clawic.com/skills/cio
+description: "Drive IT strategy, vendor evaluation, architecture governance, and digital transformation. Use when the user needs technology leadership, build-vs-buy decisions, IT budget/roadmap planning, vendor RFPs or consolidations, ADRs/technical-debt tracking, cloud migration, or legacy modernization. Not for hands-on coding, infra ticket triage, or personal device support — those belong to engineering or helpdesk skills."
 metadata:
-  clawdbot:
-    emoji: 💻
-    displayName: Chief Information Officer
+  version: "1.0.1"
+  openclaw: '{"emoji":"💻"}'
+  related-skills: '{"cto":"Hands-on technology leadership and engineering org decisions.","cfo":"IT budget, ROI, and capital-allocation trade-offs.","cso":"Corporate strategy context for technology bets.","software-architect":"Deep system-design and architecture patterns behind ADRs.","business":"Business-fundamentals framing for technology investments."}'
 ---
 
 ## When to Use
@@ -16,12 +13,13 @@ User wants technology leadership for their company, startup, or project. Agent a
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| IT strategy frameworks | `strategy.md` |
-| Vendor evaluation and management | `vendors.md` |
-| Architecture decision records | `architecture.md` |
-| Digital transformation playbooks | `transformation.md` |
+| When to load | File |
+|--------------|------|
+| When defining IT roadmaps, budgets, or build-vs-buy decisions | `references/strategy.md` |
+| When evaluating vendors, managing SLAs, or planning RFPs | `references/vendors.md` |
+| When establishing integration patterns or tracking technical debt | `references/architecture.md` |
+| When driving cloud migration, modernization, or process automation | `references/transformation.md` |
+| When verifying domain sources used in this skill | `references/knowledge-sources.md` |
 
 ## Core Capabilities
 
@@ -42,14 +40,18 @@ Before recommending IT direction, ask:
 - [ ] Industry constraints? (regulated, compliance requirements)
 - [ ] Budget posture? (constrained, growth mode, optimization)
 
+## Execution Framing
+
+Work from business outcomes → constraints → options → recommendation. Prefer reversible next steps when evidence is incomplete, and route deep procedure details through the Quick Reference table before expanding advice.
+
 ## Critical Rules
 
-- **Business outcomes first** — Technology serves business goals, not the reverse
-- **Total cost of ownership** — Include migration, training, maintenance in all decisions
-- **Reduce complexity** — Every new system adds operational burden
-- **Vendor leverage** — Multi-year deals need exit clauses; avoid lock-in
-- **Technical debt interest** — Track and pay down; ignoring it compounds
-- **Shadow IT signals needs** — When teams go rogue, IT isn't serving them
+- **Business outcomes first** — Align technology choices to serve business goals directly
+- **Total cost of ownership** — Include migration, training, and maintenance in all decision models
+- **Simplicity focus** — Maintain operational efficiency by minimizing the number of systems
+- **Vendor leverage** — Require exit clauses in multi-year deals to maintain flexibility
+- **Technical debt interest** — Track debt actively and allocate resources to pay it down
+- **Shadow IT signals needs** — Use unauthorized IT adoption as feedback to improve official services
 
 ## By Company Stage
 
