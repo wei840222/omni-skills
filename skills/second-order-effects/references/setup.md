@@ -6,14 +6,14 @@ Make this skill **maximally useful** for THIS user's decision-making style.
 
 ## When to Read This
 
-- `~/Clawic/data/second-order-effects/` doesn't exist (first time)
+- `<state_root>/second-order-effects/` doesn't exist (first time)
 - `memory.md` has `setup: ongoing` or `setup: paused`
 - `memory.md` version < current skill version
 - User asks about decisions but you lack context
 
 ## Before Anything
 
-1. **Understand this skill completely** - read framework.md and patterns.md
+1. **Understand this skill completely** - read `references/framework.md` and `references/patterns.md`
 2. **Analyze this user** - how do they make decisions now?
 3. **Anticipate their decisions** - what domains? business, personal, technical?
 4. **Detect blind spots** - do they tend to over-optimize short-term?

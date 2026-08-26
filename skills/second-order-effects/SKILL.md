@@ -1,24 +1,15 @@
 ---
 name: second-order-effects
-slug: second-order-effects
-version: 1.0.0
-description: Analyze decisions by tracing consequences beyond immediate outcomes to second and third-order effects.
-homepage: https://clawic.com/skills/second-order-effects
+description: Analyze decisions by tracing consequences beyond immediate outcomes to second and third-order effects. Trigger this skill when the user asks to analyze a decision, evaluate long-term impacts, or apply systems thinking.
 metadata:
-  clawdbot:
-    emoji: 🔮
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Second Order Effects
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔮"}'
+  related-skills: '{"first-principles-thinking":"break problems to fundamentals","six-thinking-hats":"parallel thinking modes","strategy":"strategic planning frameworks"}'
 ---
 
 ## Setup
 
-If `~/Clawic/data/second-order-effects/` doesn't exist, or user's memory file shows setup incomplete, read `setup.md` first.
+If `<state_root>/second-order-effects/` doesn't exist, or user's memory file shows setup incomplete, read `references/setup.md` first.
 
 ## When to Use
 
@@ -26,10 +17,10 @@ User faces a decision with non-obvious downstream effects. Agent traces conseque
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/second-order-effects/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/second-order-effects/`. See `references/memory-template.md` for structure.
 
 ```
-~/Clawic/data/second-order-effects/
+<state_root>/second-order-effects/
 ├── memory.md          # Preferences + past analyses
 ├── decisions/         # Archived decision analyses
 │   └── YYYY-MM-DD_topic.md
@@ -38,12 +29,13 @@ Memory lives in `~/Clawic/data/second-order-effects/`. See `memory-template.md` 
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Analysis framework | `framework.md` |
-| Common patterns | `patterns.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup process | `references/setup.md` | When `<state_root>/second-order-effects/` does not exist or user memory indicates setup is incomplete |
+| Memory template | `references/memory-template.md` | When reading or writing to the decision archive in `<state_root>/second-order-effects/` |
+| Analysis framework | `references/framework.md` | When structuring a new consequence chain analysis |
+| Common patterns | `references/patterns.md` | When reviewing past decisions to identify recurring patterns |
+| Domain knowledge | `references/domain-knowledge.md` | When needing definitions of systems thinking or unintended consequences |
 
 ## Core Rules
 
@@ -81,7 +73,7 @@ Near-term consequences feel larger than they are. Apply discount:
 Decisions that sacrifice 2nd/3rd order for 1st are usually wrong.
 
 ### 5. Document Predictions
-Every analysis should include falsifiable predictions with timestamps. Review quarterly. Update `patterns.md` when patterns emerge.
+Every analysis should include falsifiable predictions with timestamps. Review quarterly. Update `references/patterns.md` when patterns emerge.
 
 ## Consequence Chain Format
 
@@ -122,34 +114,17 @@ Use this structure for every analysis:
 
 ## Scope
 
-This skill ONLY:
-- Analyzes decisions using consequence chains
-- Stores analyses in `~/Clawic/data/second-order-effects/`
-- Learns patterns from past decisions
-
-This skill NEVER:
-- Makes decisions for the user
-- Accesses external data without request
-- Modifies its own SKILL.md
+- Focus entirely on analyzing decisions using consequence chains.
+- Store analyses in `<state_root>/second-order-effects/`.
+- Learn patterns from past decisions.
+- Wait for the user's final judgment rather than making decisions for them.
+- Only access external data when explicitly requested.
+- Maintain the integrity of your SKILL.md file by leaving it unmodified.
 
 ## Security & Privacy
 
-**Data that stays local:**
-- Decision analyses in ~/Clawic/data/second-order-effects/
-- Learned patterns and preferences
-
-**This skill does NOT:**
-- Send data externally
-- Access files outside its directory
-- Make network requests
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `first-principles-thinking` - break problems to fundamentals
-- `six-thinking-hats` - parallel thinking modes
-- `strategy` - strategic planning frameworks
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/second-order-effects
-- Latest version: https://clawic.com/skills/second-order-effects
+**Data Boundaries:**
+- Keep all decision analyses within `<state_root>/second-order-effects/`.
+- Keep learned patterns and preferences local.
+- Restrict file access to this skill's directory.
+- Operate entirely offline without external network requests.
