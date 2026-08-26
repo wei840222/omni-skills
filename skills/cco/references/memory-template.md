@@ -1,6 +1,6 @@
 # Memory Template
 
-Copy to `~/Clawic/data/cco/memory.md` on first use.
+Copy to `<state_root>/cco/memory.md` on first use.
 
 ```markdown
 # CCO Memory
@@ -41,6 +41,6 @@ Copy to `~/Clawic/data/cco/memory.md` on first use.
 ## Directory Structure
 
 ```bash
-mkdir -p ~/cco
-touch ~/Clawic/data/cco/memory.md
+mkdir -p <state_root>/cco
+touch <state_root>/cco/memory.md
 ```

@@ -36,7 +36,7 @@ Focus energy on controllable churn first.
 3. **Scope modification** — Downgrade vs cancel
 4. **Pricing last resort** — Discount only if nothing else works
 
-Never lead with price. It devalues the product and trains customers to threaten churn.
+Lead with value propositions before discussing price adjustments. Leading with discounts devalues the product and trains customers to threaten churn.
 
 ## Renewal Process
 
