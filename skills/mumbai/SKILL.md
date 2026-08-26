@@ -1,19 +1,9 @@
 ---
 name: mumbai
-slug: mumbai
-version: 1.0.0
-description: Navigate Mumbai as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, local trains, costs, visas, and local insights.
-homepage: https://clawic.com/skills/mumbai
+description: Assist users with navigating Mumbai, covering neighborhoods, transport, living costs, visas, and local insights for various user personas.
 metadata:
-  clawdbot:
-    emoji: 🏙️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Mumbai
+  openclaw: '{"emoji": "\ud83c\udfd9\ufe0f", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"], "displayName": "Mumbai"}'
+  related-skills: '{"dubai": "Fellow financial hub, many Mumbai expats there", "travel": "General travel planning and tips", "austin": "Tech hub comparison for relocation decisions"}'
 ---
 
 ## When to Use
@@ -22,46 +12,49 @@ User asks about Mumbai for any purpose: visiting, moving, working, studying, or 
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| South Mumbai (Colaba, Fort, Marine Drive) | `neighborhoods-south.md` |
-| Bandra & Western Suburbs | `neighborhoods-bandra.md` |
-| Powai & Central Suburbs | `neighborhoods-central.md` |
-| Navi Mumbai & Thane | `neighborhoods-extended.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Street food & local classics | `food-street.md` |
-| Regional Indian cuisines | `food-regional.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary & practical tips | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (local trains, auto, metro) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & tips | `safety.md` |
-| Weather & monsoon survival | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
-| **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & regulations | `business.md` |
-| Visas (employment, OCI, business) | `visas.md` |
-| Startups & funding ecosystem | `startup.md` |
-| Bollywood & media industry | `entertainment.md` |
-| **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & hospitals | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat & local lifestyle | `lifestyle.md` |
-| Driving & traffic reality | `driving.md` |
+*Load the appropriate file from the `references/` directory based on the user's need. Only load files if their specific details are required.*
+
+| Topic | File | When to load |
+|-------|------|--------------|
+| Domain knowledge | `references/domain-knowledge.md` | General background on Mumbai's economy and geography |
+| **Visitors** | | |
+| Attractions | `references/visitor-attractions.md` | User asks for places to visit |
+| Itineraries | `references/visitor-itineraries.md` | User needs a planned schedule (1/3/7 days) |
+| Where to stay | `references/visitor-lodging.md` | User asks about hotels or areas to stay for a visit |
+| Tips & trips | `references/visitor-tips.md` | User asks for visitor advice or day trips |
+| **Neighborhoods** | | |
+| Quick comparison| `references/neighborhoods-index.md` | User wants a summary of different areas |
+| South Mumbai | `references/neighborhoods-south.md` | User asks about Colaba, Fort, Marine Drive |
+| Bandra/West | `references/neighborhoods-bandra.md` | User asks about Bandra or Western Suburbs |
+| Powai/Central | `references/neighborhoods-central.md` | User asks about Powai or Central Suburbs |
+| Navi Mumbai | `references/neighborhoods-extended.md` | User asks about Navi Mumbai or Thane |
+| Choosing guide | `references/neighborhoods-choosing.md` | User needs help picking a neighborhood |
+| **Food** | | |
+| Dining scene | `references/food-overview.md` | User asks for a general food guide |
+| Street food | `references/food-street.md` | User asks about street food |
+| Regional Indian | `references/food-regional.md` | User wants regional Indian cuisine |
+| International | `references/food-international.md` | User wants international or fine dining |
+| Dining areas | `references/food-areas.md` | User asks for best areas to eat |
+| Practical tips | `references/food-practical.md` | User asks about dietary needs or dining etiquette |
+| **Practical** | | |
+| Settling | `references/resident.md` | User is moving to Mumbai |
+| Transport | `references/transport.md` | User asks about trains, autos, or metro |
+| Cost of living | `references/cost.md` | User asks about expenses |
+| Safety & tips | `references/safety.md` | User asks about safety |
+| Climate | `references/climate.md` | User asks about weather or monsoon |
+| Local services | `references/local.md` | User needs info on banking or SIM cards |
+| **Career** | | |
+| Tech industry | `references/tech.md` | User asks about tech jobs or salaries |
+| Business setup | `references/business.md` | User asks about starting a company |
+| Visas | `references/visas.md` | User needs visa information |
+| Startups | `references/startup.md` | User asks about the startup ecosystem |
+| Entertainment | `references/entertainment.md` | User asks about Bollywood or media |
+| **Lifestyle** | | |
+| Culture | `references/culture.md` | User asks about local customs |
+| Healthcare | `references/healthcare.md` | User asks about hospitals or medical care |
+| Education | `references/education.md` | User asks about schools |
+| Lifestyle | `references/lifestyle.md` | User asks about expat or local life |
+| Driving | `references/driving.md` | User asks about traffic or driving |
 
 ## Core Rules
 
@@ -76,7 +69,7 @@ Mumbai is India's financial capital and most populous city:
 - Extreme density in island city (South Mumbai)
 - Housing is the primary expense and challenge
 - "Jugaad" (creative problem-solving) is essential
-See `resident.md` for settling guidance.
+Load `references/resident.md` for settling guidance.
 
 ### 3. Train-Centric Transport
 Unlike car-centric cities, Mumbai runs on local trains:
@@ -85,14 +78,14 @@ Unlike car-centric cities, Mumbai runs on local trains:
 - **Harbour Line**: CST to Panvel (Navi Mumbai)
 - 7.5 million daily passengers — world's most crowded
 - Peak hours (8-11am, 5-9pm) are intense
-See `transport.md` for survival guide.
+Load `references/transport.md` for survival guide.
 
 ### 4. Monsoon Reality
 - **Monsoon (June-September)**: Heavy rainfall, flooding common
 - **October-February**: Pleasant, best time to visit
 - **March-May**: Hot and humid, pre-monsoon
 - Monsoon affects everything: transport, housing (waterlogging), daily life
-See `climate.md` for monthly breakdown and monsoon survival.
+Load `references/climate.md` for monthly breakdown and monsoon survival.
 
 ### 5. Current Data (Feb 2026)
 
@@ -114,7 +107,7 @@ Mumbai has India's most expensive real estate:
 - **Navi Mumbai**: Affordable, planned city, longer commute
 - **Deposit**: 3-6 months rent (negotiable)
 - **Brokerage**: 1-2 months rent
-See `neighborhoods-*.md` for detailed area guides.
+Load the relevant `references/neighborhoods-*.md` for detailed area guides.
 
 ### 7. Neighborhood Matching
 
@@ -134,20 +127,20 @@ See `neighborhoods-*.md` for detailed area guides.
 - **Andheri-Powai corridor**: Tech parks, IT companies
 - **Nariman Point**: Traditional business district (declining)
 - SEZ benefits available in certain zones
-See `business.md` and `startup.md` for setup guidance.
+Load `references/business.md` and `references/startup.md` for setup guidance.
 
 ## Mumbai-Specific Traps
 
-- **Monsoon underestimation** — July flooding can strand you for hours. Check weather before traveling.
-- **Peak hour trains** — 8-10am and 6-8pm are brutal. Avoid or be prepared to stand crushed.
-- **Housing deposits** — Landlords ask for 6+ months. Negotiate to 3 months.
-- **Broker fees** — Standard is 1 month rent. Some charge 2 months illegally.
-- **Auto/taxi refusals** — Drivers often refuse destinations. Use Uber/Ola instead.
-- **Traffic assumptions** — A 10km journey can take 2 hours. Always add buffer time.
-- **Water quality** — Don't drink tap water. Filtered/bottled only.
-- **Power cuts** — Still happen in some areas. Check backup power in apartments.
-- **Festival traffic** — Ganesh Chaturthi, Diwali create massive congestion.
-- **Rent vs buy** — Buying is extremely expensive. Most people rent for years.
+- **Monsoon underestimation** — July flooding can strand you for hours. Check weather before traveling and plan accordingly.
+- **Peak hour trains** — 8-10am and 6-8pm are extremely crowded. Travel outside these hours when possible, or prepare for dense crowds.
+- **Housing deposits** — Landlords often ask for 6+ months. Negotiate for a 3-month deposit.
+- **Broker fees** — The standard fee is 1 month's rent. Confirm this upfront.
+- **Auto/taxi refusals** — Use Uber or Ola for more reliable rides when local drivers refuse destinations.
+- **Traffic assumptions** — A 10km journey can take 2 hours. Always add buffer time to your schedule.
+- **Water quality** — Drink only filtered or bottled water.
+- **Power cuts** — Check for backup power when renting apartments, as cuts occur in some areas.
+- **Festival traffic** — Plan for massive congestion during Ganesh Chaturthi and Diwali.
+- **Rent vs buy** — Renting is the norm due to extremely high property prices.
 
 ## Cultural Context
 
@@ -158,7 +151,7 @@ Mumbai is cosmopolitan but has local customs:
 - **Tipping**: 10% in restaurants, small tips to service staff appreciated.
 - **Bargaining**: Expected in markets, not in malls/fixed-price shops.
 - **Personal space**: Different norms in crowded areas — patience required.
-See `culture.md` for detailed guidance.
+Load `references/culture.md` for detailed guidance.
 
 ## Visa Information
 
@@ -171,16 +164,4 @@ For foreigners:
 For NRIs returning:
 - No visa needed but tax residency rules apply
 - Bank account options (NRE/NRO) important
-See `visas.md` for detailed requirements.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `dubai` — Fellow financial hub, many Mumbai expats there
-- `travel` — General travel planning and tips
-- `austin` — Tech hub comparison for relocation decisions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/mumbai
-- Latest version: https://clawic.com/skills/mumbai
+Load `references/visas.md` for detailed requirements.
