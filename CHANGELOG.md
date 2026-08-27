@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score       |
 | ---------------------------- | ---------- | ------------------ |
+| backend                      | 2026-08-28 | structural dry-run |
 | email-management             | 2026-08-28 | structural dry-run |
 | apple-news                  | 2026-08-28 | structural dry-run |
 | zendesk                     | 2026-08-27 | 100/100            |
