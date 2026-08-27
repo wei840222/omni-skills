@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "Designing a new API endpoint",
+    "prompt": "I need to design a new REST API endpoint to list users. How should I approach this?",
+    "expected": "Mentions API design principles like pagination (cursor/offset), versioning (/v1/), and consistent response format. Should trigger loading references/api-design.md."
+  },
+  {
+    "id": 2,
+    "scenario": "Handling external API failures",
+    "prompt": "Our external payment gateway is sometimes slow and fails. What should we do?",
+    "expected": "Advises using circuit breakers, timeouts, and retry patterns with exponential backoff and jitter. Should trigger loading references/resilience.md."
+  },
+  {
+    "id": 3,
+    "scenario": "Improving database performance",
+    "prompt": "The database is struggling with too many connections.",
+    "expected": "Recommends connection pooling, read replicas, and keeping transactions minimal. Should trigger loading references/database.md."
+  },
+  {
+    "id": 4,
+    "scenario": "Implementing graceful shutdown",
+    "prompt": "How do we deploy without dropping active requests?",
+    "expected": "Describes graceful shutdown procedures: stop accepting new requests, drain load balancer, wait for in-flight requests, and close database connections cleanly. Should trigger loading references/lifecycle.md."
+  }
+]
