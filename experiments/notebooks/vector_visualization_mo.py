@@ -26,11 +26,12 @@ def _(mo):
     mo.md(r"""
     # 🔬 技能向量空間與語意分佈分析 (Vector Space Visualization)
 
-    本筆記本從專案本地的 `experiments/.qmd/index.sqlite` 提取以下兩個技能集合的 1536 維 Embedding 向量：
+    本筆記本從專案本地的 `experiments/.qmd/index.sqlite` 提取以下三個技能集合的 1024 維 Qwen3 Embedding 向量：
     - **`name-description`**：僅包含 Name + Description（元數據）
     - **`full`**：包含完整 `SKILL.md` 正文
+    - **`full-references`**：包含完整 `SKILL.md` 正文以及 `references/` 目錄下的所有參考文件
 
-    透過 **PCA 降維至 3 維空間**，直觀比較「加入完整 Body」後技能向量在語意空間中的分佈漂移與聚合特性。
+    透過 **PCA 降維至 3 維空間**，直觀比較「元數據 ➔ 完整正文 ➔ 參考文件庫」技能向量在語意空間中的分佈漂移、聚合與離散特性。
     """)
     return
 
@@ -42,7 +43,6 @@ def _(Path, json, mo, np, pd, sqlite3, sqlite_vec):
     _db_path = _root_dir / "experiments" / ".qmd" / "index.sqlite"
 
     if not _db_path.exists():
-        # Fallback 到當前工作目錄的相對路徑
         _db_path = Path("experiments/.qmd/index.sqlite").resolve()
 
     _conn = sqlite3.connect(str(_db_path))
@@ -67,7 +67,7 @@ def _(Path, json, mo, np, pd, sqlite3, sqlite_vec):
     _records = []
     for _col, _path, _title, _hseq, _emb_json in _rows:
         _emb = json.loads(_emb_json)
-        # 提取技能 slug 名稱 (例如 aave/SKILL.md -> aave)
+        # 提取技能 slug 名稱 (例如 aave/SKILL.md 或 aave/references/guide.md -> aave)
         _slug = _path.split("/")[0] if "/" in _path else _path.replace(".md", "")
         _records.append({
             "collection": _col,
@@ -87,7 +87,8 @@ def _(Path, json, mo, np, pd, sqlite3, sqlite_vec):
     - 總向量數量：`{len(df_raw)}` 筆
     - `name-description` 筆數：`{(df_raw['collection'] == 'name-description').sum()}`
     - `full` 筆數：`{(df_raw['collection'] == 'full').sum()}`
-    - 向量維度：`1536`
+    - `full-references` 筆數：`{(df_raw['collection'] == 'full-references').sum()}`
+    - 向量維度：`1024` (Qwen3-Embedding-0.6B)
     """)
     return (df_raw,)
 
@@ -108,7 +109,6 @@ def _(PCA, df_raw, mo, np):
     var_ratio = pca.explained_variance_ratio_
     total_var = np.sum(var_ratio) * 100
 
-    # 統一三張 3D 圖表的座標軸邊界以利視覺對比
     axis_limits = {
         "x": (float(df_pca["PC1"].min() * 1.15), float(df_pca["PC1"].max() * 1.15)),
         "y": (float(df_pca["PC2"].min() * 1.15), float(df_pca["PC2"].max() * 1.15)),
@@ -122,7 +122,7 @@ def _(PCA, df_raw, mo, np):
     ]
 
     mo.md(f"""
-    ### 📊 PCA 降維統計
+    ### 📊 PCA 降維統計 (Qwen3-Embedding 1024D)
     - **PC1 解釋變異量**: `{var_ratio[0]*100:.2f}%`
     - **PC2 解釋變異量**: `{var_ratio[1]*100:.2f}%`
     - **PC3 解釋變異量**: `{var_ratio[2]*100:.2f}%`
@@ -142,7 +142,7 @@ def _(axis_limits, df_pca, mo, plt, sample_slugs, sns):
 
     _ax_nd.scatter(
         _nd["PC1"], _nd["PC2"], _nd["PC3"],
-        c="#3498db", label="name-description (Name+Description Only)",
+        c="#3498db", label="name-description (Name+Desc Only)",
         alpha=0.85, edgecolors="w", s=55, marker="o"
     )
 
@@ -155,10 +155,7 @@ def _(axis_limits, df_pca, mo, plt, sample_slugs, sns):
                 f" {_slug}", fontsize=8.5, fontweight="bold", color="#1b4f72"
             )
 
-    _ax_nd.set_title("3D PCA: name-description (Name + Description Only)", fontsize=13, pad=18, fontweight="bold")
-    _ax_nd.set_xlabel("PC1 (11.10%)", labelpad=8)
-    _ax_nd.set_ylabel("PC2 (3.92%)", labelpad=8)
-    _ax_nd.set_zlabel("PC3 (3.54%)", labelpad=8)
+    _ax_nd.set_title("3D PCA: name-description (Metadata Only)", fontsize=13, pad=18, fontweight="bold")
     _ax_nd.set_xlim(axis_limits["x"])
     _ax_nd.set_ylim(axis_limits["y"])
     _ax_nd.set_zlim(axis_limits["z"])
@@ -197,9 +194,6 @@ def _(axis_limits, df_pca, mo, plt, sample_slugs, sns):
             )
 
     _ax_full.set_title("3D PCA: full (Full SKILL.md Body)", fontsize=13, pad=18, fontweight="bold")
-    _ax_full.set_xlabel("PC1 (11.10%)", labelpad=8)
-    _ax_full.set_ylabel("PC2 (3.92%)", labelpad=8)
-    _ax_full.set_zlabel("PC3 (3.54%)", labelpad=8)
     _ax_full.set_xlim(axis_limits["x"])
     _ax_full.set_ylim(axis_limits["y"])
     _ax_full.set_zlim(axis_limits["z"])
@@ -214,55 +208,59 @@ def _(axis_limits, df_pca, mo, plt, sample_slugs, sns):
 
 
 @app.cell
+def _(axis_limits, df_pca, mo, plt, sample_slugs, sns):
+    # 3. full-references 單獨 3D 圖
+    sns.set_theme(style="whitegrid")
+    _fig_ref = plt.figure(figsize=(11, 8), dpi=120)
+    _ax_ref = _fig_ref.add_subplot(111, projection="3d")
+
+    _ref = df_pca[df_pca["collection"] == "full-references"]
+
+    _ax_ref.scatter(
+        _ref["PC1"], _ref["PC2"], _ref["PC3"],
+        c="#9b59b6", label="full-references (SKILL.md + references/*.md)",
+        alpha=0.65, edgecolors="w", s=40, marker="s"
+    )
+
+    for _slug in sample_slugs:
+        _sub = _ref[_ref["slug"] == _slug]
+        if not _sub.empty:
+            _r = _sub.iloc[0]
+            _ax_ref.text(
+                _r["PC1"], _r["PC2"], _r["PC3"],
+                f" {_slug}", fontsize=8.5, fontweight="bold", color="#4a235a"
+            )
+
+    _ax_ref.set_title("3D PCA: full-references (Full Body + All References)", fontsize=13, pad=18, fontweight="bold")
+    _ax_ref.set_xlim(axis_limits["x"])
+    _ax_ref.set_ylim(axis_limits["y"])
+    _ax_ref.set_zlim(axis_limits["z"])
+    _ax_ref.legend(loc="upper right", frameon=True)
+    plt.tight_layout()
+
+    mo.vstack([
+        mo.md("### 3️⃣ `full-references` 集合 3D 向量空間分佈（SKILL.md + references 目錄）"),
+        _fig_ref
+    ])
+    return
+
+
+@app.cell
 def _(axis_limits, df_pca, mo, pd, plt, sample_slugs, sns):
-    # 3. name-description vs full 綜合對比 3D 圖 (含漂移向量連線)
+    # 4. 三大集合綜合對照 3D 圖
     sns.set_theme(style="whitegrid")
     _fig_cmp = plt.figure(figsize=(12, 9), dpi=120)
     _ax_cmp = _fig_cmp.add_subplot(111, projection="3d")
 
     _nd = df_pca[df_pca["collection"] == "name-description"]
     _full = df_pca[df_pca["collection"] == "full"]
+    _ref = df_pca[df_pca["collection"] == "full-references"]
 
-    _ax_cmp.scatter(
-        _nd["PC1"], _nd["PC2"], _nd["PC3"],
-        c="#3498db", label="name-description (Name+Desc only)",
-        alpha=0.8, edgecolors="w", s=50, marker="o"
-    )
-    _ax_cmp.scatter(
-        _full["PC1"], _full["PC2"], _full["PC3"],
-        c="#e74c3c", label="full (Full Body)",
-        alpha=0.8, edgecolors="w", s=50, marker="^"
-    )
+    _ax_cmp.scatter(_nd["PC1"], _nd["PC2"], _nd["PC3"], c="#3498db", label="name-description", alpha=0.7, edgecolors="w", s=45, marker="o")
+    _ax_cmp.scatter(_full["PC1"], _full["PC2"], _full["PC3"], c="#e74c3c", label="full", alpha=0.7, edgecolors="w", s=45, marker="^")
+    _ax_cmp.scatter(_ref["PC1"], _ref["PC2"], _ref["PC3"], c="#9b59b6", label="full-references", alpha=0.4, edgecolors="w", s=30, marker="s")
 
-    # 連接同技能兩點的漂移向量
-    _merged = pd.merge(
-        _nd[["slug", "PC1", "PC2", "PC3"]],
-        _full[["slug", "PC1", "PC2", "PC3"]],
-        on="slug",
-        suffixes=("_nd", "_full")
-    )
-
-    for _, _row in _merged.iterrows():
-        _ax_cmp.plot(
-            [_row["PC1_nd"], _row["PC1_full"]],
-            [_row["PC2_nd"], _row["PC2_full"]],
-            [_row["PC3_nd"], _row["PC3_full"]],
-            color="gray", alpha=0.25, linestyle="--", linewidth=0.8
-        )
-
-    for _slug in sample_slugs:
-        _sub = _merged[_merged["slug"] == _slug]
-        if not _sub.empty:
-            _r = _sub.iloc[0]
-            _ax_cmp.text(
-                _r["PC1_full"], _r["PC2_full"], _r["PC3_full"],
-                f" {_slug}", fontsize=8.5, fontweight="bold", color="#2c3e50"
-            )
-
-    _ax_cmp.set_title("3D PCA: Semantic Drift Vectors (name-description -> full)", fontsize=14, pad=20, fontweight="bold")
-    _ax_cmp.set_xlabel("PC1 (11.10%)", labelpad=8)
-    _ax_cmp.set_ylabel("PC2 (3.92%)", labelpad=8)
-    _ax_cmp.set_zlabel("PC3 (3.54%)", labelpad=8)
+    _ax_cmp.set_title("3D PCA: Multi-Collection Semantic Comparison", fontsize=14, pad=20, fontweight="bold")
     _ax_cmp.set_xlim(axis_limits["x"])
     _ax_cmp.set_ylim(axis_limits["y"])
     _ax_cmp.set_zlim(axis_limits["z"])
@@ -270,7 +268,7 @@ def _(axis_limits, df_pca, mo, pd, plt, sample_slugs, sns):
     plt.tight_layout()
 
     mo.vstack([
-        mo.md("### 3️⃣ 綜合對照：`name-description` vs `full` 向量偏移 (Semantic Drift)"),
+        mo.md("### 4️⃣ 三大集合綜合對照：`name-description` vs `full` vs `full-references`"),
         _fig_cmp
     ])
     return
@@ -282,61 +280,24 @@ def _(df_pca, mo, np, pd, plt, sns):
     fig2, axes = plt.subplots(1, 3, figsize=(18, 5), dpi=100)
 
     pairs = [("PC1", "PC2"), ("PC1", "PC3"), ("PC2", "PC3")]
-    palette = {"name-description": "#3498db", "full": "#e74c3c"}
+    palette = {"name-description": "#3498db", "full": "#e74c3c", "full-references": "#9b59b6"}
 
     for idx, (px, py) in enumerate(pairs):
         sns.scatterplot(
             data=df_pca, x=px, y=py, hue="collection",
-            palette=palette, alpha=0.7, ax=axes[idx], s=40
+            palette=palette, alpha=0.6, ax=axes[idx], s=35
         )
         sns.kdeplot(
             data=df_pca, x=px, y=py, hue="collection",
-            palette=palette, alpha=0.3, ax=axes[idx], levels=4
+            palette=palette, alpha=0.25, ax=axes[idx], levels=3
         )
         axes[idx].set_title(f"{px} vs {py}", fontweight="bold")
 
     plt.tight_layout()
 
-    # 計算向量漂移距離 (Cosine & Euclidean Distance)
-    _nd = df_pca[df_pca["collection"] == "name-description"].set_index("slug")
-    _full = df_pca[df_pca["collection"] == "full"].set_index("slug")
-
-    common_slugs = _nd.index.intersection(_full.index)
-    dist_records = []
-
-    for s in common_slugs:
-        v_nd = _nd.loc[s, "embedding"]
-        v_full = _full.loc[s, "embedding"]
-        if isinstance(v_nd, pd.Series): v_nd = v_nd.iloc[0]
-        if isinstance(v_full, pd.Series): v_full = v_full.iloc[0]
-
-        # Cosine distance
-        dot = np.dot(v_nd, v_full)
-        norm_nd = np.linalg.norm(v_nd)
-        norm_full = np.linalg.norm(v_full)
-        cos_sim = dot / (norm_nd * norm_full) if (norm_nd * norm_full) > 0 else 0
-        cos_dist = 1.0 - cos_sim
-
-        # Euclidean distance
-        euc_dist = np.linalg.norm(v_nd - v_full)
-
-        dist_records.append({
-            "Skill": s,
-            "Cosine Distance": cos_dist,
-            "Cosine Similarity": cos_sim,
-            "Euclidean Distance": euc_dist
-        })
-
-    df_dist = pd.DataFrame(dist_records).sort_values(by="Cosine Distance", ascending=False)
-
     mo.vstack([
         mo.md("### 📈 2D 投影與核密度估計（KDE）"),
-        fig2,
-        mo.md("### 🔍 技能漂移程度排行（Top 10 漂移最大 vs 最小）"),
-        mo.hstack([
-            mo.vstack([mo.md("**漂移最大（Body 帶來最多全新語意資訊）：**"), mo.ui.table(df_dist.head(10))]),
-            mo.vstack([mo.md("**漂移最小（Description 與 Body 高度一致）：**"), mo.ui.table(df_dist.tail(10))])
-        ])
+        fig2
     ])
     return
 
