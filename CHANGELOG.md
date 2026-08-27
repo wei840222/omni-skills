@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill              | Date       | Darwin Score             |
 | ------------------ | ---------- | ------------------------ |
+| meilisearch | 2026-08-27 | 85/100 (author-evaluated; 3/3 dry-run prompts passed; PR #TBD) |
 | affiliate-marketing | 2026-08-27 | 85/100 (author-evaluated; 2/2 dry-run prompts passed; PR #119) |
 | marriage | 2026-08-27 | 100/100 (author-reported; 2/2 dry-run prompts passed; PR #118) |
 | animations | 2026-08-27 | 85/100 (author-evaluated; 2/2 dry-run prompts passed; PR #117) |
