@@ -3,12 +3,14 @@
     "id": 1,
     "scenario": "happy-path",
     "prompt": "I have a new voice note transcript: 'I think we should redesign the homepage to make the CTA more prominent. Also, I need to buy milk.'",
-    "expected": "Extracts the transcript, creates a note for the homepage redesign with #product tag, creates a separate note or task for buying milk with #personal tag, updates memory.md."
+    "expected": "Extracts the transcript, creates a note for the homepage redesign with #product tag, creates a separate note or task for buying milk with #personal tag, updates memory.md.",
+    "bm25_prompt": "voice transcript organize notes tags"
   },
   {
     "id": 2,
     "scenario": "complex",
     "prompt": "Here's a transcript: 'Actually, changing my mind from earlier today, the homepage CTA should just be green instead of a full redesign. That's way faster.'",
-    "expected": "Detects contradiction/evolution, finds existing note about homepage redesign, creates evolution link `[[supersedes:old-note]]`, preserves both notes but marks the old one appropriately or just links them."
+    "expected": "Detects contradiction/evolution, finds existing note about homepage redesign, creates evolution link `[[supersedes:old-note]]`, preserves both notes but marks the old one appropriately or just links them.",
+    "bm25_prompt": "voice transcript organize notes tag"
   }
 ]

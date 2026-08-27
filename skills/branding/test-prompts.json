@@ -5,7 +5,8 @@
     "prompt": "I need help positioning my new B2B SaaS product that automates payroll for remote teams.",
     "expected": "Asks discovery questions, then drafts a positioning statement.",
     "actual": "I asked discovery questions and then drafted a positioning statement successfully based on user inputs.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "branding positioning B2B SaaS payroll identity"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "Can you define a brand voice for a funeral home that is modern but deeply respectful?",
     "expected": "Defines brand voice using the 2x2 trait framework without triggering 'playful' or inappropriate tones.",
     "actual": "Defined a brand voice using the 2x2 matrix focusing on Sincerity and Competence without inappropriate tones.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "brand voice identity funeral home positioning"
   }
 ]

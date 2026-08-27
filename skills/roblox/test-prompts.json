@@ -4,13 +4,15 @@
     "prompt": "Write a Roblox server script in Luau that spawns a block when a player joins.",
     "expected": "Uses Players.PlayerAdded in a server Script and creates a Part with valid Luau syntax.",
     "actual": "Uses Players.PlayerAdded from ServerScriptService and Instance.new(\"Part\") before parenting the part to Workspace.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "roblox luau script playeradded spawn part"
   },
   {
     "id": 2,
     "prompt": "How should I securely save a player's coin balance in Roblox?",
     "expected": "Uses DataStoreService with pcall and UpdateAsync, validates server-side inputs, and describes failure handling.",
     "actual": "Uses DataStoreService:GetDataStore with pcall around UpdateAsync, validates the server-owned balance, and queues a bounded retry when the operation fails.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "roblox datastore secure save player balance"
   }
 ]

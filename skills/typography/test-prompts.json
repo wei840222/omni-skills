@@ -5,7 +5,8 @@
     "prompt": "I'm setting up a blog text layout in CSS. My font size is 16px, and my line length is usually around 90 characters on desktop. What line-height and max-width should I use for optimal reading?",
     "expected": "Advises narrowing the measure to 45-75 chars (e.g. max-width: 65ch) and setting a unitless line-height of ~1.4 to 1.6.",
     "actual": "To optimize your blog layout, you should constrain the measure (line length) to between 45 and 75 characters. You can achieve this in CSS using max-width: 65ch. For a 16px body text, use a unitless line-height between 1.4 and 1.6 to ensure readability.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "typography css line-height max-width readability"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "My numeric data tables look ragged when the values change. The fallback font also causes a layout shift before my web font loads. How do I fix this?",
     "expected": "Instructs setting font-variant-numeric: tabular-nums for the tables, and adjusting size-adjust or matching x-height on the fallback font to eliminate layout shift.",
     "actual": "To align numbers in your data tables, apply font-variant-numeric: tabular-nums. To prevent layout shift when your web font loads, ensure you match the fallback font's x-height and advance width, or use the CSS size-adjust property on the fallback font.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "typography tabular alignment font-display layout-shift legibility"
   }
 ]

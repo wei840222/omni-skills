@@ -4,13 +4,15 @@
     "prompt": "How do I fix a GraphQL N+1 query problem?",
     "expected": "Instructions involving Dataloader loaded per-request.",
     "actual": "Review the GraphQL resolver and identify multiple database queries occurring in a loop. I suggest replacing this with a DataLoader instantiated per-request (see `references/n-plus-one.md`) which groups database IDs and fetches them in a single query.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "graphql n+1 dataloader resolver optimization"
   },
   {
     "id": 2,
     "prompt": "My GraphQL API receives deep nested queries causing Denial of Service. How do I mitigate this?",
     "expected": "Instructions involving cost limits or query depth limiting, referencing security.md.",
     "actual": "To prevent deep nested queries, use depth limits alongside alias caps, or employ a trusted documents allowlist architecture. See `references/security.md` for specific implementation of query complexity bounds.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "graphql schema depth complexity limit mitigation"
   }
 ]

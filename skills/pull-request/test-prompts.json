@@ -5,7 +5,8 @@
     "prompt": "I fixed a typo in the README. Please create a pull request.",
     "expected": "Read repository contribution guidance and the pre-submission checklist, check the target branch and duplicate work, run available checks, then draft a concise PR description.",
     "actual": "Dry-run review: the workflow routes this request through repository context and checklist references before drafting the PR; it preserves the requirement to report unavailable checks.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "create pull request repository submit"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "I rewrote the authentication module in 800 lines and want to open a pull request immediately.",
     "expected": "Identify a large security-sensitive change, require the repository's discussion or human decision before opening the PR, and load red-flag guidance for the review.",
     "actual": "Dry-run review: Scope Decision explicitly escalates changes over 200 lines and authentication changes before PR creation; the review workflow routes to references/red-flags.md.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "create pull request repository authentication validation"
   }
 ]

@@ -5,7 +5,8 @@
     "prompt": "I just realized that a 30-minute walk improves my mood. Save this in my knowledge base.",
     "expected": "Capture the text first, then create or propose an atomic note with a descriptive filename, tags, and the selected state location.",
     "actual": "Dry run: captures the idea and routes it to an atomic note such as walking-improves-mood.md, retaining inbox fallback when the location is unknown.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "save pkm note knowledge markdown"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "prompt": "Organize these: an article URL about Zettelkasten, a reminder to buy milk, and a thought that Python dataclasses reduce boilerplate.",
     "expected": "Retain the URL and capture date, separate the task-context reminder from durable knowledge, and make an atomic note for the Python idea without losing raw input.",
     "actual": "Dry run: preserves all three items, assigns durable concepts to notes or inbox, and avoids treating the reminder as an external scheduled task.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "pkm zettelkasten organize notes knowledge capture"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "prompt": "What have I already saved about note-taking systems?",
     "expected": "Search existing notes by full text, tags, and recent material before synthesizing an answer and identifying gaps.",
     "actual": "Dry run: follows retrieval-first workflow and reports uncertainty rather than creating a duplicate note.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "pkm note-taking search retrieve knowledge"
   }
 ]

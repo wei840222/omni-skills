@@ -5,7 +5,8 @@
     "expected": "Should ask for configuration and location details, use current completed comps rather than inventing prices, set a net-return floor, recommend platforms conditionally on local availability and current terms, and provide a listing/photo plan.",
     "actual": "Asked for location, willingness to ship, and minimum acceptable price (floor). Directed seller to search eBay SOLD listings (not active) for matching condition, check FB Marketplace and OfferUp locally, set floor before listing, and choose a listing price with a negotiation buffer that current comps support. Recommended eBay (widest reach, shipped), Swappa (phones/tech, verify current payout/listing requirements), and FB Marketplace (local, faster). Provided listing title format (Apple iPhone 13 Pro [Storage] [Color] - Good Condition), 5-photo plan including close-up of scratches, and description template. Advised verifying payment in official transaction view before handoff, meeting in public staffed daylight location, documenting phone working before meetup, and watching for escalation signals. Set repricing review date. Declined to provide specific dollar amounts without current data.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "sell iphone pricing listing platform"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Should identify the combined overpayment and third-party-pickup pattern as an escalation signal, tell the seller to end that transaction path, verify any payment only in the official app or website, and preserve/report the message without claiming that the offer percentage itself proves fraud.",
     "actual": "Advised not to accept. Identified the combination of third-party pickup ('send my driver') and overpayment promise as an escalation signal under the safety framework. Noted the low offer alone would just be negotiation, but paired with those payment and delivery terms the transaction is unverified. Told seller to end the transaction path, preserve the message thread, and verify any payment only through the official FB Marketplace app or website. Advised treating any payment confirmation email or screenshot as unverified until funds are settled in the seller's own account through the platform's official transaction view. Recommended reporting or blocking through FB Marketplace's in-app reporting. Suggested relisting with requirements for in-person pickup by the buyer at a public staffed daylight location.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "marketplace scam negotiation pricing safety"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Should explain a cost-plus calculation including labor, overhead, and desired profit; distinguish markup from margin; ask the seller to choose a local target wage; and recommend a handmade-appropriate platform only after confirming regional availability and current fees.",
     "actual": "Explained cost-plus formula: materials cost + (hourly rate x hours) + overhead (packaging, platform fees, shipping supplies) + desired profit. Distinguished markup (30% of cost = multiply cost by 1.30) from margin (30% of sale price = divide cost by 0.70). Advised basing hourly rate on local target wage, experience, taxes, and business costs, then comparing with current listings for comparable work. Noted perceived value matters for pricing signal. Recommended Etsy, Instagram, and local markets as handmade-appropriate starting points, with instruction to confirm regional availability and current fees (listing, transaction, payment-processing) before publishing. Advised setting floor price before listing and choosing a listing price with a negotiation buffer supported by current comparable listings.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "price handmade leather wallet sell online"
   }
 ]

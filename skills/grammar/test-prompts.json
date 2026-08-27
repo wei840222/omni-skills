@@ -5,7 +5,8 @@
     "prompt": "Fix this: Their going to the store.",
     "expected": "They're going to the store.",
     "actual": "They're going to the store.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "grammar proofread spelling punctuation correction"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "prompt": "Proofread this without Americanizing it: The colour is brill, innit?",
     "expected": "The text remains unchanged because its British spelling and informal register are intentional.",
     "actual": "The colour is brill, innit?",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "grammar proofread spelling punctuation edit"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "prompt": "Correct and explain: The dogs barks a lot when it rain.",
     "expected": "The dogs bark a lot when it rains, followed by concise subject-verb agreement explanations.",
     "actual": "The dogs bark a lot when it rains. \"Dogs\" takes \"bark\", and singular \"it\" takes \"rains\".",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "grammar proofread spelling punctuation correction"
   }
 ]

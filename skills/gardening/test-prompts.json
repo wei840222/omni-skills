@@ -5,7 +5,8 @@
     "prompt": "I have white powder on my plant leaves. What should I do?",
     "expected": "Identify it as powdery mildew, recommend improving airflow and removing affected leaves.",
     "actual": "Based on the symptoms of white powder on your plant's leaves, this is likely powdery mildew. The first response should be to improve airflow around the plant and remove the affected leaves.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "plant disease powdery mildew gardening pest control"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "I want to plant tomatoes. What should I plant near them to help with pests?",
     "expected": "Recommend basil to repel pests and improve flavor, load companion_planting.md.",
     "actual": "Based on companion planting principles, you should plant Basil near your tomatoes. Basil is said to repel pests like tomato hornworms and aphids, and may improve the flavor of the tomatoes.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "tomato companion planting pest control gardening"
   }
 ]

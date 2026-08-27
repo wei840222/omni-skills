@@ -4,13 +4,15 @@
     "prompt": "I need to call the Groq API to classify customer support tickets into categories like 'billing', 'technical', and 'general'. I want guaranteed JSON output with a confidence score. Show me how to set this up.",
     "expected": "Agent verifies GROQ_API_KEY, uses /models to check available models, recommends openai/gpt-oss-20b or openai/gpt-oss-120b with response_format json_schema strict:true, provides a working curl or code example with all fields in required array and additionalProperties:false, mentions fallback model and retry on 429.",
     "actual": "Skill provides clear routing to openai/gpt-oss-20b with strict:true for structured JSON. Auth checkpoint ensures verification first. Gotchas section explicitly states strict mode requires all fields in required array and additionalProperties:false. Troubleshooting reference covers JSON parse failures with fallback to json_object. Common traps warns against using strict mode with unsupported models. api-patterns reference has working curl example with complete schema. Fallback chain (openai/gpt-oss-20b → llama-3.3-70b-versatile) is in model-selection reference.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "groq api json classification structured output"
   },
   {
     "id": 2,
     "prompt": "My Groq API integration keeps hitting 429 errors during peak hours. I'm using llama-3.3-70b-versatile for everything. How do I fix this and make it more reliable?",
     "expected": "Agent identifies rate limit issue, explains developer plan limits (30 RPM, 1K RPD, 12K TPM for llama-3.3-70b), recommends exponential backoff with retry-after header, suggests model routing (use llama-3.1-8b-instant for fast tasks to save TPM), provides fallback chain, mentions monitoring x-ratelimit-remaining-tokens header, suggests logging to state_root/logs/.",
     "actual": "Skill identifies 429 handling in step 4: read retry-after header, exponential backoff 1s→2s→4s, switch to fallback, log to state_root/logs/. Gotchas warn retry-after is in seconds. Model-selection reference has exact rate limits (30 RPM, 1K RPD, 12K TPM for llama-3.3-70b-versatile). Routing guidance suggests llama-3.1-8b-instant for fast tasks (saves TPM). Fallback chains are explicit. api-patterns reference mentions monitoring x-ratelimit-remaining-tokens header at 80% usage.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "groq api 429 rate limit retry llama-3.3-70b"
   }
 ]

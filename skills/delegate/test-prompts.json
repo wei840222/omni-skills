@@ -4,13 +4,15 @@
     "prompt": "I need to summarize a 3-page document and extract the key action items. How should I delegate this?",
     "expected": "Recommend a Small capability tier and outline the spawn checklist with clear TASK, MODEL, CONTEXT, OUTPUT, and DONE criteria.",
     "actual": "I will delegate this bounded task because it exceeds a quick manual action. I will select the smallest available tier that can reliably summarize the document, verify its current runtime limits and cost, and prepare TASK: summarize and extract action items; MODEL: Small tier; CONTEXT: the 3-page document; OUTPUT: action-item list; DONE: return the list in chat. I will load assets/templates.md before composing the spawn package.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "delegate document summary extract action items"
   },
   {
     "id": 2,
     "prompt": "I need you to write a complex Python script with multiple async API calls and specific data transformations, but the sub-agent keeps failing with a timeout after 5 minutes. What now?",
     "expected": "Identify the error as a sub-agent timeout, retry once using the recovery pattern, then select a stronger capability tier or report an abort after repeated failures. Mention loading references/errors.md.",
     "actual": "This is a timeout. I will load references/errors.md, inspect the last known state, and retry once with a bounded task package. If the retry shows that the work exceeds the current tier, I will use the next available capability tier after checking runtime limits and cost. After repeated failures, I will stop retries and report the blocker with the recorded state.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "delegate subagent timeout failure recovery async"
   }
 ]

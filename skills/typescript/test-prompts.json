@@ -4,13 +4,15 @@
     "prompt": "I'm migrating a JS codebase to TypeScript. My config has strict: false right now. We want to enable `strictNullChecks` but are scared of the fallout. How do we do this safely?",
     "expected": "Advises using the ratchet strategy from migration.md, staging the flags, and avoiding `any` / `!` casts to paper over the immediate errors.",
     "actual": "Advises ratcheting the strict flags instead of turning them all on at once. Explicitly recommends following `references/migration.md` to stage `strictNullChecks` and avoids using `!` to silence errors, recommending early returns or `??` instead.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "typescript strictNullChecks migration refactor configuration"
   },
   {
     "id": 2,
     "prompt": "I have an API response `res.data` that is typed as `any`. I want to pass it into a function expecting a `User` type. Should I just cast it with `as User` to fix the compiler error?",
     "expected": "Refuses to cast with `as` directly, as excess property checks are bypassed. Recommends validating at the boundary (e.g. Zod, or runtime guards).",
     "actual": "Warns against using `as User` because it bypasses validation. Explains that `typeof` or Zod must be used to validate external data before its first typed use, referring to `references/boundaries.md`.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "typescript type-safe casting generics validation interface"
   }
 ]

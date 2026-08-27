@@ -3,24 +3,28 @@
     "id": "embeddings-1",
     "scenario": "Vector search with PGVector setup",
     "prompt": "Write a SQL snippet to create a PostgreSQL table `documents` with a 1536-dimensional vector column for embeddings and an HNSW index using cosine similarity. Then write a query to return the top 5 most similar documents.",
-    "expected": "Uses pgvector syntax correctly. `CREATE EXTENSION vector;`, `CREATE TABLE documents (id SERIAL PRIMARY KEY, content TEXT, embedding vector(1536));`, `CREATE INDEX ON documents USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);`, and the query uses `<=>` operator."
+    "expected": "Uses pgvector syntax correctly. `CREATE EXTENSION vector;`, `CREATE TABLE documents (id SERIAL PRIMARY KEY, content TEXT, embedding vector(1536));`, `CREATE INDEX ON documents USING hnsw (embedding vector_cosine_ops) WITH (m = 16, ef_construction = 64);`, and the query uses `<=>` operator.",
+    "bm25_prompt": "postgresql vector embeddings hnsw cosine similarity sql"
   },
   {
     "id": "embeddings-2",
     "scenario": "OpenAI Provider best practices",
     "prompt": "I want to use OpenAI's new embedding models but need to reduce cost while maintaining decent quality. Which model should I choose and why? Show me the MTEB score if possible.",
-    "expected": "Recommends `text-embedding-3-small` based on the Selection Decision Tree. Mentions it has good quality with lower API costs."
+    "expected": "Recommends `text-embedding-3-small` based on the Selection Decision Tree. Mentions it has good quality with lower API costs.",
+    "bm25_prompt": "openai embedding model cost mteb benchmark comparison"
   },
   {
     "id": "embeddings-3",
     "scenario": "Vector Search similarity metrics rule",
     "prompt": "If my embedding vectors are normalized, which similarity metric is mathematically equivalent to the Dot Product?",
-    "expected": "Identifies Cosine similarity. Mentions the rule that if vectors are normalized, cosine = dot product."
+    "expected": "Identifies Cosine similarity. Mentions the rule that if vectors are normalized, cosine = dot product.",
+    "bm25_prompt": "embeddings similarity metric normalized dot product cosine"
   },
   {
     "id": "embeddings-4",
     "scenario": "Fixing Retrieval Issues",
     "prompt": "My vector search is returning completely wrong documents for a query. What is the most likely cause and how can I fix it based on the embeddings skill guidelines?",
-    "expected": "Identifies the likely cause as the query being too vague. Suggests using Query expansion and being specific."
+    "expected": "Identifies the likely cause as the query being too vague. Suggests using Query expansion and being specific.",
+    "bm25_prompt": "embeddings vector search optimization chunking similarity troubleshooting"
   }
 ]

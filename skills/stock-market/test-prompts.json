@@ -5,7 +5,8 @@
     "expected": "Separate sourced facts from hypotheses, request or label current-data freshness, define a trigger and invalidation, and use only a user-approved risk limit or hypothetical sizing inputs.",
     "actual": "Yes—let’s treat AAPL as a planning-only swing-trade hypothesis until its current price, chart structure, catalyst calendar, and market context are verified with dated sources.\n\nAAPL thesis card\n- Setup type: To be determined—typically a breakout, pullback, or mean-reversion setup.\n- Time horizon: Swing trade.\n- Catalyst: Unverified. Check the next earnings date, company events, sector developments, and major macro releases.\n- Base case: AAPL confirms a defined technical structure and follows through while the broader market and mega-cap technology group remain supportive.\n- Failure mode: The confirmed structure fails, the planned invalidation level is breached, or a scheduled catalyst creates gap risk outside the plan.\n\nEvidence required before calling it trade-ready\n| Item | Status | Proof needed |\n|---|---|---|\n| Current price, volume, and chart levels | Unverified | Market-data source with retrieval time and timezone |\n| Trend and relative strength vs. market/sector | Unverified | Dated daily and intraday chart review |\n| Earnings and company-event timing | Unverified | Apple investor-relations calendar or regulatory filing |\n| Broader market and tech-sector regime | Unverified | Dated index, volatility, and sector data |\n| Liquidity and spread conditions | Unverified | Current quote data during the intended trading session |\n\nScenario map\n| Scenario | Trigger | Planned action |\n|---|---|---|\n| Bull case | AAPL meets your pre-defined confirmation rule—for example, a breakout that holds or a pullback that reclaims support with confirmation | Review entry, invalidation, target path, and position-risk calculation |\n| Neutral case | Price remains inside a range or confirmation is incomplete | Keep it on the watchlist; do not size a position |\n| Bear case | Price closes or trades through the thesis-derived invalidation level | Thesis invalidated; no new entry under this setup |\n\nRisk controls\n1. Define the entry and invalidation before sizing. Do not widen the invalidation merely to accommodate a larger position.\n2. Use only your approved risk limit. Share count is: `position size = maximum risk amount ÷ |entry price − invalidation price|`. If you have not set a maximum loss per idea, keep the candidate un-sized.\n3. Set total-risk limits. Specify your maximum daily loss, maximum total open risk, and maximum combined exposure to correlated mega-cap/technology positions.\n4. Model gap risk separately. If earnings or another major event occurs during the holding period, a stop order may execute materially below its stop price after a gap; it does not guarantee the intended exit price.\n5. Use no-trade conditions. No trade if catalyst timing is unclear, liquidity is unreliable, the broader market is highly unstable, the daily-loss limit is reached, or the setup is being overridden emotionally.\n\nDecision: Watchlist candidate, not yet trade-ready. To validate it, define the exact setup type and provide—or verify—current price/structure, the intended entry trigger, the invalidation level, expected target path, and your approved maximum risk per trade.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "AAPL equity research swing trade risk management thesis validation"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Require verified current-market sources with as-of time and timezone; when those are unavailable, provide a briefing template rather than inventing today's facts.",
     "actual": "Pre-Market Briefing — Today\n\nStatus: Current market data, news, prices, and event calendars have not been verified in this briefing. The fields below are intentionally left open rather than presenting undated information as today’s facts.\n\nMacro and market regime\n- Overnight market performance: [Verify futures, overseas markets, and relevant instruments; include source, retrieval time, and timezone.]\n- Key catalysts since the prior session: [Verify dated company, policy, geopolitical, and economic developments.]\n- Index trend: [Verify current index structure and source.]\n- Volatility state: [Verify current volatility measures and source.]\n- Liquidity notes: [Assess expected volume, holiday effects, options expiration, and event-driven conditions.]\n- Upcoming macro events: [Verify against the issuing government or central-bank calendar, including release time and timezone.]\n\nPriority watchlist notes\n| Ticker | Thesis | Trigger status | Action |\n|---|---|---|---|\n| [Ticker] | [Evidence-labelled thesis] | [Confirmed / incomplete / invalidated] | [Monitor / plan review / no trade] |\n| [Ticker] | [Evidence-labelled thesis] | [Confirmed / incomplete / invalidated] | [Monitor / plan review / no trade] |\n| [Ticker] | [Evidence-labelled thesis] | [Confirmed / incomplete / invalidated] | [Monitor / plan review / no trade] |\n\nRisk controls\n- Daily risk limit: [User-approved amount or percentage]\n- Maximum risk per idea: [User-approved amount or percentage]\n- Maximum total open risk: [User-approved amount or percentage]\n- Correlated-exposure limit: [User-defined aggregation method and limit]\n- Gap-risk adjustment: [Reduce exposure, avoid event holds, or keep candidates un-sized where applicable]\n- No-trade conditions: Missing current data; unclear catalyst timing; unreliable liquidity; invalidation cannot be defined; approved loss limit reached; emotional override.\n\nSession decision rules\n- Trade candidate: Only after current evidence, entry trigger, invalidation, target path, and approved position risk are all documented.\n- Watchlist-only candidate: Any name with an incomplete catalyst, unclear structure, or unverified market context.\n- Explicit no-trade call: No new position when market conditions or required evidence cannot be verified before the session.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "pre-market briefing equity research stock analysis market outlook"
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "expected": "Rank with stated criteria, preserve incomplete theses as watchlist hypotheses, and avoid a fixed universal number of Priority A names.",
     "actual": "Please send the 10 tickers along with any notes you have on each setup, key levels, and upcoming catalysts. I’ll rank them by:\n\n- Setup quality: structure, trigger clarity, and defined failure condition\n- Catalyst proximity: how soon and how clearly defined the next earnings, company, macro, or sector event is\n- Evidence completeness: confirmed information versus open hypotheses\n- Risk definition: whether invalidation and event/gap risk are explicit\n- Correlation: whether multiple names share the same underlying risk driver\n\nUse this format if convenient:\n\n| Ticker | Setup / thesis | Trigger or key level | Invalidation | Next catalyst and date/window | Horizon |\n|---|---|---|---|---|---|\n|  |  |  |  |  |  |\n\nI’ll return a prioritized list with a clear reason for each rank and the next proof needed. Any ticker without a clear trigger, invalidation, or catalyst window will remain a watchlist hypothesis rather than be treated as trade-ready.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "stock watchlist ranking catalyst analysis equity research"
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "expected": "Keep the candidate un-sized because a long invalidation must be below entry; state the failed condition without calculating a positive share count or placing an order.",
     "actual": "Planning-only risk check: this long candidate remains un-sized. Failed condition: a long invalidation must be below the $100 entry, but the stated invalidation is $105. I will not calculate a share count or place any order.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "position sizing equity trade planning risk management stock entry"
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "expected": "Keep the candidate un-sized because a short invalidation must be above entry; state the failed condition without calculating a positive share count or placing an order.",
     "actual": "Planning-only risk check: this short candidate remains un-sized. Failed condition: a short invalidation must be above the $100 entry, but the stated invalidation is $95. I will not calculate a share count or place any order.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "position sizing stock trade risk management equity calculator"
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "expected": "Keep the candidate un-sized because entry and invalidation must be distinct finite positive prices; do not divide by zero, calculate a share count, or place an order.",
     "actual": "Planning-only risk check: this long candidate remains un-sized. Failed condition: entry and invalidation must be distinct finite positive prices; both are $100. A long invalidation must also be below entry. I will not calculate a share count or place any order.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "stock equity trade position sizing risk calculation"
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "expected": "Compute the maximum unit count, round down to 333 whole shares, recompute planned loss as $999, confirm it remains within the approved cap, and keep the result planning-only.",
     "actual": "The maximum is 333.33 shares, so with whole-share support I would downward-round to 333 shares. At $3 risk per share ($100 entry minus $97 invalidation), the planned loss is $999. This remains within the approved $1,000 cap. This is a planning calculation, not an order.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "stock trade position sizing risk management equity analysis"
   },
   {
     "id": 8,
@@ -61,6 +68,7 @@
     "expected": "Resolve /work/stock-market by precedence, report the state conflict, leave ~/stock-market untouched, and require enabled state plus approval of the exact selected-path update before writing.",
     "actual": "I resolved the state root once by precedence: `/work/stock-market/` (the host-supplied workspace location takes precedence). Multiple state directories were found: `/work/stock-market/` and `~/stock-market/`. I will use only `/work/stock-market/` for this invocation and leave `~/stock-market/` untouched. I will not write anything unless persistent state is enabled and you approve the exact selected-path update: create or update `/work/stock-market/watchlist.md` with today’s watchlist decision.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "stock market watchlist record update equity research"
   }
 ]

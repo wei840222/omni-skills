@@ -5,14 +5,16 @@
     "prompt": "I'm visiting Mumbai for 3 days next month. Can you give me an itinerary?",
     "expected": "Provides a 3-day itinerary loading references/visitor-itineraries.md, covering major attractions and practical tips.",
     "actual": "Based on the Mumbai skill, I would load `references/visitor-itineraries.md` to provide a 3-day itinerary. Day 1: South Mumbai heritage (Colaba, Gateway of India). Day 2: Central Mumbai/Dharavi/Dhobi Ghat. Day 3: Bandra and Bollywood. I would also note to use local trains cautiously and avoid peak hours.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "mumbai itinerary travel guide tourism sightseeing"
   },
   {
     "id": 2,
     "scenario": "Moving to Mumbai",
     "prompt": "I'm a software engineer relocating to Mumbai for work. Where should I live if my office is in BKC, and what are the rent costs?",
     "expected": "Suggests neighborhoods like Bandra or Kurla for BKC, loading references/neighborhoods-bandra.md and references/cost.md, mentioning typical rents and brokerage.",
-    "actual": "I would load `references/neighborhoods-bandra.md` and `references/cost.md` to assist you. If your office is in BKC (Bandra Kurla Complex), Bandra East or Kurla are the most convenient for commute. Bandra West is more upscale and expat-friendly. Rents for a 1BHK in Bandra range from \u20b940,000-80,000/month. Expect to pay a 3-6 month deposit and 1 month's rent as brokerage.",
-    "pass": true
+    "actual": "I would load `references/neighborhoods-bandra.md` and `references/cost.md` to assist you. If your office is in BKC (Bandra Kurla Complex), Bandra East or Kurla are the most convenient for commute. Bandra West is more upscale and expat-friendly. Rents for a 1BHK in Bandra range from ₹40,000-80,000/month. Expect to pay a 3-6 month deposit and 1 month's rent as brokerage.",
+    "pass": true,
+    "bm25_prompt": "mumbai relocation bkc housing rent"
   }
 ]

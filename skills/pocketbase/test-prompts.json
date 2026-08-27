@@ -4,20 +4,23 @@
     "prompt": "Use the PocketBase JavaScript SDK to list published posts with authors expanded, without interpolating untrusted input into a filter.",
     "expected": "Uses the configured collection, getList, expand, and a safe documented filter approach.",
     "actual": "Dry-run: routes to the SDK guide, which requires configured collection names and safe filter construction.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "pocketbase javascript sdk list posts expand filter"
   },
   {
     "id": 2,
     "prompt": "Help me configure an API rule so only authenticated users can view their own records.",
     "expected": "Inspects the collection and current rules, proposes an explicit rule, and tests unauthenticated and authenticated behavior.",
     "actual": "Dry-run: routes to auth-and-rules with explicit rule semantics and role-based verification.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "pocketbase api rule authentication record ownership"
   },
   {
     "id": 3,
     "prompt": "Write a PocketBase JavaScript hook that needs the request authentication context.",
     "expected": "Uses the documented record request-hook layer rather than a model hook and preserves e.next() when allowing the request.",
     "actual": "Dry-run: routes to hooks and distinguishes request hooks from model hooks.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "pocketbase javascript hook auth context request"
   }
 ]

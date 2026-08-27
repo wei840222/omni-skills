@@ -5,7 +5,8 @@
     "prompt": "I need to add a User to Post relation in my schema.prisma. The User should have many Posts. Post should have an authorId field. Generate the schema snippet.",
     "expected": "Provides the correct `User` and `Post` models with the `author` relation defined using `@relation(fields: [authorId], references: [id])`.",
     "actual": "```prisma\nmodel User {\n  id    Int    @id @default(autoincrement())\n  posts Post[]\n}\n\nmodel Post {\n  id       Int  @id @default(autoincrement())\n  authorId Int\n  author   User @relation(fields: [authorId], references: [id])\n}\n```\nHere is the updated schema snippet defining the one-to-many relationship.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "prisma schema relation one-to-many model"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "We are getting pool exhaustion errors on Vercel with Prisma and PostgreSQL. We don't have a pooler. What should we do?",
     "expected": "Instructs to use a pooler like PgBouncer or Prisma Accelerate, and advises setting `connection_limit` to 1 or 2 when running in serverless, loading `connections.md` if needed.",
     "actual": "Since you are on a serverless platform (Vercel) without a pooler, every cold start opens its own connection pool, which quickly exhausts the database's `max_connections`.\n\nYou should:\n1. Use a connection pooler like **PgBouncer**, **Supavisor**, or **Prisma Accelerate**.\n2. In your Prisma connection string, append `?pgbouncer=true` and keep your `connection_limit` very low, e.g., `?connection_limit=1`.\n3. Make sure to instantiate a single `PrismaClient` outside the request handler scope to reuse it during warm starts.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "prisma connection pool exhaustion vercel postgresql"
   }
 ]

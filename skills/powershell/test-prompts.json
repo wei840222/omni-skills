@@ -4,13 +4,15 @@
     "prompt": "Write a PowerShell snippet to silently filter a process list. Output must not show any error streams if process not found.",
     "expected": "Use -ErrorAction SilentlyContinue and capture output properly.",
     "actual": "Get-Process -Name 'NonExistent' -ErrorAction SilentlyContinue | Where-Object { $_.Handles -gt 100 }",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "powershell filter process silent error stream"
   },
   {
     "id": 2,
     "prompt": "Explain why `$arr = @(); $arr += 1` is bad and how to fix it in PowerShell.",
     "expected": "Identify array recreation performance hit and recommend [System.Collections.ArrayList] or [System.Collections.Generic.List[int]].",
     "actual": "The `+=` operator recreates the entire array every time. Fix it by using `[System.Collections.ArrayList]` or capturing pipeline output directly.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "powershell array performance optimization collection initialization"
   }
 ]

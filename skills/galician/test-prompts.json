@@ -5,7 +5,8 @@
     "expected": "A concise, natural Galician greeting that uses familiar address consistently and does not add unsupported dialect markers.",
     "actual": "Ola! Como che vai a semana?",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "galician translate write greeting language"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "A faithful, neutral standard-Galician translation with coherent grammar and no unrequested code-switching.",
     "actual": "Como estás hoxe? O tempo está moi agradable.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "translate galician galego language text"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "A polite Galician revision using a consistent courtesy form and a concise explanation of the address-form change.",
     "actual": "Bo día, podería enviarme o informe hoxe? Grazas!\n\nCambiei «podes» por «podería» para empregar a forma de cortesía en terceira persoa, correspondente ao tratamento de «vostede».",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "galician translate edit grammar formal"
   }
 ]

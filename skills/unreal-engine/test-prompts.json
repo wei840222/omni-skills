@@ -4,13 +4,15 @@
     "prompt": "Create an actor class in Unreal C++ that spawns a particle effect.",
     "expected": "Mentions using BeginPlay instead of the constructor to spawn things and recommends UPROPERTY for garbage collection tracking.",
     "actual": "Dry run execution of unreal-engine for happy path test passed. The output correctly avoids spawning in the constructor and mentions BeginPlay.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "unreal engine actor spawn particle system c++"
   },
   {
     "id": 2,
     "prompt": "I'm having a crash when playing my packaged Unreal game. In PIE it works fine, but in shipping it fails.",
     "expected": "Mentions that PIE vs Packaged build differ and encourages checking for issues like referencing null pointers or improperly checking Authority/Roles.",
     "actual": "Dry run execution of unreal-engine for complex scenario test passed. The output notes the differences between PIE and packaged builds.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "unreal-engine shipping crash debug replication garbage-collection"
   }
 ]

@@ -5,7 +5,8 @@
     "prompt": "I'm watching Severance, I'm at season 1 episode 3.",
     "expected": "Log Severance S01E03 to the watching list.",
     "actual": "",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "track movie series progress watchlist episode"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "What should Emma watch next? She just finished Encanto and we want to have a movie night on Friday.",
     "expected": "Load family.md, provide recommendations based on Emma's tastes, and suggest overlap-free options for Friday movie night.",
     "actual": "",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "recommend movie watchlist track series"
   }
 ]

@@ -5,7 +5,8 @@
     "prompt": "Create a checklist for hiring a freelance Python developer.",
     "expected": "A detailed checklist covering scope definition, job posting, screening, contract negotiation, onboarding, and milestone payments.",
     "actual": "Here is a checklist for hiring a freelance Python developer:\n\n1. **Define scope precisely**: Specify deliverables (e.g., a web scraping script, a Django API), timeline, budget, and success criteria.\n2. **Write compelling job post**: Provide context about the project, require Python experience, and describe what success looks like.\n3. **Screen candidates**: Review their GitHub or portfolio, check past Python project experience, and assess communication skills.\n4. **Verify before hiring**: Ask for a small test task (e.g., refactoring a Python function) or conduct a paid trial.\n5. **Negotiate rates**: Confirm market rates for Python devs. Prefer fixed-price milestones over hourly billing.\n6. **Contract before work**: Ensure IP assignment, NDA, payment terms, and termination clauses are in place.\n7. **Structured onboarding**: Provide access to code repositories (GitHub/GitLab), environment variables (securely), and communication channels (Slack/Discord).\n8. **Milestone payments**: Retain funds until delivery. Tie payments to completed milestones such as \"API endpoint 1 completed.\"\n9. **Track and document**: Log their work hours, code quality, and feedback under the resolved hiring state root.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "hiring freelance python developer checklist recruitment vetting"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "I need to hire an AI agent to extract data from 1000 PDFs. Should I hire a human or an AI agent, and what model tier should I use?",
     "expected": "Recommendation to use an AI agent for data extraction at scale, specifically routing to a cheaper model tier like Haiku or GPT-4o-mini for parsing.",
     "actual": "For data extraction at scale (parsing 1000 PDFs), hire an AI agent rather than a human.\n\n### Model Tier Routing\n\nRoute extraction and formatting to the cheapest capable model tier, such as Claude 3 Haiku or GPT-4o-mini.\n\n### Next Steps\n\n1. **Define task schema**: Specify the exact JSON structure needed from each PDF.\n2. **Select agent**: Choose Haiku or GPT-4o-mini based on current cost/capability.\n3. **Format input**: Provide PDF text and the target schema to the agent.\n4. **Cost control**: Set a hard budget limit for the 1000-document run.\n5. **Quality checks**: Schema-validate outputs and spot-check a sample before full rollout.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "hire freelancer contractor AI agent recruitment platform"
   }
 ]

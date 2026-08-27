@@ -5,7 +5,8 @@
     "expected": "Diagnose the cohort and activation path before prescribing a benchmark; propose measurement, hypotheses, owner, decision rule, and review date.",
     "actual": "Start by defining the D7 cohort, activation event, acquisition sources, plan mix, and data completeness; 15% alone is not a diagnosis without a comparable segment and definition. Build a cohort view from signup through activation and first value, then interview a small sample of retained and churned users to explain the behavioral pattern. Prioritize a short hypothesis backlog around time-to-value, onboarding friction, and mismatch between acquisition promise and product value. For each experiment define the segment, primary retention/activation metric, guardrail, owner, sample-size or decision rule, and review date. Do not scale acquisition until the evidence shows whether the issue is activation, product fit, or a specific channel/segment.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "B2B SaaS retention optimization growth strategy churn analysis"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "expected": "Separate unit-economics, funnel, retention, and attribution evidence; produce a prioritized experiment plan rather than applying universal CAC thresholds.",
     "actual": "First separate spend, qualified demand, activation, retention, contribution margin, payback, and cash constraints by channel, campaign, segment, and cohort. Verify attribution with incrementality or holdout evidence for the largest channels; last-touch reporting alone can over-credit paid activity. Compare current unit economics with benchmarks only when the benchmark has a matching population and metric definition. Then map a potential loop: an initial user action creates value, that value creates an invitation/content/integration or referral input, and the next user reaches value quickly enough to repeat it. Produce a ranked backlog with hypothesis, target segment, primary metric, guardrail, owner, sample/decision rule, and review date. Keep spend changes conditional on the experiment results and segment-specific contribution economics.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "cgo growth loop acquisition retention experimentation strategy"
   }
 ]

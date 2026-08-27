@@ -3,24 +3,28 @@
     "id": "parse_offset",
     "scenario": "A parse fails at a byte offset with a trailing comma.",
     "prompt": "I'm parsing this config file and getting a JSON parse error at byte 40. The file has a trailing comma.",
-    "expected": "Mentions removing the trailing comma, suggests using JSON5/JSONC for config files, or fixing the parser to use a lenient mode."
+    "expected": "Mentions removing the trailing comma, suggests using JSON5/JSONC for config files, or fixing the parser to use a lenient mode.",
+    "bm25_prompt": "json parse error trailing comma validation"
   },
   {
     "id": "schema_composition",
     "scenario": "Validating additionalProperties false in allOf branch.",
     "prompt": "My JSON schema has additionalProperties: false inside an allOf branch, but valid documents keep failing.",
-    "expected": "Refers to `unevaluatedProperties: false` in draft 2019-09+ or mentions that additionalProperties cannot see sibling properties."
+    "expected": "Refers to `unevaluatedProperties: false` in draft 2019-09+ or mentions that additionalProperties cannot see sibling properties.",
+    "bm25_prompt": "json schema validation allOf additionalProperties"
   },
   {
     "id": "precision_loss",
     "scenario": "Large integer loses precision.",
     "prompt": "Our API is sending a large integer ID 9007199254740995 but JavaScript clients are reading it incorrectly.",
-    "expected": "Advises sending large numbers as strings to avoid precision loss due to IEEE 754 floating-point limits."
+    "expected": "Advises sending large numbers as strings to avoid precision loss due to IEEE 754 floating-point limits.",
+    "bm25_prompt": "json integer precision overflow javascript bigint"
   },
   {
     "id": "state_location",
     "scenario": "Where to save user preferences.",
     "prompt": "Store this preference in my configuration state.",
-    "expected": "Uses `<state_root>/` or `$WORKSPACE_ROOT/.json_state` rather than hardcoded paths."
+    "expected": "Uses `<state_root>/` or `$WORKSPACE_ROOT/.json_state` rather than hardcoded paths.",
+    "bm25_prompt": "json parse validate transform configuration"
   }
 ]

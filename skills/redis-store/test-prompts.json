@@ -5,7 +5,8 @@
     "expected": "Recommend a sorted set for an exact sliding window, make prune/count/add atomic, explain the per-user memory cost at this rate, and offer bounded-state token bucket or GCRA when exact semantics are not mandatory.",
     "actual": "Use one Sorted Set per user for an exact sliding-window log: `app:rl:{user-id}`. Score each member by request timestamp in milliseconds and use a unique request ID as the member. The hash tag keeps the key cluster-safe. Run `ZREMRANGEBYSCORE`, `ZCARD`, conditional `ZADD`, and `PEXPIRE` in one short Lua script; invoke it as `EVALSHA <sha> 1 app:rl:{user-id} <now-ms> 60000 <limit> <request-id>`, with an `EVAL` fallback for `NOSCRIPT`. Do not issue those commands separately or merely pipeline them: the prune → count → conditional add sequence must be atomic. At 10,000 requests/second, an exact 60-second log stores up to 600,000 sorted-set members per active user and serializes that user's traffic on one key/node. Use it only when exact semantics and capacity tests justify it; otherwise use a token bucket or GCRA state machine with two small fields per user. Put enforcement-critical limiters on a sufficiently sized `noeviction` instance.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "redis distributed rate-limiter sliding-window sorted-set lua"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Confirm the `noeviction` behavior; use INFO, memkeys, bigkeys, and safe SCAN/UNLINK cleanup; identify TTL, stream-trimming, and unbounded-collection causes; keep correctness-critical data off evictable instances.",
     "actual": "The instance is full by design: `used_memory` is about 8 GB, `maxmemory` is 8 GB, and `noeviction` refuses writes rather than deleting existing keys. Diagnose before changing policy or deleting data: run `INFO memory`, `INFO stats`, `INFO keyspace`, and `CONFIG GET maxmemory maxmemory-policy`; inspect `used_memory`, `used_memory_peak`, `used_memory_rss`, flat `evicted_keys`, `keys - expires`, and `mem_fragmentation_ratio`. Use `redis-cli --memkeys` and `redis-cli --bigkeys` to find growth without blocking Redis. Look for TTL-less cache or session keys, plain `SET` clearing TTLs, untrimmed Streams, unbounded collections, and keys derived from unbounded input. Add capacity only with host headroom for fork-based persistence and buffers. Reclaim only known-safe keys with `redis-cli --scan --pattern 'app:obsolete-cache:*' | xargs -L 500 redis-cli UNLINK`; validate the prefix first. A pure regenerable cache may use `allkeys-lru` or `allkeys-lfu`, but locks, queues, streams, counters, and durable data stay on a separate `noeviction` instance. Enforce TTLs, trim Streams, bound collections, and alert on memory growth and OOM errors.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "redis OOM maxmemory noeviction diagnose memory"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Require every script key in `KEYS`, a correct `numkeys`, and a shared narrow hash tag for same-slot operations; explain when to redesign; cover `SELECT`, client routing, and `NOSCRIPT` recovery.",
     "actual": "For every Lua script that touches multiple keys, pass every Redis key as a declared `KEYS[...]` value, set `numkeys` correctly at the call site, and make all declared keys hash to the same Cluster slot. Use a shared, narrow hash tag such as `app:{user:1042}:profile` and `app:{user:1042}:sessions`. Do not construct key names inside the script from `ARGV` or string concatenation, and do not use a global tag such as `{global}` for all keys. If a script genuinely needs keys in different slots, it cannot remain one atomic Cluster Lua operation; redesign it into per-slot operations, a per-entity script, or an application-level workflow with explicit retry handling. Audit surrounding callers too: multi-key commands and `MULTI`/`WATCH` have the same one-slot rule, Cluster supports only database 0 so replace `SELECT n` with key prefixes, and clients must maintain the slot map and follow `MOVED`/`ASK`. Keep the `EVALSHA` to `EVAL`/reload fallback for `NOSCRIPT` after restarts or script flushes.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "redis cluster lua crossslot keys hash tags"
   }
 ]

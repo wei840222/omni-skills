@@ -5,7 +5,8 @@
     "expected": "Apply the standard Six Thinking Hats sequence, distinguish known facts from unknowns, and evaluate options from all six perspectives.",
     "actual": "## Job Offer Analysis (Six Thinking Hats)\n\nBlue: Decide on 20% raise vs ambiguous +45min commute increase.\n\nWhite: Known: +20% salary. Unknown: Is +45min total or per direction? Role scope, benefits, remote flexibility, career ceiling, commute cost.\n\nGreen: (1) Accept as-is (2) Decline, stay (3) Negotiate hybrid/remote.\n\nYellow: Accept: higher pay, growth. Stay: stability, short commute. Negotiate: best of both.\n\nBlack: Accept: if +45min is per direction (90min/day), time cost may erase raise; burnout. Stay: stagnation. Negotiate: may lose offer.\n\nRed: Accept feels risky until commute ambiguity resolved. Negotiate first.\n\nBlue: Clarify whether +45min is total or per direction. Request hybrid terms. Quantify net gain. Decide within 7 days.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "six thinking hats decision analysis multi-perspective evaluation job offer pros cons"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Introduce parallel thinking and a conflict-resolution sequence that replaces adversarial debate with structured perspective-taking.",
     "actual": "Switch to the Conflict Resolution Sequence — Blue → Red → White → Green → Yellow → Black → Blue. The root cause of circular debate is mixed hats: one person argues benefits while another raises risks, so perspectives contaminate each other. Parallel thinking fixes this — everyone wears the same hat at the same time.\n\n1. Blue — Frame the problem explicitly. State the decision, scope, and goal in one sentence.\n2. Red — Surface emotions first. Each person states a gut reaction in one sentence.\n3. White — List only facts. Separate knowns from unknowns.\n4. Green — Generate at least 3 distinct alternatives before comparison.\n5. Yellow — Explore benefits for each option at equal depth.\n6. Black — Identify risks and mitigations for each option; give Yellow and Black comparable attention.\n7. Blue — Summarize, decide, and list next steps.\n\nAnnounce every hat switch explicitly; when someone drifts into a different hat, return to Blue, restate the current hat, and restart that section.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "six thinking hats parallel thinking decision analysis multi-perspective problem solving"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Use the quick sequence and defer the decision while critical safety, security, data-loss, legal, or compliance risks remain unresolved; name the evidence, owner, and resolution needed to clear the gate.",
     "actual": "🔵 Blue: Decide launch timing under budget pressure.\n⚪ White: Budget runway shrinking; launch-readiness evidence incomplete.\n🟡 Yellow: Launching now preserves runway and captures revenue.\n⚫ Black: Launching with unresolved safety, security, data-loss, legal, or compliance risks exposes the company to material harm.\n🔴 Red: Launch-now feels reckless without cleared critical risks.\n🔵 Blue — Release Gate: Decision DEFERRED. Unresolved critical-class risks (safety / security / data-loss / legal / compliance) block the public launch. Required to clear the gate: (1) evidence each critical risk is mitigated, (2) a named owner per residual risk, (3) a dated resolution path. Only after clearance, take a bounded, reversible step (e.g., limited private beta with a kill-switch). Until then, hold the public launch.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "six thinking hats decision analysis evaluate options parallel thinking product launch strategy"
   }
 ]

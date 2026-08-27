@@ -5,7 +5,8 @@
     "expected": "Natural bilingual output with ti register, code-switching, particles, and casual expressions",
     "actual": "Shwmae! Bydda i tua 10 munud yn hwyr — sori! Mae'r traffic yn terrible heddiw. Wela i di'n fuan, 'de? 💨",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "welsh wenglish translate casual message"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Welsh-only formal translation using chi register, an appropriate greeting (Bore da), and formal verb forms",
     "actual": "Bore da, sut ydych chi heddiw?",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "translate welsh formal greeting elder"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Bilingual code-switching, vivid vocabulary (gwych/bendigedig), natural fillers, and a casual register",
     "actual": "Mae'r tywydd yn ofnadwy heddiw — glaw a gwynt proper! Ond ti'n gwybod be? Dw i'n dal i gael diwrnod really gwych. No point poeni am y glaw; mae popeth yn iawn. 💪☔️ #Cymru #Wenglish",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "welsh wenglish social media weather post"
   }
 ]
