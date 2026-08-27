@@ -341,5 +341,157 @@ def _(df_pca, mo, np, pd, plt, sns):
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ---
+    # 🚀 SkillRouter 路由評測實驗：ND vs. All-Field 在 5 大檢索架構下的表現
+
+    依據論文 **《SkillRouter: Skill Routing for LLM Agents at Scale》 (arXiv:2603.22455)** 的核心評測協議，
+    我們以倉庫內 **131 個已重構技能** 的 `test-prompts.json`（共 321 道測試題目）作為 Ground Truth 基準，
+    評測以下 **5 種檢索路由 Pipeline** 在 `skills-nd` 與 `skills-all-field` 上的效果：
+
+    1. **BM25 (Lexical)**：使用 Gemini 生成的 BM25 關鍵字進行 FTS 全文檢索
+    2. **Vector (Dense)**：使用 `text-embedding-3-small` (1536 維) 進行純向量語意檢索
+    3. **Hybrid (BM25 + Vec RRF)**：無 HyDE、無 Rerank 的純倒數排名融合 (Reciprocal Rank Fusion)
+    4. **Hybrid (No Rerank)**：結合自動擴展的多路檢索融合
+    5. **Two-Stage (Hybrid + Rerank)**：第一階段 Hybrid 召回 Top-10 候選 + 第二階段重排序
+    """)
+    return
+
+
+@app.cell
+def _(Path, json, mo, pd):
+    # 載入基準測試題目集
+    _root_dir = Path(__file__).resolve().parent.parent.parent
+    _bench_file = _root_dir / "experiments" / "datasets" / "benchmark_queries.json"
+
+    _queries = []
+    if _bench_file.exists():
+        _queries = json.loads(_bench_file.read_text(encoding="utf-8"))
+
+    df_benchmark = pd.DataFrame(_queries)
+
+    mo.vstack([
+        mo.md(f"""
+        ### 📋 模組 1：測試任務題目集檢視（Benchmark Queries Explorer）
+        - **題目總數**：`{len(df_benchmark)}` 題
+        - **涵蓋技能數**：`{df_benchmark['ground_truth_skill'].nunique() if not df_benchmark.empty else 0}` 個 Ground Truth 技能
+        - **題目類型**：同時支援 `natural_prompt`（自然語言情境）與 `bm25_prompt`（BM25 專用關鍵字）
+        """),
+        mo.ui.table(df_benchmark[["query_id", "ground_truth_skill", "natural_prompt", "bm25_prompt"]], page_size=6)
+    ])
+    return
+
+
+@app.cell
+def _(Path, json, mo, pd, plt, sns):
+    # 載入評測結果與指標視覺化看板
+    _root_dir = Path(__file__).resolve().parent.parent.parent
+    _eval_file = _root_dir / "experiments" / "datasets" / "routing_benchmark_results.json"
+
+    if _eval_file.exists():
+        _eval_data = json.loads(_eval_file.read_text(encoding="utf-8"))
+        _metrics = _eval_data["metrics_by_pipeline"]
+        _cases = _eval_data["detailed_cases"]
+
+        # 整理比較表格
+        _rows = []
+        for _col, _pipelines in _metrics.items():
+            for _pname, _m in _pipelines.items():
+                _rows.append({
+                    "Collection": _col,
+                    "Pipeline": _pname,
+                    "Hit@1 (%)": _m["hit@1"],
+                    "Hit@3 (%)": _m["hit@3"],
+                    "Hit@5 (%)": _m["hit@5"],
+                    "MRR@10": _m["mrr@10"]
+                })
+        df_metrics = pd.DataFrame(_rows)
+
+        # 繪製長條對比圖 (Hit@1 & MRR@10)
+        sns.set_theme(style="whitegrid")
+        _fig_bench, _axes = plt.subplots(1, 2, figsize=(16, 5), dpi=120)
+
+        # 1. Hit@1 對比
+        sns.barplot(
+            data=df_metrics, x="Pipeline", y="Hit@1 (%)", hue="Collection",
+            palette={"skills-nd": "#3498db", "skills-all-field": "#e74c3c"},
+            ax=_axes[0]
+        )
+        _axes[0].set_title("Hit@1 Routing Accuracy: ND vs. All-Field", fontsize=13, fontweight="bold")
+        _axes[0].set_ylabel("Hit@1 (%)")
+        _axes[0].tick_params(axis="x", rotation=25, labelsize=9)
+        _axes[0].set_ylim(0, 105)
+
+        # 2. MRR@10 對比
+        sns.barplot(
+            data=df_metrics, x="Pipeline", y="MRR@10", hue="Collection",
+            palette={"skills-nd": "#3498db", "skills-all-field": "#e74c3c"},
+            ax=_axes[1]
+        )
+        _axes[1].set_title("MRR@10 (Mean Reciprocal Rank): ND vs. All-Field", fontsize=13, fontweight="bold")
+        _axes[1].set_ylabel("MRR@10")
+        _axes[1].tick_params(axis="x", rotation=25, labelsize=9)
+        _axes[1].set_ylim(0, 1.05)
+
+        plt.tight_layout()
+
+        _rescued = [c for c in _cases if c.get("is_rescued_by_body")]
+
+        _ui_bench = mo.vstack([
+            mo.md("### 📊 模組 2 & 3：5 大 Pipeline 路由評測矩陣與指標看板"),
+            mo.ui.table(df_metrics, page_size=10),
+            _fig_bench,
+            mo.md(f"""
+            > [!NOTE]
+            > **關鍵發現**：
+            > 1. **BM25 & Hybrid 表現卓越**：在具備精準關鍵字（`bm25_prompt`）的情境下，BM25 與 Hybrid RRF 達到了 **91.90% Hit@1** 與 **0.9453 MRR@10**。
+            > 2. **Body Rescue 正文救援效應**：共有 **{len(_rescued)} 道題目**在純 ND 描述中檢索失敗（Top-1 誤判），但在引入完整 Body 後成功命中正確技能！
+            """)
+        ])
+    else:
+        df_metrics = pd.DataFrame()
+        _ui_bench = mo.md("⚠️ 尚未找到評測結果檔案 `routing_benchmark_results.json`，請先執行評測腳本。")
+
+    _ui_bench
+    return
+
+
+@app.cell
+def _(Path, json, mo, pd):
+    # 模組 4：Body Rescue 案例深度下鑽
+    _root_dir = Path(__file__).resolve().parent.parent.parent
+    _eval_file = _root_dir / "experiments" / "datasets" / "routing_benchmark_results.json"
+
+    if _eval_file.exists():
+        _eval_data = json.loads(_eval_file.read_text(encoding="utf-8"))
+        _cases = _eval_data["detailed_cases"]
+        _rescued_cases = [c for c in _cases if c.get("is_rescued_by_body")]
+
+        _case_rows = []
+        for c in _rescued_cases:
+            _case_rows.append({
+                "Query ID": c["query_id"],
+                "Target Skill": c["skill"],
+                "Task Prompt": c["natural_prompt"],
+                "ND Top-1 (Misrouted)": c["nd_vec_top5"][0] if c["nd_vec_top5"] else "None",
+                "All-Field Top-1 (Rescued)": c["all_vec_top5"][0] if c["all_vec_top5"] else "None"
+            })
+
+        df_rescue = pd.DataFrame(_case_rows)
+
+        _ui_rescue = mo.vstack([
+            mo.md(f"### 🔍 模組 4：正文救援個案下鑽（Body Rescue Cases: 共 {len(df_rescue)} 題）"),
+            mo.md("以下展示「僅看 Name+Description 時路由錯誤，但加入 SKILL.md Body 後成功命中」的典型案例："),
+            mo.ui.table(df_rescue, page_size=8)
+        ])
+    else:
+        _ui_rescue = mo.md("")
+
+    _ui_rescue
+    return
+
+
 if __name__ == "__main__":
     app.run()
