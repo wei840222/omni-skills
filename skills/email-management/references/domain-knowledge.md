@@ -17,10 +17,11 @@ With modern tools, email management extends beyond manual sorting. Techniques in
 - **Template Standardization:** Using reusable blocks for common responses to preserve tone while accelerating output.
 
 ## Verifiable sources used in this refactor
-- Merlin Mann — Inbox Zero (43 Folders overview): https://www.43folders.com/izero
-- Merlin Mann — Inbox Zero talk materials / archive index: https://www.merlinmann.com/inboxzero
+- Wikipedia — Inbox Zero: https://en.wikipedia.org/wiki/Inbox_Zero
 - Wikipedia — Merlin Mann (originator context): https://en.wikipedia.org/wiki/Merlin_Mann
-- Google Workspace Learning Center — Organize your inbox with labels and filters: https://support.google.com/a/users/answer/9299855
-- Microsoft Support — Organize your email by using folders, categories, and flags: https://support.microsoft.com/office/organize-your-email-by-using-folders-categories-and-flags-7e45dbcd-8635-4f3b-9d0a-4d8e6f6a0b0e
+- Google Help — Create labels to organize Gmail: https://support.google.com/mail/answer/6579
+- Google Help — Search operators you can use with Gmail: https://support.google.com/mail/answer/7190
+- Google Help — Archive or mute Gmail messages: https://support.google.com/mail/answer/6576
+- RFC 5322 — Internet Message Format: https://www.rfc-editor.org/info/rfc5322/
 
 These sources support Inbox Zero framing and mainstream mailbox organization patterns. This skill remains local/workflow-focused and does not connect to mailbox APIs by itself.
