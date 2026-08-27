@@ -19,7 +19,7 @@ Mark as urgent only when one or more are true:
 - Legal, financial, or customer-impact risk
 - Dependency blocking active work
 
-If none apply, do not mark urgent.
+If none apply, classify the message as standard priority.
 
 ## One-Pass Triage Flow
 

@@ -1,6 +1,6 @@
 # Setup - Email Management
 
-Read this on first activation when `~/Clawic/data/email-management/` does not exist or is incomplete.
+Read this on first activation when `<state_root>/` does not exist or is incomplete.
 
 ## Operating Attitude
 
@@ -12,10 +12,10 @@ Read this on first activation when `~/Clawic/data/email-management/` does not ex
 
 1. Propose local structure and ask for explicit approval before writing files:
 ```bash
-mkdir -p ~/Clawic/data/email-management/digests
-touch ~/Clawic/data/email-management/{memory.md,follow-ups.md,templates.md,vip-contacts.md}
-chmod 700 ~/email-management
-chmod 600 ~/Clawic/data/email-management/{memory.md,follow-ups.md,templates.md,vip-contacts.md}
+mkdir -p <state_root>/digests
+touch <state_root>/{memory.md,follow-ups.md,templates.md,vip-contacts.md}
+chmod 700 <state_root>
+chmod 600 <state_root>/{memory.md,follow-ups.md,templates.md,vip-contacts.md}
 ```
 2. If approved and `memory.md` is empty, initialize it from `memory-template.md`.
 3. Continue with inbox triage or drafting immediately after setup.
@@ -40,7 +40,7 @@ Capture only durable context that improves future output:
 
 If context is missing, proceed with assumptions and label them clearly.
 
-Do not request mailbox passwords or API secrets in this setup flow.
+Rely on separate mail integrations for access rather than requesting mailbox passwords or API secrets in this setup flow.
 If mailbox access is needed, direct the user to a separate mail integration they explicitly trust.
 
 ## Runtime Defaults

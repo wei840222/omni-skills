@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Triage these emails: 1. From boss asking for the Q3 report by EOD. 2. A newsletter from 'TechWeekly'. 3. Client asking for a status update on Project Alpha.",
+    "expected": "Identify the boss's email as 'Action' and 'Urgent', draft a response. Identify newsletter as 'Noise/FYI' and archive. Identify client email as 'Action', check status, and draft reply.",
+    "actual": "Triage Results:\n- Priority Now: Boss asking for Q3 report by EOD (Urgent - Action)\n- Action Queue: Client asking for status update on Project Alpha (Action)\n- FYI/Noise: TechWeekly newsletter (Archive)\n\nDrafts:\n[Boss]: I am working on the Q3 report and will send it to you by EOD.\n[Client]: The Project Alpha is currently on track. The next milestone will be completed by Friday.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Draft a follow up email to the finance team about the Q2 budget revision we discussed last week. Also track this commitment.",
+    "expected": "Draft a polite follow-up template. Track the commitment in follow-ups.md with owner, counterparty, due date.",
+    "actual": "Drafted Follow-up:\nSubject: Follow-up on Q2 budget revision\n\nHi Finance Team,\n\nFollowing up on our discussion regarding the Q2 budget revision last week. Could you provide an update on when the revised numbers will be ready?\n\nCommitment tracked in follow-ups.md:\n- Thread: Q2 budget revision\n- Owner: Me\n- Counterparty: Finance team\n- Due date: [Pending confirmation]\n- Status: waiting\n- Next action: Await response to follow-up",
+    "pass": true
+  }
+]
