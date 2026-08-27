@@ -1,30 +1,11 @@
 ---
 name: apple-news
-slug: apple-news
-version: 1.0.0
-description: Open Apple News, read Apple News links, and run local News workflows on macOS using deterministic CLI commands and shortcut-based search fallback.
-homepage: https://clawic.com/skills/apple-news
-changelog: Initial release with validated macOS command paths for Apple News reading flows, link opening, and safe multi-link handling.
+description: "Execute reading workflows on macOS using deterministic CLI commands to launch Apple News, open articles, and fallback to shortcut-based search."
+compatibility: "darwin"
 metadata:
-  clawdbot:
-    emoji: 📰
-    requires:
-      bins: []
-      anyBins:
-      - open
-      - osascript
-      - shortcuts
-      config:
-      - ~/Clawic/data/apple-news/
-    os:
-    - darwin
-    configPaths:
-    - ~/Clawic/data/apple-news/
-    displayName: Apple News (MacOS)
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/apple-news/
+  version: "1.0.0"
+  openclaw: '{"emoji": "\ud83d\udcf0", "requires": {"anyBins": ["open", "osascript", "shortcuts"], "config": ["<state_root>"]}, "os": ["darwin"], "configPaths": ["<state_root>"], "displayName": "Apple News (MacOS)"}'
+  related-skills: '{"macos": "macOS command workflows and automation patterns.", "news": "general news workflows and monitoring patterns.", "travel": "location and context workflows for news around destinations.", "reading": "reading queue and prioritization workflows.", "productivity": "execution frameworks for daily information intake."}'
 ---
 
 ## Setup
@@ -45,10 +26,10 @@ Agent handles app launch, article and feed link opening, reading queue workflows
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/apple-news/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>`. See `memory-template.md` for structure.
 
 ```text
-~/Clawic/data/apple-news/
+<state_root>
 ├── memory.md             # Status, defaults, and preferred workflows
 ├── command-paths.md      # Command probes and validated launch paths
 ├── safety-log.md         # Multi-link confirmations and sensitive link notes
@@ -57,57 +38,29 @@ Memory lives in `~/Clawic/data/apple-news/`. See `memory-template.md` for struct
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup and first-run behavior | `setup.md` |
-| Memory structure | `memory-template.md` |
-| Command hierarchy and probes | `command-paths.md` |
-| Deterministic operation flows | `operation-patterns.md` |
-| Safety checklist before action | `safety-checklist.md` |
-| Failure handling and recovery | `troubleshooting.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Domain Knowledge | `references/domain-knowledge.md` | Load when requesting background on Apple News. |
+| Common Traps | `references/common-traps.md` | Load when debugging unexpected behavior. |
+| Core Rules | `references/core-rules.md` | Load when understanding behavioral constraints. |
+| Setup and first-run behavior | `setup.md` | Load during initialization or setup phase. |
+| Memory structure | `memory-template.md` | Load when initializing or modifying the user's configuration memory. |
+| Command hierarchy and probes | `command-paths.md` | Load when finding the path to execute a command. |
+| Deterministic operation flows | `operation-patterns.md` | Load when launching or navigating inside the Apple News app. |
+| Safety checklist before action | `safety-checklist.md` | Load before opening multiple links. |
+| Failure handling and recovery | `troubleshooting.md` | Load when an execution failure occurs. |
+
+## State location
+
+1. Workspace configuration: `<state_root>`
+2. Fallback: `~/.config/apple-news`
+
+Create the state directory if it does not exist before writing any configuration.
 
 ## Data Storage
 
-All skill files are stored in `~/Clawic/data/apple-news/`.
+All skill files are stored in `<state_root>`.
 Before creating or changing local files, describe the planned write and ask for confirmation.
-
-## Core Rules
-
-### 1. Launch News.app with Deterministic Paths
-- Prefer opening News by absolute app path: `open /System/Applications/News.app`.
-- Do not assume `open -a News` works on every macOS locale.
-
-### 2. Treat Apple News Links as the Primary Read Interface
-- For direct article reads, prefer `https://apple.news/...` links and open them in News.app.
-- Validate URL shape before launch and reject malformed links.
-
-### 3. Use Search Fallbacks Explicitly
-- If user asks for topic search and no direct Apple News link is available, use a user-owned Shortcut workflow when configured.
-- If no search shortcut is configured, ask for one target source or one reference link before proceeding.
-
-### 4. Preview Actions Before Opening
-- Show which URL or shortcut will run before execution.
-- For query text that may contain sensitive terms, require explicit confirmation before launch.
-
-### 5. Confirm High-Impact Opens
-- Always require confirmation before opening multiple links in one step.
-- For more than one link, show count and require a second explicit confirmation.
-
-### 6. Verify Launch Result State
-- After launch, confirm expected state: app opened, target link opened, or shortcut completed.
-- If expected state is not reached, stop and switch to a safer fallback path.
-
-### 7. Keep Data Exposure Minimal
-- Use only links and fields needed for the requested read task.
-- Do not send undeclared data to third-party APIs from this skill.
-
-## Common Traps
-
-- Assuming `open -a News` works everywhere -> launch failures on some systems.
-- Trying unsupported URL schemes (`applenews://`) -> no app resolver errors.
-- Running topic search without a validated shortcut path -> inconsistent behavior.
-- Opening many article links at once -> user loses reading context.
-- Treating generic web pages as Apple News links -> wrong app or wrong result.
 
 ## External Endpoints
 
@@ -120,7 +73,7 @@ No other external endpoint is required by default.
 ## Security & Privacy
 
 **Data that stays local:**
-- Operational defaults, safety choices, and command reliability notes in `~/Clawic/data/apple-news/`.
+- Operational defaults, safety choices, and command reliability notes in `<state_root>`.
 
 **Data that may leave your machine:**
 - Apple News links opened through `https://apple.news`.
@@ -135,16 +88,3 @@ No other external endpoint is required by default.
 
 By using this skill, links are opened against Apple News.
 If you enable shortcut-based search, those shortcuts may call additional services defined by the user.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `macos` - macOS command workflows and automation patterns.
-- `news` - general news workflows and monitoring patterns.
-- `travel` - location and context workflows for news around destinations.
-- `reading` - reading queue and prioritization workflows.
-- `productivity` - execution frameworks for daily information intake.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/apple-news
-- Latest version: https://clawic.com/skills/apple-news

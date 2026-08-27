@@ -1,10 +1,10 @@
 # Setup - Apple News (MacOS)
 
-If `~/Clawic/data/apple-news/` does not exist or is empty, start with transparent onboarding. Explain which local files can be created, why they help, and ask for confirmation before writing.
+If `<state_root>` does not exist or is empty, start with transparent onboarding. Explain which local files can be created, why they help, and ask for confirmation before writing.
 
 ## Your Attitude
 
-Be precise, calm, and local-first. Keep responses concise, confirm assumptions early, and avoid hidden automation.
+Be precise, calm, and local-first. Keep responses concise, confirm assumptions early, and make all automation explicit and visible to the user.
 
 ## Priority Order
 

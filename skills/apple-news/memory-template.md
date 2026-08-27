@@ -1,6 +1,6 @@
 # Memory Template - Apple News (MacOS)
 
-Create `~/Clawic/data/apple-news/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Apple News Memory
@@ -45,7 +45,7 @@ integration: pending
 
 ## Rules
 
-- Keep notes in natural language and avoid exposed config-key style outside status fields.
+- Write notes in natural language and maintain config-key style strictly within status fields.
 - Update `last` whenever command reliability or safety defaults change.
 - Record multi-link and shortcut confirmations as safety evidence.
-- Never remove prior notes without explicit user instruction.
+- Retain all prior notes unless the user explicitly instructs you to remove them.

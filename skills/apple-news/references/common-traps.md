@@ -1,0 +1,5 @@
+- Assuming `open -a News` works everywhere -> launch failures on some systems.
+- Trying unsupported URL schemes (`applenews://`) -> no app resolver errors.
+- Running topic search without a validated shortcut path -> inconsistent behavior.
+- Opening many article links at once -> user loses reading context.
+- Treating generic web pages as Apple News links -> wrong app or wrong result.
