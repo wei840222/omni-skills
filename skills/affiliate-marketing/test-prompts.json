@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need help figuring out why I'm getting a sudden spike in affiliate sales from one of my newer coupon partners, but the overall revenue on my store isn't really moving up.",
+    "expected": "Identify potential fraud or leakage (e.g., cookie stuffing, self-referrals, coupon leakage). Recommend checking conversions vs. clicks and reviewing the partner's traffic sources using the fraud-qa.md and tracking-compliance.md playbooks.",
+    "actual": "This situation usually indicates false attribution, fraud, or cannibalization. It sounds like the affiliate might be getting credit for sales that would have happened anyway or using deceptive tracking like cookie stuffing. Based on the Fraud and QA reference, we should investigate the following:\n\n1.  **Cookie Stuffing:** Check if the affiliate is using hidden iframes or suspicious redirects to falsely set tracking cookies on users who didn't click their affiliate link.\n2.  **Coupon Leakage:** Ensure their coupon code is only being used on approved placements and hasn't leaked to coupon aggregator sites where buyers who are already at checkout find it and apply it.\n3.  **Click vs. Conversion Growth:** Compare the spike in clicks to the spike in qualified conversions. A huge payout spike without matching quality often points to misattribution.\n\nI recommend putting this partner's payouts on hold immediately until we can audit their traffic sources and coupon spread.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to launch an affiliate program for our SaaS. What should we do before reaching out to influencers?",
+    "expected": "Advise against outreach before the program is designed. Use program-design.md to guide the user to lock partner types, payout models, attribution rules, and restricted behaviors first.",
+    "actual": "Before reaching out to influencers, you must design the program's foundation. Core rule #1 states that recruitment without governance creates messy payouts and low-quality growth. \n\nAccording to the Program Design guidelines, we need to lock down the following choices first:\n1.  **Partner types:** Are we strictly looking at creator affiliates, or will we also accept B2B referrers?\n2.  **Payout model:** Will this be CPA, rev-share, or tiered? We need to model the economics and margins to set a safe payout ceiling.\n3.  **Attribution window:** This controls payout fairness and helps prevent conflict with paid channels.\n4.  **Approval rules:** Establish strict criteria to block unsafe partners early.\n5.  **Restricted traffic sources:** Prevent brand abuse by defining what partners cannot do (e.g., trademark bidding).\n\nLet's define these core choices first. What is the margin profile or payout constraint for this SaaS product?",
+    "pass": true
+  }
+]
