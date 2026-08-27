@@ -2,26 +2,22 @@
 name: email-management
 description: "Triage inbox email, draft replies, and track follow-ups. Trigger when user requests inbox processing, response drafting, or managing pending threads."
 metadata:
+  version: "1.0.0"
+  openclaw: '{"emoji":"📬","requires":{"config":["<state_root>"]},"configPaths":["<state_root>/"]}'
   related-skills: '{"mail":"generic mail workflow support", "email-marketing":"campaign and newsletter execution workflows", "crm":"customer relationship process management", "productivity":"execution and prioritization frameworks", "assistant":"general assistant orchestration patterns"}'
-  clawdbot:
-    emoji: 📬
-    requires:
-      config:
-      - "<state_root>"
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - <state_root>/
-    displayName: Email Management
-  openclaw: '{"requires":{"config":["<state_root>"]}}'
 ---
 
 ## State Location
 - Primary: `<state_root>/`
 - Fallback: Workspace-first state location.
 - Creation: Agent must create the directory if it does not exist during setup.
+
+## When to Use
+
+User needs help processing inbox load, preparing replies, or keeping response commitments on track.
+Agent triages messages by urgency, drafts context-aware responses, and tracks pending follow-ups until closure.
+
+This skill is workflow-focused and local by default. It analyzes email text provided by the user in chat or by a separate mail integration skill.
 
 ## Setup
 On first use, read `references/setup.md` for integration guidelines and memory initialization.

@@ -17,7 +17,7 @@ touch <state_root>/{memory.md,follow-ups.md,templates.md,vip-contacts.md}
 chmod 700 <state_root>
 chmod 600 <state_root>/{memory.md,follow-ups.md,templates.md,vip-contacts.md}
 ```
-2. If approved and `memory.md` is empty, initialize it from `memory-template.md`.
+2. If approved and `memory.md` is empty, initialize it from `references/memory-template.md`.
 3. Continue with inbox triage or drafting immediately after setup.
 
 ## Integration Priority
@@ -48,13 +48,13 @@ If mailbox access is needed, direct the user to a separate mail integration they
 - Start with one-pass triage for the latest relevant messages.
 - Default to draft-only mode unless user asks to send manually.
 - Treat follow-up reminders as suggestions until confirmed.
-- Escalate only when urgency criteria in `triage.md` are met.
+- Escalate only when urgency criteria in `references/triage.md` are met.
 
 ## Optional Depth
 
 If user needs more rigor, use:
-- `triage.md` for message classification and urgency scoring
-- `tracking.md` for commitment and follow-up workflows
-- `templates.md` for response blocks by scenario
-- `profiles.md` for behavior presets by role
-- `feedback.md` for output review loops
+- `references/triage.md` for message classification and urgency scoring
+- `references/tracking.md` for commitment and follow-up workflows
+- `references/templates.md` for response blocks by scenario
+- `references/profiles.md` for behavior presets by role
+- `references/feedback.md` for output review loops
