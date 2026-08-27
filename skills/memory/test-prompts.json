@@ -3,18 +3,21 @@
     "id": "mem-capture",
     "scenario": "The user tells the agent a new durable fact.",
     "prompt": "Remember that my favorite programming language is Python and I prefer tabs over spaces.",
-    "expected": "The agent creates or updates a Markdown file in `<state_root>/` with the new fact, including a timestamp and category index update."
+    "expected": "The agent creates or updates a Markdown file in `<state_root>/` with the new fact, including a timestamp and category index update.",
+    "bm25_prompt": "memory store fact remember preference"
   },
   {
     "id": "mem-recall",
     "scenario": "The user asks for a previously stored fact.",
     "prompt": "What did I tell you about my preferred formatting style?",
-    "expected": "The agent reads the corresponding memory Markdown file in `<state_root>/` and retrieves the fact that the user prefers tabs over spaces."
+    "expected": "The agent reads the corresponding memory Markdown file in `<state_root>/` and retrieves the fact that the user prefers tabs over spaces.",
+    "bm25_prompt": "memory retrieve fact formatting style"
   },
   {
     "id": "mem-update",
     "scenario": "The user corrects an existing fact.",
     "prompt": "Actually, I've switched to using spaces instead of tabs.",
-    "expected": "The agent modifies the existing memory entry in `<state_root>/` to reflect the change, moving the old fact to a history block with a date."
+    "expected": "The agent modifies the existing memory entry in `<state_root>/` to reflect the change, moving the old fact to a history block with a date.",
+    "bm25_prompt": "memory update fact preference configuration"
   }
 ]

@@ -5,7 +5,8 @@
     "expected": "Apply trade-off analysis and system boundaries principles; present options with explicit trade-offs; consider scalability, data ownership, team structure; recommend based on constraints rather than giving a generic answer",
     "actual": "Decision: Start conditionally with a modular monolith, not microservices. The prompt does not establish domain ownership, independent deployment or scaling needs, or team operational maturity; retain clear catalog, checkout, orders, inventory, and payments modules, and extract a service only when a module has clear ownership, a stable contract, and a proven independent deployment or scaling need.\n\nThe database choice cannot be final from daily order volume alone. Decision-changing missing constraints are peak and burst traffic, data size and growth, read/write and query patterns, transaction and inventory-consistency invariants, latency and availability objectives, recovery objectives, geographic and replication needs, compliance and retention, team managed-service capability, analytics/search requirements, and integration, migration, and budget constraints.\n\nDatabase paths: PostgreSQL is the conditional default if checkout, payment, order, and inventory workflows require ACID transactions, relational constraints, and flexible operational queries. A managed document or key-value database is viable only if the workload is high-scale predictable key-based access, the data model is naturally denormalized, and the business explicitly accepts weaker cross-record transactional guarantees or redesigns the invariants. Add a separate search or analytics store only when measured query requirements justify it; it must not become a second writable source of truth.\n\nPrimary risk: prematurely choosing microservices or a datastore that cannot enforce order, inventory, and payment invariants, creating distributed coupling and reconciliation work. Mitigate through explicit module and entity ownership, transactional constraints where required, idempotency, and a measured load-test plan. Keep the first deployment reversible: begin with one authoritative store, version interfaces, and extract or migrate only after observed boundaries justify it. Verify rollout using user-journey SLOs and telemetry for order success/failure, latency, database saturation and locks, queue depth if asynchronous work is added, inventory/payment reconciliation mismatches, dependency errors, and trace correlation. Record the decision and its assumptions in an ADR such as `docs/adr/0001-modular-monolith-and-initial-datastore.md` before an irreversible data-ownership change.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "software architecture microservices monolith scalability database design"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Apply reliability patterns (circuit breakers, bulkhead, timeouts); identify the cascade failure mode; provide specific, measurable remediation steps and a validation plan; reference relevant anti-patterns",
     "actual": "Immediate objective: stop payment failures from exhausting shared dependencies while preserving payment correctness: no double charges, dropped payments, or false successes. Stabilize by identifying the bottleneck, pausing nonessential load, bounding deadlines, applying measured circuit-breaker and bulkhead policies, and exposing a safe fallback. Make submission an idempotent persisted state machine; treat ambiguous provider outcomes as pending and reconcile through provider lookup/webhooks. Validate with controlled latency, provider-error, database-exhaustion, restart, and duplicate-submission tests; promote only when error-budget, queue-depth, reconciliation, and payment-correctness signals meet the documented objective.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "scalability reliability circuit-breaker cascading-failure architecture"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Apply 'When to Use Event Sourcing' decision guide; evaluate audit requirements against event sourcing criteria; present trade-offs; consider team experience and access patterns; avoid golden hammer anti-pattern",
     "actual": "Decision: Do not adopt event sourcing solely to add compliance audit logging. Use immutable structured audit records with the existing transactional system unless event history must become the authoritative system of record and the replay/audit value justifies the added operational complexity. Define a compliance event catalog, emit audit records transactionally where feasible using an outbox, test that protected workflows emit the required records, reconcile audit-event counts with authoritative activity, and monitor ingestion lag, duplicates, and retention. Revisit event sourcing only if temporal reconstruction or replay becomes a core system requirement.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "event sourcing audit logging architecture design trade-offs"
   }
 ]

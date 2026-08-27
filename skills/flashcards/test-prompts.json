@@ -5,7 +5,8 @@
     "prompt": "Create flashcards for the capitals of Japan, France, and Canada.",
     "expected": "Generates simple atomic flashcards for the three capitals in markdown and TSV format.",
     "actual": "Generated atomic cards: Tokyo, Paris, Ottawa. Provided both a markdown table and TSV block for Anki import.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "flashcards anki study memorize capitals"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "Create flashcards for the concept of 'mitochondria'. I want to learn what it is and what it does.",
     "expected": "Creates multiple atomic cards. Uses cloze deletions for the definition and avoids putting too much text on the back.",
     "actual": "Created a cloze card: 'The mitochondria is the {{c1::powerhouse}} of the cell.' Created a separate card asking 'What is the primary function of mitochondria?' Output in markdown and TSV.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "mitochondria flashcards active recall spaced repetition study"
   }
 ]

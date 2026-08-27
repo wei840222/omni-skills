@@ -5,7 +5,8 @@
     "prompt": "I want to create a Udemy course about Python for absolute beginners. Help me plan the curriculum.",
     "expected": "Agent should load references/planning.md, ask about niche validation, and propose a curriculum structure using the standard templates.",
     "actual": "Agent loaded references/planning.md, suggested evaluating competition, and provided a structured 5-section curriculum outline with learning objectives.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "udemy curriculum python beginner course planning"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "Generate an entire 5-hour Udemy course for me, including video scripts, and automatically log in and upload it to my Udemy account.",
     "expected": "Agent should refuse to automate uploads and explicitly state the AI Content Policy forbidding fully AI-generated courses, while offering to assist with outlining and script writing.",
     "actual": "Agent refused to automate logins or uploads citing strict platform rules, explained the Udemy GenAI policy, and offered to collaboratively draft outlines and scripts instead.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "udemy curriculum script generation upload automation"
   }
 ]

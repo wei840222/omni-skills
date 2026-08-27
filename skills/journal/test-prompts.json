@@ -3,12 +3,14 @@
     "id": "journal-entry-basic",
     "scenario": "User wants to write a short journal entry about their day.",
     "prompt": "I had a really productive day today. I finally finished the project I was working on and had a good talk with my manager.",
-    "expected": "The agent captures the entry verbatim, stores it in the correct location under `<state_root>`, and responds briefly acting as a scribe without unnecessary editing or psychoanalysis."
+    "expected": "The agent captures the entry verbatim, stores it in the correct location under `<state_root>`, and responds briefly acting as a scribe without unnecessary editing or psychoanalysis.",
+    "bm25_prompt": "journal entry write reflection record"
   },
   {
     "id": "journal-state-location",
     "scenario": "User asks the agent to review their past entries.",
     "prompt": "Can you summarize what I've been writing about this past week?",
-    "expected": "The agent respects the `agent_read_scope` constraint, only opening files permitted, correctly resolves the `<state_root>` directory to look for entries, and provides a summary based only on what is stored locally."
+    "expected": "The agent respects the `agent_read_scope` constraint, only opening files permitted, correctly resolves the `<state_root>` directory to look for entries, and provides a summary based only on what is stored locally.",
+    "bm25_prompt": "journal summary weekly review entries themes"
   }
 ]

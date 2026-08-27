@@ -5,7 +5,8 @@
     "prompt": "Run a battery rescue mission for my iPhone. It's draining really fast.",
     "expected": "Provides exact step-by-step tap scripts to check Battery Health and background app refresh, following the tap-script-engine format.",
     "actual": "Here is your battery rescue mission:\\n- **Path:** Settings -> Battery\\n- **Action:** Check 'Battery Health & Charging'\\n- **Expected signal:** Capacity is > 80%\\n- **If not:** escalate to battery ladder.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "iphone battery drain optimization troubleshooting"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "My iPhone storage is completely full and I can't take photos, but I don't want to delete any of my messages.",
     "expected": "Suggests a Storage Liberation mission. Uses tap-script-engine format to check Optimize iPhone Storage and offload unused apps, without deleting messages.",
     "actual": "Starting Storage Liberation:\\n- **Path:** Settings -> General -> iPhone Storage\\n- **Action:** Tap 'Offload Unused Apps' -> Enable\\n- **Expected signal:** Free space increases\\n- **If not:** check Photos optimization.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "iphone storage optimization manage space free up"
   }
 ]

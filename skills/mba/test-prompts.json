@@ -4,13 +4,15 @@
     "prompt": "I want to open a coffee shop. What financial models should I prepare before signing a lease?",
     "expected": "Clarifies assumptions and covers startup costs, unit economics, break-even, cash-flow forecast, and sensitivity analysis with next validation steps.",
     "actual": "Structural dry run: prompt routes to finance; expected framework and checkpoint coverage verified.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "coffee shop financial model business plan lease analysis"
   },
   {
     "id": "saas-competition",
     "prompt": "How should I evaluate a crowded SaaS market before committing to a product idea?",
     "expected": "Uses market segmentation, Porter's Five Forces, differentiation, evidence gaps, and a validation plan rather than claiming a guaranteed outcome.",
     "actual": "Structural dry run: prompt routes to strategy and marketing; expected decision workflow and recovery from missing evidence verified.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "SaaS market analysis competitive evaluation business strategy product validation"
   }
 ]

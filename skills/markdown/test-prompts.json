@@ -5,7 +5,8 @@
     "prompt": "I have a markdown table where the pipes are showing up as literal text instead of a table. Fix it.",
     "expected": "The markdown agent should identify that the delimiter row is missing or mismatched, and provide a fixed table with correct spacing and delimiters.",
     "actual": "Agent successfully parsed the broken table, identified the missing delimiter row (`|---|---|`), and returned the corrected table rendering perfectly.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "markdown table syntax fix format"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "My Docusaurus build is failing when I write `<MyComponent>`. The logs say expected closing tag.",
     "expected": "The agent identifies the target as an MDX parser and explains that unclosed HTML-like tags will break the JSX parser. It provides the corrected syntax (either self-closing `<MyComponent />` or adding a closing tag).",
     "actual": "Agent correctly diagnosed the MDX parser error, explaining that MDX treats `<MyComponent>` as JSX, which requires strict closing tags. It returned the fixed code using `<MyComponent />`.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "markdown mdx syntax fix docusaurus component"
   }
 ]

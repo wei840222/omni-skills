@@ -5,7 +5,8 @@
     "prompt": "I'm the CEO of a Series A B2B SaaS startup. We have $4M in ARR, $12M in the bank, and are burning $500k/month. I want to build out our annual budget for next year. What are the key things I should focus on?",
     "expected": "Provide guidance on budgeting for a Series A SaaS startup, emphasizing scenario planning, focusing on 3-5 key drivers, avoiding false precision, and aligning hiring plans with revenue triggers.",
     "actual": "Based on your current metrics ($4M ARR, $12M cash, $500k monthly burn), you have exactly 24 months of runway, which puts you in a solid position for a Series A startup.\n\nFor your annual budget, I will load `references/planning.md` to guide you through the process.\n\nHere are the key focus areas for building your budget:\n\n1.  **Use a Rolling Forecast alongside the Annual Budget:** The annual budget serves as the board contract, but you need a rolling 12-month forecast as your operating truth to adapt to changes.\n2.  **Focus on 3-5 Key Drivers:** Don't build a 50-tab model. Identify the 3-5 core drivers of your business (e.g., new logo acquisition cost, net revenue retention, headcount growth) and build scenarios around them.\n3.  **Tie Hiring to Revenue Triggers:** Budgeted headcount is not approved headcount. Set up a system where requisition approvals are gated by hitting specific revenue milestones.\n4.  **Avoid False Precision:** Round your figures to thousands. Precision (like $1,247,332.18) signals false confidence and distracts from the strategic decisions.\n5.  **Plan for Contingencies with Triggers:** Don't just build a 'worst-case' scenario. Define explicit triggers (e.g., 'If ARR growth drops below X% by Date Y, we execute Plan Z').\n\nWould you like to start outlining those 3-5 key drivers?",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "saas budget forecast runway burn cash planning"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "We took on $2M in venture debt last year. We're about to miss our Q3 revenue target by 20%, which means we'll likely trip the minimum liquidity covenant next month. What should we do?",
     "expected": "Identify the situation as a Red Flag, escalate immediately, advise not to wait for the test date, and recommend proactively modeling the trip and negotiating with the lender.",
     "actual": "🚨 **RED FLAG: Impending Covenant Breach**\n\nTripping a covenant is a critical event. Your facility can be pulled, and it constitutes a technical default.\n\n**Immediate Action Required:**\n\n1.  **Do Not Wait for the Test Date:** Hiding or hoping to miraculously close the gap before the test date is the worst strategy. Lenders hate surprises more than bad news.\n2.  **Model the Trip:** We need to update the 13-week cash flow forecast immediately (I can load `references/cash.md` and `references/debt.md` to help structure this). We must know exactly how deep the breach will be and how long it will last.\n3.  **Pre-negotiate with the Lender:** You (and potentially your legal counsel) must proactively contact the lender *before* the test date. Present the updated model, explain *why* the miss happened, and propose a cure plan or a waiver request.\n\nThis is a situation where I advise, but I do not decide. You must involve your legal counsel and potentially your board. Should we start by mapping out the cash impact over the next 13 weeks?",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "saas venture debt liquidity covenant forecast runway"
   }
 ]

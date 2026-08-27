@@ -5,7 +5,8 @@
     "expected": "Read <state_root>/memory.md for context, update <state_root>/rounds.md, analyze GIR/FIR/putting data, identify weaknesses, give specific practice recommendations",
     "actual": "Read existing <state_root>/memory.md: Handicap Index 14.2; intermediate skill level; home course Pine Valley; driver miss: slice; first putts tend to finish short. Because the user asked to log the round, record 87 (+15), 9/18 GIR, 8/14 FIR, and 34 putts in <state_root>/rounds.md. This one round is a baseline: 50% GIR and 57.1% FIR are not a trend. Practice: make 20 lag putts from 35 feet, aiming to finish inside 3 feet, then log approach distance and miss direction for future analysis. No broader historical conclusion is made without enough saved rounds.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "golf log round score analysis handicap"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Read existing <state_root>/memory.md for context, analyze putting trends, give specific putting practice suggestions, and leave persistent records unchanged because the user did not request a save",
     "actual": "Read existing <state_root>/memory.md: first putts tend to finish short and the practice focus includes lag putting. The five values average 2.26 putts/GIR and range from 2.1 to 2.4 (spread 0.3). Practice 20 putts from 35 feet, aiming to finish inside 3 feet; repeat at 40 and 50 feet, recording proximity for the next five rounds. The user requested practice advice, not a save, so no persistent record is changed.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "golf putting practice statistics analysis improvement"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Read existing <state_root>/memory.md, calculate an educational Handicap Index estimate per the fewer-than-20-score table, explain the calculation, distinguish it from the official index, and ask before saving the estimate",
     "actual": "Read existing <state_root>/memory.md: current Handicap Index 14.2. With the five prior and three new Score Differentials, sort 13.0, 13.7, 13.8, 14.0, 14.2, 14.8, 15.1, 15.7. For 7–8 scores, average the lowest two with no adjustment: (13.0 + 13.7) / 2 = 13.35, rounded to 13.4. This is an educational estimate; an authorized posting system determines the official Handicap Index. Would the user like to save 13.4 in <state_root>/memory.md? No record is changed until confirmed.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "golf handicap update score differential"
   }
 ]

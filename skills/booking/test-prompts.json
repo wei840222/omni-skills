@@ -4,20 +4,23 @@
     "prompt": "Find a 2-bedroom Airbnb in Lisbon for next weekend under €150/night total for 2 adults.",
     "expected": "Confirms dates/party, compares 3+ platforms, quotes all-in totals with fee breakdown, shortlists 3-5 options with cancellation and location context.",
     "actual": "",
-    "pass": false
+    "pass": false,
+    "bm25_prompt": "book accommodation Airbnb Lisbon hotel search"
   },
   {
     "id": 2,
     "prompt": "Book a cheap hostel in Berlin for tonight.",
     "expected": "Checks Hostelworld and direct hostel sites, compares live totals, states cancellation policy, and stops at a checkout checkpoint for user confirmation before payment.",
     "actual": "",
-    "pass": false
+    "pass": false,
+    "bm25_prompt": "book hostel berlin accommodation cheap tonight"
   },
   {
     "id": 3,
     "prompt": "I need a one-month furnished place in Barcelona under €1800 all-in for remote work.",
     "expected": "Uses monthly rates instead of nightly×30, checks long-stay platforms, verifies wifi/review patterns for workers, and presents total monthly cost with deposit/utilities caveats.",
     "actual": "",
-    "pass": false
+    "pass": false,
+    "bm25_prompt": "booking accommodation barcelona monthly rental lodging"
   }
 ]

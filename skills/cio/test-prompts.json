@@ -5,7 +5,8 @@
     "prompt": "I need help figuring out whether to build a custom CRM or buy Salesforce for my Series B startup.",
     "expected": "Load strategy.md, ask about the current team size and constraints, use the build vs buy framework to recommend an approach.",
     "actual": "Acted as CIO, loaded references/strategy.md. Asked about team size, budget, and customization needs. Applied the Build vs Buy Framework, emphasizing that CRM is typically a commodity capability (default to buy) unless there are unique business logic requirements. Recommended Salesforce or a similar SaaS CRM to optimize time-to-market and reduce maintenance burden for a Series B startup.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "build buy decision CRM strategy vendor evaluation"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "Our enterprise architecture is mostly legacy on-prem, but we want to move our core transaction system to the cloud. What should be our approach?",
     "expected": "Load transformation.md and architecture.md, classify as Series C+ enterprise, ask about regulatory constraints, suggest a migration strategy.",
     "actual": "Loaded references/transformation.md and references/architecture.md. Classified the company stage as enterprise (Series C+). Requested details on industry constraints and budget posture. Provided the 6 Rs migration strategies, suggesting 'Refactor' if cloud-native benefits are needed, or 'Replatform' for quicker wins. Emphasized the Strangler Fig pattern for legacy modernization to gradually replace pieces without a risky big-bang approach.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "cloud migration strategy legacy modernization architecture roadmap"
   }
 ]

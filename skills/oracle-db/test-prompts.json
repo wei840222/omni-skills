@@ -3,12 +3,14 @@
     "id": 1,
     "scenario": "happy path pagination",
     "prompt": "Write a query to get the top 10 highest paid employees in Oracle 19c.",
-    "expected": "Uses FETCH FIRST 10 ROWS ONLY instead of ROWNUM."
+    "expected": "Uses FETCH FIRST 10 ROWS ONLY instead of ROWNUM.",
+    "bm25_prompt": "oracle sql query top 10 employees 19c"
   },
   {
     "id": 2,
     "scenario": "complex pl/sql block",
     "prompt": "Create a PL/SQL block that iterates through a cursor of departments and updates their budget, with exception handling.",
-    "expected": "Includes proper BEGIN/END block, cursor FOR loop, and EXCEPTION block."
+    "expected": "Includes proper BEGIN/END block, cursor FOR loop, and EXCEPTION block.",
+    "bm25_prompt": "oracle plsql cursor loop update exception"
   }
 ]

@@ -5,7 +5,8 @@
     "expected": "Should explain the overflow cause (child wants more space than available), suggest Expanded/Flexible or making axis scrollable, and reference layout.md for deeper understanding",
     "actual": "A `RenderFlex overflowed by 24 pixels` error means the `Column`’s children collectively need more vertical space than the parent can provide. First identify the child that should absorb the remaining bounded space: wrap it in `Expanded`, or use `Flexible` if it may be smaller than its allotted share. If the screen’s content is legitimately taller than the viewport—such as a form or settings page—make the vertical axis scrollable with `SingleChildScrollView`; for a list-shaped screen, use a lazy `ListView`. Do not use `shrinkWrap: true` as a generic overflow fix, because it eagerly lays out all list children. See `references/layout.md` for the constraint model and the overflow decision table.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "flutter RenderFlex overflow Column fix"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Should identify image decode size issue (width × height × 4 bytes), recommend cacheWidth/cacheHeight, mention Impeller's role, and reference performance.md",
     "actual": "The likely problem is decoded image memory, not the compressed network-file size. A bitmap costs `width × height × 4` bytes, so a 4000×3000 image occupies about 48 MB after decoding even if its JPEG download is small. Use `ListView.builder` for a long feed, decode each image near its rendered dimensions with `cacheWidth` or `cacheHeight`, and request a resized server variant when available. Profile on a physical device with `flutter run --profile` to distinguish UI, raster, and memory pressure. Impeller can eliminate first-run shader-compilation jank on supported platforms, but it does not reduce decoded image memory; `references/performance.md` has the image-cache, list, and raster-triage details.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "flutter listview image memory jank performance"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Should explain there's no single best answer, mention repo consistency matters most, note that setState is fine for widget-local state, and reference architecture.md for detailed comparison",
     "actual": "There is no universal best state-management library. Start with ownership: use `setState` for state owned by one widget, such as a toggle, controller-backed form field, or local animation. When sibling subtrees or routes share state, use the convention already established in the repository—Provider, Riverpod, or Bloc—rather than introducing a second pattern. For a greenfield app, choose one deliberately based on the team’s desired conventions and keep its watch/read/listen discipline consistent: watch during build, read in callbacks, and listen for navigation, dialogs, and other side effects. `references/architecture.md` provides the ownership table and Provider/Riverpod/Bloc-specific trade-offs.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "flutter state management provider riverpod bloc comparison"
   }
 ]

@@ -4,20 +4,23 @@
     "prompt": "My history final is tomorrow and I barely studied. What should I do tonight?",
     "expected": "Use the <48-hour countdown route: identify high-yield gaps with retrieval, prioritize missed material, avoid new broad coverage, and preserve sleep.",
     "actual": "Dry run: routes to references/exam-countdown.md, prioritizes a gap map and retrieval-only practice, and preserves the final night's sleep.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "study schedule exam cramming retrieval practice revision"
   },
   {
     "id": "multi-course-procrastination",
     "prompt": "I have a chemistry final in two weeks and a math midterm in three weeks. I keep procrastinating; make me a plan.",
     "expected": "Load focus and scheduling guidance, establish a small entry task, allocate by stakes and weakness, and schedule spaced retrieval with problem practice.",
     "actual": "Dry run: selects references/focus.md and references/scheduling.md, starts with a small retrieval task, then allocates dated sessions by priority and weakness.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "study plan exam schedule procrastination chemistry math"
   },
   {
     "id": "state-migration",
     "prompt": "I used this skill before and my old study files are in ~/studying. Can you migrate them?",
     "expected": "Request confirmation before moving legacy state, migrate to <state_root>/studying only after confirmation, and report the migration.",
     "actual": "Dry run: identifies the legacy path, requests confirmation before migration, and names the target state location.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "migrate study files directory import"
   }
 ]

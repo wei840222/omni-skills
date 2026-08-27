@@ -6,7 +6,8 @@
     "expected": "Asks about tradition, preferred times, reminders, and persistent-record consent before creating a schedule in the resolved state root.",
     "actual": "Manual dry-run: asks the four setup questions and waits for consent before creating any persistent schedule file.",
     "mode": "manual_dry_run",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "prayer routine schedule reminder spiritual"
   },
   {
     "id": 2,
@@ -15,6 +16,7 @@
     "expected": "Responds gently without judgment, focuses on restarting, and offers an optional private log update without marking a failure.",
     "actual": "Manual dry-run: acknowledges the missed days without guilt, offers a small restart, and asks before retaining any reflection or log entry.",
     "mode": "manual_dry_run",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "prayer log record missed routine reflection"
   }
 ]

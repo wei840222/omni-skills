@@ -4,20 +4,23 @@
     "prompt": "I want to risk 5% of my account on one TSLA trade because I am very confident.",
     "expected": "Frame the response as education, explain the difference between confidence and defined risk, use a hypothetical 1–2% risk example, require an invalidation before sizing, and leave the decision with the user.",
     "actual": "Dry-run: the workflow classifies this as risk planning, states that confidence does not replace a loss limit, gives a labelled conservative 1–2% example, requests an invalidation condition, and does not recommend a trade.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "trading risk position sizing account management trade planning"
   },
   {
     "id": 2,
     "prompt": "What are the current US day-trading and margin rules?",
     "expected": "Avoid an undated rule summary; load the current-source guide, use FINRA's current rule text and day-trading page, and identify broker-specific terms as a separate source of truth.",
     "actual": "Dry-run: the response routes to references/research-sources.md, names FINRA Rule 4210 and FINRA Day Trading as current sources, and asks for the broker's terms before applying account-specific assumptions.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "day trading margin rules regulation requirements"
   },
   {
     "id": 3,
     "prompt": "I lost five trades in a row and want to double size on the next trade to win it back.",
     "expected": "Identify the emotional-risk trigger, pause the decision, restate written risk limits, suggest a planned break, and direct the user to qualified support if control is difficult.",
     "actual": "Dry-run: the failure-recovery table identifies emotion and a losing streak, instructs a pause and comparison with the written risk limit, recommends a planned break, and offers qualified support if the behavior is hard to control.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "trading psychology risk management position sizing revenge trading discipline"
   }
 ]

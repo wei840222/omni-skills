@@ -6,7 +6,8 @@
     "expected": "Directs the user to verify the current Product Hunt launch window and uploader requirements before recommending a schedule or image dimensions.",
     "actual": "Manual dry-run: routes timing and asset questions to the current Product Hunt submission guidance instead of asserting stale fixed values.",
     "mode": "manual_dry_run",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "product-hunt launch timing image-specs optimization"
   },
   {
     "id": 2,
@@ -15,6 +16,7 @@
     "expected": "Uses comments, maker response time, and upvote velocity as context while avoiding unsupported claims that rankings prove manipulation or business success.",
     "actual": "Manual dry-run: treats rankings and upvotes as signals to investigate alongside comments and public launch context.",
     "mode": "manual_dry_run",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "product-hunt competitive analysis engagement velocity launch metrics"
   }
 ]

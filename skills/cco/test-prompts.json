@@ -5,7 +5,8 @@
     "prompt": "I'm the founder of a Series A B2B SaaS company and our net revenue retention has dropped to 95%. How should I structure my CS team to fix this?",
     "expected": "The agent adopts a CCO persona, loads `references/operations.md` or `references/retention.md`, and advises on CS team structure for a Series A company, emphasizing the need to diagnose the churn vs expansion gap.",
     "actual": "As a virtual CCO, I recommend we first segment your customer base. At Series A, you should transition from founder-led CS to having a CS Manager and 2-3 CSMs. A 95% NRR means churn is outpacing your expansion. Let's look at your health scoring and expansion playbooks to drive upsells.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "customer success retention strategy churn expansion revenue team structure"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "One of our largest enterprise clients just told us their executive sponsor is leaving next month, and their usage dropped 40% over the last 30 days. They have a renewal in 90 days. What's the immediate play?",
     "expected": "The agent identifies this as a critical health warning, loads `references/health.md` and `references/retention.md`, and suggests an immediate Red Account Intervention (Save Play) involving executive outreach and multi-threaded relationship building.",
     "actual": "This is a critical situation. Based on our early warning signals, a departing sponsor and 40% usage drop means immediate action is required. We must initiate the Red Account Intervention playbook: first, get your executives to reach out to their remaining leadership to establish new relationships, and determine the root cause of the usage drop.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "customer success retention churn expansion strategy"
   }
 ]

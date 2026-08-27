@@ -5,7 +5,8 @@
     "prompt": "I changed example.com to a new IP, but some users still reach the old server. What should I check?",
     "expected": "Distinguishes authoritative DNS from resolver caches, checks TTL and record type, and avoids changing records repeatedly before comparing answers.",
     "actual": "Identify the authoritative DNS answer first, then query the affected resolver and compare its TTL and address. Confirm that the intended A or AAAA record changed, account for cache expiry, and test the service at the intended address before making another DNS change.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "dns propagation cache ttl lookup connectivity"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "prompt": "Our HTTPS service is down. How do I tell whether this is DNS, routing, firewall, or the application?",
     "expected": "Uses an ordered, protocol-aware path from DNS through TCP/TLS to local listener and route checks, with no configuration change before evidence.",
     "actual": "Confirm the hostname, IPv4 or IPv6 address family, TCP port 443, and client location. Resolve DNS, test TCP or HTTPS with a verbose client, trace the route if the connection fails, then inspect the service listener and firewall rule that correspond to the observed failure point.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "diagnose network connectivity dns routing firewall https"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "prompt": "The site works for IPv4 users but not IPv6 users. What should I investigate?",
     "expected": "Separates IPv6 DNS, routing, listener, and firewall checks from IPv4 assumptions.",
     "actual": "Query the AAAA record, test the IPv6 address from an IPv6-capable client, trace the IPv6 route, and verify that the service listens on IPv6 with matching firewall policy. Keep the IPv4 path as a comparison, not as proof that the IPv6 path is correct.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "ipv6 connectivity troubleshooting dns routing firewall"
   }
 ]

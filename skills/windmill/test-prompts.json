@@ -1,4 +1,18 @@
 [
-  {"id": 1, "prompt": "Create a python script in Windmill that prints hello world.", "expected": "Creates a script with a correct main function signature and uses top-level imports when dependencies are needed.", "actual": "I will create a Python script with a main function and keep any dependency imports at the top level for Windmill to resolve.", "pass": true},
-  {"id": 2, "prompt": "Create a flow that runs script A and script B sequentially, and pass the output of A to B.", "expected": "Loads references/advanced.md, configures sequential flow correctly, accesses output of A.", "actual": "I will load the advanced information to check flow execution rules, then create the flow. The output of A is accessed using results.A.", "pass": true}
+  {
+    "id": 1,
+    "prompt": "Create a python script in Windmill that prints hello world.",
+    "expected": "Creates a script with a correct main function signature and uses top-level imports when dependencies are needed.",
+    "actual": "I will create a Python script with a main function and keep any dependency imports at the top level for Windmill to resolve.",
+    "pass": true,
+    "bm25_prompt": "windmill python script create automation"
+  },
+  {
+    "id": 2,
+    "prompt": "Create a flow that runs script A and script B sequentially, and pass the output of A to B.",
+    "expected": "Loads references/advanced.md, configures sequential flow correctly, accesses output of A.",
+    "actual": "I will load the advanced information to check flow execution rules, then create the flow. The output of A is accessed using results.A.",
+    "pass": true,
+    "bm25_prompt": "windmill flow script automation workflow"
+  }
 ]

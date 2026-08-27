@@ -1,4 +1,18 @@
 [
-  {"id": 1, "prompt": "I had dinner with Carlos tonight.", "expected": "Updates the Carlos friend file with the interaction.", "actual": "Updated <state_root>/inner-circle/carlos-martinez.md with the dinner interaction.", "pass": true},
-  {"id": 2, "prompt": "Who in my inner circle haven't I talked to recently?", "expected": "Lists friends in the inner circle with old interaction dates.", "actual": "Listed Carlos and Ana from <state_root>/inner-circle/.", "pass": true}
+  {
+    "id": 1,
+    "prompt": "I had dinner with Carlos tonight.",
+    "expected": "Updates the Carlos friend file with the interaction.",
+    "actual": "Updated <state_root>/inner-circle/carlos-martinez.md with the dinner interaction.",
+    "pass": true,
+    "bm25_prompt": "track friend interaction relationship maintenance"
+  },
+  {
+    "id": 2,
+    "prompt": "Who in my inner circle haven't I talked to recently?",
+    "expected": "Lists friends in the inner circle with old interaction dates.",
+    "actual": "Listed Carlos and Ana from <state_root>/inner-circle/.",
+    "pass": true,
+    "bm25_prompt": "friend interaction track relationship maintenance reminder"
+  }
 ]

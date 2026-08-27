@@ -5,7 +5,8 @@
     "prompt": "Write a short, casual reply to a friend who sent a funny video, using Taiwanese Traditional Chinese.",
     "expected": "Uses Taiwan vocabulary such as 影片 and a warm, natural casual tone without overloading slang.",
     "actual": "哈哈哈，這影片也太好笑了吧 XD！你是在哪裡找到的啦，我快笑死耶。",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "繁體中文 台灣用語 社交回覆 在地化 語氣調整"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "prompt": "Write a short, casual message confirming a meetup at the metro station, using Hong Kong Traditional Chinese.",
     "expected": "Uses Hong Kong vocabulary such as 港鐵 or 地鐵 and preserves a natural Hong Kong casual register.",
     "actual": "冇問題，陣間港鐵站見啦！",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "香港 繁體中文 地鐵 見面 訊息"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "prompt": "Write a brief formal update for Taiwan customers saying that the software maintenance is complete.",
     "expected": "Uses Traditional Chinese and Taiwan vocabulary such as 軟體 while maintaining a professional, non-slang register.",
     "actual": "您好，系統維護已完成，軟體服務現已恢復正常。感謝您的耐心等候。",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "繁體中文 軟體維護 通知 台灣 格式化"
   }
 ]

@@ -5,7 +5,8 @@
     "expected": "Produce a respectful mainland-Simplified Chinese work WeChat message that asks directly for leave, gives the dental-appointment context, uses 您, and avoids invented facts.",
     "actual": "语言：以下使用中国大陆简体中文。\n\n您好，我想申请下周一请假一天，因有牙科预约。工作安排：[placeholder]。烦请您批准，谢谢您",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "WeChat 微信 boss leave request Mandarin writing"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Produce a formal mainland-Simplified Chinese email with a clear subject, respectful 您 address, a business-email structure, and placeholders instead of unprovided product claims.",
     "actual": "语言：以下使用中国大陆简体中文。\n\n主题：[产品名称]产品介绍\n\n尊敬的[客户称谓]：\n\n您好！\n\n我是[公司名称]的[姓名/职位]。现向您介绍我们的新产品：[产品名称]。\n\n[产品定位/适用场景]。\n\n产品信息：\n— [产品特点/功能]\n— [产品特点/功能]\n— [产品特点/功能]\n\n如您希望进一步了解，[后续安排/演示方式]。\n\n此致\n敬礼！\n\n[姓名]\n[职位]\n[公司名称]\n[联系方式]",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "write formal mandarin business email"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "State the assumed variant when it is not specified, then produce a natural social-post draft that uses placeholders for unprovided venue, order, and first-hand-experience details, without an unsupported audience CTA or unrequested hashtags.",
     "actual": "默认按中国大陆简体中文、小红书日常口吻起草：\n\n台北［咖啡馆名称］｜一次尝试记录\n\n这次去台北的［咖啡馆名称］，点了［饮品／餐点］。\n\n店里的［环境／座位／音乐］是［具体观察］，［饮品／餐点］的味道［实际感受］。\n\n这次最让我［感受］的是［具体细节］。［是否会再去／是否推荐］，还要看［依据］。",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "小红书 撰写 文案 繁体中文 台湾 咖啡厅"
   }
 ]

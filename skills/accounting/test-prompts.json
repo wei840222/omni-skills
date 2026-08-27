@@ -4,13 +4,15 @@
     "prompt": "How do I record the purchase of a $5000 laptop for my business?",
     "expected": "Provide the double-entry bookkeeping for purchasing an asset (Debit Equipment $5000, Credit Cash/Accounts Payable $5000) and explain capitalization vs. expense.",
     "actual": "To record the purchase of a $5,000 laptop, you should debit your Equipment (or Computer Equipment) asset account for $5,000 to increase your assets, and credit your Cash (or Accounts Payable if bought on credit) for $5,000 to reflect the payment or obligation. Since the amount ($5,000) is typically above the standard capitalization threshold (often $2,500), this should be capitalized as an asset and depreciated over its useful life rather than expensed immediately.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "accounting journal entry bookkeeping asset depreciation"
   },
   {
     "id": 2,
     "prompt": "Under IFRS 16, how should a lessee account for a 5-year office lease with annual payments of $100k?",
     "expected": "Explain the recognition of a Right-of-Use (ROU) asset and lease liability, including discounting the future payments.",
     "actual": "Under IFRS 16, a lessee must recognize a Right-of-Use (ROU) asset and a corresponding lease liability at the commencement date of the lease. The lease liability is measured at the present value of the future lease payments ($100k annually for 5 years), discounted using the interest rate implicit in the lease or the lessee's incremental borrowing rate. The ROU asset is initially measured at the amount of the lease liability, plus any initial direct costs or prepaid lease payments. Over the 5-year term, you will depreciate the ROU asset (typically straight-line) and recognize interest expense on the lease liability.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "IFRS 16 lease accounting lessee journal entry"
   }
 ]

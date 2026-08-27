@@ -4,20 +4,23 @@
     "prompt": "Write Docker Compose labels that route example.com to an app on port 8080 through Traefik with HTTPS using the letsencrypt resolver.",
     "expected": "Includes an enabled Docker router with Host(`example.com`), websecure, TLS certresolver, and the explicit 8080 service port.",
     "actual": "Dry-run: the skill's route sequence and label reference require the Host rule, websecure entrypoint, tls.certresolver, and loadbalancer.server.port=8080.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "traefik docker compose labels https letsencrypt routing"
   },
   {
     "id": 2,
     "prompt": "Traefik returns 502 for a multi-port container. What should I check?",
     "expected": "Checks the explicit service port and progresses through router, network, TLS, and logs without assuming a single cause.",
     "actual": "Dry-run: the troubleshooting sequence checks router/service selection, Docker network, explicit upstream port, TLS prerequisites, then debug logs.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "traefik 502 docker labels loadbalancer port"
   },
   {
     "id": 3,
     "prompt": "How do I secure a Traefik dashboard with BasicAuth in docker-compose?",
     "expected": "Explains using a BasicAuth middleware and escaping dollar signs in htpasswd hashes as $$ in Compose.",
     "actual": "Dry-run: the middleware section directs use of BasicAuth and specifies writing $ as $$ in docker-compose.yml.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "traefik dashboard basicauth docker-compose middleware security"
   }
 ]

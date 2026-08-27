@@ -4,13 +4,15 @@
     "prompt": "I am a software engineer looking to move to Singapore. What is the typical salary for a senior SWE and what visa would I need?",
     "expected": "Explains that salary and Employment Pass eligibility are time-sensitive; consults the visa and tech references and verifies current Ministry of Manpower requirements before advising.",
     "actual": "I would use the tech and visa references for planning context, then verify the current Employment Pass eligibility and salary thresholds with the Ministry of Manpower because they vary by sector, age, and policy period. I would not promise eligibility from a salary estimate alone.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "Singapore software engineer salary visa requirements"
   },
   {
     "id": 2,
     "prompt": "I am visiting Singapore for 3 days. What are the strict laws I should be aware of, like about chewing gum and jaywalking?",
     "expected": "Highlights strict drug enforcement, advises checking current customs guidance for regulated goods including gum products, and directs the visitor to follow marked crossings and current local rules.",
     "actual": "When visiting Singapore, keep controlled substances and unfamiliar packages out of your plans, check current customs guidance before carrying regulated items including gum products, and use marked crossings. Follow current smoking, alcohol-area, and local public-order rules; verify specific penalties with the relevant authority because they can change.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "singapore travel laws regulations prohibited items fines"
   }
 ]

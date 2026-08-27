@@ -5,7 +5,8 @@
     "expected": "Should explain that filterableAttributes and sortableAttributes must be declared BEFORE adding documents, provide API endpoint examples, and warn about reindex triggers.",
     "actual": "Tested with Meilisearch v1.11.2. Created index 'products' with primaryKey 'id'. Set filterableAttributes: [category, price, brand] and sortableAttributes: [price, created_at] via PATCH /indexes/products/settings BEFORE adding documents. Added 3 test documents. Verified filter 'category = electronics' returned 2 hits. Skill correctly emphasizes declaring attributes first to avoid reindex.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "meilisearch index configuration filterable sortable attributes"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "expected": "Should identify that 'category' must be added to filterableAttributes first, explain the silent failure behavior, and provide the fix.",
     "actual": "Tested with Meilisearch v1.11.2. Filtered on undeclared attribute 'nonexistent_field'. Result: Error response with code 'invalid_search_filter', message: 'Index `products`: Attribute `nonexistent_field` is not filterable. Available filterable attribute patterns are: `brand`, `category`, `price`.' Skill CORRECTED: original claimed 'silently return empty — no error', but current Meilisearch returns explicit error. Updated skill to reflect actual behavior.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "meilisearch filterable attributes index settings troubleshooting"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "expected": "Should cover MEILI_ENV=production, master key requirement (16+ bytes), creating search-only API keys, and snapshot scheduling.",
     "actual": "Tested with Meilisearch v1.11.2. Created search-only API key via POST /keys with actions: [search], indexes: [products], expiresAt: 2026-12-31T23:59:59Z. Response included generated key (64-char hex), uid, and timestamps. Verified master key 'masterKeyForTesting123' is 24 bytes (≥16 requirement). Skill correctly covers MEILI_ENV=production, master key requirement, API key scoping, and snapshot scheduling.",
     "pass": true,
-    "eval_mode": "full_test"
+    "eval_mode": "full_test",
+    "bm25_prompt": "meilisearch production security api-key configuration environment-variables"
   }
 ]

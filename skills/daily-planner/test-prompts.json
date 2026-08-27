@@ -5,7 +5,8 @@
     "prompt": "Plan my day. I have a meeting at 10am and need to finish the marketing report today.",
     "expected": "A time-blocked schedule with the Top 3 priorities highlighted (including the marketing report), and buffer time scheduled.",
     "actual": "Here is your morning briefing and time-blocked schedule for today:\n\n🎯 **Top 3 Priorities:**\n1. Finish the marketing report (Must happen today)\n2. Attend 10:00 AM meeting\n3. [Open for another priority]\n\n🗓️ **Time-Blocked Schedule:**\n- 08:30 AM - 09:30 AM: Deep Work - Start marketing report\n- 09:30 AM - 10:00 AM: Buffer / Admin (prep for meeting)\n- 10:00 AM - 11:00 AM: Meeting\n- 11:00 AM - 12:30 PM: Deep Work - Finish marketing report\n- 12:30 PM - 01:30 PM: Lunch / Break\n- 01:30 PM onwards: [Open for other tasks]",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "daily planner time blocking schedule task tracking"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "I promised to send the proposal to John by tomorrow, and review the code for Sarah by EOD today. Am I overcommitted?",
     "expected": "Agent tracks both commitments, alerts on deadline proximity, and analyzes if the schedule is too packed.",
     "actual": "I have logged these commitments:\n1. **Send proposal to John** - Due: Tomorrow\n2. **Review code for Sarah** - Due: End of Day (Today)\n\nLooking at your schedule, you have a tight deadline for the code review. I recommend a reminder two hours before the end of the day; confirm if you want me to schedule it. You are not severely overcommitted yet, but we should prioritize the code review for this afternoon.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "schedule time-blocking workload capacity prioritization"
   }
 ]

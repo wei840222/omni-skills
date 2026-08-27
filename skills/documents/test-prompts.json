@@ -4,20 +4,23 @@
     "prompt": "Where is my lease agreement?",
     "expected": "Resolve <state_root>, check index.md then property/lease.md, report the location or offer to catalog if missing.",
     "actual": "",
-    "pass": false
+    "pass": false,
+    "bm25_prompt": "lease agreement document search"
   },
   {
     "id": "doc_2",
     "prompt": "When does my passport expire?",
     "expected": "Read identity/passport.md; if expiry is within 6 months, flag renewal risk and note destination rules may need remaining validity near arrival.",
     "actual": "",
-    "pass": false
+    "pass": false,
+    "bm25_prompt": "passport expiry document query"
   },
   {
     "id": "doc_3",
     "prompt": "I just renewed my driver's license. Update my records.",
     "expected": "Confirm the new expiry details with the user, update identity/drivers-license.md and index.md only after confirmation, keep full sensitive numbers as references.",
     "actual": "",
-    "pass": false
+    "pass": false,
+    "bm25_prompt": "update driver license document record"
   }
 ]

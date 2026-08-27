@@ -5,7 +5,8 @@
     "prompt": "I need to store user profiles and their order history. The schema is well defined and requires complex joins.",
     "expected": "Recommends PostgreSQL based on the need for joins and complex queries.",
     "actual": "PostgreSQL is recommended because you need complex joins for user profiles and order history.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "relational database schema sql join storage"
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "prompt": "Users will upload large video files to the platform. How should I store them?",
     "expected": "Recommends object storage (like S3/R2) using presigned URLs and explicitly warns against storing user uploads on local application instances.",
     "actual": "Use Object Storage (e.g. S3, R2, GCS) for user uploaded media. Object storage scales infinitely, is cheaper, and is ideal for immutable blobs like videos. Ensure you use presigned URLs to handle uploads directly to the cloud storage instead of routing large video files through your app servers. Never store user uploads only on local disk.",
-    "pass": true
+    "pass": true,
+    "bm25_prompt": "video storage object cloud architecture CDN"
   }
 ]
