@@ -1,0 +1,19 @@
+[project]
+name = "omni-skills-experiments"
+version = "0.1.0"
+description = "SkillRouter replication and embedding analysis experiments for omni-skills"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "marimo>=0.24.0",
+    "matplotlib>=3.10.0",
+    "numpy>=2.0.0",
+    "pandas>=2.2.0",
+    "pyyaml>=6.0.2",
+    "scikit-learn>=1.6.0",
+    "seaborn>=0.13.2",
+    "sqlite-vec>=0.1.9",
+]
+
+[tool.uv]
+package = false
