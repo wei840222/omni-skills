@@ -1,0 +1,7 @@
+## Where Experts Disagree
+
+- **Wrapping.** Three real schools: no hard wrap (the editor wraps; `git diff` shows a whole paragraph as one changed line), hard wrap at 80 (clean in terminals, every edit reflows the block), and one sentence per line (surgical diffs, odd-looking source). The frontier is who reviews the file: prose reviewed line-by-line in pull requests → `line_wrap: sentence`; prose nobody diffs → `none`. Consistently apply only one wrapping style per repository.
+- **Raw HTML.** Purists keep documents portable; pragmatists want `<details>`, column widths, and merged cells. The frontier is the target set, not taste: Hugo drops raw HTML by default, PyPI and GitHub sanitize it to an allowlist, MDX re-parses it as JSX. HTML is safe only when every target you publish to renders it.
+- **Lazy ordered lists (`1.` for every item).** Clean diffs and no renumbering when items move, at the cost of source that reads wrong to a human. Frontier: whether the source is read by people who are not editing it (docs in a repo → lazy is fine; a file that is itself the artifact → number it).
+- **Line-length linting (MD013).** Enforced, it makes prose reviewable in any diff tool; enforced, it also fights every URL and table. The common resolution is on for prose, off for tables, code, and headings — the rule takes those exclusions as options.
+- **Docs in the repo vs a docs platform.** In-repo Markdown reviews with the code and rots less; a platform gives non-engineers an editor. Frontier: who writes the majority of the pages.
