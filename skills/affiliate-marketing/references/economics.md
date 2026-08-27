@@ -23,7 +23,7 @@ Use this before changing commissions or scaling affiliate volume.
 
 ## Ceiling Rule
 
-Never recommend commission increases without checking:
+Always verify the following metrics before recommending commission increases:
 - gross margin
 - assisted vs incremental conversion
 - refund or clawback rate

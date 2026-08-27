@@ -12,6 +12,7 @@ Check all of these before traffic goes live:
 - landing page message matches the promo
 - attribution window and source rules are documented
 - postbacks or conversion events are firing as expected
+- disclosure compliance ensures clear communication of financial relationships (e.g. FTC guidelines in the US).
 
 ## Attribution Conflict Areas
 
@@ -20,16 +21,17 @@ Check all of these before traffic goes live:
 - CRM or paid retargeting closes the same user later
 - cross-device gaps hide the true source
 - creator code and link disagree
+- browser extensions inject affiliate codes at checkout or forcefully set cookies.
 
 Document a conflict rule before volume scales.
 
 ## Compliance Gates
 
 Escalate for review when the promotion includes:
-- disclosure-sensitive endorsements
+- disclosure-sensitive endorsements (ensure financial relationships are clearly disclosed)
 - hard earnings or health claims
 - trademark use in ads or domains
 - email or SMS outreach with consent risk
-- geo-specific restricted promotions
+- geo-specific restricted promotions (e.g., specific FTC endorsement guidelines in the US, ASA rules in the UK)
 
-Do not hide commercial relationships or approve vague disclosure language.
+Verify that commercial relationships are visible and disclosure language is explicitly clear before approval.

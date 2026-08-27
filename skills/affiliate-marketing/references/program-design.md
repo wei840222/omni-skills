@@ -13,7 +13,7 @@ Use this before recruiting or approving affiliates.
 | Restricted traffic sources | prevents brand abuse, spam, and channel conflict |
 | Clawback policy | protects margin from refunds, fraud, and fake leads |
 
-Do not open recruitment while these are undefined.
+Ensure all core choices are defined before opening recruitment.
 
 ## Partner Type Logic
 
