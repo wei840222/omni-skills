@@ -41,7 +41,7 @@ An `inferred` line that the user later confirms is rewritten as `stated` with th
 ## Where It Goes, in One Pass
 
 ```
-Does a domain skill already own this store?      → its ~/Clawic/data/<slug>/, pointer only here (Rule 5)
+Does a domain skill already own this store?      → its <state_root>/, pointer only here (Rule 5)
 Is it about a named person or organization?      → people/ or orgs/
 Is it about a named project or deliverable?      → projects/
 Is it a choice with reasoning behind it?         → decisions/

@@ -6,7 +6,7 @@ Contents: System Configuration · Root Index · Projects · People · Organizati
 
 ## System Configuration
 
-Create `~/Clawic/data/memory/config.yaml`:
+Create `<state_root>/config.yaml`:
 
 ```yaml
 created: 2026-07-25
@@ -35,7 +35,7 @@ Older installs may have a `config.md`: merge its values into `config.yaml` and d
 
 ## Root Index
 
-Create `~/Clawic/data/memory/INDEX.md`:
+Create `<state_root>/INDEX.md`:
 
 ```markdown
 # Memory Index
@@ -55,7 +55,7 @@ Last maintenance: 2026-07-15
 
 ## Projects
 
-**Index: `~/Clawic/data/memory/projects/INDEX.md`**
+**Index: `<state_root>/projects/INDEX.md`**
 ```markdown
 # Projects Index
 
@@ -67,7 +67,7 @@ Last maintenance: 2026-07-15
 Active: 5 | Paused: 3 | Archived: 20
 ```
 
-**Entry: `~/Clawic/data/memory/projects/{slug}.md`**
+**Entry: `<state_root>/projects/{slug}.md`**
 ```markdown
 # Project: Alpha
 
@@ -101,7 +101,7 @@ Stack: Postgres, React
 
 ## People
 
-**Index: `~/Clawic/data/memory/people/INDEX.md`**
+**Index: `<state_root>/people/INDEX.md`**
 ```markdown
 # People Index
 
@@ -123,7 +123,7 @@ Stack: Postgres, React
 Total: 45 contacts
 ```
 
-**Entry: `~/Clawic/data/memory/people/{slug}.md`**
+**Entry: `<state_root>/people/{slug}.md`**
 ```markdown
 # Alice Smith
 
@@ -153,7 +153,7 @@ Filenames are frozen identifiers, not labels — renames break every inbound lin
 
 ## Organizations
 
-**Entry: `~/Clawic/data/memory/orgs/{slug}.md`**
+**Entry: `<state_root>/orgs/{slug}.md`**
 ```markdown
 # Northwind Ltd
 
@@ -178,7 +178,7 @@ Commercial facts carry their own re-check dates (SKILL.md When Facts Change, cla
 
 ## Decisions
 
-**Index: `~/Clawic/data/memory/decisions/INDEX.md`**
+**Index: `<state_root>/decisions/INDEX.md`**
 ```markdown
 # Decisions Index
 
@@ -188,7 +188,7 @@ Commercial facts carry their own re-check dates (SKILL.md When Facts Change, cla
 | 2025 | 89 | 2025.md |
 ```
 
-**Entry: `~/Clawic/data/memory/decisions/{year}.md`**
+**Entry: `<state_root>/decisions/{year}.md`**
 ```markdown
 # Decisions — 2026
 
@@ -206,7 +206,7 @@ The reasoning field is the reason this category exists — an outcome without it
 
 ## Knowledge
 
-**Index: `~/Clawic/data/memory/knowledge/INDEX.md`**
+**Index: `<state_root>/knowledge/INDEX.md`**
 ```markdown
 # Knowledge Index
 
@@ -216,7 +216,7 @@ The reasoning field is the reason this category exists — an outcome without it
 | Finance | Reference | 2025-12 | finance.md |
 ```
 
-**Entry: `~/Clawic/data/memory/knowledge/{topic}.md`**
+**Entry: `<state_root>/knowledge/{topic}.md`**
 ```markdown
 # [Topic]
 
@@ -237,7 +237,7 @@ Private jargon and codenames get an entry in `knowledge/glossary.md` and an alia
 
 ## Collections
 
-**Index: `~/Clawic/data/memory/collections/INDEX.md`**
+**Index: `<state_root>/collections/INDEX.md`**
 ```markdown
 # Collections Index
 
@@ -265,7 +265,7 @@ Past ~100 rows the collection splits like any other category (Rule 6): by type, 
 
 ## Inbox
 
-**`~/Clawic/data/memory/inbox/{YYYY-MM-DD}.md`** — one file per day, one line per capture:
+**`<state_root>/inbox/{YYYY-MM-DD}.md`** — one file per day, one line per capture:
 
 ```markdown
 - 2026-07-25 · stated · Northwind's procurement takes two weeks   → orgs/?
@@ -275,7 +275,7 @@ Capture cost must be near zero; the arrow is a guess for the sorter, not a commi
 
 ## Sync Folder (Optional)
 
-**`~/Clawic/data/memory/sync/INDEX.md`**
+**`<state_root>/sync/INDEX.md`**
 ```markdown
 # Synced from Built-In Memory
 

@@ -1,6 +1,6 @@
 # Setup — First Use
 
-Read this when `~/Clawic/data/memory/` doesn't exist yet and the user has just asked for something to be remembered. The store is created around that first fact, not around a questionnaire.
+Read this when `<state_root>/` doesn't exist yet and the user has just asked for something to be remembered. The store is created around that first fact, not around a questionnaire.
 
 **Boundary first, in one sentence to the user:** this is separate from built-in agent memory — built-in keeps working untouched, this adds parallel, organized, unlimited storage on their machine.
 
@@ -9,7 +9,7 @@ Read this when `~/Clawic/data/memory/` doesn't exist yet and the user has just a
 The first fact names the category. Create only what it needs:
 
 ```
-~/Clawic/data/memory/
+<state_root>/
 ├── config.yaml          # the defaults of SKILL.md Configuration, nothing invented
 ├── INDEX.md             # root index, one row
 └── people/              # or projects/, decisions/ — whichever the fact belongs to
@@ -17,7 +17,7 @@ The first fact names the category. Create only what it needs:
     └── alice-smith.md   # the fact, dated and sourced
 ```
 
-Then show the user where it landed: "Stored in `~/Clawic/data/memory/people/alice-smith.md`." The demo *is* the training — they see the write happen before the reply (Rule 3), and they learn the path they can open themselves.
+Then show the user where it landed: "Stored in `<state_root>/people/alice-smith.md`." The demo *is* the training — they see the write happen before the reply (Rule 3), and they learn the path they can open themselves.
 
 More categories arrive the same way, one at a time, as facts need them. A category created before its first item rots empty (Rule 2).
 
@@ -53,7 +53,7 @@ Anything whose domain already has its own Clawic skill and store — pets, garde
 
 ## Done When
 
-1. `~/Clawic/data/memory/` exists with the categories the facts needed
+1. `<state_root>/` exists with the categories the facts needed
 2. Every folder has an INDEX.md
 3. One real thing is stored, dated, sourced, and indexed
 4. The user has seen the path it lives at
@@ -62,7 +62,7 @@ From there it grows through normal use: every durable fact gets written before t
 
 ## If a Store Already Exists Somewhere Else
 
-- Data at `~/memory/` or `~/clawic/memory/` → move it to `~/Clawic/data/memory/`; the paths inside the files stay valid because entries link relatively.
+- Data at `<state_root>/` or `<state_root>/` → move it to `<state_root>/`; the paths inside the files stay valid because entries link relatively.
 - A `config.md` from an older install → merge its values into `config.yaml`, delete the old file.
 - The path exists but resolves to nothing → it is a symlink to a cloud folder or volume that has not mounted. Do not create a fresh store on top of it; wait for the target.
 - An unfamiliar store at the right path (another agent set it up) → read its root INDEX and work with it; do not restructure someone else's layout without being asked.

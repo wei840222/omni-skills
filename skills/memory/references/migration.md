@@ -9,7 +9,7 @@ One category per pass. Each pass ends with the same four things done, or the pas
 1. Entries written in this store's format (dated, sourced, one fact per line — SKILL.md Entry Anatomy).
 2. Dedupe run against what already exists.
 3. Category INDEX complete for that category.
-4. A line appended to `~/Clawic/data/memory/MIGRATION.md`: what came from where, on what date, how many entries.
+4. A line appended to `<state_root>/MIGRATION.md`: what came from where, on what date, how many entries.
 
 Start with the category the user queries most, not the largest one. The first slice has to prove the store answers questions; volume proves nothing.
 
@@ -24,7 +24,7 @@ Start with the category the user queries most, not the largest one. The first sl
 | Another agent's memory file | A single long file or JSON blob | Split by subject into entries; anything it recorded as an assumption imports as `inferred` |
 | Chat logs and transcripts | Long conversations | Do NOT import wholesale. Extract facts against the durability test — a transcript is a source, not memory |
 | A spreadsheet (contacts, inventory) | CSV | One row = one entry for people/projects; one row = one table line for collections |
-| A domain a Clawic skill already owns (pets, garden, household, code style) | That skill's `~/Clawic/data/<slug>/` | Do not import it here at all — SKILL.md Rule 5; a pointer line is the whole migration |
+| A domain a Clawic skill already owns (pets, garden, household, code style) | That skill's `<state_root>/` | Do not import it here at all — SKILL.md Rule 5; a pointer line is the whole migration |
 | Anything else | — | Treat as chat logs: extract facts, drop the container |
 
 ## Dedupe, In Three Passes
@@ -33,13 +33,13 @@ Cheapest first; each pass catches what the previous one can't:
 
 ```bash
 # 1. Filename collision — the obvious twins
-ls ~/Clawic/data/memory/people/ | sort            # existing slugs, read against the incoming names
+ls <state_root>/people/ | sort            # existing slugs, read against the incoming names
 
 # 2. Title collision — same H1, different filename
-grep -h "^# " ~/Clawic/data/memory/people/*.md | sort | uniq -d
+grep -h "^# " <state_root>/people/*.md | sort | uniq -d
 
 # 3. Alias collision — the expensive, valuable one
-grep -h "^\*\*Keywords:\*\*" ~/Clawic/data/memory/people/*.md
+grep -h "^\*\*Keywords:\*\*" <state_root>/people/*.md
 ```
 
 Write no scratch files into the store while doing this: a loose `.md` or `.txt` in a category folder is indistinguishable from an entry at the next maintenance pass. Keep the comparison in the terminal.

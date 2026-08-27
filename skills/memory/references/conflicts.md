@@ -69,7 +69,7 @@ When the user says "no, that's not what I said":
 The silent version of a conflict: the same fact in two files, updated in one.
 
 ```bash
-grep -ril "northwind" ~/Clawic/data/memory/ | head
+grep -ril "northwind" <state_root>/ | head
 ```
 
 Resolution: pick the file the fact is most *about* as the canonical home, keep the newest version there, and replace the other copies with a link line. Never keep "the more detailed one" in both places — detail is exactly what diverges.

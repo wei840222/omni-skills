@@ -14,7 +14,7 @@ Memory competes with the actual work for context. A store that gets loaded whole
 
 Do not preload categories "in case". The root index is enough to know that `people/` exists and holds 45 entries; the moment a person is named, the path from there is two reads.
 
-If `~/Clawic/data/memory/` does not exist, do not create it silently: the first-run path is the setup row of SKILL.md Quick Reference, triggered when the user first asks for something to be remembered, not at session start.
+If `<state_root>/` does not exist, do not create it silently: the first-run path is the setup row of SKILL.md Quick Reference, triggered when the user first asks for something to be remembered, not at session start.
 
 ## During The Session
 
@@ -61,8 +61,8 @@ Never assume the next session shares this one's runtime memory: it may be a diff
 A session can end mid-turn. That is why writes precede replies (Rule 3), and why the recovery routine at the start of the next session is:
 
 ```bash
-ls -lt ~/Clawic/data/memory/*/*.md | head        # what was written most recently
-cat ~/Clawic/data/memory/inbox/*.md 2>/dev/null  # what was captured but never filed
+ls -lt <state_root>/*/*.md | head        # what was written most recently
+cat <state_root>/inbox/*.md 2>/dev/null  # what was captured but never filed
 ```
 
 An entry whose category INDEX has no row for it is the fingerprint of an interrupted write — add the row before anything else, because that entry is currently invisible to every lookup above 50 files.

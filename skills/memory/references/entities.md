@@ -66,7 +66,7 @@ All three carry the four elements of SKILL.md Entry Anatomy. What each type must
 - **Person** — how the user knows them, communication preferences, the last interaction date. Without the last date, "should I follow up?" is unanswerable.
 - **Organization** — the relationship (client, vendor, employer, competitor), the people entries that link here, and the commercial facts each carrying its own re-check date.
 - **Project** — status, the decisions that shaped it (linked to `decisions/`), current state, next steps. Status and next steps are the fastest-rotting facts in any store; date them hard.
-- **Domain-owned entity** — a pet, a plant, a household member, a board's projects. Those live in their own skill's `~/Clawic/data/<slug>/`; here they get one pointer line and nothing else (SKILL.md Rule 5).
+- **Domain-owned entity** — a pet, a plant, a household member, a board's projects. Those live in their own skill's `<state_root>/`; here they get one pointer line and nothing else (SKILL.md Rule 5).
 
 ## Naming the Store's Own Vocabulary
 

@@ -20,7 +20,7 @@ Contents: Choosing · Category-Based (default) · Domain-Focused · Time-Based �
 Organized by type of information. Each folder appears when its first item arrives, never before.
 
 ```
-~/Clawic/data/memory/
+<state_root>/
 ├── projects/
 ├── people/
 ├── decisions/
@@ -33,7 +33,7 @@ Organized by type of information. Each folder appears when its first item arrive
 Everything organized around one profession — sales, research, consulting, clinical practice. Retrieval matches the way the user already talks about their work.
 
 ```
-~/Clawic/data/memory/
+<state_root>/
 ├── clients/
 ├── deals/
 ├── products/
@@ -46,7 +46,7 @@ Everything organized around one profession — sales, research, consulting, clin
 Only for journaling and event logs, where "when" *is* the retrieval key.
 
 ```
-~/Clawic/data/memory/
+<state_root>/
 ├── 2026/
 │   ├── q1/
 │   └── q2/
@@ -60,7 +60,7 @@ Events by date; facts by subject. Mixed needs are the hybrid layout, not a compr
 For heavy users who query current and historical context differently enough that the zone answers the question before the category does.
 
 ```
-~/Clawic/data/memory/
+<state_root>/
 ├── active/           # Current focus
 │   ├── projects/
 │   └── people/
@@ -76,7 +76,7 @@ For heavy users who query current and historical context differently enough that
 For piles where every placement decision is arbitrary and therefore wrong half the time.
 
 ```
-~/Clawic/data/memory/
+<state_root>/
 ├── INDEX.md          # every entry, one row, with its keywords column
 └── notes/            # one folder, every entry
 ```
@@ -96,7 +96,7 @@ At `index_split_at` (SKILL.md Rule 6), split along the axis you *retrieve* by, n
 | Anything else | Whichever attribute the user names first when asked to describe the category out loud |
 
 ```
-~/Clawic/data/memory/projects/
+<state_root>/projects/
 ├── INDEX.md          # just points to the subdirs
 ├── active/
 │   └── INDEX.md      # 20 entries
@@ -109,7 +109,7 @@ Archive indices may exceed the cap. It protects everyday lookups, and an archive
 ## Quick Capture Plus Inbox
 
 ```
-~/Clawic/data/memory/
+<state_root>/
 ├── inbox/            # unsorted, capture-first
 ├── projects/
 └── ...
@@ -120,7 +120,7 @@ Capture cost must be near zero: if filing requires thought, inbox it — a fact 
 ## Cross-References
 
 ```markdown
-# ~/Clawic/data/memory/projects/alpha.md
+# <state_root>/projects/alpha.md
 
 ## Team
 - Alice (PM) → see people/alice.md
@@ -137,7 +137,7 @@ Two hops of links answer nearly every real question. A third hop means the fact 
 ## Keywords Lines
 
 ```markdown
-# ~/Clawic/data/memory/people/alice.md
+# <state_root>/people/alice.md
 
 # Alice Smith
 

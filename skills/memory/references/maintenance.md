@@ -26,7 +26,7 @@ Not a deletion pass — a *re-check* pass. Facts don't rot, they just stop being
 
 ```bash
 # Entries not updated in a year, hot categories only
-find ~/Clawic/data/memory/people ~/Clawic/data/memory/projects -name "*.md" -mtime +365
+find <state_root>/people <state_root>/projects -name "*.md" -mtime +365
 ```
 
 For each hit, decide in one line: still true (touch the date, note `re-checked YYYY-MM-DD`), changed (supersede), wrong (delete), or unknown (mark `stale YYYY-MM-DD` and let recall carry the caveat). Do not batch-delete on age — an untouched identity fact is perfectly good.
@@ -50,7 +50,7 @@ Fix, never rebuild, when the damage is a handful of rows: a regenerated index lo
 Archive on **terminal status**, not on age. A two-year-old active client stays; a project completed last month goes.
 
 ```bash
-mv ~/Clawic/data/memory/projects/old-thing.md ~/Clawic/data/memory/archive/projects/
+mv <state_root>/projects/old-thing.md <state_root>/archive/projects/
 # then: remove the row from projects/INDEX.md, add it to archive/INDEX.md
 ```
 
@@ -68,10 +68,10 @@ Run it before deciding the store needs restructuring — most "the memory is a m
 
 | Metric | Command | Healthy |
 |---|---|---|
-| Total entries | `find ~/Clawic/data/memory -name "*.md" \| wc -l` | Matches the sum of the index rows |
-| Index sizes | `wc -l ~/Clawic/data/memory/*/INDEX.md` | Every one under `index_split_at` |
-| Inbox depth | `ls ~/Clawic/data/memory/inbox \| wc -l` | Emptied at the last cadence |
-| Loose files in root | `ls ~/Clawic/data/memory/*.md` | Only `INDEX.md` and `config.yaml` alongside it |
+| Total entries | `find <state_root> -name "*.md" \| wc -l` | Matches the sum of the index rows |
+| Index sizes | `wc -l <state_root>/*/INDEX.md` | Every one under `index_split_at` |
+| Inbox depth | `ls <state_root>/inbox \| wc -l` | Emptied at the last cadence |
+| Loose files in root | `ls <state_root>/*.md` | Only `INDEX.md` and `config.yaml` alongside it |
 | Oldest untouched entry | `find … -mtime +365` | Reviewed at the last monthly sweep |
 
 ## After a Bad Pass
