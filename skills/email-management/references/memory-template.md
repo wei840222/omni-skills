@@ -1,6 +1,6 @@
 # Memory Template - Email Management
 
-Create `~/Clawic/data/email-management/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Email Management Memory
@@ -51,6 +51,6 @@ integration: pending | complete | paused | never_ask
 ## Key Principles
 
 - Store durable preferences and decisions, not raw email dumps.
-- Never store passwords, tokens, or full payment details.
+- Store only safe, non-sensitive preferences (exclude passwords, tokens, or full payment details).
 - Keep active commitments current and remove closed items quickly.
 - Update `last` whenever memory is written.
