@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a CSS class to slide a modal into view from the bottom with a slight bounce.",
+    "expected": "A CSS class utilizing transform (translateY) and an ease-out or custom cubic-bezier timing function.",
+    "actual": ".modal-enter { transform: translateY(100%); animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; } @keyframes slideUp { to { transform: translateY(0); } }",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Animate the width of this sidebar from 0 to 250px using Framer Motion when the user clicks 'expand'. Make sure it's accessible.",
+    "expected": "Warning against animating width directly (layout thrashing) or proper handling of prefers-reduced-motion, but since Framer Motion is requested, providing a solution that considers accessibility.",
+    "actual": "Using Framer Motion: <motion.div initial={{ width: 0 }} animate={{ width: 250 }} transition={{ duration: 0.3 }} />. Note: Animating width can cause layout thrashing. Consider animating a transform (scaleX) if possible, but if layout flow must change, this is correct. Also, consider wrapping with user preferences check for reduced motion.",
+    "pass": true
+  }
+]
