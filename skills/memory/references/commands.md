@@ -3,7 +3,7 @@
 Operator one-liners. Two shell variables carry through every block: `M` is the store, `SPLIT` is the user's `index_split_at` from `config.yaml` (default 100, declared range 25-250). Read the real value before running anything that judges a size — a store configured at 50 or 200 makes every hardcoded 100 a lie.
 
 ```bash
-M=~/Clawic/data/memory
+M=<state_root>
 SPLIT=$(grep -m1 '^index_split_at:' $M/config.yaml 2>/dev/null | awk '{print $2}'); SPLIT=${SPLIT:-100}
 ```
 

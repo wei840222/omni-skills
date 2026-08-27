@@ -7,9 +7,9 @@ A store that holds the fact but can't surface it is worse than an empty one: the
 Thresholds are in SKILL.md Finding Things (<50 full scan · 50–500 indices first · >500 hierarchical). This is what each rung actually does.
 
 1. **Root INDEX** — which categories exist. One read, always cheap, and it tells you which grep to run.
-2. **Category indices** — `grep -i "term" ~/Clawic/data/memory/*/INDEX.md`. Matches the Keywords and status columns, not entry bodies.
+2. **Category indices** — `grep -i "term" <state_root>/*/INDEX.md`. Matches the Keywords and status columns, not entry bodies.
 3. **One file** — open the single best match. Two candidates? Open the one with the later `Updated:` date first.
-4. **Full-text sweep** — `grep -ril "term" ~/Clawic/data/memory/` when the indices came back empty. This is a diagnosis as much as a search: a body hit with no index hit means the index is stale. Add the missing row before moving on, or the next lookup pays the sweep again.
+4. **Full-text sweep** — `grep -ril "term" <state_root>/` when the indices came back empty. This is a diagnosis as much as a search: a body hit with no index hit means the index is stale. Add the missing row before moving on, or the next lookup pays the sweep again.
 5. **`inbox/` and `sync/`** — the two folders every ladder forgets. Unsorted captures and built-in copies live outside the category tree.
 
 Stop at the first rung that answers. Escalating past rung 3 on a routine question means the Keywords line needs work, not that the store is too big.

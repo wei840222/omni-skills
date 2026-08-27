@@ -4,16 +4,16 @@ Plain files sync well; indices do not. Every problem in this file is the same pr
 
 ## Cloud Folder Sync (Dropbox, iCloud, Drive, OneDrive)
 
-Setup that keeps the declared path intact — the store stays at `~/Clawic/data/memory/`, the cloud folder holds the real bytes:
+Setup that keeps the declared path intact — the store stays at `<state_root>/`, the cloud folder holds the real bytes:
 
 ```bash
-mv ~/Clawic/data/memory ~/Dropbox/clawic-memory
-ln -s ~/Dropbox/clawic-memory ~/Clawic/data/memory
+mv <state_root> ~/Dropbox/clawic-memory
+ln -s ~/Dropbox/clawic-memory <state_root>
 ```
 
 What to expect:
 
-- **A broken symlink reads as an empty store, not as an error.** After a reinstall, a new machine, or a sync client that hasn't mounted yet, `~/Clawic/data/memory/` resolves to nothing and every lookup answers "no store" instead of failing loudly — and the next capture happily builds a fresh empty store on top of the dangling link. Before believing an empty store or creating one, check the link and its target: `readlink ~/Clawic/data/memory && ls ~/Clawic/data/memory/INDEX.md`. A dangling link is a mount problem, never a data-loss event; do not re-run setup until it resolves.
+- **A broken symlink reads as an empty store, not as an error.** After a reinstall, a new machine, or a sync client that hasn't mounted yet, `<state_root>/` resolves to nothing and every lookup answers "no store" instead of failing loudly — and the next capture happily builds a fresh empty store on top of the dangling link. Before believing an empty store or creating one, check the link and its target: `readlink <state_root> && ls <state_root>/INDEX.md`. A dangling link is a mount problem, never a data-loss event; do not re-run setup until it resolves.
 - **Conflicted copies are silent forks.** `INDEX (conflicted copy 2026-07-25).md`, `INDEX 2.md`, `INDEX-MacBook.md` — a fact written on the phone can sit in one of these for weeks. Sweep for them at every maintenance pass.
 - **Entry files rarely conflict; indices always do.** Two devices adding two different entries both rewrite the same index. Resolution is a union: keep every row from both copies, sort, delete the conflicted file.
 - **Partial sync breaks recall, not writes.** A device that hasn't finished syncing reports "not found" for facts that exist. Check the sync client before trusting a negative result.
@@ -24,8 +24,8 @@ What to expect:
 The strongest option for a single user who edits from more than one place, and the only one that makes a bad rewrite reversible.
 
 ```bash
-git -C ~/Clawic/data/memory init
-git -C ~/Clawic/data/memory add -A && git -C ~/Clawic/data/memory commit -m "memory: weekly maintenance 2026-07-25"
+git -C <state_root> init
+git -C <state_root> add -A && git -C <state_root> commit -m "memory: weekly maintenance 2026-07-25"
 ```
 
 - Commit at maintenance cadence, not per write — per-write commits turn `git log` into noise and lose the one property worth having (a readable history of what changed).
@@ -35,7 +35,7 @@ git -C ~/Clawic/data/memory add -A && git -C ~/Clawic/data/memory commit -m "mem
 
 ## Several Agents, One Store
 
-Different agents (or several sessions of one) reading `~/Clawic/data/memory/` is the intended shape: plain markdown, no runtime assumptions, no lockfile.
+Different agents (or several sessions of one) reading `<state_root>/` is the intended shape: plain markdown, no runtime assumptions, no lockfile.
 
 | Operation | Safe concurrently? | Rule |
 |---|---|---|
@@ -51,7 +51,7 @@ Never assume another agent's runtime memory is readable or writable — Rule 1 a
 ## One-Way Sync From Built-In Memory
 
 ```
-~/Clawic/data/memory/sync/
+<state_root>/sync/
 ├── INDEX.md          # what was synced, from where, when
 ├── preferences.md
 └── key-decisions.md

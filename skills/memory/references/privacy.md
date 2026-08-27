@@ -30,7 +30,7 @@ Same standard applies to the user's own sensitive categories. The difference is 
 
 ```
 1. Scope it out loud: one fact, one entity, or one category? Read back what will go.
-2. grep -ril "<term>" ~/Clawic/data/memory/     # every file that mentions it, including inbox/ and sync/
+2. grep -ril "<term>" <state_root>/     # every file that mentions it, including inbox/ and sync/
 3. Delete the lines or the files.
 4. Remove every INDEX row that pointed at them.
 5. Fix inbound links: a "→ people/x.md" pointing at a deleted file is a dead reference AND a leftover trace of the name.

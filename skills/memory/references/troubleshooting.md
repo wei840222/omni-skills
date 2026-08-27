@@ -8,7 +8,7 @@ Work symptom-first. Each chain is ordered by how often the cause turns out to be
 2. **Vocabulary**, the most common real cause (SKILL.md Finding Things): the fact was written in different words. Try the canonical name, the nickname, the old company name, then a word stem. Found it? Add the missed term to that file's `Keywords:` line.
 3. **Unindexed file** — a body hit with no index hit. The write was interrupted before the index row. Add the row, then run the unindexed-files check on that whole category.
 4. **Wrong category**: check the two categories the user might have considered, plus `inbox/`.
-5. **The store is not where you think it is.** A symlinked store (cloud folder, external volume) whose target is unmounted reports an empty store instead of an error: `readlink ~/Clawic/data/memory` and confirm the target exists before believing a negative.
+5. **The store is not where you think it is.** A symlinked store (cloud folder, external volume) whose target is unmounted reports an empty store instead of an error: `readlink <state_root>` and confirm the target exists before believing a negative.
 6. **It lives in built-in memory**, never copied here. Read it there; sync it if it needs structure (Rule 1).
 7. **It was never written.** Say what was searched, then offer to capture it now — the miss is the best capture moment.
 
@@ -69,7 +69,7 @@ Work symptom-first. Each chain is ordered by how often the cause turns out to be
 ## Confusion Between This Store and Built-In Memory
 
 - Built-in: the runtime's `MEMORY.md` and workspace `memory/` — the runtime owns them, this skill only reads (Rule 1).
-- This store: `~/Clawic/data/memory/` in the home directory.
+- This store: `<state_root>/` in the home directory.
 - Duplicated content across both: keep the summary in built-in, the detail here, and let the summary point here (SKILL.md Built-In Memory vs This Store).
 
 ## Nothing Above Fits
