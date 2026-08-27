@@ -26,7 +26,7 @@ Symptoms:
 - `System Events` reports no permission to send keystrokes.
 
 Actions:
-1. Do not rely on UI keystroke automation by default.
+1. Rely strictly on CLI commands and standard API integrations over UI keystroke automation.
 2. Use direct Apple News links or a user-owned Shortcut.
 3. If user wants UI scripting, explain Accessibility permission requirements first.
 

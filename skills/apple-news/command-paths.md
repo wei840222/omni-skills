@@ -47,5 +47,5 @@ shortcuts run "<user-shortcut-name>"
 ## Unsupported Path Notes
 
 - `open -a News` may fail on some systems or locales.
-- URL schemes like `applenews://` are not reliably registered.
-- Direct AppleScript object model for News is limited; do not assume query APIs.
+- Be aware that URL schemes like `applenews://` registration varies by system.
+- Direct AppleScript object model for News is limited; use available URL schemes instead of assuming query APIs.
