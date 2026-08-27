@@ -1,36 +1,30 @@
 ---
 name: competitor-monitoring
-slug: competitor-monitoring
-version: 1.0.0
-description: Track competitors with pricing alerts, feature changes, positioning analysis, and strategic dossiers.
-homepage: https://clawic.com/skills/competitor-monitoring
-changelog: Initial release with tracking, alerts, dossiers, and analysis.
+description: Monitor competitors by tracking pricing, features, and positioning. Maintain strategic dossiers and alert the user to critical market shifts.
 metadata:
-  clawdbot:
-    emoji: 🔍
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Competitor Monitoring
+  openclaw: '{"emoji":"🔍","displayName":"Competitor Monitoring","requires":{"os":["linux","darwin","win32"]}}'
+  related-skills: '{"market-research":"broader market analysis","business":"strategic frameworks","analytics":"data analysis patterns"}'
 ---
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, read `references/setup.md` for integration guidelines.
 
 ## When to Use
 
 User needs competitive intelligence. Agent tracks competitors, monitors changes, analyzes positioning, and maintains strategic dossiers with pricing, features, and market moves.
 
+## State location
+
+- **Target Directory**: `<state_root>/` (workspace-first convention)
+- **Creation**: On first run, create this directory and initialize `memory.md` following `references/memory-template.md`.
+
 ## Architecture
 
-Memory lives in `~/Clawic/data/competitor-monitoring/`. See `memory-template.md` for structure.
+See `references/memory-template.md` for structure.
 
 ```
-~/Clawic/data/competitor-monitoring/
+<state_root>/
 ├── memory.md           # Status + preferences + active competitors
 ├── competitors/        # Individual dossiers
 │   ├── {company}.md    # Per-competitor intelligence
@@ -43,15 +37,17 @@ Memory lives in `~/Clawic/data/competitor-monitoring/`. See `memory-template.md`
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup process | `references/setup.md` | On first use |
+| Memory template | `references/memory-template.md` | When initializing or updating state |
+| Domain knowledge | `references/domain-knowledge.md` | When performing competitive analysis or structuring dossiers |
+
 
 ## Core Rules
 
 ### 1. Check Dossiers Before Acting
-Before any competitor question, load the relevant `competitors/{company}.md` file. Build on existing intelligence, don't start fresh each time.
+Before any competitor question, load the relevant `competitors/{company}.md` file. Build on existing intelligence to maintain continuity.
 
 ### 2. Track These Signals
 | Signal | Where to Look | Impact |
@@ -69,7 +65,7 @@ Before any competitor question, load the relevant `competitors/{company}.md` fil
 - **Low:** Social activity, routine content
 
 ### 4. Maintain Signal-to-Noise
-Don't report everything. Only surface changes that require action or awareness. If nothing actionable happened, say so.
+Filter alerts to surface only actionable changes or strategic awareness. If no actionable changes occurred, explicitly state that the landscape is stable.
 
 ### 5. Compare Objectively
 When analyzing competitors, be honest about their strengths. Acknowledge where they're ahead. False confidence leads to bad strategy.
@@ -83,7 +79,7 @@ For each competitor, answer honestly:
 ```
 
 ### 6. Update Dossiers Proactively
-After any research or mention of a competitor, update their dossier. Don't wait for explicit instructions.
+After any research or mention of a competitor, update their dossier. Update the dossier proactively after any research or mention.
 
 ### 7. Connect to Strategy
 Every observation should connect to "so what?" What does this mean for user's positioning, roadmap, or priorities?
@@ -111,71 +107,30 @@ Quarterly: Full competitive landscape review
 - Industry news → check all relevant competitors
 - User launches feature → compare to competitor alternatives
 
-## Competitor Dossier Structure
+## Competitor Dossiers & Analysis
 
-Each `competitors/{company}.md` contains:
-- Company overview (what they do, target market)
-- Pricing (current, historical changes)
-- Features (core, recent additions)
-- Positioning (messaging, differentiation)
-- Strengths (honest assessment)
-- Weaknesses (opportunities to exploit)
-- Recent moves (last 90 days)
-- Watch list (what to monitor)
+- **Dossiers**: See `references/memory-template.md` for the dossier structure.
+- **Analysis**: Use the frameworks in `references/domain-knowledge.md` (e.g., SWOT, Porter's Five Forces) when performing head-to-head, landscape, or gap analysis.
 
-## Analysis Types
+## Best Practices
 
-### Head-to-Head
-Compare user vs one competitor. Feature matrix, pricing, positioning.
-```
-User vs Acme Corp:
-- Pricing: We're 40% cheaper for same features
-- Features: They have X, we have Y (differentiated)
-- Positioning: They target enterprise, we target SMB
-→ Our wedge: Simpler and cheaper for smaller teams
-```
-
-### Landscape
-Map all competitors by segment. Who's premium, who's cheap, who's niche.
-```
-Market Map (example):
-├── Premium ($500+/mo): BigCorp, EnterpriseCo
-├── Mid-market ($100-500): CompetitorA, CompetitorB
-├── SMB ($20-100): Us, StartupX
-└── Free/Freemium: OpenSourceY
-→ Gap: No one owns "professional but affordable"
-```
-
-### Trend
-How is the competitive space evolving? What's the direction?
-- Watch for: New entrants, funding rounds, pivots, acquisitions
-- Pattern recognition: Are competitors moving upmarket? Going vertical?
-
-### Gap
-Where are opportunities nobody's addressing?
-- Underserved segments
-- Features everyone complains about but nobody fixes
-- Adjacent markets competitors ignore
-
-## Common Traps
-
-- **Vanity metrics obsession** → Tracking social followers instead of pricing/features. Social numbers don't predict competitive moves.
-- **Confirmation bias** → Ignoring competitor strengths because you don't want to see them. Honest assessment beats false confidence.
-- **Information overload** → Reporting every blog post and tweet. Filter for actionable signals, not noise.
-- **Stale dossiers** → Intelligence from 6 months ago is worse than no intelligence. Update after every mention.
-- **Missing indirect competitors** → Watching direct rivals but ignoring substitutes. Spreadsheets compete with project management tools.
-- **Reactive only** → Only checking competitors when something breaks. Proactive monitoring catches threats early.
-- **Single source** → Only watching their website. Combine: pricing page, changelog, blog, jobs, social, reviews.
+- **Focus on Actionable Metrics**: Prioritize pricing, feature, and positioning changes over social metrics.
+- **Maintain Objectivity**: Honestly assess competitor strengths to provide a realistic strategic view.
+- **Curate Signal**: Filter reports for actionable changes to avoid information overload.
+- **Keep Intelligence Fresh**: Proactively update dossiers after every mention.
+- **Track Substitutes**: Monitor both direct rivals and indirect competitors.
+- **Proactive Monitoring**: Scan for threats early rather than waiting for breakage.
+- **Diverse Sources**: Combine insights from pricing pages, changelogs, blogs, job postings, and reviews.
 
 ## Security & Privacy
 
 **Data that stays local:**
-- All competitor dossiers stored in `~/Clawic/data/competitor-monitoring/`
+- All competitor dossiers stored in `<state_root>/`
 - Analysis reports and alert history
 - User preferences and monitoring settings
 
 **What happens on first use:**
-- Creates folder `~/Clawic/data/competitor-monitoring/` with your data
+- Creates folder `<state_root>/` with your data
 - Asks how you want monitoring to work (proactive vs on-demand)
 
 **This skill does NOT:**
@@ -183,14 +138,3 @@ Where are opportunities nobody's addressing?
 - Scrape data in violation of ToS
 - Store credentials or sensitive tokens
 - Send your data externally
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `market-research` — broader market analysis
-- `business` — strategic frameworks
-- `analytics` — data analysis patterns
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/competitor-monitoring
-- Latest version: https://clawic.com/skills/competitor-monitoring

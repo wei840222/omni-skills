@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need you to monitor 'Acme Corp'. They just launched a new pricing tier at $50/mo. Update our files.",
+    "expected": "Agent should initialize state (since it's the first run), create a dossier for Acme Corp in `<state_root>/competitors/Acme Corp.md`, log the pricing change, and update `memory.md`.",
+    "actual": "Created `<state_root>/memory.md` and `<state_root>/competitors/Acme Corp.md`. Updated pricing tier to $50/mo.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you do a SWOT analysis comparing us to Acme Corp based on the data you have? They have better marketing, but our product has more features.",
+    "expected": "Agent should load Acme Corp's dossier, load `references/domain-knowledge.md` for SWOT framework, perform the analysis objectively, and save it in `<state_root>/analysis/swot_acme_corp.md`.",
+    "actual": "Loaded dossier for Acme Corp and domain knowledge. Generated SWOT analysis acknowledging their better marketing and our feature advantage. Saved to `<state_root>/analysis/swot_acme_corp.md`.",
+    "pass": true
+  }
+]
