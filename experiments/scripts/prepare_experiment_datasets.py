@@ -3,8 +3,8 @@
 Prepare datasets for SkillRouter replication experiments.
 
 Reads all refactored skills listed in CHANGELOG.md and generates two datasets in `experiments/datasets/`:
-1. `skills-nd`: Contains only skill name + description (metadata-only).
-2. `skills-all-field`: Contains the full SKILL.md file.
+1. `name-description`: Contains only skill name + description (metadata-only).
+2. `full`: Contains the full SKILL.md file.
 """
 
 import os
@@ -47,11 +47,11 @@ def main():
     skills_dir = root_dir / "skills"
     
     exp_dir = root_dir / "experiments" / "datasets"
-    nd_dir = exp_dir / "skills-nd"
-    all_field_dir = exp_dir / "skills-all-field"
+    nd_dir = exp_dir / "name-description"
+    full_dir = exp_dir / "full"
     
     nd_dir.mkdir(parents=True, exist_ok=True)
-    all_field_dir.mkdir(parents=True, exist_ok=True)
+    full_dir.mkdir(parents=True, exist_ok=True)
     
     skills = parse_changelog_skills(changelog_path)
     print(f"[*] Found {len(skills)} refactored skills in CHANGELOG.md")
@@ -71,7 +71,7 @@ def main():
         name = fm_data.get("name", slug)
         desc = fm_data.get("description", "").strip()
         
-        # 1. Dataset 1: Name + Description only (ND)
+        # 1. Dataset 1: Name + Description only (name-description)
         target_nd_dir = nd_dir / slug
         target_nd_dir.mkdir(parents=True, exist_ok=True)
         nd_file = target_nd_dir / "SKILL.md"
@@ -88,17 +88,17 @@ def main():
         )
         nd_file.write_text(nd_content, encoding="utf-8")
         
-        # 2. Dataset 2: Full SKILL.md
-        target_all_dir = all_field_dir / slug
-        target_all_dir.mkdir(parents=True, exist_ok=True)
-        all_file = target_all_dir / "SKILL.md"
+        # 2. Dataset 2: Full SKILL.md (full)
+        target_full_dir = full_dir / slug
+        target_full_dir.mkdir(parents=True, exist_ok=True)
+        all_file = target_full_dir / "SKILL.md"
         all_file.write_text(full_content, encoding="utf-8")
         
         processed += 1
     
     print(f"[✓] Successfully prepared {processed} skills in:")
-    print(f"    - ND dataset: {nd_dir}")
-    print(f"    - All-Field dataset: {all_field_dir}")
+    print(f"    - Name-Description dataset: {nd_dir}")
+    print(f"    - Full dataset: {full_dir}")
     
     if missing:
         print(f"[!] Warning: {len(missing)} skills were not found in {skills_dir}: {missing}")

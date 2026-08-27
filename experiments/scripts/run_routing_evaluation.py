@@ -152,13 +152,14 @@ def main():
         WHERE d.active = 1
     """).fetchall()
     
-    doc_embs = {"skills-nd": {}, "skills-all-field": {}}
+    doc_embs = {"name-description": {}, "full": {}}
     for col, path, emb_json in rows:
         slug = path.split("/")[0] if "/" in path else path.replace(".md", "")
         emb = np.array(json.loads(emb_json), dtype=np.float32)
-        doc_embs[col][slug] = emb
+        if col in doc_embs:
+            doc_embs[col][slug] = emb
         
-    print(f"[*] Loaded embeddings: skills-nd={len(doc_embs['skills-nd'])}, skills-all-field={len(doc_embs['skills-all-field'])}")
+    print(f"[*] Loaded embeddings: name-description={len(doc_embs['name-description'])}, full={len(doc_embs['full'])}")
     
     # 2. Get / cache query embeddings
     natural_prompts = [q["natural_prompt"] for q in queries]
@@ -183,7 +184,7 @@ def main():
     # 4. Hybrid RRF with Expanded Vector (simulated / dense+lex)
     # 5. Two-Stage Rerank (Vector/Hybrid Top-10 + Reranker score)
     
-    collections = ["skills-nd", "skills-all-field"]
+    collections = ["name-description", "full"]
     pipeline_names = [
         "1. BM25 (Lexical)",
         "2. Vector (Dense)",
@@ -232,7 +233,7 @@ def main():
                     "retrieved": retrieved
                 })
                 
-                if col == "skills-nd" and p_name == "2. Vector (Dense)":
+                if col == "name-description" and p_name == "2. Vector (Dense)":
                     detailed_cases.append({
                         "query_id": q["query_id"],
                         "skill": gt,
@@ -245,17 +246,37 @@ def main():
             metrics = compute_metrics(eval_items)
             results[col][p_name] = metrics
             
-    # Attach all-field results to detailed cases for rescue analysis
+    # Attach full results to detailed cases for rescue and regression analysis
     for case in detailed_cases:
         q_idx = next(i for i, q in enumerate(queries) if q["query_id"] == case["query_id"])
-        all_vec = vector_search(query_embs[q_idx], doc_embs["skills-all-field"], top_k=5)
-        all_bm25 = bm25_search_fts(conn, "skills-all-field", queries[q_idx]["bm25_prompt"], top_k=5)
-        all_hybrid = rrf_fusion([all_bm25, all_vec], k=60, top_k=5)
-        case["all_vec_top5"] = all_vec
-        case["all_hybrid_top5"] = all_hybrid
-        case["nd_hit1"] = (case["skill"] == case["nd_vec_top5"][0]) if case["nd_vec_top5"] else False
-        case["all_hit1"] = (case["skill"] == all_vec[0]) if all_vec else False
+        target = case["skill"]
+        all_vec = vector_search(query_embs[q_idx], doc_embs["full"], top_k=10)
+        all_bm25 = bm25_search_fts(conn, "full", queries[q_idx]["bm25_prompt"], top_k=10)
+        all_hybrid = rrf_fusion([all_bm25, all_vec], k=60, top_k=10)
+        
+        nd_vec = case["nd_vec_top5"]
+        nd_rank = (nd_vec.index(target) + 1) if target in nd_vec else 99
+        full_rank = (all_vec.index(target) + 1) if target in all_vec else 99
+        
+        case["nd_rank"] = nd_rank
+        case["full_rank"] = full_rank
+        case["all_vec_top5"] = all_vec[:5]
+        case["all_hybrid_top5"] = all_hybrid[:5]
+        
+        case["nd_hit1"] = (nd_rank == 1)
+        case["all_hit1"] = (full_rank == 1)
+        
         case["is_rescued_by_body"] = (not case["nd_hit1"]) and case["all_hit1"]
+        case["is_regressed"] = case["nd_hit1"] and (not case["all_hit1"])
+        
+        if case["is_rescued_by_body"]:
+            case["status"] = "Improved (Body Rescue)"
+        elif case["is_regressed"]:
+            case["status"] = "Regressed (Body Dilution)"
+        elif case["nd_hit1"] and case["all_hit1"]:
+            case["status"] = "Unchanged (Correct)"
+        else:
+            case["status"] = "Unchanged (Incorrect)"
         
     out_eval = root_dir / "experiments" / "datasets" / "routing_benchmark_results.json"
     out_data = {
@@ -271,9 +292,19 @@ def main():
         print(df_m.to_string())
         
     rescued_count = sum(1 for c in detailed_cases if c["is_rescued_by_body"])
-    print(f"\n[✓] Total Body Rescue cases (ND failed -> All-Field succeeded): {rescued_count} / {len(detailed_cases)}")
-    print(f"[✓] Saved benchmark data to: {out_eval}")
+    regressed_count = sum(1 for c in detailed_cases if c["is_regressed"])
+    unchanged_correct = sum(1 for c in detailed_cases if c["status"] == "Unchanged (Correct)")
+    unchanged_incorrect = sum(1 for c in detailed_cases if c["status"] == "Unchanged (Incorrect)")
+    
+    print(f"\n📊 Routing Transition Breakdown (Total {len(detailed_cases)} queries):")
+    print(f"  • Unchanged Correct: {unchanged_correct} ({unchanged_correct/len(detailed_cases)*100:.1f}%)")
+    print(f"  • Improved (Body Rescue): {rescued_count} ({rescued_count/len(detailed_cases)*100:.1f}%)")
+    print(f"  • Regressed (Body Dilution): {regressed_count} ({regressed_count/len(detailed_cases)*100:.1f}%)")
+    print(f"  • Unchanged Incorrect: {unchanged_incorrect} ({unchanged_incorrect/len(detailed_cases)*100:.1f}%)")
+    print(f"\n[✓] Saved benchmark data to: {out_eval}")
     conn.close()
+
+
 
 if __name__ == "__main__":
     main()
