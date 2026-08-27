@@ -1,6 +1,6 @@
 # Memory Template — Zendesk
 
-Create `~/Clawic/data/zendesk/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Zendesk Memory
@@ -44,7 +44,7 @@ notify_urgent: true
 
 ## Credential Security
 
-- Store credentials in `~/Clawic/data/zendesk/memory.md` or use environment variables
+- Store credentials in `<state_root>/memory.md` or use environment variables
 - Environment variables: ZENDESK_SUBDOMAIN, ZENDESK_EMAIL, ZENDESK_TOKEN
 - Never echo credentials in responses
 - Never commit credentials to any repo
