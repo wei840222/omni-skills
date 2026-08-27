@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score       |
 | ---------------------------- | ---------- | ------------------ |
+| zendesk                     | 2026-08-27 | 100/100            |
 | meilisearch                  | 2026-08-27 | 85/100             |
 | affiliate-marketing          | 2026-08-27 | 85/100             |
 | marriage                     | 2026-08-27 | 100/100            |
