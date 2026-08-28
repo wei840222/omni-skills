@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just finished Elden Ring on PS5 after 100 hours. Can you log it for me?",
+    "expected": "The agent offers to log the playthrough in the <state_root>/video/completed/ directory and asks for a rating or thoughts.",
+    "actual": "I've logged your completion of Elden Ring on PS5 (100 hours) to your video games completed tracker. What rating out of 10 would you give it, and do you have any final thoughts on the experience?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have 5 friends coming over tonight. We've had a few drinks and want to play something casual. What do you recommend?",
+    "expected": "The agent checks party game recommendations for 6 total players (user + 5 friends), avoiding complex board games, and recommends drinking games or casual party games like Codenames, matching the context.",
+    "actual": "Since you have 6 players and want something casual after drinks, I recommend a party game! If you have it, 'Codenames' or 'Wavelength' are perfect for this size. If you want something without equipment, 'Two Truths and a Lie' or 'Kings Cup' are great. What sounds best?",
+    "pass": true
+  }
+]
