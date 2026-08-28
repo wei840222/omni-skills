@@ -26,7 +26,7 @@ This skill is completely stateless and does not store any local configuration or
 
 ## When to Use
 
-User needs guidance on implementing authentication. Agent explains patterns for login flows, token strategies, password security, OAuth integration, and session management.
+User needs guidance on implementing authentication. Agent explains patterns for login flows, token strategies, password security, OAuth integration, MFA, and session management.
 
 ## Quick Reference
 
