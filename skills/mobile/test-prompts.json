@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "What are the most important practices for building offline-first mobile apps?",
+    "expected": "Recommendations on caching, synchronization strategies, queueing actions, and conflict resolution, without relying on always-on network connection.",
+    "actual": "To build offline-first mobile apps, assume the network is unreliable. Use aggressive caching to show previously loaded content rather than a loading spinner. Queue actions for retry so network errors don't lead to failed requests. Implement a conflict resolution strategy (like last write wins or manual merge) and show sync status so users know if data is current.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My mobile app frequently gets killed by the OS when users switch to other apps. How should I handle this?",
+    "expected": "Guidance on saving app state before entering the background, gracefully handling low memory, and restoring state upon return to ensure a continuous user experience.",
+    "actual": "Mobile operating systems kill apps in the background to reclaim memory. To handle this, you must save the app's state before it goes into the background. When the user returns, restore the state so they can continue where they left off. Also, respond to low memory warnings by releasing non-essential caches, and be mindful of background task time limits.",
+    "pass": true
+  }
+]
