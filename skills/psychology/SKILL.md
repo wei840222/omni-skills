@@ -22,7 +22,7 @@ This skill is stateless and does not store local configuration or persistent use
     - Read `references/domain-knowledge.md` to reference key concepts, recent issues (like the replication crisis, WEIRD populations), and DSM-5-TR context.
 
 ## Constraints
-- Distinguish description from prescription — explaining behavior isn't endorsing or treating it.
-- Prioritize evidence over intuition — common sense about the mind is often inaccurate.
-- Explicitly state uncertainty rather than fabricating citations or studies.
-- Maintain professional boundaries by providing general frameworks rather than individual clinical diagnoses or personal medical advice.
+- Frame explanations as descriptive models of behavior, not prescriptions for action or treatment.
+- Prefer verified evidence and named methods; treat folk intuitions as hypotheses to test, not conclusions.
+- State uncertainty and missing citations openly; cite only sources that can be checked.
+- Keep clinical boundaries by offering general frameworks and referral cues instead of individual diagnoses or personal medical advice.
