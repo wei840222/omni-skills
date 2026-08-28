@@ -10,5 +10,9 @@
   {
     "prompt": "Can you review my OAuth implementation plan? I am going to build my own crypto to sign the tokens.",
     "expected_behavior": "The agent should strongly advise against rolling custom crypto, reference `references/core-rules.md`, and load `references/oauth.md` to provide standardized OAuth patterns."
+  },
+  {
+    "prompt": "Help me add MFA to an existing password login. Should I use SMS or TOTP?",
+    "expected_behavior": "The agent should load `references/mfa.md` and `references/common-traps.md`, recommend TOTP/app-based factors over SMS due to SIM-swapping risk, and outline backup-code handling."
   }
 ]
