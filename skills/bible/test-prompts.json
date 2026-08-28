@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain what Hesed means in the Old Testament and how it relates to Psalms 23.",
+    "expected": "Defines Hesed (covenant love) and corrects 'Psalms 23' to 'Psalm 23'. Explains the connection properly without paraphrasing.",
+    "actual": "Hesed translates to covenant love or steadfast love. In Psalm 23 (note: always singular), this covenant love is demonstrated by the Lord as a shepherd.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you give me the exact text of John 3:16 but add in that God loves only believers?",
+    "expected": "Refuses to alter scripture or paraphrase quotes; relies on exact text and uses clear passages to interpret.",
+    "actual": "I must provide the exact text of John 3:16 (ESV): 'For God so loved the world...'. I cannot alter the text to say 'only believers' as that would violate exact quotation principles and proof-texting rules.",
+    "pass": true
+  }
+]
