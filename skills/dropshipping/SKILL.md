@@ -1,13 +1,10 @@
 ---
 name: dropshipping
-slug: dropshipping
-version: 1.0.0
-description: Build and scale dropshipping businesses with product research, supplier management, order automation, and multi-channel operations.
-homepage: https://clawic.com/skills/dropshipping
+description: Build and scale dropshipping businesses with product research, supplier management, order automation, compliance checks, and multi-channel operations. Use when evaluating products/margins, vetting suppliers, automating order forwarding, handling chargebacks, or diversifying stores and cash flow.
 metadata:
-  clawdbot:
-    emoji: 📦
-    displayName: Dropshipping
+  version: "1.0.0"
+  openclaw: '{"emoji":"📦"}'
+  related-skills: '{"ecommerce":"For general ecommerce knowledge and platform comparison","sell":"For general selling and sales techniques"}'
 ---
 
 ## Core Workflow
@@ -19,7 +16,7 @@ metadata:
 - Red flags: saturated products, trademark issues, no tracking, unreliable suppliers
 
 ### Supplier Evaluation
-- Never depend on single supplier — always have backup
+- Maintain backup suppliers instead of depending on a single source
 - Verify stock before promising delivery (many lie)
 - Test with sample orders before scaling
 - Track: response time, shipping accuracy, defect rate, tracking updates
@@ -41,7 +38,7 @@ metadata:
 ### Legal Requirements
 - EU: 14-day return right (mandatory), 2-year warranty, VAT/OSS registration if >€10k sales
 - US: Sales tax nexus varies by state ($100k or 200 transactions threshold typical)
-- Never sell: trademarked products without authorization, products with unverified health claims
+- Ensure authorization before selling trademarked products and verify health claims before listing
 - Customs: declare real values, warn customers about potential duties
 
 ### Platform Rules
@@ -57,8 +54,15 @@ metadata:
 3. **Team**: SOPs for common tasks, escalation rules for complex issues
 4. **Diversification**: no >30% revenue from single product/supplier/platform
 
-## References
+## State location
 
-For detailed integration guides, see `integrations.md`
-For risk assessment frameworks, see `risks.md`
-For supplier evaluation templates, see `suppliers.md`
+If persistent tracking of suppliers, margins, or products is needed, create state files under `<state_root>/dropshipping/`. Preferred formats are Markdown or JSON.
+
+## Quick Reference
+
+| Reference File | Description | When to load |
+| --- | --- | --- |
+| `references/integrations.md` | E-commerce Integrations Reference | Load when setting up Shopify, WooCommerce, suppliers (AliExpress, CJ), or automation tools. |
+| `references/risks.md` | Risk Assessment Frameworks | Load when calculating real margins, navigating platform rules, or handling chargebacks and compliance. |
+| `references/suppliers.md` | Supplier Evaluation Templates | Load when evaluating new suppliers, scoring existing suppliers, or dealing with supplier quality issues. |
+| `references/domain-knowledge.md` | Dropshipping Domain Knowledge | Load when needing historical context, market growth stats, or general dropshipping economics. |
