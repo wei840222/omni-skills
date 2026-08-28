@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this login flow: The user enters an email and password. If the password is wrong, the screen clears and shows a red generic 'Error 401' text. Apply UX principles.",
+    "expected": "Applies heuristics to critique the lack of error visibility (should preserve email input, explain the error clearly without codes) and lack of recovery (e.g. forgot password link).",
+    "actual": "Critique: The 'Error 401' violates visibility of system status (unclear code) and error prevention/recovery. It fails to match the real-world mental model. It needs a clear message in plain language and an emergency exit/recovery (e.g., 'Forgot password').",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Design the offline state for a note-taking app.",
+    "expected": "Outlines a design that clarifies what works offline, what is queued, and what is unavailable based on the edge case principles.",
+    "actual": "Offline note-taking app design: Show a 'Saved to device (offline)' indicator. Auto-save progress locally. Provide empty states explaining what's unavailable (e.g. syncing, cloud search) but allow drafting of new notes. Draft states enable complex work until reconnecting.",
+    "pass": true
+  }
+]
