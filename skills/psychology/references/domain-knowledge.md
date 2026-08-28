@@ -13,3 +13,8 @@
 ## DSM-5-TR (Text Revision)
 - **Status:** The latest edition of the Diagnostic and Statistical Manual of Mental Disorders by the American Psychiatric Association, published in 2022.
 - **Application in Practice:** Ensure conceptual diagnostic linkages explicitly refer to criteria provided in the DSM-5-TR, recognizing its role as a principal authority for psychiatric diagnoses in the US and global alignment efforts (like ICD-11).
+
+## Sources
+- Henrich, Heine, and Norenzayan / WEIRD psychology overview — sample bias and limited generalizability via https://en.wikipedia.org/wiki/The_WEIRDest_People_in_the_World
+- Replication crisis overview — reproducibility failures and methodological reforms via https://en.wikipedia.org/wiki/Replication_crisis
+- DSM-5-TR overview — Diagnostic and Statistical Manual Text Revision (2022) via https://en.wikipedia.org/wiki/Diagnostic_and_Statistical_Manual_of_Mental_Disorders
