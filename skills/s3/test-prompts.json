@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Upload the file 'backup.tar.gz' (size 15GB) to the 'backups' S3 bucket.",
+    "expected": "Uses multipart upload since file is >5GB.",
+    "actual": "Initiated a multipart upload for 'backup.tar.gz' to the 'backups' bucket as it exceeds the 5GB limit for a single PUT operation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Generate a presigned URL to let a user upload an image to 'user-avatars' bucket.",
+    "expected": "Generates a PUT presigned URL with short expiration and correct Content-Type.",
+    "actual": "Generated a presigned URL for PUT operation to 'user-avatars' bucket with 15 minutes expiration and 'image/jpeg' Content-Type to allow secure client-side upload.",
+    "pass": true
+  }
+]
