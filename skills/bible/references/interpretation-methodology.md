@@ -26,4 +26,3 @@
 - Society of Biblical Literature — SBL Handbook of Style citation and biblical literature conventions via https://www.sbl-site.org/publications/publishingwithsbl.aspx
 - Bible Odyssey (Society of Biblical Literature) — genre and interpretive context primers via https://www.bibleodyssey.org/
 - Catechism / standard hermeneutics overview for genre and progressive revelation framing via https://www.britannica.com/topic/hermeneutics-principles-of-biblical-interpretation
-

@@ -41,4 +41,3 @@
 ## Sources
 - Crossway ESV resources — translation and quotation practice via https://www.esv.org/
 - SBL Handbook of Style — biblical citation conventions via https://www.sbl-site.org/publications/publishingwithsbl.aspx
-
