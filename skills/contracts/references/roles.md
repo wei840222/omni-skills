@@ -33,7 +33,7 @@ Focus: Leases, service contracts, insurance per property.
 
 **Organization:**
 ```
-~/Clawic/data/contracts/
+<state_root>/
 ├── properties/
 │   ├── downtown-apt/
 │   │   ├── lease-maria.pdf
@@ -93,7 +93,7 @@ Focus: High volume, multiple contract types, compliance requirements.
 
 **Organization:**
 ```
-~/Clawic/data/contracts/
+<state_root>/
 ├── clients/
 │   └── acme-corp/
 │       ├── engagement-letter.pdf

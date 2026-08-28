@@ -6,16 +6,16 @@
 
 ```
 ✅ REQUIRED
-├── All contracts in ~/Clawic/data/contracts/ (user-controlled)
+├── All contracts in <state_root>/ (user-controlled)
 ├── Metadata in local files only
 ├── No cloud sync unless user explicitly enables
 └── No network transmission of contract content
 
-❌ PROHIBITED
-├── Uploading to any cloud service
-├── Sending contract text via messages
-├── Including contract content in logs
-├── Using external OCR services
+⚠️ SECURITY CONSTRAINTS
+├── Keep files strictly on the local filesystem
+├── Keep contract text within local storage only
+├── Sanitize logs to exclude contract content
+├── Use only local extraction tools
 ```
 
 ### File Permissions
@@ -34,30 +34,30 @@
 |-----------|-------------|----------|
 | Names | Medium | Extract, don't expose in logs |
 | Addresses | High | Extract, minimize storage |
-| SSN / Tax IDs | **Critical** | Flag, don't extract |
-| Bank accounts | **Critical** | Flag, don't extract |
+| SSN / Tax IDs | **Critical** | Flag, skip extraction |
+| Bank accounts | **Critical** | Flag, skip extraction |
 | Salaries | High | Extract with caution |
-| Signatures | High | Don't process |
+| Signatures | High | Skip processing |
 
 ### GDPR Considerations (EU)
 
 - **Data minimization** — Only extract necessary metadata
 - **Right to erasure** — Support full deletion on request
-- **No automated decisions** — Don't auto-interpret legal meaning
-- **Retention awareness** — Don't delete without user consent
+- **No automated decisions** — Provide raw text only for user interpretation
+- **Retention awareness** — Require explicit user consent prior to deletion
 
 ---
 
 ## Legal Boundaries
 
-### The Skill MUST NEVER:
+### The Skill MUST FOLLOW these strict boundaries:
 
-1. **Interpret legal clauses** — Cannot say if something is "fair" or "standard"
-2. **Provide legal advice** — Cannot recommend signing or not signing
-3. **Assess legal risk** — Cannot score contracts as "safe" or "risky"
-4. **Compare to standards** — Cannot say "this is unusual for the industry"
-5. **Predict outcomes** — Cannot speculate on disputes
-6. **Modify contracts** — Cannot suggest edits to legal language
+1. **Provide factual extraction only** — Present clauses as written; defer interpretation of "fair" or "standard" to the user
+2. **Remain neutral** — Present the information objectively and instruct the user to make signing decisions independently
+3. **Present facts without assessment** — Highlight specific clauses without assigning a risk score
+4. **Extract specific data only** — Output the contract's actual contents rather than comparing against industry norms
+5. **State the written terms** — List the terms of the agreement without forecasting future events or dispute outcomes
+6. **Preserve original text** — Keep all legal language exactly as written in the source document
 
 ### The Skill CAN:
 
@@ -85,14 +85,14 @@ When flagging unusual terms:
 ### NDA-Aware Handling
 
 - Treat ALL contracts as potentially confidential
-- Never expose counterparty names in messages unless user requests
-- Never share contract snippets outside the skill context
+- Expose counterparty names only upon explicit user request
+- Keep all contract snippets strictly within the skill context
 - If contract references NDA, flag as extra-sensitive
 
 ### Attorney-Client Privilege
 
 - If contract folder contains legal correspondence, treat as privileged
-- Don't analyze or summarize legal advice documents
+- Skip analysis and summarization for legal advice documents
 - Safest approach: treat lawyer emails as opaque files
 
 ---
@@ -101,7 +101,7 @@ When flagging unusual terms:
 
 ### If Contract Exposed Accidentally
 
-1. Don't panic — assess what was exposed
+1. Assess what was exposed calmly
 2. Identify affected parties
 3. Consider notification obligations
 4. Document the incident
@@ -111,5 +111,5 @@ When flagging unusual terms:
 
 - Warn about risks explicitly
 - Recommend encryption before sync
-- Don't enable by default
+- Require manual opt-in before enabling
 - Log that user acknowledged risks
