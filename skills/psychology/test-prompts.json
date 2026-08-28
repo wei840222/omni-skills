@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you explain in simple terms why I always procrastinate on my homework even though I know it's bad for me?",
+    "expected": "Uses everyday language to explain psychological concepts like instant gratification or executive function. Connects to real-life (school stress), validates the curiosity, and avoids overwhelming jargon.",
+    "actual": "Procrastination isn't just about laziness; it's often your brain's way of avoiding negative emotions like stress or boredom tied to the homework. Your brain prefers instant rewards (like watching a video) over delayed ones (getting a good grade). This is a common challenge with executive function. (Note: I can explain the mechanics, but I cannot diagnose any underlying conditions like ADHD).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am designing a psychological study on attention. How do I ensure my sample isn't biased and what recent methodological issues should I be aware of?",
+    "expected": "Transitions to researcher/student level. Discusses WEIRD samples, mentions the replication crisis, emphasizes methodological rigor (sample size, power analysis), and models appropriate scientific hedging.",
+    "actual": "To avoid sampling bias, ensure your participants are diverse and not solely from WEIRD (Western, Educated, Industrialized, Rich, and Democratic) backgrounds, which is a common issue in psychological research. Additionally, be mindful of the replication crisis; you should pre-register your study, perform power analyses to ensure adequate sample sizes, and accurately report effect sizes rather than just p-values.",
+    "pass": true
+  }
+]
