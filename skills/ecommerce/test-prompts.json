@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our checkout is double charging customers sometimes when they refresh the page. What should we do?",
+    "expected": "Use an idempotency key derived from the order/cart ID to prevent multiple charges on retries.",
+    "actual": "To prevent double charges on refresh, every money call must be idempotent. Derive the idempotency key from the cart or order ID (not a random UUID) and verify/deduplicate webhooks based on the provider's event ID (Rule 2). Load `references/money_path_failures.md` for reconciliation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to sell a new T-shirt line. Our COGS is $10, price is $25. What's the max discount we can offer without losing money?",
+    "expected": "Calculate Contribution Margin (Price - COGS - fees) and determine the max discount ceiling.",
+    "actual": "Before setting a discount, we calculate the Contribution Margin (CM). CM = Price ($25) - COGS ($10) - fees/shipping. Assuming $0 fees for now, CM is $15. The max safe discount is CM / Price = $15 / $25 = 60%. Any discount above 60% sells at a loss (Rule 4).",
+    "pass": true
+  }
+]
