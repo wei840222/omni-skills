@@ -12,7 +12,7 @@ Test: the reader stops after this sentence and still acts correctly. "And" insid
 
 ## Bullets
 
-- Verb or fact first; the qualifier trails: "Payments passed review — critical path is now analytics", never "Following the review process, it was determined that...".
+- Verb or fact first; the qualifier trails: "Payments passed review — critical path is now analytics", instead of "Following the review process, it was determined that...".
 - One fact per bullet. Two facts sharing a bullet hide whichever the reader needed.
 - Two lines maximum per bullet; a third line means it wants to be two bullets or a linked doc.
 
@@ -38,7 +38,7 @@ Named uncertainty is not hedging: "60% confident; the vendor's Friday response s
 - Direction words match the sign: "up 8%", "down 3 days" — never "changed by 8%".
 - Volatile numbers carry as-of dates inline: "pipeline $2.1M (as of Jul 21)".
 - Percentages of small bases expose the base: "2 of 3 customers churned", not "67% churn".
-- Currency and dates render per `locale` (config.yaml, else `~/Clawic/profile.yaml`, else en-US): `$1.2M` / `Jul 21` for en-US, `1,2 M€` / `21 Jul` for a European reader — decimal/thousands separators flip with it (`1,234.5` vs `1.234,5`). Match the reader's convention, not the source's; timestamps carry the reader's timezone (`14:00 CET`, not the server's UTC).
+- Currency and dates render per `locale` (config.yaml, else `<state_root>/profile.yaml`, else en-US): `$1.2M` / `Jul 21` for en-US, `1,2 M€` / `21 Jul` for a European reader — decimal/thousands separators flip with it (`1,234.5` vs `1.234,5`). Match the reader's convention, not the source's; timestamps carry the reader's timezone (`14:00 CET`, not the server's UTC).
 
 ## The Cutting Pass
 

@@ -9,7 +9,7 @@ A right brief on the wrong channel or at the wrong hour goes unread. Defaults be
 | Chat message | One screen, hard cap. Bottom line is literally the first line — no greeting, no "quick update:". No attachments the reader must open to get the point |
 | Email | The subject line carries the bottom line or the ask: "Decision needed by Fri: vendor A vs B" — not "Project update". Brief lives in the body; an attachment may add depth but never holds the takeaway |
 | Doc | Full template plus a header block: audience, as-of date, status, sources. Docs get forwarded — write assuming readers you didn't pick |
-| Slides | A deck is not a brief. Send the doc as pre-read, present the slides; one idea per slide, the bottom-line slide first, never last |
+| Slides | A deck is not a brief. Send the doc as pre-read, present the slides; one idea per slide, the bottom-line slide first, always present it first |
 | Verbal readout | 30-60 seconds: bottom line, one supporting point, the ask. Write it out first even if nobody sees the text — improvised readouts bury ledes at the same rate as written ones |
 
 Length by channel: chat = one screen; email = `default_length` capped at one-page; doc = `default_length`. When material genuinely exceeds the channel, move channels ("full brief in the doc, bottom line here") rather than overrunning.

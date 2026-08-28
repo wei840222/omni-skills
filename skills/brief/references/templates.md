@@ -1,6 +1,6 @@
 # Brief Templates
 
-Standard structures per brief type. User config and preferences in `~/Clawic/data/brief/` override everything here. On formal channels (exec email, external docs), keep the structure and replace emoji markers with plain headers (`delivery.md`).
+Standard structures per brief type. User config and preferences in `<state_root>/` override everything here. On formal channels (exec email, external docs), keep the structure and replace emoji markers with plain headers (`delivery.md`).
 
 Types: Executive · Project · Meeting · Handoff · Decision · Incident · Board · Research. Prose-memo variant at the end for narrative-memo cultures.
 

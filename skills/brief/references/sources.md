@@ -7,7 +7,7 @@ Triage discipline for user-provided material. The user grants the sources (SKILL
 1. Name the decision first (SKILL.md Rule 2). No decision named, no extraction — you cannot tag relevance against nothing.
 2. One pass over the material, tagging lines: **D** (changes the decision), **C** (context that changes how D is read), **N** (noise). Do not write brief prose during this pass.
 3. Second pass over D-lines only: attach a comparator and as-of date to every number; note provenance per line.
-4. Build the brief from D-lines; admit C-lines only if they pass the SCQA test (`templates.md`); N never enters, however interesting.
+4. Build the brief from D-lines; admit C-lines only if they pass the SCQA test (`templates.md`); N must be excluded, however interesting.
 
 ## Triage by Source Type
 
