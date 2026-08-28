@@ -49,7 +49,7 @@ Every day I prepare:
 - Tomorrow's calendar preview
 - Anything that needs your decision before tomorrow
 
-**Handoff:** If there's something urgent overnight, I'll handle the holding response.
+**Handoff:** If something urgent arrives overnight, draft a holding response and wait for confirmation before sending.
 
 ## Travel Coordination
 
