@@ -22,7 +22,7 @@
 
 | Risk | Severity | Prevention |
 |------|----------|------------|
-| Counterfeit Products | 🔴 CRITICAL | NEVER sell branded products without authorization. Verify authenticity |
+| Counterfeit Products | CRITICAL | Sell branded products only with authorization. Verify authenticity |
 | Patent Infringement | 🔴 HIGH | Search patents before listing "innovative" products from China |
 | Copyright (Images) | 🟠 MEDIUM | Use your own photos or get explicit license |
 
@@ -49,7 +49,7 @@
 
 | Risk | Prevention |
 |------|------------|
-| PayPal 90-day hold | Diversify processors. Don't depend only on PayPal |
+| PayPal 90-day hold | Diversify processors and use multiple payment options |
 | Negative cycle (pay supplier before receiving payment) | Maintain 3 months operating capital |
 | Accumulated returns | Provision 10-15% for refunds in accounting |
 
@@ -95,7 +95,7 @@ If margin < 15% after ALL costs → DANGER ZONE
 | Risk | Prevention |
 |------|------------|
 | 5-20% defect rate from AliExpress | Factor into margins, clear replacement policy |
-| Toxic materials | Require CE, CPSC certifications. Don't sell children's products without verification |
+| Toxic materials | Require CE, CPSC certifications and verify safety of children's products before selling |
 | Product differs from photos | Use YOUR OWN photos, accurate descriptions with measurements |
 
 ## Reputational Risks
@@ -117,18 +117,18 @@ If margin < 15% after ALL costs → DANGER ZONE
 | Google/Trustpilot | Affects 90% of purchase decisions |
 | Social Media | One viral complaint = business end |
 
-## Red Flags — STOP IMMEDIATELY IF:
+## Critical Disqualifiers
 
-❌ Real margin <15% after all costs
-❌ Supplier doesn't respond within 48h
-❌ No tracking available
-❌ Product has unverifiable health claims
-❌ Product similar to known brand (IP risk)
-❌ No way to verify quality
-❌ Shipping time >21 days without local warehouse
-❌ Supplier asks for payment outside platform
-❌ Supplier rating <95%
-❌ No clear return policy from supplier
+- Real margin <15% after all costs
+- Supplier doesn't respond within 48h
+- No tracking available
+- Product has unverifiable health claims
+- Product similar to known brand (IP risk)
+- No way to verify quality
+- Shipping time >21 days without local warehouse
+- Supplier asks for payment outside platform
+- Supplier rating <95%
+- No clear return policy from supplier
 
 ## Minimum Compliance Checklist
 

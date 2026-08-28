@@ -83,7 +83,7 @@ TOTAL: /100
 ```
 Hello,
 
-I'm evaluating suppliers for [product] for my store. We expect to order 
+I'm evaluating suppliers for [product] for my store. We expect to order
 [X] units/month initially, scaling to [Y] units/month.
 
 Could you send a sample to:
@@ -98,10 +98,10 @@ Thank you.
 ```
 Hello,
 
-We've been ordering from you for [X months] with good results. 
+We've been ordering from you for [X months] with good results.
 Our current volume is [X units/month].
 
-We're planning to increase to [Y units/month] and would like to 
+We're planning to increase to [Y units/month] and would like to
 discuss volume pricing.
 
 Could you offer a discount for:

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Evaluate this product for dropshipping: Cost is $5, shipping is $3, we can sell it for $20. We will spend about $5 on ads per acquisition.",
+    "expected": "Calculate the REAL margin including platform/payment fees (approx. 3% + 5%), returns, and compare against the 20% minimum viable margin.",
+    "actual": "Product: $5\nShipping: $3\nAds (CAC): $5\nPlatform + Payment fees (~8%): $1.60\nReturns provision (~10%): $2.00\nTotal Cost: $16.60\nProfit: $3.40\nMargin: 17% (which is close to the danger zone of < 15%, but not quite. Need to improve CAC).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My supplier on AliExpress just informed me that a hot product is out of stock after I got 50 orders today. What should I do?",
+    "expected": "Provide action steps including using backup suppliers, communicating with customers if there are delays, and updating inventory immediately to prevent further issues.",
+    "actual": "1. Immediately update store inventory to 0 to prevent further orders.\n2. Contact backup suppliers (e.g. CJ Dropshipping or other AliExpress vendors) to fulfill the 50 pending orders.\n3. If backups can't fulfill quickly, notify customers of the delay and offer a partial refund or option to cancel to avoid chargebacks.",
+    "pass": true
+  }
+]
