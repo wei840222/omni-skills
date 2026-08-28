@@ -10,7 +10,7 @@
 - **Argon2id** - modern, memory-hard, recommended for new projects
 - **scrypt** - good alternative to Argon2
 
-**Never use:** MD5, SHA1, SHA256 (without salt/iterations), plaintext, reversible encryption
+**Avoid using:** MD5, SHA1, SHA256 (without salt/iterations), plaintext, reversible encryption
 
 ```typescript
 // bcrypt
@@ -146,7 +146,7 @@ const codes = generateBackupCodes();
 const hashedCodes = codes.map(c => bcrypt.hashSync(c, 10));
 await db.users.update(userId, { backupCodes: hashedCodes });
 
-// Show codes ONCE to user, never again
+// Show codes ONCE to user, ensure they are securely saved
 return { codes, message: 'Save these. They will not be shown again.' };
 ```
 

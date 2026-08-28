@@ -142,7 +142,7 @@ app.post('/auth/login', async (req, res) => {
 |---------|----------|-----------|----------|----------|
 | Memory (JS variable) | [NO] | [YES] | [NO] | Access tokens (SPA) |
 | httpOnly cookie | [YES] | [NO]* | [YES] | Refresh tokens, sessions |
-| localStorage | [NO] | [YES] | [YES] | [NO] Never for auth |
+| localStorage | [NO] | [YES] | [YES] | [NO] Avoid for auth |
 | Secure enclave (mobile) | [YES] | [YES] | [YES] | Mobile apps |
 
 *Use SameSite=Lax + CSRF tokens for cookie protection
