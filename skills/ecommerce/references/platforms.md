@@ -2,7 +2,7 @@
 
 Platform choice is a **total cost of ownership** question with a switching cost attached, not a feature comparison. The feature lists converge; the costs, the constraints and the exit do not.
 
-**Before recommending or migrating**, read `## Store` (current platform and stack) and `~/Clawic/data/finances/subscriptions.md` (what the current stack really costs per month). Most "we need to replatform" conversations are app-stack problems wearing a platform costume.
+**Before recommending or migrating**, read `## Store` (current platform and stack) and `<state_root>/finances/subscriptions.md` (what the current stack really costs per month). Most "we need to replatform" conversations are app-stack problems wearing a platform costume.
 
 ## Total Cost of Ownership
 
@@ -40,7 +40,7 @@ Questions that separate the candidates faster than feature lists: what does chec
 
 ## Migration: The Order That Avoids Losses
 
-A replatform is a project (`~/Clawic/data/projects/<project>.md`), not a task. Sequence:
+A replatform is a project (`<state_root>/projects/<project>.md`), not a task. Sequence:
 
 1. **Inventory what exists**: products with variants and images, customers, order history, discount codes, gift-card balances, subscriptions, reviews, CMS pages, redirects already in place, and every integration with credentials (as pointers).
 2. **Export and validate before building**: row counts by entity, spot-check the weird ones (bundles, digital products, products with 50 variants). Anything the export cannot produce must be recreated by hand — find that out now.
@@ -51,7 +51,7 @@ A replatform is a project (`~/Clawic/data/projects/<project>.md`), not a task. S
 7. **Cutover in a low-traffic window**, never in the run-up to peak (`peak.md`). Lower DNS TTL in advance (`domains/`).
 8. **Watch the first 72 hours**: orders per hour against the same weekday last month, 404 rate, checkout errors, feed disapprovals, index coverage.
 
-What migrations lose, in frequency order: **URLs and rankings** (no redirect map), **gift-card and store-credit balances** (rarely exportable — reconcile manually and honour them), **subscription contracts and their payment mandates** (often require re-authorization, so plan the customer communication), **review content**, **customer passwords** (never migratable — plan a reset flow), and **historical order data needed for tax retention** (`tax.md`).
+What migrations lose, in frequency order: **URLs and rankings** (no redirect map), **gift-card and store-credit balances** (rarely exportable — reconcile manually and honour them), **subscription contracts and their payment mandates** (often require re-authorization, so plan the customer communication), **review content**, **customer passwords** (require a manual reset flow — plan a reset flow), and **historical order data needed for tax retention** (`tax.md`).
 
 ## What Not to Migrate For
 
@@ -67,9 +67,9 @@ Migrating for a real reason is fine; the point is that the reason is usually the
 
 Self-hosted stores are a machine plus an obligation:
 
-- The host belongs in the shared inventory `~/Clawic/data/servers/servers.md` with its role, cost in its own currency and an access reference that is a pointer, never a key (`memory-template.md`).
+- The host belongs in the shared inventory `<state_root>/servers/servers.md` with its role, cost in its own currency and an access reference that is a pointer, always a pointer (`memory-template.md`).
 - Non-negotiables: automated daily backups **with a restore that has been timed**, staging that matches production, updates on a schedule rather than an incident, and a WAF or CDN in front.
-- The store domain, its registrar and expiry go in `~/Clawic/data/domains/domains.md`, with the renewal as a `## Due` row a month ahead. An expired store domain is a total outage with a slow fuse.
+- The store domain, its registrar and expiry go in `<state_root>/domains/domains.md`, with the renewal as a `## Due` row a month ahead. An expired store domain is a total outage with a slow fuse.
 - Deep infrastructure work: `server`, `docker`, `linux`.
 
-**Write after platform work**: platform, plan, stack and hosting into `## Store`; every recurring tool cost into the shared `~/Clawic/data/finances/subscriptions.md` with its currency; a migration or launch as a project file in `~/Clawic/data/projects/`; the domain into `~/Clawic/data/domains/domains.md` with its renewal in `## Due`; a self-hosted machine into `~/Clawic/data/servers/servers.md`; and the redirect map, the cutover checklist and the platform decision with what was rejected into `artifacts/<kebab-name>.md` with their `## Boxes` lines (`memory-template.md`).
+**Write after platform work**: platform, plan, stack and hosting into `## Store`; every recurring tool cost into the shared `<state_root>/finances/subscriptions.md` with its currency; a migration or launch as a project file in `<state_root>/projects/`; the domain into `<state_root>/domains/domains.md` with its renewal in `## Due`; a self-hosted machine into `<state_root>/servers/servers.md`; and the redirect map, the cutover checklist and the platform decision with what was rejected into `artifacts/<kebab-name>.md` with their `## Boxes` lines (`memory-template.md`).
