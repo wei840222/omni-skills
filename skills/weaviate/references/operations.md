@@ -5,7 +5,7 @@
 ### Always Use Batch for >100 Objects
 
 ```python
-# ✅ Correct: dynamic batching with error handling
+# Modern pattern: dynamic batching with error handling
 failed_objects = []
 
 with client.batch.dynamic() as batch:
@@ -14,7 +14,7 @@ with client.batch.dynamic() as batch:
             properties=item,
             collection="Article"
         )
-        
+
 # Check for failures after batch completes
 if client.batch.failed_objects:
     for obj in client.batch.failed_objects:
@@ -82,7 +82,7 @@ collection.query.hybrid(
 ### Apply BEFORE Vector Search
 
 ```python
-# ✅ Correct: filter reduces search space first
+# Modern pattern: filter reduces search space first
 from weaviate.classes.query import Filter
 
 collection.query.near_text(
@@ -101,7 +101,7 @@ Filter.by_property("tags").contains_any(["ai", "ml"])
 Filter.by_property("title").like("*intro*")
 
 # Combine with AND/OR
-(Filter.by_property("status").equal("published") & 
+(Filter.by_property("status").equal("published") &
  Filter.by_property("views").greater_than(100))
 ```
 

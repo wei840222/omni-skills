@@ -75,7 +75,7 @@ client.collections.create(
             model="text-embedding-3-small"
         ),
         Configure.Vectors.text2vec_openai(
-            name="content_vector", 
+            name="content_vector",
             source_properties=["body", "summary"],
             model="text-embedding-3-large"
         ),
