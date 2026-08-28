@@ -1,0 +1,14 @@
+[
+  {
+    "name": "project_status",
+    "prompt": "Here's the project tracking doc for Project Phoenix: [link]. Write a status brief for the executive team. We are currently 2 weeks behind schedule but have mitigated the risk by hiring two contractors."
+  },
+  {
+    "name": "recurring_update",
+    "prompt": "Give me the weekly update for the Marketing Campaign. Here is the thread from last week, and the new metrics: CTR is up 5%, spend is exactly the same, and no new vendors were signed."
+  },
+  {
+    "name": "decision_brief",
+    "prompt": "Brief me on the decision between Vendor A (cheaper, slower support) and Vendor B (more expensive, 24/7 SLA). The engineering team prefers B, but finance wants A to keep costs down. Give me a recommendation."
+  }
+]
