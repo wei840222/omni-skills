@@ -16,8 +16,8 @@
 ### 3. Use Standardized Crypto Libraries
 - Use bcrypt (cost 12) or Argon2id for passwords
 - Use battle-tested libraries for JWT, OAuth
-- Always use established libraries for password hashing and token signing
-- Always store passwords securely using bcrypt or Argon2id
+- Prefer established libraries for password hashing and token signing
+- Prefer bcrypt or Argon2id for password storage
 
 ### 4. Defense in Depth
 ```
