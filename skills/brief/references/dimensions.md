@@ -1,6 +1,6 @@
 # Brief Dimensions
 
-Taxonomy for recording user preferences. Load when updating `~/Clawic/data/brief/preferences.md`.
+Taxonomy for recording user preferences. Load when updating `<state_root>/preferences.md`.
 
 Routing rule first: a preference the user **states outright** ("always one page", "no emoji") is declared, not learned — it goes straight to `config.yaml` (matching variable or preference area, SKILL.md Configuration) and skips the levels below. This file governs preferences **inferred from feedback** on delivered briefs.
 

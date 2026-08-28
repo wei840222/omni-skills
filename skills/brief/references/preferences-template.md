@@ -1,13 +1,13 @@
 # Preferences Template — Brief
 
-Create `~/Clawic/data/brief/preferences.md` with the structure below when the first feedback signal arrives. Learned format preferences only, updated from explicit feedback; one preference per line, each tagged with a level. Declared preferences do not belong here — they go to `config.yaml` (see `setup.md`).
+Create `<state_root>/preferences.md` with the structure below when the first feedback signal arrives. Learned format preferences only, updated from explicit feedback; one preference per line, each tagged with a level. Declared preferences do not belong here — they go to `config.yaml` (see `setup.md`).
 
 **Rules:**
-- Record only explicit signals ("too long", "where are the numbers?") — never inferences from silence
+- Record only explicit signals ("too long", "where are the numbers?") — require active confirmation for inferences.
 - 2+ consistent signals → mark `pattern`
-- Explicit user approval → `confirmed`; never promote silently
+- Explicit user approval → `confirmed`; ensure you receive explicit user approval before promoting to confirmed.
 - `locked` only after a confirmed preference is reinforced across multiple briefs
-- One contradicting signal demotes a `pattern`; a contradicted `confirmed` → ask, never flip silently
+- One contradicting signal demotes a `pattern`; a contradicted `confirmed` → ask, ask the user to clarify contradictions before changing a confirmed preference.
 - Signal-to-dimension mapping and full level rules: `dimensions.md`
 
 ---

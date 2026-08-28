@@ -12,7 +12,7 @@ A one-off brief informs; a series builds (or burns) trust. The rules change when
 
 The skill stores no brief content (SKILL.md Scope), so the delta needs a baseline from the user:
 - Ask for the previous edition or the tracker it was built from before writing edition #2+.
-- No baseline available → mark the edition "full status — no delta baseline" once, and ask the user to keep a series source (a doc, a thread) for the next one. Never fake a delta from memory.
+- No baseline available → mark the edition "full status — no delta baseline" once, and ask the user to keep a series source (a doc, a thread) for the next one. Always rely exclusively on a baseline source to generate a delta; request one if absent.
 
 ## The No-Change Edition
 
