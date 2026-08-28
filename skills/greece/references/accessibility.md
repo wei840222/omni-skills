@@ -26,7 +26,7 @@ Greece can be excellent for culture and scenery, but old towns, ports, stairs, a
 - Bathroom access frequency
 - Heat sensitivity and shade requirements
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not assume "central" means accessible.
 - Do not book cliffside or village stays from photos alone.

@@ -20,7 +20,7 @@
 
 - EU border systems are changing. Check `sources.md` close to departure.
 - During 2026, some travelers may see longer first-entry processing because the Entry/Exit System is still being rolled out.
-- ETIAS timing has shifted multiple times, so never assume a blog post is current.
+- Verify ETIAS timing on official EU sources, as rollout dates have shifted multiple times.
 
 ## Domestic and Ferry Document Logic
 

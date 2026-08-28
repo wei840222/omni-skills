@@ -25,7 +25,7 @@ Crete is for travelers who want a real destination, not a token island stop: bea
 - Better bad-weather resilience than fragile multi-island hopping
 - Enough scale for repeat travelers
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not add Crete for only two nights unless flights make it effortless.
 - Do not underestimate driving time across the island.

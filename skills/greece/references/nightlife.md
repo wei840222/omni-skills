@@ -22,7 +22,7 @@
 - Keep one recovery day after a big party night if ferries or long drives follow.
 - In Athens, choose the neighborhood first, then the venue list.
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not promise seamless taxi availability after every late island night.
 - Do not pair sunrise clubbing with early archaeological start times.

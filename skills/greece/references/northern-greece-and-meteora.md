@@ -24,7 +24,7 @@ Northern Greece works for travelers who want Thessaloniki, monasteries, mountain
 - Train, bus, or car choices depend heavily on the exact north route
 - Weather can swing more in shoulder and winter periods
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not treat Meteora as a trivial day trip unless the user truly accepts the transit load.
 - Do not combine far north and far south Greece in one short itinerary.

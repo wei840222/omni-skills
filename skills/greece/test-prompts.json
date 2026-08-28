@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to visit Greece for 10 days in July. I want to see Athens, Santorini, and Mykonos.",
+    "expected": "The agent should load itineraries.md, athens-and-attica.md, cyclades.md, and island-hopping-and-ferries.md. It should provide a structured itinerary, accounting for ferries and heat in July.",
+    "actual": "The agent loaded `references/itineraries.md`, `references/athens-and-attica.md`, `references/cyclades.md`, and `references/island-hopping-and-ferries.md`. It provided a practical 10-day itinerary splitting time between Athens, Santorini, and Mykonos. It highlighted ferry travel times, recommended booking ferries in advance for July, and warned about the heat and Meltemi winds. It also advised on arriving a day early in Athens before departure.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you recommend a quieter island in the Cyclades for a family with a toddler? We want beaches and easy logistics, no wild nightlife.",
+    "expected": "The agent should load cyclades.md and family-travel.md, recommending islands like Naxos or Paros, and advising on toddler-friendly beaches and logistics.",
+    "actual": "The agent loaded `references/cyclades.md` and `references/family-travel.md`. It recommended Naxos as the top choice for families with toddlers due to its shallow sandy beaches (like Agios Georgios) and easy logistics. It also mentioned Paros as an alternative. It advised on renting a car for flexibility and highlighted the lack of wild nightlife compared to Mykonos.",
+    "pass": true
+  }
+]

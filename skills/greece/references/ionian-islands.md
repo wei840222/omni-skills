@@ -24,7 +24,7 @@ The Ionian Islands fit travelers who want greener scenery, calmer water, easier 
 - Often better swim comfort than windier island groups
 - Easier to build a drive-and-base trip
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not expect the same white-village visual style as the Cyclades.
 - Do not skip car planning if hotel and beach goals are spread out.

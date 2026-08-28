@@ -32,7 +32,7 @@ Island hopping only improves the trip when the islands are geographically compat
 - Travelers who like movement and accept that weather may reshape timing
 - Shoulder season routes with fewer crowd bottlenecks
 
-## Avoid
+## Strategic Adjustments
 
 - Three ferry transfers in four days
 - Last-night-on-an-island before a morning international flight

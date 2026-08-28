@@ -25,7 +25,7 @@ This region suits travelers who want archaeology, smaller towns, coast, and a ro
 - Users should accept moderate driving days
 - Heat planning still matters for exposed sites and beaches
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not reduce the Peloponnese to a single rushed day trip from Athens if the user likes history.
 - Do not plan too many far-flung bases.
