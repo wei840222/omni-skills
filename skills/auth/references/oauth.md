@@ -12,7 +12,7 @@
 | **Implicit** | [NO] Deprecated | [NO] Don't use |
 | **Client Credentials** | Service-to-service | [YES] Good |
 
-**Always use PKCE** - even for server-side apps.
+**Prefer PKCE** - including for server-side apps.
 
 ---
 
@@ -282,7 +282,7 @@ if (customerConfig) {
 
 ## Security Checklist
 
-- [ ] Always use PKCE (even server-side)
+- [ ] Prefer PKCE (including server-side)
 - [ ] Validate `state` parameter
 - [ ] Verify ID token signature
 - [ ] Check `aud` claim matches your client ID
