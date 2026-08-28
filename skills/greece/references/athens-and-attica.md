@@ -26,7 +26,7 @@ Athens is not just an arrival city. It works as a strong 2 to 4 night base for a
 - Travelers with only 5-7 days total
 - Users waiting for wind-stable ferry timing before island departure
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not reduce Athens to one rushed night.
 - Do not drive the center unless route logic truly demands it.

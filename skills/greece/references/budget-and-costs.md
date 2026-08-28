@@ -28,7 +28,7 @@
 
 - Travel in May, June, September, or early October when weather still works
 - Pick one bigger island instead of multiple premium small-island hops
-- Use Athens or Thessaloniki as gateway cities, not as rushed transit-only stops
+- Dedicate proper time to Athens or Thessaloniki when using them as gateway cities.
 - Spend on location and transport logic before spending on room size
 
 ## Money-Saving Tradeoff

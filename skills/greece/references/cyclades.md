@@ -25,7 +25,7 @@ Cyclades suit travelers who want classic Aegean villages, sea views, ferries, an
 - Premium islands book out fast in July and August.
 - Shoulder season often gives better overall value and less ferry stress.
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not pair the most famous islands just because the names are famous.
 - Do not assume every Cycladic island has the same vibe, beach quality, or transport ease.

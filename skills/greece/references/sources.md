@@ -45,3 +45,8 @@ Last checked: 2026-03-09
 ## Source Reminder
 
 Refresh entry rules, border systems, transport schedules, and wildfire conditions close to departure because these are the most time-sensitive parts of Greece planning.
+
+## Research Updates
+
+- Tourism in Greece (Wikipedia): https://en.wikipedia.org/wiki/Tourism_in_Greece
+  - Notes that Greece is one of Europe's most popular tourist destinations, with major destinations including Athens, Santorini, Mykonos, Rhodes, Corfu, Crete, and Chalkidice.

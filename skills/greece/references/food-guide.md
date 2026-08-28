@@ -22,7 +22,7 @@
 - Use bakeries, cafes, and market lunches to keep archaeology or beach days flexible.
 - Ask about catch of the day and portion sizing before over-ordering seafood.
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Menus with photo overload in the busiest landmark rows often signal weak value.
 - Sunset-view dining can charge for the view more than the food.

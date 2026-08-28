@@ -1,6 +1,6 @@
 # Memory Template - Greece
 
-Create `~/Clawic/data/greece/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Greece Trip Memory
@@ -9,7 +9,7 @@ Create `~/Clawic/data/greece/memory.md` with this structure:
 status: ongoing
 version: 1.0.0
 last: YYYY-MM-DD
-integration: pending | complete | paused | never_ask
+integration: pending | complete | paused | skip_setup
 
 ## Trip Snapshot
 - Dates:
@@ -40,7 +40,7 @@ integration: pending | complete | paused | never_ask
 - Wind or sea sensitivity:
 - Swim confidence:
 - Must-see places:
-- Must-avoid:
+- Must-skip:
 
 ## Bookings and Deadlines
 | Item | Needed by | Status | Notes |
@@ -67,8 +67,8 @@ integration: pending | complete | paused | never_ask
 |-------|---------|----------|
 | `ongoing` | still learning trip shape | ask only high-impact follow-ups |
 | `complete` | core context is stable | act quickly from saved defaults |
-| `paused` | memory use paused | do not expand without need |
-| `never_ask` | no setup prompts wanted | avoid future setup questions |
+| `paused` | memory use paused | expand only when requested |
+| `skip_setup` | no setup prompts wanted | proceed without setup questions |
 
 ## Key Principles
 

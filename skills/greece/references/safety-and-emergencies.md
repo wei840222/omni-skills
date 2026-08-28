@@ -19,7 +19,7 @@
 
 ## Health Notes
 
-- Serious heat plus exposed ruins is a common avoidable failure mode.
+- Serious heat plus exposed ruins is a common risk to manage.
 - Travel insurance becomes more important when the route depends on ferries or remote driving.
 - Save pharmacy and hospital options near the active base, not just near arrival airport.
 

@@ -22,7 +22,7 @@
 - Calm-water beaches often matter more than iconic sunset villages.
 - Museum plus swim day often works better than ruins plus ruins plus ruins.
 
-## Trap Avoidance
+## Strategic Adjustments
 
 - Do not put kids through repeated port check-ins unless the family enjoys movement.
 - Do not overbook archaeology in peak heat.

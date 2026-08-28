@@ -34,7 +34,7 @@
 
 - Cluster 1: Athens plus mainland or Peloponnese
 - Cluster 2: One island group or one large island
-- Avoid three separate island groups unless traveler explicitly values movement over ease
+- Stick to one or two island groups unless the traveler explicitly values movement over ease.
 
 ## Quality Checks
 
