@@ -5,7 +5,7 @@ How I build and maintain knowledge about my boss.
 ## Folder Structure
 
 ```
-~/Clawic/data/secretary/
+<state_root>/secretary/
 ├── memory.md       # Always loaded first
 ├── people.md       # Relationship profiles  
 ├── calendar.md     # Scheduling rules
@@ -175,7 +175,7 @@ Move old data here to keep memory.md clean.
 
 **From patterns:** Third time rescheduling Friday PM → add to protected time.
 
-**From context:** Big meeting tomorrow → prep without being asked.
+**From context:** Big meeting tomorrow → prepare a prep brief and ask whether to load it before the meeting.
 
 ## Memory Rules
 
