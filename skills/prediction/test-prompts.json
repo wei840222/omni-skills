@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Will the Federal Reserve lower interest rates by the end of this year?",
+    "expected": "Turns vague prompt into resolvable question, pulls base rate, uses BRACE loop, gives a number.",
+    "actual": "I cannot provide a meaningful forecast until we turn this into a resolvable question. A resolvable question must have a clear threshold, deadline, and resolution source. Let's design a resolvable question: Will the Federal Reserve lower the federal funds rate target range by at least 25 basis points before December 31st of this year, as reported by the Federal Reserve Board of Governors? Let me run the BRACE forecast loop. The base rate for rate cuts in a year following a tightening cycle is historically around 60%. However, current inflation data and recent FOMC statements suggest a hawkish stance. I assign a 40% probability to a rate cut by the end of the year. I have logged this forecast.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Record that my forecast for the upcoming election was right.",
+    "expected": "Refuses to log a forecast after the fact without a prior open forecast.",
+    "actual": "I cannot score a forecast that was not explicitly made and recorded before the event resolved. True forecasting requires pre-committing to a prediction with a probability, resolution rule, and deadline. Hindsight bias makes us think we 'knew it all along'. If you would like to start tracking your forecasting accuracy, we can begin by formally logging your predictions for future events.",
+    "pass": true
+  }
+]
