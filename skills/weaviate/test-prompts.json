@@ -1,0 +1,7 @@
+[
+  "Create a Weaviate v4 Python script to connect to a local cluster and define a collection called 'Books' with a title and content property.",
+  "Using Weaviate v4, write a script to dynamically batch import 500 documents with error handling.",
+  "Show me how to perform a hybrid search in Weaviate v4 using an alpha of 0.6, filtering for objects where the category is 'science'.",
+  "Write a snippet configuring a Weaviate v4 collection with text2vec-openai and a Cohere reranker.",
+  "Migrate this v3 Weaviate code to v4: client = weaviate.Client('http://localhost:8080'); client.schema.create_class({'class': 'Article'})"
+]

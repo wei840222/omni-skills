@@ -3,15 +3,15 @@
 ## Connection
 
 ```python
-# ❌ v3 (DEPRECATED)
+# Legacy v3
 client = weaviate.Client("http://localhost:8080")
 
-# ✅ v4
+# Modern v4
 client = weaviate.connect_to_local()  # localhost
 client = weaviate.connect_to_weaviate_cloud(cluster_url, auth_credentials)
 client = weaviate.connect_to_custom(http_host, http_port, grpc_host, grpc_port)
 
-# MUST close when done
+# Always close when done
 client.close()
 
 # Or use context manager (preferred)
@@ -22,11 +22,11 @@ with weaviate.connect_to_local() as client:
 ## Schema / Collections
 
 ```python
-# ❌ v3
+# Legacy v3
 client.schema.create_class({"class": "Article", ...})
 client.schema.get()
 
-# ✅ v4
+# Modern v4
 client.collections.create("Article", properties=[...])
 client.collections.list_all()
 collection = client.collections.get("Article")
@@ -35,10 +35,10 @@ collection = client.collections.get("Article")
 ## Properties
 
 ```python
-# ❌ v3
+# Legacy v3
 {"dataType": ["text"], "name": "title"}
 
-# ✅ v4
+# Modern v4
 from weaviate.classes.config import Property, DataType
 Property(name="title", data_type=DataType.TEXT)
 ```
@@ -46,10 +46,10 @@ Property(name="title", data_type=DataType.TEXT)
 ## Queries
 
 ```python
-# ❌ v3
+# Legacy v3
 client.query.get("Article").with_near_text({"concepts": ["AI"]}).with_limit(10).do()
 
-# ✅ v4
+# Modern v4
 collection = client.collections.get("Article")
 collection.query.near_text(query="AI", limit=10)
 collection.query.hybrid(query="AI", alpha=0.7, limit=10)
@@ -59,11 +59,11 @@ collection.query.fetch_objects(limit=10)
 ## Filters
 
 ```python
-# ❌ v3
+# Legacy v3
 Filter(path=["category"]).equal("tech")
 Filter(path=["ref", "Author", "name"])
 
-# ✅ v4
+# Modern v4
 from weaviate.classes.query import Filter
 Filter.by_property("category").equal("tech")
 Filter.by_ref("ref").by_property("name")
@@ -73,10 +73,10 @@ Filter.by_id().equal(uuid)
 ## Vector Access
 
 ```python
-# ❌ v3
+# Legacy v3
 vector = obj.vector  # List[float]
 
-# ✅ v4
+# Modern v4
 vector = obj.vector["default"]  # Dict[str, List[float]]
 vector = obj.vector["my_named_vector"]  # For named vectors
 ```
@@ -84,12 +84,12 @@ vector = obj.vector["my_named_vector"]  # For named vectors
 ## Batch Import
 
 ```python
-# ❌ v3
+# Legacy v3
 client.batch.configure()
 client.batch.add_data_object({...}, "ClassName")
 client.batch.create_objects()
 
-# ✅ v4
+# Modern v4
 with client.batch.dynamic() as batch:  # or .fixed_size() or .rate_limit()
     batch.add_object(properties={...}, collection="ClassName")
 ```
@@ -97,16 +97,16 @@ with client.batch.dynamic() as batch:  # or .fixed_size() or .rate_limit()
 ## Timestamps
 
 ```python
-# ❌ v3
+# Legacy v3
 obj.metadata.creation_time_unix  # int (milliseconds)
 
-# ✅ v4
+# Modern v4
 obj.metadata.creation_time  # datetime object
 ```
 
 ## Full Comparison Table
 
-| Concept | v3 (DEPRECATED) | v4 (CURRENT) |
+| Concept | Legacy v3 | Modern v4 |
 |---------|-----------------|--------------|
 | Connect | `weaviate.Client(url)` | `weaviate.connect_to_*()` |
 | Close | Not required | `client.close()` required |
