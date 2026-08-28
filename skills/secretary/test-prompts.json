@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Block focus time tomorrow afternoon from 1 PM to 4 PM.",
+    "expected": "I have drafted a calendar event to block focus time tomorrow afternoon from 1:00 PM to 4:00 PM. Please review and confirm so I can add it to your calendar.",
+    "actual": "I have prepared a draft calendar event for your focus time tomorrow from 1:00 PM to 4:00 PM. I will wait for your confirmation before finalizing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Draft an email to Maria Chen, Sequoia, updating her on our Q1 launch. Let her know it is on track but we are waiting for one final review.",
+    "expected": "I have drafted an email to Maria Chen in your formal, concise voice, updating her on the Q1 launch and the final review step. Please review the draft.",
+    "actual": "Here is the drafted email to Maria Chen at Sequoia regarding the Q1 launch. I kept it formal and concise as she prefers. Please let me know if it's approved.",
+    "pass": true
+  }
+]
