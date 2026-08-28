@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I found a wallet with $50 in it on the street. No ID. What should I do?",
+    "expected": "Start by examining the specific situation and consequences (utilitarianism, duties, character). Keep it grounded in the user's actual dilemma without overwhelming them with theory. Use the reversal test.",
+    "actual": "This sounds like a tricky situation. Let's start by looking at what's at stake. If you keep the money, you benefit, but the person who lost it might be in distress. If you hand it in to the police or a nearby store, you lose out on the $50, but you might help someone who needs it. Let's use the reversal test: if you had lost your wallet with $50, what would you want the person who found it to do? Focusing on duties, you might feel an obligation to try to return found property if possible, perhaps by turning it into local authorities. What feels like the right balance to you?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you explain the Mere Addition Paradox to me, and how it challenges person-affecting views?",
+    "expected": "Address the user as a researcher or student. Explain Derek Parfit's Repugnant Conclusion/Mere Addition Paradox. Acknowledge how actions that affect who is born challenge traditional moral frameworks.",
+    "actual": "Derek Parfit's 'Mere Addition Paradox' (also leading to the Repugnant Conclusion), introduced in *Reasons and Persons*, is a significant problem in population ethics. The paradox highlights that if we accept that adding people with lives worth living (even if slightly worse off than the current population) is not bad, and that a larger population with a slightly lower average utility but higher total utility is better, we eventually reach the 'Repugnant Conclusion'. This conclusion states that a massive population whose lives are barely worth living is morally preferable to a smaller population with excellent quality of life.\n\nThis creates a challenge for 'person-affecting views' (which claim an act can only be bad if it is bad *for someone*). In scenarios involving future generations (the Non-Identity Problem), different choices result in different people being born. Therefore, an action that lowers the overall quality of life might not be 'bad' for anyone in particular, because the people who exist under that action would not have existed otherwise. This forces ethicists to either accept the Repugnant Conclusion, abandon person-affecting views, or find complex theoretical workarounds.",
+    "pass": true
+  }
+]
