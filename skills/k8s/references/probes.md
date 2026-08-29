@@ -13,12 +13,12 @@ Three probes, three questions. Liveness: "is this process wedged beyond self-rec
 | `successThreshold` | 1 | Must be 1 for liveness and startup; only readiness may raise it |
 | `terminationGracePeriodSeconds` (probe-level) | inherits the pod's | A liveness kill can use a shorter grace than a normal delete — useful for wedged processes |
 
-The kubelet on the node runs every probe. Probes never traverse the cluster network, so NetworkPolicy cannot block them and a probe passing proves nothing about pod-to-pod reachability (`networking.md`).
+The kubelet on the node runs every probe. Probes do not traverse the cluster network, so NetworkPolicy cannot block them and a probe passing proves nothing about pod-to-pod reachability (`references/networking.md`).
 
 ## Choosing the Probe Mechanism
 
 - `httpGet` — default choice. Any 200-399 counts as success. `host` defaults to the pod IP; an HTTPS endpoint needs `scheme: HTTPS` or the handshake failure reads as a health failure. Certificates are not verified, so self-signed is fine here.
-- `tcpSocket` — proves a listener accepts connections and nothing else. An app that accepts and then hangs stays "healthy" forever. Acceptable for readiness on protocols without an HTTP surface, never a good liveness check.
+- `tcpSocket` — proves a listener accepts connections and nothing else. An app that accepts and then hangs stays "healthy" forever. Acceptable for readiness on protocols without an HTTP surface, a poor liveness check.
 - `exec` — forks a process every period, on every replica. At 1000 pods × 10s that is 100 forks/second of node overhead, and a hung exec probe holds a slot until its timeout. Prefer HTTP; keep exec for the cases where nothing else can express it.
 - `grpc` — native gRPC health checking (kubelet >=1.24, GA 1.27) removes the grpc-health-probe binary from the image. Verify the field exists on the target cluster before relying on it.
 
@@ -27,7 +27,7 @@ The kubelet on the node runs every probe. Probes never traverse the cluster netw
 - The probe handler must read in-process state only: event loop responsive, worker threads alive, no deadlock flag set. Zero dependencies, zero network calls.
 - A liveness probe that touches the database converts a database outage into a fleet-wide restart storm on top of the outage — restarting every pod at once is the worst possible response to a dependency being down.
 - If restarting the process cannot plausibly fix the condition, liveness must not test it. That single sentence eliminates most bad liveness probes.
-- Liveness failure → the kubelet kills the container per `restartPolicy`, increments `restartCount`, and the event reads `Killing container ... failed liveness probe`. Exit 137 with `OOMKilled: false` is usually this (`debug.md`).
+- Liveness failure → the kubelet kills the container per `restartPolicy`, increments `restartCount`, and the event reads `Killing container ... failed liveness probe`. Exit 137 with `OOMKilled: false` is usually this (`references/debug.md`).
 - Slow-start protection is startupProbe's job, not `initialDelaySeconds`: a fixed delay is a number you invented, and it is wrong on the day the database is slow.
 
 ## Readiness Discipline
@@ -35,8 +35,8 @@ The kubelet on the node runs every probe. Probes never traverse the cluster netw
 - Readiness owns dependencies: database unreachable → fail readiness → the pod leaves the EndpointSlice → traffic stops → the pod recovers with no restart when the dependency returns.
 - The danger case: every replica sharing one dependency fails readiness at once and the Service has zero endpoints, turning a degraded service into a total outage. For read-mostly services, prefer serving degraded over serving nothing — fail readiness only for dependencies without which every request is wrong.
 - Readiness is also your load-shedding valve: a queue-depth threshold that fails readiness removes the pod from rotation until it catches up, which is gentler than timeouts at the client.
-- Readiness failures do not restart anything and never touch `restartCount`. A pod stuck NotReady for an hour with 0 restarts is a readiness bug, not a crash.
-- `readinessGates` extend readiness with external conditions (a cloud load balancer confirming target registration). Without them, a pod is "ready" before the LB has actually started sending it traffic — the source of 502s during otherwise clean rollouts (`ingress.md`).
+- Readiness failures do not restart anything and do not touch `restartCount`. A pod stuck NotReady for an hour with 0 restarts is a readiness bug, not a crash.
+- `readinessGates` extend readiness with external conditions (a cloud load balancer confirming target registration). Without them, a pod is "ready" before the LB has actually started sending it traffic — the source of 502s during otherwise clean rollouts (`references/ingress.md`).
 
 ## Startup Probes
 
@@ -64,13 +64,13 @@ Because step 2 is concurrent, a pod that exits immediately on SIGTERM drops in-f
 
 | Observation | Cause | Fix |
 |---|---|---|
-| Probe fails only under load | `timeoutSeconds: 1` versus a busy event loop or GC pause | 2-5s timeout; check CPU throttling first (`resources.md`) |
+| Probe fails only under load | `timeoutSeconds: 1` versus a busy event loop or GC pause | 2-5s timeout; check CPU throttling first (`references/resources.md`) |
 | Probe fails on every deploy, then settles | Boot slower than `initialDelaySeconds` | startupProbe |
 | `connection refused` in the event | App binds `127.0.0.1`, or the wrong `containerPort` | Bind `0.0.0.0`; probe the port the process actually listens on |
 | HTTP 401/403 in the probe event | Auth middleware in front of the health endpoint | Exempt the health path, or use a port the middleware does not cover |
 | All replicas unready at once | Shared dependency in the readiness handler | Reconsider what readiness owns |
 | Restart storm during a dependency outage | Liveness touching that dependency | In-process only |
-| Pod ready, traffic still 502 | LB registration lag | `readinessGates`, or `minReadySeconds` (`rollouts.md`) |
+| Pod ready, traffic still 502 | LB registration lag | `readinessGates`, or `minReadySeconds` (`references/rollouts.md`) |
 | Probe passes, users see errors | Health endpoint returns 200 unconditionally | Make it assert something that can fail |
 
-The two numbers this file produces are worth more than the manifest they end up in: the **boot budget** that actually covers a cold start, and the **real drain time** a graceful shutdown needs. Both come from watching a live rollout, and both are guessed wrong by every later engineer who did not. Write them into the workload's row in `## Workloads` in `~/Clawic/data/k8s/memory.md` the moment they are measured (Core Rule 10).
+The two numbers this file produces are worth more than the manifest they end up in: the **boot budget** that actually covers a cold start, and the **real drain time** a graceful shutdown needs. Both come from watching a live rollout, and both are guessed wrong by every later engineer who did not. Write them into the workload's row in `## Workloads` in `<state_root>/memory.md` the moment they are measured (Core Rule 10).

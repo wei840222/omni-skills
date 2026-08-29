@@ -35,7 +35,7 @@ Aggregated ClusterRoles matter when extending: labelling a ClusterRole with `rba
 
 ## ServiceAccount Tokens
 
-- Every pod gets the `default` ServiceAccount unless told otherwise. Set `automountServiceAccountToken: false` on the ServiceAccount or the pod wherever the workload never calls the API — which is most workloads, and it removes the mounted token an attacker would otherwise find first.
+- Every pod gets the `default` ServiceAccount unless told otherwise. Set `automountServiceAccountToken: false` on the ServiceAccount or the pod wherever the workload does not call the API — which is most workloads, and it removes the mounted token an attacker would otherwise find first.
 - Modern tokens are projected, audience-bound, and time-limited, and the kubelet rotates them in place. Long-lived Secret-based tokens are no longer created automatically (1.24+); a non-expiring token Secret in a manifest is legacy and worth removing.
 - One ServiceAccount per workload. Sharing one across a namespace means every audit answer is "some pod, we cannot tell which".
 - Requesting a specific audience via a projected volume is how a workload authenticates to something other than the API server (a mesh, a cloud provider, an internal service) without any static credential.
@@ -57,11 +57,11 @@ The last query finds bindings to `system:authenticated` or `system:unauthenticat
 1. Start from the workload's actual API calls, not from a role template. Most applications need zero API access; the honest first draft is `automountServiceAccountToken: false`.
 2. For controllers, enumerate resource+verb pairs from the code (or run with a permissive role in staging and read the audit log), then write the minimal Role.
 3. Bind ClusterRoles through RoleBindings for namespace scoping; reserve ClusterRoleBindings for genuinely cluster-scoped controllers.
-4. Humans get groups from the identity provider (OIDC) or client certificates, never individual bindings — offboarding must be one action in one system.
+4. Humans get groups from the identity provider (OIDC) or client certificates, rather than individual bindings — offboarding must be one action in one system.
 5. Re-verify with `auth can-i --list` after every change. RBAC has no dry run for effect, only for admission.
 
 ## What RBAC Cannot Express
 
-After a least-privilege Role finally works, save it to `~/Clawic/data/k8s/artifacts/policy-<serviceaccount>.md` — the YAML, the date, what it unblocked, and which verbs were removed and proved unnecessary — and add its `## Boxes` line to `memory.md`. Deriving one from audit logs costs a full staging cycle; nobody should pay it twice. A binding deliberately left broader than ideal goes to `## Known Gaps` with its reason.
+After a least-privilege Role finally works, save it to `<state_root>/artifacts/policy-<serviceaccount>.md` — the YAML, the date, what it unblocked, and which verbs were removed and proved unnecessary — and add its `## Boxes` line to `memory.md`. Deriving one from audit logs costs a full staging cycle; nobody should pay it twice. A binding deliberately left broader than ideal goes to `## Known Gaps` with its reason.
 
-RBAC operates on verbs and resources, never on field values. "Nobody may create a privileged pod", "images must come from our registry", "every Service must have a team label" are all unexpressible here — those are admission-control policies (`security.md`, `operators.md`). Trying to encode them as narrower roles produces a permission model that blocks legitimate work and still allows the thing you were worried about.
+RBAC operates on verbs and resources, not on field values. "Nobody may create a privileged pod", "images must come from our registry", "every Service must have a team label" are all unexpressible here — those are admission-control policies (`references/security.md`, `references/operators.md`). Trying to encode them as narrower roles produces a permission model that blocks legitimate work and still allows the thing you were worried about.

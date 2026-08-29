@@ -2,7 +2,7 @@
 
 Threat model in one line: a container escape is root on the node, and root on a node is the credentials of every pod scheduled there. Everything below is about making that path longer.
 
-**Read `## Known Gaps` in `~/Clawic/data/k8s/memory.md` before auditing anything.** Findings the user already saw and consciously accepted are not findings; re-raising them every quarter is how the real ones get ignored.
+**Read `## Known Gaps` in `<state_root>/memory.md` before auditing anything.** Findings the user already saw and consciously accepted are not findings; re-raising them every quarter is how the real ones get ignored.
 
 ## Pod Security Admission
 
@@ -57,7 +57,7 @@ Legitimate exceptions exist (CNI agents, CSI drivers, node exporters). They belo
 
 ## Network Boundaries
 
-- Baseline per namespace: default-deny ingress and egress, plus an explicit allow for DNS (`networking.md`). Without egress control, a compromised pod exfiltrates freely and reaches every internal service.
+- Baseline per namespace: default-deny ingress and egress, plus an explicit allow for DNS (`references/networking.md`). Without egress control, a compromised pod exfiltrates freely and reaches every internal service.
 - Block the cloud metadata endpoint (`169.254.169.254`) from pods. Otherwise an SSRF in any application becomes cloud credential theft; on AWS, enforce IMDSv2 with a hop limit of 1 at the instance level as well.
 - Namespaces are an RBAC and policy boundary, not a kernel boundary. Hard multi-tenancy — untrusted code from different customers — needs separate clusters, or VM-isolated runtimes (gVisor, Kata) via RuntimeClass.
 
@@ -71,17 +71,17 @@ Legitimate exceptions exist (CNI agents, CSI drivers, node exporters). They belo
 
 ## Policy Beyond RBAC
 
-RBAC cannot express field-level rules (`rbac.md`). Those need admission:
+RBAC cannot express field-level rules (`references/rbac.md`). Those need admission:
 
 - **ValidatingAdmissionPolicy** — CEL expressions evaluated in-process by the API server. No webhook to keep alive, no availability risk. First choice for simple invariants ("every Deployment must set a memory limit", "no `latest` tags").
 - **Kyverno / Gatekeeper** — full policy engines with mutation, generation, and reporting. Choose when you need policies that create objects (default NetworkPolicy per namespace) or a compliance report.
-- Webhook-based policy is a cluster-wide dependency: `failurePolicy: Fail` with a down backend blocks every create in the cluster (`operators.md`). Scope with `namespaceSelector`, exclude `kube-system`, and run at least two replicas across zones.
+- Webhook-based policy is a cluster-wide dependency: `failurePolicy: Fail` with a down backend blocks every create in the cluster (`references/operators.md`). Scope with `namespaceSelector`, exclude `kube-system`, and run at least two replicas across zones.
 
 ## Detection and Response
 
 - Enable API audit logging and ship it off-cluster. In-cluster logs are exactly what an attacker with cluster access can delete.
 - The queries that matter: `exec` into pods, Secret reads, RoleBinding and ClusterRoleBinding creation, ServiceAccount token requests, anything from `system:anonymous`.
-- Runtime detection (Falco-class syscall monitoring) catches what admission cannot see: a shell spawning inside a container that has never spawned one, an outbound connection to a new destination.
+- Runtime detection (Falco-class syscall monitoring) catches what admission cannot see: a shell spawning inside a container that has not previously spawned one, an outbound connection to a new destination.
 - Incident containment order for a suspected compromised pod: cordon the node, apply a deny-all NetworkPolicy to the pod's labels, snapshot for forensics (`kubectl debug`, node disk snapshot), then delete. Deleting first destroys the evidence and leaves the entry point intact (`incident-response` skill).
 
 ## Review Checklist
@@ -90,9 +90,9 @@ RBAC cannot express field-level rules (`rbac.md`). Those need admission:
 - No privileged, hostPID/IPC/Network, or broad hostPath outside a declared exception namespace?
 - `runAsNonRoot` with numeric UID, `allowPrivilegeEscalation: false`, capabilities dropped, seccomp RuntimeDefault?
 - Default-deny NetworkPolicy plus explicit DNS allow in every application namespace?
-- Metadata endpoint blocked; no static cloud credentials in Secrets (`config-and-secrets.md`)?
+- Metadata endpoint blocked; no static cloud credentials in Secrets (`references/config-and-secrets.md`)?
 - Images pinned by digest, signature verified at admission, registry allow-list enforced?
-- `automountServiceAccountToken: false` wherever the pod never calls the API (`rbac.md`)?
+- `automountServiceAccountToken: false` wherever the pod does not call the API (`references/rbac.md`)?
 - Audit logs shipped off-cluster and someone actually reads the five queries above?
 
-Write the sweep result rather than repeating it next quarter: anything found and deliberately not fixed goes to `## Known Gaps` in `~/Clawic/data/k8s/memory.md` with the date and the reason it was accepted; the PSA level, policy engine, and audit destination the cluster ended up with go to `## Clusters`; a securityContext, NetworkPolicy, or policy rule that finally satisfied both the workload and the profile goes to `~/Clawic/data/k8s/artifacts/policy-<name>.md` with its `## Boxes` line. Set the next audit date in `## Due`. **Nothing from an audit ever carries a secret value into those files** — a leaked-credential runbook stores `keychain:` and `vault:` pointers, never the credential it is about (`memory-template.md`).
+Write the sweep result rather than repeating it next quarter: anything found and deliberately not fixed goes to `## Known Gaps` in `<state_root>/memory.md` with the date and the reason it was accepted; the PSA level, policy engine, and audit destination the cluster ended up with go to `## Clusters`; a securityContext, NetworkPolicy, or policy rule that finally satisfied both the workload and the profile goes to `<state_root>/artifacts/policy-<name>.md` with its `## Boxes` line. Set the next audit date in `## Due`. **Nothing from an audit should carry a secret value into those files** — a leaked-credential runbook stores `keychain:` and `vault:` pointers, omitting the credential it is about (`references/memory-template.md`).
