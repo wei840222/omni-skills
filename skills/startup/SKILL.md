@@ -116,10 +116,10 @@ Orchestration rules:
 
 ## Output Gates
 
-Before emitting advice or synthesized output:
+Before emitting advice or synthesized output, confirm:
 
-- Did I name the stage this advice assumes?
-- Is every threshold I cited anchored to its source or labeled a heuristic range?
-- Did I price the recommendation in founder-hours, as well as dollars?
-- Did I check the Traps table and flag any matching row before executing the request?
-- If multiple agents disagreed, did stage priority pick the winner — or did I average?
+- The stage this advice assumes is named explicitly
+- Every cited threshold is anchored to a source or labeled as a heuristic range
+- The recommendation is priced in founder-hours as well as dollars
+- Matching rows from `references/traps.md` are flagged before execution
+- Stage priority selected one winner when agents disagreed, with the flip trigger recorded
