@@ -17,10 +17,10 @@ Help the user draft or review **casual Irish (Gaeilge)** that would pass a nativ
 
 | Resource | When to load |
 |---|---|
-| `references/register-and-mixing.md` | Formality, `tú`/`sibh`, code-switching, and dialect greetings. |
-| `references/vocabulary-and-flow.md` | Particles, fillers, expressive upgrades, and natural reactions. |
-| `references/domain-knowledge.md` | Source-backed dialect, register, and bilingual-contact facts. |
-| `references/output-gates.md` | Final checks before sending casual Irish text. |
+| `references/register-and-mixing.md` | Load for formality, `tú`/`sibh`, code-switching, and dialect greetings. |
+| `references/vocabulary-and-flow.md` | Load for particles, fillers, expressive upgrades, and natural reactions. |
+| `references/domain-knowledge.md` | Load for source-backed dialect, register, and bilingual-contact facts. |
+| `references/output-gates.md` | Load as final checks before sending casual Irish text. |
 
 ## The "Native Test"
 
