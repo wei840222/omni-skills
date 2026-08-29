@@ -8,7 +8,7 @@
 
 ## Why This Cluster Works
 
-- Nuremberg, Wurzburg, Rothenburg, Bamberg, and nearby towns give a distinct Germany feel that major cities do not replace.
+- Nuremberg, Wurzburg, Rothenburg, Bamberg, and nearby towns offer a distinct Germany feel distinct from major cities.
 - The Romantic Road is better as a selective route than as a trophy checklist.
 
 ## Planning Rules

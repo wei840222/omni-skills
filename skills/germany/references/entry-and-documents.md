@@ -11,7 +11,7 @@
 
 - Germany follows Schengen rules, so the key question is not only "Germany entry" but total Schengen exposure.
 - Passport should be valid, in good condition, and comfortably cover the full trip window.
-- Do not promise automatic flexibility on stays, onward questions, or border handling.
+- Communicate that border handling and stays are subject to strict rules without automatic flexibility.
 
 ## Practical Workflow Notes
 
@@ -24,7 +24,7 @@
 ## Family and Minor Notes
 
 - If minors are involved, double-check documentation early, especially for surname mismatch, one-parent travel, or residency complications.
-- School-break periods increase both document stress and hotel pressure, so do not leave checks to the final week.
+- Complete all document checks well before the final week, as school-break periods increase both document stress and hotel pressure.
 
 ## Checklist Before Locking Flights
 

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 2-week trip to Germany with my family next December. Should we rent a car to see Berlin, Munich, and the Christmas markets?",
+    "expected": "Rejects distant multi-city car-first routing for December family travel; recommends one or two adjacent clusters, rail-first between Berlin and Munich, Christmas-market crowd/season constraints, and Sunday/event booking buffers.",
+    "actual": "For a December family trip, treat Berlin and Munich as separate products rather than one continuous drive. Keep one anchor cluster per week, use rail for the Berlin–Munich hop, and only add a short car window if you need nearby Christmas-market villages after the city base is set. Book lodging early for market weeks, build cold-weather transfer buffers, and plan Sunday closures for meals and essentials.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you give me a budget breakdown for a solo traveler doing the Romantic Road and Black Forest in summer?",
+    "expected": "Frames full Germany trip math for a scenic southwest loop: lodging, regional rail or rental, parking/low-emission friction, food, and season-aware buffers instead of hotel-only pricing.",
+    "actual": "Budget the Romantic Road + Black Forest as a car-leaning southwest loop: mid-range lodging, rental or regional transit, parking and Umweltzone friction, meals beyond hotel rates, and summer crowd premiums. Prefer one contiguous southwest cluster over stitching distant cities, and keep a contingency line for weather or festival demand.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What's the best way to travel between Frankfurt Airport, Cologne, and Munich, and do I need to worry about the new EES border system?",
+    "expected": "Recommends rail-first for FRA–Cologne–Munich and flags EES/ETIAS as live border friction for non-EU/EFTA travelers, with official-source verification and arrival buffer guidance.",
+    "actual": "Use rail-first for Frankfurt Airport to Cologne and onward to Munich; ICE/airport rail links beat a same-day multi-city drive. For non-EU/EFTA travelers, treat EES as live border friction, re-check the official EU EES/ETIAS pages before locking non-refundable plans, and buffer extra time at first Schengen entry.",
+    "pass": true
+  }
+]

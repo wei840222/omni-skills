@@ -14,7 +14,7 @@
 
 - eSIM or roaming usually works well for short-stay travelers, but station tunnels and rural edges are not identical.
 - Offline train tickets, hotel addresses, and maps are still useful for low-signal or battery-friction moments.
-- Do not assume one local transit ticketing logic covers every German city.
+- Remember that local transit ticketing logic varies across different German cities.
 
 ## Payment and App Trap
 
