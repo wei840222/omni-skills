@@ -1,79 +1,33 @@
 ---
 name: google-fonts
-slug: google-fonts
-version: 1.0.0
-description: Load Google Fonts with proper performance, subsetting, and proven font pairings.
-homepage: https://clawic.com/skills/google-fonts
+description: "Load and optimize Google Fonts: display=swap, preconnect, exact weights, variable fonts, subsetting, proven pairings, and GDPR-aware self-hosting. Use when choosing or wiring web fonts from Google Fonts, reviewing font performance, or deciding whether to self-host. Not for general typographic measure/leading (typography) or CSS layout systems (css)."
 metadata:
-  clawdbot:
-    emoji: 🔤
-    requires: {}
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Google Fonts
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔤"}'
+  related-skills: '{"typography":"Measure, leading, tracking, and optical scale once the font files are chosen.","css":"@font-face, font-display, and CSS delivery details around the selected fonts.","branding":"Brand voice and visual identity that constrain font choice."}'
 ---
 
-## Loading Mistakes
+## State location
 
-- Missing `display=swap` causes invisible text until font loads—always add it to URL
-- Load only weights you use: `wght@400;600;700` not the entire family—each unused weight wastes ~20KB
-- Missing preconnect slows load—add both: `<link rel="preconnect" href="https://fonts.googleapis.com">` and `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
+This skill is stateless and does not store local configuration or persistent user state.
 
-## Variable Fonts
+## When to Use
 
-- Inter, Roboto Flex, Montserrat, Open Sans have variable versions—one file for all weights
-- Use `wght@100..900` syntax for variable—downloads single file instead of multiple
-- CSS for variable: `font-weight: 450` works with any value in range
-- Check "Variable" badge on font page—not all Google Fonts are variable
+- Loading Google Fonts with performance-safe HTML/CSS snippets
+- Choosing weights, variable axes, subsets, or proven pairings
+- Deciding whether CDN Google Fonts or self-hosting is appropriate for privacy
 
-## Subsetting
+Redirect measure/leading/tracking questions to `typography`. Redirect pure CSS layout or `@font-face` mechanics without Google Fonts selection concerns to `css`.
 
-- Default includes latin—only add `&subset=latin-ext` if you need Polish, Vietnamese, etc.
-- CJK fonts (Noto Sans JP, etc.) are huge—Google serves them sliced, but still heavy
-- Unused subsets = wasted bytes—check what characters you actually need
+## Quick Reference
 
-## Proven Pairings
-
-**Serif + Sans-Serif (classic contrast):**
-- Playfair Display (heading) + Source Sans Pro (body)
-- Lora (heading) + Roboto (body)
-- Libre Baskerville (heading) + Montserrat (body)
-- Merriweather (heading) + Open Sans (body)
-
-**Sans-Serif only (modern/clean):**
-- Inter (both)—vary weight for hierarchy
-- Montserrat (heading) + Hind (body)
-- Poppins (heading) + Nunito (body)
-- Work Sans (heading) + Open Sans (body)
-
-**Tech/Startup:**
-- Space Grotesk (heading) + Space Mono (code)
-- DM Sans (heading) + DM Mono (code)
-- IBM Plex Sans + IBM Plex Mono
-
-**Display fonts (headings only):**
-- Abril Fatface, Bebas Neue, Oswald—never use these for body text
-
-## Font Selection by Purpose
-
-- **Long-form reading:** Merriweather, Lora, Source Serif Pro, Crimson Text
-- **UI/Interfaces:** Inter, Roboto, Open Sans, Nunito Sans (tall x-height, clear at small sizes)
-- **Impact headings:** Playfair Display, Oswald, Bebas Neue (not for body)
-- **Monospace:** JetBrains Mono, Fira Code, Source Code Pro
-
-## Common Mistakes
-
-- Loading 6+ weights "to be safe"—pick exactly the weights you use (usually 2-3)
-- Using display fonts for paragraphs—Lobster, Pacifico, Abril Fatface are heading-only
-- Two fonts too similar—Roboto + Open Sans look almost identical; just use one
-- Missing font-weight in CSS—`font-weight: 600` won't work if you only loaded 400 and 700
-- No fallback stack—always: `font-family: 'Inter', system-ui, sans-serif`
-
-## Self-Hosting
-
-- Self-host for GDPR compliance—Google Fonts loads from Google servers, logs IP addresses
-- Use google-webfonts-helper to download files
-- Same `font-display: swap` needed in your @font-face
-- Self-hosted can be faster if your CDN is closer than Google's
+| Topic | File | When to load |
+|-------|------|--------------|
+| Loading Mistakes | `references/loading-mistakes.md` | When optimizing Google Fonts loading code and CSS links |
+| Variable Fonts | `references/variable-fonts.md` | When selecting multiple weights and aiming to reduce payload size |
+| Subsetting | `references/subsetting.md` | When loading fonts for non-English languages or specific character subsets |
+| Proven Pairings | `references/font-pairings.md` | When designing typography and selecting combinations of fonts |
+| Font Selection | `references/font-selection.md` | When deciding which font family to use for reading, UI, or headings |
+| Common Mistakes | `references/common-mistakes.md` | When verifying typography implementation and reviewing font usage |
+| Self-Hosting | `references/self-hosting.md` | When addressing privacy regulations (GDPR) or local hosting needs |
+| Domain Knowledge | `references/domain-knowledge.md` | When needing fundamental context on web typography and font formats |
