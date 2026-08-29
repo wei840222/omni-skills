@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Check this playbook task: `when: \"{{ is_debian }}\"`. What is wrong and how should it be written?",
+    "expected": "Identify the Jinja2 brace trap in `when:` and recommend `when: is_debian` (no braces). Optionally note quoting/YAML boundaries.",
+    "actual": "Flagged Jinja2 curly braces inside `when:` as invalid Ansible conditional style. Recommended `when: is_debian` and pointed to conditionals guidance that `when` expressions are already templated.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Why did my apt task fail even though the play has `become: yes`, and why does a nearby `shell: apt-get install ...` always show changed?",
+    "expected": "Explain task-level become may still be required, check become_method/password, and replace unguarded shell/apt-get with the apt/package module or add creates/changed_when for idempotence.",
+    "actual": "Explained that privilege escalation can still need task-level `become`, correct `become_method`, and a become password. Separately flagged the unguarded `shell` apt-get as non-idempotent and recommended the `apt` module (or `creates`/`changed_when` if shell is unavoidable).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I notified a handler to restart nginx after a template change, but the restart happened at the end of the play instead of immediately. Is that a bug?",
+    "expected": "Explain handlers are deferred and deduplicated by default; immediate flush requires `meta: flush_handlers`. Restart only occurs if the notifying task reported changed.",
+    "actual": "Clarified this is normal handler timing: notifies are queued and flushed at end of play unless `meta: flush_handlers` is used. Also noted the handler runs only when the template task reports `changed`.",
+    "pass": true
+  }
+]
