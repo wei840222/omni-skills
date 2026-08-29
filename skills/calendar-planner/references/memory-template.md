@@ -1,6 +1,6 @@
 # Memory Template — Calendar Planner
 
-Create `~/Clawic/data/calendar-planner/memory.md` only if the user wants continuity across sessions.
+Create `<state_root>/memory.md` only if the user wants continuity across sessions.
 
 ```markdown
 # Calendar Planner Memory
@@ -34,10 +34,10 @@ integration: pending
 
 If the user wants deeper continuity, create:
 
-- `~/Clawic/data/calendar-planner/calendars.md` — provider map, calendar names, and write boundaries
-- `~/Clawic/data/calendar-planner/rules.md` — buffers, focus blocks, and recurring commitments
-- `~/Clawic/data/calendar-planner/plans.md` — weekly plans, repair decisions, and pending moves
-- `~/Clawic/data/calendar-planner/inbox.md` — loose commitments that still need placement
+- `<state_root>/calendars.md` — provider map, calendar names, and write boundaries
+- `<state_root>/rules.md` — buffers, focus blocks, and recurring commitments
+- `<state_root>/plans.md` — weekly plans, repair decisions, and pending moves
+- `<state_root>/inbox.md` — loose commitments that still need placement
 
 ## Key Principles
 

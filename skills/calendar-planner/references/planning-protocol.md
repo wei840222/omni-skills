@@ -70,4 +70,4 @@ End with one of these:
 - a weekly plan summary
 - a short list of unresolved conflicts
 
-If terminal execution helps, pair the decision with the relevant command from `commands.md`.
+If terminal execution helps, pair the decision with the relevant command from `references/commands.md`.

@@ -1,37 +1,30 @@
 ---
 name: calendar-planner
-slug: calendar-planner
-version: 1.0.0
-description: Plan work and life across Google Calendar, Outlook, Apple Calendar, and CalDAV with CLI adapters, conflict repair, and weekly reviews.
-homepage: https://clawic.com/skills/calendar-planner
-changelog: Initial release with multi-calendar CLI playbooks, Life Grid planning rules, and local scripts for merge, guard, and weekly review workflows.
+description: Plan work, life, and travel across command-line calendar adapters (Google, Outlook, Apple, CalDAV). Use when reconciling cross-calendar conflicts, optimizing weekly schedules, and protecting focus time, rather than just simple scheduling.
 metadata:
-  clawdbot:
-    emoji: C
-    requires:
-      bins:
-      - python3
-      - jq
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/calendar-planner/
-    displayName: Calendar Planner
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/calendar-planner/
+  related-skills: '{"daily-planner": "Daily plan shaping, sequencing, and realistic task placement.", "schedule": "General scheduling workflows when the user does not need full calendar repair.", "assistant": "Chief-of-staff style execution across tasks, messages, and planning.", "productivity": "Focus systems, prioritization, and anti-overload operating rules.", "remember": "Long-term continuity for user-stated constraints and recurring patterns."}'
+  openclaw: '{"requires":{"bins":["python3","jq"],"config":["<state_root>/"]}}'
 ---
 
 # Calendar Planner
 
 Calendar planner for work, family, health, travel, deep work, and recovery across multiple command-line calendar adapters.
 
+## State location
+
+Calendar Planner state may exist in `<workspace>/calendar-planner/`, `<workspace>/memory/calendar-planner/`, or `~/calendar-planner/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/calendar-planner/`, `<workspace>/memory/calendar-planner/`, `~/calendar-planner/`.
+3. If none exists and state must be created, ask for permission and default to `<workspace>/calendar-planner/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Setup
 
-On first use, read `setup.md` for integration guidelines. Answer the immediate planning question first, ask before creating `~/Clawic/data/calendar-planner/`, and ask before writing to any calendar or sending invites.
+On first use, read `references/setup.md` for integration guidelines. Answer the immediate planning question first, ask before creating `<state_root>/`, and ask before writing to any calendar or sending invites.
 
 ## When to Use
 
@@ -44,7 +37,7 @@ This skill should return one defended plan, explicit trade-offs, and a safe acti
 Local continuity is optional and only created with user consent.
 
 ```text
-~/Clawic/data/calendar-planner/
+<state_root>/
 ├── memory.md        # User-stated planning rules and activation preferences
 ├── calendars.md     # Provider map, calendar names, and write boundaries
 ├── rules.md         # Buffers, focus rules, recurring constraints
@@ -56,16 +49,19 @@ Local continuity is optional and only created with user consent.
 
 Load only what improves the current planning decision. Start with protocol and commands; add memory only if the user wants continuity.
 
-| Topic | File |
-|-------|------|
-| Setup and activation | `setup.md` |
-| Optional continuity memory | `memory-template.md` |
-| Life Grid planning method | `planning-protocol.md` |
-| Domain-specific planning heuristics | `life-domains.md` |
-| CLI adapter recipes | `commands.md` |
-| Merge normalized event exports | `calendar_merge.py` |
-| Audit overlaps and buffer failures | `calendar_guard.py` |
-| Generate weekly planning summary | `week_plan.py` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup and activation | `references/setup.md` | First use, stack boundaries, or continuity consent |
+| Optional continuity memory | `references/memory-template.md` | After the user opts into local persistence |
+| Life Grid planning method | `references/planning-protocol.md` | Placement decisions, weekly repair, trade-off ranking |
+| Domain-specific planning heuristics | `references/life-domains.md` | Work/family/health/travel conflicts |
+| Core planning rules | `references/core-rules.md` | Before reshuffling commitments |
+| Common traps | `references/common-traps.md` | Final review of a proposed plan |
+| Domain knowledge | `references/domain-knowledge.md` | Time-management framing and buffer rationale |
+| CLI adapter recipes | `references/commands.md` | Dry-run or execute through a chosen adapter |
+| Merge normalized event exports | `calendar_merge.py` | Multiple calendar exports need one timeline |
+| Audit overlaps and buffer failures | `calendar_guard.py` | Overlap, short-gap, or overloaded-day checks |
+| Generate weekly planning summary | `week_plan.py` | Weekly repair or review summary |
 
 ## Requirements
 
@@ -81,44 +77,11 @@ Use the lightest adapter that matches the user's stack. Only install the provide
 
 ## Core Rules
 
-### 1. Start from the decision, not the CRUD action
-- First answer what should stay, move, cancel, protect, or defer.
-- Ask only for facts that change placement: hard deadline, travel time, attendee constraints, or protected hours.
-- Use `planning-protocol.md` to convert messy requests into a placement decision.
-
-### 2. Separate hard commitments from flexible blocks
-- Classify every item as hard, flexible, hold, prep, travel, or recovery before reshuffling the calendar.
-- Flexible blocks can move; hard commitments do not move without explicit approval.
-- Use `life-domains.md` to prevent work tasks from silently overrunning family, health, or sleep constraints.
-
-### 3. Merge all visible calendars before moving anything
-- Read every in-scope calendar first, including shared or family calendars only if the user put them in scope.
-- Treat hidden calendars as risk, not as empty time.
-- Use `calendar_merge.py` when you have multiple normalized exports and need one timeline.
-
-### 4. Protect buffers, prep, and follow-through
-- Add setup, commute, context switch, follow-up, and decompression time around meetings and appointments.
-- A schedule with no buffers is fake capacity.
-- Use `calendar_guard.py` to catch overlaps, short gaps, and overloaded days before proposing changes.
-
-### 5. Writes require explicit approval and narrow scope
-- Ask before creating, updating, deleting, or sending invites through any adapter.
-- Default to a draft plan or dry-run command sequence first.
-- Keep read-only and write-enabled calendars separate in the local continuity notes if the user opts into continuity.
-
-### 6. Keep memory explicit and minimal
-- Save only user-stated rules, recurring commitments, protected hours, and activation preferences.
-- Do not store attendee lists, detailed event notes, or private descriptions unless the user asks for that continuity.
-- Use `memory-template.md` only after the user agrees to local persistence.
-
-### 7. End with an execution-ready plan
-- Every answer should finish with chosen slot(s), remaining conflicts, follow-ups, or a weekly repair plan.
-- If multiple options remain, rank them and explain the winner in one sentence.
-- Use `week_plan.py` or the adapter recipes in `commands.md` when a terminal workflow makes the answer more reliable.
+Load `references/core-rules.md` to learn about the fundamental planning rules.
 
 ## Life Grid Protocol
 
-See `planning-protocol.md` for the full method.
+See `references/planning-protocol.md` for the full method.
 
 - Intake: capture the real outcome, not just the requested event.
 - Map: place each item into hard, flexible, prep, travel, or recovery.
@@ -128,12 +91,7 @@ See `planning-protocol.md` for the full method.
 
 ## Common Traps
 
-- Solving only the meeting request -> school pickup, travel, medication, or focus constraints break later.
-- Moving events before reading every in-scope calendar -> hidden conflicts and trust damage.
-- Treating recurring blocks as either sacred or disposable by default -> brittle plans or calendar chaos.
-- Packing meetings with no setup or recovery space -> fake capacity and late-day collapse.
-- Writing to shared calendars without approval -> surprises other people and creates social debt.
-- Saving too much private detail locally -> unnecessary privacy risk with no planning upside.
+Load `references/common-traps.md` to avoid frequent planning mistakes and calendar chaos.
 
 ## External Endpoints
 
@@ -145,12 +103,12 @@ Only the adapter the user explicitly chooses should talk to a remote service. Us
 | https://graph.microsoft.com/v1.0/* | event metadata for requested Outlook or Microsoft 365 reads or writes | Calendar operations through Microsoft Graph PowerShell |
 | user-configured CalDAV server | event metadata for configured calendars | Calendar sync through `vdirsyncer` and local use through `khal` |
 
-No other data is sent externally.
+All other data must remain strictly on the local machine.
 
 ## Security & Privacy
 
 **Data that stays local:**
-- Optional planning memory in `~/Clawic/data/calendar-planner/`
+- Optional planning memory in `<state_root>/`
 - Normalized event exports and review outputs produced by `calendar_merge.py`, `calendar_guard.py`, and `week_plan.py`
 - Apple Calendar automation through Calendar.app on macOS
 
@@ -174,21 +132,8 @@ This skill ONLY:
 - Produces dry-run commands, normalized planning files, and local review reports
 - Persists minimal planning context after explicit user consent
 
-This skill NEVER:
-- Modifies its own skill file
-- Auto-accepts invites or auto-reschedules people without approval
-- Widens access from one calendar to another without confirmation
-- Stores credentials in local memory files
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `daily-planner` - Daily plan shaping, sequencing, and realistic task placement.
-- `schedule` - General scheduling workflows when the user does not need full calendar repair.
-- `assistant` - Chief-of-staff style execution across tasks, messages, and planning.
-- `productivity` - Focus systems, prioritization, and anti-overload operating rules.
-- `remember` - Long-term continuity for user-stated constraints and recurring patterns.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/calendar-planner
-- Latest version: https://clawic.com/skills/calendar-planner
+This skill MUST AVOID unauthorized calendar actions by following these rules:
+- Keep `SKILL.md` immutable; only write under the resolved `<state_root>/` after consent
+- Obtain explicit approval before accepting invites or rescheduling other people
+- Confirm before widening access from one calendar to another
+- Store only pointers and user-stated planning rules locally; never store credentials
