@@ -3,7 +3,7 @@ name: image-generation
 description: "Select and run text-to-image or image-editing workflows across GPT Image, Gemini, FLUX, Imagen, and related providers with alias resolution, cost-aware drafting, and portable local memory."
 metadata:
   version: "1.0.3"
-  openclaw: '{"emoji":"🎨","requires":{"env":["OPENAI_API_KEY","GEMINI_API_KEY","BFL_API_KEY","GOOGLE_CLOUD_PROJECT","REPLICATE_API_TOKEN","LEONARDO_API_KEY","IDEOGRAM_API_KEY"],"config":["<state_root>/"]}}'
+  openclaw: '{"emoji":"🎨","requires":{"config":["<state_root>/"]}}'
   related-skills: '{"image-edit":"Specialized inpainting, outpainting, and mask workflows","video-generation":"Convert image concepts into video pipelines","colors":"Build palettes for visual consistency across assets","ffmpeg":"Post-process image sequences and exports"}'
 ---
 
