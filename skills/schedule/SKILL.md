@@ -1,85 +1,100 @@
 ---
 name: schedule
-slug: schedule
-version: 1.0.2
-description: Program recurring or one-time tasks. User defines what to do, skill handles when.
-homepage: https://clawic.com/skills/schedule
-changelog: Clarified user-driven execution model, removed assumed access patterns
+description: Program recurring or one-time jobs the user defines, persist them under portable state, and fire them at the right local time. Use when the user asks to schedule, cron, remind-later as a job, cancel or list scheduled work, set a timezone for jobs, or asks how a cron expression should run; not for calendar conflict repair (`calendar-planner`) or surfacing known commitments (`remind`).
 metadata:
-  clawdbot:
-    emoji: 📅
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Schedule
+  version: "1.0.3"
+  openclaw: '{"emoji":"📅","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"remind":"Lead-time nudges for commitments the user already knows, not job execution","calendar-planner":"Cross-calendar conflict repair and focus-block planning","daily-planner":"Day shaping and top-priority protection before jobs are stored","productivity":"Diagnose overload and pick the smallest sustainable plan before scheduling","time-management":"Time-blocking mechanics when the need is planning, not a durable job store"}'
 ---
 
-## Data Storage
+## State location
 
-```
-~/Clawic/data/schedule/
+Schedule state may exist in `<workspace>/schedule/`, `<workspace>/memory/schedule/`, or `~/schedule/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/schedule/`, `<workspace>/memory/schedule/`, `~/schedule/`.
+3. If none exists and state must be created, ask for permission and default to `<workspace>/schedule/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+Directory structure after resolution:
+
+```text
+<state_root>/
 ├── jobs.json           # Job definitions
 ├── preferences.json    # Timezone, preferred times
 └── history/            # Execution logs
     └── YYYY-MM.jsonl
 ```
 
-Create on first use: `mkdir -p ~/Clawic/data/schedule/history`
+Create `<state_root>/history/` only when an execution log must be written. Do not pre-create empty history files.
+
+If data still sits at a legacy path such as `~/Clawic/data/schedule/`, treat it as a migration source only: copy after consent, validate, then cut over. Do not keep the legacy path in active lookup order.
 
 ## Scope
 
 This skill:
-- ✅ Stores scheduled job definitions in ~/Clawic/data/schedule/
-- ✅ Triggers jobs at specified times
-- ✅ Learns timezone and time preferences from user
 
-**Execution model:**
-- User explicitly defines WHAT the job does
-- User grants any permissions needed for the job
-- Skill only handles WHEN, not WHAT
+- Stores scheduled job definitions in `<state_root>/`
+- Triggers jobs at the scheduled local time
+- Learns timezone and preferred morning/evening times from explicit user answers
 
-This skill does NOT:
-- ❌ Assume access to any external service
-- ❌ Modify system crontab or launchd
-- ❌ Execute jobs without user-defined instructions
+Execution model:
+
+- The user defines WHAT the job does
+- The user grants any permissions the job needs
+- This skill only handles WHEN
+
+Hard boundaries:
+
+- Do not assume access to mail, calendar, shell, or other external services
+- Do not modify system crontab, launchd, or systemd timers
+- Do not execute a job without a user-defined task string and an explicit grant for every required skill
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Cron expression syntax | `patterns.md` |
-| Common mistakes | `traps.md` |
-| Job format | `jobs.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Cron expression syntax | `references/patterns.md` | Parsing or creating schedule expressions |
+| Common mistakes | `references/traps.md` | Troubleshooting scheduling errors before create/cancel |
+| Job format | `references/jobs.md` | Writing or editing `<state_root>/jobs.json` |
+| Domain knowledge | `references/cron_basics.md` | Explaining cron fields, DST, or timezone semantics |
 
 ## Core Rules
 
 ### 1. User Defines Everything
-When user requests a scheduled task:
+
+When the user requests a scheduled task:
+
 1. **WHAT**: User specifies the action (may require other skills/permissions)
 2. **WHEN**: This skill handles timing
 3. **HOW**: User grants any needed access explicitly
 
 Example flow:
-```
+
+```text
 User: "Every morning, summarize my emails"
-Agent: "I'll schedule this for 8am. This will need email access — 
+Agent: "I'll schedule this for 8am. This will need email access —
         do you want me to use the mail skill for this?"
 User: "Yes"
 → Job stored with explicit reference to mail skill
 ```
 
 ### 2. Simple Requests
+
 | Request | Action |
 |---------|--------|
-| "Remind me to X at Y" | Store job, confirm |
+| "Remind me to X at Y" as a stored job | Store job, confirm |
 | "Every morning do X" | Ask time, store job |
-| "Cancel X" | Remove from jobs.json |
+| "Cancel X" | Remove from `<state_root>/jobs.json` |
+
+For lead-time nudges about commitments the user already knows, prefer `remind` instead of creating an execution job here.
 
 ### 3. Confirmation Format
-```
+
+```text
 ✅ [what user requested]
 📅 [when] ([timezone])
 🔧 [permissions/skills needed, if any]
@@ -87,7 +102,9 @@ User: "Yes"
 ```
 
 ### 4. Job Persistence
-In ~/Clawic/data/schedule/jobs.json:
+
+In `<state_root>/jobs.json`:
+
 ```json
 {
   "daily_review": {
@@ -95,21 +112,26 @@ In ~/Clawic/data/schedule/jobs.json:
     "task": "User-defined task description",
     "requires": ["mail"],
     "created": "2024-03-15",
-    "timezone": "Europe/Madrid"
+    "timezone": "Europe/Madrid",
+    "status": "active"
   }
 }
 ```
 
-The `requires` field explicitly lists any skills/access the job needs.
+The `requires` field lists only skills/access the user explicitly granted.
 
 ### 5. Execution
-When scheduled time arrives:
-- Agent executes the user-defined task
-- Uses only permissions user explicitly granted
-- Logs result to history/
+
+When the scheduled time arrives:
+
+- Execute only the stored user-defined task
+- Use only permissions listed in `requires`
+- Append the result to `<state_root>/history/YYYY-MM.jsonl`
 
 ### 6. Preferences
-After first job, store in preferences.json:
+
+After the first job, store in `<state_root>/preferences.json`:
+
 - Timezone
 - Preferred "morning" / "evening" times
 - Default notification style
