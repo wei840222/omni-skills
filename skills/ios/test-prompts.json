@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "The iOS App Review team rejected my app because it stops working when the user denies the camera permission. How do I fix this?",
+    "expected": "The agent should load `references/traps.md` or `references/core-rules.md`, identify that denying permission is not an error state (Rule 4 / Traps), and instruct on providing a degraded path.",
+    "actual": "I will load `references/traps.md` to check common pitfalls. According to the Traps reference, treating a denied permission as an error state is a failure reason. You must ship a degraded path for every permission so the app continues to function even if the permission is denied. Test the app with all permissions denied.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My background task isn't running reliably. I'm using BGAppRefreshTask to download some data.",
+    "expected": "The agent should load `references/core-rules.md` or `references/budgets-and-ceilings.md`, identify that BGAppRefreshTask gives ~30s but is discretionary, and advise making the background path idempotent and reachable in the foreground.",
+    "actual": "I'll load `references/core-rules.md` to check background budgets. According to Rule 5, background time is a budget. `BGAppRefreshTask` gets ~30s but only when the system decides to run it. It is not guaranteed. You should make your background logic idempotent and ensure it can also run in the foreground if the background task never executed.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I see a lot of 0x8badf00d crashes on launch in my iOS app analytics.",
+    "expected": "The agent should load `references/termination-codes.md` and identify that `0x8badf00d` means watchdog termination (unresponsive main thread), and advise checking synchronous work in application(_:didFinishLaunchingWithOptions:).",
+    "actual": "I will check `references/termination-codes.md`. The code `0x8badf00d` indicates a watchdog termination because the main thread was unresponsive for too long, often during launch. You should profile your app with Instruments and move synchronous work off the main thread in `application(_:didFinishLaunchingWithOptions:)`.",
+    "pass": true
+  }
+]
