@@ -153,9 +153,9 @@ metadata:
     requires:
       bins: []
     os:
-    - linux
-    - darwin
-    - win32
+      - linux
+      - darwin
+      - win32
     displayName: Garden
 ```
 
@@ -306,16 +306,16 @@ Garden currently has no executable program, so it does not create `scripts/`.
 
 #### Worked Example: Garden file migration
 
-| Current file | Target | Treatment |
-| --- | --- | --- |
-| `SKILL.md` | `SKILL.md` | Keep at the root; update routing and every resource path. |
-| `_meta.json` | Delete | Gate 1 already requires removing duplicate repository metadata. |
-| `setup.md` | `references/setup.md` | Move first-use, consent, and integration procedures. |
-| `climate-setup.md` | `references/climate.md` | Move climate decision rules; extract template portions into the asset. |
-| `diagnostics.md` | `references/diagnostics.md` | Move symptom-diagnosis knowledge and procedures. |
-| `planning.md` | `references/planning.md` | Move crop-rotation and seasonal-planning rules. |
-| `tracking.md` | `references/tracking.md` | Preserve tracking triggers and update rules; extract template portions into the asset. |
-| `memory-template.md` | `references/memory.md` | Preserve storage lifecycle, state values, and data semantics; extract template portions into the asset. |
+| Current file                     | Target                            | Treatment                                                                                                                          |
+| -------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `SKILL.md`                       | `SKILL.md`                        | Keep at the root; update routing and every resource path.                                                                          |
+| `_meta.json`                     | Delete                            | Gate 1 already requires removing duplicate repository metadata.                                                                    |
+| `setup.md`                       | `references/setup.md`             | Move first-use, consent, and integration procedures.                                                                               |
+| `climate-setup.md`               | `references/climate.md`           | Move climate decision rules; extract template portions into the asset.                                                             |
+| `diagnostics.md`                 | `references/diagnostics.md`       | Move symptom-diagnosis knowledge and procedures.                                                                                   |
+| `planning.md`                    | `references/planning.md`          | Move crop-rotation and seasonal-planning rules.                                                                                    |
+| `tracking.md`                    | `references/tracking.md`          | Preserve tracking triggers and update rules; extract template portions into the asset.                                             |
+| `memory-template.md`             | `references/memory.md`            | Preserve storage lifecycle, state values, and data semantics; extract template portions into the asset.                            |
 | Data templates in multiple files | `assets/garden-data-templates.md` | Centralize templates for `memory.md`, `climate.md`, `harvests.md`, plants, zones, and monthly logs to avoid duplicate definitions. |
 
 Garden's `SKILL.md` must update at least these legacy references:
@@ -359,7 +359,8 @@ Agent Skills does not define a runtime-state location. First-party source resear
 This project adopts a workspace-first state convention:
 
 - **Stateful skills**: Every stateful skill must define candidate locations, lookup order, creation behavior, and a single placeholder near the beginning of `SKILL.md`, so every file in the same skill uses consistent semantics.
-- **Stateless / Knowledge-only skills**: Skills that do not generate, read, or persist user state across sessions (such as pure reference guides, language tools, or stateless workflow instructions) must NOT introduce a `## State location` section or invent unneeded persistent configurations; omit the section entirely.
+  - **Preserve domain architecture**: Candidate path resolution is a semantic rule. Do NOT delete, overwrite, or simplify a skill's specific subfolder layouts, shared multi-box data architectures, setup prompts, or privacy/security constraints merely to inject a generic boilerplate.
+- **Stateless / Knowledge-only skills**: Skills that do not generate, read, or persist user state across sessions (such as pure reference guides, language tools, or stateless workflow instructions) should omit the `## State location` section entirely. If a concise 1-line non-persistence declaration is retained (e.g. `This skill is stateless and does not store local configuration or persistent user state.`), reviewers should treat it as acceptable and not block on it.
 
 #### Terms
 
@@ -468,15 +469,15 @@ After selecting `<state_root>`, Garden uses this state tree:
     └── YYYY-MM.md
 ```
 
-| Path | Role | Creation condition |
-| --- | --- | --- |
-| `<state_root>/memory.md` | Current context, status, and integration preferences | Create the first time data must persist across sessions. |
-| `<state_root>/climate.md` | Climate zone, frost dates, and microclimate settings | Create when the user needs climate-aware planning. |
-| `<state_root>/harvests.md` | Harvest records and cross-season comparisons | Create when the user requests harvest tracking. |
-| `<state_root>/plants/{name}.md` | Per-plant tracking | Create when the user requests detailed plant tracking. |
-| `<state_root>/zones/{name}.md` | Zone and rotation tracking | Create when the user requests zone tracking. |
-| `<state_root>/log/YYYY-MM.md` | Monthly activity record | Create when garden activity is first recorded. |
-| Workspace `MEMORY.md` | Optional external integration pointer | Write only after the host supplies the actual path and the user explicitly consents. |
+| Path                            | Role                                                 | Creation condition                                                                   |
+| ------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `<state_root>/memory.md`        | Current context, status, and integration preferences | Create the first time data must persist across sessions.                             |
+| `<state_root>/climate.md`       | Climate zone, frost dates, and microclimate settings | Create when the user needs climate-aware planning.                                   |
+| `<state_root>/harvests.md`      | Harvest records and cross-season comparisons         | Create when the user requests harvest tracking.                                      |
+| `<state_root>/plants/{name}.md` | Per-plant tracking                                   | Create when the user requests detailed plant tracking.                               |
+| `<state_root>/zones/{name}.md`  | Zone and rotation tracking                           | Create when the user requests zone tracking.                                         |
+| `<state_root>/log/YYYY-MM.md`   | Monthly activity record                              | Create when garden activity is first recorded.                                       |
+| Workspace `MEMORY.md`           | Optional external integration pointer                | Write only after the host supplies the actual path and the user explicitly consents. |
 
 Create optional state only when the corresponding feature is actually needed. Do not pre-expand every template into empty files or directories.
 
@@ -712,6 +713,7 @@ Treatment:
 ### Phase 1 Verification & Commit
 
 Before advancing to Phase 2:
+
 1. Run official validator: `uvx --from skills-ref agentskills validate skills/<slug>` (must exit 0).
 2. Create Phase 1 commit:
    ```bash
@@ -735,6 +737,7 @@ A refactored skill must contain accurate, up-to-date domain knowledge, verifiabl
 #### Sub-step 2.1: Claim inventory classification
 
 Before rewriting prose:
+
 - Map file structure across `SKILL.md` and supporting files in `references/`, `assets/`, and package docs using tree inspection tools.
 - Read sections containing factual claims (pricing, fees, versions, APIs, platform constraints, legal/compliance, benchmarks, limits, defaults).
 - Build a claim inventory classifying each claim into a freshness class:
@@ -770,6 +773,7 @@ Before rewriting prose:
 ### Phase 2 Verification & Commit
 
 Before advancing to Phase 3:
+
 1. Verify domain updates and source citation records.
 2. Create Phase 2 commit:
    ```bash
@@ -793,7 +797,7 @@ Refactored skills must conform to official Agent Skills best practices: concise 
 #### Structure and instruction optimization
 
 - Maintain `SKILL.md` as a concise entry point; offload detailed schemas, extended guides, or conditional workflows to `references/`.
-- Ensure explicit instructions state *when* and *how* the agent should load each reference file.
+- Ensure explicit instructions state _when_ and _how_ the agent should load each reference file.
 - Calibrate instruction prescriptiveness to task fragility, eliminating redundant or generic knowledge the agent already possesses.
 - Concision applies to the entry point, not to the skill's behavioral contract. Do not delete or weaken a safety rule, recovery path, threshold, platform caveat, state semantic, or non-obvious example merely to reduce `SKILL.md` length; relocate it and route to it instead.
 
@@ -801,7 +805,7 @@ Refactored skills must conform to official Agent Skills best practices: concise 
 
 - Follow official guidelines for optimizing skill descriptions.
 - Make the `description` concise, imperative, intent-focused, and precise about triggering scope.
-- Define both what the skill *does* and when it *should or should not trigger*.
+- Define both what the skill _does_ and when it _should or should not trigger_.
 - Test trigger behavior against realistic positive prompts and near-miss negative prompts without overfitting to explicit keywords.
 
 #### Gate 7 pass criteria
@@ -817,6 +821,7 @@ Refactored skills must conform to official Agent Skills best practices: concise 
 ### Phase 3 Verification & Commit
 
 Before advancing to Phase 4:
+
 1. Rerun reference validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
 2. Create Phase 3 commit:
    ```bash
@@ -845,21 +850,40 @@ Before evaluation, create a `test-prompts.json` file in the skill package root c
 
 ```json
 [
-  {"id": 1, "prompt": "typical user request in English", "expected": "expected behavior", "actual": "actual output after running", "pass": true},
-  {"id": 2, "prompt": "complex or ambiguous scenario in English", "expected": "expected behavior", "actual": "actual output after running", "pass": true}
+  {
+    "id": 1,
+    "prompt": "typical user request in English",
+    "expected": "expected behavior",
+    "actual": "actual output after running",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "complex or ambiguous scenario in English",
+    "expected": "expected behavior",
+    "actual": "actual output after running",
+    "pass": true
+  }
 ]
 ```
 
 Requirements:
+
 - Prompts must cover the standard happy path and at least one complex/edge-case scenario.
-- Prompts must be executed against the skill, and real execution outputs must be recorded in the `actual` field (no placeholders).
+- Prompts must be executed against the skill, and real execution outputs must be recorded in the `actual` field (no placeholders or empty strings).
 - The `pass` boolean field must accurately reflect whether the actual output met expected behavior.
+
+**Anti-patterns to avoid**:
+
+- Do NOT use a bare string array `["prompt 1", "prompt 2"]`.
+- Do NOT use non-standard keys like `expected_behavior` or `name` in place of `expected`.
+- Do NOT omit `actual` or `pass` fields.
 
 #### Darwin evaluation iteration
 
 - Run `/darwin-skill` against the package and review dimension feedback.
 - Iterate on instructions based on valid feedback while preserving compliance gates and domain accuracy.
-- Achieve a final evaluation score of at least 80/100.
+- Achieve a final evaluation score of at least 80/100, and record the numeric score (formatted as `XX/100`) in `CHANGELOG.md`.
 
 #### Gate 8 pass criteria
 
@@ -873,6 +897,7 @@ Requirements:
 ### Phase 4 Verification & Commit
 
 Before advancing to Phase 5:
+
 1. Verify `test-prompts.json` contains real execution logs and pass status.
 2. Confirm `/darwin-skill` score >= 80/100.
 3. Create Phase 4 commit:
@@ -897,12 +922,13 @@ Evaluation mechanisms (like Darwin) may encourage intrusive stop markers (`🔴 
 #### Applicable Freud lenses
 
 Scan the skill using the 4 skill-appropriate lenses:
+
 - **Lens 2: Positive vs Negative**: Rephrase prohibitions ("don't", "never", "avoid") into positive definitions ("do Y instead", "verify X before proceeding").
 - **Lens 3: Consistency**: Resolve conflicting or ambiguous instructions.
 - **Lens 4: Anchoring precision**: Replace vague advice with concrete decision heuristics and mental models.
 - **Lens 6: Working space hygiene**: Ensure critical instructions are clearly positioned and total working memory concepts remain within limits (<= 25 concepts).
 
-*(Lenses 1 and 5 are skipped as they apply to personas, not skill packages).*
+_(Lenses 1 and 5 are skipped as they apply to personas, not skill packages)._
 
 #### Gate 9 pass criteria
 
@@ -917,6 +943,7 @@ Scan the skill using the 4 skill-appropriate lenses:
 ### Phase 5 Verification & Commit
 
 Before advancing to Phase 6:
+
 1. Rerun reference validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
 2. Create Phase 5 commit:
    ```bash
@@ -936,7 +963,7 @@ Before advancing to Phase 6:
    gh pr create --base main --reviewer <reviewer> --body-file .agents/templates/pull-request-refactor.md
    ```
 3. Populate the pull request description with `.agents/templates/pull-request-refactor.md` (including Gate 6 Research Sources).
-4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
+4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, date, and final Darwin score (`XX/100`); commit and push that update so it lands with the merged PR.
 5. Do not merge the PR or delete branches without explicit authorization.
 
 ---
@@ -944,6 +971,7 @@ Before advancing to Phase 6:
 ## Pre-Commit Verification Checklist (Universal)
 
 Before committing any phase:
+
 - Run official validator: `uvx --from skills-ref agentskills validate skills/<slug>`.
 - Verify all relative references resolve correctly.
 - Perform syntax checks on scripts and safe smoke tests.

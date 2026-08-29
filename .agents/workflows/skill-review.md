@@ -45,17 +45,17 @@ Borrow the dense staff-engineer consultation style used by Oracle-class advisors
 
 Always load and apply these three skills before issuing a verdict:
 
-| Skill | Relative Path | Role in this review |
-|---|---|---|
-| `code-review-and-quality` | `.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md` | Correctness, readability, architecture fit, security, and performance axes. Prefer required vs optional severity. |
-| `writing-for-agents` | `.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md` | Skill craft: description triggers, progressive disclosure, failure modes, anti-patterns, concrete commands, and information hierarchy. |
-| `darwin-skill` | `.agents/skills/darwin-skill/SKILL.md` | Structural / dry-run evaluation of workflow clarity, checkpoints, failure recovery, specificity, and blacklist quality. Use absolute score only as secondary signal; do not keep/revert solely on a claimed score. |
+| Skill                     | Relative Path                                                                      | Role in this review                                                                                                                                                                                                |
+| ------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `code-review-and-quality` | `.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md`              | Correctness, readability, architecture fit, security, and performance axes. Prefer required vs optional severity.                                                                                                  |
+| `writing-for-agents`      | `.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md` | Skill craft: description triggers, progressive disclosure, failure modes, anti-patterns, concrete commands, and information hierarchy.                                                                             |
+| `darwin-skill`            | `.agents/skills/darwin-skill/SKILL.md`                                             | Structural / dry-run evaluation of workflow clarity, checkpoints, failure recovery, specificity, and blacklist quality. Use absolute score only as secondary signal; do not keep/revert solely on a claimed score. |
 
 Also load operational helpers as needed:
 
-| Skill | When |
-|---|---|
-| `gh CLI` | Checkout, comment, approve, reject, merge on GitHub using `gh`. |
+| Skill        | When                                                                     |
+| ------------ | ------------------------------------------------------------------------ |
+| `gh CLI`     | Checkout, comment, approve, reject, merge on GitHub using `gh`.          |
 | `git-master` | Local branch inspection, atomic history checks, safe push/merge hygiene. |
 
 ## Sources of truth during review
@@ -144,17 +144,17 @@ Gate 1 fails if the validator does not exit 0.
 
 Cross-check the PR description and package against `.agents/workflows/skill-refactor.md`.
 
-| Gate | Reviewer checks |
-|---|---|
-| 1 Spec compatibility | Validator clean; `name` lowercase and matches directory; only allowed top-level frontmatter fields; `metadata` string-to-string compatible project pattern |
-| 2 Resource dirs | Supporting files live under `references/`, `scripts/`, `assets/` as appropriate; links are relative and real |
-| 3 State location | Knowledge-only skills state non-persistence; stateful skills document `<state_root>` resolution outside the package |
-| 4 Related skills | `metadata.related-skills` valid JSON map; targets exist; no fabricated relationships |
-| 5 Clawic removal | No `clawic.com` homepage/feedback promo; `_meta.json` removed when that is project policy |
-| 6 Research | PR lists verifiable full URLs grouped by topic; claims in the skill match cited guidance |
-| 7 Best practices | Progressive disclosure; description is imperative and trigger-rich; always-needed content stays in `SKILL.md` |
-| 8 Darwin + tests | `test-prompts.json` present at skill root (`skills/<slug>/test-prompts.json`, not inside `references/`) when claimed; prefer real `actual` + `pass: true` for completed Darwin work; claimed score is not a substitute for structural quality |
-| 9 Freud | Prohibitions reframed positively where required; no disruptive stop-only markers that increase cognitive load without a recovery path |
+| Gate                 | Reviewer checks                                                                                                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1 Spec compatibility | Validator clean; `name` lowercase and matches directory; only allowed top-level frontmatter fields; `metadata` string-to-string compatible project pattern                                                                |
+| 2 Resource dirs      | Supporting files live under `references/`, `scripts/`, `assets/` as appropriate; links are relative and real                                                                                                              |
+| 3 State location     | Knowledge-only skills omit section (or state non-persistence in 1 line); stateful skills document `<state_root>` resolution without erasing domain-specific data models                                                   |
+| 4 Related skills     | `metadata.related-skills` valid JSON map; targets exist; no fabricated relationships                                                                                                                                      |
+| 5 Clawic removal     | No `clawic.com` homepage/feedback promo; `_meta.json` removed when that is project policy                                                                                                                                 |
+| 6 Research           | PR lists verifiable full URLs grouped by topic; claims in the skill match cited guidance                                                                                                                                  |
+| 7 Best practices     | Progressive disclosure; description is imperative and trigger-rich; always-needed content stays in `SKILL.md`                                                                                                             |
+| 8 Darwin + tests     | `test-prompts.json` present at skill root with valid object schema (`id`, `prompt`, `expected`, `actual`, `pass: true`), not bare string arrays; numeric Darwin score (`XX/100`) recorded in CHANGELOG before final merge |
+| 9 Freud              | Prohibitions reframed positively where required; no disruptive stop-only markers that increase cognitive load without a recovery path                                                                                     |
 
 Record each failed gate with severity:
 
@@ -216,14 +216,14 @@ Review the package as a model-facing skill:
 
 Do **not** invent a floating total score as the merge decision. Evaluate structure:
 
-| Darwin focus | Pass signal |
-|---|---|
-| Workflow clarity | Ordered path or unmistakable decision tree for the main job |
-| Failure encoding | Explicit recovery branches for common breakages |
-| Checkpoints | Visual or imperative stop/verify points before irreversible actions |
-| Actionable specificity | Real commands/examples an agent can execute |
-| Blacklist / anti-patterns | Concrete mistakes called out |
-| Resource integration | `references/`, scripts, or self-contained guidance that loads on demand |
+| Darwin focus              | Pass signal                                                             |
+| ------------------------- | ----------------------------------------------------------------------- |
+| Workflow clarity          | Ordered path or unmistakable decision tree for the main job             |
+| Failure encoding          | Explicit recovery branches for common breakages                         |
+| Checkpoints               | Visual or imperative stop/verify points before irreversible actions     |
+| Actionable specificity    | Real commands/examples an agent can execute                             |
+| Blacklist / anti-patterns | Concrete mistakes called out                                            |
+| Resource integration      | `references/`, scripts, or self-contained guidance that loads on demand |
 
 Use claimed Darwin scores in the PR only as author evidence. Reviewer judgment comes from the package itself.
 
@@ -231,11 +231,11 @@ Use claimed Darwin scores in the PR only as author evidence. Reviewer judgment c
 
 Choose exactly one primary outcome:
 
-| Outcome | Condition | GitHub action |
-|---|---|---|
-| **Approve** | Validator clean, required gates pass, no Required findings | `gh pr review <n> --approve --body-file <file>` then merge if authorized |
-| **Request changes** | Any Required finding, missing phase evidence when required, or broken validator | `gh pr review <n> --request-changes --body-file <file>` |
-| **Comment only** | Need clarification without blocking, or partial note while waiting on author | `gh pr comment <n> --body-file <file>` |
+| Outcome             | Condition                                                                       | GitHub action                                                            |
+| ------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **Approve**         | Validator clean, required gates pass, no Required findings                      | `gh pr review <n> --approve --body-file <file>` then merge if authorized |
+| **Request changes** | Any Required finding, missing phase evidence when required, or broken validator | `gh pr review <n> --request-changes --body-file <file>`                  |
+| **Comment only**    | Need clarification without blocking, or partial note while waiting on author    | `gh pr comment <n> --body-file <file>`                                   |
 
 Before posting, run this self-check:
 
@@ -384,12 +384,12 @@ These are recurring Required classes. Treat them as calibrated examples, not an 
 
 ## Relationship to other docs
 
-| Doc | Owns |
-|---|---|
-| `AGENTS.md` | Workflow dispatch and stable operating principles |
-| `.agents/workflows/skill-refactor.md` | Author-side Gates 1–9 and refactor commit contract |
-| `.agents/templates/pull-request-refactor.md` | Author-side PR description evidence layout |
-| `.agents/templates/pull-request-review-template.md` | Reviewer-side PR review comment templates |
-| `.agents/workflows/skill-review.md` | Reviewer-side procedure, three-lens quality bar, and severity rubric |
+| Doc                                                 | Owns                                                                 |
+| --------------------------------------------------- | -------------------------------------------------------------------- |
+| `AGENTS.md`                                         | Workflow dispatch and stable operating principles                    |
+| `.agents/workflows/skill-refactor.md`               | Author-side Gates 1–9 and refactor commit contract                   |
+| `.agents/templates/pull-request-refactor.md`        | Author-side PR description evidence layout                           |
+| `.agents/templates/pull-request-review-template.md` | Reviewer-side PR review comment templates                            |
+| `.agents/workflows/skill-review.md`                 | Reviewer-side procedure, three-lens quality bar, and severity rubric |
 
 When a reusable review anti-pattern appears twice, add a narrow section here rather than expanding `AGENTS.md`.
