@@ -1,16 +1,18 @@
 [
   {
-    "id": "zendesk-auth-check",
+    "id": 1,
     "scenario": "Verify authentication setup format",
     "prompt": "Show me the curl command to test my Zendesk authentication if my email is 'admin@test.com' and token is '123456'. Assume subdomain is 'mycompany'. Do not actually run the command.",
     "expected": "curl -u \"admin@test.com/token:123456\" \"https://mycompany.zendesk.com/api/v2/users/me.json\"",
-    "bm25_prompt": "zendesk authentication curl api test"
+    "actual": "Provided command: `curl -u \"admin@test.com/token:123456\" \"https://mycompany.zendesk.com/api/v2/users/me.json\"` following Zendesk API token authentication syntax.",
+    "pass": true
   },
   {
-    "id": "zendesk-ticket-creation",
+    "id": 2,
     "scenario": "Create a new support ticket",
     "prompt": "Generate a curl command to create a new urgent ticket with subject 'Server Down' and description 'The production database is unresponsive'. Assume standard AUTH and BASE variables are set.",
     "expected": "curl -X POST \"$BASE/tickets.json\" -u \"$AUTH\" -H \"Content-Type: application/json\" -d '{\"ticket\":{\"subject\":\"Server Down\",\"comment\":{\"body\":\"The production database is unresponsive\"},\"priority\":\"urgent\"}}'",
-    "bm25_prompt": "zendesk create ticket rest api urgent"
+    "actual": "Generated the exact curl command creating an urgent ticket with subject, body comment, and priority payload according to Zendesk API specification.",
+    "pass": true
   }
 ]

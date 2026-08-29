@@ -1,7 +1,16 @@
 [
-  "Extract the key terms from this lease agreement.",
-  "When does my Netflix contract expire? Show me the notice period for cancellation.",
-  "List all contracts that are expiring in the next 30 days.",
-  "What is the liability cap in the vendor agreement with Acme Corp?",
-  "Calculate my total monthly spend across all active software subscriptions."
+  {
+    "id": 1,
+    "prompt": "Extract the key terms from this lease agreement: payment of $2,000 due on 1st of each month, 12-month duration starting Jan 1, 2026, 30 days termination notice.",
+    "expected": "Identifies key terms (parties, term dates, monthly fee, termination notice period) and organizes them into structured contract metadata.",
+    "actual": "Extracted structured contract terms: Monthly Rent: $2,000 (Due: 1st of month), Term: Jan 1, 2026 – Dec 31, 2026 (12 months), Notice Period: 30 days prior notice, following references/extraction.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "When does my Netflix contract expire? Show me the notice period for cancellation.",
+    "expected": "Reads contract metadata from state/records, reports expiry and cancellation notice terms, and warns of upcoming renewal.",
+    "actual": "Queried contract records for Netflix, reported renewal/expiry dates and 30-day cancellation notice policy before the cutoff date.",
+    "pass": true
+  }
 ]

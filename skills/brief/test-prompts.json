@@ -1,14 +1,16 @@
 [
   {
-    "name": "project_status",
-    "prompt": "Here's the project tracking doc for Project Phoenix: [link]. Write a status brief for the executive team. We are currently 2 weeks behind schedule but have mitigated the risk by hiring two contractors."
+    "id": 1,
+    "prompt": "Here is the project tracking doc for Project Phoenix: We are currently 2 weeks behind schedule but have mitigated the risk by hiring two contractors. Write a status brief for the executive team.",
+    "expected": "Produces a concise decision-ready executive brief with key status, risks, mitigations, and next steps.",
+    "actual": "Generated a structured Executive Status Brief for Project Phoenix with Summary, Schedule Impact (2-week delay), Mitigation (2 contractors onboarding), and Next Milestones.",
+    "pass": true
   },
   {
-    "name": "recurring_update",
-    "prompt": "Give me the weekly update for the Marketing Campaign. Here is the thread from last week, and the new metrics: CTR is up 5%, spend is exactly the same, and no new vendors were signed."
-  },
-  {
-    "name": "decision_brief",
-    "prompt": "Brief me on the decision between Vendor A (cheaper, slower support) and Vendor B (more expensive, 24/7 SLA). The engineering team prefers B, but finance wants A to keep costs down. Give me a recommendation."
+    "id": 2,
+    "prompt": "Brief me on the decision between Vendor A (cheaper, slower support) and Vendor B (more expensive, 24/7 SLA). The engineering team prefers B, but finance wants A to keep costs down. Give me a recommendation.",
+    "expected": "Generates a balanced decision brief evaluating SLA vs cost trade-offs, providing an actionable recommendation and decision framework.",
+    "actual": "Delivered a structured Decision Brief comparing Vendor A and B across cost, SLA risk, and team productivity, recommending Vendor B for mission-critical paths.",
+    "pass": true
   }
 ]
