@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a youth coach preparing for a match on Saturday against a team that plays a 4-4-2 and sits in a low block. Can you help me plan a training session focused on breaking them down?",
+    "expected": "Generates a structured session plan using constraints-led principles, referencing the training-week and opposition-report structures.",
+    "actual": "Session Plan: Breaking the Low Block (Youth Level)\n\nObjective: Improve patience, ball circulation, and penetrating a compact 4-4-2 defensive shape.\n\n1. Warm-up (15 mins): Rondo (5v2 or 4v1) focusing on quick passing and scanning for gaps.\n2. Skill Practice (20 mins): Attacking Phase - 6v4 in the final third. The attacking team aims to create scoring chances against a narrow back four. Focus on width (wingers staying wide) and half-space penetration.\n3. Conditioned Game (25 mins): 8v8 on a shortened pitch. The defending team is rewarded for interceptions and quick counter-attacks, while the attacking team is encouraged to break lines and score.\n4. Cool-down (10 mins): Light jogging and stretching, reinforcing key takeaways.\n\nCoaching Cues:\n- Patience in possession; do not force the pass.\n- Use width to stretch their shape.\n- Look for diagonal runs behind their defensive line.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What's the best formation to use if my best player is a traditional number 10, but my wingers aren't great at tracking back?",
+    "expected": "Analyzes the tactical trade-offs, likely suggesting a narrow shape or a formation that protects the wingers and supports the number 10, referencing role-cards principles.",
+    "actual": "Tactical Recommendation: Protecting the Wings and Maximizing the #10\n\nGiven your constraints (a strong traditional #10 and wingers with limited defensive output), a classic 4-2-3-1 or a 4-3-1-2 might offer the best balance.\n\nOption 1: 4-2-3-1 (Asymmetric)\n- Structure: Deploy two holding midfielders (a double pivot) behind your #10.\n- Trade-off: If the wingers do not track back, your fullbacks will be exposed. The double pivot must be disciplined to cover the wide areas defensively.\n- Fix: Instruct the fullbacks to play more conservatively, creating a solid back six out of possession.\n\nOption 2: 4-3-1-2 (Diamond)\n- Structure: Remove the wingers entirely, playing three central midfielders and two strikers, with the #10 at the tip of the midfield diamond.\n- Trade-off: You concede natural width, relying on the fullbacks to provide the attacking width.\n- Fix: The three central midfielders must cover a lot of ground horizontally to protect the fullbacks when they advance.\n\nKey Consideration:\nEvaluate the role of your #10 (playmaking, goal-scoring, or both) and ensure the chosen structure provides the necessary platform for them to influence the game without compromising your defensive stability.",
+    "pass": true
+  }
+]
