@@ -34,6 +34,7 @@ Route React/Vue framework work and pure TypeScript language questions to their s
 | Cold requests / interceptor drops | `references/http.md` | HttpClient pipeline |
 | Fast checklist before editing | `references/common-mistakes.md` | Highest-frequency traps |
 | Source-backed claim refresh | `references/domain-knowledge.md` | Verified Angular / RxJS docs |
+| Positive phrasing / load hygiene | `references/output-gates.md` | Keep answers operational |
 
 ## Operating Rules
 
