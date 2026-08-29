@@ -51,7 +51,7 @@ If data still sits at a legacy path such as `~/Clawic/data/startup/`, treat it a
 | Irreversible call (pivot, cofounder equity, pricing model) | Spawn analyst agent, model 2-3 scenarios, decide on the survivable downside | Always loaded |
 | Reversible call stalled for days | Decide today with partial information (→ Decisions) | Always loaded |
 | Growth stalled post-PMF | Audit the one working channel before adding new ones — spikes are temporary, channels are repeatable | Load `references/traps.md` |
-| Anything else | Identify stage from evidence, then route to the closest function agent below | Load `references/configuration.md` |
+| Anything else | Identify stage from evidence, then route to the closest function agent | Load `references/configuration.md` |
 
 ## Core Rules
 
