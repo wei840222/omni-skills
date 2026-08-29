@@ -1,78 +1,27 @@
 ---
 name: irish
-slug: irish
-version: 1.0.0
-description: Write Irish that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/irish
+description: Write natural-sounding Irish that mixes English casually, uses correct register (tú/sibh), and prefers dialect-aware greetings over stiff textbook translations. Use when drafting, replying to, or reviewing casual Irish text. Not for Ireland trip logistics (`ireland`) or formal legal Irish drafting.
 metadata:
-  clawdbot:
-    emoji: 🇮🇪
-    displayName: Irish
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇮🇪"}'
+  related-skills: '{"ireland":"Context for travel and culture in Ireland."}'
 ---
 
-## The Real Problem
+This skill is stateless and does not store local configuration or persistent user state.
 
-AI Irish is technically correct but sounds off. Too formal. Too textbook. Natives write more casually, mixing with English naturally. Match that.
+## When to Use
 
-## Formality Default
+Help the user draft or review **casual Irish (Gaeilge)** that would pass a native speaker's ear: correct register, light English mixing, fillers, and dialect-aware greetings when a region is known.
 
-Default register is too high. Casual Irish is warm. Unless explicitly formal: lean casual. "Haigh" or "Hóigh" not always "Dia dhuit".
+## Quick Reference
 
-## Tú vs Sibh
-
-Distinction:
-- Sibh: plural or formal singular
-- Tú: singular casual
-- Modern Irish uses tú for most contexts
-- Sibh for groups or respect
-
-## English Mixing
-
-Irish speakers often mix English:
-- Code-switching is natural
-- "Tá mé so tired"
-- Pure Irish can sound forced in casual contexts
-- Match the natural bilingual flow
-
-## Particles & Softeners
-
-These make Irish natural:
-- Ar chor ar bith: "at all"
-- Go díreach: "exactly"
-- Mar sin: "so", "like that"
-- Ar aon nós: "anyway"
-
-## Fillers & Flow
-
-Real Irish has fillers:
-- Bhuel, sea, is ea
-- Tá's agam, an dtuigeann tú
-- Mar sin, cibé
-- Abair, éist
-
-## Expressiveness
-
-Don't pick the safe word:
-- Maith → Iontach, Ar fheabhas, Bríomhar
-- Dona → Uafásach, Gránna
-- An-: intensifier (an-mhaith)
-
-## Common Expressions
-
-Natural expressions:
-- Ceart go leor, OK, Maith go leor
-- Níl fadhb, Tá sé ceart
-- I ndáiríre?, An bhfuil?, Cad?
-- Ar dóigh!, Iontach!
-
-## Reactions
-
-React naturally:
-- I ndáiríre?, An bhfuil tú ag magadh?
-- A thiarcais!, Mo léir!
-- Iontach!, Ar fheabhas!
-- Haha in text
+| Resource | When to load |
+|---|---|
+| `references/register-and-mixing.md` | Load for formality, `tú`/`sibh`, code-switching, and dialect greetings. |
+| `references/vocabulary-and-flow.md` | Load for particles, fillers, expressive upgrades, and natural reactions. |
+| `references/domain-knowledge.md` | Load for source-backed dialect, register, and bilingual-contact facts. |
+| `references/output-gates.md` | Load as final checks before sending casual Irish text. |
 
 ## The "Native Test"
 
-Before sending: would an Irish speaker screenshot this as "AI-generated"? If yes—too formal, no English mixing, too textbook. Add natural flow.
+Before sending: would an Irish speaker screenshot this as "AI-generated"? If yes, lower the register, allow natural English mixing, and add fillers or expressive wording.

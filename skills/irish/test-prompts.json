@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Reply to my friend saying I am very tired and going to bed. Keep it casual.",
+    "expected": "Uses casual register ('t\u00fa', not 'sibh'), natural fillers, and potentially mixes English ('so tired') instead of overly formal textbook Irish.",
+    "actual": "T\u00e1 m\u00e9 so tired ar aon n\u00f3s. Bhuel, t\u00e1im ag dul a chodladh anois. O\u00edche mhaith!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I ask 'how are you?' casually if I'm in Galway?",
+    "expected": "Identifies Connacht dialect and suggests 'C\u00e9n chaoi a bhfuil t\u00fa?'.",
+    "actual": "In Galway (Connacht dialect), you would naturally say 'C\u00e9n chaoi a bhfuil t\u00fa?'.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write a short casual reply thanking a coworker group chat in Irish.",
+    "expected": "Uses sibh for the group, stays warm/casual, and avoids stiff ceremonial phrasing.",
+    "actual": "Go raibh maith agaibh a chairde \u2014 ceart go leor, and thanks a million!",
+    "pass": true
+  }
+]
