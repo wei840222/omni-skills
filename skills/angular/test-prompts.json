@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My Angular OnPush component mutates an object field and the template stays stale. What should I do?",
+    "expected": "Identify change detection as the layer, recommend creating a new object reference or calling markForCheck()/updating a signal, and point to references/components.md.",
+    "actual": "Failing layer: change detection. Under OnPush, in-place object mutation does not mark the view dirty. Create a new reference (`this.user = { ...this.user, name }`), update a signal, or call `ChangeDetectorRef.markForCheck()`. Load `references/components.md` for the checklist.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I subscribe to HttpClient in an Angular component and worry about leaks plus duplicate requests when the template resubscribes. How should I handle it?",
+    "expected": "Prefer async pipe or takeUntilDestroyed() for lifetime, and shareReplay({bufferSize:1, refCount:true}) when the cold Observable should be shared; cite rxjs/http references.",
+    "actual": "Failing layers: RxJS lifetime + HTTP cold Observables. Bind with the `async` pipe when possible; otherwise call `takeUntilDestroyed()` in an injection context. If multiple subscribers should share one request, wrap with `shareReplay({ bufferSize: 1, refCount: true })`. Load `references/rxjs.md` and `references/http.md`.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "FormGroup.setValue throws because one optional control is missing, and a canActivate guard returning false leaves a blank page. Fix both.",
+    "expected": "Use patchValue for partial form updates and return a UrlTree from the guard to redirect; cite forms and routing references.",
+    "actual": "Forms layer: use `patchValue()` for partial updates; `setValue()` requires every control. Routing layer: return a `UrlTree` redirect from the guard instead of bare `false`. Load `references/forms.md` and `references/routing.md`.",
+    "pass": true
+  }
+]
