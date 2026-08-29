@@ -11,7 +11,7 @@ fits if: sum(requests of pods already bound) + this pod's requests ≤ allocatab
 
 - A 16 GiB node commonly exposes ~14.5 GiB allocatable; on managed distributions the reservation scales with node size. Sizing a pod against `capacity` is how a manifest that "obviously fits" stays Pending.
 - `kubectl describe node <n>` prints `Allocated resources` — requests, not usage. A node at 12% CPU usage can be 100% requested and legitimately refuse pods.
-- Limits are invisible to the scheduler. A cluster can be fully requested and idle, or fully idle and overcommitted into eviction (`resources.md`).
+- Limits are invisible to the scheduler. A cluster can be fully requested and idle, or fully idle and overcommitted into eviction (`references/resources.md`).
 - Pod requests = `max( max(init container requests), sum(app container requests) + sum(native sidecar requests) )` + pod overhead from the RuntimeClass. One fat initContainer sets the floor for the whole pod's scheduling — a common surprise on migration jobs.
 
 ## Taints and Tolerations
@@ -28,7 +28,7 @@ fits if: sum(requests of pods already bound) + this pod's requests ≤ allocatab
 
 ## Affinity, Anti-Affinity, Spread
 
-- `requiredDuringSchedulingIgnoredDuringExecution` is a hard filter; `preferred` only adds score. "IgnoredDuringExecution" is literal: a running pod is never moved when the labels change.
+- `requiredDuringSchedulingIgnoredDuringExecution` is a hard filter; `preferred` only adds score. "IgnoredDuringExecution" is literal: a running pod is not moved when the labels change.
 - `podAntiAffinity` with `topologyKey: kubernetes.io/hostname` is the standard "one replica per node" — but required anti-affinity across a large cluster is O(pods × nodes) at scheduling time and gets slow above a few thousand pods. Prefer topology spread for scale.
 - Topology spread is the modern tool: `maxSkew` (max difference in pod count between domains), `topologyKey`, `whenUnsatisfiable: DoNotSchedule | ScheduleAnyway`. `maxSkew: 1` on `topology.kubernetes.io/zone` with `DoNotSchedule` gives real multi-AZ guarantees; the same with `ScheduleAnyway` is a preference that silently degrades during a zone outage — which is often what you want.
 - `minDomains` prevents the degenerate case where every replica lands in one zone because only one zone has schedulable nodes.
@@ -44,9 +44,9 @@ fits if: sum(requests of pods already bound) + this pod's requests ≤ allocatab
 ## Scheduling Gates and Deliberate Waiting
 
 - `spec.schedulingGates` holds a pod in `SchedulingGated` before the scheduler ever considers it; a controller removes the gate when its precondition is met (quota reserved, external resource ready). This is the supported alternative to "create the pod and let it fail until things exist".
-- `WaitForFirstConsumer` on a StorageClass inverts the usual order: the volume is provisioned in the zone where the pod lands, instead of the pod being forced into the volume's zone (`storage.md`).
+- `WaitForFirstConsumer` on a StorageClass inverts the usual order: the volume is provisioned in the zone where the pod lands, instead of the pod being forced into the volume's zone (`references/storage.md`).
 
-## The Scheduler Never Rebalances
+## The Scheduler Does Not Rebalance
 
 Placement decisions are permanent until something deletes the pod. After adding nodes, scaling down, or fixing taints, the old distribution persists — hot nodes stay hot.
 
@@ -57,7 +57,7 @@ Placement decisions are permanent until something deletes the pod. After adding 
 
 - GPUs and other extended resources (`nvidia.com/gpu`) must be integers, and request must equal limit — there is no fractional GPU in core Kubernetes. Sharing needs a device-plugin strategy (time-slicing, MIG), decided at the node level.
 - Extended resources are advertised by the node, so a pod requesting one is Pending until the device plugin registers — which looks identical to "no capacity" in the event message.
-- Spot and preemptible nodes: taint them and tolerate deliberately, budget for 30-120s termination notices, and never place the only replica of a stateful workload there (`nodes.md`).
+- Spot and preemptible nodes: taint them and tolerate deliberately, budget for 30-120s termination notices, and avoid placing the only replica of a stateful workload there (`references/nodes.md`).
 
 ## Pending Triage Table
 
@@ -66,7 +66,7 @@ Placement decisions are permanent until something deletes the pod. After adding 
 | `Insufficient cpu` / `Insufficient memory` | Requests exceed remaining allocatable everywhere | Right-size requests or add capacity; check the allocatable gap above |
 | `node(s) had untolerated taint {k: v}` | Dedicated pool or a lifecycle taint | Add the toleration, or fix the node condition |
 | `didn't match Pod's node affinity/selector` | Label typo, or the labeled nodes are full | `kubectl get nodes -l <selector>` — often returns nothing |
-| `pod has unbound immediate PersistentVolumeClaims` | No default StorageClass, or provisioning failed | `storage.md` |
+| `pod has unbound immediate PersistentVolumeClaims` | No default StorageClass, or provisioning failed | `references/storage.md` |
 | `node(s) didn't match pod anti-affinity rules` | More replicas than domains | Raise domains, or relax to `preferred` |
 | `node(s) didn't have free ports` | `hostPort` collision | Drop hostPort; use a Service |
 | `0/N nodes are available` with no reason listed | Every node filtered by a different predicate — read all clauses, they are summed per predicate | Fix them in the order printed |

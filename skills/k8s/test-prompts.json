@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My frontend pod is in CrashLoopBackOff. What should I check first?",
+    "expected": "The agent should load references/debug.md and/or references/commands.md and provide kubectl triage commands like `kubectl describe pod` and `kubectl logs --previous`.",
+    "actual": "I will check the pod's status to diagnose the CrashLoopBackOff. I recommend running `kubectl describe pod <frontend-pod-name>` to look at the Events section for readiness/liveness probe failures, and `kubectl logs <frontend-pod-name> --previous` to see the exit reason of the last crashed container.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are experiencing random 502 Bad Gateway errors on our new ingress. The deployment seems fine.",
+    "expected": "The agent should load references/ingress.md and/or references/networking.md, checking Service endpoints/EndpointSlices and Ingress controller timeout/protocol mismatches.",
+    "actual": "Random 502 errors often indicate the Ingress cannot reach the backend Service endpoints. Let's verify EndpointSlices map correctly to the running pods with `kubectl get endpointslices -l kubernetes.io/service-name=<service-name>`. I will also load references/ingress.md to check whether the controller timeout or backend protocol matches the application.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our HPA shows <unknown> and never scales even though CPU is high.",
+    "expected": "The agent should load references/autoscaling.md and/or references/resources.md, explain that utilization needs container requests, and check metrics-server.",
+    "actual": "HPA utilization is usage divided by requests, so a missing CPU request makes the target show <unknown>. I will confirm every container has requests, then check metrics-server health via references/autoscaling.md before changing the HPA target.",
+    "pass": true
+  }
+]

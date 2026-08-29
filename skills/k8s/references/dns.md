@@ -42,7 +42,7 @@ The trap: a `hostNetwork: true` pod left on the default policy silently uses nod
 
 - The Corefile's `kubernetes` plugin answers cluster names; `forward . /etc/resolv.conf` sends the rest upstream; `cache 30` caches positive and negative answers for 30s.
 - Negative caching is why a Service created seconds ago is still NXDOMAIN. Wait out the cache instead of debugging a nonexistent problem.
-- CoreDNS defaults to 2 replicas regardless of cluster size. On a busy cluster they throttle (`resources.md`) and every workload gets slow together — CPU throttling on CoreDNS is a cluster-wide latency event. Scale with the cluster-proportional autoscaler, and give CoreDNS a PDB (`rollouts.md`).
+- CoreDNS defaults to 2 replicas regardless of cluster size. On a busy cluster they throttle (`references/resources.md`) and every workload gets slow together — CPU throttling on CoreDNS is a cluster-wide latency event. Scale with the cluster-proportional autoscaler, and give CoreDNS a PDB (`references/rollouts.md`).
 - Temporary visibility: add the `log` plugin to the Corefile, reproduce, remove it. Query logs on a large cluster are enormous, so scope the window.
 - `kubectl -n kube-system logs -l k8s-app=kube-dns` shows plugin errors and upstream failures; `dig @<coredns-pod-ip> <name>` from a debug pod bypasses caching layers to test a specific instance.
 
@@ -51,9 +51,9 @@ The trap: a `hostNetwork: true` pod left on the default policy silently uses nod
 | Name | Resolves to |
 |---|---|
 | `<svc>` | The Service, in the pod's own namespace only |
-| `<svc>.<ns>` | The Service in another namespace — the short form never crosses namespaces |
+| `<svc>.<ns>` | The Service in another namespace — the short form does not cross namespaces |
 | `<svc>.<ns>.svc.cluster.local.` | Absolute, no search expansion |
-| `<pod>-0.<svc>.<ns>.svc.cluster.local` | A specific StatefulSet member via a headless Service (`stateful.md`) |
+| `<pod>-0.<svc>.<ns>.svc.cluster.local` | A specific StatefulSet member via a headless Service (`references/stateful.md`) |
 | `_https._tcp.<svc>.<ns>.svc.cluster.local` | SRV record: port and target, for clients that discover ports |
 | Headless Service | A records for every ready pod, not a VIP — clients load-balance themselves |
 
@@ -65,9 +65,9 @@ The trap: a `hostNetwork: true` pod left on the default policy silently uses nod
 
 1. From inside the failing pod: `getent hosts <name>` (present in musl and glibc; `nslookup` and `dig` usually are not).
 2. Fails for cluster names → is the Service real, and is the pod in the namespace you think? `kubectl get svc -n <ns>`.
-3. Fails for everything → NetworkPolicy blocking egress to port 53 is the first suspect (`networking.md`), CoreDNS down is the second.
-4. Works for cluster names, fails externally → CoreDNS upstream (`forward`) or the node's own resolver; test from the node (`nodes.md`).
+3. Fails for everything → NetworkPolicy blocking egress to port 53 is the first suspect (`references/networking.md`), CoreDNS down is the second.
+4. Works for cluster names, fails externally → CoreDNS upstream (`forward`) or the node's own resolver; test from the node (`references/nodes.md`).
 5. Works but slowly → count the queries: `kubectl exec <p> -- getent hosts api.example.com` with the CoreDNS log plugin on shows the search-path expansion directly.
 6. Works from one pod, fails from another on the same Service → compare `resolv.conf` between them; a `dnsConfig` or `dnsPolicy` override in one manifest explains it.
 
-DNS failures are the most re-diagnosed shape in Kubernetes, because the symptom (a 5s stall, an intermittent timeout) never looks like DNS. When one is finally pinned, write the shape, its cause, and the fix into `## Incident History` in `~/Clawic/data/k8s/memory.md`, and the cluster-level remedy that was adopted — NodeLocal DNSCache, a CoreDNS replica count and PDB, an `ndots` default — into `## Clusters`. The next person to see a 5.000s p99 cliff should find the answer in one read.
+DNS failures are the most re-diagnosed shape in Kubernetes, because the symptom (a 5s stall, an intermittent timeout) rarely looks like DNS. When one is finally pinned, write the shape, its cause, and the fix into `## Incident History` in `<state_root>/memory.md`, and the cluster-level remedy that was adopted — NodeLocal DNSCache, a CoreDNS replica count and PDB, an `ndots` default — into `## Clusters`. The next person to see a 5.000s p99 cliff should find the answer in one read.

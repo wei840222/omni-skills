@@ -1,22 +1,22 @@
 # Working File Templates — Kubernetes
 
-Read this file only when WRITING. `config.yaml` is what the user **declared**; `memory.md` and everything it indexes is what you **observed** or produced. An observation never overwrites a declaration.
+Read this file only when WRITING. `config.yaml` is what the user **declared**; `memory.md` and everything it indexes is what you **observed** or produced. An observation preserves a declaration.
 
 ## Where each thing goes
 
 | Data | Home | How it grows |
 |---|---|---|
-| Declared preferences — table keys and preference areas alike | `~/Clawic/data/k8s/config.yaml` | Key by key, read-modify-write |
-| Cluster topology, workloads, incident shapes, accepted gaps, habits, due dates, box index | `~/Clawic/data/k8s/memory.md` | Rewritten in place; stays small |
-| Clusters and named machines | `~/Clawic/data/servers/servers.md` (**shared**) | One row per cluster, every provider in one inventory |
-| Hostnames the cluster serves, with TLS issuer and expiry | `~/Clawic/data/domains/domains.md` (**shared**) | One row per hostname |
-| Cluster detail past what one line holds — versions, node pools, CNI/CSI, operators and CRD versions, quotas | `## Clusters` in `memory.md` while it fits; `~/Clawic/data/k8s/clusters.md` after the split | One block per cluster |
-| Per-workload facts that cost a traffic cycle to measure — observed peak memory, p90 CPU, real drain time, boot budget, SLO, owning namespace | `## Workloads` in `memory.md`, then `~/Clawic/data/k8s/workloads.md` | One row per workload |
-| Recurring failure shapes and what actually fixed them | `## Incident History` in `memory.md`, then `~/Clawic/data/k8s/incidents.md` | One row per shape, updated in place when it recurs |
-| Things you produced that get re-read — runbooks, a NetworkPolicy or Role that finally worked, architecture decisions, capacity plans, upgrade plans | `~/Clawic/data/k8s/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
-| Deploy records, cluster upgrades, and timed restore drills | `~/Clawic/data/k8s/deploys/<year>.md` | Append-only, cut by year |
-| **Anything durable this table does not name** | `~/Clawic/data/k8s/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
-| Kubeconfigs, tokens, kubeconfig contents, Secret values | Nowhere under `~/Clawic/data/` | Pointer only — see Secrets |
+| Declared preferences — table keys and preference areas alike | `<state_root>/config.yaml` | Key by key, read-modify-write |
+| Cluster topology, workloads, incident shapes, accepted gaps, habits, due dates, box index | `<state_root>/memory.md` | Rewritten in place; stays small |
+| Clusters and named machines | `<workspace>/servers/servers.md` (**shared**) | One row per cluster, every provider in one inventory |
+| Hostnames the cluster serves, with TLS issuer and expiry | `<workspace>/domains/domains.md` (**shared**) | One row per hostname |
+| Cluster detail past what one line holds — versions, node pools, CNI/CSI, operators and CRD versions, quotas | `## Clusters` in `memory.md` while it fits; `<state_root>/clusters.md` after the split | One block per cluster |
+| Per-workload facts that cost a traffic cycle to measure — observed peak memory, p90 CPU, real drain time, boot budget, SLO, owning namespace | `## Workloads` in `memory.md`, then `<state_root>/workloads.md` | One row per workload |
+| Recurring failure shapes and what actually fixed them | `## Incident History` in `memory.md`, then `<state_root>/incidents.md` | One row per shape, updated in place when it recurs |
+| Things you produced that get re-read — runbooks, a NetworkPolicy or Role that finally worked, architecture decisions, capacity plans, upgrade plans | `<state_root>/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
+| Deploy records, cluster upgrades, and timed restore drills | `<state_root>/deploys/<year>.md` | Append-only, cut by year |
+| **Anything durable this table does not name** | `<state_root>/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, rather than after when it was made; add its `## Boxes` line in the same turn |
+| Kubeconfigs, tokens, kubeconfig contents, Secret values | Nowhere under `<state_root>/` | Pointer only — see Secrets |
 
 ## When to write
 
@@ -44,15 +44,15 @@ No permission needed; every write is announced in one line that names the file. 
 Everything except artifacts, deploy records and the shared boxes begins inside `memory.md`. Splitting is a procedure, not a suggestion:
 
 1. Before appending to a section, count its entries.
-2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `~/Clawic/data/k8s/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
-3. Keep the headings identical on both sides of the move, so the split is a copy-paste and never a rewrite.
-4. Never leave a copy behind. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
+2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `<state_root>/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
+3. Keep the headings identical on both sides of the move, so the split is a copy-paste and a direct copy-paste without rewriting.
+4. Ensure no copies are left behind. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
 
 Artifacts are the exception: a runbook, a working policy, or a decision is born as its own file whatever its size, because it is read whole and only when its subject comes up.
 
 ## Secrets
 
-Nothing under `~/Clawic/data/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. A pasted kubeconfig, `kubectl get secret -o yaml` output, a Helm values file, or an incident's command log are the densest sources of secrets in this domain; strip them **before** writing, not after. Store the pointer in place of the value, in this shape: `<kind>:<locator>`.
+Nothing under `<state_root>/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. A pasted kubeconfig, `kubectl get secret -o yaml` output, a Helm values file, or an incident's command log are the densest sources of secrets in this domain; strip them **before** writing, not after. Store the pointer in place of the value, in this shape: `<kind>:<locator>`.
 
 `env:KUBECONFIG` · `file:~/.kube/prod.yaml` · `keychain:cluster-prod` · `1password:Work/K8s/prod` · `vault:kv/prod/db` · `ssm:/prod/db/password` · `secretsmanager:prod/api/key`
 
@@ -66,7 +66,7 @@ In this domain — **not secrets, keep them**: cluster and context names, namesp
 
 Keys come from the Configuration table in `SKILL.md`, plus free-form keys nested under a preference area. Write a key only when the user states the preference, or when an inference from the Configuration signal table has proved right in the work.
 
-**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `~/Clawic/data/k8s/` if it does not exist.
+**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Avoid emitting a `config.yaml` from this template — the template shows shape, not content. Create `<state_root>/` if it does not exist.
 
 ```yaml
 cluster_flavor: eks
@@ -84,7 +84,7 @@ destructive_confirm: true
 explain_depth: normal
 
 # Preference areas — free-form keys added as the user reveals them.
-# A preference the user states is a declaration and belongs here, never in memory.md.
+# A preference the user states is a declaration and belongs here, instead of memory.md.
 conventions:
   namespaces: per-team
   image_tags: git-sha
@@ -99,7 +99,7 @@ If you find a preference recorded in `memory.md`, move it here and note the move
 
 ## memory.md
 
-Write only the sections you have content for — a heading with nothing under it is noise, and it inflates the line count that decides a split. Never copy these hints into the user's file. `## Boxes` is the one section that is never dropped when `memory.md` is rewritten: deleting a line there orphans a file forever. This is what a populated file looks like:
+Write only the sections you have content for — a heading with nothing under it is noise, and it inflates the line count that decides a split. Avoid copying these hints into the user's file. `## Boxes` is the one section that is must be retained when `memory.md` is rewritten: deleting a line there orphans a file forever. This is what a populated file looks like:
 
 ```markdown
 # Kubernetes Memory
@@ -154,9 +154,9 @@ Acts on availability findings immediately, defers cost findings. Wants the comma
 
 Rules that keep this readable next month:
 
-- **`## Boxes`**: one line per file that exists — `<what> (<volume>) → <file>; read when <condition>`. Written in the same turn the file is created. Never delete a line without deleting the file it points to. A box with no index line does not exist.
+- **`## Boxes`**: one line per file that exists — `<what> (<volume>) → <file>; read when <condition>`. Written in the same turn the file is created. Avoid deleting a line without deleting the file it points to. A box with no index line does not exist.
 - **`## Due`**: check it against today's date at the start of a session and state any overdue item in one line — a statement, not a question. Every recurring thing this skill schedules belongs here: restore drills, certificate sweeps, orphaned-storage sweeps, the deprecated-API sweep that gates an upgrade, security audits.
-- **`## Workloads`**: every number carries the date it was measured, because a peak observed before a dependency change is a guess. Re-measuring overwrites the cell; never a second row for the same workload. These are the numbers Core Rule 10 exists to protect.
+- **`## Workloads`**: every number carries the date it was measured, because a peak observed before a dependency change is a guess. Re-measuring overwrites the cell; update the existing row instead of making a second row for the same workload. These are the numbers Core Rule 10 exists to protect.
 - **`## Incident History`** holds *shapes*, not a chronology: when the same shape recurs, update `Last seen` and sharpen the fix rather than appending a row. A shape that recurs three times has earned a runbook in `artifacts/`, and the row then points at it.
 - **`## Known Gaps`** records what was found and consciously not fixed, with the date and the reason. Without it, the next audit re-raises every accepted finding and the real ones drown.
 - These headings are exactly the ones `clusters.md`, `workloads.md` and `incidents.md` get when their sections outgrow this file, so each split stays a copy-paste.
@@ -168,7 +168,7 @@ Rules that keep this readable next month:
 
 ## Shared servers inventory
 
-Lives at `~/Clawic/data/servers/servers.md` and is shared with every other infrastructure skill — the user may not have any of them installed, so the format travels with this skill.
+Lives at `<workspace>/servers/servers.md` and is shared with every other infrastructure skill — the user may not have any of them installed, so the format travels with this skill.
 
 ```markdown
 # Servers
@@ -179,18 +179,18 @@ Lives at `~/Clawic/data/servers/servers.md` and is shared with every other infra
 | build-1 | hetzner | — | fsn1 | AX41 | bare-metal k3s node | 46 EUR | file:~/.ssh/id_ed25519 |
 ```
 
-- **Identity is `Name` + `Provider`.** Read the file before adding. If that pair is already there, update the row in place — it is yours. The rule against rewriting protects rows whose `Provider` is not yours; never touch those.
+- **Identity is `Name` + `Provider`.** Read the file before adding. If that pair is already there, update the row in place — it is yours. The rule against rewriting protects rows whose `Provider` is not yours; preserve those.
 - **One row per cluster, not per node.** Cattle nodes in a managed pool are a property of the cluster's row (`Type` carries the count and instance class). A machine only earns its own row when it is a pet: a single-node k3s box, a bare-metal node, a node someone SSHes into by name.
 - **Retirement is part of the inventory.** When a cluster is deleted or a node decommissioned, delete its row and note the date in `memory.md`. An inventory that only grows stops being an inventory.
 - **Amounts carry their currency in the value** (`1900 USD`), because Hetzner rows next to yours are in EUR and someone will add the column up.
 - **`Monthly` is a planning estimate, not a bill.** The cloud provider's cost report is the source of truth; refresh a row whose real cost moved more than ~20%.
-- **Scale cut**: one row per cluster while there are ≤15. Past that, one file per cluster at `~/Clawic/data/servers/<name>.md` with the same fields, and `servers.md` becomes the index (`Name | Provider | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `servers.md`.
-- **Foreign columns win.** If `servers.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Never rewrite its header.
-- Access reference is a pointer only. Never a kubeconfig, token, or key.
+- **Scale cut**: one row per cluster while there are ≤15. Past that, one file per cluster at `<state_root>/servers/<name>.md` with the same fields, and `servers.md` becomes the index (`Name | Provider | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `servers.md`.
+- **Foreign columns win.** If `servers.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Match its header without rewriting.
+- Access reference is a pointer only. Avoid a kubeconfig, token, or key.
 
 ## Shared domains inventory
 
-Lives at `~/Clawic/data/domains/domains.md`, shared with DNS, hosting, and registrar skills. Write only the hostnames this cluster serves.
+Lives at `<workspace>/domains/domains.md`, shared with DNS, hosting, and registrar skills. Write only the hostnames this cluster serves.
 
 ```markdown
 # Domains
@@ -201,14 +201,14 @@ Lives at `~/Clawic/data/domains/domains.md`, shared with DNS, hosting, and regis
 ```
 
 - **Identity is the hostname.** Read the file before adding; if the row exists, update only the fields you own (`Points to`, and the TLS note) and leave `Registrar` and `Expires` exactly as another skill wrote them.
-- **Never invent registrar or domain-expiry data** from cluster objects: a certificate expiry is not a domain expiry, and overwriting one with the other is how a domain silently lapses. Certificate expiry goes in `Notes`, prefixed `TLS:`.
+- **Avoid inventing registrar or domain-expiry data** from cluster objects: a certificate expiry is not a domain expiry, and overwriting one with the other is how a domain silently lapses. Certificate expiry goes in `Notes`, prefixed `TLS:`.
 - **Retirement**: when the cluster stops serving a hostname, remove only your `Points to` and TLS note; delete the whole row only if you created it and nothing else in it is owned elsewhere.
-- **Foreign columns win**: match the header you find, never rewrite it.
-- **Scale cut**: a single `domains.md` table holds them all; past ~40 hostnames, group by apex domain into `~/Clawic/data/domains/<apex>.md` and leave `domains.md` as the index.
+- **Foreign columns win**: match the header you find, preserve it.
+- **Scale cut**: a single `domains.md` table holds them all; past ~40 hostnames, group by apex domain into `<state_root>/domains/<apex>.md` and leave `domains.md` as the index.
 
 ## artifacts/
 
-One file per thing, at `~/Clawic/data/k8s/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **runbook**, **policy or manifest that finally worked**, **architecture decision**, **capacity or upgrade plan**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
+One file per thing, at `<state_root>/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **runbook**, **policy or manifest that finally worked**, **architecture decision**, **capacity or upgrade plan**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
 
 ```markdown
 # Runbook — checkout 502s
@@ -254,7 +254,7 @@ The rollback digest is the reason this file exists: during an incident nobody ca
 
 ## Split-out files
 
-Created only by the split procedure above, never on day one. Each keeps the exact headings it had inside `memory.md`.
+Created only by the split procedure above, not on day one. Each keeps the exact headings it had inside `memory.md`.
 
 `clusters.md` — one `## <cluster-name>` block per cluster: version, region and zones, node pools, CNI and CSI, ingress controller, installed operators with their CRD versions, namespace and quota layout, who owns upgrades. Written when the fleet passes three clusters or one cluster's detail passes ~40 lines.
 

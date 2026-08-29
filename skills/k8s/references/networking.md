@@ -22,7 +22,7 @@ Named ports are worth the indirection: `targetPort: http` keeps working when the
 | ExternalName | CNAME to an outside hostname, no proxying | Migrating an external dependency behind a cluster name |
 | Headless (`clusterIP: None`) | DNS returns pod IPs, no VIP | StatefulSets, client-side load balancing, gRPC |
 
-- A Service with no selector never gets endpoints automatically — that is the point: hand-write an EndpointSlice pointing at an external database and the rest of the cluster reaches it by service name.
+- A Service with no selector does not automatically get endpoints — that is the point: hand-write an EndpointSlice pointing at an external database and the rest of the cluster reaches it by service name.
 - LoadBalancer objects stuck in `Pending` mean no cloud controller is running (kind, bare metal). MetalLB or an equivalent supplies one on-prem.
 
 ## EndpointSlices Are The Source Of Truth
@@ -33,8 +33,8 @@ kubectl get endpointslices -l kubernetes.io/service-name=<svc> -o wide
 
 - Empty slice = selector mismatch or zero ready pods. Nothing else produces it.
 - The Endpoints API is deprecated as of 1.33 in favor of EndpointSlices; slices also scale (100 endpoints per slice by default) where a single Endpoints object did not.
-- `conditions.ready`, `serving`, and `terminating` are separate: a terminating pod can still be `serving` so in-flight requests finish. That is the mechanism your `preStop` sleep relies on (`probes.md`).
-- Endpoint propagation is asynchronous across every node's kube-proxy and every ingress controller. Under load, expect a few hundred milliseconds to seconds — never assume removal is instant.
+- `conditions.ready`, `serving`, and `terminating` are separate: a terminating pod can still be `serving` so in-flight requests finish. That is the mechanism your `preStop` sleep relies on (`references/probes.md`).
+- Endpoint propagation is asynchronous across every node's kube-proxy and every ingress controller. Under load, expect a few hundred milliseconds to seconds — avoid assuming removal is instant.
 
 ## kube-proxy Modes
 
@@ -48,7 +48,7 @@ kubectl get endpointslices -l kubernetes.io/service-name=<svc> -o wide
 - `externalTrafficPolicy: Cluster` (default) — the LB hits any node, which then hops to a pod on any node. Client IP is lost to SNAT; load is even.
 - `externalTrafficPolicy: Local` — no second hop, real client IP preserved, but nodes without a ready pod fail the LB health check (via `healthCheckNodePort`). With fewer replicas than nodes, expect uneven load; with one replica, a single node carries everything.
 - `internalTrafficPolicy: Local` keeps in-cluster traffic on the same node — a genuine latency and cost win for node-local caches and log agents, and a black hole if that node has no ready pod.
-- `sessionAffinity: ClientIP` pins by source IP for 3h by default. Combined with SNAT (`Cluster` policy) it pins per node, not per user — almost never what was intended.
+- `sessionAffinity: ClientIP` pins by source IP for 3h by default. Combined with SNAT (`Cluster` policy) it pins per node, not per user — almost rarely what was intended.
 
 ## NetworkPolicy
 
@@ -68,9 +68,9 @@ kubectl get endpointslices -l kubernetes.io/service-name=<svc> -o wide
 
 One list item with two selectors is an intersection; two list items are a union. The dash placement is the whole security boundary.
 
-- Always ship the DNS egress rule (UDP and TCP port 53 to kube-dns) in the same change as your first egress policy, or every name resolution in the namespace dies first (`dns.md`).
+- Always ship the DNS egress rule (UDP and TCP port 53 to kube-dns) in the same change as your first egress policy, or every name resolution in the namespace dies first (`references/dns.md`).
 - `ipBlock` matches IPs after any SNAT the CNI applies, so it is unreliable for pod-to-pod rules — select pods by label, and reserve `ipBlock` for genuinely external CIDRs.
-- Probes come from the kubelet on the node, not through the pod network, so NetworkPolicy never blocks them. A pod can be perfectly healthy and completely unreachable.
+- Probes come from the kubelet on the node, not through the pod network, so NetworkPolicy does not block them. A pod can be perfectly healthy and completely unreachable.
 - Policy enforcement is the CNI's job: Flannel enforces nothing, Calico and Cilium do, and the extras (FQDN-based egress, L7 rules, cluster-wide policies) are CNI-specific CRDs, not core Kubernetes.
 
 ## Pod Networking Facts That Explain Weird Bugs
@@ -78,7 +78,7 @@ One list item with two selectors is an intersection; two list items are a union.
 - Every pod gets a routable-in-cluster IP that changes on every restart. Anything caching a pod IP (JVM DNS caching with `networkaddress.cache.ttl=-1` is the classic) breaks after the first rollout.
 - Overlay encapsulation (VXLAN, ~50 bytes of overhead) lowers the effective MTU. Signature: TLS handshakes and small requests fine, large POSTs or downloads hang forever. Check pod MTU against node MTU before blaming the application.
 - `hostNetwork: true` puts the pod in the node's namespace: no pod IP, port conflicts become scheduling failures, and DNS needs `dnsPolicy: ClusterFirstWithHostNet` or cluster names stop resolving.
-- Conntrack table exhaustion on a busy node (`nf_conntrack: table full, dropping packet`) produces random resets across every pod on that node — an infrastructure symptom masquerading as an application bug (`nodes.md`).
+- Conntrack table exhaustion on a busy node (`nf_conntrack: table full, dropping packet`) produces random resets across every pod on that node — an infrastructure symptom masquerading as an application bug (`references/nodes.md`).
 - UDP services keep stale conntrack entries pointing at a deleted pod; long-lived UDP clients keep talking to nothing until the entry expires.
 - Dual-stack requires `ipFamilyPolicy: PreferDualStack` on the Service; single-stack clusters silently ignore AAAA expectations, and a client preferring IPv6 sees connection failures nobody else reproduces.
 
@@ -87,12 +87,12 @@ One list item with two selectors is an intersection; two list items are a union.
 | From → To | Test | If it fails |
 |---|---|---|
 | Pod → Service (same ns) | `kubectl exec <p> -- nc -zv <svc> <port>` | EndpointSlice, then targetPort |
-| Pod → Service (other ns) | Use `<svc>.<ns>` — short names only resolve in-namespace | `dns.md` |
+| Pod → Service (other ns) | Use `<svc>.<ns>` — short names only resolve in-namespace | `references/dns.md` |
 | Pod → external | `kubectl exec <p> -- nc -zv 1.1.1.1 443` | Egress NetworkPolicy, NAT gateway, node routing |
 | Your laptop → Service | `kubectl port-forward svc/<svc> 8080:<port>` | If this works, the fault is in the LB or Ingress layer |
-| Internet → Service | curl the LB hostname | `ingress.md`, LB health checks, `externalTrafficPolicy` |
+| Internet → Service | curl the LB hostname | `references/ingress.md`, LB health checks, `externalTrafficPolicy` |
 | Pod → Pod, both healthy | `kubectl exec <p> -- nc -zv <podIP> <port>` | CNI or NetworkPolicy, in that order |
 
-Never use `ping` to test a Service: a ClusterIP has no interface and answers no ICMP. It is not down; it is not a host.
+Avoid using `ping` to test a Service: a ClusterIP has no interface and answers no ICMP. It is not down; it is not a host.
 
-A NetworkPolicy that finally allows exactly what the workload needs and nothing else is expensive knowledge: it took an outage, a DNS rule, and several rounds of selector arithmetic. Save it to `~/Clawic/data/k8s/artifacts/policy-<name>.md` with the date and what it unblocked, and add its `## Boxes` line in the same turn. The CNI in use, whether it enforces policy at all, and the cluster's pod/service CIDRs go in `## Clusters` in `~/Clawic/data/k8s/memory.md` — the CIDRs are needed by every future peering, MTU, and `ipBlock` question.
+A NetworkPolicy that finally allows exactly what the workload needs and nothing else is expensive knowledge: it took an outage, a DNS rule, and several rounds of selector arithmetic. Save it to `<state_root>/artifacts/policy-<name>.md` with the date and what it unblocked, and add its `## Boxes` line in the same turn. The CNI in use, whether it enforces policy at all, and the cluster's pod/service CIDRs go in `## Clusters` in `<state_root>/memory.md` — the CIDRs are needed by every future peering, MTU, and `ipBlock` question.

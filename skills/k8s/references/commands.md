@@ -21,11 +21,11 @@ kubectl logs <p> --all-containers --timestamps --since=15m  # sidecars included;
 kubectl get pods -A --field-selector=status.phase!=Running          # everything unhappy, cluster-wide
 kubectl get pods -A --sort-by=.status.containerStatuses[0].restartCount | tail
 kubectl get pods -o wide                                            # node placement and pod IPs, the two columns people forget
-kubectl top pods --sort-by=memory        # needs metrics-server; absence is itself a finding (autoscaling.md)
+kubectl top pods --sort-by=memory        # needs metrics-server; absence is itself a finding (references/autoscaling.md)
 kubectl get nodes -o wide && kubectl describe node <n> | sed -n '/Allocated resources/,$p'
 ```
 
-`Allocated resources` on a node prints requests vs allocatable — the exact arithmetic the scheduler used to reject a Pending pod (`scheduling.md`).
+`Allocated resources` on a node prints requests vs allocatable — the exact arithmetic the scheduler used to reject a Pending pod (`references/scheduling.md`).
 
 ## Interrogating the API Instead of the Docs
 
@@ -58,7 +58,7 @@ kubectl run tmp --rm -it --image=nicolaka/netshoot --restart=Never -- bash
 kubectl exec <p> -- getent hosts <svc>        # portable resolution test (musl and glibc both have it)
 ```
 
-`port-forward` to the Service still goes to a pod; if it works and the Ingress does not, the fault is in the Ingress layer, not the app (`ingress.md`).
+`port-forward` to the Service still goes to a pod; if it works and the Ingress does not, the fault is in the Ingress layer, not the app (`references/ingress.md`).
 
 ## Changing Things Safely
 
@@ -78,7 +78,7 @@ kubectl delete pod <p> --grace-period=0 --force     # API forgets it; kubelet ma
 kubectl patch pod <p> -p '{"metadata":{"finalizers":null}}' --type=merge
 ```
 
-Both leave the cluster lying to you about reality. Preconditions before either: the owning controller is understood, and for force-delete of a StatefulSet member the node is confirmed dead (`operators.md`, `stateful.md`).
+Both leave the cluster lying to you about reality. Preconditions before either: the owning controller is understood, and for force-delete of a StatefulSet member the node is confirmed dead (`references/operators.md`, `references/stateful.md`).
 
 ## Output Plumbing Worth Memorizing
 
@@ -88,4 +88,4 @@ kubectl get pod <p> -o jsonpath='{.status.containerStatuses[0].lastState.termina
 kubectl get deploy -A -o json | jq -r '.items[] | select(.spec.template.spec.containers[].resources.limits.memory == null) | "\(.metadata.namespace)/\(.metadata.name)"'
 ```
 
-The last one is the fleet audit that finds every workload one burst away from evicting a neighbor (`resources.md`).
+The last one is the fleet audit that finds every workload one burst away from evicting a neighbor (`references/resources.md`).
