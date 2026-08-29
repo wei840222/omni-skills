@@ -47,11 +47,11 @@ Execution model:
 - The user grants any permissions the job needs
 - This skill only handles WHEN
 
-Hard boundaries:
+Operating constraints:
 
-- Do not assume access to mail, calendar, shell, or other external services
-- Do not modify system crontab, launchd, or systemd timers
-- Do not execute a job without a user-defined task string and an explicit grant for every required skill
+- Request access to mail, calendar, shell, or other external services only when the job needs them
+- Persist and fire jobs through this skill's state files; leave system crontab, launchd, and systemd timers untouched
+- Execute a job only when it has a user-defined task string and an explicit grant for every required skill
 
 ## Quick Reference
 
@@ -92,7 +92,7 @@ User: "Yes"
 | "Every morning do X" | Ask time, store job |
 | "Cancel X" | Remove from `<state_root>/jobs.json` |
 
-For lead-time nudges about commitments the user already knows, prefer `remind` instead of creating an execution job here.
+If the user wants a lead-time nudge about a commitment they already know, hand off to `remind` instead of storing an execution job here.
 
 ### 3. Confirmation Format
 
