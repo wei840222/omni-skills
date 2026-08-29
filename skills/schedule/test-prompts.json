@@ -1,0 +1,18 @@
+[
+  {
+    "prompt": "Schedule a daily morning review for 9 AM in Asia/Taipei.",
+    "evaluation": "Creates an active job with cron `0 9 * * *`, timezone `Asia/Taipei`, persists it under the resolved `<state_root>/jobs.json`, and confirms with WHAT + WHEN + ID."
+  },
+  {
+    "prompt": "Remind me to check my emails next Monday at 2 PM, and use the mail skill for the check.",
+    "evaluation": "Stores a one-shot or Monday 14:00 job only after explicit mail-skill grant, records `requires` containing mail, and shows timezone in the confirmation."
+  },
+  {
+    "prompt": "Cancel the daily morning review job.",
+    "evaluation": "Finds the existing job by ID or unambiguous title, removes or marks it completed/paused in `<state_root>/jobs.json`, and confirms the cancelled ID."
+  },
+  {
+    "prompt": "Every morning summarize my inbox without asking me about timezone.",
+    "evaluation": "Refuses silent timezone assumptions: asks for timezone or uses stored preferences.json, and asks before adding mail/email skills to `requires`."
+  }
+]
