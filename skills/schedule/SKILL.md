@@ -55,12 +55,14 @@ Hard boundaries:
 
 ## Quick Reference
 
+Load only the file needed for the current step; keep `SKILL.md` as the control plane.
+
 | Topic | File | When to load |
 |-------|------|--------------|
-| Cron expression syntax | `references/patterns.md` | Parsing or creating schedule expressions |
-| Common mistakes | `references/traps.md` | Troubleshooting scheduling errors before create/cancel |
+| Cron expression syntax | `references/patterns.md` | Building or validating a cron / interval / one-shot expression |
+| Common mistakes | `references/traps.md` | Before create/cancel when timezone, DST, or confirmation is uncertain |
 | Job format | `references/jobs.md` | Writing or editing `<state_root>/jobs.json` |
-| Domain knowledge | `references/cron_basics.md` | Explaining cron fields, DST, or timezone semantics |
+| Domain knowledge | `references/cron_basics.md` | Explaining cron fields, DST, or timezone semantics to the user |
 
 ## Core Rules
 
