@@ -6,7 +6,7 @@ Check before creating any job. Prevent common failures.
 
 | Trap | Fix |
 |------|-----|
-| ISO without TZ = UTC | Always append zone: `2026-02-15T09:00:00+01:00` |
+| ISO without TZ = UTC | Always append zone: `2026-02-15T09:00:00+01:00` or store IANA `timezone` |
 | "Tomorrow" ambiguous | Confirm exact date: "Tuesday Feb 18" |
 | DST shift (March/October) | Jobs at 02:00-03:00 may skip or double |
 | User travels | Ask if schedule should follow them or stay fixed |
@@ -15,9 +15,9 @@ Check before creating any job. Prevent common failures.
 
 | Trap | Fix |
 |------|-----|
-| Stored in memory only | Write to ~/Clawic/data/schedule/jobs.json |
+| Stored in memory only | Write to `<state_root>/jobs.json` |
 | Session reset loses jobs | Always persist to file, never rely on context |
-| "I'll remember" | You won't. Save to jobs.json. |
+| "I'll remember" | You won't. Save to `jobs.json` |
 
 ## Confirmation
 
@@ -48,10 +48,12 @@ Check before creating any job. Prevent common failures.
 ## Before Creating
 
 Checklist:
-```
+
+```text
 □ Timezone explicit?
 □ Exact date/time confirmed?
-□ Saved to ~/Clawic/data/schedule/jobs.json?
+□ Saved to <state_root>/jobs.json?
 □ Unique ID assigned?
 □ Confirmation includes WHAT + WHEN + ID?
+□ Required skills granted before storing `requires`?
 ```

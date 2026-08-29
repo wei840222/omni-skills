@@ -1,6 +1,6 @@
 # Job Storage Format
 
-Jobs are stored in ~/Clawic/data/schedule/jobs.json. Each job captures what the USER requested.
+Jobs are stored in `<state_root>/jobs.json`. Each job captures what the USER requested.
 
 ## Format
 
@@ -23,10 +23,10 @@ Jobs are stored in ~/Clawic/data/schedule/jobs.json. Each job captures what the 
 |-------|----------|-------------|
 | task | Yes | What user asked to do (their words) |
 | cron | Yes | When to run (cron expr or ISO for one-shot) |
-| timezone | Yes | User's timezone |
+| timezone | Yes | User's IANA timezone |
 | requires | No | Skills/permissions this job needs |
 | created | Yes | When job was created |
-| status | Yes | active, paused, or completed |
+| status | Yes | `active`, `paused`, or `completed` |
 
 ## Example Jobs
 
@@ -53,6 +53,7 @@ Jobs are stored in ~/Clawic/data/schedule/jobs.json. Each job captures what the 
 
 ## Notes
 
-- `requires` is populated when user explicitly grants access
-- Empty `requires` = notification/reminder only
-- Jobs with `requires` will use those skills when executing
+- `requires` is populated only when the user explicitly grants access
+- Empty `requires` = notification/reminder-only job with no external skill
+- Jobs with `requires` may use those skills only when executing
+- Never write credentials into `jobs.json`; store skill names or env pointers only
