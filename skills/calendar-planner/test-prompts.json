@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Schedule a 30-minute sync with Alex on Wednesday, respecting my core focus hours.",
+    "expected": "Uses planning protocol, identifies core focus hours from constraints, avoids them, suggests an alternative slot on Wednesday and presents a dry-run command.",
+    "actual": "Loaded planning-protocol.md and core-rules.md. Confirmed core focus hours. Suggested a 30-min slot at 14:00 (outside focus hours) and generated a dry-run command using gcalcli.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My flight was delayed by 3 hours. Please fix my schedule across Google Calendar and Apple Calendar for today.",
+    "expected": "Uses calendar guard, identifies overlapping and impacted events across both calendars, proposes a merged repaired schedule with buffers, and asks for permission to execute.",
+    "actual": "Loaded calendar_merge.py and calendar_guard.py. Merged events from both calendars, shifted all events down by 3 hours, identified 2 hard conflicts, and proposed a repaired schedule with a dry-run draft for approval.",
+    "pass": true
+  }
+]
