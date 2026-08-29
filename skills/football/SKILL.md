@@ -1,40 +1,27 @@
 ---
 name: football
-slug: football
-version: 1.0.0
 description: Analyze football and soccer matches, squads, players, and training plans with tactical frameworks, scouting grids, and session blueprints.
-homepage: https://clawic.com/skills/football
-changelog: Initial release with the Match Room Protocol, scouting grids, and training week blueprints for practical football work.
 metadata:
-  clawdbot:
-    emoji: ⚽
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/football/
-    displayName: Football
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/football/
+  version: "1.0.1"
+  openclaw: '{"emoji":"⚽","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"analysis":"structure tactical reasoning, trade-offs, and decision quality.","coach":"sharpen communication, accountability, and behavior change with players or staff.","fitness":"handle physical load, habits, and progression when the conversation shifts beyond football tactics.","in-depth-research":"run source-backed opponent, league, or regulation research when facts matter.","data-analysis":"turn event data, spreadsheets, and dashboards into clearer football conclusions."}'
 ---
 
 ## When to Use
 
 Use this for association football or soccer work: match previews, post-match review, opponent reports, player scouting, squad balance, role fit, and weekly session planning.
 
-Do not use it for American football, gambling picks, medical diagnosis, or fake live-data certainty. This skill is for football decisions that need structure, not hype.
+Restrict usage to association football tactical, scouting, and training analysis. Redirect requests for American football, gambling picks, or medical diagnoses. This skill is for football decisions that need structure, not hype.
 
-## Architecture
 
-Memory lives in `~/Clawic/data/football/`. If `~/Clawic/data/football/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+## State location
+
+Memory and configuration files are located at `<state_root>/`.
+If `<state_root>/` does not exist, run `references/setup.md`.
+See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/football/
+<state_root>/
 ├── memory.md         # Activation rules, level, style, and durable preferences
 ├── match-room.md     # Recent match plans, reviews, and key lessons
 ├── squad-notes.md    # Roles, pairings, and scouting conclusions
@@ -42,19 +29,22 @@ Memory lives in `~/Clawic/data/football/`. If `~/Clawic/data/football/` does not
 └── archive/          # Retired reports and old cycles
 ```
 
+
 ## Quick Reference
 
 Use the smallest file that resolves the blocker.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory and local file templates | `memory-template.md` |
-| Match preview and review workflow | `match-room.md` |
-| Opponent report template | `opposition-report.md` |
-| Player evaluation rubric | `scouting-grid.md` |
-| Weekly planning and load logic | `training-week.md` |
-| Position and pairing logic | `role-cards.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup and activation | `references/setup.md` | When `<state_root>/` does not exist or user asks for setup. |
+| Memory template | `references/memory-template.md` | When creating or updating the football memory structure. |
+| Match room protocol | `references/match-room.md` | When starting a match preview, review, or game analysis. |
+| Opponent report | `references/opposition-report.md` | When preparing a scout report on an upcoming opponent. |
+| Scouting grid | `references/scouting-grid.md` | When evaluating a player's role fit and performance. |
+| Training week | `references/training-week.md` | When planning training sessions and microcycles. |
+| Role cards | `references/role-cards.md` | When designing squad balance, assessing positions, or recruiting. |
+| Domain knowledge | `references/domain-knowledge.md` | When needing foundational concepts on football tactics and scouting. |
+
 
 ## Requirements
 
@@ -65,7 +55,7 @@ Use the smallest file that resolves the blocker.
 
 ## Data Storage
 
-Local notes in `~/Clawic/data/football/` may include:
+Local notes in `<state_root>/` may include:
 - activation rules and the situations where football help should appear
 - level, region, formations, playing model, and analysis preferences
 - recurring opponents, player-role notes, and squad needs
@@ -75,15 +65,15 @@ Keep memory lean. Store durable context that improves future football work, not 
 
 ## Match Room Protocol
 
-Run the full workflow in `match-room.md`. Every football task should first be classified into one of these lanes:
+Run the full workflow in `references/match-room.md`. Every football task should first be classified into one of these lanes:
 
 | Lane | Primary output | Anchor file |
 |------|----------------|-------------|
-| Match preview | plan, key battles, contingencies | `opposition-report.md` |
-| Post-match review | what happened, why, next fixes | `match-room.md` |
-| Player scouting | role fit, strengths, risks, projection | `scouting-grid.md` |
-| Squad design | role balance, recruitment need, depth map | `role-cards.md` |
-| Training week | microcycle, session goals, constraints | `training-week.md` |
+| Match preview | plan, key battles, contingencies | `references/opposition-report.md` |
+| Post-match review | what happened, why, next fixes | `references/match-room.md` |
+| Player scouting | role fit, strengths, risks, projection | `references/scouting-grid.md` |
+| Squad design | role balance, recruitment need, depth map | `references/role-cards.md` |
+| Training week | microcycle, session goals, constraints | `references/training-week.md` |
 
 Default output should be practical and short enough to use on the pitch, in a meeting, or during video review.
 
@@ -114,8 +104,8 @@ Default output should be practical and short enough to use on the pitch, in a me
 - If the answer cannot be used by a coach, analyst, scout, or player in under five minutes, tighten it.
 
 ### 7. Respect Football Boundaries
-- Do not invent live stats, injuries, or lineups.
-- Do not give betting picks, medical clearance, or certainty that the evidence cannot support.
+- Base analysis only on provided or verifiable information regarding stats, injuries, and lineups.
+- Maintain analytical objectivity by focusing on tactical scenarios and refraining from offering betting advice or medical clearance.
 
 ## Common Traps
 
@@ -125,7 +115,7 @@ These are the failure patterns that most often turn football analysis into vague
 |------|--------------|-------------|
 | Treating every team as if pro-level resources exist | Youth and amateur contexts have different time, pitch, and player limits | Scale the plan to real squad size, schedule, and attention span |
 | Confusing possession with control | Ball share alone does not explain threat, field tilt, or rest defense | Track territory, access to zone 14, transition exposure, and chance quality |
-| Judging players from highlights only | Highlights hide repeatability, scanning, off-ball work, and bad possessions | Use a full-role lens from `scouting-grid.md` |
+| Judging players from highlights only | Highlights hide repeatability, scanning, off-ball work, and bad possessions | Use a full-role lens from `references/scouting-grid.md` |
 | Writing sessions with no constraints | Good drills fail when numbers, space, or timing do not fit reality | Specify players, area, duration, and coaching points every time |
 | Fixing one phase while breaking another | Aggressive pressing or buildup changes can damage rest defense or chance creation | State the trade-off and the cover needed |
 | Using formation labels as analysis | 4-3-3 and 3-2-5 describe shapes, not behavior | Explain roles, rotations, triggers, and spacing, not just numbers |
@@ -137,7 +127,7 @@ Data that leaves your machine:
 - if the user explicitly asks for public football facts, only the needed searches, source fetches, or tool calls for that task
 
 Data that stays local:
-- approved football notes in `~/Clawic/data/football/`
+- approved football notes in `<state_root>/`
 
 This skill does NOT:
 - store account credentials or betting logins
@@ -153,21 +143,8 @@ This skill ONLY:
 - stores lightweight local football notes after user approval
 - stays inside association football or soccer unless the user clearly redirects
 
-This skill NEVER:
-- place bets, recommend stakes, or act like a sportsbook tool
-- diagnose injuries or clear return-to-play decisions
-- pretend one stat or one clip is enough evidence
-- modify its own skill files
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `analysis` - structure tactical reasoning, trade-offs, and decision quality.
-- `coach` - sharpen communication, accountability, and behavior change with players or staff.
-- `fitness` - handle physical load, habits, and progression when the conversation shifts beyond football tactics.
-- `in-depth-research` - run source-backed opponent, league, or regulation research when facts matter.
-- `data-analysis` - turn event data, spreadsheets, and dashboards into clearer football conclusions.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/football
-- Latest version: https://clawic.com/skills/football
+Ensure focus on:
+- tactical and training structures rather than betting stakes or sportsbook activities
+- analytical context instead of medical diagnoses or return-to-play decisions
+- evidence-based reasoning rather than relying on isolated stats or single clips
+- providing analysis without modifying its own skill files
