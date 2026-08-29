@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to load Roboto at weights 400, 600, and 700. Give me an optimized HTML snippet via Google Fonts.",
+    "expected": "Include preconnect to fonts.googleapis.com and fonts.gstatic.com (crossorigin), request only wght@400;600;700, and set display=swap.",
+    "actual": "Returned preconnect hints for both Google Fonts hosts, a CSS2 Roboto URL limited to 400/600/700, and display=swap so text remains visible while loading.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want Inter across a wide weight range without shipping many static files. How should I request it?",
+    "expected": "Recommend the variable Inter build with wght@100..900 (or the needed axis range) so one file covers multiple weights.",
+    "actual": "Confirmed Inter has a variable build, recommended a CSS2 axis-range request such as wght@100..900, and noted CSS can use intermediate font-weight values within that range.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Suggest a classic readable pairing with a serif heading and sans-serif body from Google Fonts.",
+    "expected": "Offer proven serif+sans pairings such as Merriweather + Open Sans, Playfair Display + Source Sans Pro, or Lora + Roboto.",
+    "actual": "Suggested Merriweather headings with Open Sans body, and offered Playfair Display + Source Sans Pro as an alternate classic contrast pairing.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "For GDPR, should I keep using the Google Fonts CDN, and how do I self-host instead?",
+    "expected": "Explain CDN requests expose visitor IPs to Google; recommend self-hosting via google-webfonts-helper with first-party @font-face and font-display: swap.",
+    "actual": "Flagged CDN Google Fonts as a third-party IP disclosure path, recommended downloading needed files with google-webfonts-helper, and serving them with @font-face plus font-display: swap.",
+    "pass": true
+  }
+]
