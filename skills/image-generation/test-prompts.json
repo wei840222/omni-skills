@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Generate a picture of a cute cat.",
+    "expected": "Resolve to a current image model such as gpt-image-1.5, optionally draft cheaply first, then generate the cat image.",
+    "actual": "Selected gpt-image-1.5 after alias resolution, confirmed no exact-text constraint, and generated the requested cute-cat image.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need an image with the exact text 'Hello World' on a neon sign. Try to generate a few drafts first to save costs.",
+    "expected": "Prefer gpt-image-1.5 or Ideogram for exact text; run low-cost drafts first, then finalize the winner.",
+    "actual": "Used gpt-image-1-mini for three cheap drafts, user picked draft 2, then finalized on gpt-image-1.5 for neon-sign text fidelity.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Use Nano Banana to edit this product photo and keep the bottle label readable.",
+    "expected": "Map Nano Banana to gemini-2.5-flash-image-preview (or current Gemini image ID), then run a multi-turn edit that preserves label text.",
+    "actual": "Resolved Nano Banana to gemini-2.5-flash-image-preview, loaded the reference product photo, and completed an edit pass that kept the bottle label readable.",
+    "pass": true
+  }
+]

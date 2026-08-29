@@ -1,119 +1,62 @@
 ---
 name: image-generation
-slug: image-generation
-version: 1.0.3
-description: Create AI images with GPT Image, Gemini Nano Banana, FLUX, Imagen, and top providers using prompt engineering, style control, and smart editing.
-homepage: https://clawic.com/skills/image-generation
-changelog: Updated for 2026 with benchmark-backed model selection and clearer guidance for modern image generation stacks.
+description: "Select and run text-to-image or image-editing workflows across GPT Image, Gemini, FLUX, Imagen, and related providers with alias resolution, cost-aware drafting, and portable local memory."
 metadata:
-  clawdbot:
-    emoji: 🎨
-    requires:
-      bins: []
-      env.optional:
-      - OPENAI_API_KEY
-      - GEMINI_API_KEY
-      - BFL_API_KEY
-      - GOOGLE_CLOUD_PROJECT
-      - REPLICATE_API_TOKEN
-      - LEONARDO_API_KEY
-      - IDEOGRAM_API_KEY
-      config:
-      - ~/Clawic/data/image-generation/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: AI Image Generation
+  version: "1.0.3"
+  openclaw: '{"emoji":"🎨","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"image-edit":"Specialized inpainting, outpainting, and mask workflows","video-generation":"Convert image concepts into video pipelines","colors":"Build palettes for visual consistency across assets","ffmpeg":"Post-process image sequences and exports"}'
 ---
-
-## Setup
-
-On first use, read `setup.md`.
 
 ## When to Use
 
 User needs AI-generated visuals, edits, or consistent image sets.
 Use this skill to pick the right model, write stronger prompts, and avoid outdated model choices.
 
-## Architecture
+## State location
 
-User preferences persist in `~/Clawic/data/image-generation/`. See `memory-template.md` for setup.
+Image-generation preferences may exist in `<workspace>/image-generation/`, `<workspace>/memory/image-generation/`, or `~/image-generation/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-```
-~/Clawic/data/image-generation/
-├── memory.md      # Preferred providers, project context, winning recipes
-└── history.md     # Optional generation log
-```
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/image-generation/`, `<workspace>/memory/image-generation/`, `~/image-generation/`.
+3. If none exists and state must be created, default to `<workspace>/image-generation/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+- `<state_root>/memory.md`: Preferred providers, project context, winning recipes
+- `<state_root>/history.md`: Optional generation log
+
+If `<state_root>/` does not exist, read `references/setup.md` before the first write.
+
+## Setup
+
+On first use, read `references/setup.md`.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Initial setup | `setup.md` |
-| Memory template | `memory-template.md` |
-| Migration guide | `migration.md` |
-| Benchmark snapshots | `benchmarks-2026.md` |
-| Prompt techniques | `prompting.md` |
-| API handling | `api-patterns.md` |
-| GPT Image (OpenAI) | `gpt-image.md` |
-| Gemini and Imagen (Google) | `gemini.md` |
-| FLUX (Black Forest Labs) | `flux.md` |
-| Midjourney | `midjourney.md` |
-| Leonardo | `leonardo.md` |
-| Ideogram | `ideogram.md` |
-| Replicate | `replicate.md` |
-| Stable Diffusion | `stable-diffusion.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Initial setup | `references/setup.md` | When `<state_root>/` is missing or empty |
+| Memory template | `references/memory-template.md` | When creating or updating preference memory |
+| Migration guide | `references/migration.md` | When upgrading older local memory layouts |
+| Core rules and traps | `references/core_rules_and_traps.md` | Before choosing a model or spending on drafts |
+| Domain knowledge | `references/domain_knowledge.md` | When grounding model-family claims |
+| Benchmark snapshots | `references/benchmarks-2026.md` | When quality ranking is decision-critical |
+| Prompt techniques | `references/prompting.md` | When drafting or refining prompts |
+| API handling | `references/api-patterns.md` | When calling provider APIs or handling errors |
+| GPT Image (OpenAI) | `references/gpt-image.md` | Exact text, OpenAI drafts, or GPT Image edits |
+| Gemini and Imagen (Google) | `references/gemini.md` | Multi-turn edits or Google image models |
+| FLUX (Black Forest Labs) | `references/flux.md` | Consistency-heavy or FLUX-specific work |
+| Midjourney | `references/midjourney.md` | Discord-driven Midjourney workflows |
+| Leonardo | `references/leonardo.md` | Leonardo generation or editing |
+| Ideogram | `references/ideogram.md` | Typography-focused generation |
+| Replicate | `references/replicate.md` | Hosted third-party model routing |
+| Stable Diffusion | `references/stable-diffusion.md` | Local or open-weight SDXL workflows |
 
-## Core Rules
+## Core Rules and Common Traps
 
-### 1. Resolve aliases to official model IDs first
-
-Community names shift quickly. Before calling an API, map the nickname to the provider model ID.
-
-| Community label | Official model ID to try first | Notes |
-|-----------------|--------------------------------|-------|
-| Nano Banana | `gemini-2.5-flash-image-preview` | Common nickname, not an official Google model ID |
-| Nano Banana 2 / Pro | Verify provider docs | Usually a provider preset over Gemini image models |
-| GPT Image 1.5 | `gpt-image-1.5` | Current OpenAI high-tier image model |
-| GPT Image mini / iMini | `gpt-image-1-mini` | Budget/faster OpenAI variant |
-| FLUX 2 Pro / Max | `flux-pro` / `flux-ultra` | Many platforms rename these SKUs |
-
-### 2. Pick models by task, not by hype
-
-| Task | First choice | Backup |
-|------|--------------|--------|
-| Exact text in image | `gpt-image-1.5` | Ideogram |
-| Multi-turn edits | `gemini-2.5-flash-image-preview` | `flux-kontext-pro` |
-| Photoreal hero shots | `imagen-4.0-ultra-generate-001` | `flux-ultra` |
-| Fast low-cost drafts | `gpt-image-1-mini` | `imagen-4.0-fast-generate-001` |
-| Character/product consistency | `flux-kontext-max` | `gpt-image-1.5` with references |
-| Local no-API workflows | `flux-schnell` | SDXL |
-
-### 3. Use benchmark tables as dated snapshots
-
-Benchmarks drift weekly. Use `benchmarks-2026.md` as a starting point, then recheck current rankings when quality is critical.
-
-### 4. Draft cheap, finish expensive
-
-Start with 1-4 low-cost drafts, pick one, then upscale or rerender only the winner.
-
-### 5. Keep a fallback chain
-
-If the preferred model is unavailable, fallback by tier:
-1) same provider lower tier, 2) cross-provider equivalent, 3) local/open model.
-
-### 6. Treat DALL-E as legacy
-
-OpenAI lists DALL-E 2/3 as legacy. Do not use them as default for new projects.
-
-## Common Traps
-
-- Using vendor nicknames as model IDs -> API errors and wasted retries
-- Assuming "Nano Banana Pro" or "FLUX 2" are universal IDs -> provider mismatch
-- Copying old DALL-E prompt habits -> weaker output vs modern GPT/Gemini image models
-- Comparing text-to-image and image-editing scores as if they were the same benchmark
-- Optimizing every draft at max quality -> cost spikes without quality gain
+Load `references/core_rules_and_traps.md` before generating an image to review model selection criteria, alias resolution, cost-saving drafting strategies, and common API errors.
 
 ## Security & Privacy
 
@@ -122,13 +65,13 @@ OpenAI lists DALL-E 2/3 as legacy. Do not use them as default for new projects.
 - Reference images when editing or style matching
 
 **Data that stays local:**
-- Provider preferences in `~/Clawic/data/image-generation/memory.md`
+- Provider preferences in `<state_root>/memory.md`
 - Optional local history file
 
-**This skill does NOT:**
-- Store API keys
-- Upload files outside chosen provider requests
-- Persist generated images unless user asks to save them
+**Operating constraints:**
+- Keep API keys outside skill state files and outside git.
+- Send files only to the provider request the user chose.
+- Retain generated images only when the user explicitly asks to save them.
 
 ## External Endpoints
 
@@ -147,21 +90,9 @@ No other data is sent externally.
 
 ## Migration
 
-If upgrading from a previous version, read `migration.md` before updating local memory structure.
+If upgrading from a previous version, read `references/migration.md` before updating local memory structure.
 
 ## Trust
 
 This skill may send prompts and reference images to third-party AI providers.
 Only install if you trust those providers with your content.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `image-edit` - Specialized inpainting, outpainting, and mask workflows
-- `video-generation` - Convert image concepts into video pipelines
-- `colors` - Build palettes for visual consistency across assets
-- `ffmpeg` - Post-process image sequences and exports
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/image-generation
-- Latest version: https://clawic.com/skills/image-generation
