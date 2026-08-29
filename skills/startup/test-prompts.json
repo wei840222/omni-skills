@@ -1,0 +1,33 @@
+[
+  {
+    "prompt": "I'm a founder of an early stage startup with 10k MRR and 30k monthly expenses. We are growing at 15% per month. Are we default alive?",
+    "expected_actions": [
+      "Check the math for default alive."
+    ],
+    "expected_response_elements": [
+      "Calculates if revenue overtakes expenses before cash runs out",
+      "Discusses the concept of default alive"
+    ]
+  },
+  {
+    "prompt": "My startup's retention curve goes down to 0 after 6 months. Should we focus on a big launch next week?",
+    "expected_actions": [
+      "Identifies that the startup is pre-PMF."
+    ],
+    "expected_response_elements": [
+      "Advises against focusing on the launch",
+      "Recommends fixing the core product loop to improve retention first",
+      "Mentions the trap of treating a launch spike as a channel"
+    ]
+  },
+  {
+    "prompt": "We are wondering if we should charge users for our B2B SaaS workflow tool right now or offer it for free to grow faster.",
+    "expected_actions": [
+      "Checks best practices for pricing B2B SaaS early."
+    ],
+    "expected_response_elements": [
+      "Advises charging early",
+      "Notes that willingness to pay is stronger evidence of PMF than interviews"
+    ]
+  }
+]
