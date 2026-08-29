@@ -1,65 +1,36 @@
 ---
 name: ansible
-slug: ansible
-version: 1.0.0
-description: Avoid common Ansible mistakes — YAML syntax traps, variable precedence, idempotence failures, and handler gotchas.
-homepage: https://clawic.com/skills/ansible
+description: "Identify and fix Ansible playbook mistakes: YAML quoting traps, variable precedence, non-idempotent command/shell tasks, handler timing, become placement, conditionals, loops, and facts. Use when reviewing or debugging Ansible YAML, playbooks, roles, inventory vars, handlers, or privilege escalation. Not for generic YAML syntax alone (yaml) or Linux host ops without Ansible (linux)."
 metadata:
-  clawdbot:
-    emoji: "✨"
-    displayName: Ansible
+  version: "1.0.0"
+  openclaw: '{"emoji":"✨"}'
+  related-skills: '{"yaml":"Parser-level YAML quoting, booleans, and indentation traps under Ansible files.","linux":"Host-side sudo, permissions, and service behavior when become or package tasks fail.","bash":"Shell/command module scripts that need idempotence wrappers or creates/removes."}'
 ---
 
-## YAML Syntax Traps
-- Jinja2 in value needs quotes — `"{{ variable }}"` not `{{ variable }}`
-- `:` in string needs quotes — `msg: "Note: this works"` not `msg: Note: this`
-- Boolean strings: `yes`, `no`, `true`, `false` parsed as bool — quote if literal string
-- Indentation must be consistent — 2 spaces standard, tabs forbidden
+## State location
 
-## Variable Precedence
-- Extra vars (`-e`) override everything — highest precedence
-- Host vars beat group vars — more specific wins
-- `vars:` in playbook beats inventory vars — order: inventory < playbook < extra vars
-- Undefined variable fails — use `{{ var | default('fallback') }}`
+This skill is stateless and does not store local configuration or persistent user state.
 
-## Idempotence
-- `command`/`shell` modules aren't idempotent — always "changed", use `creates:` or specific module
-- Use `apt`, `yum`, `copy` etc. — designed for idempotence
-- `changed_when: false` for commands that don't change state — like queries
-- `creates:`/`removes:` for command idempotence — skips if file exists/doesn't
+## When to Use
 
-## Handlers
-- Handlers only run if task reports changed — not on "ok"
-- Handlers run once at end of play — not immediately after notify
-- Multiple notifies to same handler = one run — deduplicated
-- `--force-handlers` to run even on failure — or `meta: flush_handlers`
+- Reviewing or writing Ansible playbooks, roles, tasks, handlers, or inventory variables
+- Debugging unexpected `changed`, failed conditionals, missing facts, or privilege-escalation failures
+- Cleaning up non-idempotent `command`/`shell` usage and handler notify patterns
 
-## Become (Privilege Escalation)
-- `become: yes` to run as root — `become_user:` for specific user
-- `become_method: sudo` is default — use `su` or `doas` if needed
-- Password needed for sudo — `--ask-become-pass` or in ansible.cfg
-- Some modules need become at task level — even if playbook has `become: yes`
+Redirect pure YAML parser questions to `yaml`. Redirect host troubleshooting that is not about Ansible play semantics to `linux` or `bash`.
 
-## Conditionals
-- `when:` without Jinja2 braces — `when: ansible_os_family == "Debian"` not `when: "{{ ... }}"`
-- Multiple conditions use `and`/`or` — or list for implicit `and`
-- `is defined`, `is not defined` for optional vars — `when: my_var is defined`
-- Boolean variables: `when: my_bool` — don't compare `== true`
+## Quick Reference
 
-## Loops
-- `loop:` is modern, `with_items:` is legacy — both work, loop preferred
-- `loop_control.loop_var` for nested loops — avoids variable collision
-- `item` is the loop variable — use `loop_control.label` for cleaner output
-- `until:` for retry loops — `until: result.rc == 0 retries: 5 delay: 10`
+| Topic | File | When to load |
+|-------|------|--------------|
+| Core operating rules | `references/core-rules.md` | Start of playbook review or rewrite |
+| Common traps | `references/common-traps.md` | During review or when a task misbehaves |
+| Domain knowledge and sources | `references/domain-knowledge.md` | Before asserting Ansible semantics or citing docs |
 
-## Facts
-- `gather_facts: no` speeds up play — but can't use `ansible_*` variables
-- Facts cached with `fact_caching` — persists across runs
-- Custom facts in `/etc/ansible/facts.d/*.fact` — JSON or INI, available as `ansible_local`
+## Operating Rules
 
-## Common Mistakes
-- `register:` captures output even on failure — check `result.rc` or `result.failed`
-- `ignore_errors: yes` continues but doesn't change result — task still "failed" in register
-- `delegate_to: localhost` for local commands — but `local_action` is cleaner
-- Vault password for encrypted files — `--ask-vault-pass` or vault password file
-- `--check` (dry run) not supported by all modules — `command`, `shell` always skip
+1. Prefer idempotent modules (`apt`, `yum`, `dnf`, `copy`, `template`, `file`, `service`) over raw `command`/`shell`.
+2. Quote Jinja2 expressions in YAML values; never put Jinja2 braces inside `when:`.
+3. Treat handlers as end-of-play, change-gated, and deduplicated unless `meta: flush_handlers` or `--force-handlers` is intentional.
+4. Verify `become` at the task that needs escalation; play-level `become` is not always enough.
+5. Name the layer before fixing: YAML parse, variable precedence, module semantics, facts, or privilege escalation.
