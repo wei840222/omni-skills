@@ -14,7 +14,7 @@
 
 ## Planning Rules
 
-- Do not overload museum bookings on consecutive days.
+- Spread out museum bookings across multiple days to prevent fatigue.
 - Build by neighborhoods and themes, not just landmarks.
 - Stay transit-friendly and avoid assuming a car helps anything inside the city.
 

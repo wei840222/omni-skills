@@ -19,7 +19,7 @@
 
 - Germany tipping is usually modest and practical, not U.S.-style percentage pressure.
 - Rounding up or leaving a small extra amount is more normal than aggressive tip math.
-- Do not push users into over-tipping because it looks "international."
+- Guide users to follow local tipping customs rather than international over-tipping standards.
 
 ## Trap to Flag
 

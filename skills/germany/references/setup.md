@@ -6,11 +6,11 @@ When user mentions Germany travel for the first time:
 
 ### 1. Create Memory Structure
 ```bash
-mkdir -p ~/germany
+mkdir -p <state_root>
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/germany/memory.md` using `memory-template.md`.
+Create `<state_root>/memory.md` using `memory-template.md`.
 
 ### 3. Gather Trip Context Naturally
 Ask in conversational flow:
@@ -22,11 +22,11 @@ Ask in conversational flow:
 - Movement style: rail-first, car-first, or flexible if tradeoffs are clear?
 
 ### 4. Save to Memory
-Update `~/Clawic/data/germany/memory.md` with the current intent, constraints, and decision status.
+Update `<state_root>/memory.md` with the current intent, constraints, and decision status.
 
 ## Returning Users
 
-If `~/Clawic/data/germany/memory.md` exists:
+If `<state_root>/memory.md` exists:
 1. Read it silently
 2. Reuse known constraints and priorities
 3. Ask only what changed (dates, region focus, event goals, budget, mobility)

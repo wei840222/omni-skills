@@ -23,7 +23,7 @@
 - Berlin plus Bavaria works if the user accepts one major transfer.
 - Bavaria plus Romantic Road works if the user wants castles and smaller towns.
 - Rhine-west plus Black Forest works for river, wine, and village scenery.
-- Do not casually bolt Hamburg, Berlin, Bavaria, and the Rhine into one short trip.
+- Focus on one or two adjacent clusters for short trips rather than attempting Hamburg, Berlin, Bavaria, and the Rhine all at once.
 
 ## First-Time Germany Route Suggestions
 

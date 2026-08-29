@@ -13,7 +13,7 @@
 ## Practical Advice
 
 - Germany rewards breakfast and bakery planning more than many travelers expect.
-- Beer-hall meals, wine taverns, and market food each fit different trip moments; do not flatten them into "German food."
+- Treat beer-hall meals, wine taverns, and market food as distinct experiences rather than a single category of "German food."
 - Big tourist squares are rarely the best value-for-experience food strategy.
 
 ## Region Signals

@@ -10,7 +10,7 @@
 ## Practical Reality
 
 - Germany is easy on paper until travelers mix EU and non-EU legs, especially Switzerland, the UK, or long-haul arrivals.
-- Do not tell users to rely on old blog posts for customs allowances or restricted foods.
+- Instruct users to rely on official sources for customs allowances and restricted foods rather than old blog posts.
 - If user plans shopping-heavy travel, tell them to verify both import allowances and airline baggage rules.
 
 ## High-Friction Cases

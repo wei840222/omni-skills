@@ -16,7 +16,7 @@
 | Public transport | Validate or follow the correct ticketing flow where needed |
 | Service style | Often efficient and direct, not performance-oriented |
 
-## Do Not Overdramatize
+## Maintain Proportion
 
 - Germany etiquette is manageable. The useful goal is to prevent avoidable friction, not to turn the trip into a rules exam.
 - Small corrections on volume, timing, or line behavior matter more than memorizing stereotypes.
