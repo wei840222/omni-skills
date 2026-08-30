@@ -6,7 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score |
 | ---------------------------- | ---------- | ------------ |
-| github-actions               | 2026-08-30 | 85/100 |
+| github-actions               | 2026-08-30 | 85/100 (#165) |
 | inbox                        | 2026-08-30 | 85/100 (#164) |
 | uniswap                      | 2026-08-30 | 85/100 (#163) |
 | bulgarian                    | 2026-08-30 | 85/100 (#162) |
