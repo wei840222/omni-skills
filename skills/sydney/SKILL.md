@@ -1,6 +1,6 @@
 ---
 name: sydney
-description: Navigate Sydney as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, beaches, transport, visas, cost of living, and local insights. Use when the user asks about visiting, moving to, working in, studying in, or starting a business in Sydney.
+description: Navigate Sydney as a visitor, resident, tech worker, student, or entrepreneur. Provides localized guidance on neighborhoods, beaches, transport, visas, cost of living, and local insights. Use this skill when the user asks about visiting, moving to, working in, studying in, or starting a business in Sydney.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏖️"}'
@@ -15,45 +15,50 @@ For fares, visa conditions, regulated costs, or service eligibility, load the ma
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
-| Where to stay | `references/visitor-lodging.md` |
-| Tips & day trips | `references/visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `references/neighborhoods-index.md` |
-| CBD, The Rocks, Barangaroo | `references/neighborhoods-cbd.md` |
-| Surry Hills, Paddington, Potts Point | `references/neighborhoods-inner-east.md` |
-| Newtown, Marrickville, Balmain | `references/neighborhoods-inner-west.md` |
-| Bondi, Manly, Northern Beaches | `references/neighborhoods-beach.md` |
-| North Shore, Parramatta, Western | `references/neighborhoods-suburban.md` |
-| Choosing guide | `references/neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & dining scene | `references/food-overview.md` |
-| Australian & local cuisine | `references/food-local.md` |
-| International & multicultural | `references/food-international.md` |
-| Best dining precincts | `references/food-areas.md` |
-| Dietary, alcohol, coffee | `references/food-practical.md` |
-| **Practical** | |
-| Moving & settling | `references/resident.md` |
-| Transport (Opal, trains, ferries) | `references/transport.md` |
-| Cost of living | `references/cost.md` |
-| Safety & wildlife | `references/safety.md` |
-| Weather & seasons | `references/climate.md` |
-| Local services (banking, SIM) | `references/local.md` |
-| **Career** | |
-| Tech industry & salaries | `references/tech.md` |
-| Business setup | `references/business.md` |
-| Visas (skilled, working holiday) | `references/visas.md` |
-| Startups & funding | `references/startup.md` |
-| **Lifestyle** | |
-| Culture & customs | `references/culture.md` |
-| Healthcare & Medicare | `references/healthcare.md` |
-| Schools & universities | `references/education.md` |
-| Expat lifestyle & social | `references/lifestyle.md` |
-| Driving & car ownership | `references/driving.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Visitors** | | |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` | When user asks for sights or attractions |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | When user needs day-by-day plans |
+| Where to stay | `references/visitor-lodging.md` | When user asks for hotel or accommodation locations |
+| Tips & day trips | `references/visitor-tips.md` | When user asks for general tourist tips |
+| **Neighborhoods** | | |
+| Quick comparison | `references/neighborhoods-index.md` | When user needs an overview of areas |
+| CBD, The Rocks, Barangaroo | `references/neighborhoods-cbd.md` | When user asks about central Sydney |
+| Surry Hills, Paddington, Potts Point | `references/neighborhoods-inner-east.md` | When user asks about inner east |
+| Newtown, Marrickville, Balmain | `references/neighborhoods-inner-west.md` | When user asks about inner west |
+| Bondi, Manly, Northern Beaches | `references/neighborhoods-beach.md` | When user asks about beach areas |
+| North Shore, Parramatta, Western | `references/neighborhoods-suburban.md` | When user asks about suburban areas |
+| Choosing guide | `references/neighborhoods-choosing.md` | When user needs help deciding where to live |
+| **Food** | | |
+| Overview & dining scene | `references/food-overview.md` | When user asks about food culture |
+| Australian & local cuisine | `references/food-local.md` | When user asks for local dishes |
+| International & multicultural | `references/food-international.md` | When user asks for diverse food options |
+| Best dining precincts | `references/food-areas.md` | When user asks where to eat |
+| Dietary, alcohol, coffee | `references/food-practical.md` | When user asks about dietary needs or drinks |
+| **Practical** | | |
+| Moving & settling | `references/resident.md` | When user is moving to Sydney |
+| Transport (Opal, trains, ferries) | `references/transport.md` | When user asks about getting around |
+| Cost of living | `references/cost.md` | When user asks about expenses |
+| Safety & wildlife | `references/safety.md` | When user asks about safety or dangerous animals |
+| Weather & seasons | `references/climate.md` | When user asks about the weather |
+| Local services (banking, SIM) | `references/local.md` | When user asks about banks or phones |
+| **Career** | | |
+| Tech industry & salaries | `references/tech.md` | When user asks about tech jobs |
+| Business setup | `references/business.md` | When user wants to start a business |
+| Visas (skilled, working holiday) | `references/visas.md` | When user asks about visas |
+| Startups & funding | `references/startup.md` | When user asks about the startup ecosystem |
+| **Lifestyle** | | |
+| Culture & customs | `references/culture.md` | When user asks about local culture |
+| Healthcare & Medicare | `references/healthcare.md` | When user asks about healthcare |
+| Schools & universities | `references/education.md` | When user asks about education |
+| Expat lifestyle & social | `references/lifestyle.md` | When user asks about expat life |
+| Driving & car ownership | `references/driving.md` | When user asks about driving |
+
+
+## State location
+
+This skill is stateless and does not store or manage any local configuration or runtime state.
 
 ## Core Rules
 
@@ -110,7 +115,7 @@ Sydney has diverse transport options:
 - **Light rail**: CBD to Inner West and Eastern Suburbs
 - **Buses**: Fill the gaps
 - **Car**: Needed for Northern Beaches, Western suburbs
-Most inner city residents don't need cars. See `references/transport.md` and `references/driving.md`.
+Most inner city residents rely on public transport instead of cars. See `references/transport.md` and `references/driving.md`.
 
 ### 8. Neighborhood Matching
 
@@ -142,8 +147,8 @@ Common comparison for migrants/visitors:
 - **Housing competition** — Expect 20-50+ applications per rental. Apply multiple properties.
 - **Airport train surcharge** — Train to airport costs extra on top of Opal fare.
 - **Alcohol prices** — Very expensive. Pre-drink culture exists.
-- **Speed cameras everywhere** — Hidden, mobile, average speed. Don't speed.
-- **Tipping not expected** — But tourists often do, confusing service staff.
+- **Speed cameras everywhere** — Hidden, mobile, average speed. Observe speed limits strictly.
+- **Tipping is optional** — But tourists often do, confusing service staff.
 
 ## Regulated Activities
 

@@ -2,6 +2,10 @@
 
 ## 1. Opal Card System
 
+### Opal Card Background (Knowledge Verification)
+- **Opal** is a contactless smartcard fare collection system launched in late 2012 by Transport for NSW. Source: [Transport for NSW — Opal](https://transportnsw.info/tickets-opal) and [Wikipedia — Opal card](https://en.wikipedia.org/wiki/Opal_card).
+- The Opal system has accepted contactless payment via credit card, debit card and linked devices with the same fares and benefits as an adult Opal card since 2019. Source: [Transport for NSW — Contactless payments](https://transportnsw.info/tickets-opal/how-to-manage-your-opal-card/contactless-payments).
+
 ### How to Get One
 - **Airport**: Available at convenience stores in terminals and at train station ticket machines
 - **Train/Metro Stations**: From Opal retailers at major stations or ticket machines (single trips only)
@@ -24,7 +28,7 @@ You can tap on/off with:
 - Credit/debit cards with contactless symbol
 - Apple Pay, Google Pay, Samsung Pay
 
-**Benefits**: Same fares and caps as Opal. Convenient if you don't want a separate card.
+**Benefits**: Same fares and caps as Opal. Convenient if you prefer not to have a separate card.
 
 **Limitation**: Only adult fares; no concession rates.
 
@@ -73,7 +77,7 @@ Check the current airport-station access fee and fare treatment in the Transport
 ## 3. Buses
 
 ### Coverage
-Buses go where trains don't:
+Buses go where trains do not:
 - **Eastern Suburbs**: Bondi Beach, Coogee, Bronte
 - **Northern Beaches**: Manly to Palm Beach
 - **Inner suburbs**: Newtown, Surry Hills, Paddington
