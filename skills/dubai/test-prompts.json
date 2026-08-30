@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am a software engineer looking to move to Dubai. What are the typical salaries for a senior dev, and which neighborhood should I consider if I want to live near the beach but commute to a tech hub?",
+    "expected": "Agent should check tech industry salaries (`references/tech.md`), suggest beach neighborhoods like JBR or Palm Jumeirah (`references/neighborhoods-beach.md`) while noting commutes to tech hubs like DIC or DIFC, and potentially mention the Golden Visa or employment visa requirements (`references/visas.md`).",
+    "actual": "Agent provided accurate salary ranges for Senior SWE (AED 35K-55K/month). Suggested living in JBR or Dubai Marina for beach access, noting the commute to Dubai Internet City is manageable (under 15-20 mins). Warned about high rent costs in these areas and mentioned that the employer must sponsor the visa unless applying for a Golden Visa.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My unmarried partner and I are visiting Dubai for a week in August. Can we share a hotel room, and what should we pack?",
+    "expected": "Agent must flag that August is extremely hot (`references/climate.md` and `references/traps.md`) and suggest indoor activities. Agent must address the unmarried couples rule, stating it is now legally permitted to cohabitate as of 2020 (`references/legal.md`). Agent should advise on conservative dress codes for malls and public spaces (`references/culture.md`).",
+    "actual": "Agent successfully stated that unmarried couples can legally share a hotel room following the 2020 law changes. Strongly warned about August weather (40-45°C+) and advised planning mostly indoor activities. Provided clear guidelines on packing: light clothing for outdoors, but a sweater for aggressive AC indoors, and warned to cover shoulders and knees when visiting malls to respect local culture.",
+    "pass": true
+  }
+]
