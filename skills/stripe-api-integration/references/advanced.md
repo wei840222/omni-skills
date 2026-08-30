@@ -2,7 +2,7 @@
 
 Issuing (virtual/physical cards), Terminal (POS), Treasury (banking), Identity (verification), Radar (fraud), Financial Connections, Climate, Sigma.
 
-**Read `## Account Context` in `~/Clawic/data/stripe-api-integration/memory.md`** (or its box) first: every product here needs separate activation, most carry their own pricing, and several impose regulatory obligations that are not undoable. None of them is a feature flag.
+**Read `## Account Context` in `<state_root>/stripe-api-integration/memory.md`** (or its box) first: every product here needs separate activation, most carry their own pricing, and several impose regulatory obligations that are not undoable. None of them is a feature flag.
 
 ## Before Enabling Any of These
 
@@ -16,7 +16,7 @@ Issuing (virtual/physical cards), Terminal (POS), Treasury (banking), Identity (
 | Financial Connections | Access to the customer's bank data, with consent and scope obligations |
 | Sigma | SQL over your account data; an analysis tool, never part of a request path |
 
-Two rules cut across all of them: **the fee line belongs in `~/Clawic/data/finances/subscriptions.md`** alongside other paid add-ons, so unit economics stay honest; and **the sensitive artifacts these products produce — cardholder data, identity documents, bank credentials — are never written under `~/Clawic/data/`**, only their ids and pointers (`memory-template.md`).
+Two rules cut across all of them: **the fee line belongs in `<state_root>/finances/subscriptions.md`** alongside other paid add-ons, so unit economics stay honest; and **the sensitive artifacts these products produce — cardholder data, identity documents, bank credentials — are never written under `<state_root>/`**, only their ids and pointers (`memory-template.md`).
 
 ## Radar, Practically
 
@@ -26,7 +26,7 @@ Radar runs on every payment whether or not you pay for the rules engine. The jud
 - **Review the review queue.** A rule that flags for manual review with nobody reviewing is a rule that silently delays revenue.
 - **Measure both errors.** False positives are lost sales that never complain; false negatives are disputes. Only the second is visible by default, which is why teams over-tighten.
 - **Allow lists are for known-good customers you keep declining**, and they are a liability if they outlive their reason — date them.
-- **A rule set that finally worked belongs in `~/Clawic/data/stripe-api-integration/artifacts/radar-rules.md`** with what it was blocking and what it cost, plus its `## Boxes` line — otherwise the next person re-derives it from disputes.
+- **A rule set that finally worked belongs in `<state_root>/stripe-api-integration/artifacts/radar-rules.md`** with what it was blocking and what it cost, plus its `## Boxes` line — otherwise the next person re-derives it from disputes.
 
 ## Issuing, Practically
 
@@ -34,7 +34,7 @@ Real-time authorization decisions are a webhook with a deadline: the handler app
 
 ## Terminal, Practically
 
-Readers are physical assets with locations, network dependencies and firmware. The failure modes are logistical rather than logical: a reader on the wrong location object, a network that blocks the reader's traffic, a firmware update mid-shift. Connection tokens are single-use credentials and never get stored.
+Readers are physical assets with locations, network dependencies and firmware. The failure modes are logistical rather than logical: a reader on the wrong location object, a network that blocks the reader's traffic, a firmware update mid-shift. Connection tokens are single-use credentials and are not stored.
 
 ---
 
@@ -91,11 +91,11 @@ curl "https://api.stripe.com/v1/issuing/transactions?card=ic_XXX&limit=10" \
 # Webhook handler for issuing_authorization.request
 def handle_authorization(event):
     auth = event['data']['object']
-    
+
     # Your logic here
     if auth['amount'] > 100000:  # Over $1000
         return {"approved": False}
-    
+
     return {"approved": True}
 ```
 
@@ -347,4 +347,4 @@ curl https://api.stripe.com/v1/sigma/scheduled_query_runs/sqr_XXX \
 
 ---
 
-**Write in the same turn**: enabling any product here goes to `## Account Context` in `~/Clawic/data/stripe-api-integration/memory.md` with the date, and its recurring cost to `~/Clawic/data/finances/subscriptions.md` with the currency. Physical Terminal readers are devices: one row each in `~/Clawic/data/devices/devices.md` (name, model, location, network, `tmr_` reference) — read the file first and update in place if the reader is already there. A Radar rule set that worked, or an Issuing authorization policy, is `artifacts/<name>.md` with its `## Boxes` line; a card or identity incident is a row in `incidents/<year>.md`.
+**Write in the same turn**: enabling any product here goes to `## Account Context` in `<state_root>/stripe-api-integration/memory.md` with the date, and its recurring cost to `<state_root>/finances/subscriptions.md` with the currency. Physical Terminal readers are devices: one row each in `<state_root>/devices/devices.md` (name, model, location, network, `tmr_` reference) — read the file first and update in place if the reader is already there. A Radar rule set that worked, or an Issuing authorization policy, is `artifacts/<name>.md` with its `## Boxes` line; a card or identity incident is a row in `incidents/<year>.md`.
