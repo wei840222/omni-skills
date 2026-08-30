@@ -14,4 +14,3 @@
 | Using the same webhook secret across endpoints or environments | A test event verified by a live handler is an event you invented | One secret per endpoint, resolved from the environment, referenced by pointer instead of stored (`references/go-live.md`) |
 | Building a marketplace on direct charges "because it is simpler" | Charge type sets fee flow, dispute liability and who owns the customer relationship — changing it later is a migration | Decide from liability and reporting first (`references/connect.md`) |
 | Rotating keys by creating a new one and forgetting the old | The old key keeps working, and it is the one that leaked | Roll, deploy, verify traffic on the new key, then revoke — with a date in `## Due` (`references/go-live.md`) |
-

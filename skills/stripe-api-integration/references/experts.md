@@ -5,4 +5,3 @@
 - **Aggressive dunning versus customer experience.** More retries and longer grace periods recover more revenue and irritate more customers, and on some rails each failure costs a fee. The break-even is per-rail and per-price-point, not a preference (`references/dunning.md`).
 - **3D Secure on everything versus only where required.** Blanket 3DS shifts fraud liability and costs conversion; exemption-first keeps conversion and keeps liability. The frontier is your dispute rate by segment: apply authentication where the losses are, not uniformly (`references/sca-3ds.md`).
 - **Platform-managed onboarding versus Stripe-hosted.** Owning the onboarding UI wins on brand and loses on the endless treadmill of verification requirements across countries. Teams that are not in the compliance business hand it to Stripe.
-

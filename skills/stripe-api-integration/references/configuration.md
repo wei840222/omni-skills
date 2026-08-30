@@ -23,4 +23,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Integrations** — tax engine, analytics and revenue recognition, dunning tooling, fraud tooling, accounting system that consumes payouts — affects `invoices.md` and `payments.md`
 - **Restrictions** — PCI scope the user will not exceed, payment methods or regions they refuse, data they will not store — affects `payments.md` and `payments.md`
 - **Cadence** — reconciliation day, dispute-rate review, API version upgrade window, key rotation interval — affects the `## Due` table
-
