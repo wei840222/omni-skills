@@ -57,7 +57,7 @@ Toronto has four distinct seasons. Winters are cold, summers are humid. Spring a
 First winter is hard for newcomers:
 - Vitamin D supplements help
 - Light therapy lamps
-- Stay social (don't hibernate)
+- Stay active socially during winter
 - Plan indoor activities
 - Remember: locals survive
 
@@ -89,7 +89,7 @@ First winter is hard for newcomers:
 - Prices lower before summer
 
 ### Tips
-- Don't put winter gear away too early
+- Keep winter gear accessible until late May
 - Carry layers everywhere
 - Check weather daily
 - Best time for apartment hunting
@@ -197,7 +197,7 @@ First winter is hard for newcomers:
 ## First Year Tips
 
 1. **Buy winter gear in October** — Selection better, prices sometimes lower
-2. **Don't fight winter** — Embrace it or suffer
+2. **Embrace winter** — participate in winter activities to enjoy the season
 3. **Plan indoor hobbies** — You'll need them
 4. **Vitamin D** — Take supplements
 5. **Get good boots** — Most important purchase

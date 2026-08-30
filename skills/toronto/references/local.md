@@ -30,7 +30,7 @@
 | Standard | CAD 10-15 | More transactions |
 | Premium | CAD 25-30 | Unlimited, perks |
 
-**Ways to avoid fees**:
+**Ways to minimize fees**:
 - Minimum balance (usually CAD 3,000-5,000)
 - Direct deposit of paycheck
 - Newcomer promotion periods

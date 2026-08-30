@@ -131,7 +131,7 @@ Toronto takes brunch seriously. Weekend brunch is social institution.
 
 ### When to Go
 - Peak: 10am-1pm Saturday/Sunday
-- Avoid wait: Before 10am or after 2pm
+- For shorter waits: Go before 10am or after 2pm
 - Weekday brunch: Much easier
 
 ### What to Expect

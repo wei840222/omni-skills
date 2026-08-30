@@ -2,7 +2,7 @@
 
 ## Overview
 
-Toronto is expensive but includes public services (healthcare, education) that other expensive cities don't.
+Toronto is expensive but includes public services (healthcare, education) unlike some other expensive cities.
 
 ### Quick Numbers (Single Person, 2026)
 

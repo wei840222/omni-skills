@@ -165,10 +165,10 @@ Available throughout city for non-emergency care.
 - **Fake monks**: Request donations, not real monks
 - **Need bus fare**: Common panhandling technique
 - **CRA phone scam**: Government doesn't call demanding payment
-- **Rental scams**: Never pay before viewing
+- **Rental scams**: Inspect the property in person before paying
 - **Romance scams**: Online dating money requests
 
-### Avoid
+### Precautions
 - Paying deposits before seeing rentals
 - Giving remote access to computer
 - Wire transfers to strangers

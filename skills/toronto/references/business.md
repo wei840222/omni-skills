@@ -215,7 +215,7 @@ For US expansion/customers:
 2. **Ignoring HST registration** — Register early, claim credits
 3. **Misclassifying contractors** — CRA audits this
 4. **No founder agreement** — Get in writing before problems
-5. **Over-incorporating** — Don't incorporate too early if not needed
+5. **Incorporation Timing** — Wait to incorporate until it is strategically necessary
 6. **Ignoring SR&ED** — Significant money left on table
 7. **Wrong corporate structure** — Get advice for US investors
 

@@ -228,7 +228,7 @@ Tech occupations favored in:
 ### While PR Application Pending
 - Maintain valid temporary status
 - Can apply for Bridging Open Work Permit (BOWP)
-- Don't leave Canada without proper documents
+- Ensure proper documentation is secured before leaving Canada
 
 ### After PR
 - PR card valid 5 years
@@ -265,7 +265,7 @@ Tech occupations favored in:
 ### Paid Help
 - Immigration lawyers (RCIC or lawyer)
 - Immigration consultants (regulated RCICs only)
-- Avoid unregulated consultants
+- Use only regulated consultants
 
 ### Red Flags
 - Guaranteed results

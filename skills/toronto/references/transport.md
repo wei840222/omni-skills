@@ -88,7 +88,7 @@ Regional transit connecting Toronto to GTA and beyond.
 
 ### Coverage
 - Trains: Union Station hub, lines to Barrie, Milton, Kitchener, Hamilton, etc.
-- Buses: Where trains don't go
+- Buses: Where trains are unavailable
 
 ### Fares
 Distance-based, more expensive than TTC.
@@ -213,7 +213,7 @@ Every 15 minutes.
 | Residential permit | CAD 35-350/year |
 
 ### Rush Hour
-- Avoid driving 7-9am, 4-7pm
+- Travel during off-peak hours (outside 7-9am and 4-7pm)
 - DVP and Gardiner Expressway = parking lots
 - 401 is North America's busiest highway
 

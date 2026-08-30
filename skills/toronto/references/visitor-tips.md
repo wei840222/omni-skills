@@ -29,7 +29,7 @@
 - Cards accepted almost everywhere (Visa/MC universal)
 - Tap-to-pay extremely common
 - Some small vendors cash-only (Kensington, Chinatown markets)
-- ATMs: use bank ATMs to avoid fees
+- ATMs: use bank ATMs to save on fees
 
 ### Currency
 - Canadian dollar (CAD)
@@ -148,7 +148,7 @@
 - "Last call" at 2am, bars close shortly after
 
 ### General
-- Don't compare everything to the US (sensitive topic)
+- Appreciate Canadian identity independently (comparisons to the US can be a sensitive topic)
 - Hockey is religion (learn basics)
 - Remove shoes when entering homes
 - Apologize if someone bumps into YOU (yes, really)
