@@ -247,7 +247,7 @@ Required for private sales:
 ### When It Makes Sense
 - Occasional use (few times/month)
 - Live downtown
-- Don't want car ownership hassle
+- Prefer transit over car ownership maintenance
 - Supplement transit
 
 ### Costs

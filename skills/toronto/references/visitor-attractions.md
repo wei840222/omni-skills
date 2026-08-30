@@ -92,7 +92,7 @@
 
 ### Yonge-Dundas Square
 - **Reality**: Toronto's Times Square attempt, mostly ads
-- **Alternative**: Walk through but don't plan time here
+- **Alternative**: Walk through briefly rather than scheduling dedicated time
 
 ### Ripley's Believe It or Not
 - **Reality**: Tourist trap, low value

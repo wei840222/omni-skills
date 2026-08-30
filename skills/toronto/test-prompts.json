@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm visiting Toronto for 3 days next month, what are the top things to do and where should I stay?",
+    "expected": "Provides a 3-day itinerary, must-see attractions (like CN Tower, ROM), and lodging recommendations based on user preference (Downtown, etc.).",
+    "actual": "Here is a 3-day itinerary for your visit to Toronto:\nDay 1: CN Tower, Ripley's Aquarium, and the Distillery District.\nDay 2: Royal Ontario Museum (ROM), Casa Loma, and Yorkville.\nDay 3: Toronto Islands, St. Lawrence Market, and Kensington Market.\nFor lodging, staying Downtown (near King West or Entertainment District) is highly recommended for easy transit access.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a senior software engineer moving from the US to Toronto. What's the tech scene like, expected salary, and neighborhood recommendations for a family?",
+    "expected": "Mentions tech salaries are slightly lower than US (CAD 150k-220k for senior), lists major tech companies, explains the healthcare benefit, and suggests family-friendly neighborhoods (e.g. North York, Leaside, Etobicoke).",
+    "actual": "Toronto has a booming tech scene, serving as a hub for companies like Shopify, Google, and Amazon. As a senior SWE, expect salaries in the CAD 150,000-220,000 range. While slightly lower than US coastal cities, you get the benefit of OHIP (universal healthcare) and a diverse culture. For a family, neighborhoods like North York, Leaside, and the Beaches offer excellent schools, parks, and family-friendly environments.",
+    "pass": true
+  }
+]

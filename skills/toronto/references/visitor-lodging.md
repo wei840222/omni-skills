@@ -122,7 +122,7 @@
 5. **Last minute**: HotelTonight app for same-day deals
 6. **Extended stay**: Negotiate weekly rates, consider furnished apartments
 
-## Avoid
+## Areas to Skip
 
 - **Airport area (Mississauga)**: Far from everything, only if flying out early
 - **North York random hotels**: Unless visiting family there

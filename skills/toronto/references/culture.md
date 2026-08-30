@@ -40,7 +40,7 @@ Toronto is one of the world's most diverse cities. Over 50% of residents were bo
 - Hold doors for people behind you
 - Say please and thank you always
 - Queue orderly for everything
-- Don't cut in line (serious offense)
+- Wait your turn in line (respecting queues is highly valued)
 - Small talk with strangers is normal
 - Remove shoes when entering homes
 
@@ -225,10 +225,10 @@ Toronto is distinct from rest of Canada:
 - Respect personal space
 - Use "please" when ordering food
 
-### Don't
-- Cut in line
-- Be loudly American about being American
-- Assume everyone loves hockey
+### Instead Do This
+- Wait your turn patiently in lines
+- Appreciate the unique Canadian culture
+- Respect diverse interests beyond hockey
 - Complain about cold (everyone experiences it)
 - Compare everything to another country negatively
 - Ignore Indigenous history

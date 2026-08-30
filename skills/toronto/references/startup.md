@@ -14,7 +14,7 @@ Toronto is Canada's startup capital and one of North America's fastest-growing t
 - **Talent**: Top universities, diverse workforce
 - **Immigration**: Easier than US to bring talent
 - **Costs**: Lower than SF/NYC
-- **Healthcare**: Employees don't worry about insurance
+- **Healthcare**: Employees are covered by universal healthcare
 - **US Access**: Same timezone as East Coast, easy travel
 
 ## Startup Hubs
