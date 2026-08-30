@@ -67,6 +67,6 @@ Package operations are transactions on a live system. The failure modes are: int
 
 ## Record It
 
-Every upgrade that changed behaviour, every hold, and every third-party repository added goes to `~/Clawic/data/linux/changes/<year>.md` with the file that persists it and the command that undoes it (`apt-mark unhold`, `dnf history undo <id>`). A reboot that became required and was NOT taken goes on the host's row in `## Hosts` as `reboot pending since <date>` — a pending reboot that only lives in one session's memory is an unpatched kernel with a false sense of safety. The patch window itself belongs in `## Due` (`memory-template.md`).
+Every upgrade that changed behaviour, every hold, and every third-party repository added goes to `<state_root>/changes/<year>.md` with the file that persists it and the command that undoes it (`apt-mark unhold`, `dnf history undo <id>`). A reboot that became required and was NOT taken goes on the host's row in `## Hosts` as `reboot pending since <date>` — a pending reboot that only lives in one session's memory is an unpatched kernel with a false sense of safety. The patch window itself belongs in `## Due` (`memory-template.md`).
 
-Related: reboot recovery → `boot.md` · disk space for `/boot` → `disk-space.md` · distro command mapping → `distros.md` · alerting on pending reboots → `monitoring.md`.
+Related: reboot recovery → `boot.md` · disk space for `/boot` → `disk-space.md` · distro command mapping → `distros.md` · alerting on pending reboots → related skill `monitoring`.

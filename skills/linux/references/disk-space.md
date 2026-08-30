@@ -80,6 +80,6 @@ Everything above is reversible. Anything that deletes application data goes thro
 
 ## Record It
 
-A disk that filled once will fill again: write the incident (host, what consumed the space, what reclaimed it, time to resolve) to `~/Clawic/data/linux/incidents/<year>.md`, and the second time the same cause appears, promote it to `## Recurring Incidents` in `memory.md` with the fix that holds. Any retention or reserve change (`journalctl --vacuum-*` policy, logrotate rule, `tune2fs -m`) goes to `changes/<year>.md`, and a cleanup that has to repeat goes to `## Due` rather than into someone's memory (`memory-template.md`).
+A disk that filled once will fill again: write the incident (host, what consumed the space, what reclaimed it, time to resolve) to `<state_root>/incidents/<year>.md`, and the second time the same cause appears, promote it to `## Recurring Incidents` in `memory.md` with the fix that holds. Any retention or reserve change (`journalctl --vacuum-*` policy, logrotate rule, `tune2fs -m`) goes to `changes/<year>.md`, and a cleanup that has to repeat goes to `## Due` rather than into someone's memory (`memory-template.md`).
 
-Related: block devices, LVM, resizing → `storage.md` · journald and rotation policy → `logs.md` · package caches and kernels → `packages.md` · alerting before it fills → `monitoring.md`.
+Related: block devices, LVM, resizing → `storage.md` · journald and rotation policy → `logs.md` · package caches and kernels → `packages.md` · alerting before it fills → related skill `monitoring`.

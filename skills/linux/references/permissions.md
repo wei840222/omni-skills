@@ -80,6 +80,6 @@ getfacl /srv/app                            # read the mask line before believin
 
 ## Record It
 
-A denial that took six layers to find is worth exactly one file: the SELinux fcontext rule, the boolean, the ACL recipe, or the `ReadWritePaths=` set that finally worked goes to `~/Clawic/data/linux/artifacts/policy-<service>.md` — what it unblocked, the commands, and the date — with its `## Boxes` line in `memory.md`. Applying it is a change (`changes/<year>.md`, with `semanage fcontext -d` or the equivalent as the rollback). The second time the same class of denial appears on the same host, it is a pattern for `## Recurring Incidents` (`memory-template.md`).
+A denial that took six layers to find is worth exactly one file: the SELinux fcontext rule, the boolean, the ACL recipe, or the `ReadWritePaths=` set that finally worked goes to `<state_root>/artifacts/policy-<service>.md` — what it unblocked, the commands, and the date — with its `## Boxes` line in `memory.md`. Applying it is a change (`changes/<year>.md`, with `semanage fcontext -d` or the equivalent as the rollback). The second time the same class of denial appears on the same host, it is a pattern for `## Recurring Incidents` (`memory-template.md`).
 
-Related: unit-level denials → `systemd.md` · SSH key permission rejections → `ssh.md` · users, groups, and sudoers structure → `users.md` · sandboxed desktop apps denied by confinement → `desktop.md`.
+Related: unit-level denials → `systemd.md` · SSH key permission rejections → `ssh.md` · users, groups, and sudoers structure → `users.md` · sandboxed desktop apps denied by confinement → desktop stack notes in `distros.md` / `kernel.md`.

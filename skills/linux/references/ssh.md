@@ -87,6 +87,6 @@ Host *
 
 ## Record It
 
-How you reach a host is inventory, not memory: put the access reference — and only the reference — in the `Access reference` column of `~/Clawic/data/servers/servers.md` (`file:~/.ssh/id_ed25519_web01`, `keychain:web01-console`, `1password:Infra/web01`). Never a private key, a passphrase, or a password, and never the contents of an `authorized_keys` file the user pastes: public keys are fine, everything alongside them usually is not. Jump-host topology and the out-of-band console for a host belong in the same row's notes or in `## Hosts`. Every `sshd_config` change goes to `changes/<year>.md` with its rollback and how it was verified (`memory-template.md`).
+How you reach a host is inventory, not memory: put the access reference — and only the reference — in the `Access reference` column of `<state_root>/servers/servers.md` (`file:~/.ssh/id_ed25519_web01`, `keychain:web01-console`, `1password:Infra/web01`). Never a private key, a passphrase, or a password, and never the contents of an `authorized_keys` file the user pastes: public keys are fine, everything alongside them usually is not. Jump-host topology and the out-of-band console for a host belong in the same row's notes or in `## Hosts`. Every `sshd_config` change goes to `changes/<year>.md` with its rollback and how it was verified (`memory-template.md`).
 
-Related: firewall rules and reachability → `networking.md` · account state and sudo → `users.md` · exposure baseline → `hardening.md` · unknown keys in `authorized_keys` → `compromise.md`.
+Related: firewall rules and reachability → `networking.md` · account state and sudo → `users.md` · exposure baseline → `hardening.md` · unknown keys in `authorized_keys` → containment notes in `hardening.md`.
