@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to improve my brand's visibility on ChatGPT. How do I start auditing my current standing?",
+    "expected": "The agent should load references/audit.md, explain the query matrix design (best of, recommendation, comparison), suggest testing across multiple models (ChatGPT, Claude, Perplexity), and explain how to document the win/loss patterns.",
+    "actual": "Loaded `references/audit.md`. To audit your brand's visibility on ChatGPT and other AI models, we need to build a query matrix. First, we design test queries: 'Best of' (e.g., 'best [category] tools'), 'Recommendations', 'Comparisons', and 'Specific Needs'. Then, we run these queries across ChatGPT, Claude, and Perplexity on both free and paid tiers. For each query, we document the response summary, your position, competitors mentioned, and context. Finally, we analyze win/loss patterns and map your competitive positioning.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My SaaS product is rarely mentioned by AI models. Should I just write 50 long keyword-stuffed articles to get scraped?",
+    "expected": "The agent should load references/domain-knowledge.md, explicitly warn against keyword stuffing based on academic research, and suggest fluency optimization, quotation addition, and leveraging references/strategies.md for SaaS (e.g. comparison pages, integration docs).",
+    "actual": "Loaded `references/domain-knowledge.md` and `references/strategies.md`. No, you should avoid keyword stuffing. According to recent research from Princeton, keyword stuffing can actively harm your Generative Engine Optimization (GEO) because it lowers semantic density and fluency, causing LLMs to downgrade the reliability of your content. Instead, focus on:\n1. **Fluency Optimization:** Write highly structured, grammatically precise content.\n2. **Quotation Addition:** Use specific statistics and expert quotes, which can increase your citation likelihood by up to 41%.\n\nFor a SaaS product, quick wins include creating '[Your Product] vs [Competitor]' comparison pages, publishing comprehensive integration docs, and building a presence on GitHub or Stack Overflow rather than spamming long keyword-stuffed articles.",
+    "pass": true
+  }
+]
