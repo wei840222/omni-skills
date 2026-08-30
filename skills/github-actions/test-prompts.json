@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a GitHub Actions workflow to build and test a Node.js application when a PR is opened.",
+    "expected": "A complete YAML workflow using actions/checkout and actions/setup-node with appropriate triggers and permissions.",
+    "actual": "```yaml\nname: Node.js CI\non:\n  pull_request:\n    branches: [ main ]\npermissions:\n  contents: read\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v4\n    - name: Use Node.js\n      uses: actions/setup-node@v4\n      with:\n        node-version: '20'\n        cache: 'npm'\n    - run: npm ci\n    - run: npm test\n```\n",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My workflow is failing because it can't assume an AWS role. It says 'Not authorized to perform sts:AssumeRoleWithWebIdentity'. Fix it.",
+    "expected": "Instructions to add 'permissions: id-token: write' and configure aws-actions/configure-aws-credentials.",
+    "actual": "To fix the OIDC authentication error, you must grant the workflow permission to request a token. Add the following to your job or workflow level:\n\n```yaml\npermissions:\n  id-token: write\n  contents: read\n```\n\nEnsure your `aws-actions/configure-aws-credentials` step is using the correct `role-to-assume` and that the AWS IAM Trust Policy allows this GitHub repository and branch to assume the role.",
+    "pass": true
+  }
+]
