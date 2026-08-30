@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 47 unread emails and I'm feeling overwhelmed. I only have 5 minutes right now.",
+    "expected": "Agent should acknowledge the overwhelm, avoid showing the full list, and offer 2-3 quick actionable items (e.g., approvals) that match the low energy/time state.",
+    "actual": "Agent acknowledged the low time capacity and offered to surface just 2 quick approval items to get a 'quick win' without showing the full 47 unread count.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "John emailed me about the Q3 report, Slack'd me asking if I saw it, and just sent a calendar invite for a sync about it.",
+    "expected": "Agent should detect this as a multi-channel high urgency signal and prioritize surfacing this item immediately over routine triage.",
+    "actual": "Agent correctly identified the multi-channel pattern (email + Slack + calendar) as a high urgency signal and recommended handling it immediately as a top priority.",
+    "pass": true
+  }
+]
