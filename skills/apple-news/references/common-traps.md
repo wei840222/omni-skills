@@ -1,5 +1,7 @@
-- Assuming `open -a News` works everywhere -> launch failures on some systems.
-- Trying unsupported URL schemes (`applenews://`) -> no app resolver errors.
-- Running topic search without a validated shortcut path -> inconsistent behavior.
-- Opening many article links at once -> user loses reading context.
-- Treating generic web pages as Apple News links -> wrong app or wrong result.
+# Common traps
+
+- Use `/System/Applications/News.app` for app launch rather than relying on a localized app name.
+- Use `https://apple.news/...` links rather than undocumented custom URL schemes.
+- Validate a user-owned Shortcut before using it for topic search.
+- Keep multi-link operations behind the two-confirmation flow so the user retains reading context.
+- Treat generic web pages as source context, not as Apple News article links.

@@ -1,19 +1,19 @@
-# Domain Knowledge: Apple News
+# Domain knowledge: Apple News
 
-Apple News is Apple's curated news reader for Apple platforms. On macOS, this skill treats **News.app** and `https://apple.news/...` links as the primary deterministic interfaces.
+Apple News is Apple's news app. This skill automates only local macOS launches, Apple News URL handoff, and user-owned Shortcuts; it does not use Apple News publisher APIs.
 
-## Product facts agents should preserve
+## Product constraints
 
-- News.app ships at `/System/Applications/News.app` on current macOS releases.
-- Direct article/channel opens should prefer Apple News URLs (`https://apple.news/...`) over guessed custom URL schemes.
-- Topic discovery that is not backed by a concrete Apple News link should stay explicit: use a user-owned Shortcut only when configured, otherwise ask for one source or one reference link.
-- Bulk opens are high-impact: confirm count before launching more than one link.
+- Apple documents News.app use on Mac, including News+ actions in its sidebar.
+- Apple News and News+ availability varies by country, region, and device.
+- The App Store describes Apple News as a curated and personalized news app; it does not establish a supported command-line or AppleScript automation API.
+- Treat `https://apple.news/...` URLs as the only article-link format this skill accepts. The registered macOS URL handler determines which app receives the link.
 
-## Verifiable sources used in this refactor
+## Sources
 
-- Apple Support — Get started with Apple News: https://support.apple.com/guide/iphone/get-started-with-apple-news-iph3c3b7b8c4/ios
-- Apple Support — Read news stories: https://support.apple.com/guide/iphone/read-news-stories-iph2f4c4f8f4/ios
-- Apple News Format documentation (publisher packaging context): https://developer.apple.com/documentation/apple_news
-- Apple News Format Guide PDF: https://www.apple.com/ca/apple-news/docs/Apple-News-Format.pdf
-
-These sources support product orientation and publisher packaging context. Local launch/read automation in this skill still depends on macOS `open` / Shortcut paths, not Apple News Format publishing APIs.
+- **Apple Support — Subscribe to Apple News+ on your iPhone, iPad, and Mac:** https://support.apple.com/en-us/102209
+  Documents News.app use on Mac and regional availability.
+- **Apple App Store — Apple News:** https://apps.apple.com/us/app/apple-news/id1066498020
+  Describes Apple News' app scope, privacy claims, and availability caveat.
+- **Apple Developer — Apple News Format:** https://developer.apple.com/documentation/apple_news
+  Publisher packaging reference; outside this skill's local launch workflow.
