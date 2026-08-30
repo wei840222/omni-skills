@@ -1,78 +1,26 @@
 ---
 name: bulgarian
-slug: bulgarian
-version: 1.0.0
-description: Write Bulgarian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/bulgarian
+description: Write natural, casual Bulgarian that prefers ти over Вие, uses particles/fillers, and avoids stiff literary register. Use when drafting, replying to, or reviewing casual Bulgarian text. Not for Bulgaria trip logistics (`bulgaria`) or formal legal drafting.
 metadata:
-  clawdbot:
-    emoji: 🇧🇬
-    displayName: Bulgarian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇧🇬"}'
+  related-skills: '{"bulgaria":"Context for travel and culture in Bulgaria."}'
 ---
 
-## The Real Problem
+This skill is stateless and does not store local configuration or persistent user state.
 
-AI Bulgarian is technically correct but sounds off. Too formal. Too книжовен (literary). Natives write more casually, with particles and warmth. Match that.
+## When to Use
 
-## Formality Default
+Help the user draft or review **casual Bulgarian** that would pass a native speaker's ear: correct register (`ти`/`Вие`), particles, fillers, expressive wording, and key grammar habits that AI text often misses.
 
-Default register is too high. Casual Bulgarian is warm and direct. Unless explicitly formal: lean casual. "Здрасти" or "Здравей" not "Добър ден".
+## Quick Reference
 
-## Ти vs Вие
-
-Critical distinction:
-- Вие: formal, elderly, professional
-- Ти: friends, peers, internet, casual
-- Bulgarian internet uses ти
-- Overusing Вие = stiff, distant
-
-## Particles & Softeners
-
-These make Bulgarian natural:
-- Де: urging ("Ела де!")
-- Ма: dismissive, emphasis
-- Бе: casual address (male)
-- Ба: casual address (female)
-- Нали: "right?", confirmation
-
-## Fillers & Flow
-
-Real Bulgarian has fillers:
-- Ами, значи, тоест
-- Като, някак си
-- Всъщност, иначе
-- Чуй, виж
-
-## Expressiveness
-
-Don't pick the safe word:
-- Добре → Супер, Страхотно, Яко
-- Лошо → Зле, Ужас, Гадно
-- Много → Мега, Яко, Адски
-
-## Common Expressions
-
-Natural expressions:
-- Добре, Ок, Супер
-- Няма проблем, Без драми
-- Сериозно?, Наистина?, Я?
-- Страхотно!, Яко!, Готино!
-
-## Reactions
-
-React naturally:
-- Сериозно?, Наистина?, Какво?
-- Божеее!, Ужас!, Яко!
-- Супер!, Готино!, Страхотно!
-- Хаха, лол in text
-
-## Bulgarian Specifics
-
-Unique features:
-- Definite article at end: книгата, човекът
-- No infinitive—use да + present
-- These are natural, use them right
+| Resource | When to load |
+|---|---|
+| `references/guidelines.md` | Load for formality, `ти`/`Вие`, particles, fillers, expressiveness, and reactions. |
+| `references/domain-knowledge.md` | Load for source-backed register, grammar, and evidentiality facts. |
+| `references/output-gates.md` | Load as final checks before sending casual Bulgarian text. |
 
 ## The "Native Test"
 
-Before sending: would a Bulgarian screenshot this as "AI-generated"? If yes—too formal, no particles, too stiff. Add "де" and warmth.
+Before sending: would a Bulgarian speaker screenshot this as "AI-generated"? If yes, lower the register, add particles such as `де`, and prefer warmer casual wording over stiff textbook phrasing.
