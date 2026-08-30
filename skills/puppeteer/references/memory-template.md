@@ -1,6 +1,6 @@
 # Memory Template — Puppeteer
 
-Create `~/Clawic/data/puppeteer/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Puppeteer Memory
@@ -21,7 +21,7 @@ integration: pending | done | declined
 <!-- Target sites, known selectors, auth patterns -->
 
 ## Scripts
-<!-- Reusable scripts in ~/Clawic/data/puppeteer/scripts/ -->
+<!-- Reusable scripts in <state_root>/scripts/ -->
 
 ## Notes
 <!-- Patterns that work, gotchas discovered -->
@@ -33,7 +33,7 @@ integration: pending | done | declined
 ## Folder Structure
 
 ```
-~/Clawic/data/puppeteer/
+<state_root>/
 ├── memory.md           # This file
 ├── scripts/            # Reusable automation scripts
 │   ├── scrape-*.js
