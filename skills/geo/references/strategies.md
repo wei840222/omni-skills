@@ -68,10 +68,10 @@ Reddit is gold for GEO — AIs heavily weight it.
 - Participate in relevant communities for months
 - Let others recommend you when appropriate
 
-**Don't:**
-- Astroturf (instant ban, negative association)
-- Shill immediately (community will call it out)
-- Use obvious brand accounts
+**Avoid these pitfalls by:**
+- Ensuring all interactions are authentic and driven by real users.
+- Waiting for community members to naturally ask for solutions before recommending.
+- Utilizing personal or community accounts over corporate brand handles.
 
 ### Hacker News
 
@@ -82,9 +82,9 @@ Tech-focused, highly weighted by AIs.
 - Share technical deep-dives
 - Engage thoughtfully in discussions
 
-**Don't:**
-- Marketing speak (instant downvotes)
-- Self-promote without value
+**Avoid these pitfalls by:**
+- Using clear, technical language instead of marketing jargon.
+- Focusing exclusively on providing high-value, actionable insights.
 
 ### Stack Overflow / Technical Forums
 
@@ -93,9 +93,9 @@ Tech-focused, highly weighted by AIs.
 - Create canonical answers with your product as one option
 - Maintain official presence for support
 
-**Don't:**
-- Spam answers
-- Only mention your product
+**Avoid these pitfalls by:**
+- Providing comprehensive answers that genuinely solve the issue.
+- Comparing multiple tools objectively to establish credibility.
 
 ### Wikipedia
 
@@ -108,7 +108,7 @@ Highest authority, hardest to influence.
 
 **Strategy:**
 - Get press coverage first
-- Let community add you (don't edit own article)
+- Wait for independent community members to create the article to maintain neutrality
 - Focus on category pages, not brand page
 
 ---

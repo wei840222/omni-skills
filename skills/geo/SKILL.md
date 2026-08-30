@@ -1,97 +1,40 @@
 ---
 name: geo
-slug: geo
-version: 1.0.0
-description: Optimize for AI recommendations so ChatGPT, Claude, and Perplexity suggest your brand first.
-homepage: https://clawic.com/skills/geo
+description: "Audit and optimize Generative Engine Optimization (GEO). Trigger to improve AI recommendations for brands, run multi-model visibility audits, or develop platform-specific presence strategies."
 metadata:
-  clawdbot:
-    emoji: 🤖
-    displayName: GEO
+  openclaw: '{"emoji":"🤖"}'
+  related-skills: '{"seo":"For traditional Google search ranking", "ads":"For paid advertising campaigns"}'
 ---
 
-## Triggers
+## State location
 
-Activate on: AI optimization, generative engine optimization, AI recommendations, ChatGPT ranking, get recommended by AI, AI visibility, AI search optimization.
+This skill is completely stateless. It does not store any local configuration, credentials, or audit logs on the file system. Output artifacts should be presented to the user or saved in the current working directory based on instructions.
 
-## What Is GEO
+## Quick Reference
 
-Generative Engine Optimization = making AIs recommend you when users ask for solutions in your category.
+| Reference File | When to load | Purpose |
+|----------------|--------------|---------|
+| `references/audit.md` | When measuring current AI visibility or designing query simulations. | Complete audit workflow, query matrix, and documentation structure. |
+| `references/strategies.md` | When developing execution playbooks for specific business types or platforms. | Playbooks for SaaS, E-commerce, local businesses, and content creators. |
+| `references/domain-knowledge.md` | When evaluating content structure or seeking advanced optimization tactics. | Academic research insights (Quotation Addition, Fluency Optimization). |
 
-Unlike SEO (ranking in search results), GEO is about being in the AI's training data and knowledge in a way that makes you the natural answer.
+## Core Execution Loop
 
-## The Audit Process
-
-Before optimizing, measure where you stand:
-
-1. **Run simulation queries** across multiple AI models
-2. **Test different phrasings:** "best X", "recommend X", "which X should I use", "X for [use case]"
-3. **Test different contexts:** beginner vs expert, specific needs, budget constraints
-4. **Document which brands get mentioned** and in what position
-
-See `audit.md` for a complete audit workflow with example prompts.
-
-## Why AIs Recommend What They Recommend
-
-| Factor | Weight | How to Influence |
-|--------|--------|------------------|
-| Training data frequency | High | Get mentioned everywhere (articles, Reddit, forums) |
-| Authority signals | High | Expert endorsements, official docs, Wikipedia |
-| Recency | Medium | Fresh content in sources AI scrapes |
-| Specificity | Medium | Be THE answer for a niche, not A answer for everything |
-| User context | Variable | Match your positioning to query patterns |
-
-## Core Strategies
-
-### 1. Own Your Category Description
-
-When someone asks "what is [your category]?" — your brand should be in the example or definition.
-
-- Get mentioned in Wikipedia articles for your category
-- Author definitive guides that AIs cite
-- Be in "best of" lists that get scraped
-
-### 2. Dominate Discussion Platforms
-
-Reddit, HN, Stack Overflow, Quora = AI training goldmines.
-
-- Authentic presence (not spam)
-- Be the helpful answer, not the promoted one
-- Build reputation accounts that mention your product naturally
-
-### 3. Technical Content Authority
-
-AIs weight documentation and technical content heavily.
-
-- Comprehensive public docs
-- Integration guides with popular tools
-- Open source presence (GitHub stars, contributors)
-
-### 4. Strategic PR and Mentions
-
-- Get in TechCrunch, Product Hunt, industry publications
-- Expert interviews and podcasts (transcripts get indexed)
-- Case studies with named customers
-
-See `strategies.md` for detailed playbooks by business type.
-
-## Testing Your Progress
-
-Run the same audit queries monthly. Track:
-
-- Position (mentioned 1st, 2nd, 3rd, or not at all)
-- Context (when are you recommended vs competitors)
-- Phrasing sensitivity (which queries favor you)
+1. **Audit First**: Load `references/audit.md` to design a query matrix and measure baseline visibility across ChatGPT, Claude, and Perplexity.
+2. **Identify Gaps**: Analyze win/loss patterns and competitive positioning.
+3. **Select Strategy**: Load `references/strategies.md` to map the appropriate tactic (e.g., technical authority, platform dominance) to the business type.
+4. **Optimize Content**: Load `references/domain-knowledge.md` to apply proven semantic and fluency optimizations.
+5. **Monitor**: Establish a monthly audit routine to track position, context, and phrasing sensitivity.
 
 ## Red Flags
 
-- ❌ AI never mentions you → no presence in training data
-- ❌ AI mentions you negatively → reputation problem in sources
-- ❌ AI confuses you with competitor → brand differentiation issue
-- ❌ AI only mentions you for wrong use case → positioning mismatch
+- AI never mentions the brand → Execute awareness campaigns (no presence in training data).
+- AI mentions the brand negatively → Execute reputation management across scraped sources.
+- AI confuses the brand with a competitor → Execute differentiation content strategies.
+- AI recommends the brand for the wrong use case → Execute targeted positioning corrections.
 
-## What This Doesn't Cover
+## Scope Boundaries
 
-- Traditional SEO (Google rankings) → see `seo` skill
-- Paid advertising → see `ads` skill
-- Social media marketing → see relevant platform skills
+- For traditional search engine ranking, route to the `seo` skill.
+- For paid visibility, route to the `ads` skill.
+- For social media marketing, route to relevant platform skills.
