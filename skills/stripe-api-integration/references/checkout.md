@@ -1,6 +1,6 @@
 # Checkout — Hosted Sessions, Payment Links, Embedded
 
-**Read `## Catalog` and `## Integration Shape` in `~/Clawic/data/stripe-api-integration/memory.md`** (or their boxes) before building a session: the price ids in use and whether this integration creates the customer before Checkout or lets Checkout create one.
+**Read `## Catalog` and `## Integration Shape` in `<state_root>/stripe-api-integration/memory.md`** (or their boxes) before building a session: the price ids in use and whether this integration creates the customer before Checkout or lets Checkout create one.
 
 **Contents:** [Which Hosted Surface](#which-hosted-surface) · [The Event Contract](#the-event-contract) · [Checkout Modes](#checkout-modes) · [Complete Checkout Flow](#complete-checkout-flow) · [Custom Fields](#custom-fields) · [Trial Periods](#trial-periods) · [Quantity Adjustable](#quantity-adjustable) · [Metadata](#metadata) · [Embedded Checkout](#embedded-checkout) · [Session Expiration](#session-expiration) · [Recovery](#recovery) · [Common Patterns](#common-patterns)
 
@@ -18,9 +18,9 @@ Default to hosted Checkout and move down the list only when a concrete requireme
 ## The Event Contract
 
 - `checkout.session.completed` means the session finished, **not** that money arrived. Check `payment_status`: `paid` for synchronous methods, `unpaid` when a bank-based method is still settling.
-- For asynchronous methods, fulfillment belongs on `checkout.session.async_payment_succeeded`, and the failure path on `checkout.session.async_payment_failed` (`payment-methods.md`).
+- For asynchronous methods, fulfillment belongs on `checkout.session.async_payment_succeeded`, and the failure path on `checkout.session.async_payment_failed` (`payments.md`).
 - `checkout.session.expired` is the recovery hook: the customer left, and you have their email if you collected it.
-- Session metadata does not reach the PaymentIntent or the Subscription. Set `payment_intent_data[metadata]` and `subscription_data[metadata]` explicitly, or the surviving object has no link to your order (`api-mechanics.md`).
+- Session metadata does not reach the PaymentIntent or the Subscription. Set `payment_intent_data[metadata]` and `subscription_data[metadata]` explicitly, or the surviving object has no link to your order (`advanced.md`).
 - Create the customer before the session when you need the record to be stable — letting Checkout create one per purchase is the fastest way to duplicate customers (`customers.md`).
 
 ## Checkout Modes
@@ -224,4 +224,4 @@ curl "https://api.stripe.com/v1/checkout/sessions?status=expired&limit=100" \
 
 ---
 
-**Write in the same turn**: the surface chosen (Payment Link, hosted, embedded, Elements) and the customer-creation order go to `## Integration Shape` in `~/Clawic/data/stripe-api-integration/memory.md`; any price or promotion code created for the flow goes to `## Catalog`; a checkout configuration that measurably converted better is `artifacts/decision-checkout.md` with its `## Boxes` line.
+**Write in the same turn**: the surface chosen (Payment Link, hosted, embedded, Elements) and the customer-creation order go to `## Integration Shape` in `<state_root>/stripe-api-integration/memory.md`; any price or promotion code created for the flow goes to `## Catalog`; a checkout configuration that measurably converted better is `artifacts/decision-checkout.md` with its `## Boxes` line.

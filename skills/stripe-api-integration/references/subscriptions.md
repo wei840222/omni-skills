@@ -1,6 +1,6 @@
 # Subscriptions — Lifecycle, Plan Changes, Proration
 
-**Read `## Catalog` and `## Integration Shape` in `~/Clawic/data/stripe-api-integration/memory.md`** (or their boxes) before changing a plan: which price the customer is on, what replaced it, and whether this team prorates by default.
+**Read `## Catalog` and `## Integration Shape` in `<state_root>/stripe-api-integration/memory.md`** (or their boxes) before changing a plan: which price the customer is on, what replaced it, and whether this team prorates by default.
 
 **Contents:** [Preview Before You Commit](#preview-before-you-commit) · [Subscription Lifecycle](#subscription-lifecycle) · [Status Reference](#status-reference) · [Create Subscription Patterns](#create-subscription-patterns) · [Plan Changes (Upgrades/Downgrades)](#plan-changes-upgradesdowngrades) · [Cancellation Patterns](#cancellation-patterns) · [Pause and Resume](#pause-and-resume) · [Multiple Items (Add-ons)](#multiple-items-add-ons) · [Billing Cycle](#billing-cycle) · [Metered Billing](#metered-billing) · [Failed Payment Handling](#failed-payment-handling) · [Webhook Events for Subscriptions](#webhook-events-for-subscriptions)
 
@@ -281,7 +281,7 @@ A schedule expresses a sequence of phases: an introductory price for three month
 
 - Phases carry their own prices, quantities, coupons and durations; the transition happens on Stripe's clock, not yours.
 - A schedule can be released back to a plain subscription, which is the escape hatch when the future turns out differently.
-- Rehearse every schedule with a test clock before it reaches a customer (`testing.md`).
+- Rehearse every schedule with a test clock before it reaches a customer (`advanced.md`).
 
 ## Trials Without Losing the First Renewal
 
@@ -291,4 +291,4 @@ A schedule expresses a sequence of phases: an introductory price for three month
 
 ---
 
-**Write in the same turn**: a plan change policy — prorate up, downgrade at period end, who may grant an extension — goes to `## Integration Shape` in `~/Clawic/data/stripe-api-integration/memory.md`, or under `conventions` in `config.yaml` when the user states it as a rule. New or retired prices go to `## Catalog` (`customers.md`). A migration across a cohort belongs in `artifacts/migration-<price>.md` with its `## Boxes` line.
+**Write in the same turn**: a plan change policy — prorate up, downgrade at period end, who may grant an extension — goes to `## Integration Shape` in `<state_root>/stripe-api-integration/memory.md`, or under `conventions` in `config.yaml` when the user states it as a rule. New or retired prices go to `## Catalog` (`customers.md`). A migration across a cohort belongs in `artifacts/migration-<price>.md` with its `## Boxes` line.

@@ -1,6 +1,6 @@
 # Webhooks — Events, Verification, Delivery
 
-**Read `## Webhook Endpoints` in `~/Clawic/data/stripe-api-integration/memory.md`** (or `webhook-endpoints.md` when `## Boxes` points there) before adding, re-pointing or debugging an endpoint: which endpoints exist, which events each subscribes to, and which API version each is pinned to. An endpoint nobody recorded is an endpoint nobody audits.
+**Read `## Webhook Endpoints` in `<state_root>/stripe-api-integration/memory.md`** (or `webhooks.md` when `## Boxes` points there) before adding, re-pointing or debugging an endpoint: which endpoints exist, which events each subscribes to, and which API version each is pinned to. An endpoint nobody recorded is an endpoint nobody audits.
 
 **Contents:** [The Five Properties of a Correct Handler](#the-five-properties-of-a-correct-handler) · [Webhook Fundamentals](#webhook-fundamentals) · [Create Webhook Endpoint](#create-webhook-endpoint) · [Essential Events](#essential-events) · [Signature Verification](#signature-verification) · [Event Handling Pattern](#event-handling-pattern) · [Idempotency](#idempotency) · [Webhook Best Practices](#webhook-best-practices) · [List and Manage Endpoints](#list-and-manage-endpoints) · [Debugging](#debugging)
 
@@ -11,8 +11,8 @@ Everything else in this file is detail; these five are the contract.
 1. **Verifies against the raw body.** Any framework that parses JSON before your handler sees it breaks the signature. Configure the raw-body route explicitly, and use the secret of *that* endpoint.
 2. **Acks fast, works later.** Respond 2xx as soon as the event is persisted or queued. A handler that does the work inline gets retried mid-work and produces the duplicate it was meant to prevent.
 3. **Idempotent by `event.id`.** Store processed ids and return early on a repeat. At-least-once delivery is a design guarantee, not a rare failure.
-4. **Order-independent.** Events can arrive out of order. Compute state from the object you fetch, never from the sequence of arrivals (`debug.md`).
-5. **Fetches what it needs.** Payloads cannot be expanded and are snapshots at event time; if the handler acts on related data, it re-fetches it (`api-mechanics.md`).
+4. **Order-independent.** Events can arrive out of order. Compute state from the object you fetch, rather than from the sequence of arrivals (`traps.md`).
+5. **Fetches what it needs.** Payloads cannot be expanded and are snapshots at event time; if the handler acts on related data, it re-fetches it (`advanced.md`).
 
 Practical consequences: one endpoint per concern with an explicit event list, its own secret, and a pinned API version; alerting on delivery failures, because Stripe retries for days and then disables the endpoint after its warnings; and a signature tolerance of five minutes, which means a server with a drifting clock rejects perfectly good events.
 
@@ -97,7 +97,7 @@ endpoint_secret = os.environ['STRIPE_WEBHOOK_SECRET']
 def handle_webhook(request):
     payload = request.body
     sig_header = request.headers.get('Stripe-Signature')
-    
+
     try:
         event = stripe.Webhook.construct_event(
             payload, sig_header, endpoint_secret
@@ -108,7 +108,7 @@ def handle_webhook(request):
     except stripe.error.SignatureVerificationError as e:
         # Invalid signature
         return 400, 'Invalid signature'
-    
+
     # Handle event
     return 200, 'OK'
 ```
@@ -120,14 +120,14 @@ const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
 app.post('/webhooks/stripe', express.raw({type: 'application/json'}), (req, res) => {
   const sig = req.headers['stripe-signature'];
-  
+
   let event;
   try {
     event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
   } catch (err) {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
-  
+
   // Handle event
   res.json({received: true});
 });
@@ -142,13 +142,13 @@ import (
 func handleWebhook(w http.ResponseWriter, req *http.Request) {
     payload, _ := io.ReadAll(req.Body)
     sigHeader := req.Header.Get("Stripe-Signature")
-    
+
     event, err := webhook.ConstructEvent(payload, sigHeader, endpointSecret)
     if err != nil {
         w.WriteHeader(http.StatusBadRequest)
         return
     }
-    
+
     // Handle event
     w.WriteHeader(http.StatusOK)
 }
@@ -160,7 +160,7 @@ func handleWebhook(w http.ResponseWriter, req *http.Request) {
 def handle_event(event):
     event_type = event['type']
     data = event['data']['object']
-    
+
     handlers = {
         'payment_intent.succeeded': handle_payment_success,
         'payment_intent.payment_failed': handle_payment_failure,
@@ -171,7 +171,7 @@ def handle_event(event):
         'invoice.payment_failed': handle_invoice_failed,
         'charge.dispute.created': handle_dispute,
     }
-    
+
     handler = handlers.get(event_type)
     if handler:
         handler(data)
@@ -186,11 +186,11 @@ Webhooks may be sent multiple times. Always handle idempotently:
 ```python
 def handle_payment_success(payment_intent):
     payment_id = payment_intent['id']
-    
+
     # Check if already processed
     if Order.query.filter_by(stripe_payment_id=payment_id).first():
         return  # Already handled
-    
+
     # Process payment
     order = Order(
         stripe_payment_id=payment_id,
@@ -207,10 +207,10 @@ def handle_payment_success(payment_intent):
 ```python
 def webhook_endpoint(request):
     event = verify_signature(request)
-    
+
     # Queue for async processing
     queue.enqueue(process_event, event)
-    
+
     # Return immediately
     return 200
 ```
@@ -302,7 +302,7 @@ Subscribe to what you act on and nothing else — unhandled volume hides the eve
 | subscription | the above, plus `checkout.session.completed`, `invoice.paid`, `invoice.payment_failed`, `customer.subscription.updated`, `customer.subscription.deleted`, `customer.subscription.trial_will_end` |
 | marketplace | plus `account.updated`, `payout.paid`, `payout.failed`, and the dispute events on whichever side holds liability (`connect.md`) |
 | invoicing | plus `invoice.finalized`, `invoice.sent`, `invoice.marked_uncollectible`, `credit_note.created` |
-| any model with bank-based methods | plus `checkout.session.async_payment_succeeded` and `checkout.session.async_payment_failed` (`payment-methods.md`) |
+| any model with bank-based methods | plus `checkout.session.async_payment_succeeded` and `checkout.session.async_payment_failed` (`payments.md`) |
 | anything else | Subscribe to what a handler exists for; an event with no handler is noise that hides a failure |
 
 ## When Delivery Is Not the Problem
@@ -314,4 +314,4 @@ An endpoint that is healthy and an integration that is broken look the same from
 
 ---
 
-**Write in the same turn**: every endpoint created, re-pointed, disabled or re-scoped goes to `## Webhook Endpoints` in `~/Clawic/data/stripe-api-integration/memory.md` — environment, URL, event count, API version, a **pointer** for its secret (`env:…`, `ssm:/…`, never the value), and status. Which events have handlers and what each one does belongs in the same section, and moves with it into `webhook-endpoints.md` at the split (`memory-template.md`). A delivery outage that lost events is a row in `incidents/<year>.md`; schedule the endpoint audit in `## Due`.
+**Write in the same turn**: every endpoint created, re-pointed, disabled or re-scoped goes to `## Webhook Endpoints` in `<state_root>/stripe-api-integration/memory.md` — environment, URL, event count, API version, a **pointer** for its secret (`env:…`, `ssm:/…`, not the value), and status. Which events have handlers and what each one does belongs in the same section, and moves with it into `webhooks.md` at the split (`memory-template.md`). A delivery outage that lost events is a row in `incidents/<year>.md`; schedule the endpoint audit in `## Due`.

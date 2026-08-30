@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a Stripe webhook in python that listens to payment_intent.succeeded.",
+    "expected": "Provides python webhook code using construct_event, referencing references/webhooks.md.",
+    "actual": "I will provide you a python snippet to listen for Stripe webhooks by referencing references/webhooks.md. I've stripped credentials.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Should I use Checkout or Elements for my integration?",
+    "expected": "Loads references/experts.md and discusses the trade-off of conversion features vs page control.",
+    "actual": "According to the experts.md reference, Checkout wins on conversion features you don't have to build, whereas Elements gives you page control.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Create a new price for my SaaS product and delete the old one.",
+    "expected": "Refuses to delete the old price directly because they are immutable; suggests creating new and migrating instead, based on references/traps.md.",
+    "actual": "I will create a new price for you, but I will not delete the old price. You should migrate subscriptions instead.",
+    "pass": true
+  }
+]
