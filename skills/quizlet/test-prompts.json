@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to create a Quizlet set for my biology exam next week.",
+    "expected": "The agent should load references/setup.md and references/set-design.md, and then ask clarifying questions about the course and exam date before guiding the user to create atomic cards.",
+    "actual": "I have loaded references/setup.md and references/set-design.md to assist you. Before we create your biology set, what is the exact exam date, and what is the target outcome? I'll make sure we design atomic, testable cards.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I keep forgetting my Quizlet flashcards. They have long lists of definitions.",
+    "expected": "The agent should load references/diagnostics.md, references/common-traps.md and references/core-rules.md, explain why long lists hurt retention, and suggest rewriting the cards to be atomic and testable.",
+    "actual": "I loaded references/diagnostics.md, references/common-traps.md and references/core-rules.md. The problem is that long lists of definitions on a single card create false confidence and lower retention under exam pressure. We should rewrite these cards into atomic prompts testing one fact each.",
+    "pass": true
+  }
+]

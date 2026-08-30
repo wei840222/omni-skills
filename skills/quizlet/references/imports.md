@@ -27,7 +27,7 @@ What does EBITDA exclude?	Interest, taxes, depreciation, and amortization
 1. Scan for duplicated prompts with different answers.
 2. Normalize capitalization for key terms.
 3. Add topic tags for grouped review.
-4. Delete filler cards that do not map to exam outcomes.
+4. Delete filler cards; keep only those that map directly to exam outcomes.
 
 ## Bulk Rewrite Strategy
 
