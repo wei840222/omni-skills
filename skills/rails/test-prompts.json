@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I fix a slow query where a post's author is fetched inside a loop?",
+    "expected": "Provide the correct ActiveRecord includes or eager_load syntax to prevent N+1 queries.",
+    "actual": "Use `includes` to eager load associations and prevent N+1 queries. For example, `Post.includes(:author).each do |post|` will fetch all authors in a single query.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to add a default scope to hide deleted users. How should I do it?",
+    "expected": "Warn against using default_scope because it pollutes all queries, and suggest creating a regular explicit scope instead.",
+    "actual": "It is strongly advised not to use `default_scope` as it affects all queries and joins, making it hard to override. Instead, create a regular explicit scope, like `scope :active, -> { where(deleted: false) }`, and use it explicitly when needed.",
+    "pass": true
+  }
+]
