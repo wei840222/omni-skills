@@ -1,6 +1,6 @@
 # Memory Template - Quizlet
 
-Create `~/Clawic/data/quizlet/memory.md` with this structure:
+Create `<state_root>/quizlet/memory.md` with this structure:
 
 ```markdown
 # Quizlet Memory
@@ -9,12 +9,12 @@ Create `~/Clawic/data/quizlet/memory.md` with this structure:
 status: ongoing
 version: 1.0.0
 last: YYYY-MM-DD
-integration: pending | complete | paused | never_ask
+integration: pending | complete | paused | skip_setup
 
 ## Activation
 - Auto-activate when:
 - Activate only on explicit request for:
-- Never activate for:
+- Exclude from these tasks:
 
 ## Study Context
 - Primary subjects:
@@ -57,7 +57,7 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | Context still evolving | Keep capturing study constraints naturally |
 | `complete` | Context is sufficient | Execute workflows without setup follow-ups |
 | `paused` | User paused setup details | Keep working with existing context |
-| `never_ask` | User rejected setup prompts | Do not ask setup follow-ups again |
+| `skip_setup` | User rejected setup prompts | Bypass setup follow-ups in the future |
 
 ## Principles
 

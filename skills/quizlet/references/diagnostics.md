@@ -13,7 +13,7 @@
 |---------|--------------|-----|
 | High flashcard accuracy, low test score | Recognition without recall | Increase Test sessions and rewrite prompts |
 | Same cards missed every session | Ambiguous wording or overloaded cards | Split cards and add context cues |
-| Fast answers, low retention next day | Shallow processing | Add spaced review checkpoints |
+| Fast answers, low retention next day | Shallow processing | Add spaced review milestones |
 | Strong in one tag, weak in another | Uneven set composition | Rebalance card volume per topic |
 
 ## Weekly Review Protocol
@@ -22,7 +22,7 @@
 2. Classify each miss: ambiguity, overload, missing context, or memory gap.
 3. Rewrite at least the top 3 recurring misses.
 4. Run one short validation test on rewritten cards.
-5. Record outcomes in `~/Clawic/data/quizlet/weak-cards.md`.
+5. Record outcomes in `<state_root>/quizlet/weak-cards.md`.
 
 ## Rewrite Templates
 

@@ -20,7 +20,7 @@
 - One correct answer is obvious to an expert and not guessable by wording tricks.
 - Prompt text is short enough to read once without re-parsing.
 - Answer does not include extra trivia unrelated to the prompt.
-- Similar cards have explicit context cues to avoid interference.
+- Ensure similar cards have explicit context cues to differentiate them clearly.
 
 ## Rewrite Heuristics
 
@@ -42,4 +42,4 @@ Use names that encode scope and timeline:
 - `Spanish Irregular Verbs A2 Sprint`
 - `Product Metrics Interview Core Set`
 
-Avoid names like `Chapter 4` without subject or goal context.
+Use descriptive names with subject or goal context instead of generic titles like `Chapter 4`.
