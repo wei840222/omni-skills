@@ -1,27 +1,13 @@
 ---
 name: github-actions
-slug: github-actions
-version: 1.0.0
-description: Design, debug, and harden GitHub Actions workflows with reusable pipelines, safe permissions, and faster CI and release automation.
-homepage: https://clawic.com/skills/github-actions
-changelog: Initial release with workflow design, reusable pipeline patterns, security guardrails, and debugging playbooks for GitHub Actions.
+description: "Design, debug, and harden GitHub Actions workflows. Triggers on requests involving reusable pipelines, OIDC, permissions matrices, or cache fixes in GitHub Actions."
 metadata:
-  clawdbot:
-    emoji: GHA
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/github-actions/
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: GitHub Actions
+  openclaw: '{"emoji": "GHA", "requires": {"bins": null, "config": ["<state_root>/"]}, "os": ["darwin", "linux", "win32"], "displayName": "GitHub Actions"}'
 ---
 
 ## Setup
 
-On first activation, read `setup.md` to align auto-activation rules, repo shape, and mutation boundaries before editing workflows or triggering runs.
+On first activation, read `references/setup.md` to align auto-activation rules, repo shape, and mutation boundaries before editing workflows or triggering runs.
 
 ## When to Use
 
@@ -30,10 +16,10 @@ Use this skill when the result depends on GitHub Actions semantics and GitHub de
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/github-actions/`. See `memory-template.md` for the baseline structure.
+Memory lives in `<state_root>/`. See `references/memory-template.md` for the baseline structure.
 
 ```text
-~/Clawic/data/github-actions/
+<state_root>/
 |-- memory.md              # Persistent repo context and activation boundaries
 |-- repo-map.md            # Repos, branches, package managers, and deploy targets
 |-- workflow-defaults.md   # Stable defaults for triggers, permissions, caches, and runners
@@ -45,15 +31,15 @@ Memory lives in `~/Clawic/data/github-actions/`. See `memory-template.md` for th
 
 Load only the file needed for the current workflow problem.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory schema and status model | `memory-template.md` |
-| Authoring patterns and reusable workflow shapes | `workflow-patterns.md` |
-| Permissions, secrets, OIDC, and fork safety | `security-model.md` |
-| Run failure triage and log-first debugging | `debugging-playbook.md` |
-| Tag, release, and deployment orchestration | `release-patterns.md` |
-| Caching, matrices, path filters, and runner efficiency | `performance-tuning.md` |
+| Topic | File | When to load |
+|---|---|---|
+| Setup and activation behavior | `references/setup.md` | First activation or initializing. |
+| Memory schema and status model | `references/memory-template.md` | Understanding state schema. |
+| Authoring patterns and reusable workflow shapes | `references/workflow-patterns.md` | Authoring new pipelines. |
+| Permissions, secrets, OIDC, and fork safety | `references/security-model.md` | Configuring permissions/secrets. |
+| Run failure triage and log-first debugging | `references/debugging-playbook.md` | Fixing broken workflows. |
+| Tag, release, and deployment orchestration | `references/release-patterns.md` | Orchestrating deployments. |
+| Caching, matrices, path filters, and runner efficiency | `references/performance-tuning.md` | Optimizing caches/runners. |
 
 ## Requirements
 
@@ -61,7 +47,7 @@ Load only the file needed for the current workflow problem.
 - GitHub repository access if the user wants live run inspection or workflow changes
 - Deployment credentials only through GitHub-managed secrets, environments, or OIDC
 
-Never ask the user to paste personal access tokens, cloud keys, or private signing material into chat.
+Request credentials exclusively via GitHub-managed secrets, environments, or OIDC federation.
 
 ## CI/CD Examples
 
@@ -77,9 +63,15 @@ This skill covers GitHub Actions as an operating system for delivery:
 - release and deployment pipelines with protected branches, approvals, tags, and rollback checkpoints
 - incident response for flaky runs, missing artifacts, cache corruption, and environment drift
 
-## Data Storage
+## State location
 
-Local notes in `~/Clawic/data/github-actions/` may include:
+Memory is stored in `<state_root>/`.
+
+Lookup Order:
+1. Workspace-local directory (`.agents/state/github-actions/`)
+2. Global fallback (`~/.agents/state/github-actions/`)
+
+Local notes in `<state_root>/` may include:
 - repo topology, protected branches, and environment names
 - known-good workflow defaults and reusable workflow contracts
 - recurring incident signatures with fixes and prevention notes
@@ -152,7 +144,7 @@ Data that leaves your machine:
 - deployment traffic only to user-approved targets configured in the workflow
 
 Data that stays local:
-- operating notes under `~/Clawic/data/github-actions/`
+- operating notes under `<state_root>/`
 - workflow drafts, incident analysis, and release policies prepared locally
 
 This skill does NOT:
@@ -179,14 +171,8 @@ This skill NEVER:
 - normalize production deployment from untrusted pull request contexts
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `ci-cd` - Choose CI and deployment strategy before locking into one platform.
 - `git` - Tighten branch, tag, and history handling around workflow events.
 - `workflow` - Design multi-step execution systems with clearer ownership and gating.
 - `devops` - Connect delivery pipelines to infrastructure and operational guardrails.
 - `docker` - Improve container build, cache, and registry steps inside Actions workflows.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/github-actions
-- Latest version: https://clawic.com/skills/github-actions
