@@ -1,6 +1,6 @@
 # Setup — Puppeteer
 
-Read this when `~/Clawic/data/puppeteer/` doesn't exist. Don't ask — just start naturally.
+Read this when `<state_root>/` doesn't exist. Don't ask — just start naturally.
 
 ## Your Attitude
 
@@ -38,7 +38,7 @@ Offer to create a starter script for their use case:
 - Testing → assertion template  
 - Screenshots → capture template
 
-Save to `~/Clawic/data/puppeteer/scripts/`.
+Save to `<state_root>/scripts/`.
 
 ## What You're Saving (internally)
 
@@ -48,4 +48,4 @@ As you learn their workflow:
 - Preferred patterns (headless, viewport size)
 - Common selectors they use
 
-Store in `~/Clawic/data/puppeteer/memory.md` without mentioning file paths to them.
+Store in `<state_root>/memory.md` without mentioning file paths to them.

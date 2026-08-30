@@ -1,0 +1,17 @@
+[
+  {
+    "prompt": "Write a Puppeteer script to scrape the title of example.com and save it to the output directory.",
+    "expected": "Use `<state_root>/output/` for output directory and ensure the script uses `puppeteer`.",
+    "actual": "Wait for execution."
+  },
+  {
+    "prompt": "How do I avoid 'element not found' errors in Puppeteer?",
+    "expected": "Mention `references/rules-and-traps.md` or `references/waiting.md` and instruct to always wait for elements before interacting.",
+    "actual": "Wait for execution."
+  },
+  {
+    "prompt": "Create a script that clicks a button, waits for navigation, and saves a screenshot of the new page.",
+    "expected": "Use `page.waitForNavigation()` explicitly in conjunction with the click, as described in `references/waiting.md`.",
+    "actual": "Wait for execution."
+  }
+]

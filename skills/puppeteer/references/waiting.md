@@ -2,7 +2,7 @@
 
 ## The Golden Rule
 
-**Never assume an element exists. Always wait.**
+**Always wait for elements to exist before assuming they are present.**
 
 90% of Puppeteer failures are timing issues. The page looks ready to you, but JavaScript hasn't finished rendering.
 
@@ -143,18 +143,14 @@ try {
 }
 ```
 
-## Avoid These
+## Best Practices for Waiting
 
 ```javascript
-// BAD: Fixed delay (unreliable, slow)
-await page.waitForTimeout(3000);
+// GOOD: Dynamic wait based on element presence
+await page.waitForSelector('#element');
 
-// BAD: Assuming element exists
-await page.click('#button'); // May fail
-
-// BAD: Not waiting after navigation
-await page.goto(url);
-await page.click('#element'); // Page might not be ready
+// GOOD: Wait for specific navigation type
+await page.waitForNavigation({ waitUntil: 'networkidle0' });
 ```
 
 ## Race Conditions

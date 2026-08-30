@@ -89,10 +89,10 @@ await page.mouse.click(box.x + 100, box.y + 50);
 
 ## Anti-Detection Selectors
 
-Some sites detect automation. Avoid:
-- `puppeteer` anywhere in code that runs in browser
-- Sequential, robotic selector patterns
-- Same delays between actions
+Some sites detect automation. Prefer:
+- Omit `puppeteer` from code that runs in the browser
+- Use varied selector patterns
+- Randomize delays between actions
 
 Prefer:
 - Human-like selection (visible text, semantic roles)
