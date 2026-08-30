@@ -6,22 +6,22 @@ Read this file only when WRITING. `config.yaml` is what the user **declared**; `
 
 | Data | Home | How it grows |
 |---|---|---|
-| Declared preferences — Configuration table keys and preference areas alike | `~/Clawic/data/linux/config.yaml` | Key by key, read-modify-write |
-| Host OS profiles, recurring incident patterns, tooling, how they work, due dates, box index | `~/Clawic/data/linux/memory.md` | Rewritten in place; stays small |
-| The machines themselves — provider, region, role, cost, access reference | `~/Clawic/data/servers/servers.md` (**shared**) | One row per host, every provider in one inventory |
-| The people around the hosts — an admin, an on-call peer, a provider contact, someone being offboarded | `~/Clawic/data/contacts/contacts.md` (**shared**) | One row per person, referenced from here by name only |
-| Decisions belonging to a tracked project — the summary, not the procedure | `~/Clawic/data/projects/<project>.md` (**shared**) | One file per project, the procedure stays in `artifacts/` |
-| What the OS on each host looks like — distro, init, firewall front end, MAC, filesystem layout, quirks | `## Hosts` in `memory.md`; `~/Clawic/data/linux/hosts.md` once it outgrows the split threshold | One row per host, keyed by the name in `servers.md` |
-| Healthy-state numbers and the audit surface of a host | `~/Clawic/data/linux/baselines/<host>.md` | Its own file from the first host measured |
-| Things you produced that get re-read — recovery runbooks, a tuning set with its rollback, an SELinux policy that finally worked, a documented procedure or decision | `~/Clawic/data/linux/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
-| Incidents: symptom, root cause, fix, time to resolve | `~/Clawic/data/linux/incidents/<year>.md` | Append-only, cut by year |
-| Changes applied to a host, with the persistence file and the rollback | `~/Clawic/data/linux/changes/<year>.md` | Append-only, cut by year |
-| **Anything durable this table does not name** | `~/Clawic/data/linux/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
-| Credentials of any kind | Nowhere under `~/Clawic/data/` | Pointer only — see Secrets |
+| Declared preferences — Configuration table keys and preference areas alike | `<state_root>/config.yaml` | Key by key, read-modify-write |
+| Host OS profiles, recurring incident patterns, tooling, how they work, due dates, box index | `<state_root>/memory.md` | Rewritten in place; stays small |
+| The machines themselves — provider, region, role, cost, access reference | `<state_root>/servers/servers.md` (**shared**) | One row per host, every provider in one inventory |
+| The people around the hosts — an admin, an on-call peer, a provider contact, someone being offboarded | `<state_root>/contacts/contacts.md` (**shared**) | One row per person, referenced from here by name only |
+| Decisions belonging to a tracked project — the summary, not the procedure | `<state_root>/projects/<project>.md` (**shared**) | One file per project, the procedure stays in `artifacts/` |
+| What the OS on each host looks like — distro, init, firewall front end, MAC, filesystem layout, quirks | `## Hosts` in `memory.md`; `<state_root>/hosts.md` once it outgrows the split threshold | One row per host, keyed by the name in `servers.md` |
+| Healthy-state numbers and the audit surface of a host | `<state_root>/baselines/<host>.md` | Its own file from the first host measured |
+| Things you produced that get re-read — recovery runbooks, a tuning set with its rollback, an SELinux policy that finally worked, a documented procedure or decision | `<state_root>/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
+| Incidents: symptom, root cause, fix, time to resolve | `<state_root>/incidents/<year>.md` | Append-only, cut by year |
+| Changes applied to a host, with the persistence file and the rollback | `<state_root>/changes/<year>.md` | Append-only, cut by year |
+| **Anything durable this table does not name** | `<state_root>/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
+| Credentials of any kind | Nowhere under `<state_root>/` | Pointer only — see Secrets |
 
 ## When to write
 
-No permission needed; every write is announced in one line that names the file. Writes and deletions stay inside the paths declared in this skill's `configPaths`. A deletion is named in that same line, and in a shared box only rows this skill itself wrote are ever updated or removed.
+No permission needed; every write is announced in one line that names the file. Writes and deletions stay inside the resolved `<state_root>/` tree and its shared inventory siblings named in this template. A deletion is named in that same line, and in a shared box only rows this skill itself wrote are ever updated or removed.
 
 | It happened | Write |
 |---|---|
@@ -43,13 +43,13 @@ No permission needed; every write is announced in one line that names the file. 
 `## Hosts`, `## Recurring Incidents`, `## Environment` and `## How They Work` begin inside `memory.md`. Baselines, artifacts, incidents, changes and the shared inventory are born in their own box, because each is read whole and only when its subject comes up. Splitting a `memory.md` section is a procedure, not a suggestion:
 
 1. Before appending to a section, count its entries.
-2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `~/Clawic/data/linux/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
+2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `<state_root>/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
 3. Keep the headings identical on both sides of the move, so the split is a copy-paste and never a rewrite. `## Hosts` in `memory.md` becomes `## Hosts` in `hosts.md`, same columns.
 4. Never leave a copy behind. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
 
 ## Secrets
 
-Nothing under `~/Clawic/data/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. A pasted `sshd_config`, `.env`, crontab, unit file, `smbcredentials`, or shell history is the densest source of secrets in this domain: substitute before writing, not after. Store the pointer in place of the value, in this shape: `<kind>:<locator>`.
+Nothing under `<state_root>/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. A pasted `sshd_config`, `.env`, crontab, unit file, `smbcredentials`, or shell history is the densest source of secrets in this domain: substitute before writing, not after. Store the pointer in place of the value, in this shape: `<kind>:<locator>`.
 
 `env:DB_PASSWORD` · `keychain:web01-root` · `1password:Infra/web01/root` · `vault:secret/infra/web01` · `file:~/.ssh/id_ed25519` · `file:/root/.smbcred` · `profile:ops`
 
@@ -63,7 +63,7 @@ In this domain — **not secrets, keep them**: hostnames and FQDNs, IP addresses
 
 Keys come from the Configuration table in `SKILL.md`, plus free-form keys nested under a preference area. Write a key only when the user states the preference — never from an observation, and never from a preflight question.
 
-**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `~/Clawic/data/linux/` if it does not exist.
+**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `<state_root>/` if it does not exist.
 
 ```yaml
 distro_family: rhel
@@ -152,7 +152,7 @@ Rules that keep this readable next month:
 
 ## Shared servers inventory
 
-Lives at `~/Clawic/data/servers/servers.md` and is shared with every other infrastructure skill — the user may not have any of them installed, so the format travels with this skill.
+Lives at `<state_root>/servers/servers.md` and is shared with every other infrastructure skill — the user may not have any of them installed, so the format travels with this skill.
 
 ```markdown
 # Servers
@@ -169,12 +169,12 @@ Lives at `~/Clawic/data/servers/servers.md` and is shared with every other infra
 - **Foreign columns win.** If `servers.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Never rewrite its header.
 - **Amounts carry their currency in the value** (`8 EUR`), because rows from other providers are in other currencies and someone will add the column up. Bare metal you own has no monthly figure: leave `—` rather than inventing one.
 - **Retirement is part of the inventory.** When a host is decommissioned, delete its row, delete its `## Hosts` row, and note the date in `memory.md`. An inventory that only grows stops being an inventory.
-- **Scale cut**: one row per host while there are ≤15. Past that, one file per host at `~/Clawic/data/servers/<name>.md` with the same fields, and `servers.md` becomes the index (`Name | Provider | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `servers.md`.
+- **Scale cut**: one row per host while there are ≤15. Past that, one file per host at `<state_root>/servers/<name>.md` with the same fields, and `servers.md` becomes the index (`Name | Provider | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `servers.md`.
 - Access reference is a pointer only (`file:~/.ssh/id_ed25519_web01`, `keychain:db01-console`, `1password:Infra/web01`). Never a key, a passphrase, or a password.
 
 ## Shared contacts
 
-Lives at `~/Clawic/data/contacts/contacts.md` and is shared with every other skill that knows people — the user may not have any of them installed, so the format travels with this skill. Written here when a person becomes part of the operation: a co-admin, the on-call peer, a provider or datacentre contact, or an account being offboarded (`users.md`).
+Lives at `<state_root>/contacts/contacts.md` and is shared with every other skill that knows people — the user may not have any of them installed, so the format travels with this skill. Written here when a person becomes part of the operation: a co-admin, the on-call peer, a provider or datacentre contact, or an account being offboarded (`users.md`).
 
 ```markdown
 # Contacts
@@ -189,13 +189,13 @@ Lives at `~/Clawic/data/contacts/contacts.md` and is shared with every other ski
 - **Collision: update in place, never append.** If that address or handle is already there, whichever skill wrote the row, update only the fields you have direct evidence for and leave every other cell byte for byte. Two rows for one person is how two skills start contradicting each other.
 - **This box holds the person, not the access.** Which accounts they hold, which groups, which keys are authorized — that is host state and belongs in `## Hosts`, `changes/<year>.md` and the offboarding row, which point here by name only.
 - **Retirement is part of the record.** When someone is offboarded or leaves the team, delete their row and note the date in the offboarding row in `changes/<year>.md`. A contact list that only grows stops being one.
-- **Scale cut**: one row per person while there are ≤15. Past that, one file per person at `~/Clawic/data/contacts/<name-kebab>.md` with the same fields, and `contacts.md` becomes the index (`Name | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `contacts.md`.
+- **Scale cut**: one row per person while there are ≤15. Past that, one file per person at `<state_root>/contacts/<name-kebab>.md` with the same fields, and `contacts.md` becomes the index (`Name | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `contacts.md`.
 - **Foreign columns win.** If `contacts.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Never rewrite its header.
 - Channel is how to reach them, never a password, a portal login, a public key, or a private judgement about them.
 
 ## Shared projects
 
-Lives at `~/Clawic/data/projects/<project>.md`, one file per project from the first, and is shared with planning and delivery skills — the user may not have any of them installed, so the format travels with this skill. Written here only when the work belongs to a project the user tracks: the decision and its consequence, never the procedure, which stays in `artifacts/` and is referenced by name.
+Lives at `<state_root>/projects/<project>.md`, one file per project from the first, and is shared with planning and delivery skills — the user may not have any of them installed, so the format travels with this skill. Written here only when the work belongs to a project the user tracks: the decision and its consequence, never the procedure, which stays in `artifacts/` and is referenced by name.
 
 ```markdown
 # Datacentre migration — fsn1 to hel1
@@ -212,12 +212,12 @@ status: active            # active | paused | closed | cancelled
 - **Collision: append under the existing heading, never a second file.** If the file exists, add your rows to the closest matching heading and leave the rest untouched. If its headings differ from these, follow its structure rather than imposing this one — foreign structure wins.
 - **Only the summary crosses over.** Hosts stay in `servers.md`, OS profiles in `## Hosts`, the runbook or tuning set in `artifacts/`, people in `contacts/`. This file carries the decision, its date, its reason, and a pointer to where the detail lives.
 - **Closing is a status, not a deletion.** A finished migration keeps its file with `status: closed` and the close date — it is the record of why the fleet looks the way it does. Only a project that never started is deleted.
-- **Scale cut**: already one file per project, so there is none. If a single project's decision log passes ~40 lines, split the detail into `~/Clawic/data/linux/artifacts/<kebab-name>.md` and leave the pointer, exactly as with any other artifact.
+- **Scale cut**: already one file per project, so there is none. If a single project's decision log passes ~40 lines, split the detail into `<state_root>/artifacts/<kebab-name>.md` and leave the pointer, exactly as with any other artifact.
 - No credential and no access reference in a project file — those live where the Secrets section says, as `<kind>:<locator>` pointers.
 
 ## baselines/
 
-One file per host, at `~/Clawic/data/linux/baselines/<host>.md`, created the first time you measure a healthy state or sweep the audit surface. The value of a baseline is entirely in the diff: without it, "high" is an opinion and "this listener is new" is a guess.
+One file per host, at `<state_root>/baselines/<host>.md`, created the first time you measure a healthy state or sweep the audit surface. The value of a baseline is entirely in the diff: without it, "high" is an opinion and "this listener is new" is a guess.
 
 ```markdown
 # Baseline — web01
@@ -241,7 +241,7 @@ LVM vg0: root 40G ext4, /var 60G ext4, /boot 512M ext4 (separate — watch befor
 
 ## artifacts/
 
-One file per thing, at `~/Clawic/data/linux/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **recovery runbook**, **tuning set with its rollback**, **a policy or ACL recipe that finally worked**, **a documented procedure or decision**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
+One file per thing, at `<state_root>/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **recovery runbook**, **tuning set with its rollback**, **a policy or ACL recipe that finally worked**, **a documented procedure or decision**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
 
 ```markdown
 # Runbook — db01 will not boot after a storage change
@@ -260,7 +260,7 @@ Rollback: delete the file, sysctl --system, remove transparent_hugepage=never, u
 Why: p99 write latency spikes traced to THP compaction; measured before/after, 40 ms → 6 ms
 ```
 
-If the work belongs to a tracked project, the decision summary also belongs in the shared `~/Clawic/data/projects/<project>.md` (format and protocol under [shared projects](#shared-projects)), with the procedure staying here and referenced by name.
+If the work belongs to a tracked project, the decision summary also belongs in the shared `<state_root>/projects/<project>.md` (format and protocol under [shared projects](#shared-projects)), with the procedure staying here and referenced by name.
 
 ## incidents/
 

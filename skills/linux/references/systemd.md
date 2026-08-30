@@ -84,6 +84,6 @@ Hardening directives are the reason a service gets "permission denied" on a path
 
 ## Record It
 
-A drop-in is invisible to anyone reading the vendor unit file, so it goes to `~/Clawic/data/linux/changes/<year>.md` the moment you create one: unit, directive, the drop-in path, and the rollback (delete the file, `daemon-reload`, restart). The same for a unit you masked — a masked unit is the hardest "why does this not start" to diagnose six months later. Sandboxing directives that took work to get right (the exact `ReadWritePaths=` set for a service) belong in `artifacts/` as a reusable unit fragment, with its `## Boxes` line (`memory-template.md`).
+A drop-in is invisible to anyone reading the vendor unit file, so it goes to `<state_root>/changes/<year>.md` the moment you create one: unit, directive, the drop-in path, and the rollback (delete the file, `daemon-reload`, restart). The same for a unit you masked — a masked unit is the hardest "why does this not start" to diagnose six months later. Sandboxing directives that took work to get right (the exact `ReadWritePaths=` set for a service) belong in `artifacts/` as a reusable unit fragment, with its `## Boxes` line (`memory-template.md`).
 
-Related: timers and cron → `scheduling.md` · boot-time failures and rescue targets → `boot.md` · journald retention → `logs.md` · units as a persistence mechanism for attackers → `compromise.md`.
+Related: timers and cron → `scheduling.md` · boot-time failures and rescue targets → `boot.md` · journald retention → `logs.md` · units as a persistence mechanism for attackers → containment notes in `hardening.md`.

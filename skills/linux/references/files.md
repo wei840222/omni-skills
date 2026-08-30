@@ -74,6 +74,6 @@ find /srv -xdev -newermt '2026-07-01' -type f                    # changed since
 
 ## Record It
 
-A migration or sync procedure that worked — the exact rsync flag set for a tree that relies on hardlinks, ACLs or capabilities, the order of steps, the verification command — goes to `~/Clawic/data/linux/artifacts/procedure-<what>.md` with its `## Boxes` line in `memory.md`. It is the kind of thing that is rebuilt from scratch, slightly wrong, every time it is needed (`memory-template.md`).
+A migration or sync procedure that worked — the exact rsync flag set for a tree that relies on hardlinks, ACLs or capabilities, the order of steps, the verification command — goes to `<state_root>/artifacts/procedure-<what>.md` with its `## Boxes` line in `memory.md`. It is the kind of thing that is rebuilt from scratch, slightly wrong, every time it is needed (`memory-template.md`).
 
-Related: filesystem behaviour and durability → `storage.md` · reclaiming space → `disk-space.md` · transfer over SSH → `ssh.md` · restoring what you copied → `backups.md`.
+Related: filesystem behaviour and durability → `storage.md` · reclaiming space → `disk-space.md` · transfer over SSH → `ssh.md` · restoring what you copied → related skill `backups`.

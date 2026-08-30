@@ -77,6 +77,6 @@ esac
 
 ## Record It
 
-Two different destinations, and mixing them is the common error. A per-host fact — this box is Rocky 9 with firewalld and SELinux enforcing — goes to that host's row in `## Hosts` in `~/Clawic/data/linux/memory.md`, alongside its init, filesystem layout and quirks. A user statement that their estate is standardized on something ("we are a Debian shop", "we always use nftables") is a declaration and goes to `distro_family` / `firewall_tool` / `init_system` in `config.yaml`. One Alpine box in a Debian shop must not rewrite the default (`memory-template.md`).
+Two different destinations, and mixing them is the common error. A per-host fact — this box is Rocky 9 with firewalld and SELinux enforcing — goes to that host's row in `## Hosts` in `<state_root>/memory.md`, alongside its init, filesystem layout and quirks. A user statement that their estate is standardized on something ("we are a Debian shop", "we always use nftables") is a declaration and goes to `distro_family` / `firewall_tool` / `init_system` in `config.yaml`. One Alpine box in a Debian shop must not rewrite the default (`memory-template.md`).
 
-Related: package operations per family → `packages.md` · firewall front ends → `networking.md` · MAC systems → `permissions.md` · first configuration of a new host → `new-host.md`.
+Related: package operations per family → `packages.md` · firewall front ends → `networking.md` · MAC systems → `permissions.md` · first configuration of a new host → provisioning notes in `hardening.md` / related skill `vps`.

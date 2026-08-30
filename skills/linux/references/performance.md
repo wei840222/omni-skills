@@ -66,7 +66,7 @@ full avg10=11.03 ...
 2. **Sweep all four resources** (CPU, memory, disk, network) for saturation before drilling into any one. The obvious resource is often the victim of another.
 3. **Attribute to a process or cgroup** before touching configuration.
 4. **Change one thing, re-measure.** Tuning several sysctls at once produces a host nobody can reason about (→ `kernel.md`).
-5. **Compare to a baseline.** Without a known-good number from the same host, "high" is an opinion. Read `~/Clawic/data/linux/baselines/<host>.md` before judging any number, and when it does not exist, measure during the next healthy period and write it there under `## Healthy Numbers` — load range, PSI, `available`, per-device `await` — with its `## Boxes` line in `memory.md`. Any tuning that came out of the investigation goes to `changes/<year>.md` with its rollback (`memory-template.md`, thresholds in `monitoring.md`).
+5. **Compare to a baseline.** Without a known-good number from the same host, "high" is an opinion. Read `<state_root>/baselines/<host>.md` before judging any number, and when it does not exist, measure during the next healthy period and write it there under `## Healthy Numbers` — load range, PSI, `available`, per-device `await` — with its `## Boxes` line in `memory.md`. Any tuning that came out of the investigation goes to `changes/<year>.md` with its rollback (`memory-template.md`, thresholds via related skill `monitoring`).
 
 ## Fast Attribution Table
 

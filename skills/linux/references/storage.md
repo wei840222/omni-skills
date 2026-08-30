@@ -89,6 +89,6 @@ UUID=1a2b-...  /data  ext4  defaults,nofail,x-systemd.device-timeout=10  0 2
 
 ## Record It
 
-The storage layout is a host fact the next session must not rediscover: volume group, logical volumes and their sizes, filesystem types, which mounts are separate, and where the encrypted volumes are. Write it to the host's row in `## Hosts` in `~/Clawic/data/linux/memory.md` (and to `## Storage Layout` in `baselines/<host>.md` when a baseline exists). Every fstab edit, resize, `tune2fs -m`, or new mount goes to `changes/<year>.md` with its rollback — the fstab line you added is the one that will strand the host at the next reboot (`memory-template.md`).
+The storage layout is a host fact the next session must not rediscover: volume group, logical volumes and their sizes, filesystem types, which mounts are separate, and where the encrypted volumes are. Write it to the host's row in `## Hosts` in `<state_root>/memory.md` (and to `## Storage Layout` in `baselines/<host>.md` when a baseline exists). Every fstab edit, resize, `tune2fs -m`, or new mount goes to `changes/<year>.md` with its rollback — the fstab line you added is the one that will strand the host at the next reboot (`memory-template.md`).
 
-Related: reclaiming space → `disk-space.md` · boot failures caused by fstab → `boot.md` · copying and syncing data → `files.md` · snapshots versus backups → `backups.md`.
+Related: reclaiming space → `disk-space.md` · boot failures caused by fstab → `boot.md` · copying and syncing data → `files.md` · snapshots versus backups → related skill `backups`.

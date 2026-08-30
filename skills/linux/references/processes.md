@@ -85,6 +85,6 @@ The 128+N decoding table and the signal numbers live in `SKILL.md` (Signals And 
 
 ## Record It
 
-A limit you raised is a change: `LimitNOFILE=`, `TasksMax=`, a `prlimit` applied live, or a nice/ionice policy goes to `~/Clawic/data/linux/changes/<year>.md` with the drop-in path and the rollback — and note whether it was applied live only, because that one is gone at the next restart. A process that had to be killed the same way twice is an incident pattern, not a chore: `incidents/<year>.md`, then `## Recurring Incidents` on the repeat (`memory-template.md`).
+A limit you raised is a change: `LimitNOFILE=`, `TasksMax=`, a `prlimit` applied live, or a nice/ionice policy goes to `<state_root>/changes/<year>.md` with the drop-in path and the rollback — and note whether it was applied live only, because that one is gone at the next restart. A process that had to be killed the same way twice is an incident pattern, not a chore: `incidents/<year>.md`, then `## Recurring Incidents` on the repeat (`memory-template.md`).
 
 Related: OOM kills and memory pressure → `oom.md` · CPU/IO saturation → `performance.md` · services and their cgroups → `systemd.md`.

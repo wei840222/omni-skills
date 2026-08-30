@@ -75,6 +75,6 @@ cat /sys/module/<mod>/parameters/<param> # the value actually in effect
 
 ## Record It
 
-Before reading this file's tables, check `artifacts/` for an existing tuning set for this host — re-deriving one is how two contradictory sysctl files end up in `/etc/sysctl.d/`. After applying: a single tunable goes to `~/Clawic/data/linux/changes/<year>.md` (key, value, persistence file, rollback, why); a coherent SET of them goes to `artifacts/tuning-<host>-<workload>.md` with the measurement that justified it and the exact rollback, plus its `## Boxes` line in `memory.md`. A tunable that exists only in one incident's shell history is a future outage (`memory-template.md`).
+Before reading this file's tables, check `artifacts/` for an existing tuning set for this host — re-deriving one is how two contradictory sysctl files end up in `/etc/sysctl.d/`. After applying: a single tunable goes to `<state_root>/changes/<year>.md` (key, value, persistence file, rollback, why); a coherent SET of them goes to `artifacts/tuning-<host>-<workload>.md` with the measurement that justified it and the exact rollback, plus its `## Boxes` line in `memory.md`. A tunable that exists only in one incident's shell history is a future outage (`memory-template.md`).
 
 Related: memory tunables in context → `oom.md` · network limits → `networking.md` · boot parameters and initramfs → `boot.md` · measuring before and after → `performance.md`.

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm getting 'Permission denied' when root tries to write to a file. The mode bits look right, 777. What do I check next?",
+    "expected": "Mentions lsattr (immutable), ls -Z (SELinux), findmnt -T (read-only mount) as root is not omnipotent.",
+    "actual": "I will load `references/permissions.md` and check lsattr, SELinux context with ls -Z, and mount options with findmnt -T before touching mode bits.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "df says 100% full but du shows only 5GB used. What's happening?",
+    "expected": "Mention lsof +L1 for deleted-but-open files, shadow mounts, and direct to disk-full-triage.md and disk-space.md",
+    "actual": "Classic command lie. Load `references/disk-full-triage.md` and `references/disk-space.md`, then check lsof +L1 for deleted-but-open files and shadowed mounts.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need to restart sshd on a remote production host after editing sshd_config. What is the safe sequence?",
+    "expected": "Keep current session open, schedule rollback, validate with sshd -t, verify from a new session before cancelling rollback.",
+    "actual": "Load `references/ssh.md` and follow remote-change safety: keep the session, schedule a rollback timer, run sshd -t, restart, then verify from a NEW session before cancelling rollback.",
+    "pass": true
+  }
+]
