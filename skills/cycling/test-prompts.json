@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going on a 3 hour bike ride, how much carbs should I eat per hour?",
+    "expected": "The agent should load references/nutrition.md and advise 60-90g carbs/hour for rides longer than 90 minutes.",
+    "actual": "For a 3-hour bike ride, which is greater than 90 minutes, it is recommended to consume 60-90g of carbohydrates per hour. This level of fueling requires practiced gut training.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I keep getting knee pain when cycling. Should I change my saddle height?",
+    "expected": "The agent should load references/bike-fit.md and explain proper saddle height to avoid knee injury (slight bend in knee at bottom of pedal stroke).",
+    "actual": "Knee pain can often be related to your saddle height. The correct saddle height should allow for a slight bend in your knee at the bottom of the pedal stroke. If your saddle is too low, it wastes power, and if it's too high, it can cause injury. Consider getting a professional bike fit, as it's worth the cost to prevent chronic injuries and improve efficiency.",
+    "pass": true
+  }
+]
