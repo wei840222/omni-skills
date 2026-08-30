@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to casual Bulgarian: 'Hey, how are you? Let's go to the movies tonight.'",
+    "expected": "Casual translation using 'ти', informal greetings, and warm direct wording rather than formal Вие.",
+    "actual": "Здрасти, как си? Хайде да ходим на кино довечера.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a quick message to a friend saying I'll be late because of traffic, but it's not a big deal.",
+    "expected": "Uses informal register, expressions like 'няма проблем' / 'без драми', and native fillers.",
+    "actual": "Оф, значи, ще закъснея малко заради задръстването. Споко, без драми, идвам скоро.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite this stiff Bulgarian more casually: 'Добър ден. Бих желал да ви информирам, че ще закъснея.'",
+    "expected": "Drops formal Вие/literary phrasing, uses ти/peer tone, and adds particles or softeners.",
+    "actual": "Здрасти, значи ще закъснея малко, ок? Няма драма.",
+    "pass": true
+  }
+]
