@@ -1,141 +1,55 @@
 ---
 name: pandas
-slug: pandas
-version: 1.0.1
 description: Analyze, transform, and clean DataFrames with efficient patterns for filtering, grouping, merging, and pivoting.
-homepage: https://clawic.com/skills/pandas
 metadata:
-  clawdbot:
-    emoji: 🐼
-    requires:
-      bins:
-      - python3
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Pandas
+  version: "1.0.2"
+  openclaw: '{"emoji":"🐼","requires":{"bins":["python3"]},"os":["linux","darwin","win32"],"displayName":"Pandas"}'
+  related-skills: '{"data-analysis":"Broader analysis framing, metrics, and decision briefs beyond DataFrame mechanics","csv":"Delimited-text interchange before or after Pandas transforms","sql":"Relational query and schema work instead of in-memory DataFrames","excel-xlsx":"Native workbook editing when the artifact must remain an Excel file"}'
 ---
-
-## Setup
-
-On first use, create `~/Clawic/data/pandas/` and read `setup.md` for initialization. User preferences are stored in `~/Clawic/data/pandas/memory.md` — users can view or edit this file anytime.
 
 ## When to Use
 
 User needs to work with tabular data in Python. Agent handles DataFrame operations, data cleaning, aggregations, merges, pivots, and exports.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/pandas/`. See `memory-template.md` for structure.
+Memory may live under a portable `<state_root>/`. See `references/memory-template.md` for structure.
+
+Resolve `<state_root>` before reading or writing state:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/pandas/`, `<workspace>/memory/pandas/`, `~/pandas/`.
+3. If none exists and state must be created, ask for permission and default to `<workspace>/pandas/`.
 
 ```
-~/Clawic/data/pandas/
+<state_root>/
 ├── memory.md     # User preferences and common patterns
 └── snippets/     # Saved code patterns (optional)
 ```
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-
-## Core Rules
-
-### 1. Use Vectorized Operations
-- NEVER iterate with `for` loops over DataFrame rows
-- Use `.apply()` only when vectorized alternatives don't exist
-- Prefer `df['col'].str.method()` over `apply(lambda x: x.method())`
-
-### 2. Chain Methods for Readability
-```python
-# Good: method chaining
-result = (df
-    .query('age > 30')
-    .groupby('city')
-    .agg({'salary': 'mean'})
-    .reset_index())
-
-# Bad: intermediate variables everywhere
-filtered = df[df['age'] > 30]
-grouped = filtered.groupby('city')
-result = grouped.agg({'salary': 'mean'}).reset_index()
-```
-
-### 3. Handle Missing Data Explicitly
-- Always check `df.isna().sum()` before analysis
-- Choose strategy: `dropna()`, `fillna()`, or interpolation
-- Document WHY missing values exist before removing them
-
-### 4. Use Categorical for Repeated Strings
-```python
-# Memory savings for columns with few unique values
-df['status'] = df['status'].astype('category')
-df['country'] = df['country'].astype('category')
-```
-
-### 5. Merge with Validation
-```python
-# Always specify how and validate
-result = pd.merge(
-    df1, df2,
-    on='id',
-    how='left',
-    validate='m:1'  # Many-to-one: catch unexpected duplicates
-)
-```
-
-### 6. Prefer query() for Complex Filters
-```python
-# Readable
-df.query('age > 30 and city == "NYC" and salary < 100000')
-
-# Hard to read
-df[(df['age'] > 30) & (df['city'] == 'NYC') & (df['salary'] < 100000)]
-```
-
-### 7. Set Index When Appropriate
-```python
-# Faster lookups, cleaner merges
-df = df.set_index('user_id')
-user_data = df.loc[12345]  # O(1) lookup
-```
-
-## Common Traps
-
-- **SettingWithCopyWarning** → Use `.loc[]` for assignment: `df.loc[mask, 'col'] = value`
-- **Slow loops** → Replace `iterrows()` with vectorized ops or `apply()`
-- **Memory explosion** → Use `dtype` in `read_csv()`: `pd.read_csv(f, dtype={'id': 'int32'})`
-- **Silent data loss** → Check shape before/after merge: `print(f"Before: {len(df1)}, After: {len(result)}")`
-- **Index confusion** → Use `reset_index()` after `groupby()` to get clean DataFrame
-- **Chained indexing** → `df['a']['b']` fails silently; use `df.loc[:, ['a', 'b']]`
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup process | `references/setup.md` | When `<state_root>/` doesn't exist |
+| Memory template | `references/memory-template.md` | When reading or updating user preferences |
+| Core rules | `references/core-rules.md` | When writing or reviewing Pandas code |
+| Common traps | `references/common-traps.md` | When debugging errors or performance issues |
+| Technology overview | `references/tech.md` | When needing domain context on Pandas |
 
 ## Security & Privacy
 
 **Data storage:**
-- User preferences stored in `~/Clawic/data/pandas/memory.md`
+- User preferences stored in `<state_root>/memory.md`
 - All DataFrame operations run locally
 - No data is sent externally
 
-**This skill does NOT:**
-- Upload data to any service
-- Access files outside `~/Clawic/data/pandas/` and the working directory
-- Modify source data files without explicit instruction
+**This skill is restricted to local operations:**
+- Keep all data strictly local
+- Limit file access to `<state_root>/` and the working directory
+- Preserve source data files unless explicitly instructed to modify them
 
 **User control:**
-- View stored preferences: `cat ~/Clawic/data/pandas/memory.md`
-- Clear all data: `rm -rf ~/Clawic/data/pandas/`
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `data-analysis` — general data analysis patterns
-- `csv` — CSV file handling
-- `sql` — database queries
-- `excel-xlsx` — Excel file operations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/pandas
-- Latest version: https://clawic.com/skills/pandas
+- View stored preferences: `cat <state_root>/memory.md`
+- Clear all data: `rm -rf <state_root>/`

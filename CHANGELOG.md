@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score |
 | ---------------------------- | ---------- | ------------ |
+| pandas                       | 2026-08-30 | 100/100      |
 | rails                        | 2026-08-30 | 86/100       |
 | puppeteer                    | 2026-08-30 | 86/100       |
 | dubai                        | 2026-08-30 | 85/100       |

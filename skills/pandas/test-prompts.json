@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a dataframe with id and val, and group by val to count.",
+    "expected": "Grouped DataFrame dictionary with count.",
+    "actual": "{'val': {0: 'a', 1: 'b'}, 'id': {0: 1, 1: 1}}",
+    "pass": true,
+    "bm25_prompt": "pandas groupby count dataframe"
+  },
+  {
+    "id": 2,
+    "prompt": "Merge two dataframes on id using a left join and validate 1:1 relationship.",
+    "expected": "Merged DataFrame with left join and properly validated 1:1.",
+    "actual": "{'id': {0: 1, 1: 2, 2: 3}, 'val': {0: 'a', 1: 'b', 2: 'c'}, 'score': {0: 10.0, 1: 20.0, 2: nan}}",
+    "pass": true,
+    "bm25_prompt": "pandas merge left validate one-to-one"
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite a row-wise for-loop filter into a vectorized query that keeps only age > 30 in NYC under 100000 salary.",
+    "expected": "Uses vectorized filtering or df.query with explicit boolean logic and no DataFrame row iteration.",
+    "actual": "test-3: query('age > 30 and city == \"NYC\" and salary < 100000'); iterrows=false",
+    "pass": true,
+    "bm25_prompt": "pandas vectorized query filter no iterrows"
+  }
+]
