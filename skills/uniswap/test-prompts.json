@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to swap 1 ETH for USDC on Uniswap mainnet. What slippage should I use and how do I avoid MEV?",
+    "expected": "Provides swap execution guidance from swap-execution.md and security.md. Recommends 1-3% slippage for volatile ETH, mentions MEV protection via Uniswap wallet or Flashbots RPC, and checks price impact.",
+    "actual": "Based on the `swap-execution.md` and `security.md` references:\n\n1.  **Slippage**: Since ETH to USDC involves a volatile asset (ETH), a slippage tolerance of **1-3%** is recommended to protect against price movement during the transaction.\n2.  **MEV Protection**: Public swaps are visible in the mempool and can be sandwiched by bots. To avoid this, you should use built-in MEV protection by swapping through the **Uniswap wallet**, or connect via the **Flashbots Protect RPC**. Alternatively, using **UniswapX** routes through private order flow, which significantly reduces MEV extraction.\n3.  **Price Impact**: Check the price impact before executing. If it's high (>2%), consider splitting your trade to avoid moving the market unfavorably.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I keep getting an 'Approve first' error when trying to swap a new token on Uniswap. Is this a scam?",
+    "expected": "Explains token approvals from security.md. Clarifies that a first-time approval transaction is normal and costs gas, but warns to check the contract address to ensure it's not a honeypot.",
+    "actual": "According to the `security.md` reference, encountering an 'Approve first' error for a new token is **normal**.\n\nHere's what you need to know:\n*   **Token Approvals**: The first time you swap any token on Uniswap, you must submit an approval transaction. This costs gas and happens once per token per spender.\n*   **Scam Warning**: While the approval itself is normal, you should still **always verify the token contract address** on CoinGecko, CoinMarketCap, or the project's official site. Anyone can create a fake token. If the token has no liquidity, is a honeypot (you can buy but not sell), or has a transfer tax, it might be a scam.",
+    "pass": true
+  }
+]
