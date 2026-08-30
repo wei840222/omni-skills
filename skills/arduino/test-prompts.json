@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a simple Arduino sketch that reads a button press and toggles an LED. The button is on pin 2 and the LED is on pin 13.",
+    "expected": "A sketch using INPUT_PULLUP for the button, millis() for debouncing (optional but good), and proper pin configurations.",
+    "actual": "const int buttonPin = 2;\nconst int ledPin = 13;\nbool ledState = LOW;\nbool lastButtonState = HIGH;\nunsigned long lastDebounceTime = 0;\nunsigned long debounceDelay = 50;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n  pinMode(buttonPin, INPUT_PULLUP);\n}\n\nvoid loop() {\n  bool currentButtonState = digitalRead(buttonPin);\n  if (currentButtonState != lastButtonState) {\n    lastDebounceTime = millis();\n  }\n  if ((millis() - lastDebounceTime) > debounceDelay) {\n    if (currentButtonState == LOW && lastButtonState == HIGH) {\n      ledState = !ledState;\n      digitalWrite(ledPin, ledState);\n    }\n  }\n  lastButtonState = currentButtonState;\n}",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm trying to power a 5V DC motor directly from the Arduino 5V pin, but the board keeps resetting. What's wrong?",
+    "expected": "Explanation that the 5V pin cannot supply enough current for a motor, leading to brown-outs. Recommendation to use an external power supply with a common ground.",
+    "actual": "The issue is that the Arduino's 5V pin cannot provide enough current (typically limited to ~500mA via USB or less depending on the regulator) to drive a motor. When the motor tries to draw more current than the Arduino can supply, it causes a voltage drop (brown-out), which resets the microcontroller. To fix this, you must power the motor using an external power supply (like a battery pack or dedicated DC adapter) that can provide sufficient current. Crucially, you must connect the ground (GND) of the external power supply to the ground (GND) of the Arduino so that both systems share a common reference voltage.",
+    "pass": true
+  }
+]
