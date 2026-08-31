@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need help prioritizing my product backlog. What are the key principles I should keep in mind?",
+    "expected": "The agent should load `references/prioritization.md` and provide principles such as impact vs effort, ruthless stack ranking, and focusing on outcomes.",
+    "actual": "I'll review the prioritization rules.\n\nAccording to the best practices for product management prioritization:\n\n- **Impact vs effort is a starting point, not the answer.** It's a useful framework but shouldn't dictate your entire strategy.\n- **Say no more than yes.** Focus is a critical feature of any successful product strategy.\n- **Urgent vs important:** Stakeholder pressure doesn't automatically equal priority.\n- **Stack rank ruthlessly.** If \"everything is P1,\" then nothing is truly a priority.\n- **Revisit priorities when context changes.** At a minimum, review them quarterly.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are struggling with our launch process. Can you give me a checklist or review how we should handle product launches, and what common mistakes we should avoid?",
+    "expected": "The agent should load both `references/launch.md` and `references/common-mistakes.md`, providing a synthesis of launch steps and anti-patterns to avoid.",
+    "actual": "I will check the rules for product launches and common mistakes to avoid.\n\nHere is a guide on how to handle product launches and the pitfalls you should avoid:\n\n### Launch Checklist & Best Practices\n- **Soft launch first:** A soft launch helps catch problems before you scale to your full user base.\n- **Define success criteria before launch:** Don't wait until after the launch to decide what success looks like.\n- **Have a rollback plan:** Always have a plan for how to roll back before you roll out the new feature.\n- **Cross-functional coordination:** Ensure you have a checklist covering documentation, support, and marketing.\n- **Post-launch review:** Conduct a review to analyze what worked and what didn't.\n- **Understand PLM phases:** Be aware of the product life-cycle management phases: development, introduction, growth, maturity, and decline.\n\n### Common Mistakes to Avoid\n- **Feature factory:** Don't just ship without learning from what you've launched.\n- **Overspeccing:** Avoid killing engineering autonomy by specifying too many details.\n- **Consensus seeking:** Don't make decisions by committee; product leadership is required.\n- **Ignoring qualitative data:** Quantitative data alone misses the 'why' behind user behavior.\n- **Roadmap as backlog:** Don't detail everything and commit to nothing.",
+    "pass": true
+  }
+]
