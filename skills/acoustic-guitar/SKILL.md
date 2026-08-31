@@ -1,6 +1,6 @@
 ---
 name: acoustic-guitar
-description: Build acoustic guitar practice plans, troubleshoot fingerpicking and strumming technique, maintain an acoustic guitar, and track practice progress. Use when the user wants help learning, practicing, diagnosing, caring for, or logging work on an acoustic guitar.
+description: Plan acoustic guitar practice, diagnose fingerpicking and strumming problems, guide instrument care, and track progress. Use when the user asks to learn, practice, troubleshoot, maintain, or log work on an acoustic guitar.
 metadata:
   version: "1.0.0"
   category: "music"
