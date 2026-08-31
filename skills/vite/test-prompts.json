@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I access environment variables in a Vite project?",
+    "expected": "Use import.meta.env.VITE_* instead of process.env.",
+    "actual": "Use `import.meta.env.VITE_*` to access environment variables exposed to client code.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How can I set up a proxy in Vite to handle websockets on /api?",
+    "expected": "Configure server.proxy with ws: true and changeOrigin: true.",
+    "actual": "Configure `server.proxy` in `vite.config.ts` for `/api` with `target: 'http://localhost:3000'`, `changeOrigin: true`, and explicitly include `ws: true` for WebSocket proxying.",
+    "pass": true
+  }
+]
