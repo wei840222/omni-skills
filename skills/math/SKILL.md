@@ -52,4 +52,4 @@ This skill is stateless and does not store local configuration or persistent use
 
 - Check for common errors such as distributing an exponent across a sum, invalid fraction addition, division by zero, sign errors, or a formula used outside its domain.
 - When a result conflicts with a constraint, re-check the problem statement, units, assumptions, and algebra. Explain whether a typo, missing condition, or ambiguity prevents a unique answer.
-- For calculations beyond reliable manual verification, provide a reproducible method or ask for an appropriate tool check rather than presenting unverified precision.
+- For calculations beyond reliable manual verification, present a reproducible method and mark the result as pending an appropriate tool check.
