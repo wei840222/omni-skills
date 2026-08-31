@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score |
 | ---------------------------- | ---------- | ------------ |
+| exam                         | 2026-09-01 | 85/100 (#190) |
 | netlify-deploy               | 2026-09-01 | 86/100 (#184) |
 | kernel                       | 2026-09-01 | 85/100 (#185) |
 | product-launch               | 2026-09-01 | 85/100 (#186) |
