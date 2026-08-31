@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a 12th grade student preparing for JEE Main. I have 3 months left and my mock scores are around 120. I struggle with Physics. Help me create a study plan.",
+    "expected": "The agent should gather required decision checklist information, load `references/user-types.md` and `references/study-methods.md`, and suggest a structured study plan focusing on high-ROI Physics topics, tracking progress in `<state_root>/jee/`.",
+    "actual": "Agent loads `references/user-types.md` (12th grader) and `references/study-methods.md`. It asks for the remaining checklist details (category, coaching status, specific weak areas in Physics) before generating a customized ROI-focused plan, recording the initial profile in `<state_root>/jee/profile.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a dropper aiming for an old IIT CS seat. I'm feeling completely burnt out and can't focus anymore, even though Advanced is in 2 months.",
+    "expected": "The agent should recognize burnout, load `references/wellbeing.md`, and enforce rest instead of creating a rigorous study schedule. It should prioritize mental health over immediate academic goals.",
+    "actual": "Agent loads `references/wellbeing.md` upon detecting burnout in a dropper. It advises an immediate break, adjusts expectations, and focuses on stress management rather than assigning new study material. It updates `<state_root>/jee/sessions/` to reflect a pause for recovery.",
+    "pass": true
+  }
+]

@@ -1,13 +1,9 @@
 ---
 name: jee
-slug: jee
-version: 1.0.0
-description: Prepare for India's Joint Entrance Examination with progress tracking, weak area analysis, mock test strategy, and IIT/NIT targeting.
-homepage: https://clawic.com/skills/jee
+description: Assist students preparing for India's Joint Entrance Examination (JEE) Main and Advanced by providing structured study scheduling, progress tracking, weak area analysis, mock test strategy, and realistic IIT/NIT targeting.
 metadata:
-  clawdbot:
-    emoji: 🎓
-    displayName: JEE
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎓"}'
 ---
 
 ## When to Use
@@ -16,20 +12,21 @@ User is preparing for JEE (Main or Advanced), India's engineering entrance exam.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Exam structure and scoring | `exam-config.md` |
-| Progress tracking system | `tracking.md` |
-| Study methods and strategy | `study-methods.md` |
-| Stress management and wellbeing | `wellbeing.md` |
-| IIT/NIT targeting | `targets.md` |
-| User type adaptations | `user-types.md` |
+| Topic | When to load | File |
+|-------|--------------|------|
+| Domain knowledge | User has general questions about JEE | `references/domain-knowledge.md` |
+| Exam structure and scoring | Planning mock tests or analyzing score goals | `references/exam-config.md` |
+| Progress tracking system | Logging study sessions or analyzing mastery | `references/tracking.md` |
+| Study methods and strategy | Creating study plans or addressing weak areas | `references/study-methods.md` |
+| Stress management and wellbeing | User reports burnout or needs schedule adjustment | `references/wellbeing.md` |
+| IIT/NIT targeting | Goal setting or analyzing realistic admissions | `references/targets.md` |
+| User type adaptations | Initial profile setup or modifying approach | `references/user-types.md` |
 
-## Data Storage
+## State location
 
-User data lives in `~/Clawic/data/jee/`:
+User data lives in `<state_root>/jee/`:
 ```
-~/Clawic/data/jee/
+<state_root>/jee/
 ├── profile.md       # Goals, target rank, exam dates, category
 ├── subjects/        # Per-subject and chapter-wise progress
 ├── sessions/        # Study session logs
@@ -60,8 +57,8 @@ Before study planning, gather:
 ## Critical Rules
 
 - **ROI-first** — Prioritize chapters with highest marks-per-hour potential for this user's gaps
-- **Track everything** — Log sessions, scores, mistakes to `~/Clawic/data/jee/`
+- **Track everything** — Log sessions, scores, mistakes to `<state_root>/jee/`
 - **Adapt to user type** — Droppers need gap analysis; dual-prep needs board/JEE balance; parents need monitoring dashboards
-- **Mistake patterns over solutions** — Don't just correct; categorize WHY they're wrong
+- **Mistake patterns over solutions** — Go beyond providing correct answers by categorizing WHY they're wrong
 - **Wellbeing matters** — Monitor for burnout, especially droppers; enforce rest when intensity is sustained
-- **Realistic expectations** — Use historical cutoff data; never overpromise ranks
+- **Realistic expectations** — Provide realistic rank expectations using historical cutoff data
