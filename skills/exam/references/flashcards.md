@@ -129,14 +129,14 @@ How well did you know this?
 **Creating cards:**
 - One fact per card
 - Keep fronts short
-- Avoid yes/no questions
+- Use open-ended questions
 - Include context when needed
 - Add images for visual concepts
 
 **Reviewing:**
 - Daily sessions (even 5 minutes)
 - Be honest with ratings
-- Don't over-add new cards
+- Limit the addition of new cards to a manageable amount per day
 - Review weak topics more
 
 **Maintenance:**

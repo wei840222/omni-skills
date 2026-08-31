@@ -42,7 +42,7 @@ Explanation: {Why B is correct, why others are wrong}
 - Should be plausible to someone who doesn't know
 - Test common misconceptions
 - Similar length to correct answer
-- No obvious tells ("always", "never")
+- Ensure options are subtle (exclude absolute terms like "always" or "never" unless intentional)
 
 ### Short Answer
 ```
@@ -93,7 +93,7 @@ Glacier Flexible allows hours retrieval at lower cost than IA.
 
 ---
 
-## Avoiding Bad Questions
+## Ensuring Good Questions
 
 ❌ **Ambiguous:** "Describe databases" (too vague)
 ❌ **Trivial:** "Is SQL a language?" (yes/no, no learning)
@@ -118,7 +118,7 @@ Glacier Flexible allows hours retrieval at lower cost than IA.
 {"id": "q002", "topic": "ec2", "type": "short", "difficulty": "easy", "question": "...", "expected": [...]}
 ```
 
-**Avoiding repeats:**
+**Ensuring novelty:**
 - Track questions shown in sessions.jsonl
 - Rotate through bank before repeating
 - Prioritize questions user got wrong
