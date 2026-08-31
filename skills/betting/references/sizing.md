@@ -18,7 +18,7 @@ Decimal odds:
 Per unit staked:
 - `EV = (win_probability * profit_if_win) - (lose_probability * stake)`
 
-If the user has no realistic win probability estimate, do not pretend EV is known.
+When the user lacks a realistic win probability estimate, explicitly state that Expected Value (EV) cannot be determined.
 
 ## Kelly sizing
 

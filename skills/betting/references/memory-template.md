@@ -1,6 +1,6 @@
 # Memory Template - Betting
 
-Create `~/Clawic/data/betting/memory.md` with this structure:
+Create `<state_root>/betting/memory.md` with this structure:
 
 ```markdown
 # Betting Memory
@@ -35,7 +35,7 @@ integration: pending | done | declined
 | `ongoing` | Still learning | Capture context during real betting work |
 | `complete` | Enough context exists | Use saved preferences without extra setup questions |
 | `paused` | User does not want more tracking now | Work normally and avoid extra follow-up |
-| `never_ask` | User does not want stored context | Stop gathering new long-term notes |
+| `no_ask` | User declines stored context | Halt gathering new long-term notes |
 
 ## Key Principles
 
