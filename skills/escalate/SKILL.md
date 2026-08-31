@@ -1,34 +1,17 @@
 ---
 name: escalate
-slug: escalate
-version: 1.0.2
-description: Self-learn to decide when to act, when to ask, and which actions should always need approval.
-homepage: https://clawic.com/skills/escalate
-changelog: Moves architecture first and removes the duplicated setup section for a cleaner quick scan.
+description: Manage escalation thresholds to decide when to act autonomously and when to ask for explicit user approval based on reversibility and risk.
 metadata:
-  clawdbot:
-    emoji: 🚨
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/escalate/
-    displayName: Escalate
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/escalate/
+  related-skills: '{"self-improving":"../self-improving","proactivity":"../proactivity","decide":"../decide","memory":"../memory"}'
+  openclaw: '{"requires":{"config":["<state_root>/escalate/"]}}'
 ---
 
 ## Architecture
 
-Escalation state lives in `~/Clawic/data/escalate/`. If that folder is missing or empty, run `setup.md`.
+Escalation state lives in `<state_root>/escalate/`. If that folder is missing or empty, run `references/setup.md`.
 
 ```text
-~/Clawic/data/escalate/
+<state_root>/escalate/
 ├── memory.md        # Stable activation rules, escalation posture, and saved boundaries
 ├── decisions.md     # Recent escalation calls, corrections, and trust updates
 └── domains/         # Optional domain-specific overrides (code, ops, comms)
@@ -42,13 +25,14 @@ Turn this on for agents that draft, edit, research, or operate proactively and n
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Migration guide | `migration.md` |
-| Hard boundaries | `boundaries.md` |
-| Pattern guide | `patterns.md` |
+| Topic | File | When to load |
+|---|---|---|
+| Setup guide | `references/setup.md` | When `<state_root>/escalate/` is missing or empty. |
+| Memory template | `assets/memory-template.md` | When initializing `memory.md` during setup. |
+| Migration guide | `references/migration.md` | When migrating old escalation formats to new ones. |
+| Hard boundaries | `references/boundaries.md` | When learning strict constraints for actions that need approval. |
+| Pattern guide | `references/patterns.md` | When evaluating nuanced contexts for escalation vs action. |
+| Escalation frameworks | `references/escalation-frameworks.md` | When deciding responsibility matrices or resolving framework disputes. |
 
 ## Core Rules
 
@@ -78,7 +62,7 @@ Turn this on for agents that draft, edit, research, or operate proactively and n
 - The goal is confidence and speed, not bureaucratic caution.
 
 ### 6. Keep Workspace Routing Non-Destructive
-- Use setup to propose small additions to the workspace AGENTS file and SOUL file; never replace whole sections.
+- Use setup to propose small additions to the workspace AGENTS file and SOUL file; only append to existing sections.
 - Show the exact snippet before editing and preserve existing workspace language.
 - Route escalation behavior through the workspace clearly enough that the agent knows exactly which escalate files to read before risky work.
 
@@ -93,37 +77,33 @@ Turn this on for agents that draft, edit, research, or operate proactively and n
 |------|--------------|-------------|
 | Asking before every tiny internal action | Feels slow and timid | Act on reversible local work once precedent exists |
 | Treating "just do it" as universal permission | Over-generalizes trust | Scope the grant to the matching action, stakes, and domain |
-| Using the same threshold for code and external comms | Risk profile changes by domain | Store domain overrides in `~/Clawic/data/escalate/domains/` |
+| Using the same threshold for code and external comms | Risk profile changes by domain | Store domain overrides in `<state_root>/escalate/domains/` |
 | Escalating without a recommendation | Creates decision fatigue | Offer the best option and one-line rationale |
 | Editing the workspace AGENTS or SOUL file wholesale | Breaks workspace identity | Add a small snippet and preserve everything else |
 
 ## Data Storage
 
-Local state lives in `~/Clawic/data/escalate/`:
+Local state lives in `<state_root>/escalate/`:
 
-- stable escalation rules and activation preferences in `~/Clawic/data/escalate/memory.md`
-- recent calls, corrections, and trust updates in `~/Clawic/data/escalate/decisions.md`
+- stable escalation rules and activation preferences in `<state_root>/escalate/memory.md`
+- recent calls, corrections, and trust updates in `<state_root>/escalate/decisions.md`
 - optional domain-specific overrides in `domains/`
 
-The packaged guides `boundaries.md` and `patterns.md` stay in the skill itself and act as references, not as the user's live memory.
+The packaged guides `references/boundaries.md` and `references/patterns.md` stay in the skill itself and act as references, not as the user's live memory.
 
 ## Security & Privacy
 
-- This skill stores local escalation notes in `~/Clawic/data/escalate/`.
+- This skill stores local escalation notes in `<state_root>/escalate/`.
 - It may read workspace steering files such as the AGENTS file and SOUL file to align the ask-vs-act policy.
 - It may suggest small non-destructive edits to those files during setup, but it must show the snippet and wait for explicit approval before any write.
 - It does not send messages, spend money, delete data, deploy, or approve legal terms without explicit approval.
-- It never modifies its own `SKILL.md`.
+- It keeps its own `SKILL.md` strictly unmodified.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 
 - `self-improving` - Learn reusable execution lessons from corrections and reflection
 - `proactivity` - Push useful next steps without overstepping learned boundaries
 - `decide` - Turn repeated choices into clearer decision rules
 - `memory` - Keep durable user context and continuity across sessions
 
-## Feedback
 
-- If useful, star it: https://clawic.com/skills/escalate
-- Latest version: https://clawic.com/skills/escalate

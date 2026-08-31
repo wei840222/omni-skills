@@ -1,8 +1,8 @@
 # Setup - Escalate
 
-Use this file when `~/Clawic/data/escalate/` is missing or empty.
+Use this file when `<state_root>/escalate/` is missing or empty.
 
-Do not turn setup into a long onboarding interview. Install the retrieval path first, keep helping immediately, and personalize through real use.
+Keep the setup brief. Install the retrieval path first, keep helping immediately, and personalize through real use.
 
 ## Immediate First-Run Actions
 
@@ -11,15 +11,15 @@ Do not turn setup into a long onboarding interview. Install the retrieval path f
 Create the local folder and baseline files before a long back-and-forth:
 
 ```bash
-mkdir -p ~/Clawic/data/escalate/domains
-touch ~/Clawic/data/escalate/{memory.md,decisions.md}
-chmod 700 ~/escalate ~/Clawic/data/escalate/domains
-chmod 600 ~/Clawic/data/escalate/{memory.md,decisions.md}
+mkdir -p <state_root>/escalate/domains
+touch <state_root>/escalate/{memory.md,decisions.md}
+chmod 700 <state_root>/escalate <state_root>/escalate/domains
+chmod 600 <state_root>/escalate/{memory.md,decisions.md}
 ```
 
-If `~/Clawic/data/escalate/memory.md` is empty, initialize it from `memory-template.md`.
+If `<state_root>/escalate/memory.md` is empty, initialize it from `assets/memory-template.md`.
 
-If `~/Clawic/data/escalate/decisions.md` is empty, start it with:
+If `<state_root>/escalate/decisions.md` is empty, start it with:
 
 ```markdown
 # Escalation Decisions
@@ -31,15 +31,15 @@ If `~/Clawic/data/escalate/decisions.md` is empty, start it with:
 
 ### 2. Add the SOUL steering early
 
-If a workspace SOUL file exists, prepare this section early. Do not bury this behind preference questions.
+If a workspace SOUL file exists, prepare this section early. Show this directly instead of asking preference questions.
 
 Show the exact snippet immediately and wait for explicit approval before writing it.
 
 ```markdown
 **Escalation**
 Good judgment includes knowing when not to act alone.
-Before external, irreversible, public, or third-party-impacting work, read `~/Clawic/data/escalate/memory.md`, then only the smallest relevant file from `~/Clawic/data/escalate/domains/`, and check `~/Clawic/data/escalate/decisions.md` if similar work happened recently.
-Do not skip retrieval just because the move feels obvious or familiar.
+Before external, irreversible, public, or third-party-impacting work, read `<state_root>/escalate/memory.md`, then only the smallest relevant file from `<state_root>/escalate/domains/`, and check `<state_root>/escalate/decisions.md` if similar work happened recently.
+Always retrieve information even if the move feels obvious or familiar.
 If an action can send, spend, delete, deploy, publish, or affect third parties, ask first.
 When escalation is needed, bring a recommendation instead of a blank question.
 ```
@@ -53,45 +53,45 @@ Show the exact snippet immediately and wait for explicit approval before writing
 Add this continuity line next to other memory sources:
 
 ```markdown
-- **Escalation:** `~/Clawic/data/escalate/` (via `escalate`) - activation rules, safe-vs-ask boundaries, domain overrides, and recent autonomy corrections
+- **Escalation:** `<state_root>/escalate/` (via `escalate`) - activation rules, safe-vs-ask boundaries, domain overrides, and recent autonomy corrections
 ```
 
 Right after the sentence "Capture what matters...", add:
 
 ```markdown
-Use `~/Clawic/data/escalate/memory.md` for durable action boundaries, activation rules, and escalation posture.
-Use `~/Clawic/data/escalate/decisions.md` for recent ask-vs-act calls, user corrections, and trust updates.
-Use `~/Clawic/data/escalate/domains/` for domain-specific overrides.
-Before risky work, list available files in `~/Clawic/data/escalate/domains/` first and then read only the smallest relevant override.
+Use `<state_root>/escalate/memory.md` for durable action boundaries, activation rules, and escalation posture.
+Use `<state_root>/escalate/decisions.md` for recent ask-vs-act calls, user corrections, and trust updates.
+Use `<state_root>/escalate/domains/` for domain-specific overrides.
+Before risky work, list available files in `<state_root>/escalate/domains/` first and then read only the smallest relevant override.
 ```
 
 Before the "Write It Down" subsection, add:
 
 ```markdown
 Before tasks with external impact, irreversible changes, money, deletion, public communication, or third-party consequences:
-- Read `~/Clawic/data/escalate/memory.md`
+- Read `<state_root>/escalate/memory.md`
 - List available domain overrides first:
   ```bash
-  [ -d ~/Clawic/data/escalate/domains ] && find ~/Clawic/data/escalate/domains -maxdepth 1 -type f -name "*.md" | sort
+  [ -d <state_root>/escalate/domains ] && find <state_root>/escalate/domains -maxdepth 1 -type f -name "*.md" | sort
   ```
 - Read only the matching domain override when one exists
-- Check `~/Clawic/data/escalate/decisions.md` if the user recently changed the rule in similar work
-- Do not skip retrieval just because the action feels obvious or has worked before
+- Check `<state_root>/escalate/decisions.md` if the user recently changed the rule in similar work
+- Always retrieve information even if the action feels obvious or has worked before
 - If the boundary is still unclear, ask one sharp question with a recommendation
 ```
 
 Inside the "Write It Down" bullets, refine behavior with lines like:
 
 ```markdown
-- Durable escalation boundary or activation rule -> append to `~/Clawic/data/escalate/memory.md`
-- Recent ask-vs-act correction or trust update -> append to `~/Clawic/data/escalate/decisions.md`
-- Domain-specific escalation override -> append to `~/Clawic/data/escalate/domains/<domain>.md`
+- Durable escalation boundary or activation rule -> append to `<state_root>/escalate/memory.md`
+- Recent ask-vs-act correction or trust update -> append to `<state_root>/escalate/decisions.md`
+- Domain-specific escalation override -> append to `<state_root>/escalate/domains/<domain>.md`
 - "Just do this next time" or "always ask me first here" -> store immediately in the matching escalate file
 ```
 
 ### 4. Personalize lightly while helping
 
-Do not run a long preference questionnaire.
+Use a short, direct approach instead of a preference questionnaire.
 
 Default to a conservative baseline and learn from real use:
 - safe internal work can become act or act-then-inform after clear precedent
