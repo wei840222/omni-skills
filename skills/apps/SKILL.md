@@ -57,7 +57,13 @@ Persistent preference data lives under the resolved `<state_root>` only after th
 
 ## Scope
 
-This skill recommends and compares apps, explains tradeoffs, and records approved preferences or evaluation notes. It leaves installation, store-account management, purchases, subscriptions, and device inventory under the user's control.
+This skill recommends and compares apps, explains tradeoffs, and records approved preferences or evaluation notes. Keep installation, store-account management, purchases, subscriptions, and device inventory under the user's control.
+
+## Decision boundaries
+
+- Use current official listings and vendor documentation for mutable details; platform privacy disclosures inform a comparison but are not an independent security audit.
+- Treat the user's explicit approval as the write boundary for `<state_root>`; otherwise provide a recommendation without persistence.
+- Route product-performance questions about funnels, retention, analytics, or store-console reports to `mobile-app-analytics`.
 
 ## Core rules
 
