@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a 2000 calorie meal plan to lose fat. I want to eat 3 meals a day and no snacks.",
+    "expected": "Provides a 2000 calorie meal plan with 3 meals, appropriate protein for fat loss, and clear macro breakdowns.",
+    "actual": "Here is a 2000 kcal meal plan for fat loss divided into 3 meals: Breakfast (600 kcal, 45g protein, low carb, moderate fat), Lunch (700 kcal, 50g protein, complex carbs, vegetables), Dinner (700 kcal, 45g protein, vegetables, healthy fats).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Calculate macros for a 80kg male trying to gain muscle.",
+    "expected": "Calculates macros for muscle gain using the multipliers (1.6-2.2g/kg protein, etc.) and provides a clear breakdown.",
+    "actual": "For an 80kg male looking to gain muscle: Protein target is 1.6-2.2g/kg (128-176g). Carbohydrate target is 4-6g/kg (320-480g). Fat target is 1-1.5g/kg (80-120g).",
+    "pass": true
+  }
+]

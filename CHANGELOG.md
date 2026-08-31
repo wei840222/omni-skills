@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score |
 | ---------------------------- | ---------- | ------------ |
+| dietitian                    | 2026-08-31 | 85/100 (#179) |
 | contract                     | 2026-08-31 | 85/100 (#178) |
 | vite                         | 2026-08-31 | 85/100 (#177) |
 | escalate                     | 2026-08-31 | 80/100 (#176) |
