@@ -32,6 +32,12 @@ Use the selected `<state_root>` for every practice-state operation in this invoc
 
 ## Practice guidance
 
+Read the smallest matching reference rather than loading all reference material.
+
+### Effective practice
+
+Use one correction at a time and verify it with a short, observable check before moving to the next exercise. Keep the remaining suggestions outside the current practice block until that check is complete.
+
 ### Before advising
 
 Ask the smallest set of questions that changes the advice: playing style, genre, current ability, and the user's next goal. Begin with the technique they can practice today.
