@@ -43,7 +43,7 @@ Treat the launch as an arc from audience preparation through post-launch learnin
 - The one sentence: what it is, for whom, the single benefit. If you cannot say it in one sentence, you do not have a launch, you have a feature dump.
 - Category creation vs category entry: creation (you define a new thing) needs more education, a longer arc, thought leadership; entry (you are better at an existing thing) needs differentiation, comparison, proof. Misjudging this over- or under-spends on education.
 - The hero claim: one real, defensible, specific number or outcome that anchors. "Cuts deploy time from 40 min to 6 min" beats "10x faster". A fabricated round number (10x, 100x) reads as marketing and collapses under scrutiny.
-- Narrative arc: problem (relatable, specific person) -> broken current solutions -> your approach -> proof -> the ask. The #1000 leads with the product; the #1 leads with the problem and the person who has it.
+- Narrative arc: problem (relatable, specific person) -> broken current solutions -> your approach -> proof -> the ask. Lead with the customer problem and the person experiencing it; use product features as supporting proof.
 - Audience hierarchy: who must hear it first (the core 1000 superfans), then the reachable market, then the broader audience. Sequence messaging by audience, not by feature.
 - The explain-it-to-a-10-year-old test: refine the positioning until a smart non-expert can restate the product after one read.
 - Bury the hero claim under a feature list and the launch dies: one claim, above the fold, in the headline. Features support it below.
@@ -52,7 +52,7 @@ Treat the launch as an arc from audience preparation through post-launch learnin
 
 The finite inventory. Missing any one of these creates a Day 1 fire.
 
-- **Landing page:** the destination everything points to. One CTA above the fold; the #1000 has three competing. Hero claim in the headline, demo video or gif below, 3-5 supporting points, social proof, the CTA again.
+- **Landing page:** the destination everything points to. Place one primary CTA above the fold. Use the hero claim in the headline, then add product evidence, supporting points, social proof, and a repeated CTA where it helps the decision path.
 - **Demo video:** show the product completing the hero workflow. Choose duration and cutdowns from the channel format and audience behavior rather than a universal time limit.
 - **Screenshots:** include a hero shot and the core flow needed by the destination page, press, social channels, and relevant stores. Export them at the dimensions each destination requires.
 - **Press kit:** fact sheet (one page: what, who, why, when, the number), founder bios, company logos (light + dark), product screenshots. Without it, press uses whatever they find, which is wrong.
@@ -88,7 +88,7 @@ The finite inventory. Missing any one of these creates a Day 1 fire.
 ## Metrics and the bar
 
 - Real metrics, in order: activated signups (not raw visits), Day 1 activation rate, Day 7 retention, Day 30 retention, conversion to paid. Each later metric is the truth-test of the earlier one.
-- Activation is the one you must define before launch: the specific action that correlates with retention (created first project, invited a teammate, ran first query). The #1000 counts signups; the #1 counts activations.
+- Activation is the one you must define before launch: the specific action that correlates with retention (created first project, invited a teammate, ran first query). Use activation rather than raw sign-ups as the primary launch outcome when it correlates with later retention.
 - Set conversion and retention targets from the product’s own baseline, audience, pricing model, and capacity plan. Record the calculation and uncertainty rather than treating generic benchmarks as release gates.
 - Treat total visits, social impressions, press mentions, and email opens as context only; pair each with a downstream conversion or activation metric.
 - Interpret a launch spike alongside retained and activated users. A durable launch needs a retention plan and an explicit observation window, not only a day-one traffic result.
