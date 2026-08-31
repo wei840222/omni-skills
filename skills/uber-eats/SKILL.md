@@ -1,6 +1,6 @@
 ---
 name: uber-eats
-description: Navigate Uber Eats in a live browser or app handoff to compare merchants, manage carts, and reach checkout safely.
+description: Navigate Uber Eats in an approved live browser or app handoff to compare merchants, manage carts, and reach checkout safely. Use when the user asks to browse Uber Eats, draft a cart, review a checkout total, resolve an Uber Eats delivery issue, or place an Uber Eats order; use food-delivery for platform-neutral delivery advice.
 compatibility: Requires an approved browser or app session for live Uber Eats actions.
 metadata:
   version: "1.0.0"
@@ -24,9 +24,7 @@ Use the selected `<state_root>` for every state operation during the run. Create
 
 ## When to Use
 
-User needs Uber Eats specifically, not generic delivery advice. Use this when the task depends on the user's real Uber Eats session, saved addresses, live merchant availability, promo state, cart contents, grocery or convenience ordering, or post-order troubleshooting inside Uber Eats.
-
-Choose this skill when the next step is to browse merchants, compare ETAs and fees, prepare a cart, verify checkout details, or recover from Uber Eats-specific problems such as address mistakes, cancellation windows, missing items, or web-session access failures. If the task is platform-agnostic, route to `food-delivery`.
+Use this skill for Uber Eats-specific work involving an approved live session, saved addresses, merchant availability, promotion state, cart contents, grocery or convenience ordering, or post-order troubleshooting. For platform-neutral delivery planning, route to `food-delivery`.
 
 ## Architecture
 
