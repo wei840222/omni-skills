@@ -1,19 +1,10 @@
 ---
 name: product-launch
-slug: product-launch
-version: 1.0.0
-description: Orchestrates the announcement, assets, channels, and timing for shipping a product, covering the arc from teaser to launch day to post-launch momentum.
-homepage: https://clawic.com/skills/product-launch
+description: Plan a product launch from audience preparation through launch-day operations and post-launch retention. Use when defining launch positioning, assets, channels, rollout, launch readiness, or success metrics; not for general product strategy without a release or market-introduction decision.
 metadata:
-  clawdbot:
-    emoji: 📈
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Product Launch
+  version: "1.0.0"
+  openclaw: '{"emoji":"📈"}'
+  related-skills: '{"copywriting":"Creates launch messaging for landing pages, email, and social channels.","email-marketing":"Builds the waitlist, announcement, and follow-up email sequence.","landing-page":"Designs the launch destination and its conversion path.","retention":"Defines the post-launch retention work that validates lasting adoption."}'
 ---
 
 ## The arc, not the day
@@ -116,12 +107,3 @@ The finite inventory. Missing any one of these creates a Day 1 fire.
 - **Paid on Day 1 vs paid after**: paid on Day 1 only with a proven message and known unit economics; after Day 1 for everyone else, so paid amplifies the creative that already converts organically. Day 1 paid on an untested message burns budget on the wrong story.
 - **Founder-led narrative vs brand narrative**: founder-led wins early-stage, category-creating, personality-driven launches (the founder is the proof). Brand narrative wins at scale and in B2B where the buyer does not reference the founder; the founder-led version reads as ego and underperforms.
 - **Thick launch vs thin**: thick for education-heavy or new-category products that need repetition to land; thin for a clear, self-explanatory improvement where one day suffices. Misjudging education need under- or over-spends.
-
-## Related Skills
-
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `go-to-market` - the broader GTM strategy this launch is one beat of
-- `copywriting` - the landing page, email, and social copy the launch runs on
-- `email-marketing` - the waitlist, launch day, and follow-up sequence mechanics
-- `landing-page` - the destination asset, its structure, and the one-CTA discipline
-- `retention` - the D7/D30 bar that decides whether the launch held
