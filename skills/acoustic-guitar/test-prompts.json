@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to learn Travis picking on acoustic guitar. Give me a 20-minute practice plan.",
+    "expected": "A short, ordered plan that begins with alternating thumb bass, adds one melody finger, and gives an observable tempo or consistency check.",
+    "actual": "Start with five minutes of alternating thumb bass at a comfortable tempo, add one melody finger for five minutes, combine the pattern for five minutes, then record one minute and check whether the bass stays even. End by noting the tempo and the next obstacle.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My F barre chord sounds muddy and my fingertips hurt. What should I change?",
+    "expected": "A symptom-first diagnosis that covers thumb placement, index-finger angle, minimum pressure, individual-string testing, and a safe escalation path.",
+    "actual": "Put the thumb behind the neck near the middle finger, roll the index finger slightly toward its bony edge, and use only enough pressure for a clean sound. Test every string before returning to the chord change. If pain is sharp or persists, pause and seek instruction from a qualified teacher or clinician.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Please log today's 40-minute acoustic guitar practice: Blackbird verse, ten minutes of alternating bass, and the next step is adding melody.",
+    "expected": "The agent resolves the state root, seeks consent before creating persistent state, and records a concise session entry with the stated facts.",
+    "actual": "I would first resolve `<state_root>` and confirm the destination before writing. The session entry would record 40 minutes, Blackbird verse, ten minutes of alternating bass, and 'add melody' as the next step.",
+    "pass": true
+  }
+]

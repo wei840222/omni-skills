@@ -1,88 +1,64 @@
 ---
 name: acoustic-guitar
-slug: acoustic-guitar
-version: 1.0.0
-description: Acoustic guitar practice strategies, fingerpicking, strumming, and progress tracking.
-homepage: https://clawic.com/skills/acoustic-guitar
+description: Plan acoustic guitar practice, diagnose fingerpicking and strumming problems, guide instrument care, and track progress. Use when the user asks to learn, practice, troubleshoot, maintain, or log work on an acoustic guitar.
 metadata:
-  category: music
-  skills:
-  - guitar
-  - acoustic
-  - practice
-  - music
-  - fingerstyle
-  clawdbot:
-    emoji: 🎸
-    displayName: Acoustic Guitar
+  version: "1.0.0"
+  category: "music"
+  openclaw: '{"emoji":"🎸"}'
 ---
 
-## Core Behavior
+## State location
 
-- Create `~/Clawic/data/acoustic-guitar/` as workspace on first interaction
-- After practice, offer to log progress; see `progress.md`
+Practice state may exist in `<workspace>/acoustic-guitar/`, `<workspace>/memory/acoustic-guitar/`, or `~/acoustic-guitar/`. Before reading or writing practice data, resolve `<state_root>` as follows:
 
-## Before Advising
+1. Use an explicitly configured state root when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/acoustic-guitar/`, `<workspace>/memory/acoustic-guitar/`, then `~/acoustic-guitar/`.
+3. If no candidate exists and the user asks to save practice data, create `<workspace>/acoustic-guitar/`.
 
-- Ask style — fingerpicking vs strumming vs both
-- Ask genre — folk vs classical vs singer-songwriter
-- Ask goals — accompaniment vs solo instrumental
+Use the selected `<state_root>` for every practice-state operation in this invocation. If several candidate directories exist, use only the highest-precedence one and tell the user that separate copies were detected.
 
-## Practice Errors
+## Workflow
 
-- Strumming from elbow — wrist drives, arm follows
-- Neglecting dynamics — acoustic demands expression
-- Avoiding fingerpicking — essential for solo
-- Ignoring nail care — nails affect tone
+1. Establish the player's immediate goal: accompaniment or solo playing; fingerpicking, strumming, or both; genre; and the next concrete outcome.
+2. Give one focused exercise with a tempo or repetition target, then name the observable cue for clean execution.
+3. When a technique, care, or logging detail is needed, load the matching reference below.
+4. When the user wants persistent tracking, confirm the state root and update only the requested records.
 
-## Left Hand Traps
+| Resource | Load when |
+| --- | --- |
+| `references/technique-and-care.md` | Explaining fingerstyle, strumming mechanics, barre chords, nail care, humidity, or a symptom-based technique fix. |
+| `references/progress.md` | Creating or updating repertoire, session, technique, or goal records in `<state_root>`. |
+| `references/sources.md` | Verifying maintenance guidance or Agent Skills packaging facts. |
 
-- Thumb over on barre — classical position for clarity
-- Pressing too hard — minimum pressure
-- Ignoring open strings — acoustic loves ringing
+## Practice guidance
 
-## Right Hand Traps
+Read the smallest matching reference rather than loading all reference material.
 
-- All thumb on bass — fingers need independence
-- Inconsistent attack — angle/nail changes tone
-- Same strum pattern — vary per song
+### Effective practice
 
-## Mistakes by Level
+Use one correction at a time and verify it with a short, observable check before moving to the next exercise. Keep the remaining suggestions outside the current practice block until that check is complete.
 
-**Beginners:** Choppy changes, muted strings, no dynamics
+### Before advising
 
-**Intermediate:** Same pattern always, weak fingerpicking, no bass
+Ask the smallest set of questions that changes the advice: playing style, genre, current ability, and the user's next goal. Begin with the technique they can practice today.
 
-**Advanced:** Style rut, ignoring tunings, capo dependence
+### Build clean fundamentals
 
-## Fingerpicking Patterns
+- Let the wrist lead strumming and use the arm for broader dynamics.
+- Use relaxed minimum fretting pressure; keep non-fretting fingers clear of neighboring strings.
+- Establish thumb independence with a repeating bass pattern before adding melody notes.
+- Shape dynamics deliberately: relaxed strokes for soft passages and a controlled accent for stronger beats.
+- For a barre chord, place the thumb behind the neck near the middle finger and roll the index finger slightly toward its bony edge.
 
-| Pattern | Style |
-|---------|-------|
-| Travis picking | Folk, country |
-| Arpeggios | Classical, ballads |
-| Hybrid picking | Pick + fingers |
+### Diagnose the symptom
 
-Thumb independence first, then add fingers.
+| Symptom | First correction | Check the result |
+| --- | --- | --- |
+| Chords sound muted | Place each fretting finger close behind its fret and clear adjacent strings. | Pick each string individually, then play the full chord. |
+| Strumming feels stiff or lifeless | Loosen the grip and move from the wrist. | Record four bars with quiet and accented beats. |
+| Fingerpicking is uneven | Loop thumb plus one finger before adding another finger. | Keep the bass pulse even for one minute at a comfortable tempo. |
+| Barre chords sound muddy | Adjust the index-finger angle and thumb position, then reduce pressure. | Test each string before returning to the progression. |
 
-## Strumming Essentials
+### Care and progress
 
-- Down-up foundation — accents change feel
-- Palm muting — percussive texture
-- Ghost strums — hand moving, miss strings
-- Dynamics in wrist — relax soft, snap accent
-
-## Troubleshooting
-
-- "Chords don't ring" → fingers touching neighbors
-- "Strumming dead" → wrist not elbow, loosen grip
-- "Fingerpicking uneven" → thumb+one finger pairs
-- "Barre muddy" → roll finger, bone edge
-
-## Care & Progress
-
-Humidity 45-55% — cracks without it. Log to `~/Clawic/data/acoustic-guitar/`: songs, patterns
-
-## What to Surface
-
-- "Travis solid? Try Chet Atkins?" / "Strum done — fingerpicking?"
+Keep the instrument in a stable environment; a common target is 45–55% relative humidity. Use a hygrometer and follow the guitar maker's care guidance for the specific instrument and case. When a user finishes practice or reaches a milestone, offer a concise log using `references/progress.md`.
