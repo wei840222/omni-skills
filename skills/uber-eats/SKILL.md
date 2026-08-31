@@ -1,42 +1,37 @@
 ---
 name: uber-eats
-slug: uber-eats
-version: 1.0.0
-description: Navigate Uber Eats in a live browser or app handoff to compare merchants, manage carts, and reach checkout safely.
-homepage: https://clawic.com/skills/uber-eats
-changelog: Initial release with live-session ordering flow, access-denied fallback, checkout guardrails, and issue recovery for Uber Eats orders.
+description: Navigate Uber Eats in an approved live browser or app handoff to compare merchants, manage carts, and reach checkout safely. Use when the user asks to browse Uber Eats, draft a cart, review a checkout total, resolve an Uber Eats delivery issue, or place an Uber Eats order; use food-delivery for platform-neutral delivery advice.
+compatibility: Requires an approved browser or app session for live Uber Eats actions.
 metadata:
-  clawdbot:
-    emoji: 🍔
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/uber-eats/
-    os:
-    - darwin
-    - linux
-    - win32
-    configPaths:
-    - ~/Clawic/data/uber-eats/
-    displayName: Uber Eats
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/uber-eats/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🍔","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"applescript":"Builds macOS browser-control snippets when an approved Uber Eats workflow needs Apple Events.","food-delivery":"Provides delivery advice when the user is not committed to Uber Eats.","maps":"Checks delivery geography and route realism for the selected address.","safari":"Controls an approved Safari session when Uber Eats is open there.","shopping":"Compares fees, promotions, and checkout value before purchase."}'
 ---
+
+## State location
+
+Uber Eats state may exist in `<workspace>/uber-eats/`, `<workspace>/memory/uber-eats/`, or `~/uber-eats/`. `<workspace>` is the workspace root supplied by the host/runtime.
+
+Before any state read, query, create, update, or delete, resolve `<state_root>` once:
+
+1. Use an explicitly configured path supplied by the user or host when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/uber-eats/`, `<workspace>/memory/uber-eats/`, `~/uber-eats/`.
+3. When multiple candidate directories exist, use only the first, tell the user that separate state locations exist, and leave the other candidates unchanged.
+4. When no candidate exists and the user asks to save preferences, propose `<workspace>/uber-eats/` as the creation target and obtain confirmation before creating it.
+5. When no candidate exists and the host has not supplied `<workspace>`, ask for an explicit state path before creating state.
+
+Use the selected `<state_root>` for every state operation during the run. Create the resolved directory path rather than the placeholder text.
 
 ## When to Use
 
-User needs Uber Eats specifically, not generic delivery advice. Use this when the task depends on the user's real Uber Eats session, saved addresses, live merchant availability, promo state, cart contents, grocery or convenience ordering, or post-order troubleshooting inside Uber Eats.
-
-Choose this skill when the next step is to browse merchants, compare ETAs and fees, prepare a cart, verify checkout details, or recover from Uber Eats-specific problems such as address mistakes, cancellation windows, missing items, or web-session access failures. If the task is platform-agnostic, route to `food-delivery`.
+Use this skill for Uber Eats-specific work involving an approved live session, saved addresses, merchant availability, promotion state, cart contents, grocery or convenience ordering, or post-order troubleshooting. For platform-neutral delivery planning, route to `food-delivery`.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/uber-eats/`. If `~/Clawic/data/uber-eats/` does not exist, run `setup.md`. See `memory-template.md` for structure and starter fields.
+Persistent preferences live in the resolved `<state_root>` only after the user approves saving them. For first-time setup, read `references/setup.md`; use `references/memory-template.md` when creating the initial memory file.
 
 ```text
-~/Clawic/data/uber-eats/
+<state_root>/
 |-- memory.md       # Activation defaults, session mode, and ordering boundary
 |-- addresses.md    # Approved delivery addresses and zone caveats
 |-- merchants.md    # Preferred merchants, cuisine notes, and fee patterns
@@ -48,14 +43,15 @@ Memory lives in `~/Clawic/data/uber-eats/`. If `~/Clawic/data/uber-eats/` does n
 
 Load only the smallest file needed for the current blocker.
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Live browser and app-handoff flow | `browser-flow.md` |
-| Checkout safety and confirmation rules | `checkout-guardrails.md` |
-| Web blocking and access-denied fallbacks | `access-fallbacks.md` |
-| Failure patterns and recovery order | `issue-recovery.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup guide | `references/setup.md` | The user has approved persistent preference setup or `<state_root>` is absent. |
+| Memory template | `references/memory-template.md` | Creating or repairing approved preference files. |
+| Browser and app-handoff flow | `references/browser-flow.md` | An approved live browser or app session needs control. |
+| Checkout guardrails | `references/checkout-guardrails.md` | A draft cart may change or checkout is approaching. |
+| Access fallback | `references/access-fallbacks.md` | The web session is blocked, blank, or shows access denial. |
+| Issue recovery | `references/issue-recovery.md` | An order, payment, address, cancellation, or refund problem needs diagnosis. |
+| Platform facts | `references/domain.md` | Verifying mutable delivery, fee, cancellation, or support details. |
 
 ## Requirements
 
@@ -63,9 +59,9 @@ Load only the smallest file needed for the current blocker.
 - Any browser reading, clicking, typing, or screenshot capture must use a host-provided browser automation path that the user has already approved in the current environment.
 - Saved addresses, payment methods, and account credentials should stay inside the user's own Uber Eats browser session or app.
 - Explicit approval is required before controlling the user's daily browser session, changing delivery details, editing a non-empty cart, or placing any live order.
-- If the skill activates without explicit current-thread approval for browser control, stay in planning mode and do not inspect the live session.
+- Without explicit current-thread approval for browser control, remain in planning mode and leave the live session untouched.
 
-If Uber Eats web access is blocked or the browser shows `access denied`, stay calm and switch to a fallback path instead of pretending the session is usable.
+If Uber Eats web access is blocked or the browser shows `access denied`, use the fallback path and report that the live session cannot be verified.
 
 ## Control Modes
 
@@ -76,27 +72,27 @@ This skill supports four levels of intervention:
 - **Live checkout mode**: review payment, tip, notes, and total before placing the order.
 - **Fallback mode**: when web access fails, use a locale route, app handoff, or manual support path instead of brittle blind automation.
 
-Do not blur the boundary between browsing and ordering. A live Uber Eats session has real addresses, real payment methods, and real purchase consequences.
+Keep browse, draft-cart, and live-purchase actions distinct. A live Uber Eats session has real addresses, real payment methods, and real purchase consequences.
 
 ## Data Storage
 
-Persistent local notes in `~/Clawic/data/uber-eats/` are optional. If the user does not want local storage, operate statelessly and do not create or write that folder.
+Persistent local notes in `<state_root>/` are optional. When the user prefers a stateless session, leave state locations unchanged.
 
-When local notes are allowed, keep only durable operating context in `~/Clawic/data/uber-eats/`:
+When local notes are approved, keep only durable operating context in `<state_root>/`:
 - whether the skill may reuse the daily browser profile or should stay read-only
 - preferred addresses, neighborhoods, and delivery caveats approved by the user
 - favorite merchants, reorder patterns, and substitution preferences
 - issue history worth reusing, such as access-denied loops, weak promos, or frequent cancellation friction
 
-Do not store account passwords, payment card data, one-time verification codes, or full receipts with sensitive payment details.
+Store reusable preferences and operational notes only; keep account passwords, payment card data, one-time verification codes, and sensitive receipt details inside the user's authorized Uber Eats surfaces.
 
 ## Core Rules
 
 ### 1. Reuse the Real Session Only When the User Actually Wants That
 - Prefer the user's already signed-in Uber Eats browser session when live state matters.
 - This skill does not grant browser access by itself; it only uses an already-approved browser control path from the host environment.
-- Ask before activating, switching tabs, typing, clicking, or capturing screenshots from the daily browsing profile.
-- If the user only wants strategy, stay out of the real session and explain the flow instead.
+- Obtain current-thread approval before activating, switching tabs, typing, clicking, or capturing screenshots from the daily browsing profile.
+- When the user only wants strategy, explain the flow without opening a real session.
 
 ### 2. Lock the Delivery Address Before Comparing Merchants
 - Uber Eats ordering starts with sign-in plus a delivery address.
@@ -106,7 +102,7 @@ Do not store account passwords, payment card data, one-time verification codes, 
 ### 3. Read the Merchant and Cart State Before Touching Checkout
 - Confirm merchant name, ETA, delivery fee, service fee, promo state, and cart contents before adding or editing items.
 - Re-read the page after every navigation or major action.
-- If the cart already contains items, stop and clarify whether to preserve, edit, or replace it.
+- If the cart already contains items, obtain a preserve, edit, or replace decision before changing it.
 
 ### 4. Separate Drafting From Live Purchase
 - Building a candidate cart is not the same as placing an order.
@@ -115,27 +111,26 @@ Do not store account passwords, payment card data, one-time verification codes, 
 
 ### 5. Treat Address and Cancellation as High-Risk Boundaries
 - Official Uber Eats help says the order flow requires a confirmed delivery address before checkout.
-- After an order is placed, address changes are unreliable and often require contacting support or the delivery partner; do not depend on them.
+- After an order is placed, treat an address change as a live support question and verify available options with the delivery partner.
 - Cancellation may be possible only before the merchant accepts the order or before dispatch; refund eligibility can disappear quickly.
 
 ### 6. Prepare a Fallback When the Web Session Misbehaves
-- If the browser shows `access denied`, a blank screen, or another blocking page, do not keep clicking blindly.
+- If the browser shows `access denied`, a blank screen, or another blocking page, pause interaction and read `references/access-fallbacks.md`.
 - Try a supported locale route or app handoff first.
-- If the session is still blocked, switch to manual guidance or support recovery instead of claiming the order can proceed.
+- If the session remains blocked, provide manual guidance or support recovery and state that checkout cannot proceed in the current session.
 
 ### 7. Keep Memory About Preferences, Not Secrets
 - Save reusable address choices, favorite merchants, cuisine habits, substitution preferences, and known problem merchants.
 - Keep short notes about what worked, what arrived late, and what needed support.
-- Never store full payment data, raw support transcripts, or copied personal verification details.
+- Keep full payment data, raw support transcripts, and copied personal verification details out of local state.
 
 ## Uber Eats Traps
 
-- Treating the home page as actionable before an address is set -> merchant availability and fees are unreliable.
-- Ignoring a web `access denied` or anti-bot page -> brittle automation and false progress.
-- Modifying a non-empty cart without checking whether it contains unfinished items -> accidental cart damage.
-- Assuming the subtotal is the real price -> delivery fee, service fee, and tip can reverse the decision.
-- Assuming the delivery address can be safely changed after ordering -> support may cancel or charge anyway.
-- Treating cancellation as guaranteed -> refund eligibility can disappear after merchant acceptance or dispatch.
+- Set or verify the delivery address before comparing merchants because availability and fees depend on it.
+- On an `access denied` or anti-bot page, use the fallback procedure instead of continuing browser actions.
+- Read a non-empty cart and obtain a preserve, edit, or replace decision before changing it.
+- Compare the subtotal with delivery fee, service fee, tip, and total before recommending a purchase.
+- Treat post-order address changes and cancellation eligibility as live support questions; verify the current order page before promising an outcome.
 
 ## External Endpoints
 
@@ -155,14 +150,13 @@ No other data should be sent externally unless the user explicitly opens additio
 - support or issue details the user explicitly submits to Uber Eats
 
 **Data that stays local:**
-- optional Uber Eats operating notes in `~/Clawic/data/uber-eats/`, only if the user wants persistent memory
+- optional Uber Eats operating notes in `<state_root>/`, only if the user wants persistent memory
 - preferences, address labels, and known-good merchant patterns approved by the user
 
-**This skill does NOT:**
-- ask for Uber or Uber Eats passwords in chat
-- store payment card numbers or one-time verification codes
-- place live orders without explicit confirmation in the current thread
-- claim a cart, address, or cancellation path is safe without re-reading the actual Uber Eats page
+**Safety boundary:**
+- Keep Uber account passwords, payment card numbers, and one-time verification codes inside the user's own authorized surfaces.
+- Place a live order only after explicit current-thread confirmation.
+- Re-read the current Uber Eats page before reporting a cart, address, cancellation, or refund path as available.
 
 ## Trust
 
@@ -171,27 +165,10 @@ Only install and run it if you trust Uber Eats with your address, cart, payment,
 
 ## Scope
 
-This skill ONLY:
-- helps control Uber Eats ordering safely through a live browser or app handoff
-- structures browse, draft-cart, live-checkout, fallback, and issue-recovery workflows
-- keeps durable notes for addresses, merchants, preferences, and recurring issues
+This skill helps control Uber Eats ordering through an approved live browser or app handoff, structures browse, draft-cart, live-checkout, fallback, and issue-recovery workflows, and records approved durable preferences.
 
-This skill NEVER:
-- claim a live Uber Eats state it cannot verify
-- promise merchant availability, ETA, promo validity, or cancellation success without checking the current page
-- store secrets or raw payment data in its own memory files
-- modify its own skill files
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `food-delivery` - Broader ordering logic when the user is not locked to Uber Eats.
-- `maps` - Validate delivery geography, area fit, and route realism around the chosen address.
-- `safari` - Control the user's real Safari session when Uber Eats works better there.
-- `applescript` - Build safer macOS browser-control snippets when the workflow needs exact Apple Events.
-- `shopping` - Compare fees, promos, and real checkout value instead of rushing to place the order.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/uber-eats
-- Latest version: https://clawic.com/skills/uber-eats
+**Execution boundary:**
+- Verify live Uber Eats state before reporting it.
+- Check the current page before making a claim about availability, ETA, promotions, cancellation, or refund outcome.
+- Keep secrets and payment data out of local state.
+- Treat this skill package as read-only during normal use.

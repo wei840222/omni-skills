@@ -11,7 +11,7 @@ Read the current Uber Eats page first:
 - support or help page
 - blocked or access-denied page
 
-Do not jump into support advice until the current state is visible.
+Start support guidance after the current state is visible.
 
 ## 2. Classify the Problem
 
@@ -25,7 +25,7 @@ Do not jump into support advice until the current state is visible.
 
 ## 3. Respond by Class
 
-- Web blocking: switch to `access-fallbacks.md`.
+- Web blocking: switch to `references/access-fallbacks.md`.
 - Wrong or missing item: inspect the live order state and support path before proposing refund language.
 - Address mistake: assume the address is effectively locked after order placement unless live help proves otherwise.
 - Payment failure: verify whether a charge actually went through before retrying.
@@ -39,4 +39,4 @@ After resolution, store only the reusable part:
 - browser profile that triggers web blocking
 - address zone with repeated delivery friction
 
-Do not store full receipts, support transcripts, or sensitive payment details.
+Store reusable operational lessons only; keep receipts, support transcripts, and payment details in their authorized surfaces.

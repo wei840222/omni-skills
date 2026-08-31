@@ -1,6 +1,6 @@
 # Setup - Uber Eats
 
-Use this when `~/Clawic/data/uber-eats/` does not exist or is empty. Start naturally and keep the conversation centered on the user's real Uber Eats ordering habits, not on file mechanics.
+Use this when `<state_root>/` does not exist or is empty. Start naturally and keep the conversation centered on the user's real Uber Eats ordering habits, not on file mechanics.
 
 ## Your Attitude
 
@@ -17,7 +17,7 @@ Good early questions:
 - Should it reuse the daily signed-in browser profile, or stay read-only unless explicitly asked?
 - Is draft-cart help welcome, or should the skill stop at browse-and-compare unless the user asks for checkout?
 
-Record the activation rule in `~/Clawic/data/uber-eats/memory.md` so future sessions can reuse it.
+Record the activation rule in `<state_root>/memory.md` so future sessions can reuse it.
 
 ### 2. Then: Session and Safety Mode
 
@@ -52,4 +52,4 @@ Capture:
 - substitution preferences, promo habits, and merchants to avoid repeating
 - whether browser access frequently fails and app handoff should be the default
 
-Do not store passwords, payment details, or copied support transcripts.
+Store reusable operating preferences only; keep passwords, payment details, and copied support transcripts in their authorized surfaces.

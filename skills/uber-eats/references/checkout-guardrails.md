@@ -18,7 +18,7 @@ If the cart already contains items, ask whether to preserve, replace, or merge b
 
 ## Explicit Confirmation Required
 
-Always stop and summarize before:
+Summarize and obtain explicit confirmation before:
 - changing the delivery address
 - clearing a non-empty cart
 - relying on a cancellation path after checkout
@@ -35,4 +35,4 @@ Before live checkout, confirm:
 - delivery fee, service fee, tip, and total
 - payment method shown by Uber Eats
 
-If any one of those is unclear on screen, do not place the order.
+When any item is unclear on screen, refresh the visible state and resolve it before placing the order.
