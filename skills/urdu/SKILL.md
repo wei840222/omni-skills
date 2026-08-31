@@ -1,85 +1,30 @@
 ---
 name: urdu
-slug: urdu
-version: 1.0.0
-description: Write Urdu that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/urdu
+description: Write natural, expressive Urdu that prefers تم over آپ by default, uses native particles/fillers, and avoids stiff ادبی register. Use when drafting, replying to, or reviewing casual Urdu text (Nastaliq or Roman). Not for Pakistan trip logistics or formal legal drafting.
 metadata:
-  clawdbot:
-    emoji: 🇵🇰
-    displayName: Urdu
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇵🇰"}'
+  related-skills: '{"arabic":"Shares script similarities and some vocabulary.","english":"Used alongside Urdu in online/romanized contexts.","hindi":"Shares spoken similarities with Urdu but uses a different script.","persian":"Shares script and vocabulary with Urdu.","translate":"General translation skill that this skill refines for Urdu."}'
 ---
 
-## The Real Problem
+This skill is stateless and does not store local configuration or persistent user state.
 
-AI Urdu is technically correct but sounds off. Too formal. Too ادبی (literary). Natives write more casually, with warmth and natural flow. Match that.
+## When to Use
 
-## Formality Default
+Help the user draft or review **casual Urdu** that would pass a native speaker's ear: correct register (`تم`/`آپ`/`تو`), Nastaliq vs Roman script choice, particles, fillers, expressive wording, and Urdu–Hindi script/vocabulary boundaries.
 
-Default register is too high. Casual Urdu is warm and expressive. Unless explicitly formal: lean casual.
+## Quick Reference
 
-## تم vs آپ vs تو
-
-Three levels:
-- آپ: formal, elders, respect
-- تم: standard casual, peers
-- تو: very intimate, close friends
-- Online mostly uses تم or آپ depending on context
-
-## Urdu vs Hindi
-
-Similar spoken, different written:
-- Urdu: Nastaliq script (اردو)
-- More Persian/Arabic vocabulary
-- Different cultural expressions
-- Don't mix scripts
-
-## Particles & Softeners
-
-These make Urdu natural:
-- نا: question tag, softening ("ٹھیک ہے نا؟")
-- تو: emphasis ("یہ تو بہت اچھا ہے")
-- ہی: emphasis ("یہی چاہیے")
-- بھی: "also", "even"
-
-## Fillers & Flow
-
-Real Urdu has fillers:
-- یعنی، اچھا، تو
-- ویسے، اصل میں
-- سنو، دیکھو
-- کیا بتائیں
-
-## Expressiveness
-
-Don't pick the safe word:
-- اچھا → بہترین، زبردست، کمال
-- برا → بیکار، بکواس، گھٹیا
-- بہت → انتہائی، کافی
-
-## Common Expressions
-
-Natural expressions:
-- ٹھیک ہے، اوکے، ہاں جی
-- کوئی بات نہیں، کوئی مسئلہ نہیں
-- سچی?، واقعی?، کیا بات ہے!
-- واہ!، کیا خوب!
-
-## Reactions
-
-React naturally:
-- سچی?، واقعی?، کیا?
-- واہ!، اللہ!، تو‌بہ!
-- زبردست!، کمال!، بہت خوب!
-- ہاہاہا in text
-
-## Romanized Urdu
-
-Common online:
-- Roman script often used in texting
-- "Kya haal hai", "Theek hai"
-- Natural in casual digital contexts
+| Resource | When to load |
+|---|---|
+| `references/formality-and-pronouns.md` | Load for `آپ` / `تم` / `تو` register choice and consistency. |
+| `references/script-and-language.md` | Load for Nastaliq vs Hindi script boundaries and Persian/Arabic vocabulary flavor. |
+| `references/flow-and-particles.md` | Load for particles, softeners, fillers, and conversational flow. |
+| `references/expressions-and-reactions.md` | Load for expressive upgrades and natural reactions. |
+| `references/romanized-urdu.md` | Load when the user wants SMS / social / Roman Urdu. |
+| `references/domain-knowledge.md` | Load for source-backed register, script, and bilingual-contact facts. |
+| `references/output-gates.md` | Load as final checks before sending casual Urdu text. |
 
 ## The "Native Test"
 
-Before sending: would an Urdu speaker screenshot this as "AI-generated"? If yes—too formal, too ادبی. Add casual warmth.
+Before sending: would an Urdu speaker screenshot this as "AI-generated"? If yes, lower the register, add casual warmth/particles, and avoid stiff ادبی textbook phrasing.

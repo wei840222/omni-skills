@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a casual message to a friend asking how they are doing and if they want to grab coffee.",
+    "expected": "A casual, warm Urdu message using تم (not stiff آپ), natural fillers, and a friendly invitation.",
+    "actual": "کیا حال ہے تمہارا؟ کافی دنوں سے بات نہیں ہوئی۔ ویسے، آج کل میں کافی پینے چلیں؟ بتاؤ اگر ٹائم ہو تو۔",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Respond to a formal email from a professor acknowledging you received their feedback on your assignment.",
+    "expected": "A formal, polite Urdu response using آپ, respectful vocabulary, and clear acknowledgment.",
+    "actual": "محترم پروفیسر صاحب، السلام علیکم۔ آپ کا ای میل موصول ہو گیا ہے۔ میری اسائنمنٹ پر آپ کے مفید مشوروں کا بہت شکریہ۔ میں ان پر ضرور عمل کروں گا۔",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write an enthusiastic comment for a friend's new photo on Instagram in Roman Urdu.",
+    "expected": "An enthusiastic Roman Urdu comment using expressive vocabulary (zabardast/kamaal) and natural reaction.",
+    "actual": "Wah! Kya baat hai! Zabardast lag rahe ho. Kamaal ki picture hai yaar!",
+    "pass": true
+  }
+]
