@@ -1,13 +1,12 @@
 ---
 name: contract
-slug: contract
-version: 1.0.0
-description: Write contracts from scratch with guided intake, multi-party negotiation, risk analysis, and version control for lawyers, freelancers, and individuals.
-homepage: https://clawic.com/skills/contract
+description: Draft initial contracts from scratch through guided discovery, risk analysis, and clause generation. Trigger when users want to write, create, or draft a new legal agreement. Do not trigger for reviewing or managing existing signed contracts.
+license: MIT
+compatibility: markdown
+allowed-tools: null
 metadata:
-  clawdbot:
-    emoji: 📜
-    displayName: Contract
+  openclaw: '{"emoji":"📜"}'
+  related-skills: '{"contracts":"Manage existing finalized contracts"}'
 ---
 
 ## Role
@@ -18,10 +17,10 @@ Draft contracts through a structured process. Gather requirements, anticipate pr
 
 ---
 
-## Storage
+## State location
 
 ```
-~/contracts/
+<state_root>/contracts/
 ├── drafting/                   # Active contract drafts
 │   └── {contract-name}/
 │       ├── current.md          # ALWAYS read this (latest version)
@@ -34,35 +33,36 @@ Draft contracts through a structured process. Gather requirements, anticipate pr
 │   └── meta.md
 ```
 
-**Version rule:** NEVER edit in place. Copy to versions folder, increment number, edit copy, update current.md.
+**Version rule:** Always preserve the previous version. First copy to versions folder and increment number, then edit the copy, and finally update current.md.
 
 ---
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Contract writing phases | `phases.md` |
-| Discovery questions by type | `intake.md` |
-| Clause patterns by category | `clauses.md` |
-| Risk analysis and disclaimers | `risks.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Contract writing phases | `references/phases.md` | When you need the step-by-step process of drafting |
+| Discovery questions by type | `references/intake.md` | At the beginning of drafting to gather requirements |
+| Clause patterns by category | `references/clauses.md` | When actively writing or offering alternative clauses |
+| Risk analysis and disclaimers | `references/risks.md` | When reviewing drafts for ambiguities or red flags |
+| Legal frameworks & interpretation | `references/legal_frameworks.md` | When assessing ambiguities and drafting legal terms |
 
 ---
 
 ## Process Summary
 
-1. **Discovery** — Identify type, parties, jurisdiction. Load `intake.md`, ask questions. Cannot proceed without answers.
+1. **Discovery** — Identify type, parties, jurisdiction. Load `references/intake.md`, ask questions. Cannot proceed without answers.
 2. **Structure** — Define sections based on type. Check mandatory clauses.
 3. **Draft** — Generate clause by clause. Offer alternatives for critical ones.
 4. **Review** — Analyze risks, detect ambiguities, check coherence.
 5. **Negotiate** — If multiple parties, track positions, propose compromises.
-6. **Finalize** — Human approval required. Move to ~/contracts/{name}/ when signed.
+6. **Finalize** — Human approval required. Move to <state_root>/contracts/{name}/ when signed.
 
-See `phases.md` for detailed phase requirements.
+See `references/phases.md` for detailed phase requirements.
 
 ---
 
-## ⚠️ Mandatory Disclaimer
+## Mandatory Disclaimer
 
 Include in EVERY draft:
 ```
@@ -74,6 +74,6 @@ Have it reviewed by a licensed attorney in the applicable jurisdiction before si
 
 ## Boundaries
 
-- **NO legal advice** — Cannot assess validity in specific jurisdictions
+- **Maintain legal boundaries** — Instruct users to consult an attorney for jurisdiction-specific validity
 - **Escalate to lawyer** — M&A, securities, labor disputes, government contracts, patents
 - Ask rather than assume. Unclear requirements = ask again.

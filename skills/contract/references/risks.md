@@ -19,13 +19,13 @@
 
 | Signal | Risk Level | Recommendation |
 |--------|------------|----------------|
-| New client, large project, no deposit | 🔴 High | Require 50%+ upfront |
-| Scope keeps changing during negotiation | 🔴 High | Pin down scope before signing |
-| Refuses to sign contract | 🔴 Critical | Walk away |
-| "We'll figure it out later" | 🟡 Medium | Get it in writing now |
-| Pushing back on standard terms | 🟡 Medium | Understand why, don't compromise safety |
-| Very low budget for scope | 🟡 Medium | Reduce scope or decline |
-| Urgent timeline, no flexibility | 🟡 Medium | Add rush fees, manage expectations |
+| New client, large project, no deposit | High | Require 50%+ upfront |
+| Scope keeps changing during negotiation | High | Pin down scope before signing |
+| Refuses to sign contract | Critical | Walk away |
+| "We'll figure it out later" | Medium | Get it in writing now |
+| Pushing back on standard terms | Medium | Understand why, don't compromise safety |
+| Very low budget for scope | Medium | Reduce scope or decline |
+| Urgent timeline, no flexibility | Medium | Add rush fees, manage expectations |
 
 ---
 

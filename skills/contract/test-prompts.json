@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to draft an NDA for a new freelance project.",
+    "expected": "The agent should load references/intake.md, ask discovery questions about the NDA, and begin the drafting process in <state_root>/contracts/drafting/.",
+    "actual": "Agent loaded references/intake.md, asked appropriate discovery questions to identify the parties and jurisdiction for the NDA, and set up the drafting directory.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you draft a complex multi-party partnership agreement with profit-sharing and exit clauses?",
+    "expected": "The agent should load references/intake.md and references/phases.md, ask specific questions about the partnership, and offer alternative clauses for critical sections like exit and profit-sharing.",
+    "actual": "Agent loaded required references, asked detailed partnership discovery questions, and provided balanced, aggressive, and conservative alternatives for the exit and profit-sharing clauses.",
+    "pass": true
+  }
+]

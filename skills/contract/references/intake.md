@@ -139,10 +139,10 @@
 - Is deadline realistic? → Document timeline risks
 
 ### Risk Signals
-- Client pushes back on deposit → ⚠️ payment risk
-- Scope keeps changing during negotiation → ⚠️ scope creep
-- Client won't sign contract → ⚠️ walk away
-- "We'll figure out the details later" → ⚠️ get details now
+- Client pushes back on deposit → Flag: payment risk
+- Scope keeps changing during negotiation → Flag: scope creep
+- Client won't sign contract → Flag: walk away
+- "We'll figure out the details later" → Flag: get details now
 
 ---
 
