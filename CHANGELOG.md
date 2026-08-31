@@ -9,6 +9,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | netlify-deploy               | 2026-09-01 | 86/100 (#184) |
 | kernel                       | 2026-09-01 | 85/100 (#185) |
 | product-launch               | 2026-09-01 | 85/100 (#186) |
+| new-york-city                | 2026-09-01 | 85/100 (#187) |
 | acoustic-guitar              | 2026-09-01 | 85/100 (#182) |
 | designer                     | 2026-09-01 | 85/100 (#183) |
 | product-manager             | 2026-08-31 | 85/100 (#181) |
