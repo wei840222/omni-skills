@@ -1,6 +1,6 @@
 ---
 name: exam
-description: Generate practice questions, flashcards, study schedules, and timed mock exams from supplied study material. Use when the user asks to quiz, test, review notes, create study aids, analyze weak topics, or simulate an exam; verify official requirements before modeling a named certification exam.
+description: Generate practice questions, flashcards, study schedules, and timed mock exams from supplied study material. Use when the user asks to quiz, test, review notes, create study aids, analyze weak topics, or simulate an exam; verify official requirements before modeling a named certification exam. Do not use for proctored-exam assistance or to claim an official blueprint without a verified source.
 metadata:
   openclaw: '{"emoji":"📝"}'
 ---
@@ -46,6 +46,11 @@ Works for university exams, certifications, standardized tests, and professional
 | Timed simulation setup | When the user requests a timed mock exam or names a certification exam. | `references/simulations.md` |
 | Performance tracking | When scoring a session, finding weak areas, or reporting progress. | `references/tracking.md` |
 | Learning methods | When calibrating difficulty, retention, or a study schedule. | `references/learning-methods.md` |
+| Assessment boundaries | Before responding to a live, proctored, or restricted assessment. | Apply the safety boundary below. |
+
+## Assessment boundaries
+
+Support learning before or after an assessment. For a live, proctored, or access-restricted exam, provide conceptual explanations and study practice rather than answers to active test questions. Ask whether the assessment permits external assistance when the status is unclear.
 
 ## Core Workflow
 
@@ -54,7 +59,7 @@ Works for university exams, certifications, standardized tests, and professional
 3. **Calibrate.** Match question types and difficulty to the supplied material and the user's target. State assumptions when the source material or exam blueprint is incomplete.
 4. **Run and explain.** Present one question or card at a time when practicing; grade with the stated rubric and explain missed concepts.
 5. **Persist only on request.** Resolve `<state_root>` before recording questions, sessions, performance, or flashcards. Then use the relevant reference's schema.
-6. **Adapt the next step.** Prioritize weak or stale topics, while reserving a smaller maintenance share for stronger topics.
+6. **Adapt the next step.** Prioritize weak or stale topics, while reserving a smaller maintenance share for stronger topics. When the learner improves, increase complexity gradually rather than abruptly replacing all review material.
 
 ## Question Types
 
