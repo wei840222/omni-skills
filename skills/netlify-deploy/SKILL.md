@@ -55,6 +55,8 @@ Follow this sequence for an active deployment request:
 
 ## Common traps
 
+Use the matching recovery path below; each keeps the next safe action explicit.
+
 | Situation | Recovery |
 |---|---|
 | Authentication error | Run `npx netlify login`, then re-check with `npx netlify status`. |
@@ -65,4 +67,4 @@ Follow this sequence for an active deployment request:
 
 ## Security and data handling
 
-Deploy commands send project artifacts, deploy metadata, and site identifiers to Netlify. Authentication exchanges session data with Netlify. Local source files remain local until a deploy command is run; keep secrets out of skill files and inspect project configuration before a deploy that could include them.
+Deploy commands send project artifacts, deploy metadata, and site identifiers to Netlify. Authentication exchanges session data with Netlify. Before a deploy, inspect the project configuration for values that could expose secrets, and retain sensitive values in Netlify-managed environment-variable settings rather than skill files or committed `netlify.toml` values.
