@@ -15,6 +15,13 @@ This skill is stateless and does not store local configuration or persistent use
 3. Show enough intermediate work for the user to check each transformation. Label an intuitive explanation separately from a formal proof.
 4. End with a result check: substitute an answer where possible, verify units and domains, and test whether the magnitude is plausible.
 
+## Choose the response path
+
+- For a concept or problem, follow **Adapt the response** and keep the calculation or proof checkable.
+- For a child, student, expert, or teacher request, load the matching audience subsection below before answering.
+- For a lesson-design request involving known misconceptions or instructional choices, read `references/math-education-research.md`.
+- For an ambiguous, inconsistent, or unsolvable prompt, follow **Diagnose and recover** before proposing a result.
+
 ## Teach and collaborate by audience
 
 ### Children
