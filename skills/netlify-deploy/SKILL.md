@@ -1,145 +1,70 @@
 ---
 name: netlify-deploy
-slug: netlify-deploy
-version: 1.0.0
-description: Deploy and manage Netlify sites with npx netlify, including auth, linking, preview deploys, production releases, and config checks.
-homepage: https://clawic.com/skills/netlify-deploy
-changelog: Initial release with authentication checks, link-or-create flow, and safer preview-to-production deployment guidance.
+description: Deploy, host, publish, or relink a web project on Netlify. Use when a user requests a first deploy, preview, confirmed production release, site linking, monorepo deployment path, or netlify.toml configuration; not for generic hosting advice without Netlify.
 metadata:
-  clawdbot:
-    emoji: NET
-    requires:
-      bins:
-      - npx
-      - git
-      config:
-      - ~/Clawic/data/netlify-deploy/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Netlify Deploy
+  version: "1.0.0"
+  openclaw: '{"emoji":"NET","requires":{"bins":["npx","git"]}}'
+  related-skills: '{"ci-cd":"Provides delivery-pipeline design and release automation practices.","deploy":"Provides provider-neutral deployment planning across environments.","devops":"Provides infrastructure and operational guardrails for deployment work.","git":"Provides branch hygiene and release-safe commit workflow."}'
 ---
+
+## State location
+
+Netlify deployment preferences may exist in `<workspace>/netlify-deploy/`, `<workspace>/memory/netlify-deploy/`, or `~/netlify-deploy/`.
+Before reading or writing preferences, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/netlify-deploy/`, `<workspace>/memory/netlify-deploy/`, `~/netlify-deploy/`.
+3. If none exists and preferences must be saved, default to `<workspace>/netlify-deploy/`.
+
+Use the selected `<state_root>` for every preference operation in this skill. When multiple candidate directories exist, use only the highest-precedence one and report the conflict; do not merge them automatically.
 
 ## Setup
 
-On first use, read `setup.md` for integration and environment checks.
+On first use, read `references/setup.md` for integration and environment checks.
 
 ## When to Use
 
-User needs to deploy, host, publish, or relink a web project on Netlify from the terminal. Use this skill for first deploys, preview deploys, production pushes, monorepo paths, and netlify.toml fixes.
+Use this skill when the user requests a terminal-based Netlify deployment, hosting change, site relink, preview, confirmed production release, monorepo configuration, or `netlify.toml` correction. For provider-neutral deployment planning without a Netlify operation, use the `deploy` skill instead.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/netlify-deploy/`.
-Use this local memory only for operational defaults so future deploy requests can start with the right safety assumptions.
-
-```text
-~/Clawic/data/netlify-deploy/
-`- memory.md    # Preferred deploy mode, default project path, and common build settings
-```
-
-See `memory-template.md` for setup.
+Deployment preferences live in `<state_root>/memory.md`; use them only for operational defaults that help future deployment requests start safely. Read `references/memory-template.md` when creating or updating these preferences.
 
 ## Quick Reference
 
-Load only the file needed for the current task to keep command decisions fast and avoid irrelevant context.
+Load only the resource that matches the active task.
 
-| Topic | File |
-|-------|------|
-| Setup and integration flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| CLI command map | `cli-commands.md` |
-| Deployment scenarios | `deployment-patterns.md` |
-| Configuration examples | `netlify-toml.md` |
+| Topic | File | When to load |
+|---|---|---|
+| Setup and integration flow | `references/setup.md` | First use, or when project and authentication context are unknown. |
+| Preference template | `references/memory-template.md` | Creating or updating saved deployment preferences. |
+| CLI command map | `references/cli-commands.md` | Checking Netlify CLI syntax. |
+| Deployment scenarios | `references/deployment-patterns.md` | Diagnosing a deploy failure, linking a site, or deploying a monorepo. |
+| Configuration examples | `references/netlify-toml.md` | Editing `netlify.toml` for builds, redirects, or environment-specific settings. |
 
-## Core Rules
+## Core workflow
 
-### 1. Verify Auth and Site Link Before Any Deploy
-```bash
-npx netlify status
-```
-If not authenticated, run `npx netlify login` and re-check status. If authenticated but not linked, resolve linking before deploy.
+Follow this sequence for an active deployment request:
 
-### 2. Use Link-First, Init-Second
-```bash
-git remote get-url origin
-npx netlify link --git-remote-url <remote-url>
-```
-If the repository is not linked or no matching site exists, fall back to `npx netlify init`.
+1. Verify authentication and the current site link with `npx netlify status` before deploying.
+2. When the project is unlinked, obtain its Git remote with `git remote get-url origin`, attempt `npx netlify link --git-remote-url <remote-url>`, and use `npx netlify init` only when no matching site is available.
+3. Build with the project's declared build command and verify the resulting publish directory. Use framework defaults only as an initial hypothesis.
+4. Use `npx netlify deploy` for a requested preview. Use `npx netlify deploy --prod` only after the user explicitly requests a production release or confirms readiness after validation.
+5. For a monorepo, establish the target app directory or `build.base` in `netlify.toml` before linking or deploying.
+6. Report the deploy URL, environment, and one concrete next step after each deploy.
 
-### 3. Default to Preview Deploys Unless User Asks for Production
-```bash
-npx netlify deploy
-```
-Use `npx netlify deploy --prod` only when the user explicitly requests production or confirms readiness.
-Never force production deploys as a shortcut when validation is still pending.
+## Common traps
 
-### 4. Confirm Build and Publish Paths Before First Production Deploy
-```bash
-npm run build
-npx netlify deploy --dir=dist
-```
-Use framework defaults only as a starting point. Validate the actual output folder in the current project.
+Use the matching recovery path below; each keeps the next safe action explicit.
 
-### 5. Make Monorepo Context Explicit
-For monorepos, deploy from the correct subdirectory or set `build.base` in `netlify.toml` before linking/deploying.
+| Situation | Recovery |
+|---|---|
+| Authentication error | Run `npx netlify login`, then re-check with `npx netlify status`. |
+| Site is not linked | Use the link-first flow; initialize a new site only when no matching site exists. |
+| Publish directory is absent or stale | Run the declared local build and verify the actual output directory before redeploying. |
+| Wrong monorepo app selected | Confirm the working directory and `build.base`, then link and deploy from that target. |
+| Production release is unreviewed | Keep the release as a preview until an explicit production request or readiness confirmation. |
 
-### 6. Report Actionable Results
-After each deploy, return deploy URL, environment (preview or production), and one concrete next step.
+## Security and data handling
 
-## Common Traps
-
-These traps are prioritized by how often they cause failed or risky deploys in terminal-first workflows.
-
-| Trap | Consequence | Fix |
-|------|-------------|-----|
-| Running deploy before login check | Command fails with auth errors | Always run `npx netlify status` first |
-| Running `--prod` by default | Unreviewed changes go live | Start with preview deploy unless user confirms production |
-| Wrong publish directory | Site deploys blank or outdated build | Run local build and verify output folder |
-| Linking from wrong monorepo folder | Deploys wrong app | Confirm current path and base directory before link/deploy |
-| Treating `netlify.toml` as optional on complex projects | Inconsistent builds between environments | Commit a minimal, explicit `netlify.toml` |
-
-## External Endpoints
-
-Only Netlify service endpoints and Netlify documentation endpoints are expected in normal usage of this skill.
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://api.netlify.com | Deploy metadata, site/project identifiers, build outputs via CLI | Authentication, linking, and deployments |
-| https://app.netlify.com | Browser session data when login opens OAuth flow | Interactive authentication and dashboard access |
-| https://docs.netlify.com | Documentation requests only | Reference for command and config behavior |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- Project deploy artifacts and metadata are sent to Netlify when running deploy commands.
-- Auth/session data is exchanged with Netlify during `npx netlify login`.
-
-**Data that stays local:**
-- Local source files and build scripts remain in your project unless you deploy.
-- Skill preferences stay in `~/Clawic/data/netlify-deploy/memory.md`.
-
-**This skill does NOT:**
-- Store secrets inside skill files.
-- Run undeclared external services beyond Netlify endpoints.
-- Modify unrelated repositories or directories.
-
-## Trust
-
-By using this skill, deployment data is sent to Netlify services.
-Only install if you trust Netlify with your project artifacts and deployment metadata.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ci-cd` - delivery pipeline design and release automation practices
-- `git` - branch hygiene and release-safe commit workflow
-- `deploy` - generic deployment planning across environments
-- `devops` - infrastructure and operational guardrails
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/netlify-deploy
-- Latest version: https://clawic.com/skills/netlify-deploy
+Deploy commands send project artifacts, deploy metadata, and site identifiers to Netlify. Authentication exchanges session data with Netlify. Before a deploy, inspect the project configuration for values that could expose secrets, and retain sensitive values in Netlify-managed environment-variable settings rather than skill files or committed `netlify.toml` values.

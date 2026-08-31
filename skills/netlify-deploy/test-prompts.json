@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Deploy my existing Vite site to Netlify as a preview.",
+    "expected": "Checks authentication, links the matching site from the Git remote when needed, runs the declared build, verifies the publish directory, performs a preview deploy, and returns the preview URL.",
+    "actual": "The workflow routes to status → link-first → declared build and publish-directory verification → `npx netlify deploy`, then requires the preview URL and environment in the result.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Release the web app in apps/web from our monorepo to Netlify production.",
+    "expected": "Identifies the monorepo base and actual build output, creates or verifies a preview, obtains explicit production readiness, then uses `npx netlify deploy --prod` and reports the production URL.",
+    "actual": "The workflow requires the target directory or `[build].base`, validates the build and preview first, gates production on explicit readiness, and then uses `npx netlify deploy --prod` with a URL and commit-context report.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My Netlify deploy says the publish directory is missing after the build.",
+    "expected": "Avoids a blind redeploy; reruns the project's declared build, inspects the real output directory, corrects the deploy directory or configuration, and retries.",
+    "actual": "The recovery table directs the agent to run the declared build, inspect the output, and pass the verified directory to the deploy command or configuration before redeploying.",
+    "pass": true
+  }
+]
