@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Recommend an iOS task manager for me. I dislike subscriptions, want offline use, and already tried Todoist but did not enjoy it.",
+    "expected": "Identifies iOS, no-subscription, offline, and prior-rejection constraints; checks approved preference history if available; recommends at most three options with pricing and tradeoffs; avoids presenting unverified current prices as facts.",
+    "actual": "I would first check your approved preferences and tried-app history for the Todoist notes. For an iOS, offline-capable task manager without a subscription, I would compare Things 3, Reminders, and a one-time-purchase option only after verifying current availability and pricing from their official listings. I would explain each app's capture, organization, sync, and limitation tradeoffs rather than treat popularity as the answer, and I would not save the new preferences without your approval.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Compare Notion and Obsidian for a private personal knowledge base that I need on Mac and Android. Which should I choose?",
+    "expected": "Uses the comparison framework, identifies privacy, offline, platform, sync, and workflow as criteria, gives use-case-specific choices, and verifies mutable plan or feature claims before stating them as current.",
+    "actual": "I would compare Notion and Obsidian around local-data control, offline behavior, Android and Mac access, sync model, organization style, export, and learning curve. Obsidian is the stronger fit when local Markdown and offline-first control lead; Notion is the stronger fit when hosted collaboration and databases lead. Before quoting a current plan, sync option, or privacy disclosure, I would verify it through the vendor and relevant store or platform source, then state the choice as a tradeoff instead of a universal winner.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is this $4.99 Android photo editor safe, and should I buy it now?",
+    "expected": "Treats price and safety as mutable claims; asks for the specific app or listing, uses official vendor and store sources plus privacy disclosures, distinguishes a platform disclosure from an audit, and leaves the purchase decision with the user.",
+    "actual": "I would ask for the app name or its Google Play listing, region, and the safety concern. I would verify the current price and compatibility from the official listing, review the vendor's privacy information and the Play Data safety disclosure, and distinguish those disclosures from an independent audit. I can summarize the evidence and tradeoffs, but the purchase remains your decision.",
+    "pass": true
+  }
+]
