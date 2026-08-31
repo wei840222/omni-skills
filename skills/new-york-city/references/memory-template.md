@@ -42,7 +42,7 @@ Updated: YYYY-MM-DD
 |-------|---------|----------|
 | `ongoing` | Still learning context | Keep gathering high-signal details naturally |
 | `complete` | Enough stable context exists | Reuse what is already known before asking |
-| `paused` | User does not want more setup right now | Help with current task and avoid extra intake |
+| `paused` | User prefers no further setup right now | Help with the current task and keep intake limited to an explicit request |
 | `never_ask` | User does not want this tracked | Stop collecting new background unless asked |
 
 ## Key Principles
@@ -50,5 +50,5 @@ Updated: YYYY-MM-DD
 - Keep notes in natural language, not config-style keys.
 - Borough, neighborhood, and commute anchor matter more than a generic "NYC" label.
 - Save only details that will materially improve the next New York City answer.
-- Keep the default memory coarse. Do not store full building details or sensitive identifiers unless the user explicitly asks for saved continuity at that level.
+- Keep the default memory coarse. Record full building details or sensitive identifiers only when the user explicitly requests that continuity level.
 - Update `last` on each meaningful use.

@@ -61,8 +61,8 @@ Keep `<state_root>/memory.md` lightweight and useful:
 - persistent housing, commute, airport, and budget constraints
 - which official city or transit portals already matter for this user
 
-Do not store credentials, account numbers, passport numbers, full street addresses, or payment details unless the user explicitly asks for that behavior.
+Store only details that improve future NYC guidance; credentials, account numbers, passport numbers, full street addresses, and payment details remain outside this memory unless the user explicitly directs otherwise.
 
 ## Resolver recovery
 
-If multiple candidate state directories exist, retain the highest-precedence `<state_root>` for the current invocation and report the separate copies. Continue with one-time guidance if the user declines persistence; do not create or alter state.
+If multiple candidate state directories exist, retain the highest-precedence `<state_root>` for the current invocation and report the separate copies. Continue with one-time guidance if the user declines persistence; preserve state unchanged.

@@ -13,10 +13,10 @@ NYC continuity state may exist in `<workspace>/new-york-city/`, `<workspace>/mem
 
 1. Use an explicitly configured path when one exists.
 2. Otherwise use the first existing directory in this order: `<workspace>/new-york-city/`, `<workspace>/memory/new-york-city/`, `~/new-york-city/`.
-3. If several candidate directories exist, use only the highest-precedence one and tell the user that separate copies were found.
-4. If none exists and the user explicitly wants continuity, create `<workspace>/new-york-city/` by default. If the host cannot provide `<workspace>`, ask for a state root before creating state.
+3. If several candidate directories exist, use only the highest-precedence one and report the separate copies.
+4. If none exists and the user explicitly wants continuity, create `<workspace>/new-york-city/` by default. If the host cannot provide `<workspace>`, request a state root before creating state.
 
-Use the selected `<state_root>` for every state operation in this invocation. Resolve existing locations before creating one; do not merge, migrate, or cross-write copies automatically.
+Use the selected `<state_root>` for every state operation in this invocation. Resolve existing locations before creation; preserve separate copies unless the user requests a migration.
 
 ## When to use
 
@@ -50,7 +50,7 @@ Classify the user's current mode—visitor, future resident, current resident, o
 ## Practical guardrails
 
 - Base neighborhood recommendations on the actual commute and late-night return path, not a borough label or landmark list.
-- Give current prices, fares, and hotel costs as verified figures or clearly labeled ranges; avoid false precision.
-- Treat borough-level guidance as general. Verify a particular block, building, route, or venue when the user needs a decision at that level.
-- Use official city, transit, airport, venue, and agency sources for unstable operational details. Send borough, ZIP, station, or airport context only when the user requests location-specific help.
-- Complete bookings or submissions only after explicit user instruction. Keep credentials, payment details, passport details, and other sensitive identifiers out of `<state_root>/`.
+- Give current prices, fares, and hotel costs as verified figures or clearly labeled ranges.
+- Treat borough-level guidance as general; verify a particular block, building, route, or venue when the user needs a decision at that level.
+- Use official city, transit, airport, venue, and agency sources for unstable operational details. Send borough, ZIP, station, or airport context only for a requested location-specific lookup.
+- Complete bookings or submissions after explicit user instruction. Keep credentials, payment details, passport details, and other sensitive identifiers out of `<state_root>/`.

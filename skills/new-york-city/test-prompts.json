@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "prompt": "I am visiting New York City for four days on a limited budget. I want iconic sights but do not want an itinerary built around Times Square. How should I choose a hotel base and plan my days?",
+    "prompt": "I am visiting New York City for four days on a limited budget. I want iconic sights with an itinerary focused beyond Times Square. How should I choose a hotel base and plan my days?",
     "expected": "Classifies the user as a visitor, asks only for relevant constraints such as airport, budget, and mobility, reads the neighborhoods and visiting references, groups days geographically, and avoids invented current prices.",
     "actual": "I would first confirm the arrival airport, nightly budget, walking tolerance, and any fixed tickets. I would then compare a transit-connected base against the user's daily anchors rather than treating Times Square as the default. The itinerary would group one landmark anchor with a nearby neighborhood block each day, keep arrival and departure days light, and use references/neighborhoods-and-bases.md plus references/visiting-and-itineraries.md before proposing specific areas. Any hotel price or attraction policy would be checked from the venue or booking source before being presented as current.",
     "pass": true
