@@ -1,6 +1,6 @@
 ---
 name: netlify-deploy
-description: Deploy, host, publish, or relink a web project on Netlify. Use for first deploys, preview deploys, production releases, monorepo deployment paths, or netlify.toml configuration.
+description: Deploy, host, publish, or relink a web project on Netlify. Use when a user requests a first deploy, preview, confirmed production release, site linking, monorepo deployment path, or netlify.toml configuration; not for generic hosting advice without Netlify.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"NET","requires":{"bins":["npx","git"]}}'
@@ -24,7 +24,7 @@ On first use, read `references/setup.md` for integration and environment checks.
 
 ## When to Use
 
-Use this skill when the user asks to deploy, host, publish, or relink a terminal-based Netlify project, including a first deploy, preview, production release, monorepo configuration, or `netlify.toml` correction.
+Use this skill when the user requests a terminal-based Netlify deployment, hosting change, site relink, preview, confirmed production release, monorepo configuration, or `netlify.toml` correction. For provider-neutral deployment planning without a Netlify operation, use the `deploy` skill instead.
 
 ## Architecture
 
@@ -43,6 +43,8 @@ Load only the resource that matches the active task.
 | Configuration examples | `references/netlify-toml.md` | Editing `netlify.toml` for builds, redirects, or environment-specific settings. |
 
 ## Core workflow
+
+Follow this sequence for an active deployment request:
 
 1. Verify authentication and the current site link with `npx netlify status` before deploying.
 2. When the project is unlinked, obtain its Git remote with `git remote get-url origin`, attempt `npx netlify link --git-remote-url <remote-url>`, and use `npx netlify init` only when no matching site is available.
