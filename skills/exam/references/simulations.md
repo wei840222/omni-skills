@@ -118,16 +118,11 @@ Related topics: VPC, Security Groups
 
 ---
 
-## Matching Real Exams
+## Matching a Real Exam
 
-| Exam | Questions | Time | Format |
-|------|-----------|------|--------|
-| AWS SAA | 65 | 130 min | MC, Multiple select |
-| AWS SAP | 75 | 180 min | MC, Multiple select |
-| PMP | 180 | 230 min | MC |
-| CCNA | 100-120 | 120 min | MC, Drag-drop |
+For a named certification, retrieve the current official exam guide before setting the question count, duration, scoring, domains, or question types. Exam blueprints change; do not infer a current format from a historical example or a certification name alone.
 
-When user says exam name, match format automatically.
+If the official guide is unavailable, run a user-defined simulation and label every format choice as an assumption. Record the source URL or the user's supplied format with the session.
 
 ---
 
