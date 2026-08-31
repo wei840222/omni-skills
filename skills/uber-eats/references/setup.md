@@ -52,4 +52,4 @@ Capture:
 - substitution preferences, promo habits, and merchants to avoid repeating
 - whether browser access frequently fails and app handoff should be the default
 
-Do not store passwords, payment details, or copied support transcripts.
+Store reusable operating preferences only; keep passwords, payment details, and copied support transcripts in their authorized surfaces.

@@ -84,7 +84,7 @@ When local notes are approved, keep only durable operating context in `<state_ro
 - favorite merchants, reorder patterns, and substitution preferences
 - issue history worth reusing, such as access-denied loops, weak promos, or frequent cancellation friction
 
-Do not store account passwords, payment card data, one-time verification codes, or full receipts with sensitive payment details.
+Store reusable preferences and operational notes only; keep account passwords, payment card data, one-time verification codes, and sensitive receipt details inside the user's authorized Uber Eats surfaces.
 
 ## Core Rules
 
@@ -102,7 +102,7 @@ Do not store account passwords, payment card data, one-time verification codes, 
 ### 3. Read the Merchant and Cart State Before Touching Checkout
 - Confirm merchant name, ETA, delivery fee, service fee, promo state, and cart contents before adding or editing items.
 - Re-read the page after every navigation or major action.
-- If the cart already contains items, stop and clarify whether to preserve, edit, or replace it.
+- If the cart already contains items, obtain a preserve, edit, or replace decision before changing it.
 
 ### 4. Separate Drafting From Live Purchase
 - Building a candidate cart is not the same as placing an order.
@@ -127,7 +127,7 @@ Do not store account passwords, payment card data, one-time verification codes, 
 ## Uber Eats Traps
 
 - Set or verify the delivery address before comparing merchants because availability and fees depend on it.
-- Do not continue browser actions on an `access denied` or anti-bot page; use the fallback procedure.
+- On an `access denied` or anti-bot page, use the fallback procedure instead of continuing browser actions.
 - Read a non-empty cart and obtain a preserve, edit, or replace decision before changing it.
 - Compare the subtotal with delivery fee, service fee, tip, and total before recommending a purchase.
 - Treat post-order address changes and cancellation eligibility as live support questions; verify the current order page before promising an outcome.
@@ -168,7 +168,7 @@ Only install and run it if you trust Uber Eats with your address, cart, payment,
 This skill helps control Uber Eats ordering through an approved live browser or app handoff, structures browse, draft-cart, live-checkout, fallback, and issue-recovery workflows, and records approved durable preferences.
 
 **Execution boundary:**
-- Never claim a live Uber Eats state without verifying it.
-- Do not promise availability, ETA, promotions, cancellation, or refund outcomes without checking the current page.
-- Do not store secrets or payment data in local state.
-- Do not modify this skill package during normal use.
+- Verify live Uber Eats state before reporting it.
+- Check the current page before making a claim about availability, ETA, promotions, cancellation, or refund outcome.
+- Keep secrets and payment data out of local state.
+- Treat this skill package as read-only during normal use.

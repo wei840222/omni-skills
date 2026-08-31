@@ -4,7 +4,7 @@ Use this when the web session is blocked, blank, or shows `access denied`.
 
 ## 1. Stabilize the Session
 
-- Do not keep clicking on a blocked page.
+- Pause browser interaction on a blocked page.
 - Re-read the title and URL first.
 - Capture one screenshot only if the user approved browser inspection.
 
@@ -12,7 +12,7 @@ Use this when the web session is blocked, blank, or shows `access denied`.
 
 - Reload once.
 - Try the market-specific locale route if the generic root is unstable.
-- If the daily browser profile looks poisoned for this session, do not continue interactions.
+- When the daily browser profile appears blocked for the session, move to app or manual handoff.
 
 ## 3. Switch to App or Manual Handoff
 
@@ -22,7 +22,7 @@ Use this when the web session is blocked, blank, or shows `access denied`.
 ## 4. Treat Support Pages as Recovery, Not Ordering
 
 - Use help pages for cancellation, address, and issue guidance.
-- Do not confuse support access with a valid checkout session.
+- Treat support access as a recovery surface, separate from a valid checkout session.
 
 ## 5. Save the Durable Lesson
 
