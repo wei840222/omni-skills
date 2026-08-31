@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm looking to buy a VR headset mostly for fitness and maybe some light gaming. I don't have a gaming PC. What do you recommend and how should I set it up?",
+    "expected": "The agent should load `references/headset-landscape.md` and `references/use-cases.md`. It should recommend the Meta Quest 3S as a budget standalone option or Quest 3 as a premium standalone option. It should provide fitness game recommendations (Supernatural, Beat Saber) and mention fitness setup tips like silicone face covers, ventilation, and space needs.",
+    "actual": "I recommend the Meta Quest 3S as an excellent budget standalone headset, or the Meta Quest 3 if you prefer a premium experience. Both do not require a PC. For fitness, you should try Supernatural, Beat Saber, and FitXR. For your setup, ensure you have enough space for arm movement, use a silicone face cover to protect against sweat, clean the headset after each session, and keep the room well-ventilated to prevent overheating and fogging.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I just got a Valve Index but I keep getting motion sick after 10 minutes. How can I fix this?",
+    "expected": "The agent should load `references/setup-and-comfort.md`. It should advise the user to start with stationary experiences, use teleport locomotion, stop at the first sign of discomfort, try a fan blowing on their face, and explain that adaptation takes 1-2 weeks.",
+    "actual": "To prevent motion sickness, stop at the first sign of discomfort and resume later with a shorter session. Start with stationary games like Beat Saber or Job Simulator instead of intense movement games. Use teleport locomotion rather than smooth locomotion initially. Pointing a real-world fan at your face can help ground you, and consuming ginger beforehand might alleviate symptoms. Most people adapt over 1-2 weeks, so keep your sessions short (10-15 minutes) and gradually build your tolerance.",
+    "pass": true
+  }
+]
