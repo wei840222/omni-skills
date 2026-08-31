@@ -7,6 +7,16 @@ metadata:
   related-skills: '{"copywriting":"Creates launch messaging for landing pages, email, and social channels.","email-marketing":"Builds the waitlist, announcement, and follow-up email sequence.","landing-page":"Designs the launch destination and its conversion path.","retention":"Defines the post-launch retention work that validates lasting adoption."}'
 ---
 
+## Core workflow
+
+1. Define the launch audience, one-sentence positioning, success bar, abort threshold, owners, and the action to pause or mitigate impact before public distribution.
+2. Build the destination, support, measurement, and operational assets; dry-run the sign-up and activation path end to end.
+3. Use a limited soft launch when product risk, switching cost, or operational uncertainty warrants validation before a wider release.
+4. During launch, release to the warmest intended audience first, monitor the agreed signals, and pause the next wave when an abort threshold is crossed.
+5. After launch, assess activation and retention against the pre-committed bar, fix confirmed friction, and plan the next audience or product iteration from evidence.
+
+Load `references/research.md` when defining limited-release scope, rollback or traffic-stop decisions, operational monitoring signals, or an incident response path.
+
 ## The arc, not the day
 
 The launch is a 2-4 week arc with three phases; the #1000 plans Day 1, the #1 plans the arc and lets Day 1 be the peak of accumulated momentum.
