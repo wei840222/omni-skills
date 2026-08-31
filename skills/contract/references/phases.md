@@ -97,7 +97,7 @@ For each clause, ask:
 - "Can counterparty interpret this against us?"
 - "What's missing that could hurt us?"
 
-See `risks.md` for common red flags.
+See `references/risks.md` for common red flags.
 
 ### Ambiguity Detection
 Flag vague terms:
@@ -142,7 +142,7 @@ If parties disagree:
 - [ ] Disclaimer included
 
 ### Human Approval Required
-**NEVER consider a contract final without explicit human confirmation.**
+**Require explicit human confirmation before considering any contract final.**
 
 "The draft is ready. Please review and confirm you want to finalize."
 
