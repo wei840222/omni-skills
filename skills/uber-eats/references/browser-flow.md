@@ -7,7 +7,7 @@ Use this flow when Uber Eats is being controlled through the user's real browser
 1. Confirm the active tab is actually Uber Eats.
 2. Read the visible title, URL, account state, and active address.
 3. If the address is missing, solve that before browsing merchants.
-4. If the page is blocked or blank, jump to `access-fallbacks.md`.
+4. If the page is blocked or blank, jump to `references/access-fallbacks.md`.
 
 ## Main Flow
 

@@ -2,7 +2,7 @@
 
 Use this when the web session is blocked, blank, or shows `access denied`.
 
-## 1. Stop Blind Interaction
+## 1. Stabilize the Session
 
 - Do not keep clicking on a blocked page.
 - Re-read the title and URL first.
@@ -12,7 +12,7 @@ Use this when the web session is blocked, blank, or shows `access denied`.
 
 - Reload once.
 - Try the market-specific locale route if the generic root is unstable.
-- If the daily browser profile looks poisoned for this session, stop before making it worse.
+- If the daily browser profile looks poisoned for this session, do not continue interactions.
 
 ## 3. Switch to App or Manual Handoff
 
