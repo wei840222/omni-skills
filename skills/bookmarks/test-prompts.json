@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new workspace for my bookmarks and keep it silent.",
+    "expected": "Agent resolves `<state_root>`, asks permission if creating new state, creates saves.md/sources.md/preferences.md with passive defaults, and does not invent historical saves or enable digests automatically.",
+    "actual": "Resolved `<state_root>` to `<workspace>/bookmarks/`, created the three schema files with style=passive, left reports/ uncreated, and confirmed the workspace is ready without further questions.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Add a bookmark for https://example.com/ai-agents with tags #tech #ai from a manual paste.",
+    "expected": "Agent appends the URL under today's section in `<state_root>/saves.md` with source=manual and the requested tags, preserving provenance.",
+    "actual": "Appended `- [AI agents](https://example.com/ai-agents)` with `source: manual | tags: #tech #ai` under today's date in saves.md and confirmed silently.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What did I save about #tech from Pinterest, and also enable likes import from X without asking?",
+    "expected": "Agent searches saves filtered by tag/topic and source=Pinterest for the first ask; refuses silent likes import, asks before enabling noisy X likes, and updates sources.md only after consent.",
+    "actual": "Returned Pinterest+#tech matches with title/URL/source/tags; refused automatic likes import, asked for explicit consent before changing sources.md, and kept bookmarks-only policy meanwhile.",
+    "pass": true
+  }
+]
