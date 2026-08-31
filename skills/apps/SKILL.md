@@ -43,6 +43,7 @@ Persistent preference data lives under the resolved `<state_root>` only after th
 | State-file templates | `assets/memory-template.md` | Creating or repairing approved local app-tracking files |
 | Category guide | `references/categories.md` | Narrowing a recommendation by category |
 | Comparison framework | `references/compare.md` | Comparing two or more apps |
+| Privacy and source map | `references/sources.md` | Verifying current privacy disclosures, pricing, availability, or terms |
 
 ## Scope
 
@@ -89,7 +90,7 @@ Compare apps serving the same primary job, use the criteria in `references/compa
 
 ### 6. Be explicit about freshness
 
-Feature availability, prices, subscription terms, store availability, and privacy disclosures can change. Verify material current details before presenting them as facts; when verification is unavailable, label the detail as unverified rather than guessing.
+Feature availability, prices, subscription terms, store availability, and privacy disclosures can change. Read `references/sources.md`, then verify material current details from the app vendor and relevant store listing before presenting them as facts. When verification is unavailable, label the detail as unverified rather than guessing.
 
 ## High-signal checks
 
