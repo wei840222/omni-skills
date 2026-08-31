@@ -25,3 +25,10 @@ Use the synchronization primitive that expresses the ownership and publication r
 ## Initialization cleanup
 
 Track each successfully acquired resource and unwind in reverse acquisition order when a later initialization step fails. Structure the error path so every cleanup operation corresponds to a completed setup operation, then verify both the partial-failure path and the normal unload or teardown path.
+
+## Primary sources
+
+- Linux kernel locking types: https://docs.kernel.org/locking/locktypes.html
+- Linux kernel memory allocation guide: https://docs.kernel.org/core-api/memory-allocation.html
+- Linux kernel memory barriers: https://docs.kernel.org/core-api/wrappers/memory-barriers.html
+- Linux kernel core API reference: https://docs.kernel.org/core-api/kernel-api.html
