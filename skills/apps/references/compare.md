@@ -28,8 +28,8 @@ When comparing apps, evaluate on these dimensions:
 | Subscription | Continuous development | Ongoing cost, can add up |
 
 ### Privacy & Data
-- Data collection practices
-- Where data is stored
+- Data collection practices (e.g., Apple's App Tracking Transparency labels)
+- Where data is stored (local vs cloud)
 - Export options
 
 ### Longevity
