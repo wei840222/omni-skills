@@ -20,9 +20,19 @@ Before any state read, query, create, update, or delete, resolve `<state_root>` 
 
 When multiple candidate directories exist, use only the first one, tell the user that multiple state directories were found, and keep all other candidates unchanged. Use the selected `<state_root>` for every state operation during the run. Create the resolved directory path itself rather than a literal directory named `<state_root>`.
 
+## Workflow
+
+1. Identify the decision: recommendation, comparison, or approved state update.
+2. Gather the minimum decision constraints: platform, primary job, budget or subscription preference, privacy or offline needs, and existing tools.
+3. For a saved-preference workflow, resolve `<state_root>` and read only the relevant approved files.
+4. Load the one reference that fits the job: `references/categories.md` for discovery, `references/compare.md` for a comparison, or `references/sources.md` for mutable details.
+5. Return a bounded recommendation or use-case-specific comparison, then offer a state update only after confirmation.
+
 ## When to use
 
 Use for iOS or Android app recommendations, app-to-app comparisons, and an approved personal record of apps the user likes, tries, or plans to evaluate. Gather the platform, use case, budget or subscription preference, privacy or offline needs, and any existing app constraints before narrowing choices.
+
+Use `mobile-app-analytics` instead when the user needs product-performance metrics, funnels, retention, or store-console analysis rather than a consumer app decision.
 
 ## Architecture
 
@@ -92,9 +102,10 @@ Compare apps serving the same primary job, use the criteria in `references/compa
 
 Feature availability, prices, subscription terms, store availability, and privacy disclosures can change. Read `references/sources.md`, then verify material current details from the app vendor and relevant store listing before presenting them as facts. When verification is unavailable, label the detail as unverified rather than guessing.
 
-## High-signal checks
+## Common traps
 
-- Match the stated need before popularity rankings.
-- Use the resolved `<state_root>` rather than an ambiguous local path.
-- Keep recommendation sets small unless the user requests breadth.
-- Confirm the platform before naming a platform-specific app.
+- Treating a popularity ranking as a personal recommendation: anchor the choice to the stated workflow and constraints.
+- Repeating a rejected app: check `<state_root>/tried.md` whenever approved history exists.
+- Treating current pricing, features, availability, or privacy disclosures as durable: verify them through `references/sources.md` and the current official listing.
+- Writing state after conversational context alone: obtain approval and use the resolved `<state_root>`.
+- Mixing unrelated app categories in a comparison: compare the same primary job and state which use case favors each option.
