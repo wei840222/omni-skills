@@ -3,10 +3,10 @@ name: contract
 description: Draft initial contracts from scratch through guided discovery, risk analysis, and clause generation. Trigger when users want to write, create, or draft a new legal agreement. Do not trigger for reviewing or managing existing signed contracts.
 license: MIT
 compatibility: markdown
-allowed-tools: null
 metadata:
-  openclaw: '{"emoji":"📜"}'
-  related-skills: '{"contracts":"Manage existing finalized contracts"}'
+  version: "1.0.1"
+  openclaw: '{"emoji":"📜","displayName":"Contract"}'
+  related-skills: '{"contracts":"Manage existing finalized contracts rather than drafting new agreements from scratch."}'
 ---
 
 ## Role
