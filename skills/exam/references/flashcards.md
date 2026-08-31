@@ -55,21 +55,23 @@ Back: Full diagram with labels
 
 ## Spaced Repetition
 
-### Algorithm (SM-2 simplified)
+### SM-2-compatible example
 After each review, user rates:
 - **Again (1)** — Reset interval to 1 day
 - **Hard (2)** — Interval × 1.2
 - **Good (3)** — Interval × 2.5
 - **Easy (4)** — Interval × 3.0
 
-### Intervals
-| Rating | Next Review |
-|--------|-------------|
-| New card | 1 day |
-| Again | 1 day |
-| Hard | Previous × 1.2 |
-| Good | Previous × 2.5 |
-| Easy | Previous × 3.0 |
+### Scheduling boundary
+Use the learner's selected scheduler for due dates. If using SM-2-compatible logic, read `references/learning-methods.md` for the source and avoid representing the simplified table below as a complete implementation.
+
+| Rating | Illustrative next-review treatment |
+|--------|-----------------------------------|
+| New card | Schedule an initial short-interval review |
+| Again | Return the card to an early review interval |
+| Hard | Use a smaller interval increase |
+| Good | Use the normal interval increase |
+| Easy | Use a larger interval increase |
 
 ### Daily Queue
 1. Due cards first (overdue prioritized)
@@ -127,20 +129,19 @@ How well did you know this?
 ## Best Practices
 
 **Creating cards:**
-- One fact per card
-- Keep fronts short
-- Use open-ended questions
-- Include context when needed
-- Add images for visual concepts
+- Put one retrievable idea on each card.
+- Keep the prompt short while retaining needed context.
+- Prefer a prompt that requires recall over a yes/no recognition check.
+- Add an image when it supplies essential visual information.
 
 **Reviewing:**
-- Daily sessions (even 5 minutes)
-- Be honest with ratings
-- Limit the addition of new cards to a manageable amount per day
-- Review weak topics more
+- Schedule a sustainable review session.
+- Rate recall honestly so the scheduler receives useful data.
+- Add new cards at a rate the learner can maintain.
+- Allocate additional practice to weak topics.
 
 **Maintenance:**
-- Delete cards you've mastered
-- Update outdated information
-- Merge similar cards
-- Tag for easy filtering
+- Retire cards that no longer serve the learning goal.
+- Correct outdated information.
+- Consolidate duplicates.
+- Tag cards for retrieval and filtering.

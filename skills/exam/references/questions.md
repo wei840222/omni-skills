@@ -38,11 +38,11 @@ Answer: B
 Explanation: {Why B is correct, why others are wrong}
 ```
 
-**Distractor quality matters:**
-- Should be plausible to someone who doesn't know
-- Test common misconceptions
-- Similar length to correct answer
-- Ensure options are subtle (exclude absolute terms like "always" or "never" unless intentional)
+**Distractor quality:**
+- Make each distractor plausible to a learner who has a relevant misconception.
+- Test a specific misconception rather than superficial attention.
+- Keep options comparable in length and grammatical form.
+- Use absolute terms only when the source material makes the absolute claim true.
 
 ### Short Answer
 ```
@@ -93,20 +93,20 @@ Glacier Flexible allows hours retrieval at lower cost than IA.
 
 ---
 
-## Ensuring Good Questions
+## Quality check
 
-❌ **Ambiguous:** "Describe databases" (too vague)
-❌ **Trivial:** "Is SQL a language?" (yes/no, no learning)
-❌ **Trick questions:** Testing attention, not knowledge
-❌ **Double negatives:** "Which is NOT incorrect?"
-❌ **All of the above:** Lazy question design
+Before presenting a question, verify that it has one defensible answer from the supplied material, a stated difficulty target, and feedback that explains the relevant concept. Use direct wording and a single knowledge target per item.
 
-✅ **Good questions:**
-- One clear correct answer
-- Test understanding, not memorization
-- Plausible distractors
-- Appropriate difficulty
-- Actionable feedback on wrong answers
+### Patterns to replace
+
+| Replace this pattern | With this pattern |
+|----------------------|-------------------|
+| A broad prompt such as "Describe databases" | A bounded task with an expected scope and scoring criteria |
+| A yes/no fact check | A retrieval or application prompt that exposes understanding |
+| A trick, double-negative, or attention test | A direct question that measures the intended concept |
+| "All of the above" | Distinct, independently plausible options |
+
+Good questions use plausible distractors, an appropriate difficulty level, and actionable feedback for an incorrect answer.
 
 ---
 
