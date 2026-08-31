@@ -65,7 +65,7 @@ Agent should track last-studied date per chapter and remind for review.
 ### After Test
 - Same day: Review wrong answers, categorize mistakes
 - Next day: Re-attempt wrong questions without looking at solutions
-- Track patterns in `~/Clawic/data/jee/mistakes/`
+- Track patterns in `<state_root>/jee/mistakes/`
 
 ## Chapter Prioritization Matrix
 

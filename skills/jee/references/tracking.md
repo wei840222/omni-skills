@@ -1,6 +1,6 @@
 # Progress Tracking System
 
-## Profile Setup (`~/Clawic/data/jee/profile.md`)
+## Profile Setup (`<state_root>/jee/profile.md`)
 
 ```markdown
 ## Basic Info
@@ -21,7 +21,7 @@
 - Board Exams: 2026-02-XX to 2026-03-XX
 ```
 
-## Chapter-Wise Tracking (`~/Clawic/data/jee/subjects/`)
+## Chapter-Wise Tracking (`<state_root>/jee/subjects/`)
 
 Structure:
 ```
@@ -55,7 +55,7 @@ Each chapter file:
 | 01-08 | PYQ 2020-24 | 15 | 10 | 45m |
 ```
 
-## Mock Test Logging (`~/Clawic/data/jee/mocks/`)
+## Mock Test Logging (`<state_root>/jee/mocks/`)
 
 ```markdown
 ## Mock Test - 2026-01-15
@@ -80,7 +80,7 @@ Each chapter file:
 | Math | 4 | 3 | 2 | 1 |
 ```
 
-## Mistake Pattern Tracking (`~/Clawic/data/jee/mistakes/`)
+## Mistake Pattern Tracking (`<state_root>/jee/mistakes/`)
 
 ```markdown
 ## Recurring Mistakes
