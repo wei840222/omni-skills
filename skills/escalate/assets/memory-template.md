@@ -1,6 +1,6 @@
 # Memory Template - Escalate
 
-Create `~/Clawic/data/escalate/memory.md` with this structure:
+Create `<state_root>/escalate/memory.md` with this structure:
 
 ```markdown
 # Escalate Memory
@@ -9,7 +9,7 @@ Create `~/Clawic/data/escalate/memory.md` with this structure:
 status: ongoing
 version: 1.0.1
 last: YYYY-MM-DD
-integration: pending | complete | paused | never_ask
+integration: pending | complete | paused | skip_asking
 
 ## Activation Rules
 - When this skill should auto-activate
@@ -44,13 +44,13 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | Setup still evolving | Keep learning where autonomy helps vs hurts |
 | `complete` | Stable escalation baseline | Reuse saved boundaries aggressively |
 | `paused` | User wants less setup friction | Ask only when a real boundary matters |
-| `never_ask` | User does not want setup prompts | Do not reopen setup unless asked |
+| `skip_asking` | User does not want setup prompts | Keep setup closed unless explicitly asked |
 
 ## Local Files to Initialize
 
 ```bash
-mkdir -p ~/Clawic/data/escalate/domains
-touch ~/Clawic/data/escalate/{memory.md,decisions.md}
+mkdir -p <state_root>/escalate/domains
+touch <state_root>/escalate/{memory.md,decisions.md}
 ```
 
 ## Template for the Decisions Log
@@ -66,6 +66,6 @@ touch ~/Clawic/data/escalate/{memory.md,decisions.md}
 ## Rules
 
 - Keep memory in natural language, not raw policy dumps.
-- Store durable boundaries in `~/Clawic/data/escalate/memory.md`, recent judgment calls in `~/Clawic/data/escalate/decisions.md`, and domain-specific exceptions in `~/Clawic/data/escalate/domains/`.
+- Store durable boundaries in `<state_root>/escalate/memory.md`, recent judgment calls in `<state_root>/escalate/decisions.md`, and domain-specific exceptions in `<state_root>/escalate/domains/`.
 - Update `last` after each meaningful escalation session.
-- Never persist credentials, secrets, or copied third-party private data.
+- Only store safe, non-sensitive configuration data. Exclude credentials, secrets, or copied third-party private data.

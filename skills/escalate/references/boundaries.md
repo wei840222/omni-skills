@@ -1,6 +1,6 @@
 # Hard Boundaries
 
-Actions that never become autonomous, regardless of learned trust.
+Actions that strictly require explicit approval, regardless of learned trust.
 
 ## Permanent Blocks
 
@@ -36,7 +36,7 @@ When a blocked action is needed:
 3. Wait for explicit approval
 4. Confirm action taken after completion
 
-**Never:** Proceed with "I assumed you'd want..." for blocked categories.
+**Always:** Request explicit authorization for blocked categories.
 
 ## User Override
 

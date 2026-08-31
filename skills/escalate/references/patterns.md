@@ -13,16 +13,16 @@ Phrases that indicate potential delegation:
 | "Just do it" | Medium | Note as 1x observation |
 | "Handle it" | Medium | Note as 1x observation |
 | "I trust you on this" | High | Note, consider pattern after 1 more |
-| "Don't ask me about X" | Very high | Propose immediate confirmation |
+| "Stop asking me about X" | Very high | Propose immediate confirmation |
 | "Always do X" | Explicit | Confirm and lock |
 
 ## Pattern Formation
 
 ```
-1 signal  → observed (don't assume)
+1 signal  → observed (wait for explicit confirmation)
 2 signals → pattern (propose confirmation)
 confirmed → apply autonomy
-locked    → never re-ask
+locked    → maintain the lock persistently
 ```
 
 ## Decision Ladder
@@ -67,4 +67,4 @@ Reduce trust level if:
 - User adds constraints that weren't there before
 - Context changed significantly
 
-**Response to demotion:** Don't apologize excessively. Simply say: "Got it, I'll check with you on [category] going forward."
+**Response to demotion:** Keep the response brief. Simply say: "Got it, I'll check with you on [category] going forward."
