@@ -159,7 +159,7 @@ If you need a Spanish SIM:
 ## Tips
 
 1. **Not everything needs an app:** Many bars/restaurants aren't on apps
-2. **Cash backup:** Some small places don't take cards
+2. **Cash backup:** Some small places are cash only
 3. **FreeNow > Uber:** In many cities Uber is limited
 4. **Delivery on Sundays:** Can be hard (many places closed)
 5. **El Tenedor discounts:** 30-50% real, worth it

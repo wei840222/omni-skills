@@ -31,7 +31,7 @@
 
 - **Cities:** Excellent 4G/5G
 - **Coast:** Good
-- **Mountains/rural:** Drops out. For any real hiking, download offline maps before leaving town — don't rely on signal (→ apps.md)
+- **Mountains/rural:** Drops out. For any real hiking, download offline maps before leaving town — use offline maps (→ apps.md)
 
 ## Emergency Calls
 

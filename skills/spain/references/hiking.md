@@ -140,7 +140,7 @@
 2. **Return time** before dark
 3. **Weather** can change fast in the mountains
 4. **Water** always more than you think
-5. **Phone** charged but don't rely on coverage
+5. **Phone** charged but expect limited coverage and use offline maps
 6. **112** for emergencies (works without coverage sometimes)
 
 ## Restrictions

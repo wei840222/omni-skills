@@ -15,7 +15,7 @@
 **Capital:** Barcelona | **Character:** Industry, design, own identity
 
 - **Catalan** is co-official. Bilingual signage. They reply in Castilian if you speak it.
-- **Politically sensitive topic.** Don't opine on independence unless asked.
+- **Politically sensitive topic.** Opine on independence only if asked.
 - **Barcelona city** = mass tourism. Costa Brava and the Pyrenees are quieter.
 - **To eat:** Pa amb tomàquet, escalivada, calçots (January-March), cava.
 - **Tip:** Sagrada Família from outside is free. Park Güell upper part free. Casa Amatller free.
@@ -42,7 +42,7 @@
 ### Valencia (Community)
 **Capital:** Valencia | **Character:** Mediterranean, paella, Fallas
 
-- **Paella is eaten AT MIDDAY.** Never for dinner. It's rice, not paella, if it has chorizo.
+- **Paella is eaten AT MIDDAY.** Eat paella at midday only. It's rice, not paella, if it has chorizo.
 - **Horchata** is only authentic here. Horchatería Daniel in Alboraia.
 - **Fallas (March)** are total chaos: firecrackers 24/7, everything burned on the 19th. Incredible but exhausting.
 - **Valencian** is co-official (similar to Catalan).

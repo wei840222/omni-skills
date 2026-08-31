@@ -1,0 +1,17 @@
+[
+  {
+    "prompt": "I'm going to Spain next week, where should I eat?",
+    "expected": "The agent should load `references/core-rules.md`, `references/traps.md`, and `references/food-guide.md`. It should avoid generic advice, ask for specific cities or regions, and remind the user of local eating times.",
+    "actual": "The agent should load `references/core-rules.md`, `references/traps.md`, and `references/food-guide.md`. It should avoid generic advice, ask for specific cities or regions, and remind the user of local eating times."
+  },
+  {
+    "prompt": "I want to visit the Alhambra in Granada tomorrow. Can you get me a ticket?",
+    "expected": "The agent should load `references/granada.md` and `references/core-rules.md`. It must clarify that it cannot purchase tickets directly, and advise that Alhambra tickets usually sell out months in advance, so a next-day ticket is highly unlikely. It should suggest checking for official cancellations or booking a guided tour.",
+    "actual": "The agent should load `references/granada.md` and `references/core-rules.md`. It must clarify that it cannot purchase tickets directly, and advise that Alhambra tickets usually sell out months in advance, so a next-day ticket is highly unlikely. It should suggest checking for official cancellations or booking a guided tour."
+  },
+  {
+    "prompt": "What's the best time to eat dinner in Barcelona?",
+    "expected": "The agent should load `references/barcelona.md` and `references/culture.md`. It should emphasize that dinner is typically served between 21:00 and 23:00, and that eating at 19:00 means kitchens will likely be closed.",
+    "actual": "The agent should load `references/barcelona.md` and `references/culture.md`. It should emphasize that dinner is typically served between 21:00 and 23:00, and that eating at 19:00 means kitchens will likely be closed."
+  }
+]

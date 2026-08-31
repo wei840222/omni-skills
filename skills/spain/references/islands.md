@@ -46,7 +46,7 @@ Two archipelagos, opposite logic: Balearics = Mediterranean summer islands (much
 
 | Trap | Do instead |
 |------|-----------|
-| Boat-party or club tickets sold on the street | Official channels; street tickets oversell or don't exist |
+| Boat-party or club tickets sold on the street | Official channels; street tickets oversell or are often fraudulent |
 | Driving to Es Trenc or Cala Macarella at noon in August | Arrive 9am or take the bus/boat options |
 | All-inclusive resort keeping you inside | The food you came for is in the villages — get out at least for lunches |
 | Booking Menorca or Formentera in November expecting summer services | Half of everything is shut; go for silence or change island |

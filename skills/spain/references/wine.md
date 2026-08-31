@@ -124,7 +124,7 @@
 ## Visits (Tips)
 
 ### Booking
-**Always book.** Many wineries don't accept walk-ins.
+**Always book.** Many wineries require advance booking.
 - Winery website
 - Email
 - Phone (Spanish)

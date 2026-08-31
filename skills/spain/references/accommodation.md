@@ -93,7 +93,7 @@ Hotels in historic buildings (castles, monasteries, palaces).
 - Short trip
 - You want breakfast
 - You prefer service
-- You don't want any hassle
+- You prefer a hassle-free experience
 
 **Platforms:** Booking, Airbnb (regulated/banned in some cities), Vrbo.
 
