@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this Linux driver path: spin_lock(&lock); buf = kmalloc(256, GFP_KERNEL); spin_unlock(&lock);",
+    "expected": "Identifies a potentially sleepable GFP_KERNEL allocation in a spinlock-protected atomic section and recommends moving the allocation before the lock or using a failure-aware non-blocking allocation only when the context requires it.",
+    "actual": "The skill routes this to the context-and-allocation trap, requires confirming context and active locks, and gives the two bounded remediation paths with failure-path testing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A module init routine registers a device, allocates a workqueue, then fails requesting an IRQ. What cleanup should the patch add?",
+    "expected": "Tracks only completed acquisitions, unwinds the workqueue and device registration in reverse order, and validates injected partial-initialization failure handling.",
+    "actual": "The skill's initialization-cleanup guidance specifies completed-resource tracking, reverse-order teardown, and exercising the injected-failure path before accepting the repair.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is memcpy(kbuf, user_ptr, size) safe after kmalloc in a syscall handler?",
+    "expected": "Rejects direct user-pointer access, uses a uaccess helper, checks the nonzero uncopied-byte result, and considers whether the call context permits a faulting copy.",
+    "actual": "The user-memory reference and trap direct the reviewer to copy through uaccess helpers, treat a nonzero result as incomplete, and establish the permitted execution context.",
+    "pass": true
+  }
+]

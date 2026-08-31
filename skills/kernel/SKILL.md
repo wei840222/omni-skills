@@ -1,46 +1,24 @@
 ---
 name: kernel
-slug: kernel
-version: 1.0.0
-description: Avoid common Linux kernel mistakes — atomic context violations, allocation failures, and locking traps.
-homepage: https://clawic.com/skills/kernel
+description: Diagnose and prevent Linux kernel development faults involving execution context, memory allocation, user-memory access, locking, memory ordering, or module error cleanup. Use when reviewing or debugging kernel C code, driver code, kernel panics, lockups, or warnings such as sleeping-in-atomic-context.
 metadata:
-  clawdbot:
-    emoji: "✨"
-    displayName: Kernel
+  version: "1.0.0"
+  openclaw: '{"emoji":"🐧"}'
 ---
 
-## Atomic Context Traps
-- `spin_lock` held = cannot sleep — no `kmalloc(GFP_KERNEL)`, no `mutex_lock`, no `copy_from_user`
-- Interrupt can take same spinlock — must use `spin_lock_irqsave`, not plain `spin_lock`
-- `rcu_read_lock()` section cannot sleep — no blocking calls inside RCU read-side
-- `might_sleep()` annotation — add to functions that may sleep, catches bugs with `CONFIG_DEBUG_ATOMIC_SLEEP`
+## State location
 
-## Allocation Failures
-- `GFP_ATOMIC` can return NULL — always check, don't assume success
-- `vmalloc` memory not physically contiguous — cannot use for DMA
-- `kzalloc` over `kmalloc` — uninitialized memory leaks kernel info to userspace
-- Allocation in loop risks OOM — preallocate or use memory pool
+This skill is stateless. Keep diagnosis artifacts in the host project's approved issue tracker or notes rather than in the skill package.
 
-## User Pointer Handling
-- `copy_from_user` returns bytes NOT copied — 0 means success, not failure
-- Never use `%s` with user pointer in printk — kernel crash or info leak
-- User memory can change during syscall — copy to kernel buffer, validate the copy
-- `__user` annotation is documentation — doesn't enforce anything, you must use copy functions
+## Core triage
 
-## Memory Ordering
-- `READ_ONCE`/`WRITE_ONCE` for lockless shared data — prevents compiler from caching/reordering
-- Spinlock release has implicit barrier — but check-then-act patterns still need care
-- `smp_wmb()` before publishing pointer — ensures data visible before pointer is
+Choose the reference by task: use `kernel-basics.md` to establish a rule; use `kernel-traps.md` to turn an observed failure into a repair and verification plan.
 
-## Module Error Paths
-- Init fails midway — must undo everything already done
-- Reverse order cleanup — unregister in opposite order of register
-- `goto err_*` pattern standard — cleaner than nested ifs
-- Check what's actually initialized — don't free/unregister what wasn't set up
+1. Capture the affected kernel version, configuration, call path, execution context, active locks, and whether the path can run in hard IRQ, softirq, or process context.
+2. Load `references/kernel-basics.md` for context, allocation, user-memory, ordering, and cleanup rules that apply to the finding.
+3. Load `references/kernel-traps.md` when reviewing a patch or diagnosing a warning, panic, lockup, or failed initialization path.
+4. State the violated invariant, identify the smallest safe code change, and name the verification method: a targeted test, relevant lockdep/KASAN/KCSAN configuration, or a focused code-path review.
 
-## Locking Mistakes
-- Same lock acquired twice = deadlock — even in different functions
-- Inconsistent lock ordering — document order, acquire in same sequence everywhere
-- `mutex_trylock` returns 1 on success — opposite of `pthread_mutex_trylock`
-- Reader-writer locks rarely worth it — contention overhead usually exceeds benefit
+## Review output
+
+For each finding, report the execution context, the relevant API contract, the unsafe pattern, a concrete replacement, and any architecture-specific or PREEMPT_RT caveat. Keep uncertain conclusions conditional on the kernel configuration and call path.
