@@ -1,0 +1,12 @@
+[
+  {
+    "prompt": "I can't get Prettier to run on save for my JS files in VSCode. It just uses the default one instead. How do I fix it?",
+    "expected": "The agent should load `references/traps.md` and `references/configuration.md`, explain that the global `editor.defaultFormatter` is being overridden, and configure `[javascript]` specific formatting settings to use Prettier.",
+    "actual": ""
+  },
+  {
+    "prompt": "I'm setting up a new project. Should I commit `.vscode/settings.json`?",
+    "expected": "The agent should load `references/experts.md`, explain the nuances of committing settings versus relying on `.editorconfig` and workspace configs, and ask if the user's project already uses tool-level config files.",
+    "actual": ""
+  }
+]
