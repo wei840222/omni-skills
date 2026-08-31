@@ -1,41 +1,32 @@
-# Setup - Netlify Deploy
+# Setup — Netlify Deploy
 
-Read this when the user first asks to deploy with Netlify and project context is still unknown.
+Read this reference when a user first requests a Netlify deployment and the project context is unknown.
 
-## Integration First
+## Discover the project
 
-In the first exchange, confirm activation behavior:
-- Should this skill activate whenever they mention Netlify deploys?
-- Should production deploys always require explicit confirmation?
-- Is there a default repository or folder to assume?
+Before proposing deploy commands, establish:
 
-Store integration preferences in main memory.
+- package manager and declared build command;
+- publish directory;
+- single-app versus monorepo layout;
+- whether the site is already linked;
+- whether the user has requested a preview or production release.
 
-## Environment Discovery
+## First safe execution
 
-Before proposing commands, establish:
-- Package manager in use (npm, pnpm, yarn)
-- Build command and publish directory
-- Whether the project is a monorepo or single app
-- Whether the site is already linked in Netlify
+1. Run `npx netlify status`.
+2. If authentication is needed, run `npx netlify login` and check status again.
+3. If the project has a Git remote, run `git remote get-url origin` and attempt `npx netlify link --git-remote-url <remote>`.
+4. Use `npx netlify init` only when a matching site cannot be linked.
+5. Run the project's local build and verify the publish directory.
+6. Create a preview with `npx netlify deploy`. Run `npx netlify deploy --prod` only after an explicit production request or readiness confirmation.
 
-## Safe First Execution
+## Save preferences only when useful
 
-For initial command flow:
-1. `npx netlify status`
-2. `git remote get-url origin` (if repo exists)
-3. `npx netlify link --git-remote-url <remote>` or `npx netlify init`
-4. `npx netlify deploy` (preview first)
+When a user asks to retain deployment defaults, record them in `<state_root>/memory.md`:
 
-Use production deploy only after explicit user confirmation.
+- preferred deploy mode;
+- frequent project paths and publish directories;
+- team constraints such as a required preview review.
 
-## What to Persist
-
-In `~/Clawic/data/netlify-deploy/memory.md`, keep:
-- Preferred default deploy mode (preview first or prod-first by request)
-- Frequent project paths and common publish directories
-- Team-specific release constraints (for example: required preview review)
-
-## Completion Signal
-
-Setup is effectively complete once auth works, site linking is reliable, and one preview deploy succeeds with a valid URL.
+The setup is complete once authentication works, linking is reliable, and one preview deploy returns a valid URL.

@@ -1,6 +1,8 @@
-# netlify.toml Quick Reference
+# `netlify.toml` Quick Reference
 
-## Minimal Config
+Load this reference when configuring build settings, redirects, deploy contexts, or Edge Functions. Netlify uses `netlify.toml` to describe build and deploy configuration; keep sensitive values in Netlify environment-variable settings instead of committing them to this file.
+
+## Minimal build configuration
 
 ```toml
 [build]
@@ -8,7 +10,7 @@
   publish = "dist"
 ```
 
-## SPA Fallback
+## SPA fallback
 
 ```toml
 [[redirects]]
@@ -17,7 +19,7 @@
   status = 200
 ```
 
-## Context Overrides
+## Deploy-context overrides
 
 ```toml
 [context.production]
@@ -27,17 +29,7 @@
   command = "npm run build:preview"
 ```
 
-## Environment Variables
-
-```toml
-[build.environment]
-  NODE_VERSION = "20"
-
-[context.production.environment]
-  NODE_ENV = "production"
-```
-
-## Monorepo Base Directory
+## Monorepo base directory
 
 ```toml
 [build]
@@ -46,18 +38,18 @@
   publish = "dist"
 ```
 
-## Common Framework Publish Directories
+## Edge Functions
 
-- Vite / React: `dist`
-- Vue: `dist`
-- Astro: `dist`
-- SvelteKit static adapter: `build`
-- Static HTML: project root or configured directory
+```toml
+[[edge_functions]]
+  path = "/api/*"
+  function = "hello"
+```
 
-## Validation Command
+## Validate before release
 
 ```bash
 npx netlify build --dry
 ```
 
-Use this before first production deploy to catch config issues early.
+Use the project's actual build and publish values; framework defaults are starting points, not proof of the correct output directory.

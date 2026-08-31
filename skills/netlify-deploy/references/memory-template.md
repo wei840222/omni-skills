@@ -1,13 +1,12 @@
-# Memory Template - Netlify Deploy
+# Deployment Preference Template
 
-Create `~/Clawic/data/netlify-deploy/memory.md` with this structure:
+Read this reference only when initializing or updating saved Netlify deployment preferences. Create `<state_root>/memory.md` only after confirming the user wants these preferences retained.
 
 ```markdown
-# Netlify Deploy Memory
+# Netlify Deploy Preferences
 
 ## Status
 status: ongoing
-version: 1.0.0
 last: YYYY-MM-DD
 integration: pending
 
@@ -22,20 +21,17 @@ integration: pending
 
 ## Constraints
 - Required approval gates before `--prod`
-- Any environment variable or branch rules
+- Environment-variable or branch rules
 
 ## Notes
 - Observed preferences from real usage
-
----
-*Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
-|-------|---------|----------|
-| `ongoing` | Still learning defaults | Keep collecting deploy patterns |
-| `complete` | Core defaults known | Execute with minimal clarification |
-| `paused` | User postponed setup details | Use safe defaults and avoid extra setup prompts |
-| `never_ask` | User does not want setup questions | Operate with explicit per-task confirmations |
+|---|---|---|
+| `ongoing` | Defaults are still being learned. | Continue collecting confirmed deployment patterns. |
+| `complete` | Core defaults are known. | Use defaults while preserving per-release confirmation. |
+| `paused` | Setup details are deferred. | Use safe task-specific defaults. |
+| `never_ask` | Setup questions are unwanted. | Use explicit per-task confirmations instead. |
