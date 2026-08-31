@@ -1,6 +1,6 @@
 ---
 name: new-york-city
-description: Navigate New York City visits, relocation, neighborhood selection, transit, housing, food, work, and daily logistics. Use when a user needs borough-specific NYC guidance, an itinerary, a move or commute decision, or local practical advice.
+description: Plan NYC visits, moves, neighborhood choices, transit, housing, food, and work routines. Use for borough-specific itineraries, commutes, relocation, airport transfers, or practical local decisions; not for a generic multi-destination trip.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🗽"}'
@@ -20,7 +20,7 @@ Use the selected `<state_root>` for every state operation in this invocation. Re
 
 ## When to use
 
-Use this skill for NYC-specific decisions that generic travel or relocation advice misses: selecting a borough or neighborhood, planning a visit, moving into the city, designing a commute, using transit or airports, avoiding low-value tourist routing, and choosing a practical work or study base.
+Use this skill for NYC-specific decisions that generic travel or relocation advice misses: selecting a borough or neighborhood, planning a visit, moving into the city, designing a commute, using transit or airports, avoiding low-value tourist routing, and choosing a practical work or study base. For a generic multi-destination trip, use the `travel` skill instead.
 
 Classify the user's current mode—visitor, future resident, current resident, or work/study—then anchor advice to borough, neighborhood, budget, schedule, and commute. Ask only for the next missing detail that materially changes the recommendation.
 
