@@ -12,6 +12,8 @@ This skill is stateless. Keep diagnosis artifacts in the host project's approved
 
 ## Core triage
 
+Choose the reference by task: use `kernel-basics.md` to establish a rule; use `kernel-traps.md` to turn an observed failure into a repair and verification plan.
+
 1. Capture the affected kernel version, configuration, call path, execution context, active locks, and whether the path can run in hard IRQ, softirq, or process context.
 2. Load `references/kernel-basics.md` for context, allocation, user-memory, ordering, and cleanup rules that apply to the finding.
 3. Load `references/kernel-traps.md` when reviewing a patch or diagnosing a warning, panic, lockup, or failed initialization path.
