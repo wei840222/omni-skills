@@ -1,134 +1,56 @@
 ---
 name: new-york-city
-slug: new-york-city
-version: 1.0.0
-description: Navigate New York City for visits, moves, neighborhoods, transit, housing, food, work, and daily street-level decisions.
-homepage: https://clawic.com/skills/new-york-city
-changelog: Initial release with borough-aware guidance for visits, moves, transit, neighborhoods, and daily city logistics.
+description: Plan NYC visits, moves, neighborhood choices, transit, housing, food, and work routines. Use for borough-specific itineraries, commutes, relocation, airport transfers, or practical local decisions; not for a generic multi-destination trip.
 metadata:
-  clawdbot:
-    emoji: 🗽
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/new-york-city/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/new-york-city/
-    displayName: New York City
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/new-york-city/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🗽"}'
+  related-skills: '{"booking":"Handles accommodation comparisons, cancellation terms, and reservation completion after an NYC stay has been selected.","business":"Extends NYC work, startup, and business-location choices into broader business strategy.","car-rental":"Covers rental-car decisions when an airport pickup or trip beyond NYC makes a car appropriate.","health-insurance":"Provides detailed coverage comparisons when a move or job change raises insurance questions.","travel":"Provides cross-destination travel planning and standing travel records beyond NYC-specific routing."}'
 ---
 
-## When to Use
+## State location
 
-User needs New York City guidance that generic travel or relocation advice usually gets wrong: choosing a borough or neighborhood, planning a visit, moving into the city, handling transit, avoiding tourist traps, or making housing and commute decisions that only work in NYC.
+NYC continuity state may exist in `<workspace>/new-york-city/`, `<workspace>/memory/new-york-city/`, or `~/new-york-city/`. Before reading or writing state, resolve `<state_root>` as follows:
 
-This skill should activate for four modes: visiting New York City, moving to New York City, living in New York City, and working or studying in New York City.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/new-york-city/`, `<workspace>/memory/new-york-city/`, `~/new-york-city/`.
+3. If several candidate directories exist, use only the highest-precedence one and report the separate copies.
+4. If none exists and the user explicitly wants continuity, create `<workspace>/new-york-city/` by default. If the host cannot provide `<workspace>`, request a state root before creating state.
 
-## Architecture
+Use the selected `<state_root>` for every state operation in this invocation. Resolve existing locations before creation; preserve separate copies unless the user requests a migration.
 
-This skill works statelessly for one-off New York City questions. If the user wants continuity across sessions, memory lives in `~/Clawic/data/new-york-city/`. If `~/Clawic/data/new-york-city/` does not exist, read `setup.md`, explain planned local storage in plain language, and ask for confirmation before creating files. See `memory-template.md` for structure.
+## When to use
 
-```text
-~/Clawic/data/new-york-city/
-└── memory.md     # User context, borough, timelines, constraints, and open loops
-```
+Use this skill for NYC-specific decisions that generic travel or relocation advice misses: selecting a borough or neighborhood, planning a visit, moving into the city, designing a commute, using transit or airports, avoiding low-value tourist routing, and choosing a practical work or study base. For a generic multi-destination trip, use the `travel` skill instead.
 
-## Quick Reference
+Classify the user's current mode—visitor, future resident, current resident, or work/study—then anchor advice to borough, neighborhood, budget, schedule, and commute. Ask only for the next missing detail that materially changes the recommendation.
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Boroughs, neighborhoods, and where to base yourself | `neighborhoods-and-bases.md` |
-| Moving, renting, and settling in | `moving-and-housing.md` |
-| Subway, buses, ferries, airports, and commute design | `transit-and-airports.md` |
-| Eating well without falling into tourist traps | `food-and-dining.md` |
-| Street safety, weather, and city reality checks | `safety-and-weather.md` |
-| Work, study, startups, and local professional fit | `work-study-and-startups.md` |
-| Visiting strategy, itineraries, and booking logic | `visiting-and-itineraries.md` |
-| Official sources map | `sources.md` |
+## Reference routing
 
-## Core Rules
+| Topic | Read | When to load |
+|---|---|---|
+| Continuity setup and consent | `references/setup.md` | The user wants persistent NYC context or `<state_root>/` needs initialization |
+| Memory structure | `references/memory-template.md` | Creating or updating `<state_root>/memory.md` after consent |
+| Boroughs and bases | `references/neighborhoods-and-bases.md` | Recommending a neighborhood, hotel base, or borough |
+| Moving and housing | `references/moving-and-housing.md` | Evaluating rentals, a move, buildings, or settling in |
+| Transit and airports | `references/transit-and-airports.md` | Designing a commute, subway/bus/ferry route, or airport transfer |
+| Food and dining | `references/food-and-dining.md` | Recommending where or how to eat |
+| Safety and weather | `references/safety-and-weather.md` | Discussing street awareness, weather, or late-night routing |
+| Work and study | `references/work-study-and-startups.md` | Choosing an office, campus, startup, or professional base |
+| Visits and itineraries | `references/visiting-and-itineraries.md` | Designing trip days, attraction routing, or bookings |
+| Official sources | `references/sources.md` | A current rule, fare, policy, or operational detail needs verification |
+| Current transit facts | `references/domain-knowledge.md` | Checking congestion pricing, OMNY, or airport-transfer facts |
 
-### 1. Classify the User Before Giving Advice
-- Decide whether the user is a visitor, a future resident, a current resident, or someone optimizing work or study life in the city.
-- Then anchor the answer to borough, neighborhood, budget, and commute pattern.
-- If that context is missing, ask for it before pretending all of NYC works the same way.
+## Core workflow
 
-### 2. Borough and Commute Beat Landmark Thinking
-- The right New York City answer usually depends on where the user must go every week, not what they saw on social media.
-- Manhattan, Brooklyn, Queens, the Bronx, and Staten Island do not solve the same problem.
-- Use `neighborhoods-and-bases.md` before naming a place to stay or live.
+1. **Map the repeat journey.** Identify where the user must be at peak times, their transfer and walking tolerance, luggage or accessibility needs, and late-night return path. In NYC, time, transfers, stairs, and reliability usually matter more than straight-line distance.
+2. **Compare concrete tradeoffs.** Contrast routine fit rather than hype: quieter but slower, cheaper but farther, convenient but small, or exciting but exhausting. Treat Manhattan, Brooklyn, Queens, the Bronx, and Staten Island as distinct choices.
+3. **Verify mutable details.** For fares, service changes, reservations, airport access, housing rules, or city workflows, read `references/sources.md` and confirm current details with the responsible official source. If verification is unavailable, provide the durable decision framework and mark the mutable fact as unverified.
+4. **Persist only with consent.** For a user who wants continuity, read `references/setup.md`, resolve `<state_root>`, explain the intended scope, and then use `references/memory-template.md`. Keep `<state_root>/memory.md` focused on details that improve future NYC advice.
 
-### 3. Time Beats Distance
-- In NYC, one mile is not the decision-maker. Transfers, stairs, platform heat, late-night service, airport access, and last-mile walking usually matter more.
-- Use `transit-and-airports.md` before saying something is "easy."
+## Practical guardrails
 
-### 4. Deliver Practical Tradeoffs, Not City Mythology
-- New York users usually need the honest tradeoff: quieter but slower, cheaper but farther, fun but exhausting, convenient but tiny.
-- Frame choices by daily routine, not by hype.
-
-### 5. Use Official Sources for Unstable Rules
-- Transit fares, museum policies, airport access details, short-term rental rules, and city service workflows can change.
-- Verify current information from official city or transit sources before giving precise operational steps.
-- If current verification is blocked, say so plainly and avoid false precision.
-
-## Common Traps
-
-- Treating "New York" as Manhattan only.
-- Recommending a neighborhood without mapping the actual commute and late-night return path.
-- Sending visitors to Times Square restaurants, fake speakeasies, and generic "top 10" stops without filtering for value.
-- Assuming car ownership, airport transfers, or grocery routines work the same in every borough.
-- Giving rent, fare, or hotel numbers with false precision instead of ranges and verification guidance.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://www.nyc.gov | Page requests only unless user explicitly wants city-service workflow help | City services, housing rules, and local guidance |
-| https://new.mta.info | Page requests only unless user explicitly wants route-specific help | Subway, bus, commuter rail, and service guidance |
-| https://omny.info | Page requests only | Fare payment and contactless transit guidance |
-| https://www.nyc.gov/311 | Page requests only unless user explicitly wants local issue reporting guidance | City issue reporting and service lookup |
-| https://www.panynj.gov | Page requests only unless user explicitly wants airport workflow details | JFK, LaGuardia, bus terminal, and regional travel infrastructure |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data that may leave your machine:**
-- Public page requests to official New York City or transit websites
-- Borough, ZIP, or station context only when the user asks for location-specific guidance
-
-**Data that stays local:**
-- Neighborhood preference, move timeline, budget notes, commute constraints, and open tasks in `~/Clawic/data/new-york-city/`
-
-**This skill does NOT:**
-- Book or submit anything on the user's behalf without explicit instruction
-- Store credentials, payment information, or passport details in local memory
-- Assume borough-level advice applies to a specific block or building
-
-## Trust
-
-By using this skill, location details such as borough, ZIP, station, or airport may be checked against official New York City or transit websites when the user asks for precise guidance.
-
-Only install if you trust those public services with that lookup context.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General itinerary design and travel planning structure
-- `booking` — Reservation workflows for hotels, flights, and schedules
-- `business` — Broader business operations guidance beyond city-specific tradeoffs
-- `car-rental` — Rental-car decisions for airport pickups and day trips
-- `health-insurance` — More detailed plan and coverage comparison support
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/new-york-city
-- Latest version: https://clawic.com/skills/new-york-city
+- Base neighborhood recommendations on the actual commute and late-night return path, not a borough label or landmark list.
+- Give current prices, fares, and hotel costs as verified figures or clearly labeled ranges.
+- Treat borough-level guidance as general; verify a particular block, building, route, or venue when the user needs a decision at that level.
+- Use official city, transit, airport, venue, and agency sources for unstable operational details. Send borough, ZIP, station, or airport context only for a requested location-specific lookup.
+- Complete bookings or submissions after explicit user instruction. Keep credentials, payment details, passport details, and other sensitive identifiers out of `<state_root>/`.

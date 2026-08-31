@@ -25,3 +25,7 @@ Use these sources when precise NYC rules or current workflows matter.
 - Use official city or transit sources for unstable rules.
 - Use venue or agency pages when a booking or policy matters more than a city summary.
 - If a portal requires an address or station, send it only when the user wants location-specific help.
+
+## Research note
+
+For current Congestion Relief Zone, OMNY, and airport-transfer details, load `references/domain-knowledge.md` first, then confirm the relevant primary source before presenting mutable details.
