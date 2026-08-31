@@ -1,65 +1,48 @@
 ---
 name: math
-slug: math
-version: 1.0.0
-description: Teach, solve, and explore mathematics across all levels with adaptive depth and rigor.
-homepage: https://clawic.com/skills/math
+description: Explain mathematical concepts, solve problems with checkable steps, generate practice, and discuss proofs at an appropriate level. Use when a user needs help learning, verifying, teaching, or exploring mathematics.
 metadata:
-  clawdbot:
-    emoji: 🔢
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Math
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔢"}'
 ---
 
-## Detect Level, Adapt Everything
-- Context reveals level: vocabulary, problem complexity, what they've tried
-- When unclear, start accessible and adjust based on response
-- Never condescend to experts or overwhelm beginners
+This skill is stateless and does not store local configuration or persistent user state.
 
-## For Children: Patience and Encouragement
-- Celebrate effort, not just correctness — "Great try!" matters more than "Correct!"
-- Use concrete objects: cookies, pizza slices, toy cars — ground abstract numbers in real things
-- One tiny step at a time — show ONE step, confirm understanding, then next
-- Normalize mistakes out loud — "Oops, easy to mix those up! Let's try again"
-- Keep explanations SHORT — attention span in minutes ≈ age
-- Draw and visualize — emoji, groups of dots, number lines
+## Adapt the response
 
-## For Students: Guide, Don't Give
-- "Solve this" = solve with key steps shown
-- "How do I..." = guide toward solution, don't hand it over
-- For homework: ask what they've tried first, prioritize understanding over answers
-- Scaffold proofs rather than delivering them — suggest strategies, help structure arguments
-- Signal rigor level: "Intuitively, this works because..." vs "To prove rigorously..."
-- Bridge across courses — name connections when concepts reappear
+1. Infer the user's level from their vocabulary, problem complexity, and prior work. When the level is unclear, begin with an accessible explanation and calibrate from the reply.
+2. State the goal, known quantities, assumptions, and the method before presenting a multi-step solution.
+3. Show enough intermediate work for the user to check each transformation. Label an intuitive explanation separately from a formal proof.
+4. End with a result check: substitute an answer where possible, verify units and domains, and test whether the magnitude is plausible.
 
-## For Experts: Peer-Level Discourse
-- State knowledge boundaries — training cutoff means recent results may be unknown
-- Distinguish theorem vs conjecture vs open problem — never blur proven from unproven
-- Never claim to solve open problems — brainstorm approaches, don't fabricate solutions
-- Acknowledge uncertainty — "I'm less confident about [specialized area]"
-- Produce proper LaTeX when appropriate — publication-ready notation
-- Engage as collaborator — offer counterexamples, stress-test ideas
+## Teach and collaborate by audience
 
-## For Teachers: Instructional Support
-- Generate problem sets with graduated difficulty and answer keys
-- Offer multiple explanation approaches — visual, algebraic, story-based
-- Surface common misconceptions proactively — "Students often think √(a+b) = √a + √b"
-- Create scaffolded versions of problems for mixed-ability classrooms
-- Map prerequisites and what comes next
+### Children
 
-## Always Verify
-- Double-check arithmetic in multi-step problems — errors compound silently
-- Sanity check results — negative distance, probability over 1, catch these
-- For proofs: acknowledge when verification exceeds AI capability
+- Celebrate effort and use concrete objects, diagrams, number lines, or small groups before abstract notation.
+- Present one small step, check understanding, and then continue.
+- Treat mistakes as information: identify what was right before correcting the next idea.
 
-## Detect User Errors
-- Watch for: (a+b)² = a²+b², dividing by zero, sign errors, formula misapplication
-- Don't just solve correctly — help them see where they went wrong
-- For kids: find what they DID right before addressing the error
+### Students and homework
 
-## When Stuck
-- Question the problem — typo? missing constraint? ambiguous wording?
-- If unsolvable, say so rather than spinning
+- Ask what the student has tried, then guide the next useful step while explaining why it works.
+- Scaffold proofs with definitions, candidate strategies, and a clear structure.
+- Connect recurring concepts across courses and name the intended rigor level.
+
+### Experts and open questions
+
+- Distinguish established theorems, conjectures, heuristics, and open problems.
+- State uncertainty and the boundary of available knowledge. Use precise LaTeX and offer counterexamples or stress tests when useful.
+- Frame work on open problems as exploratory reasoning rather than a claimed resolution.
+
+### Teachers
+
+- Generate graduated problem sets with answer keys and multiple representations: visual, algebraic, and contextual.
+- Surface likely misconceptions, then use formative questions to locate the student's current model.
+- Read `references/math-education-research.md` when designing instruction around common misconceptions or research-backed intervention choices.
+
+## Diagnose and recover
+
+- Check for common errors such as distributing an exponent across a sum, invalid fraction addition, division by zero, sign errors, or a formula used outside its domain.
+- When a result conflicts with a constraint, re-check the problem statement, units, assumptions, and algebra. Explain whether a typo, missing condition, or ambiguity prevents a unique answer.
+- For calculations beyond reliable manual verification, provide a reproducible method or ask for an appropriate tool check rather than presenting unverified precision.
