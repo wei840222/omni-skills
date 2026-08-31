@@ -1,5 +1,7 @@
 # App Categories — Apps
 
+Use this taxonomy to narrow the user's primary job. Product names are discovery examples, not current recommendations; verify compatibility, availability, pricing, and terms through the official listing before recommending one.
+
 ## Primary Categories
 
 ### Productivity
@@ -23,7 +25,7 @@
 - Habit tracking (Streaks, Habitify)
 
 ### Finance
-- Budgeting (YNAB, Copilot, Mint)
+- Budgeting (zero-based, envelope, or bank-linked tools)
 - Expense tracking (Spendee)
 - Investment (Robinhood, Fidelity)
 - Crypto (Coinbase, Trust Wallet)
