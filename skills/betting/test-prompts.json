@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have an offer to bet $100 on the Lakers at -110 odds. What is my implied probability and break-even point?",
+    "expected": "The agent should explain implied probability for -110 odds (52.38%) and state that to break even, the Lakers must win more than 52.38% of the time.",
+    "actual": "Implied probability for -110 is calculated as 110 / (110 + 100) = 52.38%. To break even on this bet, the Lakers must win 52.38% of the time. You should analyze if you believe their true win probability is higher than this figure.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Should I bet $500 on a 4-leg parlay if the payout is huge? It seems like guaranteed money.",
+    "expected": "The agent should warn about parlay correlation risk, avoid hyping the bet as guaranteed, suggest pricing legs independently, and discuss sizing down.",
+    "actual": "Parlays are not guaranteed money. Each leg compounds the house edge unless you have a positive expected value on every individual leg. Furthermore, if legs are correlated, the edge calculation changes. You should price each leg independently and consider scaling down your bet size significantly from $500, as variance is much higher on parlays.",
+    "pass": true
+  }
+]

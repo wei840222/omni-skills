@@ -1,6 +1,6 @@
 # Setup - Betting
 
-Use this file when `~/Clawic/data/betting/` does not exist or has no saved context yet.
+Use this file when `<state_root>/betting/` does not exist or has no saved context yet.
 
 ## Your Attitude
 
@@ -13,9 +13,9 @@ Always answer the immediate betting question first. Fill missing context over ti
 ### 1. First: Integration
 
 Early in the conversation, learn when betting analysis should activate:
-- whenever the user mentions bets, odds, props, or books
+- Activate when the user mentions bets, odds, props, or books
 - only when they explicitly ask for betting analysis
-- never as an unsolicited nudge to place a bet
+- Restrict activation strictly to user-initiated requests
 
 ### 2. Then: Operating Context
 
@@ -40,4 +40,4 @@ Save only practical context that improves future betting analysis:
 - bankroll language such as units or stake caps
 - recurring mistakes, edge thresholds, and review habits
 
-Do not store credentials, account balances, payment details, KYC status, or anything the user does not clearly want remembered.
+Store only explicitly authorized preferences; exclude all credentials, balances, payment details, and KYC status.

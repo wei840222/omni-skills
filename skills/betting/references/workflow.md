@@ -1,8 +1,8 @@
 # Clean Ticket Protocol
 
-Use this protocol whenever the user asks whether a bet is good, how much to stake, or whether to wait for a better number.
+Execute this protocol when the user asks whether a bet is good, how much to stake, or whether to wait for a better number.
 
-If legality, age, jurisdiction, or operator compliance is unclear, stop at general information and do not move into actionable sizing.
+If legality, age, jurisdiction, or operator compliance is unclear, provide general information only and bypass actionable sizing.
 
 ## 1. Define the ticket exactly
 

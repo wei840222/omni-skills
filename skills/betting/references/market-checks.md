@@ -2,7 +2,7 @@
 
 Before comparing prices or calling something value, confirm the market is economically identical.
 
-If the request implies underage betting, restricted jurisdictions, evasion of operator controls, or self-exclusion workarounds, stop and refuse that part.
+Refuse requests involving underage betting, restricted jurisdictions, evasion of operator controls, or self-exclusion workarounds.
 
 ## Identity checks
 
