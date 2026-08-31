@@ -2,6 +2,10 @@
 
 Load this reference when reviewing code or investigating a kernel warning, panic, lockup, data race, or module initialization failure.
 
+## Review with positive invariants
+
+Anchor each finding in the invariant the code must preserve: constrained contexts remain non-blocking, user-memory transfers cross the uaccess boundary, lockless readers and writers share one publication protocol, and partial setup has symmetric teardown.
+
 ## Context and allocation mismatch
 
 **Signal:** a `might_sleep()` or sleeping-in-atomic-context warning, or allocation under a lock or interrupt path.
