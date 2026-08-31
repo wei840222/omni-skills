@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our SaaS dashboard feels cluttered and amateur. Give the first design corrections.",
+    "expected": "A symptom-first response that checks spacing and type-scale consistency before changing color, then provides measurable corrections and a verification check.",
+    "actual": "I would inspect the current spacing and type scales before changing color, reduce the interface to one primary action, set group gaps to at least twice the inner gap, and constrain type to a defined scale. I would then check the revised hierarchy in grayscale and at the longest realistic content length.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a mobile checkout button specification that works for screen-reader and keyboard users.",
+    "expected": "A build-ready component specification covering one primary action, visible focus, a 44 by 44 CSS-pixel default target, semantic labeling, error/loading/disabled states, contrast, and reduced-motion behavior where applicable.",
+    "actual": "The specification defines a single primary checkout action with an accessible name, a 44 by 44 CSS-pixel minimum target, a visible focus indicator, and body text at the configured contrast target. It includes default, hover, focus-visible, loading, disabled, and error states; loading preserves the accessible name and disabled state explains why submission is unavailable. Motion is limited to transform or opacity and respects reduced-motion preferences.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Please save this approved palette and its type scale for the Acme mobile app.",
+    "expected": "The agent resolves the state root before writing, confirms the persistent destination when creation is needed, checks existing Brands and Surfaces records, and writes only the requested durable design facts without credentials.",
+    "actual": "I would resolve `<state_root>` first and inspect the existing `## Brands` and `## Surfaces` records. If persistent state must be created, I would confirm the destination, then record the approved palette and type scale in the requested design memory while leaving unrelated shared-box rows unchanged and naming the write.",
+    "pass": true
+  }
+]
