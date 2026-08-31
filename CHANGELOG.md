@@ -11,6 +11,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | product-launch               | 2026-09-01 | 85/100 (#186) |
 | new-york-city                | 2026-09-01 | 85/100 (#187) |
 | math                         | 2026-09-01 | 85/100 (#188) |
+| apps                         | 2026-09-01 | 85/100 (#189) |
 | acoustic-guitar              | 2026-09-01 | 85/100 (#182) |
 | designer                     | 2026-09-01 | 85/100 (#183) |
 | product-manager             | 2026-08-31 | 85/100 (#181) |

@@ -28,8 +28,8 @@ When comparing apps, evaluate on these dimensions:
 | Subscription | Continuous development | Ongoing cost, can add up |
 
 ### Privacy & Data
-- Data collection practices
-- Where data is stored
+- Data collection practices (e.g., App Store privacy labels or Google Play Data safety disclosures)
+- Where data is stored (local vs cloud)
 - Export options
 
 ### Longevity
@@ -77,8 +77,8 @@ When comparing apps, evaluate on these dimensions:
 - Strava vs Nike Run Club (running)
 
 ### Finance
-- YNAB vs Copilot (budgeting)
-- Mint vs alternatives (free vs paid)
+- Compare budgeting tools by method, supported institutions, export, and recurring cost
+- Compare a bank-linked tool with a manual or zero-based alternative
 
 ### Password
 - 1Password vs Bitwarden (paid vs free)

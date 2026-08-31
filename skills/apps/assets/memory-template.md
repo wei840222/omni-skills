@@ -1,15 +1,10 @@
-# Memory Setup — Apps
+# Apps state templates
 
-## Initial Setup
+Use these templates only after resolving `<state_root>` and obtaining consent to create or modify persistent state. Create only the files needed for the user's requested tracking.
 
-Create on first use:
-```bash
-mkdir -p ~/apps
-```
+## `memory.md`
 
-## memory.md Template
-
-Copy to `~/Clawic/data/apps/memory.md`:
+Create `<state_root>/memory.md`:
 
 ```markdown
 # Apps — Preferences
@@ -22,54 +17,47 @@ Copy to `~/Clawic/data/apps/memory.md`:
 
 ## Dislikes
 <!-- Apps or patterns to avoid -->
-- 
+-
 
 ## Notes
-<!-- Any other preferences: privacy-focused, offline-first, etc. -->
+<!-- Privacy, offline use, accessibility, cross-platform needs, or other preferences -->
 
 ---
-*Last: YYYY-MM-DD*
+*Last updated: YYYY-MM-DD*
 ```
 
-## favorites.md Template
+## `favorites.md`
 
-Copy to `~/Clawic/data/apps/favorites.md`:
+Create `<state_root>/favorites.md`:
 
 ```markdown
 # Favorite Apps
 
 ## Productivity
-| App | Platform | Why I love it |
-|-----|----------|---------------|
+| App | Platform | Why it fits |
+|-----|----------|-------------|
 
 ## Notes & Writing
 
-
 ## Health & Fitness
-
 
 ## Finance
 
-
 ## Photo & Video
-
 
 ## Social
 
-
 ## Utilities
-
 
 ## Entertainment
 
-
 ---
-*Last: YYYY-MM-DD*
+*Last updated: YYYY-MM-DD*
 ```
 
-## tried.md Template
+## `tried.md`
 
-Copy to `~/Clawic/data/apps/tried.md`:
+Create `<state_root>/tried.md`:
 
 ```markdown
 # Apps Tried
@@ -83,12 +71,12 @@ Copy to `~/Clawic/data/apps/tried.md`:
 |-----|----------|-----|
 
 ---
-*Last: YYYY-MM-DD*
+*Last updated: YYYY-MM-DD*
 ```
 
-## wishlist.md Template
+## `wishlist.md`
 
-Copy to `~/Clawic/data/apps/wishlist.md`:
+Create `<state_root>/wishlist.md`:
 
 ```markdown
 # Apps to Try
@@ -97,5 +85,5 @@ Copy to `~/Clawic/data/apps/wishlist.md`:
 |-----|----------|----------------|-------|
 
 ---
-*Last: YYYY-MM-DD*
+*Last updated: YYYY-MM-DD*
 ```
