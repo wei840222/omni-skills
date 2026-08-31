@@ -15,7 +15,15 @@ metadata:
 4. During launch, release to the warmest intended audience first, monitor the agreed signals, and pause the next wave when an abort threshold is crossed.
 5. After launch, assess activation and retention against the pre-committed bar, fix confirmed friction, and plan the next audience or product iteration from evidence.
 
-Load `references/research.md` when defining limited-release scope, rollback or traffic-stop decisions, operational monitoring signals, or an incident response path.
+## Quick reference
+
+| Resource | Load when |
+| --- | --- |
+| `references/research.md` | Defining limited-release scope, rollback or traffic-stop decisions, operational monitoring signals, or an incident response path. |
+
+## Trigger boundary
+
+Use this skill for a concrete product release or market introduction. For an earlier market or portfolio strategy decision without a release plan, establish that decision first; for channel copy, page implementation, email delivery mechanics, or ongoing retention execution, hand the scoped work to the corresponding related skill.
 
 ## The arc, not the day
 
