@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are releasing a B2B analytics product in four weeks. Create a launch plan that covers audience, positioning, assets, launch-day operations, and measures of success.",
+    "expected": "A phased plan with a one-sentence positioning exercise, a defined initial audience, required launch assets, accountable launch-day monitoring, activation and retention measures, and a post-launch review.",
+    "actual": "The skill directs a five-step launch process: establish audience, positioning, success/abort criteria and owners; prepare assets and dry-run activation; validate with a limited soft launch where risk warrants it; release in waves while monitoring agreed signals; then evaluate activation and retention before scaling the next audience. Its launch-kit and metrics sections add the concrete assets, cadence, and post-launch work.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our beta sign-up flow starts failing after the first launch email. We have a larger public announcement scheduled for tomorrow. What should the team do now?",
+    "expected": "A safety-first recovery plan that pauses the next audience wave, assesses impact using the agreed signals, fixes and verifies the activation path, communicates status, and only resumes after the threshold is met.",
+    "actual": "The core workflow directs the team to pause the next wave when an abort threshold is crossed. The operating reference then calls for communicating current impact, stabilizing the affected path, rerunning the sign-up and activation check end to end, and reassessing from fresh evidence rather than continuing on the original schedule.",
+    "pass": true
+  }
+]
