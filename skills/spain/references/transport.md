@@ -12,9 +12,9 @@
 
 **Four operators, same tracks — compare all:** Renfe (full service), Avlo (Renfe's low-cost), OUIGO, Iryo. Low-cost fares include a cabin bag only; large luggage costs extra — Renfe includes it. Renfe's website works better than its app for booking.
 
-**Fare rule:** promo fares appear 2-3 weeks ahead: €25-40 vs €100+ last minute on Madrid-Barcelona. Buy the AVE the same week you book flights, never on arrival.
+**Fare rule:** promo fares appear 2-3 weeks ahead: €25-40 vs €100+ last minute on Madrid-Barcelona. Buy the AVE the same week you book flights, book in advance instead of on arrival.
 
-**Free commuter trains:** an AVE ticket includes Cercanías at origin and destination (combination code printed on the ticket) — don't buy a separate ticket for the station leg in Madrid or Barcelona.
+**Free commuter trains:** an AVE ticket includes Cercanías at origin and destination (combination code printed on the ticket) — use the included combination code instead of buying a separate ticket for the station leg in Madrid or Barcelona.
 
 ## Train vs Fly vs Bus vs Car
 
@@ -65,7 +65,7 @@
 ## Taxi and Ride-hailing
 
 - **Taxi:** White with a colored stripe depending on the city. Meter mandatory.
-- **Madrid-Barajas:** Flat rate €33 to the center. Don't accept anything else.
+- **Madrid-Barajas:** Flat rate €33 to the center. Refuse other rates.
 - **Uber/Cabify:** Big cities. Uber limited in Barcelona — FreeNow (regular taxis) works nationwide.
 
 ## Tips

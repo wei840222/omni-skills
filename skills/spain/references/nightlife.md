@@ -193,6 +193,6 @@ Because of the heat, people go out later:
 1. **Dress:** Smarter than in the UK/USA. Avoid sneakers at nice clubs.
 2. **Club reservations:** Some have online lists with discounts/free entry.
 3. **After hours:** Madrid has an after-party culture. Kapital opens Sunday morning.
-4. **Don't drink in the street:** Botellón (street drinking) banned/fined in many cities.
+4. **Avoid drinking in the street:** Botellón (street drinking) banned/fined in many cities.
 5. **Night taxis:** Night surcharge is normal. Use an app (FreeNow, Cabify).
 6. **Drugs:** Personal use decriminalized but selling is illegal. Police can fine you.

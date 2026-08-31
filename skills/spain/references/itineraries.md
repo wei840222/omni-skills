@@ -90,7 +90,7 @@
 
 ## Camino de Santiago (French Way, Highlights)
 
-If you don't have weeks, do your favorite stages:
+If you have limited time, do your favorite stages:
 
 | Stage | Days | What it has |
 |-------|------|-----------|
@@ -98,7 +98,7 @@ If you don't have weeks, do your favorite stages:
 | O Cebreiro → Sarria | 3-4 | Mountains, villages |
 | León → Astorga | 2-3 | Cathedral, Gaudí |
 
-**Full:** ~33 days walking. Route choice, albergue mechanics, gear, and the Compostela rules → `camino.md`.
+**Full:** ~33 days walking. Route choice, albergue mechanics, gear, and the Compostela rules → `references/camino.md`.
 
 ## With Kids (7 days)
 

@@ -22,7 +22,7 @@ This genuinely matters. It's not optional.
 | Cerveza (beer) | Normal | Caña (200ml draft) |
 | Café con leche after a meal | Odd | Cortado or espresso |
 
-**Tipping:** NOT mandatory. Round up or leave loose change if the service was good. Don't calculate 15-20% like in the US.
+**Tipping:** NOT mandatory. Round up or leave loose change if the service was good. Leave a small amount instead of calculating a 15-20% tip.
 
 ## Menú del Día (The Ultimate Hack)
 
@@ -68,9 +68,9 @@ This genuinely matters. It's not optional.
 
 **What it is:** Lingering to chat after a meal. Can last for hours.
 
-**Why it matters:** Getting up from the table quickly is rude. Don't ask for the bill until the group is ready.
+**Why it matters:** Getting up from the table quickly is rude. Ask for the bill only when the group is ready.
 
-**How to ask for the bill:** "¿Me cobras?" or make a writing gesture in the air. They'll never come to bother you.
+**How to ask for the bill:** "¿Me cobras?" or make a writing gesture in the air. They will wait for your cue before approaching the table.
 
 ## How to Greet
 
@@ -81,7 +81,7 @@ This genuinely matters. It's not optional.
 | Professional (already know them) | Sometimes kisses, depends on familiarity |
 | Shop/elevator | "Hola" / "Buenos días" / "Buenas tardes" |
 
-**Saying goodbye:** Can take 20-30 minutes. It's normal. Don't slip away without saying so.
+**Saying goodbye:** Can take 20-30 minutes. It's normal. Ensure you say a proper goodbye before leaving.
 
 ## Money
 
@@ -91,7 +91,7 @@ This genuinely matters. It's not optional.
 | Bizum | Person to person (EVERYONE uses Bizum) |
 | Cash | Street markets, tips, very few places |
 
-**Large bills:** Avoid paying with €50 or €100 at small places. They don't have change and get annoyed.
+**Large bills:** Pay with small bills at small places to ensure they have change.
 
 ## Dress
 
@@ -102,7 +102,7 @@ This genuinely matters. It's not optional.
 | A "nice" restaurant | Sneakers, tank top |
 | Beach | Walking the streets in a swimsuit (fined in some cities) |
 
-**Spain isn't casual-casual:** People dress up more than in the US/UK. You don't go to a neighborhood bar in a tracksuit.
+**Spain isn't casual-casual:** People dress up more than in the US/UK. Wear casual but neat clothing to neighborhood bars instead of tracksuits.
 
 ## Specific Places Worth It
 
@@ -137,7 +137,7 @@ This genuinely matters. It's not optional.
 
 | Spanish | When |
 |---------|--------|
-| "No pasa nada" | Everything's fine / Don't worry |
+| "No pasa nada" | Everything's fine / Rest easy |
 | "Muy amable" | Thanks for helping (more polite than "gracias") |
 | "¿Me cobras?" | I'd like to pay |
 | "Una caña" | A small beer |
@@ -145,7 +145,7 @@ This genuinely matters. It's not optional.
 | "¿Tienen menú del día?" | Cheap set lunch |
 | "Lo siento, no hablo español" | If you get lost |
 
-**NEVER say:** "No problemo" (it doesn't exist). Say "no hay problema" or "no pasa nada".
+**Avoid saying:** "No problemo" (it doesn't exist). Say "no hay problema" or "no pasa nada".
 
 ## Pickpockets
 
@@ -168,7 +168,7 @@ This genuinely matters. It's not optional.
 | Catalonia | Catalan | Bilingual signage, answer in Castilian if you speak it |
 | Basque Country | Basque (Euskera) | Pintxos, not tapas. They tally by toothpicks |
 | Galicia | Galician | Octopus, seafood, albariño. Green and rainy |
-| Valencia | Valencian | Paella ONLY at midday, never for dinner |
+| Valencia | Valencian | Paella ONLY at midday, reserve for midday |
 | Andalusia | Castilian with an accent | Free tapas with a drink in many places |
 
-**Catalonia and the Basque Country:** Political topics are sensitive. Don't offer opinions unless asked.
+**Catalonia and the Basque Country:** Political topics are sensitive. Offer opinions only when explicitly asked.

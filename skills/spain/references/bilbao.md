@@ -11,7 +11,7 @@ Post-industrial reinvention story: a shipyard city that became a design capital.
 
 ## Pintxos: Casco Viejo and Plaza Nueva
 
-Same mechanics as San Sebastián (order, eat standing, pay at the end, move on — see `san-sebastian.md`). The epicenter is **Plaza Nueva**:
+Same mechanics as San Sebastián (order, eat standing, pay at the end, move on — see `references/san-sebastian.md`). The epicenter is **Plaza Nueva**:
 
 | Bar | Known for |
 |-----|-----------|
@@ -20,7 +20,7 @@ Same mechanics as San Sebastián (order, eat standing, pay at the end, move on �
 | Sorginzulo | Gildas, crowd spills into the plaza |
 | Víctor Montes | Historic, ham and txakoli |
 
-- **Txikiteo** is the local ritual: short wines (txikitos) or small beers (zuritos), one per bar, moving in a fixed friend group — join the flow, don't camp a barstool
+- **Txikiteo** is the local ritual: short wines (txikitos) or small beers (zuritos), one per bar, moving in a fixed friend group — join the flow, move between bars rather than staying at one
 - **La Ribera market** (riverbank): one of Europe's largest covered markets; gastro bars at the end — go before 14:00 while stalls still work
 - **Café Iruña** (Jardines de Albia): Moorish-tiled 1903 interior, famous lamb skewers (pinchos morunos) grilled at the back
 

@@ -5,7 +5,7 @@
 The most visited monument in Spain sells out first. Solve it before anything else about the trip.
 
 - **Book on the official site** (tickets.alhambra-patronato.es) 2-3 months ahead in season — book the day your dates are fixed, before flights if the Alhambra anchors the trip
-- **General ticket:** €15-20. The Nasrid Palaces entry is a timed 30-minute slot printed on the ticket — miss the slot and you do not get in, no exceptions
+- **General ticket:** €15-20. The Nasrid Palaces entry is a timed 30-minute slot printed on the ticket — miss the slot and entry is denied if the slot is missed
 - **Sold out?** In order of value: night visit (separate ticket, Nasrid Palaces lit, fewer people), Gardens+Generalife ticket (no Nasrid Palaces but still worth going), official guided tours (hold their own allotments), Granada Card
 - **Time:** 3-4 hours; it's a fortified hill — real shoes, water in summer
 - **Generalife gardens** peak in May; go early morning or last slot for light and space
@@ -22,7 +22,7 @@ Granada, Jaén, Almería, León: order a drink, a free tapa arrives. In Granada 
 | La Bella y La Bestia | Centro/Elvira | Huge tapas, student crowd |
 | Bar Ávila | Realejo | Local, generous |
 
-**Rule:** the tapa comes with the round — you don't order it, you receive it. Moving bars every 1-2 rounds is the local pattern.
+**Rule:** the tapa comes with the round — it is provided automatically, you receive it. Moving bars every 1-2 rounds is the local pattern.
 
 ## Neighborhoods
 

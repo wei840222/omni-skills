@@ -103,7 +103,7 @@ Any beach in Barcelona city, central Benidorm, central Marbella.
 | Costa del Sol | August (crowded, prices x2) |
 | Pamplona | San Fermín if you dislike crowds |
 | Seville | July-August (45°C, unbearable) |
-| North (Asturias, Galicia) | Never bad, but it rains a lot in autumn-winter |
+| North (Asturias, Galicia) | Always beautiful, but it rains a lot in autumn-winter |
 
 ## Book in Advance
 

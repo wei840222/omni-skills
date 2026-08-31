@@ -11,7 +11,7 @@ Route choice, Compostela rules, albergue mechanics, and the mistakes that end pi
 | Norte | Irún (~825km) | Coastal cliffs, more climbing, fewer albergues | Fit, want scenery over sociability |
 | Primitivo | Oviedo (~320km) | The original route; hardest per km, quietest; joins the Francés at Melide | Experienced walkers wanting mountains and silence |
 | Inglés | Ferrol (~115km, 5-6 days) | Short but qualifies for the Compostela | One free week, want the certificate legitimately |
-| Vía de la Plata | Sevilla (~1,000km) | Long, hot, sparse | Veterans; never in summer |
+| Vía de la Plata | Sevilla (~1,000km) | Long, hot, sparse | Veterans; avoid in summer |
 
 ## Compostela Rules (The Certificate)
 
