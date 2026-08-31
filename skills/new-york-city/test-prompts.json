@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am visiting New York City for four days on a limited budget. I want iconic sights but do not want an itinerary built around Times Square. How should I choose a hotel base and plan my days?",
+    "expected": "Classifies the user as a visitor, asks only for relevant constraints such as airport, budget, and mobility, reads the neighborhoods and visiting references, groups days geographically, and avoids invented current prices.",
+    "actual": "I would first confirm the arrival airport, nightly budget, walking tolerance, and any fixed tickets. I would then compare a transit-connected base against the user's daily anchors rather than treating Times Square as the default. The itinerary would group one landmark anchor with a nearby neighborhood block each day, keep arrival and departure days light, and use references/neighborhoods-and-bases.md plus references/visiting-and-itineraries.md before proposing specific areas. Any hotel price or attraction policy would be checked from the venue or booking source before being presented as current.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I may rent in Queens and commute to an office near Grand Central twice a week. I use a wheelchair, sometimes return after 11 p.m., and need to decide whether a seemingly cheaper apartment is worth it.",
+    "expected": "Treats accessibility and late-night return as primary constraints, evaluates a repeat commute rather than distance, loads neighborhood, housing, transit, and safety references, and advises verification of station accessibility and current service.",
+    "actual": "I would compare candidate apartments by the whole repeat journey: step-free route availability, transfer count, backup route, late-night service, station-to-building distance, and the cost of missed reliability. I would use references/neighborhoods-and-bases.md, references/moving-and-housing.md, references/transit-and-airports.md, and references/safety-and-weather.md, then verify station accessibility and service status on the current MTA source before calling a route practical. The cheaper apartment is worthwhile only if its total time, accessibility friction, and fallback cost remain acceptable on the user's actual office days.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you tell me the exact congestion toll for driving into lower Manhattan next Tuesday and whether OMNY will cap my subway fares?",
+    "expected": "Identifies both requests as mutable operational facts, loads the domain-knowledge and sources references, checks official MTA and OMNY sources before quoting amounts or rules, and states uncertainty if live verification is unavailable.",
+    "actual": "I would load references/domain-knowledge.md and references/sources.md, then verify the current MTA Congestion Relief Zone schedule for the vehicle, route, time, and exemptions before quoting any toll. I would verify OMNY's current fare-capping conditions and advise using the same eligible card or device for each ride when the cap applies. I would not reuse a cached fare or describe a payment rule as current without that official confirmation.",
+    "pass": true
+  }
+]
