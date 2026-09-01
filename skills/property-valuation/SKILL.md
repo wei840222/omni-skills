@@ -1,146 +1,79 @@
 ---
 name: property-valuation
-slug: property-valuation
-version: 1.0.0
-description: Estimate property values using comps, income approach, and market analysis with adjustment calculations.
-homepage: https://clawic.com/skills/property-valuation
+description: Estimate a residential or commercial property's market-value range from user-provided comparable sales, income, or cost inputs. Use when the user asks for a property estimate, listing-price check, comparable-sales analysis, or cap-rate calculation; use a licensed local appraiser for an appraisal or regulated purpose.
 metadata:
-  clawdbot:
-    emoji: 🏠
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Property Valuation
+  version: "1.0.0"
+  openclaw: '{"emoji":"🏠"}'
+  related-skills: '{"financial-literacy":"Explains the financial concepts and calculations that support property analysis.","house":"Helps with home-management decisions after a valuation.","real-estate-skill":"Covers broader purchase, sale, and transaction decisions beyond a value estimate."}'
 ---
+
+## State location
+
+Before saving any property context or report, resolve `<state_root>` once for this invocation:
+
+1. Use an explicitly configured state root when the user or host provides one.
+2. Otherwise, use the first existing directory in this order: `<workspace>/property-valuation/`, `<workspace>/memory/property-valuation/`, then `~/property-valuation/`.
+3. If none exists and the user asks to save state, create `<workspace>/property-valuation/`.
+
+Use the selected `<state_root>` for every state operation. If multiple candidate directories exist, use only the highest-precedence one and tell the user; do not merge copies automatically.
+
+```text
+<state_root>/
+├── memory.md          # Preferences and market context, when the user elects to save them
+└── valuations/        # Saved valuation reports, when requested
+```
 
 ## Setup
 
-On first use, read `setup.md` for onboarding guidance.
+On first use, read `references/setup.md` for onboarding and consent guidance. Read `references/memory-template.md` only when creating or parsing `<state_root>/memory.md`.
 
 ## When to Use
 
-User needs property value estimates. Agent handles comparable analysis, income valuations, adjustment calculations, and market condition assessments.
-
-## Architecture
-
-Memory at `~/Clawic/data/property-valuation/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/property-valuation/
-├── memory.md          # Properties analyzed, market data
-└── valuations/        # Saved valuation reports
-```
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+Use this skill when the user asks for a value range for a residential or commercial property, provides comparable sales, requests an income-approach or cap-rate calculation, or wants to assess a listing price.
 
 ## Core Rules
 
-### 1. Always State the Valuation Method
-Every estimate must specify which approach:
-- **Comparable Sales (Comps):** Based on recent similar sales
-- **Income Approach:** Based on rental income (Cap Rate)
-- **Cost Approach:** Land value + construction cost - depreciation
+### 1. State the valuation method
 
-Most residential uses comps. Investment properties need income approach.
+Every estimate must name its method:
 
-### 2. Require Key Property Data
-Before estimating, gather:
-- Location (address or neighborhood)
-- Property type (SFH, condo, multi-family)
-- Size (sqft or sqm)
-- Bedrooms/bathrooms
-- Condition (excellent/good/fair/poor)
-- Year built
-- Lot size (if applicable)
+- **Comparable sales (comps):** recent similar sales, typically the primary residential method.
+- **Income approach:** net operating income (NOI) divided by a market-supported cap rate, typically for income property.
+- **Cost approach:** land value plus replacement cost, less depreciation.
 
-Missing data = wider value range.
+Use more than one method when the available data supports it, and explain material differences between results.
 
-### 3. Apply Adjustments Explicitly
-When using comps, show adjustments:
+### 2. Gather the decision inputs
 
-| Factor | Adjustment |
-|--------|------------|
-| Extra bedroom | +3-5% |
-| Extra bathroom | +2-3% |
-| Newer by 10 years | +5-10% |
-| Superior condition | +5-15% |
-| Larger lot | +1-3% per 1000 sqft |
-| Better location | +5-20% |
-| Pool | +2-5% (climate dependent) |
+Before estimating, obtain or clearly mark as unknown: location or neighborhood, property type, living or rentable area, bedrooms and bathrooms when relevant, condition and updates, year built, lot or site information when relevant, valuation date, and the source/date of each comp or income figure. Missing or non-comparable inputs require a wider range and lower confidence.
 
-Document each adjustment applied.
+### 3. Reconcile comparable sales explicitly
 
-### 4. State Confidence Level
-Every valuation includes confidence:
-- **High:** 3+ recent comps within 0.5 miles, similar specs
-- **Medium:** 2-3 comps, some adjustments needed
-- **Low:** Limited data, significant adjustments, unusual property
+For each comp, identify its sale date, proximity, physical differences, and any adjustment supported by local market evidence. Show the direction and rationale for each adjustment; do not present generic percentage adjustments as universal market facts.
 
-### 5. Include Market Context
-Current market conditions affect value:
-- **Seller's market:** Values at high end of range
-- **Buyer's market:** Values at low end
-- **Balanced:** Use midpoint
+### 4. State confidence and market context
 
-Note days on market and inventory levels if known.
+Use **high** confidence only with several recent, nearby, well-matched comps; use **medium** when some material adjustments are necessary; use **low** when evidence is sparse, old, geographically distant, or the property is unusual. Note known supply, days-on-market, financing, or condition factors that could shift the range.
 
-### 6. Cap Rate for Investment Properties
-Income approach formula:
-```
-Property Value = Net Operating Income / Cap Rate
-NOI = Gross Rent - Operating Expenses (typically 35-45% of rent)
+### 5. Use income calculations transparently
+
+```text
+Property value = NOI / cap rate
+NOI = effective gross income - operating expenses
 ```
 
-Cap rates by property type (2024 averages):
-- Multifamily: 5-7%
-- Retail: 6-8%
-- Office: 7-9%
-- Industrial: 5-7%
+State whether each input is actual, trailing, projected, or assumed. Calculate price per square foot or another relevant unit metric as a cross-check, and explain a material divergence from comparable evidence.
 
-Lower cap rate = higher value = lower risk.
+## Evidence hygiene
 
-### 7. Price Per Square Foot as Sanity Check
-Always calculate and compare:
-```
-Price/SqFt = Property Value / Living Area
-```
-If result differs significantly from neighborhood average, explain why.
+- Prioritize recent, arm's-length comparable sales and explain when older sales are used.
+- Analyze condition, updates, concessions, financing terms, and location rather than treating raw sale prices as interchangeable.
+- Use automated valuation models and tax assessments as context alongside verified property-specific evidence.
+- Keep assessed value separate from market value.
 
-## Common Traps
+## Security & privacy
 
-- **Using old comps:** Sales older than 6 months may not reflect current market. Prefer recent sales.
-- **Ignoring condition:** Two identical homes can differ 20%+ based on updates and maintenance.
-- **Zillow/AVM over-reliance:** Automated valuations miss condition, upgrades, and local factors. Use as starting point only.
-- **Not adjusting for differences:** Raw comps without adjustments mislead. Always adjust.
-- **Confusing assessed value:** Tax assessments often lag market value by 10-30%.
-- **Ignoring days on market:** Homes that sat long may have sold below market.
-
-## Security & Privacy
-
-**Data that stays local:**
-- Property details and valuations in ~/Clawic/data/property-valuation/
-- No data sent externally
-
-**This skill does NOT:**
-- Access real-time MLS data (user must provide comps)
-- Connect to Zillow/Redfin APIs
-- Store sensitive financial information
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `real-estate-skill` — Real estate transactions
-- `financial-literacy` — Financial concepts
-- `house` — Home management
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/property-valuation
-- Latest version: https://clawic.com/skills/property-valuation
+- Keep property details, reports, and user preferences in `<state_root>` only when the user asks to save them.
+- Use user-provided information for the estimate; do not imply MLS, Zillow, Redfin, or other live-data access when it is unavailable.
+- Exclude or redact sensitive financial information that is not necessary for the requested analysis.
+- Present the result as an educational estimate, not a licensed appraisal, legal opinion, tax opinion, or lending determination.
