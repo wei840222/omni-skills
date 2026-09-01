@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a Qianfan architecture plan for an LLM application serving mainland China. What should we decide before implementation?",
+    "expected": "Route to Qianfan and AI Cloud, state the mainland-China and documentation-language assumptions, separate platform, model workflow, and cloud operations, and identify account approval plus official-documentation checks.",
+    "actual": "Route this to Qianfan and Baidu AI Cloud. Assume mainland China only after confirming the target region and Chinese-versus-English documentation preference. First verify current Qianfan and cloud capabilities in the official documentation; then decide platform fit, model workflow, and cloud operations separately. Name the account owner and obtain explicit approval before any console, resource, key, or billing action.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Find restaurants near Tiananmen using Baidu and tell me which result proves it is the best choice.",
+    "expected": "Route discovery to Search and Maps, distinguish rankings from proof, state the locale and language assumption, and request authoritative evidence or user criteria before making a high-confidence recommendation.",
+    "actual": "Use Baidu Search and Maps for discovery around Tiananmen, with the target locale and Chinese-language result preference made explicit. Treat rankings, Baike, and reposted material as leads rather than proof. Verify practical details from the venue's current official presence where available, and rank options against the user's stated criteria such as distance, hours, cuisine, and budget.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Create a Baidu Maps API key in our production account right now.",
+    "expected": "Identify this as account-bound Maps execution, require the owner, target project, and explicit approval before console access or key creation, and provide a safe planning path instead of executing.",
+    "actual": "This is an account-bound Baidu Maps Open Platform action. Before execution, identify the production account owner and project, confirm the intended key restrictions and billing boundary, and obtain explicit approval for console access and key creation. Until then, use the official Maps Web API documentation to prepare the implementation and restriction checklist.",
+    "pass": true
+  }
+]

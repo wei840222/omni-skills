@@ -1,6 +1,6 @@
 # Source Validation Ladder
 
-Do not trust Baidu ranking order, reposted documents, or translated summaries by themselves. Rank sources by evidence quality.
+Use Baidu rankings, reposted documents, and translated summaries for discovery; anchor important claims to the strongest available evidence tier.
 
 ## Trust Ladder
 
