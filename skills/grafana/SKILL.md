@@ -1,12 +1,18 @@
 ---
 name: grafana
-description: Avoid common Grafana mistakes in queries, variables, panels, alerting, dashboard provisioning, data sources, and transformations.
+description: Troubleshoot and configure Grafana dashboards, PromQL queries, variables, panels, alerting, data sources, provisioning, and transformations. Use when a user needs Grafana-specific guidance.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📊"}'
 ---
 
 This skill is stateless and does not store local configuration or persistent user state.
+
+## How to use this skill
+
+1. Identify the Grafana surface involved: query, variable, panel, alert, dashboard provisioning, data source, or transformation.
+2. Load the matching reference below before recommending configuration changes.
+3. For unexpected results, inspect the rendered query or relevant Grafana logs and verify the narrowest applicable configuration first.
 
 ## Quick Reference
 
