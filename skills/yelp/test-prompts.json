@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find top-rated Italian restaurants in downtown San Francisco.",
+    "expected": "Resolve the market, load the search playbook, use available public or API evidence, and return a shortlist that states fit, risk, and the next verification.",
+    "actual": "Dry-run: routes to references/search-playbook.md, requires a downtown San Francisco market boundary, and returns candidates with rating, review-volume, recency, and decision-time verification caveats.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you reply to the newest 1-star Yelp review for my bakery?",
+    "expected": "Load access boundaries and listing-audit guidance, verify authorization before any live owner action, and offer a factual draft if the user wants one.",
+    "actual": "Dry-run: routes to references/access-boundaries.md and references/listing-audit.md; it does not assume account access and can prepare a response draft only after the authorization boundary is clear.",
+    "pass": true
+  }
+]
