@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a landing-page plan for a B2B SaaS that helps support teams resolve tickets faster. The traffic comes from a paid search ad for \"reduce support backlog\" and the primary conversion is booking a demo.",
+    "expected": "A page plan that preserves ad-to-hero message match, chooses one demo-booking conversion path, outlines sections and proof needs, drafts a specific CTA, and identifies the references to load before publishing claims.",
+    "actual": "Defined demo booking as the primary conversion and named qualified demo bookings as the success metric. Proposed a hero that matches the paid-search intent, followed by problem, mechanism, evidence-backed outcomes, objection handling, and one demo CTA. Routed detailed section design to references/sections.md, copy to references/copy.md, and proof verification to references/research.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our ecommerce landing page has strong traffic but few purchases. It includes a Buy now button, newsletter signup, account creation CTA, countdown timer, and a claim that customers save 70%. What should we change first?",
+    "expected": "A diagnosis that protects against unsupported claims and unexplained urgency, narrows the page to a coherent purchase path, asks for baseline funnel evidence, and proposes a measured experiment rather than asserting universal conversion benchmarks.",
+    "actual": "Prioritized verifying the 70% savings claim and the factual basis for the countdown before publication. Recommended treating purchase as the primary path, relocating the newsletter and account actions away from the purchase decision, and measuring product-view-to-cart, cart-to-checkout, and checkout-to-purchase before testing one hypothesis. Routed the diagnosis to references/optimization.md and claim evidence to references/research.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Audit this event registration hero: 'The Future of AI Summit. The best event ever. Register now. Learn more. Only 2 seats left!' The event has not published attendance capacity or speaker confirmations.",
+    "expected": "A safe rewrite plan that identifies vague value, competing actions, and unsupported scarcity; requests verifiable event details; and retains an accessible, single-purpose registration path.",
+    "actual": "Flagged the unsupported scarcity statement, generic value proposition, and competing Register now/Learn more actions. Requested confirmed audience, agenda, date, timezone, speaker, capacity, and registration terms before drafting publishable copy. Recommended one registration CTA with accessible labels and evidence-backed details, using references/templates.md, references/copy.md, and references/research.md.",
+    "pass": true
+  }
+]
