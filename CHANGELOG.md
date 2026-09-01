@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | ---------------------------- | ---------- | ------------- | ---- |
 | goals                        | 2026-09-02 | 85/100 (#214) |
 | video-captions               | 2026-09-02 | 85/100 (#215) |
+| yelp                         | 2026-09-02 | 85/100 (pending PR) |
 | api                          | 2026-09-02 | 85/100 (#211) |
 | thai                         | 2026-09-02 | 85/100 (#212) |
 | talk                         | 2026-09-01 | 85/100 (#205) |
