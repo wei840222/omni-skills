@@ -1,6 +1,6 @@
 ---
 name: goals
-description: Help users create, track, and review personal outcome goals with milestones and progress logs.
+description: Structure, track, and review personal outcome goals with milestones and lightweight progress logs. Use when the user defines an aspiration, asks to create or update a goal, reports goal progress or a blocker, or requests a weekly, monthly, quarterly, or yearly goal review. Use task or project planning skills for immediate to-dos and execution plans.
 metadata:
   openclaw: '{"emoji":"🎯"}'
 ---
