@@ -21,7 +21,7 @@ Browse's search bar is the collection's query language. Every bulk fix in this s
 | `prop:s>=100` / `prop:d>0.8` / `prop:r<0.9` | FSRS stability, difficulty, current retrievability |
 | `rated:7:1` | Answered Again in the last 7 days (`:1`=Again … `:4`=Easy) |
 | `introduced:30` / `added:7` / `edited:7` | First studied / added / edited in the last N days |
-| `flag:1` | Flagged cards (1-7, per-card and never synced to notes) |
+| `flag:1` | Flagged cards (1-7, per-card and kept local to cards) |
 | `re:^What` / `w:run` | Regex / whole-word match |
 | `preset:Vocabulary` | Every card whose deck uses that options preset |
 
@@ -64,10 +64,10 @@ Undo covers one action at a time and only in the current session. Anything in th
 A filtered deck temporarily borrows cards matching a search, then returns them.
 
 - **Reschedule ON** (default) is the normal choice: answers count and intervals update as usual — a filtered deck is just a different order of studying.
-- **Reschedule OFF** means the session does not affect scheduling — a cram/preview mode. Use it the night before an exam; never as a daily habit, or you study without teaching the scheduler anything.
+- **Reschedule OFF** means the session does not affect scheduling — a cram/preview mode. Use it the night before an exam; restrict this to exam prep exclusively, or you study without teaching the scheduler anything.
 - Build order and limit matter: `order: oldest seen first` for a backlog, `order: relative overdueness` for triage, `random` for interleaving practice.
 - Second filter slot exists for two-tier priority (high-yield first, then everything else).
-- Cards in a filtered deck are unavailable to their home deck until the filtered deck is emptied or deleted. Deleting a filtered deck returns cards home safely — it never deletes cards.
+- Cards in a filtered deck are unavailable to their home deck until the filtered deck is emptied or deleted. Deleting a filtered deck returns cards home safely — it preserves all cards safely.
 - `is:due` inside a filtered deck's search is usually wrong for cram: it excludes exactly the cards you have not learned yet.
 
 ## Traps

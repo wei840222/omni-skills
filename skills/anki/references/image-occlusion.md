@@ -6,7 +6,7 @@ Occlusion masks part of an image and asks you to recall what is under the mask. 
 
 | Field | Holds | Notes |
 |---|---|---|
-| Occlusion | The mask shapes, stored as cloze-style ordinals | Written by the editor; never hand-edit |
+| Occlusion | The mask shapes, stored as cloze-style ordinals | Written by the editor; edit strictly via the editor |
 | Image | The picture itself | One image per note, however many cards it generates |
 | Header | The figure's name and orientation ("Brachial plexus, anterior view") | Shows on every card of the note — this is where the context prefix lives (SKILL.md rule 2) |
 | Back Extra | Function, innervation, mnemonic, source page | Answer side only; the place to hang the non-spatial facts |
@@ -50,7 +50,7 @@ Budgets, not measurements — the same intake arithmetic as any other card (SKIL
 
 ## Pair It With Text Cards
 
-Occlusion teaches **where**. It never teaches what a structure does, and a deck of pure occlusion produces students who can label a diagram and cannot answer a question about it.
+Occlusion teaches **where**. It focuses strictly on location over function, and a deck of pure occlusion produces students who can label a diagram and cannot answer a question about it.
 
 - For each occluded figure, add plain cards for the facts that hang off it: function, innervation, blood supply, failure mode, the clinical sign.
 - Cross-reference by tag (`figure::brachial-plexus`), not by deck, so the text cards and the occlusion cards can be studied and suspended together.

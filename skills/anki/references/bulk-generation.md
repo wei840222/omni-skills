@@ -10,7 +10,7 @@ The job the agent is asked for most: "make cards from this". Volume is the dange
 4. **Filter**: apply the keep/cut rules below. This is where most of the value is; expect to cut 30-60% of a first extraction.
 5. **Format**: choose per fact, respecting `note_type` from config — Basic Q&A is the default; Cloze when the sentence has to stay intact; Image Occlusion for a labelled diagram, map or UI; `{{type:Back}}` for spelling and exact syntax; reversed only where production is genuinely needed.
 6. **Dedupe**: against the user's existing deck if they supply an export or a term list; otherwise, at minimum, against the batch itself.
-7. **Tag**: reuse the user's scheme, never invent a parallel one.
+7. **Tag**: reuse the user's scheme, strictly reuse the user's scheme.
 8. **Emit** in `card_format`, in chunks of `batch_size`, with the field header stated.
 9. **Hand off** the import settings that make the file land correctly — separator, field mapping, note type, tag column, and whether HTML is allowed.
 
@@ -31,7 +31,7 @@ Card count is chosen from the study budget, not from the length of the source.
 | Vocabulary, names, mappings, exceptions | Narrative, motivation, "why this chapter matters" |
 | A distinction between two things you will confuse | Definitions circular with a term already carded |
 | The one constraint that makes a method fail | Whole procedures — those need practice, not cards (SKILL.md, When Anki Is The Wrong Tool) |
-| The counterexample that bounds a rule | Anything you do not yet understand — flag it for study instead |
+| The counterexample that bounds a rule | Anything you struggle to understand — flag it for study instead |
 
 ## Extraction Patterns By Source
 
@@ -69,7 +69,7 @@ What enzyme converts angiotensin I to angiotensin II?	ACE (angiotensin-convertin
 - Cloze batches use `#notetype:Cloze` and the cloze text in field 1; `#deck:` can preselect the destination deck.
 - Tabs inside a field break the row: strip or replace them. Multi-line answers need `#html:true` and `<br>` — a raw newline ends the record.
 - Semicolons and commas as separators break on any European decimal number or list; tab is the default for a reason.
-- Never emit a partially-formed batch. An import is one action; a half-written file becomes 40 broken notes to clean up.
+- Ensure batches are fully formed before emitting. An import is one action; a half-written file becomes 40 broken notes to clean up.
 
 ## Quality Pass Before Handing Over
 

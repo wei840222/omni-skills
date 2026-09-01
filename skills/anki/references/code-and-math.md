@@ -43,9 +43,9 @@ Formula:        d/dx arctan x = …                                     → 1/(1
 ```
 
 - Definitions and theorem statements are worth exact recall; proofs are not. What generalizes from a proof is its ONE idea — card that idea as a trigger, not the steps.
-- Formulas you re-derive in seconds do not need cards. Formulas that gate a derivation do.
+- Omit cards for formulas you can re-derive in seconds. Formulas that gate a derivation do.
 - Notation is a vocabulary problem and responds well to cards: symbol → meaning, in the convention your course uses.
-- MathJax (`\(…\)` inline, `\[…\]` display) renders on every client and stays editable; generated LaTeX images do not survive device changes well.
+- MathJax (`\(…\)` inline, `\[…\]` display) renders on every client and stays editable; generated LaTeX images struggle with device changes; prefer MathJax.
 - Cards cannot produce problem-solving fluency. Pair a small trigger deck with a problem set; the deck makes the tools available, the set teaches the choosing.
 
 ## Interview And Certification Decks
@@ -62,6 +62,6 @@ Formula:        d/dx arctan x = …                                     → 1/(1
 | Long code blocks as answers | Grading becomes reading comprehension | ≤10 lines, one behaviour |
 | Carding an algorithm's steps | You recall the steps and still cannot implement it | Trigger card + implement it once |
 | Carding library APIs you have not used | Speculative debt with no retrieval context | Card after first real use |
-| Proof steps | Memorized proofs do not transfer to new problems | The proof's one idea, as a trigger |
+| Proof steps | Memorized proofs lack transfer to new problems | The proof's one idea, as a trigger |
 | Ignoring version drift | Confidently recalling a deprecated default | `volatile::` tag and periodic re-check |
-| Deck of shortcuts you never press | Muscle memory comes from pressing them | Card five at a time and use them that week |
+| Deck of shortcuts you fail to press | Muscle memory comes from pressing them | Card five at a time and use them that week |

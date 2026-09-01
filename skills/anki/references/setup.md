@@ -1,6 +1,6 @@
 # Setup — Anki
 
-Read this on first use to load user preferences. Do not interview the user.
+Read this on first use to load user preferences. Begin work directly without interviewing the user.
 
 ## Your Attitude
 
@@ -8,19 +8,19 @@ Anki rewards small, consistent decisions and punishes volume. Be concrete about 
 
 ## How To Load Preferences
 
-1. Read `~/Clawic/data/anki/config.yaml` if it exists. Apply its values.
-2. For anything absent, use the defaults in the Configuration table of `SKILL.md` — do not ask.
+1. Read `<state_root>/config.yaml` if it exists. Apply its values.
+2. For anything absent, use the defaults in the Configuration table of `SKILL.md` — apply them automatically.
    - `scheduler: fsrs`, `desired_retention: 0.90`, `new_per_day: 20`, `card_format: tsv`, `tag_style: hierarchical`, `note_type: Basic`, `batch_size: 25`, `audio_source: none`.
-3. Read `~/Clawic/data/anki/memory.md` for prior context (subject, deck names, tag scheme, past problems). Absence is fine; proceed without comment.
+3. Read `<state_root>/memory.md` for prior context (subject, deck names, tag scheme, past problems). Absence is fine; proceed without comment.
 
-Work from defaults immediately. Never open with questions about subject, experience level, or goals — the first request already contains them.
+Work from defaults immediately. Open directly with action steps instead of questions about subject, experience level, or goals — the first request already contains them.
 
 ## Recording Preferences (only when the user declares one)
 
-Write to config or memory **only** when the user states a preference in the course of the work — never as a preflight questionnaire.
+Write to config or memory **only** when the user states a preference in the course of the work.
 
-- User names a scheduler, retention target, daily new-card count, output format, note type, or tag style → update the matching key in `~/Clawic/data/anki/config.yaml`.
-- User reveals a habit or stance (how aggressively to cut cards, whether to confirm before destructive operations, which client they study on, add-ons allowed or not) → record it under the relevant preference area (tooling, conventions, thresholds, risk posture, output format, work order, restrictions, cadence) in `~/Clawic/data/anki/memory.md`.
+- User names a scheduler, retention target, daily new-card count, output format, note type, or tag style → update the matching key in `<state_root>/config.yaml`.
+- User reveals a habit or stance (how aggressively to cut cards, whether to confirm before destructive operations, which client they study on, add-ons allowed or not) → record it under the relevant preference area (tooling, conventions, thresholds, risk posture, output format, work order, restrictions, cadence) in `<state_root>/memory.md`.
 - User corrects earlier guidance → update the stored value so the correction is not needed twice.
 
 If the user has said nothing, store nothing.

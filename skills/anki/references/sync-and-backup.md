@@ -17,7 +17,7 @@ Causes, in rough order of frequency: restoring from a backup, importing a `.colp
 
 Decision procedure:
 
-1. Stop. Do not press either button yet.
+1. Stop. Pause before pressing either button.
 2. On every other device, note whether reviews were done since its last sync. Sync any device that CAN still sync normally first.
 3. Identify the device holding the work you cannot recreate.
 4. From that device: **Upload** (push it to AnkiWeb). From every other device: **Download**.
@@ -31,7 +31,7 @@ Decision procedure:
 - Restore via File → Switch Profile → Open Backup, or by importing the `.colpkg`. Restoring always triggers the upload-or-download prompt afterwards — restore on the device you will Upload from.
 - **Your real backup is a `.colpkg` you copy off the machine** (cloud drive, external disk) on a cadence you can name. Monthly is enough for most; weekly during an exam term.
 - Test one restore per quarter — open it in a scratch profile and verify the card count. An untested backup is a belief, not a backup.
-- Profile folder locations: `~/.local/share/Anki2/` (Linux), `~/Library/Application Support/Anki2/` (macOS), `%APPDATA%\Anki2\` (Windows). Never sync that folder with Dropbox/iCloud while Anki is running — concurrent writes to the collection database are the classic corruption cause.
+- Profile folder locations: `~/.local/share/Anki2/` (Linux), `~/Library/Application Support/Anki2/` (macOS), `%APPDATA%\Anki2\` (Windows). Ensure Anki is fully closed before syncing that folder with Dropbox/iCloud — concurrent writes to the collection database are the classic corruption cause.
 
 ## Multiple Devices
 
@@ -53,7 +53,7 @@ Check Database is safe and non-destructive to content — but it may report dele
 
 ## Corruption Recovery
 
-1. Do not sync. A corrupted collection uploaded to AnkiWeb propagates to every device.
+1. Halt the sync process. A corrupted collection uploaded to AnkiWeb propagates to every device.
 2. Copy the whole profile folder somewhere safe, as-is.
 3. Try Check Database.
 4. If that fails, restore the most recent backup that predates the problem, verify the card count and a few decks, then Upload from that device.

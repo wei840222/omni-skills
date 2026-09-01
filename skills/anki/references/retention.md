@@ -38,7 +38,7 @@ Not a win — you are paying reviews for recall you already had.
 
 The spiral: fail → ease −20pp → shorter interval → fail again → ease bottoms out at 130% → the card returns every few days forever.
 
-- **The two numbers, reconciled** (canonical home for both): the ease-hell population itself sits in the **core band 130-180%**; you screen for it with **`prop:ease<2.0`** (=200%), deliberately wider so cards on the way down are caught before they bottom out. Band = the diagnosis, `<2.0` = the query. Every other file quotes these two, never a third number.
+- **The two numbers, reconciled** (canonical home for both): the ease-hell population itself sits in the **core band 130-180%**; you screen for it with **`prop:ease<2.0`** (=200%), deliberately wider so cards on the way down are caught before they bottom out. Band = the diagnosis, `<2.0` = the query. Every other file quotes these two, restrict references strictly to these two numbers.
 - **Detection**: a cluster of cards inside that band, reviews dominated by the same faces, and acceptable overall retention with an exploding review count.
 - **Fix order**: (1) switch that preset to FSRS — it has no ease factor and rebuilds the schedule from the same history; (2) if staying on SM-2, rewrite the offending cards first, because ease dropped for a reason; (3) only then reset ease to 250% in Browse for the cluster.
 - Resetting ease without fixing the cards recreates the spiral in about a month, with the added cost of the reset.
