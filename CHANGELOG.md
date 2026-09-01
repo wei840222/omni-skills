@@ -211,6 +211,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | daily-planner                | 2026-08-23 | 85/100       |
 | spreadsheet                  | 2026-08-23 | 81           |
 | threejs                      | 2026-08-24 | 95/100       |
+| mercado-libre                | 2026-09-01 | 85/100       | #196 |
 
 ## Updating This Changelog
 
