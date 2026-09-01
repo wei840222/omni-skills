@@ -27,13 +27,14 @@ Load reference files on demand based on the user's specific context:
 
 | Category | Reference File | When to load |
 |---|---|---|
-| **First Use** | `references/setup.md` | When initializing the user environment for Beijing tasks. |
-| **Visitor** | `references/visitor-attractions.md`, `references/visitor-tips.md`, `references/visitor-itineraries.md`, `references/visitor-lodging.md` | When planning trips, itineraries, or finding places to visit and stay. |
-| **Relocation** | `references/neighborhoods-choosing.md`, `references/cost.md`, `references/visas.md` | When the user is moving to Beijing, looking for rent, or needs visa information. |
-| **Daily Life** | `references/transport.md`, `references/food-practical.md`, `references/healthcare.md`, `references/lifestyle.md` | For questions about subway, dining, hospitals, and local apps. |
-| **Work / Tech** | `references/business.md`, `references/jobs.md`, `references/tech.md`, `references/startup.md` | For queries about work permits, tech salaries, WFOE, or teaching. |
-| **Family** | `references/education.md`, `references/family.md` | When picking schools, having a baby, or arranging childcare. |
-| **Memory Asset** | `assets/memory-template.md` | To understand the persistent data format for Beijing context. |
+| **First use or saved preferences** | `references/setup.md` | When loading or updating the user’s Beijing context. |
+| **Visiting** | `references/visitor-attractions.md`, `references/visitor-tips.md`, `references/visitor-itineraries.md`, `references/visitor-lodging.md` | For attractions, day trips, itinerary, and hotel questions. |
+| **Moving or settling** | `references/neighborhoods-choosing.md`, `references/cost.md`, `references/resident.md`, `references/visas.md` | For neighborhoods, rent, arrival, residency, or immigration questions. |
+| **Getting around and daily life** | `references/transport.md`, `references/local.md`, `references/food-practical.md`, `references/healthcare.md`, `references/lifestyle.md` | For transit, apps, food, hospitals, or routine-life questions. |
+| **Work and business** | `references/jobs.md`, `references/tech.md`, `references/business.md`, `references/startup.md`, `references/taxes.md` | For employment, work permits, salaries, WFOE, startups, or tax questions. |
+| **Family and education** | `references/education.md`, `references/family.md` | For schools, pregnancy, childcare, or family planning. |
+| **Leaving or driving** | `references/leaving.md`, `references/driving.md` | For exit planning, permit cancellation, or car ownership questions. |
+| **State format** | `assets/memory-template.md` | When creating or interpreting persistent Beijing context. |
 
 ## Configuration
 
