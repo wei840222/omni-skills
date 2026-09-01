@@ -48,6 +48,10 @@ Use this skill for a page built around one measurable conversion event: a purcha
 | Form completion is low | Keep only fields required for the stated next step; clarify data use and value exchange | `references/optimization.md` |
 | An experiment is inconclusive | Keep the baseline, formulate one hypothesis, and extend or redesign the test using an adequate sample | `references/optimization.md` |
 
+## Execution boundary
+
+Use this skill to define or audit the conversion strategy and publishable content. Hand the approved requirements to the implementation workflow for UI code, design-system components, server-side forms, consent tooling, and deployment.
+
 ## Avoidable patterns
 
 Replace vague promises, fabricated proof, unexplained scarcity, inaccessible controls, and simultaneous unrelated CTAs with specific, verifiable content and a coherent conversion path.
