@@ -24,11 +24,11 @@
 - Casual writing may use `555`, repeated marks such as `ๆ`, drawn-out vowels, or playful spellings. Match the recipient and channel rather than treating these as a quota.
 - Keep romanized Thai to contexts where the user asks for it or the channel convention warrants it. Keep the writing system consistent within a short draft.
 
-## Sensitive choices
+## Context-sensitive choices
 
-- `กู` and `มึง` are highly context-dependent and can be hostile or crude. Use them only when the user explicitly establishes that peer register.
-- Strong intensifiers and profanity can change the social meaning of a translation. Retain them only when the source and requested audience warrant that strength.
-- When the desired register cannot be inferred from the request, return a neutral-polite draft and state the assumption briefly.
+- Reserve `กู` and `มึง` for a peer register the user explicitly establishes; their social effect can be hostile or crude outside that context.
+- Match strong intensifiers and profanity to the source and requested audience so their social weight remains intentional.
+- For an unspecified register, deliver a neutral-polite draft and state the assumption briefly.
 
 ## Delivery check
 
