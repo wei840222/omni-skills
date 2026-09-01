@@ -459,7 +459,7 @@ curl -X POST https://api.close.com/api/v1/activity/note/ \
 - HTTP 429 when exceeded with `Retry-After` header
 
 ## Gotchas
-- API key goes in Basic Auth username field, password is EMPTY (don't forget the colon)
+- API key goes in Basic Auth username field, password is EMPTY (ensure the colon is included)
 - Custom fields use `custom.cf_XXXXX` format — fetch field IDs from `/custom_field/lead/`
 - Leads contain Contacts (people) — they're not separate entities
 - Search uses Close's query language, not JSON filters

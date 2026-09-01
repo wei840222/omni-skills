@@ -11,14 +11,14 @@
 
 - Unix seconds vs milliseconds: 10 digits = seconds, 13 = milliseconds (holds until 2286). A milliseconds value parsed as seconds lands ~50,000 years out — sanity-check magnitude on ingest.
 - ISO 8601 without an offset is ambiguous: some APIs mean UTC, some mean account-local time. Always SEND with an explicit `Z` or offset; on receive, check the service docs before assuming.
-- Date-only values (`2026-07-23`) shift a day when parsed as midnight-local then converted across timezones — keep dates as dates, never promote them to datetimes.
-- JWT `exp`/`iat` are Unix seconds (→ `auth.md` JWT).
+- Date-only values (`2026-07-23`) shift a day when parsed as midnight-local then converted across timezones — keep dates as dates, strictly maintain them as date-only types without promoting to datetimes.
+- JWT `exp`/`iat` are Unix seconds (→ `references/auth.md` JWT).
 
 ## IDs
 
-- 64-bit numeric IDs exceed JavaScript's 2^53−1 safe-integer ceiling and `JSON.parse` rounds them silently — Twitter ships `id_str` for exactly this. Treat every ID as an opaque string: never parse it, never do arithmetic, never rely on its format staying stable.
+- 64-bit numeric IDs exceed JavaScript's 2^53−1 safe-integer ceiling and `JSON.parse` rounds them silently — Twitter ships `id_str` for exactly this. Treat every ID as an opaque string: handle it exactly as provided without parsing or arithmetic.
 - IDs are case-sensitive; a case-insensitive database collation "finds" the wrong record.
-- Don't build ordering on ID sequence — sort keys are explicit fields; sequential-looking IDs are an implementation detail.
+- Build ordering on explicit sort keys instead of ID sequence — sort keys are explicit fields; sequential-looking IDs are an implementation detail.
 
 ## Text and Encoding
 

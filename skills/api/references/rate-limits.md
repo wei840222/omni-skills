@@ -18,20 +18,20 @@ The symptom pattern identifies the mechanism:
 | One endpoint limited, others fine | Per-endpoint buckets (GitHub search vs core) | A 429 on one endpoint says nothing about the others |
 | Limits hit with traffic you didn't send | Per-key or per-IP bucket shared with other clients | Separate keys per client, or move off a shared egress IP |
 
-GraphQL APIs meter by computed query cost, not request count (→ `graphql.md` Rate Limits Are Cost-Based).
+GraphQL APIs meter by computed query cost, not request count (→ `references/graphql.md` Rate Limits Are Cost-Based).
 
 ## When You Get a 429
 
-- Honor `Retry-After` when present (parse rules and retry formula: `resilience.md` Retry Logic; canonical backoff: SKILL.md Core Rule 2).
+- Honor `Retry-After` when present (parse rules and retry formula: `references/resilience.md` Retry Logic; canonical backoff: references/core-rules.md Rule 2).
 - Stop the whole worker pool, not just the failing request — other in-flight requests spend the same bucket and extend the penalty on providers that punish continued violations.
 - A burst of 429s is normal operation; a sustained plateau means demand exceeds quota — reduce demand (below) or buy a higher tier. Alert on the plateau, not the burst.
 
 ## Spending Less of the Limit
 
-- Request the documented max page size — 10× fewer requests for the same data (→ `pagination.md`).
-- Batch endpoints where offered: one call for N items (→ `async-jobs.md` Batch Endpoints).
-- Conditional requests: a 304 is cheap or free — GitHub does not count conditional requests that return 304 against the rate limit (→ `caching.md`).
-- Webhooks instead of polling for change detection (→ `webhooks.md`); if you must poll, decay the interval (→ `async-jobs.md` Polling Discipline).
+- Request the documented max page size — 10× fewer requests for the same data (→ `references/pagination.md`).
+- Batch endpoints where offered: one call for N items (→ `references/async-jobs.md` Batch Endpoints).
+- Conditional requests: a 304 is cheap or free — GitHub does not count conditional requests that return 304 against the rate limit (→ `references/caching.md`).
+- Webhooks instead of polling for change detection (→ `references/webhooks.md`); if you must poll, decay the interval (→ `references/async-jobs.md` Polling Discipline).
 - Throttle client-side below the documented limit, leaving headroom for retries and for other processes sharing the key — a client tuned to exactly the limit 429s on its own retry traffic.
 
 ## Multiple Instances, One Key

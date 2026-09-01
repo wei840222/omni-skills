@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Call the Stripe API to create a customer.",
+    "expected": "Use curl to call the Stripe API and create a customer, referencing the secret key via environment variable.",
+    "actual": "curl -X POST https://api.stripe.com/v1/customers -u $STRIPE_SECRET_KEY: -d description=\"My First Test Customer\" -d email=\"test@example.com\"",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create an async job polling loop for the AssemblyAI API, stopping only when status is 'completed' or 'error'.",
+    "expected": "Provide a script that submits a transcription job, then polls the status endpoint until completion, utilizing exponential backoff.",
+    "actual": "curl -X POST https://api.assemblyai.com/v2/transcript -H \"Authorization: $ASSEMBLYAI_API_KEY\" -H \"Content-Type: application/json\" -d '{\"audio_url\": \"https://bit.ly/3qDXLG8\"}' | jq -r .id > job_id.txt\n\nwhile true; do\n  STATUS=$(curl -s -H \"Authorization: $ASSEMBLYAI_API_KEY\" https://api.assemblyai.com/v2/transcript/$(cat job_id.txt) | jq -r .status)\n  if [ \"$STATUS\" = \"completed\" ] || [ \"$STATUS\" = \"error\" ]; then\n    echo \"Job finished with status: $STATUS\"\n    break\n  fi\n  sleep 5\ndone",
+    "pass": true
+  }
+]

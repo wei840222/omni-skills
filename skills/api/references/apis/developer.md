@@ -1323,7 +1323,7 @@ curl -X POST "https://api.statsig.com/v1/log_event" \
 
 ## Gotchas
 - **Two APIs**: Console API for management, HTTP API for evaluation
-- **Three key types**: Server-side secret, Client-SDK, Console API — don't mix them
+- **Three key types**: Server-side secret, Client-SDK, Console API — keep them separate
 - All HTTP API calls use POST method (even for reads)
 - SDKs are recommended over HTTP API for better performance
 - `STATSIG-API-VERSION` header recommended for Console API

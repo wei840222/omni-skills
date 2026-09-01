@@ -6,7 +6,7 @@ Take the highest rung the provider offers:
 
 1. **Delta/sync endpoint** (Google Calendar `syncToken`, Dropbox cursor, Salesforce `getUpdated`) — built for this; returns exactly what changed, including deletions where supported.
 2. **`updated_since` incremental polling** — works on any API with an updated-at filter; deletion-blind (below).
-3. **Webhook ping + fetch** — lowest latency; webhooks announce that something changed, the API provides current state (→ `webhooks.md` Delivery). Never sync from payload contents alone.
+3. **Webhook ping + fetch** — lowest latency; webhooks announce that something changed, the API provides current state (→ `references/webhooks.md` Delivery). Never sync from payload contents alone.
 4. **Full re-fetch and diff** — last resort for small datasets, and the periodic reconciliation layer for all the others.
 
 ## Incremental by updated_since
@@ -31,4 +31,4 @@ Take the highest rung the provider offers:
 
 - Webhooks drop and polls miss: run a periodic incremental sweep beneath the live channel, and alert when the sweep finds changes the live channel missed — that alert is your delivery-degradation detector.
 - Backfill order: capture the live-channel cursor (or start webhook capture) FIRST, then run the historical backfill, then process the captured live events. Backfill-then-subscribe leaves a gap exactly as long as the backfill took.
-- Rate-limit budget: a backfill at max page size competes with your live traffic for the same bucket (→ `rate-limits.md` Multiple Instances) — throttle the backfill, not the live channel.
+- Rate-limit budget: a backfill at max page size competes with your live traffic for the same bucket (→ `references/rate-limits.md` Multiple Instances) — throttle the backfill, not the live channel.

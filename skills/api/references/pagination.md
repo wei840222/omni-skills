@@ -18,7 +18,7 @@ Defaults are small and silent: Stripe `limit` defaults to 10 (max 100), GitHub `
 ## Offset-Based
 
 - Item inserted during pagination = duplicated item on the next page
-- Item deleted during pagination = item skipped, you never see it
+- Item deleted during pagination = item skipped, you do not see it
 - `offset=1000000` + SQL = full table scan, extremely slow
 - `total_count` changes between requests = progress bar lies
 

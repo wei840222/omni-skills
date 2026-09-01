@@ -2,13 +2,13 @@
 
 ## Errors
 
-- HTTP 200 with an `errors` array is the normal failure mode (SKILL.md Core Rule 5). Check `errors` AND `data` on every response: partial success ships both — some fields resolved, others null with a matching error entry.
-- The machine-readable cause is `errors[].extensions.code`; the message text is prose and changes without notice — never branch on it.
-- Transport-level errors still occur (401 before the resolver runs, 5xx HTML from the edge) — handle both layers (→ `debug.md` Intermittent Failures).
+- HTTP 200 with an `errors` array is the normal failure mode (references/core-rules.md Rule 5). Check `errors` AND `data` on every response: partial success ships both — some fields resolved, others null with a matching error entry.
+- The machine-readable cause is `errors[].extensions.code`; the message text is prose and changes without notice — branch on code instead of message text.
+- Transport-level errors still occur (401 before the resolver runs, 5xx HTML from the edge) — handle both layers (→ `references/debug.md` Intermittent Failures).
 
 ## Pagination — Relay Connections
 
-- The pattern: `first: N, after: $cursor` with `pageInfo { hasNextPage endCursor }`; loop while `hasNextPage` — the same termination law as `pagination.md` (the API's signal, never item count).
+- The pattern: `first: N, after: $cursor` with `pageInfo { hasNextPage endCursor }`; loop while `hasNextPage` — the same termination law as `references/pagination.md` (the API's signal instead of item count).
 - Cursors are opaque and bound to the query's sort and filters — changing arguments mid-pagination invalidates them.
 - Nested connections multiply pages: paginating a list inside every node of another list needs per-node cursors — restructure into a second query keyed by the parent IDs collected first.
 
@@ -20,7 +20,7 @@
 ## Query Hygiene
 
 - Select only the fields you read: there is no `*`, and over-selection is the cost multiplier above.
-- Variables, never string interpolation: `query($id: ID!)` plus a variables object — interpolation breaks on quotes and is the GraphQL injection vector.
+- Variables, use Variables object for GraphQL: `query($id: ID!)` plus a variables object — interpolation breaks on quotes and is the GraphQL injection vector.
 - Need N objects of the same type? Alias them in one query (`a: node(id: "1") {...} b: node(id: "2") {...}`) — one round trip; the cost still sums per alias.
 - Mutations return selectable fields: select what confirms the write (the new ID, updated timestamp) — an empty selection throws away the confirmation you need for idempotent retries.
 - Introspection is often disabled in production — develop against the provider's published schema or docs, not runtime introspection.
