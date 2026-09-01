@@ -1,6 +1,6 @@
 ---
 name: yelp
-description: Search Yelp businesses and reviews, compare local options, and audit listing quality using official APIs and public page data.
+description: Search Yelp businesses and reviews, compare local options, and audit listing quality with official APIs, public pages, and safe action boundaries. Use when Yelp-specific ratings, review signals, local business comparisons, or listing audits are needed.
 metadata:
   openclaw: '{"emoji":"⭐","requires":{"bins":["curl","jq"]}}'
   related-skills: '{"apple-maps":"Opens a selected business for directions and location confirmation.","google-reviews":"Cross-checks Yelp signals against Google review patterns and reputation drift.","maps":"Adds routing, geocoding, and distance checks before the user acts on a shortlist.","restaurants":"Turns shortlisted places into dining recommendations and decision filters.","tripadvisor":"Cross-checks travel-heavy restaurant and attraction choices outside Yelp."}'
@@ -18,7 +18,7 @@ Yelp state may exist in `<workspace>/yelp/`, `<workspace>/memory/yelp/`, or `~/y
 
 Keep the selected `<state_root>` for all state operations. Create `sessions/`, `businesses/`, `api/`, and `audits/` only when the corresponding Yelp task needs them.
 
-## Yelp tasks
+## When to use
 
 Use this skill for Yelp-specific local-business discovery, direct comparison, review-signal analysis, delivery or takeout checks where Yelp exposes those signals, or listing audits for owners and operators.
 
