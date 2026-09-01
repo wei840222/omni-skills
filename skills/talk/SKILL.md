@@ -15,8 +15,8 @@ metadata:
 3. Load `references/voice-call.md` for carrier calls, then load `references/providers.md` only for the selected carrier or device-TTS provider.
 4. Present the smallest viable configuration plus its verification command. Use OpenClaw's credential surface for secrets and placeholders in all examples.
 
-## Operating boundaries
+## Verification and boundaries
 
-Treat a configuration edit, provider-account change, number purchase, public-webhook exposure, and placement of a real call as separate user-authorized actions. Use a dry-run verification before an actual outbound call. Configure inbound calls with an explicit policy and caller controls before enabling them.
+Before changing a configuration, confirm the selected provider is available and use the matching reference's verification path. Treat provider-account changes, number purchases, public-webhook exposure, and live calls as separate user-authorized actions. Start carrier-call verification with a dry run and enable inbound calling only after defining its caller policy and controls.
 
 This skill is stateless and does not store local configuration or persistent user state.

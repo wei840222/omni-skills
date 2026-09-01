@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Set up Talk mode on my Mac with ElevenLabs for speech playback and let me interrupt the assistant while it speaks.",
+    "expected": "The agent distinguishes device Talk from telephony, loads references/talk-mode.md, provides the talk.provider and talk.providers.elevenlabs configuration shape with placeholders, retains interruptOnSpeech, and asks for authorization before changing configuration.",
+    "actual": "This is device Talk mode, not a phone-call setup. I would load references/talk-mode.md, configure talk.provider as elevenlabs and place the chosen voice ID, model ID, and secret-backed API key under talk.providers.elevenlabs. I would retain interruptOnSpeech: true, verify the provider is ready in the Talk catalog, and only edit the configuration after you approve the change.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need an inbound Twilio support line today. Make it accept every caller and use both realtime and streaming audio so it never misses a word.",
+    "expected": "The agent loads references/voice-call.md and references/providers.md, explains that carrier calls need a public webhook and explicit inbound caller control, selects one audio mode because realtime and streaming conflict, and keeps real configuration and call placement behind authorization.",
+    "actual": "I would load references/voice-call.md and then the Twilio section of references/providers.md. The setup needs a publicly reachable HTTPS webhook and an explicit inbound policy; an allowlist is the smallest safe starting policy. Realtime and streaming are mutually exclusive, so I would select the one that matches the call flow, run openclaw voicecall setup --json and a dry-run smoke check, then wait for your approval before exposing the webhook or placing a live call.",
+    "pass": true
+  }
+]
