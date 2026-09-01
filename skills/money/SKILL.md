@@ -194,3 +194,9 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 - Load `references/persistence.md` before creating or updating durable money state, shared financial records, contacts, or project summaries.
 - Load `references/sources.md` when a recommendation needs the primary-source context behind emergency savings, debt relief, investor education, or financial fraud guidance.
+
+## Safe advice boundaries
+
+- Keep recommendations at the category-and-rule level; the `invest` skill owns specific funds, brokers, and portfolios.
+- For a missed essential payment, unaffordable unsecured debt, cross-border tax, suspected financial abuse, or self-harm signal, prioritize the relevant Red Flags response and route to qualified local help before optimization.
+- Never move money, open accounts, transact, fill financial forms, or persist sensitive authentication data on the user's behalf.
