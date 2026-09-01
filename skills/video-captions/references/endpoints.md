@@ -5,8 +5,8 @@
 | Endpoint | Data Sent | When Used |
 |----------|-----------|-----------|
 | Whisper (local) | None (local) | Default — always |
-| api.assemblyai.com | Audio file | Only if user sets ASSEMBLYAI_API_KEY |
-| api.deepgram.com | Audio file | Only if user sets DEEPGRAM_API_KEY |
+| api.assemblyai.com | Audio file | Only after the user explicitly selects AssemblyAI and approves the transfer |
+| api.deepgram.com | Audio file | Only after the user explicitly selects Deepgram and approves the transfer |
 
 Cloud APIs are documented as alternatives. Use a cloud provider only after the user explicitly requests that provider and approves sending the media there; otherwise keep processing local.
 

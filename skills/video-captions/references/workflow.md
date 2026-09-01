@@ -37,6 +37,9 @@ ffmpeg -i video.mp4 -vf "subtitles=video.srt:force_style='FontName=Arial,FontSiz
 ```
 
 ### Burn-In for Social Media
+
+Apply the same `subtitles` filter preflight before running these commands.
+
 ```bash
 # TikTok/Instagram style (centered, bold)
 ffmpeg -i video.mp4 -vf "subtitles=video.srt:force_style='FontName=Montserrat-Bold,FontSize=32,PrimaryColour=&HFFFFFF,OutlineColour=&H000000,Outline=3,Shadow=0,Alignment=10,MarginV=50'" output.mp4

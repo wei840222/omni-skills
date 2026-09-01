@@ -10,7 +10,7 @@
     "id": 2,
     "prompt": "Burn stylized subtitles into tiktok.mp4 with word-level timestamps and TikTok friendly formatting.",
     "expected": "Uses whisper-timestamped to create word-level SRT/ASS, then applies ffmpeg burn-in with bold, centered styling appropriate for TikTok.",
-    "actual": "Ran whisper_timestamped tiktok.mp4 --output_format srt. Then ran ffmpeg -i tiktok.mp4 -vf \"subtitles=tiktok.srt:force_style='FontName=Montserrat-Bold,FontSize=32,PrimaryColour=&HFFFFFF,OutlineColour=&H000000,Outline=3,Shadow=0,Alignment=10,MarginV=50'\" output.mp4. Video generated with dynamic captions successfully.",
-    "pass": true
+    "actual": "The workflow must first verify that the local FFmpeg build exposes the subtitles filter. In the review environment that preflight failed, so the correct result was to keep the caption file and report that a libass-enabled FFmpeg build is required for burn-in.",
+    "pass": false
   }
 ]

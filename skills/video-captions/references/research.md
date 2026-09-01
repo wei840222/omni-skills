@@ -6,7 +6,6 @@
 - **YouTube Help: Subtitle file formats** — choose a supported caption format and upload path for YouTube delivery: https://support.google.com/youtube/answer/2734698
 - **FFmpeg subtitles filter documentation** — verify `libass` support and `force_style` behavior before burn-in: https://ffmpeg.org/ffmpeg-filters.html#subtitles
 
-
 ## Netflix Timing and Styling Requirements
 - **Duration Requirements**: Minimum duration of 5/6 second (0.833s) per subtitle event. Maximum duration is 7 seconds.
 - **Character Limits**: Maximum of 42 characters per line.

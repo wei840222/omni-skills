@@ -6,12 +6,12 @@
 - Burned-in videos stay local
 - No network calls made
 
-**Cloud APIs are OPTIONAL and OPT-IN:**
-- Only used if you set `ASSEMBLYAI_API_KEY` or `DEEPGRAM_API_KEY`
-- Only triggered when you explicitly use cloud engine commands
-- By keeping these keys unset, all audio processing remains entirely local on your machine
+**Cloud APIs require explicit transfer approval:**
+- Keep processing local unless the user explicitly selects AssemblyAI or Deepgram and approves sending the media to that provider.
+- A configured API key enables authentication; it does not authorize a media upload.
+- Use only the selected provider command after that approval.
 
-**This skill does NOT:**
-- Upload anything by default
-- Require internet connection for basic use
-- Store data externally
+**Privacy boundary:**
+- The default workflow leaves media local.
+- Basic local processing needs no internet connection.
+- This skill does not persist user media or caption files externally.

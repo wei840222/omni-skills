@@ -6,10 +6,11 @@
 3. Review auto-sync suggestions
 
 ### TikTok/Instagram Reel
-1. Transcribe with word timestamps
-2. Apply bold animated style
-3. Burn-in: `ffmpeg -i video.mp4 -vf "subtitles=video.ass" -c:a copy output.mp4`
-4. Export at platform resolution
+1. Transcribe with word timestamps.
+2. Apply bold animated style.
+3. Check that the local FFmpeg build exposes the `subtitles` filter; if it does not, deliver the subtitle file or switch to a libass-enabled build.
+4. Burn-in: `ffmpeg -i video.mp4 -vf "subtitles=video.ass" -c:a copy output.mp4`
+5. Export at platform resolution.
 
 ### Netflix/Professional
 1. Use Whisper large-v3 for best local accuracy
