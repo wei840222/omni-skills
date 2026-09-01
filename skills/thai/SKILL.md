@@ -6,14 +6,13 @@ metadata:
   openclaw: '{"emoji":"🇹🇭"}'
 ---
 
-Write Thai that sounds like a person addressing the intended reader, while preserving the source meaning, facts, and requested tone.
+## Workflow
 
-## Quick reference
+1. Identify the audience, relationship, channel, source text, and requested tone. If the request lacks a register, choose neutral-polite Thai.
+2. Read `references/language-rules.md` before drafting Thai. It defines the register decision, pronoun and particle choices, sensitive language boundaries, and delivery check.
+3. Draft Thai that preserves the source meaning, facts, commitments, and degree of certainty.
+4. Apply the reference delivery check. Return the Thai text first; state a register assumption briefly only when it materially affects the result.
 
-| Need | Load | Outcome |
-| --- | --- | --- |
-| Any Thai drafting, translation, rewrite, or review | `references/language-rules.md` | Register choices, pronouns, particles, conversational markers, and a delivery check |
+## Scope boundary
 
-## Quality boundary
-
-Choose language from the relationship, audience, and channel—not from a fixed “casual” setting. Keep an explicitly formal or professional request formal. When the audience or register is unspecified, use clear, neutral-polite Thai rather than inventing closeness, slang, a speaker identity, or facts.
+Use this skill for Thai-language writing, rewrites, and translations. Keep an explicitly formal or professional request formal. For a mixed or public audience, use neutral language rather than assuming familiarity or a speaker identity.
