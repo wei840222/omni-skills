@@ -14,7 +14,7 @@ Moving to Beijing is a significant undertaking. This guide covers the practical 
 
 | Task | Notes |
 |------|-------|
-| ✅ Visa sorted | Z visa for work, see `visas.md` |
+| ✅ Visa sorted | Z visa for work, see `references/visas.md` |
 | ✅ VPN downloaded | Cannot download inside China |
 | ✅ WeChat installed | Verify phone number works |
 | ✅ Essential documents copied | Passport, visa, diplomas |
@@ -187,7 +187,7 @@ Moving to Beijing is a significant undertaking. This guide covers the practical 
 
 ## 🏦 Financial Setup
 
-### Bank Account (See `local.md` for details)
+### Bank Account (See `references/local.md` for details)
 
 **Recommended:** Bank of China or ICBC
 
@@ -313,7 +313,7 @@ Moving to Beijing is a significant undertaking. This guide covers the practical 
 
 ### Schools
 
-See `education.md` for details. Start process 6-12 months ahead for international schools.
+See `references/education.md` for details. Start process 6-12 months ahead for international schools.
 
 ### Spouse Employment
 

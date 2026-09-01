@@ -84,7 +84,7 @@
 
 **Reality check:** English is NOT widely spoken in Beijing. Even in tourist areas, expect communication challenges.
 
-**Essential phrases:** full table with Beijing-accent notes in `culture.md` (canonical). Minimum viable set: 你好 (hello), 谢谢 (thanks), 多少钱 (how much), 买单 (check please), 不要辣 (no spicy).
+**Essential phrases:** full table with Beijing-accent notes in `references/culture.md` (canonical). Minimum viable set: 你好 (hello), 谢谢 (thanks), 多少钱 (how much), 买单 (check please), 不要辣 (no spicy).
 
 **Communication Strategies:**
 1. **Screenshots:** Save address in Chinese characters
@@ -146,7 +146,7 @@
 
 ## Cultural Etiquette (visitor essentials)
 
-Full etiquette, dining script, and sensitive-topics guidance: `culture.md` (canonical). Visitor-critical subset:
+Full etiquette, dining script, and sensitive-topics guidance: `references/culture.md` (canonical). Visitor-critical subset:
 
 - **Don't tip** — not expected anywhere; can cause confusion
 - **Don't discuss politics** — Taiwan, Tibet, Tiananmen, Xinjiang: deflect, even on WeChat

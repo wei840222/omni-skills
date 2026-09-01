@@ -1,6 +1,6 @@
 # Memory Template — Beijing
 
-Create `~/Clawic/data/beijing/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Beijing Memory

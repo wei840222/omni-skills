@@ -282,7 +282,7 @@ Setting up daily life in Beijing requires navigating a parallel digital ecosyste
 
 ### Business Registration
 
-For business setup, see `business.md`
+For business setup, see `references/business.md`
 
 ---
 

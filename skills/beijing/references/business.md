@@ -204,7 +204,7 @@ Common path: Start with Rep Office to test market, then convert to WFOE when rea
 
 | Requirement | Details |
 |-------------|---------|
-| **Work permit** | Company sponsors, see `visas.md` |
+| **Work permit** | Company sponsors, see `references/visas.md` |
 | **Quota** | Some companies have limits |
 | **Cost** | ¥5,000-15,000 processing |
 | **Timeline** | 4-8 weeks |
