@@ -1,39 +1,22 @@
 ---
+compatibility: "OpenClaw Gateway with an available Talk provider or the voice-call plugin"
 name: talk
-slug: talk
-version: 1.0.0
-description: Set up real-time voice conversations. Phone calls, voice agents, live speech.
-homepage: https://clawic.com/skills/talk
+description: Configure OpenClaw Talk mode or Voice Call telephony. Use when a user wants continuous voice chat, TTS playback, inbound or outbound phone calls, a voice provider, or voice-call setup and diagnostics.
 metadata:
-  clawdbot:
-    emoji: 📞
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Talk
+  version: "1.0.0"
+  openclaw: '{"emoji":"📞"}'
+  related-skills: '{"api":"Covers provider API integration and webhook diagnostics beyond the OpenClaw voice configuration.","setup":"Covers general OpenClaw installation and configuration outside voice-specific workflows."}'
 ---
 
-## Real-Time Voice Setup
+## Use this skill
 
-Help users configure live voice conversations with OpenClaw.
+1. Identify the target: device Talk mode for continuous voice chat, realtime Talk, or the Voice Call plugin for carrier calls.
+2. Load `references/talk-mode.md` for device Talk or realtime sessions; use its provider catalog check before proposing configuration.
+3. Load `references/voice-call.md` for carrier calls, then load `references/providers.md` only for the selected carrier or device-TTS provider.
+4. Present the smallest viable configuration plus its verification command. Use OpenClaw's credential surface for secrets and placeholders in all examples.
 
-**Rules:**
-- Ask what they want: phone calls, web voice, or voice agent
-- Check `config.md` for OpenClaw setup options
-- Start with the simplest option that meets their needs
-- Check `providers.md` for provider-specific setup
+## Verification and boundaries
 
----
+Before changing a configuration, confirm the selected provider is available and use the matching reference's verification path. Treat provider-account changes, number purchases, public-webhook exposure, and live calls as separate user-authorized actions. Start carrier-call verification with a dry run and enable inbound calling only after defining its caller policy and controls.
 
-### Current Setup
-<!-- What's configured. Format: "provider: status" -->
-
-### Use Cases
-<!-- What they use voice for. Format: "use case" -->
-
-### Preferences
-<!-- Voice settings that work. Format: "setting: value" -->
-
----
-*Empty sections = not configured yet.*
+This skill does not persist user state; OpenClaw retains configuration through its runtime-managed configuration surface.
