@@ -12,8 +12,8 @@ This skill stores user preferences and project context. Before its first state r
 
 1. Use a user- or host-configured state root when one is explicit.
 2. Otherwise, use the first existing directory in this order: `<workspace>/django/`, `<workspace>/memory/django/`, then `~/django/`.
-3. If more than one candidate exists, use only the highest-precedence directory and tell the user that separate copies exist; do not merge or synchronize them.
-4. If no candidate exists and the user wants to save state, create `<workspace>/django/`. The host supplies `<workspace>`; never substitute the shell working directory.
+3. If more than one candidate exists, select only the highest-precedence directory, report the separate copies, and keep them independent.
+4. If no candidate exists and the user wants to save state, create `<workspace>/django/`. The host supplies `<workspace>`; treat the shell working directory as unrelated to state-root resolution.
 
 Use the selected `<state_root>` for every state operation. User preferences and memory format follow `references/setup.md` and `references/memory-template.md`.
 
