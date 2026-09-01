@@ -1,71 +1,27 @@
 ---
 name: lithuanian
-slug: lithuanian
-version: 1.0.0
-description: Write Lithuanian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/lithuanian
+description: Generate or revise idiomatic Lithuanian for casual messages, social posts, and marketing copy. Use when the user needs natural Lithuanian wording; preserve the requested formal register for professional, institutional, or unfamiliar-recipient communication.
 metadata:
-  clawdbot:
-    emoji: 🇱🇹
-    displayName: Lithuanian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇱🇹"}'
 ---
 
-## The Real Problem
+## Workflow
 
-AI Lithuanian is technically correct but sounds off. Too formal. Too literary. Natives write more casually, with particles and warmth. Match that.
+1. Identify the audience, relationship, channel, and requested tone. When those details are missing, write neutral-standard Lithuanian instead of inventing intimacy or slang.
+2. Choose the address form deliberately: use `tu` for a known peer or clearly casual context; use `Jūs` for professional, institutional, older, unfamiliar, or explicitly formal recipients.
+3. Draft for the selected register, preserving the user's meaning, facts, and safety boundaries. For casual text, favor direct phrasing and use conversational markers only when they fit the speaker and channel.
+4. Read `references/style-guide.md` when drafting, rewriting, or reviewing human-facing Lithuanian. It supplies register, particles, diminutives, slang, and syntax guidance.
+5. Run the Native Test before delivering: check register consistency, grammatical clarity, and whether each informal marker earns its place. Provide a brief note when a translation requires a register assumption.
 
-## Formality Default
+## Register decisions
 
-Default register is too high. Casual Lithuanian is warm and direct. Unless explicitly formal: lean casual. "Labas" not "Laba diena". "Aha" not "Taip".
+| Situation | Default | Delivery rule |
+| --- | --- | --- |
+| Friends, peers, informal chat | Casual `tu` | Use warmth and a small number of natural conversational markers where they fit. |
+| Work, institutions, unknown recipient, older recipient | Formal `Jūs` | Keep the wording respectful and clear; omit peer slang and casual diminutives. |
+| Marketing or social copy | Match brand and audience | Offer a neutral option when the audience is mixed or unknown. |
 
-## Tu vs Jūs
+## Quality boundary
 
-Critical distinction:
-- Jūs: formal, elderly, professional
-- Tu: friends, peers, internet, casual
-- Lithuanian internet uses tu
-- Overusing jūs = stiff
-
-## Particles & Softeners
-
-These make Lithuanian natural:
-- Gi: emphasis ("Kas gi čia?")
-- Juk: "after all" ("Juk žinai")
-- Tai: "so", "well"
-- Nu: filler, "well"
-- Kad: emphasis in exclamations
-
-## Fillers & Flow
-
-Real Lithuanian has fillers:
-- Nu, tai, va
-- Tipo, kaip ir
-- Žinok, klausyk
-- Šiaip, beje
-
-## Expressiveness
-
-Don't pick the safe word:
-- Gerai → Super, Šaunu, Nuostabu
-- Blogai → Blogai, Šūdas, Baisu
-- Labai → Mega, Žiauriai, Tikrai
-
-## Common Expressions
-
-Natural expressions:
-- Gerai, Okei, Suprantu
-- Nieko tokio, Ramiai
-- Rimtai?, Tikrai?, Ką?
-- Šaunu!, Super!, Nuostabu!
-
-## Reactions
-
-React naturally:
-- Rimtai?, Tikrai?, Nu ne!
-- Oho!, Vau!, Dieve!
-- Super!, Šaunu!, Cool!
-- Haha, lol in text
-
-## The "Native Test"
-
-Before sending: would a Lithuanian screenshot this as "AI-generated"? If yes—too formal, no "nu", too stiff. Add casual warmth.
+Keep source meaning intact. Naturalness comes from appropriate register and idiom, not from adding profanity, slang, fillers, or diminutives by default. If a native-speaker review is available for publication-sensitive text, use it after this linguistic pass.
