@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain why the Moon has phases to an 8-year-old and suggest a safe activity to see the geometry.",
+    "expected": "Explain the Sun-Earth-Moon geometry accurately with accessible language, state that lunar phases arise from the illuminated fraction visible from Earth, and provide a safe hands-on demonstration.",
+    "actual": "The Moon is always half lit by the Sun, but as it travels around Earth we see different amounts of that lit half. Shine a lamp on a ball in a dark room: keep the lamp still, walk the ball around yourself, and notice how the bright part you see changes. That changing view makes the phases; an eclipse is a separate event when the Sun, Earth, and Moon line up.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to observe the Orion Nebula tonight. What should I prepare? I am in Taipei with 10x50 binoculars.",
+    "expected": "Request or verify date and local observing conditions, check whether Orion is visible, describe binocular expectations, and mark a visibility claim unverified until current ephemeris evidence is available.",
+    "actual": "What date will you observe from Taipei, and do you have an open southern-to-western horizon? I would first check Orion's altitude, the Moon, and cloud cover in a current sky map for that date. With 10x50 binoculars, use a steady support and start at Orion's Sword; when Orion is well placed and the sky is dark enough, the nebula may appear as a faint diffuse patch rather than the colorful long-exposure images. Its visibility tonight remains unverified until the date and ephemeris are checked.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Find literature and data to study metallicity in the Milky Way bulge.",
+    "expected": "Provide a reproducible research path using appropriate literature and data archives, including provenance, units, selection effects, and uncertainty handling.",
+    "actual": "Define whether you need an MDF, a spatial gradient, or a stellar-population comparison, then search NASA ADS for bulge metallicity studies and choose a survey archive whose data release, wavelength range, and stellar selection fit that question. Save the exact archive query, release, coordinate frame, units, quality cuts, extinction treatment, and calibration. Report statistical uncertainty separately from systematic effects such as selection bias, distance assumptions, and abundance calibration; compare values only after confirming that those choices are compatible.",
+    "pass": true
+  }
+]

@@ -1,61 +1,33 @@
 ---
 name: astronomy
-slug: astronomy
-version: 1.0.0
-description: Explore the cosmos from backyard stargazing to astrophysics research.
-homepage: https://clawic.com/skills/astronomy
+description: Explain astronomy, plan observations, teach sky phenomena, and support astrophysics research. Use when a user asks about celestial objects, observing the night sky, astronomy concepts, or astronomy research workflows.
 metadata:
-  clawdbot:
-    emoji: 🔭
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Astronomy
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔭"}'
 ---
 
-## Detect Level, Adapt Everything
-- Context reveals level: terminology, equipment mentioned, mathematical comfort
-- When unclear, start with observable sky and adjust based on response
-- Never condescend to experts or overwhelm beginners
+## Choose the response path
 
-## For Beginners: Wonder First
-- Scale comparisons they can imagine — "If Earth were a basketball, the Sun would be a hot air balloon 3km away"
-- Preserve the wonder — "Here's the wild part..." Match their excitement about cosmic scales
-- Avoid jargon without dumbing down — explain fusion as "a giant explosion held together by gravity"
-- Connect to what they can see tonight — "That bright 'star' in the west after sunset? That's Venus"
-- Welcome "silly" questions — black holes, aliens, time travel are legitimate and fascinating
-- Use stories — constellations have myths, planets have personalities, scientists faced drama
-- Actionable next steps — "Download a star map app, find Orion tonight"
+1. Identify the user's level from their terminology, equipment, mathematical comfort, and goal. If it is unclear, begin with an observable example and adjust after the response.
+2. Keep the answer tied to evidence: distinguish direct observations from inferred properties, state assumptions, and report measurement uncertainty where relevant.
+3. Load the reference that fits the task before giving detailed guidance:
 
-## For Students: Physics and Observation
-- Derive equations step-by-step — show why L = 4πR²σT⁴, not just the formula
-- Track units rigorously — cgs, SI, parsecs, solar masses; dimensional analysis catches errors
-- Connect theory to observables — what we measure (flux, redshift) vs what we infer (distance, mass)
-- Teach order-of-magnitude estimation — back-of-envelope before detailed calculation
-- Explain instrumentation — CCDs, spectrographs, selection effects, survey biases
-- Reference real objects and catalogs — Crab Nebula, Gaia DR3, SIMBAD, not just abstractions
-- Distinguish settled physics from open questions — stellar nucleosynthesis vs dark energy
+| Reference | Load when | Covers |
+| --- | --- | --- |
+| `references/audience-guidance.md` | Explaining, teaching, or adapting an answer to a beginner, student, researcher, or teacher | Audience-specific approach, examples, and accuracy guardrails |
+| `references/observing.md` | Recommending targets, planning an observation, or discussing equipment and conditions | Visibility checks, practical observing workflow, and recovery paths |
+| `references/research.md` | Handling astrophysics literature, catalog data, analysis, or a publication-oriented request | Research workflow, provenance, units, uncertainty, and archive selection |
 
-## For Researchers: Rigor and Tools
-- Assume astropy fluency — SkyCoord, Time, units, FITS handling are standard
-- Cite properly — ADS bibcodes, arXiv IDs, BibTeX format for papers
-- Know telescope-specific workflows — JWST MAST, ESO Archive, SDSS CasJobs have distinct pipelines
-- Support LaTeX and journal formats — aastex, mnras class, publication-quality figures
-- Handle large datasets pragmatically — vectorized operations, chunked processing, TAP/ADQL queries
-- Propagate uncertainties always — statistical vs systematic, never report without error bars
-- Factor observational realities — seeing, airmass, moon phase, exposure time calculators
+## Response principles
 
-## For Teachers: Engagement and Accuracy
-- Address misconceptions proactively — seasons aren't distance, moon phases aren't Earth's shadow
-- Low-cost demo suggestions — lamp and globe for phases, tennis ball on string for orbits
-- Scale analogies for different ages — multiple versions of the same concept by grade band
-- Flag upcoming observable events — eclipses, meteor showers, ISS passes with lead time
-- Clarify naked-eye vs equipment targets — Jupiter visible unaided, ring detail needs telescope
-- Connect to active missions — JWST images, Mars rovers, asteroid missions keep it current
-- Hemisphere and light pollution awareness — don't recommend Southern sky targets from London
+- Connect theory to observable evidence whenever possible: flux, spectra, images, positions, or time-series measurements.
+- Translate cosmic scales with a concrete comparison that preserves the relevant units and uncertainty.
+- Match claims to their confidence: name established physics, model-dependent interpretation, and open questions separately.
+- For time-sensitive sky events, visibility, catalog releases, mission status, or ephemerides, verify against an authoritative current source rather than relying on static prose.
+- Treat a user's location, date, horizon, light pollution, and available equipment as required inputs for observing recommendations.
 
-## Always
-- Observable sky grounds everything — theory connects to what's actually visible
-- Cosmic scales require translation — numbers mean nothing without tangible comparisons
-- Uncertainty is inherent — measurements have error bars, models have assumptions
+## Safety and accuracy boundaries
+
+- Frame black holes, aliens, time travel, and similar popular topics with the difference between evidence, hypothesis, and fiction.
+- For telescope operation, solar observation, or imaging hardware, give only verified, equipment-appropriate instructions; solar observing requires certified solar filters designed for the exact instrument.
+- Cite primary papers or authoritative archives for research claims. Preserve units, calibration assumptions, selection effects, and statistical versus systematic uncertainty.
