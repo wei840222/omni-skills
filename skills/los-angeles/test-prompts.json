@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 3-day trip to Los Angeles. I want to see the Griffith Observatory and maybe a beach. Where should I stay and how do I get around?",
+    "expected": "Provide a 3-day itinerary focusing on Griffith Observatory and a beach (like Santa Monica). Recommend a central lodging area and emphasize the need for a rental car due to LA's spread-out nature.",
+    "actual": "For a 3-day trip featuring the Griffith Observatory and a beach, I recommend staying in a central location like West Hollywood or Los Feliz, which gives you good access to both Hollywood and the Westside. \n\n**Itinerary Idea:**\n*   **Day 1:** Explore Hollywood (skip the Walk of Fame) and head up to the Griffith Observatory in the late afternoon for sunset views. \n*   **Day 2:** Drive to the Westside. Spend the day at Santa Monica beach and explore the pier.\n*   **Day 3:** Visit the Getty Center for art and views, then explore a local neighborhood like Silver Lake for dinner.\n\n**Getting Around:** You absolutely need to rent a car. While the Metro is improving, LA is vastly spread out, and a car is essential for maximizing your short trip. Plan for traffic and use navigation apps.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm moving to LA for a tech job in Silicon Beach. My budget for a 1-bedroom apartment is $2500. Which neighborhoods should I consider?",
+    "expected": "Identify neighborhoods near Silicon Beach (Santa Monica, Venice, Culver City, Playa Vista) that fit a $2500 budget for a 1-bedroom, noting that some areas might be tight on that budget. Discuss the commute.",
+    "actual": "Moving to Silicon Beach (the Westside tech hub) is exciting! With a $2,500 budget for a 1-bedroom, you have options, but you'll need to be strategic as the Westside is expensive.\n\n**Neighborhoods to Consider:**\n*   **Culver City/Palms:** This is often the sweet spot for tech workers. Palms is slightly more affordable than Culver City itself, but both offer great access to Silicon Beach and a more reasonable commute.\n*   **Mar Vista:** A quieter, more residential area adjacent to Venice and Santa Monica. You can sometimes find older apartments in your budget here.\n*   **El Segundo:** Located just south of LAX, this area is growing and often slightly cheaper than Santa Monica or Venice proper.\n\n**Areas that might be tight:** Santa Monica and Venice are the heart of Silicon Beach, but a $2,500 budget will likely mean an older, smaller unit, or you might need to look for a studio.\n\n**The Commute Reality:** Traffic on the Westside (especially the 405) is brutal. Living as close to your office as possible is highly recommended to maintain your sanity.",
+    "pass": true
+  }
+]

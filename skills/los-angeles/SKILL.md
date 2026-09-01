@@ -1,120 +1,48 @@
 ---
 name: los-angeles
-slug: los-angeles
-version: 1.0.1
-description: Navigate Los Angeles as visitor, resident, tech worker, student, or creative with neighborhoods, transport, costs, safety, and local insights.
-homepage: https://clawic.com/skills/los-angeles
-changelog: Minor refinements for consistency
+description: Guide Los Angeles visits, moves, neighborhood choices, transport, housing research, and local planning. Use when a user needs practical, current Los Angeles advice for travel, living, work, study, or local services.
 metadata:
-  clawdbot:
-    emoji: 🌴
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Los Angeles
+  version: "1.0.1"
+  openclaw: '{"emoji":"🌴"}'
 ---
 
 ## When to Use
 
-User asks about Los Angeles for any purpose: visiting, moving, working, studying, or pursuing entertainment/creative careers. Agent provides practical guidance with current data.
+Use for Los Angeles visits, moves, work, study, and local planning. Start with `references/planning-guide.md`; load the topic reference for the decision, then verify mutable facts through `references/current-information.md` before calling them current.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Westside (Santa Monica, Venice, etc.) | `neighborhoods-westside.md` |
-| Hollywood/Central | `neighborhoods-central.md` |
-| South Bay | `neighborhoods-southbay.md` |
-| Valley | `neighborhoods-valley.md` |
-| East/Northeast | `neighborhoods-east.md` |
-| **Food** | |
-| Overview & what makes LA special | `food-overview.md` |
-| Local specialties | `food-local.md` |
-| By area | `food-areas.md` |
-| Practical (apps, grocery, dietary) | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (car culture reality) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety | `safety.md` |
-| Weather & microclimates | `climate.md` |
-| Local services | `local.md` |
-| **Career** | |
-| Tech industry (Silicon Beach) | `tech.md` |
-| Entertainment industry | `entertainment.md` |
-| Students | `student.md` |
-| Startups | `startup.md` |
-
-## Core Rules
-
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, creative/entertainment
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
-
-### 2. Car Reality is Critical
-LA is a car city. Period.
-- 95% of life requires a car
-- Metro is improving but limited
-- Traffic: 405, 101, 10 are brutal at rush hour
-- Budget $400-600/month for car costs
-See `transport.md` for survival guide.
-
-### 3. Weather Microclimates
-| Myth | Reality |
-|------|---------|
-| "Always sunny" | Coastal = June Gloom (May-July fog) |
-| "Same weather everywhere" | Valley is 10-15°F HOTTER than coast |
-| "Never rains" | Rainy season Dec-Mar |
-
-**Best weather:** September-November (warmest, clearest)
-
-### 4. Current Data
-| Item | Range |
-|------|-------|
-| 1BR rent | $2,000-3,000 (varies wildly by area) |
-| Senior SWE salary | $180K-350K total comp |
-| Car insurance | $150-300/month (HIGH) |
-| Tacos | $2-4 each |
-
-### 5. Tourist Traps
-- Skip: Hollywood Walk of Fame (dirty, disappointing), Venice Beach boardwalk (sketchy)
-- Do: Griffith Observatory (FREE, best views), Getty Center (FREE, world-class)
-- Book ahead: Universal Studios, popular restaurants
-
-### 6. Neighborhood Spread
-LA is HUGE. Where you live = your lifestyle.
-
-| Profile | Best Areas |
-|---------|------------|
-| Young tech workers | Santa Monica, Culver City, Playa Vista |
-| Entertainment industry | West Hollywood, Los Feliz, Silver Lake |
-| Families | Pasadena, South Bay, Studio City |
-| Budget-conscious | Valley (Sherman Oaks, Burbank), Koreatown |
-| Beach lifestyle | Santa Monica, Manhattan Beach, Venice |
-
-### 7. Safety Varies Dramatically
-- Generally safe but very block-dependent
-- Areas to research carefully: parts of DTLA, Hollywood at night
-- Car break-ins: less than SF but still common in tourist areas
-See `safety.md` for specifics.
-
-## LA-Specific Traps
-
-- **"I don't need a car"** — You do. Metro is improving but not enough.
-- **Hollywood glamour** — Hollywood Blvd is grimy and disappointing.
-- **"Traffic isn't that bad"** — It is. Plan 1.5-2x Google Maps time.
-- **Valley = undesirable** — Actually great value, more space, family-friendly.
-- **Beach = best living** — Coastal fog May-July. Valley is sunnier.
-- **Everything is close** — LA is 50+ miles across. Plan your life by area.
-- **Universal over Disneyland** — Disneyland is better but in Anaheim (1+ hr).
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Visitors** | | |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` | User asks about sightseeing or tourist spots |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | User requests a trip plan |
+| Where to stay | `references/visitor-lodging.md` | User asks for accommodation recommendations |
+| Tips & day trips | `references/visitor-tips.md` | User asks for general visitor tips |
+| **Neighborhoods** | | |
+| Quick comparison | `references/neighborhoods-index.md` | User asks for neighborhood comparisons |
+| Westside (Santa Monica, Venice, etc.) | `references/neighborhoods-westside.md` | User asks about the Westside |
+| Hollywood/Central | `references/neighborhoods-central.md` | User asks about Hollywood or Central LA |
+| South Bay | `references/neighborhoods-southbay.md` | User asks about the South Bay |
+| Valley | `references/neighborhoods-valley.md` | User asks about the Valley |
+| East/Northeast | `references/neighborhoods-east.md` | User asks about East LA |
+| **Food** | | |
+| Overview & what makes LA special | `references/food-overview.md` | User asks about the food scene in general |
+| Local specialties | `references/food-local.md` | User asks for local food recommendations |
+| By area | `references/food-areas.md` | User asks for food recommendations in a specific area |
+| Practical (apps, grocery, dietary) | `references/food-practical.md` | User asks about groceries or food apps |
+| **Practical** | | |
+| Moving & settling | `references/resident.md` | User is planning to move to LA |
+| Transport (car culture reality) | `references/transport.md` | User asks about getting around or traffic |
+| Cost of living | `references/cost.md` | User asks about living expenses |
+| Safety | `references/safety.md` | User asks about safety or crime |
+| Weather & microclimates | `references/climate.md` | User asks about the weather |
+| Local services | `references/local.md` | User needs local services |
+| **Career** | | |
+| Tech industry (Silicon Beach) | `references/tech.md` | User asks about the tech scene |
+| Entertainment industry | `references/entertainment.md` | User asks about the entertainment industry |
+| Students | `references/student.md` | User is a student |
+| Startups | `references/startup.md` | User asks about startups |
+| **Core Knowledge** | | |
+| Current data and verification | `references/current-information.md` | User needs fares, prices, regulations, operating hours, availability, or other mutable information. Verify authoritative sources before presenting it as current. |
+| Planning guardrails | `references/planning-guide.md` | Start of any LA-related request, or when combining recommendations across topics. |
