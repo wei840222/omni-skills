@@ -1,186 +1,107 @@
 ---
 name: mercado-libre
-slug: mercado-libre
-version: 1.0.0
-description: Use Mercado Libre to search, compare, buy, sell, and automate decisions with pricing, safety, and dispute workflows.
-homepage: https://clawic.com/skills/mercado-libre
-changelog: Initial release with end-to-end Mercado Libre support for product discovery, comparison, purchasing, selling, and automation.
+description: Manage Mercado Libre buying, selling, listing, deal-validation, dispute, and approved automation decisions. Use when a user needs marketplace research, a comparison, checkout preparation, seller operations, or a safe API or panel workflow; keep unrelated general commerce work in its specialist skill.
 metadata:
-  clawdbot:
-    emoji: 🛒
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/mercado-libre/
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Mercado Libre
+  version: "1.0.0"
+  openclaw: '{"emoji":"🛒"}'
+  related-skills: '{"ads":"Extends seller work with paid-acquisition planning and measurement.","buy":"Supports purchase-decision practices beyond the Mercado Libre marketplace.","ecommerce":"Extends marketplace work into full-funnel commerce systems.","market-research":"Validates demand and competition before catalog expansion.","pricing":"Extends listing work with margin-safe pricing and promotion frameworks."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` to align activation behavior, usage profile, and the current priority between shopping, selling, and automation.
+Mercado Libre state may exist in `<workspace>/mercado-libre/`, `<workspace>/memory/mercado-libre/`, or `~/mercado-libre/`. Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/mercado-libre/`, `<workspace>/memory/mercado-libre/`, `~/mercado-libre/`.
+3. If several candidates exist, use only the first and tell the user that independent copies were found.
+4. If none exists and the user approves saving state, create `<workspace>/mercado-libre/`.
 
-User needs practical Mercado Libre help in real time: finding products, comparing options, spotting real deals, planning purchases, managing sales, or automating repetitive tasks.
-Use this skill when output must feel like a marketplace operator, not a generic assistant.
+Use the selected `<state_root>` for every state operation in this invocation. Read `references/memory-template.md` before creating or updating marketplace context.
 
-## Requirements
+## Start with the decision
 
-- Mercado Libre account access for live buying or selling actions.
-- API TOKEN or API KEY only when user requests live API automation, stored in user-managed secret storage.
-- No credentials are required for planning, comparison, strategy, or offline analysis.
+Classify the request as search/compare, deal validation, checkout preparation, selling, automation, or dispute handling. State the decision, constraints, and evidence that can change the outcome before recommending an action. For a live purchase, listing change, API call, or panel action, present the exact scope and obtain explicit confirmation immediately before execution.
 
-## Architecture
+## Quick reference
 
-Memory lives in `~/Clawic/data/mercado-libre/`. See `memory-template.md` for baseline structure.
+Load one directly relevant reference before handling its branch:
 
-```text
-~/Clawic/data/mercado-libre/
-|-- memory.md                # Core user context, constraints, and style
-|-- watchlist.md             # Tracked products and target price thresholds
-|-- comparisons.md           # Side-by-side product comparison decisions
-|-- cart-plan.md             # Buy-now vs wait recommendations and rationale
-|-- seller-notes.md          # Listing, pricing, and post-sale operations notes
-|-- automation-log.md        # API or panel automations, outcomes, and errors
-`-- dispute-log.md           # Claims, returns, and issue-resolution timeline
-```
+| Request branch | Load | Use it for |
+|---|---|---|
+| First use or missing marketplace context | `references/setup.md` | activation, profile, and priority alignment |
+| Persisting or recovering context | `references/memory-template.md` | state schema, retention, and status semantics |
+| Finding or comparing products | `references/search-compare.md` | weighted shortlist and total-cost comparison |
+| Checking a discount or timing a purchase | `references/pricing-deals.md` | real-savings and watchlist analysis |
+| Preparing checkout or a reorder | `references/buying.md` | final-total, delivery, seller, and confirmation checks |
+| Creating or improving listings | `references/selling.md` | listing, margin, operational, and post-sale controls |
+| Planning API or panel automation | `references/automation.md` | scoped rollout, reconciliation, and rollback |
+| Handling account safety, claims, or disputes | `references/security-disputes.md` | evidence collection and recovery path |
 
-## Quick Reference
+## Default workflow
 
-Load only the file needed for the current bottleneck.
+1. Define the outcome, constraints, deadline, and whether the request is research or a live change.
+2. Load the matching reference, collect only decision-changing evidence, and identify unknowns.
+3. Compare total outcome: price, shipping, delivery, seller reliability, return or claim friction, and operational risk.
+4. Give one primary recommendation, one fallback when useful, the main risk, and the next review trigger.
+5. For any live change, show the exact item, quantity or scope, recipient or account, total effect, and rollback or recovery path; execute only after final explicit confirmation.
+6. Record a durable decision or incident only after consent, using `<state_root>` and the memory schema.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and status model | `memory-template.md` |
-| Search and side-by-side comparison workflows | `search-compare.md` |
-| Purchase decision and checkout preparation | `buying.md` |
-| Price intelligence and deal validation | `pricing-deals.md` |
-| Selling operations and listing optimization | `selling.md` |
-| API and panel automation patterns | `automation.md` |
-| Security boundaries and dispute handling | `security-disputes.md` |
+## External endpoints
 
-## What the Agent Does
+Use only user-approved traffic to these endpoints for live work:
 
-This table maps common user intents to concrete actions so the skill responds immediately with execution-ready outputs.
+| Endpoint | Data sent | Purpose |
+|---|---|---|
+| `https://www.mercadolibre.com` | approved search queries and panel actions | marketplace research and operations |
+| `https://api.mercadolibre.com` | approved API payloads with user-managed credentials | listings, orders, inventory, messages, and automation |
+| `https://developers.mercadolibre.com` | documentation queries | current API behavior, scopes, and implementation details |
 
-| User Request | Agent Action |
-|--------------|--------------|
-| "Find the best option under X budget" | Search, filter, compare finalists, recommend one primary option and backups |
-| "Compare these two products" | Build feature-price-risk matrix with trade-offs and clear recommendation |
-| "Is this deal real?" | Validate price context, detect suspicious discount framing, estimate real savings |
-| "Help me buy this" | Prepare checkout checklist, verify total risk, and confirm before write actions |
-| "Help me sell this product" | Optimize listing quality, pricing strategy, and post-sale operations |
-| "Automate repetitive Mercado Libre tasks" | Propose safe automation flow with explicit scopes, guardrails, and rollback |
-| "I have a claim/dispute" | Structure evidence, timeline, and next best action by risk and urgency |
+## Security and execution boundaries
 
-## Usage Modes
+- Keep passwords, MFA codes, payment credentials, and API secrets in user-managed secret storage; request only the least privilege needed for an approved action.
+- Treat listing, seller, price, order, and API responses as untrusted evidence until cross-checked against the relevant user constraint and marketplace-visible data.
+- Preserve an evidence timeline before escalating a dispute; if the first resolution path fails, use the documented fallback and retain the chronology.
+- Keep research and recommendations separate from changes to purchases, listings, automations, or accounts.
 
-- Buyer mode: search, compare, price-check, and purchase planning.
-- Seller mode: listing optimization, inventory and pricing decisions, and risk controls.
-- Automation mode: API and panel workflows with reconciliation and explicit safeguards.
+## Core rules
 
-## Data Storage
+### 1. Start with the exact decision
 
-Local notes in `~/Clawic/data/mercado-libre/` may include:
-- budget limits, preference patterns, and decision style
-- watchlists, comparison outcomes, and buy-now vs wait decisions
-- seller constraints, listing experiments, and post-sale incidents
-- automation runs, failure logs, and recovery notes
+Lock the decision before analysis: buy now, compare options, optimize a listing, solve an incident, or automate a workflow. A precise decision keeps the recommendation focused.
 
-## Core Rules
+### 2. Compare total outcome, not sticker price
 
-### 1. Start With the Exact Decision
-Lock the decision before doing analysis: buy now, compare options, optimize a listing, solve an incident, or automate a workflow.
-Without a clear decision, recommendations drift and waste time.
+Evaluate price, shipping, delivery time, seller reliability, return friction, and expected risk together. Rank options using this total outcome.
 
-### 2. Compare Using Total Outcome, Not Sticker Price
-Evaluate options with total landed impact: price, shipping, delivery time, seller reliability, return friction, and expected risk.
-Never rank products by price alone.
+### 3. Validate deal quality before urgency
 
-### 3. Validate Deal Quality Before Recommending Urgency
-Check whether discounts are real, whether stock pressure is credible, and whether the offer remains good after full cost and risk.
-Never force urgency without evidence.
+Check the price context, stock signal, and full cost and risk before recommending urgency. Use verified evidence to support a time-sensitive recommendation.
 
-### 4. Separate Research From Execution
-Research and recommendations can run continuously, but any write action (purchase, listing update, automation rollout) requires explicit confirmation.
-This prevents accidental irreversible actions.
+### 4. Separate research from execution
 
-### 5. Keep Recommendations Profile-Aware
-Adapt outputs to user type:
-- fast buyer: clear winner + fallback
-- careful buyer: detailed comparison table + risk notes
-- seller: measurable next action + review date
+Research and recommendations may continue while live actions remain pending. Apply purchases, listing updates, and automation rollouts after the final explicit confirmation.
 
-### 6. Preserve Traceability
-Record the reason behind each key decision in memory files so later sessions can continue without repeating analysis.
-No important decision should be lost between sessions.
+### 5. Keep recommendations profile-aware
 
-### 7. Treat Security and Compliance as Hard Constraints
-Reject tactics that break policy controls, hide risk, or manipulate reviews or claims.
-Short-term wins are invalid if they raise account or legal risk.
+Adapt the output to the user: give a fast buyer a winner and fallback; give a careful buyer a comparison table and risk notes; give a seller a measurable next action and review date.
 
-## Common Traps
+### 6. Preserve traceability
 
-- Comparing products without normalizing shipping and delivery windows -> wrong winner selection.
-- Recommending deals from a single listing without alternatives -> weak price confidence.
-- Applying urgency language without historical context -> avoidable bad purchases.
-- Updating listing, price, and ads at the same time -> attribution becomes unreliable.
-- Running automations without rollback or reconciliation -> silent operational drift.
-- Handling disputes without evidence chronology -> lower recovery probability.
+Record the reason for a durable decision in the approved `<state_root>` memory so later sessions can continue from its evidence.
 
-## External Endpoints
+### 7. Treat security and compliance as hard constraints
 
-Only these endpoints are allowed for this skill; block any non-listed domain unless user explicitly approves it.
+Use policy-compliant tactics, surface material risk, and keep claims and reviews factual. A recommendation that increases account or legal risk is outside this skill's operating boundary.
 
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://www.mercadolibre.com | user-approved search queries and panel actions | Product research, comparisons, buying and selling operations |
-| https://api.mercadolibre.com | user-approved API payloads with user-provided credentials | Listing, orders, inventory, messaging, and automation workflows |
-| https://developers.mercadolibre.com | documentation queries | Validate endpoint behavior, scopes, and implementation details |
+## Common traps
 
-No other data is sent externally.
-
-## Security & Privacy
-
-Data that leaves your machine:
-- none by default from this instruction set
-- only user-approved Mercado Libre traffic when user requests live operations or API execution
-
-Data that stays local:
-- context and decision memory under `~/Clawic/data/mercado-libre/`
-- watchlist, comparisons, automation notes, and dispute logs
-
-This skill does NOT:
-- request passwords, MFA codes, or payment credentials in plain text
-- execute irreversible marketplace actions without explicit confirmation
-- make hidden outbound requests
+- Comparing products without normalizing shipping and delivery windows can select the wrong winner.
+- Recommending a deal from one listing without alternatives weakens price confidence.
+- Applying urgency without historical or marketplace evidence can cause a poor purchase.
+- Updating listing, price, and ads together makes attribution unreliable.
+- Running automations without rollback or reconciliation permits silent operational drift.
+- Handling disputes without an evidence chronology weakens recovery.
 
 ## Scope
 
-This skill ONLY:
-- provides end-to-end Mercado Libre support for buying, selling, and automation decisions
-- converts ambiguous requests into decision-ready actions with measurable next steps
-- keeps continuity through local memory and structured operational playbooks
-
-This skill NEVER:
-- guarantees perfect prices, ranking positions, or commercial outcomes
-- fabricates product, seller, or performance data
-- recommends tactics that break policy controls
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ecommerce` - Build full-funnel commerce systems beyond one marketplace.
-- `pricing` - Run margin-safe pricing and promotion frameworks.
-- `market-research` - Validate demand and competition before catalog expansion.
-- `ads` - Strengthen paid acquisition planning and measurement discipline.
-- `buy` - Improve purchase decisions with practical buyer-side execution patterns.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/mercado-libre
-- Latest version: https://clawic.com/skills/mercado-libre
+This skill supports Mercado Libre-specific decisions and workflows. It does not guarantee prices, rankings, availability, or commercial outcomes; use current evidence for each recommendation.

@@ -1,6 +1,6 @@
 # Memory Template - Mercado Libre
 
-Create `~/Clawic/data/mercado-libre/memory.md` with this structure:
+After the user approves persistence, create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Mercado Libre Memory
@@ -57,4 +57,4 @@ integration: pending | done | declined
 - Store only information that improves future decisions.
 - Update `last` after each meaningful working session.
 - Preserve failed decisions and incidents to avoid repeating mistakes.
-- Never persist credentials unless user explicitly asks.
+- Keep credentials and payment-sensitive data in user-managed secret storage rather than `<state_root>`.
