@@ -1,6 +1,6 @@
 # Alerting
 
-- Alert evaluates on server — not browser, query must work without variables
+- Alert rules evaluate on the server, so use a query that runs in the alerting evaluation context.
 - Alert rules run without dashboard variables; express scope with fixed labels or alert rule labels.
 - Multiple conditions: AND is default — configure for OR if needed
 - Alert state "Pending" before "Firing" — for duration, prevents flapping

@@ -3,14 +3,14 @@
     "id": 1,
     "prompt": "My Grafana variable is a comma-separated list, but it does not match a Prometheus regex filter. How should I format it?",
     "expected": "Load the variables reference and recommend an explicit regex-compatible interpolation format such as ${var:pipe}, then verify the rendered query in Query Inspector.",
-    "actual": "The variables reference routes regex filtering to ${var:pipe} and instructs the agent to inspect the rendered query when interpolation is unexpected.",
+    "actual": "Use `${var:pipe}` in the regex filter, then open Query Inspector to verify the rendered query and select a documented format option if the result still differs from the intended matcher.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "A Grafana 10 alert shows Firing but no Slack message arrives. What should I check first?",
     "expected": "Load the alerting reference and check alert state, matching notification policy, contact point configuration, and notification log without relying on dashboard variables.",
-    "actual": "The alerting reference states that alert rules run server-side without dashboard variables and provides the ordered delivery troubleshooting path: state, policy, contact point, then notification log.",
+    "actual": "Check the firing alert state, the notification policy matched by its labels, the selected contact point, and the notification log. Keep alert scope in fixed labels or alert-rule labels because dashboard variables are unavailable during server-side evaluation.",
     "pass": true
   }
 ]
