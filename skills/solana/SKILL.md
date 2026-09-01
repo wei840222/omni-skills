@@ -16,3 +16,4 @@ This skill is stateless and does not store local configuration or persistent use
 | `references/transactions.md` | Diagnosing transaction lifecycle, blockhash expiry, priority fees, or compute budgets. |
 | `references/troubleshooting.md` | Interpreting a concrete transaction or program error. |
 | `references/ecosystem.md` | Selecting RPCs, using an explorer, or reviewing wallet-security practices. |
+| `references/sources.md` | Verifying current protocol or RPC behavior against Solana primary documentation. |
