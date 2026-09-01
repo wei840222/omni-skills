@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to start running and eventually do a marathon next year.",
+    "expected": "The agent should clarify success criteria, deadline, motivation, and first step; then offer to save a goal with milestones only if the user requests persistent tracking.",
+    "actual": "Dry-run output clarified the success condition, target date, why, and first step; it proposed 5k, 10k, half-marathon, and marathon milestones and deferred creating <state_root>/active/run-marathon.md until the user chose to save it.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm doing my quarterly review. I haven't made any progress on my 'learn Spanish' goal in 2 months.",
+    "expected": "The agent should load tracking-and-review.md and management-and-motivation.md, ask if the goal is still important, and suggest either breaking it down or moving it to abandoned/someday without guilt.",
+    "actual": "Dry-run output used the quarterly prompts: it asked whether learning Spanish remained important, requested the concrete blocker, and offered either a smaller milestone or a documented move to <state_root>/abandoned/ or <state_root>/someday.md.",
+    "pass": true
+  }
+]
