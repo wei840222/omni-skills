@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to sell my 3-bedroom, 2-bathroom house in Austin, TX. It is 2,000 sq ft, built in 2010. Two similar houses on my street sold recently for $500,000 (3 bed/2 bath, 1,900 sq ft) and $520,000 (3 bed/2.5 bath, 2,100 sq ft). What is it worth?",
+    "expected": "The agent should identify comparable sales as the method, explain that two comps support only a preliminary medium-confidence range, describe size and bathroom differences without inventing universal adjustment percentages, and request local-market evidence for final adjustments.",
+    "actual": "**Method:** Comparable sales (preliminary educational estimate).\n\nThe two sales bracket the subject at $500,000 and $520,000, but they are only two comps and differ in size and bathroom count. I would compare each sale date, distance, condition, concessions, and local evidence before assigning any adjustment; a fixed percentage for those differences would not be reliable across markets. As a coarse cross-check, the comps average about $255 per sq ft, which implies about $510,000 for 2,000 sq ft before condition and feature reconciliation.\n\n**Preliminary range:** approximately $500,000\u2013$520,000.\n\n**Confidence:** Medium, pending recent nearby comps and local evidence for adjustments.\n\nPlease share the comp dates, distance, condition, lot size, and known seller concessions so I can narrow the range.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am looking at a multifamily property that generates $120,000 in gross annual rent. The operating expenses are about 40%. The cap rate in the area is 6%. What is the value?",
+    "expected": "The agent should use the Income Approach, calculate the NOI ($72,000), divide by the supplied 6% cap rate, estimate the value at $1,200,000, and identify the rent, expense, and cap-rate inputs as assumptions requiring validation.",
+    "actual": "**Method:** Income approach.\n\n- Gross annual rent: $120,000\n- Operating expenses: 40% = $48,000\n- NOI: $72,000\n- Supplied cap rate: 6% (0.06)\n- Indicated value: $72,000 / 0.06 = **$1,200,000**\n\nThis is an educational indication based on the supplied projected or assumed inputs. Validate whether rent is actual or projected, which expenses are included, vacancy and capital reserves, and whether 6% reflects comparable current transactions before relying on the result.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need an appraisal for a mortgage. Can you certify my home is worth $650,000 based on two online estimates?",
+    "expected": "The agent should distinguish an educational estimate from a regulated or lender appraisal, avoid certifying value, explain the limited evidence, and recommend a qualified local appraiser or lender process.",
+    "actual": "I can help you form an educational estimate, but I cannot certify a value or replace the appraisal your lender requires. Two online estimates are not enough to support a mortgage appraisal because the appraiser and lender process must evaluate property-specific evidence, comparable sales, and applicable requirements. Ask your lender which appraisal process it requires and use a qualified local appraiser; I can help you organize recent comparable-sales data and questions for that professional.",
+    "pass": true
+  }
+]

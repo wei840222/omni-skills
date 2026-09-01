@@ -236,3 +236,5 @@ For every skill-refactor pull request:
 2. Create the pull request targeting `main`.
 3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
+
+| property-valuation | 2026-09-02 | 85/100 | #213 |
