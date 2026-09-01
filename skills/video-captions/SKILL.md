@@ -3,7 +3,7 @@ name: video-captions
 description: Generate captions and subtitles, including transcription, timing, styling, and burn-in. Use when a user explicitly requests video captions, subtitles, or caption burn-in; route general video editing elsewhere.
 metadata:
   openclaw: '{"emoji":"🎬","requires":{"bins":["ffmpeg","whisper"]},"os":["linux","darwin"]}'
-  related-skills: '{"audio":"Handles audio-only transcription or processing that does not require caption delivery.","ffmpeg":"Provides lower-level video and subtitle rendering operations.","video":"Covers general video tasks outside explicit caption or subtitle work.","video-edit":"Handles broader editing workflows when caption work is only one part of the request."}'
+  related-skills: '{"audio":"Handles audio-only transcription or processing that does not require caption delivery.","ffmpeg":"Provides lower-level video and subtitle rendering operations; verify the local FFmpeg build exposes the subtitles filter before burn-in.","video":"Covers general video tasks outside explicit caption or subtitle work.","video-edit":"Handles broader editing workflows when caption work is only one part of the request."}'
 ---
 
 ## When to Use
