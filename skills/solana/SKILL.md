@@ -8,6 +8,12 @@ metadata:
 
 This skill is stateless and does not store local configuration or persistent user state.
 
+## Workflow
+
+1. Identify the cluster, wallet role, token mint, transaction signature, and exact error or intended operation.
+2. Load the reference that covers that branch, then use RPC data, simulation output, or program logs as the current source of truth.
+3. Verify the resulting signature status and expected account state before reporting completion.
+
 ## Load the relevant reference
 
 | Reference | Load when |
