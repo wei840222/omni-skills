@@ -42,7 +42,7 @@
 - Before conjunctions
 - Before prepositions
 
-**Line breaks - DON'T:**
+**Line breaks - Invalid (Avoid):**
 - Separate article from noun
 - Separate adjective from noun
 - Separate first name from last name

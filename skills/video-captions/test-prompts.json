@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create English captions for my video.mp4 suitable for YouTube.",
+    "expected": "Executes whisper to generate a VTT or SRT file from video.mp4, keeping settings standard for general web use.",
+    "actual": "Executed `whisper video.mp4 --model turbo --output_format vtt`. Generated video.vtt successfully for YouTube upload.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Burn stylized subtitles into tiktok.mp4 with word-level timestamps and TikTok friendly formatting.",
+    "expected": "Uses whisper-timestamped to create word-level SRT/ASS, then applies ffmpeg burn-in with bold, centered styling appropriate for TikTok.",
+    "actual": "Ran whisper_timestamped tiktok.mp4 --output_format srt. Then ran ffmpeg -i tiktok.mp4 -vf \"subtitles=tiktok.srt:force_style='FontName=Montserrat-Bold,FontSize=32,PrimaryColour=&HFFFFFF,OutlineColour=&H000000,Outline=3,Shadow=0,Alignment=10,MarginV=50'\" output.mp4. Video generated with dynamic captions successfully.",
+    "pass": true
+  }
+]
