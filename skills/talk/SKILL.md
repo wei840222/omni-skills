@@ -10,10 +10,10 @@ metadata:
 
 ## Use this skill
 
-1. Identify the target: device Talk mode for continuous voice chat, or the Voice Call plugin for carrier calls.
-2. For device Talk mode, load `references/talk-mode.md` before proposing provider configuration.
-3. For carrier calls, load `references/voice-call.md` and then `references/providers.md` for the selected provider.
-4. Present the smallest viable configuration and verification command. Keep secrets in OpenClaw's credential surface rather than examples or source-controlled files.
+1. Identify the target: device Talk mode for continuous voice chat, realtime Talk, or the Voice Call plugin for carrier calls.
+2. Load `references/talk-mode.md` for device Talk or realtime sessions; use its provider catalog check before proposing configuration.
+3. Load `references/voice-call.md` for carrier calls, then load `references/providers.md` only for the selected carrier or device-TTS provider.
+4. Present the smallest viable configuration plus its verification command. Use OpenClaw's credential surface for secrets and placeholders in all examples.
 
 ## Operating boundaries
 
