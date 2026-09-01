@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "My SPL token transfer fails because the recipient account is not found. What should I check and how do I recover?",
+    "expected": "Identify the cluster, mint, recipient wallet, and expected token account; explain ATA creation and require logs before assuming the cause.",
+    "actual": "Confirm that the wallet, cluster, mint, and token-program account list are correct. Check whether the recipient's expected token account—normally its ATA for that mint—exists. If logs confirm it is missing, create the required token account using the current transfer flow, then rebuild, sign, and submit the transfer. Do not infer the cause from the message alone when program logs identify another missing account.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A high-value Solana transaction says blockhash not found after congestion. Should I retry the same signed transaction with a priority fee?",
+    "expected": "Explain that the expired transaction must be rebuilt and re-signed with a fresh blockhash; use current fee data and simulation before setting a priority fee.",
+    "actual": "Check the signature status first. A blockhash-not-found error means the original transaction's recent blockhash is no longer valid, so the same signed transaction cannot be reused. Fetch a fresh blockhash, rebuild and re-sign the transaction, simulate it, and then submit. If congestion is relevant, use current RPC prioritization-fee samples to select an application-appropriate compute-unit price rather than guessing one.",
+    "pass": true
+  }
+]
