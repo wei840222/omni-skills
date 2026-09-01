@@ -64,6 +64,10 @@ NOI = effective gross income - operating expenses
 
 State whether each input is actual, trailing, projected, or assumed. Calculate price per square foot or another relevant unit metric as a cross-check, and explain a material divergence from comparable evidence.
 
+## Conditional research
+
+Read `references/research.md` when explaining regulated appraisal scope, selecting lending-oriented comparable-sale evidence, or discussing tax-related valuation. Verify local law and current market evidence before making jurisdiction-specific claims.
+
 ## Evidence hygiene
 
 - Prioritize recent, arm's-length comparable sales and explain when older sales are used.
