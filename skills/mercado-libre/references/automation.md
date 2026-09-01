@@ -26,9 +26,9 @@ Typical automation targets:
 
 ## Guardrails
 
-- no hidden background actions outside declared scope
-- no broad credential scopes when narrow scopes are enough
-- no silent retries for risky write operations
+- keep every background action inside its declared scope
+- request the narrowest credential scope that can perform the approved action
+- make risky write retries visible and require the declared recovery path
 
 ## Output Template
 

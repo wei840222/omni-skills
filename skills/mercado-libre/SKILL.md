@@ -96,12 +96,14 @@ Use policy-compliant tactics, surface material risk, and keep claims and reviews
 
 ## Common traps
 
-- Comparing products without normalizing shipping and delivery windows can select the wrong winner.
-- Recommending a deal from one listing without alternatives weakens price confidence.
-- Applying urgency without historical or marketplace evidence can cause a poor purchase.
-- Updating listing, price, and ads together makes attribution unreliable.
-- Running automations without rollback or reconciliation permits silent operational drift.
-- Handling disputes without an evidence chronology weakens recovery.
+Apply these checks before finalizing the selected branch:
+
+- Normalize shipping and delivery windows before comparing products so the winner reflects the delivered outcome.
+- Compare a candidate with alternatives to establish price confidence before calling it a deal.
+- Support urgency with historical or marketplace evidence and the complete cost and risk picture.
+- Change one listing, price, or ads variable at a time when measuring attribution.
+- Define rollback and reconciliation before an automation enters a live run.
+- Build an evidence chronology before a dispute or escalation begins.
 
 ## Scope
 

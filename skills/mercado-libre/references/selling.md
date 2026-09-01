@@ -19,7 +19,7 @@ Set and respect:
 - competitive response rules
 - promotion stop conditions
 
-Never scale tactics that hide negative unit economics.
+Scale tactics only when contribution margin and promotion stop conditions remain visible.
 
 ## Operational Rhythm
 

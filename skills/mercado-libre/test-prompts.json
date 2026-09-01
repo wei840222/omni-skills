@@ -2,8 +2,8 @@
   {
     "id": 1,
     "prompt": "Find the best gaming monitor under 300 on Mercado Libre, and explain which listing is the safest value.",
-    "expected": "Loads the search-and-compare and traps references, asks for missing country or delivery constraints when they change the result, compares 3–5 listings by total cost, delivery, seller reliability, returns, and feature fit, then gives a winner, fallback, and review trigger without making a purchase.",
-    "actual": "I would first confirm the target country, currency, required refresh rate or resolution, and delivery deadline. I would load `references/search-compare.md` and apply the comparison traps, collect a 3–5 listing shortlist, normalize item price plus shipping, and compare delivery promise, seller reputation, return path, and monitor specifications. I would recommend one best-value listing plus a backup, explain the main risk, and keep checkout as a separate explicitly confirmed action.",
+    "expected": "Loads the search-and-compare references, asks for missing country or delivery constraints when they change the result, compares 3–5 listings by total cost, delivery, seller reliability, returns, and feature fit, then gives a winner, fallback, and review trigger without making a purchase.",
+    "actual": "I would first confirm the target country, currency, required refresh rate or resolution, and delivery deadline. I would load `references/search-compare.md`, collect a 3–5 listing shortlist, normalize item price plus shipping, and compare delivery promise, seller reputation, return path, and monitor specifications. I would recommend one best-value listing plus a backup, explain the main risk, and keep checkout as a separate explicitly confirmed action.",
     "pass": true
   },
   {
