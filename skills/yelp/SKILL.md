@@ -72,6 +72,10 @@ Memory and task notes use `<state_root>/`.
 
 Use official API requests with a valid `YELP_API_KEY` or normal navigation of visible Yelp pages. If an API field is unavailable, say so; if public and API data conflict, surface the conflict. Account-only work stays at the draft or checklist stage until explicit authorization is confirmed.
 
+## Cognitive-load audit
+
+Keep the main path to mode selection, business resolution, routed guidance, and a decision-ready result. Load one reference for the active task rather than repeating every branch. Use the concrete recovery route when evidence, authorization, or API availability is incomplete.
+
 ## Common mistakes
 
 - Normalize distance or market before comparing businesses from different neighborhoods.
