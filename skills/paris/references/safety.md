@@ -19,15 +19,15 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 | Louvre queues | Standing still, not alert | Valuables in front pockets |
 | Sacré-Cœur steps | Scam distractions | Decline all approaches |
 | Champs-Élysées | Shopping crowds | Stay aware |
-| Gare du Nord | Luggage distraction | Never put bags down |
+| Gare du Nord | Luggage distraction | Keep bags securely held |
 
 ### Phone Snatching
 
 | Method | Where | Prevention |
 |--------|-------|------------|
-| Door closing grab | Metro at stop | Don't use phone near doors |
+| Door closing grab | Metro at stop | Keep phone stored near doors |
 | Moped snatch | Streets, crossings | Phone in pocket while walking |
-| Table grab | Outdoor cafes | Never put phone on table |
+| Table grab | Outdoor cafes | Keep phones in pockets |
 | Distraction + grab | Tourist areas | Brief phone use, then away |
 
 ### Street Scams
@@ -36,10 +36,10 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 |------|--------------|----------|
 | **Gold ring** | "Found" ring offered for sale | Ignore, walk away |
 | **Petition** | Sign = donation demand or distraction | Say "Non", keep moving |
-| **Bracelet/string** | Tied on wrist, demands payment | Don't let them touch you |
-| **Three-card monte** | Street gambling, rigged | Never play, crowds are shills |
+| **Bracelet/string** | Tied on wrist, demands payment | Keep physical distance |
+| **Three-card monte** | Street gambling, rigged | Walk past, crowds are shills |
 | **Fake flower sellers** | Forces flower, demands payment | Firmly refuse |
-| **Free gift** | CD, trinket → demands money | Don't accept anything |
+| **Free gift** | CD, trinket → demands money | Decline firmly and walk away |
 | **"Do you speak English?"** | Leads to donation/scam | Brief "no", walk on |
 | **Euronet ATMs** | 10-40% hidden exchange fees | Use bank ATMs only |
 
@@ -49,7 +49,7 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 |------|------------|--------|
 | Sacré-Cœur steps | Bracelet, petition, three-card | Walk purposefully |
 | Eiffel Tower base | Ring, trinket sellers | Ignore all vendors |
-| Champs-Élysées | Clipboard petitions | Don't engage |
+| Champs-Élysées | Clipboard petitions | Ignore and walk past |
 | Notre-Dame area | Petition, donation requests | Decline firmly |
 | Gare du Nord | Fake helpers, taxi scams | Official channels only |
 
@@ -63,7 +63,7 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 | ⭐⭐⭐⭐ Safe | 1st, 2nd, 5th, 9th, 11th, 12th, 15th |
 | ⭐⭐⭐ Generally Safe | 10th (central), 14th, 17th, 13th, 20th (south) |
 | ⭐⭐ Caution at Night | North 18th (Goutte d'Or), 19th (parts), La Chapelle |
-| ⭐ Avoid | Porte de la Chapelle, Stalingrad area late night |
+| ⭐ Proceed with caution | Porte de la Chapelle, Stalingrad area late night |
 
 **Note:** Even "caution" areas are fine during daytime. Issues are late night, isolated streets.
 
@@ -77,10 +77,10 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 |------|----------------|
 | 6-10 PM | Well-lit areas fine, normal crowds |
 | 10 PM - midnight | Stick to busy streets, nightlife areas safe |
-| Midnight - 5 AM | Use Uber/taxi, avoid isolated areas |
+| Midnight - 5 AM | Use Uber/taxi, stay in well-lit areas |
 | Metro closes | Noctilien buses or ride-hailing |
 
-### Areas to Avoid Late Night
+### Areas Requiring Extra Caution Late Night
 
 - Gare du Nord exterior
 - Barbès-Rochechouart area
@@ -101,7 +101,7 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 | Public transport | Safe even late, well-lit |
 | Walking alone | Fine in busy areas, Uber for quiet routes |
 | Catcalling | Exists in some areas, ignore |
-| Bars/clubs | Don't leave drinks unattended |
+| Bars/clubs | Keep drinks supervised |
 
 **Resources:**
 - Emergency: 112 (EU-wide) or 17 (police)
@@ -123,7 +123,7 @@ Paris is a safe major city. Violent crime against tourists is very rare. Main co
 
 - **Stand away from doors** — snatching risk
 - **Bag in front** — always visible
-- **Don't show phone** — especially at stations
+- **Keep phone stored** — especially at stations
 - **Use first or last cars** — tend to be less crowded
 
 ---
@@ -152,3 +152,6 @@ Since 2015 attacks, security is heightened:
 - Security barriers at events
 
 **Practical impact:** Minimal. Security is visible but not intrusive. Paris remains very safe for visitors.
+
+
+*Note: Post-2024 Olympics, security presence has remained high in central tourist areas.*

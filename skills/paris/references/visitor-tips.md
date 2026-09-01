@@ -7,10 +7,10 @@
 | Tip | Details |
 |-----|---------|
 | **ATMs** | Use bank ATMs ONLY (BNP, Société Générale, Crédit Agricole) |
-| **Avoid Euronet** | Private ATMs charge 10-40% hidden fees |
+| **Skip Euronet** | Private ATMs charge 10-40% hidden fees |
 | **Tipping** | Service included; round up or €2-3 for good service |
 | **Cash vs Card** | Card accepted almost everywhere; keep €50 cash backup |
-| **Exchange** | Never at airports or tourist areas; use ATMs |
+| **Exchange** | Use bank ATMs instead of airport or tourist area exchanges |
 
 ### Communication
 
@@ -27,7 +27,7 @@
 
 ### Etiquette
 
-| Do | Don't |
+| Do | Alternative |
 |----|-------|
 | Say bonjour/bonsoir | Jump straight to questions |
 | Wait to be seated | Seat yourself at restaurants |

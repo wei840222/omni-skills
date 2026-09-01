@@ -84,7 +84,7 @@
 | Tip | Details |
 |-----|---------|
 | **Book 2-3 months ahead** | For peak season (Apr-Oct) |
-| **Avoid Fashion Week** | March, September — prices spike |
+| **Book outside Fashion Week** | March, September — prices spike |
 | **Check breakfast** | Often €15-25 extra; bakery cheaper |
 | **Airport transfer** | Ask if included or cost |
 | **Wi-Fi** | Free almost everywhere now |
@@ -92,7 +92,7 @@
 
 ---
 
-## Areas to Avoid Staying
+## Less Recommended Areas to Stay
 
 | Area | Why |
 |------|-----|

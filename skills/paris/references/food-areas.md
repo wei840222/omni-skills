@@ -6,7 +6,7 @@
 |------|----------|------|
 | **Marais (3rd-4th)** | Jewish deli, trendy | Diverse, busy |
 | **Saint-Germain (6th)** | Classic cafés, upscale | Literary, elegant |
-| **Latin Quarter (5th)** | Budget, student | Avoid tourist traps |
+| **Latin Quarter (5th)** | Budget, student | Skip tourist traps |
 | **Rue Cler (7th)** | Market street, local | Charming, quality |
 | **Oberkampf (11th)** | Bars, modern | Hip, nightlife |
 | **Canal Saint-Martin (10th)** | Cafés, brunch | Trendy, young |
@@ -49,7 +49,7 @@
 | **Wine bar** | Les Papilles |
 | **Bakery** | Boulangerie Julien |
 
-**Warning:** Avoid restaurants with pictures outside and "tourist menus." Walk to side streets.
+**Warning:** Skip restaurants with pictures outside and "tourist menus." Walk to side streets.
 
 ---
 

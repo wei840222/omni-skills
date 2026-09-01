@@ -10,7 +10,7 @@
 | **Apéro** | 18:00-20:00 | Pre-dinner drinks |
 | **Dinner** | 20:00-22:00 | Later than Anglo countries |
 
-**Critical:** Kitchens close between meals. Don't expect food at 15:00 or 18:00.
+**Critical:** Kitchens close between meals. Plan meals outside of 15:00-19:00 as kitchens close.
 
 ---
 
@@ -21,7 +21,7 @@
 | Trendy/popular | Yes, 1-4 weeks ahead |
 | Michelin starred | Yes, 1-2 months ahead |
 | Neighborhood bistros | Usually no |
-| Cafés | Never |
+| Cafés | Not expected |
 | Lunch anywhere | Usually no |
 
 **Booking platforms:** LaFourchette (TheFork), OpenTable, restaurant websites.
@@ -38,7 +38,7 @@
 | Hotel | €1-2 per bag |
 | Hairdresser | 10% |
 
-**Note:** "Service compris" means tip is included. Tipping is appreciated but never expected.
+**Note:** "Service compris" means tip is included. Tipping is appreciated but completely optional.
 
 ---
 

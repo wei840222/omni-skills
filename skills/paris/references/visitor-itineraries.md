@@ -14,7 +14,7 @@
 | 15:30 | Marais walk | Boutiques, Place des Vosges |
 | 17:00 | Seine river walk | Toward Eiffel Tower |
 | 18:30 | Eiffel Tower area | Champ de Mars for photos |
-| 20:00 | Dinner in 7th | Rue Cler area, avoid Eiffel base |
+| 20:00 | Dinner in 7th | Rue Cler area, dine away from Eiffel base |
 
 ---
 
@@ -34,7 +34,7 @@
 | Time | Activity |
 |------|----------|
 | Morning | Notre-Dame, Île de la Cité |
-| Lunch | Latin Quarter (avoid touristy restaurants) |
+| Lunch | Latin Quarter (dine away from main streets) |
 | Afternoon | Musée d'Orsay |
 | Evening | Saint-Germain walk, dinner in 6th |
 

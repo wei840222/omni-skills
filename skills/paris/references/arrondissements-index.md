@@ -64,8 +64,8 @@ Paris has 20 arrondissements (districts) arranged in a clockwise spiral from the
 
 | Area Type | File |
 |-----------|------|
-| Central (1-4) | `arrondissements-central.md` |
-| Left Bank (5-7) | `arrondissements-left-bank.md` |
-| Right Bank (8-11) | `arrondissements-right-bank.md` |
-| Outer (12-20) | `arrondissements-outer.md` |
-| Choosing guide | `arrondissements-choosing.md` |
+| Central (1-4) | `references/arrondissements-central.md` |
+| Left Bank (5-7) | `references/arrondissements-left-bank.md` |
+| Right Bank (8-11) | `references/arrondissements-right-bank.md` |
+| Outer (12-20) | `references/arrondissements-outer.md` |
+| Choosing guide | `references/arrondissements-choosing.md` |

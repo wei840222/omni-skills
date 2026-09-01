@@ -11,7 +11,7 @@
 | **Tartine** | Bread + butter + jam | Cafés |
 | **Café crème** | Coffee with milk | Any café |
 
-**Tip:** Look for "beurre" (butter) croissants. Avoid pre-made ones in cafés.
+**Tip:** Look for "beurre" (butter) croissants. Choose fresh bakeries instead.
 
 ### Lunch/Dinner Classics
 
