@@ -15,3 +15,4 @@
 - The default workflow leaves media local.
 - Basic local processing needs no internet connection.
 - This skill does not persist user media or caption files externally.
+- Before any third-party transfer, obtain the user's explicit approval for that destination.
