@@ -3,25 +3,25 @@
 ## Pre-Launch Checklist
 
 ### Performance
-- [ ] Page loads in <3 seconds (test: PageSpeed Insights)
+- [ ] Measure deployed-page performance with field data when available; use PageSpeed Insights or another lab tool to investigate a regression
 - [ ] Images compressed and lazy-loaded
 - [ ] No render-blocking resources
 - [ ] Core Web Vitals passing
 
 ### Mobile
 - [ ] Fully responsive (test at 375px width)
-- [ ] Tap targets minimum 44px
+- [ ] Tap targets are large enough to operate reliably; test the implemented controls on representative mobile devices
 - [ ] CTA visible without scrolling on mobile
 - [ ] Text readable without zooming
 
 ### Accessibility
-- [ ] Sufficient color contrast (4.5:1 for text)
+- [ ] Verify text contrast against WCAG 2.2 SC 1.4.3 (normally 4.5:1; see `references/research.md` for exceptions)
 - [ ] Alt text on all images
 - [ ] Focusable interactive elements
 - [ ] Keyboard navigation works
 
 ### Tracking
-- [ ] Analytics installed (GA4, Plausible, or similar)
+- [ ] Analytics and consent behavior match the owner's measurement and privacy requirements
 - [ ] CTA button click events tracked
 - [ ] Form submission events tracked
 - [ ] UTM parameters preserved
@@ -42,13 +42,7 @@
 
 ### Key Metrics
 
-| Metric | Good | Great |
-|--------|------|-------|
-| Bounce rate | <60% | <40% |
-| Avg time on page | >30s | >60s |
-| Scroll depth (50%+) | >40% | >60% |
-| CTA click rate | >3% | >8% |
-| Form conversion | >10% | >25% |
+Use the primary conversion event as the decision metric. Segment it by the visitor attributes that could explain a meaningful difference (for example, traffic source, device, landing-page variant, or campaign). Supporting measures such as scroll depth, CTA clicks, form starts, form completion, and page performance help locate friction; they do not have universal "good" thresholds.
 
 ---
 
@@ -64,21 +58,14 @@
 
 ### Testing Rules
 
-- One variable at a time
-- Run until statistical significance (use calculator)
-- Minimum 100 conversions per variant
-- Test during consistent traffic periods
-- Document everything
+- State one falsifiable hypothesis and the primary metric before launch
+- Change the smallest page element that can test that hypothesis
+- Set the sample size from the baseline rate, minimum detectable effect, error tolerance, and test method
+- Keep targeting and traffic conditions comparable, then document the decision and result
 
-### Minimum Sample Size
+### Experiment decision record
 
-| Baseline Rate | Detectable Lift | Sample per Variant |
-|---------------|-----------------|-------------------|
-| 2% | 20% | ~10,000 |
-| 5% | 20% | ~4,000 |
-| 10% | 20% | ~2,000 |
-| 20% | 20% | ~1,000 |
-
+Record the baseline date range, audience, primary event definition, hypothesis, variant, sample-size method, quality checks, result, and the release decision. If the test is underpowered, technically invalid, or confounded by a material traffic change, keep the baseline and redesign the experiment.
 ---
 
 ## Common Problems & Fixes
@@ -114,12 +101,12 @@
 
 ## Iteration Cycle
 
-1. **Baseline** — Run current page for 1-2 weeks, establish metrics
-2. **Hypothesize** — "If we change X, metric Y will improve because Z"
-3. **Test** — A/B test single change
-4. **Analyze** — Wait for significance, review segments
-5. **Implement** — Winner becomes new baseline
-6. **Repeat** — Never stop testing
+1. **Baseline** — Define the conversion event and capture a representative baseline
+2. **Hypothesize** — State: "If we change X, metric Y will improve because Z"
+3. **Test** — Run the smallest valid experiment that isolates X
+4. **Analyze** — Verify data quality, review the primary metric, then inspect relevant segments
+5. **Decide** — Release, retain, or redesign based on the predeclared decision rule
+6. **Document** — Record the result so the next experiment starts from evidence
 
 ### Prioritization Matrix
 
@@ -154,3 +141,8 @@
 - PageSpeed Insights (free)
 - GTmetrix (free)
 - WebPageTest (free, detailed)
+
+
+## Evidence and sources
+
+Load `references/research.md` before making current accessibility, performance, analytics, experimentation, or publishable-claim recommendations. It records the authoritative sources and the boundary for context-dependent benchmarks.
