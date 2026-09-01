@@ -31,7 +31,7 @@ Before any write action:
 - confirm payment method safety expectations
 - request explicit final confirmation
 
-Never assume confirmation from ambiguous language.
+Use an explicit final confirmation that identifies the item, quantity, address, and total.
 
 ## Reorder Flow
 

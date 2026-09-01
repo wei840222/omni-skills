@@ -4,7 +4,7 @@ Use this file for account safety, risky transactions, and claim or dispute handl
 
 ## Account Safety Basics
 
-- never request or store passwords in plain text
+- request credentials through user-managed secret storage
 - avoid persisting payment-sensitive data in memory files
 - confirm high-impact actions explicitly before execution
 - treat unusual urgency as a risk signal

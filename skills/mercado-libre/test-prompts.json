@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find the best gaming monitor under 300 on Mercado Libre, and explain which listing is the safest value.",
+    "expected": "Loads the search-and-compare references, asks for missing country or delivery constraints when they change the result, compares 3–5 listings by total cost, delivery, seller reliability, returns, and feature fit, then gives a winner, fallback, and review trigger without making a purchase.",
+    "actual": "I would first confirm the target country, currency, required refresh rate or resolution, and delivery deadline. I would load `references/search-compare.md`, collect a 3–5 listing shortlist, normalize item price plus shipping, and compare delivery promise, seller reputation, return path, and monitor specifications. I would recommend one best-value listing plus a backup, explain the main risk, and keep checkout as a separate explicitly confirmed action.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a Python job that cuts every one of my Mercado Libre listing prices by 5% every hour.",
+    "expected": "Loads automation, pricing, and current API knowledge references; separates planning from execution; requests the country, account and approved listing scope; proposes lower price floors, a dry run, narrow first run, reconciliation, rollback, and an explicit confirmation before any credentialed write API call.",
+    "actual": "I would load `references/automation.md`, `references/pricing-deals.md`, and `references/knowledge.md` before proposing code. I would first define the intended account, country, eligible listing IDs, minimum contribution-margin or price floors, schedule owner, failure notification, and rollback. The first output would be a dry-run plan that calculates proposed changes without sending writes; after an approved narrow test and reconciliation against panel-visible results, I would request final confirmation for the exact API write scope and use credentials only from user-managed secret storage.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "The seller says my order was delivered but I did not receive it. Help me open a dispute now.",
+    "expected": "Loads security-and-disputes guidance, separates facts from assumptions, gathers order and delivery evidence, recommends the documented marketplace path with a fallback, and asks for explicit confirmation before any live claim submission.",
+    "actual": "I would load `references/security-disputes.md` and collect the order reference, delivery status, dates, tracking evidence, messages, and the requested resolution. I would build a concise chronology, identify the marketplace claim path for the relevant country, and prepare the text and evidence list. I would keep the claim as a draft until you explicitly confirm the exact submission; if the first path is rejected, I would preserve the chronology and use the documented escalation fallback.",
+    "pass": true
+  }
+]

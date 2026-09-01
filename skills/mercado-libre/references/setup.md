@@ -1,6 +1,6 @@
 # Setup - Mercado Libre
 
-Use this file when `~/Clawic/data/mercado-libre/` is missing or empty.
+Use this file on first use or when the resolved `<state_root>/` has no marketplace context.
 
 ## Operating Posture
 
@@ -37,13 +37,13 @@ Use practical language and avoid generic theory.
 
 ## Internal Notes Policy
 
-Maintain concise records in `memory.md`:
+Maintain concise records in `<state_root>/memory.md`:
 - context and constraints that affect decisions
 - price and comparison outcomes that should be reused
 - seller and automation decisions with rationale
 - dispute incidents and resolution status
 
-Use data minimization. Never persist secrets unless user explicitly asks.
+Use data minimization. Keep credentials and payment-sensitive data in user-managed secret storage; persist only approved decision context.
 
 ## Setup Completion
 
