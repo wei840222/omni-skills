@@ -14,6 +14,14 @@ Use these primary sources to validate protocol-level claims and to refresh vendo
 | Retry backoff and jitter | <https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/> | Timeout budgets, retries, and randomized backoff behavior |
 | HTTP API design and safety practices | <https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design> | Pagination, idempotency, asynchronous request-reply, and API client design patterns |
 
+## Claim mapping
+
+- `references/core-rules.md` and `references/status-triage.md` use RFC 9110 for HTTP method and response semantics.
+- `references/auth.md` and `references/browser.md` use RFC 6749, RFC 7636, and RFC 7519 for OAuth, PKCE, and JWT guidance.
+- `references/streaming.md` uses the HTML Server-Sent Events specification for event framing and reconnect behavior.
+- `references/webhooks.md` uses OWASP's webhook guidance for signature and replay defenses.
+- `references/resilience.md` uses AWS Builders' Library guidance for timeout and jitter principles.
+
 ## Freshness rule
 
 For current vendor details, read the Official Docs URL in the relevant `references/apis/*.md` section rather than relying on fixed model names, limits, plan tiers, or endpoint deprecations in this package.
