@@ -1,85 +1,43 @@
 ---
 name: landing-page
-slug: landing-page
-version: 1.0.0
-description: Build high-converting landing pages with proven structure, persuasive copy, and conversion optimization.
-homepage: https://clawic.com/skills/landing-page
+description: 'Create or audit conversion-focused landing pages: page structure, landing-page copy, primary CTAs, social proof, accessibility, performance, measurement, and experiment design. Use when building a SaaS, ecommerce, lead-generation, event, waitlist, service, or comparison landing page; improving a weak hero or CTA; diagnosing bounce, low CTA clicks, or form abandonment; or planning a focused A/B test. Not for implementing a site UI, general brand strategy, or writing a multi-page website.'
 metadata:
-  clawdbot:
-    emoji: 🖥️
-    displayName: Landing Page
+  openclaw: '{"emoji":"🖥️","displayName":"Landing Page"}'
 ---
 
-## Triggers
+## State location
 
-Activate on: "create landing page", "write landing copy", "improve conversion", "page not converting", "hero section help".
+This skill is stateless and does not store local configuration.
 
-## Core Structure
+## When to use
 
-Every landing page follows the same spine:
+Use this skill for a page built around one measurable conversion event: a purchase, trial, demo request, lead form, registration, or waitlist signup. Start by confirming the audience, offer, traffic source, conversion event, and the evidence available for product claims.
 
-| Section | Purpose | Height |
-|---------|---------|--------|
-| Hero | Hook + CTA | 100vh |
-| Problem | Agitate pain | Short |
-| Solution | Your answer | Medium |
-| Benefits | What they get | Medium |
-| Social proof | Trust signals | Variable |
-| CTA | Convert | Compact |
+## Workflow
 
-See `sections.md` for detailed requirements per section.
+1. **Choose the conversion path.** Name one primary conversion event and its success metric. Use `references/templates.md` to select the page pattern that matches the offer.
+2. **Build the information hierarchy.** Load `references/sections.md` and place the value proposition, proof, objections, and primary CTA in an order that serves the visitor's decision.
+3. **Write credible copy.** Load `references/copy.md` to draft outcome-focused headlines, clear subheads, CTA labels, and objection handling. Treat testimonials, metrics, guarantees, urgency, and competitor claims as publishable only when the owner can substantiate them.
+4. **Run the pre-launch checks.** Load `references/optimization.md` to verify responsive behavior, accessible interaction and contrast, performance, analytics events, consent requirements, and the conversion path.
+5. **Measure before changing.** Establish a baseline for the primary conversion event. When a metric is weak, use the symptom-to-diagnosis table in `references/optimization.md`; test one explicit hypothesis at a time and retain the result.
 
-## Hero Formula
+## Operating rules
 
-```
-[Headline: Outcome they want]
-[Subhead: How you deliver it]
-[CTA button] [Secondary action]
-[Visual: Product/result]
-```
+- Keep the page centered on one primary visitor outcome and one primary CTA. A secondary action is appropriate only when it advances the same conversion path for visitors not ready for the primary action.
+- State benefits in visitor language and qualify product, pricing, performance, review, availability, and scarcity claims with evidence the owner can verify.
+- Pair proof with its context: identify the source, timeframe, population, or terms that make a metric or testimonial meaningful.
+- Make the primary path usable with keyboard navigation, visible focus, descriptive labels, and sufficient contrast. Supply meaningful alt text for informative images; mark decorative images appropriately in implementation.
+- Preserve attribution and user choices according to the analytics and consent setup chosen by the owner.
 
-**Headline test:** Would they screenshot and send to a friend?
+## Common correction paths
 
-## Copy Rules
+| Signal | First correction | Load |
+|---|---|---|
+| Visitors leave quickly | Check message match between traffic source and hero; clarify the promised outcome | `references/optimization.md`, `references/copy.md` |
+| CTA clicks are low | Make the primary action and its value visible; remove competing page goals | `references/sections.md`, `references/copy.md` |
+| Form completion is low | Keep only fields required for the stated next step; clarify data use and value exchange | `references/optimization.md` |
+| An experiment is inconclusive | Keep the baseline, formulate one hypothesis, and extend or redesign the test using an adequate sample | `references/optimization.md` |
 
-- **You > We.** Talk about them, not yourself.
-- **Specific > Vague.** "Save 4 hours/week" beats "Save time"
-- **One CTA.** Everything else is distraction.
-- **Objection handling.** Answer "why not?" before they ask.
+## Avoidable patterns
 
-See `copy.md` for formulas and examples by page type.
-
-## Conversion Checklist
-
-Before launch:
-
-- [ ] CTA visible without scrolling
-- [ ] Load time <3s
-- [ ] Mobile-first (60%+ traffic)
-- [ ] Single goal, single action
-- [ ] Social proof near CTA
-- [ ] Friction removed (minimal form fields)
-
-See `optimization.md` for A/B testing and analytics setup.
-
-## Red Flags
-
-Stop and fix:
-- Multiple competing CTAs → Pick one
-- Features without benefits → Translate to outcomes
-- No social proof → Add testimonials, logos, numbers
-- Wall of text → Break into scannable sections
-- Generic stock photos → Use product/real images
-
-## By Page Type
-
-Different goals need different emphasis:
-
-| Type | Lead with | CTA |
-|------|-----------|-----|
-| SaaS | Demo/trial | Start free |
-| eCommerce | Product + offer | Buy now |
-| Lead gen | Value prop + form | Get [resource] |
-| Event | Date + speakers | Register |
-
-See `templates.md` for page-type specific structures.
+Replace vague promises, fabricated proof, unexplained scarcity, inaccessible controls, and simultaneous unrelated CTAs with specific, verifiable content and a coherent conversion path.
