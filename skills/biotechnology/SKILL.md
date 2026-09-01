@@ -52,7 +52,7 @@ Load `references/setup.md` on first use or when calibrating depth. Load `referen
 
 ## Common reasoning traps
 
-- Avoid one-gene/one-trait explanations; phenotype and gene expression depend on context and regulation.
-- Treat model-organism results, in-vitro findings, and clinical evidence as distinct evidence levels.
-- Do not equate a research technique with an approved therapy or assume results transfer across organisms.
+- Use context-sensitive explanations of phenotype and gene expression; regulation and environment shape both.
+- Keep model-organism results, in-vitro findings, and clinical evidence as distinct evidence levels.
+- Label research techniques and approved therapies separately, and validate transferability across organisms.
 - Use current authoritative sources when the question concerns emerging methods, regulations, product claims, or clinical status.
