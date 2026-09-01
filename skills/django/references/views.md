@@ -27,7 +27,7 @@ A request passes through: URL resolution → middleware (in `MIDDLEWARE` order) 
 - `request.body` is consumed once. Reading it after accessing `request.POST` (or vice versa) raises `RawPostDataException` in some paths and returns `b""` in others. Read once, store the value.
 - `request.FILES` is empty unless the form declares `enctype="multipart/form-data"`. Check the enctype before anything else when a file the user selected never arrives: nothing raises, the dict is simply empty.
 - `request.GET`/`request.POST` are `QueryDict`s: immutable, and `d["k"]` returns the *last* value while `d.getlist("k")` returns all of them. Checkbox groups and multi-selects need `getlist`.
-- `request.get_host()` honors `ALLOWED_HOSTS` and, if enabled, `X-Forwarded-Host`; `request.META["HTTP_HOST"]` does not — never trust the raw header for URL building or emails.
+- `request.get_host()` honors `ALLOWED_HOSTS` and, if enabled, `X-Forwarded-Host`; use it rather than raw `request.META["HTTP_HOST"]` for URL building or emails.
 - `request.user` exists only with `AuthenticationMiddleware` installed and ordered after `SessionMiddleware`. Without it, `request.user` raises `AttributeError`, not "anonymous".
 
 ## Responses

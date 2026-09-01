@@ -28,7 +28,7 @@ LOGGING = {
 }
 ```
 
-2. **See one query's plan.** `print(qs.query)` gives the SQL Django will send (parameters already inlined, so never paste it back as executable SQL); `qs.explain()` gives the database's plan.
+2. **See one query's plan.** `print(qs.query)` gives the SQL Django will send (parameters already inlined, so avoid pasting it back as executable SQL); `qs.explain()` gives the database's plan.
 3. **Count.** Wrap the suspect code in `assertNumQueries(n)` in a test, or in `CaptureQueriesContext(connection)`. A number is a fact; "it feels slow" is not.
 
 ## Page Is Slow / Query Count Explodes

@@ -5,7 +5,7 @@ The model layer is the only place where a rule can be made impossible to break. 
 ## Fields
 
 - `null` is the database; `blank` is validation. Text columns get `blank=True` alone — `null=True` on a `CharField`/`TextField` creates two empty states that every query has to handle.
-- `choices` is validated by forms and `full_clean()`, never by the database. Back a real invariant with a `CheckConstraint`, or accept that a script can write anything.
+- `choices` is validated by forms and `full_clean()`, not by the database. Back a real invariant with a `CheckConstraint`, or accept that a script can write anything.
 - `default=timezone.now` (the callable) evaluates per row; `default=timezone.now()` freezes at import time and stamps every row with the moment the process started. The same trap applies to `default=[]` and `default={}` — use `list`/`dict`, since mutable defaults are shared.
 - `auto_now=True` overwrites on every `save()` and cannot be set manually; `auto_now_add=True` writes once and is not editable. When you need to backdate rows, use `default=timezone.now` and set the value yourself.
 - `DecimalField` for money, never `FloatField`. `max_digits` counts all digits, `decimal_places` counts those after the point, so `max_digits=10, decimal_places=2` maxes out at 99,999,999.99.

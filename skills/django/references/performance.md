@@ -31,7 +31,7 @@ Order of attack, because it is almost always this order: **count the queries** �
 - Aggregate in the database, not in Python. A `Count`/`Sum` annotation replaces a loop that fetches every row to add numbers.
 - `bulk_create`/`bulk_update` with a batch size replace per-row writes; size the batch from the backend's parameter ceiling.
 - Deep `OFFSET` pagination reads and discards every skipped row: page 500 at 50 per page reads 25 000 rows to return 50. Keyset pagination (`filter(created_at__lt=cursor)`) is flat.
-- When the plan itself is the problem — a sequential scan, a bad join order, a misestimate — that is a database question, not a Django one (see Related Skills in SKILL.md).
+- When the plan itself is the problem — a sequential scan, a bad join order, or a misestimate — load the `pg` skill for the database-level investigation.
 
 ## Caching Layers
 
@@ -45,7 +45,7 @@ Order of attack, because it is almost always this order: **count the queries** �
 
 - **The key must contain everything the content depends on.** A fragment cached on `order.id` but rendered differently for staff serves staff HTML to customers. This is the most common cache bug in Django applications.
 - `LocMemCache` is per-process: with N workers there are N independent caches and N × the misses, and a `cache.delete()` in one worker leaves the other copies stale. Its `MAX_ENTRIES` default of 300 with `CULL_FREQUENCY` 3 also evicts a third of the cache at random once full. Use Redis or Memcached for anything shared.
-- The default `TIMEOUT` is 300 seconds; `None` means never expire, `0` means never cache. Passing `None` where you meant "default" caches forever.
+- The default `TIMEOUT` is 300 seconds; `None` means persist indefinitely, `0` means bypass caching entirely. Passing `None` where you meant "default" caches forever.
 - `cache.get_or_set` still lets N concurrent misses all compute the value (a thundering herd). For expensive values, add a short lock key or accept a stale value while one worker refreshes.
 - Invalidate on write, in `transaction.on_commit` — invalidating inside the transaction leaves the cache repopulated from a read that the rollback then contradicts (SKILL.md Core Rules 5).
 - Cache versioning (`KEY_PREFIX`, `VERSION`) invalidates everything at once at deploy time, which is often cheaper than reasoning about individual keys.

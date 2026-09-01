@@ -67,4 +67,4 @@ class EmailBackend(ModelBackend):
 - Return `None`, never raise, for "not my kind of credential" — raising stops the chain.
 - Call `user_can_authenticate()` (or check `is_active` yourself); skipping it lets deactivated users log in.
 - Run `check_password` even when the user is absent, or response timing tells an attacker which emails exist. Django's own `ModelBackend` calls `UserModel().set_password(password)` for exactly this reason.
-- Anything protocol-level — OAuth providers, SAML, OIDC, MFA enrolment flows — is a different skill (see Related Skills in SKILL.md); what belongs here is how the resulting identity becomes a Django user and session.
+- For protocol-level OAuth, SAML, OIDC, MFA enrolment, or passwordless flows, load the `auth` skill; this reference covers how the resulting identity becomes a Django user and session.

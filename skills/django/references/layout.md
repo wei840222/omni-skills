@@ -28,7 +28,7 @@ python manage.py startapp shop apps/shop     # target dir must already exist
 ## What Belongs In An App
 
 - An app is a **deployable unit of models plus the code that owns them**. If it has no models and no migrations, it is probably a package, not an app.
-- Split by domain (`orders`, `catalog`, `billing`), never by layer (`models`, `views`, `serializers`). Layer-split apps make every feature a change in four apps and every import a cycle candidate.
+- Split by domain (`orders`, `catalog`, `billing`), avoid splitting by layer (`models`, `views`, `serializers`). Layer-split apps make every feature a change in four apps and every import a cycle candidate.
 - One app per bounded piece of the product. The test: can you describe what it owns in one sentence without "and"? If not, it is two apps or it is one app pretending to be a framework.
 - Shared code with no models goes in a plain package — `core/`, `common/`, `lib/`. Keep it dependency-free in one direction: domain apps import from `core`, `core` imports from no app. That single rule prevents most import cycles.
 - The reverse smell is an app that imports models from four others. That is a coordination layer; give it its own name and let it depend downward.

@@ -10,7 +10,7 @@ Django's defaults are good: escaping is on, CSRF is on, the ORM parameterizes, p
 |---|---|---|
 | `DEBUG` | `False` | The debug page prints settings, environment, SQL, and local variables |
 | `ALLOWED_HOSTS` | Explicit list | Host-header poisoning of password-reset links and absolute URLs |
-| `SECRET_KEY` | From the environment, never in git | Forged sessions, forged password-reset tokens, forged signed cookies |
+| `SECRET_KEY` | From the environment, must be kept out of git | Forged sessions, forged password-reset tokens, forged signed cookies |
 | `SECURE_SSL_REDIRECT` | `True` | Plaintext requests (needs `SECURE_PROXY_SSL_HEADER` behind a proxy) |
 | `SESSION_COOKIE_SECURE`, `CSRF_COOKIE_SECURE` | `True` | Cookies leaking over HTTP |
 | `SESSION_COOKIE_SAMESITE` | `"Lax"` (or `"Strict"`) | Cross-site cookie attachment |
@@ -81,7 +81,7 @@ order = get_object_or_404(Order, pk=pk, customer=request.user.customer)
 - Django ships no rate limiting. Login, password reset, signup, and any expensive endpoint need throttling at the proxy, at the view, or with a dedicated package.
 - Password reset and signup leak account existence when they answer differently for known and unknown addresses. Django's built-in reset view returns the same response either way — custom versions usually lose that property.
 - Constant-time comparison (`hmac.compare_digest`) for tokens, signatures and API keys; `==` on secrets leaks length and prefix through timing.
-- Log authentication failures with enough context to detect credential stuffing, and never log the credential itself.
+- Log authentication failures with enough context to detect credential stuffing, and keep credentials out of the logs.
 
 ## Dependencies
 

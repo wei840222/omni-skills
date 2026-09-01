@@ -21,7 +21,7 @@ Three workable shapes, in increasing order of team size:
 3. **Base plus a typed config object** (django-environ, pydantic-settings). Fails at startup on a missing or malformed variable instead of at the first request that needs it.
 
 - `DJANGO_SETTINGS_MODULE` is what actually chooses; `manage.py` sets a default. A production process without it explicitly set is one `manage.py` edit away from running dev settings.
-- Never `from .prod import *` inside dev, or vice versa: the import direction must always be base → specific.
+- Keep imports flowing from the base settings module to an environment-specific module; this keeps environment overrides explicit.
 - Reading a setting at module import in your own code freezes it: `PAGE_SIZE = settings.PAGE_SIZE` at the top of a module ignores every later `override_settings`. Read `settings.X` inside the function.
 - Settings are not a config file for arbitrary application data. Anything a non-developer changes belongs in the database or a constance-style store; a settings change requires a deploy.
 
@@ -42,7 +42,7 @@ ALLOWED_HOSTS = [h for h in env("DJANGO_ALLOWED_HOSTS", "").split(",") if h]
 
 - Environment variables are strings. `bool(os.environ.get("DEBUG"))` is `True` for the string `"0"` and for `"False"` — the classic way to ship a production site with the debug page enabled.
 - Fail loudly at startup for anything required. A missing `SECRET_KEY` that defaults to `""` produces sessions nobody can validate rather than an error you can see.
-- `.env` files are a development convenience. Load them explicitly and never commit one; in production the platform supplies the variables.
+- `.env` files are a development convenience. Load them explicitly and keep them out of version control; in production the platform supplies the variables.
 - Secrets do not belong in settings literals, in the repo, or in the image.
 
 ## Databases
@@ -98,7 +98,7 @@ LOGGING = {
 
 ## Caches And Sessions
 
-- `CACHES["default"]["TIMEOUT"]` defaults to 300 seconds; `None` means never expire and `0` means never cache.
+- `CACHES["default"]["TIMEOUT"]` defaults to 300 seconds; `None` means persist indefinitely and `0` means bypass caching entirely.
 - The default `LocMemCache` is per-process: with several workers, each one has its own copy, so invalidation in one is invisible to the others. Only Redis/Memcached give a shared cache.
 - `SESSION_ENGINE` decides where sessions live. The database backend requires `clearsessions` on a schedule; a pure cache backend loses every session on a restart or eviction.
 - `KEY_PREFIX` and `VERSION` are how two environments share one Redis without reading each other's keys — and how you invalidate everything at once during a deploy.

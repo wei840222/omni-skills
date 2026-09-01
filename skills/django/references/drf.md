@@ -64,7 +64,7 @@ REST_FRAMEWORK = {
 - Every paginated response costs a `COUNT(*)` except cursor pagination. On a big table that count can exceed the page query.
 - `django-filter` gives declarative query parameters; whichever mechanism you use, never pass request parameters straight into `filter(**request.query_params)` — lookup traversal lets a caller filter across relations you never meant to expose.
 - Ordering from a query parameter must be validated against an allowlist, or a client sorts by a column with no index and turns a fast endpoint into a table scan.
-- Versioning (`URLPathVersioning`, `AcceptHeaderVersioning`) is a settings choice; the decision of *when* to version and how to deprecate is API design (see Related Skills in SKILL.md).
+- Versioning (`URLPathVersioning`, `AcceptHeaderVersioning`) is a settings choice; for framework-independent decisions about when to version and how to deprecate, load the `rest-api` skill.
 
 ## Errors And Testing
 

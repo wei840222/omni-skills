@@ -16,7 +16,7 @@ The validation pipeline, in order: `is_valid()` → `full_clean()` → `to_pytho
 ## ModelForms
 
 - `fields` explicitly, always. `fields = "__all__"` and `exclude = [...]` both grow the attack surface silently: the next field someone adds to the model becomes user-writable.
-- Fields with `editable=False` (including `auto_now`/`auto_now_add`) are never in a `ModelForm`. Set them in `save()` or on the model.
+- Fields with `editable=False` (including `auto_now`/`auto_now_add`) are omitted from `ModelForm`. Set them in `save()` or on the model.
 - `form.save(commit=False)` returns an unsaved instance so you can set `request.user` or a tenant. After you save it, call `form.save_m2m()` or every many-to-many selection is lost — `commit=False` defers both the insert and the M2M write.
 - `ModelForm` validation runs `instance.full_clean(exclude=<fields not on the form>)`, so a `unique_together` involving a field you excluded is *not* checked by the form — the database raises `IntegrityError` at save time instead. Catch it, or include the field.
 - `instance=obj` edits; `initial={...}` only pre-fills the widget and is discarded on save. Passing `initial` where you meant `instance` produces a form that always creates new rows.

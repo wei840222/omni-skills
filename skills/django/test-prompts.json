@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "A Django list page loads 50 articles and runs one author query for every article. How should I fix it and verify the result?",
+    "expected": "Load references/orm.md, use select_related(\"author\") for the forward relation, state a query budget, and verify it with assertNumQueries.",
+    "actual": "Loaded references/orm.md. Use Article.objects.select_related(\"author\") for the forward ForeignKey, set the list view's query budget, and add an assertNumQueries test so a later template change cannot reintroduce the N+1 query.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our async Django view creates an Order and immediately queues a Celery task. The worker sometimes cannot find the row. Give a safe fix.",
+    "expected": "Load references/async.md and references/tasks.md, keep transaction-sensitive work synchronous, and queue the task from transaction.on_commit so it runs after the database commit.",
+    "actual": "Loaded references/async.md and references/tasks.md. Keep the atomic create path in synchronous code (or call it through sync_to_async), then register the task with transaction.on_commit(lambda: process_order.delay(order_id)). This prevents a worker from reading before the Order commit is visible.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We need to add a required column to a large production table. Can I put the default and NOT NULL constraint in one Django migration?",
+    "expected": "Load references/migrations.md and give the expand → backfill → contract rollout, including verification and a recoverable deployment path rather than a single locking migration.",
+    "actual": "Loaded references/migrations.md. Use an expand migration that adds a nullable column, deploy code that handles both shapes, backfill in bounded resumable batches, verify completion, then make the column required in a contract migration. Do not combine the backfill and NOT NULL constraint in one large-table migration.",
+    "pass": true
+  }
+]
