@@ -325,7 +325,7 @@ Terminal 3 → Terminal 2 → Sanyuanqiao → Dongzhimen
 
 ---
 
-## 🚗 Driving (See also driving.md)
+## 🚗 Driving (See also references/driving.md)
 
 ### Quick Summary
 

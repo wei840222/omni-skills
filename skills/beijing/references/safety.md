@@ -247,7 +247,7 @@ All foreigners must register with police within **24 hours** of arrival at any a
 
 ### Driving Safety
 
-See `driving.md` for full details, but:
+See `references/driving.md` for full details, but:
 - Driving culture is aggressive
 - Rules frequently ignored
 - Accidents common

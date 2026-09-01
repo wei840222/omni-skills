@@ -1,6 +1,6 @@
 # Beijing Food & Dining Overview
 
-Routing: Beijing/Northern dishes → `food-local.md` · international & fine dining → `food-international.md` · where to eat by area → `food-areas.md` · dietary/alcohol/delivery → `food-practical.md`.
+Routing: Beijing/Northern dishes → `references/food-local.md` · international & fine dining → `references/food-international.md` · where to eat by area → `references/food-areas.md` · dietary/alcohol/delivery → `references/food-practical.md`.
 
 ## The Scene in One Paragraph
 
@@ -19,7 +19,7 @@ Capital status means every regional Chinese cuisine is represented at a high lev
 ## Decision Heuristics
 
 - **Choosing a restaurant**: use Dianping (大众点评), not Google/TripAdvisor (dead or tourist-skewed here). Ratings are inflated — treat review COUNT and recent photos as the signal, not the score. A packed dining room at 12:00 beats any rating.
-- **Ordering for a group**: dishes = people + 1-2, at least one vegetable, one soup for the table. Over-ordering is hospitality; under-ordering embarrasses the host (etiquette script → `culture.md`).
+- **Ordering for a group**: dishes = people + 1-2, at least one vegetable, one soup for the table. Over-ordering is hospitality; under-ordering embarrasses the host (etiquette script → `references/culture.md`).
 - **Peking duck**: locals queue at Siji Minfu; Da Dong sells the crispy-lean style at a premium; Quanjude is the historic state-banquet brand that most local foodies now skip — a defensible default is Siji Minfu with an off-peak arrival (before 11:30 or after 13:30) to dodge the queue. Whole duck feeds 3-4 with sides; half duck exists for pairs.
 - **Hotpot at Haidilao**: join the queue remotely via their app/mini-program; walk-ins at dinner wait 1h+ — the wait itself is the famous part (free manicures, snacks).
 - **Street food**: pick the stall with a line of locals and high turnover — the queue is the hygiene signal.
@@ -65,7 +65,7 @@ WeChat Pay/Alipay everywhere including street stalls; cards at high-end only; **
 
 ## Dietary Quick Reference
 
-Full detail → `food-practical.md`.
+Full detail → `references/food-practical.md`.
 
 - **Vegetarian/vegan**: say 全素 (quán sù, fully vegetarian) — "no meat" (不要肉) still gets you meat broth and lard. Reliable: Buddhist restaurants (素食), King's Joy for a splurge.
 - **Halal**: strong Hui Muslim tradition — look for 清真 (qīng zhēn) signs; Niujie (Ox Street) is the historic Muslim quarter, excellent lamb/beef.

@@ -1,6 +1,6 @@
 # Beijing Neighborhoods — Quick Comparison Index
 
-> **Data Sources:** Lianjia (Dec 2025), Beijing Real Estate, Expat forums, local research (2026)  
+> **Data Sources:** Lianjia (Dec 2025), Beijing Real Estate, Expat forums, local research (2026)
 > **Currency:** CNY/RMB (¥1 CNY ≈ $0.14 USD ≈ €0.13 EUR)
 
 ---
@@ -139,8 +139,8 @@
 
 ## 🔗 Detailed Guides
 
-- [CBD, Sanlitun, Chaoyang →](neighborhoods-downtown.md)
-- [Zhongguancun, Wudaokou, Haidian Tech →](neighborhoods-tech.md)  
-- [Dongcheng, Xicheng, Historic Districts →](neighborhoods-historic.md)
-- [Shunyi, Changping, Tongzhou →](neighborhoods-suburban.md)
-- [How to Choose Your Neighborhood →](neighborhoods-choosing.md)
+- [CBD, Sanlitun, Chaoyang →](references/neighborhoods-downtown.md)
+- [Zhongguancun, Wudaokou, Haidian Tech →](references/neighborhoods-tech.md)
+- [Dongcheng, Xicheng, Historic Districts →](references/neighborhoods-historic.md)
+- [Shunyi, Changping, Tongzhou →](references/neighborhoods-suburban.md)
+- [How to Choose Your Neighborhood →](references/neighborhoods-choosing.md)

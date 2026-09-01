@@ -1,6 +1,6 @@
 # Beijing Expat Taxes — IIT, the Six-Year Rule, and Keeping Clean Records
 
-> Last updated: February 2026 | Individual income tax for foreigners. Corporate tax and social insurance employer rates: `business.md`.
+> Last updated: February 2026 | Individual income tax for foreigners. Corporate tax and social insurance employer rates: `references/business.md`.
 
 ---
 
@@ -28,7 +28,7 @@ Applied after the ¥60,000 standard deduction, social insurance, and any allowan
 | 660,000-960,000 | 35% | 85,920 |
 | > 960,000 | 45% | 181,920 |
 
-Worked example — senior engineer at ¥60,000/mo (¥720,000/yr, mid-range in `tech.md`): after the ¥60,000 standard deduction and roughly ¥60,000 of social insurance and housing fund employee contributions, taxable ≈ ¥600,000 → tax = 600,000 × 30% − 52,920 = **¥127,080**, effective ≈ 18% of gross. Withholding is cumulative month by month, so take-home visibly shrinks toward year-end — that is the system working, not an error.
+Worked example — senior engineer at ¥60,000/mo (¥720,000/yr, mid-range in `references/tech.md`): after the ¥60,000 standard deduction and roughly ¥60,000 of social insurance and housing fund employee contributions, taxable ≈ ¥600,000 → tax = 600,000 × 30% − 52,920 = **¥127,080**, effective ≈ 18% of gross. Withholding is cumulative month by month, so take-home visibly shrinks toward year-end — that is the system working, not an error.
 
 ## The Two Deduction Systems (pick one per year, not both)
 
@@ -43,19 +43,19 @@ Negotiation consequence: structuring part of a package as allowances instead of 
 
 A once-a-year bonus may be taxed separately: divide by 12, find the monthly-table rate, apply to the whole bonus. ¥120,000 bonus → 10,000/mo → 10% bracket → tax = 120,000 × 10% − 210 = **¥11,790**, versus ~¥36,000 if merged into ¥600,000 comprehensive income at 30%. Confirm payroll actually elects this — it is optional and some providers default to merging.
 
-RSUs and options (common at `tech.md` employers): taxed as employment income at vest/exercise, with a similar separate-calculation relief — get the equity tax treatment in writing before accepting an equity-heavy offer.
+RSUs and options (common at `references/tech.md` employers): taxed as employment income at vest/exercise, with a similar separate-calculation relief — get the equity tax treatment in writing before accepting an equity-heavy offer.
 
 ## Annual Reconciliation (汇算清缴)
 
 - Window: **March 1 – June 30** for the previous year, via the IIT app (个人所得税) or the district tax bureau.
 - Required if you underpaid > ¥400 or want any refund (common after job changes, bonus elections, or missed deductions).
-- Foreigners can register in the app with a passport, but first-time setup usually needs one in-person visit with passport + work permit. Do it — the payment records it generates are the document that unlocks remitting savings abroad (`resident.md`, transfer limits) and clean exits (`leaving.md`).
+- Foreigners can register in the app with a passport, but first-time setup usually needs one in-person visit with passport + work permit. Do it — the payment records it generates are the document that unlocks remitting savings abroad (`references/resident.md`, transfer limits) and clean exits (`references/leaving.md`).
 
 ## Social Insurance for Foreigners
 
-- Mandatory in Beijing: employee share ~10.5% plus housing fund (full rate table: `business.md`). Housing fund participation for foreigners is negotiable at some employers.
+- Mandatory in Beijing: employee share ~10.5% plus housing fund (full rate table: `references/business.md`). Housing fund participation for foreigners is negotiable at some employers.
 - **Totalization treaties** exempt some nationalities from parts of it (Germany, South Korea, Japan, Denmark, Finland, Canada, Switzerland, the Netherlands, France, Spain, Luxembourg, Serbia — scope varies by treaty; pension is the usual exemption). Bring a coverage certificate from your home system; HR will not chase this for you.
-- On final departure you can withdraw your pension individual-account balance (the 8% employee share): `leaving.md`.
+- On final departure you can withdraw your pension individual-account balance (the 8% employee share): `references/leaving.md`.
 
 ## Traps
 
