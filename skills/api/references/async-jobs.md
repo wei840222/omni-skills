@@ -8,7 +8,7 @@ POST returns 202 (or 200 with `status: pending`) plus a job ID or `Location` hea
 
 - Interval: use the provider's documented interval; absent one, start at 2s and multiply by 1.5 per poll up to a 30s ceiling — a tight fixed loop spends your rate limit on "not yet". A `Retry-After` on the status response overrides your schedule (same precedence as references/core-rules.md Rule 2).
 - Cap total wait explicitly, and report timeout as its own outcome: "still running, job ID X" is not a failure — surface the ID so the job can be checked later.
-- Treat unknown status values as still-running until your cap, treat as still-running — providers add states without notice (same tolerant-reader law as `references/versioning.md`).
+- Treat an unknown status as non-terminal until the wait cap, then report it with the job ID and provider response — providers add states without notice (same tolerant-reader law as `references/versioning.md`).
 - Terminal states are more than succeeded/failed: `canceled` and `expired` exist and need distinct handling — a switch with only two arms mislabels them.
 - Results expire: download or persist promptly after completion; job-artifact retention is short and provider-specific.
 
@@ -18,7 +18,7 @@ POST returns 202 (or 200 with `status: pending`) plus a job ID or `Location` hea
 
 ## Batch Endpoints
 
-- Batch success is per-item: a 200 or 207 Multi-Status can carry item-level failures — check every item's status, check every item status independently (references/core-rules.md Rule 5).
+- Batch success is per-item: a 200 or 207 Multi-Status can carry item-level failures — check each item status independently (references/core-rules.md Rule 5).
 - Retry only the failed items with backoff, and only the retryable statuses per item — re-sending the whole batch duplicates the items that succeeded.
 - Response order may not match request order: correlate by the ID or index the API defines, not by position.
 - Respect the max-items-per-call limit, and make the splitter handle a remainder batch of one — the classic off-by-one lives there.
