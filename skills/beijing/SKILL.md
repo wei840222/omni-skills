@@ -131,8 +131,8 @@ Set up BOTH WeChat Pay and Alipay — vendor coverage differs and some merchants
 ### 4. Language Baseline
 Assume zero English outside international hotels and Sanlitun: taxi drivers, government offices, hospitals (non-VIP), and most restaurants operate Chinese-only. Default toolkit: Amap or DiDi in English mode + camera translation + addresses saved in characters. Survival phrases and Beijing-accent notes: `references/culture.md`.
 
-### 5. Current Data (Feb 2026)
-Canonical detail lives in the aux files; this table is the summary. When quoting, state the date — rents and salaries drift.
+### 5. Planning Baselines (updated February 2026)
+Canonical detail lives in the reference files. These are planning baselines, not live quotes; verify current values against an authoritative source before presenting them as current.
 
 | Item | Range | Canonical file |
 |------|-------|----------------|
@@ -175,6 +175,14 @@ Subway for anything near a line (¥3-10, English signage, add 3-5 min at each en
 - **Hukou (户口)** is household registration for Chinese citizens; Beijing hukou is among the hardest to obtain and gates local schooling and property. Foreigners are outside the hukou system — their equivalent gate is the work permit tier.
 - **Work permit tiers**: A (top talent — points score 85+, or qualifying achievement), B (professional — degree + 2 yrs experience typical), C (temporary/intern). Tier determines renewal ease and family visas. Points come from salary, education, experience, HSK level: `references/visas.md`.
 - Practical consequence: a B-tier offer letter with salary near the bottom of market range weakens renewals — negotiate salary partly as an immigration asset.
+
+## Verification for Time-Sensitive Guidance
+
+Before answering with a price, schedule, eligibility rule, registration deadline, visa policy, transit network detail, or other volatile fact:
+
+1. Load the relevant `references/` file for the request.
+2. Check the official source for the current rule or price: [Beijing Municipal Government](https://english.beijing.gov.cn/), [National Immigration Administration](https://en.nia.gov.cn/), or [Beijing Subway](https://www.bjsubway.com/en/), as appropriate.
+3. State the verification date and distinguish the confirmed current rule from planning guidance in this skill.
 
 ## Output Gates
 
