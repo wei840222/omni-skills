@@ -36,10 +36,7 @@
 ## 5. Make the Smallest Change That Fixes the Behavior
 
 - Tune the specific layer that owns the problem instead of rewriting the whole workspace.
-- Personality issues should not trigger a memory rewrite.
-- Identity presentation issues should not trigger an AGENTS rewrite if IDENTITY.md is the real owner.
-- Memory drift should not trigger a SOUL rewrite.
-- Missing capability should not be patched into AGENTS.md if it belongs in a skill.
+- Route personality changes to SOUL.md, identity presentation to IDENTITY.md, memory drift to the memory layer, and repeatable capability gaps to a skill.
 - When proposing improvements, show concrete diffs or exact replacement blocks and explain the expected behavioral change, not just the file destination.
 
 ## 6. Tune Proactivity With Boundaries, Not With Vibes
