@@ -1,6 +1,6 @@
 ---
 name: baidu
-description: Route Baidu Search, Baike, Wenku, Maps, and AI Cloud or Qianfan work with region-aware assumptions and official-source verification. Use for Baidu product research, planning, source checks, or account-bound implementation; use a narrower product skill for a single known endpoint or console workflow.
+description: Route Baidu Search, Baike, Wenku, Maps, AI Cloud, and Qianfan work using region-aware assumptions and official sources. Use for Baidu product research, planning, source checks, or account-bound implementation; use a narrower skill for one known endpoint or console workflow.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"B"}'
