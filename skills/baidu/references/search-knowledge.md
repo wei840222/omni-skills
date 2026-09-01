@@ -4,12 +4,12 @@ Use this file for Baidu Search, AI Search, Baike, and Wenku tasks.
 
 ## Surface Roles
 
-| Surface | Best use | Do not use it as |
-|---------|----------|------------------|
-| Baidu Search | Discovery, current pages, and official-page finding | Final proof by ranking order alone |
-| Baike | Fast encyclopedia-style orientation | Sole evidence for high-stakes claims |
-| Wenku | Long-form references, document leads, and terminology clues | Verified truth without source tracing |
-| Official docs or product pages | Final verification | Discovery engine for broad exploration |
+| Surface | Best use | Evidence role |
+|---------|----------|---------------|
+| Baidu Search | Discovery, current pages, and official-page finding | Use results to locate stronger evidence |
+| Baike | Fast encyclopedia-style orientation | Use for context, then verify high-stakes claims elsewhere |
+| Wenku | Long-form references, document leads, and terminology clues | Trace provenance before relying on a document |
+| Official docs or product pages | Final verification | Confirm specific product claims |
 
 ## Minimum Search Loop
 

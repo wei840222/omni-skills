@@ -21,12 +21,12 @@ Ask the smallest set that removes ambiguity:
 3. Does the user need planning only, or do they expect account-level execution?
 4. Is the real center of gravity public-web research or cloud-platform implementation?
 
-## Misroutes To Avoid
+## Routing distinctions
 
-- "Baidu" when the real request is Baidu Maps Open Platform setup
-- "Baidu search" when the task is actually Baike or Wenku source gathering
-- "Qianfan" when the user only needs public-web research and no platform work
-- "China market research" when the user only needs vendor or product verification
+- Route Baidu Maps Open Platform setup to the Maps and location family.
+- Route Baike or Wenku source gathering to Knowledge and documents.
+- Route public-web research without platform work to Search and discovery.
+- Route a vendor or product verification task to Corporate and ecosystem research.
 
 ## Output Contract
 

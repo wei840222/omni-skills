@@ -112,4 +112,4 @@ integration: pending | complete | paused | never_ask
 - Keep memory concise and Baidu-specific.
 - Update `last` after meaningful changes in scope, regions, or trust rules.
 - Save only what the user explicitly shares or approves for storage.
-- Never store secrets, raw tokens, or copied billing data.
+- Keep secrets, raw tokens, and copied billing data outside persistent state.
