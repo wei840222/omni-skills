@@ -24,4 +24,4 @@ metadata:
 
 ## Quality boundary
 
-Keep source meaning intact. Naturalness comes from appropriate register and idiom, not from adding profanity, slang, fillers, or diminutives by default. If a native-speaker review is available for publication-sensitive text, use it after this linguistic pass.
+Keep source meaning intact. Build naturalness from appropriate register and idiom; add profanity, slang, fillers, or diminutives only when the audience and source tone make them appropriate. If a native-speaker review is available for publication-sensitive text, use it after this linguistic pass.
