@@ -49,6 +49,7 @@ Use the selected `<state_root>` for every state operation. The Anki collection i
 | Names and faces, poetry, music, chess, birds, work facts | Non-academic decks and how to keep them alive → `references/personal-decks.md` | When building personal decks |
 | Exam in N days | Capacity math before content — can the deck even be finished → `references/exam-prep.md` | When planning for a fixed exam date |
 | Which add-ons, and what breaks on upgrade | `references/addons.md` | Before installing or debugging an add-on |
+| Anki version, scheduler, sync-server, or current feature capability | Verify against authoritative documentation in `references/tech.md` | Before making a version-sensitive recommendation |
 | Anything else | Ask what the user sees on screen — a count, a button, an exact error — map it to a row above, then propose one change at a time | When the symptom is still unclear |
 ## Core Rules
 1. **One retrievable fact per card.** Test: the answer fits in a few words and only one answer is right. A four-item list is one card that fails on item four forever; split it into four cards, plus a "how many" card only if the count is itself testable. Ignore this and the card becomes a leech that drags its whole review history down.
