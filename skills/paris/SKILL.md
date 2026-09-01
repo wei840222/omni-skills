@@ -1,13 +1,13 @@
 ---
 name: paris
-description: Provide practical, current guidance for Paris including transit, safety, living costs, itineraries, and area comparisons. Trigger this skill when the user asks about visiting, moving to, studying, or working in Paris.
+description: Plan a visit, move, study, or work in Paris with practical guidance on transit, safety, neighbourhoods, costs, and itineraries. Use for Paris-specific decisions; verify live prices, availability, and official rules before relying on them.
 metadata:
   openclaw: '{"emoji":"🇫🇷"}'
 ---
 
 ## When to Use
 
-User asks about Paris for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Use for Paris-specific travel, relocation, study, work, startup, neighbourhood, transit, safety, food, or itinerary decisions. For live booking, immigration, admission, fare, or price decisions, verify the official source before treating a detail as current.
 
 ## Quick Reference
 
