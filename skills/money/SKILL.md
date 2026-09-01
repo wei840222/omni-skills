@@ -157,7 +157,7 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Platform** — locale, tax residency versus citizenship, multi-currency exposure, which market is "home" — affects taxes and the home-bias question in investing
 - **Risk posture detail** — volatility tolerance in stated dropdown terms, leverage appetite, cash comfort above the buffer — affects allocation and the debt-versus-invest tie-break
 - **Advice order** — which competing goal outranks another when both are funded from the same surplus (children's education versus retirement versus mortgage freedom) — affects ladder steps 6 and 7
-- **Chosen institutions** — the banks, brokers, insurers and pension providers already in use (the choice, never credentials) — affects `finances/accounts.md` and stops re-litigating settled decisions
+- **Chosen institutions** — the banks, brokers, insurers and pension providers already in use (the choice, never credentials) — affects `<state_root>/finances/accounts.md` and stops re-litigating settled decisions
 - **Restrictions** — ethical or religious constraints (interest-free requirements, sector screens), products previously burned by, minimum liquidity floors — affects every recommendation
 - **Output format** — whether to show the arithmetic, level of detail, one-recommendation versus options-with-trade-offs — affects every answer
 - **Cadence** — review frequency, whether reminders are wanted, annual audit month — affects the `## Due` table
