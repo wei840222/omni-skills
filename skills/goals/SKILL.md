@@ -1,137 +1,44 @@
 ---
 name: goals
-slug: goals
-version: 1.0.0
-description: Build a personal goal-setting system with milestones, tracking, and regular reviews.
-homepage: https://clawic.com/skills/goals
+description: Help users create, track, and review personal outcome goals with milestones and progress logs.
 metadata:
-  clawdbot:
-    emoji: 🎯
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Goals
+  openclaw: '{"emoji":"🎯"}'
 ---
 
-## Core Behavior
-- User mentions an aspiration → help clarify and structure as goal
-- Track progress without nagging → surface when relevant
-- Regular reviews → quarterly and yearly reflection
-- Create `~/Clawic/data/goals/` as workspace
+## State location
 
-## Goal vs Project vs Habit
-- Goal: outcome you want (run a marathon, save €10k, learn Spanish)
-- Project: defined end state, series of tasks (plan the wedding)
-- Habit: recurring behavior (exercise 4x/week)
-- Goals often spawn projects and habits to achieve them
+Goals state may exist in `<workspace>/goals/`, `<workspace>/memory/goals/`, or `~/goals/`. Before a state operation, resolve `<state_root>` once for the invocation:
 
-## When User States a Goal
-- "What does success look like specifically?"
-- "By when?" — deadline creates urgency
-- "Why does this matter to you?" — motivation for hard days
-- "What's the first small step?"
+1. Use an explicitly configured state path when one is supplied.
+2. Otherwise, use the first existing directory in this order: `<workspace>/goals/`, `<workspace>/memory/goals/`, then `~/goals/`.
+3. When multiple candidates exist, use only the highest-precedence location and report that separate copies exist.
+4. When none exists and the user requests persistent goal tracking, create `<workspace>/goals/`.
+5. When the host does not provide `<workspace>`, use an existing `~/goals/`; otherwise request a state path before creating data.
 
-## Goal File Structure
-One file per goal: `run-a-marathon.md`
-- What: specific outcome
-- Why: motivation and meaning
-- By when: target date
-- Milestones: checkpoints along the way
-- Current status: on track, behind, ahead
-- Progress log: dated updates
+Keep the selected `<state_root>` for all state operations. Create `active/`, `achieved/`, `abandoned/`, and `someday.md` only when the corresponding goal-management action needs them.
 
-## Milestone Design
-Break big goals into checkable milestones:
-- Marathon: 5k → 10k → half marathon → full
-- Save €10k: €2.5k per quarter
-- Learn Spanish: A1 → A2 → B1
-- Each milestone is a mini-celebration
+## Workflow
 
-## Folder Structure
-```
-~/Clawic/data/goals/
-├── active/
-│   ├── run-marathon-2024.md
-│   └── save-10k.md
-├── achieved/
-├── abandoned/
-└── someday.md
-```
+1. Classify the request with `references/goal-structure.md`: a goal is an outcome, a project is a defined body of work, and a habit is recurring behavior. Route immediate execution work to task or project planning rather than treating it as a goal.
+2. For a new goal, clarify the success condition, target date, motivation, first step, and a small set of observable milestones. Load `references/domain-knowledge.md` when calibrating challenge, feedback, or blocker plans.
+3. When the user asks to save or track it, resolve `<state_root>`, then create or update `<state_root>/active/<goal-name>.md` with the outcome, why, target date, milestones, current status, and dated progress log.
+4. For progress updates and reviews, load `references/tracking-and-review.md`; record concise evidence, blockers, and the next meaningful action.
+5. For stalled, paused, or completed goals, load `references/management-and-motivation.md`. Preserve the user’s decision: break down a still-valued goal, move a reprioritized goal to `<state_root>/abandoned/` with a reason, or record a future idea in `<state_root>/someday.md`.
 
-## Progress Tracking
-- Log updates when progress happens
-- Quantify when possible: "Week 8: ran 15km"
-- Note blockers and breakthroughs
-- Keep log brief — not a journal
+If the user cannot yet state an outcome or deadline, capture the aspiration as a question and ask for the next smallest clarification rather than fabricating a target. If an existing goal file conflicts with the user’s current intent, present the conflict and obtain the user’s chosen update before changing saved state.
 
-## Review Cadence
-- Weekly: glance at active goals, any action needed?
-- Monthly: real progress check, adjust if needed
-- Quarterly: deep review, add/remove goals
-- Yearly: major reflection, set next year's goals
+## Reference routing
 
-## Quarterly Review Prompts
-- Which goals progressed? Which stalled?
-- Any goals no longer matter? → abandon or pause
-- New goals to add?
-- Are milestones still realistic?
-- What's blocking the stuck ones?
+| Resource | Load when |
+| --- | --- |
+| `references/goal-structure.md` | Classifying a goal, project, or habit; defining milestones; creating a goal file |
+| `references/tracking-and-review.md` | Logging progress or conducting weekly, monthly, quarterly, or yearly reviews |
+| `references/management-and-motivation.md` | A goal stalls, priorities change, a milestone completes, or motivation needs support |
+| `references/domain-knowledge.md` | Calibrating specificity, difficulty, feedback, commitment, or implementation intentions |
 
-## Yearly Review
-- What did you achieve this year?
-- What did you learn from abandoned goals?
-- What themes emerge?
-- What do you want next year to be about?
-- 3-5 goals maximum for the year
+## Working principles
 
-## Goal Limits
-- Maximum 3-5 active goals — more means diluted focus
-- One "big" goal at a time — marathon training doesn't mix with startup launch
-- Someday list for future goals — parking lot, not commitment
-- Quarterly rotation — finish or abandon before adding
-
-## When Goals Stall
-- No progress in 30+ days → surface in review
-- Ask: still important? → if no, abandon guilt-free
-- Ask: what's blocking? → solve or accept
-- Ask: break down smaller? → maybe milestone too big
-
-## Abandoning Goals
-- Not failure — priorities change, that's life
-- Move to abandoned with note: why stopped
-- Extract lessons: what would you do differently?
-- Make room for goals that matter now
-
-## What NOT To Suggest
-- SMART goals framework obsessively — clarity matters, acronyms don't
-- Too many goals — focus beats quantity
-- Guilt about abandoned goals — they served their purpose
-- Complex tracking systems — simple file is enough
-
-## Motivation Maintenance
-- Revisit "why" when motivation dips
-- Celebrate milestones — don't just move to next
-- Share with accountability partner if helpful
-- Visualize completion — what does life look like after?
-
-## Goal Categories (Optional)
-- Health & fitness
-- Career & work
-- Financial
-- Relationships
-- Learning & growth
-- Creative
-- Don't force categories — use if helpful
-
-## Integration Points
-- Projects: goals spawn projects
-- Habits: goals require habits
-- Journal: reflect on goal progress
-- Calendar: milestone deadlines
-
-## Someday Goals
-- Ideas not ready for commitment
-- Review quarterly — promote or keep parking
-- No shame in long someday list
-- "Would be nice but not now" is valid
+- Keep the active set small: three to five active goals, with one demanding goal receiving primary focus.
+- Use clear outcomes and evidence-based progress; a lightweight file and dated entries are sufficient.
+- Treat a changed priority as a valid decision. Record its rationale so a future review can learn from it.
+- Celebrate completed milestones before choosing the next objective.
