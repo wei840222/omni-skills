@@ -37,3 +37,13 @@ Before delivery:
 2. Remove any filler, slang, diminutive, or intensifier that changes the speaker's implied relationship or tone.
 3. Keep names, dates, quantities, commitments, and safety-sensitive wording faithful to the source.
 4. For publication, legal, medical, or brand-critical text, label this as a draft and route it to a qualified native reviewer when one is available.
+
+## Verified language resources
+
+For terminology, orthography, or a high-stakes wording decision, consult a current authoritative resource before finalizing rather than treating this guide's examples as a substitute for expert review:
+
+- **Lithuanian Language Resources Information System (E. KALBA):** https://lkiis.lki.lt/ — language-resource portal maintained by the Institute of the Lithuanian Language.
+- **E. KALBA Standard Lithuanian Dictionary:** https://ekalba.lt/bendrine-lietuviu-kalbos-zodynas — check established meanings and standard forms.
+- **State Commission of the Lithuanian Language consultations:** https://www.vlkk.lt/konsultacijos — consult current official language recommendations when the question is normative.
+
+If an authoritative source, a qualified native reviewer, or the user's style guide conflicts with a casual example here, follow the applicable source and explain the register choice succinctly.
