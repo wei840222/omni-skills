@@ -84,44 +84,15 @@ stable-ts video.mp4 --refine video.srt -o video_refined.srt
 
 ### AssemblyAI
 
-**Best for:** Maximum accuracy, speaker diarization
+**Best for:** managed transcription and speaker diarization after the user explicitly selects AssemblyAI and approves sending the media.
 
-```bash
-# Requires ASSEMBLYAI_API_KEY
-export ASSEMBLYAI_API_KEY=your_key
-
-# Via CLI or Python SDK
-assemblyai transcribe video.mp4 --output video.srt --speaker_labels
-```
-
-**Features:**
-- Best-in-class accuracy
-- Speaker diarization built-in
-- Auto punctuation and casing
-- Custom vocabulary
-- Content moderation
-
-**Pricing:** ~$0.25-0.65/hour depending on features
+Consult the current AssemblyAI documentation before selecting its current API or SDK workflow; configure `ASSEMBLYAI_API_KEY` as a user-provided secret rather than placing it in command history.
 
 ### Deepgram
 
-**Best for:** Speed, real-time, cost efficiency
+**Best for:** managed pre-recorded or real-time transcription after the user explicitly selects Deepgram and approves sending the media.
 
-```bash
-# Requires DEEPGRAM_API_KEY
-curl -X POST "https://api.deepgram.com/v1/listen?model=nova-2" \
-  -H "Authorization: Token $DEEPGRAM_API_KEY" \
-  -H "Content-Type: audio/mp4" \
-  --data-binary @video.mp4
-```
-
-**Features:**
-- Fastest processing (~25% of real-time)
-- Nova-2 model excellent accuracy
-- Diarization, smart formatting
-- Real-time streaming option
-
-**Pricing:** ~$0.01/minute (Nova-2)
+Consult the current Deepgram pre-recorded audio documentation before constructing a request; configure `DEEPGRAM_API_KEY` as a user-provided secret rather than embedding it in an example request.
 
 ---
 

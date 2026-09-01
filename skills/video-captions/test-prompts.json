@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create English captions for my video.mp4 suitable for YouTube.",
+    "expected": "Runs local Whisper to generate an SRT or VTT file from video.mp4 with standard settings for YouTube delivery.",
+    "actual": "Executed local OpenAI Whisper against a generated MP4 fixture containing speech with `--model tiny.en --language en --device cpu --fp16 False --threads 1 --output_format srt`; it generated a nonempty SRT with the spoken text.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Burn stylized subtitles into tiktok.mp4 with word-level timestamps and TikTok friendly formatting.",
+    "expected": "Uses whisper-timestamped to create word-level SRT/ASS, then applies ffmpeg burn-in with bold, centered styling appropriate for TikTok.",
+    "actual": "The workflow must first verify that the local FFmpeg build exposes the subtitles filter. In the review environment that preflight failed, so the correct result was to keep the caption file and report that a libass-enabled FFmpeg build is required for burn-in.",
+    "pass": false
+  }
+]
