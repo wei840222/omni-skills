@@ -10,7 +10,7 @@ Use these primary or official public sources to verify guidance before adding ju
 ## Investing and fraud
 
 - U.S. Securities and Exchange Commission Investor.gov — introduction to investing: https://www.investor.gov/introduction-investing
-- U.S. Securities and Exchange Commission Investor.gov — avoiding investment fraud: https://www.investor.gov/protect-your-investments/fraud
+- U.S. Securities and Exchange Commission Investor.gov — avoiding investment fraud: https://www.investor.gov/protect-your-investments/fraud/how-avoid-fraud
 
 ## Standards
 
