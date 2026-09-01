@@ -1,43 +1,32 @@
 ---
 name: money
-slug: money
-version: 1.0.2
-description: 'Decides where money goes next: which debt to clear first, how big the emergency fund must be, what to save, and whether a purchase is affordable. Use when the question is "should I pay this off or invest it", "how much do I need saved", "can I afford this", "rent or buy", "am I on track to stop working", or "where does my money even go"; when a raise, bonus, inheritance, equity vest or business sale lands and nobody has decided what to do with it; when a card is at 20% and only minimums are going out; when a job ends, a diagnosis arrives, a marriage ends, or income suddenly swings; when a credit score drops or a loan is refused; or when judging a pitch, an adviser''s fee, or a "guaranteed" return. Covers savings rate, order of operations, real-versus-nominal maths, and fee drag. Not for picking funds or brokers (`invest`), building a tracker or importing statements (`personal-finance-tracker`), a recurring-payment list (`subscriptions`), or company finance (`cfo`).'
-homepage: https://clawic.com/skills/money
-changelog: "Clearer disclosure of what is stored and where"
+description: "Guide debt-payoff order, emergency-fund sizing, saving rates, affordability, and financial shocks. Use for personal money decisions such as debt versus saving, a windfall, budgeting, retirement planning, or judging a financial offer; not for selecting specific funds or brokers."
 metadata:
-  clawdbot:
-    emoji: 💰
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Money
-    configPaths:
-    - ~/Clawic/data/money/
-    - ~/Clawic/data/finances/
-    - ~/Clawic/data/contacts/
-    - ~/Clawic/data/projects/
-    - ~/Clawic/profile.yaml
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/money/
-      - ~/Clawic/data/finances/
-      - ~/Clawic/data/contacts/
-      - ~/Clawic/data/projects/
-      - ~/Clawic/profile.yaml
+  version: "1.0.2"
+  openclaw: '{"emoji":"💰"}'
+  related-skills: '{"car":"Handles vehicle-specific ownership and cost questions.","cfo":"Handles company finance rather than household financial decisions.","invest":"Handles choosing specific accounts, brokers, and portfolios.","negotiate":"Handles salary, rates, and debt-settlement conversations.","personal-finance-tracker":"Handles statement imports, cash-flow reports, and net-worth tooling.","real-estate-investing":"Handles property underwriting.","subscriptions":"Handles recurring-payment inventory."}'
 ---
 
-**Data.** At the start of every session, read `~/Clawic/data/money/config.yaml` (what the user declared) and `~/Clawic/data/money/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — that index is the list of files, never assume the list is fixed. Every path it names is inside `~/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `~/Clawic/data/finances/accounts.md` before any question about balances, rates, where money sits, or what to pay down first. If none of it exists, work from defaults and say nothing about it.
+## State location
 
-**Write before the session ends** whenever it produced something durable: a rate, balance or account discovered or changed; a payoff order agreed; a goal with a date; a budget or savings rate; a net-worth reading; a decision taken and why; a cover level or deductible; a review that ran; or something the user will want to read again — a payoff plan, an investment policy, a rent-versus-buy analysis, a coverage map, a job-loss playbook. `memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
+Money state may exist in `<workspace>/money/`, `<workspace>/memory/money/`, or `~/money/`. Before reading or writing state, resolve `<state_root>` once for the invocation:
 
-**Accounts, subscriptions and the monthly budget go to the shared box `~/Clawic/data/finances/`**, not here: bank, brokerage, pension, card and loan accounts share one inventory whoever wrote it, so "what do I hold, at what rate" answers itself even if this skill is the only one installed. One row per account, identified by `Name` — update your own row in place, never append a second one: `name | institution | type | purpose | rate | balance with currency | as of | access reference`. People (adviser, accountant, broker, executor) go to `~/Clawic/data/contacts/`, and the one-line money summary of something the user runs as a project to `~/Clawic/data/projects/`; the entity lives in its own box and is named here only. A vehicle belongs to the `car` skill and is never written from here. Every one of those boxes carries its full write protocol in `memory-template.md`, because the skill that owns it may not be installed.
+1. Use an explicitly configured state root when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/money/`, `<workspace>/memory/money/`, then `~/money/`.
+3. If none exists and the user has authorized persistent storage, create `<workspace>/money/`.
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Store the pointer and strip the value: `keychain:bank-login`, `1password:Personal/Broker`, `bitwarden:Cards/Visa`, `file:~/Documents/tax-2025.pdf`. Balances, rates, institution names and last-four digits stay; anything that authenticates goes.
+If more than one candidate exists, use only the highest-precedence directory and report the conflict; never merge or synchronize state automatically. Use the resolved `<state_root>` for every state operation.
 
-Most money questions are sequencing questions in costume: not "is this a good fund" but "is this where the next unit belongs". Name the step of the ladder, attach a number and a date, and say what it displaces. Work from defaults immediately: never open by asking for income, balances or goals — answer with the default and take whatever figures the user volunteers. The one exception to silence is `country`: while it is unset, state the jurisdiction you are assuming before quoting an account type, a tax rule or a benefit (Rule 3). That is a statement, not a question. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: currency, locale, country) → the Configuration table default. An observation never overwrites a declaration.
+
+**Data.** At the start of every session, read `<state_root>/money/config.yaml` (what the user declared) and `<state_root>/money/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — that index is the list of files, never assume the list is fixed. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the the resolved state-root subdirectories — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `<state_root>/finances/accounts.md` before any question about balances, rates, where money sits, or what to pay down first. If none of it exists, work from defaults and say nothing about it.
+
+**Write before the session ends** whenever it produced something durable: a rate, balance or account discovered or changed; a payoff order agreed; a goal with a date; a budget or savings rate; a net-worth reading; a decision taken and why; a cover level or deductible; a review that ran; or something the user will want to read again — a payoff plan, an investment policy, a rent-versus-buy analysis, a coverage map, a job-loss playbook. `references/persistence.md` defines destinations, ownership, formats, and write thresholds; load it before persisting a durable decision.
+
+**Accounts, subscriptions and the monthly budget go to the shared box `<state_root>/finances/`**, not here: bank, brokerage, pension, card and loan accounts share one inventory whoever wrote it, so "what do I hold, at what rate" answers itself even if this skill is the only one installed. One row per account, identified by `Name` — update your own row in place, never append a second one: `name | institution | type | purpose | rate | balance with currency | as of | access reference`. People (adviser, accountant, broker, executor) go to `<state_root>/contacts/`, and the one-line money summary of something the user runs as a project to `<state_root>/projects/`; the entity lives in its own box and is named here only. A vehicle belongs to the `car` skill and is never written from here. Use `references/persistence.md` for the full write protocol, including ownership and safe update rules.
+
+**No credential is ever written anywhere under `<state_root>/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Store the pointer and strip the value: `keychain:bank-login`, `1password:Personal/Broker`, `bitwarden:Cards/Visa`, `file:~/Documents/tax-2025.pdf`. Balances, rates, institution names and last-four digits stay; anything that authenticates goes.
+
+Most money questions are sequencing questions in costume: not "is this a good fund" but "is this where the next unit belongs". Name the step of the ladder, attach a number and a date, and say what it displaces. Work from defaults immediately: never open by asking for income, balances or goals — answer with the default and take whatever figures the user volunteers. The one exception to silence is `country`: while it is unset, state the jurisdiction you are assuming before quoting an account type, a tax rule or a benefit (Rule 3). That is a statement, not a question. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: currency, locale, country) → the Configuration table default. An observation never overwrites a declaration.
 
 ## When To Use
 
@@ -145,15 +134,15 @@ Before delivering a plan, a number or a recommendation:
 - Does each recommendation carry a figure and a date, or did I just describe a direction (Rule 4)?
 - Did I check the Red Flags table before optimizing anything?
 - Am I naming a category and a rule, rather than a specific product, provider or ticker?
-- Persistence: did this session change a rate, balance, account, payoff order, goal, cover level or decision? Then it is written to its box before the answer ends — `memory-template.md` says which one.
+- Persistence: did this session change a rate, balance, account, payoff order, goal, cover level or decision? Then it is written to its box before the answer ends — `references/persistence.md` says which one.
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/money/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/money/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
-| currency | text (ISO code) | from `~/Clawic/profile.yaml`, else USD | Currency of every amount, threshold and worked example |
+| currency | text (ISO code) | from `<state_root>/profile.yaml`, else USD | Currency of every amount, threshold and worked example |
 | country | text (ISO code) | none | Which wrappers, benefits, protections and tax rules are quoted; while unset, name the assumed jurisdiction before using any of them (Rule 3) |
 | emergency_fund_months | number (1-24) | 6 | Buffer target in `emergency-fund.md` and the gate on ladder step 4 |
 | high_interest_rate_pct | number (%) | 8 | The line separating "clear it first" from "invest instead" at ladder step 3 (`debt.md`) |
@@ -200,18 +189,3 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Whether a credit line substitutes for cash.** Some argue an unused line makes a large buffer wasteful; the counterargument is that lines get cut in exactly the conditions that trigger their use, and that has happened at scale more than once.
 - **Buying a home as a financial decision.** Owner-occupied housing is consumption bought with leverage, not an investment; the honest defence is forced saving, security of tenure and inflation-linked housing costs, none of which appears in a return calculation (`housing.md`).
 - **Paying for advice.** Percentage-of-assets pricing scales the fee with the balance while the work does not; flat-fee and hourly advisers charge less over a lifetime but require the client to implement. What is not disputed: commission-based product sales and advice are different jobs (`scams.md`).
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/money (install if the user confirms):
-- `invest` — choosing accounts, brokers and building the actual portfolio
-- `personal-finance-tracker` — importing statements, cashflow reports, net-worth tooling
-- `subscriptions` — the recurring-payment inventory this skill only summarizes
-- `zero-based-budgeting` — the month-by-month allocation method in depth
-- `negotiate` — salary, rates and debt-settlement conversations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/money
-- Latest version: https://clawic.com/skills/money
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/money.
