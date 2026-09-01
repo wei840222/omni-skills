@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "prompt": "My OpenClaw agent feels too passive. Audit the workspace and tell me the smallest safe changes.",
+    "expected": "Map the active behavior layers, inspect current proactivity rules and scheduling before proposing edits, distinguish reversible workspace changes from actions needing approval, and provide an evidence-backed improvement packet.",
+    "actual": "The audit starts with the active bootstrap files and the current automation mechanism, then checks recent memory evidence before identifying the smallest owning-layer edits. It separates reversible workspace documentation changes from messaging, scheduling, or other external actions that require approval.",
+    "pass": true,
+    "eval_mode": "dry_run",
+    "bm25_prompt": "OpenClaw workspace passive agent proactivity audit boundaries"
+  },
+  {
+    "id": 2,
+    "prompt": "Add web search to TOOLS.md so the agent can browse and use it in every session.",
+    "expected": "Explain that TOOLS.md documents usage rather than granting capabilities; inspect runtime tool policy and availability, then propose only the appropriate documented change or configuration path.",
+    "actual": "The response explains that editing TOOLS.md cannot grant web-search access. It first verifies the runtime's enabled tools and policy, then records only accurate usage guidance in TOOLS.md or identifies the separately authorized configuration change required for capability access.",
+    "pass": true,
+    "eval_mode": "dry_run",
+    "bm25_prompt": "OpenClaw TOOLS.md tool capability policy web search"
+  },
+  {
+    "id": 3,
+    "prompt": "Our workspace has contradictory memory rules and a daily reminder that sometimes sends messages unexpectedly. Redesign it.",
+    "expected": "Audit memory layers and the live automation setup, preserve privacy and explicit delivery boundaries, identify the rule owners, and propose a staged change plan rather than silently changing schedules or messages.",
+    "actual": "The response separates USER.md, MEMORY.md, and dated notes from the automation configuration, validates the reminder's delivery target and schedule, identifies contradictory instructions at their owning layers, and presents staged reversible edits before any external-message or scheduler mutation.",
+    "pass": true,
+    "eval_mode": "dry_run",
+    "bm25_prompt": "OpenClaw memory rules automation reminder unexpected messages audit"
+  }
+]
