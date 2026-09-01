@@ -36,6 +36,7 @@ Load one directly relevant reference before handling its branch:
 | Creating or improving listings | `references/selling.md` | listing, margin, operational, and post-sale controls |
 | Planning API or panel automation | `references/automation.md` | scoped rollout, reconciliation, and rollback |
 | Handling account safety, claims, or disputes | `references/security-disputes.md` | evidence collection and recovery path |
+| Checking Mercado Libre API behavior or facts | `references/knowledge.md` | source-backed, version-sensitive research |
 
 ## Default workflow
 
