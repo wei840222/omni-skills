@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a TimescaleDB continuous aggregate that reports average temperature per device every hour, then explain what I must verify before relying on fresh results.",
+    "expected": "Provides a continuous-aggregate definition using time_bucket, distinguishes refresh policy setup, and notes that real-time behavior must be verified for the installed configuration.",
+    "actual": "Create a materialized view with WITH (timescaledb.continuous), group by time_bucket('1 hour', time) and device_id, then define a refresh policy for the arrival delay and correction window. Verify the view and policy, and confirm the installed release's real-time aggregate behavior before assuming recent raw rows are included.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our metrics hypertable has three years of data. Set up 90-day retention and compression safely, and explain how to recover if retention deletes data we still need.",
+    "expected": "Separates retention from storage optimization, requires confirmation and a backup plan, checks version-specific compression syntax, and states that recovery requires backup restoration.",
+    "actual": "Verify the database, schema, hypertable, retention window, downstream consumers, and backup-recovery path before adding add_retention_policy('metrics', INTERVAL '90 days'). Confirm the installed TimescaleDB release before choosing compression syntax, test representative chunks, then add a storage policy. Retention drops complete chunks; recover deleted data by restoring it from backup.",
+    "pass": true
+  }
+]
