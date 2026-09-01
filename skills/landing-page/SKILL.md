@@ -13,6 +13,16 @@ This skill is stateless and does not store local configuration.
 
 Use this skill for a page built around one measurable conversion event: a purchase, trial, demo request, lead form, registration, or waitlist signup. Start by confirming the audience, offer, traffic source, conversion event, and the evidence available for product claims.
 
+## Quick reference
+
+| Need | Load |
+|---|---|
+| Choose a page type and its conversion path | `references/templates.md` |
+| Plan page sections, proof placement, and CTA hierarchy | `references/sections.md` |
+| Draft or audit headline, subhead, CTA, proof, and objection copy | `references/copy.md` |
+| Diagnose performance, accessibility, instrumentation, or experiments | `references/optimization.md` |
+| Verify publishable claims or current implementation guidance | `references/research.md` |
+
 ## Workflow
 
 1. **Choose the conversion path.** Name one primary conversion event and its success metric. Use `references/templates.md` to select the page pattern that matches the offer.
