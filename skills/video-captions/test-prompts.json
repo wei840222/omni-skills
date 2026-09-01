@@ -2,8 +2,8 @@
   {
     "id": 1,
     "prompt": "Create English captions for my video.mp4 suitable for YouTube.",
-    "expected": "Executes whisper to generate a VTT or SRT file from video.mp4, keeping settings standard for general web use.",
-    "actual": "Executed `whisper video.mp4 --model turbo --output_format vtt`. Generated video.vtt successfully for YouTube upload.",
+    "expected": "Runs local Whisper to generate an SRT or VTT file from video.mp4 with standard settings for YouTube delivery.",
+    "actual": "Executed local OpenAI Whisper against a generated MP4 fixture containing speech with `--model tiny.en --language en --device cpu --fp16 False --threads 1 --output_format srt`; it generated a nonempty SRT with the spoken text.",
     "pass": true
   },
   {
