@@ -71,7 +71,7 @@ Read `references/research.md` when explaining regulated appraisal scope, selecti
 ## Evidence hygiene
 
 - Prioritize recent, arm's-length comparable sales and explain when older sales are used.
-- Analyze condition, updates, concessions, financing terms, and location rather than treating raw sale prices as interchangeable.
+- Compare condition, updates, concessions, financing terms, and location to explain differences among raw sale prices.
 - Use automated valuation models and tax assessments as context alongside verified property-specific evidence.
 - Keep assessed value separate from market value.
 
