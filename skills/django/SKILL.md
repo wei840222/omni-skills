@@ -54,8 +54,13 @@ Use the selected `<state_root>` for every state operation. User preferences and 
 | Upgrade | `references/upgrade.md` | When migrating to a newer Django version |
 | Views | `references/views.md` | When writing class-based or function-based views |
 | Traps | `references/traps.md` | When reviewing for common pitfalls or architectural disputes |
+| Research | `references/research.md` | When a version-sensitive Django claim needs its official source or verification context |
 
+## Fast path
 
+1. Identify the Django subsystem and load its matching reference from the table above.
+2. Check the installed Django version and project settings before applying version- or environment-sensitive guidance.
+3. For migrations, destructive commands, or production changes, use the reference’s verification and recovery path before proposing execution.
 
 | Situation | Play |
 |---|---|
