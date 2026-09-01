@@ -211,6 +211,12 @@ Before answering, check:
 | Working on an M/tourist visa "temporarily" | Deportation + entry ban when caught; schools get raided | Z visa + work permit before day one (`references/jobs.md`, `references/visas.md`) |
 | Leaving without the work-permit cancellation certificate | Blocks any future China work permit; unobtainable once the employer moves on | Exit checklist in `references/leaving.md`, 2-3 buffer weeks before the flight |
 
+## Reliable Guidance Patterns
+
+- Give one recommended path that matches the user’s role and timeline; use the relevant reference file before expanding into edge cases.
+- Treat state creation as opt-in: create or update `<state_root>` only after the user supplies information worth retaining.
+- For current immigration, transit, pricing, and booking claims, use the verification path above rather than presenting a dated planning baseline as a live fact.
+
 ## Legal Awareness
 
 | Rule | Reality |
