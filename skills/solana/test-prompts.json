@@ -3,7 +3,7 @@
     "id": 1,
     "prompt": "My SPL token transfer fails because the recipient account is not found. What should I check and how do I recover?",
     "expected": "Identify the cluster, mint, recipient wallet, and expected token account; explain ATA creation and require logs before assuming the cause.",
-    "actual": "Confirm that the wallet, cluster, mint, and token-program account list are correct. Check whether the recipient's expected token account—normally its ATA for that mint—exists. If logs confirm it is missing, create the required token account using the current transfer flow, then rebuild, sign, and submit the transfer. Do not infer the cause from the message alone when program logs identify another missing account.",
+    "actual": "Confirm that the wallet, cluster, mint, and token-program account list are correct. Check whether the recipient's expected token account—normally its ATA for that mint—exists. If logs confirm it is missing, create the required token account using the current transfer flow, then rebuild, sign, and submit the transfer. Use program logs to distinguish that case from other missing accounts.",
     "pass": true
   },
   {
