@@ -10,7 +10,7 @@ Paris is safe overall. Main concerns:
 - Pickpocketing (#1 risk, especially metros and tourist sites)
 - Street scams (bracelet, petition, ring)
 - Some areas at night (north 18th, 19th)
-See `references/safety.md` for area-specific guidance.
+For area-specific guidance, load `references/safety.md`.
 
 ### 3. Weather Surprises
 | Myth | Reality |
@@ -30,15 +30,15 @@ See `references/safety.md` for area-specific guidance.
 | Metro ticket | €2.15 (single), €16.90 (10-pack) |
 
 ### 5. Tourist Traps
-- Skip: Euronet ATMs (40% fees), restaurants near Eiffel Tower
-- Do: Free museums (1st Sunday), Marais, Latin Quarter side streets
-- Free views: Sacré-Cœur steps, Galeries Lafayette rooftop, Parc de Belleville
+- Use bank-operated ATMs and choose restaurants away from the Eiffel Tower base.
+- Check current museum policies before planning free-admission days; consider the Marais and Latin Quarter side streets.
+- Consider free views from Sacré-Cœur steps, Galeries Lafayette rooftop, or Parc de Belleville when access conditions fit the itinerary.
 
 ### 6. Transit Over Walking
-- Metro covers everything (16 lines)
-- Navigo Découverte for week stays (€30.75/week)
-- Vélib bikes great for spring/summer
-- Use transit instead of driving — impossible parking, ZTL zones
+- For central trips, compare Metro and bus options using current transit information.
+- For a week-long stay, compare Navigo products after confirming eligibility, validity, and the live fare.
+- Consider Vélib in suitable weather and when the rider can use it safely.
+- Use public transport or licensed ride options for central Paris; reserve a car for a demonstrated need outside the city.
 
 ### 7. Arrondissement Matching
 | Profile | Best Areas |
