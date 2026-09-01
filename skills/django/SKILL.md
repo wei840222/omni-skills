@@ -1,34 +1,21 @@
 ---
 name: django
-slug: django
-version: 1.0.3
-description: 'Builds, debugs, and hardens Django apps: models, the ORM, views, templates, forms, the admin, DRF APIs, and deployment. Use when a page fires one query per row (N+1, select_related, prefetch_related, annotate double-counting); when makemigrations conflicts, a migration locks a live table, or InconsistentMigrationHistory blocks a deploy; on 403 CSRF verification failed, DEBUG=False turning every request into 400 DisallowedHost or a blank 500, or SECURE_SSL_REDIRECT looping behind a proxy; on SynchronousOnlyOperation, AppRegistryNotReady, or NoReverseMatch; when a background task runs before its transaction commits, signals fire on rows that roll back, or update() skips auto_now; when the admin times out on a big table, collectstatic breaks static files, or workers exhaust database connections; when writing serializers, formsets, a custom user model, permissions, or assertNumQueries tests; or upgrading Django across a deprecation. Not for plain Python, FastAPI or Flask services, or engine-level SQL tuning.'
-homepage: https://clawic.com/skills/django
-changelog: Display name shown correctly
+description: "Build, debug, and harden Django web applications. Use for Django models, ORM query problems, migrations, views, templates, forms, admin, DRF, deployment, async work, or tests; not for plain Python, FastAPI/Flask, or database-engine tuning."
 metadata:
-  clawdbot:
-    emoji: 🌿
-    requires:
-      bins:
-      - python3
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Django
-    configPaths:
-    - ~/Clawic/data/django/
-    - ~/django/
-    - ~/clawic/django/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/django/
-      - ~/django/
-      - ~/clawic/django/
+  version: "1.0.3"
+  openclaw: '{"emoji":"🌿","requires":{"bins":["python3"]}}'
+  related-skills: '{"auth":"Use for protocol-level OAuth, SAML, OIDC, MFA, and passwordless identity flows beyond Django session integration.","fastapi":"Use for async-first services that do not need Django’s ORM, admin, or templates.","pg":"Use for PostgreSQL execution plans, index design, vacuum, locks, and connection-pooling questions below Django’s ORM.","py":"Use for plain Python semantics, packaging, typing, asyncio internals, and pytest mechanics outside Django-specific behavior.","rest-api":"Use for API versioning, contracts, error shapes, and other framework-independent API design decisions."}'
 ---
 
-User preferences and memory live in `~/Clawic/data/django/` (see `setup.md` on first use, `memory-template.md` for the file format). If you have data at an old location (`~/django/` or `~/clawic/django/`), move it to `~/Clawic/data/django/`, and say in one line that you moved it and from where.
+## State location
+This skill stores user preferences and project context. Before its first state read or write, resolve `<state_root>` once for the invocation:
+
+1. Use a user- or host-configured state root when one is explicit.
+2. Otherwise, use the first existing directory in this order: `<workspace>/django/`, `<workspace>/memory/django/`, then `~/django/`.
+3. If more than one candidate exists, use only the highest-precedence directory and tell the user that separate copies exist; do not merge or synchronize them.
+4. If no candidate exists and the user wants to save state, create `<workspace>/django/`. The host supplies `<workspace>`; never substitute the shell working directory.
+
+Use the selected `<state_root>` for every state operation. User preferences and memory format follow `references/setup.md` and `references/memory-template.md`.
 
 ## When To Use
 
@@ -38,42 +25,70 @@ User preferences and memory live in `~/Clawic/data/django/` (see `setup.md` on f
 - An exception that is Django's and not Python's: `SynchronousOnlyOperation`, `TransactionManagementError`, `AppRegistryNotReady`, `NoReverseMatch`, `DisallowedHost`, `ImproperlyConfigured`
 - Hardening a project for production: settings split, `check --deploy`, static and media, sessions, permissions, upload limits
 - Background jobs, async views, Channels, caching, or a test suite that is slow or order-dependent
-- Not for plain Python semantics, packaging, or asyncio internals, and not for engine-level SQL tuning (see Related Skills)
+- For plain Python, use `py`; for PostgreSQL engine tuning, use `pg`; for async-first services without Django’s ORM, admin, or templates, use `fastapi`.
 
 ## Quick Reference
 
+| Category | Reference File | When to load |
+| --- | --- | --- |
+| Admin | `references/admin.md` | When customizing the Django admin interface |
+| Async | `references/async.md` | When working with ASGI, Channels, or async views |
+| Auth | `references/auth.md` | When dealing with authentication, permissions, or user models |
+| Commands | `references/commands.md` | When writing custom management commands |
+| Debug | `references/debug.md` | When troubleshooting exceptions or debugging |
+| Deployment | `references/deployment.md` | When preparing the app for production (static files, WSGI, config) |
+| DRF | `references/drf.md` | When building APIs with Django Rest Framework |
+| Forms | `references/forms.md` | When creating or validating forms and formsets |
+| i18n | `references/i18n.md` | When translating or localizing the application |
+| Layout | `references/layout.md` | When structuring apps or the project directory |
+| Migrations | `references/migrations.md` | When generating, applying, or debugging migrations |
+| Models | `references/models.md` | When defining data schema, constraints, or signals |
+| ORM | `references/orm.md` | When writing or optimizing database queries (N+1, annotations) |
+| Performance | `references/performance.md` | When analyzing or improving response times |
+| Security | `references/security.md` | When reviewing CSRF, XSS, or SQL injection protections |
+| Settings | `references/settings.md` | When configuring settings and environment variables |
+| Setup | `references/setup.md` | Upon first use or when configuring the development environment |
+| Tasks | `references/tasks.md` | When writing background jobs (Celery, etc.) |
+| Templates | `references/templates.md` | When working with the Django template engine |
+| Testing | `references/testing.md` | When writing or debugging test suites |
+| Upgrade | `references/upgrade.md` | When migrating to a newer Django version |
+| Views | `references/views.md` | When writing class-based or function-based views |
+| Traps | `references/traps.md` | When reviewing for common pitfalls or architectural disputes |
+
+
+
 | Situation | Play |
 |---|---|
-| Query count grows with rows on the page | `select_related` for forward FK/O2O, `prefetch_related` for reverse FK/M2M (Core Rules 1-2, → `orm.md`) |
-| `Sum`/`Count` inflated after `annotate` | Two joins multiply rows — `Count("x", distinct=True)` or a `Subquery` (→ `orm.md`) |
-| Rows come back duplicated after filtering on a related model | Chained `.filter().filter()` joins twice; one `.filter(a=..., b=...)` requires the same related row (→ `orm.md`) |
-| `makemigrations` reports "No changes detected" | App missing from `INSTALLED_APPS`, or models defined outside an imported module (→ `migrations.md`) |
-| Two migration leaves after a merge | `makemigrations --merge`; never renumber files by hand (→ `migrations.md`) |
-| The migration must run on a live table | Expand → backfill in batches → contract, each in its own migration (Core Rules 6, → `migrations.md`) |
-| 403 "CSRF verification failed" | Missing `{% csrf_token %}`, or `CSRF_TRUSTED_ORIGINS` entries without a scheme behind a proxy (→ `security.md`) |
-| 400 on every request once `DEBUG=False` | `ALLOWED_HOSTS` (→ `settings.md`) |
-| 500 with an empty response and nothing in the logs | `DEBUG` off with no `LOGGING` config — the exception exists, nothing writes it down (→ `settings.md`) |
-| Redirect loop behind a load balancer | `SECURE_SSL_REDIRECT` without `SECURE_PROXY_SSL_HEADER` (→ `deployment.md`) |
-| `SynchronousOnlyOperation` | ORM touched from an async context — `sync_to_async` or the `a`-prefixed ORM methods (→ `async.md`) |
-| Task fails with `DoesNotExist`, then succeeds on retry | Queued inside `atomic()` and picked up before COMMIT — `transaction.on_commit` (Core Rules 5, → `tasks.md`) |
-| Admin change page hangs or times out | A ForeignKey rendered as a `<select>` of every row — `autocomplete_fields`, `list_select_related` (→ `admin.md`) |
-| Static files 404, or the manifest raises after deploy | `collectstatic`, `STATIC_ROOT`, and hashed-name references (→ `deployment.md`) |
-| Tests pass alone and fail as a suite | Mutated `setUpTestData` objects, or a setting read at import time (→ `testing.md`) |
-| A DRF endpoint issues N+1 or leaks a field | `SerializerMethodField` touching a relation; `fields = "__all__"` (→ `drf.md`) |
-| Login, permissions, or a custom user model | `auth.md` — and set `AUTH_USER_MODEL` before the first `migrate` (Core Rules 8) |
-| Starting a project, or deciding where a new app goes | `startproject config .`, domain-shaped apps, and a label chosen once — it is baked into every table name (→ `layout.md`) |
-| Bumping the Django version, or `RemovedInDjangoXXWarning` in the test output | Clear deprecations on the current version with `python -Wa manage.py test`, then move one feature release at a time (→ `upgrade.md`) |
-| Text must render in the user's language, or dates in their format | `gettext_lazy` at import time, `{% blocktranslate %}` in templates, and `compilemessages` — Django reads `.mo`, never `.po` (→ `i18n.md`) |
-| Anything else | Reproduce in `manage.py shell`, switch the `django.db.backends` logger to DEBUG, and read the SQL Django actually emitted before changing any code (→ `debug.md`) |
+| Query count grows with rows on the page | `select_related` for forward FK/O2O, `prefetch_related` for reverse FK/M2M (Core Rules 1-2, → `references/orm.md`) |
+| `Sum`/`Count` inflated after `annotate` | Two joins multiply rows — `Count("x", distinct=True)` or a `Subquery` (→ `references/orm.md`) |
+| Rows come back duplicated after filtering on a related model | Chained `.filter().filter()` joins twice; one `.filter(a=..., b=...)` requires the same related row (→ `references/orm.md`) |
+| `makemigrations` reports "No changes detected" | App missing from `INSTALLED_APPS`, or models defined outside an imported module (→ `references/migrations.md`) |
+| Two migration leaves after a merge | `makemigrations --merge`; never renumber files by hand (→ `references/migrations.md`) |
+| The migration must run on a live table | Expand → backfill in batches → contract, each in its own migration (Core Rules 6, → `references/migrations.md`) |
+| 403 "CSRF verification failed" | Missing `{% csrf_token %}`, or `CSRF_TRUSTED_ORIGINS` entries without a scheme behind a proxy (→ `references/security.md`) |
+| 400 on every request once `DEBUG=False` | `ALLOWED_HOSTS` (→ `references/settings.md`) |
+| 500 with an empty response and nothing in the logs | `DEBUG` off with no `LOGGING` config — the exception exists, nothing writes it down (→ `references/settings.md`) |
+| Redirect loop behind a load balancer | `SECURE_SSL_REDIRECT` without `SECURE_PROXY_SSL_HEADER` (→ `references/deployment.md`) |
+| `SynchronousOnlyOperation` | ORM touched from an async context — `sync_to_async` or the `a`-prefixed ORM methods (→ `references/async.md`) |
+| Task fails with `DoesNotExist`, then succeeds on retry | Queued inside `atomic()` and picked up before COMMIT — `transaction.on_commit` (Core Rules 5, → `references/tasks.md`) |
+| Admin change page hangs or times out | A ForeignKey rendered as a `<select>` of every row — `autocomplete_fields`, `list_select_related` (→ `references/admin.md`) |
+| Static files 404, or the manifest raises after deploy | `collectstatic`, `STATIC_ROOT`, and hashed-name references (→ `references/deployment.md`) |
+| Tests pass alone and fail as a suite | Mutated `setUpTestData` objects, or a setting read at import time (→ `references/testing.md`) |
+| A DRF endpoint issues N+1 or leaks a field | `SerializerMethodField` touching a relation; `fields = "__all__"` (→ `references/drf.md`) |
+| Login, permissions, or a custom user model | `references/auth.md` — and set `AUTH_USER_MODEL` before the first `migrate` (Core Rules 8) |
+| Starting a project, or deciding where a new app goes | `startproject config .`, domain-shaped apps, and a label chosen once — it is baked into every table name (→ `references/layout.md`) |
+| Bumping the Django version, or `RemovedInDjangoXXWarning` in the test output | Clear deprecations on the current version with `python -Wa manage.py test`, then move one feature release at a time (→ `references/upgrade.md`) |
+| Text must render in the user's language, or dates in their format | `gettext_lazy` at import time, `{% blocktranslate %}` in templates, and `compilemessages` — Django reads `.mo`, never `.po` (→ `references/i18n.md`) |
+| Anything else | Reproduce in `manage.py shell`, switch the `django.db.backends` logger to DEBUG, and read the SQL Django actually emitted before changing any code (→ `references/debug.md`) |
 
 Depth on demand, by phase:
 
-- **Start** — `layout.md` project skeleton, app boundaries, labels, where non-app code goes
-- **Diagnose** — `debug.md` symptom to cause in minutes · `commands.md` the `manage.py` toolkit and what each command really does
-- **Model the data** — `models.md` fields, relations, constraints, managers, signals · `migrations.md` generating, merging, squashing, online schema change · `orm.md` querysets, joins, aggregation, transactions, locking
-- **Serve requests** — `views.md` view classes, URLs, middleware, requests and responses · `forms.md` validation, formsets, file uploads · `templates.md` escaping, context, custom tags · `auth.md` users, sessions, permissions, password flows · `admin.md` the admin at real data volume · `drf.md` serializers, viewsets, permissions, pagination · `i18n.md` translation, locale switching, formats, timezones
-- **Make it fast** — `performance.md` query budgets, caching layers, profiling · `async.md` async views, ASGI, Channels · `tasks.md` background jobs, on_commit, retries, email
-- **Ship it** — `settings.md` settings layout, env config, logging, timezone · `deployment.md` WSGI/ASGI, workers, static and media, release sequence · `security.md` the Django-specific attack surface · `testing.md` fast, isolated, honest tests · `upgrade.md` release cadence, deprecations, LTS windows
+- **Start** — `references/layout.md` project skeleton, app boundaries, labels, where non-app code goes
+- **Diagnose** — `references/debug.md` symptom to cause in minutes · `references/commands.md` the `manage.py` toolkit and what each command really does
+- **Model the data** — `references/models.md` fields, relations, constraints, managers, signals · `references/migrations.md` generating, merging, squashing, online schema change · `references/orm.md` querysets, joins, aggregation, transactions, locking
+- **Serve requests** — `references/views.md` view classes, URLs, middleware, requests and responses · `references/forms.md` validation, formsets, file uploads · `references/templates.md` escaping, context, custom tags · `references/auth.md` users, sessions, permissions, password flows · `references/admin.md` the admin at real data volume · `references/drf.md` serializers, viewsets, permissions, pagination · `references/i18n.md` translation, locale switching, formats, timezones
+- **Make it fast** — `references/performance.md` query budgets, caching layers, profiling · `references/async.md` async views, ASGI, Channels · `references/tasks.md` background jobs, on_commit, retries, email
+- **Ship it** — `references/settings.md` settings layout, env config, logging, timezone · `references/deployment.md` WSGI/ASGI, workers, static and media, release sequence · `references/security.md` the Django-specific attack surface · `references/testing.md` fast, isolated, honest tests · `references/upgrade.md` release cadence, deprecations, LTS windows
 
 ## Core Rules
 
@@ -93,18 +108,18 @@ Django raises its own exception types before Python's. The type names the subsys
 
 | Exception | What it actually means | First move |
 |---|---|---|
-| `SynchronousOnlyOperation` | An ORM call reached an async context | Wrap in `sync_to_async(...)`, or use `aget`/`acreate`/`async for` (Django >=4.1) (→ `async.md`) |
+| `SynchronousOnlyOperation` | An ORM call reached an async context | Wrap in `sync_to_async(...)`, or use `aget`/`acreate`/`async for` (Django >=4.1) (→ `references/async.md`) |
 | `TransactionManagementError` | A query ran after an error inside `atomic()`, or `select_for_update()` ran outside a transaction | Rule 7; for locking, open an `atomic()` block first |
 | `AppRegistryNotReady` | Models or `get_user_model()` touched during import | Rule 9 — move it into a function or `AppConfig.ready()` |
 | `ImproperlyConfigured` | Settings used before `django.setup()`, or a required setting missing or empty | The message tail names the setting; standalone scripts need `django.setup()` before importing any app code |
-| `DisallowedHost` | The `Host` header is not in `ALLOWED_HOSTS` | Add the host; behind a proxy also check `USE_X_FORWARDED_HOST` (→ `settings.md`) |
-| `NoReverseMatch` | A `{% url %}`/`reverse()` name, namespace, or argument count is wrong | Check `app_name` plus the pattern's converters — a `<int:pk>` route rejects a string silently (→ `views.md`) |
-| `TemplateDoesNotExist` | Loader order, not a missing file, most of the time | The debug page lists every path tried; check `APP_DIRS` and `DIRS` (→ `templates.md`) |
+| `DisallowedHost` | The `Host` header is not in `ALLOWED_HOSTS` | Add the host; behind a proxy also check `USE_X_FORWARDED_HOST` (→ `references/settings.md`) |
+| `NoReverseMatch` | A `{% url %}`/`reverse()` name, namespace, or argument count is wrong | Check `app_name` plus the pattern's converters — a `<int:pk>` route rejects a string silently (→ `references/views.md`) |
+| `TemplateDoesNotExist` | Loader order, not a missing file, most of the time | The debug page lists every path tried; check `APP_DIRS` and `DIRS` (→ `references/templates.md`) |
 | `FieldError` | An invalid lookup, or `only()`/`defer()` conflicting with `select_related` | The message lists the valid choices; re-read the `__` lookup chain |
 | `RelatedObjectDoesNotExist` | A nullable FK that is NULL, or a reverse OneToOne with no row | `getattr(obj, "profile", None)`; the class also catches as `Model.DoesNotExist` |
 | `MultipleObjectsReturned` | `get()` matched more than one row — a uniqueness constraint is missing | Add the `UniqueConstraint`, then decide whether the caller wanted `filter().first()` |
-| `SuspiciousFileOperation` | A generated path escaped the storage root | Never build `upload_to` or a storage name from raw user input (→ `security.md`) |
-| `InconsistentMigrationHistory` | A migration is recorded as applied before a dependency it needs | Usually a late user-model swap or a re-pointed FK; repair the graph, do not `--fake` blindly (→ `migrations.md`) |
+| `SuspiciousFileOperation` | A generated path escaped the storage root | Never build `upload_to` or a storage name from raw user input (→ `references/security.md`) |
+| `InconsistentMigrationHistory` | A migration is recorded as applied before a dependency it needs | Usually a late user-model swap or a re-pointed FK; repair the graph, do not `--fake` blindly (→ `references/migrations.md`) |
 | `OperationalError: database is locked` | SQLite with concurrent writers | SQLite serializes writes; raise `timeout` in `DATABASES["default"]["OPTIONS"]`, or move to Postgres for anything concurrent |
 
 ## HTTP Symptoms
@@ -115,10 +130,10 @@ Django raises its own exception types before Python's. The type names the subsys
 | 403 "CSRF verification failed" | No `{% csrf_token %}`; a cross-origin POST needing `CSRF_TRUSTED_ORIGINS` entries with the scheme (`https://app.example.com`, required since Django >=4.0); or `CSRF_COOKIE_SECURE` on a plain-HTTP origin |
 | 404 on a URL that exists | Trailing-slash mismatch, `include()` ordering, or a path converter rejecting the value |
 | 301 loop | `SECURE_SSL_REDIRECT` behind a TLS-terminating proxy with no `SECURE_PROXY_SSL_HEADER` |
-| 302 to `/accounts/login/` from an API client | `LoginRequiredMixin` on an endpoint that should answer 401/403 — use DRF permissions instead (→ `drf.md`) |
+| 302 to `/accounts/login/` from an API client | `LoginRequiredMixin` on an endpoint that should answer 401/403 — use DRF permissions instead (→ `references/drf.md`) |
 | A POST arrives as a GET with no data | `APPEND_SLASH`: Django answers a slash-less POST with a 301 and the body is dropped. Post to the exact URL |
-| 500, blank body, nothing logged | `DEBUG=False` with default logging — Django mails `ADMINS` and writes nothing else (→ `settings.md`) |
-| 502/504 under load, fine when idle | Worker saturation, or a request longer than the proxy timeout (→ `deployment.md`) |
+| 500, blank body, nothing logged | `DEBUG=False` with default logging — Django mails `ADMINS` and writes nothing else (→ `references/settings.md`) |
+| 502/504 under load, fine when idle | Worker saturation, or a request longer than the proxy timeout (→ `references/deployment.md`) |
 | Users randomly logged out | `SECRET_KEY` differs between instances, or was rotated without `SECRET_KEY_FALLBACKS` (Django >=4.1) |
 
 ## Settings Defaults That Bite
@@ -132,7 +147,7 @@ Exact Django defaults that produce confusing failures. All are overridable in se
 | `FILE_UPLOAD_MAX_MEMORY_SIZE` | 2621440 bytes (2.5 MB) | Below it an upload is an in-memory object with no `temporary_file_path()`; above it, a temp file on disk. Code that assumes one shape breaks on the other |
 | `CONN_MAX_AGE` | 0 | A fresh TCP connect plus auth handshake on every single request |
 | `CACHES["default"]["TIMEOUT"]` | 300 seconds | Anything cached without an explicit timeout expires in five minutes |
-| `LocMemCache` `MAX_ENTRIES` | 300, with `CULL_FREQUENCY` 3 | At 300 keys it evicts one third at random — and each worker process holds its own copy, which is why hit rates look impossible (→ `performance.md`) |
+| `LocMemCache` `MAX_ENTRIES` | 300, with `CULL_FREQUENCY` 3 | At 300 keys it evicts one third at random — and each worker process holds its own copy, which is why hit rates look impossible (→ `references/performance.md`) |
 | `SESSION_COOKIE_AGE` | 1209600 seconds (14 days) | Sessions live two weeks and the `django_session` table grows forever unless `clearsessions` runs on a schedule |
 | `PASSWORD_RESET_TIMEOUT` | 259200 seconds (3 days) | Reset links stay valid for three days |
 | Formset `max_num` | 1000, with `absolute_max` = `max_num + 1000` | A crafted POST can force Django to build up to `absolute_max` forms before validation runs |
@@ -141,21 +156,21 @@ Exact Django defaults that produce confusing failures. All are overridable in se
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/django/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
 | django_version | number (4.2-6.x) | 5.2 | Which `Django >=X.Y` gated advice applies when the project's version is unknown, and which deprecations to flag |
 | database | postgres \| mysql \| sqlite \| oracle | postgres | Switches ORM and migration advice: `select_for_update` options, server-side cursors, JSON lookups, whether `__date` needs loaded timezone tables |
-| api_layer | none \| drf \| ninja \| plain-json | drf | Which request/response idiom generated endpoints use, and whether `drf.md` guidance applies at all |
-| settings_layout | single \| split-by-env \| env-vars | split-by-env | Where a new setting is written and how secrets are read (→ `settings.md`) |
-| project_layout | flat \| apps-package | flat | Where a new app is created and which dotted names appear in `INSTALLED_APPS` and `AppConfig.name` (→ `layout.md`) |
-| task_queue | none \| celery \| rq \| django-tasks | celery | Shape of background-job examples; with `none`, work is inlined behind `transaction.on_commit` instead (→ `tasks.md`) |
-| test_runner | django \| pytest-django | django | Whether tests are emitted as `TestCase` classes or pytest functions with fixtures (→ `testing.md`) |
-| deploy_target | gunicorn-wsgi \| uvicorn-asgi \| paas \| serverless | gunicorn-wsgi | Worker-count formula, static-file strategy, and whether long-lived database connections are safe (→ `deployment.md`) |
+| api_layer | none \| drf \| ninja \| plain-json | drf | Which request/response idiom generated endpoints use, and whether `references/drf.md` guidance applies at all |
+| settings_layout | single \| split-by-env \| env-vars | split-by-env | Where a new setting is written and how secrets are read (→ `references/settings.md`) |
+| project_layout | flat \| apps-package | flat | Where a new app is created and which dotted names appear in `INSTALLED_APPS` and `AppConfig.name` (→ `references/layout.md`) |
+| task_queue | none \| celery \| rq \| django-tasks | celery | Shape of background-job examples; with `none`, work is inlined behind `transaction.on_commit` instead (→ `references/tasks.md`) |
+| test_runner | django \| pytest-django | django | Whether tests are emitted as `TestCase` classes or pytest functions with fixtures (→ `references/testing.md`) |
+| deploy_target | gunicorn-wsgi \| uvicorn-asgi \| paas \| serverless | gunicorn-wsgi | Worker-count formula, static-file strategy, and whether long-lived database connections are safe (→ `references/deployment.md`) |
 | destructive_confirm | bool | true | `migrate --fake`, `flush`, `sqlflush`, reverse migrations and drop-column operations are emitted for review instead of run |
 
-Preference areas — customizable dimensions; a stated preference is recorded in `config.yaml` and applied from then on:
+Preference areas — customizable dimensions; record a stated preference in `<state_root>/config.yaml` and apply it from then on:
 
 - **Tooling** — dependency manager and venv layout, debug toolbar vs profiler, `django-filter`/`factory_boy`/`allauth` and friends, migration linting in CI
 - **Thresholds** — query budget per view, default page size, cache TTLs, backfill batch size, the slow-request threshold worth reporting
@@ -177,49 +192,6 @@ Before emitting models, a migration, a view, or a serializer:
 - Is every external side effect wrapped in `transaction.on_commit` (Rule 5)?
 - Do new foreign keys and frequently filtered columns get an index in the same migration?
 - Are `ModelForm` and `ModelSerializer` field lists explicit, never `"__all__"`?
-- Does every object fetched by an ID from the request also filter on ownership or permission (→ `security.md`)?
+- Does every object fetched by an ID from the request also filter on ownership or permission (→ `references/security.md`)?
 - Are user-supplied strings rendered without `|safe`/`mark_safe`, and JSON handed to scripts through `{{ data|json_script:"id" }}`?
 - Timestamps via `timezone.now()` / `timezone.localdate()`, never `datetime.now()` / `date.today()`?
-
-## Traps
-
-| Trap | Why it fails | Do instead |
-|---|---|---|
-| Assuming `Model.save()` validates | `save()` never calls `full_clean()`: `choices`, validators and most `max_length` checks are form-layer only | Enforce in the database with `Meta.constraints`, or call `full_clean()` explicitly |
-| `null=True` on a text field | Two empty states (`""` and `NULL`) that every query then has to handle | `blank=True` alone; keep `null=True` for non-text columns |
-| `Meta.ordering` on a busy model | Every query inherits the sort — and in `values().annotate()` the ordering column silently joins the `GROUP BY`, changing your aggregate | Order at the queryset; `.order_by()` with no arguments clears an inherited sort |
-| `exclude(field=None)` to find NULLs | Compiles to `NOT (field = NULL)`, which drops NULL rows instead of selecting them | `filter(field__isnull=True)` |
-| `queryset.delete()` over millions of rows | Django loads the objects to cascade and fire signals in Python | Delete in primary-key batches, or move the cascade into the database and own it there |
-| `get_object_or_404(Order, pk=pk)` in a user-facing view | Any authenticated user can read any ID | Scope the lookup: `get_object_or_404(Order, pk=pk, user=request.user)` |
-| `fields = "__all__"` on a ModelForm or ModelSerializer | Every future field becomes exposed and writable the day it is added | List fields explicitly and let that list be the review surface |
-| `@login_required` on a class-based view | The decorator wraps the class object, not the request handler | `LoginRequiredMixin` first in the bases, or `method_decorator` on `dispatch` |
-| Signals carrying business logic | They fire from anywhere, are invisible at the call site, and never run for `update()`/`bulk_create()` | An explicit service function; keep signals for cross-app decoupling you actually need |
-| `datetime.now()` in models or views | Naive local time; with `USE_TZ=True` (the default in Django >=5.0) you get a `RuntimeWarning` and drifted comparisons | `timezone.now()`, and `timezone.localdate()` for "today" |
-| `.raw()` or `.extra()` built with f-strings | String interpolation is SQL injection regardless of the ORM around it | Bind parameters: `.raw("... WHERE id = %s", [pk])` |
-| Reading `request.body` twice | The stream is consumed; the second read returns `b""` | Read once into a local, or use `request.POST` for form encodings |
-| Leaving sessions to grow | The `django_session` table has no automatic cleanup | `manage.py clearsessions` on a schedule, or a cache-backed session engine |
-
-## Where Experts Disagree
-
-- **Fat models vs a service layer.** Model methods keep behavior next to the data and make the shell powerful; a service layer keeps transactions, side effects and orchestration in one readable place. The testable boundary: anything that spans two aggregates or touches the outside world (payments, email, tasks) belongs in a service, because that is precisely what has to be wrapped in `atomic()` and `on_commit`.
-- **Signals.** One camp bans them as action at a distance; the other keeps them for genuine cross-app decoupling. Both agree they are the wrong tool inside a single app, and both concede they never fire for queryset-level writes — so a signal can never be the only enforcement of an invariant.
-- **DRF vs plain views for JSON.** DRF earns its weight when you need content negotiation, browsable docs, permissions and pagination as policy; for a handful of endpoints it is a large surface to reason about. Boundary: a public API or more than a few endpoints → DRF or Ninja; three internal endpoints → `JsonResponse` with explicit validation.
-- **Async Django.** Async views pay off for I/O fan-out (several outbound HTTP calls per request); they buy little where the request time is ORM queries, since that path still crosses a thread. Adopt per view, not per project (→ `async.md`).
-- **UUID vs bigint primary keys.** UUIDs stop enumeration and let clients mint IDs offline; random v4 fragments the index and widens every foreign key. Common ground: exposing a sequential ID is only a problem when authorization is missing — the check protects the row, not the shape of the key.
-
-## Related Skills
-
-More Clawic skills, get them at https://clawic.com/skills/django (install if the user confirms):
-
-- `py` — Python itself: imports, packaging, typing, asyncio internals, pytest mechanics
-- `pg` — PostgreSQL underneath the ORM: EXPLAIN plans, index design, vacuum, locks, connection pooling
-- `rest-api` — API design decisions above the framework: versioning, contracts, error shapes
-- `fastapi` — when the service is async-first and needs no ORM, admin, or templates
-- `auth` — protocol-level identity: OAuth flows, SSO, MFA, passwordless
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/django
-- Latest version: https://clawic.com/skills/django
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/django.
