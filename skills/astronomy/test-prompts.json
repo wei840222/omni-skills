@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain why the Moon has phases to an 8-year-old and suggest a safe activity to see the geometry.",
+    "expected": "Explain the Sun-Earth-Moon geometry accurately with accessible language, avoid the Earth's-shadow misconception, and provide a safe hands-on demonstration.",
+    "actual": "The response explains that sunlight always illuminates half of the Moon and that the visible fraction changes as the Moon orbits Earth. It uses a lamp and ball demonstration, distinguishes phases from eclipses, and keeps the vocabulary age-appropriate.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to observe the Orion Nebula tonight. What should I prepare? I am in Taipei with 10x50 binoculars.",
+    "expected": "Request or verify date and local observing conditions, check whether Orion is visible, describe binocular expectations, and avoid claiming it is visible without current ephemeris evidence.",
+    "actual": "The response asks for the observing date and horizon/weather conditions before making a tonight-specific claim. It explains that target altitude and Moon brightness determine suitability, then outlines a binocular workflow and realistic expectations after those facts are verified.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Find literature and data to study metallicity in the Milky Way bulge.",
+    "expected": "Provide a reproducible research path using appropriate literature and data archives, including provenance, units, selection effects, and uncertainty handling.",
+    "actual": "The response starts with a defined metallicity and sample question, routes literature discovery through NASA ADS and relevant survey archives, asks the user to record data-release and query details, and separates statistical from systematic uncertainty and selection effects.",
+    "pass": true
+  }
+]
