@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this friendly message for a close colleague into Lithuanian: 'Hi, I will be about ten minutes late because traffic is slow. See you soon.'",
+    "expected": "Uses a casual peer register, preserves the ten-minute delay and traffic reason, and avoids forced slang or profanity.",
+    "actual": "Labas, dėl lėto eismo vėluosiu apie dešimt minučių. Greitai pasimatysim!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a Lithuanian email to an unfamiliar university administrator asking whether the application deadline is still 15 May.",
+    "expected": "Uses a respectful formal Jūs register, asks the factual question clearly, and excludes peer slang, fillers, and casual diminutives.",
+    "actual": "Laba diena, norėčiau pasitikslinti, ar paraiškų pateikimo terminas vis dar yra gegužės 15 d. Iš anksto dėkoju už atsakymą.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite this Lithuanian social caption for a mixed audience: 'This coffee shop is very good, come visit us today.'",
+    "expected": "Uses a neutral-warm promotional register suitable for a mixed audience without assuming an intimate relationship with every reader.",
+    "actual": "Ši kavinė tikrai verta dėmesio — užsukite pas mus šiandien!",
+    "pass": true
+  }
+]
