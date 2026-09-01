@@ -13,3 +13,4 @@ metadata:
 | `references/querying.md` | Writing `time_bucket` queries or setting up continuous and real-time aggregate views. |
 | `references/data-lifecycle.md` | Managing data retention policies or enabling compression policies for historical data. |
 | `references/performance.md` | Optimizing write throughput or tuning read latency with indexes. |
+| `references/sources.md` | Verifying installed-version syntax or current behavior against official Timescale documentation. |

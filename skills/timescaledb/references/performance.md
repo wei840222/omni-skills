@@ -1,12 +1,25 @@
 # Performance
 
-## Indexing
+## Indexes and query plans
 
-- Hypertables create an index on the time partitioning column by default.
-- Add a composite index for observed filter patterns, for example `CREATE INDEX ON metrics (device_id, time DESC)`.
+Hypertables create an index on the time partitioning column by default. Add indexes only for observed filter and ordering patterns, for example:
 
-## Ingest and query patterns
+```sql
+CREATE INDEX ON metrics (device_id, time DESC);
+```
 
-- Use multi-row `INSERT` or `COPY` for bulk ingest.
-- Add bounded time ranges to queries and select only needed columns.
-- Use `EXPLAIN (ANALYZE, BUFFERS)` to measure the effect of an index or chunk-interval change.
+Use bounded-time predicates and select only necessary columns. Validate the effect of an index or chunk-interval change with a representative query:
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT time, value
+FROM metrics
+WHERE device_id = 42
+  AND time >= now() - INTERVAL '1 day'
+ORDER BY time DESC
+LIMIT 100;
+```
+
+## Ingest
+
+Use multi-row `INSERT` or PostgreSQL `COPY` for bulk ingest. Measure write throughput and query latency under representative concurrency before finalizing a tuning change.
