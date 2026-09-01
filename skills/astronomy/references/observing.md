@@ -9,7 +9,7 @@
 
 ## If information is missing
 
-Ask for the missing location and date before naming a time-specific target. If the observer cannot provide them, offer a location-independent concept explanation or explain how to use a current sky map; do not present an unverified target as visible tonight.
+Ask for the missing location and date before naming a time-specific target. If the observer cannot provide them, offer a location-independent concept explanation or explain how to use a current sky map. Mark the target's current visibility as unverified until those facts are available.
 
 ## Solar observing
 
