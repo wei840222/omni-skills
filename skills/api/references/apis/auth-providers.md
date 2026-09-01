@@ -89,7 +89,7 @@ Based on plan. Check Clerk Dashboard for current limits.
 
 ## Gotchas
 - **Backend API only** — use Clerk.js or SDKs for frontend authentication flows
-- Secret key must never be exposed client-side
+- Secret key must remain server-side
 - `email_address` and `phone_number` are arrays, not strings
 - User IDs prefixed with `user_`, org IDs with `org_`
 - Sessions managed automatically via Clerk SDKs — rarely need direct API calls
@@ -208,7 +208,7 @@ curl https://api.workos.com/organizations \
   -H "Authorization: Bearer $WORKOS_API_KEY"
 ```
 
-API keys prefixed with `sk_` (secret key). Never expose in client-side code.
+API keys prefixed with `sk_` (secret key). Must remain on server-side.
 
 ## Core Endpoints
 

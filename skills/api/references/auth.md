@@ -17,7 +17,7 @@ Implicit flow is legacy: it puts tokens in the URL fragment (leaks via history/r
 - `Authorization: Bearer:token` (with a colon) = WRONG, it's `Bearer token` (space)
 - Token with a trailing newline (copy-paste) = mysterious 401; `echo -n` or trim first
 - Bearer in query param `?token=x` works in some APIs but gets logged in access logs
-- Token hardcoded in code gets committed to git; always an env var (naming: `credentials.md`)
+- Token hardcoded in code gets committed to git; always an env var (naming: `references/credentials.md`)
 - Basic auth is `base64(user:pass)` — the colon is part of the encoded string; encoding user and pass separately produces a valid-looking header that always 401s
 
 ## OAuth
@@ -40,8 +40,8 @@ Implicit flow is legacy: it puts tokens in the URL fragment (leaks via history/r
 
 - The signature covers method + path + query + selected headers + body hash: anything that mutates the request after signing — a proxy adding a header, an SDK re-encoding the body, a redirect changing the path — invalidates it. Sign last; send untouched.
 - Use the provider's signer library. Hand-rolled canonicalization fails on the edges: empty query values, repeated params, unicode in paths, header-case folding — each produces a valid-looking request that 403s.
-- `SignatureDoesNotMatch` with correct credentials usually IS one of those mutations, or clock skew: signed requests reject beyond the provider's window (S3: `RequestTimeTooSkewed`, → `debug.md` Works Locally, Fails in CI/Prod). Fix the clock, not the code.
-- Distinct from webhook HMAC: there the provider signs and you verify (→ `webhooks.md` Verification); the constant-time-comparison law is the same.
+- `SignatureDoesNotMatch` with correct credentials usually IS one of those mutations, or clock skew: signed requests reject beyond the provider's window (S3: `RequestTimeTooSkewed`, → `references/debug.md` Works Locally, Fails in CI/Prod). Fix the clock, not the code.
+- Distinct from webhook HMAC: there the provider signs and you verify (→ `references/webhooks.md` Verification); the constant-time-comparison law is the same.
 
 ## Acting on Behalf of Users (multi-tenant OAuth)
 
@@ -54,7 +54,7 @@ Implicit flow is legacy: it puts tokens in the URL fragment (leaks via history/r
 
 - API key in URL gets cached by proxies/CDNs, exposed in logs
 - Rate limit per API key + key shared across clients = one noisy client starves the rest
-- Key rotation without a grace period = downtime (procedure: `credentials.md`)
+- Key rotation without a grace period = downtime (procedure: `references/credentials.md`)
 - API key without expiration + leak = permanent access until someone notices
 
 ## Session

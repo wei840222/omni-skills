@@ -820,7 +820,7 @@ curl "https://api.unsplash.com/users/{username}/photos" \
 - Production: 5,000 requests/hour (requires approval)
 
 ## Gotchas
-- **Must hotlink images** — use the URLs directly, don't re-host
+- **Must hotlink images** — use the URLs directly instead of re-hosting
 - **Attribution required** — credit photographer and Unsplash
 - Must trigger download endpoint when user downloads (for photographer stats)
 - Demo mode is heavily rate-limited — apply for production access
@@ -957,8 +957,8 @@ curl "https://api.giphy.com/v1/gifs/search/tags?api_key=YOUR_API_KEY&q=fun"
 ## Gotchas
 - **Must display "Powered By GIPHY"** attribution
 - Beta keys are rate-limited — apply for production before launch
-- Don't cache responses or media URLs — GIPHY tracks views
-- Don't proxy requests — calls must come directly from client
+- Fetch fresh responses and media URLs — GIPHY tracks views
+- Direct requests from client — calls must come directly from client
 - Use `rating` param: `g`, `pg`, `pg-13`, `r` for content filtering
 - Response includes multiple renditions in `images` object — use `fixed_height` or `fixed_width` for previews
 - MP4 format available in `images.{size}.mp4` for better performance

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a Stripe customer with curl and a sandbox key.",
+    "expected": "Use the official Stripe API reference, keep the credential in an environment variable, send the required request content type, and call out that the operation creates remote state.",
+    "actual": "Validated dry run: loads the Payments category and Stripe section, uses an environment-variable credential, applies the output gate, and identifies the request as a sandbox write before presenting a curl command.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My GraphQL request returns HTTP 200 but the UI has missing data. Diagnose it.",
+    "expected": "Inspect both data and errors, preserve partial-success handling, and route to GraphQL and status-triage guidance rather than treating HTTP 200 as success.",
+    "actual": "Validated dry run: routes to references/graphql.md and references/core-rules.md Rule 5; the recommended diagnosis checks errors[] and data together before changing client behavior.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Poll an AssemblyAI transcription job without exhausting quota.",
+    "expected": "Use provider completion signals, a bounded wait, Retry-After precedence, backoff, and a recovery path for unknown outcomes instead of a fixed infinite loop.",
+    "actual": "Validated dry run: routes to the AI/ML provider section plus references/async-jobs.md and references/resilience.md; it uses the documented terminal state, capped polling interval, and idempotency/recent-job check after a create timeout.",
+    "pass": true
+  }
+]

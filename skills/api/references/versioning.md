@@ -9,7 +9,7 @@
 | Query param | `?api-version=...` (Azure style) | Easy to omit on one call and run mixed versions in one codebase |
 | Media type | `Accept: application/vnd.github+json` | Invisible in the URL; forgetting it silently selects a default version |
 
-- SDK major upgrades can move the pinned API version underneath you — read the changelog line about API version before bumping, and re-record test fixtures after (→ `testing.md`).
+- SDK major upgrades can move the pinned API version underneath you — read the changelog line about API version before bumping, and re-record test fixtures after (→ `references/testing.md`).
 
 ## Deprecation Signals — Log Them
 
@@ -18,16 +18,16 @@
 
 ## Tolerant Reader — What Breaks and What Must Not
 
-- Additive changes arrive WITHOUT a version bump: new response fields, new enum values, new webhook event types, longer strings. Your parser must ignore unknown fields and route unknown event types or enum values to a logging default arm — a strict schema breaks on the provider's schedule, not yours (same law as `webhooks.md` Processing).
+- Additive changes arrive WITHOUT a version bump: new response fields, new enum values, new webhook event types, longer strings. Your parser must ignore unknown fields and route unknown event types or enum values to a logging default arm — a strict schema breaks on the provider's schedule, not yours (same law as `references/webhooks.md` Processing).
 - Breaking changes (field removal, type change, semantic change) come with a version bump — which is exactly why floating unpinned is the risk.
 
 ## Migration Procedure
 
 1. Read the provider's changelog between your current pin and the target.
-2. Bump the pin in sandbox; run integration tests and replay recorded scenarios (→ `testing.md`).
+2. Bump the pin in sandbox; run integration tests and replay recorded scenarios (→ `references/testing.md`).
 3. Where feasible, diff old-pin vs new-pin responses on read-only endpoints.
 4. Ship the prod pin bump as its own deploy — never bundled with feature work, so a regression bisects to it instantly.
 
 ## Reference Drift
 
-Version-sensitive claims in this skill's service sections (current pricing, current rate limits, model names) lag reality — the Official Docs link at the end of each section is authoritative (`setup.md` Lookup Procedure, step 5).
+Version-sensitive claims in this skill's service sections (current pricing, current rate limits, model names) lag reality — the Official Docs link at the end of each section is authoritative (`references/setup.md` Lookup Procedure, step 5).

@@ -15,14 +15,14 @@ Steps out of order are the root cause of most webhook bugs below.
 
 - Provider timeouts are short (5-30s); processing inline = timeout = retry = duplicates. Ack fast, work async (Handler Order §5)
 - Provider retry = same event multiple times; handler MUST be idempotent — dedupe by event ID, not by payload hash (payloads can legitimately repeat)
-- Delivery order not guaranteed: `updated` can arrive before `created`. Never build state from event sequence; on receipt, fetch current state from the API and treat the event as a "something changed" ping
+- Delivery order not guaranteed: `updated` can arrive before `created`. Fetch current state from API upon receipt and treat the event as a "something changed" ping instead of building state from event sequence
 - Provider IPs change; an IP allowlist breaks silently on their next migration — signature verification is the durable control
 
 ## Verification
 
 - HMAC comparison with `==` = timing attack; use the constant-time compare every crypto stdlib ships
-- Signature header names are non-standard (`Stripe-Signature`, `X-Hub-Signature-256`, `X-Twilio-Signature`) and so are the schemes — check the provider's section, don't pattern-match from another service
-- Body parsed/re-serialized by middleware before verification = signature never matches: JSON key order and whitespace changed. This is the #1 "signature invalid but secret is right" cause
+- Signature header names are non-standard (`Stripe-Signature`, `X-Hub-Signature-256`, `X-Twilio-Signature`) and so are the schemes — check the provider's section, use provider-specific sections instead of pattern-matching from another service
+- Body parsed/re-serialized by middleware before verification = signature fails to match: JSON key order and whitespace changed. This is the #1 "signature invalid but secret is right" cause
 - Verifying but skipping the timestamp = replayable forever with one captured request
 
 ## Processing
@@ -42,5 +42,5 @@ Steps out of order are the root cause of most webhook bugs below.
 
 - Public endpoint without verification = anyone can forge events ("payment succeeded" from an attacker)
 - Same signing secret across environments = staging deliveries accepted by production; one secret per environment
-- Handler that fetches URLs from the payload = SSRF vector; never follow payload-supplied URLs to internal hosts
+- Handler that fetches URLs from the payload = SSRF vector; validate URLs before following to internal hosts
 - Detailed error bodies in webhook responses leak internals to whoever probes the endpoint; return status codes, log details server-side

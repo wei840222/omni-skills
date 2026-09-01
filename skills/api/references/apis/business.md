@@ -283,7 +283,7 @@ curl -X GET "https://api.hellosign.com/v3/template/list" \
 ## Gotchas
 - **Rebranded**: HelloSign is now Dropbox Sign; API URLs unchanged
 - Basic Auth: API key as username, password left empty (note the trailing colon)
-- Test mode requests don't count against quota (add `test_mode=1`)
+- Test mode requests are excluded from quota (add `test_mode=1`)
 - Embedded signing requires approved API App
 - `signature_id` different from `signature_request_id` (per-signer vs per-request)
 - Templates created in web UI or via API
