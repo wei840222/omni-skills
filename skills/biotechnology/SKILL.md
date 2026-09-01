@@ -1,22 +1,27 @@
 ---
 name: biotechnology
-slug: biotechnology
-version: 1.0.0
-description: Assist with biotechnology from basic concepts to research design and industry applications.
-homepage: https://clawic.com/skills/biotechnology
+description: Assist with biotechnology concepts, genetic engineering, lab techniques, bioinformatics, drug development, and research design. Use when the user needs biotechnology learning, teaching, or research support.
 metadata:
-  clawdbot:
-    emoji: 🧬
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Biotechnology
+  version: "1.0.0"
+  openclaw: '{"emoji":"🧬"}'
+  related-skills: '{"biology":"Provides foundational life-science context for biotechnology questions.","chemistry":"Provides molecular and chemical foundations for biochemical techniques.","science":"Provides scientific-method and experimental-design context for biotechnology work."}'
 ---
+
+## State location
+
+Biotechnology state may exist in `<workspace>/biotechnology/`, `<workspace>/memory/biotechnology/`, or `~/biotechnology/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/biotechnology/`, `<workspace>/memory/biotechnology/`, `~/biotechnology/`.
+3. If none exists and the user requests persistent context, create `<workspace>/biotechnology/`.
+
+Use the selected `<state_root>` for every state operation.
+
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, read `references/setup.md` for integration guidelines.
 
 ## When to Use
 
@@ -26,8 +31,8 @@ User needs help with genetic engineering, lab techniques, bioinformatics, drug d
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `references/memory.md` |
 
 ## Core Rules
 
@@ -115,14 +120,3 @@ User needs help with genetic engineering, lab techniques, bioinformatics, drug d
 **Data stays local:**
 - No external API calls
 - No telemetry or data collection
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `biology` — foundational life sciences
-- `chemistry` — molecular and chemical foundations
-- `science` — general scientific method
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/biotechnology
-- Latest version: https://clawic.com/skills/biotechnology
