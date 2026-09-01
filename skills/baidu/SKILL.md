@@ -26,7 +26,7 @@ Use this skill when a request involves Baidu Search, Baike, Wenku, Maps, AI Clou
 
 1. **Route the request.** Read `references/ecosystem-map.md` for an ambiguous request or one spanning multiple Baidu products.
 2. **Set region assumptions.** Read `references/mainland-vs-global.md` whenever geography, language, availability, or rollout could change the answer.
-3. **Choose evidence.** Read `references/search-knowledge.md` for Search, Baike, or Wenku work; read `references/source-validation.md` before treating a discovery result as support for an important claim.
+3. **Choose evidence.** Read `references/search-knowledge.md` for Search, Baike, or Wenku work; read `references/source-validation.md` and `references/official-sources.md` before treating a discovery result as support for an important claim.
 4. **Plan the product path.** Read `references/qianfan-cloud.md` for AI Cloud or Qianfan questions. Keep product selection, model workflow, and cloud operations as separate decisions.
 5. **Prepare durable state only when needed.** Read `references/setup.md` and `references/memory-template.md` after the user approves saving reusable Baidu preferences or decisions.
 6. **Close safely.** Read `references/execution-checklist.md` before recommending account-level execution or delivering a high-impact recommendation.
