@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Plan a five-day first visit to Beijing in October; I prefer a relaxed schedule and need advice that will work after I arrive.",
+    "expected": "Loads visitor itinerary and tips references, accounts for the user's pace and timing, gives an arrival-ready payment/navigation plan, and verifies volatile booking or transit details before asserting them.",
+    "actual": "Dry-run: routes to references/visitor-itineraries.md and references/visitor-tips.md, retains the payment-before-maps sequence, and invokes the time-sensitive verification gate.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I received a Beijing job offer. What must I check before relocating with my spouse?",
+    "expected": "Loads jobs, visas, neighborhood/cost, and family guidance as relevant; distinguishes planning baselines from current immigration policy; and avoids advising work on an unsuitable visa.",
+    "actual": "Dry-run: routes to references/jobs.md and references/visas.md first, checks current policy through the National Immigration Administration, then branches to housing and family references.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My child was born in Beijing. Give me the immediate document sequence before we travel.",
+    "expected": "Loads family and visas references, presents the ordered document path, and verifies current statutory deadlines through an official source before quoting them.",
+    "actual": "Dry-run: loads references/family.md and references/visas.md, preserves the passport-before-permit dependency, and marks the deadline as requiring current official confirmation.",
+    "pass": true
+  }
+]
