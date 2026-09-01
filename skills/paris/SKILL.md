@@ -44,10 +44,14 @@ User asks about Paris for any purpose: visiting, moving, working, studying, or s
 | Students | `references/student.md` | When user asks about students. |
 | Startups | `references/startup.md` | When user asks about startups. |
 
-## Core Rules
+## Plan the Answer
 
-Read `references/core-rules.md` for safety, weather, current data, transit, and arrondissement matching.
+1. Identify the traveller's purpose, dates, budget, party, and access needs.
+2. Load the relevant topical reference from the table above.
+3. Use `references/core-rules.md` for cross-cutting safety, weather, transit, and arrondissement guidance.
+4. For fares, prices, availability, visa/residence, admissions, or any other mutable fact, first load `references/current-information.md` and verify the official source it names. State when a figure is only an estimate.
+
 
 ## Paris-Specific Traps
 
-Read `references/traps.md` to learn about common scams and traps.
+For scam-prevention or tourist-trap questions, load `references/traps.md` and pair it with current official guidance when an immediate safety decision depends on it.
