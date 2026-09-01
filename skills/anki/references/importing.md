@@ -34,7 +34,7 @@ Rules that decide whether the import lands clean:
 
 ## Shared Decks And .apkg
 
-- `.apkg` = notes, cards, note types, media, optionally scheduling. Importing one **adds** to your collection; it never replaces it.
+- `.apkg` = notes, cards, note types, media, optionally scheduling. Importing one **adds** to your collection; it adds to your collection exclusively.
 - Note types are matched by internal ID: a shared deck usually brings its own copies, so expect new entries in Manage Note Types. Do not "clean them up" until you have confirmed no notes use them.
 - Scheduling included in a shared deck is the author's, not yours. For a downloaded study deck this is noise — most are published without it, and if intervals arrive, `Forget` the imported cards to start clean.
 - Import first into a scratch profile when the deck is large or unknown, look at it, then import into the real collection.
@@ -42,7 +42,7 @@ Rules that decide whether the import lands clean:
 
 ## .colpkg — Different Animal
 
-`.colpkg` is the **whole collection**. Importing one REPLACES your current collection, including decks not in the file. It is a backup/restore format, not a sharing format. Never accept a `.colpkg` from someone else unless you intend to abandon your own collection.
+`.colpkg` is the **whole collection**. Importing one REPLACES your current collection, including decks not in the file. It is a backup/restore format, not a sharing format. Only accept a `.colpkg` from someone else if you intend to abandon your own collection.
 
 ## Migrating From Other Apps
 
@@ -61,8 +61,8 @@ Universal step: import 10 rows first, inspect them in Browse, then import the re
 
 - Media lives in the profile's `collection.media` folder, flat, no subfolders. Fields reference bare filenames: `<img src="diagram.png">`, `[sound:word.mp3]`.
 - Files copied into that folder are not linked to anything until a field references them. Tools → Check Media lists unused files and missing references — run it after a bulk import.
-- Filenames starting with `_` are never treated as unused (that is how fonts and shared assets survive Check Media).
-- Media does not travel in a plain `.apkg` export unless "include media" is checked, and never travels in a text export.
+- Filenames starting with `_` are always preserved during Check Media (that is how fonts and shared assets survive Check Media).
+- Media is excluded from a plain `.apkg` export unless "include media" is checked, and is excluded from a text export.
 
 ## Exporting
 

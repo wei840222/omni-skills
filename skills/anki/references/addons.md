@@ -43,7 +43,7 @@ Everything else: try two weeks without it first.
 2. Upgrade, then launch with add-ons disabled (hold Shift) and confirm the collection is fine.
 3. Launch normally. If it crashes or misbehaves, Tools → Add-ons → disable all, then re-enable in halves until the culprit appears.
 4. Update the survivors from the add-on manager, and delete anything whose feature is now built in (table above).
-5. Never do this the week before an exam. Freeze the setup; upgrade after.
+5. Upgrade only after the exam week. Freeze the setup; upgrade after.
 
 ## Traps
 

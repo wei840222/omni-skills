@@ -20,7 +20,7 @@ Comprehensive community decks (the AnKing/Zanki lineage and its descendants) are
 
 1. Import, then **suspend everything**: in Browse search `deck:Med`, select all, Suspend.
 2. After each lecture or chapter, unsuspend by that tag only: `deck:Med tag:source::lecture-14 is:suspended` → unsuspend.
-3. Never unsuspend forward. Cards on material not yet taught become leeches, and leech load compounds.
+3. Unsuspend strictly behind lecture pace. Cards on material not yet taught become leeches, and leech load compounds.
 4. Keep a `status::skipped` tag for material your school does not cover — a decision recorded once beats re-deciding every time a card surfaces.
 5. Re-tag with your own `content::` axis as you go; your school's sequence is not the deck author's.
 
@@ -36,12 +36,12 @@ When the two conflict — school details the boards will not test — card the b
 
 | Subject | Pattern that works |
 |---|---|
-| Pharmacology | One card per drug × one attribute (mechanism, one classic toxicity, one contraindication, one monitoring test). Never "side effects of X" |
+| Pharmacology | One card per drug × one attribute (mechanism, one classic toxicity, one contraindication, one monitoring test). Assign specific attributes instead of generic "side effects of X" |
 | Microbiology | Organism → one distinguishing feature; and the reverse: distinguishing feature → organism. Both directions genuinely earn their place here |
 | Anatomy | Image Occlusion on the atlas figure, plus function/innervation cards that reference the same figure |
 | Biochemistry | Enzyme → reaction step, deficiency → clinical finding, rate-limiting steps as their own set |
 | Pathology | Buzzword → diagnosis, and histology image → diagnosis (occlusion or image on the front) |
-| Physiology | Cause → direction of change ("↑ aldosterone → serum K⁺ does what?"), never whole cascades on one card |
+| Physiology | Cause → direction of change ("↑ aldosterone → serum K⁺ does what?"), split whole cascades across multiple cards |
 | Clinical / rotations | Presentation → next best step; management ladders as one card per rung |
 
 ## Question Banks Feed The Deck
@@ -49,7 +49,7 @@ When the two conflict — school details the boards will not test — card the b
 The highest-yield cards a medical student writes come from questions they got wrong.
 
 - Card the **reason you missed it**, not the question. A missed question usually hides one fact or one distinction; that is the card.
-- Never paste the vignette. Vignettes teach pattern-matching on that vignette.
+- Extract core facts instead of pasting the vignette. Vignettes teach pattern-matching on that vignette.
 - Tag them `source::qbank` and watch that tag's Again-rate: it is the highest-signal subset in the collection.
 - Skip carding the explanation's background paragraphs. If the concept needs a paragraph, you need study, not a card.
 

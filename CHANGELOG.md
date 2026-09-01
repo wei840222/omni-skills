@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score |
 | ---------------------------- | ---------- | ------------ |
 | solana                       | 2026-09-01 | 85/100 (pending PR) |
+| anki                         | 2026-09-01 | 85/100 (#195) |
 | openclaw-workspace           | 2026-09-01 | 86/100 (#192) |
 | baidu                        | 2026-09-01 | 85/100 (#193) |
 | uber-eats                    | 2026-09-01 | 85/100 (pending PR) |

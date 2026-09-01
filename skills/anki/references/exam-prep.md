@@ -17,11 +17,11 @@ Worked example: 1,800 unseen cards, exam in 90 days, 10 reviews/card, 9 s/review
 
 Same deck, exam in 30 days: `usable_new_days = 9` → `new/day = 200` → `≈ 2,000 reviews/day`. Not feasible — that is the signal to cut the deck, not to try harder.
 
-**If the number does not fit, cut cards.** In order: low-yield tags, cards you have never seen and cannot afford to mature, then whole topics you will accept losing. Deciding now beats discovering it in week three.
+**If the number does not fit, cut cards.** In order: low-yield tags, cards you have yet to see and cannot afford to mature, then whole topics you will accept losing. Deciding now beats discovering it in week three.
 
 ## The 21-Day Rule
 
-A card first seen inside the final three weeks never reaches mature interval (`interval >= 21 days`) and is still in the high-failure young population on exam day. Consequences:
+A card first seen inside the final three weeks fails to reach the mature interval (`interval >= 21 days`) and is still in the high-failure young population on exam day. Consequences:
 
 - Stop introducing new cards 21 days out for anything that must be reliable.
 - Cards introduced inside that window are cram, not learning: keep them in a separate tag and expect to re-see them daily.
@@ -44,19 +44,19 @@ Rank what remains by expected points per review minute, not by discomfort:
 1. **High-yield tags first** — whatever the exam actually weights.
 2. **Nearly-learned cards over never-seen cards.** A card at interval 5 needs one more review to hold; a new card needs four. Search: `is:review prop:ivl<10 -is:suspended`.
 3. **Suspend leeches immediately.** A card that failed 4+ times in the run-up will not be learned by exam day and is eating the time of cards that would be.
-4. **Suspend, do not delete.** After the exam you may want them back.
-5. Cards you have never seen and cannot fit: leave suspended and read the material instead — passive exposure beats a card you will see twice.
+4. **Suspend cards instead of deleting them.** After the exam you may want them back.
+5. Cards you have yet to see and cannot fit: leave suspended and read the material instead — passive exposure beats a card you will see twice.
 
 ## Filtered Decks For Cram
 
 - Weak-area session: `deck:X tag:high-yield (rated:14:1 or prop:lapses>2)`, order by relative overdueness, Reschedule ON.
 - Night-before pass: the exam tag, order random, limit to what fits the time, **Reschedule OFF** so a rushed session does not corrupt the schedule you will resume afterwards.
-- Do not use `is:due` in a cram deck — it excludes exactly the cards not yet scheduled, which are the ones you are worried about.
+- Avoid using `is:due` in a cram deck — it excludes exactly the cards not yet scheduled, which are the ones you are worried about.
 - Empty every filtered deck after the exam so the cards return home before you restart normal study.
 
 ## Forcing A Card To Appear Before The Exam
 
-Set Due Date on the exam-tagged selection with a range (`3-7`) so the reviews spread instead of stacking on one day. Use it sparingly and never on the whole collection: it rewrites the schedule the model learned, and after the exam you inherit the distortion.
+Set Due Date on the exam-tagged selection with a range (`3-7`) so the reviews spread instead of stacking on one day. Use it sparingly and restrict its use strictly to specific sub-selections: it rewrites the schedule the model learned, and after the exam you inherit the distortion.
 
 ## Traps
 

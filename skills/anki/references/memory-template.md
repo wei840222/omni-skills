@@ -1,6 +1,6 @@
 # Memory Template — Anki
 
-Create `~/Clawic/data/anki/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Anki Memory
@@ -31,7 +31,7 @@ last: YYYY-MM-DD
 *Updated: YYYY-MM-DD*
 ```
 
-Config vs memory: `config.yaml` holds what the user DECLARED (the Configuration table of `SKILL.md`); this file holds what you OBSERVED. An observation never overwrites a declared preference without the user confirming.
+Config vs memory: `<state_root>/config.yaml` holds what the user declares (the Configuration table of `SKILL.md`); this file holds observations. An observation never overwrites a declared preference without user confirmation.
 
 ## Status Values
 

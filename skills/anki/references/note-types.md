@@ -14,7 +14,7 @@ A **note** holds fields; a **card** is one rendering of that note through a temp
 | Field | Purpose | Notes |
 |---|---|---|
 | Front / Text | The question or the cloze sentence | Must be the sort field on most types; duplicate detection uses field 1 only |
-| Back / Extra | The answer, or the cloze note's context | Extra is shown on every cloze card of the note — put shared context here, never a second fact |
+| Back / Extra | The answer, or the cloze note's context | Extra is shown on every cloze card of the note — put shared context here, keep second facts separate |
 | Source | Chapter, page, URL | Lets you repair a card years later; keep it off the question side |
 | Hint | Optional cue shown on demand | Rendered with `{{hint:Hint}}` — collapsed until clicked |
 | Mnemonic / Notes | Memory hook and personal commentary | Answer side only |
@@ -51,7 +51,7 @@ img { max-width: 100%; height: auto; }                  /* stops phone-breaking 
 - Styling is per note type and syncs to every device. Per-card colour lives in the field content as HTML, not in the CSS.
 - Test on the smallest screen you study on: a table that fits a desktop card becomes a horizontal scroll on a phone, and cards you cannot read on the bus stop getting reviewed.
 - Night mode is not automatic for hard-coded colours. Every custom colour needs a `.nightMode` counterpart or it will be unreadable half the time.
-- Fonts referenced in CSS must exist on each device; ship the font as `_font.ttf` in the media folder (files starting with `_` are never deleted by Check Media) or fall back to a system stack.
+- Fonts referenced in CSS must exist on each device; ship the font as `_font.ttf` in the media folder (files starting with `_` are preserved by Check Media) or fall back to a system stack.
 
 ## Math And Code On Cards
 

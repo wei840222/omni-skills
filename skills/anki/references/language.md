@@ -9,7 +9,7 @@ Anki is a vocabulary and pattern machine. It does not produce fluency; it remove
 | Target word | yes | With its article/gender/tone baked in: `die Tür`, `el problema`, `māma (mā)` — a bare noun teaches half the word |
 | Meaning | yes | The ONE sense you met, not the dictionary entry (`run` has dozens; card the one you read) |
 | Example sentence | yes | The sentence you actually met it in; it is what makes the meaning stick |
-| Audio | if the language is spoken | Generated once into a media file, never rendered live |
+| Audio | if the language is spoken | Generated once into a media file, pre-rendered as media files |
 | Pronunciation / IPA / tone | script or tonal languages | Tone is part of the word, not decoration |
 | Part of speech + inflection | inflected languages | Plural, past form, aspect pair — the irregularity is the fact |
 | Frequency / CEFR tag | yes | Drives study order and lets you cut the tail later |
@@ -18,7 +18,7 @@ Anki is a vocabulary and pattern machine. It does not produce fluency; it remove
 
 Word-frequency coverage (Nation's vocabulary research, general corpora): the most frequent ~1,000 word families cover the large majority of everyday spoken discourse; ~2,000-3,000 gets you into comfortable conversation coverage; beyond ~5,000 you are buying diminishing, domain-specific returns. Exact percentages vary by corpus and by what counts as a word — the ordering is what matters and it is stable across every corpus.
 
-Consequences: study a frequency list before mining, tag every card with its band (`freq::1k`, `freq::3k`), and never let rare words from an interesting text jump the queue. When workload gets heavy, you delete from the bottom of the frequency order, not at random.
+Consequences: study a frequency list before mining, tag every card with its band (`freq::1k`, `freq::3k`), and block rare words from an interesting text jump the queue. When workload gets heavy, you delete from the bottom of the frequency order, not at random.
 
 ## Recognition vs Production
 

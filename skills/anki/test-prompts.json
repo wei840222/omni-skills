@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My Anki reviews keep growing even though I study every day. How should I diagnose this without blindly changing settings?",
+    "expected": "Checks workload math, Future Due, deck-level Again rates, and ease-hell signals before changing settings; routes detailed diagnosis to references/retention.md.",
+    "actual": "Start with the arithmetic: estimate steady-state reviews as new cards/day × your reviews per card, then inspect Stats → Future Due. If new cards are already at zero, compare Again rates by deck and investigate repeated lapses; under SM-2, also inspect prop:ease<2.0. Read references/retention.md before changing deck options.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Anki says I must choose Upload or Download after I restored a backup. Which one should I press?",
+    "expected": "Explains that the user must first identify the device with irreplaceable work, preserve it, and choose Upload from that device; routes to references/sync-and-backup.md before an irreversible full sync.",
+    "actual": "Pause before choosing either option. Identify and preserve the device holding work you cannot recreate; after checking any other devices that can still sync normally, choose Upload from that preserved device and Download on the others. Use references/sync-and-backup.md for the full recovery path.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Make generic flashcards for this article, but I do not use Anki.",
+    "expected": "Recognizes the boundary and routes generic flashcard work to the flashcards skill rather than applying Anki-specific deck guidance.",
+    "actual": "This request is outside the Anki-specific workflow. Route generic flashcard creation to the flashcards skill; use this skill when the cards need Anki import, deck, scheduler, sync, or troubleshooting guidance.",
+    "pass": true
+  }
+]

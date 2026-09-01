@@ -13,7 +13,7 @@ This file is for when Anki itself does something you did not ask for. "My memory
 1. **Daily limits reached** — the deck list shows the capped numbers, not the real ones. Check the preset's new and review limits, and remember the v3 scheduler applies the limits of the deck you clicked, parent included.
 2. **Studying a subdeck under a limited parent** — study from the parent, or raise the parent's limit for today only.
 3. **Buried siblings** — burying hides a card until tomorrow. Unbury from the deck's gear menu if you need it now.
-4. **Suspended** — suspended cards never appear anywhere. Check `is:suspended` in Browse; large shared decks arrive with thousands suspended, or with none.
+4. **Suspended** — suspended cards remain hidden everywhere. Check `is:suspended` in Browse; large shared decks arrive with thousands suspended, or with none.
 5. **Cards live in a filtered deck** — they are unavailable to their home deck until it is emptied.
 6. **Timezone / next-day-starts-at** — if your day rolls over at 4am and it is 2am, the cards are correctly not due yet.
 7. Still nothing: `is:due` in Browse. If Browse finds them and the deck screen does not, it is a limit (step 1), not a bug.
@@ -29,7 +29,7 @@ This file is for when Anki itself does something you did not ask for. "My memory
 ## Media Missing Or Broken
 
 1. Desktop shows it, phone does not → media sync has not finished; force a sync and wait for the media pass.
-2. Neither shows it → Tools → Check Media. Missing files are listed by name; they were never copied into `collection.media`.
+2. Neither shows it → Tools → Check Media. Missing files are listed by name; they were omitted from the copy into `collection.media`.
 3. Images broke after editing on another device → filenames with spaces, accents, or subfolder paths. Rename to plain ASCII, flat.
 4. Audio silent on desktop only → the field holds `[sound:x.mp3]` correctly but the codec is unsupported; convert to mp3 or ogg.
 5. Everything is missing after an import → the `.apkg` was exported without media.
@@ -63,7 +63,7 @@ This file is for when Anki itself does something you did not ask for. "My memory
 1. Add-ons are the first suspect; disable all, confirm, then re-enable in halves.
 2. A one-way sync prompt after a major version bump is expected once — Upload from the device with the work.
 3. Deck options moved rather than disappeared: the settings from older versions live under the same presets with new grouping.
-4. Never upgrade the desktop mid-exam-term without a fresh `.colpkg` and a check that your mobile client is compatible.
+4. Ensure you have a fresh `.colpkg` and verified mobile compatibility before upgrading mid-exam-term.
 
 ## When You Are Truly Stuck
 

@@ -6,7 +6,7 @@ Decks control **scheduling scope**; tags control **selection**. Every structure 
 
 **Make a deck when the cards need different settings or a different daily limit. Make a tag for everything else.**
 
-Because deck options are presets applied per deck, a deck is a scheduling container that happens to look like a folder. Two subjects studied on identical settings do not need two decks — they need two tags and one deck.
+Because deck options are presets applied per deck, a deck is a scheduling container that happens to look like a folder. Two subjects studied on identical settings can operate within a single deck — they need two tags and one deck.
 
 | Want | Use |
 |---|---|
@@ -40,7 +40,7 @@ Three axes cover almost every collection:
 - **source** — where it came from. The axis you use to delete or unsuspend in bulk when a book or lecture is superseded.
 - **status** — what you intend to do with it: `rewrite`, `high-yield`, `exam::june`, `paused`. Transient by design; clear them when the intent is discharged.
 
-Rules that keep it usable: singular or plural, pick one and never mix. No spaces (Anki splits tags on whitespace). If you have never filtered by a tag, delete it — Browse → sidebar → Find & Replace on tags handles renames across the collection in one action.
+Rules that keep it usable: singular or plural, pick one and maintain strict consistency. No spaces (Anki splits tags on whitespace). If you haven't used by a tag, delete it — Browse → sidebar → Find & Replace on tags handles renames across the collection in one action.
 
 ## Duplicates
 
@@ -51,9 +51,9 @@ Rules that keep it usable: singular or plural, pick one and never mix. No spaces
 
 ## Splitting And Merging
 
-Split when: the material needs different daily limits or steps; one part is exam-bound and the rest is not; the deck exceeds what you can meaningfully audit in one Browse view. Do not split for tidiness — that is what tags are for.
+Split when: the material needs different daily limits or steps; one part is exam-bound and the rest is not; the deck exceeds what you can meaningfully audit in one Browse view. Use tags for tidiness rather than splitting decks — that is what tags are for.
 
-Merge when: two decks share a preset and you never study them separately; a subdeck holds fewer cards than its own daily limit; the hierarchy has levels you always expand.
+Merge when: two decks share a preset and you always study them separately; a subdeck holds fewer cards than its own daily limit; the hierarchy has levels you always expand.
 
 Both operations are the same mechanic: select in Browse → Change Deck. Review history follows the cards.
 
@@ -65,8 +65,8 @@ Both operations are the same mechanic: select in Browse → Change Deck. Review 
 | Weekly | Glance at Future Due | A rising slope means cutting new cards now, not later |
 | Monthly | Audit suspended cards | Suspended for a month = decide: fix, unsuspend, or delete |
 | Monthly | Delete never-failed trivia (`prop:reps>8` with no lapses) | Reviews spent on cards that teach nothing |
-| Quarterly | Tag audit; delete unused tags | The sidebar has entries you do not recognize |
-| Quarterly | Verify a backup restores | You have never tested one |
+| Quarterly | Tag audit; delete unused tags | The sidebar has entries you find unfamiliar |
+| Quarterly | Verify a backup restores | You have yet to test one |
 | Per exam | Retag high-yield, adjust limits, plan capacity | A date exists |
 
 ## Sharing A Deck

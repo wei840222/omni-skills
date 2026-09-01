@@ -35,7 +35,7 @@ The {{c1::mitochondrion}} is the powerhouse of the cell          # one blank, on
 
 - **Several clozes on one note are correct only when they are the same KIND of fact in the same sentence.** Unrelated facts crammed into one paragraph become siblings that leak each other's answers.
 - **Blank the load-bearing word**, not the convenient noun. If the sentence still reads fine with three other words in the blank, the blank is in the wrong place.
-- **Hint text**: `{{c1::angiotensin II::the product}}` shows "the product" inside the blank. Use it to separate siblings, never to make recall easier.
+- **Hint text**: `{{c1::angiotensin II::the product}}` shows "the product" inside the blank. Use it to separate siblings, ensure hint text serves only to separate siblings.
 - **Overlapping cloze for sequences**: write the whole sequence, blank one element per cloze number, leave the neighbours visible. The chain is learned as a chain instead of as isolated positions.
 - A cloze note with no `{{c1::…}}` generates no cards — the classic "I imported 200 notes and got 0 cards".
 

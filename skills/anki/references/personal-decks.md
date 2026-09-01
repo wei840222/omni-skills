@@ -52,5 +52,5 @@ The chain is learned as a chain, which is how recitation actually works. Add a c
 | A "life facts" deck of everything | Unbounded intake with no deadline forcing discipline | Pick the decks above with a purpose you can name |
 | Photos of people without deciding about sync | Personal images replicate to a cloud account | Decide first, then build |
 | Carding a hobby you have just started | You do not yet know what matters; most cards get deleted | Practise for a month, then card what you keep looking up |
-| Chess/music cards instead of playing | Recall without performance transfers poorly | Cards as a supplement to practice, never a replacement |
+| Chess/music cards instead of playing | Recall without performance transfers poorly | Cards as a supplement to practice, use strictly as a supplement |
 | Trivia deck at 30 new/day | Crowds out decks with a purpose | Low cap, and it is the first deck to cut when workload bites |
