@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I inherited $50,000 and have a $10,000 credit-card balance at 20% APR. What should I do first?",
+    "expected": "Identify the high-interest debt as the first payoff step, then describe the remaining cash in terms of emergency savings and dated goals without naming a specific investment product.",
+    "actual": "The ladder places a 20% credit-card balance before investing: pay the $10,000 balance first, then size a cash buffer from core monthly spending and assign the remaining money to dated goals.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Should I prepay my 3% mortgage or invest instead?",
+    "expected": "Compare the guaranteed after-tax and real return from prepayment against an uncertain investment return, surface liquidity and horizon, and avoid a product recommendation.",
+    "actual": "Compare the mortgage's after-tax real cost with the expected real investment return, then account for liquidity because prepayment turns cash into home equity. Choose only after the emergency fund and dated goals are funded.",
+    "pass": true
+  }
+]
