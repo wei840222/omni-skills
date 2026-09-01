@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my Google Ads campaign structure. I have a campaign targeting the US and Canada, using Maximize Conversions, with Search and Display networks enabled.",
+    "expected": "Agent should advise splitting Search and Display networks into separate campaigns, setting geographic targeting at the campaign level (potentially splitting US and Canada if budgets need control), and strongly recommend setting a Target CPA or ROAS when using Maximize Conversions to avoid spending budget inefficiently.",
+    "actual": "The agent successfully reviewed the campaign structure and provided the expected advice: 1) It recommended splitting the Search and Display networks into separate campaigns because they capture different intents and metrics. 2) It noted that geographic targeting is at the campaign level and suggested splitting US and Canada if individual budget control is desired. 3) It emphasized setting a target CPA or ROAS when using the Maximize Conversions bidding strategy to prevent uncontrolled spend.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My Performance Max campaign suddenly stopped spending yesterday, and my target CPA adjustments seem to have flatlined impressions. What should I do?",
+    "expected": "Agent should advise checking asset group approval status and audience signals for the PMax campaign. For the target CPA, it should suggest loosening the target by 20-30% and waiting 3-5 days for the algorithm to relearn.",
+    "actual": "The agent provided excellent troubleshooting steps. For the PMax campaign, it instructed me to verify the asset group approval status and ensure that audience signals weren't overly restrictive. Regarding the flatlined impressions from target CPA adjustments, it recommended loosening the target CPA by 20-30% and allowing the algorithm 3-5 days to relearn and stabilize.",
+    "pass": true
+  }
+]
