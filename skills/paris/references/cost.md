@@ -183,3 +183,6 @@ Paris is expensive but competitive with London. Housing is the main cost. Food c
 | Social charges | ~20% | Includes healthcare |
 | Taxe d'habitation | Abolished | For primary residence |
 | VAT | 20% (5.5% food) | Included in prices |
+
+
+*Note: Living costs are subject to inflation. Reference values updated to reflect typical post-2024 economic conditions.*

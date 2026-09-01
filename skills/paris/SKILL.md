@@ -1,117 +1,57 @@
 ---
 name: paris
-slug: paris
-version: 1.0.0
-description: Navigate Paris as visitor, resident, tech worker, student, or entrepreneur with arrondissements, transport, costs, safety, and local insights.
-homepage: https://clawic.com/skills/paris
+description: Plan a visit, move, study, or work in Paris with practical guidance on transit, safety, neighbourhoods, costs, and itineraries. Use for Paris-specific decisions; verify live prices, availability, and official rules before relying on them.
 metadata:
-  clawdbot:
-    emoji: 🇫🇷
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Paris
+  openclaw: '{"emoji":"🇫🇷"}'
 ---
 
 ## When to Use
 
-User asks about Paris for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Use for Paris-specific travel, relocation, study, work, startup, neighbourhood, transit, safety, food, or itinerary decisions. For live booking, immigration, admission, fare, or price decisions, verify the official source before treating a detail as current.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Arrondissements** | |
-| Quick comparison | `arrondissements-index.md` |
-| Central (1-4) | `arrondissements-central.md` |
-| Left Bank (5-7) | `arrondissements-left-bank.md` |
-| Right Bank (8-11) | `arrondissements-right-bank.md` |
-| Outer (12-20) | `arrondissements-outer.md` |
-| Choosing guide | `arrondissements-choosing.md` |
-| **Food** | |
-| Overview & restaurants | `food-overview.md` |
-| French classics | `food-traditional.md` |
-| Markets | `food-markets.md` |
-| Best areas | `food-areas.md` |
-| Wine bars & cafes | `food-wine-cafes.md` |
-| Dietary & tips | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety | `safety.md` |
-| Weather | `climate.md` |
-| Local services | `local.md` |
-| **Career** | |
-| Tech industry | `tech.md` |
-| Students | `student.md` |
-| Startups | `startup.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Visitors** | | |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` | When user asks about attractions (must-see vs skip). |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | When user asks about itineraries (1/3/7 days). |
+| Where to stay | `references/visitor-lodging.md` | When user asks about where to stay. |
+| Tips & day trips | `references/visitor-tips.md` | When user asks about tips & day trips. |
+| **Arrondissements** | | |
+| Quick comparison | `references/arrondissements-index.md` | When user asks about quick comparison. |
+| Central (1-4) | `references/arrondissements-central.md` | When user asks about central (1-4). |
+| Left Bank (5-7) | `references/arrondissements-left-bank.md` | When user asks about left bank (5-7). |
+| Right Bank (8-11) | `references/arrondissements-right-bank.md` | When user asks about right bank (8-11). |
+| Outer (12-20) | `references/arrondissements-outer.md` | When user asks about outer (12-20). |
+| Choosing guide | `references/arrondissements-choosing.md` | When user asks about choosing guide. |
+| **Food** | | |
+| Overview & restaurants | `references/food-overview.md` | When user asks about overview & restaurants. |
+| French classics | `references/food-traditional.md` | When user asks about french classics. |
+| Markets | `references/food-markets.md` | When user asks about markets. |
+| Best areas | `references/food-areas.md` | When user asks about best areas. |
+| Wine bars & cafes | `references/food-wine-cafes.md` | When user asks about wine bars & cafes. |
+| Dietary & tips | `references/food-practical.md` | When user asks about dietary & tips. |
+| **Practical** | | |
+| Moving & settling | `references/resident.md` | When user asks about moving & settling. |
+| Transport | `references/transport.md` | When user asks about transport. |
+| Cost of living | `references/cost.md` | When user asks about cost of living. |
+| Safety | `references/safety.md` | When user asks about safety. |
+| Weather | `references/climate.md` | When user asks about weather. |
+| Local services | `references/local.md` | When user asks about local services. |
+| **Career** | | |
+| Tech industry | `references/tech.md` | When user asks about tech industry. |
+| Students | `references/student.md` | When user asks about students. |
+| Startups | `references/startup.md` | When user asks about startups. |
 
-## Core Rules
+## Plan the Answer
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, entrepreneur
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
+1. Identify the traveller's purpose, dates, budget, party, and access needs.
+2. Load the relevant topical reference from the table above.
+3. Use `references/core-rules.md` for cross-cutting safety, weather, transit, and arrondissement guidance.
+4. For fares, prices, availability, visa/residence, admissions, or any other mutable fact, first load `references/current-information.md` and verify the official source it names. State when a figure is only an estimate.
 
-### 2. Safety is Important
-Paris is safe overall. Main concerns:
-- Pickpocketing (#1 risk, especially metros and tourist sites)
-- Street scams (bracelet, petition, ring)
-- Some areas at night (north 18th, 19th)
-See `safety.md` for area-specific guidance.
-
-### 3. Weather Surprises
-| Myth | Reality |
-|------|---------|
-| "Always romantic" | Rains often, grey winters |
-| "Hot summers" | Can be very hot (35°C+) in July-Aug |
-| "Mild spring" | April can still be cold |
-
-**Best weather:** May-June, September-October
-
-### 4. Current Data
-| Item | Range |
-|------|-------|
-| 1BR rent | €1,200-2,000 (central) |
-| Senior SWE salary | €70K-120K total comp |
-| Student budget | €1,000-1,500/month |
-| Metro ticket | €2.15 (single), €16.90 (10-pack) |
-
-### 5. Tourist Traps
-- Skip: Euronet ATMs (40% fees), restaurants near Eiffel Tower
-- Do: Free museums (1st Sunday), Marais, Latin Quarter side streets
-- Free views: Sacré-Cœur steps, Galeries Lafayette rooftop, Parc de Belleville
-
-### 6. Transit Over Walking
-- Metro covers everything (16 lines)
-- Navigo Découverte for week stays (€30.75/week)
-- Vélib bikes great for spring/summer
-- Never drive — impossible parking, ZTL zones
-
-### 7. Arrondissement Matching
-| Profile | Best Areas |
-|---------|------------|
-| Young professionals | 10th, 11th, Marais (3rd-4th) |
-| Families | 15th, 16th, 12th |
-| Budget-conscious | 18th (south), 19th, 20th |
-| Tech workers | 2nd (Sentier), 10th, 11th |
-| Students | 5th (Latin Quarter), 13th |
 
 ## Paris-Specific Traps
 
-- **Euronet ATMs** — Private ATMs charge 10-40% fees. Use bank ATMs only.
-- **Ring scam** — Someone finds "gold ring", offers to sell. It's worthless.
-- **Petition scam** — Signing → distraction for pickpocket or "donation" demand.
-- **Eiffel Tower restaurants** — €30+ for bad food. Walk to 7th arrondissement.
-- **Montmartre portrait artists** — Aggressive, overpriced. Politely decline.
-- **Lock bridges** — Locks removed, just a tourist thing now. Skip it.
-- **August closures** — Many shops/restaurants close. Not best time.
+For scam-prevention or tourist-trap questions, load `references/traps.md` and pair it with current official guidance when an immediate safety decision depends on it.

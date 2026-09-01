@@ -96,8 +96,8 @@ Paris invented modern dining. From croissants to Michelin stars, every meal matt
 
 | Topic | File |
 |-------|------|
-| French classics | `food-traditional.md` |
-| Food markets | `food-markets.md` |
-| Best areas | `food-areas.md` |
-| Wine bars & cafes | `food-wine-cafes.md` |
-| Dietary needs & tips | `food-practical.md` |
+| French classics | `references/food-traditional.md` |
+| Food markets | `references/food-markets.md` |
+| Best areas | `references/food-areas.md` |
+| Wine bars & cafes | `references/food-wine-cafes.md` |
+| Dietary needs & tips | `references/food-practical.md` |

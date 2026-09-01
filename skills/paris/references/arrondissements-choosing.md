@@ -28,7 +28,7 @@
 
 ## By Priority
 
-| Priority | Best | Avoid |
+| Priority | Best | Alternatives |
 |----------|------|-------|
 | **Safety** | 6th, 7th, 16th | 19th, north 18th |
 | **Nightlife** | 11th, 10th | 16th, 15th |

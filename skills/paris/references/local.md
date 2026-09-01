@@ -45,7 +45,7 @@ Look for green cross sign. Pharmacists can give medical advice.
 | Task | Where |
 |------|-------|
 | **ATM** | BNP, Société Générale, Crédit Agricole |
-| **Currency exchange** | Avoid — use ATM instead |
+| **Currency exchange** | Use ATM instead |
 | **Opening account** | Book appointment online |
 
 **Avoid:** Euronet, Travelex, airport exchange.

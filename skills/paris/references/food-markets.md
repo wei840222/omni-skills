@@ -20,7 +20,7 @@ Paris's oldest market (1615). Perfect for lunch.
 | **Moroccan stall** | Moroccan | Couscous, tagine |
 | **Italian corner** | Italian | Fresh pasta |
 
-**Tip:** Arrive by 12:30 or after 14:00 to avoid lunch rush.
+**Tip:** Arrive by 12:30 or after 14:00 to bypass the lunch rush.
 
 ---
 
@@ -62,9 +62,9 @@ Paris's oldest market (1615). Perfect for lunch.
 | Tip | Details |
 |-----|---------|
 | **Arrive early** | Best selection 8-10 AM |
-| **Bring cash** | Many vendors don't take cards |
+| **Bring cash** | Many vendors require cash |
 | **Bring bags** | Not always provided |
-| **Don't touch produce** | Point and vendor selects |
+| **Point and let vendor select** | Point and vendor selects |
 | **Taste before buying** | Cheese, charcuterie — ask "goûter?" |
 | **Prices drop end of day** | Bargains after 13:00 |
 | **Sunday = best day** | Most markets open, festive |

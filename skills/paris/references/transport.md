@@ -76,7 +76,7 @@ Best value for week stays (all zones = €30.75):
 | Issue | Where | Prevention |
 |-------|-------|------------|
 | Pickpocketing | Line 1, 4, 6; tourist stations | Bag in front, stay alert |
-| Phone snatching | Door closing moment | Don't hold phone near door |
+| Phone snatching | Door closing moment | Keep phone stored near door |
 | Beggars/performers | Everywhere | Ignore, normal |
 
 ---
@@ -158,7 +158,7 @@ Best value for week stays (all zones = €30.75):
 
 **E-bikes:** €0.10/min extra. Worth it for hills (Montmartre).
 
-**Best areas:** Along Seine, Marais, Canal Saint-Martin. Avoid at night.
+**Best areas:** Along Seine, Marais, Canal Saint-Martin. Use other transit at night.
 
 ---
 

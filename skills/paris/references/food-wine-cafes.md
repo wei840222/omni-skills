@@ -97,5 +97,5 @@ Paris is the world capital of natural wine.
 | **Terrace = pricier** | +20-30% vs inside |
 | **Happy hour** | 17:00-20:00, 50% off |
 | **Carafe d'eau** | Free tap water |
-| **Don't tip** | Service included |
+| **Tipping optional** | Service included |
 | **Dress code** | None at most wine bars |

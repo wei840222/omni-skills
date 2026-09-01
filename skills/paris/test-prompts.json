@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I will visit Paris for three days in October. I want a compact itinerary, advice on transit, and a way to avoid common tourist scams.",
+    "expected": "Identifies travel dates and priorities, loads itinerary, transport, and trap references, gives a compact plan, and distinguishes the package's dated fare guidance from a live official fare check.",
+    "actual": "The skill routes the request to references/visitor-itineraries.md, references/transport.md, and references/traps.md. Its Plan the Answer section requires the agent to verify mutable fares with the Île-de-France Mobilités source in references/current-information.md before presenting a ticket choice as current.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am a non-EU senior software engineer considering a move to Paris next year. Which neighbourhoods fit, what salary and rent should I expect, and what visa route applies?",
+    "expected": "Asks for nationality and constraints when needed, loads technology, neighbourhood, cost, resident, and current-information references, treats salary/rent/visa thresholds as time-sensitive, and uses official sources before a decisive recommendation.",
+    "actual": "The skill routes the request to references/tech.md, references/arrondissements-choosing.md, references/cost.md, and references/resident.md. references/current-information.md classifies salaries, rents, and visas as time-sensitive and names France-Visas, Service-Public.fr, and Paris.fr for verification.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I book the Eiffel Tower and buy a Navigo pass for a wheelchair user arriving tomorrow?",
+    "expected": "Avoids relying on dated package prices or schedules, asks about the access needs that affect the route, and verifies official venue and transit information before a booking or purchase recommendation.",
+    "actual": "The Plan the Answer section treats admissions, availability, and fares as mutable facts. references/current-information.md directs the agent to the venue's official website and Île-de-France Mobilités/RATP, and requires it to state any live-information gap rather than presenting an estimate as current.",
+    "pass": true
+  }
+]
