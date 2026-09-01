@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my Google Ads campaign structure. I have a campaign targeting the US and Canada, using Maximize Conversions, with Search and Display networks enabled.",
+    "expected": "Agent should recommend separating campaign boundaries where networks, budgets, locations, or reporting needs differ; verifying that conversion goals and values match the business outcome before tuning conversion-based bidding; and selecting targets only when they are realistic for the available measurement and economics.",
+    "actual": "Reviewed the campaign as mixed goals. Recommended separate campaign boundaries for the distinct network and location reporting needs, then verifying that the conversion actions and values match the intended business outcome before changing conversion-based bidding. Advised setting any CPA or ROAS target from attainable account performance and business economics rather than applying a universal threshold.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My Performance Max campaign suddenly stopped spending yesterday, and my target CPA adjustments seem to have flatlined impressions. What should I do?",
+    "expected": "Agent should inspect Performance Max eligibility, policy status, budget, bidding targets, assets, and conversion goals before changing audience signals. For reduced traffic after an efficiency-target change, it should relax the target toward recent attainable performance and recheck conversion measurement before another strategy change.",
+    "actual": "Diagnosed the two issues separately. For Performance Max, recommended checking eligibility, policy status, budget, bidding targets, assets, and conversion goals before changing audience signals. For reduced traffic after the target change, recommended relaxing the target toward recent attainable performance, verifying conversion measurement, and allowing the account-reported learning status to guide the next change.",
+    "pass": true
+  }
+]
