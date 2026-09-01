@@ -189,3 +189,8 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **Whether a credit line substitutes for cash.** Some argue an unused line makes a large buffer wasteful; the counterargument is that lines get cut in exactly the conditions that trigger their use, and that has happened at scale more than once.
 - **Buying a home as a financial decision.** Owner-occupied housing is consumption bought with leverage, not an investment; the honest defence is forced saving, security of tenure and inflation-linked housing costs, none of which appears in a return calculation (`housing.md`).
 - **Paying for advice.** Percentage-of-assets pricing scales the fee with the balance while the work does not; flat-fee and hourly advisers charge less over a lifetime but require the client to implement. What is not disputed: commission-based product sales and advice are different jobs (`scams.md`).
+
+## References
+
+- Load `references/persistence.md` before creating or updating durable money state, shared financial records, contacts, or project summaries.
+- Load `references/sources.md` when a recommendation needs the primary-source context behind emergency savings, debt relief, investor education, or financial fraud guidance.
