@@ -1,6 +1,6 @@
 ---
 name: mercado-libre
-description: Manage Mercado Libre buying, selling, listing, deal-validation, dispute, and approved automation decisions. Use when a user needs marketplace research, a comparison, checkout preparation, seller operations, or a safe API or panel workflow; keep unrelated general commerce work in its specialist skill.
+description: Guide Mercado Libre buying, selling, listing, deal validation, dispute handling, and approved automation. Use for Mercado Libre marketplace research, comparisons, checkout preparation, seller operations, or safe API or panel workflows; route unrelated general commerce work to its specialist skill.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🛒"}'
@@ -24,7 +24,7 @@ Classify the request as search/compare, deal validation, checkout preparation, s
 
 ## Quick reference
 
-Load one directly relevant reference before handling its branch:
+For the selected branch, load one directly relevant reference before forming a recommendation or action plan:
 
 | Request branch | Load | Use it for |
 |---|---|---|
