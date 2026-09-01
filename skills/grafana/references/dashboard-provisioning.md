@@ -3,7 +3,7 @@
 - JSON export includes data source UID — will fail if different on import
 - Use data source variables — `${DS_PROMETHEUS}` substituted at runtime
 - Provisioned dashboards read-only by default — `allowEditing: true` in provisioning
-- Folder must exist before dashboard provisioning — or import fails silently
+- Configure the target folder before dashboard provisioning so the imported dashboard has a visible destination.
 
 ## Provisioning Checks
 

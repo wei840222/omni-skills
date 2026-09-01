@@ -1,7 +1,7 @@
 # Alerting
 
 - Alert evaluates on server — not browser, query must work without variables
-- Variables not supported in alerts — hardcode values or use templates
+- Alert rules run without dashboard variables; express scope with fixed labels or alert rule labels.
 - Multiple conditions: AND is default — configure for OR if needed
 - Alert state "Pending" before "Firing" — for duration, prevents flapping
 - Configure a contact point and notification policy; without a matching policy, a firing alert has no notification delivery.
