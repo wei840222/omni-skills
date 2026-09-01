@@ -80,6 +80,13 @@ REST and GraphQL API reference for 147 services: authentication, endpoints, rate
 | Support | `references/apis/support.md` | intercom, zendesk, freshdesk, helpscout | On demand |
 | Analytics | `references/apis/analytics.md` | mixpanel, amplitude, posthog, segment, sentry, datadog, algolia | On demand |
 
+## Fast path
+
+1. Resolve `<state_root>` only if this request needs saved preferences or context; otherwise use the documented defaults.
+2. Identify the provider and load the matching `references/apis/*.md` category file, then the provider's indexed section only.
+3. Load the symptom-specific reference from Quick Reference; for generated client code or an operational diagnosis, finish with `references/output-gates.md`.
+4. Verify endpoint, quota, pricing, model, and deprecation claims against that provider section's Official Docs link before treating them as current.
+
 ## How to Navigate API Files
 
 Each category file starts with an index table (API name → line number). Read the index, then only the section you need (50-100 lines each):
@@ -88,9 +95,6 @@ Each category file starts with an index table (API name → line number). Read t
 head -20 references/apis/ai-ml.md          # index
 sed -n '139,251p' references/apis/ai-ml.md # one API's section (OpenAI, per the index)
 ```
-
-
-
 
 ## Configuration
 
