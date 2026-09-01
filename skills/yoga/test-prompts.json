@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How can I adjust Downward Dog when my hamstrings are tight?",
+    "expected": "A concise, actionable adjustment that prioritizes spinal length and does not require the heels to touch the floor.",
+    "actual": "Bend both knees enough to lengthen the spine, press the floor away to keep the shoulders supported, and let the heels stay lifted. Reduce the bend only while the back remains long and the breath stays steady.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am pregnant and want to start yoga. What should I change?",
+    "expected": "General, cautious guidance that identifies heat and individualized modification as safety concerns and directs the user to a qualified professional.",
+    "actual": "Choose an accessible, non-heated practice and discuss suitable pose and position changes with your health professional and instructor. Avoid hot yoga because overheating is a concern, and use individualized modifications rather than following a generic sequence unchanged.",
+    "pass": true
+  }
+]
