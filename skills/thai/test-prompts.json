@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate into a friendly Thai message to a close colleague: 'Thanks for helping with the report. I will send the final version this afternoon.'",
+    "expected": "A concise Thai message with a colleague-appropriate casual or neutral-polite register, preserving the thanks and afternoon commitment without adding unsupported facts.",
+    "actual": "ขอบคุณมากนะที่ช่วยเรื่องรายงาน เดี๋ยวช่วงบ่ายเราจะส่งฉบับสุดท้ายให้",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Rewrite this Thai note for an unfamiliar client in a polite professional tone: 'ขอโทษที ส่งช้า เดี๋ยวส่งให้พรุ่งนี้นะ'",
+    "expected": "A polite professional Thai rewrite that apologizes, keeps the delivery-by-tomorrow commitment, and removes the overly familiar tone.",
+    "actual": "ขออภัยที่จัดส่งล่าช้า ทางเราจะส่งเอกสารให้ภายในวันพรุ่งนี้ค่ะ",
+    "pass": true
+  }
+]
