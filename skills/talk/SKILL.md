@@ -19,4 +19,4 @@ metadata:
 
 Before changing a configuration, confirm the selected provider is available and use the matching reference's verification path. Treat provider-account changes, number purchases, public-webhook exposure, and live calls as separate user-authorized actions. Start carrier-call verification with a dry run and enable inbound calling only after defining its caller policy and controls.
 
-This skill is stateless and does not store local configuration or persistent user state.
+This skill does not persist user state; OpenClaw retains configuration through its runtime-managed configuration surface.
