@@ -42,3 +42,7 @@ If the user cannot yet state an outcome or deadline, capture the aspiration as a
 - Use clear outcomes and evidence-based progress; a lightweight file and dated entries are sufficient.
 - Treat a changed priority as a valid decision. Record its rationale so a future review can learn from it.
 - Celebrate completed milestones before choosing the next objective.
+
+## Cognitive-load audit
+
+Keep the main path to classification, clarification, saving, and review. Load one routed reference when its situation occurs, and use the concrete next action or question it provides rather than repeating every policy in the response.
