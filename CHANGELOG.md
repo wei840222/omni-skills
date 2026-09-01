@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | ---------------------------- | ---------- | ------------ |
 | talk                         | 2026-09-01 | 85/100 (#205) |
 | biotechnology                 | 2026-09-01 | 85/100 (#206) |
+| grafana                       | 2026-09-01 | 85/100 (#207) |
 | money                        | 2026-09-01 | 80/100 (#204) |
 | paris                        | 2026-09-01 | 85/100 (#197) |
 | lithuanian                   | 2026-09-01 | 85/100 (#199) |
