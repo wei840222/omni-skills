@@ -18,7 +18,7 @@ whisper video.mp4 --model turbo --output_format all
 whisper_timestamped video.mp4 --model large-v3 --output_format srt
 
 # With VAD pre-processing (reduces hallucinations)
-whisper_timestamped video.mp4 --vad silero --accurate
+whisper_timestamped video.mp4 --vad silero:3.1 --accurate
 ```
 
 ### Styled Subtitles (ASS)

@@ -1,4 +1,11 @@
-# Industry Standard Caption Guidelines
+# Caption Delivery Constraints
+
+## Verification Sources
+
+- **Netflix Timed Text Style Guide** — review the delivery partner requirements for timing, line treatment, and text placement before preparing Netflix assets: https://partnerhelp.netflixstudios.com/hc/en-us/articles/217350977-Timed-Text-Style-Guide-General-Requirements
+- **YouTube Help: Subtitle file formats** — choose a supported caption format and upload path for YouTube delivery: https://support.google.com/youtube/answer/2734698
+- **FFmpeg subtitles filter documentation** — verify `libass` support and `force_style` behavior before burn-in: https://ffmpeg.org/ffmpeg-filters.html#subtitles
+
 
 ## Netflix Timing and Styling Requirements
 - **Duration Requirements**: Minimum duration of 5/6 second (0.833s) per subtitle event. Maximum duration is 7 seconds.
@@ -16,4 +23,3 @@
 ## General Best Practices
 - Keep linguistic units together (ensure adjectives/nouns and prepositional phrases remain contiguous).
 - Indicate non-speech audio (e.g. `[music playing]`, `[door slams]`) when writing SDH or accessibility subtitles.
-

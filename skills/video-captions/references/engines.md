@@ -88,7 +88,7 @@ stable-ts video.mp4 --refine video.srt -o video_refined.srt
 
 ```bash
 # Requires ASSEMBLYAI_API_KEY
-export ASSEMBLYAI_API_KEY=your_key
+export ASSEMBLYAI_API_KEY="<user-provided-key>"
 
 # Via CLI or Python SDK
 assemblyai transcribe video.mp4 --output video.srt --speaker_labels

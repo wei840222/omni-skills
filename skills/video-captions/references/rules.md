@@ -8,7 +8,7 @@
 | Apple Silicon | MLX Whisper | Native acceleration, still local |
 | Word timestamps | whisper-timestamped | DTW alignment, still local |
 
-Default: Whisper local (turbo model). See `engines.md` for optional cloud alternatives.
+Default: Whisper local (turbo model). Load the `engines.md` reference in this directory before selecting an optional cloud alternative.
 
 ### 2. Format Selection by Platform
 
@@ -58,7 +58,7 @@ Use word timestamps for:
 - TikTok/Instagram animated captions
 - Quality checking transcript accuracy
 
-Enable with `--word-timestamps` flag.
+For the OpenAI Whisper CLI, enable word timestamps with `--word_timestamps True`; use the word-level output produced by `whisper_timestamped` when that engine is selected.
 
 ### 6. Speaker Identification
 
