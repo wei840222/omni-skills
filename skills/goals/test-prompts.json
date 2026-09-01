@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to start running and eventually do a marathon next year.",
+    "expected": "The agent should help structure the goal by asking clarifying questions (success metrics, deadline, motivation, first step) and create a structured file in <state_root>/goals/active/.",
+    "actual": "Agent asked clarifying questions ('What does success look like specifically?', 'By when?', 'Why does this matter to you?', 'What\\'s the first small step?') and proposed creating <state_root>/goals/active/run-marathon.md with milestones like 5k, 10k, half marathon.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm doing my quarterly review. I haven't made any progress on my 'learn Spanish' goal in 2 months.",
+    "expected": "The agent should load tracking-and-review.md and management-and-motivation.md, ask if the goal is still important, and suggest either breaking it down or moving it to abandoned/someday without guilt.",
+    "actual": "Agent loaded relevant references, conducted a quarterly review, and asked if learning Spanish was still a priority. It suggested moving the goal to <state_root>/goals/abandoned/ if priorities shifted, or breaking it into smaller milestones if still desired. No SMART goal acronyms were pushed.",
+    "pass": true
+  }
+]
