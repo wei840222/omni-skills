@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "What are some best practices for sourcing diverse candidates for a software engineering role?",
+    "expected": "The response should highlight intentional effort, tracking demographic pass-through rates, and utilizing different channels beyond standard saturated ones.",
+    "actual": "Sourcing diverse candidates for a software engineering role requires intentional effort beyond saturated platforms like LinkedIn. Key practices include: (1) Tracking diversity funnel metrics—measure demographic pass-through rates at each stage to identify bias. (2) Exploring alternative sourcing channels, as relying on the same networks produces the same candidate profiles. (3) Addressing 'Diversity Debt' early on by prioritizing diverse pipelines before organizational imbalance becomes costly to fix.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A candidate refused to provide their previous salary and has a 6-month gap on their resume. Should I disqualify them?",
+    "expected": "The response should advise against automatic disqualification, noting that compensation should be based on market rates/internal equity rather than past salary, and that resume gaps should be asked about rather than assumed as negative.",
+    "actual": "You should not automatically disqualify the candidate. First, regarding the resume gap: gaps are not automatic disqualifiers. Instead of assuming the worst, ask the candidate about the context—job hopping and gaps require context regarding the industry and company health. Second, regarding the previous salary: you should not base compensation on their previous salary. Know the market rates for the role and focus on internal equity so new hires don't out-earn existing employees unfairly. Asking for previous salary is also illegal in many jurisdictions.",
+    "pass": true
+  }
+]
