@@ -51,6 +51,7 @@ Use for renovation planning, furniture selection, material estimates, rental or 
 | Photography | `references/photography.md` | Planning a shot list, lighting, or photography briefing |
 | Room-specific planning | `references/spaces.md` | Working on a living room, kitchen, bedroom, bathroom, or office |
 | Constraints and decision traps | `references/rules.md` | Before a layout, product, or staging recommendation |
+| Evidence and regulated-work boundaries | `references/domain.md` | Checking source-backed safety, accessibility, lighting, or lead-paint boundaries |
 
 ## Scope and safeguards
 
