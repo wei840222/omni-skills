@@ -1,6 +1,6 @@
 ---
 name: interior-design
-description: Coordinate interior-design projects with space verification, supplier localization, material estimates, staging, and staged decision-making. Use when a user requests help planning, furnishing, or presenting an interior space.
+description: Coordinate interior-design projects with space verification, supplier localization, material estimates, staging, and staged decision-making. Use for user requests to plan, furnish, or present an interior space.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'
