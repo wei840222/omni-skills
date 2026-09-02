@@ -14,8 +14,8 @@ The cycle only works if every step is intentional.
 
 ## Closing the Loop
 
-Most people break the cycle at "PRACTICE." They analyze, they learn, but they don't:
-- Actually drill the specific weakness
+Most people break the cycle at "PRACTICE." They analyze, they learn, but they must also:
+- Drill the specific weakness
 - Test the fix in real competition
 - Verify the lesson translated to results
 
@@ -74,7 +74,7 @@ When improvement stalls:
 | Coach/expert review | High quality, costs time/money |
 | Opponent feedback | Rare but valuable when available |
 
-Combine sources. Don't rely only on self-analysis.
+Combine sources. Use self-analysis in combination with external feedback.
 
 ---
 
