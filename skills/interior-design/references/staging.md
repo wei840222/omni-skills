@@ -1,6 +1,6 @@
 # Sale and rental staging
 
-Use this reference for a property listing, viewing, or guest-ready plan. Base commercial claims on local comparable data, platform rules, and current costs; do not represent a projected outcome as guaranteed.
+Use this reference for a property listing, viewing, or guest-ready plan. Base commercial claims on local comparable data, platform rules, and current costs; present projected outcomes as scenarios rather than guarantees.
 
 ## Define the objective
 

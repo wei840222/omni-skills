@@ -28,8 +28,8 @@ The photographer and listing platform determine the final count, sequencing, and
 
 ## Lighting and composition
 
-Schedule around the room’s daylight direction, weather, and exterior conditions; make a test image when possible. Avoid assuming a universal best time of day. Preserve verticals, show enough of the room to communicate scale, and use a consistent visual approach across the listing. Follow the photographer’s equipment and platform requirements.
+Schedule around the room’s daylight direction, weather, and exterior conditions; make a test image when possible. Select timing from the room’s daylight direction, weather, exterior conditions, and a test image when possible. Preserve verticals, show enough of the room to communicate scale, and use a consistent visual approach across the listing. Follow the photographer’s equipment and platform requirements.
 
 ## Product-in-room images
 
-Use product specifications and a clear visual brief. Keep the product scale believable, disclose renderings or AI-generated imagery where the platform or law requires it, and avoid representations that misstate the property, product, or included furnishings.
+Use product specifications and a clear visual brief. Keep the product scale believable, disclose renderings or AI-generated imagery where the platform or law requires it, and represent the property, product, and included furnishings accurately.

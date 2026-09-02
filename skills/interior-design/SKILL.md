@@ -15,11 +15,11 @@ Before reading or writing state, resolve `<state_root>` as follows:
 2. Otherwise use the first existing directory in this order: `<workspace>/interior-design/`, `<workspace>/memory/interior-design/`, `~/interior-design/`.
 3. If none exists and the user explicitly wants persistent project tracking, create `<workspace>/interior-design/` only when a host-provided workspace is available; otherwise request an explicit state path.
 
-If multiple candidate directories exist, use only the highest-precedence directory, tell the user that duplicate state was found, and do not merge, cross-read, or cross-write the others. Use the selected `<state_root>` for every state operation in this skill.
+If multiple candidate directories exist, select only the highest-precedence directory, report the duplicate state, and keep the selected `<state_root>` isolated from the others for the invocation.
 
 ## When to use
 
-Use for renovation planning, furniture selection, material estimates, rental or sale staging, interior photography preparation, and room-specific layout questions. Do not create state for one-off advice; create it only after the user asks to track a project.
+Use for renovation planning, furniture selection, material estimates, rental or sale staging, interior photography preparation, and room-specific layout questions. Give one-off advice without state; create state only after the user asks to track a project.
 
 ## Core workflow
 
@@ -27,7 +27,7 @@ Use for renovation planning, furniture selection, material estimates, rental or 
 2. For a layout or product recommendation, gather room dimensions, ceiling height, doors, windows, fixed elements, access route, budget tier, region, and items that must remain.
 3. Load the matching reference from the table below. Treat its measurements and cost guidance as preliminary planning inputs; verify local code, manufacturer requirements, accessibility needs, availability, and installer constraints before a purchase or physical work.
 4. Compare options against the stated constraints and explain assumptions, trade-offs, and the next verification step.
-5. For structural, electrical, plumbing, gas, fire-safety, accessibility, permit, or hazardous-material work, identify the local authority or qualified professional needed before recommending execution.
+5. For structural, electrical, plumbing, gas, fire-safety, accessibility, permit, or hazardous-material work, identify the relevant local authority or qualified professional before recommending execution.
 6. Persist confirmed preferences only after the user opts into tracking; then use `<state_root>` and `references/memory-template.md`.
 
 ## Project state

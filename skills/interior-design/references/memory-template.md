@@ -62,6 +62,6 @@ Last updated: YYYY-MM-DD
   - Price tier:
   - Availability, delivery, assembly, and return terms:
 
-## Avoid or revisit
+## Revisit or exclude
 <!-- Record a dated reason, such as unavailable delivery or incompatible terms -->
 ```

@@ -8,14 +8,14 @@ Interior design coordinates function, circulation, materials, lighting, and pres
 
 ## Lead-safe renovation
 
-For pre-1978 housing in the United States, renovation can disturb lead-based paint. Before sanding, cutting, or demolition, identify the jurisdiction and building age, then determine whether the work is covered by the applicable lead-safe renovation requirements and whether a certified firm is required. Do not offer instructions that bypass containment, cleaning, verification, or local notification obligations.
+For pre-1978 housing in the United States, renovation can disturb lead-based paint. Before sanding, cutting, or demolition, identify the jurisdiction and building age, then determine whether the work is covered by the applicable lead-safe renovation requirements and whether a certified firm is required. Use the applicable containment, cleaning, verification, and local notification procedures.
 
 Source:
 - **EPA — Renovation, Repair and Painting Program**: federal requirements and certified-firm information for covered work in pre-1978 homes and child-occupied facilities. https://www.epa.gov/lead/renovation-repair-and-painting-program
 
 ## Furniture stability
 
-For tall or heavy furniture, ask about children, pets, seismic risk, and the wall construction. Check the manufacturer’s anchoring instructions and use an appropriate anchor or professional installation; do not assume a furniture item is stable merely because it is large or loaded.
+For tall or heavy furniture, ask about children, pets, seismic risk, and the wall construction. Check the manufacturer’s anchoring instructions and use an appropriate anchor or professional installation; treat stability as unverified until the specified anchoring approach is installed.
 
 Source:
 - **U.S. Consumer Product Safety Commission — CPSC Approves New Federal Safety Standard for Clothing Storage Units to Prevent Tip-Over Deaths and Injuries**: describes the federal clothing-storage-unit safety standard and the tip-over risk. https://www.cpsc.gov/Newsroom/News-Releases/2022/CPSC-Approves-New-Federal-Safety-Standard-for-Clothing-Storage-Units-to-Prevent-Tip-Over-Deaths-and-Injuries
@@ -36,4 +36,4 @@ Source:
 
 ## Source use
 
-The sources above establish boundaries and decision prompts. They do not establish universal room dimensions, cost ranges, staging returns, or product availability. Localize those decisions with current, region-specific evidence before presenting them as recommendations.
+The sources above establish boundaries and decision prompts. Use them for boundaries and decision prompts; establish room dimensions, cost ranges, staging returns, and product availability with current region-specific evidence before presenting recommendations.
