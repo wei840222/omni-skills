@@ -33,7 +33,7 @@ Sui uses delegated proof of stake. SUI holders may delegate to validators, and s
 
 - Check the validator's current commission, performance, and the wallet's current staking flow before delegating.
 - Treat unstaking or redelegation as an epoch-bound operation; confirm the wallet's stated activation or withdrawal epoch.
-- Do not describe a fixed epoch duration, reward rate, minimum stake, or validator list as a permanent protocol value; query current network or wallet data.
+- Query current network or wallet data for epoch duration, reward rate, minimum stake, and validator availability; treat those values as mutable rather than permanent protocol constants.
 
 ## Move and packages
 
@@ -49,7 +49,7 @@ Package upgrade behavior and compatibility policy are package-specific. Read the
 ## Wallet, DeFi, NFT, and bridge safety
 
 - Verify the connected network, package ID, recipient, token type, amount, and transaction effects in the wallet confirmation.
-- A wallet confirmation is authorization, not proof that a dApp request is safe. Keep recovery phrases and private keys offline and never paste them into a site, chat, or command.
+- A wallet confirmation authorizes a request but does not establish that it is safe. Keep recovery phrases and private keys offline; enter secrets only through the wallet or key-management flow you have independently verified.
 - Treat DEX, NFT marketplace, bridge, and wrapped-asset package IDs as network-specific. Obtain them from the project's official documentation and inspect the transaction before signing.
 - A bridge transfer creates or handles representations governed by the bridge; verify the official bridge, source and destination network, asset type, and recipient before proceeding.
 
