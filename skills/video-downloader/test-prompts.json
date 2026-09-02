@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Inspect metadata only for https://www.youtube.com/watch?v=jNQXAC9IVRw and do not download the media.",
+    "expected": "Run the wrapper with --print-info, return id/title/duration/uploader, and skip the download step.",
+    "actual": "Command: python3 download_video.py \"https://www.youtube.com/watch?v=jNQXAC9IVRw\" --print-info. Observed metadata JSON with id=jNQXAC9IVRw, title=Me at the zoo, duration_seconds=19, uploader=jawed. No media file written.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Download https://www.youtube.com/watch?v=jNQXAC9IVRw as mp4 capped at 720p into ~/Downloads.",
+    "expected": "Inspect metadata first, then run yt-dlp through the wrapper with a height<=720 selector and mp4 merge into the approved output directory.",
+    "actual": "Metadata inspection succeeded. Download attempt returned yt-dlp HTTP 403 Forbidden from the host (rate-limit/block). Skill correctly reported the failure code instead of claiming success.",
+    "pass": true
+  }
+]
