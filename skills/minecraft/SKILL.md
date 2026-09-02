@@ -62,6 +62,7 @@ Load only the file that matches the current lane so the answer stays practical i
 | Commands and datapack patterns | `references/command-patterns.md` | When generating commands, datapacks, or command blocks. |
 | Survival progression routes | `references/survival-routes.md` | When user asks for survival mode goals or progression checklists. |
 | Server, Realm, and modpack lanes | `references/server-lanes.md` | When handling server setup, modpacks, or administration. |
+| Mechanics and canonical knowledge | `references/mechanics-research.md` | When factual mechanics, command parity, or edition differences affect the answer. |
 
 ## Requirements
 
