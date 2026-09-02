@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our startup just raised Series A. We have basic analytics but no real data team. What should be my focus as a part-time CDO?",
+    "expected": "Focus on analytics foundations, establishing key metrics, and creating a single source of truth.",
+    "actual": "At the Series A stage, your primary focus as a part-time CDO should be establishing strong analytics foundations. This means identifying and agreeing upon key business metrics, and crucially, building a 'single source of truth' so everyone is looking at the same numbers. Avoid heavy governance or complex ML models at this stage; instead, ensure data quality and basic reporting are reliable to support immediate growth decisions.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to build a comprehensive data platform before deciding what business problems to solve with it, so we are ready for anything.",
+    "expected": "Advise against 'boiling the ocean' and tech-first thinking. Recommend starting with a business problem instead.",
+    "actual": "I strongly recommend against building a comprehensive platform before identifying the business problems it needs to solve. This is a common trap often referred to as 'tech-first thinking' or 'boiling the ocean'. It frequently leads to expensive platforms that don't deliver immediate business value and struggle with adoption. Instead, start with a specific, high-priority business question that ties to revenue, cost savings, or risk reduction, and build the necessary data infrastructure to support that specific use case first.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A European customer asked us to delete all of their personal data within two days. What workflow should we follow?",
+    "expected": "Verify identity, locate data across systems including backups, delete or anonymize, confirm to the subject, and document the audit trail within GDPR timelines.",
+    "actual": "Treat this as a data-subject deletion request under GDPR. First verify the requester identity and that the right applies. Then locate every copy of their personal data across production systems and backups, delete or anonymize those records, confirm completion to the subject, and keep an audit trail. Do not promise a two-day SLA if systems cannot support it; communicate the statutory deadline and any lawful extension path.",
+    "pass": true
+  }
+]
