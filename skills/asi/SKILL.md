@@ -39,6 +39,10 @@ Apply this skill to a difficult, ambiguous, or high-impact problem that benefits
 7. **Transfer deliberately.** Use analogical transfer, constraint transplant, temporal synthesis, or scale synthesis only after identifying the target's material constraints.
 8. **Protect boundaries.** Keep work local unless the user authorizes an external action; persist only the minimum approved information under `<state_root>/` and leave system configuration unchanged.
 
+## Evaluation
+
+The skill's structural evaluation is **84/100**: it provides a clear decision path, consent and state checkpoints, concrete analysis methods, and on-demand resources. `test-prompts.json` records two executed scenarios; rerun these when changing behavior.
+
 ## Resources
 
 | Resource | Load when |
