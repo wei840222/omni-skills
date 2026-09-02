@@ -1,7 +1,7 @@
 ---
 name: storybook
 compatibility: "linux, darwin, win32"
-description: Build component stories with proper args, controls, decorators, and testing patterns.
+description: Create, configure, document, and test Storybook component stories with CSF, args, controls, decorators, and play functions. Use when implementing or debugging a Storybook story.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📖"}'
