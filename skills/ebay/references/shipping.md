@@ -37,11 +37,12 @@ Dimensional = (L × W × H) ÷ 166 (UPS/FedEx)
 
 ## International Shipping
 
-### Global Shipping Program (GSP)
-- Ship to Kentucky hub only
-- eBay handles customs/duties
-- Higher buyer cost but zero seller hassle
-- Recommended for occasional international
+### eBay International Shipping (eIS)
+- Current eBay program that superseded the older Global Shipping Program (GSP)
+- Seller ships to an eBay domestic consolidation hub
+- eBay handles onward international transit, customs/duties handling, and many international returns
+- Seller liability typically ends once the parcel is accepted at the domestic hub
+- Prefer eIS for most casual/occasional international sales; use direct international only when you knowingly manage customs and returns yourself
 
 ### Direct International
 - Lower buyer cost = more sales

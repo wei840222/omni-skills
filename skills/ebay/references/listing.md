@@ -6,7 +6,7 @@
 - 12 photos per listing (eBay allows 24)
 - First photo = hero shot on white/neutral background
 - Natural lighting or lightbox
-- No watermarks, no text overlays
+- Keep images clean of watermarks and text overlays
 - 1600px minimum on longest edge
 
 ### Photo Sequence
@@ -39,7 +39,7 @@ SHIPPING:
 
 - Plain text or minimal HTML
 - Mobile-first (most buyers browse on phone)
-- No walls of text
+- Use bullet points and short paragraphs instead of walls of text
 - Specifics matter more than marketing language
 
 ## Item Specifics

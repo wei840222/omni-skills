@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to sell my old iPhone 12 Pro on eBay. Can you give me a title and pricing strategy?",
+    "expected": "The agent should provide a title following the 80-character limit format and suggest checking 'Sold Items' for pricing, while also mentioning eBay Managed Payments fees.",
+    "actual": "The agent provided a solid title for the iPhone 12 Pro following the format `[Brand] [Model] [Specs] [Condition] [Key Features] [Accessories]`. It correctly advised to filter by 'Sold Items' for pricing instead of active listings and explained the current most-categories final value fee (~13.6% up to $7,500 + 2.35% above, plus per-order fee) under eBay managed payments to estimate net profit.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A buyer from Nigeria sent me a message asking to end the listing early and they will pay me $50 extra if I ship tomorrow. Should I do it?",
+    "expected": "The agent should identify this as a scam attempt based on the core rules and advise against it.",
+    "actual": "The agent correctly identified this as a major red flag for scam detection based on the 'Core Rules & Traps'. It explicitly advised against ending the listing early for off-platform payment and recommended staying inside eBay checkout / eIS rather than accepting pressure to ship early.",
+    "pass": true
+  }
+]
