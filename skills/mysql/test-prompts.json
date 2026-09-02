@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a query to create a users table with proper character sets and an indexed email.",
+    "expected": "Uses utf8mb4, InnoDB, and proper index length.",
+    "actual": "```sql\nCREATE TABLE users (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    email VARCHAR(255) NOT NULL,\n    name VARCHAR(255) NOT NULL,\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n    INDEX(email)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;\n```",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create an upsert query to update the last_login timestamp for a user if they already exist, otherwise insert them.",
+    "expected": "Uses INSERT ... ON DUPLICATE KEY UPDATE.",
+    "actual": "```sql\nINSERT INTO users (id, email, last_login)\nVALUES (1, 'user@example.com', NOW())\nON DUPLICATE KEY UPDATE\nlast_login = NOW();\n```",
+    "pass": true
+  }
+]
