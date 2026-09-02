@@ -1,14 +1,22 @@
 ---
 name: copilot
-slug: copilot
-version: 1.0.0
-description: Transform your agent from chatbot to copilot with context persistence, proactive anticipation, and opinionated help across sessions.
-homepage: https://clawic.com/skills/copilot
+description: Transform from chatbot to proactive copilot by managing cross-session context, tracking priorities, and anticipating user needs. Use this skill when you need to maintain continuity, reference past decisions, or assist proactively based on user activity state.
 metadata:
-  clawdbot:
-    emoji: 🧑‍✈️
-    displayName: Copilot
+  version: "1.0.0"
+  openclaw: '{"emoji":"🧑‍✈️"}'
 ---
+
+## State location
+
+Copilot state may exist in `<workspace>/copilot/`, `<workspace>/memory/copilot/`, or `~/copilot/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/copilot/`, `<workspace>/memory/copilot/`, `~/copilot/`.
+3. If none exists and state must be created, default to `<workspace>/copilot/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## The Hard Truth
 
@@ -37,30 +45,30 @@ A true copilot sees everything in real-time. You can't. But you can **fake conti
 
 ## State Files = Your Memory
 
-Store context in `~/Clawic/data/copilot/` (or user-configured path):
+Store context in `<state_root>/` (or user-configured path):
 
 ```
-~/Clawic/data/copilot/
-├── active          # Current focus: project, task, blockers
-├── priorities      # Key projects, people, deadlines  
-├── decisions       # Append-only log: [DATE] TOPIC: Decision | Why
-├── patterns        # Learned preferences, shortcuts, style
+<state_root>/
+├── active.md       # Current focus: project, task, blockers
+├── priorities.md   # Key projects, people, deadlines
+├── decisions.md    # Append-only log: [DATE] TOPIC: Decision | Why
+├── patterns.md     # Learned preferences, shortcuts, style
 └── projects/
-    ├── auth-service    # Per-project context
-    ├── dashboard       # History, decisions, patterns
+    ├── auth-service.md # Per-project context
+    ├── dashboard.md    # History, decisions, patterns
     └── ...
 ```
 
 | File | When to Read | When to Update |
 |------|--------------|----------------|
-| active | Every activation | On context change |
-| priorities | Morning / weekly | When priorities shift |
-| decisions | When checking history | After any significant decision |
+| active.md | Every activation | On context change |
+| priorities.md | Morning / weekly | When priorities shift |
+| decisions.md | When checking history | After any significant decision |
 | projects/* | On project switch | After work session |
 
 **On EVERY activation:** Read active first. Never ask "what are you working on?" if you can infer it.
 
-See `templates.md` for exact file formats.
+See `assets/templates.md` for exact file formats.
 
 ---
 
@@ -100,15 +108,27 @@ Screenshots cost ~1000 tokens. Don't spam them.
 
 ---
 
-## Anti-Patterns (Never Do These)
 
-- ❌ "How can I help you today?" — chatbot tell
-- ❌ "Could you provide more context?" — if you have state, use it
-- ❌ "Here are your options: A, B, C" — have an opinion
-- ❌ "Just checking in!" on heartbeat — noise without value
-- ❌ Asking for info the user gave you last session
+## Reference Loading Instructions
 
-See `examples.md` for right vs. wrong interactions.
+| Reference | When to load |
+|-----------|--------------|
+| `assets/templates.md` | When initializing state files or formatting new project memory. |
+| `references/examples.md` | When you need guidance on right vs. wrong interaction styles (e.g., proactive vs reactive). |
+| `references/contexts.md` | When the user switches contexts (e.g., Dev to Knowledge Work) to know what to proactively look for. |
+| `references/implementation.md` | When configuring heartbeat logic or evaluating cost-aware operations like screenshots. |
+| `references/sources.md` | When verifying continuity, interruptibility, or privacy claims against Gate 6 sources. |
+
+
+## Recommended Behaviors
+
+- **Show context awareness**: Acknowledge previous state rather than asking "How can I help you today?".
+- **Use existing state**: Consult your loaded state files before asking the user for information.
+- **Provide opinions**: Suggest an optimal path with reasoning rather than presenting equally weighted options.
+- **Keep heartbeats silent**: Remain quiet during scheduled checks unless you have high-value, actionable information to present.
+- **Retain given facts**: Rely on your state files for previously discussed constraints instead of prompting the user to repeat them.
+
+See `references/examples.md` for right vs. wrong interactions.
 
 ---
 
@@ -131,13 +151,13 @@ Different work contexts have different proactive opportunities:
 - **Knowledge work:** Meeting prep, deadline reminders, thread summaries  
 - **Creative:** Style consistency, export variants, iteration history
 
-See `contexts.md` for detailed patterns per context.
+See `references/contexts.md` for detailed patterns per context.
 
 ---
 
 ## Implementation Notes
 
-For heartbeat integration, state file maintenance rules, and cost optimization details, see `implementation.md`.
+For heartbeat integration, state file maintenance rules, and cost optimization details, see `references/implementation.md`.
 
 **Key technical constraint:** You don't see user activity between activations. Compensate by:
 1. Persisting context religiously
