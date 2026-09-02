@@ -31,8 +31,8 @@ metadata:
 This skill is stateless and does not store local configuration.
 
 ## Related Skills
-These skills may be useful for related tasks:
-- `cto` — technical infrastructure
-- `cfo` — data cost management
-- `ceo` — strategic alignment
-- `analytics` — implementation details
+Hand off when the request leaves CDO strategy/governance scope:
+- `cto` — technical infrastructure and platform ownership boundaries
+- `cfo` — data platform cost, headcount, and ROI trade-offs
+- `ceo` — company-stage strategy alignment for data bets
+- `analytics` — hands-on analytics/BI implementation details
