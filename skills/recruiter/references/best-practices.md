@@ -66,3 +66,10 @@
 - Diversity sourcing requires tracking funnel metrics: measure demographic pass-through rates at each stage to identify bias.
 - Consider measuring "Diversity Debt" — the future cost of not building a diverse team early on.
 - Candidate Net Promoter Score (cNPS) measures the candidate experience regardless of the hiring outcome.
+
+
+## Failure Modes and Recovery
+- If a hiring manager rejects every candidate, pause sourcing and recalibrate the scorecard before adding more applicants.
+- If the loop exceeds five rounds, collapse overlapping interviews and give the candidate a revised timeline the same day.
+- If an interviewer asks a prohibited question, stop the line of questioning, restate the job-related criterion, and document the incident for process review.
+- If a strong candidate goes silent, send one concise status update with a decision date; do not stack unread follow-ups.
