@@ -2,7 +2,7 @@
 
 What to pull out, how to grade it, and what to do when a field is missing or unreadable. Applies after format triage (`capture.md`): a structured payload is parsed, not extracted, and skips confidence grading entirely.
 
-**Before extracting**, read `## Suppliers` in `~/Clawic/data/invoices/memory.md` (or `~/Clawic/data/invoices/supplier-book.md` if `## Boxes` points there) and `~/Clawic/data/invoices/categories.md` if `config.yaml` names one. A supplier already known brings its canonical name, its tax ID, its usual rate, and any parsing quirk recorded for it — extracting blind against a supplier you have twenty invoices from is wasted work and a new spelling in the ledger.
+**Before extracting**, read `## Suppliers` in `<state_root>/memory.md` (or `<state_root>/supplier-book.md` if `## Boxes` points there) and `<state_root>/categories.md` if `config.yaml` names one. A supplier already known brings its canonical name, its tax ID, its usual rate, and any parsing quirk recorded for it — extracting blind against a supplier you have twenty invoices from is wasted work and a new spelling in the ledger.
 
 **Contents:** [Required Fields](#required-fields) · [Optional Fields](#optional-fields) · [The Tax Block](#the-tax-block) · [Line Items](#line-items) · [Dates](#dates) · [Currency](#currency) · [Confidence Grading](#confidence-grading) · [Field Recovery](#field-recovery) · [Categories](#categories) · [Structured Payload Mapping](#structured-payload-mapping)
 
@@ -122,4 +122,4 @@ Built-in list, used until `category_scheme` points at a mapping file.
 
 Assign from the supplier first, the description second, keywords last — the supplier is stable and the description is marketing copy. A supplier that spans categories (a marketplace, a large retailer) is categorized per invoice, and that fact belongs in its supplier row so nobody re-derives it monthly.
 
-**Write before you finish**: a newly seen supplier, a new alias for a known one, a corrected tax ID, or a parsing quirk worth remembering goes to `## Suppliers` in `memory.md` (or `~/Clawic/data/invoices/supplier-book.md` past the split); a quirk long enough to need explaining goes to `artifacts/supplier-<name>-parsing.md` with its `## Boxes` line. The extracted invoice itself becomes a ledger row at filing time, not here (`filing.md`).
+**Write before you finish**: a newly seen supplier, a new alias for a known one, a corrected tax ID, or a parsing quirk worth remembering goes to `## Suppliers` in `memory.md` (or `<state_root>/supplier-book.md` past the split); a quirk long enough to need explaining goes to `artifacts/supplier-<name>-parsing.md` with its `## Boxes` line. The extracted invoice itself becomes a ledger row at filing time, not here (`filing.md`).
