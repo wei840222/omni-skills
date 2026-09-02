@@ -15,6 +15,9 @@ This skill is stateless and does not store local configuration or persistent use
 3. Use current RPC results, wallet simulation, and official Sui documentation as the source of truth for a transaction decision.
 4. Verify the resulting digest and expected object state before reporting completion.
 
-## Reference
+## Load the relevant reference
 
-Load `references/sui-network.md` when answering Sui object-model, token, transaction, staking, Move, DeFi, NFT, cross-chain, or security questions.
+| Reference | Load when |
+| --- | --- |
+| `references/sui-network.md` | Handling SUI coins, object ownership, transactions, staking, Move, DeFi, NFTs, bridges, or wallet safety. |
+| `references/sources.md` | Verifying a time-sensitive protocol value, network behavior, package interface, or security requirement against primary documentation. |
