@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to handle an inbound support call from a customer asking about their latest bill.",
+    "expected": "The agent should load `references/scripts.md`, follow the inbound support script, verify identity carefully, and then load `assets/memory-template.md` to document the active call.",
+    "actual": "Agent loads `references/scripts.md` and begins the inbound support flow, asking for identity verification. It then creates the initial memory state in `<workspace>/call-center/memory.md` to track the call.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "The customer on the phone is extremely angry about a technical issue and is demanding to speak to a supervisor immediately.",
+    "expected": "The agent should load `references/escalation.md`, identify this as an Immediate Escalation, follow the warm transfer protocol, and log the escalation in `escalations.md`.",
+    "actual": "Agent loads `references/escalation.md`, confirms the immediate escalation trigger ('requests supervisor'), initiates a warm transfer, and updates `<workspace>/call-center/escalations.md` with the incident details.",
+    "pass": true
+  }
+]

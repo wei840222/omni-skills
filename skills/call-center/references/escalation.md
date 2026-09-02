@@ -16,6 +16,7 @@
 - Technical issue beyond troubleshooting scope
 - Refund or credit above agent limit
 - Policy exception needed
+- Identity verification failure or suspected account takeover
 
 ### Warm Transfer vs Cold Transfer
 
@@ -82,8 +83,9 @@ I've briefed them on your situation. One moment please."
 ### Tier 4: Legal/Compliance
 - Actual legal threats with attorney involvement
 - Regulatory complaints
-- Data breach concerns
+- Data breach concerns or PII exposure
 - Discrimination claims
+- Fraud or money laundering indicators
 
 ---
 
@@ -103,11 +105,11 @@ Try these before escalating an angry caller:
 - "Here's what I can do right now"
 - "Let me take ownership of this"
 
-### What to Avoid
-- "That's policy" (without explanation)
-- "There's nothing I can do"
-- "You need to calm down"
-- Defensive or argumentative tone
+### Preferred Responses
+- "Let me explain why we have this policy..."
+- "Here are the options available to us right now..."
+- Maintain a calm demeanor to de-escalate the situation
+- Use a supportive and professional tone
 
 ---
 

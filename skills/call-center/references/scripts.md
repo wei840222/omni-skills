@@ -10,6 +10,7 @@
 ### Verification (if account-related)
 ```
 "For security, may I have your [account number / email / last 4 of phone]?"
+*(Agent: Follow strict PII protocols. Request only the last 4 digits of SSN or credit card numbers over voice.)*
 ```
 
 ### Issue Capture
@@ -79,7 +80,7 @@ Would you like to move forward today, or should we schedule a follow-up?"
 
 ### Investigate
 - Ask clarifying questions calmly
-- Never blame customer or colleague
+- Maintain accountability and focus solely on solving the issue
 - Take ownership: "Let me see what I can do"
 
 ### Resolve or Escalate
