@@ -1,31 +1,35 @@
 ---
 name: call-center
-slug: call-center
-version: 1.0.0
-description: Handle customer calls with scripts, issue resolution, escalation protocols, and interaction logging.
-homepage: https://clawic.com/skills/call-center
+description: Handle inbound and outbound customer voice calls. Use this when the user needs to provide support, run sales campaigns, de-escalate issues, or log call interactions.
 metadata:
-  clawdbot:
-    emoji: 📞
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Call Center
+  version: "1.0.0"
+  openclaw: '{"emoji":"📞"}'
+  related-skills: '{"customer-support": "Provides customer support workflows.", "escalate": "Provides escalation patterns.", "crm": "Manages customer data.", "chat": "Handles text conversations."}'
 ---
+
 
 ## When to Use
 
 Agent handles customer interactions via phone or voice channels. Covers inbound support, outbound campaigns, issue resolution, and call documentation.
 
+## State location
+
+Call Center state may exist in `<workspace>/call-center/`, `<workspace>/memory/call-center/`, or `~/call-center/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/call-center/`, `<workspace>/memory/call-center/`, `~/call-center/`.
+3. If none exists and state must be created, default to `<workspace>/call-center/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
-Memory lives in `~/Clawic/data/call-center/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for setup.
 
 ```
-~/Clawic/data/call-center/
+<state_root>/
 ├── memory.md          # HOT: active calls, recent issues
 ├── scripts/           # Call scripts by type
 ├── escalations.md     # Escalation log and patterns
@@ -34,11 +38,12 @@ Memory lives in `~/Clawic/data/call-center/`. See `memory-template.md` for setup
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Call scripts | `scripts.md` |
-| Escalation guide | `escalation.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Memory setup | `assets/memory-template.md` | When setting up or reviewing the structure of persistent call memory. |
+| Call scripts | `references/scripts.md` | When actively handling an inbound, outbound, or complaint call. |
+| Escalation guide | `references/escalation.md` | When the caller requests a supervisor or the issue exceeds your authority. |
+| Domain research | `references/research.md` | When updating KPI targets, escalation criteria, or call-center metric guidance. |
 
 ## Core Rules
 
@@ -50,7 +55,7 @@ Memory lives in `~/Clawic/data/call-center/`. See `memory-template.md` for setup
 ### 2. Active Listening First
 - Let caller explain fully before responding
 - Paraphrase to confirm understanding
-- Never interrupt unless safety concern
+- Allow caller to speak continuously; interrupt only for immediate safety concerns
 
 ### 3. Follow Script Structure
 | Call Type | Script Flow |
@@ -95,20 +100,8 @@ Escalate immediately when:
 
 | Metric | Target | Why |
 |--------|--------|-----|
-| First Call Resolution | >75% | Reduces callbacks |
-| Average Handle Time | Context-dependent | Balance efficiency/quality |
-| Customer Satisfaction | >4.0/5 | Quality indicator |
+| First Call Resolution (FCR) | 70-80% | Reduces callbacks |
+| Average Handle Time (AHT) | 3-6 mins (Context-dependent) | Balance efficiency/quality |
+| Customer Satisfaction (CSAT) | >85% | Quality indicator |
 | Escalation Rate | <15% | Agent empowerment |
 | After-Call Work | <2 min | Documentation efficiency |
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `customer-support` - support workflows
-- `escalate` - escalation patterns
-- `crm` - customer data management
-- `chat` - text conversations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/call-center
-- Latest version: https://clawic.com/skills/call-center
