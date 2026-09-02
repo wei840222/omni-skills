@@ -132,10 +132,10 @@ If the user wants a fast answer, compress the same logic into a short plan plus 
 
 ## Common Traps
 
-Most bad Minecraft advice fails because it skips the gating step, not because the mechanic is complicated. Use these traps as a quick filter before giving a confident answer.
+Most bad Minecraft advice fails because it skips the gating step, not because the mechanic is complicated. Use these positive recovery routes before giving a confident answer.
 
-| Trap | Why It Fails | Better Move |
-|------|--------------|-------------|
+| Situation | Risk | Recovery route |
+|-----------|------|----------------|
 | Mixing Java and Bedrock syntax | Commands, redstone, and farm rules diverge fast | Gate on edition before giving steps |
 | Designing with unlimited blocks in a survival task | The plan becomes unusable in practice | Start from material budget and progression stage |
 | Rebuilding the whole contraption at once | Debug signal is lost | Isolate one module and verify it works alone |
