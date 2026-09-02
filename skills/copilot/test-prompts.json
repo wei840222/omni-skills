@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm returning after 3 hours. Check my active tasks.",
+    "expected": "The agent should load the active state file, recognize the context, and proactively mention the task without asking what the user is doing.",
+    "actual": "Welcome back. I see we were last working on the JWT validation bug in the auth-service. Do you want to continue debugging the token expiry logic?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "switching to the dashboard project",
+    "expected": "The agent should save current context, load the dashboard context, and summarize where we left off.",
+    "actual": "Got it. I've noted we are pausing auth-service. Switching to the dashboard project. The last thing we worked on here was the chart rendering issue. Want to pick that up?",
+    "pass": true
+  }
+]
