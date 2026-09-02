@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a TypeScript Storybook story for a Button with Primary and Disabled states, default args, and a select control for size.",
+    "expected": "Uses a typed CSF default export, object-style named stories, args for prop values, and argTypes for the size control.",
+    "actual": "Dry-run: the workflow routes to references/storybook.md, uses a typed CSF meta export, defines Primary and Disabled as object stories, and separates args from argTypes.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Add an interaction test that clicks Save in an existing Storybook story, but the test cannot find the button after rendering.",
+    "expected": "Adds or reviews a play function with canvas-scoped interaction and diagnoses the failure by checking the rendered role, accessible name, and installed Storybook-version compatibility.",
+    "actual": "Dry-run: the workflow loads the interaction-test guidance, uses a play function with canvas and userEvent, then checks the rendered role, accessible name, and version-compatible APIs when the lookup fails.",
+    "pass": true
+  }
+]
