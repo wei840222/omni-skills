@@ -13,7 +13,8 @@ metadata:
 | Transactions and locking | `references/transactions.md` | When dealing with concurrent writes |
 | Query optimization | `references/queries.md` | When rewriting slow queries |
 | Production config | `references/production.md` | When configuring database server |
-| Domain knowledge | `references/domain-knowledge.md` | When verifying high-level MySQL operating rules |
+| Domain knowledge & sources | `references/domain-knowledge.md` | When verifying version-sensitive MySQL claims |
+| Research sources | `references/sources.md` | When citing or refreshing official docs |
 
 ## Workflow
 

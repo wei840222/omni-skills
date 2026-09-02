@@ -1,8 +1,12 @@
 # MySQL Domain Knowledge
 
-MySQL is a widely used open-source relational database management system.
+MySQL is an open-source relational database commonly deployed with the InnoDB storage engine for transactional workloads.
 
-## Best Practices
-- **Storage Engine**: InnoDB should always be preferred over MyISAM for features like transactions, row-level locking, foreign keys, and crash recovery.
-- **Character Sets**: Utilize `utf8mb4` to support 4-byte characters like emojis; `utf8` in MySQL defaults to a maximum of 3 bytes per character.
-- **Security**: Prevent SQL injection by using prepared statements rather than dynamically assembling SQL queries in code.
+## Verified operating rules
+- Prefer InnoDB for application data needing transactions, row-level locking, foreign keys, and crash recovery.
+- Use `utf8mb4` (not legacy `utf8`) whenever text may include emoji or other 4-byte Unicode.
+- Prefer prepared statements / parameterized queries; do not assemble SQL by string concatenation with untrusted input.
+- Treat version-sensitive syntax (`EXPLAIN ANALYZE`, expression indexes, replication status column names) as release-dependent and verify on the target server.
+
+## Freshness boundary
+Confirm exact syntax against the installed MySQL major/minor version before applying production DDL or replication assumptions.
