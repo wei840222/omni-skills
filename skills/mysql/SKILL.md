@@ -1,102 +1,97 @@
 ---
 name: mysql
-slug: mysql
-version: 1.0.1
-description: Write correct MySQL queries with proper character sets, indexing, transactions, and production patterns.
-homepage: https://clawic.com/skills/mysql
+description: Write correct MySQL queries utilizing proper character sets, indexing, transactions, and production patterns. Use when modifying or querying a MySQL database.
 metadata:
-  clawdbot:
-    emoji: 🐬
-    requires:
-      bins:
-      - mysql
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: MySQL
+  openclaw: '{"emoji": "🐬","requires": {"bins": ["mysql"]}}'
+  related-skills: '{"sqlite": "Use when the workload fits embedded/local SQLite instead of a server MySQL instance.", "mariadb": "Use when the target is MariaDB-specific syntax or operational differences from MySQL.", "timescaledb": "Hand off time-series hypertable and continuous-aggregate work on PostgreSQL/Timescale.", "sql": "Use for dialect-agnostic SQL patterns before specializing to MySQL."}'
 ---
-
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Index design deep dive | `indexes.md` |
-| Transactions and locking | `transactions.md` |
-| Query optimization | `queries.md` |
-| Production config | `production.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Index design deep dive | `references/indexes.md` | When designing schema and indexes |
+| Transactions and locking | `references/transactions.md` | When dealing with concurrent writes |
+| Query optimization | `references/queries.md` | When rewriting slow queries |
+| Production config | `references/production.md` | When configuring database server |
+| Domain knowledge & sources | `references/domain-knowledge.md` | When verifying version-sensitive MySQL claims |
+| Research sources | `references/sources.md` | When citing or refreshing official docs |
+
+## Workflow
+
+1. Confirm engine and version (`SHOW VARIABLES LIKE 'version%'; SHOW TABLE STATUS`). Prefer InnoDB for application data.
+2. Enforce `utf8mb4` at schema and connection layer before writing queries that store text.
+3. Design indexes for the actual predicates; use prefix lengths for TEXT/BLOB and generated columns for expressions when needed.
+4. Wrap multi-statement writes in explicit transactions; verify isolation and lock order under concurrency.
+5. Validate plans with `EXPLAIN` / `EXPLAIN ANALYZE` (8.0.18+) before shipping slow-path changes.
+6. Load the matching reference file only when the current task needs that depth.
+7. Prefer concrete verification commands (`SHOW`, `EXPLAIN`, status checks) over memorized absolutes.
 
 ## Character Set Traps
 
-- `utf8` is broken—only 3 bytes, can't store emoji; always use `utf8mb4`
-- `utf8mb4_unicode_ci` for case-insensitive sorting; `utf8mb4_bin` for exact byte comparison
-- Collation mismatch in JOINs kills performance—ensure consistent collation across tables
-- Connection charset must match: `SET NAMES utf8mb4` or connection string parameter
-- Index on utf8mb4 column larger—may hit index size limits; consider prefix index
+- Prefer `utf8mb4`; MySQL `utf8` is a 3-byte alias and cannot store emoji.
+- Use `utf8mb4_unicode_ci` for case-insensitive sorting; `utf8mb4_bin` for exact byte comparison.
+- Keep collation consistent across joined columns—mismatches force conversions and hurt index use.
+- Set connection charset to match (`SET NAMES utf8mb4` or DSN parameters).
+- utf8mb4 indexes are wider; use prefix indexes when key length limits appear.
 
 ## Index Differences from PostgreSQL
 
-- No partial indexes—can't `WHERE active = true` in index definition
-- No expression indexes until MySQL 8.0.13—must use generated columns before that
-- TEXT/BLOB needs prefix length: `INDEX (description(100))`—without length, error
-- No INCLUDE for covering—add columns to index itself: `INDEX (a, b, c)` to cover c
-- Foreign keys auto-indexed only in InnoDB—verify engine before assuming
+- No partial indexes—index definitions cannot include a `WHERE` filter.
+- Expression indexes need generated columns before MySQL 8.0.13.
+- TEXT/BLOB indexes require an explicit prefix length: `INDEX (description(100))`.
+- Covering columns belong in the index itself (`INDEX (a, b, c)`); there is no INCLUDE clause.
+- Foreign keys auto-create indexes only on InnoDB—verify the engine first.
 
 ## UPSERT Patterns
 
-- `INSERT ... ON DUPLICATE KEY UPDATE`—not standard SQL; needs unique key conflict
-- `LAST_INSERT_ID()` for auto-increment—no RETURNING clause like PostgreSQL
-- `REPLACE INTO` deletes then inserts—changes auto-increment ID, triggers DELETE cascade
-- Check affected rows: 1 = inserted, 2 = updated (counter-intuitive)
+- Prefer `INSERT ... ON DUPLICATE KEY UPDATE` when a unique key conflict defines upsert semantics.
+- Use `LAST_INSERT_ID()` for auto-increment values; MySQL has no `RETURNING` clause like PostgreSQL.
+- Avoid `REPLACE INTO` unless delete-then-insert side effects (new auto-increment IDs, DELETE cascades) are intentional.
+- Interpret affected-row counts carefully: 1 = inserted, 2 = updated.
 
 ## Locking Traps
 
-- `SELECT ... FOR UPDATE` locks rows—but gap locks may lock more than expected
-- InnoDB uses next-key locking—prevents phantom reads but can cause deadlocks
-- Lock wait timeout default 50s—`innodb_lock_wait_timeout` for adjustment
-- `FOR UPDATE SKIP LOCKED` exists in MySQL 8+—queue pattern
-- InnoDB default isolation is REPEATABLE READ, not READ COMMITTED like PostgreSQL
-- Deadlocks are expected—code must catch and retry, not just fail
-
-## GROUP BY Strictness
-
-- `sql_mode` includes `ONLY_FULL_GROUP_BY` by default in MySQL 5.7+
-- Non-aggregated columns must be in GROUP BY—unlike old MySQL permissive mode
-- `ANY_VALUE(column)` to silence error when you know values are same
-- Check sql_mode on legacy databases—may behave differently
+- Default `REPEATABLE READ` can surprise with gap locks; choose isolation deliberately for write-heavy paths.
+- Keep transactions short; long open transactions hold locks and inflate undo history.
+- Watch deadlocks via `SHOW ENGINE INNODB STATUS` and normalize lock order across code paths.
+- Prefer row-level patterns over table locks for application traffic.
 
 ## InnoDB vs MyISAM
 
-- Always use InnoDB—transactions, row locking, foreign keys, crash recovery
-- MyISAM still default for some system tables—don't use for application data
-- Check engine: `SHOW TABLE STATUS`—convert with `ALTER TABLE ... ENGINE=InnoDB`
-- Mixed engines in JOINs work but lose transaction guarantees
+- Use InnoDB for application tables: transactions, row locking, foreign keys, crash recovery.
+- Treat MyISAM as legacy/system-table territory, not application data.
+- Confirm with `SHOW TABLE STATUS` and convert via `ALTER TABLE ... ENGINE=InnoDB` when safe.
+- Mixed engines in JOINs can work but lose shared transaction guarantees.
 
-## Query Quirks
+## Syntax Gotchas
 
-- `LIMIT offset, count` different order than PostgreSQL's `LIMIT count OFFSET offset`
-- `!=` and `<>` both work; prefer `<>` for SQL standard
-- No transactional DDL—`ALTER TABLE` commits immediately, can't rollback
-- Boolean is `TINYINT(1)`—`TRUE`/`FALSE` are just 1/0
-- `IFNULL(a, b)` instead of `COALESCE` for two args—though COALESCE works
+- `LIMIT offset, count` ordering differs from PostgreSQL `LIMIT count OFFSET offset`.
+- Both `!=` and `<>` work; prefer `<>` for SQL-standard clarity.
+- DDL commits immediately—`ALTER TABLE` cannot be rolled back inside a transaction.
+- Boolean is `TINYINT(1)`; `TRUE`/`FALSE` are 1/0.
+- Prefer `COALESCE` for general null handling; `IFNULL(a, b)` remains fine for two-arg cases.
 
 ## Connection Management
 
-- `wait_timeout` kills idle connections—default 8 hours; pooler may not notice
-- `max_connections` default 151—often too low; each uses memory
-- Connection pools: don't exceed max_connections across all app instances
-- `SHOW PROCESSLIST` to see active connections—kill long-running with `KILL <id>`
+- `wait_timeout` kills idle connections (default 8h); pools must detect/reconnect.
+- Default `max_connections` is 151 and is often too low for multi-instance apps.
+- Keep aggregate pool size below `max_connections`.
+- Use `SHOW PROCESSLIST` and `KILL <id>` for stuck sessions.
 
 ## Replication Awareness
 
-- Statement-based replication can break with non-deterministic functions—UUID(), NOW()
-- Row-based replication safer but more bandwidth—default in MySQL 8
-- Read replicas have lag—check `Seconds_Behind_Master` before relying on replica reads
-- Don't write to replica—usually read-only but verify
+- Statement-based replication can break with non-deterministic functions (`UUID()`, `NOW()`).
+- Row-based replication is safer and is the MySQL 8 default, at higher bandwidth cost.
+- Check replica lag (`Seconds_Behind_Source` / `Seconds_Behind_Master`) before depending on replica reads.
+- Write only to the primary; verify replicas are read-only.
 
 ## Performance
 
-- `EXPLAIN ANALYZE` only in MySQL 8.0.18+—older versions just EXPLAIN without actual times
-- Query cache removed in MySQL 8—don't rely on it; cache at application level
-- `OPTIMIZE TABLE` for fragmented tables—locks table; use pt-online-schema-change for big tables
-- `innodb_buffer_pool_size`—set to 70-80% of RAM for dedicated DB server
+- `EXPLAIN ANALYZE` exists on MySQL 8.0.18+; older versions provide `EXPLAIN` without actual timings.
+- Query cache is removed in MySQL 8—cache at the application layer when needed.
+- `OPTIMIZE TABLE` rebuilds/fragments cleanup but locks; use online schema-change tools for large tables.
+- Size `innodb_buffer_pool_size` around 70–80% of RAM on dedicated DB hosts, then validate with metrics.
+
+## State location
+
+This skill is knowledge-only and does not store local configuration or database data in the agent filesystem.
