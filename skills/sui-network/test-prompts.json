@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "My Sui transaction fails because an object version changed. What should I inspect and how should I retry safely?",
+    "expected": "Identify the network, object ID, current version, and prior transaction effects; require rebuilding against current object state rather than blind resubmission.",
+    "actual": "Confirm the active network, object ID, and the transaction digest that produced the error. Fetch the object's current data and inspect whether another transaction consumed, transferred, or mutated it. Rebuild the transaction with the current object version and inputs, dry-run it when available, then sign only after its effects match the intended operation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A dApp asks me to sign a transaction that touches a shared object and transfers SUI through a bridge. Is the wallet confirmation enough?",
+    "expected": "Explain that a wallet confirmation is not sufficient; require verification of authorization, network, official bridge, package IDs, asset type, recipient, amount, and effects.",
+    "actual": "No. Confirm the connected source and destination networks, official bridge and package IDs, sender, recipient, SUI or wrapped asset type, amount, and every requested object change. A shared object being callable does not itself prove authorization, so the Move call must enforce the intended access control. Inspect simulation or dry-run effects before signing; keep recovery phrases and private keys offline.",
+    "pass": true
+  }
+]
