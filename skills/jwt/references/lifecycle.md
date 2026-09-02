@@ -26,7 +26,7 @@
 - `iat` claim for issued-at—useful for "tokens before this date invalid"
 - Replay attack: captured token reused—short expiry limits window
 - Token per device vs single token—security vs UX tradeoff
-- Re-authentication for sensitive ops—don't rely on old token
+- Re-authentication for sensitive ops—require fresh authentication
 
 ## Session Management Traps
 

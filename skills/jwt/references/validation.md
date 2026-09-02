@@ -4,7 +4,7 @@
 
 - Decode without verify = reading claims without checking authenticity—useless for auth
 - Verify with wrong key = invalid signature for valid token—check key first
-- Algorithm must be enforced server-side—never trust token's `alg` claim
+- Enforce the expected algorithm server-side with an explicit allowlist
 - Empty signature with `alg: none`—reject explicitly
 
 ## Time Claim Traps
@@ -25,13 +25,13 @@
 
 - `sub` (subject) exists but user deleted—check user still valid
 - Custom claims untrusted like any input—validate/sanitize
-- Nested claims need deep validation—don't assume structure
+- Validate nested claims against the expected structure before use
 - Claim exists but empty string—truthy check passes, validation fails
 
 ## Error Handling Traps
 
 - Don't reveal why validation failed—"invalid token" not "wrong issuer"
-- Expired vs invalid = same HTTP 401—don't distinguish for attacker
+- Expired vs invalid = same HTTP 401—return consistent errors to avoid information leakage
 - Logging token = logging credential—mask or hash in logs
 - Catch library-specific exceptions—each throws differently
 

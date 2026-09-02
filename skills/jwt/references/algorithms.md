@@ -3,7 +3,7 @@
 ## Algorithm Confusion Attack
 
 - Token says `alg: HS256`, server uses RS256 key as HMAC secret—forged token validates
-- NEVER use token's `alg` header to select algorithm—server must enforce
+- Configure the server with an explicit algorithm allowlist and ignore the token `alg` claim
 - `algorithms: ['RS256']` in verify options—explicit allowlist
 - Some libraries default to trusting header—check your library
 
@@ -16,7 +16,7 @@
 
 ## RS256/ES256 Traps
 
-- Private key signs, public key verifies—don't swap
+- Keep signing on the private key and verification on the public key; never reverse the roles
 - Public key can be shared—but attackers knowing it doesn't help them forge
 - Key length matters: RSA 2048 minimum, 4096 recommended
 - ECDSA (ES256) has smaller signatures—better for size-constrained cases
@@ -25,7 +25,7 @@
 
 - `alg: none` + no signature = unsigned token accepted by vulnerable libraries
 - Most modern libraries reject by default—but verify yours
-- Never allow `none` in algorithm allowlist
+- Keep the algorithm allowlist limited to approved secure algorithms for the deployment
 - Test by sending `alg: none` token to your service
 
 ## Key ID Traps
