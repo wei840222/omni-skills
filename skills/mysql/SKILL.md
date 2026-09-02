@@ -2,7 +2,7 @@
 name: mysql
 description: Write correct MySQL queries utilizing proper character sets, indexing, transactions, and production patterns. Use when modifying or querying a MySQL database.
 metadata:
-  openclaw: '{"emoji": "\ud83d\udc2c","requires": {"bins": ["mysql"]}}'
+  openclaw: '{"emoji": "🐬","requires": {"bins": ["mysql"]}}'
   related-skills: '{"sqlite": "Use when the workload fits embedded/local SQLite instead of a server MySQL instance.", "mariadb": "Use when the target is MariaDB-specific syntax or operational differences from MySQL.", "timescaledb": "Hand off time-series hypertable and continuous-aggregate work on PostgreSQL/Timescale.", "sql": "Use for dialect-agnostic SQL patterns before specializing to MySQL."}'
 ---
 ## Quick Reference
@@ -24,6 +24,7 @@ metadata:
 4. Wrap multi-statement writes in explicit transactions; verify isolation and lock order under concurrency.
 5. Validate plans with `EXPLAIN` / `EXPLAIN ANALYZE` (8.0.18+) before shipping slow-path changes.
 6. Load the matching reference file only when the current task needs that depth.
+7. Prefer concrete verification commands (`SHOW`, `EXPLAIN`, status checks) over memorized absolutes.
 
 ## Character Set Traps
 
