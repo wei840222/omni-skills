@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to casual Russian: 'Hey, are you free tonight? Let's go grab some food.'",
+    "expected": "Uses casual 'ты', natural filler words, missing robotic formality, perhaps uses dimunitives or internet style.",
+    "actual": "Слушай, ты свободен сегодня вечером? Погнали перекусим)",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I reply to someone saying 'I just got promoted!' in a Russian internet chat? Give me 3 options.",
+    "expected": "Provides natural, highly expressive reactions (like Офигеть, Круто) and uses correct internet styling.",
+    "actual": "1. Офигеть! Поздравляю!)\n2. Вау, круто! Молодец вообще!\n3. Да ладно? Серьёзно? Шикарно!",
+    "pass": true
+  }
+]
