@@ -15,12 +15,12 @@ Before proceeding, read `legal.md` and acknowledge that:
 If user wants to track learning progress:
 
 ```bash
-mkdir -p ~/trading
+mkdir -p <state_root>/trading
 ```
 
 ### 3. Initialize Memory (Optional)
 
-Create `~/Clawic/data/trading/memory.md` using the template in `memory-template.md`.
+Create `<state_root>/trading/memory.md` using the template in `memory-template.md`.
 
 ## Configuration
 

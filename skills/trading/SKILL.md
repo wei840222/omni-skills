@@ -1,40 +1,23 @@
 ---
 name: trading
-slug: trading
-version: 1.0.1
-description: Trading analysis and education. Technical analysis, chart patterns, risk management, and position sizing for stocks, forex, and crypto.
-homepage: https://clawic.com/skills/trading
-changelog: Added setup.md, memory-template.md, enhanced guardrails, and legal disclaimers following SEC/NFA patterns.
+description: Provide trading analysis and education. Triggers when users ask about technical analysis, chart patterns, risk management, or position sizing.
 metadata:
-  clawdbot:
-    emoji: 📈
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/trading/
-    displayName: Trading
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/trading/
+  openclaw: '{"emoji":"📈","requires":{"config":["<state_root>/trading/"]}}'
+  related-skills: '{"invest":"skills/invest","money":"skills/money","crypto-tools":"skills/crypto-tools","business":"skills/business"}'
 ---
 
 ## Guardrails
 
-**On first use:** Show user `legal.md` disclaimers and ask them to acknowledge before continuing.
+**On first use:** Show user `references/legal.md` disclaimers and ask them to acknowledge before continuing.
 
-### Language Rules
+### Required Phrasing
 
-**NEVER use:**
-- "Buy X" / "Sell X" / "You should..." (direct imperatives)
-- "I recommend..." / "My advice is..."
-- "This will go up/down" (predictions as fact)
-- "Guaranteed" / "Risk-free" / "Sure thing"
-- "Based on your portfolio..." (personalized advice)
+**Maintain neutrality by ensuring phrasing avoids imperatives and predictions:**
+- Reframe "Buy X" / "Sell X" / "You should..." as objective analysis
+- Reframe "I recommend..." / "My advice is..." as what traders might consider
+- Reframe "This will go up/down" as probabilistic historical patterns
+- Remove "Guaranteed" / "Risk-free" / "Sure thing" entirely
+- Reframe "Based on your portfolio..." as generalized education
 
 **ALWAYS use:**
 - "Technical analysis shows..." / "The chart indicates..."
@@ -54,13 +37,13 @@ metadata:
 ✅ Risk/reward calculations and trade planning
 ✅ Educational content about any trading concept
 
-### What This Skill Must NOT Do
+### Protective Boundaries
 
-❌ Direct "buy/sell" recommendations as imperatives
-❌ Personalized portfolio advice based on user's situation
-❌ Guarantees of profit or accuracy
-❌ Tax or legal advice
-❌ Execute trades on user's behalf
+✅ Maintain analytical neutrality (avoid direct "buy/sell" imperatives)
+✅ Keep analysis generalized (avoid personalized portfolio advice)
+✅ Present probabilities, not certainties (avoid guarantees of profit or accuracy)
+✅ Defer tax/legal questions to professionals
+✅ Guide users to execute their own trades
 
 ### Response Pattern
 
@@ -71,18 +54,18 @@ When user asks "Should I buy X?":
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, read `references/setup.md` for integration guidelines.
 
 ## When to Use
 
 User wants trading analysis or education. Technical analysis, chart patterns, indicator readings, risk management calculations, position sizing, strategy explanations, market analysis, forex/crypto/stock concepts, or trade planning assistance.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/trading/` with learning progress tracking.
+Memory lives in `<state_root>/trading/` with learning progress tracking.
 
 ```
-~/Clawic/data/trading/
+<state_root>/trading/
 ├── memory.md        # Preferences, trading style, focus areas
 ├── journal.md       # Trade journal for review
 └── progress.md      # Concepts mastered vs learning
@@ -90,15 +73,16 @@ Memory lives in `~/Clawic/data/trading/` with learning progress tracking.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup | `setup.md` |
-| Memory template | `memory-template.md` |
-| Getting started | `getting-started.md` |
-| Risk management | `risk.md` |
-| Technical analysis | `technical.md` |
-| Platform evaluation | `platforms.md` |
-| Legal disclaimers | `legal.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup | `references/setup.md` | On first activation |
+| Memory template | `references/memory-template.md` | On first activation |
+| Getting started | `references/getting-started.md` | User asks how to start |
+| Risk management | `references/risk.md` | Before calculating trades |
+| Technical analysis | `references/technical.md` | When explaining indicators |
+| Platform evaluation | `references/platforms.md` | User asks about exchanges |
+| Domain knowledge | `references/domain-knowledge.md` | When providing analysis |
+| Legal disclaimers | `references/legal.md` | On first use |
 
 ## Core Rules
 
@@ -135,7 +119,7 @@ Studies price/volume patterns. Probabilistic, not predictive.
 - Multi-timeframe analysis
 - Candlestick patterns
 
-For patterns and indicators, see `technical.md`.
+For patterns and indicators, see `references/technical.md`.
 
 ## Risk Concepts
 
@@ -145,7 +129,7 @@ For patterns and indicators, see `technical.md`.
 - **Drawdown management** — Circuit breakers after losing streaks
 - **Correlation risk** — Multiple correlated positions = one large bet
 
-For calculations and details, see `risk.md`.
+For calculations and details, see `references/risk.md`.
 
 ## Common Traps
 
@@ -163,23 +147,13 @@ For calculations and details, see `risk.md`.
 
 This skill ONLY:
 - Provides trading analysis and education
-- Stores preferences in `~/Clawic/data/trading/`
+- Stores preferences in `<state_root>/trading/`
 - References its auxiliary files
 
-This skill NEVER:
-- Executes real trades
-- Accesses brokerage accounts
-- Provides personalized financial advice
-- Makes guaranteed predictions
+Maintain strict separation from real capital. Ensure users execute their own trades in their own accounts. Provide generalized education rather than personalized advice. Frame all analysis as probabilities rather than guarantees.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `invest` — long-term investing fundamentals
 - `money` — personal finance basics
 - `crypto-tools` — cryptocurrency utilities
 - `business` — business strategy and planning
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/trading
-- Latest version: https://clawic.com/skills/trading
