@@ -1,6 +1,6 @@
 ---
 name: minecraft
-description: Plan and troubleshoot Minecraft worlds, builds, redstone, commands, farms, mods, and servers without mixing Java and Bedrock rules.
+description: Plan and troubleshoot Minecraft worlds, builds, redstone, commands, farms, mods, and servers without mixing Java and Bedrock rules. Use when a request needs edition-aware gameplay, build, automation, command, or server guidance.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧱"}'
