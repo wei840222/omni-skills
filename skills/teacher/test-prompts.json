@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a 50 minute lesson plan on introducing fractions to 4th graders. I have a smartboard and 28 kids.",
+    "expected": "A structured lesson plan starting with a prerequisite check, using small input chunks (worked examples), checking for understanding using whole-class methods, and dedicating 1/3 time to independent practice.",
+    "actual": "Here is a 50-minute lesson plan for introducing fractions. First, a 5-minute retrieval check on division and equal sharing. Then, a 10-minute explicit instruction block using the smartboard to show concrete examples of a whole split into equal parts, ending with a hinge question on mini-whiteboards to check if 80% grasp the concept. This is followed by a 15-minute guided practice phase and a 20-minute independent practice session where students shade in fractional parts.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My high school math class keeps failing the unit test even though they can do the problems perfectly on the whiteboard when I show them. What should I do?",
+    "expected": "Identify the failure signature (e.g., massed practice vs spaced practice, or not fading the scaffold). Suggest implementing spaced retrieval practice and fading scaffolds.",
+    "actual": "This sounds like a classic case where performance during instruction is mistaken for learning, often caused by massed practice or unfaded scaffolds. When you demonstrate on the whiteboard, they are following your schema. The fix is in the design: 1) Space and interleave retrieval (Rule 5) by starting each lesson with 5 questions from past topics. 2) Fade the scaffold: move from worked example to completion problem, and finally to independent practice, ensuring they can solve it without the model before moving on.",
+    "pass": true
+  }
+]
