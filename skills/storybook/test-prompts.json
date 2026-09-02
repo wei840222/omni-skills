@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a TypeScript Storybook story for a Button with Primary and Disabled states, default args, and a select control for size.",
+    "expected": "Uses a typed CSF default export, object-style named stories, args for prop values, and argTypes for the size control.",
+    "actual": "Execution output: defined a typed CSF meta export with `title`, `component`, and default `args`; emitted `Primary` as `{}` and `Disabled` as `{ args: { disabled: true } }`; added `argTypes.size` with a select control for `sm` and `lg`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Add an interaction test that clicks Save in an existing Storybook story, but the test cannot find the button after rendering.",
+    "expected": "Adds or reviews a play function with canvas-scoped interaction and diagnoses the failure by checking the rendered role, accessible name, and installed Storybook-version compatibility.",
+    "actual": "Execution output: added a `play` function that uses `canvas.findByRole('button', { name: 'Save' })` and `userEvent.click`; for the failed lookup, checked the rendered role, accessible name, and the project Storybook version before selecting compatible APIs.",
+    "pass": true
+  }
+]
