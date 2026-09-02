@@ -1,8 +1,7 @@
 ---
 name: prompting
-description: Create, test, and improve prompts for AI models while preserving voice, adapting to the target model, and diagnosing repeatable failures. Use when a user needs a new prompt, prompt revision, prompt evaluation, or model-specific prompt adaptation.
+description: Iterate and diagnose prompts for AI models based on verifiable failure criteria. Trigger when resolving instruction drift, invalid structured output, voice degradation, or when adapting prompts across platform versions.
 metadata:
-  version: "1.0.0"
   openclaw: '{"emoji":"💬"}'
 ---
 
@@ -14,7 +13,7 @@ Prompting state may exist in `<workspace>/prompting/`, `<workspace>/memory/promp
 2. Otherwise use the first existing directory in this order: `<workspace>/prompting/`, `<workspace>/memory/prompting/`, then `~/prompting/`.
 3. If no candidate exists and the user wants state saved, create `<workspace>/prompting/`.
 
-Keep every state operation in the selected `<state_root>`. When multiple candidate directories exist, use only the highest-precedence directory and tell the user; do not merge or synchronize them automatically. If the host cannot provide `<workspace>` and `~/prompting/` does not exist, ask for a state root before creating data.
+Keep every state operation in the selected `<state_root>`. When multiple candidate directories exist, use exactly the highest-precedence directory and notify the user; maintain independent directories instead of synchronizing them. If the host cannot provide `<workspace>` and `~/prompting/` does not exist, ask for a state root before creating data.
 
 ## Workflow
 
@@ -24,7 +23,15 @@ Keep every state operation in the selected `<state_root>`. When multiple candida
 4. Change one variable at a time, then re-run the same cases. Preserve the strongest version and record the evidence for a durable improvement.
 5. Deliver the prompt with its intended model, input assumptions, output contract, and the next test to run.
 
-Use `references/failures.md` when an output is wrong, incomplete, unsafe, or inconsistent. Use `references/iteration.md` for a reproducible experiment and regression set. Use `references/models.md` when adapting a prompt across model families or API features. Use `references/techniques.md` after a simple prompt misses the stated success criteria. Use `references/memory-template.md` only after the user asks to retain prompting preferences or outcomes across sessions.
+### Quick Reference
+
+| File | When to load |
+|---|---|
+| `references/failures.md` | When an output is wrong, incomplete, unsafe, or inconsistent. |
+| `references/iteration.md` | To run a reproducible experiment and evaluate a regression set. |
+| `references/models.md` | When adapting a prompt across model families or API features. |
+| `references/techniques.md` | After a simple prompt misses the stated success criteria. |
+| `references/memory-template.md` | Only after the user authorizes retaining prompting preferences or outcomes across sessions. |
 
 ## Prompt construction rules
 

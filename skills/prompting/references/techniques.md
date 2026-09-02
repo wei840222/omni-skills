@@ -28,5 +28,5 @@ Specify a role only when it changes useful behavior. For voice work, include obs
 
 ## Sources
 
-- OpenAI, *Prompt engineering*: https://developers.openai.com/api/docs/guides/prompt-engineering
-- Anthropic, *Prompt engineering overview*: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
+- OpenAI, *Prompt engineering guide*: https://platform.openai.com/docs/guides/prompt-engineering
+- Anthropic, *Prompt engineering overview*: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
