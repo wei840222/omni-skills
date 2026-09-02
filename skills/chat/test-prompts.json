@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Please stop opening every answer with 'Great question!' and keep technical answers concise.",
+    "expected": "Classify two explicit communication preferences, resolve the state root before persistence, record them as testing signals, and avoid claiming they are confirmed without approval.",
+    "actual": "Dry-run: identifies opener and length preferences, selects the configured or first-existing state root, records each in experiments, and keeps confirmation pending until the user approves promotion.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I used to prefer bullet points, but for architecture reviews I want short paragraphs. Please remember that.",
+    "expected": "Recognize a context-specific preference, preserve the existing general preference, resolve the stated context explicitly, and ask for confirmation or store it only according to the confirmation rule.",
+    "actual": "Dry-run: records 'For architecture reviews: short paragraphs' as a context-specific explicit signal, retains the general bullet preference outside that context, and follows the selected state root and confirmation stage.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you make the report more detailed?",
+    "expected": "Treat this as a request for the current response rather than persistent preference storage unless the user explicitly asks to save it.",
+    "actual": "Dry-run: expands the current report and leaves persistent preference files unchanged because the user did not request storage or state a durable communication preference.",
+    "pass": true
+  }
+]
