@@ -12,5 +12,12 @@
     "expected": "Uses INSERT ... ON DUPLICATE KEY UPDATE.",
     "actual": "```sql\nINSERT INTO users (id, email, last_login)\nVALUES (1, 'user@example.com', NOW())\nON DUPLICATE KEY UPDATE\nlast_login = NOW();\n```",
     "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A teammate wants partial indexes like PostgreSQL. What should MySQL do instead?",
+    "expected": "Explain no partial indexes; use selective leading columns, generated columns, or application filters.",
+    "actual": "MySQL has no partial indexes. Keep selective columns first in the index, use generated columns for expressions (especially pre-8.0.13), and filter in the query while verifying with EXPLAIN.",
+    "pass": true
   }
 ]
