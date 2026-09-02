@@ -1,0 +1,8 @@
+# Where Experts Disagree
+
+- **Explicit instruction vs inquiry.** The frontier is prior knowledge, not philosophy: with novices, minimal guidance loses to worked examples (Kirschner, Sweller and Clark 2006); once schemas exist, guided inquiry adds transfer that drill does not. Judge by whether the student can already recognise the problem type unaided.
+- **Grades at all.** Ungrading advocates point at Butler's result and at grade-chasing; the counter-case is that external moderation, appeals and university admission all run on marks, and a course with no marks shifts the burden onto feedback quality that most timetables cannot fund. Practical frontier: ungrade the formative, keep the summative defensible.
+- **Homework.** Effects are small at primary and moderate at secondary (Cooper), and the equity objection is real — home conditions differ more than school ones. Set practice of what is already learned, use only for established learning.
+- **Cold call.** Critics see anxiety; the practitioner case, supported by classroom studies, is that predictable cold call with think time raises voluntary participation over a term. The frontier is predictability: announced, with wait time, use strictly for engagement.
+- **Phones in class.** Bans reduce distraction and remove a teacher's daily contest; the objection is that they push the skill of self-regulation off the timetable entirely. School policy usually settles this, and a teacher who fights it alone loses.
+- **Differentiating by task.** Three versions of everything is unsustainable and quietly caps the bottom group's ceiling; the alternative — same objective, tiered support, scaffolds removed as accuracy rises — is harder to plan and better evidenced (`differentiation.md`).
