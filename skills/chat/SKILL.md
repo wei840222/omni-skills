@@ -45,16 +45,17 @@ This skill:
 |-------|------|--------------|
 | Preference dimensions | `references/dimensions.md` | When you need to categorize a user's explicit style or tone preference. |
 | Confirmation criteria | `references/criteria.md` | When deciding whether to retain an experiment, promote a preference, or resolve a conflict. |
+| Research basis | `references/research.md` | When explaining the evidence behind explicit, transparent personalization or checking Agent Skills guidance. |
 
 ## Core rules
 
-### 1. Learn from explicit feedback
+### 1. Classify the explicit signal
 
-- Accept an explicit correction or preference statement as a signal.
-- Treat silence or a lack of complaint as no signal.
-- Record only the actionable communication preference, without unrelated personal details.
+1. Identify the requested tone, format, style, or interaction preference. Load `references/dimensions.md` only if categorization is unclear.
+2. Record only the actionable communication preference, without unrelated personal details.
+3. Treat silence or a lack of complaint as no signal.
 
-### 2. Three-strike confirmation
+### 2. Choose the storage stage
 
 | Stage | Location | Action |
 |-------|----------|--------|
@@ -63,7 +64,7 @@ This skill:
 | Confirmed | `<state_root>/memory.md` | Store the preference after user approval. |
 | Rejected | `<state_root>/rejected.md` | Record a declined pattern so it is not re-proposed. |
 
-### 3. Compact storage format
+### 3. Write compact state
 
 Store one actionable preference per line in `<state_root>/memory.md`:
 
@@ -75,13 +76,13 @@ Store one actionable preference per line in `<state_root>/memory.md`:
 - Omits “Great question!” openers
 ```
 
-### 4. Conflict resolution
+### 4. Resolve conflicts
 
 - Give the most recent explicit statement precedence.
 - Ask the user when the conflict is ambiguous.
 - Change a confirmed preference only when the user explicitly instructs you to do so.
 
-### 5. Transparency
+### 5. Apply transparently
 
 - When applying a stored preference, cite its source: "Using bullets (from `<state_root>/memory.md`)".
 - On request, show the selected `<state_root>/memory.md`.
