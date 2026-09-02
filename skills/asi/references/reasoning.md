@@ -190,7 +190,7 @@ Observe → Orient → Decide → Act → (repeat faster than competition)
 **Act:** Execute
 
 ### Speed Advantage
-The entity that cycles through OODA faster wins. Speed compounds.
+Faster OODA cycles can create an advantage when feedback is reliable; verify that speed does not outrun safety or decision quality.
 
 ### When to Use
 - Competitive situations
