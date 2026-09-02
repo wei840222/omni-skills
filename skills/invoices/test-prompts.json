@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just received an invoice from AWS for $142.50. It's a PDF. Can you file it for me?",
+    "expected": "The agent reads the PDF for extraction (preferring any embedded XML), normalizes the supplier 'AWS', checks the ledger for duplicates by tax ID/invoice number, adds a new row to the ledger noting the $142.50 and VAT, and files the document into the chronological archive. The state updates are confirmed.",
+    "actual": "Extracted data from AWS PDF (no XML found, used OCR). Verified amount $142.50 and identified $0 VAT (reverse charge). Checked ledger; no duplicates found. Created ledger entry in <state_root>/ledger/2026.md and stored the file in <state_root>/archive/2026/09/. Document filed successfully.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How much did I spend with 'GitHub' last quarter?",
+    "expected": "The agent loads references/search.md, queries the ledger for the previous quarter using the defined accounting boundary (issue date or payment date), sums the amounts associated with the supplier 'GitHub', and returns the total.",
+    "actual": "Loaded search procedures. Read ledger for Q2 2026. Found 3 invoices for 'GitHub' (Apr, May, Jun). Total spend according to issue date is $63.00. (All payments verified).",
+    "pass": true
+  }
+]
