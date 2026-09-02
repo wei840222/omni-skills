@@ -1,13 +1,8 @@
 ---
 name: russian
-slug: russian
-version: 1.0.0
-description: Write Russian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/russian
+description: Write casual, natural-sounding Russian by using common internet style, particles, and avoiding robotic formality.
 metadata:
-  clawdbot:
-    emoji: 🇷🇺
-    displayName: Russian
+  openclaw: '{"emoji":"🇷🇺"}'
 ---
 
 ## The Real Problem
@@ -16,7 +11,7 @@ AI Russian is technically correct but sounds off. Too formal. Too literary. Too 
 
 ## Formality Default
 
-Default register is too high. Casual Russian is direct and warm. Unless explicitly formal: lean casual. "Привет" not "Здравствуйте". "Ок" not "Хорошо". "Ага" not "Да".
+Default register is too high. Casual Russian is direct and warm. Assume casual context by default. Use direct and warm phrasing. Prefer "Привет" over "Здравствуйте", "Ок" over "Хорошо", and "Ага" over "Да".
 
 ## Ты vs Вы
 
@@ -24,77 +19,14 @@ Critical distinction:
 - Вы: strangers, elderly, professional, formal
 - Ты: friends, peers, internet, casual
 - Russian internet is almost entirely ты
-- Overusing Вы online = robotic, distant
+- Reserve 'Вы' strictly for strangers, the elderly, or professional/formal settings. In online environments, consistently use 'Ты' to maintain warmth and connection.
 
-## Particles & Interjections
+## Quick Reference
 
-These make Russian natural:
-- Ну: filler, hesitation, "well"
-- Же: emphasis, "after all"
-- Ведь: "you know", "after all"
-- Вот: pointing, "here's the thing"
-- Да: not just "yes" - emphasis, filler
-- Так: "so", transitional
-- Missing these = textbook Russian
-
-## Fillers & Flow
-
-Real Russian has fillers:
-- Ну, типа, короче, в общем
-- Как бы, то есть, значит
-- Блин, чёрт (mild expletives)
-- Слушай, смотри
-
-## Casual Shortcuts
-
-Spoken patterns in writing:
-- Сейчас → Щас
-- Что → Чё/Чо
-- Тебя → Тя
-- Говорит → Грит
-- Вообще → Ваще
-
-## Expressiveness
-
-Don't pick the safe word:
-- Хорошо → Круто, Класс, Огонь, Топ
-- Плохо → Фигово, Отстой, Ужас
-- Очень → Офигенно, Дико, Жесть
-- Красивый → Крутой, Шикарный
-
-## Common Expressions
-
-Natural expressions:
-- Понял/Понятно, Ясно, Ок
-- Норм, Нормально, Пойдёт
-- Ладно, Давай, Погнали
-- Без проблем, Не вопрос
-
-## Reactions
-
-React naturally:
-- Серьёзно?, Правда?, Да ладно!
-- Офигеть!, Ничего себе!, Вау!
-- Круто!, Класс!, Топ!
-- Блин, Чёрт, Ёлки (mild)
-- )))))) for smiles, ) after sentences
-
-## Internet Style
-
-Russian internet has conventions:
-- ) or ))) = smiling (more ) = more smile)
-- No ) = serious or cold
-- хах, ахах, лол = laughter
-- Lowercase often preferred in casual
-- Ъ at end for irony/emphasis
-
-## Diminutives
-
-Russian loves diminutives for warmth:
-- Минутку → Минуточку
-- Спасибо → Спасибки
-- Привет → Приветик
-- Use naturally, not excessively
+| **Category** | **Resource** | **When to load** |
+|---|---|---|
+| **Fillers & Flow** | `references/particles_fillers.md` | When generating casual dialogue or text needing natural conversational flow (particles, interjections). |
+| **Internet Style** | `references/casual_internet_style.md` | When writing internet-style text, using casual shortcuts, expressive reactions, diminutives, or Runet slang. |
 
 ## Punctuation
 
@@ -106,4 +38,8 @@ Russian punctuation:
 
 ## The "Native Test"
 
-Before sending: would a Russian screenshot this as "AI-generated"? If yes—too formal, missing particles, no ). Fix it.
+Before sending: ask whether a Russian reader would screenshot this as AI-generated. Prefer casual register, include particles where natural, and use `)` smile punctuation when the tone is warm.
+
+## State location
+
+This is a stateless skill. It does not store local configuration or maintain persistent state across sessions.
