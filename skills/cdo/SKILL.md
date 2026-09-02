@@ -9,7 +9,7 @@ metadata:
 ## Trigger conditions
 - **DO trigger** when users ask for data strategy, data governance models, data platform selection, or data team organizational design.
 - **DO trigger** when the request involves establishing data quality, AI data readiness, or privacy-by-design compliance frameworks.
-- **DO NOT trigger** for executing routine SQL queries, building dashboard visualizations, or writing specific ML models (use `analytics` or specialized skills instead).
+- **Prefer handoff** for routine SQL queries, dashboard visualizations, or specific ML model work — use `analytics` or specialized skills instead of stretching CDO scope.
 
 ## Quick Reference
 
