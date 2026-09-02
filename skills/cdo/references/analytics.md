@@ -27,7 +27,7 @@
 ### Why Semantic Layer Matters
 - Single definition of metrics
 - Business users get consistent numbers
-- Reduces "my numbers don't match yours"
+- Reduces "my numbers differ from yours"
 - Enables true self-service
 
 ### Options

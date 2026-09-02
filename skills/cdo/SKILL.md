@@ -1,104 +1,38 @@
 ---
 name: cdo
-slug: cdo
-version: 1.0.1
-description: Drive data strategy with governance frameworks, analytics platforms, AI/ML initiatives, and privacy compliance.
-homepage: https://clawic.com/skills/cdo
-changelog: Added Core Rules structure and data leadership frameworks.
+description: "Load this skill when asked to define data strategy, build governance frameworks, manage analytics platforms, oversee AI/ML data readiness, or establish privacy compliance programs."
 metadata:
-  clawdbot:
-    emoji: 📊
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CDO / Chief Data Officer
+  openclaw: '{"emoji":"📊"}'
+  related-skills: '{"cto":"Technical infrastructure and platform ownership boundaries.","cfo":"Data platform cost, headcount, and ROI trade-offs.","ceo":"Company-stage strategy alignment for data bets.","analytics":"Hands-on analytics/BI implementation details."}'
 ---
 
-## When to Use
-
-User wants data leadership for their company, startup, or project. Agent acts as virtual Chief Data Officer handling data strategy, governance, and analytics capabilities.
+## Trigger conditions
+- **DO trigger** when users ask for data strategy, data governance models, data platform selection, or data team organizational design.
+- **DO trigger** when the request involves establishing data quality, AI data readiness, or privacy-by-design compliance frameworks.
+- **Prefer handoff** for routine SQL queries, dashboard visualizations, or specific ML model work — use `analytics` or specialized skills instead of stretching CDO scope.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Data strategy frameworks | `strategy.md` |
-| Governance and quality | `governance.md` |
-| Analytics and BI platforms | `analytics.md` |
-| AI/ML initiatives | `ml.md` |
-| Privacy and compliance | `privacy.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Data strategy frameworks | `references/strategy.md` | When defining data-to-value pipelines, monetization, or organizational design |
+| Governance and quality | `references/governance.md` | When establishing data ownership, quality metrics, or self-service boundaries |
+| Analytics and BI platforms | `references/analytics.md` | When comparing tech stacks, build-vs-buy decisions, or modern data architectures |
+| AI/ML initiatives | `references/ml.md` | When evaluating data readiness for AI, feature engineering, or model deployment |
+| Privacy and compliance | `references/privacy.md` | When handling sensitive data, GDPR/CCPA compliance, or privacy-by-design |
+| Core Rules | `references/core_rules.md` | When seeking general principles and philosophy of the CDO role |
+| Stage Focus | `references/stage_focus.md` | When determining which data initiatives to prioritize based on company maturity |
+| Common Traps | `references/traps.md` | When reviewing data project proposals for common failure modes |
+| Human-in-the-Loop | `references/human_in_the_loop.md` | When decisions involve major vendor selections, privacy incidents, or restructuring |
 
-## Core Rules
 
-### 1. Business Value First
-- Data projects must tie to revenue, cost savings, or risk reduction
-- "Nice to have" data initiatives die first in budget cuts
-- Start with business question, not data availability
+## State location
 
-### 2. Governance Enables, Not Blocks
-- If teams bypass governance, it's too heavy
-- Light guardrails beat heavy gates
-- Make the right way the easy way
-
-### 3. Quality Over Quantity
-- One trusted dataset beats ten inconsistent ones
-- Trust is hard to build, easy to destroy
-- Measure quality, don't assume it
-
-### 4. Privacy by Design
-- Bake compliance in from the start
-- Retrofitting privacy is 10x more expensive
-- When in doubt, collect less data
-
-### 5. Self-Service is the Goal
-- CDO success means teams don't need you for basic analytics
-- Build platforms, not reports
-- Train users, don't create dependencies
-
-### 6. AI Needs Clean Data
-- No shortcuts; garbage in, garbage out
-- Model quality ceiling is data quality
-- Feature engineering matters more than algorithms
-
-### 7. Modern Stack, Pragmatic Choices
-- Cloud-first unless regulation prevents it
-- Buy before build for commodity capabilities
-- Real-time only when business actually needs it
-
-## Data Focus by Stage
-
-| Stage | Focus |
-|-------|-------|
-| Seed/Series A | Analytics foundations, key metrics, single source of truth |
-| Series B | Data team, governance basics, BI platform, first models |
-| Series C+ | Data org, enterprise governance, ML platform, data products |
-
-## Common Traps
-
-- Boiling the ocean — trying to govern all data at once
-- Tech-first thinking — choosing tools before defining problems
-- Dashboard graveyards — building reports nobody uses
-- Privacy afterthought — scrambling when regulators call
-- Data hoarding — collecting everything "just in case"
-
-## Human-in-the-Loop
-
-These decisions require human judgment:
-- Major platform or vendor selections
-- Privacy incident response
-- Data monetization strategies
-- Organizational restructuring
-- Cross-functional data sharing agreements
+This skill is stateless and does not store local configuration.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `cto` — technical infrastructure
-- `cfo` — data cost management
-- `ceo` — strategic alignment
-- `analytics` — implementation details
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/cdo
-- Latest version: https://clawic.com/skills/cdo
+Hand off when the request leaves CDO strategy/governance scope:
+- `cto` — technical infrastructure and platform ownership boundaries
+- `cfo` — data platform cost, headcount, and ROI trade-offs
+- `ceo` — company-stage strategy alignment for data bets
+- `analytics` — hands-on analytics/BI implementation details
