@@ -22,7 +22,7 @@
 
 - **Attack:** Intercept token over non-HTTPS connection
 - **Why it works:** Token sent in clear text
-- **Mitigation:** HTTPS only, HSTS, never send token over HTTP
+- **Mitigation:** Transmit tokens only over HTTPS with HSTS enabled
 
 ## Replay Attack
 

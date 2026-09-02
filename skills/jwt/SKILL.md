@@ -1,96 +1,39 @@
 ---
 name: jwt
-slug: jwt
-version: 1.0.1
-description: Implement secure JWT authentication with proper validation, token lifecycle, and key management.
-homepage: https://clawic.com/skills/jwt
+description: "Implement and validate secure JWT authentication. Triggers when working on authentication, authorization, or token management."
 metadata:
-  clawdbot:
-    emoji: 🔐
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: JWT
+  openclaw: '{"emoji":"🔐"}'
+  related-skills: '{"auth":"Use for broader authentication architecture that includes sessions, MFA, and SSO beyond JWT specifics.","oauth":"Hand off OAuth 2.0 / OIDC authorization-code and token-exchange flows.","authorization":"Use after identity is established when designing RBAC/ABAC and permission checks.","security-best-practices":"Escalate for general secure-coding review outside JWT-specific traps.","passkey":"Prefer WebAuthn passkeys when replacing password+JWT login with phishing-resistant credentials."}'
 ---
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Algorithm selection | `algorithms.md` |
-| Token lifecycle | `lifecycle.md` |
-| Validation checklist | `validation.md` |
-| Common attacks | `attacks.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Algorithm selection | `references/algorithms.md` | When deciding or reviewing JWT signing algorithms |
+| Token lifecycle | `references/lifecycle.md` | When implementing token expiration, refresh, or revocation |
+| Validation checklist | `references/validation.md` | When verifying incoming JWTs on the server |
+| Common attacks | `references/attacks.md` | When auditing JWT security or investigating vulnerabilities |
+| Implementation | `references/implementation.md` | When writing or updating JWT code using libraries |
+| Key Rotation | `references/key-rotation.md` | When managing JWKS or rotating signing keys |
+| Common Mistakes | `references/common-mistakes.md` | When reviewing JWT implementation for standard errors |
+| Storage | `references/storage.md` | When deciding where to store tokens on the client side |
+| Audience & Issuer | `references/audience-and-issuer.md` | When verifying cross-service tokens or setting scope |
+| Required Claims | `references/required-claims.md` | When defining what goes into the token payload |
+| Algorithm Choice | `references/algorithm-choice.md` | When choosing between HS256, RS256, and ES256 |
+| Security Fundamentals | `references/security-fundamentals.md` | When reviewing core JWT concepts |
+| Domain Knowledge | `references/domain-knowledge.md` | When general facts about the standard are needed |
+| Research Sources | `references/sources.md` | When citing or refreshing JWT standards and guidance |
 
-## Security Fundamentals
+## Workflow
 
-- JWTs are signed, not encrypted—anyone can decode and read the payload; never store secrets in it
-- Always verify signature before trusting claims—decode without verify is useless for auth
-- The `alg: none` attack: reject tokens with algorithm "none"—some libraries accepted unsigned tokens
-- Use strong secrets: HS256 needs 256+ bit key; short secrets are brute-forceable
+1. Confirm the expected algorithm and key material before parsing any token.
+2. Verify the signature first; only then evaluate `exp`, `nbf`, `iat`, `iss`, and `aud`.
+3. Reject `alg: none` and any algorithm outside an explicit allowlist.
+4. Keep access tokens short-lived; pair them with refresh-token rotation when sessions must survive.
+5. Prefer httpOnly Secure cookies with CSRF defenses over localStorage when the browser is the client.
+6. Load only the reference file needed for the current trap (algorithm, lifecycle, storage, JWKS, or attacks).
 
-## Algorithm Choice
+## State location
 
-- HS256 (HMAC): symmetric, same key signs and verifies—good for single service
-- RS256 (RSA): asymmetric, private key signs, public verifies—good for distributed systems
-- ES256 (ECDSA): smaller signatures than RSA, same security—preferred for size-sensitive cases
-- Never let the token dictate algorithm—verify against expected algorithm server-side
-
-## Required Claims
-
-- `exp` (expiration): always set and verify—tokens without expiry live forever
-- `iat` (issued at): when token was created—useful for invalidation policies
-- `nbf` (not before): token not valid until this time—for scheduled access
-- Clock skew: allow 30-60 seconds leeway when verifying time claims
-
-## Audience & Issuer
-
-- `iss` (issuer): who created the token—verify to prevent cross-service token theft
-- `aud` (audience): intended recipient—API should reject tokens for other audiences
-- `sub` (subject): who the token represents—typically user ID
-- Token confusion attack: without aud/iss validation, token for Service A works on Service B
-
-## Token Lifecycle
-
-- Access tokens: short-lived (5-15 min)—limits damage if stolen
-- Refresh tokens: longer-lived, stored securely—used only to get new access tokens
-- Refresh token rotation: issue new refresh token on each use, invalidate old one
-- Revocation is hard—JWTs are stateless; use short expiry + refresh, or maintain blacklist
-
-## Storage
-
-- httpOnly cookie: immune to XSS, but needs CSRF protection
-- localStorage: vulnerable to XSS, but simpler for SPAs
-- Memory only: most secure, but lost on page refresh
-- Never store in URL parameters—visible in logs, history, referrer headers
-
-## Validation Checklist
-
-- Verify signature with correct algorithm (don't trust header's alg)
-- Check `exp` is in future (with clock skew tolerance)
-- Check `iat` is not unreasonably old (optional policy)
-- Verify `iss` matches expected issuer
-- Verify `aud` includes your service
-- Check `nbf` if present
-
-## Common Mistakes
-
-- Storing sensitive data in payload—it's just base64, not encrypted
-- Huge payloads—JWTs go in headers; many servers limit header size to 8KB
-- No expiration—indefinite tokens are security nightmares
-- Same secret across environments—dev tokens work in production
-- Logging tokens—they're credentials; treat as passwords
-
-## Key Rotation
-
-- Use `kid` (key ID) claim to identify which key signed the token
-- JWKS (JSON Web Key Set) endpoint for public key distribution
-- Overlap period: accept old key while transitioning to new
-- After rotation, old tokens still valid until they expire—plan accordingly
-
-## Implementation
-
-- Use established libraries—don't implement JWT parsing yourself
-- Libraries: `jsonwebtoken` (Node), `PyJWT` (Python), `java-jwt` (Java), `golang-jwt` (Go)
-- Middleware should reject invalid tokens early—before any business logic
+This skill is stateless and does not store local configuration.
