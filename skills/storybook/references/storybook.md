@@ -59,3 +59,10 @@ When an interaction test fails, first verify the rendered role and accessible na
 - Prefer CSF named exports over the legacy `storiesOf` API.
 - Give the default meta export a `component` when automatic controls or documentation depend on component inference.
 - Model empty, loading, error, disabled, and responsive states as separate stories when they are meaningful user-visible states.
+
+## Research sources
+
+- **Storybook — How to write stories**: https://storybook.js.org/docs/writing-stories — verified the CSF story structure, metadata, and named story guidance.
+- **Storybook — Args**: https://storybook.js.org/docs/writing-stories/args — verified the distinction between `args` and `argTypes` controls.
+- **Storybook — Interaction tests**: https://storybook.js.org/docs/writing-tests/interaction-testing — verified `play`-function interaction-test guidance.
+- **Storybook — Component Story Format API**: https://storybook.js.org/docs/api/csf/index — verified the current CSF reference location.
