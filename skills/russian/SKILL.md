@@ -38,7 +38,7 @@ Russian punctuation:
 
 ## The "Native Test"
 
-Before sending: would a Russian screenshot this as "AI-generated"? If yes—too formal, missing particles, no ). Fix it.
+Before sending: ask whether a Russian reader would screenshot this as AI-generated. Prefer casual register, include particles where natural, and use `)` smile punctuation when the tone is warm.
 
 ## State location
 

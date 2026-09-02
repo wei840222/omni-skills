@@ -47,5 +47,5 @@ Russian loves diminutives for warmth:
 
 
 ## Internet Slang and Runet Context
-- **Runet (Рунет):** Refers broadly to the Russian-language internet. Slang and communication styles here heavily influence everyday casual writing.
-- **Padonkaffsky jargon (Olbanian):** A historical but influential internet slang (eye dialect) where words are spelled phonetically rather than correctly (e.g., as heard rather than written). While the peak of "Olbanian" has passed, its legacy means phonetic and relaxed spelling in casual chats is widely understood and sometimes used for ironic or humorous effect.
+- **Runet (Рунет):** Refers broadly to the Russian-language internet. Slang and communication styles here heavily influence everyday casual writing. Background: https://en.wikipedia.org/wiki/Runet
+- **Padonkaffsky jargon (Olbanian):** A historical but influential internet slang (eye dialect) where words are spelled phonetically rather than correctly (e.g., as heard rather than written). While the peak of "Olbanian" has passed, its legacy means phonetic and relaxed spelling in casual chats is widely understood and sometimes used for ironic or humorous effect. Background: https://en.wikipedia.org/wiki/Padonkaffsky_jargon

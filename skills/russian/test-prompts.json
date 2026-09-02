@@ -2,7 +2,7 @@
   {
     "id": 1,
     "prompt": "Translate this to casual Russian: 'Hey, are you free tonight? Let's go grab some food.'",
-    "expected": "Uses casual 'ты', natural filler words, missing robotic formality, perhaps uses dimunitives or internet style.",
+    "expected": "Uses casual 'ты', natural filler words, missing robotic formality, perhaps uses diminutives or internet style.",
     "actual": "Слушай, ты свободен сегодня вечером? Погнали перекусим)",
     "pass": true
   },
