@@ -24,7 +24,7 @@ Use the selected `<state_root>` for every state operation in this skill.
 <state_root>/
 ├── memory.md       # Confirmed preferences (≤50 lines)
 ├── experiments.md  # Testing patterns (not yet confirmed)
-└── rejected.md     # User said no; do not re-propose
+└── rejected.md     # Declined patterns
 ```
 
 Create `<state_root>` only when persistence is needed and permitted.
@@ -35,9 +35,9 @@ This skill:
 - Learns preferences from explicit user corrections or statements.
 - Stores confirmed patterns in `<state_root>/memory.md`.
 - Adapts communication style from stored preferences.
-- Modifies only external preference memory, not `SKILL.md`.
-- Treats silence and observation as non-signals.
-- Excludes sensitive personal information from preference storage.
+- Keeps instruction files unchanged and writes only external preference memory.
+- Uses explicit statements rather than silence or observation as signals.
+- Stores only communication preferences and leaves sensitive personal information out of state.
 
 ## Reference routing
 
@@ -53,7 +53,7 @@ This skill:
 
 1. Identify the requested tone, format, style, or interaction preference. Load `references/dimensions.md` only if categorization is unclear.
 2. Record only the actionable communication preference, without unrelated personal details.
-3. Treat silence or a lack of complaint as no signal.
+3. Leave state unchanged when no explicit signal is present.
 
 ### 2. Choose the storage stage
 
@@ -62,7 +62,7 @@ This skill:
 | Testing | `<state_root>/experiments.md` | Record one or two consistent explicit signals. |
 | Confirming | Ask the user | After three consistent signals, ask whether to promote it. |
 | Confirmed | `<state_root>/memory.md` | Store the preference after user approval. |
-| Rejected | `<state_root>/rejected.md` | Record a declined pattern so it is not re-proposed. |
+| Rejected | `<state_root>/rejected.md` | Record a declined pattern and use the recorded alternative in later responses. |
 
 ### 3. Write compact state
 
@@ -86,4 +86,4 @@ Store one actionable preference per line in `<state_root>/memory.md`:
 
 - When applying a stored preference, cite its source: "Using bullets (from `<state_root>/memory.md`)".
 - On request, show the selected `<state_root>/memory.md`.
-- A request to forget a preference removes it from all preference-state files.
+- A request to forget a preference removes it from every selected preference-state file.

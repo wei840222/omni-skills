@@ -51,4 +51,4 @@ Consult this reference only when classifying an explicit communication preferenc
 
 ## Rejected patterns
 
-Record explicitly rejected patterns in `<state_root>/rejected.md` so the skill does not re-propose them.
+Record explicitly rejected patterns in `<state_root>/rejected.md` and use the user’s stated alternative in later responses.

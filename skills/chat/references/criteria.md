@@ -10,8 +10,8 @@ Consult this reference when deciding whether to update `<state_root>/memory.md`.
 ## When to keep testing
 
 - A single occurrence may be contextual.
-- An ambiguous signal needs clarification.
-- A statement conflicts with confirmed memory and its context is unclear.
+- Ask for clarification when the signal is ambiguous.
+- When a statement conflicts with confirmed memory and its context is unclear, preserve the confirmed entry until the user resolves the context.
 
 ## How to write confirmed preferences
 
@@ -29,7 +29,7 @@ Consult this reference when deciding whether to update `<state_root>/memory.md`.
 ## Maintenance
 
 - Review confirmed preferences when the user explicitly says they are no longer useful.
-- Prune entries the user explicitly withdraws.
+- Remove entries the user explicitly withdraws.
 - Merge related confirmed preferences into one precise instruction.
 
 ## Self-check questions
