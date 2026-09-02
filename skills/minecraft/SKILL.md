@@ -1,27 +1,23 @@
 ---
 name: minecraft
-slug: minecraft
-version: 1.0.0
-description: Plan, build, troubleshoot, and optimize Minecraft worlds, commands, redstone, mods, and servers without mixing Java and Bedrock advice.
-homepage: https://clawic.com/skills/minecraft
-changelog: Initial release with edition-aware planning, building, redstone, command, survival, and server workflows.
+description: Plan and troubleshoot Minecraft worlds, builds, redstone, commands, farms, mods, and servers without mixing Java and Bedrock rules.
 metadata:
-  clawdbot:
-    emoji: 🧱
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/minecraft/
-    displayName: Minecraft
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/minecraft/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🧱"}'
+  related-skills: '{"gaming":"Provides broader game strategy outside Minecraft-specific mechanics.","home-server":"Covers private self-hosted infrastructure for a Minecraft server.","java":"Covers Java runtime and tooling issues behind Java Edition launchers, mods, or dedicated servers.","linux":"Covers Linux host administration for Minecraft servers or containers.","server":"Covers general dedicated-server deployment and troubleshooting patterns."}'
 ---
+
+## State location
+
+Minecraft state may exist in `<workspace>/minecraft/`, `<workspace>/memory/minecraft/`, or `~/minecraft/`. Before any state operation, resolve `<state_root>` once for the invocation:
+
+1. Use an explicitly configured state path when one is supplied.
+2. Otherwise, use the first existing directory in this order: `<workspace>/minecraft/`, `<workspace>/memory/minecraft/`, then `~/minecraft/`.
+3. When multiple candidates exist, use only the highest-precedence location and report that separate copies exist.
+4. When none exists and the user requests persistent Minecraft preferences or notes, create `<workspace>/minecraft/`.
+5. When the host does not provide `<workspace>`, use an existing `~/minecraft/`; otherwise request a state path before creating data.
+
+Keep the selected `<state_root>` for all state operations. Create `archive/` and optional note files only when the corresponding task needs them.
 
 # Minecraft
 
@@ -41,11 +37,10 @@ Typical activation moments:
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/minecraft/`. If `~/Clawic/data/minecraft/` does not exist, run `setup.md`. See `memory-template.md` for structure.
 Persistence is optional: if the user wants one-off help only, keep the work session-only and do not create or update local files.
 
 ```text
-~/Clawic/data/minecraft/
+<state_root>/
 ├── memory.md        # edition, version, style, and activation defaults
 ├── worlds.md        # optional world seeds, key locations, and constraints
 ├── builds.md        # optional build briefs and recurring dimensions
@@ -53,27 +48,26 @@ Persistence is optional: if the user wants one-off help only, keep the work sess
 └── archive/         # retired saves, old versions, and deprecated setups
 ```
 
-## Quick Reference
+## Reference routing
 
 Load only the file that matches the current lane so the answer stays practical instead of turning into a giant wiki dump.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Optional local memory schema | `memory-template.md` |
-| Java vs Bedrock gating | `edition-gate.md` |
-| Build planning template | `build-brief.md` |
-| Redstone and farm debugging | `redstone-debug.md` |
-| Commands and datapack patterns | `command-patterns.md` |
-| Survival progression routes | `survival-routes.md` |
-| Server, Realm, and modpack lanes | `server-lanes.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup and activation behavior | `references/setup.md` | When initializing the skill or workspace for the first time. |
+| Optional local memory schema | `references/memory-template.md` | When creating or reading from `<state_root>/` files. |
+| Java vs Bedrock gating | `references/edition-gate.md` | When user request edition or platform is unclear. |
+| Build planning template | `references/build-brief.md` | When asked to plan a structure, building, or layout. |
+| Redstone and farm debugging | `references/redstone-debug.md` | When troubleshooting or designing redstone or farms. |
+| Commands and datapack patterns | `references/command-patterns.md` | When generating commands, datapacks, or command blocks. |
+| Survival progression routes | `references/survival-routes.md` | When user asks for survival mode goals or progression checklists. |
+| Server, Realm, and modpack lanes | `references/server-lanes.md` | When handling server setup, modpacks, or administration. |
 
 ## Requirements
 
-- No credentials are required to install this skill.
-- No external binaries are required.
+- No credentials or external binaries are required for planning and troubleshooting.
 - Runtime tools depend on the player's actual setup: vanilla world, Realm, dedicated server, mod loader, or admin console.
-- Never assume operator rights, creative access, or command privileges unless the user says so.
+- Verify operator rights, creative access, or command privileges before proceeding with commands.
 - Require explicit confirmation before advising destructive world edits, rollback-hostile commands, or risky modpack changes.
 
 ## Core Rules
@@ -85,7 +79,7 @@ Load only the file that matches the current lane so the answer stays practical i
 
 ### 2. Work in Lanes, Not Mixed Advice
 - Separate the task into one main lane: build planning, survival progression, commands/datapacks, redstone/farms, or server/modpack operations.
-- Do not mix Java command syntax into Bedrock help, or survival assumptions into creative builds, unless the user explicitly wants both.
+- Keep advice strictly within the requested edition (Java or Bedrock) and game mode (survival or creative), unless the user explicitly requests a mix.
 - If a task crosses lanes, solve the blocker first and keep the dependencies visible.
 
 ### 3. Translate Goals into Coordinates, Counts, and Checkpoints
@@ -119,11 +113,11 @@ Start by naming the main lane before recommending blocks, commands, or hosting c
 
 | Lane | First questions | Best file |
 |------|-----------------|-----------|
-| Build planning | edition, biome/style, scale, material budget, survival or creative | `build-brief.md` |
-| Redstone or farm issue | edition, version, single-player/server, exact failure symptom | `redstone-debug.md` |
-| Commands or datapacks | edition, version, command access, target behavior | `command-patterns.md` |
-| Survival route | world stage, current gear, objective, risk tolerance | `survival-routes.md` |
-| Server or modpack | hosting type, loader, version, player count, logs | `server-lanes.md` |
+| Build planning | edition, biome/style, scale, material budget, survival or creative | `references/build-brief.md` |
+| Redstone or farm issue | edition, version, single-player/server, exact failure symptom | `references/redstone-debug.md` |
+| Commands or datapacks | edition, version, command access, target behavior | `references/command-patterns.md` |
+| Survival route | world stage, current gear, objective, risk tolerance | `references/survival-routes.md` |
+| Server or modpack | hosting type, loader, version, player count, logs | `references/server-lanes.md` |
 
 ## Default Output Pack
 
@@ -156,28 +150,9 @@ Most bad Minecraft advice fails because it skips the gating step, not because th
 - None by default. This is an instruction-only Minecraft execution skill.
 
 **Data stored locally:**
-- Optional notes in `~/Clawic/data/minecraft/` about edition, preferred play style, build constraints, and server context only if the user wants persistence.
-
-**This skill does NOT:**
-- download mods, shaders, or plugins automatically
-- join servers, change files, or run undeclared network requests by itself
-- assume operator privileges or destructive access
-- store credentials, server IPs, or paid account data unless the user explicitly wants local notes
+- Optional notes in `<state_root>/` about edition, preferred play style, build constraints, and server context only if the user wants persistence.
 
 ## Trust
 
 This skill provides structured Minecraft guidance and optional local note patterns.
 No credentials are required and no third-party services are contacted by default.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `gaming` - broader game strategy and player-facing decision support outside Minecraft-specific mechanics
-- `server` - deployment and troubleshooting patterns for dedicated server hosting
-- `home-server` - stable self-hosted infrastructure for private Minecraft servers at home
-- `java` - Java runtime and tooling issues behind Java Edition launchers, mods, or dedicated servers
-- `linux` - host administration when Minecraft runs on Linux boxes or containers
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/minecraft
-- Latest version: https://clawic.com/skills/minecraft
