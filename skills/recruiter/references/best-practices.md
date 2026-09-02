@@ -36,7 +36,7 @@
 ## Candidate Experience
 - Respond to all applicants — ghosting damages employer brand
 - Communicate timeline upfront — "you'll hear back in X days" then actually do it
-- Feedback after rejection helps when possible — legal concerns are often overstated
+- Offer concise, job-related feedback after rejection when policy allows — keep notes factual and consistent
 - Keep candidates warm during slow processes — silence feels like rejection
 - Rejected candidates may return or refer — treat everyone as future relationship
 
