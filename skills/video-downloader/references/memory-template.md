@@ -1,6 +1,6 @@
 # Memory Template - Video Downloader
 
-Create `~/Clawic/data/video-downloader/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Video Downloader Memory
@@ -29,12 +29,12 @@ integration: pending | complete | paused | never_ask
 |-------|---------|----------|
 | `ongoing` | Learning preferences | Adapt gradually from usage |
 | `complete` | Stable defaults known | Use remembered defaults first |
-| `paused` | User paused memory updates | Read memory, do not write new notes |
-| `never_ask` | User does not want setup prompts | Skip setup prompts permanently |
+| `paused` | User paused memory updates | Read memory, preserve existing notes without modifications |
+| `never_ask` | User explicitly declines setup prompts | Bypass setup prompts in all future interactions |
 
 ## Key Principles
 
 - Keep entries short and directly actionable.
-- Never store account credentials or private tokens.
+- Ensure all account credentials and private tokens are excluded from storage.
 - Record only behavior that clearly repeats.
 - Update `last` whenever memory is changed.
