@@ -10,7 +10,7 @@ mkdir -p ~/china
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/china/memory.md` using the template from `memory-template.md`.
+Create `<state_root>/memory.md` using the template from `memory-template.md`.
 
 ### 3. Gather Trip Context
 Ask naturally (not as a form):
@@ -22,11 +22,11 @@ Ask naturally (not as a form):
 - Rail-focused, flights, private car segments, or mixed?
 
 ### 4. Save to Memory
-Update `~/Clawic/data/china/memory.md` with their answers.
+Update `<state_root>/memory.md` with their answers.
 
 ## Returning Users
 
-If `~/Clawic/data/china/memory.md` exists:
+If `<state_root>/memory.md` exists:
 1. Read it silently
 2. Reuse known preferences
 3. Ask what changed since last plan
