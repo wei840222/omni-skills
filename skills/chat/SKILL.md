@@ -1,82 +1,89 @@
 ---
 name: chat
-slug: chat
-version: 1.1.0
-description: Learns communication preferences from explicit feedback. Adapts tone, format, and style.
-homepage: https://clawic.com/skills/chat
-changelog: Preferences now persist in external memory instead of self-modifying SKILL.md
+description: Learn and apply communication preferences for tone, format, and style. Use when a user explicitly corrects your style, states a preference, or asks you to adapt communication.
 metadata:
-  clawdbot:
-    emoji: 💬
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Chat
+  version: "1.1.0"
+  openclaw: '{"emoji":"💬"}'
 ---
 
-## Data Storage
+## State location
 
-```
-~/Clawic/data/chat/
+Chat state may exist in `<workspace>/chat/`, `<workspace>/memory/chat/`, or `~/chat/`. Before a state read or write, resolve `<state_root>` once for the invocation:
+
+1. Use an explicitly configured state path when one exists.
+2. Otherwise, use the first existing directory in this order: `<workspace>/chat/`, `<workspace>/memory/chat/`, then `~/chat/`.
+3. When multiple candidates exist, use only the highest-precedence directory and tell the user that separate copies were found.
+4. When none exists and the user asks to save a preference, create `<workspace>/chat/`.
+5. When the host cannot provide `<workspace>`, use an existing `~/chat/`; otherwise ask for a state path before creating data.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+## Data storage
+
+```text
+<state_root>/
 ├── memory.md       # Confirmed preferences (≤50 lines)
 ├── experiments.md  # Testing patterns (not yet confirmed)
-└── rejected.md     # User said no, don't re-propose
+└── rejected.md     # Declined patterns
 ```
 
-Create on first use: `mkdir -p ~/chat`
+Create `<state_root>` only when persistence is needed and permitted.
 
 ## Scope
 
 This skill:
-- ✅ Learns preferences from explicit user corrections
-- ✅ Stores patterns in ~/Clawic/data/chat/memory.md
-- ✅ Adapts communication style based on stored preferences
-- ❌ NEVER modifies SKILL.md
-- ❌ NEVER infers from silence or observation
-- ❌ NEVER stores sensitive personal information
+- Learns preferences from explicit user corrections or statements.
+- Stores confirmed patterns in `<state_root>/memory.md`.
+- Adapts communication style from stored preferences.
+- Keeps instruction files unchanged and writes only external preference memory.
+- Uses explicit statements rather than silence or observation as signals.
+- Stores only communication preferences and leaves sensitive personal information out of state.
 
-## Quick Reference
+## Reference routing
 
-| Topic | File |
-|-------|------|
-| Preference dimensions | `dimensions.md` |
-| Confirmation criteria | `criteria.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Preference dimensions | `references/dimensions.md` | When you need to categorize a user's explicit style or tone preference. |
+| Confirmation criteria | `references/criteria.md` | When deciding whether to retain an experiment, promote a preference, or resolve a conflict. |
+| Research basis | `references/research.md` | When explaining the evidence behind explicit, transparent personalization or checking Agent Skills guidance. |
 
-## Core Rules
+## Core rules
 
-### 1. Learn from Explicit Feedback Only
-- User must explicitly correct or state preference
-- "I prefer X" or "Don't do Y" = valid signal
-- Silence, lack of complaint = NOT a signal
-- NEVER infer from observation alone
+### 1. Classify the explicit signal
 
-### 2. Three-Strike Confirmation
+1. Identify the requested tone, format, style, or interaction preference. Load `references/dimensions.md` only if categorization is unclear.
+2. Record only the actionable communication preference, without unrelated personal details.
+3. Leave state unchanged when no explicit signal is present.
+
+### 2. Choose the storage stage
+
 | Stage | Location | Action |
 |-------|----------|--------|
-| Testing | experiments.md | Observed 1-2x |
-| Confirming | (ask user) | After 3x, ask to confirm |
-| Confirmed | memory.md | User approved |
-| Rejected | rejected.md | User declined |
+| Testing | `<state_root>/experiments.md` | Record one or two consistent explicit signals. |
+| Confirming | Ask the user | After three consistent signals, ask whether to promote it. |
+| Confirmed | `<state_root>/memory.md` | Store the preference after user approval. |
+| Rejected | `<state_root>/rejected.md` | Record a declined pattern and use the recorded alternative in later responses. |
 
-### 3. Compact Storage Format
-One line per preference in memory.md:
-```
+### 3. Write compact state
+
+Store one actionable preference per line in `<state_root>/memory.md`:
+
+```text
 - Concise responses, no fluff
 - Uses 🚀 for launches, ✅ for done
 - Prefers bullets over paragraphs
 - Technical jargon OK
-- Hates "Great question!" openers
+- Omits “Great question!” openers
 ```
 
-### 4. Conflict Resolution
-- Most recent explicit statement wins
-- If ambiguous, ask user
-- Never override confirmed preference without explicit instruction
+### 4. Resolve conflicts
 
-### 5. Transparency
-- Cite source when applying preference: "Using bullets (from ~/Clawic/data/chat/memory.md)"
-- On request, show full memory.md contents
-- "Forget X" removes from all files
+- Give the most recent explicit statement precedence.
+- Ask the user when the conflict is ambiguous.
+- Change a confirmed preference only when the user explicitly instructs you to do so.
+
+### 5. Apply transparently
+
+- When applying a stored preference, cite its source: "Using bullets (from `<state_root>/memory.md`)".
+- On request, show the selected `<state_root>/memory.md`.
+- A request to forget a preference removes it from every selected preference-state file.
