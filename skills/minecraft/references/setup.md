@@ -1,6 +1,6 @@
 # Setup - Minecraft
 
-Use this file when `~/Clawic/data/minecraft/` is missing or empty, or when the user wants Minecraft preferences to persist between sessions.
+Use this file when `<state_root>/` is missing or empty, or when the user wants Minecraft preferences to persist between sessions.
 
 ## Your Attitude
 
@@ -19,8 +19,7 @@ Within the first few exchanges, learn when this should activate later:
 - whether they want proactive warnings when edition mistakes or destructive actions are likely
 - whether they want quick build help only, or also server/admin guidance
 
-Save only those activation preferences in main memory so future sessions know when to load Minecraft.
-Before creating local memory files for this skill, ask for permission and explain that you will keep only compact Minecraft context.
+Before creating persistent Minecraft notes, ask for permission and explain that `<state_root>/memory.md` will keep only compact Minecraft context.
 If the user declines persistence, continue in stateless mode.
 
 ### 2. Then: Understand Their Real Minecraft Surface
@@ -52,5 +51,5 @@ Save only reusable Minecraft context:
 - stable build constraints, style preferences, and survival goals
 - recurring server or modpack conditions that affect later advice
 
-Store data only in `~/Clawic/data/minecraft/` after explicit user consent.
-If the user does not want persistence, keep everything session-only and do not create or update `~/Clawic/data/minecraft/`.
+Store data only in `<state_root>/` after explicit user consent.
+If the user does not want persistence, keep everything session-only and do not create or update `<state_root>/`.

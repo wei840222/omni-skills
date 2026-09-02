@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Give me a command to spawn a zombie with full diamond armor in Java Edition 1.20.",
+    "expected": "Confirm Java Edition, version, and command permission; then provide a version-appropriate /summon command and a disposable-world test step.",
+    "actual": "Dry-run: routes to references/command-patterns.md, confirms Java 1.20 and command access, then gives an ArmorItems NBT command with a test-world warning.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My iron golem farm on Bedrock Edition is not spawning golems. What is wrong?",
+    "expected": "Keep troubleshooting Bedrock-specific, check 20 beds, 10 villagers, and 75% having worked, then give a measurable next test rather than promising a fixed rate.",
+    "actual": "Dry-run: routes to references/redstone-debug.md and references/mechanics-research.md; it checks Bedrock village requirements, nearby spawn surfaces, simulation distance, and one isolated spawn-platform test.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Build me a house.",
+    "expected": "Load the build brief and ask only for edition, mode, biome or style, footprint, and material budget before proposing a layer-by-layer plan.",
+    "actual": "Dry-run: routes to references/build-brief.md and asks for the smallest set of build constraints before presenting footprint, materials, lighting, and a cheap mock-up step.",
+    "pass": true
+  }
+]
