@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want a sofa for my small living room. What should I buy?",
+    "expected": "The agent should ask for room dimensions, door and access-route measurements, fixed elements, budget, region, and style preferences before naming a product. It should load references/rules.md and keep the response state-free unless the user requests tracking.",
+    "actual": "Dry-run output requested the room length, width, ceiling height, door and hallway measurements, retained furniture, budget range, city or country, delivery constraints, and confirmed style preferences. It explained that product recommendations follow only after those constraints and current regional availability are verified, and it did not create project state.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How much paint should I buy for a 4 m by 5 m room with 3 m ceilings, one 1 m by 2 m door, and one 2 m by 1.5 m window?",
+    "expected": "The agent should load references/calculations.md, show the wall-area formula and assumptions, ask for the paint product coverage, coating count, and substrate condition, and provide a preliminary range rather than a purchase instruction.",
+    "actual": "Dry-run output loaded references/calculations.md and calculated gross wall area as 2 × (4 + 5) × 3 = 54 m² and net wall area as 54 − 2 − 3 = 49 m². It requested the selected paint's manufacturer coverage, number of coats, surface condition, and waste allowance before converting the estimate into liters or a purchase quantity.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I am staging a pre-1978 rental before listing it. Can I sand the old paint and add a tall dresser?",
+    "expected": "The agent should load references/domain.md and references/staging.md, identify the lead-safe renovation boundary, require local and qualified-professional verification before sanding, and prompt for manufacturer anchoring instructions and household risk before recommending the dresser.",
+    "actual": "Dry-run output loaded references/domain.md and references/staging.md, explained that sanding pre-1978 paint can trigger lead-safe renovation requirements, and directed the user to determine jurisdictional coverage and certified-firm needs before work. It also asked about children, pets, seismic risk, wall construction, and the dresser manufacturer’s anchoring instructions before treating the furniture as suitable.",
+    "pass": true
+  }
+]
