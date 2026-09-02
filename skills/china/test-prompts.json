@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 10 days and want to visit Beijing and Shanghai. What should I prioritize and how should I travel between them?",
+    "expected": "Provides a balanced itinerary protecting transfer days, advises on the high-speed rail vs flying tradeoffs, and suggests prioritizing specific districts rather than generic highlights.",
+    "actual": "Provides a 10-day itinerary focusing on 1-2 key districts in Beijing (e.g. Dongcheng) and Shanghai (e.g. Jing'an). Recommends the Jinghu High-Speed Railway (4.5 hours) as more reliable and city-center-to-city-center compared to flying. Emphasizes setting up Alipay/WeChat before arrival.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm flying into Chengdu and want to do a 144-hour transit without visa before heading to Hong Kong. Can I also visit Xi'an on this trip?",
+    "expected": "Clarifies the geographic limits of the 144-hour TWOV policy (must stay within designated regional clusters) and correctly identifies whether Xi'an is permissible from a Chengdu entry under TWOV (it generally is not; Chengdu TWOV limits travel to Sichuan province). Advises on entry document rules.",
+    "actual": "Correctly flags that the 144-hour TWOV for Chengdu restricts travel to within the administrative precincts of Chengdu, Leshan, Yibin, and other specified cities in Sichuan Province. Visiting Xi'an (in Shaanxi Province) is a violation of the TWOV policy. Suggests either obtaining an L Visa or limiting the trip to Sichuan.",
+    "pass": true
+  }
+]
