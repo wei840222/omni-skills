@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this Node.js JWT verification code: `jwt.verify(token, secret)` and tell me what is missing.",
+    "expected": "The agent identifies that algorithm verification is missing and advises specifying `{ algorithms: ['HS256'] }` to prevent the 'alg: none' attack.",
+    "actual": "I reviewed the Node.js JWT verification code. The code `jwt.verify(token, secret)` is missing explicit algorithm verification. You should specify the expected algorithm to prevent 'alg: none' attacks. Update it to `jwt.verify(token, secret, { algorithms: ['HS256'] })`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm designing a microservice architecture and need to authenticate users across services. We're currently just checking the JWT signature using a shared secret. Is this sufficient?",
+    "expected": "The agent explains that a shared secret across services is risky (HS256) and suggests using asymmetric keys (RS256) with a JWKS endpoint. It also reminds to validate `aud` and `iss` claims to prevent token confusion.",
+    "actual": "Using a shared secret across multiple microservices is risky because if one service is compromised, the secret can be used to forge tokens for any service. Prefer RS256/ES256 with a JWKS endpoint for public-key distribution, and require each service to validate `aud` and `iss` so a token minted for one audience cannot be replayed elsewhere.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our SPA stores the access JWT in localStorage so axios can attach it. What are the main risks and safer alternatives?",
+    "expected": "Call out XSS theft from localStorage and recommend httpOnly Secure cookies with CSRF defenses, short expiry, and refresh-token rotation; keep tokens out of URLs.",
+    "actual": "localStorage is readable by any XSS payload, so a stolen JWT becomes bearer credentials until expiry. Prefer an httpOnly Secure cookie with SameSite/CSRF protections, keep access tokens short-lived, rotate refresh tokens, and never place tokens in query strings or logs.",
+    "pass": true
+  }
+]
