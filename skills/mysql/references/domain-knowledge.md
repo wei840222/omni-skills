@@ -10,3 +10,6 @@ MySQL is an open-source relational database commonly deployed with the InnoDB st
 
 ## Freshness boundary
 Confirm exact syntax against the installed MySQL major/minor version before applying production DDL or replication assumptions.
+
+## Operator posture
+Prefer verification on the target server over memorized absolutes; keep instructions actionable and version-aware.
