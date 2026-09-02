@@ -1,6 +1,8 @@
 # Memory Template — ASI
 
-Create `~/Clawic/data/asi/memory.md` with this structure:
+Use these templates only after resolving `<state_root>` and obtaining explicit consent for the corresponding write.
+
+Create `<state_root>/memory.md`:
 
 ```markdown
 # ASI Memory
@@ -12,35 +14,27 @@ last: YYYY-MM-DD
 integration: pending | done | declined
 
 ## User Model
-<!-- How this user thinks, what they value -->
 reasoning_style: analytical | intuitive | pragmatic
 depth_preference: compressed | balanced | exhaustive
 anticipation_tolerance: do_it | ask_first | explain_first
 
 ## Active Domains
-<!-- Domains relevant to current work, for cross-synthesis -->
 - domain 1
-- domain 2
 
 ## Calibration Notes
-<!-- What works for this user, what doesn't -->
 
 ## Open Loops
-<!-- Problems still being worked, patterns still developing -->
 
 ---
 *Updated: YYYY-MM-DD*
 ```
 
----
-
-Create `~/Clawic/data/asi/synthesis-log.md`:
+Create `<state_root>/synthesis-log.md`:
 
 ```markdown
 # Synthesis Log
 
 ## Connections
-<!-- Cross-domain insights that worked -->
 
 ### [Date] Source → Target
 - Problem: ...
@@ -53,9 +47,7 @@ Create `~/Clawic/data/asi/synthesis-log.md`:
 *Updated: YYYY-MM-DD*
 ```
 
----
-
-Create `~/Clawic/data/asi/improvements.md`:
+Create `<state_root>/improvements.md`:
 
 ```markdown
 # Self-Improvement Log
@@ -79,17 +71,10 @@ Create `~/Clawic/data/asi/improvements.md`:
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
-|-------|---------|----------|
-| `ongoing` | Still calibrating | Observe and adapt |
-| `complete` | Fully calibrated | Operate at full capability |
-| `paused` | User prefers minimal | Apply patterns silently |
-
-## Key Principles
-
-- **Ask and confirm** — Save only what user explicitly approves
-- **Log improvements** — Every gap is an opportunity
-- **Track synthesis** — Cross-domain connections compound over time
-- Most users stay `ongoing` — calibration is continuous
+| --- | --- | --- |
+| `ongoing` | Still calibrating | Observe and adapt. |
+| `complete` | Fully calibrated | Apply the confirmed preferences. |
+| `paused` | User prefers minimal persistence | Apply patterns without new state writes. |

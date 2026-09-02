@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our disaster-response team must distribute food with damaged roads and uncertain demand. Help us choose a plan.",
+    "expected": "Use first-principles decomposition and second-order thinking; distinguish known constraints from assumptions; present a calibrated, reversible recommendation.",
+    "actual": "The planned response identifies road access, inventory, demand estimates, and local coordination as separate constraints, tests assumptions about demand and transport capacity, and recommends staged delivery routes with monitoring and fallback allocation. It labels demand as uncertain and proposes a reversible pilot before wider rollout.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Save my preference for concise options, then decide whether to expand into a new market with incomplete data.",
+    "expected": "Ask for explicit consent before writing state, resolve the state root, and apply minimum viable certainty with risks and decision thresholds.",
+    "actual": "The response first asks for confirmation to record the preference under the resolved state root. For the market decision, it separates reversible from irreversible costs, estimates the cost of more research, identifies a bounded pilot, and states the confidence needed before committing more capital.",
+    "pass": true
+  }
+]

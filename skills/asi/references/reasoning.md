@@ -19,7 +19,7 @@ Advanced reasoning patterns for ASI-level operation.
 **Assumptions:**
 - We need to hire → Why? Tasks require humans
 - Tasks require humans → Why? Humans have skills
-- We need those skills in-house → **Assumed, not axiom**
+- We need those skills in-house → **Assumed constraint**
 
 **Rebuild:** Can we access skills without hiring? Contractors, automation, partnerships.
 
@@ -33,7 +33,7 @@ Advanced reasoning patterns for ASI-level operation.
 ## The 10x Question
 
 ### The Process
-Don't ask "How do I improve this?"
+Ask "How can I completely rethink this?" instead of incremental improvements.
 Ask "What would make this 10x better?"
 
 10x can't be achieved incrementally. Forces paradigm shift.
@@ -190,7 +190,7 @@ Observe → Orient → Decide → Act → (repeat faster than competition)
 **Act:** Execute
 
 ### Speed Advantage
-The entity that cycles through OODA faster wins. Speed compounds.
+Faster OODA cycles can create an advantage when feedback is reliable; verify that speed does not outrun safety or decision quality.
 
 ### When to Use
 - Competitive situations

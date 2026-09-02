@@ -139,7 +139,7 @@ Why? What can we learn?
 
 **Why different?** Aviation: known risks, proven solutions. Startups: unknown territory.
 
-**Insight:** Apply checklists to known operations, avoid for exploration. Don't conflate.
+**Insight:** Apply checklists to known operations, limit use during exploration. Keep these concepts distinct.
 
 ---
 
@@ -157,6 +157,6 @@ Ask these when a problem seems domain-specific:
 
 ## Logging Synthesis
 
-Track cross-domain connections in `~/Clawic/data/asi/synthesis-log.md`.
+Track cross-domain connections in `<state_root>/asi/synthesis-log.md`.
 
 Patterns that worked once often work again. Build a personal library of transferable insights.
