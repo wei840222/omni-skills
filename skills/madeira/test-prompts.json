@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am an EU citizen looking to move to Madeira. What are the tax requirements and best zones to live in?",
+    "expected": "Information about EU citizen requirements (registration after 3 months), mention of NHR changes/tax status, and a breakdown of zones suitable for moving (Funchal, Caniço, Ponta do Sol).",
+    "actual": "As an EU citizen moving to Madeira, you can live and work freely, but you'll need to register after 3 months. The Non-Habitual Resident (NHR) tax regime historically offered a 10-year flat tax rate and exemptions, but note it is being phased out for new applicants, focusing now on more targeted incentives. For living zones: Funchal (especially the center and old town) is vibrant; Caniço offers good value and beaches; and Ponta do Sol (in the west) is popular with the digital nomad community.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are visiting Madeira for 5 days in August and want to hike levadas and relax. We're worried about mountain roads.",
+    "expected": "Provide a 5-day itinerary focusing on summer (August) hiking, warn about summer crowds and recommend booking shuttles. Provide tips on safe driving (avoiding hairpin north roads if prone to motion sickness, or using tunnels) and mention natural pools.",
+    "actual": "For a 5-day visit in August, expect hot weather (22-26°C) and peak crowds, so pre-book levada shuttles and restaurants. August is great for beaches and natural pools, particularly those in Porto Moniz on the north coast. Since you're worried about mountain roads, be aware that driving to the north coast or central mountains involves steep, hairpin curves. To avoid stress, use the extensive tunnel network where possible, consider fixed-rate taxis, or join guided tours instead of driving. For levadas, start with easier ones without exposed sections if heights or roads are a concern.",
+    "pass": true
+  }
+]

@@ -1,67 +1,63 @@
 ---
 name: madeira
-slug: madeira
-version: 1.0.0
 description: Navigate Madeira as visitor, digital nomad, or resident with neighborhoods, levadas, costs, visas, and local insights for the Atlantic island.
-homepage: https://clawic.com/skills/madeira
 metadata:
-  clawdbot:
-    emoji: 🌴
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Madeira
+  openclaw: '{"emoji":"🌴"}'
+  related-skills: '{"dubai":"City-level Atlantic/Gulf visitor and resident guidance that Madeira can hand off to for UAE comparisons.","travel":"Standing travel records, visas, and multi-destination planning beyond one island.","portuguese":"Natural Portuguese language help for deeper local integration.","health":"Wellness and safety boundaries when Madeira healthcare or hiking risks come up."}'
 ---
 
 ## When to Use
 
-User asks about Madeira for any purpose: visiting, moving, working remotely, retiring, or exploring the island. Agent provides practical guidance with current data.
+Use when the user asks about Madeira as a visitor, digital nomad, retiree, or resident: neighborhoods and zones, levadas and mountains, costs, visas/tax residency, transport, food, or local practicalities. For live fares, visa eligibility, tax status, lodging availability, or weather-dependent hiking decisions, load the matching reference and verify the official source before treating a figure as current.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (3/5/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Zones** | |
-| Quick comparison | `zones-index.md` |
-| Funchal (center, old town, hotel zone) | `zones-funchal.md` |
-| Caniço, Santa Cruz, Machico (east) | `zones-east.md` |
-| Câmara de Lobos, Ribeira Brava (west) | `zones-west.md` |
-| Porto Moniz, São Vicente (north) | `zones-north.md` |
-| Choosing guide | `zones-choosing.md` |
-| **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Local cuisine & specialties | `food-local.md` |
-| Restaurants & recommendations | `food-restaurants.md` |
-| Wine & poncha | `food-drinks.md` |
-| Markets & groceries | `food-practical.md` |
-| **Nature** | |
-| Levadas (best walks by difficulty) | `nature-levadas.md` |
-| Mountains (Pico Ruivo, Pico Areeiro) | `nature-mountains.md` |
-| Beaches & natural pools | `nature-beaches.md` |
-| Gardens & parks | `nature-gardens.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (bus, car rental, taxis) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & healthcare | `safety.md` |
-| Weather & microclimates | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
-| **Digital Nomads** | |
-| Nomad guide & community | `nomad.md` |
-| Coworking spaces | `nomad-coworking.md` |
-| Internet & connectivity | `nomad-internet.md` |
-| **Visas & Legal** | |
-| EU citizens | `visas-eu.md` |
-| Non-EU & digital nomad visa | `visas-non-eu.md` |
-| NHR tax regime | `visas-tax.md` |
+| Topic | When to load | File |
+|-------|--------------|------|
+| **Visitors** | | |
+| Specific Traps | Load when planning trips or identifying issues | `references/traps.md` |
+| Attractions (must-see vs skip) | Load when discussing attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (3/5/7 days) | Load when discussing itineraries (3/5/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | Load when discussing where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | Load when discussing tips & day trips | `references/visitor-tips.md` |
+| **Zones** | | |
+| Quick comparison | Load when discussing quick comparison | `references/zones-index.md` |
+| Funchal (center, old town, hotel zone) | Load when discussing funchal (center, old town, hotel zone) | `references/zones-funchal.md` |
+| Caniço, Santa Cruz, Machico (east) | Load when discussing caniço, santa cruz, machico (east) | `references/zones-east.md` |
+| Câmara de Lobos, Ribeira Brava (west) | Load when discussing câmara de lobos, ribeira brava (west) | `references/zones-west.md` |
+| Porto Moniz, São Vicente (north) | Load when discussing porto moniz, são vicente (north) | `references/zones-north.md` |
+| Choosing guide | Load when discussing choosing guide | `references/zones-choosing.md` |
+| **Food** | | |
+| Cultural Context | Load when discussing culture or habits | `references/culture.md` |
+| Overview & dining scene | Load when discussing overview & dining scene | `references/food-overview.md` |
+| Local cuisine & specialties | Load when discussing local cuisine & specialties | `references/food-local.md` |
+| Restaurants & recommendations | Load when discussing restaurants & recommendations | `references/food-restaurants.md` |
+| Wine & poncha | Load when discussing wine & poncha | `references/food-drinks.md` |
+| Markets & groceries | Load when discussing markets & groceries | `references/food-practical.md` |
+| **Nature** | | |
+| Levadas (best walks by difficulty) | Load when discussing levadas (best walks by difficulty) | `references/nature-levadas.md` |
+| Mountains (Pico Ruivo, Pico Areeiro) | Load when discussing mountains (pico ruivo, pico areeiro) | `references/nature-mountains.md` |
+| Beaches & natural pools | Load when discussing beaches & natural pools | `references/nature-beaches.md` |
+| Gardens & parks | Load when discussing gardens & parks | `references/nature-gardens.md` |
+| **Practical** | | |
+| Moving & settling | Load when discussing moving & settling | `references/resident.md` |
+| Transport (bus, car rental, taxis) | Load when discussing transport (bus, car rental, taxis) | `references/transport.md` |
+| Cost of living | Load when discussing cost of living | `references/cost.md` |
+| Safety & healthcare | Load when discussing safety & healthcare | `references/safety.md` |
+| Weather & microclimates | Load when discussing weather & microclimates | `references/climate.md` |
+| Local services (banking, SIM) | Load when discussing local services (banking, sim) | `references/local.md` |
+| **Digital Nomads** | | |
+| Nomad guide & community | Load when discussing nomad guide & community | `references/nomad.md` |
+| Coworking spaces | Load when discussing coworking spaces | `references/nomad-coworking.md` |
+| Internet & connectivity | Load when discussing internet & connectivity | `references/nomad-internet.md` |
+| **Visas & Legal** | | |
+| EU citizens | Load when discussing eu citizens | `references/visas-eu.md` |
+| Non-EU & digital nomad visa | Load when discussing non-eu & digital nomad visa | `references/visas-non-eu.md` |
+| NHR tax regime | Load when discussing nhr tax regime | `references/visas-tax.md` |
+
+## State location
+
+This is a stateless skill. It does not store or read local configuration state.
 
 ## Core Rules
 
@@ -80,11 +76,11 @@ Madeira is a small volcanic island (~740 km²) with dramatic terrain:
 
 ### 3. Climate Reality (Eternal Spring)
 - **Year-round mild**: 17-25°C most of the year
-- **No extreme seasons**: Never too hot, rarely cold (sea level)
+- **No extreme seasons**: Maintains moderate temperatures (sea level)
 - **Microclimates**: North vs south, coast vs mountains dramatically different
 - **Rain patterns**: More rain Nov-Feb, but brief showers common year-round
 - **Mountain weather**: Can be 15°C colder than coast, often foggy
-See `climate.md` for monthly breakdown.
+See `references/climate.md` for monthly breakdown.
 
 ### 4. Current Data (Feb 2026)
 
@@ -103,7 +99,7 @@ Madeira is affordable by Western European standards:
 - **Housing**: Biggest expense, prices rose 2020-2024 but stabilizing
 - **Food**: Very affordable eating local; imported goods pricier
 - **Healthcare**: Portuguese public system available to residents
-- **Car**: Useful but not essential in Funchal (good bus network)
+- **Car**: Useful but optional in Funchal (good bus network)
 - **Flights**: Budget airlines connect to Lisbon, Porto, UK, Germany
 
 ### 6. Transport Options
@@ -113,7 +109,7 @@ Unlike mainland cities, Madeira has specific transport patterns:
 - **Taxis**: Fixed rates to popular destinations
 - **No trains, no metro**: Island is small enough not to need them
 - **Airport**: 20min from Funchal; famous challenging approach
-See `transport.md` for detailed guidance.
+See `references/transport.md` for detailed guidance.
 
 ### 7. Digital Nomad Hub
 Madeira actively courts remote workers:
@@ -122,7 +118,7 @@ Madeira actively courts remote workers:
 - **Community**: Active nomad meetups, especially winter months
 - **Connectivity**: Fiber widely available, 4G/5G coverage good
 - **D7 Visa**: Portugal's passive income/remote work visa
-See `nomad.md` for comprehensive guide.
+See `references/nomad.md` for comprehensive guide.
 
 ### 8. Zone Matching
 
@@ -144,32 +140,7 @@ Critical distinction for anyone considering Madeira:
 - **NHR tax regime**: 10-year special tax status for new residents (being phased out for new applicants)
 - **Golden Visa**: Investment-based residency (real estate route ended 2023)
 
-See `visas-eu.md` and `visas-non-eu.md` for detailed requirements.
-
-## Madeira-Specific Traps
-
-- **Mountain weather** — Clear in Funchal doesn't mean clear at Pico Areeiro. Always check webcams.
-- **Levada difficulty** — "Easy" levadas can still have exposed sections. Vertigo = problem.
-- **Sunday closures** — Many restaurants and all supermarkets closed Sunday afternoon.
-- **Rental car insurance** — Get full coverage; narrow mountain roads cause scrapes.
-- **Flight delays** — Airport closes in high winds. Keep flexible travel dates.
-- **Summer crowds** — August is peak; book levada shuttles and restaurants.
-- **North coast swimming** — Ocean can be rough. Use natural pools, not open water.
-- **Cruise ship days** — Funchal gets crowded when ships dock (check schedule).
-- **Hairpin roads** — Driving to north coast involves hundreds of curves. Motion sickness is real.
-- **Cash still matters** — Small restaurants and rural areas often cash-only.
-
-## Cultural Context
-
-Portuguese Atlantic culture with distinct identity:
-- **Language**: Portuguese (English widely spoken in tourist areas)
-- **Pace**: Slower than mainland, Mediterranean-influenced schedule
-- **Hospitality**: Warm but reserved; not as effusive as mainland
-- **Religion**: Catholic traditions, festivals important (especially Festa da Flor)
-- **Alcohol**: Poncha (local spirit drink) and Madeira wine are traditions
-- **Tipping**: 5-10% appreciated but not mandatory
-
-See `food-local.md` and `food-drinks.md` for culinary culture.
+See `references/visas-eu.md` and `references/visas-non-eu.md` for detailed requirements.
 
 ## Best Times to Visit
 
@@ -181,15 +152,3 @@ See `food-local.md` and `food-drinks.md` for culinary culture.
 | **Sep-Nov** | Warm (20-24°C), harvest | Medium | Wine harvest, mild crowds |
 
 Year-round destination, but each season has different character.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dubai` — Navigate Dubai as visitor, resident, or entrepreneur
-- `travel` — General travel planning and trip assistance
-- `portuguese` — Learn Portuguese for deeper Madeira integration
-- `health` — Health and wellness tracking
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/madeira
-- Latest version: https://clawic.com/skills/madeira
