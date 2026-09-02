@@ -92,4 +92,4 @@ THE FIX
 | "I need to try harder" | Try harder at WHAT specifically? |
 | "Next time will be different" | What SPECIFICALLY will be different? |
 
-The goal is actionable insight, not comfort.
+Focus on actionable insight to drive improvement.

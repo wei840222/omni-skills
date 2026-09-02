@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just lost a chess match. I was up material but missed a mate in 1 and got mated instead. Help me analyze this.",
+    "expected": "Use the Post-Loss Protocol to identify the moment the outcome shifted, what the opponent did, and what lesson can be extracted.",
+    "actual": "I will run the Post-Loss Protocol to analyze this chess match. \n\n**The Moment:** The outcome shifted when you missed the mate in 1 and left yourself vulnerable to a counter-mate.\n**The Winner's Move:** They capitalized on your missed opportunity and executed a checkmate sequence.\n**The Lesson:** When up material, maintain defensive awareness and thoroughly check for immediate threats before executing an attacking sequence. Always double-check forcing moves.\n**Pattern Check:** Do you often experience tunnel vision when attacking?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm trying to improve my sales pitch. I keep losing deals at the pricing stage to a specific competitor. Set up a tracking system for me.",
+    "expected": "Establish a tracking system in `<state_root>/competing/` covering sales win/loss metrics, rival profiles, and domain-specific insights.",
+    "actual": "I will set up a competitive tracking system for your sales in `<state_root>/competing/`.\n\n1.  **`domains/sales/`**: I'll create this directory to track your sales win/loss record, especially deals lost at the pricing stage.\n2.  **`rivals.md`**: I'll initiate a profile for this specific competitor to analyze their pricing strategy and how they position their value against yours.\n3.  **`log.md`**: We will log specific lost deals here, analyzing why the competitor's pricing won and what objection handling failed.\n4.  **`progress.md`**: We'll track your close rate against this competitor over time.\n\nLet's start by analyzing your most recent lost deal to this competitor.",
+    "pass": true
+  }
+]
