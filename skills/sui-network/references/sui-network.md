@@ -53,12 +53,4 @@ Package upgrade behavior and compatibility policy are package-specific. Read the
 - Treat DEX, NFT marketplace, bridge, and wrapped-asset package IDs as network-specific. Obtain them from the project's official documentation and inspect the transaction before signing.
 - A bridge transfer creates or handles representations governed by the bridge; verify the official bridge, source and destination network, asset type, and recipient before proceeding.
 
-## Primary sources
-
-| Topic | Source | Applied guidance |
-| --- | --- | --- |
-| Object ownership | [Sui: Types of Object Ownership](https://docs.sui.io/develop/objects/object-ownership) | Ownership controls access and versioning; shared objects require Move-layer authorization. |
-| Gas | [Sui: Gas in Sui](https://docs.sui.io/develop/transaction-payment/gas-in-sui) | Query current gas information instead of embedding fixed operational fees. |
-| Tokenomics and staking | [Sui: Tokenomics on Sui](https://docs.sui.io/develop/sui-architecture/tokenomics-overview) | SUI is used for gas and delegated staking; stake changes occur at epoch boundaries. |
-| Move development | [Sui: Writing Move Packages](https://docs.sui.io/develop/write-move) | Use current Move and package documentation for development workflows. |
-| Security | [Sui: Security Best Practices](https://docs.sui.io/develop/security/best-practices) | Validate authorization and transaction effects before irreversible operations. |
+For time-sensitive protocol behavior, load `references/sources.md` and use the linked primary documentation.
