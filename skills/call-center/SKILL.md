@@ -43,6 +43,7 @@ Memory lives in `<state_root>/`. See `assets/memory-template.md` for setup.
 | Memory setup | `assets/memory-template.md` | When setting up or reviewing the structure of persistent call memory. |
 | Call scripts | `references/scripts.md` | When actively handling an inbound, outbound, or complaint call. |
 | Escalation guide | `references/escalation.md` | When the caller requests a supervisor or the issue exceeds your authority. |
+| Domain research | `references/research.md` | When updating KPI targets, escalation criteria, or call-center metric guidance. |
 
 ## Core Rules
 
