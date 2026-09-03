@@ -1,31 +1,30 @@
 ---
 name: business-ideas
-slug: business-ideas
-version: 1.0.0
-description: Generate unlimited business ideas with validation frameworks, market filters, and viability scoring.
-homepage: https://clawic.com/skills/business-ideas
+description: "Use when the user wants to brainstorm new business ideas, apply startup frameworks, or validate the market viability of side projects."
 metadata:
-  clawdbot:
-    emoji: 💡
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Business Ideas
+  version: "1.0.0"
+  openclaw: '{"emoji":"💡"}'
+  related-skills: '{"business":"Strategy and planning for generated ideas.","indie-hacker":"Bootstrap and grow side projects solo.","startup":"Launch and scale the validated business concept."}'
 ---
 
 ## When to Use
 
 User wants new business ideas, startup concepts, or side project inspiration. Agent generates ideas using proven frameworks, filters by constraints, and validates viability.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/business-ideas/`. See `memory-template.md` for setup.
+Business ideas state may exist in `<workspace>/business-ideas/`, `<workspace>/memory/business-ideas/`, or `~/business-ideas/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-```
-~/Clawic/data/business-ideas/
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/business-ideas/`, `<workspace>/memory/business-ideas/`, `~/business-ideas/`.
+3. If none exists and state must be created, default to `<workspace>/business-ideas/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+```text
+<state_root>/
 ├── ideas.md           # HOT: generated ideas with scores
 ├── favorites.md       # WARM: ideas user marked for exploration
 ├── filters.md         # User's default filters and preferences
@@ -34,18 +33,18 @@ Memory lives in `~/Clawic/data/business-ideas/`. See `memory-template.md` for se
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Generation frameworks | `frameworks.md` |
-| Validation methods | `validation.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| State structure | `references/memory.md` | When initializing state or determining the schema for saving ideas. |
+| Idea frameworks | `references/frameworks.md` | When generating new business ideas or brainstorming concepts. |
+| Validation rules | `references/validation.md` | When the user asks how to test, validate, or verify an idea's viability. |
 
 ## Core Rules
 
-### 1. Never Repeat Ideas
-Before generating, scan `~/Clawic/data/business-ideas/ideas.md` for similar concepts. Each idea must be meaningfully different from previous generations.
+### 1. Generate Unique Ideas
+Before generating, scan `<state_root>/ideas.md` for existing concepts. Ensure each new idea is meaningfully differentiated from previous generations.
 
-### 2. Always Apply Filters
+### 2. Apply Filters
 Ask for or use stored filters before generating:
 
 | Filter | Options |
@@ -70,7 +69,7 @@ Rate each idea on 5 dimensions (1-10):
 **Viability = average score.** Flag ideas scoring 7+ as high-potential.
 
 ### 4. Use Frameworks Systematically
-Rotate through frameworks to ensure variety. See `frameworks.md` for complete list:
+Rotate through frameworks to ensure variety. See `references/frameworks.md` for complete list:
 - Pain Point Mining
 - Trend Riding  
 - Existing Business Remix
@@ -101,21 +100,10 @@ When user picks an idea to explore:
 | User rejects idea | Note rejection reason |
 | User sets preference | Update filters.md |
 
-## Idea Generation Traps
+## Required Quality Standards
 
-- Generic ideas without specificity → Always include target customer and unique angle
-- Ideas requiring massive scale → Include bootstrappable alternatives
-- Pure tech plays without business model → Define revenue from day one
-- Copying without differentiation → Require "10x better" or "10x cheaper" angle
-- Ignoring user constraints → Always check filters first
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `business` — Strategy and planning
-- `startup` — Launch and scale
-- `indie-hacker` — Bootstrap and grow solo
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/business-ideas
-- Latest version: https://clawic.com/skills/business-ideas
+- **Specificity**: Define a clear target customer and unique angle for every idea.
+- **Feasibility**: Provide bootstrappable alternatives for ideas that require massive scale.
+- **Monetization**: Define a concrete revenue model from day one for pure tech plays.
+- **Differentiation**: Require a "10x better" or "10x cheaper" angle when adapting existing solutions.
+- **Constraint alignment**: Verify and apply user filters before generation.

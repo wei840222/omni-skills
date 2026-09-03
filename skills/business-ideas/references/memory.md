@@ -4,15 +4,15 @@
 
 Create directory on first use:
 ```bash
-mkdir -p ~/Clawic/data/business-ideas/archive
-touch ~/Clawic/data/business-ideas/ideas.md
-touch ~/Clawic/data/business-ideas/favorites.md
-touch ~/Clawic/data/business-ideas/filters.md
+mkdir -p <state_root>/archive
+touch <state_root>/ideas.md
+touch <state_root>/favorites.md
+touch <state_root>/filters.md
 ```
 
 ## ideas.md Template
 
-Copy to `~/Clawic/data/business-ideas/ideas.md`:
+Copy to `<state_root>/ideas.md`:
 
 ```markdown
 # Generated Ideas
@@ -31,7 +31,7 @@ Copy to `~/Clawic/data/business-ideas/ideas.md`:
 
 ## favorites.md Template
 
-Copy to `~/Clawic/data/business-ideas/favorites.md`:
+Copy to `<state_root>/favorites.md`:
 
 ```markdown
 # Favorite Ideas
@@ -49,7 +49,7 @@ Ideas marked for deeper exploration.
 
 ## filters.md Template
 
-Copy to `~/Clawic/data/business-ideas/filters.md`:
+Copy to `<state_root>/filters.md`:
 
 ```markdown
 # My Filters

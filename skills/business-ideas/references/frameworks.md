@@ -2,48 +2,48 @@
 
 Use these systematically. Rotate to ensure variety.
 
-## 1. Pain Point Mining
+## 1. Pain Point Mining (B2B/B2C)
 
-Find frustrations in daily life or work.
+Find frustrations in daily life or professional workflows.
 
 **Process:**
-1. Pick a domain (work, health, finance, relationships)
-2. List 10 frustrations people complain about
-3. Rank by frequency and intensity
-4. Design solution for top 3
+1. Pick a specific domain or industry (e.g., healthcare admin, indie hacking).
+2. List 10 tasks that take too much time, involve too many spreadsheets, or cause active complaining.
+3. Rank by frequency, intensity, and willingness to pay to solve it.
+4. Design a targeted software or productized service solution.
 
 **Trigger questions:**
-- What do people complain about repeatedly?
-- What takes too long or costs too much?
-- What do people avoid because it's painful?
+- What repetitive task does this group hate doing?
+- What duct-taped spreadsheet solutions exist?
+- What do people actively spend money to avoid doing?
 
-## 2. Trend Riding
+## 2. Trend & Platform Arbitrage
 
-Surf emerging waves before they peak.
+Surf emerging waves and platform shifts before they peak.
 
 **Process:**
-1. Identify rising trend (AI, remote work, creator economy, etc.)
-2. Find underserved niche within trend
-3. Build picks-and-shovels or direct solution
+1. Identify a rising tech trend (LLMs, spatial computing) or platform (Shopify, Notion).
+2. Find an underserved niche or missing foundational tooling within that ecosystem.
+3. Build "picks and shovels" (infrastructure) or a highly-specific vertical application.
 
 **Trigger questions:**
-- What's growing 50%+ year over year?
-- What do early adopters use that mainstream will want?
-- What infrastructure is missing for this trend?
+- What new capability was impossible 2 years ago?
+- What do early adopters of this platform use that the mainstream will need?
+- What infrastructure or tooling is missing for builders on this platform?
 
-## 3. Existing Business Remix
+## 3. The "X for Y" Remix (Existing Business Remix)
 
-Take proven model, apply to new market.
+Take a proven, successful model and apply it to a new, specific market.
 
 **Process:**
-1. Find successful business in market A
-2. Identify market B without equivalent
-3. Adapt model for market B specifics
+1. Find a successful, validated business model (e.g., SaaS, marketplace, community).
+2. Identify an industry or demographic that currently lacks an equivalent solution.
+3. Adapt the model specifically for the nuances of that new market.
 
 **Examples:**
-- Uber for X (logistics, services, professionals)
-- Shopify for Y (specific verticals)
-- Notion for Z (specific workflows)
+- Gusto for highly specialized remote contractors.
+- Shopify for digital-only creators.
+- GitHub for non-code assets (e.g., hardware schematics, legal docs).
 
 ## 4. Audience First
 
