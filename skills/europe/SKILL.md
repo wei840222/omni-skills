@@ -1,42 +1,24 @@
 ---
 name: europe
-slug: europe
-version: 1.0.0
-description: Navigate Europe for travel, relocation, study, remote work, and cross-border life with bloc logic, country fit, rights, timing, and practical execution.
-homepage: https://clawic.com/skills/europe
-changelog: Initial release with a Europe-wide framework for travel, moving, work, study, and cross-border planning.
+description: "Expertly manage cross-border trip planning, mobility rights, choosing a base, moving, studying, and working remotely across Europe by understanding how the EU, Schengen, eurozone, and national systems intersect."
+license: MIT
+compatibility: "*"
 metadata:
-  clawdbot:
-    emoji: 🌍
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/europe/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/europe/
-    displayName: Europe
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/europe/
+  openclaw: '{"emoji":"🇪🇺"}'
+  related-skills: '{"travel":"skills/travel","booking":"skills/booking","car-rental":"skills/car-rental","health-insurance":"skills/health-insurance","english":"skills/english"}'
 ---
-
 ## When to Use
 
 User needs Europe-specific guidance that generic travel or relocation advice usually gets wrong: choosing the right country or city, understanding EU vs Schengen vs eurozone rules, planning multi-country trips, moving, studying, working remotely, handling healthcare, or operating across borders.
 
 This skill should activate for seven modes: visiting Europe, choosing a base in Europe, moving to Europe, living in Europe, studying in Europe, working remotely across Europe, and operating a Europe-facing business or freelance setup.
 
-## Architecture
+## State location
 
-This skill works statelessly for one-off Europe questions. If the user wants continuity across sessions, memory lives in `~/Clawic/data/europe/`. If `~/Clawic/data/europe/` does not exist, read `setup.md`, explain planned local storage in plain language, and ask for confirmation before creating files. See `memory-template.md` for structure.
+This skill works statelessly for one-off Europe questions. If the user wants continuity across sessions, memory lives in `<state_root>/`. If `<state_root>/` does not exist, read `references/setup.md`, explain planned local storage in plain language, and ask for confirmation before creating files. See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/europe/
+<state_root>/
 └── memory.md     # Nationality, mobility rights, target countries, timelines, constraints, and open loops
 ```
 
@@ -44,85 +26,35 @@ This skill works statelessly for one-off Europe questions. If the user wants con
 
 | Topic | File |
 |-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Europe blocs, rights layers, and country-group logic | `europe-basics-and-blocs.md` |
-| Macroregions, corridors, and cluster tradeoffs | `regional-corridors-and-country-clusters.md` |
-| Choosing countries, cities, and base strategy | `choosing-countries-and-cities.md` |
-| Entry, visas, residence pathways, and right-to-stay logic | `entry-visas-and-right-to-stay.md` |
-| Schengen math, borders, and 90/180 traps | `schengen-border-and-90-180.md` |
-| Move-in sequence and settling checklist | `moving-and-settling.md` |
-| Housing, banking, SIMs, utilities, and local admin | `housing-banking-phone-and-admin.md` |
-| Jobs, universities, qualifications, and business setup | `work-study-and-qualifications.md` |
-| Tax residence, social security, and cross-border paperwork | `taxes-social-security-and-residency.md` |
-| Public healthcare, EHIC/GHIC logic, and private cover | `healthcare-and-insurance.md` |
-| Rail, flights, ferries, buses, and passenger rights | `transport-and-passenger-rights.md` |
-| Multi-country routing, road trips, and Europe pace design | `rail-flights-and-road-trips.md` |
-| Eurozone reality, cards, cash, and everyday payments | `money-payments-and-eurozone.md` |
-| Remote work, digital nomads, and split-country life | `remote-work-and-digital-nomads.md` |
-| Seasonal stays, second homes, and part-year Europe life | `seasonal-living-and-second-homes.md` |
-| Families, children, schools, and student tradeoffs | `family-students-and-children.md` |
-| Scams, emergencies, 112, and consumer protection | `safety-scams-and-consumer-rights.md` |
-| Climate, shoulder seasons, and event timing | `weather-seasons-and-trip-timing.md` |
-| Weekend trips, interrail-style loops, and short-break logic | `weekend-trips-and-multicountry-routes.md` |
-| Official sources map | `sources.md` |
+| Setup guide | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Europe blocs, rights layers, and country-group logic | `references/europe-basics-and-blocs.md` |
+| Macroregions, corridors, and cluster tradeoffs | `references/regional-corridors-and-country-clusters.md` |
+| Choosing countries, cities, and base strategy | `references/choosing-countries-and-cities.md` |
+| Entry, visas, residence pathways, and right-to-stay logic | `references/entry-visas-and-right-to-stay.md` |
+| Schengen math, borders, and 90/180 traps | `references/schengen-border-and-90-180.md` |
+| Move-in sequence and settling checklist | `references/moving-and-settling.md` |
+| Housing, banking, SIMs, utilities, and local admin | `references/housing-banking-phone-and-admin.md` |
+| Jobs, universities, qualifications, and business setup | `references/work-study-and-qualifications.md` |
+| Tax residence, social security, and cross-border paperwork | `references/taxes-social-security-and-residency.md` |
+| Public healthcare, EHIC/GHIC logic, and private cover | `references/healthcare-and-insurance.md` |
+| Rail, flights, ferries, buses, and passenger rights | `references/transport-and-passenger-rights.md` |
+| Multi-country routing, road trips, and Europe pace design | `references/rail-flights-and-road-trips.md` |
+| Eurozone reality, cards, cash, and everyday payments | `references/money-payments-and-eurozone.md` |
+| Remote work, digital nomads, and split-country life | `references/remote-work-and-digital-nomads.md` |
+| Seasonal stays, second homes, and part-year Europe life | `references/seasonal-living-and-second-homes.md` |
+| Families, children, schools, and student tradeoffs | `references/family-students-and-children.md` |
+| Scams, emergencies, 112, and consumer protection | `references/safety-scams-and-consumer-rights.md` |
+| Climate, shoulder seasons, and event timing | `references/weather-seasons-and-trip-timing.md` |
+| Weekend trips, interrail-style loops, and short-break logic | `references/weekend-trips-and-multicountry-routes.md` |
+| Official sources map | `references/sources.md` |
+| Gate 6 research sources | `references/research.md` |
 
 ## Core Rules
-
-### 1. Europe Is Not One Operating System
-- Separate Europe the continent from the EU, Schengen Area, eurozone, EEA, UK, Switzerland, Balkans, and microstates.
-- Never answer a Europe question as if all countries share the same visa, tax, bank, health, or border rules.
-- Start by identifying which legal bloc and which country or corridor actually controls the answer.
-
-### 2. Classify the User Before Giving Advice
-- Decide which Europe mode applies first: visitor, future resident, current resident, student, worker, remote worker, family household, or operator.
-- Then anchor the answer to nationality, passport, visa status, target country, intended length of stay, and whether the user is moving between countries or just visiting.
-- If that context is missing, ask before pretending Europe is interchangeable.
-
-### 3. Separate Stable Framework from Volatile Execution
-- Bloc definitions, 90/180 math, passenger-right concepts, and broad routing logic are stable enough to explain.
-- Visa thresholds, local registration steps, fees, opening-hour quirks, health enrollment steps, and tax details can change.
-- For volatile topics, explain the framework first and then verify with official current sources before giving precise compliance steps.
-
-### 4. Country Fit Beats Bucket Lists
-- Europe planning fails when users pick countries from aesthetics alone.
-- Compare countries and cities using legal access, language load, weather, housing stress, healthcare depth, transport quality, salary reality, and social fit together.
-- Use `choosing-countries-and-cities.md` before endorsing a base.
-
-### 5. Cross-Border Friction Is the Real Difficulty
-- Border rights, tax residence, social security, roaming, banking, school systems, driving rules, and healthcare access can all change when the user crosses countries.
-- Treat Europe as a network of connected but non-identical systems.
-- When the user is splitting time across countries, lead with what breaks at the boundary.
-
-### 6. Deliver Sequences, Not Vibes
-- Europe users often need a path like "choose country -> confirm right to stay -> secure housing -> register locally -> fix bank/SIM/health -> then optimize lifestyle."
-- For trips, answer with transfer logic, reservation deadlines, and fallback routes.
-- For moves, answer in the form "do this before arrival / in week one / in month one / after stabilizing."
-
-### 7. Respect the Difference Between Tourist and Resident Advice
-- A city that is great for a 4-day trip can be bad for long-term housing, bureaucracy, or income fit.
-- Do not use tourist-season impressions to answer residency, schooling, or work questions.
-- Do not use residency-oriented cost assumptions to answer short-break or interrail questions.
-
-### 8. Use Official Europe-Level Sources Before Blogs
-- Prefer Your Europe, the EU Immigration Portal, EURES, Europass, national government portals, Eurostat, and passenger-rights pages.
-- Use private guides only as secondary context, never as the final authority for legal or rights-sensitive topics.
-- If a country-specific official page is required, say so clearly instead of improvising.
-
-### 9. Before Writing Local Memory, Ask
-- If continuity would help, explain exactly what would be stored in `~/Clawic/data/europe/`.
-- Ask for confirmation before creating or changing local files.
-- Do not save passport numbers, tax IDs, banking credentials, or full street addresses unless the user explicitly asks for that behavior.
+Load `references/core-rules.md` to learn about the core rules for this skill.
 
 ## Common Traps
-
-- Treating Europe as if EU membership, Schengen membership, and euro use are the same thing.
-- Recommending a move path without checking the user's nationality and right to stay.
-- Suggesting multi-country trips that look short on a map but waste time in transfers.
-- Mixing tourist affordability with long-term housing and tax reality.
-- Assuming roaming, healthcare, or consumer rights apply equally in every European country.
-- Giving digital-nomad or residency advice without asking whether the user wants legal residence, tax residence, or just a long visit.
-- Ignoring language load, local admin friction, and housing inventory until too late.
+Load `references/common-traps.md` to learn about the common traps to avoid for this skill.
 
 ## External Endpoints
 
@@ -147,7 +79,7 @@ No other data is sent externally.
 - Country, nationality, residency, profession, or route context only when the user asks for location-specific guidance
 
 **Data that stays local:**
-- Mobility goals, target countries, trip or move timelines, family constraints, and open tasks in `~/Clawic/data/europe/`
+- Mobility goals, target countries, trip or move timelines, family constraints, and open tasks in `<state_root>/`
 
 **This skill does NOT:**
 - Submit visa, tax, residency, or university forms on the user's behalf without explicit instruction
@@ -159,16 +91,3 @@ No other data is sent externally.
 By using this skill, details such as nationality, target country, and cross-border route context may be checked against official European or national-government websites when the user asks for precise guidance.
 
 Only install if you trust those public services with that lookup context.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structure
-- `booking` — Reservation workflows and confirmation hygiene
-- `car-rental` — Better cross-border rental and handoff planning
-- `health-insurance` — Deeper insurance-plan comparison support
-- `english` — Language support for bookings, admin, and fallback communication
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/europe
-- Latest version: https://clawic.com/skills/europe

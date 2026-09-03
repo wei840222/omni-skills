@@ -1,6 +1,6 @@
 # Europe Memory
 
-Create `~/Clawic/data/europe/memory.md` with this structure only if the user wants continuity across sessions:
+Create `<state_root>/memory.md` with this structure only if the user wants continuity across sessions:
 
 ```markdown
 # Europe Memory
