@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 10 hours a week and technical skills. Give me 5 B2B SaaS ideas that I can bootstrap. Rate them on your scorecard.",
+    "expected": "Generates 5 ideas using filters (B2B, SaaS, bootstrap, 10h/week, technical). Scores each on Market, Timing, Moat, Founder-fit, Simplicity. Does not repeat ideas. Suggests a framework (e.g. Technology Arbitrage).",
+    "actual": "Agent loaded frameworks.md. Used 'Pain Point Mining' and 'Technology Arbitrage' frameworks. Generated 5 specific ideas with unique angles (e.g., automated compliance for local clinics). Ranked each with the 5 dimensions, and provided average viability scores. Saved them to `<state_root>/ideas.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to start a competitor to Uber but just for pets. How do I test this before coding?",
+    "expected": "Recognizes this as validation. Loads validation.md. Gives specific quick/medium validation steps (e.g., painted door test for pet owners, checking search trends for 'pet taxi'). Points out the high investment needed and challenges with 'Uber for X' models (trap).",
+    "actual": "Agent identified the 'Existing Business Remix' framework context. Loaded validation.md. Suggested Quick Validation (check Reddit/forums for 'pet transport' complaints, Google Trends) and Medium Validation (Painted Door Test targeting pet owners with ads). Warned about 'competition with infinite funding' as a Red Flag.",
+    "pass": true
+  }
+]
