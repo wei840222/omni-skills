@@ -38,6 +38,7 @@ Use the selected `<state_root>` for every state operation in this skill.
 | State structure | `references/memory.md` | When initializing state or determining the schema for saving ideas. |
 | Idea frameworks | `references/frameworks.md` | When generating new business ideas or brainstorming concepts. |
 | Validation rules | `references/validation.md` | When the user asks how to test, validate, or verify an idea's viability. |
+| Research sources | `references/tech.md` | When citing Gate 6 validation / discovery sources or refreshing domain notes. |
 
 ## Core Rules
 
