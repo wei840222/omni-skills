@@ -24,11 +24,12 @@ Use `numericFilters` parameter with operators: `<`, `>`, `<=`, `>=`, `=`
 
 ### Date Filtering
 ```bash
+# Prefer portable epoch math over GNU-only `date -d`
 # Posts from last 24 hours
-numericFilters=created_at_i>$(date -d '24 hours ago' +%s)
+numericFilters=created_at_i>$(($(date +%s) - 86400))
 
 # Posts from last week
-numericFilters=created_at_i>$(date -d '7 days ago' +%s)
+numericFilters=created_at_i>$(($(date +%s) - 604800))
 
 # Posts in date range
 numericFilters=created_at_i>1700000000,created_at_i<1701000000
@@ -71,7 +72,7 @@ curl "https://hn.algolia.com/api/v1/search?query=freelancer&tags=story,author_wh
 
 ### Top Posts This Month
 ```bash
-MONTH_AGO=$(date -d '30 days ago' +%s)
+MONTH_AGO=$(($(date +%s) - 2592000))
 curl "https://hn.algolia.com/api/v1/search?tags=story&numericFilters=created_at_i>$MONTH_AGO,points>200"
 ```
 
