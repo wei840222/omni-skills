@@ -86,7 +86,7 @@ Follow your owner's manual, but these are typical intervals:
 
 **Protect yourself:**
 1. Get everything in writing before authorizing
-2. Ask: "What happens if I don't fix this now?"
+2. Ask: "What happens if I delay this repair?"
 3. For major repairs ($500+), get second opinion
 4. Check reviews specific to your car make
 
@@ -122,3 +122,16 @@ When check engine light comes on:
 - P0300-P0308: Misfire (spark plugs, coils, injectors)
 - P0171/P0174: System lean (vacuum leak, MAF sensor)
 - P0440-P0449: EVAP system (often gas cap loose)
+
+
+## Reliable Information Sources
+
+Prefer the vehicle owner's manual and OEM service schedule for model-specific intervals. Use these baselines when cross-checking ownership cost, recall, and roadside guidance:
+
+- **NHTSA recalls and safety issues** — open recalls, complaints, and investigations via https://www.nhtsa.gov/recalls
+- **FTC Auto Marketplace guidance** — buying, financing, and dealer-practice consumer protections via https://consumer.ftc.gov/articles/buying-car
+- **AAA car-buying and ownership resources** — negotiation, inspection, and ownership cost framing via https://www.aaa.com/autorepair/articles/how-to-buy-a-car
+- **Kelley Blue Book** — fair-market value and trade-in ranges via https://www.kbb.com/
+- **Edmunds** — ownership cost estimates and used-car research via https://www.edmunds.com/
+- **Car costs overview** — fixed/variable ownership cost categories via https://en.wikipedia.org/wiki/Car_costs
+- **Total cost of ownership** — TCO framing for purchase plus service, repairs, and fuel via https://en.wikipedia.org/wiki/Total_cost_of_ownership

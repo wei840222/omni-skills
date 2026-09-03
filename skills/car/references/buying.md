@@ -2,7 +2,7 @@
 
 ## Total Cost of Ownership
 
-The sticker price is NOT what you pay. Calculate:
+Calculate the full price, as the sticker price is only the beginning. Calculate:
 
 | Cost | Typical Range |
 |------|---------------|
@@ -26,7 +26,7 @@ The sticker price is NOT what you pay. Calculate:
 - Safety tech matters (ADAS features evolve fast)
 
 **Buy used when:**
-- You want to avoid 20-30% depreciation in year 1
+- You prefer to let someone else absorb the initial 20-30% depreciation in year 1
 - Budget is tight
 - You're okay with 1-3 year old models with remaining warranty
 - You can inspect or get pre-purchase inspection
@@ -43,8 +43,8 @@ The sticker price is NOT what you pay. Calculate:
 - Search "[car model] dealer markup" to spot inflated pricing
 
 **At the dealer:**
-1. Never reveal your max budget
-2. Focus on OUT-THE-DOOR price, not monthly payment
+1. Keep your maximum budget private
+2. Focus exclusively on the OUT-THE-DOOR price instead of the monthly payment
 3. Get quotes from 3+ dealers via email first
 4. Walk away if pressured — there's always another deal
 
@@ -101,9 +101,9 @@ The sticker price is NOT what you pay. Calculate:
 **Loan term advice:**
 - 36-48 months: Higher payment, less interest, car paid off faster
 - 60-72 months: Lower payment, more interest, risk of being "underwater"
-- Never finance for 84+ months — you'll owe more than car is worth
+- Keep financing terms to 72 months or fewer to ensure you stay ahead of the car's depreciation
 
-**Down payment:** Aim for 20% to avoid negative equity.
+**Down payment:** Aim for 20% to maintain positive equity.
 
 ---
 
@@ -115,4 +115,4 @@ Get insurance quotes BEFORE committing:
 3. Teen or young driver? Expect 50-100% premium increase
 4. Safety features (automatic braking, lane assist) often discount 5-15%
 
-**Don't discover your dream car costs $400/month to insure AFTER you buy it.**
+**Verify insurance rates before you complete the purchase.**
