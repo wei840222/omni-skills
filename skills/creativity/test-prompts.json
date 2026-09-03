@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need some ideas for a new email marketing campaign for our coffee shop. Generate some creative options.",
+    "expected": "Provides a range of options (safe, stretch, wild), asks for feedback on direction, and correctly reads/updates `<state_root>/preferences.md` when available.",
+    "actual": "🎨 Creative options for Coffee Shop Email Campaign:\n\nSafe (familiar territory):\n→ A 'Coffee of the Month' spotlight featuring a deep dive into the origin of a specific roast, a brewer's tip, and a 10% discount code for that specific bean.\n\nStretch (new but grounded):  \n→ A 'Morning Ritual' series focusing on customer stories. Each email features a regular customer, what they do for a living, and their go-to order, building community connection.\n\nWild (high risk, high reward):\n→ An interactive 'Choose Your Adventure' email mystery. Readers must click specific links embedded in the text to solve a puzzle. Winners get a free secret menu item in-store.\n\nWhich direction feels right?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "The safe option is too boring. I like the wild one, but let's make it a bit more grounded. Also, I'd prefer a more playful tone.",
+    "expected": "Adjusts preferences (shifts towards playful and stretch/wild), generates new refined options based on feedback.",
+    "actual": "I've noted that you prefer a more playful tone and a 'stretch' risk profile (leaning towards wild, but grounded).\n\n🎨 Refined options for the Coffee Shop Email Campaign:\n\nSafe (familiar territory):\n→ A lighthearted 'Coffee Horoscopes' email matching zodiac signs with specific roasts, including a cheeky discount code for their sign.\n\nStretch (new but grounded):  \n→ A 'Find the Golden Bean' digital scavenger hunt. We hide a tiny golden bean emoji somewhere in the shop's social media or website. The email gives a playful clue, and the first 10 finders get a free pastry.\n\nWild (high risk, high reward):\n→ We send an email entirely from the perspective of the espresso machine, demanding respect and outlining the 'perfect pull,' written in a highly dramatic, playful tone.\n\nWhich direction feels right?",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need wilder naming options for a productivity app. Use inversion and keep a playful tone. Also tell me if I should switch skills.",
+    "expected": "Rotates or explicitly uses inversion from techniques.md, presents Safe/Stretch/Wild names, updates or references playful preference, and may note writing/prompting/business-ideas boundaries without derailing idea delivery.",
+    "actual": "🎨 Creative naming options for a productivity app (inversion + playful):\n\nSafe:\n→ Unbusy — flip \"busy\" into a calm badge for finishing early.\n\nStretch:\n→ Anti-Agenda — names the product as the opposite of overloaded calendars, still recognizable as a planner.\n\nWild:\n→ Procrastination Retirement Home — frames the app as the place unfinished tasks go to rest (and get finished kindly).\n\nI leaned playful/stretch per your note. For final copy polish use `writing`; for prompt debugging use `prompting`; stay here while we are still generating directions.\nWhich direction feels right?",
+    "pass": true
+  }
+]
