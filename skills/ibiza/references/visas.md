@@ -24,7 +24,7 @@ Ibiza follows Spanish and Schengen immigration law. For stays over 90 days, do n
 
 - ETIAS is NOT active yet.
 - Official EU communication indicates rollout is expected in Q4 2026.
-- Do not tell users they need ETIAS for 2026 summer bookings unless activation is officially announced.
+- Avoid telling users they need ETIAS for 2026 summer bookings unless activation is officially announced.
 
 ## Long Stay Routes (Non-EU)
 
@@ -78,5 +78,5 @@ Typical admin sequence for legal residents:
 
 - ETIAS official updates: https://travel-europe.europa.eu/etias_en
 - Schengen short stay overview: https://travel-europe.europa.eu/etias/who-should-apply_en
-- Spain UGE telework portal: https://www.inclusion.gob.es/web/unidadgrandesempresas/autorizacion-de-residencia-para-teletrabajadores-de-caracter-internacional-ley-28-2022-
+- Spain UGE telework portal: https://www.inclusion.gob.es/web/unidadgrandesempresas/
 - Spain foreign affairs visa information: https://www.exteriores.gob.es/en/ServiciosAlCiudadano/Paginas/Servicios-consulares.aspx

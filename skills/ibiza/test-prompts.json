@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am planning a 5-day holiday in Ibiza in August, focusing on nightlife. Where should I stay and what beaches should I visit?",
+    "expected": "Matches nightlife-friendly zones such as Ibiza Town or Sant Antoni, notes August crowding, and loads visitor lodging, nightlife, beach, and itinerary references.",
+    "actual": "Routes to references/visitor-lodging.md, references/visitor-nightlife.md, references/visitor-beaches.md, and references/visitor-itineraries.md. Core rules require zone matching and seasonality before lodging advice; traps warn about late-night transport friction and peak-season walk-in assumptions.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the legal requirements and estimated costs for a remote worker relocating to Ibiza for 6 months from the UK?",
+    "expected": "Explains Schengen 90/180 limits for UK nationals, points to national/telework residence routes, gives dated rent benchmarks, and requires official-source verification before decisive advice.",
+    "actual": "Routes to references/visas.md, references/nomad.md, references/cost.md, and references/knowledge-sources.md. Package notes UK short-stay limits, Law 28/2022 telework residence, and Eivissa rent benchmarks while marking visa and rent figures as time-sensitive.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I bring a rental car to Ibiza in July and drive everywhere without worrying about restrictions?",
+    "expected": "Rejects unrestricted driving assumptions, loads traffic-restriction and transport references, and requires a current-season official check before advising ferry-vehicle or car-rental plans.",
+    "actual": "Routes to references/transport-local.md, references/rules.md, references/traps.md, and the traffic-restrictions source in references/sources.md. Core rules treat mobility as the main bottleneck and require verifying peak-season vehicle measures before promising island-wide car plans.",
+    "pass": true
+  }
+]

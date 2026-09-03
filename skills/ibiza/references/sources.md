@@ -1,23 +1,23 @@
 # Ibiza Research Sources (2025-2026)
 
-> Last reviewed: March 2026
+> Last reviewed: 2026-09-03
 
-This file lists key sources used to build the Ibiza skill. Re-check legal and pricing items before final user recommendations.
+This file lists key sources used to build the Ibiza skill. Re-check legal and pricing items before final user recommendations. For Gate 6 research notes and freshness traps, also load `knowledge-sources.md`.
 
 ## Official Transport and Mobility
 
 | Topic | Source |
 |---|---|
-| AENA air traffic statistics | https://www.aena.es/es/estadisticas/trafico-aereo.html |
+| AENA statistics portal | https://www.aena.es/es/estadisticas/inicio.html |
 | AENA Ibiza airport page | https://www.aena.es/es/ibiza.html |
-| Ibiza traffic restrictions overview (official tourism portal) | https://www.ibiza.travel/en/traffic-restrictions-and-other-actions-for-a-more-sustainable-ibiza/ |
-| Ibiza transport and airport practical info | https://www.ibiza.travel/en/to-and-around-ibiza/ |
+| Ibiza getting-around / mobility guidance (official tourism portal) | https://ibiza.travel/organiza-tu-viaje/moverse-por-la-isla/ |
+| Ibiza how-to-arrive guidance (official tourism portal) | https://ibiza.travel/organiza-tu-viaje/como-llegar/ |
 
 ## Tourism, Local Government, and Context
 
 | Topic | Source |
 |---|---|
-| Ibiza official tourism portal (home) | https://www.ibiza.travel/en/ |
+| Ibiza official tourism portal (home) | https://ibiza.travel/ |
 | Consell Insular d'Eivissa (institutional portal) | https://www.conselldeivissa.es/ |
 | Balearic tourism portal | https://www.illesbalears.travel/en |
 | Ibiza and Formentera Preservation (mobility/environment context) | https://ibizapreservation.org/ |
@@ -28,9 +28,9 @@ This file lists key sources used to build the Ibiza skill. Re-check legal and pr
 |---|---|
 | Balearic sustainable tourism tax legal text (BOE) | https://www.boe.es/buscar/act.php?id=BOE-A-2016-3744 |
 | ETIAS official portal | https://travel-europe.europa.eu/etias_en |
-| ETIAS launch update (expected Q4 2026) | https://travel-europe.europa.eu/etias/how-it-works_en |
+| ETIAS launch update | https://travel-europe.europa.eu/etias/how-it-works_en |
 | Schengen/ETIAS who needs authorization overview | https://travel-europe.europa.eu/etias/who-should-apply_en |
-| Spain UGE telework route (Law 28/2022) | https://www.inclusion.gob.es/web/unidadgrandesempresas/autorizacion-de-residencia-para-teletrabajadores-de-caracter-internacional-ley-28-2022- |
+| Spain UGE portal (telework / large-company residence routes) | https://www.inclusion.gob.es/web/unidadgrandesempresas/ |
 | Spain consular services hub | https://www.exteriores.gob.es/en/ServiciosAlCiudadano/Paginas/Servicios-consulares.aspx |
 
 ## Cost, Housing, and Market Benchmarks
@@ -55,7 +55,6 @@ This file lists key sources used to build the Ibiza skill. Re-check legal and pr
 | Topic | Source |
 |---|---|
 | AEMET weather agency | https://www.aemet.es/en/portada |
-| Ibiza climate reference | https://weather-and-climate.com/average-monthly-Rainfall-Temperature-Sunshine,Ibiza,Spain |
 
 ## Freshness Rules
 
