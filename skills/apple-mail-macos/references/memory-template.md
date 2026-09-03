@@ -1,6 +1,6 @@
 # Memory Template - Apple Mail (MacOS)
 
-Create `~/Clawic/data/apple-mail-macos/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Apple Mail (MacOS) Memory

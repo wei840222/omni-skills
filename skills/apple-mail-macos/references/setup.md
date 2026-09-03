@@ -1,6 +1,6 @@
 # Setup - Apple Mail (MacOS)
 
-If `~/Clawic/data/apple-mail-macos/` does not exist or is empty, start with transparent onboarding. Explain which local files can be created, why they help, and ask for confirmation before writing.
+If `<state_root>/` does not exist or is empty, start with transparent onboarding. Explain which local files can be created, why they help, and ask for confirmation before writing.
 
 ## Your Attitude
 

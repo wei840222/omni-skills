@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Check if I have any new emails in Apple Mail today.",
+    "expected": "Uses osascript or shortcuts to retrieve the latest unread emails and displays a summary.",
+    "actual": "Successfully retrieved a list of unread emails for the current day using osascript, summarizing the senders and subjects.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Draft an email to john@example.com about the project update but do not send it.",
+    "expected": "Creates a draft email addressed to john@example.com with the specified subject and waits for further instruction without sending.",
+    "actual": "Created a new draft in Apple Mail directed to john@example.com with subject 'Project Update', and reported completion without sending the email.",
+    "pass": true
+  }
+]
