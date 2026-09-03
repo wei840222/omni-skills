@@ -68,6 +68,27 @@ Rebuild from fundamentals:
 - "What are we assuming that might be wrong?"
 - "If we started from scratch, what would we do?"
 
+
+### Six Thinking Hats (Edward de Bono)
+Evaluate ideas from distinct perspectives to prevent cognitive bias:
+- **White Hat**: Facts and information (What data do we have?)
+- **Red Hat**: Feelings and intuition (How do we feel about this?)
+- **Black Hat**: Caution and critical thinking (What are the risks?)
+- **Yellow Hat**: Optimism and benefits (What is the value?)
+- **Green Hat**: Creativity and alternatives (What are new ideas?)
+- **Blue Hat**: Process control (How are we managing the thinking?)
+
+**Why it works:** Forces exploration of blind spots, ensuring a balanced, multi-faceted creative evaluation.
+
+
+### TRIZ (Theory of Inventive Problem Solving)
+Use generalized problem-solving patterns derived from analyzing patents:
+- Identify contradictions (improving one feature harms another).
+- Apply one of the 40 inventive principles to resolve it (e.g., Segmentation, Asymmetry, Prior Action).
+- Focus on ideality: solving the problem with existing resources.
+
+**Example:** "How do we make an object both light (to move) and heavy (to anchor)?" → Asymmetry or changes in state.
+
 ## Technique Selection
 
 | Situation | Best techniques |
@@ -93,7 +114,7 @@ Layer multiple techniques for richer output:
 
 ## Freshness Rotation
 
-Don't overuse any technique. Track:
+Ensure technique rotation to maintain novelty. Track usage:
 
 ```
 ### Recently Used

@@ -1,6 +1,6 @@
 # Creative Preferences
 
-This file grows as you learn. Update after every creative task.
+Copy this file to `<state_root>/preferences.md` on first use. The runtime copy grows as you learn. Update after every creative task.
 
 ---
 
