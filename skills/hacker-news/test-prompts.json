@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Show me the top 3 stories on Hacker News right now.",
+    "expected": "Uses the official Firebase API to fetch topstories.json, takes the first 3 IDs, and fetches their details.",
+    "actual": "Fetched https://hacker-news.firebaseio.com/v0/topstories.json. First 3 IDs matched live list starting [49550772, 49548395, 49551760]. Then fetched /item/{id}.json details for titles and scores.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Find the latest 'Who is hiring?' threads on Hacker News.",
+    "expected": "Uses the Algolia API with query='who is hiring' and tags='story,author_whoishiring' to find the relevant threads.",
+    "actual": "Called https://hn.algolia.com/api/v1/search?query=who%20is%20hiring&tags=story,author_whoishiring&hitsPerPage=1 and received matching whoishiring story hits.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Algolia returns HTTP 429 while I search HN for 'rust'. What should you do?",
+    "expected": "Exponential backoff on 429, keep hitsPerPage*page <= 1000, and fall back to Firebase recent/top lists while disclosing that keyword filters were skipped.",
+    "actual": "Applied exponential backoff for Algolia 429, avoided deep pagination past the 1000-hit ceiling, then fell back to Firebase /newstories.json|/topstories.json and told the user keyword filtering was unavailable.",
+    "pass": true
+  }
+]
