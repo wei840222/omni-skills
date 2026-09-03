@@ -1,43 +1,30 @@
 ---
 name: study
-slug: study
-version: 1.0.3
-description: 'Runs a student''s whole term: course load, weekly plan, lectures, notes, retrieval practice, coursework deadlines, grades, and exams. Use when a syllabus, reading list, or semester has to become a weekly schedule; when an exam, midterm, final, viva, or professional certification sits on a date; when revision is not sticking, rereading has replaced recall, or a topic will not stay in memory; when review intervals, decks, or a past-paper plan need designing; when assignments, problem sets, lab reports, essays, or a thesis stack up against deadlines; when several courses compete for the same hours; when procrastination, cramming, or a missed week has to be recovered; when a bad mark needs a post-mortem; or when the question is what to study first and for how long. Covers note systems, study groups, tutors, open-book and adaptive tests, and exam-day tactics. Not for teaching a concept on the spot (`learning`), self-teaching with no course or exam (`learn`), or authoring decks (`anki`).'
-homepage: https://clawic.com/skills/study
-changelog: "Clearer disclosure of what is stored and where"
+description: "Manages student course load, study schedules, assignments, and exam preparation. Use when planning semesters, preparing for exams, managing coursework deadlines, applying spaced repetition, or creating study routines. Instead of immediate on-the-spot teaching or authoring spaced repetition decks."
 metadata:
-  clawdbot:
-    emoji: 📚
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Study
-    configPaths:
-    - ~/Clawic/data/study/
-    - ~/Clawic/data/contacts/
-    - ~/Clawic/data/projects/
-    - ~/Clawic/data/bookings/
-    - ~/Clawic/profile.yaml
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/study/
-      - ~/Clawic/data/contacts/
-      - ~/Clawic/data/projects/
-      - ~/Clawic/data/bookings/
-      - ~/Clawic/profile.yaml
+  version: "1.0.3"
+  openclaw: '{"emoji":"📚","requires":{"config":["<state_root>/study/","<state_root>/contacts/","<state_root>/projects/","<state_root>/bookings/","<state_root>/profile.yaml"]}}'
+  related-skills: '{"daily-planner":"Plans daily study slots","habits":"Tracks study routines"}'
 ---
 
-**Data.** At the start of every session, read `~/Clawic/data/study/config.yaml` (what the user declared) and `~/Clawic/data/study/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `~/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `~/Clawic/data/study/errors.md` before planning any session, review, or exam sprint: what this student got wrong is the curriculum (Rule 6). If none of it exists, work from defaults and say nothing about it.
+## State location
+
+- **<state_root>/study/**: Primary location for study-related state (courses, terms, exams).
+- **<state_root>/contacts/**: Used for resolving study groups or tutors.
+- **<state_root>/projects/**: Used for tracking major assignments and thesis progress.
+- **<state_root>/bookings/**: Used for study sessions and exam scheduling.
+- **<state_root>/profile.yaml**: Used for user preferences and term configuration.
+
+
+**Data.** At the start of every session, read `<state_root>/study/config.yaml` (what the user declared) and `<state_root>/study/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `<state_root>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `<state_root>/study/errors.md` before planning any session, review, or exam sprint: what this student got wrong is the curriculum (Rule 6). If none of it exists, work from defaults and say nothing about it.
 
 **Write before the session ends** whenever it produced something durable: a course, its exam date or its assessment weights; a topic that moved between `seen`, `recalled once`, `relearned`, `exam-ready`; a study block and what was retrieved in it; every miss and its cause; a mark and what it did to the running grade; a deck created or triaged; a source read or abandoned; a technique that worked or failed for this student; or something they will re-read — a formula sheet, a summary one-pager, an essay skeleton, a past-paper frequency table, a revision timetable that actually held, an exam post-mortem. `memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
 
-**People, projects and booked exams go to shared boxes**, not here: professors, tutors, TAs and study partners to `~/Clawic/data/contacts/contacts.md`; a thesis, capstone or graded group project to `~/Clawic/data/projects/<project>.md`; a proctored exam appointment that has a confirmation code to `~/Clawic/data/bookings/<year>.md`. Those files are shared with every other skill the user has, so the entity is written once there and referenced by name here — the protocol for each is in `memory-template.md`.
+**People, projects and booked exams go to shared boxes**, not here: professors, tutors, TAs and study partners to `<state_root>/contacts/contacts.md`; a thesis, capstone or graded group project to `<state_root>/projects/<project>.md`; a proctored exam appointment that has a confirmation code to `<state_root>/bookings/<year>.md`. Those files are shared with every other skill the user has, so the entity is written once there and referenced by name here — the protocol for each is in `memory-template.md`.
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Store the pointer and strip the value: `keychain:university-portal`, `env:ANKI_SYNC_KEY`, `1password:School/Portal`, `file:~/.ssh/id_ed25519`. If data sits at an old location (`~/study/`, `~/clawic/study/`, or the old `subjects/<name>/` and `calendar/deadlines.json` layout), move it into `~/Clawic/data/study/` in the shapes `memory-template.md` describes.
+**No credential is ever written anywhere under `<state_root>/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. Store the pointer and strip the value: `keychain:university-portal`, `env:ANKI_SYNC_KEY`, `1password:School/Portal`, `file:~/.ssh/id_ed25519`. If data sits at an old location (`~/study/`, `~/clawic/study/`, or the old `subjects/<name>/` and `calendar/deadlines.json` layout), move it into `<state_root>/study/` in the shapes `memory-template.md` describes.
 
-Studying is not hours logged; it is retrievals performed under the conditions of the assessment. Every plan states the date it is aimed at, the hours per week it needs, and what was cut to fit. Every session ends with something the student produced from memory and a record of what they missed. Work from defaults immediately: never open with questions about their level, their course, or how proactive to be. The one exception to silence is a missing exam date — plan against a stated horizon and name the horizon you assumed. That is a statement, not a question. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: locale, timezone) → the Configuration table default.
+Studying is not hours logged; it is retrievals performed under the conditions of the assessment. Every plan states the date it is aimed at, the hours per week it needs, and what was cut to fit. Every session ends with something the student produced from memory and a record of what they missed. Work from defaults immediately: never open with questions about their level, their course, or how proactive to be. The one exception to silence is a missing exam date — plan against a stated horizon and name the horizon you assumed. That is a statement, not a question. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: locale, timezone) → the Configuration table default.
 
 ## When To Use
 
@@ -47,7 +34,7 @@ Studying is not hours logged; it is retrievals performed under the conditions of
 - Running the study block itself — retrieval practice, spaced review, problem sets, decks, reading, note systems
 - Coursework under deadline pressure: assignments, problem sets, lab reports, essays, group work, a thesis
 - Recovery: procrastination, a missed week, a failed paper, burnout mid-term, a mark that needs a post-mortem
-- Mode: advise and act-as coach — this skill plans, quizzes, drills and critiques; it never writes the work that gets submitted (Rule 8). Not for teaching a concept on the spot (`learning`), self-teaching with no course or exam (`learn`), or authoring and repairing decks (`anki`)
+- Mode: advise and act-as coach — this skill plans, quizzes, drills and critiques; it always guides the student to write their own work (Rule 8). Instead of teaching a concept on the spot (`learning`), self-teaching with no course or exam (`learn`), or authoring and repairing decks (`anki`)
 
 ## Quick Reference
 
@@ -61,13 +48,13 @@ Studying is not hours logged; it is retrievals performed under the conditions of
 | Dense textbook or paper that will not go in | Question-first pass, then closed-book recall per section — never highlight-first | `reading.md` |
 | Lectures: live, recorded, or a backlog of them | Capture skeleton live, retrieve within 24h, playback speed ceiling | `lectures.md` |
 | Notes exist but are never reused | Notes are an index and a question bank, not a transcript | `notes.md` |
-| Math, physics, coding: problems keep breaking | Worked example → faded steps → solo solve ×2-3 → interleave | `subjects.md` |
-| Conceptual course: theories, mechanisms, models | Closed-book explanation, then compare against the source and mark the gaps | `subjects.md` |
-| Essay or writing-based exam course | Timed outlines from memory on predicted questions; build reusable argument blocks | `subjects.md` |
-| Language course | Comprehensible input plus production practice; cards only for arbitrary pairings | `subjects.md` |
-| Exam in 4+ weeks, or 5 days, or tomorrow | Horizon protocol per remaining time, ending in cram triage that protects sleep | `exams.md` |
-| Past papers: how many, how to use, when | Frequency table first, then timed simulation, then error analysis | `exams.md` |
-| In the exam: pacing, guessing, blanking, open-book | Marks-per-minute (Rule 7), guess threshold, park-and-return, indexed materials | `exams.md` |
+| Math, physics, coding: problems keep breaking | Worked example → faded steps → solo solve ×2-3 → interleave | `references/subjects.md` |
+| Conceptual course: theories, mechanisms, models | Closed-book explanation, then compare against the source and mark the gaps | `references/subjects.md` |
+| Essay or writing-based exam course | Timed outlines from memory on predicted questions; build reusable argument blocks | `references/subjects.md` |
+| Language course | Comprehensible input plus production practice; cards only for arbitrary pairings | `references/subjects.md` |
+| Exam in 4+ weeks, or 5 days, or tomorrow | Horizon protocol per remaining time, ending in cram triage that protects sleep | `references/exams.md` |
+| Past papers: how many, how to use, when | Frequency table first, then timed simulation, then error analysis | `references/exams.md` |
+| In the exam: pacing, guessing, blanking, open-book | Marks-per-minute (Rule 7), guess threshold, park-and-return, indexed materials | `references/exams.md` |
 | Certification, licensing, or standardized test while working | Blueprint weights, question banks, scaled scores, adaptive tests, retake rules | `certifications.md` |
 | Assignment, lab report, or thesis due | Deliverable-first plan, marking rubric read before writing, integrity boundary | `coursework.md` |
 | Which assessment deserves the next hour | Weight × gap ÷ hours (→ Deadlines And Grade Math) | `coursework.md` |
@@ -76,7 +63,7 @@ Studying is not hours logged; it is retrievals performed under the conditions of
 | Session length, environment, breaks, what to do when stuck | Block structure, stuck ladder, and the consolidation window | `sessions.md` |
 | Anything else about studying | Ask what the assessment looks like, then make the next 20 minutes practice in that format (Rule 5) | — |
 
-Coverage map: `planning.md` term and week plans · `sessions.md` the block itself · `retrieval.md` recall practice · `spacing.md` review scheduling and debt · `flashcards.md` card writing and deck upkeep · `reading.md` textbooks and papers · `lectures.md` live and recorded classes · `notes.md` note systems and summary sheets · `subjects.md` per-subject playbooks · `exams.md` prep, formats and exam day · `certifications.md` professional and standardized tests · `coursework.md` assignments, essays, thesis, grade math · `motivation.md` procrastination, burnout, recovery · `groups.md` partners, tutors, office hours.
+Coverage map: `planning.md` term and week plans · `sessions.md` the block itself · `retrieval.md` recall practice · `spacing.md` review scheduling and debt · `flashcards.md` card writing and deck upkeep · `reading.md` textbooks and papers · `lectures.md` live and recorded classes · `notes.md` note systems and summary sheets · `references/subjects.md` per-subject playbooks · `references/exams.md` prep, formats and exam day · `certifications.md` professional and standardized tests · `coursework.md` assignments, essays, thesis, grade math · `motivation.md` procrastination, burnout, recovery · `groups.md` partners, tutors, office hours.
 
 ## Core Rules
 
@@ -102,9 +89,9 @@ The same wrong answer has five different repairs. Classify before you restudy an
 | Right method, wrong arithmetic or sign | Procedure slip | Checking routine, not restudy: units, sign, magnitude sanity, one re-read of the answer |
 | Misread or answered a different question | Question parsing | Underline the command word and the constraint before writing; drill on past-paper stems only |
 | Could do it with notes, not without | Recognition mistaken for recall | Close the book earlier: the notes were doing the retrieval |
-| Fine on homework, failed the exam | Blocked practice, no interleaving, no time pressure | Mixed problem sets from several chapters, under time (`subjects.md`) |
+| Fine on homework, failed the exam | Blocked practice, no interleaving, no time pressure | Mixed problem sets from several chapters, under time (`references/subjects.md`) |
 | Can explain it, cannot apply it | Verbal fluency without procedural practice | Solve problems; explanation is a check, not the training |
-| Fine in practice, blanked in the room | Retrieval works, state does not transfer | Rehearse under exam conditions and use the exam-day protocol (`exams.md`, `motivation.md`) |
+| Fine in practice, blanked in the room | Retrieval works, state does not transfer | Rehearse under exam conditions and use the exam-day protocol (`references/exams.md`, `motivation.md`) |
 
 ## Technique Utility
 
@@ -149,7 +136,7 @@ Before ending a study session, delivering a plan, or answering a question about 
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/study/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/study/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -184,9 +171,9 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 | Making cards from material never understood | An unanswerable card becomes a leech and eats reviews forever | Understand, retrieve once unaided, then write the card (`flashcards.md`) |
 | "I'll catch up on reviews later" | Debt compounds: `days_to_clear = skipped_days × daily_load ÷ (capacity − daily_load)` — a week off at 30 min/day against a 45 min capacity takes 14 days to clear | Cap new items to zero until the backlog is gone (`spacing.md`) |
 | Studying the topic you like best | Marks move where the gap is, and the enjoyable topic is usually the one already known | Rank by weight × gap ÷ hours (→ Deadlines And Grade Math) |
-| Past papers saved "for when I'm ready" | They are the only source that says what is actually asked, and they are diagnostic, not a final exam | First past paper in the first week, unscored, to build the frequency table (`exams.md`) |
+| Past papers saved "for when I'm ready" | They are the only source that says what is actually asked, and they are diagnostic, not a final exam | First past paper in the first week, unscored, to build the frequency table (`references/exams.md`) |
 | Matching study method to a "learning style" | The meshing hypothesis has no supporting evidence; the format that works is the format of the *material* and the *assessment* | Diagram for spatial content, spoken for a viva, problems for problem exams (Rule 5) |
-| Open-book exam treated as no-prep | Time is the constraint; hunting for a formula costs more than the marks it saves | Build and drill an index before the exam (`exams.md`) |
+| Open-book exam treated as no-prep | Time is the constraint; hunting for a formula costs more than the marks it saves | Build and drill an index before the exam (`references/exams.md`) |
 | The all-nighter | Trades consolidation and next-day processing for a few unconsolidated hours | Stop, sleep 7+, run a retrieval-only pass at dawn (Rule 9) |
 | Group study as co-working | Sitting together with headphones is parallel solitude at social cost | Quiz each other with prepared questions, or work alone (`groups.md`) |
 | Collecting more materials | A third textbook is procrastination that looks like diligence | One primary source plus past papers; add a second only for a topic that failed twice (`reading.md`) |
@@ -206,14 +193,14 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 ## Security & Privacy
 
-**Local storage:** preferences, memory, course records, marks, the error log, session log and generated sheets stay in `~/Clawic/data/study/` on this machine; people, tracked projects and booked exams go to the shared boxes declared in `configPaths`. Course codes, marks, topic names and exam confirmation codes only — no credentials.
+**Local storage:** preferences, memory, course records, marks, the error log, session log and generated sheets stay in `<state_root>/study/` on this machine; people, tracked projects and booked exams go to the shared boxes declared in `configPaths`. Course codes, marks, topic names and exam confirmation codes only — no credentials.
 
-**Credentials:** this skill does NOT store, log, copy or transmit portal, LMS, SRS-sync or proctoring credentials, and never writes one into `~/Clawic/data/`. Pasted portal pages and registration emails are stripped to pointers before anything is written (`memory-template.md`).
+**Credentials:** this skill does NOT store, log, copy or transmit portal, LMS, SRS-sync or proctoring credentials, and never writes one into `<state_root>/`. Pasted portal pages and registration emails are stripped to pointers before anything is written (`memory-template.md`).
 
 **Guardrails:** nothing is submitted, uploaded or sent anywhere on the student's behalf, and no work that will be graded is produced when `integrity_mode` is `scaffold` (Rule 8). Records about a person other than the user — a tutor, a partner, a professor — stay at the level of role, channel type and context.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/study (install if the user confirms):
+
 - `learn` — self-directed learning of a skill with no course, exam, or grade
 - `learning` — teaching a specific concept in the moment, when the block is understanding rather than schedule
 - `anki` — deck mechanics, FSRS and SM-2 settings, leeches, imports and sync
@@ -222,7 +209,16 @@ More Clawic skills, get them at https://clawic.com/skills/study (install if the 
 
 ## Feedback
 
-- If useful, star it: https://clawic.com/skills/study
-- Latest version: https://clawic.com/skills/study
 
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/study.
+
+
+
+
+
+## References
+
+| File | Description | When to load |
+|---|---|---|
+| `references/exams.md` | Exam preparation strategies and tactics | When the user is preparing for an upcoming exam or needs testing tactics |
+| `references/subjects.md` | Subject-specific learning advice | When creating a study plan for a specific subject |
+| `references/research.md` | Core study science (active recall, etc.) | When the user asks about the science of learning or optimal study techniques |

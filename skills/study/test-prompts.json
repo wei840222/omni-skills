@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to plan my study schedule for the upcoming semester. I have 4 classes: Math, Physics, History, and Literature. How should I organize my week?",
+    "expected": "Agent creates a structured weekly plan allocating time for each subject, factoring in active recall and spaced repetition principles.",
+    "actual": "Agent successfully generated a weekly schedule, allocated blocks for Math, Physics, History, and Literature, and incorporated active recall sessions.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My final exam for Physics is in 3 days and I haven't studied at all. What should I do?",
+    "expected": "Agent suggests an intensive, short-term recovery plan focusing on high-yield topics, past papers, and active recall, rather than passive reading.",
+    "actual": "Agent provided a triage plan emphasizing past exams and high-priority concepts, advising against re-reading textbooks.",
+    "pass": true
+  }
+]
