@@ -1,144 +1,73 @@
 ---
 name: ibiza
-slug: ibiza
-version: 1.0.0
-description: Navigate Ibiza as visitor, resident, remote worker, or founder with neighborhoods, transport, costs, visas, and local operational guidance.
-homepage: https://clawic.com/skills/ibiza
-changelog: Initial release with complete Ibiza guidance for visitors, residents, remote workers, seasonal workers, and entrepreneurs.
+description: Provide practical Ibiza guidance for holidays, relocation, remote work, seasonal work, or business setup, including zones, transport, costs, visas, and legal rules. Use when the user asks about Ibiza travel, lodging, nightlife, beaches, residency, or island operations.
 metadata:
-  clawdbot:
-    emoji: 🏝️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Ibiza
+  openclaw: '{"emoji":"🏝️"}'
+  related-skills: '{"travel":"Multi-destination trip planning and logistics beyond one island.","expat":"Relocation and adaptation workflows for longer stays.","food":"Dining research and personalization for food-first trips.","startup":"Founder operations when setting up or running a business from Ibiza.","spain":"Spain-wide travel and regional context beyond the Balearics.","europe":"EU/Schengen mobility and cross-border framing."}'
 ---
 
 ## When to Use
 
-User asks about Ibiza for holidays, relocation, seasonal work, remote work, or business setup. Agent gives practical, current guidance with zone-level detail and legal context.
+Use when the user asks about Ibiza for holidays, relocation, seasonal work, remote work, or business setup. Give practical, current guidance with zone-level detail and legal context. For live fares, visa eligibility, tax status, lodging availability, traffic restrictions, or weather-dependent plans, load the matching reference and verify the official source before treating a figure as current.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Beaches and coves strategy | `visitor-beaches.md` |
-| Nightlife planning and club logistics | `visitor-nightlife.md` |
-| Itineraries (3, 5, 7 days) | `visitor-itineraries.md` |
-| Where to stay by profile | `visitor-lodging.md` |
-| Day activities and alternatives | `visitor-activities.md` |
-| **Zones** | |
-| Island quick comparison | `zones-index.md` |
-| Ibiza Town and Marina zones | `zones-ibiza-town.md` |
-| Sant Antoni and west coast | `zones-san-antonio.md` |
-| Santa Eularia and east coast | `zones-santa-eulalia.md` |
-| North and quieter areas | `zones-north.md` |
-| Zone selection framework | `zones-choosing.md` |
-| **Food and Going Out** | |
-| Dining scene overview | `food-overview.md` |
-| Local Ibizan food | `food-local.md` |
-| Fine dining and premium tables | `food-fine-dining.md` |
-| Beach clubs and day parties | `food-beach-clubs.md` |
-| Budget food strategy | `food-budget.md` |
-| **Practical** | |
-| Arrival by air and sea | `transport-arrival.md` |
-| Local mobility and day movement | `transport-local.md` |
-| Cost of living and trip budgets | `cost.md` |
-| Housing and rental risks | `housing.md` |
-| Safety and legal basics | `safety.md` |
-| Seasons and weather decisions | `seasons.md` |
-| Local admin and services | `local.md` |
-| **Residency and Work** | |
-| Short and long stay visa logic | `visas.md` |
-| Remote work and nomad setup | `nomad.md` |
-| Seasonal jobs and contracts | `seasonal-work.md` |
-| **Lifestyle** | |
-| Culture, etiquette, and local rhythm | `culture.md` |
-| Healthcare and coverage | `healthcare.md` |
-| Wellness and recovery lifestyle | `wellness.md` |
-| **Research** | |
-| Source map and official links | `sources.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Visitors** | | |
+| Beaches and coves strategy | `references/visitor-beaches.md` | User asks about beaches and coves strategy |
+| Nightlife planning and club logistics | `references/visitor-nightlife.md` | User asks about nightlife planning and club logistics |
+| Itineraries (3, 5, 7 days) | `references/visitor-itineraries.md` | User asks about itineraries (3, 5, 7 days) |
+| Where to stay by profile | `references/visitor-lodging.md` | User asks about where to stay by profile |
+| Day activities and alternatives | `references/visitor-activities.md` | User asks about day activities and alternatives |
+| **Zones** | | |
+| Island quick comparison | `references/zones-index.md` | User asks about island quick comparison |
+| Ibiza Town and Marina zones | `references/zones-ibiza-town.md` | User asks about Ibiza Town and Marina zones |
+| Sant Antoni and west coast | `references/zones-san-antonio.md` | User asks about Sant Antoni and west coast |
+| Santa Eularia and east coast | `references/zones-santa-eulalia.md` | User asks about Santa Eularia and east coast |
+| North and quieter areas | `references/zones-north.md` | User asks about north and quieter areas |
+| Zone selection framework | `references/zones-choosing.md` | User asks about zone selection framework |
+| **Food and Going Out** | | |
+| Dining scene overview | `references/food-overview.md` | User asks about dining scene overview |
+| Local Ibizan food | `references/food-local.md` | User asks about local Ibizan food |
+| Fine dining and premium tables | `references/food-fine-dining.md` | User asks about fine dining and premium tables |
+| Beach clubs and day parties | `references/food-beach-clubs.md` | User asks about beach clubs and day parties |
+| Budget food strategy | `references/food-budget.md` | User asks about budget food strategy |
+| **Practical** | | |
+| Arrival by air and sea | `references/transport-arrival.md` | User asks about arrival by air and sea |
+| Local mobility and day movement | `references/transport-local.md` | User asks about local mobility and day movement |
+| Cost of living and trip budgets | `references/cost.md` | User asks about cost of living and trip budgets |
+| Housing and rental risks | `references/housing.md` | User asks about housing and rental risks |
+| Safety and legal basics | `references/safety.md` | User asks about safety and legal basics |
+| Seasons and weather decisions | `references/seasons.md` | User asks about seasons and weather decisions |
+| Local admin and services | `references/local.md` | User asks about local admin and services |
+| Legal awareness | `references/legal.md` | User asks about legal or compliance basics |
+| **Residency and Work** | | |
+| Short and long stay visa logic | `references/visas.md` | User asks about short and long stay visa logic |
+| Remote work and nomad setup | `references/nomad.md` | User asks about remote work and nomad setup |
+| Seasonal jobs and contracts | `references/seasonal-work.md` | User asks about seasonal jobs and contracts |
+| **Lifestyle** | | |
+| Culture, etiquette, and local rhythm | `references/culture.md` | User asks about culture, etiquette, and local rhythm |
+| Healthcare and coverage | `references/healthcare.md` | User asks about healthcare and coverage |
+| Wellness and recovery lifestyle | `references/wellness.md` | User asks about wellness and recovery lifestyle |
+| **Research** | | |
+| Source map and official links | `references/sources.md` | User asks about source map and official links |
+| Gate 6 research notes | `references/knowledge-sources.md` | User asks about research freshness or source updates |
+
+## State location
+
+This skill is stateless and does not store local configuration or persistent data.
 
 ## Core Rules
 
-### 1. Identify User Profile First
-- Role: tourist, relocating resident, remote worker, seasonal worker, founder.
-- Time horizon: weekend, one summer, multi-month, year-round plan.
-- Budget and transport tolerance determine 80% of good decisions.
+Load `references/rules.md` before making schedule, lodging, budget, visa, or safety recommendations.
 
-### 2. Ibiza Is Multi-Zone, Not One Destination
-Ibiza Town, Sant Antoni, Santa Eularia, and the North have different price levels, sleep quality, mobility stress, and social rhythm. Never give lodging advice without zone matching.
+## Common Traps
 
-### 3. Seasonality Controls Everything
-- High season drives peak prices, club demand, and road pressure.
-- Shoulder season is often best value-quality trade-off.
-- Winter has lower intensity and different business hours.
-Use `seasons.md` before making schedule promises.
+Load `references/traps.md` when planning peak-season trips, nightlife logistics, rentals, or seasonal work.
 
-### 4. Current Data Snapshot (March 2026)
+## Security & Privacy
 
-| Item | Current Reference |
-|------|-------------------|
-| Ibiza Airport passengers in 2025 | 9,138,224 (AENA) |
-| Ibiza Airport flights in 2025 | 85,086 (AENA) |
-| Eivissa rent level | 29.0 EUR/m2 (Feb 2026, idealista) |
-| Eivissa rent level prior month | 26.9 EUR/m2 (Jan 2026, idealista) |
-| Numbeo 1BR city-center benchmark | ~2,000 EUR/month |
-| Numbeo meal benchmark | ~17.5 EUR inexpensive restaurant |
-
-### 5. Mobility Is the Main Operational Bottleneck
-Road congestion can break naive itineraries. Formentera access and beach-club timing need preplanning. Use clustered daily plans, not island-wide zigzags.
-
-### 6. Entry and Visa Context Must Be Explicit
-- Schengen short stays follow 90/180 logic for visa-exempt nationals.
-- ETIAS is not active yet; EU states start in late 2026 according to official EU notice.
-- Longer stays need national visa or residence route.
-Use `visas.md` with exact assumptions.
-
-### 7. Tax and Fee Awareness
-Balearic Sustainable Tourism Tax (ITS) applies to overnight tourist stays with category-based rates and legal reductions by season and stay length. Mention this upfront in budget answers.
-
-### 8. Safety Priority: Transport + Party Context
-Most avoidable incidents involve transport behavior, intoxication risk, and unmanaged party logistics. Include harm-reduction recommendations by default.
-
-### 9. Source-Critical Guidance
-Rules and prices change. For legal, visa, and tax advice, cite official sources and date-stamp guidance before the user spends money.
-
-## Ibiza-Specific Traps
-
-- Booking far from planned nightlife and underestimating 02:00-06:00 transport friction.
-- Assuming every beach and club is easy walk-in during peak season.
-- Ignoring legal tourist tax and extra accommodation charges.
-- Treating Ibiza as cheap because flights were cheap.
-- Planning cross-island schedules with zero traffic buffers.
-- Renting vehicles or housing without compliance and deposit clarity.
-- Using unlicensed transfers or party offers.
-- Assuming all businesses run full schedule in off-season.
-- Mixing seasonal-job assumptions with wrong visa status.
-- Underinsuring for emergency medical scenarios.
-
-## Legal Awareness
-
-- Spain and Balearic local regulations apply; municipality rules can differ.
-- Entry conditions for non-EU nationals depend on nationality, visa status, and 90/180 limits.
-- Traffic controls and vehicle-cap measures are active in peak season.
-- Drug offenses and public-order breaches carry severe legal consequences.
-- Use only licensed transport and legal accommodation channels.
-
-See `visas.md`, `safety.md`, and `transport-local.md` for operational detail.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` - trip planning and logistics optimization
-- `expat` - relocation and adaptation workflows
-- `food` - dining research and personalization
-- `startup` - founder operations and execution systems
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/ibiza
-- Latest version: https://clawic.com/skills/ibiza
+- Prefer licensed transport and legal accommodation channels.
+- Treat visa, tax, residency, and traffic-restriction answers as time-sensitive; verify official sources before the user spends money or commits travel.
+- Do not present dated rent, fare, or passenger figures as live facts without a freshness check.

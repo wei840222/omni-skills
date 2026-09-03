@@ -48,7 +48,7 @@ Operational implication: if user plans to bring a non-resident vehicle by ferry,
 
 ## Safety Priorities
 
-- Do not combine intoxication and driving/scooters.
+- Avoid combining intoxication and driving/scooters.
 - Assume narrow roads, limited lighting in some stretches, and mixed driver quality.
 - For inexperienced riders, default to car/taxi/bus mix instead of scooter-heavy plans.
 
@@ -61,6 +61,6 @@ Operational implication: if user plans to bring a non-resident vehicle by ferry,
 
 ## Sources
 
-- AENA traffic dashboard: https://www.aena.es/es/estadisticas/trafico-aereo.html
+- AENA traffic dashboard: https://www.aena.es/es/estadisticas/inicio.html
 - AENA Ibiza airport page: https://www.aena.es/es/ibiza.html
-- Ibiza official mobility restrictions summary: https://www.ibiza.travel/en/traffic-restrictions-and-other-actions-for-a-more-sustainable-ibiza/
+- Ibiza official mobility restrictions summary: https://ibiza.travel/organiza-tu-viaje/moverse-por-la-isla/
