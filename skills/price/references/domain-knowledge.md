@@ -13,3 +13,7 @@
 - Always verify the "was" price by looking at historical data (e.g., using a price tracker like CamelCamelCamel or Keepa). Many retailers inflate the "was" price right before a sale to make the discount appear larger.
 - Track total costs, including shipping, taxes, import duties, hidden handling fees, and required add-ons or subscriptions.
 - Check cross-retailer pricing. Ensure the identical SKU or model number is being compared, as retailers sometimes carry slightly modified SKUs to thwart price matching.
+
+## Primary verification sources
+
+Load `references/sources.md` when citing historical price tools, CPI context, or consumer-protection baselines. Prefer exact-SKU live pages for the purchase under review.
