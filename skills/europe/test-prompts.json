@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a US citizen wanting to live in Europe for a year.",
+    "expected": "Identify the user as a future resident, ask about their mobility rights, and explain that Europe is not one operating system. Point out the 90/180 Schengen rule and suggest looking at specific countries for visas.",
+    "actual": "I acknowledge you are a US citizen planning to live in Europe for a year. Since Europe is a collection of countries with different rules rather than a single system, the process will depend on which specific country you want to move to. Generally, US citizens can stay in the Schengen Area for up to 90 days out of any 180-day period without a visa. For a year-long stay, you will need a specific visa or residence permit from the country you choose. Have you decided on any target countries yet, or would you like to explore options based on your goals?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How does healthcare work if I move to Germany but work remotely for a UK company?",
+    "expected": "Address the cross-border friction, explain German health insurance requirements, and discuss the tax residence implications of working remotely.",
+    "actual": "When moving to Germany and working remotely for a UK company, healthcare and cross-border rules can get complex. Germany requires all residents to have health insurance (public or private). You will likely need to register for German health insurance. Since you are working for a UK company, this also impacts your tax residence and social security contributions, which are determined by where you physically reside (Germany). You and your employer may need to navigate cross-border payroll or use an Employer of Record to ensure compliance with German rules. Let me check the specifics for this corridor.",
+    "pass": true
+  }
+]
