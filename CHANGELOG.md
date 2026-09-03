@@ -6,6 +6,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| apple-mail-macos             | 2026-09-03 | 85/100 (#240) |
 | madeira                      | 2026-09-03 | 85/100 (#239) |
 | call-center                  | 2026-09-03 | 85/100 (#238) |
 | trading                      | 2026-09-03 | 85/100 (#237) |
