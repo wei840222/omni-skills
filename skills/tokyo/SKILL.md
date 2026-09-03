@@ -11,7 +11,7 @@ This skill is stateless and does not store local configuration or persistent use
 
 ## When to Use
 
-Use when the user asks about Tokyo for visiting, moving, working, studying, or starting a business. Give practical guidance with dated planning ranges, then verify mutable facts at official sources before booking, immigration, payment, or same-day safety decisions.
+Use when the user asks about Tokyo for visiting, moving, working, studying, or starting a business. Give practical guidance with dated planning ranges, then verify mutable facts at official sources before booking, immigration, payment, or same-day safety decisions. For multi-city Japan trips or language-only help, hand off to `japan` / `japanese` instead of stretching this skill.
 
 ## Quick Reference
 
