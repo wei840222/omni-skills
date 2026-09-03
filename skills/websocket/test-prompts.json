@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I handle websocket reconnection in my JavaScript app?",
+    "expected": "Mentions exponential backoff with jitter and queuing messages during reconnect.",
+    "actual": "To handle WebSocket reconnection in JavaScript, implement exponential backoff with jitter (for example `delay * (0.5 + Math.random())`) capped around 30 seconds so reconnect storms are avoided. Treat missing heartbeats as loss instead of waiting only for `onclose`. While reconnecting, track connection state and queue outbound messages for replay after the socket returns to OPEN.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I keep getting close code 1006. What does it mean and how do I fix it?",
+    "expected": "Explains that 1006 is an abnormal closure (usually network issue) and recommends adding application-level heartbeats (ping/pong) to keep the connection alive through proxies.",
+    "actual": "Close code 1006 means an abnormal closure where no close frame was received, often from a dropped TCP connection or proxy idle timeout. Add application-level heartbeats (ping about every 30s, expect pong within about 10s) and raise intermediary `proxy_read_timeout` above the heartbeat interval. TCP keepalive alone is not enough through proxies.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What Nginx settings do I need for WebSocket upgrade?",
+    "expected": "Mentions proxy_http_version 1.1, Upgrade/Connection headers, and a long proxy_read_timeout.",
+    "actual": "Configure Nginx with `proxy_http_version 1.1`, `proxy_set_header Upgrade $http_upgrade`, `proxy_set_header Connection \"upgrade\"`, and a `proxy_read_timeout` longer than your heartbeat interval (for example 3600s). Without the Upgrade headers the handshake fails immediately; the default 60s read timeout is usually too short for idle sockets.",
+    "pass": true
+  }
+]

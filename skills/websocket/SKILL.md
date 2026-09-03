@@ -1,94 +1,39 @@
 ---
 name: websocket
-slug: websocket
-version: 1.0.0
-description: Implement reliable WebSocket connections with proper reconnection, heartbeats, and scaling.
-homepage: https://clawic.com/skills/websocket
+description: Implement reliable WebSocket connections with proper reconnection, heartbeats, and scaling. Use when building real-time features, debugging connection drops, configuring WebSocket proxies, or establishing two-way client-server streams.
 metadata:
-  clawdbot:
-    emoji: 🔌
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: WebSocket
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔌"}'
+  related-skills: '{"http":"HTTP request/response and caching behavior outside the WebSocket upgrade path","nginx":"Nginx Upgrade headers, proxy_read_timeout, and reverse-proxy WebSocket config","network":"TCP reachability, DNS, firewall, and TLS diagnosis around the socket","security-best-practices":"Threat modeling, origin validation, and secure-by-default review of socket handlers"}'
 ---
 
-## Reconnection (Always Forget)
+## Quick Reference
 
-- Connections drop silently—TCP FIN may never arrive; don't assume `onclose` fires
-- Exponential backoff: 1s, 2s, 4s, 8s... cap at 30s—prevents thundering herd on server recovery
-- Add jitter: `delay * (0.5 + Math.random())`—prevents synchronized reconnection storms
-- Track reconnection state—queue messages during reconnect, replay after
-- Max retry limit then surface error to user—don't retry forever silently
+When working with WebSocket connections, load the relevant reference file:
 
-## Heartbeats (Critical)
+| Category | When to load | File |
+|---|---|---|
+| **Reconnection** | Designing automatic reconnect logic or handling connection drops | `references/reconnection.md` |
+| **Heartbeats** | Preventing silent disconnects or managing connection timeouts | `references/heartbeats.md` |
+| **Connection State** | Checking readyState or handling message buffering | `references/connection-state.md` |
+| **Authentication** | Passing tokens or securing the connection handshake | `references/authentication.md` |
+| **Scaling** | Handling multiple servers, sticky sessions, or high connection counts | `references/scaling.md` |
+| **Proxy Config** | Configuring Nginx, load balancers, or upgrade headers | `references/proxy-config.md` |
+| **Close Codes** | Interpreting close codes (e.g. 1006) or sending reasons | `references/close-codes.md` |
+| **Message Handling** | Dealing with JSON vs binary, or framing large messages | `references/message-handling.md` |
+| **Security** | Validating origins, rate limiting, or preventing hijacking | `references/security.md` |
+| **Common Mistakes** | Debugging memory leaks, unbounded buffers, or missing heartbeats | `references/common-mistakes.md` |
+| **Domain Knowledge** | Understanding RFC 6455 protocol basics and handshake details | `references/research.md` |
+| **Sources** | Verifying standards and proxy documentation URLs | `references/sources.md` |
 
-- Ping/pong frames at protocol level—browser doesn't expose; use application-level ping
-- Send ping every 30s, expect pong within 10s—no pong = connection dead, reconnect
-- Server should ping too—detects dead clients, cleans up resources
-- Idle timeout in proxies (60-120s typical)—heartbeat must be more frequent
-- Don't rely on TCP keepalive—too infrequent, not reliable through proxies
+## Workflow
 
-## Connection State
+1. Confirm the transport needs a persistent bidirectional channel; otherwise prefer HTTP/SSE.
+2. Establish the handshake and authentication path, then verify `readyState === OPEN` before sending.
+3. Enable application-level heartbeats (ping every ~30s, pong within ~10s) so proxies and dead peers are detected.
+4. On loss of heartbeat or abnormal close (`1006`), reconnect with exponential backoff plus jitter and replay queued messages.
+5. For multi-instance deployments, plan sticky sessions or a pub/sub fan-out before scaling connection count.
 
-- `readyState`: 0=CONNECTING, 1=OPEN, 2=CLOSING, 3=CLOSED—check before sending
-- Buffer messages while CONNECTING—send after OPEN
-- `bufferedAmount` shows queued bytes—pause sending if backpressure building
-- Multiple tabs = multiple connections—coordinate via BroadcastChannel or SharedWorker
+## State location
 
-## Authentication
-
-- Token in URL query: `wss://host/ws?token=xxx`—simple but logged in access logs
-- First message auth: connect, send token, wait for ack—cleaner but more round trips
-- Cookie auth: works if same origin—but no custom headers in WebSocket
-- Reauthenticate after reconnect—don't assume previous session valid
-
-## Scaling Challenges
-
-- WebSocket connections are stateful—can't round-robin between servers
-- Sticky sessions: route by client ID to same server—or use Redis pub/sub for broadcast
-- Each connection holds memory—thousands of connections = significant RAM
-- Graceful shutdown: send close frame, wait for clients to reconnect elsewhere
-
-## Nginx/Proxy Config
-
-```
-proxy_http_version 1.1;
-proxy_set_header Upgrade $http_upgrade;
-proxy_set_header Connection "upgrade";
-proxy_read_timeout 3600s;
-```
-- Without these headers, upgrade fails—connection closes immediately
-- `proxy_read_timeout` must exceed your ping interval—default 60s too short
-- Load balancer health checks: separate HTTP endpoint, not WebSocket
-
-## Close Codes
-
-- 1000: normal closure; 1001: going away (page close)
-- 1006: abnormal (no close frame received)—usually network issue
-- 1008: policy violation; 1011: server error
-- 4000-4999: application-defined—use for auth failure, rate limit, etc.
-- Always send close code and reason—helps debugging
-
-## Message Handling
-
-- Text frames for JSON; binary frames for blobs/protobuf—don't mix without framing
-- No guaranteed message boundaries in TCP—but WebSocket handles framing for you
-- Order preserved per connection—messages arrive in send order
-- Large messages may fragment—library handles reassembly; set max message size server-side
-
-## Security
-
-- Validate Origin header on handshake—prevent cross-site WebSocket hijacking
-- Same-origin policy doesn't apply—any page can connect to your WebSocket server
-- Rate limit per connection—one client can flood with messages
-- Validate every message—malicious clients can send anything after connecting
-
-## Common Mistakes
-
-- No heartbeat—connection appears alive but is dead; messages go nowhere
-- Reconnect without backoff—hammers server during outage, prolongs recovery
-- Storing state only in connection—lost on reconnect; persist critical state externally
-- Huge messages—blocks event loop; stream large data via chunking
-- Not handling `bufferedAmount`—memory grows unbounded if client slower than server
+This skill is stateless and does not store local configuration or state.
