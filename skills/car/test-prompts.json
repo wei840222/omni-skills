@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm looking to buy a used Honda Civic but I don't know how much I should negotiate or what to look out for on a test drive.",
+    "expected": "Provides advice on checking Kelley Blue Book/Edmunds for price, getting a pre-purchase inspection, focusing on out-the-door price, and provides the test drive checklist.",
+    "actual": "Based on the car skill's `references/buying.md`, I advise researching the car's fair market value on Kelley Blue Book or Edmunds beforehand. During the test drive, accelerate hard once to check for hesitation, brake hard to see if it pulls, listen for any squeaks, test all electronics, and pay attention to vibrations at highway speed. When negotiating, focus on the out-the-door price rather than the monthly payment, and don't reveal your max budget. Also, getting a pre-purchase inspection from an independent mechanic is highly recommended before buying.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My check engine light is flashing and the car is shaking a bit, what should I do?",
+    "expected": "Instructs the user to stop driving immediately, pull over safely, and call a tow truck as a flashing check engine light indicates a critical misfire or severe issue.",
+    "actual": "According to the `Warning Lights \u2014 Quick Reference` in the car skill, a flashing check engine light is a critical severity issue. You should stop driving immediately, pull over to a safe location, and call for a tow. It often indicates a severe engine misfire that can damage the catalytic converter if you continue to drive.",
+    "pass": true
+  }
+]

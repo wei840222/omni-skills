@@ -7,7 +7,7 @@
 3. **If stuck in traffic:** Stay in car with seatbelt on until safe to exit
 4. **Exit on the side AWAY from traffic** (right side on highways)
 5. **Set up warning triangles** — 50-100 meters behind car if you have them
-6. **Stand well away from the vehicle** — other cars may not see you
+6. **Stand well away from the vehicle** — ensure you are in a visible and safe area
 
 ---
 
@@ -65,10 +65,10 @@
 - [ ] Names and contacts of witnesses
 - [ ] Screenshot of location (GPS coordinates)
 
-**Do NOT:**
-- Admit fault or apologize (even if you think it's your fault)
-- Accept cash to "settle it here" — always go through insurance
-- Leave the scene before documenting
+**Required actions at scene:**
+- Stick to factual statements about the event
+- Always process settlements through official insurance channels
+- Remain at the scene until all documentation is complete
 
 ---
 
@@ -143,9 +143,9 @@
 **Overheating:**
 - Pull over immediately, turn off AC, turn ON heat (pulls heat from engine)
 - Let cool 15-30 min before opening hood
-- Check coolant level WHEN COOL — never open hot radiator
+- Check coolant level WHEN COOL — keep the hot radiator closed to prevent burns
 - Top up coolant or water if low
-- If keeps overheating, do not drive — call tow
+- If overheating persists, keep the engine off and call for a tow
 
 **Out of gas:**
 - Call roadside for fuel delivery
