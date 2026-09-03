@@ -1,44 +1,35 @@
 ---
 name: price
-slug: price
-version: 1.0.0
-description: Track prices, detect deals and manipulation, time purchases, and make informed buying decisions as a consumer or business buyer.
-homepage: https://clawic.com/skills/price
+description: Track prices, detect dynamic pricing manipulation, time purchases, and assess fair market value for consumer and B2B goods. Use when the user asks about good deals, price drops, or timing a purchase.
 metadata:
-  clawdbot:
-    emoji: 💰
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Price
+  version: "1.0.0"
+  openclaw: '{"emoji":"💰"}'
 ---
 
 ## When to Use
 
 User asks: "is this a good price?", "should I buy now or wait?", "track this price", "price history", "is this sale real?", "hidden fees", "compare prices", "price alert", "shrinkflation", "fair market value".
 
-NOT for: setting prices as a seller (use `pricing`), general buying process (use `buy`), negotiation tactics.
+For setting prices as a seller, use `pricing` instead. For the general buying process, use `buy` instead.
 
 ## Quick Reference
 
-| Area | File |
-|------|------|
-| Retail & electronics | `retail.md` |
-| Travel & hospitality | `travel.md` |
-| B2B & enterprise | `b2b.md` |
-| Collectibles & investments | `collectibles.md` |
-| Manipulation detection | `manipulation.md` |
-| Price tracking setup | `tracking.md` |
+| Area | File | When to load |
+|------|------|--------------|
+| Domain Knowledge | `references/domain-knowledge.md` | For general pricing concepts and tactics. |
+| Retail & electronics | `references/retail.md` | For consumer electronics, apparel, and daily goods pricing. |
+| Travel & hospitality | `references/travel.md` | For flights, hotels, and vacation packages pricing. |
+| B2B & enterprise | `references/b2b.md` | For software licenses, bulk materials, and enterprise services. |
+| Collectibles & investments | `references/collectibles.md` | For rare items, art, trading cards, and speculative goods. |
+| Manipulation detection | `references/manipulation.md` | When evaluating a sale or discount for inflated anchor prices or shrinkflation. |
+| Price tracking setup | `references/tracking.md` | When setting up alerts or active price monitoring. |
 
 ## Workspace Structure
 
-All data lives in ~/Clawic/data/price/:
+All data lives in <state_root>/price/:
 
 ```
-~/Clawic/data/price/
+<state_root>/price/
 ├── config.md           # Preferred retailers, alert thresholds
 ├── watchlist.md        # Items being tracked with targets
 ├── history/            # Price history by item
@@ -81,8 +72,8 @@ For EVERY price evaluation:
 
 ## Critical Rules (ALWAYS Apply)
 
-- **Show data sources** — Never claim price history without citing where it came from
-- **Include total cost** — Listed price is not final price, always add fees
+- **Show data sources** — Always cite the specific data source when providing price history
+- **Include total cost** — Always add shipping, tax, and fees to the listed price to calculate the total cost
 - **State confidence level** — Be honest about data quality and limitations
 - **Explain "why now"** — If recommending buy, explain what makes timing good
 - **Flag manipulation** — Always check for inflated comparisons, dynamic pricing
