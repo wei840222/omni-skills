@@ -15,10 +15,10 @@
 
 ## Fake Urgency Signals
 
-- **"Only 3 left!"** — May be true or manufactured scarcity
-- **Countdown timers** — "Sale ends in 2:34:12" often resets
-- **"Others are looking"** — Vague, unverifiable pressure tactic
-- **Limited time offers** — Check if offer actually expires or quietly continues
+- **"Only 3 left!"** — Confirm inventory via another retailer or a fresh session before accelerating the decision
+- **Countdown timers** — Refresh later or open a private window; many timers reset rather than expire
+- **"Others are looking"** — Ignore unverifiable social proof and return to price history + total cost
+- **Limited time offers** — Record the stated end time and re-check after it; quiet continuations are common
 
 ## Shrinkflation (Hidden Price Increases)
 
