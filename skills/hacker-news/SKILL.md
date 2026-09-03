@@ -1,27 +1,20 @@
 ---
 name: hacker-news
-slug: hacker-news
-version: 1.0.0
-description: Search and browse Hacker News with API access to stories, comments, users, and hiring threads.
-homepage: https://clawic.com/skills/hacker-news
+description: Search Hacker News, fetch top stories, read comments, and browse user profiles or job threads. Use when the user wants to read or search Hacker News content.
 metadata:
-  clawdbot:
-    emoji: 🟠
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Hacker News
+  version: "1.0.0"
+  openclaw: '{"emoji":"🟠"}'
 ---
+## State location
+
+This skill operates statelessly, processing data purely in-memory during execution without local configuration.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| API endpoints | `api.md` |
-| Search patterns | `search.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| API endpoints | `references/api.md` | When fetching single items, newest/top lists, or user profiles. |
+| Search patterns | `references/search.md` | When performing full-text searches, filtering by date/points, or finding specific threads. |
 
 ## Core Rules
 
@@ -33,7 +26,7 @@ metadata:
 
 ### 2. Official API Endpoints
 - `/topstories.json` — top 500 story IDs
-- `/newstories.json` — newest 500 story IDs  
+- `/newstories.json` — newest 500 story IDs
 - `/beststories.json` — best stories
 - `/askstories.json` — Ask HN
 - `/showstories.json` — Show HN
@@ -73,9 +66,10 @@ metadata:
 - Comment object: `id`, `text`, `by`, `parent`, `time`
 
 ### 6. Rate Limits
-- Official API: No auth required, generous limits
-- Algolia: 10,000 requests/hour (no key needed)
-- Always paginate large results (`page=N`, `hitsPerPage=N`)
+- Official API: Anonymous access, generous limits
+- Algolia: 10,000 requests/hour (anonymous access). If HTTP 429 Too Many Requests occurs, implement exponential backoff.
+- Always paginate large results (`page=N`, `hitsPerPage=N`). Algolia restricts deep pagination beyond 1000 items (hitsPerPage * page <= 1000).
+- Fallback: If Algolia is unreachable, fallback to fetching recent items via Firebase API.
 
 ### 7. Gotchas
 - `url` is null for Ask HN/Show HN text posts — use `text` field instead
