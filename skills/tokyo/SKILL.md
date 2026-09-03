@@ -151,13 +151,13 @@ Unlike many global cities, English proficiency is limited:
 - **Roppongi touts** — "Free drinks" lead to ¥50,000+ bills. Ignore street touts and walk past them.
 - **Kabukicho host/hostess clubs** — Can run ¥100,000+ per visit. Visit only when accompanied by trusted locals.
 - **Fake monks** — Aggressive "donation" requests near Asakusa. Authentic monks wait for visitors at temples.
-- **Rush hour** (7:30-9:30am) — Trains packed 200%+ capacity. Travel before 7:30am or after 9:30am.
+- **Rush hour** (7:30-9:30am) — Trains packed 200%+ capacity. Prefer travel before 7:30am or after 9:30am when schedules allow.
 - **Airport taxi** — ¥20,000+ to central Tokyo. Use Limousine Bus (¥3,200) or train (¥1,200-2,500).
 - **"No foreigners" signs** — Some establishments cater exclusively to Japanese speakers. Move on to the many welcoming international venues.
 - **Cash is king** — Many places are cash-only. Carry ¥10,000-20,000.
 - **Tipping** — Pay the exact bill amount. Tipping is not practiced and will cause confusion.
 - **Walking while eating** — Culturally inappropriate except at festivals.
-- **Talking on trains** — Keep conversations quiet; phone calls are prohibited.
+- **Talking on trains** — Keep conversations quiet; take phone calls off the train car.
 
 ## Visa & Residency Quick Reference
 
