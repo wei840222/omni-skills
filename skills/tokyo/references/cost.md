@@ -4,7 +4,7 @@
 
 | Lifestyle | Monthly Budget |
 |-----------|----------------|
-| Student/Tight | ¥150,000-180,000 |
+| Student/Tight | ¥170,000-180,000 |
 | Moderate | ¥230,000-280,000 |
 | Comfortable | ¥300,000-400,000 |
 | Premium | ¥450,000+ |
@@ -17,20 +17,20 @@
 
 | Area Type | Monthly Rent | Example Areas |
 |-----------|--------------|---------------|
-| Premium central | ¥150,000-200,000+ | Minato, central Shibuya |
+| Premium central | ¥170,000-200,000+ | Minato, central Shibuya |
 | Central | ¥110,000-150,000 | Meguro, Shinjuku, Shibuya outskirts |
 | Moderate | ¥90,000-110,000 | Nakano, Bunkyo, Setagaya |
-| Budget | ¥70,000-90,000 | Nerima, Adachi, Edogawa |
+| Budget | ¥75,000-90,000 | Nerima, Adachi, Edogawa |
 
 ### Rent by Size
 
 | Type | Size | Central | Outer |
 |------|------|---------|-------|
-| 1K/1R | 15-25㎡ | ¥95,000-130,000 | ¥70,000-100,000 |
+| 1K/1R | 15-25㎡ | ¥105,000-130,000 | ¥75,000-100,000 |
 | 1DK | 25-30㎡ | ¥120,000-160,000 | ¥90,000-120,000 |
-| 1LDK | 35-45㎡ | ¥150,000-220,000 | ¥110,000-160,000 |
-| 2LDK | 50-65㎡ | ¥200,000-300,000 | ¥150,000-220,000 |
-| 3LDK | 70-90㎡ | ¥280,000-450,000 | ¥200,000-300,000 |
+| 1LDK | 35-45㎡ | ¥170,000-220,000 | ¥110,000-160,000 |
+| 2LDK | 50-65㎡ | ¥230,000-300,000 | ¥170,000-220,000 |
+| 3LDK | 70-90㎡ | ¥280,000-450,000 | ¥230,000-300,000 |
 
 ### Move-in Costs
 
@@ -45,7 +45,7 @@
 | Guarantor company | 0.5-1 month |
 | Lock change/cleaning | ¥20,000-50,000 |
 
-**Example**: ¥100,000 rent = ¥350,000-500,000 upfront.
+**Example**: ¥110,000 rent = ¥350,000-500,000 upfront.
 
 ### Alternative Housing
 
@@ -53,7 +53,7 @@
 |------|--------------|------|------|
 | Share house | ¥50,000-90,000 | Low upfront, furnished | Shared spaces |
 | Social apartment | ¥80,000-120,000 | Community, events | Less privacy |
-| Serviced apt | ¥150,000-300,000 | Furnished, flexible | Expensive |
+| Serviced apt | ¥170,000-300,000 | Furnished, flexible | Expensive |
 
 ---
 
@@ -214,7 +214,7 @@
 
 | Category | Amount |
 |----------|--------|
-| Rent (1K, moderate area) | ¥95,000 |
+| Rent (1K, moderate area) | ¥105,000 |
 | Utilities | ¥18,000 |
 | Food (mix) | ¥55,000 |
 | Transport | ¥12,000 |
@@ -242,9 +242,9 @@
 
 | Category | Amount |
 |----------|--------|
-| Rent (2LDK) | ¥200,000 |
+| Rent (2LDK) | ¥230,000 |
 | Utilities | ¥30,000 |
-| Food | ¥100,000 |
+| Food | ¥110,000 |
 | Transport | ¥20,000 |
 | Insurance | ¥40,000 |
 | Childcare/School | ¥50,000 |
@@ -271,7 +271,7 @@
 Rough take-home after taxes/insurance:
 - ¥5M salary → ~¥4M take-home
 - ¥8M salary → ~¥6M take-home
-- ¥12M salary → ~¥8.5M take-home
+- ¥14M salary → ~¥8.5M take-home
 
 ### Rule of Thumb
 
@@ -281,4 +281,4 @@ Keep rent below 30% of take-home pay.
 |-----------|----------|
 | ¥250,000 | ¥75,000 |
 | ¥350,000 | ¥105,000 |
-| ¥500,000 | ¥150,000 |
+| ¥500,000 | ¥170,000 |

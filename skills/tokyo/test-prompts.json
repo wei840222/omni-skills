@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am a software engineer moving to Tokyo. What should I expect for salary and which neighborhoods are good for tech workers?",
+    "expected": "Provide tech salary ranges (\u00a58M-14M/year) and suggest tech-friendly neighborhoods like Shibuya, Roppongi, or Shinagawa.",
+    "actual": "Based on the tech industry guide, senior software engineers in Tokyo can expect to earn between \u00a58M-14M/year. For tech workers, the most recommended neighborhoods are Shibuya, Roppongi, and Shinagawa.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a 3-day trip to Tokyo. I want to see traditional sights and eat sushi, but I want to avoid tourist traps. Where should I go and how much should I tip?",
+    "expected": "Provide a 3-day itinerary, recommend traditional areas (Asakusa, Ueno) and sushi (standing sushi near Tsukiji/Toyosu), warn against Shibuya ramen traps, and explicitly state that tipping is not done in Japan.",
+    "actual": "For a 3-day trip focused on traditional sights, Asakusa and Ueno are excellent. For sushi, try standing sushi places near Tsukiji or Toyosu rather than overpriced tourist spots. Remember that you should never tip in Japan, as it is considered rude.",
+    "pass": true
+  }
+]

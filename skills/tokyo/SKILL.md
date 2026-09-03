@@ -1,60 +1,55 @@
 ---
 name: tokyo
-slug: tokyo
-version: 1.0.0
-description: Navigate Tokyo as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, safety, culture, and local insights.
-homepage: https://clawic.com/skills/tokyo
+description: "Navigate Tokyo for tourism, residency, tech work, or studying. Use when the user asks about Tokyo neighborhoods, transport, living costs, safety, local culture, or itineraries; verify live fares, rents, visas, and disaster status before decisive advice."
 metadata:
-  clawdbot:
-    emoji: 🗼
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Tokyo
+  version: "1.0.1"
+  openclaw: '{"emoji":"🗼"}'
+  related-skills: '{"travel":"Multi-destination trip planning beyond Tokyo-specific routing.","booking":"Accommodation comparisons and reservation completion after a Tokyo stay is selected.","japan":"Japan-wide travel and regional context outside Greater Tokyo.","japanese":"Natural Japanese language help for deeper local integration."}'
 ---
+
+This skill is stateless and does not store local configuration or persistent user state. For live fares, rents, visa eligibility, lodging availability, or weather/disaster-dependent plans, load the matching reference and verify the official source in `references/sources.md` before treating a figure as current.
 
 ## When to Use
 
-User asks about Tokyo for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Use when the user asks about Tokyo for visiting, moving, working, studying, or starting a business. Give practical guidance with dated planning ranges, then verify mutable facts at official sources before booking, immigration, payment, or same-day safety decisions. For multi-city Japan trips or language-only help, hand off to `japan` / `japanese` instead of stretching this skill.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Central (Minato, Shibuya, Shinjuku) | `neighborhoods-central.md` |
-| Residential (Meguro, Setagaya) | `neighborhoods-residential.md` |
-| East (Asakusa, Ueno, Sumida) | `neighborhoods-east.md` |
-| Outer (Kichijoji, Nerima) | `neighborhoods-outer.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & dining culture | `food-overview.md` |
-| Traditional (sushi, ramen, etc.) | `food-traditional.md` |
-| Markets & depachika | `food-markets.md` |
-| Best areas by cuisine | `food-areas.md` |
-| Etiquette & practical tips | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (JR, Metro, IC cards) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety | `safety.md` |
-| Weather & seasons | `climate.md` |
-| Local services | `local.md` |
-| **Culture** | |
-| Etiquette & customs | `culture.md` |
-| **Career** | |
-| Tech industry | `tech.md` |
-| Students | `student.md` |
-| Startups | `startup.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Visitors** | | |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` | When user wants to know what to see or skip |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | When user needs a daily schedule |
+| Where to stay | `references/visitor-lodging.md` | When user is picking a hotel area |
+| Tips & day trips | `references/visitor-tips.md` | When user asks for excursions or general tourist advice |
+| **Neighborhoods** | | |
+| Quick comparison | `references/neighborhoods-index.md` | When user needs an overview of areas |
+| Central (Minato, Shibuya, Shinjuku) | `references/neighborhoods-central.md` | When user asks about central hubs |
+| Residential (Meguro, Setagaya) | `references/neighborhoods-residential.md` | When user asks about living outside the center |
+| East (Asakusa, Ueno, Sumida) | `references/neighborhoods-east.md` | When user asks about the older/eastern side |
+| Outer (Kichijoji, Nerima) | `references/neighborhoods-outer.md` | When user asks about suburban areas |
+| Choosing guide | `references/neighborhoods-choosing.md` | When user doesn't know which neighborhood fits them |
+| **Food** | | |
+| Overview & dining culture | `references/food-overview.md` | When user asks about general dining |
+| Traditional (sushi, ramen, etc.) | `references/food-traditional.md` | When user asks for classic Japanese foods |
+| Markets & depachika | `references/food-markets.md` | When user asks about street food or markets |
+| Best areas by cuisine | `references/food-areas.md` | When user wants to know where to find specific foods |
+| Etiquette & practical tips | `references/food-practical.md` | When user asks about reservations, tipping, or manners |
+| **Practical** | | |
+| Moving & settling | `references/resident.md` | When user is relocating |
+| Transport (JR, Metro, IC cards) | `references/transport.md` | When user asks how to get around |
+| Cost of living | `references/cost.md` | When user asks about rent or expenses |
+| Safety | `references/safety.md` | When user asks about crime or disasters |
+| Weather & seasons | `references/climate.md` | When user asks when to visit or about weather |
+| Local services | `references/local.md` | When user needs gyms, doctors, etc. |
+| **Culture** | | |
+| Etiquette & customs | `references/culture.md` | When user asks about behavioral norms |
+| **Career** | | |
+| Tech industry | `references/tech.md` | When user is looking for tech jobs |
+| Students | `references/student.md` | When user is studying abroad |
+| Startups | `references/startup.md` | When user is starting a business |
+| **Sources** | | |
+| Official / primary sources | `references/sources.md` | Before quoting live fares, rents, visas, or disaster status |
 
 ## Core Rules
 
@@ -70,7 +65,7 @@ Tokyo is one of the world's safest major cities. Main concerns are minor:
 - Drink spiking in Roppongi/Kabukicho nightlife districts
 - Overcharging scams at some hostess/host clubs
 - Natural disasters (earthquakes, typhoons)
-See `safety.md` for detailed guidance.
+See `references/safety.md` for detailed guidance.
 
 ### 3. Weather Expectations
 - Four distinct seasons
@@ -78,17 +73,17 @@ See `safety.md` for detailed guidance.
 - Winter (Dec-Feb): Cold, dry (5-10°C), rarely snows
 - Best months: March-May (cherry blossoms), October-November (autumn leaves)
 - Typhoon season: August-October
-See `climate.md` for monthly breakdown.
+See `references/climate.md` for monthly breakdown.
 
-### 4. Current Data (Feb 2026)
+### 4. Current Data (Sep 2026)
 
 | Item | Range |
 |------|-------|
-| 1K/1R rent (studio) | ¥95,000-130,000 (central), ¥70,000-100,000 (outer) |
-| 1LDK rent | ¥140,000-220,000 |
-| Senior SWE salary | ¥7M-12M/year |
-| Student budget | ¥150,000-200,000/month |
-| Suica/Pasmo fare | ¥180-260/ride |
+| 1K/1R rent (studio) | ¥105,000-145,000 (central), ¥75,000-110,000 (outer) |
+| 1LDK rent | ¥155,000-250,000 |
+| Senior SWE salary | ¥8M-14M/year |
+| Student budget | ¥170,000-230,000/month |
+| Suica/Pasmo fare | ¥200-300/ride |
 | Monthly transit pass | ¥8,000-15,000 |
 
 ### 5. Tourist Traps
@@ -105,7 +100,7 @@ Tokyo has the most complex transit system in the world:
 - **Toei Subway**: 4 lines (city-operated, accepts Suica)
 - **Private railways**: Tokyu, Odakyu, Keio, etc.
 - **IC cards**: Suica/Pasmo interchangeable, use everywhere
-See `transport.md` for full guide.
+See `references/transport.md` for full guide.
 
 ### 7. Neighborhood Matching
 
@@ -153,16 +148,16 @@ Unlike many global cities, English proficiency is limited:
 
 ## Tokyo-Specific Traps
 
-- **Roppongi touts** — "Free drinks" lead to ¥50,000+ bills. Never follow strangers.
-- **Kabukicho host/hostess clubs** — Can run ¥100,000+ per visit. Avoid unless invited by locals.
-- **Fake monks** — Aggressive "donation" requests near Asakusa. Real monks don't approach tourists.
-- **Rush hour** (7:30-9:30am) — Trains packed 200%+ capacity. Avoid if possible.
+- **Roppongi touts** — "Free drinks" lead to ¥50,000+ bills. Ignore street touts and walk past them.
+- **Kabukicho host/hostess clubs** — Can run ¥100,000+ per visit. Visit only when accompanied by trusted locals.
+- **Fake monks** — Aggressive "donation" requests near Asakusa. Authentic monks wait for visitors at temples.
+- **Rush hour** (7:30-9:30am) — Trains packed 200%+ capacity. Prefer travel before 7:30am or after 9:30am when schedules allow.
 - **Airport taxi** — ¥20,000+ to central Tokyo. Use Limousine Bus (¥3,200) or train (¥1,200-2,500).
-- **"No foreigners" signs** — Some bars/establishments don't accept non-Japanese. Don't take it personally.
-- **Cash is king** — Many places still don't accept cards. Carry ¥10,000-20,000.
-- **Tipping** — Never tip. It's considered rude.
+- **"No foreigners" signs** — Some establishments cater exclusively to Japanese speakers. Move on to the many welcoming international venues.
+- **Cash is king** — Many places are cash-only. Carry ¥10,000-20,000.
+- **Tipping** — Pay the exact bill amount. Tipping is not practiced and will cause confusion.
 - **Walking while eating** — Culturally inappropriate except at festivals.
-- **Talking on trains** — Keep conversations quiet; phone calls are prohibited.
+- **Talking on trains** — Keep conversations quiet; take phone calls off the train car.
 
 ## Visa & Residency Quick Reference
 
