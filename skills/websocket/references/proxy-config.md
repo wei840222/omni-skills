@@ -6,6 +6,6 @@ proxy_set_header Upgrade $http_upgrade;
 proxy_set_header Connection "upgrade";
 proxy_read_timeout 3600s;
 ```
-- Without these headers, upgrade fails—connection closes immediately
-- `proxy_read_timeout` must exceed your ping interval—default 60s too short
-- Load balancer health checks: separate HTTP endpoint, not WebSocket
+- Include the Upgrade and Connection headers so the handshake completes.
+- Set `proxy_read_timeout` above the heartbeat interval; the Nginx default of 60s is usually too short.
+- Point load-balancer health checks at a separate HTTP endpoint, not the WebSocket path.

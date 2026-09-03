@@ -1,6 +1,5 @@
 ## Scaling Challenges
 
-- WebSocket connections are stateful—can't round-robin between servers
-- Sticky sessions: route by client ID to same server—or use Redis pub/sub for broadcast
-- Each connection holds memory—thousands of connections = significant RAM
-- Graceful shutdown: send close frame, wait for clients to reconnect elsewhere
+- WebSocket connections are stateful; prefer sticky sessions by client ID or Redis pub/sub for cross-instance broadcast.
+- Budget memory for concurrent sockets—thousands of connections consume significant RAM.
+- On graceful shutdown, send a close frame and give clients time to reconnect elsewhere.
