@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
 | neo4j                        | 2026-09-04 | 85/100 (#258) |
+| remember                     | 2026-09-04 | 85/100 (pending) |
 | medicine                     | 2026-09-04 | 85/100 (#257) |
 | infrastructure               | 2026-09-04 | 85/100 (#255) |
 | homepod                      | 2026-09-04 | 85/100 (#256) |
