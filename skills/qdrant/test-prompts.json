@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a python script that connects to local Qdrant, creates a collection 'docs' with OpenAI ada-002 dimension (1536), and uses cosine similarity.",
+    "expected": "Python script using qdrant-client with vector size 1536 and distance Cosine.",
+    "actual": "Agent generated Python script using qdrant-client with correctly parameterized `vector_size=1536` and `distance=Distance.COSINE`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a python query using Qdrant client to search the 'products' collection. Pre-filter by payload field 'category'='electronics' before computing nearest neighbors.",
+    "expected": "Query logic using pre-filtering with Filter and FieldCondition before searching.",
+    "actual": "Agent constructed a query utilizing the `Filter(must=[FieldCondition(key='category', match=MatchValue(value='electronics'))])` structure successfully for pre-filtering.",
+    "pass": true
+  }
+]

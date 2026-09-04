@@ -1,19 +1,8 @@
 ---
 name: qdrant
-slug: qdrant
-version: 1.0.0
-description: Build vector search with Qdrant using collections, payloads, filtering, and optimized indexing for semantic similarity.
-homepage: https://clawic.com/skills/qdrant
+description: Construct vector similarity searches, pre-filtered queries, and optimize HNSW indices using Qdrant for semantic recommendation systems.
 metadata:
-  clawdbot:
-    emoji: 🔍
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Qdrant
+  openclaw: '{"emoji":"🔍"}'
 ---
 
 ## When to Use
@@ -22,25 +11,26 @@ User needs vector similarity search, semantic search, or recommendation systems.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Query patterns | `queries.md` |
-| Performance tuning | `performance.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Query patterns | `references/queries.md` | When designing filtering logic, scroll, or search queries. |
+| Performance tuning | `references/performance.md` | When optimizing HNSW indices, quantization, or handling large datasets. |
+| Architecture | `references/research.md` | When needing context on Qdrant core behavior and HNSW principles. |
 
 ## Core Rules
 
 ### 1. Collection Setup
 - Set vector dimension to match embedding model (e.g., OpenAI ada-002 = 1536)
 - Choose distance metric deliberately: `Cosine` for normalized embeddings, `Dot` for raw scores, `Euclid` for absolute distance
-- Wrong dimension = silent failures with zero results
+- Verify dimension matches exactly; mismatches cause silent failures with zero results
 
 ### 2. Payload Strategy
 - Store filterable metadata as payload fields
 - Index payload fields used in filters: `create_payload_index`
-- Don't store large blobs in payloads — use external storage + reference ID
+- Store large blobs in external storage and include only their reference IDs in payloads
 
 ### 3. Batch Operations
-- Insert points in batches of 100-1000, not one by one
+- Insert points in batches of 100-1000, instead of one by one
 - Use `upsert` to handle duplicates by ID
 - Parallel uploads with `wait=false` then verify with collection info
 
@@ -71,12 +61,16 @@ User needs vector similarity search, semantic search, or recommendation systems.
 ### 7. Multi-Tenancy
 - Payload field for tenant ID + filter on every query
 - Or separate collections per tenant (simpler isolation, harder to manage)
-- Never expose one tenant's data to another
+- Isolate tenant data securely to ensure one tenant's data is never exposed to another
 
 ## Common Traps
 
-- Creating collection with wrong vector size → all searches return empty
-- Forgetting `wait=true` on insert → querying before data indexed
-- Using scroll without limit → memory exhaustion on large collections
-- Not indexing payload fields → filter queries scan entire collection
-- Storing embeddings in payload instead of vector field → defeats purpose
+- Ensure collection vector size matches the model, as mismatches cause all searches to return empty
+- Include `wait=true` on insert if querying immediately to ensure data is indexed
+- Set explicit limits when using scroll to prevent memory exhaustion on large collections
+- Index payload fields used in filters to avoid full collection scans
+- Place embeddings in the designated vector field rather than the payload
+
+## State location
+
+This skill is stateless locally. It connects to an external Qdrant instance (remote cluster or local Docker container) and does not store local configuration or state files within the repository.
