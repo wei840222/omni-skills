@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my pipeline and list any deals that have been in the same stage for more than 21 days without a next step.",
+    "expected": "The agent should load references/pipeline.md, identify stalled deals using stall_days/next-step rules, and recommend closing lost or setting a dated next step.",
+    "actual": "Agent loaded references/pipeline.md and references/metrics.md, listed stalled deals older than 21 days without a future next step, and recommended move-to-closed-lost or next-step updates.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a CSV of 500 leads to import. How should I approach this to avoid messing up my CRM?",
+    "expected": "The agent should load references/import.md, require an export/backup first, map fields, dedupe on email, and run a dry run before importing only leads to contact this quarter.",
+    "actual": "Agent loaded references/import.md and advised: export backup first, map fields with email as identity key, dry-run a small sample, then import only leads that will be contacted this quarter.",
+    "pass": true
+  }
+]
