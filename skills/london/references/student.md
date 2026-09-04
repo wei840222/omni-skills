@@ -69,7 +69,7 @@
 | **OpenRent** | Direct from landlords (no fees) |
 | **Facebook groups** | Uni-specific housing groups |
 
-**Warning:** Deposit scams exist. Never pay before viewing. Use official platforms.
+**Warning:** Deposit scams exist. Verify the property in person before transferring funds. Use official platforms.
 
 ### Deposit Rules
 
@@ -237,3 +237,7 @@ For student queries:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Tuition, student-visa conditions, work permissions, accommodation prices, discounts, and NHS access are time-sensitive. Confirm the current rule with the institution or official authority named in `references/current-information.md` before making a commitment.

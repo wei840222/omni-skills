@@ -36,7 +36,7 @@ London was named the world's best food city. Its strength lies in extraordinary 
 |------------|---------|------------|----------|
 | **Dishoom** | Bombay café | Bacon naan £25-35 | Multiple |
 | **Brat** | British/Basque | Whole turbot £40-50 | Shoreditch |
-| **Smokestak** | BBQ | Brisket £30-40 | Shoreditch |
+| **Smokestak** | BBQ | Brisket check live price-40 | Shoreditch |
 | **Manteca** | Italian | Fresh pasta £35-45 | Shoreditch |
 | **Hoppers** | Sri Lankan | Hoppers £25-35 | Soho |
 | **The Palomar** | Jerusalem | Kubaneh £35-45 | Soho |
@@ -73,8 +73,8 @@ London was named the world's best food city. Its strength lies in extraordinary 
 
 | Topic | File |
 |-------|------|
-| British classics | `food-traditional.md` |
-| Food markets | `food-markets.md` |
-| Best areas | `food-areas.md` |
-| Pub culture | `food-pubs.md` |
-| Dietary needs & tips | `food-practical.md` |
+| British classics | `references/food-traditional.md` |
+| Food markets | `references/food-markets.md` |
+| Best areas | `references/food-areas.md` |
+| Pub culture | `references/food-pubs.md` |
+| Dietary needs & tips | `references/food-practical.md` |

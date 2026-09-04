@@ -1,112 +1,67 @@
 ---
 name: london
-slug: london
-version: 1.0.0
-description: Navigate London as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, safety, and local insights.
-homepage: https://clawic.com/skills/london
+description: Plan London visits, moves, study, tech work, or startup decisions with neighborhood, transport, cost, safety, and local guidance. Use for London-specific choices; verify live fares, prices, availability, visas, and safety conditions before decisive advice.
 metadata:
-  clawdbot:
-    emoji: 🇬🇧
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: London
+  openclaw: '{"emoji":"🇬🇧"}'
+  related-skills: '{"travel":"Plans multi-destination trips beyond London-specific routing.","travel-planning":"Completes travel planning and reservations after a London choice is made.","uk":"Provides UK-wide context outside London-specific decisions."}'
 ---
+
+This skill is stateless and does not store local configuration or persistent user state. Treat dated package figures as planning estimates, not live quotes. For fares, prices, availability, visa or immigration rules, venue access, or same-day safety decisions, read `references/current-information.md` and verify the authoritative source before giving decisive advice.
 
 ## When to Use
 
-User asks about London for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Use for London-specific travel, relocation, study, work, startup, neighborhood, transit, safety, food, or itinerary decisions. Establish the user's purpose, dates, budget, party, access needs, and commute when relevant. For multi-destination planning, use `travel`; for UK-wide context beyond London, use `uk`; for reservation completion, use `travel-planning` after the London choice is made.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Central (Zone 1) | `neighborhoods-central.md` |
-| East London | `neighborhoods-east.md` |
-| South London | `neighborhoods-south.md` |
-| West London | `neighborhoods-west.md` |
-| North London | `neighborhoods-north.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & restaurants | `food-overview.md` |
-| British classics | `food-traditional.md` |
-| Markets | `food-markets.md` |
-| Best areas | `food-areas.md` |
-| Pubs | `food-pubs.md` |
-| Dietary & tips | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety | `safety.md` |
-| Weather | `climate.md` |
-| Local services | `local.md` |
-| **Career** | |
-| Tech industry | `tech.md` |
-| Students | `student.md` |
-| Startups | `startup.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Planning & sources** | | |
+| Current information & official sources | `references/current-information.md` | Before a decisive fare, booking, immigration, payment, venue, or safety answer |
+| Core planning rules | `references/core-rules.md` | When matching advice to role, timeline, safety, weather, transit, or neighborhood needs |
+| Traps & misconceptions | `references/london-traps.md` | When discussing tourist traps, scams, or common misconceptions |
+| **Visitors** | | |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` | Attraction choice, access, or priority |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | 1-, 3-, or 7-day itinerary |
+| Where to stay | `references/visitor-lodging.md` | Hotel area or lodging choice |
+| Tips & day trips | `references/visitor-tips.md` | Visitor logistics or day trip |
+| **Neighborhoods** | | |
+| Quick comparison | `references/neighborhoods-index.md` | Area overview |
+| Central (Zone 1) | `references/neighborhoods-central.md` | Central London area choice |
+| East London | `references/neighborhoods-east.md` | East London area choice |
+| South London | `references/neighborhoods-south.md` | South London area choice |
+| West London | `references/neighborhoods-west.md` | West London area choice |
+| North London | `references/neighborhoods-north.md` | North London area choice |
+| Choosing guide | `references/neighborhoods-choosing.md` | Area tradeoff or shortlist |
+| **Food** | | |
+| Overview & restaurants | `references/food-overview.md` | Dining recommendations |
+| British classics | `references/food-traditional.md` | Traditional British food |
+| Markets | `references/food-markets.md` | Food market |
+| Best areas | `references/food-areas.md` | Cuisine or food district |
+| Pubs | `references/food-pubs.md` | Pub culture or pub choice |
+| Dietary & tips | `references/food-practical.md` | Dietary needs, booking, or tipping |
+| **Practical** | | |
+| Moving & settling | `references/resident.md` | Relocation or settling |
+| Transport | `references/transport.md` | Transport, airport transfer, or fares |
+| Cost of living | `references/cost.md` | Budget, rent, or living cost |
+| Safety | `references/safety.md` | Safety or late-night route |
+| Weather | `references/climate.md` | Weather or packing |
+| Local services | `references/local.md` | NHS, banking, utilities, or council service |
+| **Career** | | |
+| Tech industry | `references/tech.md` | Tech job, employer, or work base |
+| Students | `references/student.md` | Study, student housing, or student life |
+| Startups | `references/startup.md` | Startup, founder, or company setup |
 
-## Core Rules
+## Plan the Answer
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, entrepreneur
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
+1. Identify the user's role, timeline, budget, location, and any accessibility or late-night constraints.
+2. Load the matching topical reference from the table above.
+3. Load `references/core-rules.md` for cross-cutting planning guidance and `references/london-traps.md` for scam or tourist-trap questions.
+4. Before an answer depends on a mutable fare, price, availability, visa rule, venue policy, or safety condition, load `references/current-information.md`, verify its listed official source, and distinguish verified facts from dated estimates.
 
-### 2. Safety Context
-London is very safe. Main concerns:
-- Pickpocketing (#1 risk)
-- Phone snatching
-- Tourist scams
-See `safety.md` for area-specific guidance.
+## Practical Guardrails
 
-### 3. Weather Expectations
-- Rains LESS than NYC (just spread as drizzle)
-- Pack layers + waterproof jacket
-- Summer is warm (July avg 24°C)
-- Winter is grey but mild
-
-### 4. Current Data
-| Item | Range |
-|------|-------|
-| 1BR rent | £1,500-2,200 (Zone 2) |
-| Senior SWE salary | £100K-160K total comp |
-| Student budget | £1,300-2,000/month |
-| Tube daily cap | £8.60 (Zones 1-2) |
-
-### 5. Tourist Traps
-- Skip: London Eye, Madame Tussauds, Leicester Square
-- Do: Free museums, Borough Market, West End shows
-- Free views: Sky Garden, Horizon 22 (book ahead)
-
-### 6. Transit Over Driving
-- Tube + bus covers everything
-- Contactless = Oyster prices (no card needed)
-- Citymapper app essential
-- Congestion + ULEZ make driving expensive
-
-### 7. Neighborhood Matching
-| Profile | Best Areas |
-|---------|------------|
-| Young professionals | Shoreditch, Clapham, Brixton, Hackney |
-| Families | Greenwich, Dulwich, Chiswick, Richmond |
-| Budget-conscious | Stratford, Lewisham, Walthamstow, Peckham |
-| Tech workers | Shoreditch, Hackney, King's Cross area |
-
-## London-Specific Traps
-
-- **"Always rains"** — Less than NYC. Pack layers, not heavy gear.
-- **London Eye** — £40+ for mediocre views. Sky Garden is FREE.
-- **Leicester Square** — Tourist trap. Walk to Soho/Chinatown.
-- **Oyster cards** — Contactless works same price.
-- **Zone 1 living** — Expensive, unnecessary. Zone 2-3 is better.
+- Base neighborhood and hotel advice on a real commute, transfer tolerance, and late-night return path—not a borough label alone.
+- Treat neighborhood character, restaurant listings, fare tables, rent bands, salary bands, and public-service details as dated planning material until checked at the relevant official source.
+- Use official operator, government, health, venue, and local-authority sources for unstable operational details. When verification is unavailable, provide the durable decision framework and state the freshness gap.
+- Complete bookings, payments, immigration submissions, or other third-party actions only after explicit user instruction.

@@ -37,7 +37,7 @@ London's weather is mild, changeable, and often grey. It's rarely extreme — no
 
 ### By Season
 
-| Season | Pack | Don't Need |
+| Season | Pack | Not Needed |
 |--------|------|------------|
 | **Winter (Dec-Feb)** | Warm coat, hat, gloves, scarf, thermal layer | Heavy snow boots (rarely needed) |
 | **Spring (Mar-May)** | Light jacket, layers, umbrella | Heavy coat (most days) |
@@ -161,7 +161,7 @@ When weather turns bad:
 London weather guidance:
 
 1. **Reassure:** It's mild, not extreme. Less rainy than reputation suggests
-2. **Key advice:** Pack layers + waterproof jacket. Skip heavy umbrella
+2. **Key advice:** Pack layers + waterproof jacket. Prioritize a compact umbrella
 3. **Best months:** May and September (weather + crowds balance)
 4. **Summer reality:** Actually warm (July avg 24°C), can be humid, tube gets hot
 5. **Winter reality:** Cold but mild (rarely freezing), grey, dark early (4pm)
@@ -170,3 +170,7 @@ London weather guidance:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Seasonal patterns are planning context only. Check the Met Office forecast and warnings for travel dates or weather-sensitive decisions; see `references/current-information.md`.

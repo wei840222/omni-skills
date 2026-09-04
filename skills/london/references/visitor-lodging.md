@@ -10,9 +10,9 @@
 | **Shoreditch** | Trendy, nightlife | Further from sights |
 
 **Budget options:**
-- Point A Hotels — compact but clean, ~£70-90
+- Point A Hotels — compact but clean, check live rate
 - Wombat's City Hostel — social
-- Z Hotels — small rooms, great locations, ~£80-100
+- Z Hotels — small rooms, great locations, check live rate
 - Zedwell Piccadilly — pod-style, central
 
 ---
@@ -27,14 +27,14 @@
 | **Clerkenwell** | Trendy, restaurants | Foodies |
 
 **Mid-range options:**
-- AMANO Covent Garden — rooftop bar, ~£180
+- AMANO Covent Garden — rooftop bar, check live rate
 - Sea Containers London — stunning South Bank
 - Canopy by Hilton — Bankside
 - Mondrian Shoreditch — trendy East
 
 ---
 
-## Luxury (£300+/night)
+## Luxury (check live price0+/night)
 
 | Area | Why | Hotels |
 |------|-----|--------|
@@ -43,7 +43,7 @@
 | **Strand** | Classic, river views | The Savoy |
 
 **Iconic hotels:**
-- The Savoy — legendary, Thames views, ~£500+
+- The Savoy — legendary, Thames views, check live rate
 - Claridge's — Art Deco perfection
 - The Londoner — Leicester Square, rooftop, pool
 

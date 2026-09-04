@@ -14,7 +14,7 @@
 
 ### Tips
 - Walk more than you think — many sights close together
-- Avoid tube at rush hour (8-9am, 5-6:30pm)
+- Travel during off-peak hours when the itinerary allows
 - Bus #11, #24 go past landmarks (top deck, front)
 - Thames Clipper boats: scenic + useful (Oyster works)
 

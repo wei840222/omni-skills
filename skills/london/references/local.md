@@ -10,7 +10,7 @@
 4. **Wait 1-2 weeks** for NHS number
 5. **Book via:** Reception, NHS app, or online
 
-**Tip:** Register ASAP when you arrive. Don't wait until you're sick.
+**Tip:** Register ASAP when you arrive. Register proactively while healthy.
 
 ### Using the NHS
 
@@ -262,3 +262,7 @@ For local services:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+GP registration, banking eligibility, SIM and broadband offers, council-tax rules, collection schedules, postal prices, and local services vary by provider and address. Verify live terms using the authoritative source in `references/current-information.md` before acting.

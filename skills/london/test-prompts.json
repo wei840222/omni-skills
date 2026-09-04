@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have three days in London next month and am staying near King's Cross. Build a practical itinerary, explain how to get around, and flag common tourist traps.",
+    "expected": "Identifies dates and preferences as needed, routes to itinerary, transport, and trap references, recommends a practical transit approach, and labels fares, venue access, and bookings as items to verify live.",
+    "actual": "Dry-run: the skill first maps dates, budget, and access needs; then loads references/visitor-itineraries.md, references/transport.md, references/london-traps.md, and references/current-information.md before treating fares, opening hours, or booking availability as current. It offers an itinerary framework and distinguishes dated estimates from verified details.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My partner and I may move to London for a sponsored senior engineering role. We need a one-bedroom flat, a safe late-night commute, and a current visa and budget estimate before deciding.",
+    "expected": "Uses the relocation, neighborhood, transport, cost, safety, tech, and current-information references; asks for a work location and constraints; treats visa thresholds, rent, fares, and safety as mutable; and directs current verification to official sources.",
+    "actual": "Dry-run: the skill identifies the employer location, work pattern, budget, accessibility, and nationality as material inputs. It loads references/resident.md, references/neighborhoods-choosing.md, references/transport.md, references/cost.md, references/safety.md, references/tech.md, and references/current-information.md. It compares commute and late-night-return tradeoffs, gives dated planning ranges only, and requires GOV.UK, TfL, and other official-source verification before an immigration, payment, or relocation commitment.",
+    "pass": true
+  }
+]

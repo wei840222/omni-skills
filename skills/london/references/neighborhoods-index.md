@@ -42,9 +42,9 @@
 
 | Area Type | File |
 |-----------|------|
-| Central (Zone 1) | `neighborhoods-central.md` |
-| East London | `neighborhoods-east.md` |
-| South London | `neighborhoods-south.md` |
-| West London | `neighborhoods-west.md` |
-| North London | `neighborhoods-north.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Central (Zone 1) | `references/neighborhoods-central.md` |
+| East London | `references/neighborhoods-east.md` |
+| South London | `references/neighborhoods-south.md` |
+| West London | `references/neighborhoods-west.md` |
+| North London | `references/neighborhoods-north.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |

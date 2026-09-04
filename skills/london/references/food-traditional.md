@@ -49,7 +49,7 @@ Served Sundays. Book ahead. Beef with Yorkshire pudding is traditional.
 
 | Pub/Restaurant | Location | Price | Notes |
 |----------------|----------|-------|-------|
-| **Hawksmoor** | Multiple | £30-40 | Dry-aged beef |
+| **Hawksmoor** | Multiple | check live price-40 | Dry-aged beef |
 | **The Red Lion & Sun** | Highgate | £22-28 | Proper pub |
 | **Blacklock** | Multiple | £27 | All-you-can-eat |
 | **The Camberwell Arms** | Camberwell | £22-28 | Award-winning |
@@ -70,4 +70,4 @@ Book ahead. Smart casual. Includes sandwiches, scones with clotted cream & jam, 
 | **Fortnum & Mason** | £65-80 | In the famous store |
 | **Sketch** | £70-85 | Pink room, Instagram-famous |
 | **The Wolseley** | £35-45 | More accessible |
-| **Bea's of Bloomsbury** | £30-40 | Indie, excellent cakes |
+| **Bea's of Bloomsbury** | check live price-40 | Indie, excellent cakes |

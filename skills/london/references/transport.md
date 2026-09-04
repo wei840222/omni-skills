@@ -293,3 +293,7 @@ Most Tube lines stop around **00:00-00:30**. Plan accordingly or switch to Night
 ---
 
 *Prices as of March 2025. Check tfl.gov.uk for latest fares.*
+
+## Freshness Note
+
+Fares, caps, airport options, service patterns, and road charges change. Use the figures above only as dated planning estimates; verify the actual route, fare, cap, and disruption status with TfL before a payment or same-day journey. See `references/current-information.md`.
