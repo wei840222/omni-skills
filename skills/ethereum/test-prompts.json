@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "My transaction has been stuck pending for hours and I can't send any more. How do I fix this?",
+    "expected": "Instructs the user to send a new transaction with the exact same nonce and a higher gas fee to replace the stuck transaction.",
+    "actual": "To fix your stuck transaction, you need to send a new transaction using the exact same nonce as the pending one, but with a higher gas fee (specifically a higher maxPriorityFeePerGas and maxFeePerGas). This will replace the stuck transaction. You can even send a 0 ETH transfer to your own address just to clear the nonce. In wallets like MetaMask, the 'Speed up' or 'Cancel' buttons do this automatically.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm bridging some ETH from Arbitrum back to Mainnet but it says it will take 7 days. Is this a bug?",
+    "expected": "Explains that a 7-day withdrawal period is normal for Optimistic rollups due to their security model, and suggests third-party fast bridges as an alternative.",
+    "actual": "No, this is not a bug. Arbitrum is an Optimistic rollup, and the 7-day withdrawal period is a fundamental part of its security model to allow time for fraud proofs. If you need your funds faster and are willing to pay a fee, you can use a third-party fast bridge (like Hop or Across) which bypasses the waiting period, though it involves smart contract risk.",
+    "pass": true
+  }
+]
