@@ -1,6 +1,6 @@
 ---
 name: remember
-description: Curate persistent long-term memory: capture explicit preferences, commitments, corrections, decisions, and relationship context; retrieve, update, archive, or forget it when the user asks. Use for durable cross-session information, not one-off chat context.
+description: Manage durable cross-session memory: capture, retrieve, update, archive, or forget explicit preferences, commitments, corrections, decisions, and relationship context when the user asks.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'
@@ -30,7 +30,7 @@ Use the selected `<state_root>` for the whole invocation. If more than one candi
 
 - **High value:** explicit commitments, corrections, preferences, core relationships, and decisions with rationale.
 - **Reviewable:** active project context and durable domain lessons.
-- **Transient:** one-off questions and easily reconstructed conversation context; discard these after the session.
+- **Transient:** keep one-off questions and easily reconstructed conversation context in the current session rather than durable memory.
 
 Apply the staleness test: would this entry help rather than mislead if retrieved in six months? Archive completed commitments after 30 days and inactive context after 60 days when the user requests maintenance.
 
