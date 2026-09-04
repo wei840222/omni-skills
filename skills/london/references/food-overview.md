@@ -36,7 +36,7 @@ London was named the world's best food city. Its strength lies in extraordinary 
 |------------|---------|------------|----------|
 | **Dishoom** | Bombay café | Bacon naan £25-35 | Multiple |
 | **Brat** | British/Basque | Whole turbot £40-50 | Shoreditch |
-| **Smokestak** | BBQ | Brisket £30-40 | Shoreditch |
+| **Smokestak** | BBQ | Brisket check live price-40 | Shoreditch |
 | **Manteca** | Italian | Fresh pasta £35-45 | Shoreditch |
 | **Hoppers** | Sri Lankan | Hoppers £25-35 | Soho |
 | **The Palomar** | Jerusalem | Kubaneh £35-45 | Soho |

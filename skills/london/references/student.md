@@ -237,3 +237,7 @@ For student queries:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Tuition, student-visa conditions, work permissions, accommodation prices, discounts, and NHS access are time-sensitive. Confirm the current rule with the institution or official authority named in `references/current-information.md` before making a commitment.

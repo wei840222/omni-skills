@@ -181,3 +181,7 @@ For tech career questions:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Compensation, hiring patterns, visa thresholds, benefits, coworking prices, and event schedules are time-sensitive. Verify decision-ready details using the official sources in `references/current-information.md` and the employer or venue.

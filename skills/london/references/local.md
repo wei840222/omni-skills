@@ -262,3 +262,7 @@ For local services:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+GP registration, banking eligibility, SIM and broadband offers, council-tax rules, collection schedules, postal prices, and local services vary by provider and address. Verify live terms using the authoritative source in `references/current-information.md` before acting.

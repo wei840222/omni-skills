@@ -367,3 +367,7 @@ Council Tax funds local services and varies dramatically by borough.
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Visa thresholds, immigration fees, right-to-rent requirements, tenancy rules, public-service access, and local costs can change. Verify the current official rule before an application, payment, or relocation commitment; see `references/current-information.md`.

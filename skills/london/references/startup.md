@@ -251,3 +251,7 @@ For startup/founder queries:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Funding data, company-registration costs, tax relief, visa eligibility, legal requirements, salary bands, and coworking availability change. Verify decision-ready information with the relevant GOV.UK, Companies House, HMRC, endorsing body, provider, or venue source through `references/current-information.md`.

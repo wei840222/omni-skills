@@ -269,3 +269,7 @@ For cost questions:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Housing, utility, transport, healthcare, childcare, salary, and spending figures are dated planning ranges. Verify any decision-ready amount with the relevant provider, borough, employer, or current market source listed in `references/current-information.md`.

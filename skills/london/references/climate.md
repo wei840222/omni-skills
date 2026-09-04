@@ -170,3 +170,7 @@ London weather guidance:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+Seasonal patterns are planning context only. Check the Met Office forecast and warnings for travel dates or weather-sensitive decisions; see `references/current-information.md`.

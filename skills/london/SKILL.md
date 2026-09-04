@@ -6,7 +6,7 @@ metadata:
   related-skills: '{"travel":"Plans multi-destination trips beyond London-specific routing.","travel-planning":"Completes travel planning and reservations after a London choice is made.","uk":"Provides UK-wide context outside London-specific decisions."}'
 ---
 
-This skill is stateless and does not store local configuration or persistent user state.
+This skill is stateless and does not store local configuration or persistent user state. Treat dated package figures as planning estimates, not live quotes. For fares, prices, availability, visa or immigration rules, venue access, or same-day safety decisions, read `references/current-information.md` and verify the authoritative source before giving decisive advice.
 
 ## When to Use
 
@@ -16,6 +16,10 @@ Use for London-specific travel, relocation, study, work, startup, neighborhood, 
 
 | Topic | File | When to load |
 |-------|------|--------------|
+| **Planning & sources** | | |
+| Current information & official sources | `references/current-information.md` | Before a decisive fare, booking, immigration, payment, venue, or safety answer |
+| Core planning rules | `references/core-rules.md` | When matching advice to role, timeline, safety, weather, transit, or neighborhood needs |
+| Traps & misconceptions | `references/london-traps.md` | When discussing tourist traps, scams, or common misconceptions |
 | **Visitors** | | |
 | Attractions (must-see vs skip) | `references/visitor-attractions.md` | User asks about attractions (must-see vs skip) |
 | Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | User asks about itineraries (1/3/7 days) |
@@ -48,10 +52,16 @@ Use for London-specific travel, relocation, study, work, startup, neighborhood, 
 | Students | `references/student.md` | User asks about students |
 | Startups | `references/startup.md` | User asks about startups |
 
-## Core Rules
+## Plan the Answer
 
-Core rules for operating in London are located in `references/core-rules.md`.
+1. Identify the user's role, timeline, budget, location, and any accessibility or late-night constraints.
+2. Load the matching topical reference from the table above.
+3. Load `references/core-rules.md` for cross-cutting planning guidance and `references/london-traps.md` for scam or tourist-trap questions.
+4. Before an answer depends on a mutable fare, price, availability, visa rule, venue policy, or safety condition, load `references/current-information.md`, verify its listed official source, and distinguish verified facts from dated estimates.
 
-## London-Specific Traps
+## Practical Guardrails
 
-London-specific traps and misconceptions are located in `references/london-traps.md`.
+- Base neighborhood and hotel advice on a real commute, transfer tolerance, and late-night return path—not a borough label alone.
+- Treat neighborhood character, restaurant listings, fare tables, rent bands, salary bands, and public-service details as dated planning material until checked at the relevant official source.
+- Use official operator, government, health, venue, and local-authority sources for unstable operational details. When verification is unavailable, provide the durable decision framework and state the freshness gap.
+- Complete bookings, payments, immigration submissions, or other third-party actions only after explicit user instruction.

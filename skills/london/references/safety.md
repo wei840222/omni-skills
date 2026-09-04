@@ -171,3 +171,7 @@ When asked about London safety:
 ---
 
 *Last updated: February 2026*
+
+## Freshness Note
+
+This guide offers general street-awareness patterns, not a live risk rating for a particular street, venue, or event. For same-day or high-stakes safety decisions, check official guidance and local conditions through `references/current-information.md`.
