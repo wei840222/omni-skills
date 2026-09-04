@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
 | habits                       | 2026-09-05 | 85/100 (#262) |
+| toml                         | 2026-09-05 | 85/100 (#263) |
 | remind                       | 2026-09-04 | 85/100 (#260) |
 | london                       | 2026-09-04 | 85/100 (#261) |
 | neo4j                        | 2026-09-04 | 85/100 (#258) |
