@@ -15,7 +15,7 @@
 
 - Integers support decimal, hexadecimal (`0x`), octal (`0o`), binary (`0b`), and underscores for readability.
 - Floats include decimal notation, exponent notation, `inf`, and `nan`; booleans are lowercase `true` or `false`.
-- TOML has no null value. Represent an optional setting by omitting its key when the consuming application supports that behavior.
+- TOML has no null value. For an optional setting, omit its key when the consuming application supports that behavior.
 - Arrays may contain values of different types, although consistently typed arrays are easier for consumers to interpret.
 - Inline tables such as `point = { x = 1, y = 2 }` are self-contained: define every key while creating the table and keep the table on one physical line for TOML 1.0 compatibility.
 - TOML 1.1 adds features beyond 1.0. Choose the version required by the target parser before relying on newer syntax.
@@ -28,9 +28,9 @@
 
 ## Validation routine
 
-1. Confirm each key is defined once and each table name has one consistent shape.
-2. Check that strings, date-times, and numeric bases use TOML syntax rather than JSON or YAML conventions.
-3. Parse the file with the target tool or language runtime when available; use its reported line and column to correct the source before changing surrounding structure.
+1. Confirm each key has one definition and each table name has a consistent shape.
+2. Check strings, date-times, and numeric bases against TOML syntax.
+3. Parse with the target tool or language runtime when available, then use its line and column to correct the source.
 
 ## Sources
 
