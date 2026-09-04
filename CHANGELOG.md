@@ -5,6 +5,7 @@
 This table is the canonical record of skill refactor pull requests merged into `main`. It is used by the refactor workflow and automation when selecting the next skill.
 
 | Skill                        | Date       | Darwin Score  |
+| home-server                  | 2026-09-05 | 85/100 (#264) |
 | ---------------------------- | ---------- | ------------- | ---- |
 | habits                       | 2026-09-05 | 85/100 (#262) |
 | toml                         | 2026-09-05 | 85/100 (#263) |
