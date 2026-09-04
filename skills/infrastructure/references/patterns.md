@@ -84,12 +84,12 @@
 
 ---
 
-## Anti-Patterns to Avoid
+## Core Practices
 
-| Anti-Pattern | Why It's Bad | Do This Instead |
+| Core Practice | Rationale | Recommended Approach |
 |--------------|--------------|-----------------|
-| Kubernetes at MVP | Operational overhead kills velocity | Docker Compose until you NEED orchestration |
-| Microservices early | Distributed debugging is hard | Modular monolith, split later |
-| Multi-cloud | Double complexity, little benefit | Pick one, have exit plan |
-| Over-provisioned instances | Wasted money | Start small, scale up |
-| No backups | One mistake = game over | Automate day 1 |
+| Simple Orchestration | Operational overhead kills velocity | Use Docker Compose until orchestration is strictly required |
+| Monolith First | Distributed debugging is hard | Build a modular monolith, split later |
+| Single Cloud Focus | Double complexity yields little benefit | Pick one provider and maintain an exit plan |
+| Right-sizing | Over-provisioning wastes resources | Start small and scale up as needed |
+| Automated Backups | One mistake can cause data loss | Automate backups from day 1 |
