@@ -1,0 +1,17 @@
+[
+  {
+    "input": "Draft an email to a client who wants to add a new feature to the fixed-price project scope without paying extra.",
+    "expected": "The email should explicitly refer to the original scope, politely decline free additions, and offer to provide a change order with updated pricing and timeline for the new feature.",
+    "actual": "dummy"
+  },
+  {
+    "input": "A client is 15 days late on an invoice. Write the follow-up email.",
+    "expected": "The email should be professional but firm, explicitly stating the invoice number, amount, days past due, and requesting an immediate update on payment status, following the Payment Ladder escalation.",
+    "actual": "dummy"
+  },
+  {
+    "input": "We have a prospect call. Should we charge them hourly or value-based? They want a new landing page built and are unsure of the exact scope yet.",
+    "expected": "The response should suggest a Paid Discovery phase first to determine scope, and then a fixed-price project build. It should explicitly advise against hourly without a cap.",
+    "actual": "dummy"
+  }
+]
