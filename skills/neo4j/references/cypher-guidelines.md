@@ -71,4 +71,4 @@ If a batch fails, retain the input identifiers and rerun only the failed, idempo
 ### Operations and performance
 
 - Neo4j Operations Manual: performance recommendations — https://neo4j.com/docs/operations-manual/current/performance/
-- Neo4j Operations Manual: batch import and `CALL { ... } IN TRANSACTIONS` — https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/
+- Neo4j Operations Manual: batch import and `CALL { ... } IN TRANSACTIONS` — https://neo4j.com/docs/cypher-manual/current/subqueries/subqueries-in-transactions/
