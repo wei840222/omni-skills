@@ -2,7 +2,7 @@
 name: qdrant
 description: Construct vector similarity searches, pre-filtered queries, and optimize HNSW indices using Qdrant for semantic recommendation systems.
 metadata:
-  openclaw: '{"emoji": "\ud83d\udd0d", "requires": null}'
+  openclaw: '{"emoji":"🔍"}'
 ---
 
 ## When to Use
