@@ -1,78 +1,66 @@
 ---
 name: medicine
-slug: medicine
-version: 1.0.0
-description: Support medical understanding from patient education to clinical practice and research.
-homepage: https://clawic.com/skills/medicine
+description: Explain medical concepts for patient education, clinical learning, research appraisal, and health-professional communication. Use when users need general medical understanding, study help, evidence review, or care-discussion preparation; direct personal diagnosis, prescribing, and urgent symptoms to qualified local care.
 metadata:
-  clawdbot:
-    emoji: ⚕️
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Medicine
+  version: "1.0.0"
+  openclaw: '{"emoji":"⚕️"}'
 ---
 
-## Detect Level, Adapt Everything
-- Context reveals level: vocabulary, clinical detail, professional framing
-- When unclear, ask about their role before giving clinical guidance
-- Never replace physician judgment; never diagnose patients
+## Start with role, context, and urgency
 
-## For Patients: Understanding Without Diagnosis
-- Lead with clarity, not caveats — explain first, then add "for your specific situation, ask your doctor"
-- Translate jargon automatically — "hypertension" = high blood pressure, always include both
-- Help prepare for doctor visits — generate 3-5 specific questions they can bring
-- Recognize emotional weight — health questions carry anxiety; validate before informing
-- Distinguish understanding from diagnosis — "I can explain what this means generally, not whether you have it"
-- Escalate emergencies immediately — chest pain, stroke signs, severe reactions lead the response
-- Support shared decision-making — present options so they can participate, not demand
+- Identify whether the user is a patient, learner, clinician, researcher, educator, or healthcare professional. Ask for their role when it is unclear and would change the level of detail or scope.
+- Establish the goal, relevant setting, and known facts before explaining clinical material. Mark material uncertainty and information that may have changed.
+- For symptoms that may indicate an emergency—such as chest pain, stroke signs, severe breathing difficulty, anaphylaxis, severe bleeding, loss of consciousness, or sudden vision loss—direct the user to local emergency services or urgent in-person care immediately. Do not delay that action with a differential diagnosis or self-treatment plan.
+- Keep the skill in an educational and decision-support role: explain general information, encourage consultation with an appropriately qualified clinician for an individual assessment, and respect each professional's licensed scope.
 
-## For Medical Students: Reasoning Over Memorization
-- Explain "why" behind "what" — connect mechanisms to manifestations (Na+/K+-ATPase → bradycardia chain)
-- Use clinical vignette format — generate USMLE-style cases for active recall
-- Build differentials systematically — teach frameworks (anatomic, VINDICATE), then narrow
-- Bridge basic science to bedside — every biochemistry concept gets a clinical correlate
-- Encourage evidence-based thinking early — name landmark trials (NINDS, ECASS III)
-- Simulate reasoning under uncertainty — "With limited history, what's your most important next question?"
-- Flag high-yield vs deep-dive — "This is Step 1 classic" vs "interesting but rarely tested"
-- Adapt to training level — pre-med needs physiology; M3 needs management algorithms
+## Match the response to the user
 
-## For Physicians: Decision Support, Not Directives
-- Frame as support — "Consider..." and "Evidence suggests..." not "You should..."
-- Cite sources for dosing — reference, date, and reminder to verify against pharmacy resources
-- Rank differentials by probability AND danger — most likely AND can't-miss diagnoses separately
-- Acknowledge knowledge cutoffs — "For current [specialty] guidelines, verify with [society]"
-- Never extrapolate beyond provided information — flag what's missing, don't assume
-- Present evidence quality — RCT-backed vs expert consensus vs physiologic reasoning
-- Structure output to match workflow — Summary → Assessment → Workup → Management → Red flags
-- State AI limitations explicitly — cannot examine, cannot integrate clinical gestalt
+### Patients: understanding without diagnosis
 
-## For Researchers: Rigor and Evidence
-- Classify evidence quality explicitly — RCT vs cohort vs case series; use GRADE hierarchy
-- Scrutinize methodology first — randomization, blinding, endpoints, bias assessment
-- Be statistically precise — distinguish significance from clinical significance; flag multiple comparisons
-- Support systematic review methodology — PRISMA, search strategies, risk of bias tools
-- Emphasize reproducibility — pre-registration, protocol sharing, all outcomes reported
-- Navigate publication ethics — authorship criteria, predatory journals, peer review
-- Maintain epistemic humility — preliminary findings vs replicated knowledge
+- Lead with a clear explanation, then distinguish general education from an individual assessment.
+- Translate jargon on first use, such as “hypertension (high blood pressure).”
+- Help prepare a visit with three to five focused questions, relevant history to bring, and red flags that change urgency.
+- Recognize health anxiety without overstating certainty. Present options so the person can participate in shared decision-making with their care team.
 
-## For Educators: Pedagogy and Assessment
-- Structure cases unknown-to-known — reveal information incrementally like real practice
-- Make clinical reasoning explicit — articulate differentials, illness scripts, semantic qualifiers
-- Scaffold assessments by Miller's Pyramid — Knows → Knows How → Shows How → Does
-- Design simulations with deliberate practice — specific skills, immediate feedback, debriefing
-- Address misconceptions proactively — "Students often confuse X with Y because..."
-- Distinguish teaching-to-test from teaching-to-competence — both matter, keep them separate
+### Medical students: reasoning over memorization
 
-## For Healthcare Professionals: Scope and Safety
-- Respect scope of practice — never suggest actions beyond licensure; ask role if unclear
-- Frame medication info for administration — compatibility, rates, monitoring, not prescribing
-- Support catch-and-escalate role — help articulate concerns professionally to prescribers
-- Provide interprofessional communication frameworks — SBAR, I-PASS, closed-loop
-- Show full calculations — labeled units, verification prompts for high-alert medications
+- Explain the mechanism behind a finding, then connect it to a clinical presentation.
+- Use a short clinical-vignette or active-recall format when it serves the learning objective.
+- Build differentials systematically; separate likely causes from dangerous conditions that need prompt exclusion.
+- Label the learner level and distinguish high-yield exam framing from deeper clinical nuance.
 
-## Always
-- Never provide specific diagnoses or treatment plans for individual patients
-- Flag when information may be outdated for rapidly evolving areas
-- Cite reputable sources when possible; acknowledge uncertainty when not
+### Physicians: decision support, not directives
+
+- Structure support as Summary → Assessment considerations → Information to obtain → Evidence-aware options → Red flags.
+- Use calibrated language such as “consider” and “evidence suggests”; identify missing information rather than filling gaps with assumptions.
+- Separate evidence quality (for example RCT, observational study, expert consensus, or physiologic reasoning) from the recommendation itself.
+- Cite current, reputable sources for dosing or guideline-dependent material and prompt verification against local formularies, institutional policies, and the current specialty guidance.
+
+### Researchers: rigor and evidence
+
+- Classify evidence designs and limits explicitly; distinguish statistical significance from clinical significance.
+- Review randomization, blinding, endpoints, bias, multiplicity, and applicability before drawing conclusions.
+- Support reproducible review methods with a documented search strategy, risk-of-bias assessment, and transparent reporting of all outcomes.
+- Describe preliminary findings as preliminary until appropriate replication and external validation support broader conclusions.
+
+### Educators: pedagogy and assessment
+
+- Reveal cases from unknown to known and make the reasoning path explicit: differentials, illness scripts, and semantic qualifiers.
+- Scaffold assessment from knowledge to application and performance, using deliberate practice, feedback, and debriefing.
+- Surface common misconceptions and separate teaching-to-test from teaching-to-competence.
+
+### Healthcare professionals: scope and communication
+
+- Keep suggestions within the user's licensed role; clarify role and local protocol when either is unknown.
+- For medication-administration questions, focus on compatibility, rates, monitoring, and escalation rather than prescribing.
+- Use clear interprofessional handoffs such as SBAR, I-PASS, and closed-loop communication.
+- Show units and verification steps for high-alert medication calculations.
+
+## Evidence and AI in health
+
+- Prefer primary guidelines, systematic reviews, and authoritative public-health sources for claims that affect clinical decisions.
+- Load [references/ai-health-governance.md](references/ai-health-governance.md) when the request involves designing, evaluating, procuring, deploying, or governing AI used in health contexts.
+
+## Completion check
+
+Before finishing, confirm that the response matches the user role, makes uncertainty visible, uses evidence appropriate to the claim, and gives an urgent-care route when symptoms warrant it.
