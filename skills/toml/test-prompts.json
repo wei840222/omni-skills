@@ -9,7 +9,7 @@
   {
     "id": 2,
     "prompt": "Convert this JSON to TOML and preserve the nested server objects and ports array: {\"servers\":{\"alpha\":{\"ip\":\"10.0.0.1\",\"role\":\"frontend\"},\"beta\":{\"ip\":\"10.0.0.2\",\"role\":\"backend\"}},\"ports\":[80,443]}.",
-    "expected": "Produces nested server tables and a ports array without JSON braces or commas.",
+    "expected": "Produces nested server tables and a TOML ports array without JSON object braces.",
     "actual": "ports = [80, 443]\n\n[servers.alpha]\nip = \"10.0.0.1\"\nrole = \"frontend\"\n\n[servers.beta]\nip = \"10.0.0.2\"\nrole = \"backend\"\n",
     "pass": true
   },
