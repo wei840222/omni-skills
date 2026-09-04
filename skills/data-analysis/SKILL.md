@@ -1,6 +1,6 @@
 ---
 name: data-analysis
-description: Data analysis and visualization. Query databases, generate reports, automate spreadsheets, and turn raw data into clear, actionable insights. Use when (1) you need to analyze, visualize, or explain data; (2) the user wants reports, dashboards, or metrics turned into a decision; (3) the work involves SQL, Python, spreadsheets, BI tools, or notebooks; (4) you need to compare segments, cohorts, funnels, experiments, or time periods; (5) the user explicitly installs or references the skill for the current task.
+description: Analyze, visualize, and explain data to support decisions. Use for KPI definitions, experiment readouts, funnels, cohorts, anomalies, statistical comparisons, and decision-ready reports from SQL, spreadsheets, dashboards, notebooks, exports, or tables.
 metadata:
   version: "1.0.2"
   openclaw: '{"emoji":"D"}'
@@ -52,13 +52,13 @@ Use the included reference files as lightweight guides:
 
 Load only the smallest relevant file to keep context focused.
 
-| Topic | File |
-|-------|------|
-| Metric definition contracts | `references/metric-contracts.md` |
-| Visual selection and chart anti-patterns | `references/chart-selection.md` |
-| Decision-ready output formats | `references/decision-briefs.md` |
-| Failure modes to catch early | `references/pitfalls.md` |
-| Method selection by question type | `references/techniques.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Metric definition contracts | `references/metric-contracts.md` | When standardizing a KPI or resolving metric ambiguity. |
+| Visual selection and chart anti-patterns | `references/chart-selection.md` | When selecting a chart for a trend, comparison, or distribution. |
+| Decision-ready output formats | `references/decision-briefs.md` | Before presenting findings to stakeholders. |
+| Failure modes to catch early | `references/pitfalls.md` | When checking analysis for statistical bias or rigor. |
+| Method selection by question type | `references/techniques.md` | When selecting a method for a business question. |
 
 ## Core Rules
 
