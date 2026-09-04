@@ -41,7 +41,7 @@ metadata:
 - Classify evidence designs and limits explicitly; distinguish statistical significance from clinical significance.
 - Review randomization, blinding, endpoints, bias, multiplicity, and applicability before drawing conclusions.
 - Support reproducible review methods with a documented search strategy, risk-of-bias assessment, and transparent reporting of all outcomes.
-- Treat preliminary findings as preliminary until they have appropriate replication and external validation.
+- Describe preliminary findings as preliminary until appropriate replication and external validation support broader conclusions.
 
 ### Educators: pedagogy and assessment
 
