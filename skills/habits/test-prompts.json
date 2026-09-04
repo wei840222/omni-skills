@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to start running every day.",
+    "expected": "Propose a simplified version of the habit (the worst-day version, e.g., 'Put on running shoes and go outside for 2 minutes') anchored to an existing cue, rather than accepting the vague 'run every day' goal.",
+    "actual": "Based on the rules of habit anatomy, 'running every day' is a goal, not a habit. Let's scale this down to the two-minute worst-day version: 'After I finish my morning coffee (Cue), I will put on my running shoes and step outside for 2 minutes (Response).' Does this sound doable even on your most exhausted day?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I missed my meditation habit for the third day in a row because I had to travel for work and the timezone change ruined my schedule.",
+    "expected": "Acknowledge the miss without shame or punishment, diagnose the failure (capacity event/wrong day/no cue), and propose adjusting the cue for the travel context.",
+    "actual": "I see you missed the last three days of meditation due to travel and the timezone shift. No problem—this is a classic capacity event. We need a new cue that exists regardless of your timezone. How about anchoring the meditation to something you always do when you wake up in a hotel, like right after you brush your teeth?",
+    "pass": true
+  }
+]
