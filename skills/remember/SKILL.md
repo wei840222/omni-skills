@@ -1,6 +1,6 @@
 ---
 name: remember
-description: Manage durable cross-session memory: capture, retrieve, update, archive, or forget explicit preferences, commitments, corrections, decisions, and relationship context when the user asks.
+description: "Manage durable cross-session memory: capture, retrieve, update, archive, or forget explicit preferences, commitments, corrections, decisions, and relationship context when the user asks."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🧠"}'
