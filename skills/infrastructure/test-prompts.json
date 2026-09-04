@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a new Hetzner server for a small side project (MVP stage). What commands should I run?",
+    "expected": "Provides Hetzner hcloud CLI commands to create a CX22 or similar server with firewall rules, and explains that the user needs to execute them.",
+    "actual": "To set up your MVP server on Hetzner, you'll need the `hcloud` CLI tool installed. First, ensure you have your `HCLOUD_TOKEN` environment variable set. Then, please run the following commands to create a small server (CX22) and set up basic firewall rules:\n\n```bash\n# Create the firewall\nhcloud firewall create --name web-firewall --rules-file rules.json\n\n# Create the server and apply the firewall\nhcloud server create --name mvp-server --type cx22 --image ubuntu-24.04 --location nbg1\nhcloud firewall apply-to-resource --type server --server mvp-server web-firewall\n```\n\nFor the `rules.json`, you can use the standard web configuration (ports 22, 80, 443). Please execute these commands in your terminal.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What is the best way to handle backups for my Docker volumes and Postgres database on my single VPS?",
+    "expected": "Explains backup strategies (pg_dump for Postgres, tarball for volumes) and suggests storage options like B2 or S3.",
+    "actual": "For a single VPS at the MVP stage, here is the recommended backup strategy:\n\n1.  **Postgres Database:** Use `pg_dump` daily. You can automate this to dump the database and sync it to an object storage provider like Backblaze B2 or AWS S3.\n2.  **Docker Volumes:** Create weekly snapshots using a tarball. For example: `docker run --rm -v myapp_data:/data -v $(pwd):/backup alpine tar czf /backup/data_backup.tar.gz /data`.\n\nEnsure you regularly verify these backups by restoring them to a test environment.",
+    "pass": true
+  }
+]

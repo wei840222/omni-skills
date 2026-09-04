@@ -1,20 +1,11 @@
 ---
 name: infrastructure
-slug: infrastructure
-version: 1.0.1
-description: Design, provision, and connect cloud resources across servers, networks, and services.
-homepage: https://clawic.com/skills/infrastructure
-changelog: User-driven credential model, explicit tool requirements
+description: Guide architecture decisions and generate infrastructure provisioning commands for the user to execute.
 metadata:
-  clawdbot:
-    emoji: 🏗️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Infrastructure
+  openclaw: '{"emoji": "\ud83c\udfd7\ufe0f"}'
+  related-skills:
+    server: skills/server
+    docker: skills/docker
 ---
 
 ## Scope
@@ -29,20 +20,26 @@ This skill:
 - User runs provisioning commands
 - Skill guides decisions and generates commands
 
-This skill does NOT:
-- ❌ Store or access cloud credentials directly
-- ❌ Run provisioning commands automatically
-- ❌ Modify infrastructure without user confirmation
+**Safety and Execution:**
+- ✅ Treat cloud credentials as ephemeral environment variables provided by the user.
+- ✅ Output provisioning commands strictly for the user to copy and execute.
+- ✅ Require explicit user confirmation before suggesting any infrastructure modifications.
 
 **For implementation:** User runs commands skill provides, or uses `server` skill for execution.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Architecture patterns | `patterns.md` |
-| Provider commands | `providers.md` |
-| Backup strategies | `backups.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Architecture patterns | `references/patterns.md` | When designing or scaling application architecture |
+| Provider commands | `references/providers.md` | When generating commands for specific cloud providers (AWS, Hetzner, DO) |
+| Backup strategies | `references/backups.md` | When setting up or verifying backups |
+| Cloud architecture principles | `references/cloud-architecture.md` | When evaluating high-level design, security, and scalability |
+
+
+## State location
+
+This skill is stateless and does not store local configuration or state.
 
 ## Core Rules
 
@@ -66,7 +63,7 @@ User: [runs command]
 
 ### 3. Credential Handling
 - User sets credentials in their environment
-- Skill never stores or logs credential values
+- Ensure credential values remain in the user's secure environment space
 - Commands reference env vars: `$HCLOUD_TOKEN`, `$AWS_ACCESS_KEY_ID`
 
 ### 4. Architecture Guidance
