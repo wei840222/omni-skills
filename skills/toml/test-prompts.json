@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a TOML configuration for a Python package named my_app at version 1.0.0 with author Jane Doe.",
+    "expected": "Produces valid TOML with a project table, name, version, and authors array.",
+    "actual": "[project]\nname = \"my_app\"\nversion = \"1.0.0\"\nauthors = [\"Jane Doe\"]\n",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Convert this JSON to TOML and preserve the nested server objects and ports array: {\"servers\":{\"alpha\":{\"ip\":\"10.0.0.1\",\"role\":\"frontend\"},\"beta\":{\"ip\":\"10.0.0.2\",\"role\":\"backend\"}},\"ports\":[80,443]}.",
+    "expected": "Produces nested server tables and a ports array without JSON braces or commas.",
+    "actual": "ports = [80, 443]\n\n[servers.alpha]\nip = \"10.0.0.1\"\nrole = \"frontend\"\n\n[servers.beta]\nip = \"10.0.0.2\"\nrole = \"backend\"\n",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Why does this TOML fail: enabled = True? Correct it and explain the minimum change.",
+    "expected": "Identifies TOML's lowercase boolean syntax and returns a minimally corrected line.",
+    "actual": "Use lowercase TOML booleans:\n\nenabled = true\n\n`True` is not a TOML boolean literal.",
+    "pass": true
+  }
+]
