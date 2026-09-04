@@ -17,7 +17,7 @@ Load this reference when a plan needs source-backed security, container, or netw
 
 ## Skill-package facts
 
-- The `home-server` package itself is portable guidance; it must not claim a particular router model, container version, image tag, or vendor procedure without verifying the current authoritative documentation.
+- The `home-server` package provides portable guidance. Verify the current authoritative documentation before presenting a router model, container version, image tag, or vendor procedure as applicable.
 
 ## Backup and recovery planning
 

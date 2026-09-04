@@ -9,14 +9,14 @@
   {
     "id": 2,
     "prompt": "My Docker host is low on disk and I need to upgrade the reverse proxy tonight. What should I do?",
-    "expected": "Load the operations checklist, treat capacity and backup evidence as preconditions, define rollback, and avoid instructing an unverified upgrade.",
+    "expected": "Load the operations checklist, treat capacity and backup evidence as preconditions, define rollback, and require verified upgrade preconditions.",
     "actual": "Dry-run result: the workflow routes to references/operations-checklists.md, calls for disk and backup/restore evidence before the upgrade, records a sanitized deployment snapshot and rollback owner, then sequences proxy work before dependent applications.",
     "pass": true
   },
   {
     "id": 3,
     "prompt": "I exposed my database port to the internet and now the app is unavailable. Help me recover.",
-    "expected": "Classify the issue as an incident, contain exposure, avoid collecting credentials, load the incident playbook, and require owner authorization for configuration changes.",
+    "expected": "Classify the issue as an incident, contain exposure, collect sanitized evidence, load the incident playbook, and require owner authorization for configuration changes.",
     "actual": "Dry-run result: the workflow routes to references/incident-playbook.md, pauses automated changes, scopes affected traffic and data, contains the exposed component, preserves sanitized evidence, and requests explicit authorization before router or service changes.",
     "pass": true
   }

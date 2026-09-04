@@ -15,7 +15,7 @@ Use this reference for an outage, suspected data loss, security event, or materi
 3. Contain the fault by separating failed components from healthy traffic.
 4. Communicate a concise status and next-update time to the affected owner.
 
-Inspect service health, listening ports and connection errors, free space/I/O/filesystem status, and reverse-proxy, application, and host-security logs. Avoid collecting credentials or unredacted environment files as incident evidence.
+Inspect service health, listening ports and connection errors, free space/I/O/filesystem status, and reverse-proxy, application, and host-security logs. Capture sanitized evidence that excludes credentials and unredacted environment files.
 
 ## Recovery sequence
 

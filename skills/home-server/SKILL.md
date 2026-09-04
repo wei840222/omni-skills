@@ -1,6 +1,6 @@
 ---
 name: home-server
-description: "Design, secure, and operate home servers: Docker services, remote access, backups, upgrades, and incident recovery. Use for homelab, NAS, self-hosted-service, reverse-proxy, or home-network planning and operations; do not trigger for unrelated cloud-only infrastructure or automatic deployment."
+description: "Design, secure, and operate home servers: Docker services, remote access, backups, upgrades, and incident recovery. Use only for homelab, NAS, self-hosted-service, reverse-proxy, or home-network planning and operations that need a human-authorized change."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'
@@ -38,7 +38,7 @@ When persistent state is approved, use only the selected root:
 └── incidents.md       # Failure timeline and recovery notes; create during or after an incident
 ```
 
-Keep state to reusable operational context. Record references or placeholders for secrets, never their values, raw `.env` contents, or private keys.
+Keep state to reusable operational context. Represent secrets, raw `.env` contents, and private keys only by sanitized references or placeholders.
 
 ## Core rules
 
