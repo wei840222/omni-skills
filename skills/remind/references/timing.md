@@ -28,7 +28,7 @@ With `lead_bias` set in `<state_root>/config.yaml`, shift every *unlearned* cate
 
 ## The Lead Ladder
 
-All adjustments move **one step at a time** on this ladder — never multiply, never jump:
+Adjustments move **one step at a time** on this ladder:
 
 `5 min · 15 min · 30 min · 1 h · 3 h · morning-of · 1 day · 3 days · 1 week`
 
@@ -50,7 +50,7 @@ Move only after the 2-signal threshold (signal ladder, SKILL.md) — one reactio
 
 ## Multi-Reminder Patterns
 
-**Every stage carries a different action.** If two stages would say the same thing, delete one — identical repeats read as nagging (see the Core rules in `SKILL.md`).
+**Every stage carries a different action.** When two stages would say the same thing, use one stage; action-distinct stages reduce repetition (see the Core rules in `SKILL.md`).
 
 ```
 Important deadline:
@@ -78,14 +78,14 @@ Recurring obligations reuse these patterns on every cycle (after confirming its 
 | Personal | Evening before, or morning of |
 | Same-day urgent | Immediately |
 | Low priority | Batch into the next natural delivery, or the `digest_slot` if set (with concise, action-distinct wording) |
-| **Default** | Their next active hours, never mid-night |
+| **Default** | Their next active hours, outside quiet hours |
 
-**Quiet hours: no reminders inside `quiet_hours` (default 22:00–07:00 local)**, unless the action itself must start inside the window — a 6 AM flight beats quiet hours; a birthday card does not.
+**Quiet hours:** defer reminders inside `quiet_hours` (default 22:00–07:00 local). Deliver when the action itself must start in that window—for example, a 6 AM flight—but defer a birthday-card reminder.
 
 ## Timezones, DST, Travel
 
 - Store event-anchored reminders (flights, calls, appointments) in the **event's** local time; compute delivery against the user's *current* timezone at fire time, not at creation time.
-- Travel day = the transition term of the lead formula grows. Recompute with real numbers; never reuse the home-city default drive time.
+- Travel day = the transition term of the lead formula grows. Recompute with real numbers for each trip.
 - Recurring local routines (`morning_slot`, daily habits) follow the wall clock through DST and travel; fixed external events follow the event's zone. The two drift apart exactly on travel days — which is when the reminder earns its keep.
 - "Tomorrow" spoken between midnight and 04:00 is ambiguous: confirm the date once ("Friday the 26th?"). This is the one clarifying question worth its cost (SKILL.md caps you at one).
 
