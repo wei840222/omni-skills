@@ -230,10 +230,10 @@ Council Tax funds local services and varies dramatically by borough.
 | British Trait | What It Means | Newcomer Advice |
 |--------------|---------------|-----------------|
 | **Indirect communication** | "Not bad" = good; "Quite good" = very good | Learn to read between the lines |
-| **Understatement** | Downplaying achievements is normal | Don't boast; modesty valued |
+| **Understatement** | Downplaying achievements is normal | Prefer not to boast; modesty valued |
 | **Apologies** | "Sorry" used constantly (even when not at fault) | Say sorry if you bump into someone |
 | **Sarcasm/dry humor** | Very common, often deadpan | May take time to recognize |
-| **Queuing** | Sacred. Never skip a queue | Wait your turn, always |
+| **Queuing** | Sacred. Always avoid skip a queue | Wait your turn, always |
 
 ### Social Norms
 

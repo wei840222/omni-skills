@@ -20,7 +20,7 @@
 
 ---
 
-## Tourist Traps to SKIP
+## Tourist Traps to DEPRIORITIZE
 
 | Deprioritize | Reason | Alternative |
 |------|-----|---------|
@@ -43,7 +43,7 @@
 | Attraction | Verdict | Notes |
 |------------|---------|-------|
 | **Buckingham Palace** | ✅ IF open (July-Sept) | Book far ahead |
-| **St Paul's Cathedral** | ✅ Worth the climb | Skip if seen many cathedrals |
+| **St Paul's Cathedral** | ✅ Worth the climb | Deprioritize if seen many cathedrals |
 | **Tower Bridge** | ⚠️ View from outside free | Inside optional |
 | **Portobello Market** | ⚠️ Getting touristy | Saturday AM best |
 | **Harrods** | ⚠️ Interesting once | See food halls, leave |
