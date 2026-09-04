@@ -21,36 +21,36 @@ Use for London-specific travel, relocation, study, work, startup, neighborhood, 
 | Core planning rules | `references/core-rules.md` | When matching advice to role, timeline, safety, weather, transit, or neighborhood needs |
 | Traps & misconceptions | `references/london-traps.md` | When discussing tourist traps, scams, or common misconceptions |
 | **Visitors** | | |
-| Attractions (must-see vs skip) | `references/visitor-attractions.md` | User asks about attractions (must-see vs skip) |
-| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | User asks about itineraries (1/3/7 days) |
-| Where to stay | `references/visitor-lodging.md` | User asks about where to stay |
-| Tips & day trips | `references/visitor-tips.md` | User asks about tips & day trips |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` | Attraction choice, access, or priority |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` | 1-, 3-, or 7-day itinerary |
+| Where to stay | `references/visitor-lodging.md` | Hotel area or lodging choice |
+| Tips & day trips | `references/visitor-tips.md` | Visitor logistics or day trip |
 | **Neighborhoods** | | |
-| Quick comparison | `references/neighborhoods-index.md` | User asks about quick comparison |
-| Central (Zone 1) | `references/neighborhoods-central.md` | User asks about central (zone 1) |
-| East London | `references/neighborhoods-east.md` | User asks about east london |
-| South London | `references/neighborhoods-south.md` | User asks about south london |
-| West London | `references/neighborhoods-west.md` | User asks about west london |
-| North London | `references/neighborhoods-north.md` | User asks about north london |
-| Choosing guide | `references/neighborhoods-choosing.md` | User asks about choosing guide |
+| Quick comparison | `references/neighborhoods-index.md` | Area overview |
+| Central (Zone 1) | `references/neighborhoods-central.md` | Central London area choice |
+| East London | `references/neighborhoods-east.md` | East London area choice |
+| South London | `references/neighborhoods-south.md` | South London area choice |
+| West London | `references/neighborhoods-west.md` | West London area choice |
+| North London | `references/neighborhoods-north.md` | North London area choice |
+| Choosing guide | `references/neighborhoods-choosing.md` | Area tradeoff or shortlist |
 | **Food** | | |
-| Overview & restaurants | `references/food-overview.md` | User asks about overview & restaurants |
-| British classics | `references/food-traditional.md` | User asks about british classics |
-| Markets | `references/food-markets.md` | User asks about markets |
-| Best areas | `references/food-areas.md` | User asks about best areas |
-| Pubs | `references/food-pubs.md` | User asks about pubs |
-| Dietary & tips | `references/food-practical.md` | User asks about dietary & tips |
+| Overview & restaurants | `references/food-overview.md` | Dining recommendations |
+| British classics | `references/food-traditional.md` | Traditional British food |
+| Markets | `references/food-markets.md` | Food market |
+| Best areas | `references/food-areas.md` | Cuisine or food district |
+| Pubs | `references/food-pubs.md` | Pub culture or pub choice |
+| Dietary & tips | `references/food-practical.md` | Dietary needs, booking, or tipping |
 | **Practical** | | |
-| Moving & settling | `references/resident.md` | User asks about moving & settling |
-| Transport | `references/transport.md` | User asks about transport |
-| Cost of living | `references/cost.md` | User asks about cost of living |
-| Safety | `references/safety.md` | User asks about safety |
-| Weather | `references/climate.md` | User asks about weather |
-| Local services | `references/local.md` | User asks about local services |
+| Moving & settling | `references/resident.md` | Relocation or settling |
+| Transport | `references/transport.md` | Transport, airport transfer, or fares |
+| Cost of living | `references/cost.md` | Budget, rent, or living cost |
+| Safety | `references/safety.md` | Safety or late-night route |
+| Weather | `references/climate.md` | Weather or packing |
+| Local services | `references/local.md` | NHS, banking, utilities, or council service |
 | **Career** | | |
-| Tech industry | `references/tech.md` | User asks about tech industry |
-| Students | `references/student.md` | User asks about students |
-| Startups | `references/startup.md` | User asks about startups |
+| Tech industry | `references/tech.md` | Tech job, employer, or work base |
+| Students | `references/student.md` | Study, student housing, or student life |
+| Startups | `references/startup.md` | Startup, founder, or company setup |
 
 ## Plan the Answer
 
