@@ -1,0 +1,6 @@
+# Where Experts Disagree
+
+- **Weighted forecast vs commit calls.** Weighted pipeline is defensible with enough deals and stable stage conversion; below roughly 20 deals per period the average is noise and rep-by-rep commit/best-case/pipeline calls forecast better. Small pipelines: call the deals. Large ones: weight them, and check the weighting against last quarter's actuals (`references/metrics.md`).
+- **Log everything vs log decisions.** Full sync makes the timeline complete and unreadable, and it drags in personal mail nobody consented to store. Decision-only logging keeps it searchable and depends on discipline that fails in busy weeks. The stable line: sync metadata (who, when, subject), write bodies only for interactions that changed something.
+- **Qualification frameworks.** MEDDIC/MEDDPICC pays off on long, multi-stakeholder deals and drowns a two-call sale in fields; BANT is fast and misses the champion and the decision process, which is where deals actually die. Match the framework to the number of people who must say yes, not to the deal size.
+- **Enrichment vendors.** They fill fields at the cost of accuracy you cannot audit and a lawful basis you now have to justify under GDPR. Common ground: enrich company-level attributes freely, treat vendor-supplied personal emails as the highest-risk data in the database.
