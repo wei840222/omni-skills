@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Remind me to submit my expense report tomorrow morning.",
+    "expected": "Records the requested reminder in the resolved state root and schedules delivery in the configured morning slot.",
+    "actual": "I’ll remind you tomorrow morning to submit the expense report. I’ll use your morning slot and record this in the resolved reminder state.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I will finish the design document by Friday.",
+    "expected": "Recognizes a dated commitment without a direct request and offers a nudge before creating a new reminder for an unlearned category.",
+    "actual": "You’re aiming to finish the design document by Friday. Would you like a reminder before then?",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My flight leaves at 6 AM tomorrow, and I need 30 minutes to pack plus 45 minutes to drive.",
+    "expected": "Asks for any missing airport-process time or calculates the action start from supplied details, preserves the event timezone, and permits an actionable reminder inside quiet hours when necessary.",
+    "actual": "I can plan this from the action backward. How much airport check-in and security time should I include? I’ll keep the flight’s local timezone and schedule the packing or departure reminder even if it falls in quiet hours, because the action begins then.",
+    "pass": true
+  }
+]
