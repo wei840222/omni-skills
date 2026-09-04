@@ -15,16 +15,16 @@ This skill stores user-approved durable memory. Before a state operation, resolv
 2. Otherwise select the first existing directory in this order: `<workspace>/remember/`, `<workspace>/memory/remember/`, `~/remember/`.
 3. If none exists and the user has asked to save memory, create `<workspace>/remember/`.
 
-Use the selected `<state_root>` for the whole invocation. If more than one candidate exists, use only the highest-precedence directory and tell the user; do not merge or synchronize copies. If `<workspace>` is unavailable and `~/remember/` does not exist, ask for a state root before creating data.
+Keep the selected `<state_root>` for the whole invocation. When more than one candidate exists, use the highest-precedence directory, report the duplicate copies, and leave them independent. When `<workspace>` is unavailable and `~/remember/` is absent, obtain a state root before creating data.
 
 ## Workflow
 
 1. Identify the request: save, retrieve, update, review, archive, or forget.
-2. For saves, record only durable, useful information with the date, source (`explicit` or `inferred`), and confidence. Keep sensitive information out unless the user explicitly asks to save it.
+2. For saves, record durable, useful information with the date, source (`explicit` or `inferred`), and confidence. Persist sensitive information only after the user explicitly asks to save it.
 3. Store the entry in the matching `<state_root>/memory/` category. Create only the category files needed for the current request.
 4. For a conflicting update, retain the prior record with an update note; make the newest confirmed information active.
 5. For retrieval or review, load only the categories relevant to the request, then report uncertainty and stale entries plainly.
-6. For a forget request, remove the requested data from the resolved state root and confirm the scope completed. Ask for clarification if the target is ambiguous.
+6. For a forget request, remove the requested data from the resolved state root and confirm the completed scope. Resolve an ambiguous target with the user before removing data.
 
 ## What to retain
 
