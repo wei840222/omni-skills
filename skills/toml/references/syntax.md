@@ -18,6 +18,7 @@
 - TOML has no null value. Represent an optional setting by omitting its key when the consuming application supports that behavior.
 - Arrays may contain values of different types, although consistently typed arrays are easier for consumers to interpret.
 - Inline tables such as `point = { x = 1, y = 2 }` are self-contained: define every key while creating the table and keep the table on one physical line for TOML 1.0 compatibility.
+- TOML 1.1 adds features beyond 1.0. Choose the version required by the target parser before relying on newer syntax.
 
 ## Dates, times, and comments
 
