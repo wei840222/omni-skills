@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We saw a 10% conversion drop in mobile users yesterday. What's the best way to investigate this anomaly?",
+    "expected": "The agent should load `references/pitfalls.md` and `references/techniques.md` to identify the right anomaly detection approach, suggesting segmentation by confounders (e.g., OS version, region) and checking for data quality issues before jumping to conclusions. It should present a structured investigation plan.",
+    "actual": "The agent correctly identified the need for anomaly detection and segmentation. It suggested a structured plan: 1. Verify data quality (are tracking events firing?). 2. Segment by OS, app version, and region. 3. Check for external factors (holidays, outages). It referenced Simpson's paradox as a potential pitfall if combining all mobile traffic without segmentation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to present our Q3 retention analysis to the executive team. The data shows our 30-day retention improved from 40% to 45%.",
+    "expected": "The agent should load `references/decision-briefs.md` and `references/chart-selection.md`. It should recommend a cohort retention curve for visualization, ask about the underlying sample size and statistical significance, and output a decision-ready brief highlighting the confidence level and recommended next action.",
+    "actual": "The agent recommended using a cohort retention curve and explicitly asked about the sample size and whether the 5% lift is statistically significant. It then generated a template for a decision brief, placing the 5% lift insight at the top, followed by evidence, confidence/uncertainty, and recommended next steps. It successfully avoided the trap of just showing the numbers without context.",
+    "pass": true
+  }
+]
