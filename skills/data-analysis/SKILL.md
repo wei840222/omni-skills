@@ -138,15 +138,4 @@ No data is sent externally.
 
 ## Security & Privacy
 
-Data that leaves your machine:
-- Nothing by default.
-
-Data that stays local:
-- Nothing by default.
-
-This skill does NOT:
-- Access undeclared external endpoints.
-- Store credentials or raw exports in hidden local memory files.
-- Create or depend on local folder systems for persistence.
-- Create automations or background jobs without explicit user confirmation.
-- Rewrite its own instruction source files.
+Keep data local by default. This skill makes no external request, does not persist credentials or raw exports, and has no background automation or self-modification workflow. Before any future extension introduces an external endpoint, persistent state, or automation, define the data flow and obtain explicit user confirmation.
