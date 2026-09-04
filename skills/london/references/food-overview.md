@@ -73,8 +73,8 @@ London was named the world's best food city. Its strength lies in extraordinary 
 
 | Topic | File |
 |-------|------|
-| British classics | `food-traditional.md` |
-| Food markets | `food-markets.md` |
-| Best areas | `food-areas.md` |
-| Pub culture | `food-pubs.md` |
-| Dietary needs & tips | `food-practical.md` |
+| British classics | `references/food-traditional.md` |
+| Food markets | `references/food-markets.md` |
+| Best areas | `references/food-areas.md` |
+| Pub culture | `references/food-pubs.md` |
+| Dietary needs & tips | `references/food-practical.md` |

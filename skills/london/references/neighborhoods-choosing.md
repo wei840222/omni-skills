@@ -15,7 +15,7 @@
 **Tips:**
 - Research specific streets, not just boroughs
 - Night safety: stick to well-lit main roads
-- Avoid flashing expensive items
+- Keep expensive items concealed
 - Westminster has HIGH crime stats due to tourist footfall, not residential danger
 
 ---

@@ -10,7 +10,7 @@
 4. **Wait 1-2 weeks** for NHS number
 5. **Book via:** Reception, NHS app, or online
 
-**Tip:** Register ASAP when you arrive. Don't wait until you're sick.
+**Tip:** Register ASAP when you arrive. Register proactively while healthy.
 
 ### Using the NHS
 

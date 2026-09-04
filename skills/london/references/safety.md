@@ -15,7 +15,7 @@ London is one of the safest major cities globally. Violent crime against tourist
 | Oxford Street | Crowds, distraction | Front pocket, zipped bag |
 | Tube (Central, Piccadilly lines) | Rush hour crush | Secure bags, be aware |
 | Borough Market | Food distractions | Cross-body bags |
-| Westminster Bridge | Photo-taking | Never put phone in back pocket |
+| Westminster Bridge | Photo-taking | Keep phone securely stored in a front pocket |
 | Camden Market | Browsing mode | Keep valuables secure |
 
 ### Phone Snatching (Rising Concern)
@@ -23,7 +23,7 @@ London is one of the safest major cities globally. Violent crime against tourist
 | Method | Where | Prevention |
 |--------|-------|------------|
 | Moped snatch | Crossing roads, walking near curb | Walk inside pavement, phone away |
-| Grab and run | Restaurants (from table) | Never put phone on table outside |
+| Grab and run | Restaurants (from table) | Keep phone off the table while dining outside |
 | Distraction grab | Asking for directions | Brief interaction, phone in pocket |
 
 **Note:** Apple/Samsung "Find My" + theft protection features are essential.
@@ -40,8 +40,8 @@ London is one of the safest major cities globally. Violent crime against tourist
 | Scam | How It Works | Response |
 |------|--------------|----------|
 | **Charity clipboard** | Sign petition → asks for donation, card skimming | Say "no thanks," walk on |
-| **CD handout** | "Free CD" → demands payment, gets aggressive | Don't accept anything |
-| **Shell game** | Street gambling game → rigged, you always lose | Never participate, crowds are shills |
+| **CD handout** | "Free CD" → demands payment, gets aggressive | Politely decline handouts |
+| **Shell game** | Street gambling game → rigged, you always lose | Bypass street gambling games; crowds are staged |
 | **Fake flower sellers** | Forces flower on you → demands payment | Firmly refuse, keep walking |
 | **"Wrong change"** | Claims you didn't pay enough | Count change immediately |
 | **ATM helpers** | Offers to help at ATM → shoulder surfing | Politely decline all help |
@@ -71,7 +71,7 @@ London is one of the safest major cities globally. Violent crime against tourist
 | Midnight-4am | Use Uber/taxi for transport, avoid walking alone in quiet areas |
 | Night Tube (Fri-Sat) | Safe, well-staffed, cameras everywhere |
 
-### Areas to Avoid Late Night
+### Areas Requiring Extra Caution Late Night
 
 - Deserted parts of train stations
 - Underpasses and alleyways
@@ -89,7 +89,7 @@ London is one of the safest major cities globally. Violent crime against tourist
 | Public transport | Very safe, even late night tube |
 | Walking alone | Fine in busy/well-lit areas, Uber for quiet routes |
 | Harassment | Rare in public. If occurs, bystanders typically help |
-| Drink safety | Don't leave drinks unattended, same as anywhere |
+| Drink safety | Keep drinks with you at all times, same as anywhere |
 
 **Resources:**
 - TfL "text 61016" to report harassment on public transport
@@ -108,7 +108,7 @@ London is one of the safest major cities globally. Violent crime against tourist
 **Tips:**
 - Keep belongings close during rush hour
 - Pickpockets target people getting on/off
-- Avoid "empty" carriages late at night
+- Choose carriages with other passengers late at night
 - Report anything suspicious: text 61016
 
 ## Emergency Numbers
@@ -133,10 +133,10 @@ London is one of the safest major cities globally. Violent crime against tourist
 |-----|-----|
 | **Bag across body, zip facing you** | Harder to snatch or unzip |
 | **Phone in front pocket** | Back pocket = easy target |
-| **Don't count cash publicly** | Attracts attention |
+| **Count cash privately** | Attracts attention |
 | **Use contactless payments** | Less cash = less risk |
 | **Screenshot important docs** | In case phone stolen |
-| **Don't wear headphones in both ears** | Stay aware of surroundings |
+| **Keep one ear open to surroundings** | Stay aware of surroundings |
 
 ### If Something Happens
 
@@ -144,7 +144,7 @@ London is one of the safest major cities globally. Violent crime against tourist
 |-----------|--------|
 | **Pickpocketed** | Cancel cards immediately (app), report to police (101), get crime number for insurance |
 | **Phone snatched** | Mark as lost/stolen in Find My, report to police, crime number for insurance |
-| **Mugged** | Don't resist, give items, call 999 immediately |
+| **Mugged** | Prioritize personal safety; surrender items, call 999 immediately |
 | **Lost/stolen passport** | Police report (101), then embassy |
 | **Medical emergency** | 999, or go to nearest A&E |
 

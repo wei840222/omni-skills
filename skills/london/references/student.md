@@ -69,7 +69,7 @@
 | **OpenRent** | Direct from landlords (no fees) |
 | **Facebook groups** | Uni-specific housing groups |
 
-**Warning:** Deposit scams exist. Never pay before viewing. Use official platforms.
+**Warning:** Deposit scams exist. Verify the property in person before transferring funds. Use official platforms.
 
 ### Deposit Rules
 

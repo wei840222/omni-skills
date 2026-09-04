@@ -22,7 +22,7 @@
 
 ## Tourist Traps to SKIP
 
-| Skip | Why | Instead |
+| Deprioritize | Reason | Alternative |
 |------|-----|---------|
 | **London Eye** | £40+, long queues, dated | Sky Garden, Horizon 22 (FREE) |
 | **Madame Tussauds** | £35+, gimmicky | Any FREE museum |
@@ -32,7 +32,7 @@
 | **Oxford Street** | Chaotic, pickpockets | Regent St, Marylebone High St |
 | **Hop-On Buses** | Stuck in traffic, £40+ | Bus #11 (£1.75, same views) |
 | **Westminster Bridge** | Overcrowded, scammers | Waterloo or Millennium Bridge |
-| **Platform 9¾** | 30+ min queue | Skip unless with HP fans |
+| **Platform 9¾** | 30+ min queue | Prioritize for HP fans only |
 | **Abbey Road Crossing** | Just a crosswalk | Any zebra crossing |
 | **Changing of Guard** | Crowded, can't see | Household Cavalry Museum |
 
