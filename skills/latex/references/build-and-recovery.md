@@ -28,3 +28,7 @@ Select the engine from project requirements: `pdflatex` for established PDF work
 - LaTeX2e unofficial reference manual — https://latexref.xyz/
 - CTAN: latexmk — https://ctan.org/pkg/latexmk
 - CTAN: biblatex — https://ctan.org/pkg/biblatex
+
+## Citation and bibliography checks
+
+For a document using `biblatex`, keep the bibliography resource declaration in the preamble and use the backend configured by the project. A citation that remains unresolved after a complete build usually indicates one of three boundaries: the `.bib` path, the citation key, or the selected backend. Verify those inputs in that order and retain the project’s existing backend unless a documented migration is intended.
