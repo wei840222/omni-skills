@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "My HomePod mini says it cannot connect to the internet when I ask Siri questions. What should I check first?",
+    "expected": "Scopes the incident, captures HomePod version and home-hub status, tests local network and Home app control, and uses targeted reversible checks before reset.",
+    "actual": "Classified the issue as network, home-hub, permission, or service related; requested one-device versus whole-home scope; checked HomePod software, home-hub status, and Home app control; then recommended reproducible network checks before reset.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A weekday 8 AM Home automation sometimes plays music in the wrong room. Help me troubleshoot it without disrupting the rest of the house.",
+    "expected": "Uses one canonical automation, validates trigger/conditions/targets, runs controlled trials, requires approval for changes, and defines rollback and completion criteria.",
+    "actual": "Isolated the weekday automation, recorded its trigger and expected versus actual room, checked naming and target state, proposed one approved change at a time, and required three controlled passes with no unrelated-room side effects before retaining the fix.",
+    "pass": true
+  }
+]
