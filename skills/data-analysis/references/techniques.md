@@ -13,14 +13,20 @@
 | Paired data | 2 | Paired t-test or Wilcoxon signed-rank |
 
 **Key outputs:**
-- p-value (probability of seeing this difference by chance)
-- Effect size (how big is the difference - Cohen's d, odds ratio)
-- Confidence interval (range of plausible true values)
+- p-value: compatibility of the observed data with the null model, not the probability that the null is true.
+- Effect size: practical magnitude, such as Cohen's d or an odds ratio.
+- Confidence interval: a range of parameter values compatible with the data and method.
+
+**Execution checks:**
+1. Define the estimand, comparison groups, and success criterion before inspecting results.
+2. Verify randomization or identify confounders; observational comparisons support association unless a causal design justifies more.
+3. Report effect size, interval, sample sizes, and every planned or exploratory comparison alongside the p-value.
+4. Use a test whose assumptions match the data; when assumptions are doubtful, validate them or choose and document an appropriate robust or non-parametric method.
 
 **Watch out for:**
-- Large samples make everything "significant" - focus on effect size
-- Multiple comparisons inflate false positives
-- Normality assumptions (use non-parametric if violated)
+- Large samples can make trivial effects statistically significant; use effect size and decision thresholds.
+- Multiple comparisons inflate false positives; pre-specify a limited analysis set or apply a documented multiplicity adjustment.
+- Missing data, attrition, or unequal exposure can change the estimand; report how each was handled.
 
 ---
 
@@ -67,7 +73,7 @@
 
 **Watch out for:**
 - Time window (did they convert eventually, or just not today?)
-- Stage ordering (users don't always follow linear paths)
+- Stage ordering (users follow varied, non-linear paths)
 - Defining "same session" vs "ever"
 
 ---
