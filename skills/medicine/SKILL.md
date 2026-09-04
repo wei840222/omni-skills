@@ -1,6 +1,6 @@
 ---
 name: medicine
-description: Explain medical concepts and support patient education, clinical learning, research appraisal, and health-professional communication. Use when users need general medical understanding, study help, evidence review, or care-discussion preparation; route personal diagnosis, prescribing, and urgent symptoms to qualified local care.
+description: Explain medical concepts for patient education, clinical learning, research appraisal, and health-professional communication. Use when users need general medical understanding, study help, evidence review, or care-discussion preparation; direct personal diagnosis, prescribing, and urgent symptoms to qualified local care.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"⚕️"}'
