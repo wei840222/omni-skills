@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a minimal LaTeX article with a title, an inline equation, and a labelled displayed equation that I can reference later.",
+    "expected": "Provide a valid article structure, use math mode correctly, place the label with the displayed equation, and give a repeatable build command.",
+    "actual": "Dry-run result: selected `article`, put the preamble before `\\begin{document}`, used `$...$` for inline math and `equation` with `\\label{eq:...}` for the display, then directed the build through `latexmk -pdf document.tex`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My biblatex citations show as question marks after I ran pdflatex twice. What should I check and run?",
+    "expected": "Diagnose the bibliography backend and resource/key boundaries, then provide the correct complete build cycle without changing unrelated document settings.",
+    "actual": "Dry-run result: routed to the build-recovery guide, checked the `.bib` path, citation key, and configured backend, then specified an engine → `biber` → engine → engine cycle or the project-equivalent `latexmk` build.",
+    "pass": true
+  }
+]
