@@ -1,117 +1,43 @@
 ---
 name: homepod
-slug: homepod
-version: 1.0.0
-description: Set up, troubleshoot, and optimize HomePod and HomeKit audio workflows with reliable Siri control and room-aware playback tuning.
-homepage: https://clawic.com/skills/homepod
-changelog: Initial release with HomePod setup, diagnostics, direct control workflows, and automation reliability guidance.
+description: Set up, troubleshoot, and optimize HomePod and Home audio workflows. Use when diagnosing Siri, Home app, automation, multiroom playback, or direct HomePod/Apple TV control; use general audio guidance when Apple Home ecosystem constraints do not drive the issue.
 metadata:
-  clawdbot:
-    emoji: H
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: HomePod
+  openclaw: '{"emoji":"H"}'
+  related-skills: '{"audio":"Handles general audio routing and playback reliability beyond Apple Home environments.","ios":"Covers iPhone and iPad configuration that affects Home app control.","siri":"Diagnoses Siri intent and response behavior outside HomePod-specific workflows.","smart-home":"Provides cross-vendor smart-home architecture and reliability patterns.","wifi":"Diagnoses local network latency, packet loss, and Wi-Fi conditions."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` for activation preferences and baseline context.
+HomePod state may exist in `<workspace>/homepod/`, `<workspace>/memory/homepod/`, or `~/homepod/`. Before reading or writing state:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise select the first existing directory in this order: `<workspace>/homepod/`, `<workspace>/memory/homepod/`, then `~/homepod/`.
+3. If several directories exist, use only the highest-precedence one and report the duplicate state locations.
+4. If none exists and the user wants persistent notes, create `<workspace>/homepod/`.
 
-Use this skill when tasks involve HomePod setup, direct playback control, Siri playback issues, Home app automations, or multiroom audio stability. Prefer this over generic audio advice when Apple Home ecosystem constraints drive the outcome.
+Use the selected `<state_root>` for this invocation. State files are optional: `<state_root>/memory.md` stores preferences and incident summaries; `<state_root>/homes.md` stores device topology; `<state_root>/automation-log.md` records automation tests; `<state_root>/network-notes.md` records network observations. The resolver selects a location; ask before creating or modifying persistent notes.
 
-## Architecture
+## When to use
 
-Memory lives in `~/Clawic/data/homepod/`. See `memory-template.md` for structure.
+Use this skill for HomePod setup, direct playback control, Siri failures on a HomePod, Home app automations, and multiroom audio stability. For each incident, identify the affected device or room, capture the current software and home-hub state, apply the narrowest reversible fix, then rerun the same validation.
 
-```text
-~/Clawic/data/homepod/
-|-- memory.md              # Status, activation boundaries, and current setup
-|-- homes.md               # Home topology and device mapping
-|-- automation-log.md      # Trigger failures, fixes, and validation results
-`-- network-notes.md       # Wi-Fi, Thread, and router behavior notes
-```
+## Quick reference
 
-## Quick Reference
+| Topic | File | When to load |
+|---|---|---|
+| Setup and persistent notes | `references/setup.md` | First-use configuration or when creating notes |
+| State-note template | `references/memory-template.md` | Writing HomePod state under `<state_root>/` |
+| Direct connection and control | `references/direct-control.md` | The user requests active playback control |
+| Network triage flow | `references/network-diagnostics.md` | Connectivity, discovery, sync, or Siri timeout issues |
+| Automation reliability playbook | `references/automation-playbook.md` | An automation is intermittent, delayed, or non-deterministic |
+| Siri failure recovery map | `references/siri-recovery.md` | Siri hears a request but does not complete the intended Home action |
+| Core operating rules | `references/core-rules.md` | Before recommending a fix or a reset |
+| Common traps | `references/common-traps.md` | During troubleshooting or automation work |
+| Apple documentation and hardware facts | `references/domain-knowledge.md` | Verifying current platform behavior or a reset path |
 
-Use the smallest relevant file for the current incident to keep troubleshooting focused.
+## Security and privacy
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Direct connection and control | `direct-control.md` |
-| Network triage flow | `network-diagnostics.md` |
-| Automation reliability playbook | `automation-playbook.md` |
-| Siri failure recovery map | `siri-recovery.md` |
-
-## Core Rules
-
-### 1. Confirm Real Topology Before Advice
-- Capture HomePod model, software version, home hub role, and active network layout before suggesting fixes.
-- Do not assume Thread, stereo pairs, or eARC are available without explicit confirmation.
-
-### 2. Separate Network, Device, and Service Failures
-- Classify each incident as local network path, HomePod device state, or cloud service dependency.
-- Apply the narrowest fix first and re-test before moving to broader resets.
-
-### 3. Keep Automation Debugging Deterministic
-- For each failing automation, log trigger, condition, expected action, and actual result in one record.
-- Test one change at a time so root cause remains attributable.
-
-### 4. Validate Multiroom Audio with Repeatable Checks
-- Test sync, handoff, and output routing with a fixed sequence across all target rooms.
-- Treat intermittent latency as a measurable defect, not user error.
-
-### 5. Protect User Privacy and Household Boundaries
-- Keep notes focused on devices, states, and failures, never on raw voice transcripts or personal content.
-- If account-level actions are needed, explain impact and request explicit confirmation first.
-
-### 6. Prefer Reversible Fixes Before Factory Reset
-- Start with service restart, network path validation, and accessory reassociation before destructive actions.
-- Reserve full reset workflows for verified dead-end states only.
-
-### 7. Execute Direct Control in Guarded Mode
-- For command execution, require explicit target and intent confirmation before any mutating action.
-- Use `direct-control.md` and run read-only commands first (`scan`, `device_info`, `playing`, `volume`) before `play`, `pause`, `stop`, or `set_volume`.
-
-## Common Traps
-
-- Treating every Siri error as network related -> repeated failures because account or Home hub state was never checked.
-- Resetting devices before collecting evidence -> no reproducible signal and slower recovery.
-- Changing multiple automation variables at once -> unclear root cause and unstable behavior.
-- Ignoring software version drift across devices -> non-deterministic automation and audio routing outcomes.
-- Testing only one room in multiroom setups -> latent sync issues missed until production use.
-- Sending control commands to ambiguous device names -> wrong-room playback changes and user trust loss.
-
-## Security & Privacy
-
-Data that leaves your machine:
-- None by default. Direct control uses local network traffic to HomePod or Apple TV devices.
-
-Data that stays local:
-- Setup context and troubleshooting notes in `~/Clawic/data/homepod/`.
-
-This skill does NOT:
-- Send undeclared network requests.
-- Execute mutating control commands without target confirmation.
-- Modify files outside `~/Clawic/data/homepod/` for storage.
-- Modify its own `SKILL.md`.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `smart-home` - Cross-vendor smart-home architecture and reliability patterns
-- `siri` - Siri interaction and intent quality troubleshooting
-- `wifi` - Local network diagnostics for latency and packet-loss issues
-- `audio` - Audio routing, quality, and playback reliability workflows
-- `ios` - iOS-side Home app and device configuration support
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/homepod
-- Latest version: https://clawic.com/skills/homepod
+- Keep notes to device state, failures, and validation evidence; exclude voice transcripts and unrelated household content.
+- Explain the impact and obtain confirmation before an account-level action, persistent-state write, direct control command, or reset.
+- Use one verified target for a mutating command and record its pre- and post-command state when the user elects to keep notes.
+- Keep pairing credentials in the platform's secure pairing flow, not in `<state_root>/` or this skill package.
