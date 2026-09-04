@@ -1,10 +1,10 @@
 ---
 name: toml
-description: Create and edit valid TOML configuration files; use when generating, converting, validating, or troubleshooting TOML syntax and data types.
+description: Create, edit, convert, validate, and troubleshoot TOML configuration files; use for TOML syntax, tables, arrays, types, dates, and parser errors.
 metadata:
   openclaw: '{"emoji":"⚙️"}'
 ---
 
 ## Quick Reference
 
-Load `references/syntax.md` before generating, modifying, converting, or debugging TOML. It covers TOML syntax, tables, arrays, types, comments, and common validation issues.
+For TOML generation, conversion, validation, or parser errors, load `references/syntax.md`. It gives the syntax rules, type semantics, and a concise validation routine.
