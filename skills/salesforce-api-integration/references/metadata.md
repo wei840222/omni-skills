@@ -1,6 +1,6 @@
 # Metadata and Schema — What the Org Actually Looks Like
 
-**Before describing anything**, check `## Schema Map` in `~/Clawic/data/salesforce-api-integration/memory.md` and open `schema/<object>.md` if the `## Boxes` index names one. A full describe of a mature Account object is a large payload and a slow call; the stored field map answers most questions without it.
+**Before describing anything**, check `## Schema Map` in `<state_root>/memory.md` and open `<state_root>/schema/<object>.md` if the `## Boxes` index names one. A full describe of a mature Account object is a large payload and a slow call; the stored field map answers most questions without it.
 
 **Contents:** [The Cheap Way to List Fields](#the-cheap-way-to-list-fields) · [Describe](#describe) · [Reading a Describe](#reading-a-describe) · [Caching Describes](#caching-describes) · [Find the Automation Before You Load](#find-the-automation-before-you-load) · [Record Types and Layouts](#record-types-and-layouts) · [Tooling API](#tooling-api) · [Deploying Metadata](#deploying-metadata) · [Schema Traps](#schema-traps)
 
@@ -42,13 +42,13 @@ The fields worth extracting, and the question each answers:
 | `nillable: false` + `createable: true` + `defaultedOnCreate: false` | **The real required-field list.** The page layout's red bars are not it |
 | `defaultedOnCreate` | Salesforce fills it if omitted — the API applies these, unlike layout defaults |
 | `calculated` | A formula field: never writable, often not filterable, never indexed |
-| `externalId`, `unique` | Whether it can be an upsert key (`records.md`) |
+| `externalId`, `unique` | Whether it can be an upsert key (`references/records.md`) |
 | `referenceTo`, `relationshipName` | What a lookup points at, and the name to use in SOQL — `Contacts` not `Contact` |
 | `picklistValues[].value` + `.active` | The API values; the label is a different string, and inactive values still exist on old records |
 | `controllerName` | A dependent picklist: its valid values depend on another field's value, and an invalid pair is rejected |
 | `length`, `precision`, `scale` | Where `STRING_TOO_LONG` and rounding surprises come from |
 | `childRelationships[]` | The subquery names for parent-to-child SOQL |
-| `keyPrefix` (global describe) | The 3-char id prefix (`records.md`) |
+| `keyPrefix` (global describe) | The 3-char id prefix (`references/records.md`) |
 
 ## Caching Describes
 
@@ -62,7 +62,7 @@ curl "$SF_INSTANCE_URL/services/data/v62.0/sobjects/Account/describe" \
 
 `304 Not Modified` means your cached copy is still valid and the call cost you almost nothing. Cache aggressively — an admin changing a field is a rare event, and re-describing on every run is a habit that shows up in the daily allocation.
 
-Invalidate on any of: `INVALID_FIELD` on a field that used to work, a new Salesforce release, a picklist value that is rejected, or the user telling you the admin changed something. Then overwrite `schema/<object>.md` and update its date line.
+Invalidate on any of: `INVALID_FIELD` on a field that used to work, a new Salesforce release, a picklist value that is rejected, or the user telling you the admin changed something. Then overwrite `<state_root>/schema/<object>.md` and update its date line.
 
 ## Find the Automation Before You Load
 
@@ -120,7 +120,7 @@ Metadata changes travel through the Metadata API (SOAP), the Tooling API's deplo
 4. **The API version of the package matters.** Deploying a package built against a newer version than the target org supports fails wholesale.
 5. Field-level security is metadata too: a new field deploys invisible to every profile unless the permission set travels with it. This is the most common cause of "we deployed the field but the integration cannot see it" (`SKILL.md` Rule 7).
 
-Append every deploy to `loads/<year>.md` under `## Metadata Deploys`: date, what, target org, result, and how it would be rolled back.
+Append every deploy to `<state_root>/loads/<year>.md` under `## Metadata Deploys`: date, what, target org, result, and how it would be rolled back.
 
 ## Schema Traps
 
@@ -128,10 +128,10 @@ Append every deploy to `loads/<year>.md` under `## Metadata Deploys`: date, what
 |---|---|---|
 | Using field labels | The API takes API names; labels are translatable and change | `FieldDefinition` or describe for the real name |
 | Assuming the layout's required fields are the API's | Layout requiredness is UI-only; the API's list comes from `nillable`/`defaultedOnCreate` | Compute the real list from describe |
-| Re-describing on every run | Large payload, real allocation cost | `If-Modified-Since`, plus `schema/<object>.md` |
+| Re-describing on every run | Large payload, real allocation cost | `If-Modified-Since`, plus `<state_root>/schema/<object>.md` |
 | Trusting a cached picklist | Admins add and deactivate values; inactive values persist on old records | Re-read on the first rejected value |
 | Ignoring dependent picklists | The pair must be valid, not just each value | Check `controllerName` before building a mapping |
 | Deploying a field without its FLS | Invisible to every profile including the integration user | Ship the permission set in the same package |
 | Expecting a deploy to delete what you removed | Absence is not deletion | Explicit destructive-changes manifest |
 
-**Before the session ends**: a full field table you had to derive → `schema/<object-api-name>.md`, born as its own file, with its `## Boxes` line written in the same turn. A one-line fact about an object — external id field, key prefix, a trigger that rewrites values, an active validation rule that blocks loads → the object's row in `## Schema Map`. A metadata deploy → `loads/<year>.md`.
+**Before the session ends**: a full field table you had to derive → `<state_root>/schema/<object-api-name>.md`, born as its own file, with its `## Boxes` line written in the same turn. A one-line fact about an object — external id field, key prefix, a trigger that rewrites values, an active validation rule that blocks loads → the object's row in `## Schema Map`. A metadata deploy → `<state_root>/loads/<year>.md`.
