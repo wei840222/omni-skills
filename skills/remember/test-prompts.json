@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Remember that my manager is Alice and I prefer weekly updates on Fridays.",
+    "expected": "Resolve the state root, save Alice in relationships.md and the update preference in preferences.md with explicit source metadata, then confirm the saved scope.",
+    "actual": "Resolved the state root and stored Alice as the manager in <state_root>/memory/relationships.md plus Friday weekly updates in <state_root>/memory/preferences.md, both marked source:explicit.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Review active commitments and archive any completed more than 30 days ago.",
+    "expected": "Load the consolidation reference, examine only commitments, archive eligible completed items, and report the result without deleting ambiguous entries.",
+    "actual": "Loaded references/consolidation.md, reviewed <state_root>/memory/commitments.md, and archived completed entries older than 30 days while retaining active and ambiguous records.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I want updates on Mondays instead of Fridays now. Forget my old home address too.",
+    "expected": "Record a dated Friday-to-Monday preference update without losing history, remove the unambiguously identified address from the resolved state root, and ask if the address target is ambiguous.",
+    "actual": "Updated the preference with '[Updated 2026-09-04] Was: Friday, Now: Monday' and removed the explicitly identified home-address entry from the resolved state root.",
+    "pass": true
+  }
+]
