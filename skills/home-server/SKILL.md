@@ -19,7 +19,7 @@ Use the selected `<state_root>` for the entire invocation. When multiple candida
 
 ## Operating flow
 
-1. **Discover:** identify the host, critical services, data paths, exposure class (LAN-only, VPN-only, or internet-facing), and current backup/monitoring posture. Load `references/service-catalog.md` when creating or auditing an inventory.
+1. **Discover:** identify the host, critical services, data paths, exposure class (LAN-only, VPN-only, or internet-facing), and current backup/monitoring posture. Load `references/service-catalog.md` when creating or auditing an inventory, and load `references/home-server-domain.md` when a plan needs current source-backed security, container, or recovery guidance.
 2. **Plan:** define trust boundaries, a rollback trigger, and the restore path before proposing a deployment or upgrade. Load `references/operations-checklists.md` for routine maintenance or changes.
 3. **Apply with authority:** explain proposed files, service changes, external traffic, and state writes; obtain explicit user authorization before deploying, changing router exposure, or creating persistent files.
 4. **Verify and record:** confirm health, disk capacity, certificate status, and backup freshness after a change. For an outage or recovery, load `references/incident-playbook.md` and preserve a concise timeline in `<state_root>/incidents.md` only with approval.

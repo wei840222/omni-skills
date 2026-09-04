@@ -18,3 +18,8 @@ Load this reference when a plan needs source-backed security, container, or netw
 ## Skill-package facts
 
 - The `home-server` package itself is portable guidance; it must not claim a particular router model, container version, image tag, or vendor procedure without verifying the current authoritative documentation.
+
+## Backup and recovery planning
+
+- NIST SP 800-34 Rev. 1 describes information-system contingency planning and the role of testing and exercises in validating recovery capabilities. Use the service owner’s recovery objective and tested restore evidence to decide whether an upgrade can proceed.
+  Source: [NIST SP 800-34 Rev. 1 — Contingency Planning Guide for Federal Information Systems](https://csrc.nist.gov/pubs/sp/800/34/r1/final)
