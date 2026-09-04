@@ -43,7 +43,7 @@ Use this skill for HomePod setup, direct playback control, Siri failures on a Ho
 
 ## Security and privacy
 
-- Keep notes to device state, failures, and validation evidence; exclude voice transcripts and unrelated household content.
+- Record only device state, failures, and validation evidence.
 - Explain the impact and obtain confirmation before an account-level action, persistent-state write, direct control command, or reset.
 - Use one verified target for a mutating command and record its pre- and post-command state when the user elects to keep notes.
-- Keep pairing credentials in the platform's secure pairing flow, not in `<state_root>/` or this skill package.
+- Keep pairing credentials exclusively in the platform's secure pairing flow; retain device notes under `<state_root>/`.
