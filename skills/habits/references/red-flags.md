@@ -14,4 +14,4 @@ When a signal below appears, pause ordinary habit optimization, name the concern
 ## Sources
 
 - **The ASAM Clinical Practice Guideline on Alcohol Withdrawal Management** — alcohol withdrawal evaluation and supervised care. https://www.asam.org/quality-care/clinical-guidelines/alcohol-withdrawal-management-guideline
-- **Joint Clinical Practice Guideline on Benzodiazepine Tapering** — tapering should be individualized and clinically supervised when withdrawal risk is present. https://downloads.asam.org/sitefinity-production-blobs/docs/default-source/quality-science/joint-cpg-on-bzd-tapering.pdf
+- **Joint Clinical Practice Guideline on Benzodiazepine Tapering** — tapering should be individualized and clinically supervised when withdrawal risk is present. https://www.asam.org/quality-care/clinical-guidelines/benzodiazepine-tapering
