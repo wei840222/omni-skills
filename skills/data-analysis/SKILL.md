@@ -1,21 +1,12 @@
 ---
 name: data-analysis
-slug: data-analysis
-version: 1.0.2
 description: Data analysis and visualization. Query databases, generate reports, automate spreadsheets, and turn raw data into clear, actionable insights. Use when (1) you need to analyze, visualize, or explain data; (2) the user wants reports, dashboards, or metrics turned into a decision; (3) the work involves SQL, Python, spreadsheets, BI tools, or notebooks; (4) you need to compare segments, cohorts, funnels, experiments, or time periods; (5) the user explicitly installs or references the skill for the current task.
-homepage: https://clawic.com/skills/data-analysis
-changelog: Added metric contracts, chart guidance, and decision brief templates for more reliable analysis.
 metadata:
-  clawdbot:
-    emoji: D
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Data Analysis
+  version: "1.0.2"
+  openclaw: '{"emoji":"D"}'
+  related-skills: '{"business-intelligence":"Extends one-off analysis into ongoing KPI systems and operating cadences.","csv":"Cleans and normalizes tabular inputs before analysis.","dashboard":"Implements KPI visualization layers after analysis defines the decision and metrics.","report":"Turns validated findings into structured stakeholder-facing deliverables.","sql":"Designs and reviews reliable extraction queries for analysis."}'
 ---
+
 
 ## When to Use
 
@@ -52,10 +43,10 @@ Before touching data:
 This skill does not require local folders, persistent memory, or setup state.
 
 Use the included reference files as lightweight guides:
-- `metric-contracts.md` for KPI definitions and caveats
-- `chart-selection.md` for visual choice and chart anti-patterns
-- `decision-briefs.md` for stakeholder-facing outputs
-- `pitfalls.md` and `techniques.md` for analytical rigor and method choice
+- `references/metric-contracts.md` for KPI definitions and caveats
+- `references/chart-selection.md` for visual choice and chart anti-patterns
+- `references/decision-briefs.md` for stakeholder-facing outputs
+- `references/pitfalls.md` and `references/techniques.md` for analytical rigor and method choice
 
 ## Quick Reference
 
@@ -63,11 +54,11 @@ Load only the smallest relevant file to keep context focused.
 
 | Topic | File |
 |-------|------|
-| Metric definition contracts | `metric-contracts.md` |
-| Visual selection and chart anti-patterns | `chart-selection.md` |
-| Decision-ready output formats | `decision-briefs.md` |
-| Failure modes to catch early | `pitfalls.md` |
-| Method selection by question type | `techniques.md` |
+| Metric definition contracts | `references/metric-contracts.md` |
+| Visual selection and chart anti-patterns | `references/chart-selection.md` |
+| Decision-ready output formats | `references/decision-briefs.md` |
+| Failure modes to catch early | `references/pitfalls.md` |
+| Method selection by question type | `references/techniques.md` |
 
 ## Core Rules
 
@@ -119,7 +110,7 @@ Load only the smallest relevant file to keep context focused.
 | "Are these groups different?" | Segmentation | Profiles + statistical comparison |
 | "What's unusual?" | Anomaly detection | Flagged points + context |
 
-For technique details and when to use each, see `techniques.md`.
+For technique details and when to use each, see `references/techniques.md`.
 
 ## Output Standards
 
@@ -159,16 +150,3 @@ This skill does NOT:
 - Create or depend on local folder systems for persistence.
 - Create automations or background jobs without explicit user confirmation.
 - Rewrite its own instruction source files.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `sql` - query design and review for reliable data extraction.
-- `csv` - cleanup and normalization for tabular inputs before analysis.
-- `dashboard` - implementation patterns for KPI visualization layers.
-- `report` - structured stakeholder-facing deliverables after analysis.
-- `business-intelligence` - KPI systems and operating cadence beyond one-off analysis.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/data-analysis
-- Latest version: https://clawic.com/skills/data-analysis
