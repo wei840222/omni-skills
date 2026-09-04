@@ -1,6 +1,6 @@
 ---
 name: home-server
-description: "Design, secure, and operate home servers: Docker services, remote access, backups, upgrades, and incident recovery. Use only for homelab, NAS, self-hosted-service, reverse-proxy, or home-network planning and operations that need a human-authorized change."
+description: "Design, secure, and operate home servers: Docker services, remote access, backups, upgrades, and incident recovery. Use for human-authorized homelab, NAS, self-hosted-service, reverse-proxy, or home-network planning and operations."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'
