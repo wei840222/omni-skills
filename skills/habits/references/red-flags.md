@@ -1,6 +1,6 @@
 # Safety routes
 
-When a signal below appears, pause ordinary habit optimization, name the concern without judgment, and guide the user toward appropriate professional support. Do not create a cold-turkey plan for alcohol or benzodiazepines.
+When a signal below appears, shift from ordinary habit optimization to the listed safety route, name the concern without judgment, and guide the user toward appropriate professional support. For alcohol or benzodiazepines, center a medically supervised plan rather than a self-directed abrupt cessation plan.
 
 | Signal | Safe response |
 |---|---|

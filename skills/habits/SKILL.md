@@ -76,7 +76,7 @@ Use the cue form: *after `<existing anchor>`, I will `<minimum>` in `<location>`
 3. Lead status reports with the rolling 28-day completion rate: `completions ÷ scheduled days`; state the streak as secondary context. With fewer than 14 scheduled days, report that the sample is still small.
 4. A single miss is data. After two consecutive misses, diagnose one failure class and adjust one condition. After three consecutive misses, redefine or pause the habit instead of silently accumulating misses.
 5. Start one new habit at a time. Keep no more than three active habits by default; add another only after every active habit is at least 80% over the relevant review window.
-6. Make a weekday pattern claim only after four samples of that weekday. Do not promise a fixed automaticity date; the evidence shows wide individual variation.
+6. Make a weekday pattern claim only after four samples of that weekday. Present automaticity as individually variable rather than assigning a fixed date.
 
 ## Failure classes
 

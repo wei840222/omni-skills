@@ -1,9 +1,9 @@
 # Domain evidence
 
-Use this reference to explain the rationale behind the main workflow; do not convert these findings into a promise that every person will get the same result.
+Use this reference to explain the rationale behind the main workflow. Present findings as evidence-informed guidance, with room for individual variation.
 
 - **Implementation intentions:** specifying when and where an action will occur improves follow-through relative to mere intention. This supports the cue format in `SKILL.md`.
-- **Habit automaticity:** automaticity develops over variable timeframes; avoid the popular fixed 21-day promise. The cited study observed a median 66 days, with substantial individual variation.
+- **Habit automaticity:** automaticity develops over variable timeframes; describe it as an individual process instead of a fixed 21-day outcome. The cited study observed a median 66 days, with substantial individual variation.
 - **Behavior design:** reducing the action floor and attaching it to an existing prompt supports action when motivation is low.
 - **Relapse prevention:** a lapse is useful data for a recovery plan, not a reason to turn one missed event into abandonment. For alcohol or benzodiazepines, withdrawal risk routes to `red-flags.md` rather than a self-directed cessation plan.
 
