@@ -17,9 +17,15 @@ HomePod state may exist in `<workspace>/homepod/`, `<workspace>/memory/homepod/`
 
 Use the selected `<state_root>` for this invocation. State files are optional: `<state_root>/memory.md` stores preferences and incident summaries; `<state_root>/homes.md` stores device topology; `<state_root>/automation-log.md` records automation tests; `<state_root>/network-notes.md` records network observations. The resolver selects a location; ask before creating or modifying persistent notes.
 
+## Main workflow
+
+1. Identify the affected device or room and the user’s intended outcome.
+2. Capture the model, software, home-hub, and network evidence relevant to the symptom.
+3. Apply the narrowest reversible change, then rerun the same validation before escalating.
+
 ## When to use
 
-Use this skill for HomePod setup, direct playback control, Siri failures on a HomePod, Home app automations, and multiroom audio stability. For each incident, identify the affected device or room, capture the current software and home-hub state, apply the narrowest reversible fix, then rerun the same validation.
+Use this skill for HomePod setup, direct playback control, Siri failures on a HomePod, Home app automations, and multiroom audio stability. Use general audio guidance when Apple Home ecosystem constraints are not part of the issue.
 
 ## Quick reference
 
