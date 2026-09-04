@@ -1,6 +1,6 @@
 ---
 name: remind
-description: Manage reminders for commitments the user already knows about. Use when the user asks for a reminder or nudge, mentions a dated commitment or renewal, changes reminder timing, or needs help with a recurring obligation.
+description: Create, adjust, and deliver reminders for commitments the user already knows about. Use when the user asks for a reminder or nudge, mentions a dated commitment or renewal, changes reminder timing, or needs help with a recurring obligation. Route new information to alerts and task execution to a scheduling workflow.
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"⏰"}'
