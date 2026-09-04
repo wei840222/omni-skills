@@ -1,88 +1,37 @@
 ---
 name: latex
-slug: latex
-version: 1.0.0
-description: Write LaTeX documents with correct syntax, packages, and compilation workflow.
-homepage: https://clawic.com/skills/latex
+description: Create, compile, debug, and review LaTeX `.tex` documents with correct math, citations, floats, tables, and package setup. Use when producing or troubleshooting LaTeX source or its PDF build.
 metadata:
-  clawdbot:
-    emoji: 📐
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: LaTeX
+  version: "1.0.0"
+  openclaw: '{"emoji":"📐"}'
+  related-skills: '{"markdown":"Handles Markdown authoring and conversion when the source or target is Markdown rather than LaTeX.","pdf-generator":"Handles templated PDF workflows when layout and branding are the primary concern.","typography":"Guides typographic decisions that can inform LaTeX document layout."}'
 ---
 
-## Special Characters
+## Quick workflow
 
-- Reserved chars need escape: `\# \$ \% \& \_ \{ \} \textbackslash`
-- Tilde as character: `\textasciitilde` not `\~` (that's an accent)
-- Caret: `\textasciicircum` not `\^`
-- Backslash in text: `\textbackslash` not `\\` (that's line break)
+1. Identify the engine and build command already used by the project; preserve its document class and package conventions.
+2. Write or edit the smallest relevant `.tex` unit, keeping structure, labels, and package declarations in their proper locations.
+3. Build with `latexmk` when available: `latexmk -pdf document.tex`. It coordinates repeat passes and bibliography tools; otherwise follow the project’s documented engine sequence.
+4. Treat the compiler log as the diagnosis: repair the first actionable error, then rebuild until cross-references and citations resolve.
+5. Inspect the generated PDF for layout issues such as overfull boxes, misplaced floats, and incorrect table or figure references.
 
-## Quotes & Dashes
+## Scope
 
-- Opening quotes: ``` `` ``` not `"`; closing: `''`—never use straight `"` quotes
-- Hyphen `-`, en-dash `--` (ranges: 1--10), em-dash `---` (punctuation)
-- Minus in math mode: `$-1$` not `-1` in text
+Use this skill for `.tex` source and its compilation path. Route Markdown syntax or conversion questions to `markdown`; use `pdf-generator` when a templated PDF layout or branding system is the primary job.
 
-## Math Mode
+## Resource routing
 
-- Inline: `$...$` or `\(...\)`; display: `\[...\]` or `equation` environment
-- Text inside math: `$E = mc^2 \text{ where } m \text{ is mass}$`
-- Multiline equations: `align` environment, not multiple `equation`s
-- `\left( ... \right)` for auto-sizing delimiters—must be paired
+| Resource | Load when |
+|---|---|
+| `references/syntax.md` | Writing or reviewing syntax, math, spacing, packages, floats, tables, images, labels, or document structure. |
+| `references/build-and-recovery.md` | Choosing a compiler, configuring `latexmk`, resolving bibliography or cross-reference output, or diagnosing build failures. |
 
-## Spacing
+## Build checkpoints
 
-- Command followed by text needs `{}` or `\ `: `\LaTeX{}` or `\LaTeX\ is`
-- Non-breaking space: `~` between number and unit: `5~km`
-- Force space in math: `\,` thin, `\:` medium, `\;` thick, `\quad` `\qquad`
+- Keep the project’s selected engine unless the document requirements require a change; verify package compatibility before changing engines.
+- For a missing citation or reference, run the appropriate complete build cycle and inspect the first relevant `.log` message before editing source.
+- For a float or line-break problem, confirm the PDF result after a focused source change; preserve global layout settings unless the document-wide result has been checked.
 
-## Packages
+## State location
 
-- `\usepackage` order matters—`hyperref` almost always last
-- `inputenc` + `fontenc` for UTF-8: `\usepackage[utf8]{inputenc}` `\usepackage[T1]{fontenc}`
-- `graphicx` for images, `booktabs` for professional tables, `amsmath` for advanced math
-- `microtype` for better typography—load early, subtle but significant improvement
-
-## Floats (Figures & Tables)
-
-- `[htbp]` suggests placement: here, top, bottom, page—not commands
-- LaTeX may move floats far from source—use `[H]` from `float` package to force
-- Always use `\centering` inside float, not `center` environment
-- Caption before `\label`—label references the last numbered element
-
-## References
-
-- Compile twice to resolve `\ref` and `\pageref`—first pass collects, second uses
-- `\label` immediately after `\caption` or inside environment being labeled
-- For bibliography: latex → bibtex → latex → latex (4 passes)
-- `hyperref` makes refs clickable—but can break with some packages
-
-## Tables
-
-- `tabular` for inline, `table` float for numbered with caption
-- Use `booktabs`: `\toprule`, `\midrule`, `\bottomrule`—no vertical lines
-- `@{}` removes padding: `\begin{tabular}{@{}lll@{}}`
-- Multicolumn: `\multicolumn{2}{c}{Header}`; multirow needs `multirow` package
-
-## Images
-
-- Path relative to main file or set with `\graphicspath{{./images/}}`
-- Prefer PDF/EPS for pdflatex/latex; PNG/JPG for photos
-- `\includegraphics[width=0.8\textwidth]{file}`—no extension often better
-
-## Common Errors
-
-- Overfull hbox: line too long—rephrase, add `\-` hyphenation hints, or allow `\sloppy`
-- Missing `$`: math command used in text mode
-- Undefined control sequence: typo or missing package
-- `\include` adds page break, `\input` doesn't—use `\input` for fragments
-
-## Document Structure
-
-- Preamble before `\begin{document}`—all `\usepackage` and settings
-- `\maketitle` after `\begin{document}` if using `\title`, `\author`, `\date`
-- `article` for short docs, `report` for chapters without parts, `book` for full books
+This skill is stateless and does not store local configuration or persistent user state.
