@@ -1,6 +1,6 @@
 ---
 name: home-server
-description: Design, secure, and operate home servers, Docker services, remote access, backups, upgrades, and incident recovery. Use when planning or maintaining a homelab, NAS, self-hosted service, reverse proxy, or home-network service; not for automatic deployment or router changes.
+description: "Design, secure, and operate home servers: Docker services, remote access, backups, upgrades, and incident recovery. Use for homelab, NAS, self-hosted-service, reverse-proxy, or home-network planning and operations; do not trigger for unrelated cloud-only infrastructure or automatic deployment."
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'
@@ -18,6 +18,8 @@ Use persistent state only when the user asks to save or update home-server conte
 Use the selected `<state_root>` for the entire invocation. When multiple candidate directories exist, use only the highest-precedence directory and tell the user; keep the other copies unchanged. Read `references/setup.md` before first-time onboarding and `references/memory-template.md` before creating or updating state.
 
 ## Operating flow
+
+Use this entry point for a home-server decision or plan. Load only the reference named by the active branch below; routine facts stay in this file.
 
 1. **Discover:** identify the host, critical services, data paths, exposure class (LAN-only, VPN-only, or internet-facing), and current backup/monitoring posture. Load `references/service-catalog.md` when creating or auditing an inventory, and load `references/home-server-domain.md` when a plan needs current source-backed security, container, or recovery guidance.
 2. **Plan:** define trust boundaries, a rollback trigger, and the restore path before proposing a deployment or upgrade. Load `references/operations-checklists.md` for routine maintenance or changes.
