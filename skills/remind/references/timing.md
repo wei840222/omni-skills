@@ -1,6 +1,6 @@
 # Timing Defaults
 
-Defaults, not measurements: every row is a starting point that a learned preference in `~/Clawic/data/remind/preferences.md` overrides. Precedence: explicit user instruction > learned preference > this file.
+Defaults, not measurements: every row is a starting point that a learned preference in `<state_root>/preferences.md` overrides. Precedence: explicit user instruction > learned preference > this file.
 
 ## The Lead Formula
 
@@ -12,7 +12,7 @@ Worked example — flight at 17:00: airport process 90 min → be there 15:30; d
 
 ## Standard Lead Times
 
-With `lead_bias` set in config, shift every *unlearned* category default one ladder step in that direction; learned preferences are untouched.
+With `lead_bias` set in `<state_root>/config.yaml`, shift every *unlearned* category default one ladder step in that direction; learned preferences are untouched.
 
 | Category | Default Lead | Action it protects |
 |----------|-------------|--------------------|
@@ -23,7 +23,7 @@ With `lead_bias` set in config, shift every *unlearned* category default one lad
 | Bill/Payment | 3 days | Transfer clearing time |
 | Appointment | 1 hour | Travel there |
 | Daily habit | `morning_slot` | Start-of-day intention |
-| Renewal with notice period | Standard lead before the *decision* date (`recurring.md`) | Decide before the cancellation window closes |
+| Renewal with notice period | Standard lead before the *decision* date (after confirming its cadence and end condition) | Decide before the cancellation window closes |
 | **Default: unlisted category** | 1 day, then learn | Safe first guess; one reaction cycle calibrates it |
 
 ## The Lead Ladder
@@ -37,20 +37,20 @@ All adjustments move **one step at a time** on this ladder — never multiply, n
 - "Perfect timing" → lock the current step; stop adjusting
 - Late twice in a category → one step longer even without a complaint
 
-Move only after the 2-signal threshold (signal ladder, SKILL.md) — one reaction may be a bad day. `learning.md` maps reaction phrases to these moves.
+Move only after the 2-signal threshold (signal ladder, SKILL.md) — one reaction may be a bad day. Record the resulting preference only after the signal threshold in `SKILL.md`.
 
 ## Adjustment Factors
 
 | Situation | Adjustment |
 |-----------|------------|
-| High stakes ("don't let me forget") | Add an earlier stage; do NOT stretch the final lead — the last reminder still fires when the action starts |
+| High stakes ("don't let me forget") | Add an earlier stage; keep the final lead — the last reminder still fires when the action starts |
 | Requires prep work | Add a stage sized to the prep: "book the restaurant" needs days, "join the call" needs minutes |
 | User voiced concern | Add one extra stage; concern is a stakes signal, not a timing signal |
 | Consistently on time without help | One step shorter, or propose moving the category to **Skip** |
 
 ## Multi-Reminder Patterns
 
-**Every stage carries a different action.** If two stages would say the same thing, delete one — identical repeats read as nagging (SKILL.md, Traps); stage-specific wording lives in `phrasing.md`.
+**Every stage carries a different action.** If two stages would say the same thing, delete one — identical repeats read as nagging (see the Core rules in `SKILL.md`).
 
 ```
 Important deadline:
@@ -66,7 +66,7 @@ Travel:
   ~3 hours  → leave (formula above gives the exact time)
 ```
 
-Recurring obligations reuse these patterns on every cycle (`recurring.md`).
+Recurring obligations reuse these patterns on every cycle (after confirming its cadence and end condition).
 
 ## Time-of-Day Rules
 
@@ -77,7 +77,7 @@ Recurring obligations reuse these patterns on every cycle (`recurring.md`).
 | Work item landing on a weekend | Hold to Monday's workday start — unless the deadline arrives first |
 | Personal | Evening before, or morning of |
 | Same-day urgent | Immediately |
-| Low priority | Batch into the next natural delivery, or the `digest_slot` if set (`phrasing.md`) |
+| Low priority | Batch into the next natural delivery, or the `digest_slot` if set (with concise, action-distinct wording) |
 | **Default** | Their next active hours, never mid-night |
 
 **Quiet hours: no reminders inside `quiet_hours` (default 22:00–07:00 local)**, unless the action itself must start inside the window — a 6 AM flight beats quiet hours; a birthday card does not.
@@ -100,4 +100,4 @@ Explicit phrasing beats everything stored:
 | "Remind me tomorrow morning" | Next day, `morning_slot` |
 | "The day before" | 1 day lead |
 | "Give me plenty of warning" | One ladder step earlier than the learned/default lead, plus an extra stage |
-| "Remind me later" (no time) | Ask "when?" once; if unanswered, next natural delivery slot (`followup.md`, Snooze) |
+| "Remind me later" (no time) | Ask "when?" once; if unanswered, next natural delivery slot (use the next natural delivery window) |

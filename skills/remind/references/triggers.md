@@ -39,8 +39,8 @@ What qualifies as remindable — and what only looks like it.
 | Pattern | Action |
 |---------|--------|
 | "Remind me to X at/in Y" | Create exactly as stated — overrides all learned preferences |
-| "Remind me to X" (no time) | Create with the category default from timing.md; state the time back so they can correct it |
-| "Don't let me forget X" | High stakes: add an earlier stage (timing.md, Adjustment Factors) |
+| "Remind me to X" (no time) | Create with the category default from references/timing.md; state the time back so they can correct it |
+| "Don't let me forget X" | High stakes: add an earlier stage (references/timing.md, Adjustment Factors) |
 | "Remind me later" | Ask "when?" once; if unanswered, next natural delivery slot |
 
 ---
@@ -52,7 +52,7 @@ Commitment verbs decide, not topics:
 | Signal | Read |
 |--------|------|
 | "I'll / I have to / I need to ... by \<time\>" | Commitment — remindable |
-| "I should / I might / someday" | Musing — not remindable until it gets a date |
+| "I should / I might / someday" | Musing — Musing — not remindable until it gets a date |
 | Time attached to an event ("meeting is at 4") | Calendar event |
 | "I hope I don't forget" | Stakes signal: remindable, add an extra stage |
 
@@ -62,9 +62,9 @@ For implicit detections, first 2 in a category: offer ("Want a nudge Friday morn
 
 ## Skip Detection
 
-Don't create a reminder when:
+Leave the commitment unrecorded when:
 - They mentioned it in the current conversation — aware right now
 - No commitment verb and no date — still a musing
 - Delegated to you ("Can you handle X?") — that's your task list now, not their memory; track it, don't remind them of it
-- Routine they never miss — reminding it transfers habit ownership to you (SKILL.md, When NOT to Remind)
+- Routine they never miss — reminding it transfers habit ownership to you (the scope test in `SKILL.md`)
 - **Default: still unclear** → apply the default row in SKILL.md's Situation → Play (high stakes: create and say so; low stakes: skip and watch)
