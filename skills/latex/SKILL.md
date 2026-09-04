@@ -11,7 +11,7 @@ metadata:
 
 1. Identify the engine and build command already used by the project; preserve its document class and package conventions.
 2. Write or edit the smallest relevant `.tex` unit, keeping structure, labels, and package declarations in their proper locations.
-3. Build with `latexmk` when available: `latexmk -pdf document.tex`. It coordinates repeat passes and bibliography tools.
+3. Build with `latexmk` when available: `latexmk -pdf document.tex`. It coordinates repeat passes and bibliography tools; otherwise follow the project’s documented engine sequence.
 4. Treat the compiler log as the diagnosis: repair the first actionable error, then rebuild until cross-references and citations resolve.
 5. Inspect the generated PDF for layout issues such as overfull boxes, misplaced floats, and incorrect table or figure references.
 
@@ -30,7 +30,7 @@ Use this skill for `.tex` source and its compilation path. Route Markdown syntax
 
 - Keep the project’s selected engine unless the document requirements require a change; verify package compatibility before changing engines.
 - For a missing citation or reference, run the appropriate complete build cycle and inspect the first relevant `.log` message before editing source.
-- For a float or line-break problem, confirm the PDF result after a focused source change rather than forcing broad global layout settings.
+- For a float or line-break problem, confirm the PDF result after a focused source change; preserve global layout settings unless the document-wide result has been checked.
 
 ## State location
 

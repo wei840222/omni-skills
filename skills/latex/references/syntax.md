@@ -18,5 +18,5 @@
 
 - Place `\label` immediately after `\caption` in numbered floats so `\ref` binds to the intended counter.
 - Treat `[htbp]` as placement preferences. Use `[H]` only when the `float` package is present and fixed placement is genuinely required.
-- Use `\centering` in a figure or table. Prefer `booktabs` rules (`\toprule`, `\midrule`, `\bottomrule`) and avoid vertical rules for ordinary data tables.
+- Use `\centering` in a figure or table. For ordinary data tables, use `booktabs` rules (`\toprule`, `\midrule`, `\bottomrule`) as the default table structure.
 - Resolve image paths relative to the main document or declare `\graphicspath`; choose graphics formats supported by the selected engine.
