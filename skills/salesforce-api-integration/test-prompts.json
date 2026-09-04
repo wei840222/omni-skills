@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to export 100,000 Opportunity records from our Salesforce prod org to a CSV.",
+    "expected": "Uses references/bulk.md, creates a Bulk API 2.0 query job, polls for completion, and downloads the results.",
+    "actual": "Loaded references/bulk.md. Created a Bulk API 2.0 query job for the Opportunity object in the prod org. Polled until completion and retrieved the CSV result.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm getting a MALFORMED_QUERY error when I try to run a SOQL query against our custom object.",
+    "expected": "Uses references/errors.md and references/soql.md to diagnose. Suggests checking field API names, custom object __c suffix, or unsupported wildcards in the query.",
+    "actual": "Loaded references/errors.md and references/soql.md. Identified MALFORMED_QUERY as a schema/query syntax error. Advised checking that the custom object includes the `__c` suffix, that field API names are correct, and checking for index-killing wildcards.",
+    "pass": true
+  }
+]

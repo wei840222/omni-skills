@@ -1,6 +1,6 @@
 # SOQL — Querying Without Table Scans
 
-**Before writing a query against an object you have not queried here before**, read `## Schema Map` in `~/Clawic/data/salesforce-api-integration/memory.md` and `schema/<object>.md` if `## Boxes` names one, plus `## Saved Queries` — the query may already exist, with a note on whether its filter is selective.
+**Before writing a query against an object you have not queried here before**, read `## Schema Map` in `<state_root>/memory.md` and `<state_root>/schema/<object>.md` if `## Boxes` names one, plus `## Saved Queries` — the query may already exist, with a note on whether its filter is selective.
 
 **Contents:** [Selectivity Decides Everything](#selectivity-decides-everything) · [The Call](#the-call) · [Filters](#filters) · [Date Literals](#date-literals) · [Relationships](#relationships) · [Aggregates](#aggregates) · [Field Shortcuts](#field-shortcuts) · [Pagination](#pagination) · [SOSL](#sosl-text-search) · [Deleted and Archived](#deleted-and-archived) · [Building Queries Safely](#building-queries-safely) · [Query Traps](#query-traps)
 
@@ -50,7 +50,7 @@ SELECT Id FROM Contact WHERE Name LIKE '%smith%'        -- table scan: use SOSL 
 
 ## Date Literals
 
-Date literals evaluate in the **user's timezone**, not UTC — the same query run by two users can return different rows across a midnight boundary. Pin the timezone in `config.yaml` under output format if that matters.
+Date literals evaluate in the **user's timezone**, not UTC — the same query run by two users can return different rows across a midnight boundary. Pin the timezone in `<state_root>/config.yaml` under output format if that matters.
 
 | Literal | Window |
 |---|---|
@@ -62,7 +62,7 @@ Date literals evaluate in the **user's timezone**, not UTC — the same query ru
 
 Absolute forms: a Date field takes `2026-06-15` unquoted; a DateTime field takes `2026-06-15T00:00:00Z` unquoted. Quoting either is `MALFORMED_QUERY`.
 
-For incremental work, filter on `SystemModstamp`, not `LastModifiedDate` — the reason is in `sync.md`.
+For incremental work, filter on `SystemModstamp`, not `LastModifiedDate` — the reason is in CDC or polling guidance.
 
 ## Relationships
 
@@ -123,7 +123,7 @@ curl "$SF_INSTANCE_URL/services/data/v62.0/query/01gxx000000MYzz-2000" \
 ```
 
 - Pages hold up to 2,000 records; `batchSize` accepts 200–2,000 and is a request, not a guarantee.
-- **Every page is one API call.** 200,000 records at the default page size is 100 calls; the same export through Bulk 2.0 is a handful (`bulk.md`). Count before you loop.
+- **Every page is one API call.** 200,000 records at the default page size is 100 calls; the same export through Bulk 2.0 is a handful (`references/bulk.md`). Count before you loop.
 - `OFFSET` maxes out at 2,000 and is not a pagination strategy — it re-executes the query each time. Page with `nextRecordsUrl`, or key-set paginate on `Id` (`WHERE Id > :lastId ORDER BY Id LIMIT 2000`), which stays correct even while records are being inserted.
 - Query locators expire. A loop that pauses for a long batch job comes back to an invalid `nextRecordsUrl`; restart from a key-set filter instead.
 
@@ -146,7 +146,7 @@ curl -G "$SF_INSTANCE_URL/services/data/v62.0/search/" \
 ## Deleted and Archived
 
 - `queryAll/` sees records in the recycle bin and archived activities: `SELECT Id, IsDeleted FROM Account WHERE IsDeleted = true`. Plain `query/` never returns them.
-- The recycle bin holds deleted records for a limited retention window, after which they are gone and only `getDeleted` (within its 30-day window) can tell you they existed (`sync.md`).
+- The recycle bin holds deleted records for a limited retention window, after which they are gone and only `getDeleted` (within its 30-day window) can tell you they existed (CDC or polling guidance).
 - Old Tasks and Events get archived and stop appearing in normal queries — a "missing activity history" bug that is not a bug.
 
 ## Building Queries Safely
@@ -169,4 +169,4 @@ Concatenating user input into a SOQL string is injectable the same way SQL is. A
 | Assuming a missing field means empty | Nulls are omitted from JSON, and so are fields the user cannot read | Check `describe` and FLS before writing "no data" |
 | One query per parent record | 500 parents is 500 API calls | One query with `WHERE ParentId IN (...)`, then group in your code |
 
-**When a query proves worth keeping** — it took work to make selective, it is one the user asks for repeatedly, or it replaces a report that hit its row ceiling — add a row to `## Saved Queries` in `~/Clawic/data/salesforce-api-integration/memory.md` with its purpose and whether the filter is selective. If a query's failure taught you something about the org (an unindexed field, a formula that cannot be filtered), that belongs in `## Gotchas` instead.
+**When a query proves worth keeping** — it took work to make selective, it is one the user asks for repeatedly, or it replaces a report that hit its row ceiling — add a row to `## Saved Queries` in `<state_root>/memory.md` with its purpose and whether the filter is selective. If a query's failure taught you something about the org (an unindexed field, a formula that cannot be filtered), that belongs in `## Gotchas` instead.

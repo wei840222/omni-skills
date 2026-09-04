@@ -1,6 +1,6 @@
 # Bulk API 2.0 — Volume Loads and Exports
 
-**Before running a load**, read `loads/<year>.md` if the `## Boxes` index names it — a load of the same object has probably run before, and its row counts, mapping and failure list are the fastest way to predict this one. Read `## Gotchas` too: lock contention and validation-rule surprises are recorded there.
+**Before running a load**, read `<state_root>/loads/<year>.md` if the `## Boxes` index names it — a load of the same object has probably run before, and its row counts, mapping and failure list are the fastest way to predict this one. Read `## Gotchas` too: lock contention and validation-rule surprises are recorded there.
 
 **Contents:** [When Bulk Is the Right Answer](#when-bulk-is-the-right-answer) · [2.0 vs 1.0](#20-vs-10) · [The Job Lifecycle](#the-job-lifecycle) · [CSV Rules That Decide Success](#csv-rules-that-decide-success) · [Lookups Without Salesforce Ids](#lookups-without-salesforce-ids) · [Lock Contention](#lock-contention-the-signature-bulk-failure) · [Reading the Results](#reading-the-results) · [Bulk Query](#bulk-query-export) · [Hard Delete](#hard-delete) · [Limits](#limits) · [Bulk Traps](#bulk-traps)
 
@@ -8,8 +8,8 @@
 
 | Records | Path | API calls |
 |---|---|---|
-| 1 | sObject REST (`records.md`) | 1 |
-| 2 – 200 | sObject Collections (`composite.md`) | 1 |
+| 1 | sObject REST (`references/records.md`) | 1 |
+| 2 – 200 | sObject Collections (`references/composite.md`) | 1 |
 | 200 – `bulk_threshold` (default 5,000) | Collections in a loop | `ceil(n ÷ 200)` |
 | Above `bulk_threshold`, or the source is already a CSV | **Bulk 2.0** | ~5-10 regardless of volume |
 | Anything a human is waiting on, under ~2,000 | Collections | Synchronous errors beat a results file |
@@ -74,7 +74,7 @@ Poll with backoff — every few seconds at first, then slower. Polling a long jo
 - Dates: `YYYY-MM-DD`; date-times: ISO 8601 with an explicit offset (`2026-06-15T14:30:00.000+0000`). A date-time without an offset is interpreted in the org's timezone, which moves records across day boundaries in reports.
 - Booleans are `true`/`false`; picklists take the API value, not the label.
 - UTF-8, no BOM. A BOM turns the first column header into an unrecognized field.
-- The file must include the fields required by the object *and* by the org's validation rules — the API applies no page-layout defaults (`records.md`).
+- The file must include the fields required by the object *and* by the org's validation rules — the API applies no page-layout defaults (`references/records.md`).
 
 ## Lookups Without Salesforce Ids
 
@@ -98,7 +98,7 @@ Fixes, in order to try:
 1. **Sort the file by the parent id or parent external id.** Chunks are cut sequentially, so sorting puts one parent's children in one chunk and the contention disappears. This fixes most cases and costs one `sort`.
 2. Run related jobs one at a time instead of in parallel.
 3. Fall back to Bulk 1.0 serial mode.
-4. For mass ownership changes, ask the admin to enable deferred sharing calculation for the window (`migration.md`).
+4. For mass ownership changes, ask the admin to enable deferred sharing calculation for the window (a dependency-ordered migration plan).
 
 Record the fix in `## Gotchas`: the same load will run again next quarter.
 
@@ -130,19 +130,19 @@ curl "$SF_INSTANCE_URL/services/data/v62.0/jobs/query/750xx000000JOBID/results?m
 - `operation: queryAll` includes deleted and archived records.
 - Results paginate through the `Sforce-Locator` response header; pass it back as the `locator` parameter until the header comes back empty. Missing this is why an export "only returned the first chunk".
 - Bulk 2.0 chunks large exports itself. The manual PK-chunking header belongs to Bulk 1.0 and is only needed there.
-- A Bulk export of ten million rows still runs the SOQL: an unselective filter times out here too (`soql.md`).
+- A Bulk export of ten million rows still runs the SOQL: an unselective filter times out here too (`references/soql.md`).
 
 ## Hard Delete
 
 `operation: "hardDelete"` bypasses the recycle bin. It requires the "Bulk API Hard Delete" user permission, cannot be undone, and is the only way to free storage immediately.
 
-Gate it: state the exact record count, confirm explicitly, and refuse entirely when `safety_posture.hard_delete` is `forbidden`. Export the ids to `loads/<year>.md` first — after a hard delete, the only record that those rows existed is the one you wrote.
+Gate it: state the exact record count, confirm explicitly, and refuse entirely when `safety_posture.hard_delete` is `forbidden`. Export the ids to `<state_root>/loads/<year>.md` first — after a hard delete, the only record that those rows existed is the one you wrote.
 
 ## Limits
 
 - 150 MB per upload. Split larger files; the job accepts one PUT.
 - Records are processed in chunks, so **Apex governor limits still apply per chunk** (≤200 records, 100 SOQL, 150 DML, 10s CPU). A trigger that is fine for one record can fail an entire load (`SKILL.md` Rule 5).
-- Daily record ceilings for ingest are large but finite and vary by edition — read `/limits` rather than trusting a number in a document (`limits.md`).
+- Daily record ceilings for ingest are large but finite and vary by edition — read `/limits` rather than trusting a number in a document (`/limits`).
 - Concurrent query jobs are capped in the low tens per org; queued jobs wait rather than fail.
 
 ## Bulk Traps
@@ -155,7 +155,7 @@ Gate it: state the exact record count, confirm explicitly, and refuse entirely w
 | Assuming `JobComplete` means success | It means finished | Read `numberRecordsFailed`, download `failedResults` |
 | Re-running the whole file after partial failure | Re-processes everything and duplicates on insert jobs | Re-upload the failure file, and use upsert so repeats are safe |
 | Bulk-loading during business hours | Locks, sharing recalculation and trigger load hit real users | Off-hours window, agreed in advance |
-| One giant job for related objects | Parents and children in flight together maximizes contention | One job per object, in dependency order (`migration.md`) |
+| One giant job for related objects | Parents and children in flight together maximizes contention | One job per object, in dependency order (a dependency-ordered migration plan) |
 | Leaving the job `Open` | Nothing processes and nothing errors | PATCH to `UploadComplete` |
 
-**After every job**, append a row to `~/Clawic/data/salesforce-api-integration/loads/<year>.md`: date, object, operation, rows in, succeeded, failed, job id, and the one-line cause of the failures. Create the file and its `## Boxes` line in the same turn if it does not exist. If the failure taught you something about the org, add it to `## Gotchas`; if the mapping is one that will be reused, it belongs in `artifacts/mapping-<source>.md`.
+**After every job**, append a row to `<state_root>/loads/<year>.md`: date, object, operation, rows in, succeeded, failed, job id, and the one-line cause of the failures. Create the file and its `## Boxes` line in the same turn if it does not exist. If the failure taught you something about the org, add it to `## Gotchas`; if the mapping is one that will be reused, it belongs in `<state_root>/artifacts/mapping-<source>.md`.

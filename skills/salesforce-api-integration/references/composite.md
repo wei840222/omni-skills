@@ -1,6 +1,6 @@
 # Composite — Many Operations, One Round Trip
 
-**Before building a chained payload**, read `## Schema Map` and `## Gotchas` in `~/Clawic/data/salesforce-api-integration/memory.md`, and open any `artifacts/` entry the `## Boxes` index names for this operation — a working chain for the same objects may already be written down.
+**Before building a chained payload**, read `## Schema Map` and `## Gotchas` in `<state_root>/memory.md`, and open any `<state_root>/artifacts/` entry the `## Boxes` index names for this operation — a working chain for the same objects may already be written down.
 
 Five different resources share the word "composite" and they differ on the two things that matter: **what counts as one API call** and **what rolls back together**. Pick on those, not on convenience.
 
@@ -15,14 +15,14 @@ Five different resources share the word "composite" and they differ on the two t
 | Unrelated calls, just fewer round trips | **Batch** | 25 subrequests | Nothing — each stands alone |
 | A parent and its children created together | **sObject Tree** | 200 records total | The whole payload |
 | Many independent object graphs in one request | **Composite Graph** | 500 nodes | **Per graph** — the only resource with independent rollback units |
-| Anything above 200 records of one object | Bulk 2.0 (`bulk.md`) | — | Per chunk |
+| Anything above 200 records of one object | Bulk 2.0 (`references/bulk.md`) | — | Per chunk |
 
 ## What Actually Saves Allocation
 
 - **Collections and Tree collapse many records into one API call.** 200 Accounts created for the price of one request is the reason Collections exists.
 - **Composite and Batch save round trips, not allocation.** Their subrequests count individually against the daily limit — the win is latency and transactional grouping, not budget. A loop of 25 calls rewritten as one composite call is the same allocation cost with a fraction of the wall-clock time.
 
-State which of the two you are buying when you recommend one. Confirm against `/limits` before and after a large run if the number matters (`limits.md`).
+State which of the two you are buying when you recommend one. Confirm against `/limits` before and after a large run if the number matters (`/limits`).
 
 ## sObject Collections
 
@@ -40,7 +40,7 @@ curl -X POST "$SF_INSTANCE_URL/services/data/v62.0/composite/sobjects" \
 - `PATCH` the same endpoint to update (each record needs `Id`), `DELETE ...?ids=001xxx,001yyy&allOrNone=false` to delete, `POST /composite/sobjects/<Object>` with an `ids` array to read many at once.
 - Upsert by external id: `PATCH /composite/sobjects/<Object>/<ExternalIdField>` — the idempotent form, and the right default for anything that might be retried.
 - **The response is always HTTP 200**, carrying an array of `{id, success, errors}` in request order. A caller that branches on the HTTP status alone reports total success on a payload where half the records failed.
-- `allOrNone: true` rolls the whole batch back on the first error, and every other record reports `PROCESSING_HALTED`. Default it from `config.yaml` (`all_or_none`, default true) and override deliberately: a nightly sync usually wants `false` and a failure file; a financial write usually wants `true`.
+- `allOrNone: true` rolls the whole batch back on the first error, and every other record reports `PROCESSING_HALTED`. Default it from `<state_root>/config.yaml` (`all_or_none`, default true) and override deliberately: a nightly sync usually wants `false` and a failure file; a financial write usually wants `true`.
 
 ## Composite (chained, dependent calls)
 
@@ -109,7 +109,7 @@ Every one of these resources returns HTTP 200 for a request that was well-formed
 | `statusCode: 400` inside `compositeResponse` | That subrequest failed; earlier ones may already be rolled back |
 | `hasErrors: true` (batch) | At least one subrequest failed; the rest still happened |
 
-Take the `errorCode` to `errors.md`, never the HTTP status.
+Take the `errorCode` to `references/errors.md`, never the HTTP status.
 
 ## Composite Traps
 
@@ -123,4 +123,4 @@ Take the `errorCode` to `errors.md`, never the HTTP status.
 | `allOrNone: true` on a nightly sync | One bad row discards the whole batch every night | `false`, plus a failure list you actually read |
 | Assuming children come back in order | Results are keyed by `referenceId`, not position | Map by `referenceId` |
 
-**When a composite payload takes real work to get right** — a chained onboarding sequence, a graph that loads a customer and everything under it — save it as `artifacts/<kebab-name>.md` with a line on when to read it, and add its `## Boxes` line in `memory.md` the same turn. Rebuilding a 25-step chain from scratch costs an afternoon; reading one costs a minute.
+**When a composite payload takes real work to get right** — a chained onboarding sequence, a graph that loads a customer and everything under it — save it as `<state_root>/artifacts/<kebab-name>.md` with a line on when to read it, and add its `## Boxes` line in `<state_root>/memory.md` the same turn. Rebuilding a 25-step chain from scratch costs an afternoon; reading one costs a minute.

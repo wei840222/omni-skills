@@ -1,8 +1,8 @@
 # Records — Single-Record CRUD That Survives a Retry
 
-**Before writing to an object for the first time**, read `## Schema Map` in `~/Clawic/data/salesforce-api-integration/memory.md` (and `schema/<object>.md` if `## Boxes` names one): required custom fields, external id fields, and triggers that rewrite what you sent are all recorded there.
+**Before writing to an object for the first time**, read `## Schema Map` in `<state_root>/memory.md` (and `<state_root>/schema/<object>.md` if `## Boxes` names one): required custom fields, external id fields, and triggers that rewrite what you sent are all recorded there.
 
-Everything here is the one-record path. Two or more records at a time belongs in `composite.md` (200 per call); thousands belongs in `bulk.md`.
+Everything here is the one-record path. Two or more records at a time belongs in `references/composite.md` (200 per call); thousands belongs in `references/bulk.md`.
 
 **Contents:** [Read](#read) · [Create](#create) · [Update](#update) · [Nulling a Field](#nulling-a-field) · [Upsert](#upsert-the-idempotent-write) · [Delete](#delete) · [Id Prefixes](#id-prefixes) · [Headers That Change Behaviour](#headers-that-change-behaviour) · [Operations With No REST Verb](#operations-with-no-rest-verb) · [Record Traps](#record-traps)
 
@@ -40,7 +40,7 @@ curl -X POST "$SF_INSTANCE_URL/services/data/v62.0/sobjects/Account" \
 - Relationships are set by id (`"AccountId":"001..."`) or, better, by external id through a nested reference: `"Account":{"ERP_Id__c":"EXT-4471"}`. The second form does not require a lookup round trip and cannot go stale.
 - The API does not apply UI defaults. A field the page layout fills in automatically is simply empty when the record arrives through the API, and a required field with a layout default fails with `REQUIRED_FIELD_MISSING`.
 - Read-only and system fields (`Id`, `CreatedDate`, `LastModifiedDate`, `SystemModstamp`, formula and rollup fields) are rejected if present in the body. Strip them before re-posting a record you read back.
-- `CreatedDate` and `OwnerId` can be set explicitly only when the org has the corresponding "set audit fields" permission enabled — the standard tool for a migration (`migration.md`).
+- `CreatedDate` and `OwnerId` can be set explicitly only when the org has the corresponding "set audit fields" permission enabled — the standard tool for a migration (a dependency-ordered migration plan).
 
 ## Update
 
@@ -63,7 +63,7 @@ Explicit `null` in JSON clears the field:
 {"Industry": null, "Website": null}
 ```
 
-An empty string does **not** clear a field in every case, and in Bulk CSV an empty cell means "leave unchanged" while `#N/A` means "set to null" (`bulk.md`). These are three different conventions across the same platform; use the explicit one for the API you are in and never assume they match.
+An empty string does **not** clear a field in every case, and in Bulk CSV an empty cell means "leave unchanged" while `#N/A` means "set to null" (`references/bulk.md`). These are three different conventions across the same platform; use the explicit one for the API you are in and never assume they match.
 
 ## Upsert (the idempotent write)
 
@@ -91,7 +91,7 @@ curl -X DELETE "$SF_INSTANCE_URL/services/data/v62.0/sobjects/Account/001xx00000
 
 - Deleting a parent **cascades to master-detail children** and, for some standard pairs, to related records. State the child count before deleting anything with children.
 - A lookup child is not deleted; the lookup is cleared, or the delete is blocked if the relationship was defined as "don't allow deletion".
-- Hard delete (bypassing the recycle bin) is not a REST verb: it is a Bulk API operation gated by the "Bulk API Hard Delete" permission (`bulk.md`). It is irreversible, so it stays behind an explicit confirmation and `safety_posture.hard_delete` in `config.yaml`.
+- Hard delete (bypassing the recycle bin) is not a REST verb: it is a Bulk API operation gated by the "Bulk API Hard Delete" permission (`references/bulk.md`). It is irreversible, so it stays behind an explicit confirmation and `safety_posture.hard_delete` in `<state_root>/config.yaml`.
 - `Sforce-Call-Options` cannot soften a delete. Nothing can. Confirm the count first.
 
 ## Id Prefixes
@@ -119,16 +119,16 @@ Ids come in a 15-character case-sensitive form and an 18-character case-insensit
 | `Sforce-Auto-Assign: FALSE` | Skips Lead/Case assignment rules | A load should not reassign every record to the round-robin queue |
 | `Sforce-Duplicate-Rule-Header: allowSave=true` | Saves through a duplicate rule | A deliberate decision, recorded with its reason in `## Gotchas` — otherwise the rule is doing its job |
 | `Sforce-Call-Options: defaultNamespace=acme` | Lets you drop the managed-package prefix from field names | Working inside a managed package's objects |
-| `If-Modified-Since: <http-date>` | `304 Not Modified` instead of a payload | Caching describes (`metadata.md`) |
-| `Sforce-Query-Options: batchSize=200` | Smaller query pages | Wide records that time out at 2,000 per page (`soql.md`) |
+| `If-Modified-Since: <http-date>` | `304 Not Modified` instead of a payload | Caching describes (`references/metadata.md`) |
+| `Sforce-Query-Options: batchSize=200` | Smaller query pages | Wide records that time out at 2,000 per page (`references/soql.md`) |
 
 Every header that bypasses org behaviour is a decision worth a line in `## Gotchas` — the next person will wonder why the assignment rules did not fire.
 
 ## Operations With No REST Verb
 
-- **Undelete** — restore from the recycle bin is Apex DML or the UI, not a REST call. Wrap it in an Apex REST endpoint if a job needs it (`apex.md`).
+- **Undelete** — restore from the recycle bin is Apex DML or the UI, not a REST call. Wrap it in an Apex REST endpoint if a job needs it (an Apex REST endpoint).
 - **Merge** — merging duplicate Accounts, Contacts or Leads is Apex or SOAP; there is no plain REST merge.
-- **Lead conversion** — use the standard invocable action `POST /services/data/vXX.0/actions/standard/convertLead`, which creates the Account, Contact and (optionally) Opportunity in one transaction and returns their ids (`apex.md`). Building conversion by hand out of three creates produces records that fail every "converted lead" report.
+- **Lead conversion** — use the standard invocable action `POST /services/data/vXX.0/actions/standard/convertLead`, which creates the Account, Contact and (optionally) Opportunity in one transaction and returns their ids (an Apex REST endpoint). Building conversion by hand out of three creates produces records that fail every "converted lead" report.
 - **Field history** — read-only, queryable through the `<Object>History` objects, and only for fields the admin enabled history tracking on before the change happened.
 
 ## Record Traps
@@ -143,4 +143,4 @@ Every header that bypasses org behaviour is a decision worth a line in `## Gotch
 | Deleting a parent to "clean up" | Master-detail children go with it, silently | Count children first, state the number, then confirm |
 | Treating a 404 on external id as "not found" | It can also be a wrong field API name in the URL | A wrong field name gives a different error body — read it |
 
-**Before the session ends**: an object's required fields, a trigger that rewrites a value, an external id field you discovered, a custom object's key prefix → `## Schema Map` in `memory.md`. An error whose real cause took work to find → `## Gotchas`. A bypass header you used and why → `## Gotchas`, so the behaviour is explainable later.
+**Before the session ends**: an object's required fields, a trigger that rewrites a value, an external id field you discovered, a custom object's key prefix → `## Schema Map` in `<state_root>/memory.md`. An error whose real cause took work to find → `## Gotchas`. A bypass header you used and why → `## Gotchas`, so the behaviour is explainable later.
