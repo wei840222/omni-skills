@@ -4,6 +4,7 @@ description: Create, compile, debug, and review LaTeX `.tex` documents with corr
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📐"}'
+  related-skills: '{"markdown":"Handles Markdown authoring and conversion when the source or target is Markdown rather than LaTeX.","pdf-generator":"Handles templated PDF workflows when layout and branding are the primary concern.","typography":"Guides typographic decisions that can inform LaTeX document layout."}'
 ---
 
 ## Quick workflow
@@ -13,6 +14,10 @@ metadata:
 3. Build with `latexmk` when available: `latexmk -pdf document.tex`. It coordinates repeat passes and bibliography tools.
 4. Treat the compiler log as the diagnosis: repair the first actionable error, then rebuild until cross-references and citations resolve.
 5. Inspect the generated PDF for layout issues such as overfull boxes, misplaced floats, and incorrect table or figure references.
+
+## Scope
+
+Use this skill for `.tex` source and its compilation path. Route Markdown syntax or conversion questions to `markdown`; use `pdf-generator` when a templated PDF layout or branding system is the primary job.
 
 ## Resource routing
 
