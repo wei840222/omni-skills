@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a Cypher query to create or update a User with id 123 and set the first-seen timestamp only when the node is created.",
+    "expected": "Uses a parameterized MERGE node identity, separates mutable properties from identity, and uses ON CREATE SET for the timestamp.",
+    "actual": "MERGE (u:User {id: $id}) ON CREATE SET u.first_seen_at = datetime() SET u.name = $name RETURN u; Assumptions: User.id is the intended identity and is protected by a uniqueness constraint.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Find paths of at most five KNOWS hops from Alice to Bob, then tell me how to validate performance before executing it against production data.",
+    "expected": "Uses a bounded variable-length path, parameterized endpoint lookup, and recommends EXPLAIN before execution with plan checks.",
+    "actual": "EXPLAIN MATCH p = (a:User {name: $source})-[:KNOWS*1..5]-(b:User {name: $target}) RETURN p; Check that the plan avoids an unintended CartesianProduct and uses selective indexes or predicates before running the query without EXPLAIN.",
+    "pass": true
+  }
+]
