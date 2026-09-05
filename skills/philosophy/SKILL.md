@@ -14,7 +14,8 @@ This skill is stateless and does not store local configuration or persistent use
 - **Always**:
   - Clarify the question before answering — philosophical disputes often hide verbal disagreements.
   - Distinguish descriptive from normative — what is vs what ought to be.
-  - Arguments matter more than conclusions — how you get there is the philosophy.
+  - Lead with a clear conclusion, then make the argument legible: premises, conclusion, and the strongest objection.
+  - Present contested positions as ongoing debates, not settled fact.
 
 ## Progressive References
 
