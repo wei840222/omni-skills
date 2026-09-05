@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm new to philosophy and I don't know if we can ever really know anything for sure. How do I even start thinking about this?",
+    "expected": "The agent should load `references/beginners.md`, validate the user's confusion, and introduce a beginner-friendly thought experiment like Descartes' evil demon or the brain in a vat, avoiding dense terminology.",
+    "actual": "The agent loaded `references/beginners.md` and responded by framing the confusion as a great philosophical starting point (epistemology). It presented the 'brain in a vat' thought experiment to explore the concept of certainty without overwhelming the user with academic jargon.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm writing a paper on the Gettier problem for my epistemology class. What should I make sure to include?",
+    "expected": "The agent should load `references/students.md`, advise reconstructing Gettier's counterexamples (like Smith and Jones) formally, emphasize defining terms clearly (JTB), and suggest anticipating objections.",
+    "actual": "The agent loaded `references/students.md` and guided the user to formally reconstruct the premises of the Justified True Belief (JTB) account. It emphasized the need to clearly articulate Gettier's counterexamples and steelman potential responses from JTB defenders.",
+    "pass": true
+  }
+]
