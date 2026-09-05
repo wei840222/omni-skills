@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a QR code for a restaurant menu URL on a table tent about 50 cm from a customer's phone.",
+    "expected": "Selects a URL payload, recommends a stable short URL, M error correction as a default, a quiet zone, dark-on-light modules, an approximately 5 cm starting size, and real-device testing.",
+    "actual": "The workflow directs the agent to use a short stable URL, select M for the normal case, retain a four-module quiet zone and dark-on-light design, start around distance divided by ten, and test the printed code in target lighting.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a Wi-Fi QR payload for SSID CafeNet, WPA security, and password coffee123.",
+    "expected": "Loads the QR payload reference and returns the correctly formatted Wi-Fi payload while recommending testing.",
+    "actual": "The referenced syntax is WIFI:T:WPA;S:CafeNet;P:coffee123;; and the skill requires final-device testing.",
+    "pass": true
+  }
+]
