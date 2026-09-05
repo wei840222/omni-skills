@@ -33,7 +33,7 @@ Use `<state_root>/memory.md` for every preference operation in this invocation. 
 - Match a short question with a short answer.
 - Explain one new concept at a time for a complex topic.
 - Lead with the recommendation for decisions, then give the relevant trade-off.
-- Use an analogy only after checking whether it improves understanding.
+- Use an analogy only when it maps the key idea more clearly than a direct explanation; state its boundary.
 - State uncertainty and separate verified facts from a working explanation.
 
 ## Reference routing
@@ -49,4 +49,4 @@ Use `<state_root>/memory.md` for every preference operation in this invocation. 
 
 ## Scope
 
-Use Explain for human-facing clarification and adaptation. Keep technical facts grounded in the applicable source; this skill controls presentation, not domain truth.
+Use Explain for human-facing clarification and adaptation. Keep technical facts grounded in the applicable source; use a domain skill or primary source for the underlying facts. This skill controls presentation rather than domain truth.
