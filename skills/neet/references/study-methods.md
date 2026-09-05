@@ -22,7 +22,7 @@
 ### What "NCERT line by line" means
 - Every example, every diagram, every footnote
 - Exact wordings matter (especially Biology)
-- Don't paraphrase — memorize exact NCERT language
+- Memorize exact NCERT language
 
 ## Spaced Repetition System
 
@@ -43,7 +43,7 @@
 | Day 30 | One month |
 
 ### Active Recall Method
-- Don't just read flashcards
+- Actively recall answers from flashcards
 - Cover the answer, try to recall
 - If wrong → mark for more frequent review
 - If right 3 times → space out further
@@ -84,7 +84,7 @@
 ### Biology (Botany + Zoology)
 **Pure memory + understanding.**
 
-1. **NCERT is everything** — Don't skip a single line
+1. **NCERT is everything** — Read every single line thoroughly
 2. **Diagrams** — Draw and label repeatedly
 3. **Tables** — Comparisons (mitosis vs meiosis, etc.)
 4. **Processes** — Step-by-step (Krebs cycle, etc.)
@@ -162,7 +162,7 @@
 | Biology | MTG Fingertips | Quick revision |
 | Biology | Trueman's | Additional MCQs |
 
-### Avoid
+### Actions to minimize
 - Too many books (stick to 2-3 per subject)
 - YouTube rabbit holes without structure
 - Telegram/WhatsApp "study groups" (time sinks)

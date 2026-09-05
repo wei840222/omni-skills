@@ -34,7 +34,7 @@
 
 ### Non-Negotiables
 1. **7-8 hours sleep** — Memory consolidation happens during sleep
-2. **3 meals** — Brain needs glucose; don't skip meals
+2. **3 meals** — Brain needs glucose; eat regular meals
 3. **30 min physical activity** — Walk, yoga, sport—anything
 4. **10 min outdoors** — Sunlight regulates circadian rhythm
 5. **1 non-study activity** — Talk to friend, watch something, hobby
@@ -56,7 +56,7 @@
 - Social media shows highlight reels, not struggles
 - Coaching institutes promote toppers, not average students
 - Your only competition is your past self
-- 700k students take NEET; most don't post their scores
+- 700k students take NEET; only top scorers usually post their scores
 
 ### Digital Hygiene
 - **Mute** NEET-related groups (check once daily)
@@ -78,10 +78,10 @@
 - **No studying in bed** — Bed = sleep only
 
 ### If You Can't Sleep
-- Don't lie awake more than 20 min
+- If awake for 20 mins, read a book until sleepy
 - Get up, do something boring (not phone)
 - Return when sleepy
-- Don't check the time repeatedly
+- Focus on rest instead of checking the clock
 
 ## Exam Anxiety Management
 
@@ -100,12 +100,12 @@
 ### During Exam
 - **If panic hits** — Stop, breathe 10 times, continue
 - **Stuck on question** — Mark and move (come back later)
-- **Don't look at others** — Focus on your paper
+- **Focus purely on your own paper**
 - **Hydrate** — Water helps concentration
 
 ### After Exam
-- **Don't discuss answers** — It changes nothing, only causes stress
-- **Avoid social media** — Answer key debates are toxic
+- **Move on immediately** — Keep your mind fresh for the next steps
+- **Take a break from social media** — Relax and recharge away from answer key debates
 - **Rest** — You earned it
 - **Next steps** — Plan counselling preparation
 
@@ -115,10 +115,10 @@
 - **Communicate** — Tell parents when you're struggling
 - **Set boundaries** — "I need quiet from 6-10 PM"
 - **Ask for help** — Healthy meals, minimal chores
-- **Don't isolate** — Regular family meals matter
+- **Stay connected** — Regular family meals matter
 
 ### For Parents (Reading This)
-- **Don't ask "kitna padha?"** — Ask "how are you feeling?"
+- **Ask "how are you feeling?"**
 - **Reduce pressure** — Your anxiety transfers to them
 - **Trust the process** — Micro-managing doesn't help
 - **Celebrate effort** — Not just mock scores

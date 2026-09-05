@@ -71,7 +71,7 @@ Before planning, gather:
 - "Drop year" is normal — lakhs do it
 - This is investment, not failure
 - One year can change your career
-- Stay connected (don't isolate)
+- Stay connected (maintain social connections)
 
 ## Repeater (Multiple Attempts)
 
@@ -128,16 +128,16 @@ Before planning, gather:
 - Red flag indicators
 
 ### What NOT to Do
-- Don't ask "kitna padha?" daily
-- Don't compare with relatives' children
-- Don't add to pressure
-- Don't micromanage study schedule
-- Don't dismiss mental health concerns
+- Focus daily check-ins on wellbeing rather than progress
+- Focus only on the child's own progress
+- Maintain a supportive environment
+- Allow the child to own their schedule
+- Acknowledge and address mental health concerns
 
 ### Supporting Role
 | If Child Says | Parent Should |
 |---------------|---------------|
-| "I'm stressed" | Listen, don't lecture |
+| "I'm stressed" | Listen actively without lecturing |
 | "I can't do this" | Reassure, offer help |
 | "Leave me alone" | Give space, check later |
 | "I need a break" | Grant reasonable breaks |
@@ -155,7 +155,7 @@ Before planning, gather:
 
 ### Data Structure
 ```
-~/neet-tutor/
+<state_root>/
 ├── students/
 │   ├── student-a/
 │   ├── student-b/
@@ -197,7 +197,7 @@ Always confirm:
 ## Category-Specific Guidance
 
 ### OBC/SC/ST/EWS Students
-- Lower cutoffs, but don't aim low
+- Lower cutoffs, but aim for the highest possible score
 - Aim for General cutoff (more options)
 - Know your certificate requirements
 - Income certificates for EWS

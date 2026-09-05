@@ -1,4 +1,6 @@
-# NEET Exam Configuration
+# NEET exam configuration
+
+> **Verify first:** exam pattern, duration, question count, eligibility, registration dates, and syllabus may change. Read the current NTA information bulletin before using any operational detail below. This reference preserves planning context and is not an exam-year notice.
 
 ## Exam Structure (2024+)
 
