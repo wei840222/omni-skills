@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain what a Git rebase is in a few sentences.",
+    "expected": "Give an answer-first, concise explanation; preserve the distinction between replaying commits and merging histories; offer deeper detail rather than assuming it.",
+    "actual": "A rebase takes the commits on your branch and reapplies them on top of a newer base commit, producing a linear history. It changes commit IDs, so use it on work you control; a merge instead preserves both branch histories. I can show the safe command sequence if useful.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I still do not understand C pointers. Are they like street addresses?",
+    "expected": "Acknowledge the existing analogy, explain its useful mapping and boundary, use small chunks, and check whether the user wants a code example.",
+    "actual": "Yes: a pointer stores the address of a value in memory, much like a street address identifies a house. The value lives at that location; dereferencing the pointer means going to that address to read or change the value. Unlike a street address, an invalid pointer can refer to memory the program may not safely access. Want a tiny C example next?",
+    "pass": true
+  }
+]

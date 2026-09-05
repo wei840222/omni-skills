@@ -1,68 +1,52 @@
 ---
 name: explain
-slug: explain
-version: 1.0.2
-description: Learns how to explain things to your human. Adapts format, depth, and style by topic.
-homepage: https://clawic.com/skills/explain
-changelog: Restructured with auxiliary files; added Quick Reference
+description: Adapt human-facing explanations to learned preferences for format, depth, examples, jargon, pacing, and tone. Use when a user asks for clarification, a concept breakdown, or a clearer explanation after confusion.
 metadata:
-  clawdbot:
-    emoji: 💬
-    displayName: Explain
+  version: "1.0.2"
+  openclaw: '{"emoji":"💬"}'
+  related-skills: '{"memory":"Memory stores durable context; Explain records only confirmed explanation preferences in its own state."}'
 ---
 
-## Adaptive Explanation Preferences
+## State location
 
-**Scope:** Human-facing explanations only. Track what lands and what misses.
+Explanation preferences may exist in `<workspace>/explain/`, `<workspace>/memory/explain/`, or `~/explain/`. `<workspace>` is supplied by the host/runtime.
 
-### Quick Reference
+Before reading or writing preferences, resolve `<state_root>` once:
 
-| File | Purpose |
-|------|---------|
-| `formats.md` | When bullets/prose/headers work or fail |
-| `depth.md` | Calibrating detail level by signals |
-| `analogies.md` | When comparisons help vs hurt |
-| `domains.md` | Patterns for code, concepts, debugging, decisions |
-| `dimensions.md` | Full list of trackable dimensions |
+1. Use an explicit user- or host-configured path when present.
+2. Otherwise use the first existing directory in this order: `<workspace>/explain/`, `<workspace>/memory/explain/`, `~/explain/`.
+3. If several candidates exist, use only the first, report the duplicate locations, and leave the others unchanged.
+4. If none exists, create `<workspace>/explain/` only after the user asks to save a preference and the host supplied `<workspace>`; otherwise request an explicit location.
 
-### Core Loop
-1. **Observe** — Notice when explanations work vs confuse
-2. **Signal** — "Got it" = worked. Follow-ups / "wait what?" = missed
-3. **Pattern** — After 2+ consistent signals, note it
-4. **Confirm** — Only after explicit yes, add to memory
+Use `<state_root>/memory.md` for every preference operation in this invocation. Create the file only when a preference is being saved.
 
-### Defaults (Until Learned)
-- Lead with direct answer, context after
-- Match question length (short Q = short A)
-- One concept at a time for complex topics
-- Offer depth: "want more detail?" rather than dumping
+## Core loop
 
----
+1. Identify the question type and any confirmed preference for its topic.
+2. Give the direct answer first; choose a default format and depth when no confirmed preference exists.
+3. When feedback signals a mismatch, switch the current explanation to the requested format or depth.
+4. After two consistent signals, record a `pattern`; save a `confirmed` preference only after explicit user agreement; mark it `locked` after repeated explicit reinforcement. Read `references/dimensions.md` before recording a value.
+5. Offer more depth when it would materially help rather than preloading every detail.
 
-## Memory Storage
+## Default delivery
 
-Preferences persist in `~/Clawic/data/explain/memory.md`. Create on first use:
+- Match a short question with a short answer.
+- Explain one new concept at a time for a complex topic.
+- Lead with the recommendation for decisions, then give the relevant trade-off.
+- Use an analogy only when it maps the key idea more clearly than a direct explanation; state its boundary.
+- State uncertainty and separate verified facts from a working explanation.
 
-```markdown
-## Format
-<!-- Format: "topic: preference (level)" -->
-<!-- Ex: code: bullets (confirmed), concepts: prose (pattern) -->
+## Reference routing
 
-## Depth
-<!-- Format: "topic: depth (level)" -->
-<!-- Ex: React: deep (confirmed), Git: tldr (pattern) -->
+| Need | Read |
+|---|---|
+| Choose bullets, prose, headers, or numbered steps; read before drafting | `references/formats.md` |
+| Calibrate detail from the question or feedback; read before choosing depth | `references/depth.md` |
+| Select or test an analogy; read before presenting one | `references/analogies.md` |
+| Explain code, theory, procedures, debugging, decisions, or agent behavior | `references/domains.md` |
+| Save or interpret a preference | `references/dimensions.md` |
+| Structure a difficult concept around cognitive load or teach-back | `references/science.md` |
 
-## Examples
-<!-- Format: "topic: example-style (level)" -->
-<!-- Ex: SQL: always examples (confirmed), theory: minimal (pattern) -->
+## Scope
 
-## Jargon
-<!-- Format: "domain: jargon-level (level)" -->
-<!-- Ex: programming: full jargon (confirmed), finance: simplify (pattern) -->
-
-## Never
-<!-- Approaches that fail. Format: "approach (level)" -->
-<!-- Ex: walls of text (confirmed), over-analogizing (pattern) -->
-```
-
-*Levels: pattern (2+ signals) → confirmed (explicit yes) → locked (reinforced)*
+Use Explain for human-facing clarification and adaptation. Keep technical facts grounded in the applicable source; use a domain skill or primary source for the underlying facts. This skill controls presentation rather than domain truth.
