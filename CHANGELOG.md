@@ -8,7 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | ---------------------------- | ---------- | ------------- | ---- |
 | greek | 2026-09-06 | 85/100 (#282) |
 | chat-rooom | 2026-09-06 | 85/100 (#284) |
-# Changelog
+| philosophy | 2026-09-06 | 85/100 (#285) |
 | kimi | 2026-09-06 | 85/100 (#283) |
 | explain | 2026-09-06 | 85/100 (#278) |
 | archive | 2026-09-05 | 85/100 (#274) |
