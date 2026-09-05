@@ -1,7 +1,12 @@
-# Visual Optimization
+# Visual optimization
 
-- First two screenshots = 80% of impression impact — make them count
-- Show outcomes and benefits, not UI — "Lost 20lbs" not "Calorie tracker"
-- Text overlays: large font, readable on small screens, localized
-- Video preview: 15-30 seconds, hook in first 3s, works without sound
-- Icon: simple, recognizable at 16px, stands out from competitors
+Creative assets should show the real product experience and help an eligible user decide whether the app solves their problem.
+
+- Start with a message hierarchy: user outcome, supporting capability, and proof visible in the product.
+- Check every screenshot, preview, icon, and caption at the platform's required dimensions and with legible text on a small screen.
+- Localize text overlays and culturally specific imagery; validate claims and accessibility in each locale.
+- Do not use deceptive before/after claims, unavailable features, third-party marks without permission, or creative that conflicts with store policy.
+
+Sources:
+- Apple, *App previews*: https://developer.apple.com/help/app-store-connect/manage-app-preview-videos/add-an-app-preview
+- Google Play policy, *Metadata policy*: https://support.google.com/googleplay/android-developer/answer/9898842

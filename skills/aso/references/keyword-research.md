@@ -1,9 +1,12 @@
-# Keyword Research
+# Keyword research
 
-- Competitor analysis: what keywords do top apps rank for?
-- Search volume vs difficulty: long-tail converts better than head terms
-- Seasonal keywords: plan metadata updates around trends
-- Localize keyword research per market — direct translation misses local search patterns
-- Track ranking changes weekly — ASO is continuous optimization
+Build a query-intent map for each platform and locale. Combine product terminology, user problems, category language, and competitor observations; do not copy competitor trademarks or imply affiliation.
 
-**Source:** https://en.wikipedia.org/wiki/App_store_optimization
+1. Identify the audience, job to be done, and category alternatives.
+2. Gather candidate terms from support requests, product language, permitted market research, and store-search observations.
+3. Classify each term by intent, locale, relevance, evidence strength, and policy/trademark risk.
+4. Map only the strongest terms to user-visible metadata. Prefer clarity and truth over density.
+5. Re-check after changes using impressions, conversion, retention-quality signals, and qualitative feedback; rankings alone are not proof of value.
+
+Source:
+- Apple, *Product page optimization overview*: https://developer.apple.com/app-store/product-page-optimization/
