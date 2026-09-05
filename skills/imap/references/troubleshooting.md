@@ -48,7 +48,7 @@ This often points to:
 - special-use mapping differences
 - Gmail labels or virtual folders
 
-List the raw folders first, then map canonical roles in `folder-map.md`.
+List the raw folders first, then map canonical roles in `<state_root>/folder-map.md`.
 
 ## Large mailbox tasks are slow
 
