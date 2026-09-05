@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Check whether the Binance Spot Testnet is reachable for BTCUSDT and explain the next safe validation step.",
+    "expected": "The agent uses public testnet checks, reads the testnet and market-data references, avoids asking for secrets, and recommends an order/test before any production order.",
+    "actual": "Dry-run: the skill routes this to references/testnet.md and references/market-data.md, begins with ping/time/exchangeInfo, and keeps production placement behind explicit confirmation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A signed BTCUSDT order timed out with -1007. Should I resubmit it immediately?",
+    "expected": "The agent treats execution as unknown, reads the error and signing references, reconciles the order with REST and executionReport events, and only considers a replacement after proving the original did not execute.",
+    "actual": "Dry-run: the skill routes this to references/errors-limits.md and references/troubleshooting.md; both direct order and user-data reconciliation before another submission.",
+    "pass": true
+  }
+]

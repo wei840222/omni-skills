@@ -102,12 +102,12 @@ Store API keys and secrets securely outside of repository files.
 
 ## Execution Heuristics
 
-- Using local clock drifted by seconds causes `-1021` and fake auth failures.
-- Reusing old signatures after changing params causes `-1022`.
-- Sending quantity not aligned to `stepSize` fails despite valid account balance.
-- Assuming order status from placement response misses partial fills and cancels.
-- Opening long-lived market data sockets past 24h leads to silent disconnect behavior.
-- Ignoring `429` weight responses can trigger temporary automated bans.
+- For `-1021`, use Binance server time before rebuilding the signed request.
+- For `-1022`, rebuild the canonical payload after every parameter change and sign that exact payload.
+- Align quantity to the `LOT_SIZE` `stepSize` before sending an order.
+- Treat the placement response as provisional; reconcile partial fills and cancels through REST and user-data events.
+- Rotate market-data sockets before their documented connection lifetime and reconnect with jitter.
+- Reduce request rate after `429` and follow the documented ban-recovery path after `418`.
 
 ## External Endpoints
 
