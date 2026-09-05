@@ -37,7 +37,7 @@ Custom keywords may exist. Do not assume only the standard system flags are pres
 
 - Archive, All Mail, Sent, Junk, and Trash are provider-specific concepts.
 - Some providers expose labels or virtual folders through IMAP in ways that do not behave like classic folders.
-- Capture provider quirks in `folder-map.md` so future sessions do not rediscover them.
+- Capture provider quirks in `<state_root>/folder-map.md` so future sessions do not rediscover them.
 
 ## Incremental Sync Pattern
 
@@ -45,4 +45,4 @@ Custom keywords may exist. Do not assume only the standard system flags are pres
 2. Resume from saved UID window or `MODSEQ`.
 3. Fetch only changes since the last checkpoint.
 4. Reconcile deletions, moves, and flag changes explicitly.
-5. Update `sync-state.md` only after the pass is confirmed.
+5. Update `<state_root>/sync-state.md` only after the pass is confirmed.
