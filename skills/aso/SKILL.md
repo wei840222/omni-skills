@@ -14,9 +14,10 @@ Use this skill to make evidence-led improvements to an app listing. Treat each p
 
 1. Define the market, platform, app category, primary conversion event, and baseline metrics.
 2. Load the relevant reference below; use official platform documentation for current limits and available features.
-3. Form one testable hypothesis, preserve a control, and avoid claiming causal impact without a valid experiment.
-4. Draft changes for approval. Do not submit listing changes, reply publicly, or start experiments without the account owner's authorization.
-5. Record the change, locale, dates, variant, baseline, outcome, and decision so the result can be audited.
+3. Form one testable hypothesis, preserve a control, and define a primary metric plus a guardrail.
+4. If required platform limits, policy status, baseline data, or localization review are unavailable, stop at a draft and identify the missing evidence; do not infer it.
+5. Draft changes for approval. Do not submit listing changes, reply publicly, or start experiments without the account owner's authorization.
+6. Record the change, locale, dates, variant, baseline, outcome, and decision so the result can be audited.
 
 ## Load references when needed
 
@@ -39,3 +40,4 @@ Use this skill to make evidence-led improvements to an app listing. Treat each p
 - Do not place personal data, credentials, or unreleased product information in listing assets or experiment notes.
 - Respect Apple and Google policy, trademark rights, accessibility needs, and locale-specific legal requirements.
 - Make no unverified universal claims about ranking factors, conversion rates, character limits, or experiment duration. Check the linked official documentation at execution time.
+- When a result is inconclusive, retain the control, document the uncertainty, and choose the next smallest reversible test rather than declaring a winner.
