@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our team has a lot of 'TODOs' scattered in the codebase, and cycle time is slowing down. Should we do a two-week 'debt sprint' to clean everything up?",
+    "expected": "Advises against a 'debt sprint' and instead recommends continuous amortization (15-25% capacity every sprint) and converting TODOs into a real debt register with specific payoff triggers.",
+    "actual": "Classify the TODOs as candidates rather than debt records. Create a register with area, interest, blast radius, payoff cost, trigger, and owner; use measured carry to prioritize. Reserve recurring capacity for high-interest items and use a dedicated cleanup effort only to resolve an acute backlog.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We have an old legacy module with zero tests that is hard to maintain. A new engineer wants to rewrite it completely to fix the architecture debt. What is the recommended approach?",
+    "expected": "Recommends refactoring over rewriting. Suggests writing characterization tests to pin current behavior, then using the Strangler Fig pattern to incrementally replace the old module, avoiding the 'second-system effect'.",
+    "actual": "Treat the module as legacy code: first add characterization tests for the behavior that the next change depends on. Prefer an incremental strangler migration with checkpoints over a full rewrite; choose a rewrite only when its assumptions, parallel operation, and migration path are demonstrably viable.",
+    "pass": true
+  }
+]
