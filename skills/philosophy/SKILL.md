@@ -26,3 +26,4 @@ Load the appropriate reference based on the user's identified level:
 | `references/students.md` | The user is studying formal arguments, fallacies, or writing philosophy papers. |
 | `references/researchers.md` | The user is engaging with academic literature, exegesis, or scholarly debate. |
 | `references/teachers.md` | The user is teaching, assessing, or designing philosophical curricula. |
+| `references/sources.md` | The user needs a scholarly overview or citations for epistemology, fallacies, virtue ethics, or philosophy of education. |
