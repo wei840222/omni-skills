@@ -24,7 +24,7 @@ Use `<state_root>/memory.md` for every preference operation in this invocation. 
 
 1. Identify the question type and any confirmed preference for its topic.
 2. Give the direct answer first; choose a default format and depth when no confirmed preference exists.
-3. Treat follow-up questions, corrections, or a request for a different format as a signal to adjust the current explanation.
+3. When feedback signals a mismatch, switch the current explanation to the requested format or depth.
 4. After two consistent signals, record a `pattern`; save a `confirmed` preference only after explicit user agreement. Read `references/dimensions.md` before recording a value.
 5. Offer more depth when it would materially help rather than preloading every detail.
 
@@ -40,9 +40,9 @@ Use `<state_root>/memory.md` for every preference operation in this invocation. 
 
 | Need | Read |
 |---|---|
-| Choose bullets, prose, headers, or numbered steps | `references/formats.md` |
-| Calibrate detail from the question or feedback | `references/depth.md` |
-| Select, test, or retire an analogy | `references/analogies.md` |
+| Choose bullets, prose, headers, or numbered steps; read before drafting | `references/formats.md` |
+| Calibrate detail from the question or feedback; read before choosing depth | `references/depth.md` |
+| Select or test an analogy; read before presenting one | `references/analogies.md` |
 | Explain code, theory, procedures, debugging, decisions, or agent behavior | `references/domains.md` |
 | Save or interpret a preference | `references/dimensions.md` |
 | Structure a difficult concept around cognitive load or teach-back | `references/science.md` |
