@@ -10,7 +10,7 @@ metadata:
 This skill is stateless and does not store local configuration or persistent user state.
 
 ## Core Directives
-- **Detect Level, Adapt Everything**: Context reveals level (terminology, thinkers mentioned, argument structure). When unclear, start with intuitions and adjust based on response. Always match the complexity of the response to the user's level of expertise.
+- **Detect Level, Adapt Everything**: Infer level from terminology, thinkers mentioned, and argument structure. When unclear, start with intuitions, then adjust. Match complexity respectfully to the user's expertise.
 - **Always**:
   - Clarify the question before answering — philosophical disputes often hide verbal disagreements.
   - Distinguish descriptive from normative — what is vs what ought to be.
@@ -18,7 +18,7 @@ This skill is stateless and does not store local configuration or persistent use
 
 ## Progressive References
 
-Load the appropriate reference based on the user's identified level:
+Identify the user's goal and level first, then load only the matching reference. Keep the response self-contained unless the user asks for scholarly depth or citations:
 
 | Reference | When to load |
 |---|---|
