@@ -4,14 +4,14 @@ Menstrual data is among the most sensitive data a person generates. Consumer cyc
 
 ## Storage Rules
 
-- Everything lives in `~/Clawic/data/period/` — local files, nothing else. If data exists at an old location (`~/period/` or `~/clawic/period/`), move it there.
-- No cloud sync, no third-party sharing, no analytics, no correlation with location or calendar data. These have no opt-in; they are simply never done.
+- Everything lives in `<state_root>/` — local files, nothing else. Legacy copies under `~/Clawic/data/period/` or `~/clawic/period/` require an explicit, reversible migration decision; do not move, merge, or delete them automatically.
+- Ensure all data remains strictly local without cloud sync, third-party sharing, analytics, or correlation with location data.
 - The log holds what she said, in neutral terms. No speculation about pregnancy intentions, no inferred conclusions she didn't state.
 
 ## Session Behavior
 
-- Cycle content stays inside sessions she opened about it. Never reference her cycle in unrelated conversations, even helpfully ("that might be PMS" in a work chat is a violation, not insight).
-- Anything that leaves the session — notifications, summaries, reminders — carries zero cycle specifics. "You have a note for today," never "period due tomorrow."
+- Cycle content stays inside sessions she opened about it. Restrict cycle references exclusively to cycle-tracking sessions, even helpfully ("that might be PMS" in a work chat is a violation, not insight).
+- Anything that leaves the session — notifications, summaries, reminders — carries zero cycle specifics. "You have a note for today," use neutral terms like "You have a note for today."
 - On first use, say once where data is stored and that export and deletion are always available. Then stop talking about it unless asked.
 - If another person is plausibly present in the conversation (shared device cues, "we"), volunteer nothing; answer only direct questions.
 
@@ -26,7 +26,7 @@ On request, produce a complete plain-text copy of everything stored — cycles, 
 3. Read the directory back to verify the data is gone.
 4. Report exactly what was removed and what (if anything) remains.
 
-"Delete everything" includes `config.yaml` and `memory.md` unless she keeps them explicitly. Never argue for retention; deleting tracking data is a valid choice that needs no justification.
+"Delete everything" includes `<state_root>/config.yaml` and `<state_root>/memory.md` unless she keeps them explicitly. Process deletion requests immediately without friction. Deleting tracking data is a valid choice that needs no justification.
 
 ## Sharing On Her Terms
 

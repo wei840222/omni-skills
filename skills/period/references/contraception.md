@@ -12,7 +12,7 @@ On hormonal contraception, bleeding is a method effect, not an ovulatory cycle (
 | Hormonal IUD (52 mg) | Irregular spotting first 3-6 months, then much lighter; roughly 1 in 5 users has no bleeding at 1 year | None; absent periods are expected, not amenorrhea to flag | Sudden pain or heavy bleeding after a quiet stretch — expulsion/displacement check, clinician |
 | Copper IUD | Real ovulatory cycles — full SKILL.md prediction applies | Rules 1-6 apply unchanged | Heavier, longer periods, worst in the first 3-6 months; heavy-flow Red Flags still apply, and this method is the common tracked cause |
 | Implant | Unpredictable: no bleeding, infrequent, or prolonged spotting — no pattern to learn | None; refuse politely and explain why | Bleeding plus severe pelvic pain |
-| Depo shot | Bleeding decreases with each injection; no bleeding by 1 year is common | None; fertility return lags after stopping (`irregular.md`) | Bleeding restarting late into use |
+| Depo shot | Bleeding decreases with each injection; no bleeding by 1 year is common | None; fertility return lags after stopping (`references/irregular.md`) | Bleeding restarting late into use |
 
 ## What Still Gets Flagged on Any Method
 
@@ -26,10 +26,10 @@ The method changes bleeding, not these:
 ## Emergency Contraception
 
 - Levonorgestrel EC shifts the next period up to a week in either direction. Log the EC date, widen the expected range, and predict nothing firm until the next real Day 1.
-- More than 7 days late after EC → pregnancy test (`fertility.md` timing).
+- More than 7 days late after EC → pregnancy test (`references/fertility.md` timing).
 
 ## Starting and Stopping
 
 - First 3 months on any new hormonal method: spotting is expected — log it, flag nothing unless a Red Flags row fires.
-- Stopping any method → the post-pill reset in `irregular.md`: prior on-method "cycles" say nothing about her natural baseline; set `prediction_window: 3` and rebuild.
+- Stopping any method → the post-pill reset in `references/irregular.md`: prior on-method "cycles" say nothing about her natural baseline; set `prediction_window: 3` and rebuild.
 - Method choice itself (which pill, IUD vs implant) is a clinician conversation — provide her bleeding log as input, not a recommendation.

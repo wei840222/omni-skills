@@ -29,6 +29,6 @@ One-sided twinge lasting hours to ~2 days near predicted ovulation = mittelschme
 
 ## Tracking Pain Well
 
-- Log: cycle day, location (midline vs one-sided), severity (mild / moderate / severe as defined in `symptoms.md`), what she took and whether it worked.
+- Log: cycle day, location (midline vs one-sided), severity (mild / moderate / severe as defined in `references/symptoms.md`), what she took and whether it worked.
 - "Did the NSAID work?" is a data point: primary dysmenorrhea usually responds at least partly; repeated non-response across cycles strengthens the secondary pattern above.
 - Severity drift across cycles (each period worse than the last) is a sustained shift — surface it (SKILL.md rule 6).

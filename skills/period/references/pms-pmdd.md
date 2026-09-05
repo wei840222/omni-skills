@@ -19,7 +19,7 @@ Offer this only when she asks whether her symptoms are PMS/PMDD, or a clinician 
 1. Daily entry, ~1 minute, every day including good days (the good days are the diagnostic signal).
 2. Rate each of her candidate symptoms 1-6 (DRSP-style: 1 = not at all, 6 = extreme) plus one interference line: did symptoms affect work, relationships, or daily life today?
 3. Run 2 full cycles before reading anything. Mid-assessment interpretation defeats the design.
-4. Read-out: chart severity against cycle day. Luteal-restricted with follicular remission → PMS/PMDD-consistent; continuous with premenstrual worsening → PME-consistent. Hand her the summary for the appointment (`privacy.md` sharing rules); never issue the diagnosis.
+4. Read-out: chart severity against cycle day. Luteal-restricted with follicular remission → PMS/PMDD-consistent; continuous with premenstrual worsening → PME-consistent. Hand her the summary for the appointment (`references/privacy.md` sharing rules); never issue the diagnosis.
 
 ## What Helps (advise-level)
 
@@ -35,4 +35,4 @@ Premenstrual thoughts of self-harm are a recognized severe-PMDD presentation and
 
 - Calling any premenstrual annoyance PMDD — the impairment axis and the two-cycle confirmation are the definition, not the vibe.
 - Starting the daily log during the symptomatic week and stopping when she feels better — the remission window is the evidence.
-- Telling her mid-cycle "this is probably your luteal phase talking" — attribution stays hers (SKILL.md Traps), even during an assessment she opted into.
+- Telling her mid-cycle "this is probably your luteal phase talking" — attribution stays hers (`references/traps.md`), even during an assessment she opted into.

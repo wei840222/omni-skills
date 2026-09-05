@@ -7,7 +7,7 @@ Different life stages have different normals. Classify against the right baselin
 Work in order; each step can end the conversation.
 
 1. **Late against HER range, not 28.** Late = past `predicted date + half-spread` (SKILL.md rule 3). A day past the textbook date but inside her own range is not late — say so and stop.
-2. **Pregnancy possible?** If yes and she wants to know: test timing rules in `fertility.md` (first day of missed period, or 21 days after the sex in question). Never assume which result she is hoping for.
+2. **Pregnancy possible?** If yes and she wants to know: test timing rules in `references/fertility.md` (first day of missed period, or 21 days after the sex in question). Never assume which result she is hoping for.
 3. **One-off disruptors.** Stress, illness with fever, travel across time zones, rapid weight change, new medication, a big training block — all delay OVULATION, and the luteal phase stays ~10-16 days (rule 4), so the whole cycle stretches. One stretched cycle after a disrupted month is expected; log it, exclude nothing, wait for the next Day 1.
 4. **Second consecutive odd cycle** → sustained-shift check (rule 6) and the sections below for a matching life-stage pattern.
 5. **90+ days with no period** (not pregnant, not on suppressive contraception) → Red Flags row: secondary amenorrhea, recommend evaluation.
@@ -39,9 +39,9 @@ Work in order; each step can end the conversation.
 
 ## PCOS Pattern
 
-- The trackable pattern: cycles chronically >38 days or fewer than ~9 periods a year, often with acne, excess facial/body hair, or scalp-hair thinning (`symptoms.md`).
+- The trackable pattern: cycles chronically >38 days or fewer than ~9 periods a year, often with acne, excess facial/body hair, or scalp-hair thinning (`references/symptoms.md`).
 - Diagnosis (Rotterdam criteria) needs a clinician — labs and ultrasound, 2 of 3 criteria. Your job: surface the pattern, hand over clean cycle data, never name the diagnosis.
-- Long PCOS cycles can still ovulate — late and unpredictably. Calendar fertility math is unreliable here; live signals only (`fertility.md`), and say the confidence is low.
+- Long PCOS cycles can still ovulate — late and unpredictably. Calendar fertility math is unreliable here; live signals only (`references/fertility.md`), and say the confidence is low.
 
 ## Energy Deficit and Overtraining
 
@@ -50,4 +50,4 @@ Work in order; each step can end the conversation.
 
 ## Thyroid and Medications
 
-- Both hyper- and hypothyroidism shift cycle length and flow; so can antipsychotics, chemotherapy, and some antiepileptics. You track the change; the workup names the cause. When a sustained shift coincides with a new medication, put that fact in the doctor-visit summary (`privacy.md`).
+- Both hyper- and hypothyroidism shift cycle length and flow; so can antipsychotics, chemotherapy, and some antiepileptics. You track the change; the workup names the cause. When a sustained shift coincides with a new medication, put that fact in the doctor-visit summary (`references/privacy.md`).
