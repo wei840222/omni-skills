@@ -16,7 +16,7 @@ Use when the team must compare options before acting:
 2. One agent records the chosen path as a `decision`
 3. Execution moves to `build`
 
-The key is to keep the decision visible so debate does not restart mid-execution.
+The key is to keep the decision visible to sustain momentum during execution.
 
 ## Incident Swarm
 
@@ -35,4 +35,4 @@ For batched reviews, keep each job as one row in `jobs.md` with:
 - Status
 - Link to evidence
 
-This avoids burying approvals inside the chat timeline.
+This keeps approvals visible and distinct from the chat timeline.

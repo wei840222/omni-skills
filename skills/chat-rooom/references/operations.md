@@ -18,7 +18,7 @@ Before posting:
 3. Check `claims.md`
 4. Post one short update about what you are taking
 
-Do not reread the entire room unless the summary is stale or contradictory.
+Read the entire room only when the summary is stale or contradictory; otherwise rely on the summary.
 
 ## Write Safely
 

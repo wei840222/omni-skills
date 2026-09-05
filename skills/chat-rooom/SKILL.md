@@ -1,31 +1,14 @@
 ---
 name: chat-rooom
-slug: chat-rooom
-version: 1.0.0
-description: Create local chat rooms for AI agents with channels, mentions, task claims, and durable summaries in the workspace.
-homepage: https://clawic.com/skills/chat-rooom
-changelog: Initial release with a local room protocol, mention routing, claim tracking, and summary driven handoffs.
+description: Coordinate multiple AI agents through local, file-backed chat rooms with channels, mentions, task claims, and durable summaries. Use when work needs explicit ownership, auditable handoffs, or lightweight multi-agent collaboration in one workspace.
 metadata:
-  clawdbot:
-    emoji: 💭
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/chat-rooom/
-    displayName: Chat Rooom
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/chat-rooom/
+  version: "1.0.0"
+  openclaw: '{"emoji":"💭"}'
 ---
 
 ## Setup
 
-If `~/Clawic/data/chat-rooom/` does not exist or is empty, read `setup.md` silently. Default to local-first coordination and keep persistence light until the user confirms they want a durable room workflow.
+Before using persistent room preferences, resolve `<state_root>` to a user-approved, writable directory outside the skill package (for example, `<workspace>/.state/chat-rooom`). If it is missing or empty, read `references/setup.md`. Default to local-first coordination and keep persistence light until the user confirms they want a durable room workflow.
 
 ## When to Use
 
@@ -33,10 +16,10 @@ User wants multiple agents to talk, coordinate, debate, or hand off work without
 
 ## Architecture
 
-Skill memory lives in `~/Clawic/data/chat-rooom/`. Active rooms live in the current workspace at `.chat-rooom/`. See `memory-template.md` for both templates.
+Skill memory lives in `<state_root>/`. Active rooms live in the current workspace at `.chat-rooom/`. See `references/memory-template.md` for both templates.
 
 ```text
-~/Clawic/data/chat-rooom/
+<state_root>/
 |- memory.md       # Activation defaults and durable preferences
 |- rooms.md        # Recent room names, roles, and conventions
 `- patterns.md     # Coordination patterns that repeatedly worked well
@@ -54,20 +37,21 @@ Skill memory lives in `~/Clawic/data/chat-rooom/`. Active rooms live in the curr
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Room protocol | `protocol.md` |
-| Daily operations | `operations.md` |
-| Example room patterns | `patterns.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup process | `references/setup.md` | When setting up the skill state for the first time |
+| Agent communication | `references/agent-communication.md` | When deciding how agents should exchange messages |
+| Memory template | `references/memory-template.md` | When initializing or updating state structures |
+| Room protocol | `references/protocol.md` | When participating in a room to follow standard layout and message format |
+| Daily operations | `references/operations.md` | When opening, joining, writing to, or closing a room |
+| Example room patterns | `references/patterns.md` | When planning coordination structures for a new task |
 
 ## Core Rules
 
 ### 1. Start Coordination Inside a Named Room
 - Create or join one named room before multi-agent work starts.
 - Keep one room per objective, incident, or milestone so decisions stay discoverable.
-- Do not scatter the same coordination across scratch files, comments, and terminal notes.
+- Centralize all coordination within the named room to maintain a single source of truth.
 
 ### 2. Make Every Message Addressable
 - Each message should carry one primary intent: ask, update, proposal, decision, block, or handoff.
@@ -87,12 +71,12 @@ Skill memory lives in `~/Clawic/data/chat-rooom/`. Active rooms live in the curr
 ### 5. Separate Channels by Intent
 - Keep `general` for status, `review` for critique, `build` for execution details, and `incident` for live recovery.
 - Create a new channel when one topic would bury another.
-- Once a task becomes active, avoid mixing debate and execution in the same channel.
+- Once a task becomes active, separate debate and execution into distinct channels.
 
 ### 6. Keep the Room Local and Auditable
 - Prefer workspace files and local tools over a hosted chat backend unless the user explicitly asks for one.
-- Treat the room as an operational log, not as private memory.
-- Never store secrets, tokens, or unrelated personal data in room files.
+- Treat the room as a shared operational log, not private memory.
+- Keep secrets, tokens, and unrelated personal data out of room files.
 
 ## Common Traps
 
@@ -108,11 +92,11 @@ Skill memory lives in `~/Clawic/data/chat-rooom/`. Active rooms live in the curr
 - None from this skill itself
 
 **Data that stays local:**
-- Room logs and defaults in `~/Clawic/data/chat-rooom/` and `.chat-rooom/` inside the active workspace
+- Room logs and defaults in `<state_root>/` and `.chat-rooom/` inside the active workspace
 
-**This skill does NOT:**
+**This skill does not:**
 - Require a hosted backend
-- Access undeclared folders outside the active workspace and `~/Clawic/data/chat-rooom/`
+- Access undeclared folders outside the active workspace and `<state_root>/`
 - Store credentials or secrets in room logs
 
 ## Scope
@@ -122,20 +106,12 @@ This skill ONLY:
 - Keeps channels, claims, jobs, and summaries consistent
 - Helps agents talk through room files instead of terminal copy-paste
 
-This skill NEVER:
-- Promise real-time transport that is not available locally
-- Replace version control or formal code review
-- Treat room logs as a secret store
+This skill does not replace version control or formal code review. It records local coordination and does not promise real-time transport.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `chat` - Communication preference memory for cleaner agent interactions.
-- `agent` - Agent behavior and prompting patterns for consistent roles.
-- `agents` - Multi-agent system design and safety boundaries.
-- `agentic-engineering` - Multi-agent operating patterns and coordination strategy.
-- `delegate` - Structured handoffs when work should move between agents.
+No related skills are required for this package.
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/chat-rooom
-- Latest version: https://clawic.com/skills/chat-rooom
+## State location
+This skill relies on local persistent state.
+1. Primary: `<state_root>/`
+2. Secondary: If not configured, prompt the user for a workspace location.

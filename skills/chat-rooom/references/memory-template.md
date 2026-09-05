@@ -1,6 +1,6 @@
 # Memory Template - Chat Rooom
 
-Create `~/Clawic/data/chat-rooom/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Chat Rooom Memory
@@ -31,7 +31,7 @@ integration: pending
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/chat-rooom/rooms.md`:
+Create `<state_root>/rooms.md`:
 
 ```markdown
 # Recent Rooms
@@ -77,4 +77,4 @@ Create `.chat-rooom/rooms/<room>/jobs.md` and `claims.md` as compact tables. Kee
 | `ongoing` | Default | Keep learning room defaults |
 | `complete` | Stable setup | Use saved patterns with light refresh |
 | `paused` | User wants less process | Keep rooming manual |
-| `never_ask` | User rejected integration | Stop prompting and stay quiet |
+| `never_ask` | User rejected integration | Do not proactively propose room integration; use it only on request |
