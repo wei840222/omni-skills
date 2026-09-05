@@ -12,8 +12,7 @@
 - Never share with anyone, ever
 - Never screenshot or store digitally
 - Never enter on any website
-- Write on paper/metal, store offline
-- Consider splitting across locations
+- Consider a tested backup and recovery plan rather than improvising storage or sharing recovery material.
 
 **If compromised:** All funds at risk, forever. No recovery.
 
