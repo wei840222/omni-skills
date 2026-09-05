@@ -32,4 +32,4 @@ Track success rate, latency, and output consistency before finalizing policy.
 
 ## Anti-Pattern
 
-Using one "best model" for every workflow causes avoidable cost spikes and weak reliability when task shapes change.
+Using one "best model" for every workflow often leads to higher cost spikes and reduced reliability when task shapes change.

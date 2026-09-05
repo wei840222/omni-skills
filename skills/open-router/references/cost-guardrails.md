@@ -7,7 +7,7 @@ Set budget limits before scaling usage.
 | Control | Why it matters | Suggested baseline |
 |---------|----------------|--------------------|
 | Monthly ceiling | Prevents surprise invoices | Hard cap with early warning at 70% |
-| Per-task cap | Avoids expensive outliers | Maximum token budget by workload class |
+| Per-task cap | Prevents expensive outliers | Maximum token budget by workload class |
 | Premium-model gate | Protects high-cost models | Use only for high-impact tasks |
 
 ## Cost Review Cadence
@@ -24,7 +24,7 @@ Run a short review weekly:
 - Use cheaper models for extraction, tagging, and repetitive transformations.
 - Reserve premium models for ambiguous reasoning and high-risk decisions.
 - Prefer deterministic prompts to reduce retries and token waste.
-- Keep fallback chains short to avoid compounding token burn.
+- Keep fallback chains short to minimize compounding token burn.
 
 ## Cost Trap
 

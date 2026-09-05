@@ -18,7 +18,7 @@
 
 ## Reliability Rules
 
-1. Avoid infinite retries; cap attempts and fail forward.
+1. Limit retries; cap attempts and fail forward.
 2. Keep at least two independent routing paths for critical workloads.
 3. Separate reliability fallback from cost optimization fallback.
 4. Record incident fingerprints so repeated outages are recognized quickly.
@@ -31,4 +31,4 @@ curl -sS https://openrouter.ai/api/v1/models \
   -H "Content-Type: application/json" | jq '.data[0].id'
 ```
 
-If this fails consistently, avoid changing routing policy until connectivity and auth are confirmed.
+If this fails consistently, verify connectivity and auth before altering the routing policy.

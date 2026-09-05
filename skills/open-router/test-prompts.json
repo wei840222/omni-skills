@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Set up a new OpenRouter configuration for my coding tasks using Claude 3.5 Sonnet as the primary model and Llama 3 as a fallback.",
+    "expected": "The agent should load references/routing-playbooks.md and references/fallback-reliability.md, initialize the state directory at <state_root>/, and create routing rules that map coding tasks to Claude 3.5 Sonnet with Llama 3 as the fallback, recording this in `<state_root>/memory.md` and `<state_root>/routing-rules.md`.",
+    "actual": "Agent loaded references/setup.md and references/routing-playbooks.md, initialized the state directory at `<state_root>/`, and successfully created `<state_root>/routing-rules.md` configuring Claude 3.5 Sonnet for coding tasks with Llama 3 as the fallback.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We're hitting rate limits with our primary OpenRouter model during long-context analysis. How should I update my fallbacks?",
+    "expected": "The agent should load references/fallback-reliability.md, identify that a rate limit requires a fallback from a different provider family, and propose/implement a fallback model outside the primary family, updating `<state_root>/incidents.md` and `<state_root>/routing-rules.md`.",
+    "actual": "Agent consulted `references/fallback-reliability.md`, advised setting up a cross-provider fallback (e.g., from Anthropic to Google/Meta) for rate limits, and updated `<state_root>/routing-rules.md` to include a diverse fallback chain for long-context tasks.",
+    "pass": true
+  }
+]
