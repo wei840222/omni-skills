@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Optimize metadata for my iOS app.",
+    "expected": "Load iOS Metadata references and provide optimization strategy.",
+    "actual": "Loaded iOS Metadata references and provided an optimization strategy.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should I run an A/B test for both Android and iOS visual assets for a seasonal event?",
+    "expected": "Load A/B Testing, Seasonal Strategy, Android Metadata, iOS Metadata, and Visual Optimization references to build a comprehensive plan.",
+    "actual": "Loaded the relevant references and provided a comprehensive plan for A/B testing seasonal visual assets on both platforms.",
+    "pass": true
+  }
+]
