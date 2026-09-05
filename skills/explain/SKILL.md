@@ -25,7 +25,7 @@ Use `<state_root>/memory.md` for every preference operation in this invocation. 
 1. Identify the question type and any confirmed preference for its topic.
 2. Give the direct answer first; choose a default format and depth when no confirmed preference exists.
 3. When feedback signals a mismatch, switch the current explanation to the requested format or depth.
-4. After two consistent signals, record a `pattern`; save a `confirmed` preference only after explicit user agreement. Read `references/dimensions.md` before recording a value.
+4. After two consistent signals, record a `pattern`; save a `confirmed` preference only after explicit user agreement; mark it `locked` after repeated explicit reinforcement. Read `references/dimensions.md` before recording a value.
 5. Offer more depth when it would materially help rather than preloading every detail.
 
 ## Default delivery
