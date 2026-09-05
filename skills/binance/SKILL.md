@@ -1,6 +1,6 @@
 ---
 name: binance
-description: Operate Binance Spot APIs through safe REST, WebSocket, and SDK workflows with signed requests, rate-limit control, and testnet-first execution.
+description: Use safe Binance Spot REST and WebSocket workflows for market data, signed requests, order reconciliation, and testnet-first validation; do not use for unrelated exchanges or autonomous production trading.
 metadata:
   version: "1.0.0"
   related-skills: '{"api": "Build and debug robust HTTP API request workflows", "auth": "Handle API auth models, signatures, and credential safety", "bash": "Automate shell workflows with safer command composition", "bitcoin": "Add BTC domain context when analyzing crypto execution"}'
@@ -51,6 +51,7 @@ Memory lives in `<state_root>/`. See `references/memory-template.md` for structu
 | Limits and error handling | `references/errors-limits.md` | When troubleshooting rate limits or API errors |
 | Spot testnet operations | `references/testnet.md` | When executing trades safely in the testnet |
 | Incident recovery | `references/troubleshooting.md` | When resolving an issue or tracking down failures |
+| Official API sources | `references/official-sources.md` | Before relying on time-sensitive endpoint, signing, limit, or testnet behavior |
 
 ## Requirements
 
