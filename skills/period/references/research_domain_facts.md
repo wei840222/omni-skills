@@ -3,7 +3,7 @@
 ## Classification and FIGO Standards
 - Normal frequency for adults is 24-38 days (Source: FIGO Menstrual Disorders Committee).
 - Normal duration of bleeding is up to 8 days.
-- Variation of >9 days between cycles in a 12-month period is considered irregular.
+- Regularity is age-specific: variation above 7-9 days between cycles over 12 months is irregular.
 
 ## Tracking Recommendations
 - Luteal phase length is relatively constant (12-14 days), while follicular phase varies.

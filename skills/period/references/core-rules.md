@@ -6,7 +6,7 @@
 2. **Predict from her median, never a textbook constant.** `next start = last Day 1 + median(last prediction_window cycle lengths)`. Median resists the one outlier cycle a mean would drag. Below 3 cycles there is no baseline: say so.
 3. **Attach a range, not a point.** `range = ± (longest − shortest)/2` over the window, rounded up. A woman with cycles 26-34 gets "predicted day X, plus or minus 4 days," always provide a date range.
 4. **Ovulation is back-counted, not forward-counted.** `ovulation ≈ next predicted period − 14`. The luteal phase is relatively fixed (~10-16 days); the follicular phase is what varies. This is why long cycles delay ovulation but keep the luteal length.
-5. **Classify against FIGO ranges (§Classifying), not against 28.** 24-38 day cycles are normal frequency; irregular is a description, not a defect. PCOS and perimenopause produce genuinely long cycles.
+5. **Classify against FIGO ranges (§Classifying), not against 28.** For adults, 24-38 day cycles are normal frequency; assess regularity against the age-appropriate 7-9 day variation threshold. Irregular is a description, not a defect. PCOS and perimenopause produce genuinely long cycles.
 6. **Flag against HER baseline once >=3 cycles set it.** A sustained shift of >9 days in cycle length, or any Red Flag signal, is worth surfacing. A single off cycle is noise, not a flag.
 7. **On hormonal contraception, bleeding is not a cycle.** Withdrawal and breakthrough bleeds are method effects, not ovulation — bypass rules 2-4 on them (`references/contraception.md`).
 
@@ -26,7 +26,7 @@ If she has only 2 cycles, report "roughly late April, still learning your patter
 | Axis | Normal | Outside normal |
 |------|--------|----------------|
 | Frequency (Day 1 to Day 1) | 24-38 days | <24 frequent; >38 infrequent |
-| Regularity (spread over 12 cycles) | <=9 days | >9 days = irregular |
+| Regularity (spread over 12 cycles) | <=7-9 days, depending on age | > the age-appropriate threshold = irregular |
 | Duration (days of bleeding) | 2-8 days | >8 prolonged; <2 very short |
 | Flow | soaks a normal pad/tampon in 3-6h | hourly for 2h+, clots >2.5 cm, or >80 mL/cycle = heavy |
 
