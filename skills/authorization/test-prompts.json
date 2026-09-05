@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Design authorization for a multi-tenant document app. Editors may update documents in their tenant, viewers may read them, and a suspended user must be denied. Show a permission model and the evaluation order.",
+    "expected": "Select RBAC with tenant/resource attributes where needed; use explicit deny, then allow, then default deny; show server-side checks.",
+    "actual": "Selected RBAC permissions such as documents:read and documents:update plus a tenant attribute check. The decision path checks suspended-user denial first, then tenant-scoped permissions, and otherwise denies. It places enforcement after authentication and resource loading on the server.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need workspace folders shared through nested groups. A member loses group membership, but a permission cache may be stale. Recommend a model and safe recovery behavior.",
+    "expected": "Identify ReBAC as appropriate for relationship-driven sharing; require centralized enforcement and cache invalidation or source-of-truth re-evaluation for sensitive actions.",
+    "actual": "Recommended ReBAC for group-to-folder relationships, with tuple consistency and a centralized decision function. It records membership changes as cache invalidation triggers; if invalidation is uncertain for a sensitive request, it re-evaluates from the source of truth and returns a denial until the decision is confirmed.",
+    "pass": true
+  }
+]
