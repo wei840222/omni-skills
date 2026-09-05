@@ -1,4 +1,6 @@
-# College and Seat Targeting
+# College and seat targeting
+
+> **Verify first:** seats, fees, qualifying cutoffs, college closing ranks, counselling rounds, and state-domicile rules change by year and round. Use current MCC and state-authority notices before making a choice list or affordability decision. Tables below are historical planning context only, not admissions advice.
 
 ## Understanding the Seat Matrix
 
@@ -90,7 +92,7 @@
 1. **Dream colleges** — First 3-5 choices
 2. **Realistic targets** — Next 10-15 (where you're likely to get)
 3. **Safe options** — Next 10-15 (almost certain admission)
-4. **Backups** — Last options (to avoid wasting year)
+4. **Backups** — Last options (to ensure continuity)
 
 ### Round-by-Round Strategy
 | Round | Strategy |
