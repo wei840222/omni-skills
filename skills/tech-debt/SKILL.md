@@ -6,6 +6,10 @@ metadata:
   related-skills: '{"ci-cd":"Provides the test and staged-rollout safety net that lowers repayment risk.","review-code":"Helps reviewers evaluate and scope debt-payoff changes."}'
 ---
 
+## Start here
+
+Identify whether the request is about classifying, prioritizing, recording, or repaying technical debt. Load only the matching reference below; use `industry-research.md` when a recommendation needs its source context.
+
 ## Quick Reference
 
 | File | Topic | When to load |
