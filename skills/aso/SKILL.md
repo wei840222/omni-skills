@@ -36,8 +36,8 @@ Use this skill to make evidence-led improvements to an app listing. Treat each p
 
 ## Guardrails
 
-- Never fabricate ratings, reviews, rankings, screenshots, or claims; do not incentivize or manipulate reviews.
-- Do not place personal data, credentials, or unreleased product information in listing assets or experiment notes.
-- Respect Apple and Google policy, trademark rights, accessibility needs, and locale-specific legal requirements.
-- Make no unverified universal claims about ranking factors, conversion rates, character limits, or experiment duration. Check the linked official documentation at execution time.
-- When a result is inconclusive, retain the control, document the uncertainty, and choose the next smallest reversible test rather than declaring a winner.
+- Use accurate, substantiated ratings, reviews, rankings, screenshots, and product claims; handle review feedback without incentives or rating pressure.
+- Keep listing assets and experiment notes free of personal data, credentials, and unreleased product information.
+- Verify Apple and Google policy, trademark rights, accessibility needs, and locale-specific legal requirements before proposing publication.
+- Check the linked official documentation at execution time before stating ranking factors, conversion rates, character limits, or experiment duration as facts.
+- For an inconclusive result, retain the control, document the uncertainty, and choose the next smallest reversible test.
