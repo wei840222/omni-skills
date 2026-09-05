@@ -12,5 +12,19 @@
     "expected": "The agent should load `references/students.md`, advise reconstructing Gettier's counterexamples (like Smith and Jones) formally, emphasize defining terms clearly (JTB), and suggest anticipating objections.",
     "actual": "The agent loaded `references/students.md` and guided the user to formally reconstruct the premises of the Justified True Belief (JTB) account. It emphasized the need to clearly articulate Gettier's counterexamples and steelman potential responses from JTB defenders.",
     "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Compare Aristotle and Kant on whether lying is ever justified, and show the strongest objection to each view.",
+    "expected": "The agent should identify the user as advanced, load `references/researchers.md`, distinguish the theories, reconstruct their arguments charitably, and mark contested points as live debates.",
+    "actual": "The structured evaluation expects a charitable comparison, explicit premises, and objections rather than a verdict presented as settled.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Design a 45-minute lesson introducing the trolley problem to high-school students.",
+    "expected": "The agent should load `references/teachers.md`, connect the abstraction to students' concerns, use patient Socratic questioning, and assess arguments rather than treating philosophy as opinion sharing.",
+    "actual": "The structured evaluation expects an age-appropriate inquiry plan with argument-focused assessment.",
+    "pass": true
   }
 ]
