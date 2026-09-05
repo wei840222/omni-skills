@@ -2,6 +2,8 @@
 
 Treat limits and error codes as operational signals, not generic failures.
 
+Before changing limits, response-code handling, or endpoint behavior, read `references/official-sources.md` and verify the current official documentation.
+
 ## HTTP status behavior
 
 - `4XX` indicates request or rule violations.

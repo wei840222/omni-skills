@@ -1,6 +1,6 @@
 # Setup - Binance API
 
-Read this when `~/Clawic/data/binance/` is missing or empty.
+Read this when `<state_root>/` is missing or empty.
 Keep setup practical, safe, and non-blocking.
 
 ## Operating Priorities
@@ -25,15 +25,15 @@ Keep setup practical, safe, and non-blocking.
 - Trading and account endpoints
 - Streams and reconciliation tracking
 
-4. If context is approved, initialize local workspace:
+4. After resolving `<state_root>` and receiving approval to persist operational notes, initialize only the needed state paths:
 ```bash
-mkdir -p ~/Clawic/data/binance/snapshots
-touch ~/Clawic/data/binance/{memory.md,runbooks.md,incidents.md}
-chmod 700 ~/binance ~/Clawic/data/binance/snapshots
-chmod 600 ~/Clawic/data/binance/{memory.md,runbooks.md,incidents.md}
+mkdir -p <state_root>/snapshots
+touch <state_root>/{memory.md,runbooks.md,incidents.md}
+chmod 700 <state_root> <state_root>/snapshots
+chmod 600 <state_root>/{memory.md,runbooks.md,incidents.md}
 ```
 
-5. If `memory.md` is empty, initialize it from `memory-template.md`.
+5. If `<state_root>/memory.md` is empty, initialize it from `references/memory-template.md`.
 
 ## Integration Defaults
 

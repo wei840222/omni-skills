@@ -1,33 +1,25 @@
 ---
 name: binance
-slug: binance
-version: 1.0.0
-description: Operate Binance Spot APIs through safe REST, WebSocket, and SDK workflows with signed requests, rate-limit control, and testnet-first execution.
-homepage: https://clawic.com/skills/binance
-changelog: Initial release with production-safe Binance Spot API workflows for REST, WebSocket, signing, and testnet validation.
+description: Use safe Binance Spot REST and WebSocket workflows for market data, signed requests, order reconciliation, and testnet-first validation; do not use for unrelated exchanges or autonomous production trading.
 metadata:
-  clawdbot:
-    emoji: 📈
-    requires:
-      bins:
-      - curl
-      - openssl
-      - jq
-      env:
-      - BINANCE_API_KEY
-      - BINANCE_API_SECRET
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Binance API
+  version: "1.0.0"
+  related-skills: '{"api": "Build and debug robust HTTP API request workflows", "auth": "Handle API auth models, signatures, and credential safety", "bash": "Automate shell workflows with safer command composition", "bitcoin": "Add BTC domain context when analyzing crypto execution"}'
+  openclaw: '{"emoji": "📈", "requires": {"bins": ["curl", "openssl", "jq"], "env": ["BINANCE_API_KEY", "BINANCE_API_SECRET"]}}'
 ---
+
 
 # Binance Spot API Operations
 
+
+## State location
+
+Before any state operation, use an explicitly configured state root when one exists. Otherwise choose the first existing directory in this order: `<workspace>/binance/`, `<workspace>/memory/binance/`, then `~/binance/`. If more than one exists, use only the highest-precedence directory and tell the user that separate copies exist; never merge or synchronize them automatically. If none exists and persistent state is needed with authorization, create `<workspace>/binance/`.
+
+Use the selected `<state_root>` consistently for the entire invocation. The host supplies `<workspace>`; do not substitute the shell working directory.
+
 ## Setup
 
-On first use, read `setup.md` for integration preferences and safe environment defaults.
+On first use, read `references/setup.md` for integration preferences and safe environment defaults.
 
 ## When to Use
 
@@ -35,10 +27,10 @@ User needs to read Binance market data, place or manage Spot orders, or troubles
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/binance/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/binance/
+<state_root>/
 ├── memory.md            # API mode, symbols, and execution preferences
 ├── runbooks.md          # Repeatable workflows that worked in production
 ├── incidents.md         # Failures, response codes, and fixes
@@ -47,18 +39,19 @@ Memory lives in `~/Clawic/data/binance/`. See `memory-template.md` for structure
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup behavior | `setup.md` |
-| Memory template | `memory-template.md` |
-| Fast start commands | `quickstart.md` |
-| Auth and signatures | `auth-signing.md` |
-| Market data patterns | `market-data.md` |
-| Streams and WS API | `websocket.md` |
-| SDK and CLI options | `sdk-cli.md` |
-| Limits and error handling | `errors-limits.md` |
-| Spot testnet operations | `testnet.md` |
-| Incident recovery | `troubleshooting.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup behavior | `references/setup.md` | When starting the skill for the first time |
+| Memory template | `references/memory-template.md` | When interpreting or modifying the state format |
+| Fast start commands | `references/quickstart.md` | When the user asks for initial command examples |
+| Auth and signatures | `references/auth-signing.md` | Before making any signed API calls |
+| Market data patterns | `references/market-data.md` | When retrieving spot pricing or order book data |
+| Streams and WS API | `references/websocket.md` | When subscribing to real-time streams |
+| SDK and CLI options | `references/sdk-cli.md` | When standard REST tools are insufficient |
+| Limits and error handling | `references/errors-limits.md` | When troubleshooting rate limits or API errors |
+| Spot testnet operations | `references/testnet.md` | When executing trades safely in the testnet |
+| Incident recovery | `references/troubleshooting.md` | When resolving an issue or tracking down failures |
+| Official API sources | `references/official-sources.md` | Before relying on time-sensitive endpoint, signing, limit, or testnet behavior |
 
 ## Requirements
 
@@ -68,14 +61,14 @@ Memory lives in `~/Clawic/data/binance/`. See `memory-template.md` for structure
 - `BINANCE_API_KEY` and `BINANCE_API_SECRET` for signed Spot requests
 - Optional: `BINANCE_BASE_URL`, `BINANCE_WS_BASE`, and `BINANCE_TESTNET=1`
 
-Never commit API keys or secrets to repository files.
+Store API keys and secrets securely outside of repository files.
 
 ## Data Storage
 
-- `~/Clawic/data/binance/memory.md` for preferences and environment mode
-- `~/Clawic/data/binance/runbooks.md` for proven workflows
-- `~/Clawic/data/binance/incidents.md` for outage and error history
-- `~/Clawic/data/binance/snapshots/` for `exchangeInfo` and filter captures
+- `<state_root>/memory.md` for preferences and environment mode
+- `<state_root>/runbooks.md` for proven workflows
+- `<state_root>/incidents.md` for outage and error history
+- `<state_root>/snapshots/` for `exchangeInfo` and filter captures
 
 ## Core Rules
 
@@ -105,16 +98,16 @@ Never commit API keys or secrets to repository files.
 
 ### 7. Keep Scope Tight and Transparent
 - Use only declared Binance endpoints and symbols requested by the user.
-- Never modify this skill or unrelated local files.
+- Modify only user-authorized state paths and preserve the skill package as read-only operational guidance.
 
-## Binance Traps
+## Execution Heuristics
 
-- Using local clock drifted by seconds causes `-1021` and fake auth failures.
-- Reusing old signatures after changing params causes `-1022`.
-- Sending quantity not aligned to `stepSize` fails despite valid account balance.
-- Assuming order status from placement response misses partial fills and cancels.
-- Opening long-lived market data sockets past 24h leads to silent disconnect behavior.
-- Ignoring `429` weight responses can trigger temporary automated bans.
+- For `-1021`, use Binance server time before rebuilding the signed request.
+- For `-1022`, rebuild the canonical payload after every parameter change and sign that exact payload.
+- Align quantity to the `LOT_SIZE` `stepSize` before sending an order.
+- Treat the placement response as provisional; reconcile partial fills and cancels through REST and user-data events.
+- Rotate market-data sockets before their documented connection lifetime and reconnect with jitter.
+- Reduce request rate after `429` and follow the documented ban-recovery path after `418`.
 
 ## External Endpoints
 
@@ -139,28 +132,16 @@ No other data is sent externally.
 - Requested symbols, intervals, and market stream subscriptions
 
 **Data that stays local:**
-- Operational memory and incident logs in `~/Clawic/data/binance/`
+- Operational memory and incident logs in `<state_root>/`
 - Local helper scripts and runbooks created during sessions
 
-**This skill does NOT:**
-- Send data to undeclared services
-- Place production orders without explicit confirmation
-- Store API secrets in repository files
-- Modify this skill definition file
+**Operating boundary:**
+- Send request data only to the declared Binance endpoints.
+- Place a production order only after explicit confirmation in the current conversation.
+- Keep API secrets in the host credential store rather than repository files.
+- Preserve this skill definition as read-only guidance during Binance operations.
 
 ## Trust
 
 By using this skill, request data is sent to Binance infrastructure.
 Only install if you trust Binance with your operational trading metadata.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` - Build and debug robust HTTP API request workflows
-- `auth` - Handle API auth models, signatures, and credential safety
-- `bash` - Automate shell workflows with safer command composition
-- `bitcoin` - Add BTC domain context when analyzing crypto execution
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/binance
-- Latest version: https://clawic.com/skills/binance
