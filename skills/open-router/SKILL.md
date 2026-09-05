@@ -19,7 +19,7 @@ Use only the selected `<state_root>` for this invocation. If more than one candi
 
 ## Setup
 
-On first use, load `references/setup.md` before changing routing configuration. Load only the topic-specific reference below for the request.
+On first use, load `references/setup.md` before changing routing configuration. Load only the reference that matches the current routing, provider, cost, authentication, or reliability question.
 
 | Topic | Reference | Load when |
 |---|---|---|
