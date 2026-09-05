@@ -1,6 +1,6 @@
 ---
 name: archive
-description: Track and preserve content as semantic snapshots. Use this skill when the user wants to save URLs, texts, or files for later reference, or when they want to search through their personal archived data by topic or concept.
+description: Preserve user-provided URLs, text, and files as semantic snapshots, then retrieve them by topic, project, time, author, or content type. Use when the user asks to archive material or find a previously archived item.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📦"}'
