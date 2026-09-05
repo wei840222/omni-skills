@@ -40,15 +40,7 @@ async function can(
 **Problem:** DB query per permission check = slow.
 
 ```typescript
-// Cache permissions in JWT claims (short-lived)
-const token = jwt.sign({
-  sub: user.id,
-  permissions: ['docs:read', 'docs:write'],
-  roles: ['editor'],
-  exp: Math.floor(Date.now() / 1000) + 3600 // 1 hour
-}, secret);
-
-// Or Redis cache (longer-lived, invalidatable)
+// Cache a permission snapshot only when revocation can invalidate it.
 await redis.setex(
   `permissions:${user.id}`,
   300, // 5 min TTL
@@ -197,14 +189,14 @@ async function getAccessibleDocuments(user, documents) {
 ```typescript
 async function can(user, action, resource) {
   const decision = await evaluate(user, action, resource);
-  
+
   await auditLog.create({
     timestamp: new Date(),
     userId: user.id,
     action,
     resourceId: resource?.id,
     resourceType: resource?.type,
-    decision: decision ? 'allow' : 'deny',
+    decision: decision.allowed ? 'allow' : 'deny',
     reason: decision.reason, // "role:admin" or "denied:no_permission"
     context: {
       ip: request.ip,

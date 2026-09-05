@@ -60,6 +60,9 @@ export class AuthorizationGuard implements CanActivate {
 
     const request = context.switchToHttp().getRequest();
     const user = request.user;
+    if (!user) {
+      throw new UnauthorizedException();
+    }
 
     for (const permission of permissions) {
       if (!await this.authService.can(user, permission)) {
