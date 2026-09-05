@@ -1,27 +1,32 @@
 ---
 name: archive
-slug: archive
-version: 1.0.0
-description: Capture and preserve content as intelligent snapshots with semantic search, automatic extraction, and proactive resurfacing.
-homepage: https://clawic.com/skills/archive
+description: Track and preserve content as semantic snapshots. Use this skill when the user wants to save URLs, texts, or files for later reference, or when they want to search through their personal archived data by topic or concept.
 metadata:
-  clawdbot:
-    emoji: 📦
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Archive
+  version: "1.0.0"
+  openclaw: '{"emoji":"📦"}'
+  related-skills: '{"bookmarks":"Bookmarks stores just URLs, whereas Archive captures full content for permanence.","memory":"Memory manages agent context, whereas Archive preserves external content as snapshots.","pkm":"PKM manages evolving notes, whereas Archive handles immutable snapshots."}'
 ---
+
+
+## State Location
+
+Archive state may exist in `<workspace>/archive/`, `<workspace>/memory/archive/`, or `~/archive/`. `<workspace>` is the workspace root supplied by the host/runtime.
+
+Before any state read, search, create, update, or delete, resolve `<state_root>` once:
+
+1. Use an explicitly configured path supplied by the user or host when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/archive/`, `<workspace>/memory/archive/`, `~/archive/`.
+3. If multiple candidates exist, use only the first, tell the user that multiple archive locations were found, and leave other candidates unchanged.
+4. If none exists and the host supplied `<workspace>`, ask for consent to create `<workspace>/archive/`; without a host workspace, ask for an explicit state path.
+
+Use the selected `<state_root>` for every state operation in this invocation. Create the resolved path, not a literal directory named `<state_root>`.
 
 ## Architecture
 
-Archive storage lives in `~/Clawic/data/archive/` with tiered structure. See `memory-template.md` for setup.
+Archive storage lives in the resolved `<state_root>/` with tiered structure. Read `assets/memory-template.md` when creating the initial archive files after consent.
 
 ```
-~/Clawic/data/archive/
+<state_root>/
 ├── memory.md          # HOT: recent items, ≤100 lines
 ├── index.md           # Topic/tag index
 ├── items/             # Individual archived items
@@ -31,11 +36,11 @@ Archive storage lives in `~/Clawic/data/archive/` with tiered structure. See `me
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| What to capture | `capture.md` |
-| Search patterns | `search.md` |
-| Resurfacing rules | `resurface.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| What to capture | `references/capture.md` | When the user asks to save or archive new content. |
+| Search patterns | `references/search.md` | When the user queries past archives or looks for saved info. |
+| Resurfacing rules | `references/resurface.md` | When providing contextual information for a new task. |
 
 ## Core Rules
 
@@ -84,7 +89,7 @@ User can ask naturally:
 - "Everything for project Y" → project filter
 - "Papers by author Z" → metadata search
 
-NEVER require exact keywords. Match by meaning.
+Always use conceptual matching over exact keywords.
 
 ### 5. Proactive Resurfacing
 When user works on a topic:
@@ -92,35 +97,25 @@ When user works on a topic:
 - Surface ONLY if genuinely relevant (max 1-2 per session)
 - Include context: "You saved this 3 months ago when researching X"
 
-### 6. Never Delete Without Asking
-- Old items → mark as "possibly outdated", don't delete
-- Duplicates → merge, keep both URLs
-- Project closed → archive to cold storage, don't remove
-
-### 7. Differentiation from Other Skills
-| This skill | What it does | NOT this |
-|------------|--------------|----------|
-| archive | Preserves external content as snapshots | memory (agent context) |
-| archive | Captures full content for permanence | bookmark (just URLs) |
-| archive | Stores raw material | second-brain (processed knowledge) |
-| archive | Immutable snapshots | pkm (evolving notes) |
+### 6. Preserve Before Deletion
+- Mark old items as "possibly outdated" and retain them.
+- Merge duplicates while retaining both URLs.
+- Move closed projects to cold storage and retain their records.
+- Obtain explicit confirmation before deleting any archived item.
 
 ## Scope
 
-This skill ONLY:
-- Stores content user explicitly sends to archive
-- Searches within archived content
-- Surfaces related items when contextually relevant
+Use Archive only to store content the user explicitly sends, search archived content, or surface contextually relevant items.
 
-This skill NEVER:
-- Monitors or observes without explicit request
-- Deletes content without confirmation
-- Modifies original archived content
-- Accesses external services without user action
+Required protections:
+- Start monitoring or observation only after an explicit request.
+- Obtain confirmation before deleting content.
+- Preserve original archived content unmodified.
+- Access external services only after user action.
 
 ## Data Storage
 
-All data in `~/Clawic/data/archive/`. Create on first use:
+After resolving `<state_root>` and receiving consent to create state, create only the needed directories:
 ```bash
-mkdir -p ~/Clawic/data/archive/items ~/Clawic/data/archive/projects
+mkdir -p <state_root>/items <state_root>/projects
 ```

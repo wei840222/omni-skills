@@ -55,7 +55,7 @@ Want details on any of these?
 If nothing found:
 1. Try broader semantic search
 2. Suggest: "Nothing exact. Related: [similar topics you have]"
-3. Never say "I don't remember" — check first
+3. Always check the archive before concluding an item is missing
 
 ## Search Performance
 - memory.md (HOT) → always checked first

@@ -1,10 +1,10 @@
 # Archive Memory Template
 
-Create `~/Clawic/data/archive/` on first use:
+After resolving `<state_root>` and receiving consent, create the archive files:
 
 ```bash
-mkdir -p ~/Clawic/data/archive/items ~/Clawic/data/archive/projects
-touch ~/Clawic/data/archive/memory.md ~/Clawic/data/archive/index.md ~/Clawic/data/archive/history.md
+mkdir -p <state_root>/items <state_root>/projects
+touch <state_root>/memory.md <state_root>/index.md <state_root>/history.md
 ```
 
 ## memory.md (HOT tier)

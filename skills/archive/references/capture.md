@@ -14,6 +14,9 @@ User says: "archive this", "save this", "keep this", "store this for later"
 ## Extraction by Type
 
 ### URLs
+
+*Note on Information Extraction*: Effective retrieval depends on accurate information extraction (IE) structure from unstructured text. Ensure semantic metadata captures the core intent rather than just keywords.
+
 ```
 1. Fetch full content (web_fetch or browser)
 2. Extract: title, author, date, main text

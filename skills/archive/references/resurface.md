@@ -7,7 +7,7 @@
 - User starts working on project with related archives
 - User asks question that archived content answers
 
-### NOT Triggers
+### Excluded Triggers
 - Random time-based ("it's been 30 days")
 - Low relevance matches
 - User is clearly focused on something else
