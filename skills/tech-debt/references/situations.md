@@ -6,7 +6,7 @@
 | A module nobody wants to touch | Measure cycle time + bug rate there. If both trend up it is accruing interest: schedule payoff tied to the next feature that touches it, characterization tests first. |
 | Inherited codebase, no tests | Don't refactor first. Ship the next feature behind a characterization test on the behavior you depend on; build the harness incrementally. A big "add tests" effort stalls. |
 | New tech lead proposes a rewrite | Default to refactor + strangler. Rewrite only if the seam is fundamentally wrong, the old can run in parallel, and there is a migration path. Parity-first scope. |
-| Flaky tests are everywhere | Fix order: flaky first (they poison the signal), then speed (> ~10 min pushes skips), then coverage in the scary module. Fix or quarantine a flaky test. |
+| Flaky tests are everywhere | Fix flaky tests first, then reduce suite duration when it drives skips, then add coverage in the riskiest module. Quarantine only with an owner and deadline while the repair proceeds. |
 | A dependency is going EOL | Forced payoff with a deadline. Schedule 1-2 quarters before the EOL date; security overrides the queue. Not optional debt. |
 | Two teams duplicated the same service | Only pay if both copies are still evolving. If one is frozen, leave it; the coupling from extracting is not worth it. Rule of three before extracting. |
 | Register has 200 items, nothing gets paid | It is a graveyard. Triage to ~10-20 items with triggers and carry costs; archive the rest. A long register demoralizes; a short acted-on one pays. |
