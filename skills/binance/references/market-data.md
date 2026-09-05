@@ -42,6 +42,9 @@ When debugging inconsistencies, verify endpoint data source characteristics in o
 ## Safe local snapshot
 
 ```bash
-mkdir -p ~/Clawic/data/binance/snapshots
-curl -s "$BASE/api/v3/exchangeInfo?symbol=BTCUSDT" > ~/Clawic/data/binance/snapshots/BTCUSDT-exchangeInfo.json
+mkdir -p <state_root>/snapshots
+curl -s "$BASE/api/v3/exchangeInfo?symbol=BTCUSDT" > <state_root>/snapshots/BTCUSDT-exchangeInfo.json
 ```
+
+## Recent updates
+As of recent API documentation, ensure to respect the latest rate limits and data endpoints provided by Binance for Spot operations.
