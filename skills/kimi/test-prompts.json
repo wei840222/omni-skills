@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I check the live models for Moonshot AI Kimi using curl?",
+    "expected": "Provide a curl command that calls the https://api.moonshot.ai/v1/models endpoint using the MOONSHOT_API_KEY environment variable.",
+    "actual": "Here is the curl command to check live Kimi models:\n```bash\ncurl https://api.moonshot.ai/v1/models \\\n  -H \"Authorization: Bearer $MOONSHOT_API_KEY\"\n```\nThis accesses the correct endpoint and uses the required environment variable.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to save my Kimi API routing preferences so they persist across sessions. Can you set that up?",
+    "expected": "Inform the user that the preferences will be saved in <state_root>/kimi/routes.md and request explicit user approval before writing the file.",
+    "actual": "To set up persistent routing preferences, I will create a configuration file at `<state_root>/kimi/routes.md`. Since this saves state to your local machine, please approve this action before I write the file.",
+    "pass": true
+  }
+]
