@@ -1,6 +1,6 @@
 ---
 name: imap
-description: Read, search, and sync IMAP mailboxes with UID-safe fetches, precise filters, and attachment handling. Triggers on requests to inspect or operate IMAP accounts.
+description: Read, search, and sync IMAP mailboxes with UID-safe fetches, precise filters, and attachment handling. Use when the user asks to inspect an inbox, retrieve messages, triage unread mail, handle attachments, or diagnose IMAP synchronization; route SMTP sending and non-IMAP APIs elsewhere.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"📬"}'
@@ -9,7 +9,7 @@ metadata:
 
 ## When to Use
 
-Use this skill when the user needs to inspect or operate an IMAP mailbox across Gmail, Fastmail, ProtonMail Bridge, Exchange-compatible gateways, or self-hosted mail servers.
+Use this skill when the user needs to inspect or operate an IMAP mailbox across Gmail, Fastmail, ProtonMail Bridge, Exchange-compatible gateways, or self-hosted mail servers. It does not send mail; route message submission to an SMTP or provider-specific skill.
 
 Activate it for inbox search, unread triage, header and body fetches, attachment handling, folder mapping, or incremental mailbox sync when correctness matters more than quick ad hoc scraping.
 
