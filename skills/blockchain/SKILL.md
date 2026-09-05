@@ -38,7 +38,7 @@ Use blockchain when independent parties need shared truth without a trusted oper
 
 ## Reference files
 
-Load only the material needed for the task:
+Use the concise entry point above first; then load exactly one or more references only when their trigger applies:
 
 | Resource | When to load |
 | --- | --- |
