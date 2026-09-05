@@ -1,19 +1,8 @@
 ---
 name: authorization
-slug: authorization
-version: 1.0.0
-description: Build secure access control with RBAC, ABAC, permissions, policies, and scope-based authorization.
-homepage: https://clawic.com/skills/authorization
+description: Implement and manage secure access control, permissions, and roles (RBAC/ABAC/ReBAC) when the user requests authorization rules or access limits.
 metadata:
-  clawdbot:
-    emoji: 🔐
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Authorization
+  openclaw: '{"emoji":"🔐"}'
 ---
 
 ## When to Use
@@ -22,76 +11,17 @@ User needs to control what actions users can perform. Agent handles permission d
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| RBAC vs ABAC comparison | `models.md` |
-| Implementation patterns | `patterns.md` |
-| Framework middleware | `middleware.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Core Rules | `references/core-rules.md` | When designing basic permission structures or evaluating policies |
+| Common Traps | `references/common-traps.md` | When debugging permission issues or auditing auth security |
+| RBAC vs ABAC comparison | `references/models.md` | When deciding between access control paradigms |
+| Implementation patterns | `references/patterns.md` | When writing authorization checks and permission functions |
+| Framework middleware | `references/middleware.md` | When implementing authorization middleware in a web framework |
 
-## Core Rules
+## State location
 
-### 1. Auth ≠ Authorization
-- **Authentication:** Who you are (login, OAuth, tokens)
-- **Authorization:** What you can do (permissions, roles, policies)
-- Never mix concerns — auth happens BEFORE authorization
-
-### 2. Principle of Least Privilege
-- Default deny — explicit grants only
-- Users get minimum permissions for their job
-- Audit permissions periodically (revoke unused)
-- Temporary elevation over permanent grants
-
-### 3. Choose the Right Model
-| Model | Best For | Complexity |
-|-------|----------|------------|
-| ACL | Simple resource ownership | Low |
-| RBAC | Organizational hierarchies | Medium |
-| ABAC | Dynamic context-based rules | High |
-| ReBAC | Social graphs, sharing | High |
-
-Start simple → evolve when needed.
-
-### 4. Role Design Patterns
-- Roles represent jobs, not permissions
-- Max 3 inheritance levels (admin → manager → user)
-- Avoid role explosion — combine with ABAC for edge cases
-- Document role definitions (what can this role DO?)
-
-### 5. Permission Naming
-```
-resource:action:scope
-documents:write:own     ← Can edit own documents
-documents:write:team    ← Can edit team documents
-documents:delete:all    ← Can delete any document
-```
-
-Consistent naming prevents ambiguity.
-
-### 6. Policy Evaluation Order
-1. Explicit deny → always wins
-2. Explicit allow → checked second
-3. No match → default deny
-4. Log all denials for debugging
-
-### 7. Never Hardcode
-```javascript
-// ❌ Bad — hardcoded role check
-if (user.role === 'admin') { ... }
-
-// ✅ Good — permission check
-if (can(user, 'settings:update')) { ... }
-```
-
-Roles change. Permissions are stable.
-
-## Common Traps
-
-- Checking roles instead of permissions → brittle when roles change
-- OR logic in permissions → "can edit OR is admin" creates backdoors
-- Caching permissions too long → stale grants after role changes
-- Frontend-only checks → always verify server-side
-- God roles → split "admin" into specific permission sets
-- Circular inheritance → A inherits B inherits A crashes system
+This skill is stateless and does not store local configuration.
 
 ## Security & Privacy
 
@@ -103,8 +33,3 @@ Roles change. Permissions are stable.
 - Access your codebase automatically
 - Make network requests
 - Store any user data
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/authorization
-- Latest version: https://clawic.com/skills/authorization
