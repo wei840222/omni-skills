@@ -301,4 +301,4 @@ For every skill-refactor pull request:
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
 
 | property-valuation | 2026-09-02 | 85/100 | #213 |
-| blockchain | 279 | 2026-09-06 | 100 |
+| blockchain | 2026-09-06 | 100/100 | #279 |
