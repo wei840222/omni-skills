@@ -80,7 +80,7 @@ This skill ONLY:
 - hardens retries, validation, and migration from other OpenAI-compatible providers
 - stores lightweight local notes only after user approval
 
-Required protections:
+Required protections for every workflow:
 - verify live model availability by checking the API endpoint first
 - keep secrets out of `<state_root>/kimi/`
 - validate output before executing any downstream automation
