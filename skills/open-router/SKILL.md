@@ -1,132 +1,61 @@
 ---
 name: open-router
-slug: open-router
-version: 1.0.0
-description: Configure OpenRouter model routing with provider auth, model selection, fallback chains, and cost-aware defaults for stable multi-model workflows.
-homepage: https://clawic.com/skills/open-router
-changelog: Initial release with practical OpenRouter setup, routing rules, fallback reliability, and budget-safe operating guidance.
+description: Configure OpenRouter model routing, provider preferences, fallbacks, and cost controls. Use when a user asks to route LLM requests through OpenRouter, choose models or providers, recover from routing failures, or control inference spend.
 metadata:
-  clawdbot:
-    emoji: 🛣️
-    requires:
-      bins:
-      - curl
-      - jq
-      env:
-      - OPENROUTER_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Open Router
+  version: "1.0.0"
+  openclaw: '{"emoji":"🛣️","requires":{"bins":["curl","jq"],"env":["OPENROUTER_API_KEY"]}}'
+  related-skills: '{"api":"Designs and validates API requests used with OpenRouter.","auth":"Handles credential and authentication troubleshooting for OpenRouter clients.","models":"Helps compare and select models for routing policies.","monitoring":"Tracks runtime health and incidents for routing operations."}'
 ---
+
+## State location
+
+Before reading or writing routing state, resolve `<state_root>` once for this invocation:
+
+1. Use an explicitly configured state path when the user or host provides one.
+2. Otherwise use the first existing directory in this order: `<workspace>/open-router/`, `<workspace>/memory/open-router/`, then `~/.open-router/`.
+3. If none exists and the user authorizes persistent routing state, create `<workspace>/open-router/` and use it as `<state_root>`.
+
+Use only the selected `<state_root>` for this invocation. If more than one candidate exists, use the first and report the conflict; do not merge or synchronize copies.
 
 ## Setup
 
-On first use, read `setup.md` to align activation boundaries, reliability goals, and routing preferences before making configuration changes.
+On first use, load `references/setup.md` before changing routing configuration. Load only the topic-specific reference below for the request.
 
-## When to Use
+| Topic | Reference | Load when |
+|---|---|---|
+| State template | `references/memory-template.md` | Initializing or updating persistent routing state. |
+| Authentication and provider wiring | `references/auth-and-provider.md` | Configuring credentials, headers, or an API client. |
+| Workload routing | `references/routing-playbooks.md` | Selecting models or providers by workload. |
+| Fallback recovery | `references/fallback-reliability.md` | Handling rate limits, timeouts, outages, or quality regressions. |
+| Cost controls | `references/cost-guardrails.md` | Setting budgets or reviewing inference spend. |
+| Core operating rules | `references/core-rules.md` | Reviewing a routing policy before rollout. |
+| API concepts | `references/openrouter-api-concepts.md` | Clarifying OpenRouter request, provider-routing, or fallback behavior. |
 
-Use this skill when the user wants to connect an OpenAI-compatible workflow to OpenRouter, choose models by task type, set safe fallbacks, and control cost drift over time.
+## State layout
 
-## Architecture
+State remains outside this skill package:
 
-Memory lives in `~/Clawic/data/open-router/`. See `memory-template.md` for structure.
-
+```text
+<state_root>/
+├── memory.md          # Active routing profile and constraints
+├── providers.md       # Confirmed provider and authentication choices
+├── routing-rules.md   # Task-to-model and fallback policy
+├── incidents.md       # Outages, rate limits, and recovery notes
+└── budgets.md         # Spend guardrails and review actions
 ```
-~/Clawic/data/open-router/
-├── memory.md            # Active routing profile and constraints
-├── providers.md         # Confirmed provider and auth choices
-├── routing-rules.md     # Task -> model and fallback policy
-├── incidents.md         # Outages, rate limits, and recovery notes
-└── budgets.md           # Spend guardrails and optimization actions
-```
 
-## Quick Reference
+## External endpoints
 
-Use the smallest relevant file for the current task.
+Use these endpoints only for an explicit user task:
 
-| Topic | File |
-|-------|------|
-| Setup and activation preferences | `setup.md` |
-| Memory template | `memory-template.md` |
-| Authentication and provider wiring | `auth-and-provider.md` |
-| Routing patterns by workload | `routing-playbooks.md` |
-| Reliability and fallback handling | `fallback-reliability.md` |
-| Cost controls and spend reviews | `cost-guardrails.md` |
+| Endpoint | Data sent | Purpose |
+|---|---|---|
+| `https://openrouter.ai/api/v1/models` | Authentication header when supplied | Discover available model metadata. |
+| `https://openrouter.ai/api/v1/chat/completions` | Prompt content and selected routing parameters | Execute an inference request. |
 
-## Core Rules
+## Security and privacy
 
-### 1. Start from Workload Classes, Not Model Hype
-- Classify requests first: coding, analysis, extraction, summarization, or long-context synthesis.
-- Map each class to a primary model and a fallback before changing any defaults.
-
-### 2. Keep Authentication Explicit and Verifiable
-- Use `OPENROUTER_API_KEY` from the local environment, never pasted into logs or chat memory.
-- Validate auth with a minimal request before applying routing changes.
-
-### 3. Design Fallbacks for Failure Modes, Not Convenience
-- Separate fallback reasons: rate limit, provider outage, latency spike, or output quality failure.
-- Keep at least one fallback from a different provider family for resilience.
-
-### 4. Enforce Cost Boundaries Before Throughput Tuning
-- Set cost ceilings by task class and check expected token burn before broad rollout.
-- Route low-stakes tasks to cheaper models and reserve premium models for high-impact tasks.
-
-### 5. Change One Layer at a Time
-- Modify either model selection, fallback policy, or budget limits in a single iteration.
-- After each change, run a quick verification prompt set and record outcome.
-
-### 6. Record Decisions for Repeatability
-- Save the final routing policy, rationale, and known tradeoffs in memory.
-- Reuse proven policies instead of repeatedly rebuilding from scratch.
-
-## Common Traps
-
-- Choosing one model for every task -> higher cost and unstable quality under varied workloads.
-- Using same-family fallback chain only -> cascading failures during provider-specific incidents.
-- Ignoring token limits for long inputs -> truncated responses and hidden quality loss.
-- Changing routing and budgets simultaneously -> unclear root cause when quality drops.
-- Running without verification prompts -> broken routing detected only after user-facing failures.
-
-## External Endpoints
-
-These endpoints are used only to discover model metadata and execute routed inference requests under explicit user task intent.
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://openrouter.ai/api/v1/models | none or auth header only | Discover current model catalog and metadata |
-| https://openrouter.ai/api/v1/chat/completions | user prompt content and selected model id | Execute routed inference requests |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- Prompt text and selected model metadata sent to OpenRouter when inference is requested.
-
-**Data that stays local:**
-- Routing notes and preferences under `~/Clawic/data/open-router/`.
-- Local environment variable references and verification logs.
-
-**This skill does NOT:**
-- Request raw API keys in chat.
-- Store plaintext secrets in skill memory files.
-- Modify files outside `~/Clawic/data/open-router/` for its own state.
-
-## Trust
-
-By using this skill, prompt content is sent to OpenRouter for model execution.
-Only install if you trust this service with your data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` — API request design, payload shaping, and response validation patterns
-- `auth` — credential handling and auth troubleshooting workflows
-- `models` — model comparison and selection guidance
-- `monitoring` — runtime health checks and incident tracking practices
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/open-router
-- Latest version: https://clawic.com/skills/open-router
+- Read `OPENROUTER_API_KEY` from the local environment; do not request, log, or store its value.
+- Send prompt content to OpenRouter only when the user requests inference or configuration verification requiring a live request.
+- Store routing notes and verification outcomes under `<state_root>/`; do not modify state outside that root for this skill.
+- Before a routing change, identify the workload, primary route, fallback trigger, and budget boundary. Verify the change with a representative request before broad rollout.

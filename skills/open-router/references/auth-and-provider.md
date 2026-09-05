@@ -8,7 +8,7 @@ Connect an OpenAI-compatible workflow to OpenRouter with explicit auth checks an
 
 1. Confirm `OPENROUTER_API_KEY` is present in the environment.
 2. Run a lightweight models request to confirm auth and network path.
-3. Record only pass/fail and timestamp in memory.
+3. Record only pass/fail and timestamp in `<state_root>/memory.md`.
 
 ## Minimal Request Pattern
 
