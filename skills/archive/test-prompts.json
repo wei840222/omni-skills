@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "prompt": "Archive this article about SaaS pricing strategies for my ClawMsg project.",
+    "expected": "Identify the article as a URL, request its purpose and project context, then after consent save extracted content, summary, metadata, and semantic tags under the resolved <state_root>/items/.",
+    "actual": "Dry-run: the skill routes a new URL to references/capture.md, which identifies its type, extracts title, author, date, main text, quotes, and conclusions, asks for context, then confirms the archived title, tags, and project. The State Location section requires resolving state and consent before any files are created.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  },
+  {
+    "id": 2,
+    "prompt": "Find the paper I saved last month about semantic search vectors.",
+    "expected": "Search the resolved archive by fuzzy time and semantic topic, return matching titles with their saved date, purpose, summary, and path; broaden semantic search before concluding no item matches.",
+    "actual": "Dry-run: the skill routes retrieval to references/search.md. The no-results branch broadens semantic search before presenting related items. The response format includes title, saved date, purpose, summary, and path.",
+    "pass": true,
+    "eval_mode": "dry_run"
+  }
+]
