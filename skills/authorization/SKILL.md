@@ -18,6 +18,7 @@ User needs to control what actions users can perform. Agent handles permission d
 | RBAC vs ABAC comparison | `references/models.md` | When deciding between access control paradigms |
 | Implementation patterns | `references/patterns.md` | When writing authorization checks and permission functions |
 | Framework middleware | `references/middleware.md` | When implementing authorization middleware in a web framework |
+| Decision framework and sources | `references/knowledge.md` | When selecting a model, evaluating policy-as-code, or checking enforcement guidance |
 
 ## State location
 
