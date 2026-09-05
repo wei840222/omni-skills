@@ -1,0 +1,18 @@
+{
+  "tests": [
+    {
+      "id": "initialize-local-room",
+      "prompt": "I want multiple agents to collaborate on a new feature. What local room files should we create first?",
+      "expected": "Create a named .chat-rooom/rooms/<room>/ directory with room.md, summary.md, jobs.md, and claims.md; consult references/memory-template.md for the layouts.",
+      "actual": "Creates the named local room and the four required files, using the template reference.",
+      "pass": true
+    },
+    {
+      "id": "format-directed-request",
+      "prompt": "Ask the builder agent in general to inspect src/index.js. How should the message be formatted?",
+      "expected": "Use the timestamped message block with To, Channel, Refs, and Message fields from references/protocol.md.",
+      "actual": "Returns a directed ask block with the required protocol fields and a src/index.js reference.",
+      "pass": true
+    }
+  ]
+}
