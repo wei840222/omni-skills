@@ -98,7 +98,7 @@ Store API keys and secrets securely outside of repository files.
 
 ### 7. Keep Scope Tight and Transparent
 - Use only declared Binance endpoints and symbols requested by the user.
-- Maintain the integrity of this skill by strictly modifying only user-authorized state paths.
+- Modify only user-authorized state paths and preserve the skill package as read-only operational guidance.
 
 ## Execution Heuristics
 
@@ -135,11 +135,11 @@ No other data is sent externally.
 - Operational memory and incident logs in `<state_root>/`
 - Local helper scripts and runbooks created during sessions
 
-**This skill does NOT:**
-- Send data to undeclared services
-- Place production orders without explicit confirmation
-- Store API secrets in repository files
-- Modify this skill definition file
+**Operating boundary:**
+- Send request data only to the declared Binance endpoints.
+- Place a production order only after explicit confirmation in the current conversation.
+- Keep API secrets in the host credential store rather than repository files.
+- Preserve this skill definition as read-only guidance during Binance operations.
 
 ## Trust
 
