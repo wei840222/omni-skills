@@ -1,67 +1,48 @@
 ---
 name: blockchain
-slug: blockchain
-version: 1.0.0
-description: Understand blockchain technology, interact with smart contracts, and evaluate when distributed ledgers solve real problems.
-homepage: https://clawic.com/skills/blockchain
+description: Evaluate whether blockchain fits a problem, explain distributed-ledger fundamentals, and safely read or write EVM smart contracts with viem. Use for blockchain architecture decisions, wallet and transaction safety, or EVM contract interactions; do not use for trading advice or price analysis.
 metadata:
-  clawdbot:
-    emoji: ⛓️
-    displayName: Blockchain
+  openclaw: '{"emoji":"⛓️"}'
+  related-skills: '{"solidity":"Covers Solidity development and common smart-contract security pitfalls beyond this skill’s viem interaction guidance."}'
 ---
 
-## What This Covers
+This skill is stateless and does not store local configuration or persistent user state.
 
-Blockchain fundamentals and practical interaction — the technology, not the speculation.
+## What this covers
 
-**In scope:** Distributed ledgers, consensus, transactions, smart contract interaction, wallets, token standards.
-**Out of scope:** Trading strategies, price analysis, specific DeFi protocols, Solidity development (see dedicated skills).
+Blockchain fundamentals and practical EVM interaction—the technology, not speculation.
 
-## Core Concepts
+**In scope:** distributed ledgers, consensus, transactions, contract interaction, wallets, and token standards.
 
-| Concept | One-liner |
-|---------|-----------|
-| Distributed ledger | Shared database synchronized across nodes, no single owner |
-| Consensus | How strangers agree on truth without trusting each other |
-| Immutability | Changing history requires re-doing all subsequent work |
-| Smart contract | Code that executes automatically when conditions are met |
-| Gas | Fee paid to network for computation |
+**Out of scope:** trading strategies, price analysis, specific DeFi protocols, and Solidity development (use the `solidity` skill).
 
-For mental models and analogies, see `concepts.md`.
-
-## Developer Quick Reference
+## Developer quick reference
 
 ```typescript
-// Read contract (viem)
-const balance = await client.readContract({
-  address: TOKEN, abi: erc20Abi,
-  functionName: 'balanceOf', args: [wallet]
-})
+import { createPublicClient, createWalletClient, http } from 'viem'
+import { mainnet } from 'viem/chains'
 
-// Write requires wallet + confirmation wait
-const hash = await walletClient.writeContract({...})
+const client = createPublicClient({ chain: mainnet, transport: http() })
+const balance = await client.getBalance({ address: '0x...' })
+const hash = await walletClient.writeContract({ address, abi, functionName, args })
 const receipt = await client.waitForTransactionReceipt({ hash })
 ```
 
-Common traps: missing allowance checks, wrong decimals (ETH=18, USDC=6), not awaiting confirmations.
+Before sending a transaction, verify the chain, recipient, token decimals, allowance, simulation result, and wallet prompt. A submitted transaction may be irreversible; never request or handle a seed phrase or private key.
 
-For full patterns, see `dev.md`.
+## When blockchain fits
 
-## When to Use Blockchain
+Use blockchain when independent parties need shared truth without a trusted operator, immutability materially matters, or reconciliation costs dominate. Avoid it when one organization controls the data, deletion is required, or a conventional database with audit logs solves the need.
 
-✅ **Use when:** Multiple parties need shared truth, no trusted authority exists, immutability is critical, settlement costs are high.
+> **Database test:** Would PostgreSQL with appropriate access controls and audit logs solve the problem? If yes, use the database.
 
-❌ **Don't use when:** Single org controls data, you trust a central authority, data needs deletion (GDPR), or a database solves it.
+## Reference files
 
-> **The Database Test:** Would PostgreSQL with audit logs solve this? If yes, skip blockchain.
+Load only the material needed for the task:
 
-For decision framework and enterprise platforms, see `evaluation.md`.
-
-## Security Essentials
-
-- Seed phrase = master key — never share, never screenshot
-- Hardware wallet > software wallet > exchange
-- Test transactions before large transfers
-- Verify URLs obsessively — phishing clones are sophisticated
-
-For wallet security and scam patterns, see `security.md`.
+| Resource | When to load |
+| --- | --- |
+| `references/concepts.md` | Explaining core concepts, consensus, or Layer 2 architectures. |
+| `references/dev.md` | Reading or writing contracts, selecting libraries, or checking gas and transaction patterns. |
+| `references/evaluation.md` | Deciding whether a workload needs blockchain rather than conventional infrastructure. |
+| `references/security.md` | Reviewing wallet, seed phrase, approval, phishing, or smart-contract safety. |
