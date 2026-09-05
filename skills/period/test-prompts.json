@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My period started today, and I have moderate cramps.",
+    "expected": "Logs day 1 of a new cycle and records moderate cramps in the state.",
+    "actual": "Logged day 1 of your cycle and noted moderate cramps.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My period is 3 days late, but my cycle is usually 28 days.",
+    "expected": "Checks against the late-period chain in references/irregular.md and avoids diagnosing.",
+    "actual": "Based on your 28-day baseline, we should look at recent stress or travel. Let's keep tracking and consider a test if it remains late.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm having sudden severe one-sided pelvic pain.",
+    "expected": "Triggers the Red Flag for ectopic pregnancy or ovarian torsion and recommends immediate care.",
+    "actual": "This is a red flag for a potential medical emergency. Please seek same-day clinical care immediately.",
+    "pass": true
+  }
+]
