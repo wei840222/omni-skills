@@ -9,4 +9,3 @@ Use seasonal creative or events only when they match a real, available in-app ex
 
 Sources:
 - Apple, *In-App Events overview*: https://developer.apple.com/app-store/in-app-events/
-- Google Play Console Help, *Promotional content*: https://support.google.com/googleplay/android-developer/answer/10788710

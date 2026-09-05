@@ -10,4 +10,3 @@ Create a measurement plan before editing a listing. Define the baseline, cohort,
 
 Sources:
 - Apple, *App Analytics overview*: https://developer.apple.com/help/app-store-connect/view-app-analytics/overview-of-app-analytics
-- Google Play Console Help, *View acquisition reports*: https://support.google.com/googleplay/android-developer/answer/13962892
