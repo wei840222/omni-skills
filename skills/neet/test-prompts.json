@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a dropper preparing for NEET. My mock score is around 450, and I'm really struggling with Physics mechanics. Can you help me plan?",
+    "expected": "Identify the user as a 'dropper', load references/user-types.md, note the mock score, and suggest prioritizing high-ROI topics in Physics using references/study-methods.md and references/exam-config.md.",
+    "actual": "Identified the user as a dropper. Suggested prioritizing NCERT for Biology to secure marks while dedicating focused spaced-repetition sessions for Physics mechanics. Set up progress tracking.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What's the cutoff for AIIMS Delhi for an OBC candidate? I am stressed out and losing hope.",
+    "expected": "Load references/targets.md and references/wellbeing.md. Explain that an AIIMS Delhi OBC closing rank must be verified in the current MCC round result, then offer supportive stress-management guidance.",
+    "actual": "Loaded references/targets.md, explained that historical tables cannot establish a current AIIMS Delhi OBC cutoff, and directed the user to the current MCC round result. Then loaded references/wellbeing.md, validated the user's feelings, and suggested a short reset plus one manageable next step.",
+    "pass": true
+  }
+]
