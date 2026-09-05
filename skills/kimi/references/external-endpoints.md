@@ -8,3 +8,7 @@ Use only the official Moonshot API surface required for the current task.
 | https://api.moonshot.ai/v1/chat/completions | Prompt messages and options | Kimi chat, reasoning, coding, and structured-output requests |
 
 No other data is sent externally.
+## Official documentation
+
+- https://platform.kimi.ai/docs/api/models
+- https://platform.kimi.ai/docs/api/chat
