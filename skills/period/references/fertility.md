@@ -23,7 +23,7 @@ Load only when `fertility_tracking` is set or she explicitly asks. Everything he
 - Don't over-optimize: daily scheduling pressure is a known libido killer and the gain over every-other-day is marginal.
 - Track BBT shift + positive OPK per cycle: together they confirm ovulation actually occurred, which is the first question a fertility clinic asks.
 - Base rates to set expectations honestly: most couples conceive within a year; not conceiving in the first few months is normal, not a signal.
-- When to stop tracking and see a clinician (ACOG): 12 months of trying under 35; 6 months at 35 or older; immediately if cycles suggest no ovulation (`irregular.md`) — bring the log, it shortens the workup.
+- When to stop tracking and see a clinician (ACOG): 12 months of trying under 35; 6 months at 35 or older; immediately if cycles suggest no ovulation (`references/irregular.md`) — bring the log, it shortens the workup.
 
 ## Avoid Mode (`fertility_tracking: avoid`)
 
@@ -35,7 +35,7 @@ Load only when `fertility_tracking` is set or she explicitly asks. Everything he
 ## Pregnancy Test Timing
 
 - Test from the first day of the missed period, or 21 days after the sex in question if cycles are too irregular to define "missed."
-- Negative test but still no period: retest in one week; two negatives a week apart with no period → late-period chain in `irregular.md`.
+- Negative test but still no period: retest in one week; two negatives a week apart with no period → late-period chain in `references/irregular.md`.
 - Positive test: congratulate or acknowledge on her cue — never assume which it is. Pain or bleeding with a positive test is an emergency (SKILL.md Red Flags). Ongoing tracking moves to the `pregnancy` skill.
 
 Numbers home: window and signal thresholds here; cycle classification stays in SKILL.md §Classifying.

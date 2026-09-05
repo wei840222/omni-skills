@@ -1,6 +1,6 @@
 # Log Template — Data Formats
 
-All files live in `~/Clawic/data/period/`. Three files, three jobs: `config.yaml` = declared, `cycles.md` = the data, `memory.md` = observed.
+All files live in `<state_root>/`. Three files, three jobs: `config.yaml` = declared, `cycles.md` = the data, `memory.md` = observed.
 
 ## cycles.md — the canonical log
 
@@ -24,10 +24,10 @@ fertility:                 # ONLY when fertility_tracking is not off
 
 Rules:
 - One `## Cycle N` block per cycle, newest last. `length` stays blank until the next Day 1 lands — never estimate it.
-- Symptom lines: cycle day, symptom, severity (mild/moderate/severe as defined in `symptoms.md`), optional note in parentheses.
-- Off-method bleeds on hormonal contraception: log the same way but tag the block `method: <name>` — these blocks are excluded from prediction math (`contraception.md`).
+- Symptom lines: cycle day, symptom, severity (mild/moderate/severe as defined in `references/symptoms.md`), optional note in parentheses.
+- Off-method bleeds on hormonal contraception: log the same way but tag the block `method: <name>` — these blocks are excluded from prediction math (`references/contraception.md`).
 - An EC dose, illness, or other disruptor goes in `notes` — it explains an outlier later without excluding the cycle.
-- Never delete or rewrite past entries except on her deletion request (`privacy.md`).
+- Never delete or rewrite past entries except on her deletion request (`references/privacy.md`).
 
 ## config.yaml — what she declared
 

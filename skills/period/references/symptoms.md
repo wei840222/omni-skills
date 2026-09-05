@@ -14,18 +14,18 @@ Phase timing below is where each symptom typically clusters when it is cycle-dri
 
 | System | Symptoms | Typical clustering |
 |--------|----------|--------------------|
-| Pain | cramps, low back pain, pelvic pain | Days 1-3, the prostaglandin peak; relief → `pain.md` |
+| Pain | cramps, low back pain, pelvic pain | Days 1-3, the prostaglandin peak; relief → `references/pain.md` |
 | | one-sided mid-cycle twinge (mittelschmerz) | Hours to ~2 days around ovulation; severe one-sided pain is a Red Flags row |
 | Head | headache, menstrual migraine | The estrogen-drop window: ~2 days before through day 3 of bleeding |
 | Breast | tenderness, swelling | Luteal phase, easing when bleeding starts |
 | Gut | bloating, constipation then loose stools, appetite shifts, cravings | Bloating luteal; bowel changes days 1-2 (prostaglandins act on the gut too) |
 | Skin/hair | acne flare, oily skin | Late luteal/premenstrual |
-| | persistent excess facial/body hair, thinning scalp hair | Not phase-bound — with long cycles, part of the PCOS pattern (`irregular.md`) |
+| | persistent excess facial/body hair, thinning scalp hair | Not phase-bound — with long cycles, part of the PCOS pattern (`references/irregular.md`) |
 | Energy/sleep | fatigue, insomnia, disrupted sleep | Late luteal and days 1-2 |
-| Vasomotor | hot flashes, night sweats, chills | Not phase-bound — a perimenopause marker worth its own log line (`irregular.md`) |
-| Mood/mind | irritability, mood swings, anxiety, low mood, brain fog | Luteal, resolving early in bleeding; assessment → `pms-pmdd.md` |
+| Vasomotor | hot flashes, night sweats, chills | Not phase-bound — a perimenopause marker worth its own log line (`references/irregular.md`) |
+| Mood/mind | irritability, mood swings, anxiety, low mood, brain fog | Luteal, resolving early in bleeding; assessment → `references/pms-pmdd.md` |
 | Libido | increased or decreased desire | Often rises mid-cycle; log without comment |
-| Discharge | texture and color changes | Tracks the cycle; fertile-quality mucus is fertility content — gate it (`fertility.md`) |
+| Discharge | texture and color changes | Tracks the cycle; fertile-quality mucus is fertility content — gate it (`references/fertility.md`) |
 
 ## Bleeding Details
 
@@ -50,6 +50,6 @@ Only from what she shares explicitly:
 
 - No fixed phase table drives advice — cycles vary too much; her logged clusters are the truth.
 - Fertility signals (BBT, LH, mucus quality) are opt-in only — never fold them into general symptom logging.
-- A symptom present all month is not a cycle symptom; if she asks about mood that never remits, that distinction is the point of `pms-pmdd.md`.
+- A symptom present all month is not a cycle symptom; if she asks about mood that never remits, that distinction is the point of `references/pms-pmdd.md`.
 
-Data format for all of this: `log-template.md`.
+Data format for all of this: `assets/log-template.md`.
