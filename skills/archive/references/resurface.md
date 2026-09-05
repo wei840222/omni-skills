@@ -42,7 +42,7 @@ Only surface if:
 
 ## User Preferences
 
-Track in `memory.md`:
+Track in `<state_root>/memory.md`:
 - Did user engage with resurfaced items?
 - Did user say "not now" or "stop suggesting"?
 - Which topics get positive response?

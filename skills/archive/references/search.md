@@ -58,6 +58,6 @@ If nothing found:
 3. Always check the archive before concluding an item is missing
 
 ## Search Performance
-- memory.md (HOT) → always checked first
-- index.md → for tag/project filtering
-- items/ → full content search when needed
+- `<state_root>/memory.md` (HOT) → always checked first
+- `<state_root>/index.md` → for tag/project filtering
+- `<state_root>/items/` → full content search when needed

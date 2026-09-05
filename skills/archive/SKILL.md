@@ -65,7 +65,7 @@ When user sends something to archive:
 ### 3. Storage Structure
 Each archived item stored as:
 ```
-items/{date}_{slug}.md
+<state_root>/items/{date}_{slug}.md
 ---
 type: article
 url: original-url
