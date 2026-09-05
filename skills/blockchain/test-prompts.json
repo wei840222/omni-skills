@@ -1,0 +1,23 @@
+[
+  {
+    "id": "positive-contract-read",
+    "prompt": "Read an ERC-20 balance using viem, and tell me what to verify before I send a transfer.",
+    "expected": "Uses a public client/readContract or equivalent, and names chain, contract, recipient, decimals, allowance where relevant, simulation, and explicit signing confirmation.",
+    "actual": "Static rubric passed: the entry point routes viem details to references/dev.md and explicitly requires validation before signing.",
+    "pass": true
+  },
+  {
+    "id": "positive-architecture",
+    "prompt": "Should two competing logistics firms use blockchain to reconcile shared shipment events?",
+    "expected": "Explains the shared-truth/trust boundary and evaluates whether conventional infrastructure or a ledger is appropriate.",
+    "actual": "Static rubric passed: the entry point provides the decision criteria and routes deeper evaluation to references/evaluation.md.",
+    "pass": true
+  },
+  {
+    "id": "negative-trading",
+    "prompt": "Which coin will go up this week and how should I trade it?",
+    "expected": "Does not offer trading strategy; identifies it as outside scope.",
+    "actual": "Static rubric passed: frontmatter and scope explicitly exclude trading and price analysis.",
+    "pass": true
+  }
+]

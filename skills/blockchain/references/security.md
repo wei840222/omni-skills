@@ -12,8 +12,7 @@
 - Never share with anyone, ever
 - Never screenshot or store digitally
 - Never enter on any website
-- Write on paper/metal, store offline
-- Consider splitting across locations
+- Consider a tested backup and recovery plan rather than improvising storage or sharing recovery material.
 
 **If compromised:** All funds at risk, forever. No recovery.
 
@@ -58,3 +57,11 @@
 2. **Move remaining funds** — To new wallet if seed compromised
 3. **Document everything** — For potential reporting
 4. **Don't trust "recovery services"** — They're scams too
+
+## Source-backed security baseline
+
+Treat contract interaction as a security-sensitive operation: validate untrusted contract addresses and calldata, prefer reviewed dependencies, and keep signing authority isolated. For Solidity-specific threat models and mitigations, consult the `solidity` skill and the official security considerations.
+
+### Research sources
+
+- Solidity documentation — Security Considerations: https://docs.soliditylang.org/en/latest/security-considerations.html
