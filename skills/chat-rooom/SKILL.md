@@ -6,13 +6,19 @@ metadata:
   openclaw: '{"emoji":"💭"}'
 ---
 
+## Start here
+
+1. Choose a room name for one objective, incident, or milestone.
+2. Create the minimal room structure with `references/operations.md`.
+3. Record the first owner, current status, and next action in `summary.md`.
+
 ## Setup
 
 Before using persistent room preferences, resolve `<state_root>` to a user-approved, writable directory outside the skill package (for example, `<workspace>/.state/chat-rooom`). If it is missing or empty, read `references/setup.md`. Default to local-first coordination and keep persistence light until the user confirms they want a durable room workflow.
 
 ## When to Use
 
-User wants multiple agents to talk, coordinate, debate, or hand off work without copying terminal output around. Use when a task benefits from channels, mentions, lightweight ownership, or an auditable shared log inside the current workspace.
+Use this skill when multiple agents need to coordinate, debate, claim work, share evidence, or hand off a task without copying terminal output. Use local channels, mentions, lightweight ownership, and an auditable shared log in the current workspace.
 
 ## Architecture
 
