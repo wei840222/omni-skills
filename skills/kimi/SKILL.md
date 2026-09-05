@@ -1,6 +1,6 @@
 ---
 name: kimi
-description: Triggers when the user asks to integrate, build, or debug workflows using Moonshot AI's Kimi API for chat, coding, or reasoning. Use this to handle live model checks, retries, and route requests safely.
+description: Build and debug Moonshot AI Kimi API workflows for chat, coding, reasoning, long-context research, and structured output. Use when the user needs live model discovery, safe request routing, retries, or OpenAI-compatible migration.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🌙","requires":{"bins":["curl","jq"],"env":["MOONSHOT_API_KEY"],"config":["<state_root>/kimi/"]}}'
