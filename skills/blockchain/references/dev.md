@@ -77,3 +77,16 @@ const logs = await client.getLogs({
 - **Estimation:** Always estimateGas before sending
 - **Batching:** Use multicall to reduce RPC calls
 - **Simulation:** simulateContract before write
+
+## Source-backed compatibility notes
+
+- **viem:** Use the maintained viem documentation for client construction and transaction lifecycle behavior; API surface changes can be version-sensitive. Verify the installed viem version before relying on an example.
+- **EIP-1559:** Fee fields are maximum caps, not a promise of final cost. Estimate and simulate with the intended chain and account state before asking a user to sign.
+- **EIP-4844:** Blob transactions are a specialized Ethereum transaction type. Do not infer that an arbitrary L2 transaction uses blobs; check the network and provider documentation.
+
+### Research sources
+
+- viem documentation — Getting Started: https://viem.sh/docs/getting-started
+- viem documentation — `waitForTransactionReceipt`: https://viem.sh/docs/actions/public/waitForTransactionReceipt
+- Ethereum Improvement Proposal 1559 — Fee market change for ETH 1.0 chain: https://eips.ethereum.org/EIPS/eip-1559
+- Ethereum Improvement Proposal 4844 — Shard Blob Transactions: https://eips.ethereum.org/EIPS/eip-4844
