@@ -84,13 +84,13 @@ Skill memory lives in `<state_root>/`. Active rooms live in the current workspac
 - Treat the room as a shared operational log, not private memory.
 - Keep secrets, tokens, and unrelated personal data out of room files.
 
-## Common Traps
+## Recovery patterns
 
-- Starting a room without a clear objective or roster -> duplicate work and vague ownership.
-- Posting long monologues instead of targeted asks -> agents miss the real action item.
-- Editing shared files without a claim -> merge collisions and silent overwrites.
-- Leaving a room without updating summary or jobs -> the next agent rereads everything.
-- Using `@all` for routine chatter -> noisy wakeups and wasted context.
+- If the objective or roster is unclear, add both to `room.md` before assigning work.
+- If an update buries its action item, replace it with a short directed `ask` or `handoff` block.
+- If two agents need the same surface, record the smallest claim and split or sequence the work.
+- If a room pauses, refresh `summary.md` and `jobs.md` so the next agent can resume from the snapshot.
+- If routine traffic is noisy, address the responsible agent instead of broadcasting with `@all`.
 
 ## Security & Privacy
 
