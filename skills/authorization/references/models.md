@@ -54,8 +54,7 @@ admin → manager → employee → guest
   "effect": "allow",
   "action": "documents:write",
   "condition": {
-    "subject.department": "equals",
-    "resource.department": true
+    "subject.department": { "equals": "resource.department" }
   }
 }
 ```
