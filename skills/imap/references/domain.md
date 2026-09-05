@@ -10,3 +10,5 @@
 - RFC 9051 (IMAP4rev2): https://www.rfc-editor.org/rfc/rfc9051.html
 - RFC 3501 (IMAP4rev1): https://www.rfc-editor.org/rfc/rfc3501.html
 - RFC 6855 (IMAP UTF-8): https://www.rfc-editor.org/rfc/rfc6855.html
+- RFC 2342 (NAMESPACE): https://www.rfc-editor.org/rfc/rfc2342.html
+- RFC 7162 (CONDSTORE and QRESYNC): https://www.rfc-editor.org/rfc/rfc7162.html
