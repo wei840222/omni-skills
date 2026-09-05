@@ -1,86 +1,43 @@
 ---
 name: aso
-slug: aso
-version: 1.0.0
-description: Optimize app store listings with keyword research, A/B testing, and conversion tactics for iOS and Android.
-homepage: https://clawic.com/skills/aso
+description: Plan and improve App Store Optimization (ASO) for iOS or Android apps. Use for store-listing keyword research, metadata, creative assets, localization, experiments, review responses, or ASO measurement.
 metadata:
-  clawdbot:
-    emoji: 📲
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: ASO
+  version: "1.0.0"
+  openclaw: '{"emoji":"📲"}'
 ---
 
-# App Store Optimization Rules
+# App Store Optimization
 
-## Keyword Research
-- Competitor analysis: what keywords do top apps rank for?
-- Search volume vs difficulty: long-tail converts better than head terms
-- Seasonal keywords: plan metadata updates around trends
-- Localize keyword research per market — direct translation misses local search patterns
-- Track ranking changes weekly — ASO is continuous optimization
+Use this skill to make evidence-led improvements to an app listing. Treat each platform and locale as a separate surface; confirm current platform limits and policy before publishing changes.
 
-## iOS Metadata
-- Title (30 chars): primary keyword + brand, front-load keywords
-- Subtitle (30 chars): secondary keywords, benefit statement
-- Keyword field (100 chars): no spaces after commas, no duplicates from title/subtitle
-- Apple indexes title, subtitle, keyword field, and IAP names
-- Promotional text doesn't affect ranking — use for timely updates
+## Workflow
 
-## Android Metadata  
-- Title (30 chars): same rules as iOS
-- Short description (80 chars): high keyword density, hooks user
-- Long description (4000 chars): keywords in first and last paragraphs, 2-3% density
-- Google indexes all text including reviews
-- Developer name and URL affect rankings
+1. Define the market, platform, app category, primary conversion event, and baseline metrics.
+2. Load the relevant reference below; use official platform documentation for current limits and available features.
+3. Form one testable hypothesis, preserve a control, and define a primary metric plus a guardrail.
+4. If required platform limits, policy status, baseline data, or localization review are unavailable, stop at a draft and identify the missing evidence; do not infer it.
+5. Draft changes for approval. Do not submit listing changes, reply publicly, or start experiments without the account owner's authorization.
+6. Record the change, locale, dates, variant, baseline, outcome, and decision so the result can be audited.
 
-## Visual Optimization
-- First two screenshots = 80% of impression impact — make them count
-- Show outcomes and benefits, not UI — "Lost 20lbs" not "Calorie tracker"
-- Text overlays: large font, readable on small screens, localized
-- Video preview: 15-30 seconds, hook in first 3s, works without sound
-- Icon: simple, recognizable at 16px, stands out from competitors
+## Load references when needed
 
-## A/B Testing
-- iOS Custom Product Pages: test up to 35 variants per page
-- Google Store Listing Experiments: screenshots, descriptions, icons
-- Test one element at a time — multiple changes hide winners
-- Run tests to statistical significance — 7 days minimum
-- Winner replaces default, start next test
+| Need | Load |
+| --- | --- |
+| Query intent, competitors, and keyword mapping | `references/keyword-research.md` |
+| App Store product-page fields and release messaging | `references/ios-metadata.md` |
+| Google Play store listing fields and policy-sensitive metadata | `references/android-metadata.md` |
+| Screenshots, icons, previews, and accessibility of creative | `references/visual-optimization.md` |
+| Store listing experiments or Custom Product Pages | `references/a-b-testing.md` |
+| Funnel diagnosis and conversion hypotheses | `references/conversion-optimization.md` |
+| Responding to reviews or reporting policy violations | `references/review-management.md` |
+| Country or language adaptation | `references/localization.md` |
+| Event and seasonal release planning | `references/seasonal-and-event-strategy.md` |
+| Measurement plan and decision criteria | `references/tracking-and-analytics.md` |
 
-## Conversion Optimization
-- Ratings 4.0+ is table stakes — below kills conversion rate
-- Review count signals credibility — more installs = more reviews flywheel
-- "Editors' Choice" and featuring dramatically boost conversion
-- Size under 100MB avoids WiFi-only download friction
-- Recent updates signal active development
+## Guardrails
 
-## Review Management
-- Respond to all negative reviews within 24 hours
-- Ask clarifying questions — often converts 1-star to 4-star after fix
-- Update response after shipping fixes — reviewers can update rating
-- Never argue, always empathize and offer solution
-- Report fake reviews through official channels
-
-## Localization
-- Top 10 languages cover 80% of global downloads
-- Cultural adaptation > literal translation — local idioms, examples
-- Localize screenshots and video — text overlays must match language
-- Local keyword research per language — search behavior differs
-- Local pricing strategies — purchasing power varies
-
-## Seasonal and Event Strategy
-- Update metadata for holidays, events, seasons
-- iOS LiveOps and In-App Events boost visibility
-- Time updates to avoid review delays — submit 3+ days early
-- Coordinate with marketing campaigns — consistent messaging
-
-## Tracking and Analytics
-- Impression to install conversion rate by source
-- Keyword rankings daily — catch drops early
-- Competitor tracking — their wins are your opportunities
-- Attribution: which keywords drive paying users, not just installs
-- Organic vs paid split — healthy apps have majority organic
+- Use accurate, substantiated ratings, reviews, rankings, screenshots, and product claims; handle review feedback without incentives or rating pressure.
+- Keep listing assets and experiment notes free of personal data, credentials, and unreleased product information.
+- Verify Apple and Google policy, trademark rights, accessibility needs, and locale-specific legal requirements before proposing publication.
+- Check the linked official documentation at execution time before stating ranking factors, conversion rates, character limits, or experiment duration as facts.
+- For an inconclusive result, retain the control, document the uncertainty, and choose the next smallest reversible test.
