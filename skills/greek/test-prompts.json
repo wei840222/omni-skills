@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate 'Hey friend, what are you doing? Everything good?' to casual Greek.",
+    "expected": "Uses casual second-person language and a natural friendly greeting without forcing slang.",
+    "actual": "Γεια σου ρε φίλε, τι κάνεις; Όλα καλά;",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a short Greek reply to an unfamiliar client confirming a meeting tomorrow. Keep it professional.",
+    "expected": "Uses formal second-person language and avoids casual particles, Greeklish, and profanity.",
+    "actual": "Βεβαίως, επιβεβαιώνω τη συνάντησή μας για αύριο. Σας ευχαριστώ.",
+    "pass": true
+  }
+]
