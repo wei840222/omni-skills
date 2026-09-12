@@ -1,66 +1,103 @@
 ---
 name: website
-slug: website
-version: 1.0.0
-description: Build fast, accessible, and SEO-friendly websites with modern best practices.
-homepage: https://clawic.com/skills/website
+description: Build and harden fast, accessible, SEO-friendly websites with modern HTML/CSS architecture, Core Web Vitals, mobile-first layout, and launch checks. Use when the user wants to create a site, audit web performance, fix accessibility gaps, structure semantic markup, ship Open Graph/sitemap basics, or review pre-launch readiness. Not for deep ranking strategy (`seo`), pure stylesheet debugging (`css`), markup-only form/ARIA deep dives (`html`), icon implementation (`icons`), or image-asset pipelines (`image`).
 metadata:
-  clawdbot:
-    emoji: 🌐
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Website
+  version: "1.1.0"
+  openclaw: '{"emoji":"🌐"}'
+  related-skills: '{"seo":"Organic ranking strategy, Search Console recovery, keyword research, and schema beyond basic launch tags.","html":"Deep semantic markup, forms, dialogs, and sanitization details.","css":"Cascade, layout bugs, container queries, and stylesheet architecture.","frontend":"React/Next/Tailwind UI systems and component polish.","icons":"Accessible SVG icon patterns and touch targets.","image":"Format choice, compression, and responsive image delivery.","typography":"Measure, leading, and type-scale decisions that feed site readability."}'
 ---
 
-# Website Development Rules
+## State location
 
-## Performance
-- Images are the #1 cause of slow sites — use WebP/AVIF, lazy-load below-the-fold, and set explicit width/height to prevent layout shift
-- Render-blocking CSS delays first paint — inline critical CSS in `<head>`, defer the rest
-- Third-party scripts (analytics, chat widgets) often add 500ms+ — load them with `async` or `defer`, audit regularly
-- Fonts cause invisible text flash (FOIT) — use `font-display: swap` and preload critical fonts
-- Measure with Lighthouse in incognito mode — extensions skew results
+This skill is **stateless**. It does not store local configuration, caches, or persistent project data. Skill resources live under `references/`; never invent a filesystem state root for this package.
 
-## Mobile First
-- Start CSS with mobile styles, add complexity with `min-width` media queries — easier to scale up than strip down
-- Touch targets need 44x44px minimum — fingers are imprecise, small buttons frustrate users
-- Test on real devices, not just browser DevTools — throttling simulation misses real-world jank
-- Horizontal scroll is a critical bug — test every page at 320px width minimum
-- `viewport` meta tag is required: `<meta name="viewport" content="width=device-width, initial-scale=1">`
+## When to use
 
-## Accessibility
-- Every `<img>` needs `alt` text — empty `alt=""` for decorative images, descriptive text for meaningful ones
-- Color contrast ratio 4.5:1 minimum for body text — use WebAIM contrast checker
-- Form inputs must have associated `<label>` elements — placeholders alone are not accessible
-- Keyboard navigation must work — test every interactive element with Tab key
-- Screen readers announce heading hierarchy — use H1-H6 in logical order, never skip levels
+- User wants to build or restructure a marketing/content website
+- Performance, accessibility, mobile layout, or semantic HTML review
+- Pre-launch checklist: favicon, OG tags, sitemap, 404, forms, uptime
+- Core Web Vitals coaching (LCP, CLS, INP) without a full SEO campaign
+- Route away when the ask is pure ranking strategy (`seo`), React app architecture (`frontend`), stylesheet debugging only (`css`), or image-file optimization only (`image`)
 
-## HTML Structure
-- One `<h1>` per page only — it's the page title, not a styling tool
-- Use semantic elements: `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>` — they communicate structure to browsers and assistive tech
-- `<button>` for actions, `<a>` for navigation — don't use divs with click handlers
-- External links should have `rel="noopener"` — prevents security vulnerability with `target="_blank"`
-- Validate HTML — broken markup causes unpredictable rendering across browsers
+## Operating loop
 
-## CSS Patterns
-- Avoid `!important` — it breaks cascade and makes debugging painful. Fix specificity instead
-- Use relative units (`rem`, `em`, `%`) over fixed `px` for text — respects user font size preferences
-- CSS custom properties (variables) reduce repetition — define colors and spacing once, use everywhere
-- Flexbox for 1D layouts, Grid for 2D — don't force one to do the other's job
-- Test without CSS loading — content should still be readable in plain HTML
+1. **Clarify surface** — static page, multi-page site, or app shell; keep advice proportional.
+2. **Preserve working content** — prefer progressive enhancement; core content must work without JS.
+3. **Load depth on demand** — use the quick reference table; open only the needed reference file.
+4. **Ship measurable fixes** — name the metric or a11y failure, the change, and how to re-check (Lighthouse, axe, keyboard).
+5. **Hand off specialists** — ranking recovery → `seo`; complex CSS bugs → `css`; icon-only controls → `icons`; heavy media pipelines → `image`.
 
-## Common Mistakes
-- Missing favicon causes 404 spam in server logs — always include one, even a simple PNG
-- Not setting `<html lang="en">` breaks screen reader pronunciation
-- Hardcoded `http://` links break on HTTPS sites — use protocol-relative `//` or always `https://`
-- Assuming JavaScript is available — core content should work without JS (progressive enhancement)
-- Forgetting print styles — add `@media print` for pages users might print (receipts, articles)
+## Quick reference
 
-## Before Launch
-- Test all forms actually submit — broken contact forms lose leads silently
-- Check 404 page exists and is helpful — default server 404 looks unprofessional
-- Verify social sharing previews with Open Graph tags — test in Facebook/Twitter debuggers
-- Submit sitemap to Google Search Console — speeds up indexing
-- Set up uptime monitoring — know when your site goes down before users tell you
+| Need | Action | Load |
+|---|---|---|
+| LCP / CLS / INP, fonts, third-party scripts | Apply CWV and performance rules | `references/performance.md` |
+| Semantic landmarks, headings, buttons vs links | Fix document structure | `references/html-structure.md` |
+| Contrast, labels, keyboard, alt text | Accessibility pass | `references/accessibility.md` |
+| Viewport, touch targets, 320px width | Mobile-first layout | `references/mobile.md` |
+| Cascade, units, Flex/Grid, print | CSS patterns | `references/css-patterns.md` |
+| Favicon, OG, sitemap, 404, forms, uptime | Launch checklist | `references/launch.md` |
+| Verifiable sources | Cite standards | `references/sources.md` |
+
+## Core rules (always on)
+
+### Performance
+
+- Track Core Web Vitals: **LCP**, **CLS**, **INP** (not FID).
+- Images are the top LCP risk — prefer WebP/AVIF, lazy-load below-the-fold, set explicit `width`/`height` (or CSS aspect-ratio) to prevent layout shift.
+- Inline critical CSS; defer non-critical stylesheets.
+- Third-party scripts: `async`/`defer`, audit regularly; delay non-essential widgets until interaction when possible.
+- Fonts: `font-display: swap`, preload only the critical face; subset when payload is large.
+- Measure with Lighthouse in a clean profile; extensions skew lab scores.
+
+### Mobile first
+
+- Write base styles for small screens; add complexity with `min-width` media queries.
+- Touch targets ≥ **44×44 CSS px** (padding may expand the hit area).
+- Test real devices; DevTools throttling misses device jank.
+- Horizontal scroll at **320px** width is a release blocker.
+- Require `<meta name="viewport" content="width=device-width, initial-scale=1">`.
+
+### Accessibility
+
+- Every meaningful `<img>` needs descriptive `alt`; decorative images use `alt=""`.
+- Body text contrast ≥ **4.5:1**; large text ≥ 3:1.
+- Form controls need associated `<label>` elements — placeholders are not labels.
+- Full keyboard path: Tab/Shift+Tab, Enter/Space, Escape for dismissible UI; visible focus.
+- Heading levels stay sequential (do not skip for styling).
+
+### HTML structure
+
+- One `<h1>` per page as the page title.
+- Prefer landmarks: `<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>`.
+- `<button>` for in-page actions; `<a href>` for navigation — avoid clickable `<div>`.
+- `target="_blank"` links include `rel="noopener noreferrer"`.
+- Validate markup; broken HTML causes unpredictable a11y trees.
+
+### CSS patterns
+
+- Prefer fixing specificity over `!important`.
+- Prefer relative units (`rem`, `em`, `%`, `svh`) for text and spacing that should scale.
+- Define design tokens with CSS custom properties.
+- Flexbox for 1D; Grid for 2D — pick the tool that matches the layout axis.
+- Content must remain readable if CSS fails to load (progressive enhancement).
+
+### Common mistakes
+
+- Missing favicon → noisy 404 logs
+- Missing `<html lang="…">` → wrong screen-reader pronunciation
+- Hardcoded `http://` on HTTPS sites → mixed content
+- JS-only core content → broken without scripts
+- No `@media print` for receipts/articles users print
+
+### Before launch
+
+- Forms actually submit end-to-end
+- Custom 404 that helps recovery
+- Open Graph / Twitter card previews verified
+- Sitemap submitted (Search Console / equivalent)
+- Uptime monitoring on the production origin
+
+## Progressive disclosure
+
+Keep this file as the always-on checklist. Load reference files only when the user needs depth, examples, or source citations beyond the rules above.
