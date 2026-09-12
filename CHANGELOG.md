@@ -9,6 +9,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
 | windows | 2026-09-13 | 86/100 (#361) |
+| cooking | 2026-09-13 | 86/100 (#362) |
 | dominican-republic | 2026-09-13 | 85/100 (#360) |
 | dynamodb | 2026-09-12 | 85/100 (#358) |
 | japanese | 2026-09-13 | 85/100 (#359) |
