@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my HTML snippet for accessibility: `<img src='logo.png'><input type='text' placeholder='Search'>`",
+    "expected": "Flag missing alt on the image and missing associated label for the input; placeholders are not labels.",
+    "actual": "Called out the bare img without alt and the input that only has a placeholder. Recommended descriptive or empty alt based on intent, plus a real <label for> (or wrapping label) for the search field.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to make a website fast. Should I put all my CSS in one external file?",
+    "expected": "Advise inlining critical CSS, deferring the rest, and tracking LCP/CLS/INP rather than FID.",
+    "actual": "Recommended a small critical CSS path for above-the-fold content, deferring non-critical styles, optimizing the LCP image/fonts, and measuring Core Web Vitals with LCP, CLS, and INP.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Pre-launch checklist for a small brochure site?",
+    "expected": "Cover forms, 404, favicon, lang/title, OG tags, sitemap/robots basics, HTTPS, and uptime without turning into a full SEO campaign.",
+    "actual": "Walked launch.md items: working forms, helpful 404, favicon, html lang + titles, OG preview, sitemap/robots coherence, HTTPS, uptime monitor; pointed ranking strategy to seo when needed.",
+    "pass": true
+  }
+]
