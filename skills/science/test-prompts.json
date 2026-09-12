@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain black holes to a 7-year-old.",
+    "expected": "Uses an exciting accurate hook, one physical analogy, age-appropriate language, and avoids dumping jargon-first formalism.",
+    "actual": "WHOA! Imagine a place in space with gravity so strong that even light cannot climb back out. It is a bit like a drain you cannot see, except it pulls on nearby stars so hard that astronomers can still map it. Light going in does not bounce back, which is why the hole looks black.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Summarize the current consensus on gut microbiome impacts on mental health, including recent studies.",
+    "expected": "Labels knowledge tiers, notes small-N/animal-model limits, states knowledge-cutoff caution, and points to Scholar/PubMed rather than inventing citations.",
+    "actual": "Textbook consensus: the gut and brain communicate bidirectionally (gut-brain axis), and microbes can influence neurotransmitters and immune signaling. Active debate / preliminary findings: small-N human studies and animal models suggest diet or probiotics may affect mood symptoms, but large robust causal trials and standardized treatments are still limited. For developments after the model knowledge cutoff, verify recent primary literature via PubMed or Google Scholar and watch sample size, controls, and replication.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Design a middle-school demo that shows air has mass without using fire.",
+    "expected": "Gives materials, procedure, expected observation, one misconception to surface, and a low-hazard note.",
+    "actual": "Materials: two identical balloons, a meter stick or hanger balance, string. Inflate one balloon and leave the other flat; hang them on opposite ends of the balance. Observation: the inflated side is heavier, showing trapped air has mass. Misconception to surface: 'air is nothing / weightless.' Hazard: no flames or compressed-gas cylinders; adult supervision for balloon inflation only.",
+    "pass": true
+  }
+]
