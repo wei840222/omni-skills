@@ -1,31 +1,30 @@
 ---
 name: dreams
-slug: dreams
-version: 1.0.0
-description: Build a personal dream journal for recording, analyzing patterns, and exploring your subconscious.
-homepage: https://clawic.com/skills/dreams
+description: Record, organize, and analyze personal dreams to track symbols, recurring themes, people, emotions, waking triggers, and lucid-dream practice. Use when the user describes a dream on waking, wants a quick fragment capture, asks what keeps recurring, needs a weekly pattern review, explores a symbol without forcing one meaning, practices lucid dreaming techniques, or migrates an old dream journal. Not for clinical sleep-disorder coaching (`sleep`), free-form life journaling (`journal`), live emotional support (`psychologist`), or general note retrieval (`notes`).
 metadata:
-  clawdbot:
-    emoji: 🌙
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Dreams
+  version: "1.1.0"
+  openclaw: '{"emoji":"🌙","requires":{"config":["<state_root>/dreams/"]}}'
+  related-skills: '{"journal":"Broader reflective writing and life reviews beyond dream capture.","sleep":"Sleep quality, insomnia, jet lag, and clinical sleep red flags rather than dream content.","habits":"Daily cue and streak tracking once a morning dream-log slot is chosen.","psychologist":"In-the-moment emotional support; dream logging is not therapy.","voice-notes":"Turn groggy spoken fragments into text before filing a dream entry.","notes":"Retrieval-oriented notes unrelated to dream journaling.","mindfulness":"Waking awareness practices adjacent to dream recall and lucidity prep."}'
 ---
 
-## Core Behavior
-- User describes dream → capture immediately with details
-- User asks about patterns → surface recurring themes
-- User curious about symbols → explore possible meanings
-- Create `~/Clawic/data/dreams/` as workspace
+## State location
 
-## File Structure
-```
-~/Clawic/data/dreams/
+Resolve `<state_root>` once per invocation before any dream read or write:
+
+1. Use an explicitly configured dream-state path when the host or user supplies one.
+2. Otherwise use the first existing directory in this order: `<workspace>/dreams/`, `<workspace>/memory/dreams/`, `~/dreams/`, then migrate-from candidates `~/Clawic/data/dreams/` and `~/clawic/dreams/` only when moving legacy data.
+3. If multiple candidates exist, keep the highest-precedence directory, leave others independent, and tell the user which location was selected.
+4. If none exists and the user asks to persist a dream, create `<workspace>/dreams/` and use it as `<state_root>`.
+
+Use only the selected `<state_root>` for every state path in this skill. Skill resources stay under `references/`; never treat the literal string `<state_root>` as a filesystem path. If legacy data sits only under `~/Clawic/data/dreams/` or `~/clawic/dreams/`, move it into the selected `<state_root>` and say in one line that you moved it and from where.
+
+```text
+<state_root>/
 ├── journal/
-│   └── 2024/
-│       └── 02/
+│   └── YYYY/
+│       └── MM/
+│           ├── YYYY-MM-DD-title.md   # full entries
+│           └── YYYY-MM-DD.md         # quick captures
 ├── patterns/
 │   ├── symbols.md
 │   ├── themes.md
@@ -35,139 +34,70 @@ metadata:
 └── insights.md
 ```
 
-## Dream Entry
-```markdown
-# 2024-02-11-flying-city.md
-## Date
-February 11, 2024
+## When to use
 
-## Title
-Flying over a strange city
+- User describes a dream, night fragment, recurring symbol, or lucid attempt
+- User asks what keeps showing up, wants a weekly review, or needs help expanding a groggy capture
+- User wants portable templates for entries, pattern files, or lucidity practice logs
+- Not for diagnosing sleep apnea/insomnia protocols (`sleep`), processing waking life as a journal (`journal`), or crisis/clinical support (`psychologist`)
 
-## Dream
-I was flying over a city I didn't recognize. The buildings were tall but made of glass. I felt free at first, then anxious when I couldn't find where to land. Saw my grandmother waving from a rooftop.
+## Operating loop
 
-## Emotions
-- Freedom, exhilaration (beginning)
-- Anxiety, lost (middle)
-- Comfort when seeing grandmother
+1. **Capture first** — if the user is describing a dream, write the entry before interpreting. Prefer full template when details are available; otherwise quick capture.
+2. **Resolve state** — select `<state_root>`, create missing folders only when writing.
+3. **File the entry** under `<state_root>/journal/YYYY/MM/` using `references/templates.md`.
+4. **Update patterns only with evidence** — when the user asks about patterns or after enough entries exist, load `references/patterns.md` and update `symbols.md` / `themes.md` / `people.md` from logged entries, not from invention.
+5. **Lucidity branch** — load `references/lucid.md` only when the user practices reality checks, MILD/WBTB, or logs a lucid episode.
+6. **Surface lightly** — offer one concrete pattern or next capture tip; interpret only when asked, and keep multiple meanings open.
+7. **Safety route** — recurring trauma nightmares, sleep paralysis with distress, dream enactment/injury risk, or self-harm content: stay non-judgmental, keep the log if the user wants it, and route clinical/sleep concerns to `sleep` or real-world care rather than dream interpretation.
 
-## Symbols
-- Flying
-- Glass buildings
-- Grandmother (deceased)
+## Quick reference
 
-## Recurring?
-Flying: yes, third time this month
-Grandmother: first time in a while
+| Need | Action | Load |
+|---|---|---|
+| New dream with detail | Write full entry under `journal/YYYY/MM/` | `references/templates.md` |
+| Groggy fragment | Quick capture file; expand later on request | `references/templates.md` |
+| Pattern / recurrence question | Read `patterns/*` and summarize from counts | `references/patterns.md` |
+| Symbol curiosity | List observed contexts; offer plural readings | `references/patterns.md` |
+| Lucid practice | Reality checks, MILD/WBTB, dream-sign list | `references/lucid.md` |
+| Weekly review | Scan last 7–14 days; update `insights.md` | templates + patterns |
+| Domain sources | Verify recall/lucidity guidance claims | `references/sources.md` |
 
-## Possible Triggers
-- Stressed about big decision at work
-- Anniversary of grandmother's passing next week
+## Capture rules
 
-## Lucidity
-Not lucid, realized it was dream only upon waking
-```
+- Log immediately on waking when possible; fragments beat perfect prose.
+- Record date/time, narrative, emotions, symbols, recurring flags, possible waking triggers, and lucidity.
+- Emotions are first-class data, not optional color.
+- Voice-to-text is fine; route heavy audio cleanup through `voice-notes` when needed, then file here.
+- Never invent dream content the user did not provide.
 
-## Quick Capture
-For groggy morning logging:
-```markdown
-# 2024-02-11.md
-Flying, glass city, grandma on rooftop
-Anxious couldn't land
-[expand later]
-```
+## Pattern rules
 
-## Symbols Tracking
-```markdown
-# patterns/symbols.md
-## Water
-- Ocean: 5 times (usually calm)
-- Rain: 3 times (during stressful periods)
-- Drowning: 1 time (before job interview)
+- Counts and recurrences come only from stored entries or explicit user history.
+- Prefer “Flying appeared 3 times this month, twice with landing anxiety” over fixed symbolic dictionaries.
+- People tags may note relationship context the user stated (e.g. deceased relative); do not diagnose the user.
+- Weekly: refresh `insights.md` with 1–3 checkable observations and one gentle next step (capture streak, expand a fragment, or one lucidity check).
 
-## Flying
-- Positive: 8 times (freedom, escape)
-- Negative: 2 times (can't land, falling)
+## Interpretation stance
 
-## People
-See people.md
-```
+- Offer flexible, plural readings when asked; keep ambiguity available.
+- Separate dream description (what happened) from waking advice (what to do).
+- Do not force meaning onto every image, dismiss fragments, or judge dream content.
+- Dream work supports reflection; it is not therapy, legal advice, or medical diagnosis.
 
-## Recurring People
-```markdown
-# patterns/people.md
-## Deceased
-- Grandmother: 4 times (always comforting)
-- Uncle: 1 time
+## Failure modes
 
-## From Past
-- High school friend Mike: 3 times
-- Ex: 2 times (unresolved?)
+| Signal | Response |
+|---|---|
+| User is half-awake and dumping fragments | Quick capture now; defer analysis |
+| Asks “what does X mean?” with no journal | Answer tentatively from stated dream only; invite logging for patterns |
+| Wants clinical sleep fix via dream skill | Hand off scope boundary to `sleep` |
+| Trauma nightmare loop or safety risk | Supportive logging + real-world help path; no forced decoding |
+| Legacy Clawic path still in use | Migrate once to `<state_root>` and confirm |
 
-## Strangers
-- Faceless figures: recurring in anxiety dreams
-```
+## Guardrails
 
-## Themes
-```markdown
-# patterns/themes.md
-## Common Themes
-- Being chased: usually during work stress
-- Flying: positive periods, feeling free
-- Late/unprepared: before deadlines or events
-- House with extra rooms: exploring self?
-
-## Emotional Patterns
-- Anxiety dreams: Sunday nights
-- Vivid dreams: after late meals
-- No dreams remembered: alcohol nights
-```
-
-## Lucid Dreaming
-```markdown
-# lucid/techniques.md
-## Reality Checks
-- Look at hands
-- Check time twice
-- Try to push finger through palm
-
-## What's Worked
-- Dream journal consistency helps recall
-- MILD technique before sleep
-- Noticing dream signs (flying, water)
-
-## Lucid Experiences
-- Feb 3: realized dreaming, flew intentionally
-```
-
-## What To Surface
-- "Flying is your most common symbol"
-- "You dream about water when stressed"
-- "Grandmother appears near her anniversary"
-- "Third anxiety dream this week"
-
-## Capture Tips
-- Log immediately on waking — dreams fade fast
-- Voice note if too groggy to type
-- Any fragment is worth saving
-- Note emotions, not just events
-
-## What To Track
-- Date and rough time
-- Narrative (as much as remembered)
-- Emotions felt during dream
-- Symbols and recurring elements
-- Possible waking life triggers
-
-## Progressive Enhancement
-- Start: capture dreams on waking
-- Tag symbols and emotions
-- Review weekly for patterns
-- Track lucid dreaming attempts
-
-## What NOT To Do
-- Interpret too literally
-- Force meaning on every dream
-- Dismiss fragments as not worth logging
-- Judge dream content
+- No credentials, secrets, or third-party account tokens in dream files.
+- Do not publish private dream content externally unless the user explicitly asks to export a specific entry.
+- Keep skill resources (`references/`) separate from user state (`<state_root>/`).
+- Positive practice framing: log fragments, keep plural meanings, and route clinical sleep issues to the right skill.
