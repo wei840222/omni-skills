@@ -13,7 +13,7 @@ This skill is **stateless**. It does not store local configuration, caches, or p
 
 ## When to use
 
-- User wants to build or restructure a marketing/content website
+- User wants to build or restructure a marketing, brochure, or content website
 - Performance, accessibility, mobile layout, or semantic HTML review
 - Pre-launch checklist: favicon, OG tags, sitemap, 404, forms, uptime
 - Core Web Vitals coaching (LCP, CLS, INP) without a full SEO campaign
