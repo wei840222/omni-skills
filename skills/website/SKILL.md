@@ -84,11 +84,11 @@ This skill is **stateless**. It does not store local configuration, caches, or p
 
 ### Common mistakes
 
-- Missing favicon → noisy 404 logs
-- Missing `<html lang="…">` → wrong screen-reader pronunciation
-- Hardcoded `http://` on HTTPS sites → mixed content
-- JS-only core content → broken without scripts
-- No `@media print` for receipts/articles users print
+- Ship a real favicon to stop noisy icon 404 logs
+- Set `<html lang="…">` so screen readers use the right pronunciation
+- Use `https://` (or scheme-relative) links on HTTPS sites to avoid mixed content
+- Keep core content available without JavaScript (progressive enhancement)
+- Add `@media print` for receipts/articles people actually print
 
 ### Before launch
 
