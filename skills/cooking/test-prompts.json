@@ -1,0 +1,16 @@
+[
+  {
+    "prompt": "I'm cooking a steak, how long should I cook it for?",
+    "intent": "Get doneness temperature, not a specific time",
+    "expected": "Tell the user to cook to temperature instead of time, give the target temperature for medium-rare (or their preferred doneness), and explain carryover cooking.",
+    "actual": "Cook to temperature, not time. For medium-rare, target 54C (130F), but pull it at 51C (125F) to allow for carryover cooking.",
+    "score": 100
+  },
+  {
+    "prompt": "My sauce is too salty, what should I do?",
+    "intent": "Get instructions to fix over-salted food",
+    "expected": "Explain that adding potato doesn't work. Recommend adding unsalted bulk, acid, or fat.",
+    "actual": "A potato won't fix it. Add unsalted liquid, fat (like butter or cream), or a splash of acid (like vinegar or lemon juice). Dilute only as a last resort.",
+    "score": 100
+  }
+]
