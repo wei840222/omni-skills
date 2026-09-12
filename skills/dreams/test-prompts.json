@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just woke up. I was swimming in a calm ocean, then flying above it and felt free, then anxious I could not land. Please log it.",
+    "expected": "Resolve <state_root>, create a full journal entry under journal/YYYY/MM/ with narrative, emotions (free/calm then anxiety), symbols Ocean and Flying, lucidity not lucid, and avoid heavy interpretation before capture.",
+    "actual": "Resolved <workspace>/dreams/ as <state_root>, wrote journal/2026/09/2026-09-13-ocean-flight.md with emotions and symbols Ocean/Flying, marked not lucid, and confirmed the path without forcing a single meaning.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What keeps showing up in my dreams lately? I have been logging for a few weeks.",
+    "expected": "Load patterns references, read <state_root>/patterns/ (symbols/themes/people) and recent journal files, summarize frequency-based observations only from stored data, and offer one light next step.",
+    "actual": "Read patterns/symbols.md and themes.md plus the last two weeks of journal entries, reported Flying as the top symbol with landing anxiety in 2 of 4 flights, noted water dreams near stressful weekdays, and suggested a Sunday pattern review rather than inventing new symbols.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Teach me a simple lucid dreaming routine I can try without wrecking my sleep.",
+    "expected": "Load lucid reference; give daytime reality checks + brief MILD; mention WBTB only as optional and skip if sleep-deprived; point chronic sleep problems to the sleep skill; no medical promises.",
+    "actual": "Shared three daytime reality checks and a short MILD intention script, filed a lucid/techniques.md starter under <state_root>, warned to skip WBTB while exhausted, and routed snoring/gasping or chronic insomnia concerns to the sleep skill.",
+    "pass": true
+  }
+]
