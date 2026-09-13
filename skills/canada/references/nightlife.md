@@ -27,7 +27,7 @@
 - Cover charges vary heavily by event nights.
 - Late-night food planning matters after venue close times.
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Assuming all cities run on identical nightlife timing.
 2. Skipping reservations for high-demand cocktail bars.

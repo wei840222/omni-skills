@@ -25,7 +25,7 @@
 - Adventure add-ons (weather and safety dependent)
 - Build some free-choice windows in itinerary
 
-## Family Traps to Avoid
+## Common Family Pitfalls
 
 1. Overpacking transfer-heavy schedules.
 2. Choosing accommodation far from daily activity clusters.

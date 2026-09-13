@@ -33,7 +33,7 @@ Excellent seafood, Japanese and pan-Asian depth, plus strong produce-driven kitc
 - In top food neighborhoods, walk one or two blocks off the main strip for better quality-price ratio.
 - Tipping norms typically land around 15-20% in sit-down service.
 
-## Food Traps to Avoid
+## Common Food Pitfalls
 
 1. Social-media-only picks with long lines and average execution.
 2. High-rent attraction zones where menu quality is secondary to location.
