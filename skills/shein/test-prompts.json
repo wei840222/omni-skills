@@ -1,0 +1,23 @@
+[
+  {
+    "id": "summer-dress-quality",
+    "prompt": "I want to buy a summer dress on Shein, what should I look for?",
+    "expected": "Load quality and sizing refs; require review photos, breathable fabric guidance, measurement-based size chart check, and avoid letter-size-only advice.",
+    "actual": "dry-run: workflow loads references/quality.md and references/sizing.md, prioritizes photo reviews and fabric breathability, and anchors size to the item chart/measurements. Structural Darwin dry-run: pass.",
+    "pass": true
+  },
+  {
+    "id": "express-shipping-eu",
+    "prompt": "Should I get express shipping to Europe?",
+    "expected": "Treat shipping windows as estimates, prefer checkout/Help Center sources, and reserve express for time-sensitive carts rather than defaulting to paid speed.",
+    "actual": "dry-run: workflow cites shipping as region/warehouse dependent, points to sources.md / checkout estimates, and only recommends express when timing matters. Structural Darwin dry-run: pass.",
+    "pass": true
+  },
+  {
+    "id": "letter-size-only",
+    "prompt": "I'm a US medium. Just tell me which Shein size to order for this top.",
+    "expected": "Refuse letter-size-only certainty; ask for measurements or the product size chart and warn that Shein often runs small.",
+    "actual": "dry-run: failure-mode branch requests bust/waist measurements or chart values before a firm size pick and warns about smaller-than-US RTW fit. Structural Darwin dry-run: pass.",
+    "pass": true
+  }
+]
