@@ -1,6 +1,6 @@
 # Environment — Bedroom, Noise, Light, Partners
 
-Environment fixes are prevention and low-hanging fruit: cheap, fast, zero adherence burden. They do not treat chronic insomnia (SKILL.md Traps) — run them alongside protocols, not instead.
+Environment fixes are prevention and low-hanging fruit: cheap, fast, zero adherence burden. They are insufficient for chronic insomnia (SKILL.md Traps) — run them alongside protocols, not instead.
 
 ## Temperature
 
@@ -29,7 +29,7 @@ Stuffy rooms degrade sleep quality; a closed small bedroom with two sleepers acc
 ## Bed, Bedding, Clock
 
 - Mattress evidence is thin: medium-firm is the defensible default; replace when mornings start with stiffness that fades after an hour up — that pattern points at the surface, not the spine.
-- Hide the clock: face it away, phone across the room. Time-checking at 3am is arithmetic panic on demand (`insomnia.md` 3am playbook).
+- Hide the clock: face it away, phone across the room. Time-checking at 3am is arithmetic panic on demand (`references/insomnia.md` 3am playbook).
 - Bed reserved for sleep and sex — the stimulus-control rule lives or dies on the bedroom setup: no desk-bed, no TV-facing-bed if insomnia is active.
 
 ## Partners
@@ -43,7 +43,7 @@ Stuffy rooms degrade sleep quality; a closed small bedroom with two sleepers acc
 
 - Pets in the bed wake light sleepers measurably; the honest test is 2 weeks with the pet outside the room and the diary as judge — many sleepers pass and keep the pet, some are stunned by the difference.
 - Co-sleeping with kids is a family-values call, not a coaching target; what IS coachable: returning night-visiting kids to their own bed the same way every time, because variable response trains persistent visiting.
-- Baby in the room → `populations.md` (new parents).
+- Baby in the room → `references/populations.md` (new parents).
 
 ## Hotel and Travel Kit
 
