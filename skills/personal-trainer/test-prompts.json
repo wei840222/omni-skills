@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a complete beginner looking to build some muscle at home. I only have a pair of dumbbells. Can you create a workout plan for me?",
+    "expected": "The agent should gather necessary information (days per week, time per session, limitations) and then design a full-body workout plan utilizing dumbbells, including setup, execution, and progression advice.",
+    "actual": "I'd love to help you build a beginner-friendly dumbbell routine for home! Before I design your program, let me ask a few quick questions:\n1. How many days a week and how much time per session can you commit to?\n2. Do you have any injuries or physical limitations I should know about?\n3. What weight are your dumbbells?\n\nOnce I have this, I'll put together a safe, effective full-body plan for you.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I felt a sharp pain in my lower back during my Romanian deadlifts yesterday. Should I push through it or change something?",
+    "expected": "The agent must advise against pushing through pain, suggest stopping the exercise, and recommend seeing a medical professional or physiotherapist if pain persists, while offering safe alternative exercises or modifications.",
+    "actual": "Stop doing the Romanian deadlifts immediately. You should **never** push through sharp pain, especially in your lower back. I cannot assess injuries, so if the pain persists, please see a physiotherapist or doctor.\n\nFor now, we will swap out the RDLs. We can focus on alternative exercises that might be easier on the lower back, like glute bridges or leg curls. How are you feeling today?",
+    "pass": true
+  }
+]
