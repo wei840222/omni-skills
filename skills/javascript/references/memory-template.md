@@ -1,6 +1,6 @@
 # Memory Template — JavaScript
 
-Create `~/Clawic/data/javascript/memory.md` with this structure:
+Create `<state_root>/javascript/memory.md` with this structure:
 
 ```markdown
 # JavaScript Memory

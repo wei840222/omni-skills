@@ -4,7 +4,7 @@
 
 1. Throw Error instances only, wrapping with `cause` at every layer that adds context: `new Error("config load failed", {cause: err})` (floor: `modern.md`). A cause chain replaces the lost-context rethrow AND the string-concatenation message mangle.
 2. Two kinds of failure: **operational** (expected: network down, validation, not-found) vs **programmer** (bugs: undefined access, broken invariant). Handle operational errors; let programmer errors crash loudly — a caught-and-ignored bug leaves the process in an unknown state.
-3. Log OR rethrow, never both — double logging buries the real report under echoes. Exactly one boundary (the top-level handler) both logs and swallows.
+3. Choose to log OR rethrow exclusively — double logging buries the real report under echoes. Exactly one boundary (the top-level handler) both logs and swallows.
 4. Catch narrowly, rethrow the rest:
 
 ```js
@@ -34,23 +34,23 @@ class ConfigError extends Error {
 - A caught value is not guaranteed to be an Error: render with `err instanceof Error ? err.message : String(err)` before touching `.message`/`.stack`.
 - Walk a cause chain: `for (let e = err; e; e = e.cause) log(e.name, e.message)`. Modern Node prints the chain in `console.error` automatically.
 
-## Global Hooks (reporting, never control flow)
+## Global Hooks (reporting, strictly not for control flow)
 
 | Runtime | Hook | Semantics |
 |---|---|---|
-| Node | `process.on("uncaughtException")` | State possibly corrupt: log, flush, set `process.exitCode`, exit. Never resume normal work |
+| Node | `process.on("uncaughtException")` | State possibly corrupt: log, flush, set `process.exitCode`, exit. initiate shutdown rather than resuming work |
 | Node | `process.on("unhandledRejection")` | Crashes by default (SKILL.md Core Rule 3); hook it to log before dying, not to survive |
 | Browser | `window.addEventListener("error")` | Uncaught throws + resource load failures |
 | Browser | `window.addEventListener("unhandledrejection")` | Promise rejections; `e.preventDefault()` suppresses the console default |
 
 - Recovery logic belongs at the request/task boundary (one failed job ≠ dead process); global hooks are the flight recorder.
-- An error thrown inside a DOM event handler or `setTimeout` callback never reaches the surrounding try/catch — it goes straight to the global hook. Wrap the callback body if you need local handling.
+- An error thrown inside a DOM event handler or `setTimeout` callback bypasses the surrounding try/catch — it goes straight to the global hook. Wrap the callback body if you need local handling.
 
 ## Serializing Errors
 
 - `JSON.stringify(err)` → `{}` — `message` and `stack` are non-enumerable. Serialize explicitly: `{name, message, stack, cause: err.cause && serialize(err.cause)}`.
 - `structuredClone`/`postMessage` carry built-in error types with message and stack intact; custom subclasses arrive as plain `Error` — send the `code` property alongside (rule above).
-- Stack format is engine-specific prose, not an API: never parse it for control flow.
+- Stack format is engine-specific prose, not an API: use it solely for diagnostics, not control flow.
 
 ## Traps
 

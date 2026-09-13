@@ -1,37 +1,33 @@
 ---
 name: javascript
-slug: javascript
-version: 1.0.6
-changelog: 'Full coverage pass: deeper guides, situation-named files, and per-user configuration'
-description: 'Writes, debugs, and reviews JavaScript: async and the event loop, coercion, closures, dates, Unicode, regex, and modern ES2023+ APIs. Use when JS throws TypeError or "undefined is not a function", a promise never settles or a rejection goes unhandled, NaN or [object Object] appears, dates shift by a day, sorting or equality misbehaves, memory grows, a regex hangs, JSON loses precision, a Node process won''t exit or ignores signals, or fetch doesn''t reject on a 404; also when choosing data structures, handling errors, profiling slow code, or checking whether a feature is safe for a target Node or browser version. Covers Node and browser runtime edges. Not for TypeScript type-system design or framework internals.'
-homepage: https://clawic.com/skills/javascript
+description: 'Writes, debugs, and reviews JavaScript: async/event loop, coercion, closures, dates, Unicode, regex, and ES2023+. Use when JS throws errors, promises hang, values are NaN/[object Object], dates shift, sorting/equality misbehaves, memory grows, regex hangs, JSON loses precision, or Node processes stall. Covers Node and browser runtime edges. Does not cover TypeScript type-system design or framework internals.'
 metadata:
-  clawdbot:
-    emoji: 🟨
-    displayName: JavaScript
-    configPaths:
-    - ~/Clawic/data/javascript/
-    - ~/javascript/
-    - ~/clawic/javascript/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/javascript/
-      - ~/javascript/
-      - ~/clawic/javascript/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🟨","requires":{"config":["<state_root>/javascript/","~/javascript/","~/clawic/javascript/"]}}'
+  related-skills:
+  - skills/typescript
+  - skills/nodejs
+  - skills/react
 ---
 
-User preferences and memory live in `~/Clawic/data/javascript/` (see `setup.md` on first use, `memory-template.md` for the file format). If you have data at an old location (`~/javascript/` or `~/clawic/javascript/`), move it to `~/Clawic/data/javascript/`, and say in one line that you moved it and from where.
+## State location
+
+User preferences and memory live in `<state_root>/javascript/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). Candidate lookup order:
+
+- `<workspace>/.agents/state/javascript/` (workspace-specific)
+- `~/.agents/state/javascript/` (global fallback)
+
+If you have data at an old location (`~/javascript/`, `~/clawic/javascript/`, or `~/Clawic/data/javascript/`), move it to `<state_root>/javascript/`, and say in one line that you moved it and from where.
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/javascript/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/javascript/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
-| runtime_target | node \| browser \| both | node | Selects which platform file applies by default (`node.md` vs `browser.md`) and which floor gates advice |
-| node_floor | number (Node major) | from package.json `engines`, else 22 | Gates every recommendation against the feature-floor table in `modern.md`; flags any API above the floor |
-| module_system | esm \| cjs \| dual | esm | Switches module guidance and import/export examples in `modern.md`; `dual` activates the dual-package hazard checks |
+| runtime_target | node \| browser \| both | node | Selects which platform file applies by default (`references/node.md` vs `references/browser.md`) and which floor gates advice |
+| node_floor | number (Node major) | from package.json `engines`, else 22 | Gates every recommendation against the feature-floor table in `references/modern.md`; flags any API above the floor |
+| module_system | esm \| cjs \| dual | esm | Switches module guidance and import/export examples in `references/modern.md`; `dual` activates the dual-package hazard checks |
 | browser_floor | text (e.g. "Safari 16+", "last 2 years") | none | When set, gates syntax and API advice for browser-targeted code the way `node_floor` gates Node |
 
 Preference areas to record as the user reveals them:
@@ -54,30 +50,30 @@ Preference areas to record as the user reveals them:
 
 | Situation | Go to |
 |---|---|
-| TypeError/ReferenceError, NaN appearing, value undefined after await, works-in-dev-only, heisenbug | `debug.md` |
-| Promise/await bug, rejection handling, cancellation, concurrency limits, races | `async.md` |
-| Throwing, catching, custom errors, cause chains, global error hooks, serializing errors | `errors.md` |
-| `==` surprise, truthiness, implicit conversion, `??` vs `\|\|` | `coercion.md` |
-| Array/Object/Map/Set choice, copying, sorting, iteration traps | `collections.md` |
-| ES2020+ syntax semantics, feature floors, modules (ESM/CJS), classes, generators/iterators | `modern.md` |
-| Memory grows, listener/timer leaks, WeakMap/WeakRef, heap snapshots | `memory-leaks.md` |
-| Slow code, jank, benchmarks, GC pressure, workers | `performance.md` |
-| Regex wrong matches, stateful `lastIndex`, catastrophic backtracking, Unicode flags | `regex.md` |
-| JSON precision loss, Date/Map round-trips, reviver/replacer, canonicalization | `json.md` |
-| Env vars, process exit, signals, streams, Buffer, child processes | `node.md` |
-| DOM events, storage, script loading, fetch response handling | `browser.md` |
+| TypeError/ReferenceError, NaN appearing, value undefined after await, works-in-dev-only, heisenbug | `references/debug.md` |
+| Promise/await bug, rejection handling, cancellation, concurrency limits, races | `references/async.md` |
+| Throwing, catching, custom errors, cause chains, global error hooks, serializing errors | `references/errors.md` |
+| `==` surprise, truthiness, implicit conversion, `??` vs `\|\|` | `references/coercion.md` |
+| Array/Object/Map/Set choice, copying, sorting, iteration traps | `references/collections.md` |
+| ES2020+ syntax semantics, feature floors, modules (ESM/CJS), classes, generators/iterators | `references/modern.md` |
+| Memory grows, listener/timer leaks, WeakMap/WeakRef, heap snapshots | `references/memory-leaks.md` |
+| Slow code, jank, benchmarks, GC pressure, workers | `references/performance.md` |
+| Regex wrong matches, stateful `lastIndex`, catastrophic backtracking, Unicode flags | `references/regex.md` |
+| JSON precision loss, Date/Map round-trips, reviver/replacer, canonicalization | `references/json.md` |
+| Env vars, process exit, signals, streams, Buffer, child processes | `references/node.md` |
+| DOM events, storage, script loading, fetch response handling | `references/browser.md` |
 | Anything else (numbers, dates, strings, `this`, timers) | Sections below |
 
 ## Core Rules
 
-1. `===` always; the only defensible `==` is the idiom `x == null` — it matches both null and undefined in one check. Never expand it to two comparisons.
-2. Float equality is a band, not `===`: `Math.abs(a - b) <= Number.EPSILON * Math.max(1, Math.abs(a), Math.abs(b))`. Worked: `0.1 + 0.2 - 0.3` ≈ 5.6e-17, inside the band (EPSILON ≈ 2.2e-16). Money never touches floats: integer minor units.
+1. `===` always; the only defensible `==` is the idiom `x == null` — it matches both null and undefined in one check. Keep it as a single check.
+2. Float equality is a band, not `===`: `Math.abs(a - b) <= Number.EPSILON * Math.max(1, Math.abs(a), Math.abs(b))`. Worked: `0.1 + 0.2 - 0.3` ≈ 5.6e-17, inside the band (EPSILON ≈ 2.2e-16). Keep money as integer minor units.
 3. Every promise gets a handler attached synchronously — a rejection with no handler when the microtask queue drains crashes Node (default since Node >=15) and fires `unhandledrejection` in browsers.
-4. Mutation is opt-in: default to `toSorted`/`toReversed`/`with` and spread; `structuredClone` only when depth is real. Runtime floors for all of these: `modern.md`.
-5. Durations from `performance.now()` (monotonic); wall-clock timestamps from `Date.now()`. Never subtract two `Date.now()` calls for benchmarks — NTP can step it backwards mid-measurement.
+4. Mutation is opt-in: default to `toSorted`/`toReversed`/`with` and spread; `structuredClone` only when depth is real. Runtime floors for all of these: `references/modern.md`.
+5. Durations from `performance.now()` (monotonic); wall-clock timestamps from `Date.now()`. Use `performance.now()` for benchmark durations — NTP can step it backwards mid-measurement.
 6. Sequential vs parallel is a decision you write down: `for...of` + await = sequential; `Promise.all(arr.map(f))` = parallel, fail-fast, and it does NOT cancel the losers.
-7. `.length` counts UTF-16 code units, not characters: `"😀".length === 2`. Slice user-visible text with `Intl.Segmenter`, never by index.
-8. Check the feature-floor table in `modern.md` before shipping ES2023+ APIs — one `toSorted` call breaks Node 18 at runtime, not at build time.
+7. `.length` counts UTF-16 code units, not characters: `"😀".length === 2`. Slice user-visible text with `Intl.Segmenter`, use `Intl.Segmenter` for character indexing.
+8. Check the feature-floor table in `references/modern.md` before shipping ES2023+ APIs — one `toSorted` call breaks Node 18 at runtime, not at build time.
 
 ## Numbers & Money
 
@@ -90,7 +86,7 @@ Preference areas to record as the user reveals them:
 ## Dates & Time
 
 - Months are 0-indexed: `new Date(2025, 0, 31)` is Jan 31.
-- Parsing split: date-only ISO (`"2024-01-01"`) → UTC midnight; date-time without offset (`"2024-01-01T00:00"`) → local time. Same input day can render one day off in negative-offset zones. Any non-ISO string is implementation-defined — never parse it.
+- Parsing split: date-only ISO (`"2024-01-01"`) → UTC midnight; date-time without offset (`"2024-01-01T00:00"`) → local time. Same input day can render one day off in negative-offset zones. Any non-ISO string is implementation-defined — parse only standard ISO strings.
 - Month math rolls over: `d = new Date(2025, 0, 31); d.setMonth(1)` → March 3 (Feb 31 normalizes). Pin the day to 1 before month arithmetic, then restore a clamped day.
 - `getTimezoneOffset()` is UTC minus local: UTC+2 reports **-120**. Sign errors here produce double-offset bugs that cancel out in your own timezone and explode in others.
 - Store epoch ms (`Date.now()`) plus IANA zone name; format only at the edge with `Intl.DateTimeFormat`.
@@ -100,11 +96,11 @@ Preference areas to record as the user reveals them:
 - `length`, `slice`, `charAt` operate on UTF-16 units: `"👨‍👩‍👧".length === 8`. `[...str]` yields code points; user-perceived characters need `Intl.Segmenter`. Index-based slicing can cut a surrogate pair → U+FFFD garbage.
 - Normalize before comparing user input: composed `"é"` !== `"e"` + combining accent even when rendered identically — `str.normalize("NFC")` both sides.
 - Human sorting: `(a, b) => a.localeCompare(b, undefined, {numeric: true})` → `["file2", "file10"]`, accents ordered correctly. Bare `<` compares code units (`"Z" < "a"` is true).
-- `/g` and `/y` regexes are stateful: `lastIndex` persists across calls, so `re.test(s)` twice on the same string can alternate true/false. Drop `/g` for single tests or reset `re.lastIndex = 0` (depth: `regex.md`).
+- `/g` and `/y` regexes are stateful: `lastIndex` persists across calls, so `re.test(s)` twice on the same string can alternate true/false. Drop `/g` for single tests or reset `re.lastIndex = 0` (depth: `references/regex.md`).
 
 ## Objects, this & Closures
 
-- Key order is spec'd: integer-like keys ascending FIRST, then strings in insertion order. `Object.keys({b:1, 2:2, a:3, 1:4})` → `["1","2","b","a"]`. Never encode order in numeric-string keys — use Map or an array.
+- Key order is spec'd: integer-like keys ascending FIRST, then strings in insertion order. `Object.keys({b:1, 2:2, a:3, 1:4})` → `["1","2","b","a"]`. Use Map or array for ordered keys — use Map or an array.
 - User-controlled keys on plain objects are an injection surface: `obj[userKey]` with `"__proto__"` pollutes the prototype. Use Map or `Object.create(null)` for user-keyed storage.
 - `Object.hasOwn(obj, k)` over `obj.hasOwnProperty(k)`: works on null-prototype objects and can't be shadowed.
 - `{...obj}` invokes getters (snapshots values); `Object.assign(target, src)` fires setters on target. Same shallow result, different side effects.
@@ -125,7 +121,7 @@ Preference areas to record as the user reveals them:
 |---|---|---|
 | `forEach(async x => ...)` | forEach ignores returned promises: everything runs at once, "finishes" instantly | `for...of` (sequential) or `Promise.all(arr.map(f))` |
 | `Array(3).fill({})` | one shared object, three references | `Array.from({length: 3}, () => ({}))` |
-| `return fetchThing()` inside try | the rejection settles after try exits — catch never sees it | `return await fetchThing()` |
+| `return fetchThing()` inside try | the rejection settles after try exits — catch is bypassed | `return await fetchThing()` |
 | `Promise.race([op, timeout])` | the loser keeps running and holding sockets/memory | `AbortSignal.timeout(ms)` passed into the op |
 | `return`/`throw` inside finally | overrides the try's result and swallows its exception | finally is for cleanup only |
 | `throw "failed"` | no stack, `instanceof Error` false, breaks error middleware | `new Error("failed", {cause: err})` |
@@ -140,7 +136,7 @@ Preference areas to record as the user reveals them:
 Before emitting JS code or a review verdict, verify:
 
 - Every promise created inside try is `return await`-ed, not `return`-ed?
-- No API above the target floor (`modern.md` table vs `node_floor` / `browser_floor`)?
+- No API above the target floor (`references/modern.md` table vs `node_floor` / `browser_floor`)?
 - Money in integer minor units; no ≥16-digit id passing through `JSON.parse` as a number?
 - Every thrown value an Error instance, wrapped with `cause` where context was added?
 - Each mutating call (`sort`, `reverse`, `splice`, `Object.assign`) intentional, not incidental?
@@ -149,20 +145,12 @@ Before emitting JS code or a review verdict, verify:
 
 ## Where Experts Disagree
 
-- **Classes vs closures/factories.** Classes when many instances share methods (prototype = one function object) or brand checks matter (`#x in obj`); factories for one-off capability objects and simple DI. Field-initializer arrow functions are the worst of both (→ `modern.md` Classes).
+- **Classes vs closures/factories.** Classes when many instances share methods (prototype = one function object) or brand checks matter (`#x in obj`); factories for one-off capability objects and simple DI. Field-initializer arrow functions are the worst of both (→ `references/modern.md` Classes).
 - **Exceptions vs result values.** Throw for the unexpected: broken invariants, failed I/O you cannot proceed without. Return values for expected outcomes: validation, not-found, cancellation. The test: if the immediate caller always try/catches, it wasn't exceptional — return it.
 - **Chained array methods vs loops.** Chains are the readability default; a loop wins when profiling shows intermediate-array cost or the logic needs early exit beyond `some`/`every`/`find`. Switching styles without a measurement is churn, not optimization.
 
+## Research sources
+
+- Verifiable language/runtime anchors: `references/sources.md`
+
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/javascript (install if the user confirms):
-- `typescript` — the type system layered on top of this language
-- `nodejs` — Node platform operations beyond the language: servers, tooling, deployment
-- `react` — framework work where these language rules get applied
-- `regex` — pattern crafting beyond JS-specific regex behavior
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/javascript
-- Latest version: https://clawic.com/skills/javascript
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/javascript.

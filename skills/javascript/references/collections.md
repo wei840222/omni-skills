@@ -28,7 +28,7 @@ Default `structuredClone`; use the JSON round-trip only when you also want to pr
 
 - Default comparator stringifies: `[10, 2, 1].sort()` → `[1, 10, 2]`. Numbers: `(a, b) => a - b`. Human strings: `localeCompare` with `{numeric: true}` (→ SKILL.md Strings & Unicode).
 - Stable since ES2019: multi-key ordering = sort by secondary key first, then by primary — ties keep the secondary order.
-- `undefined` elements always sort to the end; the comparator never sees them.
+- `undefined` elements always sort to the end; the comparator bypasses them.
 - An inconsistent comparator (random tiebreaks, non-transitive rules) yields implementation-defined garbage, not "roughly sorted".
 - `sort`/`reverse`/`splice` mutate in place; `toSorted`/`toReversed`/`toSpliced`/`with` return copies (floors: `modern.md`).
 

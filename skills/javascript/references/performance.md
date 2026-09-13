@@ -4,7 +4,7 @@
 
 1. Profile before touching code: `node --cpu-prof` (open the profile in DevTools) or the browser Performance panel. The hot spot is rarely where reading suggests; optimizing unprofiled code is churn (SKILL.md Where Experts Disagree).
 2. Benchmarks lie three ways: JIT warmup (discard early runs), dead-code elimination (consume every result), and measuring the harness instead of the work. Compare medians over many runs on realistic payloads, timed with `performance.now()` (SKILL.md Core Rule 5).
-3. The budgets live in SKILL.md Timers & the Event Loop (long-task and frame thresholds). Detect violations, don't guess: `PerformanceObserver` on `longtask` entries (browser); `perf_hooks.monitorEventLoopDelay()` (Node).
+3. The budgets live in SKILL.md Timers & the Event Loop (long-task and frame thresholds). Detect violations, measure explicitly: `PerformanceObserver` on `longtask` entries (browser); `perf_hooks.monitorEventLoopDelay()` (Node).
 
 ## Event-Loop Blocking
 
@@ -30,7 +30,7 @@
 
 - Layout thrashing: alternating reads (`offsetHeight`, `getBoundingClientRect`) with style writes forces a synchronous layout per round. Batch: all reads, then all writes; or read in `requestAnimationFrame` and write in the next.
 - Visual updates go through `requestAnimationFrame` — timer-driven animation drifts and tears (timer clamps: SKILL.md Timers).
-- Event storms (scroll, resize, pointermove): throttle to one trailing-edge run per frame, and mark scroll/touch listeners `{passive: true}` so scrolling never waits on your handler (`browser.md`).
+- Event storms (scroll, resize, pointermove): throttle to one trailing-edge run per frame, and mark scroll/touch listeners `{passive: true}` so scrolling proceeds without waiting on your handler (`browser.md`).
 - Animate `transform`/`opacity` — they skip layout and paint; animating `top`/`left`/`width` re-lays-out every frame.
 
 ## Caching & Memoization
