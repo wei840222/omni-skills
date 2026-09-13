@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I securely expose a function from the main process to the renderer process in Electron?",
+    "expected": "The agent should recommend using `contextBridge.exposeInMainWorld` in a preload script, combined with `ipcRenderer.invoke` in the preload and `ipcMain.handle` in the main process, while ensuring `nodeIntegration` is false and `contextIsolation` is true.",
+    "actual": "The agent successfully identified the secure approach using `contextBridge.exposeInMainWorld` and `ipcRenderer.invoke`, emphasizing the mandatory `nodeIntegration: false` and `contextIsolation: true` rules.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an Electron app and I want to run a heavy CPU task in the background. Should I create a hidden BrowserWindow?",
+    "expected": "The agent should advise against hidden background windows for CPU tasks, instead recommending the modern `UtilityProcess` API to prevent freezing all windows, in accordance with the Architecture Traps reference.",
+    "actual": "The agent warned that blocking the main process freezes all windows and explicitly advised against a hidden BrowserWindow, recommending `UtilityProcess` for the CPU-intensive task.",
+    "pass": true
+  }
+]
