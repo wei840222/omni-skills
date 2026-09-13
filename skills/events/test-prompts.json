@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to a Radiohead concert at MSG on May 15 at 8 PM. Doors at 7. Section 112 Row 8, confirmation TM-789456. Meeting Jake at 6:30.",
+    "expected": "Resolve <state_root>, create upcoming/concerts entry with date/time, doors, venue, ticket section/row, confirmation TM-789456, meet time with Jake, and confirm the file path without inventing bag policies.",
+    "actual": "Resolved <workspace>/events/ as <state_root>, wrote upcoming/concerts/radiohead-msg-2026-05-15.md with 20:00 start, doors 19:00, Section 112 Row 8, confirmation TM-789456, meet Jake 18:30, and summarized the path.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What events do I have coming up next week?",
+    "expected": "Read calendar.md and upcoming/** (plus annual/recurring.md for matching month-days), sort by date, lead with actionable logistics, and exclude past/ unless asked.",
+    "actual": "Scanned upcoming/ and calendar.md, listed three items chronologically with doors/registration hooks, included Mom's birthday from annual/recurring.md, and ignored past/ archives.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm hosting a birthday on April 12. Sarah and Jake are in; Tom is pending; Amy declined out of town. Remind me to follow up with Tom next Monday at 10am.",
+    "expected": "Create hosting folder with overview/guests/details, bucket RSVPs correctly, keep logistics ownership in events, and hand the Monday 10am follow-up timing to the remind skill.",
+    "actual": "Created hosting/birthday-2026/ with guests.md buckets (Sarah+Jake confirmed, Tom pending, Amy declined), noted follow-up target on Tom, and routed the Monday 10:00 nudge to remind while keeping the event files here.",
+    "pass": true
+  }
+]
