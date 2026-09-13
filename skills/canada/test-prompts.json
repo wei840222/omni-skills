@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 5 days for a first time trip to Canada in July. What should I prioritize?",
+    "expected": "Recommendation that emphasizes distance scale, prioritizes focused regions, and suggests choosing either East (Toronto/Montreal) or West (Vancouver/Banff) based on preferences.",
+    "actual": "Given you have 5 days, remember that Canada spans a massive distance. Distances are huge, and trying to combine too many provinces in a short trip is a common trap. You should focus on one region. For city and food density, choose Ontario/Quebec (e.g., Toronto to Montreal). For nature and mountains, choose British Columbia/Alberta (e.g., Vancouver or Banff). Since it is July (peak summer), note that major parks require booking months ahead.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to visit Banff and Jasper. We have a rental car. We plan to park at Lake Louise around 10am.",
+    "expected": "Concrete warning about Lake Louise parking restrictions, urging to pre-book a Parks Canada shuttle or arrive at sunrise.",
+    "actual": "Last-minute Banff parking attempts in July and August are a major trap, and trying to park at Lake Louise at 10 AM will likely fail. Shuttle logistics are crucial for the Alberta Rockies. You must book Parks Canada shuttles to Lake Louise/Moraine Lake in advance, or plan for a sunrise start. Relying on a rental car without a shuttle backup for popular lakes in peak season is not recommended.",
+    "pass": true
+  }
+]

@@ -34,7 +34,7 @@
 ### Day 8-10 Vancouver
 ### Day 11-14 Banff/Jasper focus
 
-**Important:** This plan has many flights/transfers. Keep buffer windows and avoid stacking late arrivals with early tours.
+**Important:** This plan has many flights/transfers. Keep buffer windows and ensure buffer windows between late arrivals and early tours.
 
 ## Seasonal Alternatives
 

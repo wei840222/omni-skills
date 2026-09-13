@@ -42,7 +42,7 @@
 - Dinner reservations matter for higher-demand kitchens
 - Language: service is generally bilingual in visitor-heavy zones
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Staying only in Old Montreal and skipping neighborhood culture.
 2. Treating Montreal nightlife like Toronto timing (late starts are common).

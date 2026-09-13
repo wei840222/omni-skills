@@ -1,27 +1,19 @@
 ---
 name: canada
-slug: canada
-version: 1.0.0
-description: Discover Canada like a local with concrete city recommendations, regional insights, nature routes, and practical planning tips.
-homepage: https://clawic.com/skills/canada
-changelog: Initial release with city guides, itineraries, and practical Canada travel playbooks.
+description: Plan Canadian travel with concrete regional recommendations, city guides,
+  nature-route logistics, and practical timing. Use when choosing East vs West focus,
+  Banff/Jasper shuttle plans, city food bases, or season tradeoffs across provinces.
+  Not for multi-country trip systems (`travel`), deeper cuisine workflows (`food`),
+  or English/French writing production (`english` / `french`).
 metadata:
-  clawdbot:
-    emoji: 🍁
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/canada/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Canada
+  version: "1.1.0"
+  openclaw: '{"emoji":"🍁"}'
+  related-skills: '{"travel":"Multi-destination trip systems and general travel memory beyond Canada-only routing.","food":"Deeper cuisine workflows beyond Canadian regional food pointers.","english":"English writing and register rather than Canada logistics.","french":"French writing and register, especially for Quebec service context."}'
 ---
 
 ## Setup
 
-If `~/Clawic/data/canada/` doesn't exist or is empty, read `setup.md` and start naturally.
+If `<state_root>/canada/` doesn't exist or is empty, read `references/setup.md` and start naturally.
 
 ## When to Use
 
@@ -29,47 +21,48 @@ User planning a trip to Canada or asking for local insights: what to eat, which 
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/canada/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/canada/`. See `references/memory-template.md` for structure.
 
 ```
-~/Clawic/data/canada/
+<state_root>/canada/
 └── memory.md     # Trip context
 ```
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| **Cities & Regions** | |
-| Toronto complete guide | `toronto.md` |
-| Vancouver complete guide | `vancouver.md` |
-| Montreal complete guide | `montreal.md` |
-| Banff & Jasper complete guide | `banff-jasper.md` |
-| **Planning** | |
-| Sample itineraries | `itineraries.md` |
-| Where to stay by style | `accommodation.md` |
-| Useful apps | `apps.md` |
-| **Food & Drink** | |
-| Regional dishes and restaurants | `food-guide.md` |
-| Wine regions and tastings | `wine.md` |
-| **Experiences** | |
-| Signature experiences | `experiences.md` |
-| Beaches and lake towns | `beaches.md` |
-| Hikes and safety by season | `hiking.md` |
-| Nightlife by city | `nightlife.md` |
-| **Reference** | |
-| Provinces and regional differences | `regions.md` |
-| Culture, etiquette, expectations | `culture.md` |
-| Traveling with children | `with-kids.md` |
-| **Practical** | |
-| Intercity transport | `transport.md` |
-| Phone and internet | `telecoms.md` |
-| Emergencies and safety | `emergencies.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| **Cities & Regions** | | |
+| Toronto complete guide | `references/toronto.md` | Load for toronto complete guide |
+| Vancouver complete guide | `references/vancouver.md` | Load for vancouver complete guide |
+| Montreal complete guide | `references/montreal.md` | Load for montreal complete guide |
+| Banff & Jasper complete guide | `references/banff-jasper.md` | Load for banff & jasper complete guide |
+| **Planning** | | |
+| Sample itineraries | `references/itineraries.md` | Load for sample itineraries |
+| Where to stay by style | `references/accommodation.md` | Load for where to stay by style |
+| Useful apps | `references/apps.md` | Load for useful apps |
+| **Food & Drink** | | |
+| Regional dishes and restaurants | `references/food-guide.md` | Load for regional dishes and restaurants |
+| Wine regions and tastings | `references/wine.md` | Load for wine regions and tastings |
+| **Experiences** | | |
+| Signature experiences | `references/experiences.md` | Load for signature experiences |
+| Beaches and lake towns | `references/beaches.md` | Load for beaches and lake towns |
+| Hikes and safety by season | `references/hiking.md` | Load for hikes and safety by season |
+| Nightlife by city | `references/nightlife.md` | Load for nightlife by city |
+| **Reference** | | |
+| Provinces and regional differences | `references/regions.md` | Load for provinces and regional differences |
+| Culture, etiquette, expectations | `references/culture.md` | Load for culture, etiquette, expectations |
+| Traveling with children | `references/with-kids.md` | Load for traveling with children |
+| **Practical** | | |
+| Intercity transport | `references/transport.md` | Load for intercity transport |
+| Phone and internet | `references/telecoms.md` | Load for phone and internet |
+| Emergencies and safety | `references/emergencies.md` | Load for emergencies and safety |
+| Research anchors / official sources | `references/sources.md` | Verify entry, park, transport, or seasonal claims |
 
 ## Core Rules
 
 ### 1. Specific Over Generic
-Do not say "visit Toronto neighborhoods". Say "start in St. Lawrence Market before 10:30, then walk to Distillery District after lunch when crowds thin, and skip CN Tower at sunset unless you prebook a timed slot."
+Use concrete guidance like: "start in St. Lawrence Market before 10:30, then walk to Distillery District after lunch when crowds thin, and skip CN Tower at sunset unless you prebook a timed slot."
 
 ### 2. Local Perspective
 What locals actually do, not brochure advice:
@@ -97,7 +90,7 @@ What locals actually do, not brochure advice:
 - Shoulder seasons: often best value for urban + nature combinations
 
 ### 5. Flag Tourist Traps
-Be explicit about what to avoid:
+Flag these specific tourist traps:
 - Any restaurant with giant wait and mostly social-media hype near main attractions
 - Last-minute Banff parking attempts in July and August
 - Paying premium prices for generic airport transfer options without checking rail or bus alternatives
@@ -107,12 +100,12 @@ Be explicit about what to avoid:
 
 | Traveler | Focus on |
 |----------|----------|
-| Foodie | `food-guide.md`, `montreal.md`, `toronto.md` |
-| Nature | `banff-jasper.md`, `hiking.md`, `experiences.md` |
-| Family | `with-kids.md`, `accommodation.md`, `itineraries.md` |
-| City break | `toronto.md`, `montreal.md`, `nightlife.md` |
-| Scenic road trip | `itineraries.md`, `transport.md`, `hiking.md` |
-| Wine trip | `wine.md`, `regions.md` |
+| Foodie | `references/food-guide.md`, `references/montreal.md`, `references/toronto.md` |
+| Nature | `references/banff-jasper.md`, `references/hiking.md`, `references/experiences.md` |
+| Family | `references/with-kids.md`, `references/accommodation.md`, `references/itineraries.md` |
+| City break | `references/toronto.md`, `references/montreal.md`, `references/nightlife.md` |
+| Scenic road trip | `references/itineraries.md`, `references/transport.md`, `references/hiking.md` |
+| Wine trip | `references/wine.md`, `references/regions.md` |
 
 ## Common Traps
 
@@ -127,18 +120,15 @@ Be explicit about what to avoid:
 
 ## Security & Privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/canada/`
+**Data that stays local:** Trip preferences in `<state_root>/canada/`
 
-**This skill does NOT:** Access files outside `~/Clawic/data/canada/` or make network requests.
+**This skill does NOT:** Access files outside `<state_root>/canada/` or make network requests.
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and trip structuring
-- `food` — Deeper restaurant and cuisine recommendations
-- `english` — Language support for bookings and communication
-- `french` — Useful for Quebec travel context
+## State location
 
-## Feedback
+This skill is stateful.
+The skill maintains user preferences and memory at the following paths (in order of precedence):
+1. `<state_root>/canada/` (Workspace state)
+2. `~/.config/agentskills/canada/` (Global state fallback)
 
-- If useful, star it: https://clawic.com/skills/canada
-- Latest version: https://clawic.com/skills/canada
+If no state directory exists, it will create `<state_root>/canada/` upon first execution.

@@ -27,7 +27,7 @@
 - Atlantic coastal loops for seafood + scenic drives
 - Multi-city rail segments when schedule flexibility allows
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Planning fixed outdoor days with no weather fallback.
 2. Underestimating transfer fatigue between distant regions.

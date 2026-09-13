@@ -33,7 +33,7 @@
 - Stratus
 - Tawse
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Overpacking too many tastings in one day.
 2. Assuming every winery accepts drop-ins in summer.

@@ -2,7 +2,7 @@
 
 ## Booking Principles
 
-1. Pick fewer bases; avoid one-night chains across long distances.
+1. Pick fewer bases; stay in each location for multiple nights.
 2. Prioritize transit access in major cities.
 3. In park regions, lock logistics first (parking/shuttle constraints).
 

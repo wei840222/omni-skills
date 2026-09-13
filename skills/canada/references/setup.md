@@ -6,11 +6,11 @@ When user mentions Canada travel for the first time:
 
 ### 1. Create Memory Structure
 ```bash
-mkdir -p ~/canada
+mkdir -p <state_root>/canada
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/canada/memory.md` using the template from `memory-template.md`.
+Create `<state_root>/canada/memory.md` using the template from `memory-template.md`.
 
 ### 3. Gather Trip Context
 Ask naturally (not as a form):
@@ -22,11 +22,11 @@ Ask naturally (not as a form):
 - Are you renting a car or using public transport?
 
 ### 4. Save to Memory
-Update `~/Clawic/data/canada/memory.md` with their answers.
+Update `<state_root>/canada/memory.md` with their answers.
 
 ## Returning Users
 
-If `~/Clawic/data/canada/memory.md` exists:
+If `<state_root>/canada/memory.md` exists:
 1. Read it silently
 2. Reuse known preferences
 3. Ask what changed since last plan
@@ -52,3 +52,6 @@ If `~/Clawic/data/canada/memory.md` exists:
 - Shoulder seasons often deliver better value in cities and easier bookings.
 - National park logistics need early planning in peak summer.
 - Winter travel can be excellent, but road and weather risk must be explicit.
+
+## Visa & eTA Requirements
+- **eTA (Electronic Travel Authorization):** Visa-exempt foreign nationals need an eTA to fly to or transit through a Canadian airport.

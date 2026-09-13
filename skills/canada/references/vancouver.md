@@ -44,7 +44,7 @@
 
 Capilano Suspension Bridge is smooth but expensive and crowded in peak windows. For travelers prioritizing nature over packaged attractions, Lynn Canyon offers a lower-cost alternative with less crowd pressure.
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Underestimating rain impact and bringing only one light jacket.
 2. Booking mountain day trips with no weather backup plan.

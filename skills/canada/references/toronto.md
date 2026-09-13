@@ -56,7 +56,7 @@
 - **UP Express:** Fast airport link to Union Station
 - **Walking:** Core neighborhoods are highly walkable
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Spending all time around CN Tower area food chains.
 2. Attempting too many distant neighborhoods in one day.

@@ -23,7 +23,7 @@ Choose hikes by season, current conditions, and realistic fitness, not just phot
 - Start earlier than you think in mountain regions.
 - Carry layers, water, and offline map backup.
 - Respect trail closures and wildlife guidance.
-- Do not chase summit goals in unstable weather.
+- Prioritize safe lower-elevation trails during unstable weather.
 
 ## Common Mistakes
 

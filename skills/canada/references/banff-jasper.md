@@ -25,7 +25,7 @@ This is logistics-first travel. Views are extraordinary, but timing, shuttles, w
 ## Icefields Parkway (Banff-Jasper Route)
 
 - One of the most scenic drives in North America
-- Build in photo and stop time; do not treat it as a fast transfer
+- Build in photo and rest time; treat it as a scenic journey.
 - Fuel and food options are sparse compared with city standards
 
 ## Accommodation Reality
@@ -34,7 +34,7 @@ This is logistics-first travel. Views are extraordinary, but timing, shuttles, w
 - Shoulder season offers better value but more variable weather
 - Book flexible options when possible in case conditions shift
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Driving long mountain routes without weather checks.
 2. Assuming parking will be available at top lakes in peak season.

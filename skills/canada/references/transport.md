@@ -28,10 +28,10 @@
 ## Practical Rules
 
 - Use transit in city cores; rent cars for regional segments.
-- Avoid same-day long transfer + major activity stacking.
+- Separate long transfers and major activities into different days.
 - In mountain routes, fuel early and keep daylight margin.
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 1. Underestimating travel times in winter conditions.
 2. Driving downtown cores when transit is easier.
