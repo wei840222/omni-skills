@@ -301,7 +301,7 @@ Rome is a **living museum** with 3,000 years of cultural history, but it's also 
 **Match Experience**
 - Derby (Roma vs Lazio): Intense, tickets hard
 - Book ahead for big matches
-- Avoid curvas (fan sections) if unfamiliar
+- Sit in the main stands (tribuna) unless you are a dedicated fan
 - Great atmosphere
 
 ### Other Sports

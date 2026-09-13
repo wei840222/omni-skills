@@ -186,7 +186,7 @@ Rome has a **Mediterranean climate**: hot dry summers, mild wet winters. Spring 
 - Can exceed 40°C in summer
 - Heat warnings issued
 - Stay hydrated
-- Avoid midday sun
+- Stay indoors or in shade during midday
 - Free water from nasoni (fountains)
 
 ### Thunderstorms
@@ -258,7 +258,7 @@ Rome has a **Mediterranean climate**: hot dry summers, mild wet winters. Spring 
 - **May**: Weather perfect, crowds manageable
 - **April (non-Easter)**: Excellent all around
 
-### Avoid If Possible
+### Plan for alternative seasons
 - **Easter Week**: Extremely crowded
 - **August 15 (Ferragosto)**: Many closures
 - **July-August** (unless heat-tolerant): Very hot

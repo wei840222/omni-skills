@@ -72,7 +72,7 @@ Takes longer than making expat friends. Italian social circles are established f
 - Accept invitations
 - Host dinners
 - Be consistent (show up regularly)
-- Don't expect immediate intimacy
+- Building deep relationships takes time and shared experiences
 - Participate in group activities
 
 ### Dating

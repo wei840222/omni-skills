@@ -6,7 +6,7 @@
 | Season | Weather | Crowds | Prices | Verdict |
 |--------|---------|--------|--------|---------|
 | Spring (Apr-May) | Perfect 18-25C | High | High | Best weather, worth crowds |
-| Summer (Jun-Aug) | Hot 30-38C | Extreme | High | Avoid if possible |
+| Summer (Jun-Aug) | Hot 30-38C | Extreme | High | Plan for alternative seasons |
 | Fall (Sep-Oct) | Perfect 18-25C | Moderate | Moderate | Best overall |
 | Winter (Dec-Feb) | Cool 8-15C | Low | Low | Great value, some rain |
 
@@ -135,9 +135,9 @@
 
 ### Safety Tips
 - Use money belt or front pocket
-- Don't leave bags on chairs
+- Keep bags secured on your lap or between your feet
 - Be aware in crowds
-- Avoid empty metro cars late night
+- Choose populated metro cars when traveling late
 - Termini area sketchy after dark
 
 ### Emergency Numbers
@@ -165,9 +165,9 @@
 
 ### Dining Etiquette
 - Wait to be seated
-- Don't ask for Parmesan on seafood pasta
-- Don't ask for butter with bread
-- Don't ask for chicken on pasta
+- Enjoy seafood pasta without Parmesan
+- Enjoy bread with olive oil or plain
+- Enjoy pasta with traditional meat or vegetable sauces
 - Bread is for wiping plate (fare la scarpetta)
 - Espresso after dessert, not with
 
@@ -220,7 +220,7 @@
 
 ## Common Mistakes
 
-### Don't
+### What to Skip
 - Eat near the main monuments
 - Sit on the Spanish Steps
 - Expect things to be efficient

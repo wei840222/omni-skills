@@ -10,7 +10,7 @@ Rome is **generally safe** — much safer than many major cities. Violent crime 
 |----------|-------|-------|
 | Violent crime | Very Low | Rare, especially for tourists |
 | Pickpockets | Moderate-High | Main risk, especially at sites |
-| Scams | Moderate | Tourist-targeted, avoidable |
+| Scams | Moderate | Tourist-targeted, preventable |
 | Women alone | Generally Safe | Normal urban precautions |
 | Night safety | Good | Most areas safe, some exceptions |
 | Natural disasters | Low | Occasional minor earthquakes |
@@ -41,7 +41,7 @@ Rome is **generally safe** — much safer than many major cities. Violent crime 
 - **Cross-body bag**: Harder to snatch
 - **Zippered pockets**: Extra barrier
 - **Awareness**: Look up, not at phone
-- **Split resources**: Don't keep everything together
+- **Split resources**: Distribute your valuables across different pockets
 - **Hotel safe**: Leave passport copy, extra cards
 
 ---
@@ -51,22 +51,22 @@ Rome is **generally safe** — much safer than many major cities. Violent crime 
 ### The Gladiators
 - **What**: Men in costumes offer photos
 - **Scam**: Demand EUR 20-50 after photo
-- **Avoid**: Don't engage, walk away
+- **Handling**: Walk away without engaging
 
 ### Rose Sellers
 - **What**: Push roses at couples
 - **Scam**: Demand payment, distraction theft
-- **Avoid**: Firm "no," don't touch
+- **Handling**: Say a firm "no," keep hands to yourself
 
 ### Petition Signers
 - **What**: Clipboard, ask to sign
 - **Scam**: Steal while you're distracted
-- **Avoid**: Ignore completely, keep walking
+- **Handling**: Ignore completely, keep walking
 
 ### Friendship Bracelets
 - **What**: Tie bracelet on wrist
 - **Scam**: Demand payment, aggressive
-- **Avoid**: Don't extend arm, walk away
+- **Handling**: Keep arms close, walk away
 
 ### Taxi Overcharging
 - **What**: No meter, inflated price
@@ -75,7 +75,7 @@ Rome is **generally safe** — much safer than many major cities. Violent crime 
 
 ### Restaurant Tourist Traps
 - **What**: Overpriced, poor quality
-- **Prevent**: Avoid picture menus, tourist menus, hawkers
+- **Prevent**: Skip picture menus, tourist menus, hawkers
 
 ---
 
@@ -120,11 +120,11 @@ Rome is **reasonably safe** for women, including solo travelers. Italian culture
 - **Physical harassment**: Rare
 
 ### Tips
-- **Ignore**: Don't engage with unwanted attention
+- **Ignore**: Ignore unwanted attention
 - **Confidence**: Walk purposefully
 - **Night**: Stick to main streets, well-lit areas
 - **Transport**: Sit near driver on empty buses
-- **Termini area**: Avoid alone late at night
+- **Termini area**: Stay in groups if out late
 - **Trust instincts**: If uncomfortable, leave
 
 ### Reporting

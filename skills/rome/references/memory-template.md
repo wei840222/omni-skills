@@ -1,6 +1,6 @@
 # Memory Template — Rome
 
-Create `~/.rome/memory.md` with this structure:
+Create `<state_root>/rome/memory.md` with this structure after resolving `<state_root>` per `SKILL.md`:
 
 ```markdown
 # Rome Memory
@@ -36,12 +36,12 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Still learning | Gather context opportunistically |
 | `complete` | Has enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
-| `never_ask` | User said stop | Never ask for more context |
+| `paused` | User said "not now" | Proceed using existing context without asking |
+| `skip_asking` | User requested to discontinue | Proceed without requesting more context |
 
 ## Key Principles
 
 - **No config keys visible** — use natural language
-- **Learn from behavior** — observe and confirm, don't interrogate
+- **Learn from behavior** — observe and confirm, gather information naturally
 - **Most stay `ongoing`** — always learning, that's fine
 - Update `last` on each use

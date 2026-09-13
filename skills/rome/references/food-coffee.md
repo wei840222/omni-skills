@@ -28,8 +28,8 @@
 
 **Cappuccino Timing:**
 - **Before 11am**: Normal
-- **After 11am**: Tourists do it, Italians don't
-- **After meals**: Never (milk = heavy)
+- **After 11am**: Mainly ordered by tourists
+- **After meals**: Skip milk-based coffees (too heavy)
 - Will they judge you? No. But they'll know you're foreign.
 
 **The Ritual:**

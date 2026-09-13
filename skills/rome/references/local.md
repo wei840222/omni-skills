@@ -119,7 +119,7 @@ Italian bureaucracy is **legendary** for complexity. Patience is essential.
 ### Tipping
 - Not obligatory
 - Round up or 5-10% if excellent
-- Never 20% like USA
+- Tipping is optional, rounding up the bill is sufficient
 - Coperto is not a tip
 
 ### Haggling
@@ -130,7 +130,7 @@ Italian bureaucracy is **legendary** for complexity. Patience is essential.
 ### Scams
 - Check restaurant bills carefully
 - Insist on taxi meter
-- Avoid tourist trap restaurants
+- Seek out authentic local restaurants off the main squares
 - Count change
 
 ---
@@ -172,7 +172,7 @@ Italian bureaucracy is **legendary** for complexity. Patience is essential.
 - Neighborhood spots
 - Markets
 
-### Where They Don't
+### Important Differences
 - Piazza Navona restaurants
 - Via del Corso chains
 - Vatican-entrance places
@@ -202,7 +202,7 @@ Italian bureaucracy is **legendary** for complexity. Patience is essential.
 | Prego | You're welcome |
 | Scusi | Excuse me |
 | Mi dispiace | I'm sorry |
-| Non capisco | I don't understand |
+| Non capisco | I am unable to understand |
 | Parla inglese? | Do you speak English? |
 
 ### Restaurant
@@ -230,7 +230,7 @@ Italian bureaucracy is **legendary** for complexity. Patience is essential.
 | Aiuto! | Help! |
 | Chiamate la polizia | Call the police |
 | Ho bisogno di un medico | I need a doctor |
-| Non sto bene | I don't feel well |
+| Non sto bene | I am feeling unwell |
 
 ---
 

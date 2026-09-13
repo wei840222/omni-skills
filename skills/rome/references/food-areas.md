@@ -76,7 +76,7 @@
 - Nice wine list
 - EUR 35-45/person
 
-### Avoid
+### Skip These
 - Restaurants with staff outside pulling you in
 - Picture menus
 - "Menu turistico" signs
@@ -148,7 +148,7 @@
 - Upscale
 - EUR 60-80/person
 
-### Avoid
+### Skip These
 - Anything on Piazza Navona
 - Via del Corso restaurants
 - Picture menus, tourist menus
@@ -219,7 +219,7 @@
 - Reasonable
 - EUR 25-35/person
 
-### Avoid
+### Skip These
 - Anything immediately at Vatican entrance
 - Via della Conciliazione restaurants
 

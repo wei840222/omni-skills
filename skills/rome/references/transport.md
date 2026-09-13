@@ -208,9 +208,9 @@
 
 ## Driving
 
-### Don't
+### What to Skip
 
-Seriously, avoid driving in Rome:
+Public transit and walking are highly recommended instead of driving:
 - Traffic chaotic
 - Parking impossible
 - ZTL zones (fines!)

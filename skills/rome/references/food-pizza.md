@@ -217,5 +217,5 @@
 - Formula Uno, others
 
 ### NOT Breakfast
-- Italians don't do breakfast pizza
+- Pizza is traditionally a lunch or dinner item
 - (Tourists sometimes do)

@@ -74,7 +74,7 @@ Dolci → Desserts
 ```
 
 ### Ordering
-- You don't HAVE to order every course
+- You can order just one or two courses
 - Just primo is totally acceptable
 - Secondo + contorno (sides separate)
 - Ask for recommendations
@@ -118,7 +118,7 @@ Dolci → Desserts
 ### Tipping
 - **Not obligatory** in Italy
 - If no servizio: round up or 5-10%
-- Never 20% like USA
+- Tipping is optional, rounding up the bill is sufficient
 - Cash tips preferred
 
 ### Payment
@@ -231,7 +231,7 @@ Dolci → Desserts
 - Comes automatically (part of coperto)
 - Used for "scarpetta" (wiping plate)
 - Butter not traditional
-- Don't fill up on bread
+- Save room for the main courses
 
 ---
 

@@ -72,7 +72,7 @@ Growing scene, especially in multicultural areas.
 
 ### Greek
 
-**Limited presence** — Romans don't travel to Greece mentally.
+**Limited presence** — Romans strongly prefer local and regional Italian cuisines.
 
 ### Turkish
 
@@ -168,7 +168,7 @@ Rome is inland but seafood is important (Catholic traditions, proximity to coast
 - **Friday tradition**: Seafood (Catholic abstinence)
 - **Fresh varies**: Check daily offerings
 - **Price**: Good seafood is expensive
-- **Avoid**: Tourist traps near tourist sites
+- **Skip**: Tourist traps near tourist sites
 
 ---
 
