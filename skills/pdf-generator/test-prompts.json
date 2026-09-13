@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How can I generate an invoice PDF from HTML using Python?",
+    "expected": "Recommend weasyprint, show HTML string \u2192 write_pdf pattern, mention print CSS/metadata, and keep generation local.",
+    "actual": "Selected weasyprint as default for HTML invoices, showed HTML(string=...).write_pdf('invoice.pdf'), pointed to references/templates.md for invoice layout, and reminded to validate non-zero output locally.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an existing PDF and I want to merge it with another one. What is the best way to do this?",
+    "expected": "Recommend pypdf PdfWriter/PdfReader merge pattern and load advanced reference; do not regenerate from scratch.",
+    "actual": "Routed to pypdf merge via PdfWriter.append/add_page, cited references/advanced.md, and kept the workflow local without re-typesetting.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Convert a Markdown report to PDF with a table of contents and A4 margins.",
+    "expected": "Use pandoc with --toc and geometry/margin guidance; mention LaTeX engine dependency without switching into full latex skill authorship.",
+    "actual": "Chose pandoc for Markdown source, suggested pandoc report.md --toc -V geometry:margin=1in -o report.pdf, and noted latex skill only if deep TeX recovery is needed.",
+    "pass": true
+  }
+]
