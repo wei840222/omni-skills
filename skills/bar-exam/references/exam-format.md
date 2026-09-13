@@ -25,7 +25,7 @@ Used by 41+ jurisdictions. Portable score can transfer between UBE states.
 
 ## State-Specific Formats
 
-Some states don't use UBE:
+Some states use unique non-UBE formats:
 
 | State | Format |
 |-------|--------|
@@ -45,7 +45,7 @@ Some states don't use UBE:
 | Real Property | 27 | ~14% |
 | Torts | 27 | ~14% |
 
-**Note:** 175 scored + 25 unscored experimental. You don't know which are which.
+**Note:** 175 scored + 25 unscored experimental. The scored and experimental questions are mixed together indistinguishably.
 
 ## Timing Traps
 

@@ -6,7 +6,7 @@
 
 **Priorities:**
 - Build structured study schedule
-- Don't rely on law school knowledge — bar tests differently
+- Rely on bar-specific prep materials — bar testing methods differ from law school exams
 - Start MBE practice early
 - Learn essay format (IRAC) from scratch
 - Take at least 2 full simulated exams
@@ -29,7 +29,7 @@
 
 **Priorities:**
 - Diagnose WHY they failed (MBE? Essays? Both?)
-- Don't repeat same prep strategy that didn't work
+- Adopt a new prep strategy based on your previous score breakdown
 - Target specific weak areas
 - Address psychological barriers (test anxiety, burnout)
 
