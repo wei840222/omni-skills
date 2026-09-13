@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a weekly report summarizing my hours logged and total revenue, generating every Friday at 5 PM as a PDF.",
+    "expected": "Resolve <state_root>, create <state_root>/report/weekly-summary/config.md with Friday 17:00 schedule (cron 0 17 * * 5 or equivalent), hours+revenue metrics, PDF format, update memory.md, and avoid storing secrets in config.",
+    "actual": "Created weekly-summary under the resolved state root with Friday 5 PM cadence, hours/revenue metrics, PDF primary format, memory.md index update, and env-name-only credential handling.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need a daily alert report for server downtime, fetching status from an external API, and sending me a Telegram message if any server is down.",
+    "expected": "Ask for SERVER_STATUS_API_KEY (or equivalent) as an environment variable and the Telegram chat ID before writing config; then create daily config with API source env reference, alert condition, and telegram delivery.",
+    "actual": "Paused to request SERVER_STATUS_API_KEY and Telegram chat ID, then wrote config with env-name API source, daily schedule, downtime alert, and telegram channel.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "List my reports and pause the weekly revenue one.",
+    "expected": "Read <state_root>/report/memory.md, locate weekly-revenue (or matching name), set status paused in config.md, and confirm without regenerating a full report.",
+    "actual": "Listed reports from memory.md, updated weekly-revenue status to paused, and confirmed without unnecessary format/delivery loads.",
+    "pass": true
+  }
+]
