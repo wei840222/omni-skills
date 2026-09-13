@@ -1,27 +1,26 @@
 ---
 name: sleep
-slug: sleep
-version: 1.0.4
-changelog: Display name shown correctly
-description: 'Coaches sleep with quantified protocols: insomnia CBT-I, jet lag light timing, shift work anchors, caffeine and melatonin cutoffs. Use when the user cannot fall asleep or stay asleep, wakes at 3am, feels tired or unrefreshed all day, is a night owl who cannot wake early, works nights or rotating shifts, plans travel across time zones, or asks about naps, snoring, nightmares, sleep paralysis, sleeping pills, bedroom setup, a newborn or menopause wrecking sleep, or what their sleep tracker score means. Not for dream journaling or interpretation.'
-homepage: https://clawic.com/skills/sleep
+description: 'Manage sleep protocols for insomnia, jet lag, shift work, and circadian issues. Use when the user requests help with falling asleep, waking up, fatigue, time zone travel, shift work, or sleep environment issues. Route dream journaling to the dreams skill.'
 metadata:
-  clawdbot:
-    emoji: 😴
-    displayName: Sleep
-    configPaths:
-    - ~/Clawic/data/sleep/
-    - ~/sleep/
-    - ~/clawic/sleep/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/sleep/
-      - ~/sleep/
-      - ~/clawic/sleep/
+  version: "1.0.4"
+  openclaw: '{"emoji": "😴"}'
+  related-skills: '{"dreams": "Dream journaling and pattern exploration.", "fasting": "When late eating windows or fasting schedules collide with the sleep window.", "fitness": "When the lever is training load, overtraining, or workout timing rather than the night itself.", "plan": "When the fix is calendar surgery, moving deep work to the user''s alert hours instead of fixing sleep."}'
 ---
 
-Operational sleep coaching: triage the complaint, run the protocol with numbers, route red flags to a clinician instead of coaching past them. Advise mode only: guide the human, never touch their medication. Diary, trip plans, and preferences persist in `~/Clawic/data/sleep/` (see `setup.md` on first use, `memory-template.md` for the file format; created only when the user starts a protocol). If you have data at an old location (`~/sleep/` or `~/clawic/sleep/`), move it to `~/Clawic/data/sleep/`, and say in one line that you moved it and from where.
+Operational sleep coaching: triage the complaint, run the protocol with numbers, route red flags to a clinician instead of coaching past them. Advise mode only: guide the human, ensure they consult their physician regarding medication changes. Diary, trip plans, and preferences persist in `<state_root>/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format; created only when the user starts a protocol). If you have data at an old location (`~/sleep/` or `~/clawic/sleep/`), move it to `<state_root>/`, and say in one line that you moved it and from where.
+
+## State location
+
+Sleep state may exist in `<workspace>/sleep/`, `<workspace>/memory/sleep/`, or `~/sleep/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/sleep/`, `<workspace>/memory/sleep/`, `~/sleep/`.
+3. If none exists and state must be created, default to `<workspace>/sleep/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 
 ## When To Use
 
@@ -36,25 +35,25 @@ Operational sleep coaching: triage the complaint, run the protocol with numbers,
 
 | Situation | Play |
 |---|---|
-| Bad sleep < 3 months, tied to a stressor | Acute: hold wake time, ban naps and early bedtimes, wait it out (→ `insomnia.md`) |
-| Bad sleep ≥ 3 nights/week for ≥ 3 months | Chronic insomnia (ICSD-3): run CBT-I lite (→ `insomnia.md`) |
-| Loud snoring + witnessed pauses + sleepy days | Stop coaching, refer for a sleep study (→ Red Flags) |
-| Cannot fall asleep before 2-3am but sleeps fine when free-running | Delayed phase, not insomnia — restriction is the wrong tool (→ `circadian.md`) |
-| Waking 4-5am done sleeping, often age 60+ | Advanced phase vs mood — screen both (→ `circadian.md`) |
-| Crossing ≥ 3 zones AND ≥ 3 nights there | Adapt: compute Tmin, schedule light by direction (→ `jetlag.md`) |
+| Bad sleep < 3 months, tied to a stressor | Acute: hold wake time, ban naps and early bedtimes, wait it out (→ `references/insomnia.md`) |
+| Bad sleep ≥ 3 nights/week for ≥ 3 months | Chronic insomnia (ICSD-3): run CBT-I lite (→ `references/insomnia.md`) |
+| Loud snoring + witnessed pauses + sleepy days | Pause coaching and refer for a sleep study (→ Red Flags) |
+| Cannot fall asleep before 2-3am but sleeps fine when free-running | Delayed phase, not insomnia — restriction is the wrong tool (→ `references/circadian.md`) |
+| Waking 4-5am done sleeping, often age 60+ | Advanced phase vs mood — screen both (→ `references/circadian.md`) |
+| Crossing ≥ 3 zones AND ≥ 3 nights there | Adapt: compute Tmin, schedule light by direction (→ `references/jetlag.md`) |
 | Crossing < 3 zones OR < 3 nights there | Rule of 3: stay on home time, book meetings in the overlap window |
-| Night or rotating shifts | Anchor sleep + commute light control (→ `shiftwork.md`) |
-| "Should I nap?" | 10-20 min, finished ≥ 8 h before bedtime; never during an insomnia protocol (→ `performance.md`) |
-| Big day after a bad night, or an unavoidable all-nighter | Damage control: nap math, caffeine timing, no-drive line (→ `performance.md`) |
-| Tracker score bad, user feels fine | Trust daytime function; stage data is noise (→ `trackers.md`) |
-| "What supplement helps?" | Melatonin 0.5 mg timed for phase shift; everything else is weak (→ `substances.md`) |
-| Nightmares, sleep paralysis, sleepwalking, night terrors | Identify by timing and recall, treat or refer (→ `parasomnias.md`) |
-| Teen, pregnant, new parent, menopause, 65+ | Base protocols carry modifiers (→ `populations.md`) |
-| Room too hot, bright, loud; partner snores; kids or pets in bed | Fix the environment before blaming the sleeper (→ `environment.md`) |
+| Night or rotating shifts | Anchor sleep + commute light control (→ `references/shiftwork.md`) |
+| "Should I nap?" | 10-20 min, finished ≥ 8 h before bedtime; hold naps until the insomnia protocol completes (→ `references/performance.md`) |
+| Big day after a bad night, or an required all-nighter | Damage control: nap math, caffeine timing, unsafe-to-drive threshold (→ `references/performance.md`) |
+| Tracker score bad, user feels fine | Trust daytime function; stage data is noise (→ `references/trackers.md`) |
+| "What supplement helps?" | Melatonin 0.5 mg timed for phase shift; everything else is weak (→ `references/substances.md`) |
+| Nightmares, sleep paralysis, sleepwalking, night terrors | Identify by timing and recall, treat or refer (→ `references/parasomnias.md`) |
+| Teen, pregnant, new parent, menopause, 65+ | Base protocols carry modifiers (→ `references/populations.md`) |
+| Room too hot, bright, loud; partner snores; kids or pets in bed | Fix the environment before blaming the sleeper (→ `references/environment.md`) |
 | Weekend "catch-up" sleep | Cap wake-time drift at 1 h; 2 h drift = social jet lag and a Monday relapse |
-| Any other sleep complaint | Start the 7-day diary in `~/Clawic/data/sleep/diary.md`; no intervention before data |
+| Any other sleep complaint | Start the 7-day diary in `<state_root>/diary.md`; no intervention before data |
 
-Depth on demand: `insomnia.md` full CBT-I lite, 3am playbook, relapse plan · `jetlag.md` direction math, worked trip tables, pre-flight shifting · `shiftwork.md` anchors, rotation design, first-night survival · `circadian.md` night owls, larks, DSPS, light therapy · `environment.md` bedroom, noise, partners · `substances.md` every cutoff and dose · `trackers.md` what to read, what to ignore · `parasomnias.md` nightmares to sleepwalking · `populations.md` life stages · `performance.md` naps, debt, all-nighters.
+Depth on demand: `references/insomnia.md` full CBT-I lite, 3am playbook, relapse plan · `references/jetlag.md` direction math, worked trip tables, pre-flight shifting · `references/shiftwork.md` anchors, rotation design, first-night survival · `references/circadian.md` night owls, larks, DSPS, light therapy · `references/environment.md` bedroom, noise, partners · `references/substances.md` every cutoff and dose · `references/trackers.md` what to read, what to ignore · `references/parasomnias.md` nightmares to sleepwalking · `references/populations.md` life stages · `references/performance.md` naps, debt, all-nighters.
 
 ## Core Rules
 
@@ -86,29 +85,29 @@ Anything in this table suspends the protocols in this skill: route to a clinicia
 
 - Did this complaint pass the Red Flags table before any protocol advice?
 - Does every melatonin mention carry both dose and clock time (0.5 mg, 5 h before target bedtime for phase shifts)?
-- Is prescribed TIB clamped to the floor in `insomnia.md` and the bedtime phrased as "not before"?
+- Is prescribed TIB clamped to the floor in `references/insomnia.md` and the bedtime phrased as "not before"?
 - Are jet lag light windows derived from Tmin converted to destination clock, not from local sunrise?
 - Am I prescribing exactly one new intervention this week, with the diary as the measure?
-- If the user is a teen, pregnant, postpartum, menopausal, 65+, or on shifts, did I apply the modifiers in `populations.md` / `shiftwork.md`?
+- If the user is a teen, pregnant, postpartum, menopausal, 65+, or on shifts, did I apply the modifiers in `references/populations.md` / `references/shiftwork.md`?
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/sleep/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
 | wake_anchor | time (HH:MM) | none | Seeds every derivation: Tmin = wake_anchor − 2.5 h, earliest bedtime, nap cutoff; unset → derive from a 7-day diary |
 | time_format | 12h \| 24h | 24h | Formats every schedule, worked example, and trip-plan table |
 | units | metric \| imperial | metric | Bedroom temperature guidance (16-19 °C vs 60-67 °F) and any other physical figure |
-| tracker | text (device name) | none | Tailors `trackers.md` guidance to the metrics that device reports; none → coach from the diary only |
+| tracker | text (device name) | none | Tailors `references/trackers.md` guidance to the metrics that device reports; none → coach from the diary only |
 
 Preference areas to record as the user reveals them:
 
 - **schedule** — work pattern (office hours, shifts, on-call, freelance), fixed commitments; affects anchor placement and every protocol window
-- **household** — partner schedule, kids, pets, room sharing; affects `environment.md` plays and stimulus-control feasibility
+- **household** — partner schedule, kids, pets, room sharing; affects `references/environment.md` plays and stimulus-control feasibility
 - **substances** — what the user actually uses (caffeine dose and timing, alcohol, THC, prescriptions); affects which cutoffs get surfaced first
-- **risk posture** — how aggressively to titrate restriction, how firmly to repeat referrals; affects `insomnia.md` titration and Red Flags delivery
-- **reporting** — plan format (per-day table vs prose), diary check-in cadence; affects artifacts written to `~/Clawic/data/sleep/`
+- **risk posture** — how aggressively to titrate restriction, how firmly to repeat referrals; affects `references/insomnia.md` titration and Red Flags delivery
+- **reporting** — plan format (per-day table vs prose), diary check-in cadence; affects artifacts written to `<state_root>/`
 
 ## Traps
 
@@ -122,7 +121,7 @@ Preference areas to record as the user reveals them:
 | 10 mg melatonin at lights-out for jet lag | Wrong dose and wrong hour; sedation misread as adaptation | 0.5 mg, 5 h before target bedtime, eastward only |
 | Morning sunlight on arrival in Europe from the US | Lands before body-clock Tmin, delays the clock, worsens the lag | Sunglasses until converted Tmin, bright light 2-3 h after |
 | Coaching a loud snorer on bedtime routine | Misses apnea; months lost while AHI stays high | Red Flags first, referral before protocol |
-| Treating a night owl teen as an insomniac | Delayed phase + early school start is a clock problem; restriction adds deprivation | Phase-advance protocol (`circadian.md`), not restriction |
+| Treating a night owl teen as an insomniac | Delayed phase + early school start is a clock problem; restriction adds deprivation | Phase-advance protocol (`references/circadian.md`), not restriction |
 | "Relax and clear your mind" | Sleep-effort paradox: monitoring for sleep prevents it | Stimulus control; paradoxical intention for high performers |
 | Adjudicating tracker deep-sleep deficits | Stage data is noise at consumer accuracy | Re-anchor on daytime function and the diary |
 
@@ -131,18 +130,4 @@ Preference areas to record as the user reveals them:
 - Blue light: photobiology shows real melatonin delay; behavioral trials show content arousal dominates in adults. Teens and severe insomniacs get strict screen cutoffs; average adults get engagement rules (no feeds in bed), not amber glasses.
 - Napping: performance school prescribes it, insomnia school bans it. Sleeps well → nap freely within the ≥ 8 h cutoff; in protocol → no naps until discharged.
 - Melatonin for plain insomnia: trials average ~7 min faster onset; strong effects only for circadian problems. Circadian use yes, nightly-forever use no.
-- Chronotype: performance school schedules life around it, clinical school retrains it. Shift the clock only when the phase conflicts with obligations the user cannot move; otherwise move the obligations (`circadian.md`).
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/sleep (install if the user confirms):
-- `fitness` — when the lever is training load, overtraining, or workout timing rather than the night itself
-- `fasting` — when late eating windows or fasting schedules collide with the sleep window
-- `plan` — when the fix is calendar surgery, moving deep work to the user's alert hours instead of fixing sleep
-- `dreams` — dream journaling and pattern exploration; nightmare treatment stays here
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/sleep
-- Latest version: https://clawic.com/skills/sleep
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/sleep.
+- Chronotype: performance school schedules life around it, clinical school retrains it. Shift the clock only when the phase conflicts with obligations the user cannot move; otherwise move the obligations (`references/circadian.md`).

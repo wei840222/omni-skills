@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have been waking up at 3am for the past 4 months and I can't get back to sleep. I've tried going to bed earlier at 9pm but it just makes it worse.",
+    "expected": "Recognize this as chronic insomnia. Advise stimulus control (getting out of bed if unable to sleep) and sleep restriction (delaying bedtime, not going to bed earlier). Request starting a 7-day diary to get baseline data.",
+    "actual": "This sounds like chronic insomnia. I'll load the references/insomnia.md playbook. Going to bed earlier reduces sleep pressure and makes night-waking worse. We need to implement a fixed wake anchor and delay your bedtime. When you wake at 3am, follow stimulus control: if you're awake for roughly 20 minutes (estimate time without a clock), leave bed, do a boring analog activity under dim light, and only return when sleepy. Let's start a 7-day diary to track this.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm flying from New York to London next week for a 5-day conference. How should I handle the jet lag?",
+    "expected": "Use the jet lag playbook for eastward travel crossing >3 zones. Calculate Tmin based on habitual wake time, provide a schedule for melatonin (0.5mg) and light exposure relative to Tmin.",
+    "actual": "I will load the references/jetlag.md playbook. Since you're traveling eastward >3 time zones for ≥3 nights, we need to phase-advance your clock. First, what is your normal wake time in NY? We'll calculate your Tmin (wake minus 2.5 hours). You should use a 0.5mg dose of melatonin 5 hours before your target UK bedtime. Wear sunglasses before your converted Tmin, and seek bright light immediately after Tmin to advance your clock.",
+    "pass": true
+  }
+]

@@ -1,6 +1,6 @@
 # Performance — Naps, Debt, and Bad-Night Damage Control
 
-Alertness operations: what to do TODAY on too little sleep, how naps actually work, and the honest math of debt. Everything here assumes no active insomnia protocol — in protocol, naps are banned and bad nights are handled by `insomnia.md`.
+Alertness operations: what to do TODAY on too little sleep, how naps actually work, and the honest math of debt. Everything here assumes no active insomnia protocol — in protocol, naps are banned and bad nights are handled by `references/insomnia.md`.
 
 ## Nap Taxonomy
 
@@ -15,14 +15,14 @@ Alertness operations: what to do TODAY on too little sleep, how naps actually wo
 2. Light and movement in the first hour; caffeine per the normal cutoff, front-loaded, not escalated.
 3. One 10-20 min nap, finished ≥ 8 h before bedtime, if the day allows.
 4. Demote judgment tasks, keep mechanical ones; alertness dips run in waves — surf between them rather than writing off the day.
-5. Tonight: normal bedtime or slightly earlier ONLY if sleepy; pressure from the bad night does the repairing. One bad night costs far less than the catastrophizing predicts — performance drops measurably but modestly; the panic about it is what feeds insomnia (`insomnia.md`).
+5. Tonight: normal bedtime or slightly earlier ONLY if sleepy; pressure from the bad night does the repairing. One bad night costs far less than the catastrophizing predicts — performance drops measurably but modestly; the panic about it is what feeds insomnia (`references/insomnia.md`).
 
-## All-Nighter Protocol (when truly unavoidable)
+## All-Nighter Protocol (when truly required)
 
 - Before: bank a 90-min nap in the afternoon prior; going in cold is strictly worse.
 - During: caffeine in small repeated doses early, none in the final hours before the post-event sleep; bright light; movement every hour; the 03:00-06:00 trough is where errors cluster — schedule the mechanical work there.
 - The line to state: 17-19 h continuously awake degrades psychomotor performance like ~0.05% blood alcohol; past 24 h it exceeds legal intoxication limits. No driving — arrange the ride BEFORE the all-nighter, decisions at hour 20 are made by the impaired brain.
-- After: one 90-min morning nap if collapsing, then hold until a slightly-early normal bedtime; wake at the anchor next morning. The 14-h crash sleep feels earned and dismantles the schedule (same physics as the shift worker's transition day, `shiftwork.md`).
+- After: one 90-min morning nap if collapsing, then hold until a slightly-early normal bedtime; wake at the anchor next morning. The 14-h crash sleep feels earned and dismantles the schedule (same physics as the shift worker's transition day, `references/shiftwork.md`).
 
 ## Debt Math (the honest numbers)
 
@@ -34,17 +34,17 @@ Alertness operations: what to do TODAY on too little sleep, how naps actually wo
 
 - Sleep CAN be banked ahead of known deprivation: extension for days-to-weeks before improves performance under the hit and after it. This is the one context where MORE time in bed is prescribed to a good sleeper.
 - Extension has direct evidence: college basketball players extending toward 10 h improved sprint times and shooting accuracy (Mah). For competitors, sleep is training load, not recovery garnish — schedule it like a session.
-- Competition timing: performance peaks track the clock; a 09:00 race feels worse to an owl than their fitness justifies. Shift the schedule toward event time in the final days using the `jetlag.md` pre-flight method (1 h/day), even with zero travel.
+- Competition timing: performance peaks track the clock; a 09:00 race feels worse to an owl than their fitness justifies. Shift the schedule toward event time in the final days using the `references/jetlag.md` pre-flight method (1 h/day), even with zero travel.
 - Training placement: end vigorous sessions ≥ 2 h before bed as the default; if evening is the only slot, evening training beats no training — check the diary, not the dogma.
 - Pre-competition night: expect poor sleep and pre-empt the panic — the night BEFORE the night before matters more; one anxious short night before an event barely moves next-day performance (same one-bad-night math as above).
 
 ## Exam Weeks and Crunch
 
 - All-nighters before exams fail on the merits: sleep consolidates the day's learning; the trade is one more cram hour against degraded recall of everything already learned. Last review, then sleep, is the higher-scoring play.
-- Crunch weeks: protect the anchor and a 7-h floor, take the 15-min dip nap, and treat week two of 6-h nights as the Van Dongen data says — impaired judgment that cannot feel itself. On-call crunch → `shiftwork.md`.
+- Crunch weeks: protect the anchor and a 7-h floor, take the 15-min dip nap, and treat week two of 6-h nights as the Van Dongen data says — impaired judgment that cannot feel itself. On-call crunch → `references/shiftwork.md`.
 
 ## Driving (the hard lines)
 
 - Microsleeps arrive without warning at the wheel; yawning, drifting lanes, missing exits are late-stage signals, not early ones.
-- The only countermeasures that work: stop, caffeine, 20-min parked nap (the coffee nap, above), or a different driver. Windows down and loud music measurably do not.
-- Veto lines, stated flat: no driving past 17-19 h awake (the ~0.05% line, above), after a night under 5 h, or during week 1-2 of a restriction protocol (`insomnia.md` warns the same).
+- The only countermeasures that work: pull over, use caffeine, 20-min parked nap (the coffee nap, above), or a different driver. Windows down and loud music are ineffective.
+- Veto lines, stated flat: no driving past 17-19 h awake (the ~0.05% line, above), after a night under 5 h, or during week 1-2 of a restriction protocol (`references/insomnia.md` warns the same).

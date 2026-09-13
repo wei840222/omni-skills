@@ -9,7 +9,7 @@ Timing problems masquerade as insomnia. The tell: sleep is normal in length and 
 | Cannot fall asleep before 2-3am, sleeps 8 h solid given the chance, dies at 07:00 alarms | Delayed phase (DSPS pattern) | Advance protocol below |
 | Sleepy by 20:00, wide awake 4-5am done sleeping, often 60+ | Advanced phase | Delay protocol below; screen mood first (early waking overlaps depression — SKILL.md Red Flags) |
 | Sleep drifts ~1 h later every day regardless of effort, mostly in blind users | Non-24 pattern | Sleep specialist; light-based coaching fails without light perception |
-| Late sleeper who is short-sleeping, not phase-shifted (sleepy all day, sleeps in only on weekends) | Deprivation, not phase | `performance.md` / `insomnia.md` |
+| Late sleeper who is short-sleeping, not phase-shifted (sleepy all day, sleeps in only on weekends) | Deprivation, not phase | `references/performance.md` / `references/insomnia.md` |
 
 A one-week free-run test settles ambiguity (vacation or diary history): free-running sleep that is late-but-normal = phase; broken-anywhere = insomnia.
 
@@ -30,20 +30,20 @@ Severe cases (sleep onset past 3-4am, failing work or school) → sleep speciali
 ## Delay Protocol (advanced phase)
 
 - Bright light in the evening, 1-2 h before the too-early sleepiness hits — this is light before Tmin, which delays.
-- Avoid outdoor light in the first hour after the too-early wake (it lands after their early Tmin and advances further); breakfast away from bright windows, sunglasses on an early dog walk.
+- Wear sunglasses outdoors in the first hour after the too-early wake (it lands after their early Tmin and advances further); breakfast away from bright windows, sunglasses on an early dog walk.
 - No evening melatonin — the clock is already early; melatonin there pushes it earlier.
 - Evening social scheduling is legitimate treatment: activities that keep lights and engagement up past 21:00 do the protocol's work.
 
 ## Chronotherapy Warning
 
-Progressive delay around the clock (staying up 3 h later each day until rotated to the target) looks elegant and occasionally strands the user in a free-running non-24 pattern. Never coach it; advance in 15-30 min steps or refer.
+Progressive delay around the clock (staying up 3 h later each day until rotated to the target) looks elegant and occasionally strands the user in a free-running non-24 pattern. Refer for stepwise clinical protocol instead; advance in 15-30 min steps or refer.
 
 ## Chronotype (no disorder present)
 
-- Morningness/eveningness is substantially heritable and shifts with age: teens run ~2 h delayed by biology (`populations.md`), older adults drift earlier. It is a trait to schedule around, not a discipline failure.
+- Morningness/eveningness is substantially heritable and shifts with age: teens run ~2 h delayed by biology (`references/populations.md`), older adults drift earlier. It is a trait to schedule around, not a discipline failure.
 - Schedule by phase, not clock pride: deep work in the 2-4 h after full alertness arrives; an owl forcing 06:00 deep work performs like an underslept lark.
 - Shift the clock only when the phase conflicts with obligations the user cannot move; otherwise move the obligations. A stable late schedule (01:00-09:00, consistent 7 days) is healthy sleep, full stop.
-- Couples on mismatched chronotypes: this is an `environment.md` problem (staggered bedtimes, light discipline for the late one), not a case for retraining a partner.
+- Couples on mismatched chronotypes: this is an `references/environment.md` problem (staggered bedtimes, light discipline for the late one), not a case for retraining a partner.
 
 ## Light Therapy Practicalities
 

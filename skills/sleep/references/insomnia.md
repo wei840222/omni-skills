@@ -13,25 +13,25 @@ The job is preventing chronification, not fixing tonight.
 
 ## The Diary (ground truth)
 
-Diary 7 days before any chronic-arm intervention, one line per night in `~/Clawic/data/sleep/diary.md`:
+Diary 7 days before any chronic-arm intervention, one line per night in `<state_root>/diary.md`:
 
 `date | in bed | lights out | min to fall asleep | wakes (n, min) | final wake | out of bed | naps | caffeine last | alcohol`
 
-- Filled each morning from estimates; no tracker data pasted in (`trackers.md` explains why).
+- Filled each morning from estimates; no tracker data pasted in (`references/trackers.md` explains why).
 - Estimates beat precision: clock-checking to "get the diary right" feeds the disorder. Hide the clock, guess in the morning.
 - Compute sleep efficiency SE = total sleep time / time in bed. SE ≥ 85% is healthy; SE < 85% triggers restriction.
 
 ## Contraindications (check before restricting)
 
-Do NOT run restriction with: bipolar or mania history, seizure disorder, suspected apnea, pregnancy, or a safety-critical week (commercial driving, machinery); refer instead. Prescribed sleep medication is untouchable; coaching runs alongside, tapering is the prescriber's job (`substances.md`). Suspected delayed or advanced phase → `circadian.md` first; restriction on a mistimed clock adds deprivation without fixing timing.
+Redirect to a clinician for restriction with: bipolar or mania history, seizure disorder, suspected apnea, pregnancy, or a safety-critical week (commercial driving, machinery); refer instead. Prescribed sleep medication is untouchable; coaching runs alongside, tapering is the prescriber's job (`references/substances.md`). Suspected delayed or advanced phase → `references/circadian.md` first; restriction on a mistimed clock adds deprivation without fixing timing.
 
 ## Sleep Restriction
 
-1. Prescribed TIB = average diary TST rounded to 15 min, clamped to the floor: 5 h (5.5 h if age 65+, long commute, or safety-adjacent job). The floor is a clamp, never an exit: diary TST 4 h 30 → prescribe 5 h 00 and continue.
+1. Prescribed TIB = average diary TST rounded to 15 min, clamped to the floor: 5 h (5.5 h if age 65+, long commute, or safety-adjacent job). The floor is a clamp, remains a strict minimum: diary TST 4 h 30 → prescribe 5 h 00 and continue.
 2. Worked example: TST 5 h 50, TIB 8 h 30 → SE 69%. Prescribe TIB 5 h 45 (350 min rounded to 15 min), wake fixed 06:30 → earliest bedtime 00:45. Bedtime is a "not before" line; sleepiness is the entry ticket, fatigue is not sleepiness.
-3. Weekly titration from the diary: SE ≥ 90% → extend TIB 15 min; 85% ≤ SE < 90% → hold; SE < 85% → cut 15 min (never below floor). A week with 3+ violations (naps, sleep-ins, early bedtimes) is re-run, not titrated on.
+3. Weekly titration from the diary: SE ≥ 90% → extend TIB 15 min; 85% ≤ SE < 90% → hold; SE < 85% → cut 15 min (keep at or above the floor limit). A week with 3+ violations (naps, sleep-ins, early bedtimes) is re-run, not titrated on.
 4. Weeks 1-2 feel worse: sleepier days are the mechanism (pressure building); say so upfront or the user quits at day 5. Warn about drowsy driving during this phase.
-5. No improvement by week 4 with clean adherence → stop and refer to a CBT-I clinician.
+5. No improvement by week 4 with clean adherence → conclude protocol and refer to a CBT-I clinician.
 6. Discharge at 4 straight weeks SE ≥ 85% with good daytime function. Keep forever: Wake Anchor + out-of-bed rule.
 
 ## Stimulus Control (runs alongside restriction)
@@ -39,7 +39,7 @@ Do NOT run restriction with: bipolar or mania history, seizure disorder, suspect
 Bootzin's full set — the bed must predict sleep and nothing else:
 
 1. Bed only for sleep and sex: no phone, no laptop, no worrying, no eating.
-2. Go to bed only when sleepy (eyelids heavy, head nodding) — never merely tired, and never "because it's time".
+2. Go to bed only when sleepy (eyelids heavy, head nodding) — wait until experiencing heavy eyelids and nodding off.
 3. Awake ~20 min by feel (no clock-checking): leave the bed, dim light, boring analog activity (paper book, folding laundry), return only when sleepy. Repeat as often as needed; five round trips in one night is the protocol working, not failing.
 4. No naps while in protocol.
 5. Wake Anchor regardless of the night.
@@ -58,7 +58,7 @@ Middle-of-the-night waking, the most common single complaint:
 
 - **Worry scheduling**: 15 min early evening, paper, two columns — worry → next physical action. Closed notebook = closed office; at night, "it's on the list" is the full response.
 - **Paradoxical intention** for high performers: try to stay awake (eyes open in the dark, no media). Removes sleep effort; effort was the obstacle.
-- **Cognitive reframe** for the catastrophizers: one bad night costs less than the panic about it predicts (`performance.md` has the numbers). The belief "8 hours or I'm ruined" is itself a driver.
+- **Cognitive reframe** for the catastrophizers: one bad night costs less than the panic about it predicts (`references/performance.md` has the numbers). The belief "8 hours or I'm ruined" is itself a driver.
 - Relaxation (slow breathing, progressive muscle release) is an adjunct: fine as a wind-down, not a treatment for chronic insomnia on its own.
 
 ## Relapse Plan (give at discharge)
@@ -67,4 +67,4 @@ Middle-of-the-night waking, the most common single complaint:
 - 2 more weeks like that → restart restriction at the last TIB that worked.
 - Rehearse the first move now: "hold wake time, no compensation" — relapses are lost in the first compensating week, not the first bad night.
 
-Falling asleep in < 5 min routinely is sleep deprivation, not talent; treat as a duration problem (`performance.md`).
+Falling asleep in < 5 min routinely is sleep deprivation, not talent; treat as a duration problem (`references/performance.md`).
