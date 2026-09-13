@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| plausible | 2026-09-13 | 85/100 (#372) |
 | render-deploy | 2026-09-13 | 85/100 (#371) |
 | tripadvisor | 2026-09-13 | 85/100 (#370) |
 | javascript | 2026-09-13 | 85/100 (#369) |
