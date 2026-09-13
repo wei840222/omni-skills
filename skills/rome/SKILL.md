@@ -1,83 +1,89 @@
 ---
 name: rome
-slug: rome
-version: 1.0.0
-description: Navigate Rome as visitor, expat, digital nomad, or entrepreneur with neighborhoods, transport, costs, visas, and Italian lifestyle insights.
-homepage: https://clawic.com/skills/rome
+description: Provide practical Rome guidance for visitors, expats, digital nomads, students, retirees, and founders—neighborhoods, transport, costs, visas, food, safety, and lifestyle. Use when the user asks about Rome-specific decisions; verify live fares, rents, visas, tickets, and safety conditions before decisive advice. Not a substitute for multi-city Italy routing (`italy`/`travel`) or Italian-language writing (`italian`).
 metadata:
-  clawdbot:
-    emoji: 🏛️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Rome
+  version: "1.1.0"
+  openclaw: '{"emoji":"🏛️","requires":{"config":["<state_root>/rome/"]}}'
+  related-skills: '{"italy":"Italy-wide destinations and multi-city routing beyond Rome-only depth.","travel":"Multi-destination trip systems and general travel memory.","italian":"Natural Italian writing and register rather than Rome logistics.","europe":"Cross-border EU mobility context beyond Rome.","booking":"Lodging and reservation execution after a Rome base is chosen.","career":"Broader career decisions after Rome tech or job context is set.","startup":"Founder workflows after Rome startup landscape is scoped.","food":"Deeper food-system workflows beyond Roman dining guidance.","dubai":"Expat-destination comparison when weighing Rome against other hubs."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` for integration guidelines.
+Persistent Rome context lives under `<state_root>/rome/` (see `references/memory-template.md`). One-off visitor questions can stay effectively stateless.
 
-## When to Use
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-User asks about Rome or Italy for any purpose: visiting, relocating, working remotely, studying, retiring, or starting a business. Agent provides practical guidance with current data.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/rome/`, `<workspace>/memory/rome/`, `~/rome/`.
+3. If none exists and state must be created, default to `<workspace>/rome/`.
 
-## Architecture
-
-Memory lives in `~/.rome/`. See `memory-template.md` for structure.
+Use the selected `<state_root>` for every state operation in this skill.
 
 ```
-~/.rome/
+<state_root>/rome/
 └── memory.md     # User context and preferences
 ```
 
-## Quick Reference
+On first use with durable context, read `references/setup.md` for optional workspace integration. Answer the user's question first; setup is never blocking.
+
+## When to Use
+
+User asks about Rome for visiting, relocating, working remotely, studying, retiring, or starting a business. Establish role, timeline, budget, party, language level, and neighborhood constraints first, then load only the needed reference files. For multi-city Italy trips prefer `italy`/`travel`; for Italian-language drafting prefer `italian`.
+
+Treat dated package figures as planning estimates. Before booking, immigration, payment, or same-day safety decisions, open the matching reference and verify the official source in `references/sources.md`.
+
+## Auxiliary knowledge (Progressive Disclosure)
+
+
+Only load these files when the user explicitly requests topics requiring them. When they do, load the file using the paths below.
+
 
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Historic Center (Centro Storico, Trastevere, Campo de' Fiori) | `neighborhoods-historic.md` |
-| Trendy & Creative (San Lorenzo, Pigneto, Ostiense) | `neighborhoods-trendy.md` |
-| Upscale (Parioli, Prati, Aventino) | `neighborhoods-upscale.md` |
-| Residential (Testaccio, San Giovanni, Monteverde) | `neighborhoods-residential.md` |
-| Outer & Suburbs (EUR, Garbatella, Ostia) | `neighborhoods-outer.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Historic Center (Centro Storico, Trastevere, Campo de' Fiori) | `references/neighborhoods-historic.md` |
+| Trendy & Creative (San Lorenzo, Pigneto, Ostiense) | `references/neighborhoods-trendy.md` |
+| Upscale (Parioli, Prati, Aventino) | `references/neighborhoods-upscale.md` |
+| Residential (Testaccio, San Giovanni, Monteverde) | `references/neighborhoods-residential.md` |
+| Outer & Suburbs (EUR, Garbatella, Ostia) | `references/neighborhoods-outer.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Roman cuisine essentials | `food-roman.md` |
-| Traditional Roman dishes | `food-local.md` |
-| International cuisine | `food-international.md` |
-| Pizza & street food | `food-pizza.md` |
-| Coffee & aperitivo culture | `food-coffee.md` |
-| Best areas for dining | `food-areas.md` |
-| Practical (tipping, hours, reservations) | `food-practical.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Roman cuisine essentials | `references/food-roman.md` |
+| Traditional Roman dishes | `references/food-local.md` |
+| International cuisine | `references/food-international.md` |
+| Pizza & street food | `references/food-pizza.md` |
+| Coffee & aperitivo culture | `references/food-coffee.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Practical (tipping, hours, reservations) | `references/food-practical.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (metro, buses, trams) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & seasonal tips | `climate.md` |
-| Local services (codice fiscale, healthcare, SIM) | `local.md` |
+| Moving & settling | `references/resident.md` |
+| Transport (metro, buses, trams) | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety & laws | `references/safety.md` |
+| Weather & seasonal tips | `references/climate.md` |
+| Local services (codice fiscale, healthcare, SIM) | `references/local.md` |
 | **Career** | |
-| Tech scene & remote work | `tech.md` |
-| Business setup & freelancing | `business.md` |
-| Visas (Elective Residence, Digital Nomad, EU) | `visas.md` |
-| Startups & innovation | `startup.md` |
+| Tech scene & remote work | `references/tech.md` |
+| Business setup & freelancing | `references/business.md` |
+| Visas (Elective Residence, Digital Nomad, EU) | `references/visas.md` |
+| Startups & innovation | `references/startup.md` |
 | **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare (SSN) | `healthcare.md` |
-| Schools & universities | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Driving & car ownership | `driving.md` |
-| Parks, beaches & outdoors | `outdoors.md` |
+| Culture & customs | `references/culture.md` |
+| Healthcare (SSN) | `references/healthcare.md` |
+| Schools & universities | `references/education.md` |
+| Expat lifestyle & social | `references/lifestyle.md` |
+| Driving & car ownership | `references/driving.md` |
+| Parks, beaches & outdoors | `references/outdoors.md` |
+| **Sources** | |
+| Official portals & verification | `references/sources.md` |
 
 ## Core Rules
 
@@ -92,7 +98,7 @@ Rome is not a modern efficient city — it's a living museum with ancient infras
 - **Pace**: Things move slowly. "Piano piano" (slowly, slowly) is the motto.
 - **Chaos**: Traffic, noise, crowds are constant. Embrace it.
 - **Beauty**: 3,000 years of history at every corner. Worth the chaos.
-See `culture.md` for detailed guidance.
+See `references/culture.md` for detailed guidance.
 
 ### 3. Visa & Residency Options
 Key pathways for non-EU citizens:
@@ -101,7 +107,7 @@ Key pathways for non-EU citizens:
 - **Student Visa**: Universities and language schools
 - **Self-Employment Visa**: Freelancers and entrepreneurs
 - **EU Citizens**: Free movement, just register with comune
-See `visas.md` for current requirements and processes.
+See `references/visas.md` for current requirements and processes.
 
 ### 4. Weather Reality
 - **Mediterranean climate**: Hot dry summers, mild wet winters
@@ -109,7 +115,7 @@ See `visas.md` for current requirements and processes.
 - **Summer (Jun-Aug)**: Very hot (35C+), extremely crowded, locals flee
 - **Winter (Dec-Feb)**: Mild (8-15C), rainy, but Rome is beautiful
 - **August**: Many businesses close. Romans leave for Ferragosto.
-See `climate.md` for monthly breakdown.
+See `references/climate.md` for monthly breakdown.
 
 ### 5. Current Data (Feb 2026)
 
@@ -140,7 +146,7 @@ Rome has good public transport despite the chaos:
 - **Trams**: Several lines, scenic
 - **Regional trains**: To Ostia beach, Fiumicino, suburbs
 - **Walking**: Historic center is very walkable
-See `transport.md` for complete guide.
+See `references/transport.md` for complete guide.
 
 ### 8. Neighborhood Matching
 
@@ -162,14 +168,14 @@ Understanding Rome requires accepting its contradictions:
 - **Frustrating + Rewarding**: Bureaucracy is painful, dolce vita is real
 - **Touristy + Authentic**: Both exist, sometimes in same street
 
-The city rewards patience and curiosity. Don't try to "optimize" Rome — experience it.
+The city rewards patience and curiosity. Embrace the experience instead of trying to optimize Rome.
 
 ## Rome-Specific Traps
 
 - **August shutdown** — Half the city closes for Ferragosto. Plan around it.
 - **Termini area hotels** — Convenient but sketchy at night. Not the best area.
-- **Restaurant tourist menus** — Fixed price "menu turistico" is usually bad. Avoid.
-- **Gladiator photos** — They'll demand money. Don't engage.
+- **Restaurant tourist menus** — Fixed price "menu turistico" is usually bad. Skip these options.
+- **Gladiator photos** — They'll demand money. Walk away without engaging.
 - **Taxi scams** — Use official white taxis only, insist on meter.
 - **Pickpockets** — Crowded metro, tourist sites. Keep valuables secure.
 - **Siesta hours** — Many shops close 13:00-16:00. Adapt.
@@ -182,13 +188,13 @@ The city rewards patience and curiosity. Don't try to "optimize" Rome — experi
 Key laws visitors/residents must know:
 - **Drinking**: Legal at 18. Public drinking generally tolerated in piazzas.
 - **Smoking**: Banned in enclosed public spaces, some outdoor areas.
-- **Monuments**: Sitting on Spanish Steps is fined. Don't eat at fountains.
+- **Monuments**: Sitting on Spanish Steps is fined. Eat only in designated dining areas away from fountains.
 - **Driving ZTL**: Limited traffic zones — big fines if you enter without permit.
 - **Cannabis**: Decriminalized for small amounts, but still illegal.
 - **Tax residency**: 183+ days = tax resident. 7% flat tax for retirees available.
 - **Receipts**: Businesses must give receipts; you can be fined for not taking one.
 
-See `safety.md` for comprehensive legal guidance.
+See `references/safety.md` for comprehensive legal guidance.
 
 ## The Housing Reality (2026)
 
@@ -208,15 +214,15 @@ Housing in Rome:
 - **Gestures**: Italians communicate with hands — learn them
 - **Bureaucracy in Italian**: Almost always, bring translator if needed
 - **Learning Italian**: Greatly improves quality of life and integration
-- **English improving**: Younger generation, tourist areas, but don't assume
+- **English improving**: Younger generation, tourist areas, but verify beforehand
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dubai` — Expat destination comparison
-- `travel` — General travel planning
-- `work` — Career and remote work guidance
 
-## Feedback
+Route adjacent work instead of stretching this package:
 
-- If useful, star it: https://clawic.com/skills/rome
-- Latest version: https://clawic.com/skills/rome
+- `italy` — Italy-wide destinations and multi-city routing
+- `travel` — Multi-destination trip systems
+- `italian` — Natural Italian writing and register
+- `europe` — Broader EU mobility context
+- `booking` — Reservation execution after a Rome base is chosen
+- `career` / `startup` / `food` / `dubai` — adjacent career, founder, dining, or destination-comparison depth

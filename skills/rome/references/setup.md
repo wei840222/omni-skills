@@ -16,14 +16,14 @@ Ask ONCE, naturally:
 If yes, add to user's MEMORY.md:
 ```markdown
 ## Active Skills
-- Rome (~/.rome/) — Eternal City guide for visitors, expats, and digital nomads
+- Rome (`<state_root>/rome/`) — Eternal City guide for visitors, expats, and digital nomads
 ```
 
-If no, note `integration: declined` in memory.md, never ask again.
+If no, note `integration: declined` in memory.md, proceed without asking in the future.
 
 ### Priority #2: Answer Their Question
 
-Whatever they asked, answer it. You don't need full context to be helpful.
+Whatever they asked, answer it. Provide helpful answers using available context.
 
 ## Context to Gather
 
@@ -34,7 +34,7 @@ Over conversations, naturally learn:
 - Do they speak Italian?
 - Any specific neighborhoods they're considering?
 
-Never ask these all at once. Learn organically.
+Ask these questions gradually over time. Learn organically.
 
 ## Status Values
 
@@ -43,7 +43,7 @@ Never ask these all at once. Learn organically.
 | `ongoing` | Default. Still learning about their Rome journey. |
 | `complete` | Know their situation well. Rare. |
 | `paused` | User said "not now" to questions. |
-| `never_ask` | User said stop asking. |
+| `skip_asking` | User requested to discontinue asking. |
 
 ## Golden Rule
 

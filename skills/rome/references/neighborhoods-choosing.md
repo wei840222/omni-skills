@@ -4,7 +4,7 @@
 
 ### Step 1: Define Your Non-Negotiables
 
-| Priority | Best Areas | Avoid |
+| Priority | Best Areas | Skip |
 |----------|------------|-------|
 | Walk to sights | Centro Storico, Monti, Trastevere | EUR, Outer areas |
 | Best food | Testaccio, Trastevere, Jewish Ghetto | EUR, Termini |
@@ -53,7 +53,7 @@
 2. **Trastevere** — Character + food
 3. **Monti** — Trendy + Colosseum
 
-**Avoid:** Termini area, EUR, outer areas
+**Skip:** Termini area, EUR, outer areas
 
 ---
 
@@ -85,7 +85,7 @@
 3. **Pigneto** — Alternative, affordable
 4. **San Lorenzo** — Student-ish, cheap
 
-**Avoid:** Parioli (boring), EUR (soulless), Outer areas
+**Skip:** Parioli (boring), EUR (soulless), Outer areas
 
 ---
 

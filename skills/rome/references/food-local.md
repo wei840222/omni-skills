@@ -61,7 +61,7 @@ Roman cuisine is rooted in "quinto quarto" (fifth quarter) — offal and scraps 
 **Common failures**:
 - Scrambled eggs (pan too hot)
 - Using bacon or pancetta (wrong flavor)
-- Adding cream (never)
+- Authentic recipes use only eggs, cheese, and pasta water
 - Using whole eggs only (too watery)
 
 **Where it is done right**:
@@ -311,7 +311,7 @@ Fresh sheep's milk cheese.
 5. **Cappuccino only until 11am.**
 6. **Pasta is primo** — not a main course, eaten before secondo.
 7. **Bread is not for dipping** in oil (that is Tuscan).
-8. **Cheese never with seafood** (don't ask for parmesan on spaghetti alle vongole).
+8. **Keep cheese separate from seafood** (enjoy seafood pasta exactly as served).
 
 ---
 

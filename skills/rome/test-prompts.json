@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a digital nomad looking to move to Rome for 6 months. What neighborhoods do you recommend and what visa options do I have?",
+    "expected": "Load neighborhoods-choosing.md and visas.md, explain Digital Nomad / residence pathways as orientation, recommend areas like Trastevere, Testaccio, or Pigneto with tradeoffs, and point to official sources before filing.",
+    "actual": "Loaded references/visas.md and references/neighborhoods-choosing.md. For a 6-month remote stay, outline Digital Nomad / self-employment / EU pathways as orientation only, then recommend Trastevere, Testaccio, or Pigneto based on budget and nightlife vs quiet, with verify-at-source before any application.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you give me a 3-day itinerary for Rome with family, focusing on ancient sites but avoiding the worst crowds?",
+    "expected": "Load visitor-itineraries.md and visitor-tips.md; provide a balanced 3-day plan with early starts, timed tickets, and crowd strategies.",
+    "actual": "Loaded references/visitor-itineraries.md and references/visitor-tips.md. Day 1 Colosseum/Forum at opening; Day 2 Vatican timed entry + Castel Sant'Angelo; Day 3 Pantheon/centro with late-afternoon walks; emphasize advance tickets and shoulder hours.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is August a good month to move into a long-term apartment near Termini and start paperwork?",
+    "expected": "Warn about Ferragosto closures, Termini night safety tradeoffs, and bureaucracy slowdowns; suggest alternative neighborhoods and timing using resident/safety/climate refs and sources.",
+    "actual": "Loaded climate, safety, resident guidance: August many offices and shops close for Ferragosto; Termini is convenient but weaker at night; prefer starting leases and questura steps outside peak August when possible, and verify comune/questura hours from official sources.",
+    "pass": true
+  }
+]

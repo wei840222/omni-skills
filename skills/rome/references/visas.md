@@ -234,7 +234,7 @@ For stays over 90 days, you must apply for a **national visa (Type D)** BEFORE a
 
 ## Common Mistakes
 
-### Don't
+### What to Skip
 - Overstay your visa/90 days
 - Work on tourist visa
 - Forget to apply for Permesso on time

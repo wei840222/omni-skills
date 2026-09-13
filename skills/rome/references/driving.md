@@ -4,7 +4,7 @@
 
 **Do you need a car in Rome?** Usually NO.
 
-### When You Don't Need One
+### When Public Transit is Better
 - Living in centro/central neighborhoods
 - Daily life (metro, bus, walking)
 - Tourist sites
@@ -95,7 +95,7 @@
 
 **Yellow Lines**
 - Reserved (disabled, residents, loading)
-- Never park here
+- Parking prohibited here
 
 **Garage/Parcheggio**
 - Indoor parking
@@ -107,7 +107,7 @@
 - Very difficult in center
 - Apps help (Parkopedia, EasyPark)
 - Consider park-and-ride
-- Double parking is Roman tradition (don't)
+- double parking is common but strictly prohibited
 
 ---
 
@@ -191,7 +191,7 @@
 - Be assertive but careful
 - Expect the unexpected
 - Watch for scooters
-- Don't panic
+- Stay calm
 - Use horn appropriately
 - Smaller car = easier
 
@@ -303,7 +303,7 @@
 | Sperlonga | 130 km | 1.5 hr |
 
 ### Tips
-- Avoid rush hours (7-9am, 5-8pm)
+- Travel outside rush hours (7-9am, 5-8pm)
 - GRA (ring road) often congested
 - Weekend exodus Friday evening
 - Sunday return traffic Sunday evening
@@ -313,7 +313,7 @@
 
 ## Practical Advice
 
-### Don't Drive If
+### What to Skip Drive If
 - Staying in centro
 - Short visit
 - Anxiety about traffic

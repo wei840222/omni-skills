@@ -162,7 +162,7 @@ Roman food is about **simplicity, quality ingredients, and tradition**. Unlike o
 
 ## Restaurant Red Flags
 
-### Avoid
+### Skip These
 - Picture menus on sidewalk
 - Staff aggressively soliciting
 - "Menu turistico" signs
@@ -208,7 +208,7 @@ Roman food is about **simplicity, quality ingredients, and tradition**. Unlike o
 ### Tipping
 - **Not obligatory**: Service included usually
 - **If excellent**: Round up or 5-10%
-- **Never American 20%**: Excessive
+- **Moderate Tipping**: Round up the bill (20% is excessive)
 - **Cash preferred** for tips
 
 ### Payment

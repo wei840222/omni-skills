@@ -240,6 +240,6 @@ TOTAL                        EUR 950
 
 ### General
 - Italian SIM card (very cheap)
-- Avoid tourist trap restaurants
+- Seek out authentic local restaurants off the main squares
 - Drink standing at bars
 - Shop at local markets

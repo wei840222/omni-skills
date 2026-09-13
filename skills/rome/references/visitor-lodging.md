@@ -187,7 +187,7 @@ Stay closer to Via Nazionale or Monti side, not east of Termini station.
 
 ### What to Check
 - Reviews (obviously)
-- Elevator (old buildings often don't have)
+- Elevator (check specifically for elevators as older buildings may lack them)
 - AC (essential May-September)
 - Wifi quality
 - Actual location (verify address)
@@ -203,7 +203,7 @@ Stay closer to Via Nazionale or Monti side, not east of Termini station.
 4. **Religious guesthouses** (EUR 50-80, some convents accept guests)
 
 ### Money-Saving Tips
-- **Avoid Easter/Christmas** — Prices double
+- **Be aware during Easter/Christmas** — Expect double prices, book early
 - **August** — Cheaper but hot, many things closed
 - **Book 4+ weeks ahead** for best rates
 - **Apartments with kitchen** — Cook breakfast, picnic lunches
