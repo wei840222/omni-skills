@@ -11,11 +11,11 @@
 | Leak | Mechanism | Fix |
 |---|---|---|
 | Unbounded cache | a Map/object that only ever gains entries | LRU with a max size; WeakMap when keys are objects you don't own |
-| Listeners never removed | the emitter/DOM node retains every handler + its closure | `{signal}`-grouped listeners (`browser.md`), `removeEventListener`/`removeListener`, `{once: true}` |
-| `setInterval` never cleared | callback + closure alive forever (and overlapping — SKILL.md Traps) | `clearInterval` on teardown; chained `setTimeout` |
+| Listeners left active | the emitter/DOM node retains every handler + its closure | `{signal}`-grouped listeners (`browser.md`), `removeEventListener`/`removeListener`, `{once: true}` |
+| `setInterval` running indefinitely | callback + closure alive forever (and overlapping — SKILL.md Traps) | `clearInterval` on teardown; chained `setTimeout` |
 | Closure capturing a large scope | sibling-closure retention (SKILL.md Objects, this & Closures) | null out large locals before returning long-lived callbacks |
 | Detached DOM nodes | a JS reference keeps a removed subtree alive | drop refs on removal; find them via the snapshot "Detached" filter |
-| Never-settling promises | every awaiter and its scope pinned forever | timeout every external wait (`async.md` Timeouts) |
+| Promises without timeouts | every awaiter and its scope pinned forever | timeout every external wait (`async.md` Timeouts) |
 | Module-level accumulators | module scope is process-lifetime scope | move collections to request/task scope |
 
 - Node's `MaxListenersExceededWarning` (default threshold: 10 listeners per event) is a leak detector, not a nuisance — raising the limit without identifying the accumulating registration just silences the alarm.
@@ -31,7 +31,7 @@
 
 - WeakMap/WeakSet: metadata keyed on objects you don't own — the entry dies with the key. Not iterable by design (iteration would observe GC).
 - A Map with object keys is the accidental strong version of a WeakMap — the most common cache leak, and a one-line fix.
-- `WeakRef` + `FinalizationRegistry`: last resort, for opportunistic caches of recomputable values only. GC timing is nondeterministic across engines — never hang correctness on finalization; it may run late or never.
+- `WeakRef` + `FinalizationRegistry`: last resort, for opportunistic caches of recomputable values only. GC timing is nondeterministic across engines — rely on explicit deterministic cleanup paths rather than finalization.
 
 ## Ceilings & Containers
 

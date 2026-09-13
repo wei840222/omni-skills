@@ -49,13 +49,13 @@ Check in this order; each is a one-minute test:
 | `NODE_ENV=production` branches | libraries strip validation and error detail in prod mode |
 | Case-sensitive filesystem (Linux) | import path differing only by case from the file on disk |
 | Server TZ (UTC) vs laptop local | date-only ISO parsing shifts a day (SKILL.md Dates & Time) |
-| Env var present locally only | log presence (`"KEY" in process.env`), never values |
+| Env var present locally only | log presence (`"KEY" in process.env`), keep values hidden |
 | Bundler tree-shook a side-effect import | re-import explicitly for effect; check `sideEffects` config |
 
 ## Heisenbugs (vanishes when you look)
 
 - DevTools logs objects as LIVE references: the console shows the state at expansion time, not at log time. Snapshot it: `console.log(structuredClone(x))`.
-- Adding logs or a breakpoint changes timing → it's a race; stop adding logs and apply `async.md` Await-Torn State.
+- Adding logs or a breakpoint changes timing → it's a race; cease adding logs and apply `async.md` Await-Torn State.
 - Works when stepping, fails when running = an ordering assumption with no `await` enforcing it. Make the ordering explicit.
 
 ## Reading Stack Traces
@@ -67,4 +67,4 @@ Check in this order; each is a one-minute test:
 
 ## When You Are Truly Stuck
 
-Bisect, don't stare: git bisect for regressions; input bisection for data bugs (halve the payload until the minimal failing record remains); comment-out bisection for pipelines. Each halving is one run — 1,000 suspects fall in 10 runs.
+Bisect, verify systematically: git bisect for regressions; input bisection for data bugs (halve the payload until the minimal failing record remains); comment-out bisection for pipelines. Each halving is one run — 1,000 suspects fall in 10 runs.

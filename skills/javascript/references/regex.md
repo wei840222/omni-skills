@@ -11,7 +11,7 @@
 - The shape: nested or overlapping quantifiers where the same text can be split many ways — `(a+)+$`, `(\w+\s?)*$`, `(.*,)*`. On failing input the engine tries every split: `(a+)+$` against `"a".repeat(30) + "!"` explores ~2^30 paths; every added character doubles the time.
 - A hanging regex blocks the event loop completely — synchronous, uninterruptible, no timeout API exists. On a server that is a one-request denial of service.
 - Fixes: make the repeated element unable to match the same text two ways (`[^,]*` before a literal comma instead of `.*`; unroll `(\w+\s?)*` to `\w+(\s\w+)*`); anchor early so failures fail fast; keep a pathological input (long repeat + non-matching tail) in the test suite for every nontrivial regex.
-- Untrusted PATTERNS are never safe by inspection — run them in a worker you can kill, or a linear-time engine (an RE2 binding).
+- Evaluate untrusted PATTERNS in a restricted environment — run them in a worker you can kill, or a linear-time engine (an RE2 binding).
 - Untrusted TEXT interpolated into a pattern must be escaped: `RegExp.escape(str)` (floor: `modern.md`) or the classic `str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")`.
 
 ## Flags
@@ -38,5 +38,5 @@
 
 - `\b` is ASCII-defined: it misfires around accented and non-Latin letters even with `u`. Approximate a Unicode word boundary with lookarounds: `(?<!\p{L})word(?!\p{L})` with `u`.
 - Lookbehind `(?<=...)`/`(?<!...)` is ES2018 and fine on any supported Node — but Safari only since 16.4, the one floor check browser-targeted patterns still need (`browser_floor` in SKILL.md Configuration).
-- Don't parse nested structures (HTML, JSON, balanced parens) with one regex — nesting is not expressible; use a real parser (`DOMParser` in browsers, `JSON.parse`).
+- Parse nested structures with a real parser (HTML, JSON, balanced parens) with one regex — nesting is not expressible; use a real parser (`DOMParser` in browsers, `JSON.parse`).
 - For literal work, string methods beat regex: `startsWith`/`endsWith`/`includes` have no escaping bugs and state their intent.

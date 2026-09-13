@@ -43,6 +43,6 @@ async function pool(items, n, fn) {
 
 ## Timeouts & Cleanup
 
-- `fetch` has no timeout: `fetch(url, {signal: AbortSignal.timeout(ms)})` rejects with TimeoutError AND aborts the request — unlike `Promise.race`, which abandons but never stops it (→ SKILL.md Traps).
+- `fetch` has no timeout: `fetch(url, {signal: AbortSignal.timeout(ms)})` rejects with TimeoutError AND aborts the request — unlike `Promise.race`, which abandons but keeps running (→ SKILL.md Traps).
 - Combine cancellation causes with `AbortSignal.any([userSignal, AbortSignal.timeout(ms)])`.
 - Runtime floors for AbortSignal helpers: `modern.md`.

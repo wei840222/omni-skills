@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this snippet: `if (user.id == null) { return; }` Is it safe or should I use `===`?",
+    "expected": "The agent should affirm that `x == null` is a safe and defensible idiom in JavaScript because it matches both null and undefined, and advise against expanding it to two strict equality checks.",
+    "actual": "The agent confirmed that using `user.id == null` is safe and perfectly fine in this context, as it concisely checks for both `null` and `undefined` in a single operation, complying with the core rules.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm measuring my function's execution time using `const start = Date.now(); doWork(); const end = Date.now(); console.log(end - start);`. Is this the best way?",
+    "expected": "The agent should point out that wall-clock timestamps from `Date.now()` are subject to NTP adjustments and can step backwards. It should recommend using `performance.now()` instead for monotonic duration measurements.",
+    "actual": "The agent accurately pointed out the flaw with using `Date.now()` for performance benchmarking, explaining that it is subject to system clock changes (NTP syncs). It correctly recommended `performance.now()` as it is monotonic and suited for durations.",
+    "pass": true
+  }
+]

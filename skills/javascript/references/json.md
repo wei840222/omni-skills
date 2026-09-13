@@ -26,7 +26,7 @@
 - Replacer function `(key, value)`: `value` has already been through `toJSON` — a Date arrives as a string; recover the original via `this[key] instanceof Date`.
 - Replacer array whitelists keys — one-line payload trimming and secret redaction: `JSON.stringify(obj, ["id", "name", "total"])`.
 - Log redaction by name: a replacer that returns `"[redacted]"` for `/token|secret|password|key$/i` keys is the cheap guard against credentials in logs.
-- Reviver runs leaves-first, root last. Date revival needs a strict gate — revive only strings matching a full ISO pattern (`/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/`), never "looks like a date".
+- Reviver runs leaves-first, root last. Date revival needs a strict gate — revive only strings matching a full ISO pattern (`/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/`), require strict ISO date patterns.
 
 ## Safety
 
@@ -36,8 +36,8 @@
 
 ## Canonicalization & Hashing
 
-- `JSON.stringify` follows property insertion order (integer-like keys first — SKILL.md Objects): equal-content objects built in different order produce different strings. Never compare or hash raw JSON text for data equality.
-- For signing/hashing/dedupe: recursively sort keys (canonical-JSON), and remember whitespace and number formatting also vary across producers — canonicalize on YOUR side, don't trust the wire form to be stable.
+- `JSON.stringify` follows property insertion order (integer-like keys first — SKILL.md Objects): equal-content objects built in different order produce different strings. Canonicalize JSON by sorting keys before comparing or hashing text.
+- For signing/hashing/dedupe: recursively sort keys (canonical-JSON), and remember whitespace and number formatting also vary across producers — canonicalize on YOUR side, ensure you format the data on your side.
 
 ## Big Payloads
 
