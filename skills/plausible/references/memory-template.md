@@ -1,6 +1,6 @@
 # Memory Template — Plausible
 
-Create `~/Clawic/data/plausible/memory.md` with this structure:
+Create `<state_root>/plausible/memory.md` with this structure:
 
 ```markdown
 # Plausible Memory
@@ -41,8 +41,8 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Still learning preferences | Gather context from queries |
 | `complete` | Has enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, work with defaults |
-| `never_ask` | User said stop | Never ask for more context |
+| `paused` | User said "not now" | Use defaults instead of asking, work with defaults |
+| `never_ask` | User said stop | Avoid asking for more context |
 
 ## Key Principles
 

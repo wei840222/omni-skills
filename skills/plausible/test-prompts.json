@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Show me the pageviews and unique visitors for example.com over the last 7 days from Plausible.",
+    "expected": "The agent should fetch the metrics for pageviews and visitors for example.com for a 7d period via the aggregate endpoint.",
+    "actual": "Agent queried Plausible API for example.com metrics 'pageviews' and 'visitors' over the last 7 days and presented the numbers.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the top referral sources for app.example.com this month? Are there any conversion goals met?",
+    "expected": "The agent should fetch a breakdown by visit:source for app.example.com for the month, and separately fetch conversion_rate if goals are configured.",
+    "actual": "Agent successfully queried the breakdown by visit:source for app.example.com for this month. It also noted that conversion rates require specific goal filters setup in memory.",
+    "pass": true
+  }
+]
