@@ -1,64 +1,58 @@
 ---
 name: pdf-generator
-slug: pdf-generator
-version: 1.0.1
-description: Generate professional PDFs from Markdown, HTML, data, or code. Reports, invoices, contracts, and documents with best practices.
-homepage: https://clawic.com/skills/pdf-generator
+description: Generate professional PDFs from Markdown, HTML, data, or code (reports, invoices, contracts). Use when the user wants to create, export, format, merge, split, or style PDF documents with print CSS and tool selection. Not for extracting text from existing PDFs (`extract-pdf-text`), deep LaTeX authoring (`latex`), or general Markdown editing without PDF output (`markdown`).
 metadata:
-  clawdbot:
-    emoji: 📄
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Pdf Generator
+  version: "1.1.0"
+  openclaw: '{"emoji":"📄"}'
+  related-skills: '{"markdown":"Source drafting and Markdown structure before PDF export.","latex":"TeX authoring and build recovery when pandoc/LaTeX is the chosen engine.","extract-pdf-text":"Read or OCR text from existing PDFs rather than generating new ones.","word-docx":"Editable Word documents when PDF is not the delivery format.","office":"Broader Office document workflows beyond PDF-specific generation."}'
 ---
 
-## When to Use
+## State location
 
-User needs to create, generate, or export PDF documents. Agent handles document generation from multiple sources (Markdown, HTML, JSON, templates), formatting, styling, and batch processing.
+This skill is **stateless**. It does not store local configuration, caches, or persistent project data. Skill resources live under `references/`; never invent a filesystem state root for this package.
 
-## Scope
+## When to use
 
-This skill ONLY:
-- Provides code patterns and implementation guidance for PDF generation
-- Explains tool selection, CSS for print, and document structure
-- Shows reference examples for common document types
+- User wants to create, export, or batch-produce PDF documents from Markdown, HTML, JSON/data, or templates
+- Need tool selection among weasyprint, pandoc, reportlab, fpdf2, and pypdf
+- Print CSS, page breaks, metadata, invoices/contracts/reports templates, or merge/split operations
+- Route away when the ask is text extraction from PDFs (`extract-pdf-text`), full LaTeX authoring (`latex`), or Markdown editing without PDF delivery (`markdown`)
 
-This skill NEVER:
-- Executes code or generates files directly
-- Makes network requests
-- Accesses files outside user's working directory
+## Operating loop
 
-All code examples are reference patterns for the user to implement.
+1. **Clarify source and delivery** — Markdown, HTML/CSS, structured data, or existing PDFs to merge/split.
+2. **Pick one primary tool** — default weasyprint for HTML; pandoc for Markdown; reportlab/fpdf2 for programmatic layouts; pypdf for merge/split.
+3. **Structure before style** — semantic HTML or clear document outline first; then print CSS and page geometry.
+4. **Load depth on demand** — open only the needed reference file from the quick-reference table.
+5. **Validate output** — non-zero file size, expected page count, fonts/images present; keep generation local.
 
-## Quick Reference
+## Quick reference
 
-| Topic | File |
-|-------|------|
-| Tool selection | `tools.md` |
-| Document types | `templates.md` |
-| Advanced operations | `advanced.md` |
+| Need | Action | Load |
+|---|---|---|
+| Choose weasyprint / pandoc / reportlab / fpdf2 / pypdf | Match source type to tool | `references/tools.md` |
+| Invoice, report, contract, letter patterns | Start from document templates | `references/templates.md` |
+| Merge, split, rotate, watermark, encrypt | Apply advanced PDF operations | `references/advanced.md` |
+| Official docs and version anchors | Verify APIs before quoting options | `references/sources.md` |
 
-## Core Rules
+## Core rules
 
-### 1. Choose the Right Tool
+### 1. Choose the right tool
 
-| Source | Best Tool | Why |
+| Source | Best tool | Why |
 |--------|-----------|-----|
 | Markdown | pandoc | Native support, TOC, templates |
-| HTML/CSS | weasyprint | Best CSS support, no LaTeX |
+| HTML/CSS | weasyprint | Strong CSS/print support without a full TeX install |
 | Data/JSON | reportlab | Programmatic, precise control |
-| Simple text | fpdf2 | Lightweight, fast |
+| Simple text | fpdf2 | Lightweight and fast |
+| Existing PDFs | pypdf | Merge, split, rotate, metadata |
 
-**Default recommendation:** weasyprint for most HTML-based documents.
+**Default:** weasyprint for most HTML-based documents.
 
-### 2. Structure Before Style
+### 2. Structure before style
 
 ```python
-# CORRECT: semantic structure
+# Preferred: semantic structure first
 html = """
 <article>
   <header><h1>Report Title</h1></header>
@@ -69,86 +63,72 @@ html = """
 </article>
 """
 
-# WRONG: style-first approach
+# Avoid style-first shells that hide document structure
 html = "<div style='font-size:24px'>Report Title</div>"
 ```
 
-### 3. Handle Page Breaks Explicitly
+### 3. Handle page breaks explicitly
 
 ```css
-/* Force page break before */
 .new-page { page-break-before: always; }
-
-/* Keep together */
 .keep-together { page-break-inside: avoid; }
-
-/* Headers never orphaned */
 h2, h3 { page-break-after: avoid; }
 ```
 
-### 4. Always Set Metadata
+### 4. Always set metadata
 
 ```python
-# Example pattern for weasyprint
 html = """
 <html>
 <head>
   <title>Document Title</title>
   <meta name="author" content="Author Name">
 </head>
-...
+<body>...</body>
+</html>
 """
 ```
 
-### 5. Use Print-Optimized CSS
+### 5. Use print-optimized CSS
 
 ```css
 @media print {
   body {
-    font-family: 'Georgia', serif;
+    font-family: Georgia, serif;
     font-size: 11pt;
     line-height: 1.5;
   }
-  
+
   @page {
     size: A4;
     margin: 2cm;
   }
-  
+
   .no-print { display: none; }
 }
 ```
 
-### 6. Validate Output
+### 6. Validate output
 
 After generating any PDF:
-1. Check file size (0 bytes = failed)
-2. Open and verify page count
-3. Verify fonts render correctly
 
-## Common Traps
+1. Confirm file size is non-zero
+2. Open and verify page count
+3. Confirm fonts and images render as expected
+
+## Common traps
 
 | Trap | Consequence | Fix |
 |------|-------------|-----|
-| Missing fonts | Fallback to defaults | Use web-safe fonts |
-| Absolute image paths | Images missing | Use relative paths |
-| No page size | Unpredictable layout | Set `@page { size: A4; }` |
-| Large images | Huge files | Compress before use |
+| Missing fonts | Fallback glyphs / reflow | Prefer widely available fonts or embed deliberately |
+| Absolute image paths | Missing images | Use paths relative to the HTML base |
+| No page size | Unpredictable layout | Set `@page { size: A4; }` or tool page geometry |
+| Large images | Huge files | Compress before embedding |
 
-## Security & Privacy
+## Security and privacy
 
-**This is a reference skill.** It provides patterns and guidance only.
+This is a **reference skill**: it supplies patterns and guidance only.
 
-**Data that stays local:**
-- All PDF generation happens on user's machine
-- No data sent externally
-
-**This skill does NOT:**
-- Execute code or make files
-- Make network requests
-- Access system files
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/pdf-generator
-- Latest version: https://clawic.com/skills/pdf-generator
+- Keep generation on the user's machine; do not send document contents to external services unless the user explicitly chooses a hosted tool.
+- Treat example code as patterns for the user/agent runtime to implement—do not invent network calls, shell side effects, or access outside the working directory.
+- Prefer local libraries (`weasyprint`, `pandoc`, `reportlab`, `fpdf2`, `pypdf`) over uploading sensitive invoices or contracts.
