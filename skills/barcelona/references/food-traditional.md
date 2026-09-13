@@ -102,7 +102,7 @@ Rice dishes are Valencian origin but Barcelona does them excellently. Key: cooke
 | **Elche** | Vila Olímpica | €22-28 | Excellent rice |
 | **Barraca** | Barceloneta | €20-26 | Beach views |
 
-### AVOID
+### AREAS TO RECONSIDER
 - **Beachfront restaurants on paseo** — Tourist traps, mediocre, overpriced
 - **Anywhere with photos of paella in window** — Red flag
 
@@ -216,7 +216,7 @@ Pre-meal vermouth ritual, especially Sundays.
 
 | Market | Location | What |
 |--------|----------|------|
-| **La Boqueria** | Ramblas | Everything (go early, avoid front) |
+| **La Boqueria** | Ramblas | Everything (go early, bypass the front stalls) |
 | **Santa Caterina** | Born | Less crowded, excellent |
 | **Sant Antoni** | Sant Antoni | Sundays book market |
 
@@ -235,7 +235,7 @@ Pre-meal vermouth ritual, especially Sundays.
 
 ## Where NOT to Eat Traditional Food
 
-| Avoid | Why |
+| Reconsider | Why |
 |-------|-----|
 | **Las Ramblas restaurants** | Tourist trap, 2-3x markup |
 | **Barceloneta beachfront first line** | Mediocre paella, overpriced |

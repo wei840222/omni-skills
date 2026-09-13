@@ -142,7 +142,7 @@ EU law requires allergen menus. Ask for "la carta d'al·lèrgens."
 | **Tapas bars** | All day (many) | Varies |
 | **Brunch spots** | 10am-4pm | Some only lunch |
 
-**Mistakes to avoid:**
+**Common mistakes to correct:**
 - Arriving at 7pm for dinner (closed or empty)
 - Eating lunch at 12pm (only tourists)
 - Expecting quick service at 10pm (dinner just starting)
@@ -204,7 +204,7 @@ EU law requires allergen menus. Ask for "la carta d'al·lèrgens."
 3. Order drinks first
 4. Order 2-3 tapas to start, more later
 5. Share everything
-6. Don't rush
+6. Take your time
 7. Ask for "el compte" / "la cuenta" when done
 
 ### Useful Phrases
@@ -227,7 +227,7 @@ EU law requires allergen menus. Ask for "la carta d'al·lèrgens."
 | **Menú del dia** | 3 courses €12-16 vs €30+ à la carte |
 | **Carrer Blai pintxos** | €1-2 each vs €6-8 tapas elsewhere |
 | **Stand at bar** | Sometimes cheaper than sitting |
-| **Avoid Las Ramblas** | 50%+ markup |
+| **Dine outside Las Ramblas** | 50%+ markup |
 | **Lunch > dinner** | Same food, lower prices |
 | **Markets for groceries** | Better than supermarkets |
 | **Vermouth + olives** | Cheap pre-meal |

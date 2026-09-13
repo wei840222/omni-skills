@@ -16,7 +16,7 @@
 
 ### Tips
 - Barcelona is very walkable — center fits in 45-minute diameter
-- Avoid metro at rush hour (8-9:30am, 6-8pm)
+- Use alternative transport or travel outside rush hour (8-9:30am, 6-8pm)
 - Airport train (Rodalies R2) cheaper than metro
 - Taxi/Uber from airport ~€40-45 to center
 
@@ -29,7 +29,7 @@
 | **Free museum times** | Picasso (Thu 4-7pm), MACBA (Sat 4-8pm) |
 | **Bunkers del Carmel** | Best views, free (vs paid viewpoints) |
 | **Bogatell beach** | Same sea, fewer tourists than Barceloneta |
-| **Walk Las Ramblas, don't eat there** | 50%+ markup avoided |
+| **Walk Las Ramblas, dine in adjacent neighborhoods** | 50%+ markup bypassed |
 | **Mercat de Sant Antoni** | Better value than Boqueria |
 | **Menú del día** | €12-16 for 3-course lunch |
 | **Vermouth** | €3-4 drink vs €8-10 cocktail |
@@ -58,7 +58,7 @@
 |---------|-----|
 | Not booking Sagrada Família | Book online, specific time slot |
 | Eating on Las Ramblas | Walk to El Born or Gràcia |
-| Leaving belongings on beach | Never unattended. EVER. |
+| Leaving belongings on beach | Keep belongings with you at all times. |
 | Back pocket phone | Front pocket, cross-body bag |
 | Assuming everyone speaks English | Start with "Hola" or "Perdona" |
 | August visit | Hot, some closures, very crowded beaches |
@@ -86,7 +86,7 @@ Barcelona has Europe's highest pickpocketing rate for tourists. Take this seriou
 |-----|-----|
 | **Cross-body bag, zip facing you** | Hardest to access |
 | **Phone in front pocket** | Back pocket = easy target |
-| **Don't stop for petition signers** | Distraction while accomplice steals |
+| **Keep walking past petition signers** | Distraction while accomplice steals |
 | **Bag on lap at restaurants** | Floor or back of chair = target |
 | **Watch for "helpful" strangers** | Often working with thieves |
 | **No phone on restaurant table** | Grab-and-run common |
@@ -96,10 +96,10 @@ Barcelona has Europe's highest pickpocketing rate for tourists. Take this seriou
 | Scam | Response |
 |------|----------|
 | Deaf charity petition | "No, gràcies" and keep walking |
-| Rose/bracelet sellers | Firm "No" and don't accept item |
+| Rose/bracelet sellers | Give a firm "No" and keep your hands free |
 | "Found" ring | Ignore completely |
 | Bird droppings/sauce splash | Someone "helping" is robbing you |
-| Metro card problems | Don't accept "help" |
+| Metro card problems | Seek official staff for assistance |
 
 **Emergency:** 112 | Non-emergency police: 092 (local), 091 (national)
 
@@ -128,7 +128,7 @@ Barcelona has Europe's highest pickpocketing rate for tourists. Take this seriou
 | **Merienda** | 5-7pm | Coffee/snack |
 | **Dinner** | 9-10:30pm | Lighter than lunch (usually) |
 
-**Restaurants don't open for dinner until 8:30-9pm!**
+**Restaurants open for dinner starting at 8:30-9pm!**
 
 ---
 
@@ -224,7 +224,7 @@ Barcelona has Europe's highest pickpocketing rate for tourists. Take this seriou
 | **Books** | La Central (beautiful) |
 | **Design** | Vinçon, Born area |
 
-### Avoid
+### Areas to Reconsider
 - Tourist shops on Las Ramblas (overpriced junk)
 - "Authentic" items at €1 shops
 - Street vendors selling knockoffs
@@ -275,7 +275,7 @@ Barcelona has Europe's highest pickpocketing rate for tourists. Take this seriou
 
 ## Local Etiquette
 
-| Do | Don't |
+| Recommended | Reconsider |
 |----|-------|
 | Greet with "Hola" or "Bon dia" | Jump straight to request |
 | Try basic Catalan phrases | Assume everyone prefers Spanish |

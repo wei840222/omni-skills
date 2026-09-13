@@ -30,7 +30,7 @@ Barcelona is notorious for this. It's organized, professional, and targets touri
 | **Cross-body bag, zip facing body** | Hardest to open |
 | **Phone in FRONT pocket** | Back pocket = easy target |
 | **Backpack to front in crowds** | Or skip backpack entirely |
-| **Don't stop for strangers** | Most approaches = distraction |
+| **Keep moving when approached by strangers** | Most approaches = distraction |
 | **No phone on table** | Grab-and-run common |
 | **Hand on bag in metro** | Be constantly aware |
 | **Nothing in back pocket** | Ever |
@@ -46,7 +46,7 @@ The metro area between Catalunya, Universitat, and Passeig de Gràcia has highes
 
 | Problem | Prevention |
 |---------|------------|
-| **Unattended belongings** | NEVER leave anything, even for 2 min |
+| **Unattended belongings** | Keep everything secured, even for 2 min |
 | **While swimming** | Take turns — someone watches stuff |
 | **Sleeping on beach** | Wake up without wallet |
 | **Chiringuito (beach bar)** | Bag on lap, not sand |
@@ -60,7 +60,7 @@ The metro area between Catalunya, Universitat, and Passeig de Gràcia has highes
 | Method | Where | Prevention |
 |--------|-------|------------|
 | Moped snatch | Near curb | Phone away when walking |
-| Grab and run | Terraces | Never on table |
+| Grab and run | Terraces | Keep items in your lap or secured |
 | Distraction | Tourist areas | Stay aware |
 
 ---
@@ -70,13 +70,13 @@ The metro area between Catalunya, Universitat, and Passeig de Gràcia has highes
 | Scam | How It Works | Response |
 |------|--------------|----------|
 | **Petition signers** | Distract while accomplice steals | "No" and keep walking |
-| **Rose/bracelet sellers** | Force item → demand payment | Firm "No", don't touch |
+| **Rose/bracelet sellers** | Force item → demand payment | Firm "No", keep your hands free |
 | **Found ring** | "Is this yours?" → distraction | Ignore completely |
 | **Bird droppings** | Someone "helps" clean → pickpockets | Decline help, walk away |
 | **Fake police** | Ask for wallet to "check" | Ask credentials, offer to go to station |
-| **Shell game** | Street gambling → rigged | Never play, crowd are shills |
+| **Shell game** | Street gambling → rigged | Walk past, crowd are shills |
 | **Free drinks at club** | Drugged → robbed | Only drink what you order/see poured |
-| **Apartment scams** | Pay deposit → no apartment | Never pay without seeing |
+| **Apartment scams** | Pay deposit → no apartment | Always view the property before paying |
 
 ---
 
@@ -91,7 +91,7 @@ The metro area between Catalunya, Universitat, and Passeig de Gràcia has highes
 | Pressure to decide fast | Red flag |
 | No real photos | Suspicious |
 
-**Safe approach:** Use Idealista, Fotocasa, Spotahome. Visit in person before paying. Never wire money.
+**Safe approach:** Use Idealista, Fotocasa, Spotahome. Visit in person before paying. Use secure payment platforms only.
 
 ---
 
@@ -103,7 +103,7 @@ The metro area between Catalunya, Universitat, and Passeig de Gràcia has highes
 | ⭐⭐⭐⭐ Safe | Eixample, Poblenou, Sant Antoni, Poble Sec, Born (main) |
 | ⭐⭐⭐ Generally Safe | Barceloneta (watch theft), Gòtic (watch pockets) |
 | ⭐⭐ Caution | Raval (varies by block), parts of Nou Barris |
-| ⭐ Avoid (certain hours) | Lower Raval at night, specific Ciutat Vella corners |
+| ⭐ Exercise caution (certain hours) | Lower Raval at night, specific Ciutat Vella corners |
 
 **Note:** Even "caution" areas are fine during daytime. Issues are nighttime, specific blocks.
 
@@ -133,7 +133,7 @@ Raval is complicated. Upper vs Lower matters:
 | Midnight-3am | Normal nightlife, stick to populated areas |
 | 3am-6am | Quieter, use taxi for longer distances |
 
-### Areas to Avoid Late Night
+### Areas Requiring Extra Caution Late Night
 
 - Lower Raval (below Carrer de l'Hospital)
 - Deserted metro stations
@@ -160,7 +160,7 @@ Raval is complicated. Upper vs Lower matters:
 | Public transport | Very safe, even late |
 | Walking alone | Fine in busy/lit areas |
 | Beach solo | Normal, watch belongings |
-| Lower Raval solo at night | Avoid |
+| Lower Raval solo at night | Reconsider |
 
 **Resources:**
 - Emergency: 112
@@ -173,7 +173,7 @@ Raval is complicated. Upper vs Lower matters:
 
 | Mode | Safety Level | Notes |
 |------|--------------|-------|
-| **Metro** | Safe, watch pockets | CCTV, security, avoid empty carriages late |
+| **Metro** | Safe, watch pockets | CCTV, security, use populated carriages late |
 | **Bus** | Very safe | Driver present |
 | **Night bus** | Safe | Sit near driver |
 | **Taxi** | Very safe | Black/yellow official only |
@@ -229,7 +229,7 @@ Raval is complicated. Upper vs Lower matters:
 |-----|-----|
 | **Bag across body, zip facing you** | Standard Barcelona practice |
 | **Phone in front pocket** | Not negotiable |
-| **Don't wear flashy jewelry** | Attracts attention |
+| **Keep valuables concealed** | Attracts attention |
 | **Use hotel safe** | For passport, excess cash |
 | **Card over cash** | Less to lose |
 | **Apple/Google "Find My"** | If phone stolen |
@@ -239,8 +239,8 @@ Raval is complicated. Upper vs Lower matters:
 
 - [ ] Only bring essentials
 - [ ] Waterproof pouch for phone/cards
-- [ ] Don't bring wallet (just some cash)
-- [ ] Never leave belongings alone
+- [ ] Leave wallet at home (just some cash)
+- [ ] Keep belongings secured with you
 - [ ] Take turns watching stuff
 - [ ] Consider beach locker (some beaches)
 
@@ -265,10 +265,10 @@ When asked about Barcelona safety:
 2. **BUT warn:** Pickpocketing is VERY real, take seriously
 3. **Hotspots:** Ramblas, Metro L3, Boqueria, beaches, Gòtic
 4. **Prevention:** Cross-body bag, front pockets, stay aware
-5. **At night:** Avoid lower Raval, deserted areas
-6. **Beach:** NEVER leave stuff unattended
+5. **At night:** Exercise caution in lower Raval, deserted areas
+6. **Beach:** Keep stuff secured with you
 7. **Emergencies:** 112 (all), 088 (Mossos)
-8. **Scams:** Ignore strangers approaching, don't stop
+8. **Scams:** Ignore strangers approaching, keep moving
 
 ---
 

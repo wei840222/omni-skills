@@ -6,7 +6,7 @@
 |------------|-----|------|-----|
 | **Sagrada Família** | Gaudí's masterpiece, unlike anything | €26-36 | BOOK ONLINE (weeks ahead in summer) |
 | **Park Güell** | Gaudí's public park, views, mosaics | €10 (monumental zone) | Book morning slot, free zone is free |
-| **La Boqueria** | Best food market in Spain | FREE | Go before 10am (avoid tourist crush) |
+| **La Boqueria** | Best food market in Spain | FREE | Go before 10am (bypass the busiest crowds) |
 | **El Born** | Best neighborhood for wandering | FREE | Evening best, great bars |
 | **Bunkers del Carmel** | Best panoramic views, free | FREE | Sunset essential |
 | **Gothic Quarter** | Medieval streets, cathedral | FREE | Early morning (empty) |
@@ -45,7 +45,7 @@
 | **Park Güell (free zone)** | Always | Can't enter monumental zone |
 | **Bunkers del Carmel** | Always | Best sunset spot in Barcelona |
 | **Gothic Quarter** | Always | Wander the medieval streets |
-| **La Boqueria** | Always | Don't buy overpriced fruit cups |
+| **La Boqueria** | Always | Skip overpriced fruit cups |
 | **El Born streets** | Always | Best neighborhood for atmosphere |
 | **Picasso Museum** | Thu 4-7pm, 1st Sun | Queue early |
 | **MACBA** | Sat 4-8pm | Contemporary art |
@@ -174,7 +174,7 @@
 | **Tour** | €28 basic, more with extras |
 | **Status** | Under renovation, may have limited access |
 | **Match tickets** | €40-300+ depending on opponent |
-| **How to buy** | fcbarcelona.com only (avoid scalpers) |
+| **How to buy** | fcbarcelona.com only (use official channels) |
 | **Tip** | El Clásico and Champions League sell out instantly |
 
 ### RCD Espanyol (RCDE Stadium)

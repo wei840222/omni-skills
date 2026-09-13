@@ -115,9 +115,9 @@ Use TMB App or Citymapper. Barcelona metro is efficient — most central areas a
 
 ---
 
-## What to Avoid (Unless You Know What You're Doing)
+## Areas Requiring Extra Thought (Unless You Know What You're Doing)
 
-| Avoid | Why |
+| Reconsider | Why |
 |-------|-----|
 | **Las Ramblas area** | Touristy, noisy, pickpockets |
 | **Lower Raval** | Safety issues at night |
@@ -177,7 +177,7 @@ Use TMB App or Citymapper. Barcelona metro is efficient — most central areas a
 |--------|------------------|
 | **September** | Highest demand (students, workers return) |
 | **January-February** | Lower demand, better negotiation |
-| **MWC week (Feb)** | Prices spike, avoid moving then |
+| **MWC week (Feb)** | Prices spike, plan your move for other weeks |
 | **Summer** | Some deals as locals leave |
 
 ---
@@ -193,7 +193,7 @@ Barcelona has severe housing shortage. Competition is intense. Be ready to:
 ### Illegal Rentals
 Many Airbnbs operate illegally. For long-term:
 - Check property is registered for residential rental
-- Avoid "tourist apartment" for long stays (illegal for tenant)
+- Opt out of "tourist apartment" for long stays (illegal for tenant)
 - Get proper contract (contracte de lloguer)
 
 ### Catalan Contracts

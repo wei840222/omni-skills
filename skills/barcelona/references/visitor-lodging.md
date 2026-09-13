@@ -240,7 +240,7 @@ Barcelona heavily regulates tourist apartments. Look for:
 | **El Born** | Safe, watch for pickpockets daytime |
 | **Gothic Quarter** | Pickpockets common, some sketchy corners at night |
 | **Barceloneta** | Beach theft common, watch belongings |
-| **Raval** | Avoid dark streets late night, stick to main areas |
+| **Raval** | Stay on well-lit main streets at night |
 | **Poble Sec** | Safe, residential |
 | **Poblenou** | Very safe, quieter |
 

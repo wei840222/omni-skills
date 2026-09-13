@@ -102,7 +102,7 @@
 | La Mar Salada | Seafood | €€ |
 | Can Solé | Traditional seafood | €€€ |
 
-### AVOID
+### AREAS TO RECONSIDER
 
 | Place | Why |
 |-------|-----|

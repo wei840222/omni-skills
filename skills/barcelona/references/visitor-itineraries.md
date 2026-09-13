@@ -14,8 +14,8 @@ For visitors with very limited time. Hits the highlights.
 ### Afternoon (1pm-5pm)
 | Time | Activity | Notes |
 |------|----------|-------|
-| 13:00 | **La Boqueria market** | Lunch (avoid front stalls, go inside) |
-| 14:30 | Walk **Las Ramblas → Gothic Quarter** | Quick walk, don't linger on Ramblas |
+| 13:00 | **La Boqueria market** | Lunch (bypass the front stalls, go inside) |
+| 14:30 | Walk **Las Ramblas → Gothic Quarter** | Quick walk, keep moving on Ramblas |
 | 15:00 | Explore **El Born** | Best neighborhood, Picasso Museum optional |
 | 16:30 | Coffee/break | Santa Maria del Mar church (free) |
 
@@ -152,7 +152,7 @@ Perfect for summer when you need sand and sea.
 - Nova Icària = family-friendly
 - Bogatell = younger, less crowded
 - Mar Bella = nudist section, LGBTQ+ friendly
-- NEVER leave belongings unattended
+- Keep belongings secured with you
 
 ---
 
