@@ -97,7 +97,7 @@ Run experiments with highest ICE first.
 ## Failed Experiment Value
 
 Every failed experiment teaches you:
-1. What your users do NOT want
+1. What frustrates your users
 2. Assumptions that were wrong
 3. Segments that behave differently
 4. Ideas for new experiments

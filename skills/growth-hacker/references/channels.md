@@ -46,7 +46,7 @@
 - Launch at 12:01 AM PT
 - Founder engages in comments ALL day
 - Share to existing audience (email, social)
-- Do NOT ask directly for upvotes (against rules)
+- Encourage organic engagement and discussion instead of asking for upvotes
 
 **Success metrics:**
 - Top 5 = significant traffic
@@ -57,7 +57,7 @@
 **Rules:**
 - 90% value, 10% promotion
 - Become genuine community member first
-- Never spam or self-promote obviously
+- Add genuine value before sharing your product
 - Follow subreddit rules strictly
 
 **Tactics:**

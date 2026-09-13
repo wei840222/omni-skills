@@ -132,7 +132,7 @@ Cycle time 30 days: 100 → 150 users
 
 **Faster cycles = exponentially more growth.**
 
-## Dark Patterns to Avoid
+## Required User Protections
 
 - Spam invites without consent
 - Misleading invitation messages

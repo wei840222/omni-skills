@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to run a growth experiment for my new feature.",
+    "expected": "Load references/experiments.md and provide the experiment document template with hypothesis, metrics, design, and decision sections.",
+    "actual": "Loaded references/experiments.md and provided the standard experiment document template with Hypothesis, Metrics, Design, Results, Decision, and Learnings.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our growth is stagnating. How do we create a viral loop to get users to invite others?",
+    "expected": "Load references/viral-loops.md, explain K = i * c, and discuss inherent vs artificial virality plus friction reduction.",
+    "actual": "Loaded references/viral-loops.md. Explained K = i * c and suggested friction reduction and two-sided incentives while avoiding spammy dark patterns.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Which traction channel should we try first for a B2C consumer app?",
+    "expected": "Load references/channels.md and apply the Bullseye Method instead of spraying every channel at once.",
+    "actual": "Loaded references/channels.md, outlined outer/middle/inner rings, and recommended cheap tests on a short middle-ring list before concentrating on one inner-ring channel.",
+    "pass": true
+  }
+]

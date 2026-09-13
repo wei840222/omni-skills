@@ -1,37 +1,38 @@
 ---
 name: growth-hacker
-slug: growth-hacker
-version: 1.0.0
-description: Drive explosive user growth through rapid experimentation, viral loops, and data-driven tactics.
-homepage: https://clawic.com/skills/growth-hacker
+description: Plan and analyze growth experiments, viral loops, and marketing funnels. Use when the user wants to acquire users, test channels, design referral loops, or prioritize ICE experiments. Route pure SEO writing to seo, CRO page tests to cro, brand strategy to cmo, and analytics instrumentation to analytics.
 metadata:
-  clawdbot:
-    emoji: 🚀
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Growth Hacker
+  version: "1.0.0"
+  openclaw: '{"emoji": "🚀"}'
+  related-skills: '{"cro": "Conversion rate optimization", "analytics": "Track and analyze metrics", "seo": "Organic search growth", "cmo": "Brand and marketing strategy"}'
 ---
 
-## When to Use
 
-User needs rapid user acquisition, viral growth, or unconventional marketing tactics. Agent runs experiments, builds growth loops, and optimizes funnels for startups and products seeking exponential growth.
+## When to load
+
+Load `references/experiments.md` to format a new growth experiment document.
+Load `references/viral-loops.md` to design referral mechanics and calculate the K-factor.
+Load `references/channels.md` to evaluate traction channels using the Bullseye Method.
+Load `references/sources.md` when citing research or updating channel/experiment guidance.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| Experiment framework | `experiments.md` |
-| Viral mechanics | `viral-loops.md` |
-| Channel playbooks | `channels.md` |
+| Experiment framework | `references/experiments.md` |
+| Viral mechanics | `references/viral-loops.md` |
+| Channel playbooks | `references/channels.md` |
+| Primary sources | `references/sources.md` |
+
+
+## State location
+
+This skill is stateless. It provides operational guidelines and playbooks but does not create, read, update, or delete any local configuration or data files within the workspace.
 
 ## Core Rules
 
 ### 1. Experiment Everything
-- Never assume what works. Test with real users
+- Test all assumptions with real users
 - Run 3-5 experiments per week minimum
 - Kill losers fast, double down on winners
 - Document every experiment: hypothesis, metric, result
@@ -97,13 +98,7 @@ User needs rapid user acquisition, viral growth, or unconventional marketing tac
 - Each integration should be reviewed separately
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `cro` — Conversion rate optimization
 - `analytics` — Track and analyze metrics
 - `seo` — Organic search growth
 - `cmo` — Brand and marketing strategy
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/growth-hacker
-- Latest version: https://clawic.com/skills/growth-hacker
