@@ -1,6 +1,6 @@
 # Memory Template — Tripadvisor
 
-Create `~/Clawic/data/tripadvisor/memory.md` with this structure:
+Create `<state_root>/data/tripadvisor/memory.md` with this structure:
 
 ```markdown
 # Tripadvisor Memory
@@ -42,12 +42,12 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Preferences still evolving | Keep learning from each query |
 | `complete` | Stable decision profile | Prioritize known defaults |
-| `paused` | User wants minimal setup | Avoid extra discovery prompts |
-| `never_ask` | User requested no setup prompts | Follow explicit instructions only |
+| `paused` | User wants minimal setup | Bypass extra discovery prompts |
+| `bypass_ask` | User requested no setup prompts | Follow explicit instructions only |
 
 ## Rules
 
 - Keep notes in natural language.
 - Update `last` on each meaningful interaction.
 - Store reasons, not only outcomes.
-- Never remove historical patterns without user approval.
+- Retain historical patterns unless explicitly authorized to remove them.

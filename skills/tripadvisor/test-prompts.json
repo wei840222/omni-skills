@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find top 3 hotels in Tokyo that are highly rated on Tripadvisor.",
+    "expected": "Uses API mode to resolve Tokyo location_id, fetches top 3 hotels by rating, and presents a structured shortlist.",
+    "actual": "Successfully resolved Tokyo to location_id 298184, fetched hotels, and presented a shortlist ranking The Tokyo Station Hotel, Mandarin Oriental Tokyo, and Palace Hotel Tokyo, emphasizing price-quality tradeoffs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Look up recent reviews for 'Eiffel Tower' and compare it with local guided tours, handle cookie consent if it appears.",
+    "expected": "Maps 'Eiffel Tower' to location_id, uses API to fetch reviews. Confirms cookie handling or falls back to direct API data if blocked. Returns comparison of tower vs tours.",
+    "actual": "Mapped Eiffel Tower to location_id 188151. Hit a simulated anti-bot overlay during UI lookup; prompted user for confirmation, then gracefully fell back to direct API mode to assemble review summaries and compare with guided tours without breaking flow.",
+    "pass": true
+  }
+]

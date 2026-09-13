@@ -26,5 +26,5 @@ Use this when API key is missing, rate-limited, or when user wants visual confir
 ## Safe fallback strategy
 
 - If an interaction fails due overlays, use direct URLs.
-- If anti-bot page appears, stop and continue via API mode or user-driven manual navigation.
-- Never attempt bypass tooling.
+- If anti-bot page appears, halt and transition directly to API mode or user-driven manual navigation.
+- Rely exclusively on authorized access without bypass tooling.
