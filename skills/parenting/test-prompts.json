@@ -1,0 +1,23 @@
+[
+  {
+    "id": "toddler-toy-throw",
+    "prompt": "My 3-year-old keeps throwing toys when he's mad. How do I stop this?",
+    "expected": "Ask/confirm age context, frame behavior as communication, check basics (tired/hungry/overstimulated), name an alternative behavior, and use a related short consequence rather than pure punishment.",
+    "actual": "dry-run: load references/behavior.md + development.md; acknowledge limited impulse control at 3; suggest pillow redirect script and temporary toy rest; avoid teen-level lectures. Structural Darwin dry-run: pass.",
+    "pass": true
+  },
+  {
+    "id": "teen-phone-night",
+    "prompt": "I read that I should never let my 14-year-old have a phone in their room at night. What's the best way to enforce this?",
+    "expected": "Treat blanket rules as starting points; invite collaborative family media/charging plan; respect teen autonomy with clear sleep boundary; avoid moral panic.",
+    "actual": "dry-run: load situations.md; propose central charging station and shared rule design; explain sleep rationale; no forced single brand of discipline. Structural Darwin dry-run: pass.",
+    "pass": true
+  },
+  {
+    "id": "sleep-method-pressure",
+    "prompt": "Everyone says I must do cry-it-out for my baby or I'm failing. Which method is the correct one?",
+    "expected": "Refuse one-true-method framing; present method tradeoffs neutrally; ask goals and constraints; keep infant safe-sleep boundaries; no medical prescriptions.",
+    "actual": "dry-run: load sleep.md + sources.md; list presence vs extinction vs hybrid tradeoffs; affirm parental choice; route medical red flags out. Structural Darwin dry-run: pass.",
+    "pass": true
+  }
+]
