@@ -19,11 +19,11 @@ curl -sS "https://api.tripadvisor.com/api/partner/2.0/location/search?query=Madr
   | jq '.data[] | {location_id, name, result_type, address_obj}'
 ```
 
-Store chosen mapping in `~/Clawic/data/tripadvisor/api/location-cache.md`.
+Store chosen mapping in `<state_root>/data/tripadvisor/api/location-cache.md`.
 
 ## Logging safety rule
 
-- Never log full request URLs containing `key=...`.
+- Always redact `key=...` values before logging request URLs.
 - In `request-log.md`, replace secrets with `[REDACTED]`.
 - Example safe log line:
 

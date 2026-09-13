@@ -1,39 +1,22 @@
 ---
 name: tripadvisor
-slug: tripadvisor
-version: 1.0.0
-description: Find and compare Tripadvisor hotels, restaurants, and attractions with official API workflows, URL-first navigation, and policy-safe data handling.
-homepage: https://clawic.com/skills/tripadvisor
-changelog: Added official API workflows, UI navigation playbook, and clear compliance guardrails for Tripadvisor interactions.
+description: Triggers when the user requests to search for destinations, compare hotels, restaurants, or attractions, or inspect reviews on Tripadvisor. Provides official API workflows and stable UI navigation strategies to build trip shortlists and retrieve ratings.
 metadata:
-  clawdbot:
-    emoji: 🧭
-    requires:
-      bins:
-      - curl
-      - jq
-      - sed
-      env:
-      - TRIPADVISOR_API_KEY
-      config:
-      - ~/Clawic/data/tripadvisor/
-    primaryEnv: TRIPADVISOR_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/tripadvisor/
-    displayName: Tripadvisor
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/tripadvisor/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🧭","requires":{"bins":["curl","jq","sed"],"env":["TRIPADVISOR_API_KEY"]},"primaryEnv":"TRIPADVISOR_API_KEY"}'
+  related-skills: '{"booking":"Compare accommodation options and total cost breakdowns after shortlisting.","travel":"Extend Tripadvisor shortlists into broader trip planning workflows.","apple-maps":"Validate route friction and area accessibility for shortlisted places.","search-engine":"Improve query iteration and source triangulation beyond Tripadvisor.","expenses":"Track trip spending after shortlist decisions.","yelp":"Cross-check local restaurant and business signals outside travel-heavy Tripadvisor results."}'
 ---
+
+
+## State location
+
+- Candidate locations: `<state_root>/data/tripadvisor/` (e.g. `~/.local/state/agents/data/tripadvisor/` or workspace-first directory).
+- Lookup order: Workspace-first (if executing in a project) -> User local state.
+- Creation behavior: If empty, read `references/setup.md`, explain local storage, and ask for confirmation before creating files.
 
 ## Setup
 
-If `~/Clawic/data/tripadvisor/` does not exist or is empty, read `setup.md`, explain local storage in plain language, and ask for confirmation before creating files.
+If `<state_root>/data/tripadvisor/` does not exist or is empty, read `references/setup.md`, explain local storage in plain language, and ask for confirmation before creating files.
 
 ## When to Use
 
@@ -41,10 +24,10 @@ User wants to interact with Tripadvisor directly: search destinations, compare h
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/tripadvisor/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/data/tripadvisor/`. See `references/memory-template.md` for setup.
 
 ```text
-~/Clawic/data/tripadvisor/
+<state_root>/data/tripadvisor/
 ├── memory.md                 # Preferences and recurring constraints
 ├── sessions/
 │   └── YYYY-MM-DD.md         # Search context and selected candidates
@@ -60,16 +43,16 @@ Memory lives in `~/Clawic/data/tripadvisor/`. See `memory-template.md` for setup
 
 | Topic | File |
 |-------|------|
-| Setup flow | `setup.md` |
-| Memory schema | `memory-template.md` |
-| Official API workflows | `api-workflows.md` |
-| UI navigation playbook | `web-navigation.md` |
-| Terms and compliance boundaries | `compliance.md` |
+| Setup flow | `references/setup.md` |
+| Memory schema | `references/memory-template.md` |
+| Official API workflows | `references/api-workflows.md` |
+| UI navigation playbook | `references/web-navigation.md` |
+| Terms and compliance boundaries | `references/compliance.md` |
 
 ## Core Rules
 
 ### 1. Use official Tripadvisor interfaces only
-Use official Tripadvisor API endpoints and normal browser navigation. Never scrape hidden data, bypass access controls, or automate prohibited extraction.
+Use official Tripadvisor API endpoints and normal browser navigation. Strictly rely on public endpoints and authorized UI interactions, rejecting hidden scraping or bypass controls.
 
 ### 2. Choose mode explicitly at start
 Pick one mode per task:
@@ -78,13 +61,13 @@ Pick one mode per task:
 - Hybrid mode: API for discovery, UI for final verification
 
 ### 3. Resolve `location_id` before deep queries
-For API mode, first map user query to a valid `location_id`, then fetch detail/review/photo endpoints. Cache successful mappings in `~/Clawic/data/tripadvisor/api/location-cache.md`.
+For API mode, first map user query to a valid `location_id`, then fetch detail/review/photo endpoints. Cache successful mappings in `<state_root>/data/tripadvisor/api/location-cache.md`.
 
 ### 4. Prefer URL-driven navigation over fragile clicks
 In UI mode, rely on stable Tripadvisor URLs when possible (city vertical pages and entity detail URLs) before complex click chains.
 
 ### 5. Handle consent and anti-bot states safely
-If cookie dialogs or anti-bot interstitials appear, ask for user confirmation, document the blocker, and continue with API mode or direct URLs. Do not attempt bypass techniques.
+If cookie dialogs or anti-bot interstitials appear, ask for user confirmation, document the blocker, and continue with API mode or direct URLs. Respect anti-bot mechanisms unconditionally.
 
 ### 6. Produce decision-ready outputs
 Always return a ranked shortlist with explicit tradeoffs:
@@ -93,7 +76,7 @@ Always return a ranked shortlist with explicit tradeoffs:
 - uncertainty or missing data
 
 ### 7. Keep storage minimal and transparent
-Store only reusable trip preferences and selected options under `~/Clawic/data/tripadvisor/`. Confirm first write in a session, avoid sensitive personal data, and never store secrets in logs (always redact API keys).
+Store only reusable trip preferences and selected options under `<state_root>/data/tripadvisor/`. Confirm first write in a session, exclude sensitive personal data, and always redact API keys and secrets from logs (always redact API keys).
 
 ## Common Traps
 
@@ -102,7 +85,7 @@ Store only reusable trip preferences and selected options under `~/Clawic/data/t
 - Mixing API and UI data without timestamps -> stale comparisons and wrong recommendations.
 - Ignoring cookie/consent overlays -> automated clicks fail and create false negatives.
 - Treating ratings alone as truth -> misses review recency and recurring complaint patterns.
-- Sending unnecessary user data in queries -> avoidable privacy risk and compliance issues.
+- Sending unnecessary user data in queries -> unnecessary privacy risk and compliance issues.
 
 ## External Endpoints
 
@@ -120,10 +103,10 @@ No other data is sent externally.
 - Destination names, optional date windows, and lightweight filters sent to Tripadvisor API or web pages.
 
 **Data that stays local:**
-- Preferences, shortlist decisions, and request logs in `~/Clawic/data/tripadvisor/`.
+- Preferences, shortlist decisions, and request logs in `<state_root>/data/tripadvisor/`.
 
 **This skill does NOT:**
-- Access files outside `~/Clawic/data/tripadvisor/`
+- Access files outside `<state_root>/data/tripadvisor/`
 - Store payment or passport data by default
 - Use scraping bypasses, CAPTCHA evasion, or anti-bot circumvention
 
@@ -139,20 +122,15 @@ This skill ONLY:
 - Uses official API-first calls and policy-safe web navigation
 - Produces ranked shortlists with transparent tradeoffs
 
-This skill NEVER:
+Restricted actions (must decline):
 - Claim guaranteed booking outcomes
 - Present uncertain data as verified facts
 - Execute purchases or account actions without explicit user instruction
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `booking` — compare accommodation options and total cost breakdowns
 - `travel` — manage broader trip planning workflows
 - `apple-maps` — validate route friction and area accessibility on macOS
 - `search-engine` — improve query iteration and source triangulation
 - `expenses` — track trip spending after shortlist decisions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/tripadvisor
-- Latest version: https://clawic.com/skills/tripadvisor
+- `yelp` — cross-check local restaurant and business signals outside travel-heavy Tripadvisor results
