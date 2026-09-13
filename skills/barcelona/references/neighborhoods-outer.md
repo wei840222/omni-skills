@@ -126,7 +126,7 @@ Best panoramic view in Barcelona. Free. In Horta-Guinardó district. Come 1 hour
 - **Centre**: Most urban, decent
 - **Bellvitge**: Large residential, metro
 - **Santa Eulàlia**: Improving
-- **Avoid**: Some blocks of La Florida, Collblanc
+- **Caution**: Some blocks of La Florida, Collblanc
 
 ---
 

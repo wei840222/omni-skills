@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm moving to Barcelona as a software engineer. Where should I live and how much will it cost?",
+    "expected": "Loads tech/neighborhood guidance (Poblenou 22@, Eixample, Gràcia), cites planning rent ranges, and notes figures must be verified against live listings/sources.",
+    "actual": "Recommended Poblenou for jobs with Gràcia/Eixample living options, quoted central 1BR planning rents from cost.md, and pointed to sources.md for live verification.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What's the best way to protect against pickpockets while visiting Sagrada Família and the beach?",
+    "expected": "Loads safety.md guidance for tourist hotspots and beach theft, gives concrete bag/phone practices, and avoids alarmist overclaim without sources.",
+    "actual": "Cited high tourist pickpocket risk around major sights and beaches, advised concealed phones/secured bags, and referred to references/safety.md plus sources for current notices.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Plan a 3-day Barcelona first visit with metro tickets and one Gaudí highlight.",
+    "expected": "Uses visitor itinerary + transport guidance, prefers T-Casual/Hola BCN planning options, and books Sagrada Família as a timed ticket rather than walk-up.",
+    "actual": "Outlined a 3-day visitor flow, recommended T-Casual for light metro use, and instructed timed online booking for Sagrada Família with progressive disclosure to visitor-itineraries/transport.",
+    "pass": true
+  }
+]

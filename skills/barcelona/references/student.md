@@ -84,7 +84,7 @@
 | **HousingAnywhere** | Student-specific |
 | **Facebook groups** | "Pisos Barcelona", university groups |
 
-**Warning:** Scams exist. Never pay before seeing.
+**Warning:** Scams exist. Always inspect the property in person before paying.
 
 ## Student Budget
 

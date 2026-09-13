@@ -23,7 +23,7 @@ The old city, divided into distinct neighborhoods with very different characters
 
 **Best for**: History lovers, tourists wanting central location, short-term stays
 
-**Character**: Medieval heart of Barcelona. Roman walls, narrow streets, Cathedral. Most touristy area but undeniably beautiful. Avoid for long-term living.
+**Character**: Medieval heart of Barcelona. Roman walls, narrow streets, Cathedral. Most touristy area but undeniably beautiful. Consider quieter areas for long-term living.
 
 | Rent | 1BR: €1,300–1,800 | 2BR: €1,700–2,400 |
 |------|-------------------|-------------------|
@@ -116,8 +116,8 @@ The old city, divided into distinct neighborhoods with very different characters
 | Best value | Sant Pere / Santa Caterina |
 | Social life | El Born |
 | Budget creative | Upper Raval |
-| Avoid | Barceloneta (unless beach essential) |
-| Avoid | Gòtic (except specific quiet blocks) |
+| Reconsider | Barceloneta (unless beach essential) |
+| Reconsider | Gòtic (except specific quiet blocks) |
 
 ---
 

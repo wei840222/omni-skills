@@ -119,10 +119,10 @@ Within Poblenou, the 22@ innovation district deserves special mention:
 
 | Rule | Why |
 |------|-----|
-| **Never leave belongings unattended** | Even for 2 minutes |
+| **Keep belongings secured with you** | Even for 2 minutes |
 | **Take turns if swimming** | Someone watches stuff |
 | **Waterproof pouch for valuables** | Take them in water |
-| **Don't bring expensive items** | Leave at accommodation |
+| **Leave expensive items secured at home** | Leave at accommodation |
 | **Use beach lockers** | Available at some beaches |
 
 ---
@@ -138,7 +138,7 @@ Within Poblenou, the 22@ innovation district deserves special mention:
 | Beach + modern | Vila Olímpica | Clean, planned |
 | Budget + transit | El Clot | Value, connections |
 | Family + beach | Vila Olímpica, Diagonal Mar | Safe, amenities |
-| Avoid | Port Olímpic restaurants | Tourist trap |
+| Reconsider | Port Olímpic restaurants | Tourist trap |
 
 ---
 

@@ -175,7 +175,7 @@ Barcelona has a **Mediterranean climate** — mild winters, hot summers, low rai
 | **Nightlife** | Summer (terrace season) |
 | **Families** | May-June, September |
 
-### Avoid If Possible
+### Areas to Reconsider If Possible
 - **August 15 week**: Everything packed, locals gone
 - **MWC week (late Feb)**: Hotels 3-4x price
 - **Primavera Sound (early June)**: Hotels expensive
@@ -226,7 +226,7 @@ When asked about Barcelona weather:
 2. **Summer reality:** Hot + humid (28-32°C), beach season, crowded August
 3. **Winter reality:** Mild (10-15°C), rarely cold, still terrace weather
 4. **Beach season:** June-September, water warmest July-August
-5. **Rain:** Autumn has most, but never extended rainy seasons
+5. **Rain:** Autumn has most, but rarely extended rainy seasons
 6. **Pack:** Light layers spring/autumn, summer clothes + sunscreen summer
 7. **August warning:** Very hot, locals leave, tourists everywhere
 

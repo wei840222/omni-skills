@@ -260,7 +260,7 @@ If owning: €50-150/month for maintenance, cleaning, elevator
 | Menú del dia for lunch | €5-10 vs à la carte |
 | Carrer Blai pintxos | Best value tapas |
 | Shop at Mercadona/Lidl | 20-30% vs premium |
-| Avoid tourist areas | 50%+ markup avoided |
+| Choose local areas | 50%+ markup bypassed |
 
 ### Transport
 | Tip | Savings |

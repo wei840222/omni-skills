@@ -97,7 +97,7 @@ Barcelona is a food paradise. Unlike Madrid (hearty Castilian), Barcelona offers
 **Tips:**
 - Best value meal anywhere
 - Quality varies — ask locals
-- Tourist areas often don't offer it
+- Tourist areas often skip offering it
 - Best ones: chalkboard outside, locals inside
 
 ---
@@ -114,7 +114,7 @@ Barcelona is a food paradise. Unlike Madrid (hearty Castilian), Barcelona offers
 | **Late night** | After midnight | Tapas, pintxos |
 
 **Warning:** 
-- Restaurants often don't open for dinner until 8:30-9pm
+- Restaurants typically open for dinner until 8:30-9pm
 - Eating at 7pm = eating with tourists
 - Lunch at 12:30pm = empty restaurant
 

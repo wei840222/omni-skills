@@ -26,7 +26,7 @@
 | **Bar Pinotxo** | Classic, Juanito is a legend |
 | **Petràs** | Mushrooms (bolets) |
 
-**Avoid:** Pre-cut fruit cups (overpriced), front stall juices (tourist prices)
+**Caution:** Pre-cut fruit cups (overpriced), front stall juices (tourist prices)
 
 ---
 

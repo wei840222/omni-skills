@@ -253,7 +253,7 @@ Barcelona has a **severe housing shortage**. Competition is intense. Be prepared
 **Practical advice:**
 - Speaking Spanish is fine
 - Learning basic Catalan = appreciated
-- Don't assume political opinions from language
+- Keep an open mind about political opinions from language
 - Be aware of regional identity, stay neutral
 
 ### Social Norms
@@ -286,7 +286,7 @@ Barcelona has a **severe housing shortage**. Competition is intense. Be prepared
 |--------|---------|
 | **Identity** | Strong Catalan identity, distinct from Spanish |
 | **Language** | Catalan is official, used in schools, signs |
-| **Politics** | Independence movement exists, don't assume opinions |
+| **Politics** | Independence movement exists, keep an open mind about opinions |
 | **Culture** | Castells, sardanes, Sant Jordi, unique traditions |
 | **Attitude to foreigners** | Welcoming, especially if you try Catalan |
 
