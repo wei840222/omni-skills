@@ -1,6 +1,6 @@
 # Setup - Render Deploy
 
-Read this when `~/Clawic/data/render-deploy/` is missing or empty.
+Read this when `<state_root>/render-deploy/` is missing or empty.
 
 ## Your Attitude
 
@@ -28,7 +28,7 @@ Capture only context that changes decisions:
 
 Calibrate delivery style:
 - Fast path: minimal viable deploy and smoke test
-- Robust path: reproducible Blueprint plus validation checkpoints
+- Robust path: reproducible Blueprint plus validation steps
 - Incident path: triage-first workflow with clear rollback-safe changes
 
 Infer preference from behavior before asking extra questions.
@@ -41,7 +41,7 @@ Store durable context only:
 - Stable env var inventory (names and ownership, not secret values unless user asks)
 - Recurrent failure signatures and validated fixes
 
-Store only in `~/Clawic/data/render-deploy/` after explicit user consent.
+Store only in `<state_root>/render-deploy/` after explicit user consent.
 
 ## Golden Rule
 

@@ -36,4 +36,4 @@ Use this when build, startup, or health checks fail. Fix one issue at a time.
 3. Apply smallest safe fix.
 4. Redeploy and re-check health.
 
-Avoid repeated redeploys without an actual fix.
+Only redeploy after applying an actual fix.

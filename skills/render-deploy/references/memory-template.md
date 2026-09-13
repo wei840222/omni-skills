@@ -1,6 +1,6 @@
 # Memory Template - Render Deploy
 
-Create `~/Clawic/data/render-deploy/memory.md` with this structure:
+Create `<state_root>/render-deploy/memory.md` with this structure:
 
 ```markdown
 # Render Deploy Memory
@@ -31,7 +31,7 @@ integration: pending
 
 ## deployment-notes.md Template
 
-Create `~/Clawic/data/render-deploy/deployment-notes.md`:
+Create `<state_root>/render-deploy/deployment-notes.md`:
 
 ```markdown
 # Deployment Notes
@@ -48,7 +48,7 @@ Summary: ...
 
 ## env-inventory.md Template
 
-Create `~/Clawic/data/render-deploy/env-inventory.md`:
+Create `<state_root>/render-deploy/env-inventory.md`:
 
 ```markdown
 # Environment Inventory
@@ -61,7 +61,7 @@ Create `~/Clawic/data/render-deploy/env-inventory.md`:
 
 ## incident-log.md Template
 
-Create `~/Clawic/data/render-deploy/incident-log.md`:
+Create `<state_root>/render-deploy/incident-log.md`:
 
 ```markdown
 # Incident Log
@@ -82,4 +82,4 @@ Verification: pending | passed | failed
 | `ongoing` | Default mode | Keep learning deploy constraints over time |
 | `complete` | Stable context | Reuse known method/workspace defaults |
 | `paused` | User wants fewer prompts | Apply known defaults with minimal setup questions |
-| `never_ask` | User rejected setup prompts | Stop integration prompts and run only on explicit requests |
+| `manual_only` | User rejected setup prompts | Run integration tasks only on explicit requests |
