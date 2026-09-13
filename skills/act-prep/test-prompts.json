@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have the ACT in 6 weeks and I really struggle with the science section. What should my study plan look like? I'm aiming for a 32 overall and scored a 26 on my last practice test.",
+    "expected": "Load exam-config.md, study-methods.md, sections.md, and sources.md. Ask whether Science is required by target colleges under the enhanced ACT (Science optional). If Science is required, build a 6-week plan with data-interpretation drills and pacing; if not, reallocate hours to English/Math/Reading. Request section breakdown and confirm paper vs online format.",
+    "actual": "Loaded exam-config, study-methods, sections, and sources. First checkpoint: on the enhanced ACT, Science is optional and may not affect Composite—confirm whether your targets still want Science before pouring six weeks into it. If you do need Science, treat it as graph/table reasoning with ~passage budgets, not content memorization, and run timed Science drills twice weekly while keeping English/Math/Reading maintenance. Share your section scores and whether you are registered paper or online so the 6-week calendar can be concrete.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a parent. My child got a 28 on the ACT. They are aiming for top 20 colleges. Should they retake it?",
+    "expected": "Load targets.md and user-types.md. Parent-style summary: Top-20 planning bands often sit ~32–35, so a retake is usually warranted if time remains. Explain superscore and section-focused retakes. Ask for section breakdown and school list; do not claim a specific college decision.",
+    "actual": "Parent summary from targets.md + user-types.md: for many Top-20 planning bands (about 32–35), a 28 is a solid baseline but usually not yet competitive alone—yes, plan a retake if the calendar allows. Most helpful path is superscore-oriented: raise the lowest sections rather than demanding a perfect single sitting. Send the section split and the college list so we can check each school's superscore/Writing/Science expectations.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Are we still using 75 English questions in 45 minutes? I thought ACT changed.",
+    "expected": "Load exam-config.md and sources.md. Explain enhanced official counts (English 50 Q / 35 min, Math 45/50, Reading 36/40, optional Science 40/40) citing act.org hub, and note legacy materials may still show 75/45. Tell user to match practice form to registration.",
+    "actual": "Per ACT's current student hub overview, the enhanced core uses English 50 questions in 35 minutes, Math 45 in 50, Reading 36 in 40, with Science optional at 40/40. Older books still print 75 English in 45—label those as legacy and match drills to the registered form. Source: https://www.act.org/content/act/en/products-and-services/the-act.html",
+    "pass": true
+  }
+]
