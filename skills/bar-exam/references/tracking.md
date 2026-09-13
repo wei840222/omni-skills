@@ -61,7 +61,7 @@ Target: Whatever your jurisdiction requires + 10-point buffer.
 - **MPT incomplete** — Work on document structure first
 - **No simulated exams** — Can't pass without full-length practice
 
-## Milestone Checkpoints
+## Milestone Goals
 
 | Weeks Out | Target |
 |-----------|--------|

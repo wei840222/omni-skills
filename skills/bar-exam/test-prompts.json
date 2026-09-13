@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a first-time bar taker preparing for the NY UBE in 10 weeks. What should my strategy be?",
+    "expected": "Load user-types.md and exam-format.md (and sources if quoting live cut scores). Acknowledge NY UBE target around 266 after verification framing. Emphasize structured 8-10 week plan, MBE priority with balanced essay work, IRAC/issue spotting, full simulated exams, and tracking by subject.",
+    "actual": "I will load the NY UBE format and first-time taker guides. New York is a UBE jurisdiction with a commonly cited 266 cut score—confirm on the NY board/NCBE pages before locking plans. With 10 weeks, commit to a structured daily block, prioritize MBE (often pass/fail territory) while keeping a roughly 50/50 MBE–essay split, learn IRAC and issue spotting for MEE, and schedule at least two full simulated exams. Start subject-level MBE tracking immediately. Which prep course are you using?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm reviewing my Contracts MBE practice. I missed several questions about when to apply the UCC versus common law. How do I keep this straight?",
+    "expected": "Load mbe.md. Explain UCC Article 2 for sale of goods vs common law for services/real estate; mixed contracts use predominant purpose test. Offer targeted drill follow-up.",
+    "actual": "I've loaded the MBE strategies guide. For Contracts, UCC vs common law is a frequent trap: UCC Article 2 covers sale of goods (moveable tangible property); common law covers services and real estate. For mixed contracts, apply the Predominant Purpose Test. Let's drill a few mixed-contract hypos and log the miss pattern under your Contracts subject file.",
+    "pass": true
+  }
+]
