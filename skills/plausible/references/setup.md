@@ -1,6 +1,6 @@
 # Setup — Plausible
 
-Read this on first use when `~/Clawic/data/plausible/` doesn't exist.
+Read this on first use when `<state_root>/plausible/` doesn't exist.
 
 ## Your Attitude
 
@@ -23,7 +23,7 @@ Once you know their sites:
 
 ## What You're Saving
 
-In `~/Clawic/data/plausible/memory.md`:
+In `<state_root>/plausible/memory.md`:
 - Site IDs (domains) they track
 - Base URL (plausible.io or self-hosted)
 - Preferred default time period

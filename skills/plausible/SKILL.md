@@ -1,52 +1,47 @@
 ---
 name: plausible
-slug: plausible
-version: 1.0.1
-description: Query Plausible Analytics API for traffic stats, referrers, conversions, and custom events.
-homepage: https://clawic.com/skills/plausible
+description: Query Plausible Analytics API for website traffic stats, visitors, pageviews, referrers, conversions, and custom events.
 metadata:
-  clawdbot:
-    emoji: 📊
-    requires:
-      bins: []
-      env:
-      - PLAUSIBLE_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Plausible
+  openclaw: '{"emoji": "📊", "requires": {"bins": null, "env": ["PLAUSIBLE_API_KEY"]}}'
+  related-skills:
+  - skills/analytics
+  - skills/umami
+  - skills/mixpanel
 ---
+
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, read `references/setup.md` for integration guidelines.
 
 ## When to Use
 
 User needs website traffic data from Plausible. Agent queries visitors, pageviews, referrers, goals, and custom events through the Plausible API.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/plausible/`. See `memory-template.md` for structure.
+This skill uses a `<state_root>` convention for persistent storage.
 
-```
-~/Clawic/data/plausible/
-├── memory.md     # Sites + preferences (no secrets stored)
-└── queries/      # Saved query templates (optional)
-```
+- Directory: `<state_root>/plausible/`
+- Primary state file: `<state_root>/plausible/memory.md`
 
+Candidate `<state_root>` locations (use the first available):
+1. `$XDG_STATE_HOME/agentskills`
+2. `~/.local/state/agentskills`
+3. `~/.agentskills/state`
+
+If `<state_root>/plausible/` does not exist, initialize it according to `references/setup.md`.
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
 
 ## Core Rules
 
 ### 1. API Key from Environment
-API key comes from `PLAUSIBLE_API_KEY` environment variable. Never hardcode or ask user to paste keys in chat.
+API key comes from `PLAUSIBLE_API_KEY` environment variable. Ensure the API key is strictly read from the environment variable; do not request it from the user.
 
 ### 2. Site ID Required
 Every query needs a site_id (domain). Check memory.md for configured sites before asking.
@@ -111,7 +106,7 @@ event:page==/pricing;visit:country==US
 
 Self-hosted instances use custom base URL from memory.md.
 
-No other data is sent externally.
+Only the explicitly listed data is sent externally.
 
 ## Security & Privacy
 
@@ -121,25 +116,9 @@ No other data is sent externally.
 
 **Data that stays local:**
 - Query results cached in memory
-- Site configurations in ~/Clawic/data/plausible/
+- Site configurations in <state_root>/plausible/
 
 **This skill does NOT:**
 - Store API keys in plain text (uses environment variable)
 - Send user data beyond what's needed for queries
-- Access files outside ~/Clawic/data/plausible/
-
-## Trust
-
-By using this skill, your site analytics queries are sent to Plausible (plausible.io or your self-hosted instance).
-Only install if you trust Plausible with your domain data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `analytics` — general analytics guidance
-- `umami` — alternative privacy analytics
-- `mixpanel` — product analytics
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/plausible
-- Latest version: https://clawic.com/skills/plausible
+- Access files outside <state_root>/plausible/
