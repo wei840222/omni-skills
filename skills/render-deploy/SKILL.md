@@ -1,51 +1,40 @@
 ---
 name: render-deploy
-slug: render-deploy
-version: 1.0.0
-description: Deploy applications on Render with codebase analysis, render.yaml Blueprint generation, MCP direct provisioning, and post-deploy verification.
-homepage: https://clawic.com/skills/render-deploy
-changelog: Added end-to-end Render deployment guidance with method selection, runtime checks, and practical troubleshooting flows.
+description: Deploy and host applications on Render using Blueprint generation or Direct Creation. Trigger this skill when deploying, provisioning, or troubleshooting Render services. Trigger specifically for Render, instead of AWS or generic CI/CD pipelines.
 metadata:
-  clawdbot:
-    emoji: 🚀
-    requires:
-      bins:
-      - git
-      - render
-      env:
-      - RENDER_API_KEY
-      config:
-      - ~/Clawic/data/render-deploy/
-    primaryEnv: RENDER_API_KEY
-    install:
-    - id: brew
-      kind: brew
-      formula: render
-      bins:
-      - render
-      label: Install Render CLI (Homebrew)
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Render Deploy
+  version: "1.1.0"
+  openclaw: '{"emoji": "🚀", "requires": {"bins": ["git", "render"], "env": ["RENDER_API_KEY"], "config": ["<state_root>/render-deploy/"]}, "primaryEnv": "RENDER_API_KEY", "install": [{"id": "brew", "kind": "brew", "formula": "render", "bins": ["render"], "label": "Install Render CLI (Homebrew)"}]}'
+  related-skills:
+  - skills/deploy
+  - skills/devops
+  - skills/docker
+  - skills/ci-cd
+  - skills/nodejs
 ---
+
+
+## State location
+
+- **Primary**: `<state_root>/render-deploy/` (workspace-specific state)
+- **Global**: `<global_state_root>/render-deploy/` (user preferences)
+
+Ask for consent before creating the state directory.
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
-If local memory is needed, ask for consent before creating `~/Clawic/data/render-deploy/`.
+On first use, read `references/setup.md` for integration guidelines.
+If local memory is needed, ask for consent before creating `<state_root>/render-deploy/`.
 
 ## When to Use
 
-Use this skill when the user wants to deploy, publish, or host an application on Render and needs reliable deployment execution instead of generic advice. Activate for render.yaml Blueprint generation, MCP direct service creation, runtime configuration checks, and post-deploy triage.
+Activate when the user asks to deploy, publish, or host an application on Render. This skill handles `render.yaml` Blueprint generation, MCP direct service creation, runtime configuration checks, and post-deploy triage.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/render-deploy/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/render-deploy/`. See `references/memory-template.md` for setup.
 
 ```text
-~/Clawic/data/render-deploy/
+<state_root>/render-deploy/
 |- memory.md                  # Stable preferences and integration choices
 |- deployment-notes.md        # Project-level deployment decisions
 |- env-inventory.md           # Required env vars and source of truth
@@ -56,14 +45,14 @@ Memory lives in `~/Clawic/data/render-deploy/`. See `memory-template.md` for set
 
 Load only the minimum file needed for the current request.
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Codebase detection and commands | `codebase-analysis.md` |
-| Blueprint workflow and render.yaml rules | `blueprint-workflow.md` |
-| Authentication and MCP execution mapping | `direct-creation.md` |
-| Startup and healthcheck troubleshooting | `troubleshooting.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Setup process | `references/setup.md` | Initial configuration or environment setup |
+| Memory template | `references/memory-template.md` | Creating or updating memory structure |
+| Codebase detection and commands | `references/codebase-analysis.md` | Deciding deployment path based on codebase |
+| Blueprint workflow and render.yaml rules | `references/blueprint-workflow.md` | Generating or applying `render.yaml` |
+| Authentication and MCP execution mapping | `references/direct-creation.md` | Using Direct Creation or MCP services |
+| Startup and healthcheck troubleshooting | `references/troubleshooting.md` | Analyzing failed deploys or crashes |
 
 ## Authentication Model
 
@@ -71,7 +60,7 @@ Before any provisioning command, confirm one of these is active:
 - `RENDER_API_KEY` is exported in the shell, or
 - Render CLI is authenticated (`render whoami -o json`)
 
-For git-backed flows, require `git` and a valid remote URL. Do not attempt opaque credential discovery or unrelated environment inspection.
+For git-backed flows, require `git` and a valid remote URL. Restrict credential discovery and environment inspection to explicitly provided paths.
 
 ## Core Rules
 
@@ -80,7 +69,7 @@ Before proposing commands, decide which path applies:
 - Git-backed deploy (Blueprint or Direct Creation)
 - Prebuilt Docker image deploy via Dashboard/API
 
-If the repository has no remote, stop and ask the user to push a remote or switch to dashboard image deploy.
+If the repository has no remote, first ask the user to push a remote or switch to dashboard image deploy before proceeding.
 
 ### 2. Choose Method by Complexity, Not Preference
 Default decision:
@@ -97,7 +86,7 @@ Run checks in this order:
 - Active workspace context (MCP or CLI)
 - Authentication presence (`RENDER_API_KEY` or authenticated CLI session)
 
-Do not proceed to deployment steps when prerequisites are missing.
+Proceed to deployment steps only after confirming all prerequisites.
 
 ### 4. Treat `render.yaml` as Executable Infrastructure
 When using Blueprint:
@@ -118,7 +107,7 @@ After deployment:
 - Review recent error logs
 - Validate required env vars and port binding (`0.0.0.0:$PORT`)
 
-If failures exist, run one-fix-at-a-time triage from `troubleshooting.md`.
+If failures exist, run one-fix-at-a-time triage from `references/troubleshooting.md`.
 
 ## Common Traps
 
@@ -145,7 +134,7 @@ No other endpoints should be used unless the user requests an explicit integrati
 - Environment variable names and provided values when the user explicitly sets them.
 
 **Data that stays local:**
-- Preferences and deployment history in `~/Clawic/data/render-deploy/` if the user accepts memory.
+- Preferences and deployment history in `<state_root>/render-deploy/` if the user accepts memory.
 - Local codebase inspection outputs and interim analysis notes.
 
 **This skill does NOT:**
@@ -157,16 +146,3 @@ No other endpoints should be used unless the user requests an explicit integrati
 ## Trust
 
 By using this skill, deployment metadata and selected configuration are sent to Render services. Only use it if you trust Render with this operational data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `deploy` - General deployment planning and release execution.
-- `devops` - CI/CD, infrastructure workflows, and ops coordination.
-- `docker` - Container packaging and runtime configuration.
-- `ci-cd` - Pipeline automation and release validation stages.
-- `nodejs` - Runtime-specific app configuration and startup tuning.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/render-deploy
-- Latest version: https://clawic.com/skills/render-deploy

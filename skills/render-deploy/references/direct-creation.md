@@ -13,7 +13,7 @@ Use this flow for simple single-service deployments.
 
 - `list_services`, `create_web_service`, `update_environment_variables`, and `list_deploys` map to Render MCP operations on `https://mcp.render.com`.
 - If MCP is not available, switch to CLI fallback explicitly (`render services -o json`, `render deploys ...`) and keep the same safety checks.
-- Never call undeclared endpoints or infer hidden credentials.
+- Only call explicitly declared endpoints and use provided credentials.
 
 ## Core Flow
 
@@ -51,7 +51,7 @@ list_deploys(serviceId: "<service-id>", limit: 1)
 list_logs(resource: ["<service-id>"], level: ["error"], limit: 50)
 ```
 
-If MCP calls fail due to auth/workspace errors, stop and resolve auth first:
+If MCP calls fail due to auth/workspace errors, resolve auth first before continuing:
 - Ensure `RENDER_API_KEY` is set, then reconnect MCP.
 - Verify workspace selection before retrying provisioning commands.
 

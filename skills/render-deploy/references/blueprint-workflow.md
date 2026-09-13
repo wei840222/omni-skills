@@ -36,7 +36,7 @@ render whoami -o json
 render blueprints validate
 ```
 
-Do not continue when validation fails.
+Only continue once validation passes.
 
 ## 3. Commit and Push
 

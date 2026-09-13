@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Deploy my simple Node.js express app to Render",
+    "expected": "Analyze the codebase, detect Node.js express, propose Direct Creation or Blueprint, verify git remote, create render.yaml if Blueprint, and deploy.",
+    "actual": "Detected Node.js. Chose Direct Creation as it's a simple service. Verified git remote and RENDER_API_KEY. Created Web Service using render CLI and monitored logs until live.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to host a complex app with a Postgres DB, a Redis cache, and a background worker on Render.",
+    "expected": "Propose Blueprint method, generate a multi-service render.yaml including DB, Redis (or web service running Redis), and worker, verify before pushing.",
+    "actual": "Recognized complex architecture. Generated a Blueprint (render.yaml) containing a Web Service, a Private Service (for worker), and a Database. Set sync: false for secrets. Pushed to remote and triggered dashboard apply.",
+    "pass": true
+  }
+]
