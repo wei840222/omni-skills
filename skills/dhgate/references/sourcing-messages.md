@@ -68,5 +68,5 @@ If it is generic, confirm that no brand logo appears on the product, packaging, 
 
 - ask one decision-critical question per message block
 - get the seller to restate the exact spec in writing
-- do not negotiate on five topics at once
+- limit negotiations to one or two primary topics at a time
 - if replies stay vague after two attempts, downgrade the seller

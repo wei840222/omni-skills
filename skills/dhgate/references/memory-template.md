@@ -1,6 +1,6 @@
 # Memory Template - DHgate
 
-Create `~/Clawic/data/dhgate/memory.md` with this structure:
+Create `<state_root>/dhgate/memory.md` with this structure:
 
 ```markdown
 # DHgate Memory
@@ -19,7 +19,7 @@ quantity_style:
 lead_time_tolerance:
 
 ## Risk Boundaries
-avoid_categories:
+excluded_categories:
 authenticity_tolerance:
 quality_floor:
 max_first_order_risk:
@@ -49,7 +49,7 @@ decision_stage:
 
 ## File Templates
 
-Create `~/Clawic/data/dhgate/shortlist.md`:
+Create `<state_root>/dhgate/shortlist.md`:
 
 ```markdown
 # DHgate Shortlist
@@ -67,7 +67,7 @@ Create `~/Clawic/data/dhgate/shortlist.md`:
 - status: watch | compare | reject | sample
 ```
 
-Create `~/Clawic/data/dhgate/sourcing.md`:
+Create `<state_root>/dhgate/sourcing.md`:
 
 ```markdown
 # Sourcing Notes
@@ -82,7 +82,7 @@ Create `~/Clawic/data/dhgate/sourcing.md`:
 - confidence: low | medium | high
 ```
 
-Create `~/Clawic/data/dhgate/orders.md`:
+Create `<state_root>/dhgate/orders.md`:
 
 ```markdown
 # Orders
@@ -97,7 +97,7 @@ Create `~/Clawic/data/dhgate/orders.md`:
 - next_action:
 ```
 
-Create `~/Clawic/data/dhgate/disputes.md`:
+Create `<state_root>/dhgate/disputes.md`:
 
 ```markdown
 # Dispute Planner
@@ -116,4 +116,4 @@ Create `~/Clawic/data/dhgate/disputes.md`:
 - Save only what improves the next buying or dispute decision.
 - Prefer facts from listings, seller replies, and completed orders over speculation.
 - Ask before writes and update `last` when the buying context changes.
-- Do not store payment credentials, identity documents, or unrelated personal data.
+- Store only public listing data and user-approved sourcing notes.
