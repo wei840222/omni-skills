@@ -1,30 +1,32 @@
 ---
 name: paywall
-slug: paywall
-version: 1.0.0
-description: Build high-converting paywalls for mobile apps and web with proven patterns, pricing strategies, and A/B testing.
-homepage: https://clawic.com/skills/paywall
+description: >
+  Design and review high-converting paywalls for mobile (iOS/Android) and web.
+  Use for subscription screens, pricing pages, free-trial flows, placement strategy,
+  pricing display, copy, layout patterns, and A/B testing priorities. Skip general UI
+  design that is not about monetization or conversion.
 metadata:
-  clawdbot:
-    emoji: 🔓
-    displayName: Paywall
+  version: "1.1.0"
+  openclaw: '{"emoji":"🔓"}'
+  related-skills: '{"in-app-purchases":"Implement store billing, entitlements, and restore flows after paywall UX is decided.","pricing":"Broader pricing strategy and packaging outside a single paywall screen."}'
 ---
 
-## Triggers
+## When to load
 
-Activate on: "create paywall", "subscription screen", "pricing page", "improve conversion", "paywall not converting", "free trial flow".
+Load this skill when tasked with designing, reviewing, or optimizing a paywall, subscription screen, pricing page, or free trial flow. Skip loading this for general UI design unrelated to monetization.
 
 ## Platform Differences
 
 | Aspect | Mobile (iOS/Android) | Web (SaaS) |
-|--------|---------------------|------------|
+|--------|----------------------|------------|
 | Context | Full-screen takeover | Pricing page or modal |
 | Timing | Onboarding, contextual, campaigns | Landing page, upgrade prompts |
 | Billing | App Store / Play Store | Stripe, Paddle, etc. |
 | Trials | Store-managed | Self-managed |
 | Testing | Remote config, A/B tools | Standard web A/B |
 
-See `mobile.md` for iOS/Android specifics. See `web.md` for SaaS pricing pages.
+**Load `<state_root>/skills/paywall/references/mobile.md`** for iOS/Android specifics.
+**Load `<state_root>/skills/paywall/references/web.md`** for SaaS pricing pages.
 
 ## Placement Strategy
 
@@ -37,7 +39,7 @@ See `mobile.md` for iOS/Android specifics. See `web.md` for SaaS pricing pages.
 
 **Rule:** Always have an onboarding paywall. Most conversions happen when motivation is highest.
 
-See `placement.md` for timing and trigger strategies.
+**Load `<state_root>/skills/paywall/references/placement.md`** for timing and trigger strategies.
 
 ## Core Layout Elements
 
@@ -49,7 +51,7 @@ Every high-converting paywall includes:
 4. **CTA** — Single action, prominent
 5. **Trust signals** — Trial terms, cancel anytime, reviews
 
-See `layout.md` for design patterns and examples.
+**Load `<state_root>/skills/paywall/references/layout.md`** for design patterns and examples.
 
 ## Pricing Display
 
@@ -62,16 +64,16 @@ See `layout.md` for design patterns and examples.
 
 **Default selection matters.** Pre-select the plan you want users to buy.
 
-See `pricing.md` for plan structures and psychology.
+**Load `<state_root>/skills/paywall/references/pricing.md`** for plan structures and psychology.
 
 ## Copy Rules
 
-- **Benefits over features.** "Unlimited exports" → "Never hit a limit"
+- **Benefits over features.** "Unlimited exports" -> "Never hit a limit"
 - **Specific outcomes.** "Save 4 hours/week" beats "Save time"
 - **Risk reversal.** "Cancel anytime" near CTA
 - **Social proof.** "Join 50,000+ subscribers"
 
-See `copy.md` for formulas by paywall type.
+**Load `<state_root>/skills/paywall/references/copy.md`** for formulas by paywall type.
 
 ## Testing Priority
 
@@ -85,13 +87,17 @@ Test in this order (highest impact first):
 
 **Rule:** Always A/B test paywall changes. Even "obvious" improvements can backfire.
 
-See `testing.md` for metrics, sample sizes, and experiment design.
+**Load `<state_root>/skills/paywall/references/testing.md`** for metrics, sample sizes, and experiment design.
 
 ## Red Flags
 
-Stop and fix:
-- No onboarding paywall → Add one
-- Only monthly plan → Add annual option
-- Cluttered with options → Simplify to 2-3 plans
-- No trial/guarantee → Add risk reversal
-- Can't test remotely → Implement remote config
+Required protections:
+- No onboarding paywall -> Add one
+- Only monthly plan -> Add annual option
+- Cluttered with options -> Simplify to 2-3 plans
+- No trial/guarantee -> Add risk reversal
+- Can't test remotely -> Implement remote config
+
+## Research anchors
+
+**Load `<state_root>/skills/paywall/references/sources.md`** for store policy and monetization research URLs used in this refactor.

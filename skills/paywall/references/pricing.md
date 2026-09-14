@@ -113,7 +113,7 @@ The decoy makes annual obviously better.
 - Remind before trial ends (email, push)
 - Show usage during trial ("You've saved 4 hours")
 - Offer extension for engaged non-converters
-- Ask why if they don't convert (feedback)
+- Collect feedback from non-converting users (feedback)
 
 ---
 
@@ -180,7 +180,7 @@ The decoy makes annual obviously better.
 - Default to recommended plan
 - Display monthly equivalent
 
-**Don't:**
+**Anti-patterns to replace:**
 - Hide the price
 - Use confusing per-seat math
 - Change price on checkout
@@ -205,4 +205,4 @@ The decoy makes annual obviously better.
 ### Testing Cadence
 - Price tests: Every 6-12 months
 - New markets: Test before assuming lower prices
-- Major changes: A/B test, don't just ship
+- Major changes: A/B test, ensure statistical confidence before shipping
