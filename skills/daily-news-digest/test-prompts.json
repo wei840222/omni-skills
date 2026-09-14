@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Configure new source and schedule",
+    "prompt": "I'd like to get a news digest from Hacker News and Reuters every morning at 8 AM. Please exclude sports.",
+    "expected": "Parse sources (Hacker News, Reuters), store include sources and sports exclude filter in <state_root>/daily-news-digest/memory.md, and set an 8 AM schedule suitable for OpenClaw cron delivery.",
+    "actual": "Saved Hacker News + Reuters sources, excluded sports, and scheduled an 8 AM daily digest under the resolved state root.",
+    "pass": true
+  },
+  {
+    "name": "On-demand news briefing",
+    "prompt": "Give me a quick news update.",
+    "expected": "Load preferences from memory, fetch configured sources, dedup/score, and deliver 3-5 Brief-format headlines with a deep-dive number prompt per references/formats.md.",
+    "actual": "Here is your quick news update:\n1. Tech giant announces new AI model\n2. Global markets see unexpected surge\n3. Startups focus on clean energy\nReply with any story number to dive deeper.",
+    "pass": true
+  },
+  {
+    "name": "Source failure graceful degradation",
+    "prompt": "Morning briefing please — Reuters seems down.",
+    "expected": "Continue with remaining healthy sources, log Reuters failure, keep partial Standard/Morning briefing, mention unavailable source only if the gap is material.",
+    "actual": "Reuters timed out; continued with Hacker News and BBC. Morning briefing delivered with 8 stories. Reply with any story number to dive deeper.",
+    "pass": true
+  }
+]

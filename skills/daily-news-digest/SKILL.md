@@ -1,209 +1,125 @@
 ---
 name: daily-news-digest
-slug: daily-news-digest
-version: 1.0.0
-description: Personalized news briefings from your chosen sources, delivered morning or evening, with voice option and smart filtering.
-homepage: https://clawic.com/skills/daily-news-digest
+description: >
+  Fetch and compile personalized news briefings from specified sources, filter
+  topics, and schedule automated delivery. Use for morning/evening digests, RSS
+  and public-API aggregation, topic include/exclude lists, format selection
+  (brief/standard/deep-dive/audio), and OpenClaw cron delivery.
 metadata:
-  clawdbot:
-    emoji: 📰
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Daily News Digest
+  version: "1.0.0"
+  openclaw: '{"emoji":"📰"}'
+  related-skills: '{"news":"Personalized news with ongoing preference learning when the ask is continuous feed tuning rather than a scheduled digest.","summarizer":"Single-article or long-form summarization after a digest story is selected.","podcast":"Audio show discovery when the user wants podcasts instead of a text/voice news briefing.","schedule":"Calendar and scheduling primitives when delivery timing needs calendar coordination beyond digest cron.","digest":"General multi-source content digests outside the daily news briefing loop."}'
 ---
 
-# Daily News Digest 📰
+## When to load
 
-Your AI News Chief of Staff. Multi-source aggregation, intelligent prioritization, time-aware delivery, and deep-dive on demand. Never miss what matters, never drown in noise.
+Load this skill when the user requests daily news briefings, multi-source news summaries (RSS, Hacker News, Reddit, Brave Search), topic filtering, preferred formats, voice briefings, or scheduled automated news delivery.
+
+Prefer `news` for continuous preference-learning feeds, `summarizer` for one-article deep reads, `podcast` for show discovery, and `digest` for non-news multi-source rollups.
+
+## State location
+
+Resolve `<state_root>` in this order:
+
+1. `<workspace>/.agents/state` when a local workspace is active
+2. `$XDG_DATA_HOME` when set
+3. `~/.local/share` on Linux/macOS defaults
+
+If the user or host configuration explicitly defines a state root, that path takes precedence. Resolve once per invocation and keep it fixed.
+
+Skill state lives under `<state_root>/daily-news-digest/`. Create the directory when the first persistent write is required. Prefer portable `<state_root>` paths; never hard-code host-specific roots such as `~/Clawic/data/daily-news-digest/`.
+
+```text
+<state_root>/daily-news-digest/
+|-- memory.md           # Preferences + delivery schedule + learned interests
+|-- sources.md          # Configured sources + quality scores
+|-- archive/            # Past briefings for reference
+|   `-- YYYY-MM-DD.md
+`-- cache/              # Temporary fetch cache (auto-cleaned)
+```
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines. The setup process learns preferences through conversation.
+On first use, read `references/setup.md`. Learn activation mode, topics, sources, geography, format, and delivery schedule through conversation, then persist under the resolved state root.
 
-## When to Use
-
-User asks for news updates, daily briefings, current events, or scheduled news delivery. Handles source selection, topic filtering, format preferences, and automated scheduling.
-
-## Architecture
-
-Memory lives in `~/Clawic/data/daily-news-digest/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/daily-news-digest/
-├── memory.md           # Preferences + delivery schedule + learned interests
-├── sources.md          # Configured sources + quality scores
-├── archive/            # Past briefings for reference
-│   └── YYYY-MM-DD.md   # Daily archives
-└── cache/              # Temporary fetch cache (auto-cleaned)
-```
-
-## Quick Reference
+## Quick reference
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Source configuration | `sources.md` |
-| Briefing formats | `formats.md` |
-| Scheduling guide | `scheduling.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Source configuration | `references/sources.md` |
+| Briefing formats | `references/formats.md` |
+| Scheduling guide | `references/scheduling.md` |
 
-## Core Rules
+## Core rules
 
-### 1. Multi-Source Aggregation
-Fetch from multiple source types for comprehensive coverage:
+1. **Multi-source aggregation** — Combine RSS, Brave Search, and public APIs (Hacker News, Reddit JSON). If one source fails, continue with the others and keep partial service.
+2. **Intelligent deduplication** — Treat headline similarity >70% as the same story; keep the most detailed version; note covering outlets; present each story once.
+3. **Priority scoring** — Rank by user topic match (+40), multi-outlet coverage (+25), breaking/trending (+20), trusted source (+15), recency last 6h (+10)—not recency alone.
+4. **Respect preferences** — Read memory before fetching: include/exclude topics, preferred/blocked outlets, geography emphasis, schedule. On conflict, ask once.
+5. **Format adaptation** — Brief (3–5 headlines), Standard default (8–12 stories), Deep Dive, Audio (TTS), or Archive markdown under `archive/`.
+6. **Time-aware delivery** — Morning forward-looking; midday breaking focus; evening missed-story recap; weekend lighter tone.
+7. **Interactive deep-dive** — End briefings with “Reply with any story number to dive deeper.” On a number: fetch fuller content, summarize with context, show related stories, offer the article link.
+8. **Scheduled delivery** — Use OpenClaw cron for automated briefings; track delivery history in memory and skip duplicate sends for the same window.
+9. **Source quality tracking** — Score accuracy, paywall frequency, ad density, freshness, and user feedback in `sources.md`; deprioritize low-quality sources over time.
+10. **Graceful degradation** — Log source failures, continue with remaining sources, and mention unavailable sources only when the gap is material.
 
-| Source Type | Method | Best For |
-|-------------|--------|----------|
-| RSS feeds | Direct fetch | Established outlets, blogs |
-| Web search | Brave Search API | Breaking news, trending |
-| Public APIs | REST calls | Hacker News, Reddit public |
+## Operating loop
 
-Combine sources to avoid single-point-of-failure. If one fails, others compensate.
+1. **Load preferences** — Read `<state_root>/daily-news-digest/memory.md` (and sources.md).
+2. **Fetch** — Pull configured sources per `references/sources.md`.
+3. **Normalize** — Dedup, score, filter by preferences and age (>24h only when requested).
+4. **Render** — Apply format + time-of-day tone from `references/formats.md`.
+5. **Deliver** — On-demand reply or cron channel delivery; offer deep-dive numbers.
+6. **Persist** — Update delivery history, quality scores, and optional archive entries.
 
-### 2. Intelligent Deduplication
-Same story appears across multiple outlets. Detect and merge:
-- Headline similarity >70% = same story
-- Keep version with most detail
-- Note which outlets covered it (credibility signal)
-- Never show duplicate stories in briefing
+## Failure modes
 
-### 3. Priority Scoring
-Rank stories by importance, not just recency:
+| Failure | Detection | Recovery |
+|---|---|---|
+| Source outage | Fetch error / empty payload | Log, continue with other sources, note gap only if material |
+| Paywall | Content truncated or login wall | Warn user, prefer alternate outlet covering same story |
+| Overwhelming volume | Too many unique stories | Default Standard 8–12; keep Brief on “quick update” |
+| Stale stories | Age >24h | Skip unless user asks for backlog/archive |
+| Duplicate delivery | Same schedule window already sent | Skip; record in memory delivery history |
+| Preference conflict | Include and exclude collide | Ask one clarifying question before fetching |
 
-| Signal | Weight | Rationale |
-|--------|--------|-----------|
-| User topic match | +40 | Personalization |
-| Multi-outlet coverage | +25 | Importance indicator |
-| Breaking/trending tag | +20 | Timeliness |
-| Trusted source | +15 | Quality signal |
-| Recency (last 6h) | +10 | Freshness |
+## Common traps
 
-### 4. Respect Preferences
-Memory stores learned preferences. Always check before fetching:
-- **Topics**: Include/exclude lists
-- **Sources**: Preferred/blocked outlets
-- **Geography**: Local emphasis level
-- **Schedule**: Delivery times + frequency
+- Defaulting to every story → stay on Standard/Brief bounds
+- Ignoring story age → filter >24h unless requested
+- Surprising paywalls → detect, warn, offer alternate source
+- Missing local news → capture geography on first setup
+- Skipping dedup → always dedup before present
+- Silent total failure → never fail the whole briefing on one dead source
 
-Never override user preferences. If conflict, ask.
+## External endpoints
 
-### 5. Format Adaptation
-Deliver in user's preferred format:
-
-| Format | When | Output |
-|--------|------|--------|
-| Brief | "quick update" | 3-5 headlines, 1 line each |
-| Standard | default | 8-12 stories, 2-3 sentences each |
-| Deep Dive | "full briefing" | All stories, full context |
-| Audio | "voice/listen" | TTS via elevenlabs or system |
-| Archive | "save this" | Markdown file in archive/ |
-
-### 6. Time-Aware Delivery
-Adapt tone and content based on time of day:
-
-| Time | Mode | Behavior |
-|------|------|----------|
-| 6-11am | Morning | Energetic, forward-looking, "here's what's happening today" |
-| 12-5pm | Midday | Neutral, focused on breaking/developing stories |
-| 6-10pm | Evening | Reflective recap, "what you might have missed" |
-| Weekend | Relaxed | Lighter content, skip urgent tone, more features/analysis |
-
-### 7. Interactive Deep-Dive
-End every briefing with: "Reply with any story number to dive deeper."
-
-When user replies with a number:
-1. Fetch full article content
-2. Summarize with more context
-3. Show related stories
-4. Offer: "Want the full article link?"
-
-### 8. Scheduled Delivery
-Integrate with OpenClaw cron for automated briefings:
-
-```
-User: "Send me news every morning at 8am"
-→ Create cron job with appropriate systemEvent
-→ Briefing auto-delivers to configured channel
-```
-
-Track delivery history in memory. Don't duplicate if already sent.
-
-### 9. Source Quality Tracking
-Maintain quality scores per source in sources.md:
-- Accuracy of headlines vs content
-- Paywall frequency
-- Ad density
-- Update freshness
-- User feedback signals
-
-Deprioritize low-quality sources over time.
-
-### 10. Graceful Degradation
-Work with whatever is available. If a source fails:
-- Log the failure
-- Continue with other sources
-- Never fail completely because one source is down
-- Mention "X sources unavailable" only if significant
-
-## Common Traps
-
-- **Overwhelming the user** → Default to Standard format (8-12 stories), not everything
-- **Stale news** → Always check story age, skip >24h unless explicitly requested
-- **Paywall frustration** → Detect paywalls, warn user, offer alternative source
-- **Missing local news** → Ask geography on first use, maintain local source list
-- **Duplicate stories** → Always run dedup before presenting
-- **Silent failures** → If source fetch fails, log and continue with others
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
+| Endpoint | Data sent | Purpose |
 |----------|-----------|---------|
-| RSS feed URLs | None (GET only) | Fetch headlines |
-| Brave Search API | Query text | Trending/breaking news |
-| Hacker News API | None (GET only) | Tech news |
-| Reddit JSON API | None (GET only) | Public subreddit feeds |
+| RSS feed URLs | None (GET) | Headlines |
+| Brave Search API | Query text | Trending/breaking |
+| Hacker News API | None (GET) | Tech news |
+| Reddit JSON API | None (GET) | Public subreddit feeds |
 | ElevenLabs TTS (optional) | Briefing text | Voice synthesis |
 
-No other data is sent externally.
+**Credential handling:** Brave Search and ElevenLabs credentials come from OpenClaw platform configuration. RSS, Hacker News, and Reddit public APIs need no auth. Scheduled deliveries use OpenClaw channel integrations.
 
-**Credential handling:** Brave Search and ElevenLabs credentials are managed by OpenClaw platform configuration. RSS, Hacker News, and Reddit public APIs require no authentication. Scheduled deliveries use OpenClaw's built-in channel integrations.
+## Security and privacy
 
-## Security & Privacy
+**Leaves the machine:** search queries to Brave; briefing text to TTS when voice is enabled.
 
-**Data that leaves your machine:**
-- Search queries sent to Brave API for news discovery
-- Briefing text sent to TTS service (if voice enabled)
+**Stays local:** preferences, archives, source quality scores under `<state_root>/daily-news-digest/`; no telemetry.
 
-**Data that stays local:**
-- All preferences in ~/Clawic/data/daily-news-digest/
-- Archive of past briefings
-- Source quality scores
-- No telemetry or analytics
+**This skill does not:** share reading habits with third parties; store credentials in plain text; access files outside the resolved state root; modify itself or other skills.
 
-**This skill does NOT:**
-- Share reading habits with third parties
-- Store credentials in plain text
-- Access files outside ~/Clawic/data/daily-news-digest/
-- Modify itself or other skills
+**Trust:** enable voice synthesis only when the user accepts sending briefing text to the configured TTS provider.
 
-## Trust
+## Related skills
 
-By using this skill with voice features, briefing text is sent to ElevenLabs.
-Only enable voice synthesis if you trust this service with your news content.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `news` — personalized news with learning
 - `summarizer` — article summarization
 - `podcast` — audio content discovery
 - `schedule` — calendar and scheduling
 - `digest` — general content digests
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/daily-news-digest
-- Latest version: https://clawic.com/skills/daily-news-digest

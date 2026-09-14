@@ -122,7 +122,7 @@ When audio is requested, adapt for listening:
 
 ## Archive Format
 
-Saved to `~/Clawic/data/daily-news-digest/archive/YYYY-MM-DD.md`:
+Saved to `<state_root>/daily-news-digest/archive/YYYY-MM-DD.md`:
 
 ```markdown
 # Daily News Digest — YYYY-MM-DD

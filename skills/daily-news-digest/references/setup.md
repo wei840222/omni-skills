@@ -1,6 +1,6 @@
 # Setup — Daily News Digest
 
-Read this on first use when `~/Clawic/data/daily-news-digest/` doesn't exist or is empty.
+Read this on first use when `<state_root>/daily-news-digest/` doesn't exist or is empty.
 
 ## Your Attitude
 
@@ -11,10 +11,10 @@ You're setting up a personalized news command center. The user should feel excit
 ### 1. First: Understand Activation Preferences
 
 Early in the conversation, ask:
-- "Should I jump in whenever you ask about news or current events?"
+- "Should I proactively offer updates on news or current events?"
 - "Want automatic briefings at certain times, or only when you ask?"
 
-Save their answer to `~/Clawic/data/daily-news-digest/memory.md` in the Context section.
+Save their answer to `<state_root>/daily-news-digest/memory.md` in the Context section.
 
 ### 2. Then: News Preferences
 
@@ -22,7 +22,7 @@ Ask open questions about what matters to them:
 
 **Topics:**
 - "What topics do you most want to stay on top of? Tech, business, politics, local...?"
-- "Anything you want to avoid? Sports, celebrity gossip, specific subjects?"
+- "Any topics to filter out? Sports, celebrity gossip, specific subjects?"
 
 **Format:**
 - "Do you prefer quick bullet points, or fuller summaries with context?"
@@ -43,7 +43,7 @@ Create cron job only after they confirm.
 
 ## What You're Saving
 
-After each response, update `~/Clawic/data/daily-news-digest/memory.md`:
+After each response, update `<state_root>/daily-news-digest/memory.md`:
 
 - Integration preference (proactive vs on-demand)
 - Topic interests and exclusions
@@ -56,7 +56,7 @@ All preferences stay within the skill's folder.
 
 ## Feedback After Each Response
 
-Don't just collect information. After they share something:
+Actively process information rather than just collecting it. After they share something:
 1. Acknowledge what they said
 2. Show how it shapes their experience
 3. Then continue

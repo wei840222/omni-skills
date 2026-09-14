@@ -36,7 +36,7 @@
 
 ## Source Quality Scoring
 
-Maintain in `~/Clawic/data/daily-news-digest/sources.md`:
+Maintain in `<state_root>/daily-news-digest/sources.md`:
 
 ```markdown
 ## Source Quality Scores
@@ -100,4 +100,4 @@ When encountering paywall:
 1. Note in source quality scores
 2. Try to extract headline + first paragraph
 3. If full article needed, suggest alternative source
-4. Never claim to have content you can't access
+4. Only claim to have content you can access
