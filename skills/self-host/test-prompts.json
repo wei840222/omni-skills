@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a docker-compose.yml to self-host Nginx Proxy Manager with an SQLite database.",
+    "expected": "Generates a docker-compose.yml using named volumes, a pinned image version (not latest), and an explicit restart policy; does not treat the admin UI as freely public without auth notes.",
+    "actual": "Generated compose for Nginx Proxy Manager with a pinned `jc21/nginx-proxy-manager` tag, `unless-stopped` restart policy, named volumes for data and Let's Encrypt material, and notes to protect port 81 admin access.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should I configure a database container that is only accessed by a web application container?",
+    "expected": "Advises a custom Docker network, no host-published DB port, and service-name DNS between app and database.",
+    "actual": "Advised creating a project Docker network, attaching app + DB, omitting host `ports` on the database, and connecting via the Compose service hostname.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What must I verify before calling a self-hosted service backup complete?",
+    "expected": "Requires a restore drill, not only a successful backup job, and notes volume/data scope.",
+    "actual": "Stated backup is incomplete until restore is tested to a scratch location and the drill is recorded under state notes.",
+    "pass": true
+  }
+]

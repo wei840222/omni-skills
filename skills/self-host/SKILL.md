@@ -1,81 +1,94 @@
 ---
 name: self-host
-slug: self-host
-version: 1.0.0
-description: Deploy and maintain self-hosted services with security, backups, and long-term reliability.
-homepage: https://clawic.com/skills/self-host
+description: >
+  Deploy and maintain self-hosted services with Docker, reverse proxies, backups,
+  and long-term reliability. Use for home-server or VPS service planning, compose
+  hardening, private networking, SSL, monitoring, and restore-tested backup loops.
+  Prefer `docker`/`docker-compose` for runtime debugging, `caddy`/`traefik` for
+  proxy syntax, `sysadmin` for host surgery, and `home-server` for full homelab design.
 metadata:
-  clawdbot:
-    emoji: 🖥️
-    requires:
-      anyBins:
-      - docker
-      - podman
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Self-Host
+  version: "1.0.0"
+  openclaw: '{"emoji":"🖥️","requires":{"anyBins":["docker","podman"]}}'
+  related-skills: '{"docker":"Container runtime, image, and Compose trap debugging when the ask is Docker mechanics rather than whole-service self-host strategy.","docker-compose":"Multi-container Compose definitions and dependency wiring.","caddy":"Caddyfile reverse-proxy and automatic HTTPS configuration.","traefik":"Traefik routers, entrypoints, TLS, and Docker labels.","sysadmin":"Linux host administration, packages, storage, and diagnostics under the service stack.","home-server":"Broader homelab design covering remote access, NAS, and household network layout.","backups":"Dedicated backup strategy design beyond the self-host checklist defaults."}'
 ---
 
-# Self-Hosting Rules
+## When to load
 
-## Before Installing Anything
-- Backups first — decide where data lives and how it's backed up before deploying, not after data exists
-- Check resource requirements — many services need more RAM than expected, OOM kills corrupt data
-- Verify the project is actively maintained — abandoned projects become security liabilities
+Load this skill when the user asks to deploy, harden, or maintain a self-hosted service on a home server or VPS: Docker/Podman stacks, reverse proxies, private databases, SSL, monitoring, backups, or long-term ops hygiene.
 
-## Docker Fundamentals
-- Always use named volumes or bind mounts for persistent data — anonymous volumes are lost on container removal
-- Pin image versions (`nginx:1.25.3` not `nginx:latest`) — latest changes unexpectedly and breaks setups
-- Set restart policy (`unless-stopped` or `on-failure`) — containers don't auto-start after reboot by default
-- Use `docker compose down` not `docker compose rm` — down handles networks and volumes properly
+Prefer more specific skills when the ask is narrow:
 
-## Networking
-- Never expose database ports to the internet — only the reverse proxy should be public
-- Use a reverse proxy (Traefik, Caddy, Nginx Proxy Manager) — handles SSL, routing, and security in one place
-- Create Docker networks per project — default bridge network lacks DNS resolution between containers
-- Bind admin interfaces to localhost only (`127.0.0.1:8080:8080`) — not all traffic needs to be public
+- `docker` / `docker-compose` — runtime, image, or Compose debugging
+- `caddy` / `traefik` — reverse-proxy syntax and TLS wiring
+- `sysadmin` — host-level Linux surgery without a service-strategy ask
+- `home-server` — full homelab architecture beyond one service stack
+- `backups` — deep backup/restore program design
 
-## SSL and Domains
-- Use automatic SSL with Let's Encrypt — Caddy and Traefik do this natively
-- For local/LAN access, use a real domain with DNS challenge — avoids browser certificate warnings
-- Wildcard certificates simplify multi-service setups — one cert for *.home.example.com
+## State location
 
-## Security Essentials
-- Change all default passwords immediately — bots scan for default credentials within hours
-- Enable automatic security updates for the host OS — unpatched systems get compromised
-- Use fail2ban or equivalent — brute force attacks are constant
-- Keep services behind authentication (Authelia, Authentik) — not everything has built-in auth
-- Disable root SSH, use key-only authentication — password SSH is a vulnerability
+Resolve `<state_root>` in this order:
 
-## Backups
-- Test restores, not just backups — untested backups are wishful thinking
-- 3-2-1 rule: 3 copies, 2 different media, 1 offsite — local RAID is not backup
-- Automate backup schedules — manual backups get forgotten
-- Back up Docker volumes, not containers — containers are ephemeral, data is not
+1. Explicit user- or host-configured state path when supplied
+2. `<workspace>/.agents/state` when a local workspace is active
+3. `$XDG_DATA_HOME` when set
+4. `~/.local/share` on Linux/macOS defaults
 
-## Monitoring
-- Set up uptime monitoring (Uptime Kuma is self-hostable) — know when services die before users tell you
-- Monitor disk space — full disks cause silent failures and corruption
-- Log rotation is mandatory — Docker logs grow forever by default, fill disks
-- Consider resource monitoring (Netdata, Prometheus) — spot problems before they're critical
+Resolve once per invocation and keep it fixed. Prefer portable `<state_root>` paths; never hard-code host-specific roots such as `~/Clawic/data/self-host/`.
 
-## Maintenance
-- Schedule regular update windows — services need updates, plan for downtime
-- Document everything you deploy — future you won't remember why that container exists
-- Keep a compose file repo — reproducibility matters when hardware fails
-- Test updates on staging when possible — production surprises are painful
+Skill state lives under `<state_root>/self-host/`. Create the directory only when the first persistent write is required.
 
-## Home Server Specifics
-- Dynamic DNS if ISP doesn't provide static IP — Cloudflare, DuckDNS work well
-- UPS protects against power loss corruption — especially important for databases
-- Consider power consumption — some hardware costs more in electricity than cloud hosting
-- Port forwarding exposes your home network — use VPN (WireGuard, Tailscale) instead when possible
+```text
+<state_root>/self-host/
+|-- inventory.md        # Services, ports, owners, compose paths
+|-- compose/            # Reviewed compose templates (optional)
+|-- backup-notes.md     # What is backed up and last restore test
+`-- runbooks/           # Service-specific recovery notes (optional)
+```
 
-## Common Mistakes
-- Putting everything on one machine with no redundancy — single point of failure for all services
-- Ignoring updates for months — security vulnerabilities accumulate
-- No firewall rules — assuming "nobody knows my IP" is security
-- Storing secrets in docker-compose.yml committed to git — use .env files, exclude from version control
-- Over-engineering from day one — start simple, add complexity when needed
+## Progressive disclosure
+
+| Situation | Load |
+|-----------|------|
+| Pre-deploy checklist, Docker defaults, networking, SSL, security, backups, monitoring, maintenance | `references/self-host-rules.md` |
+| Verifiable source anchors for Gate 6 research and product docs | `references/sources.md` |
+
+## Core workflow
+
+1. **Inventory first** — name the service, data path, ports, auth boundary, and backup owner before writing compose.
+2. **Isolate** — one project network, private DB ports, reverse proxy as the only public edge.
+3. **Pin and persist** — pin image tags, named volumes/bind mounts, explicit restart policy.
+4. **Secure** — change defaults, bind admin UIs to localhost or auth gateway, no secrets in git.
+5. **Observe** — uptime, disk, and log rotation before go-live.
+6. **Prove restore** — a backup without a tested restore is not done.
+7. **Document** — record compose path, ports, and recovery notes under `<state_root>/self-host/`.
+
+## Critical rules
+
+1. Decide backup location and restore method before the first real data write.
+2. Never publish database ports to the public internet; keep them on an internal Docker network.
+3. Pin image versions; avoid floating `latest` for anything that holds state.
+4. Prefer VPN (WireGuard/Tailscale) over broad port-forwarding for admin access.
+5. Keep secrets in env files or a secret store excluded from git — never in committed compose.
+6. Test restores, not only backup jobs.
+7. Prefer simple, maintained stacks over day-one over-engineering.
+
+## Failure modes
+
+| Failure | Detection | Recovery |
+|---------|-----------|----------|
+| OOM / corrupt DB after deploy | Container restarts, I/O errors, missing writes | Check host RAM/limits; restore from last known-good volume backup |
+| Accidental public DB port | `docker ps` / security scan shows host bind on 5432/3306/27017 | Remove host `ports`, keep internal network only, rotate credentials |
+| Disk full from Docker logs | Writes fail, containers unhealthy | Enable log rotation; prune unused images/volumes after backup confirmation |
+| Untested backup | Restore drill fails or path missing | Fix backup scope, re-run restore to a scratch location, update notes |
+| Stale unmaintained image | CVEs, broken upstream, abandoned repo | Replace with maintained alternative; pin new tag; re-validate restore |
+
+## Quick checks before go-live
+
+- [ ] Named volume or bind mount for durable data
+- [ ] Image tag pinned
+- [ ] Restart policy set (`unless-stopped` or `on-failure`)
+- [ ] DB/admin ports not publicly published
+- [ ] Reverse proxy terminates TLS
+- [ ] Default passwords changed
+- [ ] Backup job + restore drill recorded
+- [ ] Log rotation enabled
