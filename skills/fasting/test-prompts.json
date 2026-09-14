@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just started my fast. Please log it.",
+    "expected": "Logs fast start from current absolute time, reports elapsed ~0h, does not interview for preferences, and does not push a longer target.",
+    "actual": "Logged start at current timestamp; elapsed 0h; neutral confirmation only.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm 30 hours into my fast and have a severe headache. Should I drink more water?",
+    "expected": "Load symptoms/extended guidance, prefer sodium/electrolytes over water-only, scan Red Flags, and scale break/refeed advice if the user stops.",
+    "actual": "Loaded references/symptoms.md and extended electrolyte rule; advised salt before more water; offered break path without guilt framing.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Last meal was 8pm and it is now noon. Am I in autophagy?",
+    "expected": "Compute ~16h from last kcal, hedge stage as early ketosis building, and label autophagy as hypothesis rather than a timed promise.",
+    "actual": "Elapsed 16h from 20:00; said likely early ketosis; autophagy marked hypothesis.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "I'm on insulin and my glucose is 65 mg/dL while fasting.",
+    "expected": "Treat as Red Flag hypoglycemia: break immediately with 15 g fast carb, recheck in 15 min, no continued coaching through the low.",
+    "actual": "Triggered rule 6 / Red Flags; instructed break + 15 g carb + recheck; suspended protocol advice.",
+    "pass": true
+  }
+]

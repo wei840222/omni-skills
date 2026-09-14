@@ -1,6 +1,6 @@
 # Memory Template — Fasting
 
-Files under `~/Clawic/data/fasting/`: `config.yaml` (declared preferences, keys from the SKILL.md Configuration table), `log.md` (the fast log), `memory.md` (observed context). Config is what the user declared; memory is what you observed — an observation never overwrites a declared preference without confirmation.
+Files under `<state_root>/`: `config.yaml` (declared preferences, keys from the SKILL.md Configuration table), `log.md` (the fast log), `memory.md` (observed context). Config is what the user declared; memory is what you observed — an observation never overwrites a declared preference without confirmation.
 
 ## log.md (one row per fast)
 
