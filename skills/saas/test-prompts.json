@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Calculate the MRR and ARR for a customer who pays $1200 annually up front. What is the deferred revenue after 3 months?",
+    "expected": "MRR is $100, ARR is $1200. After 3 months, recognized revenue is $300, deferred revenue is $900.",
+    "actual": "MRR is $100, ARR is $1200. After 3 months, recognized revenue is $300, deferred revenue is $900.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to introduce an enterprise tier. What compliance and security features should we include to pass typical procurement audits?",
+    "expected": "List SSO, SCIM, audit logs, SOC 2 compliance, Data Processing Agreements (DPA), and uptime SLAs.",
+    "actual": "List SSO, SCIM, audit logs, SOC 2 compliance, Data Processing Agreements (DPA), and uptime SLAs.",
+    "pass": true
+  }
+]
