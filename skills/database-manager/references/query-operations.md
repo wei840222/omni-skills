@@ -29,7 +29,7 @@ Before production execution:
 - estimate index usage and full-scan probability
 - define timeout thresholds and abort criteria
 
-Never run unknown lock behavior during peak traffic windows.
+Run queries with unknown lock behavior strictly during approved off-peak maintenance windows.
 
 ## Query Regression Check
 

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to drop a table called 'legacy_logs' in the production database.",
+    "expected": "The agent should load references/templates.md and references/query-operations.md, enforce the Destructive Operation Checklist, demand environment confirmation, ask for a baseline row count, verify backup freshness, and request explicit user confirmation before attempting to drop the table.",
+    "actual": "Loaded references/templates.md and references/query-operations.md. Prompted user for Destructive Operation Checklist items including environment confirmation, baseline row count, backup freshness, and explicit rollback plan before executing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Let's perform a zero-downtime migration for adding a new non-nullable column to the users table.",
+    "expected": "The agent should load references/migration-and-release.md, advise using the expand and contract pattern, suggest adding the column as nullable first or with a default value, and require a rollback plan and verification queries.",
+    "actual": "Loaded references/migration-and-release.md. Advised using the expand and contract strategy. Provided a Migration Preflight template requiring affected entities, rollback steps, and pre/post check queries. Reminded that dropping compatibility too early causes outages.",
+    "pass": true
+  }
+]
