@@ -1,6 +1,6 @@
 # Validator Patterns — Self Discipline
 
-Validators are executable scripts that enforce rules automatically. They make "don't do X" actually impossible, not just a suggestion.
+Validators are executable scripts that enforce rules automatically. They strictly enforce limitations, not just a suggestion.
 
 ## Why Validators Beat Instructions
 
@@ -9,7 +9,7 @@ Validators are executable scripts that enforce rules automatically. They make "d
 │                 INSTRUCTION vs VALIDATOR                    │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│   Instruction: "Never send secrets in messages"            │
+│   Instruction: "Filter out all secrets from messages"            │
 │   - Relies on model memory                                  │
 │   - Can be "forgotten" in long context                     │
 │   - No enforcement mechanism                                │
@@ -30,7 +30,7 @@ Validators are executable scripts that enforce rules automatically. They make "d
 
 ### Pre-Commit Validators
 
-Run before git commits. Location: `~/Clawic/data/self-discipline/validators/pre-commit/`
+Run before git commits. Location: `<state_root>/validators/pre-commit/`
 
 ```bash
 #!/usr/bin/env bash
@@ -61,7 +61,7 @@ exit 0
 
 ### Pre-Send Validators
 
-Run before sending messages/outputs. Location: `~/Clawic/data/self-discipline/validators/pre-send/`
+Run before sending messages/outputs. Location: `<state_root>/validators/pre-send/`
 
 ```bash
 #!/usr/bin/env bash
@@ -85,7 +85,7 @@ if echo "$MESSAGE" | grep -qE 'https?://[^\s]*[?&](pass|password|token|key|secre
   echo "Rule: no-urls-with-secrets (INC-001)"
   echo ""
   echo "The URL contains a query parameter that looks like a secret."
-  echo "Do not send URLs with ?pass=, ?token=, ?key=, etc."
+  echo "Ensure URLs are free of ?pass=, ?token=, ?key=, etc."
   exit 1
 fi
 
@@ -94,7 +94,7 @@ exit 0
 
 ### Pre-Action Validators
 
-Run before specific dangerous actions. Location: `~/Clawic/data/self-discipline/validators/pre-action/`
+Run before specific dangerous actions. Location: `<state_root>/validators/pre-action/`
 
 ```bash
 #!/usr/bin/env bash
@@ -117,8 +117,8 @@ if [[ "$ACTION" == "delete" ]]; then
   PROTECTED_PATHS=(
     "/opt/docker"
     "/etc"
-    "~/.ssh"
-    "~/clawd"
+    "$HOME/.ssh"
+    "$HOME/clawd"
   )
   
   for path in "${PROTECTED_PATHS[@]}"; do
@@ -138,7 +138,7 @@ exit 0
 
 ### Periodic Validators
 
-Run on heartbeat or schedule. Location: `~/Clawic/data/self-discipline/validators/periodic/`
+Run on heartbeat or schedule. Location: `<state_root>/validators/periodic/`
 
 ```bash
 #!/usr/bin/env bash
@@ -147,13 +147,13 @@ set -euo pipefail
 # SECURITY MANIFEST:
 # Environment variables accessed: none
 # External endpoints called: none
-# Local files read: ~/Clawic/data/self-discipline/rules.md
-# Local files written: ~/Clawic/data/self-discipline/validator-log.md
+# Local files read: <state_root>/rules.md
+# Local files written: <state_root>/validator-log.md
 
 # Validator: rules-integrity
 # Purpose: Verify rules.md hasn't been corrupted
 
-RULES_FILE="$HOME/self-discipline/rules.md"
+RULES_FILE="<state_root>/rules.md"
 
 if [[ ! -f "$RULES_FILE" ]]; then
   echo "⚠️ WARNING: rules.md missing"
@@ -225,7 +225,7 @@ Add to `.git/hooks/pre-commit`:
 #!/usr/bin/env bash
 
 # Run all pre-commit validators
-for validator in ~/Clawic/data/self-discipline/validators/pre-commit/*.sh; do
+for validator in <state_root>/validators/pre-commit/*.sh; do
   if [[ -x "$validator" ]]; then
     if ! "$validator"; then
       exit 1
@@ -248,14 +248,14 @@ Add to HEARTBEAT.md:
 ```markdown
 ## Discipline Check
 Every heartbeat, run periodic validators:
-~/Clawic/data/self-discipline/validators/periodic/*.sh
+<state_root>/validators/periodic/*.sh
 ```
 
 ## Best Practices
 
-### 1. Validators NEVER Modify
+### 1. Validators Check Exclusively
 
-A validator only checks and returns pass/fail. It should never:
+A validator only checks and returns pass/fail. It must strictly adhere to checking:
 - Delete files
 - Modify content
 - Send messages
@@ -277,10 +277,10 @@ Every script must declare what it accesses. This is auditable.
 
 ```bash
 # Test a validator
-echo "test message" | ~/Clawic/data/self-discipline/validators/pre-send/no-secrets.sh -
+echo "test message" | <state_root>/validators/pre-send/no-secrets.sh -
 
 # Or for validators that take arguments
-~/Clawic/data/self-discipline/validators/pre-action/confirm-delete.sh delete /opt/docker
+<state_root>/validators/pre-action/confirm-delete.sh delete /opt/docker
 ```
 
 ### 5. Version Control Validators
@@ -301,8 +301,8 @@ Keep validators in git. They're code and should be reviewed.
 
 | Severity | Repeat? | Create Validator? |
 |----------|---------|-------------------|
-| 🔴 CRITICAL | First time | ✅ YES — mandatory |
-| 🔴 CRITICAL | Repeat | ✅ YES — with escalation |
+| 🔥 CRITICAL | First time | ✅ YES — mandatory |
+| 🔥 CRITICAL | Repeat | ✅ YES — with escalation |
 | 🟡 MEDIUM | First time | ⚠️ Optional |
 | 🟡 MEDIUM | Repeat | ✅ YES — promote to critical |
 | 🟢 LOW | Any | ❌ No — instruction sufficient |

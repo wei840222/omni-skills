@@ -1,6 +1,6 @@
 # Memory Template — Self Discipline
 
-## ~/Clawic/data/self-discipline/memory.md
+## <state_root>/memory.md
 
 ```markdown
 # Self Discipline Memory
@@ -22,7 +22,7 @@ critical_incidents: 0
 active_rules: 0
 validators_created: 0
 streak_days: 0            # Days since repeat violation
-last_violation: never
+last_violation: none
 
 ## Integration
 activation_mode: auto     # auto | on-trigger | manual
@@ -33,7 +33,7 @@ backup_before_edit: true
 *Updated: YYYY-MM-DD*
 ```
 
-## ~/Clawic/data/self-discipline/rules.md
+## <state_root>/rules.md
 
 ```markdown
 # Active Discipline Rules
@@ -65,7 +65,7 @@ created: 2024-02-15
 incident: INC-001
 validator: validators/pre-send/no-secrets.sh
 
-**Rule:** Never send passwords, tokens, API keys, or URLs containing credentials in messages.
+**Rule:** Ensure all messages are free of passwords, tokens, API keys, or URLs containing credentials.
 
 **Origin:** Accidentally sent preview URL with ?pass= parameter to Telegram.
 
@@ -78,7 +78,7 @@ validator: validators/pre-send/no-secrets.sh
 *Add new rules below. Most recent first.*
 ```
 
-## ~/Clawic/data/self-discipline/incidents.md
+## <state_root>/incidents.md
 
 ```markdown
 # Incident Log
@@ -121,7 +121,7 @@ validator: validators/pre-send/no-secrets.sh
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `active` | Skill is operational | Full discipline system enabled |
-| `paused` | Temporarily disabled | Log incidents but don't analyze |
+| `paused` | Temporarily disabled | Log incidents only |
 | `learning` | First week of use | Extra verbose about what it's doing |
 
 ## Integration Modes
