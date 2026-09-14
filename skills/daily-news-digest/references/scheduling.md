@@ -30,7 +30,7 @@ Use OpenClaw's cron tool with isolated session:
   },
   "payload": {
     "kind": "agentTurn",
-    "message": "Deliver scheduled morning news briefing. Read ~/Clawic/data/daily-news-digest/memory.md for preferences. Use Standard format unless user prefers Brief. Include local news for their region."
+    "message": "Deliver scheduled morning news briefing. Read <state_root>/daily-news-digest/memory.md for preferences. Use Standard format unless user prefers Brief. Include local news for their region."
   },
   "delivery": {
     "mode": "announce",
@@ -86,18 +86,18 @@ User: "Change my morning briefing to 7:30am"
 
 **Cancel schedule:**
 ```
-User: "Stop the morning briefings"
+User: "Cancel the morning briefings"
 → Remove cron job
 → Update memory.md
 → Confirm cancellation
 ```
 
-### Avoiding Duplicates
+### Preventing Duplicates
 
 Before creating scheduled briefing:
 1. Check if schedule already exists for that time
 2. Check last delivery timestamp in memory.md
-3. Don't deliver if already sent within 30 minutes
+3. Skip delivery if already sent within 30 minutes
 
 ### Format per Schedule
 

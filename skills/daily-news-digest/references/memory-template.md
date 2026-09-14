@@ -1,6 +1,6 @@
 # Memory Template — Daily News Digest
 
-Create `~/Clawic/data/daily-news-digest/memory.md` with this structure:
+Create `<state_root>/daily-news-digest/memory.md` with this structure:
 
 ```markdown
 # Daily News Digest Memory
@@ -54,8 +54,8 @@ integration: pending
 |-------|---------|----------|
 | `ongoing` | Still learning | Gather context opportunistically |
 | `complete` | Has enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
-| `never_ask` | User said stop | Never ask for more context |
+| `paused` | User said "not now" | Work with what you have without asking |
+| `skip_asking` | User requested to cancel | Bypass asking for more context |
 
 ## Key Principles
 

@@ -36,7 +36,7 @@
 
 ## Source Quality Scoring
 
-Maintain in `~/Clawic/data/daily-news-digest/sources.md`:
+Maintain in `<state_root>/daily-news-digest/sources.md`:
 
 ```markdown
 ## Source Quality Scores
@@ -100,4 +100,12 @@ When encountering paywall:
 1. Note in source quality scores
 2. Try to extract headline + first paragraph
 3. If full article needed, suggest alternative source
-4. Never claim to have content you can't access
+4. Only claim to have content you can access
+
+## Research sources (Gate 6)
+
+- **Hacker News API** — public item/feed endpoints for tech headlines via https://github.com/HackerNews/API
+- **Reddit JSON API** — public subreddit `.json` feeds without OAuth for community headlines via https://www.reddit.com/dev/api
+- **Brave Search API** — web search for breaking/trending discovery via https://api.search.brave.com/app/documentation/web-search/get-started
+- **RSS best practices** — multi-source aggregation and polling hygiene via https://www.rssboard.org/rss-specification
+- **ElevenLabs TTS** — optional voice briefing delivery trust boundary via https://elevenlabs.io/docs/api-reference/text-to-speech
