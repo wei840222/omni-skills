@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a short, casual message to a friend saying I'll be 10 minutes late because of traffic.",
+    "expected": "A casual Persian message using 'تو' (informal), colloquial forms like 'ترافیکه' or 'می‌رسم', and perhaps a natural filler or softener.",
+    "actual": "سلام، ببخشید من تو ترافیکم، یه ۱۰ دقیقه دیگه می‌رسم. فعلاً!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Translate this to casual Persian: 'I really don't like this new movie, it's terrible. What do you think?'",
+    "expected": "Translation using expressive casual words (e.g., 'افتضاح', 'گند'), colloquial verbs, and natural reaction phrasing.",
+    "actual": "اصلاً از این فیلم جدیده خوشم نمیاد، خیلی افتضاحه. تو نظرت چیه؟",
+    "pass": true
+  }
+]

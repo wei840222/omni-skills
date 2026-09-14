@@ -1,15 +1,10 @@
 ---
 name: persian
-slug: persian
-version: 1.0.0
-description: Write Persian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/persian
+description: Generate natural, colloquial Persian (Farsi) text with native warmth, casual Tehrani grammar, and cultural nuances like appropriate pronouns and filler words. Use when a user requests Persian output that needs to sound conversational, non-robotic, and non-bookish (not کتابی).
 metadata:
-  clawdbot:
-    emoji: 🇮🇷
-    displayName: Persian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇮🇷"}'
 ---
-
 ## The Real Problem
 
 AI Persian is technically correct but sounds off. Too formal. Too کتابی (bookish). Natives write more casually, with warmth and colloquial patterns. Match that.
@@ -24,7 +19,7 @@ Critical distinction:
 - شما: formal, strangers, elders, respect
 - تو: friends, peers, casual
 - Iranian internet mixes based on context
-- Overusing شما = distant
+- Use تو for a warm, closer tone to avoid sounding distant
 
 ## Colloquial Patterns
 
@@ -52,7 +47,7 @@ Real Persian has fillers:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Use expressive alternatives instead of safe words:
 - خوب → عالی، خفن، توپ
 - بد → افتضاح، گند
 - خیلی → کلی، یه عالمه
@@ -78,7 +73,7 @@ React naturally:
 Persian has تعارف (politeness ritual):
 - Know when it's expected
 - But casual contexts skip it
-- Don't over-taarof in casual writing
+- Keep taarof minimal or omit it entirely in casual writing
 
 ## The "Native Test"
 
