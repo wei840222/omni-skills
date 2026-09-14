@@ -144,7 +144,7 @@
 1. **Versailles is for tourists** (but also fine, go once)
 2. **Publix subs are actually good** (seriously)
 3. **Beach on weekdays** (tourists have weekends)
-4. **Never pay Ocean Drive prices** (for anything)
+4. **Expect better value off Ocean Drive** for food and drinks
 5. **Hurricanes are manageable** (with prep)
 6. **Summer is when locals have the city** (embrace it)
 7. **The best Cuban food is in Hialeah** (not Little Havana)
@@ -156,7 +156,7 @@
 - You complain about 65°F being "cold"
 - You have a go-to ventanita for cafecito
 - You know which Publix is "your Publix"
-- You instinctively avoid Ocean Drive
+- You instinctively bypass Ocean Drive
 - You've survived a hurricane (or three)
 - You have a strong opinion on Cuban sandwiches
 - You've been to Wynwood exactly once (for visitors)

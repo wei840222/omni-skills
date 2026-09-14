@@ -116,7 +116,7 @@ Common Miami dealbreakers:
 - Different areas feel different at **different times**
 - Visit on a weekday AND weekend
 - Visit day AND night
-- Walk around, don't just drive through
+- Walk around, explore on foot
 - Try to find a **month-to-month** first month if possible
 
 ---
@@ -129,7 +129,7 @@ Common Miami dealbreakers:
 | "South Beach = best beach" | Tourists, noise. Key Biscayne/Haulover better |
 | "Brickell has everything" | No beach, homogeneous, corporate |
 | "Miami is affordable" | Lower salaries + high rent = tight budgets |
-| "I don't need AC" | You absolutely need AC. Year-round. |
+| "I can survive without AC" | You absolutely need AC. Year-round. |
 | "I'll figure out parking later" | Figure it out NOW. It's that bad. |
 
 ---

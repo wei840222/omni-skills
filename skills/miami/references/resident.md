@@ -117,7 +117,7 @@ Florida has **no state income tax**. This is real money saved:
 - Pet insurance recommended (Lemonade, Healthy Paws)
 
 ### Watch Out For
-- **Heat:** Don't walk dogs on hot pavement (burns paws)
+- **Heat:** Walk dogs on grass or in cooler hours to protect paws
 - **Bufo toads:** Toxic, especially during summer rains
 - **Heartworm:** Year-round prevention needed (mosquitoes)
 

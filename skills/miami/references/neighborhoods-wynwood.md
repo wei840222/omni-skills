@@ -152,4 +152,4 @@ Small residential neighborhood adjacent to Design District. Mix of historic home
 ### Best For
 - Those wanting Design District access with neighborhood feel
 - Historic home lovers
-- People avoiding high-rise living
+- People preferring low-rise living

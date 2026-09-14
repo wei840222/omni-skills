@@ -7,7 +7,7 @@
 | Lifestyle | Car Needed? |
 |-----------|-------------|
 | Live + work in Brickell | Maybe not (but limiting) |
-| Live in SoBe, never leave beach | Probably not |
+| Live in SoBe, stay exclusively on the beach | Probably not |
 | Normal Miami life | YES, absolutely |
 | Visiting for a week | Uber works |
 
@@ -81,7 +81,7 @@ Miami has LOTS of tolls:
 ### Metrobus
 - Extensive but slow
 - Useful routes: Beach to downtown, Brickell to Grove
-- Most tourists/residents don't use it
+- Most tourists/residents use alternative transport
 - Fare: $2.25
 
 ### Brightline (Train)
@@ -133,7 +133,7 @@ Miami has LOTS of tolls:
 
 ### Biking Reality
 - Bike infrastructure is improving but still limited
-- Drivers don't respect bike lanes
+- Drivers often ignore bike lanes
 - Summer heat makes biking rough
 - Electric bikes increasingly popular
 

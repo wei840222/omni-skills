@@ -98,7 +98,7 @@ Miami has a **tropical monsoon climate** — hot, humid summers with afternoon s
 - Tropical storm impact: ~20-30% chance
 - Feeling effects: ~40-50% chance
 
-**Don't be paranoid, but be prepared.**
+**Stay prepared without catastrophizing.**
 
 ---
 

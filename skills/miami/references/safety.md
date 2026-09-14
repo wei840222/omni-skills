@@ -68,17 +68,17 @@ Miami-Dade has evacuation zones A-E:
 ### Common Crimes
 | Crime | Where | Prevention |
 |-------|-------|------------|
-| Car break-ins | Everywhere | Never leave valuables visible |
-| Phone snatching | Ocean Drive, tourist areas | Awareness, don't flash phone |
-| Rental car theft | Tourist areas | Don't use obviously rental cars |
+| Car break-ins | Everywhere | Keep valuables fully out of sight or take them with you |
+| Phone snatching | Ocean Drive, tourist areas | Awareness, keep phone concealed |
+| Rental car theft | Tourist areas | Prefer unmarked cars and store luggage out of sight |
 | Package theft | Residential | Concierge, Amazon Locker |
 | Catalytic converter theft | Parking lots | Park in well-lit areas |
 
 ### Tips
-- Don't leave ANYTHING visible in your car
+- Keep the cabin empty of bags, electronics, and chargers
 - Use valet or garages in tourist areas
 - Be aware of surroundings at ATMs
-- Don't walk alone in poorly-lit areas late night
+- Prefer well-lit, populated routes or travel with company after dark
 - Tourist areas have police presence (generally safe)
 
 ---
@@ -91,7 +91,7 @@ Miami-Dade has evacuation zones A-E:
 | **Rip currents** | After storms, any time | Swim parallel to shore |
 | **Jellyfish** | Summer months | Lifeguard stations have vinegar |
 | **Stingrays** | Year-round in shallows | Shuffle feet when entering |
-| **Sharks** | Rare but present | Don't swim at dawn/dusk |
+| **Sharks** | Rare but present | Swim in lifeguarded hours and well-lit conditions |
 
 ### Lifeguard Flags
 | Flag | Meaning |
@@ -120,16 +120,16 @@ Miami-Dade has evacuation zones A-E:
 - Keep distance (tailgating is common)
 
 ### Flood Driving
-- **Never drive through standing water** (can't judge depth)
+- **Turn around at standing water** (depth is hard to judge)
 - Underpasses flood quickly
-- "Turn around, don't drown" is real
+- "Turn around, stay safe from floods" is real
 - After storms, roads may be impassable
 
 ### Scooter/Bike Safety
 - Wear helmet (not required but smart)
 - Ride with traffic, not against
-- Assume cars don't see you
-- Avoid riding at night in low-visibility areas
+- Assume you are invisible to cars
+- Prefer daylight or high-visibility routes for scooters/bikes
 
 ---
 

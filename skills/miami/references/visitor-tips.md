@@ -42,7 +42,7 @@
 
 | Scam | How It Works | Prevention |
 |------|--------------|------------|
-| **CD Guys** | Hand you "free" CD, demand payment | Don't take anything handed to you |
+| **CD Guys** | Hand you "free" CD, demand payment | Keep walking and leave free handouts unaccepted |
 | **Club promoters** | Promise free entry, then charge cover | Ignore, look up clubs directly |
 | **Fake valet** | "Park here" in illegal spot, tow | Only use hotel valet or garages |
 | **Restaurant touts** | Aggressive sidewalk menus, mediocre food | Walk to restaurants you've researched |
@@ -61,7 +61,7 @@
 
 ### Beach Essentials
 - **Bring:** Sunscreen (reef-safe), water, towel
-- **Don't bring:** Glass (illegal), valuable jewelry
+- **Leave at home:** Glass (illegal on many beaches), valuable jewelry
 - **Watch for:** Lifeguard flags (purple = jellyfish)
 - **Parking:** Free at Crandon Park with county resident; meters in SoBe ($4/h)
 
@@ -76,9 +76,9 @@
 
 ### Safety
 - Miami is generally safe in tourist areas
-- **Avoid at night:** Overtown, Liberty City, parts of Little Haiti
+- **Prefer at night:** well-lit tourist/residential corridors; research Overtown, Liberty City, and parts of Little Haiti carefully after dark
 - **Watch for:** Phone snatching on Ocean Drive, car break-ins
-- **Don't leave valuables visible** in parked cars — ever
+- **Keep parked cars empty of visible valuables** — always
 
 ### Weather Prep
 | Season | What to Expect | Bring |
