@@ -5,7 +5,7 @@
 ### Switching Between Devices
 User: "Switch to my headphones"
 ```
-1. Check ~/Clawic/data/bluetooth/profiles/ for device with type: audio/headphones
+1. Check <state_root>/bluetooth/profiles/ for device with type: audio/headphones
 2. If current audio device connected → disconnect gracefully
 3. Connect to headphones using saved connection method
 4. Verify audio routing changed (play test sound if uncertain)
@@ -85,7 +85,7 @@ User: "Show my heart rate"
 1. Connect to HR sensor
 2. Subscribe to heart rate characteristic
 3. Stream readings: "Current: 72 bpm"
-4. Maintain connection until user says stop
+4. Maintain connection until explicitly requested to disconnect
 5. Log session for history
 ```
 
