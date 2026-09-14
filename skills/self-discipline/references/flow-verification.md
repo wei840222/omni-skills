@@ -23,7 +23,7 @@ Writing an instruction is not the same as the instruction being followed.
 │        ↓                                                    │
 │   NEW SESSION STARTS                                        │
 │        ↓                                                    │
-│   That file is never loaded                                 │
+│   That file remains unloaded                                 │
 │        ↓                                                    │
 │   Same mistake happens                                      │
 │                                                             │
@@ -121,7 +121,7 @@ If instruction is NOT in load path:
 
 **Option A: Move the instruction**
 - Copy to a file that IS in the load path
-- Delete from old location (avoid duplication)
+- Delete from old location (prevent duplication)
 
 **Option B: Add a reference**
 ```markdown

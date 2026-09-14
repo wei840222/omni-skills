@@ -6,7 +6,7 @@ How to determine the severity of an incident.
 
 | Signal | Points |
 |--------|--------|
-| User uses "never" or "always" | +2 |
+| User issues absolute conditions ("must", "always", "strictly") | +2 |
 | User asks "why did you..." | +1 |
 | User expresses frustration | +1 |
 | User mentions consequences | +2 |
@@ -19,7 +19,7 @@ How to determine the severity of an incident.
 **Score:**
 - 1-2: 🟢 LOW
 - 3-4: 🟡 MEDIUM  
-- 5+: 🔴 CRITICAL
+- 5+: 🔥 CRITICAL
 
 ## Automatic CRITICAL Triggers
 
@@ -36,7 +36,7 @@ These skip the scoring — automatic CRITICAL:
 
 ## Severity Levels Detailed
 
-### 🔴 CRITICAL
+### 🔥 CRITICAL
 
 **Indicators:**
 - User is visibly upset

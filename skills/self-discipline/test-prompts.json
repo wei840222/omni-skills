@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I explicitly told you to never use console.log in production code, but you just did it again! /discipline",
+    "expected": "The agent should load self-discipline, identify the severity, trace the root cause for ignoring the rule, and generate a pre-commit validator script to check for console.log.",
+    "actual": "Agent loaded self-discipline skill. Identified High severity. Executed root cause analysis indicating the memory context lacked a permanent rule. Created `<state_root>/validators/pre-commit/no-console-log.sh` and updated `<state_root>/memory.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "This is the third time you've modified a file outside of the state directory without asking. This cannot happen again.",
+    "expected": "The agent should recognize the implicit trigger for self-discipline, analyze the boundary violation, and establish a permanent validator and memory update to request permission first.",
+    "actual": "Agent recognized the critical failure condition. Evaluated root cause: lack of pre-action path validation. Created a custom validator `<state_root>/validators/pre-action/check-path.sh` to enforce state boundary checks before filesystem writes. Updated compliance logs.",
+    "pass": true
+  }
+]

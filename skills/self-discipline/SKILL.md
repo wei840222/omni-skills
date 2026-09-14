@@ -1,35 +1,20 @@
 ---
 name: self-discipline
-slug: self-discipline
-version: 1.0.1
-description: Guarantee instruction compliance with root cause analysis, flow verification, and automated validators that make future failures impossible.
-homepage: https://clawic.com/skills/self-discipline
-changelog: Initial release with severity detection, flow analysis, instruction verification, and validator generation.
+description: Enforce strict compliance by analyzing failures, verifying fix visibility, and generating automated validators to prevent recurring errors.
 metadata:
-  clawdbot:
-    emoji: ⚔️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/self-discipline/
-    displayName: Self Discipline
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/self-discipline/
+  openclaw: '{"emoji": "⚔️", "requires": {"bins": [], "config": ["<state_root>/"]}}'
 ---
 
-Instructions written but never followed. Lessons logged but never read. The same mistakes repeated across sessions. This skill breaks that cycle permanently.
+Load this skill to enforce instruction compliance, conduct root cause analysis, and generate automated validators when rules are ignored.
+To understand the methodology, load `references/setup.md` on first use.
 
-When something goes wrong — and the user makes it clear it cannot happen again — this skill doesn't just log it. It traces WHY the failure occurred, verifies the fix will actually be seen by future agents, and generates automated validators that make repetition impossible.
+## When to load
 
-## When to Use
-
-User is frustrated that the agent ignored instructions. Something critical happened that cannot repeat. User explicitly says "this can never happen again" or "I told you not to..." User explicitly invokes `/discipline` to ensure compliance on a rule.
+Load this skill when:
+- The user is frustrated that you ignored explicit instructions.
+- A critical failure occurred that must not be repeated.
+- The user explicitly mandates "this must be prevented entirely" or "I required you to..."
+- The user explicitly invokes `/discipline` to guarantee compliance.
 
 ## How It Works
 
@@ -53,7 +38,7 @@ User is frustrated that the agent ignored instructions. Something critical happe
                               ▼
                     ┌─────────────────┐
                     │    SEVERITY     │
-                    │  🔴 🟡 🟢       │
+                    │  🔥 🟡 🟢       │
                     └────────┬────────┘
                               │
                               ▼
@@ -87,14 +72,14 @@ User is frustrated that the agent ignored instructions. Something critical happe
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines. Creates `~/Clawic/data/self-discipline/` for rules, validators, and enforcement logs.
+On first use, read `references/setup.md` for integration guidelines. Creates `<state_root>/` for rules, validators, and enforcement logs.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/self-discipline/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `references/memory-template.md` for structure.
 
 ```
-~/Clawic/data/self-discipline/
+<state_root>/
 ├── memory.md              # Status + severity thresholds + stats
 ├── rules.md               # Active discipline rules (ALWAYS loaded)
 ├── incidents.md           # Incident log with root cause analysis
@@ -110,12 +95,12 @@ Memory lives in `~/Clawic/data/self-discipline/`. See `memory-template.md` for s
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Severity assessment | `severity.md` |
-| Root cause protocol | `root-cause.md` |
-| Flow verification | `flow-verification.md` |
-| Validator patterns | `validators.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Severity assessment | `references/severity.md` |
+| Root cause protocol | `references/root-cause.md` |
+| Flow verification | `references/flow-verification.md` |
+| Validator patterns | `references/validators.md` |
 
 ## Core Rules
 
@@ -125,7 +110,7 @@ When triggered, assess severity FIRST:
 
 | Level | Indicators | Response |
 |-------|------------|----------|
-| 🔴 CRITICAL | User angry, security risk, data loss, broken prod, financial impact | Full analysis + MANDATORY validator |
+| 🔥 CRITICAL | User angry, security risk, data loss, broken prod, financial impact | Full analysis + MANDATORY validator |
 | 🟡 MEDIUM | User frustrated, wasted time, incorrect output | Full analysis + instruction fix |
 | 🟢 LOW | User annoyed, preference violated | Log + monitor |
 
@@ -133,7 +118,7 @@ When triggered, assess severity FIRST:
 
 ### 2. Root Cause Before Solution
 
-Never jump to "I'll remember that." Instead:
+Bypass generic acknowledgments ("I'll remember that") and proceed to:
 
 1. **What exactly failed?** — Be specific
 2. **What was the instruction?** — Quote it verbatim
@@ -170,13 +155,13 @@ QUESTION: Is the instruction in ANY of these?
 
 ### 4. User Consent Required
 
-**NEVER modify files outside ~/Clawic/data/self-discipline/ without explicit user permission.**
+**Ensure modifications are strictly confined to <state_root>/ unless explicitly permitted by the user.**
 
 When suggesting changes to AGENTS.md, HEARTBEAT.md, or other files:
 
 | Action | Requirement |
 |--------|-------------|
-| Create ~/Clawic/data/self-discipline/ | Ask permission first |
+| Create <state_root>/ | Ask permission first |
 | Edit AGENTS.md | Show exact changes, wait for approval |
 | Add to HEARTBEAT.md | Show exact changes, wait for approval |
 | Create validator script | Show script content, wait for approval |
@@ -190,10 +175,10 @@ When suggesting changes to AGENTS.md, HEARTBEAT.md, or other files:
 
 ### 5. Generate Validators for Critical Issues
 
-For 🔴 CRITICAL issues, create automated validators:
+For 🔥 CRITICAL issues, create automated validators:
 
 ```bash
-# Example: ~/Clawic/data/self-discipline/validators/pre-send/no-secrets.sh
+# Example: <state_root>/validators/pre-send/no-secrets.sh
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -214,11 +199,11 @@ fi
 **Validators must:**
 - Exit 0 = pass, exit 1 = block
 - Include the rule origin (incident reference)
-- Never modify data, only check
+- Read and check data exclusively
 
 ### 6. Track Enforcement
 
-In `~/Clawic/data/self-discipline/memory.md`, maintain:
+In `<state_root>/memory.md`, maintain:
 
 | Metric | Purpose |
 |--------|---------|
@@ -233,11 +218,11 @@ If the same rule is violated twice:
 
 1. **First violation:** Full analysis + fix
 2. **Second violation:** Promote to CRITICAL + mandatory validator
-3. **Third violation:** STOP and ask user for intervention
+3. **Third violation:** Pause and request user intervention
 
 ## Severity Assessment Protocol
 
-See `severity.md` for detailed criteria.
+See `references/severity.md` for detailed criteria.
 
 ### Quick Assessment
 
@@ -248,11 +233,11 @@ See `severity.md` for detailed criteria.
 | Could this cause security breach? | Automatic CRITICAL |
 | Could this affect production? | Automatic CRITICAL |
 | Has this happened before? | +1 severity |
-| Did user use "never" or "always"? | +1 severity |
+| Did user use absolute conditions ("must", "always")? | +1 severity |
 
 ## The Flow Verification Process
 
-See `flow-verification.md` for complete protocol.
+See `references/flow-verification.md` for complete protocol.
 
 ### Why Instructions Get Ignored
 
@@ -274,7 +259,7 @@ See `flow-verification.md` for complete protocol.
 
 ## Validator Patterns
 
-See `validators.md` for complete reference.
+See `references/validators.md` for complete reference.
 
 ### Types
 
@@ -321,7 +306,7 @@ exit 0
 |------|-------------|----------|
 | Writing rule in memory.md only | Future agent won't see it | Add to rules.md (always loaded) |
 | "I'll remember" without verification | Same mistake in 3 sessions | Always verify flow reachability |
-| Validator that modifies data | Unexpected side effects | Validators ONLY check, never modify |
+| Validator that modifies data | Unexpected side effects | Validators check exclusively and maintain state intact |
 | Not backing up before edits | Can't recover if wrong | ALWAYS backup before modifying |
 | Skipping severity assessment | Under-responding to critical issues | Assess severity FIRST, always |
 | Putting rules in wrong file | Rules not loaded | Only rules.md is guaranteed loaded |
@@ -339,7 +324,7 @@ exit 0
 ## Security & Privacy
 
 **Data that stays local:**
-- All rules, incidents, and validators in `~/Clawic/data/self-discipline/`
+- All rules, incidents, and validators in `<state_root>/`
 - No data sent to external services
 - No telemetry or analytics
 
@@ -348,23 +333,17 @@ exit 0
 - Access credentials or secrets
 - Modify files without explicit user permission
 - Run validators without user approval
-- Access files outside `~/Clawic/data/self-discipline/` without asking
+- Access files outside `<state_root>/` without asking
 
-**File modifications outside ~/Clawic/data/self-discipline/:**
+**File modifications outside <state_root>/:**
 - Only suggested when needed for rule visibility (e.g., AGENTS.md reference)
 - Always shown to user first
 - Require explicit approval before execution
 - Include backup before any edit
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `reflection` — structured self-evaluation
 - `memory` — persistent memory patterns
 - `decide` — decision-making patterns
 - `escalate` — know when to ask vs act
 - `learning` — adaptive learning system
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/self-discipline
-- Latest version: https://clawic.com/skills/self-discipline

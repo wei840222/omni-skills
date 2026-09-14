@@ -4,7 +4,7 @@ How to find WHY an instruction was not followed.
 
 ## The 5 Whys Protocol
 
-Don't stop at the surface. Keep asking "Why?" until you reach a systemic cause.
+Continue past the surface. Keep asking "Why?" until you reach a systemic cause.
 
 ### Example Analysis
 
@@ -17,7 +17,7 @@ Don't stop at the surface. Keep asking "Why?" until you reach a systemic cause.
    → Because the preview system uses URL-based authentication.
 
 3. **Why wasn't this recognized as a secret?**
-   → Because I don't have a rule that "URLs with auth params are secrets."
+   → Because I lack a rule stating "URLs with auth params are secrets."
 
 4. **Why isn't there such a rule?**
    → Because the rule "no secrets in messages" doesn't explicitly list URL patterns.
