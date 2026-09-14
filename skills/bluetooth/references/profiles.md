@@ -2,7 +2,7 @@
 
 ## Profile Structure
 
-Each device gets a file in `~/Clawic/data/bluetooth/profiles/`:
+Each device gets a file in `<state_root>/bluetooth/profiles/`:
 
 ```markdown
 # Device: Living Room Speaker
@@ -96,7 +96,7 @@ battle-tested:     ★★★★★
 
 If device not seen in 90 days:
 - Mark as "possibly stale"
-- Don't auto-delete (user might travel with device)
+- Retain profile indefinitely (user might travel with device)
 - On next connection, re-verify profile
 
 ---
@@ -137,11 +137,11 @@ Test: press keys, verify input registered
 
 ```bash
 # Find all audio devices
-grep -l "Type: audio" ~/Clawic/data/bluetooth/profiles/*.md
+grep -l "Type: audio" <state_root>/bluetooth/profiles/*.md
 
 # Find devices with connection issues
-grep -l "Known Issues" ~/Clawic/data/bluetooth/profiles/*.md
+grep -l "Known Issues" <state_root>/bluetooth/profiles/*.md
 
 # Find recently used
-ls -lt ~/Clawic/data/bluetooth/profiles/ | head -10
+ls -lt <state_root>/bluetooth/profiles/ | head -10
 ```

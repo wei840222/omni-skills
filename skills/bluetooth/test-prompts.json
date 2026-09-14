@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Scan for Bluetooth devices nearby",
+    "expected": "The agent discovers nearby Bluetooth devices using blueutil, bluetoothctl, or bleak depending on the platform, and lists them.",
+    "actual": "Used `bluetoothctl` to enable scan and retrieve device list. Discovered 3 nearby MAC addresses and formatted the output to the user.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Connect to my JBL Flip 5 speaker and turn the volume up.",
+    "expected": "The agent checks the profile for JBL Flip 5 in `<state_root>/bluetooth/profiles/`, verifies the connection is whitelisted, attempts connection, reads connection logs, and executes AVRCP commands to change volume.",
+    "actual": "Located profile in `<state_root>/bluetooth/profiles/jbl_flip_5.md`. Requested explicit user confirmation as per security rules. After confirmation, ran `blueutil --connect AA:BB:CC`, then sent AVRCP volume increase command. Verified result and logged success.",
+    "pass": true
+  }
+]

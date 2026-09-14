@@ -5,8 +5,8 @@
 ### 1. Device Whitelisting
 - **Only interact with pre-authorized devices**
 - First connection requires explicit user confirmation
-- Store approved devices in `~/Clawic/data/bluetooth/profiles/`
-- Unknown devices go to `~/Clawic/data/bluetooth/pending.md` for review
+- Store approved devices in `<state_root>/bluetooth/profiles/`
+- Unknown devices go to `<state_root>/bluetooth/pending.md` for review
 
 ### 2. Connection Logging
 - Log every connection attempt with timestamp
@@ -15,7 +15,7 @@
 - Retain logs for troubleshooting and audit
 
 ### 3. Pairing Confirmation
-- **Never auto-accept pairing requests**
+- **Always require explicit user confirmation for pairing requests**
 - Display pairing code to user for verification
 - Require explicit "yes" before completing pair
 - Document PIN/passkey in profile (if static)
@@ -24,11 +24,11 @@
 - Connection attempts: 15 second timeout
 - Command execution: 5 second timeout
 - Idle connections: disconnect after 5 minutes
-- Scanning: stop after 30 seconds unless user extends
+- Scanning: Terminate discovery after 30 seconds unless user extends
 
 ---
 
-## NEVER Do These
+## High-Risk Behaviors to Prevent
 
 | Action | Why Dangerous |
 |--------|---------------|
@@ -52,7 +52,7 @@
 ### MAC Address Tracking
 - Fixed MACs enable location tracking
 - Some devices rotate MACs (iPhones)
-- **Mitigation:** Never log MACs to external services
+- **Mitigation:** Ensure MAC addresses remain strictly local
 
 ### Replay Attacks
 - Captured commands can be replayed
@@ -78,7 +78,7 @@
 ## Incident Response
 
 ### Unexpected Device Appears
-1. Add to `~/Clawic/data/bluetooth/pending.md` with timestamp
+1. Add to `<state_root>/bluetooth/pending.md` with timestamp
 2. Alert user: "Unknown device 'XX' discovered nearby"
 3. Do NOT connect or respond to pairing
 4. Log RSSI for potential location analysis
@@ -92,7 +92,7 @@
 ### Suspected Spoofing
 1. Note: same name, different MAC = red flag
 2. Alert user immediately
-3. Do NOT connect
+3. Abort connection attempt
 4. Log all details for analysis
 
 ---
