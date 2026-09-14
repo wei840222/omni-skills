@@ -27,7 +27,7 @@ Use the least risky path that reduces user impact:
 - revert to known-safe query path
 - rollback migration if blast radius grows
 
-Do not introduce multiple speculative fixes simultaneously.
+Introduce speculative fixes strictly one at a time to isolate their effects.
 
 ## Data Integrity Verification
 

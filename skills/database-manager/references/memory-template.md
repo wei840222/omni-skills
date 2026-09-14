@@ -1,6 +1,6 @@
 # Memory Template - Database Manager
 
-Create `~/Clawic/data/database-manager/memory.md` with this structure:
+Create `<state_root>/database-manager/memory.md` with this structure:
 
 ```markdown
 # Database Manager Memory
@@ -48,11 +48,11 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | context still evolving | keep capturing system and risk patterns |
 | `complete` | stable operating model | apply defaults with minimal prompts |
 | `paused` | updates paused by user | use read-only memory context |
-| `never_ask` | user declined setup prompts | avoid setup follow-up questions |
+| `never_ask` | user declined setup prompts | bypass setup follow-up questions |
 
 ## Key Principles
 
 - Store durable operational decisions, not chat transcripts.
 - Keep entries short, auditable, and actionable.
-- Do not store secrets, credentials, or private keys.
+- Store only non-sensitive operational decisions (ensure secrets and credentials remain out of memory).
 - Update `last` whenever memory changes.
