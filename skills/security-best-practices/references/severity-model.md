@@ -48,4 +48,4 @@ Action expectation:
 - Medium: strong signal with minor unknown runtime assumptions.
 - Low: incomplete visibility; needs runtime or infrastructure confirmation.
 
-Never inflate confidence when evidence is partial.
+Maintain strict confidence levels by explicitly acknowledging partial evidence.

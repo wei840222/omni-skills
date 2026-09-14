@@ -1,39 +1,37 @@
 ---
 name: security-best-practices
-slug: security-best-practices
-version: 1.0.0
-description: Review code with secure-by-default standards, prioritize exploitable risks, and deliver minimal-diff fixes with evidence and regression checks.
-homepage: https://clawic.com/skills/security-best-practices
-changelog: Added a complete security review workflow with evidence standards, severity modeling, and minimal-risk remediation guidance.
+description: >
+  Review code with secure-by-default standards, prioritize exploitable risks,
+  and deliver evidence-backed minimal-diff fixes. Use for security reviews,
+  hardening guidance, severity scoring, and safe remediation planning. Prefer
+  `auth`, `authorization`, `encryption`, `firewall`, or `devops` when the task
+  is domain-specific rather than a general security review.
 metadata:
-  clawdbot:
-    emoji: 🛡️
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/security-best-practices/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Security Best Practices
+  version: "1.1.0"
+  openclaw: '{"emoji":"🛡️"}'
+  related-skills: '{"auth":"Authentication design and session hardening when the finding is authn-specific.","authorization":"Access-control and permission-boundary design when the finding is authz-specific.","encryption":"Key management and cryptographic hygiene beyond generic secret handling.","firewall":"Network exposure and policy controls outside application-layer review.","devops":"Secure delivery, CI checks, and operational safeguards for shipping fixes."}'
 ---
 
-## Setup
+## When to load
 
-On first use, read `setup.md` for integration guidelines.
-If local memory is needed, ask for consent before creating `~/Clawic/data/security-best-practices/`.
+Load this skill to enforce secure-by-default standards, prioritize exploitable risks, and provide actionable security guidance or remediations.
 
-## When to Use
+## State location
 
-Use this skill for secure-by-default implementation, targeted vulnerability reviews, and prioritized security reports with actionable fixes. Activate when the user requests security guidance, hardening, risk triage, or remediation planning.
+Optional review preferences, findings history, and accepted-risk notes may live under `<state_root>/security-best-practices/`.
 
-## Architecture
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-Memory lives in `~/Clawic/data/security-best-practices/`. See `memory-template.md` for setup.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/security-best-practices/`, `<workspace>/memory/security-best-practices/`, `~/security-best-practices/`.
+3. If none exists and the user asks to persist review context, create `<workspace>/security-best-practices/` after explicit consent.
+
+On first use, read `references/setup.md` for integration guidelines.
+If local memory is needed, ask for consent before creating files under the resolved state root. See `references/memory-template.md`.
 
 ```text
-~/Clawic/data/security-best-practices/
+<state_root>/security-best-practices/
 |- memory.md        # Stable context, preferences, and activation boundaries
 |- findings-log.md  # Findings registry with severity and status
 `- exceptions.md    # Approved security exceptions and review dates
@@ -45,12 +43,12 @@ Load only the minimum file needed for the current request.
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Full review workflow | `review-playbook.md` |
-| Severity model and scoring | `severity-model.md` |
-| Safe remediation patterns | `remediation-patterns.md` |
-| Risk exception log | `exceptions.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Full review workflow | `references/review-playbook.md` |
+| Severity model and scoring | `references/severity-model.md` |
+| Safe remediation patterns | `references/remediation-patterns.md` |
+| Risk exception guidance | `references/exceptions.md` |
 
 ## Core Rules
 
@@ -70,17 +68,17 @@ Evaluate every review against a consistent baseline:
 - Dependency and supply chain posture
 - Logging, error handling, and data exposure controls
 
-Use `review-playbook.md` to keep scans systematic instead of ad hoc.
+Use `references/review-playbook.md` to keep scans systematic instead of ad hoc.
 
 ### 3. Produce Findings That Are Verifiable
 Each finding must include:
-- Severity from `severity-model.md`
+- Severity from `references/severity-model.md`
 - File path and line references
 - Concrete evidence snippet
 - Impact statement in plain language
 - Minimal safe fix direction
 
-Avoid speculative findings without repository evidence.
+Ensure all findings are strictly backed by verifiable repository evidence.
 
 ### 4. Prioritize Exploitability Over Theory
 Rank by practical risk, not by checklist volume:
@@ -98,15 +96,15 @@ Fix one finding at a time:
 - Flag expected behavior changes before implementing
 - Re-run project validation after each fix batch
 
-Use `remediation-patterns.md` for safe rollouts.
+Use `references/remediation-patterns.md` for safe rollouts.
 
 ### 6. Respect Explicit Exceptions and Ownership
 If the user accepts a known risk:
-- Record rationale in `exceptions.md`
+- Record rationale in the local exceptions log under the resolved state root (template in `references/exceptions.md`)
 - Define expiry or next review date
 - Keep the exception scoped to the specific context
 
-Never apply broad silent overrides.
+Require explicit, scoped justification for every override.
 
 ## Security Review Traps
 
@@ -122,23 +120,10 @@ Never apply broad silent overrides.
 - None by default from this skill itself.
 
 **Data that stays local:**
-- Review preferences and finding history in `~/Clawic/data/security-best-practices/`.
+- Review preferences and finding history under the resolved state root.
 - Exception rationale in local memory files only.
 
 **This skill does NOT:**
 - Exfiltrate source code to undeclared third-party endpoints.
 - Mark unresolved risks as fixed.
 - Perform hidden destructive changes.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `auth` - Authentication design and hardening.
-- `authorization` - Access control and permission boundaries.
-- `encryption` - Key management and cryptographic hygiene.
-- `firewall` - Network exposure review and policy controls.
-- `devops` - Secure delivery, CI checks, and operational safeguards.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/security-best-practices
-- Latest version: https://clawic.com/skills/security-best-practices

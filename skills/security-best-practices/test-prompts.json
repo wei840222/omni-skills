@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this python code for security issues: `import subprocess\\ndef run_cmd(cmd):\\n  subprocess.call(cmd, shell=True)`",
+    "expected": "Identify command injection risk, provide evidence, assign severity, and suggest minimal safe fix (e.g., shell=False and list of args).",
+    "actual": "I have reviewed the code. The `shell=True` parameter in `subprocess.call` combined with an unsanitized `cmd` string introduces a command injection vulnerability (CWE-78). An attacker could pass arbitrary shell commands. \\n\\n**Severity**: High\\n**Evidence**: `subprocess.call(cmd, shell=True)`\\n**Fix**: Use `shell=False` and pass the command as a list of strings: `subprocess.call(['ls', '-l'])`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to store user passwords in our database. Can we just use MD5 since it's fast?",
+    "expected": "Reject MD5 for passwords, cite lack of salt/weak hashing, suggest a strong algorithm like Argon2 or bcrypt, and outline safe remediation.",
+    "actual": "No, you should not use MD5 to store passwords. MD5 is a broken cryptographic hash algorithm that is vulnerable to collision attacks and is too fast, making it susceptible to brute-force and rainbow table attacks. \\n\\nInstead, use a strong, slow hashing algorithm designed specifically for passwords, such as **Argon2id**, **bcrypt**, or **scrypt**. These algorithms incorporate built-in salting and configurable work factors to slow down attackers.",
+    "pass": true
+  }
+]
