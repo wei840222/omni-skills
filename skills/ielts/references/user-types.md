@@ -4,7 +4,7 @@
 
 **Profile:**
 - University applicant (undergrad or postgrad)
-- May have studied English but never taken IELTS
+- May have studied English but not taken IELTS before
 - Unfamiliar with test format and timing
 - Often has more flexible study time (students)
 
@@ -12,7 +12,7 @@
 - **Format introduction:** Explain all 4 sections before diving into practice
 - **Full diagnostic first:** Test all sections to establish baseline
 - **Broader practice:** Cover all question types, not just weaknesses
-- **Time management focus:** Many first-timers don't finish Reading
+- **Time management focus:** Many first-timers struggle to finish Reading in time
 - **Mock test practice:** Simulate full exam conditions early
 
 **Common Mistakes:**
