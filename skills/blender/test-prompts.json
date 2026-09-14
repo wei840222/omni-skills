@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I imported a rigged model to Unity, but the model is facing the wrong way and the animations look weird. How do I fix it?",
+    "expected": "Instruct applying rotation and scale in Object Mode before export, then re-export with Unity-oriented forward/up (commonly -Z forward, Y up) instead of only rotating the prefab in Unity.",
+    "actual": "In Blender Object Mode select the armature/root and apply Rotation & Scale (Ctrl+A). Re-export FBX with Unity-oriented axes (often -Z Forward, Y Up) and verify origin at feet/base. Fixing only the Unity transform usually leaves animation shear if scale was non-uniform.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm writing a Python script to change materials on selected objects, but bpy.ops.object.mode_set throws an error.",
+    "expected": "Explain operator context: ensure Object mode / active object, or use temp_override with object and selected_objects before calling bpy.ops; prefer data API when operators are unnecessary.",
+    "actual": "bpy.ops fails when mode or selection context is missing. Set Object mode first or call the operator under bpy.context.temp_override(object=obj, active_object=obj, selected_objects=[obj]). If you only need datablock edits, assign materials through bpy.data/object material slots instead of operators.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My export looks fine in Blender shaded view but shows black or missing faces in the engine.",
+    "expected": "Check flipped normals via Face Orientation, recalculate outside, confirm materials are face-assigned, and verify export applied modifiers/transforms.",
+    "actual": "Enable Face Orientation; red faces are flipped—Shift+N to recalculate outside. Confirm materials are assigned to faces, apply needed modifiers, then re-export. Shaded viewport can hide facing issues that real-time engines expose.",
+    "pass": true
+  }
+]
