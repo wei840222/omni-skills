@@ -1,6 +1,6 @@
 # Progress Tracking System
 
-## File Structure in ~/Clawic/data/ielts/
+## File Structure in <state_root>/ielts/
 
 ### profile.md
 ```markdown

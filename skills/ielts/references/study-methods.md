@@ -38,7 +38,7 @@ Focus on weakest type in isolation before full tests.
 - Timed passages: 20 min per passage, strict cutoff
 - Skimming drills: Find main idea in 2 minutes
 - T/F/NG logic: "Not Given" = information ABSENT, not implied
-- Keyword location: Underline, don't re-read
+- Keyword location: Underline keywords to locate them efficiently without re-reading the whole text
 
 **Time Management:**
 - Passage 1: 15 min (easiest)
@@ -81,7 +81,7 @@ Focus on weakest type in isolation before full tests.
 
 **Part 1 (4-5 min):**
 - Extend answers: 2-3 sentences per question
-- Don't memorize scripts (examiners detect this)
+- Speak naturally and spontaneously, as examiners detect memorized scripts
 - Practice common topics: home, work, studies, hobbies
 
 **Part 2 (3-4 min):**
@@ -119,7 +119,7 @@ Build vocabulary by IELTS topic:
 
 **Spaced Repetition:**
 - Use Anki or similar for daily vocabulary review
-- Track words learned and due for review in `~/Clawic/data/ielts/vocabulary.md`
+- Track words learned and due for review in `<state_root>/ielts/vocabulary.md`
 
 ## Practice Material Sources
 

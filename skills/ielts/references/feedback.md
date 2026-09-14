@@ -80,7 +80,7 @@ Track accuracy by question type:
 If user says "That's not why I lost marks" or similar:
 1. Record the correction
 2. Adjust future feedback criteria
-3. Log in `~/Clawic/data/ielts/agent-learning.md`
+3. Log in `<state_root>/ielts/agent-learning.md`
 
 **Example:**
 ```markdown
@@ -158,7 +158,7 @@ After 3+ failures on same concept:
 ### If User Excels
 
 Move focus to next weakest area:
-- Don't over-practice strengths
+- Focus practice time heavily on weak areas instead of strengths
 - Maintain with periodic checks
 - Reallocate time to gaps
 

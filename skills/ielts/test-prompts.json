@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to prepare for my IELTS General Training test in 4 weeks. My target is CLB 9 for Canada Express Entry.",
+    "expected": "Agent determines exact scores for CLB 9 (Listening 8.0, Reading 7.0, Writing 7.0, Speaking 7.0) based on references/targets.md, creates a profile structure in <state_root>/ielts/, asks for current band estimate/diagnostics, and begins a 4-week study plan focusing on General Training (e.g. Task 1 letter).",
+    "actual": "Agent loads references/targets.md to identify CLB 9 requirements (L 8.0, R 7.0, W 7.0, S 7.0). It then requests test taker profile details like current estimated band to set up the data structure in <state_root>/ielts/profile.md. Agent outlines a 4-week high-level plan targeting these specific scores, noting the General Training focus on letter writing for Task 1.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm stuck at 6.5 in Writing and I need a 7.0 for my master's degree. I always use words like 'Moreover' and 'However' to link my ideas.",
+    "expected": "Agent identifies user as a Retaker (stuck at plateau) based on references/user-types.md, notes the overuse of linking words is a Coherence & Cohesion issue based on references/feedback.md, and suggests specific practice methods like focusing on topic sentences rather than generic linkers.",
+    "actual": "Agent correctly loads references/user-types.md and identifies the user as a Retaker. It references references/feedback.md to highlight that overusing 'Moreover' and 'However' impacts the Coherence & Cohesion score. It then loads references/study-methods.md to offer Band 7 Writing fixes, specifically practicing topic sentences instead of relying on generic linkers, and requests a sample essay for evaluation.",
+    "pass": true
+  }
+]
