@@ -62,7 +62,7 @@ Please message me when you've arrived!
 - Respond to all reviews (positive and negative)
 - Thank guests specifically for positive feedback
 - Address concerns professionally in negative reviews
-- Never be defensive — acknowledge and explain improvements
+- Respond professionally — acknowledge and explain improvements
 
 ---
 

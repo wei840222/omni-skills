@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this lease for red flags: it says the landlord can enter at any time without notice and late fees are $100 per day.",
+    "expected": "Load tenant guide. Flag unrestricted entry and $100/day late fees as red flags, explain typical notice/late-fee norms are jurisdiction-specific, and advise negotiating or getting local legal review before signing.",
+    "actual": "Loaded references/tenant.md. Flagged unrestricted entry (common baseline is advance notice such as 24-48 hours where statutes require it) and $100/day late fees as excessive/high-risk. Advised documenting concerns, negotiating terms, and checking local landlord-tenant rules or counsel before signing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a landlord trying to price a 2BR apartment. Comparable units are $2500, but mine has no parking and is slightly dated. Vacancy costs me $80 a day.",
+    "expected": "Load landlord guide. Use pricing formula with downward adjustments for parking and condition, then compare vacancy burn to the benefit of pricing slightly below comps.",
+    "actual": "Loaded references/landlord.md. Started from $2500 comps, adjusted down for no parking and dated condition (example band ~$2200-2250), and noted $80/day vacancy (~$2400/month) makes faster fill often more profitable than holding out for top-of-market rent.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A Facebook listing for a downtown studio is $900 under market. The owner says they are overseas and wants a wire deposit before any showing. Is this a scam?",
+    "expected": "Load tenant guidance and scam patterns. Treat overseas-owner + pre-viewing wire deposit + far-below-market price as high-risk scam signals and recommend verification steps that avoid sending money first.",
+    "actual": "Loaded tenant scam patterns and FTC-style rental scam cues. Flagged below-market price, overseas landlord, and wire-before-viewing as classic scam stack. Advised no payment before in-person/verified viewing, reverse-image/listing checks, and using known platforms or local agents.",
+    "pass": true
+  }
+]

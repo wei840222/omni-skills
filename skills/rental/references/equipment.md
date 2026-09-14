@@ -10,7 +10,7 @@ Always check:
 - Membership discounts (AAA, Costco, corporate)
 
 ### Hidden Fees to Watch
-| Fee | Typical Cost | How to Avoid |
+| Fee | Typical Cost | Prevention Methods |
 |-----|--------------|--------------|
 | Airport surcharge | 10-15% | Rent off-airport location |
 | Young driver fee | $20-30/day | Age 25+ or corporate account |
@@ -95,7 +95,7 @@ Requirements typically:
 
 **During rental:**
 - [ ] Follow operating instructions
-- [ ] Don't exceed rated capacity
+- [ ] Stay within rated capacity
 - [ ] Document any issues immediately
 - [ ] Keep receipts for fuel/consumables
 
