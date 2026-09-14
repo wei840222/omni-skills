@@ -9,6 +9,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
 | self-discipline | 2026-09-14 | 85/100 (#397) |
+| dhgate | 2026-09-14 | 85/100 (#399) |
 | fasting | 2026-09-14 | 85/100 (#398) |
 | blender | 2026-09-14 | 85/100 (#395) |
 | cpp | 2026-09-14 | 85/100 (#396) |
