@@ -50,7 +50,7 @@ Use only the selected `<state_root>` for every state path in this skill. Prefer 
 | Users need status | Auto-open incident; component = alert group; degraded ≠ operational (→ `references/status-and-runbooks.md`) |
 | Known failure class | Link runbook; auto-remediate only non-destructive steps with audit log |
 
-Depth on demand: `references/fatigue.md` · `references/agent-monitoring.md` · `references/routing.md` · `references/webhooks.md` · `references/status-and-runbooks.md` · `references/sources.md`.
+Depth on demand (load only what the incident needs): `references/fatigue.md` · `references/agent-monitoring.md` · `references/routing.md` · `references/webhooks.md` · `references/status-and-runbooks.md` · `references/sources.md`.
 
 ## Core rules
 
