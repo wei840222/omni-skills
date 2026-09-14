@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this snippet for memory leaks and fix it using RAII: `void process() { int* data = new int[100]; do_work(data); delete[] data; }` where do_work might throw.",
+    "expected": "Identify that the raw pointer will leak if do_work throws. Refactor to use std::unique_ptr<int[]> or std::vector<int>.",
+    "actual": "Identified the leak scenario. Recommended replacing `new int[100]` with `std::unique_ptr<int[]> data = std::make_unique_for_overwrite<int[]>(100);` or `std::vector<int> data(100);` to ensure memory is released regardless of exceptions, adhering to RAII principles.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a base class with a custom destructor, but my derived class objects seem to be leaking resources when deleted via base pointer. What's wrong?",
+    "expected": "Load classes.md. Identify the missing virtual destructor in the base class which causes undefined behavior and failure to call derived destructors.",
+    "actual": "Loaded references/classes.md. Identified the missing virtual destructor on the base class, leading to undefined behavior and slicing during destruction. Advised adding `virtual ~Base() = default;` to ensure derived destructors execute.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need to share a counter across 4 threads. Should I use a volatile int?",
+    "expected": "Load concurrency.md. Explain that volatile is not atomic and does not prevent data races. Suggest using std::atomic<int>.",
+    "actual": "Loaded references/concurrency.md. Clarified that `volatile` is not thread-safe and does not prevent data races. Recommended replacing `volatile int` with `std::atomic<int>` to ensure atomic increments across multiple threads.",
+    "pass": true
+  }
+]

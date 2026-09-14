@@ -1,6 +1,6 @@
 # Modern C++ Traps
 
-- Move leaves valid state — but unspecified, don't use after move
+- Move leaves valid state — but unspecified, assign a new value before reusing
 - `auto` deduces value — `auto x = ref` copies, use `auto&` for reference
 - Initializer list — `{}` prefers initializer_list ctor over others
 - Lambda capture — `[=]` copies, `[&]` refs, `[this]` captures this

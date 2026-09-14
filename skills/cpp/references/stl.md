@@ -6,5 +6,5 @@
 - `string::c_str()` — pointer invalid after string modified
 - `vector<bool>` — not real bools, proxy objects, weird behavior
 - `reserve` vs `resize` — `reserve` doesn't change size, `resize` does
-- `emplace` vs `push` — `emplace` constructs in place, avoids copy
+- `emplace` vs `push` — `emplace` constructs in place, preventing unnecessary copies
 - Range `erase` — `v.erase(remove(...), v.end())` for remove-erase idiom
