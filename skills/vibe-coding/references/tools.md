@@ -47,7 +47,7 @@
 ### Replit
 - **Strength**: Full browser IDE, instant deploy
 - **Best for**: Learning, collaboration, instant sharing
-- **Stat**: 75% of users never write code directly
+- **Stat**: 75% of users write code exclusively via prompts
 - **Pricing**: Free tier, paid for more compute
 
 ## When to Use What

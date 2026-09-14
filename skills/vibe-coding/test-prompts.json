@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to create a Next.js application using Tailwind CSS. What is the best way to start?",
+    "expected": "Expected to get advice on using Bolt.new or Lovable to get a quick prototype, as outlined in tools.md, and then maybe exporting to Cursor for more control.",
+    "actual": "I recommend starting with Bolt.new or Lovable to rapidly prototype your Next.js application with Tailwind CSS, as these browser-based builders allow for quick iteration. Once you have the initial prototype, you can export the code and use Cursor for more precise control and refinement.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How can I prevent AI from introducing a bunch of bugs during complex refactoring of our payments system?",
+    "expected": "Expected to be warned that payments/security code should have human intervention (intervene vs let it flow), and to use the Research-Plan-Implement workflow.",
+    "actual": "For a complex refactor involving the payments system, you should not solely rely on vibe coding, as security-critical areas require explicit human intervention. You must follow the Research-Plan-Implement workflow: first have the AI explain the current payments module, review its written plan for the refactoring step-by-step, and only then proceed with implementation in small increments, verifying and testing after every change.",
+    "pass": true
+  }
+]
