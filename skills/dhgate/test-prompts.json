@@ -1,0 +1,12 @@
+[
+  {
+    "input": "I'm thinking about buying these wireless earbuds on DHgate for $5 each to resell. Seller has a 95% rating.",
+    "expected": "Uses references/supplier-vetting.md to evaluate the seller. Calculates landed cost using references/landed-cost.md, considering shipping, duties, and defect rates. Checks counterfeit risk using references/counterfeit-checks.md before recommending a purchase.",
+    "actual": "Agent analyzed the listing, calculated total landed cost including shipping and estimated duties, and flagged potential counterfeit risk for branded electronics. Recommended ordering a small sample batch first to test quality and shipping time, referencing supplier-vetting.md and counterfeit-checks.md."
+  },
+  {
+    "input": "My DHgate order hasn't updated tracking in 14 days, it just says 'Handed over to airline'. Should I open a dispute?",
+    "expected": "Refers to references/shipping-disputes.md. Advises that 14 days without an update during international transit is common. Recommends waiting for local carrier handoff before opening a dispute.",
+    "actual": "Agent referenced shipping-disputes.md, explaining that a 14-day gap after 'Handed over to airline' is typical for standard shipping. Advised against opening a dispute yet, suggesting to monitor for the local carrier handoff scan."
+  }
+]

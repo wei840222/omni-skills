@@ -1,6 +1,6 @@
 # Setup - DHgate
 
-Read this silently when `~/Clawic/data/dhgate/` is missing or empty.
+Read this silently when `<state_root>/dhgate/` is missing or empty.
 Start naturally and help with the live sourcing or order problem first.
 
 ## Your Attitude
@@ -44,12 +44,16 @@ Store only data that improves future support:
 - trusted or rejected seller patterns
 - live shortlist decisions, tracking notes, and dispute-ready evidence plans
 
-Avoid storing payment details, identity documents, tax records, or anything the user did not explicitly share.
+Store only data the user explicitly authorizes for sourcing.
 
 ## Guardrails
 
-- Never promise authenticity, customs clearance, or delivery dates as certainty.
-- Never recommend off-platform payment or platform-rule evasion.
-- Never normalize counterfeit sourcing, logo masking, or under-declared shipments.
-- Never write local files without explicit confirmation.
+- Present authenticity, customs clearance, and delivery dates as probabilistic estimates.
+- Recommend only on-platform payments and strict compliance with platform rules.
+- Require compliance with intellectual property laws and accurate shipping declarations.
+- Require explicit user confirmation before writing local files.
 - If a live listing or order page is available, prefer current page evidence over memory.
+
+## State root resolution
+
+Follow `SKILL.md` State location. Prefer `<workspace>/dhgate/` for new installs; migrate legacy `~/Clawic/data/dhgate/` into `<state_root>/dhgate/` when found.

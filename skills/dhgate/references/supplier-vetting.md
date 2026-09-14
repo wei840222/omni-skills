@@ -21,9 +21,9 @@ Score each area `0`, `1`, or `2`.
 - `8-9` -> possible sample order only
 - `0-7` -> reject unless the user explicitly wants to gamble
 
-One hard-stop red flag overrides any score.
+One critical warning overrides any score.
 
-## Hard-Stop Red Flags
+## Critical Warnings
 
 - Brand-name goods at implausible discounts
 - Seller asks to move payment off-platform

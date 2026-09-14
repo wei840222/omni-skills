@@ -8,7 +8,7 @@ Reject or strongly warn when you see:
 - luxury, sportswear, electronics, or cosmetics listings at implausible discounts
 - blurred or partially hidden logos
 - titles that dodge the brand name while the photos imply the brand
-- seller replies that avoid saying whether the product is branded or generic
+- seller replies that fail to confirm whether the product is branded or generic
 - packaging promises that sound designed to hide origin or branding
 
 ## Category Risk Map
@@ -39,6 +39,6 @@ Instead of rationalizing a risky branded listing:
 
 ## Hard Rules
 
-- Never advise customs evasion, false declarations, or logo-masking tactics.
-- Never frame counterfeit risk as acceptable just because the price is low.
+- Require legal customs declarations and compliance.
+- Reject counterfeit goods regardless of price.
 - If authenticity matters, recommend buying from an authorized or lower-risk channel instead.

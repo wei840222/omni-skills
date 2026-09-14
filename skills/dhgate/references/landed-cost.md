@@ -1,6 +1,6 @@
 # Landed Cost - DHgate
 
-Never evaluate DHgate on listing price alone.
+Evaluate DHgate listings based on total landed cost.
 
 ## Core Formula
 

@@ -44,10 +44,10 @@ For wrong, damaged, or incomplete orders, capture:
 
 ## Message Rules
 
-- do not argue about motives; describe facts
+- describe facts objectively; omit discussions of motives
 - name the exact mismatch between listing and received goods
 - ask for one clear remedy: full refund, partial refund, or resend
-- avoid long emotional messages that bury the evidence
+- write concise, factual messages focused on evidence
 
 ## When to Push Harder
 
