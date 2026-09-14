@@ -1,3 +1,4 @@
+| security-best-practices | 2026-09-14 | 85/100 (#393) |
 | multi-engine-web-search | 2026-09-08 | 85/100 (#316) |
 # Changelog
 
