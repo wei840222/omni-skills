@@ -1,4 +1,3 @@
-| security-best-practices | 2026-09-14 | 85/100 (#393) |
 | multi-engine-web-search | 2026-09-08 | 85/100 (#316) |
 # Changelog
 
@@ -9,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| security-best-practices | 2026-09-14 | 85/100 (#393) |
 | persian | 2026-09-14 | 85/100 (#391) |
 | miami | 2026-09-14 | 85/100 (#392) |
 | ielts | 2026-09-14 | 85/100 (#390) |
