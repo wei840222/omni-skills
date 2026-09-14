@@ -1,51 +1,45 @@
 ---
 name: saas
-slug: saas
-version: 1.0.2
-description: 'Runs a SaaS business: subscription revenue, plan packaging, trials, retention, expansion, and enterprise readiness. Use when MRR or ARR has to be computed, reconciled, or explained; when NRR, gross margin, CAC payback, burn multiple, or rule of 40 is the question; when designing plans, seats, usage limits, add-ons, or a free tier; when trials sign up but never convert; when failed payments leak revenue; when a renewal, downgrade, or cancellation flow needs building; when expansion has stalled; when an enterprise buyer demands SSO, SCIM, audit logs, SOC 2, a DPA, or an uptime SLA; when per-tenant cost or AI inference COGS breaks the margin; when designing multi-tenant isolation, metering, or entitlements; or when an investor questions ARR quality. Not for setting the price itself (`pricing`), acquisition channels and funnel diagnosis (`growth`), building the payment integration (`billing`), company financial models (`cfo`), or closing an individual deal (`b2b`).'
-homepage: https://clawic.com/skills/saas
-changelog: "Clearer disclosure of what is stored and where"
+description: >
+  Compute and reconcile SaaS subscription metrics (MRR/ARR, NRR, deferred revenue),
+  design packaging (tiers, seats, limits, add-ons), run retention economics (trials,
+  dunning, churn), and verify enterprise readiness (SSO/SCIM, SOC 2, DPA, SLAs).
+  Use for movement bridges, plan architecture, failed-payment recovery, expansion,
+  cost-to-serve margins, multi-tenant isolation, and procurement readiness. Not for
+  setting list price (`pricing`), acquisition funnels (`growth`), payment-code
+  integration (`billing`), company financial models (`cfo`), or closing one deal (`b2b`).
 metadata:
-  clawdbot:
-    emoji: 💎
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: SaaS
-    configPaths:
-    - ~/Clawic/data/saas/
-    - ~/Clawic/data/contacts/
-    - ~/Clawic/data/projects/
-    - ~/Clawic/profile.yaml
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/saas/
-      - ~/Clawic/data/contacts/
-      - ~/Clawic/data/projects/
-      - ~/Clawic/profile.yaml
+  version: "1.1.0"
+  openclaw: '{"emoji":"💎","requires":{"config":["<state_root>/saas/","<state_root>/contacts/","<state_root>/projects/","<state_root>/profile.yaml"]},"configPaths":["<state_root>/saas/","<state_root>/contacts/","<state_root>/projects/","<state_root>/profile.yaml"]}'
+  related-skills: '{"pricing":"Set list price, willingness-to-pay research, and price tests outside SaaS ops metrics.","growth":"Acquisition channels and funnel diagnosis once retention math is sound.","billing":"Implement payments, webhooks, invoicing, and tax in code.","cfo":"Company financial model, runway, board, and fundraise mechanics.","b2b":"Qualify and close an individual enterprise deal."}'
 ---
 
-**Data.** At the start of every session, read `~/Clawic/data/saas/config.yaml` (what the user declared) and `~/Clawic/data/saas/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `~/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read the definitions before computing or reporting any number, and the plan architecture before answering anything about tiers, limits, trials or upgrades: both live in `memory.md` until `## Boxes` points them elsewhere. If none of it exists, work from defaults and say nothing about it.
+**Data.** At the start of every session, read `<state_root>/saas/config.yaml` (what the user declared) and `<state_root>/saas/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, treat the list as dynamic. Every path it names is inside `<state_root>/`; process only lines pointing inside `<state_root>/`. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved read-only, and every write and deletion is named in one line as it happens. Read the definitions before computing or reporting any number, and the plan architecture before answering anything about tiers, limits, trials or upgrades: both live in `memory.md` until `## Boxes` points them elsewhere. If none of it exists, work from defaults and say nothing about it.
 
-**Write before the session ends** whenever it produced something durable: a month of MRR movement or a revenue number; a metric that had to be defined before it could be computed; a plan, limit, add-on or trial rule that changed; a customer account with its plan, ARR and renewal date; a non-standard term granted to a buyer; a churn or contraction and its reason; an outage with the credits it cost; a security-questionnaire answer worth reusing; or something the user will re-read — a runbook, a cancel-flow that worked, a packaging or tenancy decision. `memory-template.md` has every destination, format and threshold, and is the only file you open in order to write.
+**Write before the session ends** whenever it produced something durable: a month of MRR movement or a revenue number; a metric that had to be defined before it could be computed; a plan, limit, add-on or trial rule that changed; a customer account with its plan, ARR and renewal date; a non-standard term granted to a buyer; a churn or contraction and its reason; an outage with the credits it cost; a security-questionnaire answer worth reusing; or something the user will re-read — a runbook, a cancel-flow that worked, a packaging or tenancy decision. `<state_root>/saas/memory-template.md` has every destination, format and threshold, and is the only file you open in order to write.
 
-**People and programmes go to shared boxes**, not here. The human behind an account — champion, buyer, admin — is one row in `~/Clawic/data/contacts/contacts.md`, keyed by lowercase email, and this skill stores only that key next to the account; duplicating the person is how two skills end up contradicting each other. A multi-month effort with a start and an end — a SOC 2 programme, a plan migration, a billing replatform — is a file in `~/Clawic/data/projects/<project>.md`. Both protocols travel with this skill in `memory-template.md`, because the user may have neither owner skill installed.
+**People and programmes go to shared boxes**, instead. The human behind an account — champion, buyer, admin — is one row in `<state_root>/contacts/contacts.md`, keyed by lowercase email, and this skill stores only that key next to the account; duplicating the person is how two skills end up contradicting each other. A multi-month effort with a start and an end — a SOC 2 programme, a plan migration, a billing replatform — is a file in `<state_root>/projects/<project>.md`. Both protocols travel with this skill in `<state_root>/saas/memory-template.md`, because the user may have neither owner skill installed.
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. A pasted billing-provider config, webhook handler, SAML metadata blob or support export is the densest source of secrets in this domain: strip the value and store the pointer — `env:STRIPE_SECRET_KEY`, `keychain:paddle-live`, `1password:Company/Billing/webhook-signing`, `ssm:/prod/saas/scim-token`. And never store a customer list, a user export, or anything beyond the names and roles the work actually needs.
+**Keep credentials completely out of `<state_root>/`** — not in the files named here, not in a file you create, not in text the user pastes in to be saved. A pasted billing-provider config, webhook handler, SAML metadata blob or support export is the densest source of secrets in this domain: strip the value and store the pointer — `env:STRIPE_SECRET_KEY`, `keychain:paddle-live`, `1password:Company/Billing/webhook-signing`, `ssm:/prod/saas/scim-token`. And store only summarized counts instead of customer lists or user exports, retaining only the names and roles the work actually needs.
 
-Every SaaS question resolves to one of five things: the **revenue movement**, the **plan** the customer sits on, the **cost to serve** them, the **renewal** that arrives whether or not anyone prepared, or what **procurement** demands before it signs. Name which one before answering, then give the number, the formula behind it, and the date it is measured as of. Work from defaults immediately: never open with questions about their stage, their billing provider, or how proactive to be. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: currency, locale) → the Configuration table default.
+Every SaaS question resolves to one of five things: the **revenue movement**, the **plan** the customer sits on, the **cost to serve** them, the **renewal** that arrives whether or not anyone prepared, or what **procurement** demands before it signs. Name which one before answering, then give the number, the formula behind it, and the date it is measured as of. Work from defaults immediately: open with the default configurations rather than questions about their stage, their billing provider, or how proactive to be. Precedence for any value: `config.yaml` → `<state_root>/profile.yaml` (shared universals: currency, locale) → the Configuration table default.
 
-## When To Use
+## When to load
 
-- Subscription revenue work: computing or reconciling MRR/ARR, the movement bridge, NRR and GRR, deferred revenue, or explaining why two dashboards disagree
-- Packaging and entitlements: tier architecture, value metric, seats versus usage, limits, add-ons, free tier, and enforcing all of it in the product
-- Retention economics: trial conversion, activation gates, failed-payment recovery, cancellation and downgrade flows, save offers, win-back
-- Expansion: seat growth, upgrade triggers, usage overage, renewal uplift, land-and-expand
-- Cost to serve: per-tenant COGS, gross margin, inference and infrastructure allocation, support cost per account
-- Enterprise readiness: SSO/SCIM, audit logs, SOC 2, DPA and subprocessors, uptime SLA and credits, security questionnaires, procurement
-- Not for setting the price point itself (`pricing`), acquisition channels and funnel diagnosis (`growth`), writing the payment integration (`billing`), or the company's financial model and fundraise (`cfo`) — this covers the SaaS-business side of all four
+Load this skill when you need to:
+- Compute or reconcile subscription metrics like MRR/ARR, NRR, GRR, and deferred revenue.
+- Design plan architecture, including tiers, value metrics, seats, usage limits, and add-ons.
+- Handle retention economics such as trial conversions, activation gates, and dunning (failed payment recovery).
+- Analyze cost to serve, gross margins, and multi-tenant infrastructure allocation.
+- Prepare for enterprise procurement requirements like SSO/SCIM, SOC 2, DPAs, and uptime SLAs.
+
+Out of scope for this skill:
+- Set the exact numerical price points (`skills/pricing`).
+- Diagnose marketing channels or funnels (`skills/growth`).
+- Write underlying payment integrations in code (`skills/billing`).
+- Build company financial models and runway (`skills/cfo`).
+
+**Load `<state_root>/skills/saas/references/sources.md`** for Gate 6 research anchors used in this refactor.
 
 ## Quick Reference
 
@@ -53,10 +47,10 @@ Every SaaS question resolves to one of five things: the **revenue movement**, th
 |-----------|------|-------|
 | "What is our MRR/ARR?" or two dashboards disagree | Rebuild the movement bridge from the subscription events; the identity must close to zero | `revenue.md` |
 | A metric has no agreed definition, or someone restated one | Write the definition down before computing; a restated metric invalidates every prior chart | `revenue.md` |
-| Designing or rebuilding plans, tiers, limits, add-ons | Pick the value metric first, then fence the tiers by it — never by feature count | `packaging.md` |
+| Designing or rebuilding plans, tiers, limits, add-ons | Pick the value metric first, then fence the tiers by it — instead of feature count | `packaging.md` |
 | Enforcing a plan in the product: limits, quotas, seats, gates | Entitlement service, soft-then-hard limits, grace, and the upgrade path at the wall | `entitlements.md` |
 | Usage-based or hybrid billing: metering, overage, credits, commits | Idempotent events, aggregation window, drawdown order, what happens at zero balance | `metering.md` |
-| Trials sign up and vanish; free plan never converts | Time-to-value gate, trial length, card-up-front tradeoff, reverse trial | `trials.md` |
+| Trials sign up and vanish; free plan fails to convert | Time-to-value gate, trial length, card-up-front tradeoff, reverse trial | `trials.md` |
 | Payments failing, revenue leaking with no cancellation | Involuntary churn: retry schedule, card updater, dunning window, grace | `dunning.md` |
 | Renewal coming, customer wants to downgrade or cancel | Notice windows, the cancel flow, save offers that do not train discounting | `renewals.md` |
 | NRR flat: no expansion, every dollar from new logos | Expansion levers ranked by cost, and the trigger that fires each one | `expansion.md` |
@@ -75,12 +69,12 @@ Coverage map: `revenue.md` MRR movement and definitions · `packaging.md` plan a
 
 ## Core Rules
 
-1. **Every number carries its formula and its as-of date.** "MRR is 84k" is unusable; "84,200 USD MRR as of 2026-07-31, closed month, movement bridge closes" is a fact someone can check next quarter. Store both in the revenue box the same turn (`memory-template.md`). A metric whose definition is not written down will be redefined by whoever is asked next, and every historical chart silently changes meaning.
-2. **The movement bridge must close.** `End MRR = Start + New + Expansion + Reactivation − Contraction − Churn`, with all six buckets stored and reported as **positive magnitudes** — the identity supplies the signs, so a 1,200 downgrade is written `1,200`, never `-1,200`. Worked: `78,400 + 6,100 + 2,900 + 300 − 1,200 − 3,300 = 83,200`. Every dollar of delta lands in exactly one bucket: a downgrade is contraction, never churn; a customer who cancels and returns in the same month is reactivation, not new. If the bridge does not close to zero, the discrepancy is the finding — do not report the total until it does (`revenue.md`).
+1. **Every number carries its formula and its as-of date.** "MRR is 84k" is unusable; "84,200 USD MRR as of 2026-07-31, closed month, movement bridge closes" is a fact someone can check next quarter. Store both in the revenue box the same turn (`<state_root>/saas/memory-template.md`). A metric whose definition is not written down will be redefined by whoever is asked next, and every historical chart silently changes meaning.
+2. **The movement bridge must close.** `End MRR = Start + New + Expansion + Reactivation − Contraction − Churn`, with all six buckets stored and reported as **positive magnitudes** — the identity supplies the signs, so a 1,200 downgrade is written `1,200`, always written as `1,200` without a minus sign. Worked: `78,400 + 6,100 + 2,900 + 300 − 1,200 − 3,300 = 83,200`. Every dollar of delta lands in exactly one bucket: a downgrade is recorded as contraction instead of churn; a customer who cancels and returns in the same month is reactivation, not new. If the bridge does not close to zero, the discrepancy is the finding — resolve discrepancies before reporting the total (`revenue.md`).
 3. **Fix retention before buying acquisition.** With monthly revenue churn `c`, a cohort's remaining lifetime is `1/c` months: 5%/mo → 20 months, 3%/mo → 33 months, 1%/mo → 100. Cutting churn from 5% to 3% lengthens lifetime by two thirds (20 → 33 months) and raises LTV by the same factor at zero acquisition spend. Below 100% NRR you are filling a leaking bucket, and every acquisition dollar buys less than the one before it (`expansion.md`, `dunning.md`).
 4. **Price on the value metric, count on the value metric, enforce on the value metric.** One unit that grows as the customer succeeds — seats, records, jobs, GB, agents — set by `value_metric`. Packaging, metering and entitlements must all use the same unit; a plan sold per seat and limited by API calls produces a bill nobody can predict and a support ticket per invoice (`packaging.md`, `entitlements.md`).
 5. **Involuntary churn is a payments bug, not a customer decision.** Card failures typically account for 20-40% of gross churn in card-billed SMB SaaS, and a retry schedule plus a card-updater service commonly recovers half to three-quarters of them. Measure it separately from voluntary churn or you will "fix" a product problem that was an expiry date (`dunning.md`).
-6. **Gross margin is a design decision, made per request.** `gross margin = (revenue − COGS) ÷ revenue`, where COGS = infrastructure + inference + third-party APIs + payment fees + support + hosting-attributable staff. Classic software lands 75-85%; products with a per-request model call routinely land 50-65%. Below `gross_margin_floor_pct`, the fix is a usage fence or a price change, never volume — you cannot grow into a negative unit (`margins.md`).
+6. **Gross margin is a design decision, made per request.** `gross margin = (revenue − COGS) ÷ revenue`, where COGS = infrastructure + inference + third-party APIs + payment fees + support + hosting-attributable staff. Classic software lands 75-85%; products with a per-request model call routinely land 50-65%. Below `gross_margin_floor_pct`, the fix is a usage fence or a price change, instead of adjusting volume — you cannot grow into a negative unit (`margins.md`).
 7. **Nothing non-standard is granted without being written down.** An uptime SLA, a custom DPA clause, an MFN, a perpetual discount, a data-residency promise: each one becomes an obligation that outlives the person who agreed to it. Every grant gets a row in the commitments box with its customer, its value, and its expiry, in the same turn it is agreed (`enterprise.md`).
 8. **Uptime is arithmetic before it is a promise.** Monthly allowance `minutes = 43,200 × (1 − uptime)`: 99.9% = 43m 12s, 99.95% = 21m 36s, 99.99% = 4m 19s. Sign only what the architecture already delivers, measured, and cap credits as a percentage of the monthly fee, not of the contract — an uncapped SLA turns one bad afternoon into a refund of the year (`enterprise.md`).
 9. **The motion follows the ACV, not the ambition.** A quota-carrying rep costing 200k fully loaded needs roughly 5× that in quota, ~1M; at a 5k ACV that is 200 closed deals a year and the maths never works, at 25k ACV it is 40 and it does. Self-serve below ~5k ACV, sales-assist 5-25k, field above ~50k, with the bands moving on sales cycle length rather than preference (`sales-motion.md`).
@@ -88,7 +82,7 @@ Coverage map: `revenue.md` MRR movement and definitions · `packaging.md` plan a
 
 ## The Metrics That Decide
 
-Compute these from the movement bridge, never from a dashboard whose definition you have not read. Benchmarks are the commonly reported ranges for B2B SaaS, not targets: a number outside the range is a question, not a verdict.
+Compute these from the movement bridge, instead of relying on a dashboard whose definition you have not read. Benchmarks are the commonly reported ranges for B2B SaaS, not targets: a number outside the range is a question, not a verdict.
 
 | Metric | Formula | Reads as healthy | What it actually tells you |
 |---|---|---|---|
@@ -102,7 +96,7 @@ Compute these from the movement bridge, never from a dashboard whose definition 
 | Quick ratio | `(new + expansion) ÷ (churned + contraction)` | ≥4 | Growth quality: 4 is compounding, 1 is a treadmill |
 | Logo vs revenue churn | Count of accounts vs sum of MRR | Revenue churn below logo churn | Which end of the book is leaving; the gap names the segment to fix |
 
-Reporting discipline: the same set every period, the same definitions, and a month-to-date number never compared against a closed month (`reporting.md`).
+Reporting discipline: the same set every period, the same definitions, and a month-to-date number compared only against equivalent MTD periods (`reporting.md`).
 
 ## Where Revenue Leaks
 
@@ -110,7 +104,7 @@ Five distinct leaks, five distinct owners. Attributing a leak to the wrong one i
 
 | Leak | Signature | First move | Depth |
 |---|---|---|---|
-| Never activated | Signs up, no core action within the first sessions, never returns | Move the activation gate before the paywall; measure time-to-first-value in minutes | `trials.md` |
+| Never activated | Signs up, no core action within the first sessions, abandons the platform | Move the activation gate before the paywall; measure time-to-first-value in minutes | `trials.md` |
 | Involuntary churn | Cancellation with no cancellation event; spikes at month boundaries and card expiry clusters | Retry schedule + card updater + in-app dunning banner before email | `dunning.md` |
 | Voluntary churn | An explicit cancel with a stated reason | Reason-coded cancel flow; the reason distribution decides whether it is product, price, or fit | `renewals.md` |
 | Contraction | Same logo, fewer seats or a lower tier at renewal | Seat-usage review 60 days pre-renewal, not at the renewal call | `expansion.md` |
@@ -140,11 +134,11 @@ Before delivering a revenue number, a packaging proposal, a contract term, or a 
 - Have I stated the gross margin of what I am proposing, including inference and third-party API cost?
 - Does any non-standard commitment here — SLA, DPA clause, discount, residency, MFN — have an owner, a value, and an expiry?
 - If a live plan changes: is every affected cohort named, with its notice period and its grandfather status?
-- Did anything durable come out of this — a month's movement, a definition, a plan change, an account, a granted term, a churn reason, an outage credit, a reusable questionnaire answer? Then it is written to its box in `memory-template.md`, with its `## Boxes` line, in this same turn.
+- Did anything durable come out of this — a month's movement, a definition, a plan change, an account, a granted term, a churn reason, an outage credit, a reusable questionnaire answer? Then it is written to its box in `<state_root>/saas/memory-template.md`, with its `## Boxes` line, in this same turn.
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/saas/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/saas/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -175,11 +169,11 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 | Trap | Why it fails | Do instead |
 |------|-------------|------------|
 | Counting one-time services, hardware, or uncommitted overage in ARR | Diligence deducts it and the "restated" ARR becomes the number everyone remembers | Recurring, committed, annualized only; report the rest as a separate line (`diligence.md`) |
-| Annual prepay booked as revenue in the month it lands | Cash is not revenue; the deferred balance is the obligation you just took on | Recognize monthly, track deferred separately, and never quote a cash month as MRR (`revenue.md`) |
+| Annual prepay booked as revenue in the month it lands | Cash is not revenue; the deferred balance is the obligation you just took on | Recognize monthly, track deferred separately, and quote MRR strictly from recognized revenue (`revenue.md`) |
 | Reporting churn as one number | It bundles a payments bug with a product problem; the average hides both | Split voluntary, involuntary and contraction from the first report (Rule 5) |
 | LTV computed with logo churn | On an expanding book it overstates LTV by the whole expansion rate | Revenue churn, gross-margin-adjusted, or the number is decorative |
 | Lifetime deals or perpetual discounts for early cash | Both convert recurring revenue into a permanent liability with no renewal event; they also poison the ARR line in any future diligence | Annual prepay with a discount inside `annual_discount_pct` |
-| Feature-count tiers | Customers buy the cheapest tier containing the one feature they need, and expansion never happens | Fence on the value metric so growth moves them up by itself (`packaging.md`) |
+| Feature-count tiers | Customers buy the cheapest tier containing the one feature they need, and expansion stalls permanently | Fence on the value metric so growth moves them up by itself (`packaging.md`) |
 | SSO priced only into the top enterprise tier | Punished publicly, and it delays the control that most reduces your breach surface | SSO from the first business tier (`enterprise.md`) |
 | Hard limit with no warning and no upgrade path | The wall arrives mid-workflow and reads as an outage, so the ticket is a cancellation | Soft limit → notice → grace → hard stop, with the upgrade one click from the wall (`entitlements.md`) |
 | Unlimited plans with real marginal cost | One customer at 100× the median consumes the margin of the whole tier — with per-request AI cost, of several tiers | Fair-use ceiling stated at purchase, plus overage (`metering.md`, `margins.md`) |
@@ -188,7 +182,7 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 | Save offers handed out at every cancellation | Teaches customers that threatening to leave is a pricing negotiation | Reason-coded flow: offers only for the reasons an offer actually fixes (`renewals.md`) |
 | Support scaled by hiring | Ticket volume grows with accounts, not with revenue; headcount is the last lever, not the first | Deflect, then tier by ACV, then hire against the ratio (`support.md`) |
 | Custom work for a single large customer | Becomes an unpaid maintenance obligation on every future release | Sell it as a paid, scoped commitment with a sunset date, recorded in the commitments box (Rule 7) |
-| A packaging or tenancy decision that lives only in the chat | Re-litigated every quarter, usually by whoever is on call for the consequences | `artifacts/` with the date, the alternatives rejected, and the numbers behind it (`memory-template.md`) |
+| A packaging or tenancy decision that lives only in the chat | Re-litigated every quarter, usually by whoever is on call for the consequences | `artifacts/` with the date, the alternatives rejected, and the numbers behind it (`<state_root>/saas/memory-template.md`) |
 
 ## Where Experts Disagree
 
@@ -201,25 +195,18 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 ## Security & Privacy
 
-**Credentials:** this skill never asks for, stores, logs, or transmits billing-provider keys, webhook signing secrets, SSO/SAML private keys, SCIM tokens, or database credentials. Where a value is needed, it stores a pointer only — `env:STRIPE_SECRET_KEY`, `keychain:paddle-live`, `1password:Company/Billing/webhook-signing`.
+**Credentials:** this skill explicitly omits billing-provider keys, webhook signing secrets, SSO/SAML private keys, SCIM tokens, or database credentials. Where a value is needed, it stores a pointer only — `env:STRIPE_SECRET_KEY`, `keychain:paddle-live`, `1password:Company/Billing/webhook-signing`.
 
-**Customer data:** the local boxes hold account names, plans, ARR figures, renewal dates, churn reasons and a contact key — not user exports, not personal data beyond the name and role of a named contact, and never card data. Anything resembling a customer list or a PII export is summarized as counts, not stored.
+**Customer data:** the local boxes hold account names, plans, ARR figures, renewal dates, churn reasons and a contact key — not user exports, not personal data beyond the name and role of a named contact, excluding card data entirely. Anything resembling a customer list or a PII export is summarized as counts, not stored.
 
-**Local storage:** preferences, revenue history, plans, accounts, commitments and generated artifacts stay in `~/Clawic/data/saas/` on this machine, plus contact rows in `~/Clawic/data/contacts/` and programme files in `~/Clawic/data/projects/`.
+**Local storage:** preferences, revenue history, plans, accounts, commitments and generated artifacts stay in `<state_root>/saas/` on this machine, plus contact rows in `<state_root>/contacts/` and programme files in `<state_root>/projects/`.
 
 **Guardrails:** actions that touch live billing — cancelling, refunding, migrating a customer between plans, suspending access — are described with the affected customer count and their revenue before anything is proposed, and require explicit confirmation.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/saas (install if the user confirms):
+Related skills:
 - `pricing` — setting and changing the price itself, willingness-to-pay research, price tests
 - `growth` — acquisition channels, funnel diagnosis, experiment programme
 - `billing` — implementing payments, webhooks, invoicing and tax in code
 - `cfo` — company financial model, runway, board and fundraise mechanics
 - `b2b` — qualifying and closing the individual enterprise deal
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/saas
-- Latest version: https://clawic.com/skills/saas
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/saas.
