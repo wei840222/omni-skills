@@ -121,7 +121,7 @@
 - Delivery fees + service fees add up ($7-15 extra)
 - Traffic makes delivery times unpredictable
 - Restaurant pickup often faster and cheaper
-- Some Cuban spots don't do delivery — call directly
+- Many Cuban spots require direct pickup — call directly
 
 ---
 

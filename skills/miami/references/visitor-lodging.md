@@ -87,7 +87,7 @@
 2. **Best deals:** Late April-May, September-October
 3. **Resort fees:** Most hotels add $30-50/night — ask upfront
 4. **Parking:** Budget $25-50/day at most hotels
-5. **Airbnb:** Good in Mid-Beach, Wynwood; avoid Downtown
+5. **Airbnb:** Good in Mid-Beach, Wynwood; opt for Mid-Beach or Wynwood instead of Downtown
 
 **Red Flags:**
 - Hotels on Collins Ave above 60th St = far from action

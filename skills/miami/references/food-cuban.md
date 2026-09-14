@@ -44,9 +44,7 @@
 | **Sergio's** | Multiple | $10 | Local chain, solid |
 
 ### Cuban Sandwich Rules
-- ❌ Never salami (that's Tampa-style)
-- ❌ Never lettuce or tomato
-- ❌ Never mayo
+- Classic Miami Cuban: roast pork, ham, Swiss, pickles, mustard on Cuban bread (salami is Tampa-style; skip lettuce/tomato/mayo)
 - ✅ Must be pressed hot
 - ✅ Must have yellow mustard
 

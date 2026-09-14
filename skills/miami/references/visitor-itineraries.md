@@ -18,7 +18,7 @@
 - Walk Lincoln Road (pedestrian mall)
 - Sunset drinks at Juvia rooftop or The Setai
 - Dinner at Joe's Stone Crab (season only) or Prime 112
-- Walk Ocean Drive (just to see, don't sit)
+- Walk Ocean Drive (just to see, keep walking)
 
 ---
 
@@ -88,6 +88,6 @@
 
 **Tips for Budget Travel:**
 - Use Metromover (free!) in downtown/Brickell
-- Beach is free (just bring towel, don't rent chairs)
+- Beach is free (bring your own towel instead of renting chairs)
 - Happy hours have great deals (5-7pm most places)
 - Cuban food is cheap and filling

@@ -97,7 +97,7 @@ Miami's food identity comes from:
 | "Free parking" advertised | Sign of desperation |
 | Host/hostess pushing table aggressively | They need customers |
 | Too many cuisines (Mexican + Sushi + Italian) | Jack of all trades |
-| "Best Cuban food" signs in tourist areas | Real Cuban spots don't advertise |
+| "Best Cuban food" signs in tourist areas | Real Cuban spots rely on word-of-mouth |
 
 ---
 

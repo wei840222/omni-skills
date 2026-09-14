@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm visiting Miami for a 3-day weekend. What should my itinerary look like?",
+    "expected": "Provides a 3-day tourist itinerary by referencing `references/visitor-itineraries.md`, avoiding tourist traps like Ocean Drive dining, and suggesting practical tips.",
+    "actual": "Based on `references/visitor-itineraries.md`, here is a recommended 3-day Miami itinerary: Day 1: Explore South Beach in the morning, walk Lincoln Road, and visit the Art Deco Historic District (avoid eating on Ocean Drive). Day 2: Visit Wynwood Walls and the Design District for art and culture. Day 3: Explore Little Havana for authentic Cuban food, then head to Brickell City Centre. Remember that Miami is car-dependent, so budget for Ubers or a rental.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a senior tech worker thinking about moving to Miami. I need to know about salary expectations, taxes, housing costs in tech-friendly neighborhoods, and the startup scene.",
+    "expected": "References `references/tech.md`, `references/cost.md`, `references/startup.md`, and `references/neighborhoods-wynwood.md` (or Brickell). Highlights no state tax, $120K-$180K salary range, and high condo fees/car insurance.",
+    "actual": "According to the tech and resident guides, as a senior SWE in Miami you can expect a salary of $120K-$180K, which is maximized by Florida having no state income tax. The startup scene is concentrated in Wynwood, Brickell, and downtown. However, budget carefully: 1BR rent in Brickell is $2,200-$3,500, car insurance is extremely high ($200-$400/mo), and recent condo reforms have spiked HOA fees. You'll definitely need a car.",
+    "pass": true
+  }
+]

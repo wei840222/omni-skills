@@ -130,7 +130,7 @@ Miami's no state income tax changes the math:
 - Negotiate rent (market is softening)
 
 ### Transportation
-- If possible, live where you work (avoid car costs)
+- If possible, live where you work (save on car costs)
 - Electric vehicle = gas savings + carpool lane access
 - Uber pass for frequent riders
 

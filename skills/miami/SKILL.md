@@ -1,60 +1,54 @@
 ---
 name: miami
-slug: miami
-version: 1.0.0
-description: Navigate Miami as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, beaches, costs, safety, and local insights.
-homepage: https://clawic.com/skills/miami
+description: Navigate Miami as a visitor, resident, tech worker, student, or entrepreneur.
+  Use when the user asks about Miami neighborhoods, beaches, costs, safety, local
+  insights, or travel plans. Verify live fares, rents, insurance, and hurricane
+  conditions before decisive advice.
 metadata:
-  clawdbot:
-    emoji: 🌴
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Miami
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌴"}'
 ---
+## Load Instructions
 
-## When to Use
-
-User asks about Miami for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+When a user asks about Miami (visiting, moving, working, studying, or starting a business), identify their context (tourist, resident, tech worker, etc.) and load the relevant files from `references/` for specific practical guidance.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions & beaches | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions & beaches | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Downtown & Brickell | `neighborhoods-downtown.md` |
-| Miami Beach | `neighborhoods-beach.md` |
-| Wynwood & Design District | `neighborhoods-wynwood.md` |
-| Coral Gables & Coconut Grove | `neighborhoods-coral.md` |
-| North (Aventura, Sunny Isles) | `neighborhoods-north.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Downtown & Brickell | `references/neighborhoods-downtown.md` |
+| Miami Beach | `references/neighborhoods-beach.md` |
+| Wynwood & Design District | `references/neighborhoods-wynwood.md` |
+| Coral Gables & Coconut Grove | `references/neighborhoods-coral.md` |
+| North (Aventura, Sunny Isles) | `references/neighborhoods-north.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Cuban cuisine & Little Havana | `food-cuban.md` |
-| Latin American flavors | `food-latin.md` |
-| Seafood | `food-seafood.md` |
-| Best dining areas | `food-areas.md` |
-| Dietary & tips | `food-practical.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Cuban cuisine & Little Havana | `references/food-cuban.md` |
+| Latin American flavors | `references/food-latin.md` |
+| Seafood | `references/food-seafood.md` |
+| Best dining areas | `references/food-areas.md` |
+| Dietary & tips | `references/food-practical.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety | `safety.md` |
-| Weather & hurricanes | `climate.md` |
-| Local services | `local.md` |
+| Moving & settling | `references/resident.md` |
+| Transport | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety | `references/safety.md` |
+| Weather & hurricanes | `references/climate.md` |
+| Local services | `references/local.md` |
+| **Sources** | |
+| Official sources | `references/sources.md` |
 | **Career** | |
-| Tech industry | `tech.md` |
-| Students | `student.md` |
-| Startups | `startup.md` |
+| Tech industry | `references/tech.md` |
+| Students | `references/student.md` |
+| Startups | `references/startup.md` |
 
 ## Core Rules
 
@@ -65,17 +59,17 @@ User asks about Miami for any purpose: visiting, moving, working, studying, or s
 
 ### 2. Safety Context
 Miami is generally safe in tourist/residential areas. Main concerns:
-- Car break-ins (don't leave valuables visible)
+- Car break-ins (always hide valuables)
 - Petty theft in tourist areas
-- Avoid certain neighborhoods at night
-See `safety.md` for area-specific guidance.
+- Stick to well-lit, populated neighborhoods at night
+See `references/safety.md` for area-specific guidance.
 
 ### 3. Weather Reality
 - Hot and humid year-round (avg 77°F/25°C)
 - Hurricane season: June 1 - November 30
 - Rainy season: May-October (afternoon thunderstorms)
 - Best months: November-April (dry, pleasant)
-See `climate.md` for hurricane prep.
+See `references/climate.md` for hurricane prep.
 
 ### 4. Current Data
 | Item | Range |
@@ -86,8 +80,8 @@ See `climate.md` for hurricane prep.
 | Car insurance | $200-400/month (FL crisis) |
 
 ### 5. Tourist Traps
-- Skip: Ocean Drive (overpriced), Bayside Marketplace, chain restaurants
-- Do: Little Havana, Wynwood Walls, Key Biscayne, Coral Gables
+- Prefer: Little Havana, Wynwood Walls, Key Biscayne, Coral Gables
+- Lower-value tourist defaults: Ocean Drive dining, Bayside Marketplace, chain restaurants
 - Free: South Beach (early morning), Wynwood street art, Brickell City Centre
 
 ### 6. Car Is Essential
@@ -109,7 +103,7 @@ See `climate.md` for hurricane prep.
 ## Miami-Specific Traps
 
 - **"Beach party 24/7"** — South Beach is tourists. Locals rarely go.
-- **"No need for a car"** — FALSE. Miami is car-dependent.
+- **"No need for a car"** — Treat Miami as car-dependent for normal daily life.
 - **"Cheap alternative to NYC"** — Rent is now comparable, with lower salaries.
 - **Ocean Drive** — Tourist trap. Walk to Lincoln Road or Española Way.
 - **Hurricane ignorance** — Know your evacuation zone. Get supplies early.

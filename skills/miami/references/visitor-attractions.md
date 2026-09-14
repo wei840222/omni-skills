@@ -32,7 +32,7 @@
 
 | Attraction | Why Skip | Do Instead |
 |------------|----------|------------|
-| **Ocean Drive (sitting/dining)** | Overpriced, aggressive touts | Walk through, don't eat there |
+| **Ocean Drive (sitting/dining)** | Overpriced, aggressive touts | Walk through, eat elsewhere |
 | **Bayside Marketplace** | Generic mall with tourist markup | Brickell City Centre (free) |
 | **Jungle Island** | Expensive, underwhelming | Zoo Miami ($25) |
 | **Calle Ocho touristy restaurants** | Tourist prices, mediocre food | Go 2 blocks off main strip |
@@ -60,4 +60,4 @@
 | **Jun-Sep** | Low | Hot, humid, storms | Cheapest |
 | **Oct** | Low | End of hurricane season | Cheap |
 
-**Pro Tip:** Avoid Art Basel week (early December) unless you're here for that — everything is 3x price.
+**Pro Tip:** Visit outside Art Basel week (early December) unless you're here for the fair — prices spike hard.
