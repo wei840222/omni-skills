@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Set up a new P0 alert for when our primary database is completely unreachable.",
+    "expected": "Group by root-cause labels (alertname/service/cluster), severity P0 with immediate page, correlation ID, runbook link, and inhibition of symptom alerts like API latency on the same cluster.",
+    "actual": "Treat this as P0: page immediately. Group on alertname/service/cluster, not instance IDs. Attach a correlation UUID and a mobile runbook link. Add inhibition so DatabaseUnreachable silences same-cluster APIHighLatency. Route to the data/DB owners with progressive escalation if unacked.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We get 50 alerts every time a pod fails in the web cluster. How do we fix the spam?",
+    "expected": "Explain root-cause grouping, reduce instance cardinality, use group_wait/group_interval/repeat_interval, and inhibition so symptoms stay quiet while the parent fires.",
+    "actual": "You are paging on symptoms per pod. Switch group_by to alertname/service/cluster, drop instance from alert labels where possible, set group_wait/group_interval, and inhibit child alerts while the parent web-cluster failure is firing. Aim for one actionable page per outage.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our agent sometimes retries the same tool call forever and burns tokens. What should we alert on?",
+    "expected": "Cover loop detection (>3 same calls in 5m), cost exponential thresholds, stuck heartbeat, correlation/trace IDs, and routing to the agent platform owners—not personal remind.",
+    "actual": "Add loop detection when the same prompt/tool fires more than three times in five minutes, stuck-agent heartbeat gaps around ten minutes when heartbeats are expected, and exponential cost burn (2x/5x/10x baseline). Include conversation/trace correlation IDs and page the agent platform owners. Use notify only for channel policy after the alert decision.",
+    "pass": true
+  }
+]
