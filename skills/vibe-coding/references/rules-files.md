@@ -32,7 +32,7 @@ Stack: [Framework, Language, DB, etc.]
 - [Reference existing file for pattern]
 - [Specific code style requirement]
 
-## Do NOT
+## Prohibited Actions
 - [Anti-pattern 1]
 - [Anti-pattern 2]
 ```
@@ -66,11 +66,11 @@ Stack: Next.js 14, TypeScript strict, Tailwind, Supabase, Stripe
 - Webhook handler at /api/webhooks/stripe
 - Subscription status cached in users table
 
-## Do NOT
-- Direct SQL queries outside /lib/db.ts
-- Import server-only code in client components
-- Store sensitive data in localStorage
-- Use deprecated App Router APIs
+## Prohibited Actions
+- Restrict SQL queries to /lib/db.ts
+- Restrict server code imports to server components
+- Store sensitive data securely on the server
+- Use only modern App Router APIs
 ```
 
 ## What to Include

@@ -1,19 +1,9 @@
 ---
 name: vibe-coding
-slug: vibe-coding
-version: 1.0.0
-description: Build software with AI by describing what you want. Covers prompting techniques, workflow patterns, rules files, and when to intervene.
-homepage: https://clawic.com/skills/vibe-coding
+description: Direct the workflow and prompting strategy for vibe coding. Trigger when the user is using AI-native tools (Cursor, Bolt.new, Claude Code) to build prototypes or MVPs. Bypass this skill for security-critical or compliance-heavy production systems.
 metadata:
-  clawdbot:
-    emoji: 🎸
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Vibe Coding
+  version: "1.1.0"
+  openclaw: '{"emoji":"🎸"}'
 ---
 
 ## What is Vibe Coding
@@ -24,13 +14,14 @@ Programming where you describe what you want and let AI generate code. You evalu
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Prompting techniques | `prompting.md` |
-| Research-Plan-Implement workflow | `workflow.md` |
-| Rules files (.cursorrules, CLAUDE.md) | `rules-files.md` |
-| Common pitfalls and fixes | `pitfalls.md` |
-| Tool selection by use case | `tools.md` |
+| Topic | File | When to load |
+|-------|------|--------------|
+| Prompting techniques | `references/prompting.md` | When you need patterns for structuring prompts or recovering from AI mistakes. |
+| Research-Plan-Implement workflow | `references/workflow.md` | When starting a new feature to ensure planning happens before code generation. |
+| Rules files (.cursorrules, CLAUDE.md) | `references/rules-files.md` | When setting up or modifying project instructions for AI tools. |
+| Common pitfalls and fixes | `references/pitfalls.md` | When the AI output is poor or the vibe coding process breaks down. |
+| Tool selection by use case | `references/tools.md` | When deciding which AI tool (Cursor, Claude Code, Bolt, etc.) to use. |
+| Research sources | `references/sources.md` | When citing origin definitions, tool docs, or refreshing Gate 6 anchors. |
 
 ## Core Rules
 
@@ -49,7 +40,7 @@ Persistent context that teaches AI your conventions. Put it in once, applies to 
 - Claude Code: CLAUDE.md
 - Windsurf: .windsurfrules
 
-See `rules-files.md` for templates.
+See `references/rules-files.md` for templates.
 
 ### 3. Research-Plan-Implement
 Before implementing, have AI explore and plan:
@@ -78,7 +69,7 @@ The Karpathy move: copy error message, paste with no comment, usually it fixes i
 Set explicit boundaries:
 - Length: "Under 50 lines of code"
 - Format: "Only the modified function, not entire file"
-- Scope: "Only payment flow, don't touch auth"
+- Scope: "Limit changes exclusively to the payment flow"
 - Style: "Follow existing pattern in UserService.ts"
 
 ### 8. Know When Vibe Coding is Appropriate

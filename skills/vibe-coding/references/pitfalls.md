@@ -39,7 +39,7 @@ These are HARD FAILURES — bugs, crashes, security issues. Not style preference
 ## Security Pitfalls
 
 ### Vibe Coding Auth
-**DO NOT vibe code authentication.** Review every line.
+**Explicitly review every line of authentication code.** Treat this as traditional software development.
 
 **Common AI auth mistakes:**
 - JWT stored in localStorage (XSS vulnerable)
@@ -49,7 +49,7 @@ These are HARD FAILURES — bugs, crashes, security issues. Not style preference
 
 ### Exposed Secrets
 **What happens**: AI hardcodes API keys or shows them in examples.
-**Fix**: "Use environment variables. Never hardcode secrets."
+**Fix**: "Use environment variables exclusively for secrets."
 
 ### SQL Injection
 **What happens**: String concatenation in queries.
@@ -58,7 +58,7 @@ These are HARD FAILURES — bugs, crashes, security issues. Not style preference
 ## Testing Pitfalls
 
 ### Tests That Prove Nothing
-**What happens**: Tests pass but don't catch bugs.
+**What happens**: Tests pass but fail to catch bugs.
 **Verify**: "What bug would this test catch? Show me input that would fail."
 
 ### Over-Mocked Tests
@@ -69,7 +69,7 @@ These are HARD FAILURES — bugs, crashes, security issues. Not style preference
 
 ### Infinite Error Loop
 **What happens**: Fix one error, create another, repeat.
-**Fix**: Stop. "Let's start fresh. Here's what I need: [requirement]."
+**Fix**: Halt. "Let's start fresh. Here's what I need: [requirement]."
 
 ### Scope Creep Per Prompt
 **What happens**: Each prompt adds more than asked.
@@ -85,7 +85,7 @@ These are HARD FAILURES — bugs, crashes, security issues. Not style preference
 
 When stuck:
 ```
-"Stop all changes. Summarize current state of [feature]."
+"Pause all changes. Summarize current state of [feature]."
 
 "What's the minimal change needed to fix [bug]?"
 

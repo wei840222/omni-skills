@@ -18,7 +18,7 @@ Before implementing anything, have AI explore:
 ```
 
 ```
-"List all places in the codebase that handle payments. 
+"List all places in the codebase that handle payments.
 What patterns do they follow?"
 ```
 
@@ -66,7 +66,7 @@ Execute one step at a time. Verify each step works before continuing.
 1. Research + Documentation: Create a mini-spec
 2. Break into sub-tasks
 3. Plan each sub-task
-4. Implement with checkpoints
+4. Implement with validation steps
 
 ## Signs You Skipped Planning
 
@@ -78,7 +78,7 @@ Execute one step at a time. Verify each step works before continuing.
 ## Recovery When Plans Go Wrong
 
 ```
-"Stop. Let's reassess. 
+"Pause. Let's reassess.
 Current state: [what's done]
 Problem: [what's broken]
 Options: What are 3 ways to proceed?"

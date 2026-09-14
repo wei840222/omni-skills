@@ -22,8 +22,8 @@
 
 ### 2. Behavior Description
 Instead of implementation details:
-- ❌ "Add an if statement to check if user.plan === 'pro'"
-- ✅ "Pro users should see the advanced analytics tab"
+- Ineffective: "Add an if statement to check if user.plan === 'pro'"
+- Effective: "Pro users should see the advanced analytics tab"
 
 ### 3. Error Pasting
 Just paste the error. No explanation needed:
@@ -33,7 +33,7 @@ TypeError: Cannot read properties of undefined (reading 'map')
 ```
 
 ### 4. Incremental Building
-Build up, don't ask for everything at once:
+Build incrementally, asking for one feature at a time:
 1. "Create user signup form with email/password"
 2. "Add validation: email format, password 8+ chars"
 3. "Add loading state and error display"
@@ -48,20 +48,20 @@ Build up, don't ask for everything at once:
 ## Anti-Patterns
 
 ### Vague Adjectives
-- ❌ "Make it better" / "Make it cleaner" / "Make it more professional"
-- ✅ "Add loading skeleton, reduce padding to 8px, use Inter font"
+- Ineffective: "Make it better" / "Make it cleaner" / "Make it more professional"
+- Effective: "Add loading skeleton, reduce padding to 8px, use Inter font"
 
 ### Unbounded Scope
-- ❌ "Build a complete e-commerce platform"
-- ✅ "Build product listing page with grid of cards, filter by category, sort by price"
+- Ineffective: "Build a complete e-commerce platform"
+- Effective: "Build product listing page with grid of cards, filter by category, sort by price"
 
 ### Assuming Context
-- ❌ "Fix the bug" (which bug?)
-- ✅ "Users can't checkout when cart has 0 items — should show error message"
+- Ineffective: "Fix the bug" (which bug?)
+- Effective: "Users can't checkout when cart has 0 items — should show error message"
 
 ### Multiple Unrelated Tasks
-- ❌ "Add dark mode, fix the login bug, and set up email notifications"
-- ✅ One task per prompt. Chain them.
+- Ineffective: "Add dark mode, fix the login bug, and set up email notifications"
+- Effective: One task per prompt. Chain them.
 
 ## Recovery Prompts
 
