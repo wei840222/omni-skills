@@ -58,7 +58,7 @@ Install → Onboarding slides → Paywall → App
 **Best practices:**
 - Subtle but findable
 - Use "Pro" badge or crown icon
-- Don't clutter core experience
+- Keep core experience focused
 
 **Conversion share:** 10-20%
 
@@ -80,7 +80,7 @@ Install → Onboarding slides → Paywall → App
 **Best practices:**
 - Time-limited offers create urgency
 - Personalize based on user segment
-- Don't over-trigger (fatigue)
+- Limit triggers to prevent fatigue
 
 **Conversion share:** 5-15%
 
@@ -122,7 +122,7 @@ Install → Onboarding slides → Paywall → App
 - Limit is hit (not approaching)
 - Value is clear (they know what they're missing)
 
-**Don't show when:**
+**Skip showing when:**
 - User is mid-task (frustrating)
 - User just dismissed a paywall (<24h)
 - User is in first session (unless onboarding)
@@ -146,7 +146,7 @@ Install → Onboarding slides → Paywall → App
 
 ## Frequency Capping
 
-Never show paywall more than:
+Limit paywall displays to maximum:
 - 1x per session (unless different trigger)
 - 1x per 24h (campaign paywalls)
 - 3x per week total

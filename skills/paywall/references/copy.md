@@ -85,7 +85,7 @@ Continue for $X.XX
 - Action verb first
 - Include what they get
 - Match the offer (trial vs purchase)
-- Avoid generic "Submit" or "Continue"
+- Use descriptive CTAs instead of generic "Submit" or "Continue"
 
 ---
 
@@ -128,7 +128,7 @@ Trusted by teams at [logos]
 ### Naming Rules
 - Keep names short (1-2 words)
 - Names should hint at value
-- Avoid confusing similar names (Pro vs Premium)
+- Ensure distinct plan names (e.g., Starter vs Enterprise)
 
 ---
 
@@ -220,7 +220,7 @@ Plus, check out our new features:
 - **LATAM:** Monthly price anchoring ("just $X.XX/month")
 - **Asia:** Social proof, user counts
 
-### Avoid in All Regions
+### Anti-patterns to replace in All Regions
 - Slang that doesn't translate
 - Idioms
 - Humor that requires cultural context
@@ -235,7 +235,7 @@ Plus, check out our new features:
 
 ### High-Impact Tests
 1. Headline (outcome vs feature focus)
-2. Benefit framing (what you get vs what you avoid)
+2. Benefit framing (what you get vs what you prevent)
 3. CTA text (trial vs purchase language)
 4. Trust signals (which ones, where placed)
 

@@ -26,7 +26,7 @@ Every paywall needs these elements. Order matters.
 
 ### 5. Dismiss Option (Required)
 - X button or "Not now" link
-- Don't hide it (app store compliance)
+- Display clearly for app store compliance
 
 ---
 
@@ -166,7 +166,7 @@ Simpler, works for focused products.
 ### Spacing
 - Group related elements
 - White space around CTA
-- Don't crowd the plan options
+- Maintain clean spacing between plan options
 
 ---
 
@@ -207,7 +207,7 @@ Simpler, works for focused products.
 - Value prop fade-in
 - Confetti on purchase (celebration)
 
-### Avoid
+### Anti-patterns to replace
 - Distracting loops
 - Slow animations that delay interaction
 - Motion that obscures content

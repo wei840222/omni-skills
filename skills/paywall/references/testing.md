@@ -53,7 +53,7 @@ Bad test design leads to bad decisions. Get the fundamentals right.
 
 ### Duration
 - Run test for full week minimum (day-of-week effects)
-- Don't peek and stop early
+- Commit to full test duration before analyzing
 - Set duration before starting
 
 ---
@@ -72,7 +72,7 @@ Bad test design leads to bad decisions. Get the fundamentals right.
 - Check for selection bias (device type, geo, etc.)
 
 ### What NOT to Do
-- ❌ Stop test when you see a winner (peeking)
+- ✅ Wait for full duration instead of stopping when you see a winner
 - ❌ Run multiple tests on same screen simultaneously
 - ❌ Change variant mid-test
 - ❌ Ignore statistical significance
@@ -130,7 +130,7 @@ Bad test design leads to bad decisions. Get the fundamentals right.
 
 ### Statistical Significance
 - Target 95% confidence (p < 0.05)
-- Don't trust results below 90% confidence
+- Require at least 90% confidence for results
 - Use proper calculators (not gut feel)
 
 ### Segment Analysis
@@ -140,7 +140,7 @@ After overall winner is determined:
 - High-value vs low-value users
 - Geographic segments
 
-**Warning:** Segment analysis is exploratory. Don't cherry-pick winning segments.
+**Warning:** Segment analysis is exploratory. Use segment analysis only for exploration, maintaining statistical rigor.
 
 ### Documenting Results
 
@@ -203,7 +203,7 @@ Next: [Follow-up tests]
 ## Common Mistakes
 
 ### Test Design Mistakes
-- Stopping test early because variant "looks good"
+- Ending test prematurely instead of waiting for statistical significance
 - Running too many variants (A/B/C/D/E)
 - Not accounting for novelty effect
 - Ignoring long-term metrics

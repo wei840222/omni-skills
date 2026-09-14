@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my mobile app paywall: I show a monthly plan for $9.99 and no other options. The screen is shown only when the user clicks 'upgrade' in settings.",
+    "expected": "Identify two red flags: missing onboarding paywall and only offering a monthly plan. Recommend adding an annual plan and showing the paywall during onboarding.",
+    "actual": "Based on the paywall guidelines, there are two major red flags to address:\n\n1. **No onboarding paywall**: Currently, your paywall only appears when a user clicks 'upgrade' in settings (a contextual/upgrade button placement, which typically accounts for only 10-20% of conversions). The rule is to **always have an onboarding paywall**. Most conversions happen immediately after install when motivation is highest (40-60% of trial conversions).\n2. **Only monthly plan**: Offering only a $9.99/mo plan is a missed opportunity. You should add an annual option. A common pricing display strategy is to show a 'Savings badge' (e.g., 'Save 50%') on the annual plan and pre-select it as the default choice.\n\n**Actionable Recommendations:**\n- Implement the paywall immediately after the onboarding flow.\n- Add an annual subscription option (e.g., $59.99/year) alongside the monthly plan, and highlight the savings.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write the copy for a SaaS web pricing page. Our tool exports videos fast. It costs $20/mo.",
+    "expected": "Provide outcome-focused headlines, benefit-driven bullet points, risk reversal, and a clear CTA, following the copy rules and layout elements.",
+    "actual": "Here is the recommended copy for your SaaS video export pricing page, focusing on benefits and outcomes:\n\n### Value Proposition (Headline & Subhead)\n**Headline:** Unlock Instant Video Exports\n**Subhead:** Never wait on rendering again. Get your videos published in seconds.\n\n### Plan Options & Pricing Display\nSince you charge $20/mo, consider offering an annual plan to improve LTV:\n- **Monthly:** $20/mo\n- **Annual (Highlighted/Default):** $15/mo (Billed $180 annually) — *Save 25%*\n\n### Benefit-Driven Features (Copy Rules)\n- Never hit an export limit (instead of 'Unlimited exports')\n- Save hours of rendering time every week (instead of 'Fast exports')\n- Publish instantly to all your platforms\n\n### Trust Signals & CTA\n- **CTA:** Start Creating Now\n- **Risk Reversal (near CTA):** 14-day free trial. Cancel anytime.\n- **Social Proof:** Join 10,000+ creators saving time every day.",
+    "pass": true
+  }
+]
