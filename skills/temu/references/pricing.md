@@ -3,7 +3,7 @@
 ## Understanding Temu Pricing
 
 ### The "Discount" Illusion
-Temu's "original prices" are fictional. A "$100 → $15" item was never $100.
+Temu's "original prices" are marketing numbers. Treat a "$100 → $15" item as a native $15 item.
 
 **Reality check method:**
 1. Search same product on AliExpress
@@ -55,7 +55,7 @@ Typical thresholds (vary by region):
 - Phone cases, accessories
 
 ### When Temu Loses
-- Brand items (counterfeits don't count)
+- Brand items (unbranded equivalents are excluded)
 - Items needed urgently (Amazon Prime wins)
 - Heavy items (shipping kills savings)
 - Items with warranty needs
