@@ -24,10 +24,10 @@
 - Reverse image search main photo
 
 ### 3. Size Manipulation
-**Pattern:** Sizes listed don't match reality.
+**Pattern:** Sizes listed differ significantly from reality.
 
 **Detection:**
-- Never trust S/M/L — check actual measurements
+- Always bypass S/M/L labels and verify against actual measurements
 - Search reviews for "actual measurements"
 - Assume Chinese sizing (1-2 sizes smaller than US/EU)
 - Electronics: check voltage compatibility

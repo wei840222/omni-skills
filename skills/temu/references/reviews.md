@@ -59,7 +59,7 @@ Items below these thresholds: proceed with extreme caution or skip.
 - **Angles**: Multiple angles of same item = thorough buyer
 - **Wear photos**: After 1 month photos = durability proof
 
-### What to Avoid
+### High-Risk Indicators
 - Identical angles across reviews
 - Professional-looking product shots
 - Photos that match listing exactly

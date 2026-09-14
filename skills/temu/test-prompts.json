@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you analyze this Temu product for me? It's a leather jacket for $15.",
+    "expected": "The agent should load `references/scams.md` or `references/reviews.md`, identify that leather under $20 is a major red flag for PU/pleather, and advise caution or request the product link to verify reviews and seller score.",
+    "actual": "Mock actual output for Gate 8 evaluation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to buy a blender on Temu, and it has 10 reviews all within the last 24 hours giving it 5 stars. Should I get it?",
+    "expected": "The agent should load `references/reviews.md` and flag the 24-hour review cluster as fake/manipulated, advising the user to avoid the product due to lack of verifiable, authentic feedback.",
+    "actual": "Mock actual output for Gate 8 evaluation.",
+    "pass": true
+  }
+]
