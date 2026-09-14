@@ -43,4 +43,4 @@ A healthy first setup should confirm:
 ## Remote or Server Notes
 
 For remote hosts, verify local health before changing bind address, firewall rules, or reverse proxies.
-Never expose port `11434` outside localhost until the local smoke test is clean and the user explicitly approves remote access.
+Keep port `11434` restricted to localhost until the local smoke test is clean and the user explicitly approves remote access.

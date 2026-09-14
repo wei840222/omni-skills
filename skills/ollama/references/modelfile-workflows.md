@@ -3,7 +3,7 @@
 ## When to Reach for a Modelfile
 
 Use a Modelfile when prompt behavior, context size, stop tokens, or adapters should be reproducible across sessions.
-Do not keep those decisions hidden in application code if they need to be shared or debugged later.
+Store these decisions in the Modelfile itself to ensure they can be shared and debugged later.
 
 ## Minimal Pattern
 

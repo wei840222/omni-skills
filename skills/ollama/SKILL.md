@@ -1,36 +1,22 @@
 ---
 name: ollama
-slug: ollama
-version: 1.0.0
-description: Run, tune, and troubleshoot local Ollama models with reliable API patterns, Modelfiles, embeddings, and hardware-aware deployment workflows.
-homepage: https://clawic.com/skills/ollama
-changelog: Initial release with local model setup, stable JSON output, custom model workflows, safer remote access, and recovery playbooks.
+description: Run, configure, and troubleshoot local Ollama instances. Load this skill when the user explicitly manages local model deployments, builds Modelfiles, configures local RAG embeddings, or tunes hardware constraints.
 metadata:
-  clawdbot:
-    emoji: 🦙
-    requires:
-      bins:
-      - ollama
-      anyBins:
-      - curl
-      - jq
-      config:
-      - ~/Clawic/data/ollama/
-      - ~/.ollama/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/ollama/
-    - ~/.ollama/
-    displayName: Ollama
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/ollama/
-      - ~/.ollama/
+  version: "1.0.0"
+  openclaw: '{"emoji": "🦙", "requires": {"bins": ["ollama"], "anyBins": ["curl", "jq"], "config": ["~/.ollama/"]}}'
+  related-skills: '{"ai": "Frame when local Ollama is the right fit versus cloud inference.", "api": "Reuse robust HTTP request, retry, and parsing patterns around local services.", "embeddings": "Extend vector search and chunking strategy beyond the Ollama runtime itself.", "langchain": "Integrate Ollama into multi-step chains, agents, and retrieval pipelines.", "models": "Compare local model families, sizes, and capability tradeoffs before pinning defaults."}'
 ---
+## State location
+
+Ollama state may exist in `<workspace>/ollama/`, `<workspace>/memory/ollama/`, or `~/ollama/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/ollama/`, `<workspace>/memory/ollama/`, `~/ollama/`.
+3. If none exists and state must be created, default to `<workspace>/ollama/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## When to Use
 
@@ -40,10 +26,10 @@ Use this instead of generic AI advice when the blocker is specific to local runt
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/ollama/`. If `~/Clawic/data/ollama/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. If `<state_root>/` does not exist, run `references/setup.md`. See `references/memory.md` for structure.
 
 ```text
-~/Clawic/data/ollama/
+<state_root>/
 |-- memory.md          # Durable context and activation boundaries
 |-- environment.md     # Host, GPU, OS, runtime, and service notes
 |-- model-registry.md  # Approved models, tags, quants, and fit notes
@@ -52,20 +38,21 @@ Memory lives in `~/Clawic/data/ollama/`. If `~/Clawic/data/ollama/` does not exi
 `-- incident-log.md    # Repeated failures, fixes, and rollback notes
 ```
 
-## Quick Reference
+## On-Demand Loading
 
-Load only the file needed for the current blocker.
+Load the appropriate reference file based on the user's immediate problem:
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Install and smoke-test workflow | `install-and-smoke-test.md` |
-| Local API and OpenAI-compatible patterns | `api-patterns.md` |
-| Modelfile creation and context control | `modelfile-workflows.md` |
-| Embeddings and local RAG checks | `embeddings-and-rag.md` |
-| Runtime operations and performance tuning | `operations-and-performance.md` |
-| Failure recovery and incident triage | `troubleshooting.md` |
+| File | When to load |
+|------|--------------|
+| `references/setup.md` | The user is running Ollama for the first time or setting up `## State location`. |
+| `references/memory.md` | The agent needs the template for durable context configuration. |
+| `references/install-and-smoke-test.md` | The agent needs to verify base installation and health check behavior. |
+| `references/api-patterns.md` | The blocker is specific to local JSON outputs, `/api` interactions, or `/v1` client mapping. |
+| `references/modelfile-workflows.md` | The user is building a customized base model configuration or tweaking adapters. |
+| `references/embeddings-and-rag.md` | The issue relates to local chunking, vector dimensions, or context retrieval. |
+| `references/operations-and-performance.md` | The user asks about RAM/VRAM tuning or CPU fallback issues. |
+| `references/troubleshooting.md` | The system throws unexpected failures, port conflicts, or unresponsive API symptoms. |
+| `references/sources.md` | Need Gate 6 research anchors or official Ollama docs/API/Modelfile URLs. |
 
 ## Requirements
 
@@ -74,7 +61,7 @@ Load only the file needed for the current blocker.
 - Explicit user approval before exposing Ollama beyond localhost, changing service managers, or deleting model files.
 - Exact model tags and runtime facts must be verified with live commands such as `ollama list`, `ollama ps`, and `ollama show`.
 
-Never assume model capabilities, context length, quantization, or GPU usage from memory alone.
+Always explicitly verify model capabilities, context length, quantization, and GPU usage via live commands rather than relying on memory.
 
 ## Operating Coverage
 
@@ -88,7 +75,7 @@ This skill is for practical Ollama execution, not abstract local-LLM discussion.
 
 ## Data Storage
 
-Keep only durable operational context in `~/Clawic/data/ollama/`:
+Keep only durable operational context in `<state_root>/`:
 - host facts that materially change advice: OS, GPU class, CPU-only constraints, service manager, remote or local deployment
 - approved model tags, copied aliases, quant choices, and context limits that worked in practice
 - Modelfile defaults, JSON output patterns, and safe OpenAI-compatible mappings
@@ -105,7 +92,7 @@ Keep only durable operational context in `~/Clawic/data/ollama/`:
 ### 2. Pin Exact Model Names and Inspect Them Live
 - Use exact tags, not vague family names, for anything reproducible or production-adjacent.
 - Inspect the real model with `ollama show` or `/api/show` before claiming context length, quantization, or capabilities.
-- Avoid silent drift from floating tags when stability matters.
+- Pin exact tags (e.g., `llama3:8b-instruct-q4_K_M`) when stability matters to prevent silent drift.
 
 ### 3. Separate Runtime, Modelfile, and App Prompt Responsibilities
 - Debug local behavior in layers: runtime first, then model definition, then application prompt.
@@ -128,7 +115,7 @@ Keep only durable operational context in `~/Clawic/data/ollama/`:
 - Fix chunking, metadata, top-k, and vector dimensions before increasing prompt size.
 
 ### 7. Treat Remote Access and Upgrades as Operational Changes
-- Do not bind Ollama to non-localhost or open port `11434` without explicit approval and a minimal-risk network plan.
+- Bind Ollama to localhost by default; require explicit user approval and a minimal-risk network plan before opening port `11434` to external networks.
 - Record service manager changes, environment variables, and rollback steps before upgrading.
 - Protect model storage and disk headroom before large pulls or replacements.
 
@@ -161,7 +148,7 @@ Data that leaves your machine:
 
 Data that stays local:
 - prompts and outputs served through the local Ollama runtime on the user machine
-- durable workflow notes under `~/Clawic/data/ollama/`
+- durable workflow notes under `<state_root>/`
 - local Modelfiles, retrieval notes, and performance baselines unless the user exports them
 
 This skill does NOT:
@@ -183,21 +170,8 @@ This skill ONLY:
 - helps choose, pin, inspect, and customize models with reproducible patterns
 - keeps local memory for host constraints, model defaults, and recurring failure fixes
 
-This skill NEVER:
-- claim that every Ollama model supports the same tools, context, or JSON reliability
-- recommend unauthenticated remote exposure as a default
-- treat local RAG quality as solved without checking embeddings, chunking, and retrieval results
-- modify its own skill files
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ai` - Frame when local Ollama is the right fit versus cloud inference.
-- `models` - Compare local model families, sizes, and capability tradeoffs before pinning defaults.
-- `api` - Reuse robust HTTP request, retry, and parsing patterns around local services.
-- `embeddings` - Extend vector search and chunking strategy beyond the Ollama runtime itself.
-- `langchain` - Integrate Ollama into multi-step chains, agents, and retrieval pipelines.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/ollama
-- Latest version: https://clawic.com/skills/ollama
+Restricted Actions:
+- Verify tool support, context windows, and JSON reliability per-model, as they vary widely across the ecosystem.
+- Treat unauthenticated remote exposure as a high-risk state and recommend secure local binding by default.
+- Check embeddings, chunking, and retrieval results first before assuming local RAG quality is optimal.
+- Keep skill files read-only during execution.
