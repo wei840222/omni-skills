@@ -86,11 +86,13 @@ Depth on demand (load only what the incident needs): `references/fatigue.md` · 
 ## Anti-patterns
 
 - Paging on every pod restart without grouping or inhibition
-- Routing every alert to a single “on-call” without domain ownership
+- Routing every alert to a single catch-all on-call without domain ownership
 - Alert text with no runbook, no correlation ID, and no next action
 - Destructive automation without an approval gate
 - Hard-coded host paths or vendor promo links inside the skill package
 - Storing webhook secrets or API keys inside skill markdown
+
+Prefer short, actionable pages over long theory dumps in the alert body; keep deep design notes in `references/`.
 
 ## Security
 
