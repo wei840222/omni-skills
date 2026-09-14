@@ -1,6 +1,6 @@
 # Memory Template - Security Best Practices
 
-Create `~/Clawic/data/security-best-practices/memory.md` with this structure:
+Create `<state_root>/security-best-practices/memory.md` with this structure:
 
 ```markdown
 # Security Best Practices Memory
@@ -31,7 +31,7 @@ integration: pending
 
 ## findings-log.md Template
 
-Create `~/Clawic/data/security-best-practices/findings-log.md`:
+Create `<state_root>/security-best-practices/findings-log.md`:
 
 ```markdown
 # Findings Log
@@ -49,7 +49,7 @@ Verification: pending | passed | failed
 
 ## exceptions.md Template
 
-Create `~/Clawic/data/security-best-practices/exceptions.md`:
+Create `<state_root>/security-best-practices/exceptions.md`:
 
 ```markdown
 # Security Exceptions
@@ -71,4 +71,4 @@ Compensating controls: ...
 | `ongoing` | Default mode | Keep learning project-specific constraints |
 | `complete` | Stable context | Reuse preferences with minimal prompts |
 | `paused` | User wants fewer prompts | Keep applying known rules, no setup prompts |
-| `never_ask` | User rejected integration prompts | Stop integration prompts and run on explicit requests |
+| `skip_prompts` | User rejected integration prompts | Halt integration prompts and wait for explicit requests |

@@ -14,14 +14,14 @@ Why: boundary validation blocks whole classes of injection and logic abuse.
 
 - Start with no access, then grant explicit permissions.
 - Keep authorization checks near resource operations.
-- Avoid scattered ad hoc permission logic.
+- Consolidate permission logic into a centralized, reviewable authority.
 
 Why: default-deny reduces accidental privilege escalation.
 
 ## Pattern 3: Secret-Safe Configuration
 
 - Move secrets to environment or secret managers.
-- Avoid logging credentials, tokens, or raw sensitive payloads.
+- Strip or mask credentials, tokens, and raw sensitive payloads before logging.
 - Fail fast if required secrets are missing.
 
 Why: most operational breaches come from secret exposure, not cryptography errors.

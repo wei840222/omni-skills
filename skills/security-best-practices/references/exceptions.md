@@ -8,7 +8,7 @@ Use this file when a risk is intentionally accepted instead of fixed immediately
 - A dependency or platform limitation blocks immediate remediation.
 - A temporary mitigation exists and ownership is explicit.
 
-Do not record exceptions for unknown issues or unverified assumptions.
+Ensure all recorded exceptions are based on known issues and verified assumptions.
 
 ## Required Fields Per Exception
 
