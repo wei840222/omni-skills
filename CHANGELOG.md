@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| rental | 2026-09-15 | 85/100 (#402) |
 | vibe-coding | 2026-09-15 | 85/100 (#401) |
 | ollama | 2026-09-14 | 85/100 (#400) |
 | dhgate | 2026-09-14 | 85/100 (#399) |
