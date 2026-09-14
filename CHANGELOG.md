@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| ollama | 2026-09-14 | 85/100 (#400) |
 | dhgate | 2026-09-14 | 85/100 (#399) |
 | self-discipline | 2026-09-14 | 85/100 (#397) |
 | fasting | 2026-09-14 | 85/100 (#398) |
