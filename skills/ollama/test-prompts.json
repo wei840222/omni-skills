@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just installed Ollama and pulled llama3. How do I make a customized version where the temperature is set to 0 and it acts like a python expert? Please write out the commands.",
+    "expected": "Provide instructions for creating a Modelfile with FROM, PARAMETER temperature 0, and a SYSTEM prompt, followed by the `ollama create` and `ollama run` commands.",
+    "actual": "Here is how to create a reproducible Modelfile for a Python expert with deterministic output (temperature 0):\n\n1. Create a file named `Modelfile` with the following content:\n```text\nFROM llama3\nPARAMETER temperature 0\nSYSTEM You are a concise, expert Python developer. Only output valid Python code and minimal explanations.\n```\n\n2. Build the new model from your Modelfile:\n```bash\nollama create python-expert -f ./Modelfile\n```\n\n3. Run your new custom model:\n```bash\nollama run python-expert\n```\n\nFor more Modelfile capabilities, load `references/modelfile-workflows.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "When I try to use Ollama from another laptop on my home network, it says connection refused. Can you help me fix this?",
+    "expected": "Caution the user about network exposure risks, confirm they want to proceed, then instruct them to set OLLAMA_HOST=0.0.0.0 or bind address appropriately in their service manager.",
+    "actual": "Before changing any configurations, be aware that Ollama currently has no native authentication. Exposing it to your home network means any device on that network can execute models and potentially read responses. Ensure you trust your network.\n\nTo allow remote connections, you need to change the bind address from `127.0.0.1` to `0.0.0.0` (all interfaces):\n\n- If running manually, set the environment variable: `OLLAMA_HOST=0.0.0.0 ollama serve`\n- If running via systemd (Linux), add `Environment=\"OLLAMA_HOST=0.0.0.0\"` to the `[Service]` section of your `/etc/systemd/system/ollama.service` file and run `systemctl daemon-reload` then `systemctl restart ollama`.\n\nAfter restarting, load `references/troubleshooting.md` or `references/operations-and-performance.md` if the connection still fails.",
+    "pass": true
+  }
+]

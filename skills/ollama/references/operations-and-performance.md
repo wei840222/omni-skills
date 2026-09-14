@@ -14,7 +14,7 @@ Tune in this order:
 4. non-streaming only when needed
 5. copied model alias or Modelfile with known-good defaults
 
-Do not jump straight to "need a bigger GPU" until those levers are checked.
+Exhaust these tuning levers first before recommending a hardware upgrade.
 
 ## Context and Parallelism
 
@@ -32,4 +32,4 @@ Before upgrades or service-manager changes:
 ## Remote Access Guardrail
 
 Remote access is an operational feature, not a default.
-Do not change bind address, reverse proxy, or firewall policy until the user explicitly approves the exposure plan and understands the trust boundary.
+Require explicit user approval and understanding of the trust boundary before changing the bind address, reverse proxy, or firewall policy.
