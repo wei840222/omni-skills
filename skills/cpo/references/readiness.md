@@ -14,14 +14,14 @@
 | Key product hires declining offers | Moderate |
 | Roadmap changes quarterly based on loudest voice | Moderate |
 
-### Signals You DON'T Need a CPO Yet
+### Signals You Are Not Yet Ready For a CPO
 
 | Signal | Implication |
 |--------|-------------|
 | <$5M ARR or pre-PMF | CEO should own product |
 | Team <20 people | Overhead too high |
 | Single product, simple roadmap | VP/Head sufficient |
-| CEO is product-minded and loves it | Don't delegate passion |
+| CEO is product-minded and loves it | Retain ownership of passion |
 
 ## Role Comparison
 
@@ -30,7 +30,7 @@
 | **Scope** | Single area | Multiple areas | Entire org |
 | **Reports** | 2-5 ICs | 5-15 (incl managers) | 15+ (directors) |
 | **Strategy** | Executes strategy | Influences strategy | Sets strategy |
-| **Board** | Never presents | Occasionally | Regular presenter |
+| **Board** | Does not present | Occasionally | Regular presenter |
 | **Salary (US)** | $180-250K | $250-350K | $350-500K+ |
 | **Equity** | 0.1-0.3% | 0.3-0.75% | 0.5-2% |
 

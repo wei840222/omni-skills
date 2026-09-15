@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our startup is at Series A and our CEO spends 40% of their time on product decisions. The board wants us to hire a product leader. Should we hire a CPO?",
+    "expected": "Loads references/readiness.md, evaluates the signals (CEO time > 30% is strong, Series A), suggests a VP/Head of Product or Fractional CPO instead of a full-time CPO due to the stage.",
+    "actual": "I loaded the readiness diagnostic (references/readiness.md). Given your Series A stage, a full-time CPO is likely overkill and too expensive ($400K+). However, with the CEO spending 40% of their time on product, you do need leadership. I recommend hiring a strong VP/Head of Product or using a Fractional CPO for the interim.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "One of our PMs is performing well but struggling with executive presence. How do I help them transition into a product leadership role?",
+    "expected": "Loads references/growth.md, identifies gaps between PM and CPO competencies, suggests strategic thinking practice and managing manager playbook.",
+    "actual": "I loaded the career growth guide (references/growth.md). To help your PM develop executive presence, recommend they practice writing 2-page strategic memos on industry news and rewriting their emails to be maximum 3 sentences. They should practice leading with recommendations and state their position first in meetings.",
+    "pass": true
+  }
+]

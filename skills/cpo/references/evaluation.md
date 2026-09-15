@@ -85,7 +85,7 @@ Compare against similar-stage companies:
 3. **Scope adjustment** — Reduce responsibilities temporarily
 4. **Support hires** — Chief of staff, VP Operations
 5. **Clear OKRs** — Make expectations explicit and measurable
-6. **Timeline** — Set 90-day improvement plan with checkpoints
+6. **Timeline** — Set 90-day improvement plan with structured progress reviews
 
 ## Succession Planning
 

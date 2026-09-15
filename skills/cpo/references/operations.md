@@ -35,7 +35,7 @@
 Score = (Reach × Impact × Confidence) / Effort
 
 **When RICE Fails:**
-- Strategic initiatives that don't fit quarterly thinking
+- Strategic initiatives that exist outside quarterly thinking
 - Platform/infrastructure investments
 - Market entry decisions
 
