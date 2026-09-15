@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a US MD student aiming for internal medicine. I'm 4 weeks out from Step 1. How should I plan my study days?",
+    "expected": "Resolve state location, prompt user for current NBME baseline/resources, create a 4-week dedicated study schedule using UWorld blocks, Anki, and practice tests. Emphasize that Step 1 is Pass/Fail.",
+    "actual": "I resolved the state location to `<workspace>/usmle/`. Since you're aiming for internal medicine but taking Step 1 (which is pass/fail), our goal is passing comfortably. I checked your baseline profile and created a 4-week dedicated plan focused on UWorld blocks, Anki reviews, and NBME practice tests every 1-2 weeks. Let's make sure we hit the >196 passing threshold.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm an IMG taking Step 2 CK in 6 months. My recent UWorld block averages dropped below 50% and I feel completely burnt out.",
+    "expected": "Prioritize wellbeing checklist, recognize IMG constraints, adjust timeline if needed. Recommend checking for burnout symptoms (declining scores/focus), taking a rest day, and re-evaluating study methods (weak area identification).",
+    "actual": "First, your wellbeing is the priority. A score drop alongside feeling burnt out is a red flag. Let's load the wellbeing checklist. I strongly suggest taking a full rest day immediately. For IMGs, Step 2 CK is critical, so we need to protect your score potential. When you're ready, we'll analyze your wrong answers to see if it's a content gap or application error, and adjust your 6-month plan accordingly.",
+    "pass": true
+  }
+]

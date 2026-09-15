@@ -83,7 +83,7 @@
 ### Special Considerations
 - Fresh question bank needed (seen questions won't help as much)
 - Consider tutoring or structured retake program
-- Be honest about readiness before rescheduling (don't rush)
+- Ensure genuine readiness before rescheduling your exam.
 - Connect with other retakers for support (you're not alone)
 - Many retakers pass on second attempt with adjusted approach
 
@@ -129,6 +129,6 @@
 
 ### Special Considerations
 - Medical school is intense — some stress is normal
-- Don't compare to other students or siblings
+- Focus on individual progress rather than comparing to other students or siblings.
 - Celebrate small wins
 - Know when professional help is needed

@@ -28,7 +28,7 @@
 2. Review ALL explanations (right and wrong answers)
 3. Annotate First Aid with UWorld pearls
 4. Make Anki cards for concepts you miss repeatedly
-5. Never read passively without questions
+5. Always combine reading with active question practice.
 
 ### Dedicated Study Period
 **Step 1**: 4-8 weeks full-time
@@ -44,7 +44,7 @@
 ### Spaced Repetition (Anki)
 - AnKing deck has ~28,000 cards tagged to First Aid/Pathoma/Sketchy
 - Unsuspend cards as you cover topics
-- DO NOT skip daily reviews
+- Ensure all daily reviews are completed.
 - Mature cards = 90%+ retention
 - If behind, use filtered decks to catch up
 
