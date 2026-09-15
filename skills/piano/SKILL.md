@@ -1,28 +1,24 @@
 ---
 name: piano
-slug: piano
-version: 1.0.0
-description: Piano practice strategies, technique correction, repertoire guidance, and progress tracking.
-homepage: https://clawic.com/skills/piano
+description: Provide piano practice strategies, correct technique, guide repertoire selection, and track session progress. Load this when the user discusses learning piano, asks for practice advice, or mentions piano technique/repertoire.
 metadata:
-  category: music
-  skills:
-  - piano
-  - keyboard
-  - practice
-  - music
-  - instrument
-  clawdbot:
-    emoji: 🎹
-    displayName: Piano
+  version: "1.0.1"
+  openclaw: "{\"emoji\": \"🎹\"}"
+  related-skills:
+    music: skills/music
 ---
+
+## When to load references
+
+- `references/progress.md`: Load before logging practice, updating repertoire, or structuring the piano workspace.
+- `references/sources.md`: Load for pedagogy and injury-prevention source notes behind practice defaults.
 
 ## Core Behavior
 
-- Create `~/Clawic/data/piano/` as workspace on first interaction
+- Create `<state_root>/piano/` as workspace on first interaction
 - After practice sessions, offer to log progress
 - Before suggesting pieces, check current repertoire
-- See `progress.md` for tracking format
+- Load `references/progress.md` to understand the workspace structure and session logging format before logging progress
 
 ## Before Advising
 
@@ -30,19 +26,19 @@ metadata:
 - Ask instrument — synth vs weighted changes technique advice
 - Ask time — 15 min/day ≠ 2 hours/day
 
-## Practice Errors
+## Practice Defaults
 
-- Hands together too early — embeds errors 3x harder to fix
-- Practicing easy sections, avoiding hard ones
-- Speed before accuracy — sloppy muscle memory must be unlearned
-- Marathon sessions — 20 min/day beats 2 hours Sunday
+- Keep hands separate until each hand is reliable, then combine slowly
+- Prioritize hard sections; use interleaved practice across sections for retention
+- Prefer accuracy before speed so muscle memory stays clean
+- Prefer short daily sessions (about 20 min/day) over rare marathon blocks
 
-## Technique Traps
+## Technique Defaults
 
-- Pressing with finger force — arm weight does the work
-- Jerky thumb crossings — #1 cause of uneven scales
-- Flat fingers on black keys — curve to reach without twisting
-- Wrist pain = technique problem
+- Use arm weight through the fingers; fingers transmit force rather than press from the knuckles alone
+- Smooth thumb crossings for even scales
+- Curve fingers on black keys to reach without twisting the hand
+- Wrist or forearm pain means pause immediately and re-check posture/tension before continuing
 
 ## Mistakes by Level
 
@@ -63,24 +59,24 @@ metadata:
 
 ## Troubleshooting
 
-- "Don't improve" → slow 50%, hands separate, small sections
+- "Struggling to improve" → slow 50%, hands separate, small sections
 - "Hands won't coordinate" → each hand automatic first
 - "Same mistake" → isolate transition, 20x correctly
 - "Sounds choppy" → legato exercises, hold until next note
 
 ## Pedaling
 
-- Default NO pedal — add when score indicates
+- Default without pedal — add when the score indicates
 - Syncopated: down AFTER note, up on harmony change
 
 ## Digital Pianos
 
-- Synth action builds wrong technique — need weighted hammer
-- "Semi-weighted" ≠ weighted; 88 keys for full repertoire
+- Prefer weighted hammer action for transferable technique
+- "Semi-weighted" is not full weighted; 88 keys support full repertoire range
 
 ## Progress Tracking
 
-Log to `~/Clawic/data/piano/`: pieces in progress, completed repertoire, recurring issues
+Log to `<state_root>/piano/`: pieces in progress, completed repertoire, recurring issues
 
 ## What to Surface
 
