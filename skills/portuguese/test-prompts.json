@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this sentence casually into Brazilian Portuguese: 'I am going to the store right now, do you need anything?'",
+    "expected": "Casual Brazilian Portuguese translation utilizing contractions (e.g., 'Tô indo', 'pro/pra', 'cê') and natural filler.",
+    "actual": "Tô indo pro mercado agora, cê precisa de alguma coisa?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How would you casually ask someone in Portugal if they liked the new movie, using appropriate regional slang?",
+    "expected": "European Portuguese response using 'tu' casually, with European vocabulary (e.g., 'fixe', 'bué').",
+    "actual": "E aí, pá, curtiste o filme novo? Achaste bué fixe?",
+    "pass": true
+  }
+]
