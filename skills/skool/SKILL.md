@@ -40,6 +40,7 @@ Load only the smallest file that matches the current Skool blocker.
 | Official automations, Zapier, and webhook flows | `references/automation-and-integrations.md` |
 | Approvals, onboarding, retention, and member lifecycle | `references/member-lifecycle.md` |
 | Failure diagnosis and rollback moves | `references/troubleshooting.md` |
+| Research anchors and official sources | `references/sources.md` |
 
 ## Requirements
 
