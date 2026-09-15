@@ -2,7 +2,7 @@
 
 ## Safety in Brazil Should Be Operational
 
-- Avoid vague warnings.
+- Provide specific, actionable safety advice.
 - Give context-specific rules for beach days, nightlife, airport arrivals, ATM use, and neighborhood movement.
 
 ## Daily Operating Rules

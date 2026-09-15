@@ -1,38 +1,26 @@
 ---
 name: brazil
-slug: brazil
-version: 1.0.0
-description: Plan Brazil trips with region-specific routing, visa and money clarity, season-aware logistics, and concrete city-nature playbooks.
-homepage: https://clawic.com/skills/brazil
-changelog: Initial release with verified Brazil entry rules, money strategy, region playbooks, and practical travel logistics.
+description: Structure Brazil travel itineraries. Load this skill to route between macro-regions, verify visa/entry rules, plan payment strategies (PIX/CPF), and resolve city-level logistics.
 metadata:
-  clawdbot:
-    emoji: 🇧🇷
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/brazil/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Brazil
+  openclaw: '{"emoji": "🇧🇷", "requires": {"config": ["<state_root>/brazil/"]}, "configPaths": ["<state_root>/brazil/"]}'
+  related-skills:
+    travel: skills/travel
+    booking: skills/booking
+    car-rental: skills/car-rental
+    food: skills/food
+    portuguese: skills/portuguese
 ---
 
-## Setup
+## When to load
 
-If `~/Clawic/data/brazil/` does not exist or is empty, read `setup.md` and start naturally.
-
-## When to Use
-
-User is planning a Brazil trip and needs more than generic inspiration: nationality-specific entry checks, realistic routing across huge distances, city and beach tradeoffs, neighborhood-aware stays, money and payment strategy, and safer on-the-ground execution.
+Load this skill when the user is planning travel to Brazil. Use it for nationality-specific entry checks, realistic routing across long distances, neighborhood-aware stays, money and payment strategies (including PIX/CPF friction), and on-the-ground execution rules.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/brazil/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/brazil/`. If `<state_root>/brazil/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.
 
-```
-~/Clawic/data/brazil/
+```text
+<state_root>/brazil/
 └── memory.md     # Trip context and evolving constraints
 ```
 
@@ -43,38 +31,38 @@ Use this map to enter the right decision module before building the route.
 | Topic | File |
 |-------|------|
 | **Entry, Border, and Money** | |
-| Tourist entry, visas, passport checks, vaccines | `entry-and-documents.md` |
-| Customs, declarations, restricted goods, cash | `customs-and-border.md` |
-| Cards, cash, PIX, exchange, CPF friction | `money-payments-and-exchange.md` |
+| Tourist entry, visas, passport checks, vaccines | `references/entry-and-documents.md` |
+| Customs, declarations, restricted goods, cash | `references/customs-and-border.md` |
+| Cards, cash, PIX, exchange, CPF friction | `references/money-payments-and-exchange.md` |
 | **Planning Backbone** | |
-| Macro-regions and route architecture | `regions.md` |
-| Sample itineraries for 7-21 days | `itineraries.md` |
-| Accommodation and neighborhood logic | `accommodation.md` |
-| Budget framing and hidden-cost traps | `budget-and-costs.md` |
-| Flights, buses, ferries, airport buffers | `transport-domestic.md` |
-| Self-drive loops, tolls, night-driving rules | `road-trips-and-driving.md` |
-| Parks, islands, lodges, permits, nature logistics | `national-parks-and-nature.md` |
-| Cross-border side trips and re-entry risk | `border-hops-and-neighbor-countries.md` |
+| Macro-regions and route architecture | `references/regions.md` |
+| Sample itineraries for 7-21 days | `references/itineraries.md` |
+| Accommodation and neighborhood logic | `references/accommodation.md` |
+| Budget framing and hidden-cost traps | `references/budget-and-costs.md` |
+| Flights, buses, ferries, airport buffers | `references/transport-domestic.md` |
+| Self-drive loops, tolls, night-driving rules | `references/road-trips-and-driving.md` |
+| Parks, islands, lodges, permits, nature logistics | `references/national-parks-and-nature.md` |
+| Cross-border side trips and re-entry risk | `references/border-hops-and-neighbor-countries.md` |
 | **Major Regions and Cities** | |
-| Rio de Janeiro playbook | `rio-de-janeiro.md` |
-| Sao Paulo playbook | `sao-paulo.md` |
-| Salvador and Bahia coast playbook | `salvador-and-bahia-coast.md` |
-| Foz do Iguacu playbook | `foz-do-iguacu.md` |
-| Manaus and Amazon playbook | `manaus-and-amazon.md` |
-| Pantanal and Bonito playbook | `pantanal-and-bonito.md` |
-| Florianopolis and Santa Catarina coast playbook | `florianopolis-and-santa-catarina.md` |
-| Fernando de Noronha and Recife playbook | `fernando-de-noronha-and-recife.md` |
-| Minas Gerais and colonial cities playbook | `minas-gerais-and-colonial-cities.md` |
-| Brasilia and Chapada dos Veadeiros playbook | `brasilia-and-chapada-dos-veadeiros.md` |
+| Rio de Janeiro playbook | `references/rio-de-janeiro.md` |
+| Sao Paulo playbook | `references/sao-paulo.md` |
+| Salvador and Bahia coast playbook | `references/salvador-and-bahia-coast.md` |
+| Foz do Iguacu playbook | `references/foz-do-iguacu.md` |
+| Manaus and Amazon playbook | `references/manaus-and-amazon.md` |
+| Pantanal and Bonito playbook | `references/pantanal-and-bonito.md` |
+| Florianopolis and Santa Catarina coast playbook | `references/florianopolis-and-santa-catarina.md` |
+| Fernando de Noronha and Recife playbook | `references/fernando-de-noronha-and-recife.md` |
+| Minas Gerais and colonial cities playbook | `references/minas-gerais-and-colonial-cities.md` |
+| Brasilia and Chapada dos Veadeiros playbook | `references/brasilia-and-chapada-dos-veadeiros.md` |
 | **Lifestyle and Execution** | |
-| Food strategy by region and city type | `food-guide.md` |
-| Nightlife and late-return logic | `nightlife.md` |
-| Families, mixed ages, and calmer routes | `family-travel.md` |
-| Accessibility and low-mobility planning | `accessibility.md` |
-| Safety, theft prevention, beach and heat risk | `safety-and-emergencies.md` |
-| Climate, rain, heat, smoke, and events | `weather-and-seasonality.md` |
-| Connectivity, eSIM, transport, and useful apps | `telecoms-and-apps.md` |
-| Research sources map | `sources.md` |
+| Food strategy by region and city type | `references/food-guide.md` |
+| Nightlife and late-return logic | `references/nightlife.md` |
+| Families, mixed ages, and calmer routes | `references/family-travel.md` |
+| Accessibility and low-mobility planning | `references/accessibility.md` |
+| Safety, theft prevention, beach and heat risk | `references/safety-and-emergencies.md` |
+| Climate, rain, heat, smoke, and events | `references/weather-and-seasonality.md` |
+| Connectivity, eSIM, transport, and useful apps | `references/telecoms-and-apps.md` |
+| Research sources map | `references/sources.md` |
 
 ## Core Rules
 
@@ -82,7 +70,7 @@ Use this map to enter the right decision module before building the route.
 For short and medium trips, keep to one anchor block and one contrast block at most. Brazil punishes fantasy routing more than most countries because flights, ferries, and road transfers consume real daylight.
 
 ### 2. Lock Entry, Health, and Money Before Non-Refundables
-Before buying flights, confirm the correct entry path in `entry-and-documents.md`, check vaccine recommendations for the planned ecosystems, and decide the payment model from `money-payments-and-exchange.md`.
+Before buying flights, confirm the correct entry path in `references/entry-and-documents.md`, check vaccine recommendations for the planned ecosystems, and decide the payment model from `references/money-payments-and-exchange.md`.
 
 ### 3. Choose Cities by Profile, Not by Fame
 Rio, Sao Paulo, Salvador, Florianopolis, Recife, and Brasilia solve different trips. Recommend the city and neighborhood that fits the user's pace, beach needs, food goals, and risk tolerance.
@@ -95,10 +83,10 @@ Each extra region must include the true price of adding it:
 - New weather or logistics risk
 
 ### 5. Treat PIX and CPF as Friction, Not Assumptions
-Cards work widely in major corridors, but local operators, event tickets, and some websites may prefer PIX or ask for CPF. Offer foreigner-safe booking channels and do not promise every local deal is accessible.
+Cards work widely in major corridors, but local operators, event tickets, and some websites may prefer PIX or ask for CPF. Offer foreigner-safe booking channels and clarify which local deals require PIX/CPF.
 
 ### 6. Give Safer Arrival and Return Plans
-When users land late, move between neighborhoods, or return after nightlife, recommend the transport model explicitly and tell them what to avoid improvising.
+When users land late, move between neighborhoods, or return after nightlife, recommend the transport model explicitly and tell them which transport models require advance booking.
 
 ### 7. Deliver Actionable Plans
 Output should include:
@@ -120,19 +108,31 @@ Output should include:
 
 ## Security & Privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/brazil/`
+Data that stays local:
+- trip preferences and working plans under `<state_root>/brazil/` if the user approves persistence
 
-**This skill does NOT:** Access files outside `~/Clawic/data/brazil/` or make network requests.
+This skill does NOT:
+- access files outside `<state_root>/brazil/`
+- make network requests by default
+- store passport numbers, payment credentials, or booking confirmation secrets in memory files
+- book tickets or submit visa applications on the user's behalf
+
+## Scope
+
+This skill ONLY:
+- structures Brazil trip planning into entry, money, routing, city, and logistics modules
+- keeps durable trip-context notes under `<state_root>/brazil/` when approved
+- points to official sources for entry, customs, transport, health, and destination facts
+
+Required restrictions:
+- invent one universal "best time for Brazil" for all regions
+- pack Amazon, Rio, Iguacu, and remote islands into one short trip without stating transfer cost
+- assume every local operator accepts foreign cards without PIX/CPF friction
+- give generic safety warnings without neighborhood or arrival context
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` - General trip planning and itinerary structure
-- `booking` - Reservation workflows and confirmation hygiene
-- `car-rental` - Better self-drive strategy and handoff logistics
-- `food` - Deeper restaurant and cuisine recommendations
-- `portuguese` - Language support for bookings, transport, and service interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/brazil
-- Latest version: https://clawic.com/skills/brazil
+- `travel` - General trip planning and itinerary structure.
+- `booking` - Reservation workflows and confirmation hygiene.
+- `car-rental` - Self-drive strategy and handoff logistics.
+- `food` - Deeper restaurant and cuisine recommendations.
+- `portuguese` - Language support for bookings, transport, and service interactions.

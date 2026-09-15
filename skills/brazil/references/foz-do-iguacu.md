@@ -21,4 +21,4 @@
 
 - Re-check passport and visa implications before adding the Argentine side.
 - Heat and rain change comfort more than the raw itinerary suggests.
-- If user hates border friction, the Brazil side alone can still justify the stop.
+- If the user prefers low border friction, the Brazil side alone is a complete experience.

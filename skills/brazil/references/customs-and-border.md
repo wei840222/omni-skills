@@ -22,5 +22,5 @@
 ## If User Asks About Limits
 
 - Point them to the current Receita Federal and customs declaration guidance.
-- Do not guess outdated allowance numbers from memory.
+- Look up current customs allowance numbers.
 - Explain the decision rule: declare above official thresholds or when category is unclear.

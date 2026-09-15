@@ -6,11 +6,11 @@ When user mentions Brazil travel for the first time:
 
 ### 1. Create Memory Structure
 ```bash
-mkdir -p ~/brazil
+mkdir -p <state_root>/brazil
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/brazil/memory.md` using `memory-template.md`.
+Create `<state_root>/brazil/memory.md` using `assets/memory-template.md`.
 
 ### 3. Gather Trip Context Naturally
 Ask in conversational flow:
@@ -23,11 +23,11 @@ Ask in conversational flow:
 - Constraints: kids, mobility, dietary needs, heat tolerance, mosquito sensitivity, swimming confidence.
 
 ### 4. Save to Memory
-Update `~/Clawic/data/brazil/memory.md` with current intent, priorities, constraints, and open decisions.
+Update `<state_root>/brazil/memory.md` with current intent, priorities, constraints, and open decisions.
 
 ## Returning Users
 
-If `~/Clawic/data/brazil/memory.md` exists:
+If `<state_root>/brazil/memory.md` exists:
 1. Read it silently.
 2. Reuse known constraints and preferences.
 3. Ask only what changed: dates, passport status, region focus, budget, mobility, or weather tolerance.

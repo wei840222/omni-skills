@@ -21,7 +21,7 @@
 ## Urban Mobility
 
 - Metro and commuter rail can be useful in Rio and Sao Paulo, but ride-hailing is often the simpler late-night or airport transfer tool.
-- Do not overpromise walkability in cities with heat, hills, traffic, or fragmented neighborhoods.
+- Check heat, hills, and neighborhood fragmentation before confirming walkability.
 
 ## Routing Rule
 
