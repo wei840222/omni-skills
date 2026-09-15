@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| gaming | 2026-09-16 | 85/100 (#423) |
 | portuguese | 2026-09-16 | 85/100 (#422) |
 | automate | 2026-09-16 | 85/100 (#421) |
 | bass | 2026-09-16 | 85/100 (#420) |

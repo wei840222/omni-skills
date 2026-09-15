@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm looking for a relaxing game to play for 30 minutes before bed. I usually play action RPGs but they get me too hyped.",
+    "expected": "Recommend a calming, session-based game (like Stardew Valley or Animal Crossing), reference the blue light/sleep hygiene guidance, and suggest capping play time.",
+    "actual": "I recommend Stardew Valley or A Short Hike for a relaxing 30-minute session. These games have natural conclusion points (in-game days) that fit your schedule. Also, consider enabling a blue light filter on your screen since playing right before bed can affect your sleep quality.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm stuck on this boss in Dark Souls and I keep dying over and over again. My settings are all on max on my GTX 1060.",
+    "expected": "Suggest lowering settings/resolution scale for a smoother frame rate, and advise trying a different strategy since dying is part of the learning process in Souls-likes.",
+    "actual": "Since you're on a GTX 1060, try lowering your settings or using a resolution scale around 80-90% to prioritize a smooth frame rate over max visuals, which is crucial for Souls-likes. Also, dying is part of the progress! If your current approach isn't working, try a different strategy or weapon rather than repeating the same approach.",
+    "pass": true
+  }
+]
