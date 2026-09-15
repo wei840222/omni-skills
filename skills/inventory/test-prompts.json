@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just bought a new 2023 MacBook Pro for $2500 and put it on my home office desk. Can you add it to my inventory?",
+    "expected": "Resolve <state_root>, then create <state_root>/inventory/electronics/macbook-pro-2023.md containing location (home office desk), purchase price ($2500), and current estimated value.",
+    "actual": "Resolved <workspace>/inventory/ as <state_root>. Created <state_root>/inventory/electronics/macbook-pro-2023.md with location 'home office desk', purchase price '$2500', and current value '$2500'. Suggested adding a photo and serial number.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm moving next week and need to know the total value of all my electronics for the moving insurance. Can you sum that up for me?",
+    "expected": "Read all files in <state_root>/inventory/electronics/, parse their values, and return the total sum for insurance purposes without inventing missing prices.",
+    "actual": "Read files in <state_root>/inventory/electronics/. Extracted value from macbook-pro-2023.md ($2500) and tv-living-room.md ($800). Calculated total electronics value as $3300 and provided a summary for insurance.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Where is my red toolbox drill, and who borrowed it?",
+    "expected": "Search the resolved inventory tree for the drill entry, report the last known location, and surface lending notes if present.",
+    "actual": "Found garage/red-toolbox-drill.md under <state_root>/inventory/, reported location 'garage, shelf 3, red toolbox', and noted it was lent to Alex with expected return next Friday.",
+    "pass": true
+  }
+]
