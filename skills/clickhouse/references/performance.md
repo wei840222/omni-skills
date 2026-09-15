@@ -245,6 +245,6 @@ OPTIMIZE TABLE events FINAL;  -- expensive, use carefully
 ### Preventing Part Explosion
 
 1. **Batch inserts** (1000+ rows per insert)
-2. **Avoid INSERT SELECT** from small result sets
+2. **Use INSERT SELECT** only with large result sets
 3. **Set up TTL** for automatic cleanup
 4. **Schedule OPTIMIZE** during low traffic

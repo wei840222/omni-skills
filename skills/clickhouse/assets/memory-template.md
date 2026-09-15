@@ -1,6 +1,6 @@
 # Memory Template — ClickHouse
 
-Create `~/Clawic/data/clickhouse/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # ClickHouse Memory
@@ -12,7 +12,7 @@ last: YYYY-MM-DD
 integration: pending | done | declined
 
 ## Connection Profile
-<!-- NOTE: Never store passwords here. Use env vars or clickhouse-client profiles -->
+<!-- NOTE: Store passwords using env vars or clickhouse-client profiles only. -->
 host: localhost
 port: 9000
 database: default

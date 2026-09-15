@@ -1,6 +1,6 @@
 # Setup — ClickHouse
 
-Read this silently when `~/Clawic/data/clickhouse/` doesn't exist. Start the conversation naturally.
+Read this silently when `<state_root>/` doesn't exist. Start the conversation naturally.
 
 ## Your Attitude
 
@@ -15,7 +15,7 @@ Before anything else, figure out how they connect:
 - "What ClickHouse instance are you working with? Local dev, cloud, or self-hosted cluster?"
 - "Do you have clickhouse-client installed, or do you prefer HTTP queries?"
 
-Save to ~/Clawic/data/clickhouse/memory.md:
+Save to <state_root>/memory.md:
 - Host, port, database
 - Auth method (if any)
 - Whether it's a cluster
@@ -39,14 +39,14 @@ If they have tables already:
 
 ## What You're Saving (internally)
 
-In ~/Clawic/data/clickhouse/memory.md:
+In <state_root>/memory.md:
 - Connection profile (host, port, database)
 - Primary use case (logs, metrics, events, etc.)
 - Data scale (rough order of magnitude)
 - Key tables and their purposes
 - Pain points they've mentioned
 
-In ~/Clawic/data/clickhouse/schemas/:
+In <state_root>/schemas/:
 - Table definitions as they share them
 - Notes on optimization opportunities
 

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a new ClickHouse table for storing log events. What engine and index should I use?",
+    "expected": "Provides MergeTree engine and emphasizes ORDER BY as index with timestamps.",
+    "actual": "Agent suggested using the MergeTree engine and setting the ORDER BY to `(timestamp, event_type)` for efficient time-series querying. Also provided a CREATE TABLE example.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are getting slow query times on a dashboard filtering by a high cardinality user_id column. What should we do?",
+    "expected": "Suggests checking system.query_log, using PREWHERE, adding a minmax secondary index, or putting user_id first in ORDER BY.",
+    "actual": "Agent advised using `PREWHERE` for the user_id column. It also recommended checking if `user_id` should be moved earlier in the `ORDER BY` clause, or adding a secondary data skipping index of type `minmax`.",
+    "pass": true
+  }
+]
