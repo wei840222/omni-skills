@@ -71,8 +71,8 @@ metadata:
 
 ## Digital Pianos
 
-- Prefer weighted hammer action for transferable technique
-- "Semi-weighted" is not full weighted; 88 keys support full repertoire range
+- Prefer weighted hammer action so technique transfers cleanly to acoustic pianos
+- Treat "semi-weighted" as incomplete for advanced repertoire; prefer 88 fully weighted keys when range matters
 
 ## Progress Tracking
 
