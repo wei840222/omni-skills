@@ -1,6 +1,6 @@
 # Memory Template — Jarvis
 
-Create `~/Clawic/data/jarvis/memory.md` with this structure:
+Create `<state_root>/jarvis/memory.md` with this structure:
 
 ```markdown
 # Jarvis Memory
@@ -40,15 +40,15 @@ integration: pending | proactive | on_request | local_only | restricted | paused
 | `ongoing` | Jarvis mode is still being shaped | Learn quietly from real usage |
 | `proactive` | Jarvis may auto-activate in approved contexts | Use executive framing when stakes justify it |
 | `on_request` | Jarvis only activates when explicitly invoked | Stay dormant otherwise |
-| `local_only` | Use local memory only | Avoid workspace seed edits |
+| `local_only` | Use local memory only | Skip workspace seed edits |
 | `restricted` | Jarvis is allowed only in named contexts | Stay silent outside those boundaries |
-| `paused` | User wants less of this behavior for now | Read existing memory but stop expanding it |
+| `paused` | User wants less of this behavior for now | Read existing memory and freeze current state |
 
 ## Local Files to Initialize
 
 ```bash
-mkdir -p ~/Clawic/data/jarvis/snapshots
-touch ~/Clawic/data/jarvis/{memory.md,active-profile.md,mission-log.md,workspace-state.md}
+mkdir -p <state_root>/jarvis/snapshots
+touch <state_root>/jarvis/{memory.md,active-profile.md,mission-log.md,workspace-state.md}
 ```
 
 ## Supporting File Shapes

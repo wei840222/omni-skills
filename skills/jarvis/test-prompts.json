@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need a decision on this launch today. Summarize the situation and tell me what to do next.",
+    "expected": "Agent provides a concise executive briefing (current state, main risk, recommendation, next step) and maintains a calm, anti-theatrical tone.",
+    "actual": "Current state: The launch is pending a final go/no-go decision today. All technical components are ready. Main risk: User sign-off is the only remaining blocker. Recommendation: Proceed with the launch immediately after verbal confirmation. Next step: Await your final approval to execute the deployment.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Make this project tighter and get it moving again.",
+    "expected": "Agent converts the vague request into an explicit objective and constraints, stating the next move clearly and recovering context locally.",
+    "actual": "Current state: The project is stalling due to undefined next steps and broad scope. Recommendation: We need to define a single priority objective and narrow the constraints to regain momentum. Next step: Please confirm the primary goal for this week, and I will outline the execution plan.",
+    "pass": true
+  }
+]
