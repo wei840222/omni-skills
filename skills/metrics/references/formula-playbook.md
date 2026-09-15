@@ -1,6 +1,6 @@
 # Formula Playbook
 
-Use this playbook to design robust formulas and avoid silent drift.
+Use this playbook to design robust formulas and maintain consistent historical comparisons.
 
 ## Formula Spec Template
 

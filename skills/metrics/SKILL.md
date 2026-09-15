@@ -1,38 +1,35 @@
 ---
 name: metrics
-slug: metrics
-version: 1.0.0
-description: Capture, normalize, and report metrics across any domain with reusable dimensions, programmable formulas, and scalable reporting workflows.
-homepage: https://clawic.com/skills/metrics
-changelog: Initial release with metric registry design, formula governance, and automation-ready reporting workflows.
+description: Load this skill to define, track, and report metrics using reusable dimensions
+  and standardized formulas. Do not load it for general data entry.
 metadata:
-  clawdbot:
-    emoji: 📊
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Metrics
+  openclaw: '{"emoji":"📊"}'
 ---
+## State location
+
+Metrics contracts, formulas, reports, and automation policies are persistent user state. Before reading or writing them, resolve `<state_root>` once for this invocation:
+
+1. Use a user- or host-configured state root when one is explicitly provided.
+2. Otherwise use the first existing directory in this order: `<workspace>/metrics/`, `<workspace>/memory/metrics/`, then `~/metrics/`.
+3. If more than one candidate exists, use only the highest-precedence directory and report the duplicate state locations; do not merge or synchronize them.
+4. If none exists and the user confirms saving metrics data, create `<workspace>/metrics/`. If `<workspace>` is unavailable, ask for a state root instead of guessing from the current directory.
+
+Use the selected `<state_root>` for every metrics read or write under `<state_root>/metrics/`. Keep skill resources under `references/`; never treat them as mutable user state.
 
 ## Setup
 
-On first use, read `setup.md` for integration behavior and memory initialization.
+On first use, read `references/setup.md` for integration behavior and memory initialization.
 
-## When to Use
+## When to load
 
-Use this skill when the user needs to define, track, analyze, or report metrics for any domain such as social media, sales, product, operations, finance, or personal systems.
-
-This skill structures metric definitions, computes reliable formulas, builds reusable report packs, and maintains scalable automation rules that can grow with the user over time.
+Load this skill when the user explicitly requests to define a metric contract, compute a standardized formula, or generate a structured report. Do not load this skill for general query generation unless metric tracking is explicitly required.
 
 ## Architecture
 
-Working memory lives in `~/Clawic/data/metrics/`. See `memory-template.md` for base structure and status behavior.
+Working memory lives in `<state_root>/metrics/`. See `references/memory-template.md` for base structure and status behavior.
 
 ```
-~/Clawic/data/metrics/
+<state_root>/metrics/
 ├── memory.md              # HOT: goals, active metrics, reporting cadence
 ├── registry/              # WARM: metric contracts and dimension dictionaries
 ├── formulas/              # WARM: formula specs with version history
@@ -47,20 +44,21 @@ Load only the file needed for the current task to keep context focused.
 
 | Topic | File |
 |-------|------|
-| Setup and integration | `setup.md` |
-| Memory schema | `memory-template.md` |
-| Metric contract design | `metric-registry.md` |
-| Formula design and governance | `formula-playbook.md` |
-| Report cadences and templates | `reporting-pack.md` |
-| Automation and alerting patterns | `automation-patterns.md` |
-| Data validation and quality gates | `data-quality.md` |
+| Setup and integration | `references/setup.md` |
+| Memory schema | `references/memory-template.md` |
+| Metric contract design | `references/metric-registry.md` |
+| Formula design and governance | `references/formula-playbook.md` |
+| Report cadences and templates | `references/reporting-pack.md` |
+| Automation and alerting patterns | `references/automation-patterns.md` |
+| Data validation and quality gates | `references/data-quality.md` |
+| Research sources | `references/sources.md` |
 
 ## Core Rules
 
 ### 1. Define a Metric Contract Before Any Calculation
 Every metric must have one clear contract: business meaning, numerator, denominator, source tables, update latency, and owner.
 
-Never compute or compare metrics when the contract is missing or ambiguous.
+Verify the metric contract is present and unambiguous before computing or comparing metrics.
 
 ### 2. Separate Raw Signals from Derived Metrics
 Raw events are evidence. Metrics are interpreted aggregates. Keep them separate.
@@ -131,23 +129,10 @@ Only create custom formats when a stakeholder decision cannot be served by exist
 - None by default.
 
 **Data that stays local:**
-- Metrics context and definitions under `~/Clawic/data/metrics/`.
+- Metrics context and definitions under `<state_root>/metrics/`.
 - Formula versions, report logs, and alert policies stored locally.
 
 **This skill does NOT:**
-- Access files outside `~/Clawic/data/metrics/` for memory storage.
+- Access files outside `<state_root>/metrics/` for memory storage.
 - Send metrics to third-party APIs by default.
 - Create background automations without explicit user confirmation.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `analytics` — metric analysis patterns and interpretation workflows.
-- `dashboard` — KPI visualization design and reporting layouts.
-- `report` — structured reporting outputs for stakeholders.
-- `sql` — query generation for metric extraction pipelines.
-- `excel-xlsx` — spreadsheet-based metric operations and exports.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/metrics
-- Latest version: https://clawic.com/skills/metrics

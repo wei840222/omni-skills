@@ -1,6 +1,6 @@
 # Setup - Metrics
 
-Read this when `~/Clawic/data/metrics/memory.md` does not exist or is empty.
+Read this when `<state_root>/metrics/memory.md` does not exist or is empty.
 
 Start naturally by asking what the user wants to measure first and what decision those metrics should improve.
 
@@ -39,7 +39,7 @@ Before ending setup, deliver one actionable artifact:
 
 When memory is enabled:
 
-- Create `~/Clawic/data/metrics/memory.md` from `memory-template.md`.
+- Create `<state_root>/metrics/memory.md` from `memory-template.md`.
 - Update `last` after meaningful progress.
 - Keep notes short, decision-oriented, and version-aware.
-- Never store secrets, credentials, or unrelated personal data.
+- Store only metric metadata; exclude secrets, credentials, and unrelated personal data.

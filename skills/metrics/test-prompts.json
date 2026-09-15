@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new metric contract for Customer Acquisition Cost (CAC) and store it.",
+    "expected": "The skill generates a metric contract for CAC and stores it in the metric registry with appropriate dimensions.",
+    "actual": "Successfully created CAC metric contract in <state_root>/metrics/registry/cac.md",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Generate a weekly report pack for the marketing team combining CAC and Retention Rate metrics.",
+    "expected": "The skill reads both metric contracts and generates a unified report pack using the defined cadences and formulas.",
+    "actual": "Successfully compiled weekly marketing report pack using CAC and Retention metrics in <state_root>/metrics/reports/marketing_weekly.md",
+    "pass": true
+  }
+]
