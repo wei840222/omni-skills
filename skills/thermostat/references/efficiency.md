@@ -24,7 +24,7 @@
 
 **Why myth persists:** People feel the system "working hard" and assume it's expensive. It's just compressed energy use, not extra.
 
-### "Smart thermostats don't really save money"
+### "Smart thermostats only save money when configured properly"
 
 **Reality:** Typical savings 10-15% IF actually using the features (schedule, geofencing, setbacks). Users who override constantly or keep constant temps see no savings.
 
@@ -56,7 +56,7 @@ When user asks "How much does this cost to run?":
 ### Variable Schedule
 - Enable geofencing if smart thermostat supports it
 - Or set conservative "away" (65°F) with manual boost when home
-- Avoid learning mode if schedule is truly unpredictable
+- Use fixed schedule instead of learning mode if schedule is truly unpredictable
 
 ### Airbnb/Rental Host
 - Set guest limits (68-76°F range)
@@ -74,7 +74,7 @@ When user can't install smart thermostat:
 - Write down schedule on sticky note near thermostat
 
 **Portable solutions:**
-- Smart plug + space heater for zone heating (⚠️ safety: never unattended)
+- Smart plug + space heater for zone heating (⚠️ safety: must be attended)
 - Weatherstripping (removable)
 - Thermal curtains (close at night, open for solar gain)
 

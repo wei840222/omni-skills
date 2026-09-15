@@ -1,90 +1,38 @@
 ---
 name: thermostat
-slug: thermostat
-version: 1.0.0
-description: Adjust temperatures, diagnose comfort issues, calculate energy savings, and automate schedules through voice commands or smart home integration.
-homepage: https://clawic.com/skills/thermostat
+description: Adjust thermostat setpoints, diagnose room comfort issues, estimate setback savings, and configure away/vacation or smart-home thermostat schedules. Use when the user asks to change temperature, troubleshoot HVAC comfort, plan setbacks, or set vacation freeze protection.
 metadata:
-  clawdbot:
-    emoji: 🌡️
-    displayName: Thermostat
+  version: "1.0.1"
+  openclaw: "{\"emoji\":\"🌡️\"}"
+  related-skills:
+    smart-home: skills/smart-home
+    home: skills/home
 ---
+## When to load references
 
-## What the Agent Can Do
+- `references/basics.md`: Load for modes, holds, fan settings, remote sensors, and scheduling setup.
+- `references/troubleshooting.md`: Load to diagnose comfort problems, HVAC issues, or error codes.
+- `references/efficiency.md`: Load to calculate energy savings, debunk myths, and optimize settings from the user schedule.
+- `references/integration.md`: Load to integrate with HomeKit, Alexa, Google Home, Home Assistant, or Matter and to configure automations.
+- `references/away.md`: Load to configure vacation modes, freeze protection, and humidity control.
+- `references/sources.md`: Load for DOE/ENERGY STAR/insurance source notes behind setback and freeze-protection guidance.
 
-| User Request | Agent Action |
-|--------------|--------------|
-| "Make it warmer/cooler" | Adjust setpoint ±2-3°F or to specific temp |
-| "Why is my bedroom cold?" | Diagnose: sensor location, vent issues, zone problems |
-| "Set up a schedule" | Gather wake/leave/return/sleep times → configure |
-| "Am I wasting money?" | Calculate setback savings, identify inefficiencies |
-| "I'm going on vacation" | Set freeze protection (55°F) or vacancy mode |
-| "Something's wrong with my heat" | Troubleshoot: cycles, error codes, aux heat issues |
-
----
-
-## Before Adjusting Temperature
+## Before adjusting temperature
 
 **Gather context:**
 - Current temp and setpoint
 - Heating or cooling mode?
 - Smart thermostat or basic?
 - Any specific room complaints?
+- Heat pump vs furnace/AC when efficiency or recovery is in scope
 
 **Smart thermostats:** Adjust via voice, app command, or API integration.
-**Basic thermostats:** Guide user to physical adjustment, suggest smart plug workarounds if relevant.
+**Basic thermostats:** Guide the user to physical adjustment; suggest portable workarounds only when safe and attended.
 
----
+## Reliable defaults
 
-## Diagnosing Comfort Problems
-
-When user says "it's too hot/cold":
-
-1. **Check location mismatch** — Thermostat in hallway but complaint is bedroom? Sensor measures wrong place. Solution: remote sensors or door management.
-
-2. **Check system behavior** — Running constantly? Short cycling (<5 min)? Not turning on? Each has different diagnosis path. See `troubleshooting.md`.
-
-3. **Check settings** — Wrong mode? Hold preventing schedule? Eco mode active unexpectedly?
-
----
-
-## Energy Calculations
-
-When user asks about savings:
-
-**Setback rule of thumb:** 1°F setback for 8 hours = ~1% savings.
-
-| Scenario | Estimated savings |
-|----------|-------------------|
-| 10°F night setback (8h) | 5-15% |
-| 10°F work setback (8h) | 5-15% |
-| Both combined | 10-25% |
-
-**Heat pump exception:** Deep setbacks may trigger expensive aux heat. Recommend 3-5°F max for heat pumps.
-
-**Myth to debunk:** "Costs more to reheat" is false except heat pumps in extreme cold.
-
----
-
-## Vacation/Away Configuration
-
-**Short away (hours):** Set 62°F heat / 82°F cool.
-
-**Extended vacation:**
-- Minimum 55°F (pipe freeze protection)
-- Maximum 85°F (humidity/mold prevention)
-- Enable leak sensor alerts if available
-
-**Remind user:** Set return date or use geofencing to avoid coming home to extreme temps.
-
----
-
-## Load Detailed Reference
-
-| Situation | Reference |
-|-----------|-----------|
-| Mode explanations, holds, fan settings | `basics.md` |
-| System not responding, error codes, HVAC issues | `troubleshooting.md` |
-| Cost calculations, efficiency tips, renter workarounds | `efficiency.md` |
-| HomeKit, Alexa, Google, Home Assistant, Matter | `integration.md` |
-| Vacation settings, freeze protection, humidity | `away.md` |
+- Change temperature in small steps (±2–3°F) unless the user gives an exact setpoint.
+- Check holds before blaming the schedule.
+- Prefer 3–5°F setbacks for heat pumps; deeper setbacks can trigger expensive aux heat.
+- Vacation bounds start at minimum 55°F (freeze protection) and maximum 85°F (humidity/mold risk) unless policy or climate requires stricter limits.
+- For whole-home automation beyond the thermostat, load related skill `smart-home`.

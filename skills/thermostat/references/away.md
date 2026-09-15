@@ -9,7 +9,7 @@
 | Winter | 62-65°F (saves ~10% vs occupied) |
 | Summer | 82-85°F (saves AC cycles) |
 
-**Don't go extreme:** Coming home to 85°F means 1-2 hour recovery. Balance savings vs comfort based on user preference.
+**Balance settings:** Coming home to 85°F means 1-2 hour recovery. Balance savings vs comfort based on user preference.
 
 ---
 
