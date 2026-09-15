@@ -20,7 +20,7 @@ If that line is fuzzy, approval, content, and automation decisions will drift.
 
 - Run one flagship thread or event cadence that members can predict.
 - Tie posts to member actions: introduce yourself, complete lesson one, attend event, share win, submit blocker.
-- Avoid filling the feed with admin-only updates that do not change member behavior.
+- Focus the feed on actionable updates that change member behavior.
 
 ## Moderation and Trust
 

@@ -9,6 +9,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
 | nodejs | 2026-09-15 | 85/100 (#405) |
+| skool | 2026-09-15 | 85/100 (#406) |
 | saas | 2026-09-15 | 85/100 (#404) |
 | paywall | 2026-09-15 | 85/100 (#403) |
 | rental | 2026-09-15 | 85/100 (#402) |

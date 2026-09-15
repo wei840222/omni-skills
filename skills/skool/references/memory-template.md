@@ -1,6 +1,6 @@
 # Memory Template - Skool
 
-Create `~/Clawic/data/skool/memory.md` with this structure:
+Create `<state_root>/skool/memory.md` with this structure:
 
 ```markdown
 # Skool Memory

@@ -26,7 +26,7 @@
 
 ## Failure Patterns
 
-- deep classroom, weak calendar -> members stop returning
-- active calendar, weak classroom -> members show up but do not progress
+- deep classroom, weak calendar -> members drop off
+- active calendar, weak classroom -> members attend without progressing
 - unclear unlock rules -> support load rises and trust drops
 - copied courses without re-checking permissions -> the wrong people get the wrong access
