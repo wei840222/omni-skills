@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How long does Apple App Store review typically take and what are common reasons for rejection code 4.3?",
+    "expected": "Mentions ~24-48h typical review time and identifies 4.3 as Spam/duplicate needing differentiation.",
+    "actual": "Apple App Store review typically takes about 24-48 hours. Guideline 4.3 is Spam/duplicate; differentiate the app substantially before resubmitting.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a new Google Play personal developer account. What testing track and tester requirements apply before production?",
+    "expected": "Closed testing with 20+ opted-in testers for 14+ days before production for new personal developer accounts.",
+    "actual": "Use closed testing first. New personal developer accounts generally need at least 20 opted-in testers for 14 or more continuous days before production eligibility.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Xcode says no signing identity for App Store distribution. What should I check first?",
+    "expected": "Certificate in Keychain, profile includes cert, bundle ID matches App ID, recreate only after those fail; keep one signing approach.",
+    "actual": "Check Keychain for the distribution certificate, confirm the provisioning profile includes it, match bundle ID to App ID, then recreate only if needed. Keep automatic or manual signing consistent per project.",
+    "pass": true
+  }
+]
