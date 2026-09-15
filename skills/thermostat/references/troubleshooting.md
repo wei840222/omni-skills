@@ -69,6 +69,6 @@ Always recommend professional when:
 - System runs 24/7 without reaching setpoint
 - Strange smells (burning, gas)
 - Water leaks around equipment
-- Error codes don't clear after power cycle
+- Error codes persist after power cycle
 - Energy bills spike 30%+ unexpectedly
 - Aux heat dominates above 40°F outdoor temp
