@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to convert 10 JSON files into YAML format because I do this every day.",
+    "expected": "Identify the task as repetitive and deterministic, load templates, and propose a bash/python script for JSON to YAML conversion.",
+    "actual": "🔧 Automation opportunity\n\nTask: Convert JSON files to YAML\nFrequency: Daily\nCurrent cost: Time-consuming manual conversion\n\nProposed script:\n- Language: bash / python\n- Input: *.json files\n- Output: *.yaml files\n- Location: scripts/json2yaml.sh\n\nEstimated savings: Significant time and token savings\n\nShould I write it?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Could you read these 5 PR descriptions and summarize the creative direction we are taking?",
+    "expected": "Identify that summarizing creative direction involves judgement and ambiguity. Conclude that it should be handled by an LLM, not a deterministic script.",
+    "actual": "This task involves summarizing creative direction and requires judgment and handling of ambiguous inputs. Based on the Script vs LLM Decision Matrix, this falls under 'Creative content' and 'Judgement calls', which should be done by an LLM rather than a script.",
+    "pass": true
+  }
+]
