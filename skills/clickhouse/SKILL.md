@@ -179,15 +179,15 @@ FROM system.tables
 ORDER BY total_bytes DESC;
 ```
 
-## Common Traps
+## Common traps to avoid
 
-- **String instead of LowCardinality** → 10x larger storage for status/type columns
-- **Wrong ORDER BY** → Full table scans instead of index lookups
-- **Row-by-row inserts** → Massive part fragmentation, slow writes
-- **Missing TTL** → Unbounded table growth, disk full
-- **SELECT *** → Reads all columns, kills columnar advantage
-- **Nullable everywhere** → Overhead + NULL handling complexity
-- **Forgetting FINAL** → Stale/duplicate data in merge tables
+- Prefer **LowCardinality(String)** for status/type columns — plain String often means ~10x larger storage .
+- Match **ORDER BY** to filter patterns — wrong key order forces full scans instead of sparse reads
+- Use **batch inserts** — row-by-row writes fragment parts and slow merges
+- Set **TTL/retention** early — missing TTL lets tables grow without bound
+- **Project only needed columns** — SELECT * discards columnar pruning
+- Use **Nullable only when required** — blanket nullability adds overhead
+- Apply **FINAL** (or MVs) on collapsing/replacing engines when latest-version accuracy matters
 
 ## Performance Checklist
 
