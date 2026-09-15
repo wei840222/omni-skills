@@ -1,13 +1,11 @@
 ---
 name: portuguese
-slug: portuguese
-version: 1.0.0
-description: Write Portuguese that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/portuguese
+description: Write natural, casual Portuguese with appropriate regional variants and
+  contractions. Load when generating conversational Portuguese text.
 metadata:
-  clawdbot:
-    emoji: 🇵🇹
-    displayName: Portuguese
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇵🇹"}'
+  related-skills: '{"brazil":"Plan travel in Brazil rather than compose Portuguese text.","portugal":"Plan travel in Portugal rather than compose Portuguese text.","spanish":"Write Spanish when Portuguese is not the target language.","translate":"Translate an existing source text into Portuguese.","writing":"Shape broader prose once the Portuguese-language decision is settled.","english":"Write English when Portuguese is not the target language."}'
 ---
 
 ## The Real Problem
@@ -24,17 +22,17 @@ Regional and critical:
 - Brazil: "você" dominant, "tu" in some regions (Rio, Sul)
 - Portugal: "tu" casual, "você" more formal
 - Brazil often mixes: "você" + tu verb forms ("você vai" but also "tu vai")
-- Pick one pattern, stay consistent
+- Pick one pattern and keep it consistent for the whole text
 
 ## Contractions
 
-Portuguese contracts heavily. Use them:
+Portuguese contracts heavily. Prefer them in casual writing:
 - "Está" → "Tá"
 - "Para" → "Pra"/"Pro"
 - "Você" → "Cê" (Brazil casual)
 - "Com" → "Co'" in some contexts
 - "Não é" → "Né"
-- Missing these = textbook Portuguese
+- Textbook Portuguese usually omits these; native casual writing keeps them
 
 ## Fillers & Flow
 
@@ -46,7 +44,7 @@ Real Portuguese has fillers:
 
 ## Sentence Fragments
 
-Don't always complete:
+Use sentence fragments naturally:
 - "Vem?" "Vou sim."
 - "Tudo bem?" "Tudo."
 - "Gostou?" "Demais!"
@@ -54,7 +52,7 @@ Don't always complete:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Pick expressive, informal words:
 - "Bom" → "Ótimo", "Massa", "Irado", "Dahora" (Brazil)
 - "Ruim" → "Péssimo", "Horrível", "Uma merda"
 - "Muito" → "Super", "Mega", "Demais"
@@ -78,11 +76,11 @@ React naturally:
 
 ## Brazilian vs European
 
-Never mix. Major differences:
+Ensure variants are strictly separated. Major differences:
 - Gerund: Brazil "estou fazendo" / Portugal "estou a fazer"
 - Vocabulary: Brasil "trem, ônibus, celular" / Portugal "comboio, autocarro, telemóvel"
 - Spelling: Some words differ
-- Ask which variant, then commit.
+- Ask which variant, then commit for the whole output
 
 ## Regional Brazilian
 
@@ -97,8 +95,22 @@ If region known:
 Portuguese punctuation:
 - «Aspas» in Portugal, "aspas" in Brazil
 - Numbers: 1.000,50 (period thousands, comma decimals)
-- ¿ and ¡ are NOT used (unlike Spanish)
+- Spanish inverted ¿ and ¡ marks are out of scope here
 
 ## The "Native Test"
 
-Before sending: would a Portuguese/Brazilian screenshot this as "AI-generated"? If yes—too formal, missing contractions, wrong variant. Fix it.
+Before sending: would a Portuguese/Brazilian screenshot this as "AI-generated"? If yes—raise warmth, restore contractions, and lock one regional variant. Fix it.
+
+## Sources
+
+Domain sources and locale notes live in `references/sources.md`.
+
+## Output Gates
+
+Before delivering Portuguese text:
+
+- One regional variant end to end (Brazilian or European), with matching vocabulary and gerund pattern
+- Casual register uses contractions and native fillers when the channel is informal
+- Pronoun system is consistent (`você`/`tu`) for the chosen region
+- Punctuation and number formats match the chosen locale
+- No Spanish inverted question/exclamation marks
