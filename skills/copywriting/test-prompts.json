@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a 3-sentence landing page hero section for an email marketing tool that focuses on saving time. Focus exclusively on benefits instead of features.",
+    "expected": "Uses benefits not features, provides a clear CTA, short, punchy.",
+    "actual": "Get out of your inbox and back to your life. Our platform handles the busywork so you can focus on what matters. Start your 14-day free trial today.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Improve this headline: 'Our accounting software has a new automatic reconciliation feature that is very fast and reliable'.",
+    "expected": "Transforms features to benefits, adds specific numbers, removes vague adjectives.",
+    "actual": "Reconcile your books in 3 minutes. Never hunt for a missing receipt again.",
+    "pass": true
+  }
+]
