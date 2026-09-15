@@ -103,10 +103,11 @@ SELECT * FROM events_kafka;
 
 ## File Imports
 
-### S3
+### Object Storage (S3 / GCS / Azure)
+Modern ingestion heavily leverages `Parquet` and `Arrow` formats from object storage.
 
 ```sql
--- Direct query from S3
+-- Direct query from S3 with Parquet
 SELECT * FROM s3(
     'https://bucket.s3.amazonaws.com/data/*.parquet',
     'AWS_KEY', 'AWS_SECRET',
@@ -232,7 +233,7 @@ INSERT INTO events FORMAT JSONEachRow ...
 ```sql
 -- Enable async (buffers writes server-side)
 SET async_insert = 1;
-SET wait_for_async_insert = 0;  -- don't wait for confirmation
+SET wait_for_async_insert = 0;  -- proceed without waiting for confirmation
 
 INSERT INTO events VALUES (...);
 ```

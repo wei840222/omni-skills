@@ -1,60 +1,58 @@
 ---
 name: clickhouse
-slug: clickhouse
-version: 1.0.1
-description: Query, optimize, and administer ClickHouse OLAP databases with schema design, performance tuning, and data ingestion patterns.
-homepage: https://clawic.com/skills/clickhouse
+description: Query, optimize, and administer ClickHouse OLAP databases. Use for schema design, ORDER BY/primary-key layout, data skipping indexes, batch ingestion, slow-query tuning, system table diagnostics, TTL/retention, and MergeTree family operations with clickhouse-client.
 metadata:
-  clawdbot:
-    emoji: 🏠
-    requires:
-      bins:
-      - clickhouse-client
-    os:
-    - linux
-    - darwin
-    install:
-    - id: brew
-      kind: brew
-      formula: clickhouse
-      bins:
-      - clickhouse-client
-      label: Install ClickHouse (Homebrew)
-    displayName: ClickHouse
+  version: "1.0.1"
+  openclaw: '{"emoji": "🏠","requires": {"bins": ["clickhouse-client"]},"install": [{"id": "brew","kind": "brew","formula": "clickhouse","bins": ["clickhouse-client"],"label": "Install ClickHouse (Homebrew)"}],"os": ["linux","darwin"]}'
+  related-skills: '{"sql": "General SQL query patterns.","analytics": "Data analysis workflows using ClickHouse.","data-analysis": "Structured data exploration."}'
 ---
 
 # ClickHouse 🏠
 
 Real-time analytics on billions of rows. Sub-second queries. No indexes needed.
 
+
+## State location
+
+ClickHouse state may exist in `<workspace>/clickhouse/`, `<workspace>/memory/clickhouse/`, or `~/clickhouse/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/clickhouse/`, `<workspace>/memory/clickhouse/`, `~/clickhouse/`.
+3. If none exists and state must be created, default to `<workspace>/clickhouse/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Setup
 
-On first use, read `setup.md` for connection configuration.
+On first use, read `references/setup.md` for connection configuration.
 
-## When to Use
+## Trigger conditions
 
 User needs OLAP analytics, log analysis, time-series data, or real-time dashboards. Agent handles schema design, query optimization, data ingestion, and cluster administration.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/clickhouse/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/clickhouse/
+<state_root>/
 ├── memory.md        # Connection profiles + query patterns
 ├── schemas/         # Table definitions per database
 └── queries/         # Saved analytical queries
 ```
 
-## Quick Reference
+## Operational files
 
-| Topic | File |
-|-------|------|
-| Setup & connection | `setup.md` |
-| Memory template | `memory-template.md` |
-| Query patterns | `queries.md` |
-| Performance tuning | `performance.md` |
-| Data ingestion | `ingestion.md` |
+Read these files based on the user's specific request:
+
+- `references/setup.md` — Read when first configuring a ClickHouse connection.
+- `assets/memory-template.md` — Use to format connection profiles and state.
+- `references/queries.md` — Read when writing or analyzing SQL queries.
+- `references/performance.md` — Read when debugging slow queries or optimizing layout.
+- `references/ingestion.md` — Read when importing data or configuring inserts.
+- `references/sources.md` — Gate 6 research anchors and official documentation map.
 
 ## Core Rules
 
@@ -94,7 +92,22 @@ ORDER BY (user_id, date, event_type)
 ORDER BY (date, user_id, event_type)
 ```
 
-### 3. Use Appropriate Data Types
+### 3. Use Data Skipping Indexes
+For columns not in the `ORDER BY` key, use secondary data skipping indexes (`minmax`, `set`, `bloom_filter`) to prevent full column scans:
+
+```sql
+CREATE TABLE events (
+    timestamp DateTime,
+    event_type String,
+    user_id UInt64,
+    data String,
+    INDEX idx_user user_id TYPE minmax GRANULARITY 3,
+    INDEX idx_data data TYPE tokenbf_v1(256, 2, 0) GRANULARITY 3
+) ENGINE = MergeTree()
+ORDER BY (timestamp, event_type);
+```
+
+### 4. Use Appropriate Data Types
 
 | Use Case | Type | Why |
 |----------|------|-----|
@@ -104,8 +117,8 @@ ORDER BY (date, user_id, event_type)
 | Nullable only if needed | `Nullable(T)` | Adds overhead |
 | IPs | `IPv4` or `IPv6` | 4 bytes vs 16+ |
 
-### 4. Batch Inserts
-Never insert row-by-row. ClickHouse is optimized for batch writes:
+### 5. Batch Inserts
+Use batch inserts exclusively. ClickHouse is optimized for batch writes:
 
 ```bash
 # Good: batch insert
@@ -118,7 +131,7 @@ for row in data:
 
 Minimum batch: 1,000 rows. Optimal: 10,000-100,000 rows.
 
-### 5. Prewarm Queries with FINAL
+### 6. Prewarm Queries with FINAL
 Queries on ReplacingMergeTree/CollapsingMergeTree need `FINAL` for accuracy:
 
 ```sql
@@ -131,7 +144,7 @@ SELECT * FROM users FINAL WHERE id = 123;
 
 `FINAL` has performance cost. For dashboards, consider materialized views.
 
-### 6. Materialized Views for Speed
+### 7. Materialized Views for Speed
 Pre-aggregate expensive computations:
 
 ```sql
@@ -146,7 +159,7 @@ FROM events
 GROUP BY hour, event_type;
 ```
 
-### 7. Check System Tables First
+### 8. Check System Tables First
 Before debugging, check system tables:
 
 ```sql
@@ -235,24 +248,13 @@ No external services contacted. All queries run against user-specified ClickHous
 ## Security & Privacy
 
 **Data saved locally (with user consent):**
-- Connection profiles (host, port, database) in ~/Clawic/data/clickhouse/memory.md
+- Connection profiles (host, port, database) in <state_root>/memory.md
 - Query patterns and schema documentation
 - Authentication method preferences (password vs certificate)
 
-**Important:** If you provide database passwords, they are stored in plain text in ~/Clawic/data/clickhouse/. Consider using environment variables or connection profiles managed by clickhouse-client instead.
+**Important:** If you provide database passwords, they are stored in plain text in <state_root>/. Consider using environment variables or connection profiles managed by clickhouse-client instead.
 
-**This skill does NOT:**
-- Connect to any ClickHouse without explicit user configuration
-- Send data to external services
-- Automatically collect or store credentials without asking
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `sql` — SQL query patterns
-- `analytics` — data analysis workflows
-- `data-analysis` — structured data exploration
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/clickhouse
-- Latest version: https://clawic.com/skills/clickhouse
+**Operating boundaries:**
+- Connect only to ClickHouse instances the user explicitly configures
+- Keep all queries and state local to the user-specified instance and `<state_root>`
+- Ask before storing credentials; prefer env vars or clickhouse-client profiles over plaintext passwords
