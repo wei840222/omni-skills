@@ -69,7 +69,7 @@ curl -H "Authorization: Bearer $JWT" https://api.appstoreconnect.apple.com/v1/ap
 
 ### Rate limits
 - 3600 requests per hour per key
-- Use pagination, don't poll excessively
+- Use pagination and respect API rate limits
 
 ---
 
@@ -106,14 +106,14 @@ credentials = service_account.Credentials.from_service_account_file(
 ## CI/CD Pipeline Tips
 
 ### Secrets management
-- Never commit certificates, .p8 files, or JSON credentials
+- Keep certificates, .p8 files, and JSON credentials secure outside of version control
 - Use CI secrets (GitHub Secrets, GitLab Variables)
 - Match stores certs in encrypted git repo
 
 ### Build numbers
 - iOS: Increment automatically per CI run
 - Android: Use versionCode = CI build number or timestamp
-- Both: Never reuse build numbers
+- Both: Always use unique build numbers for every upload
 
 ### Caching
 - Cache Pods/node_modules/Gradle dependencies
