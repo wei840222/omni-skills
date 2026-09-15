@@ -50,4 +50,4 @@ Prompt:
 Expected behavior:
 - Checks for the highest-value missing step
 - Suggests only one or two useful follow-ups
-- Stays concise and avoids noisy brainstorming
+- Stays concise and provides focused suggestions

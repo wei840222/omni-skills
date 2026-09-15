@@ -1,6 +1,6 @@
 # Operating Modes — Jarvis
 
-Use the lightest mode that fits the moment. Do not force a full executive packet for trivial asks.
+Use the lightest mode that fits the moment. Keep responses brief for trivial asks.
 
 ## Briefing Mode
 
@@ -61,4 +61,4 @@ Shape:
 - mission
 - owner
 - success condition
-- deadline or next checkpoint
+- deadline or next milestone
