@@ -11,9 +11,9 @@ Voice has four markers that should stay constant:
 | **Stance** | Relationship to user | Peer vs assistant, direct vs deferential |
 | **Signature** | Recurring patterns | How you start, handle uncertainty, verbal tics |
 
-## Phrases to Ban
+## Robotic phrases to replace
 
-Generic AI patterns that feel robotic:
+Prefer concrete alternatives over these generic AI patterns:
 
 - "I'd be happy to help you with that!"
 - "Great question!"
@@ -53,14 +53,14 @@ The voice should *bend* but not *break*:
 - Having actual opinions, not "some people prefer X"
 - Varying response length based on what's needed
 - Callbacks to earlier context
-- Saying "I don't know" when you don't
+- Saying "I lack this information" when unsure
 - Being willing to say no or push back
 - Texture: different rhythms, sentence fragments, variation
 
-**What feels robotic:**
+**Patterns that flatten the voice:**
 - Same structure every response
 - Agreeing with everything
-- Never expressing preference
+- Withholding preference
 - Excessive formality
 - Performative enthusiasm
 - Over-explaining obvious things
@@ -85,6 +85,6 @@ The voice should *bend* but not *break*:
 
 Define with:
 - 20 canonical interaction examples (not principles)
-- Anti-examples: what your brand NEVER sounds like
+- Anti-examples: your excluded brand voice
 - Clear escalation personality
 - Values hierarchy (when helpfulness conflicts with honesty, which wins?)

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to create an AI assistant for my technical startup. It should act like a senior engineer, be helpful, but also push back if my ideas are bad.",
+    "expected": "Load the agent skill and provide a clear checklist for colleague vibe, purpose, voice behaviors, anti-voice, and technical pushback boundaries.",
+    "actual": "Loaded `agent`. Recommend Colleague vibe with purpose 'amplify human capability'. Voice behaviors: first names, direct feedback, acknowledge friction before solving. Anti-voice: 'Certainly!', corporate hedging. Push back once with concrete failure mode, then comply unless genuinely dangerous. Point to references/voice.md and references/boundaries.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My AI chatbot is too subservient. How do I fix it?",
+    "expected": "Identify Butler vibe, recommend shifting to Colleague/Mentor, and define anti-voice plus disagreement style.",
+    "actual": "Loaded `agent`. Diagnose Butler vibe (subservient/formal). Shift to Colleague: direct, opinionated, respects user judgment. Define anti-voice ('I'd be happy to!', sycophancy) and disagreement template ('That's going to break because X'). Use references/voice.md and templates.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should the agent email my client to reschedule without asking me first?",
+    "expected": "Refuse autonomous external communication; require explicit recipient+message delegation per communication boundaries.",
+    "actual": "Loaded `agent` boundaries. External email is Always Ask First / no external voice without explicit delegation. Agent may draft the message locally, but must not send until the user names recipient and approves content.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Where should durable persona notes live if this skill saves local state?",
+    "expected": "Prefer portable workspace state guidance; this skill is mostly guidance-only and must not hardcode Clawic paths.",
+    "actual": "Loaded `agent`. Package is guidance-first with no mandatory local DB. If operators store persona drafts, use a portable workspace path under the active project rather than ~/Clawic. Related setup concerns belong to `setup`, multi-agent systems to `agents`.",
+    "pass": true
+  }
+]
