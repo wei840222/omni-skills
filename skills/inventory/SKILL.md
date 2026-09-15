@@ -1,115 +1,135 @@
 ---
 name: inventory
-slug: inventory
-version: 1.0.0
-description: Build a personal inventory system for home items, valuables, and equipment tracking.
-homepage: https://clawic.com/skills/inventory
+description: Maintain a markdown-based personal inventory system in <state_root>/inventory/ for tracking valuable items, locations, warranties, and insurance claims. Trigger when the user mentions acquiring new valuables or asks where an item is located.
 metadata:
-  clawdbot:
-    emoji: 📦
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Inventory
+  version: "1.0.1"
+  openclaw: '{"emoji":"📦"}'
+  related-skills:
+    home: skills/home
 ---
 
-## Core Behavior
+## State location
+
+Inventory records are persistent user state. Before reading or writing them, resolve `<state_root>` once for this invocation:
+
+1. Use a user- or host-configured state root when one is explicitly provided.
+2. Otherwise use the first existing directory in this order: `<workspace>/inventory/`, `<workspace>/memory/inventory/`, then `~/inventory/`.
+3. If more than one candidate exists, use only the highest-precedence directory and report the duplicate state locations; do not merge or synchronize them.
+4. If none exists and the user confirms saving inventory data, create `<workspace>/inventory/`. If `<workspace>` is unavailable, ask for a state root instead of guessing from the current directory.
+
+Use the selected `<state_root>` for every inventory read or write. Keep skill resources under `references/`; never treat them as mutable user state.
+
+## When to load
+
+Load this skill when the user mentions acquiring valuables, asks to locate an item, needs warranty follow-up, or prepares an insurance claim or move. Focus on electronics, jewelry, items with warranties, and easily lost durable goods.
+
+## Core behavior
+
 - User mentions owning something valuable → offer to catalog
-- Track location, value, warranty → findable and insurable
-- Moving or decluttering → surface relevant items
-- Create `~/Clawic/data/inventory/` as workspace
+- Track location, value, warranty → keep items findable and insurable
+- Moving or decluttering → surface relevant items from the resolved inventory tree
+- Create `<state_root>/inventory/` only after the state-root resolution above
 
-## When To Catalog
-- Valuable items: electronics, jewelry, instruments
-- Items with warranties: appliances, furniture
-- Things you lose: tools, cables, seasonal items
-- Collectibles: books, records, art
-- For insurance: document everything worth claiming
+For source-backed insurance and documentation notes, load `references/sources.md`.
 
-## Item Entry
+## Item entry
+
+Record at least:
+
 - Name and description
 - Location: room, drawer, box, storage unit
-- Purchase date and price (if known)
+- Purchase date and price when known
 - Current estimated value
-- Photo for identification
-- Receipt/warranty if available
+- Photo for identification when available
+- Receipt or warranty details when available
 
-## File Structure
-```
-~/Clawic/data/inventory/
-├── electronics/
-│   ├── macbook-pro-2023.md
-│   └── tv-living-room.md
-├── kitchen/
-├── garage/
-├── storage/
-├── index.md
-└── for-insurance.md
+## File structure
+
+```text
+<state_root>/inventory/
+|-- electronics/
+|   |-- macbook-pro-2023.md
+|   `-- tv-living-room.md
+|-- kitchen/
+|-- garage/
+|-- storage/
+|-- index.md
+`-- for-insurance.md
 ```
 
-## Location Tracking
+## Location tracking
+
 - Be specific: "garage, shelf 3, red toolbox"
-- Update when moved — stale locations frustrate
-- "Where is X?" should have instant answer
-- Seasonal items: note when stored/retrieved
+- Update when moved — stale locations frustrate later lookup
+- "Where is X?" should have an instant answer from the inventory files
+- Seasonal items: note when stored or retrieved
 
-## Value Tracking
-- Purchase price vs current value
-- Depreciation for electronics: rough estimate fine
+## Value tracking
+
+- Purchase price vs current estimated value
+- Depreciation for electronics: a rough estimate is enough
 - Appreciation for collectibles: update periodically
-- Total insured value: sum for insurance purposes
+- Total insured value: sum relevant items for insurance purposes
 
-## Warranty Management
+## Warranty management
+
 - Expiration date
-- What's covered
-- How to claim
+- Coverage scope
+- Claim path
 - Registration confirmation
-- Alert before warranty expires
+- Follow up before a warranty expires
 
-## Photos
+## Photos and evidence
+
 - One clear photo minimum for valuables
-- Serial number visible if applicable
+- Serial number visible when applicable
 - Condition documentation for insurance
-- Store in item folder or link from file
+- Store photos in the item folder or link them from the item file
 
-## Progressive Enhancement
+## Progressive enhancement
+
 - Week 1: catalog high-value items only
 - Week 2: add electronics with warranties
-- Month 2: room by room inventory
+- Month 2: room-by-room inventory
 - Yearly: audit and update values
 
-## Insurance Preparation
-- Generate list of items over $X value
-- Total replacement value calculation
-- Photos and receipts organized
+## Insurance preparation
+
+- Generate a list of items over a user-chosen value threshold
+- Calculate total replacement value
+- Keep photos and receipts organized under the resolved tree
 - Update after major purchases
 
-## Moving Support
-- Filter by room: what's in the bedroom?
-- Box tracking: which box has what
+## Moving support
+
+- Filter by room: what is in the bedroom?
+- Box tracking: which box holds what
 - Unpacking checklist: verify arrival
-- New location updates
+- Update locations after the move
 
-## Decluttering Support
-- Filter by last used date if tracked
-- "Haven't used in 2 years" candidates
-- Value check: worth selling?
-- Donation tracking for tax purposes
+## Decluttering support
 
-## Serial Numbers and Receipts
-- Serial numbers for electronics: theft recovery
-- Receipt photos or PDFs linked
-- Purchase confirmation emails saved
-- AppleCare, extended warranties noted
+- Filter by last-used date when tracked
+- Surface long-unused candidates for review
+- Value check before selling
+- Donation tracking for tax purposes when the user asks
 
-## What To Surface
+## Serial numbers and receipts
+
+- Serial numbers for electronics support theft recovery
+- Link receipt photos or PDFs
+- Save purchase confirmation references when available
+- Note AppleCare or other extended warranties
+
+## What to surface
+
 - "Warranty expires next month on dishwasher"
 - "You have 3 HDMI cables in the office drawer"
 - "Total electronics value: €X"
-- "When did I buy the drill?" → instant answer
+- "When did I buy the drill?" → answer from the inventory file
 
 ## Categories
+
 - Electronics: computers, phones, TVs, audio
 - Appliances: kitchen, laundry, climate
 - Furniture: major pieces worth insuring
@@ -118,26 +138,32 @@ metadata:
 - Collections: books, records, games
 - Outdoor: bikes, sports equipment
 
-## What NOT To Suggest
-- Cataloging every small item — focus on valuable/losable
-- Complex asset management software
-- Obsessive organization — practical beats perfect
-- Tracking consumables — that's shopping list territory
+## Reliable defaults
 
-## Lending Tracking
-- Item lent to whom, when
+| Prefer | Practice |
+| --- | --- |
+| Valuable or easily lost items | Skip cataloging every small consumable |
+| Simple markdown under `<state_root>` | Avoid complex asset-management software unless the user asks |
+| Durable goods | Redirect consumables to a shopping-list workflow |
+| Confirm before bulk moves | Keep reorganization reversible |
+
+## Lending tracking
+
+- Item lent to whom and when
 - Expected return date
-- Reminder if not returned
-- "Who has my drill?" → instant answer
+- Follow up on unreturned items
+- "Who has my drill?" → answer from inventory notes
 
-## Maintenance Tracking
+## Maintenance tracking
+
 - Items needing regular maintenance
 - Last serviced date
-- Service schedule: HVAC filters, etc.
-- Link to home maintenance if using that system
+- Service schedule such as HVAC filters
+- Link to home-maintenance context via `skills/home` when relevant
 
-## Integration Points
-- Home: maintenance schedules
+## Integration points
+
+- Home: maintenance schedules (`skills/home`)
 - Receipts: purchase documentation
 - Insurance: claims preparation
 - Moving: box contents tracking
