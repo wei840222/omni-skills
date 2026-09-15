@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| clickhouse | 2026-09-15 | 85/100 (#414) |
 | brazil | 2026-09-15 | 85/100 (#413) |
 | brave | 2026-09-15 | 85/100 (#412) |
 | gaokao | 2026-09-15 | 85/100 (#411) |
