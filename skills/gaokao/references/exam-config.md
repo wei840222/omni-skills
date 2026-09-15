@@ -11,7 +11,7 @@
 
 ### Elective System
 
-**3+1+2 Model (most provinces):**
+**3+1+2 Model (majority of provinces as of 2024 reform):**
 - Choose 1 from: 物理 (Physics) OR 历史 (History) — 100 points raw
 - Choose 2 from: 化学, 生物, 政治, 地理 — 100 points each (scaled)
 - Total: 750 points
@@ -37,7 +37,7 @@ For scaled subjects, raw scores convert to ranks:
 
 Major differences by province:
 - **Beijing/Shanghai**: Lower competition, higher cutoffs
-- **Henan/Shandong**: Extreme competition, 1M+ test takers
+- **Henan/Shandong**: Extreme competition (provincial volumes often 1M+; national 2024 registration commonly reported ~13.42M — verify via `references/sources.md`)
 - **Jiangsu**: Historically harder math papers
 - **Zhejiang**: 3+3 system, multiple English attempts
 

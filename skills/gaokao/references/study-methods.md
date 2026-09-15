@@ -54,7 +54,7 @@
 
 ### Flashcard File Format
 
-`~/Clawic/data/gaokao/flashcards/{subject}.md`:
+`<state_root>/flashcards/{subject}.md`:
 ```markdown
 # 数学公式卡
 
@@ -82,7 +82,7 @@
 | **Concept** | Didn't understand | Re-learn fundamentals |
 | **Method** | Wrong approach | Learn correct method |
 | **Time** | Ran out of time | Practice speed |
-| **Novel** | Never seen this type | Expand problem bank |
+| **Novel** | Unfamiliar problem type | Expand problem bank |
 
 ### 2. Error Notebook (错题本)
 
@@ -108,7 +108,7 @@ Wrong problems return for review:
 ## Subject-Specific Strategies
 
 ### 数学
-1. **压轴题策略**: Don't aim for full points — secure 6-8/12 first
+1. **压轴题策略**: Secure the first 6-8/12 points before attempting the hardest parts
 2. **时间分配**: Multiple choice 35min, fill-in 15min, problems 70min
 3. **验算习惯**: Budget 5min at end for checking
 
