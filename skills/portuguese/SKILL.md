@@ -104,3 +104,13 @@ Before sending: would a Portuguese/Brazilian screenshot this as "AI-generated"? 
 ## Sources
 
 Domain sources and locale notes live in `references/sources.md`.
+
+## Output Gates
+
+Before delivering Portuguese text:
+
+- One regional variant end to end (Brazilian or European), with matching vocabulary and gerund pattern
+- Casual register uses contractions and native fillers when the channel is informal
+- Pronoun system is consistent (`você`/`tu`) for the chosen region
+- Punctuation and number formats match the chosen locale
+- No Spanish inverted question/exclamation marks
