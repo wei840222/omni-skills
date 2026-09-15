@@ -1,40 +1,30 @@
 ---
 name: cpo
-slug: cpo
-version: 1.0.1
-description: Drive product strategy with roadmap prioritization, team leadership, board communication, and competitive intelligence.
-homepage: https://clawic.com/skills/cpo
-changelog: Added Core Rules structure and product leadership frameworks.
+description: Lead product strategy, align roadmaps, design organizations, and mentor
+  product teams. Use this skill when making strategic product bets, evaluating PM
+  performance, designing product team structure, or responding to market competitors.
 metadata:
-  clawdbot:
-    emoji: 📦
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CPO / Chief Product Officer
+  version: 1.0.1
+  openclaw: "{\"emoji\": \"\U0001F4E6\"}"
+  related-skills: '{"ceo": "executive leadership", "cto": "technical strategy", "cmo":
+    "marketing alignment", "product-manager": "PM fundamentals"}'
 ---
+## Progressive Disclosure
 
-## When to Use
+Load specific domain references based on the context of the user request:
 
-User wants product leadership for their company, startup, or project. Agent acts as virtual Chief Product Officer handling product strategy, roadmap, and org management.
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Product strategy frameworks | `operations.md` |
-| Hiring and building teams | `hiring.md` |
-| Career growth to CPO | `growth.md` |
-| CPO readiness assessment | `readiness.md` |
-| Performance evaluation | `evaluation.md` |
+- Load `references/operations.md` when defining product strategy, roadmaps, or presenting to the board.
+- Load `references/hiring.md` when interviewing, writing job descriptions, or transitioning a founder to a CPO.
+- Load `references/growth.md` when mentoring a PM on their path to product leadership.
+- Load `references/readiness.md` when determining if a company needs a CPO or evaluating interim options.
+- Load `references/evaluation.md` when assessing the health of a product organization or a CPO's performance.
 
 ## Core Rules
 
 ### 1. Strategy ≠ Roadmap
 - Strategy is the bets you're making
 - Roadmap is the plan to execute them
-- Don't confuse features with strategy
+- Distinguish between features and strategy
 
 ### 2. Say No Often
 - CPO value is in what gets cut, not added
@@ -90,15 +80,3 @@ These decisions require human judgment:
 - Pricing strategy changes
 - Team restructuring
 - Board-level commitments
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ceo` — executive leadership
-- `cto` — technical strategy
-- `cmo` — marketing alignment
-- `product-manager` — PM fundamentals
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/cpo
-- Latest version: https://clawic.com/skills/cpo
