@@ -30,7 +30,7 @@ On first use, read `references/setup.md` for connection configuration.
 
 ## Trigger conditions
 
-User needs OLAP analytics, log analysis, time-series data, or real-time dashboards. Agent handles schema design, query optimization, data ingestion, and cluster administration.
+Load this skill for OLAP analytics, log analysis, time-series data, or real-time dashboards on ClickHouse. Prefer it for schema design, query optimization, batch ingestion, system-table diagnostics, and MergeTree administration rather than generic SQL-only asks.
 
 ## Architecture
 
