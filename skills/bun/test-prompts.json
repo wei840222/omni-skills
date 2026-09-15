@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm migrating from Node.js to Bun and my code uses `__dirname`. How should I update this?",
+    "expected": "Advises replacing `__dirname` with `import.meta.dir` as it doesn't exist in ESM under Bun.",
+    "actual": "To migrate from Node.js to Bun, you should replace `__dirname` with `import.meta.dir`, as `__dirname` is not available in ES Modules in Bun.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm bundling my app with `bun build --target=browser` and it's crashing at runtime because of `fs` being undefined. Why?",
+    "expected": "Explains that `--target=browser` strips Node APIs silently. Build succeeds but crashes at runtime.",
+    "actual": "When using `--target=browser`, Bun silently strips Node.js built-in APIs like `fs`. The build succeeds, but it crashes at runtime because those modules aren't included in browser bundles.",
+    "pass": true
+  }
+]
