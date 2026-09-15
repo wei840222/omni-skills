@@ -7,7 +7,7 @@
 | Login loop | Cookies, cross-site sign-in flow, and aggressive blocking |
 | Video or audio missing | Media permissions and blocked scripts |
 | Checkout or payment page fails | Blocked third-party scripts, popups, or embedded frames |
-| Page never finishes loading | Script blocking, extension conflict, or bad cached state |
+| Page fails to finish loading | Script blocking, extension conflict, or bad cached state |
 | Site works in Chrome but not Brave | Per-site Shields, extension set, and profile difference |
 
 ## Recovery Order
@@ -36,4 +36,4 @@ Write to `sites.md` only when the pattern is durable:
 - a known extension always breaks a workflow
 - a profile or flag consistently changes the result
 
-Do not save one-off failures caused by temporary outages.
+Save incidents only when they reflect persistent site behavior rather than temporary outages.

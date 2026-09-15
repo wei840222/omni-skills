@@ -1,42 +1,27 @@
 ---
 name: brave
-slug: brave
-version: 1.0.0
-description: Operate, automate, and troubleshoot Brave Browser with profiles, Shields, extensions, and Chromium debugging workflows.
-homepage: https://clawic.com/skills/brave
-changelog: Initial release with profile workflows, site-compatibility diagnostics, extension handling, and browser recovery playbooks.
+description: Manage Brave Browser profiles, troubleshoot Shields site compatibility, handle extension conflicts, and execute Chromium debugging workflows.
 metadata:
-  clawdbot:
-    emoji: 🦁
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/brave/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/brave/
-    displayName: Brave Browser
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/brave/
+  openclaw: '{"emoji": "🦁", "requires": {"config": ["<state_root>/brave/"]}, "configPaths":
+    ["<state_root>/brave/"]}'
+  related-skills:
+    chrome: skills/chrome
+    playwright: skills/playwright
+    puppeteer: skills/puppeteer
+    macos: skills/macos
+    web: skills/web
 ---
 
-## When to Use
+## When to load
 
-User needs help with Brave Browser itself, not generic browsing advice. Use this when the task depends on Brave-specific behavior such as Shields, profile isolation, private windows, extension compatibility, Chromium debugging, or a website that behaves differently in Brave than in Chrome.
-
-Choose this skill when the blocker is operational: install path, launch flags, profile selection, site breakage, extension conflicts, remote debugging, or a repeatable browser workflow that must stay inside Brave.
+Load this skill to resolve operational blocks involving Brave Browser, such as profile path management, Shields site compatibility overrides, extension state, or Chromium remote-debugging configuration.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/brave/`. If `~/Clawic/data/brave/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/brave/`. If `<state_root>/brave/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/brave/
+<state_root>/brave/
 |-- memory.md          # Durable activation rules, OS facts, and safety boundaries
 |-- profiles.md        # Known profiles, purpose, and launch notes
 |-- sites.md           # Site-specific Shields overrides and known-good fixes
@@ -50,13 +35,13 @@ Load only the smallest file needed for the current blocker.
 
 | Topic | File |
 |-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Launch commands and profile strategy | `launch-and-profiles.md` |
-| Shields and site-breakage recovery | `shields-and-compatibility.md` |
-| Brave automation and DevTools workflows | `automation-and-debugging.md` |
-| Extensions, sync, wallet, and private windows | `extensions-and-wallet.md` |
-| Failure recovery and cleanup order | `troubleshooting.md` |
+| Setup guide | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Launch commands and profile strategy | `references/launch-and-profiles.md` |
+| Shields and site-breakage recovery | `references/shields-and-compatibility.md` |
+| Brave automation and DevTools workflows | `references/automation-and-debugging.md` |
+| Extensions, sync, wallet, and private windows | `references/extensions-and-wallet.md` |
+| Failure recovery and cleanup order | `references/troubleshooting.md` |
 
 ## Requirements
 
@@ -77,7 +62,7 @@ This skill is for operating Brave as a browser platform, not for generic web sea
 
 ## Data Storage
 
-Keep only durable Brave operating context in `~/Clawic/data/brave/`:
+Keep only durable Brave operating context in `<state_root>/brave/`:
 - approved profiles and what each one is for
 - known site fixes and whether they are per-site or global
 - allowed automation posture, remote-debugging defaults, and no-go actions
@@ -88,27 +73,27 @@ Keep only durable Brave operating context in `~/Clawic/data/brave/`:
 ### 1. Identify the Exact Brave Surface Before Acting
 - Lock four facts first: OS, install path, target profile, and whether the issue is launch, browsing, extension, or automation related.
 - Brave problems often look like "the browser is broken" when the real cause is the wrong profile or a stale flag.
-- Do not change settings until the target surface is explicit.
+- Change settings only after confirming the target surface.
 
 ### 2. Treat Shields as the First Compatibility Check
 - When a site loops on login, breaks scripts, hides media, or blocks checkout, inspect Brave Shields before assuming the site itself is bad.
 - Prefer per-site fixes before global relaxations so privacy defaults stay intact elsewhere.
-- Use `shields-and-compatibility.md` to move from symptom to the smallest reversible change.
+- Use `references/shields-and-compatibility.md` to move from symptom to the smallest reversible change.
 
 ### 3. Keep Profiles Separate by Risk and Purpose
 - Use one stable daily profile and separate profiles for testing, automation, or risky extensions.
-- Do not debug a broken production login inside the same profile used for experiments.
+- Debug broken production logins in their dedicated profile, away from experiments.
 - If a fresh profile fixes the issue, record that before touching the main profile.
 
 ### 4. Reuse Chromium Tooling, But Verify Brave-Specific Behavior
 - Brave supports Chromium-style automation, but Shields, built-in blockers, and profile choices can change outcomes.
-- Use `automation-and-debugging.md` when attaching Playwright, Puppeteer, or a DevTools client.
+- Use `references/automation-and-debugging.md` when attaching Playwright, Puppeteer, or a DevTools client.
 - A workflow that passes in Chrome is not proof that it will pass in Brave without adjustment.
 
 ### 5. Treat Extensions, Sync, Wallet, and Private Windows as Trust Boundaries
 - Extension installs, sync enablement, wallet access, and private-window workflows affect sensitive user state.
 - Ask before changing permissions, importing state, or enabling anything that broadens data exposure.
-- Never present private windows or Tor-based browsing as a way to bypass site restrictions or anti-fraud controls.
+- Treat private windows and Tor-based browsing as privacy tools, keeping site restrictions and anti-fraud controls intact.
 
 ### 6. Change One Variable at a Time
 - When diagnosing, isolate profile, Shields, extension set, launch flag, or remote-debugging state instead of changing several together.
@@ -118,7 +103,7 @@ Keep only durable Brave operating context in `~/Clawic/data/brave/`:
 ### 7. Verify in the Browser, Not Only in the Command Output
 - A launch command succeeding does not prove the right window, profile, or site state is live.
 - Confirm the actual browser state: expected profile opened, extension loaded, site behavior changed, or DevTools endpoint became reachable.
-- If the expected state is not visible, stop and switch to a safer fallback.
+- If the expected state is not visible, pause and switch to a safer fallback.
 
 ## Brave Traps
 
@@ -138,7 +123,7 @@ Data that may leave your machine:
 
 Data that stays local:
 - browser state already stored by Brave in its own profile directories
-- durable operating notes under `~/Clawic/data/brave/` if the user approves persistence
+- durable operating notes under `<state_root>/brave/` if the user approves persistence
 
 This skill does NOT:
 - use undeclared remote APIs by default
@@ -153,21 +138,15 @@ This skill ONLY:
 - structures profile, Shields, extension, and automation work into reversible steps
 - keeps durable notes for approved profiles, site fixes, and recurring incidents
 
-This skill NEVER:
+Required restrictions:
 - act as a generic search-engine skill
 - require the user to adopt sync, wallet, or private-window workflows they did not ask for
 - store secrets, passwords, or full browsing history in its own memory files
 - modify its own skill files
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `chrome` - Reuse Chromium debugging patterns when the issue is not Brave-specific.
 - `playwright` - Automate and verify web flows after the Brave launch surface is stable.
 - `puppeteer` - Drive DevTools and Chromium automation with lower-level script control.
 - `macos` - Handle macOS app paths, permissions, and automation details around Brave on Apple systems.
 - `web` - Fetch or inspect web content after the browser environment is behaving correctly.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/brave
-- Latest version: https://clawic.com/skills/brave
