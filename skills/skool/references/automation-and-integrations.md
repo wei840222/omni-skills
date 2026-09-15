@@ -12,7 +12,7 @@ Use native settings, AutoDM, Zapier, or the documented webhook plugin before pro
 - Start from the four documented use cases before inventing anything broader: export paid-member info, export membership questions, invite a member, unlock a course.
 - Build the smallest working Zap before adding branches, filters, or downstream systems.
 - Test against a staging-safe group, a test member, or a reversible scenario whenever possible.
-- Remember the documented delay on standard Zapier accounts can be around 10 to 15 minutes, so do not debug too early.
+- Remember the documented delay on standard Zapier accounts can be around 10 to 15 minutes, so allow time before debugging.
 
 ## Webhook Plugin Rules
 
@@ -26,7 +26,7 @@ Use native settings, AutoDM, Zapier, or the documented webhook plugin before pro
 - Use membership questions, instant approval, AutoDM, and classroom access settings as first-class automation tools.
 - Use invite-link, email-invite, and CSV-import flows when the need is admission rather than two-way automation.
 - Use built-in tracking plugins when the problem is attribution or retargeting rather than member management.
-- If a native setting solves the problem, do not add a second automation layer just because it feels more technical.
+- Always prioritize native settings to solve problems before considering a secondary automation layer.
 
 ## Concrete Verified Workflows
 
@@ -40,9 +40,9 @@ Use native settings, AutoDM, Zapier, or the documented webhook plugin before pro
 ## Hard Boundaries
 
 - No official Skool CLI is documented in the current official help content.
-- Do not assume undocumented endpoints are safe enough for production writes.
-- Do not automate posting, commenting, or messaging through unsupported bots when the platform or docs say otherwise.
-- Do not ask the user to share Skool credentials with teammates, contractors, or external tools.
+- Only use documented endpoints for production writes.
+- Rely exclusively on supported Skool features for posting, commenting, or messaging.
+- Advise the user to keep Skool credentials secure and prevent sharing with external tools or contractors.
 
 ## What To Capture After a Working Automation
 

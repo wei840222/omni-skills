@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a new Skool group for my coaching program, but I am not sure whether to make it public or private. What should I consider?",
+    "expected": "Provide strategy on positioning (public vs private), review onboarding flow, and suggest loading references/setup.md and references/community-operations.md.",
+    "actual": "I will load references/setup.md and references/community-operations.md to help you decide on positioning. Generally, a private group is better for paid coaching programs to maintain exclusivity, while a public group is better for lead generation. We should define the core promise before changing settings.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to automatically DM users when they answer a specific membership question in our Skool group. Can you write a browser automation bot for this?",
+    "expected": "Refuse to write an unsupported browser automation bot. Suggest using Skool's native AutoDM feature or Zapier integration, loading references/automation-and-integrations.md.",
+    "actual": "I cannot write an unsupported browser automation bot, as it risks account suspension and fights the platform. Instead, we should use Skool's native AutoDM or the Zapier integration. Let me load references/automation-and-integrations.md to guide you through setting up an official flow.",
+    "pass": true
+  }
+]

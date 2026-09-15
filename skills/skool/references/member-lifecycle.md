@@ -24,7 +24,7 @@ Every automation, question, course unlock, and event should move one step of tha
 - Activation means more than joining. It means first lesson, first comment, first event, or first completed action.
 - Use AutoDM, welcome posts, and classroom structure to create one obvious next move.
 - Use built-in variables and preview in AutoDM rather than hand-waving the first-touch message.
-- Remove dead ends where members arrive but do not know where to start.
+- Ensure new members immediately understand their next step to avoid dead ends.
 
 ## Retention
 
@@ -42,4 +42,4 @@ Every automation, question, course unlock, and event should move one step of tha
 
 - invites, removals, and access grants are write operations
 - pricing, trials, and level unlocks should be checked twice
-- never assume the admin view matches the member view
+- Always verify the member view separately from the admin view

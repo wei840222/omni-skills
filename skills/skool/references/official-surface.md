@@ -27,10 +27,10 @@ Use this file when the task depends on what Skool officially supports right now.
 
 ## Current Hard Boundaries
 
-- Do not assume there is an official CLI unless live docs show one.
-- Do not assume direct write endpoints are stable unless current docs or a verified integration contract show them.
-- Do not normalize posting bots, comment bots, or DM bots outside supported Skool features.
-- Do not suggest sharing Skool account credentials with third parties; official help explicitly warns creators not to share credentials.
+- Treat Skool as a web product without a CLI unless official live docs demonstrate otherwise.
+- Use only write endpoints verified by current docs or official integration contracts.
+- Limit posting, commenting, and DMs to officially supported Skool features.
+- Remind users that official help explicitly warns against sharing Skool account credentials.
 
 ## Plan and Feature Checks
 

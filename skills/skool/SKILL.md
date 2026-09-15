@@ -1,41 +1,23 @@
 ---
 name: skool
-slug: skool
-version: 1.0.0
-description: Operate Skool communities with onboarding, classroom planning, calendar cadence, official automations, and safer member lifecycle workflows.
-homepage: https://clawic.com/skills/skool
-changelog: Initial release with community operations, classroom and calendar workflows, official automation guidance, and member lifecycle controls.
+description: Load this when operating Skool groups to manage onboarding, classroom
+  structure, calendar cadence, member lifecycle workflows, and official automations
+  safely.
 metadata:
-  clawdbot:
-    emoji: SK
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/skool/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/skool/
-    displayName: Skool
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/skool/
+  openclaw: '{"emoji": "🎓"}'
 ---
 
-## When to Use
+## When to load
 
 User needs help running Skool as a real operating system, not just writing generic community advice.
 Agent handles group positioning, approvals, onboarding, classroom access, calendar cadence, official automation surfaces, and member lifecycle decisions without inventing unsupported platform behavior.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/skool/`. If `~/Clawic/data/skool/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/skool/`. If `<state_root>/skool/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/skool/
+<state_root>/skool/
 |-- memory.md        # Durable activation rules, group profile, and operating defaults
 |-- groups.md        # Group URLs, offer structure, and positioning notes
 |-- onboarding.md    # Membership questions, approval policy, and welcome flow decisions
@@ -48,16 +30,16 @@ Memory lives in `~/Clawic/data/skool/`. If `~/Clawic/data/skool/` does not exist
 
 Load only the smallest file that matches the current Skool blocker.
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory template | `memory-template.md` |
-| Official product surface and hard constraints | `official-surface.md` |
-| Group strategy and day-to-day operations | `community-operations.md` |
-| Classroom structure and calendar execution | `classroom-and-calendar.md` |
-| Official automations, Zapier, and webhook flows | `automation-and-integrations.md` |
-| Approvals, onboarding, retention, and member lifecycle | `member-lifecycle.md` |
-| Failure diagnosis and rollback moves | `troubleshooting.md` |
+| When to load | File |
+|--------------|------|
+| Setup and activation behavior | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Official product surface and hard constraints | `references/official-surface.md` |
+| Group strategy and day-to-day operations | `references/community-operations.md` |
+| Classroom structure and calendar execution | `references/classroom-and-calendar.md` |
+| Official automations, Zapier, and webhook flows | `references/automation-and-integrations.md` |
+| Approvals, onboarding, retention, and member lifecycle | `references/member-lifecycle.md` |
+| Failure diagnosis and rollback moves | `references/troubleshooting.md` |
 
 ## Requirements
 
@@ -88,11 +70,11 @@ These are the concrete Skool surfaces this skill should reason about before prop
 - manual grant and revoke of course access for level-unlock, buy-now, or private courses
 - official tracking plugins such as Google Ads, Meta pixel, and Hyros
 
-If a requested workflow cannot be mapped to one of these verified surfaces, stop treating it as standard Skool automation and make the limitation explicit.
+If a requested workflow cannot be mapped to one of these verified surfaces, explicitly state the limitation instead of treating it as standard Skool automation.
 
 ## Data Storage
 
-Keep only durable Skool operating context in `~/Clawic/data/skool/`:
+Keep only durable Skool operating context in `<state_root>/skool/`:
 - approved group URLs, plan context, and the business model behind the community
 - onboarding rules, membership question logic, and approval boundaries that the user confirmed
 - course unlock patterns, calendar cadence, and retention experiments worth reusing
@@ -108,11 +90,11 @@ Keep only durable Skool operating context in `~/Clawic/data/skool/`:
 ### 2. Separate Advice From Live Admin Writes
 - Auditing copy, structure, and funnel logic is safe by default.
 - Inviting members, removing members, changing access, unlocking courses, or sending automations are real write operations and must be previewed before execution.
-- Never blur strategy mode with live admin mode.
+- Maintain strict separation between strategy mode and live admin mode.
 
 ### 3. Use Only Officially Supported Automation Surfaces
 - Prefer native Skool behavior first, then official plugins such as Zapier, AutoDM, or the documented webhook plugin where applicable.
-- Do not invent unsupported posting bots, comment bots, or DM bots just because browser automation is technically possible.
+- Stick to officially supported Skool features instead of inventing unsupported browser automation bots.
 - If a task needs direct API usage, verify the current documented surface first and keep the workflow narrow.
 
 ### 4. Treat Access Control as the Highest-Risk Layer
@@ -130,7 +112,7 @@ Keep only durable Skool operating context in `~/Clawic/data/skool/`:
 
 ### 7. Store Durable Operating Patterns, Not Member Dossiers
 - Save group-level defaults, proven workflows, and incident lessons.
-- Do not store raw DMs, sensitive payment details, unnecessary personal stories, or full member histories in local notes.
+- Store only group-level operating patterns and group workflows in local notes, keeping personal member data out of memory.
 - Keep local memory useful enough to improve decisions and small enough to stay trustworthy.
 
 ## Common Traps
@@ -162,7 +144,7 @@ Data that leaves your machine:
 - any user-approved payloads needed for member invite or access workflows
 
 Data that stays local:
-- durable operating notes in `~/Clawic/data/skool/`
+- durable operating notes in `<state_root>/skool/`
 - group strategy, onboarding rules, classroom defaults, and incident logs unless the user exports them
 - rejected or draft automation plans that were never executed
 
@@ -185,21 +167,17 @@ This skill ONLY:
 - turns growth, onboarding, and access problems into reproducible operating decisions
 - keeps durable notes for approved defaults, automation boundaries, and recurring incidents
 
-This skill NEVER:
+Restricted actions (must seek approval or avoid):
 - treat unsupported automation as normal just because it can be scripted
 - bypass confirmation for live member-impacting changes
 - claim a feature exists without checking current Skool docs when exact behavior matters
 - turn local memory into a shadow CRM full of unnecessary member data
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
+More skills (install if the user confirms):
 - `community-manager` - extend Skool strategy into day-to-day moderation and operating rituals
 - `zapier` - wire approved Skool workflows into broader automation systems
 - `webhook` - harden delivery, retries, and verification around Skool webhook flows
 - `course` - improve curriculum structure and lesson sequencing inside the classroom
 - `growth` - connect Skool funnel work to broader acquisition and retention experiments
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/skool
-- Latest version: https://clawic.com/skills/skool
