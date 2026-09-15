@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| gaokao | 2026-09-15 | 85/100 (#411) |
 | cpo | 2026-09-15 | 85/100 (#410) |
 | copywriting | 2026-09-15 | 85/100 (#409) |
 | play-store | 2026-09-15 | 85/100 (#408) |
