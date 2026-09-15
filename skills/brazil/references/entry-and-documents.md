@@ -18,13 +18,13 @@
 
 - Yellow fever is not a universal urban-city issue, but it matters for some Brazil ecosystems.
 - If route includes Amazon, Pantanal, Iguacu area, or other interior nature zones, check official health guidance early and leave enough time before travel.
-- Do not promise last-minute vaccine solutions for remote-nature routes.
+- Recommend scheduling vaccines well in advance of remote-nature routes.
 
 ## Domestic Travel Documents
 
 - Keep the original passport accessible for domestic flights and border hops.
 - Store digital copies separately from the physical passport.
-- For multi-stop trips, note exactly where the passport is needed again: airport check-in, island flights, cross-border day trips, and hotel registration.
+- For multi-stop trips, specify where the passport is required (airport check-in, island flights, cross-border day trips, hotel registration).
 
 ## Planning Rules
 

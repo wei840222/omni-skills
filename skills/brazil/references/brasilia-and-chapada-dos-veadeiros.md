@@ -21,4 +21,4 @@
 
 - Better in a dry-season or shoulder-season logic for many users.
 - Heat, sun, and trail fatigue should be designed into the plan.
-- Pair cleanly with one city only; do not overbuild this into a mega-route.
+- Keep routing focused; pair this cleanly with just one other city.

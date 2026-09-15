@@ -16,7 +16,7 @@
 
 - 4 nights is the minimum for a satisfying first trip.
 - 5-6 nights works better if adding beaches, museums, Tijuca, or day trips.
-- Do not overstuff every day; heat, traffic, and beach downtime are part of the destination.
+- Pace itineraries with generous buffers for heat, traffic, and beach downtime.
 
 ## Who Should Not Default to Rio
 

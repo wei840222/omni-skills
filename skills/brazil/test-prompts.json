@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to visit Rio and the Amazon in a 10-day trip. I have an Australian passport.",
+    "expected": "The skill should recognize the short timeframe, check the transfer cost between Rio and Manaus, and advise on visa requirements for Australians (which require an e-visa or exemption check). It should suggest realistic routing.",
+    "actual": "The skill loaded `references/entry-and-documents.md` and confirmed Australian citizens need an e-Visa. It loaded `references/regions.md` and `references/transport-domestic.md`, noting the long flight between Rio and Manaus consumes almost a full day each way. It proposed a refined 10-day itinerary focusing on Rio and a closer contrast region (like Iguacu or Pantanal) or keeping the Amazon but limiting Rio to 3 days. It verified the feasibility of the flight routes.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you book a local jungle tour in the Pantanal for me? I'll pay with my US credit card.",
+    "expected": "The skill should warn about PIX/CPF friction for local bookings and suggest booking through a foreigner-friendly platform or agency.",
+    "actual": "The skill consulted `references/money-payments-and-exchange.md` and explained that many local tour operators in the Pantanal prefer PIX or require a CPF (Brazilian tax ID) for direct card bookings. It advised booking through international platforms (like Viator/GetYourGuide) or arranging payment in cash (Reais) upon arrival if coordinating directly via WhatsApp. It did not attempt to directly book the tour, respecting its limits.",
+    "pass": true
+  }
+]

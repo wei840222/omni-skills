@@ -10,7 +10,7 @@
 ### Rio de Janeiro
 - Best all-round first-time bases: Ipanema, Leblon, or the safer end of Copacabana if budget is tighter.
 - Santa Teresa works for atmosphere, but only if user accepts hills, taxis, and less beach immediacy.
-- Avoid ultra-cheap edge locations that force repeated late-night transport decisions.
+- Recommend central locations to minimize late-night transport decisions.
 
 ### Sao Paulo
 - Stronger default bases: Jardins, Pinheiros, Itaim Bibi, and parts of Vila Madalena depending on nightlife tolerance.

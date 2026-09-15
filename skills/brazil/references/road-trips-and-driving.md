@@ -1,6 +1,6 @@
 # Road Trips and Driving
 
-## Do Not Default to a Car
+## Restrict Car Recommendations
 
 - Car rental is great in Minas Gerais, parts of Santa Catarina, Chapada loops, and some coast or interior routes.
 - Car rental is often unnecessary or actively annoying in Rio and central Sao Paulo stays.
@@ -21,7 +21,7 @@
 
 ## Driving Rules
 
-- Avoid night driving on remote or unfamiliar stretches whenever possible.
+- Schedule driving exclusively during daylight on remote or unfamiliar stretches.
 - Budget for tolls, parking, and fuel instead of treating the car as a cost saver by default.
 - Check rain, landslide, or flood patterns before mountain or coast routes.
-- Use the rental company rulebook for foreign-license acceptance; do not guess.
+- Verify foreign-license acceptance directly with the rental company rulebook.

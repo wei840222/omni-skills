@@ -24,7 +24,7 @@
 
 ## Constraints
 - **Must-see places:**
-- **Must-avoid:**
+- **Explicit exclusions:**
 - **Weather tolerance:** [heat / humidity / rain / mosquitoes / rough sea]
 - **Arrival risk:** [late-night arrival / first time / low risk tolerance]
 - **Water comfort:** [non-swimmer / casual / strong swimmer]
