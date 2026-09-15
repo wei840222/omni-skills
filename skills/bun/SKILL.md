@@ -1,38 +1,28 @@
 ---
 name: bun
-slug: bun
-version: 1.0.0
-description: Build with Bun runtime avoiding Node.js compatibility traps, bundler pitfalls, and package manager gotchas.
-homepage: https://clawic.com/skills/bun
+description: Assist with migrating to the Bun runtime, bundling JavaScript/TypeScript,
+  and managing packages by guiding users through runtime traps, bundler pitfalls,
+  and resolution gotchas.
 metadata:
-  clawdbot:
-    emoji: 🥟
-    requires:
-      bins:
-      - bun
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Bun
+  openclaw: '{"emoji": "🥟", "requires": {"bins": ["bun"]}}'
 ---
 
-## When to Use
+## When to load
 
-User needs Bun expertise — fast JavaScript/TypeScript runtime, bundler, and package manager. Agent handles migration from Node, bundling for web/server, and troubleshooting compatibility issues.
+Load this skill when the user explicitly requests assistance with the Bun runtime (`bun run`, `bun install`, `bun build`), is migrating a Node.js project to Bun, or encounters compatibility traps, bundler pitfalls, or package manager resolution issues using Bun.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| Node.js API differences | `node-compat.md` |
-| Bundler configuration | `bundler.md` |
-| Package management | `packages.md` |
+| Node.js API differences | `references/node-compat.md` |
+| Bundler configuration | `references/bundler.md` |
+| Package management | `references/packages.md` |
 
 ## Runtime Compatibility Traps
 
 - `process.nextTick` timing differs from Node — race conditions appear that didn't exist before, use `queueMicrotask` for cross-runtime code
-- `__dirname` and `__filename` don't exist in ESM — use `import.meta.dir` and `import.meta.file`, forgetting causes ReferenceError
+- `__dirname` and `__filename` are omitted in ESM — instead, use `import.meta.dir` and `import.meta.file` to prevent ReferenceErrors
 - `fs.watch` misses events that Node catches — file watcher scripts silently miss changes, add polling fallback
 - `child_process.spawn` options subset — some stdio configurations silently ignored, test subprocess code explicitly
 - `cluster` module not supported — app crashes immediately if code uses cluster, must refactor to workers
@@ -58,7 +48,7 @@ User needs Bun expertise — fast JavaScript/TypeScript runtime, bundler, and pa
 
 ## TypeScript Traps
 
-- Bun runs TypeScript directly without `tsc` — type errors don't stop execution, bugs ship to production
+- Bun runs TypeScript directly without `tsc` — type errors bypass execution blocks, check types explicitly to prevent shipping bugs to production
 - Type-only imports may be kept — bundle size larger than expected
 - `tsconfig.json` paths work differently — imports that worked in Node+tsc may fail
 - Decorators experimental — behavior may differ from tsc, especially with legacy decorators

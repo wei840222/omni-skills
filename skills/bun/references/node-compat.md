@@ -20,7 +20,7 @@
 
 ## ESM vs CJS Traps
 
-- `__dirname` / `__filename` — don't exist in ESM, use `import.meta.dir/file`
+- `__dirname` / `__filename` — omitted in ESM, instead use `import.meta.dir/file`
 - `require()` in ESM — works in Bun but not standard, code not portable
 - `module.exports` — works but mixing with ESM export causes issues
 - `.mjs` files — treated as ESM, can't use require

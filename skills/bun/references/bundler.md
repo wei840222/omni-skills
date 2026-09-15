@@ -34,7 +34,7 @@
 
 - `--sourcemap=external` — creates .map file, for production debugging
 - `--sourcemap=inline` — embedded in bundle, larger but simpler
-- Source maps reveal source code — don't deploy if code is sensitive
+- Source maps reveal source code — restrict deployment of source maps when code is sensitive
 - Minified + source map — map file can be large
 
 ## CSS and Assets
