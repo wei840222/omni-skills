@@ -100,3 +100,7 @@ Portuguese punctuation:
 ## The "Native Test"
 
 Before sending: would a Portuguese/Brazilian screenshot this as "AI-generated"? If yes—raise warmth, restore contractions, and lock one regional variant. Fix it.
+
+## Sources
+
+Domain sources and locale notes live in `references/sources.md`.
