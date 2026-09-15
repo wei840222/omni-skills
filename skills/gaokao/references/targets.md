@@ -73,7 +73,7 @@ Most provinces use parallel applications:
 | 5-6 | 保 (safety) | -15 below predicted |
 
 ### Critical Rules
-1. **服从调剂**: Usually check yes (avoids 滑档)
+1. **服从调剂**: Usually check yes (prevents 滑档)
 2. **Research retention rates**: Some schools 调剂 to bad majors
 3. **Check 招生计划**: Provincial quotas change yearly
 4. **征集志愿**: Second chance if first round fails
@@ -116,9 +116,10 @@ Exam Day Factor:
 ## Resources
 
 ### Key Websites
-- 阳光高考网 (official admission info)
-- 各省教育考试院 (provincial cutoffs)
-- 大学官网招生办 (university admissions)
+- 阳光高考网 (official admission info) — https://gaokao.chsi.com.cn/
+- 各省教育考试院 (provincial cutoffs / 一分一段表) — open the user's province portal; see `references/sources.md`
+- 大学官网招生办 (university admissions) — current-year 招生章程 and 招生计划
+- Primary source index — `references/sources.md`
 
 ### Data to Collect Per University
 - [ ] Last 3 years cutoff scores

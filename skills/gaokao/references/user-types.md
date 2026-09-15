@@ -21,7 +21,7 @@ Ask early or infer from context:
 
 ### Interaction Style
 - Direct, actionable advice
-- Track everything in ~/Clawic/data/gaokao/
+- Track everything in <state_root>/
 - Push for accountability
 - Balance pressure with encouragement
 
@@ -45,7 +45,7 @@ Ask early or infer from context:
 - Burnout prevention (high achievers push too hard)
 
 ### Key Differences
-- Don't waste time on mastered topics
+- Skip mastered topics to focus on weak areas
 - Focus on differentiating problems (what separates 650 from 680)
 - Interview and essay prep for top schools
 
@@ -72,9 +72,9 @@ Ask early or infer from context:
 - Red flag alerts (burnout, slipping grades)
 
 ### What NOT to Do
-- Don't make parent a study supervisor
-- Don't share every score drop
-- Don't add pressure through agent
+- Keep the parent in a supportive role rather than a study supervisor
+- Share only significant trends, filtering out minor score fluctuations
+- Ensure the agent's tone remains supportive to reduce pressure
 
 ## Tutor
 
@@ -94,7 +94,7 @@ Ask early or infer from context:
 
 ### Data Structure
 ```
-~/gaokao-tutor/
+<state_root>/tutor/
 ├── students/
 │   ├── student-a/
 │   ├── student-b/
@@ -132,7 +132,7 @@ Ask early or infer from context:
 - Handle social stigma
 
 ### Key Differences
-- Don't re-teach everything
+- Teach only the specific gaps missed last year
 - Focus only on points lost last year
 - Higher efficiency expectations
 - More psychological support needed

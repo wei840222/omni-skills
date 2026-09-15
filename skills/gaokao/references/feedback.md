@@ -4,7 +4,7 @@
 
 This skill improves over time by tracking what works for this specific user.
 
-### ~/Clawic/data/gaokao/feedback.md Format
+### <state_root>/feedback.md Format
 
 ```markdown
 # Learning Log
@@ -94,7 +94,7 @@ Periodically (every 5-10 sessions), ask:
 6. Accuracy of score predictions
 
 ### Storage Location
-All learning stored in `~/Clawic/data/gaokao/feedback.md`
+All learning stored in `<state_root>/feedback.md`
 Agent reads this on each session start
 
 ### Privacy Note

@@ -48,7 +48,7 @@
 ## Exam Day Protocol
 
 ### Night Before
-- [ ] Stop studying by 8pm
+- [ ] Finish all studying by 8pm
 - [ ] Prepare all materials (准考证, 身份证, 文具)
 - [ ] Light dinner, no new foods
 - [ ] Relaxing activity (not screens)
@@ -68,7 +68,7 @@
 - **Blank mind**: Start writing anything related
 
 ### Between Subjects
-- DO NOT discuss answers with others
+- Keep to yourself and focus on the next subject instead of discussing answers
 - Light snack, water
 - Brief walk if possible
 - Reset mentally for next subject
@@ -83,7 +83,7 @@
 
 ### For Retakers (复读生)
 - **Reframe failure**: "I now know exactly what to improve"
-- **Comparison block**: Don't compare to peers in university
+- **Focus on self**: Compare only to your past self, ignoring peers in university
 - **Focus on delta**: Track improvement from last year's score
 - **Community**: Connect with other 复读生 for support
 
@@ -95,7 +95,7 @@
 - Validate stress: "This is hard, and you're handling it"
 - Offer practical help (meals, quiet space)
 
-### Communication Don'ts
+### Communication Pitfalls
 - Compare to siblings, neighbors, relatives
 - Add pressure with comments about family sacrifice
 - Hover or check on studying constantly
@@ -118,4 +118,4 @@
 ### If Sleep Deprived
 - 20min power nap (not longer)
 - Caffeine cutoff at 2pm
-- Don't "make up" sleep on weekends (disrupts rhythm)
+- Maintain a consistent wake time on weekends (preserve your rhythm by waking at the usual time)
