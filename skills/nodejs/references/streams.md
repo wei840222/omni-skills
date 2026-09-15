@@ -22,10 +22,10 @@ The reason to use a stream is constant memory: the process holds one buffer, not
 ## Consuming
 
 - `for await (const chunk of readable)` respects backpressure automatically; but `break`/`throw` inside the loop destroys the stream — you cannot resume it later.
-- Don't mix consumption modes: attaching `on('data')` switches the stream to flowing mode and races against pipe or async-iterator consumers of the same stream.
+- Stick to a single consumption mode: attaching `on('data')` switches the stream to flowing mode and races against pipe or async-iterator consumers of the same stream.
 - Two consumers of one readable split the data; they do not each get a copy. To fan out, tee explicitly by writing to both destinations from one loop, and let the slower destination apply backpressure to both.
 - A paused readable that nobody resumes holds its descriptor and its buffer indefinitely — a common leak when an early `return` skips the consumption path.
-- Convenience over correctness where the size is known and small: `await text(readable)` / `await buffer(readable)` from `node:stream/consumers` are readable and honest about buffering everything. Never on input whose size a user controls.
+- Convenience over correctness where the size is known and small: `await text(readable)` / `await buffer(readable)` from `node:stream/consumers` are readable and honest about buffering everything. Only use these on input whose size is known and bounded.
 
 ## Writing Transforms
 

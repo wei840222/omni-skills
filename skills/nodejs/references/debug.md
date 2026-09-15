@@ -13,15 +13,15 @@ Work symptom-first. Each chain is ordered by probability, and every step is a ch
 The event loop stays alive while one referenced handle remains. Nothing prints; the shell just hangs.
 
 1. Name the handles: `console.log(process.getActiveResourcesInfo())` in an `exit`-adjacent hook or on a timer — output like `['TCPSERVERWRAP','Timeout']` points straight at the offender.
-2. Usual owners, in frequency order: an HTTP server never `close()`d, a database/Redis pool never ended, `setInterval` never cleared, a `readline` interface still open on stdin, a worker or child process still running.
+2. Usual owners, in frequency order: an HTTP server never `close()`d, a database/Redis pool left open, `setInterval` left running, a `readline` interface still open on stdin, a worker or child process still running.
 3. Legitimate background timers: `timer.unref()` lets the loop exit while the timer still fires if the process lives (the right fix for metrics flushes and keep-alive pings).
 4. Keep-alive sockets hold the server open even after `server.close()`: track sockets and destroy idle ones, or use `server.closeIdleConnections()` (node >=18.2).
-5. Last resort to identify, never to fix: `process.exit()` masks the leak and truncates pending writes (→ `errors.md`).
+5. Last resort to identify, instead of as a fix: `process.exit()` masks the leak and truncates pending writes (→ `errors.md`).
 
 ## Process Exits Immediately, Silently, Code 0
 
-- The loop had nothing to do: an `async main()` whose promise was never awaited, or a top-level `await` that resolved before the server bound.
-- A `require`/`import` threw inside a `try` that swallowed it, so the setup never ran. Log at the end of bootstrap, not the start.
+- The loop had nothing to do: an `async main()` whose promise was left unawaited, or a top-level `await` that resolved before the server bound.
+- A `require`/`import` threw inside a `try` that swallowed it, so the setup failed to run. Log at the end of bootstrap, not the start.
 - `process.exit()` somewhere in a dependency's shutdown path — grep it: `grep -rn "process.exit" node_modules/<pkg>` when a library is suspected.
 
 ## Crash Loop Under a Supervisor

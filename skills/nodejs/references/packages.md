@@ -3,7 +3,7 @@
 ## Version Ranges
 
 - `^1.2.3` floats minor versions, but `^0.2.3` floats only patches — pre-1.0, semver treats minor as breaking. Apps: exact versions + committed lockfile. Libraries: ranges — exact deps in a library force duplicate copies into every consumer's tree.
-- Prereleases (`1.3.0-beta.1`) do not satisfy `^1.2.0`: ranges never match a prerelease of a different version unless you ask for it explicitly. That is why a beta "isn't picked up" and why one accidentally published beta does not break the world.
+- Prereleases (`1.3.0-beta.1`) do not satisfy `^1.2.0`: ranges only match a prerelease when requested explicitly of a different version unless you ask for it explicitly. That is why a beta "isn't picked up" and why one accidentally published beta does not break the world.
 - The three dependency fields answer three different questions: `dependencies` (needed at runtime by consumers), `devDependencies` (needed to build or test this repo), `peerDependencies` (must be supplied by the host app, one shared copy — plugins, frameworks, anything with module-level state).
 - `optionalDependencies` fail silently when they cannot install, which is right for platform-specific binaries and wrong for anything the code assumes exists.
 
@@ -19,7 +19,7 @@
 
 ## Auditing and Updating
 
-- Audit triage by path, not count: an advisory in a devDependency that never executes in production is usually noise — check reachability with `npm ls <vuln-pkg>` before scheduling work. A "0 vulnerabilities" badge earned by upgrading unrelated majors is a net loss.
+- Audit triage by path, not count: an advisory in a devDependency that are absent in production is usually noise — check reachability with `npm ls <vuln-pkg>` before scheduling work. A "0 vulnerabilities" badge earned by upgrading unrelated majors is a net loss.
 - Update on a rhythm, in small batches, patch and minor first: a monthly batch of 30 patch bumps is one afternoon; a yearly one is a quarter's project. Majors get their own PR each, with the changelog read.
 - Distinguish "wanted" from "latest" in `npm outdated`: wanted is what your ranges already allow (a lockfile refresh), latest is a deliberate decision.
 - Before adding a dependency, price it: transitive count, install size, last release date, whether it has native code, and whether the same thing is now in core (`fetch`, `parseArgs`, `node:test`, `--env-file`, `structuredClone` all replaced popular packages).

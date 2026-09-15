@@ -4,13 +4,13 @@
 
 | Sink | Exact defense |
 |---|---|
-| Shell (`exec`) | `execFile(bin, [args])` — array arguments never touch a shell; with `spawn`, keep `shell: false` (the default). Quoting user input for a shell is the losing move |
+| Shell (`exec`) | `execFile(bin, [args])` — array arguments avoid touching a shell; with `spawn`, keep `shell: false` (the default). Quoting user input for a shell is the losing move |
 | Filesystem path | `const p = path.resolve(root, userInput); if (p !== root && !p.startsWith(root + path.sep)) reject` — a prefix check without the separator lets `/data-evil` pass a `/data` guard |
 | Object keys in a merge | Block `__proto__`, `constructor`, and `prototype`, or keep user-keyed data in a `Map`/`Object.create(null)`. `JSON.parse` itself is safe — the recursive merge afterwards is not |
 | Regex | Bound input length and avoid nested quantifiers; `(a+)+` on a crafted string backtracks exponentially and blocks the whole process (ReDoS) |
 | `eval` / `new Function` | No safe form on user-reachable strings. Parse data, do not execute it |
 | Outbound URL (SSRF) | Resolve the hostname, reject private and link-local ranges — including the cloud metadata address 169.254.169.254 — and disable redirects, or re-check after each hop |
-| Deserialization | Never revive arbitrary types from user JSON; validate against a schema and construct your own objects |
+| Deserialization | Always validate user JSON against a schema and construct your own objects |
 | Anything else | Validate at the boundary against an allowlist, then pass typed values inward — validation deep in the call stack is validation that some caller skipped |
 
 - Path traversal has a second door: symlinks. After resolving, `realpath` the result and repeat the containment check when the tree is user-writable (→ `filesystem.md`).
@@ -19,7 +19,7 @@
 
 ## Secrets
 
-- Never in argv: `ps` shows arguments to every user on the box, and process listings end up in crash reports and support tickets.
+- Avoid passing secrets in argv: `ps` shows arguments to every user on the box, and process listings end up in crash reports and support tickets.
 - Environment variables are readable by anything that can inspect the process and are frequently dumped by error reporters; mounted files with restrictive permissions are strictly better where the platform allows it.
 - Redact at the logger with a field list, not at each call site: `authorization`, `cookie`, `set-cookie`, `password`, `token`, `secret`, and whole request bodies on auth routes (→ `production.md`).
 - Never log an entire config object or `process.env`, including in a "temporary" debug line — those are the lines that survive into production.
@@ -28,9 +28,9 @@
 
 ## Crypto Basics That Get Wrong
 
-- Passwords: a memory-hard KDF (`crypto.scrypt`, or argon2/bcrypt from userland), never a bare hash. Node's `scrypt` is available in core and async — the sync variant blocks the loop (SKILL.md rule 1), and heavy KDF work competes for the 4 libuv threads (rule 3).
+- Passwords: a memory-hard KDF (`crypto.scrypt`, or argon2/bcrypt from userland), rather than a bare hash. Node's `scrypt` is available in core and async — the sync variant blocks the loop (SKILL.md rule 1), and heavy KDF work competes for the 4 libuv threads (rule 3).
 - Randomness: `crypto.randomBytes`/`crypto.randomUUID` for anything security-relevant. `Math.random()` is predictable and has produced real token-guessing vulnerabilities.
-- Do not invent encryption schemes: use an authenticated mode (AES-GCM), never reuse a nonce with the same key, and store the algorithm and version alongside the ciphertext so rotation is possible later.
+- Use standardized authenticated encryption schemes: use an authenticated mode (AES-GCM), ensure nonces are unique for the same key, and store the algorithm and version alongside the ciphertext so rotation is possible later.
 - Verify signatures and JWTs with an explicit algorithm allowlist — accepting the token's own `alg` header is how `none` and key-confusion attacks work.
 
 ## Process and Platform Hardening

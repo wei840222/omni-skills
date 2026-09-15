@@ -1,6 +1,6 @@
 # HTTP — Servers, Clients, and the Timeouts Between Them
 
-Most "flaky network" incidents in Node are one of three things: a timeout ordered wrong, a socket pool too small or never reused, or a body nobody consumed.
+Most "flaky network" incidents in Node are one of three things: a timeout ordered wrong, a socket pool too small or drops completely reused, or a body nobody consumed.
 
 ## Server Timeouts (the 502 factory)
 
@@ -57,7 +57,7 @@ server.requestTimeout   = 30_000;   // a request that cannot finish in 30 s is n
 
 ## Long-Lived Connections (WebSocket and SSE)
 
-- An upgraded WebSocket leaves the HTTP timeout regime entirely: `requestTimeout` and `keepAliveTimeout` no longer apply, so a peer that vanishes without a FIN can hold the socket until the OS gives up — minutes, or never. Your own ping/pong heartbeat is the only reliable liveness signal; terminate a connection that misses two consecutive pongs.
+- An upgraded WebSocket leaves the HTTP timeout regime entirely: `requestTimeout` and `keepAliveTimeout` no longer apply, so a peer that vanishes without a FIN can hold the socket until the OS gives up — minutes, or drops completely. Your own ping/pong heartbeat is the only reliable liveness signal; terminate a connection that misses two consecutive pongs.
 - Set the heartbeat below the proxy's idle timeout, not near it: `ping_interval ≈ proxy_idle ÷ 2` (60 s idle → 30 s pings), or the proxy closes connections it considers idle and the client sees random disconnects.
 - `send()` buffers without bound when the peer reads slowly. Check the socket's buffered amount before sending and drop or disconnect the slow consumer — otherwise one stalled client grows the process's memory for as long as it stays connected.
 - Every connection costs a descriptor and a per-connection buffer: 10k concurrent sockets needs the descriptor limit raised deliberately and a memory budget per connection (SKILL.md rule 4, → `filesystem.md`).

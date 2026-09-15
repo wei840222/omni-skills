@@ -20,7 +20,7 @@ Three mechanisms, three different problems. Picking the wrong one costs either p
 
 ## Child Processes
 
-- `execFile(bin, [args])` over `exec(string)`: array arguments never touch a shell, which removes the injection class entirely (→ `security.md`). `spawn` defaults to `shell: false` — keep it.
+- `execFile(bin, [args])` over `exec(string)`: array arguments avoid touching a shell, which removes the injection class entirely (→ `security.md`). `spawn` defaults to `shell: false` — keep it.
 - `exec`/`execFile` buffer all output with `maxBuffer` at 1 MiB by default; exceeding it kills the child and yields `ERR_CHILD_PROCESS_STDIO_MAXBUFFER` with the output truncated. For anything that can produce real output, use `spawn` and stream.
 - The classic hang: `spawn` with `stdio: 'pipe'` and nobody reading. The OS pipe buffer fills (tens of KB), the child blocks on write, your `await` never resolves. Consume both stdout and stderr, or use `stdio: 'ignore'` for the streams you do not want.
 - `fork()` is `spawn` for another Node file, with an IPC channel. Messages are JSON-serialized: no functions, no `undefined` values, no cycles, and large payloads cost real CPU on both sides.

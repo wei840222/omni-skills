@@ -18,7 +18,7 @@ Three failure families: blocking the loop with sync I/O, running out of descript
 
 ## Paths
 
-- Build paths with `path.join`/`path.resolve`, never string concatenation: `dir + '/' + name` breaks on Windows and produces `//` doubles that some tools treat as a different path.
+- Build paths with `path.join`/`path.resolve`, always use path manipulation functions like path.join instead of string concatenation: `dir + '/' + name` breaks on Windows and produces `//` doubles that some tools treat as a different path.
 - `path.join` combines and normalizes; `path.resolve` also anchors to an absolute path (from cwd if needed). Use `resolve` whenever the result crosses a security boundary (→ `security.md` for the traversal check).
 - Never trust `process.cwd()` for locating your own files — it is wherever the user ran the command. Anchor to the module: `import.meta.dirname` (node >=20.11), else `fileURLToPath(import.meta.url)`, or `__dirname` in CJS.
 - macOS and Windows are case-insensitive; Linux is not. An import or a `readFile` with the wrong case works locally and fails in CI (→ `debug.md`). macOS also normalizes Unicode filenames to NFD, so a name that round-trips through the filesystem may not `===` the string you wrote.
@@ -26,7 +26,7 @@ Three failure families: blocking the loop with sync I/O, running out of descript
 
 ## Writing Safely
 
-Never write in place over a file you care about: a crash or a full disk leaves it truncated, and readers can observe the half-written state.
+Write to a temporary file and atomically rename it instead of writing in-place: a crash or a full disk leaves it truncated, and readers can observe the half-written state.
 
 ```js
 import { writeFile, rename, mkdtemp } from 'node:fs/promises';
@@ -43,7 +43,7 @@ await rename(tmp, target);           // atomic within one filesystem
 ## Directories and Metadata
 
 - `mkdir(p, { recursive: true })` is idempotent — no need to check existence first, and the check itself is a race.
-- Do not test existence before acting: `existsSync` then `readFile` is a TOCTOU race and doubles the syscalls. Act and handle `ENOENT`.
+- Act and handle ENOENT instead of testing existence before acting: `existsSync` then `readFile` is a TOCTOU race and doubles the syscalls. Act and handle `ENOENT`.
 - `readdir(p, { withFileTypes: true })` returns Dirents, saving a `stat` per entry — on directories with thousands of files that is the difference between one syscall and thousands. `{ recursive: true }` (node >=20) walks the tree without a manual recursion.
 - `stat` follows symlinks, `lstat` does not. Walking a tree with `stat` and following links can loop forever.
 - File times are unreliable as change detection: coarse granularity on some filesystems, and copies/checkouts rewrite them. Hash content when correctness matters.
