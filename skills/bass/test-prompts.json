@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm having trouble getting a clean slap tone, it sounds weak and noisy. What am I doing wrong?",
+    "expected": "The agent should ask about current slap motion (through vs bounce) and muting, then advise striking through the string for power and emphasize fretting-hand plus right-hand palm muting as roughly half of clean slap tone, with groove before speed.",
+    "actual": "Agent asked whether the motion was bouncing or striking through and whether unused strings were muted. On bounce-only, it recommended thumb-through power, fretting-hand/palm muting (~50% of clean tone), and metronome groove before speed. Pass.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I just finished a 45-minute practice session where I played 'Come Together' along with the track, and worked on my 16th note fingerstyle stamina. Can we log this?",
+    "expected": "The agent should load `references/progress.md` and append a session entry under `<state_root>/bass/sessions/` using the monthly log format.",
+    "actual": "Agent loaded `references/progress.md`, created `<state_root>/bass/sessions/2024-05.md` when missing, and wrote a dated 45-minute entry covering Come Together with track plus 16th-note fingerstyle stamina. Pass.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My bandmates say my basslines are boring, but I don't want to overplay and ruin the song.",
+    "expected": "The agent should keep note density low and improve feel via ghost notes, note length (staccato vs legato), dynamics, and tighter kick lock rather than adding busy fills.",
+    "actual": "Agent advised not adding more notes. It suggested ghost notes, staccato/legato length changes, wider dynamics, and locking with the kick to improve interest without clutter. Pass.",
+    "pass": true
+  }
+]
