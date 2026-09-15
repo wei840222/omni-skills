@@ -27,7 +27,7 @@
 **Device Frames:**
 - Consistent style across all screenshots
 - Modern device (current Pixel recommended)
-- Avoid outdated bezels
+- Feature modern device frames
 
 ## Localization
 
@@ -76,7 +76,7 @@ Priority order by Play Store reach:
 - White space between sections
 - Key phrases in CAPS sparingly
 
-### Avoid
+### Prohibited Practices
 - Walls of text
 - ALL CAPS paragraphs
 - Excessive emojis

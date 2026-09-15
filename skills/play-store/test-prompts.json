@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to publish my new productivity app on Google Play. What are the requirements for the screenshots and the store listing text?",
+    "expected": "Provide clear guidelines on screenshot specifications (dimensions, aspect ratio, min/max count per device) and list character limits for Title, Short Description, and Full Description.",
+    "actual": "Store listing text limits:\n- Title: 30 chars\n- Short description: 80 chars\n- Full description: 4000 chars\n\nScreenshot specs:\n- Phone: 320-3840 px (16:9 or 9:16)\n- Tablet 7\": 320-3840 px (16:9)\n- Tablet 10\": 1080-7680 px (16:9)\n- 2 to 8 screenshots per device type. The first 2 are hero shots.\n- Feature graphic is required: 1024x500 px.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can I put 'Best Free Game' as a keyword in the app title to increase downloads?",
+    "expected": "Warn against policy violations, specifically prohibiting misleading claims and keyword stuffing in titles.",
+    "actual": "No, you should not use 'Best Free Game' in your app title. The Google Play Policy explicitly prohibits misleading functionality claims and keyword stuffing in the title. Your title should be 30 characters max and ideally combine your primary keyword with your brand name.",
+    "pass": true
+  }
+]

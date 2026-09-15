@@ -20,7 +20,7 @@
 ### Keyword Density Guidelines
 - Full description: 3-5 mentions of primary keyword
 - Variations count (photo, photos, photography)
-- Never stuff — natural reading is priority
+- Prioritize natural reading flow over keyword density
 
 ## Ranking Factors
 
@@ -38,13 +38,13 @@
 **When to prompt:**
 - After positive experience (completed action)
 - After N sessions (3-5)
-- Never after crash or error
-- Never on first launch
+- Prompt only after successful interactions
+- Delay prompt until users experience core value
 
 **What to say:**
 - "Enjoying [App]? A rating helps us improve"
 - Make dismissal easy
-- Don't incentivize reviews (policy violation)
+- Earn reviews organically; incentivization violates policy
 
 ## Conversion Optimization
 
