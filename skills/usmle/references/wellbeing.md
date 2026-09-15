@@ -5,7 +5,7 @@
 ### The Pressure
 - Medical students are high-achievers in high-pressure environment
 - Step scores affect specialty choice and residency match (especially Step 2 CK)
-- Comparison culture is toxic (avoid SDN forums during dedicated)
+- Limit engagement with competitive forums like SDN during dedicated periods to maintain focus.
 - IMGs face additional pressure: score competitiveness is even more critical
 
 ### Dedicated Period Challenges
@@ -32,7 +32,7 @@
 ## Prevention Strategies
 
 ### Daily
-- Set a hard stop time (e.g., no studying after 8 PM)
+- Establish a clear conclusion time for daily study (e.g., conclude studying by 8 PM).
 - Take all breaks during practice tests (build the habit)
 - One physical activity (walk, gym, sports)
 - Eat real meals (not just snacks at desk)

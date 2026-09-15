@@ -44,7 +44,7 @@
 - Step 1: Complete before clinical rotations (no time limit on eligibility)
 - Step 2 CK: As soon as possible after Step 1 (maximize score for competitiveness)
 - Need ECFMG certification before matching
-- Step 2 CK score is CRITICAL for IMG competitiveness
+- Step 2 CK score is CRITICAL for IMG competitiveness (often requiring 250+ for competitive specialties)
 
 ## Score Reporting
 
