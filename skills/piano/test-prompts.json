@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a beginner who played a bit as a kid. I want to learn Fur Elise. How should I start?",
+    "expected": "Asks for context on what 'played a bit' means, instrument type, and time commitment. Warns about hands together too early and speed before accuracy. Refers to the repertoire chart for level.",
+    "actual": "Before we dive into Für Elise, let's establish a good foundation. Could you tell me more about your previous experience? Do you play on a weighted keyboard or synth? How much time can you commit daily? Remember, it's better to practice 20 mins/day than a 2-hour marathon. We should keep hands separate until each part is reliable.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I've been practicing the Chopin Nocturne for an hour a day but my wrist hurts.",
+    "expected": "Identifies wrist pain as a technique problem/tension. Recommends stopping immediately to avoid injury. Recommends evaluating arm weight.",
+    "actual": "Wrist pain is a clear sign of a technique or tension problem, often caused by pressing with finger force instead of using arm weight. You must stop immediately and re-evaluate to avoid injury. Let's look at your setup and technique.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I only have 15 minutes a day. Should I still learn scales and a piece?",
+    "expected": "Supports short daily practice over marathons; prioritizes hard sections; may suggest interleaved focus within the short block.",
+    "actual": "Fifteen focused minutes daily beats a long Sunday session. Warm up briefly, spend most of the block on the hardest 4–8 measures of your piece, and keep one scale pattern only if it serves that piece. Log the session in your piano workspace afterward.",
+    "pass": true
+  }
+]
