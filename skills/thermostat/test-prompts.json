@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going on vacation for a week, what should I set the thermostat to?",
+    "expected": "Agent should load references/away.md and recommend minimum 55°F for freeze protection and maximum 85°F for mold prevention, and ask about geofencing/return date.",
+    "actual": "Loaded references/away.md. Recommended setting a minimum of 55°F to prevent pipes from freezing and a maximum of 85°F to prevent mold. Reminded user to set a return date to ensure comfortable temperatures upon return.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Why is my bedroom always cold even when the heat is on?",
+    "expected": "Agent should load references/troubleshooting.md and diagnose sensor location mismatch, blocked vents, or multi-story circulation issues.",
+    "actual": "Loaded references/troubleshooting.md. Diagnosed that the issue could be a sensor location mismatch (thermostat measuring hallway instead of bedroom), closed or blocked vents, or multi-story heating issues. Recommended checking remote sensors, opening vents, or using the circulation fan setting.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is it worth lowering the temp at night?",
+    "expected": "Agent should load references/efficiency.md and calculate that a 10°F setback for 8 hours saves about 10% on energy, unless using a heat pump in extreme cold.",
+    "actual": "Loaded references/efficiency.md. Explained that a 10°F setback for 8 hours can save about 10% on the heating bill (approx $15-30 on a $150-300 bill). Noted the exception for heat pumps in extreme cold, where smaller setbacks of 3-5°F are recommended.",
+    "pass": true
+  }
+]
