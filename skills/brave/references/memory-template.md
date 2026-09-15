@@ -1,6 +1,6 @@
 # Memory Template - Brave Browser
 
-Create `~/Clawic/data/brave/memory.md` with this structure:
+Create `<state_root>/brave/memory.md` with this structure:
 
 ```markdown
 # Brave Browser Memory
@@ -38,7 +38,7 @@ integration: pending | done | declined
 | `ongoing` | Default learning state | Keep refining Brave operating defaults |
 | `complete` | Profiles, limits, and typical fixes are stable | Reuse defaults unless the environment changes |
 | `paused` | User wants less overhead | Save only critical browser facts |
-| `never_ask` | User rejected persistence | Operate statelessly |
+| `skip_prompting` | User rejected persistence | Operate statelessly |
 
 ## Key Principles
 

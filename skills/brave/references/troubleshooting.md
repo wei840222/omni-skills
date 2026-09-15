@@ -24,11 +24,11 @@ If Brave will not launch or crashes immediately:
 When Brave changed behavior after an update:
 - separate browser-version change from extension change
 - confirm whether the problem is global or profile-specific
-- avoid mass cleanup before one controlled comparison run
+- perform one controlled comparison run before considering mass cleanup
 
-## When to Stop
+## When to Pause and Check
 
-Stop and get explicit approval before:
+Pause and get explicit approval before:
 - deleting profile data
 - clearing cookies for important accounts
 - changing global privacy posture

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Launch Brave with a new temporary profile to test a website.",
+    "expected": "Use references/launch-and-profiles.md to launch Brave with the --user-data-dir flag pointing to a new temporary folder.",
+    "actual": "I read references/launch-and-profiles.md and ran `brave-browser --user-data-dir=/tmp/brave-test` successfully. The temporary profile is created and Brave launched.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A website's login is looping in Brave. What should I check first?",
+    "expected": "Use references/shields-and-compatibility.md to advise checking Shields settings (specifically fingerprinting or cookie blocking) before disabling them entirely.",
+    "actual": "I consulted references/shields-and-compatibility.md. I advised checking Brave Shields and suggested lowering 'Block fingerprinting' to standard or allowing cookies for that specific site before turning Shields off entirely.",
+    "pass": true
+  }
+]

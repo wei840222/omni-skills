@@ -15,7 +15,7 @@ Enable remote debugging only when the user explicitly approves it.
 
 Before enabling:
 - choose a dedicated test or automation profile
-- avoid the user's daily profile when possible
+- use an isolated profile whenever possible
 - define how long the port should stay open
 - verify whether the task needs observation only or active control
 
@@ -31,7 +31,7 @@ Before blaming the tool, verify:
 
 ## Brave-Specific Failure Patterns
 
-- A page element never appears because Shields blocked the underlying script
+- A page element fails to appear because Shields blocked the underlying script
 - Automation succeeds in a clean profile but fails in the daily profile because extensions alter the DOM
 - Remote debugging attaches correctly but the target tab is the wrong profile or window
 

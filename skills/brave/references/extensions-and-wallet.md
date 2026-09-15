@@ -23,7 +23,7 @@ Before changing extension state, startup pages, or browser defaults, confirm whe
 
 Wallet-adjacent tasks are high trust.
 
-Never:
+Required restrictions:
 - ask for seed phrases
 - recommend copying secrets into notes
 - treat wallet troubleshooting as routine browser cleanup
@@ -37,4 +37,4 @@ Private browsing changes session assumptions.
 Use private windows when the goal is short-lived isolation.
 Use Tor-based private windows only when the user explicitly wants that mode and understands that it changes site behavior, login reliability, and some compatibility expectations.
 
-Do not frame private or Tor-based windows as a bypass tool for restrictions.
+Treat private and Tor-based windows as privacy tools, keeping site restrictions intact.

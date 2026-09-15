@@ -19,7 +19,7 @@ Keep purpose separate:
 - test profile for site debugging and extension isolation
 - automation profile for Playwright, Puppeteer, or DevTools work
 
-Never use the daily profile as the first place to test risky flags or questionable extensions.
+Test risky flags or questionable extensions in a dedicated test profile before affecting the daily profile.
 
 ## Safe Launch Questions
 
@@ -38,7 +38,7 @@ Good uses:
 - testing if an extension causes the issue
 - isolating automation from personal cookies
 
-Avoid using a disposable profile when the task depends on an existing login or saved browser state.
+Use a persistent profile when the task requires an existing login or saved browser state.
 
 ## Launch Flags Discipline
 
@@ -49,4 +49,4 @@ Common safe categories:
 - remote-debugging flags only when automation is explicitly approved
 - temporary user-data-dir for isolation
 
-Avoid piling on flags during diagnosis. One wrong flag can create a fake "Brave problem."
+Apply one flag at a time during diagnosis to prevent overlapping effects from creating fake "Brave problems."
