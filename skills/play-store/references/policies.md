@@ -56,7 +56,7 @@
 - Request at point of use, not on install
 - Explain why before system dialog
 - Graceful degradation if denied
-- Never block core functionality for optional permissions
+- Ensure core functionality remains available when optional permissions are denied
 
 ## Review Process
 
@@ -97,5 +97,5 @@
 ### Maintaining Good Standing
 - Respond to policy emails promptly
 - Fix violations within deadline
-- Don't repeat same violation
+- Implement systemic fixes to prevent recurring violations
 - Monitor vitals dashboard weekly

@@ -1,32 +1,21 @@
 ---
 name: play-store
-slug: play-store
-version: 1.0.0
-description: Publish and optimize Android apps on Google Play with listing optimization, ASO keywords, and policy compliance.
-homepage: https://clawic.com/skills/play-store
+description: Publish and optimize Android apps on Google Play. Trigger to validate
+  listing content, screenshots, ASO keywords, and compliance.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Google Play Store
+  openclaw: '{"emoji": "🤖"}'
 ---
+## When to load
 
-## When to Use
-
-User needs to prepare, publish, or optimize an Android app for Google Play. Agent handles listing content, screenshots specs, ASO strategy, policy checks, and release planning.
+Trigger this skill when the user needs to prepare, publish, or optimize an Android app for Google Play. Use the references to enforce listing constraints and policy compliance.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| Listing requirements | `listing.md` |
-| ASO strategy | `aso.md` |
-| Policy compliance | `policies.md` |
+| Listing requirements | `references/listing.md` |
+| ASO strategy | `references/aso.md` |
+| Policy compliance | `references/policies.md` |
 
 ## Core Rules
 
@@ -54,11 +43,11 @@ Max 8 screenshots per device type. First 2 are hero shots.
 - **Title:** Most weight, 1-2 primary keywords
 - **Short description:** Supporting keywords, action-oriented
 - **Full description:** Long-tail variations, 3-5 natural mentions
-- **Never:** Keyword stuffing, competitor names, misleading claims
+- **Prohibited:** Keyword stuffing, competitor names, misleading claims
 - **Track:** Organic installs, search visibility, keyword rankings
 
 ### 4. Policy Red Flags
-Avoid these or face rejection/removal:
+Policy violations leading to rejection/removal:
 - Misleading functionality claims
 - Sexual content or nudity
 - Violence beyond ESRB T equivalent
@@ -88,7 +77,7 @@ Before any release:
 - [ ] All store listing fields complete
 - [ ] Privacy policy URL valid and accessible
 - [ ] Content rating applied
-- [ ] Target API level meets current requirements (API 33+)
+- [ ] Target API level meets current requirements (API 34+)
 - [ ] 64-bit support included
 - [ ] App bundle format (.aab), not APK
 - [ ] Deobfuscation files uploaded
@@ -99,7 +88,7 @@ Before any release:
 - **Ignoring tablet screenshots** → Missed visibility on tablets and Chromebooks.
 - **Keyword in developer name** → Policy violation, can get suspended.
 - **Missing privacy policy** → Instant rejection if app requests any permissions.
-- **Low target API** → Apps must target API 33+ for new submissions.
+- **Low target API** → Apps must target API 34+ for new submissions.
 - **APK instead of AAB** → Required since 2021, AAB enables dynamic delivery.
 - **Ignoring ANR rate** → >0.47% ANR rate triggers bad quality warnings.
 - **Changelog copy-paste** → Users notice, hurts trust. Be specific about changes.
