@@ -5,7 +5,7 @@ Reference for file structure and logging format.
 ## Workspace Structure
 
 ```
-~/Clawic/data/piano/
+<state_root>/piano/
 ├── repertoire.md      # All pieces: current, completed, wishlist
 ├── sessions/
 │   └── YYYY-MM.md     # Monthly practice logs
