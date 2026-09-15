@@ -1,14 +1,27 @@
 ---
 name: automate
-slug: automate
-version: 1.0.0
-description: Identify tasks that waste tokens. Scripts don't hallucinate, don't cost per-run, and don't fail randomly. Spot automation opportunities and build them.
-homepage: https://clawic.com/skills/automate
+description: Spot repetitive deterministic work and turn it into durable scripts so
+  agents stop burning tokens on format conversion, validation, fixed workflows, and
+  other rule-based tasks. Load `references/signals.md` for detection patterns,
+  `references/templates.md` for script skeletons, and `references/sources.md` for
+  automation reliability notes.
 metadata:
-  clawdbot:
-    emoji: ⚙️
-    displayName: Automate
+  openclaw: '{"emoji": "⚙️"}'
 ---
+
+## When to load
+
+Load this skill when the user is repeating the same transformation, validation, file
+operation, or fixed workflow; when an agent is about to re-prompt for work that should
+be a script; or when deciding Script vs LLM for a deterministic task.
+
+## Quick Reference
+
+| Topic | File |
+|-------|------|
+| Detection signals | `references/signals.md` |
+| Script templates | `references/templates.md` |
+| Research sources | `references/sources.md` |
 
 ## Core Principle
 
@@ -17,9 +30,11 @@ LLMs are expensive, slow, and probabilistic. Scripts are free, fast, and determi
 Every time you do something twice that could be scripted, you're wasting:
 - **Tokens** — money burned on solved problems
 - **Time** — seconds/minutes vs milliseconds
-- **Reliability** — LLMs fail randomly, scripts fail predictably
+- **Reliability** — scripts fail predictably; LLMs fail randomly
 
-Check `signals.md` for detection patterns. Check `templates.md` for common script patterns.
+When evaluating a task for automation, load `references/signals.md`. When ready to write
+a script, load `references/templates.md`. For reliability and secrets guidance, load
+`references/sources.md`.
 
 ---
 
@@ -31,7 +46,7 @@ Before doing any task, ask:
 2. **Is this repetitive?** Will this happen again?
 3. **Is this rule-based?** Can I write down the exact steps?
 
-If yes to all three → **script it, don't LLM it.**
+If yes to all three → **script it instead of using the LLM.**
 
 ---
 
@@ -88,6 +103,12 @@ Should I write it?
 
 ---
 
+## Best Practices for Automation
+
+- **Deterministic Pipelines:** Ensure your scripts are robust. If a task fails, fail loudly with an exit code rather than silently continuing.
+- **Idempotency:** Automation scripts should ideally be safe to run multiple times without causing unwanted side effects.
+- **Error Handling & Logs:** Log standard output and standard error separately.
+
 ## Script Standards
 
 When writing automation:
@@ -124,14 +145,14 @@ If you do something **3 times**, it must become a script.
 
 - 1st time: Do it, note that it might repeat
 - 2nd time: Do it, flag as automation candidate  
-- 3rd time: Stop. Write the script first, then run it.
+- 3rd time: Pause execution. Write the script first, then run it.
 
 ---
 
-## Anti-Patterns
+## Better Practices
 
-| Don't | Do instead |
-|-------|------------|
+| Common Pattern | Optimal Pattern |
+|----------------|-----------------|
 | Re-prompt for same transformation | Write a script once |
 | Use LLM for data validation | Write validation rules |
 | Burn tokens on formatting | Use formatters (prettier, jq, etc.) |
