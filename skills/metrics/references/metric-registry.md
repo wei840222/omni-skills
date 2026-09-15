@@ -35,7 +35,7 @@ If a new request fits an existing class, extend values, not schema.
 
 - Use plain names: `activation_rate`, `gross_revenue_retention`, `avg_resolution_time`.
 - Keep suffixes consistent: `_count`, `_rate`, `_share`, `_amount`, `_index`.
-- Never reuse a retired metric name without a version qualifier.
+- Always append a version qualifier when reusing a retired metric name.
 
 ## Registry Health Check
 

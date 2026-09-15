@@ -16,7 +16,7 @@ Use these patterns to keep metric workflows scalable without alert fatigue.
 
 - Keep triggers tied to decision value, not data volume.
 - Separate warning and critical thresholds.
-- Add cooldown windows to avoid repeated noise.
+- Add cooldown windows to maintain signal clarity.
 - Attach owner and first response action to every trigger.
 
 ## Severity Model
@@ -40,6 +40,6 @@ When a critical trigger fires:
 ## Automation Hygiene
 
 - Review thresholds monthly to reduce stale rules.
-- Retire triggers that never lead to decisions.
+- Retire triggers that lack decision-driving outcomes.
 - Track false-positive rate by policy.
 - Record postmortems for major metric incidents.

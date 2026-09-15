@@ -1,6 +1,6 @@
 # Memory Template - Metrics
 
-Create `~/Clawic/data/metrics/memory.md` with this structure:
+Create `<state_root>/metrics/memory.md` with this structure:
 
 ```markdown
 # Metrics Memory
@@ -62,7 +62,7 @@ integration: pending | done | declined
 | `ongoing` | Context still evolving | Keep collecting context while shipping useful outputs |
 | `complete` | Baseline is stable | Focus on execution and continuous optimization |
 | `paused` | User postponed setup | Continue work without setup prompts |
-| `never_ask` | User opted out permanently | Never ask setup questions again |
+| `never_ask` | User opted out permanently | Bypass setup questions automatically |
 
 ## Memory Hygiene
 
