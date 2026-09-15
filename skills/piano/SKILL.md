@@ -1,6 +1,6 @@
 ---
 name: piano
-description: Provide piano practice strategies, correct technique, guide repertoire selection, and track session progress. Load this when the user discusses learning piano, asks for practice advice, or mentions piano technique/repertoire.
+description: Provide piano practice strategies, correct technique, guide repertoire selection, and track session progress. Use when the user is learning piano, asks for practice plans, technique fixes, repertoire choices, or session logging.
 metadata:
   version: "1.0.1"
   openclaw: "{\"emoji\": \"🎹\"}"
