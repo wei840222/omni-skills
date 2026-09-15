@@ -1,77 +1,61 @@
 ---
 name: nodejs
-slug: nodejs
-version: 1.0.4
-description: 'Builds, debugs, and hardens Node.js servers, CLIs, and npm packages: async, modules, streams, memory, and process lifecycle. Use when writing or reviewing code that runs on Node, when a process hangs or refuses to exit, leaks memory, gets OOM-killed, pins one CPU core at 100%, or dies on an unhandled rejection; when the error reads EADDRINUSE, EMFILE, ECONNRESET, ERR_MODULE_NOT_FOUND, ERR_REQUIRE_ESM, or "__dirname is not defined"; when import and require interop breaks, streams buffer everything in RAM, a server returns intermittent 502s behind a load balancer, or SIGTERM drops in-flight requests; when npm install, lockfiles, peer dependencies, workspaces, native module builds, or publishing misbehave; when a suite passes locally and fails in CI; or when containerizing, profiling, and shutting down a service cleanly. Not for browser-only JavaScript, TypeScript type-system design, or the Bun and Deno runtimes.'
-homepage: https://clawic.com/skills/nodejs
-changelog: 'Full coverage pass: deeper guides, situation-named files, and per-user configuration'
+description: 'Build, debug, and harden Node.js servers, CLIs, and npm packages. Trigger when writing code for Node, debugging memory leaks, OOM crashes, unhandled rejections, EADDRINUSE/EMFILE errors, or optimizing event loops and streams. Does not cover browser-only JS, TS type-system design, or Bun/Deno.'
 metadata:
-  clawdbot:
-    emoji: 💚
-    requires:
-      bins:
-      - node
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: NodeJS
-    configPaths:
-    - ~/Clawic/data/nodejs/
-    - ~/nodejs/
-    - ~/clawic/nodejs/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/nodejs/
-      - ~/nodejs/
-      - ~/clawic/nodejs/
+  openclaw: '{"emoji": "💚", "requires": {"bins": ["node"]}, "configPaths": ["<state_root>/nodejs/"]}'
+  related-skills:
+    javascript: skills/javascript
+    typescript: skills/typescript
+    docker: skills/docker
+    api: skills/api
 ---
 
-User preferences and memory live in `~/Clawic/data/nodejs/` (see `setup.md` on first use, `memory-template.md` for the file format). If you have data at an old location (`~/nodejs/` or `~/clawic/nodejs/`), move it to `~/Clawic/data/nodejs/`, and say in one line that you moved it and from where.
+User preferences and memory live in `<state_root>/nodejs/` (see `references/setup.md` on first use, `references/memory-template.md` for the file format). If you have data at an old location (`~/nodejs/` or `~/clawic/nodejs/`), move it to `<state_root>/nodejs/`, and say in one line that you moved it and from where.
 
-## When To Use
+## When to load
 
-- Writing or reviewing Node services, CLIs, libraries, workers, or release scripts
-- Debugging a live process: hangs, crash loops, growing RSS, slow endpoints, import failures, unclean shutdown
-- Deciding the runtime shape of a package: ESM vs CJS, exports map, lockfile policy, native dependencies, publish surface
-- Production incidents: intermittent 502s behind a proxy, EMFILE, event loop stalls, containers OOMKilled overnight
-- Running TypeScript, tests, or child processes on Node — the runtime side, not the type system
-- Not for browser-only JavaScript, TypeScript type design, or the Bun/Deno runtimes (each has its own skill)
+| Scenario | Action |
+|---|---|
+| Developing or debugging async/promises | Load `references/async.md` |
+| Writing CLI tools | Load `references/cli.md` & `references/commands.md` |
+| Managing modules (ESM/CJS) | Load `references/modules.md` |
+| Handling streams or filesystem | Load `references/streams.md` & `references/filesystem.md` |
+| Production readiness (HTTP, security, errors) | Load `references/production.md`, `references/http.md`, `references/security.md`, `references/errors.md` |
+| Analyzing memory, CPU, or concurrency | Load `references/performance.md`, `references/debug.md`, `references/concurrency.md` |
 
 ## Quick Reference
 
 | Situation | Play |
 |---|---|
-| One core pinned, every request slows at once | Event loop blocked. Record `node --cpu-prof`, read widest self-time frames, not deepest stacks → `performance.md` |
-| Process finishes its work but never exits | An open handle: server, socket, `setInterval`, worker, or pool. `process.getActiveResourcesInfo()` names it → `debug.md` |
-| RSS climbs while `heapUsed` stays flat | Buffers/native memory, not a JS leak — heap snapshots will show nothing → `performance.md` |
-| Intermittent 502/504 behind ALB or nginx | `keepAliveTimeout` below the proxy's idle timeout (rule 5) → `http.md` |
-| `ERR_REQUIRE_ESM`, `ERR_MODULE_NOT_FOUND`, `__dirname is not defined` | Module-format mismatch or a missing file extension → `modules.md` |
-| `EADDRINUSE` on restart | Old process still holding the port, or two workers binding it; in tests, bind port 0 → `debug.md` |
-| `EMFILE` / `ENFILE` | Unbounded concurrency or leaked descriptors (rule 4) → `filesystem.md` |
-| Exit 134 with `FATAL ERROR: ... heap out of memory` | V8's heap ceiling, not the container's limit (rule 8) → `performance.md` |
-| Memory grows during a copy, upload, or export | Backpressure ignored: `write()` returned false and nobody waited → `streams.md` |
-| `npm install` works, `npm ci` fails | Lockfile out of sync with package.json (rule 6) → `packages.md` |
-| Native module fails to build or load after an upgrade | ABI mismatch, missing toolchain, or musl vs glibc → `runtime.md` |
-| Child process hangs, or its output is truncated | `maxBuffer` exceeded, or nobody drains the stdio pipe → `concurrency.md` |
-| A `.ts` file won't run, or imports resolve at build but not at runtime | Type-stripping limits or `moduleResolution` mismatch → `typescript.md` |
-| CLI crashes with EPIPE when piped into `head` | stdout closed early; handle the error instead of letting it throw → `cli.md` |
-| Suite green locally, red in CI | Port collisions, fake timers, shared module state, file ordering → `testing.md` |
-| Untrusted input reaching `exec`, a path join, or a regex | Injection, traversal, ReDoS — the exact checks → `security.md` |
-| SIGTERM drops in-flight requests on deploy | No drain sequence, or node is PID 1 with no signal handler → `production.md` |
+| One core pinned, every request slows at once | Event loop blocked. Record `node --cpu-prof`, read widest self-time frames, not deepest stacks → `references/performance.md` |
+| Process finishes its work but fails to exit | An open handle: server, socket, `setInterval`, worker, or pool. `process.getActiveResourcesInfo()` names it → `references/debug.md` |
+| RSS climbs while `heapUsed` stays flat | Buffers/native memory, not a JS leak — heap snapshots will show nothing → `references/performance.md` |
+| Intermittent 502/504 behind ALB or nginx | `keepAliveTimeout` below the proxy's idle timeout (rule 5) → `references/http.md` |
+| `ERR_REQUIRE_ESM`, `ERR_MODULE_NOT_FOUND`, `__dirname is not defined` | Module-format mismatch or a missing file extension → `references/modules.md` |
+| `EADDRINUSE` on restart | Old process still holding the port, or two workers binding it; in tests, bind port 0 → `references/debug.md` |
+| `EMFILE` / `ENFILE` | Unbounded concurrency or leaked descriptors (rule 4) → `references/filesystem.md` |
+| Exit 134 with `FATAL ERROR: ... heap out of memory` | V8's heap ceiling, not the container's limit (rule 8) → `references/performance.md` |
+| Memory grows during a copy, upload, or export | Backpressure ignored: `write()` returned false and nobody waited → `references/streams.md` |
+| `npm install` works, `npm ci` fails | Lockfile out of sync with package.json (rule 6) → `references/packages.md` |
+| Native module fails to build or load after an upgrade | ABI mismatch, missing toolchain, or musl vs glibc → `references/runtime.md` |
+| Child process hangs, or its output is truncated | `maxBuffer` exceeded, or nobody drains the stdio pipe → `references/concurrency.md` |
+| A `.ts` file won't run, or imports resolve at build but not at runtime | Type-stripping limits or `moduleResolution` mismatch → `references/typescript.md` |
+| CLI crashes with EPIPE when piped into `head` | stdout closed early; handle the error instead of letting it throw → `references/cli.md` |
+| Suite green locally, red in CI | Port collisions, fake timers, shared module state, file ordering → `references/testing.md` |
+| Untrusted input reaching `exec`, a path join, or a regex | Injection, traversal, ReDoS — the exact checks → `references/security.md` |
+| SIGTERM drops in-flight requests on deploy | No drain sequence, or node is PID 1 with no signal handler → `references/production.md` |
 | Anything else | Reproduce with the smallest script that still fails, then re-add flags, env vars, and imports one at a time |
 
-Depth on demand: `debug.md` symptom→cause chains · `commands.md` diagnostic toolkit · `async.md` event loop and promises · `modules.md` ESM/CJS · `errors.md` failure handling and shutdown · `streams.md` backpressure · `http.md` servers, clients, timeouts · `performance.md` profiling and leaks · `concurrency.md` workers, cluster, child processes · `filesystem.md` files, paths, descriptors · `security.md` hardening · `testing.md` suites and mocks · `packages.md` npm, lockfiles, publishing · `typescript.md` running TS on Node · `runtime.md` versions, flags, native modules · `production.md` deploy, config, logging, observability · `cli.md` command-line tools.
+Depth on demand: `references/debug.md` symptom→cause chains · `references/commands.md` diagnostic toolkit · `references/async.md` event loop and promises · `references/modules.md` ESM/CJS · `references/errors.md` failure handling and shutdown · `references/streams.md` backpressure · `references/http.md` servers, clients, timeouts · `references/performance.md` profiling and leaks · `references/concurrency.md` workers, cluster, child processes · `references/filesystem.md` files, paths, descriptors · `references/security.md` hardening · `references/testing.md` suites and mocks · `references/packages.md` npm, lockfiles, publishing · `references/typescript.md` running TS on Node · `references/runtime.md` versions, flags, native modules · `references/production.md` deploy, config, logging, observability · `references/cli.md` command-line tools.
 
 ## Core Rules
 
-1. **Budget sync work at ~10 ms per slice.** Max throughput per process ≈ 1000 ms ÷ block_ms: a 50 ms sync `JSON.parse` in a request handler caps that process near 20 req/s, and every concurrent request inherits the stall. Repeatedly over budget → `worker_threads`; one-off → partition with `setImmediate` (→ `async.md`).
+1. **Budget sync work at ~10 ms per slice.** Max throughput per process ≈ 1000 ms ÷ block_ms: a 50 ms sync `JSON.parse` in a request handler caps that process near 20 req/s, and every concurrent request inherits the stall. Repeatedly over budget → `worker_threads`; one-off → partition with `setImmediate` (→ `references/async.md`).
 2. **Handle operational errors, crash on programmer errors** (Joyent doctrine). ECONNRESET, ENOENT, bad user input → handle at the call site. TypeError, undefined property → let it crash; the supervisor restarts a clean process. Catch-all recovery keeps corrupted state serving traffic.
 3. **"Async" fs, dns.lookup, crypto, and zlib share 4 libuv threads** (default `UV_THREADPOOL_SIZE`; max 1024). The 5th concurrent `fs.promises.readFile` queues behind the first 4. Slow "async" crypto/fs under load → raise the pool to roughly the number of concurrent slow calls, or move the work off the process.
 4. **Cap concurrency explicitly.** `Promise.all(items.map(fetch))` over 10k items opens 10k sockets — EMFILE at the common 1024 fd soft limit. Batch or use a limiter; 8-32 concurrent per upstream host is a sane starting cap, raised on evidence: throughput climbing with flat latency = raise it; latency climbing = you found the ceiling.
 5. **`keepAliveTimeout` must exceed the proxy's idle timeout.** Node's default is 5 s; ALB's default idle is 60 s, so Node closes sockets the balancer just reused → intermittent 502s. Formula: `keepAliveTimeout = proxy_idle + 5 s` and `headersTimeout = keepAliveTimeout + 1 s` (ALB 60 s → 65 s / 66 s; nginx upstream `keepalive_timeout 75s` → 80 s / 81 s).
-6. **Exact versions for apps, ranges for libraries; `npm ci` in anything automated.** `npm install` rewrites the lockfile whenever package.json allows it — in CI that means testing an install nobody reviewed (→ `packages.md`).
+6. **Exact versions for apps, ranges for libraries; `npm ci` in anything automated.** `npm install` rewrites the lockfile whenever package.json allows it — in CI that means testing an install nobody reviewed (→ `references/packages.md`).
 7. **One process per container.** Let the orchestrator scale replicas; `cluster` only on bare metal or VMs you own entirely — two schedulers fighting over the same cores obscures both.
 8. **Set the heap ceiling below the memory limit.** RSS = heap + buffers + stacks + native, so a default-sized heap under a container limit invites an OOMKill instead of a catchable heap error. Formula: `--max-old-space-size = floor(0.75 × container_limit_MB)` — 512 MB limit → 384; 2 GB → 1536. Exit 134 with `FATAL ERROR: ... heap out of memory` means you hit V8's ceiling; exit 137 means the kernel hit yours first.
 
@@ -84,11 +68,11 @@ Exit codes above 128 mean killed by signal `code − 128`; Node's own fatal code
 | 1 | Uncaught fatal exception | Read the stack; an empty one means a non-Error was thrown (→ Traps) |
 | 3 / 5 | Internal JS parse failure / fatal V8 error | Almost always a bad `--flag` or a corrupt install, not your code |
 | 7 | Exception inside an exception handler | Your `uncaughtException` hook itself threw |
-| 9 | Invalid argument to the node binary | Flag typo, or a flag this major doesn't support (→ `runtime.md`) |
+| 9 | Invalid argument to the node binary | Flag typo, or a flag this major doesn't support (→ `references/runtime.md`) |
 | 130 | SIGINT (128+2) | Ctrl-C; clean unless a handler swallowed it |
 | 134 | SIGABRT (128+6) | V8 fatal — usually heap OOM (rule 8) or a failed native assertion |
 | 137 | SIGKILL (128+9) | Kernel or orchestrator OOM kill, or a stop timeout expiring (rule 8) |
-| 143 | SIGTERM (128+15) | Normal stop; if requests were dropped, the drain sequence is missing (→ `production.md`) |
+| 143 | SIGTERM (128+15) | Normal stop; if requests were dropped, the drain sequence is missing (→ `references/production.md`) |
 
 Error codes worth recognizing on sight: `EADDRINUSE` (port held), `EMFILE`/`ENFILE` (descriptor limit, rule 4), `ECONNRESET` (peer closed mid-flight — operational, rule 2), `EPIPE` (downstream closed a pipe), `ERR_REQUIRE_ESM` and `ERR_MODULE_NOT_FOUND` (format or extension), `ERR_UNHANDLED_REJECTION` (rule 2), `ERR_STRING_TOO_LONG` (V8 caps string length in the hundreds of MB — stream instead of `JSON.stringify`), `ERR_CHILD_PROCESS_STDIO_MAXBUFFER` (child output over the buffer cap).
 
@@ -102,8 +86,8 @@ proxy idle    <  keepAliveTimeout       <  headersTimeout
 force-exit backstop  <  orchestrator kill window
 ```
 
-- Node HTTP server defaults (node >=18): `keepAliveTimeout` 5 s, `headersTimeout` 60 s, `requestTimeout` 300 s, `server.timeout` 0 (disabled). Only the first is short enough to bite by accident (rule 5).
-- Outbound calls need their own deadline — an upstream that never answers holds a socket, a descriptor, and a request slot. `AbortSignal.timeout(ms)`, with retries × per-try timeout still under `requestTimeout`.
+- Node HTTP server defaults (node >=20): `keepAliveTimeout` 5 s, `headersTimeout` 60 s, `requestTimeout` 300 s, `server.timeout` 0 (disabled). Only the first is short enough to bite by accident (rule 5).
+- Outbound calls need their own deadline — an upstream that fails to answer holds a socket, a descriptor, and a request slot. `AbortSignal.timeout(ms)`, with retries × per-try timeout still under `requestTimeout`.
 - Shutdown backstop = orchestrator grace window − 5 s (Kubernetes `terminationGracePeriodSeconds` defaults to 30 s → force-exit at 25 s), so you exit on your own terms with logs flushed instead of by SIGKILL.
 
 ## Version Gates
@@ -123,7 +107,7 @@ The canonical minimums this skill's guidance assumes. Check `node -v` before rec
 | `require()` of a synchronous ESM graph | 22.12 |
 | Running `.ts` by type stripping, unflagged | 24 (backported to 22.18) |
 
-Release cadence, so "supported" stays checkable instead of remembered: one new major every April and October; even majors enter LTS that October and get ~3 years total (6 months Current, 12 Active LTS, 18 Maintenance); odd majors die after ~6 months and never belong in production. Which majors are live today: `runtime.md` (dated).
+Release cadence, so "supported" stays checkable instead of remembered: one new major every April and October; even majors enter LTS that October and get ~3 years total (6 months Current, 12 Active LTS, 18 Maintenance); odd majors die after ~6 months and are excluded from production environments. Which majors are live today: `references/runtime.md` (dated).
 
 ## Output Gates
 
@@ -133,22 +117,22 @@ Before shipping Node code, verify:
 - Every `Promise.all` bounded by something other than user input? (rule 4)
 - Every stream wired through `pipeline()` or carrying its own `error` handler — an unhandled stream `error` is a process crash?
 - Every outbound call carrying a timeout or AbortSignal, and every server timeout ordered per the ladder?
-- All `process.env` reads parsed and validated once at startup — they are strings or undefined, never numbers or booleans?
-- Shutdown path present: SIGTERM → fail readiness → stop accepting → drain → close pools → exit, in that order (→ `errors.md`)?
+- All `process.env` reads parsed and validated once at startup — they are strings or undefined, not numbers or booleans?
+- Shutdown path present: SIGTERM → fail readiness → stop accepting → drain → close pools → exit, in that order (→ `references/errors.md`)?
 - Heap ceiling set against the container limit (rule 8), and one process per container (rule 7)?
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/nodejs/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/nodejs/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
 | package_manager | npm \| pnpm \| yarn \| bun | npm | Every install, lockfile, workspace, and CI command; which `npm ci` equivalent rule 6 names |
-| module_system | esm \| cjs | esm | Import syntax and extensions in all examples, `type` field guidance, which half of `modules.md` leads |
-| node_target | number (major, >=20) | 24 | Which APIs the guidance may use without a fallback — read against the Version Gates table |
-| test_runner | node \| jest \| vitest | node | Test, mock, and fake-timer idioms; the coverage and watch flags quoted in `testing.md` |
+| module_system | esm \| cjs | esm | Import syntax and extensions in all examples, `type` field guidance, which half of `references/modules.md` leads |
+| node_target | number (major, >=20) | 22 | Which APIs the guidance may use without a fallback — read against the Version Gates table |
+| test_runner | node \| jest \| vitest | node | Test, mock, and fake-timer idioms; the coverage and watch flags quoted in `references/testing.md` |
 | deploy_target | container \| vm \| serverless \| paas | container | Signal and PID-1 handling, cluster vs replicas (rule 7), heap sizing (rule 8), shutdown window |
-| ts_runner | none \| strip \| tsx \| tsc | none | Whether `.ts` guidance assumes type stripping, a loader, or a build step (`typescript.md`) |
+| ts_runner | none \| strip \| tsx \| tsc | none | Whether `.ts` guidance assumes type stripping, a loader, or a build step (`references/typescript.md`) |
 
 Preference areas — customizable dimensions; a stated preference gets recorded in config.yaml and applied:
 
@@ -169,7 +153,7 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 |---|---|---|
 | Unhandled promise rejection | Terminates the process by default (node >=15) | `.catch()` or try/catch on every await chain |
 | `.pipe()` without error wiring | Errors don't cross pipes; the source leaks, then crashes | `stream.pipeline()` |
-| Forgotten `await` inside try/catch | The rejection skips the catch and surfaces later, or never | Lint with `no-floating-promises` |
+| Forgotten `await` inside try/catch | The rejection skips the catch and surfaces later, or drops completely | Lint with `no-floating-promises` |
 | `exports = x` in CJS | Rebinds a local alias; `module.exports` is unchanged | `module.exports = x` |
 | `__dirname` in ESM | Doesn't exist there | `import.meta.dirname`, else `fileURLToPath(import.meta.url)` |
 | Mutating a `require()`d object | Module cache: every consumer sees the mutation | Export factories, or freeze exports |
@@ -178,8 +162,8 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 | Raising the max-listeners limit to silence that warning | Hides the leak that produced it; memory keeps climbing | Find who adds a listener per event and remove it |
 | Throwing non-Error values | No stack; `instanceof Error` checks fail; exit 1 with an empty trace | `throw new Error(msg, { cause })` |
 | `node:vm` as a sandbox | Not a security boundary — its own docs say so | Isolate untrusted code at process or container level |
-| `npm audit fix --force` on a red report | Applies major bumps that break the app to silence findings in code that may never run | Triage by reachability, pin with `overrides` (→ `packages.md`) |
-| `node index.js` as PID 1 in a container | PID 1 gets no default signal handlers: SIGTERM is ignored and every stop burns the full grace window | Register a SIGTERM handler, or run an init (→ `production.md`) |
+| `npm audit fix --force` on a red report | Applies major bumps that break the app to silence findings in code that may never run | Triage by reachability, pin with `overrides` (→ `references/packages.md`) |
+| `node index.js` as PID 1 in a container | PID 1 gets no default signal handlers: SIGTERM is ignored and every stop burns the full grace window | Register a SIGTERM handler, or run an init (→ `references/production.md`) |
 
 ## Where Experts Disagree
 
@@ -189,15 +173,10 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 - **TypeScript at runtime vs a build step.** Type stripping deletes the toolchain for apps deployed from source; a `tsc` build stays correct for published libraries that must ship `.d.ts` and support older consumers.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/nodejs (install if the user confirms):
+
 - `javascript` — language-level semantics: coercion, closures, dates, regex
 - `typescript` — type-system design, tsconfig strictness, declaration files
 - `docker` — containerizing the service, image layers, resource limits
 - `api` — HTTP API design, versioning, and contracts above the runtime
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/nodejs
-- Latest version: https://clawic.com/skills/nodejs
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/nodejs.
+Authoritative Node runtime docs and release anchors: `references/sources.md`.

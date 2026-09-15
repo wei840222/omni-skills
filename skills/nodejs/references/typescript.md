@@ -12,7 +12,7 @@ Scope: getting `.ts` to run, resolve, and ship correctly on Node. Type-system de
 
 - Default to the build step for anything published to a registry: consumers need `.js` and `.d.ts`, and neither stripping nor a loader produces them.
 - Default to type stripping for services on a current runtime: one fewer dependency, one fewer transform, and stacks that point at the real file.
-- Never mix: a repository where some entry points are stripped and others are built has two resolution behaviors and one confused debugger.
+- Maintain consistency: a repository where some entry points are stripped and others are built has two resolution behaviors and one confused debugger.
 
 ## Type Stripping Limits
 

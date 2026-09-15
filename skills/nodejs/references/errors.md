@@ -11,7 +11,7 @@
 ## Error Types You Define
 
 - One base class per boundary, not per error: `AppError` with `code`, `status`, and `expose` covers a whole service. Fifty subclasses is a taxonomy nobody keeps consistent.
-- Attach machine-readable fields (`code`, `resource`, `attempt`), never a pre-formatted sentence — the caller decides the wording, the log wants structure.
+- Attach machine-readable fields (`code`, `resource`, `attempt`), instead of a pre-formatted sentence — the caller decides the wording, the log wants structure.
 - `Error.captureStackTrace(this, this.constructor)` in a custom error's constructor removes the constructor frame, so the stack starts where the error was actually raised.
 - Throw only Errors. A thrown string has no stack, breaks `instanceof`, and exits 1 with an empty trace (→ `debug.md`).
 - `expose: true` marks the messages safe to return to a client; everything else surfaces as a generic message plus a correlation id. Leaking a driver error to an HTTP client leaks your schema.
@@ -22,7 +22,7 @@
 - An `'error'` event with no listener throws — every EventEmitter and every stream needs one (or `pipeline()`, which wires all of them).
 - Unhandled rejection terminates the process by default (node >=15). Every await chain ends in a catch, a route handler, or a deliberate `.catch(noop)` on a fire-and-forget you have thought about.
 - `process.on('uncaughtException' | 'unhandledRejection')`: log, flush, exit. After an uncaught throw, program state is unknown; these hooks are for cleanup, not recovery. A handler that logs and continues converts a crash into a slow corruption.
-- Never let the boundary itself throw: an exception inside `uncaughtException` exits with code 7 and no useful output.
+- Ensure the boundary exception handler itself cannot throw: an exception inside `uncaughtException` exits with code 7 and no useful output.
 - `AbortError` at a boundary is not a failure — it means someone cancelled. Count it separately or your error rate tracks client behavior.
 
 ## Retries and Degradation

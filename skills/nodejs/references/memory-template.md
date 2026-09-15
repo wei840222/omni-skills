@@ -1,6 +1,6 @@
 # Memory Template — NodeJS
 
-Create `~/Clawic/data/nodejs/memory.md` with this structure:
+Create `<state_root>/nodejs/memory.md` with this structure:
 
 ```markdown
 # NodeJS Memory

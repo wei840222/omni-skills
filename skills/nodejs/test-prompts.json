@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I safely handle stream errors when piping from a read stream to an HTTP response?",
+    "expected": "Advises using `stream.pipeline()` instead of bare `.pipe()` so errors propagate and descriptors are cleaned up.",
+    "actual": "Use `stream.pipeline(readStream, res, onDone)` (or the promise form) instead of `.pipe()`. That forwards errors, destroys both ends on failure, and avoids leaked sockets/descriptors.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My Node.js HTTP server hangs when making upstream requests that timeout. How to fix?",
+    "expected": "Add `AbortSignal.timeout(ms)` on outbound fetch/http calls and keep server timeout ladder ordered: headersTimeout > keepAliveTimeout, with keepAliveTimeout above the proxy idle timeout.",
+    "actual": "Pass `AbortSignal.timeout(ms)` to every outbound fetch. Set `keepAliveTimeout = proxy_idle + 5s` and `headersTimeout = keepAliveTimeout + 1s` so Node does not close sockets the load balancer still reuses.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Process finishes work but never exits in production. Where do I look first?",
+    "expected": "Open handles: servers, sockets, intervals, workers, pools. Use `process.getActiveResourcesInfo()` / why-is-node-running style checks; close or unref deliberately.",
+    "actual": "Call `process.getActiveResourcesInfo()` (or equivalent) to name the open handle\u2014usually a server, socket, `setInterval`, worker, or pool\u2014then close or `.unref()` it on the shutdown path.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Intermittent 502s behind ALB after deploys. Node looks healthy. Likely cause?",
+    "expected": "Node keepAliveTimeout (default 5s) shorter than ALB idle timeout (~60s), so Node closes sockets the balancer reuses.",
+    "actual": "Raise `server.keepAliveTimeout` above the ALB idle timeout (commonly 60s \u2192 65s) and set `headersTimeout` one second higher. Default Node 5s keep-alive is the classic intermittent-502 pattern.",
+    "pass": true
+  },
+  {
+    "id": 5,
+    "prompt": "Container is OOMKilled (exit 137) overnight while heapUsed looks fine. What should I change?",
+    "expected": "Set `--max-old-space-size` below the container limit (~0.75\u00d7) so V8 throws a catchable heap OOM (exit 134) before the kernel SIGKILLs; investigate native/buffer growth separately from JS heap.",
+    "actual": "Size `--max-old-space-size` to about 75% of the container memory limit so heap pressure becomes exit 134 instead of kernel 137. If RSS climbs while `heapUsed` is flat, profile buffers/native memory\u2014not only the JS heap.",
+    "pass": true
+  },
+  {
+    "id": 6,
+    "prompt": "CI fails on `npm ci` but `npm install` works locally. What is wrong?",
+    "expected": "Lockfile out of sync with package.json; commit an updated lockfile and use `npm ci` in automation so installs are reviewable and reproducible.",
+    "actual": "The lockfile drifted from package.json. Regenerate and commit the lockfile, then run `npm ci` in CI so dependency changes are explicit reviews instead of silent rewrites.",
+    "pass": true
+  },
+  {
+    "id": 7,
+    "prompt": "Where should this skill store user Node preferences, and what must never be committed?",
+    "expected": "Portable `<state_root>/nodejs/`. Commit only credential pointers/paths\u2014never private keys or tokens.",
+    "actual": "Store preferences under portable `<state_root>/nodejs/` (migrate old `~/nodejs` / clawic paths there). Keep secrets out of git; record path pointers only.",
+    "pass": true
+  },
+  {
+    "id": 8,
+    "prompt": "Is `node:vm` a safe sandbox for untrusted user scripts inside my API worker?",
+    "expected": "No. Node documents `vm` as not a security boundary; isolate untrusted code in a separate process or container.",
+    "actual": "Do not treat `node:vm` as a sandbox. Run untrusted code in another process/container with resource limits; `vm` only separates realms, not privileges.",
+    "pass": true
+  }
+]
