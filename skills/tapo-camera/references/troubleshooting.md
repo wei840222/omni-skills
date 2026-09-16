@@ -31,7 +31,7 @@ Use this file when the user already tried a capture or discovery flow and someth
 
 ## Escalation Boundary
 
-Stop and restate the trust boundary if the user asks to:
+Restate the trust boundary if the user asks to:
 - capture continuously in the background
 - expose the camera to the public internet
 - upload frames to a third-party AI service

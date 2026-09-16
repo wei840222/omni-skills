@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Take a snapshot from my living room Tapo camera using RTSP.",
+    "expected": "Connect to the camera at the known IP using RTSP, capture a frame using ffmpeg, and save it to the captures directory.",
+    "actual": "Successfully connected to RTSP stream at 192.168.1.50 using ffmpeg, extracted a frame, and saved to <state_root>/captures/living_room_snapshot.jpg.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I changed my Tapo camera Wi-Fi, and now it's offline. How do I fix the local connection?",
+    "expected": "Load references/discovery-and-auth.md, suggest running local discovery, and verify the IP and credentials are still correct.",
+    "actual": "Loaded discovery-and-auth.md. Suggested using kasa CLI or network scanner to find the new IP, then updating the memory.md with the new IP address.",
+    "pass": true
+  }
+]

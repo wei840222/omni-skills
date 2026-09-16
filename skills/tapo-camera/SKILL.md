@@ -1,64 +1,26 @@
 ---
 name: tapo-camera
-slug: tapo-camera
-version: 1.0.0
-description: Connect to Tapo cameras, verify local access, capture snapshots, and inspect frames with local-first RTSP workflows and safe fallbacks.
-homepage: https://clawic.com/skills/tapo-camera
-changelog: Initial release with local discovery, RTSP snapshot capture, device-boundary guardrails, and API fallback guidance for unsupported cases.
+description: Connect to Tapo cameras on a trusted local network to verify reachability, capture snapshots, and inspect frames using RTSP.
 metadata:
-  clawdbot:
-    emoji: 📷
-    requires:
-      bins:
-      - python3
-      - ffmpeg
-      - kasa
-      pip:
-      - python-kasa
-      config:
-      - ~/Clawic/data/tapo-camera/
-      env.optional:
-      - TAPO_CAMERA_USERNAME
-      - TAPO_CAMERA_PASSWORD
-      - KASA_CREDENTIALS_HASH
-    install:
-    - id: pip-python-kasa
-      kind: pip
-      package: python-kasa
-      bins:
-      - kasa
-      label: Install python-kasa and the kasa CLI (pip)
-    - id: brew-ffmpeg
-      kind: brew
-      formula: ffmpeg
-      bins:
-      - ffmpeg
-      label: Install ffmpeg (Homebrew)
-    os:
-    - darwin
-    - linux
-    - win32
-    configPaths:
-    - ~/Clawic/data/tapo-camera/
-    displayName: Tapo Camera
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/tapo-camera/
+  openclaw: '{"emoji": "📷","requires": {"bins": ["python3","ffmpeg","kasa"],"pip": ["python-kasa"],"config": ["<state_root>/"],"env.optional": ["TAPO_CAMERA_USERNAME","TAPO_CAMERA_PASSWORD","KASA_CREDENTIALS_HASH"]},"install": [{"id": "pip-python-kasa","kind": "pip","package": "python-kasa","bins": ["kasa"],"label": "Install python-kasa and the kasa CLI (pip)"},{"id": "brew-ffmpeg","kind": "brew","formula": "ffmpeg","bins": ["ffmpeg"],"label": "Install ffmpeg (Homebrew)"}],"configPaths": ["<state_root>/"],"os": ["darwin","linux","win32"]}'
+  version: 1.0.0
 ---
+## When to load
 
-## When to Use
+Load this skill to connect to user-owned Tapo cameras on a trusted local network, verify reachability, capture still images, and inspect RTSP frames without cloud workflows.
+Skip loading this skill for general surveillance design or unrelated cloud camera APIs.
 
-Use this skill when the user wants an agent to connect to their own Tapo cameras on a trusted local network, verify camera reachability, take still captures, and inspect the resulting frames without defaulting to cloud workflows.
-
-This skill is for local camera operations, not general surveillance design. Keep it scoped to user-owned cameras, explicit capture requests, and reversible local workflows.
+Load `references/setup.md` to initialize local state and discover cameras.
+Load `references/snapshot-workflows.md` to capture and verify RTSP frames.
+Load `references/discovery-and-auth.md` to troubleshoot network connectivity and authentication.
+Load `references/api-fallback.md` if RTSP is unsupported and an alternative API approach is needed.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/tapo-camera/`. If `~/Clawic/data/tapo-camera/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. If `<state_root>/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/tapo-camera/
+<state_root>/
 ├── memory.md               # activation boundaries, preferred capture defaults, and trust limits
 ├── cameras.md              # hostnames, labels, model notes, and stream capabilities
 ├── sessions/
@@ -74,14 +36,14 @@ Only create `cameras.md`, `sessions/`, `captures/`, or `incidents.md` if the use
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory schema and status values | `memory-template.md` |
-| Camera inventory template | `cameras.md` |
-| Incident log template | `incidents.md` |
-| Discovery, auth, and capability checks | `discovery-and-auth.md` |
-| Local still-capture and review flows | `snapshot-workflows.md` |
-| Unofficial API fallback boundary | `api-fallback.md` |
-| Failure diagnosis and recovery order | `troubleshooting.md` |
+| Setup and activation behavior | `references/setup.md` |
+| Memory schema and status values | `references/memory-template.md` |
+| Camera inventory template | `references/cameras.md` |
+| Incident log template | `references/incidents.md` |
+| Discovery, auth, and capability checks | `references/discovery-and-auth.md` |
+| Local still-capture and review flows | `references/snapshot-workflows.md` |
+| Unofficial API fallback boundary | `references/api-fallback.md` |
+| Failure diagnosis and recovery order | `references/troubleshooting.md` |
 | Local capture helper | `tapo-capture.py` |
 
 ## Requirements
@@ -94,24 +56,26 @@ Only create `cameras.md`, `sessions/`, `captures/`, or `incidents.md` if the use
 - Optional environment variables for the helper: `TAPO_CAMERA_USERNAME`, `TAPO_CAMERA_PASSWORD`, or `KASA_CREDENTIALS_HASH`
 - Optional unofficial fallback: a local API library only when RTSP or ONVIF is unavailable and the user approves that narrower path
 
-Treat Tapo credentials and `KASA_CREDENTIALS_HASH` as secrets. Never paste them into chat, commit them to files, or print them back to the user.
+Treat Tapo credentials and `KASA_CREDENTIALS_HASH` as secrets. Keep them excluded from chat, committed files, and user output.
 
 ## Data Storage
 
 Use local notes only when they improve repeatability:
 
-- the memory file for activation boundaries, privacy limits, and preferred output paths
-- `cameras.md` for camera labels, hosts, model quirks, and stream capability notes
-- dated session notes for capture attempts and the exact path that worked
-- `incidents.md` for recurring auth, RTSP, ONVIF, or firmware regressions
-- the `captures/` folder for user-approved still images only
+- `<state_root>/memory.md` for activation boundaries, privacy limits, and preferred output paths
+- `<state_root>/cameras.md` for camera labels, hosts, model quirks, and stream capability notes
+- `<state_root>/sessions/YYYY-MM-DD.md` for capture attempts and the exact path that worked
+- `<state_root>/incidents.md` for recurring auth, RTSP, ONVIF, or firmware regressions
+- `<state_root>/captures/` for user-approved still images only
+
+Use `references/cameras.md`, `references/memory-template.md`, and `references/incidents.md` only as templates when creating those runtime files.
 
 ## Core Rules
 
 ### 1. Prove scope and ownership before touching a camera
 - Confirm the camera belongs to the user and the agent is on the same trusted network segment.
 - Start with hostname, model, and whether the camera is a direct device or a hub child.
-- Do not scan arbitrary ranges or attempt blind discovery outside the explicit device scope.
+- Limit scanning and discovery to the explicit device scope.
 
 ### 2. Prefer maintained local tooling first
 - Use `python-kasa` and the `kasa` CLI for discovery, auth validation, and camera capability checks.
@@ -121,22 +85,22 @@ Use local notes only when they improve repeatability:
 ### 3. Separate discovery from capture
 - First prove the device answers and the camera module is present.
 - Then derive stream capability and capture a single still to an explicit output path.
-- Do not mix auth debugging, network probing, and repeated frame capture in one opaque step.
+- Separate auth debugging, network probing, and frame capture into distinct, transparent steps.
 
 ### 4. Keep secrets out of chat, disk, and process output
 - Inject camera credentials from a secret manager or ephemeral environment variables.
-- Do not store raw passwords, reversible credential blobs, or full authenticated RTSP URLs in local notes.
+- Store only safe connection details in local notes, omitting raw passwords, credential blobs, or full authenticated RTSP URLs.
 - The helper may use a live RTSP URL internally for `ffmpeg`, but it should not print that URL unless the user explicitly asks.
 
 ### 5. Capture the smallest useful artifact
 - Default to one still image, not continuous recording.
-- Write captures only to a user-approved local path under `~/Clawic/data/tapo-camera/captures/` or another explicit destination.
+- Write captures only to a user-approved local path under `<state_root>/captures/` or another explicit destination.
 - Name captures with camera label and timestamp so later inspection stays deterministic.
 
 ### 6. Keep the trust boundary local by default
 - Local Tapo device traffic is allowed only to the camera host on the user's LAN.
-- Do not upload frames to cloud vision services, shared drives, or chat surfaces unless the user explicitly requests it.
-- If the user wants remote or cloud workflows, stop and restate what data would leave the machine first.
+- Keep frames local unless the user explicitly requests uploading to cloud vision services, shared drives, or chat surfaces.
+- If the user wants remote or cloud workflows, restate what data would leave the machine first.
 
 ### 7. Fall back deterministically
 - If `kasa` cannot expose a camera module or RTSP URL, check model support, privacy mode, and third-party compatibility before changing approach.
@@ -147,11 +111,11 @@ Use local notes only when they improve repeatability:
 
 | Trap | Why It Fails | Better Move |
 |------|--------------|-------------|
-| Treating every Tapo device like a direct RTSP camera | Hub children and some battery devices do not expose the same local stream surface | Identify device class first, then choose RTSP, ONVIF, or API fallback |
+| Treating every Tapo device like a direct RTSP camera | Hub children and some battery devices lack the same local stream surface | Identify device class first, then choose RTSP, ONVIF, or API fallback |
 | Printing the full RTSP URL into logs | That leaks camera credentials into history and shared output | Keep URLs redacted by default and only reveal them on explicit request |
 | Using cloud login assumptions for local capture | Local device auth and camera account setup are separate in practice | Verify the camera account and third-party compatibility state first |
 | Jumping straight to repeated frame pulls | Harder to debug and easier to cross privacy boundaries | Prove one still capture before any loop or batch job |
-| Storing captures and credentials together | Raises the blast radius if the local folder is copied or synced | Keep images and secrets separate, and never persist secrets in `~/Clawic/data/tapo-camera/` |
+| Storing captures and credentials together | Raises the blast radius if the local folder is copied or synced | Keep images and secrets separate, and exclude secrets from `<state_root>/` |
 
 ## External Endpoints
 
@@ -170,7 +134,7 @@ Data that may leave your machine:
 - Local-LAN requests to the user's camera host for auth, capability checks, and frame capture
 
 Data that stays local:
-- User-approved notes under `~/Clawic/data/tapo-camera/`
+- User-approved notes under `<state_root>/`
 - Captured stills in a local folder chosen by the user
 - Troubleshooting logs and device capability notes
 
@@ -179,7 +143,7 @@ This skill does NOT:
 - capture or upload images without explicit user intent
 - run undeclared cloud vision or cloud relay workflows
 - modify camera firmware, privacy settings, or motor position by default
-- access files outside the working directory or `~/Clawic/data/tapo-camera/` for memory
+- access files outside the working directory or `<state_root>/` for memory
 
 ## Scope
 
@@ -189,22 +153,17 @@ This skill ONLY:
 - captures still images to explicit local paths
 - documents the minimum fallback needed when RTSP or ONVIF is unavailable
 
-This skill NEVER:
-- brute-force camera credentials or scan arbitrary networks
-- enable silent background monitoring
-- upload frames to external services by default
-- treat hub children, battery devices, and direct cameras as interchangeable
-- rewrite the installed skill files
+Out of scope / refuse by default:
+- brute-forcing camera credentials or scanning arbitrary networks
+- enabling silent background monitoring
+- uploading frames to external services without explicit user intent
+- treating hub children, battery devices, and direct cameras as interchangeable
+- rewriting the installed skill files
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
+
 - `cameras` - broader camera capture and review workflows outside the Tapo-specific lane
 - `ffmpeg` - deeper frame extraction, transcoding, and media inspection once capture works
 - `smart-home` - ecosystem-level device coordination and automation planning
 - `iot` - local-device debugging and network-aware connector reasoning
 - `photos` - organize and inspect saved captures after acquisition
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/tapo-camera
-- Latest version: https://clawic.com/skills/tapo-camera

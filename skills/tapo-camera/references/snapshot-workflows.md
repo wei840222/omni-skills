@@ -16,7 +16,7 @@ The included helper wraps the discovery and RTSP capture flow:
 ```bash
 python3 tapo-capture.py \
   --host 192.168.1.50 \
-  --output ~/Clawic/data/tapo-camera/captures/front-door-2026-03-16T2350.jpg
+  --output <state_root>/captures/front-door-2026-03-16T2350.jpg
 ```
 
 Expected environment:
@@ -40,14 +40,14 @@ After a successful capture:
 - inspect the still locally
 - if the user wants agent vision on it, use the local image file rather than re-pulling the camera
 
-Do not keep recapturing the same scene just to inspect it again.
+Reuse the previously captured frame for repeated inspection of the same scene.
 
 ## Safe Defaults
 
 - Default to `stream1` for the highest-quality still unless bandwidth is a problem.
 - Use a timestamped filename.
 - Keep the output path explicit and local.
-- Avoid printing the full RTSP URL unless the user explicitly wants it for another tool.
+- Print the full RTSP URL only when the user explicitly requests it for another tool.
 
 ## When To Reveal The RTSP URL
 

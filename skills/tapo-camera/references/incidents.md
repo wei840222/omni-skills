@@ -1,6 +1,6 @@
 # Incidents - Tapo Camera
 
-Use this file when a previously working camera flow stops working and the user wants a short operational record.
+Use this file when a previously working camera flow halts and the user wants a short operational record.
 
 ## Incident Template
 
@@ -16,4 +16,4 @@ Use this file when a previously working camera flow stops working and the user w
 ## Logging Rule
 
 Keep the record short and operational.
-Never include passwords, reversible credential blobs, or raw authenticated RTSP URLs.
+Include only safe metadata, excluding passwords, reversible credential blobs, or raw authenticated RTSP URLs.

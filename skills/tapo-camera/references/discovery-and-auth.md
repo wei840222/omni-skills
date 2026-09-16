@@ -26,14 +26,14 @@ kasa --type camera --host 192.168.1.50 \
 - firmware
 - whether the camera module is exposed
 
-Do not jump to repeated capture until a single state check succeeds.
+Wait for a single state check to succeed before attempting repeated capture.
 
 ## Credential Handling
 
 - Inject credentials from a secret manager or short-lived environment variables.
-- Never paste raw camera credentials into chat.
+- Exclude raw camera credentials from chat.
 - Treat `KASA_CREDENTIALS_HASH` as a secret-equivalent transport artifact, not as a safe public identifier.
-- Do not save credentials or authenticated URLs in `~/Clawic/data/tapo-camera/`.
+- Save only non-sensitive metadata in `<state_root>/`, excluding credentials or authenticated URLs.
 
 ## Third-Party Compatibility
 
@@ -52,5 +52,5 @@ Hub children, battery models, and some low-power devices may not expose a direct
 
 If the user has one of those:
 - confirm the exact model
-- avoid generic RTSP assumptions
+- Verify specific RTSP implementations before making assumptions
 - move to `api-fallback.md` only after the local stream path is ruled out

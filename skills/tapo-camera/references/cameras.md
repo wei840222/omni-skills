@@ -19,4 +19,4 @@ For each camera, capture only the minimum useful facts:
 
 ## Inventory Rule
 
-Do not store passwords, reversible credential blobs, or full authenticated stream URLs here.
+Store only safe connection metadata here, excluding passwords, reversible credential blobs, or full authenticated stream URLs.
