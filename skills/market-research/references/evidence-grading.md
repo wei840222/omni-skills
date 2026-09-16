@@ -8,7 +8,7 @@ Use this ladder to prevent weak research from sounding stronger than it is.
 |------------|------------------|---------------|
 | **High** | Public filings, first-party pricing pages, direct customer behavior, signed pilots, prepayments | Strong enough to support a recommendation |
 | **Medium** | Review mining, job posts, trend data, credible analyst reports, repeated interviews | Useful for directional judgment with caveats |
-| **Low** | Founder claims, press releases, one-off anecdotes, generic social chatter | Use only as a lead, never as the core conclusion |
+| **Low** | Founder claims, press releases, one-off anecdotes, generic social chatter | Use only as a lead; require stronger evidence for core conclusions |
 
 ## Minimum Standard by Decision
 

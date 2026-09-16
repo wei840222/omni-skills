@@ -4,7 +4,7 @@
 
 ### The Mom Test Questions
 
-Avoid leading questions. Get facts about past behavior, not future intentions.
+Ask open-ended questions about past behavior instead of future intentions or leading questions.
 
 ❌ "Would you use an app that does X?"
 ✅ "How do you currently solve X?"

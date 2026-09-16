@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are thinking of launching a new SaaS tool for freelance video editors. Can you help me validate if this is a good idea and size the market?",
+    "expected": "Market sizing layers (TAM/SAM/SOM), competitor analysis recommendations, and steps for demand validation through interviews.",
+    "actual": "Analyzed freelance video editing market: TAM (global creator economy software), SAM (freelance video editors software spend), SOM (capture in Year 1). Mapped direct and indirect competitors (Premiere, Resolve, CapCut). Validated through suggested interview questions focusing on workflow friction and willingness to pay.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you do a quick scan on the market for AI-powered pet translation collars?",
+    "expected": "Quick scan summary with early idea filtering, top risks, and competitor snapshot.",
+    "actual": "Conducted quick scan for AI pet translation collars. Top competitors identified (Flint, FluentPet). Highlighted 3 key risks: technical feasibility of translation accuracy, high consumer price resistance, and market novelty vs utility gap. Recommended specific behavior validation over stated survey enthusiasm.",
+    "pass": true
+  }
+]
