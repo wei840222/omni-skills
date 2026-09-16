@@ -1,33 +1,24 @@
 ---
 name: amazon
-slug: amazon
-version: 1.0.1
-description: Navigate Amazon as buyer, seller, or affiliate with price tracking, listing optimization, and smart purchasing decisions.
-homepage: https://clawic.com/skills/amazon
+description: Navigate Amazon as a buyer, seller, or affiliate by tracking prices,
+  optimizing listings, and making smart purchasing decisions.
 metadata:
-  clawdbot:
-    emoji: 📦
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Amazon
+  openclaw: '{"emoji": "📦"}'
+  related-skills: null
 ---
 
 ## Quick Reference
 
 | File | Purpose |
 |------|---------|
-| `buying.md` | Smart purchasing, comparisons, reorders |
-| `pricing.md` | Price tracking, deal detection, timing |
-| `selling.md` | FBA/FBM operations, listing optimization |
-| `affiliates.md` | Amazon Associates, commission optimization |
-| `security.md` | Credentials, payments, account safety |
-| `legal.md` | ToS compliance, automation limits |
+| `references/buying.md` | Smart purchasing, comparisons, reorders |
+| `references/pricing.md` | Price tracking, deal detection, timing |
+| `references/selling.md` | FBA/FBM operations, listing optimization |
+| `references/affiliates.md` | Amazon Associates, commission optimization |
+| `references/security.md` | Credentials, payments, account safety |
+| `references/legal.md` | ToS compliance, automation limits |
 
-## What the Agent Does
+## When to load
 
 | User Request | Agent Action |
 |--------------|--------------|
@@ -59,7 +50,7 @@ metadata:
 - Gift purchases with delivery coordination
 - Returns/refunds initiation
 
-See `buying.md` for detailed workflows.
+See `references/buying.md` for detailed workflows.
 
 ## Seller Mode — Core Capabilities
 
@@ -80,7 +71,7 @@ See `buying.md` for detailed workflows.
 - Advertising performance (PPC)
 - Profit margin calculation (fees, shipping, returns)
 
-See `selling.md` for seller workflows.
+See `references/selling.md` for seller workflows.
 
 ## Affiliate Mode — Core Capabilities
 
@@ -94,14 +85,14 @@ See `selling.md` for seller workflows.
 - Seasonal trending products
 - Comparison content ideas
 
-See `affiliates.md` for affiliate strategies.
+See `references/affiliates.md` for affiliate strategies.
 
 ## Critical Security Rules
 
-**Credentials — NEVER:**
-- Store Amazon password in plain text
-- Share session cookies across devices
-- Bypass 2FA prompts
+**Credentials — Required protections:**
+- Keep Amazon passwords out of agent memory and plain-text storage
+- Keep session cookies scoped to the active trusted device/session
+- Require human completion of 2FA prompts; never bypass them
 
 **Payments — ALWAYS:**
 - Confirm total before purchase
@@ -109,11 +100,11 @@ See `affiliates.md` for affiliate strategies.
 - Alert on unusual amounts
 
 **Automation — LIMITS:**
-- Rate limit all requests (avoid account flags)
-- No automated purchasing without human confirmation
+- Implement rate limiting on all requests to protect account standing
+- Require explicit human confirmation before executing any automated purchasing
 - Respect session timeouts
 
-See `security.md` for complete security protocols.
+See `references/security.md` for complete security protocols.
 
 ## Legal Constraints
 
@@ -132,4 +123,4 @@ See `security.md` for complete security protocols.
 - Review analysis at scale (rate limits)
 - Scraping product data (use official APIs when available)
 
-See `legal.md` for ToS details and safe practices.
+See `references/legal.md` for ToS details and safe practices.

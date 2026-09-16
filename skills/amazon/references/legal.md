@@ -46,9 +46,9 @@
 - Buying own products for reviews
 
 **Intellectual property:**
-- Don't use trademarked terms unless authorized
+- Ensure you are authorized before using trademarked terms
 - Images must be owned or licensed
-- No copying competitor listing content
+- Create original content instead of copying competitor listings
 
 **Account health:**
 - Policy violations accumulate
@@ -58,7 +58,7 @@
 ## Data & Privacy
 
 **User data handling:**
-- Don't collect more than needed
+- Collect only the necessary information
 - Secure storage required
 - GDPR/CCPA compliance if applicable
 - No selling/sharing purchase history
@@ -94,7 +94,7 @@
 - Log all automated actions
 - Require human confirmation for transactions
 
-**Don't:**
+**Restricted actions:**
 - Impersonate human browsing
 - Scale beyond personal use without APIs
 - Automate anything TOS explicitly prohibits
