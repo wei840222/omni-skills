@@ -53,25 +53,25 @@
 ## Cultural Tips
 
 ### Dining Etiquette
-- **Wait for eldest**: Don't start eating before the oldest person
+- **Wait for eldest**: Wait for the eldest person to begin eating
 - **Pour for others**: Fill others' glasses, not your own
 - **Both hands**: Receive items (especially from elders) with both hands
-- **Chopsticks**: Don't stick them upright in rice (funeral symbolism)
+- **Chopsticks**: Rest chopsticks beside the bowl; upright in rice is funeral symbolism
 - **Finishing food**: Empty plate is complimentary; leaving food is okay too
 
 ### General Behavior
 - **Bowing**: Slight bow when greeting, especially elders or in formal settings
 - **Shoes off**: Remove shoes in homes, some traditional restaurants, temples
 - **Volume**: Koreans can be loud in restaurants/bars, but quiet on public transit
-- **Queuing**: Lines are respected. Don't cut.
+- **Queuing**: Lines are respected. Wait in line patiently.
 - **Eye contact**: Less direct than Western cultures when speaking with elders
 
 ### What NOT to Do
-- Don't write names in red ink (associated with death)
-- Don't blow your nose at the table
-- Don't tip (it's awkward)
-- Don't be overly affectionate in public
-- Don't disrespect national symbols or mention the Japan-Korea tensions carelessly
+- Avoid writing names in red ink (associated with death)
+- Avoid blowing your nose at the table; step away first
+- Skip tipping; it is not expected and can feel awkward
+- Keep public affection minimal
+- Treat national symbols respectfully and discuss Japan–Korea history carefully
 
 ---
 

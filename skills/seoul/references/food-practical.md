@@ -28,8 +28,8 @@
 
 **Useful Phrases**
 - 채식주의자예요 (I'm vegetarian)
-- 고기 안 먹어요 (I don't eat meat)
-- 생선도 안 먹어요 (I don't eat fish either)
+- 고기 안 먹어요 (I eat only vegetarian food)
+- 생선도 안 먹어요 (I abstain from fish)
 - 육수에 고기 들어가요? (Does the broth have meat?)
 
 ### Halal
@@ -49,7 +49,7 @@
 
 **Tips**
 - Look for "HALAL" certification signs
-- Avoid Korean BBQ unless specifically halal
+- Seek certified halal Korean BBQ establishments
 - Seafood-focused restaurants safer
 - HalalKorea.com for directory
 
@@ -99,11 +99,11 @@
 ### Drinking Etiquette
 
 **The Rules**
-1. **Never pour your own drink** — Others pour for you
+1. **Always let others pour your drink** — Others pour for you
 2. **Use two hands** — When receiving from/pouring for elders
 3. **Turn away from elders** — When drinking
-4. **Don't refuse the first drink** — Accept, then pace yourself
-5. **Match drinking pace** — Don't drink alone while others wait
+4. **Accept the first drink to show respect** — Accept, then pace yourself
+5. **Match drinking pace** — Pace your drinking with the group
 
 **Business Drinking**
 - 회식 (hoeshik) = work dinner with drinking
@@ -174,7 +174,7 @@
 | Apple Pay | Limited |
 
 **No Tipping**
-- Seriously, don't tip
+- Tipping is strictly unnecessary
 - Service charge included
 - Leaving money can cause confusion
 
@@ -213,7 +213,7 @@
 
 **Concerns**
 - Check expiration dates (유통기한)
-- Avoid old seafood stands (trust your nose)
+- Choose seafood stands with fresh daily catches (trust your nose)
 - Summer heat = faster spoilage
 
 ---
@@ -228,7 +228,7 @@
 - Some restaurants do special Ramadan menus
 
 **Considerations**
-- Most restaurants don't understand fasting
+- Most restaurants may be unfamiliar with fasting customs
 - Takeout/delivery for suhoor
 - Seoul Central Mosque community support
 

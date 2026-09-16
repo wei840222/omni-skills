@@ -17,7 +17,7 @@ Seoul's youth culture epicenter. Named after Hongik University (art/design schoo
 - Less crowded, more local
 - Independent cafés, boutiques
 - Better for actual living
-- Best for: Residents, those avoiding crowds
+- Best for: Residents, those seeking quieter areas
 
 **Sangsu (상수)**
 - Quieter extension of Hongdae

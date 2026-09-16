@@ -58,7 +58,7 @@ Korean food is designed for sharing. Most dishes come with banchan (반찬) — 
 - Free side dishes, always included
 - Refillable — just ask "반찬 더 주세요"
 - Usually 3-8 dishes
-- Don't feel obligated to finish everything
+- Leaving some food is acceptable
 
 **Table Setup**
 - Metal chopsticks (harder than wooden)
@@ -87,7 +87,7 @@ Korean food is designed for sharing. Most dishes come with banchan (반찬) — 
 **Age/Hierarchy**
 - Eldest person starts eating first
 - Eldest person orders/pays (usually)
-- Don't start eating until everyone is served
+- Wait for everyone to be served before eating
 
 **Paying**
 - Usually one person pays (not split)

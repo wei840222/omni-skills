@@ -63,7 +63,7 @@ Seoul is one of the safest major cities in the world. Violent crime is rare, and
 - Young people more accepting
 - Open LGBTQ+ scene in Itaewon (Homo Hill)
 - Workplace: Coming out can be risky
-- PDA: Avoid in public (same-sex)
+- PDA: Keep public displays minimal (same-sex)
 
 **Advice**
 - Itaewon = most open area
@@ -161,7 +161,7 @@ Seoul is one of the safest major cities in the world. Violent crime is rare, and
 - "Students" invite you to "practice English"
 - Take you to tea house
 - Bill comes: ₩100,000+
-- **Avoid**: Decline random invitations
+- **Action**: Decline unsolicited invitations
 
 **Bar Overcharging**
 - Check prices before ordering
@@ -199,7 +199,7 @@ Seoul is one of the safest major cities in the world. Violent crime is rare, and
 **If Intoxicated**
 - Passing out in public = not uncommon to see
 - Police generally help, not harass
-- Don't drive (zero tolerance DUI)
+- Use a taxi or transit if consuming alcohol
 
 ---
 
@@ -262,7 +262,7 @@ Seoul is one of the safest major cities in the world. Violent crime is rare, and
 - Emergency contacts home
 - Major emergencies
 
-### What They DON'T Help With
+### What They Cannot Assist With
 - Paying bills
 - Legal representation
 - Immigration issues

@@ -1,65 +1,57 @@
 ---
 name: seoul
-slug: seoul
-version: 1.0.0
-description: Navigate Seoul as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/seoul
+description: Load this to get practical guidance on navigating Seoul, including neighborhood
+  profiles, transit rules, housing costs, tech industry insights, and cultural etiquette.
 metadata:
-  clawdbot:
-    emoji: 🏙️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Seoul
+  version: "1.0.1"
+  openclaw: '{"emoji":"🏙️"}'
+  related-skills: '{"food":"Dining and cuisine guidance when Seoul food questions go beyond local context.","korean":"Language help for signs, phrases, and everyday communication in Seoul.","money":"Budgeting and cashflow framing for Seoul housing deposits, salaries, and daily costs.","travel":"Broader multi-city or multi-country trip planning beyond Seoul-specific guidance."}'
 ---
 
-## When to Use
+## When to load
 
-User asks about Seoul for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Load this skill when the user asks about traveling to, living in, or working in Seoul. Use the provided references to answer questions about neighborhoods, visas, tech jobs, transit, and housing costs.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Gangnam, Seocho, Samsung | `neighborhoods-gangnam.md` |
-| Hongdae, Mapo, Yeonnam | `neighborhoods-hongdae.md` |
-| Itaewon, Hannam, Yongsan | `neighborhoods-itaewon.md` |
-| Jongno, Bukchon, Insadong | `neighborhoods-traditional.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Gangnam, Seocho, Samsung | `references/neighborhoods-gangnam.md` |
+| Hongdae, Mapo, Yeonnam | `references/neighborhoods-hongdae.md` |
+| Itaewon, Hannam, Yongsan | `references/neighborhoods-itaewon.md` |
+| Jongno, Bukchon, Insadong | `references/neighborhoods-traditional.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Korean cuisine essentials | `food-korean.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary, alcohol, etiquette | `food-practical.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Korean cuisine essentials | `references/food-korean.md` |
+| International & fine dining | `references/food-international.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Dietary, alcohol, etiquette | `references/food-practical.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (metro, buses, T-money) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & survival tips | `climate.md` |
-| Local services (banking, phone) | `local.md` |
+| Moving & settling | `references/resident.md` |
+| Transport (metro, buses, T-money) | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety & laws | `references/safety.md` |
+| Weather & survival tips | `references/climate.md` |
+| Local services (banking, phone) | `references/local.md` |
 | **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & regulations | `business.md` |
-| Visas (work, D-10, startup) | `visas.md` |
-| Startups & funding | `startup.md` |
+| Tech industry & salaries | `references/tech.md` |
+| Business setup & regulations | `references/business.md` |
+| Visas (work, D-10, startup) | `references/visas.md` |
+| Startups & funding | `references/startup.md` |
 | **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & insurance | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Driving & car ownership | `driving.md` |
+| Culture & customs | `references/culture.md` |
+| Healthcare & insurance | `references/healthcare.md` |
+| Schools & education | `references/education.md` |
+| Expat lifestyle & social | `references/lifestyle.md` |
+| Driving & car ownership | `references/driving.md` |
 
 ## Core Rules
 
@@ -74,7 +66,7 @@ Korean rental system differs fundamentally from Western models:
 - **Wolse (월세)**: Smaller deposit + monthly rent (closer to Western model)
 - **Banjiha (반지하)**: Semi-basement units — cheap but humidity issues
 - Deposits are refundable but require significant upfront capital
-See `cost.md` and `resident.md` for current requirements.
+See `references/cost.md` and `references/resident.md` for current requirements.
 
 ### 3. Cultural Context
 Korea has distinct social expectations:
@@ -82,13 +74,13 @@ Korea has distinct social expectations:
 - **Drinking culture**: Refusing drinks from seniors can be awkward
 - **Work culture**: Long hours common; "눈치" (nunchi) — reading social cues essential
 - **Confucian roots**: Respect for elders, education highly valued
-See `culture.md` for detailed guidance.
+See `references/culture.md` for detailed guidance.
 
 ### 4. Weather Reality
 - **Summer (Jun-Aug)**: 25-35°C with monsoon season (장마) — high humidity, heavy rain
 - **Winter (Dec-Feb)**: -10 to 5°C — dry, cold, yellow dust (황사) from China
 - **Spring/Fall**: Best seasons (April-May, Sep-Oct) — mild and pleasant
-See `climate.md` for monthly breakdown and survival strategies.
+See `references/climate.md` for monthly breakdown and survival strategies.
 
 ### 5. Current Data (Feb 2026)
 
@@ -117,7 +109,7 @@ Unlike car-centric cities, Seoul has world-class public transit:
 - **T-money card**: Essential — works on all transport, convenience stores
 - **KTX**: High-speed rail to other cities (Busan: 2.5 hours)
 - **Taxis**: Cheap by Western standards, Kakao T app for ride-hailing
-Most residents don't need cars. See `transport.md`.
+Most residents rely entirely on transit. See `references/transport.md`.
 
 ### 8. Neighborhood Matching
 
@@ -142,7 +134,7 @@ Korea has multiple pathways for foreigners:
 - **F-5**: Permanent residency (after 5+ years)
 - **K-ETA**: Visa-free entry for most Western countries (tourism)
 
-See `visas.md` for current requirements and processes.
+See `references/visas.md` for current requirements and processes.
 
 ## Tech Industry Context
 
@@ -158,13 +150,13 @@ Salaries lower than US/Europe but:
 - National health insurance (3-4% of salary)
 - Lower cost of living for daily expenses
 
-See `tech.md` for detailed comparison and job hunting strategies.
+See `references/tech.md` for detailed comparison and job hunting strategies.
 
 ## Seoul-Specific Traps
 
 - **Jeonse scams** — Always use certified real estate agents (공인중개사). Verify ownership.
 - **No tipping** — Tipping is not expected and can be awkward.
-- **Cash still matters** — Many small shops don't take foreign cards. Get Korean bank account.
+- **Cash still matters** — Many small shops accept only local cards. Get Korean bank account.
 - **Apartment numbering** — Buildings count ground floor as 1F. "5th floor" = 6th floor Western.
 - **Age calculation** — Korea uses "Korean age" (+1-2 years). Being phased out but still used socially.
 - **Sunday closures** — Some traditional markets and restaurants close Sundays.
@@ -184,17 +176,4 @@ Key laws visitors/residents must know:
 - **National Service**: Korean male citizens must serve ~18 months military
 - **Defamation**: Truth is NOT a defense. Accurate criticism can be prosecuted.
 
-See `safety.md` for comprehensive legal guidance.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dubai` — Similar city guide for Dubai with neighborhoods, visas, and expat life
-- `korean` — Learn Korean language with structured lessons and practice
-- `travel` — Plan trips with itineraries, packing lists, and logistics
-- `food` — Explore cuisines, recipes, and dining recommendations
-- `money` — Personal finance, budgeting, and expense tracking
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/seoul
-- Latest version: https://clawic.com/skills/seoul
+See `references/safety.md` for comprehensive legal guidance.

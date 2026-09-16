@@ -113,7 +113,7 @@ Seoul has four distinct seasons with hot, humid summers and cold, dry winters. B
 
 **Behavior**
 - Check weather before going out
-- Avoid basement apartments during heavy rain
+- Opt for above-ground apartments during heavy rain
 - Indoor activities: Museums, shopping, cafés
 - Embrace 치맥 (chicken + beer) indoors
 
@@ -121,7 +121,7 @@ Seoul has four distinct seasons with hot, humid summers and cold, dry winters. B
 - Metro unaffected
 - Buses can be delayed
 - Taxis harder to find
-- Avoid driving if possible
+- Use public transit during heavy rain
 
 ---
 

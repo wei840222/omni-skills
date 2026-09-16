@@ -2,7 +2,7 @@
 
 ## Overview
 
-Seoul has one of the world's best public transit systems. Cheap, clean, extensive, and efficient. Most residents don't need cars.
+Seoul has one of the world's best public transit systems. Cheap, clean, extensive, and efficient. Most residents rely entirely on transit.
 
 ### Transit Comparison
 
@@ -122,8 +122,8 @@ Seoul has one of the world's best public transit systems. Cheap, clean, extensiv
 
 ### Tips
 - **Naver Map**: Real-time bus tracking
-- **Bus stop displays**: Show arrival times
-- **Announce your stop**: Press button before stop
+- **Bus station screens**: Show arrival times
+- **Request your destination**: Press button before arrival
 - **Cash**: Have exact change ready
 
 ---
@@ -295,7 +295,7 @@ Seoul has one of the world's best public transit systems. Cheap, clean, extensiv
 
 | Method | Time | Cost | Notes |
 |--------|------|------|-------|
-| **AREX Express** | 43 min | ₩9,500 | To Seoul Station, no stops |
+| **AREX Express** | 43 min | ₩9,500 | To Seoul Station, direct service |
 | **AREX All-stop** | 66 min | ₩4,750 | To Seoul Station |
 | **Airport Bus** | 60-90 min | ₩15,000-17,000 | Direct to hotels/areas |
 | **Taxi** | 60-90 min | ₩65,000-85,000 | Door to door |

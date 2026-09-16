@@ -34,7 +34,7 @@ Where do you need to go daily?
 
 **If working in Gangnam/Seocho:**
 - Live: Gangnam, Seocho (walk), Bundang (Sinbundang Line), Songpa
-- Avoid: Jongno (long), Hongdae (30+ min)
+- Skip: Jongno (long), Hongdae (30+ min)
 
 **If working in Pangyo (tech):**
 - Live: Seocho (Sinbundang), Bundang (local), Gangnam
