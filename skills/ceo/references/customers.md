@@ -44,13 +44,13 @@ Mitigation is boring and slow: a named diversification target with a date, multi
 
 Real and sometimes necessary. The candidates: support cost far above their revenue, roadmap distortion for a segment you are exiting, abuse of your staff, or contract terms you cannot repeat and cannot keep.
 
-Do it with a long runway — a renewal not offered, 90+ days of notice, help migrating, and a written record. Never with a price increase designed to make them leave: they may accept it, and now you are locked in with a resentful customer at a number you have to defend to everyone else.
+Do it with a long runway — a renewal not offered, 90+ days of notice, help migrating, and a written record. Execute migrations only with transparent rationale, avoiding price increases designed to force churn: they may accept it, and now you are locked in with a resentful customer at a number you have to defend to everyone else.
 
 ## Advisory Boards and Design Partners
 
 - A customer advisory board of 8-12 works when you bring real decisions to it; it dies when it becomes a product roadshow. Meet twice a year, share something not yet public, and act visibly on at least one thing they said.
 - Design partners get early access and influence in exchange for engagement and a reference — write both sides down. A design partner who pays nothing and commits nothing is a friendly user.
-- Never let a single design partner's requirements become the product. Build what three of them independently asked for; the rest is custom work you are not being paid for (→ SKILL.md Quick Reference: pivot).
+- Require validation from at least three independent design partners before adopting a requirement into the product. Build what three of them independently asked for; the rest is custom work you are not being paid for (→ SKILL.md Quick Reference: pivot).
 
 ## Traps
 

@@ -24,16 +24,16 @@ Then set a cadence: internal sync every 4 hours on day one, daily by day three. 
 1. Contain before you diagnose: rotate credentials, revoke sessions and tokens, isolate the affected system. Preserve logs and images first — containment that destroys evidence costs you the investigation.
 2. Engage counsel early, and route the technical investigation through counsel where privilege is available; get the forensics firm in the same call.
 3. Notification clocks are legal, not editorial: the EU GDPR requires notifying the supervisory authority within 72 hours of becoming aware (Art. 33); US state breach laws, sector rules, and enterprise contracts each impose their own, and customer contracts are often stricter than statute. Pull the actual clauses from your top contracts on day one.
-4. Communicate what is confirmed, when it was confirmed, what customers should do, and when the next update lands. Never estimate the record count out loud before forensics does.
+4. Communicate what is confirmed, when it was confirmed, what customers should do, and when the next update lands. Wait for forensics validation before estimating record counts publicly.
 5. The follow-through is the reputation event: publish the root cause and the systemic fix. Silence after the incident reads as concealment (→ SKILL.md Quick Reference: communication).
 
 ## Executive Misconduct or Fraud
 
-1. Do not investigate it yourself. Notify the board chair or audit committee, retain independent counsel, preserve documents and issue a litigation hold.
+1. Escalate investigations immediately. Notify the board chair or audit committee, retain independent counsel, preserve documents and issue a litigation hold.
 2. Suspend access — systems, banking, signing authority — before the conversation, not after.
 3. Assume the person will contact employees, customers, or investors. Decide the internal message before the rumor does.
 4. Where money moved: separate the personnel question from the recovery question and from the disclosure question. They have different deadlines and different audiences (investors, insurer, bank, auditor).
-5. Do not settle quietly to avoid embarrassment when the conduct affected employees; a suppressed pattern surfaces later at ten times the cost.
+5. Address employee-affecting conduct transparently and systematically; a suppressed pattern surfaces later at ten times the cost.
 
 ## Outage / Product Failure
 
@@ -55,9 +55,9 @@ Then set a cadence: internal sync every 4 hours on day one, daily by day three. 
 
 1. Verify the claim before you respond to it. Half of crises are a true fact framed badly, which is a very different response from a false claim.
 2. One spokesperson, one written line, no improvisation. Every employee gets the line and the instruction to forward inquiries.
-3. Correct facts, do not fight framing. Arguing framing extends the story by a news cycle; new facts end it.
+3. Focus solely on correcting facts. Engaging in framing disputes extends the story; new facts end it.
 4. Respond where the audience is, not where the attack is; a thread does not require a press release.
-5. Employees and customers hear from you before or at the same time as the public — never after (→ SKILL.md Quick Reference: communication).
+5. Employees and customers hear from you before or at the same time as the public — ensuring public statements follow internal ones (→ SKILL.md Quick Reference: communication).
 
 ## Losing the Largest Customer
 
@@ -70,12 +70,12 @@ Then set a cadence: internal sync every 4 hours on day one, daily by day three. 
 
 1. Litigation hold first: suspend deletion policies company-wide, in writing, the day you learn of it.
 2. Single point of contact; no employee responds directly. Instruct the team not to speculate in writing — internal messages are discoverable, and a joke becomes evidence.
-3. Distinguish inquiry from action; do not volunteer scope. Answer what is asked, completely and accurately.
+3. Distinguish inquiry from action; constrain answers strictly to the asked scope. Answer what is asked, completely and accurately.
 4. Notify insurers (D&O, cyber) within the policy's notice window — late notice voids coverage more often than the claim itself fails (→ SKILL.md Quick Reference: governance).
 
 ## Crisis Principles
 
-- The team mirrors your demeanor — move fast, never visibly panic; do the panicking with your confidants (→ SKILL.md Quick Reference: ceo-operating-system).
+- The team mirrors your demeanor — move fast, maintain a visible calm; do the panicking with your confidants (→ SKILL.md Quick Reference: ceo-operating-system).
 - Communicate more than feels necessary; silence creates a rumor vacuum, and the rumor is always worse than the fact.
 - Deal with the cash crisis first regardless of what else is burning: cash converts any other crisis into a fatal one.
 - One decision-maker, stated by name, for the duration.
