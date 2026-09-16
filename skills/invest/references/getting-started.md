@@ -40,7 +40,7 @@ A type of fund that:
 Various sources suggest:
 - Starting with what's affordable
 - Contributing regularly when possible
-- Avoiding frequent trading
+- Maintaining a low trading frequency
 - Maintaining long-term perspective
 
 *These are common themes in financial education, not personalized advice.*

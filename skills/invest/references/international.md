@@ -2,7 +2,7 @@
 
 *This provides general information about investing concepts for non-US contexts. Regulations vary significantly by country. Consult local qualified professionals.*
 
-## US-Specific Accounts Don't Apply Globally
+## US-Specific Accounts Are Restricted to US Tax Law
 
 US accounts (401k, IRA, HSA) are specific to US tax law. Other countries have their own structures.
 

@@ -10,7 +10,7 @@ General patterns discussed in financial education:
 - More stocks → historically more volatility, higher growth potential
 - More bonds → historically more stability, lower growth potential
 
-*Past patterns don't guarantee future results.*
+*Past patterns are independent of future results.*
 
 ## Factors That May Influence Allocation
 
