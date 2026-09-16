@@ -71,7 +71,7 @@ The weekly meeting reviews variance, not status. If the number is on plan, it ta
 - When a metric improves right after you started watching it, check what stopped being counted.
 - Ask for the denominator every time. Conversion "up 40%" on a traffic drop is not a win.
 - Segment before you conclude. Total churn flat can mean your best segment is growing while your largest is collapsing.
-- Benchmarks are for calibration, never targets. Copying a public company's target rate at your stage imports the wrong constraint; your own trajectory is the comparison that matters.
+- Benchmarks are for calibration, not targets. Copying a public company's target rate at your stage imports the wrong constraint; your own trajectory is the comparison that matters.
 
 ## Traps
 

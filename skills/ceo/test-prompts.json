@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are a Series B SaaS company with 4 months of runway left. I need to make a raise-or-cut decision. What is the framework?",
+    "expected": "Use the finance.md reference to determine the runway alarm triggers. Recommend a specific cut depth or fundraising plan. State the required decision timeline.",
+    "actual": "Based on references/finance.md, a Series B SaaS company with only 4 months of runway is in the 'Desperation/Restructuring Zone'. You have passed the 12-month runway alarm. Recommendation: Immediately halt non-essential spend. You cannot raise on favorable terms with 4 months of runway. You must execute a deep cut to extend runway to at least 9-12 months (or default alive) and explore venture debt or an insider bridge round. If neither is viable, begin M&A exploration immediately.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to fire my VP of Engineering. We are based in California. Draft the plan.",
+    "expected": "Use the people.md and decisions.md references. State the need for independent counsel. Address California-specific termination requirements (e.g. final pay on day of termination).",
+    "actual": "Firing an executive is a one-way door. Before proceeding, ensure you have consulted independent counsel regarding severance and equity terms. Since you are in California (jurisdiction: US-CA), final pay including accrued PTO must be provided on the day of termination. Prepare the severance agreement, the internal communication plan for the engineering team, and appoint an interim engineering lead before the termination conversation. Ensure continuous leadership coverage for the team.",
+    "pass": true
+  }
+]

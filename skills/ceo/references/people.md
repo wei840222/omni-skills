@@ -10,7 +10,7 @@ Culture is what you tolerate, reward, and punish. The five levers, all of which 
 
 Culture debt compounds like technical debt: one tolerated bad hire teaches the team the values are decorative, and the next correction costs ten times more. The diagnostic question is always the same — whose behavior are you currently excusing because of their numbers? (SKILL.md rule 7)
 
-Values are only useful when they cost something. A value that never caused you to reject a good candidate or exit a strong performer is a poster.
+Values are only useful when they cost something. A valid value must demonstrably cause you to reject otherwise good candidates or exit strong performers.
 
 ## Hiring Executives
 
@@ -64,13 +64,13 @@ The exec you inherit or hire wrong costs 6-12 months of a function. That is the 
 **Dysfunctional**: the real meeting happens after the meeting; misses get attributed to other teams; the CEO is the tiebreaker for everything; silence in the room and politics outside; execs competing for your attention rather than for outcomes.
 
 - The CEO speaks last in debate and first in the announcement. Speaking first collapses the discussion into agreement with you (→ SKILL.md Quick Reference: decisions).
-- Never let an exec win by escalating to you what they should resolve with a peer. Send it back once, with a deadline, and only decide it if they return together.
+- Require executives to resolve peer conflicts directly. Send it back once, with a deadline, and only decide it if they return together.
 - Quarterly offsite without laptops. The point is the conversation the weekly meeting has no room for.
 - Founders without a functional role are the most common source of exec dysfunction: an unassigned founder becomes a floating opinion that undermines the person who does own the domain (→ SKILL.md Quick Reference: cofounders).
 
 ## Organization Design
 
 - Span: 5-8 direct reports for managers of ICs, 4-6 for managers of managers (what breaks at each headcount threshold → SKILL.md Quick Reference: scaling).
-- Reorg when strategy changed and the org no longer matches it, when a bottleneck everyone feels has a structural cause, or when growth genuinely forced it. Never to avoid a hard conversation, to accommodate one person, or to look decisive.
+- Reorg when strategy changed and the org no longer matches it, when a bottleneck everyone feels has a structural cause, or when growth genuinely forced it. Ensure reorgs are driven solely by strategic alignment, bottleneck resolution, or growth constraints.
 - Announce a reorg with the new decision rights, not just the new boxes. People care about who decides what, and a chart without that is a rumor generator (→ SKILL.md Quick Reference: communication).
 - Reorg cost is a full quarter of partial productivity. Two in a year and the org stops investing in any structure at all.

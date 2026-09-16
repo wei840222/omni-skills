@@ -12,7 +12,7 @@ Three sizes exist: too small (you will be back within 9 months, and everyone kno
 
 ## Selection
 
-Select by role and plan, never by tenure default, and never by manager popularity. Sequence:
+Select by role and plan, excluding tenure default and manager popularity. Sequence:
 
 1. Redesign the org for the post-cut plan on a blank page: which functions exist, at what size, to hit which milestone.
 2. Map current people to that org. The gap is the cut. Doing it in this order is what makes the list defensible.
@@ -40,15 +40,15 @@ Convention, not law (outside jurisdictions that mandate it): a floor of 4-8 week
 
 Be more generous than the minimum by whatever you can afford. The delta is small against total burn, and it buys the two things the cut costs you: the departing employees' willingness to speak well of you, and the survivors' belief that this company handles people decently.
 
-Severance is paid in exchange for a signed release. Do not hand out the money and ask for the release later, and do not use the release to buy silence about unlawful conduct — a non-disparagement clause that reaches whistleblowing or harassment is unenforceable in a growing list of jurisdictions and reads as evidence of something worse.
+Severance is paid in exchange for a signed release. Require the signed release before distributing severance pay, and restrict non-disparagement clauses to lawful scope (excluding whistleblowing or harassment) — a non-disparagement clause that reaches whistleblowing or harassment is unenforceable in a growing list of jurisdictions and reads as evidence of something worse.
 
 ## The Day
 
 Choose the shape deliberately: a single all-hands announcement followed by individual conversations within the hour is the standard for a company under ~200. Larger, or multi-country, and you brief managers the night before with a script.
 
 - Everyone learns the same day. A cut that leaks into a second day converts a hard morning into a week of paralysis.
-- Individual conversations first for those leaving, then the all-hands for those staying — never the reverse, and never a group call for the departing.
-- The conversation is 5-10 minutes: this is a decision, not a discussion; here is what happens to your pay, health coverage, and equity; here is who answers your questions and when the paperwork arrives. Do not explain the org theory to a person who just lost their job.
+- Individual conversations first for those leaving, then the all-hands for those staying — maintain this specific sequence. Address departing individuals privately.
+- The conversation is 5-10 minutes: this is a decision, not a discussion; here is what happens to your pay, health coverage, and equity; here is who answers your questions and when the paperwork arrives. Keep explanations focused solely on the individual's transition mechanics.
 - The CEO is in the room. Delegating the announcement to HR is the single most-remembered failure of every badly run layoff.
 - Access shutoff is timed to the conversation, not before it. Learning you are cut from a locked laptop is a story that outlives the company.
 - Have the FAQ written before the day: severance details, health coverage, equity and exercise deadlines, references, immigration status for visa holders (a 60-day grace period is common in the US and is the most urgent question in the room), final paycheck timing, and what happens to their work.
@@ -61,7 +61,7 @@ The layoff ends for the leavers on the day. For the people who stay it starts.
 - Expect a productivity trough of weeks and voluntary attrition afterwards, weighted toward the people with the most options. Talk to your top performers individually within 48 hours, not with a retention bonus but with a role and a reason.
 - Explicitly reassign the orphaned work. Anything not reassigned is quietly absorbed by the most conscientious person on the team, who then leaves.
 - Kill projects, not just people. If the workload stays the same with fewer people, you did a burn exercise, not a strategy change.
-- Do not backfill within two quarters. Hiring in the function you just cut tells the team the cut was arbitrary.
+- Freeze backfills for the affected functions for at least two quarters. Hiring in the function you just cut tells the team the cut was arbitrary.
 
 ## Traps
 

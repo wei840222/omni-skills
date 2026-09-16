@@ -1,6 +1,6 @@
 # Memory Template — CEO
 
-Create `~/Clawic/data/ceo/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # CEO Memory
@@ -28,7 +28,7 @@ last: YYYY-MM-DD
 *Updated: YYYY-MM-DD*
 ```
 
-Company facts the user declares (cash, burn, board roster, key accounts, red lines) belong in `~/Clawic/data/ceo/company.md`, not here: memory is what you observed, `company.md` and `config.yaml` are what they declared. An observation never overwrites a declared fact without asking.
+Company facts the user declares (cash, burn, board roster, key accounts, red lines) belong in `<state_root>/company.md`, not here: memory is what you observed, `company.md` and `config.yaml` are what they declared. An observation never overwrites a declared fact without asking.
 
 ## Status Values
 
