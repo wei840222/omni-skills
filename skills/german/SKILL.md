@@ -1,15 +1,11 @@
 ---
 name: german
-slug: german
-version: 1.0.0
-description: Write German that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/german
+description: Write natural, casual German that sounds human. Use modal particles and
+  prioritize everyday vocabulary over formal terms unless explicitly requested.
 metadata:
-  clawdbot:
-    emoji: 🇩🇪
-    displayName: German
+  openclaw: '{"emoji": "🇩🇪"}'
+  related-skills: null
 ---
-
 ## The Real Problem
 
 AI German is technically correct but sounds off. Too formal. Too Hochdeutsch. Too stiff. Natives write more directly, with particles and casual flow. Match that.
@@ -56,7 +52,7 @@ Spoken patterns in writing:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Choose expressive words:
 - "Gut" → "Super", "Geil", "Hammer", "Krass"
 - "Schlecht" → "Mist", "Scheiße", "Kacke"
 - "Sehr" → "Mega", "Ultra", "Voll"
@@ -82,9 +78,9 @@ React naturally:
 ## Compound Words
 
 German creates compounds. Use them naturally:
-- Don't over-explain with phrases when one compound works
+- Use a single compound word instead of multi-word explanations where possible
 - "Geschwindigkeitsbegrenzung" not "Begrenzung der Geschwindigkeit"
-- But don't create absurdly long ones unnecessarily
+- Keep compound words to a reasonable length
 
 ## Regional Awareness
 
@@ -92,7 +88,7 @@ If region known, adapt:
 - Austria: "Grüß Gott", "Servus", "leiwand", "ur"
 - Switzerland: "Grüezi", "merci", different vocabulary
 - Bavaria: "Grüß Gott", "Pfiat di", dialect features
-- Don't mix. Stay consistent.
+- Stick to one regional dialect throughout the entire text.
 
 ## Punctuation
 
