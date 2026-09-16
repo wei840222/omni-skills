@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Our Meta ads are getting a lot of clicks, but no one is buying. Our budget is small. What's wrong?",
+    "actual": "You are likely optimizing for CTR (Click-Through Rate) rather than conversions. High CTR with low conversion indicates curiosity clicks that waste your budget. Ensure your campaign objective is set to Conversions, not Traffic or Engagement. Additionally, make sure your ad's promise matches the landing page immediately above the fold, and check that your page load time is under 3 seconds. Since your budget is small, ensure you aren't spreading it across too many campaigns; concentrate your spend to gather statistically significant data (aim for 50+ conversions per week per ad set to exit the learning phase)."
+  },
+  {
+    "prompt": "We want to scale our winning ad set. Should we just duplicate it and double the budget?",
+    "actual": "No, duplicating winning ad sets often fragments your audience and causes self-competition (bidding against yourself). Additionally, increasing the budget too rapidly (more than 20-30% per day) can destabilize campaigns and reset the algorithm's learning phase. Instead, scale the budget gradually (20-30% daily increases). Also, remember to scale your creative alongside your budget—showing the same ads to a larger audience leads to faster fatigue. Have your next batch of creatives ready."
+  },
+  {
+    "prompt": "I need to advertise my B2B SaaS. Should I use LinkedIn or Google Search?",
+    "actual": "For B2B SaaS, both can be effective but serve different purposes. Google Search is generally better for capturing direct response intent (people actively looking for a solution). LinkedIn CPMs are typically 5-10x higher than other platforms, so it is only viable for high-LTV B2B offerings where one customer justifies a $200+ CPA. You could use Google Search to capture high-intent demand, and LinkedIn for targeted account-based marketing or retargeting high-value prospects."
+  }
+]
