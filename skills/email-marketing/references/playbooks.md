@@ -36,3 +36,9 @@ Use these when the user needs execution, not theory.
 - pause the offending campaign/automation
 - strengthen preference center and one-click path
 - do not “apologize blasts” to the full list without a clear opt-down path
+
+## Cognitive Load Guard
+
+- Do not stack conflicting recovery blasts (apology + promo + re-permission) in one send.
+- Prefer one diagnosis narrative: auth → list → content.
+- Avoid dual thresholds for the same metric in user-facing advice; use the package single complaint ceiling.
