@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just signed up for Netflix standard plan at $15.49/month. My card is billed on the 15th.",
+    "expected": "Resolve state_root, create active/streaming.md if needed, add Netflix with cost $15.49/month and billing 15th, update totals, and avoid storing full card numbers.",
+    "actual": "Resolved <workspace>/subscriptions/. Created active/streaming.md. Added Netflix entry with cost $15.49/month, billing 15th, and card last-four only if provided. Rebuilt totals.md monthly rollup.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How much am I spending on subscriptions this month? I want to know if I should cancel anything.",
+    "expected": "Read totals.md and active files, surface monthly and annualized spend, and suggest cancel candidates unused 30+ days with savings impact.",
+    "actual": "Read totals.md and active/*.md. Surfaced $147/month ($1,764/year). Reviewed last-used fields and suggested canceling Hulu unused 30+ days, stating $18/mo savings.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Adobe annual plan is $660 and renews in five days. Also Spotify jumped from $10.99 to $12.99.",
+    "expected": "Issue 7-day-window annual renewal reminder for Adobe and immediately flag Spotify price increase old → new with keep/downgrade/cancel options.",
+    "actual": "Flagged Adobe $660 renewing in five days (inside 7-day window) with keep/cancel decision. Flagged Spotify $10.99 → $12.99 price increase and annualized delta; asked keep/downgrade/cancel before updating stored cost.",
+    "pass": true
+  }
+]
