@@ -8,7 +8,7 @@ The message text after `OutOfMemoryError:` names the region that ran out; each r
 |---|---|---|---|
 | `Java heap space` | Heap | Live set exceeds `-Xmx`: a leak, a genuinely bigger workload, or an unbounded cache/queue | Heap dump → dominator tree (below) |
 | `GC overhead limit exceeded` | Heap | The JVM spent >98% of recent time in GC recovering <2% of the heap — a leak caught slightly earlier | Same as above; the leak is real, not a tuning issue |
-| `Metaspace` / `Compressed class space` | Metaspace | Classes keep being generated or classloaders are never released (redeploys, dynamic proxies, scripting) | Classloader leak hunt (below); `-XX:MaxMetaspaceSize` only makes it fail faster and louder |
+| `Metaspace` / `Compressed class space` | Metaspace | Classes keep being generated or classloaders are left unreleased (redeploys, dynamic proxies, scripting) | Classloader leak hunt (below); `-XX:MaxMetaspaceSize` only makes it fail faster and louder |
 | `Direct buffer memory` | Off-heap | `ByteBuffer.allocateDirect` or Netty buffers not released; direct memory is only freed when the owning object is collected | Cap with `-XX:MaxDirectMemorySize`, then find who allocates |
 | `unable to create new native thread` | Native | Thread count hit the OS/cgroup limit, or each thread's stack times the count exhausted address space | Count threads in a dump; bound the pool; check `ulimit -u` and cgroup `pids.max` |
 | `Requested array size exceeds VM limit` | Heap | An allocation near `Integer.MAX_VALUE` elements — always a computed size bug | Find the computation, not the heap size |
@@ -22,7 +22,7 @@ Always run production with `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/va
 jcmd <pid> GC.heap_info                       # regions, used vs committed
 jcmd <pid> GC.class_histogram                 # instances + bytes per class (brief pause)
 jcmd <pid> GC.heap_dump /tmp/heap.hprof       # live objects only, full pause: seconds to minutes
-jmap -histo:live <pid>                        # forces a full GC first — do not do this casually in prod
+jmap -histo:live <pid>                        # forces a full GC first — reserve this for critical diagnostics in prod
 jcmd <pid> VM.native_memory summary           # requires -XX:NativeMemoryTracking=summary at startup
 ```
 
@@ -41,9 +41,9 @@ jcmd <pid> VM.native_memory summary           # requires -XX:NativeMemoryTrackin
 
 - **Unbounded cache.** A `HashMap` used as a cache with no eviction. Fix: a real cache with a max size and TTL, or `WeakHashMap` only when keys are genuinely identity-scoped (values referencing keys defeat it entirely).
 - **Static collection.** `static List<X>` that only ever grows; classic in registries and "recent items" lists. Static means "lives as long as the classloader".
-- **Listener/callback never unregistered.** The publisher holds a strong reference to the subscriber forever. Every `addListener` needs a matching `removeListener` on a `finally` or a lifecycle hook.
-- **`ThreadLocal` in a pooled thread.** Pool threads never die, so the entry never clears. `remove()` in a `finally` — the entry's *value* is strongly referenced even though the key is weak. Worse with hundreds of virtual-thread-era locals (`concurrency.md`).
-- **Classloader leak.** Any static field in a class loaded by a parent classloader that points at an object from the child (a JDBC driver registered in `DriverManager`, a `ThreadLocal` set by app code on a container thread, a shutdown hook) pins the entire child classloader and every class in it. Symptom: Metaspace grows on each redeploy and never recovers.
+- **Listener/callback left unregistered.** The publisher holds a strong reference to the subscriber forever. Every `addListener` needs a matching `removeListener` on a `finally` or a lifecycle hook.
+- **`ThreadLocal` in a pooled thread.** Pool threads remain alive indefinitely, so the entry remains active. `remove()` in a `finally` — the entry's *value* is strongly referenced even though the key is weak. Worse with hundreds of virtual-thread-era locals (`concurrency.md`).
+- **Classloader leak.** Any static field in a class loaded by a parent classloader that points at an object from the child (a JDBC driver registered in `DriverManager`, a `ThreadLocal` set by app code on a container thread, a shutdown hook) pins the entire child classloader and every class in it. Symptom: Metaspace grows on each redeploy and remains bloated.
 
 ## Growth That Is Not a Leak
 

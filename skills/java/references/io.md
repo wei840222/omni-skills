@@ -20,9 +20,9 @@ try (var w = Files.newBufferedWriter(path, UTF_8)) { ... }
 
 ## Path Semantics
 
-- `Path.of("a", "b")` / `path.resolve("b")` — never string concatenation with `/`, which breaks on Windows and on trailing separators.
+- `Path.of("a", "b")` / `path.resolve("b")` — prefer `resolve` over string concatenation with `/`, which breaks on Windows and on trailing separators.
 - **`resolve` with an absolute argument returns that absolute path**, discarding the base. This is the mechanism behind most path-traversal bugs (`security.md`).
-- `normalize()` collapses `.` and `..` textually; `toRealPath()` resolves symlinks and requires the file to exist. Validate containment with `base.resolve(user).normalize().startsWith(base)` — after `normalize`, never before.
+- `normalize()` collapses `.` and `..` textually; `toRealPath()` resolves symlinks and requires the file to exist. Validate containment with `base.resolve(user).normalize().startsWith(base)` — after `normalize`, before validation.
 - `path.getFileName()`, `getParent()`, and `getFileName().toString()` beat manual index arithmetic on the string.
 - Case sensitivity differs by filesystem: macOS is usually case-insensitive, Linux is not. Two files differing only by case is a bug that only reproduces in production (`debug.md`).
 - `File.delete()` returns a boolean nobody checks; `Files.delete(path)` throws `NoSuchFileException`/`DirectoryNotEmptyException` with the reason. `Files.deleteIfExists` when absence is fine.
@@ -35,12 +35,12 @@ try (var w = Files.newBufferedWriter(path, UTF_8)) { ... }
 - Walking: `Files.walk` is depth-first and follows no symlinks unless asked; `Files.walkFileTree` with a `FileVisitor` is the only way to handle errors per entry (a permission error mid-walk aborts a `Files.walk` stream).
 - `Files.newDirectoryStream(dir, "*.json")` is the cheap listing with a glob; it is also closeable.
 - Deleting a tree: walk in reverse order (`Files.walk(p).sorted(Comparator.reverseOrder())`) so children go before parents.
-- Watching: `WatchService` is polling-based on macOS with multi-second latency, native on Linux/Windows. Do not build tight-latency features on it.
+- Watching: `WatchService` is polling-based on macOS with multi-second latency, native on Linux/Windows. Restrict tight-latency features to strictly native implementations.
 
 ## Temp Files and Cleanup
 
 - `Files.createTempFile(dir, prefix, suffix)` creates the file with owner-only permissions atomically. `File.createTempFile` in a shared `/tmp` plus a later write is a classic symlink race (`security.md`).
-- `deleteOnExit()` leaks: entries accumulate for the JVM's lifetime and never run on `kill -9`. Use try-with-resources and delete in `finally`.
+- `deleteOnExit()` leaks: entries accumulate for the JVM's lifetime and fail to run on forceful termination (`kill -9`). Use try-with-resources and delete in `finally`.
 - For a scratch directory, create it under a path you control, and delete the tree explicitly — the OS cleaner runs on its own schedule.
 
 ## Classpath Resources (the "works in the IDE" trap)
@@ -52,15 +52,15 @@ try (InputStream in = MyClass.class.getResourceAsStream("/config/default.yaml"))
 - Leading `/` = absolute from the classpath root; no slash = relative to the class's package. Getting this wrong returns `null`, not an exception — always null-check with a message naming the resource.
 - **A resource inside a jar is not a file.** `getResource(...).getFile()` or `Paths.get(url.toURI())` works from `target/classes` and throws once packaged (`debug.md`). Always read the stream.
 - Duplicate resource names across jars: `getResource` returns the first on the classpath. Use `getResources()` (plural) when you expect several, as SPI does.
-- `ClassLoader.getResourceAsStream` never takes a leading slash; `Class.getResourceAsStream` does. Mixing them is why the same path works in one class and not another.
+- `ClassLoader.getResourceAsStream` requires a relative path without a leading slash; `Class.getResourceAsStream` does. Mixing them is why the same path works in one class and not another.
 - Reading a resource into a string: `new String(in.readAllBytes(), UTF_8)` (9+).
 
 ## Streams, Readers, and Closing
 
 - Byte streams (`InputStream`/`OutputStream`) for binary, character streams (`Reader`/`Writer`) for text — bridged by `InputStreamReader`/`OutputStreamWriter`, which is where the charset belongs.
-- Closing the outermost wrapper closes the chain and flushes buffers. Data missing from the tail of a file is almost always an unflushed writer that was never closed (`exceptions.md`).
+- Closing the outermost wrapper closes the chain and flushes buffers. Data missing from the tail of a file is almost always an unflushed writer that was left open (`exceptions.md`).
 - `System.out`/`err` are `PrintStream`s that swallow `IOException` and auto-flush on newline — convenient for a CLI, wrong for a data path.
-- Never close a stream you did not open (a servlet's output, a caller-supplied stream): closing someone else's resource breaks their code.
+- Leave stream closure strictly to the owning caller (a servlet's output, a caller-supplied stream): closing someone else's resource breaks their code.
 - `transferTo` does not close either side. Wrap both in try-with-resources.
 
 ## Memory-Mapped and Large Files

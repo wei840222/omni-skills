@@ -17,7 +17,7 @@ Order of operations: reproduce with a load that resembles production → measure
 
 ## Benchmarking Without Fooling Yourself
 
-Never time code with a `System.nanoTime()` loop in `main` — dead-code elimination, missing warmup, and on-stack replacement make the result meaningless. Use JMH:
+Benchmark code using JMH instead of a `System.nanoTime()` loop in `main` — dead-code elimination, missing warmup, and on-stack replacement make the result meaningless. Use JMH:
 
 ```java
 @BenchmarkMode(Mode.AverageTime) @OutputTimeUnit(TimeUnit.NANOSECONDS)
@@ -52,7 +52,7 @@ public class ParseBench {
 ## Allocation Discipline (the highest-leverage Java optimization)
 
 - The JVM's allocation is fast (bump-the-pointer in TLAB) and young collection is proportional to SURVIVORS, not garbage — short-lived garbage really is nearly free. Optimize allocations that *survive*, and allocation *rate* in the very hottest loops.
-- Escape analysis can stack-allocate an object that never escapes its method — real, but conditional on inlining and never something to rely on for correctness.
+- Escape analysis can stack-allocate an object that never escapes its method — real, but conditional on inlining and treating it as an optimization rather than a guarantee for correctness.
 - The measurable wins in order: (1) stop boxing in loops, (2) presize collections and builders, (3) reuse expensive immutable objects (`Pattern`, `DateTimeFormatter`, `ObjectMapper` — all thread-safe), (4) avoid defensive copies of large arrays on every call.
 - Object pooling is almost always a pessimization now: pooled objects survive, get promoted, and add scanning work. Pool only genuinely expensive resources (connections, threads, direct buffers).
 
@@ -62,7 +62,7 @@ public class ParseBench {
 - Inlining drives every other optimization; it stops at method size (`-XX:MaxInlineSize=35` bytes for cold, `-XX:FreqInlineSize=325` for hot). A giant hot method is not inlined into its caller and blocks further optimization — small methods are faster, not slower.
 - Megamorphic call sites (an interface with many implementations hit at one location) lose inlining. This is why a strategy interface with 15 implementations can be slower than a switch.
 - `-Xlog:class+load` and `-XX:+PrintCompilation` (or JFR's compilation events) show what is being recompiled; constant deoptimization/recompilation of the same method usually means an assumption keeps being invalidated (a rarely taken branch finally taken, a class loaded late).
-- Do not micro-optimize what the JIT already handles: bounds-check elimination, loop unrolling, lock elision, and string concat via `invokedynamic` (JDK 9+) are done for you.
+- Rely on the JIT for micro-optimizations what the JIT already handles: bounds-check elimination, loop unrolling, lock elision, and string concat via `invokedynamic` (JDK 9+) are done for you.
 
 ## Concurrency for Throughput
 

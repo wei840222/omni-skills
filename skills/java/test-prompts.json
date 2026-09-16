@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm migrating a Java 11 project to Java 21. Should I change my thread pool to use virtual threads?",
+    "expected": "Guidance explicitly referencing virtual threads, structured concurrency (if applicable), and checking dependencies/framework compatibility.",
+    "actual": "In Java 21, virtual threads are a highly effective replacement for traditional thread pools, especially for I/O-bound tasks. I suggest replacing `Executors.newFixedThreadPool()` with `Executors.newVirtualThreadPerTaskExecutor()`. However, keep in mind that CPU-bound tasks may still benefit from carrier threads, and you should ensure any synchronization blocks using `synchronized` do not pin the carrier thread unacceptably.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My Spring Boot app has a memory leak after running for 2 days. The container gets killed due to OOM. How can I diagnose this?",
+    "expected": "Advises setting memory limits using MaxRAMPercentage, taking heap dumps, and analyzing references. Warns about metaspace and code cache.",
+    "actual": "To diagnose container OOM kills, first ensure you've properly set memory limits using `-XX:MaxRAMPercentage=75` instead of fixed `-Xmx` values, leaving room for metaspace and direct buffers. Capture a heap dump (`-XX:+HeapDumpOnOutOfMemoryError`) and analyze it using a tool like Eclipse MAT to identify which objects are retaining references and causing the leak.",
+    "pass": true
+  }
+]

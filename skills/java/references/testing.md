@@ -25,19 +25,19 @@
 - `@Disabled` (not JUnit 4's `@Ignore`) and always with a reason string; a disabled test with no reason is deleted code with extra tokens.
 - `assertEquals(expected, actual)` — the order only affects the failure message, and the failure message is the whole value of the assertion.
 - Prefer AssertJ (`assertThat(list).extracting(Foo::name).containsExactly("a", "b")`) for anything beyond scalar equality: the failure output shows the actual collection instead of "expected true".
-- Assert on values, never on log output or on the absence of an exception. A test whose only assertion is "it did not throw" passes when the method does nothing.
+- Assert on values, rather than on log output or on the absence of an exception. A test whose only assertion is "it did not throw" passes when the method does nothing.
 
 ## Mockito Without the Traps
 
 - Mockito 5 defaults to the inline mock maker and requires Java 11+: final classes and static methods are mockable without an extra artifact — which does not mean they should be.
 - `when(spy.method())` **calls the real method** while stubbing. On a `@Spy`, always use `doReturn(x).when(spy).method()`.
-- Stubbing a method that is never called fails the strict stubs check (default in JUnit 5's `MockitoExtension`) — that is a feature: it finds tests asserting against a path the code no longer takes. `lenient()` is an escape hatch to justify, not a default.
+- Stubbing a method that is left uncalled fails the strict stubs check (default in JUnit 5's `MockitoExtension`) — that is a feature: it finds tests asserting against a path the code no longer takes. `lenient()` is an escape hatch to justify, not a default.
 - `verify(mock).save(any())` after an action; `verifyNoMoreInteractions` sparingly, since it makes the test fail on unrelated refactors.
 - `ArgumentCaptor` when you must assert on the shape of what was passed; `ArgumentMatchers.argThat` for a predicate.
 - Mixing raw values and matchers in one call throws `InvalidUseOfMatchersException` — if any argument uses a matcher, all must (`eq("x")`).
 - `@InjectMocks` silently leaves a field null when no matching mock exists, producing an NPE inside the test rather than a wiring error. Constructor injection in production code makes the test constructor explicit and removes the magic.
 - `reset(mock)` mid-test means the test is doing two things. Split it.
-- Do not mock types you do not own (HTTP clients, JDBC, the JDK). You end up asserting your assumptions about the library rather than its behavior — use a fake server or a real container.
+- Avoid mocking types you lack ownership over (HTTP clients, JDBC, the JDK). You end up asserting your assumptions about the library rather than its behavior — use a fake server or a real container.
 
 ## Integration Tests
 
@@ -60,13 +60,13 @@
 | Test parallelism | Only fails when the suite runs parallel | Isolate the state, or mark the class non-parallel |
 | Random data | Fails once every hundred runs | Log and pin the seed so failures are reproducible |
 
-- Quarantine, do not `@Disabled` and forget: a flaky test that nobody owns becomes a test suite nobody trusts.
+- Quarantine rather than blindly applying `@Disabled`: a flaky test that nobody owns becomes a test suite nobody trusts.
 - Reproduce a flake by running the single test hundreds of times (`--tests` with a loop, or JUnit's `@RepeatedTest`) before believing it is fixed.
 
 ## What Is Worth Testing
 
 - Behavior at boundaries: empty, one, many, null, max value, duplicate key, concurrent access.
-- Every bug fix gets the failing test FIRST. A test you never saw red does not prove your fix works.
+- Every bug fix gets the failing test FIRST. A test you haven't seen fail fails to prove your fix works.
 - Round-trip properties (serialize → deserialize, encode → decode, save → load) catch whole categories in one assertion (`serialization.md`).
 - Coverage is a map of what is untested, not a quality score. 100% line coverage with no assertions is achievable and worthless; use it to find the untouched branch, not to hit a number.
 - Concurrency needs its own approach — a repeated multi-threaded invariant check, not a single happy-path run (`concurrency.md`).

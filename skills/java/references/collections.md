@@ -21,11 +21,11 @@
 ## The Equality Contract
 
 - `equals` must be reflexive, symmetric, transitive, consistent, and `x.equals(null)` must be false. `hashCode` must be equal for equal objects; unequal objects may collide.
-- Never mutate a field used by `hashCode` after inserting into a hash container — the entry becomes unreachable (SKILL.md rule 2).
+- Keep fields immutable used by `hashCode` after inserting into a hash container — the entry becomes unreachable (SKILL.md rule 2).
 - `getClass() != o.getClass()` for value types; `instanceof` only when a subclass is deliberately equal to its parent — symmetry breaks otherwise, and a `List` containing both sees different results depending on iteration order.
 - `Objects.equals(a, b)` and `Objects.hash(a, b, c)` for the boilerplate. `Objects.hash` allocates a varargs array — write the manual `31 * result + field` form only in a profiled hot path.
 - Records generate a correct `equals`/`hashCode` over all components. Prefer them for value types (`classes.md`).
-- Arrays do not override `equals`: `a.equals(b)` is identity. Use `Arrays.equals` (1-D) or `Arrays.deepEquals` (nested), and `Arrays.hashCode`/`deepHashCode` to match.
+- Arrays fail to override `equals`: `a.equals(b)` is identity. Use `Arrays.equals` (1-D) or `Arrays.deepEquals` (nested), and `Arrays.hashCode`/`deepHashCode` to match.
 - `TreeMap`/`TreeSet` use `compareTo`, not `equals`. If they disagree (classic: `BigDecimal("2.0")` vs `BigDecimal("2.00")`), the same object can be "present" in a `TreeSet` and "absent" in a `HashSet`.
 
 ## Immutable, Unmodifiable, and Fixed-Size
@@ -37,7 +37,7 @@
 | `Collections.unmodifiableList(l)` | A read-only VIEW | Allows nulls | The backing list can still be modified, and the view changes with it |
 | `List.copyOf(l)` (10+) | No | Rejects nulls | A real defensive copy — the right return value from a getter |
 | `stream().toList()` (16+) | No | Allows nulls | Differs from `Collectors.toUnmodifiableList()`, which rejects nulls |
-| `Collectors.toList()` | Yes (currently `ArrayList`) | Allows nulls | The mutability is unspecified — do not rely on it |
+| `Collectors.toList()` | Yes (currently `ArrayList`) | Allows nulls | The mutability is unspecified — treat it as undefined |
 
 - `Arrays.asList(intArray)` where `intArray` is `int[]` gives a `List<int[]>` of size 1, not a list of ints. Use `Arrays.stream(intArray).boxed().toList()`.
 - `subList` is a view: structurally modifying the parent invalidates it, and modifying the sublist writes through to the parent.
@@ -49,7 +49,7 @@
 - Removing from an `ArrayList` inside an index loop skips elements: after removing index `i`, everything shifts left. Iterate backwards or use `removeIf`.
 - Modifying a `HashMap` value in place is fine; adding or removing keys during iteration is not. Use `entry.setValue(...)`, `map.replaceAll(...)`, or `map.entrySet().removeIf(...)`.
 - `map.keySet()`, `values()`, and `entrySet()` are views: `map.keySet().remove(k)` removes the entry from the map.
-- `Entry` objects from `entrySet()` are only valid during the iteration for some implementations — do not hoard them.
+- `Entry` objects from `entrySet()` are only valid during the iteration for some implementations — process them immediately.
 
 ## Maps Beyond get/put
 

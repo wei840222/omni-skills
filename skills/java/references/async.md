@@ -57,7 +57,7 @@ try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {   // --enable-pr
 
 ## Retries That Do Not Make Outages Worse
 
-- Retry only idempotent operations, only on retryable failures (timeouts, 5xx, connection resets) — never on a 4xx or a validation error.
+- Retry only idempotent operations, only on retryable failures (timeouts, 5xx, connection resets) — restrict retries to 5xx or timeouts — avoid retrying validation errors.
 - Exponential backoff **with jitter**: `sleep = random(0, base × 2^attempt)`, capped. Worked with base 100ms and cap 2s: attempts wait somewhere in 0-100ms, 0-200ms, 0-400ms... Without jitter, every client retries in lockstep and re-creates the spike that caused the failure.
 - Cap total attempts AND total elapsed time; the elapsed cap is what protects the caller's own timeout budget.
 - A retry loop wrapped around a call that has no timeout is a hang with extra steps.

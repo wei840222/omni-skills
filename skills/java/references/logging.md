@@ -11,9 +11,9 @@ Java's logging ecosystem is four competing APIs plus bridges between them. Nearl
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| `SLF4J: Class path contains multiple SLF4J bindings` | Two backends; SLF4J picks one arbitrarily, so config changes appear to do nothing | Exclude all but one (`mvn dependency:tree`, `build.md`) |
+| `SLF4J: Class path contains multiple SLF4J bindings` | Two backends; SLF4J picks one arbitrarily, so config changes appear to have no effect | Exclude all but one (`mvn dependency:tree`, `build.md`) |
 | `SLF4J: Failed to load class ...StaticLoggerBinder` / `NOP` provider | Facade with no backend — every log line is discarded silently | Add `logback-classic` or `log4j-slf4j2-impl` |
-| Some libraries log, others do not | The quiet ones use JUL or Commons Logging with no bridge | Add the bridge; for JUL also install `SLF4JBridgeHandler` |
+| Some libraries log, others bypass logging entirely | The quiet ones use JUL or Commons Logging with no bridge | Add the bridge; for JUL also install `SLF4JBridgeHandler` |
 | Log level changes have no effect | Two config files (`logback.xml` and `logback-spring.xml`, or a jar shipping its own), or the wrong backend won | Check which file loaded: `-Dlogback.debug=true` / `-Dlog4j2.debug` |
 | Duplicate lines | A logger with `additivity` on plus its own appender, or two backends both writing | Set `additivity="false"` on the specific logger |
 
@@ -24,7 +24,7 @@ Java's logging ecosystem is four competing APIs plus bridges between them. Nearl
 - Guard only genuinely expensive arguments: `if (log.isDebugEnabled()) log.debug("{}", expensiveDump())`, or pass a `Supplier` with Log4j2's API.
 - Levels with a decision attached: ERROR = a human must act tonight; WARN = degraded but handled; INFO = a business event a reader would want; DEBUG = developer detail; TRACE = firehose. An ERROR per retry attempt trains everyone to ignore ERROR (`exceptions.md`).
 - Log once per failure, at the boundary that decides what to do — catch-log-rethrow at every layer produces four copies of one incident.
-- Never log secrets, tokens, full request bodies, or PII. Redact in the appender/pattern, not at each call site, so a new call site cannot leak (`security.md`).
+- Keep secrets, tokens, full request bodies, or PII strictly out of logs. Redact in the appender/pattern, not at each call site, so a new call site cannot leak (`security.md`).
 - User-controlled text with newlines forges log entries; encode or strip control characters before logging untrusted input.
 
 ## Structure and Correlation

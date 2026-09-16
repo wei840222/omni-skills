@@ -12,7 +12,7 @@ Upgrade order that minimizes risk: **run old bytecode on the new JDK first**, fi
 
 ## Class-File Versions
 
-`major = JDK + 44`. 52 = Java 8, 53 = 9, 55 = 11, 61 = 17, 65 = 21, 69 = 25. `UnsupportedClassVersionError: class file version 65.0` means a JDK 21 artifact on an older runtime — read the number, do not guess (SKILL.md Exception Triage). Inspect any jar with `javap -v Foo.class | head -3` or `unzip -p app.jar META-INF/MANIFEST.MF`.
+`major = JDK + 44`. 52 = Java 8, 53 = 9, 55 = 11, 61 = 17, 65 = 21, 69 = 25. `UnsupportedClassVersionError: class file version 65.0` means a JDK 21 artifact on an older runtime — read the number, check the exact number (SKILL.md Exception Triage). Inspect any jar with `javap -v Foo.class | head -3` or `unzip -p app.jar META-INF/MANIFEST.MF`.
 
 ## Breakage by Version
 
@@ -35,7 +35,7 @@ Upgrade order that minimizes risk: **run old bytecode on the new JDK first**, fi
 ## javax → jakarta
 
 - Jakarta EE 9 renamed every `javax.*` EE package to `jakarta.*`. This is a hard break with no compatibility shim in the JDK: Servlet, JPA, Bean Validation, JAX-RS, JMS, Mail, Annotations.
-- The JDK's own `javax.*` packages (`javax.swing`, `javax.net.ssl`, `javax.crypto`, `javax.sql`) are **not** affected — do not blanket-rename.
+- The JDK's own `javax.*` packages (`javax.swing`, `javax.net.ssl`, `javax.crypto`, `javax.sql`) are **not** affected — migrate only the affected packages.
 - Spring Boot 3 requires Jakarta and Java 17: the framework upgrade and the namespace change arrive together, so plan them as one project.
 - Mechanics: update dependencies to their Jakarta coordinates first, then rewrite imports (OpenRewrite recipes or the Eclipse Transformer do this reliably; a regex over `javax\.` will corrupt the JDK packages above).
 - A single dependency still on `javax` puts both namespaces on the classpath: two `Servlet` types with the same simple name, and the container binds neither. Verify with `mvn dependency:tree` (`build.md`).

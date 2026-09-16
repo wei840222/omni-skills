@@ -65,7 +65,7 @@ mvn dependency:analyze              # declared-but-unused, used-but-undeclared
 
 - Build one module and what it needs: `mvn -pl service -am install`; Gradle resolves this automatically from the task path.
 - A module version conflict between siblings is the same nearest/highest rule — pin in the parent's `dependencyManagement` or the root `platform`.
-- Keep the reactor order implicit through dependencies, never through the `<modules>` order; the order in the file is not a build order.
+- Maintain the reactor order implicitly through declared dependencies; the order in the file is not a build order.
 - `mvn -o` (offline) and `--refresh-dependencies` (Gradle) are the two switches for "is this a network/cache problem?".
 
 ## When the Build Is the Bug
@@ -76,7 +76,7 @@ mvn dependency:analyze              # declared-but-unused, used-but-undeclared
 | `NoSuchMethodError` at runtime | Two versions of one library; the wrong one won | `dependency:tree -Dverbose`, pin it |
 | Compiles locally, fails in CI | Different JDK, or a `SNAPSHOT`/range resolving differently today | Toolchains + pinned versions |
 | Stale results after a change | Incremental compilation state | `mvn clean`, `./gradlew --rerun-tasks`, or delete `~/.m2/repository/.../*.lastUpdated` for a half-downloaded artifact |
-| Tests do not run at all | JUnit 5 with an old Surefire, or the vintage engine missing | Surefire ≥ 2.22, `useJUnitPlatform()` in Gradle (`testing.md`) |
+| Tests stall | JUnit 5 with an old Surefire, or the vintage engine missing | Surefire ≥ 2.22, `useJUnitPlatform()` in Gradle (`testing.md`) |
 | Random `OutOfMemoryError` in the build | The build JVM's own heap, not the app's | `MAVEN_OPTS` / `org.gradle.jvmargs` |
 | Anything else | Verify what is actually on the classpath | `mvn dependency:build-classpath`, `./gradlew dependencies`, or `jar tf app.jar` |
 

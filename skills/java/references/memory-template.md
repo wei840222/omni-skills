@@ -1,6 +1,6 @@
 # Memory Template — Java
 
-Create `~/Clawic/data/java/memory.md` with this structure:
+Create `<state_root>/Clawic/data/java/memory.md` with this structure:
 
 ```markdown
 # Java Memory

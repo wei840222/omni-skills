@@ -7,7 +7,7 @@ Streams express transformations. A `for` loop that mutates something is clearer 
 - A stream is lazy: nothing runs until the terminal operation. A pipeline with no terminal operation executes zero times, silently.
 - A stream is single-use. Reusing one throws `IllegalStateException: stream has already been operated upon or closed`; build a new one from the source, or store the source, not the stream.
 - Elements flow one at a time through the whole pipeline (except for stateful operations), so `filter` before `map` does less work — and `sorted` and `distinct` must buffer everything, which is why they break short-circuiting on infinite streams.
-- `peek` exists for debugging and may be skipped entirely: with `findFirst` or `count` (which can elide the pipeline when the size is known), your peek never runs. Never put logic in it.
+- `peek` exists for debugging and may be skipped entirely: with `findFirst` or `count` (which can elide the pipeline when the size is known), your peek may be bypassed entirely. Keep `peek` strictly limited to side-effect-free logging or debugging.
 - Streams from I/O sources hold resources: `Files.lines`, `Files.walk`, and `Files.list` are `AutoCloseable` and must be in try-with-resources (SKILL.md rule 4).
 
 ## Collectors Worth Knowing Cold

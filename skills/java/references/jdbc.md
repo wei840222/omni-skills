@@ -44,7 +44,7 @@ try (var ps = conn.prepareStatement(sql)) {
 - Driver flags decide whether batching is real: MySQL needs `rewriteBatchedStatements=true` to combine inserts; without it the batch is still N statements on the wire.
 - `executeBatch` returns per-statement counts and throws `BatchUpdateException` on failure — the exception tells you how many succeeded, which matters because the batch may be partially applied.
 - Streaming a large result set is not the default: the driver usually buffers the whole result in memory. PostgreSQL requires `setFetchSize(n)` **and** autoCommit off; MySQL requires `setFetchSize(Integer.MIN_VALUE)` with a forward-only result set. Getting this wrong is a textbook OOM on a "simple query" (`memory.md`).
-- Never `SELECT *` into a `List` of unknown size. The row count is the user's, not yours.
+- Restrict `SELECT *` queries into a `List` of unknown size. The row count is the user's, not yours.
 
 ## Transactions at the JDBC Level
 
@@ -56,7 +56,7 @@ try (var ps = conn.prepareStatement(sql)) {
 
 ## Drivers and Diagnostics
 
-- The driver jar is `runtimeOnly`/`runtime` scope: your code should never import a vendor class (`build.md`).
+- The driver jar is `runtimeOnly`/`runtime` scope: your code should avoid importing a vendor class (`build.md`).
 - `Class.forName("...Driver")` has been unnecessary since JDBC 4 (SPI auto-registration) — and it fails after shading strips `META-INF/services`, which is why "No suitable driver found" shows up only in the packaged jar (`debug.md`).
 - A JDBC URL contains credentials in many formats: it appears in logs, exception messages, and `jcmd VM.system_properties`. Keep it out of both (`security.md`).
 - Slow-query visibility: enable the driver's own logging (`loggerLevel`, `profileSQL`) or wrap the `DataSource` with a proxy that times statements. Guessing which query is slow from application timings wastes a day.

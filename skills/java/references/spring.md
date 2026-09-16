@@ -13,9 +13,9 @@ Spring's surprises almost all come from one mechanism: **your bean is wrapped in
 ## Transactions
 
 - **Only unchecked exceptions roll back by default.** A checked exception thrown out of a `@Transactional` method COMMITS the transaction. Declare `@Transactional(rollbackFor = Exception.class)` when you throw checked exceptions.
-- Catching an exception inside the transactional method means no rollback at all — the proxy never sees it.
+- Ensure exceptions cross the proxy boundary to trigger rollbacks.
 - `UnexpectedRollbackException` on commit: an inner `@Transactional` method (propagation `REQUIRED`, so it joined your transaction) failed and marked it rollback-only; you caught the exception and carried on, and the outer commit then failed. Either let the exception propagate or make the inner method `REQUIRES_NEW`.
-- `REQUIRES_NEW` uses a second database connection while the first is held. With a pool of 10, five nested calls deadlock the pool — size the pool for the nesting depth or avoid the nesting.
+- `REQUIRES_NEW` uses a second database connection while the first is held. With a pool of 10, five nested calls deadlock the pool — size the pool for the nesting depth or flatten the call structure.
 - `@Transactional(readOnly = true)` on queries lets Hibernate skip dirty checking and hints the driver/replica; it is not a security boundary.
 - Transaction boundaries belong in the service layer, not the controller (too wide: HTTP time inside a DB transaction) and not the repository (too narrow: no atomicity across two writes).
 - Anything non-transactional inside a transaction (an HTTP call, a message publish, a cache write) is not rolled back. Publish after commit (`TransactionSynchronization`/`@TransactionalEventListener(AFTER_COMMIT)`).
@@ -36,7 +36,7 @@ Spring's surprises almost all come from one mechanism: **your bean is wrapped in
 - Relaxed binding maps `APP_DATA_SOURCE_URL` to `app.data-source.url`. Environment variables are therefore a first-class override in containers.
 - `@Value("${a.b}")` fails fast on a missing property (good) but does no type-safe grouping; `@ConfigurationProperties` binds a whole tree, supports validation (`@Validated` + Bean Validation), and is the right default.
 - Profile-specific files are ADDITIVE, not replacements: `application-prod.yaml` overrides keys from `application.yaml` and inherits the rest. A list property is replaced wholesale, not merged.
-- Never put secrets in `application.yaml`. Environment or a secrets manager (`security.md`).
+- Store secrets exclusively in environment variables or a secrets manager. Environment or a secrets manager (`security.md`).
 - `@ConditionalOnProperty`, `@ConditionalOnMissingBean` and friends are how starters back off; when a bean is unexpectedly missing, `--debug` prints the full auto-configuration report explaining every decision.
 
 ## Beans, Scopes, and Startup
