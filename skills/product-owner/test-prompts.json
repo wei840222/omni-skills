@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need help managing my product backlog for our new e-commerce site.",
+    "expected": "Agent should initialize the state root structure, refer to references/setup.md to understand the user's needs, ask clarification questions about integration and product context, and begin managing stories.",
+    "actual": "Agent loads references/setup.md, creates <state_root>/product-owner/memory.md, and asks: 'Should I help whenever you're working on backlogs or user stories? Want me to assist with sprint planning proactively, or only when you ask? What are you building?'",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a user story for offline mode in our mobile app and give me acceptance criteria.",
+    "expected": "Agent should refer to references/stories.md for the correct pattern, output a clear user story with Given/When/Then acceptance criteria.",
+    "actual": "Agent generates a story: 'As a mobile app user, I want to save articles for offline reading, so that I can read during my commute without internet.' It includes Given/When/Then acceptance criteria based on references/stories.md.",
+    "pass": true
+  }
+]

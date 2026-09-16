@@ -1,6 +1,6 @@
 # Memory Template — Product Owner
 
-Create `~/Clawic/data/product-owner/memory.md` with this structure:
+Create `<state_root>/product-owner/memory.md` with this structure:
 
 ```markdown
 # Product Owner Memory
@@ -36,7 +36,7 @@ integration: pending
 
 ## Backlog File Template
 
-Create `~/Clawic/data/product-owner/backlog/{product}.md`:
+Create `<state_root>/product-owner/backlog/{product}.md`:
 
 ```markdown
 # {Product} Backlog
@@ -74,12 +74,12 @@ Create `~/Clawic/data/product-owner/backlog/{product}.md`:
 |-------|---------|----------|
 | `ongoing` | Learning product context | Gather info opportunistically |
 | `complete` | Full context captured | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
-| `never_ask` | User said stop | Never ask for more context |
+| `paused` | User said "not now" | Proceed using existing context only |
+| `never_ask` | User explicitly declined | Only use existing context |
 
 ## Key Principles
 
 - **No config keys visible** — use natural language
-- **Learn from behavior** — don't interrogate for context
+- **Learn from behavior** — gather context organically from behavior
 - **Most products stay `ongoing`** — always learning, that's fine
 - Update `last` on each use

@@ -1,6 +1,6 @@
 # Setup — Product Owner
 
-Read this on first use when `~/Clawic/data/product-owner/` doesn't exist.
+Read this on first use when `<state_root>/product-owner/` doesn't exist.
 
 ## Your Attitude
 
@@ -32,14 +32,14 @@ Some POs want detailed frameworks (WSJF, RICE). Others just want help writing st
 
 ## Feedback After Each Response
 
-Don't just jump to the next question. After the user shares something:
+Before asking the next question, ensure you process the current input:
 1. Acknowledge what they said
 2. Show how you'll use it to help their backlog
 3. Then continue
 
 ## Data Storage
 
-All data is stored locally in `~/Clawic/data/product-owner/`:
+All data is stored locally in `<state_root>/product-owner/`:
 
 | Location | Content |
 |----------|---------|
