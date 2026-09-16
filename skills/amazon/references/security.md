@@ -3,10 +3,10 @@
 ## Credential Handling
 
 **Storage rules:**
-- NEVER store Amazon password in agent memory
+- Ensure Amazon passwords remain outside of agent memory
 - Use OS keychain/secrets manager for any stored credentials
-- Session tokens expire — don't persist indefinitely
-- 2FA codes are one-time — never cache
+- Ensure session tokens are cleared upon expiration
+- Treat 2FA codes as one-time use only
 
 **Authentication flow:**
 - Agent initiates login context
@@ -22,7 +22,7 @@
 - Confirm shipping address
 - Wait for explicit human approval
 
-**Never automate:**
+**Restricted from automation:**
 - Adding new payment methods
 - Changing default payment
 - One-click purchases (too risky)
@@ -51,14 +51,14 @@
 ## Automation Safety
 
 **Rate limiting:**
-- Don't hammer Amazon with requests
+- Implement rate limiting for all Amazon requests
 - Implement exponential backoff on errors
 - Spread operations across time
 
 **Session management:**
 - Respect session timeouts
 - Re-authenticate cleanly when expired
-- Don't force session extension
+- Allow sessions to expire naturally
 
 **Seller account specifics:**
 - Higher security — linked to bank accounts
@@ -67,7 +67,7 @@
 
 ## Data Protection
 
-**Don't store:**
+**Restricted from storing:**
 - Full credit card numbers
 - Amazon account passwords
 - Social security / tax IDs
@@ -89,6 +89,6 @@
 
 **Always verify:**
 - Check sender domain carefully
-- Don't click links — go to Amazon directly
-- Amazon never asks for password via email
+- Navigate to Amazon directly rather than clicking links
+- Be aware that Amazon only requests passwords on their official login page
 - When in doubt, check order history directly

@@ -35,7 +35,7 @@ When comparing products, build matrix:
 | Key feature | Has X | Missing X | Critical |
 | Warranty | 2 year | 1 year | Low |
 
-Weight factors by user priority. Don't just pick highest rating — context matters.
+Weight factors by user priority. Contextualize ratings instead of just picking the highest one.
 
 ## Reorder Workflow
 
@@ -63,7 +63,7 @@ Before recommending a "deal":
 4. **Coupon stacking** — Any applicable coupons?
 5. **Subscribe & Save** — Often beats "sale" price
 
-**Never trust:**
+**Require extra verification for:**
 - "List price" claims (often inflated)
 - "X% claimed" percentages
 - Lightning deal urgency alone

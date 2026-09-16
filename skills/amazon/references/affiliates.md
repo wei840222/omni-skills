@@ -72,7 +72,7 @@ Use Amazon's link shortener from Associates dashboard.
 
 ## Common Violations (Account Risk)
 
-**Don't do:**
+**Restricted actions:**
 - Cloaking links
 - Incentivizing clicks ("click here for surprise")
 - Using links in email (prohibited)

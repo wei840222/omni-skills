@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Find the best gaming mouse under $50 on Amazon, filtering out third-party sellers with poor ratings.",
+    "actual": "I will load the `amazon` skill and search for 'gaming mouse' with a price filter under $50. I will check the seller reputation and filter out third-party sellers with poor ratings. I will compare alternatives with a feature matrix and recommend the best option."
+  },
+  {
+    "prompt": "Can you track the price of this specific monitor and let me know when it drops below $200?",
+    "actual": "I will load the `amazon` skill, set up price tracking for the specified monitor, and configure an alert to notify you when the price drops below $200. I will also check the historical prices to see if $200 is a realistic target."
+  },
+  {
+    "prompt": "Help me optimize my Amazon product listing for my new handmade soap to improve search visibility.",
+    "actual": "I will load the `amazon` skill and enter Seller Mode. I'll assist with keyword research to improve search visibility, provide A+ Content recommendations, and suggest ways to optimize your product listing to comply with image requirements."
+  }
+]

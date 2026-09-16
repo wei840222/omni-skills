@@ -54,7 +54,7 @@
 **Competitive pricing:**
 - Track Buy Box winner price
 - Factor in shipping for FBM competitors
-- Don't race to bottom — consider margin floors
+- Maintain margin floors rather than racing to the bottom
 
 **Dynamic pricing rules:**
 - Match competitor floor (with min margin)
@@ -71,7 +71,7 @@
 **Responding to negatives:**
 - Acknowledge issue professionally
 - Offer resolution path
-- Don't argue, don't offer compensation in public
+- Respond professionally and handle compensation privately
 - Fix root cause if pattern emerges
 
 ## Hijacker Detection
