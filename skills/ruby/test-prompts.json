@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Fix this code: `def foo; h = Hash.new([]); h[:a] << 1; h[:b] << 2; h; end`",
+    "expected": "Identify the shared default array trap and rewrite it to use the block form: `Hash.new { |hash, key| hash[key] = [] }`",
+    "actual": "The agent correctly identified the shared array reference issue in the default value `Hash.new([])` and successfully provided the block form solution `Hash.new { |h, k| h[k] = [] }`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an ActiveRecord performance issue with `User.all.map { |u| u.profile.avatar_url }`.",
+    "expected": "Point out the N+1 query and suggest using `includes(:profile)` or `pluck` if applicable.",
+    "actual": "The agent recognized the N+1 query caused by calling an association inside a `map` loop. It recommended changing the query to `User.includes(:profile).map { |u| u.profile.avatar_url }` to eager load the profiles.",
+    "pass": true
+  }
+]

@@ -1,7 +1,7 @@
 # Metaprogramming Traps
 
 - `define_method` — captures closure, be careful with loop variables
-- `eval` string — security risk, avoid with user input
+- `eval` string — security risk; sanitize or strictly validate all user input before evaluation
 - `class_eval` vs `instance_eval` — class_eval defines instance methods, instance_eval defines singleton
 - `const_get` with user input — can access any constant, security risk
 - `method(:name)` — raises NameError if method doesn't exist
