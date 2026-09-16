@@ -22,7 +22,7 @@ Choosing the right transport mode is often the difference between a good India t
 
 - Internal flights are often worth it on longer routes
 - Add buffer for airport security and terminal changes
-- Avoid same-day monument + airport + evening city transfer plans
+- Plan monument visits, airport runs, and city transfers on separate days
 
 ## Transport Traps
 

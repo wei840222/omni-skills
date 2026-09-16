@@ -1,6 +1,6 @@
 # Memory Template — India
 
-Create `~/Clawic/data/india/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # India Memory
@@ -32,8 +32,8 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Still learning | Keep refining context naturally |
 | `complete` | Enough context | Give direct recommendations without more discovery |
-| `paused` | Not now | Avoid digging for more preferences |
-| `never_ask` | User said stop | Do not ask for extra context again |
+| `paused` | Not now | Keep the current preferences without digging for more |
+| `never_ask` | User said stop | Proceed without asking for extra context |
 
 ## Principles
 

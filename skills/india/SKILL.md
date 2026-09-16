@@ -1,38 +1,42 @@
 ---
 name: india
-slug: india
-version: 1.0.0
-description: Plan India trips with specific neighborhoods, regional food calls, route choices, and grounded advice that avoids common travel mistakes.
-homepage: https://clawic.com/skills/india
-changelog: Added country-level routing, city guides, and practical travel advice for first-time and repeat India trips.
+description: Plan India trips, recommend regional food, provide route options, and
+  advise on logistics. Use when the user needs itinerary planning, travel advice,
+  or local guides for Indian cities.
 metadata:
-  clawdbot:
-    emoji: 🇮🇳
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/india/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: India
+  version: 1.0.0
+  openclaw: '{"emoji": "🇮🇳"}'
+  related-skills: '{"food": "Food recommendations and dining guidance for India trips.",
+    "hindi": "Hindi language help for signs, menus, and quick phrases.", "travel":
+    "General travel planning and routing outside of India."}'
 ---
+
+## State location
+
+India state may exist in `<workspace>/india/`, `<workspace>/memory/india/`, or `~/india/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/india/`, `<workspace>/memory/india/`, `~/india/`.
+3. If none exists and state must be created, default to `<workspace>/india/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-If `~/Clawic/data/india/` does not exist or is empty, read `setup.md` and start naturally.
+If `<state_root>/` does not exist or is empty, read `references/setup.md` and start naturally.
 
 ## When to Use
 
-User is planning a trip to India or wants local guidance on cities, routes, food, safety, timing, and how to avoid tourist-default recommendations.
+User is planning a trip to India or wants local guidance on cities, routes, food, safety, timing, and how to find high-signal local recommendations.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/india/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/india/
+<state_root>/
 └── memory.md     # Trip context, pacing, preferences, and warnings already given
 ```
 
@@ -43,40 +47,41 @@ Load only the files that fit the current route, city, or friction point. India t
 | Topic | File |
 |-------|------|
 | **Cities** | |
-| Delhi complete guide | `delhi.md` |
-| Mumbai complete guide | `mumbai.md` |
-| Jaipur complete guide | `jaipur.md` |
-| Goa complete guide | `goa.md` |
+| Delhi complete guide | `references/delhi.md` |
+| Mumbai complete guide | `references/mumbai.md` |
+| Jaipur complete guide | `references/jaipur.md` |
+| Goa complete guide | `references/goa.md` |
 | **Planning** | |
-| Sample itineraries | `itineraries.md` |
-| Where to stay by trip type | `accommodation.md` |
-| Useful apps | `apps.md` |
+| Sample itineraries | `references/itineraries.md` |
+| Where to stay by trip type | `references/accommodation.md` |
+| Useful apps | `references/apps.md` |
 | **Food** | |
-| Regional dishes and what to order where | `food-guide.md` |
+| Regional dishes and what to order where | `references/food-guide.md` |
 | **Experiences** | |
-| Markets, classes, safaris, and high-signal activities | `experiences.md` |
-| Best beaches by vibe | `beaches.md` |
-| Best hiking and mountain bases | `hiking.md` |
-| Nightlife by city and style | `nightlife.md` |
+| Markets, classes, safaris, and high-signal activities | `references/experiences.md` |
+| Best beaches by vibe | `references/beaches.md` |
+| Best hiking and mountain bases | `references/hiking.md` |
+| Nightlife by city and style | `references/nightlife.md` |
 | **Reference** | |
-| Regions, seasons, and what each area is best at | `regions.md` |
-| Etiquette, bargaining, temple rules, and social context | `culture.md` |
-| Traveling with children | `with-kids.md` |
+| Regions, seasons, and what each area is best at | `references/regions.md` |
+| Primary official / health sources | `references/sources.md` |
+| Etiquette, bargaining, temple rules, and social context | `references/culture.md` |
+| Traveling with children | `references/with-kids.md` |
 | **Practical** | |
-| Flights, trains, cars, and ride apps | `transport.md` |
-| SIMs, eSIMs, OTPs, and connectivity | `telecoms.md` |
-| Emergencies, hospitals, and common safety issues | `emergencies.md` |
+| Flights, trains, cars, and ride apps | `references/transport.md` |
+| SIMs, eSIMs, OTPs, and connectivity | `references/telecoms.md` |
+| Emergencies, hospitals, and common safety issues | `references/emergencies.md` |
 
 ## Core Rules
 
 ### 1. Match India to the Traveler
-Do not default every first trip to "do everything". Separate:
+Tailor first trips to focus on specific, manageable goals. Separate:
 - First-timer who needs a smooth entry to India
 - Repeat visitor who wants depth
 - Family, luxury, backpacker, food-led, or wellness-led traveler
 
 ### 2. Specific Over Generic
-Do not say "visit Old Delhi" or "try local food". Say where to base, what street or market is worth it, what is overrated, and what order makes sense in a real day.
+Provide specific advice like where to base or what street/market to visit instead of generic advice. Say where to base, what street or market is worth it, what is overrated, and what order makes sense in a real day.
 
 ### 3. Regional Differences Matter
 
@@ -106,12 +111,12 @@ Call out the things that derail trips:
 
 | Traveler | Start with |
 |----------|------------|
-| First trip | `itineraries.md`, `delhi.md`, `jaipur.md` |
-| Food-led | `food-guide.md`, `delhi.md`, `mumbai.md` |
-| Beach + nightlife | `goa.md`, `beaches.md`, `nightlife.md` |
-| Family | `with-kids.md`, `accommodation.md` |
-| Nature | `hiking.md`, `regions.md`, `experiences.md` |
-| Practical/logistics | `transport.md`, `telecoms.md`, `emergencies.md` |
+| First trip | `references/itineraries.md`, `references/delhi.md`, `references/jaipur.md` |
+| Food-led | `references/food-guide.md`, `references/delhi.md`, `references/mumbai.md` |
+| Beach + nightlife | `references/goa.md`, `references/beaches.md`, `references/nightlife.md` |
+| Family | `references/with-kids.md`, `references/accommodation.md` |
+| Nature | `references/hiking.md`, `references/regions.md`, `references/experiences.md` |
+| Practical/logistics | `references/transport.md`, `references/telecoms.md`, `references/emergencies.md` |
 
 ## Common Traps
 
@@ -125,20 +130,9 @@ Call out the things that derail trips:
 
 ## Security & Privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/india/`
+**Data that stays local:** Trip preferences in `<state_root>/`
 
 **This skill does NOT:**
-- Access files outside `~/Clawic/data/india/`
+- Access files outside `<state_root>/`
 - Make network requests
-- Store payment or passport details unless the user explicitly asks to track them in `~/Clawic/data/india/`
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General travel planning
-- `food` — Food recommendations and dining guidance
-- `hindi` — Hindi language help for signs, menus, and quick phrases
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/india
-- Latest version: https://clawic.com/skills/india
+- Store payment or passport details unless the user explicitly asks to track them in `<state_root>/`

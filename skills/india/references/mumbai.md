@@ -30,7 +30,7 @@ Mumbai works best when treated as a city of neighborhoods, sea-facing evenings, 
 ## Mumbai Logic
 
 - South Mumbai is best done on foot + short cabs
-- Do not bounce between Colaba and Bandra multiple times a day
+- Consolidate plans within Colaba or Bandra for the entire day
 - Pick one side of the city for day, another for evening only if needed
 
 ## Mumbai Traps

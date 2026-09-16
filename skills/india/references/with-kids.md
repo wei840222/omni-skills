@@ -15,7 +15,7 @@ India with children works when the route is shorter, hotel quality is higher, an
 - Non-stop or short-connection arrival where possible
 - Hotels with reliable breakfast, pool, and solid hygiene
 - One major sight per half day, not three
-- Drivers or transport plans that avoid repeated negotiation
+- Drivers or transport plans that ensure predetermined rates
 
 ## Family Traps
 

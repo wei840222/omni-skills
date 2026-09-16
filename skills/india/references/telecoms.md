@@ -15,7 +15,7 @@ Connectivity is usually easy once it is working, but activation and OTP dependen
 
 - Set up data before relying on ride apps or train apps
 - Screenshot hotel address, driver details, and boarding passes
-- Do not assume every payment or ticket app will accept foreign numbers equally well
+- Verify payment and ticket app compatibility with foreign numbers beforehand
 - Hotspot from one good connection is often enough for a couple or family
 
 ## Telecom Traps

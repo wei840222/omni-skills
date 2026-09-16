@@ -8,7 +8,7 @@ Keep India trips narrower than instinct suggests. Quality comes from fewer bases
 
 - **Why it works:** Classic, varied, and realistic for a first-timer
 - **Best for:** First visit, heritage-heavy trip, winter travel
-- **Do not add:** Mumbai or Goa unless the user drops Agra or Jaipur
+- **Exclude:** Mumbai or Goa unless the user drops Agra or Jaipur
 
 ## 10 Days — First Trip With Breathing Room
 
@@ -24,7 +24,7 @@ Keep India trips narrower than instinct suggests. Quality comes from fewer bases
 
 - Best for travelers who want one heritage segment and one decompression segment
 - Strong option for honeymoon-style or premium trips
-- Avoid if traveling during peak monsoon for beach expectations
+- Choose alternative destinations during peak monsoon if beaches are the priority
 
 ## 14 Days — India Sampler
 
@@ -40,4 +40,4 @@ Keep India trips narrower than instinct suggests. Quality comes from fewer bases
 
 - Best for repeat visitors, families, and slower pacing
 - Better during months when North India is too hot
-- Do not pair with a rushed Golden Triangle unless the traveler loves constant movement
+- Pair with the Golden Triangle only if the traveler prefers constant movement
