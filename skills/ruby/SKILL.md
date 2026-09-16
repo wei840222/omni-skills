@@ -1,32 +1,20 @@
 ---
 name: ruby
-slug: ruby
-version: 1.0.1
-description: Write reliable Ruby avoiding mutable string traps, block pitfalls, and metaprogramming bugs.
-homepage: https://clawic.com/skills/ruby
+description: Write reliable Ruby code by avoiding mutable string traps, block pitfalls,
+  and metaprogramming bugs.
 metadata:
-  clawdbot:
-    emoji: 💎
-    requires:
-      bins:
-      - ruby
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Ruby
+  openclaw: '{"emoji":"💎"}'
 ---
 
-## Quick Reference
+## When to load
 
-| Topic | File |
-|-------|------|
-| Mutable strings, object equality | `objects.md` |
-| Proc vs lambda, return behavior | `blocks.md` |
-| Visibility, method_missing | `methods.md` |
-| Array/hash mutation traps | `collections.md` |
-| define_method, eval traps | `metaprogramming.md` |
-| ActiveRecord, N+1, callbacks | `rails.md` |
+- Load `references/objects.md` when diagnosing unexpected mutable string changes or object equality bugs.
+- Load `references/blocks.md` when working with Procs, lambdas, or closures where return behaviors matter.
+- Load `references/methods.md` when troubleshooting method visibility, implicit receivers, or `method_missing`.
+- Load `references/collections.md` when debugging Array or Hash mutation problems (e.g. shared default values).
+- Load `references/metaprogramming.md` when using `define_method`, `eval`, or creating dynamic methods.
+- Load `references/rails.md` when addressing ActiveRecord performance (N+1), transactions, or callback skipping.
+- Load `references/sources.md` when verifying current Ruby/Rails docs before hard claims.
 
 ## Critical Rules
 
