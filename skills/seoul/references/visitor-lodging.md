@@ -136,7 +136,7 @@ Small study rooms, originally for exam students
 - Common in all areas
 - Studio apartments with kitchen
 - ₩50,000-150,000/night depending on area
-- **Note**: Some buildings don't allow short-term rentals
+- **Note**: Some buildings restrict short-term rentals
 
 ---
 

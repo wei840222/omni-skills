@@ -237,7 +237,7 @@ Your Korean ID card — essential for daily life
 - Notify of address changes
 - Carry ARC always
 
-**Don't**
+**Restricted actions**
 - Overstay (serious consequences)
 - Work outside visa permissions
 - Let passport expire with valid visa

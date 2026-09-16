@@ -8,7 +8,7 @@
 - Metro covers most areas
 - Buses fill gaps
 - Taxis are cheap
-- Most residents don't own cars
+- Most residents use public transit exclusively
 
 ### Maybe If...
 
@@ -196,7 +196,7 @@ Direct exchange (no test):
 | 0.08%+ | License revocation, potential jail |
 | Repeat offense | Criminal charges |
 
-**Never drink and drive in Korea.**
+**Always use a designated driver or taxi when drinking in Korea.**
 
 ---
 
@@ -277,7 +277,7 @@ Direct exchange (no test):
 
 ### Service Areas (휴게소)
 
-- Rest stops every 30-50 km
+- Service areas every 30-50 km
 - Food, gas, restrooms
 - Clean and well-maintained
 - Some have good local food
@@ -319,7 +319,7 @@ Direct exchange (no test):
 - Friday evenings worst
 - Holiday weekends = nightmare
 
-### Avoiding Traffic
+### Managing Traffic
 
 - Use metro for central Seoul
 - Drive during off-peak
@@ -359,7 +359,7 @@ Direct exchange (no test):
 - Often settled on-spot
 - Exchange insurance info
 - Insurance handles rest
-- Don't admit fault
+- Wait for authorities to assess fault
 
 ---
 

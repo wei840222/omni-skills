@@ -265,7 +265,7 @@ Seoul has a diverse expat community:
 ### Dog Ownership
 
 **Considerations**
-- Many apartments don't allow
+- Many apartments restrict
 - Small dogs more common
 - Dog cafés popular
 - Vet care available and good
@@ -343,7 +343,7 @@ Seoul has a diverse expat community:
 ### Adjustment Tips
 
 1. **Learn Korean** — Even basics help hugely
-2. **Find community** — Don't isolate
+2. **Find community** — Engage actively with the community
 3. **Embrace culture** — Try everything
 4. **Keep perspective** — Different ≠ wrong
 5. **Stay healthy** — Physical and mental

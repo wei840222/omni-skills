@@ -108,7 +108,7 @@ Historic heart of Seoul. Joseon Dynasty palaces, traditional markets, and govern
 - Cultural experience seekers
 - Short-term unique stays
 - Artists/writers
-- Those who don't need modern amenities
+- Those comfortable with traditional amenities
 
 ---
 
@@ -281,6 +281,6 @@ Elegant street north of Gyeongbokgung. Galleries, boutiques, cafés. More refine
 | Season | Why |
 |--------|-----|
 | Spring | Cherry blossoms along palace walls |
-| Summer | Night palace openings (avoid midday heat) |
+| Summer | Night palace openings (visit during cooler evening hours) |
 | Fall | Fall foliage, best photography |
 | Winter | Snow on palaces (rare but stunning) |

@@ -31,7 +31,7 @@
 - **Why**: K-beauty shopping mecca, street food
 - **Time**: 3-4 hours
 - **Pro tip**: Go for shopping AND street food. Sample everything.
-- **Skip**: If you don't care about skincare/cosmetics
+- **Skip**: If you have limited interest in skincare/cosmetics
 
 ### Changdeokgung Palace + Secret Garden (창덕궁)
 - **Why**: Most beautiful palace, UNESCO World Heritage

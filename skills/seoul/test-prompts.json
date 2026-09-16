@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a senior SWE planning to move to Seoul. What's the typical salary range and housing setup like?",
+    "expected": "Provide tech salary ranges (~₩70-120M) and explain the Jeonse and Wolse housing systems with realistic Gangnam deposit estimates.",
+    "actual": "A senior software engineer in Seoul typically earns between ₩70,000,000 and ₩120,000,000 per year ($52K-$89K). However, housing requires significant capital due to the unique rental system. You have two main options: 1. Jeonse (전세): You pay a massive deposit (typically 50-80% of the property value, e.g., ₩150-250M for a studio in Gangnam) but no monthly rent. You get the deposit back when you move out. 2. Wolse (월세): Closer to a Western system. You pay a smaller deposit (e.g., ₩10M in Gangnam) plus monthly rent (₩800K-1.2M).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a 3-day layover in Seoul. Which neighborhoods should I visit and what's the best way to get around?",
+    "expected": "Recommend essential neighborhoods (like Myeongdong, Gangnam, Hongdae, or Bukchon Hanok Village) and advise getting a T-money card for the comprehensive metro system.",
+    "actual": "For a 3-day visit, focus on key areas to maximize your time. Bukchon Hanok Village and Insadong offer traditional culture, Hongdae is great for youthful energy and nightlife, and Gangnam showcases modern Seoul. To get around, skip taxis and use the world-class Metro system. Buy a T-money card at any convenience store upon arrival; you can use it to tap in and out of all buses and subways seamlessly.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm thinking of starting a fintech company in Korea. Are there special visas for startup founders?",
+    "expected": "Mention the D-8 corporate investment visa and D-10 job-seeking/startup preparation options, referencing business.md and startup.md.",
+    "actual": "Yes, South Korea has specific pathways for foreign entrepreneurs, though the process can be strict. The primary visa for startup founders is the D-8 (Corporate Investment Visa), which usually requires a minimum investment (historically around ₩100 million) and establishing a registered corporate entity. Alternatively, you can explore the D-10 visa, particularly the OASIS (Overall Assistance for Startup Immigration System) track, which allows you to prepare your startup by earning points through IP creation and business classes.",
+    "pass": true
+  }
+]

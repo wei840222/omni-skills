@@ -61,7 +61,7 @@ Korean society is built on Confucian principles:
 - Still important in Korea
 - Offer/receive with both hands
 - Look at it before putting away
-- Don't write on it
+- Use typed text instead of writing on it
 
 **Names**
 - Family name first (Kim Min-jun = Kim is surname)
@@ -73,10 +73,10 @@ Korean society is built on Confucian principles:
 **Before Eating**
 - Wait for eldest to start
 - "잘 먹겠습니다" (jal meokgesseumnida) — I will eat well
-- Hold rice bowl, don't lift soup bowl
+- Keep soup bowls on the table; rice bowls can be held
 
 **During Meal**
-- Don't pour your own drink
+- Allow others to pour your drink
 - Receive drinks with both hands (from elders)
 - Turn away from elders when drinking
 - Slurping noodles is okay
@@ -97,7 +97,7 @@ Korean society is built on Confucian principles:
 
 **Drinking Etiquette**
 - Pour for others, they pour for you
-- Don't fill own glass
+- Let companions fill your glass
 - Two hands when receiving from senior
 - Turn away from senior when drinking
 
@@ -119,9 +119,9 @@ Korean society is built on Confucian principles:
 |---------------|---------------------|
 | "We'll consider it" | Probably no |
 | "It's a bit difficult" | No |
-| "Let's discuss later" | I don't want to |
+| "Let's discuss later" | I prefer not to |
 | "I'll try" | Low commitment |
-| "It's interesting" | I don't like it |
+| "It's interesting" | It is not to my preference |
 
 **Why**
 - Direct refusal causes loss of face (체면)
@@ -132,13 +132,13 @@ Korean society is built on Confucian principles:
 
 **Critical concept**
 - Public criticism is serious insult
-- Don't point out errors publicly
+- Address errors privately
 - Praise in public, correct in private
 - Self-deprecation is polite
 
 **For you**
 - Accept compliments humbly
-- Don't brag
+- Remain humble in conversation
 - Acknowledge others' contributions
 
 ---
@@ -237,8 +237,8 @@ Korean society is built on Confucian principles:
 **Japan Relations**
 - Still sensitive topic
 - Comfort women, forced labor — unresolved
-- Avoid comparing Korea to Japan
-- Don't praise Japan excessively
+- Focus exclusively on Korean culture without comparisons to Japan
+- Maintain neutral discussions regarding Japan
 
 ### National Pride
 
@@ -289,7 +289,7 @@ Korean society is built on Confucian principles:
 | Belief | Meaning |
 |--------|---------|
 | **Fan death** | Sleeping with fan on in closed room = death (myth) |
-| **Number 4** | 사 sounds like death (四) — avoided in buildings |
+| **Number 4** | 사 sounds like death (四) — omitted in buildings |
 | **Red ink names** | Writing name in red = death wish |
 | **Whistling at night** | Attracts ghosts/snakes |
 | **Shoes as gift** | Person will walk away from you |
@@ -324,7 +324,7 @@ Korean society is built on Confucian principles:
 ✅ Items from your home country
 ✅ Cash in white envelope (for weddings, funerals)
 
-### Avoid
+### What to Refrain From
 
 ❌ Sets of 4 items (death number)
 ❌ Shoes (they'll walk away)
@@ -334,6 +334,6 @@ Korean society is built on Confucian principles:
 ### Gift Etiquette
 
 - Give/receive with both hands
-- Don't open immediately (unless asked)
+- Wait to open gifts (unless asked)
 - Nicely wrapped matters
 - Reciprocity expected
