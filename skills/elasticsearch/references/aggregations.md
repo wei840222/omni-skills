@@ -19,7 +19,7 @@ Each shard returns its own top `shard_size` buckets and the coordinator merges t
 - `size` default 10. `shard_size` default `size * 1.5 + 10`.
 - `doc_count_error_upper_bound` in the response is the maximum a returned count could be undercounting. `sum_other_doc_count` is everything that fell outside the returned buckets. **Read both** — a non-zero error on a number going into a report is a correctness problem, not a rounding detail.
 - To get exact counts: raise `shard_size` well above `size` (cost is memory on the coordinator), or reduce to a single shard, or use `composite`.
-- Ordering by a **sub-aggregation** metric (`"order": {"avg_price": "desc"}`) makes the error unbounded and unreported: each shard picks its local top by that metric before the merge sees anything. Treat it as a hint, never as a ranking.
+- Ordering by a **sub-aggregation** metric (`"order": {"avg_price": "desc"}`) makes the error unbounded and unreported: each shard picks its local top by that metric before the merge sees anything. Treat it as a hint, treat solely as a hint.
 - `min_doc_count: 0` forces every term in the field to be returned, including ones matching no documents — an easy way to blow past `search.max_buckets` (default 65,536).
 
 ## `composite`: paginating buckets
@@ -48,8 +48,8 @@ The only bucket aggregation with a cursor.
 - `calendar_interval` (`1d`, `1M`, `1q`, `1y`) respects calendars: months of different lengths, DST-shortened days. `fixed_interval` (`24h`, `90m`) is a constant duration. They were split in `elasticsearch >=7.0` precisely because one `interval` parameter could not mean both.
 - `calendar_interval` accepts only a value of 1 (`1d`, not `2d`); anything larger must be `fixed_interval`.
 - `time_zone` shifts bucket boundaries so "daily" means the user's day. With `calendar_interval` this also handles DST, producing 23- and 25-hour days — correct, and a surprise for anyone dividing by 24.
-- `min_doc_count: 0` plus `extended_bounds` fills empty buckets so a chart has no gaps. Without both, missing days simply do not appear and the line chart lies by omission.
-- `offset: "+6h"` moves boundaries for business days that do not start at midnight.
+- `min_doc_count: 0` plus `extended_bounds` fills empty buckets so a chart has no gaps. Without both, missing days simply are omitted and the line chart omits missing periods.
+- `offset: "+6h"` moves boundaries for business days that start outside at midnight.
 
 ## `nested` and `reverse_nested`
 

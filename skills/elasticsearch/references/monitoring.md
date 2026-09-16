@@ -13,12 +13,12 @@ Most Elasticsearch dashboards show fifty metrics and alert on the wrong three. T
 | Thread-pool rejections | `_cat/thread_pool` | Any sustained rate | Cumulative counter — alert on the derivative, not the value |
 | Search latency p99 | Application side | Your SLO | Server `took` misses queueing and network |
 | Indexing rate drop | `_nodes/stats/indices/indexing` | >50% below baseline | A stalled pipeline is invisible to health checks |
-| Total shard count | `_cat/shards` | 80% of `cluster.max_shards_per_node × nodes` | The limit is a hard refusal that stops tomorrow's rollover |
+| Total shard count | `_cat/shards` | 80% of `cluster.max_shards_per_node × nodes` | The limit is a hard refusal that halts tomorrow's rollover |
 | Unassigned shards | `_cluster/health` | >0 for >10 min | `node_left.delayed_timeout` is 1m; beyond that it is not transient |
 | SLM policy failures | `_slm/stats` | Any | A silently failing snapshot is discovered during a restore |
-| ILM errors | `_ilm/explain` | Any step in ERROR | A stuck policy means indices stop rolling and stop being deleted |
+| ILM errors | `_ilm/explain` | Any step in ERROR | A stuck policy means indices halt rolling and deletion |
 
-## Do Not Alert On These
+## Alert Exemptions
 
 - **Instantaneous heap percentage.** The JVM is supposed to fill the heap and collect. Only the post-collection floor carries information.
 - **Segment count.** It rises and falls with merging by design.
@@ -52,7 +52,7 @@ PUT /<index>/_settings
   "index.indexing.slowlog.threshold.index.warn": "5s" }
 ```
 
-- Thresholds are **per shard**, not per request: a query taking 300 ms on each of ten shards never appears at a 500 ms threshold even though the user waited longer.
+- Thresholds are **per shard**, not per request: a query taking 300 ms on each of ten shards remains hidden at a 500 ms threshold even though the user waited longer.
 - Query phase and fetch phase log separately and have unrelated causes.
 - `index.search.slowlog.level` controls verbosity; the logged source is truncated by default, and raising that limit fills the disk on a busy cluster.
 - Set `X-Opaque-Id` on client requests: it appears in the slow log and in `_tasks`, and it is the only reliable link from a slow application request to a specific query.

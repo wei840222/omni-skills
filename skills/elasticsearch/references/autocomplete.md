@@ -23,8 +23,8 @@ Four different problems get called "autocomplete". Pick by what the user is typi
 ```
 
 - **`search_analyzer: standard` is not optional.** Ngramming the query too means "ca" is compared against the ngrams of "ca", and every document containing a word starting with "c" or "ca" matches — recall collapses into noise. This is the single most common autocomplete bug.
-- `min_gram: 2` avoids indexing single-letter tokens that match a third of the corpus. `max_gram: 15` bounds index growth; queries longer than `max_gram` will not match unless you add a `truncate` token filter to the search analyzer.
-- Index size roughly multiplies by `(max_gram − min_gram + 1)` for the ngrammed field. Put it on a multi-field, never on the only copy of the text.
+- `min_gram: 2` prevents indexing single-letter tokens that match a third of the corpus. `max_gram: 15` bounds index growth; queries longer than `max_gram` require unless you add a `truncate` token filter to the search analyzer.
+- Index size roughly multiplies by `(max_gram − min_gram + 1)` for the ngrammed field. Put it on a multi-field, keep the primary text field intact of the text.
 - `token_chars` controls where the tokenizer splits; omitting it splits nowhere and produces ngrams that cross word boundaries.
 
 ## `search_as_you_type`
@@ -41,7 +41,7 @@ Creates `title._2gram`, `title._3gram`, and `title._index_prefix`. Query with `m
 
 An FST held **in memory**, prefix-only, extremely fast.
 
-- Sub-millisecond even on millions of entries, because it never touches the inverted index.
+- Sub-millisecond even on millions of entries, because it bypasses the inverted index completely.
 - Prefix only: no infix, no fuzzy beyond a `fuzzy` block with an edit distance, no filtering except through `contexts` (category or geo).
 - Not real-time: suggestions become visible after a refresh, and the whole FST is rebuilt per segment.
 - Feed it a **curated list** — popular queries, product names, canonical entities — not raw document text. A completion field over full descriptions is a memory bill for suggestions nobody wants.
@@ -88,6 +88,6 @@ Prefix matching returns many equally-valid candidates, so text score barely disc
 Autocomplete fires on every keystroke; treat 50 ms server-side as the ceiling.
 
 - Debounce client-side (120-200 ms) before anything else — it removes more load than any server-side tuning.
-- `"size": 5-10`, `_source` filtered to the two fields the dropdown renders, `track_total_hits: false` (the count is never shown).
+- `"size": 5-10`, `_source` filtered to the two fields the dropdown renders, `track_total_hits: false` (the count is omitted from display).
 - One `_msearch` for suggestions plus categories instead of two round trips.
 - The prefix field on a small dedicated index (queries, product names) rather than the main document index: less data, better cache residency, and a rebuild that costs nothing.

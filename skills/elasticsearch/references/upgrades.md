@@ -21,10 +21,10 @@ GET /<index>/_settings?filter_path=**.version.created_string
 
 1. **Snapshot first**, and verify it. This is the rollback plan; a downgrade is not possible once a node writes with the newer version.
 2. `GET /_migration/deprecations` on the current version and resolve everything flagged critical.
-3. Upgrade a **non-production copy** restored from that snapshot, and run the real query suite against it. Deprecation warnings do not catch behaviour changes in scoring or aggregation defaults.
+3. Upgrade a **non-production copy** restored from that snapshot, and run the real query suite against it. Deprecation warnings miss behavioral shifts in scoring or aggregation defaults.
 4. Disable shard allocation (`"cluster.routing.allocation.enable": "primaries"`) and flush before each node.
 5. Upgrade **master-eligible nodes last**. A newer master cannot manage older nodes; older masters manage newer nodes fine.
-6. Re-enable allocation, wait for green, then the next node. Never two at once.
+6. Re-enable allocation, wait for green, then the next node. Proceed strictly sequentially.
 7. Upgrade clients afterwards, as a separate change with its own rollback.
 
 Rolling back a partially-upgraded cluster means restoring the snapshot. There is no downgrade path. That single fact should shape how much testing precedes step 4.
@@ -61,7 +61,7 @@ POST /_reindex?wait_for_completion=false&slices=auto
 - Requires `reindex.remote.whitelist` on the **destination** cluster, listing the source host and port.
 - The destination pulls, so the new cluster controls the pace. Throttle with `requests_per_second` if the old cluster is still serving traffic.
 - Create the destination index first with the mapping you want. This is the moment to fix every mapping mistake accumulated over the old cluster's life; it costs nothing extra here.
-- Works across major versions that could never be upgraded in place, and lets both clusters run side by side while traffic is cut over gradually — which is a rollback plan a rolling upgrade does not have.
+- Works across major versions that require external migration, and lets both clusters run side by side while traffic is cut over gradually — which is a rollback plan a rolling upgrade lacks.
 
 ## Elasticsearch vs OpenSearch
 

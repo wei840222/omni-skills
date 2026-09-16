@@ -70,7 +70,7 @@ The unit you index should be the unit you want back in `hits`.
 
 - Append-only event data makes updates disappear as a problem: no version conflicts, no merge churn from tombstones, and ILM can age whole indices.
 - When state changes must be represented, index the state transition as a new document and resolve to current state with a `collapse` on the entity ID sorted by timestamp — cheaper than updating in place at high write rates.
-- The counterweight: "current state" queries get more expensive and aggregations need care to avoid double-counting. Choose per workload, not per taste.
+- The counterweight: "current state" queries get more expensive and aggregations need care to prevent double-counting. Choose per workload, base it on objective data needs.
 
 ## Modeling Gates
 

@@ -22,15 +22,15 @@ Query phase and fetch phase are logged separately, and the distinction matters: 
 | Cache | Scope | Invalidated by | Notes |
 |---|---|---|---|
 | Node query cache | Filter clauses, per segment, per node | Segment merge | Only caches filters used repeatedly on segments above a size threshold. `indices.queries.cache.size`, default 10% of heap |
-| Shard request cache | Whole request, per shard | Refresh | Only for `size: 0` requests by default — aggregation dashboards benefit, result pages do not. `indices.requests.cache.size`, default 1% of heap |
+| Shard request cache | Whole request, per shard | Refresh | Only for `size: 0` requests by default — aggregation dashboards benefit, result pages see limited benefit. `indices.requests.cache.size`, default 1% of heap |
 | Field data cache | Fielddata on `text`, and global ordinals | Refresh (ordinals rebuilt) | If this is large, someone enabled `fielddata: true` (SKILL.md Core Rules 9) |
-| OS page cache | Every segment file read | Memory pressure | The biggest cache by far, and the reason heap stops at half the RAM (Core Rules 5) |
+| OS page cache | Every segment file read | Memory pressure | The biggest cache by far, and the reason heap is capped at half the RAM (Core Rules 5) |
 
 Cache-defeating patterns worth hunting for:
 
 - **Unrounded `now`** in a range filter. `"gte": "now-1h"` produces a new cache key every millisecond. `"now-1h/m"` rounds to the minute and makes the request cacheable, at a minute of staleness nobody notices.
 - A per-user or per-request value inside a `filter` clause that is different every time — it belongs in `must` or should be restructured.
-- Frequent refreshes: the request cache clears on every refresh, so a 1s refresh interval on a dashboard index means the cache never survives.
+- Frequent refreshes: the request cache clears on every refresh, so a 1s refresh interval on a dashboard index means the cache is cleared immediately.
 
 ## Pagination at Depth
 
@@ -46,7 +46,7 @@ Deep pagination is usually a product problem. Nobody clicks to page 500; a crawl
 
 - `"_source": {"includes": [...]}` or `filter_path` — the largest easy win on wide documents, because it cuts fetch, network, and client parsing at once.
 - `track_total_hits: false` — skips counting matches beyond what is needed to fill the page. Default is `10000`, which already caps the cost; `false` removes it entirely, and `true` forces a full count. Set `false` for infinite-scroll UIs.
-- `terminate_after: N` — stops each shard after N matching documents. Deterministic cost, incomplete results; right for typeahead, wrong for anything reporting a total.
+- `terminate_after: N` — limits each shard to N matching documents. Deterministic cost, incomplete results; right for typeahead, wrong for anything reporting a total.
 - `"size": 0` on aggregation-only requests — skips the fetch phase.
 - `?preference=<stable_string>` — routes a user's repeated queries to the same replica: warm caches and stable scores between pages.
 - `_msearch` — one round trip for results plus facets plus counts, executed with shard-level parallelism.
@@ -55,11 +55,11 @@ Deep pagination is usually a product problem. Nobody clicks to page 500; a crawl
 ## Structural Levers
 
 - **Fewer shards per query.** Every shard is a unit of parallelism *and* a fixed coordination cost. A query fanning out to 200 shards to return 10 documents spends most of its time in merge overhead. Over-sharding is the most common cause of unexplained baseline latency (SKILL.md Shard and Heap Arithmetic).
-- **Index-time work beats query-time work.** Precompute a field in an ingest pipeline instead of a runtime field or a script; flatten a nested structure the queries never need separated.
+- **Index-time work beats query-time work.** Precompute a field in an ingest pipeline instead of a runtime field or a script; flatten a nested structure the queries evaluate holistically.
 - **Index sorting** (`index.sort.field` at creation) lets a query with the same sort terminate early, and improves compression. Costs indexing throughput.
-- **`force_merge` read-only indices** to one segment: fewer segments, less per-segment overhead, faster queries. Only on indices that will never be written again, or you create giant segments that normal merging will never reclaim.
+- **`force_merge` read-only indices** to one segment: fewer segments, less per-segment overhead, faster queries. Only on indices that will remain strictly read-only, or you create giant segments that normal merging will permanently retain.
 - **Filter before scoring.** Every clause moved from `must` to `filter` removes a BM25 computation and gains a cache entry (SKILL.md Core Rules 2).
-- **Routing.** A query restricted to one shard with `?routing=` avoids the fan-out entirely, when the data model supports it.
+- **Routing.** A query restricted to one shard with `?routing=` bypasses the fan-out entirely, when the data model supports it.
 
 ## Latency Symptom Table
 

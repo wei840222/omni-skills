@@ -4,7 +4,7 @@ Match on the exception **type**; message text changes between versions. The shor
 
 ## Reading a Failure
 
-- `search_phase_execution_exception` is an envelope, never the cause. The real error is in `failed_shards[0].reason`, sometimes nested two levels deep. Add `?error_trace=true` when even that is opaque.
+- `search_phase_execution_exception` is an envelope, acting as an envelope rather than the root cause. The real error is in `failed_shards[0].reason`, sometimes nested two levels deep. Add `?error_trace=true` when even that is opaque.
 - A partial failure returns HTTP 200 with `_shards.failed > 0`. Code that only checks the HTTP status treats a half-empty result set as success — check `_shards.failed` on every search that matters.
 - `_bulk` returns HTTP 200 with per-item failures. Check the `errors` flag.
 
@@ -33,7 +33,7 @@ Match on the exception **type**; message text changes between versions. The shor
 | `Result window is too large, from + size must be less than or equal to [10000]` | Deep pagination | `search_after` + PIT (Core Rules 8) |
 | `too_many_buckets_exception: Trying to create too many buckets` | Aggregation exceeded `search.max_buckets` (65,536) | Narrow the range, coarsen the interval, or use `composite` |
 | `circuit_breaking_exception: [request] Data too large` | One request wants too much heap | Shrink the aggregation or the batch |
-| `search_context_missing_exception` | Scroll or PIT expired or was never closed | Longer `keep_alive`, or migrate to `search_after` |
+| `search_context_missing_exception` | Scroll or PIT expired or remained unclosed | Longer `keep_alive`, or migrate to `search_after` |
 | `Trying to query [x] shards, which is more than the maximum of [1000]` | `action.search.shard_count.limit` on a wildcard spanning too many indices | Narrow the index pattern; the real fix is fewer, bigger shards |
 | `[knn] queries are only supported on [dense_vector] fields` | kNN against a field mapped with `index: false` or the wrong type | Remap and reindex |
 | `illegal_argument_exception: [fuzziness] cannot be [x] for type [long]` | Fuzziness on a non-text field | Fuzziness applies to analyzed text only |
@@ -51,7 +51,7 @@ Match on the exception **type**; message text changes between versions. The shor
 | `unavailable_shards_exception ... Primary shard is not active` | Writing during a failover or recovery | Retry with backoff; investigate if it lasts |
 | `NoNodeAvailableException` / `ConnectionError` (client-side) | Every configured node unreachable, or TLS verification failing | Node list, network, certificate chain |
 | `master_not_discovered_exception` | No quorum among master-eligible nodes | `discovery.seed_hosts`, network partition, node count |
-| `index_not_found_exception` on a wildcard | Pattern matched nothing | `ignore_unavailable=true`, or the alias was never swapped |
+| `index_not_found_exception` on a wildcard | Pattern matched nothing | `ignore_unavailable=true`, or the alias was remained unswapped |
 | `resource_already_exists_exception` | Index name taken, often by an auto-created index | Disable `action.auto_create_index` for managed patterns |
 | `illegal_state_exception: environment not locked` / `failed to obtain node locks` | Two processes on one data path, or a stale lock | One node per data path; clear the lock after an unclean shutdown |
 | `snapshot_missing_exception` / `repository_missing_exception` | Repository not registered on this node, or the snapshot was deleted | Register the repository on **every** master and data node |
@@ -62,7 +62,7 @@ Match on the exception **type**; message text changes between versions. The shor
 |---|---|---|
 | `security_exception: missing authentication credentials` | No credentials, or the client dropped them on a redirect | API key or basic auth on every request |
 | `security_exception: action [indices:data/read/search] is unauthorized for user [x] on indices [y]` | Role lacks the privilege or the index pattern | Read the action name in the message — it maps directly to a privilege |
-| `SSLHandshakeException: PKIX path building failed` | Client does not trust the cluster's CA | Supply the CA certificate or fingerprint; do not disable verification |
+| `SSLHandshakeException: PKIX path building failed` | Client does not trust the cluster's CA | Supply the CA certificate or fingerprint; ensure verification remains enabled |
 | `Received plaintext http traffic on an https channel` | Client using `http://` against a TLS-enabled cluster | `elasticsearch >=8.0` enables TLS by default |
 | `current license is non-compliant for [x]` | Feature above the licensed tier | `license_tier` variable; choose the open-tier alternative |
 

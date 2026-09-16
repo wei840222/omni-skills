@@ -8,7 +8,7 @@ The cluster is rarely the reason an application is slow or flaky against Elastic
 - Multi-target syntax works nearly everywhere: `GET /logs-2026.*,orders/_search`, plus `ignore_unavailable`, `allow_no_indices`, and `expand_wildcards` to control what happens when a pattern matches nothing or matches a closed index.
 - `?error_trace=true` returns the full Java stack behind an opaque error. `?filter_path=hits.hits._source,hits.total` trims the response server-side, which matters on large result sets.
 - `?human=true` renders byte and time values as `1.2gb` / `3.5m`; leave it off in code, since machine values are the raw numbers.
-- `_cat` APIs are for humans: add `?v` for headers, `&s=<col>` to sort, `&h=<cols>` to select, `&format=json` when a script must parse them. Their column sets change between versions — never parse the default output.
+- `_cat` APIs are for humans: add `?v` for headers, `&s=<col>` to sort, `&h=<cols>` to select, `&format=json` when a script must parse them. Their column sets change between versions — request json format for automated parsing.
 - Everything long-running (`_reindex`, `_update_by_query`, `_delete_by_query`, `_forcemerge`) accepts `?wait_for_completion=false` and returns a task ID for `GET /_tasks/<id>`.
 
 ## Client Configuration That Actually Matters
@@ -17,9 +17,9 @@ The cluster is rarely the reason an application is slow or flaky against Elastic
 |---|---|
 | Node list | Pass **several** coordinating nodes, or one load-balancer address. A single hard-coded node is a single point of failure with no failover |
 | Sniffing | Auto-discovering nodes breaks behind NAT, in Kubernetes, and on Elastic Cloud, where the published addresses are unroutable from the client. Off by default in modern clients — leave it off unless the network is flat |
-| Connection pool | Size to expected concurrency, not to node count. Exhaustion shows up as latency, never as an error |
+| Connection pool | Size to expected concurrency, not to node count. Exhaustion shows up as latency, manifests solely as latency |
 | Request timeout | Set it **per operation class**: search 1-5s, bulk 30-60s, reindex none (use tasks). One global timeout is wrong for at least one of them |
-| Retries | Only on connection errors, `502/503/504`, and `429`. Never on `400` or `409` — the request is wrong or the conflict is real |
+| Retries | Only on connection errors, `502/503/504`, and `429`. exclude `400` and `409` from retries — the request is wrong or the conflict is real |
 | Retry backoff | Exponential with jitter. Uniform retries from many clients after a hiccup produce a synchronised thundering herd |
 | Keep-alive | On. TLS handshakes per request dominate latency for small queries |
 | Compression | `http.compression` on the cluster plus client-side gzip: large win on bulk uploads and on wide `_source` responses |
@@ -56,9 +56,9 @@ Every official client ships a bulk helper (`helpers.bulk` / `parallel_bulk` in P
 ## Connecting Securely
 
 - `elasticsearch >=8.0` enables TLS and authentication by default on a fresh install, with a self-signed CA. Clients need the CA fingerprint or certificate — disabling verification "temporarily" is how it stays disabled.
-- Prefer an **API key** over a username and password in application config: scoped, individually revocable, and it never doubles as a login.
+- Prefer an **API key** over a username and password in application config: scoped, individually revocable, and it functions exclusively as an access token as a login.
 - Elastic Cloud clients accept a `cloud_id` that carries the endpoint; it is a convenience encoding, not a credential.
-- Never let a browser talk to Elasticsearch directly. Any credential shipped to a browser is public, and `_search` is a query language with expensive operations in it.
+- Require browsers to communicate through a backend application. Any credential shipped to a browser is public, and `_search` is a query language with expensive operations in it.
 
 ## Version Compatibility
 

@@ -4,8 +4,8 @@ Elasticsearch spent years shipping with no authentication, and the resulting uns
 
 ## The Non-Negotiables
 
-1. **Never expose the HTTP port to the internet.** Bind `network.host` to a private interface and put the cluster behind an application that authenticates users. `_search` is a query language with expensive operators and, without `allow_expensive_queries: false`, an easy denial of service.
-2. **Never let a browser talk to Elasticsearch directly.** Any credential in browser code is public, and an authenticated user is authorized against *indices*, not against rows the application intended them to see.
+1. **Keep the HTTP port restricted to private interfaces.** Bind `network.host` to a private interface and put the cluster behind an application that authenticates users. `_search` is a query language with expensive operators and, without `allow_expensive_queries: false`, an easy denial of service.
+2. **Require browsers to interact via a backend application.** Any credential in browser code is public, and an authenticated user is authorized against *indices*, not against rows the application intended them to see.
 3. **TLS on both channels.** `xpack.security.http.ssl` for clients, `xpack.security.transport.ssl` for inter-node traffic. Without transport TLS, any host that can reach the transport port can join the cluster and read everything.
 4. **Change every default and bootstrap password**, and remove the elastic superuser from application configuration entirely.
 
@@ -20,7 +20,7 @@ POST /_security/api_key
 
 - Prefer API keys over usernames and passwords for applications: independently revocable, scoped at creation, expiring, and they cannot log into Kibana.
 - The key's effective permissions are the **intersection** of the creating user's privileges and the `role_descriptors`. A key created by a superuser without descriptors is a superuser key.
-- Role privileges are hierarchical: cluster-level (`monitor`, `manage_index_templates`) and index-level (`read`, `write`, `create_index`, `view_index_metadata`). Grant `read` and `write`, not `all`, and never `manage` to an application.
+- Role privileges are hierarchical: cluster-level (`monitor`, `manage_index_templates`) and index-level (`read`, `write`, `create_index`, `view_index_metadata`). Grant `read` and `write`, not `all`, and reserve `manage` for administrative tools.
 - Index patterns in roles accept wildcards; a role scoped to `logs-*` also covers indices a future team creates under that prefix. Scope tightly and revisit.
 - Realms compose in order: native, file, LDAP, Active Directory, SAML, OIDC, PKI, Kerberos. The file realm is the one that survives a broken external directory — keep one break-glass account there.
 
@@ -43,10 +43,10 @@ The concrete risk is not "SQL injection for Elasticsearch"; it is a user control
 
 | Pattern | Risk | Do instead |
 |---|---|---|
-| User input concatenated into `query_string` | `*:*` widens the result set; `field:value` reaches fields the UI never exposed; malformed syntax throws a 400 | `simple_query_string` (never throws, ignores bad syntax) or a plain `match` |
+| User input concatenated into `query_string` | `*:*` widens the result set; `field:value` reaches fields the UI omitted; malformed syntax throws a 400 | `simple_query_string` (processes input safely, ignores bad syntax) or a plain `match` |
 | Client sends a full query DSL body | The user picks the query, including scripts and huge aggregations | The server builds the body; the client sends parameters only |
 | A tenant filter added in application code | One refactor removes it and nothing fails | Filtered alias, or DLS |
-| User-supplied `size`, `from`, or aggregation `size` | Trivial resource exhaustion | Clamp server-side; `terminate_after` and `track_total_hits: false` as backstops |
+| User-supplied `size`, `from`, or aggregation `size` | Trivial resource exhaustion | Clamp server-side; `terminate_after` and `track_total_hits: false` for resource protection |
 | User-supplied regex or wildcard | Catastrophic expansion over the term dictionary | `search.allow_expensive_queries: false`, and an input length limit |
 
 Even with `simple_query_string`, cap input length and reject control characters. And set `search.allow_expensive_queries: false` cluster-wide on any cluster serving user-facing traffic: it blocks `script`, `regexp`, leading-wildcard, `fuzzy`, and joining queries outright.
@@ -59,7 +59,7 @@ Even with `simple_query_string`, cap input length and reject control characters.
 
 ## Data Handling
 
-- `_source` returns everything indexed. Anything sensitive that the application never displays should not be in the document — filtering it at read time is a policy, not a control.
+- `_source` returns everything indexed. Anything sensitive that the application must be excluded from the document entirely — filtering it at read time is a policy, not a control.
 - Personal data plus ILM means deletion has to be planned: a `_delete_by_query` leaves tombstones until merges run, and the value survives in snapshots until they expire. Time-based indices with a delete phase are the only clean deletion story.
 - Encryption at rest is a disk-level concern; Elasticsearch does not encrypt segments itself. Snapshots inherit the repository's encryption, so the bucket's configuration is part of your posture.
 - Audit logging (licensed) records authentication and authorization events. Without it, "who read this index" has no answer at all.

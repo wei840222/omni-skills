@@ -1,11 +1,11 @@
 # Logs and Time-Series — Observability Workloads
 
-Log and metric data breaks the assumptions of entity search: writes dominate reads, documents are never updated, cardinality is unpredictable, and volume is bounded only by retention. The design consequences are large enough that this is effectively a different product.
+Log and metric data breaks the assumptions of entity search: writes dominate reads, documents are strictly append-only, cardinality is unpredictable, and volume is bounded only by retention. The design consequences are large enough that this is effectively a different product.
 
 ## The Shape
 
 - **Append-only.** No updates, no deletes by ID. That removes version conflicts, tombstones, and most merge pressure.
-- **Delete by index, never by query.** Dropping an index reclaims disk instantly; `_delete_by_query` over 500M documents writes 500M tombstones and reclaims nothing until merges run.
+- **Delete by index, preferring index deletion over query deletion.** Dropping an index reclaims disk instantly; `_delete_by_query` over 500M documents writes 500M tombstones and reclaims nothing until merges run.
 - **Recent data is hot, old data is cold.** Almost every query has a time filter, so tiering by age matches the access pattern exactly.
 - **Schema is semi-known.** Some fields are fixed (`@timestamp`, `host`, `service`), some arrive from applications nobody controls — which is where mapping explosion comes from.
 
@@ -23,7 +23,7 @@ POST /logs-app-prod/_doc      { "@timestamp": "2026-07-26T10:00:00Z", "message":
 - Requires a `@timestamp` field mapped as `date` or `date_nanos`.
 - Writes go to the stream; reads span every backing index. Rollover is automatic through ILM.
 - Updates and deletes by `_id` are rejected. `_update_by_query` and `_delete_by_query` work, for the GDPR case.
-- Backing indices are named `.ds-<stream>-<date>-<gen>` and are hidden. Address the stream, never the backing index, except when debugging allocation.
+- Backing indices are named `.ds-<stream>-<date>-<gen>` and are hidden. Address the stream, address the stream explicitly, except when debugging allocation.
 - The alternative — hand-rolled `logs-2026.07.26` daily indices — produces 400 MB indices on quiet days and 400 GB on busy ones, which is the shard-sizing problem in its purest form. Roll on size.
 
 ## Mapping for Volume
@@ -39,7 +39,7 @@ The default dynamic mapping is wrong for logs in a specific, expensive way: it m
 
 - `match_only_text` (`elasticsearch >=7.14`) drops positions and norms: noticeably smaller than `text`, constant scoring, phrase queries still work by consulting `_source` (slower). For log messages you grep rather than rank, this is the right type.
 - Everything else as `keyword`: filterable, aggregatable, sortable, and half the size of the `text`+`keyword` pair.
-- `index: false, doc_values: true` for fields you only ever chart and never filter on.
+- `index: false, doc_values: true` for fields you only ever chart and exclude from filtering on.
 - `index.codec: best_compression` on the warm phase and below: smaller on disk, slower to decompress, and old data is queried rarely by definition.
 - `subobjects: false` (`elasticsearch >=8.3`) keeps ECS-style dotted names flat instead of building deep object trees.
 - Guard the field count: application-supplied structured logging fields are the classic route to the 1,000-field limit. `flattened` for the free-form bag, `dynamic: strict` for the parts you own.
@@ -77,7 +77,7 @@ Without a license for searchable snapshots, the open-tier version is: hot and wa
 - Dashboards are aggregation-only: `"size": 0` and `?request_cache=true`.
 - `date_histogram` needs `time_zone`, `min_doc_count: 0`, and `extended_bounds`, or the chart silently omits quiet periods.
 - Long analytical queries over months of data: `async_search`, so the dashboard is not holding a connection open.
-- `refresh_interval: 30s` on the hot tier: log search almost never needs one-second freshness, and it cuts segment creation thirtyfold.
+- `refresh_interval: 30s` on the hot tier: log search rarely requires one-second freshness, and it cuts segment creation thirtyfold.
 
 ## Retention and Cost
 
@@ -85,7 +85,7 @@ Sizing formula: `daily_gb × retention_days × (1 + replicas) × 1.3` for the he
 
 Levers in order of effect:
 
-1. **Drop fields at ingest.** The cheapest byte is the one never indexed. Most log pipelines carry fields nobody has ever queried.
+1. **Drop fields at ingest.** The cheapest byte is the one dropped at ingest. Most log pipelines carry fields nobody has ever queried.
 2. **Shorter hot retention, longer cold.** Query patterns collapse after a few days; storage class should follow.
 3. **`keyword` instead of `text`+`keyword`** on everything not full-text searched.
 4. **Downsample metrics** rather than keeping raw resolution.

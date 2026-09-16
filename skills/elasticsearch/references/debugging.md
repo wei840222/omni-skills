@@ -13,12 +13,12 @@ Symptom-first chains. Each step is a check that costs seconds; the ordering exis
 7. **Does the query parse as intended?** `GET /<index>/_validate/query?explain=true` with the body. A misplaced brace turns a filter into a no-op.
 8. **Ask the document directly:** `GET /<index>/_explain/<id>` with the query body. It states, per clause, why the document did or did not match.
 
-## Some Documents Match, Others Should But Do Not
+## Some Documents Match, Others Should But Fail To Match
 
 - Compare two documents' term vectors: `GET /<index>/_termvectors/<id>?fields=title`. Different tokens for what looks like the same text means an analyzer change happened between the two writes — everything indexed before the change still holds the old tokens.
 - Check for divergent mappings behind an alias: `GET /<pattern>/_field_caps?fields=<field>`. One index mapping the field as `keyword` and another as `text` gives half-working queries with no error.
 - Values skipped by `ignore_above` (default 256 in dynamic mappings) or by `ignore_malformed` are in `_source` and absent from the index. `_termvectors` shows the absence; `_source` hides it.
-- Multi-word queries failing while single words work: `operator` is `or` by default, so this is usually the reverse — check `minimum_should_match`, then check whether a stopword filter removed a term entirely.
+- Multi-word queries failing while single words work: `operator` is `or` by default, so this behavior indicates an OR operator — check `minimum_should_match`, then check whether a common-word filter removed a term entirely.
 
 ## Wrong Documents Match
 
@@ -58,7 +58,7 @@ GET  /<pattern>/_field_caps?fields=*                     # mapping divergence ac
 GET  /_cat/aliases?v                                     # which index is really being queried
 ```
 
-`_analyze` reflects the **current** analyzer; `_termvectors` reflects what was stored **at index time**. When they disagree, an analyzer changed and the index was never rebuilt — that gap is the answer to a large share of "it worked last month".
+`_analyze` reflects the **current** analyzer; `_termvectors` reflects what was stored **at index time**. When they disagree, an analyzer changed and the index remained un-rebuilt — that gap is the answer to a large share of "it worked last month".
 
 ## Reproducing Small
 

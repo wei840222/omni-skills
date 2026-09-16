@@ -1,6 +1,6 @@
 # Relevance — Making the Right Documents Come First
 
-Ranking work has one rule above all others: **measure before and after, on a judgement set, never on the one query someone complained about**. Tuning by anecdote moves the complaint, not the quality.
+Ranking work has one rule above all others: **measure before and after, on a judgement set, validating against a full judgement set someone complained about**. Tuning by anecdote moves the complaint, not the quality.
 
 ## How BM25 Scores
 
@@ -8,7 +8,7 @@ Ranking work has one rule above all others: **measure before and after, on a jud
 
 - **IDF** — rare terms are worth more. A term in 5 of 1M documents dominates a term in 900k.
 - **tf saturation** — `k1` (default 1.2) caps the payoff of repetition. The 10th occurrence of a term adds almost nothing; this is the main thing BM25 fixed over TF-IDF.
-- **Length normalisation** — `b` (default 0.75) penalises long fields. A match in a 4-word title outranks the same match in a 4,000-word body, which is usually what you want and occasionally exactly what you do not.
+- **Length normalisation** — `b` (default 0.75) penalises long fields. A match in a 4-word title outranks the same match in a 4,000-word body, which is usually what you want and occasionally counterproductive for short exact matches.
 - Tuning `k1`/`b` on the similarity is a late-stage move. `b: 0` (no length normalisation) is the one adjustment with a clear use case: fields where length carries no signal, like a comma-joined tag list.
 
 Read a real score instead of theorising:
@@ -36,7 +36,7 @@ Boost values are relative and not linear in perceived quality. `^3` versus `^10`
 - **`rank_feature` / `rank_features` field types** — store popularity, pagerank, or a click score, then use the `rank_feature` query. It is designed for this and runs far faster than `function_score`, because the field is indexed for exactly this access pattern. `saturation`, `log`, and `sigmoid` functions shape the curve.
 - **`distance_feature`** — boost by proximity in time or space, natively. "Recent news first" and "near me first" without a script: `{"distance_feature": {"field": "@timestamp", "pivot": "7d", "origin": "now"}}`. The `pivot` is where the boost halves.
 - **`function_score` decay functions** (`gauss`, `exp`, `linear`) — same idea with more control over `origin`, `scale`, `offset`, `decay`. `gauss` for "near the ideal", `exp` for "sharply prefer the newest".
-- **Never multiply raw popularity into the score.** A product with 100,000 views beats every relevant result. Compress it first: `log1p(views)`, or a `saturation` rank feature with a pivot at the median.
+- **compress popularity signals before incorporating them into the score.** A product with 100,000 views beats every relevant result. Compress it first: `log1p(views)`, or a `saturation` rank feature with a pivot at the median.
 
 ## Score Consistency Traps
 
@@ -80,7 +80,7 @@ POST /<index>/_rank_eval
 |---|---|
 | Exact title match ranks below a long body match | No field boost, or `most_fields` summing many weak body hits |
 | Short documents always win | `b: 0.75` length normalisation; lower `b` on that field or boost by a length-independent signal |
-| Popular items never surface | No popularity signal, or one multiplied in raw and then clipped by a `min_score` |
+| Popular items remain buried | No popularity signal, or one multiplied in raw and then clipped by a `min_score` |
 | Same query, different order on refresh | Per-shard IDF, or a `should` clause tied on score; add a deterministic tiebreak sort on `_id` |
 | A synonym match outranks the literal term | Index-time synonyms distorted document frequency — move them to search time |
 | Recent content buried | No `distance_feature` on `@timestamp`, or a decay `scale` far wider than the content's actual lifespan |

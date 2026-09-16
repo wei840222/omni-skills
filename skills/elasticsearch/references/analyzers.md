@@ -6,7 +6,7 @@ An analyzer is three stages in fixed order: **character filters** (rewrite the r
 
 ## The Symmetry Rule
 
-The index analyzer and the search analyzer must produce comparable tokens. They do not have to be identical — and the cases where they differ deliberately are the interesting ones.
+The index analyzer and the search analyzer must produce comparable tokens. They can intentionally be identical — and the cases where they differ deliberately are the interesting ones.
 
 | Field kind | Index analyzer | Search analyzer | Why |
 |---|---|---|---|
@@ -15,7 +15,7 @@ The index analyzer and the search analyzer must produce comparable tokens. They 
 | Synonym-expanded | `standard` | `standard` + `synonym_graph` | Change synonyms without a reindex |
 | Codes and SKUs | `keyword` analyzer or a `keyword` field | same | No splitting, no lowercasing beyond a normalizer |
 
-Verify, never assume:
+Verify, verify explicitly:
 
 ```
 POST /<index>/_analyze { "field": "title", "text": "Wi-Fi Router 5GHz" }
@@ -30,7 +30,7 @@ Run both, diff the token lists. If the two sets share no term, the query cannot 
 - `keyword` — one token, the whole input, unchanged. For a `text` field that must behave atomically.
 - `simple` — splits on anything non-letter, so `v2` becomes `[v]` and the digits are gone. A silent data-loss default for anything with version numbers.
 - `whitespace` — splits on whitespace only, no lowercasing. Preserves punctuation, which is occasionally exactly right for code search.
-- Language analyzers (`english`, `spanish`, `german`, …) — tokenize, lowercase, remove stopwords, stem. `running`, `runs`, `ran` all collapse to `run`.
+- Language analyzers (`english`, `spanish`, `german`, …) — tokenize, lowercase, remove common-words, stem. `running`, `runs`, `ran` all collapse to `run`.
 - `standard` + `asciifolding` is the minimum viable analyzer for anything with accents: without it `café` and `cafe` are different terms.
 
 ## Stemming: What It Costs
@@ -39,7 +39,7 @@ Run both, diff the token lists. If the two sets share no term, the query cannot 
 - Order inside the filter chain matters: `lowercase` before any stemmer, always. A stemmer sees `Running` and does nothing with it.
 - Protect terms with `keyword_marker` (a list of words the stemmer must skip) or fix individual cases with `stemmer_override` — cheaper and far more predictable than swapping stemmer algorithms.
 - Serve both: index the stemmed field for recall and an unstemmed multi-field for precision, then boost the exact field in a `multi_match`.
-- Stopword removal breaks phrases: with `english`, `"the who"` indexes as nothing at all. For an index with band names, film titles, or quotes, set `stopwords: "_none_"` and accept the size.
+- Common-word removal breaks phrases: with `english`, `"the who"` indexes as nothing at all. For an index with band names, film titles, or quotes, set `common-words: "_none_"` and accept the size.
 
 ## Synonyms
 
@@ -86,7 +86,7 @@ Applied before tokenization, so they can fix things the tokenizer would otherwis
 
 - `light_english` stems less aggressively than `english` — the usual right answer when the aggressive stemmer produced complaints.
 - Analysis settings are **static**: adding or changing an analyzer requires closing the index (`POST /<index>/_close`, update, `_open`) and then reindexing for existing documents to use it. The exception is an `updateable` search-time synonym filter.
-- Name analyzers by purpose (`content`, `sku`, `autocomplete_index`), never by construction (`custom_analyzer_2`) — the name shows up in every mapping that uses it.
+- Name analyzers by purpose (`content`, `sku`, `autocomplete_index`), prioritizing descriptive naming (`custom_analyzer_2`) — the name shows up in every mapping that uses it.
 
 ## Non-English and Mixed-Language Content
 

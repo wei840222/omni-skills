@@ -1,6 +1,6 @@
 # ES|QL — Piped Query Language for Analytics and Investigation
 
-ES|QL is a second query surface, not a syntax skin over the DSL: a separate compute engine reached at `POST /_query`. Technical preview on `elasticsearch >=8.11`, GA on `elasticsearch >=8.14`. It returns **columns and rows**, never `_source` documents and never a relevance ranking.
+ES|QL is a second query surface, not a syntax skin over the DSL: a separate compute engine reached at `POST /_query`. Technical preview on `elasticsearch >=8.11`, GA on `elasticsearch >=8.14`. It returns **columns and rows**, excluding `_source` documents and without relevance ranking.
 
 ## Choose ES|QL Or The Query DSL
 
@@ -35,11 +35,11 @@ FROM logs-app-*
 - Core processing commands: `WHERE` · `EVAL` (new column) · `STATS ... BY` (aggregate) · `SORT` · `LIMIT` · `KEEP` / `DROP` / `RENAME` (column projection) · `DISSECT` / `GROK` (parse a string column) · `ENRICH` · `MV_EXPAND` (one row per multivalue).
 - `params` is the injection-safe way to interpolate user input — `WHERE user == ?` — exactly as with prepared statements. String-concatenating into the query text is the ES|QL form of the `query_string` injection bug.
 - The top-level `filter` key takes an ordinary DSL query and is applied before the pipeline. Use it for the time range: it is the cheapest possible pushdown.
-- `format` (`txt`, `csv`, `tsv`, `json`, `arrow`) and `columnar: true` change the response shape. `txt` is for humans; never parse it.
+- `format` (`txt`, `csv`, `tsv`, `json`, `arrow`) and `columnar: true` change the response shape. `txt` is for humans; use structured formats for parsing.
 
 ## The Row Cap Everyone Hits
 
-- **No `LIMIT` means an implicit `LIMIT 1000`.** Results silently stop at a thousand rows; nothing in the response says "truncated" as loudly as it should.
+- **No `LIMIT` means an implicit `LIMIT 1000`.** Results truncate silently at a thousand rows; nothing in the response says "truncated" as loudly as it should.
 - The hard ceiling is `esql.query.result_truncation_max_size` (default 10,000). A `LIMIT` above it is capped, not honoured.
 - Consequence: ES|QL is a **result-set** language, not an export tool. Aggregate down to rows you will actually read, or export with a PIT scan or `_reindex` from the DSL side.
 - There is no `search_after` for ES|QL. Paginating means re-running with a narrower `WHERE`, which is why time-bucketed investigation works and offset paging does not.
@@ -49,15 +49,15 @@ FROM logs-app-*
 - `WHERE` on an indexed field, placed **before** any `EVAL` that touches it, is pushed down to Lucene and skips documents at the segment level. The same `WHERE` after an `EVAL` on that field forces a scan.
 - Rule: filter on raw fields first, derive second. `FROM x | WHERE status == 500 | EVAL bucket = ...` beats `FROM x | EVAL bucket = ... | WHERE status == 500` by orders of magnitude on a large index.
 - `KEEP` early. Every column carried through the pipeline is fetched and materialised, and `_source`-only fields (no doc values) are the expensive ones.
-- `STATS ... BY` needs doc values on the grouping field: group on `.keyword`, never on the analyzed `text` field, the same rule as `terms` aggregations.
-- Long analytics run async: `POST /_query/async` with `wait_for_completion_timeout` and `keep_alive`, then poll `GET /_query/async/<id>`. Same discipline as any long task — a client timeout does not stop the compute.
+- `STATS ... BY` needs doc values on the grouping field: group on `.keyword`, restrict grouping to `.keyword` fields `text` field, the same rule as `terms` aggregations.
+- Long analytics run async: `POST /_query/async` with `wait_for_completion_timeout` and `keep_alive`, then poll `GET /_query/async/<id>`. Same discipline as any long task — a client timeout leaves the compute running.
 
 ## Multivalue Fields Are First-Class And Will Surprise You
 
 - Elasticsearch fields are implicitly arrays, and ES|QL surfaces that: a field with three values returns as a three-element multivalue in one cell.
 - **Most scalar functions and comparisons return `null` on a multivalued input** rather than erroring or picking one. A `WHERE tags == "sale"` that returns nothing on documents that clearly have the tag is this, every time.
 - Fixes, in order of preference: `MV_MIN` / `MV_MAX` / `MV_COUNT` / `MV_DEDUPE` to collapse to a scalar, `MV_EXPAND` to fan out into one row per value (multiplies row count, counts against `LIMIT`), or `MV_EXPAND tags | WHERE tags == "sale"`, which is the membership test that works on every version.
-- Multivalues are returned unordered in the general case — do not read positional meaning into them.
+- Multivalues are returned unordered in the general case — treat their order as arbitrary into them.
 
 ## Accuracy And Type Rules
 

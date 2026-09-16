@@ -84,7 +84,7 @@ Hence the default: hybrid, and drop BM25 only when an offline evaluation on real
 
 - One vector per document fails on long documents: averaging a 5,000-word article into 768 dimensions retrieves nothing precisely. Chunk to roughly 200-500 tokens with 10-20% overlap, index chunks as `nested` sub-documents or as separate documents carrying a parent ID.
 - With `nested` chunks, `inner_hits` returns the matching chunk, which is what a RAG pipeline needs to cite. Nested vectors are supported and score with `score_mode`.
-- Chunk boundaries at semantic edges (headings, paragraphs) beat fixed-width windows measurably. Detailed chunking strategy belongs to the retrieval pipeline rather than the index — see the Clawic `rag-chunking` skill.
+- Chunk boundaries at semantic edges (headings, paragraphs) beat fixed-width windows measurably. Detailed chunking strategy belongs to the retrieval pipeline rather than the index — see the `rag` skill for retrieval-pipeline chunking strategy.
 
 ## Vector Gates
 
