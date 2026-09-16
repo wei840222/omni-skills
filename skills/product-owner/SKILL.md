@@ -1,36 +1,28 @@
 ---
 name: product-owner
-slug: product-owner
-version: 1.0.1
-description: Manage backlogs, write user stories, define acceptance criteria, and maximize product value.
-homepage: https://clawic.com/skills/product-owner
-changelog: Improved setup flow with natural conversation guidelines
+description: Manage product backlogs, write clear user stories with acceptance criteria,
+  and align stakeholders on priority.
 metadata:
-  clawdbot:
-    emoji: 📋
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Product Owner
+  openclaw: '{"emoji": "📋"}'
+  related-skills: null
 ---
+
+
 
 ## Setup
 
-On first use, read `setup.md` for onboarding guidelines.
+On first use, load `references/setup.md` for onboarding guidelines and interaction patterns.
 
-## When to Use
+## When to load
 
-User needs backlog management, user story writing, sprint prioritization, or stakeholder alignment. Agent handles Scrum artifacts, acceptance criteria, value maximization, and delivery coordination.
+Load this skill when the user explicitly requests help with backlog management, writing user stories, sprint prioritization, or stakeholder alignment.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/product-owner/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/product-owner/`. See `references/memory-template.md` for structure.
 
 ```
-~/Clawic/data/product-owner/
+<state_root>/product-owner/
 ├── memory.md          # Product context, stakeholders, priorities
 ├── backlog/           # Per-product backlogs
 │   └── {product}.md   # Stories, priorities, acceptance criteria
@@ -41,10 +33,10 @@ Memory lives in `~/Clawic/data/product-owner/`. See `memory-template.md` for str
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Story patterns | `stories.md` |
-| Prioritization | `prioritization.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Story patterns | `references/stories.md` |
+| Prioritization | `references/prioritization.md` |
 
 ## Core Rules
 
@@ -112,7 +104,7 @@ Maintain explicit DoD. Every story must meet DoD before acceptance. Update DoD w
 | Kano Model | Feature differentiation, user delight |
 | Value/Effort Matrix | Simple visualization, quick decisions |
 
-See `prioritization.md` for detailed guidance.
+See `references/prioritization.md` for detailed guidance.
 
 ## Story Templates
 
@@ -143,6 +135,8 @@ Impact: [users affected, severity]
 
 ## Metrics to Track
 
+*Source for Product Owner accountability: Scrum.org (maximizing value, effective backlog management).*
+
 | Metric | Why |
 |--------|-----|
 | Velocity | Predictability |
@@ -152,14 +146,8 @@ Impact: [users affected, severity]
 | Stakeholder Satisfaction | Value delivery |
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 
 - `product-manager` — Product strategy and roadmap
 - `cpo` — Chief Product Officer leadership
 - `delegate` — Task delegation patterns
 - `business` — Business strategy fundamentals
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/product-owner
-- Latest version: https://clawic.com/skills/product-owner

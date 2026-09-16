@@ -13,7 +13,7 @@ Simplest approach. Plot stories on 2x2:
 ─────────────┼─────────────
              │
     Fill     │    Money Pit
-    Ins      │    (avoid)
+    Ins      │    (deprioritize entirely)
              │
         Low Value
     Low Effort ─────── High Effort
@@ -22,7 +22,7 @@ Simplest approach. Plot stories on 2x2:
 **Quick Wins** — Do first. High value, low effort.
 **Big Bets** — Plan carefully. High value, high effort.
 **Fill Ins** — Do when nothing else. Low value, low effort.
-**Money Pit** — Avoid. Low value, high effort.
+**Money Pit** — Deprioritize entirely. Low value, high effort.
 
 ## MoSCoW
 
@@ -107,8 +107,8 @@ For feature differentiation:
 | Basic | Expected, not delighted | Absent = angry |
 | Performance | More is better | Linear satisfaction |
 | Delighters | Unexpected | Present = wow |
-| Indifferent | Don't care | No effect |
-| Reverse | Don't want | Present = unhappy |
+| Indifferent | Neutral | No effect |
+| Reverse | Prefer absence | Present = unhappy |
 
 ### How to Identify
 Ask two questions per feature:

@@ -144,7 +144,7 @@ Acceptance Criteria:
 - Expired codes show "Code expired" message
 ```
 
-## Anti-Patterns to Avoid
+## Common Anti-Patterns
 
 | Anti-Pattern | Problem | Fix |
 |--------------|---------|-----|
