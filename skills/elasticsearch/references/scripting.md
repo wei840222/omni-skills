@@ -7,7 +7,7 @@ Painless is the sandboxed scripting language behind runtime fields, script queri
 1. **Can a mapping change solve it?** Usually yes, at the cost of a reindex. Cheapest at query time, most expensive to deploy.
 2. **Can an ingest pipeline compute it at write time?** Once per document instead of once per document per query.
 3. **Can a runtime field solve it?** No reindex, cost paid at query time, and it can be promoted to a real field later.
-4. **Does the score depend on it?** `script_score`, over the smallest candidate set you can arrange (a `rescore` window over the top N, never the full result set).
+4. **Does the score depend on it?** `script_score`, over the smallest candidate set you can arrange (a `rescore` window over the top N, restricting execution to a rescore window over the top N).
 5. **Script query as a filter?** Only after every indexed clause has already narrowed the set — it cannot use the index at all.
 
 ## Runtime Fields
@@ -19,7 +19,7 @@ Painless is the sandboxed scripting language behind runtime fields, script queri
     "script": "def s = doc['status'].size() == 0 ? -1 : doc['status'].value; emit(s >= 500 ? '5xx' : s >= 400 ? '4xx' : 'ok');" } }
 ```
 
-- Defined in the index mapping (`elasticsearch >=7.11`) or inline in a search request under `"runtime_mappings"`. The inline form is per-query and changes nothing persistent — ideal for exploring data you do not control.
+- Defined in the index mapping (`elasticsearch >=7.11`) or inline in a search request under `"runtime_mappings"`. The inline form is per-query and leaves persistent state unchanged — ideal for exploring uncontrolled external data.
 - `emit()` is mandatory; emitting nothing means the field is absent for that document, which is how you express "not applicable".
 - Runtime fields can be queried, aggregated, and sorted like real fields. The cost is one script execution per document **considered**, so put every selective indexed filter before them in the `bool`.
 - Promotion path: prove the definition as a runtime field, then bake the same logic into an ingest pipeline and reindex. Field name and output stay identical, so nothing downstream changes.
@@ -71,7 +71,7 @@ POST /<index>/_update/<id>
   "upsert": { "views": 1 } }
 ```
 
-- `ctx._source` is mutable here; `ctx.op = 'noop'` skips the write entirely when nothing changed, which avoids a version bump and the resulting replication traffic.
+- `ctx._source` is mutable here; `ctx.op = 'noop'` skips the write entirely upon unchanged data, which bypasses version bumps and the resulting replication traffic.
 - Every update is a delete plus a reindex of the whole document underneath. High-frequency counter updates on large documents are the classic merge-pressure generator — batch them, or keep counters outside the index.
 - `retry_on_conflict: 3` handles concurrent updates to the same `_id`.
 - `_update_by_query` with a script rewrites matching documents in place — the standard way to backfill a field after a mapping addition. It takes a snapshot at start and throws version conflicts on documents changed since; `conflicts: "proceed"` skips them and reports the count.

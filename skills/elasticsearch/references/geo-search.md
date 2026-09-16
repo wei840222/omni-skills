@@ -2,7 +2,7 @@
 
 ## The Coordinate Order Trap
 
-`geo_point` accepts several input formats and **they do not agree on order**:
+`geo_point` accepts several input formats and **they use differing coordinate orders**:
 
 | Format | Example | Order |
 |---|---|---|

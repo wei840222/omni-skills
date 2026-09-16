@@ -16,8 +16,8 @@ PUT /_index_template/logs
   "data_stream": {} }
 ```
 
-- Component templates are reusable blocks; index templates compose them and add their own. Highest `priority` wins when patterns overlap, and only **one** index template applies per index — templates do not merge across priorities.
-- Templates apply at index **creation**. Changing one never touches existing indices; the change lands on the next rollover.
+- Component templates are reusable blocks; index templates compose them and add their own. Highest `priority` wins when patterns overlap, and only **one** index template applies per index — templates replace overlapping configurations across priorities.
+- Templates apply at index **creation**. Changing one preserves existing indices; the change lands on the next rollover.
 - Verify before relying on it: `POST /_index_template/_simulate_index/logs-2026.07.26` shows the exact settings and mappings a new index would receive.
 - `elasticsearch >=7.8` uses composable templates; the legacy `_template` API still exists and is applied only when no composable template matches. Mixing the two is a reliable source of "my settings did not apply".
 
@@ -73,7 +73,7 @@ The procedure, in order. Skipping step 6 is how a reindex silently loses a day o
 
 ## Shrink, Split, and Clone
 
-- `_shrink` reduces primary shards to a divisor of the original (5 → 1, 6 → 3 or 2). Requires the index read-only and every shard copy on **one** node. The standard warm-phase action after writes stop.
+- `_shrink` reduces primary shards to a divisor of the original (5 → 1, 6 → 3 or 2). Requires the index read-only and every shard copy on **one** node. The standard warm-phase action after writes cease.
 - `_split` multiplies primaries by a factor, requiring `index.number_of_routing_shards` set at creation. Setting it up front is the cheap insurance that makes a later growth mistake fixable without a full reindex.
 - `_clone` copies an index with identical shard count — for a snapshot of state before a risky `_update_by_query`.
 - All three are metadata-and-hardlink operations where possible, so they are far faster than a reindex. None of them can change a mapping.
@@ -81,7 +81,7 @@ The procedure, in order. Skipping step 6 is how a reindex silently loses a day o
 ## Force Merge
 
 - `POST /<index>/_forcemerge?max_num_segments=1` on a **read-only** index: fewer segments means less per-segment overhead, better compression, and physically removed deleted documents.
-- On an index still receiving writes it produces multi-GB segments that the normal merge policy will never select again, so deleted documents in them are never reclaimed. Only ever after writes stop.
+- On an index still receiving writes it produces multi-GB segments that the normal merge policy will exclude from future selection, so deleted documents in them are permanently retained. Only ever after writes cease.
 - It is I/O-heavy and cannot be cancelled cleanly. Run it in the warm phase via ILM, or during a maintenance window.
 
 ## Lifecycle Gates

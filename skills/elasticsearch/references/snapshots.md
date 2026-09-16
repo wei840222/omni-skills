@@ -1,6 +1,6 @@
 # Snapshots — Backup, Restore, and Disaster Recovery
 
-A snapshot you have never restored is a hypothesis. Everything below assumes the restore drill is the deliverable, not the snapshot schedule.
+A snapshot you have yet to restore is a hypothesis. Everything below assumes the restore drill is the deliverable, not the snapshot schedule.
 
 ## How Snapshots Actually Work
 
@@ -21,8 +21,8 @@ PUT /_snapshot/backups
 
 - Types: `s3`, `gcs`, `azure`, `hdfs`, and `fs` (a shared filesystem). For `fs`, the path must be in `path.repo` in `elasticsearch.yml` on **every** master and data node, and it must be genuinely shared storage — a local directory per node produces a repository that only ever holds a third of your shards.
 - Verify after registering: `POST /_snapshot/backups/_verify` confirms every node can write to it. `POST /_snapshot/backups/_analyze` runs a deeper correctness and performance check on the storage's consistency guarantees.
-- Credentials go in the keystore (`elasticsearch-keystore add s3.client.default.access_key`), never in `elasticsearch.yml`.
-- **Never point two clusters at the same repository path for writing.** Both will believe they own the metadata, and the repository ends up corrupt. Use `readonly: true` on the second cluster's registration.
+- Credentials go in the keystore (`elasticsearch-keystore add s3.client.default.access_key`), omitting them from `elasticsearch.yml`.
+- **Ensure only one cluster writes to a repository path.** Both will believe they own the metadata, and the repository ends up corrupt. Use `readonly: true` on the second cluster's registration.
 
 ## Taking Snapshots
 
@@ -33,7 +33,7 @@ PUT /_slm/policy/daily
   "retention": { "expire_after": "30d", "min_count": 7, "max_count": 60 } }
 ```
 
-- SLM automates the schedule **and the expiry**. Without retention, the repository grows until the bill or the bucket limit stops it.
+- SLM automates the schedule **and the expiry**. Without retention, the repository grows until the bill or the bucket limit halts it.
 - `include_global_state: true` captures index templates, ILM policies, ingest pipelines, stored scripts, and cluster settings — everything you would otherwise rebuild by hand at the worst moment. It does not include security roles and users unless the `.security` index is in scope.
 - Snapshots are per-index; run one policy for the whole cluster rather than per-team policies whose overlapping schedules fight for I/O.
 - `GET /_snapshot/backups/_current` shows an in-flight snapshot; `DELETE` on it aborts cleanly.

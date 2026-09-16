@@ -18,7 +18,7 @@ Compact reference for building and reading query bodies. Type-selection table an
 
 - `minimum_should_match` default depends on context: **0** when `must` or `filter` is present (should clauses only boost), **1** when the bool has only `should` clauses (they become the requirement). Every bool with `should` should state it explicitly; relying on the implicit switch is how a filter change silently widens a result set.
 - It accepts counts (`2`), percentages (`"75%"`), negatives (`-1` = all but one), and combinations (`"2<75%"` = require all if ≤2 clauses, else 75%).
-- `must_not` is filter context, so it never contributes score — a common surprise for people expecting a penalty rather than an exclusion. For a soft penalty use `boosting` with `negative_boost`.
+- `must_not` is filter context, so it excludes score contributions — a common surprise for people expecting a penalty rather than an exclusion. For a soft penalty use `boosting` with `negative_boost`.
 - Nesting bools is normal and cheap. Deeply nested `should` groups still resolve to one Lucene BooleanQuery; readability is the only real constraint.
 
 ## Full-Text Clauses
@@ -31,8 +31,8 @@ Compact reference for building and reading query bodies. Type-selection table an
 | `match_bool_prefix` | Every term a `term` query, last one a prefix | Better default for search-as-you-type than phrase_prefix; order-independent |
 | `multi_match` | One query, several fields | Type matters, see below |
 | `combined_fields` | Treats several fields as one, with correct BM25 across them | Requires the same analyzer everywhere; the principled version of `cross_fields` |
-| `query_string` | Full Lucene syntax including `AND`, `*`, `~`, field prefixes | Throws 400 on malformed input — never hand it raw user text |
-| `simple_query_string` | Same idea, never throws, ignores what it cannot parse | The safe one for a user-facing "advanced search" box |
+| `query_string` | Full Lucene syntax including `AND`, `*`, `~`, field prefixes | Throws 400 on malformed input — sanitize all user input before passing it |
+| `simple_query_string` | Same idea, operates safely, ignores what it cannot parse | The safe one for a user-facing "advanced search" box |
 | `intervals` | Positional rules: term A within N words of B, ordered or not | The tool for legal and patent search where proximity is the requirement |
 
 ### `multi_match` types
@@ -91,7 +91,7 @@ GET /alerts/_search
                          "document": {"title": "Wireless router AC1200", "price": 89}}}}
 ```
 
-- **The percolator index must carry the mapping of the documents you percolate**, not just the `percolator` field. The stored query is parsed against that mapping, so `price` must be mapped there even though no real product ever lands in this index. Mapping drift between the alerts index and the live index is the failure mode: analyzers diverge, matches silently stop.
+- **The percolator index must carry the mapping of the documents you percolate**, not just the `percolator` field. The stored query is parsed against that mapping, so `price` must be mapped there even though it operates primarily for alerts in this index. Mapping drift between the alerts index and the live index is the failure mode: analyzers diverge, matches silently fail.
 - It does not brute-force every stored query. At index time Elasticsearch extracts the mandatory terms of each query into a hidden field and uses them to pre-select candidates, so the cost scales with how many stored queries *could* match, not with how many exist. Queries with no extractable term (pure `range`, `wildcard`, `script`) skip that filter and are verified on every percolation — keep them a minority.
 - `percolate` accepts `documents` (an array) to test a batch in one call, and `_percolator_document_slot` in the hit tells you which input document matched which stored query.
 - Combine with `highlight` to show the user *why* their alert fired, and with an ordinary `bool.filter` on the alerts index (`{"term": {"user_id": ...}}`) to percolate against one tenant's watches only.

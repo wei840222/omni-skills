@@ -28,7 +28,7 @@ PUT /_all/_settings
 { "index.blocks.read_only_allow_delete": null }
 ```
 
-4. Root cause afterwards: no ILM delete phase, an index with no rollover, a snapshot that never completes, or an oversized translog. Alert at 80% so this never repeats.
+4. Root cause afterwards: no ILM delete phase, an index with no rollover, a stalled snapshot, or an oversized translog. Alert at 80% to ensure proactive mitigation.
 
 ## Cluster Red
 
@@ -38,7 +38,7 @@ A primary shard is unassigned: some data cannot be read or written right now.
 2. `NODE_LEFT` and the node is coming back → wait. `index.unassigned.node_left.delayed_timeout` (default 1m) exists so a restart does not trigger a full re-replication; raise it to 5-10m during planned maintenance.
 3. `ALLOCATION_FAILED` → the shard failed to open repeatedly. `POST /_cluster/reroute?retry_failed=true` after fixing the underlying cause; the retry counter is what is blocking, not the original error.
 4. Watermark or filtering decider said no → free disk, or fix `index.routing.allocation.*` rules that no surviving node satisfies.
-5. **No valid shard copy exists** (the disk really is gone) → the only options are restore from snapshot, or `POST /_cluster/reroute` with `allocate_stale_primary` / `allocate_empty_primary`. The first accepts possibly-stale data; the second **destroys that shard's data permanently**. Never run either without confirming the snapshot situation first.
+5. **No valid shard copy exists** (the disk really is gone) → the only options are restore from snapshot, or `POST /_cluster/reroute` with `allocate_stale_primary` / `allocate_empty_primary`. The first accepts possibly-stale data; the second **destroys that shard's data permanently**. Always confirm the snapshot situation before running either the snapshot situation first.
 
 ## Cluster Yellow
 
@@ -46,7 +46,7 @@ Replicas are unassigned; all data is readable, redundancy is not there.
 
 - One node with `number_of_replicas: 1` — permanent yellow by definition. Set `default_replicas: 0` in dev, or add a node.
 - After a node loss, yellow is the expected intermediate state while replicas rebuild. Watch `_cat/recovery?active_only=true` for progress rather than re-checking health.
-- Yellow that never resolves with spare nodes available: allocation filtering, awareness rules forcing a zone that no longer exists, or `total_shards_per_node` set too low.
+- Yellow that remains yellow with spare nodes available: allocation filtering, awareness rules forcing a zone that no longer exists, or `total_shards_per_node` set too low.
 
 ## Circuit Breakers
 
@@ -103,7 +103,7 @@ GET /_cat/thread_pool/search,write,get?v&h=node_name,name,active,queue,rejected
 
 When a shard copy is genuinely gone:
 
-1. Stop writes to the affected indices — a partially-written index is harder to reconcile than a stopped one.
+1. Halt writes to the affected indices — a partially-written index is harder to reconcile than a halted one.
 2. Inventory what exists: `GET /_snapshot/<repo>/_all?verbose=false` and `GET /_cat/shards` for the surviving copies.
 3. If the source data is replayable (a log pipeline, a database of record), reindexing from source beats every restore option and produces a complete index.
 4. If not, restore the index from the most recent snapshot into a **new** index name, verify counts, then swap the alias.

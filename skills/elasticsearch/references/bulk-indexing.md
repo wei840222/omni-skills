@@ -24,10 +24,10 @@ Most write-performance work is about steps 3 and 5: fewer refreshes, fewer segme
 Newline-delimited JSON, action line then payload line, and a **trailing newline on the last line** — omitting it produces a confusing parse error rather than a clear one.
 
 - A `_bulk` call returns HTTP 200 even when every item failed. Branch on the top-level `errors` boolean, then walk `items[]` for the ones with a `status` ≥ 400 (SKILL.md Core Rules 6). Silent document loss almost always starts here.
-- Retry only the failed items, never the whole batch: reindexing successes wastes work and, with auto-generated IDs, creates duplicates.
-- Failures worth distinguishing: `mapper_parsing_exception` (bad data — fix the producer, retrying will never help), `version_conflict_engine_exception` (concurrency — retry the item), `es_rejected_execution_exception` (back-pressure — back off and reduce concurrency), `circuit_breaking_exception` (batch too large — halve it).
+- Retry only the failed items, retaining the successful items: reindexing successes wastes work and, with auto-generated IDs, creates duplicates.
+- Failures worth distinguishing: `mapper_parsing_exception` (bad data — fix the producer, retrying will fail similarly), `version_conflict_engine_exception` (concurrency — retry the item), `es_rejected_execution_exception` (back-pressure — back off and reduce concurrency), `circuit_breaking_exception` (batch too large — halve it).
 - Actions: `index` (create or replace), `create` (fail if `_id` exists — the idempotent choice), `update` (partial merge or script), `delete`.
-- Auto-generated IDs skip the "does this ID already exist" lookup and are measurably faster. Use them for append-only data; use explicit IDs whenever a replay must be idempotent.
+- Auto-generated IDs bypass the existence verification lookup and are measurably faster. Use them for append-only data; use explicit IDs whenever a replay must be idempotent.
 
 ## Tuning the Load
 
@@ -40,13 +40,13 @@ Newline-delimited JSON, action line then payload line, and a **trailing newline 
 | Durability | `index.translog.durability: async` + `sync_interval: 5s` | Trades up to 5s of acknowledged writes on a node crash for real throughput. Only for replayable data |
 | Merge throttling | `indices.store.throttle` is gone; use `index.merge.scheduler.max_thread_count: 1` on spinning disks | On SSD the default is right |
 
-Find the ceiling empirically: start at the defaults, double concurrency until throughput stops rising or rejections appear, then step back one notch. The rejection is the answer, not an error to fight.
+Find the ceiling empirically: start at the defaults, double concurrency until throughput plateaus or rejections appear, then step back one notch. The rejection is the answer, representing intentional back-pressure.
 
 ## Refresh Semantics on Write
 
 - `?refresh=false` (default) — return immediately, visible within `refresh_interval`.
 - `?refresh=wait_for` — return once the change is visible, without forcing a refresh. Blocks up to `refresh_interval`, costs nothing extra. The right choice for "write then read" in a UI.
-- `?refresh=true` — force an immediate refresh. Creates a tiny segment per call; a loop doing this generates thousands of segments and hours of merging. Almost never correct outside tests.
+- `?refresh=true` — force an immediate refresh. Creates a tiny segment per call; a loop doing this generates thousands of segments and hours of merging. Limit this parameter to test environments.
 
 The read-your-own-write alternative that costs nothing: `GET /<index>/_doc/<id>` is real-time (it reads the translog), so fetching by ID after a write always works even before a refresh. Only *searching* is refresh-bound.
 
@@ -55,7 +55,7 @@ The read-your-own-write alternative that costs nothing: `GET /<index>/_doc/<id>`
 - Every write bumps `_seq_no` and `_primary_term`. Read-modify-write: read the document with those two, then write back with `if_seq_no` and `if_primary_term`. A mismatch throws `version_conflict_engine_exception` — the whole point.
 - `retry_on_conflict: N` exists only on `_update` and bulk `update` actions. It re-reads and re-applies the script or partial document, so it is safe for commutative updates (counters) and unsafe for anything order-dependent.
 - External versioning (`version_type: external`) lets an upstream system's version number win: Elasticsearch accepts the write only if the supplied version is higher. The correct pattern for CDC pipelines replaying out of order.
-- `_delete_by_query` and `_update_by_query` snapshot at start; documents changed after the snapshot throw conflicts. `conflicts: "proceed"` continues and reports `version_conflicts` in the result — read that number, do not assume zero.
+- `_delete_by_query` and `_update_by_query` snapshot at start; documents changed after the snapshot throw conflicts. `conflicts: "proceed"` continues and reports `version_conflicts` in the result — read that number, verify the conflict count.
 
 ## Reindex
 

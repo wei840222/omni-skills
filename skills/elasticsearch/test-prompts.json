@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write an Elasticsearch mapping for a blog post with a title and content, and a query to search both fields with 'elasticsearch'.",
+    "expected": "A mapping definition with text fields and a query using multi_match.",
+    "actual": "```json\n{\n  \"mappings\": {\n    \"properties\": {\n      \"title\": { \"type\": \"text\" },\n      \"content\": { \"type\": \"text\" }\n    }\n  }\n}\n```\n\n```json\n{\n  \"query\": {\n    \"multi_match\": {\n      \"query\": \"elasticsearch\",\n      \"fields\": [\"title\", \"content\"]\n    }\n  }\n}\n```",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our Elasticsearch cluster is in a yellow state. How can we find out which shards are unassigned and why?",
+    "expected": "Instructions to use the cat shards API and the cluster allocation explain API.",
+    "actual": "You can find out which shards are unassigned by running the following command in Dev Tools:\n\n```http\nGET /_cat/shards?v&h=index,shard,prirep,state,node,unassigned.reason\n```\n\nLook for shards where the `state` is `UNASSIGNED`. To get detailed information on why a specific shard is unassigned, use the allocation explain API:\n\n```http\nGET /_cluster/allocation/explain\n```\n\nThis will provide the allocation decisions and reasons for the first unassigned shard it finds. You can also specify an index and shard ID if needed.",
+    "pass": true
+  }
+]

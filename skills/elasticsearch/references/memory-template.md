@@ -1,6 +1,6 @@
 # Memory Template — Elasticsearch
 
-Create `~/Clawic/data/elasticsearch/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Elasticsearch Memory

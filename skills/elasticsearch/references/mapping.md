@@ -1,6 +1,6 @@
 # Mapping — Field Types and the Decisions You Cannot Undo
 
-A mapping is a contract you sign once. Adding a field is free; changing one is a reindex (SKILL.md Core Rules 3). Everything below is about getting it right the first time and about the field types most teams never learn exist.
+A mapping is a contract you sign once. Adding a field is free; changing one is a reindex (SKILL.md Core Rules 3). Everything below is about getting it right the first time and about the field types most teams remain unaware of.
 
 **Contents**: [Choosing the Type](#choosing-the-type) · [Multi-Fields](#multi-fields) · [Dynamic Mapping and Field Explosion](#dynamic-mapping-and-field-explosion) · [Dynamic Templates](#dynamic-templates) · [Runtime Fields](#runtime-fields) · [`_source` and Stored Fields](#_source-and-stored-fields) · [Settings You Set at Creation](#settings-you-set-at-creation) · [Verifying a Mapping](#verifying-a-mapping)
 
@@ -11,8 +11,8 @@ A mapping is a contract you sign once. Adding a field is free; changing one is a
 | Prose a human searches | `text` | Cannot be sorted or aggregated at all |
 | IDs, SKUs, enums, tags, emails | `keyword` | `text` destroys them: `USER-42` becomes `[user, 42]` |
 | Both of the above on one field | multi-field `text` + `fields.keyword` | The default for titles, names, product descriptions |
-| Log message you grep but never phrase-search | `match_only_text` (`elasticsearch >=7.14`) | Drops positions and norms — noticeably smaller index, constant score |
-| A value you only filter on, never search | `keyword` with `index: true, doc_values: true` | Fine as is; drop `norms` — they are already off for keyword |
+| Log message you grep but exclude phrase searches | `match_only_text` (`elasticsearch >=7.14`) | Drops positions and norms — noticeably smaller index, constant score |
+| A value you only filter on, exclude from search | `keyword` with `index: true, doc_values: true` | Fine as is; drop `norms` — they are already off for keyword |
 | A value you only aggregate on | `index: false, doc_values: true` | Skips the inverted index entirely |
 | Numbers you range-query | `long` / `double` / `scaled_float` | `scaled_float` with `scaling_factor: 100` stores money as an integer and stays exact |
 | Numbers you only look up exactly (IDs, ports, status codes) | `keyword` | Numeric types optimise for ranges; term lookups on `keyword` are faster |
@@ -41,9 +41,9 @@ A mapping is a contract you sign once. Adding a field is free; changing one is a
 
 ## Dynamic Mapping and Field Explosion
 
-- `dynamic` has four values: `true` (add the field), `runtime` (add it as a runtime field, `elasticsearch >=7.11`), `false` (store in `_source`, do not index — invisible to search, no error), `strict` (reject the document with `strict_dynamic_mapping_exception`).
+- `dynamic` has four values: `true` (add the field), `runtime` (add it as a runtime field, `elasticsearch >=7.11`), `false` (store in `_source`, omit from indexing — invisible to search, no error), `strict` (reject the document with `strict_dynamic_mapping_exception`).
 - `false` is the trap: the document indexes fine, the field is in `_source`, and every query on it returns nothing. Prefer `strict` anywhere a producer might typo a field name.
-- `index.mapping.total_fields.limit` defaults to 1000, counting every leaf and every multi-field sub-field. Hitting it stops indexing for the whole index. Raising it is a stay of execution: 10,000 mapped fields is heap in the cluster state on every node.
+- `index.mapping.total_fields.limit` defaults to 1000, counting every leaf and every multi-field sub-field. Hitting it halts indexing for the whole index. Raising it is a stay of execution: 10,000 mapped fields is heap in the cluster state on every node.
 - The usual cause is user-controlled JSON keys (`attributes.<anything>`). Fix with `flattened`, not with a bigger limit.
 - `subobjects: false` (`elasticsearch >=8.3`) lets `a.b.c` stay a flat field name instead of implying nested objects — the clean answer for ECS-style dotted keys.
 
@@ -61,7 +61,7 @@ Set the rule once instead of mapping 400 fields:
 
 - Templates are evaluated in array order, first match wins — put the specific patterns above the catch-all.
 - The default dynamic behaviour for strings is `text` + `keyword` sub-field, which doubles the index for fields nobody full-text searches. Overriding it to plain `keyword` is the single biggest index-size win in log-shaped data.
-- Templates apply to fields added later; they never retro-map existing fields.
+- Templates apply to fields added later; they leave existing fields unchanged existing fields.
 
 ## Runtime Fields
 
@@ -69,12 +69,12 @@ Set the rule once instead of mapping 400 fields:
 
 - The escape hatch when the mapping is wrong and a reindex is not scheduled yet: define it on the index or per search, query it immediately, no data movement.
 - Cost is paid per document scanned, per query — fine for a filter that runs after other filters have narrowed the set, terrible as the primary selective clause on a large index.
-- Promotion path: prove the field with a runtime definition, then bake it into the mapping at the next reindex. Same name, same output, queries do not change.
+- Promotion path: prove the field with a runtime definition, then bake it into the mapping at the next reindex. Same name, same output, queries remain stable.
 - `"dynamic": "runtime"` makes newly-seen fields queryable without adding them to the mapping — the middle ground between `strict` and field explosion.
 
 ## `_source` and Stored Fields
 
-- `_source` is the original JSON. Disabling it makes `_reindex`, `_update`, `_update_by_query`, highlighting, and the Explain API impossible. Almost never worth it; use `_source.excludes` for the one giant field instead.
+- `_source` is the original JSON. Disabling it makes `_reindex`, `_update`, `_update_by_query`, highlighting, and the Explain API impossible. Retain `_source` by default; use `_source.excludes` for the one giant field instead.
 - Excluding a field from `_source` means it is still searchable but cannot be returned or reindexed — a one-way door for that field.
 - `"_source": ["title", "price"]` on the request (source filtering) cuts network and JSON-parsing cost without changing storage. That is what you usually want when someone proposes disabling `_source`.
 - `store: true` on a field is only useful when `_source` is disabled or the field is huge and rarely fetched.

@@ -19,7 +19,7 @@ Sizing formulas live in SKILL.md (Shard and Heap Arithmetic); this is the topolo
 
 - `cluster.initial_master_nodes` is used **once**, on the very first start of a brand-new cluster. Leaving it in the config afterwards means a node that loses its data directory can bootstrap a *second* cluster with the same name — the modern split-brain. Remove it after the first successful formation.
 - `discovery.seed_hosts` is the ongoing list of master-eligible addresses; it is required and stays.
-- `elasticsearch >=7.0` replaced `minimum_master_nodes` with automatic voting configurations. Never set the old one; never manually edit voting exclusions except to remove a master permanently.
+- `elasticsearch >=7.0` replaced `minimum_master_nodes` with automatic voting configurations. omit the deprecated setting; restrict voting exclusion edits to permanent master removal except to remove a master permanently.
 
 ## Shard Allocation
 
@@ -40,9 +40,9 @@ GET /_cluster/allocation/explain            # the one command that answers "why"
 
 Rolling restart, per node:
 
-1. `PUT /_cluster/settings` → `"cluster.routing.allocation.enable": "primaries"` — stops replica shuffling for a node that is coming back in minutes.
+1. `PUT /_cluster/settings` → `"cluster.routing.allocation.enable": "primaries"` — pauses replica shuffling for a node that is coming back in minutes.
 2. `POST /_flush` — commits the translog so the returning node replays less on startup. (Synced flush, `_flush/synced`, was the 7.x form of this step; it was deprecated in 7.6 and removed in `elasticsearch >=8.0`, where sequence numbers do the same job automatically. On 8.x and later, plain `_flush` is the whole step.)
-3. Stop the node, do the work, start it.
+3. Halt the node, do the work, start it.
 4. Re-enable allocation (`"enable": null`) and wait for green before touching the next node.
 
 Skipping step 1 means the cluster starts rebuilding every replica the moment the node disappears, then throws the work away when it returns.
@@ -68,7 +68,7 @@ The flood-stage block auto-releases below the high watermark on `elasticsearch >
 - Every mapping, index setting, alias, template, and stored script lives in the cluster state, held in memory on **every** node and published on every change. Ten thousand indices with a thousand fields each is a cluster-state problem long before it is a disk problem.
 - Symptoms of a bloated cluster state: slow master elections, slow index creation, master node CPU spikes on every write to metadata, `_cluster/state` responses in the tens of megabytes.
 - The fixes are structural: fewer indices (rollover with larger shards), fewer fields (`dynamic: strict`, `flattened`), fewer aliases.
-- `cluster.max_shards_per_node` (default 1000, replicas included) is a hard refusal, not a warning. Hitting it stops index creation cluster-wide — including tomorrow's rollover index, at whatever hour that runs.
+- `cluster.max_shards_per_node` (default 1000, replicas included) is a hard refusal, not a warning. Hitting it halts index creation cluster-wide — including tomorrow's rollover index, at whatever hour that runs.
 
 ## Capacity Planning
 
@@ -85,5 +85,5 @@ Work from measurements, not from ratios:
 - `vm.max_map_count = 262144` — Elasticsearch refuses to start below it. The single most common container-startup failure.
 - File descriptors 65,536; process limit 4,096.
 - **Swap off**, or `bootstrap.memory_lock: true`. A swapped-out JVM heap turns garbage collection into a multi-second disk-bound stall, which the cluster experiences as a node failure.
-- Heap: `Xms = Xmx`, both at `min(RAM/2, 31g)` (SKILL.md Core Rules 5). Never let the JVM resize the heap at runtime.
+- Heap: `Xms = Xmx`, both at `min(RAM/2, 31g)` (SKILL.md Core Rules 5). Lock the JVM heap size at startup.
 - Same JVM, same Elasticsearch version, same hardware profile across data nodes. A single slow node drags every fan-out query to its latency, because the coordinator waits for the last shard.
