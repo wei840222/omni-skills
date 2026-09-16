@@ -23,9 +23,9 @@ Declare your own only when no `java.util.function` shape fits or the domain name
 
 ## Designing a @FunctionalInterface
 
-- Exactly one abstract method. `default`, `static`, and `private` methods are unlimited, and re-declared `Object` methods (`equals`, `hashCode`, `toString`) do not count toward the single abstract method.
+- Exactly one abstract method. `default`, `static`, and `private` methods are unlimited, and re-declared `Object` methods (`equals`, `hashCode`, `toString`) are excluded from the count toward the single abstract method.
 - The annotation is optional and worth writing anyway: it is the only compile-time guard that stops the next person adding a second abstract method and breaking every call site.
-- A SAM with its own type parameters (`<T> T apply(T t)`) cannot be implemented by a lambda — lambdas are never generic. Method references and classes still work.
+- A SAM with its own type parameters (`<T> T apply(T t)`) cannot be implemented by a lambda — lambdas remain non-generic. Method references and classes still work.
 - Put `throws E` on your SAM if the body can fail; that single word is what lets checked exceptions cross the boundary (below).
 - Name the parameters in the interface, not the lambda: the IDE shows `interface` names at the call site, which is most of the readability you get over `BiFunction`.
 

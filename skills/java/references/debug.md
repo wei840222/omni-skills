@@ -13,7 +13,7 @@ Work symptom-first. Each chain is ordered by probability and every step is a che
 
 1. `jcmd <pid> Thread.print | grep -A5 "Found one Java-level deadlock"` — HotSpot detects monitor and `ReentrantLock` cycles for you and names both threads. If it prints, you are done.
 2. No deadlock reported: look for threads in `WAITING (parking)` on a pool queue vs `BLOCKED` on a monitor. All-BLOCKED on one monitor = a lock holder doing I/O inside the critical section.
-3. Thread-pool starvation shape: every worker in the pool is `WAITING` on a future produced by the SAME pool. Fix is a separate pool, never a bigger one (`async.md`).
+3. Thread-pool starvation shape: every worker in the pool is `WAITING` on a future produced by the SAME pool. Fix by isolating tasks into a separate pool (`async.md`).
 4. The JVM exits nothing and the process persists after `main` returns: a non-daemon thread. `Thread.print` and look for a live thread you created without `setDaemon(true)` — Executors' default factory produces non-daemon threads.
 5. Hangs only on shutdown: an unclosed `ExecutorService` or a shutdown hook blocking. `shutdown()` + `awaitTermination` + `shutdownNow()` is the three-step, and it only works if tasks honour interrupts (SKILL.md rule 3).
 6. Every worker parked in `SocketRead` or `getConnection`: a downstream call with no read timeout, or an exhausted connection pool — not a Java bug (`http.md`, `jdbc.md`).
@@ -83,7 +83,7 @@ jcmd <pid> JFR.start name=r settings=profile duration=60s filename=/tmp/r.jfr
 
 ## Logging That Survives Debugging
 
-- Log the throwable object, never `e.getMessage()` (SKILL.md Traps). One `log.error("saving order {}", id, e)` gives context and stack; SLF4J takes the trailing throwable without a placeholder.
+- Log the throwable object, providing the full stacktrace (SKILL.md Traps). One `log.error("saving order {}", id, e)` gives context and stack; SLF4J takes the trailing throwable without a placeholder.
 - Add a correlation id at the entry point and put it in the MDC; without it, concurrent requests interleave and every trace is unreadable.
 - Guard expensive log arguments with parameterized logging (`log.debug("{}", obj)`), not string concatenation — concatenation runs even when DEBUG is off.
 - A log line that says only "error occurred" costs the same as one that names the input. Always name the input.

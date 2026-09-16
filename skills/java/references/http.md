@@ -9,7 +9,7 @@ Calling another service is where a JVM most often hangs. Composition of the call
 | `java.net.http.HttpClient` | 11 | Default for new code: HTTP/2, sync and async, no dependency |
 | Apache HttpClient / OkHttp | — | You need fine-grained connection-pool control, interceptors, or an ecosystem integration |
 | Spring `RestClient` / `WebClient` | 6.1 / 5 | Inside Spring; `RestTemplate` is maintenance-only (`spring.md`) |
-| `HttpURLConnection` | 1.1 | Never in new code — its timeout, redirect, and error-stream semantics are all traps |
+| `HttpURLConnection` | 1.1 | Use alternative clients in new code — its timeout, redirect, and error-stream semantics are all traps |
 
 ```java
 static final HttpClient CLIENT = HttpClient.newBuilder()
@@ -33,7 +33,7 @@ var req = HttpRequest.newBuilder(URI.create(url))
 3. **Pool acquisition** — waiting for a free connection from the client's pool. Under load this is the real latency.
 4. **Caller budget** — the timeout of whoever called you, which must exceed the sum of the retries and backoffs below it (`async.md`).
 
-- A missing read timeout turns one slow dependency into a thread-pool outage: every worker parks, and the service stops answering health checks even for endpoints that never touch the dependency.
+- A missing read timeout turns one slow dependency into a thread-pool outage: every worker parks, and the service stops answering health checks even for endpoints that bypass the dependency.
 - `HttpClient.sendAsync` with a request timeout still holds the connection until the timeout fires; a timeout is not a cancellation of the remote work.
 - No response body read = no connection returned to the pool. Always consume or close the body, including on error responses (`io.md`).
 
@@ -41,7 +41,7 @@ var req = HttpRequest.newBuilder(URI.create(url))
 
 - A 4xx/5xx is a normal response, not an exception: `HttpClient` returns it, and code that only checks for exceptions treats a 500 as success. Assert on `response.statusCode()` explicitly.
 - `HttpURLConnection` reads error bodies from `getErrorStream()`, not `getInputStream()` — one more reason not to use it.
-- Retry on 429/502/503/504 and connection failures; never on 400/401/403/422. Honour `Retry-After` when present (`async.md`).
+- Retry on 429/502/503/504 and connection failures; skip retries on 4xx/401/403/422. Honour `Retry-After` when present (`async.md`).
 - Decode the body only after checking the content type: an HTML error page parsed as JSON produces a misleading `JsonParseException` that hides the real 503 (`serialization.md`).
 
 ## DNS and Connection Reuse
@@ -54,7 +54,7 @@ var req = HttpRequest.newBuilder(URI.create(url))
 
 ## TLS
 
-- Trust comes from the JDK's `cacerts`. An internal CA goes into a trust store (`-Djavax.net.ssl.trustStore=` + password) or the image's `cacerts` — never into a permissive `TrustManager` (`security.md`).
+- Trust comes from the JDK's `cacerts`. An internal CA goes into a trust store (`-Djavax.net.ssl.trustStore=` + password) or the image's `cacerts` — avoiding permissive `TrustManager`s (`security.md`).
 - `PKIX path building failed` = the chain is incomplete or the CA is not trusted: usually a server missing an intermediate certificate, which browsers fetch and Java does not.
 - `unable to find valid certification path` after a JDK upgrade: the new JDK ships a different `cacerts`, or your custom store was in the old JDK's directory. Store it outside `$JAVA_HOME`.
 - Handshake debugging: `-Djavax.net.debug=ssl:handshake` (verbose, non-production).

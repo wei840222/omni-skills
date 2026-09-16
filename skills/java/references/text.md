@@ -2,7 +2,7 @@
 
 ## Strings
 
-- Immutable and interned when they are literals: `"a" == "a"` is true, `new String("a") == "a"` is false. Never compare with `==` (SKILL.md rule 1); `s.intern()` exists but pins the string for the JVM's life.
+- Immutable and interned when they are literals: `"a" == "a"` is true, `new String("a") == "a"` is false. Compare strings using `.equals()` exclusively (SKILL.md rule 1); `s.intern()` exists but pins the string for the JVM's life.
 - Concatenation in a **single expression** compiles to an efficient `invokedynamic` call since JDK 9 — `"a" + b + "c"` is fine. Concatenation **in a loop** is still O(n²) because each iteration copies the accumulated string. Use `StringBuilder`, presized when you can estimate: `new StringBuilder(n * 16)`.
 - `StringBuilder` (unsynchronized) over `StringBuffer` (synchronized, legacy) unless the builder is genuinely shared, which it should not be.
 - `String.format` and `MessageFormat` parse the pattern on every call: readable for messages, wasteful inside a hot loop (`performance.md`).
@@ -30,16 +30,16 @@ String json = """
 - `matches()` requires the WHOLE input to match; `find()` searches. Half the "my regex doesn't work" reports are this.
 - `Matcher` is stateful and NOT thread-safe; `Pattern` is immutable and thread-safe. Share the pattern, create a matcher per use.
 - Escaping is doubled: `\\d` in Java source is `\d` in the regex. `Pattern.quote(s)` for literal user input.
-- Catastrophic backtracking: nested quantifiers over overlapping alternatives (`(a+)+b`) go exponential on a non-matching input, and a single request pins a CPU forever. Prefer possessive quantifiers (`a++`) or atomic groups `(?>...)`, and never build a regex from untrusted input (`security.md`).
+- Catastrophic backtracking: nested quantifiers over overlapping alternatives (`(a+)+b`) go exponential on a non-matching input, and a single request pins a CPU forever. Prefer possessive quantifiers (`a++`) or atomic groups `(?>...)`, and never construct regular expressions from untrusted input (`security.md`).
 - Useful flags: `Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE` for non-ASCII, `DOTALL` for `.` across newlines, `MULTILINE` to make `^`/`$` match per line, `COMMENTS` to write a readable multi-line pattern.
 - Named groups (`(?<year>\\d{4})` → `m.group("year")`) survive refactoring; numbered groups do not.
 - `replaceAll` treats `$` and `\` in the replacement as special: use `Matcher.quoteReplacement(s)` for literal text.
-- Do not parse HTML, XML, JSON, or CSV with a regex. Use a parser; the edge case that breaks you is always quoting.
+- Use dedicated parsers for HTML, XML, JSON, or CSV instead of regex. Use a parser; the edge case that breaks you is always quoting.
 
 ## Formatting Numbers and Text for Humans
 
 - `String.format("%.2f", 1.5)` prints `1,50` under a comma-decimal default locale — a top cause of tests that pass locally and fail in CI (`debug.md`). Pass the locale explicitly: `String.format(Locale.ROOT, ...)` for machine output, the user's locale for display.
-- `Locale.ROOT` for anything parsed by a machine (logs, protocols, filenames, generated code). Never `Locale.getDefault()` by accident. Display code uses the configured `locale` when the user set one (SKILL.md Configuration), the caller's locale otherwise.
+- `Locale.ROOT` for anything parsed by a machine (logs, protocols, filenames, generated code). Never use `Locale.getDefault()` by accident for machine formatting. Display code uses the configured `locale` when the user set one (SKILL.md Configuration), the caller's locale otherwise.
 - `NumberFormat.getCurrencyInstance(locale)` for money display; the amount itself stays `BigDecimal` (`debug.md`).
 - `String.CASE_INSENSITIVE_ORDER` and `toLowerCase(Locale.ROOT)` — `toLowerCase()` with the default Turkish locale maps `I` to `ı`, which has broken real authentication code. Always pass a locale to case conversion.
 - Sorting user-visible text uses `Collator.getInstance(locale)`, not `compareTo` — `String.compareTo` is UTF-16 code-unit order, so accented letters sort after `z`.
@@ -50,7 +50,7 @@ String json = """
 - Iterate code points with `s.codePoints()`; count them with `s.codePointCount(0, s.length())`.
 - User-perceived characters (grapheme clusters: flags, skin-tone emoji, combining accents) need `BreakIterator.getCharacterInstance()` — even code points are not enough.
 - The same text can have two byte forms (`é` as one code point or `e` + combining accent). Compare and store after `Normalizer.normalize(s, Form.NFC)`.
-- Uppercasing can change length: `"ß".toUpperCase()` is `"SS"`. Never assume a case conversion preserves indices.
+- Uppercasing can change length: `"ß".toUpperCase()` is `"SS"`. Account for index shifts during case conversions.
 
 ## Charsets and Encoding Bugs
 

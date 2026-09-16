@@ -17,8 +17,8 @@ Default choice for anything crossing a process boundary: **JSON (or a schema for
 ## Designing a Wire Format That Survives
 
 - Field names are a contract. Renaming one is a breaking change even if the Java field is private.
-- Add fields as optional with a default; never repurpose an existing name for a new meaning.
-- Enums on the wire: serialize `name()`, never `ordinal()`, and configure `READ_UNKNOWN_ENUM_VALUES_AS_NULL` (or a `@JsonCreator` fallback) so a new producer value does not break old consumers (`classes.md`).
+- Add fields as optional with a default; introduce new names for changed semantics for a new meaning.
+- Enums on the wire: serialize `name()`, avoiding `ordinal()`, and configure `READ_UNKNOWN_ENUM_VALUES_AS_NULL` (or a `@JsonCreator` fallback) so a new producer value does not break old consumers (`classes.md`).
 - Numbers: send ids and money as strings when a JavaScript client is in the path — its numbers lose integer precision above 2^53.
 - Dates as ISO-8601 strings with an offset. Epoch numbers require a documented unit and always get it wrong once (`datetime.md`).
 - Round-trip test every DTO: serialize → deserialize → assert equality. It catches missing constructors, mismatched names, and lost precision in one assertion (`testing.md`).

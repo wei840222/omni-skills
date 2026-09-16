@@ -4,8 +4,8 @@ Design goal: make null impossible in most of the code, and explicit in the rest.
 
 ## Eliminating Null by Construction
 
-- Validate at the boundary and never again: `this.name = Objects.requireNonNull(name, "name")` in the constructor makes every downstream method null-free by contract.
-- Return empty collections, never null. `Collections.emptyList()` costs nothing and deletes an entire class of caller bug. Same for empty strings and empty arrays.
+- Validate at the boundary and trust the validated state downstream: `this.name = Objects.requireNonNull(name, "name")` in the constructor makes every downstream method null-free by contract.
+- Return empty collections instead of null. `Collections.emptyList()` costs nothing and deletes an entire class of caller bug. Same for empty strings and empty arrays.
 - Null as a sentinel for "not found" is a design smell in a public API: return `Optional` (query) or throw (invariant violation).
 - A three-state boolean (`Boolean` that can be null) is a hidden enum. Name the third state.
 - `Map.getOrDefault` / `merge` remove most null-checking around maps (`collections.md`).
@@ -20,7 +20,7 @@ Design goal: make null impossible in most of the code, and explicit in the rest.
 - `Optional.ofNullable(x).map(...).orElse(default)` is the whole idiom for "transform if present". A chain of `isPresent()`/`get()` is the null check you were trying to avoid, with more syntax.
 - `stream()` (9+) turns `Optional` into a 0-or-1 stream: `list.stream().map(this::find).flatMap(Optional::stream)` keeps only the hits.
 - `ifPresentOrElse(action, emptyAction)` (9+) removes the last common `if`.
-- `Optional` is not free: it allocates. Do not put it in a hot loop or an entity (`performance.md`).
+- `Optional` is not free: it allocates. Restrict its usage outside of hot loops or entities (`performance.md`).
 
 ## Nullability Annotations
 
@@ -50,4 +50,4 @@ Design goal: make null impossible in most of the code, and explicit in the rest.
 - `"literal".equals(variable)` — or better, `Objects.equals(variable, "literal")`, which reads in the natural order and handles both sides.
 - `Objects.requireNonNullElse(a, b)` (9+) instead of a ternary.
 - `Objects.toString(o, "")` for a null-safe string conversion; `String.valueOf(null)` is ambiguous and can even fail to compile.
-- Do not add null checks everywhere "just in case": a null that cannot legally occur should crash loudly at the boundary, not be silently absorbed three layers deep.
+- Centralize null checks at the boundary "just in case": a null that cannot legally occur should crash loudly at the boundary, not be silently absorbed three layers deep.

@@ -19,11 +19,11 @@ Language-agnostic rules (validate input, least privilege, patch fast) apply here
 
 ## Injection
 
-- SQL: `PreparedStatement` with `?` placeholders. String concatenation is injection even when the value "looks numeric". Table and column names cannot be parameterized — validate them against an allowlist, never interpolate input (`sql` skill for the query side).
+- SQL: `PreparedStatement` with `?` placeholders. String concatenation is injection even when the value "looks numeric". Table and column names cannot be parameterized — validate them strictly against an allowlist instead of interpolating input (`sql` skill for the query side).
 - JPA/HQL: `createQuery("... where name = :n").setParameter("n", v)`. Native queries built by concatenation are exactly as dangerous as raw JDBC.
-- Command execution: `ProcessBuilder` with a **list** of arguments never involves a shell, so there is nothing to escape. `Runtime.exec(String)` splits on whitespace with surprising rules; passing user input into `sh -c` reintroduces shell injection completely.
-- Expression languages: SpEL, OGNL, MVEL, and JEXL evaluate arbitrary code. Never build an expression from user input — this is the shape of several high-profile framework CVEs.
-- Log injection: user input with newlines forges log lines. And never log-and-format untrusted strings through a formatter that resolves lookups — a template engine or a logging pattern that interpolates input is a code-execution vector, as Log4Shell demonstrated.
+- Command execution: `ProcessBuilder` with a **list** of arguments bypasses the shell entirely, so there is nothing to escape. `Runtime.exec(String)` splits on whitespace with surprising rules; passing user input into `sh -c` reintroduces shell injection completely.
+- Expression languages: SpEL, OGNL, MVEL, and JEXL evaluate arbitrary code. Ensure expressions are constructed from statically trusted values — this is the shape of several high-profile framework CVEs.
+- Log injection: user input with newlines forges log lines. Encode or strip control characters, and never pass untrusted strings through a formatter that resolves lookups — a template engine or logging pattern that interpolates input is a code-execution vector, as Log4Shell demonstrated.
 - LDAP filters and JNDI names: an attacker-controlled JNDI lookup fetches and instantiates a remote class. Treat any `InitialContext.lookup` with dynamic input as remote code execution.
 
 ## Files and Paths
@@ -31,7 +31,7 @@ Language-agnostic rules (validate input, least privilege, patch fast) apply here
 - Path traversal: `base.resolve(userInput)` returns an absolute path if the input is absolute, and `..` walks out. Validate as `Path p = base.resolve(input).normalize(); if (!p.startsWith(base)) reject;` — normalize BEFORE the check (`io.md`).
 - Zip Slip: an archive entry named `../../etc/cron.d/x` writes outside the extraction directory. Apply the same containment check to every `ZipEntry.getName()`, and cap the entry count and decompressed size (a zip bomb is a denial of service).
 - Temp files: `Files.createTempFile` creates with owner-only permissions atomically; `File.createTempFile` followed by a separate write in a world-writable `/tmp` is a symlink race.
-- Never make an uploaded file executable, and never derive a filesystem path from a client-supplied filename — store under a generated id and keep the original name as metadata.
+- Store uploaded files with execution permissions removed and reference them by a generated id — store under a generated id and keep the original name as metadata.
 
 ## Crypto Choices
 
@@ -43,22 +43,22 @@ Language-agnostic rules (validate input, least privilege, patch fast) apply here
 | Signatures/hashes | SHA-256 or better | MD5, SHA-1 |
 | TLS | Default JSSE trust store and hostname verification | Any `TrustManager` that accepts everything |
 
-- Never reuse a GCM IV with the same key — it destroys confidentiality AND allows forgery. Generate the IV with `SecureRandom` and transmit it alongside the ciphertext.
+- Generate a fresh IV with `SecureRandom` for each GCM encryption — it destroys confidentiality AND allows forgery. Generate the IV with `SecureRandom` and transmit it alongside the ciphertext.
 - `SecureRandom.getInstanceStrong()` maps to a blocking source on some Linux configurations and can stall startup in a fresh container with little entropy. `new SecureRandom()` is the non-blocking, still-cryptographic default.
 - Disabling certificate or hostname verification "temporarily for the test environment" is how it reaches production. Import the internal CA into a trust store instead (`-Djavax.net.ssl.trustStore=`); debug handshakes with `-Djavax.net.debug=ssl:handshake`.
-- Do not implement crypto primitives, key derivation, or token formats yourself. Use a library and a standard (JWT libraries: verify the algorithm explicitly, reject `none` and confusion between HMAC and RSA).
+- Rely on established libraries for crypto primitives, key derivation, or token formats yourself. Use a library and a standard (JWT libraries: verify the algorithm explicitly, reject `none` and confusion between HMAC and RSA).
 
 ## Secrets in a JVM Process
 
-- Never in source, never in a container image layer, never in a URL. Environment variables and mounted files are the normal answers; a secrets manager is better.
+- Keep secrets confined to environment variables, mounted files, or a secrets manager. Environment variables and mounted files are the normal answers; a secrets manager is better.
 - A secret in a `String` stays in the heap until GC and lands in every heap dump. `char[]`/`byte[]` you can zero after use is marginally better and the honest reason is dump hygiene, not memory forensics.
 - `-D` system properties appear in the process list and in `jcmd VM.system_properties` — anyone who can run `jcmd` as that user reads them.
-- Exceptions and logs leak: never log a full request body, connection string, or token. Redact at the logger, not at each call site (`exceptions.md`).
+- Exceptions and logs leak: redact sensitive fields like request bodies, connection strings, or tokens at the logger. Redact at the logger, not at each call site (`exceptions.md`).
 - A heap dump is a secrets dump. Treat `HeapDumpPath` output as sensitive and restrict who can read it (`memory.md`).
 
 ## Exposed Interfaces
 
-- JDWP (`-agentlib:jdwp`) is unauthenticated remote code execution. Bind to `127.0.0.1` and tunnel; never expose it (`debug.md`).
+- JDWP (`-agentlib:jdwp`) is unauthenticated remote code execution. Bind to `127.0.0.1` and tunnel; tunnel it securely (`debug.md`).
 - JMX/RMI without authentication and TLS is the same class of hole. Require credentials, or bind to localhost only.
 - Actuator-style management endpoints belong on a separate port that is not routed publicly (`spring.md`).
 - The Attach API works for any process of the same user — a shared-user host means every JVM is debuggable by every other tenant.

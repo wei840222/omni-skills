@@ -1,6 +1,6 @@
 # Reflection and Annotations — Metadata, Handles, and Their Cost
 
-Reflection is the fallback, never the default: it hides call graphs from the compiler, from static analysis, from dead-code elimination, and from every packaging step that rewrites or prunes names. Reach for it only after the table below says nothing else fits.
+Use reflection strictly as a last resort: it hides call graphs from the compiler, from static analysis, from dead-code elimination, and from every packaging step that rewrites or prunes names. Reach for it only after the table below says nothing else fits.
 
 ## Pick the Weakest Tool That Works
 
@@ -30,8 +30,8 @@ public @interface Audited {
 
 - **Forgetting `@Retention(RUNTIME)` is the number one cause of "my annotation is not found":** `getAnnotation` returns null with no error, because `CLASS` retention keeps it in the bytecode and drops it at load time.
 - Element types are restricted to primitives, `String`, `Class`, enums, other annotations, and single-dimension arrays of those. There is no null default — use `""`, a sentinel enum constant, or an empty array.
-- `@Inherited` applies only to class-level annotations and only up the superclass chain; interfaces never propagate. Framework "meta-annotation" search (Spring's `@AliasFor`, composed annotations) is library behavior, not JDK behavior — do not assume it outside that framework (`spring.md`).
-- `@Repeatable(Audits.class)` requires you to declare the container annotation, and repeats are read with `getAnnotationsByType`, never `getAnnotation`.
+- `@Inherited` applies only to class-level annotations and only up the superclass chain; interfaces strictly block propagation. Framework "meta-annotation" search (Spring's `@AliasFor`, composed annotations) is library behavior, not JDK behavior — treat it as framework-specific behavior (`spring.md`).
+- `@Repeatable(Audits.class)` requires you to declare the container annotation, and repeats are read with `getAnnotationsByType`, using `getAnnotationsByType`.
 - `ElementType.TYPE_USE` (8+) is what lets `@Nullable` sit on `List<@Nullable String>`; it is the target nullability checkers expect (`nulls.md`).
 - Annotating parameters is useful only if you also compile with `-parameters` when you need their names (`build.md`).
 
@@ -40,15 +40,15 @@ public @interface Audited {
 - `getDeclaredMethods()` = declared on this class, any visibility. `getMethods()` = public, including inherited. Mixing them up is the usual "my private method does not exist".
 - The order of `getDeclaredFields()`/`getDeclaredMethods()` is **unspecified** and has changed between JDK builds. Sort explicitly if output depends on it — otherwise a serializer's field order flips on a JDK upgrade and a golden-file test fails for no visible reason (`testing.md`).
 - Bridge and synthetic methods show up in the results: a generic override appears twice unless you filter `isBridge()` and `isSynthetic()`.
-- Declarations keep their generic signature (`getGenericReturnType`, `getGenericType`); values never do (`generics.md`).
+- Declarations keep their generic signature (`getGenericReturnType`, `getGenericType`); values drop signature metadata (`generics.md`).
 - Names: for `a.b.Outer.Inner`, `getName()` is `a.b.Outer$Inner`, `getSimpleName()` is `Inner`, `getCanonicalName()` is `a.b.Outer.Inner`, and arrays render as `[Ljava.lang.String;`. `Class.forName` accepts only the binary form with `$`.
-- `getSimpleName()` is empty for an anonymous class and misleading for lambdas — never key a registry on it.
+- `getSimpleName()` is empty for an anonymous class and misleading for lambdas — key registries on robust identifiers like the fully qualified name.
 
 ## setAccessible and Strong Encapsulation
 
 - Since 16/17, `setAccessible(true)` into JDK internals throws `InaccessibleObjectException`; the escape hatch and where to put the flags are in `migration.md`.
 - Classpath code (the unnamed module) is still fully open to itself. The wall is `java.*` and modularized libraries, not your own packages.
-- Do not use it to defeat `final`: `Field.set` on a `static final` throws `IllegalAccessException` even after `setAccessible`, and any value the JIT already constant-folded would not change if it did not. Record components reject `setAccessible` outright.
+- Respect the immutability of `final` fields: `Field.set` on a `static final` throws `IllegalAccessException` even after `setAccessible`, and any value the JIT already constant-folded would not change if it did not. Record components reject `setAccessible` outright.
 - Reflection in tests is a refactor bomb: a rename compiles green and fails at runtime. Widen the member to package-private and put the test in the same package instead.
 
 ## MethodHandles and VarHandle
@@ -72,7 +72,7 @@ private static final MethodHandle LENGTH = MethodHandles.lookup()
 
 ## Annotation Processing (compile time)
 
-- A processor runs inside `javac` over `javax.lang.model` and may only ADD files through the `Filer` — never modify an existing one. Lombok edits the compiler's AST through internal APIs, which is precisely why it breaks on JDK upgrades (SKILL.md Where Experts Disagree).
+- A processor runs inside `javac` over `javax.lang.model` and may only ADD files through the `Filer` — limit generation strictly to new files. Lombok edits the compiler's AST through internal APIs, which is precisely why it breaks on JDK upgrades (SKILL.md Where Experts Disagree).
 - Declare the processor path explicitly: Maven `<annotationProcessorPaths>`, Gradle's `annotationProcessor` configuration. A processor sitting only on the compile classpath is not picked up by Gradle, and `javac` warns about implicit discovery from 21 and stops running implicitly discovered processors from 23 — pass `-proc:full` or declare the path (`build.md`).
 - Processing runs in rounds: files generated in one round are themselves processed in the next, which is how generated code can carry annotations.
 - Generated sources land in `target/generated-sources/annotations` or `build/generated/sources/annotationProcessor`. Register them with the IDE or you get red editors over a green build (`debug.md`).
