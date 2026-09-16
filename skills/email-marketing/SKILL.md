@@ -1,127 +1,134 @@
 ---
 name: email-marketing
-slug: email-marketing
-version: 1.0.0
-description: Email deliverability, list management, sequences, segmentation, and campaign optimization.
-homepage: https://clawic.com/skills/email-marketing
+description: Manage email deliverability, list health, sequences, segmentation, and campaign optimization with modern bulk-sender compliance. Trigger when the user needs email marketing strategy, deliverability fixes, nurture sequences, list hygiene, or ESP campaign operations.
 metadata:
-  category: marketing
-  skills:
-  - email
-  - newsletters
-  - sequences
-  - deliverability
-  - automation
-  clawdbot:
-    emoji: 📧
-    displayName: Email Marketing
+  version: "1.0.0"
+  openclaw: '{"emoji":"📧","requires":{"configPaths":["<state_root>/"]}}'
+  related-skills: '{"copywriting":"Owns persuasive email body, subject, and CTA craft.","content-marketing":"Places email inside content calendar and funnel systems.","affiliate-marketing":"Partner nurture and owned-audience conversion sequences.","growth-hacker":"Acquisition experiments that feed or measure email loops.","cmo":"Channel strategy and demand generation leadership around email."}'
 ---
 
-## Deliverability Foundations
+## State location
 
-- Authenticate all sending domains: SPF, DKIM, and DMARC — missing any one tanks deliverability
-- Warm up new domains/IPs: start with 50-100 emails/day, increase 20% daily over 2-4 weeks
-- Never buy email lists — purchased lists destroy sender reputation permanently
-- Clean list regularly: remove bounces immediately, unengaged after 90 days
-- Monitor blacklists: MXToolbox, Google Postmaster Tools — problems compound if not caught early
+Email Marketing state may exist in `<workspace>/email-marketing/`, `<workspace>/memory/email-marketing/`, or `~/email-marketing/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## List Health Metrics
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/email-marketing/`, `<workspace>/memory/email-marketing/`, `~/email-marketing/`.
+3. If none exists and state must be created, default to `<workspace>/email-marketing/`.
 
-| Metric | Healthy | Warning | Critical |
-|--------|---------|---------|----------|
-| Open rate | >20% | 10-20% | <10% |
-| Click rate | >2% | 1-2% | <1% |
-| Bounce rate | <2% | 2-5% | >5% |
-| Unsubscribe | <0.5% | 0.5-1% | >1% |
-| Spam complaints | <0.1% | 0.1-0.3% | >0.3% |
+Use the selected `<state_root>` for every state operation in this skill.
 
-- One spam complaint per 1000 emails is the danger zone — above this, inbox placement drops sharply
+## Setup
 
-## Subject Lines
+On first use, read `references/setup.md` for activation constraints. This skill works without local storage. Only create `<state_root>/` if the user wants persistent list, sequence, and deliverability continuity.
 
-- 40-50 characters optimal — truncates on mobile after 35-40
-- Personalization works: name or company in subject increases opens 10-20%
-- Curiosity beats clarity for opens, but clarity wins for clicks — balance based on goal
-- Avoid spam triggers: ALL CAPS, excessive punctuation!!!, "free", "act now"
-- Test emoji: works for some audiences, hurts others — A/B test before committing
-- Preview text is second subject line — don't waste it with "View in browser"
+## When to Use
 
-## Email Sequences
+User needs email marketing, deliverability diagnosis, list hygiene, segmentation, nurture sequences, campaign planning, A/B testing, or bulk-sender compliance (SPF/DKIM/DMARC, one-click unsubscribe). Agent handles domain warmup, health metrics, subject and preview strategy, automation triggers, and compliance gates.
 
-**Welcome sequence (5-7 emails over 2 weeks):**
-1. Immediate: Deliver promised value + set expectations
-2. Day 1: Best content or quick win
-3. Day 3: Story/origin + values
-4. Day 5: Social proof + case study
-5. Day 7: Soft offer or deeper engagement
-6. Day 10: Address common objection
-7. Day 14: Clear CTA
+Use this when the problem is operating owned-email acquisition and retention end to end, not just drafting a single message. The goal is inbox placement, list durability, and conversion quality under current mailbox-provider rules.
 
-- First email in sequence has highest open rate — make it count
-- Space emails 1-3 days apart — daily is too aggressive for most audiences
+This skill is especially strong for SaaS, ecommerce, creators, B2B newsletters, and teams recovering from spam-folder or list-decay problems.
 
-## Segmentation
+## Architecture
 
-- Segment by behavior, not just demographics — what they clicked matters more than job title
-- Minimum viable segments: new subscribers, engaged (opened in 30 days), unengaged, customers
-- Tag on every click — builds behavioral profile automatically
-- Sunset unengaged subscribers after 90 days — send re-engagement, then remove
-- VIP segment for highest engagement — reward them with early access, exclusives
+Local workspace is optional and only created with user consent.
 
-## Timing and Frequency
+```
+<state_root>/
+├── memory.md        # Program context, ESP, approved rules, active constraints
+├── lists.md         # Segments, hygiene status, sunset policies
+├── sequences.md     # Active automations, triggers, performance notes
+└── incidents.md     # Deliverability incidents, blacklist hits, compliance notes
+```
 
-- Tuesday-Thursday mid-morning performs best on average — but test your audience
-- B2B: business hours. B2C: evenings and weekends can work
-- Frequency depends on value: daily works if valuable, weekly fails if boring
-- Let subscribers choose frequency — reduces unsubscribes significantly
-- Send time optimization: most ESPs offer this, use it
+## Quick Reference
 
-## Campaign Types
+| Topic | When to load | File |
+|-------|--------------|------|
+| Setup and activation | On first use to learn ESP context and optional state. | `references/setup.md` |
+| Continuity memory | When user wants persistent state across sessions. | `references/memory.md` |
+| Deliverability and authentication | Domain setup, spam folder issues, warmup, blacklists. | `references/deliverability.md` |
+| List health and segmentation | Hygiene, sunset, engagement tiers, growth quality. | `references/list-health.md` |
+| Sequences and automation | Welcome, onboarding, cart, re-engagement flows. | `references/sequences.md` |
+| Campaign craft and testing | Subject, preview, body structure, A/B design. | `references/campaigns.md` |
+| Compliance and consent | CAN-SPAM, GDPR, RFC 8058, consent boundaries. | `references/compliance.md` |
+| Launch and recovery playbooks | Immediate execution sprints for common failures. | `references/playbooks.md` |
+| Research sources | Verified bulk-sender and compliance citations. | `references/sources.md` |
 
-- **Newsletter**: regular value, builds relationship, low direct conversion
-- **Promotional**: clear offer, urgency, direct conversion focus
-- **Transactional**: receipts, confirmations — highest open rates, add value here
-- **Re-engagement**: "We miss you" + incentive + easy unsubscribe
-- **Announcement**: product launches, major updates — segment to interested only
+## Core Rules
 
-## Writing for Email
+### 1. Authenticate and warm before volume
+- Require SPF, DKIM, and DMARC for any bulk-sending domain; missing auth is a hard blocker under current Gmail/Yahoo bulk-sender expectations.
+- Warm new domains and IPs gradually (start ~50–100/day, increase ~20% daily over 2–4 weeks) instead of dumping volume.
+- Use `references/deliverability.md` before recommending send volume increases.
 
-- One goal per email — multiple CTAs dilute response
-- Write for skimmers: bold key phrases, short paragraphs, bullet points
-- P.S. lines get read — put secondary CTA or key point there
-- Plain text often outperforms HTML for personal-style emails
-- Mobile-first: 60%+ open on mobile — single column, large tap targets
+### 2. Protect list health over list size
+- Prefer organic growth; purchased lists permanently damage sender reputation.
+- Remove hard bounces immediately; sunset unengaged contacts after a defined window (commonly ~90 days after a re-engagement attempt).
+- Use `references/list-health.md` for metrics thresholds and segment design.
 
-## Automation Triggers
+### 3. Design sequences as systems, not one-off blasts
+- Map trigger → message → next action for welcome, purchase, abandoned cart, and re-engagement.
+- Space most nurture emails 1–3 days apart; the first message carries the highest open rate and must deliver the promised value.
+- Use `references/sequences.md` when building or debugging automations.
 
-- Sign up → Welcome sequence
-- Purchase → Onboarding + cross-sell sequence
-- Abandoned cart → 3-email recovery (1h, 24h, 72h)
-- No open in 30 days → Re-engagement sequence
-- Link click → Tag and trigger relevant follow-up
-- Date-based → Birthday, renewal reminder, anniversary
+### 4. Optimize craft with one primary goal per send
+- Subject lines ~40–50 characters; preview text is a second subject line, not “View in browser”.
+- Prefer natural language over spam-trigger patterns (ALL CAPS, “free”, “act now”, excessive punctuation).
+- One primary CTA; measure opens for subjects, clicks for content, conversions for offers.
+- Use `references/campaigns.md` for craft and A/B discipline.
 
-## A/B Testing
+### 5. Treat compliance as launch-critical
+- Physical postal address in every commercial email; honor opt-outs immediately.
+- Implement one-click unsubscribe (RFC 8058) for bulk senders on major inbox providers.
+- Keep spam complaint rates strictly below 0.3% (target ≤0.1%).
+- Use `references/compliance.md` before launch and after any consent-model change.
 
-- Test one variable at a time: subject, send time, CTA, from name
-- Need 1000+ recipients per variant for statistical significance
-- Subject line tests: 20% of list first, winner to remaining 80%
-- Measure what matters: opens for subject, clicks for content, conversions for offers
-- Document every test — institutional learning prevents repeat experiments
+### 6. Diagnose deliverability with evidence, not folklore
+- Pair Postmaster / blacklist / bounce data with list and content changes before blaming “the algorithm”.
+- Fix auth, list quality, and complaint rate before creative experiments.
+- Use `references/playbooks.md` for recovery sprints.
 
-## Common Mistakes
+### 7. Escalate regulated claims and third-party sends
+- Health, finance, political, or SMS-adjacent consent claims need explicit review.
+- Do not send, purchase lists, or change production ESP settings without user authorization.
 
-- Sending to entire list always — segment or face declining engagement
-- No double opt-in — leads to fake emails and spam traps
-- Ignoring mobile preview — broken layouts kill credibility
-- Same email to all segments — personalization is expected now
-- Hard selling too early — value first, offer later
-- Ignoring unsubscribe feedback — they tell you what's wrong
+## Operating Rhythm
 
-## Compliance
+### Before launch
+- Confirm domain auth, unsubscribe path, physical address, and segment definition.
+- Validate seed inbox placement and complaint/bounce baselines.
 
-- Include physical address in every email — required by CAN-SPAM, GDPR
-- Unsubscribe must work within 10 days — one-click preferred
-- Honor opt-outs immediately — delayed removal is illegal in many jurisdictions
-- GDPR: explicit consent required, document it, allow data deletion
-- Separate consent for different email types — marketing vs transactional
+### Weekly
+- Review open/click/bounce/unsubscribe/complaint rates by segment.
+- End with keep, fix, suppress, re-engage, and remove decisions.
+
+### Monthly
+- Revisit sunset policy, sequence attrition, and whether volume growth is still incremental.
+- Refresh creative and suppress chronically unengaged cohorts before adding new volume.
+
+## Common Traps
+
+- Sending every campaign to the full list → engagement and placement decay.
+- Buying lists or skipping double opt-in → spam traps and sudden blocks.
+- Ignoring mobile layout and preview text → wasted subject-line wins.
+- Multiple competing CTAs → diluted response.
+- Hard-selling before value delivery → early unsubscribes and complaints.
+- Raising volume while complaint rate is already elevated → deeper reputation damage.
+
+## Security & Privacy
+
+**Data that stays local when the user opts in:**
+- Program rules, segment definitions, sequence notes, and incident history in `<state_root>/`
+
+**This skill does NOT:**
+- Automatically send campaigns, buy lists, or change ESP production settings
+- Create local files without explicit user consent
+- Access ESPs, CRMs, or analytics unless the user explicitly requests a separate approved tool workflow
+- Make undeclared network requests
+
+**Guardrails:**
+- Treat subscriber PII, suppression lists, and ESP credentials as restricted
+- Escalate legal or policy-sensitive promotions for review before launch
