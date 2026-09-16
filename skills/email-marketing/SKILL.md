@@ -31,6 +31,8 @@ Use this when the problem is operating owned-email acquisition and retention end
 
 This skill is especially strong for SaaS, ecommerce, creators, B2B newsletters, and teams recovering from spam-folder or list-decay problems.
 
+Skip loading this skill for pure one-off copy drafts with no list/deliverability context (use copywriting) or for generic CRM admin unrelated to email programs.
+
 ## Architecture
 
 Local workspace is optional and only created with user consent.
