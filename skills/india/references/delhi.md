@@ -9,7 +9,7 @@ Delhi is usually the right landing city for a first India trip, but only if you 
 | Aerocity | Short stays, easy airport logistics | Safe, clean, business-hotel heavy |
 | Connaught Place | Central sightseeing | Walkable core, older hotels vary a lot |
 | South Delhi | Food, cafes, better day-to-day feel | Hauz Khas, Green Park, Defence Colony |
-| Old Delhi | Only visit, do not base there | Incredible, intense, and noisy |
+| Old Delhi | Only visit, plan to base elsewhere | Incredible, intense, and noisy |
 
 ## What Is Worth It
 

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am a first-time traveler to India. I have 10 days in November and want to see the Golden Triangle plus one other place. Any suggestions?",
+    "expected": "Provide a practical 10-day itinerary focusing on Delhi, Agra, Jaipur (Golden Triangle) and one easily accessible addition like Udaipur, keeping travel time realistic.",
+    "actual": "For a first-time 10-day trip in November, the Golden Triangle (Delhi, Agra, Jaipur) is a classic choice. November offers excellent weather. I recommend adding Udaipur to this route. The pacing would look like: Delhi (3 nights) -> Agra (1 night) -> Jaipur (3 nights) -> Udaipur (3 nights). This avoids overpacking the itinerary with too many one-night stops. Let me know if you want detailed neighborhood or hotel recommendations for these cities.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you plan a 5-day trip covering Delhi, Agra, Jaipur, Varanasi, and Mumbai?",
+    "expected": "Identify the itinerary as overpacked and advise against it, suggesting a more realistic 5-day route.",
+    "actual": "That itinerary is too overpacked for 5 days. Trying to cover Delhi, Agra, Jaipur, Varanasi, and Mumbai in one week is a common trap that leads to spending most of your trip in transit. For 5 days, I strongly recommend focusing only on the Golden Triangle (Delhi, Agra, Jaipur) or picking one major city and its surrounding areas (like Delhi + Agra). Which pacing feels better to you?",
+    "pass": true
+  }
+]
