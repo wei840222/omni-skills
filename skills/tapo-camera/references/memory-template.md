@@ -1,6 +1,6 @@
 # Memory Template - Tapo Camera
 
-Create `~/Clawic/data/tapo-camera/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Tapo Camera Memory
@@ -9,7 +9,7 @@ Create `~/Clawic/data/tapo-camera/memory.md` with this structure:
 status: ongoing
 version: 1.0.0
 last: YYYY-MM-DD
-integration: pending | complete | paused | never_ask
+integration: pending | complete | paused | skip_setup
 
 ## Context
 - Activation boundaries for Tapo-camera work.
@@ -36,12 +36,12 @@ integration: pending | complete | paused | never_ask
 |-------|---------|----------|
 | `ongoing` | environment still being mapped | capture new camera details only when useful to the active task |
 | `complete` | stable local workflow exists | reuse the stored host, path, and capability notes |
-| `paused` | user paused persistence | read memory but do not add new notes |
-| `never_ask` | user does not want setup prompts | stay stateless unless the user explicitly requests persistence |
+| `paused` | user paused persistence | read memory and preserve existing notes without adding new ones |
+| `skip_setup` | user opted out of setup prompts | stay stateless unless the user explicitly requests persistence |
 
 ## Key Principles
 
 - Keep entries operational and concise.
 - Store host labels and workflow outcomes, not secrets.
-- Do not store passwords, reversible credential blobs, or full authenticated RTSP URLs.
+- Store only non-sensitive connection details, omitting passwords, reversible credential blobs, or full authenticated RTSP URLs.
 - Update `last` after confirmed memory writes.

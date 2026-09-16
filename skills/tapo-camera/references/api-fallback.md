@@ -25,7 +25,7 @@ An unofficial API is a fallback because:
 ## Fallback Rules
 
 - Keep the fallback on the local camera host only.
-- Do not route frames through a cloud relay just to make the fallback work.
+- Keep frame routing on the local machine when implementing the fallback.
 - Keep the dependency explicit and local to the user environment.
 - Treat any API session token or credential blob as a secret.
 
@@ -37,4 +37,4 @@ If the fallback is used, save:
 - what local API surface worked
 - what image quality or latency trade-off the user accepted
 
-Do not save the actual secrets or full authenticated URLs.
+Save only the metadata, excluding actual secrets or full authenticated URLs.
