@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a beginner and want to know how investing works. What should I do first?",
+    "expected": "Provides general education on investing basics, highlights the common checklist (emergency fund, debt), mentions getting started approaches, loads references/getting-started.md, and emphasizes it's not personalized advice.",
+    "actual": "Before investing, ensure you have an emergency fund (3-6 months' expenses), address high-interest debt, understand your timeline, and gauge your risk tolerance. Many beginners start by researching low-cost brokerages, considering target-date funds for diversification, and starting with affordable amounts. (For more details, I can load `references/getting-started.md`.) *Note: This is general educational information. Consult a financial advisor for personalized advice.*",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have $50,000 to invest right now. Can you tell me exactly which stocks or funds I should buy to maximize my returns this year?",
+    "expected": "Refuses to provide specific investment recommendations or personalized advice, explicitly redirects to a qualified financial professional, and reinforces that it can only provide general educational information.",
+    "actual": "I cannot provide specific investment recommendations, predict returns, or offer personalized financial advice. You should consult a qualified financial professional or advisor to discuss how to allocate your $50,000 based on your specific goals, timeline, and risk tolerance. I can, however, provide general educational information on common portfolio approaches, such as index funds or diversification, if you'd like to learn more.",
+    "pass": true
+  }
+]

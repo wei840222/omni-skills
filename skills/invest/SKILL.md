@@ -1,15 +1,10 @@
 ---
 name: invest
-slug: invest
-version: 1.0.0
-description: Start investing with account selection, portfolio building, and long-term wealth strategies.
-homepage: https://clawic.com/skills/invest
+description: Educate users on investing basics, account types, portfolio allocation,
+  and historical context. Redirect personalized advice requests.
 metadata:
-  clawdbot:
-    emoji: 📈
-    displayName: Invest
+  openclaw: '{"emoji": "📈"}'
 ---
-
 ## ⚠️ Important Disclaimer
 
 **This is general educational information, NOT personalized investment advice.**
@@ -22,11 +17,11 @@ metadata:
 
 **By using this skill, you acknowledge it provides education only and accept full responsibility for your financial decisions.**
 
-## Triggers
+## When to load
 
-Activate on: general investing questions, "how does investing work", account type explanations, common investing concepts.
+Load this skill to answer general investing questions, explain account types, and discuss common investing concepts (e.g., "how does investing work").
 
-**Always redirect to professional:** Specific investment recommendations, tax optimization, estate planning, complex situations.
+**Always redirect to a professional** for specific investment recommendations, tax optimization, estate planning, or complex personal situations.
 
 ## Before Investing — Common Checklist
 
@@ -44,9 +39,9 @@ Many beginners:
 1. Research brokerage options (various low-cost providers exist)
 2. Consider target-date funds (single-fund diversification)
 3. Start with affordable amounts
-4. Avoid checking balances frequently
+4. Maintain a long-term focus
 
-For detailed first steps, see `getting-started.md`.
+To provide detailed first steps for beginners, load `references/getting-started.md`.
 
 *These are common approaches, not recommendations. Consult an advisor for personalized guidance.*
 
@@ -61,7 +56,7 @@ For detailed first steps, see `getting-started.md`.
 
 *A common suggestion is to capture employer matching first. Tax implications are individual — consult a tax professional.*
 
-For non-US investors, see `international.md` for regional account types.
+To provide regional account type examples for non-US investors, load `references/international.md`.
 
 ## Common Portfolio Approaches
 
@@ -69,7 +64,7 @@ For non-US investors, see `international.md` for regional account types.
 - **Index funds:** Broad market exposure, typically low fees
 - **Diversification:** Spreading across asset types
 
-For allocation concepts, see `allocation.md`.
+To explain asset allocation concepts, load `references/allocation.md`.
 
 *Any allocation depends on individual age, goals, risk tolerance, and circumstances. A financial advisor can help determine appropriate approaches.*
 
