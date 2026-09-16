@@ -1,20 +1,15 @@
 ---
 name: market-research
-slug: market-research
-version: 1.0.1
-description: Research markets with sizing, segmentation, competitor mapping, pricing checks, and demand validation that turn fuzzy ideas into decision-ready evidence. Use when (1) you need TAM, SAM, SOM, whitespace, or category sizing; (2) you must compare competitors, pricing, positioning, or customer segments before acting; (3) the user asks whether a niche, launch, expansion, or go-to-market bet is actually worth pursuing.
-homepage: https://clawic.com/skills/market-research
-changelog: Expanded the guidance and clarified when this skill should activate.
+description: Conduct market research including sizing (TAM/SAM/SOM), segmentation,
+  competitor analysis, pricing checks, and demand validation. Load
+  `references/validation.md` for interviews and pricing. Load
+  `references/competitor-analysis.md` for gap mapping. Load
+  `references/evidence-grading.md` for confidence rubrics. Use when asked to
+  validate a niche, launch, or go-to-market bet before acting.
 metadata:
-  clawdbot:
-    emoji: 📊
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Market Research
+  version: "1.0.1"
+  openclaw: '{"emoji":"📊"}'
+  related-skills: '{"pricing":"Convert validation findings into pricing strategy and willingness-to-pay decisions.","seo":"Translate validated demand into search-driven positioning and content opportunities.","business":"Connect market findings to strategic choices and operating tradeoffs.","compare":"Structure side-by-side option analysis when multiple markets or segments compete.","data-analysis":"Turn collected numbers into cleaner interpretation and supporting visuals."}'
 ---
 
 ## When to Use
@@ -29,9 +24,9 @@ Use the smallest relevant file for the task.
 
 | Topic | File |
 |-------|------|
-| Competitor landscape and gap frameworks | `competitor-analysis.md` |
-| Customer validation and pricing methods | `validation.md` |
-| Evidence quality and confidence rubric | `evidence-grading.md` |
+| Competitor landscape and gap frameworks | `references/competitor-analysis.md` |
+| Customer validation and pricing methods | `references/validation.md` |
+| Evidence quality and confidence rubric | `references/evidence-grading.md` |
 
 ## Research Brief
 
@@ -75,7 +70,7 @@ Research without a decision target becomes a document full of facts and no lever
 
 ### 2. Size the Market in Layers, Not in Headlines
 
-Never stop at a single big number. Separate:
+Always break down market sizes into smaller actionable layers. Separate:
 
 | Layer | Question | Failure Mode |
 |-------|----------|--------------|
@@ -92,7 +87,7 @@ Use at least three evidence families before making a strong claim:
 - behavior data: search trends, reviews, job posts, product usage proxies
 - direct customer evidence: interviews, surveys, waitlists, prepayments, LOIs
 
-See `evidence-grading.md` for the confidence ladder. If all evidence comes from one source type, the conclusion is still fragile.
+See `references/evidence-grading.md` for the confidence ladder. If all evidence comes from one source type, the conclusion is still fragile.
 
 ### 4. Segment Before You Generalize
 
@@ -114,7 +109,7 @@ Competitor analysis includes:
 - internal workarounds such as spreadsheets, agencies, or manual processes
 - future entrants with clear adjacency
 
-Use `competitor-analysis.md` to build a positioning map, review-mining matrix, and whitespace view. The real competitor is whatever the customer would choose instead of the proposed offer.
+Use `references/competitor-analysis.md` to build a positioning map, review-mining matrix, and whitespace view. The real competitor is whatever the customer would choose instead of the proposed offer.
 
 ### 6. Favor Revealed Demand Over Stated Enthusiasm
 
@@ -131,7 +126,7 @@ Weak signals:
 - generic survey positivity
 - likes, followers, or broad curiosity with no concrete action
 
-See `validation.md` for interview, survey, and pricing research structures.
+See `references/validation.md` for interview, survey, and pricing research structures.
 
 ### 7. Finish with a Decision-Ready Recommendation
 
@@ -167,16 +162,3 @@ This skill does NOT:
 - store secrets unless the user explicitly asks for that workflow
 
 Live web research is appropriate only when the task requires current market data or the user asks for external evidence.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `pricing` - Convert validation findings into pricing strategy and willingness-to-pay decisions.
-- `seo` - Translate validated demand into search-driven positioning and content opportunities.
-- `business` - Connect market findings to strategic choices and operating tradeoffs.
-- `compare` - Structure side-by-side option analysis when multiple markets or segments compete.
-- `data-analysis` - Turn collected numbers into cleaner interpretation and supporting visuals.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/market-research
-- Latest version: https://clawic.com/skills/market-research
