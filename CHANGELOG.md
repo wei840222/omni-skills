@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| tapo-camera | 2026-09-16 | 85/100 (#429) |
 | india | 2026-09-16 | 85/100 (#427) |
 | ruby | 2026-09-16 | 85/100 (#428) |
 | app-store | 2026-09-16 | 85/100 (#426) |
