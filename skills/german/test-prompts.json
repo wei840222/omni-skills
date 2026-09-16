@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to casual German: 'I don't know, maybe we should just go to the movies.'",
+    "expected": "Translation uses modal particles (like 'halt', 'mal') and casual phrasing ('Keine Ahnung') instead of stiff Hochdeutsch.",
+    "actual": "Keine Ahnung, vielleicht sollten wir halt einfach ins Kino gehen.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a quick message to a colleague letting them know I'll be 10 minutes late.",
+    "expected": "Uses 'Du', casual but professional phrasing, avoids overly formal apologies.",
+    "actual": "Hey, sorry, ich verspäte mich um 10 Minuten. Bis gleich!",
+    "pass": true
+  }
+]
