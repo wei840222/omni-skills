@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our new domain has been set up for sending out marketing emails. What should we do to prepare it and what rules apply for bulk sending?",
+    "expected": "Provide instructions for domain warmup and modern authentication (SPF, DKIM, DMARC) based on 2024+ bulk-sender guidelines, plus one-click unsubscribe and complaint-rate limits.",
+    "actual": "Authenticate the domain with SPF, DKIM, and DMARC first—these are mandatory for bulk senders under current Gmail/Yahoo expectations. Enable one-click unsubscribe (RFC 8058) and a postal address footer. Warm up gradually: start around 50–100 emails/day and increase about 20% daily over 2–4 weeks while watching Postmaster spam rate. Keep spam complaints strictly below 0.3% (target ≤0.1%). Load references/deliverability.md and references/compliance.md for the full checklist.",
+    "pass": true,
+    "bm25_prompt": "email deliverability SPF DKIM DMARC domain warmup bulk sender"
+  },
+  {
+    "id": 2,
+    "prompt": "Our open rate is around 15% and we are sending weekly emails to everyone. How can we improve it?",
+    "expected": "Identify that 15% is in the warning zone and provide segmentation, sunset, subject/preview, and testing advice instead of blasting the full list.",
+    "actual": "An open rate around 15% sits in the warning band on the list-health table. Stop sending every campaign to the entire list. Segment into engaged (opened/clicked ~30 days), unengaged, new, and customers; run a re-engagement then sunset for chronic non-openers. Improve subjects (~40–50 chars) and preview text, and A/B one variable at a time. Protect reputation by removing hard bounces immediately and avoiding purchased lists. Use references/list-health.md and references/campaigns.md.",
+    "pass": true,
+    "bm25_prompt": "email list segmentation open rate sunset hygiene subject testing"
+  }
+]
