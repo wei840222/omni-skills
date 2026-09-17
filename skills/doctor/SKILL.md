@@ -61,7 +61,7 @@ Coverage map: `references/triage.md` urgency · `references/emergencies.md` time
 5. **Timeline before theory.** Onset, course, what makes it better or worse, what changed in the two weeks before. Use SOCRATES for pain (site, onset, character, radiation, associations, timing, exacerbating/relieving, severity) or OPQRST. A symptom without a timeline routinely gets matched to the wrong pattern.
 6. **Escalate on trajectory, not on peak.** Getting worse hour by hour outranks a scary-sounding but stable symptom. Deterioration signals in adults, each one of which alone triggers urgent review in NEWS2: respiratory rate ≥25/min, heart rate ≥131/min, systolic BP ≤90 mmHg, SpO₂ ≤91%, temperature ≤35.0 °C, or new confusion.
 7. **Maintain prescription medicines exactly as ordered.** Published OTC ceilings, the interaction list, and what a prescriber will likely consider are content; picking their dose is not. Say what to ask for and why, and who can authorise it.
-8. **One reading is not a finding.** Hypertension needs an average of at least two readings on at least two occasions (home average <135/85 mmHg counts as controlled; home readings run ~5 mmHg below clinic). A borderline lab gets repeated before it gets treated. On any panel of 20 independent tests, the chance of at least one falling outside its reference range in a perfectly healthy person is 1 − 0.95²⁰ ≈ 64% (`references/labs.md`).
+8. **One reading is not a finding.** Hypertension needs an average of at least two readings on at least two occasions (home average <135/85 mmHg counts as controlled; home readings run ~5 mmHg below clinic). A borderline lab gets repeated before it gets treated. On any panel of 20 independent tests, the chance of at least one falling outside its reference range in a perfectly healthy person is 1 − 0.95²⁰ ≈ 64% (Core Rules 8–9; units in Configuration).
 9. **Convert to their units, always.** Temperature, weight, glucose (mg/dL vs mmol/L), cholesterol, and height follow `units` and `glucose_units`. A number in the wrong unit is not a rounding problem: 7 mmol/L glucose and 7 mg/dL are not the same universe.
 10. **Write the episode down.** A symptom nobody recorded gets re-diagnosed from scratch, and "how long has this been going on" is the question the clinician actually needs answered. One row per episode, per `references/memory-template.md`.
 
@@ -87,12 +87,12 @@ User-dependent variables. Defaults apply until the user states a preference; sto
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
-| guideline_body | uspstf-us \| nice-uk \| esc-eu \| who \| unset | unset | Which body's ages and thresholds `references/prevention.md` and `references/chronic.md` quote. While unset, name the body behind each number and give both where major bodies differ |
+| guideline_body | uspstf-us \| nice-uk \| esc-eu \| who \| unset | unset | Which body's ages and thresholds `references/guidance.md` and Configuration quote. While unset, name the body behind each number and give both where major bodies differ |
 | units | metric \| imperial | metric | Temperature, weight, height and volume in every threshold and example |
-| glucose_units | mg/dL \| mmol/L | follows `units` (imperial → mg/dL) | Every glucose and HbA1c-adjacent figure in `references/labs.md` and `references/chronic.md` |
-| lipid_units | mg/dL \| mmol/L | follows `units` | Every cholesterol target in `references/chronic.md` and `references/labs.md` |
+| glucose_units | mg/dL \| mmol/L | follows `units` (imperial → mg/dL) | Every glucose and HbA1c-adjacent figure in `references/guidance.md` and Core Rules |
+| lipid_units | mg/dL \| mmol/L | follows `units` | Every cholesterol target in `references/guidance.md` and Core Rules |
 | emergency_number | text | none | The number named in every escalation line; while unset, say "your local emergency number" |
-| care_context | gp-registered \| no-regular-clinician \| insurance-gated \| public-system \| unknown | unknown | Who the Urgency Ladder routes to below the "now" rung, and whether `references/appointments.md` covers referral letters or coverage checks first |
+| care_context | gp-registered \| no-regular-clinician \| insurance-gated \| public-system \| unknown | unknown | Who the Urgency Ladder routes to below the "now" rung, and whether appointment prep covers referral letters or coverage checks first |
 | detail_level | plain \| clinical | plain | Whether answers stay in lay wording or also carry the clinical term, the score name and its value |
 | health_logging | full \| minimal \| off | full | What gets persisted: `full` writes episodes, results and medicines; `minimal` keeps only allergies, conditions and current medicines in `health/profile.md`; `off` writes nothing and says so once |
 | screening_reminders | bool | true | Whether completed screenings and vaccines create rows in the `## Due` table of `memory.md` |
