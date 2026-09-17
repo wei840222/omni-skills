@@ -1,39 +1,26 @@
 ---
 name: udio
-slug: udio
-version: 1.0.0
-description: Generate AI music with Udio via API wrappers or browser automation, with prompt engineering and song extensions.
-homepage: https://clawic.com/skills/udio
+description: Generate AI music via Udio community API wrappers or browser automation.
+  Trigger when asked to create, extend, or prompt engineer music using Udio.
 metadata:
-  clawdbot:
-    emoji: 🎵
-    requires:
-      bins:
-      - python3
-      env:
-      - UDIO_AUTH_TOKEN
-    primaryEnv: UDIO_AUTH_TOKEN
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Udio
+  openclaw: '{"emoji": "🎵", "requires": {"bins": ["python3"], "env": ["UDIO_AUTH_TOKEN"]},
+    "primaryEnv": "UDIO_AUTH_TOKEN"}'
 ---
 
-## Setup
+## Initialization
 
-On first use, read `setup.md` for integration guidelines.
+Upon loading for the first time, immediately read `references/setup.md` to establish the user's preferred integration approach (API vs Browser) and configure authentication.
 
-## When to Use
+## When to load
 
-User wants to generate music with Udio. Agent can use API wrappers for programmatic generation, browser automation for direct platform interaction, or guide prompt engineering.
+Load this skill when the user explicitly requests music generation, extension, or prompt crafting using Udio. Maintain focus exclusively on Udio interactions; route general music playback or Suno requests to appropriate alternative skills.
 
 ## Architecture
 
-Memory at `~/Clawic/data/udio/`. See `memory-template.md` for structure.
+Memory at `<state_root>/udio/`. See `references/memory-template.md` for structure.
 
 ```
-~/Clawic/data/udio/
+<state_root>/udio/
 ├── [memory.md]       # Created on first use: preferences, auth token location
 ├── [projects/]       # Per-project song tracking
 └── [songs/]          # Downloaded audio files
@@ -43,13 +30,13 @@ Memory at `~/Clawic/data/udio/`. See `memory-template.md` for structure.
 
 | Topic | File |
 |-------|------|
-| Setup | `setup.md` |
-| Memory | `memory-template.md` |
-| API usage | `api.md` |
-| Browser automation | `browser.md` |
-| Prompt crafting | `prompts.md` |
-| Style tags | `styles.md` |
-| Lyrics guide | `lyrics.md` |
+| Setup | `references/setup.md` |
+| Memory | `references/memory-template.md` |
+| API usage | `references/api.md` |
+| Browser automation | `references/browser.md` |
+| Prompt crafting | `references/prompts.md` |
+| Style tags | `references/styles.md` |
+| Lyrics guide | `references/lyrics.md` |
 
 ## Core Rules
 
@@ -64,7 +51,7 @@ Memory at `~/Clawic/data/udio/`. See `memory-template.md` for structure.
 Udio has no official public API. Community wrappers use the internal API:
 - Token: `sb-api-auth-token` cookie from udio.com
 - Token expires: refresh if 401 errors occur
-- See `api.md` for setup instructions
+- See `references/api.md` for setup instructions
 
 ### 3. Structure Prompts in Layers
 ```
@@ -245,7 +232,7 @@ Add to final extend/outro:
 
 ## Data Storage
 
-This skill creates `~/Clawic/data/udio/` on first use:
+This skill creates `<state_root>/udio/` on first use:
 - **memory file** — Preferences, successful prompts, token location reference
 - **projects folder** — Per-project tracking with seeds and URLs
 - **songs folder** — Downloaded audio files (optional)
@@ -259,18 +246,18 @@ All data stays local. Auth tokens should be stored in system keychain, not plain
 - Navigate udio.com with browser automation (user must be logged in)
 - Craft optimized prompts for Udio's model (no token needed)
 - Track projects, seeds, and successful patterns locally
-- Download generated audio files to `~/Clawic/data/udio/songs/`
+- Download generated audio files to `<state_root>/udio/songs/`
 
 **This skill does NOT:**
 - Store auth tokens in plain text (must use keychain/credential manager)
 - Bypass Udio's rate limits or terms of service
-- Access files outside `~/Clawic/data/udio/`
+- Access files outside `<state_root>/udio/`
 - Auto-extract tokens without user guidance
 
 ## Security Notes
 
 **Auth Token:** The `sb-api-auth-token` cookie grants API access to your Udio account. Handle it like a password:
-- Store in system keychain, never in plain text
+- Securely store in the system keychain rather than plain text
 - Token expires after ~7 days of inactivity
 - Re-extract if you get 401 errors
 
@@ -294,12 +281,7 @@ Auth token is sent with API requests. No other data leaves the machine.
 By using this skill with API wrappers, prompts and lyrics are sent to Udio's servers for music generation. Only use if you trust Udio with your creative content. Review Udio's terms of service at udio.com/terms.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
+- `suno` — Alternate AI music generation platform and lyrics workflows
 - `audio` — Audio processing and editing
 - `video` — Combine music with video content
-- `ffmpeg` — Audio format conversion
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/udio
-- Latest version: https://clawic.com/skills/udio
+- `ffmpeg` — Audio format conversion, cropping, cross-fades

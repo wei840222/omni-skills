@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create an upbeat 80s synthpop track with female vocals about neon city lights.",
+    "expected": "Guide user on setting up API auth token if not already done, generate prompt following the genre tags, create a short clip via udio_wrapper.",
+    "actual": "Detected udio request. Read setup.md and noted user wants API approach. Requested sb-api-auth-token. User provided token. Constructed prompt: 'synthpop upbeat energetic synth female vocals 80s neon city'. Called udio_wrapper create_song. Song created successfully and downloaded to <state_root>/udio/songs/.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I like the synthpop song we just generated, but it needs an outro that fades out gently.",
+    "expected": "Use the add_outro API function referencing the previous song id, specifying a gentle fade out.",
+    "actual": "Identified active project in <state_root>/udio/projects/. Called udio_wrapper add_outro with previous song_id and prompt 'outro gentle fade out fading conclusion'. Outro added successfully and saved to <state_root>/udio/songs/.",
+    "pass": true
+  }
+]

@@ -153,10 +153,10 @@ Gentle fade
 Words that translate well to sung emotion:
 - Heart, soul, fire, rain, night, light
 - Love, pain, hope, fear, dream
-- Forever, never, always, away
+- Forever, entirely, always, away
 - Fall, rise, break, heal
 
-### Avoid
+### Unrecommended words (Use alternatives)
 - Long compound words (hard to sing)
 - Technical jargon (doesn't flow)
 - Tongue twisters

@@ -34,7 +34,7 @@ auth_token = os.getenv('UDIO_AUTH_TOKEN')
 # security find-generic-password -a udio -s udio_auth_token -w
 ```
 
-**Never store tokens in plain text files or commit to git.**
+**Always store tokens in a secure credential manager (keychain) instead of plain text files or git.**
 
 ### Token Expiration
 Tokens expire after ~7 days of inactivity. If you get 401 errors:
@@ -253,7 +253,7 @@ def generate_with_retry(udio, prompt, max_retries=3):
 Udio has undocumented rate limits:
 - Free tier: ~10 generations/day
 - Paid tiers: Higher limits based on plan
-- Respect rate limits to avoid account restrictions
+- Maintain healthy API usage by respecting rate limits to keep the account in good standing
 
 ## Disclaimer
 
