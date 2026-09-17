@@ -1,55 +1,48 @@
 ---
 name: scanner
-slug: scanner
-version: 1.0.0
-description: Transform document photos into clean scanned-looking pages with automatic edge detection, cropping, and perspective correction. Use when (1) the user wants a photo to look scanned; (2) receipts, forms, pages, or papers need clean borders and straightening; (3) the result should be easier to read, share, archive, or pass to OCR.
-homepage: https://clawic.com/skills/scanner
-changelog: Added a focused browser-first document scanning workflow with jscanify defaults, edge detection guidance, and low-friction local preview commands.
+description: Apply jscanify document scanning to crop, straighten, and perspective-correct photos of receipts, papers, and forms. Use when the user asks to scan a document, fix page edges, deskew a photographed sheet, or make a photo look like a flatbed scan.
 metadata:
-  clawdbot:
-    emoji: 📄
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Scanner
+  openclaw: '{"emoji":"📄"}'
+  related-skills: '{"documents":"Post-scan document handling after the page is cleaned.","image":"Extra image cleanup beyond edge detection and perspective correction.","files":"File organization, renaming, and export handling after scans are generated."}'
 ---
 
-## When to Use
+## State location
 
-Use when the user wants to scan a document from a photo, crop the page automatically, fix perspective, or make an image look like it came from a flatbed scanner.
+This is a stateless skill. It does not create or require a local state tree. Keep original input images and corrected exports as ordinary user files outside the skill package.
 
-Load this skill when the request sounds like:
+## When to load
+
+Load this skill when the user wants to scan a document from a photo, crop page edges, fix perspective, deskew paper, or make an image look like it came from a flatbed scanner.
+
+Typical requests:
 - "scan this document"
 - "crop the page edges"
 - "make this photo look scanned"
 - "deskew this paper"
 - "clean up this receipt or sheet"
 
-## Default Engine
+## Default engine
 
-Default to `jscanify`.
+Default to open-source `jscanify` unless the user explicitly asks for a production mobile SDK or already uses one in their app.
 
-Why this is the default:
-- Open source and MIT licensed
-- Mature enough to trust for general use
+Why `jscanify` is the default:
+- MIT licensed open source
+- Strong enough for general receipt/page photos
 - Works in browser, CDN, npm, and Node-oriented workflows
 - Uses OpenCV.js without forcing a native OpenCV install
-- Lower friction than mobile-native or commercial SDKs
+- Lower friction than commercial SDKs for one-off scans
 
-Do not default to commercial SDKs unless the user explicitly asks for a production mobile SDK or already uses one in their app.
-
-## Quick Workflow
+## Quick workflow
 
 1. Start with `jscanify`, not custom image math.
-2. Detect the page boundary first.
+2. Detect the page boundary on the original image first.
 3. Extract with perspective correction.
-4. Review the output visually.
-5. If edges are wrong, stop and retry with a cleaner input or a manual-corner flow instead of stacking random filters.
+4. Review the output visually before any extra filters.
+5. If edges are wrong, stop. Ask for a cleaner photo or switch to a manual-corner flow. Do not stack random filters.
 
-## Basic Commands
+Before complex or repeated scans, load `references/guidelines.md` for core rules, traps, scope, and endpoints. Load `references/sources.md` when verifying library/docs links.
+
+## Basic commands
 
 ### 1. Project install
 
@@ -59,7 +52,7 @@ npm install jscanify
 
 ### 2. Zero-global-install local preview
 
-Use CDN scripts in a tiny HTML page and serve it locally:
+Serve a tiny HTML page locally:
 
 ```bash
 npx serve .
@@ -86,73 +79,11 @@ const scanner = new jscanify();
 const highlightedCanvas = scanner.highlightPaper(image);
 ```
 
-## Core Rules
+## Key success factors
 
-### 1. Browser-first wins
-
-- Prefer the browser or browser-like path first because `jscanify` is strongest there.
-- Prefer CDN or local project dependency over native OpenCV builds.
-- If the user only needs one scan, choose the lowest-friction path.
-
-### 2. Detect before you "enhance"
-
-- First run boundary detection on the original image.
-- Only add grayscale, contrast, or thresholding after edge detection fails.
-- Do not overprocess before trying the default extraction path.
-
-### 3. Expect flat, visible borders
-
-- Best results come from one document on a contrasting background.
-- Top-down or near-top-down photos are safer than steep angles.
-- Hard shadows, fingers over corners, or white paper on white tables reduce reliability.
-
-### 4. Preserve the original
-
-- Never overwrite the only copy of the input image.
-- Save the corrected export separately.
-- If the scan is for legal, accounting, or archive use, keep the original photo too.
-
-### 5. Manual correction beats fake certainty
-
-- If auto-detection is clearly wrong, do not pretend it succeeded.
-- Ask for a better photo or switch to a manual-corner workflow.
-- Wrong corners produce worse output than no crop.
-
-## Common Traps
-
-- Busy backgrounds can confuse edge detection.
-- Low contrast document-on-table shots fail more often than users expect.
-- Glare can hide one full edge and make the crop collapse.
-- Very curved paper is not a normal document-scan case.
-- Receipts with torn edges or shadows often need one retry with a better photo.
-- OCR and document scanning are different jobs; scan first, OCR second.
-
-## Scope
-
-This skill ONLY:
-- Chooses and applies a document-scanning workflow
-- Prioritizes `jscanify` by default
-- Produces cropped, perspective-corrected scan-style images
-
-This skill NEVER:
-- Claims OCR accuracy improvements by itself
-- Recommends paid SDKs by default
-- Reimplements document detection from scratch unless the user explicitly wants that
-
-## External Endpoints
-
-| Endpoint | Purpose |
-|----------|---------|
-| `https://docs.opencv.org/` | Load OpenCV.js in browser-first workflows |
-| `https://cdn.jsdelivr.net/` | Load `jscanify` without global install |
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `documents` - General document handling after the scan is cleaned.
-- `image` - Extra image cleanup when the user needs post-processing beyond edge detection.
-- `files` - File organization, renaming, and export handling after scans are generated.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/scanner
-- Latest version: https://clawic.com/skills/scanner
+- Prefer browser or browser-like paths first; CDN/local project dependency beats native OpenCV builds for one scan.
+- Detect edges before grayscale/contrast/threshold enhancements.
+- Best inputs are one document, contrasting background, near top-down angle, no fingers over corners.
+- Never overwrite the only copy of the input; save the corrected export separately.
+- Auto-detection failure is a stop condition: report it, request a better photo, or use manual corners.
+- OCR is a separate job after a successful scan, not a claim of this skill.
