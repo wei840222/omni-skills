@@ -1,44 +1,35 @@
 ---
 name: consultant
-slug: consultant
-version: 1.0.0
-description: Diagnose business problems, scope engagements, and deliver decision-ready recommendations with measurable outcomes and executable plans.
-homepage: https://clawic.com/skills/consultant
-changelog: Initial release with a consultant operating system for discovery, structuring, delivery, and quality control.
+description: Diagnose business problems, scope engagements, and deliver decision-ready
+  recommendations with measurable outcomes and executable plans. Use when framing
+  unclear requests, designing consulting workstreams, mediating stakeholder disagreement,
+  or writing decision memos, roadmaps, and implementation plans.
 metadata:
-  clawdbot:
-    emoji: C
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/consultant/
-    displayName: Consultant
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/consultant/
+  openclaw: '{"emoji":"C"}'
+  related-skills: '{"business":"Validate initiatives and prioritize strategic decisions.","strategy":"Build competitive positioning and strategic option maps.","ceo":"Support executive-level decision framing and communication.","cfo":"Model financial impact and downside scenarios.","pricing":"Design pricing structures and packaging decisions."}'
 ---
 
 ## Setup
 
-If `~/Clawic/data/consultant/` does not exist or is empty, initialize using `setup.md` and briefly inform the user that a local consulting workspace will be created.
+If `<state_root>/consultant/` does not exist or is empty, initialize using `references/setup.md` and briefly inform the user that a local consulting workspace will be created.
 
-## When to Use
+## When to load
 
-User needs structured consulting support: diagnosing issues, defining engagement scope, planning workstreams, and producing recommendations that can be executed.
+Load this skill when the user needs structured consulting support: diagnosing issues, defining engagement scope, planning workstreams, or producing recommendations that can be executed.
 
-Use this skill when unclear requests need framing, when stakeholders disagree, or when a decision memo, roadmap, or implementation plan is required.
+Typical requests:
+- frame an unclear business problem
+- design a consulting engagement or workstream plan
+- mediate stakeholder disagreement before a decision
+- write a decision memo, roadmap, or 30-60-90 plan
+- run quality/risk gates before sharing a recommendation
 
-## Architecture
+## State location
 
-Working memory lives in `~/Clawic/data/consultant/`. See `memory-template.md` for the required structure.
+Working memory lives in `<state_root>/consultant/`. See `references/memory-template.md` for the required structure.
 
 ```
-~/Clawic/data/consultant/
+<state_root>/consultant/
 |-- memory.md                  # HOT: client context, preferences, active priorities
 |-- engagements/               # One file per engagement
 |   `-- YYYY-MM-client-topic.md
@@ -51,12 +42,13 @@ Working memory lives in `~/Clawic/data/consultant/`. See `memory-template.md` fo
 
 | Topic | File |
 |-------|------|
-| Setup and integration behavior | `setup.md` |
-| Memory structure and status model | `memory-template.md` |
-| Discovery interview and diagnosis flow | `discovery.md` |
-| Engagement models and workstream design | `engagement-models.md` |
-| Deliverable blueprints and formatting standards | `deliverables.md` |
-| Quality gates and risk controls | `quality-gates.md` |
+| Setup and integration behavior | `references/setup.md` |
+| Memory structure and status model | `references/memory-template.md` |
+| Discovery interview and diagnosis flow | `references/discovery.md` |
+| Engagement models and workstream design | `references/engagement-models.md` |
+| Deliverable blueprints and formatting standards | `references/deliverables.md` |
+| Quality gates and risk controls | `references/quality-gates.md` |
+| Research sources | `references/sources.md` |
 
 ## Core Rules
 
@@ -68,7 +60,7 @@ Always establish:
 - Constraint set: time, budget, team capacity, policy limits
 - Baseline: current state with evidence, not assumptions
 
-Use `discovery.md` when context is incomplete.
+Use `references/discovery.md` when context is incomplete.
 
 ### 2. Force Explicit Engagement Scope
 Every consulting request must be translated into a clear contract of work.
@@ -91,7 +83,7 @@ For each workstream:
 - Test method: interview, analysis, benchmark, pilot
 - Decision trigger: what result changes the recommendation
 
-Prefer fast tests that reduce uncertainty early.
+Prefer fast tests that reduce uncertainty early. Use `references/engagement-models.md` to pick the engagement shape.
 
 ### 4. Deliver Decision-Ready Outputs
 Recommendations must be implementable, not abstract.
@@ -104,7 +96,7 @@ Every final recommendation includes:
 - Risks, mitigations, and fallback plan
 - Leading metrics and review date
 
-Use `deliverables.md` templates for consistency.
+Use `references/deliverables.md` templates for consistency.
 
 ### 5. Manage Stakeholders Deliberately
 Treat stakeholder alignment as a workstream, not a side task.
@@ -118,7 +110,7 @@ For key stakeholders, document:
 Escalate early when decision rights are unclear.
 
 ### 6. Apply Quality and Risk Gates
-Before sharing any recommendation, run the quality gate from `quality-gates.md`.
+Before sharing any recommendation, run the quality gate from `references/quality-gates.md`.
 
 Minimum bar:
 - Internal coherence (claims match evidence)
@@ -129,7 +121,7 @@ Minimum bar:
 If a gate fails, revise before delivery.
 
 ### 7. Update Memory After Every Meaningful Interaction
-Log new context in `~/Clawic/data/consultant/memory.md` and engagement files.
+Log new context in `<state_root>/consultant/memory.md` and engagement files.
 
 Persist only durable information:
 - Preferred decision format
@@ -178,28 +170,15 @@ Use complementary skills for deep specialty work:
 - Competitive positioning deep dives -> `strategy`
 - Pricing architecture and packaging -> `pricing`
 
-## Security & Privacy
+## Security and Privacy
 
-Data that may leave your machine:
+Data that may leave the machine:
 - Only what the user explicitly asks to include in external tools during normal agent operation
 
 Data that stays local:
-- Context and engagement notes in `~/Clawic/data/consultant/`
+- Context and engagement notes in `<state_root>/consultant/`
 
 This skill does NOT:
 - Access undeclared external endpoints by itself
 - Read files outside consulting context without user need
 - Store secrets or credentials in memory files
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `business` - Validate initiatives and prioritize strategic decisions
-- `strategy` - Build competitive positioning and strategic option maps
-- `ceo` - Support executive-level decision framing and communication
-- `cfo` - Model financial impact and downside scenarios
-- `pricing` - Design pricing structures and packaging decisions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/consultant
-- Latest version: https://clawic.com/skills/consultant

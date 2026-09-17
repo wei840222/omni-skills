@@ -52,6 +52,6 @@ Fail condition:
 Assign one label before delivery:
 - Green: ready to execute with normal monitoring
 - Amber: viable but with notable unresolved risk
-- Red: do not execute until blocking risks are resolved
+- Red: Halt execution until blocking risks are resolved
 
 Include the label and rationale in the final recommendation.

@@ -11,7 +11,7 @@ Capture these six items before making recommendations:
 3. Time and budget constraints
 4. Existing baseline metrics
 5. Stakeholders and decision rights
-6. Failure conditions to avoid
+6. Failure conditions to monitor
 
 ## Fast Discovery Prompts
 
