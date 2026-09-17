@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create an event called 'Doctor Appointment' tomorrow at 10am for 1 hour on my personal calendar.",
+    "expected": "Sync first, create the one-off event with explicit calendar and window, sync again, then read-back verify title/time/calendar before claiming success.",
+    "actual": "Loaded write-and-verify guidance, ran sync, created the event on personal for tomorrow 10:00-11:00, re-synced, and confirmed Doctor Appointment in the same window on personal.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Delete the recurring weekly team meeting.",
+    "expected": "Inspect first, warn that khal recurrence editing is rudimentary, refuse bulk series surgery without explicit authorization, and offer safer inspect/recreate options.",
+    "actual": "Loaded recurrence-and-limits, listed the matching series in the requested window, explained series-corruption risk, and stopped for explicit approval instead of deleting.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "khal shows nothing for next week but I know there are events. What should we do?",
+    "expected": "Treat stale/empty results as a sync/discovery problem first: discover if needed, sync, then re-query a bounded window; do not delete khal.db as the first fix.",
+    "actual": "Loaded sync-discipline and troubleshooting, ran discover/sync checks, re-queried a 7-day window, and only then discussed cache repair if the tree was still wrong.",
+    "pass": true
+  }
+]
