@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a heartbeat file to monitor my email inbox between 9 AM and 5 PM on weekdays.",
+    "expected": "A HEARTBEAT.md configured with conservative intervals, business hours, and an unread email precheck.",
+    "actual": "Created `<state_root>/drafts/HEARTBEAT_draft_1.md` with active hours `09:00-17:00`, a 45m interval, and a cheap precheck for unread emails before querying the full inbox via API. Validation passed using `qa-checklist.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need a heartbeat to run a heavy data sync job every hour and also check if the server is down.",
+    "expected": "Moves data sync to cron, configs heartbeat for reactive server checks.",
+    "actual": "Advised user to move the heavy data sync job to cron for exact timing. Drafted a heartbeat configuration with a cheap precheck for server status, using burst intervals (2m) if the precheck fails, and standard intervals otherwise. Set rate limit caps for the API ping.",
+    "pass": true
+  }
+]
