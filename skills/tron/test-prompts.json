@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain the difference between bandwidth and energy on the TRON network.",
+    "expected": "Accurately describes bandwidth for simple transfers and energy for smart contracts/TRC-20 tokens.",
+    "actual": "Bandwidth is used for simple TRX transfers and basic operations on the TRON network. Energy is specifically required for interacting with smart contracts, such as transferring TRC-20 tokens like USDT. Both regenerate over time or can be obtained by freezing TRX.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to send some TRC-20 USDT but my transaction failed because I don't have enough energy. What should I do?",
+    "expected": "Suggests freezing TRX for energy or holding enough TRX balance to cover the burned fee.",
+    "actual": "If your TRC-20 USDT transfer failed due to lack of energy, you have two main options: 1) Freeze TRX (Stake 2.0) to obtain energy for the transaction. 2) Ensure you have enough TRX balance in your wallet to cover the fee, as TRX will be burned at a high rate to substitute for the missing energy.",
+    "pass": true
+  }
+]
