@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I tried sending all my DOT out of my wallet but there's a tiny bit left over and it gives me an existential deposit error. What does this mean?",
+    "expected": "Explains that Polkadot requires a minimum free balance (existential deposit) to keep an account alive, and that emptying an account needs a transfer-all / allow-death style extrinsic rather than a keep-alive transfer.",
+    "actual": "Polkadot keeps accounts alive only while free balance stays at or above the existential deposit. A normal keep-alive transfer fails if it would leave dust below that floor. To empty the wallet, use a transfer-all or allow-death flow so the account can be reaped and the full free balance can leave.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to unstake my DOT from my current validators to join a nomination pool instead. How long will this take?",
+    "expected": "States the mandatory 28-day Polkadot unbonding period before unstaked DOT becomes transferable and can fund a nomination pool.",
+    "actual": "Leaving direct nomination starts a mandatory 28-day unbonding period on Polkadot. During unbonding the DOT is locked, earns no further staking rewards from that bond, and cannot yet join a nomination pool. After 28 days you can withdraw and move the free DOT into a pool (pools often accept from about 1 DOT).",
+    "pass": true
+  }
+]
