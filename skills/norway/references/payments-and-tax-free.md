@@ -16,7 +16,7 @@
 
 - Tax-free shopping is relevant mainly for users making meaningful retail purchases, not for normal trip budgeting.
 - Confirm retailer participation and the minimum purchase logic before promising savings.
-- Do not oversell tax-free as a serious trip-cost offset.
+- Frame tax-free shopping as a minor bonus rather than a significant budget offset.
 
 ## Grocery and Dining Reality
 

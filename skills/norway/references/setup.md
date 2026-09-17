@@ -1,6 +1,6 @@
 # Setup - Norway Travel Guide
 
-Create `~/Clawic/data/norway/` on first use and initialize `~/Clawic/data/norway/memory.md` from `memory-template.md`.
+Create `<state_root>/data/norway/` on first use and initialize `<state_root>/data/norway/memory.md` from `references/memory-template.md`.
 
 ## First Contact
 
@@ -24,7 +24,7 @@ Keep durable facts in memory:
 
 ## Returning Users
 
-Read `~/Clawic/data/norway/memory.md`, reuse what is still valid, and ask only what changed:
+Read `<state_root>/data/norway/memory.md`, reuse what is still valid, and ask only what changed:
 - Dates
 - Region focus
 - Bookings already made
@@ -35,15 +35,15 @@ Read `~/Clawic/data/norway/memory.md`, reuse what is still valid, and ask only w
 
 **"I want fjords"**
 - Ask total days, arrival city, and whether the user wants a rail-and-ferry trip or a self-drive loop.
-- Then use `bergen-and-western-fjords.md`, `fjords-and-scenic-routes.md`, `itineraries.md`, and `road-trips-and-driving.md`.
+- Then use `references/bergen-and-western-fjords.md`, `references/fjords-and-scenic-routes.md`, `references/itineraries.md`, and `references/road-trips-and-driving.md`.
 
 **"I want northern lights"**
 - Ask month, cloud-risk tolerance, and whether the user is open to flexible plans or just one fixed base.
-- Then use `tromso-and-arctic-north.md`, `weather-and-seasonality.md`, `budget-and-costs.md`, and `safety-and-emergencies.md`.
+- Then use `references/tromso-and-arctic-north.md`, `references/weather-and-seasonality.md`, `references/budget-and-costs.md`, and `references/safety-and-emergencies.md`.
 
 **"I need a full Norway route"**
 - Ask trip length, arrival airport, and whether the user wants one corridor or accepts internal flights.
-- Then use `regions.md`, `itineraries.md`, `transport-domestic.md`, and `accommodation.md`.
+- Then use `references/regions.md`, `references/itineraries.md`, `references/transport-domestic.md`, and `references/accommodation.md`.
 
 ## Important Notes
 

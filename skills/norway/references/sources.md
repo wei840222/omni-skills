@@ -1,6 +1,6 @@
 # Sources - Norway Skill
 
-Last checked: 2026-03-09
+Last checked: 2026-09-17
 
 ## Entry and Stay
 

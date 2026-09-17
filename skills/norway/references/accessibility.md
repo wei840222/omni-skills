@@ -19,7 +19,7 @@
 
 - Rail and airport assistance can work well when arranged early.
 - Ferries and small regional ports vary in practical ease; build extra buffer.
-- Avoid chaining same-day train, ferry, and bus connections when support needs are high.
+- Minimize same-day connections across different transport modes for high support needs.
 
 ## Accommodation Strategy
 

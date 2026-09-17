@@ -32,7 +32,7 @@
 ## Arctic Rule
 
 - Aurora chasing, winter road trips, and northern boat excursions need buffer, not bravado.
-- Never frame the far north as casual if the user lacks winter experience.
+- Highlight the serious nature of far north conditions if the user lacks winter experience.
 
 ## Source Reminder
 

@@ -1,6 +1,6 @@
 # Memory Template - Norway
 
-Create `~/Clawic/data/norway/memory.md` with this structure:
+Create `<state_root>/data/norway/memory.md` with this structure:
 
 ```markdown
 # Norway Trip Memory
@@ -9,7 +9,7 @@ Create `~/Clawic/data/norway/memory.md` with this structure:
 status: ongoing
 version: 1.0.0
 last: YYYY-MM-DD
-integration: pending | complete | paused | never_ask
+integration: pending | complete | paused | skip_setup
 
 ## Trip Snapshot
 - Dates:
@@ -41,7 +41,7 @@ integration: pending | complete | paused | never_ask
 - Snow-driving confidence:
 - Hike difficulty target:
 - Must-see places:
-- Must-avoid:
+- Exclusion criteria:
 
 ## Bookings and Deadlines
 | Item | Needed by | Status | Notes |
@@ -68,8 +68,8 @@ integration: pending | complete | paused | never_ask
 |-------|---------|----------|
 | `ongoing` | still learning trip shape | ask only high-impact follow-ups |
 | `complete` | core context is stable | act quickly from saved defaults |
-| `paused` | memory use paused | do not expand without need |
-| `never_ask` | no setup prompts wanted | avoid future setup questions |
+| `paused` | memory use paused | expand only when required |
+| `skip_setup` | user requested skipping setup prompts | skip future setup questions |
 
 ## Key Principles
 

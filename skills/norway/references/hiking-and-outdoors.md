@@ -2,7 +2,7 @@
 
 ## Norway Rewards Prepared Outdoor Planning
 
-Nature is one of the main reasons people come, but the quality gap between "great trip" and "avoidable mess" is large.
+Nature is one of the main reasons people come, but the quality gap between "great trip" and "poor experience" is large.
 
 ## Outdoor Planning Rules
 

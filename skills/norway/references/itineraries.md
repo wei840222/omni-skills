@@ -19,7 +19,7 @@
 - Fly to Tromso and stay 4-6 nights in one base or two nearby bases at most.
 - Build around weather flexibility: aurora nights, one culture day, one snow or sea day, one spare day.
 - Best for winter users who want northern lights without risky driving.
-- Do not combine with western fjords unless there is an internal flight and a longer total trip.
+- Combine with western fjords only if there is an internal flight and a longer total trip.
 
 ## 10 Days - Oslo Plus Fjords
 
@@ -39,11 +39,11 @@
 
 - Oslo plus west or southwest for 6-7 days, then fly north for 5-6 days in Tromso or Lofoten.
 - This is the minimum shape that can justify both fjords and Arctic north.
-- Use internal flights to protect the trip; do not try to connect everything by road.
+- Use internal flights to protect the trip; use internal flights for long distances.
 
 ## 16-18 Days - Grand Norway
 
-- One south corridor plus one north corridor, never every famous stop.
+- One south corridor plus one north corridor, focus on selected famous stops.
 - Examples:
   - Oslo -> Bergen/western fjords -> Tromso
   - Stavanger -> Bergen -> Trondheim -> Lofoten

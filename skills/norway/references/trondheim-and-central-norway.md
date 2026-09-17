@@ -33,10 +33,10 @@
 - Weather still matters, but it is usually a pacing issue rather than a route-breaking one.
 - Day-trip quality depends on whether the user has a car.
 
-## Trap Avoidance
+## Key Success Factors
 
-- Do not sell Trondheim as a substitute for Bergen if the user's real priority is fjords.
-- Avoid inserting it into a short trip only because flights are cheap.
+- Position Trondheim as distinct from Bergen if the user's real priority is fjords.
+- Include it in a short trip only if it aligns with the user's primary goals.
 - Keep expectations honest: this is a quality-of-trip region, not a greatest-hits shortcut.
 
 ## Planning Rule

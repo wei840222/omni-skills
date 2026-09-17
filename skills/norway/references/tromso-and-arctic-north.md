@@ -23,7 +23,7 @@
 
 ## Winter Rules
 
-- Never promise aurora as a certainty; promise probability management instead.
+- Set realistic expectations for aurora visibility; promise probability management instead.
 - Cloud cover matters as much as solar activity from the traveler's perspective.
 - Keep one or two "moveable" evening slots if the route is built around aurora chasing.
 
@@ -33,11 +33,11 @@
 - Excursions can sell out on key dates.
 - Polar night and wind chill change energy levels, photography, and walking comfort.
 
-## Trap Avoidance
+## Key Success Factors
 
-- Do not recommend big independent winter drives to inexperienced snow drivers.
-- Avoid stacking late-night aurora chasing with early boat departures every day.
-- Do not make the user choose too many remote north bases unless they truly want logistics-heavy travel.
+- Recommend guided winter transport to inexperienced snow drivers.
+- Balance late-night aurora chasing with later morning departures to ensure rest.
+- Limit remote north bases to one or two unless they truly want logistics-heavy travel.
 
 ## Planning Rule
 
