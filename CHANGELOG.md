@@ -9,6 +9,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
 | ads | 2026-09-17 | 85/100 (#441) |
+| nutrition | 2026-09-17 | 85/100 (#442) |
 | java | 2026-09-17 | 85/100 (#440) |
 | elasticsearch | 2026-09-16 | 85/100 (#439) |
 | invest | 2026-09-16 | 85/100 (#438) |
