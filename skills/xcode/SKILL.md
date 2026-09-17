@@ -1,65 +1,88 @@
 ---
 name: xcode
-slug: xcode
-version: 1.0.0
-description: Avoid common Xcode mistakes — signing issues, build settings traps, and cache corruption fixes.
-homepage: https://clawic.com/skills/xcode
+description: Resolve common Xcode compilation and signing errors. Trigger when diagnosing Derived Data cache corruption, bundle identifier mismatches, code signing / provisioning profile issues, build settings overrides, archive-vs-simulator failures, or xcodebuild CLI destination problems.
 metadata:
-  clawdbot:
-    emoji: 🔨
-    requires:
-      bins:
-      - xcodebuild
-    os:
-    - darwin
-    displayName: Xcode
+  openclaw: '{"emoji":"🔨","os":["darwin"],"requires":{"bins":["xcodebuild"]}}'
+  related-skills: '{"ios":"Native iOS app lifecycle, permissions, entitlements, and App Store review beyond IDE/build settings.","swift":"Swift language mechanics, concurrency, packages, and compiler diagnostics.","app-store-connect":"ASC API for builds, metadata, and TestFlight after a successful archive.","react-native":"Cross-platform RN projects that still hit Xcode signing and archive steps."}'
 ---
 
-## Signing Issues
-- "Automatic" signing still needs team selected — set in Signing & Capabilities
-- Provisioning profile mismatch — bundle ID must match exactly, including case
-- "No signing certificate" — open Keychain, check certificate is valid and not expired
-- Device not registered — add UDID in developer portal, regenerate profile
-- CI/CD needs manual signing — automatic doesn't work in headless builds
+## State location
 
-## Derived Data Corruption
-- Random build failures after Xcode update — delete `~/Library/Developer/Xcode/DerivedData`
-- "Module not found" but it exists — clean Derived Data, restart Xcode
-- Stale cache symptoms — builds work, then fail, then work again
-- `xcodebuild clean` not enough — sometimes must delete DerivedData manually
+This skill is mostly operational guidance. Optional local notes (device UDIDs, team IDs, recurring signing traps) may live under a portable state root.
 
-## Build Settings Hierarchy
-- Project → Target → xcconfig → command line — later overrides earlier
-- `$(inherited)` to append not replace — forgetting it removes parent settings
-- `SWIFT_ACTIVE_COMPILATION_CONDITIONS` for Swift flags — not `OTHER_SWIFT_FLAGS`
-- `GCC_PREPROCESSOR_DEFINITIONS` for Obj-C — add to existing, don't replace
+Resolve `<state_root>` before any read/write:
 
-## Archive vs Build
-- Archive uses Release config by default — build uses Debug
-- "Works in simulator, fails in archive" — check Release build settings
-- Archive requires valid signing — build doesn't for simulator
-- `SKIP_INSTALL = YES` for frameworks — or archive includes them incorrectly
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/xcode/`, `<workspace>/memory/xcode/`, `~/xcode/`.
+3. If none exists and state must be created, default to `<workspace>/xcode/`.
 
-## Capabilities and Entitlements
-- Capability in Xcode must match entitlements file — out of sync causes crashes
-- Push notifications need both — App ID capability AND provisioning profile
-- Associated domains needs apple-app-site-association file — hosted on your server
-- Keychain sharing needs explicit group — default is just your app
+Never hard-code `~/Library/...` as the only path in instructions that agents will copy. Prefer:
 
-## Dependencies
-- SPM and CocoaPods can conflict — watch for duplicate symbols
-- Pod update vs install — `install` uses Podfile.lock, `update` ignores it
-- "Framework not found" — check Framework Search Paths, embed vs link
-- SPM package resolution fails — delete Package.resolved, reset package caches
+- Derived Data: `<state_root_user_library>/Developer/Xcode/DerivedData` where the user Library is the real macOS home Library (`~/Library` on the developer machine).
+- When giving shell commands on the user's Mac, expand to `$HOME/Library/Developer/Xcode/DerivedData`.
 
-## Common Fixes
-- Build fails with no clear error — check Report Navigator for details
-- Simulator stuck — `xcrun simctl shutdown all`, then `xcrun simctl erase all`
-- Indexing stuck — delete Index folder in DerivedData
-- Autocomplete broken — restart Xcode, if persists delete DerivedData
+Do not store certificates, `.p12`, provisioning profiles with embedded secrets, or App Store Connect API keys under the skill package or git.
 
-## CLI Builds
-- `xcodebuild -showBuildSettings` to debug — see resolved values
-- `-allowProvisioningUpdates` for CI with auto-signing — needs keychain access
-- `-destination` must be exact — `platform=iOS Simulator,name=iPhone 15`
-- `xcrun altool` deprecated — use `xcrun notarytool` for notarization
+## When to load
+
+Load this skill when the user hits Xcode IDE / `xcodebuild` problems rather than pure Swift language or pure iOS lifecycle questions:
+
+- signing / provisioning / team / certificate errors
+- Derived Data or module-cache corruption
+- build settings hierarchy surprises
+- archive works differently from simulator Debug builds
+- CLI destination / notarization / `xcodebuild` flag issues
+
+Route elsewhere when the core question is:
+
+- Swift language / concurrency / packages → `swift`
+- app lifecycle, permissions, StoreKit, App Review policy → `ios`
+- ASC API automation after the archive exists → `app-store-connect`
+
+## Progressive disclosure
+
+| Reference | Load when |
+| --- | --- |
+| `references/signing.md` | Certificate, profile, team, bundle ID, CI manual signing |
+| `references/derived-data.md` | Random module-not-found, stale cache, indexing stuck |
+| `references/build-settings.md` | xcconfig / `$(inherited)` / flag hierarchy |
+| `references/archive-cli.md` | Archive vs Debug, destinations, notarization CLI |
+| `references/sources.md` | Verify Apple doc URLs behind the guidance |
+
+## Reliable defaults
+
+1. Name the failure class first: signing, cache, settings hierarchy, archive config, or CLI destination.
+2. Prefer the smallest reversible fix (clean Derived Data) before nuking simulators or keychains.
+3. Simulator Debug success does **not** prove Release/archive signing is healthy.
+4. Automatic signing is for local interactive Xcode; headless CI needs manual signing (or carefully unlocked keychain + `-allowProvisioningUpdates` with explicit constraints).
+5. Bundle IDs and profile app IDs are case-sensitive exact matches.
+6. Use `xcodebuild -showBuildSettings` before guessing which flag "won".
+
+## Quick triage
+
+```bash
+# Resolved settings for the scheme/config that actually fails
+xcodebuild -scheme "<Scheme>" -configuration Release -showBuildSettings | rg 'CODE_SIGN|PROVISIONING|PRODUCT_BUNDLE|DEVELOPMENT_TEAM'
+
+# Derived Data reset on the developer Mac
+rm -rf "$HOME/Library/Developer/Xcode/DerivedData"
+
+# List simulators / destinations
+xcrun simctl list devices available
+xcodebuild -scheme "<Scheme>" -showdestinations
+```
+
+## Safety boundaries
+
+- Do not commit signing certificates, private keys, or provisioning profiles.
+- Do not recommend disabling SIP, deleting the entire login keychain, or sharing team private keys in chat.
+- Do not claim App Store submission success from a local archive alone.
+- Prefer Apple documentation commands over third-party "clean my Mac" utilities.
+
+## Common Fixes (entry checklist)
+
+- Build fails with no clear error → Report Navigator / full `xcodebuild` log, not only the Issues pane summary
+- Simulator stuck → `xcrun simctl shutdown all` then targeted erase of the broken device, not always `erase all`
+- Indexing / autocomplete broken → restart Xcode; if it persists, delete Derived Data
+- Capability missing at runtime → Xcode capability, entitlements file, and provisioning profile must all agree
