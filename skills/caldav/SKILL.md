@@ -1,28 +1,39 @@
 ---
 name: caldav
-slug: caldav
-version: 1.0.0
-description: Sync, inspect, and modify CalDAV calendars with vdirsyncer and khal using deterministic windows, verified writes, and recurrence-aware workflows.
-homepage: https://clawic.com/skills/caldav
-changelog: Initial release with safer CalDAV operating rules for vdirsyncer and khal, including sync discipline, edit verification, and conflict-aware workflows.
+description: Sync, inspect, and safely modify CalDAV calendars with vdirsyncer and
+  khal. Use for local-first event queries, verified writes, recurrence-aware edits,
+  and stale-sync troubleshooting on standards-based servers.
 metadata:
-  clawdbot:
-    emoji: 📅
-    requires:
-      bins:
-      - vdirsyncer
-      - khal
-    os:
-    - linux
-    - darwin
-    displayName: CalDAV
+  openclaw: '{"emoji":"📅","requires":{"bins":["vdirsyncer","khal"]}}'
+  related-skills: '{"calendar-planner":"Cross-calendar conflict repair and defended weekly planning beyond raw CalDAV CRUD.","schedule":"Job timing and cron-style execution when the need is scheduled work, not calendar event state.","fastmail-api":"Provider-specific Fastmail mail and calendar APIs when CalDAV alone is insufficient.","remind":"Lead-time nudges for known commitments rather than direct CalDAV event mutation."}'
 ---
 
-## When to Use
+## State location
 
-Use when the user needs to work with CalDAV calendars through a local `vdirsyncer` + `khal` stack, especially for iCloud, Fastmail, Nextcloud, DAViCal, Radicale, or other standards-based calendar servers.
+This skill is operationally local-first but does **not** own a skill-private state tree. Calendar credentials, `vdirsyncer` config, `khal` config, and the on-disk `.ics` collections already live outside the package.
 
-This skill is for local-first querying, event creation, safe edits, troubleshooting stale sync state, and handling ambiguous matches without corrupting recurring events or overwriting the wrong calendar.
+- Treat the user's existing `vdirsyncer` storage path and `khal` database as host-owned data.
+- Do not invent a new `<state_root>/caldav/` tree unless the user explicitly asks to persist operator notes separate from the live calendar store.
+- If operator notes are requested, resolve `<state_root>` once: explicit config first; otherwise the first existing of `<workspace>/caldav/`, `<workspace>/memory/caldav/`, `~/caldav/`; create `<workspace>/caldav/` only with consent.
+
+## When to load
+
+Load this skill when the user needs CalDAV work through a local `vdirsyncer` + `khal` stack, especially for iCloud, Fastmail, Nextcloud, DAViCal, Radicale, or other standards-based calendar servers.
+
+Typical requests:
+- list or search events in a bounded window
+- create a one-off event and verify it landed
+- safe edit/delete with duplicate-title risk
+- troubleshoot stale cache, discovery, TLS, or auth failures
+- decide whether a recurring series is safe to touch
+
+Load only the reference needed for the current task:
+- `references/sync-discipline.md` for discover/sync order and freshness rules
+- `references/query-and-scope.md` for windows, calendars, and ambiguous time phrases
+- `references/write-and-verify.md` for create/edit/delete plus read-back checks
+- `references/recurrence-and-limits.md` when series, DST, or `khal edit` TTY limits matter
+- `references/troubleshooting.md` for empty collections, TLS, auth, and cache traps
+- `references/sources.md` when verifying CalDAV / tool claims against primary docs
 
 ## Requirements
 
@@ -30,74 +41,31 @@ This skill is for local-first querying, event creation, safe edits, troubleshoot
 - The CalDAV account and collection config must already exist outside this skill.
 - A TTY is required for interactive `khal edit` workflows.
 
-## Core Rules
+## Default operating model
 
-### 1. Sync is part of every real operation
+Prefer inspect → bounded query → explicit calendar scope → write → sync → read-back. Keep private connection details out of summaries unless the user asks for them. When the safest action is read-only, say so and stop.
 
-- Treat `vdirsyncer sync` as part of the workflow, not an optional cleanup step.
-- Sync before reads when freshness matters, and sync again after confirmed writes so local and remote state converge.
-- If collections are missing or a server path changed, use `vdirsyncer discover` before assuming the calendar is empty.
-- Do not trust a stale `khal` result until sync and cache state have been checked.
+## Core workflow
 
-### 2. Use bounded windows and explicit calendar scope
+1. Confirm binaries and that the target calendar collection is already configured.
+2. Sync (or discover, then sync) before trusting any `khal` listing when freshness matters. See `references/sync-discipline.md`.
+3. Resolve the time window, timezone assumption, and calendar name before searching or writing. See `references/query-and-scope.md`.
+4. For writes, capture the pre-change window, apply the smallest safe mutation, sync again, then read back title + time + calendar (or UID). See `references/write-and-verify.md`.
+5. For recurring or timezone-sensitive events, load `references/recurrence-and-limits.md` and prefer inspect-first / recreate-with-approval over bulk series surgery.
+6. End every answer with calendar scope, window, action taken or proposed, and whether another sync is still needed.
 
-- Prefer day, 7-day, 14-day, or exact date range queries over open-ended searches.
-- Narrow to a specific calendar whenever the user already knows the target calendar.
-- Resolve ambiguous phrases such as "next Friday" or "this evening" into exact dates, times, and timezone assumptions before writing.
-- Titles are not unique identifiers, so duplicate-event risk rises quickly when searching across every calendar at once.
+## Hard stop rules
 
-### 3. Respect khal's editing limits
+- Do not present `khal edit` as a non-interactive batch primitive.
+- Do not edit or delete by title alone when duplicates are possible.
+- Do not treat a one-sided `conflict_resolution` policy as harmless.
+- Do not delete `khal`'s cache database as a first fix for every mismatch.
+- Certificate and TLS errors block further writes until the trust chain is fixed.
+- Bulk recurring surgery requires an explicit user go-ahead after the risk is stated.
 
-- `khal edit` is interactive and needs a TTY, so do not present it as a non-interactive batch primitive.
-- `khal` has only rudimentary recurrence editing and cannot edit event timezones directly, so complex recurring or timezone-sensitive events need extra caution.
-- For fragile recurring series, DST-sensitive events, or uncertain matches, prefer inspect-first and recreate-only-with-approval over aggressive in-place edits.
-- If the user wants bulk recurring surgery, stop and explain the risk before touching anything.
+## Related skills
 
-### 4. Verify every write with a read-back pass
-
-- Before changing an event, read the target window first so the agent sees the exact current state.
-- After create, update, or delete, run a read-back check in the same bounded window and report the returned title, time, and calendar.
-- Use title plus date/time plus calendar, or UID when available, to confirm the right event changed.
-- If verification is ambiguous or inconsistent, stop and surface the conflict instead of claiming success.
-
-### 5. Treat local vdir state and conflict policy as real data
-
-- `vdirsyncer` is synchronizing real local `.ics` state, not just acting as a remote viewer.
-- The configured `conflict_resolution` policy can overwrite one side, so do not assume an "a wins" or "b wins" setup is harmless.
-- Manual filesystem edits, cache resets, or storage path changes should be deliberate and reversible.
-- Deleting `khal`'s cache database is a troubleshooting move for stale cache behavior, not a default fix for every mismatch.
-
-### 6. Protect connection details, URLs, and certificates
-
-- Confirm the CalDAV base URL and collection path before debugging deeper issues.
-- Certificate and TLS errors are blockers; stop and fix the trust chain before continuing.
-- Keep private connection details and sync config out of summaries unless the user explicitly asks for them.
-
-### 7. Finish with operational clarity
-
-- Every answer should end with the exact calendar scope, time window, action taken or proposed, and whether another sync is needed.
-- If blocked, name the real blocker precisely: missing `vdirsyncer`, missing `khal`, missing TTY, undiscovered collections, login failure, or ambiguous event match.
-- If the safest action is read-only, say so directly instead of improvising a write path.
-
-## Common Traps
-
-- Querying without syncing first -> stale answers and wrong scheduling decisions.
-- Editing by title only -> the wrong duplicate event gets changed or deleted.
-- Treating recurring events like normal one-offs -> series corruption or DST drift.
-- Searching every calendar by default -> noisy matches and accidental writes to the wrong calendar.
-- Using a one-sided `conflict_resolution` policy blindly -> local or remote data loss.
-- Deleting `khal.db` too early -> symptoms disappear briefly while the real sync bug remains.
-- Assuming any WebDAV-looking URL is a valid CalDAV calendar collection -> discovery and auth failures.
-- Reporting success before read-back verification -> hidden mismatch between local cache and remote server.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `calendar-planner` - Plan weeks, repair conflicts, and turn calendar state into defended scheduling decisions.
-- `schedule` - Handle general scheduling requests when the user needs timing help beyond raw CalDAV operations.
-- `fastmail-api` - Use provider-specific Fastmail mail and calendar APIs when CalDAV is not enough.
-- `remind` - Turn calendar deadlines and follow-ups into reminder workflows.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/caldav
-- Latest version: https://clawic.com/skills/caldav
+- `calendar-planner` — week repair, focus protection, multi-calendar planning
+- `schedule` — durable job firing rather than calendar event CRUD
+- `fastmail-api` — Fastmail-native APIs beyond CalDAV
+- `remind` — commitment nudges, not direct calendar mutation
