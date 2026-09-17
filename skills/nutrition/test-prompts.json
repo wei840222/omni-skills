@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a 35-year-old male and I just got my blood test back. My ferritin is 40 ng/mL, but the lab range says 30-400 ng/mL so it's normal. I eat an omnivore diet. Am I getting enough iron?",
+    "expected": "Identify that ferritin 40 ng/mL is in-range but may be sub-optimal; do not start iron on the number alone; check symptoms (e.g. restless legs), inflammation confounders, dietary iron form, and absorption factors before any supplement.",
+    "actual": "Ferritin 40 ng/mL sits inside a common 30-400 lab range but is low-normal. I will not treat the number as proven iron deficiency. Next: ask about fatigue or restless legs, check CRP/inflammation context if available, review heme vs non-heme intake and inhibitors (tea/coffee/calcium with meals), and only then discuss food-first iron density or testing\u2014not a blind supplement.",
+    "pass": true
+  }
+]
