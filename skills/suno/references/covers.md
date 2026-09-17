@@ -1,6 +1,6 @@
 # Covers, Personas, and Uploads — Reusing a Sound
 
-The features that carry identity from one clip to another. Hosted APIs mostly do not expose them — this is browser/UI territory.
+The features that carry identity from one clip to another. These require browser/UI access as Hosted APIs omit them — this is browser/UI territory.
 
 ## Covers
 
@@ -27,7 +27,7 @@ The features that carry identity from one clip to another. Hosted APIs mostly do
 
 For albums, podcast series, or a client's recurring spots:
 
-1. Lock one style string in the project file (`~/Clawic/data/suno/projects/`) and reuse it verbatim.
+1. Lock one style string in the project file (`<state_root>/suno/projects/`) and reuse it verbatim.
 2. Lock the voice with a persona; keep Exclude Styles identical.
 3. Vary per song via lyrics plus at most one deliberate style delta ("track 4: + strings").
-4. Record every track's prompt, clip URL, and status in the project file — consistency you cannot reproduce is consistency you do not have.
+4. Record every track's prompt, clip URL, and status in the project file — reproducible consistency requires complete tracking.

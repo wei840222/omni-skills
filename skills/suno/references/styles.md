@@ -10,7 +10,7 @@ Vocabulary catalog for the style field. Precise subgenre tags steer harder than 
 - [Production Tags](#production-tags) · [Era/Decade Tags](#eradecade-tags) · [Use Case Tags](#use-case-tags)
 - [Combining Tags](#combining-tags)
 - [Tag Limits (canonical)](#tag-limits-canonical) — the 8-12 rule
-- [Conflicting Tags to Avoid](#conflicting-tags-to-avoid)
+- [Conflicting Tag Antipatterns](#conflicting-tags-to-avoid)
 
 ## Genre Tags
 
@@ -132,7 +132,7 @@ tropical house upbeat happy synth female vocals polished modern
 - Worked check: "lo-fi electronic ambient chill downtempo synth pads warm analog" = 8 terms covering genre, mood, tempo, instrument, production — nothing wasted.
 - Suno >=4.5 also accepts prose descriptions up to 1000 characters; the 8-12 rule applies to tag-style prompts.
 
-## Conflicting Tags to Avoid
+## Conflicting Tag Antipatterns
 
 | Bad Combination | Why |
 |-----------------|-----|

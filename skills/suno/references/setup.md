@@ -1,11 +1,11 @@
 # Setup — Suno
 
-Read this when `~/Clawic/data/suno/` doesn't exist or is empty.
+Read this when `<state_root>/suno/` doesn't exist or is empty.
 
 ## Create the Workspace
 
 ```
-~/Clawic/data/suno/
+<state_root>/suno/
 ├── config.yaml       # Declared preferences — variables in SKILL.md Configuration
 ├── memory.md         # Observed preferences and successful prompts
 ├── projects/         # Per-project song tracking (create when a second song shares a project)
@@ -30,14 +30,14 @@ Record the result in `config.yaml`. Ask at most one question, only if genuinely 
 
 ## API Keys
 
-If the user has API access, keys live in environment variables — never in files under `~/Clawic/data/suno/`:
+If the user has API access, keys live in environment variables — keep them strictly out of files under `<state_root>/suno/`:
 
 ```bash
 export AIMUSICAPI_KEY="their-key"     # aimusicapi.ai
 export EVOLINK_API_KEY="their-key"    # evolink.ai
 ```
 
-`config.yaml` and `memory.md` may note which provider and env var name are in use — never the value.
+`config.yaml` and `memory.md` may note which provider and env var name are in use — omit the actual value.
 
 ## Done When
 

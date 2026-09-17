@@ -8,7 +8,7 @@
 - [Genre Templates](#genre-templates) — per-genre slot scaffolds
 - [Voice Control](#voice-control) · [Tempo](#tempo) · [Production Style](#production-style)
 - [Proven Combinations](#proven-combinations)
-- [What to Avoid](#what-to-avoid)
+- [Antipatterns and Corrections](#what-to-avoid)
 
 ## Structure
 
@@ -130,11 +130,11 @@ Ballad: emotional piano ballad soft vocals heartfelt intimate
 Club: EDM house energetic driving build-up heavy drop
 ```
 
-When one of these lands for the user, store the exact string in `~/Clawic/data/suno/memory.md` and reuse it verbatim (→ SKILL.md Core Rule 2).
+When one of these lands for the user, store the exact string in `<state_root>/suno/memory.md` and reuse it verbatim (→ SKILL.md Core Rule 2).
 
-## What to Avoid
+## Antipatterns and Corrections
 
-| Don't | Why | Instead |
+| Incorrect | Why | Instead |
 |-------|-----|---------|
 | Artist names | Moderation rejects or strips them; credits spent | Voice + era + production attributes |
 | "Like [song title]" | Filtered or ignored | Describe its elements |

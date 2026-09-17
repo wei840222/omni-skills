@@ -12,7 +12,7 @@ Briefs where the music serves another asset — an ad, a podcast, a stream, a pe
   ```
 - One melodic hook repeated — not verse-chorus. The lyric IS the tagline; 10-20 words total.
 - Product names read as brand names to the moderation filter — even the client's own. Test one cheap run first; if the name gets stripped, sing a generic phrase and overlay the spoken name in post (`ffmpeg`/`audio` skills).
-- Style: "jingle, catchy, upbeat" + a genre matching the brand's register; polished production terms, never lo-fi unless the brand is.
+- Style: "jingle, catchy, upbeat" + a genre matching the brand's register; polished production terms, use lo-fi exclusively if the brand demands it.
 
 ## Podcast and Video Intros
 

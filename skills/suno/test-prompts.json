@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create an upbeat 80s synth-pop song about coding late at night.",
+    "expected": "Generates a complete song prompt, writes structured lyrics with verse/chorus tags, and provides instructions for generating it on Suno.",
+    "actual": "I will help you create an upbeat 80s synth-pop song about coding late at night. Here is the structured setup you can use in Suno:\n\n**Style field:** upbeat 80s synth-pop, energetic, driving bass, retro synths, clear male vocals\n\n**Lyrics field:**\n[Verse 1]\nThe screen is glowing bright\nMidnight coffee fueling the night\nFingers dancing on the keys\nDebugging logic in the breeze\n\n[Chorus]\nCompile and run, we're not done\nChasing bugs till the morning sun\nSyntax error, try again\nWe code until the bitter end\n\n[Outro]\n[Fade Out]\n[End]\n\nLet me know if you would like me to use the API to generate this directly, or if you will paste it into suno.com yourself.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Make an epic orchestral intro for my podcast, around 30 seconds. No lyrics. Make it sound like Hans Zimmer.",
+    "expected": "Handles the 'Hans Zimmer' brand constraint by converting it to genre attributes, ensures it's instrumental with no lyrics, and provides structure.",
+    "actual": "For a 30-second epic orchestral podcast intro, we need to convert the 'Hans Zimmer' style into specific attributes to avoid moderation blocks, and ensure the track is instrumental.\n\n**Style field:** epic cinematic orchestral, driving strings, massive brass, thunderous percussion, modern film score\n\n**Lyrics field:** (Leave completely empty)\n\n**Structure (optional if using lyrics box for tags):**\n[Intro]\n[Build up]\n[Climax]\n[End]\n\nEnsure the 'Instrumental' toggle is ON in Suno before generating.",
+    "pass": true
+  }
+]

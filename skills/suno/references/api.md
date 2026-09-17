@@ -213,8 +213,8 @@ def safe_generate(prompt, retries=3):
 
 ## Best Practices
 
-1. **Store keys in env vars** — Never in code or plain files
+1. **Store keys in env vars** — Excluded from code or plain files
 2. **Handle rate limits** — Implement backoff
 3. **Poll with delays** — 5 second intervals minimum
-4. **Download immediately** — Audio URLs expire; save to `~/Clawic/data/suno/songs/`
-5. **Log successful prompts verbatim** — In `~/Clawic/data/suno/memory.md`; rewording a working prompt resets the odds
+4. **Download immediately** — Audio URLs expire; save to `<state_root>/suno/songs/`
+5. **Log successful prompts verbatim** — In `<state_root>/suno/memory.md`; rewording a working prompt resets the odds

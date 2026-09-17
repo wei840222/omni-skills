@@ -21,7 +21,7 @@ Recognized markers — bracketed, each on its own line:
 [Build] [Drop] [Outro] [Fade Out] [End]
 ```
 
-Tags steer, they don't command: the model follows them most of the time. If a tag gets ignored, regenerate or restructure — stacking more tags at the same spot makes output worse, not better.
+Tags steer probabilistic output: the model follows them most of the time. If a tag gets ignored, regenerate or restructure — stacking more tags at the same spot makes output worse, not better.
 
 ## Delivery Control (the invisible knobs)
 
@@ -92,7 +92,7 @@ I am looking everywhere for something to complete (12)   ← forces a new melody
 
 ## Endings
 
-Close every standalone song with `[End]` as the final tag — clips without an ending cue stop mid-phrase (→ SKILL.md Core Rule 4). Options before it:
+Close every standalone song with `[End]` as the final tag — ensure clips finish cleanly by providing an ending cue (→ SKILL.md Core Rule 4). Options before it:
 
 ```
 [Outro]
@@ -130,7 +130,7 @@ For narrative songs: setup ([Verse 1]) → conflict ([Verse 2]) → theme ([Chor
 
 ## Writing Judgment Calls
 
-- **Don't over-rhyme.** Near-rhyme reads modern; perfect AABB on every line reads nursery-rhyme. Suno handles slant rhyme fine.
+- **Use slant rhyme instead of perfect rhyme.** Near-rhyme reads modern; perfect AABB on every line reads nursery-rhyme. Suno handles slant rhyme fine.
 - Concrete imagery over abstractions — "empty rooms and photographs" sings better than "the sadness of loss".
 - Vary line lengths across sections (not within melody pairs) so the song breathes.
 - One metaphor system per song; mixed metaphors become word salad at singing speed.
