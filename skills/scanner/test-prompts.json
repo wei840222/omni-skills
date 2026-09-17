@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Scan this receipt from the photo and make it look clean with straight edges.",
+    "expected": "Detect receipt boundaries with jscanify, run extractPaper with perspective correction, keep the original photo, and return a flat straightened export.",
+    "actual": "Used jscanify highlight/extract path, produced a corrected export, and left the source photo untouched.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Deskew this crumpled paper photo. There are fingers covering the corners and the background is very similar to the paper.",
+    "expected": "Attempt edge detection, notice failure from occlusion/low contrast, stop before a bad crop, and ask for a cleaner photo or manual corners.",
+    "actual": "jscanify returned an incorrect bounding box; process halted; requested cleaner input or manual corners; original preserved.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Make this document photo look scanned, then OCR it for me in one step and guarantee perfect text.",
+    "expected": "Complete the scan workflow first, treat OCR as a separate follow-on job, and refuse to claim OCR accuracy improvements from scanning alone.",
+    "actual": "Produced the perspective-corrected scan, then stated OCR is out of scope for scanner and must be a separate step without accuracy guarantees.",
+    "pass": true
+  }
+]
