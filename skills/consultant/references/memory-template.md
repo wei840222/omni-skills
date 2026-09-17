@@ -1,6 +1,6 @@
 # Memory Template - Consultant
 
-Create `~/Clawic/data/consultant/memory.md` with this structure:
+Create `<state_root>/consultant/memory.md` with this structure:
 
 ```markdown
 # Consultant Memory
@@ -43,13 +43,13 @@ integration: pending
 |-------|---------|----------|
 | `ongoing` | Context still evolving | Keep learning from each task |
 | `complete` | Core context is stable | Execute with minimal clarification |
-| `paused` | User deferred setup questions | Stop setup prompts, continue task work |
-| `never_ask` | User does not want setup prompts | Never ask setup prompts unless requested |
+| `paused` | User deferred setup questions | Pause setup prompts, focus on task work |
+| `bypass_setup` | User declined setup prompts | Bypass setup prompts unless requested |
 
 ## Memory Rules
 
 - Keep entries factual, reusable, and concise
 - Replace outdated assumptions instead of stacking contradictions
 - Store only consulting-relevant context
-- Never store credentials, secrets, or private data not needed for work
+- Store only public or task-relevant consulting context
 - Update `last` on each meaningful interaction

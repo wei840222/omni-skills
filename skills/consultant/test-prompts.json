@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to figure out our Q4 go-to-market plan, but the team is totally misaligned on what the actual problem is. Can you help me set up an engagement to solve this?",
+    "expected": "Acknowledge the misalignment and suggest a Diagnostic Sprint to align stakeholders and find the root cause. Request to set up the consultant workspace if not already done.",
+    "actual": "I will initialize the consultant workspace at <state_root>/consultant/ and set up memory.md. Given the misalignment, I recommend a 1-2 week Diagnostic Sprint to identify root causes before designing the strategy. Should we start with a problem tree exercise to capture the current symptoms?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Draft a decision memo on whether we should acquire Acme Corp or build the tech in-house. We need this for the board meeting tomorrow.",
+    "expected": "Deliver a concise decision memo following the blueprint (Decision Required, Why This Matters Now, Options A & B, Recommendation, etc.) without inventing false data, but clearly framing the tradeoffs.",
+    "actual": "Here is a Decision Memo draft for the Build vs. Buy decision regarding Acme Corp. Because I lack the specific financials, I have explicitly marked where you need to fill in the data. The memo structures the choice between Option A (Acquire Acme) and Option B (Build in-house), comparing Benefits, Risks, and Cost/Effort for each.",
+    "pass": true
+  }
+]

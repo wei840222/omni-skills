@@ -71,4 +71,4 @@ Keep updates short and actionable:
 - Use plain language and explicit tradeoffs
 - Separate facts, assumptions, and recommendations
 - Always include owner and date for each key action
-- Never present analysis without a next step
+- Always pair analysis with a clear next step
