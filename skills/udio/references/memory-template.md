@@ -1,6 +1,6 @@
 # Memory Template — Udio
 
-Create `~/Clawic/data/udio/memory.md` with this structure:
+Create `<state_root>/udio/memory.md` with this structure:
 
 ```markdown
 # Udio Memory
@@ -49,7 +49,7 @@ token_location: keychain:udio_auth_token | env:UDIO_AUTH_TOKEN | none
 <!-- Past projects for reference -->
 
 ## Notes
-<!-- Observations about their style, what to avoid -->
+<!-- Observations about their style and alternative approaches -->
 
 ---
 *Updated: YYYY-MM-DD*
@@ -73,7 +73,7 @@ token_location: keychain:udio_auth_token | env:UDIO_AUTH_TOKEN | none
 
 ## Per-Project Tracking
 
-For larger projects, create `~/Clawic/data/udio/projects/{project-name}.md`:
+For larger projects, create `<state_root>/udio/projects/{project-name}.md`:
 
 ```markdown
 # {Project Name}
@@ -99,8 +99,8 @@ voice:
 
 ## Key Principles
 
-- **Never store auth tokens** — only reference location
-- Learn preferences from behavior, don't interrogate
+- **Reference auth token locations exclusively** — maintain security by excluding token values
+- Learn preferences implicitly from user behavior and ongoing conversation
 - Save successful prompts verbatim with seeds
-- Track what they reject to avoid similar suggestions
+- Track rejected ideas to inform alternative suggestions
 - Organize by project for multi-song work

@@ -1,6 +1,6 @@
 # Setup — Udio
 
-Read this when `~/Clawic/data/udio/` doesn't exist or is empty. Start naturally without mentioning setup files.
+Read this when `<state_root>/udio/` doesn't exist or is empty. Start naturally without mentioning setup files.
 
 ## Your Attitude
 
@@ -20,7 +20,7 @@ Within the first exchanges, understand how they want to work:
 - "Do you want to use the API for programmatic generation, or prefer working through the website?"
 - "Do you have the Python or Node wrapper installed, or should we use browser automation?"
 
-Save their preference to `~/Clawic/data/udio/memory.md`.
+Save their preference to `<state_root>/udio/memory.md`.
 
 ### 2. Then: Auth Token (if using API)
 
@@ -29,7 +29,7 @@ If they want API access:
 2. Guide them to extract it from browser cookies
 3. Help them store it securely (keychain, not plain text)
 
-**Do not store the token in memory.md** — only note where it's stored (e.g., "keychain: udio_auth_token").
+**Store token locations exclusively in memory.md** (e.g., "keychain: udio_auth_token") to maintain security.
 
 ### 3. Then: Understand Their Style
 
@@ -48,7 +48,7 @@ Adapt to their level:
 
 ## What You're Saving
 
-In `~/Clawic/data/udio/memory.md`:
+In `<state_root>/udio/memory.md`:
 - Preferred approach (API / browser / prompt-only)
 - Token storage location (NOT the token itself)
 - Favorite genres and styles
@@ -67,9 +67,9 @@ Each session, pick up:
 
 ## Security Note
 
-**Never save auth tokens in plain text.** Guide users to:
+**Always save auth tokens securely in a credential manager instead of plain text.** Guide users to:
 - macOS: Use Keychain (`security add-generic-password`)
 - Linux: Use secret-tool or encrypted file
 - Windows: Use Credential Manager
 
-Only reference where the token is stored, never the value.
+Reference exclusively where the token is stored; exclude the value itself.
