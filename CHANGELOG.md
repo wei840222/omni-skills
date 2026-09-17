@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| scanner | 2026-09-18 | 85/100 (#452) |
 | minio | 2026-09-18 | 85/100 (#450) |
 | norway | 2026-09-17 | 85/100 (#449) |
 | react-native | 2026-09-17 | 85/100 (#448) |
