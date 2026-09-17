@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My Xcode build is failing randomly with 'Module not found' but I know the framework exists in my project.",
+    "expected": "Classify as Derived Data/cache corruption; quit Xcode if possible; delete $HOME/Library/Developer/Xcode/DerivedData; restart Xcode; note that xcodebuild clean is often not enough.",
+    "actual": "Identified stale Derived Data, recommended rm -rf \"$HOME/Library/Developer/Xcode/DerivedData\" and restart, and avoided broader destructive resets first.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm setting up a CI/CD pipeline to archive my iOS app using xcodebuild. The build succeeds in the simulator but the archive step fails with 'No signing certificate'.",
+    "expected": "Explain archive defaults to Release and needs real signing; simulator success is insufficient proof; prefer manual signing on CI; mention keychain/cert/profile checks and that -allowProvisioningUpdates is not enough alone.",
+    "actual": "Separated simulator Debug from Release archive requirements, required valid cert+profile/team, and treated automatic signing as unreliable for headless CI.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Release build dropped half our GCC_PREPROCESSOR_DEFINITIONS after I set a target override. Debug still works.",
+    "expected": "Explain settings hierarchy and $(inherited); show comparing Debug vs Release via xcodebuild -showBuildSettings; fix by appending with $(inherited) instead of replacing.",
+    "actual": "Called out missing $(inherited) replacement behavior and used -showBuildSettings on Release to verify the winning flags.",
+    "pass": true
+  }
+]
