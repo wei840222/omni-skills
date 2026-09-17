@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| zigbee | 2026-09-18 | 85/100 (#456) |
 | polkadot | 2026-09-18 | 85/100 (#455) |
 | xcode | 2026-09-18 | 85/100 (#454) |
 | consultant | 2026-09-18 | 85/100 (#453) |
