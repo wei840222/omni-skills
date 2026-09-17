@@ -32,10 +32,10 @@
 - Driving looks easy on the map but still involves ferries, tunnels, and slower coastal progress.
 - High-season activity timing matters if the user wants both hiking and boat segments.
 
-## Trap Avoidance
+## Key Success Factors
 
-- Do not put Preikestolen the morning after a late arrival unless the user is unusually resilient.
-- Avoid selling this region as guaranteed dry hiking country.
+- Schedule Preikestolen after a full night's rest unless the user is unusually resilient.
+- Prepare users for variable weather and rain when hiking in this region.
 - Skip over-ambitious combinations of Stavanger, Trolltunga, and hard fjord driving in a very short trip.
 
 ## Planning Rule

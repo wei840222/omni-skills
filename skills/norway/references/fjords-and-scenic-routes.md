@@ -19,7 +19,7 @@ The highest-value Norway scenic logic usually sits in the west, with Bergen as t
 
 ## What to Skip When Time Is Short
 
-- Do not force Geiranger, Trollstigen, Flam, and Bergen into one rushed mini-trip.
+- Spread Geiranger, Trollstigen, Flam, and Bergen across a longer itinerary to maintain a sustainable pace.
 - Choose one fjord personality:
   - rail and village scenery
   - road-loop scenery

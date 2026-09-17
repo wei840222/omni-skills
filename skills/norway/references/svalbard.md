@@ -27,11 +27,11 @@
 - Keep expectations clear: weather can cancel or soften the experience.
 - Users should understand that independent wandering is limited compared with mainland towns.
 
-## Trap Avoidance
+## Key Success Factors
 
-- Do not mix Svalbard casually into a short "see all of Norway" plan.
-- Avoid selling it as a budget aurora shortcut.
-- Do not understate the cold, wind, darkness, or guided-tour dependency.
+- Treat Svalbard as a primary destination requiring dedicated planning rather than a casual add-on.
+- Set clear budget expectations for Svalbard, as it is a premium destination.
+- Emphasize the extreme weather conditions and necessity of guided tours.
 
 ## Planning Rule
 

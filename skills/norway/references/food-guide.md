@@ -28,11 +28,11 @@
 - Cinnamon buns, waffles, and bakery culture for low-friction travel days.
 - Brown cheese, fish soup, and simple cabin or mountain food where appropriate.
 
-## Trap Avoidance
+## Key Success Factors
 
 - A full restaurant plan every day can crush the budget fast.
 - Scenic-route villages may have fewer good options than the view suggests.
-- Do not assume late-night food flexibility outside Oslo, Bergen, or larger hubs.
+- Plan for limited late-night dining options outside Oslo, Bergen, or larger hubs.
 
 ## Rule
 

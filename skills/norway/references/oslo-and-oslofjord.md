@@ -25,12 +25,12 @@
 
 - Drammen, Fredrikstad, or short Oslofjord towns suit easy summer add-ons.
 - For big scenic payoff, Bergen rail or Oslo to Flam style routing beats forcing a road trip around the capital.
-- Do not sell the Oslofjord as a substitute for the west-coast fjords.
+- Differentiate the Oslofjord from the dramatic west-coast fjords.
 
-## Trap Avoidance
+## Key Success Factors
 
-- Avoid renting a car just to "have flexibility" in central Oslo. Parking cost and urban friction usually erase the benefit.
-- Do not overbook museums on arrival day if the user is coming off a long-haul flight.
+- Use public transit in central Oslo, as parking and urban friction outweigh the flexibility of a rental car. Parking cost and urban friction usually erase the benefit.
+- Keep arrival day schedules light if the user is coming off a long-haul flight.
 - Winter daylight is limited; stack indoor culture and early dinners, not long scenic side quests.
 
 ## Planning Rule

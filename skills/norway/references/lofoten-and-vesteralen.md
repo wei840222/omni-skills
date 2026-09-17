@@ -13,7 +13,7 @@
 | First-time summer scenic trip | Lofoten with one or two bases |
 | More space and lower crowd pressure | Add Vesteralen |
 | Winter aurora without extreme self-drive | Consider Tromso first |
-| Fast Norway sampler | Avoid forcing Lofoten into a short south-Norway trip |
+| Fast Norway sampler | Allocate dedicated time for Lofoten rather than rushing it into a short south-Norway trip |
 
 ## Stay Strategy
 
@@ -33,11 +33,11 @@
 - Weather can erase mountain visibility even in peak season.
 - Restaurants and logistics are more limited outside the main villages and larger bases.
 
-## Trap Avoidance
+## Key Success Factors
 
-- Do not overpack iconic stops across the whole archipelago in too few days.
-- Avoid selling winter self-drive casually to users with no snow experience.
-- Do not assume every beautiful image location is a low-effort stop.
+- Pace iconic stops across the archipelago to allow adequate time at each.
+- Require confirmed snow driving experience for winter self-drive plans to users with no snow experience.
+- Verify the effort and accessibility of image locations.
 
 ## Planning Rule
 

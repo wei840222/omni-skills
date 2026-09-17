@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to visit Oslo, Bergen, Lofoten, and Tromso in 7 days in January. Should I rent a car?",
+    "expected": "The skill should load reference files (e.g., winter driving, route logic), flag this route as unfeasible (Arctic/Fjord overreach), advise against cramming all four locations in a short time, and recommend narrowing down to a single corridor. It should also provide warnings about winter driving for inexperienced drivers.",
+    "actual": "I loaded the Norway skill references for regions and winter driving. Based on core rules, attempting to cover Oslo, Bergen, Lofoten, and Tromso in 7 days is considered severe route overreach, especially in January when daylight is limited and weather is volatile. Renting a car in January is strongly discouraged unless you have significant snow-road experience. I recommend focusing on one corridor, such as Tromso for winter activities (aurora), and using flights or ferries rather than a rental car for long distances.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What documents do I need as a US citizen traveling to Norway next summer?",
+    "expected": "The skill should load entry-and-documents.md, explain the 90-day Schengen rule, and tell the traveler to verify current EES/ETIAS requirements for their passport and dates rather than relying on a fixed historical launch month.",
+    "actual": "I loaded `references/entry-and-documents.md`. As a US citizen, you can enter Norway (and the Schengen Area) visa-free for up to 90 days within any 180-day period. Before summer travel, re-check official EES/ETIAS status for your passport and trip dates; do not treat an old mid-2025 launch note as current proof of what will be required.",
+    "pass": true
+  }
+]

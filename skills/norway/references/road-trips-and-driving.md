@@ -28,7 +28,7 @@ Norway road trips look short on the map and slow in real life.
 
 - AutoPASS, toll billing, ferries, fuel, and one-way fees can change route value.
 - Electric-car economics can be good, but only if charging stops suit the route and accommodation.
-- Do not assume every scenic area has friction-free parking at the exact viewpoint or trailhead.
+- Check parking availability and logistics at scenic areas at the exact viewpoint or trailhead.
 
 ## Best Practices
 

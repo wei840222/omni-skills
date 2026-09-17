@@ -33,11 +33,11 @@
 - Summer demand pushes up prices fast, especially for central hotels and top excursions.
 - Narrow roads, ferries, and tunnel-heavy driving reduce average speeds more than map distance suggests.
 
-## Trap Avoidance
+## Key Success Factors
 
-- Do not promise crystal-clear fjord views every day; cloud and rain are part of the region.
-- Avoid cruise-style day counts copied from social media reels.
-- Do not combine Bergen, Flam, Geiranger, and Stavanger in a short trip without cutting depth.
+- Prepare users for cloudy and rainy weather alongside clear fjord views; cloud and rain are part of the region.
+- Use realistic, pacing-appropriate day counts copied from social media reels.
+- Select a subset of Bergen, Flam, Geiranger, and Stavanger for short trips to maintain depth.
 
 ## Planning Rule
 

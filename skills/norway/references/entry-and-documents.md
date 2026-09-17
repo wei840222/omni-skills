@@ -2,7 +2,7 @@
 
 ## Route the Legal Basics First
 
-- Norway is in Schengen but not in the EU. Do not assume EU shopping, roaming, customs, and identity rules are all identical.
+- Norway is in Schengen but not in the EU. Verify specific Norwegian rules for shopping, roaming, customs, and identity, as they differ from the EU.
 - Start with UDI for the actual stay pathway: visa-free visitor, visitor visa, family visit, or another status.
 - For many non-EU travelers, the real constraint is the Schengen 90-in-180 rule, not just "Can I enter Norway?"
 - For EU, EEA, and Nordic travelers, entry is usually simpler, but ID and airline documentation still matter.
@@ -40,3 +40,8 @@
 - Booking Svalbard as if it were just another domestic city break.
 - Assuming airline staff will accept expired ID or damaged passports because the traveler is staying inside Europe.
 - Leaving visa checks until the week of departure.
+
+
+### Border-system changes to re-check before booking
+- **EES (Entry/Exit System):** Schengen is moving non-EU border processing toward automated entry/exit records instead of only passport stamps. Confirm current rollout status for the traveler's airports and dates before promising stamp-based advice.
+- **ETIAS:** Visa-exempt non-EU travelers should verify whether ETIAS travel authorisation is required for their passport and travel window before buying non-refundable tickets. Do not rely on a fixed launch month from old notes; check official EU/UDI guidance for the trip dates.
