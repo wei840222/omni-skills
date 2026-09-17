@@ -68,7 +68,7 @@ Depth on demand: `references/debug.md` symptom→cause chains · `references/pro
 ## Core Rules
 
 1. **Style field describes; lyrics field gets sung.** Genre words typed into the lyrics box become sung words ("upbeat pop song" turns into the opening line). Sound goes in the style field, words in the lyrics field, structure in `[bracketed]` tags on their own lines.
-2. **Each generation is sampling, not drafting.** One run returns two clips from the same prompt — two rolls, not a draft and a revision. When a roll lands, save its exact style string to `references/memory.md` and reuse it verbatim; rewording a working prompt resets the odds.
+2. **Each generation is sampling, not drafting.** One run returns two clips from the same prompt — two rolls, not a draft and a revision. When a roll lands, save its exact style string to `<state_root>/suno/memory.md` and reuse it verbatim; rewording a working prompt resets the odds.
 3. **Pick the method by situation.**
 
    | Situation | Method |
