@@ -40,7 +40,7 @@ After recovery:
 
 ## Red Flags
 
-- Recovery plans that have never been tested in a real restore.
+- Recovery plans that lack verification in a real restore.
 - Shared admin credentials across environments.
 - Policy updates without pre-change snapshots.
 - Replication enabled without versioning checks.

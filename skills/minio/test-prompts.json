@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new MinIO bucket called 'data-backups' and configure it for versioning.",
+    "expected": "Uses mc mb to create the bucket and mc version enable to turn on versioning, then documents the state.",
+    "actual": "Ran `mc mb myminio/data-backups` successfully. Enabled versioning with `mc version enable myminio/data-backups`. Updated `<state_root>/minio/buckets.md` to reflect the new bucket and its versioning status.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create an IAM policy for the 'data-backups' bucket that only allows read access, then apply it to a user named 'backup-reader'.",
+    "expected": "Creates a scoped read-only policy using JSON, creates the user, applies the policy, and verifies.",
+    "actual": "Created policy JSON granting s3:GetObject and s3:ListBucket on arn:aws:s3:::data-backups and arn:aws:s3:::data-backups/*. Ran `mc admin policy create myminio backup-read backup-read-policy.json`. Ran `mc admin user add myminio backup-reader <password>`. Ran `mc admin policy attach myminio backup-read --user backup-reader`. Verified with `mc admin user info myminio backup-reader`. Recorded in `<state_root>/minio/identities.md`.",
+    "pass": true
+  }
+]

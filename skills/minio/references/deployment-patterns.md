@@ -31,7 +31,7 @@ Before cutover:
 ## Networking Guardrails
 
 - Keep east-west traffic predictable between storage nodes.
-- Avoid mixed latency paths inside one distributed set.
+- Maintain uniform latency paths inside one distributed set.
 - Monitor packet loss and clock skew continuously.
 
 ## Change Rollout Strategy
@@ -41,5 +41,5 @@ Use progressive rollout:
 2. Validate reads, writes, policies, and lifecycle behavior.
 3. Expand by workload class, not by all buckets at once.
 
-Stop rollout immediately if validation fails.
+Halt rollout immediately if validation fails.
 Fix root cause before resuming.
