@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm setting up a new Zigbee network and want to ensure good coverage. I have a coordinator and several battery-powered motion sensors. What should I do first?",
+    "expected": "Advises pairing routers (mains-powered devices) before the battery sensors to establish a strong mesh backbone, since battery devices don't route.",
+    "actual": "Loaded mesh guidance, told the user battery sensors are end nodes only, and required pairing always-on routers first to build the backbone before adding motion sensors.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My Zigbee network is experiencing intermittent delays and my coordinator is on channel 11. My home WiFi is also heavily used. How should I resolve the interference?",
+    "expected": "Identifies that Zigbee channel 11 overlaps with common WiFi channels and recommends changing the Zigbee channel (e.g., to 25) to avoid the 2.4GHz WiFi overlap, noting that this will require re-pairing devices.",
+    "actual": "Loaded interference guidance, explained channel 11 often collides with Wi-Fi channel 1, recommended a planned move toward a less overlapping channel such as 25, and warned that a channel change usually forces mass re-pairing.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Will this wall switch still control the bulbs if Home Assistant reboots? Should I use a group or a bind?",
+    "expected": "Prefers binding for direct switch-to-bulb control that can survive coordinator reboot; explains groups need the coordinator path for hub-originated fan-out.",
+    "actual": "Loaded binding-and-groups guidance, recommended binding for reboot-survivable local control when the devices support it, and kept groups for hub-owned scenes.",
+    "pass": true
+  }
+]
