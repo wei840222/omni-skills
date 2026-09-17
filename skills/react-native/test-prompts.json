@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a generic React Native component to display a list of 100 users, and ensure they are rendered correctly.",
+    "expected": "Uses FlatList instead of ScrollView with map for performance on large lists, and provides a stable unique string for keyExtractor.",
+    "actual": "I will create a UserList component using React Native. To efficiently render a list of 100 users, I will use a `FlatList` component rather than a `ScrollView` with `.map()`, as `FlatList` virtualizes the items and keeps memory usage low. I will also ensure the `keyExtractor` prop returns a stable, unique string (like a user ID) instead of the array index to prevent rendering bugs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need to fetch remote images for a product catalog. What are the best practices for caching and sizing in React Native?",
+    "expected": "Advises using react-native-fast-image for persistent caching and notes that local images need explicit dimensions while remote images can use an aspect ratio if one dimension is set.",
+    "actual": "When fetching remote images in React Native, it is recommended to use `react-native-fast-image` since the default `Image` component lacks persistent caching. Additionally, while local images require explicit dimensions, remote images can use an aspect ratio provided that at least one dimension is explicitly set. Finally, use `resizeMode` appropriately (e.g. `cover`, `contain`) based on your UI needs.",
+    "pass": true
+  }
+]
