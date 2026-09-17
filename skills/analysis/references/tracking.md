@@ -10,7 +10,7 @@ One audit is a snapshot; the value is in the second one. This file is what makes
 
 Date, mode, phases actually run, counts by severity, findings opened, findings closed, fixes applied with their verification result, and phases skipped with the reason. The last field is what keeps history honest: a run that skipped three phases and found nothing is not a clean run, and six months later nobody will remember why the numbers dipped.
 
-Full evidence blobs do not belong in the run row — keep them for one cadence period at most, then drop to counts. The row is a time series; the details live in the findings and the artifacts.
+Full evidence blobs are excluded from the run row — keep them for one cadence period at most, then drop to counts. The row is a time series; the details live in the findings and the artifacts.
 
 ## Comparability
 
@@ -18,15 +18,15 @@ Two runs are comparable only if they covered the same phases with the same thres
 
 - Record the mode and the phase list on every row.
 - When a threshold changes (`memory_budget_mb`, `secret_rotation_days`, `max_findings_shown`), write the change as its own row with no counts. A step in the trend that came from a threshold edit, unlabelled, is a trap for whoever reads the graph next quarter.
-- Never compare a targeted run against a full one. Report the phase list in the header, and refuse the comparison out loud rather than producing a misleading delta.
+- Compare only comparable runs. Report the phase list in the header, and refuse the comparison out loud rather than producing a misleading delta.
 
 ## Recurrence
 
 | Pattern | Meaning | Action |
 |---|---|---|
-| Same finding, 2 consecutive runs | The fix did not stick, or it was never a real problem | Escalate one severity and fix the generator, or move to `## Accepted` (SKILL.md Rule 6) |
+| Same finding, 2 consecutive runs | The fix did not stick, or it was an inaccurate signal | Escalate one severity and fix the generator, or move to `## Accepted` (SKILL.md Rule 6) |
 | Same finding, 3 times in 90 days | Systemic: something recreates it | Fix the source — the template, the habit, the job that rewrites the file — and say so in the finding |
-| Whole category clean for 3 consecutive full runs | The checks are cheap insurance, not a live area | Drop that phase to half cadence; do not delete the checks |
+| Whole category clean for 3 consecutive full runs | The checks are cheap insurance, not a live area | Drop that phase to half cadence; retain the checks |
 | A finding that appears only after a specific event (a deploy, a machine change) | Not periodic, conditional | Attach the trigger to the finding; run the phase on that event rather than on the calendar |
 | A finding closed and reopened three times | The two sides disagree about what "fixed" means | Write the verification criterion into the finding itself |
 
@@ -34,12 +34,12 @@ Two runs are comparable only if they covered the same phases with the same thres
 
 ## Acceptance
 
-An acceptance row has five fields and is useless without all five: the rule or check it suppresses, the **scope** (a path glob, a slug, a job name — never "that file that day"), the reason in the user's words, the date, and a review date.
+An acceptance row has five fields and is useless without all five: the rule or check it suppresses, the **scope** (a path glob, a slug, a job name — such as a path glob or a check id), the reason in the user's words, the date, and a review date.
 
 - Default review interval: 90 days, or `secret_rotation_days`, or the credential's own expiry — whichever is soonest.
-- On every run, acceptances past their review date are **raised, not honored**. One line each: "accepted on <date>, review due — still true?" That single behavior is what stops the acceptance list from becoming a permanent blind spot.
+- On every run, acceptances past their review date are **raised**. One line each: "accepted on <date>, review due — still true?" That single behavior is what prevents the acceptance list from becoming a permanent blind spot.
 - Scope creep is the failure mode: an acceptance written for one file that ends up matching a directory. When a suppression starts hiding more than three findings, it is too broad and gets split.
-- An acceptance is never a deletion. The check keeps running; the finding is filed rather than shown, and it still appears in the counts as suppressed.
+- An acceptance is not a deletion. The check keeps running; the finding is filed rather than shown, and it still appears in the counts as suppressed.
 
 ## False-Positive Rate
 

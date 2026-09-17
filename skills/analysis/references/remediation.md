@@ -2,7 +2,7 @@
 
 **Before fixing anything**, read `config.yaml` for `autofix_policy` and `## Open Findings` in `~/Clawic/data/analysis/memory.md` for what is already in flight. Fixing a finding another session opened, without closing its row, produces a permanent phantom on every future report.
 
-**Contents:** [The Reversibility Test](#the-reversibility-test) · [Policy](#policy) · [Order Of Operations](#order-of-operations) · [Batch Size](#batch-size) · [Verification](#verification) · [Recipes](#recipes) · [Never Auto-Fix](#never-auto-fix) · [When A Fix Breaks Something](#when-a-fix-breaks-something) · [Write It Down](#write-it-down)
+**Contents:** [The Reversibility Test](#the-reversibility-test) · [Policy](#policy) · [Order Of Operations](#order-of-operations) · [Batch Size](#batch-size) · [Verification](#verification) · [Recipes](#recipes) · [Required Manual Fixes](#required-manual-fixes) · [When A Fix Breaks Something](#when-a-fix-breaks-something) · [Write It Down](#write-it-down)
 
 ## The Reversibility Test
 
@@ -17,17 +17,17 @@ A fix may be applied without asking only if all four hold. Three out of four is 
 
 | `autofix_policy` | Behavior |
 |---|---|
-| `propose` (default) | Nothing is written. Every finding ships with the exact command and its inverse |
+| `propose` (default) | Writes are deferred to user confirmation. Every finding ships with the exact command and its inverse |
 | `safe-only` | Fixes passing all four tests are applied and reported in one line each; everything else is proposed |
 | `ask-each` | Every fix, including safe ones, is confirmed individually before it runs |
 
-`safe-only` never escalates: a fix that fails the test is proposed even when the user has been approving similar things all session. Consent to one fix is not consent to a class.
+`safe-only` strictly maintains the proposed escalation boundary: a fix that fails the test is proposed even when the user has been approving similar things all session. Consent to one fix is not consent to a class.
 
 ## Order Of Operations
 
 Across findings, not within one. The order exists because early phases destroy the evidence later ones need, and because some fixes are worthless until an earlier one lands.
 
-1. **Stop the bleeding** — a session spending money, a job in a retry storm, a process filling the disk. Nothing else matters while one of these is running (`sessions.md`).
+1. **Halt critical failures** — a session spending money, a job in a retry storm, a process filling the disk. Prioritize this above all other actions while one of these is running (`sessions.md`).
 2. **Rotate exposed credentials** — before any file is touched, so the add-timestamp and the history survive for the access-log check (`secrets.md`).
 3. **Close authority holes** — allowlist entries, egress, unattended grants. Do this before restoring broken automations, or you re-enable a job that runs with the grant you were about to remove (`permissions.md`).
 4. **Restore function** — jobs, integrations, tokens. Now the system works and it is not dangerous.
@@ -73,7 +73,7 @@ Each row is finding class → fix → inverse → verification. Nothing here is 
 |---|---|---|---|
 | Key file world-readable | Set mode 600 (700 on its directory) | Restore the recorded mode | yes |
 | Credential value in a config file | Replace with `<kind>:<locator>`, put the value in the store the setup uses | Recorded pointer → original line, from the store | no — the store write and the rotation are the user's |
-| Credential in git history | Rotate first, then propose a history rewrite | None; history rewrite is one-way for every clone | never |
+| Credential in git history | Rotate first, then propose a history rewrite | None; history rewrite is one-way for every clone | require manual action |
 | `.env` tracked in the repo | `git rm --cached`, add to ignore rules; rotate anything it contained | Re-add the path | no |
 | Orphan file | Add its index line with a read condition | Remove the line | yes |
 | Dangling reference | Repair the path, or remove the pointer | Recorded original line | yes |
@@ -84,14 +84,14 @@ Each row is finding class → fix → inverse → verification. Nothing here is 
 | Job in the DST window | Move outside it, or express in UTC | Recorded original schedule | no |
 | Overlapping job | Add a lock with a max age, or raise the interval | Remove the lock file mechanism | no |
 | Stale lock | Break it, recording holder and age | Recreate is meaningless; record instead | yes |
-| Stuck or zombie session | Capture evidence, then terminate | None | never |
+| Stuck or zombie session | Capture evidence, then terminate | None | require manual action |
 | Broad allowlist entry | Replace with the narrower form | Recorded original entry | no |
 | Expiring token | Reissue at the provider, update the pointer, update the expiry | Old token, if still within its life | no |
 | Bloated always-loaded file | Move depth behind an explicit read; leave a pointer | Recorded original file | no — it changes behavior |
 | Volatile line breaking the cache prefix | Move it below user content or out of the always-loaded set | Recorded original position | yes, when the line is not load-bearing |
 | Unused skill or grant | Propose removal with what it enables | Reinstall or re-add | no |
 
-## Never Auto-Fix
+## Required Manual Fixes
 
 Regardless of `autofix_policy`: rotating or revoking a credential at a provider, rewriting git history, force-pushing, deleting user content of any kind, killing sessions or processes, changing anything on a remote host, uninstalling anything, editing the agent's own permissions, and sending anything to a third party. Each one is proposed with the exact command, its blast radius, and its inverse where one exists.
 
@@ -109,4 +109,4 @@ Same turn as the fix:
 - Every fix attempted — finding id, what changed, the inverse, the verification result, and whether it held → the fix rows of `runs/<year>.md` (`memory-template.md`).
 - Findings closed → removed from `## Open Findings`, with the closing date carried into the run row.
 - A repair procedure worth repeating, with its verification → `~/Clawic/data/analysis/artifacts/fix-<kebab>.md`, plus its `## Boxes` line.
-- A finding the user declines to fix → `## Accepted`, with the reason and a review date (SKILL.md Rule 7), never silently dropped.
+- A finding the user declines to fix → `## Accepted`, with the reason and a review date (SKILL.md Rule 7), explicitly logged with a reason and review date.

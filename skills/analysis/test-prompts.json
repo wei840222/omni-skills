@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Run a quick health check on the agent's setup and tell me what you find.",
+    "expected": "The agent loads `<state_root>/analysis/config.yaml` and `memory.md`, runs checks on the current setup (workspace files, config), and outputs a summary of findings (or confirming a clean state) without altering files by default (due to autofix_policy: propose).",
+    "actual": "Opened `<state_root>/analysis/config.yaml` and found default configuration. Proceeded to run quick checks on the agent workspace and configuration. No exposed credentials found. Two unindexed scratch files were found in the workspace. Identified these as findings but did not modify them, in line with the propose policy. Logged the findings to `<state_root>/analysis/memory.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I think there might be an exposed API token in my memory directory, please audit it and fix it if it's safe.",
+    "expected": "The agent scans the memory directory for credentials. Finding a token, it checks the policy. It does not blindly delete the token or rotate it at the provider, but suggests a safe remediation path (like stripping the value and saving a pointer) or follows safe-only if configured.",
+    "actual": "Scanned `<state_root>/` for high-entropy strings and credential prefixes. Found what appears to be a GitHub token in `agent-memory.md`. `autofix_policy` is `propose`. I have recorded this as a critical finding. I did not rewrite the file. I have proposed a remediation command to replace the token with a `<kind>:<locator>` pointer and rotate the token on GitHub.",
+    "pass": true
+  }
+]
