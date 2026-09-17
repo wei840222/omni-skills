@@ -1,6 +1,6 @@
 # Setup - MinIO Operations
 
-Use this when `~/Clawic/data/minio/` does not exist or is empty.
+Use this when `<state_root>/minio/` does not exist or is empty.
 Keep setup lightweight and answer the active request first.
 
 ## Your Attitude
@@ -13,7 +13,7 @@ Prioritize data safety, access correctness, and reversible execution.
 Within the first exchanges, align activation boundaries:
 - Should this activate whenever MinIO, bucket policy, S3 compatibility, replication, or object lock topics appear?
 - Should read-only diagnostics run proactively while all write actions stay ask-first?
-- Are there environments where this skill should never auto-activate?
+- Are there specific environments where this skill should remain deactivated?
 
 ## Environment Snapshot
 
@@ -23,7 +23,7 @@ Capture only decision-changing context:
 - data criticality and acceptable recovery point/recovery time expectations
 - preferred toolchain (`mc`, console, or mixed execution)
 
-Avoid long questionnaires. Gather context while working on real tasks.
+Keep questionnaires brief. Gather context while working on real tasks.
 
 ## Execution Defaults
 
@@ -48,12 +48,12 @@ Keep notes concise and operational.
 Use status values from `memory-template.md`:
 - `ongoing` when context is still evolving
 - `complete` when environment and approval behavior are stable
-- `paused` when setup prompts should stop temporarily
-- `never_ask` when setup prompts should not be used
+- `paused` when setup prompts should pause temporarily
+- `silent` when setup prompts are bypassed
 
 ## Guardrails
 
-- Never run destructive object or bucket operations without explicit approval.
-- Never assume policy inheritance; verify effective access before and after changes.
-- Never treat command success as full success without data-path verification.
-- Never store secrets, access keys, or tokens in local memory files.
+- Require explicit approval before running destructive object or bucket operations.
+- Verify effective access before and after changes instead of assuming policy inheritance.
+- Treat command success as partial success until data-path verification confirms it.
+- Store only safe operational metadata in local memory files, omitting secrets and keys.

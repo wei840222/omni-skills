@@ -1,6 +1,6 @@
 # Memory Template - MinIO Operations
 
-Create `~/Clawic/data/minio/memory.md` with this structure:
+Create `<state_root>/minio/memory.md` with this structure:
 
 ```markdown
 # MinIO Operations Memory
@@ -50,12 +50,12 @@ integration: pending | done | declined
 | `ongoing` | Context still evolving | Keep collecting context during normal work |
 | `complete` | Core environment context is stable | Execute quickly with minimal clarification |
 | `paused` | User paused setup prompts | Continue tasks using existing context |
-| `never_ask` | User does not want setup prompts | Do not ask setup questions unless requested |
+| `silent` | User bypassed setup prompts | Proceed without setup questions unless requested |
 
 ## Memory Principles
 
 - Keep entries factual and tied to operational decisions.
 - Replace stale assumptions instead of stacking contradictions.
 - Save reusable context only, not one-off task chatter.
-- Never store secrets, raw keys, or unrelated personal data.
+- Store only non-sensitive operational context and topology metadata.
 - Update `last` after each meaningful execution.

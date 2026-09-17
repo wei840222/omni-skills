@@ -1,47 +1,25 @@
 ---
 name: minio
-slug: minio
-version: 1.0.0
-description: Deploy, secure, and operate MinIO object storage using mc workflows, policy controls, replication, and incident-safe runbooks.
-homepage: https://clawic.com/skills/minio
-changelog: Initial release with MinIO deployment, policy, replication, and recovery playbooks for object storage operations.
+description: Deploy MinIO clusters, manage bucket lifecycles, and configure IAM policies using mc.
 metadata:
-  clawdbot:
-    emoji: 🗂️
-    requires:
-      bins:
-      - mc
-      - curl
-      - openssl
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/minio/
-    displayName: MinIO S3 (Object Storage)
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/minio/
+  openclaw: '{"emoji": "🗂️","requires": {"bins": ["mc","curl","openssl"],"config": ["<state_root>/minio/"]},"configPaths": ["<state_root>/minio/"]}'
+  related-skills: '{"s3": "S3-compatible object storage workflows across providers when MinIO is one backend among several.","cloud-storage": "Broader storage architecture for mixed cloud and local environments beyond MinIO operations.","backups": "Backup verification and restore-first practices that complement MinIO durability controls.","infrastructure": "Infrastructure planning baselines when MinIO is part of a wider platform footprint.","docker": "Containerized deployment and service lifecycle when MinIO runs as containers."}'
 ---
 
 ## Setup
 
-On first use, read `setup.md` to align activation boundaries, environment defaults, and write-approval rules before mutating buckets, policies, or replication.
+On first use, read `references/setup.md` to align activation boundaries, environment defaults, and write-approval rules before mutating buckets, policies, or replication.
 
-## When to Use
+## When to load
 
-Use this skill when the user needs MinIO deployment, bucket lifecycle operations, access policy work, object retention planning, or incident recovery.
-
-Use this for single-node labs, distributed production clusters, S3-compatible migration tasks, and operational troubleshooting where data durability and access correctness are critical.
+Load this skill when the user asks to install MinIO, configure MinIO buckets, write IAM policies for MinIO, or execute `mc` commands against an object storage cluster.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/minio/`. See `memory-template.md` for structure and status values.
+Memory lives in `<state_root>/minio/`. See `references/memory-template.md` for structure and status values.
 
 ```text
-~/Clawic/data/minio/
+<state_root>/minio/
 |-- memory.md              # Activation preferences and approval model
 |-- environments.md        # Endpoint map, topology, and region notes
 |-- buckets.md             # Bucket inventory, versioning, lifecycle, lock mode
@@ -55,11 +33,12 @@ Use the smallest file needed for the current task.
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and status model | `memory-template.md` |
-| Deployment and topology choices | `deployment-patterns.md` |
-| Bucket, IAM, and mc execution flow | `mc-operations.md` |
-| Hardening, backup, and disaster recovery | `hardening-dr.md` |
+| Setup and activation behavior | `references/setup.md` |
+| Memory structure and status model | `references/memory-template.md` |
+| Deployment and topology choices | `references/deployment-patterns.md` |
+| Bucket, IAM, and mc execution flow | `references/mc-operations.md` |
+| Hardening, backup, and disaster recovery | `references/hardening-dr.md` |
+| Official sources and version anchors | `references/sources.md` |
 
 ## Core Rules
 
@@ -72,7 +51,7 @@ Use the smallest file needed for the current task.
 - Confirm scope, expected impact, and rollback path before applying mutating actions.
 
 ### 3. Use Read-Then-Write mc Workflows
-- Start with read commands (`mc admin info`, `mc ls`, `mc policy ls`) before write commands.
+- Start with read commands (`mc admin info`, `mc ls`, `mc policy get` / listing) before write commands.
 - Keep command output snapshots so post-change verification can compare expected versus observed state.
 
 ### 4. Enforce Identity and Policy Least Privilege
@@ -81,24 +60,24 @@ Use the smallest file needed for the current task.
 
 ### 5. Protect Durability Features During Maintenance
 - Check versioning, object lock, retention mode, and replication health before major updates.
-- Never disable durability controls without a documented user-approved exception.
+- Maintain durability controls unless there is a documented user-approved exception.
 
 ### 6. Verify by API Behavior, Not Only Command Exit Codes
 - Confirm changes with independent checks: listing, object test writes (if approved), and policy simulation.
 - Treat partial success as failure until data path and auth path both validate.
 
 ### 7. Record Durable Context for Next Sessions
-- Update `~/Clawic/data/minio/` notes with environment constraints, safe defaults, and incident learnings.
-- Keep only reusable operational context, never secrets or raw credentials.
+- Update `<state_root>/minio/` notes with environment constraints, safe defaults, and incident learnings.
+- Keep only reusable operational context, omitting secrets or raw credentials.
 
-## Common Traps
+## Key Success Factors
 
-- Treating MinIO like generic S3 without checking deployment mode -> commands succeed but behavior differs in distributed setups.
-- Replacing policies without reading effective bindings -> accidental privilege expansion or lockout.
-- Enabling replication before validating versioning and time sync -> replication drift and conflict noise.
-- Running lifecycle expiration on active prefixes without dry checks -> unexpected object loss.
-- Skipping pre-change snapshots -> no reliable rollback path during outage response.
-- Assuming TLS is valid because endpoint is reachable -> clients fail later due to trust-chain mismatch.
+- Match commands to the real topology (single-node vs distributed) before mutating state.
+- Read effective policy bindings before replacing policies; keep a rollback snapshot.
+- Enable versioning and clock/time sync checks before replication.
+- Dry-check lifecycle expiration on active prefixes before applying.
+- Capture pre-change snapshots so outage response has a reliable rollback path.
+- Validate TLS trust chains independently of bare endpoint reachability.
 
 ## External Endpoints
 
@@ -117,7 +96,7 @@ Data that leaves your machine:
 - Optional documentation fetches from official MinIO docs.
 
 Data that stays local:
-- Operational context stored in `~/Clawic/data/minio/`.
+- Operational context stored in `<state_root>/minio/`.
 - Command planning notes, incident logs, and approved runbooks.
 
 This skill does NOT:
@@ -130,16 +109,3 @@ This skill does NOT:
 
 This skill can send data to MinIO endpoints and optional documentation endpoints when executing approved operations.
 Only install if you trust the configured MinIO infrastructure and its credential handling model.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `s3` - S3-compatible object storage workflows across providers
-- `cloud-storage` - Storage architecture patterns for mixed cloud and local environments
-- `backups` - Backup verification and restore-first operating practices
-- `infrastructure` - Infrastructure planning and production operations baselines
-- `docker` - Containerized deployment and service lifecycle operations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/minio
-- Latest version: https://clawic.com/skills/minio
