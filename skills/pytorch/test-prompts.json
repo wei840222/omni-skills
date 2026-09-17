@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a basic validation loop in PyTorch for an image classification model.",
+    "expected": "Includes model.eval(), torch.inference_mode(), and avoids accumulating gradients.",
+    "actual": "model.eval()\nwith torch.inference_mode():\n    for inputs, labels in val_loader:\n        inputs, labels = inputs.to(device), labels.to(device)\n        outputs = model(inputs)\n        loss = criterion(outputs, labels)",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm running out of GPU memory during my PyTorch training loop even though my batch size is small. What could be the issue?",
+    "expected": "Identifies common memory leaks such as appending raw tensors instead of .detach() or .item(), and missing optimizer.zero_grad().",
+    "actual": "The most common issue is accumulating the computational graph when tracking losses. Make sure to use `loss.item()` instead of `loss` when appending to a list, and ensure you are calling `optimizer.zero_grad()` before the backward pass.",
+    "pass": true
+  }
+]
