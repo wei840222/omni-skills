@@ -1,8 +1,8 @@
 # Memory Template — Suno
 
-`memory.md` holds what the agent OBSERVED; declared preferences (method, provider, plan, format, language) live in `config.yaml` (SKILL.md Configuration). An observation never overwrites a declared preference without user confirmation.
+`memory.md` holds what the agent OBSERVED; declared preferences (method, provider, plan, format, language) live in `config.yaml` (SKILL.md Configuration). Always confirm with the user before allowing an observation to update a declared preference without user confirmation.
 
-Create `~/Clawic/data/suno/memory.md` with this structure:
+Create `<state_root>/suno/memory.md` with this structure:
 
 ```markdown
 # Suno Memory
@@ -18,7 +18,7 @@ last: YYYY-MM-DD
 <!-- Vocal textures they pick when shown both clips -->
 
 ## Successful Prompts
-<!-- Exact style strings that landed — verbatim, never reworded -->
+<!-- Exact style strings that landed — verbatim, preserving exact wording -->
 <!-- Format: "prompt" -> result description -->
 
 ## Rejected Directions
@@ -44,7 +44,7 @@ last: YYYY-MM-DD
 
 ## Projects Folder
 
-For users with multiple songs per effort, create `~/Clawic/data/suno/projects/<name>.md`:
+For users with multiple songs per effort, create `<state_root>/suno/projects/<name>.md`:
 
 ```markdown
 # Project: [Name]
@@ -64,12 +64,12 @@ The per-song plan-tier line doubles as the rights record.
 
 ## Songs Folder
 
-Optional: `~/Clawic/data/suno/songs/` for downloaded audio, named `YYYY-MM-DD-<slugged-title>-vN.<ext>`.
+Optional: `<state_root>/suno/songs/` for downloaded audio, named `YYYY-MM-DD-<slugged-title>-vN.<ext>`.
 
 ## Principles
 
 - Learn preferences through creation, not interrogation
 - Save working prompts verbatim — rewording resets the odds (SKILL.md rule 2)
 - Note reactions to both clips of a run, not just the chosen one
-- Never store API keys in memory files
+- Keep API keys strictly in environment variables, excluded from memory files
 - Update `last` date on each session

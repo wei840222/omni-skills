@@ -34,11 +34,11 @@ Every reroll costs credits, so diagnose before regenerating. Each chain is order
 
 - Different melody on every chorus → chorus text differs between repeats; paste identical text.
 - Paired lines refuse to share a melody → syllable counts differ; even them out.
-- A structure tag gets skipped (`[Guitar Solo]` ignored) → tags steer, they don't command; regenerate or restructure — stacking more tags at the same spot makes output worse.
+- A structure tag gets skipped (`[Guitar Solo]` ignored) → tags steer probabilistic output; regenerate or restructure — stacking more tags at the same spot makes output worse.
 
 ## Endings and Length
 
-- Stops mid-phrase → no `[End]` cue (SKILL.md rule 4).
+- Halts mid-phrase → no `[End]` cue (SKILL.md rule 4).
 - Song shorter than wanted → version clip cap or thin lyrics padded out; build longer by extending (`extend.md`).
 - Outro rambles → put `[End]` directly after a 1-2 line `[Outro]`; for instrumentals `[Fade Out]` then `[End]`.
 
@@ -50,7 +50,7 @@ Every reroll costs credits, so diagnose before regenerating. Each chain is order
 ## Moderation Rejections
 
 - Rejected or silently altered → artist names, brand names, recognizable copyrighted lyric lines, or explicit terms. Credits are charged either way — pre-check every proper noun before submitting.
-- Personal names (birthday songs, dedications) pass; artist and brand names do not.
+- Personal names (birthday songs, dedications) pass; artist and brand names trigger blocks.
 - Repeated rejections with no obvious cause → submit lyrics with a bland style, then the style with bland lyrics, to isolate which half trips the filter.
 
 ## Extend Joins Sound Wrong

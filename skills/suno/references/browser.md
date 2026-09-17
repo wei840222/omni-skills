@@ -4,14 +4,14 @@
 
 - No API key configured, browser tool available
 - Testing prompts before spending API credits
-- Features hosted APIs don't expose: extend from timestamp, crop, personas, stems
+- Features exclusive to browser sessions: extend from timestamp, crop, personas, stems
 - User wants to listen and pick before downloading
 
 Use whatever browser automation tool the agent has (navigate, snapshot, type, click). Steps below are tool-agnostic.
 
 ## Login First
 
-Suno requires login to generate. If the create page redirects to login, pause automation and ask the user to complete login manually in the browser — never handle their credentials.
+Suno requires login to generate. If the create page redirects to login, pause automation and ask the user to complete login manually in the browser — instruct the user to input credentials themselves.
 
 ## Generate: Simple Mode
 
@@ -40,7 +40,7 @@ Full workflows with segment planning live in `extend.md` (long tracks, crop, Get
 ## Downloading
 
 - From library: three-dot menu on the song → Download → MP3 (paid tiers also expose WAV and stems where available)
-- Download soon after generation when automating; don't rely on page URLs staying valid across sessions
+- Download soon after generation when automating; expect page URLs to expire after the current session
 
 ## Credits and Limits (as of 2025 — verify at suno.com/account)
 

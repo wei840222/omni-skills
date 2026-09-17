@@ -5,9 +5,9 @@ When a song needs more than one clip delivers: past the version's clip cap, fixi
 ## Plan Before the First Run
 
 1. **Write the full lyrics first**, `[End]` included. Improvising lyrics segment-by-segment mid-build produces theme drift you can't fix later.
-2. **Mark segment boundaries at section seams** — end of a chorus, end of a bridge. Never mid-verse: the model finishes phrases badly when the handoff lands inside one.
+2. **Mark segment boundaries at section seams** — end of a chorus, end of a bridge. Ensure handoffs land outside verses to maintain clean phrase completion.
 3. **Budget the credits.** Each extend is one generation at full cost. Worked example: a 4-minute build ≈ 2 initial attempts + 3 extends = 5 runs, which exhausts a full free-tier day. Confirm the budget — or a paid plan — before starting.
-4. **Validate the core first.** Do not begin a multi-extend build until an opening clip already lands (SKILL.md Traps).
+4. **Validate the core first.** Validate the opening clip to ensure it lands before beginning a multi-extend build (SKILL.md Traps).
 
 ## The Extend Loop
 
@@ -15,7 +15,7 @@ When a song needs more than one clip delivers: past the version's clip cap, fixi
 2. Play it; note the timestamp where it degrades — melody drifts, mix collapses, vocal changes character.
 3. Extend **from the last good moment**, not the clip's end — everything after the chosen point is discarded and regenerated.
 4. In the extend's lyrics box, paste the next slice of the full lyrics with already-sung sections removed; leaving them in gets them sung twice.
-5. Keep the style string **byte-identical** across segments. Change it only for a planned section shift (final chorus gains "orchestral, big finish") — one deliberate delta, never a rewrite.
+5. Keep the style string **byte-identical** across segments. Change it only for a planned section shift (final chorus gains "orchestral, big finish") — one deliberate delta, maintain consistency without rewriting.
 6. Repeat until the `[End]` segment, then stitch with Get Whole Song.
 
 ## Crop and Replace

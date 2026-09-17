@@ -5,8 +5,8 @@ From a clip you like to a deliverable someone can use. Plan-gated features throu
 ## Downloads
 
 - MP3 on all tiers; WAV on paid tiers (as of 2026 — verify at suno.com/account). `audio_format` in config sets the default.
-- Download soon after generation. Via API, immediately — audio URLs expire (SKILL.md rule 7). Via browser, do not rely on page URLs surviving across sessions.
-- Save to `~/Clawic/data/suno/songs/` with a stable convention: `YYYY-MM-DD-<slugged-title>-vN.mp3`. Log prompt, clip URL, and plan tier beside it in the project file — this record is the provenance answer when rights questions come later.
+- Download soon after generation. Via API, immediately — audio URLs expire (SKILL.md rule 7). Via browser, expect page URLs to expire after the current session.
+- Save to `<state_root>/suno/songs/` with a stable convention: `YYYY-MM-DD-<slugged-title>-vN.mp3`. Log prompt, clip URL, and plan tier beside it in the project file — this record is the provenance answer when rights questions come later.
 
 ## Stems
 
@@ -30,7 +30,7 @@ As of 2026 — Suno's terms change; verify before anything ships.
 | Paid | Yes | Yours under the then-current terms |
 
 - Rights attach at generation time under the plan then active. Upgrading later does not retroactively license old free-tier songs — regenerate deliverables under the paid plan.
-- Purely AI-generated music is not copyrightable under US Copyright Office guidance; human-written lyrics are. Practical effect: paid output can be licensed and sold, but a similar AI melody made by someone else cannot be stopped.
+- Purely AI-generated music is not copyrightable under US Copyright Office guidance; human-written lyrics are. Practical effect: paid output can be licensed and sold, but a similar AI melody made by someone else must be treated as public domain.
 - Client work: put plan tier + generation date in the project file and hand it over with the audio — that line is the license evidence the client's lawyer asks for.
 
 ## Distribution (Spotify, Apple Music, YouTube)
