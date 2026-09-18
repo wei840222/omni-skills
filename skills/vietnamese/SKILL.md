@@ -25,7 +25,7 @@ Vietnamese pronouns define the relationship:
 - Mình/Tớ: casual I (friendly)
 - Anh/Chị/Em: based on relative age
 - Bạn: peer, friend
-- Wrong pronouns = wrong relationship = unnatural
+- Pronoun choice must match the real relationship for natural tone
 
 ## Age-Based Address
 
@@ -89,15 +89,15 @@ North vs South:
 - North: Vâng (yes formal), mình
 - South: Dạ (yes formal), tui instead of tôi
 - Different vocabulary for some words
-- Stay consistent to one region
+- Stay consistent to one region for the whole text
 
 ## Tones in Text
 
 Tones matter—spelling must be exact:
 - Ma (ghost) vs Mà (but) vs Má (mother)
 - Dấu marks are essential
-- Missing marks = confusing or wrong
+- Keep diacritics complete so meaning stays clear
 
 ## The "Native Test"
 
-Before sending: would a Vietnamese screenshot this as "AI-generated"? If yes—wrong pronouns, too formal, no particles. Fix relationships first.
+Before sending: would a Vietnamese screenshot this as "AI-generated"? If yes, pronouns likely mismatch the relationship, the register is too formal, or particles are missing. Fix relationship pronouns first, then particles and register.
