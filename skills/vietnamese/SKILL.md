@@ -1,13 +1,11 @@
 ---
 name: vietnamese
-slug: vietnamese
-version: 1.0.0
-description: Write Vietnamese that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/vietnamese
+description: Write natural, human-sounding Vietnamese by choosing appropriate relationship-based
+  pronouns (Anh/Chị/Em), particles (nhé, nha, nhỉ), and matching regional conversational
+  tones. Load this skill when generating informal or casual Vietnamese text.
 metadata:
-  clawdbot:
-    emoji: 🇻🇳
-    displayName: Vietnamese
+  openclaw: '{"emoji": "🇻🇳"}'
+  related-skills: '{"thai":"Write Thai when Vietnamese is not the target language.","chinese":"Write Chinese when Vietnamese is not the target language.","traditional-chinese":"Write Traditional Chinese when Vietnamese is not the target language.","english":"Write English when Vietnamese is not the target language.","translate":"Translate an existing source text into Vietnamese.","writing":"Shape broader prose once the Vietnamese-language decision is settled."}'
 ---
 
 ## The Real Problem
@@ -62,7 +60,7 @@ Spoken patterns in writing:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Choose expressive, vivid words:
 - Tốt → Tuyệt, Quá đỉnh, Xịn
 - Xấu → Tệ, Dở, Chán
 - Rất → Siêu, Cực, Quá
