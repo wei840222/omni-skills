@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Fix the undefined variable error in the UserProfile component based on this log.",
+    "expected": "Propose a PACT contract including an acceptance check, produce a minimal diff, and run the test to verify the fix.",
+    "actual": "Established PACT contract: define objective, write acceptance check (run component test). Applied surgical diff fixing the undefined variable. Reran test proving the fix. Delivered handoff summary.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Refactor the entire authentication module and also fix the layout issue on the login page.",
+    "expected": "Refuse to mix tasks. Propose separating into two focused contracts to keep diffs surgical.",
+    "actual": "Noted scope growth. Proposed splitting into two distinct contracts (one for auth module, one for layout fix) and asked user which to tackle first to maintain surgical diffs.",
+    "pass": true
+  }
+]

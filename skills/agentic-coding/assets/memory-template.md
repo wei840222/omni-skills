@@ -1,6 +1,6 @@
 # Memory Template - Agentic Coding
 
-Create `~/Clawic/data/agentic-coding/memory.md` with this structure:
+Create `<state_root>/agentic-coding/memory.md` with this structure:
 
 ```markdown
 # Agentic Coding Memory
@@ -35,7 +35,7 @@ integration: pending
 
 ## contracts.md Template
 
-Create `~/Clawic/data/agentic-coding/contracts.md`:
+Create `<state_root>/agentic-coding/contracts.md`:
 
 ```markdown
 # Active Contracts
@@ -50,7 +50,7 @@ Status: drafted | active | verified | blocked
 
 ## evidence.md Template
 
-Create `~/Clawic/data/agentic-coding/evidence.md`:
+Create `<state_root>/agentic-coding/evidence.md`:
 
 ```markdown
 # Validation Evidence
@@ -63,7 +63,7 @@ Residual risk: [low/medium/high + why]
 
 ## handoffs.md Template
 
-Create `~/Clawic/data/agentic-coding/handoffs.md`:
+Create `<state_root>/agentic-coding/handoffs.md`:
 
 ```markdown
 # Handoffs
@@ -83,4 +83,4 @@ Next action: ...
 | `ongoing` | Default | Keep collecting patterns |
 | `complete` | Context is stable | Use memory mostly for refresh |
 | `paused` | User wants minimal process | Keep only essential checks |
-| `never_ask` | User rejected integration prompts | Stop prompting and stay silent |
+| `opt_out_ask` | User rejected integration prompts | Maintain current workflow silently |
