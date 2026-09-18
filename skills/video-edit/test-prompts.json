@@ -1,0 +1,14 @@
+{
+  "prompts": [
+    {
+      "prompt": "I need to upscale an old 720p video to 4K and color grade it for a cinematic look.",
+      "actual": "I will load the video-edit skill. First, I'll upscale the 720p video to 4K using a tool like Topaz Video AI or Real-ESRGAN as recommended in the upscaling reference. After upscaling, I'll move on to color grading using DaVinci Resolve or Runway to achieve the cinematic look you're aiming for. Let's start by checking your current tools and setup.",
+      "score": 100
+    },
+    {
+      "prompt": "Can you remove the background from this clip and replace it with a space scene?",
+      "actual": "I will load the video-edit skill. To replace the background, I'll use video matting techniques (like Runway or rotobrush) to export the subject with an alpha channel. Then, I'll place the subject over the space scene, match the lighting and color, and composite shadows if necessary. Please provide the clip to get started.",
+      "score": 100
+    }
+  ]
+}

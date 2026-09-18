@@ -94,7 +94,7 @@ output = replicate.run(
 
 - **Denoise first** — upscaling amplifies noise
 - **Match content type** — anime models for anime
-- **Don't over-upscale** — 2x usually sufficient
+- **Maintain realistic upscaling** — 2x is usually sufficient
 - **Test segment** — render 10s before full video
 - **Storage** — upscaled video files are large
 

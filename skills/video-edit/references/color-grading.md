@@ -118,4 +118,4 @@ ffmpeg -i input.mp4 -vf "lut3d=look.cube" output.mp4
 - **Use scopes** — waveform, vectorscope, histogram
 - **Consistency** — match across scenes
 - **Skin tones** — protect during grading
-- **Don't over-process** — subtle usually wins
+- **Process subtly** — subtle adjustments usually win

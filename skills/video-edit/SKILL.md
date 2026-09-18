@@ -1,27 +1,21 @@
 ---
 name: video-edit
-slug: video-edit
-version: 1.0.0
-description: Edit videos with AI background removal, color grading, upscaling, stabilization, and enhancement tools.
-homepage: https://clawic.com/skills/video-edit
+description: Edit videos with AI tools for background removal, color grading, upscaling,
+  stabilization, and enhancement.
 metadata:
-  clawdbot:
-    emoji: 🎞️
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Video Editing
+  openclaw: '{"emoji": "🎞️"}'
 ---
 
 # AI Video Editing
 
-Help users edit and enhance videos with AI tools.
+**When to load:**
+- The user asks to edit, enhance, or process video files.
+- The user needs to remove a background, color grade, upscale, stabilize, or enhance audio.
 
 **Rules:**
 - Ask what edit they need: remove background, color grade, upscale, stabilize, enhance
-- Check technique files: `background-removal.md`, `color-grading.md`, `upscaling.md`, `stabilization.md`, `audio.md`, `effects.md`
-- Check `tools.md` for provider-specific setup
+- Check technique files: `references/background-removal.md`, `references/color-grading.md`, `references/upscaling.md`, `references/stabilization.md`, `references/audio.md`, `references/effects.md`
+- Check `references/tools.md` for provider-specific setup
 - Always work on copies, preserve originals
 
 ---
