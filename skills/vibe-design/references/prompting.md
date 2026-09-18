@@ -57,7 +57,7 @@ consistent [grid] grid --ar 1:1 --style raw
 - Clean, minimal, functional, structured
 - Design system, HIG, Material Design
 
-### Words to Avoid for UI
+### Suboptimal Words for UI
 - Beautiful, stunning, gorgeous (vague)
 - Fantasy, magical, dreamy (wrong domain)
 - Render, painting, illustration (art terms)

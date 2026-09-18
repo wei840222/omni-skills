@@ -32,7 +32,7 @@
 ### Resolution/Quality
 - "High resolution", "4K", "detailed"
 - "Sharp focus", "crisp details"
-- Avoid: "HD" (often ignored)
+- Skip: "HD" (often ignored)
 
 ### Lighting
 - "Soft lighting", "studio lighting"
