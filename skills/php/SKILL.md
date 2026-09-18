@@ -6,7 +6,7 @@ description: Writes, debugs, and reviews PHP code. Use when working with PHP 8+ 
   PHP. Not for framework internals (use laravel for Laravel).
 license: MIT
 metadata:
-    openclaw: '{"emoji": "🐘", "requires": {"bins": ["php"]}, "configPaths": ["<state_root>/php/"]}'
+  openclaw: '{"emoji": "🐘", "requires": {"bins": ["php"]}, "configPaths": ["<state_root>/php/"]}'
   related-skills:
   - skills/laravel
   - skills/mysql
