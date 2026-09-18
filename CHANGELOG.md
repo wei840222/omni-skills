@@ -1,4 +1,3 @@
-| multi-engine-web-search | 2026-09-08 | 85/100 (#316) |
 # Changelog
 
 ## Merged Skill Refactors
@@ -8,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| listen | 2026-09-19 | 85/100 (#477) |
 | boyfriend | 2026-09-18 | 85/100 (#476) |
 | screenshot | 2026-09-18 | 85/100 (#475) |
 | smart-home | 2026-09-18 | 85/100 (#474) |
