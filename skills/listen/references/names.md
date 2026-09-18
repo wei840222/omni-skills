@@ -1,18 +1,18 @@
 # Names — Proper Nouns, Casing, and Code Identifiers
 
-Proper nouns are where STT fails hardest: engines are trained on frequency, and names are rare by definition. Every play here rides on SKILL.md Rule 5 — the correction direction is common-word → proper-noun, almost never the reverse.
+Proper nouns are where STT fails hardest: engines are trained on frequency, and names are rare by definition. Every play here rides on SKILL.md Rule 5 — the correction direction is common-word → proper-noun, rarely the reverse.
 
 ## People
 
 - A garbled person name usually surfaces as a common word or a more frequent name ("Kowalski" → "co-worker", "Aisha" → "I should"). Candidate pool: contacts, prior conversations, names in the current thread.
-- Never silently normalize the spelling of a person's name ("Jon" → "John", "Sara" → "Sarah"). Variants are identities. First unknown name that will appear in writing or feed a recipient: confirm spelling once, then store it — `sara → Sara (person) | confirmed | <date>`.
+- Confirm spelling once before normalizing the spelling of a person's name ("Jon" → "John", "Sara" → "Sarah"). Variants are identities. First unknown name that will appear in writing or feed a recipient: confirm spelling once, then store it — `sara → Sara (person) | confirmed | <date>`.
 - Transliterated names have no single right form ("Mohammed/Muhammad/Mohamed") — the user's chosen form is in the lexicon or their contacts; absent both, ask once.
 - Names the engine split ("Anna Lise" → "analyse") or fused ("johnsmith") re-enter via re-segmentation (`repair.md`).
 
 ## Brands and Products
 
 - Engines lowercase and dictionary-ize brands: "github" → "get hub", "PostgreSQL" → "postgres sequel", "Figma" → "figure ma". Repair casing along with the token: the lexicon's right side stores canonical casing (GitHub, PostgreSQL, iPhone, macOS).
-- Camel-case brands (iPhone, eBay, LaTeX) never survive transcription — restoring casing is part of the repair, not a style choice.
+- Camel-case brands (iPhone, eBay, LaTeX) consistently lose casing during transcription — restoring casing is part of the repair, not a style choice.
 - A brand the user says daily belongs upstream in engine vocabulary biasing once it crosses the 5+ recurrence threshold (`tuning.md`).
 
 ## Code Identifiers
@@ -39,7 +39,7 @@ Spoken code arrives as prose. Reassemble by the conventions of the active codeba
 
 ## Codenames and the Never List
 
-- Project codenames are deliberately odd ("Bumblebee", "Krakatoa") and are exactly what a naive repairer destroys. One sighting in the user's world (repo name, doc title, their own confirmation) → add to the Never list so it is never flagged again.
+- Project codenames are deliberately odd ("Bumblebee", "Krakatoa") and are exactly what a naive repairer destroys. One sighting in the user's world (repo name, doc title, their own confirmation) → add to the Never list so it is exempted from future flagging.
 - The Never list is checked before flagging any token (`repair.md`), which makes it the cheapest accuracy win in this skill: one line prevents every future false repair of that name.
 
 ## Diacritics

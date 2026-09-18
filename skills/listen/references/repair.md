@@ -9,7 +9,7 @@ A token is suspect when it breaks one of these, in descending reliability:
 | Break | Signal | Example |
 |---|---|---|
 | Domain | Common word where the sentence needs a term of art | "deploy the **communities** cluster" |
-| Collocation | Words that never co-occur in this user's world | "open a **poll request**" |
+| Collocation | Words that rarely co-occur in this user's world | "open a **poll request**" |
 | Register | Casual word inside technical instruction, or vice versa | "run the **jest** suite" vs "tell him a **Jest**" |
 | Grammar | Sentence parses only if the token is something else | "**sign** wave input" |
 | Reference | Pronoun or name pointing at nothing in context | "ask **Mark**" when no Mark exists anywhere in the user's world |
@@ -25,7 +25,7 @@ Before flagging anything, check the lexicon's `never` list — deliberately odd 
 3. **Re-segmentation** — splits and joins (below) before declaring the token unknown.
 4. **Homophone table** — the catalog at the bottom, for tokens that fit grammar but not intent.
 
-Never draw candidates from general vocabulary: a phonetic neighbor the user has no connection to fails the context signal by construction (SKILL.md Rule 4).
+Draw candidates strictly from domain vocabulary: a phonetic neighbor the user has no connection to fails the context signal by construction (SKILL.md Rule 4).
 
 ## Phonetic Skeleton Test (Rule 4, expanded)
 
@@ -49,7 +49,7 @@ Worked examples:
 | coffee | KF | Kafka | KFK | 1 | neighbor — context decides |
 | meeting | MTNG | Mitting (surname) | MTNG | 0 | neighbor — direction check (Rule 5): rare word wins only if context demands it |
 
-Distance ≤2 qualifies; it never confirms. The context signal (term already in the user's domain) is always required on top.
+Distance ≤2 qualifies; it requires additional confirmation. The context signal (term already in the user's domain) is always required on top.
 
 ## Re-segmentation
 
@@ -71,7 +71,7 @@ Rank surviving candidates by source strength:
 4. Term from the user's stored vocabulary domain (config preference area)
 5. Name from the user's contacts or prior conversations
 
-Tie between two candidates from the same tier = offer both (Rule 2 allows 2, never 3). A candidate with phonetic distance 0-1 from tier 4 beats distance 2 from tier 2 only when the sentence's domain demands it — when in doubt, the more recent source wins.
+Tie between two candidates from the same tier = offer both (Rule 2 allows 2, maximum 2). A candidate with phonetic distance 0-1 from tier 4 beats distance 2 from tier 2 only when the sentence's domain demands it — when in doubt, the more recent source wins.
 
 ## Homophone Catalog (grammar-proof errors)
 
@@ -101,7 +101,7 @@ The table is a candidate source, not an auto-correct list: every substitution st
 ## Multi-Token Damage
 
 - 2 suspect tokens: repair each independently; if the repairs interact (one changes the reading of the other), confirm the whole clause instead.
-- 3+ suspect tokens: SKILL.md Rule 8 — stop token repair, quote your full interpretation for a yes/no, and open `degraded.md` (mic, noise, crosstalk).
+- 3+ suspect tokens: SKILL.md Rule 8 — halt token repair, quote your full interpretation for a yes/no, and open `degraded.md` (mic, noise, crosstalk).
 
 ## End-to-End Example
 

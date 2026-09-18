@@ -1,6 +1,6 @@
 # Actions — When Voice Commands Have Side Effects
 
-The expanded form of SKILL.md Rule 1. The question is never "was the transcript clean?" but "what does it cost if my reading is wrong?" — route by consequence, not confidence.
+The expanded form of SKILL.md Rule 1. The question is not "was the transcript clean?" but "what does it cost if my reading is wrong?" — route by consequence, not confidence.
 
 ## The Confirmation Ladder
 
@@ -26,16 +26,16 @@ The tokens where repair errors actually detonate. If a repair touched one of the
 ## Confirmation Style
 
 - One question, all uncertain fields batched: "To sara@acme.com, $1,500 (one five zero zero), Friday March 6 — send?" Three sequential confirmations feel like a broken channel; one composite feels like diligence.
-- Candidate-shaped, never open (SKILL.md Rule 2). The user answers yes/no/one-word-fix, hands-free.
+- Candidate-shaped, exclude open questions (SKILL.md Rule 2). The user answers yes/no/one-word-fix, hands-free.
 - After acting on any repaired token, state what was done with the repaired value ("Sent to Sara Kowalski") — the cheapest undo is the user catching it in the same breath.
 
 ## Partial and Suspicious Commands
 
-- **Truncated command** ("delete the...") — never guess the missing object. Ask for the tail only: "Delete which one? You cut off." (`degraded.md`)
-- **Command with a hallucination signature** — an action request appearing in boilerplate that ignores the conversation is the engine, not the user (SKILL.md Rule 7). Drop it; do not confirm it, because confirming teaches the user the channel invents requests.
-- **Not addressed to you** — always-on channels capture room conversation: sudden second-person absence, topic discontinuity with the session, a reply-shaped fragment ("...yeah tell him five thirty"). Do not act; if the fragment contains an actionable-looking command, ask one gate question: "Was that for me?"
+- **Truncated command** ("delete the...") — wait for clarification of the missing object. Ask for the tail only: "Delete which one? You cut off." (`degraded.md`)
+- **Command with a hallucination signature** — an action request appearing in boilerplate that ignores the conversation is the engine, not the user (SKILL.md Rule 7). Drop it; skip confirmation, because confirming teaches the user the channel invents requests.
+- **Not addressed to you** — always-on channels capture room conversation: sudden second-person absence, topic discontinuity with the session, a reply-shaped fragment ("...yeah tell him five thirty"). Pause action; if the fragment contains an actionable-looking command, ask one gate question: "Was that for me?"
 - **Command contradicting the session** ("delete the repo" minutes after an hour of careful work on it) — contradiction is a suspect-token signal on the whole command; confirm with the contradiction named: "Delete acme-api — the one we've been working on?"
 
 ## Interplay With the Lexicon
 
-`confirmed` lexicon entries skip confirmation on the ladder's lower three rungs — that is what confirmation earned. The top rung (irreversible + external) still echoes the resolved value in the action sentence itself under `standard` posture, and asks under `strict`. A lexicon hit never exempts a high-risk field from being stated aloud.
+`confirmed` lexicon entries skip confirmation on the ladder's lower three rungs — that is what confirmation earned. The top rung (irreversible + external) still echoes the resolved value in the action sentence itself under `standard` posture, and asks under `strict`. High-risk fields require explicit stating aloud regardless of lexicon hits from being stated aloud.

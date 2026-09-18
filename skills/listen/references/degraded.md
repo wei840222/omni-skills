@@ -1,10 +1,10 @@
 # Degraded — Noise, Hallucinations, and Truncation
 
-Token repair assumes a mostly-good transcript with local damage. This file covers the other regimes: transcripts the engine invented, lost, or shredded. The gate: 3+ suspect tokens in one message = stop token repair (SKILL.md Rule 8) and work at message level.
+Token repair assumes a mostly-good transcript with local damage. This file covers the other regimes: transcripts the engine invented, lost, or shredded. The gate: 3+ suspect tokens in one message = halt token repair (SKILL.md Rule 8) and work at message level.
 
 ## Hallucination Signatures
 
-Whisper-family models are trained on captioned web video; fed silence or noise, they emit training-set boilerplate instead of nothing. Recognize and drop — never interpret:
+Whisper-family models are trained on captioned web video; fed silence or noise, they emit training-set boilerplate instead of nothing. Recognize and drop — bypass interpretation:
 
 | Signature | Example | Cause |
 |---|---|---|
@@ -18,7 +18,7 @@ The danger case is a hallucination shaped like a request. A polite closing after
 
 ## Truncation
 
-- Message ends mid-clause ("and then delete the") — the audio was cut (push-to-talk released early, VAD timeout, network drop). Ask for the tail only: "You cut off after 'delete the' — which one?" Never ask for full re-dictation and never guess the missing object (`actions.md`).
+- Message ends mid-clause ("and then delete the") — the audio was cut (push-to-talk released early, VAD timeout, network drop). Ask for the tail only: "You cut off after 'delete the' — which one?" Bypass full re-dictation and wait for clarification of the missing object (`actions.md`).
 - Message STARTS mid-clause — leading truncation, usually capture starting late. Same play, mirrored: confirm what the head was.
 - Suspiciously short transcript for a long pause the user took: parts are missing silently. If the message is coherent but oddly minimal for the effort, say what you got and let the user fill the gap.
 
@@ -34,7 +34,7 @@ The danger case is a hallucination shaped like a request. A polite closing after
 1. Build your single best-effort reading of the whole message.
 2. Quote it back for one yes/no: "I got: 'restart the staging cluster after the backup finishes' — right?"
 3. On no: ask which part is wrong, not for re-dictation — the user corrects one span.
-4. Do not log lexicon pairs from a noise-storm message: the errors are acoustic, not lexical, and stored pairs from them poison future repairs.
+4. Exclude lexicon pairs from a noise-storm message: the errors are acoustic, not lexical, and stored pairs from them poison future repairs.
 
 ## Systematic Degradation
 
