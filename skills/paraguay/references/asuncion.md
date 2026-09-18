@@ -59,7 +59,7 @@ These are useful starting points. Verify current hours before promising a visit.
 
 - Asuncion works better with ride-hailing than with aggressive walking between scattered neighborhoods.
 - Heat hits hard. Put exposed walking before 11:00 or after 17:00.
-- Downtown can feel quiet at night outside specific pockets. Do not assume European-style evening street life.
+- Downtown can feel quiet at night outside specific pockets. Set expectations for quiet evening streets outside specific pockets.
 
 ## Traps
 

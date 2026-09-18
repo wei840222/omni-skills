@@ -34,7 +34,7 @@ Best for: balanced culture and leisure.
 | 6 | Countryside or mission overflow day |
 | 7-8 | Return buffer, optional San Bernardino stop if season fits |
 
-Best for: travelers who do not want border stress.
+Best for: travelers who prefer a relaxed pace without border logistics.
 
 ## 7 Days - East Corridor
 

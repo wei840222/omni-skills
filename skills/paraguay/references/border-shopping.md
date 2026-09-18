@@ -34,7 +34,7 @@ Paraguay border trips work when the user wants something specific: electronics, 
 
 ## Practical Safeguards
 
-- Never place a border crossing right before a non-refundable departure.
+- Schedule border crossings with ample buffer time before non-refundable departures.
 - Use ride-hailing or trusted taxis instead of improvising every move under time pressure.
 - Tell the traveler that customs and import rules change. This skill can guide strategy, not replace current legal checks.
 

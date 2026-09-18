@@ -7,7 +7,7 @@ Nightlife in Paraguay is concentrated, seasonal, and city-specific. Recommend it
 | Place | Best For | Notes |
 |-------|----------|-------|
 | Asuncion - Carmelitas / Villa Morra | Bars, dinner-to-drinks flow, polished night out | Best national default |
-| Asuncion - brewery and cafe pockets | Lower-key evenings | Better for travelers who do not want clubs |
+| Asuncion - brewery and cafe pockets | Lower-key evenings | Better for travelers who prefer a quieter evening without clubs |
 | Encarnacion summer waterfront | Warmer-weather movement and younger energy | More seasonal |
 | San Bernardino in season | Weekend and summer buzz | Works best in peak warm months |
 | Ciudad del Este | Functional, not a nightlife destination first | Keep expectations lower |
@@ -30,7 +30,7 @@ Nightlife in Paraguay is concentrated, seasonal, and city-specific. Recommend it
 ## Practical Notes
 
 - Use ride-hailing back to the hotel.
-- Do not oversell walkability between nightlife zones in Asuncion.
+- Describe the limited walkability between nightlife zones accurately.
 - Heat and storms can change the feel of open-air plans quickly.
 
 ## Traps

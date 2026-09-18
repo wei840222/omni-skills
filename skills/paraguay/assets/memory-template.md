@@ -18,7 +18,7 @@ Personal preferences for Paraguay travel. Update after each trip or planning con
 | Travel month | |
 | Heat tolerance | [ ] Low [ ] Medium [ ] High |
 | Driving comfort | [ ] No car [ ] Short drives only [ ] Comfortable self-drive |
-| Border comfort | [ ] Avoid [ ] Fine for day trip [ ] Happy to cross |
+| Border comfort | [ ] Skip [ ] Fine for day trip [ ] Happy to cross |
 | Language comfort | [ ] Spanish ok [ ] Needs English-friendly options |
 | Budget notes | |
 
@@ -28,7 +28,7 @@ Personal preferences for Paraguay travel. Update after each trip or planning con
 |------------|---------|
 | Dietary restrictions | |
 | Favorite dishes | |
-| Avoids | |
+| Skips | |
 | Coffee / terere / alcohol | |
 
 ## Visited Places
