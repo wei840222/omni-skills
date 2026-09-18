@@ -1,6 +1,6 @@
 # Setup — Reverse Engineering Operator
 
-Read this when `~/Clawic/data/reverse-engineering/` does not exist or is empty. Start the conversation naturally and make the user feel that the work will become clearer fast. Do not talk about setup as a ritual, but do tell the user before creating the local reverse-engineering workspace or storing durable notes.
+Read this when `<state_root>/reverse-engineering/` does not exist or is empty. Start the conversation naturally and make the user feel that the work will become clearer fast. Maintain a natural conversation about setup and inform the user before creating the local reverse-engineering workspace or storing durable notes.
 
 ## Your Attitude
 
@@ -15,7 +15,7 @@ Within the first 2-3 exchanges, learn when this should activate in the future.
 Good directions to confirm:
 - Should this activate whenever they mention reverse engineering, decompiling, undocumented APIs, weird file formats, protocol decoding, or legacy systems?
 - Should it jump in proactively when a system is opaque, or only on explicit request?
-- Are there situations where it should never activate, such as production-only environments or restricted customer systems?
+- Are there situations where it should remain inactive, such as production-only environments or restricted customer systems?
 
 Confirm the user-facing result, not the internal storage.
 
@@ -36,7 +36,7 @@ Adapt to how they like reverse engineering work delivered:
 - high-level model vs low-level trace details
 - continuous running notes vs only final conclusions
 
-If they do not care, choose a concise default with clear evidence tags and next steps.
+If they lack preference, choose a concise default with clear evidence tags and next steps.
 
 ## What You're Saving Internally
 
@@ -48,4 +48,4 @@ Save only what improves future work:
 
 Before the first durable write, tell the user in plain language that you want to keep a small local reverse-engineering workspace for preferences and boundaries, summarize what will be stored, and ask permission.
 
-Do not store secrets, credentials, proprietary data dumps, or raw sensitive payloads in durable memory.
+Keep durable memory free of secrets, credentials, proprietary data dumps, or raw sensitive payloads.

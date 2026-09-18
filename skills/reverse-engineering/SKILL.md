@@ -1,38 +1,21 @@
 ---
 name: reverse-engineering
-slug: reverse-engineering
-version: 1.0.0
-description: Reverse engineer binaries, APIs, protocols, and workflows with evidence ladders, interface maps, and falsifiable hypotheses.
-homepage: https://clawic.com/skills/reverse-engineering
-changelog: Adds a structured reverse engineering workflow with evidence tracking, interface mapping, and safer uncertainty handling.
+description: Reverse engineer undocumented systems. Map interfaces, test hypotheses,
+  and create evidence-backed behavioral models.
 metadata:
-  clawdbot:
-    emoji: 🧩
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/reverse-engineering/
-    displayName: Reverse Engineering
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/reverse-engineering/
+  openclaw: '{"emoji": "🧩", "requires": {"bins": []}}'
 ---
 
-## When to Use
+## When to load
 
-User needs to understand something opaque, undocumented, legacy, or partially broken. Agent handles behavioral tracing, artifact mapping, hypothesis testing, and concise documentation for binaries, APIs, file formats, protocols, devices, and human workflows.
+Load this skill when asked to analyze opaque, undocumented, legacy, or broken systems (binaries, APIs, file formats, protocols). Use progressive disclosure to load specific `references/` guides on demand rather than loading all documentation upfront.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/reverse-engineering/`. If `~/Clawic/data/reverse-engineering/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/reverse-engineering/`. If `<state_root>/reverse-engineering/` does not exist, run `references/setup.md`. See `references/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/reverse-engineering/
+<state_root>/reverse-engineering/
 ├── memory.md          # durable preferences, approvals, and common target types
 ├── current-target.md  # active engagement snapshot
 ├── targets/           # one file per target or system
@@ -45,13 +28,13 @@ Use these files on demand instead of loading the whole method every time.
 
 | Topic | File |
 |-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| TRACE protocol | `protocol.md` |
-| Confidence model | `evidence-ladder.md` |
-| Surface mapping | `interface-map.md` |
-| Deliverable templates | `deliverables.md` |
-| Safety boundaries | `boundaries.md` |
+| Setup guide | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| TRACE protocol | `references/protocol.md` |
+| Confidence model | `references/evidence-ladder.md` |
+| Surface mapping | `references/interface-map.md` |
+| Deliverable templates | `references/deliverables.md` |
+| Safety boundaries | `references/boundaries.md` |
 
 ## Requirements
 
@@ -67,7 +50,7 @@ Use these files on demand instead of loading the whole method every time.
 - If the boundary is unclear, default to the safest read-only path.
 - Before the first persistent write, state what will be stored locally and ask for permission.
 
-### 2. Run the TRACE loop from `protocol.md`
+### 2. Run the TRACE loop from `references/protocol.md`
 - Triage the target.
 - Record observable behavior.
 - Abstract hypotheses.
@@ -75,12 +58,12 @@ Use these files on demand instead of loading the whole method every time.
 - Explain the result in user-facing language.
 
 ### 3. Separate evidence, inference, and guess
-- Tag every claim using the ladder in `evidence-ladder.md`.
-- Never blur "observed" with "likely" or "possible."
+- Tag every claim using the ladder in `references/evidence-ladder.md`.
+- Keep "observed" distinct from "likely" or "possible."
 - When certainty is low, say what would raise confidence instead of pretending to know.
 
 ### 4. Map surfaces before internals
-- Build the interface inventory from `interface-map.md` before writing an implementation story.
+- Build the interface inventory from `references/interface-map.md` before writing an implementation story.
 - Start from inputs, outputs, states, side effects, and trust boundaries.
 - Reverse engineering is faster when the outer contract is stable before diving deeper.
 
@@ -90,7 +73,7 @@ Use these files on demand instead of loading the whole method every time.
 - If a result cannot be reproduced, it is a clue, not a conclusion.
 
 ### 6. Deliver models, not raw notes
-- Every session should end with concrete outputs from `deliverables.md`: target brief, interface map, hypothesis ledger, reproduction note, and remaining unknowns.
+- Every session should end with concrete outputs from `references/deliverables.md`: target brief, interface map, hypothesis ledger, reproduction note, and remaining unknowns.
 - Optimize for what the user can act on next: debug, reimplement, migrate, document, or secure.
 - Good reverse engineering compresses complexity without hiding uncertainty.
 
@@ -114,25 +97,19 @@ These failures usually waste the most time or create false confidence.
 - Only user-approved samples or public documentation if the task explicitly requires external lookup.
 
 **Data that stays local:**
-- Preferences and engagement notes in `~/Clawic/data/reverse-engineering/`
+- Preferences and engagement notes in `<state_root>/reverse-engineering/`
 - Captured traces, decoded notes, and reproduction snippets kept in the workspace or the local reverse-engineering folder
 
-**This skill does NOT:**
-- Steal credentials, bypass authorization, or hide activity
-- Run exploit chains on production targets by default
-- Claim certainty without evidence
-- Persist sensitive data outside the documented local folder
-- Create durable local memory without first telling the user what will be stored
+**Restricted Actions:**
+- Protect credentials, require authorization, and maintain visible activity
+- Restrict execution to safe environments and require approval for exploit chains
+- Base all claims on verified evidence
+- Keep sensitive data strictly within the documented local folder
+- Confirm with the user before creating durable local memory
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `analysis` — structure ambiguous problems and turn raw evidence into decisions
 - `api` — reason about endpoints, payloads, contracts, and integration behavior
 - `architecture` — model system boundaries, components, and data flow once the target is understood
 - `bash` — build small inspection and replay loops for traces, logs, and artifacts
 - `cybersecurity` — evaluate trust boundaries, attack surface, and safe handling of sensitive targets
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/reverse-engineering
-- Latest version: https://clawic.com/skills/reverse-engineering

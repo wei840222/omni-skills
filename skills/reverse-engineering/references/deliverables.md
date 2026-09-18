@@ -60,4 +60,4 @@ If the user wants a short answer, compress these artifacts into:
 - evidence summary
 - next action
 
-Do not drop the unknowns ledger just because the answer is short.
+Retain the unknowns ledger even when providing a short answer.

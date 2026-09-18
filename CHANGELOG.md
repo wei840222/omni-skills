@@ -8,6 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| reverse-engineering | 2026-09-18 | 85/100 (#463) |
 | malay | 2026-09-18 | 85/100 (#462) |
 | colombia | 2026-09-18 | 82/100 (#461) |
 | pytorch | 2026-09-18 | 85/100 (#460) |

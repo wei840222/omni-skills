@@ -7,7 +7,7 @@ Reverse engineering is legitimate only when the authorization and safety model a
 - Require lawful and authorized access to the target.
 - Prefer offline copies, captures, stubs, or sandboxes over live production systems.
 - Ask before any step that can write, patch, fuzz aggressively, authenticate, or alter remote state.
-- Do not retrieve, expose, or persist secrets unless the user explicitly requests a safe handling path.
+- Require an explicit user request for a safe handling path before retrieving, exposing, or persisting secrets.
 
 ## Default Safety Stance
 
@@ -19,10 +19,10 @@ Default to read-only analysis when:
 
 ## What Not To Do
 
-- Do not "test" by firing exploit chains blindly.
-- Do not hide invasive actions inside generic inspection steps.
-- Do not widen scope from one component to a whole estate without saying so.
-- Do not present offensive capability as a harmless diagnostic step.
+- Use targeted, verified tests instead of firing exploit chains blindly.
+- Clearly identify invasive actions separately from generic inspection steps.
+- Communicate clearly before widening scope from one component to a whole estate.
+- Accurately label offensive capability rather than presenting it as a harmless diagnostic step.
 
 ## Escalation Triggers
 
@@ -41,4 +41,4 @@ Use language like:
 - "offline reproduction"
 - "evidence-backed hypothesis"
 
-Avoid language that implies stealth, persistence, or unauthorized access.
+Use language that implies transparency, temporary analysis, and authorized access.
