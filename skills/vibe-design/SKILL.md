@@ -1,19 +1,9 @@
 ---
 name: vibe-design
-slug: vibe-design
-version: 1.0.0
-description: Create visual designs with AI tools. Covers prompting for UI/graphics, Midjourney techniques, Figma AI workflow, and iteration patterns.
-homepage: https://clawic.com/skills/vibe-design
+description: Create visual designs with AI tools. Covers prompting for UI/graphics,
+  Midjourney techniques, Figma AI workflow, and iteration patterns.
 metadata:
-  clawdbot:
-    emoji: 🎨
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Vibe Design
+  openclaw: '{"emoji": "🎨"}'
 ---
 
 ## What is Vibe Design
@@ -26,11 +16,11 @@ Design where you describe what you want and let AI generate visuals, layouts, an
 
 | Topic | File |
 |-------|------|
-| Prompting for visuals | `prompting.md` |
-| UI/UX design with AI | `ui-design.md` |
-| Image generation tips | `image-gen.md` |
-| Figma AI workflow | `figma.md` |
-| Tools by use case | `tools.md` |
+| Prompting for visuals | `references/prompting.md` |
+| UI/UX design with AI | `references/ui-design.md` |
+| Image generation tips | `references/image-gen.md` |
+| Figma AI workflow | `references/figma.md` |
+| Tools by use case | `references/tools.md` |
 
 ## Core Rules
 
@@ -67,7 +57,7 @@ Build prompts with structure:
 - Square/icons: --ar 1:1
 - Always specify for consistent output
 
-### 5. Iterate, Don't Perfect First Try
+### 5. Iterate Rapidly Instead of Perfecting First Try
 Vibe design = rapid exploration.
 1. Generate 4-8 variants
 2. Identify elements that work
@@ -78,10 +68,10 @@ Vibe design = rapid exploration.
 - **AI generates**: Mood, direction, concepts, rough layouts
 - **Production tools refine**: Pixel-perfect spacing, real content, responsive behavior
 
-Don't try to get production-ready from AI. Use it for the 80% exploration, finish the 20% manually.
+Aim for 80% completion with AI, and manually refine the remaining 20% for production.
 
 ### 7. Reference Over Description
-When possible, show don't tell:
+When possible, show instead of tell:
 - Attach reference images
 - Link to existing designs you like
 - Use "in the style of [specific designer/brand]"
@@ -103,4 +93,4 @@ For production work:
 | Stable Diffusion | Custom training, open-source control |
 | Canva | Marketing assets, social media |
 
-See `tools.md` for detailed comparison.
+See `references/tools.md` for detailed comparison.

@@ -86,7 +86,7 @@ Your implementation:
 - Use sections: "AI Exploration" vs "Production"
 
 ### Developer Handoff
-- Never hand off raw AI output
+- Refine AI output before handoff
 - Rebuild in components with proper naming
 - Use Dev Mode for clean specs
 - Document design decisions, not AI prompts

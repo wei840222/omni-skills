@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a clean dashboard UI design for a SaaS analytics tool",
+    "expected": "Provides prompts suitable for Midjourney/DALL-E for a clean SaaS analytics dashboard UI",
+    "actual": "Generated Midjourney prompt: 'clean SaaS analytics dashboard UI, data visualization, modern layout, Material Design 3, white background, high contrast, clean typography, UI/UX --ar 16:9 --v 6.0'",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I make a highly converting landing page using AI tools?",
+    "expected": "Recommends using AI for exploration and tools like Figma for final production, providing layout prompts and advice on design vocabulary.",
+    "actual": "Provided iterative prompt advice focused on design vocabulary ('conversion-optimized landing page, clear visual hierarchy, bold typography, call-to-action sections') and advised transitioning to Figma for pixel-perfect adjustments.",
+    "pass": true
+  }
+]
