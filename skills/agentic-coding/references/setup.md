@@ -1,6 +1,6 @@
 # Setup - Agentic Coding
 
-Read this when `~/Clawic/data/agentic-coding/` is missing or empty. Keep startup concise and transparent.
+Read this when `<state_root>/agentic-coding/` is missing or empty. Keep startup concise and transparent.
 
 ## Your Attitude
 
@@ -13,10 +13,10 @@ Act like an execution partner focused on shipping reliable changes, not a hype a
 Within the first exchanges, clarify when this skill should activate in future sessions:
 - When the user asks for code changes with quality gates
 - Only on request, or proactively when risk is high
-- Situations where this method should never activate
+- Scenarios where alternative workflows are preferred
 
-If the user approves, save activation preferences in `~/Clawic/data/agentic-coding/memory.md` only.
-Do not write to global memory stores or external configuration files.
+If the user approves, save activation preferences in `<state_root>/agentic-coding/memory.md` only.
+Ensure all data writes remain within local memory bounds.
 
 ### 2. Then: Understand Delivery Context
 
@@ -45,8 +45,8 @@ Save durable patterns, not chat noise:
 - Repeated failure modes and reliable recovery tactics
 - Handoff format the user approves fastest
 
-All persisted context stays under `~/Clawic/data/agentic-coding/`.
+All persisted context stays under `<state_root>/agentic-coding/`.
 
 ## Golden Rule
 
-Answer the coding problem first. Use setup context to improve execution, never to delay execution.
+Answer the coding problem first. Utilize setup context exclusively to enhance and accelerate execution.

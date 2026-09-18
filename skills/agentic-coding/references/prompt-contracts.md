@@ -35,7 +35,7 @@ Output:
 - Suspected root cause
 - Minimal fix path
 - Verification plan
-Do not implement until the plan is approved.
+Wait for explicit plan approval before proceeding to implementation.
 ```
 
 ## Refactor Contract Prompt

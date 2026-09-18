@@ -39,7 +39,7 @@ Implement only what the contract requires.
 
 Rules:
 - Keep file count as low as possible
-- Avoid broad renames during behavioral changes
+- Keep behavioral changes strictly isolated from broad renames
 - Split optional cleanup into follow-up contracts
 
 ## T: Trace and Test
@@ -52,9 +52,9 @@ Report:
 - Residual risk with explicit rationale
 - Recommended next action
 
-## Stop Conditions
+## Escalation Triggers
 
-Stop and escalate when:
+Pause execution and escalate when:
 - Two implementation attempts fail
 - Acceptance cannot be measured with available tooling
 - The requested scope conflicts with project constraints
