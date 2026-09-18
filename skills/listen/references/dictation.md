@@ -28,7 +28,7 @@ Literal-word escape: "the word period" or a sentence where the token is clearly 
 
 ## Self-Correction Phrases
 
-The user edits aloud. Apply the edit; never keep both versions in cleaned mode:
+The user edits aloud. Apply the edit; keep only the final version in cleaned mode:
 
 | Phrase | Semantics |
 |---|---|
@@ -42,7 +42,7 @@ The correction target is the nearest prior span of the same type (number replace
 
 ## Cleaned vs Verbatim
 
-- **cleaned** (default): strip disfluencies ("um", "uh", "you know", false starts), apply self-corrections, add punctuation and paragraphs, keep the user's vocabulary and register untouched. Cleaning is transcription hygiene, not editing: never upgrade word choice, never restructure their argument.
+- **cleaned** (default): strip disfluencies ("um", "uh", "you know", false starts), apply self-corrections, add punctuation and paragraphs, keep the user's vocabulary and register untouched. Cleaning is transcription hygiene, not editing: preserve the original word choice, maintain their original argument structure.
 - **verbatim**: every word as transcribed, including disfluencies and both sides of self-corrections. For quoted testimony, exact-words requests, and when the user says "exactly what I say".
 
 ## Sentence Segmentation

@@ -24,14 +24,14 @@ The canonical STT number confusion — final-syllable stress is all that separat
 | "half eight" | UK English = 8:30; German-influenced speakers mean 7:30 ("halb acht") | If `languages` includes German/Dutch/Scandinavian, confirm; otherwise read as 8:30 |
 | "the third" vs "the 3rd" vs "3" | Ordinal day vs count | Sentence role decides; echo full date ("March 3") when it gates scheduling |
 | "next Friday" | Not an STT error — a human ambiguity | Echo the resolved date, same one-word-correction principle |
-| Month/day order | "three four" → 3/4 vs 4/3 | Echo as month-name form; never emit ambiguous numeric dates in replies |
+| Month/day order | "three four" → 3/4 vs 4/3 | Echo as month-name form; emit strictly unambiguous numeric dates in replies |
 
 ## Money and Magnitudes
 
 - "fifteen hundred" = 1,500 — engines sometimes emit "15 100". Rejoin before interpreting.
 - "one point five million" vs "1.5 M" vs "$1,500,000" — normalize to one form and echo it when the amount gates anything.
 - "two to four" (range) vs "224" — a fused number where the sentence needs a range is a segmentation error; re-split.
-- Currency words ("euros", "bucks", "quid") survive transcription well; the symbol placement is yours. Read `~/Clawic/profile.yaml` currency as fallback if the user's currency is unstated.
+- Currency words ("euros", "bucks", "quid") survive transcription well; the symbol placement is yours. Read `<state_root>/profile.yaml` currency as fallback if the user's currency is unstated.
 
 ## Phone Numbers, IDs, and Codes
 

@@ -1,9 +1,9 @@
 # Lexicon — Persistence and Lifecycle
 
-The lexicon is what makes repairs compound instead of repeat. Everything persistent lives in `~/Clawic/data/listen/`. If you have data at an old location (`~/listen/` or `~/clawic/listen/`), move it to `~/Clawic/data/listen/`.
+The lexicon is what makes repairs compound instead of repeat. Everything persistent lives in `<state_root>/`. If you have data at an old location (`~/listen/` or `~/clawic/listen/`), move it to `<state_root>/`.
 
 ```
-~/Clawic/data/listen/
+<state_root>/
 ├── lexicon.md      # correction pairs, patterns, never list
 └── config.yaml     # the variables from SKILL.md Configuration
 ```
@@ -20,14 +20,14 @@ coffee → kafka | candidate | 2026-07-23
 ```
 
 - Parenthetical after the right side is an optional scope tag: language (`es name`, `multilingual.md`) or type (`person`, `branch`). A scoped entry fires only when context matches; unscoped fires everywhere — scope any pair whose wrong side is a word the user legitimately says.
-- Optional sections for structure when the file grows: `## Pairs`, `## Patterns`, `## Never`. Patterns are one-line observed regularities that widen candidate generation ("brand names get lowercased", "L1 Spanish: b/v swaps") — never auto-applied, only used as signals.
+- Optional sections for structure when the file grows: `## Pairs`, `## Patterns`, `## Never`. Patterns are one-line observed regularities that widen candidate generation ("brand names get lowercased", "L1 Spanish: b/v swaps") — used strictly as signals rather than auto-applied, only used as signals.
 
 ## Lifecycle (SKILL.md Rule 3, operational form)
 
 ```
 first sighting ──► candidate     apply + surface ("...on Kubernetes, got it")
 second sighting ─► confirmed     apply silently
-user rejects ────► never         exempt from flagging, forever until user revokes
+user rejects ────► never         exempt from flagging permanently until user revokes
 ```
 
 - Promotion requires two independent sightings — two messages, not one message containing the token twice.
@@ -38,7 +38,7 @@ user rejects ────► never         exempt from flagging, forever until u
 
 - Load the lexicon before interpreting any voice message. Order of application: `never` check first (exempts tokens from flagging), then `confirmed` pre-emptive substitutions, then `candidate` entries as top-priority candidates in the repair pipeline (`repair.md`).
 - Write new pairs immediately after the exchange that produced them — session end loses everything held in memory (SKILL.md Traps).
-- Never log pairs from noise-storm messages (`degraded.md`): acoustic errors stored as lexical pairs poison future repairs.
+- Exclude pairs from noise-storm messages (`degraded.md`): acoustic errors stored as lexical pairs poison future repairs.
 
 ## Pruning
 
@@ -61,5 +61,5 @@ lexicon_ttl_days: 90
 # "Sara Kowalski deploys Krakatoa webhooks to the Kubernetes cluster at 8:15"
 ```
 
-- config is what the user declared; the lexicon is what the agent observed. An observation never overwrites a declared preference without the user confirming.
-- Universal variables (locale, timezone, currency) fall back to `~/Clawic/profile.yaml` when unset here; precedence: this config > profile > table default.
+- config is what the user declared; the lexicon is what the agent observed. An observation requires confirmation before overwriting a declared preference without the user confirming.
+- Universal variables (locale, timezone, currency) fall back to `<state_root>/profile.yaml` when unset here; precedence: this config > profile > table default.

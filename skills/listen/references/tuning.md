@@ -36,7 +36,7 @@ Engine swaps cannot outrun bad input; check these before touching models:
 
 ## Verification Loop
 
-After any tuning change, re-dictate a fixed test sentence packed with the user's known problem terms and compare against the last run. Without a fixed sentence you are judging noise; with one, a regression shows in a single read. Keep the sentence in `~/Clawic/data/listen/config.yaml` as a comment once established.
+After any tuning change, re-dictate a fixed test sentence packed with the user's known problem terms and compare against the last run. Without a fixed sentence you are judging noise; with one, a regression shows in a single read. Keep the sentence in `<state_root>/config.yaml` as a comment once established.
 
 ## When Tuning Is Not the Answer
 
