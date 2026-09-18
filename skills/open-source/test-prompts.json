@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to find a self-hosted alternative to Google Analytics. Can you recommend some open source options?",
+    "expected": "Uses discovery-framework.md to provide a shortlist, scores alternatives (e.g. Plausible, Matomo), and recommends the best default, fallback, and high-control options.",
+    "actual": "I have evaluated alternatives for self-hosted analytics. \n\n1. **Best default**: Plausible. It has strong functional fit for lightweight tracking, excellent maintainer health, and low operational burden.\n2. **Conservative fallback**: Matomo. Highly mature, very strong functional fit for deep analytics, but higher operational burden.\n3. **High-control option**: PostHog. Excellent ecosystem fit and extensibility, but requires significant operational commitment (best suited for managed hosting unless your team has strong ops capability).\n\nWould you like to run the self-host screen to see if your team is ready to operate one of these?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are getting overwhelmed with low quality PRs on our open source tool. What should we do?",
+    "expected": "Uses maintainer-ops.md to advise on community guidelines, issue/PR templates, and PR review rules.",
+    "actual": "To manage the influx of low-quality PRs, you should implement the following maintainer operations:\n\n1. **Require PR Templates**: Mandate that contributors fill out a reproducible context for their fixes. This reduces triage burden immediately.\n2. **Reject Drive-By Complexity**: Explicitly state in your contributing guidelines that complex changes without operational justification or tests will be rejected.\n3. **Enforce Acceptance Criteria**: Only review PRs that meet your baseline requirements.\n\nI recommend we draft a PR template together to set these expectations. Would you like to start?",
+    "pass": true
+  }
+]

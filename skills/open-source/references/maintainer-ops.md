@@ -37,3 +37,9 @@ When removing behavior:
 - Warn in at least one prior release when possible.
 - Provide migration path and timeline.
 - Document explicit breakage scenarios.
+
+
+## Community Guidelines
+
+- Enforce a Code of Conduct to ensure a welcoming environment.
+- Use issue and PR templates to standardize incoming requests and reduce triage burden.
