@@ -1,36 +1,26 @@
 ---
-name: telegram-bot-api
-slug: telegram-bot-api
-version: 1.0.0
-description: Build Telegram bots with correct API calls, message formatting, keyboards, and webhook setup.
-homepage: https://clawic.com/skills/telegram-bot-api
+description: Develop and manage Telegram bots by formulating valid API requests, configuring
+  webhooks, structuring inline keyboards, and applying HTML or MarkdownV2 message
+  formatting.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    requires:
-      bins:
-      - curl
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Telegram Bot API
+  openclaw: '{"emoji": "🤖", "requires": {"bins": ["curl"]}}'
+name: telegram-bot-api
 ---
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, read `references/setup.md` for integration guidelines.
 
-## When to Use
+## When to load
 
-User needs to interact with the Telegram Bot API. Building bots, sending messages, handling updates, setting up webhooks, creating keyboards, or managing bot commands.
+Load this skill when you need to construct Telegram Bot API HTTP requests, handle bot webhook updates, format Telegram messages, or configure Telegram bot reply/inline keyboards.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/telegram-bot-api/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/telegram-bot-api/`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/telegram-bot-api/
+<state_root>/telegram-bot-api/
 ├── memory.md          # Bot tokens, preferences, defaults
 ├── bots/              # Per-bot configurations
 │   └── {botname}.md   # Token, webhook URL, defaults
@@ -41,14 +31,14 @@ Memory lives in `~/Clawic/data/telegram-bot-api/`. See `memory-template.md` for 
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| All API methods | `methods.md` |
-| Message formatting | `formatting.md` |
-| Keyboards & buttons | `keyboards.md` |
-| Webhooks & polling | `webhooks.md` |
-| Media handling | `media.md` |
-| Error codes | `errors.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
+| All API methods | `references/methods.md` |
+| Message formatting | `references/formatting.md` |
+| Keyboards & buttons | `references/keyboards.md` |
+| Webhooks & polling | `references/webhooks.md` |
+| Media handling | `references/media.md` |
+| Error codes | `references/errors.md` |
 
 ## Core Rules
 
@@ -57,7 +47,7 @@ All requests go to:
 ```
 https://api.telegram.org/bot{TOKEN}/{METHOD}
 ```
-Never expose the token in logs or user-visible output.
+Keep the token fully secure from logs or user-visible output.
 
 ### 2. Required Parameters by Method
 
@@ -129,7 +119,7 @@ Split long messages at sentence boundaries, not mid-word.
 - **Forgetting to escape MarkdownV2** → Message fails silently or partially. Use HTML instead, or escape all special chars.
 - **Using wrong chat_id format** → Groups need negative IDs. Supergroups/channels need -100 prefix.
 - **Not handling 429 errors** → Bot gets temporarily blocked. Always implement retry logic.
-- **Exposing bot token** → Anyone can control your bot. Never log or display tokens.
+- **Exposing bot token** → Anyone can control your bot. Keep tokens completely secure from logs and display.
 - **Sending too fast to groups** → 20 msg/min limit. Queue messages with delays.
 - **Large file uploads** → 50MB limit for sendDocument. Use URL method for larger files.
 - **Webhook not HTTPS** → Telegram requires valid SSL certificate.
@@ -149,7 +139,7 @@ No other data is sent externally. Bot token is required for all requests.
 - Bot token in every request (required by Telegram)
 
 **Data that stays local:**
-- Bot configurations in `~/Clawic/data/telegram-bot-api/`
+- Bot configurations in `<state_root>/telegram-bot-api/`
 - Message templates
 
 **This skill does NOT:**
@@ -157,18 +147,7 @@ No other data is sent externally. Bot token is required for all requests.
 - Access user data beyond what Telegram provides
 - Make requests to endpoints other than api.telegram.org
 
-## Trust
-
-By using this skill, data is sent to Telegram's Bot API servers.
-Only install if you trust Telegram with your bot's messages.
-
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `api` — REST API best practices
 - `http` — HTTP protocol essentials
 - `json` — JSON parsing and manipulation
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/telegram-bot-api
-- Latest version: https://clawic.com/skills/telegram-bot-api

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a curl command to send a simple HTML formatted message 'Hello <b>World</b>' to chat_id -123456 using the Telegram Bot API.",
+    "expected": "Provides a curl command to the sendMessage endpoint, including the bot token placeholder, chat_id=-123456, text='Hello <b>World</b>', and parse_mode=HTML.",
+    "actual": "curl -X POST \"https://api.telegram.org/bot<TOKEN>/sendMessage\" \\\n     -H \"Content-Type: application/json\" \\\n     -d '{\n           \"chat_id\": \"-123456\",\n           \"text\": \"Hello <b>World</b>\",\n           \"parse_mode\": \"HTML\"\n         }'",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create an inline keyboard with two buttons ('Accept' and 'Reject') that send callbacks, and explain how to attach it to a sendMessage request.",
+    "expected": "Explains how to format a reply_markup object containing an inline_keyboard array with two rows or buttons using callback_data, and shows how to include it in the JSON payload.",
+    "actual": "To attach an inline keyboard, include the `reply_markup` parameter in your JSON payload for the `sendMessage` request. Here is an example structure:\n\n```json\n{\n  \"chat_id\": \"123456\",\n  \"text\": \"Please review this request:\",\n  \"reply_markup\": {\n    \"inline_keyboard\": [\n      [\n        { \"text\": \"Accept\", \"callback_data\": \"action_accept\" },\n        { \"text\": \"Reject\", \"callback_data\": \"action_reject\" }\n      ]\n    ]\n  }\n}\n```\nPass this object as JSON when calling the `sendMessage` endpoint.",
+    "pass": true
+  }
+]
