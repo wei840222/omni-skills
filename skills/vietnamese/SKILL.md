@@ -8,6 +8,8 @@ metadata:
   related-skills: '{"thai":"Write Thai when Vietnamese is not the target language.","chinese":"Write Chinese when Vietnamese is not the target language.","traditional-chinese":"Write Traditional Chinese when Vietnamese is not the target language.","english":"Write English when Vietnamese is not the target language.","translate":"Translate an existing source text into Vietnamese.","writing":"Shape broader prose once the Vietnamese-language decision is settled."}'
 ---
 
+Research notes for pronouns, particles, dialects, and orthography live in `references/sources.md`.
+
 ## The Real Problem
 
 AI Vietnamese is technically correct but sounds off. Too formal. Too textbook. Natives write more casually, with appropriate pronouns and particles. Match that.
