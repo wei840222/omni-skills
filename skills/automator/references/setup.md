@@ -14,7 +14,7 @@ The user should feel that automation is controlled, observable, and reversible w
 ### 1. First: Integration Preferences
 
 In the first exchanges, confirm activation behavior:
-- Should this skill activate whenever they ask to automate macOS app workflows?
+- Establish conditions for skill activation regarding macOS app workflows.
 - Should the skill warn proactively before write or delete actions?
 - Are there directories or apps that must remain read-only?
 
