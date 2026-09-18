@@ -14,7 +14,7 @@ Wildlife, river, jungle, or frontier-style travel for users who accept more logi
 
 - Verify current health guidance before final booking.
 - Keep one strong weather buffer.
-- Do not place this segment at the end of a fragile international itinerary.
+- Place this segment earlier at the end of a fragile international itinerary.
 
 ## Better Use Cases
 

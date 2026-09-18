@@ -15,7 +15,7 @@ Adventure travelers, canyon landscapes, and users who want Colombia beyond the s
 ## Planning Rules
 
 - Keep heat exposure in mind; canyon country can feel harsher than expected.
-- Do not promise a quick add-on from major cities unless flights and transfers are clean.
+- Only promise a quick add-on from major cities unless flights and transfers are clean.
 - This region shines with 3-5 days, not a one-night squeeze.
 
 ## Good Pattern

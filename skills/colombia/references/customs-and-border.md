@@ -15,7 +15,7 @@
 ## Customs Friction to Flag
 
 - Drone, camera, or specialty gear can attract extra questions if the traveler cannot explain personal-use context.
-- Food, agricultural, or wildlife-related items deserve caution; do not assume home-country rules transfer cleanly.
+- Food, agricultural, or wildlife-related items deserve caution; verify local rules instead of assuming home-country rules transfer cleanly.
 - Import-tax surprises are more likely when travelers mix tourism with resale-looking quantities.
 
 ## Border-Region Practical Rule
@@ -23,7 +23,7 @@
 For users crossing from neighboring countries:
 - Verify the current land-border status before designing a fixed overland plan.
 - Add delay buffers for immigration, transport changes, and weather.
-- Avoid designing a same-day international crossing plus long domestic arrival leg.
+- Design crossing with an overnight buffer international crossing plus long domestic arrival leg.
 
 ## Island and Frontier Reality
 

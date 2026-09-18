@@ -29,8 +29,8 @@
 ## Practical Routing Rules
 
 - Keep mountain driving legs realistic; road time expands quickly.
-- Avoid late-night arrivals to unfamiliar rural stays.
-- In rainy months, keep a same-region fallback instead of a tight multi-stop road chain.
+- Plan for daylight arrivals to unfamiliar rural stays.
+- In rainy months, prefer a same-region fallback over a tight multi-stop road chain.
 
 ## Source Reminder
 

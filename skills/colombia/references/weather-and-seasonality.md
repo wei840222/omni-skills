@@ -25,7 +25,7 @@ Colombia is a microclimate country, not a single-season destination. Altitude an
 
 - Holy Week, year-end holidays, and long weekends distort prices and transport capacity.
 - If the user needs lower friction, bias toward shoulder weeks and earlier bookings.
-- Do not combine a weather-sensitive island segment with a fixed international departure the next morning.
+- Separate a weather-sensitive island segment from a fixed international departure the next morning.
 
 ## Practical Rule
 

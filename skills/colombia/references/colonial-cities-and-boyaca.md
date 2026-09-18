@@ -2,11 +2,11 @@
 
 ## Best Use Case
 
-Cool-weather road loops, heritage towns, food stops, and users who want a calmer Colombia.
+Cool-weather road trips, heritage towns, food trips, and users who want a calmer Colombia.
 
 ## Core Strengths
 
-- Villa de Leyva and surrounding heritage stops
+- Villa de Leyva and nearby heritage locations
 - Boyaca small-town rhythm
 - Easy pairing with Bogota for a first or second trip
 
