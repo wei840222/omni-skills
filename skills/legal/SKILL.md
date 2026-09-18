@@ -1,104 +1,126 @@
 ---
 name: legal
-slug: legal
-version: 1.0.0
-description: Think through any legal situation like a lawyer. Issue spotting, jurisdiction, risk assessment, actionable conclusions.
-homepage: https://clawic.com/skills/legal
+description: Structure legal analysis with jurisdiction-first IRAC issue spotting,
+  risk ranking, and actionable next steps. Use for claim viability drills, multi-issue
+  fact patterns, and exam-style legal reasoning. Route counsel redlines to lawyer,
+  general legal research to law, and contract drafting or registers to contract/contracts.
 metadata:
-  clawdbot:
-    emoji: ⚖️
-    displayName: Legal
+  version: "1.1.0"
+  openclaw: '{"emoji": "⚖️"}'
+  related-skills: '{"law":"Jurisdiction-aware legal research and education across roles when the task is authority lookup rather than IRAC issue spotting.","lawyer":"Counsel-style redlines, negotiation, and matter workflow when an agreement or filing needs markup rather than an analysis drill.","contract":"Blank-page contract drafting with guided intake when the user wants a new agreement written.","contracts":"Contract register, renewal alerts, and clause lookup for executed agreements."}'
 ---
 
-## Pattern
+## When to load
 
-```
-Jurisdiction → Facts → Issues → Law → Application → Risk → Action
-```
+Load this skill when the user wants structured legal **analysis**, not drafting or matter management:
 
-Before answering anything legal: Identify where. Establish facts. Spot all issues. Find applicable law. Apply to facts. Assess risk. Recommend action.
+- issue spotting across a fact pattern
+- claim / defense viability ranking
+- IRAC or exam-style legal reasoning
+- jurisdiction + risk + next-action framing before talking to counsel
 
-## Before
+Do **not** load as the primary skill when the user mainly needs:
 
-- **Jurisdiction first**: "Where did this happen?" — laws vary dramatically
-- **Role clarity**: Who am I advising? What's their goal?
-- **Disclaimer ready**: "Legal information, not legal advice for your specific situation"
+- primary-authority research by audience → `law`
+- redlines, negotiation, or counsel workflow → `lawyer`
+- drafting a new agreement from scratch → `contract`
+- tracking signed contracts and renewals → `contracts`
 
-## During
+## Core constraints
 
-### 1. Fact Gathering
-- Separate facts from interpretations
-- Ask for documents, not summaries
-- Timeline everything — sequence matters legally
-- Note what's missing — gaps change analysis
+1. Lead with **jurisdiction** and **role** (who is being advised, what outcome they want).
+2. Provide **legal information and structured analysis**, not licensed advice for a specific person. State the boundary when the user could confuse the two.
+3. Prefer **probabilistic positions** (strong / moderate / weak) over outcome guarantees.
+4. Separate **facts**, **issues**, **rules**, **application**, **risks**, and **actions**.
+5. Escalate to a licensed attorney for criminal exposure, custody, immigration, eviction, rights waivers, served papers, high-value stakes, or closing deadlines.
+6. Refuse help that evades law, court orders, professional duties, or confidentiality.
 
-### 2. Issue Spotting
-- List ALL potential legal issues, not just the obvious one
-- Consider both sides — what could the other party claim?
-- Check for procedural issues (deadlines, notice requirements, standing)
-- Look for overlapping areas (contract AND tort, civil AND criminal)
+## Workflow
 
-### 3. Law Application
-- State the rule before applying it
-- Distinguish: statute vs case law vs regulation
-- Note if law is settled or unsettled in this jurisdiction
-- Mark binding vs persuasive authority
+Execute in order. Load references only when the step needs them.
 
-### 4. Risk Assessment
-- Quantify: strong / moderate / weak position
-- Consider: cost of being wrong vs cost of action
-- Factor: enforceability, not just legality
-- Include: reputational and relationship costs
+### 1. Bound the problem
 
-## After
+- Confirm country / state-province / forum and the date of the facts.
+- Name the user's role and goal in one line.
+- If jurisdiction is missing, state the assumption used and mark confidence lower.
+- For urgent safety or irreversible deadlines, give only harm-minimizing first steps and point to local counsel or legal aid.
 
-- **One-line position**: "You likely [have/don't have] a viable claim because ___"
-- **Key vulnerabilities**: What could defeat this position?
-- **Action with deadline**: What to do by when
-- **Escalation trigger**: When this needs a licensed attorney
+### 2. Gather facts
 
-## Traps
+Use the checklist in `references/fact-intake.md`.
 
-- **Jurisdiction assumption**: US law ≠ UK law ≠ EU law
-- **Single issue focus**: Missing the procedural or secondary claims
-- **Certainty theater**: "You will win" — law is probabilistic
-- **Advice vs information**: Crossing into specific recommendations without license
-- **Outdated law**: Regulations change; statutes get amended; cases get overruled
-- **Verbal over written**: If it's not documented, it's harder to prove
+- Separate proven facts from interpretations and missing data.
+- Build a dated timeline; sequence changes legal analysis.
+- Ask for documents when material terms or notices matter.
 
-## Framework: IRAC
+### 3. Spot issues
 
-The standard legal reasoning structure:
+Use `references/issue-spotting.md`.
+
+- List **all** plausible issues, not only the user's favorite claim.
+- Include defenses, counterclaims, and procedural bars (standing, notice, limitations).
+- Rank issues by materiality to the user's goal.
+
+### 4. Apply IRAC per material issue
+
+Use `references/irac.md`.
 
 | Step | Question | Output |
 |------|----------|--------|
-| **Issue** | What's the legal question? | One sentence framing |
-| **Rule** | What law applies? | Statute, case, or regulation |
-| **Application** | How does law apply to these facts? | Fact-by-fact analysis |
-| **Conclusion** | What's the answer? | Position + confidence level |
+| **Issue** | What is the legal question? | One-sentence framing |
+| **Rule** | What law applies? | Statute / case / regulation + source class |
+| **Application** | How do the facts map? | Element-by-element analysis |
+| **Conclusion** | What is the working answer? | Position + confidence |
 
-## Risk Matrix
+When a current citation, limitation period, or local rule is material, verify starting points in `references/sources.md` and record retrieval assumptions.
 
-| Factor | Lower Risk | Higher Risk |
-|--------|------------|-------------|
-| Documentation | Written, signed, dated | Verbal, informal |
-| Timeline | Within limits | Near or past deadlines |
-| Other party | No lawyer | Has representation |
-| Amount | Under small claims | Significant sum |
-| Complexity | Single issue, clear facts | Multiple parties, disputed facts |
+### 5. Score risk and recommend action
 
-## Output
+Use `references/risk-and-action.md`.
 
+- Score each material issue: strong / moderate / weak.
+- Name key vulnerabilities and what evidence would change the score.
+- Give one reversible next action with a deadline when known.
+- State the escalation trigger for licensed counsel.
+
+## Output shape
+
+Default response skeleton (adapt tone to the user):
+
+```text
+⚖️ JURISDICTION: [forum + law family assumed]
+👤 ROLE / GOAL: [who + desired outcome]
+📋 ISSUES: [prioritized list]
+📖 RULE: [governing rule per top issue]
+🔍 APPLICATION: [facts → elements]
+⚠️ RISKS: [what defeats the position]
+➡️ ACTION: [next step + deadline if known]
+🚨 ESCALATE IF: [licensed-counsel triggers]
 ```
-⚖️ JURISDICTION: [Location + applicable law]
-📋 ISSUES: [All spotted, prioritized]
-📖 RULE: [Applicable law, source cited]
-🔍 APPLICATION: [Facts → Law analysis]
-⚠️ RISKS: [Key vulnerabilities]
-➡️ ACTION: [What to do + deadline]
-🚨 ESCALATE IF: [Triggers for licensed counsel]
-```
 
----
+One-line position form:
 
-*Channels legal thinking. Works for basic questions through complex analysis.*
+> You likely [possess/lack] a viable claim on [issue] because [controlling reason], confidence [strong/moderate/weak].
+
+## Quick reference
+
+| Topic | File |
+|-------|------|
+| Fact intake checklist | `references/fact-intake.md` |
+| Issue-spotting method | `references/issue-spotting.md` |
+| IRAC detail | `references/irac.md` |
+| Risk matrix and actions | `references/risk-and-action.md` |
+| Source starting points | `references/sources.md` |
+| Common traps | `references/traps.md` |
+
+## Traps (summary)
+
+Read `references/traps.md` before giving high-confidence conclusions.
+
+- Jurisdiction assumption (US ≠ UK ≠ EU ≠ other systems)
+- Single-issue tunnel vision
+- Certainty theater ("you will win")
+- Crossing from information into licensed advice without saying so
+- Outdated rules or unverified deadlines
+- Treating verbal history as equal to written proof
