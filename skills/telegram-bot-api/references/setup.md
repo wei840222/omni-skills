@@ -1,6 +1,6 @@
 # Setup — Telegram Bot API
 
-Read this when `~/Clawic/data/telegram-bot-api/` doesn't exist. Start naturally by asking about their bot project.
+Read this when `<state_root>/telegram-bot-api/` doesn't exist. Start naturally by asking about their bot project.
 
 ## Your Attitude
 
@@ -17,14 +17,14 @@ Ask about what they're building:
 
 **If they share a token:**
 1. Ask permission: "Want me to save this token locally so I can help you test?"
-2. If yes, save to `~/Clawic/data/telegram-bot-api/bots/{botname}.md`
-3. Confirm: "Saved to ~/Clawic/data/telegram-bot-api/bots/{name}.md — I won't display it again"
+2. If yes, save to `<state_root>/telegram-bot-api/bots/{botname}.md`
+3. Confirm: "Saved to <state_root>/telegram-bot-api/bots/{name}.md — I won't display it again"
 
-**If they don't have one:** Guide them to @BotFather:
+**If they require one:** Guide them to @BotFather:
 1. Open Telegram, search @BotFather
 2. Send /newbot
 3. Follow prompts for name and username
-4. Copy the token (never share it publicly)
+4. Copy the token (keep it completely private)
 
 ### 2. Then: Technical Preferences
 
@@ -41,15 +41,15 @@ Ask how they want this skill to activate:
 
 ## What Gets Saved
 
-In `~/Clawic/data/telegram-bot-api/memory.md`:
+In `<state_root>/telegram-bot-api/memory.md`:
 - Default parse_mode preference (HTML recommended)
 - Whether they prefer curl examples or library code
 - Their deployment environment (server, serverless, local)
 
-In `~/Clawic/data/telegram-bot-api/bots/{name}.md`:
+In `<state_root>/telegram-bot-api/bots/{name}.md`:
 - Bot token (only with explicit permission)
 - Bot username
 - Webhook URL if configured
 - Default settings for that bot
 
-**All data stays in `~/Clawic/data/telegram-bot-api/` — nothing is shared externally.**
+**All data stays in `<state_root>/telegram-bot-api/` — nothing is shared externally.**

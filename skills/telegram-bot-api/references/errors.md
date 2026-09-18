@@ -32,7 +32,7 @@
 | `Forbidden: bot was blocked by the user` | User blocked bot | Remove from recipient list |
 | `Forbidden: bot was kicked from the group chat` | Bot removed from group | Re-add bot to group |
 | `Forbidden: bot is not a member of the channel chat` | Bot not in channel | Add bot as admin |
-| `Bad Request: PEER_ID_INVALID` | Never interacted with user | User must /start first |
+| `Bad Request: PEER_ID_INVALID` | No prior interaction with user | User must /start first |
 
 ### Message Errors
 
@@ -110,7 +110,7 @@ def send_message(chat_id, text, max_retries=3):
 
 ### Best Practices
 
-1. **Queue messages** — Don't send bursts
+1. **Queue messages** — Rate limit requests
 2. **Batch by chat** — Group messages to same chat
 3. **Use exponential backoff** — Start with `retry_after`, increase on repeat
 4. **Track per-chat limits** — Maintain separate counters

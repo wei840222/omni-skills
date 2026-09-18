@@ -2,7 +2,7 @@
 
 ## Main Memory
 
-Create `~/Clawic/data/telegram-bot-api/memory.md`:
+Create `<state_root>/telegram-bot-api/memory.md`:
 
 ```markdown
 # Telegram Bot API Memory
@@ -27,7 +27,7 @@ environment: local
 
 ## Bot Configuration
 
-Create `~/Clawic/data/telegram-bot-api/bots/{botname}.md`:
+Create `<state_root>/telegram-bot-api/bots/{botname}.md`:
 
 ```markdown
 # Bot: {Bot Name}
@@ -65,7 +65,7 @@ protect_content: false
 |-------|-------------|
 | `HTML` | Default — fewer escape issues |
 | `MarkdownV2` | When user prefers Markdown |
-| `Markdown` | Legacy — avoid for new bots |
+| `Markdown` | Legacy — use HTML or MarkdownV2 instead |
 | (none) | Plain text only |
 
 ## Example Style Options

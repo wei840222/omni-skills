@@ -285,4 +285,4 @@ cloudflared tunnel --url http://localhost:5000
 3. **Use secret_token** — Verify requests are from Telegram
 4. **Monitor pending_update_count** — Should be 0 normally
 5. **Test locally first** — Use ngrok or polling before production
-6. **Handle all update types** — Don't crash on unexpected updates
+6. **Handle all update types** — Ensure robust handling of unexpected updates

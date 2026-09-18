@@ -268,5 +268,5 @@ curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMediaGroup" \
 2. **Store file_ids** — Save them for reuse
 3. **Compress before upload** — Reduce transfer time
 4. **Use thumbnails** — Better UX for documents/videos
-5. **Check file size first** — Avoid upload failures
+5. **Check file size first** — Ensure successful uploads
 6. **Handle download timeouts** — Files expire after 1 hour

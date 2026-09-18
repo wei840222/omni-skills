@@ -176,7 +176,7 @@ def progress_bar(percent, width=10):
 
 <code>Error code: 403</code>
 
-<blockquote>Access denied. You don't have permission to perform this action.</blockquote>
+<blockquote>Access denied. You lack permission to perform this action.</blockquote>
 
 <i>Contact @admin for help.</i>
 ```
@@ -209,6 +209,6 @@ print(response.json())</code></pre>
 
 1. **Test formatting first** — Send to yourself before production
 2. **Fallback to plain text** — If formatting fails, send without parse_mode
-3. **Don't over-format** — Too much bold/italic is hard to read
+3. **Format conservatively** — Too much bold/italic is hard to read
 4. **Use emojis for visual breaks** — ✅ ❌ 📊 📝 🔔
 5. **Keep messages scannable** — Use headings and spacing
