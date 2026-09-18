@@ -1,37 +1,27 @@
 ---
 name: automator
-slug: automator
-version: 1.0.0
-description: Automate macOS tasks by composing and executing Automator workflows through automator CLI and AppleScript control.
-homepage: https://clawic.com/skills/automator
-changelog: Initial release with Automator CLI execution paths, AppleScript authoring patterns, and safety-first write controls.
+description: Automate macOS tasks by executing existing Automator `.workflow` files
+  via the `automator` CLI or composing new workflows programmatically.
 metadata:
-  clawdbot:
-    emoji: A
-    requires:
-      bins:
-      - automator
-      - osascript
-    os:
-    - darwin
-    configPaths:
-    - ~/Clawic/data/automator/
-    displayName: macOS Automator
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/automator/
+  openclaw: '{"requires": {"config": ["<state_root>/"], "bins": ["automator", "osascript"]},
+    "emoji": "A", "os": ["darwin"]}'
+  related-skills:
+  - applescript
+  - automate
+  - macos
+  - workflow
 ---
+
+
+
 
 ## Setup
 
-On first use, follow `setup.md` to capture activation behavior and safety preferences.
-Setup is read-only. Any local file write requires explicit user confirmation.
+Load `references/setup.md` on first use to establish activation behavior and safety preferences.
 
-## When to Use
+## When to load
 
-User needs to automate macOS tasks with Automator workflows instead of manual UI steps.
-Agent handles workflow execution, workflow composition, and repeatable runbooks using official Automator interfaces.
+Load this skill when the user explicitly requests to run, create, or modify an Automator workflow (`.workflow` file) on macOS.
 
 ## Requirements
 
@@ -41,10 +31,10 @@ Agent handles workflow execution, workflow composition, and repeatable runbooks 
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/automator/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/automator/
+<state_root>/
 ├── memory.md                # Activation rules and safety defaults
 ├── workflows.md             # Known workflow paths and run arguments
 ├── action-catalog.md        # Verified action names and categories
@@ -57,16 +47,16 @@ Use these files when the task needs deeper detail.
 
 | Topic | File |
 |-------|------|
-| Setup behavior and activation | `setup.md` |
-| Memory structure | `memory-template.md` |
-| Execution path matrix | `interface-matrix.md` |
-| Workflow authoring patterns | `workflow-authoring.md` |
-| Write safety gates | `execution-guardrails.md` |
-| Debug and recovery | `troubleshooting.md` |
+| Setup behavior and activation | `references/setup.md` |
+| Memory structure | `assets/memory-template.md` |
+| Execution path matrix | `references/interface-matrix.md` |
+| Workflow authoring patterns | `references/workflow-authoring.md` |
+| Write safety gates | `references/execution-guardrails.md` |
+| Debug and recovery | `references/troubleshooting.md` |
 
 ## Data Storage
 
-All local skill data stays in `~/Clawic/data/automator/`.
+All local skill data stays in `<state_root>/`.
 Before creating or changing local files, state the write scope and ask for confirmation.
 
 ## External Endpoints
@@ -81,18 +71,18 @@ No other data is sent externally.
 
 ### 1. Pick Interface by Intent, Not Convenience
 - For running an existing `.workflow`, use `automator` CLI first.
-- For composing or inspecting workflow internals, use Automator AppleScript commands from `workflow-authoring.md`.
+- For composing or inspecting workflow internals, use Automator AppleScript commands from `references/workflow-authoring.md`.
 - Only use `shortcuts` fallback if user explicitly asks for Shortcuts conversion.
 
 ### 2. Validate Workflow Identity Before Execution
 - Require absolute workflow path and verify it exists.
 - Confirm type (`.workflow`) and target operation (read, write, destructive).
-- If the workflow path is ambiguous, stop and ask one clarifying question.
+- If the workflow path is ambiguous, ask one clarifying question before proceeding.
 
 ### 3. Enforce Read-Before-Write for Workflow Changes
 - Before editing, inspect current action list and settings.
 - Apply one mutation at a time and re-read state after each mutation.
-- Never batch-edit unknown actions in a single pass.
+- Apply edits to known actions incrementally.
 
 ### 4. Parameterize Inputs with Explicit Boundaries
 - Use `automator -i` or `-D name=value` only with validated inputs.
@@ -100,9 +90,9 @@ No other data is sent externally.
 - Echo resolved parameters before run so the user can verify intent.
 
 ### 5. Require Two-Step Confirmation for Destructive Runs
-- Use `execution-guardrails.md` before delete, reset, or mass-change paths.
+- Use `references/execution-guardrails.md` before delete, reset, or mass-change paths.
 - Ask for explicit confirmation that includes target and scope.
-- If confirmation is missing, do not run the workflow.
+- Ensure confirmation is present before running the workflow.
 
 ### 6. Keep Runs Observable and Reproducible
 - Prefer verbose mode (`-v`) for first execution or after failure.
@@ -125,7 +115,7 @@ No other data is sent externally.
 ## Security & Privacy
 
 **Data that stays local:**
-- Workflow paths, verified action names, and run diagnostics in `~/Clawic/data/automator/`.
+- Workflow paths, verified action names, and run diagnostics in `<state_root>/`.
 - Command output required to complete the requested automation task.
 
 **Data that leaves your machine:**
@@ -137,13 +127,7 @@ No other data is sent externally.
 - Execute destructive automation without explicit confirmation.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `applescript` - Script app automation with robust quoting and pre-read checks.
 - `automate` - Design reliable multi-step automation workflows.
 - `macos` - Use macOS command-line and system operation patterns.
-- `workflow` - Structure repeatable workflows and handoff checkpoints.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/automator
-- Latest version: https://clawic.com/skills/automator
+- `workflow` - Structure repeatable workflows and handoff states.

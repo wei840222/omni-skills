@@ -31,4 +31,4 @@ Only continue when both confirmations are explicit.
 
 1. Read back target state after execution.
 2. Compare expected vs actual outcome.
-3. If mismatch exists, stop and report before retrying.
+3. If mismatch exists, report it and wait for user resolution before retrying.

@@ -28,7 +28,7 @@ If the failure persists, capture:
 
 ## Recovery Rules
 
-1. Never retry destructive workflows without re-confirmation.
+1. Require re-confirmation before retrying destructive workflows.
 2. Reduce to a minimal reproducible run.
 3. Reintroduce inputs and variables one by one.
 4. Persist only fixes that worked at least twice.

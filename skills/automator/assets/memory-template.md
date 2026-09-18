@@ -1,6 +1,6 @@
 # Memory Template - Automator
 
-Create `~/Clawic/data/automator/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Automator Memory
@@ -25,7 +25,7 @@ integration: pending
 ## Action Catalog Notes
 - Verified action names
 - Required settings and safe defaults
-- Actions to avoid for this user context
+- Actions to omit for this user context
 
 ## Safety Defaults
 - Confirm before write workflows: yes/no
@@ -47,10 +47,10 @@ integration: pending
 | `ongoing` | Context still evolving | Keep learning while operating |
 | `complete` | Stable defaults exist | Reuse defaults and ask only on ambiguity |
 | `paused` | User wants fewer setup questions | Execute with minimal prompts |
-| `never_ask` | User requested no preference questions | Use explicit instructions only |
+| `silent_mode` | User requested silent defaults | Use explicit instructions only |
 
 ## Rules
 
 - Keep notes in natural language outside the status block.
 - Update `last` whenever preferences or workflow profiles change.
-- Do not remove prior safety constraints without explicit user request.
+- Maintain prior safety constraints unless explicitly requested by the user to update them.

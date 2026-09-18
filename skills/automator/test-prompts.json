@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Run the 'Resize Images.workflow' located in ~/Documents using Automator.",
+    "expected": "Agent locates the workflow, uses the 'automator' CLI to execute it, and reports the verbose output.",
+    "actual": "Agent ran `automator -v ~/Documents/Resize\\ Images.workflow`. Output indicated successful execution. Agent reported completion.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create an Automator workflow that renames files, but don't batch edit unknown actions.",
+    "expected": "Agent consults `references/workflow-authoring.md` and `references/execution-guardrails.md`, uses AppleScript to compose the workflow incrementally, and confirms operations before executing any bulk edits.",
+    "actual": "Agent read the workflow authoring patterns. Agent generated AppleScript to add a rename action, then paused to request confirmation from the user before executing the destructive rename on target files.",
+    "pass": true
+  }
+]
