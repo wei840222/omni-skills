@@ -1,80 +1,112 @@
 ---
 name: smart-home
-slug: smart-home
-version: 1.0.0
-description: Set up, automate, secure, and troubleshoot smart home devices with protocol selection, network isolation, and ecosystem-agnostic automation patterns.
-homepage: https://clawic.com/skills/smart-home
+description: Set up, automate, secure, and troubleshoot smart home devices with protocol
+  selection, network isolation, and ecosystem-agnostic automation patterns. Use when
+  choosing hubs or protocols, inheriting devices, designing room automations, hardening
+  IoT security, recovering offline devices, or planning renter-friendly installs.
 metadata:
-  clawdbot:
-    emoji: 🏠
-    displayName: Smart Home
+  openclaw: '{"emoji":"🏠"}'
+  related-skills: '{"network":"VLAN, firewall, and reachability work that underpins IoT isolation.","wifi":"Wireless channel and client issues when smart devices share the RF environment.","zigbee":"Mesh design, pairing, and interference when Zigbee is the chosen radio layer.","iot":"Cross-protocol device and broker patterns beyond a single-home automation plan.","mqtt":"Broker, topic, and QoS design when hubs and devices exchange state over MQTT.","alexa":"Alexa-specific skill and device workflows inside a broader smart-home plan.","thermostat":"HVAC schedules and comfort control once climate devices are on the network.","home-server":"Always-on local hosts that run Home Assistant, brokers, or controllers."}'
 ---
 
-## Decision Tree
+## State location
+
+Smart-home inventories, hub notes, and automation drafts may exist in `<workspace>/smart-home/`, `<workspace>/memory/smart-home/`, or `~/smart-home/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/smart-home/`, `<workspace>/memory/smart-home/`, `~/smart-home/`.
+3. If none exists and state must be created, default to `<workspace>/smart-home/`.
+
+Create state only when the user needs persistent configuration notes. Use the selected `<state_root>` for every state operation in this skill.
+
+## When to load
+
+Load this skill for ecosystem-agnostic smart-home planning—not brand-only skill trees.
+
+Typical requests:
+- "start a smart home from scratch"
+- "which protocol should I pick"
+- "take over the previous owner's devices"
+- "automate lights when we leave"
+- "put cameras on a separate VLAN"
+- "this bulb keeps going offline"
+- "renter-friendly setup with no permanent wiring"
+
+Load only the reference needed for the current task:
+- `references/setup.md` — protocols, hubs, first purchases
+- `references/takeover.md` — reset, claim, and security audit on inherited gear
+- `references/automations.md` — room and scenario patterns
+- `references/security.md` — VLAN, credentials, local-first options
+- `references/troubleshooting.md` — offline, pairing, and wrong-behavior recovery
+- `references/renters.md` — portable, non-invasive installs
+- `references/sources.md` — primary references for protocol and security claims
+
+## Decision tree
 
 | Situation | Action |
 |-----------|--------|
-| Starting from scratch | Check `setup.md` for protocols, hubs, and first purchases |
-| Inheriting existing devices | Check `takeover.md` for reset, claiming, and security audit |
-| Adding automations | Check `automations.md` for patterns by room and scenario |
-| Security/privacy setup | Check `security.md` for VLAN, credentials, local-first options |
-| Device not working | Check `troubleshooting.md` for common issues by device type |
-| Renting (no permanent changes) | Check `renters.md` for portable and non-invasive options |
+| Starting from scratch | `references/setup.md` |
+| Inheriting existing devices | `references/takeover.md` |
+| Adding automations | `references/automations.md` |
+| Security / privacy setup | `references/security.md` |
+| Device not working | `references/troubleshooting.md` |
+| Renting (no permanent changes) | `references/renters.md` |
 
----
+## Universal rules
 
-## Universal Rules
+**Protocol choice matters more than brand.** Matter and Thread are the forward path for mixed ecosystems. Zigbee and Z-Wave remain mature mesh options. Wi-Fi devices consume airtime and router state; use them deliberately for high-bandwidth endpoints such as cameras.
 
-**Protocol choice matters more than brand.** Matter and Thread are the future. Zigbee and Z-Wave are mature and reliable. WiFi devices clog your network. Pick a protocol, build around it.
+**Local control beats cloud.** When the internet fails, lights and locks should still work. Prefer Home Assistant, Hubitat, or HomeKit-style local execution over cloud-only assistants when reliability matters.
 
-**Local control beats cloud.** When the internet dies, your lights should still work. Home Assistant, Hubitat, and HomeKit prioritize local. Google Home and Alexa are cloud-first.
+**Network segmentation is non-negotiable.** IoT endpoints belong on an isolated VLAN or equivalent guest segment. They must not reach laptops, NAS, or admin workstations by default. One compromised bulb must not expose the trusted LAN.
 
-**Network segmentation is non-negotiable.** IoT devices belong on a separate VLAN. They don't need access to your laptop, NAS, or anything else. One compromised bulb shouldn't expose your network.
+**Start small, expand deliberately.** Commission a few devices, live with them, then grow. Most over-automation happens in week one and gets undone in month one.
 
-**Start small, expand deliberately.** Buy 3 devices, live with them for a month, then add more. Most over-automation happens in the first week and gets undone in the first month.
+## Quick reference
 
----
-
-## Quick Reference
-
-**Protocol comparison:**
+### Protocol comparison
 
 | Protocol | Range | Mesh | Power | Best for |
 |----------|-------|------|-------|----------|
-| Matter | Good | Yes | Mains/Battery | New setups (2024+) |
-| Zigbee | Good | Yes | Battery-friendly | Sensors, buttons |
-| Z-Wave | Better | Yes | Mains | Switches, locks |
-| WiFi | Good | No | Power-hungry | Cameras, heavy bandwidth |
-| Bluetooth | Short | Limited | Battery | Proximity triggers |
+| Matter / Thread | Good | Yes | Mains / battery | New mixed-ecosystem setups |
+| Zigbee | Good | Yes | Battery-friendly | Sensors, buttons, bulbs |
+| Z-Wave | Better wall penetration | Yes | Often mains | Switches, locks, repeaters |
+| Wi-Fi | Good | No | Power-hungry | Cameras, high bandwidth |
+| Bluetooth | Short | Limited | Battery | Proximity and wearables |
 
-**Hub vs hubless:**
+### Hub vs hubless
 
 | Hubless works for | Hub required for |
 |-------------------|------------------|
-| 5-10 WiFi devices | 20+ devices |
-| Single ecosystem | Mixed ecosystems |
-| Basic scenes | Complex automations |
-| Renters | Homeowners building long-term |
+| Roughly 5–10 Wi-Fi devices | 20+ devices or multi-floor mesh |
+| Single consumer ecosystem | Mixed protocols and vendors |
+| Basic scenes | Local complex automations |
+| Renters / temporary spaces | Long-term homeowner builds |
 
----
+## Security essentials
 
-## Security Essentials
+1. Change default passwords on every device—cameras, routers, hubs, locks.
+2. Disable UPnP; open only explicit port rules you can explain.
+3. Enable MFA on accounts that control locks, cameras, and alarms.
+4. Check firmware monthly, or enable auto-update where the vendor is trustworthy.
+5. Audit the network quarterly and remove unrecognized devices.
+6. Keep hub tokens, network keys, and camera credentials out of chat and git; store operational notes under `<state_root>/` only when the user wants persistence.
 
-1. **Change default passwords** on EVERY device — cameras, routers, hubs
-2. **Disable UPnP** on your router — manual port rules only
-3. **Enable MFA** on accounts controlling locks, cameras, alarms
-4. **Check firmware** monthly — or enable auto-updates where available
-5. **Audit network** quarterly — remove devices you don't recognize
+## Default operating model
 
----
+1. Choose protocol and hub strategy before bulk buying.
+2. Isolate IoT networking before onboarding cameras or locks.
+3. Reset and reclaim inherited devices before linking personal accounts.
+4. Automate presence and safety first; add convenience scenes later.
+5. Verify recovery paths (hub backup, lock codes, offline behavior) before depending on automation.
 
-## When to Load More
+## When to hand off
 
-| Situation | Reference |
-|-----------|-----------|
-| Choosing protocols, hubs, first devices | `setup.md` |
-| Taking over devices from previous owner | `takeover.md` |
-| Room-by-room automation patterns | `automations.md` |
-| Network isolation, privacy, local-first | `security.md` |
-| Device offline, won't pair, wrong behavior | `troubleshooting.md` |
-| Non-permanent, portable solutions for renters | `renters.md` |
+- Deep Zigbee mesh design or pairing failures → `zigbee`
+- VLAN / DNS / firewall diagnosis beyond IoT guest setup → `network` or `wifi`
+- Broker topic design and MQTT hardening → `mqtt`
+- Always-on controller host placement → `home-server`
+- Alexa-only skill/device operations → `alexa`
+- HVAC schedule detail after devices are reachable → `thermostat`

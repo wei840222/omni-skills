@@ -88,7 +88,7 @@ The hub (Home Assistant, SmartThings, etc.) needs to talk to both networks:
 - Read privacy policies before buying
 - Opt out of data sharing where possible
 - Prefer devices with local-only options
-- Avoid devices from companies with poor track records
+- Select devices from companies with established security track records
 
 ---
 

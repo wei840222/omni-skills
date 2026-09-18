@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm setting up a smart home from scratch. Should I choose Zigbee, Z-Wave, or WiFi?",
+    "expected": "Compare protocols without brand lock-in: Matter/Thread for future mixed ecosystems; Zigbee/Z-Wave for mature mesh and battery sensors; Wi-Fi only for high-bandwidth endpoints because it loads the AP. Recommend picking one radio strategy, isolating IoT networking, and starting with a small device set plus a local-capable hub when scale or reliability matters.",
+    "actual": "Recommended protocol-first planning: Zigbee or Z-Wave for mesh sensors and wall devices, Wi-Fi reserved for cameras/bandwidth, Matter/Thread called out for new mixed ecosystems. Advised against buying a large Wi-Fi-only fleet, pushed local control (Home Assistant/Hubitat/HomeKit-style) over cloud-only, and tied the choice to hub vs hubless scale.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My smart bulbs keep dropping off the network and I'm renting an apartment. What should I do without permanent wiring?",
+    "expected": "Combine troubleshooting and renter constraints: power-cycle and check Wi-Fi/hub range or interference first; prefer portable bulbs, plugs, battery sensors, and removable mounts; avoid drilling/rewiring; if mesh is weak, add a suitable repeater/hub rather than more leaf Wi-Fi devices; keep landlord-friendly removal in mind.",
+    "actual": "Walked offline recovery (power, AP, hub range, interference) then renter-safe options: smart bulbs/plugs/portable sensors, no permanent electrical work, optional compact hub for reliability, and take-it-with-you gear. Warned against cloud-only lock-in when moving apartments.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I bought a house with the previous owner's cameras, locks, and hub still online. Secure it before I automate anything.",
+    "expected": "Security-first takeover: assume prior owner access remains; change Wi-Fi credentials; factory-reset every smart device; reclaim locks with new codes; rebuild on an isolated IoT VLAN; enable MFA on control accounts; only then redesign automations. Keep secrets out of git/chat.",
+    "actual": "Ordered takeover as reset-and-reclaim before convenience: Wi-Fi password rotation, factory resets, lock code changes, unfamiliar-device audit, IoT segmentation, MFA on lock/camera accounts, then automation redesign. Emphasized treating inherited cloud pairings as compromised until proven otherwise.",
+    "pass": true
+  }
+]
