@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Take a screenshot of the whole screen to help debug a visual artifact on the desktop.",
+    "expected": "Use screencapture to capture a screenshot and save it to a file, returning the file path.",
+    "actual": "Ran `screencapture -x screenshot.png`, screenshot captured successfully.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Take a screenshot of the Playwright browser page after ensuring network idle and disabled animations for a visual regression baseline.",
+    "expected": "Wait for network idle, disable animations in Playwright context, and capture a full-page screenshot.",
+    "actual": "Configured playwright page with animations='disabled', waited for networkidle, and ran `page.screenshot({ fullPage: true, path: 'baseline.png' })`.",
+    "pass": true
+  }
+]

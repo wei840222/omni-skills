@@ -1,25 +1,21 @@
 ---
 name: screenshot
-slug: screenshot
-version: 1.0.1
-description: Capture, inspect, and compare screenshots of screens, windows, regions, web pages, simulators, and CI runs with the right tool, wait strategy, viewport, and output format. Use when (1) you need screenshots for debugging, QA, docs, bug reports, or visual review; (2) desktop, browser, simulator, or headless capture is involved; (3) stable screenshots require fixed viewport, settling, masking, or animation control.
-homepage: https://clawic.com/skills/screenshot
-changelog: Improved screenshot guidance with stronger browser, simulator, CI, and visual-stability rules while keeping the skill compact.
+description: Capture screenshots of desktop apps, browser pages, simulators, and CI
+  environments. Load when you need to capture screenshots for debugging, QA, visual
+  reviews, or before/after visual comparisons.
 metadata:
-  clawdbot:
-    emoji: 📸
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Screenshot
+  openclaw: '{"emoji": "📸"}'
+  related-skills:
+  - playwright
+  - image
+  - image-edit
+  - documentation
+  - video
 ---
 
-## When to Use
+## When to load
 
-Use when the task needs a screenshot of a desktop app, browser page, simulator, region, window, or full screen, especially for debugging, QA, documentation, release notes, bug reports, visual review, or before/after comparison.
-
-This skill is about taking the right screenshot reliably, not about editing images after the fact.
+Load when the task requires capturing screenshots of a desktop app, browser page, simulator, region, or full screen for debugging, QA, or visual review.
 
 ## Tool Choice
 
@@ -47,9 +43,9 @@ Default to the most native capture path first. Move to browser-native tooling wh
 ### 2. Stabilize the target before capturing
 
 - Dynamic pages should settle before capture: wait for network idle or the specific element that matters, then give fonts and transitions a brief moment to finish.
-- Do not take the screenshot before the real rendered state exists.
+- Wait for the real rendered state to exist before taking the screenshot.
 - For browser capture, prefer explicit readiness over blind sleeps when possible.
-- If the page never truly goes idle, wait for the exact UI state you need instead of chasing perfect stillness.
+- If the page remains continuously active, wait for the specific UI state required rather than seeking perfect stillness.
 
 ### 3. Freeze viewport, scale, zoom, and theme for reproducibility
 
@@ -67,8 +63,8 @@ Default to the most native capture path first. Move to browser-native tooling wh
 
 ### 5. Remove noise before you capture
 
-- Hide or avoid unstable UI when it is not the subject: cursors, carets, toasts, chat widgets, notifications, loading spinners, timestamps, and randomized content.
-- Mask or avoid secrets, personal data, tokens, and internal URLs before capture.
+- Exclude unstable UI elements when they are not the subject: cursors, carets, toasts, chat widgets, notifications, loading spinners, timestamps, and randomized content.
+- Mask out secrets, personal data, tokens, and internal URLs prior to capture.
 - For Playwright-style browser capture, features like disabled animations, hidden carets, and masking are worth using when visual stability matters.
 - If the noise is the bug, keep it; otherwise remove it.
 
@@ -76,8 +72,8 @@ Default to the most native capture path first. Move to browser-native tooling wh
 
 - PNG is the default for screenshots, UI, code, terminals, and text-heavy captures.
 - JPEG is for photographic content, not normal screenshots.
-- WebP is fine for sharing or storage when compatibility is acceptable, but do not default to it if the consumer expects plain PNG files.
-- Avoid recompressing screenshots through JPEG pipelines unless the user explicitly wants smaller lossy output.
+- WebP is fine for sharing or storage when compatibility is acceptable, but default to PNG if the consumer expects plain PNG files.
+- Preserve screenshot quality by keeping formats uncompressed or losslessly compressed unless the user explicitly wants smaller lossy output.
 
 ### 7. Make automation and CI captures debuggable
 
@@ -111,17 +107,3 @@ Default to the most native capture path first. Move to browser-native tooling wh
 - Forgetting that Wayland breaks familiar X11 screenshot tools.
 - Sharing screenshots with secrets still visible in tabs, sidebars, URLs, or test accounts.
 - Taking full-page captures of huge pages and ending up with unreadable evidence.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `playwright` — Browser automation, DOM interaction, and web screenshots
-- `image` — Post-capture format, cropping, compression, and export decisions
-- `image-edit` — Annotation, cleanup, masking, and targeted edits after capture
-- `documentation` — Turning screenshots into docs, guides, and release assets
-- `video` — When a flow should be recorded instead of reduced to still images
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/screenshot
-- Latest version: https://clawic.com/skills/screenshot
