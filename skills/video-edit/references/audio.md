@@ -136,4 +136,4 @@ ffmpeg -i video.mp4 -i music.mp3 \
 - **Room treatment** — reduces echo
 - **Good mic** — garbage in, garbage out
 - **Check on headphones** — and speakers
-- **Leave headroom** — don't clip
+- **Leave headroom** — maintain levels below 0dB to prevent clipping
