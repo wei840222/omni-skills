@@ -64,7 +64,7 @@ Most devices need reconfiguration after:
 |---------|--------------|
 | Runs late | Cloud delay, use local execution |
 | Runs multiple times | Duplicate automations, overlapping triggers |
-| Never runs | Device renamed but automation not updated |
+| Fails to run | Device renamed but automation not updated |
 | Runs at wrong time | Time zone misconfigured |
 
 ---
@@ -99,7 +99,7 @@ Most devices need reconfiguration after:
 |-------|----------|
 | State not syncing | Power cycle device, force refresh in app |
 | Hub lost sync | Restart hub, re-pair device |
-| Manual override | Some devices don't report manual changes |
+| Manual override | Some devices fail to report manual changes |
 | Sensor drift | Recalibrate (thermostats, sensors) |
 | Battery dying | Low battery = erratic behavior, replace |
 

@@ -36,7 +36,7 @@
 
 ### Go with WiFi for:
 - Cameras (need bandwidth)
-- Devices that don't need mesh
+- Devices operating without mesh
 - Simple single-device additions
 
 ---

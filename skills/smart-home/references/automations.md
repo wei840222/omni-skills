@@ -58,7 +58,7 @@
 
 ---
 
-## Automation Mistakes to Avoid
+## Automation Anti-Patterns
 
 | Mistake | Why it fails |
 |---------|--------------|
