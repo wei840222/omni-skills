@@ -1,9 +1,9 @@
 ---
 name: legal
-description: Structure legal analysis with jurisdiction-first IRAC issue spotting,
-  risk ranking, and actionable next steps. Use for claim viability drills, multi-issue
-  fact patterns, and exam-style legal reasoning. Route counsel redlines to lawyer,
-  general legal research to law, and contract drafting or registers to contract/contracts.
+description: Structure jurisdiction-first IRAC legal analysis with issue spotting,
+  risk ranking, and next actions. Use for claim-viability drills, multi-issue fact
+  patterns, and exam-style reasoning. Not for counsel redlines (lawyer), primary-authority
+  research (law), or contract draft/register work (contract/contracts).
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji": "⚖️"}'
