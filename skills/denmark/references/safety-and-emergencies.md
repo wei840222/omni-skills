@@ -21,12 +21,12 @@
 
 - Wind, cold water, tides, and slippery coast paths create more real risk than many first-timers expect.
 - Respect cliff edges, dune restrictions, and posted warnings at places such as Mons Klint and exposed coasts.
-- In Wadden Sea areas, tide logic matters; do not improvise a route onto flats or marsh without local guidance.
+- In Wadden Sea areas, tide logic matters; use local guidance when routing onto flats or marsh.
 
 ## Incident Response Rule
 
 If a segment becomes unsafe due to storm, flood, heavy wind, or transport disruption:
-1. Stop the fragile plan.
+1. Reroute the fragile plan.
 2. Rebase to the nearest stronger town or city.
 3. Rebuild the remaining days around lower-risk transport and indoor or urban options.
 

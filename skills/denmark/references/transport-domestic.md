@@ -21,7 +21,7 @@ Denmark rewards plans where one transport mode leads and the others support it.
 
 - Denmark rail works best on the Copenhagen, Funen, Aarhus, and Aalborg spine.
 - Rail is especially strong when the user wants city plus one regional extension without parking stress.
-- Rail weakens when the user expects scattered coast stops, dunes, cliff viewpoints, or late-night remote movement.
+- Rail weakens when the user expects scattered coast locations, dunes, cliff viewpoints, or late-night remote movement.
 
 ## Ferry and Bridge Logic
 

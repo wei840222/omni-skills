@@ -4,7 +4,7 @@
 
 - Use Copenhagen for first-timers, long weekends, food and design travelers, and users who want Denmark with minimal friction.
 - Keep Copenhagen as the transport backbone when the trip mixes city time with short day trips or one extension.
-- Do not over-inflate the city stay if the user really wants dunes, islands, or remote nature.
+- Keep the city stay brief if the user prefers dunes, islands, or remote nature.
 
 ## Stay Strategy
 
@@ -27,10 +27,10 @@
 - Roskilde fits Viking, cathedral, and lighter-history days.
 - Mons Klint is a stronger scenic add-on only when the user accepts a longer transport day or an overnight extension.
 
-## Trap Avoidance
+## Smooth Routing
 
-- Avoid renting a car just to "have flexibility" in Copenhagen.
-- Do not stack every headline museum and canal zone into one day.
+- Rely on transit and biking for Copenhagen flexibility.
+- Pace headline museums and canal zones across multiple days.
 - Summer crowds and restaurant demand justify reservations earlier than users expect.
 
 ## Planning Rule

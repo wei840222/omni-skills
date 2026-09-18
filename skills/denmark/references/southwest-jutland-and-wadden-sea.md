@@ -27,10 +27,10 @@
 - Bird and dark-sky value can be high outside peak-summer beach assumptions.
 - The region rewards deliberate, nature-led pacing more than fast sightseeing.
 
-## Trap Avoidance
+## Smooth Routing
 
-- Do not sell the Wadden Sea as a generic beach holiday.
-- Avoid cramming it into a route already full of Copenhagen, Funen, and north Jutland.
+- Present the Wadden Sea as a unique nature experience rather than a generic beach holiday.
+- Allocate dedicated time for this region instead of adding it to a full cross-country route.
 - Check guided-experience and seasonal-service availability before promising a perfect plan.
 
 ## Planning Rule

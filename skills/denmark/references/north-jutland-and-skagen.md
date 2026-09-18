@@ -17,7 +17,7 @@
 
 ## What Works Well
 
-- Skagen is best when it is the point, not a quick photo stop.
+- Skagen is best when it is the point, not a quick photo location.
 - Aalborg can work as an easier logistics anchor than users expect.
 - Thy and dune-heavy routes reward users who like weather, walking, birdlife, and lower-density travel.
 
@@ -25,12 +25,12 @@
 
 - A car is often the cleanest way to unlock the region fully.
 - Wind and weather are part of the product, not a small detail.
-- Coast stops look close on the map but feel better when grouped, not stacked.
+- Coast locations look close on the map but feel better when grouped, not stacked.
 
-## Trap Avoidance
+## Smooth Routing
 
-- Do not sell north Jutland as an easy add-on to Copenhagen in a rushed short trip.
-- Avoid overpromising beach weather or swimming comfort.
+- Reserve north Jutland for dedicated Jutland itineraries rather than short Copenhagen trips.
+- Set realistic expectations for beach weather and swimming comfort.
 - Keep Skagen, Thy, and Aalborg together only when the total trip length supports it.
 
 ## Planning Rule

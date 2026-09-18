@@ -23,14 +23,14 @@
 
 ## Transport and Pace
 
-- Many users do not need a car for North Zealand.
+- Many users can easily rely on transit for North Zealand.
 - A car starts to pay off when the user wants multiple small coast towns or a Mons Klint plus countryside shape.
 - Coast weather and daylight matter on open-cliff or beach days more than users expect.
 
-## Trap Avoidance
+## Smooth Routing
 
-- Do not sell Mons Klint as a tiny detour from an already packed city itinerary.
-- Avoid too many one-off coastal stops with no time to enjoy them.
+- Treat Mons Klint as a dedicated trip segment rather than a quick detour.
+- Select a few coastal locations to allow sufficient time for enjoyment.
 - Check season before promising beachy or swimming energy.
 
 ## Planning Rule

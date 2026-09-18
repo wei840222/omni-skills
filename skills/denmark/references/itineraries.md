@@ -5,7 +5,7 @@
 - Stay in one Copenhagen base for all nights.
 - Build around one museum or design block, one food or market block, and one evening neighborhood.
 - Good for first-timers, shoulder season, and users who want low-friction Denmark.
-- Do not add Aarhus or Bornholm just to "see more country."
+- Keep the route focused instead of adding distant regions just to see more country.
 
 ## 5 Days - Copenhagen Plus One Extension
 
@@ -17,7 +17,7 @@
 
 - Copenhagen 3 nights, Odense or south-Funen 2-3 nights, then return or onward departure.
 - Strong for first-timers who want city, culture, and a softer island-and-small-city feel.
-- Keep the route simple; do not also force Aarhus or Skagen into the week.
+- Keep the route simple; keep Aarhus or Skagen for longer trips.
 
 ## 7 Days - Aarhus Plus North Jutland
 

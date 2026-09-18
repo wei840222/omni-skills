@@ -1,0 +1,10 @@
+[
+  {
+    "prompt": "I'm flying into Copenhagen in mid-July for 7 days. I want to see the city but also experience the Danish coast and maybe an island. Should I rent a car for the whole trip?",
+    "actual": "Based on the core rules for Denmark travel:\n\n1. **Movement Model & Base**: For a 7-day trip starting in Copenhagen, rent a car only for the coast/island portion. Copenhagen is highly bike and transit-friendly, and a car will incur expensive parking and bridge tolls.\n2. **Route Logic**: Dedicate 3-4 days to Copenhagen using transit. For the coast/island portion (e.g., North Zealand or crossing to Funen), rent a car for just those 2-3 days.\n3. **Seasonal Context**: In mid-July, islands and coasts are busy. Ensure ferry and accommodation bookings are secured in advance, as spontaneous travel is risky during peak summer.\n\nI recommend splitting your trip: use trains in the capital region, and grab a rental later if you head towards Mons Klint or Funen."
+  },
+  {
+    "prompt": "We are planning a winter trip to Denmark to see Skagen, Aarhus, and Bornholm in 5 days. What's the best route?",
+    "actual": "According to the Denmark trip guidelines, this plan triggers the 'Island and Coast Fantasy' trap. Here is why we need to adjust:\n\n1. **Over-routing**: Skagen (North Jutland), Aarhus (East Jutland), and Bornholm (an island far to the east) are geographically incompatible for a 5-day trip, especially given the transport friction (ferries, bridges).\n2. **Seasonal Reality**: In winter, daylight is extremely limited, the coast is cold and windy, and many small-town attractions operate on reduced hours.\n\n**Recommendation**: Pick one dominant shape. For a 5-day winter trip, a Copenhagen + North Zealand loop or an Aarhus-centric Jutland trip using rail/bus is much more viable and enjoyable."
+  }
+]

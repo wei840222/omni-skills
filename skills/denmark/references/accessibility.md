@@ -16,7 +16,7 @@
 
 - Museums, design sites, and central-city districts are easier to deliver accessibly than cliffs, dunes, and beach-heavy days.
 - Mons Klint, Thy, and some Bornholm experiences can still work, but route and surface detail must be checked first.
-- Harborfront, waterfront, and town-center experiences often deliver better value than forcing rugged-nature goals that do not fit.
+- Harborfront, waterfront, and town-center experiences often deliver better value than forcing rugged-nature goals that are impractical.
 
 ## Practical Advice
 

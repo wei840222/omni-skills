@@ -9,7 +9,7 @@ Denmark trips improve when the user sleeps multiple nights per base and chooses 
 - **Copenhagen city break:** stay near a metro or S-train node, not just the cheapest outer suburb.
 - **Capital plus day trips:** central Copenhagen or one well-connected outer district beats hotel-hopping.
 - **Funen or island travel:** prefer one town with evening food options over an isolated summer cottage unless the user wants self-catering.
-- **Jutland coast routes:** one strong town base can outperform multiple one-night beach stops.
+- **Jutland coast routes:** one strong town base can outperform multiple one-night beach locations.
 - **Bornholm:** book early and decide whether the user wants rocky north, sandy south, or a central compromise.
 
 ## Location Logic
