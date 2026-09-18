@@ -104,9 +104,9 @@ Use Google Maps or Citymapper. Madrid metro is efficient — most central areas 
 
 ---
 
-## What to Avoid (Unless You Know What You're Doing)
+## Areas Requiring More Caution (Unless You Know What You're Doing)
 
-| Avoid | Why |
+| Skip | Why |
 |-------|-----|
 | **Sol/Gran Vía** for long-term | Touristy, noisy, overpriced |
 | **Parts of Villaverde** | Safety issues, industrial |

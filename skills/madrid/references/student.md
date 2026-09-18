@@ -77,7 +77,7 @@
 | **Uniplaces** | Student-specific |
 | **Facebook groups** | Erasmus, university-specific |
 
-**Warning:** Scams exist. Never pay before seeing. Use established platforms.
+**Warning:** Scams exist. Always view in person before paying. Use established platforms.
 
 ### Colegios Mayores (Traditional Halls)
 
@@ -113,7 +113,7 @@ Elite residential colleges with social programs. Competitive entry.
 | Area | Tip |
 |------|-----|
 | **Transport** | Abono Joven (€10/month!) = unlimited for under 26 |
-| **Food** | Cook, avoid eating out, Mercadona/Lidl |
+| **Food** | Cook, minimize eating out, Mercadona/Lidl |
 | **Going out** | Pre-drink at home, free entry before midnight |
 | **Museums** | Student discounts + free hours |
 | **Cinema** | Día del Espectador (€5-6) |
@@ -219,7 +219,7 @@ This alone saves €200+/month compared to regular pricing.
 2. Get assigned a Centro de Salud
 3. Access public healthcare free
 
-### If You Don't Have Social Security
+### If You Require Private Health Insurance
 
 | Option | Notes |
 |--------|-------|

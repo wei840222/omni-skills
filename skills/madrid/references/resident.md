@@ -259,7 +259,7 @@ No visa required. After 3 months:
 | **Physical contact** | Two kisses greeting (cheek to cheek, right first) |
 | **Loudness** | Spaniards are loud. It's normal. |
 | **Directness** | More direct than UK, less than Germany |
-| **Work-life balance** | Sacred. Don't expect 60-hour weeks |
+| **Work-life balance** | Sacred. Expect standard 40-hour weeks |
 
 ### Making Friends
 

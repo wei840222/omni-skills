@@ -13,7 +13,7 @@
 | **El Rastro** | Massive Sunday flea market | FREE | Go early (9-10am) or late (1-2pm) |
 | **Gran Vía** | Iconic avenue, beautiful at night | FREE | Walk after sunset for lights |
 | **Plaza Mayor** | Historic central square | FREE | Morning (empty) or evening |
-| **Mercado de San Miguel** | Beautiful building (but overpriced) | FREE | Quick photo, don't eat there |
+| **Mercado de San Miguel** | Beautiful building (but overpriced) | FREE | Quick photo, dine elsewhere |
 | **Matadero** | Former slaughterhouse, now culture center | FREE | Check event calendar |
 | **Caixa Forum** | Vertical garden, exhibitions | €6 | Vertical garden is free to see |
 
@@ -41,7 +41,7 @@
 | **Museo del Prado** | Mon-Sat 6-8pm, Sun 5-7pm | Queue early |
 | **Reina Sofía** | Mon, Wed-Sat 7-9pm, Sun 12:30-2:30pm | Guernica! |
 | **Thyssen** | Mondays 12-4pm | Permanent collection |
-| **Retiro Park** | Always | Don't miss Crystal Palace |
+| **Retiro Park** | Always | Visit Crystal Palace |
 | **Templo de Debod** | Always | Best at sunset |
 | **All major parks** | Always | Casa de Campo, Madrid Río |
 | **El Rastro** | Sundays | Morning best |
@@ -112,7 +112,7 @@
 |------|---------|
 | **Tour** | €29+, includes museum and pitch access |
 | **Match tickets** | €40-200+ depending on opponent |
-| **How to buy** | realmadrid.com only (avoid scalpers) |
+| **How to buy** | realmadrid.com only (buy official) |
 | **Tip** | Tour is excellent even for non-fans |
 
 ### Metropolitano (Atlético Madrid)

@@ -262,7 +262,7 @@ Unlike UK, Spain has no council tax for renters. Owners pay IBI (property tax) ~
 |-----|---------|
 | Menú del día for lunch | €5-10 vs à la carte |
 | Shop at Mercadona/Lidl | 20-30% vs El Corte Inglés |
-| Avoid touristy restaurants | 30-50% markup |
+| Skip touristy restaurants | 30-50% markup |
 
 ### Transport
 | Tip | Savings |

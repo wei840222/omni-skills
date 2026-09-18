@@ -14,7 +14,7 @@
 
 ### Tips
 - Madrid is very walkable — center fits in 1-hour diameter
-- Avoid metro at rush hour (8-9:30am, 6-8pm)
+- Travel outside rush hour (8-9:30am, 6-8pm)
 - Taxi has €33 fixed rate to/from airport (refuse anything else)
 - BiciMAD works well for short trips
 
@@ -29,7 +29,7 @@
 | **Retiro & parks** | Free, beautiful |
 | **Templo de Debod** | Free sunset spot |
 | **Walk everywhere** | Center is compact |
-| **Avoid Sol/Plaza Mayor restaurants** | 50%+ markup |
+| **Choose side street restaurants over Sol/Plaza Mayor** | 50%+ markup |
 | **El Tigre** | Free tapas with drinks |
 | **Markets over restaurants** | Better value |
 
@@ -96,7 +96,7 @@
 | **Lunch** | 2-4pm | MAIN meal. Everything closes |
 | **Dinner** | 9-11pm | Lighter than lunch |
 
-**Restaurants don't open for dinner until 8:30-9pm!**
+**Restaurants open for dinner at 8:30-9pm or later!**
 
 ---
 
@@ -110,7 +110,7 @@
 | La cuenta, por favor | The bill, please |
 | ¿Cuánto cuesta? | How much? |
 | ¿Dónde está...? | Where is...? |
-| No entiendo | I don't understand |
+| No entiendo | I do not understand |
 | ¿Habla inglés? | Do you speak English? |
 | Una caña, por favor | A small beer, please |
 | Dos de esto | Two of these |
@@ -176,7 +176,7 @@
 | **Vintage** | Malasaña, El Rastro |
 | **Food gifts** | La Barraca, El Corte Inglés food hall |
 
-### Avoid
+### Skip
 - Tourist shops near Sol (overpriced junk)
 - "Authentic" items at El Rastro (mostly imports)
 
@@ -217,7 +217,7 @@
 
 ## Local Etiquette
 
-| Do | Don't |
+| Choose | Skip |
 |----|-------|
 | Greet with "Hola" or "Buenos días" | Jump straight to request |
 | Say "Por favor" and "Gracias" | Be impatient |

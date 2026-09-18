@@ -51,8 +51,8 @@
 
 | Area Type | File |
 |-----------|------|
-| Central (Centro, Sol) | `neighborhoods-central.md` |
-| East (Salamanca, Retiro) | `neighborhoods-east.md` |
-| South (Usera, Carabanchel) | `neighborhoods-south.md` |
-| North (Chamberí, Tetuán) | `neighborhoods-north.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Central (Centro, Sol) | `references/neighborhoods-central.md` |
+| East (Salamanca, Retiro) | `references/neighborhoods-east.md` |
+| South (Usera, Carabanchel) | `references/neighborhoods-south.md` |
+| North (Chamberí, Tetuán) | `references/neighborhoods-north.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |

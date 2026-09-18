@@ -116,7 +116,7 @@ Municipal helpline for everything:
 ### Banking Tips
 
 - **Spanish accounts needed for:** Rent payments, utility direct debits, salary
-- **ATM fees:** Use your bank's ATMs to avoid €2-3 fees
+- **ATM fees:** Use your bank's ATMs to minimize €2-3 fees
 - **Bizum:** Spanish instant payment (like Venmo), widely used
 
 ---

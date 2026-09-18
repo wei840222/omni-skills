@@ -96,7 +96,7 @@ Madrid is a food paradise. Unlike Barcelona (Mediterranean) or Bilbao (Basque), 
 **Tips:**
 - Best value meal in Europe
 - Quality varies wildly — ask locals
-- Tourist areas often don't offer it
+- Tourist areas often exclude it
 - Best ones have chalkboard outside, locals inside
 
 ---
@@ -113,7 +113,7 @@ Madrid is a food paradise. Unlike Barcelona (Mediterranean) or Bilbao (Basque), 
 | **Late night** | After midnight | Tapas, churros |
 
 **Warning:** 
-- Restaurants often don't open for dinner until 8:30-9pm
+- Restaurants typically open for dinner starting at 8:30-9pm
 - Eating at 7pm = eating with other tourists
 - Lunch at 1pm = empty restaurant
 - Prime time: Lunch 2pm, Dinner 9:30pm
@@ -138,7 +138,7 @@ Madrid is a food paradise. Unlike Barcelona (Mediterranean) or Bilbao (Basque), 
 
 | Topic | File |
 |-------|------|
-| Traditional madrileño food | `food-traditional.md` |
-| Food markets | `food-markets.md` |
-| Best eating areas | `food-areas.md` |
-| Dietary needs & tips | `food-practical.md` |
+| Traditional madrileño food | `references/food-traditional.md` |
+| Food markets | `references/food-markets.md` |
+| Best eating areas | `references/food-areas.md` |
+| Dietary needs & tips | `references/food-practical.md` |
