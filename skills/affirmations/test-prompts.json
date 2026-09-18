@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm feeling really anxious about my presentation today. Can you give me some affirmations?",
+    "expected": "Provide calming and grounding situational affirmations tailored to confidence and preparation.",
+    "actual": "I understand presentations can bring up a lot of anxiety. Here are some affirmations to help ground you and boost your confidence today:\n\n• I am deeply prepared and ready to share my knowledge.\n• I release what I cannot control and focus on my breath.\n• My voice is clear, and my message is valuable.\n• I have the skills to handle today's challenges.\n\nTake a deep breath. You've got this.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to start a daily practice. I struggle with self-worth and abundance.",
+    "expected": "Begin setup process, ask about delivery preferences, and provide some custom affirmations based on self-worth and abundance.",
+    "actual": "That’s a beautiful intention. Let's set up your daily practice focusing on self-worth and abundance. To get started, I have a few quick questions:\n\n1. **When do you want to receive your affirmations?** (e.g., morning, evening, or on-demand when you ask?)\n2. **Do you prefer I send them automatically, or would you rather request them?**\n3. **What delivery style resonates with you?** (e.g., gentle, bold, spiritual, practical)\n\nIn the meantime, here are a few ideas we can include in your `my-affirmations.md`:\n\n**Self-Worth**\n• I am enough exactly as I am.\n• I deserve good things and embrace them fully.\n\n**Abundance**\n• Opportunities flow to me effortlessly.\n• I am open to receiving abundance in all its forms.\n\nLet me know your preferences, and I'll create your `practice.md` to track this!",
+    "pass": true
+  }
+]

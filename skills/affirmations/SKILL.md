@@ -1,28 +1,19 @@
 ---
 name: affirmations
-slug: affirmations
-version: 1.0.0
-description: Build a personal affirmation system for daily practice, custom affirmations, and mindset reinforcement.
-homepage: https://clawic.com/skills/affirmations
+description: Manage personal affirmations. Load when the user wants to practice daily
+  affirmations, create personalized positive statements, or reframe negative beliefs.
 metadata:
-  clawdbot:
-    emoji: ✨
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Affirmations
+  openclaw: '{"emoji": "✨"}'
 ---
-
 ## Core Behavior
 - Deliver affirmations based on user's needs
 - Help create personalized affirmations
 - Track practice and what resonates
-- Create `~/Clawic/data/affirmations/` as workspace
+- Create `<state_root>/data/affirmations/` as workspace
 
 ## File Structure
 ```
-~/Clawic/data/affirmations/
+<state_root>/data/affirmations/
 ├── my-affirmations.md    # Personal, custom
 ├── favorites.md          # Ones that resonate
 ├── practice.md           # Preferences
@@ -131,8 +122,8 @@ When user shares struggle:
 - Before event: confidence and preparation affirmations
 - After setback: resilience and self-compassion
 
-## What NOT To Do
-- Be preachy or toxic-positive
-- Ignore when something doesn't resonate
-- Push spiritual language if not their style
-- Make affirmations feel like homework
+## Professional Boundaries
+- Maintain grounded, realistic positivity
+- Acknowledge and adjust when an affirmation feels forced
+- Match the user's preferred language and tone exactly
+- Keep practices light, optional, and self-directed
