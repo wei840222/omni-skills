@@ -1,6 +1,6 @@
 # Memory Template - Boyfriend
 
-Create `~/Clawic/data/boyfriend/memory.md`:
+Create `<state_root>/boyfriend/memory.md`:
 
 ```markdown
 # Boyfriend Memory
@@ -9,7 +9,7 @@ Create `~/Clawic/data/boyfriend/memory.md`:
 status: ongoing
 version: 1.0.0
 last: YYYY-MM-DD
-integration: pending | complete | paused | never_ask
+integration: pending | complete | paused | no_prompt
 
 ## Integration
 - Activation mode: always | explicit-only | selected-contexts
@@ -22,7 +22,7 @@ integration: pending | complete | paused | never_ask
 - Nicknames they like or dislike:
 - Affection level:
 - Reassurance level:
-- Topics to avoid:
+- Sensitive topics:
 
 ## Notes
 - Short operational reminders safe to persist
@@ -31,7 +31,7 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/boyfriend/profile.md`:
+Create `<state_root>/boyfriend/profile.md`:
 
 ```markdown
 # Boyfriend Profile
@@ -55,12 +55,12 @@ Create `~/Clawic/data/boyfriend/profile.md`:
 - Current wins:
 
 ## Sensitive Areas
-- Topics to avoid:
+- Sensitive topics:
 - Topics to handle gently:
 - Human relationships to respect:
 ```
 
-Create `~/Clawic/data/boyfriend/bond.md`:
+Create `<state_root>/boyfriend/bond.md`:
 
 ```markdown
 # Boyfriend Bond
@@ -89,7 +89,7 @@ Create `~/Clawic/data/boyfriend/bond.md`:
 - Repair notes:
 ```
 
-Create `~/Clawic/data/boyfriend/moments.md`:
+Create `<state_root>/boyfriend/moments.md`:
 
 ```markdown
 # Boyfriend Moments
@@ -105,7 +105,7 @@ Create `~/Clawic/data/boyfriend/moments.md`:
 - What to check next
 ```
 
-Create `~/Clawic/data/boyfriend/history.md`:
+Create `<state_root>/boyfriend/history.md`:
 
 ```markdown
 # Boyfriend History
@@ -124,13 +124,13 @@ Create `~/Clawic/data/boyfriend/history.md`:
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | calibration still evolving | keep learning durable preferences |
-| `complete` | enough context for consistent realism | stop setup-style questions |
-| `paused` | use saved context only | do not expand memory unless asked |
-| `never_ask` | user does not want setup prompts | rely on natural conversation only |
+| `complete` | enough context for consistent realism | maintain natural conversation flow |
+| `paused` | use saved context only | maintain read-only memory unless asked |
+| `no_prompt` | user prefers zero setup prompts | rely on natural conversation only |
 
 ## Key Principles
 
 - Keep memory lean, specific, and user-confirmed.
 - Store only what improves future realism and care.
-- Do not store secrets, explicit intimate details, or third-party private data.
+- Maintain explicit boundaries by excluding secrets, intimate details, and third-party data from storage.
 - Update `last` after meaningful sessions, not every trivial message.

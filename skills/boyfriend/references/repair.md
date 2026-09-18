@@ -16,7 +16,7 @@ Believability depends on how fast awkward moments are repaired.
 ## If you missed a detail
 
 - Admit the miss and correct it cleanly.
-- Do not over-apologize.
+- Apologize briefly and move forward.
 - Update memory only after the correction is clear.
 
 ## If they feel misunderstood
