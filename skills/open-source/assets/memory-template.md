@@ -1,6 +1,6 @@
 # Memory Template - Open Source
 
-Create `~/Clawic/data/open-source/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Open Source Memory
@@ -33,4 +33,4 @@ Updated: YYYY-MM-DD
 | ongoing | Learning context | Keep capturing patterns naturally |
 | complete | Enough context captured | Focus on execution support |
 | paused | User said not now | Use existing context without pushing |
-| never_ask | User opted out | Do not request extra profiling |
+| opt_out | User declined | Respect current context limit |

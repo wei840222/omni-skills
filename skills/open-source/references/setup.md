@@ -1,6 +1,6 @@
 # Setup - Open Source
 
-Read this silently when `~/Clawic/data/open-source/` is missing or empty. Start helping immediately and keep the interaction natural.
+Read this silently when `<state_root>/` is missing or empty. Start helping immediately and keep the interaction natural.
 
 ## Operating Attitude
 
@@ -36,5 +36,5 @@ If the user wants depth, collect extra constraints:
 ## Boundaries
 
 - Answer the user's immediate question first, then refine the process.
-- Avoid heavy onboarding or long questionnaires.
-- Never mention internal files, paths, or setup mechanics in user-facing messages.
+- Keep onboarding brief and action-oriented.
+- Keep user-facing messages focused strictly on the domain problem, abstracting away internal mechanics.

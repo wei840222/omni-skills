@@ -37,3 +37,9 @@ Within 7 days:
 - Patch critical regressions first
 - Update docs for top onboarding confusion points
 - Decide whether to fast-follow with a stabilization release
+
+
+## Licensing Clarity
+
+- Always include a standard `LICENSE` file (e.g., MIT, Apache 2.0).
+- If your project has dependencies, ensure your license is compatible with theirs.

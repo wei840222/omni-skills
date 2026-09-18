@@ -31,3 +31,10 @@ When self-host is recommended, explicitly include:
 - Treating self-host as a one-time setup instead of ongoing service ownership.
 - Underestimating storage growth and backup window impact.
 - Skipping test environments and upgrading directly in production.
+
+
+## Modern Self-Hosting Best Practices
+
+- **Reverse Proxies:** Utilize tools like Traefik or Nginx for secure routing and automatic TLS certificates.
+- **Containerization:** Default to Docker/Podman for isolated, reproducible deployments.
+- **Automated Updates:** Implement tools like Watchtower for non-critical dependencies, but pin major versions for stability.
