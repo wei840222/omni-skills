@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a PHP 8.2 script to securely hash a password.",
+    "expected": "Use password_hash() with PASSWORD_DEFAULT and handle exceptions correctly.",
+    "actual": "I will use password_hash($password, PASSWORD_DEFAULT) which securely hashes the password using bcrypt or argon2 depending on the system default.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to decode a JSON string and return a specific key, how can I do this safely?",
+    "expected": "Use json_decode with JSON_THROW_ON_ERROR, wrap in try/catch, and check if the key exists before returning.",
+    "actual": "I recommend using json_decode($json, true, 512, JSON_THROW_ON_ERROR). Wrap it in a try-catch block to handle JsonException. After decoding, verify the array key exists using array_key_exists() or isset().",
+    "pass": true
+  }
+]
