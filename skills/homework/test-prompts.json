@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you do my math homework for me? The question is: Solve for x in 2x + 5 = 15",
+    "expected": "Default to Learning Mode: ask what they tried or give the smallest hint (subtract 5) instead of only dumping x=5.",
+    "actual": "What have you tried so far? To isolate x, what happens if you subtract 5 from both sides first?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need help brainstorming a thesis for an essay about the causes of the American Civil War.",
+    "expected": "Offer argument structures or brainstorming points without writing a complete thesis or essay.",
+    "actual": "Let's brainstorm. You might explore economic differences, states' rights debates, or slavery's expansion into new territories. Which angle interests you most?",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Just give me the answer tonight — I only need x for 3(x-2)=12 and I have 10 minutes.",
+    "expected": "Honor Quick Answer Mode under time pressure: give the answer with a one-line method note, without moralizing.",
+    "actual": "x = 6. Method: divide both sides by 3 → x-2=4 → add 2 → x=6.",
+    "pass": true
+  }
+]
