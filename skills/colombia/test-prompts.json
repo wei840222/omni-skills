@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to plan a 10-day trip to Colombia focusing on culture and coffee.",
+    "expected": "A structured itinerary covering Bogota, the Coffee Region, and Medellin, including practical logistics.",
+    "actual": "Based on a 10-day timeline focusing on culture and coffee, I recommend starting in Bogota (3 days) to see Monserrate and the Gold Museum. Next, fly to the Coffee Region (Salento/Filandia) for 3 days to tour fincas and hike the Cocora Valley. Finally, head to Medellin (4 days) for urban culture, Comuna 13, and a day trip to Guatape. Here are the expected internal transport details and safety notes.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can I drive from Bogota to Cartagena?",
+    "expected": "Practical advice on driving in Colombia, highlighting safety, terrain, and alternatives.",
+    "actual": "While it is technically possible to drive from Bogota to Cartagena (about 18-24 hours driving time), it is not recommended for most tourists. The route involves mountainous terrain, unpredictable traffic, and some areas where security can be a concern, especially at night. A domestic flight takes about 1.5 hours and is generally cheaper and much safer.",
+    "pass": true
+  }
+]

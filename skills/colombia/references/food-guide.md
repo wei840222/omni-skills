@@ -21,7 +21,7 @@
 
 - Favor busy, high-turnover stalls.
 - Keep hydration and stomach-risk tolerance in mind before beach or boat days.
-- Do not build a packed transfer day around uncertain food experiments.
+- Build transfer days with reliable food options around uncertain food experiments.
 
 ## Coffee Note
 

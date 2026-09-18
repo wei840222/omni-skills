@@ -42,7 +42,7 @@
 - Andes core: 6-7 days
 - Culture or coffee loop: 5-6 days
 - Caribbean, Pacific, or frontier finish: 6-7 days
-- Do not exceed 3 major region jumps without explicit flight tolerance
+- Keep region jumps to 3 or fewer without explicit flight tolerance
 
 ## Itinerary Quality Checks
 

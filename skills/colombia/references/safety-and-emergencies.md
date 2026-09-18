@@ -22,7 +22,7 @@
 ## Nature and Frontier Safety Habits
 
 - Start early and respect closures.
-- Do not improvise remote hikes, jungle routes, or boat transfers without local current info.
+- Plan remote hikes, jungle routes, or boat transfers with local current info.
 - Keep offline copies of IDs, bookings, and key addresses.
 
 ## Protest and Operational Disruption Rule

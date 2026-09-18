@@ -15,7 +15,7 @@ Salsa, Afro-Colombian food, and travelers who want a different Colombia than the
 
 - Cali works best when nightlife and dance are treated as core activities, not side notes.
 - Pacific extensions need strong flexibility and lower comfort expectations.
-- Do not place a fragile Pacific transfer right before international departure.
+- Place a fragile Pacific transfer earlier transfer right before international departure.
 
 ## Good Pattern
 

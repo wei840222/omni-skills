@@ -14,7 +14,7 @@ Island-focused trips for users who prioritize reef, sea color, and slower beach 
 
 - Book flights early in constrained periods.
 - Keep sea and wind conditions in mind before promising boat-dependent activities.
-- Do not schedule the final international departure immediately after the most fragile island segment.
+- Schedule the final international departure with a buffer after departure immediately after the most fragile island segment.
 
 ## Cost Trap
 

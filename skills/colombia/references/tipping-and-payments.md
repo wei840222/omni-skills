@@ -9,8 +9,8 @@
 ## Service-Charge Reality
 
 - Restaurants may ask whether to include service.
-- Do not assume U.S.-style mandatory tipping norms.
-- If a service charge is already included, avoid accidental double tipping.
+- Treat U.S.-style mandatory tipping as non-standard tipping norms.
+- If a service charge is already included, verify the service charge to prevent accidental double tipping.
 
 ## Payment Traps
 

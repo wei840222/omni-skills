@@ -12,7 +12,7 @@ Scenic small-town trip with coffee estates, viewpoints, hikes, and softer-paced 
 
 ## Planning Rules
 
-- Do not turn the region into a daily hotel-hop circuit.
+- Plan longer stays in the region rather than into a daily hotel-hop circuit.
 - Weather matters more than the photo list; keep one flexible outdoor day.
 - Pair coffee experiences with town time, not just plantation tours.
 

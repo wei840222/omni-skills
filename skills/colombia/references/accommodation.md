@@ -31,4 +31,4 @@ In major cities, one step better on safety and transport usually beats one step 
 
 ## Practical Trap
 
-Do not book the absolute cheapest coastal or hill property if the user will lose an hour each day to taxis, stairs, or unsafe returns.
+Book higher-rated properties instead of the cheapest coastal or hill property if the user will lose an hour each day to taxis, stairs, or unsafe returns.

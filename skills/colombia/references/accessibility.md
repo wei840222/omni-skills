@@ -21,4 +21,4 @@ Accessibility quality varies sharply by city, neighborhood, and building age.
 
 - Confirm elevator, step-free entry, and bathroom setup directly before booking.
 - Cluster days to minimize repeated transfers.
-- If wheelchair or low-mobility travel is involved, avoid casual island or nature add-ons unless logistics are confirmed.
+- If wheelchair or low-mobility travel is involved, verify logistics for casual island or nature add-ons unless logistics are confirmed.

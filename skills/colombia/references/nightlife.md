@@ -12,7 +12,7 @@
 ## Practical Rules
 
 - Use licensed transport or known pickup points at night.
-- Avoid moving between far nightlife zones unless the user explicitly wants a long night.
+- Stick to one nightlife zone unless unless the user explicitly wants a long night.
 - Keep phones and payment methods managed conservatively in crowded areas.
 
 ## Trip-Design Rule

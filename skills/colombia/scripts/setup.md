@@ -4,8 +4,8 @@
 
 When Colombia travel appears for the first time:
 
-- Create `~/Clawic/data/colombia/` if it does not exist yet.
-- Create `~/Clawic/data/colombia/memory.md` from `memory-template.md`.
+- Create `<state_root>/` if it does not exist yet.
+- Create `<state_root>/memory.md` from `assets/memory-template.md`.
 - Gather the trip backbone naturally in conversation instead of running a questionnaire.
 
 Useful context to capture early:
@@ -21,7 +21,7 @@ Save only the facts that improve the next answer.
 
 ## Returning Users
 
-If `~/Clawic/data/colombia/memory.md` already exists:
+If `<state_root>/memory.md` already exists:
 
 - Read it first and reuse stable preferences.
 - Ask only what changed: dates, region scope, budget, flight vs bus tolerance, or health constraints.

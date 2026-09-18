@@ -21,7 +21,7 @@ Colombia parks are not one uniform system. Access, closures, insurance rules, we
 
 ## Tayrona Rule
 
-- Never promise Tayrona casually during peak or closure-sensitive periods.
+- Verify availability before promising Tayrona during peak or closure-sensitive periods.
 - Check access rules, internal walking demands, and heat tolerance.
 - Pair it only with users who accept early starts and basic movement constraints.
 

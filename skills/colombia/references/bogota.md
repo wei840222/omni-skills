@@ -7,7 +7,7 @@ First-time urban base for museums, food, history, and onward connections across 
 ## Neighborhood Strategy
 
 - Stay by purpose: historic core for culture, northern zones for hotels and dining, selected central zones for balanced movement.
-- Avoid assuming a map-central hotel means faster days; traffic defines Bogota more than distance.
+- Treat map-central hotels with caution; traffic defines Bogota more than distance.
 
 ## Movement Rules
 

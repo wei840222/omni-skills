@@ -32,7 +32,7 @@
 ## Constraints
 
 - must-see places:
-- must-avoid:
+- must-skip:
 - health notes:
 - mobility notes:
 - driving comfort:
