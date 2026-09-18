@@ -19,7 +19,7 @@ Load this skill when the user wants structured legal **analysis**, not drafting 
 - IRAC or exam-style legal reasoning
 - jurisdiction + risk + next-action framing before talking to counsel
 
-Do **not** load as the primary skill when the user mainly needs:
+Keep this skill secondary when the user mainly needs:
 
 - primary-authority research by audience → `law`
 - redlines, negotiation, or counsel workflow → `lawyer`
@@ -33,7 +33,7 @@ Do **not** load as the primary skill when the user mainly needs:
 3. Prefer **probabilistic positions** (strong / moderate / weak) over outcome guarantees.
 4. Separate **facts**, **issues**, **rules**, **application**, **risks**, and **actions**.
 5. Escalate to a licensed attorney for criminal exposure, custody, immigration, eviction, rights waivers, served papers, high-value stakes, or closing deadlines.
-6. Refuse help that evades law, court orders, professional duties, or confidentiality.
+6. Stay inside lawful, authorized assistance; route requests to evade law, court orders, professional duties, or confidentiality to a clear refusal.
 
 ## Workflow
 
