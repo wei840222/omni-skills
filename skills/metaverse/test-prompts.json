@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to try virtual reality but I'm worried about motion sickness and don't know what hardware to buy.",
+    "expected": "The agent should load references/hardware.md, recommend starting with stationary experiences, discuss Quest 3 as an entry point, and suggest taking breaks.",
+    "actual": "Based on your concern, I recommend looking into the Meta Quest 3, which is the current mainstream VR entry point as a standalone device. To prevent motion sickness, I suggest starting with stationary experiences rather than games that require movement. Start with 30-60 minute sessions and take breaks so your eyes and body can adjust. VR isn't always required either, as desktop and mobile options exist for many platforms.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to host a meetup in the metaverse, but not everyone has crypto.",
+    "expected": "The agent should load references/platforms.md and suggest platforms like VRChat or Rec Room that do not require crypto.",
+    "actual": "For hosting a meetup where attendees may not have crypto, I recommend Social VR platforms like VRChat or Rec Room. These platforms do not require crypto to participate. Ensure you check time zones for your attendees, test audio and controls beforehand, and verify if the platform has private rooms or tickets for your event.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "How do I invest in virtual real estate to make money?",
+    "expected": "The agent should load references/assets.md and educate the user on illiquid assets, 90% price crashes, scams, and focus on utility instead.",
+    "actual": "It is important to understand that the \"investment\" framing for virtual real estate is risky. Most virtual land and items have no resale market and are illiquid assets, and prices have crashed by over 90% from their peaks. Utility matters more than speculation. Also, please check transaction costs as gas fees can exceed the item price, and always verify official links to prevent scams.",
+    "pass": true
+  }
+]
