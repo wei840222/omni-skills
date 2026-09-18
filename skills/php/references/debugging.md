@@ -4,7 +4,7 @@ PHP hides failures by design in production configurations. Every chain below sta
 
 ## The Universal First Three
 
-1. `php --ini` — which ini files are actually loaded for THIS SAPI. The single most common wasted hour is editing an ini the running process never reads (`php-ini.md`).
+1. `php --ini` — which ini files are actually loaded for THIS SAPI. The single most common wasted hour is editing an ini the running process bypasses (`php-ini.md`).
 2. `php -d error_reporting=E_ALL -d display_errors=1 <script>` for CLI, or the error log for web: `tail -f` the path in `error_log`, the FPM pool log, and the web server's error log together — the message is in exactly one of the three.
 3. `php -l <file>` for a parse error, then `php -r 'var_dump(extension_loaded("opcache"));'` to know whether you are even running the code you just edited.
 
@@ -29,7 +29,7 @@ PHP hides failures by design in production configurations. Every chain below sta
 1. `var_dump()` at input, at the midpoint, and at output; the first wrong one is the bug. Use `var_dump`, not `print_r` — `print_r` shows `1` for both `true` and `"1"`, which is the very distinction you are hunting.
 2. Suspect the juggling first: `==` where types differ, `in_array` without `true`, `empty()` on `"0"`, a numeric string key collapsing (`types.md`, `arrays.md`).
 3. Suspect a reference second: a leftover `foreach ($a as &$v)`, or an object assigned expecting a copy (`arrays.md`, `oop.md`).
-4. Suppressed diagnostics third: install the `set_error_handler` that converts warnings to exceptions and re-run — a warning you never saw is a wrong value in flight (`errors.md`).
+4. Suppressed diagnostics third: install the `set_error_handler` that converts warnings to exceptions and re-run — a warning you missed is a wrong value in flight (`errors.md`).
 5. Wrong only in production: config difference. Diff `php -i` output between the environments and look at `precision`, `date.timezone`, `default_charset`, and the loaded extensions.
 
 ## Memory Exhausted
@@ -64,7 +64,7 @@ xdebug.client_port = 9003       ; 9000 was Xdebug 2
 xdebug.discover_client_host = false
 ```
 
-- Breakpoints never hit: the IDE is not listening, the port is blocked, or path mappings are wrong (the container path must map to the host project root).
+- Breakpoints fail to hit: the IDE is not listening, the port is blocked, or path mappings are wrong (the container path must map to the host project root).
 - `xdebug.mode` is the master switch. `off` is the production value; loading the extension at all costs measurable time on every request, and coverage or profile mode costs far more (`performance.md`).
 - Coverage in CI: `pcov` is dramatically faster than Xdebug for line coverage; use Xdebug when you need branch/path coverage or a debugger (`testing.md`).
 - `xdebug.mode=profile` writes cachegrind files; open them in KCachegrind or Qcachegrind and read the inclusive cost column first.

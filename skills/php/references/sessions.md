@@ -14,7 +14,7 @@ session_write_close();          // release the lock before the slow part
 $report = $reporting->build($userId);
 ```
 
-- Endpoints that never touch the session should not start one at all. Auto-starting sessions globally (`session.auto_start = 1`) serializes the entire application per user.
+- Endpoints that operate independently of the session should not start one at all. Auto-starting sessions globally (`session.auto_start = 1`) serializes the entire application per user.
 - The `files` handler locks with `flock`; Redis and Memcached handlers have their own locking behavior — phpredis, for example, exposes `session.lock_*` settings and can be configured with a lock timeout and retries. Switching handlers changes the failure mode, not the existence of the problem.
 
 ## Expiry: Two Clocks
@@ -26,13 +26,13 @@ $report = $reporting->build($userId);
 
 - Users "randomly logged out after about twenty minutes idle" is `gc_maxlifetime` (1440 seconds), not the cookie. Raise the server side too, or the cookie outlives the data it points at.
 - Garbage collection is probabilistic: `session.gc_probability / session.gc_divisor` chance per request. On low-traffic sites, expired data can survive for a long time; on Debian and Ubuntu, PHP's own GC is disabled in favor of a system cron that cleans the DEFAULT `save_path` — point `save_path` somewhere custom and nothing ever cleans it.
-- Sessions do not expire "on schedule": a file older than `gc_maxlifetime` is deleted the next time a GC pass happens to run. Enforce a real timeout in the application with an absolute and an idle timestamp inside `$_SESSION`.
+- Sessions expire probabilistically based on gc runs: a file older than `gc_maxlifetime` is deleted the next time a GC pass happens to run. Enforce a real timeout in the application with an absolute and an idle timestamp inside `$_SESSION`.
 
 ## Hardening
 
 ```ini
-session.use_strict_mode = 1     ; reject session IDs the server never issued
-session.use_only_cookies = 1    ; never accept an ID from the URL
+session.use_strict_mode = 1     ; reject session IDs that it did not issue
+session.use_only_cookies = 1    ; require cookies for session IDs
 session.cookie_httponly = 1     ; unreadable from JavaScript
 session.cookie_secure = 1       ; HTTPS only
 session.cookie_samesite = Lax   ; blocks the simplest cross-site POST
@@ -55,13 +55,13 @@ session.name = __Host-sid       ; the __Host- prefix pins path and host, with Se
 ## Data Inside the Session
 
 - Store identifiers, not objects. A serialized object requires its class to be loadable on the next request, and a deploy that renames or moves the class produces `__PHP_Incomplete_Class` on every existing session (`oop.md`).
-- Never store authorization decisions ("is_admin") without re-checking them; a role revoked in the database stays true in the session until it expires.
+- Re-check authorization decisions ("is_admin") dynamically; a role revoked in the database stays true in the session until it expires.
 - Keys containing `|` break the default `php` serialize handler; `session.serialize_handler = php_serialize` handles them correctly. Numeric-only keys have similar problems — use plain identifier-shaped keys.
 - Sessions are not a cache. Flash messages and a user id belong there; a 2 MB search result read on every request does not, because it is deserialized on every single request under a lock.
 
 ## Alternatives
 
-- Signed stateless cookies (JWT or a signed payload) remove the lock and the shared store, at the cost of revocation: a token stays valid until it expires, whatever the database says. Short lifetimes plus a refresh token, or a revocation list — which reintroduces the shared store you were avoiding.
+- Signed stateless cookies (JWT or a signed payload) remove the lock and the shared store, at the cost of revocation: a token stays valid until it expires, whatever the database says. Short lifetimes plus a refresh token, or a revocation list — which reintroduces the shared store you were preventing.
 - The honest boundary: server-side sessions when you need instant revocation and server-controlled state; stateless tokens when you need many services to verify identity without a shared session store.
 
 ## Related

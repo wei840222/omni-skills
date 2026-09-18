@@ -14,7 +14,7 @@ Throwable
 
 - `catch (Exception $e)` does NOT catch `Error`. In a framework boundary or a worker loop, catch `\Throwable`.
 - `Error` means a bug in the program (wrong type, missing method); `Exception` means an expected failure mode (file missing, API down). Throw `LogicException` subclasses for the first, `RuntimeException` subclasses for the second.
-- PHP 8 converted many former warnings into `Error`s: calling a method on null, an undefined function, invalid argument counts. Legacy code that "used to keep going" now stops — which is the point.
+- PHP 8 converted many former warnings into `Error`s: calling a method on null, an undefined function, invalid argument counts. Legacy code that "used to keep going" now halts — which is the point.
 - Always chain: `throw new ImportFailed("row {$i}", previous: $e);` — an unchained rethrow deletes the original stack trace, the one fact that would have solved it.
 
 ## Diagnostics That Are Not Exceptions
@@ -36,7 +36,7 @@ set_error_handler(static function (int $no, string $msg, string $file, int $line
 });
 ```
 
-- `set_error_handler` never sees `E_ERROR`, `E_PARSE`, `E_CORE_*`, or `E_COMPILE_*`. Returning `false` from your handler lets PHP's internal handler run as well; returning `true` suppresses it, and also suppresses `error_get_last()`.
+- `set_error_handler` excludes `E_ERROR`, `E_PARSE`, `E_CORE_*`, or `E_COMPILE_*` from handling. Returning `false` from your handler lets PHP's internal handler run as well; returning `true` suppresses it, and also suppresses `error_get_last()`.
 - Catch the uncatchable with a shutdown hook:
 
 ```php
@@ -58,7 +58,7 @@ register_shutdown_function(static function (): void {
 
 ## try / catch / finally
 
-- `finally` runs on normal completion, on `return`, and on exception. If `finally` itself contains a `return`, it OVERRIDES the value from `try` and swallows an in-flight exception — never `return` from `finally`.
+- `finally` runs on normal completion, on `return`, and on exception. If `finally` itself contains a `return`, it OVERRIDES the value from `try` and swallows an in-flight exception — ensure `finally` executes without returning early.
 - `exit()`/`die()` skip `finally` and skip destructors of objects still in scope. A worker that calls `exit()` mid-transaction leaves it open until the connection drops (`database.md`).
 - Multi-catch: `catch (JsonException | PDOException $e)`. Catching without binding (`catch (SomeException)`, `php >=8.0`) is fine when the instance is unused.
 - An empty `catch` is a decision to produce a wrong answer silently. If a failure genuinely is expected, write the reason as a comment AND log at debug level.
@@ -69,20 +69,20 @@ register_shutdown_function(static function (): void {
 - Fatal messages go to `error_log` (php.ini). Under FPM they only reach the FPM log if the pool sets `catch_workers_output = yes` (`fpm.md`); under CLI they go to stderr.
 - `display_errors = Off` and `log_errors = On` in production; the reverse in development. A blank white page is almost always `display_errors=Off` plus a fatal (`debugging.md`).
 - `error_log(print_r($x, true))` for a quick structured dump; `var_export($x, true)` when you want valid PHP back (it fails on `NAN`/`INF` and on objects without `__set_state`).
-- Structured logging (PSR-3, Monolog): pass context as the second argument, never interpolated. `$log->error('import failed', ['row' => $i, 'file' => $f])` groups in the aggregator; a message with the row number inline creates one unique message per row.
-- Never log secrets, full request bodies, or `$_SERVER` wholesale — the log becomes the breach (`security.md`).
+- Structured logging (PSR-3, Monolog): pass context as the second argument, passing context separately without interpolation. `$log->error('import failed', ['row' => $i, 'file' => $f])` groups in the aggregator; a message with the row number inline creates one unique message per row.
+- Ensure secrets, full request bodies, or `$_SERVER` wholesale are excluded from logs — the log becomes the breach (`security.md`).
 
 ## Assertions
 
 - `assert()` is compiled OUT when `zend.assertions = -1`, which is the production setting; it is fully active at `1`. Because the switch is compile-time, it cannot be turned on at runtime with `ini_set`.
-- Therefore: never put a security check or a side effect inside `assert()`. Assertions state invariants you believe are already true; validation raises exceptions.
+- Therefore: keep security checks and side effects outside of `assert()`. Assertions state invariants you believe are already true; validation raises exceptions.
 - `zend.assertions = 1` in dev and CI, `-1` in production, set in php.ini rather than per-script (`php-ini.md`).
 
 ## Domain Exceptions Worth Defining
 
 - One package-level base interface (`interface BillingError extends \Throwable`) lets consumers catch everything from your module without depending on class names.
 - Carry data, not just a message: `final class RateLimited extends \RuntimeException { public function __construct(public readonly int $retryAfter) { … } }`. A caller that has to parse the message is a caller you broke.
-- Do not use exceptions for control flow across normal paths — a `tryFrom` returning `null` or a result object beats an exception thrown thousands of times per request (`performance.md`).
+- Reserve exceptions for errors rather than normal control flow across paths — a `tryFrom` returning `null` or a result object beats an exception thrown thousands of times per request (`performance.md`).
 
 ## Related
 
