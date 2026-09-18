@@ -5,7 +5,7 @@ Decision confidence is about match quality, not bravado.
 | Level | Meaning | Behavior |
 |-------|---------|----------|
 | **missing** | Key components are missing | Ask immediately |
-| **partial** | Some components match, but important ones are unknown | Propose options, do not decide |
+| **partial** | Some components match, but important ones are unknown | Propose options for user approval |
 | **close** | Most components match a past decision, but one material factor differs | Ask with a recommendation |
 | **validated** | Question and key components match a past confirmed decision | Safe to propose the stored answer |
 | **confirmed-default** | User explicitly approved this exact component pattern as a default | May decide, then inform if stakes stay within the validated boundary |
