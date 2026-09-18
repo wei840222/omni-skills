@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to Malay for a casual chat: 'Are you free today? Let's go grab some food at the mall. I'm so hungry!'",
+    "expected": "A casual, natural sounding Malaysian Malay translation with English mixing and particles (e.g. lah, je, kan).",
+    "actual": "Awak free tak today? Jom pergi makan kat mall. Saya lapar gila ni!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I reply to a friend who just got promoted in casual Malaysian Malay?",
+    "expected": "An enthusiastic response in Bahasa Rojak using Malaysian slang (e.g. Best gila, Mantap) and without standard formal Indonesian words.",
+    "actual": "Wah, seriously? Best gila lah! Tahniah weh, mantap! Nanti belanja makan tau.",
+    "pass": true
+  }
+]

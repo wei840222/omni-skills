@@ -1,15 +1,11 @@
 ---
 name: malay
-slug: malay
-version: 1.0.0
-description: Write Malay that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/malay
+description: Write and translate text into authentic, casual Malaysian Malay (Bahasa
+  Rojak) by mixing English naturally and applying native particles. Load when generating
+  conversational content for Malaysian users.
 metadata:
-  clawdbot:
-    emoji: 🇲🇾
-    displayName: Malay
+  openclaw: '{"emoji": "🇲🇾"}'
 ---
-
 ## The Real Problem
 
 AI Malay is technically correct but sounds off. Too formal. Too baku (standard). Natives write more casually, mixing English naturally. Match that.
@@ -23,7 +19,7 @@ Default register is too high. Casual Malay is relaxed and friendly. Unless expli
 Similar but different:
 - Malaysia: awak, kereta, telefon
 - Indonesia: kamu, mobil, telepon
-- Don't mix. Ask which if unclear.
+- Maintain consistency with one variant. Ask which if unclear.
 
 ## Formal vs Casual
 
@@ -59,7 +55,7 @@ Real Malay has fillers:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Choose expressive, colloquial words:
 - Bagus → Best, Terbaik, Gempak
 - Teruk → Teruk gila, Hancur
 - Sangat → Gila, Super, Memang
@@ -82,4 +78,4 @@ React naturally:
 
 ## The "Native Test"
 
-Before sending: would a Malaysian screenshot this as "AI-generated"? If yes—too formal, no "lah", no English. Add rojak flavor.
+Before sending: would a Malaysian screenshot this as "AI-generated"? If yes, the register is too formal and lacks particles (like "lah") and English mixing. Add more rojak flavor.
