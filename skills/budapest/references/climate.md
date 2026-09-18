@@ -209,7 +209,7 @@
 - Evening activities
 - Stay hydrated (carry water)
 - Seek AC (malls, museums)
-- Avoid peak sun (12-3pm)
+- Stay shaded during peak sun (12-3pm)
 
 **Building warning**: Many apartments lack AC. Fans help. Check before renting.
 

@@ -6,7 +6,7 @@
 
 ### Morning (9:00-13:00)
 - **9:00** Start at Széchenyi Thermal Bath (2 hours)
-  - Arrive at opening to avoid crowds
+  - Arrive at opening to beat the crowds
   - Experience outdoor pools, steam rooms
 - **11:30** Walk through City Park
   - Vajdahunyad Castle exterior
@@ -272,7 +272,7 @@ Follow 3-day itinerary above.
 - Thermal baths = recovery, schedule after walking days
 - Castle District is uphill — do morning when fresh
 - Museum days = rest legs
-- Ruin bars = late night, don't plan early next day
+- Ruin bars = late night, plan a later start next day
 
 ### Weather Adjustments
 - **Rain**: Museums, covered market, thermal baths

@@ -5,7 +5,8 @@
 ### District V — Fine Dining & Tourist Traps
 
 **Best for**: Fine dining, coffee houses, business meals
-**Avoid**: Random tourist menus on Váci utca
+**Instead**:
+**Skip**: Random tourist menus on Váci utca
 
 **Hotspots**:
 - **Around St. Stephen's Basilica**: Upscale, tourist-heavy but quality
@@ -62,7 +63,7 @@
 - Pho 18 (Vietnamese)
 - Bors GasztroBar (soup + sandwiches)
 
-**Warning**: Quality varies wildly. Avoid generic ruin bar food.
+**Warning**: Quality varies wildly. Opt for dedicated restaurants instead of generic ruin bar food.
 
 ---
 
@@ -227,7 +228,7 @@ Ruin bar central with food options.
 - Traditional heavy dishes
 - Reservations easier
 
-## Avoiding Tourist Traps
+## Navigating Past Tourist Traps
 
 ### Red Flags
 - Menu in 6+ languages

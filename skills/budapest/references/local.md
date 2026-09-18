@@ -42,7 +42,7 @@
 ### ATMs
 
 - **Use bank ATMs** (OTP, Erste, K&H)
-- **Avoid standalone machines** (high fees)
+- **Use only bank ATMs** (high fees)
 - **Decline conversion** (always choose HUF)
 - **Daily limits**: Typically 150,000-300,000 HUF
 - **Cards**: Visa/Mastercard universal
@@ -55,7 +55,8 @@
 3. Correct Exchange (fair rates)
 4. Bank exchange (okay rates)
 
-**Avoid**:
+**Instead**:
+**Skip**:
 - Airport exchanges (terrible rates)
 - Tourist area exchanges
 - Street exchangers (illegal)
@@ -133,7 +134,7 @@
 - UPS
 - PostNL
 
-**Tip**: Locker pickup (FoxPost, Packeta) avoids delivery wait
+**Tip**: Locker pickup (FoxPost, Packeta) speeds up delivery
 
 ### Receiving Mail
 

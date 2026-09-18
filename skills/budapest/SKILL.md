@@ -1,65 +1,55 @@
 ---
 name: budapest
-slug: budapest
-version: 1.0.0
-description: Navigate Budapest as visitor, expat, digital nomad, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/budapest
+description: Load when the user asks about visiting, moving to, or living in Budapest to provide guidance on neighborhoods, transit, visas, and local lifestyle.
+license: MIT
 metadata:
-  clawdbot:
-    emoji: 🏛️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Budapest
+  openclaw: '{"emoji": "🏛️"}'
+  related-skills: '{"travel":"General multi-destination trip framing outside Budapest-specific routing.","food":"Cuisine and dining workflows beyond Budapest restaurant/neighborhood guidance.","money":"Currency, budgeting, and payment workflows when not Budapest cost-of-living specifics."}'
 ---
+## When to load
 
-## When to Use
-
-User asks about Budapest for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Load this skill when the user asks about visiting, moving to, or living in Budapest to provide guidance on neighborhoods, transit, visas, and local lifestyle.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| District V, VI, VII (center) | `neighborhoods-center.md` |
-| Buda side (I, II, XI, XII) | `neighborhoods-buda.md` |
-| Pest residential (XIII, XIV) | `neighborhoods-pest.md` |
-| Outer districts | `neighborhoods-outer.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| District V, VI, VII (center) | `references/neighborhoods-center.md` |
+| Buda side (I, II, XI, XII) | `references/neighborhoods-buda.md` |
+| Pest residential (XIII, XIV) | `references/neighborhoods-pest.md` |
+| Outer districts | `references/neighborhoods-outer.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Hungarian cuisine | `food-hungarian.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Wine, ruin bars, nightlife | `food-nightlife.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Hungarian cuisine | `references/food-hungarian.md` |
+| International & fine dining | `references/food-international.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Wine, ruin bars, nightlife | `references/food-nightlife.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (metro, tram, BKK) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & seasons | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
+| Moving & settling | `references/resident.md` |
+| Transport (metro, tram, BKK) | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety & laws | `references/safety.md` |
+| Weather & seasons | `references/climate.md` |
+| Local services (banking, SIM) | `references/local.md` |
 | **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup | `business.md` |
-| Visas (work, digital nomad, EU) | `visas.md` |
-| Startups & funding | `startup.md` |
+| Tech industry & salaries | `references/tech.md` |
+| Business setup | `references/business.md` |
+| Visas (work, digital nomad, EU) | `references/visas.md` |
+| Startups & funding | `references/startup.md` |
 | **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & insurance | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Thermal baths & wellness | `thermal.md` |
+| Culture & customs | `references/culture.md` |
+| Healthcare & insurance | `references/healthcare.md` |
+| Schools & education | `references/education.md` |
+| Expat lifestyle & social | `references/lifestyle.md` |
+| Thermal baths & wellness | `references/thermal.md` |
 
 ## Core Rules
 
@@ -74,7 +64,7 @@ Budapest is two cities merged across the Danube:
 - **Buda** (west): Hilly, residential, quieter, Castle District, wealthier
 - **Pest** (east): Flat, vibrant, most attractions, nightlife, business
 - **District numbering**: I-XXIII, with lower numbers generally more central
-See `neighborhoods-index.md` for detailed comparison.
+See `references/neighborhoods-index.md` for detailed comparison.
 
 ### 3. EU Context
 Hungary is in the EU but NOT Schengen-adjacent in some ways:
@@ -82,7 +72,7 @@ Hungary is in the EU but NOT Schengen-adjacent in some ways:
 - **Non-EU**: Need visa/residence permit for stays >90 days
 - **Digital nomad visa**: Available since 2022 (White Card)
 - **Currency**: Hungarian Forint (HUF), NOT Euro
-See `visas.md` for current requirements and processes.
+See `references/visas.md` for current requirements and processes.
 
 ### 4. Weather Reality
 Continental climate with four distinct seasons:
@@ -90,7 +80,7 @@ Continental climate with four distinct seasons:
 - **Winter (Dec-Feb)**: -5 to 5°C, can drop to -15°C, occasional snow
 - **Spring/Autumn**: Most pleasant, 15-25°C
 - **Thermal baths**: Year-round activity, especially magical in winter
-See `climate.md` for monthly breakdown.
+See `references/climate.md` for monthly breakdown.
 
 ### 5. Current Data (Feb 2026)
 
@@ -118,7 +108,7 @@ Unlike car-centric cities, Budapest has superb public transit:
 - **Buses/trolleys**: Cover areas metro doesn't reach
 - **BKK app**: Essential for planning and mobile tickets
 - **Night buses**: Run until metro starts (~4:30am)
-Most residents don't need cars. See `transport.md`.
+Most residents rely entirely on transit. See `references/transport.md`.
 
 ### 8. Neighborhood Matching
 
@@ -136,9 +126,9 @@ Most residents don't need cars. See `transport.md`.
 
 - **Forint confusion** — Large numbers (lunch = 4,000 HUF). Roughly divide by 400 for EUR.
 - **Ruin bar tourist traps** — Some charge 5x normal prices. Check prices before ordering.
-- **Taxi scams** — Only use Bolt or official Főtaxi. Never hail from street.
-- **Thermal bath pickpockets** — Use lockers, don't bring valuables.
-- **Apartment scams** — Never pay before viewing. Use established platforms.
+- **Taxi scams** — Only use Bolt or official Főtaxi. Always order via app or phone.
+- **Thermal bath pickpockets** — Use lockers, leave valuables at home.
+- **Apartment scams** — Always view before paying. Use established platforms.
 - **Summer heat in old buildings** — Many lack AC. Check before renting.
 - **Winter utility costs** — Old buildings with poor insulation = high heating bills.
 - **Hungarian language** — Extremely difficult. English widely spoken in center, less outside.
@@ -156,7 +146,7 @@ Key cultural points for visitors/residents:
 - **Name order**: Hungarian names are surname-first (like Asian countries)
 - **National holidays**: March 15, August 20, October 23 — many closures
 
-See `culture.md` for comprehensive guidance.
+See `references/culture.md` for comprehensive guidance.
 
 ## Thermal Bath Culture
 
@@ -168,7 +158,7 @@ Budapest is the "City of Spas" with 120+ thermal springs:
 - **Palatinus**: Outdoor complex on Margaret Island (summer)
 
 Etiquette: Bring flip-flops, towel (or rent), swimming cap required in some pools.
-See `thermal.md` for complete guide.
+See `references/thermal.md` for complete guide.
 
 ## Ruin Bar Scene
 
@@ -179,16 +169,5 @@ Budapest's unique contribution to nightlife culture:
 - **Ellátó Kert**: More local, less tourist
 - **Anker't**: Upscale ruin bar with quality food
 
-Located mainly in District VII (Jewish Quarter). See `food-nightlife.md`.
+Located mainly in District VII (Jewish Quarter). See `references/food-nightlife.md`.
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dubai` — Compare Budapest vs Dubai for cost, lifestyle, visas, and opportunities
-- `travel` — General travel planning, itineraries, and trip organization
-- `food` — Deep dive into cuisines, cooking techniques, and dining recommendations
-- `money` — Personal finance, budgeting, and cost tracking for expat life
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/budapest
-- Latest version: https://clawic.com/skills/budapest

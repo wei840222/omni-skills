@@ -114,7 +114,7 @@ Budapest sits on 120+ thermal springs. More thermal water than any other capital
 
 **Vibe**: Local, unhurried, atmospheric
 
-**Best for**: Ottoman experience, avoiding crowds
+**Best for**: Ottoman experience, seeking quiet
 
 **Prices**: ~3,500-4,500 HUF
 **Hours**: 9am-9pm daily
@@ -253,11 +253,11 @@ Budapest sits on 120+ thermal springs. More thermal water than any other capital
 - Respect quiet in steam rooms
 - Keep phones away from pools/saunas
 
-**Don't**:
+**Important Rules**:
 - Jump/splash (not swimming pools)
 - Be loud in thermal areas
 - Take photos without consent
-- Shave in pools (some do, don't be them)
+- Shave in pools (some do, please refrain)
 
 ### Health Considerations
 
@@ -269,9 +269,9 @@ Budapest sits on 120+ thermal springs. More thermal water than any other capital
 - Skin conditions (some waters)
 
 **Cautions**:
-- Don't overdo it (20-30 min per hot pool)
+- Limit time (20-30 min per hot pool)
 - Hydrate (water, not alcohol first)
-- Avoid if: High blood pressure, heart conditions, pregnancy (consult doctor)
+- Skip if: High blood pressure, heart conditions, pregnancy (consult doctor)
 - Move between temperatures gradually
 - Dizziness: Get out, cool down
 

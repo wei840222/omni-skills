@@ -51,13 +51,13 @@ Hungarian (Magyar) is:
 | Excuse me | Elnézést | EL-nay-zaysht |
 | Cheers | Egészségedre | eg-AY-shay-ged-reh |
 | The bill please | Számlát kérek | SAM-lat KAY-rek |
-| I don't understand | Nem értem | NEM AIR-tem |
+| I do not understand | Nem értem | NEM AIR-tem |
 | Do you speak English? | Beszél angolul? | BES-ayl ON-go-lool |
 
 ### Language Tips
 
 - **Attempt Hungarian**: Hugely appreciated
-- **Don't assume English**: Outside center, less common
+- **Learn basic Hungarian as English is**: Outside center, less common
 - **Name order**: Surname first (Nagy János = János Nagy)
 - **Formal vs informal**: Use formal (Ön) with strangers
 
@@ -102,7 +102,8 @@ Hungarian (Magyar) is:
 - Quality chocolates
 - Something from your country
 
-**Avoid**:
+**Instead**:
+**Skip**:
 - Even numbers of flowers (funerals)
 - Chrysanthemums (funeral flower)
 - Very expensive gifts (uncomfortable)
@@ -125,7 +126,7 @@ Hungarian (Magyar) is:
 - Clink glasses
 
 **Beer**:
-- **Traditionally**: Don't clink beer glasses
+- **Traditionally**: Keep beer glasses apart
 - **Why**: Legend about Austrian execution celebration
 - **Today**: Younger generation ignores this
 - **Safe play**: Follow host's lead
@@ -201,7 +202,7 @@ Hungary has strong café (kávéház) culture:
 - LGBTQ+ rights
 - Immigration
 
-**Advice**: Avoid unless you know someone well
+**Advice**: Only use if you know someone well
 
 ### Personal Space
 
@@ -269,7 +270,7 @@ Hungary punches above its weight:
 - Entertaining common
 - Restaurants, cultural events
 - Small gifts acceptable
-- Avoid overly expensive
+- Skip overly expensive
 
 ## Expat Integration Tips
 
@@ -281,7 +282,7 @@ Hungary punches above its weight:
 - Join local activities
 - Respect traditions
 
-### Don't
+### Cautions
 
 - Criticize Hungary to Hungarians
 - Assume everyone speaks English

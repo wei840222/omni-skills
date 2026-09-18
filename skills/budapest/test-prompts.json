@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a digital nomad looking to move to Budapest. Which neighborhood should I pick and what is the typical 1BR rent?",
+    "expected": "Information on digital nomad visas, neighborhood comparisons (like District VII vs II), and current rent estimates.",
+    "actual": "Based on your context as a digital nomad, Budapest is a great choice with the 'White Card' available for non-EU citizens. For young professionals, District VII, VI, and V are best (vibrant, close to center), while District II, XI, and XII are quieter but more expensive. Expect a 1BR rent in the center to be HUF 200,000-350,000/month (~€500-900).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm visiting Budapest next week for 3 days. What's the best way to get around and avoid tourist traps?",
+    "expected": "Details on transit passes (BKK app), advice on typical traps like ruin bar overcharging and taxi scams, plus an overview of 3-day itineraries.",
+    "actual": "For a 3-day visit, Budapest has excellent public transit: rely on the metro and trams rather than taxis. Download the BKK app for a multi-day pass. Be aware of typical tourist traps: use only official taxis (like Bolt or Főtaxi) rather than hailing from the street, and check prices at ruin bars in District VII to avoid overpaying. Always have some cash for smaller shops.",
+    "pass": true
+  }
+]

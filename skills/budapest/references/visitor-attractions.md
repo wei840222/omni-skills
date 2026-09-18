@@ -1,13 +1,13 @@
 # Budapest Attractions Guide
 
-## Must-See (Don't Miss)
+## Essential Sights
 
 ### Buda Castle District (UNESCO)
 - **Castle itself**: Royal Palace, now museums (National Gallery, History Museum)
 - **Fisherman's Bastion**: Neo-Romanesque terrace, best city views, free outside upper terrace
 - **Matthias Church**: Stunning Gothic church, hosts concerts
 - **Funicular**: Scenic but often queued; walking up is easy and rewarding
-- **Best time**: Sunset for views, early morning to avoid crowds
+- **Best time**: Sunset for views, early morning to beat the crowds
 
 ### Hungarian Parliament
 - **Exterior**: Third largest parliament building in the world, neo-Gothic masterpiece
@@ -61,7 +61,7 @@
 ### Great Market Hall (Nagyvásárcsarnok)
 - **Ground floor**: Fresh produce, meats, pickles
 - **Upper floor**: Souvenirs, food stalls (lángos, kolbász)
-- **Best time**: Morning for authentic shopping, avoid cruise ship crowds
+- **Best time**: Morning for authentic shopping, beat cruise ship crowds
 - **Closed**: Sunday
 
 ### House of Terror

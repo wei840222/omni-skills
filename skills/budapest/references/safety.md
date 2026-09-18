@@ -6,7 +6,7 @@ Budapest is one of Europe's safest capitals. Violent crime against tourists is r
 
 **Global Peace Index**: Hungary ranks well
 **Tourist safety**: Very high
-**Main concerns**: Petty theft, scams (both avoidable)
+**Main concerns**: Petty theft, scams (both preventable)
 
 ## Crime Reality
 
@@ -27,7 +27,7 @@ Budapest is one of Europe's safest capitals. Violent crime against tourists is r
 
 **Bike theft** (Medium Risk)
 - Use good locks
-- Don't leave overnight outside
+- Bring inside overnight outside
 - Register with police if valuable
 
 ### What NOT to Worry About
@@ -44,10 +44,10 @@ Budapest is one of Europe's safest capitals. Violent crime against tourists is r
 
 **The scam**: Unmetered fare, inflated prices, "broken meter"
 
-**Avoid by**:
+**Prevent by**:
 - Using Bolt app (tracked, fixed price)
 - Only official taxis (Főtaxi yellow cars)
-- Never hailing unmarked cars
+- Only using apps for unmarked cars
 - Agreeing price before if not metered
 
 **Hotspots**: Airport, Keleti station, ruin bar area
@@ -56,11 +56,11 @@ Budapest is one of Europe's safest capitals. Violent crime against tourists is r
 
 **The scam**: Extra items added, wrong prices, "cover charge"
 
-**Avoid by**:
+**Prevent by**:
 - Checking menu prices
 - Asking about cover/service charges upfront
 - Reviewing itemized bill
-- Avoiding restaurants with aggressive outside pitches
+- Skipping restaurants with aggressive outside pitches
 
 **Hotspots**: Váci utca, tourist areas
 
@@ -75,29 +75,29 @@ Budapest is one of Europe's safest capitals. Violent crime against tourists is r
 4. Bill arrives: €500+
 5. Bouncers appear if you resist
 
-**Avoid by**:
-- Never following strangers to bars
+**Prevent by**:
+- Declining to follow strangers to bars
 - Checking prices before ordering
 - Declining too-friendly approaches
 - Sticking to established venues
 
-**Note**: This is a real, organized scam. Don't be embarrassed — it's designed to work.
+**Note**: This is a real, organized scam. Stay confident — it's designed to work.
 
 ### Exchange Office Scams
 
 **The scam**: Poor exchange rates, hidden fees, math "errors"
 
-**Avoid by**:
+**Prevent by**:
 - Using Wise/Revolut cards (best rates)
 - ATMs at real banks
-- Never exchanging at airport
-- Never exchanging on street (illegal)
+- Only exchanging at banks at airport
+- Only exchanging at banks on street (illegal)
 
 ### Thermal Bath Theft
 
 **The scam**: Items stolen from lockers/changing areas
 
-**Avoid by**:
+**Prevent by**:
 - Using secure lockers (wristband key)
 - Not bringing valuables
 - Using waterproof pouch for essentials
@@ -110,7 +110,7 @@ Budapest is one of Europe's safest capitals. Violent crime against tourists is r
 - **Day**: No concerns anywhere central
 - **Night**: Normal city awareness
 - **ATMs**: Use bank ATMs, be aware of surroundings
-- **Phones**: Don't flash expensive phones in crowds
+- **Phones**: Keep concealed expensive phones in crowds
 - **Bags**: Crossbody or front-worn in crowded areas
 
 ### Public Transit

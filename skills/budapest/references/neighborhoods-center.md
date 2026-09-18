@@ -56,7 +56,7 @@ The absolute center. Parliament, Chain Bridge, St. Stephen's Basilica, Vörösma
 - People who work from fancy cafés
 - Those who value location over space/value
 
-### Avoid If
+### Skip If
 - Budget-conscious
 - Want local neighborhood feel
 - Need car/parking
@@ -127,7 +127,7 @@ The "sweet spot" district. Andrássy Avenue (UNESCO), Opera, lively but livable.
 - Culture lovers (Opera, galleries)
 - First-time expats to Budapest
 
-### Avoid If
+### Skip If
 - Need lots of green space
 - Very budget-conscious
 - Want cutting-edge/hipster scene
@@ -167,7 +167,7 @@ The "Jewish Quarter" and ruin bar capital. Young, edgy, energetic. Budapest's Br
 - Incredible atmosphere
 - Cheap eats everywhere
 - Social scene automatic
-- Never bored
+- Always active
 - Art, music, events
 
 **Cons**
@@ -198,7 +198,7 @@ Living on Kazinczy, Akácfa, or adjacent streets = noise until 4am Thu-Sat. Cour
 - Short-term stays
 - People who need social scene
 
-### Avoid If
+### Skip If
 - Light sleeper
 - Have kids
 - Work early mornings
@@ -224,7 +224,7 @@ Living on Kazinczy, Akácfa, or adjacent streets = noise until 4am Thu-Sat. Cour
 
 **Choose V if**: Money not issue, walkability priority, business purposes
 **Choose VI if**: Want balance, good value/location ratio, first-timer
-**Choose VII if**: Young, social, want action, don't mind noise
+**Choose VII if**: Young, social, want action, tolerate noise well
 
 ### Where They Overlap
 
