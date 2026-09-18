@@ -263,7 +263,7 @@ Built into prices, not added at checkout.
 - Shop at Lidl, Aldi (30-40% cheaper)
 - Markets for produce (Lehel, Great Market Hall)
 - Cook at home, lunch canteens
-- Avoid tourist restaurants
+- Skip tourist restaurants
 
 ### Transport
 - Monthly pass pays off quickly
@@ -278,7 +278,7 @@ Built into prices, not added at checkout.
 
 ### General
 - Wise/Revolut cards (best exchange)
-- Avoid tourist exchange offices
+- Skip tourist exchange offices
 - Ask about student/local discounts
 - Seasonal shopping (end of season sales)
 

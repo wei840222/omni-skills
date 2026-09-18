@@ -74,7 +74,7 @@ Traditional country-style restaurant. Folk music, tourist-oriented often.
 - Tourist prices (30% markup)
 - Quality varies hugely
 - Some excellent hidden gems
-- Ask locals, avoid "Menu in 6 languages"
+- Ask locals, seek menus with fewer languages
 
 ### District VI (Terézváros)
 - Sweet spot for dining
@@ -170,7 +170,8 @@ Hungarian wine is seriously underrated. Key regions:
 ### Dress Code
 - **Fine dining**: Smart casual minimum
 - **Most places**: Casual fine
-- **Avoid**: Beach wear in restaurants
+- **Instead**:
+**Skip**: Beach wear in restaurants
 
 ### Splitting Bills
 - Getting easier but not universal

@@ -16,7 +16,8 @@ The national dish — but not what most tourists expect.
 - Rosenstein (Jewish-Hungarian fusion)
 - Borkonyha (upscale version)
 
-**Avoid**: Tourist-trap "goulash" that's thick brown stew
+**Instead**:
+**Skip**: Tourist-trap "goulash" that's thick brown stew
 
 ### Pörkölt
 What foreigners think goulash is — a proper stew.
@@ -311,7 +312,7 @@ Famous stuffed pancakes.
 - Kitchen often closes 10pm
 - Weekend brunch culture growing
 
-### What to Avoid
+### What to Skip
 - Restaurants with photos on menu (tourist trap sign)
 - "Menu" in 6+ languages
 - Anyone aggressively beckoning you in

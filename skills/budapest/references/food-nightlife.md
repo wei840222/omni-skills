@@ -337,7 +337,7 @@ Budapest is relatively tolerant in center, but government politics have become l
 - Night buses (3-digit numbers)
 - Bolt app
 - Főtaxi (official)
-- Never street hail taxis
+- Always use apps to book taxis
 
 ## Seasonal
 

@@ -242,7 +242,7 @@ Hungary offers:
 
 **Digital Nomad Visa (White Card)**:
 - Work for foreign company
-- Don't serve Hungarian clients
+- Operate without Hungarian clients
 - 1-2 years validity
 - Simplest legal option
 

@@ -96,7 +96,7 @@ Before deciding:
 
 ## Neighborhood Matching Matrix
 
-| Your Profile | Primary | Secondary | Avoid |
+| Your Profile | Primary | Secondary | Skip |
 |--------------|---------|-----------|-------|
 | Young + social | VII | VI, IX | XII, II |
 | Family + kids | II | XII, XIV | VII, VIII |

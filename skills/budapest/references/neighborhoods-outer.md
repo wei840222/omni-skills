@@ -53,7 +53,7 @@ These districts are generally:
 - Near Danube bend
 - **Rent**: €350-500/month (1BR)
 
-## Generally Avoid
+## Less Suitable For
 
 ### Unless Very Budget-Conscious
 
@@ -77,9 +77,9 @@ These districts are generally:
 - Very budget-constrained
 - Work in that area
 - Know Budapest well already
-- Don't need nightlife/culture
+- Seek quiet away from nightlife/culture
 
-**Avoid if:**
+**Consult doctor if:**
 - New to Budapest
 - No car
 - Want walkable neighborhood

@@ -219,7 +219,7 @@ Large district, very varied. Student areas, family zones, communist-era blocks, 
 - Students
 - Young families
 - Budget-conscious wanting quality
-- Those who don't need central Pest
+- Those without a need for central Pest
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Budapest has excellent public transport — one of Europe's best for a city its size. Most residents don't need cars.
+Budapest has excellent public transport — one of Europe's best for a city its size. Most residents rely entirely on transit.
 
 **BKK** (Budapesti Közlekedési Központ) operates everything.
 
@@ -58,7 +58,7 @@ Extensive network, often faster than metro for short trips.
 
 ### Buses
 
-Fill gaps where trams/metro don't reach.
+Fill gaps where trams/metro are unavailable.
 
 **Key Lines**:
 - **16**: Castle District (from Deák or Széll Kálmán)
@@ -158,7 +158,7 @@ Connects city to suburbs and nearby towns.
 - Per km: ~400 HUF
 - Waiting: ~100 HUF/min
 
-**NEVER**: Hail random taxis, especially near tourist areas
+**ONLY**: Use official apps like Bolt (do not hail from street), especially near tourist areas
 **ALWAYS**: Use Bolt or call official company
 
 ## Driving

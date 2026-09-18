@@ -41,7 +41,7 @@
 1. **Accommodation** (temporary if needed)
    - Airbnb for first 1-2 weeks
    - Use time to view permanent options
-   - Don't sign long-term without viewing
+   - Always view before signing long-term
 
 2. **SIM Card**
    - Buy prepaid immediately

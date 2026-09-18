@@ -13,8 +13,8 @@
 - **Exchange rate**: ~400 HUF = €1 (fluctuates)
 - **Cards**: Widely accepted in center, less outside
 - **Cash**: Keep some for markets, small shops, tips
-- **ATMs**: Use bank ATMs, avoid exchange offices (poor rates)
-- **Tip**: Never use airport exchanges
+- **ATMs**: Use bank ATMs, bypass exchange offices (poor rates)
+- **Tip**: Exchange money elsewhere than airports
 
 ### Apps to Download
 - **BKK Futár**: Official transit app, real-time arrivals
@@ -86,7 +86,7 @@
 ### Taxi/Ride-hailing
 - **Bolt**: Best app, cheapest, reliable
 - **Főtaxi**: Official taxi, yellow cars, metered
-- **NEVER**: Hail random taxis (scam risk)
+- **ONLY**: Use official apps like Bolt (do not hail from street) (scam risk)
 - **Cost**: ~300-400 HUF/km + base
 
 ### Walking
@@ -103,8 +103,8 @@
 
 ## Money Tips
 
-### Avoiding Scams
-- **Exchange offices**: Terrible rates, avoid completely
+### Staying Safe from Scams
+- **Exchange offices**: Terrible rates, skip them
 - **Restaurant bills**: Check itemized, tourist traps add items
 - **"Tourist menus"**: Usually overpriced, order à la carte
 - **Taxis**: Only Bolt or official Főtaxi
@@ -113,7 +113,7 @@
 ### Best Exchange
 1. Use Wise/Revolut card (best rate)
 2. Withdraw from bank ATM in HUF
-3. Never exchange at airport/touristy exchanges
+3. Exchange away from airport/touristy exchanges
 4. If must exchange: central banks, compare rates
 
 ### Tipping
@@ -210,10 +210,10 @@ Budapest is very safe for a capital city.
 - Watch belongings in ruin bars
 - Normal city awareness applies
 
-### Scams to Avoid
+### Scam Prevention
 - **Pretty women scam**: Attractive women invite to bar → huge bill
 - **Taxi overcharging**: Use Bolt or Főtaxi only
-- **Exchange offices**: Poor rates, just avoid
+- **Exchange offices**: Poor rates, skip them
 - **Street money changers**: Illegal, always a scam
 - **"Helpful" strangers at ATMs**: Decline
 
@@ -239,7 +239,7 @@ Budapest is very safe for a capital city.
 ### Visiting Homes
 - Bring gift (wine, flowers, chocolates)
 - Remove shoes at door
-- Don't start eating until host says "Jó étvágyat"
+- Wait to start eating until host says "Jó étvágyat"
 - Empty your plate (leaving food can offend)
 
 ### Churches
@@ -251,7 +251,7 @@ Budapest is very safe for a capital city.
 ### Toasting
 - "Egészségedre!" (to your health)
 - Look people in eyes when clinking
-- **Don't clink beer glasses** (historical superstition)
+- **Keep beer glasses apart** (historical superstition)
 - Clinking wine/pálinka is fine
 
 ## Day Trip Essentials
@@ -322,5 +322,5 @@ Budapest is very safe for a capital city.
 | How much? | Mennyibe kerül? | MEN-yee-beh KEH-rool |
 | Bill please | Számlát kérek | SAM-lat KAY-rek |
 | Cheers | Egészségedre | eg-AY-shay-ged-reh |
-| I don't understand | Nem értem | NEM AIR-tem |
+| I do not understand | Nem értem | NEM AIR-tem |
 | Do you speak English? | Beszél angolul? | BES-ayl ON-go-lool |

@@ -263,7 +263,7 @@ For stays over 90 days, need residence permit.
 
 - Apply 30+ days before expiry
 - Legal to stay while pending
-- Don't let permits lapse
+- Renew permits early
 
 ### Traveling While Pending
 
