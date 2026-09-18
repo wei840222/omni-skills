@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a casual message asking a friend if they want to get coffee this weekend.",
+    "expected": "Use casual pronouns (mình/bạn or tớ/cậu), conversational particles (nhé, đi), and a natural informal tone.",
+    "actual": "Cuối tuần này rảnh hông bạn? Đi cà phê nha!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a polite response to an older male coworker thanking them for their help on the project.",
+    "expected": "Use age-based pronouns (em for self, anh for coworker), formal particles (ạ/dạ), and a respectful but warm tone.",
+    "actual": "Dạ, em cảm ơn anh đã giúp em hoàn thành dự án này ạ. Tuần sau em mời anh ly cà phê nhé!",
+    "pass": true
+  }
+]
