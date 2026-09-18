@@ -27,10 +27,10 @@
 - The island can handle food, beaches, cycling, craft culture, and family travel without needing many hotel moves.
 - It is one of the cleanest Denmark products for users who want "one destination, many good days."
 
-## Trap Avoidance
+## Smooth Routing
 
-- Do not mix Bornholm with a full mainland Denmark route unless the total trip length really supports it.
-- Avoid leaving ferry or flight planning until late.
+- Reserve Bornholm for trips with sufficient length to support a separate island base.
+- Book ferry or flight connections early.
 - Keep weather and wind in mind for bike-heavy or beach-heavy expectations.
 
 ## Planning Rule

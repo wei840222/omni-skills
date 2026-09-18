@@ -27,10 +27,10 @@
 - A day rental or short car window can unlock the surrounding region without making the whole trip car-dependent.
 - East Jutland is better for balanced travelers than for users chasing the most dramatic Denmark nature.
 
-## Trap Avoidance
+## Smooth Routing
 
-- Do not treat Aarhus as a weaker Copenhagen clone; it wins on pace, not on headline count.
-- Avoid sending car-heavy users into dense city parking zones unless the onward route requires it.
+- Frame Aarhus around its comfortable pace rather than comparing its headline count to Copenhagen.
+- Route car users to outer parking areas unless entering the city center is required.
 - Keep Djursland or coast additions targeted, not scattered.
 
 ## Planning Rule

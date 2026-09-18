@@ -9,7 +9,7 @@
 ## Practical Rules
 
 - Small kiosks, cafes, parking, lockers, and transport purchases often work best with card or app payment.
-- Some small places may still accept cash, but do not build the trip around withdrawing a lot of it.
+- Some small places may still accept cash, but build the trip around card usage instead.
 - Non-EU residents can use the tax-free shopping scheme for eligible purchases, with current VisitDenmark guidance pointing to a DKK 300 minimum purchase.
 - If the user is shopping seriously, tell them to confirm that the store participates in the tax-free system before paying.
 

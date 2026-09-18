@@ -30,7 +30,7 @@ Use this file before booking anything non-refundable.
 - Treating Denmark entry as separate from the rest of the Schengen trip.
 - Assuming visa-free means document-free.
 - Discovering passport-validity issues after booking summer islands or non-refundable city stays.
-- Ignoring that residency, work, or study questions stop being tourism advice.
+- Ignoring that residency, work, or study questions shift into immigration advice.
 
 ## Official Direction
 

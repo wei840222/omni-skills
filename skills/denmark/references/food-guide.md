@@ -24,9 +24,9 @@ Denmark food planning works best when the user chooses the dining style first: b
 - Book notable restaurants earlier than users expect in Copenhagen and peak-summer destinations.
 - Use bakeries, lunch, and supermarkets intelligently to control daily spend.
 - Small-town and island dinner options can close earlier or narrow outside peak dates.
-- Dietary restrictions are manageable, but users should not assume every remote stop has equal choice.
+- Dietary restrictions are manageable, but users should prepare for limited choices at remote locations.
 
-## Trap Avoidance
+## Smooth Routing
 
 - Planning every dinner spontaneously in a high-demand period.
 - Assuming all Danish dining is expensive fine dining.

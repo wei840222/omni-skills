@@ -7,7 +7,7 @@ Denmark road trips look easy on the map and still gain or lose value through bri
 ## When a Car Helps
 
 - West-coast and Wadden Sea routes
-- Mons Klint, Thy, and scattered nature stops
+- Mons Klint, Thy, and scattered nature locations
 - North Jutland loops where beaches, dunes, and viewpoints matter
 - Family travel where strollers, food, and flexible timing matter more than pure rail efficiency
 
