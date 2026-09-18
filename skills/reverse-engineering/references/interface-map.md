@@ -64,4 +64,4 @@ Produce an interface map with:
 - 
 ```
 
-If you cannot explain the surface map, do not trust the internal theory yet.
+Wait to trust the internal theory until you can explain the surface map.

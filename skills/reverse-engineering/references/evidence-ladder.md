@@ -12,7 +12,7 @@ Use these confidence levels when reporting findings:
 
 ## Reporting Rules
 
-- Never use stronger language than the evidence level supports.
+- Limit claims strictly to what the evidence level supports.
 - A decompiled function without a behavioral repro is usually Level 1 or 2, not Level 4.
 - A single packet capture can describe what happened once, not the full protocol contract.
 - If conflicting evidence appears, drop confidence first and reconcile second.

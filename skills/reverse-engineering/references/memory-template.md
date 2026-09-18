@@ -1,6 +1,6 @@
 # Memory Template — Reverse Engineering Operator
 
-Create `~/Clawic/data/reverse-engineering/memory.md` with this structure:
+Create `<state_root>/reverse-engineering/memory.md` with this structure:
 
 ```markdown
 # Reverse Engineering Memory
@@ -27,7 +27,7 @@ Use this for short internal observations that improve future sessions without ex
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/reverse-engineering/current-target.md` with this structure:
+Create `<state_root>/reverse-engineering/current-target.md` with this structure:
 
 ```markdown
 # Current Target
@@ -61,8 +61,8 @@ Create `~/Clawic/data/reverse-engineering/current-target.md` with this structure
 |-------|---------|----------|
 | `ongoing` | Still learning defaults | Keep gathering boundaries and target preferences naturally |
 | `complete` | Enough context is known | Activate and work with minimal friction |
-| `paused` | User wants less setup | Stop digging for preferences unless needed for safety |
-| `never_ask` | User does not want this configured | Do not reopen setup questions unless they ask |
+| `paused` | User wants less setup | Pause gathering preferences unless required for safety |
+| `never_ask` | User does not want this configured | Bypass setup questions unless explicitly requested |
 
 ## Key Principles
 
