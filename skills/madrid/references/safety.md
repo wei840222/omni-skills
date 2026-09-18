@@ -16,14 +16,14 @@ Madrid is one of the safest major European capitals. Violent crime against touri
 | Puerta del Sol | Tourist distraction | Stay alert to approaches |
 | Plaza Mayor | Restaurant distraction | Bag on lap or hook |
 | El Rastro (Sundays) | Browsing crowds | Cross-body bag, front zip |
-| Gran Vía | Shopping distraction | Don't flash expensive items |
+| Gran Vía | Shopping distraction | Keep expensive items concealed |
 
 ### Phone Snatching (Rising)
 
 | Method | Where | Prevention |
 |--------|-------|------------|
 | Moped snatch | Near curbs, crossings | Phone away when walking |
-| Grab and run | Terraza (outdoor seating) | Never put phone on table |
+| Grab and run | Terraza (outdoor seating) | Keep phone secured in pocket/bag |
 | Distraction | Asking for directions | Keep interactions brief |
 
 **Tip:** Apple/Samsung theft protection features recommended.
@@ -33,12 +33,12 @@ Madrid is one of the safest major European capitals. Violent crime against touri
 | Scam | How It Works | Response |
 |------|--------------|----------|
 | **Fake petition** | Deaf charity clipboard → pickpocket accomplice | Decline, keep walking |
-| **Rose/bracelet sellers** | Force item on you → demand payment | Firmly refuse, don't accept |
-| **Shell game** | Street gambling near Sol → rigged | Never play, crowd are shills |
+| **Rose/bracelet sellers** | Force item on you → demand payment | Firmly refuse, decline the item |
+| **Shell game** | Street gambling near Sol → rigged | Ignore games, crowd are shills |
 | **Taxi overcharge** | Refusing meter, inflated quote | Insist on meter or leave |
 | **ATM helpers** | Offers help → shoulder surfing | Decline, cover PIN |
 | **Fake police** | Ask to check wallet → steal | Ask for credentials, offer to go to station |
-| **Apartment scams** | Pay deposit before viewing | Never pay without seeing |
+| **Apartment scams** | Pay deposit before viewing | View in person before paying |
 
 ### Violent Crime (Context)
 
@@ -55,7 +55,7 @@ Madrid is one of the safest major European capitals. Violent crime against touri
 | ⭐⭐⭐⭐ Safe | Malasaña, Chueca, La Latina, Arganzuela, Chamartín |
 | ⭐⭐⭐ Generally Safe | Tetuán, Lavapiés, Centro (Sol/Gran Vía), Carabanchel (main) |
 | ⭐⭐ Caution Advised | Parts of Vallecas, Villaverde (certain areas), isolated spots late night |
-| ⭐ Avoid (Tourist) | Industrial areas, isolated parks at night |
+| ⭐ Exercise Caution (Tourist) | Industrial areas, isolated parks at night |
 
 **Note:** Even "caution" areas are fine during daytime. Issues arise late night, away from main streets.
 
@@ -86,7 +86,7 @@ Madrid is one of the safest major European capitals. Violent crime against touri
 | Midnight-3am | Normal nightlife hours, stick to populated areas |
 | 3am-6am | Quieter, use taxi/Uber for longer distances |
 
-### Areas to Avoid Late Night
+### Areas Requiring Caution Late Night
 
 - Deserted metro stations
 - Industrial areas (everywhere)
@@ -155,7 +155,7 @@ Madrid is one of the safest major European capitals. Violent crime against touri
 |-----|-----|
 | **Bag across body, zip facing you** | Harder to snatch or unzip |
 | **Phone in front pocket** | Back pocket = easy target |
-| **Don't flash expensive items** | Attracts attention |
+| **Keep expensive items concealed** | Attracts attention |
 | **Be aware at ATMs** | Cover PIN, use indoor ATMs |
 | **Trust your instincts** | If uncomfortable, leave |
 
@@ -165,7 +165,7 @@ Madrid is one of the safest major European capitals. Violent crime against touri
 |-----------|--------|
 | **Pickpocketed** | Cancel cards (app), police report, get denuncia for insurance |
 | **Phone snatched** | Mark as lost (Find My), police report, denuncia |
-| **Mugged** | Don't resist, give items, call 112 |
+| **Mugged** | Comply, give items, call 112 |
 | **Lost/stolen passport** | Police report → embassy |
 | **Medical emergency** | 112, or go to nearest Urgencias |
 
@@ -193,7 +193,7 @@ Cannabis is decriminalized for personal use in private spaces. However:
 - Consumption in public is fined
 - Selling is illegal
 - "Cannabis clubs" exist in legal gray area
-- Street dealers (parks, nightlife areas) should be avoided
+- Street dealers (parks, nightlife areas) should be bypassed
 
 ## Summary for AI Agent
 

@@ -185,7 +185,7 @@ Sunday pre-lunch tradition. Stand at bar, drink vermut (vermouth), eat olives an
 
 ## Where NOT to Eat Traditional Food
 
-| Avoid | Why |
+| Skip | Why |
 |-------|-----|
 | **Plaza Mayor restaurants** | 2-3x markup, mediocre quality |
 | **Gran Vía tourist spots** | Same |

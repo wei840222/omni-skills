@@ -13,7 +13,7 @@ Modern food halls with multiple stalls, designed for eating and drinking rather 
 | **Vibe** | Very touristy, beautiful building |
 | **Price** | €€€ (tourist markup) |
 
-**Honest take:** Stunning iron and glass building (1916). But VERY overpriced and crowded. Worth seeing once for the architecture but locals avoid eating here.
+**Honest take:** Stunning iron and glass building (1916). But VERY overpriced and crowded. Worth seeing once for the architecture but locals dine elsewhere.
 
 **Best for:** Quick stop for atmosphere, a single tapa
 **Skip:** Full meals, wine (marked up 200%)
@@ -108,7 +108,7 @@ Real markets where madrileños actually shop. Some have eating options.
 
 **Why go:** Chamberí's foodie market. Mix of traditional vendors + excellent food stalls. Less discovered.
 
-**Best for:** Serious food lovers, avoiding tourists
+**Best for:** Serious food lovers, seeking authentic experiences
 **Try:** Jamón, cheeses, local wine bars
 
 ### Mercado de Maravillas
@@ -154,7 +154,7 @@ Real markets where madrileños actually shop. Some have eating options.
 **Food situation:** Not a food market but La Latina is surrounded by tapas bars. Classic Sunday: Rastro → tapas → vermut.
 
 **Eating tips:**
-- Avoid restaurants inside Rastro (overpriced)
+- Dine outside Rastro (overpriced)
 - Head to Cava Baja/Cava Alta for tapas after
 - Vermut at 1pm is tradition
 

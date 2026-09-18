@@ -116,7 +116,7 @@ Occasional intense rainfall events, especially September-October. Usually brief 
 
 ### Filomena (The Exception)
 
-January 2021 saw historic snowfall (Storm Filomena). Extremely rare — don't expect it, but it can happen.
+January 2021 saw historic snowfall (Storm Filomena). Extremely rare — it is highly unusual, but it can happen.
 
 ## What to Pack by Season
 
@@ -160,7 +160,7 @@ January 2021 saw historic snowfall (Storm Filomena). Extremely rare — don't ex
 | **Nightlife** | Spring/Fall (comfortable terraza weather) |
 | **Families** | April-May, September-October |
 
-### Avoid If Possible
+### Skip If Possible
 - **August**: Too hot + everything closed
 - **August 15 weekend**: Entire city shuts down
 - **December 31-January 1**: Very crowded, sold out

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a young professional planning to move to Madrid. What are the best neighborhoods for me, and what is the typical rent for a 1-bedroom?",
+    "expected": "Identify the user as a young professional planning to move. Load neighborhoods-choosing.md, neighborhoods-central.md, resident.md, and cost.md. Recommend areas like Malasaña, Lavapiés, or La Latina. State that a 1BR rent is typically €1,200-1,800 centrally.",
+    "actual": "Identified the user role as a young professional moving to Madrid. Based on the neighborhoods guide, Malasaña, Lavapiés, and La Latina are top recommendations. Rents for a 1-bedroom apartment in central areas run from €1,200 to €1,800. I also loaded resident.md for practical moving advice.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm visiting Madrid for 3 days in August. I want to see Mercado de San Miguel and Casa Botín. Should I rent a car to get around?",
+    "expected": "Identify the user as a short-term visitor in summer. Warn about the extreme August heat and closures. Advise skipping Mercado de San Miguel and Botín as tourist traps. Discourage renting a car and recommend the Metro instead.",
+    "actual": "Identified the user as a short-term visitor in August. Advised that August is extremely hot (35-40°C) and many local places close. Advised skipping Mercado de San Miguel and Casa Botín as overpriced tourist traps, suggesting Mercado de San Fernando instead. Strongly discouraged renting a car due to traffic and parking, recommending the Metro which is comprehensive and runs until 01:30.",
+    "pass": true
+  }
+]

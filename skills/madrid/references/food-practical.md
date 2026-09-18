@@ -212,7 +212,7 @@ Spanish law requires allergen menus. Ask for "la carta de alérgenos."
 3. Order drinks first
 4. Order 2-3 tapas to start, more later
 5. Share everything
-6. Don't rush — enjoying time is the point
+6. Take your time — enjoying time is the point
 7. Ask for "la cuenta" when done
 
 ### Useful Phrases
@@ -235,7 +235,7 @@ Spanish law requires allergen menus. Ask for "la carta de alérgenos."
 | **Menú del día** | 3 courses €12-16 vs €30+ à la carte |
 | **Caña not pint** | Smaller = cheaper, stays cold |
 | **Stand at bar** | Often cheaper than table |
-| **Avoid Plaza Mayor** | 50% markup |
+| **Skip Plaza Mayor dining** | 50% markup |
 | **El Tigre free tapas** | Free tapas with every drink |
 | **Lunch > dinner** | Same food, lower prices |
 | **Markets over restaurants** | Better value |
@@ -259,7 +259,7 @@ Spanish law requires allergen menus. Ask for "la carta de alérgenos."
 For food practical questions:
 
 1. **Vegetarian:** Possible but ask about ham. Vega, B13 for dedicated options
-2. **Timing:** Lunch 2-4pm, dinner 9-11pm. Don't be early.
+2. **Timing:** Lunch 2-4pm, dinner 9-11pm. Arrive on time (not early).
 3. **Tipping:** 0-10% is normal. Not tipping isn't rude
 4. **Best value:** Menú del día for lunch
 5. **Booking:** Casual = walk in. Popular spots = book ahead
