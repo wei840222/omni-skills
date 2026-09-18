@@ -1,6 +1,6 @@
 # Memory Template - Decide
 
-Create `~/Clawic/data/decide/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Decide Memory
@@ -16,7 +16,7 @@ integration: pending | complete | paused | never_ask
 - Which decision families always deserve a deliberate review
 
 ## Always Ask
-- Decision categories that must never become autonomous without explicit fresh approval
+- Decision categories requiring explicit fresh approval before becoming autonomous
 - High-stakes exceptions and no-go areas
 
 ## Required Components
@@ -42,13 +42,13 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | Decision model still evolving | Ask often and keep logging |
 | `complete` | Stable decision baseline exists | Reuse only clearly validated patterns |
 | `paused` | User wants less setup friction | Ask only when a real branching choice appears |
-| `never_ask` | User does not want setup prompts | Do not reopen setup unless requested |
+| `never_ask` | User does not want setup prompts | Keep setup closed unless requested |
 
 ## Local Files to Initialize
 
 ```bash
-mkdir -p ~/Clawic/data/decide/domains
-touch ~/Clawic/data/decide/{memory.md,decisions.md}
+mkdir -p <state_root>/domains
+touch <state_root>/{memory.md,decisions.md}
 ```
 
 ## Template for `decisions.md`
@@ -67,7 +67,7 @@ touch ~/Clawic/data/decide/{memory.md,decisions.md}
 
 ## Rules
 
-- Keep durable decision policy in `~/Clawic/data/decide/memory.md`.
-- Keep individual decision records in `~/Clawic/data/decide/decisions.md`.
-- Keep domain-specific component models and exceptions in `~/Clawic/data/decide/domains/`.
-- Never persist credentials, secrets, or copied third-party private data.
+- Keep durable decision policy in `<state_root>/memory.md`.
+- Keep individual decision records in `<state_root>/decisions.md`.
+- Keep domain-specific component models and exceptions in `<state_root>/domains/`.
+- Persist only safe, non-sensitive context placeholders (e.g., `<api_key_hidden>`).

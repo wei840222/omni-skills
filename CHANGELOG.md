@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| decide | 2026-09-19 | 85/100 (#481) |
 | metaverse | 2026-09-19 | 85/100 (#480) |
 | budapest | 2026-09-19 | 85/100 (#478) |
 | automator | 2026-09-19 | 85/100 (#479) |

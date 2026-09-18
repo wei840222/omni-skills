@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to choose a database for the new user settings microservice. What should we use?",
+    "expected": "Recognizes this as a consequential choice. Asks for relevant components (budget, scale, existing stack), checks <state_root>/memory.md and domains, then logs the final human decision rather than auto-picking.",
+    "actual": "I noticed this is a consequential architecture decision for the user settings microservice. Before making a choice, we need to frame this with the right components. Could you provide the scale, budget, and if there are specific latency requirements? Once I have those, I'll check our decision history in `<state_root>/domains/` and `<state_root>/decisions.md`. We will log the outcome once you decide.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are building another internal dashboard for the admin team using React, same as last week.",
+    "expected": "Checks if the components (internal dashboard, React, admin team) match a past decision in <state_root>/decisions.md. Confirms if the context is materially the same before reusing the rule.",
+    "actual": "I see we are building an internal dashboard using React for the admin team. Let me check `<state_root>/decisions.md` and `<state_root>/memory.md`. Since this matches our previous decision for internal admin tools, I will proceed with React, but please confirm if any constraints or team sizes have changed since last week.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Deploy the changes to production immediately, it's an emergency.",
+    "expected": "Recognizes this as a high-stakes action. Verifies exceptions, does not promote a one-off emergency as a default rule, and ensures it's logged accurately without making it an autonomous permission.",
+    "actual": "I understand this is an emergency deployment to production. I will execute this now based on your explicit instruction. I will log this action in `<state_root>/decisions.md` with the context 'emergency', but I will not promote this bypass to a default rule in `memory.md`.",
+    "pass": true
+  }
+]

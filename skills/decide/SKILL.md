@@ -1,42 +1,30 @@
 ---
 name: decide
-slug: decide
-version: 1.0.1
-description: Self-learn your decision patterns to safely build its own decision-making over time.
-homepage: https://clawic.com/skills/decide
-changelog: Adds structured decision logging, safer setup, and stricter context matching before autonomous choices.
+description: Log and retrieve decision patterns to safely build autonomous decision-making
+  capabilities.
 metadata:
-  clawdbot:
-    emoji: ⚖️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/decide/
-    displayName: Decide
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/decide/
+  openclaw: '{"emoji": "⚖️", "requires": {"config": ["<state_root>/"]}}'
+  related-skills:
+  - escalate
+  - self-improving
+  - memory
+  - proactivity
 ---
 
 ## Architecture
 
-Decision state lives in `~/Clawic/data/decide/`. If that folder is missing or empty, run `setup.md`.
+Decision state lives in `<state_root>/`. If that folder is missing or empty, run `references/setup.md`.
 
 ```text
-~/Clawic/data/decide/
+<state_root>/
 ├── memory.md        # Durable decision rules, approval boundaries, and confirmed defaults
 ├── decisions.md     # Major decisions with question, components, chosen option, and outcome
 └── domains/         # Domain-specific decision components, overrides, and exceptions
 ```
 
-## When to Use
+## When to load
 
-Use when the agent faces a consequential choice that can change architecture, workflow, cost, publish behavior, vendor selection, or long-term project direction.
+Load this skill when facing a consequential choice that can change architecture, workflow, cost, publish behavior, vendor selection, or long-term project direction.
 
 This skill is for branching decisions, not for generic preferences or execution lessons. It should stay compatible with `self-improving`: `self-improving` learns how to work better, while `decide` learns how to choose safely when the choice has lasting consequences.
 
@@ -44,12 +32,12 @@ This skill is for branching decisions, not for generic preferences or execution 
 
 | Topic | File |
 |-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Migration guide | `migration.md` |
-| Decision components | `components.md` |
-| Confidence calibration | `confidence.md` |
-| Exceptions and always-ask cases | `exceptions.md` |
+| Setup guide | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
+| Migration guide | `references/migration.md` |
+| Decision components | `references/components.md` |
+| Confidence calibration | `references/confidence.md` |
+| Exceptions and always-ask cases | `references/exceptions.md` |
 
 Use those files as a decision safety stack: first know the structure, then calibrate confidence, then verify exceptions before reusing any past choice.
 
@@ -57,7 +45,7 @@ Use those files as a decision safety stack: first know the structure, then calib
 
 1. Frame the decision as a real question, not as a vague feeling.
 2. Gather the components that materially affect the answer.
-3. Read `~/Clawic/data/decide/memory.md`, then the smallest relevant file in `~/Clawic/data/decide/domains/`, then check `~/Clawic/data/decide/decisions.md` for a materially similar record.
+3. Read `<state_root>/memory.md`, then the smallest relevant file in `<state_root>/domains/`, then check `<state_root>/decisions.md` for a materially similar record.
 4. Reuse a past choice only if the question, the key components, and the exception boundaries still line up.
 5. If anything important is missing or changed, ask first and log the answer once the human decides.
 
@@ -94,7 +82,7 @@ Use those files as a decision safety stack: first know the structure, then calib
 - Show the exact snippet and wait for explicit approval before writing any workspace file.
 - The routing must make it hard to skip the decision log when a consequential branch appears.
 
-### 7. Never Let Decision Memory Shadow Other Skills
+### 7. Maintain Clear Boundaries Between Decision Memory and Other Skills
 - Use `self-improving` for execution quality, corrections, and reusable work habits.
 - Use `escalate` for ask-vs-act boundaries across actions broadly.
 - Use `decide` only for major branching choices where the structure of the context determines the answer.
@@ -113,31 +101,17 @@ These failures usually come from pattern-matching too early or from collapsing a
 
 ## Data Storage
 
-Local state lives in `~/Clawic/data/decide/`:
+Local state lives in `<state_root>/`:
 
-- durable decision rules, approval boundaries, and confirmed defaults in `~/Clawic/data/decide/memory.md`
-- major decision records in `~/Clawic/data/decide/decisions.md`
-- domain-specific component models, overrides, and exceptions in `~/Clawic/data/decide/domains/`
+- durable decision rules, approval boundaries, and confirmed defaults in `<state_root>/memory.md`
+- major decision records in `<state_root>/decisions.md`
+- domain-specific component models, overrides, and exceptions in `<state_root>/domains/`
 
-The packaged guides `components.md`, `confidence.md`, and `exceptions.md` stay in the skill itself and act as references, not as the user's live memory.
+The packaged guides `references/components.md`, `references/confidence.md`, and `references/exceptions.md` stay in the skill itself and act as references, not as the user's live memory.
 
 ## Security & Privacy
 
-- This skill stores local decision notes in `~/Clawic/data/decide/`.
+- This skill stores local decision notes in `<state_root>/`.
 - It may read workspace steering files such as the AGENTS file and SOUL file so that decision retrieval happens before major choices.
 - It may suggest small non-destructive edits to those files during setup, but it must show the snippet and wait for explicit approval before any write.
 - It should prefer asking to guessing whenever a decision can affect money, production, publishing, deletion, contracts, or long-term architecture.
-- It never modifies its own `SKILL.md`.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `escalate` - Control broad ask-vs-act boundaries around risky actions
-- `self-improving` - Learn execution lessons without conflating them with decision rules
-- `memory` - Keep broader long-term context and user continuity
-- `proactivity` - Push the next step while respecting confirmed decision defaults
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/decide
-- Latest version: https://clawic.com/skills/decide

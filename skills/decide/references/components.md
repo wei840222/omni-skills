@@ -24,7 +24,7 @@ Major decisions should be stored as a structured question plus the components th
 
 ## Match Rule
 
-Do not reuse a stored decision because one label matches.
+Compare all components before reusing a stored decision.
 
 Reuse is only safe when:
 - the question is materially the same
