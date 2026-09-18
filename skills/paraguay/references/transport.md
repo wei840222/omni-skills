@@ -1,6 +1,6 @@
 # Transport - Paraguay
 
-Transport in Paraguay is manageable when the route respects geography and heat. Keep the plan simple and avoid stacking long road days on top of border friction.
+Transport in Paraguay is manageable when the route respects geography and heat. Keep the plan simple and space out long road days on top of border friction.
 
 ## Core Transport Modes
 
@@ -34,7 +34,7 @@ Transport in Paraguay is manageable when the route respects geography and heat. 
 
 ## Public Transport Reality
 
-- Buses solve movement, but they do not automatically create a pleasant trip.
+- Buses solve movement, but require managing comfort expectations.
 - For short trips, fewer bases usually outperform "seeing more" by bus.
 - Ride-hailing is often the easiest city solution when active locally.
 

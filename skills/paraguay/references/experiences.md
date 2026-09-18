@@ -34,5 +34,5 @@ Paraguay is strongest when the trip mixes one urban base, one distinctive experi
 ## Traps
 
 - Filling the route with only transit and malls.
-- Treating Itaipu as a quick photo stop instead of an actual half-day anchor.
+- Treat Itaipu as a half-day anchor rather than a quick photo stop.
 - Ignoring the softer cultural half-days that make a short Paraguay trip memorable.

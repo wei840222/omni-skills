@@ -1,6 +1,6 @@
 # Food Guide - Paraguay
 
-Paraguay food works best when recommendations are tied to context: city lunch, roadside stop, family meal, market breakfast, or countryside grilling. Do not reduce the country to one bread or one soup.
+Paraguay food works best when recommendations are tied to context: city lunch, roadside stop, family meal, market breakfast, or countryside grilling. Present the full variety of the country\'s cuisine beyond a single bread or soup.
 
 ## Core Dishes to Know
 

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 5 days in Paraguay, arriving in Asuncion. Should I spend it all there or try to see Encarnacion?",
+    "expected": "Provide a structured decision comparing a 5-day Asuncion-only trip vs a split trip to Encarnacion, addressing travel time, heat, and practical viability.",
+    "actual": "Based on the 5-day timeframe, splitting the trip is possible but requires managing travel logistics carefully. I recommend using Asuncion as your decision hub. A 3-day Asuncion and 2-day Encarnacion split is practical if you take a comfortable long-distance bus or rent a car. Keep in mind the summer heat; if it's mid-summer, the waterfront in Encarnacion is excellent. Consider travel time (about 5-6 hours each way) and decide if you prefer a relaxed city stay with day trips, or a faster-paced multi-city route.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm heading to Ciudad del Este just for a quick day trip to buy electronics and see the falls. Can I pay with US dollars everywhere?",
+    "expected": "Provide border crossing and shopping strategy, explicitly addressing the currency query with practical payment guidance.",
+    "actual": "Yes, US dollars are widely accepted in Ciudad del Este, especially in major electronic stores. However, condition matters: bills must be in pristine condition, crisp, and without tears or marks, otherwise they may be rejected. It's also recommended to have some local Guarani or small change in Reais/Pesos for smaller purchases or transportation. Treat the border as an operational place: crossing the Friendship Bridge can take time, so plan your day flow accordingly and allocate sufficient time for border logistics.",
+    "pass": true
+  }
+]

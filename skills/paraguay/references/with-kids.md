@@ -25,7 +25,7 @@ Paraguay works with children when the route is simple, heat is managed, and the 
 
 - Use air conditioning and pool access as quality-of-life tools, not luxuries.
 - Protect nap or cool-down windows in the middle of hot days.
-- Do not build the trip around long border waits with younger kids unless the goal is very clear.
+- Minimize border crossing time or define clear goals when traveling with younger kids.
 
 ## Traps
 

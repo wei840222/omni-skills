@@ -26,7 +26,7 @@ Nature in Paraguay is less about alpine epics and more about forests, waterfalls
 - Start early to beat heat.
 - Carry more water than the traveler thinks they need.
 - Treat weather, insects, and road surfaces as part of the plan.
-- Do not oversell trail infrastructure. Some places are better described as nature outings than as formal hikes.
+- Describe trail infrastructure accurately. Some places are better described as nature outings than as formal hikes.
 
 ## Traps
 

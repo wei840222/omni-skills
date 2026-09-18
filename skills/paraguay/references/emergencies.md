@@ -22,7 +22,7 @@ Emergency response quality changes by city and distance. In complex situations, 
 
 - Heat exhaustion and dehydration are more common travel problems than dramatic crime scenarios.
 - On border or shopping days, keep documents and backup cash separated.
-- Do not drive tired after dark on longer rural routes.
+- Ensure drivers are rested and prefer daylight travel for longer rural routes.
 
 ## Documents and Theft
 

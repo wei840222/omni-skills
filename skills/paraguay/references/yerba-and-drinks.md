@@ -16,7 +16,7 @@ Drink culture in Paraguay is a social language. Terere is not a gimmick for tour
 
 - If someone is sharing terere, the ritual matters as much as the drink.
 - Accepting a round is friendly; there is no need to overperform expertise.
-- Do not treat it like a one-off exotic sample. It is part of normal daily life.
+- Treat it as part of normal daily life rather than a one-off exotic sample.
 
 ## How to Use This in Recommendations
 
