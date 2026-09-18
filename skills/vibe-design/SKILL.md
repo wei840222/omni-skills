@@ -1,6 +1,6 @@
 ---
 name: vibe-design
-description: Create visual designs with AI tools. Cover prompting for UI/graphics,
+description: Create visual designs with AI tools. Covers prompting for UI/graphics,
   Midjourney techniques, Figma AI workflow, and iteration patterns.
 metadata:
   openclaw: '{"emoji": "🎨"}'
