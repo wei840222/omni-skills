@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this async method: public string GetData() { return _httpClient.GetStringAsync(url).Result; }",
+    "expected": "Identify the synchronous Wait on an async task (`.Result`), explain why it can cause UI deadlocks, and recommend using `await` instead.",
+    "actual": "Identified the use of `.Result` as a deadlock hazard on the UI thread and provided the corrected version using `async/await` and `ConfigureAwait(false)` if needed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should I store money values in C# and iterate through a collection without exceptions?",
+    "expected": "Recommend `decimal` for money to prevent precision loss. Advise that modifying a collection while iterating throws an exception, so call `.ToList()` first to iterate a copy.",
+    "actual": "Recommended using `decimal` instead of `float`/`double` for financial data, and explained that `ToList()` creates a separate copy, preventing exceptions when modifying the original collection during iteration.",
+    "pass": true
+  }
+]
