@@ -8,7 +8,7 @@
 - Extract curriculum from scattered materials (conference talks, papers, client notes)
 - Translate technical knowledge into accessible content
 - Validate market demand before investing production time
-- Automate student support to avoid 1:1 time drain
+- Automate student support to preserve 1:1 time
 
 **Workflow:**
 1. Gather all existing materials (recordings, presentations, notes)

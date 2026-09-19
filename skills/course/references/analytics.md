@@ -76,7 +76,7 @@
 | High (affects completion) | Low | Fix immediately |
 | High | High | Plan for next major update |
 | Low | Low | Quick win, do when convenient |
-| Low | High | Don't bother |
+| Low | High | Reassess viability |
 
 **Common high-impact improvements:**
 1. Rerecord confusing lessons (high drop-off)
@@ -119,3 +119,11 @@
 4. Implement: Make the smallest change that could work
 5. Measure: Did it improve the metric?
 6. Document: What worked, what didn't, for future reference
+
+## Research Sources (Gate 6)
+
+Verified primary references used for completion, engagement, and improvement metrics:
+
+- **Quality Matters research on online course quality** — design quality signals linked to learner success via https://www.qualitymatters.org/research
+- **Online Learning Consortium research hub** — completion/engagement research orientation via https://onlinelearningconsortium.org/research/
+- **Coursera impact / outcomes reporting** — industry framing for learner progress metrics via https://about.coursera.org/press/press-releases
