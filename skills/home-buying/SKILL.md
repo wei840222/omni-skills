@@ -1,51 +1,41 @@
 ---
 name: home-buying
-slug: home-buying
-version: 1.0.0
-description: Buy a home with budget guardrails, listing scorecards, offer strategy, due diligence triage, and closing readiness checks.
-homepage: https://clawic.com/skills/home-buying
-changelog: Initial release with a full home-buying decision workflow from budget setup through closing readiness.
+description: Buy a home with budget guardrails, listing scorecards, offer strategy,
+  due diligence triage, and closing readiness checks.
 metadata:
-  clawdbot:
-    emoji: HOME
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/home-buying/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/home-buying/
-    displayName: Home Buying
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/home-buying/
+  openclaw: '{"emoji": "🏠", "requires": {"config": ["<state_root>/"]}}'
+  related-skills: '{"real-estate-skill":"Broader real-estate transaction guidance across roles and stages when the task is not a primary-home purchase decision system.","property-valuation":"Comparable and income-based valuation support when pricing or appraisal gaps dominate.","contract":"Contract structure and clause review when offer language or contingencies need legal-structure scrutiny.","rental":"Rental economics when the user should compare buy vs rent or landlord/tenant economics instead.","house":"Post-purchase home ownership operations after closing."}'
 ---
-
 ## Setup
 
-If `~/Clawic/data/home-buying/` does not exist or is empty, read `setup.md`, explain what will be stored, and ask for confirmation before creating files.
+If `<state_root>/` does not exist or is empty, read `references/setup.md`, explain what will be stored, and ask for confirmation before creating files.
 
-## When to Use
+## When to load
 
-Use this skill when a user is buying a primary home or investment property and needs disciplined decisions across budget, search, offers, inspections, and closing.
-
-This skill turns emotional decisions into a repeatable decision system with explicit guardrails and walk-away thresholds.
+Load this skill when a user explicitly asks for help buying a home, organizing real estate budgets, evaluating property listings, or preparing to close on a house. Load this only when a purchase intent exists (exclude general market trends).
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/home-buying/`. See `memory-template.md` for structure and status fields.
+Memory lives in `<state_root>/`. See `references/memory-template.md` for structure and status fields.
 
 ```text
-~/Clawic/data/home-buying/
+<state_root>/
 |-- memory.md             # Decision defaults, status, and recurring constraints
 |-- active-deals.md       # Deal pipeline with stage and risk notes
 |-- offer-log.md          # Offer ladder history and outcomes
 `-- closing-checks.md     # Lender, title, insurance, and final walkthrough status
 ```
+
+
+## Reference Loading
+
+When you need to perform specific tasks, read the corresponding reference file before proceeding:
+- For calculating budgets and limits: read `references/budget-guardrails.md`
+- For evaluating new property listings: read `references/listing-scorecard.md`
+- For building offer strategies and negotiation limits: read `references/offer-ladder.md`
+- For prioritizing inspections and contingencies: read `references/due-diligence.md`
+- For final walkthroughs and closing checks: read `references/closing-readiness.md`
+- For source-backed affordability, inspection, or closing claims: read `references/domain-knowledge.md`
 
 ## Quick Start
 
@@ -62,13 +52,14 @@ Use the smallest relevant file for the current step.
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory template | `memory-template.md` |
-| Budget math and guardrails | `budget-guardrails.md` |
-| Listing scoring rubric | `listing-scorecard.md` |
-| Offer strategy and concessions | `offer-ladder.md` |
-| Inspection and contingency triage | `due-diligence.md` |
-| Closing readiness gates | `closing-readiness.md` |
+| Setup and activation behavior | `references/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Budget math and guardrails | `references/budget-guardrails.md` |
+| Listing scoring rubric | `references/listing-scorecard.md` |
+| Offer strategy and concessions | `references/offer-ladder.md` |
+| Inspection and contingency triage | `references/due-diligence.md` |
+| Closing readiness gates | `references/closing-readiness.md` |
+| Domain sources (Gate 6) | `references/domain-knowledge.md` |
 
 ## Core Rules
 
@@ -98,7 +89,7 @@ Use the smallest relevant file for the current step.
 
 ### 7. Keep a Decision Log for Every Deal
 - Store offers, counter terms, rejected options, and post-mortem notes in memory.
-- Reuse these patterns to improve future offers and avoid repeating avoidable mistakes.
+- Reuse these patterns to improve future offers and prevent repeating avoidable mistakes.
 
 ## Home-Buying Traps
 
@@ -111,7 +102,7 @@ Use the smallest relevant file for the current step.
 
 ## Data Storage
 
-- Local notes only in `~/Clawic/data/home-buying/` for active deals, scorecards, and decision history.
+- Local notes only in `<state_root>/` for active deals, scorecards, and decision history.
 - Store concise operational data, not full personal identity packages.
 - Ask before saving sensitive personal or financial details.
 
@@ -121,24 +112,11 @@ Data that leaves your machine:
 - None by default. This skill is workflow guidance and local-memory only.
 
 Data that stays local:
-- Decision context, deal notes, and checklist state under `~/Clawic/data/home-buying/`.
+- Decision context, deal notes, and checklist state under `<state_root>/`.
 
 This skill does NOT:
 - Submit offers automatically.
 - Call lender, MLS, escrow, or title APIs automatically.
 - Share user data with external services by default.
-- Modify files outside `~/Clawic/data/home-buying/` for memory.
-- NEVER modifies its own skill definition file.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `real-estate-skill` - Broad real-estate transaction guidance across roles and stages.
-- `property-valuation` - Comparable and income-based valuation support.
-- `contract` - Contract structure and clause review support.
-- `rental` - Rental economics and landlord or tenant decision support.
-- `house` - Home ownership operations after purchase.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/home-buying
-- Latest version: https://clawic.com/skills/home-buying
+- Modify files outside `<state_root>/` for memory.
+- Maintain its own skill definition file as read-only.

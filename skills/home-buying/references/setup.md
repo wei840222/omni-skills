@@ -1,6 +1,6 @@
 # Setup - Home Buying
 
-Read this when `~/Clawic/data/home-buying/` is missing or empty. Start helping immediately while collecting only context that improves purchase decisions.
+Read this when `<state_root>/` is missing or empty. Start helping immediately while collecting only context that improves purchase decisions.
 
 ## Your Attitude
 
@@ -15,7 +15,7 @@ In early conversation, confirm when this skill should activate:
 - Only when the user asks for home-buying help explicitly
 - Only for one active market or one active purchase process
 
-If confirmed, store activation preference in `~/Clawic/data/home-buying/memory.md` only.
+If confirmed, store activation preference in `<state_root>/memory.md` only.
 
 ### 2. Then: Decision Baseline
 
@@ -26,7 +26,7 @@ Capture only baseline context that changes decisions:
 - Financing posture (pre-approved, shopping lenders, cash)
 - Risk tolerance for contingencies and renovation scope
 
-Avoid long onboarding. Learn while solving active deal tasks.
+Keep onboarding brief. Learn while solving active deal tasks.
 
 ### 3. Finally: Working Style
 
@@ -40,15 +40,15 @@ Store stable patterns, not one-time choices.
 
 ## What You Save Internally
 
-Persist only reusable context in `~/Clawic/data/home-buying/memory.md`:
+Persist only reusable context in `<state_root>/memory.md`:
 - Activation preference
 - Buy-box constraints and budget guardrails
 - Offer ladder patterns that were approved
 - Recurring risk thresholds and deal-breakers
 - Lessons from lost and won offers
 
-Do not save secrets, full account numbers, or unnecessary personal identifiers.
+Save only safe, generic descriptions (exclude secrets, full account numbers, and personal identifiers).
 
 ## Golden Rule
 
-Answer the active home-buying question first. Setup context should sharpen decisions, never block action.
+Answer the active home-buying question first. Setup context should sharpen decisions, prioritize unblocking action.

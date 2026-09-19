@@ -1,6 +1,6 @@
 # Memory Template - Home Buying
 
-Create `~/Clawic/data/home-buying/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Home Buying Memory
@@ -49,7 +49,7 @@ integration: pending
 | `ongoing` | Default learning state | Keep collecting decision context incrementally |
 | `complete` | Baseline stable | Use memory defaults with minimal clarifications |
 | `paused` | User wants fewer prompts | Ask only when critical data is missing |
-| `never_ask` | User rejected setup prompts | Stop setup prompts and operate on explicit input only |
+| `opted_out` | User rejected setup prompts | Halt setup prompts and operate on explicit input only |
 
 ## Integration Values
 
