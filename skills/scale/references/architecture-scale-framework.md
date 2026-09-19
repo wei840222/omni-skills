@@ -9,7 +9,7 @@ Apply this when software architecture cannot support product velocity, reliabili
 - Reliability incidents from shared blast radius
 - Team conflicts from unclear ownership boundaries
 
-Do not split architecture based on trend pressure alone.
+Base architecture splits strictly on documented failure patterns and scaling constraints.
 
 ### 2. Strengthen Boundaries Before Splits
 - Define clear domain boundaries and contracts
@@ -17,7 +17,7 @@ Do not split architecture based on trend pressure alone.
 - Establish ownership per boundary with on-call accountability
 
 ### 3. Choose the Minimum Structural Change
-- Keep modular monolith when deployment and ownership can still scale
+- Keep modular monolith when deployment and ownership can still scale (following the MonolithFirst approach)
 - Split services only where independent scaling or autonomy is proven
 - Extract platforms only for repeated cross-team bottlenecks
 
@@ -35,4 +35,4 @@ Do not split architecture based on trend pressure alone.
 
 - Service count growing faster than team maturity.
 - New architecture patterns without observability or runbooks.
-- Migration roadmap that lacks rollback checkpoints.
+- Migration roadmap without defined rollback milestones.

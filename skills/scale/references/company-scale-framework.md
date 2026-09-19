@@ -12,7 +12,7 @@ Apply this when a company must scale execution, revenue, or customer operations 
 ### 2. Clarify Ownership and Decision Rights
 - Assign one owner per critical metric
 - Define which decisions are local vs executive
-- Remove approval chains that do not reduce risk
+- Eliminate approval chains lacking risk-reduction value
 
 ### 3. Standardize Core Operating Loops
 - Weekly operating review with the same metrics and owners

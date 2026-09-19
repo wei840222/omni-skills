@@ -1,48 +1,33 @@
 ---
 name: scale
-slug: scale
-version: 1.0.0
-description: Scale systems, software architecture, and companies with bottleneck mapping, staged leverage plans, and risk-aware execution loops.
-homepage: https://clawic.com/skills/scale
-changelog: Initial release with cross-domain scaling frameworks, bottleneck diagnostics, and execution cadence playbooks.
+description: Scale technical systems, software architecture, and organizations by
+  mapping bottlenecks and executing risk-aware leverage plans.
 metadata:
-  clawdbot:
-    emoji: CHART
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/scale/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/scale/
-    displayName: Scale Frameworks
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/scale/
+  openclaw: '{"requires": {"config": ["<state_root>/scale/"]}}'
+  related-skills:
+  - architecture
+  - systems-architect
+  - startup
+  - growth
+  - strategy
 ---
 
 ## Setup
 
-On first use, read `setup.md` for integration and activation guidance.
+On first use, read `references/setup.md` for integration and activation guidance.
 
-## When to Use
+## When to load
 
-Use this skill when the user wants to scale something with real constraints: technical systems, software architecture, organizations, operations, or go-to-market capacity.
+Load this skill when asked to plan or evaluate scaling strategies for technical systems, software architecture, organizations, operations, or go-to-market capacity. Trigger when constraints must be mapped to identify the primary bottleneck. Load references progressively based on the domain being scaled.
 
-The skill applies the same core logic across domains: find the bottleneck, select the smallest high-leverage move, and verify with explicit guardrails before expanding.
-
-This skill is advisory and planning-focused. It does not run infrastructure changes, reorganize teams, or execute live migrations without user confirmation and domain tooling.
+Load `references/domain-knowledge.md` when verifying bottleneck, architecture-split, or delivery-throughput guidance against primary sources.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/scale/`. See `memory-template.md` for structure and status fields.
+Memory lives in `<state_root>/scale/`. See `assets/memory-template.md` for structure and status fields.
 
 ```text
-~/Clawic/data/scale/
+<state_root>/scale/
 |- memory.md                  # Durable scaling context and activation preferences
 |- bottleneck-map.md          # Active constraints and bottleneck hypotheses
 |- leverage-backlog.md        # Candidate changes ranked by impact and effort
@@ -55,13 +40,14 @@ Use the smallest relevant file for the current scaling problem.
 
 | Topic | File |
 |-------|------|
-| Setup and integration | `setup.md` |
-| Memory structure and states | `memory-template.md` |
-| Universal intake and bottleneck diagnosis | `scale-diagnostic.md` |
-| Infrastructure and platform scaling | `system-scale-framework.md` |
-| Software architecture scaling | `architecture-scale-framework.md` |
-| Team and business scaling | `company-scale-framework.md` |
-| Cadence, metrics, and rollout control | `execution-cadence.md` |
+| Setup and integration | `references/setup.md` |
+| Memory structure and states | `assets/memory-template.md` |
+| Universal intake and bottleneck diagnosis | `references/scale-diagnostic.md` |
+| Infrastructure and platform scaling | `references/system-scale-framework.md` |
+| Software architecture scaling | `references/architecture-scale-framework.md` |
+| Team and business scaling | `references/company-scale-framework.md` |
+| Cadence, metrics, and rollout control | `references/execution-cadence.md` |
+| Domain sources and research anchors | `references/domain-knowledge.md` |
 
 ## Core Rules
 
@@ -80,7 +66,7 @@ For every scaling request, apply BOLT in order:
 - Levers: list 3 to 5 candidate interventions
 - Test: run staged validation with rollback criteria
 
-Do not skip directly from symptoms to large transformations.
+Work sequentially from symptoms to targeted interventions before considering large transformations.
 
 ### 3. Prioritize Smallest Effective Change
 Default to interventions that unlock capacity fast with bounded risk:
@@ -100,7 +86,7 @@ Each recommendation must include likely side effects:
 If second-order risk is unknown, mark as hypothesis and constrain rollout.
 
 ### 5. Pair Every KPI with a Guardrail
-Never scale on a single growth metric. Pair it with guardrails:
+Scale using paired metrics and guardrails:
 - Throughput with error rate
 - Deploy velocity with change failure rate
 - Sales growth with gross margin and support load
@@ -137,23 +123,10 @@ Scaling compounds only when wins become repeatable systems.
 - None by default from this skill itself.
 
 **Data that stays local:**
-- Scaling context and learned operating patterns under `~/Clawic/data/scale/`.
+- Scaling context and learned operating patterns under `<state_root>/scale/`.
 
 **This skill does NOT:**
 - Execute undeclared network requests automatically.
 - Apply irreversible technical or organizational changes without explicit user approval.
 - Store secrets, credentials, or payment data in local memory files.
-- Modify files outside `~/Clawic/data/scale/` for memory storage.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `architecture` - Architectural fundamentals and constraints that shape scaling decisions.
-- `systems-architect` - Reliability, infrastructure, and platform tradeoff patterns.
-- `startup` - Stage-aware startup execution and prioritization logic.
-- `growth` - Demand generation and growth loops once capacity is ready.
-- `strategy` - Strategic framing and tradeoff analysis across long horizons.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/scale
-- Latest version: https://clawic.com/skills/scale
+- Modify files outside `<state_root>/scale/` for memory storage.

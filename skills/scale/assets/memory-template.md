@@ -1,6 +1,6 @@
 # Memory Template - Scale Frameworks
 
-Create `~/Clawic/data/scale/memory.md` with this structure:
+Create `<state_root>/scale/memory.md` with this structure:
 
 ```markdown
 # Scale Frameworks Memory
@@ -45,7 +45,7 @@ integration: pending
 | `ongoing` | Default learning state | Keep refining bottlenecks and leverage patterns |
 | `complete` | Stable scaling model | Reuse memory as primary planning baseline |
 | `paused` | User wants fewer prompts | Ask only when critical data is missing |
-| `never_ask` | User rejected setup prompts | Stop prompting and operate silently |
+| `never_ask` | User rejected setup prompts | Silence prompting and operate passively |
 
 ## Integration Values
 

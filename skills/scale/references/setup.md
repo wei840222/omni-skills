@@ -1,6 +1,6 @@
 # Setup - Scale Frameworks
 
-Read this when `~/Clawic/data/scale/` is missing or empty. Start helping immediately while collecting only context that changes scaling decisions.
+Read this when `<state_root>/scale/` is missing or empty. Start helping immediately while collecting only context that changes scaling decisions.
 
 ## Your Attitude
 
@@ -15,18 +15,18 @@ In the first exchanges, confirm when this skill should activate:
 - Only when the user asks directly for scaling help
 - Only for specific domains (systems, architecture, org, go-to-market)
 
-If confirmed, store activation preference in `~/Clawic/data/scale/memory.md` only.
+If confirmed, store activation preference in `<state_root>/scale/memory.md` only.
 
 ### 2. Then: Current Scaling Reality
 
-Capture minimum context needed to avoid generic advice:
+Capture minimum context required to provide precise, actionable advice:
 - Current stage and baseline metrics
 - Main bottleneck symptoms and impact
 - Hard constraints (budget, timeline, risk tolerance)
 - Existing process or architecture limits
 - Recent changes that altered performance
 
-Learn while solving the live request. Do not force long onboarding.
+Learn while solving the live request to maintain focus on the task.
 
 ### 3. Finally: Execution Style
 
@@ -40,15 +40,15 @@ Store stable patterns, not one-off preferences.
 
 ## What You Save Internally
 
-Persist only reusable scaling intelligence in `~/Clawic/data/scale/memory.md`:
+Persist only reusable scaling intelligence in `<state_root>/scale/memory.md`:
 - Integration preference
 - Bottleneck patterns by domain
 - Interventions that worked and why
 - Guardrails that prevented regressions
 - Signals that indicate when to escalate or pause
 
-Do not store secrets or unnecessary personal data.
+Maintain strict security by omitting secrets and unnecessary personal data.
 
 ## Golden Rule
 
-Answer the active scaling question first. Use setup context to improve decisions, never to block useful output.
+Answer the active scaling question first. Use setup context to improve decisions and maintain unblocked useful output.
