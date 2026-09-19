@@ -8,7 +8,7 @@ Use this file when the task involves MiniMax text generation through raw HTTP, A
 Use native MiniMax APIs when:
 - the app is greenfield and you want the most direct behavior
 - you need the clearest mapping between docs and payload
-- you want to avoid SDK-compatibility ambiguity
+- you want to maintain SDK-compatibility precision
 
 ### Anthropic-Compatible API
 Use the Anthropic-compatible surface when:
@@ -17,7 +17,7 @@ Use the Anthropic-compatible surface when:
 - the team accepts that some Anthropic parameters are ignored
 
 Current official caveats to remember:
-- text support is currently limited to `MiniMax-M2.5`, `MiniMax-M2.5-highspeed`, `MiniMax-M2.1`, `MiniMax-M2.1-highspeed`, and `MiniMax-M2`
+- text support is currently limited to `abab6.5g-chat`, `abab6.5s-chat`, `abab6.5t-chat`, `abab6.5-chat`, and `abab5.5-chat`
 - `temperature` must stay in the documented `(0.0, 1.0]` range
 - some Anthropic parameters are ignored, including `thinking`, `top_k`, `stop_sequences`, `service_tier`, `mcp_servers`, `context_management`, and `container`
 - image and document inputs are not currently supported on that compatible surface

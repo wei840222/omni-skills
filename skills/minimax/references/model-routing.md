@@ -18,11 +18,11 @@ Use this file when the user says "which MiniMax model?" or when the workflow is 
 - compatibility-first
 
 3. Pin the exact model family or service:
-- `MiniMax-M2.5` for strongest current text quality when latency is acceptable
-- `MiniMax-M2.5-highspeed` when the user needs faster text turnaround
-- `MiniMax-M2.1` for balanced text generation and code-oriented work
-- `MiniMax-M2.1-highspeed` for faster balanced text work
-- `MiniMax-M2` as an older compatibility or fallback lane when the integration surface still expects it
+- `abab6.5g-chat` for strongest current text quality when latency is acceptable
+- `abab6.5s-chat` when the user needs faster text turnaround
+- `abab6.5t-chat` for balanced text generation and code-oriented work
+- `abab6.5-chat` for general-purpose text work when a lighter default is enough
+- `abab5.5-chat` as an older compatibility or fallback lane when the integration surface still expects it
 - `speech-2.8-hd` when speech quality matters more than speed
 - `speech-2.8-turbo` when faster speech delivery matters more than top-end quality
 - `Hailuo 2.3` for motion-heavy video generation where timing and scene energy matter
@@ -31,7 +31,7 @@ Use this file when the user says "which MiniMax model?" or when the workflow is 
 ## Practical Defaults
 
 ### Text
-- Start with `MiniMax-M2.5` unless the user explicitly prioritizes lower latency.
+- Start with `abab6.5g-chat` unless the user explicitly prioritizes lower latency.
 - Use the `highspeed` tier for rapid tool loops, draft generation, or latency-sensitive UI calls.
 - Verify live availability before hardcoding older families in production.
 

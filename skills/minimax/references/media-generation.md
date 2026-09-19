@@ -26,16 +26,16 @@ Plan four phases:
 
 ### Polling Behavior
 - use bounded polling intervals instead of tight loops
-- stop with a user-visible status if the queue runs too long
+- pause and present a user-visible status if the queue runs too long
 - distinguish between queue delay, processing failure, and fetch failure
 
 ### Output Validation
 - confirm duration, aspect ratio, format, and output URL before claiming success
 - if the result is close but wrong, change the smallest useful variable first
-- do not rerun blindly when the real problem is asset mismatch or wrong duration target
+- verify asset matching and duration targets before rerunning when the real problem is asset mismatch or wrong duration target
 
 ## Safety Boundaries
 
 - confirm rights for images, music references, lyrics, logos, and character likenesses before upload
 - treat long-running generation as paid remote compute and keep the user informed
-- avoid hidden rerun loops that can burn credits without consent
+- prevent hidden rerun loops that can burn credits without consent

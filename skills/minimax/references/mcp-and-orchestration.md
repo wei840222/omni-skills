@@ -25,12 +25,12 @@ Treat every MCP server as a trust boundary, not as a convenience toggle.
 
 - keep the MiniMax prompt focused on decision-making, not on embedding huge raw tool payloads
 - summarize tool results before the next model step when possible
-- if the tool can act destructively, insert an approval checkpoint before execution
+- if the tool can act destructively, require explicit approval before execution
 - log approved hosts and scopes in `mcp-notes.md`
 
 ## Failure Signs
 
-- the server is technically reachable but the user never approved its scope
+- the server is technically reachable but the user has yet to approve its scope
 - the model gets noisy because raw tool output is larger than the task needs
 - the workflow mixes local-only assumptions with remote MCP execution
 - retries keep hitting the same tool error because the issue is authorization, not prompt quality
