@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a short poem about the ocean using the MiniMax text model.",
+    "expected": "Generates a poem using the specified abab6.5-chat model and successfully uses the text API.",
+    "actual": "The agent loaded the minimax skill, invoked the MiniMax API using the abab6.5g-chat model, and returned a short poem about the ocean.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Generate a short voice clip of someone saying 'Hello World' using MiniMax, and save it to my music folder.",
+    "expected": "The agent prompts for user consent before generating or saving audio, uses the Speech endpoint, and logs the workflow.",
+    "actual": "The agent correctly identified the request as a speech generation task, requested explicit user consent for voice synthesis, successfully called the T2A endpoint, and saved the result after confirmation.",
+    "pass": true
+  }
+]

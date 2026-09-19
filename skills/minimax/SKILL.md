@@ -1,47 +1,33 @@
 ---
 name: minimax
-slug: minimax
-version: 1.0.0
-description: Build with MiniMax text, speech, video, and music APIs using model routing, compatible SDKs, and safer multimodal workflows.
-homepage: https://clawic.com/skills/minimax
-changelog: Initial release with model routing, text compatibility guidance, speech and media workflows, MCP boundaries, and failure recovery.
+description: Manage MiniMax multimodal generation (text, speech, video). Load when the user requests MiniMax text models (e.g. abab6.5-chat), speech generation, or video/music API jobs.
 metadata:
-  clawdbot:
-    emoji: 🎛️
-    requires:
-      env:
-      - MINIMAX_API_KEY
-      bins.optional:
-      - curl
-      - jq
-      config:
-      - ~/Clawic/data/minimax/
-    primaryEnv: MINIMAX_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/minimax/
-    displayName: MiniMax
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/minimax/
+  version: 1.0.0
+  openclaw: '{"emoji": "🎛️", "requires": {"env": ["MINIMAX_API_KEY"], "config": ["<state_root>/"]}, "primaryEnv": "MINIMAX_API_KEY"}'
+  related-skills: '{"ai": "Compare MiniMax against other model providers before locking the stack.", "api": "Reuse structured HTTP, retry, and payload-debugging patterns around the MiniMax APIs.", "models": "Choose the right model family and fallback chain for quality, latency, and cost.", "video-generation": "Extend MiniMax video work into broader multi-provider video routing.", "music": "Strengthen prompt and arrangement decisions when the task is specifically music-first."}'
 ---
-
 ## When to Use
 
-User wants to work with MiniMax as a real multimodal platform, not as a vague brand mention. Agent handles model routing, API selection, compatible SDK caveats, speech generation, queued media jobs, MCP boundaries, and production-safe retry patterns.
+Trigger when the user explicitly requests MiniMax text models, voice generation, or media jobs. Load for generic text completion only when MiniMax is the preferred provider.
 
-Use this when the blocker is operational: wrong interface, wrong model tier, ignored parameters, broken polling loop, unsafe media upload, or poor routing across text, speech, video, and music tasks.
+## State location
+
+MiniMax state may exist in `<workspace>/minimax/`, `<workspace>/memory/minimax/`, or `~/minimax/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/minimax/`, `<workspace>/memory/minimax/`, `~/minimax/`.
+3. If none exists and state must be created, default to `<workspace>/minimax/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/minimax/`. If `~/Clawic/data/minimax/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. If `<state_root>/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/minimax/
+<state_root>/
 |-- memory.md          # Durable context, activation boundaries, and approved defaults
 |-- routing.md         # Model and interface choices that worked in practice
 |-- text-defaults.md   # Text model pins, SDK compatibility notes, and parsing rules
@@ -57,14 +43,14 @@ Load only the file needed for the current blocker.
 
 | Topic | File |
 |-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Model selection and routing | `model-routing.md` |
-| Native, Anthropic-compatible, and OpenAI-compatible text flows | `text-interfaces.md` |
-| Speech generation and audio delivery | `speech-workflows.md` |
-| Video, music, and async media jobs | `media-generation.md` |
-| MCP boundaries and orchestration choices | `mcp-and-orchestration.md` |
-| Failure recovery and debugging | `troubleshooting.md` |
+| Setup guide | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
+| Model selection and routing | `references/model-routing.md` |
+| Native, Anthropic-compatible, and OpenAI-compatible text flows | `references/text-interfaces.md` |
+| Speech generation and audio delivery | `references/speech-workflows.md` |
+| Video, music, and async media jobs | `references/media-generation.md` |
+| MCP boundaries and orchestration choices | `references/mcp-and-orchestration.md` |
+| Failure recovery and debugging | `references/troubleshooting.md` |
 
 ## Requirements
 
@@ -77,7 +63,7 @@ Load only the file needed for the current blocker.
 
 This skill treats MiniMax as an execution platform, not as a one-line provider swap. It covers:
 - text generation through native MiniMax APIs and compatible SDK interfaces
-- model routing across current text families such as `MiniMax-M2.5`, `MiniMax-M2.5-highspeed`, `MiniMax-M2.1`, `MiniMax-M2.1-highspeed`, and `MiniMax-M2`
+- model routing across current text families such as `abab6.5g-chat`, `abab6.5s-chat`, `abab6.5t-chat`, `abab6.5-chat`, and `abab5.5-chat`
 - speech generation with synchronous HTTP and lower-latency endpoint choices
 - queued media workflows for video and music where submit, poll, and fetch are separate phases
 - MCP-aware workflows where tool access, host trust, and data scope must be explicit
@@ -85,7 +71,7 @@ This skill treats MiniMax as an execution platform, not as a one-line provider s
 
 ## Data Storage
 
-Keep only durable MiniMax operating context in `~/Clawic/data/minimax/`:
+Keep only durable MiniMax operating context in `<state_root>/`:
 - which modalities the user actually uses: text, speech, video, music, or MCP-backed flows
 - approved models, speed tiers, and compatibility interfaces that worked for real tasks
 - output defaults such as JSON parsing rules, audio formats, polling intervals, and retry posture
@@ -105,13 +91,13 @@ Keep only durable MiniMax operating context in `~/Clawic/data/minimax/`:
 
 ### 3. Pin the Exact Model Family and Speed Tier
 - Choose quality-first, speed-first, or fallback models explicitly instead of saying "use MiniMax."
-- Current text routing should start with `MiniMax-M2.5` or `MiniMax-M2.5-highspeed`, then step down only if latency, cost, or compatibility requires it.
+- Current text routing should start with `abab6.5g-chat` or `abab6.5s-chat`, then step down only if latency, cost, or compatibility requires it.
 - Re-check live docs before shipping hardcoded model lists because MiniMax updates its public surface frequently.
 
 ### 4. Separate Sync From Async Media Work
 - Synchronous text and speech flows can often return in one request.
 - Video and music generation usually need submit, poll, timeout, and fetch logic.
-- Do not design a blocking one-shot workflow for media jobs that are inherently queued.
+- Design asynchronous polling workflows for media jobs that are inherently queued.
 
 ### 5. Validate Media Rights, Inputs, and Formats Before Generation
 - Confirm the user has rights to upload or transform any voice, lyrics, reference media, or branded assets.
@@ -120,8 +106,8 @@ Keep only durable MiniMax operating context in `~/Clawic/data/minimax/`:
 
 ### 6. Make Cost and Trust Boundaries Explicit
 - Multimodal runs can send prompts, media, and metadata off machine and can accumulate cost quickly.
-- State which endpoint will receive which payload, and stop before remote MCP or large media uploads unless the user approved that path.
-- Never normalize remote execution just because the API supports it.
+- State which endpoint will receive which payload, and pause to require approval before remote MCP or large media uploads unless the user approved that path.
+- Require explicit consent for remote execution even when the API supports it.
 
 ### 7. Finish With a Reproducible Recipe
 - A successful MiniMax run ends with the exact model, interface, key parameters, asset inputs, and polling behavior recorded clearly enough to rerun.
@@ -159,7 +145,7 @@ Data that leaves your machine:
 - optional documentation lookups against official MiniMax docs
 
 Data that stays local:
-- durable operating notes under `~/Clawic/data/minimax/`
+- durable operating notes under `<state_root>/`
 - local prompt drafts, routing choices, and incident notes unless the user exports them
 - any rejected or unused assets that never get uploaded
 
@@ -182,21 +168,8 @@ This skill ONLY:
 - routes tasks to the right model family, interface, and job pattern
 - keeps durable notes for approved defaults, budget boundaries, and recurring failures
 
-This skill NEVER:
-- treat MiniMax as a generic provider drop-in without checking interface limits
-- suggest voice imitation or media transformation without rights and consent checks
-- blur the line between local orchestration and remote MCP execution
-- promise that queued media jobs behave like low-latency text calls
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ai` - Compare MiniMax against other model providers before locking the stack.
-- `api` - Reuse structured HTTP, retry, and payload-debugging patterns around the MiniMax APIs.
-- `models` - Choose the right model family and fallback chain for quality, latency, and cost.
-- `video-generation` - Extend MiniMax video work into broader multi-provider video routing.
-- `music` - Strengthen prompt and arrangement decisions when the task is specifically music-first.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/minimax
-- Latest version: https://clawic.com/skills/minimax
+This skill ENSURES:
+- MiniMax is treated with precise interface limits in mind
+- Voice imitation or media transformation happens only with verified rights and consent
+- Local orchestration is kept distinct from remote MCP execution
+- Queued media jobs are managed with asynchronous expectations

@@ -1,6 +1,6 @@
 # Setup - MiniMax
 
-Read this when `~/Clawic/data/minimax/` is missing or empty. Start naturally and stay operational.
+Read this when `<state_root>/` is missing or empty. Start naturally and stay operational.
 
 ## Your Attitude
 
@@ -45,7 +45,7 @@ Save only durable context:
 - routing choices that worked and compatibility shortcuts that failed
 - budget, latency, and verification expectations worth reusing
 
-Store data only in `~/Clawic/data/minimax/` after user consent.
+Store data only in `<state_root>/` after user consent.
 
 ## Golden Rule
 

@@ -32,7 +32,7 @@ Check these in order:
 ### Video or music jobs appear stuck
 - separate submit success from poll success
 - inspect whether the job is queued, failed, or completed with a bad fetch step
-- stop blind reruns until the first job state is understood
+- diagnose the job state before rerunning until the first job state is understood
 
 ### Results are inconsistent across retries
 - pin the model and interface exactly

@@ -28,13 +28,13 @@ The output quality depends on:
 
 ## Consent and Rights
 
-- Do not imitate or clone a real person's voice unless the user has the right and explicit permission to do that.
+- Ensure the user has explicit permission and rights before imitating or cloning a real person's voice.
 - Treat uploaded reference audio as sensitive media.
 - Keep the approved use case explicit in the task notes if the workflow could be misused.
 
 ## Common Failures
 
-- sending draft text to TTS too early -> repeated spend on avoidable revisions
+- sending draft text to TTS too early -> repeated spend on preventable revisions
 - ignoring punctuation and pronunciation constraints -> naturalness drops even when the voice model is fine
 - synthesizing one giant script without chunk strategy -> retries and re-renders become expensive
 - optimizing only for audio quality while ignoring turnaround time -> workflow becomes unusable in preview loops
