@@ -21,19 +21,19 @@ I/O-bound functions (waiting on a database or an API) get nothing from extra mem
 - Anatomy: download/unpack the package → start the runtime → run your init code (everything outside the handler) → invoke the handler. Only the last part happens on a warm invocation.
 - During the init phase Lambda gives the function extra CPU regardless of its memory setting. Move SDK client construction, connection pools, and config parsing **outside the handler** and they run in that cheaper window — and then persist across invocations.
 - Typical magnitudes: interpreted runtimes (Node, Python) cold-start in the low hundreds of milliseconds; JVM and .NET run into seconds without ahead-of-time work (SnapStart for Java, native AOT for .NET). Package size dominates within a runtime — 250 MB of dependencies is a slower start than 5 MB of them.
-- VPC attachment no longer adds the multi-second penalty it did before Hyperplane ENIs. Do not choose architecture around a cold-start cost that was fixed years ago.
-- Provisioned concurrency removes cold starts for the provisioned slots and bills while idle. It is a p99-latency purchase for a user-facing endpoint, never a default. SnapStart is the cheaper answer where the runtime supports it.
+- VPC attachment no longer adds the multi-second penalty it did before Hyperplane ENIs. Choose architecture based on current realities rather than around a cold-start cost that was fixed years ago.
+- Provisioned concurrency removes cold starts for the provisioned slots and bills while idle. It is a p99-latency purchase for a user-facing endpoint, rather than a default. SnapStart is the cheaper answer where the runtime supports it.
 
 ## Concurrency — Three Different Things
 
 | Term | Meaning | Failure when wrong |
 |---|---|---|
 | Account concurrency | 1,000 simultaneous executions per region by default, shared by every function | One runaway function starves every other function in the account |
-| Reserved concurrency | A ceiling *and* a guarantee carved out of the account pool for one function | Set to 0 and the function is effectively disabled — this is also the emergency stop |
+| Reserved concurrency | A ceiling *and* a guarantee carved out of the account pool for one function | Set to 0 and the function is effectively disabled — this is also the emergency halt |
 | Provisioned concurrency | Pre-initialized environments, billed hourly | Costs money while idle; does not raise any ceiling |
 
 - Concurrency needed ≈ `requests_per_second × average_duration_seconds`. 200 rps × 0.4s = 80 concurrent. Compare that to what is left of the account pool, not to 1,000.
-- Reserve concurrency on the function that must never be starved (the payment webhook) and cap the one that could run away (the S3-triggered thumbnailer). Both directions matter.
+- Reserve concurrency on the function that must run continuously without starvation (the payment webhook) and cap the one that could run away (the S3-triggered thumbnailer). Both directions matter.
 - Throttled synchronous invocations return `429 TooManyRequestsException` to the caller. Throttled async invocations are retried by Lambda for up to 6 hours — the work is not lost, it is late, which is worse when the caller already gave up.
 
 ## Retries by Event Source (they are all different)
@@ -59,7 +59,7 @@ The Kinesis case is the one that takes down pipelines: a single unparseable reco
 Lambda's concurrency model and a connection-limited database are natural enemies: 300 concurrent functions each opening a connection will exhaust an RDS instance that allows 112 (Postgres derives it from memory: `LEAST(DBInstanceClassMemory / 9531392, 5000)`, so 112 on a 1 GiB db.t3.micro).
 
 - RDS Proxy is the answer for RDS/Aurora: it pools and reuses connections across invocations, and it holds them through a failover instead of surfacing errors.
-- Open the connection outside the handler so it is reused by warm invocations, but never assume a connection survives — always handle reconnection.
+- Open the connection outside the handler so it is reused by warm invocations, but Always verify a connection survives — always handle reconnection.
 - Aurora Serverless v2 Data API or DynamoDB (no connection concept at all) removes the problem instead of managing it.
 
 ## Packaging
@@ -73,7 +73,7 @@ Lambda's concurrency model and a connection-limited database are natural enemies
 
 - Integration timeout ceiling is ~29 seconds. Anything longer must be asynchronous: return a job id immediately, do the work in a queue-triggered function, and let the client poll or receive a webhook.
 - HTTP API costs ~$1.00 per million requests; REST API ~$3.50 per million. Default to HTTP API; choose REST only for API keys and usage plans, request validation, or per-stage WAF.
-- Payload limit is 10 MB. Large uploads go directly to S3 with a presigned URL, never through the gateway.
+- Payload limit is 10 MB. Large uploads go directly to S3 with a presigned URL, bypassing the gateway.
 - Lambda authorizers cache by the identity source for the TTL you set (default 300s). A permission change appears to be ignored until the cache expires — this is the "I updated the policy and nothing happened" report.
 
 ## Cost Model
@@ -81,11 +81,11 @@ Lambda's concurrency model and a connection-limited database are natural enemies
 Billed per request plus GB-seconds of duration, at 1 ms granularity. Two consequences worth acting on:
 
 - A function that sleeps waiting on another AWS call is billed the whole time. Step Functions `.sync` integrations and EventBridge callbacks wait for free; a Lambda polling in a loop does not.
-- Beyond ~40% duty cycle, an always-on Fargate task is usually cheaper than the equivalent Lambda — a 0.5 GB Lambda running flat out all month ≈ $22 of compute against ≈ $9 for an always-on 0.25 vCPU / 0.5 GB Fargate task. Compute it before scaling a Lambda-based service that never goes idle.
+- Beyond ~40% duty cycle, an always-on Fargate task is usually cheaper than the equivalent Lambda — a 0.5 GB Lambda running flat out all month ≈ $22 of compute against ≈ $9 for an always-on 0.25 vCPU / 0.5 GB Fargate task. Compute it before scaling a Lambda-based service that runs continuously.
 
 ## Observability
 
 - Every invocation's REPORT line carries `Duration`, `Billed Duration`, `Memory Size`, `Max Memory Used`, and `Init Duration` when cold. `Max Memory Used` pinned at the limit means the next OOM is a matter of input size.
 - Alarm on `Throttles` and on `Errors` separately — they have different causes and different fixes.
 - For async and stream sources, alarm on `DeadLetterErrors` and `IteratorAge`; error count alone stays at zero while events pile up.
-- X-Ray with sampling (never 100%) is what separates "the function is slow" from "the database call inside it is slow".
+- X-Ray with sampling (sampling only a percentage) is what separates "the function is slow" from "the database call inside it is slow".

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this IAM policy for least privilege issues.",
+    "expected": "Analyze the IAM policy and identify overly permissive actions (e.g., s3:*). Suggest restrictive alternatives.",
+    "actual": "Analyzed the provided IAM policy. Identified 's3:*' and 'iam:PassRole' on all resources. Suggested scoping down 's3:*' to specific bucket ARNs and limiting 'iam:PassRole' to specific service roles. Provided a revised, least-privilege IAM policy document.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are getting intermittent 504 Gateway Timeout errors on our API Gateway linked to a Lambda function.",
+    "expected": "Investigate cold starts, Lambda timeouts, and API Gateway integration limits.",
+    "actual": "Investigated the architecture. Identified that API Gateway has a hard 29-second timeout. Checked Lambda logs and found executions taking >30s due to downstream RDS connection issues. Recommended increasing RDS max connections, using RDS Proxy, or decoupling the API with SQS for async processing.",
+    "pass": true
+  }
+]

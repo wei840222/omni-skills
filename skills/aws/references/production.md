@@ -25,7 +25,7 @@ Formula: `downtime_minutes = 43,200 × (1 − target)`. Note that your availabil
 
 - **RPO** (how much data you can lose) is set by backup frequency and replication lag. Automated RDS backups with 5-minute PITR granularity give RPO ≈ 5 minutes. A nightly snapshot gives RPO = 24 hours, and someone should agree to that in writing.
 - **RTO** (how long recovery takes) is only known if you have measured it. Restoring a 500 GB RDS snapshot is not instant, and the first restore is slower still because the volume lazy-loads from S3.
-- Quarterly drill, timed: restore the newest snapshot into a scratch instance, point a copy of the app at it, and record how long it took and what was missing in `~/Clawic/data/aws/deploys/<year>.md`, updating the `## Due` table in `memory.md`. An untimed drill is a drill that did not happen. What breaks is never the data — it is the KMS grant, the parameter group, the security group, the DNS record, and the one credential nobody documented.
+- Quarterly drill, timed: restore the newest snapshot into a scratch instance, point a copy of the app at it, and record how long it took and what was missing in `<state_root>/Clawic/data/aws/deploys/<year>.md`, updating the `## Due` table in `memory.md`. An untimed drill is a drill that did not happen. What breaks is rarely the data — it is the KMS grant, the parameter group, the security group, the DNS record, and the one credential nobody documented.
 - Backups live in a different account when the threat model includes a compromised credential or an angry admin. AWS Backup with a vault in the log-archive account and a vault lock is the mechanism.
 
 ## Scaling That Works
@@ -33,7 +33,7 @@ Formula: `downtime_minutes = 43,200 × (1 − target)`. Note that your availabil
 - Target tracking beats step scaling for almost everything: set a target CPU or request-count-per-target and let AWS work out the steps. Step scaling is for metrics with known thresholds and non-linear responses.
 - **Scale out fast, scale in slowly.** Aggressive scale-in during a traffic dip causes a thundering herd when it recovers. Asymmetric cooldowns are the default posture.
 - The ASG health check grace period defaults to 300s; an instance that takes 400s to boot is terminated and replaced forever, which reads as a capacity problem and is a configuration problem.
-- Warm pools cut scale-out latency for slow-booting AMIs at the cost of stopped-instance storage. Cheaper answer first: bake a better AMI so boot time stops mattering.
+- Warm pools cut scale-out latency for slow-booting AMIs at the cost of stopped-instance storage. Cheaper answer first: bake a better AMI so boot time becomes irrelevant.
 - Predictive scaling helps only with genuinely cyclical daily traffic and needs weeks of history. For spiky, unpredictable load, over-provision the floor instead.
 - Everything downstream must scale too: an autoscaling app in front of a fixed-size RDS instance just moves the queue to the database.
 
@@ -63,7 +63,7 @@ Four metrics answer "is it healthy" for almost any AWS service: **saturation** (
 | DynamoDB | `ThrottledRequests` and `SystemErrors` |
 | Account | Budget actual and forecast, plus `AWS/Usage` against quotas |
 
-- **`TreatMissingData` defaults to `missing`, which means an alarm does not fire when the metric stops being published** — the exact situation of a dead instance. Set it to `breaching` for liveness alarms deliberately.
+- **`TreatMissingData` defaults to `missing`, which means an alarm remains silent when the metric is no longer published** — the exact situation of a dead instance. Set it to `breaching` for liveness alarms deliberately.
 - Composite alarms suppress the flood: one page for "the service is down" instead of fourteen for its components. Alarm fatigue is an outage cause, not a nuisance.
 - Standard EC2 monitoring publishes at 5-minute intervals; detailed monitoring gives 1-minute and bills the seven instance metrics at the custom-metric rate (~$0.30/metric/month, so ~$2.10 per instance). Turn it on where a 5-minute blind spot matters, not fleet-wide.
 - CloudWatch Logs Insights costs $0.005 per GB scanned. Narrow the time range before the query, or a debugging session becomes a line item.
@@ -74,7 +74,7 @@ Four metrics answer "is it healthy" for almost any AWS service: **saturation** (
 - Health-gated rolling deploys are the baseline: new instances or tasks must pass health checks before the old ones drain.
 - Blue/green when rollback must be instant; canary when the failure mode is subtle and needs real traffic to reveal. Both cost more than rolling; pick per service, not per company.
 - Database migrations are the part that cannot roll back. Expand-contract: deploy the schema change that is compatible with both versions, deploy the code, then remove the old column in a later release. A migration and a code deploy in the same step means the rollback plan is fiction.
-- Record what you deployed — image digest, commit sha, template version — at deploy time, in `~/Clawic/data/aws/deploys/<year>.md`. Rollback is only possible if the previous artifact is identified, and "the previous tag" is not an identity.
+- Record what you deployed — image digest, commit sha, template version — at deploy time, in `<state_root>/Clawic/data/aws/deploys/<year>.md`. Rollback is only possible if the previous artifact is identified, and "the previous tag" is not an identity.
 - Deploy during hours when the people who can fix it are awake. This is not a technical control and it prevents more incidents than most technical controls.
 
 ## Patching and Maintenance
@@ -95,4 +95,4 @@ Before calling something production:
 - The first quota the design will hit is named, its current value known, and headroom requested
 - Deploy path is health-gated with an identified rollback artifact; database migrations are expand-contract
 - Deletion protection and `prevent_destroy` on data resources; the state and template are in version control
-- Runbook exists for the top three failure modes, saved to `~/Clawic/data/aws/artifacts/` with its `## Boxes` line in `memory.md`, and the DR drill has been run once with a recorded time
+- Runbook exists for the top three failure modes, saved to `<state_root>/Clawic/data/aws/artifacts/` with its `## Boxes` line in `memory.md`, and the DR drill has been run once with a recorded time

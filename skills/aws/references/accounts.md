@@ -2,13 +2,13 @@
 
 Applies when `account_model` is `organization`, and describes what a `single`-account setup is choosing not to have. The decision matters early: **moving live resources between accounts is a migration project, not a setting.**
 
-## When One Account Stops Being Enough
+## When One Account Requires Expansion
 
 Any one of these is sufficient reason to open an Organization:
 
 - More than one person can touch production, and you want prod and dev separated by an account boundary rather than by a tag and good intentions.
 - A compliance regime (`compliance_regime` other than `none`) that requires demonstrable isolation of scope.
-- A blast radius you cannot accept: an account is the only hard boundary AWS offers. IAM mistakes stop at it; service quotas are per-account, so a runaway dev workload cannot exhaust production's Lambda concurrency.
+- A blast radius you cannot accept: an account is the only hard boundary AWS offers. IAM mistakes are isolated within it; service quotas are per-account, so a runaway dev workload cannot exhaust production's Lambda concurrency.
 - Cost attribution that tags cannot deliver, because someone will always forget a tag and nobody forgets which account they deployed to.
 
 Counterweight: every account needs its own baseline (CloudTrail, GuardDuty, budgets, IAM roles, VPC). Without automation that is real recurring work — which is the argument for Control Tower rather than for staying single-account.
@@ -29,11 +29,11 @@ Root
     └── sandbox
 ```
 
-The management account stays empty for one specific reason: **SCPs do not apply to it**. A workload there sits outside every guardrail you write, which is exactly the account where a mistake is worst.
+The management account stays empty for one specific reason: **SCPs exclude it**. A workload there sits outside every guardrail you write, which is exactly the account where a mistake is worst.
 
 ## Service Control Policies
 
-SCPs restrict; they never grant. The maintainable shape is `FullAWSAccess` plus explicit denies.
+SCPs restrict; they strictly restrict. The maintainable shape is `FullAWSAccess` plus explicit denies.
 
 High-value denies that cost nothing and break little:
 
@@ -46,14 +46,14 @@ High-value denies that cost nothing and break little:
 | `organizations:LeaveOrganization` | An account walking out of your guardrails |
 | Root-user actions except a short allow-list | Daily work as root |
 
-Test against one OU before applying at the root. An SCP mistake at the root is an outage with a slow rollback, and the resulting `AccessDenied` never mentions the SCP.
+Test against one OU before applying at the root. An SCP mistake at the root is an outage with a slow rollback, and the resulting `AccessDenied` omits mention of the SCP.
 
 ## Identity Center (SSO) Instead of IAM Users
 
 - One identity source (Identity Center's own directory, or an external IdP), permission sets mapped to groups, groups assigned to accounts. Adding an engineer becomes a group membership, and removing one actually removes their access everywhere at once.
 - Permission sets are templates that materialize as roles in each assigned account — write them once, and the same `PowerUserAccess` boundary exists in twelve accounts consistently.
 - Session duration is per permission set. Long sessions are convenient and are also how a stolen laptop stays useful; 8 hours for daily work, 1 hour for anything with production write access.
-- CLI access: `aws configure sso` writes a profile; `aws sso login --profile prod` refreshes it. Credentials never touch `~/.aws/credentials`.
+- CLI access: `aws configure sso` writes a profile; `aws sso login --profile prod` refreshes it. Credentials keep out of `<state_root>/.aws/credentials`.
 - Keep one break-glass IAM user per organisation, MFA-protected, credentials in a physical safe, with a CloudWatch alarm on any use — for the day the IdP is the outage.
 
 ## Cross-Account Access
@@ -79,4 +79,4 @@ Role chaining (assume A, then assume B from A) caps the session at 1 hour regard
 - Whatever creates accounts must also apply the baseline: CloudTrail to the log archive, Config recorder, GuardDuty, default EBS encryption, account-level S3 Block Public Access, a budget, and the standard roles. An account created without its baseline is the one that shows up in the next audit.
 - Closing an account is a 90-day process with a suspension period, and the account still counts against the Organization's quota during it. Reuse a sandbox rather than churning accounts.
 
-Record the account → alias → owner/client → billing mapping (`memory-template.md`): with one account it lives in `## Account Context`, from the second it is `~/Clawic/data/aws/accounts.md`. Per-account budgets are unactionable if nobody can say whose account it is. If an account belongs to a client, the client goes in the shared `~/Clawic/data/contacts/contacts.md` and is referenced here by name only.
+Record the account → alias → owner/client → billing mapping (`memory-template.md`): with one account it lives in `## Account Context`, from the second it is `<state_root>/Clawic/data/aws/accounts.md`. Per-account budgets are unactionable if nobody can say whose account it is. If an account belongs to a client, the client goes in the shared `<state_root>/Clawic/data/contacts/contacts.md` and is referenced here by name only.

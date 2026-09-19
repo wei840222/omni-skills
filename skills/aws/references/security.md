@@ -44,7 +44,7 @@ aws s3control put-public-access-block --account-id $(aws sts get-caller-identity
   BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
 ```
 
-Static sites do not need an exception: CloudFront with Origin Access Control reaches a private bucket and adds TLS, caching, and logs. The three bucket-level follow-ups: set `BucketOwnerEnforced` so objects written by another account are actually yours, share time-limited access with presigned URLs (expiry in minutes, generated server-side), and deny `s3:*` when `aws:SecureTransport` is `false`.
+Static sites require no exceptions: CloudFront with Origin Access Control reaches a private bucket and adds TLS, caching, and logs. The three bucket-level follow-ups: set `BucketOwnerEnforced` so objects written by another account are actually yours, share time-limited access with presigned URLs (expiry in minutes, generated server-side), and deny `s3:*` when `aws:SecureTransport` is `false`.
 
 ## Instance Metadata
 
@@ -63,7 +63,7 @@ Launch templates and AMIs carry this setting too — fixing running instances wi
 - No SSH from `0.0.0.0/0`. Use SSM Session Manager: no inbound port, no bastion, no key to lose, and every session recorded in CloudTrail: `aws ssm start-session --target i-xxx`.
 - Restrict egress. Default allow-all outbound is the exfiltration path nobody monitors and the reason a compromised container can reach anything it likes.
 - Reference security groups instead of CIDRs; segment by trust boundary so a compromised frontend cannot reach the admin service.
-- Keep databases in subnets with no route to the internet. A resource that was never routable cannot be misconfigured into exposure by a later edit.
+- Keep databases in subnets with no route to the internet. A resource that was strictly unroutable cannot be misconfigured into exposure by a later edit.
 - WAF in front of anything public that accepts user input: the managed rule groups (core, known-bad-inputs, IP reputation) cost little and remove the automated noise. Shield Standard is automatic and free; Shield Advanced is an enterprise DDoS-response contract, not a firewall.
 
 ## Encryption
@@ -75,7 +75,7 @@ aws ec2 enable-ebs-encryption-by-default        # makes the mistake impossible f
 aws rds create-db-instance --db-instance-identifier mydb --storage-encrypted --kms-key-id alias/aws/rds ...
 ```
 
-AWS-managed keys cost nothing extra. Customer-managed keys ($1/mo each) buy key policies, rotation control, cross-account grants, and the ability to revoke access to data you do not otherwise control — choose them when one of those is a requirement, not by default.
+AWS-managed keys cost nothing extra. Customer-managed keys ($1/mo each) buy key policies, rotation control, cross-account grants, and the ability to revoke access to data you outside your direct control — choose them when one of those is a requirement, not by default.
 
 **In transit.** TLS terminates at the ALB or CloudFront; require TLS onward to the database (`rds.force_ssl=1` on Postgres) rather than assuming the VPC is trusted. VPC endpoints keep AWS API traffic off the public internet. Deny non-TLS access to buckets with an `aws:SecureTransport` condition.
 
@@ -91,7 +91,7 @@ aws secretsmanager rotate-secret --secret-id myapp/db-password \
 
 - Applications fetch at startup using their role. A secret injected as a plaintext environment variable by IaC has moved the leak, not fixed it — it now lives in the task definition, the state file, and the console.
 - Rotation only helps if the application handles a mid-flight change: fetch again on an auth failure, rather than once at boot forever.
-- Never put a secret in: a Lambda environment variable, a container image layer, an AMI, EC2 user data, a CloudFormation parameter without `NoEcho`, or Terraform state that is not access-controlled like production.
+- Keep secrets strictly out of: a Lambda environment variable, a container image layer, an AMI, EC2 user data, a CloudFormation parameter without `NoEcho`, or Terraform state that is not access-controlled like production.
 
 ## Detection Stack, in Cost Order
 
@@ -111,7 +111,7 @@ aws cloudtrail start-logging --name management-events   # creating a trail does 
 aws guardduty create-detector --enable
 ```
 
-An account with a trail that was never started has the paperwork and none of the evidence. Check `get-trail-status`, not `describe-trails`.
+An account with a trail that has not been started has the paperwork and none of the evidence. Check `get-trail-status`, not `describe-trails`.
 
 The two GuardDuty findings worth an immediate page on a small account: `UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration` (your instance's credentials are being used from somewhere else) and anything under `CryptoCurrency:*`.
 
@@ -120,17 +120,17 @@ The two GuardDuty findings worth an immediate page on a small account: `Unauthor
 Speed beats elegance. In this order:
 
 1. **Revoke before rotating.** For an IAM user key: `aws iam update-access-key --access-key-id AKIA... --status Inactive`. For a role, deleting it does not invalidate sessions already issued — attach a deny-all policy conditioned on `aws:TokenIssueTime` before that timestamp, which is what the console's "Revoke sessions" button does.
-2. **Find the blast radius.** CloudTrail filtered to that key or role session: every call, in every region. Check regions you do not use — that is where mining instances get launched.
+2. **Find the blast radius.** CloudTrail filtered to that key or role session: every call, in every region. Check regions you are unused — that is where mining instances get launched.
 3. **Terminate what it created.** Instances, users, roles, access keys, new trust relationships. Attackers build a second door before using the first.
 4. **Check the durable footholds**: new IAM principals, changed trust policies, SSH keys added to launch templates, Lambda functions with a scheduled trigger, modified bucket policies.
 5. **Preserve evidence before rebuilding.** Snapshot the affected volumes and export the relevant CloudTrail range first — a rebuilt instance is an erased crime scene.
-6. **Close the source.** A key committed to a repository is still in git history after the delete commit: the credential must be dead, not hidden. Turn on push protection or an equivalent scanner so the next one never lands.
+6. **Close the source.** A key committed to a repository is still in git history after the delete commit: the credential must be dead, not hidden. Turn on push protection or an equivalent scanner so the next one is blocked before landing.
 
 Rehearse this once in a sandbox. The first run should not be the real one.
 
 ## Compliance Regimes
 
-When `compliance_regime` is set, these stop being optional: encryption at rest and in transit everywhere, CloudTrail with log-file validation delivered to a separate account, defined log retention, access reviews with evidence, and service selection limited to eligible services — the eligibility list differs per regime and changes, so check it rather than assuming.
+When `compliance_regime` is set, these become mandatory: encryption at rest and in transit everywhere, CloudTrail with log-file validation delivered to a separate account, defined log retention, access reviews with evidence, and service selection limited to eligible services — the eligibility list differs per regime and changes, so check it rather than assuming.
 
 - HIPAA additionally requires a Business Associate Addendum with AWS and restricts which services may touch protected data.
 - PCI DSS pushes network segmentation and key management into scope, which usually means a dedicated account for the cardholder data environment.
@@ -155,4 +155,4 @@ Run top to bottom on any account you inherit.
 | Budget and cost anomaly alerts exist | `aws budgets describe-budgets` + `aws ce get-anomaly-monitors` |
 | External access surfaces reviewed | `aws accessanalyzer list-findings` |
 
-Write the sweep result into `## Current Infrastructure` in `~/Clawic/data/aws/memory.md`, and any host it turned up into `~/Clawic/data/servers/servers.md`. The next session should start from the gaps, not from `describe-*`.
+Write the sweep result into `## Current Infrastructure` in `<state_root>/Clawic/data/aws/memory.md`, and any host it turned up into `<state_root>/Clawic/data/servers/servers.md`. The next session should start from the gaps, not from `describe-*`.

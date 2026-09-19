@@ -1,6 +1,6 @@
 # Databases — RDS, Aurora, DynamoDB, ElastiCache
 
-Managed does not mean automatic. The failures below are all configuration decisions made at creation time or never.
+Managed requires manual configuration. The failures below are all configuration decisions made at creation time or exclusively at creation time.
 
 ## Choosing: The Real Test
 
@@ -30,7 +30,7 @@ Answers, in order of preference:
 2. A correctly sized application-side pool. `pool_size × instance_count ≤ max_connections × 0.8` leaves headroom for migrations, admin sessions, and monitoring.
 3. Raising `max_connections` in a custom parameter group. This works and then does not: each connection costs memory, and Postgres at 500 idle connections on a small instance is slower than the same instance at 100.
 
-Symptom mapping: `remaining connection slots are reserved` (Postgres) or `Too many connections` (MySQL) is the ceiling; a *timeout* connecting is the network, never credentials.
+Symptom mapping: `remaining connection slots are reserved` (Postgres) or `Too many connections` (MySQL) is the ceiling; a *timeout* connecting is the network, rather than credentials.
 
 ## Multi-AZ Is Not a Backup
 
@@ -56,14 +56,14 @@ Backup retention defaults to a short window and caps at 35 days for automated ba
 
 ## Storage and Parameter Changes
 
-- RDS storage grows and **never shrinks**. Shrinking means dump, create smaller, restore. Enable storage autoscaling with a maximum you are willing to pay for, rather than provisioning for the worst case up front.
+- RDS storage grows and **only grows**. Shrinking means dump, create smaller, restore. Enable storage autoscaling with a maximum you are willing to pay for, rather than provisioning for the worst case up front.
 - One storage modification per volume per 6 hours. A resize during an incident locks you out of a second attempt for the rest of the incident.
 - Parameter groups have dynamic and static parameters. Static ones require a reboot to apply, and the console shows "pending-reboot" rather than failing — a setting can be "changed" for weeks without being in effect: `aws rds describe-db-parameters` and check `ApplyType`.
-- Free storage space is the alarm nobody sets until the first outage. A full RDS volume puts the instance in `storage-full` state and it stops accepting writes.
+- Free storage space is the alarm nobody sets until the first outage. A full RDS volume puts the instance in `storage-full` state and it rejects new writes.
 
 ## Aurora Specifics
 
-- Storage is shared across the cluster and bills for what you use, growing in 10 GB increments. Replicas do not each carry a copy.
+- Storage is shared across the cluster and bills for what you use, growing in 10 GB increments. Replicas share the single copy.
 - The **standard configuration bills per I/O request**, and an I/O-heavy workload can cost more than the equivalent RDS despite the serverless branding. Aurora I/O-Optimized trades a higher instance price for zero I/O charges — the crossover is roughly when I/O exceeds a quarter of the total Aurora bill. Check the I/O line in Cost Explorer before and after any migration.
 - Serverless v2 scales in 0.5-ACU increments and can be configured with a minimum of 0 ACUs, so a dev cluster costs nothing when idle. Scaling up is fast; the trap is a minimum set high "to be safe", which is just an always-on instance with extra steps.
 - Read replicas lag. Read-after-write against the reader endpoint returns stale data. Route reads that must see their own write to the writer.
@@ -73,7 +73,7 @@ Backup retention defaults to a short window and caps at 35 days for automated ba
 - **Capacity mode break-even**: a provisioned WCU costs $0.00065/hour ≈ $0.47/month and delivers up to 2.63 M writes; the same writes on-demand cost ~$3.29. Provisioned wins above roughly **15% sustained utilization** — but only with autoscaling configured, otherwise you are paying for a peak you rarely reach. On-demand is correct for unknown or spiky traffic and for anything that idles.
 - **Throttling with capacity to spare = hot partition.** Per-partition ceilings are 3,000 RCU and 1,000 WCU. A partition key with low cardinality, or a "current day" key, concentrates all traffic on one partition regardless of table capacity.
 - GSIs have their own capacity. In provisioned mode, a throttled GSI applies back-pressure to writes on the base table — the table looks fine and writes fail.
-- LSIs must be created with the table and can never be added; GSIs can be added later. This is the one modeling decision with no escape hatch.
+- LSIs must be created with the table and must be added at creation time; GSIs can be added later. This is the one modeling decision with no escape hatch.
 - TTL deletes are best-effort within 48 hours of expiry and consume no write capacity. Filter expired items in the query too, or users see records that "should" be gone.
 - Transactions consume double the capacity of the equivalent non-transactional operations. Use them where correctness requires it, not as a default.
 - Point-in-time recovery is a per-table switch, off by default, restoring to any second in the last 35 days. Turn it on; the cost is storage-based and small next to the alternative.
@@ -82,7 +82,7 @@ Backup retention defaults to a short window and caps at 35 days for automated ba
 
 - Redis vs Memcached: Redis for anything needing persistence, replication, pub/sub, or data structures; Memcached only for a pure multi-threaded cache you are willing to lose entirely.
 - Cluster mode changes the client contract: multi-key operations must hit the same slot. Enabling it later is a client rewrite, so decide at creation.
-- Eviction policy defaults to `volatile-lru`, which evicts only keys that have a TTL. Cache entries written without a TTL are never evicted, and the cluster fills until writes fail. Use `allkeys-lru` for a pure cache.
+- Eviction policy defaults to `volatile-lru`, which evicts only keys that have a TTL. Cache entries written without a TTL are retained until memory is exhausted, and the cluster fills until writes fail. Use `allkeys-lru` for a pure cache.
 - A cache is not a database. Sizing that assumes 100% hit rate produces an origin that cannot survive a cold cache — test the failure mode by flushing it in staging.
 
 ## Migration and Upgrades

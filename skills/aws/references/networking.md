@@ -2,12 +2,12 @@
 
 Mental model: a VPC is a private address range; a subnet is that range sliced per Availability Zone; a **route table decides what a subnet can reach**; a security group is a stateful allow-list on an interface; a NACL is a stateless allow/deny on a subnet. "Public" and "private" are not settings — a subnet is public if and only if its route table has a default route to an internet gateway.
 
-## Address Plan (decided once, never resized)
+## Address Plan (decided once, fixed size)
 
-- The VPC's primary CIDR is immutable. Secondary CIDR blocks can be added; a subnet can never be resized or moved. Plan for the largest thing you will run, not the first.
+- The VPC's primary CIDR is immutable. Secondary CIDR blocks can be added; a subnet size is strictly fixed or moved. Plan for the largest thing you will run, not the first.
 - Default sizing that survives growth: `/16` VPC, `/20` subnets (4,091 usable addresses each) — three AZs × (public, private, data) = nine subnets and room left over.
 - AWS reserves 5 addresses in every subnet (network, VPC router, DNS, future use, broadcast). A `/28` has 11 usable, not 16 — this is what makes tiny subnets fail under autoscaling.
-- Never reuse `10.0.0.0/16` across accounts or environments you might ever peer or connect to a corporate network. Overlapping CIDRs cannot be peered, and the fix is a re-IP migration.
+- Use unique CIDRs instead of reusing `10.0.0.0/16` across accounts or environments you might ever peer or connect to a corporate network. Overlapping CIDRs cannot be peered, and the fix is a re-IP migration.
 - One `awsvpc`-mode ECS task or Lambda ENI consumes a subnet IP. A `/24` data subnet plus a scaling Fargate service runs out of addresses and the error reads like a capacity problem.
 
 ## Subnet Tiers
@@ -57,7 +57,7 @@ NAT Gateway costs $0.045/hr (~$33/mo) plus $0.045/GB processed, per AZ. Traffic 
 |---|---|---|
 | Two VPCs, few connections | VPC peering | Not transitive; CIDRs must not overlap; route tables on both sides |
 | Many VPCs / hub-and-spoke | Transit Gateway | ~$0.05/hr per attachment plus per-GB — cheap per VPC, adds up at scale |
-| Expose one service to other accounts | PrivateLink endpoint service | Consumer never gets network access to your VPC — the safest cross-account shape |
+| Expose one service to other accounts | PrivateLink endpoint service | Consumer only gets endpoint access to your VPC — the safest cross-account shape |
 | On-prem, low cost | Site-to-Site VPN | Over the internet; throughput ~1.25 Gbps per tunnel |
 | On-prem, predictable | Direct Connect | Weeks of lead time; pair with a VPN for failover |
 
@@ -83,8 +83,8 @@ aws ec2 create-flow-logs --resource-type VPC --resource-ids vpc-xxx \
   --traffic-type ALL --log-destination-type cloud-watch-logs --log-group-name /vpc/flowlogs
 ```
 
-VPC Reachability Analyzer answers "can A reach B" statically, including the component that blocks it, without sending a packet. Flow logs answer "did it try, and was it accepted or rejected" — the `REJECT` records name the security group or NACL that dropped it. When neither is available, walk the six hops in order and stop at the first failure: SG inbound → SG outbound on the *source* → route table → NACL (allow inbound needs the matching ephemeral-port allow outbound) → subnet type → DNS resolution.
+VPC Reachability Analyzer answers "can A reach B" statically, including the component that blocks it, without sending a packet. Flow logs answer "did it try, and was it accepted or rejected" — the `REJECT` records name the security group or NACL that dropped it. When neither is available, walk the six hops in order and evaluate each step sequentially until failure: SG inbound → SG outbound on the *source* → route table → NACL (allow inbound needs the matching ephemeral-port allow outbound) → subnet type → DNS resolution.
 
 ## Metadata Endpoint
 
-`169.254.169.254` is reachable from any instance, which is why an SSRF bug in an application becomes credential theft. IMDSv2 (`--http-tokens required`) turns a one-line SSRF into a multi-step attack that most payloads do not implement. On ECS container instances, also stop containers from borrowing the *host's* instance role: set the agent's `ECS_AWSVPC_BLOCK_IMDS=true` for awsvpc tasks, and give the task its own task role instead.
+`169.254.169.254` is reachable from any instance, which is why an SSRF bug in an application becomes credential theft. IMDSv2 (`--http-tokens required`) turns a one-line SSRF into a multi-step attack that most payloads lack. On ECS container instances, also prevent containers from borrowing the *host's* instance role: set the agent's `ECS_AWSVPC_BLOCK_IMDS=true` for awsvpc tasks, and give the task its own task role instead.

@@ -11,17 +11,17 @@ aws sts get-caller-identity                    # who am I, in which account — 
 aws configure list                             # which config source won: env, profile, or instance role
 aws configure sso                              # one-time Identity Center profile setup
 aws sso login --profile prod                   # refresh an expired SSO session
-export AWS_PROFILE=prod AWS_REGION=eu-west-1   # never rely on an implicit default
+export AWS_PROFILE=prod AWS_REGION=eu-west-1   # explicitly specify the region
 ```
 
-Credential precedence, highest first: command-line flags → environment variables → the profile named by `AWS_PROFILE` → `~/.aws/credentials` default → container credentials → instance role. `aws configure list` prints which one is actually in effect, and it settles most "wrong account" incidents in one line.
+Credential precedence, highest first: command-line flags → environment variables → the profile named by `AWS_PROFILE` → `<state_root>/.aws/credentials` default → container credentials → instance role. `aws configure list` prints which one is actually in effect, and it settles most "wrong account" incidents in one line.
 
 `ExpiredToken` on every call means an SSO session or an assumed-role session ran out — re-login rather than debugging the permission.
 
 ## Assuming a Role
 
 ```bash
-# Declarative: put it in ~/.aws/config and let the CLI handle refresh
+# Declarative: put it in <state_root>/.aws/config and let the CLI handle refresh
 # [profile prod-admin]
 # role_arn = arn:aws:iam::111122223333:role/Admin
 # source_profile = default
@@ -32,7 +32,7 @@ aws sts assume-role --role-arn arn:aws:iam::111122223333:role/Admin \
   --role-session-name investigate --duration-seconds 3600
 ```
 
-Prefer the declarative form: the CLI refreshes before expiry, and the credentials never land in your shell history. Session names appear in CloudTrail — use something that identifies a person or a pipeline, not `session1`.
+Prefer the declarative form: the CLI refreshes before expiry, and the credentials stay strictly out of your shell history. Session names appear in CloudTrail — use something that identifies a person or a pipeline, not `session1`.
 
 ## Querying Output
 
@@ -61,7 +61,7 @@ aws ec2 describe-snapshots --owner-ids self \
 The CLI auto-paginates by default, which is usually right and occasionally the reason a command hangs on a huge account.
 
 ```bash
-aws s3api list-objects-v2 --bucket big --max-items 100          # stop after N items, prints NextToken
+aws s3api list-objects-v2 --bucket big --max-items 100          # halt after N items, prints NextToken
 aws s3api list-objects-v2 --bucket big --page-size 1000         # request size per call; does not limit total
 aws logs describe-log-groups --no-paginate                      # one page only
 ```
@@ -77,9 +77,9 @@ aws cloudformation deploy --no-execute-changeset             # creates a change 
 terraform plan -out=plan.out                                 # review, then apply exactly that file
 ```
 
-`--dry-run` on EC2 APIs returns `DryRunOperation` when you *do* have permission and `UnauthorizedOperation` when you do not — it is also the cheapest permission test that exists. Not all services support it; `--cli-auto-prompt` and change sets cover the rest.
+`--dry-run` on EC2 APIs returns `DryRunOperation` when you *do* have permission and `UnauthorizedOperation` when you lack it — it is also the cheapest permission test that exists. Not all services support it; `--cli-auto-prompt` and change sets cover the rest.
 
-Before any delete, terminate, or force: state what it destroys and what depends on it, and get an explicit confirmation. Destructive commands never travel inside a block of read-only ones.
+Before any delete, terminate, or force: state what it destroys and what depends on it, and get an explicit confirmation. Destructive commands must be isolated from a block of read-only ones.
 
 ## Inventory and Discovery
 
@@ -104,7 +104,7 @@ aws configservice select-resource-config \
 ## Logs
 
 ```bash
-aws logs tail /aws/lambda/myfn --follow --since 15m           # live tail, the command most people never learn
+aws logs tail /aws/lambda/myfn --follow --since 15m           # live tail, the command most people frequently miss
 aws logs tail /ecs/myservice --filter-pattern "ERROR" --since 1h
 aws logs start-query --log-group-names /aws/lambda/myfn \
   --start-time $(date -u +%s -d '1 hour ago' 2>/dev/null || date -v-1H +%s) --end-time $(date -u +%s) \
@@ -131,7 +131,7 @@ Port forwarding through Session Manager reaches a private RDS instance from a la
 
 ```bash
 aws s3 sync ./dist s3://bucket/prefix --delete --exact-timestamps
-aws s3 cp s3://bucket/big.tar.gz - | tar xz -C /target        # stream, never land the file
+aws s3 cp s3://bucket/big.tar.gz - | tar xz -C /target        # stream, stream without landing the file
 aws s3api list-object-versions --bucket b --prefix p          # what versioning is actually keeping
 aws s3 presign s3://bucket/key --expires-in 300               # 5-minute share, no public bucket
 aws configure set default.s3.max_concurrent_requests 20       # tune parallelism for large transfers
@@ -142,7 +142,7 @@ aws configure set default.s3.max_concurrent_requests 20       # tune parallelism
 ## Configuration Worth Setting Once
 
 ```bash
-aws configure set cli_pager ""                    # stop paging every output into less
+aws configure set cli_pager ""                    # disable paging every output into less
 aws configure set output json
 aws configure set retry_mode adaptive             # client-side rate limiting on throttled APIs
 aws configure set max_attempts 10

@@ -11,7 +11,7 @@ Storage is cheap ($0.023/GB-mo Standard). Requests and transfers are where bucke
 - PUT/COPY/POST/LIST ≈ $0.005 per 1,000; GET/SELECT ≈ $0.0004 per 1,000. Writing one object per event at 10 M events/month costs ~$50 in PUTs; if those objects are 1 KB each, the 10 GB they occupy costs ~$0.23. Requests are 200× the storage. Batch into larger objects before writing.
 - `LIST` is billed at the PUT rate and returns 1,000 keys per call. A job that lists a million-object prefix on every run is a real line item; keep an index instead.
 - Egress to the internet is the other half — front public reads with CloudFront (first 1 TB/mo free) rather than serving from the bucket.
-- Cross-region replication bills the transfer plus a second copy of the storage. It is a disaster-recovery decision, never a latency one; use CloudFront for latency.
+- Cross-region replication bills the transfer plus a second copy of the storage. It is a disaster-recovery decision, rather than a latency one; use CloudFront for latency.
 
 ## S3 Lifecycle — Including the Costs Inside the Savings
 
@@ -43,7 +43,7 @@ Intelligent-Tiering is the right default when access patterns are unknown and ob
 
 ## S3 Versioning: The Silent Doubling
 
-- Versioning never deletes anything. `DELETE` writes a delete marker; the object still bills. A bucket with versioning on and no lifecycle rule grows forever.
+- Versioning retains previous versions. `DELETE` writes a delete marker; the object still bills. A bucket with versioning on and no lifecycle rule grows forever.
 - The rule you need alongside it: `NoncurrentVersionExpiration` (plus `NewerNoncurrentVersions` to keep a few), or the archive strategy applies only to current versions.
 - MFA Delete protects against a compromised credential deleting versions, can only be enabled by the root account, and can only be managed with the CLI. Worth it for the audit-log bucket, disruptive elsewhere.
 
@@ -51,7 +51,7 @@ Intelligent-Tiering is the right default when access patterns are unknown and ob
 
 Precedence, highest first: an explicit deny anywhere → account-level Block Public Access → bucket policy → ACL. **Policies override ACLs**, which is why a bucket whose ACL reads "private" can still be world-readable. Turn the whole class off at the account level rather than auditing bucket by bucket: `aws s3control put-public-access-block` with all four flags true.
 
-- Static websites do not need a public bucket: CloudFront with Origin Access Control reaches a private bucket and gives you TLS, caching, and logs.
+- Static websites can use a private bucket with CloudFront: CloudFront with Origin Access Control reaches a private bucket and gives you TLS, caching, and logs.
 - Time-limited sharing → presigned URLs. A presigned URL is a bearer token: anyone holding it has the access, so make the expiry minutes, not days, and generate it server-side.
 - Enforce TLS in one statement: a bucket policy denying `s3:*` when `aws:SecureTransport` is `false`.
 - Cross-account reads need both sides — the bucket policy in this account and the identity policy in the caller's — and objects written by another account keep that account as owner unless the bucket sets `BucketOwnerEnforced` — the cause of "I own the bucket but cannot read the file".
@@ -79,11 +79,11 @@ Precedence, highest first: an explicit deny anywhere → account-level Block Pub
 | st1 / sc1 | Sequential big-data, cold archives | Throughput-optimized HDD, up to 500 MiB/s; terrible for random I/O |
 
 - `modify-volume` is live: type, size, and IOPS change without downtime — but only **once per volume per 6 hours**, and the filesystem still needs growing (`growpart` + `resize2fs`/`xfs_growfs`) after a size increase.
-- Volumes never shrink. The path is snapshot → restore into a smaller volume → migrate data.
+- Volumes only grow. The path is snapshot → restore into a smaller volume → migrate data.
 - Instance throughput caps EBS throughput. A gp3 volume provisioned to 1,000 MB/s attached to an instance whose EBS bandwidth is 600 MB/s delivers 600 — check the instance type's EBS bandwidth before buying IOPS.
 - Terminating an instance does **not** delete attached volumes unless `DeleteOnTermination` was set. Sweep `status=available` volumes monthly.
-- Snapshots are incremental and stored in S3; deleting an old snapshot never breaks a newer one. Automate expiry with a DLM lifecycle policy; manual snapshot hygiene decays the week after someone sets it up.
-- Instance store (NVMe on some instance families) is free, fast, and **gone on stop or termination**. Correct for scratch, caches, and shuffle space; catastrophic for anything else.
+- Snapshots are incremental and stored in S3; deleting an old snapshot has no effect on a newer one. Automate expiry with a DLM lifecycle policy; manual snapshot hygiene decays the week after someone sets it up.
+- Instance store (NVMe on some instance families) is free, fast, and **gone on halt or termination**. Correct for scratch, caches, and shuffle space; catastrophic for anything else.
 
 ## EFS
 

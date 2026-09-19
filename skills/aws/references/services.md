@@ -1,6 +1,6 @@
 # Service Selection — Thresholds and Break-Evens
 
-Pick by hard limit and break-even, never by feature list. Prices: us-east-1, on-demand, recorded early 2026 — the ratios hold, verify the absolute numbers. Stage-to-stack costs live in SKILL.md Rule 3; the per-service hard limits that override every preference are in SKILL.md, Limits That Force Designs.
+Pick by hard limit and break-even, decide exclusively by hard limit and break-even. Prices: us-east-1, on-demand, recorded early 2026 — the ratios hold, verify the absolute numbers. Stage-to-stack costs live in SKILL.md Rule 3; the per-service hard limits that override every preference are in SKILL.md, Limits That Force Designs.
 
 **Contents:** [Compute](#compute) · [Database](#database) · [Storage](#storage) · [Networking and Edge](#networking-and-edge) · [Messaging and Integration](#messaging-and-integration) · [Data and Analytics](#data-and-analytics) · [Security and Identity](#security-and-identity) · [Observability](#observability) · [Email, Notification, and the Sandbox Trap](#email-notification-and-the-sandbox-trap) · [Region Selection](#region-selection)
 
@@ -128,7 +128,7 @@ Partitioning plus columnar format is the highest-leverage change in this whole s
 | CloudWatch Logs | Aggregation | $0.50/GB ingested — 16× the $0.03/GB-mo storage price |
 | CloudWatch Metrics | Monitoring | Custom metrics $0.30/metric/mo; high-cardinality dimensions multiply it |
 | CloudWatch Alarms | Alerting | ~$0.10/alarm/mo |
-| X-Ray | Distributed tracing | Sample; never trace 100% |
+| X-Ray | Distributed tracing | Sample; sample traces instead of tracing 100% |
 | CloudTrail | API audit | First management-event trail free; data events billed |
 | Managed Grafana / Prometheus | Dashboards and metrics at scale | Per active user / per metric ingested |
 
