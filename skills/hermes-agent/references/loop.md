@@ -11,12 +11,12 @@ Use this loop whenever Hermes mode is active.
    - long-running project context
 
 2. Retrieve
-   - read `~/Clawic/data/hermes-agent/memory.md`
+   - read `<state_root>/memory.md`
    - read only the smallest relevant supporting file
 
 3. Act
    - execute the current task normally
-   - do not narrate the loop unless the user asks
+   - Do not narrate the loop unless the user asks.
 
 4. Reflect
    - compare outcome vs intent

@@ -1,7 +1,7 @@
 # OpenClaw Seed Blocks
 
 Use these as additive seed blocks in the active OpenClaw workspace.
-Patch the smallest relevant section. Do not replace the whole file.
+Patch the smallest relevant section to preserve the rest of the file.
 
 Official template anchors:
 - AGENTS.md -> `## Session Startup` and `### Write It Down - No "Mental Notes"!`
@@ -13,27 +13,27 @@ Official template anchors:
 Insert after the default startup list in `## Session Startup`:
 
 ```markdown
-## Hermes Agent Seed (DO NOT EDIT BLINDLY)
+## Hermes Agent Seed (EDIT WITH CAUTION)
 
 Before non-trivial work:
-1. Read `~/Clawic/data/hermes-agent/memory.md` if it exists.
+1. Read `<state_root>/memory.md` if it exists.
 2. Read at most one additional Hermes file only if the task clearly needs it.
 3. Prefer existing lessons before inventing a new workflow.
 4. Skip Hermes retrieval for trivial replies, casual chat, and one-shot questions.
 
 After significant work:
 1. Compare result vs intent.
-2. Write one reusable lesson to `~/Clawic/data/hermes-agent/reflections.md` if needed.
-3. If the lesson should shape future behavior, distill it into `~/Clawic/data/hermes-agent/memory.md`.
-4. If the pattern repeats, log it in `~/Clawic/data/hermes-agent/promotions.md`.
+2. Write one reusable lesson to `<state_root>/reflections.md` if needed.
+3. If the lesson should shape future behavior, distill it into `<state_root>/memory.md`.
+4. If the pattern repeats, log it in `<state_root>/promotions.md`.
 ```
 
 Inside `### Write It Down - No "Mental Notes"!`, add these routing bullets without removing the existing ones:
 
 ```markdown
-- Reusable execution lesson -> write to `~/Clawic/data/hermes-agent/reflections.md`
-- Stable repeated rule -> distill to `~/Clawic/data/hermes-agent/memory.md`
-- Candidate workflow after repeated success -> log to `~/Clawic/data/hermes-agent/promotions.md`
+- Reusable execution lesson -> write to `<state_root>/reflections.md`
+- Stable repeated rule -> distill to `<state_root>/memory.md`
+- Candidate workflow after repeated success -> log to `<state_root>/promotions.md`
 ```
 
 ## SOUL.md Seed
@@ -55,9 +55,9 @@ Append only if heartbeat maintenance is desired. Keep it smaller than AGENTS.md:
 ```markdown
 ## Hermes Maintenance
 
-- [ ] Review `~/Clawic/data/hermes-agent/reflections.md` for lessons worth distilling
-- [ ] Review `~/Clawic/data/hermes-agent/promotions.md` for patterns ready to become skills
-- [ ] Keep `~/Clawic/data/hermes-agent/memory.md` short and current
+- [ ] Review `<state_root>/reflections.md` for lessons worth distilling
+- [ ] Review `<state_root>/promotions.md` for patterns ready to become skills
+- [ ] Keep `<state_root>/memory.md` short and current
 ```
 
 ## Install Rule
