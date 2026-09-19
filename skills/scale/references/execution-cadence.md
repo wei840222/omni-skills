@@ -24,9 +24,9 @@ Track one primary objective with three guardrails:
 - Guardrail 2: cost or margin
 - Guardrail 3: team load or cycle time
 
-## Stop Rules
+## Pause Conditions
 
-Pause expansion when any stop rule is hit:
+Halt expansion and stabilize when any pause condition is met:
 - Guardrail breaches threshold for two consecutive periods
 - Incident severity crosses agreed limit
 - Rollout assumptions disproven without mitigation plan

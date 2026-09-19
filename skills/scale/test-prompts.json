@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our deployment process is too slow, how can we scale it?",
+    "expected": "Uses the scale-diagnostic or execution-cadence references, establishes target throughput and constraints, applies the BOLT loop to identify the bottleneck before suggesting architecture changes, and prices second-order effects.",
+    "actual": "I will load references/scale-diagnostic.md to map your constraints. To begin, we need to define the exact scale target (e.g. current vs desired deploy frequency) and any hard constraints (like budget or headcount). Let's apply the BOLT loop: First, what is the current dominant bottleneck in the deployment queue? Once we identify it, we can define the objective and levers.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Let's split our monolithic API into microservices immediately to handle more traffic.",
+    "expected": "Refuses to blindly split the monolith. Demands confirmation of the bottleneck. Strengthen boundaries before splits. Emphasizes Modular Monolith first unless independent scaling or autonomy is proven.",
+    "actual": "Before we split the monolith, I'll load references/architecture-scale-framework.md. Splitting an architecture before strengthening boundaries can increase coordination drag. Let's confirm the failure pattern. Is the limitation deployment speed, shared blast radius, or team conflicts? The MonolithFirst approach recommends keeping a modular monolith if deployment and ownership can still scale. Let's find the current bottleneck.",
+    "pass": true
+  }
+]
