@@ -4,9 +4,9 @@ A plan that lives only in the conversation dies with the session. This file cove
 
 ## Persisting the Plan
 
-- L3+ plans — and any L2 when `plan_artifact: file` (SKILL.md, Configuration) — live at `~/Clawic/data/plan/active/<yyyy-mm-dd>-<goal-slug>.md`.
+- L3+ plans — and any L2 when `plan_artifact: file` (SKILL.md, Configuration) — live at `<state_root>/active/<yyyy-mm-dd>-<goal-slug>.md`.
 - The file holds: the plan doc, per-step status (done + check result / in progress / pending), deviations so far with their whys, and a "Next action" line.
-- Next action is an executable instruction ("run the migration dry-run against the staging copy; expect 14,210 rows"), never a topic ("continue migration").
+- Next action is an executable instruction ("run the migration dry-run against the staging copy; expect 14,210 rows"), instead of a topic ("continue migration").
 
 ## Resume Protocol
 

@@ -1,6 +1,6 @@
 # Outcome Tracking
 
-Log home: `~/Clawic/data/plan/outcomes.md`. Layout: a **Current Defaults** block at the top (per task type: plan level, strategy, validation status), append-only records below. The defaults block is re-derived from records at review time; records are never edited after the fact.
+Log home: `<state_root>/outcomes.md`. Layout: a **Current Defaults** block at the top (per task type: plan level, strategy, validation status), append-only records below. The defaults block is re-derived from records at review time; records remain append-only after the fact.
 
 ## Recording Outcomes
 
@@ -10,7 +10,7 @@ Append after every L2+ task. L0/L1 are not logged unless they failed (→ SKILL.
 ## [YYYY-MM-DD] [Brief description]
 Type: [task category, e.g. migration/data]
 Plan level: L[2-4]
-Strategy: [sequential/parallel/iterative/spike/checkpoint]
+Strategy: [sequential/parallel/iterative/spike/validation]
 Estimate: [the range given] → Actual: [what it took]
 
 ### Planned vs actual

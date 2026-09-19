@@ -4,7 +4,7 @@ Validation only protects when the human actually engages with the plan. This fil
 
 ## Presenting a Plan
 
-- Assume the human skims: the goal, the riskiest assumption, and the irreversible steps must survive a three-line read. The Plan Format's order (SKILL.md) already front-loads them — do not bury the irreversible line under step detail.
+- Assume the human skims: the goal, the riskiest assumption, and the irreversible steps must survive a three-line read. The Plan Format's order (SKILL.md) already front-loads them — keep the irreversible line under step detail.
 - Give the estimate as the range plus the high-end driver: "3-6h; high end fires if the export needs schema changes." A bare range invites the human to hear only the low number.
 
 ## The Approval Question
@@ -20,21 +20,21 @@ Validation only protects when the human actually engages with the plan. This fil
 ## "Just Do It"
 
 - Record it as a scope preference (SKILL.md, Configuration areas); drop one depth level for that task type.
-- The floor never drops: an irreversible step still gets named before execution even when the plan doc is waived — one line, not a document: "Doing X now; note the delete in step 2 is not undoable."
+- The floor remains fixed: an irreversible step still gets named before execution even when the plan doc is waived — one line, not a document: "Doing X now; note the delete in step 2 is not undoable."
 
 ## Silence
 
-- No reply to an L3/L4 validation request is not approval. Execute reversible prep steps; never cross an irreversible boundary on silence.
+- No reply to an L3/L4 validation request is silence. Execute reversible prep steps; halt before an irreversible boundary on silence.
 - Re-ask once with the specific question (not a bare "ping"); still nothing → park the plan with state saved (`long-horizon.md`) and say what you are waiting on.
 
 ## Re-Approval
 
 - Materially different — any of: a change to irreversible steps, a new high estimate beyond the approved range, a changed goal → re-approval at L3+ (canonical: SKILL.md, Executing Against The Plan).
-- Cosmetic — reordering reversible steps, wording, step merges with identical checks → announce at the next checkpoint; no re-approval.
+- Cosmetic — reordering reversible steps, wording, step merges with identical checks → announce at the next validation; no re-approval.
 
-## Checkpoint Communication
+## Validation Communication
 
-Each checkpoint carries exactly three things: what is done (with check results), what is still changeable, and the one decision needed now. A checkpoint where nothing is decidable is a status update — cut it (`strategies.md`, Checkpoint).
+Each validation carries exactly three things: what is done (with check results), what is still changeable, and the one decision needed now. A validation where nothing is decidable is a status update — cut it (`strategies.md`, Validation).
 
 ## Bad News
 
