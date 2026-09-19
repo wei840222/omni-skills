@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| webflow | 2026-09-20 | 85/100 (#496) |
 | minimax | 2026-09-20 | 85/100 (#495) |
 | hermes-agent | 2026-09-20 | 85/100 (#494) |
 | aws | 2026-09-19 | 85/100 (#493) |
