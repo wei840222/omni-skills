@@ -1,102 +1,57 @@
 ---
 name: influxdb
-slug: influxdb
-version: 1.0.0
-description: Store and query time-series data with proper schema design and retention.
-homepage: https://clawic.com/skills/influxdb
+description: >
+  Query and write InfluxDB time-series data with schema design, line protocol,
+  Flux/InfluxQL patterns, cardinality control, and retention guidance. Load when
+  designing measurements/tags/fields, generating Flux or InfluxQL, diagnosing
+  high-cardinality or write errors, or planning downsampling. Prefer for InfluxDB
+  1.x/2.x workloads rather than general metrics definitions or full-text search.
 metadata:
-  clawdbot:
-    emoji: 📈
-    requires:
-      anyBins:
-      - influx
-      - curl
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: InfluxDB
+  version: "1.1.0"
+  openclaw: '{"emoji": "📈", "requires": {"anyBins": ["influx", "curl"]}, "os": ["linux", "darwin", "win32"], "displayName": "InfluxDB"}'
+  related-skills: '{"metrics": "Define standardized metric contracts and formulas before storing series in InfluxDB.", "elasticsearch": "Full-text/search workloads; not a substitute for time-series ingestion and continuous queries.", "minio": "Object storage for long-term exports or backup artifacts adjacent to InfluxDB retention.", "docker": "Containerized InfluxDB deployment and local stack lifecycle outside query design."}'
 ---
 
-## Version Differences
+# InfluxDB 📈
 
-- InfluxDB 2.x uses Flux query language, 1.x uses InfluxQL—syntax completely different
-- 2.x: buckets, organizations, tokens; 1.x: databases, retention policies, users
-- Don't mix documentation—check version before copying queries
+Design schemas, write line protocol, and query InfluxDB 1.x (InfluxQL) or 2.x (Flux) without mixing version concepts.
 
-## Tags vs Fields (Critical)
+## When to load
 
-- Tags are indexed, fields are not—filter on tags, aggregate on fields
-- Tag values must be strings—numbers as tags work but waste index space
-- Fields support numbers, strings, booleans—store metrics as fields
-- Wrong choice kills query performance—can't change after data written
+Load this skill when generating Flux or InfluxQL, designing a new time-series schema, troubleshooting high cardinality or write/query failures, or planning retention and downsampling for InfluxDB.
 
-## Cardinality Trap
+Do not load it for generic KPI definitions (`metrics`), full-text search indexes (`elasticsearch`), or non-Influx object storage operations (`minio`).
 
-- High-cardinality tags destroy performance—unique user IDs as tags = disaster
-- Cardinality = unique combinations of tag values—grows multiplicatively
-- Check with `SHOW CARDINALITY` (1.x) or `influx bucket inspect` (2.x)
-- Rule of thumb: <100K series per measurement; millions = problems
+## References
 
-## Line Protocol
+Load only the file needed for the current task:
 
-- Format: `measurement,tag1=v1,tag2=v2 field1=1,field2="str" timestamp`
-- No spaces around `=` in tags—space separates tags from fields
-- String fields need quotes, tag values don't—`field="text"` vs `tag=text`
-- Timestamps in nanoseconds by default—specify precision to avoid mistakes
+| Topic | File |
+|-------|------|
+| Tags vs fields, line protocol, cardinality, schema layout | `references/schema-design.md` |
+| Flux (2.x) and InfluxQL (1.x) query patterns | `references/query-patterns.md` |
+| Write/read performance, retention, common errors | `references/performance.md` |
 
-## Timestamps
+## Version differences
 
-- Default precision is nanoseconds—sending seconds without precision flag = year 2000 data
-- Specify on write: `precision=s` for seconds, `precision=ms` for milliseconds
-- Missing timestamp uses server time—usually fine for real-time ingestion
-- Timestamps are UTC—client timezone doesn't matter
+- **InfluxDB 2.x / Cloud**: Flux (or InfluxQL compatibility where enabled), buckets, organizations, API tokens.
+- **InfluxDB 1.x**: InfluxQL, databases, retention policies, users/privileges.
+- Confirm the active major version before copying queries, auth, or admin commands. Do not mix 1.x database names with 2.x bucket APIs.
 
-## Retention and Downsampling
+## Core rules
 
-- Set retention policy/bucket duration—data older than retention auto-deleted
-- Raw data at 10s intervals for 7 days, downsample to 1min for 30 days, 1h for 1 year
-- 2.x: Tasks for downsampling; 1.x: Continuous Queries
-- Without downsampling, storage grows forever and queries slow down
+1. **Filter on tags; aggregate on fields.** Tags are indexed; fields are not. Wrong tag/field choice cannot be changed after write without rewrite.
+2. **Bound cardinality.** High-cardinality tags (unique user IDs, request IDs, unbounded free text) explode series count and memory. Prefer fields or redesign.
+3. **Always bound time.** Unbounded Flux/InfluxQL scans are a common outage mode; require `range` / `WHERE time`.
+4. **State precision on write.** Default timestamp precision is nanoseconds; sending epoch seconds without `precision=s|ms|us|ns` lands data in the wrong century.
+5. **Separate versions in instructions.** Never present a single example that mixes Flux pipes with InfluxQL `GROUP BY time()` as if interchangeable.
 
-## Flux Query Patterns (2.x)
+## Quick checks
 
-- Always start with `from(bucket:)` then `|> range(start:)`—range is required
-- `|> filter(fn: (r) => r._measurement == "cpu")` for filtering
-- `|> aggregateWindow(every: 1h, fn: mean)` for time-based aggregation
-- Chain transforms with `|>` pipe operator—order matters for performance
-
-## InfluxQL Patterns (1.x)
-
-- `SELECT mean("value") FROM "measurement" WHERE time > now() - 1h GROUP BY time(5m)`
-- Double quotes for identifiers, single quotes for string literals
-- `GROUP BY time()` for time-based aggregation—required for most dashboards
-- `FILL(none)` to skip empty intervals, `FILL(previous)` to carry forward
-
-## Schema Design
-
-- Measurement name = table name—one per metric type (cpu, memory, requests)
-- Tag for dimensions you filter/group by—host, region, service
-- Field for values you aggregate—usage_percent, count, latency_ms
-- Avoid encoding data in measurement names—`cpu.host1` wrong, `cpu` + `host=host1` right
-
-## Write Performance
-
-- Batch writes—individual points have HTTP overhead
-- Telegraf for production ingestion—handles batching, buffering, retry
-- Write to localhost if possible—network latency adds up at high throughput
-- `async` writes in client libraries—don't block on each write
-
-## Query Performance
-
-- Always include time range—unbounded queries scan everything
-- Filter on tags before fields—tags use index, fields scan data
-- Limit results with `LIMIT` or `|> limit()`—dashboard doesn't need 1M points
-- Use `GROUP BY` / `aggregateWindow` to reduce data before returning
-
-## Common Errors
-
-- "partial write: field type conflict"—same field with different types; fix at source
-- "max-values-per-tag limit exceeded"—cardinality too high; redesign schema
-- "database not found"—2.x uses buckets, not databases; check API version
-- Query timeout—add narrower time range or aggregate more aggressively
+| Symptom | First check |
+|---------|-------------|
+| Writes land in year 1970/2000 | Timestamp unit vs declared `precision` |
+| Series explosion / OOM on index | Tag cardinality; move unique IDs to fields |
+| `field type conflict` | Same field name written as different types |
+| `database not found` on 2.x | Using 1.x database API against buckets |
+| Slow dashboard query | Missing time bound; filter fields before tags; missing aggregateWindow/GROUP BY time |

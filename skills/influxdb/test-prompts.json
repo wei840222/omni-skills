@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to write cpu usage metrics to my influxdb 2.x instance using line protocol. The cpu percent is 85.5 and the host is 'server1'.",
+    "expected": "Uses line protocol correctly, with 'host' as a tag and 'cpu_percent' as a field. Separates tags and fields with a space. Correctly avoids quotes for the float value.",
+    "actual": "Line protocol for InfluxDB 2.x:\n`cpu,host=server1 cpu_percent=85.5`\nEnsure no spaces are placed around the `=` sign in tags. The tag (`host`) and field (`cpu_percent`) are separated by a space. The float value `85.5` does not need quotes.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a flux query to get the average memory usage per hour over the last 7 days for my bucket 'metrics'.",
+    "expected": "Starts with `from(bucket: \"metrics\")`, uses `range(start: -7d)`, and uses `aggregateWindow(every: 1h, fn: mean)`.",
+    "actual": "```flux\nfrom(bucket: \"metrics\")\n  |> range(start: -7d)\n  |> filter(fn: (r) => r._measurement == \"memory\")\n  |> aggregateWindow(every: 1h, fn: mean)\n```\nThis query first sets the time range to the last 7 days, filters for the `memory` measurement, and then aggregates the data by calculating the mean every 1 hour.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm storing unique user IDs as tags in InfluxDB to filter my queries by user. Is this a good idea?",
+    "expected": "Identifies this as a high-cardinality trap. Explains that tags are indexed and unique user IDs will cause the index to explode, destroying performance. Suggests using fields instead or redesigning the schema.",
+    "actual": "Storing unique user IDs as tags is generally a bad idea and leads to a **High-Cardinality Trap**. \n\nIn InfluxDB, tags are indexed to speed up queries. If you store highly unique values (like millions of user IDs) as tags, the index size will explode, consuming excessive memory and destroying database performance. \n\n**Recommendation:** Store unique user IDs as **fields** instead of tags, unless you strictly need to filter or group by them and have a very small, bounded set of users. If you must query by user ID often, consider if InfluxDB is the right tool for that specific query pattern or if you can redesign your schema.",
+    "pass": true
+  }
+]
