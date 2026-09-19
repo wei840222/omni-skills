@@ -1,45 +1,47 @@
 ---
 name: course
-slug: course
-version: 1.0.1
-description: Create, launch, and manage online or in-person courses with curriculum design, content production, marketing automation, and student engagement.
-homepage: https://clawic.com/skills/course
-changelog: Minor refinements for consistency
+description: Design, launch, and manage online courses. Use when a user wants to structure a curriculum, transform materials into lessons, plan course marketing, or track student engagement.
 metadata:
-  clawdbot:
-    emoji: 📚
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Course
+  version: 1.0.1
+  openclaw: '{"emoji": "📚"}'
+  related-skills: '{"school": "For taking courses as a student in a school context.",
+    "university": "For taking courses as a student in a university context."}'
 ---
 
-## When to Use
+## State location
+
+Course state may exist in `<workspace>/course/`, `<workspace>/memory/course/`, or `~/course/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/course/`, `<workspace>/memory/course/`, `~/course/`.
+3. If none exists and state must be created, default to `<workspace>/course/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+## When to load
 
 User wants to: create a course to monetize expertise, transform existing materials into online format, launch and sell a course, manage students and track progress, or improve an existing course. Works for online, in-person, or hybrid formats.
 
 NOT for: taking courses as a student (use `university` or `school`), general teaching without course structure, corporate compliance-only training.
 
-## Quick Reference
+## References
 
-| Area | File |
-|------|------|
-| Audience-specific workflows | `by-audience.md` |
-| Curriculum & content creation | `content.md` |
-| Video, slides, materials | `production.md` |
-| Launch, sales, promotion | `marketing.md` |
-| Student support & community | `students.md` |
-| Metrics & improvement | `analytics.md` |
+Load these specific references on demand based on the user's focus:
+- `references/by-audience.md`: For audience-specific workflows.
+- `references/content.md`: For curriculum structuring and content creation workflows.
+- `references/production.md`: For guidance on video, slides, and course materials.
+- `references/marketing.md`: For sales pages, email sequences, and pricing strategies.
+- `references/students.md`: For student support, community building, and retention tracking.
+- `references/analytics.md`: For tracking metrics and gathering feedback for course improvement.
 
 ## Workspace Structure
 
-All course data lives in ~/courses/:
+All course data lives in <state_root>/:
 
 ```
-~/courses/
+<state_root>/
 ├── [course-name]/           # One folder per course
 │   ├── curriculum.md        # Modules, lessons, objectives
 │   ├── content/             # Raw materials, scripts, notes
@@ -80,8 +82,8 @@ All course data lives in ~/courses/:
 
 ## Critical Rules (ALWAYS Apply)
 
-- **Never skip validation** — Before creating content, understand competition and positioning
-- **Transform, don't recreate** — Start from user's existing materials whenever possible
+- **Require validation** — Understand competition and positioning before creating content
+- **Transform existing materials** — Start from user's existing materials whenever possible
 - **Modular design** — Every lesson should be 10-20 minutes max, self-contained
 - **Assessment required** — Each module needs evaluation (quiz, exercise, project)
 - **Automation first** — Student support should be 80% automated, 20% human
@@ -104,4 +106,4 @@ All course data lives in ~/courses/:
 2. Understand their existing materials (recordings, notes, slides, nothing)
 3. Identify target audience and transformation goal
 4. Propose curriculum structure based on materials
-5. Create ~/courses/[name]/ folder structure
+5. Create <state_root>/[name]/ folder structure

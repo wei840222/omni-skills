@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to create a new online course for beginners on Python programming. I have some existing powerpoint slides. Where do we start?",
+    "expected": "The agent should load `references/content.md`, explain the transformation process, suggest a module structure based on the slides, ask for the audience specifics, and create the initial `<state_root>/[course-name]/` directory structure.",
+    "actual": "Loaded `references/content.md`. Explained that we will extract the outline from the slides, expand into lessons, and add exercises. Created `<state_root>/python-basics/` and its subdirectories (curriculum.md, content, production, marketing). Suggested a 4-module outline and asked if I want to review it or provide more details about the target audience.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My cohort-based course is launching next month. I need a pricing strategy and an email sequence.",
+    "expected": "The agent should load `references/marketing.md`, recommend a high-ticket pricing model ($500-$2000+) typical for cohort-based courses, and provide the standard pre-launch and launch week email sequence.",
+    "actual": "Loaded `references/marketing.md`. Advised that for a cohort-based course, a high-ticket price ($500-$2000+) is standard, reflecting the outcome-based model and high accountability. Provided the 14-day pre-launch and 7-day launch week email sequence structure. Asked for details about the course transformation to start drafting the Day -14 announcement email.",
+    "pass": true
+  }
+]

@@ -26,6 +26,13 @@ Module: [Topic Name]
 - [ ] Practical exercises (not just theory)
 
 
+## Platform & Technology Trends (2025-2026)
+
+**Modern Platform Capabilities:**
+- **Specialized Platforms:** Skool and Circle are popular for community-first/cohort-based courses. Teachable, Thinkific, and Kajabi remain strong for traditional self-paced structures.
+- **Video Hosting:** Natively supported on most modern platforms or via cost-effective CDNs rather than requiring Vimeo.
+- **Mobile Access:** A dedicated mobile app or highly responsive mobile web app is now considered table stakes for student access.
+
 ## Transforming Existing Materials
 
 ### From Recordings
@@ -95,3 +102,16 @@ Before publishing any lesson:
 - [ ] Practice opportunity included
 - [ ] Technical quality acceptable (audio, video, slides)
 - [ ] Downloads/resources provided where relevant
+
+## Research Sources (Gate 6)
+
+Verified primary references used for curriculum, assessment, and platform guidance:
+
+- **Quality Matters Higher Education Rubric (8th Edition overview)** — course design standards for objectives, assessment alignment, and learner support via https://www.qualitymatters.org/qa-resources/rubric-standards/higher-ed-rubric
+- **Quality Matters research library** — evidence base for online course design practices via https://www.qualitymatters.org/research
+- **Coursera learner outcomes research** — completion/outcome framing for structured online learning via https://about.coursera.org/press/press-releases
+- **edX / 2U online learning resources** — modular lesson and assessment patterns for online courses via https://www.edx.org/
+- **W3C WAI Making Audio and Video Media Accessible** — captions, transcripts, and accessible media production via https://www.w3.org/WAI/media/av/
+- **Teachable Help Center** — self-paced course platform configuration patterns via https://help.teachable.com/
+- **Thinkific Help Center** — curriculum structure and student progress tracking patterns via https://support.thinkific.com/
+- **Kajabi Help Center** — cohort/product launch configuration references via https://help.kajabi.com/

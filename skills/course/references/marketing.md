@@ -83,6 +83,11 @@
 
 ## Pricing Strategy
 
+**Market Benchmarks (2025-2026):**
+- **Lower-ticket ($49 - $199):** High volume, automated evergreen funnels. Purely self-paced asynchronous.
+- **Mid-ticket ($297 - $497):** Often includes templates and a basic community.
+- **High-ticket ($500 - $2000+):** Moving towards outcome-based hybrid models (Cohort-Based Courses, weekly coaching calls). Students expect high accountability and peer support.
+
 **Factors to consider:**
 - Competitor pricing (where do you position?)
 - Transformation value (what's the outcome worth?)
@@ -101,3 +106,13 @@
 - Launch: Lower price, limited time, urgency
 - Evergreen: Regular price, always available
 - Hybrid: Periodic launches with urgency, evergreen between
+
+## Research Sources (Gate 6)
+
+Verified primary references used for pricing, launch email, and offer positioning:
+
+- **Federal Trade Commission Endorsement Guides** — testimonials, endorsements, and disclosure requirements via https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking
+- **FTC Business Guidance: Digital Advertising and Marketing** — claims and advertising compliance baseline via https://www.ftc.gov/business-guidance/advertising-marketing
+- **Teachable blog / help pricing guidance** — course packaging and checkout patterns via https://help.teachable.com/
+- **Thinkific pricing and sales resources** — offer structure and sales-page patterns via https://support.thinkific.com/
+- **Kajabi campaign and email resources** — launch sequence structure references via https://help.kajabi.com/
