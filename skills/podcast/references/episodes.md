@@ -1,8 +1,8 @@
 # Episodes — Planning, Scripting, Show Notes
 
-## Common Mistakes to Avoid
+## Common Mistakes to Correct
 
-- **Talking about podcasting** on your podcast — listeners don't care about your process
+- **Talking about podcasting** on your podcast — listeners care about the core topic rather than the podcasting process
 - **Inside jokes without context** — alienates new listeners
 - **No episode zero** explaining show premise — people start anywhere
 - **Inconsistent episode length** (30 min, then 2 hours) — set expectations
@@ -100,7 +100,7 @@ Balance:
 ## Research Summary
 - Current role/project
 - Recent news/work
-- Past interview topics (avoid repeating)
+- Past interview topics (explore new areas)
 
 ## Opening (rapport)
 1. How did you get into [field]?
@@ -177,7 +177,7 @@ Examples:
 - "The Pricing Strategy That Doubled Our Revenue"
 - "Why Most Productivity Advice Is Wrong (And What Works)"
 
-**Avoid:**
+**Ineffective Practices:**
 - Vague titles ("Great conversation with...")
 - Episode numbers only ("Episode 47")
 - Inside jokes audience won't get
@@ -226,4 +226,4 @@ From one episode, create:
 | Newsletter | Email | 15 min |
 | Blog post | Website | 30 min |
 
-**Rule:** Never publish an episode without at least 3 social clips.
+**Rule:** Ensure every published episode includes at least 3 social clips.

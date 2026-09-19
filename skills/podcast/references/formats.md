@@ -49,7 +49,7 @@ Before booking, compile:
 Build an arc: rapport → expertise → vulnerability → inspiration
 
 ### Making Guests Shine
-- Let them tell stories fully (don't interrupt climaxes)
+- Let them tell stories fully (allow climaxes to resolve naturally)
 - Set up their expertise before they speak
 - Use their words back to them ("You mentioned...")
 - End with a question that lets them be inspiring

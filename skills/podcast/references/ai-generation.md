@@ -115,9 +115,9 @@ Show notes: "Note: This episode features AI-generated voices."
 ```
 
 ### Ethical Considerations
-- Don't clone voices without consent
-- Don't create fake interviews with real people
-- Don't present AI opinions as human expertise
+- Verify explicit consent before cloning voices
+- Present synthetic interviews using only fictional personas
+- Clearly label AI-generated opinions as synthetic
 - Be transparent with audience
 
 ---

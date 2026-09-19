@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to start a podcast about learning functional programming. Can you generate an outline for my first solo episode?",
+    "expected": "The agent should load `references/episodes.md` and generate an episode outline following the standard solo episode structure (Hook, Intro, Segments, Recap, CTA).",
+    "actual": "Loaded `references/episodes.md` and generated a comprehensive outline for the first episode following the recommended structure: Hook (30s) establishing the value of learning functional programming, Intro (60s) explaining the podcast premise, Segments covering core concepts, Recap, and CTA. Created `episodes/001/outline.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to make my podcast discoverable. What are some good SEO strategies and how do I calculate potential monetization from CPM?",
+    "expected": "The agent should load `references/growth.md`, explain podcast and show notes SEO strategies, and outline the CPM model (using the updated $18-50 benchmarks).",
+    "actual": "Loaded `references/growth.md` and provided SEO strategies for episode titles and show notes. Explained the clip-first approach for social media, and outlined the CPM model for monetization, citing the $18-50 per 1,000 downloads benchmark for calculation.",
+    "pass": true
+  }
+]
