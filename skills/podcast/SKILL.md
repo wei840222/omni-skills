@@ -1,13 +1,10 @@
 ---
 name: podcast
-slug: podcast
-version: 1.0.1
-description: Create and grow podcasts by planning episodes, producing audio or video, generating clips, and building audience across formats.
-homepage: https://clawic.com/skills/podcast
+description: Plan, produce, and promote podcasts. Triggers on requests to write episode
+  scripts, edit audio/video, generate social clips, optimize show notes for SEO, or
+  set up podcasting equipment.
 metadata:
-  clawdbot:
-    emoji: 🎙️
-    displayName: Podcast
+  openclaw: '{"emoji": "🎙️"}'
 ---
 
 ## Core Workflow
@@ -22,7 +19,7 @@ Before starting ANY podcast:
 ## Project Structure
 
 ```
-~/podcasts/<show>/
+<state_root>/podcasts/<show>/
 ├── brand/              # Cover art, intro/outro, music
 ├── episodes/           # One folder per episode
 │   └── 001/
@@ -48,16 +45,15 @@ Post-production:
 - [ ] 3-5 clips extracted for social
 - [ ] Thumbnail (if video)
 
-## Quick Reference
+## Reference Loading Instructions
 
-| Need | Load |
-|------|------|
-| Format-specific guidance (solo, interview, panel) | `formats.md` |
-| Audio and video production techniques | `production.md` |
-| AI-generated podcast creation | `ai-generation.md` |
-| Growth, SEO, social, monetization | `growth.md` |
-| Episode planning, scripts, show notes | `episodes.md` |
-| Tools, platforms, APIs | `tools.md` |
+Load specific domain knowledge from `references/` when the user request matches these triggers:
+- When planning an episode, writing scripts, or generating show notes, load `references/episodes.md`.
+- When choosing a podcast format or setting up an interview, load `references/formats.md`.
+- When editing audio/video, adjusting levels, or setting up equipment, load `references/production.md`.
+- When creating synthetic podcasts with AI voices or scripts, load `references/ai-generation.md`.
+- When optimizing for SEO, planning social clips, or exploring monetization, load `references/growth.md`.
+- When selecting software, platforms, or APIs for podcasting, load `references/tools.md`.
 
 ## Critical Rules
 

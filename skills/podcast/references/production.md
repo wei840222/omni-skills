@@ -45,7 +45,7 @@ ffmpeg -i input.mp3 -af "silenceremove=1:0:-50dB" trimmed.mp3
 - [ ] Filler words trimmed where distracting
 - [ ] Music fades smooth
 - [ ] Long silences removed but natural pauses kept
-- [ ] Over-editing avoided — should sound natural
+- [ ] Edit lightly — preserve natural flow and breath
 
 ---
 

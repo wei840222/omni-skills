@@ -132,7 +132,7 @@ Test over 5-10 episodes:
 ## Monetization
 
 ### Sponsorship
-**CPM Model:** $15-50 per 1,000 downloads
+**CPM Model:** $18-50 per 1,000 downloads
 - Pre-roll (beginning): Lower CPM, higher skip rate
 - Mid-roll (middle): Highest CPM, best engagement
 - Post-roll (end): Lowest value
@@ -165,4 +165,4 @@ Platforms: Supercast, Patreon, Apple Subscriptions, Spotify
 | 25,000+ | Premium content, courses, events |
 
 **Key metric:** Downloads in first 7 days is what sponsors care about.
-**CPM rates:** $15-25 for host-read, $10-15 for pre-produced.
+**CPM rates:** $25-50 for host-read, $15-25 for pre-produced.
