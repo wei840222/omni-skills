@@ -43,6 +43,12 @@ Optional layout:
 └── sessions/        # Short dated notes when continuity helps
 ```
 
+## References
+
+| Topic | File |
+|-------|------|
+| Method, historiography, citation, HIPP/OPVL | `references/domain-knowledge.md` |
+
 Load `references/domain-knowledge.md` when verifying method, citation, or historiography claims against primary sources.
 
 ## Detect Level, Adapt Everything
