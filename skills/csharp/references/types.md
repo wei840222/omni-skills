@@ -1,6 +1,6 @@
 # Type Traps
 
-- Struct is value type — assignment copies, modifications don't affect original
+- Struct is value type — assignment copies, modifications remain local to the copy
 - Boxing allocates — `object o = 5;` creates heap allocation
 - `readonly` field can still have mutable reference type — contents can change
 - `default(int)` is 0, `default(bool)` is false — not always obvious

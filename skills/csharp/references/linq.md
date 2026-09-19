@@ -1,6 +1,6 @@
 # LINQ Traps
 
-- Deferred execution — `Where()`, `Select()` don't run until you iterate
+- Deferred execution — `Where()`, `Select()` execute only when you iterate
 - Multiple enumeration — calling `.Count()` then iterating runs query twice
 - Closure captures variable — `for(var i=0; i<10; i++) list.Add(() => i)` all return 10
 - `First()` throws if empty — use `FirstOrDefault()` and handle null
