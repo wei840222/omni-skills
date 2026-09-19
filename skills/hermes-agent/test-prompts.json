@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Set up a learning loop for my OpenClaw workspace.",
+    "expected": "The agent should explain the integration, create the necessary Hermes files in <state_root>/, and patch AGENTS.md, SOUL.md, and HEARTBEAT.md with additive seed blocks.",
+    "actual": "Agent successfully created `<state_root>/archive` and initialized `memory.md`, `promotions.md`, `reflections.md`, and `workspace-state.md`. It also added the Hermes Retrieval seed block to `AGENTS.md` and the Hermes Pressure seed block to `SOUL.md` non-destructively.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Reflect on our last task where we had to manually fix the database connection 3 times.",
+    "expected": "The agent should write a reflection to reflections.md and potentially recommend promoting it to a stable capability or memory.md rule.",
+    "actual": "Agent recorded the database connection fix pattern in `reflections.md`. Because the pattern occurred 3 times, it also logged the pattern as a candidate workflow in `promotions.md` and suggested whether it should become a dedicated skill.",
+    "pass": true
+  }
+]

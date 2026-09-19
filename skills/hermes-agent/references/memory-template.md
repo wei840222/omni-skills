@@ -1,6 +1,6 @@
 # Memory Template - Hermes Agent
 
-Create `~/Clawic/data/hermes-agent/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Hermes Agent Memory
@@ -32,8 +32,8 @@ Updated: YYYY-MM-DD
 Create this directory structure on first activation:
 
 ```bash
-mkdir -p ~/Clawic/data/hermes-agent/archive
-touch ~/Clawic/data/hermes-agent/{memory.md,promotions.md,reflections.md,workspace-state.md}
+mkdir -p <state_root>/archive
+touch <state_root>/{memory.md,promotions.md,reflections.md,workspace-state.md}
 ```
 
 ## promotions.md Template
@@ -81,8 +81,8 @@ touch ~/Clawic/data/hermes-agent/{memory.md,promotions.md,reflections.md,workspa
 | `ongoing` | still learning the user's preferred Hermes mode | keep adapting lightly |
 | `active` | full loop is installed and in use | retrieve, reflect, and promote normally |
 | `local_only` | local memory only, no workspace seeding | use Hermes behavior without editing workspace files |
-| `paused` | user wants a temporary stop | read existing memory but stop expanding it |
-| `declined` | user does not want Hermes mode | do not prompt again unless asked |
+| `paused` | user wants a temporary halt | read existing memory while suspending expansion |
+| `declined` | user opted out of Hermes mode | wait for explicit request before prompting again |
 
 ## Key Principles
 
