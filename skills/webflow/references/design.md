@@ -22,7 +22,7 @@ Webflow breakpoints cascade DOWN. Changes on desktop affect all smaller breakpoi
 - Base: `button`
 - Variants: `button is-large`, `button is-secondary`
 
-**Never rename auto-generated classes in production.** Create new ones and apply them.
+**Create new classes for variations.** Apply new custom classes instead of altering auto-generated production classes.
 
 ## Layout Patterns
 
@@ -56,4 +56,4 @@ Auto-fit cards: repeat(auto-fit, minmax(280px, 1fr))
 3. Use design tokens (colors, fonts) in Figma → create matching Webflow variables
 4. Copy text styles: font-size, line-height, letter-spacing exactly
 
-**Don't auto-import.** Manual class assignment keeps code clean.
+**Assign classes manually.** Manual assignment ensures the codebase remains clean and semantic.

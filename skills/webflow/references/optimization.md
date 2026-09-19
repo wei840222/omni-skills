@@ -37,7 +37,7 @@ loading="lazy"
 
 **Above-the-fold:**
 - First meaningful paint under 2.5s
-- Don't lazy-load hero images
+- Eagerly load hero images
 - Minimize custom fonts (2 weights max)
 
 **Page weight targets:**
@@ -58,7 +58,7 @@ loading="lazy"
 **Webflow-specific:**
 - Set `aria-label` on icon-only buttons
 - Use semantic HTML (section, nav, article)
-- Don't disable focus outlines without replacement
+- Maintain visible focus outlines or provide clear custom alternatives
 
 ## Pre-Launch Checklist
 

@@ -38,7 +38,7 @@ gtag('event', 'generate_lead', {
 });
 ```
 
-**Don't use Webflow's built-in analytics** for serious tracking. It's basic page views only.
+**Use external analytics like GA4** for comprehensive tracking. Webflow's built-in analytics are limited to basic page views.
 
 ## Third-Party Embeds
 

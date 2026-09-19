@@ -1,33 +1,22 @@
 ---
 name: webflow
-slug: webflow
-version: 1.0.0
-description: Build, launch, and optimize Webflow sites with responsive design, CMS architecture, and clean handoffs.
-homepage: https://clawic.com/skills/webflow
+description: Load this skill when asked to design, develop, or optimize a Webflow
+  site. It provides guidance on responsive layouts, CMS architecture, and performance
+  best practices.
 metadata:
-  clawdbot:
-    emoji: 🌐
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Webflow
+  openclaw: '{"emoji": "🌐", "os": ["linux", "darwin", "win32"]}'
+  related-skills: '{"ui": "General interface composition and visual hierarchy outside Webflow-specific controls.", "design": "Broader design systems and visual direction when the work is not Webflow-bound.", "landing-page": "Conversion-focused landing structure and offer messaging that Webflow then implements.", "website": "Multi-page site IA and content structure beyond a single Webflow build."}'
 ---
+## When to load
 
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Responsive design, breakpoints | `design.md` |
-| CMS collections, headless API | `cms.md` |
-| Forms, analytics, third-party | `integrations.md` |
-| SEO, performance, accessibility | `optimization.md` |
+- Load `references/design.md` for layout and responsive breakpoint guidance.
+- Load `references/cms.md` for configuring CMS collections or headless APIs.
+- Load `references/integrations.md` for forms, webhooks, or third-party embeds.
+- Load `references/optimization.md` for SEO, accessibility, and performance checklists.
 
 ## Memory Storage
 
-User preferences stored at `~/Clawic/data/webflow/memory.md`. Read on activation.
+User preferences stored at `<state_root>/webflow/memory.md`. Read on activation.
 
 **Format:**
 ```markdown
@@ -43,7 +32,7 @@ User preferences stored at `~/Clawic/data/webflow/memory.md`. Read on activation
 - breakpoints: mobile-first | desktop-first
 ```
 
-Create folder on first use: `mkdir -p ~/webflow`
+Create folder on first use: `mkdir -p <state_root>/webflow`
 
 ## Critical Rules
 
@@ -57,7 +46,7 @@ Create folder on first use: `mkdir -p ~/webflow`
 
 5. **Test forms with real submissions** — Webflow form notifications fail silently. Verify delivery before launch.
 
-6. **Never trust auto-generated responsive** — Webflow guesses wrong. Manual breakpoint adjustment is mandatory.
+6. **Manually adjust responsive breakpoints** — Auto-generated layouts are often inaccurate. Explicitly configure and verify each breakpoint.
 
 7. **Audit before publish** — Missing alt text, 404s, broken links, favicon, OG image, SSL, redirects. Use pre-launch checklist every time.
 
@@ -65,4 +54,4 @@ Create folder on first use: `mkdir -p ~/webflow`
 
 ## Scope
 
-This skill covers Webflow design, development, and project management. For general web design principles, see `ui-design`. For landing page conversion strategy, see `landing-pages`.
+This skill covers Webflow design, development, and project management. For general web design principles, see `ui` or `design`. For landing page conversion strategy, see `landing-page`.
