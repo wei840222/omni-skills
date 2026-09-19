@@ -1,5 +1,11 @@
 # Newman — Postman CLI
 
+
+## Postman CLI vs Newman
+
+*   **Newman:** The open-source CLI runner for Postman. Best for running exported collections and environments locally or in isolated CI pipelines.
+*   **Postman CLI:** Postman's proprietary runner (`postman login`, `postman collection run`). Ideal if the workflow heavily integrates with Postman Cloud workspaces. Newman remains the standard for disconnected or open-source flows.
+
 ## Installation
 
 ```bash
@@ -105,8 +111,8 @@ api_tests:
 
 | Flag | Purpose |
 |------|---------|
-| `--bail` | Stop on first error |
-| `--ignore-redirects` | Don't follow 3xx |
+| `--bail` | Exit immediately on first error |
+| `--ignore-redirects` | Ignore 3xx redirects |
 | `--insecure` | Allow self-signed certs |
 | `--timeout 10000` | Request timeout (ms) |
 | `--timeout-request 5000` | Per-request timeout |

@@ -138,6 +138,16 @@
 | Collection | Constants across all envs | API version, content types |
 | Environment | Values that change | base_url, tokens, test data |
 
+
+## Variable Scope and Precedence
+
+Variables resolve in the following priority (highest to lowest):
+1.  **Local** (`pm.variables.set()`)
+2.  **Data** (from CSV/JSON files in runner)
+3.  **Environment** (`pm.environment.get()`)
+4.  **Collection** (`pm.collectionVariables.get()`)
+5.  **Global** (`pm.globals.get()`)
+
 ## Auth Inheritance
 
 Set auth at collection level, requests inherit:
