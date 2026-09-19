@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to buy a house and I need help setting up my budget guardrails. My max monthly payment is $3000.",
+    "expected": "The agent creates the initial memory file, records the $3000 max monthly payment, and asks for confirmation on other budget components.",
+    "actual": "I have created `<state_root>/memory.md` and recorded your max monthly payment constraint of $3000. Let's discuss your cash-to-close limit and reserve requirements next.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We just found a property at 123 Main St. Can you help us build an offer strategy, but note that it needs a new roof?",
+    "expected": "The agent loads listing-scorecard and offer-ladder, factors in the new roof as a high-risk due diligence item, and suggests a discounted initial offer.",
+    "actual": "I have loaded the offer ladder strategies. Given the major defect (new roof required), I recommend a baseline offer 5% below asking price, including an explicit inspection contingency. Shall we prepare the formal scorecard?",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Inspection found active roof leaks and outdated electrical panel three days before contingency deadline. Help me decide next actions and what must be logged before we proceed.",
+    "expected": "Load due-diligence guidance, classify high-severity items into seller fix/credit/buyer-accept, refuse silent contingency waiver, and record decision log entries with deadlines.",
+    "actual": "Loaded due-diligence triage. Roof leaks and electrical panel are high-severity: request seller repair or credit with written quotes; do not waive inspection contingency without explicit sign-off. Logged both items in active-deals and offer-log with contingency deadline and walk-away if unresolved.",
+    "pass": true
+  }
+]
