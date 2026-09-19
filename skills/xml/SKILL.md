@@ -1,43 +1,36 @@
 ---
 name: xml
-slug: xml
-version: 1.0.0
-description: Parse, generate, and transform XML with correct namespace handling and encoding.
-homepage: https://clawic.com/skills/xml
+description: >
+  Parse, generate, and transform XML documents. Use when handling XML
+  namespaces, encodings, XPath queries, entity escaping, CDATA, schema
+  validation (DTD/XSD/RelaxNG), or whitespace-sensitive processing.
 metadata:
-  clawdbot:
-    emoji: 📄
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: XML
+  openclaw: '{"emoji": "📄"}'
 ---
-
 ## Namespaces
 
-- XPath `/root/child` fails if document has default namespace—use `//*[local-name()='child']` or register prefix
+- When querying a document with a default namespace, use `//*[local-name()='child']` or register a prefix, since `/root/child` requires explicit namespaces.
 - Default namespace (`xmlns="..."`) applies to elements, not attributes—attributes need explicit prefix
 - Namespace prefix is arbitrary—`<foo:element>` and `<bar:element>` are identical if both prefixes map to same URI
-- Child elements don't inherit parent's prefixed namespace—each must declare or use prefix explicitly
+- Each child element must declare or use a prefix explicitly, as parent's prefixed namespaces are not inherited.
 
 ## Encoding
 
 - `<?xml version="1.0" encoding="UTF-8"?>` must match actual file encoding—mismatch corrupts non-ASCII
-- Encoding declaration must be first thing in file—no whitespace or BOM before it (except UTF-8 BOM allowed)
-- Default encoding is UTF-8 if declaration omitted—but explicit is safer across parsers
+- The encoding declaration must be the first thing in the file (only a UTF-8 BOM is permitted before it); ensure no other whitespace or BOM precedes it.
+- Default encoding is UTF-8 if declaration omitted—however, explicitly declaring it ensures consistent behavior across parsers
 
 ## Escaping & CDATA
 
 - Five entities always escape in text: `&amp;` `&lt;` `&gt;` `&quot;` `&apos;`
-- CDATA sections `<![CDATA[...]]>` for blocks with many special chars—but `]]>` inside CDATA breaks it
+- CDATA sections `<![CDATA[...]]>` for blocks with many special chars—ensure `]]>` does not appear inside CDATA to maintain valid structure
 - Attribute values: use `&quot;` if delimited by `"`, or `&apos;` if delimited by `'`
 - Numeric entities `&#60;` and `&#x3C;` work everywhere—useful for edge cases
 
 ## Whitespace
 
 - Whitespace between elements is preserved by default—pretty-printing adds nodes that may break processing
-- `xml:space="preserve"` attribute signals whitespace significance—but not all parsers respect it
+- `xml:space="preserve"` attribute signals whitespace significance—although parser behavior on this attribute varies
 - Normalize-space in XPath: `normalize-space(text())` trims and collapses internal whitespace
 
 ## XPath Pitfalls
@@ -49,13 +42,13 @@ metadata:
 
 ## Structure
 
-- Self-closing `<tag/>` and empty `<tag></tag>` are semantically identical—but some legacy systems choke on self-closing
-- Comments cannot contain `--`—will break parser even inside string content
-- Processing instructions `<?target data?>` cannot have `?>` in data
-- Root element required—document with only comments/PIs and no element is invalid
+- Self-closing `<tag/>` and empty `<tag></tag>` are semantically identical—although some legacy systems require explicit closing tags
+- Avoid using `--` inside comments to maintain parser stability, as it is invalid syntax.
+- Ensure processing instructions `<?target data?>` are free of `?>` in their data payload.
+- A root element is required; documents containing only comments or PIs are invalid.
 
 ## Validation
 
 - Well-formed ≠ valid—parser may accept structure but fail against schema
-- DTD validates but can't express complex constraints—prefer XSD or RelaxNG for new projects
+- While DTD validates structure, prefer XSD or RelaxNG for expressing complex constraints in new projects.
 - XSD namespace `xmlns:xs="http://www.w3.org/2001/XMLSchema"` commonly confused with instance namespace
