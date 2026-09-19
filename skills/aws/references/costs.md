@@ -2,9 +2,9 @@
 
 Prices: us-east-1, on-demand, recorded early 2026. The **ratios and break-evens are stable**; verify the absolute number on the pricing page before committing money. Every threshold below scales with `monthly_budget_usd`.
 
-**Contents:** [Set Up the Alarms Before the Resources](#set-up-the-alarms-before-the-resources) · [Diagnosing a Surprise Bill](#diagnosing-a-surprise-bill) · [The Ten Biggest Line Items](#the-ten-biggest-line-items) · [Commitment Discounts — After Right-Sizing, Never Before](#commitment-discounts--after-right-sizing-never-before) · [S3 Lifecycle Economics](#s3-lifecycle-economics) · [Free Tier and Support](#free-tier-and-support) · [Monthly Review Checklist](#monthly-review-checklist)
+**Contents:** [Set Up the Alarms Before the Resources](#set-up-the-alarms-before-the-resources) · [Diagnosing a Surprise Bill](#diagnosing-a-surprise-bill) · [The Ten Biggest Line Items](#the-ten-biggest-line-items) · [Commitment Discounts — After Right-Sizing, After](#commitment-discounts--after-right-sizing-after) · [S3 Lifecycle Economics](#s3-lifecycle-economics) · [Free Tier and Support](#free-tier-and-support) · [Monthly Review Checklist](#monthly-review-checklist)
 
-**Before answering any spend question**, read `## Spend` in `~/Clawic/data/aws/memory.md` — or `spend-log.md` if the `## Boxes` index points there. A current-month number with no prior months is not an answer.
+**Before answering any spend question**, read `## Spend` in `<state_root>/Clawic/data/aws/memory.md` — or `spend-log.md` if the `## Boxes` index points there. A current-month number with no prior months is not an answer.
 
 **After any bill review or saving**, write it back in the same turn: the month row with its `As of` date, the top three services, and any optimization (`memory-template.md`).
 
@@ -70,7 +70,7 @@ Four steps, in order:
 3. **Map the start date to a deploy.** Cost Explorer gives you a timestamp for free; CloudTrail says who changed what that day: `aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=<Api>`.
 4. **Decide: one-time or run-rate?** A single large transfer is an incident. A raised floor is a new monthly cost that compounds until someone fixes it.
 
-Do not diagnose from the Billing console's current month: it lags, and it hides the usage-type breakdown that names the cause.
+Diagnose using Cost Explorer instead of the Billing console's current month: it lags, and it hides the usage-type breakdown that names the cause.
 
 ## The Ten Biggest Line Items
 
@@ -110,7 +110,7 @@ Logs Insights adds $0.005 per GB scanned — a debugging afternoon over a wide t
 | Within one AZ, over a public or Elastic IP | Billed as if cross-AZ — the silent one |
 | Between regions | Varies by pair; always more than cross-AZ |
 
-Two actions follow: co-locate chatty pairs in one AZ (spend cross-AZ money on replicas, not RPC), and keep in-VPC traffic resolving to private addresses (`enableDnsSupport` + `enableDnsHostnames` on the VPC) so it never leaves and comes back.
+Two actions follow: co-locate chatty pairs in one AZ (spend cross-AZ money on replicas, not RPC), and keep in-VPC traffic resolving to private addresses (`enableDnsSupport` + `enableDnsHostnames` on the VPC) so it stays within the VPC and comes back.
 
 ### 4. Public IPv4 — ~$0.005/hr (~$3.6/mo) each
 
@@ -183,7 +183,7 @@ A dev environment used during business hours runs ~60 of 168 hours a week. Stopp
 | t3 unlimited mode | Sustained CPU above baseline bills surplus credits silently; watch `CPUSurplusCreditsCharged` |
 | Marketplace AMIs | An hourly software charge on top of the instance, invisible in EC2's pricing page |
 
-## Commitment Discounts — After Right-Sizing, Never Before
+## Commitment Discounts — After Right-Sizing, After
 
 **Break-even rule: commit only if expected uptime ≥ (1 − discount).** A 1-year no-upfront Savings Plan at ~30% off costs 0.70 × always-on on-demand, so anything running less than 70% of hours is cheaper on-demand. A 3-year all-upfront at ~60% off breaks even at 40% uptime — if the workload survives three years.
 
@@ -194,19 +194,19 @@ A dev environment used during business hours runs ~60 of 168 hours a week. Stopp
 | 3 year, all upfront | One-time | ~60% |
 
 - **Compute Savings Plans over standard RIs** for anything uncertain: a similar discount that follows you across instance families, regions, Fargate, and Lambda. Standard RIs buy a few more points in exchange for committing to one family.
-- Commit to the **floor**, not the average. Cover your minimum sustained usage and leave the peak on-demand; that shape never strands a commitment.
+- Commit to the **floor**, not the average. Cover your minimum sustained usage and leave the peak on-demand; that shape safely utilizes a commitment.
 - Track both sides: `aws ce get-savings-plans-utilization` (are you using what you bought) and `get-savings-plans-coverage` (how much on-demand is left uncovered). Utilization below ~95% means you over-committed.
-- Spot is a different instrument: up to ~90% off with a 2-minute reclaim notice, for batch, CI runners, and stateless workers behind a queue. Never for a single-node database or un-checkpointed state.
+- Spot is a different instrument: up to ~90% off with a 2-minute reclaim notice, for batch, CI runners, and stateless workers behind a queue. Unsuitable for a single-node database or unsaved state.
 - Graviton (arm64) is cheaper per hour for the same task shape and stacks with Savings Plans — it needs an arm64 or multi-arch image, or the task dies with `exec format error`.
 
 ## S3 Lifecycle Economics
 
-The costs hiding inside the savings: transitions bill per request (order of $0.01-0.05 per 1,000, by target tier); IA charges a 30-day minimum and treats objects under 128 KB as 128 KB, Glacier Flexible has a 90-day minimum and Deep Archive 180; retrieval fees apply to both; and incomplete multipart uploads bill invisibly until an `AbortIncompleteMultipartUpload` rule expires them. Short version — aggregate small objects before archiving, and never transition millions of tiny ones.
+The costs hiding inside the savings: transitions bill per request (order of $0.01-0.05 per 1,000, by target tier); IA charges a 30-day minimum and treats objects under 128 KB as 128 KB, Glacier Flexible has a 90-day minimum and Deep Archive 180; retrieval fees apply to both; and incomplete multipart uploads bill invisibly until an `AbortIncompleteMultipartUpload` rule expires them. Short version — aggregate small objects before archiving, and refrain from transitioning millions of tiny ones.
 
 ## Free Tier and Support
 
 - The 12-month free tier expires. The classic first surprise bill is month 13 on an account where nothing changed. Diary the anniversary the day you open the account.
-- Always-free allowances (Lambda requests, DynamoDB storage, CloudWatch basics) do not expire, but several are per-account rather than per-Organization — a multi-account split can multiply or dilute them depending on the service.
+- Always-free allowances (Lambda requests, DynamoDB storage, CloudWatch basics) persist indefinitely, but several are per-account rather than per-Organization — a multi-account split can multiply or dilute them depending on the service.
 - Business support is billed as a percentage of monthly usage with a floor, so a small account pays the floor, which can exceed its infrastructure spend. Developer support is enough until somebody is on call.
 
 ## Monthly Review Checklist

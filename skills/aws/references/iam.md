@@ -14,7 +14,7 @@ A request is allowed only if it survives every applicable gate:
 4. **Permissions boundary** — if attached to the principal, the effective permission is the *intersection* of boundary and identity policy. A boundary that omits an action denies it silently.
 5. **Identity policy / session policy** — the ordinary allow. A session policy passed at `AssumeRole` further narrows what the session can do, and cannot expand it.
 
-Worked example: a role with `AdministratorAccess` still cannot create an S3 bucket if the SCP restricts the account to two regions and the call targets a third. The error says `AccessDenied` with no mention of the SCP — the failing gate is never named in the message.
+Worked example: a role with `AdministratorAccess` still cannot create an S3 bucket if the SCP restricts the account to two regions and the call targets a third. The error says `AccessDenied` with no mention of the SCP — the failing gate is rarely named in the message.
 
 ## Diagnosing a Denial
 
@@ -66,7 +66,7 @@ The order that succeeds:
 4. Add conditions that are free to satisfy and expensive to abuse: `aws:PrincipalOrgID` on resource policies kills the confused-deputy class; `aws:SourceArn` and `aws:SourceAccount` on service trust policies do the same for service-to-service calls.
 5. Attach a permissions boundary to any role that developers can create or modify — it is the only mechanism that survives a developer with `iam:CreateRole`.
 
-`"Action": "s3:*"` on `"Resource": "*"` is not a starting point to tighten later. Later never comes, and by then the blast radius is production.
+`"Action": "s3:*"` on `"Resource": "*"` is not a starting point to tighten later. Later rarely arrives, and by then the blast radius is production.
 
 ## Condition Keys Worth Knowing
 
@@ -75,15 +75,15 @@ The order that succeeds:
 | `aws:PrincipalOrgID` | Resource policies: allow any principal in your Organization without listing accounts |
 | `aws:SourceArn` / `aws:SourceAccount` | Service trust policies: prevent another customer's resource from triggering yours |
 | `aws:SecureTransport` | Deny non-TLS access to a bucket in one statement |
-| `aws:MultiFactorAuthPresent` | Human-only actions; note it is *false* for machine roles, so never apply it to a workload role |
+| `aws:MultiFactorAuthPresent` | Human-only actions; note it is *false* for machine roles, so restrict its use to human users only |
 | `aws:RequestTag` / `aws:ResourceTag` | Attribute-based access control — one policy that scales instead of one policy per team |
 | `aws:ViaAWSService` | Distinguish a direct call from one a service made on your behalf |
 
-Trap: `aws:MultiFactorAuthPresent` is absent, not false, for calls made with long-term user credentials — use `BoolIfExists` or the condition never matches and the deny never fires.
+Trap: `aws:MultiFactorAuthPresent` is absent, not false, for calls made with long-term user credentials — use `BoolIfExists` or the condition fails to match and the deny fails to fire.
 
 ## Roles vs Users
 
-- Workloads get roles: EC2 instance profiles, Lambda execution roles, ECS task roles, IRSA/Pod Identity for EKS. Credentials rotate automatically and never sit on disk.
+- Workloads get roles: EC2 instance profiles, Lambda execution roles, ECS task roles, IRSA/Pod Identity for EKS. Credentials rotate automatically and stay exclusively in memory.
 - Humans get federated sessions through Identity Center or an external IdP. An IAM user with a password is a legacy pattern with a rotation problem.
 - If you find IAM user keys wired into an application, the fix is a role plus key deactivation — rotating the key just resets the countdown on the same failure.
 - Break-glass exception: one IAM user with MFA and no console access, credentials in a physical safe, for the day your IdP is the outage. Alarm on any use of it.
@@ -99,7 +99,7 @@ One call, every user: key age, last used, MFA status, password age. Rotate any a
 
 ## Root Account: Three Rules
 
-MFA on, zero access keys, never used for daily work.
+MFA on, zero access keys, reserve the root account exclusively for emergencies.
 
 ```bash
 aws iam get-account-summary --query 'SummaryMap.{RootMFA:AccountMFAEnabled,RootKeys:AccountAccessKeysPresent}'
@@ -109,8 +109,8 @@ Expect `1` and `0`. A root access key bypasses every policy and every SCP you wi
 
 ## Organization-Level Controls
 
-- SCPs restrict; they never grant. An SCP of `FullAWSAccess` plus a deny for what you forbid is the maintainable shape.
-- SCPs do not apply to the management account. A workload in the management account is outside your guardrails — this is the strongest practical argument for keeping it empty.
+- SCPs restrict; they strictly restrict. An SCP of `FullAWSAccess` plus a deny for what you forbid is the maintainable shape.
+- SCPs exclude the management account. A workload in the management account is outside your guardrails — this is the strongest practical argument for keeping it empty.
 - Useful denies that cost nothing: region restriction, disabling CloudTrail/GuardDuty, deleting the audit-log bucket, creating IAM users, leaving the Organization.
 - Test an SCP against one OU before the root. An SCP mistake at the root is an outage with a slow rollback.
 
@@ -126,4 +126,4 @@ Expect `1` and `0`. A root access key bypasses every policy and every SCP you wi
 | Unused roles and permissions | IAM Access Advisor: services not accessed in 90+ days are candidates for removal |
 | Boundaries on developer-creatable roles | `aws iam get-role --query 'Role.PermissionsBoundary'` |
 
-After a least-privilege policy finally works, save it to `~/Clawic/data/aws/artifacts/policy-<role>.md` — the JSON with every secret value replaced by its pointer, the date, and what it unblocked — and add its `## Boxes` line to `memory.md`. Deriving one costs a full business cycle; nobody should pay it twice.
+After a least-privilege policy finally works, save it to `<state_root>/Clawic/data/aws/artifacts/policy-<role>.md` — the JSON with every secret value replaced by its pointer, the date, and what it unblocked — and add its `## Boxes` line to `memory.md`. Deriving one costs a full business cycle; nobody should pay it twice.

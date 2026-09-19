@@ -10,19 +10,19 @@ AWS failures are opaque because the error is emitted by the wrong layer: a permi
 
 ## AccessDenied
 
-Do NOT widen the policy first — that is how accounts end up with `"Action": "*"`.
+Keep the policy narrow; exhaust all other checks before widening the policy — that is how accounts end up with `"Action": "*"`.
 
 1. Read the message: it names the principal, the action, and usually the resource. `is not authorized to perform` with a role ARN means identity policy or SCP; `Access Denied` with no principal named usually means a *resource* policy (S3 bucket policy, KMS key policy, ECR policy).
-2. Distinguish the five gates in the order the evaluation applies them: explicit `Deny` anywhere → SCP ceiling → resource policy → permissions boundary (the effective permission is the intersection) → identity or session policy. The failing gate is never named in the message.
+2. Distinguish the five gates in the order the evaluation applies them: explicit `Deny` anywhere → SCP ceiling → resource policy → permissions boundary (the effective permission is the intersection) → identity or session policy. The failing gate is rarely named in the message.
 3. Cross-account: the permission must exist on BOTH sides (identity policy in the calling account, resource policy or trust policy in the target account). One side alone is always a denial.
 4. Encrypted resource: an S3 object encrypted with a customer-managed key needs `kms:Decrypt` on the key, in the key policy AND the identity policy. The error names S3, the fix is in KMS.
 5. Just-created role or policy: IAM is eventually consistent. A denial within seconds of creation that resolves on retry was propagation, not policy — build retry with backoff into automation that creates and then uses a role.
 
 ## Connection Timed Out
 
-A timeout is a network fact. Credentials never produce a timeout — they produce `AccessDenied`, `403`, or `password authentication failed`.
+A timeout is a network fact. Credentials produce authentication errors, whereas a timeout indicates a network issue — they produce `AccessDenied`, `403`, or `password authentication failed`.
 
-Walk the path in this order, stopping at the first failure:
+Walk the path in this order, evaluating each step sequentially until failure:
 
 | Step | Check |
 |---|---|
@@ -47,12 +47,12 @@ The code names the layer. Decode before touching configuration.
 | 400 with no target log | Malformed request rejected by the ALB itself | Header size, invalid characters in the path, HTTP/1.0 without a Host header |
 | 460 / 463 | Client disconnected before the target answered / bad `X-Forwarded-For` | Client-side and proxy-header problems, not your app |
 
-The two log sources that end these arguments: ALB access logs (per request, includes `target_status_code` and processing times) and target-group health-check status. If `elb_status_code` is 502 and `target_status_code` is `-`, the target never answered.
+The two log sources that end these arguments: ALB access logs (per request, includes `target_status_code` and processing times) and target-group health-check status. If `elb_status_code` is 502 and `target_status_code` is `-`, the target failed to answer.
 
 ## Throttling and Rate Limits
 
 - `ThrottlingException`, `Rate exceeded`, `RequestLimitExceeded`, `TooManyRequestsException`, `ProvisionedThroughputExceededException` are all the same shape: you exceeded a *rate*, not a capacity.
-- The fix order is always: (1) exponential backoff with jitter in the client, (2) reduce call frequency — cache describes, batch, stop polling, (3) request a quota increase. Skipping to (3) hides a polling loop that will hit the new ceiling too.
+- The fix order is always: (1) exponential backoff with jitter in the client, (2) reduce call frequency — cache describes, batch, pause polling, (3) request a quota increase. Skipping to (3) hides a polling loop that will hit the new ceiling too.
 - Control-plane calls (`describe*`, `list*`) throttle far more aggressively than data-plane calls. A dashboard that calls `describe-instances` every 5 seconds throttles the whole account's automation, including deploys.
 - DynamoDB throttling with capacity to spare = hot partition, not a quota: the per-partition ceilings are 3,000 RCU and 1,000 WCU no matter what the table is provisioned for.
 
@@ -69,7 +69,7 @@ When something worked yesterday, find the change before debugging the symptom.
 
 | Observation | Meaning |
 |---|---|
-| No log group at all | The function has never been invoked, or its role lacks `logs:CreateLogGroup` — check the execution role before the code |
+| No log group at all | The function has yet to be invoked, or its role lacks `logs:CreateLogGroup` — check the execution role before the code |
 | `Task timed out after N seconds` | Function timeout; if N is exactly your API Gateway ceiling instead, the gateway gave up first |
 | `Runtime exited with error: signal: killed` | Out of memory — Lambda kills at the configured memory ceiling |
 | Duration near the timeout only sometimes | Cold start plus a slow dependency; separate init duration from invoke duration in the REPORT line |
@@ -77,7 +77,7 @@ When something worked yesterday, find the change before debugging the symptom.
 
 Retry semantics differ per source and explain most "it ran but nothing happened": async invocations retry twice then discard, SQS returns the whole batch after the visibility timeout, and Kinesis retries block the shard until the record expires — watch `IteratorAge`, not error count.
 
-## Container Task Never Runs
+## Container Task Fails to Run
 
 1. `aws ecs describe-tasks` → read `stoppedReason` verbatim before anything else; it usually names the cause outright and the strings below are the common ones.
 2. `CannotPullContainerError` → the task cannot reach ECR: private subnet with no NAT, or missing `ecr.api`, `ecr.dkr`, and S3 gateway endpoints. The S3 endpoint is required because image layers live in S3.

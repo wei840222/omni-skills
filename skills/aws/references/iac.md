@@ -30,8 +30,8 @@ aws cloudformation describe-stack-resource-drifts --stack-name mystack \
 | `ROLLBACK_COMPLETE` | Create failed and rolled back | The stack cannot be updated — delete it and create again |
 | `UPDATE_ROLLBACK_FAILED` | The rollback itself failed, usually because a resource was deleted by hand | `continue-update-rollback --resources-to-skip <LogicalIds>`, then fix the template |
 | `DELETE_FAILED` | A resource refuses to delete (non-empty S3 bucket, ENI in use, retained snapshot) | Delete the blocker manually, or `delete-stack --retain-resources` |
-| `UPDATE_IN_PROGRESS` for hours | Waiting on a resource that will never signal (ASG creation policy, custom resource with no response) | Cancel the update, or send the custom resource's response manually |
-| `IMPORT_ROLLBACK_*` | An import failed the resource-identifier check | Fix the identifier and re-import; imports never modify the resource |
+| `UPDATE_IN_PROGRESS` for hours | Waiting on a resource that will fail to signal (ASG creation policy, custom resource with no response) | Cancel the update, or send the custom resource's response manually |
+| `IMPORT_ROLLBACK_*` | An import failed the resource-identifier check | Fix the identifier and re-import; imports leave unmodified the resource |
 
 Change sets are the CloudFormation equivalent of a plan. An update executed without one is a deploy with no review step.
 
@@ -51,7 +51,7 @@ Console-created resources are the normal starting state; importing them is routi
 - **`for_each` over a computed value** fails with "value depends on resource attributes that cannot be determined until apply". Key the map on something static — a name from a variable, not an ARN from another resource.
 - **`count` on a list** renumbers everything after a removed element: deleting the second of five subnets destroys and recreates three. Use `for_each` with stable keys for anything you will ever remove from the middle.
 - **Tags that fight**: services that add their own tags (ASG propagation, EKS, ECS) make every plan dirty. Use `ignore_changes` on those tag keys or a provider-level `default_tags` policy, not a manual reconciliation each time.
-- **Secrets in state**: an RDS password, a generated key, or a secret's value is stored in plaintext in state. Encrypt the state bucket, restrict access to it as tightly as to production, and prefer `manage_master_user_password` (Secrets Manager-managed) so the value never enters state at all.
+- **Secrets in state**: an RDS password, a generated key, or a secret's value is stored in plaintext in state. Encrypt the state bucket, restrict access to it as tightly as to production, and prefer `manage_master_user_password` (Secrets Manager-managed) so the value stays out of state at all.
 - **Resource replacement you did not ask for**: changing an EBS volume's availability zone, an RDS instance's subnet group, or a Lambda function name replaces the resource. Read the plan's `# forces replacement` lines every single time — that phrase is the only warning you get before a database is deleted.
 
 ## Remote State on AWS
@@ -59,7 +59,7 @@ Console-created resources are the normal starting state; importing them is routi
 - S3 backend with versioning and default encryption on the bucket. Versioning is what lets you recover from a corrupted or truncated state file, and it is the only recovery that exists.
 - Locking: Terraform 1.10+ supports S3-native locking (`use_lockfile = true`), replacing the separate DynamoDB lock table. On older versions, keep the DynamoDB table — running without any lock means two concurrent applies silently corrupt state.
 - One state file per stack per environment. A single state file for everything means every apply risks everything, and `terraform apply -target` becomes routine, which is the road to permanent drift.
-- Never edit state by hand. `state mv`, `state rm`, and `import` cover the legitimate operations; a text editor covers none of them.
+- Use CLI commands exclusively for state edits. `state mv`, `state rm`, and `import` cover the legitimate operations; a text editor covers none of them.
 
 ## CI/CD for Infrastructure
 
@@ -71,4 +71,4 @@ Console-created resources are the normal starting state; importing them is routi
 
 ## When Not to Use IaC
 
-Genuine exceptions, kept short so they stay exceptions: one-off exploration in a sandbox account, break-glass incident response (recorded and reconciled afterwards), and resources a managed service creates on your behalf. Everything else — including "just this once" — goes into code. The console hotfix survives until the next apply, and its author is never the person debugging its disappearance.
+Genuine exceptions, kept short so they stay exceptions: one-off exploration in a sandbox account, break-glass incident response (recorded and reconciled afterwards), and resources a managed service creates on your behalf. Everything else — including "just this once" — goes into code. The console hotfix survives until the next apply, and its author is rarely the person debugging its disappearance.
