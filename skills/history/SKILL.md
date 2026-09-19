@@ -111,6 +111,12 @@ Load `references/domain-knowledge.md` when verifying method, citation, or histor
 - When sources disagree, surface the disagreement instead of inventing a false consensus.
 - Route pure assignment-completion coaching to `homework` when the user needs graded homework help more than historical method.
 
+## Failure recovery
+
+- If the user only wants a date list, deliver chronology anchors and still attach one causal narrative thread.
+- If a claim lacks a source, say so and offer the next best verifiable secondary rather than inventing a citation.
+- If moral judgment arrives without context, reframe with period criteria and competing contemporary voices before modern evaluation.
+
 ## Quick Checks
 
 | Signal | First move |
