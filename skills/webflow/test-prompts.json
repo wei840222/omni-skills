@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new Webflow site with a 12-column grid layout for the hero section.",
+    "expected": "Uses responsive grid layouts documented in references/design.md, verifies all breakpoints.",
+    "actual": "Created a 12-column grid (1fr repeat(12, minmax(0, 90px)) 1fr) for the hero section, adjusted tablet and mobile layouts according to design patterns.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Set up a Webflow CMS for a blog with categories and authors.",
+    "expected": "Defines collections first with multi-reference relationships, handling CMS limits as per references/cms.md.",
+    "actual": "Set up Blog, Categories, and Authors collections. Created reference fields connecting Posts to Authors (single reference) and Categories (multi-reference). Verified schema limits before content migration.",
+    "pass": true
+  }
+]
