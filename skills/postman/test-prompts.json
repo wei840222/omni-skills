@@ -1,0 +1,14 @@
+{
+  "scenarios": [
+    {
+      "description": "Create a new Postman collection structure",
+      "prompt": "I need to set up a Postman collection for our new e-commerce API. It has auth, products, and cart endpoints.",
+      "actual": "I've created the basic structure for your e-commerce API in Postman. I organized it into three main folders: Auth, Products, and Cart. Each folder will help keep your endpoints logically grouped. I've also set up a base environment with `base_url` so you don't have to hardcode URLs. Shall we write the pre-request script for auth next?"
+    },
+    {
+      "description": "Help with Newman automation",
+      "prompt": "How do I run my Postman collection locally with multiple environments and generate an HTML report?",
+      "actual": "To run your collection locally across different environments and generate an HTML report, you'll use Newman and the `newman-reporter-htmlextra` package. First, install the reporter if you haven't already: `npm install -g newman-reporter-htmlextra`. Then run the command: `newman run collection.json -e dev.json -r cli,htmlextra`. Let me know if you need help passing specific global variables or dynamic data!"
+    }
+  ]
+}

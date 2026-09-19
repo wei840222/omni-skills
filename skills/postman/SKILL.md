@@ -1,44 +1,29 @@
 ---
 name: postman
-slug: postman
-version: 1.0.0
-description: Build, test, and automate APIs with Postman collections, environments, and Newman CLI.
-homepage: https://clawic.com/skills/postman
-changelog: Initial release with collections, environments, and Newman automation.
+description: Manage APIs by writing Postman collections, configuring environments,
+  and executing automated Newman test runs.
 metadata:
-  clawdbot:
-    emoji: 📮
-    requires:
-      bins:
-      - newman
-    os:
-    - linux
-    - darwin
-    - win32
-    install:
-    - id: npm
-      kind: npm
-      package: newman
-      bins:
-      - newman
-      label: Install Newman (npm)
-    displayName: Postman
+  openclaw: '{"emoji":"📮","requires":{"bins":["newman"]},"install":[{"id":"npm","kind":"npm","package":"newman","bins":["newman"],"label":"Install Newman (npm)"}]}'
+  related-skills:
+  - api
+  - json
+  - ci-cd
 ---
 
 ## Setup
 
-If `~/Clawic/data/postman/` doesn't exist, read `setup.md` silently and start naturally.
+If `<state_root>/` doesn't exist, read `scripts/setup.md` silently and start naturally.
 
-## When to Use
+## When to load
 
 User needs to test APIs, create Postman collections, manage environments, or run automated API tests with Newman.
 
 ## Architecture
 
-Data lives in `~/Clawic/data/postman/`. See `memory-template.md` for structure.
+Data lives in `<state_root>/`. See `references/memory-template.md` for structure.
 
 ```
-~/Clawic/data/postman/
+<state_root>/
 ├── memory.md           # Projects, preferences, common patterns
 ├── collections/        # Postman collection JSON files
 └── environments/       # Environment JSON files
@@ -48,21 +33,21 @@ Data lives in `~/Clawic/data/postman/`. See `memory-template.md` for structure.
 
 | Topic | File |
 |-------|------|
-| Setup | `setup.md` |
-| Memory template | `memory-template.md` |
-| Collection format | `collections.md` |
-| Newman automation | `newman.md` |
+| Setup | `scripts/setup.md` |
+| Memory template | `references/memory-template.md` |
+| Collection format | `references/collections.md` |
+| Newman automation | `references/newman.md` |
 
 ## Core Rules
 
 ### 1. Collection Structure First
 Before creating requests, define the collection structure:
 - Folder hierarchy reflects API organization
-- Use descriptive names: `Users > Create User`, not `POST 1`
+- Use descriptive names (e.g., `Users > Create User`)
 - Group related endpoints logically
 
 ### 2. Environment Variables Always
-Never hardcode values that change between environments:
+Always use variables for values that change between environments:
 ```json
 {
   "key": "base_url",
@@ -73,7 +58,7 @@ Never hardcode values that change between environments:
 Use `{{base_url}}` in requests. Environments: `dev`, `staging`, `prod`.
 
 ### 3. Pre-request Scripts for Auth
-Handle authentication in pre-request scripts, not manually:
+Handle authentication programmatically via pre-request scripts:
 ```javascript
 // Get token and set for collection
 pm.sendRequest({
@@ -177,7 +162,7 @@ Exit code 0 = all tests passed. Integrate into CI pipelines.
 ## Common Traps
 
 - **Hardcoded URLs** → Tests break between environments. Always use `{{base_url}}`.
-- **No assertions** → Tests "pass" but don't validate anything. Add status + body checks.
+- **Missing assertions** → Tests will falsely succeed. Explicitly add status + body checks.
 - **Secrets in collection** → Credentials leak. Use environment variables, gitignore env files.
 - **Sequential dependencies** → Tests fail randomly. Use `setNextRequest()` explicitly or make tests independent.
 - **Missing Content-Type** → POST/PUT fails silently. Always set `Content-Type: application/json`.
@@ -209,20 +194,9 @@ npx openapi-to-postmanv2 -s openapi.yaml -o collection.json
 ## Security & Privacy
 
 **Data that stays local:**
-- Collections and environments in `~/Clawic/data/postman/`
+- Collections and environments in `<state_root>/`
 - Newman runs locally
 
-**This skill does NOT:**
-- Send collections to external services
-- Store API credentials in memory.md
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` — REST API consumption patterns
-- `json` — JSON manipulation and validation
-- `ci-cd` — Pipeline automation
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/postman
-- Latest version: https://clawic.com/skills/postman
+**Skill Boundaries:**
+- Keep collections confined to local execution or local Newman runners
+- Store API credentials strictly in environment variables

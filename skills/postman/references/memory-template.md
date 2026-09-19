@@ -1,6 +1,6 @@
 # Memory Template — Postman
 
-Create `~/Clawic/data/postman/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Postman Memory
@@ -15,7 +15,7 @@ last: YYYY-MM-DD
 - Base URL: https://api.example.com
 - Auth: Bearer token / API key / OAuth
 - Environments: dev, staging, prod
-- Collection: ~/Clawic/data/postman/collections/project.json
+- Collection: <state_root>/collections/project.json
 
 ## Patterns
 
@@ -38,7 +38,7 @@ last: YYYY-MM-DD
 ## Folder Structure
 
 ```
-~/Clawic/data/postman/
+<state_root>/
 ├── memory.md
 ├── collections/
 │   ├── project-a.json
