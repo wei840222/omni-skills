@@ -25,13 +25,13 @@ The risk decision is the plan's payload (SKILL.md, Core Rules). This file is how
 |---|---|---|
 | Self | Retry; nobody notices | Nothing extra |
 | User | Rework, apology, trust cost | L2; announce deviations |
-| Third parties | External side effects you do not control | L2 + human validation — sending anything external (email, publish, payment, customer-visible data change) sits here |
+| Third parties | External side effects you cannot control | L2 + human validation — sending anything external (email, publish, payment, customer-visible data change) sits here |
 
 Reputation makes things irreversible that look recoverable: a wrong email can be corrected but not unsent. When classifying, ask what the *recipient* can undo, not what you can.
 
 ## Rollback Design
 
-- The rollback is a plan step with its own check, ordered before the irreversible step (SKILL.md, Plan Format). A rollback never tested is a hope, not a rollback.
+- The rollback is a plan step with its own check, ordered before the irreversible step (SKILL.md, Plan Format). An untested rollback is a hope, not a rollback.
 - Design it for mid-step failure, not only full completion: what state exists if the step dies halfway? The partial-state rollback is the one that gets used.
 - No rollback exists → say so in the plan line and name the mitigation: "Irreversible steps: 4 — rollback: none; mitigation: dry-run against staging copy in step 2."
 
@@ -43,6 +43,6 @@ Cheapest-first conversions of irreversible → recoverable; pick the cheapest th
 2. Run against a copy or staging environment
 3. Backup + **verify the restore** before touching the original
 4. Feature flag / canary subset — limit exposure to a revocable slice
-5. Human checkpoint immediately before the step
+5. Human validation immediately before the step
 
-A checkpoint alone converts nothing — it only guarantees a witness. It belongs at the end of the ladder, on top of a real conversion, not instead of one.
+A validation alone converts nothing — it only guarantees a witness. It belongs at the end of the ladder, on top of a real conversion, rather than instead of one.

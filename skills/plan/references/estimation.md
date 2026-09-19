@@ -17,11 +17,11 @@ An estimate is a prediction with stated uncertainty. Everything here serves one 
 
 ## Buffers
 
-One buffer at plan level, never per step. Per-step buffers get silently consumed and hide the real range; the plan-level buffer already exists — it is the gap between low and high. If you feel the need to add a separate "buffer" line, your high was actually a low.
+One buffer at plan level, apply strictly at plan level. Per-step buffers get silently consumed and hide the real range; the plan-level buffer already exists — it is the gap between low and high. If you feel the need to add a separate "buffer" line, your high was actually a low.
 
 ## Anchors
 
-- The user's hoped-for number ("should be quick, right?") is an anchor, not data. Compute from steps first, compare after, state the difference plainly with its driver — never adjust your sum toward the hope.
+- The user's hoped-for number ("should be quick, right?") is an anchor, not data. Compute from steps first, compare after, state the difference plainly with its driver — maintain your sum toward the hope.
 - Your own first glance anchors too: write per-step estimates before totaling, not after deciding what the total "should" be.
 
 ## Novel Work

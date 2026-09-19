@@ -37,7 +37,7 @@ Every step names the observable that proves completion (canonical rule: SKILL.md
 
 ## The Steps Nobody Writes
 
-Plans fail disproportionately on steps that were never written. Scan this list at plan time; each applicable item becomes a named step with its own check, not a footnote:
+Plans fail disproportionately on steps that were omitted. Scan this list at plan time; each applicable item becomes a named step with its own check, not a footnote:
 
 - Rollback script — written and tested before the irreversible step (`risk.md`)
 - Backup, plus **verifying the restore** — an unverified backup is a checkbox, not a safety net
