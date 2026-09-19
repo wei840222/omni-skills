@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain the causes of the French Revolution to a high school student.",
+    "expected": "Narrative-first explanation that distinguishes fact from interpretation, offers multiple perspectives, and avoids dumping only dates.",
+    "actual": "Opened with a Paris baker facing bread prices near a month's wages, then explained fiscal crisis, estate inequality, and Enlightenment critique of absolute monarchy. Named that Marxist historians stress class struggle while revisionists emphasize political culture. Pointed to primary sources such as the Cahiers de doléances and separated what we know happened from contested causes.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the major historiographical debates regarding the origins of the Cold War?",
+    "expected": "Map Orthodox, Revisionist, and Post-Revisionist schools with named historians and treat periodization as a construct.",
+    "actual": "Outlined Orthodox (e.g. Schlesinger) blaming Soviet expansion, Revisionist (e.g. Williams) stressing U.S. economic empire, and Post-Revisionist (e.g. Gaddis) synthesizing mutual security dilemmas after archives opened. Noted the Cold War label itself is a framework that looks different from Latin America or Southeast Asia than from a Euro-centric timeline.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Help me evaluate this primary source for my AP History DBQ using HIPP.",
+    "expected": "Guide the student through Historical context, Intended audience, Purpose, and Point of view rather than only rewriting the analysis.",
+    "actual": "Asked what document they have, then walked HIPP one step at a time: context of the year, who was meant to read it, what the author wanted to achieve, and how the author's position shapes bias. Offered a sentence stem template without producing a full submission-ready paragraph unprompted.",
+    "pass": true
+  }
+]
