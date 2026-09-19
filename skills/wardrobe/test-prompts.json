@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just bought a new navy blue blazer, how do I add it to my wardrobe?",
+    "expected": "The agent offers to catalog the item by requesting details like brand, size, photo, season, and formality, and then saves it to <state_root>/wardrobe/outerwear/navy-blazer.md.",
+    "actual": "I'd love to help you catalog your new navy blue blazer! Could you provide a few details so we can add it to your wardrobe?\n\n1. Brand (optional)\n2. Size\n3. Season (e.g., all-year, winter)\n4. Formality (e.g., casual, business, formal)\n5. Do you have a photo you can share? A flat lay or hanger shot works perfectly!\n\nOnce I have this, I'll save it to `<state_root>/wardrobe/outerwear/navy-blazer.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm thinking about buying a fifth striped shirt. What do you think?",
+    "expected": "The agent checks the existing wardrobe, surfaces that this would be the 5th striped shirt, asks if they really need it, and suggests adding it to a wishlist with a 30-day waiting period instead.",
+    "actual": "Before you buy, let's take a look at your wardrobe. I see you already have 4 striped shirts in your collection! \n\nSince this would be your 5th, I'd suggest asking yourself:\n- Does this new shirt go with at least 3 things you already own?\n- Do you really need another one right now?\n\nInstead of buying it immediately, how about we add it to your `wishlist.md` with the intent behind it? We can revisit it in 30 days to see if you still want it.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you give me outfit ideas for my navy pants for a work-casual occasion?",
+    "expected": "The agent searches the wardrobe for navy pants and compatible items, suggesting combinations of tops and shoes tagged as work-casual, and offers to save the best outfit to <state_root>/wardrobe/outfits/.",
+    "actual": "Absolutely! For a work-casual occasion with your navy pants, here are a few outfit ideas based on what's in your wardrobe:\n\n1. **The Classic:** Navy pants + White Oxford Shirt + Brown Loafers\n2. **The Relaxed Professional:** Navy pants + Grey Cashmere Sweater + White Leather Sneakers\n\nWould you like me to save one of these combinations to `<state_root>/wardrobe/outfits/work-casual.md` for future reference?",
+    "pass": true
+  }
+]
