@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Extract the <title> text from an RSS XML document.",
+    "expected": "Use XPath to find the title element, considering any default namespaces.",
+    "actual": "Extracted the text of the title element using local-name() in XPath to bypass default namespace complications.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create an XML element with an attribute that contains a double quote character.",
+    "expected": "Use appropriate entity escaping for the attribute value.",
+    "actual": "Created an XML element and used &quot; to escape the double quote in the attribute value.",
+    "pass": true
+  }
+]
