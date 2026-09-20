@@ -1,11 +1,11 @@
 # Memory Template - Family
 
-Create `~/Clawic/data/family/` only after the user approves local continuity.
+Create `<state_root>/family/` only after the user approves local continuity.
 
 ## Root Structure
 
 ```text
-~/Clawic/data/family/
+<state_root>/family/
 |- memory.md
 |- household.md
 |- weekly-plan.md
@@ -36,7 +36,7 @@ Create `~/Clawic/data/family/` only after the user approves local continuity.
 
 ## `memory.md`
 
-Create `~/Clawic/data/family/memory.md` with this structure:
+Create `<state_root>/family/memory.md` with this structure:
 
 ```markdown
 # Family Memory
@@ -68,8 +68,8 @@ Updated: YYYY-MM-DD
 |-------|---------|----------|
 | `ongoing` | still learning the household | keep support light and update only high-value context |
 | `complete` | enough context for normal operations | run with the saved system and refine gradually |
-| `paused` | user wants less proactive support | answer requests but avoid system expansion |
-| `never_ask` | user does not want more setup | stop requesting new structure and work with current data |
+| `paused` | user wants less proactive support | answer requests but maintain current system scale |
+| `locked_setup` | user does not want more setup | pause requests for new structure and work with current data |
 
 ## `household.md`
 

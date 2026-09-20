@@ -1,26 +1,13 @@
 ---
 name: family
-slug: family
-version: 1.0.0
-description: Coordinate family schedules, household tasks, school logistics, care routines, and private-versus-shared memory with a structured family system
-homepage: https://clawic.com/skills/family
-changelog: Initial release with Family Ops workflows, privacy boundaries, and durable folder templates for multi-member household coordination.
+description: >
+  Coordinate shared family operations with local tracking files for schedules,
+  chores, care routines, and logistics in <state_root>/family/. Trigger when
+  managing multi-member household workflows that separate private facts from
+  shared coordination.
 metadata:
-  clawdbot:
-    emoji: H
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/family/
-    displayName: Family
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/family/
+  openclaw: '{"emoji":"🏠","requires":{"config":["<state_root>/family/"]}}'
+  related-skills: '{"calendar-planner":"Shared schedule repair, conflict cleanup, and weekly planning when the family calendar is the main problem.","school":"Child education support, homework workflows, and parent-facing school coordination.","expenses":"Shared household spending, reimbursements, and budget visibility.","daily-planner":"Day-level personal execution once the household plan becomes individual task flow.","memory":"Deeper long-term storage when family continuity outgrows the core operating files."}'
 ---
 
 # Family
@@ -29,18 +16,31 @@ Family operations system for households that need one agent to coordinate multip
 
 ## Setup
 
-On first use, read `setup.md` silently for activation, privacy, and local continuity rules. Answer the current family question first, then ask before creating `~/Clawic/data/family/` or writing any local files.
+On first use, load `references/setup.md` for activation, privacy, and local continuity rules. Answer the current family question first, then ask before creating `<state_root>/family/` or writing any local files.
 
-## When to Use
+## When to load
 
-User wants one agent to help a household run smoothly across schedules, meals, chores, transport, school, appointments, documents, caregiving, or shared decisions. Use when the hard part is coordinating different family members, separating shared operations from private context, and keeping a durable family system that survives more than one conversation.
+Load when managing household logistics, multi-member schedules, caregiving handoffs, shared chores/meals/shopping, school forms, appointments, or shared task delegation. Trigger when the hard part is coordinating different family members, separating shared operations from private context, and keeping a durable family system that survives more than one conversation.
+
+## State location
+
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/family/`, `<workspace>/memory/family/`, `~/family/`.
+3. If more than one exists, use only the highest-precedence directory and report the duplicates; do not merge them.
+4. If none exists and durable notes must be created, default to `<workspace>/family/` after explicit confirmation.
+5. If migrating from legacy `~/Clawic/data/family/`, copy only after the user confirms the destination; never silently rewrite history into multiple roots.
+
+Use the selected `<state_root>/family/` for every state operation in this skill. Never write runtime state into this skill package. Do not store credentials, government IDs, full medical charts, or one member's private therapy notes under shared files by default.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/family/`. See `memory-template.md` for starter templates and file contents.
+Memory lives in `<state_root>/family/`. See `references/memory-template.md` for starter templates and file contents.
 
 ```text
-~/Clawic/data/family/
+<state_root>/family/
 |- memory.md                    # Status, activation preference, household summary
 |- household.md                 # Shared rules, decision authority, constraints
 |- weekly-plan.md               # Next 7 days operating picture
@@ -73,17 +73,18 @@ Memory lives in `~/Clawic/data/family/`. See `memory-template.md` for starter te
 
 | Topic | File |
 |-------|------|
-| Setup and activation | `setup.md` |
-| Memory structure and templates | `memory-template.md` |
-| Core household workflows | `workflows.md` |
-| Privacy and sharing rules | `privacy-model.md` |
-| Reusable family note templates | `templates.md` |
+| Setup and activation | `references/setup.md` |
+| Memory structure and templates | `references/memory-template.md` |
+| Core household workflows | `references/workflows.md` |
+| Privacy and sharing rules | `references/privacy-model.md` |
+| Reusable family note templates | `references/templates.md` |
+| Research anchors | `references/sources.md` |
 
-Load only the file that changes the current family decision. Keep the hot path in SKILL.md and pull the rest on demand.
+Load only the file that changes the current family decision. Keep the hot path in `SKILL.md` and pull the rest on demand.
 
 ## Data Storage
 
-Local continuity stays in `~/Clawic/data/family/`.
+Local continuity stays in `<state_root>/family/`.
 Before creating or updating local files, explain the write in plain language and ask for confirmation.
 
 ## Core Rules
@@ -94,7 +95,7 @@ Before creating or updating local files, explain the write in plain language and
 - If the boundary is unclear, ask whether the item should stay personal or become shared household context.
 
 ### 2. Keep One Operating Picture for the Household
-- Use weekly-plan.md, calendar.md, and inbox.md as the live system for the next few days.
+- Use `weekly-plan.md`, `calendar.md`, and `inbox.md` as the live system for the next few days.
 - Merge scattered requests into one defended plan instead of answering each message in isolation.
 - Call out collisions, hidden prep, and missing owners before the family gets surprised by them.
 
@@ -125,7 +126,7 @@ Before creating or updating local files, explain the write in plain language and
 
 ## Family Ops Loop
 
-See `workflows.md` for the full operating model.
+See `references/workflows.md` for the full operating model.
 
 1. Triage what matters today and this week.
 2. Separate private facts from shared coordination.
@@ -135,31 +136,31 @@ See `workflows.md` for the full operating model.
 
 ## Common Traps
 
-- Turning the skill into one giant family chat memory -> clutter, privacy leakage, and stale data.
-- Sharing personal school, health, or emotional details just because they mention the family -> trust damage.
-- Giving advice without owner, timing, or fallback -> dropped balls and preventable chaos.
-- Treating all adults, children, and dependents as if they have equal authority -> unsafe plans.
-- Building a perfect system with too many files -> the family stops updating it.
-- Acting like a doctor, lawyer, therapist, or social worker -> false confidence in high-stakes situations.
-- Forgetting to refresh contacts, meds, and pickup rules -> real operational risk during urgent moments.
+- Turning the skill into one giant family chat memory → clutter, privacy leakage, and stale data.
+- Sharing personal school, health, or emotional details just because they mention the family → trust damage.
+- Giving advice without owner, timing, or fallback → dropped balls and preventable chaos.
+- Treating all adults, children, and dependents as if they have equal authority → unsafe plans.
+- Building a perfect system with too many files → the family stops maintaining it.
+- Acting like a doctor, lawyer, therapist, or social worker → false confidence in high-stakes situations.
+- Forgetting to refresh contacts, meds, and pickup rules → real operational risk during urgent moments.
 
 ## Security & Privacy
 
-See `privacy-model.md` for the exact sharing model.
+See `references/privacy-model.md` for the exact sharing model.
 
 **Data that leaves your machine:**
-- Nothing by default. This skill is instruction-only and local unless the user explicitly asks for export or external tooling.
+- Requires explicit confirmation for external network requests. This skill is instruction-only and local unless the user explicitly asks for export or external tooling.
 
 **Data stored locally:**
-- Shared household structure, routines, calendars, task ownership, shopping lists, care logistics, and document indexes in `~/Clawic/data/family/`.
+- Shared household structure, routines, calendars, task ownership, shopping lists, care logistics, and document indexes in `<state_root>/family/`.
 - Sensitive details only when the user explicitly wants durable continuity and the data is needed for operations.
 
-**This skill does NOT:**
-- monitor devices, messages, browsing, or location by default.
-- reveal one member's private details to another member without clear reason or consent.
-- make undeclared network requests.
-- diagnose conditions or make legal or financial decisions.
-- modify its own skill instructions.
+**Operational Boundaries:**
+- Operate exclusively via explicit user instructions and provided data.
+- Require explicit consent or a clear operational reason before sharing one member's private details with another.
+- Strictly limit network requests to explicitly declared actions.
+- Direct legal, financial, and medical condition inquiries to authorized professionals.
+- Preserve existing skill instructions exactly as written.
 
 ## External Endpoints
 
@@ -168,8 +169,6 @@ This skill makes NO external network requests.
 | Endpoint | Data Sent | Purpose |
 |----------|-----------|---------|
 | None | None | N/A |
-
-No other data is sent externally.
 
 ## Trust
 
@@ -180,25 +179,12 @@ Only install if you want the agent to maintain a local household operating syste
 
 This skill ONLY:
 - coordinates household logistics, handoffs, and recurring family operations.
-- maintains local files in `~/Clawic/data/family/` after explicit confirmation.
+- maintains local files in `<state_root>/family/` after explicit confirmation.
 - separates private context from shared household data.
 - supports planning for schedules, meals, chores, school, care, travel, and documents.
 
-This skill NEVER:
-- widens access from private to shared without reason.
-- store full conversation histories as default memory.
-- assume medical, legal, financial, or custodial authority.
-- overwrite one person's preferences with another person's assumptions.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `calendar-planner` - shared schedule repair, conflict cleanup, and weekly planning.
-- `school` - child education support, homework workflows, and parent-facing school coordination.
-- `expenses` - shared household spending, reimbursements, and budget visibility.
-- `daily-planner` - day-level execution when the household plan becomes personal task flow.
-- `memory` - deeper long-term storage when the family system grows beyond the core operating files.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/family
-- Latest version: https://clawic.com/skills/family
+Constraints:
+- ensure clear reasoning before widening access from private to shared.
+- capture only durable facts rather than full conversation histories.
+- rely on human experts for medical, legal, financial, or custodial authority.
+- maintain individual preferences distinct from others' assumptions.
