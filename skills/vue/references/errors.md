@@ -77,7 +77,7 @@ const Editor = defineAsyncComponent({
 ## Designing the Failure State
 
 - Three states, always: loading, error, empty. A component with only loading and success renders the same blank box for "request failed" and "no results", and the user cannot tell which happened.
-- The error state carries the user's next action (retry, go back, who to contact) — never the stack trace. Log the trace, show the action.
+- The error state carries the user's next action (retry, go back, who to contact) — — never the stack trace. Log the trace, show the action.
 - Distinguish transient from terminal: a 500 or a timeout gets a retry button, a 403 gets a route change, a 404 gets an empty state. A retry button on a 403 is the most common wrong error UI.
 - Preserve user input on failure. A submit that throws must leave the form filled and re-enable the button, which is why the reset belongs in `finally`.
 - Optimistic updates need a rollback path written at the same time as the update, or a failed request leaves the UI showing a change the server rejected.

@@ -40,7 +40,7 @@ export const useUi = defineStore('ui', {
 
 - `$patch(partial)` or `$patch(state => { ... })` batches multiple mutations into one devtools entry and one subscriber notification — the function form is required for array splices.
 - `$subscribe((mutation, state) => ...)` fires on state change; `$onAction(ctx => ...)` wraps actions with `after` and `onError` hooks. Persistence and audit logging belong here, not sprinkled through actions.
-- `$dispose()` stops a store's effect scope. Needed for dynamically created stores (per-entity stores keyed by id), otherwise they accumulate.
+- `$dispose()` terminates a store's effect scope. Needed for dynamically created stores (per-entity stores keyed by id), otherwise they accumulate.
 - Store composition: call another store inside an action or a getter, never at store-definition top level in a circular pair — two stores that call each other at definition time deadlock on initialization order.
 - Pinia plugins receive `{ store, app, pinia, options }` and can add properties to every store; that is the correct home for persistence, not a `watch` per store.
 
