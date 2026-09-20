@@ -84,7 +84,7 @@ result = pipe(
 
 - **Overlap slightly** — let AI see edge context
 - **Match lighting direction** — describe consistent light
-- **Extend in steps** — don't 4x the canvas at once
+- **Extend in steps** — limit canvas extension per step
 - **Describe style** — "same artistic style", "photorealistic"
 
 ## Common Issues
