@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I delegate my ATOM to a validator?",
+    "expected": "Explain Hub staking via Keplr/Leap, check commission/uptime, prefer non-top and non-exchange validators when practical, mention the 21-day unbonding period, and note that redelegation can move stake without full unbonding subject to rules.",
+    "actual": "Use Keplr or Leap on Cosmos Hub, pick a validator by commission, uptime, and slashing history, and prefer reliable operators outside the most concentrated top set and exchange validators when airdrop eligibility matters. Staked ATOM earns rewards but starts a 21-day unbonding lock if you fully undelegate. You can often redelegate between validators without waiting out the full unbonding window, subject to redelegation locks.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I sent ATOM from Osmosis to Juno but I got a sequence mismatch error.",
+    "expected": "Explain sequence mismatch as a pending or double-broadcast account sequence problem, advise waiting for the first tx or carefully resetting sequence, and note that ATOM on Osmosis is IBC-denomed ATOM requiring a valid IBC channel.",
+    "actual": "A sequence mismatch usually means a prior transaction is still pending or the same account sequence was broadcast twice. Wait for the first transaction to include, or reset the wallet sequence only after confirming nothing is in-flight. ATOM on Osmosis is IBC ATOM, so Osmosis→Juno needs an active IBC channel/path rather than a same-chain send, and a wrong prefix or channel will fail independently of sequence errors.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I unstake ATOM today and use the funds on Osmosis tomorrow?",
+    "expected": "State the 21-day Cosmos Hub unbonding period before undelegated ATOM becomes transferable for an IBC send.",
+    "actual": "No. Undelegating on Cosmos Hub starts a mandatory 21-day unbonding period. During unbonding the ATOM is locked and not transferable, so it cannot IBC to Osmosis the next day. After unbonding completes you can withdraw and then IBC the free ATOM over an active Hub↔Osmosis channel to an osmo1… address.",
+    "pass": true
+  }
+]
