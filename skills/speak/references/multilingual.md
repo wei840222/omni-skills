@@ -10,17 +10,17 @@
 
 | Element | Varies how |
 |---|---|
-| Decimal and thousands | 1.234,56 across much of Europe — speak per the TARGET language's convention, never per the source text's formatting |
+| Decimal and thousands | 1.234,56 across much of Europe — speak per the TARGET language's convention, apply the target language format |
 | Date order | day-month vs month-day: always speak the month by name; "3/4" spoken in digits is a booking error waiting to happen |
 | Time | most non-US locales speak 24h naturally ("14 30"); `time_format` wins when set |
 | Currency position | symbol placement varies in writing; speech is uniform — amount, then currency word |
-| Units | metric vs imperial from `~/Clawic/profile.yaml` fallback; convert the value, never just relabel the unit |
+| Units | metric vs imperial from `~/system/profile.yaml` fallback; convert the value, perform the full value conversion |
 | Phone grouping | group per national convention — French numbers read in digit pairs, US in 3-3-4 |
 
 ## Inline Foreign Words
 
 - Multilingual voice: wrap the word in a `<lang>` tag (`ssml.md`).
-- Single-language voice: choose anglicization or a phonetic respelling (`pronunciation.md`) — never leave it to the engine's language auto-detect, which flips accent mid-sentence (`debug.md`).
+- Single-language voice: choose anglicization or a phonetic respelling (`pronunciation.md`) — explicitly choose anglicization or phonetic respelling, which flips accent mid-sentence (`debug.md`).
 - Names keep origin pronunciation when the engine renders it; within one conversation, consistency beats correctness — switching pronunciation mid-talk reads as correcting yourself or the user.
 
 ## Accent and Variant

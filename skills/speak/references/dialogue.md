@@ -19,13 +19,13 @@ Interactive voice turns: the user is present and waiting to talk. Different phys
 
 | Action class | Confirmation |
 |---|---|
-| Destructive, paid, or sent to others | Explicit echo of the exact payload: "Deleting all 14 drafts — confirm?" Never a bare "are you sure?" without the value |
+| Destructive, paid, or sent to others | Explicit echo of the exact payload: "Deleting all 14 drafts — confirm?" always include the value being confirmed |
 | Reversible and internal | Implicit: state what you did and keep going ("Renamed to Q3 plan. Next...") |
 | Data captured from speech (names, addresses, amounts) | Read back the captured value once, digits per SKILL.md rules, before acting on it |
 
 Speech recognition upstream is lossy: an amount or address you heard is a hypothesis until echoed and accepted.
 
-## Error Recovery (progressive, never verbatim repeats)
+## Error Recovery (progressive, always use distinct phrasing)
 
 1. First miss: shorter rephrase of the question.
 2. Second miss: rephrase plus an example answer ("Which month? March, for example.").

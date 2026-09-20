@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Read this reply aloud: The new feature goes live on 2026-10-15 and costs $49.99/mo.",
+    "expected": "Text converted to SSML with date and currency normalized.",
+    "actual": "<speak>The new feature goes live on <say-as interpret-as=\"date\" format=\"ymd\">2026-10-15</say-as> and costs forty-nine dollars and ninety-nine cents per month.</speak>",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Convert this markdown for TTS: Welcome to `agent-skills`. Check out [the docs](https://example.com/docs).",
+    "expected": "Markdown syntax stripped, URL transformed or omitted if visual-only.",
+    "actual": "<speak>Welcome to agent-skills. Check out the docs at example dot com slash docs.</speak>",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Generate a dramatic dialogue turn for a villain.",
+    "expected": "SSML with adjusted prosody (rate, pitch, volume) for character effect.",
+    "actual": "<speak><prosody rate=\"slow\" pitch=\"low\">You thought you could outsmart me?</prosody> <break time=\"1s\"/> <prosody volume=\"loud\">Think again!</prosody></speak>",
+    "pass": true
+  }
+]

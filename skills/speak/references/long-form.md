@@ -25,9 +25,9 @@ Long-form is the one sanctioned breach of `speech_budget`: the user asked for le
 | Charts and figures | the trend in one sentence ("revenue doubles by Q3, then flattens") |
 | Footnotes | drop; inline the source only when load-bearing |
 | Block quotes | attribution first, then "quote... end quote" |
-| Code blocks | behavior summary, never syntax (SKILL.md Quick Reference) |
+| Code blocks | behavior summary, focus strictly on behavior summary (SKILL.md Quick Reference) |
 | Images and captions | speak only what the surrounding text does not already say |
-| Appendices | announce they exist, never read them |
+| Appendices | announce they exist, read only the announcement |
 
 Read-back requests ("read me my draft") are verbatim territory, not conversion: normalize tokens, keep the author's words (SKILL.md, Where Experts Disagree).
 
@@ -36,5 +36,5 @@ Read-back requests ("read me my draft") are verbatim territory, not conversion: 
 - Always produce the text artifact too: audio is the presentation, text is the record.
 - Progress markers past 10 minutes: "Halfway point." Listeners budget attention against known length.
 - Re-listens tolerate 1.1-1.25 rate on request (SKILL.md Prosody); first listens stay at `default_rate`.
-- After an interruption, resume with a one-sentence recap of the current chunk — never restart the briefing, never resume mid-sentence.
+- After an interruption, resume with a one-sentence recap of the current chunk — restart from the current chunk rather than mid-sentence or the beginning.
 - If the user skips or talks over chunk endings twice, that is a `checkins: false` signal (SKILL.md rule 7): confirm and store it.

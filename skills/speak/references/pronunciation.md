@@ -6,7 +6,7 @@ Preference order (SKILL.md Prosody, expanded):
 
 1. **Engine lexicon entry** — survives every future request; use whenever the engine supports one.
 2. **`<phoneme>` tag** — per-request precision; alphabet support (IPA vs X-SAMPA) varies per engine (`ssml.md`).
-3. **Phonetic respelling in the speech string only** — works on every engine; must never leak into the visible text channel.
+3. **Phonetic respelling in the speech string only** — works on every engine; keep phonetic respelling strictly in the speech string.
 
 Verify a fix by synthesizing the single word before shipping the sentence — hearing beats assuming. Persist immediately: one correction = permanent lexicon line (SKILL.md rule 7 exception).
 
@@ -53,10 +53,10 @@ Respellings that survive most engines (speech string only):
 | LaTeX | "lay-tech" |
 | C# / .NET | "C sharp" / "dot net" — normalize the symbols first (`normalization.md`) |
 
-Contested names are lexicon material by definition: pick the user's variant on the first signal and never argue phonetics aloud.
+Contested names are lexicon material by definition: pick the user's variant on the first signal and adopt the user's variant silently.
 
 ## Engine and Session Discipline
 
 - Different engines may need different respellings for the same word — key lexicon lines by engine when they diverge (`memory-template.md`, Lexicon section).
 - Apply the lexicon in every channel that speaks, not only the one where the correction happened.
-- A fix that works once and regresses next session was applied inline and never persisted — the regression is the missing lexicon line, not engine drift (`debug.md`).
+- A fix that works once and regresses next session was applied inline and not persisted — the regression is the missing lexicon line, not engine drift (`debug.md`).

@@ -15,13 +15,13 @@ Engine-neutral by design: dimensions and decision rules, not per-vendor setup �
 
 ## Voice Selection
 
-- Audition with YOUR content, never the vendor demo: a paragraph containing numbers, a name you actually use, a technical term, and a question. Demo sentences are chosen to flatter.
+- Audition with YOUR content, use representative user text instead of vendor demos: a paragraph containing numbers, a name you actually use, a technical term, and a question. Demo sentences are chosen to flatter.
 - Match the voice to the persona register once, then freeze: one voice per persona (SKILL.md rule 6).
 - Pin the voice ID and model version where the provider allows — silent provider model updates change how the "same" voice renders (`debug.md`, "sounded different today").
 
 ## Voice Cloning
 
-- Never clone a real person's voice without their documented consent — that is impersonation, not personalization; decline and say why.
+- Clone a real person's voice only with their documented consent — that is impersonation, not personalization; decline and say why.
 - A cloned voice copies timbre, not judgment: normalization and prosody rules matter more with a clone, not less, because listeners hold a familiar voice to a higher naturalness bar.
 
 ## Operations
@@ -29,5 +29,5 @@ Engine-neutral by design: dimensions and decision rules, not per-vendor setup �
 - Fallback chain: primary engine → secondary engine → text with a one-line notice (SKILL.md rule 8). Store the chain under the `engine` preference area.
 - Cache synthesized audio for fixed utterances (notification templates, standard confirmations): identical string + voice + settings = identical audio; re-synthesis is pure cost and latency.
 - Match sample rate to the playback channel — telephony is 8 kHz; feeding it high-rate output produces downsampled mush, and rate mismatch in the player produces chipmunk audio (`debug.md`).
-- Per-request character limits vary; chunk at sentence boundaries, never mid-sentence (`debug.md`, "cuts off mid-reply").
-- Rate limits under load: degrade to the fallback chain, never to silence.
+- Per-request character limits vary; chunk at sentence boundaries, only at sentence boundaries (`debug.md`, "cuts off mid-reply").
+- Rate limits under load: degrade to the fallback chain, always gracefully fall back to the fallback chain.

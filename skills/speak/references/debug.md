@@ -17,7 +17,7 @@ Work symptom-first. Reproduce with a minimal string — bisect: synthesize halve
 
 ## "It pronounced it wrong"
 
-- Same word wrong only in some sentences → homograph part-of-speech guess → rewrite the sentence (`pronunciation.md`), never retry the same string.
+- Same word wrong only in some sentences → homograph part-of-speech guess → rewrite the sentence (`pronunciation.md`), rewrite the sentence instead of retrying the same string.
 - Proper or brand name wrong → fix ladder: lexicon > phoneme > respelling (`pronunciation.md`); persist on the first correction.
 - Foreign word anglicized, or accent flips mid-sentence → language auto-detect tripped → `<lang>` tag or respelling (`multilingual.md`).
 
@@ -43,7 +43,7 @@ Work symptom-first. Reproduce with a minimal string — bisect: synthesize halve
 
 ## Regressions
 
-- A fix works once, wrong again next session → applied inline, never persisted → lexicon line in `~/Clawic/data/speak/preferences.md`.
+- A fix works once, wrong again next session → applied inline, not persisted → lexicon line in `<state_root>/speak/preferences.md`.
 - "It sounded different today" → provider silently updated the voice model → confirm the pinned voice ID and model version (`engines.md`); note the date in preferences.
 - Preference seems ignored → declared value in `config.yaml` vs observed line in `preferences.md` conflict → declared wins; reconcile per SKILL.md Preference Memory.
 
