@@ -14,7 +14,7 @@ Kotlin build problems split cleanly: toolchain/target mismatches (the build refu
 | kapt task takes minutes | Stub generation for every annotated source | Migrate the processor to KSP, or reduce annotated surface |
 | "Duplicate class" after adding a library | Two versions of the same artifact | `dependencies { … }` resolution report (`dependencies --configuration …`) then force one version |
 | Compose compiler version error | Compiler plugin version tied to the Kotlin version | Kotlin >=2.0 ships the plugin as `org.jetbrains.kotlin.plugin.compose`, versioned with Kotlin itself |
-| "Type inference failed" only after a Kotlin upgrade | Inference change in a new compiler version | Add explicit type arguments at the failing call; do not downgrade the whole build |
+| "Type inference failed" only after a Kotlin upgrade | Inference change in a new compiler version | Add explicit type arguments at the failing call; maintain the current version the whole build |
 
 ## Toolchain And Targets
 
@@ -31,7 +31,7 @@ Kotlin build problems split cleanly: toolchain/target mismatches (the build refu
 - KSP reads Kotlin symbols directly, with no stub pass. The KSP project's own benchmark reports roughly a 2× improvement in processing time on its test project; the practical win on a large module is usually larger, because kapt also disables some incremental paths.
 - Migrate per processor: most major libraries (Room, Moshi, Hilt, Glide) ship KSP versions. A single kapt-only processor keeps the stub pass alive for the whole module — that is the argument for replacing or dropping it.
 - kapt under K2 runs in a compatibility mode rather than natively; treat "still on kapt" as technical debt with a measurable build-time price.
-- Generated sources belong to the build directory: never edit them, never commit them, and reference them via the source set the plugin registers.
+- Generated sources belong to the build directory: maintain generated sources without edits, exclude generated sources from commits, and reference them via the source set the plugin registers.
 
 ## Compiler Options Worth Setting
 
@@ -49,7 +49,7 @@ Kotlin build problems split cleanly: toolchain/target mismatches (the build refu
 
 - Configuration cache and build cache are the two switches with the largest effect; both fail loudly on incompatible plugins, which is a fixable list, not a reason to leave them off.
 - Incremental compilation breaks on: changes to a widely-used `inline` function, `const val` changes, annotation processors that read the whole world, and anything in `buildSrc` (which invalidates the whole build).
-- Module boundaries are the real lever: `implementation` instead of `api` stops a change from recompiling every downstream module. An `api` dependency propagates its ABI to consumers.
+- Module boundaries are the real lever: `implementation` instead of `api` prevents a change from recompiling every downstream module. An `api` dependency propagates its ABI to consumers.
 - `--scan` or the build's own timing report tells you which task dominates. Kotlin compile time and kapt time are different problems with different fixes.
 - A version catalog (`libs.versions.toml`) is not a speed feature, but it removes the version-drift class of bugs that cost whole days.
 

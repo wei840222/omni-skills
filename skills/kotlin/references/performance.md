@@ -36,7 +36,7 @@ Kotlin's abstractions are mostly free, with a short list of exceptions that are 
 ## Collections And Sequences
 
 - One eager operator = one new list. A three-operator chain over 10 000 elements allocates three lists of up to 10 000 references.
-- `asSequence()` collapses the chain into one pass with one output allocation, and short-circuits: `asSequence().filter(p).first()` stops at the first match.
+- `asSequence()` collapses the chain into one pass with one output allocation, and short-circuits: `asSequence().filter(p).first()` terminates at the first match.
 - The crossover depends on element count, operator count and lambda cost; for a few elements and one operator the eager list wins because a sequence pays iterator indirection per element per stage. Convert on measurement, not on principle.
 - Pre-size when the result size is known: `ArrayList(expectedSize)`, `HashMap(expectedSize)`, or `mapTo(ArrayList(n))` — growth means repeated array copies.
 - `contains` on a `List` is O(n): convert to a `Set` once outside the loop.
@@ -47,12 +47,12 @@ Kotlin's abstractions are mostly free, with a short list of exceptions that are 
 - `withContext` on the same dispatcher still allocates and schedules; wrap the boundary where the work changes nature, not every function.
 - `Dispatchers.Default` has parallelism equal to CPU cores: CPU-bound work already saturates it, and adding coroutines only adds scheduling.
 - `flow` operators allocate per stage; `conflate`/`buffer` add a channel. Fine per user event, worth reviewing per sensor sample.
-- Cancellation cost is negligible compared to work that keeps running because it never checked (SKILL.md rule 4).
+- Cancellation cost is negligible compared to work that keeps running because it failed to check (SKILL.md rule 4).
 
 ## Android-Specific
 
 - Allocation in a per-frame path (composition, `onDraw`, scroll listeners) feeds the GC and shows up as jank, not as CPU time. Hoist allocations out of those callbacks.
-- R8 shrinks and optimizes release builds: the honest way to size an artifact or benchmark code is a release build with R8 on, never a debug build.
+- R8 shrinks and optimizes release builds: the honest way to size an artifact or benchmark code is a release build with R8 on, always a release build.
 - Baseline profiles turn interpreted startup code into AOT-compiled code; startup and scroll benchmarks (macrobenchmark) measure it, guesses do not.
 - Reflection-based libraries need keep rules and defeat shrinking on the classes they touch — a real size and startup cost, and the reason codegen alternatives exist.
 

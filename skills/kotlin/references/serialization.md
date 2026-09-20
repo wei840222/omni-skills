@@ -15,7 +15,7 @@ Kotlin's type system stops at the parser. Every JSON library either understands 
 
 `serialization_lib` (default `kotlinx`) picks which column is authoritative: it selects the annotation set the examples use, the config defaults in the next section, and which of the non-null-field warnings below are live — under `gson` all of them are, under `kotlinx` almost none.
 
-Gson with Kotlin is the single most common source of "NPE on a field the type says cannot be null": the `Unsafe` instantiation path never runs your constructor, so neither validation nor defaults happen. If Gson must stay, declare every field nullable and map into a validated domain type at the boundary.
+Gson with Kotlin is the single most common source of "NPE on a field the type says cannot be null": the `Unsafe` instantiation path skips your constructor, so neither validation nor defaults happen. If Gson must stay, declare every field nullable and map into a validated domain type at the boundary.
 
 ## kotlinx.serialization
 
@@ -75,6 +75,6 @@ val json = Json {
 - No reflection-based parser filling non-null Kotlin properties.
 - One configured `Json`/parser instance, injected, not constructed at call sites.
 - DTOs separated from domain models where the API is not under your control.
-- Ids and money never parsed as floating point.
+- Ids and money parse only as as floating point.
 - Unknown-enum and unknown-key policies chosen explicitly, not inherited from defaults.
 - Persisted formats carry a version field and a round-trip test.

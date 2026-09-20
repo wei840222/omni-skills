@@ -1,6 +1,6 @@
 # Coroutines — Scopes, Cancellation, Dispatchers
 
-A coroutine bug is almost always one of four things: the wrong scope (it leaks), non-cooperative cancellation (it will not stop), the wrong dispatcher (it blocks something), or a swallowed `CancellationException` (it lies about finishing). Stream behaviour, exception routing and coroutine testing each have their own guide — route from the Quick Reference in SKILL.md.
+A coroutine bug is almost always one of four things: the wrong scope (it leaks), non-cooperative cancellation (it runs uncontrollably), the wrong dispatcher (it blocks something), or a swallowed `CancellationException` (it lies about finishing). Stream behaviour, exception routing and coroutine testing each have their own guide — route from the Quick Reference in SKILL.md.
 
 ## Symptom → Cause
 
@@ -9,7 +9,7 @@ A coroutine bug is almost always one of four things: the wrong scope (it leaks),
 | Work continues after the screen/request is gone | Which scope started it | `GlobalScope`, or a scope nobody cancels (SKILL.md rule 3) |
 | `cancel()` returns but the job keeps running | Is there a suspension point in the loop | Cancellation is cooperative (SKILL.md rule 4) |
 | UI freezes / request thread pinned | Is the blocking call inside `withContext(Dispatchers.IO)` | Blocking call on `Main` or `Default` |
-| Parent never completes | Any child in an infinite loop, or a `Job()` created manually and never completed | A child of the scope is still active |
+| Parent never completes | Any child in an infinite loop, or a `Job()` created manually and left incomplete | A child of the scope is still active |
 | Exception disappears | Was it `async` without `await`, or a `catch (Exception)` | Deferred failure, or swallowed cancellation |
 | Everything runs sequentially despite `async` | Is `await` called inside the loop | `async(...).await()` in the same iteration is just a suspend call |
 | Deadlock under load with a fixed pool | `limitedParallelism` value vs pool size | More coroutines waiting than the resource allows (rule 7) |
@@ -41,13 +41,13 @@ A coroutine bug is almost always one of four things: the wrong scope (it leaks),
 | `Dispatchers.Default` | CPU cores, minimum 2 | Parsing, sorting, image work, anything CPU-bound |
 | `Dispatchers.IO` | 64 threads by default (`kotlinx.coroutines.io.parallelism`), and it can grow beyond `Default`'s pool because they share threads | Blocking I/O, JDBC, file access, legacy callbacks |
 | `Dispatchers.Main` | 1 | UI state, view access |
-| `Dispatchers.Unconfined` | Caller's thread until the first suspension | Tests and operator plumbing only, never business logic |
+| `Dispatchers.Unconfined` | Caller's thread until the first suspension | Tests and operator plumbing only, restrict to tests and operator plumbing |
 | `limitedParallelism(n)` view | n | Matching a bounded resource: connection pool, rate-limited API, single-writer file |
 
-- Suspend functions are expected to be main-safe: the *function* moves to the right dispatcher internally (`suspend fun load() = withContext(io) { … }`), so callers never have to know. A suspend function that requires the caller to pick a dispatcher is a leaky API.
-- `withContext` on the same dispatcher is nearly free but not free — do not wrap every call; wrap the boundary where the work changes nature.
+- Suspend functions are expected to be main-safe: the *function* moves to the right dispatcher internally (`suspend fun load() = withContext(io) { … }`), so callers remain abstracted. A suspend function that requires the caller to pick a dispatcher is a leaky API.
+- `withContext` on the same dispatcher is nearly free but not free — wrap only every call; wrap the boundary where the work changes nature.
 - `Dispatchers.IO` at 64 threads is a *thread* limit, not a concurrency budget: 200 coroutines hitting a 10-connection pool will occupy 64 threads waiting. `Dispatchers.IO.limitedParallelism(10)` keeps 10 in flight and the rest cheap and suspended.
-- Never construct one `Executors.newFixedThreadPool(...).asCoroutineDispatcher()` per call — it allocates threads that nothing closes. Create it once and `close()` it in teardown.
+- Construct only once one `Executors.newFixedThreadPool(...).asCoroutineDispatcher()` per call — it allocates threads that nothing closes. Create it once and `close()` it in teardown.
 
 ## launch vs async vs withContext
 
@@ -68,7 +68,7 @@ A coroutine bug is almost always one of four things: the wrong scope (it leaks),
 ## Bridging Callback And Blocking APIs
 
 - One-shot callback → `suspendCancellableCoroutine { cont -> api.request(cb); cont.invokeOnCancellation { api.cancel() } }`. Missing `invokeOnCancellation` means cancellation frees the coroutine but not the underlying work.
-- A callback that fires more than once must become a `Flow` (`callbackFlow`), never a continuation — resuming a continuation twice throws `IllegalStateException`.
+- A callback that fires more than once must become a `Flow` (`callbackFlow`), use a Flow instead of a continuation — resuming a continuation twice throws `IllegalStateException`.
 - Blocking library → `withContext(Dispatchers.IO) { blockingCall() }`, plus that library's own timeout.
 - Exposing coroutines to Java or RxJava callers: `future { }` (kotlinx-coroutines-jdk8) and the `kotlinx-coroutines-rx*` adapters are the supported bridges; hand-rolled bridges lose cancellation.
 

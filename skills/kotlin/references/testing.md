@@ -70,7 +70,7 @@ val vm = UserViewModel(StandardTestDispatcher(testScheduler))
 
 - Cancellation is a behaviour worth asserting: launch the work in a `TestScope` job, `advanceTimeBy` past a checkpoint, `job.cancelAndJoin()`, then assert the cleanup ran (a flag set in `finally`).
 - A test that a timeout fires: `withTimeout` inside virtual time is instantaneous — `advanceTimeBy(timeout + 1)` and expect `TimeoutCancellationException`.
-- A function that ignores cancellation (no suspension point in its loop) will not stop in a test either — that is the test that catches SKILL.md rule 4 violations.
+- A function that ignores cancellation (no suspension point in its loop) runs uncontrollably in a test either — that is the test that catches SKILL.md rule 4 violations.
 
 ## Review Checklist
 

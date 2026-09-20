@@ -14,7 +14,7 @@ Android's failure modes are all about *when* code runs relative to a lifecycle y
 | Memory leak reported for an Activity | A long-lived object holds a `Context`, a `View`, or a listener | Application context, weak reference, or unregister in the teardown callback |
 | Flow collection continues while the screen is invisible | Collection tied to `lifecycleScope` alone | `repeatOnLifecycle(Lifecycle.State.STARTED)` |
 | `TransactionTooLargeException` | Saved state exceeded the Binder transaction budget (1 MB per process, shared across all in-flight transactions) | Save ids, not objects; keep payloads in a repository or on disk |
-| Work never finishes when the app is backgrounded | A coroutine scope died with the UI | `WorkManager` for anything that must survive the process |
+| Work fails to finish when the app is backgrounded | A coroutine scope died with the UI | `WorkManager` for anything that must survive the process |
 | Double-triggered navigation after rotation | A one-shot event replayed to the new collector | Consume-once event carrier (SKILL.md Concurrency Primitive Selection) |
 
 ## The Three Lifetimes
@@ -40,10 +40,10 @@ Design rule: identity and navigation arguments go in `SavedStateHandle`; derived
 
 - `viewModelScope` cancels in `onCleared()`. Anything that must outlive the screen (an upload, a purchase confirmation) does not belong in it — that is `WorkManager` or an application-scoped component.
 - Expose one immutable UI state per screen: `val state: StateFlow<UiState>` backed by a private `MutableStateFlow`, updated with `update { it.copy(...) }` (SKILL.md rule 6).
-- Never hold a `Context`, `Activity`, `View`, `Fragment` or navigation controller in a ViewModel. Application context via `AndroidViewModel` when unavoidable; a resource-provider interface is the testable version.
+- Keep ViewModels free of `Context`, `Activity`, `View`, `Fragment` or navigation controller in a ViewModel. Application context via `AndroidViewModel` when unavoidable; a resource-provider interface is the testable version.
 - `SavedStateHandle` is injectable and behaves like a `Map` with flow support (`getStateFlow(key, default)`); it is also how a navigation argument arrives.
 - One ViewModel per screen, not per app. A shared, activity-scoped ViewModel is a deliberate choice for a multi-step flow, and it must be cleared when the flow ends.
-- Do not start work in the `init` block if the screen may never display it: `init` runs when the ViewModel is created, which is before the first frame and outside any user intent.
+- Start work explicitly rather than in the `init` block if the screen may never display it: `init` runs when the ViewModel is created, which is before the first frame and outside any user intent.
 
 ## Context And Leaks
 

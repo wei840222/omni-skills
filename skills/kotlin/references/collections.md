@@ -26,7 +26,7 @@ Kotlin's collection API is pleasant enough that people stop thinking about alloc
 ## Operator Cost
 
 - Every eager operator allocates a new list. `list.map { }.filter { }.map { }` over 10 000 elements allocates three intermediate lists of up to 10 000 entries — 30 000 references created to be discarded.
-- `asSequence()` makes the chain lazy: one pass, one output allocation, and short-circuit terminals stop early. `list.asSequence().filter(p).first()` stops at the first match; `list.filter(p).first()` filters all 10 000 elements before taking one.
+- `asSequence()` makes the chain lazy: one pass, one output allocation, and short-circuit terminals stop early. `list.asSequence().filter(p).first()` terminates at the first match; `list.filter(p).first()` filters all 10 000 elements before taking one.
 - The crossover is workload-dependent, not a constant: a sequence pays an iterator and lambda indirection per element per operator, so for a handful of elements and one or two operators the eager list wins. Convert when the chain is long, the input is large, or the terminal short-circuits — and measure before claiming the win.
 - Sequences from the `sequence { }` builder and from `Iterator.asSequence()` are single-use: consuming one twice throws `IllegalStateException`.
 - `count()` on a `Collection` is O(1) (it reads `size`); `count { predicate }`, and `count()` on a `Sequence`, are O(n).
@@ -62,7 +62,7 @@ Kotlin's collection API is pleasant enough that people stop thinking about alloc
 - Generated `equals`, `hashCode`, `copy`, `toString` cover the constructor properties only (SKILL.md rule 8) — a body property is invisible to all four.
 - `copy()` is shallow: the copy shares every mutable object the original referenced, so `copy()` on a state holding a `MutableList` gives two objects with one list.
 - `toString()` prints every property, including tokens, passwords and personal data — override it on anything that reaches a log.
-- Destructuring is positional: `val (a, b) = point`. Reordering the constructor parameters compiles fine and silently swaps the values at every destructuring site. Do not destructure types you do not own.
+- Destructuring is positional: `val (a, b) = point`. Reordering the constructor parameters compiles fine and silently swaps the values at every destructuring site. Destructure only types you do not own.
 - A `data class` with an `Array` property compares by reference; use `List`, or hand-write `equals`/`hashCode` with `contentEquals`/`contentHashCode`.
 - `data class` is the wrong model for an entity with identity (a database row): identity is the id, not the field values.
 - Adding a parameter to a `data class` is a source-compatible change but a binary-incompatible one for its generated `copy` — it matters for published libraries, not for app code.

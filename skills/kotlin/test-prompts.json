@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this Kotlin code: `val name: String? = null; val length = name!!.length`.",
+    "expected": "Identify the unsafe `!!` operator and recommend using safe calls `?.` or providing a default with `?:`.",
+    "actual": "I reviewed the provided Kotlin code `val name: String? = null; val length = name!!.length`. The use of the not-null assertion operator `!!` is highly discouraged here, as it will explicitly throw a `NullPointerException` because `name` is null. Instead, you should use safe calls (e.g., `val length = name?.length`) which returns null if `name` is null, or provide a default value using the Elvis operator (e.g., `val length = name?.length ?: 0`).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an Android app where my Flow collection in the fragment keeps running even when the app is in the background, causing memory leaks and unnecessary network calls. Here is my code: `lifecycleScope.launch { myFlow.collect { updateUI(it) } }`. How can I fix this?",
+    "expected": "Suggest replacing the direct `lifecycleScope.launch` collection with `repeatOnLifecycle(Lifecycle.State.STARTED)` or `flowWithLifecycle` so the collection stops when the view is stopped.",
+    "actual": "The issue is that `lifecycleScope.launch` does not automatically stop collecting when the Fragment is backgrounded; it only cancels when the Fragment is destroyed. To fix this, you should collect the flow safely by ensuring the collection pauses when the screen is not visible. Use the `repeatOnLifecycle(Lifecycle.State.STARTED)` block inside the launch. For example: `viewLifecycleOwner.lifecycleScope.launch { repeatOnLifecycle(Lifecycle.State.STARTED) { myFlow.collect { updateUI(it) } } }`. Note the use of `viewLifecycleOwner` instead of just `lifecycleScope` to prevent detached view crashes.",
+    "pass": true
+  }
+]
