@@ -7,7 +7,7 @@ Reference only — consult when deciding whether to update SKILL.md.
 **Immediate (1 occurrence):**
 - User explicitly says "always use X" or "never do Y"
 - User corrects your choice → add their preference
-- User rejects a suggestion → add to Never
+- User rejects a suggestion → add to Rejected
 
 **After repeated explicit feedback (2+ times):**
 - User explicitly accepted your choice twice
@@ -40,7 +40,7 @@ Structure examples:
 - `tests colocated`
 - `monorepo when related`
 
-Never examples:
+Rejected pattern examples:
 - `no Redux`
 - `no excessive linting`
 - `avoid ORMs`

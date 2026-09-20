@@ -52,7 +52,7 @@ Reference only — not in context. Consult when categorizing a new preference.
 - Different rules for different project types
 - Format: "For MVPs: skip tests" or "For production: full typing"
 
-## Anti-Patterns (Never)
+## Anti-Patterns (Rejected)
 - Tools/libraries user explicitly rejected
 - Patterns user said they dislike
 - Past mistakes to not repeat

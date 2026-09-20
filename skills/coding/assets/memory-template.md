@@ -1,6 +1,6 @@
 # Memory Templates
 
-## ~/Clawic/data/coding/memory.md
+## <state_root>/memory.md
 
 ```markdown
 # Coding Memory
@@ -19,12 +19,12 @@
 - folders: [organization]
 - configs: [location]
 
-## Never
+## Rejected
 - [rejected pattern]
 - [rejected tool]
 ```
 
-## ~/Clawic/data/coding/history.md
+## <state_root>/history.md
 
 ```markdown
 # Archived Preferences
@@ -42,7 +42,7 @@ Ultra-compact, 5 words max per entry:
 | Stack | `mobile: Flutter`, `db: Pocketbase for MVPs` |
 | Style | `no Prettier`, `TypeScript strict mode` |
 | Structure | `feature-based folders`, `tests colocated` |
-| Never | `no Redux`, `avoid ORMs` |
+| Rejected | `no Redux`, `avoid ORMs` |
 
 ## Context Qualifiers
 
