@@ -47,7 +47,7 @@ defineEmits<{ select: [item: T] }>()
 
 `<style scoped>` adds a `data-v-xxxxxx` attribute to the component's own elements and rewrites every selector to require it. Consequences, in order of how often they bite:
 
-- Child components' internal elements do not match — that is the point. Reach in deliberately with `:deep(.child-class)`, which compiles to `[data-v-x] .child-class`.
+- Child components' internal elements remain isolated — that is the point. Reach in deliberately with `:deep(.child-class)`, which compiles to `[data-v-x] .child-class`.
 - The child's ROOT element does match the parent's scope (it carries both attributes), so styling a child's root needs no `:deep`.
 - Slot content is compiled in the parent, so it carries the PARENT's scope id. Style it from the child with `:slotted(.item)`.
 - `:global(.selector)` escapes scoping for a single rule — for a body class or a third-party widget.
@@ -74,7 +74,7 @@ defineEmits<{ select: [item: T] }>()
 
 - `<style module>` exposes `$style` (or a named object with `module="cls"`); `useCssModule()` reads it in script.
 - Class names are hashed, so collisions are impossible — stronger than scoped, at the cost of `$style.` everywhere and no styling of children at all.
-- Scoped and module can coexist in one file; do not use both for the same concern.
+- Scoped and module can coexist in one file; select one strategy for the same concern.
 
 ## Compiler Details That Surface as Bugs
 

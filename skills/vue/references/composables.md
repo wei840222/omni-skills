@@ -37,7 +37,7 @@ Four decisions encoded above: `MaybeRefOrGetter` input, abort on re-run, `isLoad
 
 - Return an object of refs so the caller destructures what it needs. Returning `reactive({...})` forces the caller to keep the wrapper or lose reactivity.
 - Return `readonly()` state plus explicit mutators. It costs one wrapper and removes an entire category of "who wrote this value" bugs.
-- Return the stop handle for anything long-lived (`stop`, `pause`, `resume`) — a composable that starts a poller with no way to stop it is a leak with an API.
+- Return the cleanup handle for anything long-lived (`stop`, `pause`, `resume`) — a composable that starts a poller with no way to stop it is a leak with an API.
 - Keep the shape stable across states: `{ data, error, isLoading }` always present, never `data | undefined` on the object itself.
 
 ## Lifecycle and Ownership

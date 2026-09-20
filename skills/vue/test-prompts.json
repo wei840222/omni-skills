@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm using Vue 3 with script setup. My child component tries to update a prop value but I get a warning that the prop is readonly.",
+    "expected": "Identify the direct mutation of a prop and suggest using defineModel() or defineEmits() instead.",
+    "actual": "Identified the issue as a direct prop mutation, which is read-only in Vue 3. Recommended replacing the prop definition with defineModel() for two-way binding, or emitting an event to the parent to handle the state update.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My v-for list is updating but the DOM elements seem to be mixing up state when I reorder the items. I am using the array index as the key.",
+    "expected": "Recognize the anti-pattern of using array index as key and recommend using a stable unique identifier.",
+    "actual": "Recognized the use of array index as the key in v-for, explaining that it causes Vue to reuse DOM nodes incorrectly upon reordering. Recommended using a stable unique ID from the data objects instead.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I have a complex dashboard where multiple nested child components need access to user session data. Passing props is getting tedious.",
+    "expected": "Suggest using provide/inject or Pinia for state management across deeply nested components.",
+    "actual": "Suggested avoiding prop drilling by implementing Pinia for cross-component state management, or using provide/inject for dependency injection if the state is strictly scoped to this component tree.",
+    "pass": true
+  }
+]
