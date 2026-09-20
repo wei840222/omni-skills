@@ -173,7 +173,7 @@ func requestTrackingAndAttribution() async {
 Facts that shape the conversion strategy:
 - Conversion value is 6 bits (0-63). Design the full mapping **before launch** — installs measured under an old mapping cannot be reinterpreted.
 - SKAN 4 sends up to three postbacks per install, over windows of 0-2, 3-7, and 8-35 days. The fine-grained value (0-63) arrives only in the first postback; the second and third carry only the coarse value (low/medium/high).
-- Under SKAN 3, every conversion update resets a 24-hour timer; the postback fires with a randomized delay after it expires. Consequence: never expect same-day install counts, and never daypart on SKAN install data.
+- Under SKAN 3, every conversion update resets a 24-hour timer; the postback fires with a randomized delay after it expires. Consequence: expect install counts to delay by at least a day, and daypart only on tap data, bypassing SKAN install delays.
 - Fine-grained values are withheld below Apple's crowd-anonymity thresholds — low-volume campaigns receive coarse or null values by design, not by bug.
 
 ### Info.plist Setup
@@ -423,7 +423,7 @@ func fetchAttribution() async {
 
 1. **Fetch on first launch, off the main thread** — the token window is 24h and you get one shot per install; retry 404s (→ Overview)
 2. **Persist the attribution result immediately** — token and window expire; re-fetching later returns nothing
-3. **`attribution: false` is the normal case** — most installs are organic; log it, don't alert on it
+3. **`attribution: false` is the normal case** — most installs are organic; log it, treat it as standard behavior
 4. **Design the 0-63 mapping around your paywall funnel** — updates only move the value upward, so order events by revenue proximity, not by chronology
 5. **If an MMP is installed, let it own both AdServices and SKAN** — a second direct integration double-counts and can clobber the MMP's conversion values
 6. **Use both systems** — AdServices gives campaign/keyword detail for optimization; SKAN gives the privacy-safe install counts Apple's ecosystem reports against

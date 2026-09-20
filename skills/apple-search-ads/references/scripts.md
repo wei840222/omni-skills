@@ -414,14 +414,14 @@ set -euo pipefail
 # Environment variables accessed: ASA_ACCESS_TOKEN, ASA_ORG_ID
 # External endpoints called: https://api.searchads.apple.com/api/v5/campaigns, /reports/campaigns/{id}/searchterms
 # Local files read: none
-# Local files written: ~/Clawic/data/apple-search-ads/reports/weekly-{date}.txt
+# Local files written: <state_root>/reports/weekly-{date}.txt
 
 : "${ASA_ACCESS_TOKEN:?Set ASA_ACCESS_TOKEN}"
 : "${ASA_ORG_ID:?Set ASA_ORG_ID}"
 
 TARGET_CPA="${1:?Usage: $0 <target_cpa>}"   # target CPA in account currency; gates below derive from it
 
-OUTPUT_DIR="${HOME}/Clawic/data/apple-search-ads/reports"
+OUTPUT_DIR="<state_root>/reports"
 mkdir -p "$OUTPUT_DIR"
 
 DATE=$(date +%Y-%m-%d)
@@ -496,18 +496,12 @@ set -euo pipefail
 # Environment variables accessed: none
 # External endpoints called: none
 # Local files read: none
-# Local files written: ~/Clawic/data/apple-search-ads/*
+# Local files written: <state_root>/*
 
-BASE_DIR="${HOME}/Clawic/data/apple-search-ads"
+BASE_DIR="<state_root>"
 
 mkdir -p "$BASE_DIR"/{campaigns,reports,scripts}
 
-# One-time migration hint from pre-namespace locations
-for OLD in "${HOME}/apple-search-ads" "${HOME}/clawic/apple-search-ads"; do
-  if [[ -d "$OLD" ]]; then
-    echo "Found data at old location $OLD — move its contents to $BASE_DIR"
-  fi
-done
 
 # Create initial memory file (full format: memory-template.md)
 if [[ ! -f "$BASE_DIR/memory.md" ]]; then

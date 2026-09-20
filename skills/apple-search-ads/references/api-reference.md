@@ -174,7 +174,7 @@ Request:
 ```
 
 Notes:
-- `supplySources` values: `APPSTORE_SEARCH_RESULTS`, `APPSTORE_SEARCH_TAB`, `APPSTORE_TODAY_TAB`, `APPSTORE_PRODUCT_PAGES`. One per campaign — never blend placements (see `strategy.md`).
+- `supplySources` values: `APPSTORE_SEARCH_RESULTS`, `APPSTORE_SEARCH_TAB`, `APPSTORE_TODAY_TAB`, `APPSTORE_PRODUCT_PAGES`. One per campaign — keep placements separate (see `strategy.md`).
 - Prefer `dailyBudgetAmount` as the operative lever; lifetime budgets (`budgetAmount`) were phased out for new campaigns (2022). Monthly ceiling ≈ daily budget × 30.4.
 
 ### Update Campaign
@@ -248,7 +248,7 @@ Request:
 ```
 
 Notes:
-- `cpaGoal` is advisory — it never caps spend (see SKILL.md Traps). Bids and daily budgets are the only hard controls.
+- `cpaGoal` is advisory — it does not cap spend (see SKILL.md Traps). Bids and daily budgets are the only hard controls.
 - `defaultBidAmount` applies only to keywords without their own bid; a keyword-level `bidAmount` always overrides it.
 - Any `age`/`gender`/location refinement restricts delivery to users with Personalized Ads enabled — reach drops silently. `appDownloaders.excluded` is the exception worth using.
 
@@ -385,7 +385,7 @@ Request:
 }
 ```
 
-`timeZone` accepts `UTC` or `ORTZ` (org time zone) — pick one for ALL reporting and never mix (SKILL.md Traps).
+`timeZone` accepts `UTC` or `ORTZ` (org time zone) — pick one for ALL reporting and maintain consistency (SKILL.md Traps).
 
 ### Available Metrics
 
