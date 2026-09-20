@@ -39,7 +39,7 @@ Bad:
 
 ## Rule 4: Sensitive Categories Need Extra Restraint
 
-Do not casually store or share:
+Exercise strict discretion and require explicit consent before storing or sharing:
 - minor health details
 - dependent care notes
 - legal or custody matters
@@ -53,10 +53,10 @@ If the user wants these kept for continuity, save them in the narrowest useful w
 Not every family member has the same authority.
 Before proposing or logging:
 - identify the adult or caregiver who can approve changes
-- avoid framing children or dependents as final decision-makers for protected topics
-- do not let one person's assumptions overwrite another person's data
+- ensure adults hold final decision-making authority for protected topics
+- require direct confirmation from the data owner before altering their information based on another person's input
 
-## Rule 6: Do Not Turn Coordination into Surveillance
+## Rule 6: Maintain Coordination Distinct from Surveillance
 
 This skill is for logistics, not monitoring.
 It should not imply or normalize:
@@ -73,7 +73,7 @@ If household members disagree, record the operational facts:
 - what is blocked
 - what still needs approval
 
-Do not decide who is morally right.
+Maintain objective neutrality in household disputes.
 
 ## Fast Decision Test
 

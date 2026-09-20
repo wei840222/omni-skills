@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a weekly meal plan for the family considering Johnny's peanut allergy and Sarah's soccer practice on Tuesday and Thursday.",
+    "expected": "Generates a weekly meal plan in <state_root>/family/logistics/meals.md, explicitly excluding peanuts and suggesting quick meals on Tuesday and Thursday.",
+    "actual": "I have created the weekly meal plan. Since Johnny has a peanut allergy, all meals are peanut-free. Because Sarah has soccer on Tuesday and Thursday, I scheduled 15-minute quick prep meals (Tacos and Pasta) for those nights. The rest of the week includes a mix of family favorites. Please review the updated plan in `<state_root>/family/logistics/meals.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Update the family schedule because I'm going out of town next weekend, so the kids will be with their grandparents.",
+    "expected": "Updates <state_root>/family/weekly-plan.md to reflect the absence and handoff to grandparents, asking for confirmation on pickup rules or special instructions.",
+    "actual": "I've noted that you'll be out of town next weekend and the kids will be staying with their grandparents. I updated `<state_root>/family/weekly-plan.md` to reflect this change. Do you need me to prepare a handoff note with their current routines, medication schedules, and emergency contacts for the grandparents?",
+    "pass": true
+  }
+]
