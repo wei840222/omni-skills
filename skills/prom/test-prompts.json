@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our Prometheus memory usage is growing massively. How can I find the cause and what should I check?",
+    "expected": "Mentions checking prometheus_tsdb_head_series metric to see if cardinality is above 1M. Advises looking for high-cardinality labels (like user_id, uuid) and dropping them using labeldrop in scrape config. Notes memory grows with series count (~3KB per series).",
+    "actual": "To find the cause of massive memory usage growth in Prometheus, check the `prometheus_tsdb_head_series` metric. If this is above 1M series, you likely have a cardinality explosion. You should look for high-cardinality labels (such as user IDs, UUIDs, timestamps, or email addresses) that might have been accidentally added, as every unique label combination creates a new time series, and each series costs ~3KB of RAM. You can use relabeling with the `labeldrop` action in your scrape configuration to drop dangerous labels before they are ingested.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to write an alert for high HTTP latency. I see the rate of errors going up and want it to trigger. Should I use irate() so it fires faster?",
+    "expected": "Corrects the user on alerting mistakes: use rate() instead of irate() for alerts because irate() is too spiky. Ensure to include a 'for' clause like 'for: 5m' to prevent flapping. Remind them that rate requires a range selector at least 4x the scrape interval.",
+    "actual": "You should use `rate()` instead of `irate()` for alerts. `irate()` uses only the last two samples and is too spiky for alerting, which can lead to noise. `rate()` is better suited for alerts. When writing your alert, make sure to include a `for` clause (e.g., `for: 5m`) so the condition must hold for that duration before firing, preventing flapping. Additionally, ensure your `rate()` range selector is at least 4x your scrape interval (e.g., if scraping every 30s, use at least `[2m]`, not `[1m]`). Remember to alert on symptoms (like high latency), not causes, and include a `runbook_url` label.",
+    "pass": true
+  }
+]
