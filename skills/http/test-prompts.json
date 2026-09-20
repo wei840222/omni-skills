@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have an API endpoint that handles file uploads via POST. I want to permanently redirect it to a new URL. Should I use a 301 redirect?",
+    "expected": "Advises against 301, suggesting 308 instead to preserve the POST method, because browsers may change POST to GET on a 301 redirect.",
+    "actual": "No, you should avoid using a 301 redirect for an API endpoint that handles POST requests with a body. Browsers and some clients may change the POST method to a GET method when following a 301 redirect. Instead, you should use a 308 Permanent Redirect, which explicitly preserves the original HTTP method (POST) when redirecting.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to prevent sensitive financial data from ever being cached by the browser or intermediate proxies. What Cache-Control header should I use?",
+    "expected": "Recommends 'Cache-Control: no-store', explaining that it prevents the data from ever being written to disk, and distinguishes it from 'no-cache'.",
+    "actual": "To prevent sensitive financial data from being cached entirely, you should use the header `Cache-Control: no-store`. This ensures the sensitive data is never written to disk by the browser or intermediate proxies. Note that this is different from `no-cache`, which still caches the content but forces revalidation every time.",
+    "pass": true
+  }
+]
