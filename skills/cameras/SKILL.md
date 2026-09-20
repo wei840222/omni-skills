@@ -1,20 +1,10 @@
 ---
 name: cameras
-slug: cameras
-version: 1.0.1
-description: Connect to security cameras, capture snapshots, and process video feeds with protocol support.
-homepage: https://clawic.com/skills/cameras
-changelog: User-driven credential model, declared tool requirements
+description: Connect to security cameras and capture or process video feeds when users
+  provide necessary credentials.
 metadata:
-  clawdbot:
-    emoji: 📷
-    requires:
-      bins:
-      - ffmpeg
-    os:
-    - linux
-    - darwin
-    displayName: Cameras
+  openclaw: '{"emoji": "📷", "requires": {"bins": ["ffmpeg"]}, "os": ["linux", "darwin"],
+    "displayName": "Cameras"}'
 ---
 
 ## Scope
@@ -29,10 +19,10 @@ This skill:
 - User runs capture commands
 - User installs required tools
 
-This skill does NOT:
-- ❌ Store camera credentials
-- ❌ Run captures automatically without user request
-- ❌ Access cameras without user-provided access info
+This skill will exclusively:
+- ✅ Require users to store their own camera credentials
+- ✅ Only run captures upon explicit user request
+- ✅ Require user-provided access info for all camera interactions
 
 ## Requirements
 
@@ -43,14 +33,15 @@ This skill does NOT:
 - `gphoto2` — for DSLR/mirrorless control
 - `v4l2-ctl` — for USB cameras on Linux
 
-## Quick Reference
+## When to load
+Load these files for specific camera and processing tasks.
 
 | Topic | File |
 |-------|------|
-| Security camera integration | `security-integration.md` |
-| USB/webcam capture | `capture.md` |
-| DSLR control | `photography-control.md` |
-| Video processing | `processing.md` |
+| Security camera integration | `references/security-integration.md` |
+| USB/webcam capture | `references/capture.md` |
+| DSLR control | `references/photography-control.md` |
+| Video processing | `references/processing.md` |
 
 ## Core Rules
 
@@ -98,6 +89,6 @@ User provides HA URL and token.
 - HTTP: `/api/events/{id}/snapshot.jpg`
 
 ### 5. Security
-- Never log camera URLs with credentials
+- Ensure camera URLs with credentials are excluded from logs
 - Recommend user stores URLs in env vars
 - RTSP streams may be unencrypted — warn about LAN security
