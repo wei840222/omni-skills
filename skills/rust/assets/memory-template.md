@@ -1,6 +1,6 @@
 # Memory Template — Rust
 
-Create `~/Clawic/data/rust/memory.md` with this structure:
+Create `<state_root>/rust/memory.md` with this structure:
 
 ```markdown
 # Rust Memory
