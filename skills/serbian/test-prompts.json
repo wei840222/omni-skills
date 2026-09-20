@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a short reply to a friend who just invited me to a party this weekend. Sound enthusiastic and natural in Serbian.",
+    "expected": "A casual, enthusiastic response using 'ti', latin script, and natural particles/expressions like 'Vrh!', 'Važi', 'Super'.",
+    "actual": "Brate, naravno! Važi, vidimo se tamo. Biće vrh!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Respond to a colleague's message saying the project deadline got moved up by two days. Express mild frustration but accept it, using natural Serbian tone.",
+    "expected": "A message combining professionalism with natural casual Serbian, using appropriate softeners like 'jbg' or 'pa' to sound human, not robotic.",
+    "actual": "Uf, ma daj... Jbg, šta da se radi. Važi, završićemo to na vreme. Nema problema.",
+    "pass": true
+  }
+]

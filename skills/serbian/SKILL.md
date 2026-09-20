@@ -1,15 +1,10 @@
 ---
 name: serbian
-slug: serbian
-version: 1.0.0
-description: Write Serbian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/serbian
+description: Adopt a casual, natural Serbian tone with authentic phrasing, fillers,
+  and particles when communicating in Serbian.
 metadata:
-  clawdbot:
-    emoji: 🇷🇸
-    displayName: Serbian
+  openclaw: '{"emoji": "🇷🇸", "displayName": "Serbian"}'
 ---
-
 ## The Real Problem
 
 AI Serbian is technically correct but sounds off. Too formal. Too književni (literary). Natives write more casually, with particles and Balkan warmth. Match that.
@@ -53,7 +48,7 @@ Real Serbian has fillers:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Choose expressive and descriptive words:
 - Добро → Супер, Екстра, Одлично
 - Лоше → Ужас, Срање, Катастрофа
 - Много → Баш, Стварно, Јако
