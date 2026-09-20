@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Get a snapshot from my IP camera located at rtsp://admin:pass@192.168.1.100:554/stream1 and save it as front_door.jpg",
+    "expected": "Provide the exact ffmpeg command to capture a single frame from the RTSP stream.",
+    "actual": "Use the following command to capture a snapshot from your RTSP stream: `ffmpeg -i \"rtsp://admin:pass@192.168.1.100:554/stream1\" -frames:v 1 front_door.jpg`",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to set up Frigate to detect people and notify me via MQTT.",
+    "expected": "Load `references/security-integration.md` and `references/processing.md` to explain how Frigate handles local YOLO models and sends MQTT events, providing a python snippet to subscribe to the events.",
+    "actual": "I will check the references for Frigate integration. Frigate can run YOLO models locally. You can use Python to subscribe to the MQTT topic `frigate/events` and listen for `person` label events.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I want to do a focus stacking shot sequence with my Canon camera via USB.",
+    "expected": "Load `references/photography-control.md` and explain how to use gphoto2 to set manual focus and capture a sequence.",
+    "actual": "For focus stacking via USB, we can use `gphoto2`. First set the focus mode to manual: `gphoto2 --set-config /main/capturesettings/focusmode=Manual`. Then manually adjust focus between captures.",
+    "pass": true
+  }
+]

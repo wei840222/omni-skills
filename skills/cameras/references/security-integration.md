@@ -109,7 +109,7 @@ curl -k "https://unifi-protect:7443/proxy/protect/api/cameras/{id}/snapshot" \
 ## Best Practices
 
 1. **Use Frigate as aggregator** — handles RTSP, does detection, exposes clean API
-2. **Don't poll constantly** — use webhooks/MQTT for events
+2. **Prefer webhooks/MQTT over constant polling** — subscribe to events instead of hammering camera endpoints
 3. **Cache snapshots briefly** — avoid hammering cameras
 4. **Separate network** — IoT/cameras on VLAN for security
 5. **Local storage preferred** — NVR/NAS, not cloud dependency
