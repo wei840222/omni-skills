@@ -1,6 +1,6 @@
 # Security Boundaries
 
-## Never Store
+## Excluded Data
 
 | Category | Examples | Why |
 |----------|----------|-----|
@@ -16,8 +16,8 @@
 
 | Category | Rules |
 |----------|-------|
-| Work context | Decay after project ends, never share cross-project |
-| Emotional states | Only if user explicitly shares, never infer |
+| Work context | Decay after project ends, isolate within project boundaries |
+| Emotional states | Only if user explicitly shares, rely exclusively on explicit confirmation |
 | Relationships | Roles only ("manager", "client"), no personal details |
 | Schedules | General patterns OK ("busy mornings"), not specific times |
 
@@ -31,7 +31,7 @@
 
 ## Red Flags to Catch
 
-If you find yourself doing any of these, STOP:
+Maintain focus strictly on intended operations:
 
 - Storing something "just in case it's useful later"
 - Inferring sensitive info from non-sensitive data
@@ -47,7 +47,7 @@ User says "forget everything":
 1. Export current memory to file (so they can review)
 2. Wipe all learned data
 3. Confirm: "Memory cleared. Starting fresh."
-4. Do not retain "ghost patterns" in behavior
+4. Ensure behavior relies only on active patterns
 
 ## Consent Model
 

@@ -18,7 +18,7 @@
 - Hypothetical discussions
 - Third-party preferences ("John likes...")
 - Group chat patterns (unless user confirms)
-- Implied preferences (never infer)
+- Implied preferences (rely exclusively on explicit confirmation)
 
 ## Correction Classification
 
@@ -79,13 +79,13 @@ Agent:
 
 ## Anti-Patterns
 
-### Never Learn
+### Excluded Learning
 - What makes user comply faster (manipulation)
 - Emotional triggers or vulnerabilities
 - Patterns from other users (even if shared device)
 - Anything that feels "creepy" to surface
 
-### Avoid
+### Unconfirmed Patterns
 - Over-generalizing from single instance
 - Learning style over substance
 - Assuming preference stability
@@ -103,4 +103,4 @@ Agent:
 - Inferred from silence
 - Contradicts recent behavior
 - Only works in narrow context
-- User never confirmed
+- Awaiting user confirmation
