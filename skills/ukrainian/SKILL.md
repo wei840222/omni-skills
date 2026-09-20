@@ -1,14 +1,17 @@
 ---
 name: ukrainian
-slug: ukrainian
-version: 1.0.0
-description: Write Ukrainian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/ukrainian
+description: >
+  Write casual, natural-sounding Ukrainian with correct ти/Ви, particles,
+  fillers, expressive vocabulary, and pure Ukrainian (not Russian mix). Load
+  when translating to Ukrainian or drafting informal messages, chats, or
+  friendly emails.
 metadata:
-  clawdbot:
-    emoji: 🇺🇦
-    displayName: Ukrainian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇺🇦","displayName":"Ukrainian"}'
+  related-skills: '{"russian":"Write Russian when Ukrainian is not the target language.","polish":"Write Polish when Ukrainian is not the target language.","serbian":"Write Serbian when Ukrainian is not the target language.","translate":"Translate an existing source text into Ukrainian.","writing":"Shape broader prose once the Ukrainian-language decision is settled."}'
 ---
+
+Research notes for register, particles, and Ukrainian-vs-Russian boundaries live in `references/sources.md`.
 
 ## The Real Problem
 
@@ -53,7 +56,7 @@ Spoken patterns in writing:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Choose expressive vocabulary over overly common words:
 - Добре → Супер, Клас, Кайф
 - Погано → Фігово, Хріново, Зле
 - Дуже → Мега, Шалено, Капець
@@ -76,7 +79,7 @@ React naturally:
 
 ## Ukrainian vs Russian
 
-Ukrainian is distinct—don't mix:
+Maintain pure Ukrainian:
 - Different vocabulary, grammar, particles
 - "І" not "И", "Є" not "Е"
 - Respect the language's uniqueness
