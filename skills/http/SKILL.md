@@ -25,7 +25,7 @@ Use this skill for protocol-level HTTP guidance. Deeper research notes for redir
 - `no-cache` still caches but revalidates every time—requires revalidation on every request
 - `private, max-age=0, must-revalidate` for user-specific, always-fresh content
 - `public, max-age=31536000, immutable` for versioned static assets
-- `Vary: Accept-Encoding, Authorization` when response depends on these headers—forgetting Vary breaks caching
+- `Vary: Accept-Encoding, Authorization` when response depends on these headers—always include Vary when the response depends on request headers so caches stay correct
 
 ## Conditional Requests
 
@@ -44,7 +44,7 @@ Use this skill for protocol-level HTTP guidance. Deeper research notes for redir
 
 ## Security Headers (Always Set)
 
-- `Strict-Transport-Security: max-age=31536000; includeSubDomains`—HSTS, once set can't easily undo
+- `Strict-Transport-Security: max-age=31536000; includeSubDomains`—HSTS, treat HSTS as durable once rolled out
 - `X-Content-Type-Options: nosniff`—prevents MIME sniffing attacks
 - `X-Frame-Options: DENY` or `SAMEORIGIN`—prevents clickjacking
 - `Content-Security-Policy`—complex but essential; start with report-only mode
@@ -81,7 +81,7 @@ Use this skill for protocol-level HTTP guidance. Deeper research notes for redir
 ## Connection Behavior
 
 - HTTP/1.1 without `Content-Length` or chunked = connection close after response
-- `Transfer-Encoding: chunked` for streaming—can't set Content-Length
+- `Transfer-Encoding: chunked` for streaming—omit Content-Length when using chunked transfer
 - HTTP/2 is binary, multiplexed—no head-of-line blocking at HTTP level
 - HTTP/3 uses QUIC (UDP), eliminating TCP head-of-line blocking and reducing connection setup latency
 - WebSocket upgrade: GET with `Connection: Upgrade`, `Upgrade: websocket`
