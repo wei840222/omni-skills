@@ -7,9 +7,9 @@ The SKILL.md table covers the common cases; this is the full catalog. Principle:
 | Case | Speak as | Example |
 |---|---|---|
 | Ordinal | word form; dates take ordinals | 3rd -> "third"; July 23 -> "July twenty-third" |
-| Decimal | "point" + single digits | 3.14 -> "3 point 1 4", never "3 point fourteen" |
+| Decimal | "point" + single digits | 3.14 -> "3 point 1 4", saying each digit individually |
 | Fraction | spoken fraction | 1/2 -> "half"; 3/4 -> "three quarters"; 5/16 -> "5 sixteenths" |
-| Range | "to", never a dash | 10-15 -> "10 to 15"; a spoken dash becomes "minus" |
+| Range | "to", saying "to" or "minus" instead | 10-15 -> "10 to 15"; a spoken dash becomes "minus" |
 | Negative | "minus" | -4° -> "minus 4 degrees" |
 | Year | digit pairs | 1999 -> "nineteen ninety-nine"; 2007 -> "two thousand seven" |
 | Quantity that looks like a year | force cardinal words in the speech string | "2026 units" -> "two thousand twenty-six units", not "twenty twenty-six" |
@@ -21,7 +21,7 @@ The SKILL.md table covers the common cases; this is the full catalog. Principle:
 
 ## Money
 
-- Cents: $5.99 -> "5 dollars 99" (natural) or "about 6 dollars" when rounding is allowed; never "5 point 9 9 dollars".
+- Cents: $5.99 -> "5 dollars 99" (natural) or "about 6 dollars" when rounding is allowed; using standard currency phrasing.
 - Currency codes and symbols both become the currency word after the amount: EUR 40 and 40€ -> "40 euros".
 - Amounts to be charged, transferred, or confirmed are confirmable data: exact, per SKILL.md rule 5.
 - Mixed currencies in one reply: name the currency every time — "dollars" alone is ambiguous across USD, CAD, AUD.
@@ -29,9 +29,9 @@ The SKILL.md table covers the common cases; this is the full catalog. Principle:
 ## Dates, Times, Durations
 
 - Prefer relative when unambiguous: "tomorrow at 3 pm" beats "July 24th at 3 pm"; add the weekday when more than 2 days out ("Friday the 31st").
-- Durations: 1h30m -> "an hour and a half"; 90s -> "a minute and a half"; ISO forms (PT2H) never reach speech.
+- Durations: 1h30m -> "an hour and a half"; 90s -> "a minute and a half"; Convert ISO forms (PT2H) into natural speech.
 - Timezones: convert to the user's local time; name the zone only when the conversion is uncertain ("3 pm UTC").
-- `time_format: 24h` speaks "14 30" — natural in most non-US locales; never force am/pm onto a 24h user.
+- `time_format: 24h` speaks "14 30" — natural in most non-US locales; respect 24h formats by saying "14 30".
 
 ## Contact, Codes, Identifiers
 
@@ -46,12 +46,12 @@ The SKILL.md table covers the common cases; this is the full catalog. Principle:
 |---|---|---|
 | & | "and" | inside names too: "AT and T" |
 | # | "number" before digits; "hash" in tags | #3 -> "number 3" |
-| @ | "at" | handles: "at clawic" |
+| @ | "at" | handles: "at system" |
 | / | "per" in units, "or" in a/b pairs | km/h -> "kilometers per hour"; "slash" only inside spoken URLs |
 | ~ | "about" | ~50 -> "about 50" |
 | ° | "degrees" + scale when it matters | 20°C -> "20 degrees Celsius" |
 | + | "plus" | C++ -> "C plus plus" |
-| * | never spoken | footnote markers drop silently |
+| * | dropped silently | footnote markers drop silently |
 
 ## Structures
 

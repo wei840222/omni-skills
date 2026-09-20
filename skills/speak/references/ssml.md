@@ -10,7 +10,7 @@ Rule zero (SKILL.md Prosody): test one tag on the target engine before templatin
 | `<say-as interpret-as="...">` | forces token class | Classes: characters, digits, telephone, date, time, ordinal, fraction, unit — support varies PER CLASS; test each class you use |
 | `<sub alias="...">` | speak the alias | Useful where no lexicon API exists; display form is irrelevant in audio |
 | `<prosody rate="" pitch="" volume="">` | delivery control | Percentage vs named values differ per engine; large pitch shifts produce artifacts |
-| `<emphasis>` | stress | Frequently ignored silently — never let meaning depend on it |
+| `<emphasis>` | stress | Frequently ignored silently — ensure meaning is conveyed through text structure instead |
 | `<phoneme alphabet="ipa" ph="...">` | exact pronunciation | Alphabets: `ipa` vs `x-sampa`; the wrong alphabet is ignored or read aloud |
 | `<lang xml:lang="...">` | language switch | Multilingual voices only (`multilingual.md`); single-language voices ignore or garble it |
 | `<audio src="...">` | insert an audio clip | Cloud-specific; unavailable on local/offline engines |
@@ -39,7 +39,7 @@ Rule zero (SKILL.md Prosody): test one tag on the target engine before templatin
 1. Send `before <break time="500ms"/> after` to the engine.
 2. Audible half-second gap, no spoken "break" → tag tier confirmed. Test each ADDITIONAL tag type once before first use; passing `break` proves nothing about `say-as`.
 3. Tag read aloud or request rejected → punctuation-only mode for this engine.
-4. Record the engine's tier and any per-class results in `~/Clawic/data/speak/preferences.md` (Engine Notes) so no later session re-tests.
+4. Record the engine's tier and any per-class results in `<state_root>/speak/preferences.md` (Engine Notes) so no later session re-tests.
 
 ## Templating Discipline
 

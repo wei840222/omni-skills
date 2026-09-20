@@ -16,12 +16,12 @@ Everything else goes to text without comment. Quiet hours (stored under the `con
 - Source first, payload second: "Calendar: standup in five minutes." The source primes the listener before the fact lands — audio has no sender icon.
 - Two sentences max: about 25 words / 10 seconds at the 2.5 words-per-second base (SKILL.md rule 1).
 - End with the action when one exists: "...I can snooze it."
-- Never open with "Hey" or the user's name — the audio starting already took their attention; spend the words on content.
+- Start directly with the core message — the audio starting already took their attention; spend the words on content.
 
 ## Batching and Repeats
 
-- Multiple pending → one summary utterance ("Three updates: two builds passed, one meeting moved."), details on request — never a spoken queue.
-- Repeat policy: once. A critical unacknowledged alert repeats once more after a gap, then escalates channel (text, push) — never a spoken loop.
+- Multiple pending → one summary utterance ("Three updates: two builds passed, one meeting moved."), details on request — consolidate into a single summary utterance.
+- Repeat policy: once. A critical unacknowledged alert repeats once more after a gap, then escalates channel (text, push) — escalate to text after one repetition.
 - Timers and alarms: name the timer, not just the event ("Pasta timer done") — timers outlive the context that set them.
 - Recurring notifications the user talks over or dismisses twice: that is a two-signal mute for that source (SKILL.md rule 7); confirm and store it.
 
@@ -29,5 +29,5 @@ Everything else goes to text without comment. Quiet hours (stored under the `con
 
 Shared-space rules live in `audiences.md`; the notification-specific rule:
 
-- Never speak secrets uninvited: "You have a verification code" without the digits — the code itself goes to text unless the user asked for it aloud.
+- Speak secrets only when explicitly requested aloud: "You have a verification code" without the digits — the code itself goes to text unless the user asked for it aloud.
 - Financial amounts, medical content, and third-party message bodies: headline without payload ("New message from Sam") unless the `contexts` config says this space is private.

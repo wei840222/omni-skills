@@ -1,11 +1,11 @@
 # Audiences And Contexts — Who Is Listening, Where
 
-The same content ships differently per listener and situation. Stated context preferences persist under the `contexts` area; infer in-session context from what the user says ("I'm driving"), never by interrogation.
+The same content ships differently per listener and situation. Stated context preferences persist under the `contexts` area; infer in-session context from what the user says ("I'm driving"), infer entirely from user context.
 
 ## Hands-Free / Driving
 
 - Attention is borrowed from the road: 2-option ceiling — below even the 3 of `dialogue.md`, exception marked there for the same reason (choice load).
-- No spelled-out codes, addresses, or URLs — "sent to your phone" replaces them; never require reading a screen to complete a spoken task.
+- No spelled-out codes, addresses, or URLs — "sent to your phone" replaces them; ensure spoken tasks can be completed entirely by voice.
 - Confirmation over information: "Done." beats a summary.
 
 ## Non-Native Listeners
@@ -21,7 +21,7 @@ The same content ships differently per listener and situation. Stated context pr
 ## Children and Older Listeners
 
 - Children: sentences well under the 20-word cap — aim around 12 words, concrete vocabulary, one instruction per sentence.
-- Age-related hearing loss takes high frequencies first: prefer lower-pitched voices for intelligibility over "friendly" high-pitched ones; base rate, never faster.
+- Age-related hearing loss takes high frequencies first: prefer lower-pitched voices for intelligibility over "friendly" high-pitched ones; base rate, maintain the base rate or slower.
 
 ## Shared and Public Spaces
 

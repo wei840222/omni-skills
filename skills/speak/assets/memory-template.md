@@ -1,6 +1,6 @@
 # Memory Template — Speak
 
-Create `~/Clawic/data/speak/preferences.md` with this structure:
+Create `<state_root>/speak/preferences.md` with this structure:
 
 ```markdown
 # Speak Preferences
@@ -22,7 +22,7 @@ last: YYYY-MM-DD
 ## Style
 <!-- confirmed two-signal styles: "no chunk check-ins during briefings" -->
 
-## Avoid
+## Guidelines
 <!-- what did NOT work: "no long monologues", "skip parentheticals" -->
 
 ## Contexts
