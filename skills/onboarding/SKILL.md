@@ -12,6 +12,8 @@ metadata:
 
 Use this skill for first-run activation design. Deeper research notes and source URLs live in `references/sources.md`.
 
+Load `references/sources.md` when you need activation benchmarks, empty-state patterns, or lifecycle-email timing evidence.
+
 ## Define Activation First
 
 Answer before designing anything:
