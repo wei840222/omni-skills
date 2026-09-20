@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Design an onboarding sequence for a new project management app.",
+    "expected": "Focus on activation definition first, minimal signup form, and empty state with single quick win CTA.",
+    "actual": "Defined activation as 'First task created'. Proposed a 2-field signup form (email/password). Recommended an empty state displaying what will appear, a visual example, and a 'Create your first project' primary button. Suggested a short email sequence that stops upon activation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should we ask for detailed user persona information during signup?",
+    "expected": "Advise against asking for detailed information before delivering value, and propose a single segmentation question instead.",
+    "actual": "Advised limiting the signup form to email and password to minimize drop-off. Suggested one post-signup segmentation question ('What is your main goal?') with 3–4 options to route the first action, rather than blocking signup with multi-field persona forms.",
+    "pass": true
+  }
+]
