@@ -24,7 +24,7 @@
 - [rejected tool]
 ```
 
-## ~/Clawic/data/coding/history.md
+## <state_root>/history.md
 
 ```markdown
 # Archived Preferences
