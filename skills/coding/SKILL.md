@@ -1,77 +1,74 @@
 ---
 name: coding
-slug: coding
-version: 1.0.3
-description: Coding style memory that adapts to your preferences, conventions, and patterns for consistent coding.
-homepage: https://clawic.com/skills/coding
-changelog: Improve discoverability, add homepage and feedback section
+description: Manage and apply user-specific coding style preferences, stack decisions,
+  and architectural patterns. Trigger when explicitly corrected by the user or when
+  generating code that requires style alignment.
 metadata:
-  clawdbot:
-    emoji: 💻
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Coding
+  openclaw: '{"emoji": "💻", "os": ["linux", "darwin", "win32"], "displayName": "Coding"}'
+  related-skills: null
 ---
 
-## When to Use
+## When to load
 
-User has coding style preferences, stack decisions, or patterns they want remembered. Agent learns ONLY from explicit corrections and confirmations, never from observation.
+Load `references/dimensions.md` to review the categories of coding preferences you can track.
+Load `references/criteria.md` when deciding whether to add a new preference.
+Load `assets/memory-template.md` to view the required format for memory files.
+
+## State location
+
+```text
+<workspace>/coding/
+<workspace>/memory/coding/
+~/coding/
+```
+
+- **Lookup order**: Highest precedence first.
+- **Creation**: If none exist, `<workspace>/coding/` is created on first write.
+- **Storage**: Write state exclusively to external locations, keeping the skill package read-only. All paths below use `<state_root>` to indicate the resolved location.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/coding/` with tiered structure. See `memory-template.md` for setup.
+Memory lives in `<state_root>/` with tiered structure. See `assets/memory-template.md` for setup.
 
 ```
-~/Clawic/data/coding/
+<state_root>/
 ├── memory.md      # Active preferences (≤100 lines)
 └── history.md     # Archived old preferences
 ```
 
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Categories of preferences | `dimensions.md` |
-| When to add preferences | `criteria.md` |
-| Memory templates | `memory-template.md` |
-
 ## Data Storage
 
-All data stored in `~/Clawic/data/coding/`. Create on first use:
+All data stored in `<state_root>/`. Create on first use:
 ```bash
-mkdir -p ~/coding
+mkdir -p <state_root>
 ```
 
 ## Scope
 
 This skill ONLY:
 - Learns from explicit user corrections ("I prefer X over Y")
-- Stores preferences in local files (`~/Clawic/data/coding/`)
+- Stores preferences in local files (`<state_root>/`)
 - Applies stored preferences to code output
 
-This skill NEVER:
+This skill is RESTRICTED to explicitly requested actions. You must skip:
 - Reads project files to infer preferences
 - Observes coding patterns without consent
 - Makes network requests
-- Reads files outside `~/Clawic/data/coding/`
+- Reads files outside `<state_root>/`
 - Modifies its own SKILL.md
 
 ## Core Rules
 
 ### 1. Learn from Explicit Feedback Only
 - User corrects output → ask: "Should I remember this preference?"
-- User confirms → add to `~/Clawic/data/coding/memory.md`
-- Never infer from silence or observation
+- User confirms → add to `<state_root>/memory.md`
+- Infer intent only from explicit instruction, ignoring silence or observation
 
 ### 2. Confirmation Required
 No preference is stored without explicit user confirmation:
 - "Actually, I prefer X" → "Should I remember: prefer X?"
 - User says yes → store
-- User says no → don't store, don't ask again
+- User says no → discard the preference and proceed without asking again
 
 ### 3. Ultra-Compact Format
 Keep each entry 5 words max:
@@ -80,11 +77,11 @@ Keep each entry 5 words max:
 - `tests: colocated, not separate folder`
 
 ### 4. Category Organization
-Group by type (see `dimensions.md`):
+Group by type (see `references/dimensions.md`):
 - **Stack** — frameworks, databases, tools
 - **Style** — naming, formatting, comments
 - **Structure** — folders, tests, configs
-- **Never** — explicitly rejected patterns
+- **Rejected** — explicitly rejected patterns
 
 ### 5. Memory Limits
 - memory.md ≤100 lines
@@ -92,7 +89,7 @@ Group by type (see `dimensions.md`):
 - Merge similar entries: "no Prettier" + "no ESLint" → "minimal tooling"
 
 ### 6. On Session Start
-1. Load `~/Clawic/data/coding/memory.md` if exists
+1. Load `<state_root>/memory.md` if exists
 2. Apply stored preferences to responses
 3. If no file exists, start with no assumptions
 
@@ -112,15 +109,10 @@ User can ask:
 ## Security & Privacy
 
 **Data that stays local:**
-- All preferences stored in `~/Clawic/data/coding/`
+- All preferences stored in `<state_root>/`
 - No telemetry or analytics
 
 **This skill does NOT:**
 - Send data externally
-- Access files outside `~/Clawic/data/coding/`
+- Access files outside `<state_root>/`
 - Observe without explicit user input
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/coding
-- Latest version: https://clawic.com/skills/coding

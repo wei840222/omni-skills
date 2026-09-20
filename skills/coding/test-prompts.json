@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I actually prefer using snake_case for my file names.",
+    "expected": "Ask if I should remember to use snake_case for file names in the future.",
+    "actual": "Should I remember this preference: naming: snake_case for files?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Show me what you know about my python style.",
+    "expected": "Read the <state_root>/memory.md file and output any python-related preferences.",
+    "actual": "Here are the Python-related coding preferences I have memorized:\n- python: prefer 3.11+\n- python: black formatter",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I don't like using Prettier. Also, can you forget the preference about TypeScript?",
+    "expected": "Ask to remember the preference about not using Prettier, and remove the TypeScript preference from memory.",
+    "actual": "I have removed the TypeScript preference from memory. Should I also remember this new preference: no Prettier?",
+    "pass": true
+  }
+]
