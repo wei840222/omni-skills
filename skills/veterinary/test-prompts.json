@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "My 30lb dog ate 1oz of dark chocolate. Should I be worried?",
+    "expected": "Provide a concrete toxicity framing for dark chocolate, classify urgency (monitor vs go now), refuse individual diagnosis, and advise calling a vet or poison hotline.",
+    "actual": "Dark chocolate is higher in theobromine than milk chocolate. A common teaching threshold is roughly ~1 oz dark chocolate per 10 lb body weight as high concern; for a 30 lb dog, 1 oz is worrying but often framed below the most severe owner-facing threshold — still call your veterinarian or an animal poison hotline now, watch for vomiting, diarrhea, restlessness, or tremors, and do not give human medications.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a vet student. What are the key differentials for a 10-year-old dog presenting with hypercalcemia?",
+    "expected": "Use a differential framework (DAMNIT-V/VITAMIN D), emphasize neoplasia and hyperparathyroidism in older dogs, keep species-specific reasoning, and avoid diagnosing a real patient.",
+    "actual": "For a 10-year-old dog, start with DAMNIT-V and put neoplasia high on the list (lymphoma, apocrine gland anal sac adenocarcinoma) along with primary hyperparathyroidism; also weigh renal disease, Addison's, and lab artifact/lipemia. Confirm species and clinical context, propose a minimum database and ionized calcium next steps, and treat this as case-based teaching rather than a patient diagnosis.",
+    "pass": true
+  }
+]
