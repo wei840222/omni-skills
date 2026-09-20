@@ -17,10 +17,10 @@ Load this skill when the user asks to track pregnancy symptoms, log daily prenat
 Read `references/setup.md` on first initialization.
 ## Architecture
 
-Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure and starter templates.
+Memory lives in `<state_root>/pregnancy/`. See `assets/memory-template.md` for structure and starter templates.
 
 ```text
-<state_root>/
+<state_root>/pregnancy/
 |-- memory.md                 # Status, context, and active tracking modules
 |-- logs/daily-log.md         # Day-by-day entries with timestamps and units
 |-- summaries/weekly.md       # Weekly clinical summary and trend notes
@@ -43,7 +43,7 @@ Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure a
 
 ## Data Storage
 
-Local notes stay in `<state_root>/`.
+Local notes stay in `<state_root>/pregnancy/`.
 Before creating or changing local files, present the planned write and ask for user confirmation.
 
 ## Core Rules
@@ -126,7 +126,7 @@ No other data is sent externally.
 
 **Data stored locally:**
 - tracking logs, weekly summaries, alert events, and clinician question lists approved by the user.
-- stored in `<state_root>/`.
+- stored in `<state_root>/pregnancy/`.
 
 **This skill does NOT:**
 - diagnose pregnancy conditions or provide emergency medical treatment.
