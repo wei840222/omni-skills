@@ -1,6 +1,6 @@
 # Setup - Business Intelligence
 
-Read this when `~/Clawic/data/business-intelligence/memory.md` does not exist or is empty.
+Read this when durable BI memory is enabled and the resolved `<state_root>/memory.md` does not exist or is empty.
 
 Answer the user's immediate question first, then gather setup context naturally in the same conversation.
 
@@ -39,7 +39,7 @@ Before ending setup, produce one concrete output:
 
 When memory is enabled:
 
-- Create `~/Clawic/data/business-intelligence/memory.md` from `memory-template.md`.
+- Resolve `<state_root>` per `SKILL.md`, then create `<state_root>/memory.md` from `assets/memory-template.md`.
 - Update `last` when KPI contracts or decision cadence change.
 - Store concise operational context only.
-- Never store credentials, secrets, or unrelated personal details.
+- Store only business intelligence artifacts, KPIs, and metric trees.

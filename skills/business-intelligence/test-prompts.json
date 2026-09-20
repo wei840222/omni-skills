@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a KPI for our customer retention. What should I include in the definition?",
+    "expected": "Provides a comprehensive KPI contract including definition, formula, grain, source, owner, leading indicators, and valid interpretation window according to the Core Rules.",
+    "actual": "Here is the KPI contract for Customer Retention Rate (CRR).\n\n**Definition:** The percentage of customers retained over a given period (e.g., monthly), excluding new customers acquired during that period.\n**Formula:** ((Customers at end of period - New customers during period) / Customers at start of period) * 100\n**Grain:** Monthly, per cohort.\n**Source:** CRM Database (Billing Table).\n**Refresh Cadence:** Daily snapshot, aggregated monthly.\n**Owner:** VP of Customer Success.\n**Interpretation Window:** Minimum 30-day cohort maturity required before evaluation.\n\n**Leading Indicators:**\n- Weekly Active Users (WAU) login frequency.\n- Average Support Ticket Resolution Time.\n- Net Promoter Score (NPS) trajectory.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our weekly BI reports show a 5% drop in sales but nobody is taking action. How can we fix our reporting cadence?",
+    "expected": "Applies the 'Insight Briefs' and 'Operating Cadence' rules to reframe the report into a decision format with actionable attribution and assigned owners.",
+    "actual": "A 5% drop in sales is a lagging indicator. To fix the reporting cadence and drive action, we must implement decision-format briefs and strict review rituals.\n\n1.  **Mandate Action Owners:** Every insight must assign an action owner. For the 5% drop, identify who is responsible for investigating the root cause (e.g., Regional Sales Director) and set a due date for their findings.\n2.  **Attribution Depth:** Do not just report the drop. Break it down by driver (e.g., traffic vs. conversion rate, or product line vs. region) to identify where the intervention should happen.\n3.  **Implement an Escalation Ritual:** Define a weekly KPI review meeting where variances outside the defined threshold (e.g., >3% drop) automatically trigger a root-cause analysis presentation by the metric owner.\n\n**Recommended Insight Format:**\n- **What Changed:** Sales dropped 5% WoW.\n- **Why it Changed:** Conversion rate in the EU region fell by 12% due to a checkout bug.\n- **Confidence:** High (verified via funnel analytics).\n- **Recommended Action:** Patch checkout bug and launch win-back email campaign for abandoned carts.\n- **Owner:** John Doe (Product Manager).\n- **Due Date:** Tuesday EOD.",
+    "pass": true
+  }
+]
