@@ -1,14 +1,16 @@
 ---
 name: french
-slug: french
-version: 1.0.0
-description: Write French that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/french
+description: >
+  Write casual, native-sounding French with correct tu/vous, contractions,
+  ne-dropping, fillers, and one locked regional variety. Load when translating
+  or drafting informal messages, emails to friends, or conversational French.
 metadata:
-  clawdbot:
-    emoji: 🇫🇷
-    displayName: French
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇫🇷","displayName":"French"}'
+  related-skills: '{"spanish":"Write Spanish when French is not the target language.","portuguese":"Write Portuguese when French is not the target language.","german":"Write German when French is not the target language.","english":"Write English when French is not the target language.","translate":"Translate an existing source text into French.","writing":"Shape broader prose once the French-language decision is settled."}'
 ---
+
+Research notes for register, orthography, and regional varieties live in `references/sources.md`.
 
 ## The Real Problem
 
@@ -21,6 +23,7 @@ Default register is too high. Casual French is the norm. Unless explicitly forma
 ## Tu vs Vous
 
 Get this right—it defines the entire tone:
+
 - Vous: strangers, professional, older people, formal
 - Tu: friends, family, peers, casual
 - Once tu is established, vous sounds cold/hostile
@@ -29,6 +32,7 @@ Get this right—it defines the entire tone:
 ## Contractions & Elisions
 
 Spoken French drops sounds. Reflect this in casual writing:
+
 - "Je suis" → "J'suis" / "Chuis"
 - "Tu es" → "T'es"
 - "Il y a" → "Y'a"
@@ -38,6 +42,7 @@ Spoken French drops sounds. Reflect this in casual writing:
 ## Ne-Dropping
 
 In casual French, "ne" disappears:
+
 - "Je ne sais pas" → "Je sais pas"
 - "C'est pas grave" (not "Ce n'est pas grave")
 - "Y'a pas de problème"
@@ -46,6 +51,7 @@ In casual French, "ne" disappears:
 ## Fillers & Flow
 
 Real French has fillers. Use them:
+
 - "Euh", "ben", "bah", "enfin", "bref"
 - "Du coup", "en fait", "genre", "quoi"
 - "Tu vois", "t'sais", "j'veux dire"
@@ -53,7 +59,8 @@ Real French has fillers. Use them:
 
 ## Sentence Fragments
 
-Don't always complete sentences:
+Use sentence fragments freely:
+
 - "Tu viens?" "Ouais, deux secondes."
 - "Ça va?" "Tranquille."
 - "C'est bon?" "Nickel."
@@ -61,7 +68,8 @@ Don't always complete sentences:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Pick expressive words instead of safe ones:
+
 - "Bien" → "Super" / "Génial" / "Trop bien"
 - "Mal" → "Nul" / "Pourri" / "C'est la merde"
 - "Beaucoup" → "Vachement" / "Trop" / "Grave"
@@ -70,6 +78,7 @@ Don't pick the safe word:
 ## Common Expressions
 
 Use natural expressions:
+
 - "C'est pas faux", "ça marche", "ça roule"
 - "N'importe quoi", "c'est n'imp"
 - "Laisse tomber", "t'inquiète"
@@ -78,6 +87,7 @@ Use natural expressions:
 ## Reactions
 
 React like a human:
+
 - "Ah bon?", "Sérieux?", "C'est vrai?"
 - "Putain", "Merde", "Oh là là"
 - "Trop fort", "Dingue", "Hallucinant"
@@ -86,6 +96,7 @@ React like a human:
 ## Punctuation
 
 French punctuation has rules:
+
 - Space before : ; ? ! (in formal/standard)
 - «Guillemets» for quotes in formal
 - Often dropped in casual texting
@@ -94,11 +105,26 @@ French punctuation has rules:
 ## Regional Awareness
 
 If region known, commit:
+
 - France: meuf, mec, kiffer, bosser, bagnole
 - Québec: char, blonde (girlfriend), icitte, tabernac, c'est correct
 - Belgium: septante, nonante, une fois
-- Don't mix. Stay consistent.
+- Pick one region and stay consistent.
 
 ## The "Native Test"
 
 Before sending: would a French person screenshot this as "AI-generated"? If yes—too clean, too formal, too proper. Rough it up.
+
+## Sources
+
+Domain sources and locale notes live in `references/sources.md`.
+
+## Output Gates
+
+Before delivering French text:
+
+- One regional variety end to end (France, Québec, or Belgium) with matching vocabulary
+- Casual register uses contractions, ne-dropping, and native fillers when the channel is informal
+- Pronoun system is consistent (`tu`/`vous`) for the chosen relationship and formality
+- Punctuation and number formats match French conventions for the chosen register
+- No mixing of regional slang sets in the same reply
