@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a new brand campaign for my app in the US. Target CPA is $10.",
+    "expected": "The skill should route to references/strategy.md for bidding math (e.g., max CPT based on CPA and expected CVR) and campaign structure. It should advise creating a dedicated brand campaign for the US and provide exact match recommendations.",
+    "actual": "Routed to references/strategy.md. Recommended a single intent campaign for the brand term in the US. Advised setting Max CPT based on target CPA ($10) and expected CVR, and instructed me to monitor impression share as a range to defend the brand term.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My non-brand campaign is suddenly spending the daily budget with zero installs. What should I do?",
+    "expected": "The skill should route to references/troubleshooting.md and reference the 'Spend Gates' rule (Rule 7) to cut bids sharply or pause keywords that have exceeded 2x target CPA without installs.",
+    "actual": "Routed to references/troubleshooting.md. Cited the Spend Gates Before Scale rule. Advised me to pull a search term report via the API, identify any term that spent >= $20 (assuming $10 target CPA) with 0 installs, and either cut the bid by 30-50% or pause the keyword immediately.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "The ASA dashboard shows 50 installs, but our Adjust MMP only shows 20. Which is right?",
+    "expected": "The skill should route to references/measurement.md and explain attribution windows and models (ASA vs SKAN vs MMP). It should advise picking one source of truth per KPI.",
+    "actual": "Routed to references/measurement.md. Explained that ASA tracks on tap date (up to 30 days retroactively) while MMPs track on the install event timestamp. Instructed me to pick one source of truth per KPI and record the choice in memory, maintaining this choice throughout analysis.",
+    "pass": true
+  }
+]

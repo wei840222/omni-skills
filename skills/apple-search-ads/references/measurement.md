@@ -2,11 +2,11 @@
 
 Attribution sources disagree by design. This file is the canonical home of the provisional-window rule, source-of-truth selection, LTV estimation, incrementality testing, and cohort ROAS. Implementation of the SDKs lives in `ios-integration.md`; this is the analysis side.
 
-Contents: Source of Truth · Why Counts Never Match · Provisional Windows · Reconciliation Drill · LTV Estimation · Cohort ROAS · Brand Incrementality Holdout · Reading SKAN
+Contents: Source of Truth · Why Counts diverge · Provisional Windows · Reconciliation Drill · LTV Estimation · Cohort ROAS · Brand Incrementality Holdout · Reading SKAN
 
 ## Source of Truth per KPI
 
-Pick once per KPI, record the choice in `~/Clawic/data/apple-search-ads/memory.md`, never switch mid-analysis. Defaults (with `mmp` set in config, the MMP takes the install/event rows):
+Pick once per KPI, record the choice in `<state_root>/memory.md`, maintain this choice throughout analysis. Defaults (with `mmp` set in config, the MMP takes the install/event rows):
 
 | KPI | Source | Why |
 |---|---|---|
@@ -17,7 +17,7 @@ Pick once per KPI, record the choice in `~/Clawic/data/apple-search-ads/memory.m
 | Revenue | Store reports / your backend | The only figures that survive finance review |
 | Aggregate install validation | SKAN postbacks | Apple-signed counts, immune to SDK misconfiguration |
 
-## Why the Counts Never Match
+## Why the Counts diverge
 
 Structural gaps — expected, not bugs:
 
@@ -28,7 +28,7 @@ Structural gaps — expected, not bugs:
 | Re-downloads | ASA counts them (reported separately as `redownloads`); MMPs may classify the same event as a re-attribution, not an install |
 | Consent | AdServices attribution works without ATT at campaign level, so ASA and the MMP's ASA integration keep counting; anything IDFA-based in the MMP shrinks with consent rates |
 | SKAN privacy thresholds | Low-volume campaigns get null or coarse conversion values withheld by crowd anonymity — missing data, by design |
-| Modeled rows | Some MMPs model installs where signals are missing; modeled and measured rows should never be summed silently — check the flag |
+| Modeled rows | Some MMPs model installs where signals are missing; modeled and measured rows should must be kept separate when summing — check the flag |
 
 ## Provisional Windows (canonical rule)
 
@@ -48,7 +48,7 @@ When someone asks "which install number is right":
 3. Fix the date basis — you cannot fully align tap-dated (ASA) and install-dated (MMP) rows; expect bleed at both edges of the window.
 4. Compare per campaign, not account totals — a gap concentrated in one campaign is a clue (re-downloads, one keyword, one country); a uniform gap is structural.
 5. Accept the residual — after alignment a stable percentage gap persists. Track that its SIZE stays stable month over month; a stable gap is structure, a moving gap is a new problem.
-6. Report the number from the declared source of truth, with the gap noted once — never average the two sources.
+6. Report the number from the declared source of truth, with the gap noted once — report each source distinctly without averaging.
 
 ## LTV Estimation
 
@@ -63,7 +63,7 @@ Recompute quarterly; a target CPA computed from a stale LTV silently misprices e
 
 ## Cohort ROAS
 
-- ROAS(d) = cohort net revenue through day d ÷ cohort spend. Always cohort-based (users acquired in period X), never calendar-based (revenue in period X ÷ spend in period X) — calendar ROAS mixes old users' revenue with new users' cost and flatters every scaling decision.
+- ROAS(d) = cohort net revenue through day d ÷ cohort spend. Always cohort-based (users acquired in period X), instead of calendar-based (revenue in period X ÷ spend in period X) — calendar ROAS mixes old users' revenue with new users' cost and flatters every scaling decision.
 - Choose the payback window from runway, then derive the early gate from your own curve: if your curve shows D30 revenue is ~1/3 of D180 revenue, a 100%-by-D180 payback target implies a ~33% D30 ROAS gate. The shape ratio comes from your cohorts, not from a benchmark.
 - Judge campaigns against the gate at the same cohort age — comparing a 10-day-old cohort's ROAS to a 90-day-old one's is the calendar mistake in disguise.
 
@@ -83,6 +83,6 @@ Protocol:
 Implementation (bit mapping, postback registration) is in `ios-integration.md`. Analysis rules:
 
 - Three postbacks per install over 0-2, 3-7, and 8-35 day windows; only the first carries the fine 0-63 value. With randomized delays on top, a cohort's SKAN picture is not complete until ~6 weeks after install — schedule SKAN-based reviews accordingly.
-- Never daypart or day-compare on SKAN install timing; postback arrival is deliberately decoupled from install time (SKILL.md Traps).
+- Use only tap timing for day-parting instead of SKAN install timing; postback arrival is deliberately decoupled from install time (SKILL.md Traps).
 - Null and coarse conversion values concentrate in low-volume campaigns (privacy thresholds). Consolidating tiny campaigns raises measurable signal — a real argument against over-fragmenting the account structure.
-- Use SKAN as the validation layer: if MMP-reported ASA installs exceed SKAN counts by a wide and growing margin, suspect the MMP's window or modeling settings — Apple-signed postbacks do not inflate.
+- Use SKAN as the validation layer: if MMP-reported ASA installs exceed SKAN counts by a wide and growing margin, suspect the MMP's window or modeling settings — Apple-signed postbacks remain consistent.

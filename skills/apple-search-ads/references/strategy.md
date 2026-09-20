@@ -26,7 +26,7 @@ Contents: Campaign Planning · Campaign Architecture · Keyword Strategy · Bidd
 
 Worked example (canonical — SKILL.md Rule 1 uses the same numbers): LTV $24, divide by 4 → target CPA $6. Expected CVR 50% → max CPT = 6 × 0.50 = $3.00. Every bid in the account derives from this ceiling.
 
-Sanity ranges, not targets (vary widely by category and market): TTR for relevant keywords commonly 5-10%; search-results CVR is high relative to other channels (search intent) — 30-60% typical, brand terms above that; CPT roughly $0.50-3.00 in Tier-1 English markets, brand cheapest. Impression share is a trend metric reported as a range, never a point value.
+Sanity ranges, not targets (vary widely by category and market): TTR for relevant keywords commonly 5-10%; search-results CVR is high relative to other channels (search intent) — 30-60% typical, brand terms above that; CPT roughly $0.50-3.00 in Tier-1 English markets, brand cheapest. Impression share is a trend metric reported as a range, exclusively a range.
 
 ## Campaign Architecture
 
@@ -38,7 +38,7 @@ Organization (orgId)
     ├── Daily budget & schedule
     └── Ad Groups
         ├── Keywords (targeting + negative)
-        ├── Audience (avoid refinements — see SKILL.md Traps)
+        ├── Audience (skip refinements — see SKILL.md Traps)
         ├── Creatives (default page or Custom Product Page)
         └── Bid settings (default bid, cpaGoal)
 ```
@@ -52,7 +52,7 @@ Organization (orgId)
 | `APPSTORE_TODAY_TAB` | App Store front page | Launches and brand moments; requires creative review |
 | `APPSTORE_PRODUCT_PAGES` | "You Might Also Like" on other apps' pages | Conquesting users browsing adjacent apps |
 
-Default: start with Search Results only; add other placements as separate campaigns once Search Results hits target CPA — never blend placements in one campaign.
+Default: start with Search Results only; add other placements as separate campaigns once Search Results hits target CPA — keep placements in separate campaigns.
 
 ### The 4-Campaign Structure
 
@@ -87,7 +87,7 @@ Search Match is seeded by your App Store metadata — improving ASO keywords lit
 
 1. Organic search terms from App Store Connect — proven intent, seed the exact ad groups
 2. Competitor keyword coverage (Sensor Tower, AppTweak, Mobile Action)
-3. ASA dashboard suggestions — enter via broad at discovery bids, never straight to exact
+3. ASA dashboard suggestions — enter via broad at discovery bids, transition through broad before exact
 4. Search term mining weekly — the graduate-and-negate loop (SKILL.md Rule 4) is the engine; steps 1-3 only prime it
 
 ### Keyword Tiers (bids anchored to max CPT)
@@ -103,7 +103,7 @@ Search Match is seeded by your App Store metadata — improving ASO keywords lit
 
 ### Negative Keywords
 
-Immediately at launch: "free" (if paid app), competitor names (in brand campaign), unrelated categories. Campaign-level negatives = terms you never want anywhere; ad-group-level = terms that belong to a sibling ad group.
+Immediately at launch: "free" (if paid app), competitor names (in brand campaign), unrelated categories. Campaign-level negatives = terms to exclude globally; ad-group-level = terms that belong to a sibling ad group.
 
 ## Bidding
 

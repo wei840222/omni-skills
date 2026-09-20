@@ -1,6 +1,6 @@
 # Troubleshooting — Symptom to Cause
 
-Diagnosis chains for Apple Search Ads, ordered by probability. Each step is a check, not a guess. Numbers (spend gate, windows, bid steps) are the canonical ones from SKILL.md Core Rules and `strategy.md` — this file applies them, it never redefines them.
+Diagnosis chains for Apple Search Ads, ordered by probability. Each step is a check, not a guess. Numbers (spend gate, windows, bid steps) are the canonical ones from SKILL.md Core Rules and `strategy.md` — this file applies them; it never redefines them.
 
 Contents: First Three Checks · No Impressions · Campaign Not Spending · Spend But No Installs · CPA Suddenly Spiked · ON_HOLD / Rejected · API Errors · Counts Disagree · Truly Stuck
 

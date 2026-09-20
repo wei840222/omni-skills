@@ -1,6 +1,6 @@
 # Memory Template — Apple Search Ads
 
-Create `~/Clawic/data/apple-search-ads/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Apple Search Ads Memory
@@ -78,16 +78,16 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Still learning their setup | Gather context, suggest improvements |
 | `complete` | Know their full setup | Focus on optimization |
-| `paused` | User said "not now" | Don't ask for more context |
+| `paused` | User said "not now" | Proceed with current context |
 
 ## Credentials Template
 
-Create `~/Clawic/data/apple-search-ads/credentials.md`:
+Create `<state_root>/credentials.md`:
 
 ```markdown
 # Apple Search Ads Credentials
 
-⚠️ NEVER store actual secrets here. Use environment variables.
+⚠️ Ensure actual secrets remain outside this file. Use environment variables.
 
 ## Required Credentials
 
@@ -118,7 +118,7 @@ export ASA_PRIVATE_KEY_FILE="$HOME/.secrets/asa-private-key.p8"
 
 ```bash
 # After setting variables, a token should come back non-empty:
-~/Clawic/data/apple-search-ads/scripts/get-token.sh
+<state_root>/scripts/get-token.sh
 ```
 ```
 
