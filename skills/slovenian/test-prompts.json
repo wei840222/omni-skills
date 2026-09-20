@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a quick message to a friend apologizing that I'll be 10 minutes late.",
+    "expected": "A casual, informal message using 'ti' and natural phrasing (like 'sory', 'zamudil', 'se vidimo').",
+    "actual": "Hej, oprosti, ampak bom zamudil kakšnih 10 minut. Se vidiva kmalu! Ni panike, a ne?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Reply to an online comment saying the new movie was okay but too long.",
+    "expected": "An informal response using particles, filler words, and natural expressiveness.",
+    "actual": "No, pač film je bil okej, ampak res predolg. Sicer pa kul, sam ne vem, če bi ga še enkrat gledal.",
+    "pass": true
+  }
+]

@@ -1,14 +1,16 @@
 ---
 name: slovenian
-slug: slovenian
-version: 1.0.0
-description: Write Slovenian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/slovenian
+description: >
+  Write casual, natural-sounding Slovenian with correct ti/Vi, dual forms,
+  particles, fillers, and expressive vocabulary. Load when translating to
+  Slovenian or drafting informal messages, chats, or friendly emails.
 metadata:
-  clawdbot:
-    emoji: 🇸🇮
-    displayName: Slovenian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇸🇮","displayName":"Slovenian"}'
+  related-skills: '{"croatian":"Write Croatian when Slovenian is not the target language.","serbian":"Write Serbian when Slovenian is not the target language.","slovak":"Write Slovak when Slovenian is not the target language.","translate":"Translate an existing source text into Slovenian.","writing":"Shape broader prose once the Slovenian-language decision is settled."}'
 ---
+
+Research notes for register, dual forms, particles, and South Slavic boundaries live in `references/sources.md`.
 
 ## The Real Problem
 
@@ -16,7 +18,7 @@ AI Slovenian is technically correct but sounds off. Too formal. Too literary. Na
 
 ## Formality Default
 
-Default register is too high. Casual Slovenian is warm and direct. Unless explicitly formal: lean casual. "Živjo" or "Hej" not "Dober dan". "Ja" not "Da, seveda".
+Default register is too high. Casual Slovenian is warm and direct. Unless explicitly formal: lean casual. Use "Živjo" or "Hej" instead of "Dober dan". Use "Ja" instead of "Da, seveda".
 
 ## Ti vs Vi
 
@@ -31,7 +33,7 @@ Critical distinction:
 Slovenian has dual (for two people):
 - Midva (we two), vidva (you two)
 - Use it correctly—it's distinctive
-- But casual writing sometimes skips it
+- Casual writing may drop dual when speed matters; keep dual when the pair is explicit and natural
 
 ## Particles & Softeners
 
@@ -52,7 +54,7 @@ Real Slovenian has fillers:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Use expressive words instead of safe ones:
 - Dobro → Super, Odlično, Kul
 - Slabo → Grozno, Zanič, Bedno
 - Zelo → Ful, Mega, Res
@@ -75,4 +77,4 @@ React naturally:
 
 ## The "Native Test"
 
-Before sending: would a Slovenian screenshot this as "AI-generated"? If yes—too formal, no "no", too stiff. Add casual warmth.
+Before sending: would a Slovenian screenshot this as "AI-generated"? If yes (meaning it is too formal, lacks particles like "no", or is too stiff), add casual warmth before sending.
