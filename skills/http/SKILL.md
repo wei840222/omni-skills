@@ -1,30 +1,28 @@
 ---
 name: http
-slug: http
-version: 1.0.0
-description: Use HTTP correctly with proper methods, status codes, headers, and caching.
-homepage: https://clawic.com/skills/http
+description: >
+  Apply proper HTTP methods, status codes, headers, and caching strategies.
+  Load when debugging API responses, configuring CORS/security headers, or
+  handling HTTP redirects and conditional requests.
 metadata:
-  clawdbot:
-    emoji: 🌐
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: HTTP
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌐","os":["linux","darwin","win32"],"displayName":"HTTP"}'
+  related-skills: '{"api":"Use for third-party REST/GraphQL client integration beyond protocol mechanics.","cors":"Use for detailed Cross-Origin Resource Sharing policy design.","postman":"Use for Postman collections and Newman runs when HTTP debugging needs a collection harness.","web":"Use for full website build/deploy work beyond HTTP protocol guidance."}'
 ---
+
+Research notes for redirects, caching, conditional requests, and security headers live in `references/sources.md`.
 
 ## Redirects (Often Confused)
 
 - 307 vs 308: both preserve method; 307 temporary, 308 permanent—use these for POST/PUT redirects
-- 301/302 may change POST to GET (browser behavior)—don't use for API redirects with body
+- 301/302 may change POST to GET (browser behavior)—use 307 or 308 for API redirects with body
 - Include `Location` header with absolute URL—relative may fail in older clients
 - Redirect loops: limit to 5-10 follows; infinite loops crash clients
 
 ## Caching Combinations
 
-- `Cache-Control: no-store` for sensitive data—never written to disk
-- `no-cache` still caches but revalidates every time—not "don't cache"
+- `Cache-Control: no-store` for sensitive data—kept strictly in memory
+- `no-cache` still caches but revalidates every time—requires revalidation on every request
 - `private, max-age=0, must-revalidate` for user-specific, always-fresh content
 - `public, max-age=31536000, immutable` for versioned static assets
 - `Vary: Accept-Encoding, Authorization` when response depends on these headers—forgetting Vary breaks caching
@@ -34,7 +32,7 @@ metadata:
 - `ETag` + `If-None-Match`: prefer for APIs—content hash based
 - Strong vs weak ETags: `"abc"` vs `W/"abc"`—weak allows semantically equivalent responses
 - `If-Match` for optimistic locking: fail update if resource changed since read
-- 412 Precondition Failed when `If-Match` fails—not 409 Conflict
+- 412 Precondition Failed when `If-Match` fails—prefer this over 409 Conflict for failed preconditions
 
 ## CORS Preflight Triggers
 
@@ -62,8 +60,8 @@ metadata:
 
 - Structured JSON errors: `{"error": {"code": "VALIDATION_FAILED", "message": "...", "details": [...]}}`
 - Include request ID in error response—enables log correlation
-- Don't leak stack traces in production—log server-side, return generic message
-- 409 Conflict for business rule violations (duplicate email, insufficient funds)—not just 400
+- Keep stack traces strictly out of production responses—log server-side, return generic message
+- 409 Conflict for business rule violations (duplicate email, insufficient funds)—instead of generic 400
 
 ## Retry Patterns
 
@@ -71,7 +69,7 @@ metadata:
 - POST retry needs idempotency key—`Idempotency-Key: <client-generated-uuid>`
 - Exponential backoff: 1s, 2s, 4s, 8s... with jitter—prevents thundering herd
 - Respect `Retry-After` header—can be seconds or HTTP date
-- Set reasonable timeout (30s typical)—don't wait forever
+- Set reasonable timeout (30s typical)—ensure timeouts have an upper bound
 
 ## Headers Often Forgotten
 
@@ -85,4 +83,5 @@ metadata:
 - HTTP/1.1 without `Content-Length` or chunked = connection close after response
 - `Transfer-Encoding: chunked` for streaming—can't set Content-Length
 - HTTP/2 is binary, multiplexed—no head-of-line blocking at HTTP level
+- HTTP/3 uses QUIC (UDP), eliminating TCP head-of-line blocking and reducing connection setup latency
 - WebSocket upgrade: GET with `Connection: Upgrade`, `Upgrade: websocket`
