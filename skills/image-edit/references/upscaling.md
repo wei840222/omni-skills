@@ -74,7 +74,7 @@ output = replicate.run(
 | 1080p | 4K | 8K | — |
 | 720p | 1440p | 4K | 8K |
 
-**Rule:** Don't upscale beyond 4x in one pass for best quality.
+**Rule:** Limit upscaling to 4x per pass to maintain best quality.
 
 ## When to Upscale
 
@@ -92,7 +92,7 @@ output = replicate.run(
 
 ## Quality Tips
 
-- **Don't over-upscale** — 4x max in one pass
+- **Limit upscaling** — 4x max in one pass
 - **Match model to content** — anime model for anime
 - **Face enhance** — enable for portraits
 - **Check artifacts** — AI can add weird textures

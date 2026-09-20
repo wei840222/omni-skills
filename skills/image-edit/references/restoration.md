@@ -142,7 +142,7 @@ output = replicate.run(
 ## Quality Tips
 
 - **Preserve original** — always keep unedited copy
-- **Gradual enhancement** — don't over-process
+- **Gradual enhancement** — maintain moderate processing
 - **Check faces** — restoration can change features
 - **Manual touchup** — AI may miss spots
 - **Add grain** — restored images can look too clean

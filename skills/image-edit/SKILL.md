@@ -1,28 +1,30 @@
 ---
 name: image-edit
-slug: image-edit
-version: 1.0.0
-description: Edit images with AI inpainting, outpainting, background removal, upscaling, and restoration tools.
-homepage: https://clawic.com/skills/image-edit
+description: >
+  Edit and enhance existing images with AI tools for inpainting, outpainting,
+  background removal, upscaling, restoration, and style transfer. Trigger when
+  a user asks to modify, fix, upscale, relight, or alter an existing image.
 metadata:
-  clawdbot:
-    emoji: ✂️
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Image Editing
+  version: "1.0.0"
+  openclaw: '{"emoji":"✂️","os":["linux","darwin","win32"],"displayName":"Image Editing"}'
+  related-skills: '{"image-generation":"Use when creating new images from prompts rather than editing an existing image.","photography":"Use for camera technique, composition, and capture guidance outside post-edit workflows.","video-edit":"Use when the asset is video rather than a still image.","screenshot":"Use for capture and annotation of screen images before deeper edit pipelines."}'
 ---
-
 # AI Image Editing
 
 Help users edit and enhance images with AI tools.
 
+Load `references/sources.md` when you need current tool docs, model limits, or research-backed edit guidance.
+
 **Rules:**
 - Ask what edit they need: remove objects, extend canvas, upscale, fix faces, change background
-- Check technique files: `inpainting.md`, `outpainting.md`, `background-removal.md`, `upscaling.md`, `restoration.md`, `style-transfer.md`
-- Check `tools.md` for provider-specific setup
-- Always preserve original file before editing
+- Load `references/inpainting.md` when tasked with removing objects.
+- Load `references/outpainting.md` when asked to extend image borders.
+- Load `references/background-removal.md` when asked to remove backgrounds.
+- Load `references/upscaling.md` when asked to increase resolution.
+- Load `references/restoration.md` when asked to fix blurry faces.
+- Load `references/style-transfer.md` when asked to change style.
+- Load `references/tools.md` to configure provider-specific tools.
+- Preserve the original file before editing; write results as new files
 
 ---
 
@@ -30,8 +32,8 @@ Help users edit and enhance images with AI tools.
 
 | Task | Technique | Best Tools |
 |------|-----------|------------|
-| Remove objects/people | Inpainting | DALL-E, SD Inpaint, IOPaint |
-| Extend image borders | Outpainting | DALL-E, SD Outpaint, Photoshop AI |
+| Remove objects/people | Inpainting | DALL-E, SD Inpaint, IOPaint, Flux.1 Fill |
+| Extend image borders | Outpainting | DALL-E, SD Outpaint, Photoshop AI, Flux.1 Fill |
 | Remove background | Segmentation | remove.bg, ClipDrop, Photoroom |
 | Increase resolution | Upscaling | Real-ESRGAN, Topaz, Magnific |
 | Fix blurry faces | Restoration | GFPGAN, CodeFormer |
@@ -108,3 +110,8 @@ Masks define edit regions:
 
 ---
 *Check technique files for detailed workflows.*
+
+
+## State location
+
+- `<state_root>/image-edit/` - Used for storing original and edited images.

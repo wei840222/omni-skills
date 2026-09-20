@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you remove the car from the background of this image?",
+    "expected": "Agent should load references/inpainting.md, select an inpainting tool, ask for the image if not provided, and generate a new image with the car removed.",
+    "actual": "I will load the inpainting references. Please provide the image you want me to edit. Once provided, I'll use inpainting to remove the car from the background.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need this low-res 200x200 icon upscaled to 1024x1024 and its background made transparent.",
+    "expected": "Agent should load upscaling.md and background-removal.md, explain the multi-step process, and execute background removal followed by upscaling.",
+    "actual": "I will load the upscaling and background-removal guides. The process involves two steps: first, removing the background to create a transparent PNG, and second, upscaling the image to 1024x1024 using an AI upscaler like Real-ESRGAN. Please provide the image.",
+    "pass": true
+  }
+]
