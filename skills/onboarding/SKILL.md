@@ -117,8 +117,10 @@ Activated users should retain about 2–3× better. If not, redefine activation.
 
 ## Common Failures
 
-- Asking for info before showing value
-- Tours that show everything (high skip rate)
-- One onboarding path for every segment
-- No follow-up emails after the tab closes
-- Gating features behind upgrade before value is demonstrated
+Prefer these safer defaults instead of the failure modes below:
+
+- Collect details only after first value, not before buy-in
+- Keep tours short; long tours raise skip rates
+- Segment paths instead of one flow for everyone
+- Send follow-up email when the tab may close after signup
+- Demonstrate value before gating core features behind upgrade
