@@ -33,7 +33,7 @@ Critical distinction:
 Slovenian has dual (for two people):
 - Midva (we two), vidva (you two)
 - Use it correctly—it's distinctive
-- Casual writing sometimes skips it when speed matters; keep dual when the pair is explicit
+- Casual writing may drop dual when speed matters; keep dual when the pair is explicit and natural
 
 ## Particles & Softeners
 
