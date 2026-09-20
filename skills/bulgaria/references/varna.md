@@ -39,7 +39,7 @@ Varna is the strongest base for a mixed city-and-sea trip: Sea Garden, museums, 
 
 - Summer evenings belong to the Sea Garden and beach bars.
 - Fish and seafood make the most sense on the coast.
-- Avoid picking restaurants only because they sit on the loudest strip.
+- Choose restaurants beyond the main loud tourist strips.
 
 ## Common Traps
 

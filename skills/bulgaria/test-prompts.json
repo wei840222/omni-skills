@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to Bulgaria for 5 days in July. I want to see a mix of city and beach. What do you recommend?",
+    "expected": "A practical 5-day itinerary balancing Sofia or Plovdiv with a coastal city like Varna or Burgas, mentioning transport logistics (flight vs bus) and realistic travel times.",
+    "actual": "For a 5-day trip in July balancing city and beach, a realistic split is Sofia and Varna. Spend 2 days in Sofia exploring the history, then take a quick 50-minute domestic flight (Bulgaria Air) to Varna for 3 days of Black Sea beaches and coastal dining. The domestic flight saves you a 6-hour bus ride, maximizing your short timeframe.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to go to a traditional Bulgarian restaurant in Sunny Beach. Any tips?",
+    "expected": "A warning that Sunny Beach is highly touristy and commercial, and a recommendation to visit nearby Nesebar or Sveti Vlas for more authentic food experiences.",
+    "actual": "I need to give you a heads-up: Sunny Beach is a massive, commercial party resort, so most 'traditional' spots there cater heavily to tourists with generic menus. For actual authentic Bulgarian food on the coast, you should take a short taxi or boat ride to the Old Town of Nesebar. The seafood and traditional mehanas there are much better quality.",
+    "pass": true
+  }
+]

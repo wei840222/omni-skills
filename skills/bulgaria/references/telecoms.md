@@ -27,4 +27,4 @@ Roaming is typically the easiest option. For short trips, this usually beats the
 
 - Download offline maps for mountain or remote coast trips.
 - Use WhatsApp or other data messaging as default.
-- Do not rely on perfect signal for long hiking days.
+- Download maps offline for long hiking days.

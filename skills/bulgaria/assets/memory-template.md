@@ -1,6 +1,6 @@
 # Memory Template - Bulgaria
 
-Create `~/Clawic/data/bulgaria/memory.md` with this structure:
+Create `<state_root>/data/bulgaria/memory.md` with this structure:
 
 ```markdown
 # Bulgaria Memory
@@ -20,7 +20,7 @@ integration: pending
 
 ## Preferences
 - Likes:
-- Avoids:
+- Dislikes:
 - Food notes:
 - Mobility or hiking notes:
 
@@ -43,11 +43,11 @@ integration: pending
 | `ongoing` | Still learning | Keep collecting context naturally |
 | `complete` | Enough context exists | Recommend directly and update quietly |
 | `paused` | User does not want more setup right now | Help with what is known |
-| `never_ask` | User does not want memory-style follow-up | Do not ask for more setup context |
+| `never_ask` | User prefers direct answers | Proceed without asking for more setup context |
 
 ## Principles
 
 - Keep observations in natural language
 - Update `last` whenever the skill is used
 - Store only information that improves future Bulgaria recommendations
-- Avoid turning memory into a checklist of trivia
+- Keep memory focused on actionable travel constraints

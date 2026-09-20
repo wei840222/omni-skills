@@ -23,14 +23,14 @@
 ## Service Style
 
 - Service is usually direct rather than performative.
-- Do not expect constant table check-ins.
+- Wait for the staff to return or politely signal when ready.
 - Ask clearly if you need the bill or a menu explanation.
 
 ## What Visitors Often Misread
 
 - Bulgaria is hospitable but not always smile-first in the same way as southern resort cultures.
 - "Traditional" decor does not automatically mean quality food.
-- Cheap prices do not mean low standards everywhere; the best places often look unflashy.
+- Low prices can still yield high standards; the best places often look unflashy.
 
 ## Good Advice
 
