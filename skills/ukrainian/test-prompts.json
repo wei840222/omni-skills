@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to Ukrainian for a friend on Telegram: 'Hey, I'm going to be a bit late, maybe 15 minutes. Save me a seat!'",
+    "expected": "Casual translation using 'ти' and natural fillers/shortcuts.",
+    "actual": "Привіт! Слухай, я трохи спізнююсь, десь на 15 хвилин. Займи мені місце, будь ласк!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a short reply to someone who just told you they passed their driving test.",
+    "expected": "Enthusiastic, natural reaction using expressive vocabulary, not overly formal.",
+    "actual": "Ого, серйозно?! Клас! Мега круто, вітаю! Як все пройшло?",
+    "pass": true
+  }
+]
