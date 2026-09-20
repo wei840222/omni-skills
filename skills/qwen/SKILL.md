@@ -1,42 +1,21 @@
 ---
 name: qwen
-slug: qwen
-version: 1.0.0
 description: Build and route Qwen chat, coding, reasoning, and vision workflows across hosted and self-hosted endpoints with safer debugging.
-homepage: https://clawic.com/skills/qwen
-changelog: Initial release with hosted and self-hosted Qwen routing, API patterns, tool-calling guidance, and troubleshooting playbooks.
 metadata:
-  clawdbot:
-    emoji: 🧩
-    requires:
-      bins:
-      - curl
-      - jq
-      env:
-      - DASHSCOPE_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/qwen/
-    displayName: Qwen
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/qwen/
+  openclaw: '{"emoji": "🧩","requires": {"bins": ["curl","jq"],"env": ["DASHSCOPE_API_KEY"],"config": ["<state_root>/qwen/"]},"primaryEnv": "DASHSCOPE_API_KEY","os": ["linux","darwin","win32"],"displayName": "Qwen"}'
+  related-skills: '{"models": "Compare Qwen against other model families and choose fallbacks by workload.","api": "Reuse structured HTTP, retry, and payload-debugging patterns around DashScope or OpenAI-compatible endpoints.","coding": "Hand off general coding-agent workflow once the Qwen execution surface is stable.","chat": "Use for generic chat UX patterns that are not Qwen-specific routing.","memory": "Persist durable routing preferences outside this skill optional local state notes."}'
 ---
 
-## When to Use
+## When to load
 
-User needs Qwen to work reliably for chat, coding, reasoning, structured outputs, or vision. Agent handles surface selection, live model verification, hosted-versus-local tradeoffs, and failure recovery before the workflow reaches production.
+Load this skill when the user explicitly requests Qwen models (e.g., Qwen-Max, Qwen-Coder) or needs to migrate workloads between hosted Alibaba Model Studio and self-hosted servers. Reserve this exclusively for Qwen workflows.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/qwen/`. If `~/Clawic/data/qwen/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/qwen/`. If `<state_root>/qwen/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/qwen/
+<state_root>/qwen/
 ├── memory.md         # Status, activation rules, and deployment defaults
 ├── routes.md         # Preferred route per workload
 ├── servers.md        # Known local or hosted endpoints
@@ -50,13 +29,13 @@ Use the smallest file that resolves the blocker.
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Hosted and local request patterns | `api-patterns.md` |
-| Workload routing matrix | `routing-matrix.md` |
-| Hosted versus self-hosted decisions | `deployment-paths.md` |
-| Tool-calling and structured output guardrails | `tool-calling.md` |
-| Debugging and recovery | `troubleshooting.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
+| Hosted and local request patterns | `references/api-patterns.md` |
+| Workload routing matrix | `references/routing-matrix.md` |
+| Hosted versus self-hosted decisions | `references/deployment-paths.md` |
+| Tool-calling and structured output guardrails | `references/tool-calling.md` |
+| Debugging and recovery | `references/troubleshooting.md` |
 
 ## Requirements
 
@@ -73,7 +52,7 @@ Use the smallest file that resolves the blocker.
 
 ### 2. Verify Live Availability Before Naming Any Model
 - Start with a `/models` or equivalent health check and copy the live model ID from the response.
-- Never trust stale screenshots, old blog posts, or remembered IDs for production routing.
+- Rely exclusively on live model IDs from health checks for production routing.
 
 ### 3. Route by Workload, Not by Brand Loyalty
 - Split the request into one of these paths: fast chat, deep reasoning, coding agent, deterministic JSON, or vision.
@@ -93,7 +72,7 @@ Use the smallest file that resolves the blocker.
 
 ### 7. Ask Before Creating Persistent State
 - Work statelessly by default.
-- Only create `~/Clawic/data/qwen/` notes, saved routes, or repro logs after the user wants continuity across Qwen tasks.
+- Only create `<state_root>/qwen/` notes, saved routes, or repro logs after the user wants continuity across Qwen tasks.
 
 ## Common Traps
 
@@ -125,7 +104,7 @@ No other data is sent externally.
 - Optional images or multimodal payloads sent to hosted Qwen vision endpoints when requested
 
 **Data that stays local:**
-- Deployment preferences and routing notes in `~/Clawic/data/qwen/` after user approval
+- Deployment preferences and routing notes in `<state_root>/qwen/` after user approval
 - Local server URLs, workload notes, and sanitized repro payloads kept for debugging
 
 **This skill does NOT:**
@@ -142,26 +121,24 @@ This skill ONLY:
 - debugs migration, parser, latency, and endpoint problems
 - stores lightweight local notes only after user approval
 
-This skill NEVER:
+This skill boundaries:
 - invent live model availability without checking
-- persist secrets in `~/Clawic/data/qwen/`
+- persist secrets in `<state_root>/qwen/`
 - execute destructive downstream automation without validated output
 - pretend one backend's tool-calling behavior applies everywhere
+
+## Sources
+
+Official and primary references used for this refactor (Gate 6):
+
+- [Qwen / DashScope OpenAI-compatible mode](https://help.aliyun.com/zh/model-studio/developer-reference/compatibility-of-openai-with-dashscope)
+- [Alibaba Cloud Model Studio international docs](https://www.alibabacloud.com/help/en/model-studio/developer-reference/use-qwen-by-calling-api)
+- [Qwen GitHub organization](https://github.com/QwenLM)
+- [Ollama Qwen models](https://ollama.com/library/qwen)
+- [vLLM documentation](https://docs.vllm.ai/en/latest/)
+- [SGLang documentation](https://docs.sglang.ai/)
 
 ## Trust
 
 Using hosted Qwen sends prompt data to Alibaba Cloud Model Studio.
 Only install if you trust that service with your data, or keep Qwen fully self-hosted.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `models` — choose model families and cost tiers before locking Qwen into production
-- `api` — debug auth, payloads, retries, and OpenAI-compatible request shapes
-- `coding` — tighten agent coding workflows after the Qwen route itself is stable
-- `chat` — improve conversation shaping once the Qwen route itself is stable
-- `memory` — store durable routing choices and repeated migration lessons
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/qwen
-- Latest version: https://clawic.com/skills/qwen

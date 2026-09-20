@@ -20,7 +20,7 @@ Assume tool-calling is fragile until proven stable on the exact combination of:
 
 - Use low temperature for automation paths.
 - Require exact fields and reject missing or extra keys.
-- If parsing fails, stop execution and show the invalid payload.
+- If parsing fails, halt execution and present the invalid payload to the user.
 - Keep a degraded path that returns a human-review task instead of forcing a bad tool call through.
 
 ## Backend Notes
@@ -39,7 +39,7 @@ Assume tool-calling is fragile until proven stable on the exact combination of:
 ### Qwen-Agent
 
 - Qwen-Agent supports function calling and parallel tool calls.
-- For QwQ and Qwen3, the official guidance says Qwen-Agent can parse tool outputs from vLLM itself, so avoid adding redundant auto-tool-choice or Hermes parsing just because another stack needed it.
+- For QwQ and Qwen3, the official guidance says Qwen-Agent can parse tool outputs from vLLM itself, so omit redundant auto-tool-choice or Hermes parsing just because another stack needed it.
 - For Qwen3-Coder, validate whether you want backend-native parsing or raw API handling before scaling up the tool graph.
 
 ## Two-Stage Automation
@@ -64,4 +64,4 @@ Keep one tiny regression test like:
 }
 ```
 
-If this fails, stop changing business prompts and fix the route first.
+If this fails, pause business prompt modifications and repair the route first.

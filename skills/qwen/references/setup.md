@@ -1,6 +1,6 @@
 # Setup — Qwen
 
-Read this when `~/Clawic/data/qwen/` does not exist or is empty. Answer the user's immediate Qwen question first, explain continuity in plain language, and ask before creating local files.
+Read this when `<state_root>/qwen/` does not exist or is empty. Answer the user's immediate Qwen question first, explain continuity in plain language, and ask before creating local files.
 
 ## Your Attitude
 
@@ -15,7 +15,7 @@ Within the first 2-3 exchanges, ask:
 - "Do you want proactive routing suggestions, or should this stay on-demand?"
 - "Are there Qwen situations where this should always help, or stay out of the way?"
 
-If the user wants continuity, save a short natural-language summary in `~/Clawic/data/qwen/memory.md` after confirming the first local write.
+If the user wants continuity, save a short natural-language summary in `<state_root>/qwen/memory.md` after confirming the first local write.
 
 ### 2. Then: Understand the Real Surface
 
@@ -43,12 +43,12 @@ If they are just exploring, keep memory light and refine later.
 
 ## What You're Saving (internally)
 
-In `~/Clawic/data/qwen/memory.md`:
+In `<state_root>/qwen/memory.md`:
 - activation preference
 - current execution surface
 - preferred workload routes
 - important hardware or privacy constraints
-- repeated failure patterns worth avoiding
+- repeated failure patterns requiring mitigation
 
 Before the first write in a session, confirm it explicitly.
 

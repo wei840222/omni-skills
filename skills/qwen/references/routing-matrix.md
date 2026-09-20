@@ -5,7 +5,7 @@ Route by workload first, then by surface.
 | Workload | Primary Goal | Preferred Qwen Family | Best Starting Surface | Notes |
 |----------|--------------|-----------------------|-----------------------|-------|
 | Fast interactive chat | Short latency | smaller instruct or chat-capable Qwen route | hosted or small local model | Keep prompts short and skip heavy reasoning mode |
-| Deep reasoning | better chain quality | thinking-focused Qwen route | hosted or strong GPU server | Do not combine this with strict downstream parsing in one pass |
+| Deep reasoning | better chain quality | thinking-focused Qwen route | hosted or strong GPU server | Use a two-pass architecture for strict downstream parsing |
 | Coding agent | tool use plus code edits | Qwen3-Coder family | hosted or vLLM/SGLang | Validate tool-calling behavior before production |
 | Deterministic JSON | stable machine-readable output | instruct route with low temperature | hosted or local after schema checks | Use a second pass if the main prompt needs creativity |
 | Vision or multimodal | image understanding | Qwen VL-capable route | hosted first | Confirm multimodal support from live model list |

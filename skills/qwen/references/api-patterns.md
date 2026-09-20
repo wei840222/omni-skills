@@ -89,5 +89,5 @@ curl -s "${LOCAL_BASE_URL}/chat/completions" \
 ## Retry Rules
 
 - Retry `429` and transient `5xx` with capped exponential backoff.
-- Do not retry malformed JSON forever; shrink the task or add a second normalization pass.
+- Limit retries for malformed JSON; shrink the task or add a second normalization pass.
 - If hosted and local routes both exist, keep one fallback route per workload.
