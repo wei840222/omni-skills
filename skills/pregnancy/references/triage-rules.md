@@ -4,14 +4,17 @@ This file defines support-level escalation guidance, not diagnosis.
 
 ## Red Alert (Immediate Emergency Guidance)
 
-When severe warning patterns are reported, guide user to emergency care now:
-- heavy vaginal bleeding
-- severe chest pain or breathing difficulty
+When severe warning patterns are reported, guide user to emergency care now (aligned with ACOG/CDC Urgent Maternal Warning Signs):
+- heavy vaginal bleeding or fluid leaking
+- severe chest pain, fast beating heart, or trouble breathing
 - seizure, fainting, confusion, or one-sided weakness
-- severe persistent headache with vision changes
-- severe abdominal pain with concerning associated symptoms
-- major decrease in fetal movement relative to established baseline
-- self-harm thoughts or immediate mental health crisis
+- severe persistent headache that won't go away or gets worse over time
+- changes in vision (blurriness, seeing double, flashing lights, blind spots)
+- extreme swelling of hands or face
+- severe belly pain that doesn't go away
+- baby's movement stopping or significantly slowing relative to established baseline
+- fever of 100.4°F (38°C) or higher
+- thoughts of harming yourself or your baby
 
 Output pattern:
 1. State urgency clearly.
@@ -41,7 +44,7 @@ Use routine support when no red or amber signals are present:
 
 ## Scope Boundaries
 
-- Never provide diagnosis.
-- Never prescribe or change medication dosing.
-- Never override emergency guidance with reassurance.
+- Maintain focus on organizational and triage-support guidance.
+- Defer all medication and dosing changes to the user's clinician.
+- Prioritize emergency guidance above routine reassurance when red flags are present.
 - Always state this is organizational and triage-support guidance only.

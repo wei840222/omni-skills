@@ -1,37 +1,26 @@
 ---
 name: pregnancy
-slug: pregnancy
-version: 1.0.0
-description: Track pregnancy routines, symptoms, and clinical signals with flexible logs, weekly summaries, and safety-first triage for medical follow-up.
-homepage: https://clawic.com/skills/pregnancy
-changelog: Initial release with flexible pregnancy tracking modules, clinician-ready weekly summaries, and safety triage guardrails.
+description: >
+  Track pregnancy metrics, symptoms, and prenatal routines. Load when the user wants
+  flexible daily logs, weekly clinician-ready summaries, visit-prep questions, or
+  safety-first red/amber triage for maternity follow-up. Supports organization and
+  escalation cues only — not diagnosis, prescribing, or replacing clinician care.
 metadata:
-  clawdbot:
-    emoji: P
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Pregnancy (Tracker, Journal, Triage, Visit Prep)
+  openclaw: '{"emoji":"🤰","requires":{"bins":[]},"config":["<state_root>/pregnancy/"],"os":["darwin","linux","win32"],"displayName":"Pregnancy (Tracker, Journal, Triage, Visit Prep)"}'
+  related-skills: '{"doctor":"General symptom triage and medication/lab review outside maternity-specific tracking.","nutrition":"Micronutrient adequacy and pregnancy diet context after triage is clear.","period":"Cycle history context before or around conception tracking.","baby":"Postpartum/infant day-to-day tracking after delivery handoff.","therapist":"Mental-health support once crisis routing and clinical handoff are handled.","sleep":"Sleep quality patterns that affect prenatal wellness logs.","fitness":"Activity load context when symptoms relate to exertion.","dietitian":"Therapeutic meal construction after clinician guidance."}'
 ---
 
-## Setup
+## When to load
 
-On first use, read `setup.md` for integration guidance and local memory initialization.
+Load this skill when the user asks to track pregnancy symptoms, log daily prenatal routines, or prepare summaries for doctor visits.
 
-## When to Use
-
-User wants a flexible pregnancy tracker for symptoms, routines, medications, appointments, questions, or warning signs.
-Agent structures logs, keeps data clinically useful, and prepares concise summaries for prenatal visits without replacing medical care.
-
+Read `references/setup.md` on first initialization.
 ## Architecture
 
-Memory lives in `~/Clawic/data/pregnancy/`. See `memory-template.md` for structure and starter templates.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure and starter templates.
 
 ```text
-~/Clawic/data/pregnancy/
+<state_root>/
 |-- memory.md                 # Status, context, and active tracking modules
 |-- logs/daily-log.md         # Day-by-day entries with timestamps and units
 |-- summaries/weekly.md       # Weekly clinical summary and trend notes
@@ -44,17 +33,17 @@ Memory lives in `~/Clawic/data/pregnancy/`. See `memory-template.md` for structu
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and templates | `memory-template.md` |
-| Flexible tracking framework | `tracking-framework.md` |
-| Metric catalog and units | `metric-catalog.md` |
-| Data quality and validation rules | `data-quality.md` |
-| Red and amber triage rules | `triage-rules.md` |
-| Weekly and visit summary format | `visit-summary-template.md` |
+| Setup and activation behavior | `references/setup.md` |
+| Memory structure and templates | `assets/memory-template.md` |
+| Flexible tracking framework | `references/tracking-framework.md` |
+| Metric catalog and units | `references/metric-catalog.md` |
+| Data quality and validation rules | `references/data-quality.md` |
+| Red and amber triage rules | `references/triage-rules.md` |
+| Weekly and visit summary format | `assets/visit-summary-template.md` |
 
 ## Data Storage
 
-Local notes stay in `~/Clawic/data/pregnancy/`.
+Local notes stay in `<state_root>/`.
 Before creating or changing local files, present the planned write and ask for user confirmation.
 
 ## Core Rules
@@ -67,30 +56,30 @@ Start with user intent and care context:
 Enable only modules the user wants, then expand gradually.
 
 ### 2. Keep Tracking Flexible but Structured
-Use `tracking-framework.md` to run modular tracking:
+Use `references/tracking-framework.md` to run modular tracking:
 - core daily block for minimum continuity
 - optional blocks for symptoms, medications, appointments, mood, sleep, nutrition, fetal movement, or glucose
 - custom user-defined blocks when needed
-Do not force all modules at once.
+Enable modules gradually based on user requests.
 
 ### 3. Preserve Clinical Utility of Data
-Use `metric-catalog.md` and `data-quality.md`:
+Use `references/metric-catalog.md` and `references/data-quality.md`:
 - always record timestamp, unit, and context
 - normalize values to one unit system
 - separate observed facts from interpretation
 Reject ambiguous entries and ask for missing context.
 
 ### 4. Generate Visit-Ready Summaries
-At least weekly, generate a concise summary using `visit-summary-template.md`:
+At least weekly, generate a concise summary using `assets/visit-summary-template.md`:
 - trend overview
 - out-of-range or concerning events
 - unresolved questions for clinician
 Keep summaries short enough for prenatal visit use.
 
 ### 5. Apply Safety-First Triage
-Use `triage-rules.md` for red and amber conditions.
+Use `references/triage-rules.md` for red and amber conditions.
 If emergency signs appear, provide immediate emergency guidance first.
-Do not continue routine coaching before urgent escalation guidance.
+Provide urgent escalation guidance immediately before continuing routine coaching.
 
 ### 6. Stay in Support Scope, Not Diagnosis Scope
 This skill supports organization, tracking, and escalation cues.
@@ -100,7 +89,7 @@ For medication changes or treatment decisions, route user to their care team.
 ### 7. Protect Privacy and User Agency
 Track only pregnancy-relevant information needed for user goals.
 Offer opt-in detail levels and allow pause, simplify, or delete requests.
-Never add hidden background tracking.
+Only track data explicitly approved by the user.
 
 ## Common Traps
 
@@ -110,6 +99,15 @@ Never add hidden background tracking.
 - Treating optional consumer metrics as clinical truth -> noisy decisions.
 - Summaries with raw dumps only -> poor usability during appointments.
 - Giving treatment advice beyond scope -> safety and trust risk.
+
+
+## Sources
+
+Gate 6 domain references used for triage wording and visit-prep safety scope:
+
+- ACOG — Pregnancy Complications FAQ via https://www.acog.org/womens-health/faqs/pregnancy-complications
+- CDC Hear Her — Urgent Maternal Warning Signs via https://www.cdc.gov/hearher/maternal-warning-signs/index.html
+- March of Dimes — Warning Signs During Pregnancy via https://www.marchofdimes.org/find-support/topics/pregnancy/warning-signs-during-pregnancy
 
 ## External Endpoints
 
@@ -128,7 +126,7 @@ No other data is sent externally.
 
 **Data stored locally:**
 - tracking logs, weekly summaries, alert events, and clinician question lists approved by the user.
-- stored in `~/Clawic/data/pregnancy/`.
+- stored in `<state_root>/`.
 
 **This skill does NOT:**
 - diagnose pregnancy conditions or provide emergency medical treatment.
@@ -140,16 +138,3 @@ No other data is sent externally.
 
 This is an instruction-only pregnancy tracking and visit-prep skill.
 No credentials are required and no third-party service access is needed.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `health` - general health planning and longitudinal habit support.
-- `doctor` - structured preparation for medical consultations and follow-up.
-- `symptoms` - focused symptom capture and pattern tracking workflows.
-- `nutrition` - meal and hydration planning aligned with health goals.
-- `sleep` - sleep routines and recovery support for energy management.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/pregnancy
-- Latest version: https://clawic.com/skills/pregnancy

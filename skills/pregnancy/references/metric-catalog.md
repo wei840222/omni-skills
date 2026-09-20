@@ -41,6 +41,6 @@ When user is tracking fetal movement or contractions:
 ## Data Normalization Rules
 
 - Keep one unit system per metric type.
-- Do not mix local timezone and UTC in the same log.
+- Maintain a single consistent timezone (either local or UTC) across logs.
 - Mark estimated values as estimated.
 - Mark device errors separately from observed values.

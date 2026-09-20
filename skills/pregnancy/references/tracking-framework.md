@@ -14,7 +14,7 @@ Use modular tracking so users can log what matters without overload.
 - blood pressure
 - glucose (if diabetes or gestational diabetes context)
 - temperature
-- weight trend checkpoints
+- weight trend assessments
 
 3. Symptom and Event Module
 - symptom, severity, start time, duration
