@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I fix 'cannot borrow as mutable more than once at a time' when updating two different fields of a struct?",
+    "expected": "Explain field-sensitive borrows; show destructure or split_at_mut before RefCell/clone.",
+    "actual": "Recommended independent field borrows via destructuring / split_at_mut and explained why a &mut self method rejects it.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to share a counter across threads and it's currently panicking when one thread crashes while holding it. What should I do?",
+    "expected": "Explain Mutex poisoning and prefer Atomic* or handle PoisonError.",
+    "actual": "Diagnosed poisoning; recommended AtomicI32 fetch_add or recover via into_inner with documented risk.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My future cannot be sent between threads because a MutexGuard lives across await. Fix?",
+    "expected": "Drop the guard before await; avoid std MutexGuard across await; use tokio::sync::Mutex only when the lock must be held across await.",
+    "actual": "Scoped the lock so the guard ends before .await and explained Send bound failure mode.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "CI fails with two versions of the same crate while local build works. How do I find it?",
+    "expected": "Use cargo tree -d / feature unification notes; pin or align versions; cargo build --locked.",
+    "actual": "Pointed at cargo tree -d, lockfile drift, and --locked plus feature unification across the graph.",
+    "pass": true
+  }
+]
