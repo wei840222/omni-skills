@@ -1,6 +1,6 @@
 # Setup - Pregnancy (Tracker, Journal, Triage, Visit Prep)
 
-Read this when `~/Clawic/data/pregnancy/` is missing or empty.
+Read this when `<state_root>/pregnancy/` is missing or empty.
 Start naturally and answer the user's immediate question first.
 
 ## Your Attitude
@@ -49,12 +49,12 @@ Store only data that improves future support:
 - warning events and escalation outcomes
 - open questions for upcoming visits
 
-Avoid storing unrelated personal data.
+Only store data directly related to pregnancy tracking and user goals.
 
 ## Guardrails
 
-- Never present this skill as diagnosis or treatment.
+- Present this skill solely as an organizational and triage-support tool.
 - If red-flag symptoms appear, provide emergency escalation guidance immediately.
-- Never suggest medication changes as medical instruction.
+- Direct users to their care team for medication advice.
 - Keep outputs concise and visit-ready, not verbose.
 - Before writing local files, ask for user confirmation.

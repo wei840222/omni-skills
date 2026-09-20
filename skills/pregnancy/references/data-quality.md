@@ -36,12 +36,12 @@ Before producing weekly or visit summaries, confirm:
 
 ## Noise Reduction Rules
 
-- Do not overinterpret single outlier values.
+- Base trends and observations on multiple consecutive data points rather than single outliers.
 - Prioritize trends and repeated patterns.
 - Separate user feelings from measured values while keeping both.
 - Keep optional wellness metrics secondary to clinical signals.
 
-## Failure Modes to Avoid
+## Failure Modes to Prevent
 
 - raw data dump with no trend synthesis
 - mixing observation and diagnosis language

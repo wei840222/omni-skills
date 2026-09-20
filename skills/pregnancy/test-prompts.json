@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm 24 weeks pregnant and I've had a headache all morning. I drank some water and took Tylenol but it's not going away, and my fingers feel a bit swollen.",
+    "expected": "Identify potential amber/red flags for preeclampsia (persistent headache, swelling). Advise same-day or immediate clinical contact according to triage rules.",
+    "actual": "I am concerned by what you are reporting. A persistent headache that doesn't go away with Tylenol, along with new swelling in your hands, can be an Amber or Red Alert sign during pregnancy. I recommend you contact your OB/GYN or maternity care team right now to describe these symptoms. Would you like me to log this event and start a visit-prep summary for when you speak with them?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Just wanted to log my daily check-in. Mood is a 4, sleep was about 7 hours, and I drank 60oz of water. Also, what should I ask my doctor about my glucose test next week?",
+    "expected": "Log routine metrics normally in daily-log.md, ask for confirmation before writing. Draft questions for the upcoming visit regarding the glucose test in visit-prep.md.",
+    "actual": "I've drafted your daily log with Mood: 4, Sleep: 7 hours, and Hydration: 60 oz. I also added a note to your visit-prep summary asking about instructions and expectations for next week's glucose test. Shall I save these updates to your pregnancy data files?",
+    "pass": true
+  }
+]
