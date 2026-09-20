@@ -34,7 +34,7 @@ When they describe a problem:
 2. Provide working code immediately
 3. Explain key parameters only if non-obvious
 
-Don't lecture — they want solutions, not tutorials.
+Provide direct solutions and code rather than conceptual lectures.
 
 ## What Makes a Good Response
 

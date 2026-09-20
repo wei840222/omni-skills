@@ -1,47 +1,36 @@
 ---
 name: scipy
-slug: scipy
-version: 1.0.0
-description: Solve optimization, statistics, signal processing, and linear algebra problems with SciPy recipes and ready-to-run code.
-homepage: https://clawic.com/skills/scipy
+description: Write working, vectorized SciPy and NumPy Python code to solve optimization,
+  statistics, signal processing, and linear algebra problems.
 metadata:
-  clawdbot:
-    emoji: 🔬
-    requires:
-      bins:
-      - python3
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: SciPy
+  version: 1.0.0
+  openclaw: '{"emoji": "🔬", "requires": {"bins": ["python3"]}, "os": ["linux", "darwin", "win32"], "displayName": "SciPy"}'
+  related-skills: '["math", "data-analysis", "data", "numpy"]'
 ---
 
-## Setup
+## When to load
 
-On first use, read `setup.md` for guidance on how to help the user effectively.
+Load this skill when the user requests mathematical, scientific, or engineering computing in Python, such as curve fitting, statistical testing, or numerical optimization.
 
-## When to Use
-
-User needs scientific computing in Python: optimization, curve fitting, statistical tests, signal processing, interpolation, integration, or linear algebra. Agent provides working code, not theory.
+Upon loading, immediately read `references/setup.md` for usage guidance.
 
 ## Architecture
 
 This skill is stateless — no persistent storage needed. All code runs in user's Python environment.
 
-See `memory-template.md` for optional preference tracking.
+See `assets/memory-template.md` for optional preference tracking.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| Usage guidance | `setup.md` |
-| Optional preferences | `memory-template.md` |
+| Usage guidance | `references/setup.md` |
+| Optional preferences | `assets/memory-template.md` |
 
 ## Core Rules
 
 ### 1. Working Code First
-Every response includes runnable code. No pseudocode, no "implement this yourself".
+Every response must include complete, runnable code rather than pseudocode or placeholders.
 
 ```python
 # Always include imports
@@ -374,12 +363,8 @@ print(f"Eigenvectors:\n{eigenvectors}")
 - Access network resources
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `math` — mathematical concepts
-- `data-analysis` — data exploration
+
+- `math` — mathematical concepts and formulas
+- `data-analysis` — data exploration workflows
 - `data` — data handling patterns
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/scipy
-- Latest version: https://clawic.com/skills/scipy
+- `numpy` — array and vectorization fundamentals
