@@ -12,7 +12,7 @@ Kotlin has no checked exceptions, so nothing in the compiler tells you a call ca
 | I/O that the layer above can retry or surface generically | Throw, and translate at the layer that has UI or policy context |
 | Parsing untrusted input | Typed result; a parser that throws forces every caller into `try/catch` |
 
-The decisive test: if every caller wraps the call in `try/catch`, the failure was never exceptional — return it as a value. If no caller can do anything but crash or log, do not make them pattern-match on it.
+The decisive test: if every caller wraps the call in `try/catch`, the failure was a standard value rather than exceptional — return it as a value. If no caller can do anything but crash or log, provide explicit return types rather than pattern-matching on it.
 
 ## kotlin.Result vs A Sealed Hierarchy
 
@@ -27,15 +27,15 @@ The decisive test: if every caller wraps the call in `try/catch`, the failure wa
 - The message lambda in `require(x) { "…" }` is only evaluated on failure — cheap, so always include a message with the offending value.
 - `Nothing` is the return type of a function that always throws, which lets `?: error("missing")` type-check as the non-null branch.
 - `try` is an expression: `val n = try { s.toInt() } catch (e: NumberFormatException) { 0 }`.
-- `s.toIntOrNull()` and friends exist precisely to avoid exception-driven parsing in a loop; throwing costs a stack trace fill, which is orders of magnitude more expensive than a null check.
+- `s.toIntOrNull()` and friends exist precisely to prefer `toIntOrNull` over exception parsing in a loop; throwing costs a stack trace fill, which is orders of magnitude more expensive than a null check.
 - Chain causes: `throw RepositoryException("loading user $id", cause = e)`. A rethrow that drops the cause deletes the only useful part of the report.
-- Custom exceptions: extend `Exception` (or a domain base class), keep them few, and never use exceptions for control flow across layers.
-- `finally` runs on every path, including cancellation; a `return` inside `finally` swallows the pending exception — never return from `finally`.
+- Custom exceptions: extend `Exception` (or a domain base class), keep them few, and use exceptions only for control flow across layers.
+- `finally` runs on every path, including cancellation; a `return` inside `finally` swallows the pending exception — complete `finally` blocks without early returns.
 
 ## Coroutine Exception Routing
 
 - `launch` propagates a failure to its parent immediately; the parent cancels its other children and fails in turn, unless it is a supervisor.
-- `async` stores the failure in the `Deferred` and rethrows it at `await()`. An `async` whose result is never awaited inside a `supervisorScope` swallows the failure completely.
+- `async` stores the failure in the `Deferred` and rethrows it at `await()`. An `async` whose result is un-awaited inside a `supervisorScope` swallows the failure completely.
 - `coroutineScope { }` rethrows the first child failure to its caller after cancelling the siblings — this is the shape that makes `try/catch` around a parallel block work.
 - `supervisorScope { }` isolates children, which means the failure has nowhere to go: each child needs its own handler.
 - `CoroutineExceptionHandler` is consulted only for uncaught failures of a *root* coroutine in a scope. Installed on a child, it is ignored. It cannot be used with `async` at all.
@@ -62,7 +62,7 @@ suspend inline fun <T> catching(block: () -> T): Result<T> =
 ## Logging And Reporting
 
 - Log at the boundary that decides — once. An exception logged at every layer produces four reports of one incident and hides the actual handler.
-- Never log a caught exception and continue as if it succeeded: either handle it (return a typed failure) or rethrow it wrapped.
+- Handle caught exceptions completely or rethrow them as if it succeeded: either handle it (return a typed failure) or rethrow it wrapped.
 - Redact before logging: `toString()` on a data class prints every field, including tokens and passwords — override it on anything that reaches a log.
 - Crash reporting on a coroutine-heavy app needs an explicit handler at each scope root, or failures die inside cancelled scopes with no report.
 

@@ -6,8 +6,8 @@ Three questions decide every Flow design: cold or hot, what happens with no subs
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| Collector never runs | The flow is cold and nothing collects it, or the upstream never emits | Collect it; check the producer with a `.onEach { log() }` before the operator chain |
-| UI stops updating after a while | A new state `equals` the old one — `StateFlow` conflates (SKILL.md rule 6) | Emit a new immutable value; never mutate and re-assign the same instance |
+| Collector skips | The flow is cold and nothing collects it, or the upstream never emits | Collect it; check the producer with a `.onEach { log() }` before the operator chain |
+| UI halts updates after a while | A new state `equals` the old one — `StateFlow` conflates (SKILL.md rule 6) | Emit a new immutable value; never mutate and re-assign the same instance |
 | Events (navigation, toast) sometimes lost | `SharedFlow(replay = 0)` with no subscriber at emit time | `Channel` + `receiveAsFlow`, or an acknowledged state field |
 | Event fires twice after rotation | `replay = 1` on an event stream, re-delivered to the new subscriber | Drop replay; use a consume-once carrier |
 | Network call runs several times | Multiple collectors on a cold flow, each starting its own upstream | `shareIn`/`stateIn` with the right `SharingStarted` |
@@ -30,7 +30,7 @@ Three questions decide every Flow design: cold or hot, what happens with no subs
 ## Sharing: `shareIn` And `stateIn`
 
 - Both need a scope, and that scope's lifetime is the upstream's lifetime. A ViewModel-owned scope is the usual correct answer.
-- `SharingStarted.WhileSubscribed(5_000)` is the Android convention: 5 seconds outlives a configuration change (the old collector detaches and the new one attaches within milliseconds) while still stopping the upstream on a real backgrounding. `stopTimeoutMillis` shorter than a rotation restarts the query on every rotation; `Eagerly` never stops.
+- `SharingStarted.WhileSubscribed(5_000)` is the Android convention: 5 seconds outlives a configuration change (the old collector detaches and the new one attaches within milliseconds) while still halting the upstream on a real backgrounding. `stopTimeoutMillis` shorter than a rotation restarts the query on every rotation; `Eagerly` runs continuously.
 - `WhileSubscribed(stopTimeoutMillis = 5_000, replayExpirationMillis = …)` also controls whether a returning subscriber sees stale cached data or waits for fresh.
 - `stateIn` requires an initial value and gives you `.value` synchronously; the suspending overload waits for the first upstream emission instead — that one blocks screen rendering until data arrives.
 - Do not `stateIn` a flow that must not be conflated (progress ticks, keystroke-by-keystroke input where duplicates matter): equality conflation drops repeats silently.
@@ -70,7 +70,7 @@ Ranked by how much you can afford to lose:
 
 - Collect into a list on a background coroutine before triggering emissions; asserting on `.value` alone hides intermediate states, and `StateFlow` conflation means "the test saw two states" is not evidence the UI did.
 - A `stateIn(WhileSubscribed())` flow emits nothing until something subscribes: a test that only reads `.value` gets the initial value forever.
-- `first()` / `take(n).toList()` terminate a hot flow's collection; collecting a `StateFlow` with `toList()` never returns.
+- `first()` / `take(n).toList()` terminate a hot flow's collection; collecting a `StateFlow` with `toList()` blocks indefinitely.
 
 ## Review Checklist
 

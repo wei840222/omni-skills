@@ -10,7 +10,7 @@ Server frameworks were built for Java's defaults: open classes, no-arg construct
 | Proxy/`@Transactional`/`@Configuration` silently not applied | Kotlin classes are final; the framework cannot subclass them | `kotlin-spring` (all-open) compiler plugin |
 | Entity behaves oddly in a `Set`, or updates the wrong row | `data class` `equals`/`hashCode` over mutable fields and a post-persist id | Regular class, id-based `equals`, `hashCode` a constant or the natural key |
 | MDC/trace id empty in logs after a suspension | Thread-local context does not follow a coroutine across dispatchers | `MDCContext` / a `ThreadContextElement` in the coroutine context |
-| Transaction lost after `withContext` | The transaction is bound to the original thread | Keep the transactional work on one context; do not switch dispatchers inside it |
+| Transaction lost after `withContext` | The transaction is bound to the original thread | Keep the transactional work on one context; maintain the original dispatcher inside it |
 | Under load: everything waits, CPU idle | More coroutines than connections in the pool, on 64 IO threads | `Dispatchers.IO.limitedParallelism(poolSize)` (SKILL.md rule 7) |
 | Request keeps processing after the client disconnects | Work escaped the request scope | Structured concurrency inside the handler; no detached scopes |
 | Startup fails: "Could not autowire" with a nullable property | Field injection plus `lateinit` hiding a real missing bean | Constructor injection, so the failure names the parameter |
@@ -27,9 +27,9 @@ Server frameworks were built for Java's defaults: open classes, no-arg construct
 
 ## JPA And Persistence
 
-- Do not model an entity as a `data class`. Generated `equals`/`hashCode` read every constructor property, which triggers lazy loading, breaks against Hibernate proxies, and changes once the id is assigned on persist — an entity added to a `HashSet` before saving becomes unreachable after.
+- Model entities using standard classes instead of a `data class`. Generated `equals`/`hashCode` read every constructor property, which triggers lazy loading, breaks against Hibernate proxies, and changes once the id is assigned on persist — an entity added to a `HashSet` before saving becomes unreachable after.
 - The standard shape: a regular class, `id` nullable until persisted, `equals` comparing ids when both are non-null, `hashCode` a class-level constant.
-- Lazy associations are proxies: touching one outside a transaction throws `LazyInitializationException`. Fetch what the caller needs in the query, do not open a transaction around the view layer.
+- Lazy associations are proxies: touching one outside a transaction throws `LazyInitializationException`. Fetch what the caller needs in the query, keep transactions closed around the view layer.
 - Nullability: a `var name: String` on an entity claims non-null but the ORM writes it by reflection — align the Kotlin type with the column's nullability or the invariant is fiction.
 - Alternatives worth naming: Exposed and jOOQ for SQL-first Kotlin, SQLDelight for compile-time-checked SQL, R2DBC for real non-blocking access. Blocking JDBC inside coroutines is fine when bounded (below); pretending it is non-blocking is not.
 - Blocking calls in a coroutine handler: `withContext(Dispatchers.IO.limitedParallelism(pool.maxSize)) { … }`. Matching the slice to the pool means excess load waits as cheap suspended coroutines rather than as blocked threads.
@@ -55,7 +55,7 @@ Server frameworks were built for Java's defaults: open classes, no-arg construct
 - A coroutine is not a permit. Rate limits, connection pools and downstream quotas need an explicit `Semaphore` or a `limitedParallelism` slice; without one, elasticity in the coroutine layer just moves the queue to the resource.
 - Timeouts belong at every network boundary: the client's own timeout *and* a `withTimeout` around the call, because a client timeout that the library ignores leaves the coroutine hanging.
 - Graceful shutdown: cancel application scopes, `join` the in-flight work with a bounded timeout, then close clients and pools. A `runBlocking` in a shutdown hook without a timeout turns a deploy into an outage.
-- Long-running background jobs get their own supervised scope with a name and a cancellation path, never `GlobalScope` (SKILL.md rule 3).
+- Long-running background jobs get their own supervised scope with a name and a cancellation path, use a supervised scope instead of `GlobalScope` (SKILL.md rule 3).
 - Virtual threads (JDK 21+) and coroutines solve the same blocking problem differently; mixing them is legal but the reasoning about pools changes — pick one model per service and write down which.
 
 ## Review Checklist

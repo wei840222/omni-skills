@@ -1,6 +1,6 @@
 # Memory Template — Kotlin
 
-Create `~/Clawic/data/kotlin/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Kotlin Memory
