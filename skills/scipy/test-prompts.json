@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a python script to find the minimum of the function f(x) = (x-2)^2 + 3 using scipy.optimize.",
+    "expected": "A python script that uses scipy.optimize.minimize to find the minimum of the given quadratic function, producing the result x=2.",
+    "actual": "```python\nfrom scipy.optimize import minimize\n\ndef f(x):\n    return (x - 2)**2 + 3\n\nresult = minimize(f, x0=0.0)\nprint(f\"Minimum found at x={result.x[0]:.4f}\")\n```\n\nOutput: Minimum found at x=2.0000",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Use scipy to design a 4th-order low-pass Butterworth filter with a 20Hz cutoff frequency for a signal sampled at 1000Hz, and apply it to an array.",
+    "expected": "A python script that uses scipy.signal.butter to design the filter and scipy.signal.filtfilt to apply it to a generated signal.",
+    "actual": "```python\nimport numpy as np\nfrom scipy import signal\n\nfs = 1000\ncutoff = 20\norder = 4\n\nt = np.linspace(0, 1, fs)\nnoisy_signal = np.sin(2 * np.pi * 5 * t) + 0.5 * np.random.randn(fs)\n\nb, a = signal.butter(order, cutoff / (fs / 2), btype='low')\nfiltered_signal = signal.filtfilt(b, a, noisy_signal)\nprint(f\"Filtered signal length: {len(filtered_signal)}\")\n```\n\nOutput: Filtered signal length: 1000",
+    "pass": true
+  }
+]

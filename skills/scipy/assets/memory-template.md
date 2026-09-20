@@ -21,7 +21,7 @@ If a user frequently uses specific SciPy patterns and wants to track preferences
 
 ## When to Use
 
-- **Most users:** Don't need persistent storage. Just provide code.
+- **Most users:** Only require code solutions rather than persistent storage.
 - **Power users:** May want to save frequently-used patterns in their own workspace.
 
 ## Key Principle
