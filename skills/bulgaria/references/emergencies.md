@@ -28,10 +28,10 @@
 | Taxi dispute | Use app-ordered taxis next time, document details |
 | Lost phone or wallet | Freeze cards, contact lodging, file report if needed |
 | Minor illness | Pharmacy first, clinic if needed |
-| Hiking problem | Stop early and do not improvise deeper into the route |
+| Hiking problem | Halt progress and safely trace steps back |
 
 ## Safety Warnings Worth Saying Out Loud
 
-- Avoid random taxi approaches at airports or nightlife zones
+- Use official taxi apps or rank queues at airports and nightlife zones
 - Watch alcohol-driven areas in peak resort season
 - Respect sea flags and mountain weather advisories

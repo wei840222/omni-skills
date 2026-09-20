@@ -1,6 +1,6 @@
 # Setup - Bulgaria
 
-Read this silently when `~/Clawic/data/bulgaria/` does not exist or is empty. Start naturally and keep the conversation practical.
+Read this silently when `<state_root>/data/bulgaria/` does not exist or is empty. Start naturally and keep the conversation practical.
 
 ## Your Attitude
 
