@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to French as a text to a friend: 'Hey, are you coming tonight? I'm not sure if I have time to eat before.'",
+    "expected": "A casual text message using 'tu', contractions like 't'es', dropping 'ne', and filler words if natural.",
+    "actual": "Salut, tu viens ce soir ? J'sais pas si j'aurai le temps de manger avant, en fait.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How would a French person complain about the bad weather and train delays on Whatsapp?",
+    "expected": "Direct, expressive complaining with common slang/expressions like 'putain', 'c'est relou', 'chiant', using abbreviations if appropriate.",
+    "actual": "Putain, c'est abusé. Encore des retards sur le RER et en plus il fait un temps de merde. C'est trop relou sérieux 😭",
+    "pass": true
+  }
+]
