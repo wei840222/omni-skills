@@ -1,6 +1,6 @@
 # Memory Template — Qwen
 
-Create `~/Clawic/data/qwen/memory.md` with this structure:
+Create `<state_root>/qwen/memory.md` with this structure:
 
 ```markdown
 # Qwen Memory
@@ -25,7 +25,7 @@ integration: pending | done | declined
 
 ## Constraints
 <!-- Hardware, privacy, cost, latency, and approval boundaries -->
-<!-- Example: Apple Silicon laptop only, avoid models that trigger swap or require cloud upload -->
+<!-- Example: Apple Silicon laptop only, limit selection to models that fit entirely in RAM and run locally -->
 
 ## Notes
 <!-- Repeated failures, parser quirks, or migration gotchas -->
@@ -41,8 +41,8 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Still learning routes | Keep refining workload defaults |
 | `complete` | Stable Qwen workflow exists | Ask fewer setup questions |
-| `paused` | User said not now | Avoid new setup prompts |
-| `never_ask` | User rejected setup | Never request more setup details |
+| `paused` | User said not now | Bypass new setup prompts |
+| `never_ask` | User rejected setup | Skip setup detail requests |
 
 ## Key Principles
 

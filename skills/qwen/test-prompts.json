@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to connect to Alibaba Cloud Model Studio for Qwen chat using the API. How should I set it up?",
+    "expected": "Provide instructions on setting DASHSCOPE_API_KEY and using dashscope endpoints.",
+    "actual": "Use the https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions endpoint with your DASHSCOPE_API_KEY in the environment. Store preferences in <state_root>/qwen/ if needed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My local Ollama Qwen instance is very slow. Should I use the hosted version?",
+    "expected": "Explain the tradeoff between local quantization/size vs hosted speed and suggest checking model IDs.",
+    "actual": "Local slowness is often caused by oversized context or quantization limits on Apple Silicon. Hosted Qwen via Model Studio usually wins on speed to first success, but local wins for privacy. Verify the real execution surface and model ID before changing architecture.",
+    "pass": true
+  }
+]

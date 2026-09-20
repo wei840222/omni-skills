@@ -52,7 +52,7 @@ Default move:
 
 ## Apple Silicon Reality Check
 
-- Do not start from the biggest model that sounds impressive.
+- Start from the smallest model that resolves the blocker.
 - A smaller model that stays in memory beats a larger one that swaps.
 - Oversized context often hurts more than it helps on laptops.
 
