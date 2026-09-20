@@ -1,31 +1,31 @@
 ---
 name: onboarding
-slug: onboarding
-version: 1.0.0
-description: Design user onboarding flows that maximize activation and time-to-value.
-homepage: https://clawic.com/skills/onboarding
+description: >
+  Design and optimize user onboarding flows that maximize activation and
+  minimize time-to-value. Load when designing sign-up forms, empty states,
+  checklists, first-run tours, onboarding email sequences, or activation metrics.
 metadata:
-  clawdbot:
-    emoji: 🚀
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Onboarding
+  version: "1.0.0"
+  openclaw: '{"emoji":"🚀","os":["linux","darwin","win32"],"displayName":"Onboarding"}'
+  related-skills: '{"growth":"Use when onboarding is one stage inside a broader growth system or channel experiment program.","product":"Use for product strategy, PMF, and launch work beyond first-run activation.","product-manager":"Use for roadmap and requirement work that feeds onboarding scope.","retention":"Use after activation for cohort retention, churn prevention, and reactivation.","ux":"Use for broader UX research and interaction design outside first-run flows."}'
 ---
+
+Use this skill for first-run activation design. Deeper research notes and source URLs live in `references/sources.md`.
 
 ## Define Activation First
 
 Answer before designing anything:
-- What specific action = user got value?
-- What % of signups currently reach it?
-- What's the minimum path to get there?
 
-If you can't answer these, onboarding will optimize the wrong thing.
+- What specific action means the user got value?
+- What % of signups currently reach it?
+- What is the minimum path to get there?
+
+If these are unanswered, onboarding will optimize the wrong metric.
 
 ## Measure the Funnel
 
-Create this table for current state:
+Build the current-state table:
+
 | Step | Users | Drop-off |
 |------|-------|----------|
 | Signed up | 100% | - |
@@ -33,84 +33,90 @@ Create this table for current state:
 | Step 3 | ?% | ?% |
 | Activated | ?% | ?% |
 
-Biggest drop-off = focus there first. Everything else is distraction.
+Biggest drop-off first. Everything else is distraction.
 
 ## Signup Form
 
-At signup, require ONLY: email + password.
-Everything else: defer until after first value delivered.
+At signup, require only: email + password.
+Defer every other field until after first value is delivered.
 
-For each additional field, calculate: how many users lost × LTV = cost of that field.
+For each extra field, estimate: users lost × LTV = cost of that field.
 
 ## Segmentation Question
 
 One question only, immediately after signup:
-"What's your main goal?" with 3-4 options.
 
-Route to different:
-- First action to complete
-- Empty state messaging
+"What's your main goal?" with 3–4 options.
+
+Route each answer to a different:
+
+- First action
+- Empty-state copy
 - Email sequence
 
-More than 4 paths = complexity without benefit.
+More than 4 paths adds complexity without benefit.
 
 ## Checklist Pattern
 
 Structure:
-- 4-6 items maximum
-- First item already complete when shown (quick win psychology)
-- Items ordered by value delivered, not logical sequence
-- Persists across sessions
-- Completion reward visible
+
+- 4–6 items maximum
+- First item already complete when shown (quick-win psychology)
+- Order by value delivered, not internal logic
+- Persist across sessions
+- Show a visible completion reward
 
 Format: action verb + outcome
-✓ "Create your first project" 
-✗ "Projects"
+
+- Good: "Create your first project"
+- Weak: "Projects" (no action, no outcome)
 
 ## Empty State Formula
 
 Every empty screen needs:
-1. What will appear here (1 sentence)
-2. Visual of populated state or example
-3. ONE action button (primary style)
 
-Pre-populated templates > blank slate.
+1. What will appear here (1 sentence)
+2. Visual of the populated state or an example
+3. ONE primary action button
+
+Prefer pre-populated templates over a blank slate.
 
 ## Email Sequence
 
 | Day | Trigger | Content |
 |-----|---------|---------|
-| 0 | Signup | Welcome + single quick win CTA |
-| 1 | Not activated | Reminder + "here's how" |
+| 0 | Signup | Welcome + single quick-win CTA |
+| 1 | Not activated | Reminder + how-to |
 | 3 | Not activated | Social proof / success story |
 | 7 | Not activated | Feature highlight |
 | 14 | Inactive | "We miss you" + incentive |
 
-Stop sequence immediately when user activates.
+Stop the sequence immediately when the user activates.
 
 ## Tooltips vs Modals
 
-- **Tooltip**: single UI element explanation, non-blocking
-- **Modal**: requires decision, blocks everything
-- **Tour**: max 3-5 steps or users skip
+- **Tooltip**: single UI element, non-blocking
+- **Modal**: requires a decision, blocks the UI
+- **Tour**: max 3–5 steps or users skip
 
-Never repeat to returning users.
+Show only to first-time users; skip returning users.
 Trigger contextually, not on every login.
 
 ## Metrics
 
 Track weekly:
-- Signup → Activation rate
+
+- Signup → activation rate
 - Time to activate (median)
 - Drop-off by step
-- Day 1, Day 7 retention: activated vs non-activated
+- Day 1 / Day 7 retention: activated vs non-activated
 
-Activated users should retain 2-3x better. If not, activation definition is wrong.
+Activated users should retain about 2–3× better. If not, redefine activation.
 
 ## Common Failures
 
-- Asking for info before showing value—user hasn't bought in
-- Tour showing everything—overwhelms, skip rate high
-- Same onboarding for all segments—relevance drives completion
-- No follow-up emails—user closes tab and forgets
-- Blocking features behind upgrade before value demonstrated
+- Asking for info before showing value
+- Tours that show everything (high skip rate)
+- One onboarding path for every segment
+- No follow-up emails after the tab closes
+- Gating features behind upgrade before value is demonstrated
