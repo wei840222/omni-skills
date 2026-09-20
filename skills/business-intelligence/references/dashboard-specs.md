@@ -32,7 +32,7 @@ Escalation route:
 - Use identical KPI names across all dashboards.
 - Keep time filters visible at top level.
 - Reserve red for threshold breach only.
-- Do not mix absolute values and rates in one axis without labels.
+- Separate absolute values and rates onto distinct axes with clear labels.
 - Display last refresh timestamp in the header.
 
 ## Drill-Down Requirements
