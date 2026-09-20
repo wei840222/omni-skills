@@ -1,6 +1,6 @@
 # HOT Memory — Template
 
-> This file is created in `~/Clawic/data/self-improving/memory.md` when you first use the skill.
+> This file is created in `<state_root>/self-improving/memory.md` when you first use the skill.
 > Keep it ≤100 lines. Most-used patterns live here.
 
 ## Example Entries
@@ -27,4 +27,4 @@ The agent will:
 1. Load this file on every session
 2. Add entries when patterns are used 3x in 7 days
 3. Demote unused entries to WARM after 30 days
-4. Never exceed 100 lines (compacts automatically)
+4. Maintain within 100 lines (compacts automatically)

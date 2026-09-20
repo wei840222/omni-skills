@@ -1,12 +1,12 @@
 # Memory Template
 
-Copy this structure to `~/Clawic/data/self-improving/memory.md` on first use.
+Copy this structure to `<state_root>/self-improving/memory.md` on first use.
 
 ```markdown
 # Self-Improving Memory
 
 ## Confirmed Preferences
-<!-- Patterns confirmed by user, never decay -->
+<!-- Patterns confirmed by user, persist indefinitely -->
 
 ## Active Patterns
 <!-- Patterns observed 3+ times, subject to decay -->
@@ -20,13 +20,13 @@ Copy this structure to `~/Clawic/data/self-improving/memory.md` on first use.
 Create on first activation:
 
 ```bash
-mkdir -p ~/Clawic/data/self-improving/{projects,domains,archive}
-touch ~/Clawic/data/self-improving/{memory.md,index.md,corrections.md,heartbeat-state.md}
+mkdir -p <state_root>/self-improving/{projects,domains,archive}
+touch <state_root>/self-improving/{memory.md,index.md,corrections.md,heartbeat-state.md}
 ```
 
 ## Index Template
 
-For `~/Clawic/data/self-improving/index.md`:
+For `<state_root>/self-improving/index.md`:
 
 ```markdown
 # Memory Index
@@ -45,7 +45,7 @@ Last compaction: never
 
 ## Corrections Log Template
 
-For `~/Clawic/data/self-improving/corrections.md`:
+For `<state_root>/self-improving/corrections.md`:
 
 ```markdown
 # Corrections Log
@@ -61,7 +61,7 @@ For `~/Clawic/data/self-improving/corrections.md`:
 
 ## Heartbeat State Template
 
-For `~/Clawic/data/self-improving/heartbeat-state.md`:
+For `<state_root>/self-improving/heartbeat-state.md`:
 
 ```markdown
 # Self-Improving Heartbeat State

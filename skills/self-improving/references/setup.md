@@ -5,15 +5,15 @@
 ### 1. Create Memory Structure
 
 ```bash
-mkdir -p ~/Clawic/data/self-improving/{projects,domains,archive}
+mkdir -p <state_root>/self-improving/{projects,domains,archive}
 ```
 
 ### 2. Initialize Core Files
 
-Create `~/Clawic/data/self-improving/memory.md` using `memory-template.md`:
+Create `<state_root>/self-improving/memory.md` using `assets/memory-template.md`:
 
 ```markdown
-Copy the structure from `memory-template.md` into `~/Clawic/data/self-improving/memory.md`.
+Copy the structure from `assets/memory-template.md` into `<state_root>/self-improving/memory.md`.
 ```
 
 Memory file baseline:
@@ -27,7 +27,7 @@ Memory file baseline:
 ## Rules
 ```
 
-Create `~/Clawic/data/self-improving/corrections.md`:
+Create `<state_root>/self-improving/corrections.md`:
 ```markdown
 # Corrections Log
 
@@ -35,7 +35,7 @@ Create `~/Clawic/data/self-improving/corrections.md`:
 |------|-----------------|----------------|--------|
 ```
 
-Create `~/Clawic/data/self-improving/index.md`:
+Create `<state_root>/self-improving/index.md`:
 ```markdown
 # Memory Index
 
@@ -45,7 +45,7 @@ Create `~/Clawic/data/self-improving/index.md`:
 | corrections.md | 0 | — |
 ```
 
-Create `~/Clawic/data/self-improving/heartbeat-state.md`:
+Create `<state_root>/self-improving/heartbeat-state.md`:
 ```markdown
 # Self-Improving Heartbeat State
 
@@ -79,10 +79,10 @@ Add this section to your `SOUL.md`:
 ```markdown
 **Self-Improving**
 Compounding execution quality is part of the job.
-Before non-trivial work, load `~/Clawic/data/self-improving/memory.md` and only the smallest relevant domain or project files.
+Before non-trivial work, load `<state_root>/self-improving/memory.md` and only the smallest relevant domain or project files.
 After corrections, failed attempts, or reusable lessons, write one concise entry to the correct self-improving file immediately.
 Prefer learned rules when relevant, but keep self-inferred rules revisable.
-Do not skip retrieval just because the task feels familiar.
+Always retrieve knowledge even when tasks feel familiar.
 ```
 
 ### 5. Add the Proactivity Companion as Part of Setup
@@ -107,55 +107,55 @@ If the user says no, skip it cleanly and continue with self-improving only.
 
 ### 6. Refine AGENTS.md Memory Section (Non-Destructive)
 
-Update `AGENTS.md` by complementing the existing `## Memory` section. Do not replace the whole section and do not remove existing lines.
+Update `AGENTS.md` by complementing the existing `## Memory` section. Preserve the existing lines by appending new ones.
 
 If your `## Memory` block differs from the default template, insert the same additions in equivalent places so existing information is preserved.
 
 Add this line in the continuity list (next to Daily notes and Long-term):
 
 ```markdown
-- **Self-improving:** `~/Clawic/data/self-improving/` (via `self-improving` skill) — execution-improvement memory (preferences, workflows, style patterns, what improved/worsened outcomes)
+- **Self-improving:** `<state_root>/self-improving/` (via `self-improving` skill) — execution-improvement memory (preferences, workflows, style patterns, what improved/worsened outcomes)
 ```
 
 Right after the sentence "Capture what matters...", add:
 
 ```markdown
 Use `memory/YYYY-MM-DD.md` and `MEMORY.md` for factual continuity (events, context, decisions).
-Use `~/Clawic/data/self-improving/` for compounding execution quality across tasks.
-For compounding quality, read `~/Clawic/data/self-improving/memory.md` before non-trivial work, then load only the smallest relevant domain or project files.
-If in doubt, store factual history in `memory/YYYY-MM-DD.md` / `MEMORY.md`, and store reusable performance lessons in `~/Clawic/data/self-improving/` (tentative until human validation).
+Use `<state_root>/self-improving/` for compounding execution quality across tasks.
+For compounding quality, read `<state_root>/self-improving/memory.md` before non-trivial work, then load only the smallest relevant domain or project files.
+If in doubt, store factual history in `memory/YYYY-MM-DD.md` / `MEMORY.md`, and store reusable performance lessons in `<state_root>/self-improving/` (tentative until human validation).
 ```
 
 Before the "Write It Down" subsection, add:
 
 ```markdown
 Before any non-trivial task:
-- Read `~/Clawic/data/self-improving/memory.md`
+- Read `<state_root>/self-improving/memory.md`
 - List available files first:
   ```bash
-  for d in ~/Clawic/data/self-improving/domains ~/Clawic/data/self-improving/projects; do
+  for d in <state_root>/self-improving/domains <state_root>/self-improving/projects; do
     [ -d "$d" ] && find "$d" -maxdepth 1 -type f -name "*.md"
   done | sort
   ```
-- Read up to 3 matching files from `~/Clawic/data/self-improving/domains/`
-- If a project is clearly active, also read `~/Clawic/data/self-improving/projects/<project>.md`
-- Do not read unrelated domains "just in case"
+- Read up to 3 matching files from `<state_root>/self-improving/domains/`
+- If a project is clearly active, also read `<state_root>/self-improving/projects/<project>.md`
+- Read only domains directly related to the task
 
 If inferring a new rule, keep it tentative until human validation.
 ```
 
 Inside the "Write It Down" bullets, refine the behavior (non-destructive):
-- Keep existing intent, but route execution-improvement content to `~/Clawic/data/self-improving/`.
+- Keep existing intent, but route execution-improvement content to `<state_root>/self-improving/`.
 - If the exact bullets exist, replace only these lines; if wording differs, apply equivalent edits without removing unrelated guidance.
 
 Use this target wording:
 
 ```markdown
-- When someone says "remember this" → if it's factual context/event, update `memory/YYYY-MM-DD.md`; if it's a correction, preference, workflow/style choice, or performance lesson, log it in `~/Clawic/data/self-improving/`
-- Explicit user correction → append to `~/Clawic/data/self-improving/corrections.md` immediately
-- Reusable global rule or preference → append to `~/Clawic/data/self-improving/memory.md`
-- Domain-specific lesson → append to `~/Clawic/data/self-improving/domains/<domain>.md`
-- Project-only override → append to `~/Clawic/data/self-improving/projects/<project>.md`
+- When someone says "remember this" → if it's factual context/event, update `memory/YYYY-MM-DD.md`; if it's a correction, preference, workflow/style choice, or performance lesson, log it in `<state_root>/self-improving/`
+- Explicit user correction → append to `<state_root>/self-improving/corrections.md` immediately
+- Reusable global rule or preference → append to `<state_root>/self-improving/memory.md`
+- Domain-specific lesson → append to `<state_root>/self-improving/domains/<domain>.md`
+- Project-only override → append to `<state_root>/self-improving/projects/<project>.md`
 - Keep entries short, concrete, and one lesson per bullet; if scope is ambiguous, default to domain rather than global
 - After a correction or strong reusable lesson, write it before the final response
 ```
@@ -188,8 +188,8 @@ Add this section to your `HEARTBEAT.md`:
 ## Self-Improving Check
 
 - Read `./skills/self-improving/heartbeat-rules.md`
-- Use `~/Clawic/data/self-improving/heartbeat-state.md` for last-run markers and action notes
-- If no file inside `~/Clawic/data/self-improving/` changed since the last reviewed change, return `HEARTBEAT_OK`
+- Use `<state_root>/self-improving/heartbeat-state.md` for last-run markers and action notes
+- If no file inside `<state_root>/self-improving/` changed since the last reviewed change, return `HEARTBEAT_OK`
 ```
 
 Keep this in the same default setup flow as the AGENTS and SOUL additions so recurring maintenance is installed consistently.
