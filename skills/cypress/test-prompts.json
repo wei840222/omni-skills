@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a Cypress test that clicks a login button and asserts that the user is logged in, utilizing proper Cypress selectors.",
+    "expected": "Provides a Cypress test using cy.get('[data-testid=login-button]') rather than fragile CSS classes, and validates state changes.",
+    "actual": "```typescript\ndescribe('Login', () => {\n  it('logs in successfully', () => {\n    cy.intercept('POST', '/api/login', { statusCode: 200 }).as('loginReq');\n    cy.get('[data-testid=\"login-button\"]').click();\n    cy.wait('@loginReq');\n    cy.get('[data-testid=\"dashboard\"]').should('be.visible');\n  })\n})\n```",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I wait for 3 seconds before checking if a loader disappears in Cypress?",
+    "expected": "Refuses to use fixed delays (cy.wait(3000)) and instead instructs on using Cypress network intercepts or DOM assertions (.should('not.exist')) to wait for the actual state change.",
+    "actual": "I will not use a fixed cy.wait(3000) because it introduces flakiness. Instead, you should wait for the actual state to change. \n\n```typescript\ncy.get('[data-testid=\"loader\"]').should('not.exist');\ncy.get('[data-testid=\"content\"]').should('be.visible');\n```",
+    "pass": true
+  }
+]

@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| cypress | 2026-09-21 | 85/100 (#528) |
 | paypal | 2026-09-21 | 85/100 (#527) |
 | venture-capital | 2026-09-21 | 85/100 (#526) |
 | norwegian | 2026-09-21 | 85/100 (#525) |

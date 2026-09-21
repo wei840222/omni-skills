@@ -106,7 +106,7 @@ cypress:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - node_modules/
-      - ~/.cache/Cypress/
+      - <state_root>/.cache/Cypress/
 ```
 
 ## CircleCI
@@ -222,7 +222,7 @@ CYPRESS_RECORD_KEY=your-dashboard-key
 - uses: actions/cache@v4
   with:
     path: |
-      ~/.cache/Cypress
+      <state_root>/.cache/Cypress
       node_modules
     key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
@@ -231,7 +231,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
-    - ~/.cache/Cypress/
+    - <state_root>/.cache/Cypress/
 ```
 
 ### Artifacts on Failure
