@@ -1,19 +1,10 @@
 ---
 name: lisbon
-slug: lisbon
-version: 1.0.0
-description: Navigate Lisbon as visitor, resident, digital nomad, tech worker, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/lisbon
+description: Navigate Lisbon as visitor, resident, digital nomad, tech worker, or
+  entrepreneur with neighborhoods, transport, costs, visas, and local insights.
 metadata:
-  clawdbot:
-    emoji: 🇵🇹
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Lisbon
+  version: 1.0.0
+  openclaw: '{"emoji": "🇵🇹"}'
 ---
 
 ## When to Use
@@ -25,41 +16,41 @@ User asks about Lisbon or Portugal for any purpose: visiting, moving, working re
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Historic Center (Alfama, Baixa, Chiado) | `neighborhoods-historic.md` |
-| Trendy Areas (Príncipe Real, Santos, Estrela) | `neighborhoods-trendy.md` |
-| Riverside (Alcântara, Belém, Cais do Sodré) | `neighborhoods-riverside.md` |
-| Modern & Suburban (Parque das Nações, Benfica) | `neighborhoods-modern.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Historic Center (Alfama, Baixa, Chiado) | `references/neighborhoods-historic.md` |
+| Trendy Areas (Príncipe Real, Santos, Estrela) | `references/neighborhoods-trendy.md` |
+| Riverside (Alcântara, Belém, Cais do Sodré) | `references/neighborhoods-riverside.md` |
+| Modern & Suburban (Parque das Nações, Benfica) | `references/neighborhoods-modern.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Portuguese cuisine | `food-local.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Practical (tipping, Ramadan, dietary) | `food-practical.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Portuguese cuisine | `references/food-local.md` |
+| International & fine dining | `references/food-international.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Practical (tipping, Ramadan, dietary) | `references/food-practical.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (metro, trams, ferries) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & seasonal tips | `climate.md` |
-| Local services (banking, SIM, NIF) | `local.md` |
+| Moving & settling | `references/resident.md` |
+| Transport (metro, trams, ferries) | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety & laws | `references/safety.md` |
+| Weather & seasonal tips | `references/climate.md` |
+| Local services (banking, SIM, NIF) | `references/local.md` |
 | **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & freelancing | `business.md` |
-| Visas (D7, digital nomad, Golden) | `visas.md` |
-| Startups & funding | `startup.md` |
+| Tech industry & salaries | `references/tech.md` |
+| Business setup & freelancing | `references/business.md` |
+| Visas (D7, digital nomad, Golden) | `references/visas.md` |
+| Startups & funding | `references/startup.md` |
 | **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & SNS | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Driving & car ownership | `driving.md` |
+| Culture & customs | `references/culture.md` |
+| Healthcare & SNS | `references/healthcare.md` |
+| Schools & education | `references/education.md` |
+| Expat lifestyle & social | `references/lifestyle.md` |
+| Driving & car ownership | `references/driving.md` |
 
 ## Core Rules
 
@@ -74,7 +65,7 @@ Lisbon has transformed into Europe's top digital nomad destination. Key consider
 - **Digital Nomad Visa (D8)**: Remote workers earning 4x minimum wage
 - **NHR 2.0 (IFICI)**: 20% flat tax for qualifying professionals (replaced original NHR in 2024)
 - **EU citizens**: Free movement, just register with local authorities
-See `visas.md` for current requirements and processes.
+See `references/visas.md` for current requirements and processes.
 
 ### 3. Cultural Context
 Portugal is relaxed but traditional in unexpected ways:
@@ -82,7 +73,7 @@ Portugal is relaxed but traditional in unexpected ways:
 - **Saudade**: The untranslatable Portuguese melancholy—respect it
 - **Fado**: More than music, it's cultural identity
 - **Pace**: Things move slowly. "Portuguese time" is real.
-See `culture.md` for detailed guidance.
+See `references/culture.md` for detailed guidance.
 
 ### 4. Weather Reality
 - **Mediterranean climate**: Mild winters, hot dry summers
@@ -90,7 +81,7 @@ See `culture.md` for detailed guidance.
 - **Summer (Jun-Sep)**: Hot (up to 35°C+), packed with tourists
 - **Winter (Dec-Feb)**: Mild (10-15°C) but rainy; cheapest time
 - **Hills + heat**: Summer walking is exhausting. Plan accordingly.
-See `climate.md` for monthly breakdown and tips.
+See `references/climate.md` for monthly breakdown and tips.
 
 ### 5. Current Data (Feb 2026)
 
@@ -122,7 +113,7 @@ Unlike car-centric cities, Lisbon has excellent public transport:
 - **Ferries**: To Cacilhas, Almada (stunning views)
 - **Trains**: Cascais line, Sintra line from Rossio
 - **Navegante card**: Essential—€0.50 card, load with Zapping credit
-See `transport.md` for complete guide.
+See `references/transport.md` for complete guide.
 
 ### 8. Neighborhood Matching
 
@@ -157,9 +148,9 @@ The city you'll find today is dramatically different from even 5 years ago.
 - **Alfama at night** — Some areas deserted and poorly lit. Stick to main streets.
 - **Sintra one-day ambition** — Pick 2-3 palaces max. Trying to see everything ruins it.
 - **"Local" restaurants in Baixa** — Tourist traps. Venture to other neighborhoods.
-- **Rental scams** — Never send money before seeing apartment. Use Idealista carefully.
+- **Rental scams** — Always inspect property before sending money. Use Idealista carefully.
 - **NIF without address** — Catch-22 situation. Use a fiscal representative service initially.
-- **Portuguese hours** — Don't arrive for dinner at 18:00. Nothing will be open.
+- **Portuguese hours** — Arrive after 19:30 for dinner. Nothing will be open.
 
 ## Legal Awareness
 
@@ -171,7 +162,7 @@ Key laws visitors/residents must know:
 - **Work permits**: Non-EU citizens need proper visa. Remote work for foreign employer is grey area without D8.
 - **Photography**: Generally fine. Be respectful in residential areas of Alfama/Mouraria.
 
-See `safety.md` for comprehensive legal guidance.
+See `references/safety.md` for comprehensive legal guidance.
 
 ## The Housing Reality (2026)
 
@@ -186,6 +177,6 @@ This deserves special attention:
 
 - **Portuguese spoken**: Yes, unlike some expat bubbles, Portuguese matters here
 - **English proficiency**: High among young people, variable among older generation
-- **Spanish assumption**: Don't speak Spanish expecting understanding. It's rude.
+- **Spanish assumption**: Speak Portuguese or English instead of Spanish. It's rude.
 - **Learning Portuguese**: Greatly appreciated. Even basics open doors.
 - **Brazilian Portuguese**: Widely understood due to TV/media, but differences exist

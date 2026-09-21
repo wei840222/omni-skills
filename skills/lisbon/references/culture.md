@@ -6,10 +6,10 @@
 
 **Key traits**:
 - **Saudade**: Untranslatable melancholy/longing—central to Portuguese soul
-- **Reserved initially**: Not cold, but don't expect immediate warmth
+- **Reserved initially**: Not cold, but they may take time to show warmth
 - **Warm once known**: Deep friendships once trust established
-- **Non-confrontational**: Avoid direct conflict
-- **Modest**: Don't boast, suspicious of those who do
+- **Non-confrontational**: Maintain harmony instead of direct conflict
+- **Modest**: Be humble; they are suspicious of boasting
 - **Fatalistic**: "What will be, will be" attitude
 
 ### Saudade Explained
@@ -34,7 +34,7 @@ This unique concept pervades Portuguese culture:
 | Singular identity | Regional identities (Catalan, Basque) |
 | Portuguese language | Spanish (Castilian) |
 
-**Important**: Don't speak Spanish expecting understanding. It's considered rude.
+**Important**: Speak Portuguese or English; speaking Spanish and expecting understanding is considered rude.
 
 ---
 
@@ -104,12 +104,12 @@ Those blue-and-white tiles everywhere:
 | Metro stations | Modern interpretations |
 | Sintra palaces | Elaborate interiors |
 
-### Don't Touch
+### Important Etiquette
 
 Historic azulejos are being stolen/damaged:
 - Look, photograph, admire
 - Report vandalism if witnessed
-- Don't buy suspiciously old tiles
+- Ensure tiles are bought from reputable sellers
 
 ---
 
@@ -157,7 +157,7 @@ Portuguese lunch is proper:
 - 12:30-14:30 standard
 - Sit-down, full meal
 - Many workers have 1.5-2 hour breaks
-- Don't schedule meetings over lunch
+- Schedule meetings outside of lunch hours
 
 ### Dinner Timing
 
@@ -165,14 +165,14 @@ Portuguese lunch is proper:
 - Restaurants open: 19:30
 - Portuguese arrive: 20:30-21:00
 - Peak: 21:00
-- Don't arrive at 18:00 expecting service
+- Arrive after 19:30 for dinner service
 
 ### Coffee Culture
 
 **Essential rituals**:
 - After every meal: espresso (café/bica)
 - Standing at bar = cheaper
-- Never cappuccino after food (breakfast drink)
+- Opt for espresso (bica) after food
 - Multiple coffees/day normal
 
 ### Wine & Drinking
@@ -243,8 +243,8 @@ Portugal is historically Catholic:
 ### Gift Giving
 
 - Wine, flowers, chocolates standard
-- Don't bring red flowers (romantic)
-- Avoid chrysanthemums (funerals)
+- Bring non-red flowers (unless romantic)
+- Choose flowers other than chrysanthemums
 - Quality over quantity valued
 
 ### Home Visits
@@ -322,7 +322,7 @@ Portugal is one of Europe's most LGBTQ+-friendly:
 
 - Relationships first, business follows
 - Small talk expected before business
-- Don't rush to the point
+- Take time to build rapport before getting to the point
 - Hierarchy respected
 - Decisions may take time
 
@@ -332,7 +332,7 @@ Portugal is one of Europe's most LGBTQ+-friendly:
 - "Maybe" often means "no"
 - Read between lines
 - Non-verbal important
-- Avoid public confrontation
+- Resolve issues privately
 
 ### Working Hours
 
@@ -413,7 +413,7 @@ Many businesses have:
 3. **Accept invitations** — Even if inconvenient
 4. **Be patient** — Relationships take time
 5. **Show interest** — In Portugal, history, culture
-6. **Don't compare** — "In my country we do it better"
+6. **Appreciate differences** — refrain from comparing with "In my country we do it better"
 
 ### Common Mistakes
 

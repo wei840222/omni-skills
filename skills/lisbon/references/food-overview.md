@@ -2,7 +2,7 @@
 
 ## The Portuguese Food Philosophy
 
-Portuguese cuisine is the antithesis of flashy. It's peasant food elevated through quality ingredients and centuries of refinement. Don't expect molecular gastronomy—expect perfectly grilled fish, bread that matters, and portions that challenge.
+Portuguese cuisine is the antithesis of flashy. It's peasant food elevated through quality ingredients and centuries of refinement. Expect perfectly grilled fish rather than molecular gastronomy, bread that matters, and portions that challenge.
 
 ### Core Principles
 - **Simplicity**: Few ingredients, perfect execution
@@ -28,7 +28,7 @@ The main meal for many Portuguese:
 **Jantar (Dinner)** 19:30-22:30
 - Similar structure to lunch
 - Starts late by tourist standards
-- Many restaurants don't open until 19:00
+- Most restaurants open at 19:00 or later
 - Peak seating: 20:30-21:00
 
 **Lanche (Afternoon snack)** 16:00-18:00
@@ -62,11 +62,11 @@ The main meal for many Portuguese:
 
 **Critical to know**:
 - **It's NOT free** (usually €3-6 total)
-- You can **send it back** if you don't want it
+- You can **send it back** if you prefer not to eat it
 - Just say "não obrigado" when they bring it
 - You're only charged for what you consume
 - Higher-end restaurants: more elaborate, more expensive
-- Never assume it's complimentary
+- Assume bread and olives are charged
 
 **Tourist trap version**: Fancy cured meats, expensive cheese, charged €15. Always ask prices.
 
@@ -143,15 +143,15 @@ Find a tasca with "prato do dia":
 - Ask what's today's dish: "Qual é o prato do dia?"
 
 ### Dinner
-- Don't arrive before 19:30 (nothing will be ready)
+- Arrive after 19:30
 - Expect larger portions than tapas cultures
 - Sharing is normal—order a few dishes for table
-- Finish with coffee (never cappuccino after a meal)
+- Finish with espresso (bica) instead of cappuccino
 
 ### Tipping
 - Not expected like US
 - Round up or 5-10% for good service
-- Don't feel obligated
+- Feel free to decline
 - Card tips less common (leave cash if tipping)
 
 ---

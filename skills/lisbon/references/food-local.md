@@ -34,7 +34,7 @@ Portugal's summer food, especially during June festivals.
 
 **Where**: Any tasca June-August, or street during Santo António (June 12-13)
 
-**Reality check**: Off-season sardines exist but lack flavor. Don't order in December.
+**Reality check**: Off-season sardines exist but lack flavor. Wait for the right season instead.
 
 ### Fresh Grilled Fish
 Portugal's true strength—simply prepared, incredibly fresh.

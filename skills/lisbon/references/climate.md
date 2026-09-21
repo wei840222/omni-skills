@@ -23,7 +23,7 @@ Lisbon has a **Mediterranean climate** with Atlantic influence—mild, wet winte
 - **Daylight**: ~10 hours
 - **Character**: Quiet, rainy, cool
 - **Good for**: Museums, indoor activities, low prices
-- **Avoid if**: You need guaranteed sunshine
+- **Less ideal if**: You need guaranteed sunshine
 
 ### February
 - **Temperature**: 9-16°C
@@ -80,8 +80,8 @@ Lisbon has a **Mediterranean climate** with Atlantic influence—mild, wet winte
 - **Daylight**: ~13.5 hours
 - **Character**: Hottest month, many locals leave
 - **Reality check**: Many Portuguese businesses close
-- **Good for**: Beach if you don't mind crowds
-- **Avoid if**: Want authentic local experience
+- **Good for**: Beach if you tolerate crowds
+- **Less ideal if**: Want authentic local experience
 
 ### September
 - **Temperature**: 18-27°C
@@ -132,7 +132,7 @@ Lisbon has a **Mediterranean climate** with Atlantic influence—mild, wet winte
 - Water warmest (still cool: 18-20°C)
 - Best beach weather
 - Longest days
-- Note: Atlantic never warm like Mediterranean
+- Note: Atlantic rarely warm like Mediterranean
 
 ### For Budget
 **November-February (except Christmas)**:
@@ -146,7 +146,7 @@ Lisbon has a **Mediterranean climate** with Atlantic influence—mild, wet winte
 **July-August**: Festival season
 **November**: Web Summit networking
 
-### To Avoid
+### Considerations
 **August**: Hot, crowded, locals gone, some closures
 **Web Summit week**: Hotel prices insane
 
@@ -236,7 +236,7 @@ Lisbon has a **Mediterranean climate** with Atlantic influence—mild, wet winte
 - Many older buildings have none
 - Confirm AC exists before summer booking
 - Traditional Portuguese solution: shutters closed midday
-- Fans help but don't solve heat
+- Fans help but help manage heat
 
 **Heating**:
 - Many buildings have no central heating

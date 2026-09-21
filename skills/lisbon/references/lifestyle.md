@@ -126,7 +126,7 @@ Lisbon has transformed into one of Europe's top expat destinations:
 - **Safety**: Very low violent crime
 - **Food**: Excellent quality, reasonable prices
 - **Beach access**: Multiple beaches within 30 min
-- **Work-life balance**: Portuguese don't live to work
+- **Work-life balance**: Portuguese prioritize life over work
 - **Cultural richness**: History, music, architecture
 
 ### The Challenges
@@ -277,7 +277,7 @@ See fitness section above.
 - Only hanging out with same-nationality expats
 - No Portuguese friends after 2+ years
 - Complaining constantly about Portugal
-- Never learning the language
+- Learning the language is essential
 - Only eating at international restaurants
 - Treating locals as service providers
 

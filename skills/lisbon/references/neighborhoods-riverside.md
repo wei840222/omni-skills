@@ -32,7 +32,7 @@ Former red-light district transformed into nightlife and food hub. Famous Pink S
 **Best for**: Night owls, foodies, those who work late, transport-dependent
 
 ### Key Areas
-- **Pink Street (Rua Nova do Carvalho)**: Bar strip, avoid for sleeping
+- **Pink Street (Rua Nova do Carvalho)**: Bar strip, better for nightlife than sleeping
 - **Around Mercado da Ribeira**: Food-focused, less residential
 - **Towards Santos**: Quieter as you move west
 - **Upper streets (towards Chiado)**: More residential

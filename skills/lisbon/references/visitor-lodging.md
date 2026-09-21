@@ -10,7 +10,7 @@ Lisbon is compact. With excellent public transport and walkability, most central
 
 ## Neighborhood Quick Reference
 
-| Area | Best For | Avoid If | Price Level |
+| Area | Best For | Less Ideal If | Price Level |
 |------|----------|----------|-------------|
 | Baixa/Chiado | First-timers, central access | Want quiet nights | €€€ |
 | Alfama | Atmosphere, fado, authenticity | Mobility issues, hills | €€ |
@@ -119,17 +119,17 @@ Lisbon has excellent hostels, many winning international awards.
 
 ### Solo Travelers
 - **Best**: Hostels in Baixa/Cais do Sodré (social), or boutique hotels in Príncipe Real (stylish solo)
-- **Avoid**: Remote locations, family-focused properties
+- **Not recommended**: Remote locations, family-focused properties
 - **Top pick**: Home Lisbon Hostel or The Independente
 
 ### Couples
 - **Best**: Alfama for romance, Príncipe Real for trendy, Santos for local vibe
-- **Avoid**: Party-hostel areas, business districts
+- **Not recommended**: Party-hostel areas, business districts
 - **Top pick**: Memmo Alfama, Santiago de Alfama, or 1908 Lisboa
 
 ### Families
 - **Best**: Parque das Nações (modern, near Oceanário), Chiado apartments
-- **Avoid**: Bairro Alto (nightlife), steep Alfama streets with strollers
+- **Not recommended**: Bairro Alto (nightlife), steep Alfama streets with strollers
 - **Top pick**: Martinhal Chiado, Altis Avenida Hotel
 
 ### Digital Nomads
@@ -157,7 +157,7 @@ Lisbon has heavily regulated short-term rentals due to housing crisis:
 - Cooking own meals saves money
 - Want neighborhood immersion
 
-**When to avoid Airbnb**:
+**When Airbnb is less ideal**:
 - First visit (hotel convenience valuable)
 - Short stays (cleaning fees hurt value)
 - Want consistent quality/service

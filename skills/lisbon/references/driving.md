@@ -4,7 +4,7 @@
 
 **Short answer**: Probably not if you live in central Lisbon.
 
-### When You DON'T Need a Car
+### When to Rely on Public Transit
 - Living in center (Baixa, Chiado, Príncipe Real, Santos)
 - Working remotely or in central office
 - Using metro, buses, trams daily
@@ -129,11 +129,11 @@ Parking in central Lisbon is **extremely difficult**:
 - **Chiado**: Limited access
 
 ### Tips
-- Avoid driving in center if possible
+- Use transit in the center if possible
 - Use parking apps (ePark, Via Verde)
 - Get Via Verde device for tolls and parking
 - GPS essential (many one-ways, restrictions)
-- Avoid rush hours (8-10, 17:30-19:30)
+- Plan around rush hours (8-10, 17:30-19:30)
 
 ---
 
@@ -224,11 +224,11 @@ Essential electronic toll system:
 
 ## Summary Recommendation
 
-**For most expats/digital nomads in central Lisbon**: Don't buy a car.
+**For most expats/digital nomads in central Lisbon**: Rely on public transport instead of buying a car.
 
 - Use public transit + occasional Uber/Bolt
 - Rent for weekend trips
 - Save thousands annually
-- Avoid parking headaches
+- Bypass parking headaches by using transit
 
 **If you need a car**: Consider living in suburbs where parking is easier, and factor in full ownership costs.

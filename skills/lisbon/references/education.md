@@ -222,7 +222,7 @@ Growing number available, especially at:
 ## Practical Tips
 
 ### Choosing a School
-1. **Visit multiple schools**: Don't just rely on reputation
+1. **Visit multiple schools**: Evaluate schools personally beyond just reputation
 2. **Talk to parents**: Current families give best insights
 3. **Consider commute**: Traffic in Lisbon is significant
 4. **Think long-term**: Where will child continue education?

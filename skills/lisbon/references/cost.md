@@ -59,7 +59,7 @@ Lisbon is no longer Europe's affordable capital. Since 2015, prices have doubled
 
 - **Why it's expensive**: Golden Visa speculation, tourism/Airbnb, limited building
 - **Availability**: Very low—expect competition, quick decisions needed
-- **Scams**: Never pay before viewing. Use Idealista carefully.
+- **Scams**: Always view before paying. Use Idealista carefully.
 - **Trend**: Prices plateaued in 2025-2026 but not falling
 
 ---
@@ -340,7 +340,7 @@ Lisbon is very livable without a car:
 - Live in peripheral neighborhoods (Benfica, Arroios)
 - House-share in center
 - Negotiate 6+ month contracts
-- Avoid August (peak tourist rental pricing)
+- Skip August (peak tourist rental pricing)
 
 ### Food
 - Cook at home

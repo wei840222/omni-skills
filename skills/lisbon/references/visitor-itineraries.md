@@ -3,7 +3,7 @@
 ## Planning Principles
 
 **Critical rules for Lisbon**:
-1. **Hills are real** — Don't underestimate elevation changes. Plan downhill routes.
+1. **Hills are real** — Be prepared for elevation changes. Plan downhill routes.
 2. **Midday heat** — Summer months: do indoor activities 13:00-16:00.
 3. **Portuguese time** — Things open late, close for lunch in some cases, dinner starts 20:00+.
 4. **Walking distances deceive** — Short on map = long with hills and cobblestones.
@@ -64,7 +64,7 @@ Best for: Layover, quick visit, getting the essential Lisbon experience.
 **Morning: Belém**
 - 09:00 — Tram 15E to Belém
 - 09:30 — **Jerónimos Monastery** (pre-booked tickets)
-- 11:00 — **Pastéis de Belém** (avoid lunch rush)
+- 11:00 — **Pastéis de Belém** (go early to skip the lunch rush)
 - 11:30 — Walk to **Tower of Belém** (exterior)
 - 12:00 — **MAAT** or **Berardo Collection** (both excellent, pick one)
 
@@ -115,7 +115,7 @@ Best for: Layover, quick visit, getting the essential Lisbon experience.
 **Full day outside Lisbon**
 
 **Morning**
-- 08:30 — Train from Rossio Station (buy Viva Viagem if you don't have one)
+- 08:30 — Train from Rossio Station (ensure you have a Viva Viagem card)
 - 09:15 — Arrive Sintra
 - 09:30 — Bus 434 to **Pena Palace** (pre-booked tickets essential)
 - 11:30 — Walk down through park (stunning forest trails)
@@ -247,7 +247,7 @@ Best for: Layover, quick visit, getting the essential Lisbon experience.
 - **Day 1**: Oceanário (Parque das Nações), cable car, playground
 - **Day 2**: Lisbon Zoo, or boat tour
 - **Day 3**: Sintra — kids love Quinta da Regaleira's tunnels
-- Avoid: Long walks in Alfama, tiny tascas, late fado shows
+- Skip: Long walks in Alfama, tiny tascas, late fado shows
 
 ### On a Budget
 - Free walking tours (tip-based)
@@ -278,7 +278,7 @@ Best for: Layover, quick visit, getting the essential Lisbon experience.
 - Belém: Late afternoon (west-facing)
 - LX Factory: Anytime (interesting in overcast)
 
-**Crowd avoidance**:
+**Crowd management**:
 - Major sights: Opening time or last 2 hours
 - Sintra: Weekdays only, earliest train
 - Tram 28: Early morning or during dinner hours

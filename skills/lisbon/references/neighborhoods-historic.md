@@ -81,7 +81,7 @@ The flat "downtown" rebuilt after 1755 earthquake in perfect grid pattern. Pomba
 
 ### Key Areas
 - **Praça do Comércio**: Waterfront square, grand but not residential
-- **Rua Augusta**: Pedestrian shopping street (avoid for living)
+- **Rua Augusta**: Pedestrian shopping street (better for visiting than living)
 - **Rossio**: Historic square, transport hub
 - **Praça da Figueira**: More local, produce market nearby
 
@@ -171,7 +171,7 @@ The "Upper Quarter"—narrow grid of streets above Chiado. By day quiet and resi
 **Best for**: Young people, night owls, those who embrace the chaos
 
 ### Key Areas
-- **Rua do Norte**: Main bar strip (avoid for sleeping)
+- **Rua do Norte**: Main bar strip (better for nightlife than sleeping)
 - **Rua da Atalaia**: Slightly calmer, more residential
 - **Miradouro de São Pedro de Alcântara**: Edge of Bairro Alto, more peaceful
 
