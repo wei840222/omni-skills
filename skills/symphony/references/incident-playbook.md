@@ -23,7 +23,7 @@ Use this playbook to triage common runtime failures.
 ## Retry Discipline
 
 - Retries should resume in the same workspace for that issue.
-- Do not delete workspace contents unless corruption is confirmed.
+- Retain workspace contents unless corruption is confirmed.
 - Increase backoff for repeated transient failures.
 - Escalate to manual intervention after repeated identical failures.
 
@@ -35,7 +35,7 @@ Use this playbook to triage common runtime failures.
 
 ## Post-Incident Notes
 
-After resolution, store in `~/Clawic/data/symphony/incidents.md`:
+After resolution, store in `<state_root>/incidents.md`:
 - incident summary
 - root cause
 - remediation steps

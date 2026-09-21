@@ -9,13 +9,13 @@ Symphony is intended for trusted environments. Treat it as high-privilege automa
 - it executes hook commands
 - it runs coding agents with repository write access
 
-Do not run in unknown repositories or unvetted infrastructure.
+Ensure execution only occurs in known repositories and vetted infrastructure.
 
 ## Filesystem Safety
 
 - Keep `workspace.root` dedicated to Symphony runs.
 - Enforce per-issue workspace directories.
-- Never run hook scripts outside the workspace directory.
+- Restrict all hook script execution strictly to the workspace directory.
 - Deny destructive cleanup commands that traverse parent directories.
 
 ## Hook Safety
@@ -30,7 +30,7 @@ Do not run in unknown repositories or unvetted infrastructure.
 
 - Start with conservative policy (`approval_policy: on-request` or stricter).
 - Use `thread_sandbox: workspace-write` unless a safer profile is available.
-- Avoid `danger-full-access` unless the user explicitly approves the risk.
+- Require explicit user approval before granting `danger-full-access`.
 - Keep `max_concurrent_agents` low during first rollout.
 
 ## Operational Guardrails

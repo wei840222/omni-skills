@@ -1,50 +1,44 @@
 ---
 name: symphony
-slug: symphony
-version: 1.0.0
-description: Set up and run OpenAI Symphony with isolated issue workspaces, workflow contracts, and unattended Codex orchestration for Linear projects.
-homepage: https://clawic.com/skills/symphony
-changelog: Initial release with workflow templates, runbook guidance, and safety guardrails for operating Symphony in trusted environments.
+description: >
+  Initialize per-issue workspaces and orchestrate Codex for unattended Linear
+  ticket resolution. Load when setting up Symphony, authoring WORKFLOW.md
+  contracts, hardening unattended runs, or triaging retry/workspace incidents.
 metadata:
-  clawdbot:
-    emoji: S
-    requires:
-      bins:
-      - git
-      - codex
-      env:
-      - LINEAR_API_KEY
-      - OPENAI_API_KEY
-      - GITHUB_TOKEN
-      config:
-      - ~/Clawic/data/symphony/
-    os:
-    - darwin
-    - linux
-    - win32
-    configPaths:
-    - ~/Clawic/data/symphony/
-    displayName: OpenAI Symphony
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/symphony/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎼","requires":{"bins":["git","codex"],"env":["LINEAR_API_KEY","OPENAI_API_KEY","GITHUB_TOKEN"],"config":["<state_root>/"]}}'
+  related-skills: '{"agent":"Single-agent execution quality inside an issue workspace.","agents":"Multi-agent ownership when a ticket needs explicit handoffs.","agentic-engineering":"High-rigor autonomous delivery gates beyond Symphony orchestration.","workflow":"General workflow design outside Symphony WORKFLOW.md contracts.","memory":"Long-term factual continuity separate from Symphony run state."}'
 ---
+
+## State location
+
+Symphony durable notes may exist under workspace-local or home candidates.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/symphony/`, `<workspace>/memory/symphony/`, `~/symphony/`.
+3. If more than one exists, use only the highest-precedence directory and report the duplicates; do not merge them.
+4. If none exists and durable notes must be created, default to `<workspace>/symphony/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Never write runtime state into this skill package.
+Do not store API keys, tokens, or third-party secrets under `<state_root>/`.
 
 ## Setup
 
-On first use, read `setup.md` and establish integration boundaries before proposing commands or workflow edits.
+On first use, read `references/setup.md` and establish integration boundaries before proposing commands or workflow edits.
 
-## When to Use
+## When to load
 
-Use this skill when the user wants an unattended orchestration service that reads Linear issues, creates per-issue workspaces, and drives Codex in app-server mode until work reaches review or done states. It is optimized for Symphony rollout, workflow authoring, safety hardening, and day-2 operations.
+Load this skill to automate Linear issues via Codex orchestration in app-server mode. Trigger when the user requests an unattended coding run, per-issue workspace isolation, or day-2 workflow orchestration operations. Bypass loading if the user is requesting general coding assistance without automated workspace setup.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/symphony/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for setup.
 
 ```text
-~/Clawic/data/symphony/
+<state_root>/
 |-- memory.md                # Activation policy, environment profile, and operating defaults
 |-- workflow-notes.md        # WORKFLOW.md decisions, state map, and prompt policy
 |-- incidents.md             # Runtime failures, retries, and mitigations
@@ -57,14 +51,14 @@ Use the smallest relevant file for the task.
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory template and status values | `memory-template.md` |
-| Upstream spec map and implementation checkpoints | `SPEC.md` |
-| Starter workflow contract used by the service | `WORKFLOW.md` |
-| Bootstrap and launch runbook | `setup-runbook.md` |
-| WORKFLOW.md contract template | `workflow-template.md` |
-| Security hardening and trust checks | `safety-guardrails.md` |
-| Incident triage and recovery | `incident-playbook.md` |
+| Setup and activation behavior | `references/setup.md` |
+| Memory template and status values | `assets/memory-template.md` |
+| Upstream spec map and implementation checkpoints | `references/SPEC.md` |
+| Starter workflow contract used by the service | `references/WORKFLOW.md` |
+| Bootstrap and launch runbook | `references/setup-runbook.md` |
+| WORKFLOW.md contract template | `assets/workflow-template.md` |
+| Security hardening and trust checks | `references/safety-guardrails.md` |
+| Incident triage and recovery | `references/incident-playbook.md` |
 
 ## Requirements
 
@@ -79,14 +73,14 @@ Use the smallest relevant file for the task.
 
 ## Core Rules
 
-### 1. Treat `SPEC.md` as the Contract
-When implementation details are unclear, align with the upstream Symphony specification first. Do not invent incompatible state models, config keys, or agent-runner behavior.
+### 1. Treat `references/SPEC.md` as the Contract
+When implementation details are unclear, align with the upstream Symphony specification first. Maintain strict compatibility with upstream state models, config keys, and agent-runner behaviors.
 
-### 2. Keep `WORKFLOW.md` Repository-Owned and Validated
-All orchestration policy must live in versioned `WORKFLOW.md` front matter plus prompt body. Validate YAML and template variables before launch, because invalid workflow files halt dispatch.
+### 2. Keep `references/WORKFLOW.md` Repository-Owned and Validated
+All orchestration policy must live in versioned `references/WORKFLOW.md` front matter plus prompt body. Validate YAML and template variables before launch, because invalid workflow files halt dispatch.
 
 ### 3. Enforce Per-Issue Workspace Isolation
-Map each issue identifier to a dedicated workspace key and run Codex only inside that directory. Never execute agent work in shared roots or outside the configured workspace boundary.
+Map each issue identifier to a dedicated workspace key and run Codex only inside that directory. Restrict all agent work strictly to the designated issue workspace.
 
 ### 4. Respect State-Driven Orchestration
 Dispatch only active tracker states, stop sessions on terminal states, and preserve idempotent recovery after restarts. A run can end in a workflow-defined handoff state, not only `Done`.
@@ -95,7 +89,7 @@ Dispatch only active tracker states, stop sessions on terminal states, and prese
 Before enabling unattended operation, confirm the repository, tracker project, and workspace root are approved by the user. Start with conservative policy (`approval_policy: on-request`) and test-project rollout before broadening scope.
 
 ### 6. Apply Bounded Concurrency, Retries, and Safe Hooks
-Use explicit concurrency ceilings and exponential backoff for transient failures. Retries must resume from existing workspace state instead of repeating completed investigation work. Allow only deterministic hooks that stay inside the issue workspace and avoid secret exfiltration patterns (`curl | sh`, arbitrary uploads, or parent-directory deletes).
+Use explicit concurrency ceilings and exponential backoff for transient failures. Retries must resume from existing workspace state instead of repeating completed investigation work. Allow only deterministic hooks that stay inside the issue workspace and prevent secret exfiltration patterns (such as `curl | sh`, arbitrary uploads, or parent-directory deletes).
 
 ### 7. Preserve Observability and Safety Evidence
 Record launch config, workspace path, tracker state transitions, validation proof, and token/runtime metrics for every run. Operators must be able to reconstruct what happened without rerunning the issue.
@@ -127,7 +121,7 @@ Data that leaves your machine:
 - Git remote traffic required by repository hooks
 
 Data that stays local:
-- Orchestration notes and memory files in `~/Clawic/data/symphony/`
+- Orchestration notes and memory files in `<state_root>/`
 - Workspace content under the configured root
 - Local logs and runtime snapshots
 
@@ -141,16 +135,3 @@ This skill does NOT:
 
 This skill depends on OpenAI Codex APIs, Linear APIs, and your configured Git remote.
 Only install and run it if you trust those services with your repository and issue data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `agent` - Improve single-agent execution quality for scoped implementation tasks.
-- `agents` - Coordinate multiple agents with explicit ownership and handoff boundaries.
-- `agentic-engineering` - Enforce high-rigor workflows for autonomous software delivery.
-- `workflow` - Design robust repeatable workflows with clear gates and status transitions.
-- `memory` - Persist durable context and operating preferences across sessions.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/symphony
-- Latest version: https://clawic.com/skills/symphony
