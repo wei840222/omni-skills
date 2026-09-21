@@ -12,6 +12,10 @@ metadata:
 
 Research notes for Bokmål/Nynorsk, particles, and Scandinavian adjacency live in `references/sources.md`.
 
+## Load boundary
+
+Load only when Norwegian phrasing is the job. Hand off travel logistics to `norway`, and hand off non-Norwegian Nordic targets to `swedish` or `danish`.
+
 ## The Real Problem
 
 AI Norwegian is technically correct but sounds off. Too formal. Too bokmål-perfect. Natives write more casually, with particles and dialect influence. Match that.
