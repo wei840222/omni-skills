@@ -144,7 +144,7 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
 
 ### Query Commands (Retry-able)
 ```typescript
-// Query commands auto-retry, action commands don't
+// Query commands auto-retry, action commands trigger immediately
 Cypress.Commands.addQuery('getVisible', (selector: string) => {
   return () => Cypress.$(selector).filter(':visible')
 })

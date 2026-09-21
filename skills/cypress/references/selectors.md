@@ -75,16 +75,16 @@ cy.get(`[data-testid="user-${userId}"]`)
 ## Anti-Patterns
 
 ```typescript
-// ❌ Brittle CSS path
+// ⚠️ Brittle CSS path
 cy.get('#app > div.container > form > div:nth-child(2) > input')
 
-// ❌ Class that might change
+// ⚠️ Class that might change
 cy.get('.MuiButton-containedPrimary')
 
-// ❌ Index without context
+// ⚠️ Index without context
 cy.get('button').eq(3).click()
 
-// ❌ Timeout instead of assertion
+// ⚠️ Timeout instead of assertion
 cy.wait(1000)
 cy.get('.results')
 ```

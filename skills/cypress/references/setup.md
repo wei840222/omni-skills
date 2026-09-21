@@ -26,7 +26,7 @@ npx cypress open  # First run creates folder structure
 ### 2. Then: Configuration
 
 Create or update `cypress.config.ts`:
-- Set `baseUrl` to avoid hardcoded URLs
+- Set `baseUrl` to ensure dynamic URL resolution
 - Configure reasonable timeouts
 - Enable retries for CI stability
 - Set viewport for consistent rendering

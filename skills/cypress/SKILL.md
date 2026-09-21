@@ -1,29 +1,24 @@
 ---
 name: cypress
-slug: cypress
-version: 1.0.0
-description: Write reliable E2E and component tests with Cypress avoiding flaky selectors, race conditions, and CI failures.
-homepage: https://clawic.com/skills/cypress
+description: Write and debug Cypress E2E/component tests. Trigger when configuring
+  Cypress CI, mocking networks, or writing custom test commands.
 metadata:
-  clawdbot:
-    emoji: 🌲
-    requires:
-      bins:
-      - npx
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Cypress
+  version: 1.0.0
+  openclaw: '{"emoji": "🌲", "requires": {"bins": ["npx"]}, "os": ["linux", "darwin",
+    "win32"], "displayName": "Cypress"}'
+  related-skills:
+  - playwright
+  - typescript
+  - javascript
+  - react
 ---
-
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, explicitly load and read `references/setup.md` for Cypress integration and best practice guidelines.
 
-## When to Use
+## When to load
 
-User needs E2E tests, component tests, or API tests with Cypress. Agent writes tests, debugs flaky specs, configures CI/CD, and creates custom commands.
+Load this skill when the user asks to write Cypress tests, debug flaky test specs, configure Cypress CI/CD pipelines, or write Cypress custom commands.
 
 ## Architecture
 
@@ -42,16 +37,15 @@ cypress/
 cypress.config.ts     # Main configuration
 ```
 
-## Quick Reference
+## Reference Loading
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Selectors & queries | `selectors.md` |
-| Custom commands | `commands.md` |
-| Network & API | `network.md` |
-| CI/CD configuration | `ci.md` |
+When specific Cypress tasks are requested, explicitly load the relevant reference before proceeding:
+- **Setup & Installation**: Load `references/setup.md`
+- **Memory Template**: Load `assets/memory-template.md`
+- **Selectors & Element Queries**: Load `references/selectors.md`
+- **Custom Commands (`Cypress.Commands.add`)**: Load `references/commands.md`
+- **Network Stubbing & Intercepts**: Load `references/network.md`
+- **CI/CD Workflows**: Load `references/ci.md`
 
 ## Core Rules
 
@@ -61,7 +55,7 @@ cypress.config.ts     # Main configuration
 cy.get('[data-testid="submit-btn"]')
 cy.get('[data-cy="user-list"]')
 
-// ❌ Fragile — breaks on style/structure changes
+// Fragile; breaks on style/structure changes
 cy.get('.btn-primary.submit')
 cy.get('#root > div > form > button:nth-child(3)')
 cy.get('button').contains('Submit')  // OK for text, not structure
@@ -69,9 +63,9 @@ cy.get('button').contains('Submit')  // OK for text, not structure
 
 **Priority order:** `data-testid` > `data-cy` > `aria-*` > text content > CSS selectors.
 
-### 2. Never Use Fixed Waits
+### 2. Ensure State Changes Dictate Wait Times
 ```typescript
-// ❌ Flaky and slow
+// Flaky and slow; replace with state waits
 cy.wait(3000)
 cy.get('.loader').should('exist')
 cy.wait(2000)
@@ -100,7 +94,7 @@ it('shows error on invalid email', () => {
   cy.get('[data-testid="email-error"]').should('contain', 'Valid email required')
 })
 
-// ❌ Multiple concerns — unclear which failed
+// Multiple concerns; unclear which failed
 it('validates the entire form', () => {
   // Tests 5 different validation rules
 })
@@ -256,15 +250,3 @@ This skill does not call external APIs. Cypress runs entirely locally or in your
 - Access files outside project directory
 
 **Note:** Cypress Cloud (optional, paid) can receive test results if configured with `CYPRESS_RECORD_KEY`. This skill does not configure or recommend it.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `playwright` — alternative E2E framework
-- `typescript` — TypeScript best practices
-- `javascript` — JS fundamentals and patterns
-- `react` — React component testing
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/cypress
-- Latest version: https://clawic.com/skills/cypress
