@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to Norwegian: I am going to the store now. Do you want anything?",
+    "expected": "Jeg drar på butikken nå. Vil du ha noe?",
+    "actual": "Jeg drar på butikken nå altså. Er det noe du vil ha da?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a highly casual message to a friend saying I'm running late because of traffic and I will be there in 10 mins.",
+    "expected": "Hei! Blir litt forsinka pga trafikk, er der om 10 min.",
+    "actual": "Oisann! Sitter fast i trafikken liksom, så jeg blir nok litt forsinka. Er der om en 10 minutters tid da!",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write formal Norwegian declining a meeting tomorrow afternoon.",
+    "expected": "Beklager, jeg kan dessverre ikke møte i morgen ettermiddag.",
+    "actual": "Beklager, jeg kan dessverre ikke møte i morgen ettermiddag. Passer det bedre en annen dag?",
+    "pass": true
+  }
+]
