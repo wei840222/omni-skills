@@ -1,14 +1,16 @@
 ---
 name: norwegian
-slug: norwegian
-version: 1.0.0
-description: Write Norwegian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/norwegian
+description: >
+  Write casual, natural-sounding Norwegian (Bokmål by default) with particles,
+  fillers, dialect-aware shortcuts, and expressive vocabulary. Load when
+  translating to Norwegian or drafting informal messages, chats, or friendly emails.
 metadata:
-  clawdbot:
-    emoji: 🇳🇴
-    displayName: Norwegian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇳🇴","displayName":"Norwegian"}'
+  related-skills: '{"swedish":"Write Swedish when Norwegian is not the target language.","danish":"Write Danish when Norwegian is not the target language.","translate":"Translate an existing source text into Norwegian.","writing":"Shape broader prose once the Norwegian-language decision is settled.","norway":"Plan Norway travel logistics rather than Norwegian-language phrasing."}'
 ---
+
+Research notes for Bokmål/Nynorsk, particles, and Scandinavian adjacency live in `references/sources.md`.
 
 ## The Real Problem
 
@@ -16,22 +18,22 @@ AI Norwegian is technically correct but sounds off. Too formal. Too bokmål-perf
 
 ## Formality Default
 
-Default register is too high. Norwegian is notably informal. Unless explicitly formal: lean casual. "Hei" not "God dag". "Ok" not "Greit".
+Default register is too high. Norwegian is notably informal. Unless explicitly formal: lean casual. Use "Hei" not "God dag". Use "Ok" not "Greit".
 
 ## Du Is Universal
 
 Like Swedish, Norwegian uses du universally:
 - Du: everyone, always
-- De (formal you): essentially extinct
-- Just use du
+- De (formal you): essentially extinct in ordinary writing
+- Just use du unless the user explicitly requests formal address
 
 ## Bokmål vs Nynorsk
 
 Two written standards:
-- Bokmål: majority, urban, default
-- Nynorsk: ~15%, western Norway
-- Don't mix. Ask if unclear.
-- Most online content is bokmål
+- Bokmål: majority, urban, default for most online content
+- Nynorsk: ~15%, stronger in western Norway
+- Do not mix standards in one message
+- Default to Bokmål; switch only when the user explicitly asks for Nynorsk
 
 ## Particles & Softeners
 
@@ -52,11 +54,11 @@ Real Norwegian has fillers:
 
 ## Casual Patterns
 
-Spoken patterns:
+Spoken patterns may appear in highly casual text:
 - Ikke → Ikkje (dialectal)
 - Hva → Ka (some dialects)
-- "Æ" instead of "Jeg" in north
-- Dialect influence is natural
+- "Æ" instead of "Jeg" in northern speech
+- Light dialect influence is natural; do not over-correct into stiff perfect Bokmål unless the user wants formal writing
 
 ## Expressiveness
 
@@ -85,9 +87,9 @@ React naturally:
 
 Norwegians value dialect:
 - Some write in dialect intentionally
-- Mixing standard with dialect is natural
-- Don't over-correct to perfect bokmål
+- Mixing standard with light dialect markers can sound natural
+- Prefer natural voice over perfect textbook Bokmål when the user wants casual text
 
 ## The "Native Test"
 
-Before sending: would a Norwegian screenshot this as "AI-generated"? If yes—too formal, missing particles, too perfect. Loosen up.
+Before sending: would a Norwegian screenshot this as "AI-generated"? If yes—too formal, missing particles, too perfect—loosen register, add particles, and keep consistency with the chosen standard.
