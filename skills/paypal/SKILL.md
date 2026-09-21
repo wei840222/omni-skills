@@ -1,20 +1,15 @@
 ---
 name: paypal
-slug: paypal
-version: 1.0.0
-description: Integrate PayPal payments with proper webhook verification, OAuth handling, and security validation for checkout flows and subscriptions.
-homepage: https://clawic.com/skills/paypal
+description: Integrate PayPal REST API payments, handle webhooks, checkout flows,
+  and subscriptions. Use when the user wants to set up PayPal integration, resolve
+  API errors, or handle dispute workflows.
 metadata:
-  clawdbot:
-    emoji: 💳
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: PayPal
+  version: 1.0.0
+  openclaw: '{"emoji": "💳"}'
+
 ---
+This skill is stateless and does not store local configuration or persistent user state.
+
 
 ## When to Use
 
@@ -22,24 +17,23 @@ User needs to integrate PayPal REST API for payments, subscriptions, or payouts.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Code patterns | `patterns.md` |
-| Webhook events | `webhooks.md` |
+- Read `references/patterns.md` when you need to generate code for creating orders, subscriptions, frontend integration, or refunds.
+- Read `references/webhooks.md` when configuring PayPal webhook event listeners or handling dispute workflows.
+
 
 ## Core Rules
 
 ### 1. Environment URLs are Different
-- Sandbox: `api.sandbox.paypal.com`
-- Production: `api.paypal.com`
+- Sandbox: `api-m.sandbox.paypal.com`
+- Production: `api-m.paypal.com`
 - Ask which environment BEFORE generating code
-- Credentials are environment-specific — never mix
+- Credentials are environment-specific — keep them strictly separated
 
 ### 2. OAuth Token Management
 ```javascript
 // Token expires ~8 hours — handle refresh
 const getToken = async () => {
-  const res = await fetch('https://api.paypal.com/v1/oauth2/token', {
+  const res = await fetch('https://api-m.paypal.com/v1/oauth2/token', {
     method: 'POST',
     headers: {
       'Authorization': `Basic ${Buffer.from(`${clientId}:${secret}`).toString('base64')}`,
@@ -50,13 +44,13 @@ const getToken = async () => {
   return res.json(); // { access_token, expires_in }
 };
 ```
-Never hardcode tokens. Implement refresh logic.
+Store tokens securely. Implement refresh logic.
 
 ### 3. Webhook Verification is Mandatory
-PayPal webhooks MUST be verified via API call — not simple HMAC:
+PayPal webhooks MUST be verified via API call — instead of simple HMAC:
 ```javascript
 // POST /v1/notifications/verify-webhook-signature
-const verification = await fetch('https://api.paypal.com/v1/notifications/verify-webhook-signature', {
+const verification = await fetch('https://api-m.paypal.com/v1/notifications/verify-webhook-signature', {
   method: 'POST',
   headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -80,10 +74,10 @@ const verification = await fetch('https://api.paypal.com/v1/notifications/verify
 
 Changing intent after integration breaks the entire flow.
 
-### 5. Server-Side Validation — Never Trust Client
+### 5. Server-Side Validation — Verify on Server
 ```javascript
 // After client approves, VERIFY on server before fulfillment
-const order = await fetch(`https://api.paypal.com/v2/checkout/orders/${orderId}`, {
+const order = await fetch(`https://api-m.paypal.com/v2/checkout/orders/${orderId}`, {
   headers: { 'Authorization': `Bearer ${token}` }
 }).then(r => r.json());
 
@@ -114,8 +108,8 @@ Sending "10.50" for JPY = API error.
 
 ## Common Traps
 
-- **IPN vs Webhooks** — IPN is legacy. Use Webhooks for new integrations. Never mix.
-- **Order states** — CREATED → APPROVED → COMPLETED (or VOIDED). Handle ALL states, not just happy path.
+- **IPN vs Webhooks** — IPN is legacy. Use Webhooks for new integrations. Maintain strict separation between them.
+- **Order states** — CREATED → APPROVED → COMPLETED (or VOIDED). Handle ALL states, including edge cases.
 - **Decimal confusion** — PayPal uses strings for amounts ("10.50"), not floats. Some currencies forbid decimals.
-- **Sandbox rate limits** — Lower than production. Don't assume prod will fail the same way.
-- **Payout vs Payment** — Payouts API is separate. Don't confuse sending money (Payouts) with receiving (Orders).
+- **Sandbox rate limits** — Lower than production. Prepare for different failure behaviors in production.
+- **Payout vs Payment** — Payouts API is separate. Differentiate sending money (Payouts) with receiving (Orders).

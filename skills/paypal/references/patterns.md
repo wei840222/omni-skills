@@ -5,7 +5,7 @@
 ```javascript
 const createOrder = async (amount, currency = 'USD') => {
   const token = await getToken();
-  const res = await fetch('https://api.paypal.com/v2/checkout/orders', {
+  const res = await fetch('https://api-m.paypal.com/v2/checkout/orders', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
@@ -30,7 +30,7 @@ const captureOrder = async (orderId) => {
   const token = await getToken();
   
   // First verify the order
-  const order = await fetch(`https://api.paypal.com/v2/checkout/orders/${orderId}`, {
+  const order = await fetch(`https://api-m.paypal.com/v2/checkout/orders/${orderId}`, {
     headers: { 'Authorization': `Bearer ${token}` }
   }).then(r => r.json());
   
@@ -39,7 +39,7 @@ const captureOrder = async (orderId) => {
   }
   
   // Then capture
-  const capture = await fetch(`https://api.paypal.com/v2/checkout/orders/${orderId}/capture`, {
+  const capture = await fetch(`https://api-m.paypal.com/v2/checkout/orders/${orderId}/capture`, {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }
   });
@@ -80,7 +80,7 @@ const captureOrder = async (orderId) => {
 
 ```javascript
 // Create product first
-const product = await fetch('https://api.paypal.com/v1/catalogs/products', {
+const product = await fetch('https://api-m.paypal.com/v1/catalogs/products', {
   method: 'POST',
   headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -90,7 +90,7 @@ const product = await fetch('https://api.paypal.com/v1/catalogs/products', {
 }).then(r => r.json());
 
 // Then create plan
-const plan = await fetch('https://api.paypal.com/v1/billing/plans', {
+const plan = await fetch('https://api-m.paypal.com/v1/billing/plans', {
   method: 'POST',
   headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -118,7 +118,7 @@ const refundCapture = async (captureId, amount = null) => {
   const token = await getToken();
   const body = amount ? { amount: { value: amount, currency_code: 'USD' } } : {};
   
-  return fetch(`https://api.paypal.com/v2/payments/captures/${captureId}/refund`, {
+  return fetch(`https://api-m.paypal.com/v2/payments/captures/${captureId}/refund`, {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
