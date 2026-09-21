@@ -1,32 +1,24 @@
 ---
 name: cro
-slug: cro
-version: 1.0.1
-description: Optimize conversion rates with funnel analysis, A/B testing, statistical significance, and compliance-safe experiments.
-homepage: https://clawic.com/skills/cro
-changelog: Added Core Rules structure with statistical rigor and compliance guidelines.
+description: Optimize conversion rates using funnel analysis, A/B testing, and statistical
+  evaluation.
 metadata:
-  clawdbot:
-    emoji: 📈
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CRO / Chief Revenue Officer
+  related-skills: null
+  openclaw: '{"emoji": "📈"}'
 ---
 
-## When to Use
+## When to load
 
-User wants to improve conversion rates for websites, landing pages, SaaS products, or eCommerce. Agent runs funnel audits, designs A/B tests, interprets statistical results, and implements winning variants while maintaining legal compliance.
+Load when the user asks to improve conversion rates for websites, landing pages, SaaS products, or eCommerce through funnel audits, A/B testing, or statistical evaluation.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| A/B testing methodology | `testing.md` |
-| Conversion audits | `audits.md` |
-| Legal compliance | `legal.md` |
-| Tools and integrations | `tools.md` |
+| A/B testing methodology | `references/testing.md` |
+| Conversion audits | `references/audits.md` |
+| Legal compliance | `references/legal.md` |
+| Tools and integrations | `references/tools.md` |
 
 ## Core Rules
 
@@ -44,7 +36,7 @@ User wants to improve conversion rates for websites, landing pages, SaaS product
 
 ### 3. One Variable Per Test
 - Isolate changes to attribute results correctly
-- Multivariate testing requires massive traffic most don't have
+- Reserve multivariate testing only for extremely high-traffic contexts
 - If you change two things and conversion improves, you learned nothing
 
 ### 4. Mobile-First Testing
@@ -65,7 +57,7 @@ User wants to improve conversion rates for websites, landing pages, SaaS product
 
 ### 7. Revenue Connection
 - Revenue targets tie to conversion targets — make the math explicit
-- Signups mean nothing if they never convert to revenue
+- Prioritize evaluating signups by their conversion to revenue
 - Prioritize by ICE: Impact, Confidence, Ease
 
 ## Common Traps
@@ -75,15 +67,3 @@ User wants to improve conversion rates for websites, landing pages, SaaS product
 - Copy-pasting competitor tactics without context — what works for them may fail for you
 - Optimizing for vanity metrics — engagement without revenue is vanity
 - Testing without proper tracking setup — retroactive data is unreliable
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ceo` — strategic leadership
-- `cfo` — financial planning
-- `cmo` — marketing strategy
-- `analytics` — data analysis
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/cro
-- Latest version: https://clawic.com/skills/cro

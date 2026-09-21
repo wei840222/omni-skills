@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How long should I run an A/B test for my landing page with 5% baseline conversion and 10% expected MDE?",
+    "expected": "Provide the sample size required (3,000 per variant) and recommend running for at least 7 days but no more than 4 weeks.",
+    "actual": "Based on a 5% baseline conversion rate and a 10% Minimum Detectable Effect (MDE), you will need approximately 3,000 visitors per variant. Ensure the test runs for a minimum of 7 days to capture daily variations and no longer than 4 weeks to mitigate external history effects.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I changed the hero copy and the CTA button color, and conversion increased by 30%. Should I push it to production?",
+    "expected": "Identify the multi-variable trap. Explain that changing two variables simultaneously invalidates attribution.",
+    "actual": "While the 30% increase is exciting, you changed multiple variables simultaneously (hero copy and CTA button color). This makes it impossible to attribute the uplift correctly. For statistical validity, you should isolate one variable per test unless you have sufficient traffic for a multivariate test.",
+    "pass": true
+  }
+]
