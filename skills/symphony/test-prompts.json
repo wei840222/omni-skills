@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Set up Symphony for Linear project PROJ using workspace root ~/dev/symphony-runs. We want on-request approval.",
+    "expected": "Reads references/setup.md and assets/memory-template.md, initializes <state_root>/memory.md, confirms the environment profile, and suggests next steps.",
+    "actual": "I have created the Symphony memory at <state_root>/memory.md. I recorded the tracker as Linear (project PROJ), workspace root as ~/dev/symphony-runs, and approval policy as 'on-request'. To proceed, we need to create the WORKFLOW.md contract. Would you like me to load assets/workflow-template.md?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Symphony seems to be stuck in a retry loop where it repeats the same commits on issue PROJ-123. Can you investigate?",
+    "expected": "Reads references/incident-playbook.md, advises on how to stop the run, identify the terminal state, and ensure retry logic resumes from the existing workspace rather than starting fresh.",
+    "actual": "Based on the incident playbook, the first step is to halt the run to prevent further duplicate commits. It appears the retry hook is treating it as a fresh run instead of resuming. Let's verify the `after_create` hook and ensure the workspace directory isn't being overwritten on restart. Should we modify references/WORKFLOW.md to address this?",
+    "pass": true
+  }
+]

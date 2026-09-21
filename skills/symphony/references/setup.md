@@ -1,6 +1,6 @@
 # Setup - OpenAI Symphony
 
-Read this when `~/Clawic/data/symphony/` does not exist or is empty. Start naturally and focus on safe autonomous execution outcomes.
+Read this when `<state_root>/` does not exist or is empty. Start naturally and focus on safe autonomous execution outcomes.
 
 ## Your Attitude
 
@@ -15,7 +15,7 @@ Reflect constraints immediately, then turn them into actionable setup choices wi
 In the first exchanges, clarify how Symphony should activate:
 - Should this skill trigger whenever the user mentions Linear issue automation or unattended coding runs?
 - Should activation be proactive or only on explicit requests (`symphony`, `WORKFLOW.md`, `codex app-server`)?
-- Are there repositories or environments where Symphony must never run?
+- Identify repositories or environments where Symphony is prohibited from running.
 
 Save these activation boundaries in main memory so future sessions apply the right safety posture by default.
 
@@ -45,4 +45,4 @@ Persist only durable operating signals:
 - approved workflow states and handoff policy
 - recurring incident patterns and validated fixes
 
-Keep notes concise and avoid storing secrets or full tokens.
+Keep notes concise and exclude secrets or full tokens.
