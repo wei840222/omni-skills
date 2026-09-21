@@ -123,7 +123,7 @@
 **Rules**:
 1. **Not free** — You pay for what you eat (€3-8 typically)
 2. **Can decline** — "Não obrigado" when brought
-3. **Return untouched** — They take back what you don't open
+3. **Return untouched** — They take back unopened items
 4. **Tourist trap version** — Elaborate spreads costing €15+
 5. **Always ask price** — If it looks fancy
 
@@ -143,7 +143,7 @@
 - Not expected, but appreciated
 - 5-10% for good service at restaurants
 - Round up at cafés
-- Don't feel obligated
+- You are not obligated
 
 **How to tip**:
 - Cash on table when leaving
@@ -180,7 +180,7 @@
 
 ### Important Notes
 
-- **Don't arrive for dinner at 18:00** — Nothing open
+- **Arrive for dinner after 19:30** — Restaurants open late
 - **Lunch ends sharply** — Kitchen closes at 15:00
 - **Weekends**: Brunch runs 10:00-15:00 at popular spots
 - **Sunday dinner**: Many places closed
@@ -279,7 +279,7 @@ After midnight, options:
 
 **Culture notes**:
 - Standing at bar = cheaper
-- After meals, café only (never cappuccino)
+- After meals, café only (opt for espresso)
 - Coffee is cheap: €0.70-1.20 for espresso
 - Order at counter, pay after
 

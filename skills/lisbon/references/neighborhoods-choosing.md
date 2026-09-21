@@ -272,7 +272,7 @@ Housing shortage means pressure to decide fast. But bad location = misery.
 - Most listings
 - Direct from owners or agents
 - Filter by neighborhood
-- Watch for scams (never pay before visiting)
+- Watch for scams (inspect property before paying)
 
 **Spotahome** — Verified furnished rentals
 - Videos of apartments

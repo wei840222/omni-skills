@@ -103,7 +103,7 @@ Lisbon's rental market is **extremely competitive**:
 - Heating/AC (many have neither)
 - Water pressure
 - Noise (visit at different times)
-- Elevator (many don't have)
+- Elevator (many buildings lack them)
 - Storage space
 - Building maintenance
 
@@ -337,7 +337,7 @@ Lisbon's rental market is **extremely competitive**:
 
 1. **Learn Portuguese** — Even basics transform experience
 2. **NIF first** — Get it immediately upon arrival
-3. **Bank account takes time** — Don't underestimate
+3. **Bank account takes time** — Plan for delays
 4. **Apartments go fast** — Decide quickly
 5. **Winter can be cold inside** — Check heating
 6. **August is dead** — Plan around closures
@@ -351,7 +351,7 @@ Lisbon's rental market is **extremely competitive**:
 **Coming from Northern Europe/US**:
 - Things happen slower (embrace it)
 - Direct communication less common
-- Lunch is sacred (don't schedule meetings 13:00-14:30)
+- Lunch is sacred (schedule meetings outside of 13:00-14:30)
 - Work-life balance better than expected
 - Socializing is essential
 

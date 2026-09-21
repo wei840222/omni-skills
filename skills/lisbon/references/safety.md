@@ -71,27 +71,27 @@ Special mention: These areas have visible drug dealing. However:
 - Carry only what you need
 - Split cash between locations
 
-**Don't**:
+ **Instead**:
 - Back pocket anything
 - Open bags in crowds
 - Leave bags unattended
 - Flash expensive items
 - Set phone on café table
 
-### Scam Avoidance
+### Scam Awareness
 
 **Restaurant scams**:
 - Couvert (bread/olives) is charged—return if unwanted
 - Ask price before ordering fish by weight
 - Check bill carefully
-- Avoid places with aggressive doorway solicitation
+- Skip places with aggressive doorway solicitation
 
 **Street scams**:
 - "Petition" signers → decline and walk
 - Friendship bracelets → firm no, keep walking
 - "Dropped" gold rings → fake, ignore
-- CD sellers → don't engage
-- Drug offers → decline, don't buy, walk on
+- CD sellers → ignore
+- Drug offers → decline, walk on
 
 ### Women's Safety
 
@@ -126,12 +126,12 @@ Special mention: These areas have visible drug dealing. However:
 - You'll meet a "dissuasion commission" if cited
 - Buying still exposes you to criminal dealers
 - Quality/safety not guaranteed
-- Tourists: don't assume immunity—discretion advised
+- Tourists: stay vigilant—discretion advised
 
 **Reality on streets**:
 - Dealers visible in Rossio, Martim Moniz, Bairro Alto
 - Often sell fake/low quality
-- Ignore approaches, don't engage
+- Ignore approaches
 
 ### Alcohol Laws
 
@@ -147,7 +147,7 @@ Special mention: These areas have visible drug dealing. However:
 - Fines €250-2,500
 - License suspension
 - Possible prison for high levels
-- Don't do it
+- It is illegal
 
 ---
 
@@ -202,7 +202,7 @@ Special mention: These areas have visible drug dealing. However:
 **As a tourist**:
 - Carry ID (passport copy acceptable)
 - Obey traffic laws
-- Don't buy from street dealers
+- Ignore street dealers
 - Respect photography restrictions
 
 **As a resident**:
@@ -393,11 +393,11 @@ Special mention: These areas have visible drug dealing. However:
 
 **The basics**:
 1. Watch belongings in tourist areas
-2. Don't engage with street dealers
+2. Ignore street dealers
 3. Trust your instincts
 4. Use Uber at night if unsure
 5. Keep copies of documents
 6. Have travel insurance
 7. Know emergency number: 112
 
-**Perspective**: Lisbon is genuinely safe. These precautions are the same as any major city. Don't let safety concerns prevent enjoyment—just be sensible.
+**Perspective**: Lisbon is genuinely safe. These precautions are the same as any major city. Enjoy the city while staying alert—just be sensible.

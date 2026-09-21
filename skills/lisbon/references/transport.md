@@ -256,7 +256,7 @@ Both widely available:
 - **EMEL**: City parking authority, green zones
 - **Price**: €0.50-1.50/hour depending on zone
 - **Apps**: ePark app for paying
-- **Avoid**: Double parking (common but risky)
+- **Risk**: Double parking (common but risky)
 
 **Tolls**:
 - Electronic only on many highways

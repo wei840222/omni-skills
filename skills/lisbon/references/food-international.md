@@ -159,7 +159,7 @@ Lisbon embraced specialty coffee:
 - **O Pequeno** — Cozy, quality
 
 **Traditional Portuguese Coffee**
-Don't neglect the galão (large, milky) at traditional pastelarias—different experience, culturally essential.
+Be sure to try the galão (large, milky) at traditional pastelarias—different experience, culturally essential.
 
 ---
 

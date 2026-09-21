@@ -29,7 +29,7 @@ Lisbon has world-class attractions, but also heavy tourist crowds and overhyped 
 - Time needed: 1-1.5 hours
 - Combined ticket with Tower of Belém: €17
 
-**Strategy**: Buy tickets online to skip the massive queues. The cloisters are the highlight—don't rush through them. The church is free and stunning; enter from the side door.
+**Strategy**: Buy tickets online to skip the massive queues. The cloisters are the highlight—take your time through them. The church is free and stunning; enter from the side door.
 
 ### Alfama District
 **Why it matters**: Lisbon's oldest neighborhood, surviving the 1755 earthquake. Labyrinthine streets, fado houses, authentic atmosphere.
@@ -153,7 +153,7 @@ Lisbon's free attractions. Essential for understanding the city's beauty.
 - Hours: 10:00-24:00
 - Traditional market: Upper floor, mornings only
 
-**Reality check**: Touristy and overpriced, but the quality of vendors is genuinely good. Useful for sampling multiple Portuguese foods in one place. Locals avoid the main hall but use the fresh market upstairs.
+**Reality check**: Touristy and overpriced, but the quality of vendors is genuinely good. Useful for sampling multiple Portuguese foods in one place. Locals often skip the main hall but use the fresh market upstairs.
 
 **Better alternatives for food**: See `food-areas.md` for neighborhood recommendations.
 

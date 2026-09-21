@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a digital nomad planning to move to Lisbon for a few months. Can you give me an overview of the D8 visa requirements and which neighborhoods would be best for me?",
+    "expected": "Information on the D8 Digital Nomad Visa requirements and a list of recommended neighborhoods for digital nomads like Pr\u00edncipe Real, Santos, and Alc\u00e2ntara.",
+    "actual": "For digital nomads moving to Lisbon, the D8 Visa is the primary route. You need to prove remote income of at least 4x the Portuguese minimum wage. Best neighborhoods for nomads include Pr\u00edncipe Real, Santos, and Alc\u00e2ntara, which offer great cafes, co-working spaces, and expat communities.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I only have 1 day in Lisbon. What are the absolute must-see attractions without feeling too rushed?",
+    "expected": "A structured 1-day itinerary focusing on key highlights, likely including a ride on Tram 28 (or an alternative), exploring Alfama or Baixa, and visiting Bel\u00e9m for past\u00e9is de nata.",
+    "actual": "With only 1 day in Lisbon, focus on the essentials: Start your morning in Bel\u00e9m to see the Jer\u00f3nimos Monastery and grab Past\u00e9is de Bel\u00e9m. Then head to the historic center (Baixa/Chiado), take a short ride on Tram 12 or 28, and explore the narrow streets of Alfama before catching the sunset at a miradouro.",
+    "pass": true
+  }
+]

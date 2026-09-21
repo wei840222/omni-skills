@@ -16,7 +16,7 @@
 - **Sacramento do Chiado** — Modern Portuguese
 - **A Brasileira** — Historic café, more for coffee/atmosphere
 
-**Avoid**: Generic Italian/tourist restaurants on main shopping streets
+**Skip**: Generic Italian/tourist restaurants on main shopping streets
 
 ---
 
@@ -28,7 +28,7 @@
 **Top picks**:
 - **100 Maneiras** — Creative tasting menus (upscale exception)
 - **Ao 26** — Vegan institution
-- **Tasca do Chico** — Fado + petiscos (arrive early or don't)
+- **Tasca do Chico** — Fado + petiscos (arrive early to secure a spot)
 - **Boteco da Bia** — Brazilian cachorro
 - **Multiple small tascas** — Explore side streets
 
@@ -82,7 +82,7 @@
 - **Beco** — Wine and small plates
 - **Munda** — Traditional, quality
 
-**Avoid**: Restaurants on main tourist routes with posted menus in 6 languages. Go uphill, explore side streets.
+**Skip**: Restaurants on main tourist routes with posted menus in 6 languages. Go uphill, explore side streets.
 
 **Fado dinner**: Casa de Linhares, Mesa de Frades, Clube de Fado (book ahead, €40-80 with minimum spend)
 
@@ -266,7 +266,7 @@
 
 ---
 
-## Avoiding Tourist Traps
+## Navigating Tourist Areas
 
 **Red flags**:
 - Menu in 6+ languages on a board outside

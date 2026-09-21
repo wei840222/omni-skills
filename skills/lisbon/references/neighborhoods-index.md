@@ -76,7 +76,7 @@ Understanding recent history helps navigate the city:
 
 **2022-2024**: Digital nomad surge. Santos, Alcântara, Marvila explode. Housing crisis acute. Local backlash.
 
-**2025-present**: Regulation tightens. New AL (short-term rental) licenses frozen. Prices plateau but don't fall. Peripheral neighborhoods gain appeal.
+**2025-present**: Regulation tightens. New AL (short-term rental) licenses frozen. Prices plateau but remain high. Peripheral neighborhoods gain appeal.
 
 **What this means for you**:
 - Historic center: Heavily touristed, expensive, harder to find rentals
@@ -161,7 +161,7 @@ Living in Lisbon = noise. But some areas are louder:
 - Parque das Nações
 - Alvalade
 
-**If noise-sensitive**: Avoid main nightlife streets. Ask about apartment position (interior courtyard = quiet). Visit at 11pm Saturday before signing lease.
+**If noise-sensitive**: Look for quieter side streets. Ask about apartment position (interior courtyard = quiet). Visit at 11pm Saturday before signing lease.
 
 ## Expat Concentration
 

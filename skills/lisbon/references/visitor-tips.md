@@ -18,7 +18,7 @@
 
 **Metro tip**: Buy a Navegante card (€0.50) at the airport station and load €5-10 Zapping credit. You'll use it all trip.
 
-**Taxi warning**: Use the official taxi rank. Fixed fares to city center posted. Don't accept "offers" from people inside terminal.
+**Taxi warning**: Use the official taxi rank. Fixed fares to city center posted. Ignore "offers" from people inside the terminal.
 
 ### Porto to Lisbon
 - **Train**: Alfa Pendular, 2h40, €35-45 (book at cp.pt)
@@ -105,11 +105,11 @@ Lisbon is one of Europe's safest capitals. Violent crime rare for tourists.
 **Prevention**:
 - Crossbody bags, zipped
 - Phone in front pocket
-- Don't flash expensive items
+- Keep expensive items concealed
 - Be alert in crowds
 
 **Restaurant/Bar Scams**:
-- "Cover charges" (bread, olives, etc.) — sent back what you don't want
+- "Cover charges" (bread, olives, etc.) — send back what you prefer not to eat
 - Menu without prices — always ask
 - Wrong change — count it
 
