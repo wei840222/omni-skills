@@ -6,7 +6,7 @@
 Since February 2024, explicitly banned:
 - Interfaces that deceive or manipulate users
 - Aggressive pop-ups and confusing consent buttons
-- Confirm-shaming ("No thanks, I don't want to save money")
+- Confirm-shaming ("No thanks, I prefer paying full price")
 - Pre-checked boxes for additional services
 - Hidden costs revealed at checkout (drip pricing)
 - Fake urgency ("Only 2 left!" if false)
@@ -50,8 +50,8 @@ Only possible with:
 - Price reduction claims must reference lowest price in prior 30 days
 
 ### Examples
-❌ "Was €100, now €50" (if never actually sold at €100)
-❌ Showing €50 then adding €15 "service fee" at checkout
+Invalid pricing example: "Was €100, now €50" (if historically unsold at €100)
+🚫 Showing €50 then adding €15 "service fee" at checkout
 ✅ "€50" with all fees included from start
 ✅ "Was €80 (30-day low), now €50" with real history
 
@@ -85,7 +85,7 @@ Only possible with:
 ### What's Illegal
 - Countdown timers that reset
 - "Limited stock" claims that are false
-- Inventory numbers that don't reflect reality
+- Ensure inventory numbers reflect accurate stock reality
 - "X people viewing this" if fabricated
 
 ### What's Allowed

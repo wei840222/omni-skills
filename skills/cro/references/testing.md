@@ -22,8 +22,8 @@ Where:
 
 ### Test Duration
 - Minimum 7 days (capture day-of-week effects)
-- Maximum 4 weeks (avoid history effects)
-- Never stop early on positive results
+- Limit duration to 4 weeks (mitigate history effects)
+- Run tests to their pre-calculated completion regardless of early positive results
 
 ## Statistical Significance
 
@@ -80,7 +80,7 @@ Prioritize highest scores first.
 ## Post-Test Actions
 
 1. **Document results** — Hypothesis, variants, metrics, learning
-2. **Implement winner** — Ship immediately, don't delay
+2. **Implement winner** — Ship immediately upon validation
 3. **Monitor post-ship** — Confirm live results match test
 4. **Update playbook** — Add learning to patterns
 5. **Plan follow-up** — Next iteration based on findings
