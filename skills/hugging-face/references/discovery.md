@@ -58,7 +58,7 @@ Record:
 
 ## Exit Criteria
 
-Do not move to inference until each finalist has:
+Move to inference only after each finalist has:
 - Known license
 - Known access status
 - Clear runtime compatibility

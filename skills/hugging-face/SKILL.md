@@ -1,10 +1,13 @@
 ---
 name: hugging-face
-description: "Discover, evaluate, and run Hugging Face models and datasets. Triggers when the user asks to find a model, compare models, run inference via HF API, or search datasets."
-compatibility: "linux, darwin, win32"
+description: Discover models and datasets, run local/remote inference, and manage
+  local evaluation context for Hugging Face tasks. Trigger when asked to find models
+  or use the HF API.
+compatibility: linux, darwin, win32
 metadata:
-  openclaw: '{"emoji":"HF","requires":{"bins":["curl","jq"],"env":["HF_TOKEN"]}}'
-  related-skills: '{"ai": "general AI strategy and model-selection framing", "api": "API-first integration patterns and HTTP debugging", "data-analysis": "dataset inspection and quality interpretation", "data": "structured data workflows and extraction patterns", "code": "implementation support for scripts and adapters"}'
+  version: 1.0.0
+  openclaw: '{"emoji":"🤗","requires":{"bins":["curl","jq"],"env":["HF_TOKEN"]}}'
+  related-skills: '{"ai":"general AI strategy and model-selection framing","api":"API-first integration patterns and HTTP debugging","data-analysis":"dataset inspection and quality interpretation","data":"structured data workflows and extraction patterns","code":"implementation support for scripts and adapters"}'
 ---
 
 ## State location
@@ -17,11 +20,6 @@ Memory and reusable artifacts live in `<state_root>/`.
 ## Setup
 
 On first use, read `scripts/setup.md` for integration guidelines and local memory initialization.
-
-## When to Use
-
-User needs to find the right Hugging Face model, dataset, or Space for a concrete task and move from browsing to reliable execution.
-Agent handles discovery, filtering, license checks, quick benchmarking, and integration-ready inference plans.
 
 ## Architecture
 

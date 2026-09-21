@@ -8,7 +8,7 @@ Set token once per shell session:
 export HF_TOKEN="<token>"
 ```
 
-Never print full tokens in logs or transcripts.
+Keep full tokens strictly out of logs or transcripts.
 
 ## Generic Inference Request
 
@@ -51,6 +51,6 @@ If request fails:
 
 ## Guardrails
 
-- Do not send unrelated user context.
-- Do not upload local files unless explicitly requested.
-- Do not assume all models support the same payload schema.
+- Send only related user context.
+- Upload local files only when explicitly requested.
+- Verify payload schemas as they vary between models.
