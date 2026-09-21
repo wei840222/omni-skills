@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to send 5 XRP from an account with a balance of 6 XRP. Why is the transaction failing with 'tecUNFUNDED'?",
+    "expected": "Explains that the base reserve is 1 XRP, so the account must leave at least 1 XRP plus the transaction fee, making the available balance less than 5 XRP.",
+    "actual": "Your transaction failed with 'tecUNFUNDED' because XRP accounts require a 1 XRP base reserve to exist. This base reserve is locked and not spendable. If your account balance is 6 XRP, your spendable amount is roughly 5 XRP minus any transaction fees (which are tiny). Attempting to send exactly 5 XRP likely drops the balance below the 1 XRP minimum after fees are applied, which the network prevents.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am sending XRP to my exchange wallet but I lost my destination tag. Can I just leave it blank since it's an optional field on my ledger?",
+    "expected": "Warns the user strongly not to send it without the tag, as exchanges require the destination tag to credit deposits correctly. Advises checking with exchange support.",
+    "actual": "Exchanges require destination tags to credit deposits correctly. If you send XRP to an exchange without the required destination tag, your funds will likely go into the exchange's hot wallet but not your personal account. You should never send to an exchange without the tag. If you lost or forgot it, please contact the exchange support immediately.",
+    "pass": true
+  }
+]
