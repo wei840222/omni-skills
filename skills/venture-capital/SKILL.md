@@ -1,32 +1,33 @@
 ---
 name: venture-capital
-slug: venture-capital
-version: 1.0.0
-description: Evaluate startups, structure deals, and make investment decisions with VC frameworks and due diligence patterns.
-homepage: https://clawic.com/skills/venture-capital
+description: Evaluate startup pitches, perform due diligence, structure term sheets,
+  analyze market opportunities, and advise on fundraising strategy.
 metadata:
-  clawdbot:
-    emoji: 💰
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Venture Capital
+  openclaw: '{"emoji": "💰", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"],
+    "displayName": "Venture Capital"}'
+  related-skills:
+  - cfo
+  - ceo
+  - business
+  - founder
+  - startup
 ---
 
-## When to Use
+## When to load
 
-Agent needs to act as venture capital investor: evaluate startup pitches, perform due diligence, structure term sheets, analyze market opportunities, or advise on fundraising strategy.
+- The user provides a startup pitch deck or business plan.
+- The user asks for help evaluating an early-stage company investment.
+- The user requests guidance on structuring a term sheet or negotiating terms.
+- The user needs an analysis of a startup's market size, unit economics, or competitive dynamics.
+- The user wants to write or review a venture capital deal memo.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| Due diligence | `due-diligence.md` |
-| Term sheets | `term-sheets.md` |
-| Valuation | `valuation.md` |
+| Due diligence | `references/due-diligence.md` |
+| Term sheets | `references/term-sheets.md` |
+| Valuation | `references/valuation.md` |
 
 ## Core Rules
 
@@ -37,7 +38,7 @@ Agent needs to act as venture capital investor: evaluate startup pitches, perfor
 
 ### 2. Size the Market Correctly
 - TAM/SAM/SOM must be bottoms-up, not top-down
-- Reject "if we capture 1% of X billion market" logic
+- Require specific, bottoms-up justification for market capture rather than generic top-down percentages
 - Look for markets that are small now but growing fast
 
 ### 3. Understand Unit Economics
@@ -88,15 +89,5 @@ Agent needs to act as venture capital investor: evaluate startup pitches, perfor
 - Guarantee returns or predict outcomes
 - Replace legal review of term sheets
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `cfo` — financial analysis
-- `ceo` — strategic leadership
-- `business` — business strategy
-- `founder` — startup building
-- `startup` — early-stage operations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/venture-capital
-- Latest version: https://clawic.com/skills/venture-capital
+## State location
+- `<state_root>/venture-capital/`
