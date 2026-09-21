@@ -56,4 +56,4 @@ integration: pending | complete | paused | never_ask
 - Store durable decisions, not full conversation transcripts.
 - Record license and access constraints next to each shortlisted artifact.
 - Keep benchmark logs minimal but reproducible.
-- Never store tokens, secrets, or private keys in memory files.
+- Keep tokens, secrets, or private keys strictly out of memory files.
