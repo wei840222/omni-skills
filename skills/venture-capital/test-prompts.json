@@ -1,0 +1,10 @@
+[
+  {
+    "prompt": "We are looking at a pre-seed SaaS startup with a solo technical founder and no revenue. They are asking for a $2M safe at a $15M cap. What should we look out for?",
+    "actual": "Based on venture capital guidelines:\n\n1.  **Founder Dynamics**: A solo technical founder, especially for B2B sales, is a significant risk factor to investigate. You need to assess how they will handle go-to-market and sales without a dedicated co-founder.\n2.  **Valuation**: A $15M valuation cap at the pre-seed stage with no revenue is generally considered quite high. Standard pre-seed checks are $100K-$500K. You should examine the justification for this valuation.\n3.  **Deal Structure**: Evaluate if a SAFE is the best instrument here, and consider negotiating the cap down or ensuring appropriate pro-rata rights for future rounds.\n4.  **Market & Economics**: Even at pre-seed, ensure they have a bottoms-up TAM analysis and a clear path to early customer acquisition."
+  },
+  {
+    "prompt": "Explain what 1x non-participating liquidation preference means.",
+    "actual": "A 1x non-participating liquidation preference is a standard VC term that dictates how proceeds are distributed in a liquidity event (like an acquisition or bankruptcy):\n\n*   **1x Preference**: This means the investor has the right to get their original investment amount (1x) back before any common shareholders (founders, employees) receive anything.\n*   **Non-participating**: After the investor receives their 1x preference, they do not 'participate' in sharing the remaining proceeds with common shareholders. Instead, they must choose between two options:\n    1.  Take their 1x preference payout.\n    2.  Convert their preferred shares to common shares and take a percentage of the total payout based on their ownership stake.\n\nThe investor will choose whichever option yields a higher return. This structure protects the investor's downside while aligning upside incentives with the founders."
+  }
+]

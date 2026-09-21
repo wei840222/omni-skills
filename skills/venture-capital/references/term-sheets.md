@@ -23,7 +23,7 @@
 |------|--------|----------|
 | Weighted average (broad) | Adjusts based on new shares issued | Standard |
 | Weighted average (narrow) | Same but excludes some shares | Acceptable |
-| Full ratchet | Reprices to new lower price | Aggressive, avoid |
+| Full ratchet | Reprices to new lower price | Aggressive, negotiate alternatives |
 
 ### Option Pool
 - Pre-money inclusion means founders pay for dilution
@@ -47,7 +47,7 @@ Standard provisions (investor approval required):
 - Taking on debt above threshold
 - Changing board size
 
-**Avoid:** Operational veto rights that slow down company
+**Block:** Operational veto rights that slow down company
 
 ### Information Rights
 - Monthly financials
@@ -82,7 +82,7 @@ Standard provisions (investor approval required):
 - Limited protective provisions
 - Carve-outs for small transactions
 
-### What to Avoid
+### Dealbreakers and Risk Mitigation
 - Full participating preferred
 - Full ratchet anti-dilution
 - Excessive board seats for small checks
@@ -105,7 +105,7 @@ Standard provisions (investor approval required):
 1. Get multiple term sheets if possible
 2. Focus on valuation AND terms together
 3. Understand long-term implications of structure
-4. Get a good lawyer, do not negotiate alone
+4. Engage experienced legal counsel for all negotiations
 
 ### For Investors
 1. Price reflects risk at this stage
