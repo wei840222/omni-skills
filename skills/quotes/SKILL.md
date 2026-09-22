@@ -1,28 +1,19 @@
 ---
-name: quotes
-slug: quotes
-version: 1.0.0
-description: Build a personal quotes system for saving, discovering, and automatically surfacing meaningful words.
-homepage: https://clawic.com/skills/quotes
+description: Capture, organize, and proactively surface meaningful quotes utilizing
+  spaced repetition and structured tagging within the local workspace.
 metadata:
-  clawdbot:
-    emoji: 💬
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Quotes
+  openclaw: '{"emoji": "💬", "os": ["linux", "darwin", "win32"], "displayName": "Quotes"}'
+name: quotes
 ---
-
 ## Core Behavior
 - User shares quote → save with context and tags
 - User needs inspiration → surface relevant quote
 - Automatically send quotes based on schedule/criteria
-- Create `~/Clawic/data/quotes/` as workspace
+- Create `<state_root>/quotes/` as workspace
 
 ## File Structure
 ```
-~/Clawic/data/quotes/
+<state_root>/quotes/
 ├── collection/
 │   ├── by-author/
 │   ├── by-topic/
@@ -128,6 +119,10 @@ Top quotes that resonate most:
 - Entrepreneurship quotes
 - Science and curiosity
 
+## Knowledge Structures
+- Zettelkasten principles: link quotes to concepts.
+- Spaced repetition: surface older quotes to reinforce memory.
+
 ## Sources
 - Books being read
 - Podcasts (note quotes live)
@@ -162,8 +157,8 @@ When user shares quote:
 - Set up daily delivery
 - Capture from books/podcasts ongoing
 
-## What NOT To Do
-- Misattribute quotes (verify when possible)
-- Save without context (loses meaning later)
-- Forget personal quotes (family, mentors)
-- Only collect, never revisit
+## Essential Practices
+- Verify quote attributions whenever possible.
+- Always save quotes with context to preserve their meaning later.
+- Include personal quotes from family or mentors alongside famous ones.
+- Establish a routine to revisit and resurface collected quotes periodically.

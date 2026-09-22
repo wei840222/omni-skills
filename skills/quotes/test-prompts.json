@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Save this quote from Marcus Aurelius: 'The best revenge is to be unlike him who performed the injury.'",
+    "expected": "Extract the quote, attribute it to Marcus Aurelius, add relevant tags like stoicism and revenge, and save it in <state_root>/quotes/collection/by-author/marcus-aurelius.md.",
+    "actual": "Saved 'The best revenge is to be unlike him who performed the injury.' to <state_root>/quotes/collection/by-author/marcus-aurelius.md. Added tags: stoicism, resilience. Also updated topics and favorites if appropriate.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm feeling very stressed and overwhelmed with my workload today. Do you have any quotes that might help?",
+    "expected": "Read from <state_root>/quotes/collection/by-topic/ or favorites, find a quote related to stress, perspective, or stoicism, and present it.",
+    "actual": "Found a related quote in <state_root>/quotes/favorites.md: 'We suffer more in imagination than in reality.' — Seneca. I hope this stoic perspective helps ground you amidst the workload.",
+    "pass": true
+  }
+]
