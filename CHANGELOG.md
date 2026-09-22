@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| aave | 2026-09-23 | 85/100 (#534) |
 | quotes | 2026-09-23 | 85/100 (#533) |
 | hugging-face | 2026-09-21 | 85/100 (#532) |
 | xrp | 2026-09-21 | 85/100 (#531) |
@@ -497,7 +498,6 @@ This table is the canonical record of skill refactor pull requests merged into `
 | passwords                    | 2026-08-06 | 82/100        |
 | deploy                       | 2026-08-07 | ~82/100       |
 | academy                      | 2026-08-08 | 84.7/100      |
-| aave                         | 2026-08-08 | 82.6/100      |
 | accountant                   | 2026-08-08 | 84.7/100      |
 | welsh                        | 2026-08-08 | 84.7/100      |
 | prayers                      | 2026-08-11 | 93/100        |
