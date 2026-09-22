@@ -1,28 +1,33 @@
 ---
 name: quotes
-slug: quotes
-version: 1.0.0
-description: Build a personal quotes system for saving, discovering, and automatically surfacing meaningful words.
-homepage: https://clawic.com/skills/quotes
+description: Capture, organize, tag, and proactively surface meaningful quotes with
+  spaced repetition. Use when the user shares a quote, asks for inspiration, wants
+  a morning or mood-based quote, or manages a personal quote collection.
 metadata:
-  clawdbot:
-    emoji: 💬
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Quotes
+  version: "1.0.0"
+  openclaw: '{"emoji":"💬"}'
+  related-skills: '{"affirmations":"Positive self-talk practice rather than collected quotations.","habits":"Recurring delivery routines once quote cadence is chosen.","journal":"Reflective writing that may cite or expand on saved quotes.","remember":"Durable preferences and decisions outside quote collections."}'
 ---
+
+## State location
+
+Before the first state operation, resolve one `<state_root>`:
+
+1. Use an explicitly configured state root when supplied by the user or host.
+2. Otherwise use the first existing directory in this order: `<workspace>/quotes/`, `<workspace>/memory/quotes/`, then `~/quotes/`.
+3. If none exists and the user wants persistent quote data, create `<workspace>/quotes/`.
+
+Keep the selected root for the invocation. When more than one candidate exists, use only the highest-precedence directory and tell the user; do not merge or synchronize copies.
 
 ## Core Behavior
 - User shares quote → save with context and tags
 - User needs inspiration → surface relevant quote
 - Automatically send quotes based on schedule/criteria
-- Create `~/Clawic/data/quotes/` as workspace
+- Store quote data under the resolved `<state_root>/`
 
 ## File Structure
 ```
-~/Clawic/data/quotes/
+<state_root>/
 ├── collection/
 │   ├── by-author/
 │   ├── by-topic/
@@ -128,6 +133,10 @@ Top quotes that resonate most:
 - Entrepreneurship quotes
 - Science and curiosity
 
+## Knowledge Structures
+- Zettelkasten principles: link quotes to concepts.
+- Spaced repetition: surface older quotes to reinforce memory.
+
 ## Sources
 - Books being read
 - Podcasts (note quotes live)
@@ -162,8 +171,8 @@ When user shares quote:
 - Set up daily delivery
 - Capture from books/podcasts ongoing
 
-## What NOT To Do
-- Misattribute quotes (verify when possible)
-- Save without context (loses meaning later)
-- Forget personal quotes (family, mentors)
-- Only collect, never revisit
+## Essential Practices
+- Verify quote attributions whenever possible.
+- Always save quotes with context to preserve their meaning later.
+- Include personal quotes from family or mentors alongside famous ones.
+- Establish a routine to revisit and resurface collected quotes periodically.
