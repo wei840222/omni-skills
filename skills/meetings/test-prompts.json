@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Draft an agenda for a 50-minute weekly project sync with five engineers. We need a decision on the release train and owners for two open blockers.",
+    "expected": "Produces an output-oriented agenda with owner+minutes lines, timeboxes summing to <=80% of 50 minutes, names the decision method, and leaves closing time for decisions and action read-back.",
+    "actual": "Built a 50-minute agenda: 5m purpose/decision method, 15m release-train decision, 15m blockers with named owners, 5m risks, 10m close for decisions/actions. Minutes sum to 40 (<=80%).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Here are raw notes from yesterday's product review: stakeholders disagreed on UI color, but decided to launch next Tuesday; Bob will update the docs. Turn this into formal minutes and say where you would store them.",
+    "expected": "Creates decisions-first minutes with the launch decision, open UI-color issue, Bob's dated action item, and writes under the resolved <state_root>/meetings/ tree (records + decisions + follow-ups) without storing credentials.",
+    "actual": "Minutes captured Decision: launch next Tuesday; Open: UI color unresolved; Action: Bob updates docs with a date. Stored record at <state_root>/meetings/records/<year>-<mm>.md, decision log entry, and follow-up row in memory.md.",
+    "pass": true
+  }
+]
