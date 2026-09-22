@@ -1,19 +1,33 @@
 ---
-description: Capture, organize, and proactively surface meaningful quotes utilizing
-  spaced repetition and structured tagging within the local workspace.
-metadata:
-  openclaw: '{"emoji": "💬", "os": ["linux", "darwin", "win32"], "displayName": "Quotes"}'
 name: quotes
+description: Capture, organize, tag, and proactively surface meaningful quotes with
+  spaced repetition. Use when the user shares a quote, asks for inspiration, wants
+  a morning or mood-based quote, or manages a personal quote collection.
+metadata:
+  version: "1.0.0"
+  openclaw: '{"emoji":"💬"}'
+  related-skills: '{"affirmations":"Positive self-talk practice rather than collected quotations.","habits":"Recurring delivery routines once quote cadence is chosen.","journal":"Reflective writing that may cite or expand on saved quotes.","remember":"Durable preferences and decisions outside quote collections."}'
 ---
+
+## State location
+
+Before the first state operation, resolve one `<state_root>`:
+
+1. Use an explicitly configured state root when supplied by the user or host.
+2. Otherwise use the first existing directory in this order: `<workspace>/quotes/`, `<workspace>/memory/quotes/`, then `~/quotes/`.
+3. If none exists and the user wants persistent quote data, create `<workspace>/quotes/`.
+
+Keep the selected root for the invocation. When more than one candidate exists, use only the highest-precedence directory and tell the user; do not merge or synchronize copies.
+
 ## Core Behavior
 - User shares quote → save with context and tags
 - User needs inspiration → surface relevant quote
 - Automatically send quotes based on schedule/criteria
-- Create `<state_root>/quotes/` as workspace
+- Store quote data under the resolved `<state_root>/`
 
 ## File Structure
 ```
-<state_root>/quotes/
+<state_root>/
 ├── collection/
 │   ├── by-author/
 │   ├── by-topic/
