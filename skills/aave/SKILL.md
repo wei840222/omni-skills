@@ -1,11 +1,11 @@
 ---
 name: aave
-description: Use when analyzing or planning an Aave supply, borrow, withdrawal, liquidation, E-Mode, GHO, or market-specific risk position, including a Health Factor question where Aave is implicit.
+description: Use when analyzing an Aave supply, borrow, withdrawal, liquidation, E-Mode,
+  or GHO position, or when checking Health Factor. Verify exact chain and market deployment
+  before interpreting position data.
 metadata:
-  version: "1.0.0"
   openclaw: '{"emoji":"👻"}'
 ---
-
 ## State location
 
 Aave is a stateless knowledge skill. Analyze user-provided information and facts read from the intended public market; the wallet owner retains transaction signing and wallet control.
