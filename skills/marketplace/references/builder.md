@@ -35,7 +35,7 @@
 | Subscription | Predictable revenue; works for high-volume sellers |
 | Freemium | Low barrier entry; monetize power users |
 | Lead gen fee | Services marketplaces; charge per lead vs transaction |
-| Featured listings | Additional revenue; don't make it pay-to-play |
+| Featured listings | Additional revenue; maintain organic search integrity |
 
 **Take rate ceiling:**
 - Sellers compare alternatives
@@ -52,7 +52,7 @@
 
 **Rating systems:**
 - Two-sided ratings prevent retaliation
-- Don't show ratings until both parties submit
+- Reveal ratings only after both parties submit
 - Weight recent ratings higher
 
 **Dispute resolution:**

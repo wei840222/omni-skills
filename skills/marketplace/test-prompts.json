@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm trying to sell a used iPhone 13 on Mercari. What should I price it at, and what fees will I pay?",
+    "expected": "Advises researching SOLD listings for iPhone 13s in similar condition, and notes that Mercari currently has a 0% selling fee (buyers pay the service fee).",
+    "actual": "Based on Mercari's fee structure, you will pay a 0% selling fee because Mercari shifted fees so the buyer pays a service fee. To price your iPhone 13, do not use listed prices. Search for SOLD/COMPLETED listings of iPhone 13s in the exact same condition (e.g., 'Good' vs 'Very Good' can swing the price by 30%). Price it at the median of recently sold items for a faster sale.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I saw a listing for a PS5 on FB Marketplace for $200. The seller says they are moving and want me to pay through Zelle so their shipper can pick it up. Should I buy it?",
+    "expected": "Identifies the pattern as a scam and warns against off-platform payment.",
+    "actual": "Do not proceed with this transaction. This exhibits multiple scam patterns: 'My shipper will pick up' combined with a high-value item at an unrealistically low price ($200) and an off-platform payment request (Zelle). Paying outside the platform offers no buyer protection. Reject the offer and report the listing if possible.",
+    "pass": true
+  }
+]

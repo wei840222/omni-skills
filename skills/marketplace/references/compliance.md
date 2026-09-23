@@ -34,14 +34,14 @@
 
 **eBay-specific:**
 - VeRO (brand IP) complaints
-- Excessive shipping charges for fee avoidance
+- Excessive shipping charges for bypassing fee structures
 - Keyword spamming
 - Feedback extortion
 
 ## Where AI Gives Dangerous Advice
 
 **Tax advice failures:**
-- ❌ "Under $X you don't need to report" — confuses 1099-K threshold with actual obligation
+- ✅ Report all income; IRS 1099-K thresholds determine automatic platform reporting, not underlying tax obligations
 - ❌ "Register in Delaware for no taxes" — conflates entity formation with nexus
 - ❌ Citing outdated thresholds from training data
 

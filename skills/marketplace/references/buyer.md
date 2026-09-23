@@ -42,7 +42,7 @@
 
 **"Firm on price" response:**
 - FB Marketplace: Often still negotiable, try once
-- Craigslist: Usually means firm, don't push
+- Craigslist: Usually means firm, respect stated pricing
 
 ## Authenticity Checks
 
