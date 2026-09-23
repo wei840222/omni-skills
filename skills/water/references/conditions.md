@@ -1,6 +1,6 @@
 # Conditions — When the Formula Bends or Breaks
 
-Frame: Rule 1 serves healthy adults. Conditions move the target up (stones, pregnancy), cap it (fluid restriction), or hand the number to a clinician entirely. Precedence: clinician number > condition rule > Rule 1. Store declared conditions in memory.md Baseline; never infer one from symptoms — that is Red Flags territory (SKILL.md).
+Frame: Rule 1 serves healthy adults. Conditions move the target up (stones, pregnancy), cap it (fluid restriction), or hand the number to a clinician entirely. Precedence: clinician number > condition rule > Rule 1. Store declared conditions in memory.md Baseline; rely strictly on user declarations — that is Red Flags territory (SKILL.md).
 
 ## Targets That Move Up
 
@@ -14,15 +14,15 @@ Frame: Rule 1 serves healthy adults. Conditions move the target up (stones, preg
 
 ## Targets a Clinician Owns
 
-- Heart failure, advanced kidney disease, dialysis, cirrhosis with ascites, SIADH or any hyponatremia history: fluid restriction is common and the formulas here can cause harm. The skill's job flips — track intake AGAINST the clinician's ceiling stored in `daily_target_ml`, never compute a target. Red Flags last row applies: clinician sets the number; suspend Rules 1-7.
-- POTS and recurrent orthostatic fainting: salt-and-fluid loading protocols exist but are prescribed and monitored — do not improvise one from this file; log against whatever numbers their clinician set.
+- Heart failure, advanced kidney disease, dialysis, cirrhosis with ascites, SIADH or any hyponatremia history: fluid restriction is common and the formulas here can cause harm. The skill's job flips — track intake AGAINST the clinician's ceiling stored in `daily_target_ml`, defer calculation entirely to the clinician. Red Flags last row applies: clinician sets the number; suspend Rules 1-7.
+- POTS and recurrent orthostatic fainting: salt-and-fluid loading protocols exist but are prescribed and monitored — adhere strictly to their prescribed protocol from this file; log against whatever numbers their clinician set.
 - Diabetes: high glucose drives urination and thirst; steady hydration helps, but sick-day fluid plans come from their care team. NEW extreme thirst plus high urine output → Red Flags diabetes row first, not a target.
 
 ## Medications That Change the Math
 
 | Medication | Effect | Adjustment |
 |---|---|---|
-| Diuretics | Deliberate fluid removal, often paired with restriction | Never "compensate" with extra water; the clinician target governs; heat or illness on diuretics tightens Red Flags |
+| Diuretics | Deliberate fluid removal, often paired with restriction | Strictly adhere to the clinician target without adding compensatory water; the clinician target governs; heat or illness on diuretics tightens Red Flags |
 | Lithium | Dehydration concentrates lithium toward toxicity | Consistency beats volume: steady daily intake, extra caution in heat and illness; tremor or confusion → clinician now |
 | SGLT2 inhibitors (-gliflozins) | Glucose diuresis raises baseline losses | Steady intake; the heat + illness combination deserves an early clinician call |
 | NSAIDs around endurance events | Impair renal water handling; raise hyponatremia and kidney-injury risk when dehydrated | Flag the combination when a user mentions ibuprofen for a race; it is worth a clinician conversation |
