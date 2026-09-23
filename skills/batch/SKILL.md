@@ -1,15 +1,15 @@
 ---
 name: batch
-slug: batch
-version: 1.0.0
-description: Process multiple items with progress tracking, checkpointing, and failure recovery.
-homepage: https://clawic.com/skills/batch
+description: Use this skill to process multiple items, iterate over large collections,
+  or handle batch tasks requiring progress tracking, checkpointing, and failure recovery.
+  Load `references/strategies.md` to decide between parallel and sequential strategies,
+  and `references/errors.md` for retry logic and rollback patterns.
 metadata:
-  clawdbot:
-    emoji: 📦
-    displayName: Batch
+  version: "1.0.0"
+  openclaw: '{"emoji": "📦"}'
+  related-skills:
+  - delegate
 ---
-
 ## Before Starting
 
 1. **Dry run:** Test with 2-3 items first
@@ -20,7 +20,7 @@ metadata:
 
 - **Progress every 10 items:** "23/47 complete (49%)"
 - **Checkpoint every 10-50 items:** Save state to resume if interrupted
-- **On error:** Log it, continue with rest (don't abort entire batch)
+- **On error:** Log it, continue with rest (continue processing remaining items)
 
 ## After Completion
 
@@ -38,8 +38,6 @@ Always report:
 | Bad format, missing data | Skip, log, continue |
 | Auth failed, disk full | Abort entire batch |
 
-Check `strategies.md` for parallel vs sequential decision matrix.
-Check `errors.md` for retry logic and rollback patterns.
 
 ---
 
