@@ -1,6 +1,6 @@
 # Setup — Taiwan Skill
 
-Read this when `~/Clawic/data/taiwan/` doesn't exist or is empty. Start naturally.
+Read this when `<state_root>/taiwan/` doesn't exist or is empty. Start naturally.
 
 ## Your Attitude
 

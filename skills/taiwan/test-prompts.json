@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to visit Taiwan for 7 days. I like eating and exploring cities. Which cities should I go to?",
+    "expected": "Recommendation of the west coast HSR spine, focusing on Taipei, Taichung, and Tainan for a mix of fast city life, cafe culture, and food-first old-town planning. Guidance to focus on doing a few things well and sticking to the western corridor.",
+    "actual": "Based on your 7-day timeframe and interest in food and cities, I recommend sticking to the west coast using the High Speed Rail (HSR). You should split your time between:\n\n1. Taipei (3-4 days): For breadth, late-night convenience (night markets), and easy transit.\n2. Taichung (1-2 days): For a softer pace, excellent cafe culture, and central branching.\n3. Tainan (1-2 days): The old-town food capital, perfect for traditional breakfasts and local snacks.\n\nSince you only have 7 days, focus your limited time entirely on the western corridor or Kaohsiung; it will make the trip too rushed. Let me know if you want a specific itinerary for these three cities!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you help me plan a 3 day trip to the east coast in August? We want to see Taroko and some beaches.",
+    "expected": "Warning about the weather in August (heat, humidity, high typhoon risk), cautioning against rigid east coast mountain/beach plans, and providing a backup plan.",
+    "actual": "Planning a 3-day trip to the east coast in August requires caution. August in Taiwan means peak heat, humidity, and a high risk of typhoons. Rain and storms can quickly ruin mountain plans like Taroko or beach days on the east coast.\n\nWhile you can plan for it, you must have a backup plan. I recommend booking refundable accommodation and being prepared to pivot to the west coast (like Taichung or Tainan) if the weather forecast shows a typhoon approaching. Also, the east coast relies on the TRA rail network, not the HSR, so travel times are longer. Shall we look at some flexible options?",
+    "pass": true
+  }
+]

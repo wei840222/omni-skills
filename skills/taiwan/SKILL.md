@@ -1,34 +1,28 @@
 ---
 name: taiwan
-slug: taiwan
-version: 1.0.0
-description: Plan Taiwan trips with city-specific food, rail, hot spring, and regional tips that avoid tourist filler and logistics mistakes.
-homepage: https://clawic.com/skills/taiwan
-changelog: Initial release with city guides, rail planning, tea context, and practical Taiwan travel advice.
+description: >
+  Design Taiwan itineraries with HSR/TRA routing, city-specific food, weather
+  backups, and tourist-trap avoidance. Load when planning Taiwan trips, choosing
+  bases (Taipei/Taichung/Tainan/Kaohsiung), or asking about night markets, tea,
+  hot springs, east-coast logistics, or family pacing. Not for mainland China
+  or Japan-only travel plans.
 metadata:
-  clawdbot:
-    emoji: 🇹🇼
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/taiwan/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Taiwan
+  version: "1.1.0"
+  openclaw: '{"emoji": "🇹🇼", "requires": {"config": ["<state_root>/taiwan/"]}}'
+  related-skills: '{"travel": "general multi-country trip structure beyond Taiwan-specific logistics", "food": "dish-level cuisine guidance when the ask is food, not itinerary routing", "chinese": "language and phrase help beyond Taiwan trip planning", "photography": "shot planning and gear when the trip goal is photo-first"}'
 ---
 
-## When to Use
 
-User planning a trip to Taiwan or needing practical local guidance: where to base, what each city does best, how to move around, what to eat, and what to avoid in weather-sensitive or holiday-sensitive periods.
+## When to load
+
+Load this skill when the user asks to plan a trip to Taiwan, requests advice on Taiwanese cities (Taipei, Taichung, Tainan, Kaohsiung), needs HSR/TRA transit routing, or wants specific local food recommendations (night markets, regional specialties).
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/taiwan/`. If `~/Clawic/data/taiwan/` doesn't exist or is empty, read `setup.md` and start naturally. See `memory-template.md` for structure.
+Memory lives in `<state_root>/taiwan/`. If `<state_root>/taiwan/` doesn't exist or is empty, read `references/setup.md` and start naturally. See `assets/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/taiwan/
+<state_root>/taiwan/
 └── memory.md     # Trip context
 ```
 
@@ -37,35 +31,35 @@ Memory lives in `~/Clawic/data/taiwan/`. If `~/Clawic/data/taiwan/` doesn't exis
 | Topic | File |
 |-------|------|
 | **Cities** | |
-| Taipei neighborhoods, rhythm, day trips | `taipei.md` |
-| Taichung pacing, design, central hub strategy | `taichung.md` |
-| Tainan food-first old-town planning | `tainan.md` |
-| Kaohsiung harbor districts and southern base logic | `kaohsiung.md` |
+| Taipei neighborhoods, rhythm, day trips | `references/taipei.md` |
+| Taichung pacing, design, central hub strategy | `references/taichung.md` |
+| Tainan food-first old-town planning | `references/tainan.md` |
+| Kaohsiung harbor districts and southern base logic | `references/kaohsiung.md` |
 | **Planning** | |
-| First-timer and repeat-visitor routes | `itineraries.md` |
-| Best base by budget and trip style | `accommodation.md` |
-| Rail, maps, taxi, bike, and booking apps | `apps.md` |
+| First-timer and repeat-visitor routes | `references/itineraries.md` |
+| Best base by budget and trip style | `references/accommodation.md` |
+| Rail, maps, taxi, bike, and booking apps | `references/apps.md` |
 | **Food & Drink** | |
-| Regional dishes, breakfasts, night markets | `food-guide.md` |
-| Tea regions, what to buy, how to order | `tea.md` |
+| Regional dishes, breakfasts, night markets | `references/food-guide.md` |
+| Tea regions, what to buy, how to order | `references/tea.md` |
 | **Activities** | |
-| Hot springs, scenic rides, cultural wins | `experiences.md` |
-| Best beaches, islands, and swim realities | `beaches.md` |
-| Easy urban hikes to alpine planning logic | `hiking.md` |
-| Night markets, bars, music, late-night rhythm | `nightlife.md` |
+| Hot springs, scenic rides, cultural wins | `references/experiences.md` |
+| Best beaches, islands, and swim realities | `references/beaches.md` |
+| Easy urban hikes to alpine planning logic | `references/hiking.md` |
+| Night markets, bars, music, late-night rhythm | `references/nightlife.md` |
 | **Reference** | |
-| North, central, south, east, islands breakdown | `regions.md` |
-| Etiquette, payment reality, timing, temple manners | `culture.md` |
-| Family travel pacing and kid-friendly structure | `with-kids.md` |
+| North, central, south, east, islands breakdown | `references/regions.md` |
+| Etiquette, payment reality, timing, temple manners | `references/culture.md` |
+| Family travel pacing and kid-friendly structure | `references/with-kids.md` |
 | **Practical** | |
-| HSR, TRA, airport access, buses, driving | `transport.md` |
-| SIMs, eSIMs, LINE, payment and data habits | `telecoms.md` |
-| Emergency numbers, typhoon, earthquake, clinics | `emergencies.md` |
+| HSR, TRA, airport access, buses, driving | `references/transport.md` |
+| SIMs, eSIMs, LINE, payment and data habits | `references/telecoms.md` |
+| Emergency numbers, typhoon, earthquake, clinics | `references/emergencies.md` |
 
 ## Core Rules
 
 ### 1. Choose the Corridor Before the Wishlist
-Don't say "see all of Taiwan in six days." Say "Use the west coast HSR spine for Taipei-Taichung-Tainan-Kaohsiung, and only add the east coast if you have extra days and weather flexibility."
+State "Use the west coast HSR spine for Taipei-Taichung-Tainan-Kaohsiung, and only add the east coast if you have extra days and weather flexibility."
 
 ### 2. Match the Base to the Trip
 Taiwan is compact, but sleeping in the wrong place wastes the trip:
@@ -88,7 +82,7 @@ Use the right rail layer:
 - Rain can destroy mountain or coast plans fast, so always give a backup
 
 ### 5. Taiwan Rewards Specific Food Advice
-Don't say "try a night market." Say which city, which neighborhood, and what it is good for:
+State which city, which neighborhood, and what it is good for:
 - Taipei for breadth and late convenience
 - Tainan for breakfast, snacks, and old-school specialties
 - Taichung for cafes and dessert stops
@@ -105,11 +99,11 @@ Be explicit about what visitors routinely miss:
 
 | Traveler | Focus on |
 |----------|----------|
-| First-timer | `taipei.md`, `itineraries.md`, `transport.md`, `food-guide.md` |
-| Food-first | `tainan.md`, `food-guide.md`, `tea.md`, `culture.md` |
-| Relaxed repeat visitor | `taichung.md`, `regions.md`, `experiences.md` |
-| Southern sun | `kaohsiung.md`, `beaches.md`, `nightlife.md` |
-| Family | `with-kids.md`, `accommodation.md`, `transport.md` |
+| First-timer | `references/taipei.md`, `references/itineraries.md`, `references/transport.md`, `references/food-guide.md` |
+| Food-first | `references/tainan.md`, `references/food-guide.md`, `references/tea.md`, `references/culture.md` |
+| Relaxed repeat visitor | `references/taichung.md`, `references/regions.md`, `references/experiences.md` |
+| Southern sun | `references/kaohsiung.md`, `references/beaches.md`, `references/nightlife.md` |
+| Family | `references/with-kids.md`, `references/accommodation.md`, `references/transport.md` |
 
 ## Common Traps
 
@@ -123,18 +117,6 @@ Be explicit about what visitors routinely miss:
 
 ## Security & Privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/taiwan/`
+**Data that stays local:** Trip preferences in `<state_root>/taiwan/`
 
-**This skill does NOT:** Access files outside `~/Clawic/data/taiwan/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — Travel planning
-- `food` — Food and cooking
-- `chinese` — Chinese language
-- `photography` — Travel photography and location planning
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/taiwan
-- Latest version: https://clawic.com/skills/taiwan
+**This skill does NOT:** Access files outside `<state_root>/taiwan/` or make network requests.

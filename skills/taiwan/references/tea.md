@@ -27,7 +27,7 @@ Tea is one of Taiwan's highest-value souvenirs and one of its best slow-travel e
 - Ask whether the user wants drinking tea or gifting tea
 - For gifting, clean packaging and recognizable region names help
 - For drinking, buy by style and freshness, not only by altitude hype
-- Do not oversell the most expensive high-mountain tea if the user actually likes roasted or black tea
+- Recommend roasted or black tea when the user prefers stronger flavor profiles over expensive high-mountain tea
 
 ## How to Order or Talk About Tea
 

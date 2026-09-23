@@ -23,7 +23,7 @@ Taiwan transport is excellent if the user understands the layers. The clean rule
 
 - Use TRA for the east coast and many smaller stops
 - Reserve seats early for busy weekends and holidays
-- Do not assume east-coast travel works like the HSR west-coast sprint
+- Account for slower travel speeds on the east-coast TRA network compared to the HSR west-coast sprint
 
 ## Airport Access
 
