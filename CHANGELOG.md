@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| docker-compose | 2026-09-23 | 85/100 (#548) |
 | baby | 2026-09-23 | 85/100 (#547) |
 | digest | 2026-09-23 | 85/100 (#546) |
 | flask | 2026-09-23 | 85/100 (#545) |
