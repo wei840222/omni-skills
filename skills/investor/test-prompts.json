@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Evaluate a new SaaS startup pitching me. The team has deep industry experience but the market seems a bit niche. They are asking for a $15M valuation on $500k ARR.",
+    "expected": "Uses Evaluation Framework to emphasize team quality but highlight TAM concerns. Recommends checking unit economics and defensibility.",
+    "actual": "I will load the Evaluation Framework (references/evaluation.md) to structure the analysis. Since you mentioned a strong team but a niche market, we must remember that 'Team first, market second, product third', but also that the Total Addressable Market (TAM) must justify the outcome—small markets can cap returns regardless of execution. At a $15M valuation on $500k ARR, the valuation discipline needs checking. Let's load Due Diligence (references/due-diligence.md) to inspect unit economics (CAC vs LTV) and verify defensibility. Can you share more about what stops fast followers in this niche?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm reviewing a term sheet. The founders want me to give up pro-rata rights in exchange for a lower valuation. Should I accept?",
+    "expected": "Uses Terms & Exits to advise fighting for pro-rata rights as they protect against dilution, highlighting that valuation is just one term.",
+    "actual": "I will load the Terms & Exits reference (references/terms.md). The guidelines clearly state that 'Pro-rata rights protect against dilution — fight to keep them', and that 'Valuation is one term among many'. Giving up pro-rata rights can significantly harm your ability to maintain ownership in future successful rounds (the power law depends on concentrating capital in winners). It is generally advised not to sacrifice pro-rata rights easily. Let's review the liquidation preferences and board composition as well.",
+    "pass": true
+  }
+]
