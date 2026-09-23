@@ -37,7 +37,7 @@ Revenue
 
 **Suspension triggers:**
 - Dropshipping from other retailers (you must be seller of record)
-- "Inauthentic" complaints (retail receipts don't count as invoices)
+- "Inauthentic" complaints (requires wholesale invoices; retail receipts are insufficient)
 - Listing store returns as "New"
 - Selling restricted brands without ungating
 

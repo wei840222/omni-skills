@@ -4,7 +4,7 @@
 
 **Titles (platform-specific):**
 - eBay: 80-char limit, front-load brand + key attributes
-- Etsy: Use all 13 tags, no keyword stuffing in title
+- Etsy: Use all 13 tags, prioritize readable human descriptions in title
 - Amazon: Brand + Product + Key Features + Size/Quantity
 
 **Photos:**
@@ -30,11 +30,11 @@
 **Platform fee awareness:**
 | Platform | Fee Structure |
 |----------|---------------|
-| eBay | ~13% final value (varies by category) + promoted listings 2-15% |
+| eBay | 13.25% final value + $0.30/order (most categories) + promoted listings 2-15% |
 | Poshmark | Flat 20% for >$15, flat $2.95 for ≤$15 |
-| Mercari | 10% + payment processing |
+| Mercari | 0% selling fee (buyers now pay a service fee) |
 | Etsy | Listing ($0.20) + 6.5% transaction + 3%+ payment |
-| Amazon | 8-45% referral (category) + FBA fees if applicable |
+| Amazon | 8-15% referral fee (most categories) + $0.99/item or $39.99/mo + FBA fees |
 
 ## Buyer Communication
 
@@ -60,8 +60,8 @@
 - All communication is public
 
 **FB Marketplace:**
-- 50% no-show rate on meetups; don't travel far
-- "Is this still available?" = 90% never follow up
+- 50% no-show rate on meetups; arrange local pickup near your base
+- "Is this still available?" = 90% fail to follow up
 - Algorithm buries slow responders
 
 **Etsy:**
