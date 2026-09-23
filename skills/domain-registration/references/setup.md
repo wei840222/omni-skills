@@ -1,6 +1,6 @@
 # Setup - Domain Registration
 
-Use this when `~/Clawic/data/domain-registration/` does not exist or is empty.
+Use this when `<state_root>/domain-registration/` does not exist or is empty.
 Keep onboarding short and operational while answering the active request first.
 
 ## Your Attitude
@@ -13,7 +13,7 @@ Optimize for service continuity, ownership correctness, and billing clarity.
 Within the first exchanges, align activation boundaries:
 - Should this activate whenever registrar, domain purchase, transfer, renewal, WHOIS, or nameserver topics appear?
 - Should write actions stay ask-first, or can low-risk read checks run proactively?
-- Are there providers or account contexts where this skill should never auto-activate?
+- Are there providers or account contexts that require manual activation only?
 
 ## Environment Snapshot
 
@@ -23,7 +23,7 @@ Capture only what changes decisions:
 - production criticality and outage tolerance
 - API readiness versus dashboard-only execution path
 
-Avoid long questionnaires. Gather context through real tasks.
+Keep onboarding brief by gathering context through real tasks.
 
 ## Execution Defaults
 
@@ -48,12 +48,12 @@ Keep notes concise and operational.
 Use status values from `memory-template.md`:
 - `ongoing` when context is still evolving
 - `complete` when provider and workflow preferences are stable
-- `paused` when setup prompts should stop temporarily
-- `never_ask` when setup prompts should not be used
+- `paused` to pause setup prompts temporarily
+- `never_ask` when setup prompts should be skipped
 
 ## Guardrails
 
-- Never assume provider API parity across registrars.
-- Never submit billing-impacting actions without explicit confirmation.
-- Never declare transfer success until lock state, auth path, and registry status are verified.
-- Never store raw credentials in memory files.
+- Verify provider API capabilities independently for each registrar.
+- Require explicit confirmation before submitting billing-impacting actions.
+- Verify lock state, auth path, and registry status before declaring transfer success.
+- Store only references and context in memory files, omitting raw credentials.

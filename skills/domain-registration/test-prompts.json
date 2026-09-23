@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Register a new domain name example-startup.com using the GoDaddy API.",
+    "expected": "The agent should load references/provider-matrix.md and references/registration-playbooks.md, execute a preflight check, and verify billing limits before performing the registration.",
+    "actual": "Loaded setup.md to confirm activation bounds. Read provider-matrix.md to confirm GoDaddy API credentials. Checked availability and pricing for example-startup.com. Requested user confirmation for billing and ownership changes. Proceeded with API registration.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Transfer my domain from Namecheap to Cloudflare and renew it.",
+    "expected": "The agent should check references/transfer-renewal.md and references/provider-matrix.md, snapshot DNS records prior to transfer, check Cloudflare's dashboard steps for registrar limits, and confirm the transfer lock status.",
+    "actual": "Read transfer-renewal.md. Confirmed domain lock and auth code prerequisites. Snapshotted DNS via Namecheap API. Checked Cloudflare dashboard transfer instructions. Requested user approval for billing and ownership transfer execution. Proceeded with Cloudflare initiation steps.",
+    "pass": true
+  }
+]
