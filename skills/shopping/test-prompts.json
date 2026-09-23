@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to buy a new laptop, can you recommend one?",
+    "expected": "Asks clarifying questions like budget, use case, and timeline before making recommendations.",
+    "actual": "Before I can recommend the right laptop, I need a few details: 1. What's your budget? 2. How will you use it (e.g., gaming, work, browsing)? 3. Do you need it urgently or can you wait for a sale?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I found a brand new running shoe on Amazon, it's 70% off but only 2 left. Should I buy it?",
+    "expected": "Identifies pressure tactics, warns about fake urgency, and advises not to buy to solve a behavioral problem.",
+    "actual": "Be careful—pressure tactics like 'only 2 left' and steep countdown discounts are often used to manufacture urgency. Moreover, if you didn't need these shoes yesterday, a sale shouldn't dictate your purchase today. Take 48 hours to decide.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Two headphones look equal on paper. Which should I buy?",
+    "expected": "Uses the comparison framework and prefers the option with the easier return path when features are close.",
+    "actual": "If must-haves, total cost, and longevity look equal, pick the pair with the clearer return window and keep packaging until you are sure. Feature parity is not a reason to ignore post-purchase risk.",
+    "pass": true
+  }
+]

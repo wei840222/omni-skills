@@ -1,93 +1,90 @@
 ---
 name: shopping
-slug: shopping
-version: 1.0.0
-description: Help users make better purchase decisions — research, comparison, timing, and avoiding buyer's remorse.
-homepage: https://clawic.com/skills/shopping
+description: Optimize purchase decisions by validating budgets, researching real reviews,
+  timing purchases, and evaluating return policies. Use when the user asks for shopping
+  advice, product recommendations, deal checks, or buy-vs-wait guidance.
 metadata:
-  category: lifestyle
-  skills:
-  - shopping
-  - buying
-  - deals
-  - comparison
-  - consumer
-  clawdbot:
-    emoji: 🛍️
-    displayName: Shopping
+  version: "1.0.1"
+  openclaw: '{"emoji": "🛍️"}'
+  related-skills: '{"amazon":"Amazon-specific buying, price tracking, and listing workflows after a general purchase decision.","marketplace":"Cross-platform listing, scam, fee, and sold-price research beyond a single retailer.","expenses":"Capture the purchase into household or personal spend tracking after the buy decision.","money":"Budget ceilings, cash-flow timing, and total cost of ownership before committing.","buy":"Execution-focused checkout and order placement once the recommendation is settled."}'
 ---
 
-## Before Recommending Products
+## When to load
 
-- Ask budget range first — recommendations without budget waste time
-- Ask use case specifically — "laptop" means different things for gaming vs email
-- Ask what they've tried or owned — past experience reveals preferences
-- Ask timeline — urgent need vs can wait for sale changes strategy
-- One recommendation with reasoning beats list of options
+Load this skill when the user asks for shopping advice, product recommendations, deal evaluation, comparison shopping, or whether to buy now versus wait.
 
-## Research Approach
+## Before recommending products
 
-- Check reviews from multiple sources — single source can be biased/paid
-- Filter 1-star reviews for real issues — ignore "shipping was slow" complaints
-- Look for long-term reviews — 6-month updates reveal durability
-- Reddit/forums often more honest than YouTube — less sponsorship pressure
-- Check if newer model coming — buying at end of cycle means faster obsolescence
+1. Confirm budget range first — recommendations without budget waste time.
+2. Confirm use case specifically — "laptop" means different things for gaming vs email.
+3. Ask what they have already tried or owned — past experience reveals preferences.
+4. Confirm timeline — urgent need vs can wait for a sale changes strategy.
+5. Give one primary recommendation with reasoning; add a short runner-up only when it changes the decision.
 
-## When to Suggest Not Buying
+## Research approach
 
-- "I might need this someday" — future need isn't current need
-- Upgrading something that works fine — marginal improvement, full price
-- Buying to solve problem that isn't the product — new running shoes won't create running habit
-- Emotional purchase after bad day — suggest waiting 48 hours
-- Sale pressure: "70% off ends tonight" — if didn't need it yesterday, don't need it today
+- Check reviews from multiple sources — a single source can be biased or paid.
+- Read 1-star reviews for product-related defects; shipping complaints are secondary signal.
+- Prefer long-term reviews — 6-month updates reveal durability.
+- Treat Reddit and forums as higher-signal than heavily sponsored video reviews.
+- Check whether a newer model is imminent — buying at the end of a cycle accelerates obsolescence.
 
-## Price and Timing
+## When to suggest not buying
 
-- Track price history: CamelCamelCamel for Amazon, Honey for others — "sale" might be normal price
-- Major sales: Black Friday, Prime Day, end of season — worth waiting if not urgent
-- Refurbished/open-box: often 20-40% off, same warranty — underrated option
-- Credit card price protection — check if card offers it before buying
-- Price match policies — many stores match competitors, just ask
+- "I might need this someday" — prioritize current needs over speculative future needs.
+- Upgrading something that already works — marginal improvement at full price.
+- Buying a product to solve a non-product problem — new running shoes will not create a running habit.
+- Emotional purchase after a bad day — wait 48 hours before deciding.
+- Sale pressure such as "70% off ends tonight" — evaluate the item at regular price first; only then decide whether the discount matters.
 
-## Comparison Framework
+## Price and timing
+
+- Track price history (CamelCamelCamel for Amazon, comparable trackers elsewhere) — a "sale" may be the normal price.
+- Major sales such as Black Friday, Prime Day, and end-of-season can justify waiting when the need is not urgent.
+- Refurbished or open-box often saves 20-40% with the same warranty.
+- Check credit-card price protection before buying.
+- Many stores will price-match competitors when asked.
+
+## Comparison framework
 
 | Factor | Questions |
 |--------|-----------|
-| Must-haves | What features are non-negotiable? |
+| Must-haves | Which features are non-negotiable? |
 | Nice-to-haves | What would be bonus but not essential? |
-| Deal-breakers | What would make you return it? |
+| Deal-breakers | What would trigger a return? |
 | Total cost | Accessories, subscription, maintenance? |
-| Longevity | How long until you need to replace? |
+| Longevity | How long until replacement is likely? |
 
-Two good options? Pick the one easier to return.
+When two options are close, prefer the one with the easier return path.
 
-## Red Flags
+## Red flags
 
-- Too many 5-star reviews with similar language — likely fake
-- Brand new product with hundreds of reviews — suspicious timing
-- "Amazon's Choice" means nothing about quality — just algorithm pick
-- Influencer discount codes — they profit from your purchase
-- Pressure tactics: countdown timers, "only 2 left" — manufactured urgency
+- Many 5-star reviews with near-identical language — likely fake.
+- Brand-new product with hundreds of reviews immediately — suspicious timing.
+- "Amazon's Choice" is an algorithm label, not a quality guarantee.
+- Influencer discount codes mean the promoter profits from the purchase.
+- Countdown timers and "only 2 left" often manufacture urgency.
 
-## Return Policy Awareness
+## Return policy awareness
 
-- Check return policy before buying — some categories no returns
-- Keep packaging until sure — needed for returns
-- Credit card extended return windows — some cards add 90 days
-- Restocking fees on electronics — factor into decision
-- "Final sale" means final — no exceptions
+- Read the return policy before buying — some categories disallow returns.
+- Keep packaging until the decision is final.
+- Some credit cards extend return windows by 90 days.
+- Restocking fees on electronics belong in the total-cost calculation.
+- "Final sale" means final.
 
-## Category-Specific Guidance
+## Category-specific guidance
 
-- **Electronics:** Refresh cycles matter, buy early in cycle not end
-- **Clothing:** Size charts vary wildly, read size reviews specifically
-- **Furniture:** Measure twice, assembly difficulty in reviews
-- **Appliances:** Check repair frequency ratings (not just features)
-- **Subscriptions:** Calculate yearly cost, check cancellation ease
+- **Electronics:** refresh cycles matter; buy early in the cycle rather than at the end.
+- **Clothing:** size charts vary; read size-specific reviews.
+- **Furniture:** measure twice; check assembly difficulty in reviews.
+- **Appliances:** weight repair-frequency ratings as heavily as feature lists.
+- **Subscriptions:** calculate yearly cost and confirm cancellation ease.
 
-## Post-Purchase
+## Post-purchase
 
-- Don't keep researching after buying — decision fatigue, regret spiral
-- Found cheaper after purchase? Many stores price-match within window
-- Problem with product? Contact support before leaving bad review
-- Actually use the thing — purchase isn't the goal, use is
+- After buying, stop comparison research and use the product; continued research feeds regret.
+- Found cheaper afterward? Many stores still price-match inside a short window.
+- Product problem? Contact support before leaving a public review.
+- Purchase is complete only when the item is actually used.
+
