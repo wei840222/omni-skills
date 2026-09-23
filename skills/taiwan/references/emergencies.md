@@ -28,7 +28,7 @@ Taiwan is generally easy to travel, but weather, traffic, and outdoor plans mean
 ## Outdoor and Transit Reality
 
 - Mountain and coastal plans fail harder in bad weather than urban plans do
-- Ferry and scenic-route disruptions happen; do not improvise blindly
+- Ferry and scenic-route disruptions happen; follow official guidance instead
 - Save hotel details and key transport info offline
 
 ## Lost Documents or Theft

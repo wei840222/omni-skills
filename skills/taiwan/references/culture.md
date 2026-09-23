@@ -13,10 +13,10 @@ Taiwan is polite, efficient, and more relaxed than some travelers expect. Good e
 
 ## Useful Etiquette
 
-- Queue cleanly and do not crowd the front
+- Queue cleanly and maintain clear space at the front
 - Keep MRT behavior quiet and orderly
-- In temples, follow the room, dress reasonably, and do not act like it is only a photo set
-- Do not stick chopsticks upright in rice
+- In temples, follow the room, dress reasonably, and maintain respectful temple behavior
+- Lay chopsticks flat across the bowl
 - Handing or receiving things politely matters more than performative formality
 
 ## Timing Notes
@@ -32,7 +32,7 @@ Taiwan is polite, efficient, and more relaxed than some travelers expect. Good e
 | Observe first | Every temple flows slightly differently |
 | Keep voices down | Active religious spaces |
 | Ask before close photos of people or rituals | Basic respect |
-| Do not block worshippers for pictures | Common tourist mistake |
+| Maintain space for worshippers | Common tourist mistake |
 
 ## Payment and Daily-Life Reality
 
@@ -45,4 +45,4 @@ Taiwan is polite, efficient, and more relaxed than some travelers expect. Good e
 - Assuming Taiwan is cashless everywhere
 - Treating temple spaces like a theme set
 - Talking loudly on quiet transit
-- Planning days as if humidity and rain do not affect energy
+- Planning days as if humidity and rain affect energy

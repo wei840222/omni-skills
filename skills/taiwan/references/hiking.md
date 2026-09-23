@@ -25,7 +25,7 @@ Taiwan hiking ranges from urban sunset climbs to serious alpine logistics. The m
 - Start earlier than the user thinks
 - Check current weather, closures, and permit needs
 - Match trail ambition to transport and return time
-- Do not force mountain heroics into a city-first itinerary
+- Plan realistic mountain routes that fit into a city-first itinerary
 
 ## Good Hiking Pairings
 

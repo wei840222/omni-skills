@@ -30,7 +30,7 @@ Tainan rewards travelers who slow down. This is the city for morning food, templ
 
 - Come hungry in the morning, not only at night
 - Small portions work best because the city rewards grazing
-- Don't overbook fine dining here unless the user explicitly wants it; the city wins in layered casual eating
+- Book fine dining here only if the user explicitly wants it; the city wins in layered casual eating
 - Check current night-market operating days instead of assuming the biggest markets run nightly
 
 ## Best Tainan Moves
