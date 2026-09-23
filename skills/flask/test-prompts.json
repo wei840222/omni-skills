@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this Flask app initialization for any common context errors:\n\n```python\nfrom flask import Flask\napp = Flask(__name__)\n\ndef configure_db():\n    db.create_all()\n\nconfigure_db()\n```",
+    "expected": "Identify missing application context around db.create_all(); recommend app.app_context() and/or create_app() factory. Point to references/context.md and references/architecture.md.",
+    "actual": "Loaded references/context.md and references/architecture.md. db.create_all() runs outside an application context and will raise RuntimeError. Wrap with `with app.app_context():` or call it from a factory/CLI that already pushed context. Prefer create_app() so extensions bind via init_app and imports avoid circular app objects.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Is this Flask code safe for production deployment?\n\n```python\nif __name__ == '__main__':\n    app.run(host='0.0.0.0', debug=True, threaded=True)\n```",
+    "expected": "Flag debug=True as RCE risk and app.run as development server; require FLASK_DEBUG only in dev and Gunicorn/uWSGI in production. Load references/deployment.md and references/security.md.",
+    "actual": "Loaded references/deployment.md and references/security.md. Not production-safe: debug=True exposes an interactive debugger with remote code execution risk, and app.run is the Werkzeug development server. Use FLASK_DEBUG only locally and serve with Gunicorn/uWSGI behind a reverse proxy; set SESSION_COOKIE_SECURE and related flags on HTTPS.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A Flask background thread reads request.user_id from flask.g after the request finished and sometimes crashes. What should change?",
+    "expected": "Explain g is request-scoped; pass plain data into the worker and push app.app_context() there. Load references/context.md.",
+    "actual": "Loaded references/context.md. g is cleared when the request ends and proxies are not safe across threads. Capture user_id (and other needed values) during the request, enqueue plain data, and in the worker use with app.app_context(): with a fresh DB session if needed.",
+    "pass": true
+  }
+]
