@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just smoked a cigarette, log it for me. It was after lunch and I felt a bit stressed.",
+    "expected": "The agent creates a new entry in `<state_root>/smoking/logs/daily.md` (or initializes it) recording the time, the trigger (after lunch, stressed), and confirms the log politely.",
+    "actual": "Logged your cigarette at [Time]. I recorded the trigger as 'after lunch / stressed' in your daily log.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to quit smoking by the end of the month. What should I do?",
+    "expected": "The agent identifies the mode as 'quit', refers to `references/quit-playbook.md`, and suggests starting by logging a baseline for a few days before setting a firm plan.",
+    "actual": "That's a great goal. Before we create a firm quit plan for the end of the month, let's track your smoking for the next 3 to 7 days. This will help us understand your triggers and build a solid plan. I've set your goal mode to 'quit'. Ready to log your first cigarette?",
+    "pass": true
+  }
+]

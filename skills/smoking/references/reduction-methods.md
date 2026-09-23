@@ -45,4 +45,4 @@ This reduces overload and improves signal quality.
 ## 5) Medication Discussion Prompt
 
 If user asks about pharmacologic options, suggest discussing nicotine replacement therapy or prescribed options with a qualified clinician.
-Do not prescribe or dose medications in this skill.
+Direct users to medical professionals for medication dosing and prescriptions.

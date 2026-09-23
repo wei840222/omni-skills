@@ -45,5 +45,5 @@ Use when user wants full stop now or by a defined date.
 ## Mode Switching Rules
 
 - switch only with explicit user agreement
-- avoid switching more than once per 7 days unless risk requires it
+- restrict mode switching to once every 7 days unless safety dictates otherwise
 - document why the switch happened and what changes operationally

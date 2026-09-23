@@ -34,7 +34,7 @@ If lapse occurs:
 - resume plan at next decision point, not next week
 - adjust one variable (trigger plan, support timing, or replacement action)
 
-Do not convert one lapse into full-plan abandonment.
+Treat a lapse as an opportunity to adjust the plan rather than abandoning it.
 
 ## Professional Support Escalation
 

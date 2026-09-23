@@ -1,37 +1,30 @@
 ---
 name: smoking
-slug: smoking
-version: 1.0.0
-description: Track smoking and nicotine use, reduce consumption, or quit with neutral logs, trigger mapping, and adaptive plans.
-homepage: https://clawic.com/skills/smoking
-changelog: Initial release with neutral tracking, adaptive goal modes, and evidence-informed reduce or quit playbooks.
+description: >
+  Track tobacco and nicotine use, log triggers, reduce consumption, and plan
+  quits. Load when asked to log a cigarette or vape, stop smoking, manage
+  cravings, or keep neutral smoking records. Not for medical diagnosis,
+  prescribing, or emergency care.
 metadata:
-  clawdbot:
-    emoji: 🚬
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Smoking (Tracker, Logger, Quit, Reduce)
+  version: "1.1.0"
+  openclaw: '{"emoji": "🚬", "requires": {"config": ["<state_root>/smoking/"]}}'
+  related-skills: '{"health": "broader health planning context that can shape smoking goals", "psychologist": "behavior-change framing and supportive conversation patterns", "daily-planner": "routine design and schedule anchors for new habits", "coach": "accountability loops and structured progress reviews", "nutrition": "appetite and energy planning during reduction or quit periods"}'
 ---
 
 ## Setup
 
-On first use, read `setup.md` for integration guidance and local memory initialization.
+On first use, or when `<state_root>/smoking/` is missing/empty, read `references/setup.md` for integration guidance and local memory initialization. Start with the user's current request first.
 
-## When to Use
+## When to load
 
-User wants to log tobacco or nicotine use, reduce consumption, quit smoking, or keep structured records without judgment.
-Agent tracks baseline behavior, applies the right mode (`logger`, `reduce`, or `quit`), and keeps progress measurable with practical next steps.
+Load this skill when the user wants to log tobacco or nicotine use, reduce consumption, quit smoking, manage cravings, or keep structured records without judgment. Apply the right mode (`logger`, `reduce`, or `quit`) and keep progress measurable with practical next steps.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/smoking/`. See `memory-template.md` for structure and starter templates.
+Memory lives in `<state_root>/smoking/`. See `assets/memory-template.md` for structure and starter templates.
 
 ```text
-~/Clawic/data/smoking/
+<state_root>/smoking/
 ├── memory.md            # Status, goal mode, preferences, and latest baseline
 ├── logs/daily.md        # Date-based smoking events and totals
 ├── plans/current.md     # Active plan for logger, reduce, or quit mode
@@ -43,47 +36,48 @@ Memory lives in `~/Clawic/data/smoking/`. See `memory-template.md` for structure
 
 | Topic | File |
 |-------|------|
-| Setup and integration flow | `setup.md` |
-| Memory structure and templates | `memory-template.md` |
-| Goal modes and switching logic | `goal-modes.md` |
-| Daily logging template and metrics | `log-template.md` |
-| Reduction methods and pacing options | `reduction-methods.md` |
-| Quit planning playbook | `quit-playbook.md` |
-| Craving response options by context | `craving-playbook.md` |
+| Setup and integration flow | `references/setup.md` |
+| Memory structure and templates | `assets/memory-template.md` |
+| Goal modes and switching logic | `references/goal-modes.md` |
+| Daily logging template and metrics | `assets/log-template.md` |
+| Reduction methods and pacing options | `references/reduction-methods.md` |
+| Quit planning playbook | `references/quit-playbook.md` |
+| Craving response options by context | `references/craving-playbook.md` |
+| Verifiable sources | `references/sources.md` |
 
 ## Data Storage
 
-Local notes stay in `~/Clawic/data/smoking/`.
+Local notes stay in `<state_root>/smoking/`.
 Before creating or changing local files, present the planned write and ask for user confirmation.
 
 ## Core Rules
 
 ### 1. Identify Goal Mode Before Planning
-Start by identifying the user's active mode from `goal-modes.md`:
+Start by identifying the user's active mode from `references/goal-modes.md`:
 - `logger` for neutral tracking only
 - `reduce` for gradual consumption reduction
 - `quit` for full stop planning and relapse handling
-Do not force a quit path if the user asked for another mode.
+Ensure the path matches the user's requested mode.
 
 ### 2. Stay Non-Judgmental and User-Led
 Use neutral language even when discussing health risks.
-Do not shame, moralize, or pressure.
+Maintain a neutral, supportive tone without moralizing.
 Reflect the user's goal and support it with clear options and trade-offs.
 
 ### 3. Build a Reliable Baseline First
-Before changing behavior, log at least 3 to 7 days with `log-template.md` when possible.
+Before changing behavior, log at least 3 to 7 days with `assets/log-template.md` when possible.
 Capture time, trigger, context, and intensity so recommendations are based on patterns, not guesses.
 
 ### 4. Match Interventions to Trigger Patterns
-Use `craving-playbook.md` and `reduction-methods.md` to choose the smallest effective change:
+Use `references/craving-playbook.md` and `references/reduction-methods.md` to choose the smallest effective change:
 - time-delay and replacement routine
 - trigger redesign (environment or sequence)
 - pacing caps (daily or situational)
 - medication discussion prompts when relevant
-Do not suggest generic advice without linking it to a known trigger.
+Link all advice directly to a known trigger.
 
 ### 5. For Quit Mode, Use a Structured Plan
-When mode is `quit`, use `quit-playbook.md`:
+When mode is `quit`, use `references/quit-playbook.md`:
 - choose quit date or immediate stop path
 - pre-load replacement behaviors and supports
 - define lapse protocol before day 1
@@ -125,7 +119,7 @@ No other data is sent externally.
 
 **Data stored locally:**
 - smoking logs, trigger notes, and plan decisions explicitly approved by the user.
-- stored in `~/Clawic/data/smoking/`.
+- stored in `<state_root>/smoking/`.
 
 **This skill does NOT:**
 - shame or coerce the user toward any specific goal mode.
@@ -140,14 +134,9 @@ This is an instruction-only behavioral tracking and coaching skill.
 No credentials are required and no third-party service access is needed.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `health` - broad health planning context that can shape smoking goals.
-- `psychologist` - behavior change framing and supportive conversation patterns.
-- `daily-planner` - routine design and schedule anchors for new habits.
-- `coach` - accountability loops and structured progress reviews.
-- `nutrition` - appetite and energy planning during reduction or quit periods.
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/smoking
-- Latest version: https://clawic.com/skills/smoking
+- `health` — broader health planning context that can shape smoking goals.
+- `psychologist` — behavior-change framing and supportive conversation patterns.
+- `daily-planner` — routine design and schedule anchors for new habits.
+- `coach` — accountability loops and structured progress reviews.
+- `nutrition` — appetite and energy planning during reduction or quit periods.
