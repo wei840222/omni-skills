@@ -21,7 +21,7 @@
 | Scaling | Job-based | HPA/replicas |
 | Failure mode | Retry job | Graceful degradation |
 
-**Don't use batch architecture for real-time or vice versa.**
+**Match architecture to the required latency (batch vs real-time).**
 
 ## Scaling Traps
 
@@ -42,5 +42,5 @@ When model fails, what's the fallback?
 - Use simpler rule-based system
 - Return "unable to predict" with retry
 
-❌ Never return 500 without a degradation path
-❌ Never assume the model is always available
+✅ Return 500 only with a graceful degradation path
+✅ Assume model unavailability and implement fallbacks

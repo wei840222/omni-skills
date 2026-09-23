@@ -15,7 +15,7 @@ resources:
 ```
 
 ❌ You cannot request 0.5 GPU natively
-❌ Memory-based requests don't exist in standard K8s
+✅ Standard K8s uses full-device requests (MIG/MPS required for sharing)
 
 ## GPU Sharing Options
 
@@ -37,11 +37,11 @@ resources:
 
 **Cost traps:**
 - Egress for TB datasets > compute cost
-- Checkpoint storage adds up (hundreds of GB per run)
+- Model state storage adds up (hundreds of GB per run)
 - GPU-to-GPU networking (InfiniBand vs Ethernet) matters for multi-node
 
 **Scaling:**
-- Spot/preemptible viable for training (checkpoint often)
+- Spot/preemptible viable for training (save state often)
 - "Turn off when not using" ignores warm-up time
 - HPA doesn't scale fractionally on GPU
 
@@ -54,6 +54,6 @@ resources:
 
 ## Pragmatic Advice
 
-- Don't use Kubernetes until you need it
+- Use simpler infrastructure until Kubernetes is required
 - A single node with `docker compose` + GPUs is often enough
 - Data scientists will bypass complex infra (design for that)

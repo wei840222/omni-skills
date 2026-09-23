@@ -1,30 +1,35 @@
 ---
 name: mlops
-slug: mlops
-version: 1.0.0
-description: Deploy ML models to production with pipelines, monitoring, serving, and reproducibility best practices.
-homepage: https://clawic.com/skills/mlops
+description: Deploy ML models to production with pipelines, monitoring, serving, and
+  reproducibility best practices. Load this skill when designing CI/CD for models,
+  configuring model serving, setting up drift monitoring, or handling GPU resources.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: MLOps
+  openclaw: '{"emoji": "🤖", "requires": {"bins": []}, "os": ["linux", "darwin", "win32"],
+    "displayName": "MLOps"}'
 ---
 
-## Quick Reference
+## When to load
+
+Load this skill when you need to:
+- Design CI/CD pipelines for machine learning models.
+- Configure model serving and scaling infrastructure.
+- Set up monitoring and drift detection for production models.
+- Implement reproducibility practices.
+- Handle GPU infrastructure patterns.
+
+Bypass this skill for ML algorithms, feature engineering, or hyperparameter tuning.
+
+## Progressive Disclosure
+
+Detailed documentation is available in the `references/` directory. Load these files as needed based on the task:
 
 | Topic | File | Key Trap |
 |-------|------|----------|
-| CI/CD and DAGs | `pipelines.md` | Coupling training/inference deps |
-| Model serving | `serving.md` | Cold start with large models |
-| Drift and alerts | `monitoring.md` | Only technical metrics |
-| Versioning | `reproducibility.md` | Not versioning preprocessing |
-| GPU infrastructure | `gpu.md` | GPU request = full device |
+| CI/CD and DAGs | `references/pipelines.md` | Coupling training/inference deps |
+| Model serving | `references/serving.md` | Cold start with large models |
+| Drift and alerts | `references/monitoring.md` | Only technical metrics |
+| Versioning | `references/reproducibility.md` | Not versioning preprocessing |
+| GPU infrastructure | `references/gpu.md` | GPU request = full device |
 
 ## Critical Traps
 
@@ -36,10 +41,10 @@ metadata:
 **GPU Memory:**
 - `requests.nvidia.com/gpu: 1` reserves ENTIRE GPU, not partial memory
 - MIG/MPS sharing has real limitations (not plug-and-play)
-- OOM on GPU kills pod with no useful logs
+- OOM on GPU kills pod with no logs
 
 **Model Versioning ≠ Code Versioning:**
-- Model artifacts need separate versioning (MLflow, W&B, DVC)
+- Model artifacts require separate versioning (MLflow, W&B, DVC)
 - Training data version + preprocessing version + code version = reproducibility
 - Rollback requires keeping old model versions deployable
 
@@ -47,14 +52,3 @@ metadata:
 - Retraining trigger isn't just "drift > threshold" → cost/benefit matters
 - Delayed ground truth makes concept drift detection lag weeks
 - Upstream data pipeline changes cause drift without model issues
-
-## Scope
-
-This skill ONLY covers:
-- CI/CD pipelines for models
-- Model serving and scaling
-- Monitoring and drift detection
-- Reproducibility practices
-- GPU infrastructure patterns
-
-Does NOT cover: ML algorithms, feature engineering, hyperparameter tuning.

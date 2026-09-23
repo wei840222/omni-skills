@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Design a CI/CD pipeline for a new image classification model.",
+    "expected": "Includes steps for training, evaluating, building a container image with the model, and deploying to a staging environment. Discusses separation of training and inference dependencies.",
+    "actual": "Provides a comprehensive CI/CD pipeline architecture using tools like GitHub Actions or GitLab CI. Separates the training pipeline from the deployment pipeline. Includes steps for unit testing, model evaluation against a validation set, containerizing the model serving application (e.g., using FastAPI or Triton), and deploying to a Kubernetes cluster. Emphasizes versioning both the model and the code.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should I configure my Kubernetes deployment to share a GPU between two small models?",
+    "expected": "Explains that requesting `requests.nvidia.com/gpu: 1` reserves the entire GPU. Recommends using NVIDIA Multi-Instance GPU (MIG) for hardware partitioning or NVIDIA Multi-Process Service (MPS) / Time-Slicing for software sharing, along with their respective limitations.",
+    "actual": "Explains that standard Kubernetes GPU requests allocate the entire physical GPU to a single pod. Suggests configuring the NVIDIA device plugin for time-slicing to allow multiple pods to share the same GPU concurrently. Alternatively, mentions using Multi-Instance GPU (MIG) on supported hardware (like A100) to hardware-partition the GPU into smaller, isolated instances. Also suggests deploying a model server like Triton Inference Server to handle multiple models within a single pod, efficiently utilizing the allocated GPU.",
+    "pass": true
+  }
+]
