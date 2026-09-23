@@ -556,7 +556,7 @@ For every skill-refactor pull request:
 3. After GitHub assigns the pull request number, add a row on the same branch with the skill name, date, and final Darwin score.
 4. Commit and push the `CHANGELOG.md` update so it lands with the pull request when merged.
 
-| taiwan | 2026-09-23 | 90/100 | #PR_NUMBER_PLACEHOLDER |
+| taiwan | 2026-09-23 | 90/100 | #551 |
 | property-valuation | 2026-09-02 | 85/100 | #213 |
 | blockchain | 2026-09-06 | 100/100 | #279 |
 
