@@ -18,7 +18,7 @@ What to exclude:
 ## Sources
 
 - `trusted` — Sources they explicitly trust; their items skip the corroboration hold.
-- `blocked` — Never use, even as corroboration.
+- `blocked` — Block entirely; use only trusted sources for corroboration.
 - `weight` — Default when unset: primary (announcements, filings, papers) > original reporting > aggregators > social commentary.
 - `recency` — Canonical windows when unset: breaking news ≤48h; analysis and opinion ≤7 days; evergreen pieces ≤30 days and only when they hit a [confirmed] or [locked] topic. User-set recency overrides all three.
 
@@ -42,7 +42,7 @@ What to exclude:
 
 - `hierarchy` — What leads. Default: highest interest-match first, not newest (SKILL.md rule 1).
 - `highlight` — What earns emphasis. Max 3 Highlights (SKILL.md rule 5).
-- `bury` — What compresses into Worth Noting. Bury, don't delete.
+- `bury` — What compresses into Worth Noting. Bury by compressing into Worth Noting rather than deleting.
 - `urgent-signal` — Conditions that justify breaking schedule. Must reach [confirmed] before any interrupt (SKILL.md → Deliver).
 
 ## Depth
