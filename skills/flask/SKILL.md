@@ -41,7 +41,7 @@ Load deeper notes only when needed:
 2. **Prefer `create_app()` and import `current_app`, not a module-level `app`.** Factory + late imports break most circular-import cycles between models and blueprints.
 3. **Bind extensions with `init_app(app)`.** Construct extensions without an app, then bind inside the factory so imports stay order-independent.
 4. **Set a strong `SECRET_KEY` and harden session cookies in production.** Unsigned cookies let anyone forge session data. Use `SESSION_COOKIE_SECURE=True`, `SESSION_COOKIE_HTTPONLY=True`, and an explicit `SESSION_COOKIE_SAMESITE`.
-5. **Never ship `debug=True` or `flask run` / `app.run` as production.** Debug mode enables a remote code-execution console; use `FLASK_DEBUG` only in development and serve with Gunicorn/uWSGI behind a reverse proxy.
+5. **Ship production with debug disabled and a WSGI server.** Debug mode enables a remote code-execution console; use `FLASK_DEBUG` only in development and serve with Gunicorn/uWSGI behind a reverse proxy—not `flask run` / `app.run`.
 6. **Commit and roll back SQLAlchemy sessions explicitly.** Autocommit is off by default; leave a failed session dirty and the next request inherits the bad state. Background work needs its own session, not the request-scoped one.
 7. **Prefer `url_for` and `jsonify`.** Hard-coded paths break on blueprint prefixes; raw `json.dumps` skips the correct content type and app JSON provider.
 
@@ -54,7 +54,7 @@ Load deeper notes only when needed:
 | Import cycle on `from app import app` | Switch to factory + `current_app`; register blueprints inside the factory (`references/architecture.md`) |
 | Session data forged / cookies on HTTP | Rotate `SECRET_KEY`; set Secure + HttpOnly (+ SameSite) (`references/security.md`) |
 | Production process exposes interactive debugger | Force `debug=False` / unset `FLASK_DEBUG`; replace `app.run` with WSGI server (`references/deployment.md`) |
-| DetachedInstanceError / stale session after error | `db.session.rollback()`; refetch or merge; do not reuse request session off-request (`references/sqlalchemy.md`) |
+| DetachedInstanceError / stale session after error | `db.session.rollback()`; refetch or merge; open a fresh session off-request (`references/sqlalchemy.md`) |
 
 ## Output gates
 

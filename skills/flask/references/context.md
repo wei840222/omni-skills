@@ -5,7 +5,7 @@
 - `current_app` and `g` require an active application context.
 - Request handling pushes both application and request contexts automatically.
 - Outside a request (CLI, job runner, shell script): use `with app.app_context():` or pass concrete values instead of proxies.
-- `g` is request-scoped storage (connection handles, per-request flags). It is cleared when the request ends—do not treat it as process-wide cache.
+- `g` is request-scoped storage (connection handles, per-request flags). It is cleared when the request ends—use a real cache/store for process-wide data.
 
 ## Request context
 
@@ -15,7 +15,7 @@
 
 ## Background work
 
-- Do not capture `current_app`, `request`, or `g` and use them later on another thread without a fresh context.
+- Capture plain values in the request; reopen a fresh app context on another thread instead of reusing proxies.
 - Preferred pattern: extract IDs/payloads in the request, enqueue plain data, reopen app context (and a new DB session) in the worker.
 - Example:
 

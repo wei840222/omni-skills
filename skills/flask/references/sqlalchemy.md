@@ -13,7 +13,7 @@
 
 ## Background tasks
 
-- Do not reuse the request session on another thread.
+- Open a new app context and session on background threads instead of reusing the request session.
 - Open a new app context and let Flask-SQLAlchemy create a fresh session, or manage an explicit sessionmaker bound to the app's engine.
 
 ## Transactions

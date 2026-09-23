@@ -19,4 +19,4 @@
 
 - Mark only needed keys on `session`; treat session as server-trusted signed client state, not an encrypted vault for secrets.
 - Prefer server-side session interface (Redis/DB) when payload size, revocation, or secrecy matters.
-- Never log full session contents or put tokens in query strings.
+- Keep full session contents and tokens out of logs and query strings.
