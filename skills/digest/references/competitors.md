@@ -1,6 +1,6 @@
 # Competitors — Tracking Entities, Not Coverage
 
-Competitor and people tracking is the digest's highest-value mode: the user acts on these items. The discipline: report **moves, not mentions** — an action BY the entity, never an article ABOUT them.
+Competitor and people tracking is the digest's highest-value mode: the user acts on these items. The discipline: report **moves, not mentions** — an action BY the entity, excluding articles solely discussing them.
 
 ## The Move Catalog
 
@@ -8,7 +8,7 @@ What counts as a reportable move, roughly ordered by how often it matters:
 
 | Move | Where it surfaces first |
 |---|---|
-| Pricing or packaging change | Their pricing page — often silently, never announced |
+| Pricing or packaging change | Their pricing page — often silently, tracking unannounced updates |
 | Product launch or feature ship | Changelog and release notes before the blog post |
 | Executive hire or departure | Careers/leadership page edits, professional networks, trade press |
 | Funding, M&A, filings | Filings and registries before reporting; wire coverage same day |
@@ -33,7 +33,7 @@ Blog + changelog + status page + careers page + pricing page + filings + their b
 
 - No news IS data when the baseline is known: "first release in 3 months from a weekly-shipping team" is a reportable item — slowdown, pivot, or trouble.
 - Report cadence breaks in both directions: a quiet company suddenly shipping weekly is the more urgent signal.
-- Never fill quiet weeks with mention-coverage to make tracking look alive — that is padding with extra steps (SKILL.md Traps).
+- On quiet weeks, maintain tracking silence rather than filling with mention-coverage — that is padding with extra steps (SKILL.md Traps).
 
 ## Tracking People
 
@@ -47,4 +47,4 @@ Blog + changelog + status page + careers page + pricing page + filings + their b
 
 ## Sensitive-Claim Discipline
 
-Layoff rumors, misconduct, financial-trouble whispers: mandatory hold per `verification.md` — reputational claims never ship on one source, whatever `single_source_policy` says. When confirmed, report the fact, not the schadenfreude; the user needs the signal, not the drama.
+Layoff rumors, misconduct, financial-trouble whispers: mandatory hold per `verification.md` — reputational claims require multi-source corroboration before shipping, whatever `single_source_policy` says. When confirmed, report the fact, not the schadenfreude; the user needs the signal, not the drama.

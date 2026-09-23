@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Give me a daily morning brief on the AI industry.",
+    "expected": "Derives AI industry topics, asks for any specific companies/competitors or exclusions to watch, establishes defaults for sourcing and delivery, and confirms the start of the schedule.",
+    "actual": "Derived the overarching topic ('AI industry') and generated a prompt asking if I want to focus on specific competitors (e.g., OpenAI, Anthropic) or exclude certain areas, followed by confirming the morning delivery schedule. Setup preferences logged.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I saw a tweet that Apple is buying a big car company, include that in my digest.",
+    "expected": "Recognizes a surprising single-source claim. Triggers verification and holds the item until independent corroboration is found, or clearly hedges it in the digest.",
+    "actual": "Applied the single-source surprising claim policy. Hedged the claim in the digest with 'Unverified rumor:' and cited the tweet while stating no secondary confirmation was available.",
+    "pass": true
+  }
+]

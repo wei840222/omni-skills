@@ -6,7 +6,7 @@ The digest's edge over any feed is that it learns. This file is the canonical ho
 
 - An **explicit statement** ("shorter", "drop sports") counts as **2 signals**.
 - One **behavioral observation** (skipped, forwarded, asked a follow-up, stopped reacting) counts as **1 signal**.
-- Signals accumulate per entry (per topic, per format dimension, per timing slot) — never globally.
+- Signals accumulate per entry (per topic, per format dimension, per timing slot) — keeping counts strictly per-entry.
 
 ## The Ladder (canonical)
 
@@ -36,18 +36,18 @@ Worked example: user skips sports items in two digests → `exclude: sports (pat
 
 ## The Silence Protocol
 
-- No reaction for **3 consecutive digests** → ask exactly one concrete, closed question ("keep the morning slot?" / "still want the crypto items?"). Never a "any feedback?" open question — those get politeness, not signal.
-- Silence is ambiguous by nature: an ignored digest and a loved-but-busy digest look identical. That is why silence only ever triggers a question, never an automatic preference change.
+- No reaction for **3 consecutive digests** → ask exactly one concrete, closed question ("keep the morning slot?" / "still want the crypto items?"). Use specific questions instead of open-ended "any feedback?" questions — those get politeness, not signal.
+- Silence is ambiguous by nature: an ignored digest and a loved-but-busy digest look identical. That is why silence only ever triggers a question, preventing automatic preference changes from silence.
 
 ## Drift and Decay
 
-- Interests drift. A `locked` topic with no positive signal across many digests is a demotion candidate — but locked entries never decay automatically: ask first, then demote on the answer.
+- Interests drift. A `locked` topic with no positive signal across many digests is a demotion candidate — but locked entries require user confirmation before decaying: ask first, then demote on the answer.
 - Life events reset preferences wholesale (new job, new project, moved timezone). When the user mentions one, offer a one-question re-check of topics and timing instead of waiting for the ladder to catch up entry by entry.
 
 ## Mood vs Preference
 
 - One grumpy "too much today" on a heavy news day is mood; the same comment on a normal day is signal. Weigh signals against context before counting them.
-- Never learn from your own guesses: an item YOU chose to include that got no reaction says nothing about the topic — only user-initiated signals count toward exclusions.
+- Learn only from user-initiated signals: an item YOU chose to include that got no reaction says nothing about the topic — only user-initiated signals count toward exclusions.
 
 ## What Lives Where
 
@@ -57,7 +57,7 @@ Worked example: user skips sports items in two digests → `exclude: sports (pat
 | `preferences.md` | Ladder state per dimension, context profiles, entity notes | After every delivery with new signals |
 | `sent-log.md` | Shipped items with dates (SKILL.md rule 7) | Every delivery |
 
-A declared preference (config) is never overwritten by an observed pattern (ladder) without the user confirming — observation proposes, the user disposes.
+A declared preference (config) requires user confirmation before being overwritten by an observed pattern (ladder) — observation proposes, the user disposes.
 
 ## Context Profiles
 

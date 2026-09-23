@@ -6,8 +6,8 @@ The same digest lands differently per channel and per hour. Delivery mistakes ar
 
 | Channel | Adaptation |
 |---|---|
-| Chat (Slack, Telegram, DM) | One message per digest; split only at section boundaries, never mid-item. Emoji section headers earn their keep here |
-| Email | Subject line = the top Highlight's headline, never "Your digest for [date]". Full structure in the body; plain formatting beats HTML ornament |
+| Chat (Slack, Telegram, DM) | One message per digest; split only at section boundaries, keeping items intact. Emoji section headers earn their keep here |
+| Email | Subject line = the top Highlight's headline, using exact article headlines instead of "Your digest for [date]". Full structure in the body; plain formatting beats HTML ornament |
 | Audio script | Spoken register: numbers rounded for the ear ("about forty percent"), sources spoken once per item, no URLs read aloud. Section headers become spoken transitions |
 | Text/file | The cold-start template as-is (SKILL.md → Output Format) |
 
@@ -24,18 +24,18 @@ Channel comes from `config.yaml`; medium, structure, and visuals from learned pr
 
 - A weekly leads with **what changed over the week** — deltas, trend lines, resolved rumors — not seven days of items concatenated.
 - Same budget discipline: `item_cap` applies to the weekly too; the week's volume raises the bar per item, it does not raise the cap.
-- If the user gets both daily and weekly: the weekly carries synthesis and closed loops, never re-runs the dailies' items unchanged (SKILL.md rule 7).
+- If the user gets both daily and weekly: the weekly carries synthesis and closed loops, ensuring items are synthesized rather than re-run unchanged (SKILL.md rule 7).
 
 ## Catch-Up After a Gap
 
 - Vacation, downtime, or missed cycles: send **one consolidated digest** marked with the period covered ("catching you up: May 2-9"), top items only across the whole gap.
-- Never send the missed digests one by one — the backlog is your problem, not the user's inbox's.
+- Consolidate missed digests rather than sending them individually — the backlog is your problem, not the user's inbox's.
 - Resolved-within-the-gap stories collapse to their resolution: "X was rumored acquired, confirmed Thursday" is one item, not two.
 
 ## Mid-Cycle Interrupts
 
-- Interrupt the schedule only for items matching a **[confirmed] or [locked] urgent-signal rule** in `preferences.md`. No rule learned yet → never interrupt.
-- When an item feels interrupt-worthy but no rule exists: hold it for the next digest and propose the rule there ("this looked urgent — want anything matching 'X' sent immediately next time?"). The user defines urgency by answering; you never define it by acting.
+- Interrupt the schedule only for items matching a **[confirmed] or [locked] urgent-signal rule** in `preferences.md`. Require a learned rule before interrupting.
+- When an item feels interrupt-worthy but no rule exists: hold it for the next digest and propose the rule there ("this looked urgent — want anything matching 'X' sent immediately next time?"). The user defines urgency by answering; wait for user definition before acting.
 - An interrupt carries one item and one line of why-now. If it needs the full template, it wasn't an interrupt.
 
 ## Delivery Hygiene

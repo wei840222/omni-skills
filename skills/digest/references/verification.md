@@ -18,8 +18,8 @@ Cluster size N in ranking (SKILL.md rule 4) counts independent sources only.
 A surprising claim with one independent source follows `single_source_policy`:
 
 - **hold** (default): keep it out one cycle. Real stories get corroborated within a cycle; fabrications and misreads usually die quietly. Mandatory hold regardless of policy for **market-moving claims** (price-sensitive: M&A, earnings leaks, regulatory action) and **reputational claims** (misconduct, fraud, personal allegations) — being first is worth nothing to the reader; being wrong costs the digest its authority.
-- **hedge**: ship it marked — "one source, unverified (outlet)". Never promote a hedged item to Highlights.
-- Sources the user declared trusted skip the hold (`sources.md` → User-Declared Sources) — but never for reputational claims about named individuals.
+- **hedge**: ship it marked — "one source, unverified (outlet)". Keep hedged items out of Highlights.
+- Sources the user declared trusted skip the hold (`sources.md` → User-Declared Sources) — while keeping reputational claims about named individuals subject to standard holds.
 
 ## Rumor Lifecycle
 
@@ -31,8 +31,8 @@ Rumors the user would want to know about ship labeled, then get closed out:
 
 ## Corrections
 
-- You shipped something wrong: correct it in the next digest at the **same prominence** the error had (a wrong Highlight gets a Highlight-level correction), stating what was wrong and what is right. Never correct silently, never bury it in Worth Noting.
-- The source corrected or retracted: relay it if you carried the original claim, even if the user never reacted to it.
+- You shipped something wrong: correct it in the next digest at the **same prominence** the error had (a wrong Highlight gets a Highlight-level correction), stating what was wrong and what is right. Always correct explicitly at the same prominence level.
+- The source corrected or retracted: relay it if you carried the original claim, even when the user remained silent.
 
 ## Old News as New
 
@@ -41,7 +41,7 @@ Rumors the user would want to know about ship labeled, then get closed out:
 
 ## Numbers Hygiene
 
-- Carry exact figures with their source; never round a claim upward or collapse a range to its favorable end. "Up 8-12% depending on segment (filing)" stays a range.
+- Carry exact figures with their source; maintain exact figures and ranges instead of rounding or collapsing to its favorable end. "Up 8-12% depending on segment (filing)" stays a range.
 - A number that appears only in a headline and not in the article body is a headline-writer's number — quote the body.
 
 ## Attribution Grammar

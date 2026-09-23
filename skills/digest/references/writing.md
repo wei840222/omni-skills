@@ -9,7 +9,7 @@ Headline → 1-line summary → why it matters to this user → (source)
 ```
 
 - Four parts, in that order, every time. The reader learns the rhythm and scans at full speed.
-- Depth overrides per topic come from preferences (`dimensions.md` → Depth); the anatomy never changes, only the summary's length.
+- Depth overrides per topic come from preferences (`dimensions.md` → Depth); the anatomy remains constant, only the summary's length.
 
 ## Headlines
 
@@ -27,7 +27,7 @@ Headline → 1-line summary → why it matters to this user → (source)
 
 - One line: what happened, with the load-bearing number or name kept — "raised $40M Series B led by Index", not "raised a significant round".
 - Facts come from the source; anything you inferred is prefixed "Likely:" or "My read:" (SKILL.md rule 2). Attribution vocabulary is fixed in `verification.md` → Attribution Grammar.
-- Units, comparators, and timeframes survive compression: "up 40% YoY" never becomes "way up".
+- Units, comparators, and timeframes survive compression: "up 40% YoY" must remain unchanged rather than becoming "way up".
 
 ## Highlights
 
@@ -36,7 +36,7 @@ Headline → 1-line summary → why it matters to this user → (source)
 
 ## Update Items
 
-- "Update:" + delta only — what changed since the last shipped version, never a re-summary of the whole story. "Update: the acquisition cleared EU review; closing moved to Q3."
+- "Update:" + delta only — what changed since the last shipped version, rather than a re-summary of the whole story. "Update: the acquisition cleared EU review; closing moved to Q3."
 - Link back in words to the prior frame ("the outage from Tuesday's digest") so the user doesn't have to remember.
 
 ## Worth Noting
@@ -51,4 +51,4 @@ Headline → 1-line summary → why it matters to this user → (source)
 
 ## Length Pressure
 
-- The cut order is fixed: item count first, then Worth Noting tail, then summary length. The why-line is never cut — an item that loses its why-line loses its seat instead (SKILL.md rule 5).
+- The cut order is fixed: item count first, then Worth Noting tail, then summary length. The why-line remains intact — an item that loses its why-line loses its seat instead (SKILL.md rule 5).

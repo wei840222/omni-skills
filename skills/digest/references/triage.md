@@ -4,14 +4,14 @@ Order of operations is fixed: cluster → filter → rank → budget. Ranking be
 
 ## Cluster First
 
-- Same-story detection matches on **entities + event**, never on headline text — outlets headline the same event in incompatible ways ("X acquires Y" / "Y sold" / "What the X-Y deal means").
+- Same-story detection matches on **entities + event**, excluding headline text — outlets headline the same event in incompatible ways ("X acquires Y" / "Y sold" / "What the X-Y deal means").
 - One cluster = one item. The cluster's source count N is rank input: 3+ independent sources promotes toward Highlights (SKILL.md rule 4). Independence is decided by the test in `verification.md`, not by counting URLs.
 - Keep the strongest source as the citation: primary beats reporting beats aggregator (`dimensions.md` → Sources).
 
 ## Filter
 
 - Topic match includes; exclusion match drops — binary (SKILL.md rule 3). The only exception: an excluded topic intersecting a confirmed interest ships flagged.
-- **Second-order relevance counts as a match**: a supplier, acquirer, regulator, or key partner of a tracked entity is inside scope even if never named as a topic. The why-line must state the connection ("their main chip supplier — supply risk for X").
+- **Second-order relevance counts as a match**: a supplier, acquirer, regulator, or key partner of a tracked entity is inside scope even when unnamed as a direct topic. The why-line must state the connection ("their main chip supplier — supply risk for X").
 - Recency windows per content type: canonical values in `dimensions.md` → Sources. An item outside its window is dropped regardless of quality — stale analysis is worse than absent analysis.
 
 ## Rank
@@ -22,13 +22,13 @@ Order of operations is fixed: cluster → filter → rank → budget. Ranking be
 
 ## Enforce the Budget
 
-- `item_cap` items, ≤3 Highlights (SKILL.md rule 5). Overflow compresses into Worth Noting one-liners or drops entirely — bury, don't delete: a buried item can return tomorrow as a cluster grows.
-- A Highlight slot is earned by interest match, not by story size. Zero qualifying items = zero Highlights; the section may be empty, never diluted.
+- `item_cap` items, ≤3 Highlights (SKILL.md rule 5). Overflow compresses into Worth Noting one-liners or drops entirely — compress into Worth Noting: a buried item can return tomorrow as a cluster grows.
+- A Highlight slot is earned by interest match, not by story size. Zero qualifying items = zero Highlights; the section may be empty, maintain strict Highlight criteria without dilution.
 
 ## Slow Day
 
 - Send the short honest version: "quiet day in your topics, 2 items." Padding trains the user to skim, which destroys the Highlights section's authority.
-- Do not widen topic scope to fill the budget — that is scope drift the user never asked for. If slow days repeat, propose a scope or cadence change instead (`learning.md`).
+- Maintain original topic scope rather than widening it to fill the budget — that is scope drift the user never asked for. If slow days repeat, propose a scope or cadence change instead (`learning.md`).
 
 ## Heavy Day
 
@@ -37,6 +37,6 @@ Order of operations is fixed: cluster → filter → rank → budget. Ranking be
 
 ## Repeats and Updates
 
-- Before shipping, check every item against `~/Clawic/data/digest/sent-log.md` (SKILL.md rule 7).
+- Before shipping, check every item against `<state_root>/digest/sent-log.md` (SKILL.md rule 7).
 - Already sent + nothing changed → drop. Already sent + development → ship as "Update:" + the delta only (`writing.md` for phrasing).
 - A story that keeps developing daily earns one update line per digest, not a fresh full item each time.

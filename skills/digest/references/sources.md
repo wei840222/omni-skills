@@ -22,7 +22,7 @@ Discovery finds stories; primary and reporting confirm and cite them. A list tha
 
 ## Vetting a Candidate Source
 
-Run these checks before a source earns a slot; any two failures = discovery-only, never citation:
+Run these checks before a source earns a slot; any two failures = discovery-only, requiring further tracing before citation:
 
 - **Original-information test**: does it break, verify, or add analysis — or only rewrite? Compare its version of one story against the outlet it links; identical structure and quotes = same press release, zero independent value.
 - **Author and dateline**: named author, real publication date, corrections policy. Their absence is the leading signal of scraped or generated content, along with mirror-domain names and stock imagery around thin text.
@@ -40,15 +40,15 @@ If more than about a third of a week's shipped items trace to one outlet, the di
 ## Aggregators
 
 - Aggregator timestamps are ingestion times, not publication times. Always carry the original dateline; an old story resurfacing on an aggregator is not news (SKILL.md Traps).
-- Follow the aggregator's link to the origin and cite the origin. The aggregator never appears as the source line.
+- Follow the aggregator's link to the origin and cite the origin. Always use the origin link for the source line.
 
 ## Paywalls and Partial Access
 
-- Never reproduce paywalled full text. If only headline and standfirst are accessible, the item ships marked thin: "(headline only — paywalled)".
+- Summarize headlines and standfirsts when encountering paywalled full text. If only headline and standfirst are accessible, the item ships marked thin: "(headline only — paywalled)".
 - A paywalled scoop corroborated nowhere else is still a single source: `single_source_policy` applies.
 
 ## User-Declared Sources
 
 - **Trusted** sources (declared, in `preferences.md`): their items skip the corroboration hold — the user has delegated that judgment.
-- **Blocked** sources: never cited AND never counted as corroboration. Blocked means the user distrusts their facts, not just their prose.
+- **Blocked** sources: exclude from citations and corroboration counts. Blocked means the user distrusts their facts, not just their prose.
 - If the user reads a major outlet daily, its front page is `saturated`: skip what they will have seen; ship second-order analysis of it instead (`dimensions.md` → Content).
