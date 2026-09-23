@@ -159,7 +159,7 @@ ICBC (Insurance Corporation of BC) has monopoly on basic auto insurance.
 ### Peak Hours
 - **Morning**: 7:30-9:30am
 - **Evening**: 4:00-6:30pm
-- **Avoid** bridges/tunnels these times if possible
+- **Bypass** bridges/tunnels these times if possible
 
 ### Key Routes
 
@@ -267,7 +267,7 @@ October 1 - March 31, certain highways require:
 
 ### When Car Share Makes Sense
 - Drive <10 times/month
-- Don't need car daily
+- Car usage is optional for daily routines
 - Good transit for commute
 - Evo/Modo in your area
 

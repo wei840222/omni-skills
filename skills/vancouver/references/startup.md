@@ -227,7 +227,7 @@ Vancouver has a growing startup scene, smaller than Toronto but with unique stre
 1. Hire anywhere
 2. Vancouver as base
 3. Global customers
-4. Avoid location constraints
+4. Embrace flexible location arrangements
 
 ---
 

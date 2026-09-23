@@ -199,8 +199,8 @@ Have ready before searching:
 - Property management company websites directly
 - Building-specific postings
 
-**Avoid:**
-- Scams (never send money before seeing unit)
+**Areas Requiring Caution:**
+- Scams (always verify in person before sending money before seeing unit)
 - "Too good to be true" pricing
 - Anyone refusing to show in person
 

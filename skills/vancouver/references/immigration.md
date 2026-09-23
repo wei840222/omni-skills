@@ -263,13 +263,13 @@ Must show ~$14,000 CAD (not required if working in Canada)
 ### Legal Help
 - Use regulated consultants (RCIC) or lawyers
 - Check registration: college-ic.ca
-- Avoid scams and unregistered consultants
+- Verify credentials to prevent scams and unregistered consultants
 
 ---
 
 ## Red Flags & Scams
 
-### Avoid
+### Red Flags to Monitor
 - Anyone guaranteeing PR
 - "Fast track" for money
 - Unregistered consultants
@@ -278,4 +278,4 @@ Must show ~$14,000 CAD (not required if working in Canada)
 ### Verify
 - Check RCIC registration
 - Use official IRCC website only
-- Real employers don't ask for money
+- Real employers will cover recruitment costs themselves

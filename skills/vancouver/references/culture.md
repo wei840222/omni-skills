@@ -37,7 +37,7 @@ Vancouver is on unceded Coast Salish territories:
 - People are friendly but friendships form slowly
 - "Let's get coffee" may not mean anything
 - Directness is less common than in US
-- Conflict avoidance is cultural
+- Diplomacy and indirect communication are cultural norms
 
 ---
 

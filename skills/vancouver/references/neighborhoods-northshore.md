@@ -94,7 +94,7 @@ Mountains meet ocean. Outdoor enthusiast paradise. Trails from your doorstep, Se
 **Best For:**
 - Kayakers, paddlers
 - Those wanting small-town feel
-- People who don't need Downtown access
+- People whose routines center outside Downtown
 - Artists, remote workers
 
 **Highlights:**
@@ -194,7 +194,7 @@ Most housing is owner-occupied. Rental options:
 - **Mountain biking**: World-class (but that's recreation, not commuting)
 
 ### Driving
-- **Lions Gate Bridge**: Bottleneck. Avoid 8-9am, 5-6pm.
+- **Lions Gate Bridge**: Bottleneck. Travel outside the 8-9am and 5-6pm windows.
 - **Second Narrows (Ironworkers Memorial)**: Less congested alternative
 - **Parking**: Easier than Downtown Vancouver
 
@@ -224,7 +224,7 @@ North Shore is trail running paradise:
 - Tell someone where you're going
 - Check trail conditions
 - Bring layers, water, headlamp
-- Don't underestimate "easy" trails in bad weather
+- Take "easy" trails seriously in bad weather
 
 ---
 
@@ -236,7 +236,7 @@ North Shore is trail running paradise:
 - You have/want kids (schools, safety)
 - You want more space for the money
 - You have a car (especially West Van)
-- You don't need nightlife
+- You prefer a quiet evening atmosphere
 
 ### Choose City If:
 - You go out frequently
@@ -244,4 +244,4 @@ North Shore is trail running paradise:
 - You work Downtown with strict hours
 - You value walkability to restaurants/bars
 - You prefer urban density
-- You don't own a car
+- You rely exclusively on transit

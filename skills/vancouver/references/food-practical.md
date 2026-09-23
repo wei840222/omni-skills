@@ -226,7 +226,7 @@ Vancouver has a strong cocktail scene:
 - **Cards**: Tap/contactless universal
 - **Cash**: Rarely needed
 - **Amex**: Less accepted than Visa/MC
-- **Tip screens**: Often suggest 18/20/22%—don't feel pressured to highest
+- **Tip screens**: Often suggest 18/20/22%—select the tier you feel is appropriate
 
 ### Group Dining
 - Many restaurants add 18% gratuity for 6+

@@ -132,7 +132,7 @@ BC has strong tenant protections:
 - Resources: Tenant Resource & Advisory Centre (TRAC)
 
 ### Common Scams
-- Never pay before seeing unit in person
+- Always verify the unit in person before paying
 - "Landlord overseas" = scam
 - Too-good-to-be-true pricing = scam
 - Verify ownership (land title search possible)
@@ -253,8 +253,8 @@ BC has government monopoly on basic auto insurance:
 - **Required**: Can't drive without it
 - **Optional add-ons**: From private insurers
 
-### If You Don't Drive
-Most people in central Vancouver don't need cars:
+### If You Rely on Transit
+Most people in central Vancouver rely entirely on transit, walking, or cycling:
 - SkyTrain + buses cover core areas
 - Car-share (Evo, Modo) for occasional needs
 - Cycling infrastructure good

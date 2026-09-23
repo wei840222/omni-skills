@@ -38,7 +38,7 @@ Roughly: Burrard to Carrall, Waterfront to False Creek
 - Nightclub row, entertainment district
 - Loud on weekends
 - Budget hotels, hostels
-- Avoid if you value sleep
+- Choose quieter areas if sensitive to noise
 
 **Business District:**
 - Office towers, quiet at night
@@ -182,14 +182,14 @@ Roughly: Carrall to Main, Waterfront to Hastings
 
 **Reality:**
 - Daytime: Can walk through, just uncomfortable
-- Night: Avoid DTES entirely
+- Night: Choose alternative routes around DTES
 - Actual danger to tourists: Low (they're not targeting you)
 - But: Visible suffering, drug use, unpredictable behavior
 
 **If you live in Gastown:**
 - You'll walk through DTES for some services
 - You'll get used to it, but it's confronting
-- Political issue: don't expect it to resolve soon
+- Political issue: expect conditions to remain unchanged in the near term
 
 ### Drawbacks
 - DTES proximity (above)

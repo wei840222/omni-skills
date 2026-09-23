@@ -31,7 +31,7 @@
 - Kayak/paddleboard rentals
 
 **Practical tips:**
-- Go weekday morning to avoid crowds
+- Go weekday morning to experience fewer crowds
 - Ferry from Downtown ($3.50) is part of the experience
 - Lunch at market, wander afternoon
 - 3-4 hours ideal

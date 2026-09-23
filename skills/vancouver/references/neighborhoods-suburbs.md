@@ -91,7 +91,7 @@ Richmond has:
 | Nightlife | ★★☆☆☆ | Limited |
 
 ### Airport Note
-Richmond is where YVR airport is. Good for frequent travelers but don't live near airport unless you like plane noise.
+Richmond is where YVR airport is. Good for frequent travelers but choose locations further from the flight path if sensitive to plane noise.
 
 ---
 
@@ -240,9 +240,9 @@ BC's second-largest city. Huge, sprawling, diverse. Reputation worse than realit
 - Budget is primary constraint
 - You need more space (kids, home office)
 - You have a car
-- You work flexible hours (avoid rush hour)
+- You work flexible hours (outside peak commuting hours)
 - You value newer construction
-- You don't need walkable nightlife
+- You prefer quieter evenings over walkable nightlife
 
 ### Suburb Ranking (Transit + Value)
 1. **New Westminster**: Best balance

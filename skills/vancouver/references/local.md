@@ -34,7 +34,7 @@
 ### ATM Fees
 - Own bank: Free
 - Other bank: $3-5
-- Avoid convenience store ATMs (high fees)
+- Prefer your own bank or official bank ATMs to avoid high convenience-store fees
 
 ---
 

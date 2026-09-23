@@ -124,7 +124,7 @@ June-September is spectacular but requires:
 - Cute village browsing
 
 **Tips:**
-- Go on weekday to avoid crowds
+- Go on weekday to experience fewer crowds
 - Arrive early for Honey Donuts (sells out)
 - Combine with Capilano or Lynn Canyon
 
@@ -157,8 +157,8 @@ June-September is spectacular but requires:
 
 ### Social Norms
 - **Punctuality**: Canadians are generally on time
-- **Personal space**: Respect it; don't stand too close
-- **Queuing**: Lines are sacred. Don't cut.
+- **Personal space**: Respect it; maintain a comfortable distance
+- **Queuing**: Lines are sacred. Wait your turn.
 - **Apologies**: Canadians say "sorry" reflexively. Join in.
 - **Small talk**: Weather is always safe. Politics can be touchy.
 - **Shoes in homes**: Usually remove at the door (Asian influence + rain)
@@ -167,14 +167,14 @@ June-September is spectacular but requires:
 - **Legal for 19+** (matching alcohol age in BC)
 - **Where to buy**: BC Cannabis stores or licensed private retailers
 - **Where to consume**: Private property only. No public smoking in parks or near schools.
-- **Don't**: Drive high (DUI applies), cross border with it, give to minors
+- **Rules**: Driving under the influence is strictly prohibited (DUI applies), crossing border with it is illegal, providing to minors is illegal
 
 ### Alcohol
 - **Legal age**: 19 in BC
 - **Where to buy**: BC Liquor Stores (government) or licensed private stores
 - **No corner store beer**: Unlike some provinces
 - **Bars close**: 1am-3am depending on venue
-- **Don't**: Open container in public, drink on beaches (technically illegal, sometimes tolerated)
+- **Rules**: Public consumption is generally restricted (keep containers closed), drink on beaches (technically illegal, sometimes tolerated)
 
 ## Safety Notes
 
@@ -185,7 +185,7 @@ Vancouver consistently ranks among the world's safest cities.
 **Downtown Eastside (DTES):**
 - Roughly east of Carrall St, around Hastings St
 - Visible homelessness, drug use, mental health crisis
-- Safe to walk through during day, avoid alone at night
+- Safe to walk through during day, travel with others after dark
 - Not dangerous to tourists typically, just uncomfortable
 
 **Late Night Granville:**
@@ -194,8 +194,8 @@ Vancouver consistently ranks among the world's safest cities.
 - Stay aware, travel in groups
 
 ### Common Concerns
-- **Theft**: Bike theft is epidemic. Never leave bike unlocked.
-- **Car break-ins**: Don't leave valuables visible, especially Downtown
+- **Theft**: Bike theft is epidemic. Always lock your bike securely.
+- **Car break-ins**: Keep all valuables hidden or take them with you, especially Downtown
 - **Wildlife**: Bears in North Shore suburbs (rare in city). Keep distance.
 - **Earthquakes**: Vancouver is earthquake zone. Know basics.
 

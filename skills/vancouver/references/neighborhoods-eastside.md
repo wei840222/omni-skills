@@ -231,7 +231,7 @@ Strathcona borders Downtown Eastside:
 The "East Van Cross" ✠ is neighborhood symbol. Seen on murals, tattoos, merchandise. Origins debated but represents East Van pride.
 
 ### General Advice
-- Don't dismiss based on old reputation
+- Evaluate based on its modern, revitalized status
 - Visit before deciding (varies block by block)
 - Best value + character combination in Vancouver
 - Public transit generally good
