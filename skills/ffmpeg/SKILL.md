@@ -1,20 +1,13 @@
 ---
 name: ffmpeg
-slug: ffmpeg
-version: 1.0.0
-description: Process video and audio with correct codec selection, filtering, and encoding settings.
-homepage: https://clawic.com/skills/ffmpeg
+description: Process video and audio streams using correct FFmpeg codecs, filters,
+  and encoding settings. Use when the user wants to convert media formats, trim clips,
+  extract audio, scale/crop video, or normalize loudness.
 metadata:
-  clawdbot:
-    emoji: 🎬
-    requires:
-      bins:
-      - ffmpeg
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: FFmpeg
+  version: 1.0.1
+  openclaw: '{"emoji": "🎬", "requires": {"bins": ["ffmpeg"]}}'
+  related-skills: '{"bash": "Execute FFmpeg scripts and automate batch processing.",
+    "powershell": "Execute FFmpeg commands on Windows systems."}'
 ---
 
 ## Input Seeking (Major Difference)
@@ -26,7 +19,7 @@ metadata:
 
 ## Stream Selection
 
-- Default: first video + first audio—may not be what you want
+- Default: first video + first audio—review this default to ensure it meets requirements
 - Explicit selection: `-map 0:v:0 -map 0:a:1`—first video, second audio
 - All streams of type: `-map 0:a`—all audio streams
 - Copy specific: `-map 0 -c copy`—all streams, no re-encoding
@@ -43,7 +36,7 @@ metadata:
 
 - Container (MP4, MKV, WebM): wrapper format holding streams
 - Codec (H.264, VP9, AAC): compression algorithm for stream
-- Not all codecs fit all containers—H.264 in MP4/MKV, not WebM; VP9 in WebM/MKV, not MP4
+- Codecs require specific compatible containers—H.264 in MP4/MKV, not WebM; VP9 in WebM/MKV, not MP4
 - Copy codec to new container: `-c copy`—fast, no quality loss
 
 ## Filter Syntax
@@ -78,7 +71,7 @@ metadata:
 
 ## Subtitles
 
-- Burn-in (hardcode): `-vf "subtitles=subs.srt"`—cannot be turned off
+- Burn-in (hardcode): `-vf "subtitles=subs.srt"`—these are permanent in the video stream
 - Mux as stream: `-c:s mov_text` (MP4) or `-c:s srt` (MKV)—user toggleable
 - From input: `-map 0:s`—include subtitle streams
 - Extract: `-map 0:s:0 subs.srt`—first subtitle to file
@@ -87,13 +80,13 @@ metadata:
 
 - Decode: `-hwaccel cuda` or `-hwaccel videotoolbox` (macOS)
 - Encode: `-c:v h264_nvenc` (NVIDIA), `-c:v h264_videotoolbox` (macOS)
-- Not always faster—setup overhead; benefits show on long videos
+- Speed benefits depend on video length and setup overhead; gains usually appear on long videos
 - Quality may differ—software encoding often produces better quality
 
 ## Common Mistakes
 
-- Forgetting `-c copy` when not re-encoding—defaults to re-encode, slow and lossy
+- Remember to use `-c copy` when copying streams to avoid slow, lossy re-encoding
 - `-ss` after `-i` for long videos—takes forever seeking
 - Audio desync after cutting—use `-async 1` or `-af aresample=async=1`
 - Filter on stream copy—filters require re-encoding; `-c copy` + `-vf` = error
-- Output extension doesn't set codec—`output.mp4` without `-c:v` uses default, may not be H.264
+- Output extension requires explicit codec selection (e.g. `-c:v libx264`) because defaults differ from expectations
