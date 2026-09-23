@@ -1,13 +1,11 @@
 ---
 name: flask
 description: >
-  Audit and harden Flask applications for application/request context errors,
-  circular imports, secure session cookies, debug-mode exposure, blueprints,
-  Flask-SQLAlchemy session pitfalls, and production WSGI deployment. Use when
-  reviewing Flask code, fixing "working outside application/request context",
-  factory/circular-import issues, session cookie flags, debug=True risks, or
-  replacing flask run with Gunicorn/uWSGI. Not for Django, FastAPI, or plain
-  Python outside Flask.
+  Audit Flask apps for context errors, circular imports, secure session cookies,
+  debug exposure, blueprints, Flask-SQLAlchemy session pitfalls, and production
+  WSGI deployment. Use when fixing "working outside application/request context",
+  factory import cycles, session cookie flags, debug=True risks, or replacing
+  flask run with Gunicorn/uWSGI. Not for Django, FastAPI, or plain Python.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"✨","displayName":"Flask","requires":{"bins":["python3"]}}'
