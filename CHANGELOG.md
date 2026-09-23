@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| font-awesome | 2026-09-23 | 85/100 (#543) |
 | mlops | 2026-09-23 | 85/100 (#542) |
 | fastmail-api | 2026-09-23 | 95/100 (#541) |
 | shopping | 2026-09-23 | 85/100 (#540) |

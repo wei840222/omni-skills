@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a settings icon for my React app. What should I install and how do I use it?",
+    "expected": "Provide npm installation commands for React Font Awesome packages, and show a code example using faGear.",
+    "actual": "I provided the exact npm install command for `@fortawesome/react-fontawesome`, `@fortawesome/fontawesome-svg-core`, and `@fortawesome/free-solid-svg-icons`. I also included a React component example importing `FontAwesomeIcon` and `faGear` from the solid SVG icons package.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm making a plain HTML prototype. I want a spinning loading icon but it needs to be accessible so screen readers know it's a loading indicator.",
+    "expected": "Suggest the CDN Kit method for quick prototyping. Recommend `fa-spinner` with the `fa-spin` animation class. Include an `aria-label` or `aria-hidden` with a sr-only span for accessibility.",
+    "actual": "I suggested adding the Font Awesome CDN Kit script tag to the `<head>`. For the icon, I provided `<i class=\"fa-solid fa-spinner fa-spin\" aria-hidden=\"true\"></i><span class=\"sr-only\">Loading...</span>` to ensure it is accessible to screen readers while visually showing the spinning icon.",
+    "pass": true
+  }
+]

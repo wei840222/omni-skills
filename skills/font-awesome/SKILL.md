@@ -1,29 +1,20 @@
 ---
 name: font-awesome
-slug: font-awesome
-version: 1.0.0
-description: Add Font Awesome icons to web projects with CDN, npm, React, and SVG sprite methods.
-homepage: https://clawic.com/skills/font-awesome
-changelog: Initial release with icon lookup, installation guides, and React integration.
+description: Add Font Awesome icons to web projects using CDN, npm, React, or SVG methods. Load this skill when the user needs to integrate, style, or search for icons in a web application.
 metadata:
-  clawdbot:
-    emoji: 🎨
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Font Awesome
+  version: 1.0.0
+  openclaw: '{"emoji": "🎨"}'
+  related-skills: '{"react": "React development patterns", "html": "HTML best practices", "css": "CSS styling patterns"}'
 ---
 
-## Setup
+## When to Load
 
-On first use, read `setup.md` silently and start naturally. Never mention setup files to the user.
+- User needs to add icons to a web project (React, Vue, HTML).
+- User wants to search for the correct Font Awesome icon name.
+- User needs help with Font Awesome sizing, styling, or accessibility.
 
-## When to Use
-
-User needs icons in a web project. Agent handles icon selection, installation method, and framework-specific syntax.
+Load `references/setup.md` when first discussing icon integration methods with the user.
+Load `assets/memory-template.md` only if the user expresses persistent preferences for icon styles or frameworks.
 
 ## Architecture
 
@@ -33,8 +24,8 @@ No persistent storage needed. Icon preferences tracked in user's main memory if 
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
 
 ## Core Rules
 
@@ -192,14 +183,14 @@ Always provide accessible labels:
 - Use `fas`, `far`, `fab`
 - Some icon names changed (e.g., `fa-home` → `fa-house`)
 
-If working with existing v5 code, don't force upgrade unless asked.
+If working with existing v5 code, maintain the current version unless the user requests an upgrade.
 
 ## Common Traps
 
-- Using Pro icons in free tier → icons don't render, no error
+- Using Pro icons in free tier → icons fail to render, no error
 - Wrong prefix (`fa-solid` vs `fas`) → depends on version, check project
 - Missing CSS import with npm → icons show as squares
-- Using v5 names in v6 → some work, some don't (e.g., `fa-home` deprecated)
+- Using v5 names in v6 → some work while others fail (e.g., `fa-home` deprecated)
 - Not setting `aria-hidden` on decorative icons → screen reader noise
 
 ## External Endpoints
@@ -223,14 +214,3 @@ No user data is sent. Icons loaded from public CDN.
 - Track icon usage
 - Send analytics
 - Require authentication for free tier
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `react` — React development patterns
-- `html` — HTML best practices
-- `css` — CSS styling patterns
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/font-awesome
-- Latest version: https://clawic.com/skills/font-awesome
