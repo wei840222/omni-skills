@@ -1,6 +1,6 @@
 # Setup — Font Awesome
 
-Read this silently when helping with icons for the first time. Start naturally — never mention this file.
+Read this silently when helping with icons for the first time. Start naturally and integrate its rules silently.
 
 ## Your Attitude
 
