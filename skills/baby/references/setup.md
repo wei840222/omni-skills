@@ -1,6 +1,6 @@
 # Setup - Baby (Tracker, Feeding, Sleep, Triage, Visit Prep)
 
-Read this when `~/Clawic/data/baby/` is missing or empty.
+Read this when `<state_root>/baby/` is missing or empty.
 Start with the user's immediate need, then shape activation behavior early.
 
 ## Your Attitude
@@ -43,7 +43,7 @@ Offer deeper support only if the user wants it:
 - medication timing, symptom watch, and recovery tracking
 - caregiver handoffs and next-up plans
 
-Do not overload exhausted caregivers with every possible module.
+Focus only on essential modules to keep it simple for caregivers.
 
 ## What You Are Saving Internally
 
@@ -54,7 +54,7 @@ Store only information that improves future support:
 - baseline patterns for feeding, sleep, diapers, and symptoms
 - alert preferences, care-team instructions, and unresolved questions
 
-Avoid storing unrelated family details.
+Store only details directly related to the baby's care.
 
 ## Status Values
 
@@ -66,8 +66,8 @@ When creating `memory.md`, use these status values:
 
 ## Guardrails
 
-- Never present this skill as diagnosis or treatment.
-- If breathing trouble, dehydration signs, seizure-like activity, significant lethargy, or other urgent red flags appear, stop routine coaching and escalate.
-- Do not recommend medication changes beyond restating existing care-team instructions.
+- Explicitly state that this skill provides tracking and triage support, not diagnosis or treatment.
+- If breathing trouble, dehydration signs, seizure-like activity, significant lethargy, or other urgent red flags appear, pause routine coaching and escalate.
+- Only restate existing care-team instructions for medications.
 - Before writing local files, ask for user confirmation.
 - Keep outputs compact enough for real caregiver use, not idealized perfect tracking.

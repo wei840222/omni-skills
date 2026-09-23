@@ -33,7 +33,7 @@ Use consistent units and event names so summaries stay readable.
 | Metric | Record As | Notes |
 |--------|-----------|-------|
 | Temperature | time, value, unit, method | Example: rectal, ear, forehead |
-| Rash | time, location, spread, photo mention if user has one | Do not interpret from photo beyond user request scope |
+| Rash | time, location, spread, photo mention if user has one | Interpret photos only within the explicit scope of the user's request |
 | Cough or congestion | time, severity, sleep/feed impact | Track breathing impact separately |
 | Vomiting | time, count, color if unusual | Escalate with red flags |
 | Pain cues | time, trigger, behavior | Crying alone is not enough detail |
@@ -42,7 +42,7 @@ Use consistent units and event names so summaries stay readable.
 
 | Metric | Record As | Notes |
 |--------|-----------|-------|
-| Medication | time, name, dose, unit, reason | Do not guess dose |
+| Medication | time, name, dose, unit, reason | Ask the user to specify the exact dose |
 | Saline/suction/humidifier | time, action, response | Useful in illness summaries |
 | Home check | time, result | Example: hydration check, rash spread |
 
@@ -68,4 +68,4 @@ Prefer concrete labels:
 - `medication given`
 - `pediatrician called`
 
-Avoid vague labels like `bad day` or `not normal`.
+Use specific, descriptive labels instead of vague terms like `bad day` or `not normal`.

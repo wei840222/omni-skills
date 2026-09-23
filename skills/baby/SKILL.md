@@ -1,33 +1,23 @@
 ---
 name: baby
-slug: baby
-version: 1.0.0
-description: Track baby feeds, sleep, diapers, symptoms, growth, routines, and pediatric follow-up with caregiver handoffs and safety-first triage.
-homepage: https://clawic.com/skills/baby
-changelog: Initial release with modular baby tracking, caregiver handoffs, pediatric visit summaries, and safety triage guardrails.
+description: >
+  Track baby feeds, sleep, diapers, symptoms, and growth with caregiver continuity,
+  pediatric visit summaries, and safety-first triage alerts. Load for day-to-day infant
+  care logs, handoffs between caregivers, and clinician-ready prep — not diagnosis or treatment.
 metadata:
-  clawdbot:
-    emoji: B
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Baby (Tracker, Feeding, Sleep, Triage, Visit Prep)
+  openclaw: '{"emoji":"👶","requires":{"config":["<state_root>/baby/"]}}'
+  related-skills: '{"doctor":"Structured preparation for pediatric or family medical visits beyond daily infant tracking.","health":"Broader health planning and longitudinal family tracking outside infant day-to-day ops.","nutrition":"Meal, hydration, and solids planning once food logistics dominate over core infant tracking.","parenting":"Broader parenting support beyond daily operational infant tracking.","sleep":"Deeper sleep-routine support when sleep becomes the main problem."}'
 ---
+## When to load
 
-## When to Use
-
-User wants a baby tracker for feeds, sleep, diapers, symptoms, medications, growth, solids, routines, appointments, questions, or warning signs.
-Agent keeps logs consistent across caregivers, prepares pediatric-ready summaries, and supports escalation cues without replacing medical care.
+Load this skill when the user requests help tracking a baby's feeds, sleep, diapers, growth, or medical symptoms, or when managing a caregiver handoff or pediatric appointment.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/baby/`. If `~/Clawic/data/baby/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/baby/`. If `<state_root>/baby/` does not exist, run `references/setup.md`. See `assets/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/baby/
+<state_root>/baby/
 |-- memory.md                 # Status, baby profile, modules, and active priorities
 |-- logs/daily-log.md         # Timestamped daily care events across caregivers
 |-- handoff/current.md        # Shift handoff and open loops for the next caregiver
@@ -43,19 +33,19 @@ Use these files to switch between lightweight daily tracking, escalation support
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and starter files | `memory-template.md` |
-| Modular care tracking framework | `tracking-framework.md` |
-| Metrics, units, and event vocabulary | `metric-catalog.md` |
-| Data quality and continuity rules | `data-quality.md` |
-| Red and amber triage rules | `triage-rules.md` |
-| Caregiver handoff format | `caregiver-handoff.md` |
-| Routine planning by baby stage | `routine-blueprints.md` |
-| Weekly and visit summary format | `visit-summary-template.md` |
+| Setup and activation behavior | `references/setup.md` |
+| Memory structure and starter files | `assets/memory-template.md` |
+| Modular care tracking framework | `references/tracking-framework.md` |
+| Metrics, units, and event vocabulary | `references/metric-catalog.md` |
+| Data quality and continuity rules | `references/data-quality.md` |
+| Red and amber triage rules | `references/triage-rules.md` |
+| Caregiver handoff format | `references/caregiver-handoff.md` |
+| Routine planning by baby stage | `references/routine-blueprints.md` |
+| Weekly and visit summary format | `assets/visit-summary-template.md` |
 
 ## Data Storage
 
-Local notes stay in `~/Clawic/data/baby/`.
+Local notes stay in `<state_root>/baby/`.
 Before creating or changing local files, present the planned write and ask for user confirmation.
 
 ## Core Rules
@@ -66,17 +56,17 @@ Start with the smallest context that changes decisions:
 - feeding mode and current schedule pressure
 - known medical context, medications, or care-team instructions
 - which modules matter now: feeds, sleep, diapers, symptoms, growth, solids, routines, appointments, or development notes
-Do not force all modules at once.
+Enable only the modules that are currently necessary.
 
 ### 2. Run a Modular Tracker, Not a Rigid App Flow
-Use `tracking-framework.md` to keep a core continuity block plus optional modules:
+Use `references/tracking-framework.md` to keep a core continuity block plus optional modules:
 - core continuity for feeds, sleep, diapers, and active concerns
 - optional modules for pumping, solids, medications, growth, appointments, milestones, or custom routines
 - simplified mode for overwhelmed caregivers
 Adapt depth to real life instead of demanding perfect tracking.
 
 ### 3. Preserve Caregiver Continuity
-Use `caregiver-handoff.md` whenever multiple adults share care.
+Use `references/caregiver-handoff.md` whenever multiple adults share care.
 Every meaningful update should make the next caregiver faster, safer, and less likely to miss:
 - last important events
 - what is due next
@@ -84,7 +74,7 @@ Every meaningful update should make the next caregiver faster, safer, and less l
 - what needs escalation or follow-up
 
 ### 4. Keep Data Clinically Useful
-Use `metric-catalog.md` and `data-quality.md`:
+Use `references/metric-catalog.md` and `references/data-quality.md`:
 - always record timestamps, units, and amount or duration when relevant
 - distinguish observed facts from caregiver interpretation
 - normalize repeated measures to one unit system
@@ -92,7 +82,7 @@ Use `metric-catalog.md` and `data-quality.md`:
 If an entry is too vague to be actionable, ask for missing context.
 
 ### 5. Generate Pediatric-Ready Summaries
-Use `visit-summary-template.md` to compress logs into:
+Use `assets/visit-summary-template.md` to compress logs into:
 - pattern changes
 - intake, output, sleep, or symptom concerns
 - medications and care actions tried
@@ -100,14 +90,14 @@ Use `visit-summary-template.md` to compress logs into:
 Summaries should be short enough to use during a real visit or call.
 
 ### 6. Apply Safety-First Triage
-Use `triage-rules.md` for red and amber conditions.
+Use `references/triage-rules.md` for red and amber conditions.
 If urgent signs appear, give escalation guidance first and pause routine coaching.
-Do not continue optimization, scheduling, or reassurance before urgent care instructions are clear.
+Provide urgent care instructions first, and pause optimization, scheduling, or reassurance until urgent care is clear.
 
 ### 7. Stay in Support Scope and Protect Privacy
 This skill supports organization, continuity, and escalation cues.
 It does not diagnose, prescribe, interpret tests, or replace pediatric judgment.
-Track only what improves care, allow simplified mode, and never add hidden background tracking.
+Track only what improves care, allow simplified mode, and ensure all tracking is visible and explicitly requested.
 
 ## Common Traps
 
@@ -135,28 +125,15 @@ No other data is sent externally.
 
 **Data stored locally:**
 - care logs, handoff notes, weekly summaries, alert events, and pediatric question lists approved by the user.
-- stored in `~/Clawic/data/baby/`.
+- stored in `<state_root>/baby/`.
 
-**This skill does NOT:**
-- diagnose baby conditions or provide emergency medical treatment.
-- make undeclared network calls.
-- modify files without explicit user confirmation.
-- collect unrelated household data.
+**Scope boundary:**
+- Stay within tracking, continuity, triage cues, and visit prep — diagnosis and emergency treatment belong to clinicians.
+- Keep network use at zero unless the user explicitly asks to export or share.
+- Write local files only after the user confirms the planned change.
+- Store only baby-care details that improve continuity.
 
 ## Trust
 
 This is an instruction-only baby tracking and visit-prep skill.
 No credentials are required and no third-party service access is needed.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `doctor` - structured preparation for pediatric or family medical visits.
-- `health` - broader health planning and longitudinal family tracking.
-- `sleep` - deeper sleep-routine support when sleep becomes the main problem.
-- `nutrition` - meal, hydration, and solids planning once food logistics matter more.
-- `parenting` - broader parenting support beyond daily operational tracking.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/baby
-- Latest version: https://clawic.com/skills/baby
