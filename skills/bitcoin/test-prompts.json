@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I sent a transaction with 1 sat/vB fee 3 days ago. Will it eventually fail or will it be stuck forever? What are my options? I enabled RBF but I am the receiver.",
+    "expected": "Must explain receiver cannot use RBF. Must mention CPFP when an unconfirmed output is spendable. Must say low-fee txs may later confirm or drop from mempools rather than hard-fail immediately.",
+    "actual": "As the receiver you cannot RBF; only the sender can replace the original transaction. If you control an unconfirmed output, spend it with a high-fee child (CPFP) so miners confirm parent and child together. Otherwise wait—low-fee transactions usually do not hard-fail instantly; they may confirm when congestion falls or eventually drop from mempools after prolonged non-inclusion.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I imported my seed phrase from my old legacy wallet into a new wallet, but it shows zero balance! What happened to my funds?",
+    "expected": "Must mention derivation paths (BIP44/BIP84/BIP86) and address types. Must advise matching the original wallet path/address prefix before assuming loss. Must not request the seed in chat.",
+    "actual": "Funds are usually still on-chain under a different derivation path. Legacy often uses BIP44 (addresses starting with 1), native segwit BIP84 (bc1q), taproot BIP86 (bc1p). Match the original wallet's address type/path in the new wallet or use watch-only/xpub scanning. Do not paste the seed into chat; fix path settings locally.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Someone DMed me on Twitter saying they are wallet support and need my seed to sync my account after a stuck payment.",
+    "expected": "Must identify this as a scam. Must state real support does not cold-DM for seeds. Must refuse seed sharing and point to public explorer checks instead.",
+    "actual": "That is a scam. Real support does not initiate DMs asking for seeds or 'wallet sync'. Never share the seed. Verify the payment on mempool.space with the txid/address and only use official in-app help channels you open yourself.",
+    "pass": true
+  }
+]
