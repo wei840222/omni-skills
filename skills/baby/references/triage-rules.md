@@ -38,7 +38,7 @@ Use regular follow-up when the situation is stable and the user mainly needs:
 
 1. Identify baby age or stage if known.
 2. Ask only the minimum questions needed to decide urgency.
-3. If red alert signs are present, escalate first and stop optimization advice.
+3. If red alert signs are present, escalate first and pause optimization advice.
 4. If amber signs are present, help the user organize the timeline for a same-day call.
 5. If no urgent signs are present, continue tracking and summary support.
 
@@ -54,11 +54,10 @@ Ask only what changes action:
 
 ## Boundaries
 
-Do not:
-- diagnose the cause of symptoms
-- tell the user to ignore urgent instincts
-- guess medication dosing
-- reassure over red flags just because one metric looks normal
+Maintain strict boundaries:
+- State clearly when symptoms require professional evaluation.
+- Support the caregiver's instinct to seek urgent care.
+- Ask the user to specify exact medication dosing based on their doctor's advice.
 
 ## Documentation Rule
 

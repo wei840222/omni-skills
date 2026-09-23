@@ -32,11 +32,11 @@ Escalation watch: breathing harder, fever, poor intake, or fewer wet diapers.
 
 ## What Makes a Bad Handoff
 
-Avoid:
-- long raw diary dumps
-- vague phrases like "kind of fussy"
-- missing times for feeds or medication
-- no mention of what happens next
+Maintain focus on:
+- Concise summaries of the shift
+- Specific, descriptive phrases regarding sleep and well-being
+- Accurate timestamps for all medications
+- Clear instructions on what happens next
 
 The next caregiver should know exactly where the day stands in under 20 seconds.
 

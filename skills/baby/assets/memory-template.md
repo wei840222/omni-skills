@@ -1,6 +1,6 @@
 # Memory Template - Baby (Tracker, Feeding, Sleep, Triage, Visit Prep)
 
-Create `~/Clawic/data/baby/memory.md`:
+Create `<state_root>/baby/memory.md`:
 ```markdown
 # Baby Memory
 ## Status
@@ -42,31 +42,31 @@ local_emergency_number:
 - `ongoing` -> active support with logs, handoffs, and summaries
 - `complete` -> stable routine with light maintenance
 - `paused` -> context stays read-only until resumed
-- `never_ask` -> do not ask setup questions unless requested
+- `never_ask` -> ask setup questions only when requested
 
 ## Starter Files
 
-Create `~/Clawic/data/baby/logs/daily-log.md`:
+Create `<state_root>/baby/logs/daily-log.md`:
 ```markdown
 # Baby Daily Log
 ## YYYY-MM-DD
 - Feed | Sleep | Diaper | Symptoms/meds/solids/tasks
 ```
 
-Create `~/Clawic/data/baby/handoff/current.md`:
+Create `<state_root>/baby/handoff/current.md`:
 ```markdown
 # Baby Handoff
 - Last feed | Last sleep | Last diaper | Current concern | Next likely needs
 ```
 
-Create `~/Clawic/data/baby/summaries/weekly.md`:
+Create `<state_root>/baby/summaries/weekly.md`:
 ```markdown
 # Baby Weekly Summary
 ## Week Ending YYYY-MM-DD
 - Stage | Feed, sleep, and output pattern | Symptoms or alerts | Open questions
 ```
 
-Create `~/Clawic/data/baby/alerts/events.md` and `~/Clawic/data/baby/summaries/visit-prep.md` with the same compact pattern: trigger or concern, timeline, actions taken, outcome, and next follow-up.
+Create `<state_root>/baby/alerts/events.md` and `<state_root>/baby/summaries/visit-prep.md` with the same compact pattern: trigger or concern, timeline, actions taken, outcome, and next follow-up.
 
 ## Key Principles
 

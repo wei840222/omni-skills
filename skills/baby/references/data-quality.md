@@ -62,7 +62,7 @@ If an entry is incomplete but still useful:
 - mark the missing field clearly
 - ask for the missing detail only if it changes action
 
-Do not invent timings, amounts, or temperatures.
+Record only the specific timings, amounts, and temperatures provided by the user.
 
 ## Summary Quality Check
 

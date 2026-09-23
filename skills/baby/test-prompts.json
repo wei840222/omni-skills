@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "The baby just woke up from a 2 hour nap and drank 4oz of formula. Can you log this and tell me when the next feed should be?",
+    "expected": "Log the 2 hour nap and 4oz formula feed with current timestamp. Calculate and provide the estimated time for the next feed based on standard intervals or established routines.",
+    "actual": "I have logged the 2-hour nap and 4oz formula feed in `logs/daily-log.md`. Based on a typical 3-4 hour feeding interval for this volume, the next feed should be expected around [Time + 3-4 hours]. Would you like me to set a reminder or update the handoff notes?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "She feels really warm, I just checked and her temperature is 101.5F under the arm. What should I do?",
+    "expected": "Immediately trigger triage protocols for a fever, pause routine tracking, provide medical escalation guidance according to triage rules, and advise consulting a pediatrician or seeking urgent care.",
+    "actual": "I am pausing routine tracking because a fever of 101.5F (axillary) requires attention. According to `references/triage-rules.md`, this is an amber/red condition depending on her exact age. Please consult your pediatrician or seek urgent care immediately. I have logged this symptom in `alerts/events.md`. Please let me know what the doctor says or if you need help preparing a visit summary.",
+    "pass": true
+  }
+]

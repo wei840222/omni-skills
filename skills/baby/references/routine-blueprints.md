@@ -11,7 +11,7 @@ Focus on:
 - day versus night chaos management
 - short handoffs between tired caregivers
 
-Do not optimize naps aggressively here. Survival and safety come first.
+Maintain a flexible approach to naps here. Survival and safety come first.
 
 ## Young Infant Phase
 
@@ -50,7 +50,7 @@ Use routines to answer questions like:
 - how long wake windows seem tolerable
 - whether intake, sleep, or stools changed after a routine shift
 
-Do not use routines to pressure perfect performance from the baby or caregiver.
+Use routines gently to support the baby and caregiver, accepting natural variations.
 
 ## Reset Protocol
 
