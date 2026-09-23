@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Move all unread messages from 'vendor-noise' search to the Archive mailbox, batching appropriately.",
+    "expected": "Resolve account, identify 'vendor-noise' search ids via JMAP query, count objects, get 'Archive' mailbox role id, snapshot prior mailboxIds, perform bulk patch adding Archive id and removing source mailbox id.",
+    "actual": "Identified 'vendor-noise' query matching 142 items. Count is > 25, requested user confirmation. Verified user confirmation. Got Archive role id `Mb2210`. Saved snapshot to `<state_root>/data/fastmail-api/snapshots/date-vendor-noise.md`. Issued batch patches (50 items max) to update mailboxIds setting Mb2210 to true and source to null. Checked notUpdated array and output results.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a new masked email for a paid service shop.example and write it down.",
+    "expected": "Use JMAP to issue masked email with forDomain shop.example. Record the issued email to <state_root>/data/finances/subscriptions.md.",
+    "actual": "Read subscriptions box first. Issued masked email call. Received masked email a1b2c3@fastmail.example. Recorded 'shop.example' in `<state_root>/data/finances/subscriptions.md` preserving existing header format. Updated `<state_root>/data/fastmail-api/masked-emails.md` inventory.",
+    "pass": true
+  }
+]
