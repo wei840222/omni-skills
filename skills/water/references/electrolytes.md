@@ -48,4 +48,4 @@ Frame: water follows sodium. Replacing large losses with plain water dilutes ser
 
 - Salt tablets swallowed dry or with a sip: concentrated salt pulls water INTO the gut — nausea, not hydration. Dissolve them, or take with a full glass.
 - Chasing potassium or magnesium for sweat: losses are small and food covers them; the magnesium-for-cramps evidence is weak. Cramp play = salt + fluid + rest; repeated cramping → sweat-rate test (exercise.md).
-- Dosing sodium per day instead of per liter: in-drink concentration (mg/L) is what governs absorption and palatability; daily totals belong to diet, and on a clinician-set sodium restriction (conditions.md) the day total is the clinician's call — flag the conflict, don't resolve it.
+- Dosing sodium per day instead of per liter: in-drink concentration (mg/L) is what governs absorption and palatability; daily totals belong to diet, and on a clinician-set sodium restriction (conditions.md) the day total is the clinician's call — flag the conflict, leave it unresolved.

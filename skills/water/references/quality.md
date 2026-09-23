@@ -12,9 +12,9 @@ Frame: which water, not how much. In most developed-country municipal systems, t
 
 ## Household Pipes
 
-- Never drink or cook from the hot tap: heat leaches metals from pipes and the heater tank. Hot beverages start from cold water.
+- Use the cold tap exclusively for drinking or cooking: heat leaches metals from pipes and the heater tank. Hot beverages start from cold water.
 - After stagnation (overnight, vacation): flush the cold tap 30-60 s before drinking (EPA lead guidance). Buildings old enough for lead service lines → certified filter (table below); a lab test settles the question for good.
-- Infant formula: cold tap or certified-filtered water, never the hot tap; any local advisory overrides everything here.
+- Infant formula: cold tap or certified-filtered water, use only cold or filtered water; any local advisory overrides everything here.
 
 ## Filters — Match the Tool to the Problem
 
@@ -32,10 +32,10 @@ Frame: which water, not how much. In most developed-country municipal systems, t
 
 - The real question: is the tap treated AND the building plumbing trustworthy? Uncertain → sealed bottled (check the cap), boiled, or purified — and remember ice, salads, and tooth-brushing count as exposure too.
 - Field purification: rolling boil 1 min (3 min above 2000 m — CDC), chemical tablets, or a filter-plus-purifier combo for trekking.
-- Once symptoms start, this stops being a quality question: illness.md and ORS (electrolytes.md).
+- Once symptoms start, this becomes an illness question: illness.md and ORS (electrolytes.md).
 - Dry-cabin flight losses belong to environment.md; this file only covers what to refill the bottle with.
 
 ## Emergency Storage
 
 - FEMA baseline: 1 gallon (3.8 L) per person per day, 3-day minimum — half for drinking, half for hygiene; commercially bottled, rotated by date.
-- Under a boil-water advisory: boil everything for drinking, cooking, ice, and brushing until it lifts; coffee makers do not reach a sustained boil.
+- Under a boil-water advisory: boil everything for drinking, cooking, ice, and brushing until it lifts; coffee makers fail to reach a sustained boil.

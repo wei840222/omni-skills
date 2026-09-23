@@ -5,7 +5,7 @@ Frame: on training days hydration is a timing problem before it is a volume prob
 ## Before
 
 - ACSM pre-hydration: 5-7 ml per kg in the ~4 h before a hard or hot session (70 kg → 350-490 ml). Urine still dark 2 h out → add another 3-5 ml per kg.
-- Do not pre-load beyond that: extra water pre-session is urinated out mid-workout, not stored.
+- Cap pre-loading at that volume: extra water pre-session is urinated out mid-workout, not stored.
 
 ## During
 
@@ -34,9 +34,9 @@ Example: 72.0 kg before, 71.2 after a 1 h run while drinking 0.5 L → (0.8 + 0.
 
 ## Overdrinking — the Direction That Kills
 
-- Body weight GAIN during exercise = overdrinking, stop fluids (exercise hyponatremia hit 13% of Boston Marathon finishers in the Almond study).
+- Body weight GAIN during exercise = overdrinking, pause fluids (exercise hyponatremia hit 13% of Boston Marathon finishers in the Almond study).
 - Risk profile: slower finishers drinking at every station, small body mass, events over 4 h, plain water only, "more is better" beliefs.
-- Headache, nausea, bloating, or confusion during or after a long event with heavy drinking → Red Flags (SKILL.md): emergency care, do NOT give more water.
+- Headache, nausea, bloating, or confusion during or after a long event with heavy drinking → Red Flags (SKILL.md): emergency care, withhold fluids entirely and route to emergency care.
 - Drink-to-thirst is the hyponatremia-consensus defense (Hew-Butler) for recreational endurance athletes; programmed drinking belongs to short hard efforts in heat, not six-hour marathons (SKILL.md Where Experts Disagree).
 
 ## Special Cases

@@ -27,13 +27,13 @@ The Rule 1 target assumes temperate indoor life. Environments shift it through o
 
 - Above 2500 m: faster breathing of dry air plus altitude diuresis raise losses, most in the first days. Expect a higher target; urine color (Rule 4) still governs.
 - Overhydration does not prevent altitude sickness (Wilderness Medical Society) — drink for the losses, not as an AMS charm; forcing liters on summit days adds hyponatremia risk instead.
-- A headache at altitude is AMS until proven otherwise, not merely dehydration — route to mountain-medicine guidance, do not answer it with a water target.
+- A headache at altitude is AMS until proven otherwise, not merely dehydration — route to mountain-medicine guidance, focus solely on medical guidance.
 
 ## Flights
 
 - Cabin humidity runs 10-20% versus 30-60% indoors; breath and skin losses accumulate over hours.
 - +250 ml per hour in the air (estimate; canonical row in SKILL.md Target Adjustments). A 10 h long-haul is a ~2.5 L addition spread over the day — board with a filled bottle, security allows empties.
-- The real trap is voluntary dehydration: passengers skip drinking to avoid climbing over seatmates. Name it and front-load before boarding rather than pretending sipping will happen mid-flight.
+- The real trap is voluntary dehydration: passengers skip drinking to climbing over seatmates. Name it and front-load before boarding rather than pretending sipping will happen mid-flight.
 - Onboard drinks follow Rule 2: coffee and juice count at 100%, alcohol at 0 ml. Jet-lagged mornings mute thirst cues — schedule the first 500 ml for landing-day morning.
 
 Illness in any of these environments (fever in heat, GI trouble while traveling): illness.md, and Red Flags first.

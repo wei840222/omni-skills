@@ -1,6 +1,6 @@
 # Memory Template — Water
 
-All files live in `~/Clawic/data/water/`. Create each on first write, not preemptively.
+All files live in `<state_root>/water/`. Create each on first write, not preemptively.
 
 ## log.md
 
@@ -40,7 +40,7 @@ last: YYYY-MM-DD
 <!-- observed and dated, e.g. "no intake before noon on weekends (seen 3x)" -->
 ```
 
-- Containers: calibrated sizes, one line each — the never-ask-twice contract (logging.md).
+- Containers: calibrated sizes, one line each — the ask-once contract (logging.md).
 - Baseline: weight with date, sweat rates per sport and season (exercise.md), declared conditions and clinician numbers (conditions.md).
 - Patterns: only observations that recur; habits.md defines what counts.
 
@@ -55,7 +55,7 @@ climate: temperate
 ```
 
 - Keys, types, and defaults: the Configuration table in SKILL.md. An absent key means the default.
-- config = what the user declared; memory = what the agent observed. An observation never overwrites a declared preference without confirmation.
+- config = what the user declared; memory = what the agent observed. An observation preserves a declared preference without confirmation.
 
 ## Status Values
 

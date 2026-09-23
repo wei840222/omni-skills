@@ -27,7 +27,7 @@ Sickness losses are water PLUS electrolytes; plain water alone dilutes what rema
 
 - Mechanism: alcohol suppresses vasopressin, so more is urinated than was drunk. The morning deficit is real but modest — water helps the dehydration share of the misery; it does not cure a hangover.
 - Play: 300-500 ml before bed when evening alcohol was logged, normal drinking on waking; ORS or a salty breakfast speeds the rebound; coffee is fine (Rule 2).
-- Do not prescribe preventive liters at 2 a.m.: the 1 L per hour cap (Rule 6) and sleep both argue against it — this is the night version of the deficit-chugging trap (SKILL.md Traps).
+- Skip preventive liters at 2 a.m.: the 1 L per hour cap (Rule 6) and sleep both argue against it — this is the night version of the deficit-chugging trap (SKILL.md Traps).
 
 ## When Fluids Won't Fix It
 

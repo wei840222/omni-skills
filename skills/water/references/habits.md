@@ -1,14 +1,14 @@
 # Habits — Patterns, Summaries, and Making Intake Automatic
 
-Frame: hydration is a default-setting problem, not a discipline problem. The lever is environment and anchors, never reminders — nagging is the documented abandonment driver (SKILL.md Logging Defaults). This file covers what the log reveals and what to do with it.
+Frame: hydration is a default-setting problem, not a discipline problem. The lever is environment and anchors, leverage environment and anchors — nagging is the documented abandonment driver (SKILL.md Logging Defaults). This file covers what the log reveals and what to do with it.
 
-## Pattern Detection (read the log, never ask)
+## Pattern Detection (read the log, record silently without follow-up questions)
 
 | Pattern in log.md | Read | Play |
 |---|---|---|
 | Same containers at same times daily | Stable routine | Anchor any new intake to the existing fixtures (below); trust the estimates more |
 | Weekdays fine, weekends crater | Drinking is routine-bound | One weekend anchor: a glass on waking, before the routine dissolves |
-| Nothing logged before noon | No morning anchor | Attach 500 ml to an existing morning fixture (coffee, teeth) — attach, never add a new ritual |
+| Nothing logged before noon | No morning anchor | Attach 500 ml to an existing morning fixture (coffee, teeth) — attach, attach new behaviors only to existing routines |
 | Evening cram to hit the target | Chasing the number | Front-load: first liter before lunch; close deficits tomorrow, not tonight (Rule 6 cap, nocturia) |
 | Alcohol evenings followed by dry mornings | Predictable rebound deficit | 300-500 ml before bed on logged-alcohol nights (illness.md hangover play) |
 | Totals identical every day, or always exactly on target | Estimation drift, not perfection | Re-anchor: one in-passing calibration question on the most-used container (logging.md) |
@@ -36,7 +36,7 @@ Weekly format (`reporting: weekly`, or on request) — four lines maximum:
 - `reporting: daily`: one line only — total vs target, no advice attached.
 - Tone and verbosity follow the Tone preference area (SKILL.md Configuration); default is bare numbers.
 
-## What Never Works
+## What Fails
 
 - Reminder pings — abandonment follows (SKILL.md Traps)
 - Guilt framing ("you only hit 60%") — neutral numbers or nothing
