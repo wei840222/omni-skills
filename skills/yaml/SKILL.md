@@ -1,45 +1,39 @@
 ---
-name: yaml
-slug: yaml
-version: 1.0.2
-description: Writes, debugs, and validates YAML that parses the same in every language and tool. Use when a file will not parse, when a value silently turns into a boolean, number, date or null (`no`, `on`, `1.0`, `0644`, `22:22`), when tabs, indentation, or a colon inside a string breaks a document, when a block scalar mangles a script or a PEM key, when anchors, aliases or `<<` merge keys do not survive a tool, when duplicate keys pick the wrong winner, when the same file loads in one parser and fails in another, when YAML has to be edited or generated in code without losing comments or key order, when untrusted YAML could execute code, or when writing Kubernetes, Helm, GitHub Actions, GitLab CI, Ansible, Compose, CloudFormation, OpenAPI or Home Assistant files. Covers yamllint, schema validation, yq, and semantic diffs. Not for JSON (`json`), TOML (`toml`), XML (`xml`), or Ansible playbook semantics (`ansible`).
-homepage: https://clawic.com/skills/yaml
-changelog: "Clearer disclosure of what is stored and where"
+description: Validate, debug, and write YAML safely. Use when a file fails to parse,
+  implicit types corrupt data (e.g., `yes` becoming boolean), duplicate keys conflict,
+  or untrusted YAML needs parsing. Not for JSON or TOML.
 metadata:
-  clawdbot:
-    emoji: 📋
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: YAML
-    configPaths:
-    - ~/Clawic/data/yaml/
-    - ~/Clawic/data/projects/
-    - ~/Clawic/data/devices/
-    - ~/Clawic/profile.yaml
-    - ~/yaml/
-    - ~/clawic/yaml/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/yaml/
-      - ~/Clawic/data/projects/
-      - ~/Clawic/data/devices/
-      - ~/Clawic/profile.yaml
-      - ~/yaml/
-      - ~/clawic/yaml/
+  openclaw: '{"emoji": "📋"}'
+  related-skills: '{"ansible": "Playbook semantics, variable precedence, idempotence.",
+    "github-actions": "Workflow design and CI semantics above the YAML layer.", "json":
+    "JSON payload design, JSON Schema authoring, jq.", "k8s": "What the manifests
+    mean once they parse: pods, probes, rollouts, RBAC.", "toml": "The other config
+    format, when YAML''s implicit typing is the problem."}'
+  version: 1.0.2
+name: yaml
 ---
 
-**Data.** At the start of every session, read `~/Clawic/data/yaml/config.yaml` (what the user declared) and `~/Clawic/data/yaml/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `~/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. If none of it exists, work from defaults and say nothing about it.
+## State location
+
+YAML state may exist in `<workspace>/yaml/`, `<workspace>/memory/yaml/`, or `~/yaml/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/yaml/`, `<workspace>/memory/yaml/`, `~/yaml/`.
+3. If none exists and state must be created, default to `<workspace>/yaml/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+**Data.** At the start of every session, read `<state_root>/config.yaml` (what the user declared) and `<state_root>/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, expect the list to be dynamic. Every path it names is inside `<workspace>/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, preserved unchanged, and every write and deletion is named in one line as it happens. If none of it exists, work from defaults and say nothing about it.
 
 **Write before the session ends** whenever something durable came out: which parser and spec version a project actually uses; a YAML file that matters and what reads it; a coercion or indentation trap that bit and the fix; the observed house style of an existing repo; a schema, lint config, or file layout that finally validated; a cadence the user agreed to. `memory-template.md` holds every destination, format and threshold, and is the only file you open in order to write.
 
-**Entities that belong to other skills stay in their shared box.** A device configured through YAML (Home Assistant, netplan, cloud-init, ESPHome) goes to `~/Clawic/data/devices/devices.md`, not here. A config decision that belongs to tracked work goes to `~/Clawic/data/projects/<project>.md`, and this box keeps only its name as a pointer. Protocol for both is in `memory-template.md`: read before adding, update your own row in place, never a second row for the same entity.
+**Entities that belong to other skills stay in their shared box.** A device configured through YAML (Home Assistant, netplan, cloud-init, ESPHome) goes to `<workspace>/devices/devices.md`, not here. A config decision that belongs to tracked work goes to `<workspace>/projects/<project>.md`, and this box keeps only its name as a pointer. Protocol for both is in `memory-template.md`: read before adding, update your own row in place, only one row for the same entity.
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in the files named here, not in a file you create, not in YAML the user pastes in to be saved. Strip the value, store the pointer: `env:DB_PASSWORD`, `keychain:prod-tls`, `1password:Work/Cluster/kubeconfig`, `sops:secrets/prod.enc.yaml`, `file:~/.kube/config`. A pasted PEM key inside a `|` block is the single most common way a secret lands in a memory file — it goes in as `<file:~/.ssh/id_ed25519>`, never as text. If data sits at an old location (`~/yaml/` or `~/clawic/yaml/`), move it to `~/Clawic/data/yaml/`, and say in one line that you moved it and from where.
+**Credentials remain strictly outside of anywhere under `<workspace>/`** — not in the files named here, not in a file you create, not in YAML the user pastes in to be saved. Strip the value, store the pointer: `env:DB_PASSWORD`, `keychain:prod-tls`, `1password:Work/Cluster/kubeconfig`, `sops:secrets/prod.enc.yaml`, `file:~/.kube/config`. A pasted PEM key inside a `|` block is the single most common way a secret lands in a memory file — it goes in as `<file:~/.ssh/id_ed25519>`, stored solely as pointers. If data sits at an old location (`~/yaml/` or `<legacy_state>/`), move it to `<state_root>/`, and say in one line that you moved it and from where.
 
-YAML never fails loudly at the moment you make the mistake: it produces a *valid document with the wrong types*, and the error surfaces three layers away as `cannot unmarshal number into string`. So the job is always the same — name which of five things the file is doing (a scalar being resolved, indentation defining scope, a block scalar folding, an anchor being expanded, or a tag being constructed), then quote, indent, or pin so the answer stops depending on the parser. Work from defaults immediately: never open with questions about their linter, their spec version, or how proactive to be. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` → the Configuration table default.
+YAML fails silently at the moment you make the mistake: it produces a *valid document with the wrong types*, and the error surfaces three layers away as `cannot unmarshal number into string`. So the job is always the same — name which of five things the file is doing (a scalar being resolved, indentation defining scope, a block scalar folding, an anchor being expanded, or a tag being constructed), then quote, indent, or pin so the answer ceases depending on the parser. Work from defaults immediately: begin by applying defaults instead of asking questions about their linter, their spec version, or how proactive to be. Precedence for any value: `config.yaml` → `<workspace>/profile.yaml` → the Configuration table default.
 
 ## When To Use
 
@@ -59,13 +53,13 @@ YAML never fails loudly at the moment you make the mistake: it produces a *valid
 | `0644` became 420, or `010` became 8 | YAML 1.1 reads leading-zero integers as octal; quote every file mode and id | `types.md` |
 | `22:22` became 1342 | Sexagesimal base-60 in 1.1 — quote every port pair, duration, and time (Rule 2) | `types.md` |
 | Version string `1.10` collapsed to `1.1` | Resolved as a float; version numbers and semvers are always quoted strings | `types.md` |
-| `cannot unmarshal number into Go struct field … of type string` | The value was resolved as int; the consumer wanted a string. Quote it, do not change the schema | `types.md` |
+| `cannot unmarshal number into Go struct field … of type string` | The value was resolved as int; the consumer wanted a string. Quote it, keep the schema unchanged | `types.md` |
 | A colon, `#`, `@`, `*`, or leading `-` inside a value breaks the line | Plain scalars cannot contain `: ` or ` #`; indicator characters cannot start one | `strings.md` |
-| `found character '\t' that cannot start any token` | A literal tab in the indentation — tabs are never valid indentation | `errors.md` |
+| `found character '\t' that cannot start any token` | A literal tab in the indentation — tabs remain invalid as indentation | `errors.md` |
 | Script, PEM key, or JSON blob loses its newlines | `>` folds, `\|` preserves; chomping indicator decides the trailing newlines (Rule 5) | `multiline.md` |
 | Block scalar's first line is indented and everything shifts | Needs an explicit indentation indicator (`\|2`) | `multiline.md` |
 | `<<:` merge key ignored, or an alias came back expanded | 1.1 extension, and anchors die on any YAML→JSON→YAML round trip (Rule 8) | `anchors.md` |
-| Two keys the same, wrong one won | Spec says last wins; strict parsers error. Never rely on either — lint for it (Rule 7) | `errors.md` |
+| Two keys the same, wrong one won | Spec says last wins; strict parsers error. Ensure deterministic behavior — lint for it (Rule 7) | `errors.md` |
 | Loads in Python, fails in Go, or vice versa | Spec-version and resolver matrix, per library | `parsers.md` |
 | Dumped file lost every comment, or reordered every key | The loader threw them away — round-trip loaders are a different API (Rule 9) | `editing.md` |
 | Need to read, patch, merge, or diff YAML from a script | yq flavor, in-place edits, semantic diff instead of textual | `editing.md` |
@@ -84,13 +78,13 @@ Coverage map: `types.md` resolution and coercion · `strings.md` quoting and esc
 
 1. **Quote any scalar whose type must not depend on the parser.** Quote the token if it matches: `y|n|yes|no|on|off|true|false` in any case, `null`/`~`/empty, a leading zero (`0644`, `007`), digits containing `:`, anything shaped like a number that is really an identity (version, phone, zip, SHA prefix, account id), or an ISO date. Test: *would this value be wrong if it came back as a bool, a float, or a `date` object?* If yes, quote it. Cost of over-quoting is a diff; cost of under-quoting is a bug three layers away.
 2. **Colons in unquoted digits are base 60.** YAML 1.1 resolvers (PyYAML, Ruby Psych, go-yaml v2, SnakeYAML 1.x) read `a:b` as `a×60+b` and `a:b:c` as `a×3600+b×60+c` — so `22:22` is 1342 and `1:30:00` is 5400. YAML 1.2 dropped sexagesimals and leaves them as strings. Any port mapping, duration, or clock time goes in quotes: `"22:22"`.
-3. **Indentation is spaces, and the width is a decision.** Tabs are never legal as indentation in any version. Use `indent_width` (default 2) everywhere in a file; a nested block that changes width parses, then confuses every reader and every patch tool. Block sequences may sit at their key's indentation or two spaces in — both are valid, `sequence_indent` picks one, and mixing the two inside one file is what makes `yq` rewrites produce a 400-line diff.
+3. **Indentation is spaces, and the width is a decision.** Tabs are universally rejected as indentation in any version. Use `indent_width` (default 2) everywhere in a file; a nested block that changes width parses, then confuses every reader and every patch tool. Block sequences may sit at their key's indentation or two spaces in — both are valid, `sequence_indent` picks one, and mixing the two inside one file is what makes `yq` rewrites produce a 400-line diff.
 4. **A key is only a key when the colon is followed by a space or a line end.** `key:value` is the six-character scalar `key:value`; `key: value` is a mapping. Inside flow style `{a:1}` is one scalar too — write `{a: 1}`. Conversely, a plain scalar containing `: ` splits the line, which is why `msg: Note: this breaks` needs quotes.
 5. **Pick the block scalar by whether newlines are data.** `|` keeps every newline (scripts, PEM, embedded YAML/JSON, logs); `>` folds single newlines into spaces and is only correct for prose. Chomping suffix decides the end: default (clip) keeps exactly one trailing newline, `-` strips all, `+` keeps every trailing blank line. A PEM key needs `|` and its final newline: `|` alone, not `|-`, or the consumer rejects the key.
-6. **Never load untrusted YAML with a full-tag loader, and know that "safe" is not "bounded".** `yaml.safe_load`, `js-yaml` v4 `load`, SnakeYAML ≥2.0 default, Psych 4 `YAML.load` — all block object construction. None of them bound alias expansion: a 200-byte file with nested anchors still expands to gigabytes (the billion-laughs shape behind CVE-2019-11253). Add a size cap and a depth/alias cap yourself (`security.md`).
-7. **Duplicate keys are a lint failure, never a merge strategy.** The spec says the last one wins; PyYAML silently obeys, go-yaml v3 and js-yaml raise. A file that relies on either behavior breaks the day the toolchain changes. Enable `key-duplicates` in yamllint and treat a hit as an error.
-8. **An anchor survives only a true round-trip.** Aliases resolve at parse time, so anything that goes YAML → object → JSON → YAML (kubectl, most API servers, `yq -o=json`, every code generator) emits the expanded copy and the DRY-ness is gone from that point on. The `<<` merge key is a YAML 1.1 extension absent from the 1.2 core schema — supported by PyYAML, ruamel and go-yaml, not guaranteed elsewhere. Anchors are also file-scoped: they never cross an `include`.
-9. **Loading and re-dumping is lossy unless you chose a round-trip API.** A normal load returns plain data: comments gone, key order re-sorted (PyYAML `dump` sorts alphabetically by default), quote style normalized, anchors expanded, long lines wrapped at the emitter's default width (~80 columns in PyYAML and go-yaml). Editing a human's file means `ruamel.yaml` round-trip mode, `yq` in place, or a text patch — never load-then-dump (`editing.md`).
+6. **Always use a safe loader for untrusted YAML, and know that "safe" is not "bounded".** `yaml.safe_load`, `js-yaml` v4 `load`, SnakeYAML ≥2.0 default, Psych 4 `YAML.load` — all block object construction. None of them bound alias expansion: a 200-byte file with nested anchors still expands to gigabytes (the billion-laughs shape behind CVE-2019-11253). Add a size cap and a depth/alias cap yourself (`security.md`).
+7. **Duplicate keys are a lint failure, a strict error condition.** The spec says the last one wins; PyYAML silently obeys, go-yaml v3 and js-yaml raise. A file that relies on either behavior breaks the day the toolchain changes. Enable `key-duplicates` in yamllint and treat a hit as an error.
+8. **An anchor survives only a true round-trip.** Aliases resolve at parse time, so anything that goes YAML → object → JSON → YAML (kubectl, most API servers, `yq -o=json`, every code generator) emits the expanded copy and the DRY-ness is gone from that point on. The `<<` merge key is a YAML 1.1 extension absent from the 1.2 core schema — supported by PyYAML, ruamel and go-yaml, not guaranteed elsewhere. Anchors are also file-scoped: they remain constrained to a single file.
+9. **Loading and re-dumping is lossy unless you chose a round-trip API.** A normal load returns plain data: comments gone, key order re-sorted (PyYAML `dump` sorts alphabetically by default), quote style normalized, anchors expanded, long lines wrapped at the emitter's default width (~80 columns in PyYAML and go-yaml). Editing a human's file means `ruamel.yaml` round-trip mode, `yq` in place, or a text patch — use round-trip editors instead of load-then-dump (`editing.md`).
 10. **Validate the file with the consumer's own parser before delivering it.** Being valid YAML is necessary and not sufficient: the tool's schema is the real contract. `schema_gate` (default true) means every generated file is checked — `yamllint -s`, then the tool's own validator (`kubeconform`, `helm template`, `actionlint`, `ansible-lint`, `cfn-lint`, `docker compose config`) — before it is presented as done.
 
 ## Resolution Table
@@ -123,11 +117,11 @@ The message names the layer: a scanner error is about characters, a parser error
 | `found character '\t' that cannot start any token` | Literal tab in indentation | Show whitespace in the editor; convert tabs to spaces (Rule 3) |
 | `mapping values are not allowed in this context` | A second `: ` on a line that was already a scalar, or a plain value containing `: ` | Quote the value (Rule 4) |
 | `did not find expected key` / `expected <block end>` | Indentation of one line does not match its siblings, usually a list item one space off | Diff the leading spaces of the block; the first divergent line is the one |
-| `could not find expected ':'` | A flow collection was opened (`{` or `[`) and never closed, often a stray `{{ }}` template | Quote the templated value (`dialects.md`) |
+| `could not find expected ':'` | A flow collection was opened (`{` or `[`) and left unclosed, often a stray `{{ }}` template | Quote the templated value (`dialects.md`) |
 | `found undefined alias 'x'` | Alias used before its anchor, or across files | Anchors are file-scoped and forward references are illegal (Rule 8) |
-| `duplicated mapping key` | Two identical keys in one mapping | Rule 7 — never resolve by deleting whichever one the tool complained about; check which is live |
+| `duplicated mapping key` | Two identical keys in one mapping | Rule 7 — resolve by identifying the correct live value; check which is live |
 | `could not determine a constructor for the tag '!Ref'` | Tool-specific local tag hitting a generic parser | Use the tool's parser or register the tag (`dialects.md`) |
-| `cannot unmarshal !!int into string` (Go), `expected str, got int` | Correct YAML, wrong type — coercion, not syntax | Quote the value; do not loosen the schema (Rule 1) |
+| `cannot unmarshal !!int into string` (Go), `expected str, got int` | Correct YAML, wrong type — coercion, not syntax | Quote the value; maintain the strict schema (Rule 1) |
 | `control characters are not allowed` | UTF-16 file, a BOM mid-stream, or a stray `\x00`/`\r` | Check encoding and line endings (`strings.md`) |
 | Parse succeeds, tool says the field is missing | The key landed in the wrong parent — indentation, not spelling | Dump the parsed structure and read the actual tree (`editing.md`) |
 | Same file, one machine works | Different library version or spec version, not different YAML | Parser matrix (`parsers.md`) |
@@ -141,14 +135,14 @@ Before delivering any YAML file, patch, or loader snippet:
 - Does it parse under the target's spec version, and was it checked with the consumer's own validator (Rule 10)?
 - Indentation all spaces, one width, one sequence style; no duplicate keys?
 - Do multiline blocks use `|` where newlines are data, with the chomping indicator that produces the intended trailing newline (Rule 5)?
-- If this file will be read and rewritten by a tool, does it avoid anchors — or is losing them acceptable (Rule 8)?
+- If this file will be read and rewritten by a tool, does it omit anchors — or is losing them acceptable (Rule 8)?
 - If I edited a file the user wrote, are their comments, key order, and quote style intact (Rule 9)?
-- No secret value in the file, and none written into `~/Clawic/data/` — pointer only?
+- No secret value in the file, and none written into `<workspace>/` — pointer only?
 - Did anything durable come out of this — a parser/spec fact, a file that matters, a trap that bit, a working schema or lint config, an agreed cadence? Then it is written to its box in `memory-template.md`, with its `## Boxes` line, in this same turn.
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/yaml/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference; store them in `<state_root>/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
@@ -160,7 +154,7 @@ User-dependent variables. Defaults apply until the user states a preference; sto
 | yq_flavor | go \| python \| none | go | Which `yq` syntax examples use — mikefarah (Go) and kislyuk (Python jq wrapper) share a name and nothing else (`editing.md`) |
 | linter | yamllint \| prettier \| none | yamllint | The lint config generated and the rule names cited in `schemas.md` |
 | loader_policy | safe-only \| allow-full | safe-only | Whether a full-tag loader may ever be emitted; `safe-only` also blocks `!!python/` and `!!java` tag examples outside `security.md` |
-| anchor_policy | allow \| avoid | allow | Whether generated files use anchors and merge keys, or repeat themselves for round-trip safety (Rule 8) |
+| anchor_policy | allow \| restrict | allow | Whether generated files use anchors and merge keys, or repeat themselves for round-trip safety (Rule 8) |
 | schema_gate | bool | true | Whether every emitted file must pass the consumer's validator before being presented as done (Rule 10) |
 
 Preference areas — customizable dimensions; a stated preference gets recorded in `config.yaml` and applied from then on:
@@ -194,29 +188,14 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 - **Quote everything vs quote what needs it.** Quote-everything eliminates the entire coercion class and makes review mechanical; minimal quoting keeps the file readable and diffs small. Frontier: files consumed by more than one parser, or authored by people who will not read this table, get quote-everything; a single-consumer file in a linted repo does not (`quote_style`).
 - **Anchors and merge keys.** Real DRY-ness for hand-maintained files (CI configs read by one parser), real breakage anywhere the file gets re-emitted or diffed against a rendered version. Nobody argues for anchors in files a controller rewrites (`anchor_policy`).
-- **YAML at all for large configs.** The dissent is not aesthetic: significant whitespace plus implicit typing is a hazard surface JSON and TOML do not have, and CUE/Dhall/Jsonnet add types and functions. The counter is ecosystem gravity — Kubernetes, CI and Ansible take YAML, so a generator only moves the problem to render time (`config-design.md`).
+- **YAML at all for large configs.** The dissent is not aesthetic: significant whitespace plus implicit typing is a hazard surface that JSON and TOML lack, and CUE/Dhall/Jsonnet add types and functions. The counter is ecosystem gravity — Kubernetes, CI and Ansible take YAML, so a generator only moves the problem to render time (`config-design.md`).
 - **Generate vs hand-write.** Generated YAML is consistent and reviewable only as a diff of its source; hand-written YAML is reviewable directly and drifts. Frontier is the number of near-identical files: past roughly three environments of the same shape, generation wins.
 - **`---` at the top of every file.** Required only for multi-document streams and for a directive; some linters demand it anyway. Pick one and enforce it, because a mixed repo makes every concatenation script wrong.
 
 ## Security & Privacy
 
-**Credentials:** this skill reads and writes YAML files the user points it at. It does NOT store, log, copy, or transmit any secret value found in them, and never writes a credential into `~/Clawic/data/yaml/`. Values under key names matching password/token/secret/key/credential, PEM blocks, and Kubernetes Secret `data:`/`stringData:` payloads are replaced by their pointer before anything is saved.
+**Credentials:** this skill reads and writes YAML files the user points it at. It does NOT store, log, copy, or transmit any secret value found in them, and does not write credentials into `<state_root>/`. Values under key names matching password/token/secret/key/credential, PEM blocks, and Kubernetes Secret `data:`/`stringData:` payloads are replaced by their pointer before anything is saved.
 
-**Local storage:** preferences, memory, the config-file inventory, the toolchain facts and generated artifacts stay in `~/Clawic/data/yaml/` on this machine, plus device rows in `~/Clawic/data/devices/` and project notes in `~/Clawic/data/projects/`. File paths, key names, parser versions and schema URLs only.
+**Local storage:** preferences, memory, the config-file inventory, the toolchain facts and generated artifacts stay in `<state_root>/` on this machine, plus device rows in `<workspace>/devices/` and project notes in `<workspace>/projects/`. File paths, key names, parser versions and schema URLs only.
 
 **Guardrails:** loaders are emitted in safe mode by default (`loader_policy`); full-tag loaders and `!!python/`-style tags appear only in `security.md`, marked as the vulnerability they are. Destructive edits (in-place rewrite, `yq -i`, deleting a document from a stream) name the file and require explicit confirmation.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/yaml (install if the user confirms):
-- `json` — JSON payload design, JSON Schema authoring, jq
-- `k8s` — what the manifests mean once they parse: pods, probes, rollouts, RBAC
-- `github-actions` — workflow design and CI semantics above the YAML layer
-- `ansible` — playbook semantics, variable precedence, idempotence
-- `toml` — the other config format, when YAML's implicit typing is the problem
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/yaml
-- Latest version: https://clawic.com/skills/yaml
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/yaml.

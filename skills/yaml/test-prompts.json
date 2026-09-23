@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Fix this YAML file where 'port: 80' is giving a string instead of an int.",
+    "expected": "The skill should identify that quotes might be wrapping the port, or suggest using 'port: 80' without quotes, explaining the difference between YAML 1.1 and 1.2 type coercion.",
+    "actual": "I reviewed the YAML file. The issue is that the port value is either quoted (e.g., `port: \"80\"`) or parsed by a YAML 1.1 parser that behaves unexpectedly. I removed the quotes and ensured it's parsed as an integer: `port: 80`. I also validated this using yamllint.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Validate our CI pipeline YAML. It has a nested map where a list is expected.",
+    "expected": "The skill should identify the structural mismatch, run yamllint or a schema validator, and propose the corrected structure with proper indentation.",
+    "actual": "I ran yamllint and a schema validator on the CI pipeline YAML. The validator flagged an error: expected a sequence but found a mapping at line 14. I corrected the indentation by adding `-` to turn the nested map into a list of maps, making it compliant with the CI schema.",
+    "pass": true
+  }
+]
