@@ -40,7 +40,7 @@ results = parallel_map(process, queue, workers)
 - No rate limits
 
 **Limits:**
-- Max 5 concurrent sub-agents (avoid overload)
+- Max 5 concurrent sub-agents (prevent overload)
 - Max 10 concurrent API calls (respect rate limits)
 
 ## Chunked

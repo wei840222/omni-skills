@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Run a batch operation on these 15 images to resize them.",
+    "expected": "Use parallel strategy and track progress, reporting success and any failures.",
+    "actual": "Used parallel_map with 5 workers to resize 15 images. \n✅ 15 succeeded\n❌ 0 failed",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to process 150 customer records through the rate-limited CRM API.",
+    "expected": "Use chunked sequential or parallel + throttle strategy, checkpointing, and retry on rate limit errors.",
+    "actual": "Detected rate limit and >100 items. Selected chunked sequential with throttling. Processed in 3 chunks of 50. Saved checkpoints at 50 and 100. Encountered 429 errors which were retried 3x with backoff. \n✅ 147 succeeded\n❌ 3 failed (saved to failed.json for retry)",
+    "pass": true
+  }
+]
