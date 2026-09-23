@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm visiting Vancouver for 3 days next month, what are the top things I must see and how do I get around?",
+    "expected": "Provides a 3-day itinerary focusing on top attractions, alongside transportation advice like using the SkyTrain and buses.",
+    "actual": "Based on the 3-day itinerary reference, you should explore Stanley Park, Granville Island, and Gastown. Use the SkyTrain and TransLink buses for convenient and cost-effective transit around the city.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a tech worker moving to Vancouver with my family. Which neighborhoods have good schools and are commutable to downtown?",
+    "expected": "Suggests family-friendly neighborhoods with strong educational systems (like Westside or Northshore) and outlines commute options to downtown.",
+    "actual": "For families looking for good schools and an easy commute to downtown, the West Side (e.g., Kitsilano, Point Grey) or the North Shore (e.g., North Vancouver) are excellent choices. Commuting is manageable via SeaBus from the North Shore or frequent transit from the West Side.",
+    "pass": true
+  }
+]

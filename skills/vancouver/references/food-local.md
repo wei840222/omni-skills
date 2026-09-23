@@ -15,7 +15,7 @@ Vancouver's local food scene emphasizes:
 **Seafood (by season):**
 | Item | Peak Season | Notes |
 |------|-------------|-------|
-| Spot prawns | May-June | 6-week window, don't miss |
+| Spot prawns | May-June | 6-week window, highly recommended |
 | Salmon (various) | July-October | Sockeye, coho, chinook |
 | Dungeness crab | Year-round, peak winter | BC classic |
 | Halibut | March-November | Local hero |
@@ -174,7 +174,7 @@ The most anticipated 6 weeks in Vancouver food calendar.
 ### How to Eat
 - **Best**: Steamed or grilled simply, lemon, salt
 - **Also good**: Sashimi (extremely fresh only)
-- **Don't**: Overcook, over-sauce
+- **Best practice**: Cook gently and use light sauces to preserve flavor
 - **Head butter**: Suck the heads for the good stuff
 
 ---

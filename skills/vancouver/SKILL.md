@@ -1,67 +1,61 @@
 ---
 name: vancouver
-slug: vancouver
-version: 1.0.0
-description: Navigate Vancouver as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transit, costs, immigration, and local insights.
-homepage: https://clawic.com/skills/vancouver
+description: Load this skill when the user asks about visiting, moving to, working
+  in, or navigating Vancouver. Read the relevant references to answer questions about
+  neighborhoods, transit, dining, immigration, or local culture.
 metadata:
-  clawdbot:
-    emoji: 🏔️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Vancouver
+  version: 1.0.0
+  openclaw: '{"emoji": "🏔️"}'
+  related-skills: '{"toronto": "Canada city guide and immigration context", "seattle": "Nearby US city tech and outdoor culture"}'
 ---
-
-## When to Use
+## When to load
 
 User asks about Vancouver for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+
+**Instructions:** When a user asks about a specific Vancouver topic, load and read the corresponding file in the `references/` directory to gather accurate and contextual guidance before responding.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Downtown, Yaletown, Coal Harbour | `neighborhoods-downtown.md` |
-| Kitsilano, Point Grey, West Side | `neighborhoods-westside.md` |
-| East Van, Commercial Drive, Main St | `neighborhoods-eastside.md` |
-| North Shore, West Van, Deep Cove | `neighborhoods-northshore.md` |
-| Burnaby, Richmond, Surrey suburbs | `neighborhoods-suburbs.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Downtown, Yaletown, Coal Harbour | `references/neighborhoods-downtown.md` |
+| Kitsilano, Point Grey, West Side | `references/neighborhoods-westside.md` |
+| East Van, Commercial Drive, Main St | `references/neighborhoods-eastside.md` |
+| North Shore, West Van, Deep Cove | `references/neighborhoods-northshore.md` |
+| Burnaby, Richmond, Surrey suburbs | `references/neighborhoods-suburbs.md` |
+| Choosing guide | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Asian cuisines (Chinese, Japanese, Korean) | `food-asian.md` |
-| Local & farm-to-table | `food-local.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary, craft beer, cannabis | `food-practical.md` |
+| Overview & dining scene | `references/food-overview.md` |
+| Asian cuisines (Chinese, Japanese, Korean) | `references/food-asian.md` |
+| Local & farm-to-table | `references/food-local.md` |
+| International & fine dining | `references/food-international.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Dietary, craft beer, cannabis | `references/food-practical.md` |
 | **Practical** | |
-| Moving & settling | `resident.md` |
-| Transit (SkyTrain, buses, SeaBus) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & neighborhoods | `safety.md` |
-| Weather & rain survival | `climate.md` |
-| Local services (banking, SIM, MSP) | `local.md` |
+| Moving & settling | `references/resident.md` |
+| Transit (SkyTrain, buses, SeaBus) | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety & neighborhoods | `references/safety.md` |
+| Weather & rain survival | `references/climate.md` |
+| Local services (banking, SIM, MSP) | `references/local.md` |
 | **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & incorporation | `business.md` |
-| Immigration (Express Entry, PNP, work permits) | `immigration.md` |
-| Startups & funding | `startup.md` |
+| Tech industry & salaries | `references/tech.md` |
+| Business setup & incorporation | `references/business.md` |
+| Immigration (Express Entry, PNP, work permits) | `references/immigration.md` |
+| Startups & funding | `references/startup.md` |
 | **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare (MSP, clinics) | `healthcare.md` |
-| Schools & education | `education.md` |
-| Outdoor lifestyle & activities | `lifestyle.md` |
-| Driving & car ownership | `driving.md` |
+| Culture & customs | `references/culture.md` |
+| Healthcare (MSP, clinics) | `references/healthcare.md` |
+| Schools & education | `references/education.md` |
+| Outdoor lifestyle & activities | `references/lifestyle.md` |
+| Driving & car ownership | `references/driving.md` |
 
 ## Core Rules
 
@@ -76,14 +70,14 @@ Canada has complex but transparent immigration. Key pathways:
 - **BC PNP**: Provincial nomination (tech pilot is fast-tracked)
 - **Work permits**: LMIA-based or LMIA-exempt (IEC, intra-company)
 - **Study permits**: Pathway to PR through PGWP
-See `immigration.md` for current requirements and processing times.
+See `references/immigration.md` for current requirements and processing times.
 
 ### 3. Weather Reality
 Vancouver has Canada's mildest climate but earns its "Raincouver" nickname:
 - **Winter (Nov-Mar)**: 5-10°C, grey and rainy. ~170 rainy days/year.
 - **Summer (Jun-Sep)**: 20-25°C, sunny and spectacular. Best months.
 - **Microlimates**: North Shore wetter, Richmond drier.
-See `climate.md` for monthly breakdown and survival strategies.
+See `references/climate.md` for monthly breakdown and survival strategies.
 
 ### 4. Housing Crisis Context
 Vancouver has the least affordable housing in North America:
@@ -91,7 +85,7 @@ Vancouver has the least affordable housing in North America:
 - **1BR rent Downtown**: $2,200-3,000/month
 - **Vacancy rate**: ~1% — units go fast
 - **Foreign buyer tax**: 20% for non-residents
-See `cost.md` for current market data and strategies.
+See `references/cost.md` for current market data and strategies.
 
 ### 5. Current Data (Feb 2026)
 
@@ -118,7 +112,7 @@ Vancouver has strong public transit by Canadian standards:
 - **Buses**: Extensive network, real-time tracking
 - **SeaBus**: Ferry to North Vancouver (12 min)
 - **Cycling**: Excellent infrastructure, bike-share available
-Most Downtown/inner city residents don't need cars. See `transport.md`.
+Most Downtown/inner city residents rely fully on walking or transit. See `references/transport.md`.
 
 ### 8. Neighborhood Matching
 
@@ -146,7 +140,7 @@ Salaries are lower than Seattle/SF but:
 - Better work-life balance culture
 - PR pathway for long-term stability
 
-See `tech.md` for detailed industry analysis and salary bands.
+See `references/tech.md` for detailed industry analysis and salary bands.
 
 ## Vancouver-Specific Traps
 
@@ -173,17 +167,9 @@ Key things newcomers should know:
 - **Earthquake zone**: Vancouver is seismically active. Know emergency procedures.
 - **Wildlife**: Bears in North Shore suburbs. Coyotes everywhere. Secure garbage.
 
-See `safety.md` and `local.md` for detailed guidance.
+See `references/safety.md` and `references/local.md` for detailed guidance.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 
-- `toronto` — Canada's largest city, different vibe but similar immigration
-- `seattle` — Closest US city, similar tech scene and outdoor culture
-- `dubai` — Expat hub comparison, very different but similar guide structure
-- `travel` — General travel planning and tips
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/vancouver
-- Latest version: https://clawic.com/skills/vancouver
+- `toronto` — Canada's largest city; different vibe with similar immigration pathways
+- `seattle` — Closest major US city with comparable tech and outdoor culture

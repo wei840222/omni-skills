@@ -55,7 +55,7 @@
 - Hotel & Suites by Pacific Gateway ($180+)
 - St. Regis Hotel ($150+) — basic but well-located
 
-**Safety note:** Stay west of Carrall St. East side transitions to Downtown Eastside (DTES) — Canada's most concentrated area of poverty and drug use. Safe to walk through during day, avoid at night.
+**Safety note:** Stay west of Carrall St. East side transitions to Downtown Eastside (DTES) — Canada's most concentrated area of poverty and drug use. Safe to walk through during day, choose alternative routes after dark.
 
 ### Kitsilano — Local Lifestyle
 **Pros:** Beach, laid-back vibe, restaurants, UBC access
@@ -133,7 +133,7 @@
 - Join loyalty programs for free upgrades
 - Weekend rates often cheaper than weekdays (business city)
 
-### What to Avoid
+### Areas Requiring Caution
 - Hotels on Granville St south of Drake (noisy nightclub strip)
 - Anything east of Gastown (DTES proximity)
 - Airport hotels unless you have early flight (45 min from city)

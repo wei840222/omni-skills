@@ -162,7 +162,7 @@ Vancouver area has distinct microclimates:
 **If extreme heat**:
 - Find AC (malls, libraries, cooling centers)
 - Stay hydrated
-- Avoid midday outdoor activity
+- Schedule outdoor activities for early morning or evening
 - Check on elderly neighbors
 
 ### Wildfire Smoke
@@ -258,7 +258,7 @@ Water temperature: 12-18°C (cold but swimmable)
 - [ ] Sunglasses (summer)
 - [ ] Sunscreen (summer)
 
-### What You DON'T Need
+### Unnecessary Items
 - Heavy winter coat (rare to need below 0°C)
 - Snow boots (unless skiing)
 - Dramatic rain gear (drizzle, not storms)

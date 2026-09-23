@@ -227,4 +227,4 @@ Add:
 ### Walking
 Downtown core, Gastown, Yaletown, Granville Island — all very walkable. 
 Stanley Park seawall: 10km but flat.
-Most visitors don't need a car for city exploration.
+Most visitors can explore the city entirely via transit for city exploration.

@@ -15,7 +15,7 @@ Vancouver has the best dim sum in North America. Period.
 | **Pink Pearl** | East Van | Old school | $$ | Institution since 1981 |
 
 **Dim Sum Strategy:**
-- Go on weekdays to avoid lines
+- Go on weekdays to experience shorter wait times
 - 10-11am sweet spot
 - Push carts = traditional experience
 - Order sheet = fresher food

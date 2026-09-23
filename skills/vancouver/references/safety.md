@@ -26,12 +26,12 @@ Vancouver is one of the world's safest major cities. Violent crime is rare, espe
 **Reality for visitors/residents**:
 - **Not typically dangerous** to passersby
 - **Uncomfortable**: Visible drug use, suffering, unpredictable behavior
-- **Day vs Night**: Daytime generally fine to walk through; avoid alone at night
+- **Day vs Night**: Daytime generally fine to walk through; travel with others after dark
 - Residents of nearby areas (Gastown, Chinatown, Strathcona) navigate this regularly
 
 **Practical advice**:
-- Walk with purpose, don't engage
-- Don't leave valuables visible in car
+- Walk with purpose, maintain distance and keep walking
+- Keep all valuables hidden in car
 - Keep phone/wallet secure
 - It's safe to make eye contact and say "no thanks"
 - If someone is in distress, call 911 or 311
@@ -47,7 +47,7 @@ Vancouver is one of the world's safest major cities. Violent crime is rare, espe
 - Occasional fights
 - Some aggressive behavior
 
-**Advice**: Travel in groups, avoid confrontations, use ride-hailing
+**Advice**: Travel in groups, de-escalate and walk away, use ride-hailing
 
 ### SkyTrain Late Night
 
@@ -62,14 +62,14 @@ Vancouver is one of the world's safest major cities. Violent crime is rare, espe
 
 ### Bike Theft
 Vancouver has an **epidemic of bike theft**:
-- Don't leave bike unlocked even for 30 seconds
+- Always secure your bike even for 30 seconds
 - Use high-quality U-lock (Kryptonite, Abus)
 - Lock frame AND wheels
 - Register bike with 529 Garage (free app)
 - Indoor storage whenever possible
 
 ### Car Break-ins
-- Don't leave anything visible (even empty bags)
+- Keep all items out of sight (even empty bags)
 - Downtown and some East Van areas higher risk
 - Underground parking safer than street
 
@@ -130,11 +130,11 @@ Vancouver has an **epidemic of bike theft**:
 
 **Reality**:
 - Black bears enter residential areas for garbage
-- Usually avoid humans
+- Usually steer clear of humans
 - Fatal attacks extremely rare
 
 **What to do**:
-- Don't leave garbage out
+- Secure all garbage inside
 - If you see bear: Make noise, back away slowly
 - Don't run, don't approach
 - Bears with cubs = extra caution
@@ -145,19 +145,19 @@ Vancouver has an **epidemic of bike theft**:
 
 **Reality**:
 - Urban coyotes are common
-- Generally avoid humans
+- Generally steer clear of humans
 - Small pets at risk
 
 **What to do**:
 - Keep small dogs/cats supervised
-- Don't feed coyotes
+- Keep food away from coyotes
 - Make noise if approached
 
 ### Cougars
 
 **Where**: Very rare in city; North Shore/trail areas occasionally
 
-**What to do**: Make yourself large, don't run, fight back if attacked
+**What to do**: Make yourself large, stand your ground, fight back if attacked
 
 ### Sea Life
 
@@ -178,7 +178,7 @@ Vancouver has an **epidemic of bike theft**:
 - Naloxone kits available free
 
 **If you or someone is using**:
-- Never use alone
+- Always use with others present
 - Free naloxone kits from pharmacies
 - Supervised consumption sites exist
 - 911 = Good Samaritan protection (won't be arrested for calling)
@@ -240,7 +240,7 @@ Vancouver has an **epidemic of bike theft**:
 - Granville Street (late night)
 - Some East Van pockets
 
-### Avoid at Night
+### Areas Requiring Caution at Night
 - Downtown Eastside (DTES)
 
 ---
@@ -250,7 +250,7 @@ Vancouver has an **epidemic of bike theft**:
 ### General
 - Trust your instincts
 - Stay aware of surroundings
-- Avoid confrontation
+- Prioritize de-escalation
 - Use well-lit routes at night
 - Tell someone where you're going (hiking, etc.)
 

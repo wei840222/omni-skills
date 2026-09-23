@@ -55,7 +55,7 @@ Vancouver is one of North America's most expensive cities. Housing costs are the
 ### Buying Property
 - **Average detached home**: $1.8-2.5M
 - **Average condo**: $750K-1.2M
-- **Down payment**: Minimum 5% (under $500K), 20% to avoid CMHC insurance
+- **Down payment**: Minimum 5% (under $500K), 20% to bypass CMHC insurance requirements
 - **Foreign buyer tax**: 20%
 - **Property transfer tax**: 1-3%
 - **Property tax**: ~0.3% of assessed value annually
