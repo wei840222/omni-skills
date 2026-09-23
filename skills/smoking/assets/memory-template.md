@@ -1,6 +1,6 @@
 # Memory Template - Smoking (Logger, Quit, Reduce)
 
-Create `~/Clawic/data/smoking/memory.md` with this structure:
+Create `<state_root>/smoking/memory.md` with this structure:
 
 ```markdown
 # Smoking Memory
@@ -31,7 +31,7 @@ replacement_actions:
 ## Constraints and Preferences
 hard_limits:
 preferred_style:
-what_to_avoid:
+what_to_exclude:
 
 ## Notes
 - Confirmed patterns
@@ -49,11 +49,11 @@ what_to_avoid:
 | `ongoing` | Active support | Keep learning triggers and improving plans |
 | `complete` | Goal reached or stable mode | Maintain with lightweight check-ins |
 | `paused` | User paused support | Keep context read-only until resumed |
-| `never_ask` | User wants no setup prompts | Do not ask setup questions unless requested |
+| `never_ask` | User wants no setup prompts | Bypass setup questions unless explicitly requested |
 
 ## File Templates
 
-Create `~/Clawic/data/smoking/logs/daily.md`:
+Create `<state_root>/smoking/logs/daily.md`:
 
 ```markdown
 # Daily Smoking Log
@@ -68,7 +68,7 @@ Create `~/Clawic/data/smoking/logs/daily.md`:
 - most_effective_response:
 ```
 
-Create `~/Clawic/data/smoking/plans/current.md`:
+Create `<state_root>/smoking/plans/current.md`:
 
 ```markdown
 # Current Smoking Plan
@@ -91,7 +91,7 @@ Create `~/Clawic/data/smoking/plans/current.md`:
 - Next 24h recovery step:
 ```
 
-Create `~/Clawic/data/smoking/triggers.md`:
+Create `<state_root>/smoking/triggers.md`:
 
 ```markdown
 # Trigger Map
@@ -104,7 +104,7 @@ Create `~/Clawic/data/smoking/triggers.md`:
 - Next adjustment:
 ```
 
-Create `~/Clawic/data/smoking/check-ins.md`:
+Create `<state_root>/smoking/check-ins.md`:
 
 ```markdown
 # Weekly Check-Ins

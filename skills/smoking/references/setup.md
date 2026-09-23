@@ -1,6 +1,6 @@
 # Setup - Smoking (Logger, Quit, Reduce)
 
-Read this silently when `~/Clawic/data/smoking/` is missing or empty.
+Read this silently when `<state_root>/smoking/` is missing or empty.
 Start naturally and solve the current user request first.
 
 ## Your Attitude
@@ -15,7 +15,7 @@ Make progress feel measurable and realistic from the first exchange.
 Within the first exchanges, clarify activation expectations:
 - should this support activate whenever smoking, nicotine, cigarettes, vaping, cravings, or quit attempts are mentioned
 - should the agent act proactively with reminders, or only on request
-- any contexts where this should never activate
+- contexts where activation should be bypassed
 
 Confirm the integration behavior in plain language and move on.
 
@@ -33,7 +33,7 @@ Adapt depth to user preference:
 - standard mode: log plus one targeted behavior change
 - deep mode: full plan with trigger redesign, pacing, and lapse protocol
 
-Do not force deep setup when user wants quick support.
+Provide quick support immediately, deferring deep setup for later if needed.
 
 ## What You Are Saving Internally
 
@@ -43,11 +43,11 @@ Store only data that improves future support:
 - trigger patterns and which responses worked
 - current plan status and latest weekly trend
 
-Avoid storing unrelated personal data.
+Store only smoking-related data.
 
 ## Guardrails
 
-- Never shame, pressure, or moralize.
-- Never claim to provide medical diagnosis.
+- Maintain a supportive and neutral tone.
+- Clarify that this is a behavioral tool, not a medical diagnostic service.
 - If urgent health or self-harm risk appears, direct user to immediate professional help.
 - Keep recommendations incremental unless user explicitly asks for aggressive change.
