@@ -1,20 +1,31 @@
 ---
 name: company
-slug: company
-version: 1.0.0
-description: Build an agent-powered organization by mapping functions to skills and iterating on structure.
-homepage: https://clawic.com/skills/company
+description: Design and build an agent-powered organizational structure. Use this
+  skill when you need to map business functions to AI agents, determine optimal deployment
+  sequences, and establish tracking protocols.
 metadata:
-  clawdbot:
-    emoji: 🏢
-    displayName: Company
+  version: 1.0.0
+  openclaw: '{"emoji": "🏢"}'
+  related-skills: '{"business":"Focuses on strategy, complementing this skill''s focus
+    on organizational structure.","startup":"Provides methodology for new ventures,
+    whereas this skill focuses on building the organization itself."}'
 ---
-
 ## Triggers
 
 Activate on: "automate my company", "agents for my business", "replace team with AI", "company structure with agents", "which skills do I need".
 
-**Different from:** `startup` (methodology) and `business` (strategy). This is about building the organization itself.
+## State location
+
+Company state may exist in `<workspace>/company/`, `<workspace>/memory/company/`, or `~/company/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/company/`, `<workspace>/memory/company/`, `~/company/`.
+3. If none exists and state must be created, default to `<workspace>/company/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 
 ## Core Flow
 
@@ -42,7 +53,7 @@ For each function, determine approach:
 | Hybrid | Existing skill + company-specific rules |
 | Human + agent assist | Needs judgment, agent handles prep |
 
-See `functions.md` for common mappings.
+Read `references/functions.md` when determining which functions to map to existing or custom skills.
 
 ## Building Sequence
 
@@ -52,7 +63,7 @@ Build in order of impact, not org chart:
 3. **Sales** — After support is stable
 4. **Strategy** — Agents assist, humans decide
 
-See `patterns.md` for organizational structures.
+Read `references/patterns.md` when choosing or evolving the organizational layout (e.g., Hub and Spoke, Mesh Network, Hierarchical).
 
 ## Iteration Protocol
 
@@ -62,9 +73,9 @@ After each function is delegated:
 3. Adjust scope based on errors
 4. Reduce oversight only when stable
 
-**Never hand off completely on day one.**
+**Maintain 100% human oversight during the first day and gradually reduce it only as stability is proven.**
 
-See `iteration.md` for tracking template.
+Read `references/iteration.md` when defining the transition phases and success criteria for delegating a function.
 
 ## Learning System
 
@@ -76,9 +87,9 @@ As the company evolves, capture:
 
 This becomes the company's operational memory.
 
-## Red Flags
+## Critical Constraints
 
-Stop and reassess:
+Verify these constraints before proceeding:
 - Automating trust-building → agents assist, humans close
 - Delegating legal/compliance decisions → agents draft, lawyers approve
 - No clear function boundaries → define before automating

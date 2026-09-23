@@ -47,7 +47,7 @@
 
 | Function | Likely Skills | Notes |
 |----------|---------------|-------|
-| Contract review | Clause flagging, comparison | Agent highlights, lawyer reviews |
+| Contract review | Clause flagging, comparison | Agent highlights, lawyer retains final judgment and liability |
 | Compliance monitoring | Checklist tracking, alerts | Agent monitors, human decides |
 | NDA processing | Template matching, redlining | Standard = agent, custom = lawyer |
 
@@ -64,6 +64,6 @@ Template for custom skill definition:
 Function: [what it does]
 Inputs: [what triggers it]
 Outputs: [what it produces]
-Boundaries: [what it should NOT do]
+Boundaries: [specific limits of its authority]
 Human checkpoints: [when to escalate]
 ```
