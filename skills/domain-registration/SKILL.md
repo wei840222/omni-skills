@@ -1,48 +1,27 @@
 ---
 name: domain-registration
-slug: domain-registration
-version: 1.0.0
-description: Register, transfer, renew, and secure domains across major provider APIs and dashboards with provider-specific workflows and rollback-safe execution.
-homepage: https://clawic.com/skills/domain-registration
-changelog: Initial release with cross-provider registration playbooks for major registrar APIs, dashboards, transfer flows, and post-purchase security controls.
+description: Manage domain registrations, transfers, and renewals across major registrar
+  APIs. Load this skill when the user explicitly requests to buy, transfer, or modify
+  domain ownership settings.
 metadata:
-  clawdbot:
-    emoji: 🌐
-    requires:
-      bins:
-      - curl
-      - jq
-      - dig
-      - whois
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/domain-registration/
-    displayName: Domain Registration
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/domain-registration/
+  version: "1.0.0"
+  openclaw: '{"emoji": "🌐", "requires": {"config": ["<state_root>/domain-registration/"]}}'
+  related-skills: '{"dns":"Configure DNS records and migrations after registration or transfer completes.","api":"Handle generic REST client auth and error patterns shared by registrar APIs.","hosting":"Connect purchased domains to hosting targets after ownership is settled.","ssl":"Issue and renew certificates once domain control is verified.","infrastructure":"Place domains into broader infra topology after registrar lifecycle work."}'
 ---
-
 ## Setup
 
-On first use, read `setup.md` to align activation boundaries, provider preferences, and approval rules before any registration, transfer, or renewal action.
+On first use, read `references/setup.md` to align activation boundaries, provider preferences, and approval rules before any registration, transfer, or renewal action.
 
-## When to Use
+## When to load
 
-Use this skill when the user needs domain registration operations across major providers and must choose between API automation and dashboard execution.
-
-Use this for first-time registration, transfer planning, renewals, ownership checks, DNS handoff, and registrar security hardening where billing and service continuity are high impact.
+Load this skill when executing domain registrations, transfers, renewals, or registrar security hardening.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/domain-registration/`. See `memory-template.md` for structure and status values.
+Memory lives in `<state_root>/domain-registration/`. See `assets/memory-template.md` for structure and status values.
 
 ```text
-~/Clawic/data/domain-registration/
+<state_root>/domain-registration/
 |-- memory.md              # Provider preferences, risk boundaries, and approval model
 |-- inventory.md           # Domain inventory, provider, expiry, and lock status
 |-- changes.md             # Registration, transfer, and renewal action log
@@ -50,18 +29,14 @@ Memory lives in `~/Clawic/data/domain-registration/`. See `memory-template.md` f
 `-- incidents.md           # Failed transfers, renewal misses, and mitigation history
 ```
 
-## Quick Reference
+## Loading references
 
-Use the smallest file needed for the current task.
-
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and status model | `memory-template.md` |
-| Provider API and dashboard matrix | `provider-matrix.md` |
-| New registration workflows by provider | `registration-playbooks.md` |
-| Transfer and renewal execution patterns | `transfer-renewal.md` |
-| DNS and account security controls | `dns-security-controls.md` |
+Use `read_file` to load instructions from `references/` when you need specific lifecycle workflows:
+- `references/setup.md`: for activation boundaries and approval rules.
+- `references/provider-matrix.md`: for provider API and dashboard capabilities.
+- `references/registration-playbooks.md`: for new registration flows.
+- `references/transfer-renewal.md`: for domain transfer and renewal execution.
+- `references/dns-security-controls.md`: for DNS handoff and account security.
 
 ## Provider Coverage
 
@@ -110,7 +85,7 @@ This skill covers API and dashboard workflows for major domain providers.
 
 ### 7. Verify Outcomes and Log Durable Context
 - Verify success with provider API/dashboard confirmation plus resolver-level checks (`dig`, WHOIS status, nameserver visibility).
-- Update `~/Clawic/data/domain-registration/` memory files with provider choice, lifecycle dates, and known edge cases.
+- Update `<state_root>/domain-registration/` memory files with provider choice, lifecycle dates, and known edge cases.
 
 ## Common Traps
 
@@ -120,7 +95,7 @@ This skill covers API and dashboard workflows for major domain providers.
 - Forgetting 60-day transfer lock rules -> transfer plans fail despite valid auth codes.
 - Replacing DNS records without full snapshot -> incomplete rollback during cutover incidents.
 - Enabling DNSSEC before DS/zone readiness -> domain resolution failures after migration.
-- Leaving domains without renewal monitoring -> avoidable expiration and brand abuse risk.
+- Leaving domains without renewal monitoring -> increased expiration and brand abuse risk.
 
 ## External Endpoints
 
@@ -154,7 +129,7 @@ Data that leaves your machine:
 - Domain names, contact metadata, and operation parameters required by selected providers.
 
 Data that stays local:
-- Operational preferences and provider context in `~/Clawic/data/domain-registration/`.
+- Operational preferences and provider context in `<state_root>/domain-registration/`.
 - Change history, rollback state references, and incident notes.
 
 This skill does NOT:
@@ -167,16 +142,3 @@ This skill does NOT:
 
 This skill can send domain lifecycle data to third-party registrar services when the user approves execution.
 Only install if you trust the selected providers and local credential handling practices.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dns` - DNS records, propagation behavior, and incident troubleshooting
-- `api` - API request design, authentication, and failure handling
-- `hosting` - Hosting cutovers coordinated with domain and DNS transitions
-- `ssl` - Certificate validation and HTTPS recovery after DNS or registrar changes
-- `infrastructure` - Environment architecture and operations runbooks
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/domain-registration
-- Latest version: https://clawic.com/skills/domain-registration

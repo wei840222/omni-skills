@@ -20,7 +20,7 @@ Use this matrix to choose execution path before any domain lifecycle action.
 ## Decision Rules
 
 - If API is available and complete for the task, prefer API for repeatability and auditability.
-- If API is partial or unavailable, use dashboard with explicit checkpoints.
+- If API is partial or unavailable, use dashboard and require explicit approval at critical boundaries.
 - For unknown provider capabilities, run read-only checks first and document constraints.
 
 ## Preflight Checklist

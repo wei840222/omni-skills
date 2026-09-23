@@ -1,6 +1,6 @@
 # Memory Template - Domain Registration
 
-Create `~/Clawic/data/domain-registration/memory.md` with this structure:
+Create `<state_root>/domain-registration/memory.md` with this structure:
 
 ```markdown
 # Domain Registration Memory
@@ -14,7 +14,7 @@ integration: pending | done | declined
 ## Activation Preferences
 - Auto-activation boundaries for registrar and DNS lifecycle requests
 - Ask-first versus proactive mode by risk level
-- Providers or contexts to avoid by default
+- Providers or contexts requiring explicit opt-in
 
 ## Provider Context
 - Registrar accounts and aliases in active use
@@ -23,7 +23,7 @@ integration: pending | done | declined
 
 ## Domain Inventory Summary
 - High-priority domains and renewal windows
-- Transfer lock status and ownership checkpoints
+- Transfer lock status and ownership validation boundaries
 - Nameserver and DNS authority snapshots
 
 ## Risk and Approvals
@@ -45,12 +45,12 @@ integration: pending | done | declined
 | `ongoing` | Context still evolving | Continue collecting context during normal work |
 | `complete` | Core workflow context is stable | Execute quickly with minimal clarification |
 | `paused` | User paused setup prompts | Continue tasks using current context only |
-| `never_ask` | User does not want setup prompts | Do not ask setup questions unless explicitly requested |
+| `never_ask` | User does not want setup prompts | Skip setup questions unless explicitly requested |
 
 ## Memory Principles
 
 - Keep entries factual, concise, and tied to domain lifecycle operations.
 - Replace outdated assumptions instead of stacking contradictions.
 - Record only reusable context that improves future decisions.
-- Never store secrets, raw tokens, or private data unrelated to domain operations.
+- Store only references and context, omitting secrets, raw tokens, or private data unrelated to domain operations.
 - Update `last` on each meaningful execution.
