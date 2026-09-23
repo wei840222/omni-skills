@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create personas for a new task management app aimed at freelance writers.",
+    "expected": "Generates primary, secondary, and anti-personas for a task management app with actionable insights.",
+    "actual": "Generated 3 personas: 'The Juggling Freelancer' (Primary) who needs to track billable hours and deadlines across multiple clients, 'The Agency Contractor' (Secondary) who integrates their tasks with client workflows, and 'The Enterprise Employee' (Anti-persona) who prefers complex Jira setups. Each persona included goals, frustrations, and design implications.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are building an email client. What are the common pain points based on industry patterns?",
+    "expected": "Identifies high-severity, high-frequency pain points common in email clients, providing recommendations.",
+    "actual": "Identified critical pain points such as 'Inbox Overload' (high frequency/severity, users struggle to find important emails) and 'Attachment Management' (high severity, losing track of files). Recommended implementing smart categories and unified attachment views. Acknowledged limitations that these are industry patterns and should be tested.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Map the journey of a user finding and using our language learning app for the first time.",
+    "expected": "Creates an end-to-end journey map from awareness to first use, highlighting emotions and opportunities.",
+    "actual": "Created a journey map covering Awareness (seeing an ad), Consideration (reading reviews), First Use (taking a placement test), and Regular Use (daily streaks). Highlighted emotional highs during gamified onboarding and potential lows when encountering paywalls, providing opportunities to smooth the transition.",
+    "pass": true
+  }
+]

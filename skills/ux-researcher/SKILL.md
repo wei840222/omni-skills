@@ -1,37 +1,27 @@
 ---
 name: ux-researcher
-slug: ux-researcher
-version: 1.0.0
-description: Generate user personas, pain points, journey maps, and UX recommendations without conducting interviews.
-homepage: https://clawic.com/skills/ux-researcher
-changelog: Added persona generation, journey mapping, and heuristic analysis.
+description: Generate personas, pain points, journey maps, heuristic evaluations, and UX recommendations from product context without interviews. Use when the user asks for UX research, persona generation, journey mapping, pain-point analysis, competitive UX comparison, or heuristic evaluation.
 metadata:
-  clawdbot:
-    emoji: 🔬
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: UX Researcher
+  version: "1.0.1"
+  openclaw: '{"emoji": "🔬"}'
+  related-skills: '{"product":"Product strategy, validation, and launch framing once research outputs must drive roadmap or listing decisions.","cpo":"Executive product leadership and org-level bets that consume research evidence.","design":"Visual and interaction design execution that turns research findings into concrete UI decisions."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` and begin the conversation naturally.
+UX research state may exist under several candidate roots. Before the first state operation, resolve one `<state_root>`:
 
-## When to Use
+1. Use an explicitly configured state root when the user or host supplies one.
+2. Otherwise use the first existing directory in this order: `<workspace>/ux-researcher/`, `<workspace>/memory/ux-researcher/`, then `~/ux-researcher/`.
+3. If none exists and durable research data must be created, ask once and default to `<workspace>/ux-researcher/`.
 
-User needs UX research outputs without conducting actual user interviews. Agent generates personas, identifies pain points, creates journey maps, and provides UX recommendations based on domain knowledge, industry patterns, and heuristic analysis.
+Keep the selected root for the whole invocation. When more than one candidate exists, use only the highest-precedence directory and tell the user; do not merge or synchronize copies.
 
-## Architecture
+### Research state tree
 
-Memory lives in `~/Clawic/data/ux-researcher/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/ux-researcher/
-├── memory.md           # Products researched, context
+```text
+<state_root>/
+├── memory.md           # Products researched, preferences, cross-project patterns
 └── research/
     └── {product}/
         ├── personas.md
@@ -40,12 +30,11 @@ Memory lives in `~/Clawic/data/ux-researcher/`. See `memory-template.md` for str
         └── recommendations.md
 ```
 
-## Quick Reference
+See `references/memory-template.md` for bootstrap structure. Create child files only when the corresponding research output is produced.
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+## When to load
+
+Trigger when the user requests UX research, persona generation, journey mapping, pain-point analysis, competitive UX comparison, or heuristic evaluation. Load `references/setup.md` on first use or when `<state_root>/` is empty so integration and context questions run before deep deliverables.
 
 ## Core Rules
 
@@ -59,7 +48,7 @@ Before generating any research output:
 Ask clarifying questions until you have enough context.
 
 ### 2. Ground Insights in Reality
-Never invent from nothing. Base insights on:
+Base insights on:
 - Known patterns in the industry/domain
 - Public data (app reviews, forum discussions, competitor analysis)
 - Established UX heuristics (Nielsen, etc.)
@@ -74,7 +63,7 @@ Personas must drive decisions. Include:
 - Behaviors (how they currently solve the problem)
 - Context (when/where they use the product)
 
-Avoid demographic fluff. Focus on what changes design decisions.
+Focus strictly on factors that change design decisions rather than demographic fluff.
 
 ### 4. Map the Full Journey
 Journey maps should cover:
@@ -106,7 +95,7 @@ Synthetic research has limits. Be explicit:
 - "Validate with real users before major decisions"
 - "These personas represent archetypes, individual users vary"
 
-Never present synthetic research as equivalent to real user data.
+Always clearly state that synthetic research is distinct from real user data.
 
 ## Capabilities
 
@@ -261,32 +250,22 @@ How they solve this problem today (before/without your product)
 
 ## Common Traps
 
-- Inventing without grounding → Always base insights on known patterns, industry data, or explicit reasoning
-- Generic personas → "35-year-old professional" tells you nothing; focus on goals and frustrations
-- Too many personas → 2-4 is enough; more than that dilutes focus
-- Journey maps without emotions → The emotional journey is the whole point
-- Recommendations without rationale → Every suggestion needs evidence or reasoning
-- Presenting as fact → Always acknowledge this is synthetic research, not real user data
-- Ignoring the anti-persona → Knowing who it's NOT for is as valuable as knowing who it IS for
+- Ground every insight in a known industry pattern, public signal, or explicit assumption the user can challenge
+- Build personas around goals, frustrations, behaviors, and design implications rather than demographic filler
+- Keep the set to 2–4 personas so each one still changes a decision
+- Treat the emotional arc as a first-class journey-map output, not an optional flourish
+- Attach evidence or reasoning to every recommendation (what + why + source of confidence)
+- Label synthetic research as synthetic and call out what still needs real-user validation
+- Define the anti-persona so the product boundary is as clear as the target audience
 
 ## Security & Privacy
 
 **Data that stays local:**
-- Research outputs stored in `~/Clawic/data/ux-researcher/`
-- No data is sent to external services
+- Research outputs stored under the resolved `<state_root>/`
+- All research artifacts remain local to the machine
 
-**This skill does NOT:**
-- Access files outside `~/Clawic/data/ux-researcher/`
-- Make network requests
-- Store credentials
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `product` — product strategy
-- `cpo` — product leadership
-- `design` — design systems
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/ux-researcher
-- Latest version: https://clawic.com/skills/ux-researcher
+**Boundaries:**
+- Read and write only under the selected `<state_root>/`
+- Keep full offline operation for skill-owned state
+- Do not store credentials, tokens, or third-party account secrets in research files
+- If the user pastes private research notes, keep them inside `<state_root>/` and do not publish them
