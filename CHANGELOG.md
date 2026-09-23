@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| fastmail-api | 2026-09-23 | 95/100 (#541) |
 | shopping | 2026-09-23 | 85/100 (#540) |
 | yaml | 2026-09-23 | 85/100 (#539) |
 | ux-researcher | 2026-09-23 | 85/100 (#538) |

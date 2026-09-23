@@ -2,7 +2,7 @@
 
 Start by identifying which layer produced the message. Half of JMAP debugging is people widening a token to fix an envelope error.
 
-**Before diagnosing**, read `## Pain Points` in `~/Clawic/data/fastmail-api/memory.md` — a failure this setup has hit before usually has the same cause. **After diagnosing anything non-obvious**, write one line there with the date, the symptom and the actual cause; if the fix is a repeatable procedure, it becomes `artifacts/<name>.md` with its `## Boxes` line (`memory-template.md`). A cause found twice was written down zero times.
+**Before diagnosing**, read `## Pain Points` in `<state_root>/data/fastmail-api/memory.md` — a failure this setup has hit before usually has the same cause. **After diagnosing anything non-obvious**, write one line there with the date, the symptom and the actual cause; if the fix is a repeatable procedure, it becomes `artifacts/<name>.md` with its `## Boxes` line (`memory-template.md`). A cause found twice was written down zero times.
 
 **Contents:** [Which Layer](#which-layer) · [Authentication and Scope](#authentication-and-scope) · [Envelope Errors](#envelope-errors) · [Method Errors](#method-errors) · [SetError Reference](#seterror-reference) · [Nothing Errored But Nothing Happened](#nothing-errored-but-nothing-happened) · [Slow and Timing Out](#slow-and-timing-out) · [Sending Problems](#sending-problems) · [When the Answer Is Not Here](#when-the-answer-is-not-here)
 
@@ -48,14 +48,14 @@ The distinction that saves the most time: **`401` is the token, `unknownCapabili
 
 | Error type | Cause | Move |
 |---|---|---|
-| `invalidArguments` | An argument is missing or the wrong type — the response usually names it | Read the named argument; do not rebuild the whole call |
+| `invalidArguments` | An argument is missing or the wrong type — the response usually names it | Read the named argument; modify the named argument rather than rebuilding the whole call |
 | `invalidResultReference` | A back-reference `resultOf`, `name`, or `path` does not resolve | Check the JSON pointer against the actual previous response (`requests.md`) |
 | `unknownMethod` | Method does not exist for that capability version | Often a contacts object-model mismatch (`contacts.md`) |
-| `stateMismatch` | Something changed between read and write | Re-query, re-derive ids, rebuild. Never replay |
+| `stateMismatch` | Something changed between read and write | Re-query, re-derive ids, rebuild. re-query instead |
 | `cannotCalculateChanges` | No delta available from that state | Full resync; retrying returns the same error forever (`sync.md`) |
 | `requestTooLarge` | The call itself is oversized | Split by byte budget, not only by object count |
 | `serverFail` / `serverUnavailable` | Transient server-side | Bounded retry with backoff and jitter |
-| `serverPartialFail` | Some of the call was applied | **Do not retry.** Query the current state and reconcile from what is actually there |
+| `serverPartialFail` | Some of the call was applied | **Halt and evaluate current state instead of retrying.** Query the current state and reconcile from what is actually there |
 
 ## SetError Reference
 
@@ -107,7 +107,7 @@ Full table in `sending.md`. The two-second triage:
 
 - Rejected **before** submission → identity or content: `forbiddenFrom`, `invalidEmail`, `tooLarge`.
 - Rejected **after** acceptance → the recipient side. The bounce carries the reason, and SPF/DKIM/DMARC questions are `dns` territory.
-- Accepted and delivered but landing in spam → not an API problem at all. Authentication records and sending reputation.
+- Accepted and delivered but landing in spam → not an issue with the API. Authentication records and sending reputation.
 
 ## When the Answer Is Not Here
 

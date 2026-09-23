@@ -6,21 +6,21 @@ Read this file only when WRITING. `config.yaml` is what the user **declared**; `
 
 | Data | Home | How it grows |
 |---|---|---|
-| Declared preferences — Configuration table keys and preference areas alike | `~/Clawic/data/fastmail-api/config.yaml` | Key by key, read-modify-write |
-| Account ids, capability scope, session limits, identities, sync state, box index, due dates | `~/Clawic/data/fastmail-api/memory.md` | Rewritten in place; stays small |
+| Declared preferences — Configuration table keys and preference areas alike | `<state_root>/data/fastmail-api/config.yaml` | Key by key, read-modify-write |
+| Account ids, capability scope, session limits, identities, sync state, box index, due dates | `<state_root>/data/fastmail-api/memory.md` | Rewritten in place; stays small |
 | Calendar and address book ids: name, id, whether writable | `## Account Map` in `memory.md`, resources sub-table | One row per calendar or address book, a handful per account |
-| Mailbox id ↔ role ↔ name, per account | `## Mailbox Map` in `memory.md`; `~/Clawic/data/fastmail-api/mailboxes.md` once it outgrows it | One row per mailbox |
-| Filters that took iterating to get right | `## Saved Queries` in `memory.md`; `~/Clawic/data/fastmail-api/queries.md` once it outgrows it | One entry per named query |
-| Masked email addresses and what each one is for | `## Masked Emails` in `memory.md`; `~/Clawic/data/fastmail-api/masked-emails.md` once it outgrows it | One row per address |
-| High-impact writes: what ran, on how many objects, with what result | `~/Clawic/data/fastmail-api/operations/<year>.md` | Append-only, cut by year |
-| Prior state of objects a bulk write is about to change | `~/Clawic/data/fastmail-api/snapshots/<date>-<what>.md` | Its own file per operation, from the first one |
-| Things you produced that get re-read — working procedures, migration plans, rollback notes, mailbox-structure decisions | `~/Clawic/data/fastmail-api/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
-| People the user actually corresponds with | `~/Clawic/data/contacts/contacts.md` (**shared**) | One row per person, every skill in one address list |
-| Domains used for sending | `~/Clawic/data/domains/domains.md` (**shared**) | One row per domain |
-| Reservations and tickets found in mail or turned into events | `~/Clawic/data/bookings/<year>.md` (**shared**) | One row per booking, cut by year |
-| Paid services behind a masked address or a receipt | `~/Clawic/data/finances/subscriptions.md` (**shared**) | One row per subscription, amount with currency |
-| **Anything durable this table does not name** | `~/Clawic/data/fastmail-api/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
-| Tokens, app passwords, push keys, anything that authenticates | Nowhere under `~/Clawic/data/` | Pointer only — see Secrets |
+| Mailbox id ↔ role ↔ name, per account | `## Mailbox Map` in `memory.md`; `<state_root>/data/fastmail-api/mailboxes.md` once it outgrows it | One row per mailbox |
+| Filters that took iterating to get right | `## Saved Queries` in `memory.md`; `<state_root>/data/fastmail-api/queries.md` once it outgrows it | One entry per named query |
+| Masked email addresses and what each one is for | `## Masked Emails` in `memory.md`; `<state_root>/data/fastmail-api/masked-emails.md` once it outgrows it | One row per address |
+| High-impact writes: what ran, on how many objects, with what result | `<state_root>/data/fastmail-api/operations/<year>.md` | Append-only, cut by year |
+| Prior state of objects a bulk write is about to change | `<state_root>/data/fastmail-api/snapshots/<date>-<what>.md` | Its own file per operation, from the first one |
+| Things you produced that get re-read — working procedures, migration plans, rollback notes, mailbox-structure decisions | `<state_root>/data/fastmail-api/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
+| People the user actually corresponds with | `<state_root>/data/contacts/contacts.md` (**shared**) | One row per person, every skill in one address list |
+| Domains used for sending | `<state_root>/data/domains/domains.md` (**shared**) | One row per domain |
+| Reservations and tickets found in mail or turned into events | `<state_root>/data/bookings/<year>.md` (**shared**) | One row per booking, cut by year |
+| Paid services behind a masked address or a receipt | `<state_root>/data/finances/subscriptions.md` (**shared**) | One row per subscription, amount with currency |
+| **Anything durable this table does not name** | `<state_root>/data/fastmail-api/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
+| Tokens, app passwords, push keys, anything that authenticates | Nowhere under `<state_root>/data/` | Pointer only — see Secrets |
 
 Deciding where something new goes, in order: **would another skill want to read it?** → shared box above. **Is it a text read whole when its subject comes up?** → `artifacts/`. **Is it one more row of something accumulating?** → a section of `memory.md` until the split threshold, then its own file.
 
@@ -38,10 +38,10 @@ No permission needed; every write is announced in one line that names the file. 
 | A `/changes` or `/queryChanges` cycle completed | `## Sync State` |
 | A bulk write ran (move, flag, delete, import, export) | `operations/<year>.md`, plus its snapshot before the write |
 | A masked address was created, disabled, or deleted | `## Masked Emails` |
-| A masked address was issued for a paid service, or a receipt named a subscription | `~/Clawic/data/finances/subscriptions.md` |
-| A person came up who the user will deal with again | `~/Clawic/data/contacts/contacts.md` |
-| A custom sending domain was configured or verified | `~/Clawic/data/domains/domains.md` |
-| A confirmation email was turned into a calendar event | `~/Clawic/data/bookings/<year>.md` |
+| A masked address was issued for a paid service, or a receipt named a subscription | `<state_root>/data/finances/subscriptions.md` |
+| A person came up who the user will deal with again | `<state_root>/data/contacts/contacts.md` |
+| A custom sending domain was configured or verified | `<state_root>/data/domains/domains.md` |
+| A confirmation email was turned into a calendar event | `<state_root>/data/bookings/<year>.md` |
 | A procedure, migration plan, or rollback note came out of the session | `artifacts/` |
 | A non-obvious failure was diagnosed | `## Pain Points` |
 | The user declared a preference | Its key in `config.yaml` |
@@ -52,7 +52,7 @@ No permission needed; every write is announced in one line that names the file. 
 Everything except artifacts, snapshots, operation logs and the shared boxes begins inside `memory.md`. Splitting is a procedure carried out by whichever agent is about to write the entry that crosses the threshold — never deferred, never proposed to the user:
 
 1. Before appending to a section, count its entries.
-2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `~/Clawic/data/fastmail-api/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
+2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `<state_root>/data/fastmail-api/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
 3. Keep the headings identical on both sides of the move, so the split is a copy-paste and never a rewrite.
 4. Never leave a copy behind. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
 
@@ -60,7 +60,7 @@ Artifacts, snapshots and operation logs are the exception: each is born as its o
 
 ## Secrets
 
-Nothing under `~/Clawic/data/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. Store the pointer in its place, in this shape: `<kind>:<locator>`.
+Nothing under `<state_root>/data/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. Store the pointer in its place, in this shape: `<kind>:<locator>`.
 
 `env:FASTMAIL_API_TOKEN` · `keychain:fastmail-api` · `1password:Personal/Fastmail/api-token` · `bitwarden:Fastmail/api` · `vault:secret/fastmail/token` · `file:~/.config/fastmail/token`
 
@@ -76,7 +76,7 @@ In this domain — **not secrets, keep them**: account ids (`u1a2b3c4`), mailbox
 
 Keys come from the Configuration table in `SKILL.md`, plus free-form keys nested under a preference area. Write a key only when the user states the preference.
 
-**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `~/Clawic/data/fastmail-api/` if it does not exist.
+**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `<state_root>/data/fastmail-api/` if it does not exist.
 
 ```yaml
 default_account_id: u1a2b3c4
@@ -233,7 +233,7 @@ Dates inside a stored filter go stale — a hardcoded `before` is a point in tim
 
 ## masked-emails.md
 
-Same headings as `## Masked Emails`. This is an inventory, so it obeys the inventory rules: read it before issuing a new address (the service may already have one), update the row in place when a state changes, and never let it only grow.
+Same headings as `## Masked Emails`. This is an inventory, so it obeys the inventory rules: read it before issuing a new address (the service may already have one), update the row in place when a state changes, and prune entries as appropriate.
 
 ```markdown
 # Masked Emails
@@ -243,7 +243,7 @@ Same headings as `## Masked Emails`. This is an inventory, so it obeys the inven
 | a1b2c3@fastmail.example | shop.example | enabled | 2026-03-11 | paid, see subscriptions box |
 ```
 
-When the address belongs to a paid service, the money side goes to `~/Clawic/data/finances/subscriptions.md` and this row just names the service. Never copy the price here.
+When the address belongs to a paid service, the money side goes to `<state_root>/data/finances/subscriptions.md` and this row just names the service. Never copy the price here.
 
 ## operations/
 
@@ -258,11 +258,11 @@ One file per year, append-only. This is the answer to "what did that batch actua
 | 2026-07-20 | u1a2b3c4 | destroy | Trash older than 1 year | 3,110 | confirmed by user, irreversible | `snapshots/2026-07-20-trash-purge.md` |
 ```
 
-Subjects and addresses are summarized, never pasted in bulk; with `redact_subjects: true` they are omitted entirely. Every irreversible row names the confirmation.
+Subjects and addresses are summarized, always summarized; with `redact_subjects: true` they are omitted entirely. Every irreversible row names the confirmation.
 
 ## snapshots/
 
-One file per operation, written **before** the write, at `~/Clawic/data/fastmail-api/snapshots/<date>-<what>.md`. It exists to be replayed backwards, so it holds ids and prior values, nothing else.
+One file per operation, written **before** the write, at `<state_root>/data/fastmail-api/snapshots/<date>-<what>.md`. It exists to be replayed backwards, so it holds ids and prior values, nothing else.
 
 ```markdown
 # Snapshot — vendor-noise archive, 2026-07-14
@@ -280,7 +280,7 @@ Prune per the `## Due` row. A snapshot whose operation can no longer be reversed
 
 ## artifacts/
 
-One file per thing, at `~/Clawic/data/fastmail-api/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a recurring procedure that finally worked**, **a migration plan**, **a mailbox-structure decision and why**, **a rollback note for something already reversed**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
+One file per thing, at `<state_root>/data/fastmail-api/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a recurring procedure that finally worked**, **a migration plan**, **a mailbox-structure decision and why**, **a rollback note for something already reversed**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
 
 ```markdown
 # Procedure — quarterly newsletter purge
@@ -303,11 +303,11 @@ Rejected: Clients/<name> hierarchy — forces one home per message.
 Migration cost if reversed: one bulk move per keyword, snapshot per batch.
 ```
 
-If the work is tracked as a project, the summary also belongs in the shared `~/Clawic/data/projects/<project>.md`, with the detail staying here and referenced by name.
+If the work is tracked as a project, the summary also belongs in the shared `<state_root>/data/projects/<project>.md`, with the detail staying here and referenced by name.
 
 ## Shared contacts
 
-Lives at `~/Clawic/data/contacts/contacts.md` and is shared with every other skill that deals with people — the user may not have any of them installed, so the format travels with this skill.
+Lives at `<state_root>/data/contacts/contacts.md` and is shared with every other skill that deals with people — the user may not have any of them installed, so the format travels with this skill.
 
 ```markdown
 # Contacts
@@ -317,16 +317,16 @@ Lives at `~/Clawic/data/contacts/contacts.md` and is shared with every other ski
 | Marta Ruiz | marta@acme.example | Acme ops lead | email | invoicing thread, replies within a day |
 ```
 
-- **Identity is the email or handle.** Read the file before adding. If that address is already there, update the row in place; only its absence justifies a new row. A person with several addresses is one row — extra addresses go in `Context`, never a second row.
-- **Write the people who matter, not the address book.** This box holds people the user will deal with again. Never mirror a Fastmail address book into it; a bulk import destroys a curated file and cannot be undone from the JMAP side.
+- **Identity is the email or handle.** Read the file before adding. If that address is already there, update the row in place; only its absence justifies a new row. A person with several addresses is one row — extra addresses go in `Context`, keep just a single row.
+- **Write the people who matter, not the address book.** This box holds people the user will deal with again. Refrain from mirroring a Fastmail address book into it; a bulk import destroys a curated file and cannot be undone from the JMAP side.
 - **Retirement is part of the box.** When a relationship ends and the user says so, delete the row and note the date in `memory.md`. A list that only grows stops being useful.
-- **Foreign columns win.** If `contacts.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Never rewrite its header.
-- **Scale cut**: one row per person while there are ≤15. Past that, one file per person at `~/Clawic/data/contacts/<name>.md` with the same fields, and `contacts.md` becomes the index (`Name | Email | Role | → file`). If the folder already looks like that, follow it — never start a parallel `contacts.md`.
-- Never a password, a security answer, or a one-time code. Contact records are exactly where those get pasted by accident.
+- **Foreign columns win.** If `contacts.md` already exists with a different column set, match its columns and add anything missing as a trailing note. preserve its header.
+- **Scale cut**: one row per person while there are ≤15. Past that, one file per person at `<state_root>/data/contacts/<name>.md` with the same fields, and `contacts.md` becomes the index (`Name | Email | Role | → file`). If the folder already looks like that, follow it — append to the existing `contacts.md`.
+- Omit passwords, a security answer, or a one-time code. Contact records are exactly where those get pasted by accident.
 
 ## Shared domains
 
-Lives at `~/Clawic/data/domains/domains.md`. A custom sending identity is a domain fact before it is a mail fact: SPF, DKIM and DMARC live in DNS, and the expiry date kills the mail flow when it passes.
+Lives at `<state_root>/data/domains/domains.md`. A custom sending identity is a domain fact before it is a mail fact: SPF, DKIM and DMARC live in DNS, and the expiry date kills the mail flow when it passes.
 
 ```markdown
 # Domains
@@ -337,15 +337,15 @@ Lives at `~/Clawic/data/domains/domains.md`. A custom sending identity is a doma
 ```
 
 - **Identity is the domain name.** Read before adding; update in place if it is there. Add your `Used for` and `Mail records` notes to the existing row instead of creating a second one.
-- Record the DKIM *selector and verification date*, never a private key.
+- Record the DKIM *selector and verification date*, record only public indicators.
 - **Retirement is part of the inventory.** When a domain lapses, is sold, or stops being used for sending, delete its row and note the date against the identity it served in `## Identities` of `memory.md` — a dead domain still listed is what makes the next `forbiddenFrom` unexplainable. If the domain is still owned and only the sending stopped, keep the row and empty `Used for` instead of deleting it; a row that is not yours to delete stays.
-- **Scale cut**: one `domains.md` table up to ~40 hostnames. Past that, group by apex domain into `~/Clawic/data/domains/<apex>.md` with the same fields, and `domains.md` becomes the index (`Domain | Registrar | Expires | → file`). If the folder already looks like that, follow it — never start a parallel table.
+- **Scale cut**: one `domains.md` table up to ~40 hostnames. Past that, group by apex domain into `<state_root>/data/domains/<apex>.md` with the same fields, and `domains.md` becomes the index (`Domain | Registrar | Expires | → file`). If the folder already looks like that, follow it — append to the existing table.
 - **Foreign columns win**: match the header you find.
 - Expiry belongs in `## Due` of whichever skill noticed it, so it gets checked; here it is a value, not a reminder.
 
 ## Shared bookings
 
-Lives at `~/Clawic/data/bookings/<year>.md`, cut by year. Written only when a confirmation email is turned into a calendar event or a reservation is extracted on purpose — never as a side effect of a search.
+Lives at `<state_root>/data/bookings/<year>.md`, cut by year. Written only when a confirmation email is turned into a calendar event or a reservation is extracted on purpose — never as a side effect of a search.
 
 ```markdown
 # Bookings — 2026
@@ -362,7 +362,7 @@ Lives at `~/Clawic/data/bookings/<year>.md`, cut by year. Written only when a co
 
 ## Shared subscriptions
 
-Lives at `~/Clawic/data/finances/subscriptions.md`. Written when a masked address is issued for a paid service, or when a receipt or renewal notice is what the user was searching for.
+Lives at `<state_root>/data/finances/subscriptions.md`. Written when a masked address is issued for a paid service, or when a receipt or renewal notice is what the user was searching for.
 
 ```markdown
 # Subscriptions
@@ -375,5 +375,5 @@ Lives at `~/Clawic/data/finances/subscriptions.md`. Written when a masked addres
 - **Identity is the service name.** Read before adding; update in place, including when the price changes — a second row for the same service hides the increase, which is the one thing this file exists to reveal.
 - **Amounts carry their currency inside the value** (`9 USD`), because rows from other skills will be in other currencies and someone will add the column up.
 - Cancelled means a row update with the end date, then removal once the final charge has cleared.
-- Never a card number beyond the last four, never a login, never a billing portal password.
+- Never a card number beyond the last four, Omit logins, Omit billing portal passwords.
 - **Foreign columns win**: match the header you find.
