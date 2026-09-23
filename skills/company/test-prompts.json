@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to automate my company. We currently have sales, support, and ops functions.",
+    "expected": "The agent asks discovery questions to understand the core value, bottlenecks, and what the human wants to continue doing before recommending any specific structure or mapping.",
+    "actual": "I'd be happy to help you automate your company. Before we determine the best agent structure and map existing functions (like sales, support, and ops) to specific skills, could you tell me: 1. What is the core value you deliver to customers? 2. Where does work currently pile up? 3. What functions do you actually want to continue doing yourself?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We've decided to automate legal compliance for our startup using a mesh network of agents.",
+    "expected": "The agent flags legal compliance automation as a red flag, clarifying that agents should only draft while humans approve. It also advises against a mesh network for initial setups with compliance needs.",
+    "actual": "Wait, let's stop and reassess. Delegating legal/compliance decisions entirely to agents is a significant red flag. Agents should only draft or flag clauses, while a human (or lawyer) must retain final judgment and liability. Additionally, for a startup's initial setup—especially one involving compliance—a Hub and Spoke pattern is generally recommended over a Mesh Network, as it provides a clearer escalation path and simpler auditing.",
+    "pass": true
+  }
+]

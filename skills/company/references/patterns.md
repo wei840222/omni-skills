@@ -83,10 +83,10 @@
 - Need manager-level decisions
 - Human oversight hard to maintain
 
-## Anti-Patterns
+## Architecture Constraints
 
-**Avoid:**
-- Fully autonomous agents with no human checkpoint
-- Agents that can approve their own work
-- Circular dependencies (A routes to B routes to A)
-- Functions with no clear owner
+**Enforce these constraints:**
+- Require at least one human checkpoint for all agent workflows
+- Require human or independent agent approval for all agent work
+- Enforce directed acyclic routing to prevent circular handoffs
+- Assign a clear owner to every function

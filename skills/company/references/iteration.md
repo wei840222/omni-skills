@@ -87,8 +87,8 @@ When ready to add another function:
    - Known edge cases from similar function
    - Integration points already working
 
-3. **Avoid parallel pilots:**
-   - Don't pilot two new functions simultaneously
+3. **Pilot sequencing:**
+   - Pilot one new function at a time
    - Stabilize one before starting another
    - Exception: completely independent functions
 
@@ -117,7 +117,7 @@ Maintain a living document per function:
 ## Current State
 - Phase: [1/2/3]
 - Scope: [what it handles]
-- Boundaries: [what it doesn't]
+- Boundaries: [specific limits of its authority]
 
 ## Decision History
 - [Date]: [Decision] - [Rationale]
