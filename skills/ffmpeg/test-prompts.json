@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Extract the audio from my video input.mp4 and save it as a high-quality AAC file without re-encoding if possible, otherwise use standard AAC encoding.",
+    "expected": "Use ffmpeg with -vn (no video) and appropriate audio codec/copy settings.",
+    "actual": "ffmpeg -i input.mp4 -vn -c:a aac -b:a 192k output.m4a",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to trim the first 30 seconds of a very large movie file accurately, but do it fast. Then scale the output to 720p.",
+    "expected": "Use fast input seek plus duration/trim, then apply scale filter with re-encode.",
+    "actual": "ffmpeg -ss 00:00:00 -i input.mkv -t 30 -vf scale=-1:720 -c:v libx264 -c:a copy output.mp4",
+    "pass": true
+  }
+]
