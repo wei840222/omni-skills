@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a docker-compose.yml for a Node.js API and a PostgreSQL database. The API needs to wait until Postgres is fully ready.",
+    "expected": "Provides a docker-compose.yml using `depends_on` with `condition: service_healthy` and configures a healthcheck for the database.",
+    "actual": "Generated the requested docker-compose.yml with `depends_on` condition set to `service_healthy` and a proper PostgreSQL `pg_isready` healthcheck configuration.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to stop my docker compose containers but I absolutely must not lose the database volumes. How do I do it?",
+    "expected": "Instructs to use `docker compose down` and explicitly warns against adding the `-v` flag to preserve volumes.",
+    "actual": "Instructed the user to run `docker compose down` and strongly advised against using `docker compose down -v` to prevent the destruction of volumes.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "How can I set up live-reloading for my frontend without doing complex bind mounts in compose?",
+    "expected": "Suggests using `docker compose watch` as defined in the develop section of the compose file.",
+    "actual": "Suggested utilizing `docker compose watch` along with a configuration example showing `action: sync` and `action: rebuild` in the develop section.",
+    "pass": true
+  }
+]
