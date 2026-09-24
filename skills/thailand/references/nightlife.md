@@ -20,5 +20,5 @@
 
 - Use licensed/app-based transport at night.
 - Keep drink and payment control disciplined.
-- Avoid high-risk substances and legal-gray behavior.
+- Maintain compliance with local laws and safety standards regarding substances.
 - Keep accommodation return route preplanned.

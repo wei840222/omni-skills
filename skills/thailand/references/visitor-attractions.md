@@ -3,7 +3,7 @@
 ## Bangkok Core
 
 ### High value
-- Grand Palace and Wat Phra Kaew: go early, strict dress, avoid midday heat.
+- Grand Palace and Wat Phra Kaew: go early, strict dress, plan around the midday heat.
 - Wat Arun + river crossing: best in late afternoon for light and lower heat.
 - Jim Thompson House + nearby Siam museums for a compact culture block.
 - Chinatown (Yaowarat) after sunset for food density and atmosphere.
@@ -21,7 +21,7 @@
 
 ### Pai and mountain routes
 - Works for slow travel profiles, not for tight first-time itineraries.
-- Road curves are intense; motion-sensitive users should avoid scooter-heavy plans.
+- Due to intense road curves, motion-sensitive users should opt for alternative transport over scooters.
 
 ## Andaman Coast
 
@@ -31,7 +31,7 @@
 
 ### Krabi and nearby
 - Railay, Hong islands, and Phi Phi are best in shoulder windows.
-- Avoid overstacked speedboat programs in rough-season forecasts.
+- Limit speedboat programs during rough-season forecasts.
 
 ## Gulf Coast and Islands
 
@@ -57,8 +57,8 @@
 | Family | Bangkok museums, ethical animal parks, easy-access beaches |
 | Luxury | Bangkok premium stays + Phuket or Samui resort clusters |
 
-## Trap Avoidance
+## Managing Travel Challenges
 
-- Do not stack three long-distance transfers in one week.
-- Do not put temple-heavy plans into hottest midday windows.
-- Do not book non-refundable island tours in unstable weather periods.
+- Limit long-distance transfers to two per week to maintain a balanced itinerary.
+- Schedule temple visits for the cooler morning or late afternoon hours.
+- Book flexible or refundable island tours during unstable weather periods.

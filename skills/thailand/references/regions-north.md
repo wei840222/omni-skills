@@ -23,5 +23,5 @@
 ## Recommendation Rules
 
 - Keep a Bangkok fallback plan for legal, medical, and logistics-heavy tasks.
-- Do not assume service parity with Bangkok, Chiang Mai, or Phuket.
+- Set service expectations based on local infrastructure rather than Bangkok, Chiang Mai, or Phuket.
 - Use this region when user values depth and cost over convenience density.

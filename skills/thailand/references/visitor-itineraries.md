@@ -5,7 +5,7 @@
 ### Plan
 1. Bangkok (3 nights): culture, food, river districts, modern transit zones.
 2. Chiang Mai or Phuket (3 nights): choose mountain-culture or beach-lifestyle.
-3. Final night in departure city to avoid flight-risk stress.
+3. Spend the final night in the departure city to ensure a stress-free flight connection.
 
 ### Why this works
 - One major city + one contrast region keeps pace realistic.
@@ -51,7 +51,7 @@
 
 - Culture-heavy and city-heavy: cooler months are easier.
 - Beach-heavy: shoulder months balance crowd and weather.
-- Deep-north scenic plans: avoid peak smoke periods.
+- Deep-north scenic plans: schedule travel outside of peak smoke periods.
 
 ## Red Flags
 

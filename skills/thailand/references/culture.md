@@ -20,7 +20,7 @@
 ## Practical Advice for Newcomers
 
 - Use polite tone and low-friction behavior in service interactions.
-- Avoid assuming direct Western communication style is always effective.
+- Communicate using culturally attuned, nuanced approaches rather than direct Western styles.
 - Ask before photographing people in culturally sensitive contexts.
 
 ## Festival Awareness

@@ -35,8 +35,8 @@ Use a 1-5 score for each item:
 - Validate real commute, noise, internet, and healthcare access.
 - Re-check legal and visa feasibility before long financial commitments.
 
-## Hard Stops
+## Firm Constraints
 
 - If legal status is unclear, pause relocation decisions.
 - If health needs are complex, prioritize top-tier medical-access cities.
-- If user hates humidity, avoid overpromising tropical comfort.
+- If user hates humidity, explicitly state the reality of tropical weather conditions.

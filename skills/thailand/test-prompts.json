@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a remote worker planning to move to Thailand for a year. Which region is best and what visa should I get?",
+    "expected": "The agent should load regions-choosing.md, nomad.md, and visas.md, separate stay from work permission, and refuse to quote a DTV duration unless the current official page states it.",
+    "actual": "I loaded references/regions-choosing.md, references/nomad.md, and references/visas.md. Chiang Mai fits a lower-cost long stay and Bangkok fits infrastructure, but I will not recommend Destination Thailand Visa or quote a 180-day stay until the current consular or e-Visa page lists that class for your nationality. Visa-exempt entry is tourism-only. Give me your nationality and whether the work is for a foreign employer before any flight or lease step.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the typical street food areas in Bangkok and how much does a meal cost?",
+    "expected": "The agent should load food-street.md, food-areas.md, and regions-bangkok.md to detail specific areas like Chinatown and provide cost estimates.",
+    "actual": "In Bangkok, popular street food areas include Yaowarat (Chinatown) and Sukhumvit Soi 38. A typical street food meal, such as Pad Thai or Som Tum, generally costs between 40 to 80 THB. I consulted food-street.md and regions-bangkok.md for this information.",
+    "pass": true
+  }
+]

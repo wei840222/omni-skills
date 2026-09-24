@@ -1,186 +1,70 @@
 ---
 name: thailand
-slug: thailand
-version: 1.0.0
-description: Choose the best Thailand base for travel, remote work, expat life, or business with visa clarity, cost reality, and local operating playbooks.
-homepage: https://clawic.com/skills/thailand
-changelog: Initial release with nationwide Thailand guidance for visitors, residents, remote workers, students, and founders.
+description: >
+  Choose a Thailand base and operating plan for a trip, relocation, remote
+  stay, study, retirement, or business setup. Use for regions, visas, costs,
+  housing, food, transport, climate, healthcare, and local practicalities.
+  Not for booking flights, filing a visa, or giving nationality-specific legal
+  advice without an official source check.
 metadata:
-  clawdbot:
-    emoji: 🇹🇭
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Thailand
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇹🇭"}'
+  related-skills: '{"expat":"Plan the broader move, settling, and adaptation around a Thailand base.","travel":"Build a general itinerary when Thailand is only one stop.","travel-planning":"Track a multi-region Thailand route, buffers, and reservations."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/thailand/` does not exist or is empty, read `setup.md` and begin naturally.
+Thailand state may exist in `<workspace>/thailand/`, `<workspace>/memory/thailand/`, or `~/thailand/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/thailand/`, `<workspace>/memory/thailand/`, `~/thailand/`.
+3. If none exists and state must be created, default to `<workspace>/thailand/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Do not merge them.
+5. If `<workspace>` cannot be resolved, read an existing `~/thailand/` only. Otherwise ask for a state root before creating files.
 
-User asks about Thailand for travel, relocation, remote work, education, retirement, or business setup. Agent gives practical, current, region-level guidance with legal and cultural context.
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants planning context kept across sessions.
 
-## Architecture
+## When to load
 
-Memory lives in `~/Clawic/data/thailand/`. See `memory-template.md` for structure.
+Load this skill for a Thailand trip, relocation, remote stay, study, retirement, or business setup. Identify purpose, nationality, dates, and budget before naming a base.
 
-```bash
-~/Clawic/data/thailand/
-└── memory.md     # Trip or relocation context
-```
+Read `references/sources.md` before repeating a visa duration, fee, housing range, or legal rule. Re-check the official page for that nationality and travel date before the user books flights, signs a lease, or pays a visa fee.
 
-## Quick Reference
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/setup.md` |
+| Region comparison or base choice | `references/regions-index.md`, `references/regions-choosing.md` |
+| One region | `references/regions-bangkok.md`, `references/regions-chiang-mai.md`, `references/regions-phuket.md`, `references/regions-islands.md`, `references/regions-north.md` |
+| Visa, TDAC, work boundary | `references/visas.md` |
+| Housing and monthly cost | `references/cost.md`, `references/resident.md`, `references/nomad.md` |
+| Food | `references/food-overview.md`, then the matching `references/food-*.md` |
+| Transport, climate, safety, healthcare | `references/transport.md`, `references/climate.md`, `references/safety.md`, `references/healthcare.md` |
+| Culture, language, nightlife, tech, teaching, business | the matching file under `references/` |
+| Visitor route, lodging, attractions | the matching `references/visitor-*.md` |
+| Persisted trip context | `assets/memory-template.md` |
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Must-see routes and what to skip | `visitor-attractions.md` |
-| Itineraries (7, 14, 21 days) | `visitor-itineraries.md` |
-| Where to stay by travel profile | `visitor-lodging.md` |
-| Practical tips and local friction points | `visitor-tips.md` |
-| **Regions and Bases** | |
-| Nationwide region comparison | `regions-index.md` |
-| Bangkok strategy | `regions-bangkok.md` |
-| Chiang Mai and the north | `regions-chiang-mai.md` |
-| Phuket and the Andaman coast | `regions-phuket.md` |
-| Gulf islands and secondary bases | `regions-islands.md` |
-| Isan and deep north routes | `regions-north.md` |
-| Decision framework by budget and goals | `regions-choosing.md` |
-| **Food** | |
-| Thai food landscape | `food-overview.md` |
-| Street food playbook | `food-street.md` |
-| Core Thai dishes and regional styles | `food-thai.md` |
-| International dining and premium options | `food-international.md` |
-| Best areas by city and style | `food-areas.md` |
-| Dietary and food safety constraints | `food-practical.md` |
-| **Practical** | |
-| Moving and settling | `resident.md` |
-| Flights, rail, ferries, urban transit | `transport.md` |
-| Cost of living and budgeting | `cost.md` |
-| Safety and legal risk | `safety.md` |
-| Seasons, weather, and air quality | `climate.md` |
-| SIM, banking, apps, admin | `local.md` |
-| **Career and Long Stays** | |
-| Visa strategy and compliance checkpoints | `visas.md` |
-| Digital nomad and remote-work reality | `nomad.md` |
-| Teaching English pathways | `teaching.md` |
-| Tech ecosystem and hiring market | `tech.md` |
-| Business setup and tax posture | `business.md` |
-| **Lifestyle** | |
-| Culture, etiquette, and norms | `culture.md` |
-| Healthcare and insurance planning | `healthcare.md` |
-| Nightlife by city and island | `nightlife.md` |
-| Expat and local lifestyle fit | `lifestyle.md` |
-| Thai language and communication basics | `language.md` |
-| **System files** | |
-| Setup flow and activation defaults | `setup.md` |
-| Memory schema and update rules | `memory-template.md` |
-| Research source pack | `sources.md` |
+## Core rules
 
-## Core Rules
+1. Split the request into trip, relocation, remote work, study, retirement, or business before recommending places.
+2. Treat Bangkok, Chiang Mai, Phuket, the islands, and secondary provinces as different markets. Load the region file before answering housing, work, or schooling questions.
+3. Stay permission is not work permission. A visa-exempt entry is tourism-only. Do not treat a Destination Thailand Visa (DTV) as a default remote-work answer unless the current official pathway matches the user's nationality and activity.
+4. Quote visa durations, fees, and reporting rules only from the official page checked for this answer. If that page was not opened, say what to re-check and stop short of a booking recommendation.
+5. Give prices as dated ranges. Local food and simple housing can be low-cost; imported goods, premium areas, and international schools are not.
+6. Keep a buffer day for island ferries in the rainy season, and treat northern smoke season as a primary constraint rather than a weather footnote.
+7. Prefer BTS/MRT proximity in Bangkok, weather-aware ferry buffers on islands, and licensed transport at night. Do not recommend an unregistered scooter plan.
+8. For monarchy-related speech, cannabis, and controlled substances, give the current legal boundary and the official source. Do not rely on an older liberalization headline.
 
-### 1. Identify User Intent Before Giving Places
-- Separate user intent into trip, relocation, remote work, retirement, education, or business.
-- Match recommendations to timeline and risk tolerance first, then suggest regions.
+## Thailand-specific traps
 
-### 2. Thailand Is Multiple Distinct Markets
-Thailand is not one homogeneous destination:
-- Bangkok is high-opportunity, high-friction, and transit-heavy.
-- Chiang Mai is lower cost and easier pace, but weaker salary density.
-- Phuket and islands are lifestyle-heavy with seasonal pricing spikes.
-- Isan and secondary provinces deliver lower costs but fewer English-friendly services.
-Use region files before answering housing, work, or schooling questions.
+- Choosing one base for the whole country.
+- Booking a same-day international connection after an island ferry.
+- Signing an annual lease before testing commute, flood exposure, and noise.
+- Running business activity on tourist or visa-exempt status.
+- Using a stale housing number as a fixed budget.
+- Ignoring a Thai holiday when pricing transport or tours.
 
-### 3. Visa and Entry Rules Drive Feasibility
-- Entry pathways, extensions, and reporting obligations change frequently.
-- TDAC, eVisa, and visa class details must be checked before a user books flights or signs long leases.
-- Use `visas.md` first for any plan beyond a short holiday.
+## Security and privacy
 
-### 4. Current Data Snapshot (March 2026)
-
-| Item | Typical Range |
-|------|---------------|
-| 1BR Bangkok central | THB 18,000-45,000 per month |
-| 1BR Chiang Mai central | THB 10,000-25,000 per month |
-| 1BR Phuket main zones | THB 20,000-60,000 per month |
-| Street food meal | THB 50-120 |
-| Mid-range dinner for two | THB 700-1,800 |
-| Domestic flight sale fare | THB 900-2,500 one-way |
-| Intercity rail 2nd class | THB 300-1,200 route-dependent |
-
-### 5. Seasonality Is Operational, Not Cosmetic
-- Hot season and humid heat change daytime productivity.
-- Rainy season can disrupt ferries, roads, and island logistics.
-- Burning season in the north can make air quality a primary constraint.
-Use `climate.md` and `safety.md` when user plans dates.
-
-### 6. Cost in Thailand Is Two-Speed
-- Local food and simple housing can be low-cost.
-- Imported goods, premium areas, and international schools escalate budgets quickly.
-- Family budgets are usually dominated by housing, schooling, and healthcare quality tier.
-Use `cost.md` and region files before saying "Thailand is cheap."
-
-### 7. Mobility Strategy Changes Outcomes
-- Bangkok rewards BTS/MRT proximity.
-- Islands require weather-aware ferry and flight buffers.
-- Remote northern routes often need car or motorbike confidence.
-Use `transport.md` and avoid one-size-fits-all transport advice.
-
-### 8. Cultural Respect Is Practical Risk Management
-- Temple etiquette, dress, and behavior norms materially affect user experience.
-- Monarchy-related speech and online behavior are legal-risk topics.
-- Nightlife and cannabis/alcohol assumptions vary by zone and enforcement context.
-Use `culture.md` and `safety.md` for high-risk behavior guidance.
-
-### 9. Source-Critical Guidance
-- Prefer official Thai or embassy sources for entry, visa, and legal constraints.
-- Present prices as ranges with date context.
-- Tell users what to re-check before spending money on flights, schools, leases, or company setup.
-Use `sources.md` for primary references.
-
-## Thailand-Specific Traps
-
-- Treating Thailand as one market and choosing the wrong base for the goal.
-- Booking tight island transfers in monsoon windows with no buffer day.
-- Assuming visa rules are static across years and nationalities.
-- Signing annual rentals before testing commute, flood exposure, and neighborhood noise.
-- Underestimating burning season exposure in north Thailand.
-- Overcommitting to scooters without licensing and insurance readiness.
-- Assuming premium private hospitals exist at equal quality in every province.
-- Running business activity on tourist status without legal setup.
-- Using exact budget claims with no variance for high season.
-- Ignoring local holiday and festival effects on transport and prices.
-
-## Legal Awareness
-
-- Monarchy-related legal risk is serious; advise strict caution in speech and social posting.
-- Drug and controlled-substance law exposure can be severe; rules have changed and must be re-checked.
-- Visa overstay, unauthorized work, and incomplete immigration reporting create legal and travel risks.
-- Road incidents are a major risk area; licensing and insurance compliance matter.
-- Business and employment activities require the correct legal entity and permit posture.
-
-See `visas.md`, `safety.md`, and `business.md` for details.
-
-## Security & Privacy
-
-**Data that stays local:** Preferences and planning context in `~/Clawic/data/thailand/`.
-
-**This skill does NOT:** Access files outside `~/Clawic/data/thailand/` or make undeclared network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` - General trip planning and itinerary structure
-- `expat` - Relocation planning and adaptation workflows
-- `food` - Deeper dining strategy and cuisine personalization
-- `startup` - Founder operations and execution systems
-- `dubai` - Another international relocation and city strategy benchmark
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/thailand
-- Latest version: https://clawic.com/skills/thailand
+Keep planning context in the selected `<state_root>` only. Do not read or write outside that directory for this skill. Do not send passport, visa, or payment details to a third party from this skill.

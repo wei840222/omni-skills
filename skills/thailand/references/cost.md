@@ -9,7 +9,9 @@
 | Phuket/Samui | Higher floor, especially in tourist belts |
 | Secondary provinces | Lower daily spend, fewer premium services |
 
-## Typical Monthly Housing Ranges
+## Typical monthly housing ranges
+
+Planning ranges carried from the March 2026 skill baseline. They are not a current listing scrape. Re-check before a lease.
 
 | City | 1BR typical range |
 |------|-------------------|
