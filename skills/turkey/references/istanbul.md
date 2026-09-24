@@ -24,7 +24,7 @@ Best for first-time Turkey trips, food-heavy city breaks, Bosphorus days, shoppi
 - Confirm IST vs SAW first; it changes the whole arrival and departure day.
 - Split old-city, Bosphorus, and modern-city days instead of crossing the city repeatedly.
 - Use ferries as part of the experience when weather and timing fit.
-- If Friday prayer timing matters for the user, avoid overpacking mosque-heavy midday plans.
+- If Friday prayer timing matters for the user, schedule mosque-heavy plans for early mornings or late afternoons.
 
 ## Common Mistakes
 

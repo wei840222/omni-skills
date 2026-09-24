@@ -25,7 +25,7 @@
 
 - Cappadocia roads are easy to cover but dawn and winter conditions change confidence.
 - The D400 Mediterranean coast is scenic but slower than its postcard reputation suggests.
-- West-coast archaeology routes reward a car when the user wants multiple ruins and beach stops.
+- West-coast archaeology routes reward a car when the user prioritizes combining multiple ruins and beach stops.
 - East and southeast routes need daylight planning and a realistic appetite for long drives.
 
 ## Rental Strategy

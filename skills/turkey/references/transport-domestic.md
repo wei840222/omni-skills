@@ -13,7 +13,7 @@
 ## Istanbul Transport Reality
 
 - Metro, tram, bus, and ferries make Istanbul workable without a car.
-- Airport transfer from IST is a different problem than from SAW; never treat them as interchangeable.
+- Airport transfer from IST is a distinct logistics profile compared to SAW; evaluate them independently.
 - A one-neighborhood hotel choice can save more time than a faster-looking cross-city transit plan.
 
 ## Domestic Flight Rule

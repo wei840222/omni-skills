@@ -16,7 +16,7 @@ Best for lush landscapes, mountain villages, tea-country scenery, long-form rail
 
 - Treat the Black Sea as its own weather system.
 - Eastern Anatolia works better with a targeted flight than with a heroic overland stretch.
-- Road scenery is part of the product, so do not pair it with an overcompressed pace.
+- Road scenery is a core feature; plan relaxed pacing to allow time for observation.
 - In winter, build extra resilience for snow, delayed roads, and early darkness.
 
 ## Common Mistakes

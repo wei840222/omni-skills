@@ -23,7 +23,7 @@ Accessibility quality varies sharply by region, old-town fabric, and hotel type.
 - Ask first about walking distance, stairs, wheelchair use, bathroom needs, and transfer tolerance.
 - Prioritize room and neighborhood suitability over postcard value.
 - One accessible base with hired transport beats multiple romantic but difficult properties.
-- Do not assume museum and site access is uniform even within the same city.
+- Expect museum and site access profiles to vary, even within the same city.
 
 ## Source Reminder
 

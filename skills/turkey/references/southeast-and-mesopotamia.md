@@ -18,7 +18,7 @@ Best for travelers who prioritize food, early history, old stone cities, and a d
 - Use this region for users who want substance, not checklist tourism.
 - Summer heat is the main trip-shaping factor; mornings and evenings matter.
 - Flights usually beat overland entry unless the user explicitly wants the road journey.
-- Keep local-context awareness current and do not assume every nearby city has the same visitor feel.
+- Keep local-context awareness current and verify the unique visitor feel for each nearby city.
 
 ## Common Mistakes
 

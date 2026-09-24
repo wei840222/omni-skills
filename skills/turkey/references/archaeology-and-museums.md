@@ -17,7 +17,7 @@ Turkey rewards thematic pairing more than random site collecting.
 ## Museum Rules
 
 - Check official opening times close to the visit date.
-- Do not assume one museum pass covers every region or every top site.
+- Verify coverage details, as museum passes are specific to certain regions and sites.
 - Dense ruins days need early starts, shade strategy, and lower evening transfer burden.
 - Users who say they love "history" often mean either major icons or deep archaeology; split those cases.
 

@@ -1,6 +1,6 @@
 # Memory Template - Turkey
 
-Create `~/Clawic/data/turkey/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Turkey Trip Memory
@@ -41,7 +41,7 @@ integration: pending | complete | paused | never_ask
 - Wind sensitivity:
 - Conservative-context sensitivity:
 - Must-see places:
-- Must-avoid:
+- Excluded elements:
 
 ## Bookings and Deadlines
 | Item | Needed by | Status | Notes |
@@ -68,8 +68,8 @@ integration: pending | complete | paused | never_ask
 |-------|---------|----------|
 | `ongoing` | still learning trip shape | ask only high-impact follow-ups |
 | `complete` | core context is stable | act quickly from saved defaults |
-| `paused` | memory use paused | do not expand without need |
-| `never_ask` | no setup prompts wanted | avoid future setup questions |
+| `paused` | memory use paused | expand only upon request |
+| `never_ask` | no setup prompts wanted | bypass future setup questions |
 
 ## Key Principles
 

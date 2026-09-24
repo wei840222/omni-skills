@@ -24,7 +24,7 @@
 ## Card Practical Notes
 
 - Dynamic currency conversion should usually be declined in favor of local currency.
-- Contactless works well in many urban places but do not assume every cab or kiosk accepts it.
+- Contactless works well in many urban places; however, carry small-denomination cash for cabs and kiosks.
 - On coastal road trips, cash resilience matters more than in central Istanbul.
 
 ## Source Reminder

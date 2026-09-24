@@ -20,7 +20,7 @@ Best for landscapes, balloon mornings, cave stays, soft hiking, and a compact hi
 
 ## Planning Rules
 
-- Balloons are weather-dependent; never build the whole trip around one guaranteed launch.
+- Balloons are weather-dependent; schedule backup dates for launches to maintain trip stability.
 - Dawn viewpoints, valleys, and underground-city visits are different energy loads. Spread them.
 - Cappadocia pairs naturally with Istanbul; it pairs less cleanly with a coast route unless flights are efficient.
 - Ankara or Konya can support Central Anatolia logic, but they are not substitutes for Cappadocia itself.

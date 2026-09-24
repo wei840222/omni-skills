@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to Turkey for 10 days in August with my family. We want to see Istanbul and some ruins.",
+    "expected": "Split the trip into Istanbul plus one Aegean ruins base, shift exposed sites to early morning, require air conditioning, and ask whether they want a resort base or a site-adjacent base. Do not promise a whole-country loop.",
+    "actual": "For 10 days in August, keep two bases: Istanbul for 4-5 days, then one Aegean base such as Selçuk or Izmir for Ephesus. August heat makes a midday ruins day a bad default, so Ephesus goes at opening and the hotel needs reliable air conditioning. Cappadocia, the Mediterranean, and the southeast stay out of this loop. Which matters more: a coastal resort with a ruins day trip, or sleeping next to the sites?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Do I need a visa for Turkey as an American?",
+    "expected": "State the MFA ordinary-passport exemption of up to 90 days in any 180-day period, distinguish official passports, and point to the MFA nationality table rather than telling the traveler to buy an e-Visa.",
+    "actual": "On the MFA visa table checked 2026-09-25, ordinary United States passports are visa-exempt for up to 90 days in any 180-day period. Official United States passports still need a visa. This is not an e-Visa case for a US tourist. Re-read https://www.mfa.gov.tr/visa-information-for-foreigners.en.mfa before you book, and check that the passport expires at least 60 days beyond the planned stay (150 days remaining for a 90-day stay).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Plan a 5-day Istanbul trip arriving at SAW and leaving from IST, with one Bosphorus day.",
+    "expected": "Treat SAW and IST as different airports, protect transfer windows on arrival and departure days, and keep the Bosphorus day inside the city cluster.",
+    "actual": "SAW arrival and IST departure are two different transfer problems, so day 1 is a SAW-to-hotel window and day 5 is an IST departure buffer, not a sightseeing day. The middle three days stay in one Istanbul cluster: old city, Bosphorus ferry, and a modern-side neighborhood. I would not add Cappadocia or a rental car inside the historic core. Which neighborhood should be the base, European old city or a Bosphorus-side hotel?",
+    "pass": true
+  }
+]

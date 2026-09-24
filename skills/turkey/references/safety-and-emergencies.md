@@ -6,7 +6,7 @@
 |------|-----------------------|----------|
 | Heat and dehydration | Southeast, Mediterranean, inland summer routes | Shift heavy activity to early and late hours |
 | Wildfire or smoke | Summer coast and forested regions | Keep route flexibility and monitor official alerts |
-| Earthquake awareness | Urban and historic-core stays | Know exits and basic response, avoid panic myths |
+| Earthquake awareness | Urban and historic-core stays | Know exits and basic response, rely on official guidance |
 | Tourist scams | Dense city and airport zones | Use clear prices, official transport, and booking proof |
 | Road fatigue | Long coast or mountain drives | Reduce night driving and overpacked transfer days |
 
