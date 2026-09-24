@@ -30,7 +30,7 @@ gws sheets spreadsheets values get --params '{"spreadsheetId":"ID","range":"'"'"
 
 `presentations.batchUpdate` mirrors Docs; `replaceAllText` plus per-element `objectId` operations. The standard mail-merge pipeline:
 
-1. `files.copy` the template Deck/Doc per record (`drive.md`)
+1. `files.copy` the template Deck/Doc per record (`references/drive.md`)
 2. `replaceAllText` each `{{token}}` with the record's values
 3. `files.export` to PDF (10 MB of exported content cap) or share with `sendNotificationEmail: false`
 

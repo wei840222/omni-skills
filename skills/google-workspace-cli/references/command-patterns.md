@@ -1,6 +1,6 @@
 # Command Patterns — The gws Grammar
 
-Cross-service command construction. Service-specific depth: `gmail.md`, `drive.md`, `calendar.md`, `editors.md`, `admin.md`.
+Cross-service command construction. Service-specific depth: `references/gmail.md`, `references/drive.md`, `references/calendar.md`, `references/editors.md`, `references/admin.md`.
 
 ## Fast Discovery Loop
 
@@ -74,7 +74,7 @@ gws gmail users messages trash --params '{"userId":"me","id":"MSG_ID"}'
 gws drive files list --params '{"pageSize":100,"fields":"files(id,name),nextPageToken"}' --page-all --page-limit 5 | jq -r '.files[]?.name'
 ```
 
-Never bare `--page-all`; add `--page-delay` on quota-sensitive sweeps (budget math in `quotas.md`).
+Add `--page-delay` on quota-sensitive sweeps, and set `--page-limit` from the expected object count (budget math in `references/quotas.md`). A bare `--page-all` is not a bound.
 
 ## Upload and Download
 

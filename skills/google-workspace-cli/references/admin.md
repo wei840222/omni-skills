@@ -1,6 +1,6 @@
 # Admin — Users, Groups, and Audit Reports
 
-Blast radius warning: every write here is tenant-wide. Admin operations always run through full change control (`change-control.md`), on an explicitly named admin account, never on the default account by accident.
+Blast radius warning: every write here is tenant-wide. Admin operations always run through full change control (`references/change-control.md`), on an explicitly named admin account rather than whichever account happens to be the default.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ Blast radius warning: every write here is tenant-wide. Admin operations always r
 - `users.insert` needs `primaryEmail`, `name`, `password`; set `"changePasswordAtNextLogin": true` so the provisioning password never becomes the real one.
 - `users.update` follows patch semantics — send only changed fields; sending a partial `name` object can blank the missing subfields, so re-read first (SKILL.md Rule 3).
 - Offboarding ladder, least to most destructive: reset sign-in cookies + password → `"suspended": true` (reversible, data intact, licenses still billed) → transfer Drive/Calendar data → delete. A deleted user is restorable via `users.undelete` for 20 days (SKILL.md Per-API Limits); after that the data is gone — suspend first, delete on a timer.
-- `aliases.insert` adds receive-addresses; send-as remains a Gmail-side setting per user (`gmail.md`).
+- `aliases.insert` adds receive-addresses; send-as remains a Gmail-side setting per user (`references/gmail.md`).
 
 ## Directory: Groups and Members
 
@@ -39,4 +39,4 @@ Blast radius warning: every write here is tenant-wide. Admin operations always r
 
 - Third-party app access reviews → `token` application in Reports plus OAuth client policy in the Admin console (no full API surface; browser required)
 - Identity groups with dynamic membership → `cloudidentity` service, which overlaps Directory groups; prefer Directory unless dynamic-membership features are the point
-- Leaver file ownership sweeps → `'email' in owners` queries in `drive.md` before the account is deleted
+- Leaver file ownership sweeps → `'email' in owners` queries in `references/drive.md` before the account is deleted

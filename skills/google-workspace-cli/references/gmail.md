@@ -6,7 +6,7 @@
 
 - Search excludes spam and trash by default. `"includeSpamTrash": true` or `in:anywhere` widens it — the difference between "no results" and "it was in spam" during investigations.
 - `newer_than:` beats `after:` for rolling automation windows — no date arithmetic in the script.
-- Server-side `q` always beats client-side jq filtering: quota and context both (`quotas.md`).
+- Server-side `q` always beats client-side jq filtering: quota and context both (`references/quotas.md`).
 
 ```bash
 gws gmail users messages list --params '{"userId":"me","maxResults":20,"q":"from:billing newer_than:7d has:attachment"}'
@@ -40,17 +40,17 @@ Body data in `full` payloads is base64url-encoded per MIME part; multipart messa
 
 ## Drafts as Mail's Dry-Run
 
-`--dry-run` previews the request, not the delivery. For anything user-facing, create drafts (`drafts.create` with the same `raw`), let a human open them in Gmail, then `drafts.send`. This is the approval gate `change-control.md` expects for bulk mail.
+`--dry-run` previews the request, not the delivery. For anything user-facing, create drafts (`drafts.create` with the same `raw`), let a human open them in Gmail, then `drafts.send`. This is the approval gate `references/change-control.md` expects for bulk mail.
 
 ## Labels — the Idempotency Backbone
 
 - System labels (`INBOX`, `UNREAD`, `SPAM`, `TRASH`, `STARRED`) vs user labels; nesting is name-based: `Automation/Processed`.
-- Filter lists by label: `"labelIds": ["Label_123"]` — label ids, not names; resolve once via `labels.list` and cache in `command-log.md`.
-- `messages.modify` with `addLabelIds`/`removeLabelIds` mutates one message; `messages.batchModify` takes up to 1,000 message ids per call — the bulk-labeling workhorse and the standard "mark as processed" primitive for sweeps (`automation.md`).
+- Filter lists by label: `"labelIds": ["Label_123"]` — label ids, not names; resolve once via `labels.list` and cache in `<state_root>/command-log.md`.
+- `messages.modify` with `addLabelIds`/`removeLabelIds` mutates one message; `messages.batchModify` takes up to 1,000 message ids per call — the bulk-labeling workhorse and the standard "mark as processed" primitive for sweeps (`references/automation.md`).
 
 ## Trash vs Delete
 
-`messages.trash` is reversible (Gmail purges trash after ~30 days); `messages.delete`/`batchDelete` are permanent, bypass trash, and require the full `https://mail.google.com/` scope — `gmail.modify` cannot do it (scope table in `auth-playbook.md`). Default to trash (SKILL.md Rule 7).
+`messages.trash` is reversible (Gmail purges trash after ~30 days); `messages.delete`/`batchDelete` are permanent, bypass trash, and require the full `https://mail.google.com/` scope — `gmail.modify` cannot do it (scope table in `references/auth-playbook.md`). Default to trash (SKILL.md Rule 7).
 
 ## Attachments
 
@@ -62,4 +62,4 @@ Attachment bytes are NOT in `messages.get` responses — the `full` payload carr
 
 ## Incremental Sync
 
-Don't re-list the mailbox: `history.list` with `startHistoryId` from a previous fetch returns only changes since. A 404 on the historyId means it expired — fall back to a full list and store the new baseline (pattern in `automation.md`).
+Prefer incremental sync: `history.list` with `startHistoryId` from a previous fetch returns only changes since. A 404 on the historyId means it expired — fall back to a full list and store the new baseline (pattern in `references/automation.md`).

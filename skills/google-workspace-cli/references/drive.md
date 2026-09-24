@@ -31,7 +31,7 @@ Three flags or the items don't exist for you: `"supportsAllDrives": true` on eve
 | Download binary | `files.get` with `"alt": "media"` | No size cap concerns of export |
 | Export Google-native | `files.export` with target `mimeType` | Caps at 10 MB of exported content (SKILL.md Per-API Limits) |
 
-Export format traps: Sheets → `text/csv` exports only the FIRST sheet — per-sheet CSV needs one export per sheet or the Sheets values API (`editors.md`); Docs → pdf/docx/txt/html; Slides → pdf/pptx. Oversized Docs: export per-section or switch target format.
+Export format traps: Sheets → `text/csv` exports only the FIRST sheet — per-sheet CSV needs one export per sheet or the Sheets values API (`references/editors.md`); Docs → pdf/docx/txt/html; Slides → pdf/pptx. Oversized Docs: export per-section or switch target format.
 
 ## Sharing and Permissions
 
@@ -39,24 +39,24 @@ Export format traps: Sheets → `text/csv` exports only the FIRST sheet — per-
 
 - `sendNotificationEmail` defaults to **true** for users and groups — a bulk-sharing sweep becomes a mass-email incident; set it `false` unless notifying is the point (SKILL.md Traps).
 - `type: anyone` = anyone-with-link; combined with `role: writer` it is a publicly editable file — treat as a change-control-level action.
-- Ownership transfer: `transferOwnership: true` on a `role: owner` grant — same-domain only in Workspace; consumer accounts require the recipient to accept an invitation. Files a leaver owns don't transfer themselves: sweep `'email' in owners` before offboarding (`admin.md`).
+- Ownership transfer: `transferOwnership: true` on a `role: owner` grant — same-domain only in Workspace; consumer accounts require the recipient to accept an invitation. Files a leaver owns don't transfer themselves: sweep `'email' in owners` before offboarding (`references/admin.md`).
 - Audit who sees what: `permissions.list` per file with `fields` covering `emailAddress, role, type, domain`.
 
 ## Copies, Shortcuts, Revisions
 
-- `files.copy` also converts formats (copy a template Doc per record — the mail-merge move, `editors.md`); the copy is owned by the caller, permissions do NOT carry over.
+- `files.copy` also converts formats (copy a template Doc per record — the mail-merge move, `references/editors.md`); the copy is owned by the caller, permissions do NOT carry over.
 - Shortcuts are stub files (`mimeType: application/vnd.google-apps.shortcut`) with `shortcutDetails.targetId` — dereference before acting or you mutate the stub.
 - `revisions.list`/`revisions.get` recover prior binary versions; set `keepForever` on revisions you must retain — Drive prunes old binary revisions on its own schedule.
 
 ## Incremental Sync (Changes API)
 
-Polling `files.list` for diffs burns quota and misses deletions. Instead: `changes.getStartPageToken` once, persist it, then `changes.list` with the stored token per run — returns adds, modifications, AND removals; persist `newStartPageToken` after each sweep (`automation.md`).
+Polling `files.list` for diffs burns quota and misses deletions. Instead: `changes.getStartPageToken` once, persist it, then `changes.list` with the stored token per run — returns adds, modifications, AND removals; persist `newStartPageToken` after each sweep (`references/automation.md`).
 
 ## Service-Account Gotchas
 
-- A bare service account has its own empty Drive: `files.list` returning nothing is the wrong identity, not an error (`auth-playbook.md`).
+- A bare service account has its own empty Drive: `files.list` returning nothing is the wrong identity, not an error (`references/auth-playbook.md`).
 - Files the service account creates are owned by it and count against its own storage quota — upload into shared drives or impersonate a user; don't build a corpus inside an identity nobody can log into.
 
 ## Idempotency Markers
 
-`appProperties` (private per-app key-values, searchable: `appProperties has { key='processed' and value='true' }`) mark processed files so reruns skip work — the Drive equivalent of Gmail's label marker (`automation.md`).
+`appProperties` (private per-app key-values, searchable: `appProperties has { key='processed' and value='true' }`) mark processed files so reruns skip work — the Drive equivalent of Gmail's label marker (`references/automation.md`).

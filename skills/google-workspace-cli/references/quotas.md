@@ -23,8 +23,8 @@ Per-user rate: 250 quota units/second — send = 100 units, get = 5, list = 5 (S
 
 1. Server-side filters first: Drive `q`, Gmail `q`, Directory `query`, Reports `filters` — every object you don't receive costs zero further calls.
 2. Largest page the schema allows: sweeping 5,000 Drive files at pageSize 1000 is 5 list calls; at the default 100 it is 50.
-3. Cheapest format tier: Gmail `metadata` over `full` (`gmail.md`); Drive tight `fields` masks (payload and context — the quota charge is per call, not per field).
-4. Incremental APIs over re-listing: Drive `changes.list`, Gmail `history.list` (`automation.md`).
+3. Cheapest format tier: Gmail `metadata` over `full` (`references/gmail.md`); Drive tight `fields` masks (payload and context — the quota charge is per call, not per field).
+4. Incremental APIs over re-listing: Drive `changes.list`, Gmail `history.list` (`references/automation.md`).
 5. `--page-delay` on sustained sweeps of quota-sensitive APIs — finishing 20% slower beats tripping the throttle at page 40 of 50.
 
 ## Batching
@@ -33,7 +33,7 @@ Batch endpoints bundle up to 100 inner calls per HTTP request (hard cap; Gmail g
 
 - Batching saves HTTP round-trips and latency, NOT quota — every inner call bills individually.
 - Inner calls fail independently: parse per-part statuses; a batch that "succeeded" can contain 30 throttled parts. Re-batch only the failed ids, with backoff.
-- Gmail `batchModify` (up to 1,000 message ids per call) and `batchDelete` are true bulk endpoints, not batch wrappers — one call, one quota charge, which is why `batchModify` is the marker mechanism of choice (`gmail.md`).
+- Gmail `batchModify` (up to 1,000 message ids per call) and `batchDelete` are true bulk endpoints, not batch wrappers — one call, one quota charge, which is why `batchModify` is the marker mechanism of choice (`references/gmail.md`).
 
 ## Sweep Budget Formula
 

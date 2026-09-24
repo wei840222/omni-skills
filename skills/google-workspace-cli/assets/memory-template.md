@@ -1,6 +1,6 @@
 # Memory Template — Google Workspace CLI
 
-Files live in `~/Clawic/data/google-workspace-cli/`. Split: `config.yaml` holds what the user DECLARED (the Configuration table in SKILL.md); `memory.md` holds what the agent OBSERVED. An observation never overwrites a declared preference without user confirmation.
+Files live in `<state_root>/`. Split: `<state_root>/config.yaml` holds what the user DECLARED (the Configuration table in SKILL.md); `<state_root>/memory.md` holds what the agent OBSERVED. An observation overwrites a declared preference only after the user confirms.
 
 ## config.yaml
 
@@ -57,11 +57,11 @@ last: YYYY-MM-DD
 | `ongoing` | Context still evolving | Keep refining boundaries and templates |
 | `complete` | Stable operating baseline | Focus on optimization and reliability |
 | `paused` | User paused this workflow | Keep context read-only until resumed |
-| `never_ask` | User does not want setup prompts | Do not ask integration questions unless requested |
+| `implicit_setup` | User does not want setup prompts | Follow recorded preferences; ask an integration question only when the user requests one |
 
 ## Companion Files
 
-- `command-log.md` — command template, required placeholders, expected output fields, known side effects, run counts (`automation.md`)
-- `change-control.md` — the mutation evidence log; entry template in this skill's `change-control.md`
-- `incidents.md` — failures, root causes, prevention actions
-- `mcp-profiles.md` — service bundles per workflow family and tool budget decisions (`mcp-integration.md`)
+- `<state_root>/command-log.md` — command template, required placeholders, expected output fields, known side effects, run counts (`references/automation.md`)
+- `<state_root>/change-control.md` — the mutation evidence log; entry template in `references/change-control.md`
+- `<state_root>/incidents.md` — failures, root causes, prevention actions
+- `<state_root>/mcp-profiles.md` — service bundles per workflow family and tool budget decisions (`references/mcp-integration.md`)

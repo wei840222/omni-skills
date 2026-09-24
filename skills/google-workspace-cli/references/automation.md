@@ -6,7 +6,7 @@ A one-off command that worked is not an automation. Unattended runs add four fai
 
 - `gws auth status` non-interactively; exit non-zero if the account isn't authenticated — a cron job must never trigger a browser OAuth flow.
 - Explicit `--account` on every command (SKILL.md Rule 4) — cron inherits whatever default the last human left.
-- Testing-status OAuth clients kill refresh tokens after 7 days (`auth-playbook.md`) — an automation on a Testing client is a weekly outage on a timer; move the client to Production before scheduling anything.
+- Testing-status OAuth clients kill refresh tokens after 7 days (`references/auth-playbook.md`) — an automation on a Testing client is a weekly outage on a timer; move the client to Production before scheduling anything.
 
 ## Idempotency: Mark What You Processed
 
@@ -23,8 +23,8 @@ Mark AFTER the action succeeds, never before — a pre-marked failure is invisib
 
 ## Resumability
 
-- Persist `nextPageToken` (or the last `modifiedTime` high-water mark) to a state file under `~/Clawic/data/google-workspace-cli/` after each page — a crash at page 40 of 50 resumes at 40, not 1.
-- Steady-state jobs use the incremental APIs instead of re-listing: Drive `changes.list` with a stored page token, Gmail `history.list` with a stored `startHistoryId` (`drive.md`, `gmail.md`). Token expired (404) → full resync once, store a fresh baseline.
+- Persist `nextPageToken` (or the last `modifiedTime` high-water mark) to a state file under `<state_root>/` after each page — a crash at page 40 of 50 resumes at 40, not 1.
+- Steady-state jobs use the incremental APIs instead of re-listing: Drive `changes.list` with a stored page token, Gmail `history.list` with a stored `startHistoryId` (`references/drive.md`, `references/gmail.md`). Token expired (404) → full resync once, store a fresh baseline.
 
 ## Shell Discipline
 
@@ -42,14 +42,14 @@ echo "$files" | jq -r '.files[] | [.id,.name] | @tsv'     # TSV for downstream t
 
 ## Pacing and Read-Modify-Write
 
-- Apply the sweep budget formula from `quotas.md` before scheduling; set `--page-delay` and batch sizes from the math, not from the first 429.
-- Re-read each target immediately before writing it (SKILL.md Rule 3) — objects change between the listing sweep and the action, especially in shared corpora; Calendar additionally enforces this via etag/sequence (`calendar.md`).
+- Apply the sweep budget formula from `references/quotas.md` before scheduling; set `--page-delay` and batch sizes from the math, not from the first 429.
+- Re-read each target immediately before writing it (SKILL.md Rule 3) — objects change between the listing sweep and the action, especially in shared corpora; Calendar additionally enforces this via etag/sequence (`references/calendar.md`).
 
 ## Unattended Mail Is Drafts First
 
-Scheduled jobs that compose mail create drafts; a human reviews in Gmail; sending is a separate, explicitly approved step (`gmail.md`). Fully unattended sending is reserved for workflows the user has named in config (`write_policy: open` plus an explicit no-go-zone check).
+Scheduled jobs that compose mail create drafts; a human reviews in Gmail; sending is a separate, explicitly approved step (`references/gmail.md`). Fully unattended sending is reserved for workflows the user has named in config (`write_policy: open` plus an explicit no-go-zone check).
 
 ## Evidence Trail
 
-- Append each run's command template, counts, and duration to `command-log.md`; deviations (count drift, new error signatures) go to `incidents.md` with the failing payload.
-- Mutating automations log to `change-control.md` like any other write — the approval covers the recurring job, the evidence accrues per run.
+- Append each run's command template, counts, and duration to `<state_root>/command-log.md`; deviations (count drift, new error signatures) go to `<state_root>/incidents.md` with the failing payload.
+- Mutating automations log to `references/change-control.md` like any other write — the approval covers the recurring job, the evidence accrues per run.
