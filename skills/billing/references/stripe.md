@@ -82,7 +82,7 @@ const subscription = await stripe.subscriptions.create({
   items: [{ price: priceId }],
   
   // Payment behavior
-  payment_behavior: 'default_incomplete', // Don't activate until paid
+  payment_behavior: 'default_incomplete', // Wait for payment to activate
   payment_settings: {
     payment_method_types: ['card'],
     save_default_payment_method: 'on_subscription'

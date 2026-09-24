@@ -115,4 +115,4 @@ app.post('/webhooks/stripe',
 | Paddle | Exponential over 24h | ~8 times |
 | PayPal | Immediate, then 1h, 24h | 3 times |
 
-**Design for:** Events may never arrive (network issues). Reconciliation jobs catch gaps.
+**Design for:** Events may be lost to network issues. Use reconciliation jobs to catch gaps.
