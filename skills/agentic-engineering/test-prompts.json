@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want two coding agents fixing the API and the React components at the same time. How should I set that up?",
+    "expected": "Load references/blast-radius.md and references/parallel.md. Assign exclusive paths, keep one commit per logical change, and serialize if they must edit the same file.",
+    "actual": "Load references/blast-radius.md before opening a second agent, then references/parallel.md. Give the API agent src/api/ and the UI agent src/components/. Each commits only its own files after one logical change. If both must edit a shared type file, run those edits in sequence.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "The agent has been rewriting auth for twenty minutes and I am not sure what it changed. What now?",
+    "expected": "Treat auth as a large blast radius. Pause, ask for files changed and remaining plan, then help, narrow, or abort. Reset only after the user confirms a commit.",
+    "actual": "Auth rewrites are large radius, so this stays one agent. Pause generation and ask which files changed and what it plans next. Then help, narrow the prompt to one phase, or abort. Read git status and git diff before any stash or reset, and reset only to a commit the user names.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I build an MCP orchestration framework so my agents can share a worktree?",
+    "expected": "Out of scope. Recommend a known CLI and same-checkout or git worktree isolation, and refuse to turn this skill into a new framework.",
+    "actual": "This skill coordinates agents the user already runs. It does not build an MCP server or orchestrator. Use gh or the project CLI the agent already knows, keep tasks in one checkout unless an isolated branch is needed, and then use git worktree. A new framework is a separate product task.",
+    "pass": true
+  }
+]
