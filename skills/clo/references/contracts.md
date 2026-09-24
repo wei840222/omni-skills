@@ -38,7 +38,7 @@
 
 ### Negotiation Tactics
 - **Start with standard** — Deviation requires justification
-- **Trade, don't concede** — Every give needs a get
+- **Trade value symmetrically** — Every give needs a get
 - **Bracketing** — Anchor high/low, meet in middle
 - **Silence is power** — Let them fill uncomfortable gaps
 - **Written over verbal** — Confirm every agreement in email
