@@ -1,53 +1,52 @@
 ---
 name: billing
-slug: billing
-version: 1.0.0
-description: Build payment integrations, subscription management, and invoicing systems with webhook handling, tax compliance, and revenue recognition.
-homepage: https://clawic.com/skills/billing
+description: >
+  Design and debug subscription billing, invoices, PSP webhooks, proration,
+  tax handling, and revenue recognition. Use when configuring Stripe or another
+  PSP, diagnosing webhook or access bugs, or calculating mid-cycle plan changes.
+  Not for one-off checkout-only flows owned by payments, stripe-api-integration,
+  or paypal, and not for bookkeeping close owned by accounting.
 metadata:
-  clawdbot:
-    emoji: 💳
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Billing
+  version: "1.0.0"
+  openclaw: '{"emoji":"💳"}'
+  related-skills: '{"stripe-api-integration":"Stripe API call patterns once billing rules are chosen.","payments":"One-off checkout and payment capture outside subscription lifecycle.","subscriptions":"Subscription product design when the question is offer shape, not PSP state.","paddle":"Paddle merchant-of-record billing instead of direct Stripe.","paypal":"PayPal-specific capture and dispute flows.","accounting":"Books, close, and ledger treatment after revenue events are recognized."}'
 ---
 
-## When to Use
+## When to load
 
-User needs to implement or debug payment processing, subscription lifecycles, invoicing, or revenue operations. Agent handles Stripe/Paddle integration, webhook architecture, multi-currency, tax compliance, chargebacks, usage-based billing, marketplace splits, and revenue recognition patterns.
+Load this skill for subscription state, webhook idempotency, proration, invoice validity, PCI token handling, chargeback deadlines, usage metering, marketplace splits, and ASC 606 / IFRS 15 recognition. Do not persist card data or live secrets in the skill tree; this package stores no local state.
 
-## Quick Reference
+## Progressive disclosure
 
-| Topic | File |
+Load a reference only when that topic is in scope:
+
+| Topic | Load |
 |-------|------|
-| Stripe integration | `stripe.md` |
-| Webhooks & events | `webhooks.md` |
-| Subscription lifecycle | `subscriptions.md` |
-| Invoice generation | `invoicing.md` |
-| Tax compliance | `tax.md` |
-| Usage-based billing | `usage-billing.md` |
-| Chargebacks & disputes | `disputes.md` |
-| Marketplace payments | `marketplace.md` |
-| Revenue recognition | `revenue-recognition.md` |
+| Stripe objects and calls | `references/stripe.md` |
+| Webhook verification and ordering | `references/webhooks.md` |
+| Subscription lifecycle | `references/subscriptions.md` |
+| Invoice generation | `references/invoicing.md` |
+| Tax and invoice fields | `references/tax.md` |
+| Usage-based billing | `references/usage-billing.md` |
+| Chargebacks and PCI | `references/disputes.md` |
+| Marketplace splits | `references/marketplace.md` |
+| Revenue recognition | `references/revenue-recognition.md` |
+| Source URLs before citing a limit or API default | `references/sources.md` |
 
 ## Core Rules
 
 ### 1. Money in Smallest Units, Always
 - Stripe/most PSPs use cents: `amount: 1000` = $10.00
-- Store amounts as integers, NEVER floats (floating-point math fails)
+- Store amounts as integers exclusively (floating-point math fails)
 - Always clarify currency in variable names: `amount_cents_usd`
 - Different currencies have different decimal places (JPY has 0, KWD has 3)
 
 ### 2. Webhook Security is Non-Negotiable
-- ALWAYS verify signatures before processing (`Stripe-Signature` header)
+- Verify the `Stripe-Signature` header against the raw body before processing
 - Store `event_id` and check idempotency — webhooks duplicate
 - Events arrive out of order — design state machines, not sequential flows
 - Use raw request body for signature verification, not parsed JSON
-- See `webhooks.md` for implementation patterns
+- See `references/webhooks.md` for implementation patterns
 
 ### 3. Subscription State Machine
 Critical states and transitions:
@@ -59,10 +58,10 @@ Critical states and transitions:
 | `canceled` | Will end at period end | ✅ Until period_end |
 | `unpaid` | Exhausted retries | ❌ None |
 
-Never grant access based on `status === 'active'` alone — check `current_period_end`.
+Grant access only after confirming both `status === 'active'` and `current_period_end`.
 
 ### 4. Cancel vs Delete: Revenue at Stake
-- `cancel_at_period_end: true` → Access until period ends, stops renewal
+- `cancel_at_period_end: true` → Access continues until period ends, then halts renewal
 - `subscription.delete()` → Immediate termination, possible refund
 - Confusing these loses revenue OR creates angry customers
 - Default to cancel-at-period-end; immediate delete only when requested
@@ -75,7 +74,7 @@ When changing plans mid-cycle:
 | `none` | Change at renewal only | Downgrades |
 | `always_invoice` | Immediate charge/credit | Enterprise billing |
 
-Never rely on PSP defaults — specify explicitly every time.
+Always override PSP defaults by specifying modes explicitly every time.
 
 ### 6. Race Conditions Are Guaranteed
 `customer.subscription.updated` fires BEFORE `invoice.paid` frequently.
@@ -93,14 +92,14 @@ Never rely on PSP defaults — specify explicitly every time.
 | US | Sales tax varies by 11,000+ jurisdictions |
 | Export (non-EU) | 0% typically |
 
-Missing required invoice fields = legally invalid invoice. See `tax.md`.
+Missing required invoice fields = legally invalid invoice. See `references/tax.md`.
 
-### 8. PCI-DSS: Never Touch Card Data
-- NEVER store PAN, CVV, or magnetic stripe data
+### 8. PCI-DSS: Keep Card Data Off-Server
+- Keep PAN, CVV, and magnetic stripe data off your servers
 - Only store PSP tokens (`pm_*`, `cus_*`)
 - Tokenization happens client-side (Stripe.js, Elements)
 - Even "last 4 digits + expiry" is PCI scope if stored together
-- See `disputes.md` for compliance patterns
+- See `references/disputes.md` for compliance patterns
 
 ### 9. Chargebacks Have Deadlines
 | Stage | Timeline | Action |
@@ -116,7 +115,7 @@ For SaaS under ASC 606/IFRS 15:
 - Annual payment ≠ annual revenue (recognized monthly)
 - Deferred revenue is a liability, not an asset
 - Multi-element contracts require allocation to performance obligations
-- See `revenue-recognition.md` for accounting patterns
+- See `references/revenue-recognition.md` for accounting patterns
 
 ## Billing Traps
 
