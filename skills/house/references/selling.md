@@ -112,7 +112,7 @@
 - Escalation clauses (be careful)
 
 **Counter-offer strategy:**
-- Don't reject outright — counter
+- Always counter-offer instead of rejecting outright
 - Identify what matters most (price? timeline? contingencies?)
 - Trade what matters less for what matters more
 - Multiple offers: transparency creates bidding war

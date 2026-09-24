@@ -124,7 +124,7 @@
 1. ACH/bank transfer (automatic, free)
 2. Online platforms (Cozy, Avail, Buildium)
 3. Check (creates paper trail)
-4. Cash (avoid — no proof)
+4. Cash (requires written receipt for proof)
 
 **Late rent process:**
 1. Grace period (typically 3-5 days)
@@ -174,7 +174,7 @@
 - Property far away
 - Multiple units or scaling
 - You value your time highly
-- Don't want tenant calls
+- Prefer delegating tenant calls
 - Cost: 8-12% of rent + placement fee
 
 **What PM handles:**
@@ -208,7 +208,7 @@
 5. Writ of possession
 6. Sheriff lockout
 
-**Timeline:** 3-12 weeks depending on state and tenant response. Never "self-help" eviction (changing locks, shutting utilities).
+**Timeline:** 3-12 weeks depending on state and tenant response. Always follow legal eviction processes through courts instead of self-help measures.
 
 ---
 
