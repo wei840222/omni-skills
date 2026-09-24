@@ -1,6 +1,6 @@
 ---
 name: notion-calendar
-description: Manage Notion databases as date-aware calendars. Use for schema discovery, time-window queries, page creation, and rescheduling.
+description: Manage Notion databases as date-aware calendars. Use when the user wants schema discovery, a time-window query, a new dated page, or a reschedule on a Notion database, editorial plan, launch schedule, content calendar, or dated task board. Not for Google Calendar sync or Notion Calendar app settings.
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"N","requires":{"env":["NOTION_API_KEY"]}}'
@@ -66,3 +66,4 @@ Load only the file the current step needs:
 | Query, create, and reschedule flows | `references/query-playbook.md` |
 | Common failures and fixes | `references/troubleshooting.md` |
 | Core rules, endpoints, and security | `references/rules.md` |
+| Verified API sources | `references/sources.md` |
