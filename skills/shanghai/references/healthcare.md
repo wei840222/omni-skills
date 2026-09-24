@@ -25,7 +25,7 @@
 ## Public Hospital Navigation
 - Registration and queueing can be app-based or on-site.
 - Specialist appointments may require early booking.
-- Bring previous test results to avoid repeat exams.
+- Bring previous test results so the visit can use them instead of repeating exams.
 - Expect shorter consultation time than in many Western systems.
 
 ## Medication And Pharmacy

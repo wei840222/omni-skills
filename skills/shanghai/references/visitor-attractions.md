@@ -12,7 +12,7 @@ Use it to build realistic days without over-scheduling.
 | Jing'an Temple area | Historic-modern contrast | Evening | 1-2 hours | Combine with nearby malls and dining |
 | Lujiazui viewpoints | Skyline from the financial district | Sunset to night | 2-3 hours | Timed-entry towers can sell out on holidays |
 | West Bund / Xuhui riverside | Contemporary art + river walks | Afternoon | 2-4 hours | Good backup plan when central sites are packed |
-| Zhujiajiao water town (day trip) | Canal town feel near city | Weekday morning | Half day | Start early to avoid tour bus peaks |
+| Zhujiajiao water town (day trip) | Canal town feel near city | Weekday morning | Half day | Start early ahead of the tour-bus peak |
 
 ## Suggested pairing blocks
 

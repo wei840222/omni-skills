@@ -9,7 +9,7 @@ Use this as a sequence, not a legal document.
 |---|---|---|
 | Secure temporary stay | Gives time to choose district calmly | Before arrival |
 | Local SIM + data plan | Needed for banking, apps, ride-hailing | Day 1 |
-| Police registration | Mandatory after moving address | Within 24 hours of move |
+| Police registration | Mandatory on arrival and after each address change | Within 24 hours. Hotels usually register guests at check-in |
 | Open local bank account | Salary, rent, and utility payments | Days 2-7 |
 | Set up WeChat + Alipay | Core daily payment rails | Days 1-3 |
 
@@ -38,13 +38,13 @@ Use this as a sequence, not a legal document.
 | Electricity + water + gas | 250-900 | AC use drives summer/winter peaks |
 | Building management fee | Often included, sometimes extra | Confirm in contract |
 
-## Common mistakes to avoid
+## Key practices to adopt
 
-- Paying large deposits before seeing landlord ID and property proof.
-- Choosing a unit only by photos; check noise at night.
-- Forgetting police registration after each address change.
-- Assuming all compounds allow pets or short-term guests.
-- Waiting too long to set up tax and payroll details with employer.
+- See the landlord ID and property proof before paying a large deposit.
+- Visit at night and test the peak-hour commute before choosing a unit from photos.
+- Register with the Public Security Bureau within 24 hours of arrival and again after each address change.
+- Confirm pet and guest rules in the contract before signing.
+- Set tax and payroll details with the employer during the first payroll cycle.
 
 ## Reality check for 2026
 

@@ -1,5 +1,8 @@
 # Shanghai Food Overview
 
+Figures in this file are February 2026 planning ranges, not live quotes. Re-check before a commitment. See `sources.md`.
+
+
 ## Snapshot
 - Shanghai dining is broad: local Shanghainese, all major Chinese regional cuisines, and strong international options.
 - Best balance of quality and convenience is in Xuhui, Jing'an, and Huangpu.
@@ -21,7 +24,7 @@
 
 ## Best Times To Eat
 - Breakfast: 07:00-09:30 for fresh buns and soy milk.
-- Lunch: 11:30-13:00 to avoid long queues.
+- Lunch: 11:30-13:00 before the longest queues.
 - Dinner: arrive before 18:00 at popular places.
 - Weekend brunch: book ahead in Xuhui and Jing'an.
 

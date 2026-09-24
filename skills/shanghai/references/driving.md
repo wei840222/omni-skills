@@ -1,5 +1,8 @@
 # Driving in Shanghai (2026): What Residents Should Know
 
+Figures in this file are February 2026 planning ranges, not live quotes. Re-check before a commitment. See `sources.md`.
+
+
 For most people in Shanghai, driving is optional and often inconvenient.
 This guide helps you decide if a car is worth it.
 

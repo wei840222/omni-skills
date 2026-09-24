@@ -13,7 +13,7 @@
 ## Social Etiquette
 - Greet people respectfully, especially in first meetings.
 - Exchange contact details early, usually through mobile apps.
-- Avoid public confrontation; give feedback privately when possible.
+- Address issues privately and constructively.
 - Modesty in self-presentation is generally better than hard self-promotion.
 
 ## Business Interaction Norms
@@ -35,7 +35,7 @@
 
 ## Sensitive Topics
 - Keep politics and geopolitical debates out of early relationships.
-- Avoid stereotyping local or national identity.
+- Keep a specific, curious view of local and national identity.
 - Ask questions with curiosity, not comparison framing.
 
 ## Everyday Behavior Tips

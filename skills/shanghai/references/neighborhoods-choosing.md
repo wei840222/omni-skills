@@ -26,7 +26,7 @@ Adjust weights to your real priorities before comparing scores.
 ## Red flags before committing
 
 - Promised commute based only on off-peak timing.
-- Listing photos that avoid building common areas.
+- Listing photos that omit building common areas.
 - No clear answer on management fees or service standards.
 - Heavy dependence on one transport mode with no backup.
 

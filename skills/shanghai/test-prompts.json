@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm visiting Shanghai for the first time for 3 days on a British citizen passport. What should I see, where should I stay, and do I need a visa?",
+    "expected": "Give a 3-day visitor route around the Bund, Yu Garden, and a central stay in Huangpu or Jing'an, and state the current British-citizen visa-free limit instead of assuming a visa is required.",
+    "actual": "For a first 3-day visit, stay in Huangpu or Jing'an so the Bund, Nanjing Road, and Yu Garden stay on the metro. Day 1: Yu Garden and the Old City in the morning, People's Square museums in the afternoon, the Bund at sunset. Day 2: Former French Concession on foot, then Jing'an for dinner. Day 3: Lujiazui viewpoints or the West Bund if the centre is packed. On a standard British citizen passport, tourism stays of up to 30 days are visa-free until 31 December 2026; that is not permission to work, and a private stay still needs Public Security Bureau registration within 24 hours. Set up Alipay or WeChat before arrival. Re-check https://www.gov.uk/foreign-travel-advice/china/entry-requirements before booking flights.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am a software engineer moving to Shanghai next month. My office is in Zhangjiang. Which neighborhood should I choose if I do not want a long commute, and can I start work on a business visa?",
+    "expected": "Recommend a Pudong or Zhangjiang-side base to keep the commute short, and refuse to treat a business or visa-free entry as work permission.",
+    "actual": "If the office is in Zhangjiang, the short-commute choice is Pudong in or next to Zhangjiang, not a Puxi nightlife base. Jing'an or Lujiazui on Metro Line 2 is a 30-45 minute option only if you accept peak crowding. Test that ride at rush hour before signing. A business-visit visa and the current British visa-free entry do not allow salaried work. Paid work needs a Z visa plus a work permit, and the permit location should match the Zhangjiang workplace. Register the residence within 24 hours of arrival, and again if you move. Treat the February 2026 rent ranges as a planning band, then re-check live listings.",
+    "pass": true
+  }
+]

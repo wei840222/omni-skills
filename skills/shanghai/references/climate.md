@@ -26,7 +26,7 @@ Plan wardrobe and housing utilities around humidity swings.
 |---|---|---|
 | Mar-Apr | Temperature swings | Layering works best |
 | May-Jun | Humidity jump | Ventilate and control mold |
-| Jul-Aug | Heat stress | Avoid midday outdoor exertion |
+| Jul-Aug | Heat stress | Plan indoor activities during midday |
 | Sep-Oct | Weather improvement | Best months for outdoor travel |
 | Nov-Dec | Drying and cooling | Add light outerwear |
 | Jan-Feb | Damp cold indoors | Portable heating and warm bedding |
