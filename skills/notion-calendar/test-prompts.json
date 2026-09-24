@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Show me everything on the Editorial calendar between 2026-04-01 and 2026-04-07.",
+    "expected": "Resolves state_root, loads the Editorial database_id and data_source_id, queries POST /v1/data_sources/{id}/query with on_or_after and on_or_before, and returns title, date, status, and URL without writing.",
+    "actual": "Resolved <state_root>/calendars.md. Found Editorial data_source_id. Posted a bounded date filter to /v1/data_sources/{id}/query with Notion-Version 2025-09-03. Returned three pages with title, date, status, and URL. No write.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Add a page titled Launch review on the Work calendar for 2026-04-15 at 09:00 in Asia/Taipei.",
+    "expected": "Confirms the live date property, creates the page with parent data_source_id, reads the page back, and reports title, date, status, and URL.",
+    "actual": "Retrieved the data source schema, confirmed the date property name, POSTed /v1/pages with parent data_source_id and start 2026-04-15T09:00:00+08:00, then read the page back and returned title, date, status, and URL.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Move Marketing Launch from next Tuesday to next Thursday. Two pages share that title.",
+    "expected": "Queries the Tuesday window, finds two title matches, and asks for a page URL or ID before any update.",
+    "actual": "Queried the Tuesday window and found two Marketing Launch pages. Stopped and asked for the page URL. No PATCH was sent.",
+    "pass": true
+  }
+]

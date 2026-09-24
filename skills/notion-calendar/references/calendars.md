@@ -25,4 +25,4 @@ For each approved calendar-like source, keep:
 
 ## Safety Rule
 
-Do not reuse mappings across workspaces or duplicate database names until the IDs are confirmed.
+Store each human label only after `database_id` and `data_source_id` are confirmed. When two workspaces or two databases share a name, keep both records and select by ID, not by label.

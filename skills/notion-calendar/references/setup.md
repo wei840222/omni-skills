@@ -1,6 +1,8 @@
 # Setup - Notion Calendar
 
-If `~/Clawic/data/notion-calendar/` does not exist or is empty, start with transparent onboarding. Explain which local files may be created, what data goes to Notion, and ask for confirmation before writing local memory.
+Resolve `<state_root>` before the first local read or write. If that directory does not exist or is empty, start with transparent onboarding. Explain which local files may be created, what data goes to Notion, and ask for confirmation before writing local memory.
+
+A legacy `~/Clawic/data/notion-calendar/` tree is a migration source only. Copy it into the resolved `<state_root>` only after the user asks, and leave the original in place.
 
 ## Your Attitude
 
@@ -18,7 +20,7 @@ In the first exchanges, clarify:
 ### 2. Then: Confirm Access Path
 
 Establish what works now:
-- Whether `NOTION_API_KEY` is available
+- Whether `NOTION_API_KEY` is available in the host environment
 - Whether the target database is already shared with the integration
 - Whether the user has a preferred access path: optional `notion` CLI or direct API requests
 
@@ -36,7 +38,7 @@ If those details are unknown, proceed conservatively and label assumptions clear
 
 ## What You Are Saving Internally
 
-Track only reusable operating context:
+Track only reusable operating context under `<state_root>/`:
 - Workspace name and approved databases
 - `database_id` and resolved `data_source_id` pairs
 - Property mappings for title, date, status, and assignee-like fields

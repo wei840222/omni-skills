@@ -1,161 +1,69 @@
 ---
 name: notion-calendar
-slug: notion-calendar
-version: 1.0.0
-description: Manage Notion calendar databases with date-aware search, page creation, rescheduling, and safe workflows for planning views.
-homepage: https://clawic.com/skills/notion-calendar
-changelog: Initial release with date-aware Notion workflows, CLI fallback guidance, and safe create and reschedule patterns.
+description: Manage Notion databases as date-aware calendars. Use when the user wants schema discovery, a time-window query, a new dated page, or a reschedule on a Notion database, editorial plan, launch schedule, content calendar, or dated task board. Not for Google Calendar sync or Notion Calendar app settings.
 metadata:
-  clawdbot:
-    emoji: N
-    requires:
-      env:
-      - NOTION_API_KEY
-      config:
-      - ~/Clawic/data/notion-calendar/
-    primaryEnv: NOTION_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/notion-calendar/
-    displayName: Notion Calendar
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/notion-calendar/
+  version: "1.0.1"
+  openclaw: '{"emoji":"N","requires":{"env":["NOTION_API_KEY"]}}'
+  related-skills: '{"api":"Use for general REST auth, pagination, and HTTP error patterns when a Notion call fails outside this calendar workflow.","dates":"Use for date math and timezone ranges before writing a Notion date property.","pkm":"Use when the task is broader workspace organization rather than a dated database view.","productivity":"Use when dated Notion rows need to feed a task or execution system.","schedule":"Use when a request becomes multi-step planning beyond one Notion calendar window."}'
 ---
 
-## Setup
+## When to load
 
-On first use, read `setup.md` to establish token access, workspace scope, and safe write defaults.
+Load this skill when the user wants a Notion database treated as a calendar, editorial plan, launch schedule, content calendar, or dated task board. Handle schema discovery, time-window queries, page creation, rescheduling, and status updates for pages that appear in those views.
 
-## When to Use
+## State location
 
-User wants to treat a Notion database as a calendar, editorial plan, launch schedule, content calendar, or dated task board.
-Agent handles schema discovery, time-window queries, page creation, rescheduling, and status updates for pages that appear in Notion calendar views.
+Calendar memory may exist in `<workspace>/notion-calendar/`, `<workspace>/memory/notion-calendar/`, or `~/notion-calendar/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/notion-calendar/`, `<workspace>/memory/notion-calendar/`, `~/notion-calendar/`.
+3. If more than one exists, use only the highest-precedence directory and tell the user that other copies were found. Do not merge them.
+4. If none exists and the user wants memory saved, create `<workspace>/notion-calendar/`.
+5. If `<workspace>` cannot be resolved and `~/notion-calendar/` is also missing, ask for a state root before creating files.
+
+Use that `<state_root>` for every state operation in this invocation. A legacy `~/Clawic/data/notion-calendar/` tree is a migration source only; copy it only after the user asks, then leave the original in place.
 
 ## Requirements
 
-- `NOTION_API_KEY` for official API access.
-- A Notion integration shared with the target database.
-- Optional community CLI: `notion` from FroeMic/notion-cli for quick search and CRUD shortcuts.
+- `NOTION_API_KEY` for official API access. Keep the token in the host environment, never in skill memory.
+- A Notion integration shared with the target database. An unshared database returns 404, not a useful empty list.
+- Optional community CLI: `notion` from FroeMic/notion-cli for quick search and CRUD on the older `2022-06-28` shape.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/notion-calendar/`. See `memory-template.md` for structure.
+After `<state_root>` is resolved, local memory uses this tree. See `assets/memory-template.md` for the file shape.
 
 ```text
-~/Clawic/data/notion-calendar/
+<state_root>/
 |-- memory.md        # Status, timezone defaults, and workspace context
 |-- calendars.md     # Database and data source IDs plus property mappings
 |-- templates.md     # Reusable page payload patterns
 `-- safety-log.md    # Ambiguous matches, destructive confirmations, and rollbacks
 ```
 
+| Path | Role | Creation condition |
+|------|------|--------------------|
+| `<state_root>/memory.md` | Status, timezone, write policy | First time the user wants defaults to persist |
+| `<state_root>/calendars.md` | Verified IDs and property names | After a database mapping is confirmed |
+| `<state_root>/templates.md` | Reusable payloads | When the user asks to reuse a page shape |
+| `<state_root>/safety-log.md` | Ambiguous matches and confirmed destructive actions | When a match is ambiguous or a destructive change is confirmed |
+
+Create a child only when that feature is needed. Do not pre-create empty files.
+
 ## Quick Reference
+
+Load only the file the current step needs:
 
 | Topic | File |
 |-------|------|
-| Setup and first-run behavior | `setup.md` |
-| Memory structure | `memory-template.md` |
-| Calendar source mapping | `calendars.md` |
-| Reusable payload templates | `templates.md` |
-| Optional CLI patterns | `cli-patterns.md` |
-| Calendar database schema guidance | `calendar-schema.md` |
-| Query, create, and reschedule flows | `query-playbook.md` |
-| Common failures and fixes | `troubleshooting.md` |
-
-## Core Rules
-
-### 1. Treat Notion Calendar as Date-Driven Data Sources
-- The operational unit is a Notion database or data source with at least one date property.
-- Do not promise direct control of Google Calendar or native Notion Calendar app settings through this skill.
-
-### 2. Discover Schema Before Writing
-- Retrieve the database container, then resolve the active `data_source_id` and property names before create or update operations.
-- Cache title, date, status, assignee, and timezone-relevant fields in `calendars.md` after user approval.
-
-### 3. Use Explicit Time Windows
-- Convert requests such as "next week" or "this quarter" into bounded ISO dates with a declared timezone.
-- Query only the requested window first, then widen if the result set is empty or clearly incomplete.
-
-### 4. Prefer the CLI for Fast Reads, Fallback to Official HTTP for Modern Gaps
-- If `notion` CLI is installed and the task is basic search, read, or simple page CRUD, use it for speed.
-- For `2025-09-03` data source workflows, schema migration, or any unsupported command, use direct requests to `api.notion.com`.
-
-### 5. Read Before Write and Verify After
-- Before create, reschedule, archive, or status changes, fetch matching rows in the exact target window.
-- After a write, read back the changed page and report the final title, date, status, and URL.
-
-### 6. Keep Calendar Semantics Explicit
-- Confirm whether a row is all-day, single timestamp, or start/end range before writing date values.
-- Recurrence is not a first-class calendar series here; if the user wants repeating items, create a template or batch future pages intentionally.
-
-### 7. Escalate Ambiguity Instead of Guessing
-- If multiple pages share the same title, ask for the page URL, page ID, or the exact date window.
-- Never archive or move rows on a low-confidence title match.
-
-## Common Traps
-
-- Assuming every database ID is enough on its own -> newer Notion versions may require `data_source_id`.
-- Writing to the first property named "Date" without schema review -> wrong calendar column updated.
-- Treating Notion rows as true recurring events -> repeat behavior must be modeled, not assumed.
-- Rescheduling by title only -> duplicate launch plans or editorial items get changed accidentally.
-- Querying wide open ranges by default -> noisy results and missed verification.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| `https://api.notion.com/v1/search` | Search text, filters, pagination cursor | Find candidate databases, data sources, or pages |
-| `https://api.notion.com/v1/databases/*` | Database ID | Retrieve container metadata and child data sources |
-| `https://api.notion.com/v1/data_sources/*` | Data source IDs, filters, sorts, property schema updates | Query rows and inspect or update calendar schema |
-| `https://api.notion.com/v1/pages/*` | Page properties and content updates | Create pages, reschedule items, update status |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- Search text, page properties, dates, and page content sent to Notion through `api.notion.com`.
-
-**Data that stays local:**
-- Workspace context, property mappings, and safe defaults in `~/Clawic/data/notion-calendar/`.
-
-**This skill does NOT:**
-- Store API keys in skill memory files.
-- Access undeclared third-party calendar APIs.
-- Claim a write succeeded without a read-back check.
-- Modify files outside `~/Clawic/data/notion-calendar/` for this workflow.
-
-## Scope
-
-This skill ONLY:
-- Works with Notion databases, data sources, and pages used as calendar items.
-- Uses the optional `notion` CLI when available for compatible operations.
-- Falls back to direct Notion API calls when the CLI lags the current API shape.
-
-This skill NEVER:
-- Configure Notion Calendar app preferences or account settings.
-- Synchronize Google Calendar accounts on the user's behalf.
-- Hide destructive changes behind implicit matches.
-
-## Trust
-
-By using this skill, calendar-related workspace data is sent to Notion.
-Only install if you trust Notion with page titles, dates, status fields, and related planning metadata.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` - general REST API request patterns and debugging.
-- `dates` - precise date math, ranges, and timezone interpretation.
-- `pkm` - broader knowledge and workspace organization patterns.
-- `productivity` - execution systems around tasks and schedules.
-- `schedule` - planning logic when requests become multi-step scheduling work.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/notion-calendar
-- Latest version: https://clawic.com/skills/notion-calendar
+| Setup and first-run behavior | `references/setup.md` |
+| Memory structure | `assets/memory-template.md` |
+| Calendar source mapping | `references/calendars.md` |
+| Reusable payload templates | `assets/templates.md` |
+| Optional CLI patterns | `references/cli-patterns.md` |
+| Calendar database schema guidance | `references/calendar-schema.md` |
+| Query, create, and reschedule flows | `references/query-playbook.md` |
+| Common failures and fixes | `references/troubleshooting.md` |
+| Core rules, endpoints, and security | `references/rules.md` |
+| Verified API sources | `references/sources.md` |
