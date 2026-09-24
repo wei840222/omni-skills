@@ -1,52 +1,39 @@
 ---
 name: esim
-slug: esim
-version: 1.0.0
-description: Implement and troubleshoot eSIM across consumer activation, carrier integration, and RSP development.
-homepage: https://clawic.com/skills/esim
+description: >
+  Implement and troubleshoot eSIM activation, carrier integration, and RSP
+  development. Use for SGP.22 consumer profiles, SGP.02 M2M profiles, SGP.32
+  IoT, SM-DP+ activation codes, iOS CTCellularPlanProvisioning, and Android
+  EuiccManager. Not for physical SIM cloning, arbitrary third-party
+  provisioning, or production SM-DP+ go-live without GSMA SAS.
 metadata:
-  clawdbot:
-    emoji: 📱
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: eSIM
+  version: "1.0.0"
+  openclaw: '{"emoji":"📱","os":["linux","darwin","win32"],"displayName":"eSIM"}'
 ---
 
-## Critical Distinction
-- Consumer RSP (SGP.22) and M2M RSP (SGP.02) are completely different architectures — not interchangeable, verify which applies before starting
+## When to load
 
-## Platform API Restrictions
-- Apple eSIM APIs require carrier entitlements — third-party apps cannot access without carrier partnership agreement
-- Android carrier privilege APIs require signing certificate match — must be signed with carrier's certificate
-- No public API exists for arbitrary eSIM provisioning — apps suggesting otherwise will fail App Store/Play Store review
+Load this skill when the task is to:
 
-## Activation Code Traps
-- Format is `LPA:1$SMDP+address$MatchingId` — parse carefully, some codes omit optional parts
-- `$1` suffix means confirmation code required — flow differs, timeout is shorter
-- Codes are often one-time use — SM-DP+ rejects reused MatchingId, must generate new code
-- QR code is just encoding — the activation code content is what matters
+- Integrate an eSIM activation flow in an iOS or Android app.
+- Design or operate SM-DP+ / RSP infrastructure (consumer, M2M, or IoT).
+- Parse an activation code or QR payload and recover a failed download.
+- Separate consumer RSP (SGP.22) from M2M RSP (SGP.02) and IoT RSP (SGP.32).
 
-## Certification Requirements
-- GSMA SAS (Security Accreditation Scheme) mandatory for production SM-DP+ — cannot go live without it
-- Use test eUICCs during development — production EIDs must not touch test environments
-- GSMA TS.48 defines RSP test cases — certification testing follows this spec
-- Entitlement server is separate from RSP — iOS carrier features require additional integration beyond profile provisioning
+Leave this skill unloaded for physical SIM logistics, generic mobile UI, or billing that does not touch profile download or enablement.
 
-## Consumer-Facing Pitfalls
-- QR codes expire — typically 24-72 hours, carrier-dependent, users panic when "invalid"
-- Deleting profile is permanent on device — must request new activation code from carrier, no local recovery
-- Device lock status matters — locked devices reject profiles from non-native carriers
-- Regional variants of same phone model may lack eSIM hardware — verify before promising compatibility
-- Profile transfer between devices almost never works — expect new activation per device
+## State location
 
-## Carrier Integration Reality
-- MVNOs rarely operate own SM-DP+ — use MNO's infrastructure or aggregators (G+D, IDEMIA, Thales)
-- Business agreements required before technical integration — ES2+ access isn't self-service
-- Number porting complicates eSIM activation — may require physical SIM first depending on carrier process
+This skill does not persist state. Keep activation codes, EID values, and MatchingIDs in the caller's secret store; do not write them into the skill directory.
 
-## Troubleshooting Specifics
-- "Profile already exists" error — delete existing profile before retry, or request new MatchingId from SM-DP+
-- Download fails mid-process — ES9+ requires stable HTTPS, retry on better connection, not a code issue
-- Profile installed but no service — verify profile is enabled AND set as active line, restart radio
+## Load path
+
+Read `references/esim-core-concepts.md` before giving platform, activation-code, certification, or troubleshooting guidance. Read `references/sources.md` when a claim needs a citation or a freshness check.
+
+## Decision order
+
+1. Name the RSP family first: consumer SGP.22, M2M SGP.02, or IoT SGP.32. Treat them as separate architectures.
+2. Confirm the caller is a carrier app, an OEM LPA, or an SM-DP+ operator. A third-party app without that role cannot provision an arbitrary profile.
+3. Parse the activation code before retrying a QR scan. Format, confirmation-code suffix, and one-time MatchingId decide the next action.
+4. For production SM-DP+, treat GSMA SAS-SM as a go-live prerequisite, and keep production EIDs off test environments.
+5. After a profile installs with no service, check enabled state and active line, then restart the radio. A download failure mid-transfer is an ES9+ connectivity retry, not a code rewrite.

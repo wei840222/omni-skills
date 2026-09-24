@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to provision an eSIM for my Android app without partnering with a carrier. Can I use the Android carrier privilege APIs?",
+    "expected": "Explain that EuiccManager profile download is for carrier apps or the LPA, and that carrier-privilege certificate matching still requires a carrier agreement. A third-party app cannot provision an arbitrary eSIM.",
+    "actual": "The skill routes to references/esim-core-concepts.md and states that EuiccManager calls are for carrier-owned profiles or an LPA, while certificate-matched carrier privileges still require a carrier agreement. It does not offer an arbitrary third-party provisioning path.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A customer is trying to scan an activation code formatted as LPA:1$SMDP.EXAMPLE.COM$12345$1. It keeps failing and they want me to reuse the QR code. How should I troubleshoot this?",
+    "expected": "Identify the $1 confirmation-code suffix, warn that MatchingId values are commonly single-use, and tell the operator to generate a new activation code rather than reuse the QR.",
+    "actual": "The skill parses LPA:1$SM-DP+$MatchingId, treats a trailing $1 as a confirmation-code flow with a shorter timeout, and says SM-DP+ rejects a reused MatchingId so the next step is a newly generated code.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We already built an SGP.22 consumer activation flow. Can we reuse it unchanged for an unattended IoT fleet?",
+    "expected": "Refuse the reuse. Name SGP.32 (and SGP.02) as separate architectures and require the caller to pick the IoT or M2M path before designing the integration.",
+    "actual": "Decision order step 1 says to name the RSP family first and treat SGP.22, SGP.02, and SGP.32 as separate architectures. The references file says reusing a consumer activation-code flow on an IoT estate fails closed.",
+    "pass": true
+  }
+]
