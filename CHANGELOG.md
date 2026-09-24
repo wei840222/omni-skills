@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| billing | 2026-09-24 | 85/100 (#561) |
 | dns | 2026-09-24 | 85/100 (#560) |
 | bnb | 2026-09-24 | 85/100 (#559) |
 | cofounder | 2026-09-24 | 85/100 (#558) |
