@@ -1,149 +1,69 @@
 ---
 name: dates
-slug: dates
-version: 1.0.0
-description: Build a personal dating system for tracking connections, planning dates, and remembering details.
-homepage: https://clawic.com/skills/dates
+description: >
+  Track dating connections, plan dates, and remember private details in local
+  notes. Use when the user mentions someone they are seeing, asks for a date
+  idea, or wants to log how a date went. Not for relationship therapy, medical
+  advice, or sending messages on the user's behalf.
 metadata:
-  clawdbot:
-    emoji: 💜
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Dates
+  version: "1.0.1"
+  openclaw: '{"emoji":"💜"}'
+  related-skills: '{"daily-planner":"Place a chosen date into the day plan after the user picks a time.","habits":"Turn a user-chosen dating rhythm, such as a weekly check-in, into a trackable routine.","journal":"Hold free-form feelings that should not live in a person profile.","remind":"Schedule a reminder the user already asked for, such as a birthday or a planned date."}'
 ---
 
-## Core Behavior
-- User mentions someone new → offer to create profile
-- User plans a date → suggest ideas based on history
-- User returns from date → help log notes
-- Create `~/Clawic/data/dates/` as workspace
-- Treat all information as strictly private
+## When to load
 
-## File Structure
-```
-~/Clawic/data/dates/
-├── people/
-│   ├── alex.md
-│   └── jordan.md
-├── date-ideas/
-│   ├── first-dates.md
-│   ├── casual.md
-│   └── special.md
-├── history/
-│   └── 2024.md
-└── reflections.md
-```
+Load this skill when the user names a new connection, asks what to do on a date, or wants notes after a date. Load `references/sources.md` before repeating a safety or communication claim. Load the matching reference only for the task at hand.
 
-## Person Profile
-```markdown
-# alex.md
-## Basics
-Met: Hinge, January 2024
-Birthday: July 12
+## State location
 
-## About
-Works in architecture
-From Portland, moved here 2 years ago
-Has a dog named Mochi
+Dating notes may exist in `<workspace>/dates/`, `<workspace>/memory/dates/`, or `~/dates/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Interests
-Rock climbing, Japanese food, indie films
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/dates/`, `<workspace>/memory/dates/`, `~/dates/`.
+3. If more than one exists, use only the highest-precedence directory and tell the user that other copies were found. Do not merge them.
+4. If none exists and the user wants notes saved, create `<workspace>/dates/`.
+5. If `<workspace>` cannot be resolved and `~/dates/` is also missing, ask for a state root before creating files.
 
-## Important Details
-Vegetarian
-Allergic to cats
-Early riser
+Use that `<state_root>` for every state operation in this invocation. Keep notes local to that directory. A legacy `~/Clawic/data/dates/` tree is a migration source only; copy it only after the user asks, then leave the original in place.
 
-## Date History
-- Jan 15: Coffee at Blue Bottle — good conversation
-- Jan 22: Climbing gym — really fun, natural chemistry
-- Jan 28: Dinner at Sushi place — met their friend
+## Workflow
 
-## Notes
-Remembers small details, appreciates thoughtfulness
-Mentioned wanting to try that new ramen place
-```
+1. Name the task: new profile, date idea, after-date log, reflection, or deletion.
+2. Resolve `<state_root>` before the first read or write.
+3. Read only the files the task needs. See `references/file-structure.md`.
+4. Confirm any fact that will be stored as the user's words, not an inference.
+5. Write the smallest update, then surface one useful reminder from existing notes.
 
-## After-Date Notes
-Quick capture what matters:
-- How it went (vibe, chemistry)
-- What you talked about
-- Things they mentioned (use later)
-- Red or green flags
-- Want to see again?
+## Core behavior
 
-## Date Ideas Bank
-```markdown
-# first-dates.md
-## Low Pressure
-- Coffee or drinks
-- Walk in the park
-- Casual lunch spot
+- Someone new: offer a profile using `references/person-profile.md`. Create it after the user wants it saved.
+- Date planning: read that person's interests and history, then suggest from `references/date-ideas.md`. Offer two or three options and let the user choose.
+- After a date: capture vibe, topics, details to reuse, flags, and whether they want to see the person again. Format is in `references/after-date.md`.
+- Patterns over time: update `references/history-log.md` and `references/reflections.md` only when the user is recording a pattern, not after every aside.
+- Pace and intent stay with the user. Advice appears only when they ask for it.
 
-## More Engaging
-- Museum or gallery
-- Farmers market
-- Bookstore browsing
+## What to surface
 
-# special.md
-## Impressive But Not Try-Hard
-- Rooftop with view
-- Concert or show
-- Cooking together
-```
+When notes already contain it, surface one concrete item:
 
-## Planning Dates
-When user asks for date ideas:
-- Check person's interests
-- Consider date number (1st vs 5th)
-- Weather and timing
-- Avoid repeating same type
+- a place or food they said they wanted to try
+- a birthday or other dated detail
+- time since the last logged date
+- a date type not tried yet with this person
 
-## History Log
-```markdown
-# 2024.md
-## Alex
-- 4 dates, last: Jan 28
-- Status: seeing regularly
+## Privacy and safety
 
-## Jordan
-- 2 dates, last: Feb 3
-- Status: didn't click, ended nicely
-```
+- Store notes only under the resolved `<state_root>`. Do not sync, upload, or quote them outside this task.
+- Record money requests, pressure to leave the app, or a refusal to meet as flags. The practical rule from FTC guidance is: do not send money or gifts to someone not met in person. Details: `references/sources.md`.
+- If notes show control, coercion, or fear, pause planning and point to the WHO intimate-partner-violence definition in `references/sources.md`. Offer deletion of the profile.
+- Delete a profile, history rows, and date-idea notes that name that person when the user asks to stop. Confirm the paths removed.
+- Keep a neutral tone. Describe what was said; do not diagnose the other person.
 
-## Reflections
-```markdown
-# reflections.md
-## What I'm Looking For
-- Shared humor
-- Intellectual curiosity
-- Active lifestyle
+## Related handoffs
 
-## Patterns I've Noticed
-- Better chemistry when activity-based
-- Evening dates work better than lunch
-
-## Lessons
-- Trust gut on first date
-- Don't over-text between dates
-```
-
-## What To Surface
-- "Alex mentioned wanting to try ramen"
-- "Their birthday is next month"
-- "Last date was 2 weeks ago"
-- "You haven't tried an activity date yet"
-
-## Privacy First
-- Never share or reference externally
-- No sync, no cloud, local files only
-- Offer to delete profiles cleanly
-- No judgmental commentary
-
-## What NOT To Do
-- Make assumptions about intentions
-- Push for more dates than they want
-- Keep profiles of people who asked to stop
-- Give unsolicited dating advice
+- A chosen time goes to `daily-planner`.
+- A reminder the user already requested goes to `remind`.
+- A free-form feeling that is not a profile fact goes to `journal`.
+- A recurring check-in the user wants to track goes to `habits`.
