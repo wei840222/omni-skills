@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I configure DMARC to help deliverability for example.com?",
+    "expected": "Mentions that SPF and DKIM are also needed, and provides a sample DMARC TXT record like v=DMARC1; p=quarantine...",
+    "actual": "To configure DMARC for example.com to improve deliverability, you must also ensure SPF and DKIM are set up, as DMARC alone is insufficient. You should create a TXT record for `_dmarc.example.com` with a value such as `v=DMARC1; p=quarantine; rua=mailto:dmarc@example.com`. After configuration, use a tool like mail-tester.com to verify the setup.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to migrate example.com to a new IP address. Our current TTL is 86400. What's the plan?",
+    "expected": "Instructs lowering TTL to 300s at least 48h in advance, migrating, and raising TTL back up after 24h of stability.",
+    "actual": "Since your current TTL is 86400 (24 hours), you should lower it to 300s (5 minutes) at least 48 hours before the planned migration to ensure the old TTL expires everywhere. Once the migration is complete and stable for 24 hours, you can raise the TTL back to 86400s. Make sure to test resolution with multiple resolvers like Google (8.8.8.8) and Cloudflare (1.1.1.1).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I set my Cloudflare record to proxy (orange cloud) but now SSH isn't working. What should I do?",
+    "expected": "Explains that orange cloud hides the origin IP and breaks non-HTTP traffic like SSH, advising to use grey cloud (DNS-only) for non-HTTP services.",
+    "actual": "Cloudflare's proxied mode (orange cloud) is designed for HTTP/HTTPS traffic and hides your origin IP. This breaks non-HTTP protocols like SSH, mail, or game servers. To fix this, you should change the proxy status for the SSH subdomain to 'DNS only' (grey cloud).",
+    "pass": true
+  }
+]
