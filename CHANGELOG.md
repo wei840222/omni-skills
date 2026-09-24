@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| agentic-engineering | 2026-09-24 | 85/100 (#568) |
 | dates | 2026-09-24 | 85/100 (#567) |
 | indonesian | 2026-09-24 | 85/100 (#566) |
 | thailand | 2026-09-24 | 85/100 (#565) |
