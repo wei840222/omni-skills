@@ -1,24 +1,22 @@
 ---
 name: house
-slug: house
-version: 1.1.0
-description: Buy, maintain, improve, and sell homes with inspection checklists, maintenance schedules, renovation planning, and transaction guidance.
-homepage: https://clawic.com/skills/house
+description: Buy, maintain, improve, sell, or rent out a home. Use for offer and inspection decisions, seasonal maintenance, permits and contractor scope, listing price, or a landlord lease. Not for licensed legal, tax, lending, or structural advice, and not for a jurisdiction whose rules were not checked. Load references/sources.md before repeating a ratio, permit rule, or ROI figure.
 metadata:
-  clawdbot:
-    emoji: 🏠
-    displayName: House
+  version: "1.1.0"
+  openclaw: '{"emoji":"🏠"}'
+  related-skills: '{"home-buying":"Run a purchase search and offer path when the question is only about buying.","home-renovation":"Plan a remodel scope, budget, and contractor sequence.","property-valuation":"Estimate value before pricing a buy or a sale.","real-estate-agent":"Coordinate listing, showing, and negotiation tasks with an agent.","real-estate-investing":"Judge rental yield and hold-versus-sell for an investment property.","law":"Check local landlord, disclosure, or contract rules before treating a checklist as legal advice."}'
 ---
 
-## Decision Tree
+## When to load
 
-| Situation | Action |
-|-----------|--------|
-| Buying a house | Check `buying.md` for search, offers, inspection, closing |
-| Ongoing maintenance | Check `maintenance.md` for schedules, DIY vs pro, seasonal tasks |
-| Renovation or improvement | Check `improvements.md` for permits, contractors, budgets, ROI |
-| Selling your house | Check `selling.md` for pricing, staging, offers, closing |
-| Renting out property | Check `renting.md` for tenants, leases, management, legal |
+This skill is stateless. It does not store local configuration or persistent user state. Name the jurisdiction before applying a loan, permit, deposit, or eviction rule.
+
+- Load `references/buying.md` when the user is searching for, making offers on, or closing on a house.
+- Load `references/maintenance.md` when scheduling repairs, seasonal maintenance, or emergencies.
+- Load `references/improvements.md` when planning renovations, managing permits, or hiring contractors.
+- Load `references/selling.md` when pricing, staging, negotiating, or closing a home sale.
+- Load `references/renting.md` when managing tenants, leases, rent, or evictions.
+- Load `references/sources.md` before repeating a DTI mark, PMI rule, inspection limit, permit trigger, or remodel payback figure.
 
 ---
 
@@ -60,18 +58,8 @@ metadata:
 
 Before approving any major expense:
 1. Get 3 quotes minimum (wide variance is normal)
-2. Search "[project] + [your city] + cost 2024" for local rates
+2. Search "[project] + [your city] + cost" plus the current year for local rates
 3. Materials are 40-50% of total; rest is labor
 4. "While we're at it" add-ons double budgets — decide scope upfront
 
 ---
-
-## When to Load More
-
-| Situation | Reference |
-|-----------|-----------|
-| Searching, making offers, closing | `buying.md` |
-| Repairs, preventive maintenance, emergencies | `maintenance.md` |
-| Projects, permits, contractors | `improvements.md` |
-| Pricing, staging, negotiations, closing | `selling.md` |
-| Tenants, leases, rent collection, evictions | `renting.md` |

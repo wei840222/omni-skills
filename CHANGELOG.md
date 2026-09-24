@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| house | 2026-09-25 | 84/100 (#576) |
 | finnish | 2026-09-25 | 84/100 (#575) |
 | turkey | 2026-09-25 | 84/100 (#574) |
 | notion-calendar | 2026-09-25 | 84/100 (#573) |

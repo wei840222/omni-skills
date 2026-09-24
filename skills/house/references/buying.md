@@ -4,7 +4,7 @@
 
 **Financial readiness checklist:**
 - [ ] Credit score 700+ (620 minimum for most loans, but costs more)
-- [ ] Down payment saved (20% avoids PMI, but 3-5% programs exist)
+- [ ] Down payment saved (20% prevents PMI, but 3-5% programs exist)
 - [ ] 6 months expenses in emergency fund AFTER down payment
 - [ ] Debt-to-income under 43% (all monthly debts / gross income)
 - [ ] Pre-approval letter in hand (not pre-qualification — actual pre-approval)
@@ -44,7 +44,7 @@
 - Cold market: 15-20% below asking, all contingencies
 
 **Contingencies to include:**
-- Inspection (always, never waive)
+- Inspection (mandatory, keep contingency)
 - Financing (unless cash buyer)
 - Appraisal (protects you if bank values lower)
 - Sale of current home (weakens offer but sometimes necessary)
@@ -55,7 +55,7 @@
 
 ## Inspection
 
-**Never skip inspection.** Even in hot markets, make offer contingent on inspection. You can waive repair requests, but know what you're buying.
+**Always maintain inspection contingency.** Even in hot markets, make offer contingent on inspection. You can waive repair requests, but know what you're buying.
 
 **Inspector finds issues — now what:**
 1. Categorize: Safety (must fix) vs Maintenance (negotiate) vs Cosmetic (ignore)

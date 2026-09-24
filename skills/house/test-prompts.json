@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm thinking of buying a house. I have 10% for a down payment saved. What should my first steps be?",
+    "expected": "Check financial readiness (credit score, DTI), then get a pre-approval letter.",
+    "actual": "Based on the house skill buying procedures:\n\n1. Check your financial readiness: ensure your credit score is 700+ (or 620 minimum), emergency fund is funded for 6 months after the 10% down payment, and DTI is under 43%.\n2. Obtain a pre-approval letter (not just pre-qualification).\n3. Prepare to pay PMI since the down payment is under 20%.\n4. Determine your true monthly cost (PITI + maintenance + PMI).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm planning to remodel my kitchen and also add an extension to the living room. Should I pull a permit or DIY?",
+    "expected": "Cosmetic changes might not need permits, but structural changes (extension) always need a permit. Advise getting 3 quotes and considering ROI.",
+    "actual": "Based on the house skill improvements rules:\n\nFor the kitchen remodel (if cosmetic), you may not need a permit, but for the living room extension (structural), you always need a permit. Unpermitted work carries major risks, including liability and issues when selling.\n\nSince this involves structural changes, always hire a pro rather than DIYing. Before starting, get at least 3 quotes, buffer your budget by 20%, and consider the ROI (minor kitchen remodels have a high ROI, but major upscale additions typically have lower ROI).",
+    "pass": true
+  }
+]

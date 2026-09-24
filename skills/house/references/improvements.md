@@ -55,7 +55,7 @@
 
 **Finding good contractors:**
 1. Get 3+ referrals from neighbors, friends, Nextdoor
-2. Check license and insurance (verify, don't trust)
+2. Check and verify license and insurance independently
 3. Look up reviews (Google, BBB, Yelp)
 4. Ask for recent references and call them
 5. Get detailed written quotes (not ballpark)
@@ -78,7 +78,7 @@
 - Permit responsibility
 
 **Payment schedule:**
-- Never more than 30% upfront
+- Limit upfront payment to maximum 30%
 - Pay for work completed, not promised
 - Hold 10-15% until final walkthrough
 - Final payment after all permits closed
@@ -149,6 +149,6 @@
 - 3x longer timeline
 - 2 trips to hardware store per task
 - Mistakes that need pro to fix
-- Tools you buy and never use again
+- Tools purchased for single-use tasks
 
 Calculate your time value. If contractor costs $2,000 and saves 40 hours, that's $50/hour for your time.

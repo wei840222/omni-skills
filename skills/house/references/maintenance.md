@@ -57,11 +57,11 @@
 4. Check float — adjust height if water too high
 
 ### Slow drain
-1. Remove stopper, clear hair/debris
+1. Remove drain cover, clear hair/debris
 2. Plunger (cover overflow first)
 3. Baking soda + vinegar (15 min, then hot water)
 4. Drain snake for deeper clogs
-5. Don't use chemical drain cleaners (damages pipes)
+5. Use mechanical snakes instead of chemical cleaners to protect pipes
 
 ### Squeaky door
 1. Remove hinge pin
