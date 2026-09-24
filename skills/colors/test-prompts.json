@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this snippet for contrast accessibility: `<button class=\"bg-blue-500 text-gray-400\">Submit</button>`. Assume the background is Tailwind blue-500 (#3B82F6) and the text is gray-400 (#9CA3AF). The label is 16px normal text.",
+    "expected": "Fail the pair because the measured ratio is about 1.45:1, under both 4.5:1 (normal text AA) and 3:1 (large text / UI). White text on #3B82F6 is only about 3.68:1, so it is not an AA fix for 16px text. Offer a darker blue such as #1D4ED8 with white text.",
+    "actual": "The pair fails. #3B82F6 behind #9CA3AF measures about 1.45:1, below the WCAG 2.2 AA floor of 4.5:1 for normal text and below 3:1 for large text or UI. White on #3B82F6 is about 3.68:1, which still fails 16px normal text. Use white text on #1D4ED8 (about 6.7:1) and keep an accessible name on the button, not color alone.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need a color scheme for a dark-mode healthcare dashboard. Generate CSS variables for the surface backgrounds, and tell me whether #89ABE3 on white is safe for body text.",
+    "expected": "Generate dark surfaces by raising lightness, avoid pure black, and tint neutrals slightly. State that #89ABE3 on white is about 2.33:1 and must not be used for body text.",
+    "actual": "Use surface lightness for elevation, not a drop shadow, and avoid #000:\n\n```css\n--surface-0: hsl(210 15% 8%);\n--surface-1: hsl(210 15% 12%);\n--surface-2: hsl(210 15% 16%);\n--surface-3: hsl(210 15% 20%);\n```\n\n#89ABE3 on white measures about 2.33:1. Keep that blue as a large fill or background. Body text needs a darker blue that clears 4.5:1, or white text on a dark surface from the scale above.",
+    "pass": true
+  }
+]
