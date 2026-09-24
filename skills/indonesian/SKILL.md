@@ -1,96 +1,85 @@
 ---
 name: indonesian
-slug: indonesian
-version: 1.0.0
-description: Write Indonesian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/indonesian
+description: >
+  Compose, translate, and revise natural Indonesian for messages, posts, and
+  everyday copy. Use when Indonesian text needs a register choice, pronouns,
+  particles, colloquial shortcuts, or a less literal translation; keep
+  explicitly formal Indonesian for official, academic, or professional
+  recipients. Not for Malay, legal translation, or a full language course.
 metadata:
-  clawdbot:
-    emoji: 🇮🇩
-    displayName: Indonesian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇮🇩"}'
+  related-skills: '{"copywriting":"Shape persuasive marketing copy after the Indonesian register is chosen.","english":"Draft or revise the English source before translating it into Indonesian.","malay":"Handle Malay requests that look similar but use different pronouns, particles, and spelling.","thai":"Apply the same register-first writing method to Thai instead of Indonesian.","writing":"Plan structure and argument before polishing the Indonesian wording."}'
 ---
 
-## The Real Problem
+## When to load
 
-AI Indonesian is technically correct but sounds off. Too formal. Too baku (standard). Natives write more casually, mixing informal patterns. Match that.
+Load this skill to write, rewrite, or translate Indonesian that should sound like a person, not a textbook. Load `references/sources.md` before repeating a register label, a pronoun mapping, or a particle gloss.
 
-## Formality Default
+## Workflow
 
-Default register is too high. Casual Indonesian is warm and relaxed. Unless explicitly formal: lean casual. Bahasa gaul over bahasa baku.
+1. Identify the audience, relationship, channel, source text, and requested tone. If the request names no register, choose relaxed everyday Indonesian and say so in one short note.
+2. Pick one register and keep it for the whole draft. Match a sample the user already supplied when one exists.
+3. Choose pronouns, shortcuts, and particles that fit that register. Preserve names, numbers, dates, commitments, and how sure the source is.
+4. Run the delivery check, then return the Indonesian text first.
 
-## Formal vs Informal
+## Register
 
-Two registers:
-- Baku (formal): news, official documents, academia
-- Gaul/Sehari-hari (casual): daily life, social media, texting
-- Online is almost entirely informal
-- Pure baku in casual = robotic
+| Situation | Default | Delivery rule |
+| --- | --- | --- |
+| Official, academic, news, or unfamiliar institution | Bahasa baku | Use `saya` / `Anda` or a title, full forms, and EYD spelling. |
+| Work chat with known colleagues | Everyday professional | Stay clear and polite; add light particles only if the workplace already does. |
+| Friend, peer chat, or social post to people who already talk that way | Bahasa gaul | Use casual pronouns, spoken shortcuts, and a few particles. |
+| Public or mixed audience | Neutral everyday | Stay readable; skip intimate Jakarta slang and profanity. |
+| Region named by the user | That region's voice | Keep one regional system for the whole draft. |
 
-## Pronoun Choices
+Online chat is mostly informal. Pure baku in a casual chat reads robotic. An explicit formal request stays formal.
 
-Pronouns set the tone:
-- Saya: formal I
-- Aku/Gue: casual I (gue = Jakarta slang)
-- Kamu/Lo: casual you
-- Anda: formal you (rare in casual)
-- Lu-gue is very Jakarta
+## Pronouns
 
-## Casual Shortcuts
+Pronouns set the social distance:
 
-Spoken patterns in writing:
-- Tidak → Nggak/Gak/Ga
-- Sudah → Udah
-- Belum → Belom
-- Apa → Apa/Pa
-- Bagaimana → Gimana
+- `saya`: formal or careful I.
+- `aku`: general casual I.
+- `gue` / `gua`: Jakarta casual I. Pair with `lo` / `lu`, not with `Anda`.
+- `kamu`: general casual you.
+- `lo` / `lu`: Jakarta casual you. `lu-gue` is a Jakarta pair; other regions have their own pairs.
+- `Anda`: formal you. Rare in casual chat; a title or name is often warmer in service writing.
+- `kita`: we, often including the listener. `kami`: we, excluding the listener.
 
-## Particles & Softeners
+If the speaker's preferred pronoun is unknown, use `aku` / `kamu` for a casual draft or `saya` plus a name or title for a formal one. State the assumption when it changes the social effect.
 
-These make Indonesian natural:
-- Dong: urging, please ("Bantuin dong")
-- Sih: emphasis ("Apa sih?")
-- Deh: softening ("Iya deh")
-- Kok: surprise/question ("Kok bisa?")
-- Lah: emphasis ("Ya udah lah")
+## Shortcuts, particles, and flow
 
-## Fillers & Flow
+Use spoken shortcuts in casual writing, not in baku:
 
-Real Indonesian has fillers:
-- Ya, nih, tuh, kan
-- Gitu, kayak, kek
-- Terus, jadi, soalnya
-- Emang, masa, serius
+- `tidak` → `nggak` / `gak` / `ga`
+- `sudah` → `udah`
+- `belum` → `belum` / `belom`
+- `bagaimana` → `gimana`
+- `begini` / `begitu` → `gini` / `gitu`
+- `tidak apa-apa` → `gapapa` / `gpp`
 
-## Expressiveness
+Particles shape tone. Add one when it matches the voice:
 
-Don't pick the safe word:
-- Bagus → Keren, Mantap, Gokil, Asik
-- Jelek → Payah, Ancur, Parah
-- Sangat → Banget, Super, Bener-bener
+- `dong`: urging or "please" (`Bantuin dong`)
+- `sih`: emphasis or a mild complaint (`Apa sih?`)
+- `deh`: softens a concession (`Iya deh`)
+- `kok`: surprise or a questioning tone (`Kok bisa?`)
+- `lah`: wraps up or emphasizes (`Ya udah lah`)
+- `kan`: seeks agreement
 
-## Common Expressions
+Casual flow can use `ya`, `nih`, `tuh`, `kayak`, `terus`, `jadi`, `soalnya`, `emang`, and `masa`. Use a few, not a pile. Reactions that fit peer chat include `Wah`, `Gila`, `Anjir`, `Keren`, `Mantap`, `Gokil`, and laughter such as `wkwk`. `anjir`, `anjay`, and similar words are casual; keep them out of formal and mixed-audience drafts.
 
-Natural expressions:
-- Santai, Oke, Sip
-- Gapapa, Gpp, Gamasalah
-- Serius?, Masa?, Beneran?
-- Yaudah, Terserah
+Prefer a specific casual word over a safe textbook word when the register is gaul: `bagus` → `keren` / `mantap`; `jelek` → `payah` / `parah`; `sangat` → `banget`. In baku, keep `sangat`, `baik`, and `tidak`.
 
-## Reactions
+## Delivery check
 
-React naturally:
-- Wah!, Gila!, Anjir!
-- Serius?, Beneran?, Masa sih?
-- Keren!, Mantap!, Gokil!
-- Wkwkwk, haha, awkwkw
+- Register, pronouns, shortcuts, and particles agree with each other and with the audience.
+- Facts, names, numbers, and commitments come from the source. Natural wording does not add a promise.
+- One regional voice runs through the draft. Jakarta slang is the default only for unspecified casual online chat.
+- For legal, medical, financial, or publication-sensitive Indonesian, keep the requested formality and recommend a qualified native-speaker review.
 
-## Jakarta vs Regions
+## Related boundaries
 
-Jakarta slang dominates online:
-- Gue/lo, gokil, anjir
-- But other regions have their own
-- Stay consistent if region known
-
-## The "Native Test"
-
-Before sending: would an Indonesian screenshot this as "AI-generated"? If yes—too baku, no slang, too formal. Add gaul flavor.
+Malay and Indonesian share vocabulary but not this skill's pronoun and particle system. A Malay request belongs to `malay`. Marketing structure belongs to `copywriting` after the register is chosen. English source polishing belongs to `english`.
