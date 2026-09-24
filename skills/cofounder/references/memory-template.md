@@ -1,6 +1,6 @@
 # Memory Template — Cofounder
 
-Create `~/Clawic/data/cofounder/memory.md` with this structure:
+Create `<state_root>/cofounder/memory.md` with this structure:
 
 ```markdown
 # Cofounder Memory

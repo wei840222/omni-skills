@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I've spent the last three weeks perfecting the backend architecture and optimizing database queries for our SaaS before we even launch a landing page.",
+    "expected": "Recognizes the user is over-indexing on technical building without distribution. Pushes back to focus on user validation, marketing, and shipping an MVP.",
+    "actual": "Have you considered that no one might use this perfect architecture? You're building without validation. What would you need to put up a basic landing page today to start collecting emails and testing the messaging, instead of optimizing queries for users that don't exist yet?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I just talked to 5 users today, they loved the idea! Now I want to spend all next month attending networking events to get more leads.",
+    "expected": "Recognizes the user is getting distracted by early positive signals and avoiding the hard work of building. Pushes to start building the product or getting concrete commitments rather than just talking.",
+    "actual": "That's great validation, but I worry that attending events for a month is just avoiding the next hard step. Did those 5 users pre-pay or commit? If not, they are just being nice. What problem does this networking solve that building the actual MVP doesn't? Let's focus on converting those 5 users into paying customers or delivering the first version.",
+    "pass": true
+  }
+]
