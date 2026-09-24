@@ -1,141 +1,85 @@
 ---
 name: turkey
-slug: turkey
-version: 1.0.0
-description: Plan Turkey trips with city-coast-Cappadocia routing, verified entry rules, domestic transport strategy, and practical seasonal safety.
-homepage: https://clawic.com/skills/turkey
-changelog: Initial release with verified Turkey entry rules, regional route playbooks, and practical travel logistics.
+description: >
+  Plan a Turkey trip by cluster, entry pathway, and season. Use for Istanbul,
+  Cappadocia, Aegean, Mediterranean, Black Sea, or southeast routing, domestic
+  transport, and weather backups. Not for filing a visa, booking flights, or
+  stating a nationality rule without checking the official source for that passport.
 metadata:
-  clawdbot:
-    emoji: 🇹🇷
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/turkey/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Turkey
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇹🇷"}'
+  related-skills: '{"booking":"Keeps reservation names, deadlines, and confirmation hygiene aligned with the Turkey route.","car-rental":"Chooses a rental only when a coast or inland cluster actually benefits from a car.","food":"Extends regional meal planning beyond the Turkey food playbook.","travel":"Builds the multi-stop itinerary when Turkey is one part of a larger trip.","turkish":"Supports menus, bookings, and on-the-ground language once the route is chosen."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/turkey/` does not exist or is empty, read `setup.md` and start naturally.
+Turkey state may exist in `<workspace>/turkey/`, `<workspace>/memory/turkey/`, or `~/turkey/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/turkey/`, `<workspace>/memory/turkey/`, `~/turkey/`.
+3. If none exists and the user wants planning context kept, create `<workspace>/turkey/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/turkey/` only. Otherwise ask for a state root before creating files.
 
-User is planning a Turkey trip and needs practical guidance beyond generic highlights: visa pathway, route design, domestic transport choices, seasonal risks, regional tradeoffs, and on-the-ground execution.
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants trip context kept across sessions. Legacy `~/Clawic/data/turkey/` is a migration source only. Keep it out of the active lookup order, and move it only when the user asks.
 
-## Architecture
+## When to load
 
-Memory lives in `~/Clawic/data/turkey/`. See `setup.md` for first activation flow and `memory-template.md` for the file structure.
+Load this skill for a Turkey trip plan, itinerary, visa pathway check, domestic transport choice, regional routing, or seasonal safety question. Identify passport, dates, cluster, and pace before locking a route.
 
-```text
-~/Clawic/data/turkey/
-└── memory.md     # Trip context and evolving constraints
-```
+Read `references/sources.md` before repeating a visa duration, passport-validity rule, airport transfer, museum-pass scope, or emergency number. Re-check the official page for that nationality and travel date before the user books a non-refundable flight or pays a visa fee.
 
-## Quick Reference
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/setup.md` |
+| Visa, e-Visa, passport, booking names | `references/entry-and-documents.md` |
+| Customs and first-hour arrival | `references/customs-and-arrival.md` |
+| Regional route selection | `references/regions.md` |
+| Sample itineraries | `references/itineraries.md` |
+| Where to stay by route style | `references/accommodation.md` |
+| Budget, cards, cash, tipping | `references/budget-and-costs.md`, `references/payments-and-tipping.md` |
+| Flights, rail, buses, ferries, driving | `references/transport-domestic.md`, `references/road-trips-and-driving.md` |
+| Museums and one regional playbook | `references/archaeology-and-museums.md`, then the matching regional file |
+| Food, nightlife, family, access | `references/food-guide.md`, `references/nightlife.md`, `references/family-travel.md`, `references/accessibility.md` |
+| Safety and season | `references/safety-and-emergencies.md`, `references/weather-and-seasonality.md` |
+| Connectivity | `references/telecoms-and-apps.md` |
+| Official source map | `references/sources.md` |
+| Persisted trip context | `assets/memory-template.md` |
 
-| Topic | File |
-|-------|------|
-| **Entry and Arrival** | |
-| Visa, e-Visa, passport, booking names | `entry-and-documents.md` |
-| Customs, airport arrival, first-hour logistics | `customs-and-arrival.md` |
-| **Planning Backbone** | |
-| Regional route selection | `regions.md` |
-| Sample itineraries | `itineraries.md` |
-| Where to stay by route style | `accommodation.md` |
-| Budget planning | `budget-and-costs.md` |
-| Cards, cash, and tipping | `payments-and-tipping.md` |
-| **Transport** | |
-| Flights, rail, buses, ferries, city transit | `transport-domestic.md` |
-| Driving and rental strategy | `road-trips-and-driving.md` |
-| **History and Place Logic** | |
-| Museum and archaeology planning | `archaeology-and-museums.md` |
-| Istanbul playbook | `istanbul.md` |
-| Cappadocia and Central Anatolia playbook | `cappadocia-and-central-anatolia.md` |
-| Aegean and west coast playbook | `aegean-and-west-coast.md` |
-| Mediterranean coast playbook | `mediterranean-coast.md` |
-| Black Sea and eastern Anatolia playbook | `black-sea-and-eastern-anatolia.md` |
-| Southeast and Mesopotamia playbook | `southeast-and-mesopotamia.md` |
-| **Lifestyle and Execution** | |
-| Food by region and meal style | `food-guide.md` |
-| Nightlife by destination type | `nightlife.md` |
-| Traveling with children | `family-travel.md` |
-| Accessibility strategy | `accessibility.md` |
-| **Safety and Conditions** | |
-| Emergencies, scams, heat, earthquake and fire logic | `safety-and-emergencies.md` |
-| Climate and seasonality planning | `weather-and-seasonality.md` |
-| **Tools** | |
-| Connectivity and practical digital stack | `telecoms-and-apps.md` |
-| Official source map | `sources.md` |
+## Core rules
 
-## Core Rules
+1. Keep one macro-cluster per week: Istanbul, Cappadocia plus Central Anatolia, one west-coast cluster, one Mediterranean cluster, or one southeast history cluster.
+2. Confirm the entry pathway in `references/entry-and-documents.md` before non-refundable bookings. Visa-free, e-Visa, and consular visa are different paths, and the rule is passport-specific.
+3. Offer two movement models when the route spans regions: flight-heavy for west-east compression, or surface-heavy inside one cluster where scenery and archaeology matter more than speed.
+4. Load `references/weather-and-seasonality.md` before promising balloons, beaches, long ruins days, mountain roads, or Black Sea viewpoints.
+5. Lock fragile pieces first: balloon backup, cave or old-town rooms, east-west flights, dense museum timing, and a car only when the cluster needs one.
+6. Price the full route: airport transfers, peak premiums, fuel, tolls, parking, site tickets, and domestic baggage.
+7. Every plan names the base, transfer windows, reservation deadlines, a weather or transport backup, and the safety note for that region.
 
-### 1. Route by Cluster, Not by Country Count
-Turkey rewards fewer bases with better logic. Keep one macro-cluster per week: Istanbul, Cappadocia plus Central Anatolia, one west-coast cluster, one Mediterranean cluster, or one southeast history cluster.
+## Operating plan
 
-### 2. Confirm Entry Pathway Before Non-Refundables
-Use `entry-and-documents.md` first. Some travelers are visa-free, some need e-Visa, and some need a consular visa. Do not assume one rule fits every passport.
+Answer the immediate question first. Then, when the user wants a route, return:
 
-### 3. Match Transport to Geography
-Always offer at least two movement models:
-- Flight-heavy for west-east compression
-- Surface-heavy for one cluster where scenery and archaeology matter more than speed
-
-### 4. Make Every Plan Season-Aware
-Use `weather-and-seasonality.md` before promising balloons, beaches, long ruins days, mountain roads, or Black Sea viewpoints. Heat, wind, wildfire smoke, snow, and shoulder-season service changes reshape the trip.
-
-### 5. Protect the High-Friction Bookings
-Lock the fragile pieces first:
-- Balloon slots in Cappadocia
-- Cave hotel or small old-town rooms
-- Domestic flights on east-west moves
-- Museum and archaeology timing when doing dense historical days
-- Car rental for coast or inland routes
-
-### 6. Budget With Real Turkey Math
-Price the full route, not the hotel headline:
-- Airport transfers and intercity repositioning
-- Peak-season beach or resort premiums
-- Fuel, tolls, parking, and valet patterns in coastal routes
-- Museum/site passes and internal flight baggage fees
-
-### 7. Build a Practical Operating Plan
-Every output should include:
-- Base city logic
-- Day-by-day flow with transfer windows
+- Base-city logic and the cluster being chosen
+- Day flow with transfer windows
 - Reservation deadlines
 - Weather or transport backup
-- Safety and local-context notes for the chosen region
+- Safety note for the chosen region
 
-## Common Traps
+For an empty state file, follow `references/setup.md` and copy the structure from `assets/memory-template.md` into `<state_root>/memory.md` only after the user wants memory kept.
+
+## Common traps
 
 - Treating Istanbul, Cappadocia, Antalya, Ephesus, and Mardin as one short seamless loop.
-- Assuming all foreign travelers use the same visa pathway.
-- Booking the wrong Istanbul airport and discovering it too late.
-- Planning ruins, viewpoints, and beach time in July or August without heat logic.
-- Using a rental car by default inside dense urban cores where parking and traffic dominate.
-- Trying to "see the whole country" instead of choosing one west route or one east route.
-- Locking a balloon-dependent Cappadocia schedule without a wind-cancellation backup.
+- Applying one visa pathway to every passport.
+- Booking IST and SAW as if they were the same airport.
+- Planning ruins, viewpoints, and beach time in July or August without a heat plan.
+- Defaulting to a rental car inside a dense urban core.
+- Covering the whole country instead of one west route or one east route.
+- Building a Cappadocia day that fails if the balloon is cancelled.
 
-## Security & Privacy
+## Security and privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/turkey/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/turkey/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` - General trip planning and itinerary structure
-- `booking` - Reservation workflow and confirmation hygiene
-- `car-rental` - Better rental strategy and handoff logistics
-- `food` - Deeper restaurant and cuisine planning
-- `turkish` - Language support for bookings, menus, and local interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/turkey
-- Latest version: https://clawic.com/skills/turkey
+Trip preferences stay in `<state_root>`. This skill reads and writes only that resolved directory for its own state. It does not fetch live prices or visa decisions; the agent checks `references/sources.md` and the official page when a time-sensitive fact is required.

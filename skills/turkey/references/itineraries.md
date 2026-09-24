@@ -28,4 +28,4 @@
 - Keep one transfer-light base for every 3-4 active sightseeing days.
 - Protect the last night before the international flight in the departure city or a same-airport base.
 - If a route depends on one dawn activity, keep one flexible half-day nearby.
-- If user wants both beach and archaeology, choose one coast and one inland site cluster, not every famous stop.
+- If user wants both beach and archaeology, select one focused coastal base and one concentrated inland site cluster.
