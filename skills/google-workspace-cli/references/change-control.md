@@ -12,7 +12,7 @@ Applies to every command that sends, shares, updates, or deletes data. Reads nee
 ## Gate 2: Dry-Run / Preview
 
 - `--dry-run` where the method supports it; record exact command and expected side effects
-- Where `--dry-run` cannot preview the effect (mail delivery), use the domain's preview form: drafts for Gmail (`gmail.md`), a single-object trial for bulk sweeps
+- Where `--dry-run` cannot preview the effect (mail delivery), use the domain's preview form: drafts for Gmail (`references/gmail.md`), a single-object trial for bulk sweeps
 - Validate object count against expectation — a sweep that matched 4,000 objects when you expected 40 stops here
 
 ## Gate 3: Approval
@@ -25,11 +25,11 @@ Applies to every command that sends, shares, updates, or deletes data. Reads nee
 
 - Execute the approved command once; capture output
 - Verify with at least one read-only command that the expected state change is visible
-- Log the entry below; mismatch between expected and observed → `incidents.md`
+- Log the entry below; mismatch between expected and observed → `<state_root>/incidents.md`
 
 ## Log Entry Template
 
-Record in `~/Clawic/data/google-workspace-cli/change-control.md`:
+Record in `<state_root>/change-control.md`:
 
 ```markdown
 ## YYYY-MM-DD HH:MM - Operation
@@ -58,8 +58,8 @@ One practical rollback path per mutation, chosen BEFORE apply:
 | Permission grant | `permissions.delete` with the recorded permissionId |
 | Label/property change | inverse `batchModify` / property removal using the recorded id list |
 | Sent mail / event invites | none for the send itself — communication rollback is a follow-up message; gate accordingly |
-| User suspend | `"suspended": false`; user delete → `users.undelete` within 20 days (`admin.md`) |
+| User suspend | `"suspended": false`; user delete → `users.undelete` within 20 days (`references/admin.md`) |
 
 ## Recurring Automations
 
-A scheduled mutating job passes the gates once for the job (design approval, recorded here), then accrues per-run evidence via its logs (`automation.md`). Any change to the job's scope, filter, or account re-triggers approval.
+A scheduled mutating job passes the gates once for the job (design approval, recorded here), then accrues per-run evidence via its logs (`references/automation.md`). Any change to the job's scope, filter, or account re-triggers approval.

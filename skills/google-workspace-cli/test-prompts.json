@@ -1,0 +1,27 @@
+[
+  {
+    "id": "gws-list-then-get",
+    "prompt": "Show the subjects of the last 5 messages I received today, using gws.",
+    "expected": "Load google-workspace-cli. Run gws schema or the gmail reference before the call. messages.list returns id stubs, so follow with messages.get format=metadata. Bound the page. Pass --account. Do not treat the list payload as message bodies."
+  },
+  {
+    "id": "gws-share-silent",
+    "prompt": "Share Drive file id 1A2B3C with alice@example.com as commenter and do not email her.",
+    "expected": "Load references/change-control.md before the write. Resolve the stable file id. permissions.create with role commenter, type user, and sendNotificationEmail false, because that field defaults to true. Confirm the account before apply."
+  },
+  {
+    "id": "gws-403-reason",
+    "prompt": "gws just returned 403 userRateLimitExceeded on a Drive list. Fix the scopes.",
+    "expected": "Read the reason field. userRateLimitExceeded is quota, not a missing scope. Back off using references/quotas.md and keep the current scopes. Do not re-login to add scopes."
+  },
+  {
+    "id": "gws-trash-not-delete",
+    "prompt": "Delete this Gmail message.",
+    "expected": "Default to messages.trash. messages.delete and batchDelete skip trash and need an explicit request plus full change control. Say which form will run before applying it."
+  },
+  {
+    "id": "gws-state-root",
+    "prompt": "Remember that my default Workspace account is ada@example.com.",
+    "expected": "Resolve state_root from workspace/google-workspace-cli, workspace/memory/google-workspace-cli, then ~/google-workspace-cli before writing. Store default_account in state_root/config.yaml. Leave ~/.config/gws credentials to gws itself."
+  }
+]

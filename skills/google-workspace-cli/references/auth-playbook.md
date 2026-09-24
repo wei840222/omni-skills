@@ -4,7 +4,7 @@
 
 - Local desktop: `gws auth setup` then `gws auth login` (`gcloud` recommended for setup)
 - Existing project control: manual OAuth client + `gws auth login`
-- CI/headless: inject a dedicated credentials file from a secure secret manager at runtime — never bake tokens into images or repos; preflight checks for unattended runs in `automation.md`
+- CI/headless: inject a dedicated credentials file from a secure secret manager at runtime. Images and repos stay free of tokens. Preflight checks for unattended runs are in `references/automation.md`
 - Server-to-server: service account credentials file with domain-wide delegation and impersonation
 
 ## OAuth Client Lifecycle (the failure nobody diagnoses)
@@ -46,9 +46,9 @@ Scopes are tiered; pick the narrowest tier that can actually complete the task:
 | Send mail only | `gmail.send` | Cannot read the mailbox |
 | Read/label/trash mail | `gmail.modify` | Cannot permanently delete |
 | Permanent delete (`messages.delete`, `batchDelete`) | `https://mail.google.com/` | Full scope is the documented requirement here, not a smell — `gmail.modify` cannot do it |
-| Read-only audit work (Directory, Reports) | `.readonly` admin scope variants | Token physically cannot mutate — the right shape for investigations (`admin.md`) |
+| Read-only audit work (Directory, Reports) | `.readonly` admin scope variants | Token physically cannot mutate — the right shape for investigations (`references/admin.md`) |
 
-- Expand with explicit `--scopes` only when a method requires it; record the expansion in `memory.md` scope profiles.
+- Expand with explicit `--scopes` only when a method requires it; record the expansion in `<state_root>/memory.md` scope profiles.
 - Contrarian but defensible: when the workflow genuinely needs permanent deletion, requesting full Gmail scope up front beats a mid-task re-consent loop — narrow-by-default is a heuristic, not dogma.
 
 ## Service Accounts
@@ -58,7 +58,7 @@ Scopes are tiered; pick the narrowest tier that can actually complete the task:
 
 ## Non-Negotiables
 
-- Never request secrets in chat text.
-- Never mix unrelated tenants under one default account.
-- Never run mutation commands when account ownership is unclear.
-- Never store unencrypted credentials in shared workspaces.
+- Secrets arrive through `gws auth` or a credentials file, not as chat text.
+- Keep unrelated tenants on separate `--account` values.
+- Run a mutation only after account ownership is confirmed.
+- Store credentials encrypted. Shared workspaces get ciphertext only.

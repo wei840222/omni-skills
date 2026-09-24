@@ -66,4 +66,4 @@ for s in drive sheets gmail calendar admin admin-reports docs slides tasks peopl
 
 ## Safety Reminder
 
-Discovery first, dry-run second, apply last. No write command without resolved stable ids and the gates in `change-control.md`.
+Discovery first, dry-run second, apply last. No write command without resolved stable ids and the gates in `references/change-control.md`.
