@@ -24,7 +24,7 @@ Before the first state read or write, resolve `<state_root>`:
 4. If none exists and the user wants notes saved, create `<workspace>/google-workspace-cli/`.
 5. If `<workspace>` cannot be resolved, an existing `~/google-workspace-cli/` may be read. Ask for a state root before creating files.
 
-Use that `<state_root>` for every later state operation in this invocation. `gws` credentials, the account registry, and the discovery cache stay in `~/.config/gws/` and are managed by `gws`, not by this skill. A legacy tree at `<state_root>/` is a migration source only: copy it into the resolved `<state_root>` when the user asks, then say in one line what moved and from where. Do not delete the legacy tree in the same step.
+Use that `<state_root>` for every later state operation in this invocation. `gws` credentials, the account registry, and the discovery cache stay in `~/.config/gws/` and are managed by `gws`, not by this skill. A legacy tree at `~/Clawic/data/google-workspace-cli/` is a migration source only: copy it into the resolved `<state_root>` when the user asks, then say in one line what moved and from where. Do not delete the legacy tree in the same step.
 
 ## When to load
 
