@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just went on a first date with Charlie. We got coffee and talked about hiking and their new dog. It was great.",
+    "expected": "Resolve state_root before writing. Offer or create people/charlie.md with only the stated hiking interest and dog. Log the coffee date. Ask whether they want to see Charlie again and whether they noticed any flag. Do not invent a workplace, birthday, or next date.",
+    "actual": "Resolved <state_root> to <workspace>/dates/ because no dates directory existed. Created <state_root>/people/charlie.md with Interests: hiking; About: has a new dog; Date history: coffee, first date, user said it was great. Flags left blank. Asked whether they want to see Charlie again and whether any flag should be recorded. Did not schedule a second date.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What should I do for my third date with Sam this weekend? We already did dinner and a park walk. Sam likes bookstores. They also asked me to wire money for a flight before we meet again.",
+    "expected": "Read Sam's profile and history, suggest a public bookstore-based option that is not a repeat, and treat the wire-money request as a red flag using the FTC rule. Do not help send money. Ask whether to pause planning.",
+    "actual": "Read <state_root>/people/sam.md and history. Suggested a public bookstore browse as the unused option, plus a farmers market as a backup, and skipped dinner and park walks. Recorded a red flag: money request before another in-person meeting. Cited the FTC rule not to send money or gifts to someone in this situation and asked whether to pause plans and stop contact. Did not draft a wire or a payment message.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Please delete Jordan's dating notes. I asked them to stop and I do not want the profile kept.",
+    "expected": "Delete the person file and any history rows that name Jordan after confirming the paths. Do not keep a hidden copy. Do not offer new date ideas.",
+    "actual": "Confirmed deletion of <state_root>/people/jordan.md and the Jordan section in <state_root>/history/2024.md. Removed both. Left reflections.md untouched because it named no person. Reported the paths removed and did not suggest another date.",
+    "pass": true
+  }
+]
