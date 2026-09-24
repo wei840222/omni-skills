@@ -79,7 +79,7 @@ curl -fsS http://localhost:1234/v1/embeddings \
   }' | jq '.data[0].embedding | length'
 ```
 
-Do not assume a chat model is also the correct embedding model.
+Verify that you are using the correct dedicated embedding model for embeddings.
 
 ## 6. Migration Checklist
 

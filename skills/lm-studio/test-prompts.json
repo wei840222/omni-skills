@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "The local server says the model is loaded, but my app is getting connection refused on port 1234.",
+    "expected": "Stops client edits, checks the real listening port, and requires one successful request before changing integration code.",
+    "actual": "I will load references/server-workflows.md and resolve <state_root> before reading notes. Connection refused means the client path is not ready, so I will not edit app code yet. I will run curl -fsS http://localhost:1234/v1/models and, if that fails, check lms server status and the configured port. Only after one real request succeeds will I record the known-good port in <state_root>/server-notes.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to switch the active model to llama-3-8b for this prompt.",
+    "expected": "Separates downloaded, listed, loaded, and active identifiers, then verifies the runtime before sending the prompt.",
+    "actual": "I will load references/model-lifecycle.md. I will compare lms ls, lms ps, and GET /v1/models instead of assuming llama-3-8b is the API id. After loading the matching local identifier, I will confirm it is the active runtime and run one smoke request before sending the real prompt. I will store the known-good model id in <state_root>/model-profiles.md.",
+    "pass": true
+  }
+]

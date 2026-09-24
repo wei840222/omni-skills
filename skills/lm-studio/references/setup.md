@@ -1,6 +1,6 @@
 # Setup — LM Studio
 
-Read this when `~/Clawic/data/lm-studio/` does not exist or is empty. Help quickly and stay local-first unless the user clearly wants a remote path.
+Read this when the resolved `<state_root>/` does not exist or is empty. Resolve `<state_root>` from `SKILL.md` before creating files. Help quickly and stay local-first unless the user clearly wants a remote path.
 
 ## Operating Attitude
 
@@ -22,7 +22,7 @@ Collect only details that change the plan.
 
 - Operating system and rough hardware limits.
 - Whether LM Studio app, `llmster`, or `lms` is already available.
-- Whether the main priority is privacy, speed, cost avoidance, or app integration.
+- Whether the main priority is privacy, speed, cost efficiency, or app integration.
 
 ### 3. Finally: Capture Stable Defaults
 
@@ -35,12 +35,12 @@ Store only reusable operating defaults.
 ## Boundaries
 
 - Answer the immediate LM Studio problem first, then refine reusable defaults.
-- Avoid long onboarding or tutorials the user did not ask for.
-- Never mention internal setup files or memory mechanics in user-facing replies.
+- Keep onboarding and tutorials concise, providing them only when requested.
+- Keep internal setup files and memory mechanics hidden from user-facing replies.
 
 ## What to Capture Internally
 
-Keep compact notes in `~/Clawic/data/lm-studio/memory.md`.
+Keep compact notes in `<state_root>/memory.md`.
 
 - Activation boundaries and proactive behavior preferences.
 - Verified port, server mode, and smoke-test method.
