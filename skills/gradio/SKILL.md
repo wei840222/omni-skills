@@ -15,6 +15,8 @@ metadata:
 
 Load this skill to construct or debug a Gradio demo: Interface vs Blocks, per-session state, queues, file uploads, Chatbot history, auth, share links, or hosting behind a proxy.
 
+Read `references/sources.md` before repeating a version-sensitive default (queue, Chatbot shape, share-link lifetime, upload cap).
+
 Load one reference when the task needs that detail:
 
 | Need | File |
