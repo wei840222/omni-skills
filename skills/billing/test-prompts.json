@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I securely handle Stripe webhooks to avoid duplicate events?",
+    "expected": "Provide instructions to verify the Stripe-Signature header and implement idempotency checks using the event_id.",
+    "actual": "To securely handle Stripe webhooks, you must verify the Stripe-Signature header using your webhook secret to ensure the payload is from Stripe. Because webhooks can arrive out of order and may be duplicated, you should store the event_id in your database and use it as an idempotency key. Wait to parse the JSON until after signature verification; use the raw request body.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are a SaaS company moving to an annual plan. How should we configure revenue recognition and handle proration for mid-cycle plan downgrades?",
+    "expected": "Explain ASC 606 revenue recognition for annual plans (recognizing monthly over the service period, deferred revenue is a liability) and advise setting the proration mode to 'none' for downgrades.",
+    "actual": "For annual SaaS plans under ASC 606, you cannot recognize 100% of the revenue upfront. Annual payments must be recorded as deferred revenue (a liability) and recognized incrementally each month over the service period. For mid-cycle plan downgrades, set the proration mode explicitly to 'none' so that changes only take effect at the next renewal cycle, avoiding immediate credit or charge issues.",
+    "pass": true
+  }
+]

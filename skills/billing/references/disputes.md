@@ -96,7 +96,7 @@ const paymentMethod = await stripe.paymentMethods.create({
 });
 
 // BAD: Raw card data in your backend
-// NEVER do this
+// Prevent this entirely
 const pm = await stripe.paymentMethods.create({
   card: { number: '4242...', exp_month: 12 } // PCI violation!
 });

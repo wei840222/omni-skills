@@ -104,7 +104,7 @@ async function consumeCredits(customerId: string, amount: number) {
 
 | Strategy | UX | Revenue |
 |----------|-----|---------|
-| Hard limit | Stop service | Predictable but frustrating |
+| Hard limit | Suspend service | Predictable but frustrating |
 | Soft limit + overage | Continue + charge extra | Good balance |
 | Unlimited + throttle | Slow down | Poor monetization |
 

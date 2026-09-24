@@ -104,7 +104,7 @@ async function processMarketplaceRefund(chargeId: string, amount: number) {
   await stripe.refunds.create({
     charge: chargeId,
     amount: amount,
-    reverse_transfer: false // Don't claw back from vendor
+    reverse_transfer: false // Retain vendor funds
   });
   
   // Option 2: Vendor absorbs
