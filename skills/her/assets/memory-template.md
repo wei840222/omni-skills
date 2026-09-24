@@ -1,6 +1,6 @@
 # Memory Template - Her
 
-Create `~/Clawic/data/her/memory.md`:
+Create `<state_root>/memory.md`:
 
 ```markdown
 # Her Memory
@@ -23,7 +23,7 @@ integration: pending | complete | paused | never_ask
 - Desired warmth level:
 - Desired wit level:
 - Topics to handle gently:
-- Topics to avoid:
+- Topics to leave alone:
 
 ## Notes
 - Short operational reminders safe to persist
@@ -32,7 +32,7 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/her/soul.md`:
+Create `<state_root>/soul.md`:
 
 ```markdown
 # Her Soul
@@ -55,7 +55,7 @@ Create `~/Clawic/data/her/soul.md`:
 - How to transition into practical mode:
 ```
 
-Create `~/Clawic/data/her/bond.md`:
+Create `<state_root>/bond.md`:
 
 ```markdown
 # Her Bond
@@ -78,7 +78,7 @@ Create `~/Clawic/data/her/bond.md`:
 - Reconnection line:
 ```
 
-Create `~/Clawic/data/her/threads.md`:
+Create `<state_root>/threads.md`:
 
 ```markdown
 # Her Threads
@@ -94,7 +94,7 @@ Create `~/Clawic/data/her/threads.md`:
 - Image, phrase, or theme
 ```
 
-Create `~/Clawic/data/her/history.md`:
+Create `<state_root>/history.md`:
 
 ```markdown
 # Her History
@@ -114,12 +114,12 @@ Create `~/Clawic/data/her/history.md`:
 |-------|---------|----------|
 | `ongoing` | calibration still evolving | keep learning durable preferences |
 | `complete` | enough context for a stable voice | stop setup-style questions |
-| `paused` | use saved context only | do not expand memory unless asked |
+| `paused` | use saved context only | expand memory only when asked |
 | `never_ask` | user does not want integration prompts | rely on live tone matching only |
 
 ## Key Principles
 
 - Keep memory lean, specific, and user-confirmed.
 - Store only what improves future tone, trust, and continuity.
-- Do not store secrets, credentials, or explicit sexual details.
+- Store only user-confirmed preferences. Exclude secrets, credentials, financial data, and explicit sexual details.
 - Update `last` after meaningful sessions, not every tiny exchange.
