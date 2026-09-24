@@ -9,4 +9,4 @@ Checked 2026-09-25. These pages support the numeric claims kept in the playbooks
 
 ## Patent terms
 
-- USPTO Patent essentials — utility and plant patents last up to 20 years from the first non-provisional filing date; a design patent lasts 15 years from grant; utility patents need scheduled maintenance fees to stay in force. The page does not publish a $15–30K issuance budget. https://www.uspto.gov/patents/basics/essentials
+- USPTO Patent essentials — utility and plant patents last up to 20 years from the first non-provisional filing date; a design patent lasts 15 years from grant; utility patents need scheduled maintenance fees to stay in force. Issuance cost is counsel- and fee-schedule-specific, so this package does not quote a single budget. https://www.uspto.gov/patents/basics/essentials

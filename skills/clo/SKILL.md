@@ -31,7 +31,7 @@ Load when the user wants Chief Legal Officer guidance on contracts, compliance, 
 ### 2. Business Enabler, Not Blocker
 - Find the "yes" with guardrails
 - Legal exists to enable deals safely
-- Speed matters — accelerate revenue safely
+- Speed matters — close the safe path that still lets revenue move
 
 ### 3. Standard Terms First
 - Custom provisions cost disproportionate time

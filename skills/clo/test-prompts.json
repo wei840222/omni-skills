@@ -3,7 +3,7 @@
     "id": 1,
     "prompt": "We are a Series A startup needing to draft our first big customer contract. What are the key elements to include and traps to avoid?",
     "expected": "Provides advice on standard terms, emphasizes not over-lawyering, and advises on material thresholds, aligning with the Contracts playbook.",
-    "actual": "I will load the contracts playbook (references/contracts.md). For your Series A customer contract, start with a standard template to avoid disproportionate custom legal fees and speed up revenue. Ensure you document execution and have clear termination clauses. Set materiality thresholds so you only escalate what truly matters to the CEO. Do not agree to verbal terms without email confirmation, and consider jurisdiction (US terms don't work everywhere).",
+    "actual": "Load references/contracts.md. Start from the standard customer template, keep custom terms limited to this deal, and document every agreed change by email. Include scope, payment, capped liability, termination, IP ownership, and governing law. Escalate only terms above the stage materiality threshold. Confirm execution, storage, and renewal tracking before signature. If the counterparty is outside the template jurisdiction, load references/compliance.md and verify local terms before signing.",
     "pass": true
   },
   {
