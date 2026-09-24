@@ -1,5 +1,8 @@
 # Shanghai Tech Guide
 
+Figures in this file are February 2026 planning ranges, not live quotes. Re-check before a commitment. See `sources.md`.
+
+
 ## Market Snapshot
 - Shanghai is a major China tech hub, especially for enterprise tech, fintech, AI applications, and semiconductors.
 - Corporate tech and startup tech both exist, but ecosystems differ by district.

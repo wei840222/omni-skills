@@ -1,5 +1,8 @@
 # Shanghai Local Setup: Apps, Money, Daily Services (2026)
 
+Figures in this file are February 2026 planning ranges, not live quotes. Re-check before a commitment. See `sources.md`.
+
+
 Most daily life in Shanghai runs through mobile apps.
 Set up payments, transport, and communication in your first week.
 

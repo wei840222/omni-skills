@@ -25,10 +25,10 @@ This guide focuses on practical safety and legal awareness.
 ## Personal safety habits
 
 1. Use official taxis or DiDi with visible plate verification.
-2. Avoid unlicensed airport or station rides.
+2. Use only licensed airport or station rides.
 3. Share live trip status with trusted contacts at night.
-4. Keep passport copy and visa page in secure cloud storage.
-5. Learn your nearest hospital and police station location.
+4. Carry the original passport. Police spot-checks may reject a photocopy. Keep a separate encrypted copy for replacement, not as the ID you present.
+5. Learn the nearest hospital and police station.
 
 ## Apartment and building safety
 
@@ -41,10 +41,12 @@ This guide focuses on practical safety and legal awareness.
 
 ## Legal caution points
 
-- Drug laws are strict; enforcement can include testing.
-- Some online content/tools may be restricted.
-- Filming in sensitive sites can trigger police checks.
-- Carry valid ID when possible; digital copies are useful but may not always be accepted.
+- Drug enforcement is zero tolerance, including cannabis. Penalties can include long imprisonment or the death penalty, and testing can happen on entry or in nightlife venues.
+- Use only licensed connectivity tools. Several Western services are blocked; an unlicensed VPN is not a safe workaround.
+- Film only where the site allows it. Restricted and military areas can lead to detention, a fine, or deportation.
+- Carry the original passport. A photocopy or phone photo is a backup, not the document police accept.
+- Drones need Civil Aviation Administration of China registration before import or flight. Confirm the current rule before travel.
+- Leave demonstrations. Posting political criticism of the authorities can be treated as illegal.
 
 ## Health and air quality
 
@@ -53,4 +55,4 @@ During heat waves, hydration and shade planning are more important than usual.
 
 ## 2026 practical note
 
-Policies and enforcement intensity can shift; verify district-specific guidance when in doubt.
+Policies and enforcement intensity can shift. Before repeating a legal boundary, open https://www.gov.uk/foreign-travel-advice/china/safety-and-security and the local notice. That page was still current at 24 September 2026.

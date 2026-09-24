@@ -1,7 +1,7 @@
 # Shanghai Cost of Living Snapshot (2026)
 
 Shanghai can be affordable or expensive depending on housing, school, and imported lifestyle choices.
-Figures below are practical ranges, not fixed prices.
+Figures below are February 2026 planning ranges, not live quotes. Re-check current listings before a lease, offer, or school budget. See `sources.md`.
 
 ## Monthly budget ranges (CNY)
 

@@ -39,4 +39,4 @@
 ## Practical Tips
 - Allergy communication is easier at established international venues.
 - Ask whether service charge applies; some hotel venues add it.
-- Keep one backup in the same district to avoid long cross-city rides.
+- Keep one backup in the same district so a backup stays in the same district.

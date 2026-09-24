@@ -18,7 +18,7 @@ For most residents: Metro + ride-hailing + occasional train.
 |---|---|
 | Coverage | Very broad in central and outer districts |
 | First/last trains | Usually around early morning to late evening |
-| Fare model | Distance-based, low cost for most urban trips |
+| Fare model | Distance-based. A dated secondary snapshot starts at ¥3 under 6 km. Re-check shmetro.com before quoting a ticket |
 | Security check | Bag scan at station entry is standard |
 | Language | Station signs and announcements usually include English |
 

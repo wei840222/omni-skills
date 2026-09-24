@@ -1,5 +1,8 @@
 # Shanghai Education Guide
 
+Figures in this file are February 2026 planning ranges, not live quotes. Re-check before a commitment. See `sources.md`.
+
+
 ## Education Landscape
 - Shanghai offers international, bilingual, and local school pathways.
 - School choice is driven by curriculum goals, commute, and budget.

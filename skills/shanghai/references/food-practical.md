@@ -15,7 +15,7 @@
 ## Queue Tactics
 - Arrive before opening for no-booking local places.
 - Use off-peak windows (17:15-17:45 or after 20:15).
-- Avoid mega-mall dinner rush on Friday and Saturday.
+- Schedule dinner outside the Friday and Saturday mega-mall rush.
 
 ## Payment Basics
 - Mobile wallets are standard; card support is uneven.
@@ -31,7 +31,7 @@
 
 ## Food Safety Habits
 - Choose high-turnover shops for street snacks.
-- Avoid lukewarm seafood buffets late in service.
+- Select freshly prepared seafood early in the service window.
 - Drink sealed bottled water when uncertain.
 - If your stomach is sensitive, start with cooked dishes only.
 

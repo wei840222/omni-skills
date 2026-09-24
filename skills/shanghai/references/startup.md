@@ -38,7 +38,7 @@
 ## Practical Fundraising Approach
 - Start with a focused target list of relevant funds.
 - Prepare two decks: one strategic narrative, one operating metrics detail.
-- Run a tight process window to avoid endless low-signal meetings.
+- Keep a tight process window so meetings stay high-signal.
 - Keep fallback runway for at least 12 months.
 
 ## First-Year Survival Rules

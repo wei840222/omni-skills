@@ -16,7 +16,7 @@ Great for short stays, client meetings, and high-frequency city access.
 - Easy access to major attractions and business districts.
 - Better late-night transport options than distant districts.
 
-## When to avoid downtown
+## Considerations for choosing other areas
 
 - You need maximum space per budget.
 - You are sensitive to crowd density and street noise.

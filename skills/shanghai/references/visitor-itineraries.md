@@ -8,7 +8,7 @@ Each itinerary assumes metro + short taxi rides.
 | Time | Plan | Notes |
 | --- | --- | --- |
 | Morning | Yu Garden area and Old City lanes | Arrive early for lighter crowds |
-| Lunch | Local dumplings or noodle spot nearby | Avoid peak noon queues |
+| Lunch | Local dumplings or noodle spot nearby | Plan around the noon queue |
 | Afternoon | People's Square museum block | Indoor option for heat/rain |
 | Sunset | The Bund walk | Best skyline photos |
 | Evening | Dinner in Jing'an or Xintiandi | Pre-book popular restaurants |

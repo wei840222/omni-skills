@@ -1,157 +1,70 @@
 ---
 name: shanghai
-slug: shanghai
-version: 1.0.0
-description: Navigate Shanghai as visitor, resident, student, or builder with practical neighborhoods, transport, costs, visas, and local operating rules.
-homepage: https://clawic.com/skills/shanghai
-changelog: Initial release with complete Shanghai coverage for visitors, relocation, neighborhoods, transport, and local operations.
+description: >
+  Plan a Shanghai trip, relocation, study stay, remote base, or business setup.
+  Use for neighborhoods, metro and DiDi, costs, food, climate, visas, residence
+  registration, and local apps. Not for booking travel, filing a visa, or giving
+  nationality-specific legal advice without an official source check.
 metadata:
-  clawdbot:
-    emoji: 🌆
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Shanghai
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌆"}'
+  related-skills: '{"booking":"Handle hotel, transport, and activity reservations after the Shanghai plan is chosen.","chinese":"Support daily Mandarin tasks and local communication.","expat":"Plan the broader move and settling around a Shanghai base.","travel":"Build a multi-city route when Shanghai is only one stop."}'
 ---
 
-## When to Use
+## State location
 
-User asks about Shanghai for tourism, relocation, work, studies, business setup, or day-to-day life decisions. Agent should answer with practical next steps and local tradeoffs.
+Shanghai planning state may exist in `<workspace>/shanghai/`, `<workspace>/memory/shanghai/`, or `~/shanghai/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Quick Reference
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/shanghai/`, `<workspace>/memory/shanghai/`, `~/shanghai/`.
+3. If none exists and state must be created, default to `<workspace>/shanghai/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Do not merge them.
+5. If `<workspace>` cannot be resolved, read an existing `~/shanghai/` only. Otherwise ask for a state root before creating files.
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| People's Square, Jingan, Lujiazui | `neighborhoods-downtown.md` |
-| Xuhui, Zhangjiang, Yangpu | `neighborhoods-tech.md` |
-| Bund, Old Town, FFC historic lanes | `neighborhoods-historic.md` |
-| Minhang, Qingpu, Songjiang, Jiading | `neighborhoods-suburban.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Shanghai and Jiangnan staples | `food-local.md` |
-| International and fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary and practical tips | `food-practical.md` |
-| **Practical** | |
-| Moving and settling | `resident.md` |
-| Transport (metro, rail, DiDi, bikes) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety and laws | `safety.md` |
-| Weather, humidity, typhoon windows | `climate.md` |
-| Local services (banking, apps, SIM) | `local.md` |
-| **Career** | |
-| Tech industry and salaries | `tech.md` |
-| Business setup and WFOE path | `business.md` |
-| Visas and residence permits | `visas.md` |
-| Startup ecosystem and fundraising | `startup.md` |
-| **Lifestyle** | |
-| Culture and etiquette | `culture.md` |
-| Healthcare and insurance | `healthcare.md` |
-| Schools and education | `education.md` |
-| Expat lifestyle and social rhythm | `lifestyle.md` |
-| Driving and car ownership | `driving.md` |
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants planning context kept across sessions.
 
-## Core Rules
+## When to load
 
-### 1. Identify User Context First
-- **Role:** Visitor, resident, student, tech worker, founder, family
-- **Timeline:** This week, exploratory move, already in Shanghai
-- **Constraint:** Budget, language comfort, commute tolerance
-- Load only relevant files before giving recommendations.
+Load this skill for a Shanghai visit, relocation, study stay, remote base, or business setup. Identify purpose, nationality, dates, and budget before naming a neighborhood.
 
-### 2. Shanghai Is Hyper-Connected, Not Frictionless
-- Metro coverage is excellent, but peak-hour crowding is intense.
-- Puxi vs Pudong choice strongly affects commute and lifestyle.
-- Most daily tasks run through local apps and QR workflows.
-See `transport.md` and `local.md`.
+Read `references/sources.md` before repeating a visa duration, registration deadline, fee, rent, or legal rule. Re-check the official page for that nationality and travel date before the user books flights, signs a lease, or pays a visa fee.
 
-### 3. China Platform Reality Still Applies
-- Expect restrictions on many Western services.
-- WeChat + Alipay are operationally essential.
-- Set connectivity plan before arrival (roaming/eSIM/VPN strategy).
-See `local.md` and `visitor-tips.md`.
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/resident.md` |
+| Neighborhood comparison or choice | `references/neighborhoods-index.md`, `references/neighborhoods-choosing.md` |
+| One area | the matching `references/neighborhoods-*.md` |
+| Visa, work permit, registration | `references/visas.md` |
+| Housing and monthly cost | `references/cost.md`, `references/resident.md` |
+| Food | `references/food-overview.md`, then the matching `references/food-*.md` |
+| Transport, climate, safety, healthcare, apps | `references/transport.md`, `references/climate.md`, `references/safety.md`, `references/healthcare.md`, `references/local.md` |
+| Culture, schools, driving, tech, business, startup | the matching file under `references/` |
+| Visitor route, lodging, attractions | the matching `references/visitor-*.md` |
+| Official sources and dated ranges | `references/sources.md` |
 
-### 4. Climate and Air Planning Matter
-- Summers are hot and humid.
-- Rain/typhoon windows can disrupt plans.
-- Winters are damp-cold despite moderate temperatures.
-See `climate.md` for month-by-month planning.
+## Core rules
 
-### 5. Current Data (Feb 2026)
+1. Split the request into trip, relocation, study, remote work, or business before recommending places.
+2. Treat Puxi and Pudong, and core versus outer districts, as different commute markets. Load the neighborhood file before answering housing or schooling questions.
+3. A visa-free or tourist entry is not work permission. Quote stay length only from the official page checked for this nationality. British citizens currently have a 30-day visa-free window through 31 December 2026 for tourism, business visits, family or friend visits, or transit; paid work, journalism, study, and stays over 30 days need a visa first.
+4. Register the place of stay with the local Public Security Bureau within 24 hours of arrival, and again after an address change. A hotel usually does this at check-in. A private stay does not.
+5. Give prices as dated ranges from `references/sources.md` and `references/cost.md`. Do not present a February 2026 rent or salary figure as a current quote.
+6. Metro plus a licensed ride-hail covers most days. Peak river crossings and Line 2 crowding are planning constraints, not footnotes.
+7. WeChat and Alipay are the default payment and transit path. Set them up, plus a connectivity plan for blocked services, before arrival.
+8. For drugs, drones, filming, demonstrations, and political speech, give the current legal boundary and the official source. Possession of illegal drugs, including cannabis, can lead to long sentences or the death penalty.
 
-| Item | Range |
-|------|-------|
-| 1BR rent (Jingan/Xuhui core) | ¥9,000-18,000/month |
-| 1BR rent (outer districts) | ¥5,000-10,000/month |
-| Senior SWE salary (local firms) | ¥35,000-70,000/month |
-| Senior SWE salary (intl firms) | ¥50,000-100,000/month |
-| Metro single ride | ¥3-15 |
-| Typical mid-range dinner | ¥120-280/person |
-| International school fees | ¥120,000-330,000/year |
+## Shanghai-specific traps
 
-### 6. Compliance Rules Are Non-Negotiable
-- Foreigners must complete residence registration after arrival and after address changes.
-- Work requires proper visa + permit + residence process.
-- Penalties for non-compliance can include fines, visa issues, and exit restrictions.
-See `visas.md` and `safety.md`.
+- Treating every district as equally walkable or English-friendly.
+- Booking a cross-river commute from an off-peak listing photo.
+- Arriving without a working payment app.
+- Treating visa-free or business-visit entry as permission to work.
+- Missing the 24-hour residence registration after a private stay or a move.
+- Signing a lease before testing the peak-hour commute and summer humidity.
+- Using a stale rent or school-fee number as a fixed budget.
 
-### 7. Neighborhood Fit Beats Generic Rankings
+## Security and privacy
 
-| Profile | Best Starting Areas |
-|---------|---------------------|
-| First-time visitor | Huangpu, Jingan |
-| Young professionals | Jingan, Xuhui, Yangpu |
-| Families | Minhang, Qingpu, Pudong compounds |
-| Tech workers | Zhangjiang, Xuhui, Yangpu |
-| Budget-conscious | Songjiang, Jiading, outer Minhang |
-| Luxury-focused | Bund-facing towers, Lujiazui, former concession villas |
-
-### 8. Give Tradeoffs, Not Just Lists
-Always include what user gains and what they give up:
-- central convenience vs space
-- lower rent vs commute
-- international comfort vs local immersion
-
-## Shanghai-Specific Traps
-
-- Assuming all neighborhoods are equally walkable and English-friendly.
-- Underestimating rush-hour commutes across river crossings.
-- Arriving without payment apps ready.
-- Confusing short-term visa entry with legal work permission.
-- Booking high-demand restaurants without reservation windows.
-- Ignoring humidity, rain, and heat in summer plans.
-- Choosing housing before testing commute at peak hours.
-
-## Legal Awareness
-
-Key points to surface clearly:
-- Registration obligations after arrival/address change.
-- Work authorization must match actual employment activity.
-- Drug policy is zero tolerance.
-- Sensitive political activity is high risk.
-- Public behavior, filming, and drone use can be regulated by location.
-
-See `safety.md` for practical do/don't guidance.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — trip structuring and route planning across cities
-- `expat` — relocation and settling workflows for international moves
-- `chinese` — language support for daily tasks and local communication
-- `booking` — booking flow support for hotels, transport, and activities
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/shanghai
-- Latest version: https://clawic.com/skills/shanghai
+Keep planning context in the selected `<state_root>` only. Do not read or write outside that directory for this skill. Do not send passport, visa, or payment details to a third party from this skill.
