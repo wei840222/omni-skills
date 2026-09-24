@@ -1,135 +1,67 @@
 ---
 name: agentic-engineering
-slug: agentic-engineering
-version: 1.0.0
-description: Work effectively with AI coding agents using parallel terminals, blast radius thinking, atomic commits, and pragmatic tool selection.
-homepage: https://clawic.com/skills/agentic-engineering
+description: >
+  Coordinate work with CLI coding agents using blast-radius sizing, parallel
+  terminals, and atomic commits. Use when the user is driving Claude Code,
+  Codex CLI, or a similar coding agent and asks how to split, steer, or recover
+  that work. Not for building an agent runtime, MCP server, or orchestration
+  framework.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    requires:
-      bins:
-      - git
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Agentic Engineering
+  version: "1.0.1"
+  openclaw: '{"emoji":"🤖","requires":{"bins":["git"]}}'
+  related-skills: '{"agentic-coding":"Apply coding-loop tactics once a single agent task is already scoped.","git":"Inspect history, commits, and recovery commands when agents share one working tree."}'
 ---
 
-## When to Use
+## When to load
 
-User works with AI coding agents (Claude Code, Codex CLI, or similar) and wants to maximize productivity. Use for workflow optimization, parallel agent coordination, context management, and developing intuition for agentic development.
+Load this skill when the user is already working with a CLI coding agent and wants to split, steer, or recover that work. Load `references/sources.md` before repeating a vendor limit, pricing figure, or product recommendation. Load one workflow reference for the task at hand:
 
-## Quick Reference
+- `references/blast-radius.md` before estimating how many files a prompt will touch.
+- `references/parallel.md` when more than one agent will run at once.
+- `references/context.md` when writing or steering a prompt.
+- `references/tools.md` when choosing a CLI, terminal, or review tool.
 
-| Topic | File |
-|-------|------|
-| Parallel workflow | `parallel.md` |
-| Blast radius | `blast-radius.md` |
-| Context & prompts | `context.md` |
-| Tool selection | `tools.md` |
+## State location
 
-## Core Philosophy
+This skill does not persist notes. If the user wants a reusable local playbook, resolve `<state_root>` before the first write:
 
-Agentic engineering is about **working WITH AI coding agents effectively**, not building agent systems. The term was popularized by Peter Steinberger (steipete.me) in late 2025.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/agentic-engineering/`, `<workspace>/memory/agentic-engineering/`.
+3. If more than one exists, use only the highest-precedence directory and tell the user the other copies exist.
+4. If none exists and the user wants the playbook saved, create `<workspace>/agentic-engineering/`.
+5. If `<workspace>` cannot be resolved, ask for a state root before creating files.
 
-Core principle: **Just talk to it.** Skip the elaborate tooling, RAG setups, and complex orchestration. Develop intuition through practice.
+Use that `<state_root>` for every later state operation in this invocation. Keep agent transcripts, credentials, and repository secrets out of it.
 
-## Core Rules
+## Workflow
 
-### 1. Run Parallel Agents
-Run 3-8 coding agent instances simultaneously in a terminal grid:
-```
-┌─────────┬─────────┬─────────┐
-│ Agent 1 │ Agent 2 │ Agent 3 │
-│ (main)  │ (refac) │ (tests) │
-├─────────┼─────────┼─────────┤
-│ Agent 4 │ Agent 5 │ Agent 6 │
-│ (ui)    │ (docs)  │ (debug) │
-└─────────┴─────────┴─────────┘
-```
-Most agents work in the same folder. No worktrees. Pick non-overlapping areas.
+1. Name the task: size a change, run agents in parallel, write a prompt, pick a tool, or recover a conflict.
+2. Estimate blast radius before launching extra agents. See `references/blast-radius.md`.
+3. Give each agent a non-overlapping path and one commit per logical change. See `references/parallel.md`.
+4. Keep the prompt short, point at files, and interrupt when the work drifts. See `references/context.md`.
+5. Prefer a CLI the agent already knows. Record the choice in the repo's agent instructions, not in a new framework. See `references/tools.md`.
 
-### 2. Think in Blast Radius
-Before each prompt, estimate:
-- How many files will this touch?
-- How long will this take?
-- Can I run this in parallel with other work?
+## Core rules
 
-Small blast radius → multiple parallel agents.
-Large blast radius → one focused agent.
+- Size first. A one-file change can run beside other work. A migration, auth rewrite, or shared-file edit gets one agent and a plan before edits.
+- Same checkout is the default. Use a Git worktree when the user needs an isolated branch or a long-running experiment, not as the default for every prompt.
+- Each agent commits only files it edited, after one logical change, with a message that names that change.
+- Spend a slice of the session on duplication, dead code, and tests, still through the same blast-radius check.
+- Put tool preferences in one line of `AGENTS.md` or `CLAUDE.md`, for example `logs: use the vercel CLI`.
+- Attach a screenshot when the task is visual. Point at the file when it is not.
+- Pause a drifting agent, ask for status, then choose help, redirect, or abort. A pause is cheaper than unwinding a wide diff.
 
-### 3. Agents Do Atomic Commits
-Configure agents to commit their own changes:
-- One commit per logical change
-- Only commit files the agent edited
-- Clean commit messages
+## Recovery
 
-This keeps history navigable when multiple agents work simultaneously.
+When two agents edit the same checkout:
 
-### 4. Refactor Regularly
-Spend ~20% of time on refactoring (also done by agents):
-- Code duplication (jscpd)
-- Dead code (knip)
-- Consolidate similar patterns
-- Break apart large files
-- Add tests for tricky parts
+1. Pause the writers.
+2. Read `git status` and `git diff` before any reset.
+3. Keep the user's uncommitted work. Stash only after naming what will be saved.
+4. Reset only to a commit the user confirms. Then reapply the stash and resolve the overlap.
 
-Iterate fast, then pay back tech debt.
-
-### 5. CLIs Over MCPs
-Prefer CLIs that agents already know:
-```
-✅ gh, vercel, psql, axiom
-❌ Complex MCPs that pollute context
-```
-One line in AGENTS.md: "logs: use vercel cli" is enough.
-
-### 6. Screenshots in Prompts
-50%+ of prompts should include screenshots:
-- Drag image into terminal
-- Agent finds matching strings/elements
-- Far more precise than text descriptions
-
-No need to annotate — agents are good at matching.
-
-### 7. Stop and Steer
-If something takes longer than expected:
-1. Press Escape
-2. Ask "what's the status"
-3. Help find the right direction, abort, or continue
-
-Don't be afraid to stop agents mid-work. File changes are atomic.
-
-## Common Traps
-
-- **Over-engineering setup** → Skip RAG, complex subagents, plugins. Just talk to it.
-- **One agent at a time** → Run parallel, pick non-overlapping areas.
-- **Elaborate prompts** → Short prompts + screenshot often work better.
-- **Worktrees/branches per change** → Slows you down. Same folder, atomic commits.
-- **Background agents only** → Hard to steer. Keep agents visible.
+Commands and the confirmation gate are in `references/parallel.md`.
 
 ## Scope
 
-This skill ONLY:
-- Provides workflow patterns for using AI coding agents
-- Guides tool and setup decisions
-- Shares best practices from the agentic engineering community
-
-This skill NEVER:
-- Implements agents directly
-- Accesses external systems
-- Modifies files outside skill documentation
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- None — this skill provides guidance only
-
-**Data that stays local:**
-- No persistent storage required
-
-**This skill does NOT:**
-- Access credentials or make network requests
-- Execute code autonomously
+This skill coaches the person driving coding agents. It does not implement an agent, call external systems, or edit files outside the task the user just named. Building a runtime, MCP server, or orchestration framework is a separate product task, not a step in this workflow.
