@@ -27,8 +27,12 @@
 - Chiang Mai: focus + value, less large-client density.
 - Islands: lifestyle quality, weaker reliability for tight schedules.
 
-## Red Flags
+## Legal boundary
 
-- No legal clarity on stay/work framework.
+Remote work still needs a stay class that allows that activity for the user's nationality. Visa-exempt entry is tourism-only. Do not default to Destination Thailand Visa (DTV) duration or validity figures unless `visas.md` and the current official page both state them.
+
+## Red flags
+
+- No legal clarity on the stay/work boundary.
 - No backup internet for client-critical workloads.
-- Choosing base only for aesthetics, not workflow reality.
+- Choosing a base only for aesthetics, not for the workflow.

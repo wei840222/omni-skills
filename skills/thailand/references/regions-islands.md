@@ -11,7 +11,7 @@
 ## Route Planning Guidance
 
 - Keep ferry and flight buffers in rainy months.
-- Schedule overnight layovers for international connections from island routes.
+- Keep at least one overnight buffer before an international flight after an island ferry or speedboat. Do not book a same-day connection.
 - Match island to purpose, not social-media aesthetics.
 
 ## Who Should Consider Alternative Plans to Island-First

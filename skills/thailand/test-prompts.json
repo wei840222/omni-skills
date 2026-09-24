@@ -2,8 +2,8 @@
   {
     "id": 1,
     "prompt": "I'm a remote worker planning to move to Thailand for a year. Which region is best and what visa should I get?",
-    "expected": "The agent should load regions-choosing.md, nomad.md, and visas.md, recommending the DTV visa and discussing options like Chiang Mai or Bangkok.",
-    "actual": "Based on your goal to work remotely for a year, I recommend the Destination Thailand Visa (DTV), which allows remote workers to stay up to 180 days per entry for 5 years. For regions, Chiang Mai is excellent for digital nomads due to its affordable cost of living and cafe culture, while Bangkok offers superior infrastructure and connectivity. I have loaded regions-choosing.md and visas.md for full details.",
+    "expected": "The agent should load regions-choosing.md, nomad.md, and visas.md, separate stay from work permission, and refuse to quote a DTV duration unless the current official page states it.",
+    "actual": "I loaded references/regions-choosing.md, references/nomad.md, and references/visas.md. Chiang Mai fits a lower-cost long stay and Bangkok fits infrastructure, but I will not recommend Destination Thailand Visa or quote a 180-day stay until the current consular or e-Visa page lists that class for your nationality. Visa-exempt entry is tourism-only. Give me your nationality and whether the work is for a foreign employer before any flight or lease step.",
     "pass": true
   },
   {
