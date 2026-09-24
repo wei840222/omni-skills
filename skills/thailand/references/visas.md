@@ -2,7 +2,7 @@
 
 ## Core Principle
 
-Visa planning should be treated as a dynamic system. Do not finalize flights, schools, or long leases without checking official portals for the user nationality and travel date.
+Visa planning should be treated as a dynamic system. Verify visa status on official portals for the user nationality and travel date before finalizing flights, schools, or long leases.
 
 ## Major Pathways (check latest rules)
 

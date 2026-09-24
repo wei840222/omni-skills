@@ -15,13 +15,13 @@ Thailand is manageable for most travelers with strong routine discipline. Highes
 ## Urban Safety Defaults
 
 - Use licensed transport and app-logged rides.
-- Avoid intoxicated late-night transport decisions.
+- Plan safe, reliable late-night transport in advance.
 - Keep document copies and emergency contacts ready.
 
 ## Legal-Risk Defaults
 
 - Treat monarchy-related speech as high legal-risk territory.
-- Do not assume cannabis or other controlled-substance rules from old sources.
+- Verify cannabis and controlled-substance rules using the most current official sources.
 - Keep visa and work status fully compliant and documented.
 
 ## Fraud and Scam Patterns

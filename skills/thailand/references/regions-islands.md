@@ -11,10 +11,10 @@
 ## Route Planning Guidance
 
 - Keep ferry and flight buffers in rainy months.
-- Do not schedule same-day international connections from island routes.
+- Schedule overnight layovers for international connections from island routes.
 - Match island to purpose, not social-media aesthetics.
 
-## Who Should Avoid Island-First Plans
+## Who Should Consider Alternative Plans to Island-First
 
 - Users with frequent medical specialist needs.
 - Users with fixed high-intensity meeting schedules.

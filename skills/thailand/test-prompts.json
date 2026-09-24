@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a remote worker planning to move to Thailand for a year. Which region is best and what visa should I get?",
+    "expected": "The agent should load regions-choosing.md, nomad.md, and visas.md, recommending the DTV visa and discussing options like Chiang Mai or Bangkok.",
+    "actual": "Based on your goal to work remotely for a year, I recommend the Destination Thailand Visa (DTV), which allows remote workers to stay up to 180 days per entry for 5 years. For regions, Chiang Mai is excellent for digital nomads due to its affordable cost of living and cafe culture, while Bangkok offers superior infrastructure and connectivity. I have loaded regions-choosing.md and visas.md for full details.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the typical street food areas in Bangkok and how much does a meal cost?",
+    "expected": "The agent should load food-street.md, food-areas.md, and regions-bangkok.md to detail specific areas like Chinatown and provide cost estimates.",
+    "actual": "In Bangkok, popular street food areas include Yaowarat (Chinatown) and Sukhumvit Soi 38. A typical street food meal, such as Pad Thai or Som Tum, generally costs between 40 to 80 THB. I consulted food-street.md and regions-bangkok.md for this information.",
+    "pass": true
+  }
+]

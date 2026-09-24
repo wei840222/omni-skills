@@ -1,6 +1,6 @@
 # Setup - Thailand Guide
 
-Read this when `~/Clawic/data/thailand/` is missing or empty.
+Read this when `<state_root>/` is missing or empty.
 Keep first-use setup short and practical.
 
 ## First Activation Priorities
@@ -22,23 +22,23 @@ Keep first-use setup short and practical.
 If approved by the user context, initialize local memory:
 
 ```bash
-mkdir -p ~/thailand
-touch ~/Clawic/data/thailand/memory.md
-chmod 700 ~/thailand
-chmod 600 ~/Clawic/data/thailand/memory.md
+mkdir -p <state_root>
+touch <state_root>/memory.md
+chmod 700 <state_root>
+chmod 600 <state_root>/memory.md
 ```
 
-If `~/Clawic/data/thailand/memory.md` is empty, initialize it from `memory-template.md`.
+If `<state_root>/memory.md` is empty, initialize it from `assets/memory-template.md`.
 
 ## Returning Users
 
-- Read `~/Clawic/data/thailand/memory.md` silently.
+- Read `<state_root>/memory.md` silently.
 - Reuse known priorities and constraints.
 - Ask only what changed since last conversation.
 - Update memory with new region, date, budget, and risk changes.
 
 ## Guardrails
 
-- Do not claim visa certainty without telling the user what official source to re-check.
-- Do not provide fixed budgets without a range and season context.
-- Do not recommend risky mobility patterns without safety caveats.
+- Frame visa information as guidance and explicitly direct the user to verify with official sources.
+- Provide budget estimates as ranges and include season context.
+- Include safety caveats when discussing mobility patterns.

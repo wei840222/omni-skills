@@ -28,7 +28,7 @@
 
 - Dress appropriately for temples and government offices.
 - Keep voice and body language calm in conflict situations.
-- Avoid risky road behavior, especially on scooters.
+- Maintain safe and cautious road behavior, especially on scooters.
 
 ## Festival and Holiday Effects
 
@@ -42,7 +42,7 @@
 - Keep digital and paper copies of key documents.
 - Share transfer plans for late-night intercity movement.
 
-## Mistakes to Avoid
+## Common Mistakes to Anticipate and Prevent
 
 - Overpacking daily plans in high heat and traffic windows.
 - Assuming every island connection runs on schedule in monsoon periods.

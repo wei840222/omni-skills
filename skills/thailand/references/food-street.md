@@ -9,7 +9,7 @@
 ## Safety Heuristics
 
 - Prefer cooked-to-order hot dishes.
-- Avoid long-exposed seafood in high heat.
+- Choose freshly cooked seafood over items exposed to high heat.
 - Watch water and ice assumptions if user has sensitive digestion.
 
 ## Budget Reality
