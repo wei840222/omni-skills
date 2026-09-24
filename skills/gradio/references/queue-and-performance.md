@@ -2,7 +2,7 @@
 
 ## What the queue already does
 
-Current Gradio creates a queue for every event listener. You do not need `demo.queue()` before `launch()` merely to stop one long call from blocking every other user.
+Current Gradio creates a queue for every event listener. Listeners already queue, so leave `demo.queue()` unset unless you are changing `default_concurrency_limit`.
 
 Defaults:
 
