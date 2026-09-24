@@ -7,7 +7,7 @@
 - **Design patents** — How something looks, 15-year term
 - **Provisional applications** — 12-month placeholder, establishes priority date
 - **When to file** — Novel, non-obvious, useful; before public disclosure
-- **Costs** — $15-30K per patent through issuance, $5-10K maintenance over life
+- **Costs** — budget attorney and USPTO fees separately; maintenance fees are required on a schedule to keep a utility patent in force (see `sources.md`)
 
 ### Trademarks
 - **Federal registration** — USPTO, nationwide rights, ® symbol

@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are a Series A startup needing to draft our first big customer contract. What are the key elements to include and traps to avoid?",
+    "expected": "Provides advice on standard terms, emphasizes not over-lawyering, and advises on material thresholds, aligning with the Contracts playbook.",
+    "actual": "Load references/contracts.md. Start from the standard customer template, keep custom terms limited to this deal, and document every agreed change by email. Include scope, payment, capped liability, termination, IP ownership, and governing law. Escalate only terms above the stage materiality threshold. Confirm execution, storage, and renewal tracking before signature. If the counterparty is outside the template jurisdiction, load references/compliance.md and verify local terms before signing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our new product name might conflict with an existing trademark in the EU. How should we proceed?",
+    "expected": "Loads IP and Compliance references, advises on trademark differences and potentially escalates to outside counsel for bet-the-company litigation risk, emphasizing Human-in-the-Loop.",
+    "actual": "I'll review references/ip.md and references/compliance.md. Given the potential trademark conflict in the EU, note that trademarks vary by jurisdiction (e.g., GDPR applies to data, but IP rules differ). Before proceeding, this falls under a potential 'bet-the-company' or specialist area. You should consult outside counsel for international trademark clearance and litigation risk. Legal strategy decisions like this require human judgment (Human-in-the-Loop) before launch.",
+    "pass": true
+  }
+]
