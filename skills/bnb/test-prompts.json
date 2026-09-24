@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I configure MetaMask for the BNB Chain?",
+    "expected": "Provide the RPC URL (https://bsc-dataseed.binance.org), Chain ID (56), and block explorer (bscscan.com). Mention that the BNB Chain requires BNB as the native gas token.",
+    "actual": "To configure MetaMask for the BNB Chain, add a new network with the following details:\n- RPC URL: `https://bsc-dataseed.binance.org`\n- Chain ID: `56`\n- Block Explorer: `https://bscscan.com`\nEnsure you have BNB in your wallet as it is required as the native token for paying gas fees.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I sent ETH to my BNB Chain address from an Ethereum wallet, but I don't see it. Where is it?",
+    "expected": "Explain that sending funds directly to a different network (Ethereum to BNB Chain) without using a cross-chain bridge is a critical error. The funds are likely stuck on the Ethereum network on that address, or lost if bridging was not properly utilized.",
+    "actual": "BNB Chain and Ethereum are completely different networks, even though they share the exact same 0x... address format. If you send ETH from an Ethereum wallet directly to a BNB Chain address without utilizing a cross-chain bridge (like cBridge or Stargate), the funds do not cross over. They will remain on the Ethereum network. You need to switch your wallet network back to Ethereum to see your ETH.",
+    "pass": true
+  }
+]
