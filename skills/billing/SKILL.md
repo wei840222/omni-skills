@@ -74,7 +74,7 @@ When changing plans mid-cycle:
 | `none` | Change at renewal only | Downgrades |
 | `always_invoice` | Immediate charge/credit | Enterprise billing |
 
-Always override PSP defaults by specifying modes explicitly every time.
+Specify proration mode on every plan change. Treat an omitted PSP default as unspecified.
 
 ### 6. Race Conditions Are Guaranteed
 `customer.subscription.updated` fires BEFORE `invoice.paid` frequently.
