@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a Gradio app that counts button clicks separately for each user. The counter must increment on each click and survive later clicks in the same session.",
+    "expected": "Uses gr.Blocks and gr.State, and passes State as both input and output of the click handler. Does not use a module-level global.",
+    "actual": "```python\nimport gradio as gr\n\ndef increment(count):\n    count += 1\n    return count, count\n\nwith gr.Blocks() as demo:\n    count = gr.State(0)\n    btn = gr.Button(\"Click\")\n    output = gr.Number(label=\"Count\")\n    btn.click(increment, inputs=count, outputs=[count, output])\n\ndemo.launch()\n```\nState is an input and an output, so the next click in the same session sees the new value. A module global would mix users.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Two users hit a 10-second GPU image function at once and the second request fails. I am on current Gradio. How do I keep the GPU from running both at once without telling me to add demo.queue() as if queuing were off?",
+    "expected": "States that event listeners already have a queue, then sets concurrency_limit=1 (or a shared concurrency_id) on the GPU handler.",
+    "actual": "Current Gradio already queues every event listener, one at a time by default. Pin the GPU handler so it cannot run two inferences at once:\n```python\nbtn.click(generate, inputs=img_in, outputs=img_out, concurrency_limit=1)\n```\nIf several handlers share one GPU, give them the same concurrency_id. Call demo.queue(default_concurrency_limit=N) only when the app-wide default should change. Do not treat a missing demo.queue() as the cause.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My Gradio 6 chatbot returns [(user, bot), ...] and the history does not render. Also, is share=True safe for a week-long internal demo of customer data?",
+    "expected": "Rewrites history as role/content dicts and refuses share=True for customer data, citing the one-week public proxy.",
+    "actual": "Gradio 6 removed tuple history. Return a list of dicts:\n```python\nhistory.append({\"role\": \"user\", \"content\": user_text})\nhistory.append({\"role\": \"assistant\", \"content\": reply})\nreturn history\n```\nshare=True is a public proxy that expires after 1 week. Anyone with the URL can call the app, so keep customer data off that path. Host on Spaces or your own server, and use an auth callable or Space OAuth.",
+    "pass": true
+  }
+]
