@@ -43,7 +43,7 @@ Read them differently:
 - `lms ps` -> what is currently loaded.
 - `/v1/models` -> what the local server advertises to clients.
 
-Do not collapse those into one concept.
+Treat those strictly as separate concepts.
 
 ## 4. Minimal Smoke Test
 

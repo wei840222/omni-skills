@@ -9,7 +9,7 @@ Use MCP with LM Studio when the user wants:
 - A desktop chat workflow with external capabilities.
 - A controlled local-first agent loop where model serving stays separate from tool access.
 
-Do not introduce MCP just because the model is weak. Fix the model path first.
+Fix the model path first before introducing MCP to address weak performance.
 
 ## 2. Basic Connection Flow
 
@@ -32,7 +32,7 @@ Use this mental model:
 - Remote URLs and headers are part of the server definition.
 - Copy only the server object content that belongs inside `mcpServers`.
 
-Never paste random full JSON blobs into the wrong nesting level.
+Ensure JSON blobs are pasted into the exact correct nesting level.
 
 ## 4. Security Boundary
 
@@ -42,8 +42,8 @@ Some MCP servers can:
 - Use the network.
 
 Rules:
-- Never install MCP servers from untrusted sources.
-- Never assume a server is safe because it is popular.
+- Only install MCP servers from verified and trusted sources.
+- Independently verify the safety of all servers, regardless of popularity.
 - If the MCP is remote, state clearly that data can leave the machine.
 
 ## 5. Token and Context Pressure
@@ -68,7 +68,7 @@ After enabling MCP:
 3. Confirm the tool output is grounded and complete.
 4. Repeat only after the first success.
 
-Avoid multi-tool agent loops until the first small test passes.
+Ensure the first small test passes before introducing multi-tool agent loops.
 
 ## 7. Debugging Split
 

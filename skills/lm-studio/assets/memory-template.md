@@ -1,6 +1,6 @@
 # Memory Template — LM Studio
 
-Create `~/Clawic/data/lm-studio/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # LM Studio Memory
@@ -14,7 +14,7 @@ integration: pending | complete | paused | never_ask
 ## Activation
 - Auto-activate when:
 - Explicit-only topics:
-- Never activate for:
+- Remain inactive for:
 
 ## Runtime Baseline
 - OS:
@@ -60,6 +60,6 @@ integration: pending | complete | paused | never_ask
 ## Principles
 
 - Store verified runtime facts and outcomes, not vague guesses.
-- Never store tokens, passwords, or copied credentials.
+- Keep tokens, passwords, and copied credentials out of the skill memory.
 - Update `last` after meaningful runtime or model changes.
 - Prefer short incident notes tied to one confirmed fix.
