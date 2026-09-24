@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to casual Finnish for a close friend: Hi, are you coming to the party tonight? I have a lot of beer. It's going to be really great!",
+    "expected": "Helsinki-leaning puhekieli with mä/mulla and oot, no minä/te, and no added place or promise. Intensity stays peer-chat, not kirjakieli.",
+    "actual": "Moi, ootko tulossa bileisiin tänä iltana? Mulla on tosi paljon kaljaa. Siitä tulee ihan mahtavaa!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a quick message to a friend asking if they want to grab coffee, and mention that you are a bit tired today.",
+    "expected": "Peer puhekieli with mä, a spoken verb form, and the tiredness fact preserved. No formal te and no extra plan.",
+    "actual": "Moi! Lähetäänks kahville? Mä oon vähän väsyny tänään.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write a short note to an unfamiliar government office asking whether my document was received. Keep it formal.",
+    "expected": "Kirjakieli with minä, a title or te, full verb forms, and no mä/sä, particles, or slang.",
+    "actual": "Hyvä vastaanottaja, haluaisin tiedustella, onko lähettämäni asiakirja vastaanotettu. Ystävällisin terveisin.",
+    "pass": true
+  }
+]

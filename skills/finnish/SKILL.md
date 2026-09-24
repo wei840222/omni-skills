@@ -1,94 +1,85 @@
 ---
 name: finnish
-slug: finnish
-version: 1.0.0
-description: Write Finnish that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/finnish
+description: >
+  Compose, translate, and revise natural Finnish for messages, posts, and
+  everyday copy. Use when Finnish text needs a register choice, puhekieli
+  shortcuts, pronouns, particles, or a less formal translation; keep
+  kirjakieli for official, academic, or professional recipients. Not for
+  Estonian, legal translation, or a full language course.
 metadata:
-  clawdbot:
-    emoji: 🇫🇮
-    displayName: Finnish
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇫🇮"}'
+  related-skills: '{"copywriting":"Shape persuasive marketing copy after the Finnish register is chosen.","english":"Draft or revise the English source before translating it into Finnish.","norwegian":"Apply the same register-first writing method to Norwegian instead of Finnish.","swedish":"Handle Swedish requests that share Nordic context but not Finnish pronouns or compounds.","writing":"Plan structure and argument before polishing the Finnish wording."}'
 ---
 
-## The Real Problem
+## When to load
 
-AI Finnish is technically correct but sounds off. Too formal. Too kirjakieli (written language). Natives write more casually in puhekieli (spoken style). Match that.
+Load this skill to write, rewrite, or translate Finnish that should sound like a person, not a textbook. Load `references/sources.md` before repeating a register label, a pronoun mapping, or a particle gloss.
 
-## Formality Default
+This skill is stateless. It does not store local configuration or persistent user state.
 
-Default register is too high. Finnish casual is very different from formal. Unless explicitly formal: lean casual. Puhekieli over kirjakieli.
+## Workflow
 
-## Kirjakieli vs Puhekieli
+1. Identify the audience, relationship, channel, source text, and requested tone. If the request names no register, choose Helsinki-leaning puhekieli and say so in one short note.
+2. Pick one register and keep it for the whole draft. Match a sample the user already supplied when one exists.
+3. Choose pronouns, spoken shortcuts, and particles that fit that register. Preserve names, numbers, dates, commitments, and how sure the source is.
+4. Run the delivery check, then return the Finnish text first.
 
-Two distinct registers:
-- Kirjakieli (written): formal, news, official
-- Puhekieli (spoken): daily life, texting, casual
-- Online is almost entirely puhekieli
-- Pure kirjakieli in casual = robotic
+## Register
 
-## Sinä vs Te
+| Situation | Default | Delivery rule |
+| --- | --- | --- |
+| Official, academic, news, or unfamiliar institution | Kirjakieli | Use full forms (`minä`, `sinä` or a title, `hän`), standard spelling, and no spoken shortcuts. |
+| Work chat with known colleagues | Everyday professional | Stay clear and polite; add light particles only if that workplace already does. |
+| Friend, peer chat, or social post to people who already talk that way | Puhekieli | Use `mä` / `sä`, spoken shortcuts, and a few particles. |
+| Public or mixed audience | Neutral everyday | Stay readable; skip intimate slang and profanity. |
+| Dialect named by the user | That dialect's voice | Keep one dialect system for the whole draft. |
 
-Finnish is informal:
-- Sinä/Sä: universal, everyone
-- Te (formal you): very rare, elderly, very formal
-- Just use sinä/sä
+Online chat is mostly puhekieli. Pure kirjakieli in a casual chat reads robotic. An explicit formal request stays formal. Do not treat one urban puhekieli as every Finnish dialect.
 
-## Spoken Shortcuts
+## Pronouns
 
-Puhekieli transforms words:
-- Minä → Mä/Mää
-- Sinä → Sä/Sää  
-- Hän → Se
-- Olet → Oot
-- Eikö → Eiks
+Pronouns set the social distance. Helsinki-area casual forms are the default only when no dialect is named:
 
-## Particles & Softeners
+- `minä` → `mä` (also `mää`, `mie`, `miä` by dialect). Possessive stem `minun` → `mun`.
+- `sinä` → `sä` (also `sää`). Possessive stem `sinun` → `sun`.
+- `hän` (he / she) → `se` in most spoken Finnish outside Southwestern Finland. `se` here is not an insult.
+- `he` (they) → `ne` in the same spoken register.
+- `te` as formal you is rare: elderly addressees or a very formal setting. Default to `sinä` / `sä`, not `te`.
 
-These make Finnish natural:
-- -han/-hän: emphasis, shared knowledge
-- -pa/-pä: softening ("Katopa")
-- -ko/-kö: questions
-- Ni: filler ("Nii")
-- Missing these = stiff
+If the speaker's preferred form is unknown, use `mä` / `sä` for an unspecified casual draft, or `minä` / `sinä` for kirjakieli. State the assumption when it changes the social effect.
 
-## Fillers & Flow
+## Shortcuts, particles, and flow
 
-Real Finnish has fillers:
-- Nii, niinku, sillee
-- Tota, öö, hmm
-- Siis, itseasias
-- No, joo, niin
+Use spoken shortcuts in puhekieli, not in kirjakieli:
 
-## Expressiveness
+- `minä` / `sinä` → `mä` / `sä`
+- `olet` → `oot`; `olen` → `oon`
+- `eikö` → `eiks`
+- `minulla on` → `mulla on`
 
-Don't pick the safe word:
-- Hyvä → Mahtava, Loistava, Sika hyvä
-- Huono → Paska, Surkea, Ihan kuraa
-- Paljon → Tosi, Ihan, Helvetisti
+Particles and clitics shape tone. Add one when it matches the voice:
 
-## Common Expressions
+- `-han` / `-hän`: shared knowledge or emphasis (`sehä on`)
+- `-pa` / `-pä`: softens or nudges (`katopa`)
+- `-ko` / `-kö`: makes a question (`tuutko`)
+- `ni` / `nii`: filler or agreement
 
-Natural expressions:
-- Joo, Jep, Okei
-- Ei hätää, Ei mulla mitään
-- Selvä, Kyllä, No niin
-- Ai?, Oikeesti?, Ei voi olla
+Casual flow can use `nii`, `niinku`, `sillee`, `tota`, `siis`, `no`, `joo`, and `niin`. Use a few, not a pile. Peer-chat reactions include `Oikeesti?`, `Mitä?`, `Eikä!`, `Jes!`, `Siistii!`, and `Aivan!`. `hitto`, `paska`, and `helvetisti` are casual intensity; keep them out of formal and mixed-audience drafts.
 
-## Reactions
+Prefer a specific casual word over a safe textbook word when the register is puhekieli: `hyvä` → `mahtava` / `siistii`; `paljon` → `tosi` / `ihan`. In kirjakieli, keep `hyvä`, `paljon`, and full verb forms.
 
-React naturally:
-- Oikeesti?, Mitä?, Eikä!
-- Vau!, Jes!, Hitto!
-- Siistii!, Makeeta!, Aivan!
-- Haha, lol in text
+## Compounds and fidelity
 
-## Compound Words
+Keep Finnish compound words intact. Do not split a compound into separate English-like words, and do not invent an extreme compound to sound native. Natural wording does not add a promise, a place, or a time that the source did not give.
 
-Finnish creates long compounds:
-- Don't break them up
-- Lentokonesuihkuturbiinimoottoriapumekaanikkoaliupseerioppilas (extreme example)
-- Natural compounds are expected
+## Delivery check
 
-## The "Native Test"
+- Register, pronouns, shortcuts, and particles agree with each other and with the audience.
+- Facts, names, numbers, and commitments come from the source.
+- One dialect voice runs through the draft. Helsinki-leaning `mä` / `sä` is the default only for unspecified casual chat.
+- For legal, medical, financial, or publication-sensitive Finnish, keep the requested formality and recommend a qualified native-speaker review.
 
-Before sending: would a Finn screenshot this as "AI-generated"? If yes—too kirjakieli, no puhekieli forms, too formal. Use mä, sä.
+## Related boundaries
+
+Swedish and Norwegian are separate skills. A Swedish request belongs to `swedish`. Marketing structure belongs to `copywriting` after the register is chosen. English source polishing belongs to `english`.
