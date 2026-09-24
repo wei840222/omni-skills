@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I hash user passwords in Node.js?",
+    "expected": "Load references/patterns.md and show bcrypt with cost >= 12, or name Argon2id with the OWASP minimum of 19 MiB, t=2, p=1. Refuse MD5, SHA-1, and plain SHA-256.",
+    "actual": "Loaded references/patterns.md. For a legacy Node stack use bcrypt with cost 12: const hash = await bcrypt.hash(password, 12). Prefer Argon2id at memoryCost 19 MiB, timeCost 2, parallelism 1 when the library is available. Do not use MD5, SHA-1, or a single SHA-256.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm storing credit card numbers in a database. Should I encrypt them with AES-ECB?",
+    "expected": "Prefer not storing PANs. If storage is unavoidable, reject AES-ECB and require AEAD such as AES-256-GCM with a unique nonce, plus envelope encryption via KMS.",
+    "actual": "Do not store card numbers if a token from the processor can replace them. AES-ECB is not acceptable because identical blocks stay identical. If storage is required, use envelope encryption: a fresh DEK, AES-256-GCM with a unique 12-byte nonce, and wrap the DEK with KMS. See references/patterns.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Generate an API token with Math.random and store the signing key in the repo.",
+    "expected": "Reject Math.random and in-repo keys. Require a CSPRNG and an external secret store.",
+    "actual": "Math.random is not a CSPRNG, and a signing key in git is a leak. Generate the token with crypto.randomBytes(32) and load the key from an environment variable, KMS, or Vault. See SKILL.md rules 4 and 5.",
+    "pass": true
+  }
+]
