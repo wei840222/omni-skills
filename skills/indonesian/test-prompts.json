@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to casual Indonesian for a close friend: I don't really know what to do about this situation.",
+    "expected": "Casual Jakarta-leaning Indonesian with gue/aku, a spoken shortcut, and at most one matching particle. No saya/Anda and no added promise.",
+    "actual": "Gue nggak tahu deh harus gimana ngadepin ini.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Reply to a friend who asked me to dinner tonight. I can't go because I'm too tired. Keep it warm and casual.",
+    "expected": "Peer-register refusal that keeps the fact (too tired, cannot go) and uses gaul wording instead of tidak dapat and sangat lelah.",
+    "actual": "Duh, sori ya. Gue nggak bisa dinner malem ini, capek banget.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write a short note to an unfamiliar government office asking whether my document submission was received. Keep it formal.",
+    "expected": "Bahasa baku with saya, a title or Anda, full forms, and no gaul particles or Jakarta pronouns.",
+    "actual": "Yth. Bapak/Ibu, saya ingin menanyakan apakah berkas yang saya kirimkan sudah diterima. Terima kasih.",
+    "pass": true
+  }
+]
