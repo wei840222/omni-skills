@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have a smart casual dinner party tonight. I own dark jeans, a white shirt, a navy blazer, and brown loafers. Can you suggest an outfit?",
+    "expected": "The skill should recognize the clothes available, combine them into an appropriate smart casual outfit (e.g., blazer, shirt, jeans, and loafers), and save the combo to the <state_root>/outfits/my-outfits/events/ folder.",
+    "actual": "I've created an outfit combination for your smart-casual dinner tonight and saved it to `<state_root>/outfits/my-outfits/events/dinner-party.md`. It features your white shirt, dark jeans, navy blazer, and brown loafers. The blazer elevates the simple shirt and jeans for the dinner occasion.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm going to a friend's outdoor wedding this weekend in California. The dress code says 'casual elegance'. What should I wear?",
+    "expected": "The skill should ask for clarification on what clothes the user currently owns or has access to, clarify the weather, and avoid immediately pushing the user to buy new clothes.",
+    "actual": "That sounds like a fun event! 'Casual elegance' for an outdoor California wedding usually means looking put-together but relaxed—think breathable fabrics like linen or cotton, and comfortable shoes for being outdoors. \n\nBefore I suggest some combinations, could you tell me a bit about what you already own in your wardrobe that might fit this vibe? Also, do you know what the weather will be like (e.g., hot during the day but chilly at night)? We can start by looking at what you have before considering anything new.",
+    "pass": true
+  }
+]

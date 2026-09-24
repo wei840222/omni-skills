@@ -1,24 +1,16 @@
 ---
 name: outfits
-slug: outfits
-version: 1.0.1
-description: Build an outfit planning system for saving inspiration, creating combinations, and dressing for any occasion.
-homepage: https://clawic.com/skills/outfits
+description: When the user wants to organize their wardrobe or plan outfits, catalog
+  their clothing items and suggest outfit combinations based on occasion, weather,
+  and saved inspirations.
 metadata:
-  clawdbot:
-    emoji: 👗
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Outfits
+  openclaw: '{"emoji": "👗"}'
 ---
-
 ## Core Behavior
 - User saves outfit inspiration → catalog with tags and notes
 - User asks what to wear → build combination from their clothes
 - User plans for event → suggest options with reasoning
-- Create `~/Clawic/data/outfits/` as workspace
+- Create `<state_root>/outfits/` as workspace
 
 ## Use Cases
 - Save looks you love: Instagram, Pinterest, street style
@@ -29,7 +21,7 @@ metadata:
 
 ## File Structure
 ```
-~/Clawic/data/outfits/
+<state_root>/outfits/
 ├── inspiration/
 │   ├── casual/
 │   ├── formal/
@@ -99,7 +91,7 @@ Blazer elevates basic combo
 - Surface outfit math when helpful: "5 pieces = 12 combos"
 - Identify versatile pieces that appear in many outfits
 - Flag gaps only when obvious or asked
-- Don't push minimalism unless user wants it
+- Only suggest minimalism if the user explicitly requests it
 
 ## What To Surface
 - "This top appears in 6 of your saved outfits"
@@ -113,8 +105,8 @@ Blazer elevates basic combo
 - Week 3: create 5 go-to combinations
 - Ongoing: add inspiration, build seasonal capsules
 
-## What NOT To Push
-- Buying new items before using what they have
-- Specific brands or expensive pieces
-- Rigid fashion rules — principles over laws
-- Guilt about clothing or style choices
+## Constraints to Maintain
+- Prioritize creating outfits from the user's existing wardrobe before suggesting new purchases
+- Focus on style principles and versatile pieces rather than specific brands or expensive items
+- Emphasize flexible style principles rather than rigid fashion rules
+- Maintain a supportive and encouraging tone regarding the user's clothing and style choices
