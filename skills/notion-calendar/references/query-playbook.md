@@ -8,7 +8,7 @@
 
 ## Query a Time Window
 
-Use bounded filters:
+Replace `Date` with the verified property name, then POST the body to `/v1/data_sources/{data_source_id}/query`:
 
 ```json
 {
@@ -22,10 +22,12 @@ Use bounded filters:
 }
 ```
 
+Send `Authorization: Bearer $NOTION_API_KEY` and `Notion-Version: 2025-09-03` (or the newer version in `references/sources.md`).
+
 ## Create a Calendar Item
 
 - Confirm title, date semantics, and required status.
-- Use `data_source_id` as parent when creating a page for modern integrations.
+- Create with `POST /v1/pages` and `parent: {"type":"data_source_id","data_source_id":"..."}`.
 - Read the created page back and return title, date, status, and URL.
 
 ## Reschedule an Existing Item

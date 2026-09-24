@@ -1,13 +1,13 @@
 # Memory Template - Notion Calendar
 
-Create `~/Clawic/data/notion-calendar/memory.md` with this structure:
+Create `<state_root>/memory.md` only after `<state_root>` is resolved and the user wants defaults to persist:
 
 ```markdown
 # Notion Calendar Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.0.1
 last: YYYY-MM-DD
 integration: pending
 
@@ -41,12 +41,12 @@ integration: pending
 |-------|---------|----------|
 | `ongoing` | Context still evolving | Keep learning while operating |
 | `complete` | Core defaults are stable | Use known databases and mappings |
-| `paused` | User wants minimal setup | Avoid extra discovery prompts |
-| `never_ask` | User asked to stop setup prompts | Use only explicit instructions |
+| `paused` | User wants minimal setup | Follow explicit instructions for this session |
+| `never_ask` | User asked to pause setup prompts | Follow explicit instructions and skip setup prompts |
 
 ## Rules
 
 - Keep notes in natural language outside the status block.
 - Update `last` whenever database mappings or safety defaults change.
 - Record `data_source_id` only after it is retrieved and verified.
-- Never store API keys or raw secrets in memory files.
+- Keep API keys and raw secrets outside memory files.
