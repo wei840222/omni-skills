@@ -247,7 +247,7 @@ Error: Google Api Error: forbidden
 Error: Cannot rollout to production before testing
 ```
 
-**Fix:** Complete 20 testers + 14 days requirement first.
+**Fix:** For a personal account created after November 13, 2023, finish the closed test (at least 12 testers opted in for 14 consecutive days) and apply for production access before a production rollout.
 
 ### Version Code Errors
 
@@ -276,5 +276,5 @@ Error: Request timed out
 | Semantic versioning | Easy to track releases |
 | Automated changelogs | Consistent, error-free |
 | Staged rollouts | Catch issues before full release |
-| Store secrets in CI | Never commit keys |
+| Store secrets in CI | Keep keys isolated from repository |
 | Separate lanes | internal vs production clarity |

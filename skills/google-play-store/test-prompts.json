@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I created a personal Play Console account in 2024 and want to publish a new phone app. What has to happen before production?",
+    "expected": "Agent loads references/tracks.md, states the personal-account gate of at least 12 opted-in testers for 14 consecutive days, distinguishes invited from opted-in, and asks for the package name before writing state under a resolved state root.",
+    "actual": "Personal accounts created after November 13, 2023 must run a closed test with at least 12 testers opted in continuously for 14 days before applying for production access. Invited testers do not count until they opt in. Send me the package name and I will record the workflow under the resolved state root, not a literal <state_root> path.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My phone app update was rejected because the target API is too low. We still target API 34. What should we set?",
+    "expected": "Agent cites the August 31, 2026 Play requirement that phone and tablet apps must target Android 16 (API 36), notes form-factor exceptions, and points to the official target API page rather than a one-year rule of thumb.",
+    "actual": "From August 31, 2026, new phone and tablet apps and updates must target Android 16 (API 36) or higher. Wear OS and Android Automotive need API 35; Android TV and Android XR need API 34. Confirm the exact number on https://developer.android.com/google/play/requirements/target-sdk before rebuilding, then upload a higher versionCode.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Play rejected the update for background location, but our own code does not use GPS in the background. How do we recover without creating a new developer account?",
+    "expected": "Agent checks SDK manifests and ACCESS_BACKGROUND_LOCATION, explains the declaration or removal path, and keeps recovery on the existing account.",
+    "actual": "Audit merged manifests and third-party SDKs for ACCESS_BACKGROUND_LOCATION. Remove the permission or submit a declaration with a video of the real feature, then upload a new versionCode on this same developer account. A new account created to evade enforcement risks termination.",
+    "pass": true
+  }
+]

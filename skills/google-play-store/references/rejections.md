@@ -13,13 +13,15 @@
 
 ### 1. Testing Requirements Not Met
 
-**Message:** "You must have at least 20 testers who have opted in and tested your app for at least 14 days"
+**Message:** Production access is unavailable until closed testing meets the personal-account requirement.
 
 **Fix:**
-1. Go to Closed testing in Console
-2. Verify 20+ testers have OPTED IN (check "Opted in" column)
-3. Wait until 14 days from first opt-in
-4. Then promote to production
+1. Go to Closed testing in Play Console
+2. Confirm at least 12 testers have opted in and stayed opted in (invited is not enough)
+3. Wait until those testers have been opted in for 14 consecutive days
+4. Apply for production access from the Dashboard
+
+This 12-tester gate applies to personal developer accounts created after November 13, 2023. Organization accounts follow the current Play Console testing article.
 
 **Prevention:** Start closed testing on day 1 of development.
 
@@ -40,15 +42,7 @@
 **Message:** "Your app currently targets API level X and must target at least Y"
 
 **Fix:**
-```gradle
-android {
-    defaultConfig {
-        targetSdkVersion 34
-    }
-}
-```
-
-Rebuild and resubmit.
+Set `targetSdkVersion` to the current Play minimum for that form factor, then rebuild and resubmit. From August 31, 2026, phone and tablet apps need Android 16 (API 36); Wear OS and Android Automotive need API 35; Android TV and Android XR need API 34. Read the exact Y from the rejection and from [Target API level requirements](https://developer.android.com/google/play/requirements/target-sdk).
 
 ### 4. Policy Violation - Permissions
 
@@ -83,7 +77,7 @@ Rebuild and resubmit.
 **Debug:**
 1. Download the exact APK/AAB you uploaded
 2. Test on stock Android device
-3. Test on Android 14 (API 34)
+3. Test on a device running the app's target API level
 4. Test without network
 5. Check Console for crash reports
 
@@ -152,7 +146,7 @@ Request: Please review the updated submission.
 
 ### Appeal Tips
 
-| Do | Don't |
+| Do | Prefer |
 |----|-------|
 | Be factual | Be emotional |
 | Show evidence | Make excuses |
@@ -165,7 +159,7 @@ Request: Please review the updated submission.
 ### If App is Suspended
 
 1. **Read the email carefully** — understand exact violation
-2. **Don't panic-create new account** — that gets you terminated
+2. **Recover on the existing account** — a new account created to evade enforcement risks termination
 3. **Check all your apps** — might be account-level issue
 4. **Document everything** — screenshots, communications
 
@@ -201,17 +195,17 @@ CONTENT
 [ ] Data safety form complete
 [ ] Content rating done
 [ ] Permissions justified
-[ ] Target SDK ≥ 34
+[ ] Target API meets the current Play requirement for this form factor
 
 TESTING
-[ ] Tested on API 34 device
+[ ] Tested on a device at the app's target API level
 [ ] No crashes on fresh install
 [ ] All features work without login (or clear onboarding)
 [ ] Network error handling works
 
-NEW APPS ONLY
-[ ] 20+ testers opted in
-[ ] 14+ days of testing completed
+PERSONAL ACCOUNTS CREATED AFTER NOVEMBER 13, 2023
+[ ] At least 12 testers opted in continuously
+[ ] 14 consecutive days completed before applying for production
 ```
 
 ## Severity Guide
