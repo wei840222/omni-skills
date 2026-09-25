@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "My friend Alex mentioned they really want a custom mechanical keyboard. Their birthday is June 12th. Please save this for later.",
+    "expected": "Creates or updates an alex.md file in the people directory with their birthday, and adds the mechanical keyboard to their ideas backlog.",
+    "actual": "Resolved `<state_root>` before writing. Created `<state_root>/people/alex.md`, noted the June 12 birthday, and added Custom mechanical keyboard to the Ideas Backlog.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to get a gift for Mom's birthday next week. Do we have anything saved for her?",
+    "expected": "Checks the occasions calendar and mom.md file, suggesting items from her ideas backlog and checking what was given in the past.",
+    "actual": "Let me check her file. I see you have noted \"spa day\" in the past, and for her Ideas Backlog, we don't have anything new saved yet. Would you like to consider the \"Safe Options\" from our generic list (like nice candles or quality chocolates), or look into an experience like concert tickets?",
+    "pass": true
+  }
+]
