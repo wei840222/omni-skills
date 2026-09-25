@@ -20,7 +20,7 @@ Level 1: Manual execution     ← Starting point
 ```
 
 Each time you reach a bottleneck, you've conquered the level below.
-The goal isn't to never be a bottleneck — it's to be a bottleneck at higher levels.
+The goal is to move your bottleneck to higher levels.
 
 ---
 

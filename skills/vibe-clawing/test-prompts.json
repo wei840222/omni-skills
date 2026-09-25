@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to transition from manually reviewing every code PR to letting the agent handle the standard ones. How should I approach this using vibe clawing?",
+    "expected": "Load `references/loops.md` and advise on documenting decision criteria, parallel testing, and tracking closed loops in state memory.",
+    "actual": "I loaded `references/loops.md` and learned that we can close the loop by documenting the decision tree and testing it in parallel first. I've initialized `<state_root>/memory.md` recording 'Code Reviews' under 'Next to Delegate'. Let's define the escalation triggers so the agent handles 80% and leaves the tricky 20% for you.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I feel like everything is waiting for my final approval and I'm a bottleneck. Is this bad?",
+    "expected": "Load `references/bottleneck.md`, reframe the bottleneck as a sign of progress, and advise on how to climb the ladder by defining criteria and releasing.",
+    "actual": "Based on `references/bottleneck.md`, being the bottleneck isn't a problem to fix—it's a signal you've progressed and solved the level below. You're ready to climb to the next level. We should define the criteria that would make you comfortable not being involved, set up guardrails, and let go.",
+    "pass": true
+  }
+]
