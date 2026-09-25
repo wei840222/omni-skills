@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| symptoms | 2026-09-25 | 86/100 (#584) |
 | google-play-store | 2026-09-25 | 86/100 (#583) |
 | vibe-clawing | 2026-09-25 | 90/100 (#582) |
 | gifts | 2026-09-25 | 85/100 (#581) |
