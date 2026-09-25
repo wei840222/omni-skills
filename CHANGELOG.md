@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| chemistry | 2026-09-25 | 85/100 (#587) |
 | health | 2026-09-25 | 84/100 (#586) |
 | therapist | 2026-09-25 | 85/100 (#585) |
 | symptoms | 2026-09-25 | 86/100 (#584) |
