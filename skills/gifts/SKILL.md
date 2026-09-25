@@ -1,28 +1,35 @@
 ---
 name: gifts
-slug: gifts
-version: 1.0.0
-description: Build a personal gift system for tracking ideas, occasions, and gift-giving history.
-homepage: https://clawic.com/skills/gifts
+description: Track gift ideas, occasions, and giving history for people the user cares about. Use when the user mentions a present, a birthday, a wishlist item, or asks what to give someone.
 metadata:
-  clawdbot:
-    emoji: 🎁
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Gifts
+  version: "1.0.1"
+  openclaw: '{"emoji":"🎁"}'
 ---
 
+## State location
+
+Gift notes may exist in `<workspace>/gifts/`, `<workspace>/memory/gifts/`, or `~/gifts/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/gifts/`, `<workspace>/memory/gifts/`, `~/gifts/`.
+3. If none exists and state must be created, default to `<workspace>/gifts/`.
+4. If more than one candidate exists, use the highest-precedence one and tell the user that other copies were left untouched.
+5. If `<workspace>` cannot be resolved and `~/gifts/` does not exist, ask for a state root before creating files.
+
+Use the selected `<state_root>` for every state operation in this skill. Do not write the literal string `<state_root>` to disk.
+
 ## Core Behavior
-- User mentions gift idea → save to person's file
+
+- User mentions a gift idea → save it to that person's file
 - User asks what to gift → check saved ideas first
-- User gives/receives gift → log for future reference
-- Create `~/Clawic/data/gifts/` as workspace
+- User gives or receives a gift → log it for future reference
 
 ## File Structure
+
 ```
-~/Clawic/data/gifts/
+<state_root>/
 ├── people/
 │   ├── mom.md
 │   └── sarah.md
@@ -35,87 +42,32 @@ metadata:
 └── my-wishlist.md
 ```
 
-## Person File
-```markdown
-# sarah.md
-## Basics
-Birthday: March 15
+## State Templates
 
-## Interests
-Cooking (Italian), yoga, true crime podcasts
-
-## Sizes
-Clothing: M, Shoes: 38 EU
-
-## Ideas Backlog
-- Le Creuset dutch oven (mentioned wanting)
-- That cookbook she keeps referencing
-
-## Given History
-- 2024: Knife set — loved it
-- 2023: Cooking class — went together
-
-## Avoid
-Candles (has too many)
-```
+Load `references/state-templates.md` before creating or updating any file under `<state_root>/`.
 
 ## Capturing Ideas
-When user mentions someone wants something:
-- Save immediately with context
-- Note source: "mentioned while cooking" or "saw her eyeing it"
-- Casual mentions = best gifts later
 
-## Occasions Calendar
-```markdown
-# birthdays.md
-## March
-- Sarah: 15th
-- Mom: 22nd
-```
+When the user mentions that someone wants something:
 
-## Gift History
-```markdown
-# given/2024.md
-## Sarah — Birthday
-Knife set, $120 — loved it, uses daily
-
-## Mom — Mother's Day
-Spa day — went together
-```
-
-## Generic Ideas Bank
-```markdown
-# generic.md
-## Safe Options
-Nice candle, quality chocolates, gift card
-
-## Experiences
-Concert tickets, cooking class, spa day
-```
-
-## My Wishlist
-```markdown
-# my-wishlist.md
-## Want
-- AirPods Max
-- Leather weekender bag
-
-## Sizes & Notes
-L shirts, 10 US shoes
-Avoid: cologne, novelty items
-```
+- Save it immediately, with the context of the mention
+- Note the source, such as "mentioned while cooking" or "saw her eyeing it"
+- Treat casual mentions as the best later gift leads
 
 ## What To Surface
+
 - "Sarah's birthday is in 2 weeks"
 - "You saved an idea for her last month"
-- "Last year you gave her X, went well"
+- "Last year you gave her X, and it went well"
 
 ## Progressive Enhancement
-- Start: add closest people with birthdays
-- Ongoing: capture ideas when mentioned
-- After giving: log reaction
 
-## What NOT To Do
-- Suggest generic gifts without checking their file
-- Forget to log gifts (prevents repeats)
-- Miss capturing "I want that" moments
+- Start by adding the closest people and their birthdays
+- Keep capturing ideas when they are mentioned
+- After a gift is given, log the reaction
+
+## Critical Requirements
+
+- Check the person's file before suggesting a generic gift
+- Log gifts that were given so later suggestions do not repeat them
+- Capture "I want that" moments when the user expresses them
