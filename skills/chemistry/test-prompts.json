@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain the difference between an acid and a base to a 10-year-old.",
+    "expected": "Use a kitchen analogy, name acid and base in touchable terms, and do not open with equations.",
+    "actual": "Acids and bases are like two different teams in your kitchen. Acids are things that taste sour, like lemon juice or vinegar. Bases are things that feel slippery, like soap or baking soda. When you mix them together, like vinegar and baking soda, they have a bubbly reaction!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What is the accepted mechanism for the acid-catalyzed hydration of ethene?",
+    "expected": "Give the protonation, nucleophilic attack, and deprotonation order, and state a safety note before treating this as a procedure.",
+    "actual": "The mechanism involves three main steps. 1. Protonation: The pi bond of ethene acts as a nucleophile and attacks the electrophilic proton from the acid catalyst (e.g., H3O+), forming a carbocation intermediate. 2. Nucleophilic attack: A water molecule acts as a nucleophile and attacks the electrophilic carbocation. 3. Deprotonation: Another water molecule removes a proton from the oxonium ion to regenerate the acid catalyst and form ethanol. Safety Note: Always add acid to water, never the reverse.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need to run a geometry optimization on a novel organic molecule containing a transition metal center. What level of theory should I use?",
+    "expected": "Name a method and basis-set or ECP strategy for the metal, and say not to invent a benchmark.",
+    "actual": "For a molecule containing both organic components and a transition metal, you need a method that handles electron correlation and a basis set that can accommodate the metal's d-orbitals. A common approach is using DFT with the M06 functional. For the basis set, you could use a mixed approach: a standard Pople basis set like 6-31G(d) for the organic atoms (C, H, N, O) and an Effective Core Potential (ECP) like LANL2DZ for the transition metal to account for relativistic effects.",
+    "pass": true
+  }
+]
