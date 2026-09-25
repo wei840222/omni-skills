@@ -1,6 +1,6 @@
 # Memory Template — Google Play Store
 
-Create `~/Clawic/data/google-play-store/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Google Play Store Memory
@@ -39,7 +39,7 @@ integration: pending
 
 ## Per-App Notes
 
-For each app, create `~/Clawic/data/google-play-store/apps/{package-name}.md`:
+For each app, create `<state_root>/apps/{package-name}.md`:
 
 ```markdown
 # {App Name}
@@ -71,10 +71,10 @@ target_sdk: 34
 |-------|---------|----------|
 | `ongoing` | Still learning | Gather context from conversations |
 | `complete` | Enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, use what you have |
+| `paused` | User said "not now" | Wait for explicit prompt, use what you have |
 
 ## Key Principles
 
-- Learn from conversations, don't interrogate
+- Learn from conversations through observation
 - Update `last` on each interaction
 - Most users stay `ongoing` indefinitely

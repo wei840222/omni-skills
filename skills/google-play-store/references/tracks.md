@@ -20,8 +20,8 @@ Google enforces before FIRST production release:
 
 | Requirement | Details |
 |-------------|---------|
-| Closed testers | Minimum 20 must OPT IN (invited ≠ opted in) |
-| Testing period | 14 consecutive days of testing activity |
+| Closed testers | Personal accounts created after November 13, 2023: at least 12 must stay opted in (invited ≠ opted in) |
+| Testing period | 14 consecutive days before applying for production access |
 | Data safety | Form must be 100% complete |
 | Content rating | Questionnaire completed |
 
@@ -32,11 +32,11 @@ Google enforces before FIRST production release:
 ```
 Day 1:   Upload to internal, QA
 Day 2:   Fix critical bugs
-Day 3:   Upload to closed, invite 25+ testers
+Day 3:   Upload to closed and invite more than 12 testers
 Day 4-7: Testers install and use
-Day 7:   Check 20+ have opted in
-Day 8-16: Continue closed testing
-Day 17:  Requirements met, promote to production
+Day 7:   Confirm at least 12 have opted in and stayed opted in
+Day 8-16: Continue closed testing for 14 consecutive days
+Day 17:  Apply for production access after the requirement is met
 Day 18+: Production review (2-24h)
 ```
 
@@ -70,7 +70,7 @@ Upload previous version with NEW versionCode, rollout to 100%
 
 ### Halt Triggers
 
-Stop rollout immediately if:
+Halt the rollout when any of these appear:
 - Crash rate > 1% (vs previous version)
 - ANR rate > 0.5%
 - Sudden spike in 1-star reviews

@@ -97,9 +97,9 @@ This appears in browse results and feature placements.
 **Design rules:**
 - No text smaller than 24pt
 - Brand name prominent
-- Don't rely on bottom 1/3 (gets cropped)
+- Focus key content in the top 2/3 (bottom gets cropped)
 - Test at thumbnail size
-- Avoid excessive text
+- Keep text minimal
 
 ### Video (optional, 30s-2min)
 
@@ -189,7 +189,7 @@ This appears in browse results and feature placements.
 
 ### Localization Tips
 
-- Don't just translate, localize
+- Focus on full localization rather than literal translation
 - Adjust screenshots for cultural context
 - Research local competitors
 - Local keyword research per market

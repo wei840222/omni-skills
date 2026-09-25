@@ -73,7 +73,7 @@ For each sensitive permission:
 1. Describe exactly how used
 2. Link to feature in app
 3. Provide video demonstration
-4. Explain why runtime alternatives don't work
+4. Explain why runtime alternatives are insufficient
 
 ## Content Rating
 
@@ -123,16 +123,23 @@ If ANY appeal to children under 13:
 If NOT targeting children:
 - Console → App content → Target audience
 - Select "Not designed for children"
-- Don't use child-appealing elements
+- Declare the actual target audience. Avoid presenting a general app as a children's app unless it meets Families policy.
 
 ## API Requirements
 
-### Target SDK (2024)
+### Target API level
 
-| Deadline | Requirement |
-|----------|-------------|
-| Aug 2024 | API 34 for new apps |
-| Nov 2024 | API 34 for updates |
+Source: [Target API level requirements](https://developer.android.com/google/play/requirements/target-sdk).
+
+From August 31, 2026, new apps and app updates submitted to Google Play must target:
+
+| Form factor | Minimum target |
+|-------------|----------------|
+| Phone and tablet | Android 16 (API 36) |
+| Wear OS and Android Automotive OS | Android 15 (API 35) |
+| Android TV and Android XR | Android 14 (API 34) |
+
+Existing apps must target Android 15 (API 35) or higher to stay available to new users on newer Android devices. Apps that need more time can request an extension to November 1, 2026 in Play Console. Permanently private apps restricted to one organization are excepted. Re-check the official page before a release; these dates move with each Android release.
 
 ### Deprecated APIs
 
@@ -198,7 +205,7 @@ If NOT targeting children:
 ### Maintaining Standing
 
 1. Respond to policy emails within 7 days
-2. Never create accounts to evade enforcement
+2. Keep enforcement on the existing developer account; a new account created to evade enforcement risks termination
 3. Fix issues before escalation
 4. Use Policy Center for guidance
 5. Appeal with evidence, not emotion

@@ -1,35 +1,35 @@
 ---
 name: google-play-store
-slug: google-play-store
-version: 1.0.0
-description: Publish, optimize, and scale Android apps on Google Play with release automation, ASO, policy compliance, and rejection recovery.
-homepage: https://clawic.com/skills/google-play-store
+description: Manage Google Play Store publishing workflows, App Store Optimization (ASO), policy compliance, and app rejection recovery.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Google Play Store
+  version: "1.1.0"
+  openclaw: '{"emoji":"🤖","displayName":"Google Play Store"}'
+  related-skills: '{"android":"Android build and development procedures before publishing.","app-store":"Parallel iOS publishing workflows for cross-platform releases.","mobile":"Cross-platform mobile strategy shared by both stores."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` for integration guidelines.
+Publishing notes may exist in `<workspace>/google-play-store/`, `<workspace>/memory/google-play-store/`, or `~/google-play-store/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/google-play-store/`, `<workspace>/memory/google-play-store/`, `~/google-play-store/`.
+3. If none exists and state must be created, default to `<workspace>/google-play-store/`.
+4. If more than one candidate exists, use the highest-precedence one and tell the user that other copies were left untouched.
+5. If `<workspace>` cannot be resolved and `~/google-play-store/` does not exist, ask for a state root before creating files.
 
-User needs to publish, manage, or optimize Android apps on Google Play. Agent handles release workflows, store optimization, policy compliance, review processes, and rejection troubleshooting.
+Use the selected `<state_root>` for every state operation in this skill. Do not write the literal string `<state_root>` to disk.
+
+## Initialization
+
+On first use or when starting a new publishing workflow, load `references/setup.md` for integration guidelines and initial data gathering.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/google-play-store/`. See `memory-template.md` for structure.
+Memory lives under the resolved `<state_root>`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/google-play-store/
+<state_root>/
 ├── memory.md         # Account, apps, preferences
 ├── apps/             # Per-app tracking
 │   └── {package}/    # Package-specific notes
@@ -40,13 +40,13 @@ Memory lives in `~/Clawic/data/google-play-store/`. See `memory-template.md` for
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Release tracks and rollouts | `tracks.md` |
-| App Store Optimization | `aso.md` |
-| Policy compliance | `policies.md` |
-| Rejection recovery | `rejections.md` |
-| Automation with Fastlane | `fastlane.md` |
+| Setup process | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
+| Release tracks and rollouts | `references/tracks.md` |
+| App Store Optimization | `references/aso.md` |
+| Policy compliance | `references/policies.md` |
+| Rejection recovery | `references/rejections.md` |
+| Automation with Fastlane | `references/fastlane.md` |
 
 ## Core Rules
 
@@ -59,12 +59,12 @@ Memory lives in `~/Clawic/data/google-play-store/`. See `memory-template.md` for
 | Open | Public beta | 2-6h | Anyone joins |
 | Production | Full release | 2-24h | Everyone |
 
-**Mandatory progression for new apps:**
+**Production access for personal accounts created after November 13, 2023:**
 ```
-Internal → Closed (20+ testers, 14+ days) → Production
+Closed test → at least 12 testers opted in continuously for 14 days → apply for production access
 ```
 
-Skip this = instant rejection. Start closed testing on day one.
+Invited testers do not count until they opt in. Organization accounts and apps already in production follow the current Play Console testing requirements, not this personal-account gate. Start closed testing as soon as the app is usable.
 
 ### 2. Pre-Submission Checklist
 
@@ -79,16 +79,16 @@ CONTENT
 [ ] Feature graphic 1024x500 uploaded
 
 TECHNICAL
-[ ] Target SDK ≥ 34 (Android 14)
+[ ] Target API meets the current Play requirement (from August 31, 2026: Android 16 / API 36 for phone and tablet apps, with form-factor exceptions)
 [ ] versionCode higher than ALL previous uploads
 [ ] Signed with correct key
 [ ] No hardcoded API keys in code
 [ ] ProGuard/R8 not breaking functionality
 
-TESTING (new apps only)
-[ ] 20+ testers opted in (not just invited)
-[ ] 14+ consecutive days completed
-[ ] Crash-free rate > 99%
+TESTING (personal accounts created after November 13, 2023, before first production access)
+[ ] At least 12 testers opted in continuously (not just invited)
+[ ] 14 consecutive days completed
+[ ] Crash-free rate reviewed before applying for production
 ```
 
 ### 3. Version Code Strategy
@@ -152,12 +152,12 @@ Why: Rejected uploads "burn" the versionCode.
 | Data request | 30 days | Complete in 14 |
 | Critical issue | 24h suspension | Immediate |
 
-**Rule:** Never ignore policy emails. Silence = admission.
+**Rule:** Answer policy emails inside the deadline shown in that email, and keep the evidence used in the reply.
 
 ## Common Traps
 
 ### Publishing Traps
-- **Skipped closed testing** → Cannot release to production. 20 testers + 14 days mandatory for new apps.
+- **Skipped closed testing** → Personal accounts created after November 13, 2023 cannot apply for production until 12 testers have stayed opted in for 14 consecutive days.
 - **Data safety incomplete** → Instant rejection. Fill EVERY field even if "no data collected."
 - **Screenshots with mockups** → Rejection for misleading. Use real app screenshots only.
 - **Privacy policy 404** → Rejection. Verify URL works before every submission.
@@ -175,14 +175,14 @@ Why: Rejected uploads "burn" the versionCode.
 - **Deceptive ads** → Suspension risk. Follow interstitial timing and close button rules.
 
 ### Business Traps
-- **No staged rollout** → Bad update hits everyone. Always start at 1%.
+- **No staged rollout on an update** → A bad update hits everyone. First production releases do not offer a rollout percentage; later updates can start at a small percentage.
 - **Ignored policy email** → Escalation to strike. Respond within 3 days.
 - **Multiple accounts to evade** → Termination. One violation becomes account death.
 
 ## Security & Privacy
 
 **Data that stays local:**
-- Package names and app status in ~/Clawic/data/google-play-store/
+- Package names and app status in <state_root>/
 - Submission checklists and workflow notes
 - Release history and lessons learned
 
@@ -204,14 +204,3 @@ Why: Rejected uploads "burn" the versionCode.
 - Execute Fastlane commands directly
 
 User manages all credentials in their CI/CD system and runs commands themselves. The Fastlane examples are documentation only.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `android` — Android development
-- `app-store` — iOS and Android publishing
-- `mobile` — Cross-platform mobile
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/google-play-store
-- Latest version: https://clawic.com/skills/google-play-store

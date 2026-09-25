@@ -1,10 +1,10 @@
 # Setup — Google Play Store
 
-Read this when `~/Clawic/data/google-play-store/` doesn't exist or is empty. Start the conversation naturally.
+Read this when `<state_root>/` doesn't exist or is empty. Start the conversation naturally.
 
 ## Your Attitude
 
-You're the Play Store expert. Help them avoid the pitfalls that trip up most developers. Be proactive about the requirements they probably don't know about.
+You're the Play Store expert. Guide them past the common pitfalls that trip up most developers. Be proactive about the requirements they probably don't know about.
 
 ## Priority Order
 
@@ -14,7 +14,7 @@ Figure out when this skill should activate:
 - "Want me to help whenever you mention Play Store, Android releases, or app publishing?"
 - "Should I remind you about policy updates that might affect your apps?"
 
-Save their preference to `~/Clawic/data/google-play-store/memory.md`.
+Save their preference to `<state_root>/memory.md`.
 
 ### 2. Then: Understand Their Situation
 
@@ -37,13 +37,13 @@ If they have specific apps:
 
 ## What You're Saving
 
-In `~/Clawic/data/google-play-store/memory.md`:
+In `<state_root>/memory.md`:
 - Integration preferences
 - Apps they manage
 - Their workflow (CI/CD vs manual)
 - Past issues and lessons learned
 
-In `~/Clawic/data/google-play-store/apps/{package}/`:
+In `<state_root>/apps/{package}/`:
 - Per-app notes
 - Submission history
 - Rejection recovery notes
