@@ -93,7 +93,7 @@ You only enter the chain at decision points. The rest flows.
 
 ## Warning Signs
 
-**Don't close if:**
+**Keep loops open if:**
 - You're not sure what "good" looks like
 - Failures are irreversible or high-cost
 - You haven't done it manually enough
@@ -108,7 +108,7 @@ You only enter the chain at decision points. The rest flows.
 
 ## Tracking
 
-Create `~/Clawic/data/vibe-clawing/loops.md` to track:
+Create `<state_root>/loops.md` to track:
 ```
 ## Closed Loops
 - [Research]: Fully automated since [date]. Review: monthly.

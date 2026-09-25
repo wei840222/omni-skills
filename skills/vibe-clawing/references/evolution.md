@@ -6,7 +6,7 @@ A year ago, Andrej Karpathy named something everyone was feeling: **vibe coding*
 
 The pattern:
 - Tell the AI what you want, it builds it
-- Don't read the code, don't review the lines
+- Skip reading the code, skip reviewing the lines
 - If it breaks: "fix it"
 - If it's ugly: "make it prettier"
 - Trust the output without understanding it
@@ -36,7 +36,7 @@ Now agents can:
 - Skip interfaces entirely and talk to APIs directly
 - Control smart devices, pull data, generate reports
 
-And you don't need technical skills. Send a voice note. Share an image. Message them like a friend. They handle the complexity.
+Technical skills are optional. Send a voice note. Share an image. Message them like a friend. They handle the complexity.
 
 **The shift:** Coding left the terminal. Anyone can direct agents.
 

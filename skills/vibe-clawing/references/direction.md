@@ -51,7 +51,7 @@ These are hard to automate. They're where humans stay valuable.
 Companies exist because humans needed to coordinate.
 Hierarchies exist because humans needed to scale.
 
-Agents don't need coordination the same way. They need:
+Agents require different structures. They need:
 - Clear instructions
 - APIs to connect
 - Feedback loops to improve
@@ -59,7 +59,7 @@ Agents don't need coordination the same way. They need:
 The economy will reorganize around agents.
 
 **What this means for you:**
-- Humans stop generating value directly
+- Humans transition to orchestrating value
 - Humans start aggregating the value agents create
 - Building for agents (APIs, tools, integrations) becomes critical
 
@@ -68,7 +68,7 @@ The economy will reorganize around agents.
 ## Finding Your Edge
 
 Ask yourself:
-1. What do I see that others don't?
+1. What do I see that others miss?
 2. What connections can I make that aren't obvious?
 3. What taste do I have that's hard to articulate?
 
@@ -92,7 +92,7 @@ The player touches every note. The conductor sets the direction and lets the orc
 ## Practical Steps
 
 1. **Identify your unique vision areas**
-   Where do you see what others don't?
+   Where do you see what others miss?
 
 2. **Double down on taste development**
    More exposure, more feedback, more calibration.
