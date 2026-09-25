@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I found a vendor selling a product for $5. They have 4.8 stars. Should I buy from them?",
+    "expected": "Withholds a trust verdict and asks for store age, followers, response rate, positive-feedback percentage, and photo-review quality.",
+    "actual": "A 4.8-star rating is not enough. I will load references/rules.md and require all five signals: store age, followers, response rate, positive feedback, and photo reviews. I will not recommend the purchase until those are supplied.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to start dropshipping this phone case. The item is $2 and free shipping. I'll sell it for $10. Good margin?",
+    "expected": "Refuses to call the margin good from item price alone, adds tracked shipping, processor fees, platform fees, and a return reserve, and notes that free shipping is often the slow method.",
+    "actual": "I will load references/dropshipping.md. Item price plus a free-shipping badge is not landed cost. I will add a tracked shipping quote, payment-processing fees, platform fees, and a 5-10% return reserve, then recompute against the 30% bar. I will quote the listing's own delivery window instead of promising fast arrival.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My package was estimated to arrive today but didn't. Should I open a dispute right now?",
+    "expected": "Tells the user to use the order's guaranteed delivery window, not today's estimate, and to file the not-received refund after that window while still inside buyer protection.",
+    "actual": "I will load references/rules.md. Today's estimate passing is not the filing trigger. I will use the guaranteed delivery window on the order detail page, then open Return/refund from that order after the window if the parcel is still missing, and keep tracking screenshots.",
+    "pass": true
+  }
+]

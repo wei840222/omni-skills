@@ -1,85 +1,40 @@
 ---
 name: aliexpress
-slug: aliexpress
-version: 1.0.0
-description: Navigate Aliexpress as buyer, seller, or dropshipper with vendor evaluation, price comparison, and scam detection.
-homepage: https://clawic.com/skills/aliexpress
+description: Evaluate AliExpress vendors, compare landed costs and dropshipping margins, and time buyer-protection refunds. Use when the user asks whether a seller is trustworthy, whether a price includes real shipping, or when to open a return or refund.
 metadata:
-  clawdbot:
-    emoji: 🛒
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Aliexpress
+  version: "1.0.1"
+  openclaw: '{"emoji":"🛒"}'
+  related-skills: '{"temu":"Compare a similar marketplace listing when the user is choosing between AliExpress and Temu.","inventory":"Record purchased goods, warranties, and claim evidence after an order is placed.","seo":"Shape a resale listing after sourcing is decided.","contracts":"Track a supplier agreement once terms move beyond a marketplace order.","alipay":"Handle Alipay payment integration; it does not evaluate AliExpress sellers."}'
 ---
 
-## When to Use
+## When to load
 
-User needs help with Aliexpress purchases, selling, or sourcing. Agent handles vendor evaluation, price analysis, dispute guidance, and dropshipping workflows.
+Load when the user is buying, sourcing, or dropshipping on AliExpress and needs a vendor check, a landed-cost figure, or a refund timing decision.
 
-## Quick Reference
+- **Vendor check**: Load `references/vendors.md` before calling a seller trustworthy, especially for orders over $20.
+- **Rules and scams**: Load `references/rules.md` for the five-signal check, landed-cost formula, and scam patterns.
+- **Dropshipping**: Load `references/dropshipping.md` when the user is reselling, not making a one-off personal purchase.
 
-| Topic | File |
-|-------|------|
-| Vendor signals | `vendors.md` |
-| Dropshipping | `dropshipping.md` |
+This skill gives sourcing judgment. It does not place orders, store credentials, or persist buyer notes.
 
-## Core Rules
+## Quick reference
 
-### 1. Vendor Evaluation Beyond Stars
-Stars alone are misleading. Check these signals in order:
+| Need | Load |
+|------|------|
+| Five-signal vendor check, landed cost, dispute timing | `references/rules.md` |
+| Store metrics, review quality, image-search check | `references/vendors.md` |
+| Supplier minimums, margin math, tracked shipping | `references/dropshipping.md` |
 
-| Signal | Red Flag | Green Flag |
-|--------|----------|------------|
-| Store age | <1 year | >3 years |
-| Followers | <1000 | >10,000 |
-| Response rate | <80% | >95% |
-| Positive feedback | <95% | >98% |
-| Photo reviews | Stock photos only | Real customer photos |
+## Decision path
 
-If user asks "is this seller trustworthy?" — require ALL five signals.
+1. Name the job: one-off buy, vendor trust check, or dropshipping margin.
+2. Load only the matching reference. Do not treat star rating as sufficient evidence.
+3. For a purchase recommendation, compute landed cost and compare at least two vendors selling the same item.
+4. For a missing parcel, use the order's own guaranteed delivery window before opening a not-received refund. A late estimate alone is not the filing trigger.
+5. State the missing signal when evidence is incomplete, then stop the recommendation until that signal is supplied.
 
-### 2. Real Cost Calculation
-Aliexpress price ≠ landed cost. Always compute:
-```
-Landed Cost = Item Price + Shipping + Import Tax (if >$150) + Payment Fee (2-3%)
-```
-- Shipping varies 3-40 days depending on method
-- "Free shipping" often means 40-60 day wait
-- ePacket/AliExpress Standard = 15-25 days typical
+## Recovery
 
-### 3. Same Product Different Vendors
-Before recommending a purchase, search same product across vendors:
-- Price can vary 50-200% for identical items
-- Check if dropshipping from same factory (similar photos)
-- Lower price + low reviews = test batch risk
-
-### 4. Dispute Timing
-Aliexpress dispute window rules:
-- Open dispute before buyer protection expires
-- Wait 10+ days past delivery estimate before "not received"
-- Document everything with screenshots
-- Partial refund often better than full dispute loss
-
-### 5. Dropshipping Specifics
-See `dropshipping.md` for margin calculation and supplier vetting.
-
-Key rule: Never source from vendors with <98% positive and <2 years history.
-
-### 6. Scam Detection Patterns
-Common scams to warn about:
-- Price too good (>50% below others) = bait and switch
-- "Ships from local warehouse" but no proof = fake
-- Brand names at 90% discount = counterfeit
-- Empty box scam = always request tracking with photos
-
-## Common Traps
-
-- Recommending based on star rating alone → check store metrics, photo reviews, response rate
-- Ignoring shipping time → "free shipping" can mean 60 days
-- Calculating margins without landed cost → shipping + fees eat profit
-- Opening disputes too early → wait until protection window
-- Trusting "Top Brand" badge → verify independently
+- If a cited shipping time or fee is not on the listing, ask for the listing's shipping method and price instead of inventing one.
+- If buyer-protection eligibility is unclear, point the user to the order page and the Buyer Protection page rather than promising a refund.
+- If the user wants a payment integration, switch to `alipay` or the relevant payment skill. This package does not sign API requests.
