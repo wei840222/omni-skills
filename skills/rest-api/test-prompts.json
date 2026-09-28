@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Design a simple REST API for managing tasks. Include endpoints to get all tasks, get a task by ID, and create a task.",
+    "expected": "A contract-first design using OpenAPI specification with resources for tasks, payload schemas, proper HTTP methods (GET, POST), and status codes.",
+    "actual": "Designed an OpenAPI 3.0 contract for the task management API. Defined `GET /tasks` to list tasks, `GET /tasks/{id}` to retrieve a specific task, and `POST /tasks` to create a task. Included JSON payload schemas, proper success (200, 201) and error (400, 404, 500) status codes, and idempotent behavior where appropriate.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need to update our user API to require an API key and add a new field for user preferences. How should we proceed?",
+    "expected": "Follow security rules by enforcing API keys on non-public endpoints. Follow persistence rules by making additive schema changes for user preferences without breaking existing clients.",
+    "actual": "Added security schemes in the OpenAPI contract for API key authentication. Proposed a non-breaking additive database migration to add `preferences` (JSONB) to the `users` table. Ensured backward compatibility so existing clients without preferences still function correctly.",
+    "pass": true
+  }
+]

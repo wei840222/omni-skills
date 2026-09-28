@@ -43,7 +43,7 @@ Keep `code` stable for machine handling, and `message` clear for humans.
 
 ## 5. Publish Contract Gates
 
-Do not ship endpoints until all are true:
+Ship endpoints only when all are true:
 
 - OpenAPI validates without errors.
 - Examples match actual implementation.

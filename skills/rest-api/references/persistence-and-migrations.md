@@ -9,7 +9,7 @@
 ## Transaction Boundaries
 
 - Keep transactions short and bounded.
-- Avoid network calls inside open database transactions.
+- Execute network calls outside of open database transactions.
 - Use outbox patterns for reliable event publication.
 
 ## Migration Strategy
@@ -23,7 +23,7 @@
 ## Rollback Readiness
 
 - Keep rollback scripts tested.
-- Avoid destructive migrations in the same release as schema introduction.
+- Defer destructive migrations to subsequent releases after schema introduction.
 - Capture migration metrics and abort thresholds.
 
 ## Data Integrity Checks

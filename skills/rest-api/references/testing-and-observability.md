@@ -9,7 +9,7 @@
 
 ## Minimum Release Gate
 
-Do not deploy unless all are true:
+Deploy only when all are true:
 
 - Critical endpoint integration tests pass.
 - Backward compatibility checks pass for current clients.
@@ -28,7 +28,7 @@ Expose metrics for:
 ## Logging and Tracing
 
 - Use structured logs with `request_id` and `actor_id` when available.
-- Avoid logging secrets and sensitive fields.
+- Mask or omit secrets and sensitive fields from logs.
 - Propagate trace context across service boundaries.
 
 ## Alerting

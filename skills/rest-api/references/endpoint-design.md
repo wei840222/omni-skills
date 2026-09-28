@@ -8,7 +8,7 @@
 
 ## Response Shape
 
-Use consistent wrappers where needed, but do not over-wrap simple resources.
+Use consistent wrappers where needed, but keep simple resources flat.
 
 ```json
 {
@@ -53,4 +53,4 @@ Require idempotency keys for unsafe, retry-prone create operations such as payme
 
 - Whitelist query parameters.
 - Document supported operators.
-- Reject unknown query keys to avoid silent bugs.
+- Reject unknown query keys to ensure predictable queries.
