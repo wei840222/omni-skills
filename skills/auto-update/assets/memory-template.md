@@ -1,6 +1,6 @@
 # Memory Template - Auto-Update
 
-Create `~/Clawic/data/auto-update/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Auto-Update Memory
@@ -32,7 +32,7 @@ integration: pending | done | declined
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/auto-update/openclaw.md` with this structure:
+Create `<state_root>/openclaw.md` with this structure:
 
 ```markdown
 # OpenClaw Policy
@@ -56,7 +56,7 @@ Create `~/Clawic/data/auto-update/openclaw.md` with this structure:
 - Notify where:
 ```
 
-Create `~/Clawic/data/auto-update/skills.md` with this structure:
+Create `<state_root>/skills.md` with this structure:
 
 ```markdown
 # Skill Update Ledger
@@ -73,7 +73,7 @@ Create `~/Clawic/data/auto-update/skills.md` with this structure:
   migration_state: clean | pending | ask-first
 ```
 
-Create `~/Clawic/data/auto-update/schedule.md` with this structure:
+Create `<state_root>/schedule.md` with this structure:
 
 ```markdown
 # Update Schedule
@@ -90,7 +90,7 @@ Create `~/Clawic/data/auto-update/schedule.md` with this structure:
 - No-op behavior:
 ```
 
-Create `~/Clawic/data/auto-update/backups.md` with this structure:
+Create `<state_root>/backups.md` with this structure:
 
 ```markdown
 # Backup Inventory
@@ -108,7 +108,7 @@ Create `~/Clawic/data/auto-update/backups.md` with this structure:
   path:
 ```
 
-Create `~/Clawic/data/auto-update/migrations.md` with this structure:
+Create `<state_root>/migrations.md` with this structure:
 
 ```markdown
 # Migration Queue
@@ -124,7 +124,7 @@ Create `~/Clawic/data/auto-update/migrations.md` with this structure:
 - YYYY-MM-DD - slug - short note
 ```
 
-Create `~/Clawic/data/auto-update/run-log.md` with this structure:
+Create `<state_root>/run-log.md` with this structure:
 
 ```markdown
 # Run Log
@@ -145,8 +145,8 @@ Create `~/Clawic/data/auto-update/run-log.md` with this structure:
 |-------|---------|----------|
 | `ongoing` | Defaults are still being tuned | Keep asking only for missing high-value decisions |
 | `complete` | Stable update policy exists | Reuse defaults and ask only on exceptions |
-| `paused` | User wants manual control for now | Do not push automation changes |
-| `never_ask` | User does not want further calibration | Act only on direct requests |
+| `paused` | User wants manual control for now | Maintain current manual state |
+| `never_ask` | User prefers explicit manual calibration | Require direct requests for all actions |
 
 ## Key Principles
 

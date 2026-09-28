@@ -20,5 +20,5 @@ For each skill update, record:
 
 ## Retention Rule
 
-Do not delete the newest working backup automatically.
+Retain the newest working backup indefinitely unless manually cleared.
 If retention needs trimming, ask first or follow the user's explicit policy.

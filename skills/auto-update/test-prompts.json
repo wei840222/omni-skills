@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Set up a daily auto-update cron job for OpenClaw at 4 AM.",
+    "expected": "Reads references/scheduler.md, creates cron job, initializes state in <state_root>.",
+    "actual": "Resolved <state_root> to <workspace>/auto-update/. Evaluated `references/scheduler.md`. Created cron job with `openclaw cron add --name \"Auto-Update\" --cron \"0 4 * * *\"`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Check if it's safe to update the garden skill by reviewing migration risk.",
+    "expected": "Reads references/migrations.md, compares installed skill vs new version, reports migration risk if stateful paths changed.",
+    "actual": "Resolved <state_root> to <workspace>/auto-update/. Read `references/migrations.md`. Diffed local garden installation against update candidate. No state paths changed. Safe to update.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Run an update check now for all auto-updating skills and summarize the run.",
+    "expected": "Reads references/execution.md and references/reports.md, checks openclaw and clawic list, performs updates and logs to run-log.md.",
+    "actual": "Resolved <state_root>. Read `references/execution.md` and `references/reports.md`. Backed up 2 out-of-date skills. Updated 2 skills. Logged summary to <state_root>/run-log.md.",
+    "pass": true
+  }
+]

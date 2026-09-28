@@ -16,8 +16,8 @@ If a skill update breaks behavior:
 - mark that skill as manual or `ask-first`
 - keep the migration note so the same surprise does not repeat
 
-## Never Do This
+## Strict Boundaries
 
-- never delete the pre-update backup on the same run
-- never call a restore complete without verifying the affected workflow
-- never silently put a broken target back into auto-update
+- Preserve the pre-update backup throughout the run
+- Confirm workflow integrity before considering a restore complete
+- Require manual confirmation before re-enabling auto-update for a broken target

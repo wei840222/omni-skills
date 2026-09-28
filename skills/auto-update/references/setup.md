@@ -1,6 +1,6 @@
 # Setup - Auto-Update
 
-Read this when `~/Clawic/data/auto-update/` does not exist or is empty. Start naturally. Keep the conversation focused on what the user wants updated and how hands-off they want it to feel.
+Read this when `<state_root>/` does not exist or is empty. Start naturally. Keep the conversation focused on what the user wants updated and how hands-off they want it to feel.
 
 ## Your Attitude
 
@@ -12,7 +12,7 @@ This should feel like setting up one reliable cron-backed maintenance flow, not 
 
 Start with the simplest mental model:
 - one `openclaw cron add` job handles the recurring run
-- that cron message reads `~/Clawic/data/auto-update/` before it changes anything
+- that cron message reads `<state_root>/` before it changes anything
 - the control files decide what is allowed
 
 If the user says "just set it up", use:
@@ -30,7 +30,7 @@ Get the one choice that drives future behavior:
 
 Then ask how OpenClaw itself should behave inside that cron flow:
 - `auto`: apply when a core update is available
-- `notify`: inspect and report, but do not apply
+- `notify`: inspect and report, but skip application
 - `manual`: skip core updates entirely
 
 ### 3. Then: Calibrate the First Safe Run
@@ -44,13 +44,13 @@ Only after defaults are clear, gather:
 
 If the user approves recurring updates:
 - propose the exact `openclaw cron add` entry now
-- make the cron message explicitly read `~/Clawic/data/auto-update/memory.md`, `~/Clawic/data/auto-update/openclaw.md`, `~/Clawic/data/auto-update/skills.md`, and `~/Clawic/data/auto-update/migrations.md`
+- make the cron message explicitly read `<state_root>/memory.md`, `<state_root>/openclaw.md`, `<state_root>/skills.md`, and `<state_root>/migrations.md`
 - apply it only after approval
 - record it in `schedule.md`
 
 ### 4. Finally: Offer the Tiny Reminder Hook
 
-If the user wants the system to remember install-time questions automatically, propose the exact AGENTS snippet from `workspace-integration.md`. Do not push broader workspace hooks unless they ask.
+If the user wants the system to remember install-time questions automatically, propose the exact AGENTS snippet from `workspace-integration.md`. Push broader workspace hooks only upon explicit user request.
 
 ## What You're Saving Internally
 

@@ -44,8 +44,8 @@ Only use these if OpenClaw cron is unavailable in the user's environment:
 - store timezone explicitly
 - separate discovery cadence from apply cadence when the user wants more caution
 - keep quiet hours explicit
-- do not edit cron, launchd, Task Scheduler, or OpenClaw config without approval or standing permission
-- never use heartbeat as the exact daily trigger for updates
+- Require explicit approval or standing permission before editing cron, launchd, Task Scheduler, or OpenClaw config
+- Rely on precise cron jobs instead of heartbeat for exact daily triggers
 - use heartbeat only for adaptive follow-up after updates or for pending migration reminders
 
 ## Good Defaults

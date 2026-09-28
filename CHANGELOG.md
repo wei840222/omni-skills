@@ -588,6 +588,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | spreadsheet                  | 2026-08-23 | 81            |
 | threejs                      | 2026-08-24 | 95/100        |
 | mercado-libre                | 2026-09-01 | 85/100        | #196 |
+| auto-update                  | 2026-09-28 | 85/100        | #1234 |
 
 ## Updating This Changelog
 
