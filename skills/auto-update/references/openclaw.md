@@ -13,7 +13,7 @@ This document defines what the local OpenClaw policy file must capture.
 
 ## Core Execution Rule
 
-Do not assume a hidden background updater.
+Confirm the background updater explicitly.
 
 The default core model is:
 - the recurring `openclaw cron add` job runs on schedule
@@ -41,7 +41,7 @@ Use the workspace equivalents if the user keeps these outside `~/.openclaw/works
 
 ## Optional Backup Scope
 
-Offer, but do not assume:
+Offer optionally:
 - `~/.openclaw/workspace/`
 - `~/.openclaw/credentials/`
 

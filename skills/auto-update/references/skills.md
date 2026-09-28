@@ -17,7 +17,7 @@ When a new skill lands, ask:
 1. Do you want a quick explanation of what this skill adds?
 2. Should this skill auto-update with the rest, stay manual, or simply inherit your default?
 
-Then write the answer once so later sessions do not have to guess.
+Then write the answer once so later sessions can reliably determine the user's preference.
 
 ## Migration State Meaning
 

@@ -8,13 +8,13 @@ Only propose this snippet if the user wants install-time reminders in their work
 ## Auto-Update Reminders
 
 - After any `npx clawic add`, ask whether the user wants a quick explanation of the new skill and whether it should auto-update or stay manual.
-- Record the answer in `~/Clawic/data/auto-update/skills.md`.
-- If the user does not answer, inherit the default from `~/Clawic/data/auto-update/memory.md`.
+- Record the answer in `<state_root>/skills.md`.
+- If the user does not answer, inherit the default from `<state_root>/memory.md`.
 ```
 
 ## When to Skip Integration
 
-Do not push AGENTS changes when:
+Push AGENTS changes only when:
 - the user wants the updater to stay local only
 - they already have their own install-time workflow
 - they are still testing whether they like auto-update behavior

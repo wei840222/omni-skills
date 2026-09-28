@@ -16,4 +16,4 @@ This document defines the compact run history.
 ## Keep It Compact
 
 The run log is for quick scanning before the next update pass.
-Do not paste full terminal logs here. Save only the facts needed to understand what happened and what to do next.
+Store only the essential facts needed to understand the outcome and next steps.

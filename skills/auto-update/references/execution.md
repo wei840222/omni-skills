@@ -26,20 +26,20 @@ openclaw cron add \
   --session isolated \
   --wake now \
   --announce \
-  --message "Run the auto-update routine. Before changing anything, read ~/Clawic/data/auto-update/memory.md, ~/Clawic/data/auto-update/openclaw.md, ~/Clawic/data/auto-update/skills.md, and ~/Clawic/data/auto-update/migrations.md. Respect the modes saved there. Run openclaw update status --json. Run npx clawic list and npx clawic show <slug> for each tracked skill. Create backups. Skip blocked items. If openclaw mode is auto, run openclaw update --json. Apply only the allowed skill updates with npx clawic update. Verify health. Write backups.md and run-log.md. Summarize updated, unchanged, skipped, and failed items."
+  --message "Run the auto-update routine. Before changing anything, read <state_root>/memory.md, <state_root>/openclaw.md, <state_root>/skills.md, and <state_root>/migrations.md. Respect the modes saved there. Run openclaw update status --json. Run npx clawic list and npx clawic show <slug> for each tracked skill. Create backups. Skip blocked items. If openclaw mode is auto, run openclaw update --json. Apply only the allowed skill updates with npx clawic update. Verify health. Write backups.md and run-log.md. Summarize updated, unchanged, skipped, and failed items."
 ```
 
 ## What Happens Each Day
 
 Before running any daily update:
-1. read `~/Clawic/data/auto-update/memory.md`
-2. read `~/Clawic/data/auto-update/openclaw.md`
-3. read `~/Clawic/data/auto-update/skills.md`
-4. read `~/Clawic/data/auto-update/migrations.md`
+1. read `<state_root>/memory.md`
+2. read `<state_root>/openclaw.md`
+3. read `<state_root>/skills.md`
+4. read `<state_root>/migrations.md`
 
 Then run this order:
 1. inspect OpenClaw update status
-2. if `openclaw_mode: auto`, apply `openclaw update --json`; if `notify` or `manual`, do not apply it
+2. if `openclaw_mode: auto`, apply `openclaw update --json`; if `notify` or `manual`, skip application
 3. inspect pending skill updates
 4. back up the approved OpenClaw files if core may change
 5. back up each skill that is allowed to update

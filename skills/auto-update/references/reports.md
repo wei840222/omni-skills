@@ -50,4 +50,4 @@ Next action:
 After OpenClaw updates, optionally add:
 - what changed
 - which changes matter for this user's workflow
-- what to try next, always as an offer, never as an automatic rewrite
+- what to try next, always as an offer, strictly as an offer instead of an automatic rewrite
