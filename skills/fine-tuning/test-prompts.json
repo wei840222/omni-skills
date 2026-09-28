@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 300 labeled support-ticket examples in a private CSV and want five-category classification. Should I fine-tune? Compare available provider options, explain data formatting and a test plan without uploading my CSV.",
+    "expected": "Diagnose the baseline and holdout first; treat provider eligibility and current pricing as conditional, especially OpenAI self-serve restrictions; explain provider-specific JSONL examples and obtain privacy/upload authorization.",
+    "actual": "Before recommending fine-tuning, diagnose the current baseline and establish a held-out evaluation set. Test retrieval or few-shot prompting first. Split 300 examples into train/validation/test with group-aware deduplication; compare F1, accuracy, precision and recall on untouched examples. OpenAI self-serve fine-tuning is restricted to qualifying existing organizations since 2026-05-07 with additional eligibility limits on 2026-07-02; verify account access, model/region/quota and current prices. Google and Bedrock have different tuning requirements; local LoRA/QLoRA requires model-license and GPU checks. Convert CSV to the selected provider's current schema, e.g. one JSONL object with system category definitions, user ticket text and assistant category. Check contradictions and production representativeness. Run a small authorized experiment only after privacy/upload and spend approval; compare to the same holdout and keep the baseline if quality regresses. No CSV upload or paid job was performed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our training loss jumps on a local LoRA run (learning rate 1e-3, five epochs), and the validation F1 has dropped. What do you do next?",
+    "expected": "Avoid a universal learning-rate fix; inspect model/recipe, data and validation leakage, trial a lower learning rate and fewer epochs with measured holdout; avoid unsupported provider/pricing claims and do not initiate paid training.",
+    "actual": "Diagnose the model, LoRA recipe, data and validation split before retraining. The learning rate 1e-3 and five epochs may be too aggressive for this recipe, but neither has a universal safe replacement. Verify trainer-supported parameter ranges, group-aware deduplication, label consistency and production distribution; inspect training/validation loss and gradient norms. Trial a lower learning rate and fewer epochs with validation monitoring, then compare classification F1 by category on the same untouched holdout against base and few-shot baselines. If validation or privacy performance regresses, retain the baseline and investigate data distribution before another run. No provider price or model availability is assumed, and no paid training was initiated.",
+    "pass": true
+  }
+]
