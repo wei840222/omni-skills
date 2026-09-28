@@ -47,4 +47,3 @@ metadata:
 | Official source checks | `references/sources.md` |
 | Original behavior disposition | `references/semantic-inventory.md` |
 | Evaluation evidence | `references/evaluation-record.md` |
-| Cognitive audit | `references/freud-audit.md` |

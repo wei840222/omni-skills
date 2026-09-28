@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Refactor-review artifacts stay outside skill packages.
+skills/**/freud-audit.md
+skills/**/trigger-tests.md
