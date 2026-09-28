@@ -44,7 +44,7 @@ For source-sensitive Swift or SwiftPM claims, consult `references/sources.md` an
 - New public API follows the naming rules and carries availability when `deployment_floor` is set (`references/api-design.md`)
 - Shared helpers have an access level that permits all shown callers; type-check complete code examples with the available toolchain and report when compilation could not be run
 
-5. **CHECKPOINT — Authorization:** First confirm the exact target. Before migrating state or committing a user-owned change, obtain the authorization required by the host and user. If compilation or reproduction fails, report the first error and missing evidence; keep the unverified fix conditional.
+5. **CHECKPOINT — Authorization:** Confirm the exact target. Before migrating state or committing a user-owned change, obtain the authorization required by the host and user. If compilation or reproduction fails, report the first error and missing evidence; keep the unverified fix conditional.
 
 
 ## Quick Reference
