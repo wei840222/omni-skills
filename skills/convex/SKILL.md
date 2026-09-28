@@ -2,6 +2,7 @@
 name: convex
 description: Design, debug, and operate Convex backends. Use for Convex schema/index design, query/mutation/action boundaries, tenant authorization, webhook retries, and safe migrations; route generic database work without a Convex project to the backend skill.
 metadata:
+  version: "1.0.0"
   related-skills: '{"backend":"Extends Convex service architecture and operational reliability decisions.","javascript":"Supports JavaScript runtime behavior in Convex functions.","typescript":"Supports type-safe Convex schema and function implementations."}'
 ---
 
@@ -23,11 +24,46 @@ Resolve the real path before replacing `<state_root>` in any operation. It is a 
 3. Name the selected index/query path or function boundary, actor/tenant check, compatibility constraint, and smallest verification. **Authorization checkpoint:** for a persistent state write, production deployment, or publication, identify the exact target and change, then obtain approval for that action before execution. If the target or approval is missing, provide a draft and request the missing decision.
 4. Implement only the authorized change. Verify the specific query path, replay behavior, or client compatibility affected; report the observed result, remaining risk, and checks not run.
 
-## Decision boundaries
+## Core rules
 
-- For schema and index changes, map real access paths and tenant scope first; read `references/schema-and-indexes.md` and validate index order and query behavior against the installed Convex version.
-- For queries and mutations, validate input and actor access on the server; use an action or HTTP action for external network calls, then an internal mutation for persistent writes. For retried webhooks, use a stable event key, transactional replay-safe update, and processing-status record; distinguish partially completed external side effects from an already-applied database mutation. Read `references/operations-playbook.md` for webhooks and incident recovery.
-- For deployments, read `references/operations-playbook.md` before changing schema or functions. Compare current clients and schema, stage additive changes and backfill, then rehearse rollback for the exact change. Request deployment authorization with the named project and environment before production execution. For dangerous shortcuts and a safer recovery, use its "Risk action → safe recovery" table.
+### 1. Model access patterns before writing schema
+
+Define tables and indexes from observed read paths: filter fields, sort order, tenant scope, and uniqueness invariants. For a bounded scan, record expected table size, observed scanned documents, and latency limits. Read `references/schema-and-indexes.md` for index design and the transactional uniqueness check; verify with the installed Convex version.
+
+### 2. Keep function boundaries strict
+
+Use queries for deterministic reads, mutations for validated transactional writes, and actions or HTTP actions for external network effects. Persist results through internal mutations. Read `references/operations-playbook.md` for function and webhook boundaries; verify external calls remain outside the transaction.
+
+### 3. Enforce authorization at every entry point
+
+At each query, mutation, action, and HTTP entry point, resolve the actor or verify the webhook provider signature, check tenant scope, and validate record ownership before reading or writing. Treat client-provided IDs as input, then verify access server-side. Test unauthenticated and cross-tenant requests.
+
+### 4. Design indexes for stable product workflows
+
+Map user-facing lookups, admin/backoffice reads, and background queues to the same indexes used by their query paths. Record each index's purpose and maintenance cost; inspect coverage after product expansion. Read `references/schema-and-indexes.md` for field-order examples and measured index decisions.
+
+### 5. Make writes replay-safe
+
+For retried callbacks use a stable provider event key. In one internal mutation, check the key, apply the data change, and record processing status; an applied replay is a no-op. Reconcile partial external effects with an outbox or equivalent status and a provider idempotency key where supported. Read `references/operations-playbook.md` for signature, retry, and acknowledgement behavior; test duplicate and interrupted delivery.
+
+### 6. Ship staged and reversible rollouts
+
+Before schema or logic deployment, verify active-client compatibility, stage additive changes and backfill, and rehearse rollback for the exact change. **Authorization checkpoint:** obtain approval for the named project and environment before production execution; if absent, provide the plan as a draft. Read `references/operations-playbook.md` for the pre-deploy and recovery checks.
+
+### 7. Preserve production debuggability
+
+For incidents, capture a minimal reproduction and structured actor, function, and record IDs without secrets; identify the root cause and a prevention test. After persistence consent, put the detailed incident in `<state_root>/rollout-notes.md` and an optional cross-topic summary in `<state_root>/memory.md`. Read `references/operations-playbook.md` for triage and mitigation verification.
+
+## Risk-action examples
+
+- Entity-only schema design misses actual read paths → map queries and actor scope first.
+- Reactive index changes during an outage add rollout risk → assess the affected query and ship a reviewed index change.
+- Network calls inside deterministic transactions risk nondeterministic behavior → isolate them in actions.
+- UI-only auth checks can expose another tenant's records → enforce server-side checks for every entry point.
+- Breaking field removal strands active clients → retain compatible fields through staged backfill and rollback.
+- Unreviewed breaking data changes can fail at runtime → verify compatibility, migration, and rollback before deployment.
+- Callback retries without a stable key duplicate writes or billing effects → transactionally deduplicate and reconcile external effects.
+- An early 2xx on an incompletely processed webhook loses provider retries → acknowledge only after durable application or a reliable queued recovery path.
 
 ## Privacy and boundaries
 
@@ -43,3 +79,6 @@ The skill needs no credentials itself. For third-party integrations, keep creden
 | Memory Template | `assets/memory-template.md` |
 | Official source checks | `references/sources.md` |
 | Baseline behavior disposition | `references/semantic-inventory.md` |
+| Trigger-test evidence (audit-only) | `references/trigger-tests.md` |
+| Prompt and rubric evidence (audit-only) | `references/evaluation.md` |
+| Cognitive audit (audit-only) | `references/freud-audit.md` |

@@ -42,7 +42,18 @@ Store durable patterns, not one-off opinions.
 
 After consent and root resolution, store a concise integration preference and cross-topic summary in `<state_root>/memory.md`. Keep detailed data-model and index rationale in `<state_root>/schema-notes.md`, permission boundaries in `<state_root>/auth-notes.md`, and rollout or incident lessons in `<state_root>/rollout-notes.md`. Read existing notes before editing a topic; create a missing note only when that topic must persist and the user has consented.
 
-Store only essential, non-sensitive data, excluding secrets or unnecessary personal information.
+Store only essential, non-sensitive decisions rather than raw chat logs; redact secrets and sensitive identifiers. Update `last` whenever `<state_root>/memory.md` changes. The summary uses `assets/memory-template.md` only after state-root resolution and persistence consent.
+
+### Memory state values
+
+| Value | Meaning | Next action |
+|-------|---------|-------------|
+| `ongoing` | Default learning state | Collect relevant technical context while helping. |
+| `complete` | Stable context available | Use the memory as a default, checking current project state. |
+| `paused` | User prefers fewer onboarding prompts | Ask only when a critical implementation decision needs it. |
+| `never_ask` | User rejected setup prompts | Continue with existing context and skip onboarding prompts. |
+
+For `integration`, use `pending` until an activation preference is confirmed, `done` after confirmation, and `declined` if the user prefers manual activation.
 
 ## Golden Rule
 
