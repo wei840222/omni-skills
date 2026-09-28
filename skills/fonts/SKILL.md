@@ -1,18 +1,11 @@
 ---
 name: fonts
-slug: fonts
-version: 1.0.0
-description: Choose and implement web typography avoiding common rendering, pairing, and hierarchy mistakes.
-homepage: https://clawic.com/skills/fonts
+description: Choose and implement web typography. Use when the user needs to select
+  font families, prevent pairing mistakes, set line heights, or optimize font rendering
+  and performance.
 metadata:
-  clawdbot:
-    emoji: 🅰️
-    requires: {}
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Fonts
+  version: 1.0.0
+  openclaw: '{"emoji": "🅰️"}'
 ---
 
 ## Display vs Text Fonts
@@ -25,12 +18,12 @@ metadata:
 
 - Two fonts too similar look like a mistake—if you can't tell them apart instantly, use one font
 - Contrast in category works: serif heading + sans-serif body, or different weights of same family
-- Two decorative fonts clash—never pair Lobster with Pacifico
+- Two decorative fonts clash—ensure you pair a decorative font with a neutral sans-serif or serif
 - Safe pairs: same superfamily (Roboto + Roboto Slab) or proven combos (Playfair Display + Source Sans Pro)
 
 ## Weight and Rendering
 
-- Thin weights (100-300) render poorly on Windows—avoid for body text, use 400+ for cross-platform
+- Thin weights (100-300) render poorly on Windows—use weights 400 or higher for body text to ensure cross-platform readability
 - Light fonts on dark backgrounds look thinner—bump weight up one level for dark mode
 - Faux bold (browser-generated) looks wrong—only use weights the font actually includes
 - Check font has italic—faux italic (slanted roman) is noticeably worse than true italic
@@ -46,7 +39,7 @@ metadata:
 
 - ALL CAPS needs increased letter-spacing—without it, letters collide and look cramped
 - `text-transform: uppercase` + `letter-spacing: 0.05em` minimum
-- Never use all caps for more than a few words—extended caps text is significantly harder to read
+- Limit all caps to short headings or small UI elements—extended caps text is significantly harder to read
 - Small caps (`font-variant: small-caps`) only if font supports it—faux small caps look amateurish
 
 ## Widows and Orphans
