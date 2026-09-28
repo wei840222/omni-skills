@@ -79,6 +79,4 @@ The skill needs no credentials itself. For third-party integrations, keep creden
 | Memory Template | `assets/memory-template.md` |
 | Official source checks | `references/sources.md` |
 | Baseline behavior disposition | `references/semantic-inventory.md` |
-| Trigger-test evidence (audit-only) | `references/trigger-tests.md` |
 | Prompt and rubric evidence (audit-only) | `references/evaluation.md` |
-| Cognitive audit (audit-only) | `references/freud-audit.md` |
