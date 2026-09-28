@@ -24,11 +24,11 @@
 ## Building Evaluation Sets
 
 ### Requirements
-- **Size:** 100-500 examples minimum
+- **Size:** choose enough independent, representative cases to detect the target improvement with useful confidence; no universal minimum
 - **Distribution:** Match expected production inputs
-- **Edge cases:** 10-20% challenging examples
+- **Edge cases:** define and track relevant failure categories, including rare high-impact examples
 - **Labels:** Ground truth or reference outputs
-- **Never seen during training** — Critical!
+- **Strictly separate from training data** — Critical!
 
 ### Example Eval Structure
 
@@ -46,7 +46,7 @@ eval_examples = [
 
 ## LLM-as-Judge Evaluation
 
-Cost-effective for scale. Use stronger model to judge outputs.
+The code below is a version-dependent sketch requiring an authorized current model, configured `client`, and score parser; it is not a standalone test. Use a validated rubric, blind human checks and calibrated model judgments for subjective outputs; an LLM judge can be biased and is not ground truth.
 
 ```python
 JUDGE_PROMPT = """
@@ -64,7 +64,7 @@ Reference: {reference}
 Score (1-5):
 """
 
-def evaluate_with_judge(examples, model="gpt-4o"):
+def evaluate_with_judge(examples, model):
     scores = []
     for ex in examples:
         response = client.chat.completions.create(
@@ -102,7 +102,7 @@ def ab_test(examples, base_model, finetuned_model):
         base_response = generate(base_model, ex["input"])
         ft_response = generate(finetuned_model, ex["input"])
         
-        # Randomize order to avoid position bias
+        # Randomize order to prevent position bias
         if random.random() > 0.5:
             a, b = base_response, ft_response
             mapping = {"A": "base", "B": "finetuned"}
@@ -149,7 +149,7 @@ def ab_test(examples, base_model, finetuned_model):
 | Cause | Diagnosis | Fix |
 |-------|-----------|-----|
 | High LR | Base skills degraded | Lower LR |
-| No diversity | Only task data | Mix 20% general data |
+| No diversity | Only task data | Test a representative general-data mix |
 | Too many epochs | Overspecialized | Fewer epochs |
 
 ## Failure Mode Analysis

@@ -2,9 +2,12 @@
 
 ## PII Detection
 
-### Before Training: Scan Everything
+The regex snippet below is a limited triage example, not a complete detector or proof that a dataset is safe. It can miss identifiers and misclassify values; obtain appropriate privacy review before data transfer.
+
+### Before Training: Scan and review a representative dataset
 
 ```python
+import json
 import re
 
 PII_PATTERNS = {
@@ -59,7 +62,7 @@ def audit_dataset(path):
 
 ### Article 6: Lawful Basis
 
-Before training, document:
+Have qualified counsel or the responsible privacy officer determine the applicable lawful basis; none of the options below is automatic merely because training is useful. Before training, document:
 - [ ] **Consent** — Users agreed to AI training
 - [ ] **Legitimate interest** — Business need documented
 - [ ] **Contract** — Training necessary for service
@@ -93,10 +96,10 @@ Document for each fine-tuning activity:
 
 | Tool | Requirements | Best For |
 |------|--------------|----------|
-| Unsloth | 24GB+ VRAM | Fast, easy setup |
-| Axolotl | 48GB+ VRAM | Complex configs |
-| vLLM + LoRA | Variable | Serving focus |
-| MLX (Mac) | Apple Silicon | M1/M2/M3 local |
+| Unsloth | Verify model, quantization and GPU | Adapter tuning |
+| Axolotl | Verify recipe and GPU | Custom training configurations |
+| vLLM + LoRA | Verify serving requirements | Adapter serving, not training |
+| MLX (Mac) | Verify supported Apple Silicon device | Local model adaptation |
 
 ### Air-Gapped Training
 
@@ -145,7 +148,7 @@ audit_log = {
 ## Data Handling Checklist
 
 Before training:
-- [ ] PII scan completed, no findings or remediated
+- [ ] Automated PII triage and human privacy review completed; detected and missed risks assessed
 - [ ] Lawful basis documented
 - [ ] Data retention policy defined
 - [ ] Third-party DPA signed (if using cloud)
@@ -160,28 +163,4 @@ After training:
 
 ## Memorization Risk Assessment
 
-Fine-tuned models can memorize training data. Test for:
-
-```python
-def test_memorization(model, training_examples, sample_size=100):
-    """Check if model regurgitates exact training data"""
-    
-    risky = []
-    for ex in random.sample(training_examples, sample_size):
-        # Give model the beginning of a training example
-        prompt = ex["messages"][1]["content"][:50]  # First 50 chars of user msg
-        
-        completion = generate(model, prompt)
-        
-        # Check if completion matches training data
-        expected = ex["messages"][2]["content"]
-        if similarity(completion, expected) > 0.9:
-            risky.append(ex)
-    
-    return len(risky) / sample_size  # Memorization rate
-```
-
-If memorization rate >5%, consider:
-- More diverse training data
-- Differential privacy during training
-- Smaller model or fewer epochs
+Fine-tuned models may reproduce sensitive training strings. Select private canary examples with documented permission, define a realistic adversarial prompt set and a leakage criterion, then test outputs with authorized access controls. Record exact matches and near matches separately; a generic similarity cutoff or a fixed 5% threshold cannot establish privacy compliance. If unacceptable leakage is observed, quarantine the candidate and assess data removal, redaction, retraining and provider deletion options with the privacy owner. Differential privacy is an option only when the chosen training stack actually supports and validates it.
