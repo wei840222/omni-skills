@@ -8,9 +8,9 @@ Swift does not wrap on integer overflow and does not return NaN for a bad conver
 - `&+`, `&-`, `&*` wrap two's-complement, `&<<`/`&>>` mask the shift amount. Legal only where wrapping is the intent: hashes, checksums, PRNGs, ring buffers, C-compatible counters. Reaching for `&+` to stop a crash converts a loud bug into a silent one.
 - Recoverable arithmetic uses the reporting forms: `let (v, overflowed) = a.multipliedReportingOverflow(by: b)`; also `addingReportingOverflow`, `subtractingReportingOverflow`, `dividedReportingOverflow(by:)`. Widening instead: `a.multipliedFullWidth(by: b)` gives `(high, low)` with no loss.
 - `abs(Int.min)` traps — the positive counterpart does not exist. Use `Int.min.magnitude` (a `UInt`) when you need the value.
-- `(a + b) / 2` overflows on large operands. Midpoint without overflow: `a + (b - a) / 2` for `a <= b`.
+- `(a + b) / 2` overflows on large operands. `a + (b - a) / 2` can also overflow when the bounds straddle the integer range; use checked arithmetic or a wider accumulator for arbitrary endpoints.
 - Accumulators inherit the element type: summing 10 000 `Int32` samples in an `Int32` overflows around 2.1e9. Widen the accumulator explicitly (`values.reduce(Int64(0)) { $0 + Int64($1) }`), not the storage.
-- `UInt` subtraction underflows into astronomic numbers before it traps on the next operation. Any expression of the form `unsignedCount - 1` needs a guard, or should be `Int` in the first place.
+- `UInt` subtraction with ordinary `-` traps at the underflowing operation; `&-` wraps. Guard `unsignedCount - 1` when zero is possible.
 
 ## Division and Remainder
 
@@ -36,7 +36,7 @@ Swift does not wrap on integer overflow and does not return NaN for a bad conver
 | Reinterpret the bit pattern | `UInt8(truncatingIfNeeded: -1)` | Yields `255` |
 | The value is provably in range | `Int(x)` | Traps |
 
-- `Int(someDouble)` truncates toward zero (`Int(3.9) == 3`, `Int(-3.9) == -3`) and traps on NaN, on ±infinity, and on anything outside `Int.min...Int.max`: "Double value cannot be converted to Int because it is outside the representable range". `Int(exactly:)` is the only form safe on untrusted floats.
+- `Int(someDouble)` truncates toward zero (`Int(3.9) == 3`, `Int(-3.9) == -3`) and traps on NaN, on ±infinity, and on anything outside `Int.min...Int.max`: "Double value cannot be converted to Int because it is outside the representable range". For untrusted floats, check `isFinite` and representable bounds first; `Int(exactly:)` returns nil for non-integral values.
 - `UInt(negativeInt)` traps with "Negative value is not representable". This is the standard crash when a signed count, index, or difference is handed to a C or unsigned API.
 - Avoid `numericCast`: it hides which of the four behaviors above you got, and it traps. Spell the conversion out.
 - `Int` is pointer-sized. Never persist or transmit `Int` in a binary format — use `Int64`/`UInt32` with an explicit endianness (`bigEndian`, `init(bigEndian:)`).
@@ -44,8 +44,8 @@ Swift does not wrap on integer overflow and does not return NaN for a bad conver
 ## Floating Point
 
 - `Double` holds 53 significand bits: every integer up to 2^53 (9 007 199 254 740 992) is exact, above it they are not. `Float` gives out at 2^24 (16 777 216) — enough to break IDs and timestamps stored as `Float`.
-- `0.1 + 0.2 != 0.3`. Never compare floats with `==` unless comparing against a value you produced by the identical computation. Compare with a tolerance scaled to the magnitude: `abs(a - b) <= max(abs(a), abs(b)) * .ulpOfOne * 4`, or an absolute epsilon when the values are known to be near zero.
-- NaN is not equal to itself. Consequences that bite: `array.contains(.nan)` is always `false`; a `Set<Double>` can hold several NaNs; and sorting data containing NaN violates strict weak ordering and traps (SKILL.md Crash Messages). Filter with `isFinite` before sorting, comparing, or reducing (`collections.md`).
+- `0.1 + 0.2 != 0.3`. Use exact equality only when exact representational identity is required. For approximate comparison choose absolute and/or relative tolerances from the domain's error budget, including a near-zero policy; no fixed ULP multiplier is a universal default.
+- NaN is not equal to itself. Ordinary `<` cannot define a total order when NaN is present; do not assume `sorted()` traps. Define an explicit NaN ordering or filter with `isFinite` before numeric sorting and reduction (`collections.md`).
 - `x.isNaN`, `x.isFinite`, `x.isSignalingNaN` are the tests; `x != x` is the old C idiom and reads as a bug.
 - `rounded()` defaults to `.toNearestOrAwayFromZero`. IEEE and most financial rules want `.toNearestOrEven` (banker's rounding): `x.rounded(.toNearestOrEven)`. Also available: `.up`, `.down`, `.towardZero`, `.awayFromZero`.
 - `stride(from: 0.0, to: 1.0, by: 0.1)` accumulates error and may or may not include the last step. Stride over integers and divide: `(0..<10).map { Double($0) / 10 }`.
@@ -55,7 +55,7 @@ Swift does not wrap on integer overflow and does not return NaN for a bad conver
 ## Money and Decimals
 
 - Money is never a `Double`. Two representations are correct: **integer minor units** (`let cents: Int`) for a single currency with a fixed exponent, or `Decimal` (base-10, Foundation, available on Linux) when you need fractional rates, tax, or currency-agnostic math.
-- Construct `Decimal` from a string or from integer parts — `Decimal(string: "0.1")!`, `Decimal(sign: .plus, exponent: -2, significand: 10)`. `Decimal(0.1)` and the float-literal path go through a `Double` first and inherit its binary error, which defeats the point of using `Decimal`.
+- Construct `Decimal` from a string or from integer parts — `Decimal(string: "0.1")` returns an optional; unwrap it in the caller's actual error-handling path. For a known value, use `Decimal(sign: .plus, exponent: -2, significand: 10)`. `Decimal(0.1)` and the float-literal path go through a `Double` first and inherit its binary error, which defeats the point of using `Decimal`.
 - Round once, at the point of settlement, with the rule the domain specifies (`NSDecimalRound` with an explicit `NSDecimalNumber.RoundingMode`). Rounding intermediate results compounds; rounding at display time only, while storing full precision, is what makes an invoice total disagree with the sum of its lines.
 - Split a total by rounding each share down and distributing the remainder in minor units: three ways on 100 cents is 34/33/33, never 33.33 three times.
 - On the wire, money is an integer of minor units or a string. JSON has no decimal type and a JSON number round-trips through `Double` at both ends.

@@ -1,6 +1,6 @@
 # Errors — Throwing, Typed Throws, Result, Cancellation
 
-Swift's error handling is a second return channel, not exceptions: `throws` is part of the signature, propagation is explicit at every call, and there is no stack unwinding to fear. Design errors as data the caller can act on — anything else is a log line pretending to be control flow.
+Swift's error handling is a second return channel, not exceptions: `throws` is part of the signature, propagation is explicit at every call, and scope exits still run `defer` during error propagation. Design errors as data the caller can act on — anything else is a log line pretending to be control flow.
 
 ## Choosing the Channel
 
@@ -10,9 +10,9 @@ Swift's error handling is a second return channel, not exceptions: `throws` is p
 | Failure is expected and one-of-two, and the caller always branches | Return an enum or `Result` |
 | Absence is the only information | Optional (`optionals.md`) |
 | The precondition was violated by the programmer | `precondition` / `fatalError` — not an error |
-| The operation was cancelled | Rethrow `CancellationError`, never convert it to a domain error |
+| The operation was cancelled | Rethrow `CancellationError`, maintain the CancellationError type |
 
-- `Result` is for **storing** a completed outcome (a cache entry, a callback payload, a per-element result in a batch). Do not use it as the return type of a function you can just make `throws`; the caller then writes `switch` where `try` would do.
+- `Result` is for **storing** a completed outcome (a cache entry, a callback payload, a per-element result in a batch). Use `throws` instead of returning `Result` for function results; the caller then writes `switch` where `try` would do.
 - Bridge with `Result { try work() }` and `try result.get()`.
 
 ## Designing the Error Type
@@ -21,7 +21,7 @@ Swift's error handling is a second return channel, not exceptions: `throws` is p
 - Add `var isRetryable: Bool` (or a `RetryPolicy` computed property) on the enum instead of matching cases at every call site.
 - `LocalizedError` supplies `errorDescription` for user-visible text; a raw `String(describing: error)` in the UI leaks type names.
 - Every Swift `Error` bridges to `NSError` with a domain derived from the type and a code from the case index — so **reordering cases changes the code**. Pin the codes explicitly when anything persists or transmits them.
-- Wrap, do not swallow: `case storage(underlying: any Error)` keeps the cause for the log while giving the caller a stable case to match.
+- Wrap errors explicitly: `case storage(underlying: any Error)` keeps the cause for the log while giving the caller a stable case to match.
 
 ## Typed Throws
 
@@ -30,7 +30,7 @@ Swift's error handling is a second return channel, not exceptions: `throws` is p
 - Good fit: leaf, self-contained operations (parsing, validation, a small state machine) where the error set is genuinely closed.
 - Bad fit: anything that calls into other subsystems — you end up mapping every downstream error into your enum, which is churn without benefit.
 - `throws` remains shorthand for `throws(any Error)`; `rethrows` is unchanged.
-- Do not typed-throw a public API's errors unless the enum is frozen: adding a case is a source break for exhaustive catches.
+- Reserve typed-throws in public APIs for frozen enums: adding a case is a source break for exhaustive catches.
 
 ## Propagation Mechanics
 
@@ -66,5 +66,5 @@ catch { fallback() }
 
 - Convert at the boundary, once. Network layer throws `NetworkError`; the repository maps it to a domain error; the UI maps that to a message. Skipping a layer means `URLError` codes end up in view code.
 - Log where you have context, handle where you have authority. Logging the same error at four layers produces four alerts for one incident.
-- An empty `catch {}` is never acceptable in shipped code (SKILL.md Output Gates). If the error is genuinely ignorable, say so: `catch { logger.debug("ignored: \(error)") }`.
+- Provide explicit handling or logging for all caught errors in shipped code (SKILL.md Output Gates). If the error is genuinely ignorable, say so: `catch { logger.debug("ignored: \(error)") }`.
 - Objective-C `NSError**` methods import as `throws`, and a method returning a `BOOL` plus error imports as a non-returning `throws` function. A bridged method that returns nil **and** no error throws a generic error — check both when the failure looks empty.

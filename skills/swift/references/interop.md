@@ -68,4 +68,4 @@ Unmanaged<Context>.fromOpaque(box).release()
 - `Data` and `NSData` bridge in O(1) in most cases; `Data(referencing:)` shares storage.
 - `NSNull` is a non-nil object standing in for JSON null.
 - Core Foundation types bridge with `as`, but `CF`-prefixed create/copy functions still follow the Create Rule: what you create, you release (`takeRetainedValue`); what you get, you do not (`takeUnretainedValue`).
-- None of this exists on Linux: `@objc`, KVO, `NSSelectorFromString`, and CF bridging are Darwin-only (`linux.md`).
+- On Linux, check the availability of each Foundation or Core Foundation API independently; Apple Objective-C runtime APIs such as KVO and selectors are not portable (`linux.md`).

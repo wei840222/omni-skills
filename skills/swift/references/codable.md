@@ -27,7 +27,7 @@ Related: writing `CodingKeys` by hand is all-or-nothing. Omitting a case exclude
 
 - `keyDecodingStrategy = .convertFromSnakeCase` handles `created_at` → `createdAt` for the whole payload. It mangles acronyms (`user_id` → `userId`, but `id_str` → `idStr`), so per-key `CodingKeys` still beats it for a small model.
 - Mixing the strategy with explicit `CodingKeys` is a common source of "this one key never decodes": the strategy runs first, then your key string is matched against the converted name.
-- `dateDecodingStrategy = .iso8601` uses the standard formatter **without** fractional seconds, so `2026-07-25T10:30:00.123Z` fails. For fractional-second timestamps use `.custom` with a formatter that has `.withFractionalSeconds`, or `.formatted(...)`.
+- `dateDecodingStrategy = .iso8601` uses the standard formatter **without** fractional seconds, so `2026-07-25T10:30:00.123Z` fails. For fractional-second timestamps use matching custom date decoding and encoding strategies with an `ISO8601DateFormatter` configured with `.withInternetDateTime` and `.withFractionalSeconds`. Match the input contract: if fractional seconds are optional, try the fractional formatter and then a separate standard formatter. Keep helpers accessible to their callers, and compile-test the example.
 - The default date strategy (`.deferredToDate`) is seconds since the 2001 reference date, not epoch. Decoding a Unix timestamp with the default silently produces dates 31 years off — use `.secondsSince1970` / `.millisecondsSince1970`.
 - `dataDecodingStrategy` defaults to base64 for `Data`.
 - `nonConformingFloatDecodingStrategy` is required if the payload can contain `NaN` or `Infinity`; JSON has no literal for them, so the default throws.

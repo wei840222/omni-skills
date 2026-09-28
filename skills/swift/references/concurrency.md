@@ -59,7 +59,7 @@ actor ImageLoader {
 
 - `Sendable` = safe to hand across isolation domains. Structs and enums of Sendable members conform automatically when they are non-public; **public types must state the conformance explicitly** — the omission is the usual "why won't my library's type cross?".
 - Final classes with only immutable `let` properties of Sendable types can conform. Non-final classes cannot: a subclass could add mutable state.
-- Closures: `@Sendable` forbids capturing non-Sendable state and captures by value. A `@Sendable` closure capturing a `var` copies it at creation — later changes are invisible inside.
+- Closures: `@Sendable` constrains values crossing isolation boundaries. Inspect each mutable capture and the target compiler diagnostics; use an explicit capture list when a snapshot is intended, or protect shared mutable state with isolation.
 - `@unchecked Sendable` rules: SKILL.md rule 7.
 - Global and static `var` is a data race by definition. Preference order: make it `let`; put it on an actor or `@MainActor`; wrap it in `Mutex` (Synchronization module, `swift >=6.0`); last resort `nonisolated(unsafe)` with a comment naming who guarantees safety.
 - `sending` parameters (`swift >=6.0`) transfer a non-Sendable value across an isolation boundary when the compiler can prove the sender gives up every reference — the escape hatch that replaces most `@unchecked`.
@@ -90,7 +90,7 @@ func fetch() async throws -> Data {
 
 ## Performance and Threads
 
-- The pool runs one thread per active core; blocking any of them is rule 4. Backtrace signatures: `debugging.md`.
+- Blocking cooperative executor threads can starve tasks needed to make progress (SKILL.md rule 4). Backtrace signatures: `debugging.md`.
 - Actor hops are cheap but not free. A loop that calls an actor per element serializes on that actor — batch it (`await store.add(contentsOf: chunk)`) instead of awaiting per item.
 - A `Task` inherits the caller's priority; `Task.detached` starts at default. Priority escalation exists across structured relationships, not across detached ones.
 - `Task.yield()` inside a long compute loop lets other tasks in — the async equivalent of not hogging the runloop.

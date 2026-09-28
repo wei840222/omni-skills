@@ -19,10 +19,10 @@ An optional is a two-case enum, not a nullable pointer. Every trap below comes f
 
 ## The Traps
 
-- **Interpolating an optional** prints `Optional("x")` into user-visible text. The compiler warns; silence it deliberately with `String(describing:)` or by unwrapping, never by adding `!`.
+- **Interpolating an optional** prints `Optional("x")` into user-visible text. The compiler warns; silence it deliberately with `String(describing:)` or by unwrapping, instead of adding `!`.
 - **Optionals are not Comparable.** `<`, `>`, `<=`, `>=` were removed for `Optional` in Swift 3. Sorting by an optional field does not compile; decide explicitly where nils go: `sorted { ($0.date ?? .distantPast) < ($1.date ?? .distantPast) }`.
 - **`dict[key] = nil` removes the key.** To store a genuine nil value in a `[String: Int?]`, use `dict.updateValue(nil, forKey: key)`. The difference is visible in `dict.count`.
-- **Double optionals are real.** A `[String: Int?]` subscript returns `Int??`; `as?` on an optional and `try?` on an optional-returning throwing function used to nest too. `try?` flattens since Swift 5; dictionary subscripts do not. Flatten with `??` or pattern matching, do not `!!`.
+- **Double optionals are real.** A `[String: Int?]` subscript returns `Int??`; `as?` on an optional and `try?` on an optional-returning throwing function used to nest too. `try?` flattens since Swift 5; dictionary subscripts do not. Flatten with `??` or pattern matching, use `??` or pattern matching instead of `!!`.
 - **`if optionalBool` does not compile**, and `if optionalBool == true` treats nil as false while `if optionalBool != false` treats nil as true. Pick the one that matches the requirement and write it down.
 - **Optional chaining swallows the failure.** `user?.save()` does nothing when `user` is nil and reports nothing. If the call mattered, unwrap and handle the nil branch.
 - **`as?` returns nil for a failed cast AND for a nil input** — a nil result does not tell you which. Split the checks when the difference matters.
@@ -42,8 +42,8 @@ let sum  = optionalCount.map { $0 * 2 }                  // stays optional
 
 ## API Design With Optionals
 
-- Do not return `[T]?`. Empty array already means "nothing"; the optional adds a case with no meaning and forces every caller to unwrap.
-- Do not return `Bool?` from a predicate. Return `Bool`, or an enum with the third case named.
+- Return `[T]` instead of `[T]?`. Empty array already means "nothing"; the optional adds a case with no meaning and forces every caller to unwrap.
+- Return `Bool` or a three-case enum from a predicate. Return `Bool`, or an enum with the third case named.
 - Optional parameters with a nil default (`func f(limit: Int? = nil)`) are fine; optional parameters where nil means "use a different algorithm" should be an enum instead.
 - A struct with six optional properties is usually two or three structs, or an enum with associated values. Optional-heavy models push the impossible-state check onto every reader.
 - `throws` beats returning nil whenever the caller could reasonably ask "why?".

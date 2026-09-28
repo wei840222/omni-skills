@@ -1,6 +1,6 @@
 # Performance — Build Time, Runtime, Binary Size
 
-Three separate budgets with different tools. Never optimize any of them from a debug build: `-Onone` disables inlining, specialization, and ARC optimization, so debug measurements describe a program you do not ship.
+Three separate budgets with different tools. Measure optimization exclusively from release builds: `-Onone` disables inlining, specialization, and ARC optimization, so debug measurements describe a program you do not ship.
 
 ## Measure First, In This Order
 
@@ -19,7 +19,7 @@ Three separate budgets with different tools. Never optimize any of them from a d
 - **Bridging.** Crossing to Objective-C converts `String`/`Array`/`Dictionary`. A loop that calls a Foundation API per element can spend most of its time in bridging.
 - **`Character`/`String` work** is Unicode-correct and therefore not free; byte-level algorithms should run on `utf8`.
 - **Dynamic casts** (`as?`) hit runtime metadata; hoist them out of loops.
-- **`Mirror`** walks metadata reflectively — fine for logging, never on a hot path.
+- **`Mirror`** walks metadata reflectively — fine for logging, keep it off hot paths.
 
 ## Allocation Discipline
 
@@ -32,7 +32,7 @@ Three separate budgets with different tools. Never optimize any of them from a d
 
 ## Concurrency Performance
 
-- The cooperative pool runs one thread per active core; oversubscribing it with blocking work is a correctness bug before it is a performance one (SKILL.md rule 4).
+- Blocking cooperative executor threads can starve pending tasks; treat that as a correctness risk before a performance concern (SKILL.md rule 4).
 - Actor hops cost a context switch on the executor. Batch calls rather than awaiting per element.
 - Task creation is an allocation: bound the width of a task group rather than spawning one task per item.
 - Parallelism below roughly a millisecond of work per task is usually a loss; measure the serial version first.
@@ -62,4 +62,4 @@ Three separate budgets with different tools. Never optimize any of them from a d
 
 - Algorithmic complexity first: an O(n²) `contains` in a loop dwarfs every micro-optimization on this page (`collections.md`).
 - Optimize the measured 5%, and re-measure after every change; Swift's optimizer regularly makes the "obviously faster" version slower.
-- Never trade correctness for speed silently: an `unowned(unsafe)` or `-Ounchecked` win must be documented where the next reader will see it.
+- Document any correctness/speed trade-offs explicitly: an `unowned(unsafe)` or `-Ounchecked` win must be documented where the next reader will see it.

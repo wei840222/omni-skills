@@ -39,7 +39,7 @@ Swift's collections are copy-on-write value types with strong performance contra
 ## Set and Hashable
 
 - `hash(into:)` must hash exactly the fields `==` compares. Hashing more is a correctness bug (equal values land in different buckets); hashing less only costs performance.
-- Never mutate a property that feeds the hash while the value lives in a `Set` or serves as a dictionary key — the element becomes unfindable and `Duplicate keys` traps appear later, far from the cause.
+- Maintain immutability for properties that feed the hash while the value lives in a `Set` or serves as a dictionary key — the element becomes unfindable and `Duplicate keys` traps appear later, far from the cause.
 - Set algebra is the readable form of loop-and-check: `union`, `intersection`, `subtracting`, `symmetricDifference`, `isSubset(of:)`.
 - `Set` has no order. If a "set" must round-trip in a stable order, it is an `OrderedSet` (swift-collections) or a sorted array.
 
@@ -58,6 +58,6 @@ Swift's collections are copy-on-write value types with strong performance contra
 
 - `Array(repeating: MyClass(), count: n)` evaluates the initializer once: n references to ONE instance (SKILL.md Traps). `(0..<n).map { _ in MyClass() }` for distinct objects.
 - `Array(repeating: Array(repeating: 0, count: cols), count: rows)` is fine for value types — the inner arrays are copies with COW, and writing to one does not touch the others.
-- `arr[i...]` on an empty array with `i == 0` is legal (an empty slice); `arr[0]` is not. `first`/`last` return optionals for that reason, and `removeFirst()` traps on empty while `popFirst()` returns nil.
+- `arr[i...]` on an empty array with `i == 0` is legal (an empty slice); `arr[0]` is not. `first`/`last` return optionals for that reason. Check `isEmpty` before calling `removeFirst()` on an array.
 - `Array(dictionary)` yields `[(key: K, value: V)]` in unspecified order — sort it before comparing in a test.
 - Reference-typed elements make an array's COW misleading: copying the array copies the references, so mutating an element is visible through both copies (`types.md`).

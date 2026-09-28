@@ -23,7 +23,7 @@ Swift's `String` is a collection of **extended grapheme clusters** stored as UTF
 
 - `dropFirst`, `prefix`, `split`, and `[range]` all return `Substring`, which **shares the parent's storage**. Keeping one keeps the whole original string alive (SKILL.md Traps).
 - Rule: `Substring` for the duration of a parse, `String(sub)` the moment a value is stored, returned across an API boundary, or put into a collection.
-- `Substring` and `String` are different types but interchangeable in most generic code (`StringProtocol`). Writing APIs against `some StringProtocol` avoids forcing a copy on callers — but do not store a `StringProtocol` value.
+- `Substring` and `String` are different types but interchangeable in most generic code (`StringProtocol`). Writing APIs against `some StringProtocol` avoids forcing a copy on callers — but convert `StringProtocol` values before storing them.
 
 ## Splitting and Trimming
 
@@ -43,7 +43,7 @@ Swift's `String` is a collection of **extended grapheme clusters** stored as UTF
 ## Formatting and Localization
 
 - `String(localized:)` plus String Catalogs is the current path on Apple platforms; the key is the source string, so editing English text silently orphans translations unless you set an explicit key.
-- Plurals need a plural rule in the catalog, never `count == 1 ? "item" : "items"` — most languages have more than two forms.
+- Plurals need a plural rule in the catalog, use the catalog's plural rule instead of `count == 1 ? "item" : "items"` — most languages have more than two forms.
 - Numbers, dates, and measurements go through `formatted()` / `FormatStyle`: `value.formatted(.currency(code: "EUR"))` picks the user's separators and symbol placement. Hand-rolled `String(format: "%.2f")` produces a period in locales that use a comma.
 - `String(format:)` is Foundation and unchecked: a mismatched specifier reads garbage memory. Interpolation is safe and usually shorter.
 - Interpolating an optional prints `Optional("x")`.

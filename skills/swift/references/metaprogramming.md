@@ -43,7 +43,7 @@ struct Clamped<Value: Comparable> {
 - Build cost is the headline tradeoff: a macro package pulls in swift-syntax, which compiles from source on a cold build. One macro dependency can add minutes to a clean build, and it is the usual answer to "why did our build time double" (`performance.md`).
 - The macro implementation runs as a separate compiler plugin process; a crash there surfaces as an opaque build failure rather than a Swift error.
 - Diagnostics point at the **use site** while the bug is in the macro. Debug by reading the expansion: Xcode's Expand Macro action, or a unit test with `assertMacroExpansion` from SwiftSyntaxMacrosTestSupport, which is the only fast feedback loop that exists.
-- Emit real diagnostics from the macro (`context.diagnose`) instead of generating code that fails to compile — otherwise users see errors in code they never wrote.
+- Emit real diagnostics from the macro (`context.diagnose`) to ensure users see errors in their own code — otherwise users see errors in code they did not author.
 - Multiple attached macros on one declaration expand in an order tied to declaration order; two that both add members can collide.
 - Choose the cheapest tool: a protocol extension beats a macro; a property wrapper beats a macro; a macro is right when you must generate declarations that cannot be written generically.
 
