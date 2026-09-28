@@ -61,8 +61,8 @@ The decisions here fix a codebase's shape for years. Two questions settle most o
 ## Equatable, Hashable, Comparable
 
 - Synthesis works when every stored property conforms; write it by hand only to exclude a field (a cache, a timestamp) — and then `hash(into:)` must hash **exactly** the fields `==` compares, or dictionaries and sets corrupt (SKILL.md Crash Messages).
-- Never mutate a property that participates in a hash while the value sits in a `Set` or is a dictionary key.
-- `Comparable` must be a strict weak ordering: `a < b`, `b < a`, and "equivalent" must be mutually exclusive and transitive. NaN violates this, which is why sorting Doubles with NaN can trap.
+- Maintain immutability for properties that participate in a hash while the value sits in a `Set` or is a dictionary key.
+- `Comparable` must be a strict weak ordering: `a < b`, `b < a`, and "equivalent" must be mutually exclusive and transitive. NaN does not participate in an ordinary total ordering; define a policy for NaNs before sorting.
 - `Identifiable` is not `Equatable`. SwiftUI diffing uses `id` for identity and `Equatable` (when present) to skip redraws — they answer different questions.
 
 ## Classes: Initialization and Inheritance

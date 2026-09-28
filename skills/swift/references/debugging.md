@@ -1,6 +1,6 @@
 # Debugging — Symptom to Cause in Minutes
 
-Work symptom-first. Swift failures split into four families and each has a different first move: **runtime trap** (Swift printed a message), **memory error** (no message, EXC_BAD_ACCESS), **hang** (no message, no CPU), **compile failure** (the error you see is often not the error you have).
+Work symptom-first. Swift failures split into four families and each has a different first move: **runtime trap** (Swift printed a message), **invalid memory access** (often EXC_BAD_ACCESS without a Swift diagnostic), **hang** (no message, no CPU), **compile failure** (the error you see is often not the error you have).
 
 ## The Universal First Three
 
@@ -32,22 +32,22 @@ Work symptom-first. Swift failures split into four families and each has a diffe
 
 ## Crash: EXC_BAD_ACCESS with no Swift message
 
-Ordered by frequency in Swift code:
+Investigate using the observed stack and lifetime evidence rather than assuming a capture mode:
 
-1. **`unowned` reference read after deallocation** — this one DOES usually print a message; if it did, you are in the previous section.
+1. **An invalid lifetime assumption** — checked `unowned` access often prints a Swift diagnostic; `unowned(unsafe)` and raw pointer lifetimes may instead surface as EXC_BAD_ACCESS.
 2. **Objective-C object over-released or accessed after dealloc** — enable Zombie Objects (scheme diagnostics); the console then names the class and selector instead of crashing at a garbage address.
-3. **Unsafe pointer escaping its scope** — `withUnsafeBytes { ptr in }` guarantees validity only inside the closure; storing `ptr` is undefined behavior that "works" until it doesn't (`interop.md`).
+3. **Potential unsafe pointer lifetime** — if the code stores a pointer obtained from `withUnsafeBytes`, its validity is limited to the closure. Inspect the pointer's origin and use before attributing the fault to it (`interop.md`).
 4. **Buffer overrun in C interop** — Address Sanitizer names the allocation and both stacks. Run the failing test under ASan before guessing.
 5. **Stack overflow from unbounded recursion** — backtrace is thousands of identical frames; the address is near the stack guard page.
 
-Zombies first (cheap, no rebuild), ASan second (rebuild, ~2× slower), Malloc Scribble/Guard Malloc only when ASan is inconclusive.
+Choose diagnostics from the evidence: Zombies for suspected Objective-C over-release, Address Sanitizer for suspected unsafe-memory use, then platform-specific allocator tools when those checks are inconclusive.
 
 ## Hang: no error, no CPU
 
 | Signature in `bt all` | Cause | Fix |
 |---|---|---|
 | Every cooperative worker parked on `DispatchSemaphore.wait` | Blocking inside `async` starved the pool (SKILL.md rule 4) | Move the blocking call off the pool |
-| Main thread waiting on a lock a background thread holds while it awaits main | Classic deadlock via `DispatchQueue.main.sync` | Never `.sync` onto main from code that main can call |
+| Main thread waiting on a lock a background thread holds while it awaits main | Classic deadlock via `DispatchQueue.main.sync` | Use async patterns when returning to main from code that main can call |
 | One task suspended forever, no thread parked | Continuation never resumed (SKILL.md rule 5) | Audit each resume path; add a timeout wrapper while diagnosing |
 | Main thread deep in layout or `Data(contentsOf:)` | Synchronous I/O or heavy work on main | Move off main; Main Thread Checker flags the UI half automatically |
 | Everything idle, actor never progresses | Two actors awaiting each other | Break the cycle: one side takes a snapshot instead of calling back |
@@ -65,7 +65,7 @@ Hang debugging on device: sample the process rather than pausing — a paused ap
 
 1. Xcode **Debug Memory Graph** while the app is live: purple `!` badges mark leaked cycles, and the graph shows which reference keeps the object alive. This finds cycles faster than Instruments.
 2. **Instruments → Leaks** finds unreachable allocations; **Allocations** with "Mark Generation" finds the reachable-but-growing case (a cache nobody evicts), which Leaks never reports.
-3. `deinit` breakpoint on the suspect class: if it never fires when the screen closes, you have a cycle.
+3. Set a `deinit` breakpoint on the suspect class. If it does not fire after the screen closes, inspect the memory graph for remaining strong references; an intentional owner or cache can also keep it alive.
 4. Growth with flat object counts = buffers: Substrings pinning parent strings, `Data` accumulating, image caches, unbounded `AsyncStream` buffering.
 
 ## Compile failures worth naming
@@ -76,7 +76,7 @@ Hang debugging on device: sample the process rather than pausing — a paused ap
 | "Type of expression is ambiguous without more context" | Same cause, smaller expression | Annotate the closure's parameter and return types first |
 | "Command CompileSwift failed with a nonzero exit code" | The wrapper, never the cause | Scroll UP to the first real diagnostic; in SwiftPM add `-v` |
 | "Cannot convert value of type 'X' to expected argument type 'Y'" pointing at an unrelated line | One wrong type earlier poisoned inference | Fix the FIRST error only, then rebuild |
-| "Undefined symbol: …" at link time | Missing `@objc`, a target not linked, or a `#if` that excluded the definition on this platform | `nm -gU` the object file to confirm the symbol was ever emitted |
+| "Undefined symbol: …" at link time | Missing `@objc`, a target not linked, or a `#if` that excluded the definition on this platform | inspect the object with the platform's `nm` tool to confirm the symbol was emitted |
 | Segmentation fault in the compiler itself | Genuine compiler bug, usually in generics or macros | Bisect by commenting; reduce and file it; work around with an explicit type or a `@inline(never)` boundary |
 
 ## Print debugging without lying to yourself
@@ -85,7 +85,7 @@ Hang debugging on device: sample the process rather than pausing — a paused ap
 - `os.Logger` interpolation is lazy and privacy-aware; `print` builds the string always (SKILL.md Traps).
 - `dump(x)` beats `print(x)` for nested structures — it walks children via reflection.
 - SwiftUI redraw mystery: `let _ = Self._printChanges()` at the top of `body` names the property that invalidated the view.
-- Never leave a `print` inside `body`, `deinit`, or a hot loop — the measurement changes the thing measured.
+- Remove `print` from inside `body`, `deinit`, or a hot loop — the measurement changes the thing measured.
 
 ## When You Are Truly Stuck
 

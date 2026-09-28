@@ -57,7 +57,7 @@ Two ideas explain nearly every SwiftUI bug. **Identity**: SwiftUI matches views 
 
 - `@Environment` for dependencies (services, formatters, theme); explicit parameters for data the view genuinely needs. Environment-injecting everything makes previews unbuildable.
 - Bindings from a model: `@Bindable model` then `$model.field`. Deriving a `Binding` by hand (`Binding(get:set:)`) is fine, but a get/set pair that also mutates local `@State` produces two sources of truth and visible flicker.
-- Do not mutate observed state from inside `body` — the runtime warns "Publishing changes from within view updates is not allowed" and the result is undefined. Move it into `.task`, `.onChange`, or a button action.
+- Mutate observed state from `.task`, `.onChange`, or a button action rather than inside `body` — the runtime warns "Publishing changes from within view updates is not allowed" and the result is undefined. Move it into `.task`, `.onChange`, or a button action.
 - Sheets: `.sheet(item:)` re-evaluates its content when the item changes; `.sheet(isPresented:)` captures the content closure's values at presentation time, which is why the wrong row's detail appears.
 
 ## Combine, Where It Still Appears

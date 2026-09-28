@@ -55,4 +55,4 @@ Swift's API Design Guidelines optimize for **clarity at the point of use**, not 
 - Default arguments beat overload families: one function with three defaults documents better than four overloads.
 - Async and throwing are part of the signature and thus part of the contract. Adding `throws` later is a break; adding `async` is a bigger one. Decide early whether an operation can fail.
 - Sendability is API too: a public type that should cross isolation boundaries must declare `Sendable` explicitly, and adding it later can break conformances downstream.
-- Libraries depend on API packages (swift-log, swift-metrics), never on a specific backend — that choice belongs to the executable.
+- Libraries depend on API packages (swift-log, swift-metrics), relying on the executable for backend choices — that choice belongs to the executable.

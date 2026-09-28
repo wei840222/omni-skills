@@ -4,12 +4,12 @@ Swift 6 language mode makes data-race safety a compile-time error instead of a r
 
 ## The Order That Works
 
-1. **Upgrade the toolchain, stay in language mode 5.** Fix ordinary source breakage first; do not mix compiler upgrade with isolation work.
+1. **Upgrade the toolchain, stay in language mode 5.** Fix ordinary source breakage first; keep compiler upgrades separate from isolation work.
 2. **Turn on `-strict-concurrency=targeted`** (warnings only). Fix what it says. This covers code that already uses async/actors and leaves the rest alone.
 3. **Move to `-strict-concurrency=complete`**, still warnings. This is the real workload and where the warning count peaks.
 4. **Flip one leaf target to language mode 6.** Leaf = a target nothing else in your graph depends on, usually a model or utility module. Its warnings became errors; nothing above it changed.
 5. **Walk up the dependency graph**, one target per pull request, until the app target flips last.
-6. **Lock the ratchet**: once a target is in mode 6 it never goes back, and new targets start in mode 6.
+6. **Lock the ratchet**: once a target is in mode 6 it remains there permanently, and new targets start in mode 6.
 
 Per-target mode in SwiftPM (`swift-tools-version: 6.0` or later):
 
@@ -48,10 +48,10 @@ Under tools 5.x the equivalent knob is `.enableExperimentalFeature`/`.unsafeFlag
 
 ## What NOT To Do
 
-- Do not scatter `@unchecked Sendable` to make the build green — you converted compile-time proof back into a production race (SKILL.md rule 7).
-- Do not annotate everything `@MainActor` to end the fight: the app compiles and then runs single-threaded, and the regression looks like "the new version is slower".
-- Do not migrate tests last. Test targets surface isolation problems in setup and shared fixtures that production code hides; migrate them alongside their target.
-- Do not mix a language-mode flip with a feature branch. The diff must be reviewable as "isolation only".
+- Resolve isolation explicitly instead of scattering `@unchecked Sendable` to make the build green — you converted compile-time proof back into a production race (SKILL.md rule 7).
+- Apply `@MainActor` selectively instead of globally to resolve isolation: the app compiles and then runs single-threaded, and the regression looks like "the new version is slower".
+- Migrate tests concurrently with production code. Test targets surface isolation problems in setup and shared fixtures that production code hides; migrate them alongside their target.
+- Keep language-mode flips on dedicated branches. The diff must be reviewable as "isolation only".
 
 ## Verifying the Migration Actually Bought Something
 

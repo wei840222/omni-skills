@@ -4,7 +4,7 @@ The language is identical; the platform is not. What breaks a macOS-developed pa
 
 ## What Simply Does Not Exist
 
-- The Objective-C runtime: `@objc`, `@objcMembers`, `dynamic`, KVO, `NSSelectorFromString`, method swizzling, and Core Foundation bridging (`interop.md`).
+- Apple Objective-C runtime APIs such as KVO, selectors, and method swizzling are unavailable in ordinary Linux Swift builds. Check `@objc` and framework-specific bridging at each use site rather than treating all Swift `dynamic` dispatch or Foundation APIs as Objective-C-only (`interop.md`).
 - Apple frameworks: UIKit, AppKit, SwiftUI, Combine, Core Data, Security, os.log. `import os` fails; use swift-log.
 - Some Foundation corners behave differently even where they exist — `NSKeyedArchiver`, locale and formatter behavior, and `URL` resource-value APIs are the usual suspects.
 
@@ -24,7 +24,7 @@ import FoundationXML          // XMLParser, XMLDocument
 #endif
 ```
 
-Missing these is the single most common "compiles on my Mac, fails in CI" error, and the diagnostic just says the symbol is unknown. Newer toolchains ship a Swift-native Foundation that narrows the behavioral gap between platforms, but the module split still governs what you must import.
+Missing these imports is one cause of "compiles on my Mac, fails in CI" errors; inspect the actual compiler diagnostic and module availability. Newer toolchains ship a Swift-native Foundation that narrows the behavioral gap between platforms, but the module split still governs what you must import.
 
 ## Filesystem and Environment
 
@@ -36,16 +36,16 @@ Missing these is the single most common "compiles on my Mac, fails in CI" error,
 ## Building and Shipping
 
 - Multi-stage container: build with the full `swift` image, run on a slim base. The runtime image needs the Swift runtime libraries plus whatever your code links (`libcurl`, `libxml2`, `zlib`, `ca-certificates` are the frequent ones) unless you link statically.
-- `--static-swift-stdlib` embeds the Swift runtime so the runtime image needs no Swift toolchain. The fully static route (a musl-based Swift SDK, `swift >=6.0`) produces a binary that runs on a distroless or scratch base — the smallest and most portable option when your dependencies allow it.
-- Cross-compiling from macOS to Linux uses installable Swift SDKs (`swift build --swift-sdk <id>`); it removes the "works on my Mac" gap earlier than CI does.
+- Static Swift standard-library linkage and a fully static executable are different targets. Verify the selected Swift SDK, native dependencies, runtime libraries, and container base with a deployment smoke test; do not infer scratch-image compatibility from a linker flag alone.
+- For macOS-to-Linux cross-compilation, first confirm an installed SDK supports the destination and toolchain; build and run the result in a matching Linux environment before shipping.
 - Build in release for anything measured; debug on Linux is as unrepresentative as anywhere else.
 - Backtraces: the runtime backtracer is enabled via the `SWIFT_BACKTRACE` environment variable and turns an opaque crash in a container into a symbolicated stack — set it in the image, not per-incident.
 
 ## Concurrency and Runtime Differences
 
-- Swift concurrency works on Linux, and the cooperative pool is sized to the machine's cores. In a container that means the **host's** cores unless CPU limits are respected by the runtime — an over-subscribed pool in a 0.5-CPU container behaves badly, so set limits and verify.
+- Swift concurrency works on Linux. Measure cooperative-worker and throughput behavior under the deployed container CPU limits rather than assuming a particular host-core mapping.
 - Dispatch is available, but there is no main runloop unless you create one: a command-line tool that fires async work and returns exits before the work runs. Use `await` in `@main`'s async entry point, not a semaphore (SKILL.md rule 4).
-- There is no stable ABI on Linux: the standard library ships with your app, and toolchain upgrades require a rebuild — which also means no back-deployment constraints.
+- Confirm runtime-library and ABI compatibility for the chosen Linux distribution and Swift toolchain; package or link required libraries explicitly and test the resulting artifact on the destination.
 - Thread Sanitizer is available on Linux and is worth keeping in CI even after a Swift 6 migration.
 
 ## Server Practicalities
