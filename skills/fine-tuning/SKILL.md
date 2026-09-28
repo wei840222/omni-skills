@@ -17,7 +17,7 @@ metadata:
 
 ## Operational rules
 
-- Match data format and example counts to the selected provider/model; historical numbers are not universal minimums. Human-review a representative sample, check contradictory labels, and record train/validation/test provenance.
+- Match data format and example counts to the selected provider/model; historical numbers are not universal minimums. Human-review a representative sample, check contradictory labels, and record train/validation/test provenance. For a small dataset, retain enough independent holdout cases for a meaningful uncertainty estimate before approving tuning.
 - Use a baseline on the same held-out set to decide whether tuning improves the target task. Select LoRA/QLoRA or full tuning from model support, hardware and evaluation results rather than a blanket cost multiplier.
 - Treat learning rates, epochs, train/serve precision, and hardware requirements as model- and implementation-specific; start from current vendor documentation and validate on a small run.
 - Treat fine-tuning as behavior adaptation, not guaranteed factual knowledge refresh. For changing facts, measure retrieval against tuning; for cost savings, calculate break-even from current rates and observed token distributions.
