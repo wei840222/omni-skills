@@ -1,8 +1,8 @@
 ---
 name: swift
-description: Write, debug, and optimize Swift code. Use when resolving concurrency
-  deadlocks, ARC leaks, compiler type-checking timeouts, SwiftUI state resets, or
-  package resolution failures. Route Xcode signing, IDE settings, App Store
+description: Write, debug, and optimize Swift code. Use for Swift concurrency
+  deadlocks, EXC_BAD_ACCESS and ARC ownership, Codable failures, compiler type-checking
+  timeouts, SwiftUI state resets, or SwiftPM package resolution. Route Xcode signing, IDE settings, App Store
   submission, or iOS app lifecycle.
 metadata:
   openclaw: '{"emoji":"🦅","os":["darwin","linux"],"requires":{"bins":["swift"]}}'
