@@ -1,6 +1,6 @@
 # Memory Template - Convex
 
-Create `~/Clawic/data/convex/memory.md` with this structure:
+After resolving `<state_root>` and obtaining persistence consent, create the optional concise summary `<state_root>/memory.md` with this structure. Keep detailed schema, rollout, and permission decisions in their corresponding topic notes.
 
 ```markdown
 # Convex Memory
@@ -16,20 +16,16 @@ integration: pending
 <!-- Product domain and lifecycle stage -->
 
 ## Data Model Decisions
-<!-- Table shapes, relationship assumptions, naming choices -->
-<!-- Decisions that should remain stable across iterations -->
+<!-- Concise summary; detailed table/index rationale in <state_root>/schema-notes.md -->
 
 ## Index Strategy
-<!-- Access paths that must stay fast -->
-<!-- Index rationale and known constraints -->
+<!-- Summary of critical access paths; details in <state_root>/schema-notes.md -->
 
 ## Auth and Permissions
-<!-- Identity model and tenant boundaries -->
-<!-- Permission checks that must never be bypassed -->
+<!-- Summary of identity and tenant boundaries; details in <state_root>/auth-notes.md -->
 
 ## Rollout and Incidents
-<!-- Migration notes and deployment caveats -->
-<!-- Incident summaries and preventive actions -->
+<!-- Summary of current rollout risk; details in <state_root>/rollout-notes.md -->
 
 ## Notes
 <!-- Durable, high-signal implementation lessons -->

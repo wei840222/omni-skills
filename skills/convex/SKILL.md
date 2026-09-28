@@ -1,167 +1,45 @@
 ---
 name: convex
-slug: convex
-version: 1.0.0
-description: Build and maintain Convex backends with schema-safe modeling, query and mutation patterns, auth guards, and production rollout checks.
-homepage: https://clawic.com/skills/convex
-changelog: Initial release with schema, auth, indexing, and rollout guidance for Convex projects.
+description: Design, debug, and operate Convex backends. Use for Convex schema/index design, query/mutation/action boundaries, tenant authorization, webhook retries, and safe migrations; route generic database work without a Convex project to the backend skill.
 metadata:
-  clawdbot:
-    emoji: DB
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/convex/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/convex/
-    displayName: Convex
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/convex/
+  related-skills: '{"backend":"Extends Convex service architecture and operational reliability decisions.","javascript":"Supports JavaScript runtime behavior in Convex functions.","typescript":"Supports type-safe Convex schema and function implementations."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` for integration guidelines.
+Before any state read or write, choose one actual directory as `<state_root>`:
 
-## When to Use
+1. Use a user- or host-configured state directory when specified.
+2. Otherwise select the first existing directory: `<workspace>/convex/`, `<workspace>/memory/convex/`, then `~/convex/`. An existing `~/convex/` remains readable when the host has not supplied `<workspace>`. If multiple candidates exist, select the first and disclose the untouched copies.
+3. If no candidate exists, inspect legacy `~/Clawic/data/convex/` as a migration source; ask the user to select a root if it exists. With no legacy copy, obtain persistence consent before creating `<workspace>/convex/`; when the workspace is unavailable, request an explicit root before creation.
+4. Disclose an existing legacy copy before using a selected candidate. Migrate only with explicit authorization; keep the selected root fixed for this invocation.
 
-User is building, debugging, or scaling a Convex backend and needs reliable patterns for data modeling, queries, mutations, actions, auth, and deployments.
+Resolve the real path before replacing `<state_root>` in any operation. It is a placeholder; substitute only the resolved directory. Obtain user consent and follow host policy before each state write; read access alone grants no write authority. The optional `<state_root>/memory.md` holds consented cross-topic context; create it when a durable summary is first needed using `assets/memory-template.md`. The optional `<state_root>/schema-notes.md` holds table/index rationale, `<state_root>/rollout-notes.md` holds migrations/incidents, and `<state_root>/auth-notes.md` holds permission boundaries; create each only when that topic must persist and consent is given. Preserve existing notes and seek explicit authorization before consolidation or deletion.
 
-This skill focuses on implementation quality and operational safety, not generic framework tutorials.
+## Execution
 
-## Architecture
+1. For a new project or missing state, read `references/setup.md`. Resolve the state root and read only relevant existing notes. Deliver an answer to the active task even if onboarding details are unavailable.
+2. Read the topic reference below; inspect the project's schema, function entry points, authentication, deployment target, and installed Convex version. If the project is unavailable, label design advice conditional and request the exact missing artifact before proposing executable changes.
+3. Name the selected index/query path or function boundary, actor/tenant check, compatibility constraint, and smallest verification. **Authorization checkpoint:** for a persistent state write, production deployment, or publication, identify the exact target and change, then obtain approval for that action before execution. If the target or approval is missing, provide a draft and request the missing decision.
+4. Implement only the authorized change. Verify the specific query path, replay behavior, or client compatibility affected; report the observed result, remaining risk, and checks not run.
 
-Memory lives in `~/Clawic/data/convex/`. See `memory-template.md` for structure and status fields.
+## Decision boundaries
 
-```text
-~/Clawic/data/convex/
-|- memory.md               # Durable project context and technical decisions
-|- schema-notes.md         # Table design and index rationale
-|- rollout-notes.md        # Deploy and incident learnings
-`- auth-notes.md           # Auth model and permission edge cases
-```
+- For schema and index changes, map real access paths and tenant scope first; read `references/schema-and-indexes.md` and validate index order and query behavior against the installed Convex version.
+- For queries and mutations, validate input and actor access on the server; use an action or HTTP action for external network calls, then an internal mutation for persistent writes. For retried webhooks, use a stable event key, transactional replay-safe update, and processing-status record; distinguish partially completed external side effects from an already-applied database mutation. Read `references/operations-playbook.md` for webhooks and incident recovery.
+- For deployments, read `references/operations-playbook.md` before changing schema or functions. Compare current clients and schema, stage additive changes and backfill, then rehearse rollback for the exact change. Request deployment authorization with the named project and environment before production execution. For dangerous shortcuts and a safer recovery, use its "Risk action → safe recovery" table.
 
-## Quick Reference
+## Privacy and boundaries
 
-Use the smallest relevant file for the current task.
+The skill needs no credentials itself. For third-party integrations, keep credentials in the host's secret store and refer to them by name, not value. Record only necessary, non-sensitive project decisions under the resolved `<state_root>` after authorization. Use sanitized placeholders in examples and test artifacts; keep private records within the authorized context.
+
+## References
 
 | Topic | File |
 |-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Schema and indexes | `schema-and-indexes.md` |
-| Deploy and operations | `operations-playbook.md` |
-
-## Requirements
-
-- No API keys or external credentials are required by this skill itself.
-- TOKEN/KEY: Not required by this skill.
-- If a project uses third-party integrations, treat those credentials as user-managed secrets and never persist raw values in memory files.
-
-## Data Storage
-
-This skill stores reusable context only under `~/Clawic/data/convex/`:
-- memory file for durable project context and decisions
-- schema notes for modeling and index rationale
-- rollout notes for deployment and incident lessons
-- auth notes for permission and boundary edge cases
-
-Do not store secrets, access tokens, or personal data unless the user explicitly requests it.
-
-## Core Rules
-
-### 1. Model Access Patterns Before Writing Schema
-Define tables and indexes from real read paths first:
-- Which fields are filtered most often
-- Which sort order is needed
-- Which uniqueness guarantees are required
-
-Do not rely on table scans in production paths.
-
-### 2. Keep Function Boundaries Strict
-Use each function type for its intended purpose:
-- Query: read-only and deterministic
-- Mutation: validated state changes
-- Action: external side effects and network calls
-
-Do not mix external calls inside deterministic data paths.
-
-### 3. Enforce Auth and Authorization at Every Entry Point
-Treat every query, mutation, action, and HTTP entrypoint as untrusted input:
-- Resolve identity explicitly
-- Check workspace or tenant boundaries
-- Validate ownership before returning or mutating records
-
-Never trust client-provided identifiers without server checks.
-
-### 4. Design Indexes for Stability, Not Just Speed
-Create indexes that match long-term product workflows:
-- Primary user lookup paths
-- Admin and backoffice paths
-- Background processing queues
-
-Document index intent so future changes do not break critical queries.
-
-### 5. Make Writes Idempotent for Retries
-For webhooks and external callbacks:
-- Use stable idempotency keys
-- Upsert safely when replayed
-- Record processing status
-
-A retry should not create duplicate side effects.
-
-### 6. Ship with Safe Rollout Discipline
-Before deploying schema or logic changes:
-- Verify backward compatibility for current clients
-- Prepare migration steps for renamed fields or tables
-- Confirm failure mode and rollback path
-
-Never deploy unreviewed breaking data changes.
-
-### 7. Preserve Debuggability in Production
-When fixing incidents:
-- Capture a minimal reproduction query
-- Keep structured logs around actor, function, and record ids
-- Record final root cause and preventive rule in memory
-
-Fast diagnosis compounds over time.
-
-## Common Traps
-
-- Building schema from entities only, not query paths -> slow reads and rework.
-- Putting network side effects in deterministic logic -> nondeterministic failures.
-- Treating auth as a UI concern -> cross-tenant data leaks.
-- Adding indexes reactively during outages -> unstable rollout under pressure.
-- Shipping breaking schema changes without migration staging -> runtime failures.
-- Ignoring idempotency for callbacks -> duplicate writes and billing errors.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- None by default from this skill itself.
-
-**Data that stays local:**
-- Convex project context and decisions under `~/Clawic/data/convex/`.
-
-**This skill does NOT:**
-- Automatically call external services.
-- Manage or store secrets outside user-approved files.
-- Apply destructive schema changes without explicit confirmation.
-- Modify files outside `~/Clawic/data/convex/` for memory.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `backend` - Service architecture and operational reliability patterns.
-- `typescript` - Type-safe design and implementation for app and backend code.
-- `javascript` - Runtime behavior and language-level debugging workflows.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/convex
-- Latest version: https://clawic.com/skills/convex
+| Setup & Integration | `references/setup.md` |
+| Schema & Indexes | `references/schema-and-indexes.md` |
+| Operations & Deploy | `references/operations-playbook.md` |
+| Memory Template | `assets/memory-template.md` |
+| Official source checks | `references/sources.md` |
+| Baseline behavior disposition | `references/semantic-inventory.md` |
