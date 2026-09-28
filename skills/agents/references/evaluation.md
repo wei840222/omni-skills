@@ -2,7 +2,7 @@
 
 An agent without an eval set has one measurement: complaints. This page is how to build the set, size it, score it, and gate releases on it.
 
-**Before any prompt, tool or model change**, read `evals/<agent>.md` and the last rows of `eval-runs/<year>.md` (via `## Boxes` in `~/Clawic/data/agents/memory.md`). A change proposed without the current baseline in hand cannot be evaluated afterwards, because there is nothing to compare to.
+**Before any prompt, tool or model change**, read `evals/<agent>.md` and the last rows of `eval-runs/<year>.md` (via `## Boxes` in `<state_root>/memory.md`). A change proposed without the current baseline in hand cannot be evaluated afterwards, because there is nothing to compare to.
 
 **Contents:** [What to score](#what-to-score) · [Building the set](#building-the-set) · [Sizing](#sizing-how-many-cases-how-many-runs) · [Scoring](#scoring-methods) · [Judges](#llm-judges-where-they-work) · [The gate](#the-regression-gate) · [Online](#online-measurement) · [Metrics](#metrics-worth-tracking)
 
@@ -89,4 +89,4 @@ Shadow-run a candidate on real inputs without acting on its output when the stak
 | End-reason mix | Share of each reason | The earliest online regression signal |
 | Escalation rate and reversal rate | Both, together | One alone is uninterpretable |
 
-**After every eval run**, write the row to `~/Clawic/data/agents/eval-runs/<year>.md` — date, agent, set version, `n`, pass rate, trajectory pass rate, median cost, p95 latency, model bundle, what changed — and add any new case to `evals/<agent>.md`, in the same turn (`memory-template.md`). Runs kept in a terminal scrollback cannot answer "when did this get worse", which is the only question anyone asks later.
+**After every eval run**, write the row to `<state_root>/eval-runs/<year>.md` — date, agent, set version, `n`, pass rate, trajectory pass rate, median cost, p95 latency, model bundle, what changed — and add any new case to `evals/<agent>.md`, in the same turn (the format rules in `SKILL.md`). Runs kept in a terminal scrollback cannot answer "when did this get worse", which is the only question anyone asks later.

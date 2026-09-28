@@ -2,7 +2,7 @@
 
 An agent turns a text vulnerability into an action vulnerability. The model does not need to be "jailbroken" for damage: it only needs to be persuaded by content it read through a tool while holding a credential and an outbound channel.
 
-**Before widening any tool tier or adding an external integration**, read the last red-team report in `~/Clawic/data/agents/artifacts/` (via `## Boxes`) and the agent's `specs/<agent>.md` tool table. Widening a tier that a previous red-team pass closed is the most common way a fixed hole reopens.
+**Before widening any tool tier or adding an external integration**, read the last red-team report in `<state_root>/artifacts/` (via `## Boxes`) and the agent's `specs/<agent>.md` tool table. Widening a tier that a previous red-team pass closed is the most common way a fixed hole reopens.
 
 **Contents:** [The trifecta](#the-lethal-trifecta) · [Injection](#prompt-injection-through-tools) · [Defenses](#defenses-that-hold) · [Permissions](#permissions-and-blast-radius) · [Sandboxing](#sandboxing-and-egress) · [Secrets](#secrets) · [Data](#data-handling-and-retention) · [Multi-agent](#multi-agent-and-borrowed-tools) · [Red-team](#red-teaming)
 
@@ -58,7 +58,7 @@ There is no known prompt wording that reliably prevents this. Treat instruction-
 - Credentials live server-side in the tool implementation. The agent passes a **reference** — an account id, a connection name — never a value.
 - Nothing secret enters the context window: anything in the window can be echoed, logged into a trace, summarized into memory, or extracted by injected content.
 - Traces and eval fixtures are copies of the context. Redact before storage, and set retention.
-- Nothing under `~/Clawic/data/` ever holds a secret value, including in text the user pastes for safekeeping — strip the value and store `<kind>:<locator>` (`memory-template.md`).
+- Nothing under `<state_root>/../` ever holds a secret value, including in text the user pastes for safekeeping — strip the value and store `<kind>:<locator>` (the format rules in `SKILL.md`).
 
 ## Data Handling And Retention
 
@@ -88,4 +88,4 @@ Run it as a cadence in `## Due`, not once before launch.
 
 Every attempt becomes a case in `evals/<agent>.md` with the forbidden tool asserted, so the fix is permanent (`evaluation.md`). Report the bound honestly: zero failures in 50 attempts gives a 95% upper bound near 6% by the rule of three, not zero.
 
-**After every red-team pass**, write `~/Clawic/data/agents/artifacts/red-team-<yyyy-mm>.md` — scope, attempts, findings, fixes, the bound — add its `## Boxes` line, add each attempt as an eval case, and record the run date in `## Due`, all in the same turn (`memory-template.md`). A finding that lives only in a chat is a finding that returns with the next tier widening.
+**After every red-team pass**, write `<state_root>/artifacts/red-team-<yyyy-mm>.md` — scope, attempts, findings, fixes, the bound — add its `## Boxes` line, add each attempt as an eval case, and record the run date in `## Due`, all in the same turn (the format rules in `SKILL.md`). A finding that lives only in a chat is a finding that returns with the next tier widening.
