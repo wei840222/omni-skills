@@ -90,7 +90,7 @@ OpenAI restricted self-serve fine-tuning job creation beginning 2026-05-07 and t
 |--------|---------|---------|
 | Training loss | Decreasing smoothly | Jumping, not decreasing |
 | Validation loss | Decreasing, then stable | Increasing = overfitting |
-| Gradient norm | Stable, <10 | Exploding (>100) or vanishing (<0.001) |
+| Gradient norm | Stable relative to this model's measured baseline | Sudden spikes, non-finite values, or sustained collapse versus baseline |
 | Learning rate | Following schedule | N/A |
 
 ### Overfitting Signals
