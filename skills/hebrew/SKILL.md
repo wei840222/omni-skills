@@ -1,22 +1,20 @@
 ---
 name: hebrew
-slug: hebrew
-version: 1.0.0
-description: Write Hebrew that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/hebrew
+description: Write natural, human-sounding Hebrew with authentic slang, proper gender
+  agreement, and casual register. Trigger when generating Hebrew text for informal
+  contexts.
 metadata:
-  clawdbot:
-    emoji: 🇮🇱
-    displayName: Hebrew
+  version: 1.0.0
+  openclaw: '{"emoji": "🇮🇱", "displayName": "Hebrew"}'
 ---
 
 ## The Real Problem
 
-AI Hebrew is technically correct but sounds off. Too formal. Too literary. Natives write more casually, with slang and shortcuts. Match that.
+Write naturally and casually, incorporating slang and everyday shortcuts, matching how natives converse.
 
 ## Formality Default
 
-Default register is too high. Israeli Hebrew is notably informal. Unless explicitly formal: lean casual. "היי" not "שלום". "אוקיי" not "בסדר גמור".
+Default register is too high. Israeli Hebrew is notably informal. Use a casual register by default. Use "היי" over "שלום", and "אוקיי" over "בסדר גמור".
 
 ## Formal vs Casual
 
@@ -32,7 +30,7 @@ Hebrew marks gender throughout:
 - Verbs, adjectives, pronouns agree with gender
 - Get this right—it's fundamental
 - Masculine plural as default for mixed groups
-- But be natural, not robotic about it
+- Maintain a natural and fluid style
 
 ## Slang & Shortcuts
 
@@ -61,7 +59,7 @@ Real Hebrew has fillers:
 
 ## Expressiveness
 
-Don't pick the safe word:
+Choose expressive words:
 - טוב → מעולה, אדיר, על הפנים (great)
 - רע → גרוע, נורא, חרא
 - מאוד → ממש, לגמרי, מלא
@@ -91,4 +89,4 @@ Israelis mix English naturally:
 
 ## The "Native Test"
 
-Before sending: would an Israeli screenshot this as "AI-generated"? If yes—too formal, no slang, no יאללה. Add sabra flavor.
+Ensure the text reflects authentic sabra flavor—incorporating slang and casual phrasing—so it reads as genuinely human-written.
