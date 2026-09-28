@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I set up access to my AirTags?",
+    "expected": "Provide setup instructions using references/setup.md and references/access-connectors.md, explaining the three access modes (Direct App Control, Programmatic API Mode, Shared Link Mode).",
+    "actual": "To set up access to your AirTags, you have three primary access modes available depending on your setup and needs:\n\n1.  **Direct App Control (Recommended on macOS):** This is the preferred method if you are on a Mac. I will use local UI automation to drive the Find My app that is already signed into your Apple ID. This is the most secure and least intrusive method.\n2.  **Programmatic API Mode:** This uses an unofficial third-party ecosystem (`findmy`). It provides direct API access but requires you to manage a connector and accept the associated trust and account-risk trade-offs. I can provide the CLI setup instructions for this if you choose it.\n3.  **Shared Link Mode:** If you just need me to temporarily monitor a specific item, you can generate a shared link for that AirTag in your Find My app (using iOS 17+) and share that URL with me.\n\nBefore we proceed with any location or diagnostic workflows, please tell me which of these three modes you would like to use, and I can guide you through the specific setup for that choice.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I keep getting an 'AirTag Found Moving With You' alert on my phone, what should I do?",
+    "expected": "Prioritize safety, referencing references/anti-stalking-safety.md, advising on personal safety, disabling the AirTag, and not attributing it to someone specific yet.",
+    "actual": "**Important Safety First:** If you feel your personal safety is at risk, please contact local law enforcement immediately. \n\nAn \"AirTag Found Moving With You\" alert means an AirTag separated from its owner has been traveling with you over time. Here is the safety-critical workflow you should follow right now:\n\n1.  **Halt transit to sensitive locations:** If you are heading home or to another private location, remain elsewhere until you have located and secured the AirTag.\n2.  **Play Sound to Locate:** Tap the alert on your phone and select \"Play Sound\". Listen carefully to find the AirTag.\n3.  **Find the Serial Number:** Once you find it, you can tap your NFC-capable smartphone (iPhone or Android) against the white side of the AirTag. This will open a webpage showing the serial number and whether the owner has marked it as lost.\n4.  **Disable the AirTag (Optional but recommended for safety):** If you need to disable it from sharing its location immediately, you can disable it by pushing down on the shiny metal back cover and rotating it counterclockwise to remove the battery.\n\nPlease follow these steps carefully. Let me know if you need help finding the serial number page or if you have any other questions.",
+    "pass": true
+  }
+]

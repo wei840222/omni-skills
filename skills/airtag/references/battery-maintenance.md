@@ -1,6 +1,6 @@
 # Battery Maintenance - AirTag
 
-Use this reference to prevent avoidable downtime and false battery assumptions.
+Use this reference to minimize downtime and false battery assumptions.
 
 ## Replacement Signals
 
@@ -9,7 +9,7 @@ Treat battery replacement as likely when:
 - Ring sound is inconsistent or weak despite normal connectivity.
 - Battery age is near expected service window and behavior degraded over time.
 
-Do not conclude battery failure from one transient offline event.
+Require multiple offline events before concluding battery failure.
 
 ## Controlled Replacement Workflow
 

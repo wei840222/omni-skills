@@ -1,6 +1,6 @@
 # Memory Template - AirTag
 
-Create `~/Clawic/data/airtag/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # AirTag Memory
@@ -33,11 +33,11 @@ integration: pending | done | declined
 | `ongoing` | Still learning usage patterns | Continue collecting context during normal use |
 | `complete` | Enough context for reliable support | Focus on execution and periodic refresh |
 | `paused` | User wants fewer follow-ups | Minimize questions and act with existing context |
-| `never_ask` | User does not want setup questions | Do not request additional setup details |
+| `never_ask` | User does not want setup questions | Omit requests for additional setup details |
 
 ## Principles
 
 - Keep notes actionable and scoped to AirTag use.
 - Prefer short incident records over long narratives.
 - Record what changed and what was validated after each fix.
-- Never store credentials, payment data, or unrelated private content.
+- Store only incident and connector context; omit credentials, payment data, or unrelated private content.

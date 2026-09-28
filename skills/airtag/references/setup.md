@@ -26,7 +26,7 @@ Collect only what is needed to establish a working data path:
 - Willingness to use third-party CLI tooling
 - Safety preference: local-only vs API-based account access
 
-Avoid long questionnaires. Keep setup lightweight.
+Keep setup lightweight and concise.
 
 ### 3. Then: Current Objective
 

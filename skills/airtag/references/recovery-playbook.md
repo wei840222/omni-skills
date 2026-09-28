@@ -35,7 +35,7 @@ Actions:
 1. Confirm iPhone connectivity basics (Bluetooth, location services, network path).
 2. Verify Find My settings and background app refresh are active.
 3. Ask whether the tagged item may still be in low-traffic zones where no Apple device passed nearby.
-4. Define next checkpoint time and place to re-scan, then avoid repeated blind refresh loops.
+4. Define next scan time and place to re-scan, then space out refresh loops intentionally.
 
 Exit condition:
 - New location update appears or scenario reclassified as unknown location.
@@ -48,9 +48,9 @@ Signals:
 
 Actions:
 1. Build a timeline with the user: last confirmed possession, transit mode, probable handoff points.
-2. Prioritize high-probability checkpoints over random sweeps.
+2. Prioritize high-probability target locations over random sweeps.
 3. Use Lost Mode only after verifying contact details are correct and safe to expose.
-4. Log each action in sequence to avoid duplicate effort.
+4. Log each action in sequence to ensure unique effort.
 
 Exit condition:
 - Item recovered, or incident handed to longer-term monitoring plan.
@@ -71,6 +71,6 @@ Exit condition:
 
 ## Escalation Guardrails
 
-- Do not start with unpair/reset unless basic detection steps failed.
-- Avoid simultaneous multi-change troubleshooting.
+- Start with unpair/reset only after basic detection steps have failed.
+- Isolate changes during troubleshooting.
 - If user safety risk appears, switch to `anti-stalking-safety.md` immediately.

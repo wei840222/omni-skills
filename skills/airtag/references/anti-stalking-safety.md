@@ -6,7 +6,7 @@ Use this flow when the user reports an unknown AirTag notification or unexplaine
 
 1. Prioritize personal safety before technical diagnosis.
 2. Move to a safer public or trusted location if risk feels active.
-3. Avoid direct confrontation with unknown individuals.
+3. Maintain distance from unknown individuals.
 
 ## Triage Questions
 
@@ -28,10 +28,10 @@ If urgency is high, keep instructions short and actionable.
 
 - Encourage preserving timeline details (places, timestamps, repeated sightings).
 - Recommend contacting local authorities or trusted security channels when risk is credible.
-- Keep wording factual and avoid legal claims beyond observable events.
+- Keep wording factual and limit claims to observable events.
 
 ## Communication Guardrails
 
-- Do not promise certainty from limited data.
-- Do not advise unsafe searches in isolated places.
-- Do not dismiss user concern as overreaction.
+- Communicate uncertainty clearly when data is limited.
+- Recommend searching only in safe, populated areas.
+- Validate user concerns fully.
