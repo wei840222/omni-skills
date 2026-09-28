@@ -4,7 +4,7 @@
 
 - Authenticate first (API key, session token, JWT, OAuth access token).
 - Authorize second at resource boundary.
-- Never trust client-provided roles without server verification.
+- Require server verification for all client-provided roles.
 
 ## Input and Output Defenses
 
@@ -16,7 +16,7 @@
 
 - Keep secrets in server-side secret managers.
 - Rotate keys on schedule and on incident.
-- Avoid logging tokens, credentials, or full PII.
+- Mask tokens, credentials, and full PII from logs.
 
 ## Abuse Controls
 
