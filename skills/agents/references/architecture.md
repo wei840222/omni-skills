@@ -2,7 +2,7 @@
 
 Choosing the shape of the loop before writing it. Coordination between several agents has its own page (`multi-agent.md`); what persists has `memory-design.md`.
 
-**Before proposing a shape**, read `## Agents` and `## Stack` in `~/Clawic/data/agents/memory.md`, and the spec of any agent you are about to change if `## Boxes` points at one. Proposing a topology for an agent that already exists in a different one is how a rewrite gets sold as a fix.
+**Before proposing a shape**, read `## Agents` and `## Stack` in `<state_root>/memory.md`, and the spec of any agent you are about to change if `## Boxes` points at one. Proposing a topology for an agent that already exists in a different one is how a rewrite gets sold as a fix.
 
 ## The Only Loop
 
@@ -73,4 +73,4 @@ An agent buys the freedom to choose the next step. If nothing chooses, you paid 
 - **Scheduled** — the run has no human present, so `autonomy_level` matters more and escalation must reach someone asynchronously.
 - **Embedded in another agent** — it is a tool from the caller's side; give it a tool schema, a tier and a bounded result (`multi-agent.md`).
 
-**When a shape is chosen against a real alternative**, write the decision to `~/Clawic/data/agents/artifacts/decision-<topic>.md` — the shape, what was rejected, the measurement that decided it, and what would justify revisiting — plus its `## Boxes` line, in the same turn (`memory-template.md`). Architecture arguments recur every quarter; the ones with a written measurement recur once.
+**When a shape is chosen against a real alternative**, write the decision to `<state_root>/artifacts/decision-<topic>.md` — the shape, what was rejected, the measurement that decided it, and what would justify revisiting — plus its `## Boxes` line, in the same turn (`memory-template.md`). Architecture arguments recur every quarter; the ones with a written measurement recur once.

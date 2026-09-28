@@ -196,4 +196,4 @@ span = {
 - Timeouts need an `AbortController` per call; a promise with no abort keeps running and keeps costing after you stopped waiting for it.
 - Monetary and token counters belong in a single mutable run object, as above — closure-captured counters silently diverge across retries.
 
-**When a loop, executor or checkpoint shape is settled for a project**, save it to `~/Clawic/data/agents/artifacts/<kebab-name>.md` with the reasoning behind each cap and its `## Boxes` line, in the same turn (`memory-template.md`). The caps are the part that gets loosened during an incident and never restored.
+**When a loop, executor or checkpoint shape is settled for a project**, save it to `<state_root>/artifacts/<kebab-name>.md` with the reasoning behind each cap and its `## Boxes` line, in the same turn (the format rules in `SKILL.md`). The caps are the part that gets loosened during an incident and never restored.

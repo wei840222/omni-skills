@@ -2,7 +2,7 @@
 
 Framework capabilities and version numbers move fast; the selection criteria below do not. Verify current feature claims against the project's docs before committing, and prefer a small proof against your hardest case over a comparison table.
 
-**Before recommending a framework**, read `## Stack` in `~/Clawic/data/agents/memory.md` and `framework` in `config.yaml`. Recommending a migration to a team that already ships on something else needs the cost of that migration in the same sentence.
+**Before recommending a framework**, read `## Stack` in `<state_root>/memory.md` and `framework` in `config.yaml`. Recommending a migration to a team that already ships on something else needs the cost of that migration in the same sentence.
 
 ## Decide By What You Will Need In Six Months
 
@@ -65,4 +65,4 @@ Before adopting, build one thing in it: the ugliest real task, with a tool that 
 - The team is one person and the debugging budget is small. Every abstraction layer is a place a bug can hide from you.
 - You are still learning the domain: build it raw first, feel which of the "add later cost" rows you actually hit, then adopt with evidence.
 
-**When a framework is chosen or rejected**, write `~/Clawic/data/agents/artifacts/decision-framework.md` — the choice, the alternatives, the hardest-case test each one passed or failed, the version pinned, and what would justify revisiting — add its `## Boxes` line, and set `framework` in `config.yaml` plus the version in `## Stack`, all in the same turn (`memory-template.md`).
+**When a framework is chosen or rejected**, write `<state_root>/artifacts/decision-framework.md` — the choice, the alternatives, the hardest-case test each one passed or failed, the version pinned, and what would justify revisiting — add its `## Boxes` line, and set `framework` in `config.yaml` plus the version in `## Stack`, all in the same turn (the format rules in `SKILL.md`).
