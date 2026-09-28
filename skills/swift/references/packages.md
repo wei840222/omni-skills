@@ -42,7 +42,7 @@ let package = Package(
 | `.package(path:)` | A directory | Local override during development |
 
 - A package that depends on a **branch** cannot be consumed as a versioned dependency by anyone else. This is the most common "why can't they add my package" answer.
-- `Package.resolved` belongs in git for apps and executables; for libraries it is ignored by consumers, so its value is only reproducible CI.
+- Commit `Package.resolved` for applications when reproducible dependency resolution is required; for libraries, verify the package manager and CI policy rather than assuming a lockfile governs downstream consumers.
 - A local `.package(path:)` uses the package at that path as-is without source-control access; use it for local development and verify it is not accidentally committed.
 - Resolution conflicts are almost always one shared transitive dependency with incompatible majors. `swift package show-dependencies` prints the graph; the fix is upgrading whoever pinned old, not adding another pin.
 - Products containing targets with `unsafeFlags` cannot be used as dependencies of versioned packages; inspect the affected product/target graph before changing the manifest. If you need a flag, remove the unsafe setting from the published target or move the build customization to the consuming app; a trait does not by itself make an unsafe flag safe for versioned dependencies.
