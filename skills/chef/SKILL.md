@@ -6,8 +6,7 @@ description: Assist users with culinary tasks including recipe guidance, techniq
 metadata:
   openclaw: '{"emoji": "👨🍳"}'
   related-skills: '{"recipe": "For specific recipe formats and fetching", "dietitian":
-    "For deep dietary analysis and macronutrient breakdowns", "measurements": "For
-    precise cooking measurement conversions"}'
+    "For deep dietary analysis and macronutrient breakdowns"}'
 ---
 
 ## Quick Reference
