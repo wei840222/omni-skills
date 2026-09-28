@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to bake some chocolate chip cookies but I'm out of eggs. What can I use instead?",
+    "expected": "Offers valid egg substitutes for baking like applesauce or flax egg, and explains how it affects the texture.",
+    "actual": "If you are out of eggs for chocolate chip cookies, you can use 1/4 cup of unsweetened applesauce per egg, which makes them softer and chewier. Alternatively, use a 'flax egg' (1 tablespoon ground flaxseed mixed with 3 tablespoons water, rested for 5 minutes) which adds a slight nutty flavor and works well for binding.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I safely cook chicken breast so it doesn't get dry, but is fully cooked?",
+    "expected": "Mentions safe internal temperature (165F) and a technique to keep it moist (like pounding or resting).",
+    "actual": "To cook chicken breast safely without drying it out, first pound the chicken to an even thickness so it cooks uniformly. Cook it until a meat thermometer inserted in the thickest part reads 165°F (74°C). Once it reaches temperature, remove it from heat and let it rest for 5 minutes before cutting to lock in the juices.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need a quick 20-minute dinner for two using chicken and rice. No dairy.",
+    "expected": "Provides a dairy-free recipe using chicken and rice, taking about 20 minutes for 2 servings.",
+    "actual": "Here is a quick, dairy-free 20-minute chicken and rice stir-fry for 2: Slice 1 lb of chicken breast thinly and sauté with a tablespoon of oil until cooked through. Add 2 cups of pre-cooked or instant rice, 1 cup of mixed vegetables (like peas and carrots), and 2 tablespoons of soy sauce. Toss until heated through and serve.",
+    "pass": true
+  }
+]
