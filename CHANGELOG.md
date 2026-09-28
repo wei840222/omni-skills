@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| agents | 2026-09-28 | Gates 1-5 compliance only (#596) |
 | hebrew | 2026-09-28 | 84/100 provisional (#595) |
 | fine-tuning | 2026-09-28 | 80.8/100 (#592) |
 | convex | 2026-09-28 | 80.8/100 (#591) |
