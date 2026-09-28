@@ -27,7 +27,7 @@ Escalate when:
 
 1. Confirm the user-managed connector is reachable and authenticated.
 2. Confirm read-only location fetch works for at least one known item.
-3. If auth fails, stop and ask user to refresh connector credentials outside this skill.
+3. If auth fails, halt workflow and ask user to refresh connector credentials outside this skill.
 4. Resume incident actions only after a successful read-only fetch.
 
 Escalate when:
