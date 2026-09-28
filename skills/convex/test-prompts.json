@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am adding user notifications in a Convex backend. What schema, indexes, and query/mutation design would you recommend before code is changed?",
+    "expected": "Asks for actual access paths and tenant scope, explains index field order and bounded reads, checks actor authorization server-side, and does not claim to have modified the project.",
+    "actual": "Before code changes, map every user-facing read path (recipient feed, unread count, admin scans) then define the `notifications` table with tenant-scoped fields (recipientId, type, read, createdAt) and decide soft-delete upfront. Create indexes ordered by leading equality then range/sort: `by_recipient_created` on `[recipientId, createdAt]` for the main feed with descending pagination, `by_recipient_read` on `[recipientId, read, createdAt]` for unread counts, and only add admin indexes if measured scan cost justifies write amplification. Queries use `withIndex` with equality on the leading field and enforce authorization server-side by resolving the actor before querying. Mutations perform uniqueness lookup and insert in a single transaction; never split the check and write across calls, and never trust client-supplied userIds.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "In a Convex project, a Stripe webhook changes subscriptions. What function boundary, signature check, and retry design should I use?",
+    "expected": "Uses HTTP action to validate raw-body signature with a secret, internal mutation with atomic event ID deduplication and subscription update; describes sender retry/response behavior without claiming deployment.",
+    "actual": "The entry point must be an HTTP action, not a query or mutation, because signature verification and external effects cannot live inside a deterministic transaction. Inside the action: read the raw body once, verify Stripe signature and timestamp against the configured webhook secret following Stripe's current contract for header parsing and tolerance window, then validate event type and identifiers only after signature passes. All database writes go through a separate internal mutation called from the action. That mutation uses Stripe's `event.id` as a stable key and atomically checks whether the event is already recorded as `applied` (if yes, return success as a no-op replay) or applies the subscription change and records the event ID in the same transaction. Never do a preflight read before the mutation because it races with retries. Return a 2xx to Stripe only after durable apply or recognized duplicate; return a provider-retryable non-2xx failure when processing is incomplete so Stripe re-delivers. For external side effects, use an outbox with provider idempotency keys since Convex transactions cannot atomically commit network calls.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Replace the status field with state in a live Convex table. Can you deploy it now and store our rollout notes?",
+    "expected": "Requires explicit deployment and persistent-state consent, proposes additive compatibility and backfill with verified rollback; does not deploy or write without authorization.",
+    "actual": "I cannot deploy this change now and will not store rollout notes without authorization. Per the operations playbook's Pre-Deploy Gate and Safe Rollout Discipline, a breaking field rename in a live table requires confirmed client compatibility across all active clients (web, mobile, background jobs), a staged additive-first rollout (add `state` alongside `status`, dual-write to both fields, update readers to prefer `state` with fallback, backfill existing rows, then remove `status` only after verifying both old and new clients work), a tested backfill plan rehearsed before production, rollback rehearsal for the exact change set, and explicit owner approval for the named project and target environment. None of these have been provided. Writing to any state directory (e.g. `<state_root>/rollout-notes.md` or `<state_root>/schema-notes.md`) requires persistence consent and state root resolution per the SKILL.md state-location rules; no consent or root has been established in this task, so I will not persist rollout notes. I can provide the full migration plan as text in this response instead, but execution and persistence both require your explicit authorization.",
+    "pass": true
+  }
+]
