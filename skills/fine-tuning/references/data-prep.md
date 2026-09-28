@@ -2,13 +2,13 @@
 
 ## Format Requirements
 
-### OpenAI Chat Format (Standard)
+### Example chat format (verify against the chosen provider and method)
 ```jsonl
 {"messages": [{"role": "system", "content": "..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
 ```
 
 ### Multi-Turn Conversations
-```jsonl
+```json
 {"messages": [
   {"role": "system", "content": "You are a helpful assistant."},
   {"role": "user", "content": "What's the weather?"},
@@ -18,16 +18,9 @@
 ]}
 ```
 
-## Minimum Dataset Sizes
+## Dataset sizing
 
-| Use Case | Minimum | Recommended |
-|----------|---------|-------------|
-| Format/style adaptation | 50-100 | 200-500 |
-| Classification | 200-500 | 1,000-2,000 |
-| Complex reasoning | 500-1,000 | 2,000-5,000 |
-| Domain expertise | 1,000+ | 5,000-10,000 |
-
-**Quality > Quantity** — LIMA paper showed 1,000 high-quality examples beat 52,000 low-quality.
+There is no universal minimum for every provider and task. Check the selected model's documented requirements, then plot held-out quality against training-set size using representative labeled examples. A small high-quality set is useful for diagnosis; its adequacy is an empirical question, not a fixed threshold.
 
 ## Data Quality Checklist
 
@@ -35,9 +28,9 @@ Before training, verify:
 - [ ] Consistent format across ALL examples
 - [ ] No contradictory examples (same input, different outputs)
 - [ ] Examples match production input distribution
-- [ ] Edge cases included (10-20% of dataset)
+- [ ] Representative edge cases are included and tracked by category
 - [ ] No duplicate or near-duplicate entries
-- [ ] Proper train/val/test split (80/10/10)
+- [ ] Group-aware train/validation/test split is documented; choose ratios based on dataset size and required evaluation precision
 
 ## Validation Script
 
@@ -109,23 +102,11 @@ def dedupe_by_input(examples):
 When you need more examples:
 
 ```python
-def augment_example(example, model="gpt-4o"):
-    """Generate variations of an existing example"""
-    prompt = f"""
-    Given this training example, generate 3 variations that:
-    - Keep the same intent and output format
-    - Vary the phrasing and specifics
-    - Maintain quality
-    
-    Original: {json.dumps(example)}
-    """
-    
-    response = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    
-    return parse_variations(response.choices[0].message.content)
+# Pseudocode only: choose an authorized current model and validate each label.
+# Generated variations must stay in the same train-only source group;
+# keep held-out examples and private records out of remote generation.
+variations = generate_candidates(authorized_training_example)
+reviewed = [v for v in variations if human_label_check(v)]
 ```
 
 ## Common Data Issues

@@ -1,6 +1,8 @@
 # Training Configuration
 
-## Hyperparameter Defaults
+## Hyperparameter starting points (illustrative, verify for actual model/SDK)
+
+These ranges are examples rather than portable defaults; inspect the current trainer API and model recipe before running a job.
 
 ### For Supervised Fine-Tuning (SFT)
 
@@ -29,7 +31,9 @@
 | Beta (DPO) | 0.1 | Controls preference strength |
 | Epochs | 1 | Usually single pass |
 
-## Training with Unsloth (Recommended)
+## Training with Unsloth (version-sensitive illustrative sketch)
+
+The following sketch references a third-party trainer API whose signatures may change. `dataset` and `TrainingArguments` must be defined/imported for the installed versions; this block is not a tested standalone script. Validate the model license, GPU capacity and trainer documentation before running.
 
 ```python
 from unsloth import FastLanguageModel
@@ -74,37 +78,9 @@ trainer = SFTTrainer(
 trainer.train()
 ```
 
-## Training with OpenAI
+## Managed training preparation
 
-```python
-from openai import OpenAI
-client = OpenAI()
-
-# Upload file
-file = client.files.create(
-    file=open("training.jsonl", "rb"),
-    purpose="fine-tune"
-)
-
-# Create job
-job = client.fine_tuning.jobs.create(
-    training_file=file.id,
-    model="gpt-4o-mini-2024-07-18",
-    hyperparameters={
-        "n_epochs": 3,
-        "learning_rate_multiplier": 1.0,  # 0.1-2.0
-        "batch_size": 4,
-    }
-)
-
-# Monitor
-while True:
-    job = client.fine_tuning.jobs.retrieve(job.id)
-    print(f"Status: {job.status}")
-    if job.status in ["succeeded", "failed"]:
-        break
-    time.sleep(60)
-```
+OpenAI restricted self-serve fine-tuning job creation beginning 2026-05-07 and tightened eligibility on 2026-07-02; see `sources.md`. For any provider, confirm eligibility and the exact model/method/region, validate data with the current vendor format, calculate a spending ceiling, then obtain explicit authorization before uploading a dataset or creating a paid job. Generate SDK code only after checking the installed SDK signature. There is no executable default job-creation example here because a copied historical model ID would mislead new accounts.
 
 ## Monitoring Training
 
@@ -114,7 +90,7 @@ while True:
 |--------|---------|---------|
 | Training loss | Decreasing smoothly | Jumping, not decreasing |
 | Validation loss | Decreasing, then stable | Increasing = overfitting |
-| Gradient norm | Stable, <10 | Exploding (>100) or vanishing (<0.001) |
+| Gradient norm | Stable relative to this model's measured baseline | Sudden spikes, non-finite values, or sustained collapse versus baseline |
 | Learning rate | Following schedule | N/A |
 
 ### Overfitting Signals
@@ -136,15 +112,9 @@ while True:
 Problem: Model loses general capabilities while learning specific task.
 
 Solutions:
-1. **Mix general data** — Include 20% general instruction data in training mix
+1. **Mix representative general data** — choose a tested ratio when preserving general capabilities matters
 2. **Lower learning rate** — Slow learning preserves base knowledge
 3. **Regularization** — Weight decay, dropout
 4. **Elastic Weight Consolidation** — Advanced technique for critical params
 
-```python
-# Example: mixing task-specific with general data
-mixed_dataset = concatenate_datasets([
-    task_specific_data,  # 80%
-    general_instructions_data.select(range(len(task_specific_data) // 4))  # 20%
-])
-```
+If general capabilities matter, select a representative, permitted general-data mix and compare held-out general-task metrics before and after; choose the ratio empirically.
