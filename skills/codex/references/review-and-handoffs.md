@@ -31,7 +31,7 @@ This is better than post-processing vague prose after the fact.
 
 ## Recovery Handoff
 
-When interrupted, leave a minimal checkpoint:
+When interrupted, leave a minimal continuation state:
 - repo and branch
 - files touched
 - commands that passed

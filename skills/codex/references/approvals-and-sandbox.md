@@ -19,7 +19,7 @@ Choose approval posture deliberately:
 | `untrusted` | conservative environments where only trusted commands should pass silently | slower flow, but safer when trust is unclear |
 | `on-request` | normal interactive work where the agent can escalate at clear boundaries | requires the user to stay engaged |
 | `never` | controlled non-interactive environments where failures should return directly | easy to overuse if the environment is not actually safe |
-| `on-failure` | legacy behavior only | deprecated; avoid as the default mental model |
+| `on-failure` | legacy behavior only | deprecated; migrate away from this default mental model |
 
 ## High-Risk Flags
 
