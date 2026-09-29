@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I structure a PubMed search for the effect of aspirin on preventing heart failure?",
+    "expected": "A query using MeSH terms, uppercase Booleans, and field tags (e.g., aspirin[Title] AND \"heart failure\" AND prevention[MeSH]).",
+    "actual": "I suggest using the PICO framework and structured querying. For aspirin and heart failure prevention, try: \"heart failure\"[MeSH Terms] AND aspirin[Title/Abstract] AND prevention[MeSH Terms]. Use uppercase AND to combine terms and quotes for phrases.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I found a case report showing a new drug cures a rare disease. Should we change the clinical guidelines based on this?",
+    "expected": "No, explain that case reports are lowest on the evidence hierarchy and clinical guidelines require systematic reviews or RCTs.",
+    "actual": "No. While interesting, a case report is at the lowest level of the evidence hierarchy. It is not generalizable enough to change clinical guidelines, which typically rely on syntheses of evidence like systematic reviews and randomized controlled trials (RCTs). We would need to wait for higher-quality studies to confirm efficacy and safety.",
+    "pass": true
+  }
+]
