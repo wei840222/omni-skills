@@ -8,7 +8,7 @@
 3. **Extract** clips: `ffmpeg -ss START -t DURATION`
 4. **Reframe** to 9:16 with smart crop or blur background
 5. **Add captions** via Whisper → burn-in with styling
-6. **Optimize** for platform (see `platforms.md`)
+6. **Optimize** for platform (see `references/platforms.md`)
 7. **Batch export** all clips in one operation
 
 ### Quick Commands

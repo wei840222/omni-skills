@@ -92,3 +92,19 @@
 # WhatsApp (max compression)
 -vf "scale=720:-2" -c:v libx264 -crf 28 -preset fast -c:a aac -b:a 96k
 ```
+
+---
+
+## Sources (verified at refactor time)
+
+Use these pages to re-check limits before relying on the tables above; vendor caps change.
+
+- YouTube upload formats — https://support.google.com/youtube/answer/1722171
+- YouTube Shorts overview — https://www.youtube.com/intl/en_us/creators/shorts/
+- Instagram video specs help — https://help.instagram.com/270963426926738
+- WhatsApp FAQ (media size guidance) — https://faq.whatsapp.com/1026944145170865/?locale=en_US
+- WhatsApp Cloud API media reference — https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media
+- X media upload best practices — https://developer.x.com/en/docs/x-api/v1/media/upload-media/uploading-media/media-best-practices
+- TikTok ads video specifications (aspect/duration baselines) — https://ads.tiktok.com/help/article/video-ads-specifications
+- FFmpeg documentation — https://www.ffmpeg.org/ffmpeg.html
+- FFmpeg H.264 encoding guide — https://trac.ffmpeg.org/wiki/Encode/H.264

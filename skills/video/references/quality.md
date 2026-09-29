@@ -117,7 +117,7 @@ ffmpeg -i input.mp4 -c:v libx264 -b:v 1M -pass 2 output.mp4
 - Use `-profile:v baseline -level 3.0`
 
 **Audio out of sync:**
-- Re-encode both streams (don't copy)
+- Re-encode both streams instead of copying
 - Use `-async 1` or `-af aresample=async=1`
 
 **Playback starts slow:**
