@@ -4,7 +4,7 @@ Use this file for salary realism, relocation budgets, statewide tax framing, and
 
 ## California Cost Rule
 
-Never compare California with another state using rent or salary alone.
+Always compare California with another state using total cost including taxes, insurance, and utilities.
 
 ## State Tax Reality
 

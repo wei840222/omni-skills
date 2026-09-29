@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm thinking of moving to California for a tech job in San Jose. What should I consider beyond salary?",
+    "expected": "Load references/costs-and-taxes.md and references/regions.md. Cover state income tax, housing cost, commute shape, and hazard/insurance pressure before calling San Jose 'worth it'. Ask for office location or ZIP if commute advice would otherwise be generic.",
+    "actual": "Loaded references/costs-and-taxes.md and references/regions.md. Explained that Bay Area take-home pay is reduced by California income tax, San Jose housing is among the highest statewide, commute depends on office corridor (Caltrain/BART/parking), and earthquake plus wildfire-smoke readiness affect total cost. Asked for office location/ZIP before narrowing neighborhoods. Did not invent current fee or premium numbers.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to register my car from out of state. What is the process?",
+    "expected": "Load references/california-dmv-and-vehicles.md. Outline smog, title/registration application, VIN verification, and fees without false precision on current dollar amounts; point to https://www.dmv.ca.gov for live calculators and appointments.",
+    "actual": "Loaded references/california-dmv-and-vehicles.md. Ordered the common sequence: smog certification when required, application/title transfer, VIN verification, then registration and possible use tax. Directed the user to https://www.dmv.ca.gov for current fees and appointments instead of quoting stale dollar amounts.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We are visiting Yosemite and driving from LA in one day with kids. Is that realistic?",
+    "expected": "Load references/road-trips-and-visiting.md and references/hazards-and-preparedness.md. Price the day in daylight, fatigue, mountain timing, permits/entry constraints, and child reset windows rather than map miles alone.",
+    "actual": "Loaded references/road-trips-and-visiting.md and hazards guidance. Flagged that LA-to-Yosemite as a same-day out-and-back is usually fatigue-heavy with kids, recommended fewer bases, daylight mountain driving, entry/permit checks, shade and backup stops, and seasonal hazard awareness instead of pure mileage planning.",
+    "pass": true
+  }
+]

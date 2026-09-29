@@ -37,7 +37,7 @@ Use this file for relocations from another state or from outside the U.S.
 
 ### 1. California setup is sequence-sensitive
 - The same document often unlocks the next one.
-- Do not treat license, registration, insurance, utilities, school paperwork, and commute design as separate tracks.
+- Treat license, registration, insurance, utilities, school paperwork, and commute design as an integrated timeline.
 
 ### 2. Ask "city, county, ZIP" early
 - California answers often go wrong because the user says only "LA" or "Bay Area."

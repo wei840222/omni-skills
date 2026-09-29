@@ -16,15 +16,18 @@ Use these sources when precise California rules or current workflows matter.
 
 ## Hazards and Insurance
 
-- CAL FIRE: https://www.fire.ca.gov/
+- CAL FIRE official portal: https://www.fire.ca.gov/
+- Listos California wildfire preparedness: https://www.listoscalifornia.org/disaster/wildfire/
+- Ready.gov wildfire readiness: https://www.ready.gov/wildfires
 - Earthquake Warning California: https://www.earthquake.ca.gov/
 - California Department of Insurance: https://www.insurance.ca.gov/
-- California preparedness resources: https://www.listoscalifornia.org/
+- California preparedness hub: https://www.listoscalifornia.org/
 
 ## Health and Education
 
 - Covered California: https://www.coveredca.com/
-- California Department of Education: https://www.cde.ca.gov/
+- California Department of Education via CA.gov directory: https://www.ca.gov/departments/140/
+- California Department of Education site: https://www.cde.ca.gov/ (verify the live path before citing district-level details; some automated clients hit redirect loops)
 
 ## Travel and Regions
 

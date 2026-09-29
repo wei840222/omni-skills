@@ -21,7 +21,7 @@ The correct region is often the one that preserves weekly energy, not the one wi
 - Peak-hour commute, parking search, transit transfer, bridge toll, or school drop-off chain all change the answer.
 
 ### 2. Parking is part of housing cost
-- Never compare units without asking whether parking is included, possible, safe, and realistic.
+- Compare units by explicitly asking whether parking is included, possible, safe, and realistic.
 
 ### 3. Car-free claims need proof
 - California has pockets where a car-free life works well, but many users hear "walkable" and still end up trapped by errands or school runs.

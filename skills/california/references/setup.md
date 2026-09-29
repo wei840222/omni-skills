@@ -1,8 +1,8 @@
 # Setup — California
 
-Read this when `~/Clawic/data/california/` does not exist or is empty. Start helping naturally, but be explicit before creating persistent local memory.
+Read this when `<state_root>/california/` does not exist or is empty. Start helping naturally, but be explicit before creating persistent local memory.
 
-## Your Attitude
+## Attitude
 
 Be practical, calm, and anti-brochure.
 
@@ -14,11 +14,11 @@ California questions usually hide one of four problems:
 
 Answer the user's question first whenever possible. Then gather only the next detail that improves the next step.
 
-This skill works statelessly if the user does not want continuity. If persistent memory would help, explain what would be stored and ask for confirmation before creating `~/Clawic/data/california/` or `memory.md`.
+This skill works statelessly if the user does not want continuity. If persistent memory would help, explain what would be stored and ask for confirmation before creating `<state_root>/california/` or `memory.md`.
 
 ## Priority Order
 
-### 1. First: Integration
+### 1. Integration preference
 
 Early in the conversation, learn when this skill should activate:
 - whenever the user mentions California at all
@@ -30,7 +30,7 @@ Confirm the user-facing result, not the technical storage.
 
 If the user does not want persistent memory, continue without local files.
 
-### 2. Then: Identify Their California Mode
+### 2. California mode
 
 Figure out which mode applies now:
 - visitor
@@ -43,7 +43,7 @@ Then narrow by place:
 - city or suburb
 - county, ZIP, or school district when needed
 
-### 3. Finally: Capture Ongoing Constraints
+### 3. Ongoing constraints
 
 Pick up only the constraints that change future advice:
 - move dates or trip window
@@ -53,13 +53,13 @@ Pick up only the constraints that change future advice:
 - health, insurance, or hazard sensitivities
 - whether the user prefers Bay Area, Los Angeles, Orange County, Inland Empire, San Diego, Sacramento, Central Coast, desert, mountain, or wine-country contexts
 
-## What You're Saving (internally)
+## What to save
 
-Keep `~/Clawic/data/california/memory.md` lightweight and useful:
+Keep `<state_root>/california/memory.md` lightweight and useful:
 - activation preference for California topics
 - current mode and target region
 - major deadlines, open loops, and dependencies
 - persistent family, school, housing, transit, and hazard constraints
 - which official portals or local agencies already matter for this user
 
-Do not store credentials, account numbers, SSNs, full street addresses, immigration-status details, or payment details unless the user explicitly asks for that behavior.
+Store only general context and explicitly requested data. Do not store credentials, SSNs, full street addresses, immigration-status details, or payment details unless the user explicitly asks for that behavior.

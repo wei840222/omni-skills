@@ -27,7 +27,7 @@ California safety questions usually need one of these lenses:
 ## Good Answer Pattern
 
 1. Identify whether the issue is statewide law, local ordinance, or practical safety.
-2. Use plain English and avoid acting like local rumor is law.
+2. Use plain English and rely purely on official sources.
 3. If the user wants a precise legal answer, point them to the official authority and say what still needs verification.
 
 ## Common Mistakes

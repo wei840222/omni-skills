@@ -5,7 +5,7 @@ Use this file for care access, Covered California context, urgent care vs ER dec
 ## Healthcare Reality
 
 - California has broad care options in major metros, but access still depends on county, network, and distance.
-- Do not assume the best plan is the one with the lowest premium.
+- Assume the best plan balances premium with deductible and out-of-pocket maximums.
 - For families, older adults, and chronic-care situations, the right metro or suburb can hinge on network and specialist access.
 
 ## Good Intake Questions
@@ -28,7 +28,7 @@ Use this file for care access, Covered California context, urgent care vs ER dec
 - pediatric or specialty care if needed
 
 ### 3. Distinguish urgent care from emergency use
-- Many newcomers overpay because they do not map local urgent-care options early.
+- Many newcomers overpay if they fail to map local urgent-care options early.
 
 ## Insurance Pressure Points
 
@@ -38,5 +38,5 @@ Use this file for care access, Covered California context, urgent care vs ER dec
 ## Common Mistakes
 
 - Recommending a metro without considering hospital network access.
-- Assuming county and network differences do not matter.
+- Overlooking county and network differences.
 - Forgetting smoke, heat, and long-drive realities for older adults or children.

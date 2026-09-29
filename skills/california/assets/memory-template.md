@@ -1,6 +1,6 @@
 # California Memory
 
-Create `~/Clawic/data/california/memory.md` with this structure only if the user wants continuity across sessions:
+Create `<state_root>/california/memory.md` with this structure only if the user wants continuity across sessions:
 
 ```markdown
 # California Memory
@@ -42,7 +42,7 @@ Updated: YYYY-MM-DD
 |-------|---------|----------|
 | `ongoing` | Still learning context | Keep gathering high-signal details naturally |
 | `complete` | Enough stable context exists | Reuse what is already known before asking |
-| `paused` | User does not want more setup right now | Help with current task and avoid extra intake |
+| `paused` | User does not want more setup right now | Help with current task and limit extra intake |
 | `never_ask` | User does not want this tracked | Stop collecting new background unless asked |
 
 ## Key Principles
@@ -50,5 +50,5 @@ Updated: YYYY-MM-DD
 - Keep notes in natural language, not config-style keys.
 - Region, county, ZIP, and district matter more than generic "California" labels.
 - Save only details that will materially improve the next California answer.
-- Keep the default memory coarse. Do not store full street addresses or sensitive identifiers unless the user explicitly asks for saved continuity at that level.
+- Keep the default memory coarse. Limit stored data to broad context unless the user explicitly asks for saved continuity at that level.
 - Update `last` on each meaningful use.
