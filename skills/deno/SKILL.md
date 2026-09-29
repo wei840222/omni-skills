@@ -1,87 +1,35 @@
 ---
 name: deno
-slug: deno
-version: 1.0.0
-description: Build with Deno runtime avoiding permission gotchas, URL import traps, and Node.js migration pitfalls.
-homepage: https://clawic.com/skills/deno
+description: Configure Deno environments. Use when writing or running Deno code to manage permissions, import dependencies securely, and migrate Node.js patterns.
 metadata:
-  clawdbot:
-    emoji: 🦕
-    requires:
-      bins:
-      - deno
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Deno
+  openclaw: '{"emoji":"🦕","requires":{"bins":["deno"]}}'
+  related-skills: '{"nodejs":"Node.js runtime patterns when comparing APIs or migrating away from Node.","typescript":"TypeScript language guidance that pairs with Deno-first TS workflows.","javascript":"Core JavaScript patterns shared across Deno and other JS runtimes.","bun":"Alternative JS runtime often compared during migration decisions."}'
 ---
 
-## When to Use
+## When to load
 
-User needs Deno expertise — secure TypeScript runtime with permissions model. Agent handles permission configuration, dependency management via URLs/npm, and migration from Node.js.
+Load this skill when you are writing, executing, or migrating code that uses the Deno runtime. Load this skill for Node.js environments only when actively porting code to Deno.
 
-## Quick Reference
+## Critical rules
 
-| Topic | File |
-|-------|------|
-| Permission system | `permissions.md` |
-| Imports and dependencies | `imports.md` |
-| Node.js migration | `node-compat.md` |
+- Prefer least-privilege flags over `--allow-all`; scope `--allow-read`, `--allow-net`, `--allow-env`, and `--allow-run` to exact paths/hosts/vars/binaries.
+- In CI, pass explicit permissions plus `--no-prompt` so missing grants fail fast instead of hanging on interactive prompts.
+- Commit a lockfile and prefer `--cached-only` (or vendored deps) in production so remote URL imports cannot drift or fail offline.
+- Use `npm:` / `node:` specifiers deliberately; plain Node-style bare imports and extensionless `.ts` imports fail under Deno.
+- Keep import maps inside `deno.json` / `deno.jsonc` (Deno 2.x); do not rely on a separate import-map file.
 
-## Permission Traps
+## State location
 
-- `--allow-all` in development — then production crashes because you don't know what permissions you actually need
-- `--allow-read` without path — grants access to entire filesystem, security hole
-- `--allow-run` without list — subprocess can run anything, specify: `--allow-run=git,npm`
-- `--allow-env` without list — leaks all env vars, specify: `--allow-env=API_KEY,DATABASE_URL`
-- `--allow-net` without list — can connect anywhere, specify hosts: `--allow-net=api.example.com`
-- Missing permission in CI — hangs waiting for prompt that never comes, add `--no-prompt`
+Deno project configuration stays in the workspace:
+- `deno.json` or `deno.jsonc`
+- `deno.lock` (commit with the project)
 
-## Import Traps
+This skill does not own a mutable `<state_root>` package path.
 
-- Remote URLs in production — network failure = app won't start, vendor dependencies locally
-- No lockfile by default — deps can change between runs, always use `deno.lock`
-- `@^1.0.0` semver syntax doesn't exist — use exact URLs or import maps
-- Import maps in wrong place — must be in `deno.json`, not separate file (Deno 2.x)
-- HTTPS required — HTTP imports blocked by default, most CDNs work but self-hosted may not
-- URL typo — no error until runtime when import fails
+## Progressive disclosure
 
-## TypeScript Traps
+For implementation detail, load the matching file under `references/`:
 
-- `.ts` extension required in imports — model generates extensionless imports that fail
-- `tsconfig.json` paths ignored — Deno uses import maps in `deno.json`, not tsconfig
-- Type-only imports — must use `import type` or bundler may fail
-- Decorators — experimental, different from tsc behavior
-- `/// <reference>` — handled differently than tsc, may be ignored
-
-## Deployment Traps
-
-- `deno compile` includes runtime — binary is 50MB+ minimum
-- `--cached-only` requires prior cache — fresh server needs `deno cache` first
-- Deno Deploy limitations — no filesystem, no subprocess, no FFI
-- Environment variables — different API: `Deno.env.get("VAR")` not `process.env.VAR`
-- Signals — `Deno.addSignalListener` not `process.on("SIGTERM")`
-
-## Testing Traps
-
-- `Deno.test` different from Jest — no `describe`, different assertions
-- Async test without await — test passes before promise resolves
-- Resource leaks — tests fail if you don't close files/connections
-- Permissions in tests — test may need different permissions than main code
-- Snapshot testing — format differs from Jest snapshots
-
-## npm Compatibility Traps
-
-- `npm:` specifier — works for most packages but native addons fail
-- `node:` specifier required — `import fs from 'fs'` fails, need `import fs from 'node:fs'`
-- `node_modules` optional — enable with `"nodeModulesDir": true` in deno.json
-- `package.json` scripts — not automatically supported, use deno.json tasks
-- Peer dependencies — handled differently, may get wrong versions
-
-## Runtime Differences
-
-- `Deno.readTextFile` vs `fs.readFile` — different API, different error types
-- `fetch` is global — no import needed, unlike Node 18-
-- Top-level await — works everywhere, no wrapper needed
-- Permissions at runtime — can request dynamically but user must approve
+- Read `references/permissions.md` to configure runtime boundaries and prevent missing-permission hangs in CI.
+- Read `references/imports.md` to resolve dependencies securely and manage import maps / lockfiles.
+- Read `references/node-compat.md` to migrate Node.js patterns (`fs`, `process.env`, npm packages) safely.

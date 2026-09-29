@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a simple Deno HTTP server using the oak framework that responds with 'Hello World'.",
+    "expected": "Uses Oak with proper deno.json imports map or explicit URLs and sets up an application with appropriate listen call.",
+    "actual": "Created an oak server correctly importing `Application` and `Router` using a `deno.json` import map pointing to `https://deno.land/x/oak@v12.6.1/mod.ts`. Included instructions to run using `deno run --allow-net server.ts`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Migrate my Node.js script to Deno. It uses `require('fs')` and `process.env.API_KEY`.",
+    "expected": "Migrates `require` to `import from 'node:fs'` (or uses Deno.readTextFile) and replaces `process.env.API_KEY` with `Deno.env.get('API_KEY')`.",
+    "actual": "Successfully replaced the `fs` import using `import fs from 'node:fs'` and updated the environment variable access to `Deno.env.get('API_KEY')`. It explicitly reminded the user to execute the script with `--allow-env=API_KEY` and `--allow-read` permissions.",
+    "pass": true
+  }
+]

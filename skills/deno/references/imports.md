@@ -51,13 +51,13 @@ import { z } from "npm:zod@3.22.0";
 
 - `npm:` prefix required — `import express from 'express'` fails
 - Version recommended — `npm:express` uses latest, unstable
-- Native addons — most don't work, check before using
+- Native addons — verify compatibility before using
 - `node:` for builtins — `import fs from 'node:fs'`
 
 ## Versioning Traps
 
 - `@^1.0.0` doesn't exist — use exact version in URL
-- `@latest` — different every run, don't use
+- `@latest` — different every run, specify exact versions
 - `/mod.ts` convention — main entry, not `index.ts`
 - `x/` namespace — third party, less stable than `std/`
 
