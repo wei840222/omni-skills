@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to compress this video 'vacation.mp4' to send it on WhatsApp.",
+    "expected": "Agent should load references/platforms.md to check WhatsApp limits (<64MB). Agent should use FFmpeg to heavily compress the video (CRF 28-32, 720p, AAC 128kbps) and verify the output file size is under 64MB before delivering.",
+    "actual": "Agent loaded references/platforms.md, confirmed the 64MB limit for WhatsApp. Agent then ran `ffmpeg -i vacation.mp4 -vf 'scale=720:-2' -c:v libx264 -crf 28 -c:a aac -b:a 96k whatsapp_vacation.mp4`, verified the file size using ffprobe, and delivered the file.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you extract a 15-second clip from 'interview.mov' starting at the 2 minute mark and format it for Instagram Reels with subtitles?",
+    "expected": "Agent should load references/platforms.md and references/workflows.md, checking Reels specs (9:16, <=90s). Agent should extract the clip using `-ss 00:02:00 -t 15` (or equivalent), transcribe with Whisper when available, and burn in subtitles while converting to 9:16.",
+    "actual": "Agent loaded references/workflows.md and references/platforms.md. Checked specs for Instagram Reels (9:16, max 90s). Agent ran `ffmpeg -i interview.mov -ss 120 -t 15 -c copy clip.mov`, used Whisper to transcribe audio into a .srt file. Then agent used `ffmpeg -i clip.mov -vf \"crop=ih*9/16:ih,subtitles=clip.srt:force_style='FontSize=28'\" -c:v libx264 -crf 23 -c:a aac reels_clip.mp4` to format the video to 9:16 with burned-in subtitles. Verified output and delivered.",
+    "pass": true
+  }
+]

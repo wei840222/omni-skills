@@ -1,23 +1,17 @@
 ---
 name: video
-slug: video
-version: 1.0.1
-description: Process, edit, and optimize videos for any platform with compression, format conversion, captioning, and repurposing workflows.
-homepage: https://clawic.com/skills/video
-changelog: Declare required binaries (ffmpeg, ffprobe), add requirements section with optional deps, add explicit scope
+description: Process, edit, convert, compress, and optimize videos for platforms with
+  ffmpeg. Use when the user needs format conversion, compression, trimming, reframing,
+  captions burn-in, GIF export, or platform-specific video delivery.
 metadata:
-  clawdbot:
-    emoji: 🎬
-    requires:
-      bins:
-      - ffmpeg
-      - ffprobe
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Video
+  version: "1.0.1"
+  openclaw: '{"emoji":"🎬","requires":{"bins":["ffmpeg","ffprobe"]}}'
+  related-skills: '{"ffmpeg":"Lower-level codec, filter, and encoding details when a task needs precise FFmpeg flags beyond this skill.","video-captions":"Dedicated caption transcription, styling, and burn-in when captions are the primary request.","video-edit":"AI enhancement workflows (background removal, color grade, upscale, stabilize) beyond basic FFmpeg transforms.","video-downloader":"Download source media from URLs before local processing."}'
 ---
+
+## When to load
+
+Load this skill when the user asks to process an existing video file for platform delivery or basic editing with FFmpeg. Prefer `video-captions` for caption-only work, `video-edit` for AI enhancement, and `ffmpeg` when the user needs raw codec/filter expertise without platform packaging.
 
 ## Requirements
 
@@ -28,65 +22,40 @@ metadata:
 - `whisper` — local transcription for captions
 - `realesrgan` — AI upscaling
 
-## Quick Reference
+## Critical rules
 
-| Situation | Load |
-|-----------|------|
-| Platform specs (YouTube, TikTok, Instagram) | `platforms.md` |
-| FFmpeg commands by task | `commands.md` |
-| Quality/compression settings | `quality.md` |
-| Workflow by use case | `workflows.md` |
+- Clarify target platform, format, duration, and size limit before encoding.
+- Inspect the source with `ffprobe` (codec, resolution, duration, audio) before transforming.
+- Prefer AAC audio and `-movflags +faststart` for web playback.
+- Use H.264 CRF 23 as the default quality; raise CRF (28–32) only when size limits require it.
+- Verify duration, file size, and playability before delivery.
+- Process only files the user explicitly provides; do not upload to external services unless asked.
 
-## Core Capabilities
+## State location
 
-| Task | Method |
-|------|--------|
-| Convert/compress | FFmpeg (see `commands.md`) |
-| Generate captions | Whisper → SRT/VTT |
-| Change aspect ratio | Crop, pad, or smart reframe |
-| Clean audio | Normalize, denoise, enhance |
-| Batch operations | Process entire folders in one run |
+This skill is stateless. Working media and outputs stay in the user workspace; the package does not own a mutable `<state_root>`.
 
-## Execution Pattern
+## Progressive disclosure
 
-1. **Clarify target** — What platform? What format? File size limit?
+Load topic files under `references/` only when needed:
+
+- Read `references/platforms.md` for YouTube, TikTok, Instagram, WhatsApp, and other delivery limits.
+- Read `references/commands.md` for FFmpeg recipes (trim, convert, crop, merge, GIF, subtitles).
+- Read `references/quality.md` for CRF/preset/audio bitrate guidance and common failure fixes.
+- Read `references/workflows.md` for multi-step creator, social, educator, and marketer pipelines.
+
+## Execution pattern
+
+1. **Clarify target** — platform, format, size/duration limit
 2. **Check source** — `ffprobe` for codec, resolution, duration, audio
-3. **Process** — FFmpeg for transformation
-4. **Verify** — Confirm output meets specs before delivering
-5. **Deliver** — Provide file to user
-
-## Common Requests → Actions
-
-| User says | Agent does |
-|-----------|------------|
-| "Make this work for TikTok" | Reframe to 9:16, check duration ≤3min, compress |
-| "Add subtitles" | Whisper → SRT → burn-in or deliver separately |
-| "Compress for WhatsApp" | Target <64MB, H.264, AAC |
-| "Extract audio" | `-vn -acodec mp3` or `-acodec copy` |
-| "Make a GIF" | Extract frames, optimize palette, loop |
-| "Split into clips" | Cut at timestamps with `-ss` and `-t` |
-
-## Quality Rules
-
-- **Always re-encode audio to AAC** for maximum compatibility
-- **Use `-movflags +faststart`** for web playback
-- **CRF 23** is good default for H.264 (lower = better, bigger)
-- **Check before delivering** — verify duration, file size, playability
-
-## Platform Quick Reference
-
-| Platform | Aspect | Max Duration | Max Size |
-|----------|--------|--------------|----------|
-| TikTok | 9:16 | 3 min | 287MB |
-| Instagram Reels | 9:16 | 90s | 250MB |
-| YouTube Shorts | 9:16 | 60s | No limit |
-| YouTube | 16:9 | 12h | 256GB |
-| WhatsApp | Any | 3 min | 64MB |
+3. **Process** — FFmpeg transform for the requested outcome
+4. **Verify** — confirm output meets specs
+5. **Deliver** — return the file to the user
 
 ## Scope
 
 This skill:
-- Processes video files user explicitly provides
+- Processes video files the user explicitly provides
 - Runs FFmpeg commands on user request
 - Does NOT access files without user instruction
 - Does NOT upload to external services automatically
