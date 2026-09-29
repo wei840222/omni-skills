@@ -4,12 +4,12 @@
 
 Create directory on first use:
 ```bash
-mkdir -p ~/food-delivery
+mkdir -p <state_root>/food-delivery
 ```
 
 ## memory.md Template
 
-Copy to `~/Clawic/data/food-delivery/memory.md`:
+Copy to `<state_root>/food-delivery/memory.md`:
 
 ```markdown
 # Food Delivery Preferences
@@ -52,7 +52,7 @@ preferred_platforms:
 
 ## restaurants.md Template
 
-Copy to `~/Clawic/data/food-delivery/restaurants.md`:
+Copy to `<state_root>/food-delivery/restaurants.md`:
 
 ```markdown
 # Restaurant Notes
@@ -78,7 +78,7 @@ Copy to `~/Clawic/data/food-delivery/restaurants.md`:
 
 ## orders.md Template
 
-Copy to `~/Clawic/data/food-delivery/orders.md`:
+Copy to `<state_root>/food-delivery/orders.md`:
 
 ```markdown
 # Recent Orders
@@ -101,7 +101,7 @@ Copy to `~/Clawic/data/food-delivery/orders.md`:
 
 ## people.md Template
 
-Copy to `~/Clawic/data/food-delivery/people.md` (for households/groups):
+Copy to `<state_root>/food-delivery/people.md` (for households/groups):
 
 ```markdown
 # Household & Regular Group Members

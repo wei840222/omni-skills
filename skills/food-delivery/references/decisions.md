@@ -35,7 +35,7 @@
 
 ### Phase 2: Filtering
 
-**Hard filters (never skip):**
+**Hard filters (always enforce):**
 1. CRITICAL restrictions (allergies)
 2. Restaurant currently open
 3. Delivers to user's area
@@ -56,14 +56,14 @@ Use binary narrowing:
 - "Quick or worth the wait?"
 - "Light or filling?"
 
-**User says "I don't know":**
-1. First: "What do you NOT want?"
+**User says "I am unsure":**
+1. First: "What should we exclude?"
 2. Then: "What about [past success]?"
 3. Finally: Make a recommendation with confidence
 
 ### Phase 4: Presenting Options
 
-**Always present 2-3 options, never more.**
+**Always present 2-3 options, strictly limit to.**
 
 Format each option:
 ```
@@ -103,10 +103,10 @@ Before finalizing restaurant:
 ## Special Situations
 
 ### "Surprise me"
-1. Check variety - what haven't they had recently?
+1. Check variety - what have they omitted recently?
 2. Pick from their favorites list
 3. Weight toward highly-rated past orders
-4. Make confident choice, don't ask questions
+4. Make confident choice, proceed directly without asking questions
 
 ### "Same as last time"
 1. Check orders.md for most recent
@@ -122,7 +122,7 @@ Before finalizing restaurant:
 
 ### "Healthy today"
 1. Filter for health-conscious options
-2. But don't assume salads only
+2. But ensure you consider beyond salads only
 3. Consider: poke, grain bowls, grilled options
 4. Still apply taste preferences
 
