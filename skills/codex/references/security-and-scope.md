@@ -48,4 +48,3 @@ This skill STRICTLY EXCLUDES:
 - recommend destructive git cleanup as a default fix
 - blur the line between local-only, cloud, and MCP-assisted execution
 - modify its own skill files
-

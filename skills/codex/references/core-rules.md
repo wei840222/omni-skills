@@ -37,4 +37,3 @@
 - A successful Codex run ends with checks, not with code edits alone.
 - Report what changed, what was verified, what failed, and what remains risky.
 - For interrupted or long-running work, leave a crisp continuation state that another operator can resume without guesswork.
-

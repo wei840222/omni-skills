@@ -8,4 +8,3 @@
 - Applying cloud output without reviewing the diff -> local repo changes become opaque.
 - Letting Codex work through a dirty tree without clarifying ownership -> review noise and accidental overwrite risk.
 - Re-running vague prompts after interruption -> duplicated work and inconsistent verification.
-

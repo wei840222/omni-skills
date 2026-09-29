@@ -111,5 +111,3 @@ Load `references/security-and-scope.md` for external data flow details, privacy 
 - `git` - Handle branches, diffs, and non-destructive repository recovery safely.
 - `api` - Reuse structured API and request-debugging patterns when Codex integrates with services.
 - `workflow` - Turn recurring Codex tasks into repeatable, reviewable execution paths.
-
-
