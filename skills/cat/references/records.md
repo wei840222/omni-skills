@@ -2,7 +2,7 @@
 
 ## Per-Cat Files
 
-Maintain these files when the user approves storage:
+Maintain these files under `<state_root>/cats/{name}/` when the user approves storage:
 - `profile.md` for durable identity, health baseline, and preferences
 - `timeline.md` for dated symptom changes, appointments, milestones, and travel events
 - `health.md` for labs, vaccines, meds, and vet follow-up questions
@@ -18,7 +18,7 @@ Record:
 - refill point
 - any side effect the user reports
 
-Never infer dose changes.
+Only use doses explicitly provided by the user or vet.
 
 ## Appointment Prep
 

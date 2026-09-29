@@ -1,6 +1,6 @@
 # Setup - Cat
 
-Read this on first activation when `~/Clawic/data/cat/` does not exist or is incomplete.
+Read this on first activation when `<state_root>/` does not exist or is incomplete.
 
 ## Operating Attitude
 
@@ -15,13 +15,15 @@ Read this on first activation when `~/Clawic/data/cat/` does not exist or is inc
    - whenever they mention a cat, kitten, foster, or cat-care task
    - only when explicitly requested
    - only for specific cats or topics such as health, litter, travel, or behavior
-2. Ask permission before writing local files:
+2. Ask permission before writing local files. After approval, create only the selected `<state_root>` paths, for example:
+
 ```bash
-mkdir -p ~/Clawic/data/cat/cats ~/Clawic/data/cat/sitter-packs
-touch ~/Clawic/data/cat/memory.md ~/Clawic/data/cat/shopping.md
-chmod 700 ~/cat
+mkdir -p "<state_root>/cats" "<state_root>/sitter-packs"
+touch "<state_root>/memory.md" "<state_root>/shopping.md"
+chmod 700 "<state_root>"
 ```
-3. If approved and `memory.md` is empty, initialize from `memory-template.md`.
+
+3. If approved and `memory.md` is empty, initialize from `assets/memory-template.md`.
 4. Identify the current roster:
    - each cat's name
    - age or age range
