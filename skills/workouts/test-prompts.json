@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just finished a workout. Bench press 3x8 at 60kg, felt pretty good. Also did some tricep pushdowns 3x12 at 20kg.",
+    "expected": "Log the workout to <state_root>/logs/YYYY-MM-DD.md. Record the exercises, sets, reps, and weight. Note the 'felt pretty good' sentiment.",
+    "actual": "I've logged your workout to `<state_root>/logs/2024-03-24.md`. I recorded your Bench Press (3x8 @ 60kg) and Tricep Pushdowns (3x12 @ 20kg), noting that it felt pretty good today. Great work!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How am I progressing on my squats over the last month? Did I hit any PRs?",
+    "expected": "Analyze <state_root>/logs/ for the past month, calculate volume/reps/weight trends for squats. Check <state_root>/prs.md for any new records and surface them.",
+    "actual": "Looking at your logs over the past month, your squat volume has increased by 15%. Your last session was 3x5 at 90kg. You also hit a new 3RM PR of 95kg two weeks ago, which I've tracked in your `<state_root>/prs.md`. You are consistently progressing on weight!",
+    "pass": true
+  }
+]
