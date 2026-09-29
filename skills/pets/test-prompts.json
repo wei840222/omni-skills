@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My dog Max had an accident on the couch today while I was at work.",
+    "expected": "Load Max's profile, log the incident to log.jsonl with tags [potty, indoor, alone], acknowledge naturally.",
+    "actual": "Loading Max's profile... Logging incident with context 'left alone at work'. Added tags for pattern tracking. That's frustrating - want me to check if there's a pattern with alone-time accidents?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How's Luna been doing this month?",
+    "expected": "Generate monthly report from log.jsonl with incident counts, training progress, notable moments, and trend analysis.",
+    "actual": "Pulling Luna's logs from this month... 3 incidents (down from 8 last month), 12 training wins, mastered 'stay' command. Trend: improving steadily. Highlight: first successful off-leash recall!",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My cat seems to be limping, what should I do?",
+    "expected": "Log the symptom if mentioned, recommend vet visit, do not diagnose or suggest treatments.",
+    "actual": "I'll log that you noticed limping. This sounds like it needs a vet check - they can properly diagnose what's going on. Want me to add a reminder to call the vet?",
+    "pass": true
+  }
+]
