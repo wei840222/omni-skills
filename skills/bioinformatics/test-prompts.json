@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have a FASTQ file for a new patient R1.fastq.gz and R2.fastq.gz, and I want to align it against the human genome GRCh38 using BWA.",
+    "expected": "The agent should load the bioinformatics skill, check if bwa is installed, format the bwa mem command, and advise the user on memory usage (>=6GB) and expected duration.",
+    "actual": "I have formulated the pipeline using BWA for the GRCh38 reference genome. Since this is human genome data, please note that BWA mem typically requires at least 6GB of memory and the alignment could take a while depending on file sizes. I will run `bwa mem -t 8 reference.fa R1.fastq.gz R2.fastq.gz | samtools sort -o aligned.bam -` when you are ready.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Filter the somatic variants in tumor_variants.vcf.gz to only keep those with a QUAL score > 30 and output to high_qual.vcf",
+    "expected": "The agent should construct the proper bcftools filter command and mention indexing.",
+    "actual": "I will filter your variants using bcftools. The command `bcftools filter -e 'QUAL<=30' tumor_variants.vcf.gz -O z -o high_qual.vcf.gz` will create a gzipped vcf file. After generation, I will also index it with `bcftools index high_qual.vcf.gz` to ensure compatibility with downstream tools.",
+    "pass": true
+  }
+]

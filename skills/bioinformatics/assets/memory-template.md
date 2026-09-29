@@ -1,6 +1,6 @@
 # Memory Template — Bioinformatics
 
-Create `~/Clawic/data/bioinformatics/memory.md` with this structure:
+Create `<state_root>/bioinformatics/memory.md` with this structure:
 
 ```markdown
 # Bioinformatics Memory
@@ -57,11 +57,11 @@ cores: 8
 memory_gb: 32
 
 ## Reference Genomes
-- Human GRCh38: ~/refs/hg38/
-- Mouse GRCm39: ~/refs/mm39/
+- Human GRCh38: <refs_root>/hg38/
+- Mouse GRCm39: <refs_root>/mm39/
 
 ## Active Projects
-- RNA-seq tumor samples: ~/projects/tumor_rnaseq/
+- RNA-seq tumor samples: <projects_root>/tumor_rnaseq/
   - Status: QC complete, alignment next
   - Samples: 12 tumor, 4 normal
 
@@ -79,7 +79,7 @@ memory_gb: 32
 
 ## Key Principles
 
-- **Only save what user explicitly shares** — do not infer preferences
+- **Only save what user explicitly shares** — rely only on explicitly shared information
 - **Update last on each use**
 - **Projects section** — track analyses user mentions to resume context
 - **Ask before saving sensitive information**
