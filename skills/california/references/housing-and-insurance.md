@@ -37,7 +37,7 @@ Ask these before judging a market:
 ## Renting Rules
 
 - Lease terms, parking, utility pass-throughs, renter insurance, building age, and neighborhood safety all deserve a checklist.
-- California renters often assume legal protections solve a bad unit or bad commute. They do not.
+- California renters often assume legal protections solve a bad unit or bad commute. Legal protections require careful documentation to be effective.
 - If the property sits in a hard commute corridor or high-risk zone, calculate that early.
 
 ## Common Mistakes

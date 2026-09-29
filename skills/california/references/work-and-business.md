@@ -16,14 +16,14 @@ Use this file for job-market positioning, LLC setup, sales tax, state tax awaren
 ## Business Setup Rules
 
 ### 1. State formation is only the first layer
-- Entity formation, tax registration, payroll, and insurance do not replace city or county compliance.
+- Entity formation, tax registration, payroll, and insurance must be paired with city or county compliance.
 
 ### 2. Ask what the business actually does
 - Taxability, permits, labor exposure, and local approvals depend on product, service, and footprint.
 
 ### 3. California is expensive but not uniform
 - High-friction regions can still be the right answer if the customers, talent, or network justify them.
-- Do not frame California as either "impossible" or "worth it no matter what."
+- Frame California as a strategic business environment with specific costs and benefits.
 
 ## What to Cover for New Businesses
 

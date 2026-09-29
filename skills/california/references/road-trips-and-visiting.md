@@ -19,7 +19,7 @@ California trips work best when users choose fewer bases and respect transfer fr
 ## Route Design Rules
 
 - Price the trip in daylight, traffic, permits, and fatigue, not just miles.
-- If children are involved, design around reset windows, shade, and backup stops.
+- If children are involved, design around reset windows, shade, and alternative stops.
 - If the trip touches parks, mountain roads, or wildfire season, bring in permit and hazard logic early.
 
 ## Tourism Reality Checks
