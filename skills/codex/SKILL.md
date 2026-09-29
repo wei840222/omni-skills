@@ -112,5 +112,4 @@ Load `references/security-and-scope.md` for external data flow details, privacy 
 - `api` - Reuse structured API and request-debugging patterns when Codex integrates with services.
 - `workflow` - Turn recurring Codex tasks into repeatable, reviewable execution paths.
 
-## Feedback
 
