@@ -13,7 +13,7 @@ Every session runs one topic at a time with quick iterations.
 ## Placement Loop (new topic)
 
 - Run 2-5 questions from easy to hard.
-- Stop early after clear level signal.
+- Conclude after clear level signal.
 - Set initial lane in `curriculum.md`.
 - Add first lessons to `queue.md`.
 
