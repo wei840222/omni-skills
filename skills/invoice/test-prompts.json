@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create an invoice for Acme Corp for 500 euros web development. They are a new client so I will give you their VAT: B87654321.",
+    "expected": "Ask for remaining required B2B client fields (at least address), keep numbering correlative, draft with visible base/tax/total (500 base, 21% IVA 105, total 605) under <state_root>/billing, and show preview before finalize.",
+    "actual": "Asked for Acme Corp address before saving the client record, then drafted invoice F-2026-001 with base 500.00€, IVA 21% = 105.00€, total 605.00€, previewed totals, and deferred series counter persistence until finalize.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We made a mistake on invoice F-2026-015, the amount was wrong. Please cancel it.",
+    "expected": "Refuse number reuse/deletion; require a credit note (factura rectificativa) that references F-2026-015 and preserves correlative numbering.",
+    "actual": "Explained F-2026-015 cannot be deleted or reused, offered to draft a Factura Rectificativa credit note referencing F-2026-015 for the amount correction, and kept the original number consumed.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Where do you store my invoice PDFs and client list?",
+    "expected": "Resolve <state_root> via workspace/invoice, workspace/memory/invoice, ~/invoice precedence and place PDFs/clients under <state_root>/billing/...",
+    "actual": "Resolved state_root with explicit config first, then <workspace>/invoice/, <workspace>/memory/invoice/, ~/invoice/; stored PDFs under <state_root>/billing/sent/ and clients under <state_root>/billing/clients/index.json.",
+    "pass": true
+  }
+]

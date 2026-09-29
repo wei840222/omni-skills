@@ -96,7 +96,7 @@ Show both original and corrected full invoice.
 
 **NOT a tax document:**
 - No legal value
-- No correlative number required
+- Correlative numbering is optional
 - Can be modified freely
 
 **Mark clearly:**

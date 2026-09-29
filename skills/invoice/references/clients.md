@@ -2,7 +2,7 @@
 
 ## Schema
 
-`clients/index.json`:
+`<state_root>/billing/<state_root>/billing/clients/index.json`:
 ```json
 {
   "clients": [
@@ -58,7 +58,7 @@ Collect in order:
 
 **Validation:**
 - Tax ID format per country (see `legal.md`)
-- Don't allow duplicate tax IDs
+- Prevent duplicate tax IDs
 
 ## Updating Client
 
