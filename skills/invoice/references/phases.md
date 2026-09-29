@@ -11,14 +11,14 @@
 4. Payment terms? (due date, method)
 
 **For existing client:**
-- Load from `clients/index.json`
+- Load from `<state_root>/billing/clients/index.json`
 - Confirm data is still current
 
 **For new client:**
 - Collect: name, tax ID, address, email
-- Save to `clients/index.json`
+- Save to `<state_root>/billing/clients/index.json`
 
-**Never assume:**
+**Always ask if not provided:**
 - Tax ID (must be provided for B2B)
 - Payment terms (ask if not in client defaults)
 
@@ -42,8 +42,8 @@ If user gives gross amount:
 ```
 
 **Number assignment:**
-- Read current counter from `series.json`
-- Assign next number (don't save yet—draft may be discarded)
+- Read current counter from `<state_root>/billing/series.json`
+- Assign next number (delay saving until draft is finalized)
 
 **IRPF handling (Spain, freelancers):**
 - If client is company AND user is freelancer → apply retention
@@ -95,7 +95,7 @@ If user gives gross amount:
 ## Phase 4: Finalize
 
 **Actions:**
-1. Lock invoice number (save to `series.json`)
+1. Lock invoice number (save to `<state_root>/billing/series.json`)
 2. Save final version to `drafts/{client}/versions/v001.md`
 3. Generate PDF using template
 4. Save PDF to `sent/2026/F-2026-015.pdf`
@@ -105,7 +105,7 @@ If user gives gross amount:
 - Use HTML template from `templates.md`
 - Convert via browser print or WeasyPrint
 
-**No turning back:**
+**Finalized state:**
 - Invoice number is now consumed
 - To correct → use credit note (new invoice referencing original)
 
@@ -126,7 +126,7 @@ Attachment: F-2026-015.pdf
 
 **If not configured:**
 ```
-📎 Invoice saved to: ~/billing/sent/2026/F-2026-015.pdf
+📎 Invoice saved to: <state_root>/billing/sent/2026/F-2026-015.pdf
 Ready to send manually or configure email.
 ```
 

@@ -99,7 +99,7 @@ Note: IRPF reduces what you receive, not the invoice total.
 - **Correlative** — No gaps: 001, 002, 003
 - **By year** — Can reset each year (F-2026-001)
 - **Multiple series** — Allowed for different activities
-- **Never reuse** — Even cancelled invoices keep their number
+- **Retain all numbers** — Even cancelled invoices keep their number
 
 ---
 

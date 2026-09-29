@@ -126,10 +126,10 @@ await page.pdf({ path: 'invoice.pdf', format: 'A4' });
 
 ## Customization
 
-Store user customizations in `config.json`:
+Store user customizations in `<state_root>/billing/config.json`:
 ```json
 {
-  "logo": "~/billing/logo.png",
+  "logo": "<state_root>/billing/logo.png",
   "primary_color": "#2563eb",
   "footer_text": "Gracias por su confianza",
   "payment_note": "Transferencia bancaria a 30 días"
