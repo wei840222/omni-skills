@@ -46,7 +46,7 @@ Each platform has different access methods and limitations.
 
 **Access:** Direct fetch (most reliable)
 **Best for:** Long-form writing, official announcements
-**Limitations:** Some sites don't have RSS
+**Limitations:** Some sites lack RSS feeds
 
 **Common patterns:**
 - Substack: `newsletter.substack.com/feed`
