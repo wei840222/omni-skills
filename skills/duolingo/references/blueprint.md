@@ -5,20 +5,20 @@ Use this to create the Duolingo Learning OS scaffold.
 ## 1. Create Global Structure
 
 ```bash
-mkdir -p ~/Clawic/data/duolingo/{router,topics,archive}
+mkdir -p <state_root>/{router,topics,archive}
 ```
 
 Create baseline files:
-- `~/Clawic/data/duolingo/memory.md`
-- `~/Clawic/data/duolingo/router/topics.md`
-- `~/Clawic/data/duolingo/router/agentsmd-snippet.md`
+- `<state_root>/memory.md`
+- `<state_root>/router/topics.md`
+- `<state_root>/router/agentsmd-snippet.md`
 
 ## 2. Create Topic Namespace
 
 For each active topic slug:
 
 ```bash
-mkdir -p ~/Clawic/data/duolingo/topics/<topic-slug>
+mkdir -p <state_root>/topics/<topic-slug>
 ```
 
 Create required files from `topic-template.md`:
@@ -45,7 +45,7 @@ Each topic starts with:
 - first 3 lessons
 - first review item after initial completion
 
-Do not leave queue empty after setup.
+Ensure the queue contains items after setup.
 
 ## 5. Verify Ready State
 

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "duolingo-setup-french",
+    "prompt": "I want to start learning French from scratch.",
+    "expected": "Reads `references/setup.md`. Confirms activation, asks for learning mode/pace, and sets up `<state_root>/` with French namespace and placement lesson.",
+    "actual": "I will set up your Duolingo Learning OS for French. First, what is your goal, current level, and preferred session pace? I will prepare the filesystem at <state_root>/.",
+    "pass": true
+  },
+  {
+    "id": "duolingo-run-english",
+    "prompt": "Run my English practice session.",
+    "expected": "Selects English topic, runs a micro-lesson loop from `references/lesson-loop.md` with 1 challenge, collects attempt.",
+    "actual": "Let's run a quick English session! Here is your micro-challenge: Translate 'The cat is sleeping on the table'.",
+    "pass": true
+  },
+  {
+    "id": "duolingo-comeback-rule",
+    "prompt": "I missed yesterday's lesson.",
+    "expected": "Applies comeback rules from `references/retention-ops.md`, offers a lightweight reminder and one easy loop without deleting motivation.",
+    "actual": "No worries about missing yesterday. We have a grace miss rule. Let's do a lightweight review loop to get your streak back on track.",
+    "pass": true
+  }
+]

@@ -1,6 +1,6 @@
 # Setup - Duolingo Learning OS
 
-Read this silently when `~/Clawic/data/duolingo/` does not exist or is empty.
+Read this silently when `<state_root>/` is absent or uninitialized.
 Start naturally and configure activation plus multi-topic structure early.
 
 ## Priority Order
@@ -13,7 +13,7 @@ Ask for the real trigger topics now, for example:
 - math
 
 If the user wants auto-routing, prepare the AGENTS block using `activation-routing.md`.
-Do not edit AGENTS automatically. Always show the snippet and ask the user to apply it.
+Require the user to edit AGENTS manually. Always show the snippet and ask the user to apply it.
 
 ### 2. Confirm Learning Mode Per Topic
 For each active topic, confirm:
@@ -21,10 +21,10 @@ For each active topic, confirm:
 - current level
 - session pace (light, normal, intense)
 
-If user gives two or more topics, keep all active; do not force a single track.
+If user gives two or more topics, keep all active; maintain multiple parallel tracks.
 
 ### 3. Bootstrap Filesystem and Topic Namespaces
-Create `~/Clawic/data/duolingo/` with:
+Create `<state_root>/` with:
 - global router files
 - global memory
 - one namespace per active topic
@@ -59,7 +59,7 @@ Store this in global memory and apply automatically.
 
 ## Guardrails
 
-- Never start lessons before topic namespace exists.
-- Never remove a topic without explicit user confirmation.
+- Start lessons only after confirming the topic namespace exists.
+- Require explicit user confirmation before removing a topic.
 - If AGENTS router is enabled, keep it synchronized with `router/topics.md`.
 - Keep lesson loops short; split long explanations into multiple loops.

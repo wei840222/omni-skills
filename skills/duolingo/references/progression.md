@@ -15,7 +15,7 @@ Use one transparent economy across all topics.
 
 - XP can be global and per-topic.
 - Streak is global, but track completion is per-topic.
-- Hearts reset per topic session, not globally.
+- Hearts reset per topic session, independently from global state.
 
 ## Reward Logic
 
@@ -28,7 +28,7 @@ Use one transparent economy across all topics.
 
 - One grace miss per week for global streak.
 - After streak break, offer comeback loop with reduced difficulty.
-- Do not punish returners with overloaded queues.
+- Provide returners with manageable, scaled-down queues.
 
 ## Anti-Patterns
 
