@@ -33,7 +33,7 @@ import express from "npm:express@4.18.2";
 import { PrismaClient } from "npm:@prisma/client";
 ```
 
-- Native addons — generally don't work
+- Native addons — verify compatibility manually
 - Pure JS packages — usually work
 - TypeScript packages — may need `@types` separately
 - Check each dependency — import success ≠ functions work
