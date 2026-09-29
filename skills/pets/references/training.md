@@ -5,7 +5,7 @@
 ### Foundation Commands
 1. **Sit** — Lure with treat above nose, mark when butt touches ground
 2. **Stay** — Start with 1 second, build duration gradually
-3. **Come** — Never call for punishment, always reward arrival
+3. **Come** — Ensure calls are only for positive reinforcement, always reward arrival
 4. **Down** — Lure from sit, treat to ground between paws
 5. **Leave it** — Cover treat with hand, reward when they back off
 
@@ -47,7 +47,7 @@
 
 ## Tracking Training Progress
 
-Store in ~/Clawic/data/pets/{pet}/training.md:
+Store in `<state_root>/pets/{pet}/training.md`:
 
 ```markdown
 ## Mastered

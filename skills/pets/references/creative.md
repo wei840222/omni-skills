@@ -67,7 +67,7 @@ If pet ever lost, quickly generate:
 
 ## Photo Storage
 
-Store in ~/Clawic/data/pets/{pet}/photos/:
+Store in `<state_root>/pets/{pet}/photos/`:
 - Original photos user shares
 - Created images with descriptive names
 - Organize by type or date

@@ -2,7 +2,7 @@
 
 ## Setting Up Routines
 
-Store in ~/Clawic/data/pets/{pet}/routines.md:
+Store in `<state_root>/pets/{pet}/routines.md`:
 
 ```markdown
 ## Daily
