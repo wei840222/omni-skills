@@ -32,7 +32,7 @@ codex cloud diff TASK_ID
 codex cloud apply TASK_ID
 ```
 
-Never jump from cloud execution to local apply without reviewing the diff first.
+Review the diff before jumping from cloud execution to local apply.
 
 ## App-Server and Advanced Integrations
 
@@ -54,4 +54,4 @@ codex exec --oss --local-provider ollama ...
 codex exec --oss --local-provider lmstudio ...
 ```
 
-Do not treat local-provider mode as equivalent to hosted Codex behavior; capability and reliability can differ significantly.
+Treat local-provider mode as having different capabilities and reliability than hosted Codex behavior.

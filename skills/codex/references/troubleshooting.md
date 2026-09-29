@@ -9,7 +9,7 @@ Symptoms:
 Checks:
 1. run `codex login status`
 2. decide whether this workflow should use existing login or explicit `OPENAI_API_KEY`
-3. avoid guessing by scraping secrets from files
+3. require explicit user input instead of guessing by scraping secrets from files
 
 ## Wrong Directory or Wrong Repo
 
@@ -31,7 +31,7 @@ Symptoms:
 Checks:
 1. inspect `git status --short`
 2. separate user-owned dirt from the agent task
-3. avoid destructive cleanup unless the user explicitly asks
+3. preserve existing state unless the user explicitly requests destructive cleanup
 
 ## Sandbox or Approval Dead End
 
