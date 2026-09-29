@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm building a blog and need to choose a heading and body font. I want something modern but easy to read.",
+    "expected": "The agent should suggest a display/sans-serif pairing (e.g. Inter for body, Playfair Display for headings), recommend font sizes using a scale, set max-width around 65ch, and define proper line heights.",
+    "actual": "I recommend pairing a clear sans-serif text font like Inter for your body copy with a serif heading font like Playfair Display to provide good contrast. Set your body font size to 16px with a line-height of 1.5, and your headings to a scale (e.g., 24px, 32px) with a tighter line-height of 1.2. Additionally, constrain your text containers with max-width: 65ch to maintain optimal line lengths, and load your fonts using WOFF2 format with font-display: swap.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Review this CSS: body { font-family: 'Lobster', sans-serif; font-weight: 300; line-height: 1.2; text-transform: uppercase; }",
+    "expected": "The agent should identify multiple typography mistakes: Lobster is a display font (not for body text), 300 weight might render poorly on Windows, 1.2 line-height is too tight for body, and uppercase on body text destroys readability. It should recommend a text font, 400+ weight, 1.4-1.6 line-height, and normal casing.",
+    "actual": "There are several typography issues in your CSS. First, Lobster is a display font and should not be used for body text; use a text font like Roboto or Inter instead. Second, a font-weight of 300 can render poorly on Windows, so I recommend 400 or higher. Third, a line-height of 1.2 is too tight for body copy; increase it to 1.4-1.6. Finally, applying text-transform: uppercase to the entire body makes extended reading very difficult and should be avoided.",
+    "pass": true
+  }
+]
