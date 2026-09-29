@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this Laravel code: `foreach(User::all() as $user) { echo $user->posts->count(); }`",
+    "expected": "Identify the N+1 query issue. Recommend eager loading the posts relationship using `User::with('posts')->get()`.",
+    "actual": "I noticed an N+1 query vulnerability in your loop. When you iterate over `User::all()` and access `$user->posts`, Laravel lazily executes a new query for the posts of each user. To resolve this, you should eagerly load the posts relationship before looping: `foreach(User::with('posts')->get() as $user) { ... }`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to write a background job to send an email to a User. I'm passing the User model to the constructor. What do I need to be careful about?",
+    "expected": "Warn about serializing models as IDs which may fetch stale or deleted data when the job processes.",
+    "actual": "When you pass an Eloquent model to a queued job constructor, Laravel serializes it using its ID. When the queue worker eventually picks up the job to process it, it re-fetches the model from the database. Be careful because the model data might have changed or even been deleted in the time between dispatching the job and processing it.",
+    "pass": true
+  }
+]
