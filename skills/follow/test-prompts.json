@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Follow @samaltman on Twitter and set his posts to daily digest alert.",
+    "expected": "Resolve state root, load references/sources.md, read references/alerts.md for tier semantics, and create <state_root>/sources/people/samaltman.md with Twitter config and daily alert tier (and update <state_root>/alerts.md if needed).",
+    "actual": "Resolved <state_root> to <workspace>/follow/. Loaded references/sources.md for source format and references/alerts.md for tier semantics. Created <state_root>/sources/people/samaltman.md with Twitter as the platform, daily alert tier configured for his posts, and high priority set.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to track discussions about 'AI regulation' across all feeds and get immediately notified if any sources mention new laws.",
+    "expected": "Resolve state root, create a topic tracker at <state_root>/sources/topics/ai-regulation.md with appropriate keywords, and update <state_root>/alerts.md to add 'AI regulation new laws' to the Immediate Alerts tier.",
+    "actual": "Resolved <state_root>. Created <state_root>/sources/topics/ai-regulation.md configuring keywords like 'AI regulation', 'laws', 'compliance'. Loaded <state_root>/alerts.md and added an entry to Immediate Alerts tier for any mention of new laws intersecting with the AI regulation topic.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What did we save about @naval last week?",
+    "expected": "Load references/querying.md, search <state_root>/archive/ for last week's entries mentioning @naval, and summarize the findings.",
+    "actual": "Loaded references/querying.md to recall search syntax. Scanned <state_root>/archive/YYYY-MM/ for the past week's entries involving @naval. Synthesized a timeline summary of Naval's 3 posts about AI leverage and 1 about startups from the archived summaries.",
+    "pass": true
+  }
+]

@@ -74,4 +74,4 @@ Track publications/channels:
 | HN/Reddit | API or RSS | High |
 | Telegram | Join channel, forward or bot | Medium |
 
-For detailed platform setup, see `platforms.md`.
+For detailed platform setup, see `references/platforms.md`.

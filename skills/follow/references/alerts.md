@@ -13,7 +13,7 @@
 
 ## Configuring Tiers
 
-In `~/Clawic/data/follow/alerts.md`:
+In `<state_root>/alerts.md`:
 
 ```markdown
 ## Immediate Alerts

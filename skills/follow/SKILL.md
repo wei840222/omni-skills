@@ -1,19 +1,28 @@
 ---
 name: follow
-slug: follow
-version: 1.0.0
-description: Monitor content from people, topics, and sources across platforms with smart filtering, tiered alerts, and searchable archives.
-homepage: https://clawic.com/skills/follow
+description: Track content from people, topics, and sources with smart filtering and
+  tiered alerts. Use when the user wants to monitor accounts, track discussions, query
+  archived content, or set up notification rules.
 metadata:
-  clawdbot:
-    emoji: 👀
-    displayName: Follow
+  version: 1.0.0
+  openclaw: '{"emoji": "👀"}'
+  related-skills: '{"news": "Personalized multi-source news briefings when the user wants ongoing feed tuning rather than person/topic follow trackers.","daily-news-digest": "Scheduled daily news briefing loops when delivery is a digest cadence instead of per-source follow alerts.","summarizer": "Single-article or long-form summarization after a followed item is selected from the archive.","newsletter": "Newsletter subscribe/send workflows when the source is an owned list rather than external account monitoring.","hacker-news": "Live Hacker News API access when the follow target is HN specifically rather than generic multi-platform tracking.","digest": "General multi-source content digests outside person/topic follow state."}'
 ---
 
-## Workspace
+## State location
+
+Follow state may exist in `<workspace>/follow/`, `<workspace>/memory/follow/`, or `~/follow/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/follow/`, `<workspace>/memory/follow/`, `~/follow/`.
+3. If none exists and state must be created, default to `<workspace>/follow/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ```
-~/Clawic/data/follow/
+<state_root>/
 ├── sources/           # One file per followed entity
 │   ├── people/        # @naval.md, @dhh.md
 │   ├── topics/        # ai-safety.md, rust.md
@@ -28,13 +37,13 @@ metadata:
 
 ## Quick Reference
 
-| Task | Load |
+| When to load | File |
 |------|------|
-| Add/configure sources | `sources.md` |
-| Set up filtering rules | `filtering.md` |
-| Configure alert tiers | `alerts.md` |
-| Query archived content | `querying.md` |
-| Platform-specific setup | `platforms.md` |
+| Add/configure sources | `references/sources.md` |
+| Set up filtering rules | `references/filtering.md` |
+| Configure alert tiers | `references/alerts.md` |
+| Query archived content | `references/querying.md` |
+| Platform-specific setup | `references/platforms.md` |
 
 ---
 
@@ -56,9 +65,9 @@ metadata:
 | "Follow @naval on Twitter" | Create `sources/people/naval.md`, configure Twitter monitoring |
 | "Track AI safety discussions" | Create topic tracker with keywords across multiple sources |
 | "What has Competitor X posted this week?" | Query archive, synthesize summary |
-| "Alert me immediately when Y happens" | Add to high-priority tier in `alerts.md` |
+| "Alert me immediately when Y happens" | Add to high-priority tier in `<state_root>/alerts.md` |
 | "Give me a weekly digest of everything" | Configure weekly summary in alerts |
-| "Stop following X" | Archive and mark inactive |
+| "Pause following X" | Archive and mark inactive |
 
 ---
 
