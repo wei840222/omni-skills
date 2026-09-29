@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm hungry for dinner, order something for me.",
+    "expected": "Agent consults preferences, considers recent orders for variety, and places an order.",
+    "actual": "Checking <state_root>/food-delivery/memory.md... Finding preference for Thai. Placing order for Thai food on DoorDash.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Get food for the group. Alice is allergic to nuts and Bob is vegan.",
+    "expected": "Agent respects dietary restrictions from group members and orders safe, suitable food.",
+    "actual": "Checking restrictions for Alice (nut allergy) and Bob (vegan). Selected a Mediterranean restaurant with safe options. Order placed.",
+    "pass": true
+  }
+]
