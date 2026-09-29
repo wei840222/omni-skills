@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My cat Luna just threw up her food and is hiding under the bed. What should I do?",
+    "expected": "Load triage guidance first, ask minimum intake questions, screen red flags such as repeated nonproductive retching, breathing trouble, toxin exposure, and litter output, and avoid diagnosing from one symptom line.",
+    "actual": "Luna throwing up once and hiding needs a quick triage pass before any home plan. I am checking red flags first: any repeated nonproductive retching, open-mouth or labored breathing, pale/blue gums, known toxin or string exposure, collapse, or straining in the litter box with little or no urine? Also share age, indoor/outdoor access, appetite and water since the vomit, litter output, energy versus baseline, and any meds or new foods. I cannot confirm a cause from chat alone; if any red flag is present, go to emergency care now. If none, stay with short factual check-ins and same-day vet contact if vomiting repeats, she keeps refusing food, or hiding/lethargy deepens.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm moving to a new apartment next week. How do I make it less stressful for my two cats?",
+    "expected": "Use household and travel guidance for a low-stress move: safe room first, familiar scent items, staged access, and carrier prep rather than forced exposure on moving day.",
+    "actual": "For a two-cat move, prioritize territory and predictability over novelty. Set one safe room in the new place with their usual litter, food, water, bedding, and vertical/hiding spots before expanding access. Move familiar unscoured bedding and resources first so the room smells like home. Transport cats last into that room, keep them separated from movers and open doors, and reopen the rest of the home gradually once they eat, use the box, and settle. Start short carrier practice on calm days this week instead of first loading them on moving day. If either cat has medical needs, pack meds, vet contacts, and a one-page sitter-style sheet in the go-bag.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My cat has started scratching the side of the new couch instead of his scratching post. How do I make him stop?",
+    "expected": "Use behavior guidance: place a better scratching option at the target location, match vertical/horizontal preference, and avoid punishment-based suppression.",
+    "actual": "Treat the couch as the current preferred scratch site and outcompete it there. Put a sturdy vertical or horizontal scratcher directly in front of or beside the targeted side, matching the height/length he uses to stretch fully, and make that option easier than the upholstery. Temporarily protect the couch corner, reward use of the new scratcher, and check whether a recent layout, guest, or multi-cat stress change raised marking/scratch needs. Skip punishment or startling deterrents that only add fear; if litter, appetite, or hiding also changed, screen health/stress before calling it a furniture habit alone.",
+    "pass": true
+  }
+]

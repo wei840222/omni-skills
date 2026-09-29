@@ -1,44 +1,35 @@
 ---
 name: cat
-slug: cat
-version: 1.0.0
-description: Track cat health, litter, routines, behavior, travel, and vet coordination with species-aware memory and emergency triage.
-homepage: https://clawic.com/skills/cat
-changelog: Initial release with cat care tracking, litter and behavior workflows, travel prep, and emergency-safe vet coordination.
+description: Manage real cat care with triage, litter and behavior workflows, routines,
+  travel prep, vet logistics, and portable household records. Use when the user cares
+  for a live cat or kitten; skip memes, trivia, and fictional pets.
 metadata:
-  clawdbot:
-    emoji: 🐈
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/cat/
-    displayName: Cat
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/cat/
+  version: 1.0.0
+  openclaw: '{"emoji":"🐈","requires":{"bins":[]},"os":["linux","darwin","win32"],"configPaths":["<state_root>/cat/"],"displayName":"Cat"}'
+  related-skills: '{"memory":"Durable household facts when the user wants long-term retention beyond the cat state tree.","photos":"Photo albums and keepsakes after care milestones or memorable moments.","remind":"Medication, appointment, and recurring care nudges once the user already knows the commitment.","shopping":"Food, litter, and supply purchase decisions when restock thresholds are reached.","travel":"Human trip structure when a cat is moving with the user or needs boarding coordination."}'
 ---
 
-## Setup
+## When to load
 
-On first use, read `setup.md` for activation preference, local memory approval, and the current cat roster. Keep setup light and continue helping immediately.
+Load this skill for real cat or kitten care: symptom triage, litter tracking, routines, behavior, home setup, travel or sitter prep, vet logistics, shopping thresholds, and durable household records.
+Prefer this skill over generic pet tracking when cat-specific red flags, litter signals, territory stress, or carrier handling change the plan.
+Do not load for memes, animal trivia, fictional cats, or non-cat species as the primary subject.
 
-## When to Use
+## State location
 
-User talks about a cat or kitten they live with, foster, rescue, or regularly care for. Agent helps with symptom triage, litter tracking, routines, behavior, home setup, travel, vet logistics, shopping, and memories.
-Use this for real cat-care operations, not for generic animal trivia, memes, or fictional cats.
+Cat state may exist in `<workspace>/cat/`, `<workspace>/memory/cat/`, or `~/cat/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Architecture
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/cat/`, `<workspace>/memory/cat/`, `~/cat/`.
+3. If none exists and state must be created, default to `<workspace>/cat/` after the user approves persistence.
 
-Memory lives in `~/Clawic/data/cat/`. See `memory-template.md` for structure.
+Use the selected `<state_root>` for every state operation in this skill. Keep the root fixed for the rest of the invocation.
 
 ```text
-~/Clawic/data/cat/
-├── memory.md           # Household summary, activation, red flags, shared rules
+<state_root>/
+├── memory.md           # Household summary, activation, shared red flags
 ├── cats/
 │   └── {name}/
 │       ├── profile.md
@@ -51,157 +42,47 @@ Memory lives in `~/Clawic/data/cat/`. See `memory-template.md` for structure.
 └── sitter-packs/       # Exportable care instructions for trips or absences
 ```
 
+This skill can answer one-off questions without writing files. Before creating or changing files under `<state_root>/`, explain the planned write and ask for confirmation.
+
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Emergency triage and intake | `triage.md` |
-| Daily, weekly, and monthly care | `routines.md` |
-| Behavior patterns and interventions | `behavior.md` |
-| Home setup and multi-cat environment | `household.md` |
-| Travel, moving, and sitter prep | `travel.md` |
-| Records, meds, shopping, and reports | `records.md` |
+| Core rules, scope, traps | `references/core-rules.md` |
+| First activation and roster | `references/setup.md` |
+| Memory templates | `assets/memory-template.md` |
+| Emergency triage and intake | `references/triage.md` |
+| Daily, weekly, monthly care | `references/routines.md` |
+| Behavior patterns | `references/behavior.md` |
+| Home and multi-cat setup | `references/household.md` |
+| Travel, moving, sitter prep | `references/travel.md` |
+| Records, meds, shopping | `references/records.md` |
+| Official sources map | `references/sources.md` |
 
-## Scope
+Load the matching relative path before topic-specific guidance.
 
-This skill ONLY:
-- Helps manage real-world cat care, records, logistics, and behavior tracking.
-- Uses local files in `~/Clawic/data/cat/` if the user approves memory.
-- Gives conservative triage and preparation support for veterinary conversations.
+## Core loop
 
-This skill NEVER:
-- Diagnoses diseases or claims certainty from short descriptions alone.
-- Recommends medication doses, human medicines, or home toxicology fixes.
-- Delays emergency care when cat-specific red flags appear.
-- Writes memory without user approval.
+1. For symptoms or sudden change, open `references/triage.md` first and escalate red flags immediately.
+2. Keep one living record per cat under `<state_root>/cats/{name}/` after user approval.
+3. Treat litter, appetite, and hiding as primary health or stress signals before attitude labels.
+4. Fix behavior through environment, routine, and gradual exposure using `references/behavior.md` and `references/household.md`.
+5. Plan travel, visitors, and moves around territory and predictability with `references/travel.md`.
+6. Coordinate vet prep, meds, shopping, and sitter packs with `references/records.md` using only user- or vet-provided doses.
+7. Store durable facts and milestones; keep hot memory small.
 
-## Core Rules
+## Security and privacy
 
-### 1. Start with Cat-Specific Triage
-Use `triage.md` before giving advice on symptoms or sudden changes.
+**Data that leaves the machine**
+- None by default. This skill makes no network calls.
 
-Check the smallest set of facts needed to judge risk:
-- age and life stage
-- sex if urinary risk matters
-- indoor or outdoor access
-- appetite, water, energy, and hiding
-- litter box output and vomiting
-- toxins, trauma, and current medication
-
-If breathing trouble, collapse, repeated nonproductive retching, major trauma, toxin exposure, or straining without urine appears, switch to emergency guidance immediately.
-
-### 2. Keep One Living Record Per Cat
-Use `records.md` and `memory-template.md` to keep each cat's facts stable across sessions.
-
-Store durable facts such as:
-- identity, age range, microchip, and household role
-- conditions, allergies, meds, and regular vet details
-- reliable food, litter, handling, and travel preferences
-- ongoing behavior patterns and major milestones
-
-Separate confirmed facts from guesses, and log dates for symptom changes, appointments, and treatments.
-
-### 3. Litter, Appetite, and Hiding Are Primary Signals
-Cats hide decline early. Give extra weight to:
-- new litter box avoidance or straining
-- reduced appetite or unusual thirst
-- hiding, withdrawal, or reduced grooming
-- sudden aggression, vocalization, or mobility change
-
-Do not frame these as attitude problems until health and environment have been checked.
-
-### 4. Solve Behavior Through Environment Before Force
-Use `behavior.md` and `household.md` to fix patterns with setup, routine, and stress reduction.
-
-Prefer:
-- litter box changes
-- vertical territory and hiding spots
-- better scratching options
-- shorter, more predictable handling
-- introductions done through distance and scent
-
-Avoid punishment, forced exposure, or dog-style obedience assumptions.
-
-### 5. Plan Around Territory and Stress
-Cats usually care more about safety, predictability, and control than novelty.
-
-When the user mentions:
-- visitors
-- a new pet or baby
-- travel or moving
-- carrier fights
-- boarding or sitter handoff
-
-load `travel.md` or `household.md` and reduce the plan to the least stressful path.
-
-### 6. Coordinate Logistics Proactively but Safely
-Use `records.md` for vet prep, meds, shopping, and sitter packs.
-
-Support:
-- appointment prep with concise questions and timeline
-- medication schedules and refill tracking
-- food, litter, and supply reorder thresholds
-- clean exportable instructions for cat sitters
-
-Do not invent doses, do not reinterpret lab results as diagnosis, and do not tell the user to wait when red flags are active.
-
-### 7. Preserve Moments Without Polluting the Main Record
-Track memories and milestones, but keep the hot memory small.
-
-Keep in the per-cat timeline:
-- adoption and birthdays
-- first successful carrier ride or medication win
-- behavior breakthroughs
-- travel or introduction milestones
-- memorable stories worth resurfacing later
-
-Do not clutter the shared memory file with every cute anecdote.
-
-## Common Traps
-
-- Treating litter box changes as defiance -> misses one of the highest-signal cat health and stress indicators.
-- Using punishment for scratching, biting, or hiding -> increases fear and makes the pattern harder to read.
-- Ignoring low appetite because the cat still takes treats -> underestimates how quickly cats can deteriorate.
-- Planning travel only on the day of departure -> guarantees avoidable carrier and handling stress.
-- Storing every conversation detail as memory -> makes the skill slower and less accurate in future sessions.
-
-## External Endpoints
-
-This skill makes no external network requests.
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| None | None | N/A |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- None.
-
-**Data stored locally if approved by the user:**
-- household summary and activation preference in `~/Clawic/data/cat/memory.md`
-- one per-cat record with profile, health, routines, behavior, and logistics
+**Local data when the user approves storage**
+- household summary and activation preference in `<state_root>/memory.md`
+- per-cat profile, health, routines, behavior, logistics, and timeline files
 - supply thresholds and sitter notes
 
-**This skill does NOT:**
-- access files outside `~/Clawic/data/cat/` for storage
-- send cat data to third parties
-- create automations or reminders automatically
-- replace veterinary care for emergencies or diagnosis
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `memory` - persistent local memory patterns for durable pet context
-- `remind` - reminder workflows for meds, appointments, and recurring care
-- `shopping` - purchase planning and reorder support for food and supplies
-- `travel` - transport and trip planning support when a cat is moving with the user
-- `photos` - organize pet photos and help with albums or memory keepsakes
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/cat
-- Latest version: https://clawic.com/skills/cat
+**Operating limits**
+- stay inside `<state_root>/` for skill-owned storage
+- do not invent diagnoses or medication doses
+- escalate active red flags instead of waiting them out
+- require explicit approval before writing memory or creating directories
