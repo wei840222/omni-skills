@@ -10,7 +10,7 @@ Fiverr **explicitly permits AI tools** across all service categories:
 1. **Own rights** to all AI-generated deliverables
 2. **Comply** with AI tool's terms of service
 3. **Add human value**—no mass-produced identical outputs
-4. **Disclose when asked**—never deny AI use if client asks
+4. **Disclose when asked**—always confirm AI use accurately if the client asks
 
 ### Prohibited AI Uses
 - Deepfakes or impersonation without consent
@@ -61,9 +61,9 @@ Before using AI commercially, verify tool permits resale:
 ## Jurisdiction Considerations
 
 ### EU Clients/Sellers
-- **AI Act (2024/2025)**: Higher transparency requirements
-- **Consumer Rights Directive**: Right to know if dealing with AI
-- **GDPR**: Applies if processing personal data
+- **EU AI Act (Regulation (EU) 2024/1689)**: transparency and disclosure obligations may apply depending on system class—verify current Article 50+ guidance before advising; see `references/sources.md`
+- **Consumer protection / platform rules**: clients may expect clarity when interacting with automated systems; do not invent jurisdiction-specific scripts
+- **GDPR**: applies if processing personal data—minimize PII in order chats and local notes
 
 ### US
 - **FTC Act §5**: Misrepresenting AI as human work may violate
@@ -80,7 +80,7 @@ Before using AI commercially, verify tool permits resale:
 |----------|------------|-------|
 | AI for drafting + human editing | ✅ Low | Best practice |
 | Full AI output, light editing | ⚠️ Medium | Add more human value |
-| Denying AI use when asked | ❌ High | Never do this |
+| Denying AI use when asked | ❌ High | Always acknowledge AI assistance |
 | Using unlicensed AI tool output | ❌ High | Verify tool's ToS |
 | Mass identical AI outputs | ❌ High | Customize each |
 
