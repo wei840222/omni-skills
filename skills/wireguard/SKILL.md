@@ -1,52 +1,105 @@
 ---
 name: wireguard
-slug: wireguard
-version: 1.0.0
-description: Configure WireGuard VPN tunnels with secure routing and key management.
-homepage: https://clawic.com/skills/wireguard
+description: Configure and troubleshoot WireGuard VPN tunnels, peers, AllowedIPs
+  routing, key management, NAT keepalives, and DNS-leak hardening. Use when writing
+  wg-quick configs, diagnosing handshake failures, planning full-tunnel vs split-tunnel
+  routes, or exchanging public keys safely. Prefer `vpn` for provider selection and
+  privacy trade-offs, `network` for generic reachability diagnosis, and `firewall`
+  for host packet-filter rules around the tunnel.
 metadata:
-  clawdbot:
-    emoji: 🔐
-    requires:
-      bins:
-      - wg
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: WireGuard
+  version: "1.1.0"
+  openclaw: '{"emoji":"🔐","requires":{"bins":["wg"]}}'
+  related-skills: '{"vpn":"Provider selection, privacy trade-offs, and non-WireGuard VPN clients.","network":"Layer-3 reachability, DNS, and routing diagnosis outside WireGuard specifics.","firewall":"Host and cloud packet filters that must allow UDP ListenPort.","encryption":"Broader crypto algorithm choice beyond WireGuard key handling.","dns":"Resolver and leak fixes once tunnel DNS is configured.","linux":"Host forwarding, sysctl, and systemd concerns around the tunnel."}'
 ---
 
-## AllowedIPs Traps (Most Common Mistakes)
-- `AllowedIPs` means different things on each side — server: what peer CAN send; client: what to ROUTE through tunnel
-- `0.0.0.0/0` routes ALL traffic including tunnel endpoint — breaks connectivity, must exclude server's public IP first
-- Overlapping AllowedIPs between peers = undefined routing — each IP range must belong to exactly one peer
-- Wrong mask silently breaks routing — `/32` for single host, `/24` for subnet, verify carefully
+## When to load
 
-## Connection Failures
-- No handshake = wrong public key, firewall blocking UDP, or wrong endpoint — check all three, not just one
-- One-way traffic = AllowedIPs misconfigured — packets go out but replies don't route back
-- Missing `PersistentKeepalive = 25` breaks NAT traversal — peer behind NAT unreachable after ~2 minutes
-- Config file permissions must be 600 — wg-quick silently refuses to start with loose permissions
+Load this skill for **WireGuard-specific** work: `wg` / `wg-quick` config, peer keys, `AllowedIPs` semantics, handshake failures, PersistentKeepalive, DNS-in-tunnel, IP forwarding/NAT for exit nodes, and live `wg set` / `wg syncconf` changes.
 
-## DNS Leaks
-- Without `DNS =` in client config, DNS queries bypass tunnel — leaks real IP to DNS provider
-- Full tunnel (`0.0.0.0/0`) without DNS config = false sense of security — traffic tunneled but DNS exposed
+Do **not** load as the primary skill for generic VPN-provider shopping (`vpn`), broad connectivity triage (`network`), or firewall policy design alone (`firewall`).
 
-## Routing Setup
-- IP forwarding disabled by default on Linux — tunnel works but packets don't route between interfaces
-- NAT required for internet access through tunnel — without masquerade, return packets don't find their way
-- Firewall must allow UDP on ListenPort — WireGuard is UDP only, no TCP fallback exists
+## State location
 
-## Key Security
-- Private key file permissions matter — world-readable key is compromised, set 600 immediately after generation
-- Never transmit private keys — generate on each machine, exchange only public keys
-- Config files contain private keys — treat wg0.conf as secret, not just privatekey file
+Optional peer inventories, endpoint notes, and lab topology sketches may live under `<workspace>/wireguard/`, `<workspace>/memory/wireguard/`, or `~/wireguard/`. Resolve `<state_root>` once per invocation:
 
-## Live Changes
-- Adding peers requires interface reload on most setups — or use `wg set` for live changes without dropping connections
-- `wg syncconf` applies changes without restart — but config file format differs from wg.conf (use `wg-quick strip`)
+1. Use an explicitly configured path when available.
+2. Otherwise the first existing directory in that order.
+3. If multiple exist, use only the highest-precedence path and report duplicates.
+4. Create `<workspace>/wireguard/` only with user consent when no candidate exists.
 
-## Debugging
-- `wg show` displays handshake timestamps — stale handshake (>2 min) means connection dead despite interface up
-- Handshake happens on first packet — no traffic = no handshake attempt, ping to test
+Keep private keys, `wg0.conf`, and PSK material **out of the skill package and out of git**. Prefer placeholders such as `<SERVER_PRIVATE_KEY>` in examples.
+
+## Routing
+
+Load supporting references only when needed:
+
+- **Config patterns / AllowedIPs / keepalive**: `references/wireguard-guide.md`
+- **Commands, live changes, debugging**: `references/operations.md`
+- **Gate 6 primary sources**: `references/sources.md`
+
+## Core operations
+
+### 1. Keys stay local
+
+Generate private keys on each host; exchange **only** public keys (and optional PSKs out-of-band). Never paste a private key into chat logs, tickets, or the skill tree.
+
+```bash
+umask 077
+wg genkey | tee server.key | wg pubkey > server.pub
+wg genkey | tee client.key | wg pubkey > client.pub
+# optional: wg genpsk > psk.txt
+```
+
+Set config and key file modes to `600` before `wg-quick up`.
+
+### 2. AllowedIPs means different things on each side
+
+| Side | `AllowedIPs` meaning |
+| --- | --- |
+| Peer entry on a server | Crypto-routing filter: which source addresses that peer may send |
+| Peer entry on a client | Which destinations to **route into** the tunnel (policy routing) |
+
+Rules of thumb:
+
+- One host peer: `10.0.0.2/32` on the server; matching tunnel address on the client.
+- Full-tunnel client: `0.0.0.0/0` and/or `::/0` **and** exclude the server's public endpoint from the tunnel (wg-quick handles this via its routing table helpers; do not double-route the endpoint into itself).
+- Overlapping `AllowedIPs` across peers is undefined — each prefix should map to one peer.
+
+### 3. Handshake and NAT
+
+- No recent handshake → wrong public key, UDP blocked, wrong endpoint, or clock skew. Check all four.
+- Peers behind NAT need `PersistentKeepalive = 25` (seconds) on the side that must keep the mapping open (usually the client).
+- WireGuard is **UDP only**; open the `ListenPort` (default often `51820/udp`) on path firewalls.
+
+### 4. DNS leaks on full tunnel
+
+A full tunnel without `DNS =` in the client interface still lets OS DNS bypass the tunnel. Set tunnel DNS explicitly when privacy of name resolution matters, then verify with a resolver that is only reachable via the tunnel.
+
+### 5. Exit-node / site-to-site routing
+
+Linux exit nodes need:
+
+1. `net.ipv4.ip_forward=1` (and IPv6 forwarding if used)
+2. Masquerade/SNAT on the WAN interface for client internet access
+3. Firewall allow for `UDP/ListenPort` and forwarded traffic you intend to permit
+
+### 6. Live changes without full bounce
+
+Prefer `wg set` for a single peer tweak, or `wg syncconf <iface> <(wg-quick strip <iface>)` after editing the wg-quick file, so existing handshakes are not needlessly dropped. Use `wg show` and handshake age as the health signal.
+
+## Failure recovery
+
+| Symptom | Check first | Fix direction |
+| --- | --- | --- |
+| Interface up, no handshake | Keys, endpoint IP:port, UDP path | Correct pubkey/endpoint; open UDP |
+| Handshake OK, one-way traffic | `AllowedIPs` both sides, rp_filter | Align prefixes; allow return path |
+| Works then dies ~2 min | NAT mapping | `PersistentKeepalive = 25` on NAT side |
+| Full tunnel “works” but sites know you | DNS / WebRTC / IPv6 leak | Tunnel DNS; disable or tunnel IPv6 deliberately |
+| `wg-quick` refuses start | File mode / parse error | `chmod 600`; fix INI sections |
+
+## Safety
+
+- Treat every `*.conf` that embeds `PrivateKey` as secret material.
+- Do not disable peer identity checks or share one private key across machines.
+- Lab examples use RFC1918 tunnel addresses (`10.0.0.0/24` style); replace with the user's plan.
+- Confirm remote access (console/SSH out-of-band) before locking firewalls around the only admin path.
