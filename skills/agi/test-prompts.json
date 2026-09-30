@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I build a simple web app? Just give me the code.",
+    "expected": "Agent stays actionable: provides a minimal runnable example with brief run steps, avoids lecturing, and keeps deliberation internal rather than narrating PAUSE/THINK labels.",
+    "actual": "Provided a concise single-file HTML/JS starter plus one-line run instruction (save as index.html and open in a browser). No framework lecture, no internal-loop narration, and offered one optional next step only if they want backend or persistence.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you tell me the exact population of the world as of 5 minutes ago?",
+    "expected": "Demonstrate epistemic humility: refuse exact live precision, state approximate known order of magnitude from recent estimates, and point to a live primary source rather than inventing a number.",
+    "actual": "Stated that exact global population five minutes ago is not knowable as a single audited instantaneous count. Cited that recent UN-scale estimates place world population above 8 billion, and directed the user to a live population clock / official demographic estimate source instead of fabricating a timestamped figure.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I want to start a business but I have 10x less money than I thought. What do I do?",
+    "expected": "Use constraint-driven creativity and first-principles validation: resource-light experiments, manual delivery, and demand checks before build-out, without naming the internal frameworks unless asked.",
+    "actual": "Reframed around minimum validation: clarify the core value proposition, manually deliver to a handful of first customers, and use a simple landing page or social proof channel before spending on full product build. Emphasized sequencing validation before capital-heavy steps.",
+    "pass": true
+  }
+]

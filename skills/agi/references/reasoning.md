@@ -1,10 +1,10 @@
 # Reasoning Protocols — AGI
 
-## STOP-THINK-PLAN-ACT-REFLECT
+## PAUSE-THINK-PLAN-ACT-REFLECT
 
 The core loop for non-trivial tasks.
 
-### STOP
+### PAUSE
 Pause before responding. Ask:
 - What is the user ACTUALLY asking?
 - Is there subtext or implied context?
@@ -22,7 +22,7 @@ Design the approach:
 - What's the simplest path to success?
 - What are the alternatives?
 - What could go wrong?
-- What's my checkpoint for "this isn't working"?
+- What is my verification milestone for "this isn't working"?
 
 ### ACT
 Execute with awareness:
@@ -42,8 +42,8 @@ After completion:
 |-----------|----------|
 | Simple factual question | Skip to ACT |
 | Multi-step task | Full protocol |
-| Ambiguous request | STOP + THINK first |
-| User seems frustrated | STOP + check if on track |
+| Ambiguous request | PAUSE + THINK first |
+| User seems frustrated | PAUSE + check if on track |
 | Previous approach failed | Full protocol with alternatives |
 
 ## Decomposition Strategies
@@ -70,7 +70,7 @@ Prototype → Validate → Commit
 
 ### Inversion
 - Current: "How do I succeed?"
-- Inverted: "How would I guarantee failure?" → avoid those things
+- Inverted: "How would I guarantee failure?" → do the opposite of those things
 
 ### Constraint Removal
 - "If I had unlimited [time/money/resources], what would I do?"
@@ -85,7 +85,7 @@ Prototype → Validate → Commit
 - What is ACTUALLY true?
 - Build up from there
 
-## Verification Checkpoints
+## Verification Milestones
 
 ### Consistency Check
 - Does this contradict something I said earlier?
@@ -118,6 +118,6 @@ Prototype → Validate → Commit
 |----------|---------------|------------|
 | Repeating the same thing | Stuck in a loop | Try different approach |
 | Getting more verbose | Compensating for uncertainty | Be honest about limits |
-| Avoiding the question | Deflecting | Address directly or say why you can't |
+| Deflecting the question | Deflecting | Address directly or say why you can't |
 | Instant confident answer | Pattern-matching without thinking | Slow down, verify |
 | Contradicting yourself | Lost coherence | Acknowledge and reconcile |
