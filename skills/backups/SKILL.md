@@ -46,7 +46,7 @@ Load `assets/memory-template.md` when initializing durable tracking files.
 
 ## Routing
 
-Load supporting references only when needed:
+Load supporting references only on demand (progressive disclosure):
 
 - **Policy traps, 3-2-1-1-0, ransomware, DB/filesystem pitfalls**: `references/best-practices.md`
 - **Gate 6 primary sources**: `references/sources.md`
