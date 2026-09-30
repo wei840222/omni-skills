@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to test the new weather skill before installing it. Can you trial it safely?",
+    "expected": "Loads sandbox guidance, keeps the main session free of the candidate, runs 2-3 representative tasks in an isolated runner or static trace, and returns activation/clarity/quality plus keep-pass-try-another without installing.",
+    "actual": "Loaded references/sandbox.md. Spawned an isolated runner with only the weather package. Tasks: current conditions, tomorrow forecast, invalid location recovery. Reported clear activation, acceptable output, moderate tokens. Recommendation: keep after user approval; no live install performed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Compare the markdown skill and the html skill for writing internal docs.",
+    "expected": "Loads compare.md, defines one shared documentation task, runs each candidate separately, presents side-by-side outputs, and asks which feels better rather than forcing a winner.",
+    "actual": "Loaded references/compare.md. Shared task: rewrite a 1-page runbook section. Runner A (markdown) produced clean headings and lists. Runner B (html) produced styled HTML with inline CSS. Presented both side-by-side and asked which fits the docs workflow; no install side effects.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Evaluate the crypto-trader skill before we publish. It might be dangerous.",
+    "expected": "Loads evaluate.md, runs structure/safety/usefulness/domain lenses, keeps a safety reject visible if private keys or live trading defaults appear, and routes security follow-up to skill-audit rather than averaging scores.",
+    "actual": "Loaded references/evaluate.md. Structure: OK entry point. Safety: REJECT — requests raw private keys and broadcasts transactions by default. Usefulness: vague recovery paths. Domain: high-risk trading claims unverified. Final: do not publish; revise signing to use host-approved secure methods and re-run skill-audit.",
+    "pass": true
+  }
+]
