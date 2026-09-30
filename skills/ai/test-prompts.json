@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I reduce hallucinations in my model?",
+    "expected": "Gives a concrete stack: verified grounding/RAG, JSON schema or constrained output, temperature 0 (or deterministic setting), citation requirements, and a small regression eval — not only the word RAG.",
+    "actual": "Use a control stack, not a slogan: (1) ground answers in verified sources and refuse when evidence is missing; (2) enforce JSON Schema / constrained decoding for machine-checked fields; (3) set temperature 0 (or the provider deterministic mode) for factual extraction; (4) require citations/URLs in the system prompt and reject bare claims when stakes are high; (5) keep a tiny regression Q/A set and re-run after prompt or model changes. RAG helps only when retrieval quality is measured.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to run a 70B model locally, what hardware do I need?",
+    "expected": "States dense FP16-class ballpark is very high (~140GB class), notes Q4-class quants often land near ~35–48GB+ depending on context/runtime, labels figures as order-of-magnitude, and points to model card / Ollama docs rather than fake precision.",
+    "actual": "Treat sizes as order-of-magnitude, not guarantees. Dense FP16-class 70B is often cited around ~140GB VRAM; Q4-class quants commonly land nearer ~35–48GB+ once you include KV cache, context length, and runtime overhead. Re-check the exact quant and tag docs (Ollama library / model card) for your context length. If you need install/GPU fallback help, load the ollama skill.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What does GPT-4o cost per million tokens right now?",
+    "expected": "Refuses to invent a price from memory; opens or cites live OpenAI pricing and/or OpenRouter models pages and only then quotes a number with source.",
+    "actual": "I will not quote a memorized price. Open the live tables first: https://openai.com/api/pricing/ and https://openrouter.ai/models — then report input/output rates for the exact model id the user named, with the page as source. Prices change; skill memory is not authoritative.",
+    "pass": true
+  }
+]

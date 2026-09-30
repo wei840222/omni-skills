@@ -1,47 +1,61 @@
 ---
 name: ai
-slug: ai
-version: 1.0.0
-description: Answer AI questions with current info instead of outdated training data.
-homepage: https://clawic.com/skills/ai
+description: >
+  Answer AI product, pricing, ranking, hardware, and engineering questions with
+  live verification instead of stale training data. Use when the user asks about
+  current model prices, LMSYS/OpenRouter standings, outages, hallucination
+  controls, RAG vs fine-tuning, local VRAM order-of-magnitude, API vs local fit,
+  or token counting; prefer `models` for multi-model task routing, `ollama` for
+  local runtime ops, `rag`/`fine-tuning` for deep retrieval or training work,
+  and `prompting` for prompt failure diagnosis.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Artificial Intelligence
+  version: "1.1.0"
+  openclaw: '{"emoji":"🤖"}'
+  related-skills: '{"models":"Task-to-model and cost-tier selection beyond generic AI Q&A.","ollama":"Local Ollama install, Modelfile, and runtime ops after API-vs-local choice.","rag":"Retrieval architecture, chunking, and evaluation when RAG is the chosen path.","fine-tuning":"Training data, adapters, and eval loops when style/domain fit needs fine-tuning.","prompting":"Prompt failure diagnosis and iteration when the blocker is instruction design.","agi":"Deliberation and uncertainty calibration when the need is reasoning quality, not AI product facts.","embeddings":"Embedding model and vector-index choices supporting RAG stacks.","langchain":"Multi-step chain/agent wiring after the AI approach is chosen."}'
 ---
 
-# Artificial Intelligence
+## When to load
 
-## Your Training Data Is Outdated
+Load this skill for **AI product and engineering Q&A** that must not trust stale training data: live pricing, public rankings, provider outages, hallucination controls, RAG-vs-fine-tune triage, rough local hardware sizing, API vs local fit, and token counting.
 
-Before answering questions about pricing, rankings, or availability:
-- Pricing → check `openrouter.ai/models` (aggregates all providers)
-- Rankings → check `lmarena.ai` (crowdsourced ELO, updates weekly)
-- Outages → check status pages before blaming user code
+Do **not** load as the primary skill for multi-model portfolio routing (`models`), Ollama install/runtime (`ollama`), full RAG system design (`rag`), training runs (`fine-tuning`), prompt regression loops (`prompting`), or pure deliberation style (`agi`).
 
-Don't cite specific prices, context windows, or rate limits from memory — they change quarterly.
+## State location
 
-## Questions You Answer Too Vaguely
+Optional AI Q&A notes (preferred live URLs, verified snapshots, hardware inventory) may live under `<workspace>/ai/`, `<workspace>/memory/ai/`, or `~/ai/`. Resolve `<state_root>` once per invocation:
 
-**"How do I reduce hallucinations?"**
-Not just "use RAG." Specify: verified sources + JSON schema validation + temperature 0 + citation requirements in system prompt.
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/ai/`, `<workspace>/memory/ai/`, `~/ai/`.
+3. If none exists and persistent state must be created, default to `<workspace>/ai/` only with user consent.
+4. When more than one candidate exists, use only the highest-precedence path, report the conflict, and leave other copies unchanged.
 
-**"Should I fine-tune or use RAG?"**
-RAG first, always. Fine-tuning only when you need style changes or domain vocabulary that retrieval fails on.
+Use only the selected `<state_root>` for every state operation in this skill. Never invent `<workspace>` from the shell cwd. Keep API keys, account tokens, and private eval corpora **out of the skill package and out of git**.
 
-**"What hardware for local models?"**
-Give numbers: 7B = 8GB VRAM, 13B = 16GB, 70B = 48GB+. Quantization (Q4) halves requirements.
+```text
+<state_root>/
+|-- verified-facts.md   # Dated snapshots of prices/rankings the user asked to keep
+|-- hardware.md         # Local GPU/RAM notes the user supplied
+`-- links.md            # Preferred status and docs URLs for this workspace
+```
 
-## When to Recommend Local vs API
+One-off answers may stay conversational. Before creating or changing files under `<state_root>/`, explain the planned write and ask for confirmation.
 
-**Local (Ollama, LM Studio):** Privacy requirements, offline needed, or API spend >$100/month.
+## Routing
 
-**API:** Need frontier capabilities, no GPU, or just prototyping.
+| Need | Load |
+|------|------|
+| Live price / rank / outage checks and source map | `references/sources.md` |
+| Hallucination, RAG vs FT, hardware, API vs local, tokens | `references/guidelines.md` |
 
-## Token Math You Get Wrong
+## Core rules
 
-~4 characters per token in English. But code and non-English vary wildly — don't estimate, count with tiktoken or the provider's tokenizer.
+1. **Verify before quoting mutable facts.** Prices, context windows, rate limits, arena ranks, and status change often. Open the live page (or ask the user to) before stating a number.
+2. **Prefer primary aggregators and status pages** listed in `references/sources.md` over memory.
+3. **Give operational advice, not slogans.** Hallucination, RAG/FT, and hardware answers must include concrete controls or order-of-magnitude ranges with caveats (see `references/guidelines.md`).
+4. **Count tokens with a tokenizer**, not character heuristics, when the user needs a real budget.
+5. **Route deep work** to related skills once the triage answer is clear.
+
+## Completion check
+
+Before answering, confirm: mutable claims were verified or explicitly marked unverified; guidance matches `references/guidelines.md`; related deep work is routed; no secrets were written into the skill tree.
