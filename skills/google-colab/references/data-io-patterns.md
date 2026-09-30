@@ -9,24 +9,29 @@
 | HTTPS URL | Public references and snapshots | Hash or size check after download |
 | Manual upload | Small ad hoc samples | File name and schema check before use |
 
+Official Colab external-data patterns: https://colab.research.google.com/notebooks/io.ipynb
+
 ## Pre-Run Validation Checklist
 
 Before training or full inference:
+
 - verify source path exists and permissions are valid
 - sample first rows and confirm required columns
-- check class balance or target distribution
+- check class balance or target distribution when labels exist
 - confirm train/validation split is deterministic
 
 ## Output Discipline
 
 For outputs and artifacts:
-- write to timestamped folder
+
+- write to a timestamped folder under an approved destination
 - include metrics summary and config snapshot
-- avoid overwriting prior experiment outputs
+- append to or version prior experiment outputs under `<state_root>/experiments.md` when durable notes are enabled
 
 ## Failure Signals
 
-Stop and investigate when:
+Investigate immediately when:
+
 - row count changes unexpectedly between runs
 - required columns appear as all-null
 - split leakage is detected
