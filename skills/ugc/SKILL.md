@@ -46,8 +46,10 @@ Use only the selected `<state_root>` for every state operation in this skill. Ne
 
 Load supporting references only on demand (progressive disclosure):
 
-- **Hooks, formats, platforms, briefs, metrics**: `references/ugc-guidelines.md`
-- **Gate 6 primary sources**: `references/sources.md`
+- **Hooks, formats, platforms, briefs, metrics, fatigue**: `references/ugc-guidelines.md`
+- **Disclosure + platform source map (Gate 6)**: `references/sources.md`
+
+Keep `SKILL.md` as the decision layer; open references only when drafting briefs, reading metrics, or verifying disclosure/platform claims.
 
 ## Core operations
 
