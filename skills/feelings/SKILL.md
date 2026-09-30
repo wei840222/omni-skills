@@ -45,6 +45,8 @@ Use the selected `<state_root>` for every state path in this skill. Resolve the 
 
 ## When to load references
 
+Load references on demand; keep `SKILL.md` as the entry point only.
+
 - Load `references/tracking-system.md` for log schemas, vocabulary, triggers/helps/patterns templates, and progressive check-in flow.
 - Load `references/sources.md` when citing emotion-tracking or affect-labeling research, or when PR/review evidence needs primary URLs.
 
