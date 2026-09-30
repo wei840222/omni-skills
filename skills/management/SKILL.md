@@ -64,7 +64,7 @@ Keep `SKILL.md` as the entry point. Load supporting files only when needed:
 - For case/academic work: pick a framework that fits the question, challenge missing data, and make recommendations actionable.
 - For upward navigation: decode organizational pressure before drafting confrontation or escalation.
 - When livelihoods, protected characteristics, harassment, accommodations, or retaliation risk appear, load `references/safety-and-escalation.md` and recommend HR/legal paths rather than freestyle discipline scripts.
-- Tailor prescriptions to the specific people and constraints in the prompt; generic universal advice is a miss.
+- Tailor prescriptions to the specific people and constraints in the prompt; answer with one primary recommendation plus the condition that would change it.
 
 ## Quick routing
 

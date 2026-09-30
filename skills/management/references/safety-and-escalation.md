@@ -50,6 +50,6 @@ If any of 1–5 is missing, draft the missing piece first—do not polish a puni
 
 - It does not replace licensed legal advice or a company's official policy.
 - It does not draft "gotcha" paper trails aimed at manufacturing cause.
-- It does not coach users to retaliate after protected activity.
+- After protected activity, route to HR process and keep the manager role limited to facts and care for the team.
 
 When stakes are high, the correct next step is often: pause tactical scripting → gather facts → involve HR/legal → then write the communication.
