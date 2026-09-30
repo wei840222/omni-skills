@@ -39,19 +39,19 @@
 - **Best for:** Beginners, simple triggers
 - **Strength:** 8000+ app integrations
 - **Weakness:** Limited branching logic
-- **Pricing:** Free tier, paid from $20/mo
+- **Pricing:** Free tier available; paid plans change—confirm https://zapier.com/pricing before quoting seats or task limits.
 
 ### Make
 - **Best for:** Visual thinkers, flexible workflows
 - **Strength:** Powerful branching, good value
 - **Weakness:** Learning curve for complex flows
-- **Pricing:** Free tier, paid from $9/mo
+- **Pricing:** Free tier available; paid plans change—confirm https://www.make.com/en/pricing before quoting operations limits.
 
 ### n8n
 - **Best for:** Technical teams, privacy-conscious
 - **Strength:** Self-hosted option, code-level control
 - **Weakness:** Steeper learning curve
-- **Pricing:** Free self-hosted, cloud from $20/mo
+- **Pricing:** Free self-host option; cloud tiers change—confirm https://n8n.io/pricing and docs.n8n.io before quoting.
 
 ## Creative Tools
 
@@ -75,13 +75,13 @@
 ### Solo Marketer Stack
 ```
 Claude (content) + Canva (design) + Zapier (automation)
-Cost: ~$50/mo total
+Cost: rough solo ballpark only—re-sum live vendor pricing; often tens of USD/mo
 ```
 
 ### Startup Team Stack
 ```
 ChatGPT Teams + Make + Canva Pro + HeyGen
-Cost: ~$150/mo total
+Cost: rough small-team ballpark only—re-sum live vendor pricing; often low hundreds USD/mo
 ```
 
 ### Agency/Advanced Stack

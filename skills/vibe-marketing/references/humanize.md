@@ -24,10 +24,10 @@
 - "One could argue that..."
 - "It's safe to say..."
 
-Either say it directly or don't say it.
+Say it directly or remove it completely.
 
 ### Over-Structured Lists
-AI loves perfect parallelism. Real humans don't always:
+AI loves perfect parallelism. Real humans vary structure:
 - Mix sentence lengths
 - Break pattern occasionally
 - Use fragments. Like this.
@@ -77,7 +77,7 @@ Keep a living doc with:
 - [Example 1 with link]
 - [Example 2 with link]
 
-## We Don't Sound Like
+## Out of Bounds Tone
 - Corporate speak
 - Buzzword-heavy marketing
 - Overly enthusiastic
@@ -85,7 +85,7 @@ Keep a living doc with:
 ## Phrases We Use
 - [Your signature phrases]
 
-## Phrases We Avoid
+## Banned Phrases
 - [Banned words/phrases]
 ```
 
