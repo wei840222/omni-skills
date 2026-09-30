@@ -1,91 +1,56 @@
 ---
 name: drums
-slug: drums
-version: 1.0.0
-description: Drum practice strategies, technique correction, groove development, and progress tracking.
-homepage: https://clawic.com/skills/drums
+description: Provide drum practice strategies, technique correction, groove development, rudiment progression, and session logging. Use when the user is learning drums, asks for practice plans, kit setup, fill/tempo fixes, rudiment goals, or progress tracking. Route listening discovery to `music`, piano practice to `piano`, and guitar practice to `acoustic-guitar` or `electric-guitar`.
 metadata:
-  category: music
-  skills:
-  - drums
-  - percussion
-  - practice
-  - music
-  - rhythm
-  clawdbot:
-    emoji: 🥁
-    displayName: Drums
+  version: "1.0.1"
+  openclaw: '{"emoji":"🥁"}'
+  related-skills: '{"music":"Track listening history, playlists, and concerts rather than drum practice technique.","piano":"Keyboard practice plans and technique instead of drum kit work.","acoustic-guitar":"Acoustic guitar practice and repertoire instead of drums.","electric-guitar":"Electric guitar practice and gear instead of drums.","habits":"Design the recurring practice habit once the drum routine itself is clear."}'
 ---
 
-## Core Behavior
+## When to load
 
-- Create `~/Clawic/data/drums/` as workspace on first interaction
-- After practice, offer to log progress; see `progress.md`
+Load this skill for drum-kit practice coaching, technique diagnosis, rudiment tempo goals, groove-vs-chops decisions, electronic vs acoustic kit setup, hearing protection, and logging sessions under the drums workspace.
 
-## Before Advising
+Do not load as the primary skill for general music discovery, piano/guitar practice, or whole-life habit design without a drum-specific ask.
 
-- Ask kit — acoustic vs electronic affects advice
-- Ask level — notation reading, rudiments knowledge
-- Ask goals — rock vs jazz vs session work differ
+## State location
 
-## Practice Errors
+Resolve `<state_root>` before reading or writing drum practice data:
 
-- Speeding up fills — rushing is #1 amateur tell, always click
-- Neglecting weak hand — doubles expose it
-- All power, no dynamics — ghost notes are hard
-- Skipping rudiments — paradiddles, flams are vocabulary
+1. Use a host- or user-configured drums-state path when one is explicitly supplied.
+2. Otherwise use the first existing directory in this order: `<workspace>/drums/`, `<workspace>/memory/drums/`, then `~/drums/`.
+3. If none exists and the user asks to persist practice data, create `<workspace>/drums/`.
 
-## Technique Traps
+Use only the selected `<state_root>` for this invocation. Do not hardcode absolute paths or write the literal string `<state_root>` to disk. If more than one candidate exists, use the highest-precedence directory and report the conflict; keep the directories separate rather than merging or moving data.
 
-- Death grip — loose grip, fingers do rebound
-- Hitting from shoulder — wrist for speed, arm for power
-- Burying bass beater — let rebound for faster doubles
-- Throne too low — thighs angled down
+```text
+<state_root>/
+├── repertoire.md      # Songs learned and in progress
+├── sessions/
+│   └── YYYY-MM.md     # Monthly practice logs
+├── rudiments.md       # Tempo tracking per rudiment
+└── goals.md           # Short and long-term goals
+```
 
-## Mistakes by Level
+## Core behavior
 
-**Beginners:** Inconsistent tempo, ignoring hi-hat foot, fills lose beat
+- On first interaction that needs persistence, create the workspace tree under the resolved `<state_root>/`.
+- After practice, offer to log the session; load `references/progress.md` before writing logs or updating repertoire/rudiments/goals.
+- Load `references/technique.md` before diagnosing form, fills, kit setup, or level-specific mistakes.
+- Load `references/sources.md` when explaining why a practice default exists (motor learning, hearing safety, rudiment vocabulary).
+- Before advising, ask kit type (acoustic vs electronic), level/context, and goals (rock, jazz, session, hobby).
+- Prioritize groove, timing stability with a click, weak-hand development, dynamics/ghost notes, and hearing protection.
+- Surface progress proactively from logs (for example, "Paradiddles 90 last month — push to 100?").
 
-**Intermediate:** Overplaying, weak left foot, can't lock with bass
+## Progressive disclosure
 
-**Advanced:** Stylistic ruts, neglecting brushes, chops over groove
+| Resource | When to load |
+|----------|--------------|
+| `references/technique.md` | Form errors, rudiment priority, groove vs chops, troubleshooting, electronic kits, hearing |
+| `references/progress.md` | Workspace layout, repertoire/session/rudiment/goal formats, logging triggers |
+| `references/sources.md` | Pedagogy and safety sources behind defaults |
 
-## Rudiment Priority
+## Safety
 
-| Priority | Rudiments | Why |
-|----------|-----------|-----|
-| Essential | Single, double, paradiddle | Foundation |
-| Important | Flams, drags, flamacue | Accents |
-| Advanced | Swiss triplets, ratamacues | Speed |
-
-Start 60 BPM, add 5 only when clean.
-
-## Groove vs Chops
-
-- Groove pays bills — hired for feel, not fills
-- Simple solid beats complex shaky
-- Fill loses the 1 = wrong fill
-
-## Troubleshooting
-
-- "Fills lose tempo" → practice fill INTO beat 1
-- "Bass doubles weak" → heel-up, check spring
-- "Can't play quiet" → pp practice, ghost drills
-- "Hands not synced" → paradiddles at 40 BPM
-
-## Electronic Kits
-
-Mesh heads essential — rubber builds bad habits
-
-## Hearing
-
-Damage permanent — always wear -15dB plugs
-
-## Progress Tracking
-
-Log to `~/Clawic/data/drums/`: songs, rudiment tempos, grooves
-
-## What to Surface
-
-- "Paradiddles 90 last month — push to 100?"
-- "No left-foot logs — want hi-hat exercises?"
+- Hearing damage is permanent — default to hearing protection around **-15 dB** attenuation for practice and live volume.
+- Stop and reassess grip/posture when wrists, forearms, or shoulders hurt; do not push through pain for tempo gains.
