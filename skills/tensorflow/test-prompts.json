@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm running a TensorFlow model training and my GPU memory immediately hits 100% and stays there even with batch size 1. How can I fix this?",
+    "expected": "Advises enabling memory growth with tf.config.experimental.set_memory_growth before GPU init so TensorFlow does not reserve all device memory up front.",
+    "actual": "Load references/gotchas.md GPU Memory. Explain TensorFlow may grab nearly all GPU memory by default. Before any GPU op, list physical GPUs and call tf.config.experimental.set_memory_growth(gpu, True) on each. Mention lowering batch size or checkpointing if OOM persists.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My tf.function is running very slowly and printing warnings about retracing every time I call it with a slightly different sized array. How do I fix the retracing?",
+    "expected": "Recommends locking shapes with input_signature / tf.TensorSpec so shape churn does not create a new concrete function each call.",
+    "actual": "Load references/gotchas.md tf.function Retracing. Recommend @tf.function(input_signature=[tf.TensorSpec(...)]) for the expected rank/dtype, note Python scalars retrace, and keep side effects out of per-call paths.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Training is slow and nvidia-smi shows the GPU idle between steps. My input pipeline is a plain tf.data map then batch. What should I change first?",
+    "expected": "Points to tf.data performance patterns: parallel map with AUTOTUNE, cache placement, and prefetch(tf.data.AUTOTUNE) so host work overlaps device compute.",
+    "actual": "Load references/gotchas.md Data Pipeline. Suggest num_parallel_calls=tf.data.AUTOTUNE on map, cache after expensive deterministic work and before random augment, batch appropriately, and end with prefetch(tf.data.AUTOTUNE). Avoid pure-Python eager iteration over the dataset.",
+    "pass": true
+  }
+]
