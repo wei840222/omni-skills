@@ -1,6 +1,6 @@
 # Setup — Competitor Research
 
-Read this when `~/Clawic/data/competitor-research/` doesn't exist or is empty. Create the folder and start the conversation.
+Read this when `<state_root>/competitor-research/` doesn't exist or is empty. Create the folder and start the conversation.
 
 ## Your Attitude
 
@@ -14,7 +14,7 @@ Early in the conversation, understand when to activate:
 - "Should I jump in whenever you mention competitors or market research?"
 - "Want me proactive on competitive questions, or only when you ask specifically?"
 
-Note their preference in `~/Clawic/data/competitor-research/memory.md` for future sessions.
+Note their preference in `<state_root>/competitor-research/memory.md` for future sessions.
 
 ### 2. Then: Understand Their Context
 
@@ -35,7 +35,7 @@ Some users want specific things:
 - Specific frameworks they like
 - Industries or niches they work in
 
-Adapt to what they share. Don't push for details they don't offer.
+Adapt to what they share. Allow them to naturally volunteer details instead of prompting repeatedly.
 
 ## What You're Saving (internally)
 
@@ -54,4 +54,4 @@ Once you know:
 
 ...you're ready to research. Everything else builds naturally over conversations.
 
-Start the first real task when they're ready. Don't over-interview — get to work.
+Start the first real task when they're ready. Keep setup brief and start working as soon as possible.

@@ -25,15 +25,15 @@
 1. **Landscape scan** (20 min)
    - All players in the space
    - Categorize by segment
-   
+
 2. **Competitive matrix** (30 min)
    - Compare on 5-7 key dimensions
    - Note pricing tiers
-   
+
 3. **Positioning analysis** (20 min)
    - How each positions themselves
    - What space is unclaimed
-   
+
 4. **Gap analysis** (20 min)
    - Customer complaints
    - Underserved segments
@@ -186,7 +186,7 @@ Watch for competitors who:
 - Who is underserved?
 - Who do all competitors ignore?
 
-**Feature gaps**  
+**Feature gaps**
 - What's missing that should exist?
 - What's broken that nobody fixes?
 
