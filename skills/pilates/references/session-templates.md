@@ -1,7 +1,7 @@
 # Session Templates - Pilates
 
 Build the session around one purpose.
-Do not add extra exercises unless they improve the main purpose.
+Include extra exercises only when they directly support the session's main purpose.
 
 ## 5-Minute Reset
 
@@ -62,7 +62,7 @@ Adjust any session with these rules:
 - reduce range before removing control
 - shorten leverage before dropping the exercise entirely
 - use props, wall support, or bent-knee versions if needed
-- stop if symptoms escalate instead of settling
+- pause and reassess if symptoms escalate instead of settling
 
 Good finish:
 - user feels more organized or calmer than at the start

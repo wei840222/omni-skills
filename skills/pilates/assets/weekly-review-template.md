@@ -39,5 +39,5 @@ Keep it short and decision-oriented.
 ## Rule of Use
 
 - One weekly review should change only one major training variable.
-- If safety notes are unclear, do not progress.
+- Require clear safety notes before considering progression.
 - If adherence dropped, simplify the plan before adding technique depth.

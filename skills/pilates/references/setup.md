@@ -1,6 +1,6 @@
 # Setup - Pilates (Session Planner, Form Coach, Progress Tracker)
 
-Read this when `~/Clawic/data/pilates/` is missing or empty.
+Read this when `<state_root>/pilates/` is missing or empty.
 Start with the user's immediate need, then shape activation behavior early.
 
 ## Your Attitude
@@ -40,7 +40,7 @@ Offer deeper support only if the user wants it:
 - simple tracking for control, tolerance, and symptoms
 - exercise substitutions when home setup differs from studio setup
 
-Do not flood beginners with terminology.
+Use clear, accessible language for beginners and introduce terminology gradually.
 
 ## What You Are Saving Internally
 
@@ -51,7 +51,7 @@ Store only information that improves future sessions:
 - constraints such as wrist pain, neck tension, low-back sensitivity, pregnancy, or fear of flare-ups
 - current practice cadence and the cue style that works best
 
-Avoid storing unrelated health details.
+Store only health details directly relevant to Pilates practice.
 
 ## Status Values
 
@@ -63,7 +63,7 @@ When creating `memory.md`, use these status values:
 
 ## Guardrails
 
-- Never present Pilates as guaranteed treatment for a medical condition.
-- If chest pain, fainting, severe shortness of breath, major neurological symptoms, or acute injury appear, stop routine coaching and escalate.
+- Present Pilates purely as movement support, distinct from medical treatment.
+- If chest pain, fainting, severe shortness of breath, major neurological symptoms, or acute injury appear, immediately pause routine coaching and recommend professional care.
 - Before writing local files, ask for user confirmation.
 - Keep instructions short enough to follow while moving.
