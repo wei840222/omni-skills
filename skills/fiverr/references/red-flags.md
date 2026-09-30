@@ -6,7 +6,7 @@
 | Signal | Why It's Dangerous |
 |--------|-------------------|
 | "Let's talk on WhatsApp/email first" | ToS violation trap, potential scam |
-| "Send work, I'll pay after reviewing" | Will never pay |
+| "Send work, I'll pay after reviewing" | Likely to disappear without payment |
 | Account created same day + complex order | High chargeback risk |
 | "I'll give 5 stars for extra free work" | Review manipulation |
 | Requests your login credentials | Account theft |
@@ -38,13 +38,13 @@
 
 ## Chargeback Prevention
 
-1. **Document everything** in Fiverr messages (never external)
+1. **Document everything** exclusively within the Fiverr messaging system
 2. **Deliver through Fiverr's system** (use the Deliver button)
 3. **Watermark previews** until final payment confirmed
 4. **Screenshot requirements** discussed in chat
 5. **For large orders**: Use milestones or multiple smaller orders
 
-## ToS Violations to Avoid (Your Side)
+## Critical ToS Compliance Rules (Your Side)
 
 | Action | Consequence |
 |--------|-------------|
