@@ -157,6 +157,8 @@ If reproducibility evidence is missing, treat conclusions as provisional.
 
 ## Common Traps
 
+Prefer the recovery path next to each failure mode instead of only naming the anti-pattern.
+
 - Installing packages ad hoc across cells without pins → results differ after runtime reconnect
 - Using absolute local paths copied from old sessions → file not found during replay
 - Training before schema and null validation → wasted GPU time and misleading metrics
