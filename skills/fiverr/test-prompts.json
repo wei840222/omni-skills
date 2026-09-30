@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just got a message from a buyer who wants me to do a complex web scraping task, but they are asking to chat on WhatsApp first. Their account was created today. What should I do?",
+    "expected": "Identify the red flags (off-platform communication, newly created account) and recommend declining the order or keeping all communication on Fiverr with safe response patterns.",
+    "actual": "Multiple red flags fire immediately: off-platform WhatsApp contact before/outside normal Fiverr order flow, and a same-day account on a complex scraping job. Decline or hard-gate the request—insist every requirement, file, and payment stay inside Fiverr messages. Do not share personal contact channels. Load `references/red-flags.md` for refusal templates and chargeback-prevention notes, and keep delivery/watermarks on-platform if any legitimate order later opens.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should I structure my gig packages to get the most sales as a Level 1 seller?",
+    "expected": "Provide the recommended 3-tier package structure: Basic as an entry point, Standard as the most popular core offer, and Premium as the upsell, plus title/tag hygiene.",
+    "actual": "Use a clear three-tier ladder: Basic as a low-friction entry deliverable, Standard as the core ‘most buyers need this’ offer (price and scope anchored here), and Premium as the upsell with extras/faster delivery/source files. Pair that with a title of primary keyword + differentiator, all five tags filled without overlap, and a Problem→Solution→Why you→CTA description with FAQ. For brand-new sellers, also load `references/getting-started.md` for first-order pricing and buyer-request tactics—not just package labels.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A EU client asks whether I used AI on their logo gig and wants full exclusive copyright. I used Midjourney drafts then redrew in Illustrator. What should I tell them and what should I verify?",
+    "expected": "Require truthful disclosure when asked, separate tool commercial-use rights from Fiverr buyer rights transfer, note human creative input matters for copyright strength, and point to legal/sources references without inventing statute text.",
+    "actual": "Because the client asked, disclose truthfully: Midjourney assisted early drafts; final artwork was redrawn/curated in Illustrator with human creative control. Confirm your Midjourney plan allows commercial resale, that you can transfer the rights Fiverr’s terms expect on paid delivery, and avoid claiming ‘pure AI output has strong exclusive copyright everywhere’—US/EU treatment hinges on human authorship. Offer a short workflow note in the order chat (tools + human edits). Load `references/legal.md` for disclosure/IP matrices and `references/sources.md` for EU AI Act / primary-policy URLs before quoting legal articles; escalate pure legal counsel to the `legal` skill rather than inventing case advice.",
+    "pass": true
+  }
+]

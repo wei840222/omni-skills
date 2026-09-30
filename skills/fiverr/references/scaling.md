@@ -22,7 +22,7 @@ Track all orders in one view:
 ## Communication at Scale
 
 ### Response Templates (With Variations)
-Never send identical messages. Each template needs 3-5 variations:
+Ensure every template has 3-5 distinct variations to maintain unique communication:
 
 **Order Received - Variation 1:**
 > "Thanks for your order! I've reviewed your requirements and I'm excited to get started. Expect your first update within [X hours]. Quick question: [specific clarification]?"
@@ -34,7 +34,7 @@ Never send identical messages. Each template needs 3-5 variations:
 > "Appreciate you choosing me for this project! Your requirements look clear—I'll have an update for you by [time]. Just to make sure we're aligned: [specific clarification]"
 
 ### Response Timing Rules
-- **Don't respond instantly** every time (looks automated)
+- **Space out responses** appropriately to simulate natural typing (e.g., 2-5 minutes)
 - Vary between 5-30 minutes during "work hours"
 - Occasional 1-2 hour delays are natural
 - Set "away" status during off hours
@@ -87,11 +87,11 @@ Track time per gig type to ensure profitability:
 - Unusual activity patterns
 
 ### Safe Practices
-- Use template variations, never exact copies
+- Use diverse template variations for all responses
 - Add natural delays (5-30 min typical)
 - One IP/device per account
 - Human final approval on all sends
-- Never automate: deliveries, cancellations, disputes
+- Process deliveries, cancellations, and disputes manually
 
 ## Scaling Milestones
 
