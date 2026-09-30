@@ -1,11 +1,11 @@
 # Drums Progress Tracking
 
-Reference for file structure and logging format.
+Reference for file structure and logging format. Resolve `<state_root>` in `SKILL.md` before creating or editing these files.
 
-## Workspace Structure
+## Workspace structure
 
-```
-~/Clawic/data/drums/
+```text
+<state_root>/
 ├── repertoire.md      # Songs learned and in progress
 ├── sessions/
 │   └── YYYY-MM.md     # Monthly practice logs
@@ -13,7 +13,7 @@ Reference for file structure and logging format.
 └── goals.md           # Short and long-term goals
 ```
 
-## Repertoire Format
+## Repertoire format
 
 ```markdown
 # repertoire.md
@@ -35,7 +35,7 @@ Reference for file structure and logging format.
 - Fool in the Rain — Zeppelin (shuffle practice)
 ```
 
-## Rudiment Tracking
+## Rudiment tracking
 
 ```markdown
 # rudiments.md
@@ -53,7 +53,7 @@ Reference for file structure and logging format.
 - Flams still uneven at higher tempos
 ```
 
-## Session Log Format
+## Session log format
 
 ```markdown
 # sessions/2024-02.md
@@ -68,7 +68,7 @@ Reference for file structure and logging format.
 - Pushed from 100 to 105 BPM clean
 ```
 
-## Goals Format
+## Goals format
 
 ```markdown
 # goals.md
@@ -84,10 +84,11 @@ Reference for file structure and logging format.
 - Join a jam session or open mic
 ```
 
-## Logging Triggers
+## Logging triggers
 
-Prompt user to log when:
+Prompt the user to log when:
+
 - They mention practicing or playing
 - They learn a new song or section
 - They hit a new rudiment tempo
-- Weekly check-in if no recent logs
+- Weekly check-in when logs are inactive

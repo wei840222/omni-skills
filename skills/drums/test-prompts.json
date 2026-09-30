@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just practiced for 30 minutes. I was working on Back in Black and struggling with the hi-hat accents.",
+    "expected": "Ask about kit and level before deep technique advice, give a concrete hi-hat isolation or accent approach, and offer to log the session under the drums state root.",
+    "actual": "Nice 30-minute session. Before we dig in: acoustic or electronic kit, and how solid are you with basic rudiments/notation? For Back in Black hi-hat accents, isolate the hat pattern first—shoulder of the stick for accents, tip for the unaccented notes—then rejoin the groove with a click. Want me to log this session and the hi-hat struggle under your drums workspace?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My fills always seem to lose tempo and I can't sync my hands well. What should I do? I'm an intermediate player on an acoustic kit.",
+    "expected": "Practice fills into beat 1 with a click; fix hand sync with slow paradiddles (about 40 BPM); keep groove priority over chops.",
+    "actual": "Rushing fills is the classic intermediate tell. On an acoustic kit: (1) practice each fill straight into beat 1 of the next bar with a click—the handoff matters more than the fill itself; (2) rebuild hand evenness with paradiddles at ~40 BPM, relaxed and identical stroke height; (3) keep a simple solid groove if a fancy fill loses the 1. I can add these as rudiment/tempo goals in your tracker if you want.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I practice loud on an electronic kit with rubber pads. Any setup or health advice?",
+    "expected": "Prefer mesh heads over rubber for rebound transfer; insist on hearing protection around -15 dB; do not treat loud practice as toughness training.",
+    "actual": "Two hard defaults: switch toward mesh heads if you can—rubber pads train dead rebound that fights acoustic feel—and wear hearing protection around -15 dB even on e-kits when volume is up. Loud practice is not a badge; hearing damage is permanent. Tell me your goals and throne height next so we can check foot technique without burying the beater.",
+    "pass": true
+  }
+]
