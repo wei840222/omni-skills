@@ -7,8 +7,8 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
-| danish | 2026-09-30 | 86/100 (#624) |
 | google-colab | 2026-09-30 | 86/100 (#625) |
+| danish | 2026-09-30 | 86/100 (#624) |
 | wireguard | 2026-09-30 | 86/100 (#623) |
 | vibe-marketing | 2026-09-30 | 85/100 (#622) |
 | review-code | 2026-09-30 | 86/100 (#620) |
