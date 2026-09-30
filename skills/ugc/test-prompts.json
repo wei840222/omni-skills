@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a creator brief for a new hydrating face serum.",
+    "expected": "Brief with one audience, one key benefit, mandatory elements (product visible early, key phrase, CTA), authenticity/low-production guidance, and a do-not list; no medical guarantee claims.",
+    "actual": "Creator brief — Hydrating face serum\n\nAudience: people with dry/dull skin who follow skincare creators.\nOne benefit: visible plump/glow after consistent use (no medical cure claims).\nMandatory: product bottle in first 3s; phrase \"my everyday glass-skin step\"; CTA \"link in bio for the serum\".\nExecution: natural bathroom/window light, POV apply-on-face, conversational speech, phone-quality OK.\nDo not: studio spokesperson tone; stack 5 benefits; hide that this is a brand partnership if material connection exists (use clear disclosure).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our recent UGC ads have a 15% hook rate but a high hold rate after 5 seconds. What should we do?",
+    "expected": "Keep the body; test multiple new 1–3s hooks; cite that ~15% is below a common ~30% directional hook-rate aim and <20% usually needs a new open.",
+    "actual": "Diagnosis: body is working (hold after 5s strong); open is failing (15% past-3s is below a common ~30% directional aim and under the ~20% \"replace the hook\" floor).\nAction: freeze the winning body; ship 3–5 new first-3-second opens (pattern interrupt, face+motion, curiosity gap, text overlay sound-off). Re-measure hook rate before rewriting the whole concept. Track each hook as its own creative ID.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can we skip #ad if the creator only got a free product?",
+    "expected": "No — material connections including free product generally need clear disclosure per FTC endorsement guidance; do not hide ads as pure organic opinion.",
+    "actual": "No. Free product is still a material connection under FTC endorsement guidance. Creators should give clear, hard-to-miss disclosure (e.g. #ad / explicit \"brand sent this\") rather than burying it. Re-open https://www.ftc.gov/business-guidance/resources/ftcs-endorsement-guides-what-people-are-asking before publish coaching. Local rules may add requirements.",
+    "pass": true
+  }
+]
