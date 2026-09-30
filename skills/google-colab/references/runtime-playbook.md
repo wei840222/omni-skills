@@ -7,13 +7,16 @@
 | Data cleaning and EDA | CPU | Faster startup, lower cost |
 | Small model training | T4 or equivalent | Good baseline for quick iterations |
 | Large model fine-tuning | L4/A100 class | Use only with explicit budget guardrails |
+| Accelerator experiments when available | TPU (Colab-supported class) | Confirm availability and API compatibility before planning |
 | Teaching and demos | CPU or T4 | Favor reproducibility over raw speed |
+
+Availability and exact accelerator names change by Colab product tier; verify the live runtime picker and FAQ before promising a class. See `references/sources.md`.
 
 ## Rehydration After Disconnect
 
 When runtime resets:
 
-1. Re-run environment cell and reinstall pinned packages.
+1. Re-run environment cell and reinstall **pinned** packages.
 2. Re-mount data sources and verify path existence.
 3. Re-load checkpoints rather than restarting training from zero.
 4. Validate random seed and split method before resuming.
@@ -22,7 +25,7 @@ When runtime resets:
 
 - Use pinned versions for non-standard libraries.
 - Group installs in one cell to avoid hidden version drift.
-- Save `pip freeze` snapshot for significant runs.
+- Save a `pip freeze` snapshot for significant runs.
 
 ## Escalation Rule
 
