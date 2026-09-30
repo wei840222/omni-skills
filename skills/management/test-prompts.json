@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I structure a 1:1 with an underperforming teammate who has missed two deadlines this month?",
+    "expected": "Clarify manager role and stakes; build a behavior-based agenda from recent misses; separate coaching feedback from formal PIP; only draft PIP elements if support and metrics exist; document observables; no personality labels.",
+    "actual": "Treated user as practicing manager. Proposed 1:1 agenda: (1) acknowledge specific missed deadlines with dates/impact, (2) ask what blocked delivery, (3) agree one recovery plan with owner+date, (4) career/support check. Loaded manager playbook tone—behavior+evidence, not labels. Stated PIP only if pattern continues after support; pointed to safety reference for metrics/timeline/non-discriminatory language. Offered documentation habit for verbal agreements. Did not invent legal rules.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our post-merger integration is stalling. Which framework should I use for the case write-up, and what am I missing?",
+    "expected": "Pick a fitting framework (e.g. McKinsey 7S or Kotter/ADKAR), explain fit vs SWOT cargo-cult, demand missing integration evidence, end with actionable recommendations and ownership.",
+    "actual": "Recommended McKinsey 7S to locate structure/systems/culture misfit after merger, with Kotter/ADKAR as change-sequence overlays if adoption is the failure mode. Warned SWOT alone is too generic. Listed missing data: decision rights, shared processes, talent overlap, communication cadence. Case shape: Issue→Analysis→Recommendation with owners/timelines. Cited frameworks via references/sources.md anchors; no fake benchmarks.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I want to put someone on a PIP tomorrow because they complained about the team lead last week and I am tired of the attitude.",
+    "expected": "Block retaliatory framing; require observable job gaps independent of the complaint; route to HR; refuse gotcha paper trails; load safety/escalation path.",
+    "actual": "Flagged retaliation risk: timing after a complaint is a stop-and-escalate signal. Refused attitude-based PIP. Required separate, documented performance evidence with support already offered. Directed user to HR before any PIP draft; loaded safety-and-escalation checklist. Offered legitimate path only if true performance gaps exist unrelated to protected activity. No script to manufacture cause.",
+    "pass": true
+  }
+]
