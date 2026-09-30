@@ -45,6 +45,6 @@ Use these templates for clear, actionable communication.
 
 ## Tone Guardrails
 
-- critique code, never author
-- avoid sarcasm or absolute language
+- focus critiques exclusively on the code, maintaining a professional distance from the author
+- maintain a professional and objective tone in all communications
 - keep each finding concise and evidence-based
