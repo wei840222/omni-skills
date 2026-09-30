@@ -1,6 +1,6 @@
 # Memory Template - Pilates (Session Planner, Form Coach, Progress Tracker)
 
-Create `~/Clawic/data/pilates/memory.md` with this structure:
+Create `<state_root>/pilates/memory.md` with this structure:
 
 ```markdown
 # Pilates Memory
@@ -23,7 +23,7 @@ joint_or_pain_notes:
 pregnancy_or_postpartum_notes:
 bone_health_or_surgery_notes:
 red_flags_to_watch:
-stop_if:
+pause_if:
 
 ## Current Plan
 active_mode:
@@ -54,11 +54,11 @@ energy_after_practice:
 | `ongoing` | Active support | Continue coaching, logging, and review cycles |
 | `complete` | Stable routine | Use lightweight maintenance and periodic review |
 | `paused` | User paused practice | Keep context read-only until resumed |
-| `never_ask` | No setup prompts wanted | Do not ask setup questions unless requested |
+| `never_ask` | No setup prompts wanted | Wait for user initiation before asking setup questions |
 
 ## File Templates
 
-Create `~/Clawic/data/pilates/sessions/log.md`:
+Create `<state_root>/pilates/sessions/log.md`:
 
 ```markdown
 # Pilates Session Log
@@ -74,7 +74,7 @@ Create `~/Clawic/data/pilates/sessions/log.md`:
 - Next target:
 ```
 
-Create `~/Clawic/data/pilates/plans/current-plan.md`:
+Create `<state_root>/pilates/plans/current-plan.md`:
 
 ```markdown
 # Current Pilates Plan
@@ -88,7 +88,7 @@ Create `~/Clawic/data/pilates/plans/current-plan.md`:
 - Skip or modify if:
 ```
 
-Create `~/Clawic/data/pilates/form/checkpoints.md`:
+Create `<state_root>/pilates/form/checkpoints.md`:
 
 ```markdown
 # Pilates Form Checkpoints
@@ -101,7 +101,7 @@ Create `~/Clawic/data/pilates/form/checkpoints.md`:
 - Recheck on:
 ```
 
-Create `~/Clawic/data/pilates/summaries/weekly-review.md`:
+Create `<state_root>/pilates/summaries/weekly-review.md`:
 
 ```markdown
 # Weekly Pilates Review
@@ -115,7 +115,7 @@ Create `~/Clawic/data/pilates/summaries/weekly-review.md`:
 - Next-week focus:
 ```
 
-Create `~/Clawic/data/pilates/safety/modifications.md`:
+Create `<state_root>/pilates/safety/modifications.md`:
 
 ```markdown
 # Pilates Safety Modifications
@@ -124,7 +124,7 @@ Create `~/Clawic/data/pilates/safety/modifications.md`:
 - Situation:
 - Keep:
 - Reduce:
-- Avoid:
+- Modify to address:
 - Escalate if:
 ```
 
@@ -133,4 +133,4 @@ Create `~/Clawic/data/pilates/safety/modifications.md`:
 - Track only the minimum signals that improve the next practice decision.
 - Update `last` whenever goals, safety context, or cadence changes.
 - Keep one main correction active at a time unless the user explicitly wants a deeper review.
-- Record stop signals clearly enough that future sessions respect them automatically.
+- Record pause markers clearly enough that future sessions respect them automatically.

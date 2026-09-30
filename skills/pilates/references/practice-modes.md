@@ -67,7 +67,7 @@ Use when energy is low, soreness is elevated, or the user needs the gentlest via
 Focus:
 - shorter sessions
 - supported or reduced-range drills
-- calmer pacing with clear stop conditions
+- calmer pacing with defined pause thresholds
 
 Good output:
 - conservative session
