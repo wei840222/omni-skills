@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a Google Colab notebook for benchmarking a HuggingFace model.",
+    "expected": "Resolve or initialize <state_root>, confirm objective/constraints/exit criteria, design cells with contracts, pin runtime (e.g. T4/L4) and dependencies, and defer expensive runs until schema/validation gates pass.",
+    "actual": "Agent resolved <state_root>, confirmed benchmarking goal and exit metric, proposed environment/config/data/eval cells with deterministic checks, pinned a T4-class runtime, and required dependency snapshot before long jobs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Train the model now, here is the raw dataset path.",
+    "expected": "Refuse immediate full training. Verify mount/path, run schema/null checks, require split method and budget cutoff, then only allow a dry-run or blocked plan until gates pass.",
+    "actual": "Agent refused immediate training, verified the dataset path, ran a fast schema/null sample, reported data-layer health, and asked for split method plus cost cutoff before any full run.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Colab disconnected mid-training. Just reinstall packages and keep going.",
+    "expected": "Follow runtime rehydration: environment cell, pinned reinstall, remount and path checks, reload checkpoint, re-validate seed/split, then resume. Do not ad-hoc install without pins or skip data validation.",
+    "actual": "Agent rejected unpinned reinstall-only recovery, re-ran environment validation, remounted data, reloaded the last checkpoint, confirmed seed/split, and only then resumed training with a budget note.",
+    "pass": true
+  }
+]
