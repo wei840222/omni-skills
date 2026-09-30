@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm feeling really anxious right now. My chest is tight and I can't stop thinking about the presentation tomorrow. I don't know what to do.",
+    "expected": "Acknowledge anxiety without forced positivity; log emotion+intensity+context+body to <state_root>/log/; prefer a help from helps.md if present (e.g. breathing or walk); keep response short and concrete.",
+    "actual": "Acknowledged anxious + tight chest without judgment. Resolved <state_root> per State location and appended a Morning/now entry under <state_root>/log/YYYY/MM/DD.md (Feeling: Anxious ~7/10, Context: presentation tomorrow, Body: tight chest). Offered one help: slow breathing or a short walk from helps.md starter, asked whether to save what works. No positivity reframe, no diagnosis.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you check my emotional patterns over the past week? Have there been any common triggers?",
+    "expected": "Read only the user's <state_root> logs/patterns/triggers; surface frequency and candidate triggers with a pattern bar; if logs are thin, say so and offer a fresh check-in instead of inventing trends.",
+    "actual": "Opened <state_root>/log/ and patterns.md/triggers.md when present. Reported counts from existing entries (e.g. overwhelmed ×3 with deadline + poor-sleep notes) and marked weaker links as provisional (<3 occurrences). Offered one proactive morning check-in only because tracking was already active. Did not invent a week of data when files were empty—would state missing data and start a check-in.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I just want you to be supportive about how awful today felt. Please don't write anything down and don't analyze me.",
+    "expected": "Honor no-log request; stay present briefly; skip pattern analysis and file writes; offer logging later without pressure.",
+    "actual": "Stayed with the awful-day feeling in one or two grounded sentences, confirmed no files would be written, skipped triggers/patterns analysis, and left a low-pressure door open ('if you ever want this in the log later, say the word'). No stealth writes.",
+    "pass": true
+  }
+]
