@@ -64,7 +64,7 @@ When scores are close:
 3. Pick the one that survives spoken conversation better
 4. Pick the one with the safer migration path
 
-## Do Not Fake Clearance
+## Verify Clearance Manually
 
 This scorecard is not legal clearance, trademark clearance, or guaranteed namespace availability.
 
