@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a basic WireGuard server configuration file with one peer.",
+    "expected": "Valid [Interface]/[Peer] sketch with placeholders for keys, server Address/ListenPort, and peer AllowedIPs /32; no real private keys.",
+    "actual": "Provided server wg0 sketch: Interface PrivateKey=<SERVER_PRIVATE_KEY>, Address=10.0.0.1/24, ListenPort=51820; Peer PublicKey=<CLIENT_PUBLIC_KEY>, AllowedIPs=10.0.0.2/32. Pointed to references/wireguard-guide.md. No real secrets.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Why can't my peer connect to the WireGuard server? They are behind a NAT.",
+    "expected": "Mention PersistentKeepalive (~25s) for NAT mapping, plus handshake checks (keys, UDP endpoint, firewall).",
+    "actual": "NAT mappings drop without keepalive—set PersistentKeepalive=25 on the NAT-side peer (usually client). Also verify public keys, UDP ListenPort path, and Endpoint. See Failure recovery and references/wireguard-guide.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My full-tunnel WireGuard works but websites still see my real ISP DNS. What did I miss?",
+    "expected": "Explain DNS leak: set Interface DNS= to a tunnel resolver; consider IPv6; verify queries do not bypass the tunnel.",
+    "actual": "Full tunnel without DNS= leaves OS resolvers on the physical path. Set DNS= to a resolver reached via the tunnel, decide IPv6 explicitly, then verify. See Core operations §4 and references/wireguard-guide.md DNS leaks.",
+    "pass": true
+  }
+]
