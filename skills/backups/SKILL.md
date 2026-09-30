@@ -101,6 +101,8 @@ Write the restore procedure outside the backup repository (printed copy, alterna
 
 ## Failure recovery
 
+Diagnose one symptom row at a time; do not stack unrelated tool migrations in the same recovery step.
+
 | Symptom | Likely cause | First checks |
 | --- | --- | --- |
 | Backup job green, restore empty/corrupt | Wrong path, incomplete chain, silent tool misconfig | Restore to clean target; verify size/checksum; inspect last full + incrementals |
