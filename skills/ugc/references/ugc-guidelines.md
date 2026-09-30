@@ -2,6 +2,8 @@
 
 Operational patterns for authentic short-form user-generated content. Pair with `sources.md` before asserting live policy, product UI, or fee claims.
 
+Default stance: say what good UGC does (early product, one message, clear disclosure, hook tests) before listing failure modes. Prefer concrete brief fields over abstract "be authentic" advice.
+
 ## Hook (first 1–3 seconds)
 
 - Pattern interrupt or curiosity gap that the body can pay off
