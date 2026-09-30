@@ -44,6 +44,15 @@ Protect marketplace metrics before chasing level badges:
 - Response rate, order completion, and on-time delivery commonly target **≥90%** (confirm live Seller Levels / Help Center thresholds before advising a hard cutoff).
 - Legacy public framing often cited Level 1 / Level 2 / Top Rated ladders with day-count, order-count, and rating floors (for example ~60/120/180 days and ~10/50/100 orders at 4.7+). **Re-verify current requirements** via Fiverr Seller Levels documentation before promising eligibility dates—Fiverr changes program rules.
 
+### Buyer Communication Priority
+
+Prioritize inbox by type:
+
+- **Hot** (specific project + budget mentioned) → respond in under 1 hour when online
+- **Warm** (interested, needs info) → respond within a few hours during the work window
+- **FAQ-style repeats** → use saved-response **variations** (never identical spam)
+- **Red flag patterns** → load `references/red-flags.md` and decline or hard-gate on-platform
+
 ### Scope Creep Defense
 
 Reply pattern:
