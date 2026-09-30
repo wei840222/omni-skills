@@ -20,7 +20,7 @@ Primary job:
 Hard limits:
 System context:
 Words to echo:
-Words to avoid:
+Words to exclude:
 Winner looks like:
 ```
 

@@ -1,6 +1,6 @@
 # Naming Patterns By Surface
 
-Different naming surfaces need different defaults. Do not reuse one naming style everywhere.
+Different naming surfaces need different defaults. Apply naming styles specifically to their intended surface.
 
 ## Product Or Brand Names
 
@@ -14,7 +14,7 @@ Prefer:
 - names that can be spoken in one breath
 - names with an easy plural or adjectival form if the product language needs it
 
-Avoid:
+Exclude:
 - overbuilt metaphors that need explanation
 - forced spelling changes
 - names that lock the brand into one tiny use case unless the strategy requires that
@@ -31,7 +31,7 @@ Prefer:
 - verbs for actions, nouns for destinations, adjectives for states
 - names that can survive nav labels, docs headings, and support conversations
 
-Avoid:
+Exclude:
 - campaign language in persistent UI
 - vague words like Hub, Studio, Magic, Smart, Flow unless they carry specific product meaning
 - naming one feature at a radically different abstraction level from the rest
@@ -48,7 +48,7 @@ Prefer:
 - stable resource names before action-specific exceptions
 - explicit distinctions between object, event, state, and operation
 
-Avoid:
+Exclude:
 - mixing singular and plural arbitrarily
 - mixing verbs and nouns for equivalent objects
 - cute language that hides actual behavior
@@ -65,7 +65,7 @@ Prefer:
 - stable prefixes when grouping matters
 - names that sort well beside sibling assets
 
-Avoid:
+Exclude:
 - puns
 - internal jokes
 - decorative abbreviations that new contributors will not infer
@@ -81,7 +81,7 @@ Prefer:
 - temporary labels that are distinct from customer-facing words
 - names that are safe to say in meetings without leaking final positioning
 
-Avoid:
+Exclude:
 - codenames that become so entrenched they block the public rename
 - offensive or embarrassing jokes
 - codenames that overlap with existing project names

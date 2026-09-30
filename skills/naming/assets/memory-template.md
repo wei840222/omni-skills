@@ -1,10 +1,13 @@
 # Memory Template — Naming
 
-Create `~/Clawic/data/naming/` with these files on first persistent use:
+After `<state_root>` is resolved to a real directory and the user approves persistence, create these files on first durable use.
+
+Example commands (replace the path with the resolved root):
 
 ```bash
-mkdir -p ~/Clawic/data/naming/archive
-touch ~/Clawic/data/naming/{memory.md,briefs.md,winners.md,collisions.md}
+RESOLVED_ROOT="/path/to/resolved/naming"
+mkdir -p "$RESOLVED_ROOT/archive"
+touch "$RESOLVED_ROOT/memory.md" "$RESOLVED_ROOT/briefs.md" "$RESOLVED_ROOT/winners.md" "$RESOLVED_ROOT/collisions.md"
 ```
 
 ## `memory.md`
@@ -25,7 +28,7 @@ integration: pending | done | declined
 
 ## Preferences
 - Naming style they prefer: plain, branded, technical, or hybrid
-- Words, tones, suffixes, or cliches to avoid
+- Words, tones, suffixes, or cliches to exclude
 - Preferred output style: one winner first, shortlist first, or exploratory families
 
 ## Constraints
@@ -48,7 +51,7 @@ Updated: YYYY-MM-DD
 - Role: what this thing is
 - Audience: who must understand or use the name
 - Limits: character, tone, namespace, or rollout constraints
-- Lexicon: words to include, echo, or avoid
+- Lexicon: words to include, echo, or exclude
 - Yardstick: what makes a winner in this context
 ```
 
@@ -82,3 +85,4 @@ Updated: YYYY-MM-DD
 - Promote a preference only after repeated evidence
 - If the user declines persistence, work normally without local writes
 - Keep memory compact enough to scan fast on activation
+- Write only under the resolved path; never persist the placeholder string `<state_root>`

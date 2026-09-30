@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need a name for a new background service that syncs user contacts to our CRM. It should sound reliable.",
+    "expected": "Lock a RALLY brief, identify the utility/service lane, produce at least three option families, score finalists with CLASH, recommend one winner plus two backups, and note any remaining namespace checks.",
+    "actual": "RALLY brief locked: Role=background contact→CRM sync worker; Audience=engineers + ops; Limits=reliable tone, no brand flourish, must fit existing service namespace; Lexicon=sync/bridge/vault ok, magic/hub excluded; Yardstick=clarity + ops scan speed. Lane=package/service utility. Families: (1) Action — ContactSync, CrmIngest, ContactBridge; (2) Reliability — SteadySync, VaultSync, AnchorContacts; (3) System-consistent — contacts-sync-worker, crm-contact-replicator. CLASH shortlist favors ContactSync (C5 L5 A4 S4 H5) for plain comprehension; backups SteadySync and crm-contact-replicator. Open check: confirm org repo/package namespace has no ContactSync collision before merge.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Help me rename our core API endpoint from /v1/stuff to something better without breaking existing clients.",
+    "expected": "Treat as a migration via rename-playbook: propose a descriptive resource name from surface-patterns, define alias/deprecation policy, list blast radius, and keep backward compatibility during transition.",
+    "actual": "Treated as production rename, not a word swap. Proposed canonical resource `/v1/inventory-items` (plural noun, stable collection) per API surface patterns. Alias policy: keep `/v1/stuff` as a temporary reverse-proxy/alias returning deprecation headers for at least one release train; document canonical path in OpenAPI and client SDKs. Blast radius: routes, SDK methods, analytics event dimensions, support macros, and cached client configs. Success signal: >95% traffic on new path and zero 404 spikes on alias. Rollback trigger: client error budget burn from path mismatch. Winner: inventory-items; backups: inventory, stock-items. Trademark/domain N/A; confirm no existing `/v1/inventory-items` collision in the same API family.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Brainstorm 20 cool names for our notes app. Just a list is fine.",
+    "expected": "Still keep internal structure: brief summary, option families, shortlist with rationale, and one recommendation plus backups instead of only a flat cool-name dump; mark brand-lane tradeoffs and remaining clearance checks.",
+    "actual": "Kept structure despite list-only ask. Brief: Role=consumer notes app; Audience=general users; Limits=easy spell/say, room to grow beyond notes; Yardstick=recall + clarity. Families: (1) Descriptive — NoteShelf, Pagefold, Inktray; (2) Metaphor — Harborleaf, Quietdock, Lumenstack; (3) Compound utility — Quickmargin, Draftnest, Capturebay. CLASH shortlist: Draftnest (C4 L5 A4 S3 H5) as winner for plain recall without fake spelling; backups NoteShelf and Quietdock. Risk notes: Draftnest needs package/domain/trademark live checks before public lock; avoid invented spellings from the longer cool-list request because they raise Load and Search collision costs.",
+    "pass": true
+  }
+]

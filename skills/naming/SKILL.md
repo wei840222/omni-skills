@@ -1,162 +1,82 @@
 ---
 name: naming
-slug: naming
-version: 1.0.0
-description: Create, test, and choose names for products, features, APIs, files, and systems with constraint-first briefs and collision checks.
-homepage: https://clawic.com/skills/naming
-changelog: Initial release with a naming brief, scoring rubric, surface patterns, and safer rename guidance.
+description: Generate constraint-driven names for products, brands, features, APIs,
+  packages, files, and internal codenames, then score finalists and plan safe renames.
+  Use when the user needs naming options, taxonomy cleanup, collision checks, or a
+  rename migration; skip pure logo/visual identity work and long-form marketing copy.
 metadata:
-  clawdbot:
-    emoji: 🏷️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/naming/
-    displayName: Naming
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/naming/
+  version: 1.0.0
+  openclaw: '{"emoji":"🏷️","requires":{"bins":[]},"os":["linux","darwin","win32"],"configPaths":["<state_root>/"],"displayName":"Naming"}'
+  related-skills: '{"api":"API path, resource, and client-method naming when the surface is integration code rather than product brand.","branding":"Brand identity and positioning when the name must carry story and market distinctiveness beyond utility clarity.","copywriting":"Marketing headlines and persuasive lines after a shortlist exists; not the primary naming workflow.","design":"UI label length and visual hierarchy constraints that bound feature and navigation names.","product":"Product framing and launch language when the named object is a shippable product surface.","product-manager":"Roadmap and requirement language when naming must match problem statements and prioritization artifacts.","strategy":"Positioning and competitive framing when the name encodes category strategy."}'
 ---
 
-## When to Use
+## When to load
 
-Naming work appears when the user needs a name that other people must understand, remember, say, search, or implement correctly.
+Load this skill to generate, evaluate, shortlist, or migrate names for products, brands, features, APIs, packages, files, folders, internal codenames, or taxonomy cleanups.
+Prefer this skill when collision risk, namespace consistency, pronunciation, or rename blast radius changes the decision.
+Do not load for logo/visual system work as the primary task (`branding` / `design`), long-form ads or landing-page prose (`copywriting`), or building a new HTTP API implementation (`api` / `rest-api`) without a naming decision.
 
-Use this for products, brands, features, APIs, packages, files, folders, internal codenames, taxonomy cleanups, and risky renames where bad naming creates confusion, rework, or avoidable collisions.
+## State location
 
-## Architecture
+Naming state may exist in `<workspace>/naming/`, `<workspace>/memory/naming/`, or `~/naming/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Memory lives in `~/Clawic/data/naming/`. If `~/Clawic/data/naming/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/naming/`, `<workspace>/memory/naming/`, `~/naming/`.
+3. If none exists and state must be created, default to `<workspace>/naming/` after the user approves persistence.
+
+Use the selected `<state_root>` for every state operation in this skill. Keep the root fixed for the rest of the invocation.
+If multiple candidates exist, use the highest-precedence path only; tell the user duplicates were detected and do not merge automatically.
+Never write the literal string `<state_root>` to disk.
 
 ```text
-~/Clawic/data/naming/
-├── memory.md      # Stable naming taste, banned patterns, durable constraints
-├── briefs.md      # Reusable naming briefs by asset or project
-├── winners.md     # Approved names, backups, and rationale
-├── collisions.md  # Rejected candidates and collision notes
-└── archive/       # Retired names, old briefs, and obsolete language
+<state_root>/
+├── memory.md        # Activation preference, durable taste, repeating constraints
+├── briefs.md        # Compact RALLY briefs worth keeping
+├── winners.md       # Approved names with rationale and open checks
+├── collisions.md    # Rejected candidates and failure reasons
+└── archive/         # Older briefs or retired shortlists
 ```
 
-## Quick Reference
+One-off naming questions may stay conversational. Before creating or changing files under `<state_root>/`, explain the planned write and ask for confirmation.
 
-Load the smallest file that removes the current naming uncertainty.
+## Routing
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Constraint-first brief | `brief-template.md` |
-| Candidate scoring rubric | `scorecard.md` |
-| Naming patterns by surface | `surface-patterns.md` |
-| Safe rename protocol | `rename-playbook.md` |
+Load the matching relative path before topic-specific guidance.
 
-## Output Contract
+| Need | Load |
+|------|------|
+| First activation / empty state | `references/setup.md` |
+| Core rules, lanes, traps, output contract | `references/rules.md` |
+| CLASH scoring of finalists | `references/scorecard.md` |
+| Surface-specific defaults (product, UI, API, files, codenames) | `references/surface-patterns.md` |
+| Production rename / alias / migration plan | `references/rename-playbook.md` |
+| Official sources for labels, API names, trademarks | `references/sources.md` |
+| RALLY brief skeleton | `assets/brief-template.md` |
+| Durable memory file shapes | `assets/memory-template.md` |
 
-When this skill is active, produce a naming deliverable that is decision-ready, not just a brainstorm dump.
+## Core loop
 
-| Output | Purpose |
-|--------|---------|
-| Brief summary | Lock the object, audience, constraints, and success criteria |
-| Option families | Show structured variation instead of random isolated names |
-| Shortlist with scores | Explain why finalists survive the filters |
-| Recommendation | Pick one winner plus two backups |
-| Risk notes | Flag collisions, ambiguity, rollout risk, or missing verification |
+1. Lock a RALLY brief (`assets/brief-template.md`) before generating candidates.
+2. Identify the naming lane and load `references/surface-patterns.md` for that surface.
+3. Produce option families, not a flat random list; keep internal structure even for “just ideas”.
+4. Score finalists with CLASH (`references/scorecard.md`); recommend one winner plus two backups.
+5. For live names, run `references/rename-playbook.md` and treat the change as a migration.
+6. Declare any live domain, trademark, package, or registry check before executing it.
+7. Persist only durable constraints and decisions under `<state_root>/` after approval.
 
-If the user only asks for ideas, still keep the internal structure. Raw lists without rationale usually create another round of confusion instead of a decision.
+## Security and privacy
 
-## Naming Lanes
+**Data that stays local when the user approves storage**
+- briefs, activation preference, approved names, rejected patterns, and collision notes under `<state_root>/`
 
-First identify which lane the work belongs to. Good names are surface-specific.
+**Operating limits**
+- stay inside the resolved `<state_root>/` for skill-owned storage
+- treat trademark, domain, app-store, and package-registry lookups as explicit external checks
+- require user confirmation before mutating production labels, routes, docs, analytics events, or public branding
+- keep competitor and customer naming notes minimal; do not exfiltrate private roadmaps
 
-| Lane | Optimize for | Common failure | File |
-|------|--------------|----------------|------|
-| Product or brand | Memorability, distinction, room to grow | Sounds clever but says nothing | `brief-template.md` |
-| Feature or workflow | Instant comprehension in UI and docs | Marketing language hides the job | `surface-patterns.md` |
-| API, endpoint, schema, method | Consistency, predictability, low ambiguity | Mixed verbs, nouns, and tense | `surface-patterns.md` |
-| Package, repo, command, file, folder | Scan speed, exactness, maintainability | Decorative naming hurts retrieval | `surface-patterns.md` |
-| Internal codename | Fast alignment and low collision | Leaks into public language accidentally | `rename-playbook.md` |
+## Initialization
 
-## Core Rules
-
-### 1. Start with the RALLY brief before generating names
-- Use `brief-template.md` to lock the asset, audience, lexical guardrails, and why the name matters.
-- RALLY stands for **Role, Audience, Limits, Lexicon, Yardstick**.
-- If the brief is vague, do not pretend ideation quality will save it. Ambiguous briefs create attractive but unusable names.
-
-### 2. Separate utility naming from brand naming
-- Utility surfaces such as features, APIs, files, and commands should bias toward clarity and predictability.
-- Brand surfaces can trade a little exactness for recall, story, and distinctiveness, but still need to pass comprehension fast enough for the context.
-- Never judge a feature name with the same rubric used for a company name. The lane defines the winning tradeoff.
-
-### 3. Generate option families, not one flat list
-- Create at least three families with different angles: descriptive, metaphorical, compound, outcome-first, or system-consistent.
-- Keep siblings internally coherent so the user can compare strategies, not just individual words.
-- A strong family often reveals the right direction even when none of the exact first-pass candidates survive.
-
-### 4. Run every finalist through the CLASH scorecard
-- Use `scorecard.md` before recommending a winner.
-- CLASH stands for **Clarity, Load, Adjacency, Search collision, Harm**.
-- A name is not done because it sounds good. It must also survive spelling, pronunciation, ambiguity, namespace overlap, and negative connotations.
-
-### 5. Match the surrounding system before optimizing the single name
-- Check product architecture, menu hierarchy, endpoint family, file layout, or taxonomy before choosing the local label.
-- A slightly less exciting name is better if it makes the whole system easier to scan and predict.
-- Prefer consistency across sibling names over isolated cleverness.
-
-### 6. Recommend one winner, two backups, and the deciding reason
-- Do not leave the user with ten equally weighted options unless they explicitly asked for open exploration.
-- State why the winner wins in this context: better comprehension, lower collision risk, stronger recall, better family fit, or safer rollout.
-- If legal, trademark, domain, or live namespace verification still matters, say that explicitly instead of implying clearance.
-
-### 7. Treat renames as migrations, not word swaps
-- A rename can break routes, docs, API clients, analytics, onboarding, and mental models.
-- Use `rename-playbook.md` whenever the job touches live systems or published language.
-- Always map what changes, what aliases are needed, and what must remain backward-compatible during transition.
-
-### 8. Learn durable naming taste, not one-off opinions
-- Store recurring constraints in local memory: words the user avoids, tone preferences, naming style, and family patterns that keep winning.
-- Do not store every brainstorm. Store only reusable signals that improve future naming quality.
-- If the user rejects multiple options for the same reason, promote that reason into a durable rule.
-
-## Common Traps
-
-| Trap | Why It Fails | Better Move |
-|------|--------------|-------------|
-| Brainstorming before defining the object | Different people optimize for different jobs | Lock the brief first |
-| Picking the cleverest name in the room | Clever often decays into explanation debt | Score for clarity and retrieval first |
-| Mixing external and internal names | Teams start leaking placeholder language | Decide what is public, internal, and transitional |
-| Renaming one node without the system | Adjacent labels become inconsistent and confusing | Audit sibling names before final choice |
-| Using invented spelling to look distinctive | Search, pronunciation, and trust all get worse | Prefer real words unless the lane truly justifies invention |
-| Confusing category fit with legal clearance | Similarity risk stays hidden | Mark live trademark or namespace verification as still required |
-| Leaving the decision at "here are some ideas" | The user still has no recommendation | Pick a winner and defend it |
-
-## Security & Privacy
-
-**Data that stays local:**
-- Naming briefs, durable constraints, approved names, and rejected patterns in `~/Clawic/data/naming/`
-
-**This skill does NOT:**
-- Claim trademark, domain, or regulatory clearance without explicit live verification
-- Make undeclared network requests
-- Register names, buy domains, or mutate production systems by itself
-- Rename live assets without an explicit migration plan
-
-If the user wants live checks for search results, domains, trademarks, package registries, or repository availability, say what is being checked before using external services.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `branding` — define positioning and voice before committing to a public-facing name
-- `product` — shape product framing and packaging around the chosen name
-- `product-manager` — align feature and workflow names with user language and roadmap context
-- `strategy` — evaluate category, portfolio, and market tradeoffs behind naming decisions
-- `api` — keep API naming, endpoint language, and auth terminology consistent
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/naming
-- Latest version: https://clawic.com/skills/naming
+If `<state_root>/` is missing or empty and the user wants persistence, follow `references/setup.md`, then create the file set described in `assets/memory-template.md` using the resolved path (never the literal placeholder).
