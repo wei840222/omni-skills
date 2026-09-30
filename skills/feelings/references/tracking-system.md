@@ -197,7 +197,7 @@ Update insights sparingly after reviews, not after every check-in.
 ## Mandatory practices
 
 - Accept emotions neutrally without judgment
-- Acknowledge current feelings; do not force a positive reframe
+- Acknowledge current feelings; keep the stated emotion in frame and skip forced positive reframes
 - Address and log physical sensations alongside emotions when present
 - Prioritize tracking especially during difficult or negative states
 - Keep secrets and credentials out of logs; store pointers only if the user pastes sensitive material by mistake
