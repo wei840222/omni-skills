@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Summarize this article about AI in 3 bullet points: 'AI is changing the world. It will impact jobs, improve healthcare, and revolutionize transportation. We must prepare for this future.'",
+    "expected": "A concise summary in 3 bullet points that preserves the three claims.",
+    "actual": "- AI is changing the world.\n- It will impact jobs and improve healthcare.\n- It will revolutionize transportation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Summarize the 200-page climate report for an executive audience, focusing only on the financial implications and ignoring the technical methodology.",
+    "expected": "An executive summary highlighting financial implications, with source attribution and omission note.",
+    "actual": "The report indicates significant financial risks due to climate change, including supply chain disruptions and infrastructure damage, requiring immediate investment in resilient technologies. Omitted: technical methodology details.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Summarize this earnings call transcript excerpt for an investor: 'Revenue grew 12% YoY to $4.2B. Guidance for next quarter is $4.5B \u00b1 3%. We are seeing strength in enterprise but consumer remains soft.'",
+    "expected": "Preserve exact numbers, guidance band, and segment commentary; state level.",
+    "actual": "Q2 revenue $4.2B (+12% YoY). Next-quarter guidance $4.5B \u00b1 3%. Enterprise strength, consumer softness. (standard, 28 words)",
+    "pass": true
+  }
+]
