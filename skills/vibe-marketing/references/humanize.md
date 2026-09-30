@@ -90,3 +90,9 @@ Keep a living doc with:
 ```
 
 Feed this to AI with every content request.
+
+## Reviewer load (Freud)
+
+- Prefer a short edit checklist over long ban-lists in user-facing replies.
+- Do not dump every red-flag phrase at the user; name the 2–3 that actually appear, then rewrite.
+- Keep one recommended rewrite path; avoid option menus that re-open the drafting decision.
