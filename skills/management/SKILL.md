@@ -1,98 +1,79 @@
 ---
 name: management
-slug: management
-version: 1.0.0
-description: Management principles, team leadership, and organizational effectiveness.
-homepage: https://clawic.com/skills/management
+description: >
+  Apply people-management judgment, team leadership routines, and organizational
+  frameworks. Use when the user asks about 1:1 agendas, feedback, performance
+  reviews, PIPs, delegation, team conflict, hiring interviews, change management,
+  MBA/case analysis, or upward navigation with a manager. Not for product roadmap
+  craft (`product-manager`), pure coaching sessions (`coach`), clinical care
+  (`psychologist`), or personal productivity systems (`productivity`).
 metadata:
-  clawdbot:
-    emoji: 👔
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Management
+  version: "1.1.0"
+  openclaw: '{"emoji":"👔"}'
+  related-skills: '{"coach":"1:1 coaching craft, questions, and commitment design rather than managerial authority.","product-manager":"Product discovery, prioritization, and roadmap artifacts rather than people management.","career":"Individual career strategy and role moves without day-to-day team leadership.","meetings":"Meeting design and facilitation mechanics beyond manager 1:1 agendas.","legal":"Employment-law review when discipline, termination, or protected activity is in scope.","ethics":"Ethical framing when decisions affect livelihoods, fairness, or trust.","productivity":"Personal task systems rather than team leadership systems."}'
 ---
 
-## For Individual Contributors: Navigating Upward
+# Management
 
-- Decode manager decisions by explaining organizational pressures, budget constraints, and competing priorities that shape choices
-- Warn when a complaint sounds like venting vs a genuine issue requiring action, and suggest appropriate next steps for each
-- Check if the user has considered their manager's perspective before drafting difficult conversations
-- Prepare promotion cases by identifying gaps between current role and target level with concrete evidence-gathering strategies
-- Coach on presenting problems with proposed solutions rather than just escalating issues
-- Flag when organizational politics may be at play and suggest navigation strategies
-- Translate performance review language by explaining what common phrases signal about standing and growth areas
-- Assess escalation decisions by weighing visibility, impact, and relationship costs before recommending going over a manager's head
-- Suggest documentation habits that protect the individual while maintaining professionalism
+This skill is **stateless**. It does not create local configuration or durable user state under a workspace path. Keep notes the user explicitly asks to save in the location they name.
 
-## For Students: Academic Foundations
+## When to load
 
-- Apply the appropriate framework (Porter, SWOT, McKinsey 7S, PESTEL, BCG) based on analysis type and explain why that framework fits
-- Structure case study responses using Issue-Analysis-Recommendation format that professors expect
-- Distinguish between what a framework prescribes in theory versus how managers adapt it in messy real-world contexts
-- Cite original thinkers (Drucker on objectives, Mintzberg on strategy as craft, Kotter on change) to demonstrate academic rigor
-- Warn when analysis is too generic or could apply to any company without specific evidence
-- Check that recommendations are actionable with clear ownership, timeline, and resource implications
-- Challenge assumptions in case data and identify what information is missing before jumping to conclusions
-- Connect concepts across courses since integration distinguishes strong MBA work
-- Remind that the "right answer" in management is often "it depends" on context, industry, culture, and timing
+Load this skill when the request is about **people and organizational management**:
 
-## For Practicing Managers: Daily Leadership
+- manager 1:1s, feedback, performance reviews, PIPs, or delegation
+- team conflict, remote/hybrid fairness, hiring interview design
+- change management, succession, 360 feedback, org design
+- MBA/case frameworks (SWOT, Porter, McKinsey 7S, PESTEL, BCG) applied to a situation
+- navigating upward: escalation, promotion cases, reading review language
 
-- Prepare 1:1 agendas with specific talking points based on recent team activity and career development themes
-- Flag when feedback is overdue for any team member and draft specific behavior-based talking points
-- Check PIP documentation for legal soundness: clear metrics, reasonable timelines, evidence of support, no discriminatory language
-- Generate behavioral interview questions tailored to the role and warn against illegal questions
-- Audit delegation decisions: verify interesting work is distributed, identify growth opportunities, flag single points of failure
-- Detect early signs of team conflict from described dynamics and suggest mediation approaches
-- Draft upward communication with executive-friendly framing and clear asks
-- Warn about remote/hybrid fairness issues: proximity bias, unequal visibility, meeting time zone inequity
-- Check any termination or discipline plan against retaliation patterns relative to complaints or protected activities
-- Document everything: prompt recording of verbal agreements, meeting summaries, and paper trails for performance issues
+Route away when the task is mainly:
 
-## For Researchers: Methodological Rigor
+- product discovery / roadmap / PRD → `product-manager`
+- pure coaching without managerial authority → `coach`
+- career decision analysis for an IC path → `career`
+- meeting logistics only → `meetings`
+- clinical distress or crisis → human care + `psychologist` safeguards
+- personal todo/habit systems → `productivity` / `habits`
 
-- Verify sample sizes meet statistical power requirements for detecting meaningful effect sizes (typically d=0.20-0.50)
-- Flag common method variance risks when all variables come from single-source self-report surveys
-- Distinguish between theory-building papers (suited for AMR, inductive) and theory-testing papers (suited for AMJ, SMJ, deductive)
-- Warn about endogeneity threats in cross-sectional designs and recommend instrumental variables or panel data approaches
-- Check that qualitative studies follow rigorous protocols: theoretical sampling, coding reliability, saturation evidence
-- Caution against HARKing by encouraging pre-registration and transparent reporting of exploratory vs confirmatory analyses
-- Highlight when published effect sizes may be inflated due to publication bias
-- Question construct validity when using adapted scales without re-validation
-- Push for boundary conditions and contextual moderators rather than universal claims
-- Encourage bridging the relevance-rigor gap by articulating practical implications practitioners can implement
+## When to load references
 
-## For Educators: Teaching Excellence
+Keep `SKILL.md` as the entry point. Load supporting files only when needed:
 
-- Scaffold case discussions with protagonist-centered questions before revealing outcomes to preserve discovery learning
-- Check whether learning objectives target judgment and decision-making under ambiguity, not just framework recall
-- Warn when assessment plans rely solely on exams and recommend simulations, live cases, or reflection journals
-- Distinguish executive learner needs (validate experience, challenge assumptions) from undergraduate needs (build foundational models)
-- Surface the theory-practice gap explicitly and design action learning where students apply concepts to real organizations
-- Flag common student misconceptions: that management is about control, that analysis guarantees outcomes, that ethics is a separate module
-- Recommend debriefing structures after experiential exercises since learning happens in reflection
-- Verify ethics cases appear throughout curriculum, not isolated in one unit
-- Encourage peer learning designs: study groups, role-plays, peer feedback
+| Reference | Load when |
+|---|---|
+| `references/audience-playbooks.md` | Role-specific checklists for ICs, practicing managers, students, researchers, educators, or HR/OD |
+| `references/frameworks.md` | Choosing or applying strategy/org frameworks and citing classic sources carefully |
+| `references/safety-and-escalation.md` | Discipline, PIP, termination, protected activity, retaliation risk, or legal/HR handoff |
+| `references/sources.md` | Verifying frameworks, change models, or research-methods claims against primary URLs |
 
-## For HR and OD Professionals: Organizational Systems
+## Operating loop
 
-- Assess leadership competency gaps before recommending development interventions
-- Validate succession planning against actual role requirements, not tenure or favoritism
-- Structure 360 feedback to protect psychological safety and warn when sample sizes compromise anonymity
-- Apply change management frameworks (Kotter, ADKAR, Bridges) diagnostically to identify which phase is stalling
-- Distinguish between culture symptoms and root causes since turnover often traces to structural misalignment
-- Clarify coaching vs mentoring vs managing boundaries in every developmental context
-- Evaluate organizational design changes for unintended consequences from spans of control and matrix reporting
-- Document compliance-sensitive conversations with precision assuming legal review
-- Warn when investigations require external counsel or HR escalation to avoid procedural contamination
-- Flag when restructuring rationale masks performance management avoidance
+1. **Clarify role and stakes** — Who is the user (IC, manager, student, HR)? What decision is live, and who is affected?
+2. **Name the management problem** — execution, people development, conflict, structure, or strategy framing—not a generic pep talk.
+3. **Load the matching reference** — audience playbook and/or frameworks; add safety reference before any discipline or termination advice.
+4. **Give a concrete next move** — agenda bullets, talking points, decision criteria, or case structure with ownership and timeline.
+5. **Surface ethics and limits** — fairness, documentation, and when to involve HR/legal; keep prescriptions contextual.
 
-## Always
+## Core rules
 
-- Acknowledge that management is contextual: industry, culture, company stage, and team composition all matter
-- Distinguish between leadership (vision, inspiration, change) and management (execution, stability, optimization)
-- Recommend HR or legal consultation for terminations, harassment claims, accommodations, and discrimination concerns
-- Avoid universal prescriptions since effective management adapts to situation and people
-- Surface ethical dimensions when decisions affect livelihoods, careers, or organizational trust
+- Treat management as **contextual**: industry, culture, company stage, and team composition change the answer.
+- Separate **leadership** (direction, change, inspiration) from **management** (execution, systems, stability) when the user confuses them.
+- Prefer **behavior + evidence** over personality labels in feedback, reviews, and conflict work.
+- For performance issues: define the gap, support offered, timeline, and metrics before drafting a PIP tone.
+- For case/academic work: pick a framework that fits the question, challenge missing data, and make recommendations actionable.
+- For upward navigation: decode organizational pressure before drafting confrontation or escalation.
+- When livelihoods, protected characteristics, harassment, accommodations, or retaliation risk appear, load `references/safety-and-escalation.md` and recommend HR/legal paths rather than freestyle discipline scripts.
+- Tailor prescriptions to the specific people and constraints in the prompt; answer with one primary recommendation plus the condition that would change it.
+
+## Quick routing
+
+| User need | First move |
+|---|---|
+| Underperforming report / overdue feedback | Manager playbook + behavior-based talking points; check PIP readiness only if formal |
+| 1:1 feels empty | Build agenda from recent work, career theme, and open commitments |
+| Team conflict signals | Describe observable dynamics; mediation steps before structural blame |
+| Case / strategy homework | Frameworks reference; Issue–Analysis–Recommendation; flag missing evidence |
+| Promotion or difficult upward talk | IC playbook; manager-pressure decode; evidence plan |
+| Reorg / change stall | Kotter / ADKAR / Bridges diagnostic questions from frameworks + HR playbook |
+| Interview loop design | Behavioral questions tied to role; illegal-question warnings from safety reference |
