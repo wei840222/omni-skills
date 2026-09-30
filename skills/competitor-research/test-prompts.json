@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to research competitors for a new email client. Can you do a quick scan?",
+    "expected": "Agent should acknowledge the request, run a quick scan of email client competitors, and identify 5-10 key players with high-level gaps and differentiators.",
+    "actual": "Agent loads `references/setup.md` and `references/core-rules.md`, then performs a quick scan. Agent asks for confirmation on whether the focus is enterprise, personal use, or specialized workflows before finalizing the top 5 players.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Let's deep dive into Superhuman. What are they doing right?",
+    "expected": "Agent should load existing niche overview if any, perform a deep dive covering basics, product, positioning, and traction. It should end with actionable gaps and recommendations.",
+    "actual": "Agent successfully loaded `references/core-rules.md`, checked for existing niche data, and conducted a thorough audit of Superhuman. Output included 'Basics', 'Product', 'Positioning', 'Traction Signals', followed by a 'Gap Analysis' and 'Strategic Recommendations'.",
+    "pass": true
+  }
+]

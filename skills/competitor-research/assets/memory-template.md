@@ -1,6 +1,6 @@
 # Memory Template — Competitor Research
 
-Create `~/Clawic/data/competitor-research/memory.md` with this structure:
+Create `<state_root>/competitor-research/memory.md` with this structure:
 
 ```markdown
 # Competitor Research Memory
@@ -35,7 +35,7 @@ style: detailed reports | quick summaries
 
 ## Niche Overview Template
 
-Create `~/Clawic/data/competitor-research/niches/{niche}/overview.md`:
+Create `<state_root>/competitor-research/niches/{niche}/overview.md`:
 
 ```markdown
 # {Niche} Competitive Landscape
@@ -72,7 +72,7 @@ Create `~/Clawic/data/competitor-research/niches/{niche}/overview.md`:
 
 ## Competitor Profile Template
 
-Create `~/Clawic/data/competitor-research/niches/{niche}/{company}.md`:
+Create `<state_root>/competitor-research/niches/{niche}/{company}.md`:
 
 ```markdown
 # {Company} — Competitor Profile
@@ -134,12 +134,12 @@ Create `~/Clawic/data/competitor-research/niches/{niche}/{company}.md`:
 |-------|---------|----------|
 | `ongoing` | Still learning context | Gather preferences opportunistically |
 | `complete` | Has enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
+| `paused` | User said "not now" | Wait for user initiation, work with available data |
 
 ## Key Principles
 
 - **No config keys visible** — use natural language, not "depth: quick"
-- **Learn from behavior** — observe preferred depth, don't interrogate
+- **Learn from behavior** — observe preferred depth, infer from context
 - **Build over time** — each session adds to niche knowledge
 - **Date everything** — research gets stale, dates matter
 - Update `last` on each use
