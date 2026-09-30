@@ -2,9 +2,9 @@
 name: management
 description: >
   Apply people-management judgment, team leadership routines, and organizational
-  frameworks. Use when the user asks about 1:1s, feedback, performance reviews,
-  PIPs, delegation, conflict, hiring interviews, change management, MBA case
-  analysis, or upward career navigation with a manager. Not for product roadmap
+  frameworks. Use when the user asks about 1:1 agendas, feedback, performance
+  reviews, PIPs, delegation, team conflict, hiring interviews, change management,
+  MBA/case analysis, or upward navigation with a manager. Not for product roadmap
   craft (`product-manager`), pure coaching sessions (`coach`), clinical care
   (`psychologist`), or personal productivity systems (`productivity`).
 metadata:
