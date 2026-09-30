@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to casual Danish: 'Hello, are you coming to the party tonight? It would be great to see you there.'",
+    "expected": "Informal Danish with du-address, light particle or softener, and natural party wording; no De, no stiff Goddag.",
+    "actual": "Hej, kommer du til festen i aften? Det ville være vildt hyggeligt at se dig der.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a quick message to a colleague declining a meeting request, saying I'm too busy today but maybe tomorrow.",
+    "expected": "Short, concise Danish with softeners (nok/desværre/i stedet); casual-professional, not over-apologetic formal prose.",
+    "actual": "Hej, jeg har mega travlt i dag, så jeg kan desværre ikke. Kan vi tage den i morgen i stedet? Det går nok bedre der.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Translate this exclamation to Danish: 'That is extremely bad! I am so angry right now.'",
+    "expected": "Expressive casual Danish matching native intensity (e.g. pisse/nederen/mega), not robotic dictionary calque.",
+    "actual": "Det er pisse nederen! Jeg er seriøst mega sur lige nu.",
+    "pass": true
+  }
+]
