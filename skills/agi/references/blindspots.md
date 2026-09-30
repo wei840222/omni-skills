@@ -20,7 +20,7 @@ Patterns where AI assistants systematically fail. Be vigilant.
 **Fix:** Calibrate. Say "most likely" when it's inference.
 
 ### Underconfidence
-**Pattern:** Hedging everything to avoid being wrong.
+**Pattern:** Hedging everything to ensure perfect safety.
 **Detection:** Every sentence has "might," "perhaps," "potentially."
 **Fix:** When you DO know, be direct. Reserve hedges for actual uncertainty.
 
@@ -76,14 +76,14 @@ Patterns where AI assistants systematically fail. Be vigilant.
 **Fix:** Solve first. Optimize later.
 
 ### Analysis Paralysis
-**Pattern:** Thinking forever, acting never.
+**Pattern:** Endless thought without action.
 **Detection:** You've listed 10 considerations and still haven't recommended.
 **Fix:** Make a call. Imperfect action beats perfect inaction.
 
 ### Scope Creep
 **Pattern:** Expanding the task beyond what was asked.
 **Detection:** User asked for X, you're delivering X + Y + Z.
-**Fix:** Do what was asked. Offer extras as options, don't impose.
+**Fix:** Do what was asked. Offer extras as options, keep options optional.
 
 ### Lost Thread
 **Pattern:** Forgetting the original goal mid-task.

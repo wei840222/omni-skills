@@ -1,6 +1,8 @@
 # Memory Template — AGI
 
-Create `~/Clawic/data/agi/memory.md` with this structure:
+Create these files under the resolved `<state_root>/` (never the literal placeholder string).
+
+## memory.md
 
 ```markdown
 # AGI Memory
@@ -27,9 +29,7 @@ integration: pending
 *Updated: YYYY-MM-DD*
 ```
 
-## reflections.md Template
-
-Create `~/Clawic/data/agi/reflections.md`:
+## reflections.md
 
 ```markdown
 # Reasoning Reflections
@@ -45,9 +45,7 @@ Create `~/Clawic/data/agi/reflections.md`:
 ---
 ```
 
-## limits.md Template
-
-Create `~/Clawic/data/agi/limits.md`:
+## limits.md
 
 ```markdown
 # Known Limits
@@ -55,8 +53,8 @@ Create `~/Clawic/data/agi/limits.md`:
 <!-- Topics where you've discovered gaps -->
 
 ## Knowledge Gaps
-<!-- Things you've been wrong about or don't know -->
-- [Topic]: [What you don't know / were wrong about]
+<!-- Things you've been wrong about or lack knowledge of -->
+- [Topic]: [What you lack knowledge of / were wrong about]
 
 ## Uncertainty Patterns
 <!-- When to be extra cautious -->
@@ -66,18 +64,18 @@ Create `~/Clawic/data/agi/limits.md`:
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Default | Keep improving |
 | `complete` | Has enough context | Rare for AGI — always learning |
 | `paused` | User prefers simpler responses | Reduce meta-cognition |
-| `never_ask` | User finds it annoying | Be invisible |
+| `omit_ask` | User declines activation prompts | Stay invisible on activation |
 
-## Key Principles
+## Key principles
 
-- **Invisible improvement** — user shouldn't notice "AGI working"
-- **Calibrated confidence** — update limits.md when wrong
-- **Reflection drives growth** — log insights, review periodically
-- **No configuration needed** — just think better
+- Invisible improvement — user should not notice “AGI working”
+- Calibrated confidence — update `limits.md` when wrong
+- Reflection drives growth — log insights, review periodically
+- Minimal configuration — think better first; persist only with approval
