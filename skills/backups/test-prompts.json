@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a backup plan for a mid-sized PostgreSQL database.",
+    "expected": "Combine engine-consistent backup (pg_dump and/or base backup), WAL archiving for PITR, offsite + immutable copy per 3-2-1-1-0, and scheduled restore tests to different hardware with timed RTO notes.",
+    "actual": "Outlined 3-2-1-1-0 plan: pg_basebackup or logical dump plus continuous WAL archiving for PITR; offsite object storage with Object Lock/immutability; separate cloud account or offline copy; weekly restore drill to a clean host with duration logged in <state_root>/restore-drills.md. Rejected raw file copy of running data directory. Pointed to references/best-practices.md and PostgreSQL backup/PITR docs in references/sources.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We just run rsync --delete every night to copy our files to the secondary server. Is this a good backup?",
+    "expected": "Identify rsync --delete as replication/sync risk that mirrors deletions and ransomware; require versioned/immutable true backups and restore testing.",
+    "actual": "No — nightly rsync --delete is synchronization, not a resilient backup. Deletes and encrypted files on the primary are copied to the secondary, collapsing both copies. Recommended versioned tools (restic/borg or snapshots with independent retention), an immutable/offsite tier, and restore tests. Warned to double-check rsync direction before any --delete. See Core operations and references/best-practices.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our AWS backups live in the same account as production. What is the minimum hardening if we cannot split accounts this quarter?",
+    "expected": "Require immutability (e.g. S3 Object Lock), least-privilege backup role separation, deny-delete policies, offsite or cross-region copy, and tested restores; note same-account residual risk.",
+    "actual": "Same-account is residual risk but can be hardened: put backups in Object Lock vault/bucket with retention, separate backup IAM role without broad prod delete rights, block backup principal from disabling lock, replicate to second region, encrypt with keys prod apps cannot disable, and run restore drills. Still plan account split. Cited S3 Object Lock doc in references/sources.md.",
+    "pass": true
+  }
+]
