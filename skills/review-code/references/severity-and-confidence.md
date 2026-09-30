@@ -38,9 +38,9 @@ Then include:
 
 ## Anti-Noise Rules
 
-- Never up-rank a finding to force action.
-- Never bury blockers inside long advisory lists.
-- Never call something “critical” without user-impact explanation.
+- Keep finding ranks objective and tied strictly to impact criteria.
+- Ensure blockers are always placed prominently at the top of the report.
+- Always require a clear user-impact explanation for any finding labeled "critical".
 
 ## Tie-Breaker
 

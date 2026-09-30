@@ -22,7 +22,7 @@ Use this when proposing concrete fixes after a finding.
 For auth, billing, migration, or data integrity fixes:
 - require explicit rollback path
 - require monitoring signal after deploy
-- avoid bundled unrelated cleanups
+- focus entirely on related fixes instead of bundling unrelated cleanups
 
 ## Suggested Output Format
 

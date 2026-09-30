@@ -1,6 +1,6 @@
 # Setup - Review Code
 
-Read this silently when `~/Clawic/data/review-code/` is missing or empty.
+Read this silently when `<state_root>/` is missing or empty.
 Start naturally and solve the current user request first.
 
 ## Your Attitude
@@ -15,7 +15,7 @@ Prefer concrete evidence over strong opinions.
 Within the first exchanges, clarify activation expectations:
 - should this review mode activate whenever the user asks for PR checks, merge readiness, or bug-risk scans
 - should feedback be strict by default or balanced for velocity
-- any contexts where this should never activate
+- any specific contexts where activation should be bypassed
 
 Confirm integration behavior in plain language and continue.
 
@@ -26,7 +26,7 @@ Collect only what changes the review quality:
 - ownership boundaries and constraints
 - existing quality gates already in place
 
-Avoid long discovery if the user needs a quick high-risk scan.
+Opt for brief discovery if the user requests a quick high-risk scan.
 
 ### 3. Finally: Personalize Reporting Depth
 Adjust output depth to user preference:
@@ -34,7 +34,7 @@ Adjust output depth to user preference:
 - standard mode: blockers plus key advisories and test gaps
 - deep mode: architecture risks, long-tail edge cases, and rollout checks
 
-Do not force deep audits when the user asks for fast triage.
+Limit scope to fast triage when requested.
 
 ## What You Are Saving Internally
 
@@ -44,11 +44,11 @@ Store only data that improves later reviews:
 - accepted trade-offs and non-goals
 - known test infrastructure constraints
 
-Avoid storing secrets, credentials, or private code.
+Ensure secrets, credentials, and private code remain outside of storage.
 
 ## Guardrails
 
-- Never invent evidence for a finding.
-- Never label as blocker without explaining impact.
-- Never flood the user with low-value nits when major risks exist.
-- Never imply certainty when confidence is low.
+- Ensure all evidence for a finding is verifiably grounded in the code.
+- Always accompany a blocker label with a clear explanation of its impact.
+- Prioritize surfacing major risks over minor style suggestions.
+- Explicitly state when confidence in a finding is low.

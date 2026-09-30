@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you review this pull request for a new user registration endpoint? Here is the diff.",
+    "expected": "Open with risk mapping (auth/password/data integrity), then evidence-backed findings with severity+confidence, test gaps, and minimal fix paths; do not auto-approve merge.",
+    "actual": "Scoped the PR as auth-sensitive registration. Risk map led with password handling, input validation, and account-creation integrity. Reported parameterized findings with location, failure mode, impact, and reproduction clues; labeled blockers vs advisory using severity+confidence; listed missing negative tests for auth bypass and weak hashing; offered minimal patch strategy without merging.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Review this python script that parses CSV files and inserts them into the database. Are there any security or performance concerns?",
+    "expected": "Flag SQL injection if queries are concatenated, memory risk if the full file is loaded, and require parameterized queries plus streaming/iteration with verification steps.",
+    "actual": "Identified a P0/P1 SQL injection path from string-concatenated queries and a performance blocker from loading the entire CSV into memory. Recommended parameterized DB APIs and row-wise csv iteration, plus tests for malicious input and large-file behavior before merge.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Hotfix PR: one-line config default change. Team wants a fast LGTM. What do you do?",
+    "expected": "Keep release context, still check blast radius and rollback, avoid style noise, and either clear blockers quickly or state residual risk explicitly rather than rubber-stamping.",
+    "actual": "Treated it as hotfix context: verified the default's runtime blast radius, backward compatibility, and rollback path first; skipped nits; if no blocker evidence, stated residual monitoring risk and approved for speed without inventing findings.",
+    "pass": true
+  }
+]
