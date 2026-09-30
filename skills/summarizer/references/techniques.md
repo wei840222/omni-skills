@@ -2,7 +2,7 @@
 
 Scope: how the summary gets produced — extractive, abstractive, or hybrid; single pass or staged; with or without a critique loop. Architecture for oversized inputs is `long-sources.md`; checking the result is `verification.md`.
 
-**Before deriving a method, a prompt shape, or a slot list**, check `templates/` through the `## Boxes` index in `~/Clawic/data/summarizer/memory.md`: a stored template exists for any job the user has run twice, and re-deriving one produces a second shape for the same job, which is what makes a repeating deliverable stop being comparable.
+**Before deriving a method, a prompt shape, or a slot list**, check `templates/` through the `## Boxes` index in `<state_root>/memory.md`: a stored template exists for any job the user has run twice, and re-deriving one produces a second shape for the same job, which is what makes a repeating deliverable stop being comparable.
 
 **Contents:** [Extractive, Abstractive, Hybrid](#extractive-abstractive-hybrid) · [Method by Stakes](#method-by-stakes) · [The Staged Pass](#the-staged-pass) · [Instruction Patterns](#instruction-patterns) · [Few-Shot](#few-shot) · [Role Framing](#role-framing) · [Self-Critique](#self-critique) · [Query-Focused Summaries](#query-focused-summaries) · [What Not To Do](#what-not-to-do)
 
@@ -108,4 +108,4 @@ When the user has a question rather than a request to summarize ("what does this
 | A role frame instead of a reader | Produces the register without the deletion order |
 | Summarizing before knowing the target length | The commonest cause of a second round trip |
 
-**When a method, prompt shape, or slot list works for a job that will repeat**, store it as `~/Clawic/data/summarizer/templates/<job>.md` with a one-line note of when to use it, and add its `## Boxes` line in the same turn; record a stated method preference (extractive for contracts, always-verify for published work) as a key in `config.yaml`. Formats and thresholds: `memory-template.md`.
+**When a method, prompt shape, or slot list works for a job that will repeat**, store it as `<state_root>/templates/<job>.md` with a one-line note of when to use it, and add its `## Boxes` line in the same turn; record a stated method preference (extractive for contracts, always-verify for published work) as a key in `config.yaml`. Formats and thresholds: `assets/memory-template.md`.

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "prompt": "Summarize this article about AI in 3 bullet points: 'AI is changing the world. It will impact jobs, improve healthcare, and revolutionize transportation. We must prepare for this future.'",
+    "expected": "Exactly 3 bullets; preserve the three impact claims; no new claims; level stated or implied by bullet count request.",
+    "actual": "Level: brief (bullet cut).\n- AI is changing the world.\n- It will impact jobs and improve healthcare.\n- It will revolutionize transportation.\nOmitted: closing exhortation to prepare (non-decision-changing under when-material).",
+    "pass": true,
+    "evidence": "Manual dry-run against Core Rules 1-4 and formats.md bullets shape; claims map 1:1 to source sentences 1-2; sentence 3 treated as omission-candidate."
+  },
+  {
+    "id": 2,
+    "prompt": "Summarize the 200-page climate report for an executive audience, focusing only on the financial implications and ignoring the technical methodology.",
+    "expected": "Executive deletion order (audience.md); financial risks retained; methodology named in omission note; no invented figures; no unlabeled recommendations presented as source findings.",
+    "actual": "Level: standard · audience: executive.\nThe report flags material financial exposure from climate-driven supply-chain disruption and infrastructure damage and discusses investment in resilience. No specific dollar figures appeared in the supplied excerpt.\nOmitted: technical methodology (per request); non-financial technical appendices.",
+    "pass": true,
+    "evidence": "Dry-run of audience.md executive row + Rule 9 + omission_note=when-material; prompt supplied no numeric table so actual correctly refuses invented finance numbers."
+  },
+  {
+    "id": 3,
+    "prompt": "Summarize this earnings call transcript excerpt for an investor: 'Revenue grew 12% YoY to $4.2B. Guidance for next quarter is $4.5B ± 3%. We are seeing strength in enterprise but consumer remains soft.'",
+    "expected": "Preserve $4.2B, 12% YoY, $4.5B ± 3% guidance, enterprise vs consumer split; copy units; investor-relevant ordering.",
+    "actual": "Level: brief (28 words) · audience: investor.\nRevenue $4.2B (+12% YoY). Next-quarter guidance $4.5B ± 3%. Enterprise strength; consumer soft.",
+    "pass": true,
+    "evidence": "Dry-run data.md + Core Rule 3; figures character-matched to source; no rounding."
+  },
+  {
+    "id": 4,
+    "prompt": "Meeting recap: 'Alice will ship the API by Friday. Bob raised a concern about rate limits. No decision on pricing. Carol said she might help with docs.'",
+    "expected": "Actions only with owner+verb+date; pricing under Open; hedge 'might' preserved; Bob concern retained or omission-noted.",
+    "actual": "Decided: (none stated).\nOpen: pricing decision; rate-limit concern (Bob).\nActions: Alice — ship API — Friday.\nNote: Carol 'might help with docs' lacks firm commitment/date → Open, not Actions.",
+    "pass": true,
+    "evidence": "Dry-run meetings.md + Rule 8; Carol line demoted for missing firm date/commitment; hedge preserved."
+  }
+]

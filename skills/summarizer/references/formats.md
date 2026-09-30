@@ -2,7 +2,7 @@
 
 Scope: what the summary looks like once you know what it says. Length comes from the Length Ladder in `SKILL.md`; this file covers the shape, the channel's hard limits, and the header that makes a summary usable later.
 
-**Before producing a shape for a recurring job**, check `templates/` via the `## Boxes` index in `~/Clawic/data/summarizer/memory.md` — an approved shape exists for anything the user has asked for twice, and re-deriving it breaks the series.
+**Before producing a shape for a recurring job**, check `templates/` via the `## Boxes` index in `<state_root>/memory.md` — an approved shape exists for anything the user has asked for twice, and re-deriving it breaks the series.
 
 **Contents:** [Choosing a Shape](#choosing-a-shape) · [Bullets vs Prose](#bullets-vs-prose) · [The Shapes](#the-shapes) · [The Header](#the-header) · [The Omission Line](#the-omission-line) · [Channel Limits](#channel-limits) · [Markers and Formatting](#markers-and-formatting) · [Hitting a Word Count](#hitting-a-word-count) · [Templates](#templates)
 
@@ -78,10 +78,13 @@ Three or four elements that cost fifteen words and make the summary usable a mon
 
 Governed by `omission_note`; the most valuable line in most summaries because it is the only one that tells the reader whether to open the source.
 
-- **Name what was cut, not that cutting happened.** "Omitted: the methodology and the two dissenting cost estimates" works; "some details were omitted" is noise.
-- **Material means decision-changing**: a reader acting on the summary alone would choose differently. Under `when-material`, only these ship.
-- **Always ship it** when the cut removed a dissent, a limitation, a cost, a deadline, or a risk — even under `never`, because those are not omissions, they are the summary being wrong.
-- **One line, at the end**, never distributed as hedges through the text.
+**Name what was cut, not that cutting happened.** "Omitted: the methodology and the two dissenting cost estimates" works; "some details were omitted" is noise.
+
+**Material means decision-changing**: a reader acting on the summary alone would choose differently. Under `when-material`, only these ship.
+
+**Always ship it** when the cut removed a dissent, a limitation, a cost, a deadline, or a risk — even under `never`, because those are not omissions, they are the summary being wrong.
+
+**One line, at the end**, never distributed as hedges through the text.
 
 ## Channel Limits
 
@@ -121,8 +124,8 @@ When a count is hard (a channel limit, an abstract limit, a form field):
 ## Templates
 
 - A shape becomes a template the second time the user asks for it, or the first time they edit yours into a form they approve.
-- **Templates are stored, not remembered**: `~/Clawic/data/summarizer/templates/<name>.md`, with a one-line note of when to use it at the top.
+- **Templates are stored, not remembered**: `<state_root>/templates/<name>.md`, with a one-line note of when to use it at the top.
 - A template records the slots and their order, never sample content that could be mistaken for real data.
 - When a template exists for a job, follow it exactly; propose changes rather than making them silently, because a series' value comes from being comparable across editions (`recurring.md`).
 
-**After a shape is approved or reused**, write it to `~/Clawic/data/summarizer/templates/<name>.md` and add its `## Boxes` line with a read condition in the same turn; record a channel or formatting preference the user states (marker style, bullet punctuation, heading depth) as a key in `config.yaml` under the conventions area; and if the user supplies a house style guide as a long text, save it to `~/Clawic/data/summarizer/style-<name>.md` and point `style_file` at it. Formats and thresholds: `memory-template.md`.
+**After a shape is approved or reused**, write it to `<state_root>/templates/<name>.md` and add its `## Boxes` line with a read condition in the same turn; record a channel or formatting preference the user states (marker style, bullet punctuation, heading depth) as a key in `config.yaml` under the conventions area; and if the user supplies a house style guide as a long text, save it to `<state_root>/style-<name>.md` and point `style_file` at it. Formats and thresholds: `assets/memory-template.md`.
