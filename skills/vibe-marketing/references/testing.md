@@ -35,7 +35,7 @@ Repeat. Compound learnings.
 6. **Images/Creative** — Visual elements
 7. **Timing** — When it's delivered
 
-### Low Impact (Stop A/B Testing)
+### Low Impact (Bypass A/B Testing)
 - Button colors
 - Minor word changes
 - Font sizes
@@ -94,14 +94,14 @@ Keep a "Test Learnings" doc. Over time, patterns emerge.
 - Test ONE thing at a time
 - Different headline + different image = you learn nothing
 
-### Stopping Too Early
+### Concluding Too Early
 - "We got 10 conversions, B is winning!" ← No significance
 - Wait for statistical confidence or time-box + accept uncertainty
 
 ### Not Acting on Results
-- Test → Learn → Do nothing = waste
+- Test → Learn → Discarding results = waste
 - Winner should become new control immediately
 
 ### Testing Low-Impact Elements
-- Stop testing button colors
+- Exclude button colors from testing
 - Test your offer, not your font

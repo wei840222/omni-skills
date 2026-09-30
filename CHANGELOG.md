@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| vibe-marketing | 2026-09-30 | 85/100 (#622) |
 | review-code | 2026-09-30 | 86/100 (#620) |
 | fiverr | 2026-09-30 | 85/100 (#621) |
 | tensorflow | 2026-09-30 | 88/100 (#618) |

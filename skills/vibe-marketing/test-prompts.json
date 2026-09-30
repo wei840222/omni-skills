@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to write a LinkedIn post for B2B founders about why traditional marketing is dead and AI marketing is the future. My brand voice is direct and provocative. Make it under 200 words.",
+    "expected": "Load references/content.md (and brand-context rules from SKILL.md); draft a platform-native LinkedIn post with strong hook, concrete points, CTA, under 200 words, direct/provocative voice; avoid AI clichés.",
+    "actual": "Loaded references/content.md + SKILL brand-context rules. Draft (direct, provocative, <200 words):\n\nMost B2B SaaS marketing is theater.\n\nYou pay agencies for blogs nobody finishes while lean teams ship five hooks a day, kill four, and scale the one that earns replies.\n\nTraditional calendars optimize for consensus. Vibe loops optimize for learning speed.\n\nDo this week:\n- Draft with a real ICP and one demo-signup CTA\n- Test three hooks in 48 hours\n- Promote only the winner; delete the rest\n\nStop polishing. Start measuring.\n\nWant the exact prompt stack we use? Comment 'STACK'.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Review this draft email: 'In today's fast-paced world, it's important to note that our revolutionary cutting-edge software will seamlessly unlock your potential and take your business to the next level. Let's dive in!' and humanize it.",
+    "expected": "Load references/humanize.md; flag universal openers, buzzword clusters, hedging; rewrite with specificity and a direct opening.",
+    "actual": "Loaded references/humanize.md. Red flags: 'In today's fast-paced world' (universal opener), 'important to note' (hedging), 'revolutionary cutting-edge' / 'seamlessly' / 'unlock your potential' / 'next level' (buzzword cluster), 'Let's dive in' (stock transition).\n\nHumanized rewrite:\n'Our software cut weekly reporting from four hours to under one for three pilot teams. Here is the exact workflow—and a 15-minute setup if you want it.'",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We want a Zapier flow that turns each new blog post into LinkedIn + X drafts. What should be automated vs require human approval, and how should we run a 48-hour test on the LinkedIn hooks?",
+    "expected": "Load references/automation.md and references/testing.md; describe repurposing pipeline with approval gates; outline 48-hour cycle prioritizing hooks; avoid inventing live Zapier prices—point to sources/vendor pricing.",
+    "actual": "Loaded references/automation.md + testing.md. Automate: trigger on publish → extract insights → draft LinkedIn post + X thread → queue to scheduler. Require human approval before: first publish to a new audience, sensitive topics, and any auto-post that spends money or replies to complaints. 48-hour hook test: Day1 generate 5 LinkedIn hooks / launch 3; Day2 kill worst, double down on best, document learning. Treat early CTR as signal only; do not crown a winner without adequate conversions or an explicit time-box+uncertainty call. Re-check Zapier task/plan limits on https://zapier.com/pricing before promising cost; see references/sources.md.",
+    "pass": true
+  }
+]

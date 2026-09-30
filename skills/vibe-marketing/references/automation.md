@@ -26,7 +26,7 @@ Trigger: Brand mention detected
 → Branch:
   - Positive → Draft thank you reply
   - Question → Draft helpful response
-  - Negative → Alert human, don't auto-reply
+  - Negative → Alert human, await manual reply
 → Human: Approve responses
 ```
 
@@ -58,14 +58,14 @@ Trigger: Weekly ad refresh needed
 | Complex | n8n | Technical teams, self-hosted |
 | Agent-based | Relay, Taskade | Multi-step autonomous tasks |
 
-## Human Checkpoints
+## Manual Approvals
 
 Always require human approval for:
-- ❌ First message to a new audience
-- ❌ Responses to complaints or negative feedback
-- ❌ Content touching sensitive topics
-- ❌ High-budget ad spend decisions
-- ❌ Messaging that could be misread
+- Require human approval: First message to a new audience
+- Require human approval: Responses to complaints or negative feedback
+- Require human approval: Content touching sensitive topics
+- Require human approval: High-budget ad spend decisions
+- Require human approval: Messaging that could be misread
 
 Automate fully:
 - ✅ Internal content digests
