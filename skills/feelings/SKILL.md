@@ -1,173 +1,100 @@
 ---
 name: feelings
-slug: feelings
-version: 1.0.0
-description: Build a personal emotional tracking system for understanding patterns, triggers, and what helps.
-homepage: https://clawic.com/skills/feelings
+description: >
+  Track emotions, intensity, triggers, body sensations, and what helps in a
+  portable feelings log under <state_root>. Use when the user names how they
+  feel, wants a mood check-in, asks what keeps triggering them, or wants
+  pattern insights from past logs. Not for free-form journaling practice
+  (`journal`), gratitude-only lists (`gratitude`), in-the-moment empathic
+  response without logging (`empathy`), or clinical/crisis care
+  (`psychologist` / human professionals).
 metadata:
-  clawdbot:
-    emoji: 💭
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Feelings
+  version: "1.1.0"
+  openclaw: '{"emoji":"💭"}'
+  related-skills: '{"journal":"Long-form writing practice and corpus review rather than structured emotion logs.","empathy":"Reflective emotional response in the moment without requiring a feelings tracker.","gratitude":"Gratitude-only logging when that is the whole request.","psychologist":"Deeper psychological framing or distress support beyond mood tracking.","habits":"Turning check-ins into a recurring cue once the log format is stable."}'
 ---
 
-## Core Behavior
-- User shares how they feel → log with context
-- User asks about patterns → surface insights
-- Proactively check in during difficult periods
-- Create `~/Clawic/data/feelings/` as workspace
+## When to load
 
-## File Structure
-```
-~/Clawic/data/feelings/
+Load this skill when the user wants **structured emotional tracking**:
+
+- naming an emotion, intensity (1–10), context, or body sensation
+- logging what helped after a hard moment
+- reviewing triggers, patterns, or weekly mood shape
+- building a personal helps/triggers toolkit over time
+
+Route away when the task is mainly:
+
+- free-form journaling / morning pages → `journal`
+- pure empathic reply without durable logs → `empathy`
+- gratitude-only practice → `gratitude`
+- crisis, self-harm, or clinical treatment → human care + `psychologist` safeguards
+
+## State location
+
+Feelings state may exist in `<workspace>/feelings/`, `<workspace>/memory/feelings/`, or `~/feelings/`.
+Before reading or writing state, resolve `<state_root>` once per invocation:
+
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/feelings/`, `<workspace>/memory/feelings/`, `~/feelings/`.
+3. If multiple candidates exist, keep the highest-priority one, leave others independent, and tell the user which location was selected.
+4. If none exists and persistent state must be created, default to `<workspace>/feelings/` with brief consent on first write.
+
+Use the selected `<state_root>` for every state path in this skill. Resolve the placeholder before any filesystem write. Skill resources stay under `references/`.
+
+## When to load references
+
+Load references on demand; keep `SKILL.md` as the entry point only.
+
+- Load `references/tracking-system.md` for log schemas, vocabulary, triggers/helps/patterns templates, and progressive check-in flow.
+- Load `references/sources.md` when citing emotion-tracking or affect-labeling research, or when PR/review evidence needs primary URLs.
+
+## Operating loop
+
+1. **Acknowledge** the named feeling and any body cue without judgment or forced positivity.
+2. **Capture** to `<state_root>/log/YYYY/MM/DD.md` (or the day's file): emotion, intensity 1–10, context/trigger, body, optional thought, optional what-helped.
+3. **Offer one concrete next step** from `<state_root>/helps.md` when it already exists; otherwise suggest one small, reversible action and ask to save it if it worked.
+4. **Pattern pass** only when asked or when enough logs exist: surface frequency, time-of-day, sleep/exercise correlations from `<state_root>/patterns.md` and recent logs—cite the user's own entries, not generic advice.
+5. **Proactive check-in** only after the user has opted into tracking and a known difficult window appears (e.g. recurring Sunday anxiety in their patterns).
+
+## Core rules
+
+- Treat every emotion as information. Log first; interpret only when asked or when a clear pattern is already in the user's files.
+- Always pair emotion with body sensation when the user offers one; ask once if body data is missing and intensity ≥ 7.
+- Prefer the user's own `helps.md` / `triggers.md` over generic coping lists.
+- Keep responses short during acute distress; expand pattern analysis when the user asks for review.
+- If the user describes self-harm, hopelessness with a plan, or inability to stay safe, pause tracking advice and route to local emergency resources / trusted humans; do not treat the log as therapy.
+
+## Architecture
+
+```text
+<state_root>/
 ├── log/
-│   └── 2024/
-│       └── 02/
-├── patterns.md
-├── triggers.md
-├── helps.md
-└── insights.md
+│   └── YYYY/
+│       └── MM/
+│           └── DD.md      # timed check-ins for the day
+├── patterns.md            # optional recurring time/season/correlation notes
+├── triggers.md            # optional personal trigger map
+├── helps.md               # optional what-works toolkit
+└── insights.md            # optional longer-horizon learnings
 ```
 
-## Feeling Entry
-```markdown
-# log/2024/02/11.md
-## Morning — 8:00 AM
-Feeling: Anxious, 6/10
-Context: Big presentation today
-Body: Tight chest, restless
-Thought: "What if I mess up"
+Create optional files only when the matching feature is used. Full templates and vocabulary: `references/tracking-system.md`.
 
-## Afternoon — 2:00 PM
-Feeling: Relieved, calm, 8/10
-Context: Presentation went well
-Note: Was overthinking this morning
+## Failure modes
 
-## Evening — 9:00 PM
-Feeling: Content, tired
-Context: Good day overall
-Grateful: Positive feedback from team
-```
+| Condition | Response |
+|-----------|----------|
+| No `<state_root>` yet | Resolve per State location; ask once before first create |
+| User vents but refuses logging | Stay present; skip writes; offer log later |
+| Intensity ≥ 8 + safety risk language | Prioritize safety routing over toolkit tips |
+| Pattern request with empty logs | Say data is missing; run a fresh check-in instead of inventing trends |
+| Conflicting candidate state dirs | Use highest-precedence only; report the conflict |
 
-## Quick Check-in
-"How are you feeling?"
-→ Capture: emotion, intensity (1-10), brief context
-→ Note time of day
-→ Track over time
+## Out of scope
 
-## Emotion Vocabulary
-Help expand beyond "good/bad":
-- Anxious, worried, nervous, overwhelmed
-- Sad, lonely, disappointed, grief
-- Angry, frustrated, irritated, resentful
-- Happy, joyful, excited, peaceful
-- Tired, drained, exhausted, burned out
-- Hopeful, motivated, inspired, curious
-
-## Triggers Tracking
-```markdown
-# triggers.md
-## Negative
-- Work deadlines → anxiety
-- Poor sleep → irritability
-- Social media → comparison/low mood
-- Skipping exercise → low energy
-
-## Positive
-- Morning walk → calm
-- Time with friends → joy
-- Completing tasks → satisfaction
-- Creative work → flow state
-```
-
-## What Helps
-```markdown
-# helps.md
-## When Anxious
-- Deep breathing (works fast)
-- Walk outside
-- Talk to Sarah
-- Write it out
-
-## When Sad
-- Don't isolate
-- Music helps
-- Exercise even if don't want to
-
-## When Overwhelmed
-- Make a list
-- Do one small thing
-- Ask for help
-
-## General
-- Sleep is everything
-- Exercise always helps after
-- Talking > bottling
-```
-
-## Patterns
-```markdown
-# patterns.md
-## Time-Based
-- Sundays: often anxious (week ahead)
-- Mornings: better after exercise
-- Late nights: tendency to spiral
-
-## Seasonal
-- Winter: lower baseline mood
-- Need more social effort Dec-Feb
-
-## Correlations
-- Sleep < 6h → next day irritable
-- No exercise 3+ days → low mood
-- Alcohol → next day anxiety
-```
-
-## What To Surface
-- "You've felt anxious 4 times this week"
-- "Last time you felt this way, walking helped"
-- "Sleep has been under 6h — might be affecting mood"
-- "Sundays are often harder — plan something nice"
-
-## Proactive Check-ins
-- Morning: "How are you starting the day?"
-- After noted difficult events
-- When patterns suggest check-in needed
-- Celebrate good streaks
-
-## Insights Over Time
-```markdown
-# insights.md
-## Learned About Myself
-- Anxiety is usually worse than reality
-- I need alone time to recharge
-- Exercise is non-negotiable for mood
-- Sleep debt compounds
-
-## Growth
-- Better at noticing feelings early
-- Asking for help more often
-- Less reactive when tired
-```
-
-## What To Track
-- Emotion name(s)
-- Intensity (1-10)
-- Context/trigger
-- Physical sensations
-- What helped (after)
-
-## Progressive Enhancement
-- Start: daily check-ins
-- Notice triggers and what helps
-- Review weekly for patterns
-- Build personal toolkit
-
-## What NOT To Do
-- Judge emotions as wrong
-- Force positivity
-- Ignore physical sensations
-- Skip tracking when feeling bad (most valuable)
+- Diagnosing mental illness or prescribing treatment
+- Replacing human therapists, crisis lines, or emergency services
+- Forced positivity or minimizing the user's stated feeling
+- Writing secrets, credentials, or third-party private data into logs
