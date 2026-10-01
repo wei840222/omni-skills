@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to buy a domain name from someone online. Help me negotiate. My target is $500, but I'll pay up to $800 if needed.",
+    "expected": "Halt on missing mandatory setup (walk-away, approval threshold, autonomy level, category confirmation), acknowledge the $800 ceiling only as stated hard limit, and load references/buying.md before any sendable counterparty draft.",
+    "actual": "Asked for walk-away threshold, approval threshold, autonomy level, and explicit category confirmation. Treated $800 as the stated ceiling and $500 as target. Loaded references/buying.md. Drafted an internal suggested opener only after setup; did not claim a market 'fair' price from memory.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm selling my old laptop on Facebook Marketplace. Someone offered $100 for it. Just reply for me.",
+    "expected": "Refuse blind send at default Level 1; require hard limit, target, walk-away, approval threshold; load references/p2p.md; do not send externally without approval.",
+    "actual": "Defaulted to Level 1 Observer. Loaded references/p2p.md. Requested floor/target/walk-away/approval before any external reply. Offered a draft hold message only after limits exist; flagged off-platform payment requests as escalation.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Save this for later: I am Level 1 for every category, domains max $2k confirmed, and prefer email for contract counters.",
+    "expected": "Resolve <state_root>, write confirmed lines to <state_root>/profile.md after confirmation, and restate Level 1 autonomy across categories.",
+    "actual": "Resolved <state_root> via workspace/negotiate first-existing rule, confirmed the three durable lines with the principal, wrote Known Limits / Autonomy Grants / Patterns to <state_root>/profile.md, and restated Level 1 as the active default.",
+    "pass": true
+  }
+]

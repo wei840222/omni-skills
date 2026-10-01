@@ -14,7 +14,7 @@ Formula for services: `(Annual target ÷ billable hours) × 1.3 = floor`
 
 ## Handling "Too Expensive"
 
-Never immediately drop price. Try:
+Avoid an immediate unearned drop. Prefer this sequence:
 
 1. **Ask what they had in mind** — understand their constraint
 2. **Unbundle** — "I can do X for €800, without Y"
@@ -28,7 +28,7 @@ When they ask for more:
 - Quote additional cost immediately
 - "Happy to add that — it's €X extra, or we can swap out Y"
 
-Track all concessions. If you've already given something free, don't give more.
+Track all concessions. Track prior free concessions before offering another.
 
 ## Closing Signals
 

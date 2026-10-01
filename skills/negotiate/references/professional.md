@@ -15,7 +15,7 @@ Unlike transactional negotiations, professional deals have long-term relationshi
 - Market benchmarks for role/industry/location
 - Understanding of their constraints (budget cycles, approvals needed)
 
-**Never reveal:**
+**Default keep confidential (until principal releases):**
 - Current salary (in many places, illegal to ask)
 - Your urgency level
 - Other offers (unless strategically advantageous)
@@ -23,7 +23,7 @@ Unlike transactional negotiations, professional deals have long-term relationshi
 ## Communication Tone
 
 Always: Professional, warm, collaborative
-Never: Aggressive, ultimatum-heavy, transactional
+Avoid: Aggressive, ultimatum-heavy, purely transactional tone
 
 Frame as problem-solving together, not adversarial.
 
