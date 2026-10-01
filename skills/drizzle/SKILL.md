@@ -23,7 +23,7 @@ This skill is **stateless**: it does not store local configuration or persistent
 
 ## When to load
 
-Load for Drizzle-first application data work:
+Load for **Drizzle-first** application data work (schema, query builders, relations, kit):
 
 - schema files using `pgTable` / `mysqlTable` / `sqliteTable`
 - `db.select().from(...)`, inserts/updates/deletes, filters with `eq`/`and`/`or`
