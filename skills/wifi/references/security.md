@@ -1,8 +1,8 @@
 ## Baseline hardening
 
 - **Floor:** WPA2-Personal (AES/CCMP). **Prefer:** WPA3-Personal with Simultaneous Authentication of Equals (SAE) when every needed client supports it ([Wi-Fi Alliance security overview](https://www.wi-fi.org/discover-wi-fi/security)).
-- Replace WEP and original WPA/TKIP deployments — they are practical to break on modern hardware.
-- **Disable WPS** (push-button and PIN). The PIN mode is a well-known brute-force path regardless of passphrase strength.
+- Standardize on WPA2-Personal (AES) or WPA3-Personal; migrate any remaining WEP or original WPA/TKIP BSS to those modes.
+- Leave **WPS** (push-button and PIN) turned off on production APs. PIN mode is a well-known brute-force path even with a strong passphrase.
 - A **hidden SSID** still leaks in probe behavior; clients often broadcast the name when searching. Treat hiding as cosmetic, not access control.
 - **MAC allow-lists** are trivial to bypass once addresses are observed on the air — use only as light inventory hygiene, never as the main lock.
 

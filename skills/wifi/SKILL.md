@@ -35,7 +35,7 @@ Prefer other skills when the ask is mainly:
 
 ## Routing
 
-Load supporting references only when needed:
+Keep `SKILL.md` as the router; load supporting references only when the user question needs that depth:
 
 - **Bands, channels, speed, drops, diagnostics** → `references/troubleshooting.md`
 - **WPA/WPS/SSID/guest hardening** → `references/security.md`
