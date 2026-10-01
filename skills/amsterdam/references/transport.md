@@ -1,12 +1,12 @@
 # Amsterdam Transport Guide 2025-2026
 
-> Getting around the bike capital of the world: cycling, trams, metro, trains, and why you don't need a car.
+> Getting around the bike capital of the world: cycling, trams, metro, trains, and why you can rely entirely on alternatives.
 
 ---
 
 ## Overview
 
-Amsterdam is Europe's most bike-friendly city, with excellent public transport as backup. Most residents don't own cars.
+Amsterdam is Europe's most bike-friendly city, with excellent public transport as backup. Most residents live car-free.
 
 ### Transport Mode Share
 
@@ -65,7 +65,7 @@ Amsterdam is Europe's most bike-friendly city, with excellent public transport a
 - **60,000-80,000 bikes** stolen annually in Amsterdam
 - **Always use TWO locks** - one for frame, one for wheel
 - Lock to fixed object, not just wheel
-- Don't leave overnight in risky areas
+- Store securely overnight in risky areas
 - Consider bike insurance (EUR 5-15/month)
 - Register bike serial number
 
@@ -117,7 +117,7 @@ Operates trams, metro, buses, and ferries within Amsterdam.
 
 ### Buses
 
-- Cover areas trams/metro don't reach
+- Cover areas trams/metro bypass
 - Night buses (Nachtbus) after midnight
 - Regional buses to surrounding areas
 
@@ -184,7 +184,7 @@ Operates trams, metro, buses, and ferries within Amsterdam.
 
 ##  Driving & Car Ownership
 
-### Why Most Don't Own Cars
+### Why Most Rely on Alternatives
 
 | Factor | Reality |
 |--------|---------|
@@ -273,9 +273,9 @@ Operates trams, metro, buses, and ferries within Amsterdam.
 
 ### When to Use
 
-- Late night when transit stops
+- Late night when transit pauses
 - Heavy luggage
-- Rain when you don't have bike
+- Rain when you lack a bike
 - Groups of 3+ (cost-effective)
 
 ---
@@ -335,8 +335,8 @@ Operates trams, metro, buses, and ferries within Amsterdam.
 3. **OV-chipkaart** - Get one for backup transport
 4. **Dal Voordeel** - Worth it for any train travel
 5. **Ferries are free** - Use them to explore Noord
-6. **Avoid taxis for short trips** - Usually slower than bike
-7. **P+R for visitors with cars** - Don't drive into center
+6. **Use bikes instead of taxis for short trips** - Usually slower than bike
+7. **P+R for visitors with cars** - Park at P+R facilities
 8. **Night buses exist** - Check 9292 for routes
 9. **Bike lights are mandatory** - Police do ticket
 10. **Rain gear always** - Weather changes quickly

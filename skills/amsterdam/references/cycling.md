@@ -121,7 +121,7 @@
 | **No phone** | While cycling | EUR 140 |
 | **Hand signals** | For turns | EUR 95 |
 | **Right side** | Stay right | EUR 95 |
-| **Red lights** | Must stop | EUR 95 |
+| **Red lights** | Halt required | EUR 95 |
 | **Bell** | Required | EUR 30 |
 | **Reflectors** | Required | EUR 30 |
 
@@ -132,7 +132,7 @@
 | **Right-hand priority** | Traffic from right goes first (unless marked) |
 | **Trams** | Always have priority |
 | **Sharks' teeth** | Give way to traffic on main road |
-| **Pedestrian crossings** | Stop for pedestrians |
+| **Pedestrian crossings** | Yield to pedestrians |
 | **Bike boxes** | Bikes wait ahead of cars |
 
 ### Drunk Cycling
@@ -170,7 +170,7 @@ Technically illegal but:
 1. **Main roads have bike paths** - Usually next to road
 2. **Canals** - Often good routes
 3. **Parks** - Usually have paths through
-4. **Avoid tram tracks** - Wheels can get stuck
+4. **Stay clear of tram tracks** - Wheels can get stuck
 
 ---
 
@@ -283,8 +283,8 @@ Technically illegal but:
 ### Parking Tips
 
 1. Use designated racks when possible
-2. Don't block pedestrians
-3. Avoid hazardous spots (canal edges)
+2. Keep paths clear for pedestrians
+3. Route around hazardous spots (canal edges)
 4. Check for "no parking" signs
 5. Some areas remove illegally parked bikes
 
@@ -347,7 +347,7 @@ Best for hassle-free ownership:
 |-----|---------|
 | **Google Maps** | Cycling navigation |
 | **9292** | If bike fails, public transport |
-| **Buienradar** | Avoid rain |
+| **Buienradar** | Plan around rain |
 | **Marktplaats** | Buy/sell bikes |
 
 ---
@@ -358,10 +358,10 @@ Best for hassle-free ownership:
 2. **Invest in good locks** - More than the bike if needed
 3. **Lights are non-negotiable** - Police do ticket
 4. **Rain gear pays off** - Good gear = year-round cycling
-5. **Watch for tourists** - They don't know the rules
+5. **Watch for tourists** - They are unfamiliar with local rules
 6. **Ring your bell** - Politely warn pedestrians
 7. **Go with the flow** - Follow Dutch cyclists
-8. **Accept bike will age** - Don't baby it
+8. **Accept bike will age** - Expect normal wear
 9. **Learn basic repairs** - Flat tire fix is essential
 10. **Embrace it** - Cycling is the best way to live here
 

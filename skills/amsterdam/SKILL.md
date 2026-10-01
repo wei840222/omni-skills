@@ -1,183 +1,107 @@
 ---
 name: amsterdam
-slug: amsterdam
-version: 1.0.1
-description: Navigate Amsterdam as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/amsterdam
+description: >
+  Assist with Amsterdam travel, relocation, work, study, or local life by routing
+  to neighborhood, transport, housing, visa orientation, cost, and lifestyle guides.
+  Use for visitor itineraries, moving/settling checklists, tech-career orientation,
+  cycling and GVB transit, or 30% ruling / HSM overview. Not for filing a visa,
+  booking non-refundable travel, or stating a nationality-specific entry rule without
+  re-checking the official IND/Iamsterdam page for that passport and date.
 metadata:
-  clawdbot:
-    emoji: AMS
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Amsterdam
+  version: "1.1.0"
+  openclaw: '{"emoji":"🚲"}'
+  related-skills: '{"travel":"Multi-country or Europe-wide itinerary framing when Amsterdam is only one stop.","booking":"Reservation hygiene for hotels, flights, and tickets after the Amsterdam plan is set.","food":"Broader meal planning beyond Amsterdam food area notes.","dutch":"Language support for menus, gemeente forms, and daily phrases.","cycling":"General bike-fit and ride craft beyond Amsterdam street norms.","europe":"Schengen / multi-city Europe routing when the trip is not Amsterdam-centric.","housing":"Cross-city housing search process when Amsterdam is one candidate market.","flight":"Flight shopping and buffer planning into AMS.","expat":"General expat settling patterns that are not Amsterdam-specific."}'
 ---
 
-## When to Use
+## State location
 
-User asks about Amsterdam for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Amsterdam planning or move context may exist in `<workspace>/amsterdam/`, `<workspace>/memory/amsterdam/`, or `~/amsterdam/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Quick Reference
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/amsterdam/`, `<workspace>/memory/amsterdam/`, `~/amsterdam/`.
+3. If none exists and the user wants planning context kept, create `<workspace>/amsterdam/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/amsterdam/` only. Otherwise ask for a state root before creating files.
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Centrum, Jordaan, De Wallen | `neighborhoods-centrum.md` |
-| De Pijp, Oud-Zuid, Rivierenbuurt | `neighborhoods-south.md` |
-| Oud-West, Westerpark, Bos en Lommer | `neighborhoods-west.md` |
-| Noord, Oost, IJburg | `neighborhoods-east-north.md` |
-| Amstelveen, Buitenveldert, Zuidoost | `neighborhoods-suburban.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Dutch & local cuisine | `food-local.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary, alcohol, practical | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (bikes, trams, trains) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & survival tips | `climate.md` |
-| Local services (banking, BSN) | `local.md` |
-| **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & freelancing | `business.md` |
-| Visas (HSM, 30% ruling, startup) | `visas.md` |
-| Startups & funding | `startup.md` |
-| **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & insurance | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Cycling & transport ownership | `cycling.md` |
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants trip or move context kept across sessions. Legacy `~/Clawic/data/amsterdam/` is a migration source only. Keep it out of the active lookup order, and move it only when the user asks.
 
-## Core Rules
+This skill is primarily **routing knowledge**. Durable notes are optional; do not invent a CRM or booking ledger unless the user asks to keep state.
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, entrepreneur
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
+## When to load
 
-### 2. Housing Crisis Reality
-Amsterdam has one of Europe's tightest housing markets:
-- **Social housing waitlist**: 10-15+ years average
-- **Free sector rental**: Extremely competitive, often 100+ applicants per listing
-- **Rent regulation**: Properties <142 points = regulated (max ~EUR 880/month in 2026)
-- **Average rent**: EUR 22-30/sqm in free sector; 1BR EUR 1,700-2,500/month
-See `cost.md` and `resident.md` for strategies.
+Load for Amsterdam **visitor**, **relocation**, **work/study**, or **local-life** questions:
 
-### 3. Bike Culture (Essential)
-Cycling isn't optional in Amsterdam-it's the primary transport:
-- **880,000+ bikes** for 900,000 residents
-- **44%** of all trips made by bicycle
-- **Bike infrastructure**: Separated lanes, bike traffic lights, parking garages
-- **Bike theft**: Very common-always use two locks
-- **Right of way**: Bikes have priority over cars in most situations
-See `cycling.md` and `transport.md` for details.
+- 1/3/7-day itineraries, attractions, lodging zones, day trips
+- neighborhood fit (Centrum, De Pijp, Jordaan, Oud-West, Noord, IJburg, suburbs)
+- bikes, GVB, NS, why not to rent a car in the core
+- cost of living, housing market reality, settling checklist (BSN, DigiD, huisarts)
+- tech salaries orientation, startups, Highly Skilled Migrant / 30% ruling overview
+- safety, coffeeshop rules, canal and bike-theft basics
 
-### 4. Weather Reality
-- **Rain**: Expect it year-round, 175 days/year with precipitation
-- **Mild winters**: 2-8C, rarely below -5C, occasional snow
-- **Cool summers**: 17-22C average, occasional 30C+ heatwaves
-- **Wind**: Constant factor, especially near water
-- **Essentials**: Waterproof jacket, rain pants, good shoes-NOT umbrella (wind)
-See `climate.md` for monthly breakdown and gear advice.
+Route away when the task is mainly:
 
-### 5. Current Data (Feb 2026)
+- multi-country Europe trip design → `travel` / `europe`
+- hotel/flight booking ops → `booking` / `flight`
+- Dutch language learning → `dutch`
+- generic housing search outside Amsterdam → `housing`
+- live visa filing for a specific passport → open live IND pages + tell the user to confirm; do not invent thresholds from memory
 
-| Item | Range |
-|------|-------|
-| 1BR rent (Centrum) | EUR 1,800-2,800/month |
-| 1BR rent (Outside ring) | EUR 1,400-2,000/month |
-| Senior SWE salary | EUR 80,000-130,000/year gross |
-| GVB monthly pass | EUR 99 (Amsterdam) |
-| Dinner for two (mid-range) | EUR 70-120 |
-| International school fees | EUR 15,000-28,000/year |
-| Highly Skilled Migrant threshold | EUR 5,688/month (30+), EUR 4,171 (<30) |
+Read `references/sources.md` before repeating salary bands, rent medians, IND salary thresholds, OV fares, or emergency numbers. Re-check the official page before the user books non-refundable travel or relies on a visa number.
 
-### 6. Cost Reality
-Amsterdam has high costs but also high salaries:
-- **Housing**: 35-50% of budget typical
-- **Healthcare**: Mandatory insurance ~EUR 140-180/month
-- **Childcare**: Subsidized but expensive-EUR 1,500-2,700/month gross before subsidies
-- **Food**: Groceries 20-30% cheaper than UK/US
-- **Transport**: Cheap if biking (most do); EUR 99/month for unlimited GVB
-- **Taxes**: 36.97%-49.5% income tax (but 30% ruling can help)
+## When to load references
 
-### 7. Transit Excellence
-Unlike most cities, Amsterdam is NOT car-centric:
-- **Cycling**: Primary mode, extensive infrastructure
-- **Trams/Metro/Buses**: GVB runs frequent service citywide
-- **Trains (NS)**: Excellent connections nationwide
-- **OV-chipkaart**: Single card for all public transport in NL
-- **Car**: Actively discouraged-parking EUR 50-80/day in center
-Most residents don't own cars. See `transport.md` and `cycling.md`.
+Load the smallest reference that matches the current need; keep this file as the entry point.
 
-### 8. Neighborhood Matching
+| Need | File |
+|------|------|
+| Verified source URLs (Gate 6) | `references/sources.md` |
+| Attractions | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips & day trips | `references/visitor-tips.md` |
+| Neighborhood comparison | `references/neighborhoods-index.md` |
+| Centrum / Jordaan / De Wallen | `references/neighborhoods-centrum.md` |
+| De Pijp / Oud-Zuid / Rivierenbuurt | `references/neighborhoods-south.md` |
+| Oud-West / Westerpark / Bos en Lommer | `references/neighborhoods-west.md` |
+| Noord / Oost / IJburg | `references/neighborhoods-east-north.md` |
+| Amstelveen / Buitenveldert / Zuidoost | `references/neighborhoods-suburban.md` |
+| Choosing a neighborhood | `references/neighborhoods-choosing.md` |
+| Food overview | `references/food-overview.md` |
+| Dutch cuisine | `references/food-local.md` |
+| International dining | `references/food-international.md` |
+| Dining areas | `references/food-areas.md` |
+| Dietary & practical food | `references/food-practical.md` |
+| Moving & settling | `references/resident.md` |
+| Transport | `references/transport.md` |
+| Cycling norms | `references/cycling.md` |
+| Cost of living | `references/cost.md` |
+| Safety & laws | `references/safety.md` |
+| Weather & climate | `references/climate.md` |
+| Local services | `references/local.md` |
+| Tech industry | `references/tech.md` |
+| Business setup | `references/business.md` |
+| Visas & 30% ruling | `references/visas.md` |
+| Startups | `references/startup.md` |
+| Culture | `references/culture.md` |
+| Healthcare | `references/healthcare.md` |
+| Education | `references/education.md` |
+| Expat life | `references/lifestyle.md` |
 
-| Profile | Best Areas |
-|---------|------------|
-| Young professionals | De Pijp, Oud-West, Oost |
-| Families | Oud-Zuid, Amstelveen, IJburg |
-| Budget-conscious | Noord, Zuidoost, New West |
-| Nightlife seekers | De Pijp, Jordaan, Centrum |
-| Tech workers | Zuidoost (tech hub), Oost, Amstelveen |
-| Quiet/Upscale | Oud-Zuid, Apollobuurt, Museumkwartier |
-| Students | Oost, Noord, De Pijp |
+## Operating rules
 
-## 30% Ruling Changes (Critical for Expats)
+1. **Ask for constraints early**: passport/nationality (for entry), dates or season, budget band, solo/couple/family, bike comfort, and whether the goal is visit vs move.
+2. **Prefer bikes + GVB over cars** inside the urban core; explain parking cost and one-way maze only when the user insists on driving.
+3. **Housing honesty**: free-sector rent is competitive; do not promise social-housing speed. Separate visitor lodging from resident leases.
+4. **Legal caution**: cannabis is a regulated coffeeshop model, not a free-for-all; public smoking and street dealing remain risk. Quote emergency **112**.
+5. **Money**: quote ranges as orientation with the date/source caveat; net salary depends on 30% ruling, household, and tax year.
+6. **Language**: English is widely usable in tech and tourism; still point to `dutch` for gemeente/long-stay friction.
+7. **No secrets or bookings**: never store passport numbers, BSN, or payment data in skill files. Booking confirmations belong in user-controlled state only if requested.
 
-The 30% ruling (tax benefit for highly skilled migrants) is being phased down:
-- **2024-2026**: 30% for first 20 months -> 20% for months 21-40 -> 10% for months 41-60
-- **Pre-2024 arrivals**: May retain old 30% for full 5 years (grandfathered)
-- **Requirements**: HSM visa, recruited from abroad, specific expertise
-- **Impact**: Effective tax reduction of EUR 10,000-30,000/year depending on salary
-See `visas.md` for detailed eligibility and calculations.
+## Safety boundaries
 
-## Amsterdam-Specific Traps
-
-- **Housing scams** - Never pay before viewing. Never wire money abroad. Verify landlord ownership.
-- **Tourist tax** - EUR 3/night + 7% of room price. Budget for it.
-- **Bike theft** - Use TWO locks (frame + wheel). Budget EUR 500+ for a decent used bike.
-- **Coffee vs Coffeeshop** - "Coffee shop" (two words) = cafe. "Coffeeshop" (one word) = cannabis.
-- **Hard drugs** - Illegal. Cocaine, MDMA, etc. carry serious penalties despite reputation.
-- **Right-hand priority** - Vehicles from right have priority unless marked otherwise. Crucial for cyclists.
-- **Canal swimming** - Legal but water quality is poor. Stick to designated swim spots.
-- **Tipping** - Not expected. Round up or add 5-10% for exceptional service only.
-- **Shop hours** - Many shops close at 6pm. Supermarkets: till 10pm. Sunday closures common.
-- **Directness** - Dutch people are famously direct. It's cultural, not rude.
-- **Appointments** - Everything requires scheduling. Don't drop by unannounced.
-
-## Legal Awareness
-
-Key laws visitors/residents must know:
-- **Cannabis**: Legal to buy/consume in licensed coffeeshops only. Max 5g purchase. No smoking in public.
-- **Magic mushrooms**: Illegal since 2008. Truffles (sclerotia) are legal and sold in smart shops.
-- **Prostitution**: Legal and regulated in designated areas (De Wallen). Photography prohibited.
-- **Alcohol**: Legal at 18+. No public drinking in designated zones. DUI limit: 0.5% (0.2% for new drivers).
-- **Cycling laws**: Lights required at night, no phone use, hand signals for turns.
-- **Photography**: Legal in public, but respect red-light district rules and ask for portraits.
-- **Noise**: Quiet hours 10pm-7am. Neighbors will complain. Dutch take this seriously.
-- **Airbnb**: Max 30 nights/year for entire home. Registration required. Fines up to EUR 20,000.
-
-See `safety.md` for comprehensive legal guidance.
-
-## LGBTQ+ Friendliness
-
-Amsterdam is one of the world's most LGBTQ+-friendly cities:
-- First country to legalize same-sex marriage (2001)
-- Large queer community centered around Reguliersdwarsstraat
-- Amsterdam Pride (first weekend of August) is major event
-- No legal or social barriers; full acceptance in daily life
-- Excellent resources, nightlife, and community organizations
+- Not a substitute for IND, gemeente, employer immigration counsel, or a licensed advisor.
+- Do not invent current HSM salary thresholds, tourist-tax rates, or museum ticket prices from memory—open `references/sources.md` and the live page.
+- Do not encourage illegal substance purchase outside licensed channels or unsafe canal behavior.
+- Treat user-provided addresses and employer details as private.

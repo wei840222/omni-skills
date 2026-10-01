@@ -6,7 +6,7 @@
 
 ##  Must-See Attractions
 
-### Top Tier (Don't Miss)
+### Top Tier (Highly Recommended)
 
 | Attraction | Why Visit | Time Needed | Ticket |
 |------------|-----------|-------------|--------|
@@ -84,7 +84,7 @@ These sell out weeks ahead:
 
 ### Best Times to Visit
 
-| Attraction | Best Time | Avoid |
+| Attraction | Best Time | Skip |
 |------------|-----------|-------|
 | Rijksmuseum | Opening (9:00) or after 16:00 | Weekend afternoons |
 | Van Gogh | Opening or evening slots | Weekend midday |
@@ -239,7 +239,7 @@ These sell out weeks ahead:
 2. **Best views are free** - OBA library rooftop, NEMO rooftop (free), ferry to Noord
 3. **Rent a bike** - See more than any tour
 4. **Markets over shops** - Better prices, more authentic
-5. **Avoid Leidseplein restaurants** - Tourist prices, mediocre food
+5. **Bypass Leidseplein restaurants** - Tourist prices, mediocre food
 6. **Jordaan Sunday morning** - Quiet, peaceful, locals only
 7. **Golden hour canals** - Best photos at sunset
 8. **Check for events** - Many museums do late-night openings

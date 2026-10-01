@@ -113,7 +113,7 @@ Amsterdam is **always windy**:
 
 ### A/C Reality
 
-- Most homes **don't have A/C**
+- Most homes **lack A/C**
 - Heatwaves can be uncomfortable
 - Fans sell out quickly
 - Open windows at night
@@ -210,7 +210,7 @@ Many consider spring ideal:
 | Waterproof shoes | Puddles, wet streets |
 | Warm hat/gloves (winter) | Cold wind |
 
-### Don't Bother With
+### Skip These
 
 | Item | Why Not |
 |------|---------|

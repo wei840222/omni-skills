@@ -204,7 +204,7 @@ Rivierenbuurt is an **Amsterdam School showcase** - the distinctive 1920s style 
 - Social butterflies
 - Foodies and market lovers
 - Young professionals
-- Those who don't mind crowds
+- Those who are comfortable with crowds
 
 **Oud-Zuid:**
 - Families with budget

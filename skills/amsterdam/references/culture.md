@@ -12,7 +12,7 @@
 |-------|---------|
 | **Direct** | Say what they mean, no sugar-coating |
 | **Practical** | Pragmatic, efficient, no-nonsense |
-| **Egalitarian** | Don't show off, everyone equal |
+| **Egalitarian** | Remain humble, everyone equal |
 | **Private** | Personal space valued |
 | **Punctual** | Time is taken seriously |
 | **Tolerant** | Live and let live attitude |
@@ -40,7 +40,7 @@ Dutch people are **famously direct**:
 
 ### How to Adapt
 
-1. **Don't take offense** - It's cultural, not personal
+1. **Maintain perspective** - It's cultural, not personal
 2. **Be direct yourself** - They appreciate it
 3. **Ask directly** - They prefer clear questions
 4. **Skip excessive politeness** - Seen as insincere
@@ -70,7 +70,7 @@ Dutch people are **famously direct**:
 ### Creating Gezelligheid
 
 - Candles (Dutch love them)
-- Warm lighting (never harsh)
+- Warm lighting (always soft)
 - Food and drinks to share
 - Comfortable seating
 - Good company
@@ -103,7 +103,7 @@ Dutch people are **famously direct**:
 
 - Dutch value privacy
 - Small talk is brief
-- Don't ask overly personal questions early
+- Keep questions general initially
 - Home is private domain
 
 ---
@@ -165,9 +165,9 @@ Dutch decision-making through **consensus**:
 |-----|-----|
 | Be direct | Appreciated |
 | Share opinions | Expected |
-| Don't oversell | Seen as arrogant |
+| Present facts neutrally | Seen as arrogant |
 | Be on time | Mandatory |
-| Email is fine | Don't overcall |
+| Email is fine | Limit phone calls |
 
 ---
 
@@ -213,7 +213,7 @@ Dutch decision-making through **consensus**:
 
 ### The Open Windows
 
-Dutch often **don't close curtains**:
+Dutch often **leave curtains open**:
 - Nothing to hide mentality
 - Community connection
 - Light maximization
@@ -345,7 +345,7 @@ Key cultural points:
 - Cycle everywhere
 - Appreciate gezelligheid
 
-### Don't
+### Discouraged
 
 - Show off wealth
 - Be late

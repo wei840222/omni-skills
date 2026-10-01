@@ -16,7 +16,7 @@ Amsterdam's Centrum is where the famous canal belt (Grachtengordel), the Red Lig
 - **Vibe:** Tourist central, historic, bustling 24/7
 - **Architecture:** 17th-century canal houses, narrow streets
 - **Crowd:** Tourists, hospitality workers, longtime locals
-- **Best for:** Those who love urban energy and don't mind crowds
+- **Best for:** Those who love urban energy and are comfortable with crowds
 
 ### Rental Prices (Feb 2026)
 | Type | Price Range | Notes |
@@ -124,7 +124,7 @@ Amsterdam's Centrum is where the famous canal belt (Grachtengordel), the Red Lig
 - **Quieter than expected** - actual residents cope well
 - **24/7 activity** - bars, coffeeshops, tourism
 - **Safe** - heavy police presence, well-lit
-- **Photography restricted** - don't photograph sex workers
+- **Photography restricted** - photography of sex workers is strictly prohibited
 
 ### Pros
 - Central location
@@ -158,7 +158,7 @@ Amsterdam's Centrum is where the famous canal belt (Grachtengordel), the Red Lig
 ### Surviving Tourist Crowds
 - Shop early morning (before 10am)
 - Use back streets instead of main thoroughfares
-- Avoid weekend afternoons in summer
+- Schedule around weekend afternoons in summer
 - Find "local" cafes away from tourist routes
 - Embrace or accept-you live in a global attraction
 
@@ -184,7 +184,7 @@ Amsterdam's Centrum is where the famous canal belt (Grachtengordel), the Red Lig
  **Perfect for:**
 - Young professionals who love city energy
 - Remote workers with flexible schedules
-- People who never want to drive
+- People who prefer to exclusively use other transport
 - History and architecture lovers
 - Those with high noise tolerance
 
@@ -199,6 +199,6 @@ Amsterdam's Centrum is where the famous canal belt (Grachtengordel), the Red Lig
 
 ## Verdict
 
-Living in Amsterdam's Centrum is like living in a museum that never closes-beautiful, historic, and exhausting. It's a privilege to walk past centuries-old canal houses daily, but the tourist crowds and noise require genuine tolerance. Jordaan offers the best balance of charm and livability; De Wallen is for the adventurous; pure Centrum is for those who truly embrace urban chaos.
+Living in Amsterdam's Centrum is like living in a museum that is always active-beautiful, historic, and exhausting. It's a privilege to walk past centuries-old canal houses daily, but the tourist crowds and noise require genuine tolerance. Jordaan offers the best balance of charm and livability; De Wallen is for the adventurous; pure Centrum is for those who truly embrace urban chaos.
 
 *Consider carefully. Visit multiple times at different hours before committing.*

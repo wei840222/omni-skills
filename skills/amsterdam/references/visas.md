@@ -1,3 +1,5 @@
+> **Orientation only (Gate 6):** IND salary thresholds, processing times, and 30% facility rules change. Open the live IND and Belastingdienst pages before the user files or accepts an offer contingent on immigration.
+
 # Netherlands Visa Guide 2025-2026
 
 > Complete guide to Dutch visa options: Highly Skilled Migrant, 30% Ruling, Startup Visa, and more.

@@ -146,7 +146,7 @@
 | **Vleminckx** | Fries | EUR  | Best fries |
 | **Kantjil & de Tijger** | Indonesian | EUR EUR  | Central Indonesian |
 
-### Avoid in Centrum
+### Alternatives in Centrum
 
 - Damrak restaurants
 - Leidseplein restaurants

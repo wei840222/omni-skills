@@ -19,9 +19,9 @@
 ### Common Sense Rules
 
 1. Watch belongings in tourist areas
-2. Don't leave bikes unlocked (ever)
-3. Avoid dark alleys late at night
-4. Don't buy drugs from street dealers
+2. Always lock bikes securely
+3. Stick to well-lit paths late at night
+4. Only purchase controlled substances from licensed vendors
 5. Beware of canal edges when drinking
 
 ---
@@ -66,7 +66,7 @@
 ### Where NOT to Smoke
 
 - Streets and public spaces (EUR 100 fine)
-- Parks (some allow, many don't)
+- Parks (some allow, many prohibit it)
 - Hotels (unless specifically allowed)
 - Public transport
 - Near schools
@@ -143,7 +143,7 @@ Prostitution is **legal and regulated** in Netherlands.
 ### Safety Tips
 
 - Stay aware of surroundings
-- Don't block windows
+- Keep windows unobstructed
 - Keep valuables secure
 - Ignore street dealers
 - Stick to lit areas at night
@@ -168,7 +168,7 @@ Prostitution is **legal and regulated** in Netherlands.
 - **Right-hand priority** - Traffic from right goes first (unless marked)
 - **Trams always have priority**
 - **Bikes often have priority over cars** (marked)
-- **Pedestrians on zebra crossing** - You must stop
+- **Pedestrians on zebra crossing** - Yield is required
 
 ---
 
@@ -293,7 +293,7 @@ Protected characteristics:
 1. **Right to lawyer** - Request one
 2. **Right to interpreter** - If needed
 3. **Right to contact embassy** - If non-Dutch
-4. **Right to silence** - Don't self-incriminate
+4. **Right to silence** - Remain silent
 
 ### Common Fines
 
@@ -335,7 +335,7 @@ Protected characteristics:
 - Respect the Red Light District
 - Keep cannabis in coffeeshops
 
-### Don't
+### Discouraged
 
 - Buy drugs from street dealers
 - Photograph Red Light District

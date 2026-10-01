@@ -16,7 +16,7 @@
 Amstelveen is **technically a separate municipality**, not part of Amsterdam. This means:
 - Different local government
 - Separate registration (gemeente Amstelveen)
-- Some Amsterdam benefits don't apply
+- Some Amsterdam benefits are absent
 - But seamlessly connected by metro/tram
 
 ### Rental Prices (Feb 2026)
@@ -291,4 +291,4 @@ Amstelveen is **technically a separate municipality**, not part of Amsterdam. Th
 
 ---
 
-*Suburban Amsterdam offers what the center cannot: space, value, and a different quality of life. Don't dismiss these areas based on reputation alone-visit and see for yourself.*
+*Suburban Amsterdam offers what the center cannot: space, value, and a different quality of life. Consider exploring these areas based on reputation alone-visit and see for yourself.*

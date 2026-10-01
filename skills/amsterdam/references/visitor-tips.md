@@ -30,9 +30,9 @@
 |-----|-----|
 | Rent a bike immediately | Fastest way to see the city |
 | Use Google Maps cycling mode | Best routes |
-| Don't walk on bike paths | Cyclists won't stop |
+| Stay off bike paths | Cyclists maintain right of way |
 | Stand right on escalators | Left side for walking |
-| Tap in/out with OV-chipkaart | Avoid fines |
+| Tap in/out with OV-chipkaart | Prevent fines |
 
 ---
 
@@ -52,7 +52,7 @@
 | Mistake | Consequence |
 |---------|-------------|
 | Walking in bike lane | Near collision |
-| Stopping suddenly | Rear-ended |
+| Braking abruptly | Rear-ended |
 | Not looking behind | Dangerous turns |
 | Umbrella while cycling | Wind catches it |
 | Headphones | Can't hear traffic |
@@ -81,7 +81,7 @@
 
 **Note:** Tipping is NOT expected in Netherlands. Service charge is included.
 
-### Avoiding Tourist Prices
+### Finding Local Prices
 
 1. **Skip Leidseplein/Rembrandtplein restaurants** - 30% more expensive
 2. **Eat where locals eat** - Side streets, not canal-facing
@@ -98,9 +98,9 @@
 | Concern | Advice |
 |---------|--------|
 | Pickpockets | Tourist areas, trams, watch bags |
-| Bike theft | TWO locks, never leave unlocked |
+| Bike theft | TWO locks, always secure with locks |
 | Scams | Fake flower sellers, CD signers |
-| Drugs | Only buy from coffeeshops, never street |
+| Drugs | Only buy from coffeeshops, strictly coffeeshops |
 | Canals | Fences are low; watch when drinking |
 
 ### Emergency Numbers
@@ -178,7 +178,7 @@
 | Ticket | EUR 20 + EUR 11 bus |
 | Duration | 4-6 hours |
 | Best time | Mid-April (peak bloom) |
-| Arrive | Opening time (8:00) to avoid crowds |
+| Arrive | Opening time (8:00) for the quietest experience |
 
 ### Tips
 
@@ -305,4 +305,4 @@
 
 ---
 
-*The best Amsterdam experiences come from wandering off the tourist path. Get lost, explore, and don't rush.*
+*The best Amsterdam experiences come from wandering off the tourist path. Get lost, explore, and take your time.*
