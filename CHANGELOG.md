@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| models | 2026-10-01 | 84/100 (#641) |
 | argentina | 2026-10-01 | 81/100 (#640) |
 | vps | 2026-10-01 | 84/100 (#638) |
 | mariadb | 2026-10-01 | 84/100 (#639) |
