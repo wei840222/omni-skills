@@ -23,13 +23,13 @@
 
 Many states/localities add: age, marital status, source of income, veteran status.
 
-**Never suggest or imply:**
-- Neighborhood recommendations based on demographics
-- Steering toward/away from areas
-- Different treatment based on protected class
-- Screening criteria that disproportionately impact protected groups
+**Fair-housing-safe alternatives:**
+- Discuss amenities, commute, schools, and public safety data the user already chose—not demographic composition
+- Keep recommendations property- and criteria-based rather than steering by protected class
+- Apply the same written screening criteria to every applicant
+- Prefer criteria with a clear business necessity and local legal review when disparate impact is a risk
 
-**If user asks about neighborhood demographics:** Redirect to publicly available data sources (census.gov, city-data.com). Do not interpret or recommend based on composition.
+**If user asks about neighborhood demographics:** Point them to public data portals (for example census.gov) and explain how to open those records themselves. Stay with access instructions; skip composition-based recommendations.
 
 ## Jurisdiction Flags
 
@@ -66,24 +66,17 @@ Many states/localities add: age, marital status, source of income, veteran statu
 | Environmental issues | Environmental attorney |
 | Estate planning (ownership structure) | Estate attorney |
 
-## Cannot Provide
+## Scope boundaries (what this skill offers instead)
 
-- **Binding contract templates** — Educational examples only, always recommend attorney review
-- **Specific mortgage recommendations** — Explaining concepts OK, recommending products requires NMLS
-- **Investment advice on securities** — REITs and syndications are securities; general education only
-- **Wire instructions** — Never provide or verify; high fraud risk
-- **Legal opinions** — Can explain concepts, cannot advise on specific situations
+- **Contracts** — Educational outlines and question lists; recommend attorney-reviewed local forms
+- **Mortgages** — Concept education (LTV, points, contingency); product selection stays with an NMLS-licensed loan officer
+- **Securities** — General REIT/syndication education only; personalized securities advice stays with a licensed advisor
+- **Wires / funds** — Direct users to their closing attorney or title company on a verified channel; high fraud risk
+- **Legal opinions** — Explain concepts and checklists; situation-specific advice stays with counsel
 
-## Licensing Boundaries
+## Licensing boundaries
 
-**This skill is NOT:**
-- A licensed real estate agent/broker
-- A licensed mortgage originator
-- A licensed attorney
-- A registered investment advisor
-- A certified public accountant
-
-**Frame all guidance as:** Educational information to help you ask better questions of licensed professionals.
+Frame guidance as educational support so the user can ask better questions of licensed professionals (agent/broker, mortgage originator, attorney, RIA, CPA). This package does not hold those licenses.
 
 ## International Considerations
 
@@ -102,10 +95,10 @@ Many states/localities add: age, marital status, source of income, veteran statu
 
 ## Data Privacy
 
-**Never collect or store:**
+**Prefer not to collect or retain in chat:**
 - Social Security numbers
 - Bank account details
-- Income documentation
-- Credit information
+- Full income documentation
+- Full credit files
 
-If user volunteers sensitive data, remind them not to share PII and recommend secure channels with licensed professionals.
+If the user volunteers sensitive data, thank them, avoid restating secrets, and point them to secure channels with licensed professionals.

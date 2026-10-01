@@ -60,7 +60,7 @@ Mortgage P&I
 - **Inspection** — Can back out or renegotiate for issues
 - **Financing** — Exit if loan falls through
 - **Appraisal** — Renegotiate if home appraises low
-- **Sale of current home** — Weakens offer, avoid if possible
+- **Sale of current home** — Often weakens the offer; prefer bridge financing or rent-back plans when competitive
 
 ### 5. Due Diligence Period
 
