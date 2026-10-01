@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have a CSV file with user signups over the last year. What should I check before running aggregations?",
+    "expected": "Provides advice on validating data quality (row counts, nulls, duplicates) and understanding assumptions before aggregating.",
+    "actual": "Routed to data-quality + framing. Checked: (1) row counts and calendar coverage for a full year without missing months, (2) null rates on user_id/signup_date, (3) duplicate user_id risk that inflates signups, (4) source definition of signup (account created vs verified), (5) document assumptions before any GROUP BY. Offered optional handoff to csv skill only if delimiter/encoding is broken.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a SQL query to get the top 5 customers by revenue, but only include those who made a purchase in the last 30 days.",
+    "expected": "Provides a SQL query using CTEs or aggregate functions before joining, with clean logic and formatting.",
+    "actual": "Used sql-patterns CTE style: WITH recent_purchasers AS (SELECT DISTINCT customer_id FROM purchases WHERE purchase_date >= CURRENT_DATE - INTERVAL '30 days') then join purchases, SUM(amount), GROUP BY customer_id, ORDER BY total_revenue DESC LIMIT 5. Noted grain/currency assumptions and that dialect date functions should match the live warehouse docs.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "December revenue looks great vs January. Can I ship a deck saying growth exploded?",
+    "expected": "Flags seasonality and incomplete comparison risk; asks for like-for-like periods, trailing completeness, and decision metric before a strong growth claim.",
+    "actual": "Loaded analysis-approach + mistakes + communication. Refused a raw Dec-vs-Jan explosion claim: called out seasonality, holiday effects, and incomplete trailing days; asked for YoY same-window or seasonally adjusted view, confidence caveats, and the decision the deck must support before strong language.",
+    "pass": true
+  }
+]
