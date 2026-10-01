@@ -72,4 +72,4 @@ Do **not** load as the primary skill for generic SQL (`sql`), MySQL-only server 
 
 - Never commit live credentials, dumps with PII, or production connection strings into the skill package.
 - Treat backup success as restore-tested only; schedule restore drills.
-- Destructive DDL, mass `UPDATE`/`DELETE`, and cluster membership changes need explicit operator intent and a rollback path.
+- Proceed with destructive DDL, mass `UPDATE`/`DELETE`, and cluster membership changes only after explicit operator intent and a documented rollback path.
