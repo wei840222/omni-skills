@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a 400x300 placeholder image with a gray background for my mockup.",
+    "expected": "Returns a concrete Placehold.co or Lorem Picsum URL at 400x300 without requiring an API key.",
+    "actual": "Primary URL: https://placehold.co/400x300/EEE/31343C (Placehold.co, no API key). Alternate photo placeholder: https://picsum.photos/400/300.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need three consistent placeholders of size 800x600 for a blog post layout I'm testing.",
+    "expected": "Returns three Lorem Picsum URLs that pin stable images via id or seed so reloads do not reshuffle the set.",
+    "actual": "Stable set via Picsum IDs:\nhttps://picsum.photos/id/10/800/600\nhttps://picsum.photos/id/20/800/600\nhttps://picsum.photos/id/30/800/600\n(Reload-safe; no API key.)",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you give me a random nature stock photo using Unsplash source?",
+    "expected": "Refuses deprecated source.unsplash.com, cites that the endpoint fails (HTTP 503), and offers Picsum immediately plus official Unsplash API guidance.",
+    "actual": "source.unsplash.com is deprecated/broken (live check returns HTTP 503). Use a keyless stand-in now: https://picsum.photos/800/600. For searchable Unsplash nature photos, register at https://unsplash.com/developers and call the official API with Authorization: Client-ID <UNSPLASH_ACCESS_KEY> per https://unsplash.com/documentation (demo limit 50 req/hour).",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Give me a retina placeholder badge that says 'Draft' at 200x80.",
+    "expected": "Returns a Placehold.co URL with custom text and @2x (or equivalent retina) raster form.",
+    "actual": "https://placehold.co/200x80@2x.png?text=Draft (Placehold.co retina PNG, no API key).",
+    "pass": true
+  }
+]
