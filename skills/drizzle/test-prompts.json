@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a Drizzle PostgreSQL schema with a users table (id, name, email, active) and query all active users with a limit.",
+    "expected": "Uses pgTable + pg-core columns, exports the table, filters with eq(users.active, true), awaits the query, and sets limit.",
+    "actual": "```ts\nimport { pgTable, serial, text, boolean } from \"drizzle-orm/pg-core\";\nimport { eq } from \"drizzle-orm\";\n\nexport const users = pgTable(\"users\", {\n  id: serial(\"id\").primaryKey(),\n  name: text(\"name\").notNull(),\n  email: text(\"email\").notNull(),\n  active: boolean(\"active\").default(true).notNull(),\n});\n\nconst activeUsers = await db\n  .select()\n  .from(users)\n  .where(eq(users.active, true))\n  .limit(100);\n```",
+    "pass": true,
+    "evidence": "Matches references/schema.md driver helpers + references/queries.md operator filters and limit rule; docs: column-types/pg, select, operators."
+  },
+  {
+    "id": 2,
+    "prompt": "Find users older than 18 who are active, then explain the production migration path after a schema change.",
+    "expected": "Uses and(eq(...), gt(...)) for filters; production uses drizzle-kit generate then migrate; push only for disposable local DBs.",
+    "actual": "```ts\nimport { and, eq, gt } from \"drizzle-orm\";\n\nconst adults = await db\n  .select()\n  .from(users)\n  .where(and(eq(users.active, true), gt(users.age, 18)))\n  .limit(100);\n\n// Prod/shared: drizzle-kit generate → review SQL → drizzle-kit migrate\n// Local prototype only: drizzle-kit push (no migration history)\n```",
+    "pass": true,
+    "evidence": "references/queries.md + references/migrations.md; official kit generate/migrate/push pages verified 2026-10-02."
+  },
+  {
+    "id": 3,
+    "prompt": "Teammate wrote Drizzle where: { id: 5 } like Prisma and mixed mysqlTable with pg-core uuid. What do you fix?",
+    "expected": "Replace object where with eq(users.id, 5); keep a single driver core (pgTable+pg-core or mysqlTable+mysql-core), never mix.",
+    "actual": "Object-map where is invalid in Drizzle—use eq(users.id, 5) (and and/or/gt as needed). Table helpers and column imports must share one engine package; mixing mysqlTable with pg-core types is a defect. Prefer db.select or db.query APIs per task, not Prisma Client shapes.",
+    "pass": true,
+    "evidence": "Core rules 1 and 3 in SKILL.md; schema.md driver table; queries.md failure modes."
+  }
+]
