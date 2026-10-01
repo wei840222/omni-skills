@@ -1,13 +1,13 @@
 # Memory Template - Glovo
 
-Create `~/Clawic/data/glovo/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Glovo Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending
 
@@ -40,18 +40,19 @@ integration: pending
 Updated: YYYY-MM-DD
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Still learning usage patterns | Gather context opportunistically |
 | `complete` | Enough context to operate smoothly | Use stored defaults unless the task changes |
-| `paused` | User does not want deeper setup now | Help with the immediate task and avoid extra intake |
-| `never_ask` | User does not want this configured further | Stop asking setup-like follow-ups |
+| `paused` | User does not want deeper setup now | Help with the immediate task and limit intake |
+| `never_ask` | User does not want this configured further | Proceed without setup-like follow-ups |
 
-## Key Principles
+## Key principles
 
 - Store ordering boundaries, not secrets
 - Keep notes short and reusable
 - Save address labels, not full sensitive payment data
-- Update `last` every time the skill is used
+- Update `last` every time durable context changes
+- Write only under the resolved `<state_root>/`; never write the literal string `<state_root>`

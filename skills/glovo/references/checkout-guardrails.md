@@ -1,14 +1,14 @@
 # Checkout Guardrails - Glovo
 
-Treat these actions as increasingly sensitive:
+Treat these actions as increasingly sensitive.
 
-## Browse Safe
+## Browse safe
 
 - switching between category and store pages
 - reading ETA, fees, minimums, and promo labels
 - comparing stores without changing the cart
 
-## Draft Cart Only If Requested
+## Draft cart only if requested
 
 - adding items to an empty cart
 - editing quantities on a fresh draft
@@ -16,17 +16,19 @@ Treat these actions as increasingly sensitive:
 
 If the cart already contains items, ask whether to preserve, replace, or merge before editing.
 
-## Explicit Confirmation Required
+## Explicit confirmation required
 
-Always stop and summarize before:
+Require explicit current-thread confirmation before:
+
 - changing the delivery address
 - clearing a non-empty cart
 - applying a final promo that changes the total
 - confirming payment and placing the order
 
-## Final Summary Format
+## Final summary format
 
-Before live checkout, confirm:
+Before live checkout, confirm all of the following are visible on screen:
+
 - store name
 - items and quantities
 - substitutions or special notes
@@ -35,4 +37,4 @@ Before live checkout, confirm:
 - delivery fee, service fee, tip, and total
 - payment method shown by Glovo
 
-If any one of those is unclear on screen, do not place the order.
+Proceed with a live order only after every line is confirmed and the user explicitly approves in the current conversation.
