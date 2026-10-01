@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are a Series A startup and need to hire our first marketing lead. Can you give me an offer letter template and list the things I should verify before making the offer?",
+    "expected": "Loads hiring reference, returns pre-offer checklist (band, headcount, start date, background check), offer letter must-include fields, and forbids verbal-only offers.",
+    "actual": "Loaded references/hiring.md. Pre-offer checklist: comp within approved band, headcount approved, start date feasible, background-check requirements clear. Offer letter must include title, department, base salary, equity if any, start date, at-will statement where applicable, and contingencies. Critical limits: no verbal-only offers, no promises outside the written offer, no send without final approval. If the posting jurisdiction requires pay transparency, load references/sources.md and include the approved range before publishing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "An employee submitted an HR complaint about their manager last week. The manager just told me they want to fire the employee for performance issues. What should we do?",
+    "expected": "Invokes Retaliation Watch, blocks adverse action within 90 days, requires separate business justification, and escalates for legal review before termination.",
+    "actual": "Loaded Core Rules Retaliation Watch and references/compliance.md. Block adverse action within 90 days of the HR complaint. Delay termination. Document any performance justification on a separate track with prior written history. This is an immediate legal-escalation red flag; human approval is required before any involuntary exit. Do not coach quiet-firing tactics.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We want to use an AI tool to rank resumes for NYC roles. What should CHRO check before rollout?",
+    "expected": "Requires human oversight, points to sources for NYC Local Law 144 / AI Act orientation, and keeps deployment under human-in-the-loop approval.",
+    "actual": "Loaded Core Rule 8 and references/sources.md plus operations.md AI section. Keep a named human decision owner. For NYC Automated Employment Decision Tools, follow Local Law 144 bias-audit and notice expectations from the NYC DCWP page before rollout claims. Do not assert EU AI Act high-risk status from memory; re-check EUR-Lex text for applicability. Deployment remains human-in-the-loop.",
+    "pass": true
+  }
+]

@@ -2,6 +2,9 @@
 
 ## Job Description Best Practices
 
+Prohibited-phrase orientation follows EEOC prohibited practices guidance in `sources.md`.
+
+
 ### Required Elements
 - Role title and level
 - Department and reporting structure
@@ -20,7 +23,7 @@
 ### Inclusive Language Tips
 - Use gender-neutral pronouns
 - Focus on skills, not years of experience
-- Avoid unnecessary degree requirements
+- Focus strictly on required skills rather than degrees
 - List essential functions for ADA compliance
 
 ## Screening Checklist
@@ -32,7 +35,7 @@
 - [ ] Location/remote compatible
 
 ### Red Flags to Note
-- Unexplained employment gaps (ask, don't assume)
+- Unexplained employment gaps (ask for context)
 - Frequent short tenures (understand context)
 - Mismatched expectations
 - Reference concerns
@@ -59,7 +62,7 @@
 - At-will statement (where applicable)
 - Contingencies (background check, etc.)
 
-### Never Do
+### Critical Limitations
 - ❌ Verbal offers without written follow-up
 - ❌ Promises outside written offer
 - ❌ Send offer without final approval
