@@ -54,4 +54,3 @@ Escalate to human for:
 - Process changes affecting culture
 - Crisis response decisions
 - Cross-functional conflict resolution
-
