@@ -36,7 +36,7 @@ Do **not** load as the primary skill for generic SQL (`sql`), MySQL-only server 
 5. Keep Galera transactions small; set `wsrep_sync_wait` before critical reads when causal consistency matters.
 6. Validate plans with `EXPLAIN` / `EXPLAIN ANALYZE` (where available) before shipping slow-path changes.
 7. Load `references/mariadb-guide.md` for depth; load `references/domain-knowledge.md` when claiming version behavior; load `references/sources.md` when refreshing citations.
-8. Prefer concrete verification (`SHOW`, `EXPLAIN`, status checks) over memorized absolutes.
+8. Prefer concrete verification (`SHOW`, `EXPLAIN`, status checks) over memorized absolutes; re-check after major version upgrades.
 
 ## Character set traps
 
