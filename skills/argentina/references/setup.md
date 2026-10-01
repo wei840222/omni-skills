@@ -52,3 +52,7 @@ If `<state_root>/memory.md` exists:
 - Money strategy is part of trip design, not a final detail.
 - Patagonia should be narrowed before flights are priced.
 - Border hops to Brazil or Chile require dedicated planning for border friction.
+
+## Legacy migration
+
+If `~/Clawic/data/argentina/` exists, treat it as a read-only migration source. Copy into the resolved `<state_root>` only when the user asks; do not keep it in the active lookup order.
