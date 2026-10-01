@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to configure a firewall for my new VPS before I put anything public on it.",
+    "expected": "Dual-layer default-deny guidance (provider + host), allow SSH first, second-session proof, and Docker publish-to-localhost caveat; no live secrets.",
+    "actual": "Stated Core rule 3: provider firewall before the guest, host firewall after, default-deny inbound both. Order: confirm console/rescue, allow SSH (or admin path) on host, enable default-deny, mirror policy on provider layer, test from a second network. Warned ufw deny does not block Docker-published ports — publish 127.0.0.1 and terminate via reverse proxy. Pointed to references/playbooks.md firewall section and references/traps.md. No credentials written.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I locked myself out of SSH after changing the port. How do I get back in without wiping the disk?",
+    "expected": "Console/rescue path, read disk before rebuild, fix sshd from rescue/chroot, second-session discipline; irreversible rebuild only with confirmation.",
+    "actual": "Classified as access lockout: use provider web/serial console first, not rebuild. If sshd/config broken, enter rescue/recovery image, mount root, fix ListenPort/keys/Permissions from chroot, exit rescue deliberately. Keep any remaining session until a new session proves login. Rebuild only if disk unreadable or compromise suspected, with explicit confirmation. Loaded references/playbooks.md access section and Core rule 1.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Are provider snapshots enough backup for my production VPS?",
+    "expected": "No — same-account snapshots are not offsite; require 3-2-1 with a copy restorable if the provider account is gone, plus timed restore.",
+    "actual": "Core rule 4: snapshots share the provider account that can delete the instance and its snapshots together. Required 3-2-1 with one copy outside that account (other provider/region/account or offline), plus a timed restore logged under ## Due. Snapshots remain useful for fast in-account rollback only. Directed to references/playbooks.md backups section and skill backups for architecture depth. Cited sources framing without inventing list prices.",
+    "pass": true
+  }
+]
