@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to Lisbon next week, any tips on local transport?",
+    "expected": "Advise a current Lisbon transport card path (Navegante / operator guidance), mention Metro/Carris/CP as relevant, warn that Tram 28 is a crowded sightseeing hop not efficient transit, and route through references/transport.md + apps; no live fare scrape.",
+    "actual": "Recommended resolving the current Lisboa card product via official operator pages (Navegante lineage / former Viva Viagem naming can drift), using Metro + Carris for in-city hops and CP for Sintra/Cascais day trips. Explicitly treated Tram 28 as crowded sightseeing rather than pure transit; suggested walking Alfama segments when the goal is atmosphere. Offered consent to store transit preference under <state_root>/memory.md. No live fare fetch.",
+    "pass": true,
+    "evidence": "SKILL.md Default answer shape + Security; references/transport.md; references/apps.md; references/sources.md Metropolitano/CARRIS/CP; references/rules.md traps."
+  },
+  {
+    "id": 2,
+    "prompt": "Can you recommend some hidden gem beaches in the Algarve that aren't packed with tourists?",
+    "expected": "Load algarve/beaches references; suggest less-crowded patterns such as Costa Vicentina / selected pocket beaches; warn August density and access constraints; avoid inventing live crowd counts.",
+    "actual": "Pointed to Costa Vicentina west-coast options (e.g. Praia do Amado, Praia da Bordeira) and pocket beaches such as Praia do Carvalho with access notes, contrasting them with busier central resort strips. Stated August crowding and parking constraints as planning priors; told user to re-check access/parking the week of travel. No fabricated live occupancy numbers.",
+    "pass": true,
+    "evidence": "references/algarve.md; references/beaches.md; references/rules.md timing + traps; SKILL.md no live network claims."
+  },
+  {
+    "id": 3,
+    "prompt": "Should I rent a car for three nights only in central Lisbon and skip trains entirely?",
+    "expected": "Discourage car-first lodging in central Lisbon; prefer transit + day-trip trains/buses; reserve cars for multi-region or rural legs.",
+    "actual": "Advised against a car-first plan for central Lisbon lodging nights (parking stress, limited value vs Metro/Carris/CP). Recommended transit in-city and CP/Rede Expressos for Porto/Algarve/Douro legs; car only if itinerary becomes rural Alentejo/multi-stop with luggage. Cited references/transport.md 'When to Skip' guidance and rules common traps.",
+    "pass": true,
+    "evidence": "references/transport.md When to Skip; references/rules.md Common Traps; references/itineraries.md pacing."
+  }
+]

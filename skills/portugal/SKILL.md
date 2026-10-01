@@ -1,147 +1,110 @@
 ---
 name: portugal
-slug: portugal
-version: 1.0.0
-description: Discover Portugal like a local with specific restaurants, hidden gems, wine regions, and tips beyond the tourist traps.
-homepage: https://clawic.com/skills/portugal
+description: >
+  Plan Portugal trips with local-leaning food, region, and logistics advice for
+  Lisbon, Porto, Algarve, Douro, Alentejo, Azores, and Madeira. Use when choosing
+  neighborhoods, itineraries, trains/cards, fado, beaches, wine routes, or
+  tourist-trap avoidance. Not for multi-country trip systems (`travel`), deep
+  cuisine technique (`food`), or Portuguese language production (`portuguese`).
 metadata:
-  clawdbot:
-    emoji: 🇵🇹
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/portugal/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Portugal
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇵🇹"}'
+  related-skills: '{"travel":"Multi-country itineraries and general travel memory beyond Portugal-only routing.","food":"Deeper cuisine workflows beyond Portuguese food pointers.","portuguese":"Portuguese language production and register rather than trip logistics."}'
 ---
+
+# Portugal
+
+Local-leaning trip planning for a small but regionally diverse country: neighborhood and region choice beat brochure slogans, meal timing matters, and tourist-trap patterns are predictable once you name them.
+
+## State location
+
+Resolve `<state_root>` before any preference read/write:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory:
+   `<workspace>/portugal/`,
+   `<workspace>/memory/portugal/`,
+   `~/portugal/`.
+3. If none exist and the user asked to persist data, create
+   `<workspace>/portugal/`.
+
+| Path | Required? | Role |
+|------|-----------|------|
+| `<state_root>/memory.md` | optional | Trip style, season, region preferences, history |
+
+Do not treat the literal string `<state_root>` as a filesystem path. Skill resources stay under `references/` and `assets/`. Host-shared memory such as workspace `MEMORY.md` is outside `<state_root>` and needs separate consent.
+
+Template: `assets/memory-template.md`.
 
 ## Setup
 
-If `~/Clawic/data/portugal/` doesn't exist or is empty, read `setup.md` and start naturally.
+If `<state_root>` is missing or empty, read `references/setup.md` and start naturally. Ask month, duration, regions, travel style, diet, and group before locking a multi-city plan.
 
-## When to Use
+## When to load
 
-User planning a trip to Portugal or wanting local insights: where to eat, what to skip, regional differences, fado, wine, beaches, hidden gems, and practical tips.
+Load when the user is planning a **Portugal** trip or needs local logistics:
 
-## Architecture
+- Lisbon / Porto / Sintra / Algarve / Douro / Alentejo / Azores / Madeira bases
+- neighborhood choice, fado, pastéis, francesinha, wine routes
+- CP trains, Rede Expressos, metro/tram cards, car-vs-transit tradeoffs
+- beaches, hiking, nightlife, family pacing
+- tourist-trap avoidance and realistic timing (lunch, dinner, August, Sundays)
 
-Memory lives in `~/Clawic/data/portugal/`. See `memory-template.md` for structure.
+Route away when the ask is mainly:
 
-```
-~/Clawic/data/portugal/
-└── memory.md     # Trip context
-```
+- multi-country routing systems → `travel`
+- restaurant technique or deep cuisine systems → `food`
+- Portuguese writing/production → `portuguese`
 
-## Quick Reference
+## Quick reference
 
-| Topic | File |
-|-------|------|
-| **Cities** | |
-| Lisbon complete guide | `lisbon.md` |
-| Porto complete guide | `porto.md` |
-| Sintra palaces & gardens | `sintra.md` |
-| Algarve beaches & towns | `algarve.md` |
-| **Planning** | |
-| Sample itineraries | `itineraries.md` |
-| Where to stay by city | `accommodation.md` |
-| Useful apps | `apps.md` |
-| **Food & Drink** | |
-| Regional dishes, restaurants | `food-guide.md` |
-| Wine regions & quintas | `wine.md` |
-| **Experiences** | |
-| Fado, surfing, festivals | `experiences.md` |
-| Beach guide by coast | `beaches.md` |
-| Hiking routes | `hiking.md` |
-| Nightlife by city | `nightlife.md` |
-| **Reference** | |
-| Regions overview | `regions.md` |
-| Culture, fado, saudade | `culture.md` |
-| Traveling with children | `with-kids.md` |
-| **Practical** | |
-| Getting around | `transport.md` |
-| Phone & internet | `telecoms.md` |
-| Emergencies & safety | `emergencies.md` |
+| Need | Load |
+|------|------|
+| Core rules, traps, security | `references/rules.md` |
+| Regions at a glance | `references/regions.md` |
+| Lisbon | `references/lisbon.md` |
+| Porto | `references/porto.md` |
+| Sintra day trip | `references/sintra.md` |
+| Algarve | `references/algarve.md` |
+| Sample plans | `references/itineraries.md` |
+| Stays | `references/accommodation.md` |
+| Apps | `references/apps.md` |
+| Food | `references/food-guide.md` |
+| Wine | `references/wine.md` |
+| Experiences | `references/experiences.md` |
+| Beaches | `references/beaches.md` |
+| Hiking | `references/hiking.md` |
+| Nightlife | `references/nightlife.md` |
+| Culture / fado | `references/culture.md` |
+| With kids | `references/with-kids.md` |
+| Transport | `references/transport.md` |
+| Telecoms | `references/telecoms.md` |
+| Emergencies | `references/emergencies.md` |
+| Official sources | `references/sources.md` |
+| First-run setup | `references/setup.md` |
 
-## Core Rules
+## Core rules (summary)
 
-### 1. Specific Over Generic
-Don't say "try pastéis de nata in Lisbon". Say "Manteigaria in Chiado, Rua do Loreto 2, has the crispiest, warmest pastéis—€1.30 each, eat them standing at the counter within 30 seconds of coming out of the oven."
+1. **Specific over generic** — name venues, streets, cards, and routes.
+2. **Local perspective** — separate ritual queues from better everyday options.
+3. **Region first** — Lisboa, Porto, Algarve, Alentejo, Douro, islands behave differently.
+4. **Timing** — late dinners, long lunches, August coastal demand, Sunday closures.
+5. **Name traps** — waterfront menus, hawker fado, pickpocket hot spots, car-in-center pain.
+6. **Match style** — foodie vs beach vs wine vs family load different reference sets.
 
-### 2. Local Perspective
-What locals actually do, not what guides say:
-- Pastéis de Belém queue = tourist ritual → Manteigaria or Aloma are better, no wait
-- Bairro Alto dinner = tourist prices → Santos or Principe Real for locals
-- Tram 28 = sardine can → walk Alfama or take Tram 12E
-- Sangria = tourist drink → vinho verde or ginjinha
+Full detail: `references/rules.md`.
 
-### 3. Regional Differences
+## Default answer shape
 
-| Region | Key difference |
-|--------|----------------|
-| Lisboa | Petiscos (small plates). Ginjinha culture. Fado in Alfama. |
-| Porto | Francesinha mandatory. Port wine caves. More reserved people. |
-| Alentejo | Slow pace. Porco preto. Wine country. Cork oak landscapes. |
-| Algarve | Beach resort vibe. Fish/seafood. Cataplana. Tourist-heavy coast. |
-| Douro | Wine valley. Quintas. Dramatic landscapes. |
-| Madeira | Subtropical. Poncha. Levada walks. No beaches (rocks). |
-| Azores | Green, volcanic. Whale watching. Cozido das Furnas. |
+1. Clarify month, nights, regions, style, diet/kids if missing.
+2. Recommend a base + day-trip logic (not a generic “visit everything” list).
+3. Load the matching reference files before detailed claims.
+4. Flag one likely tourist trap and one practical timing constraint.
+5. Offer optional consent to store preferences under `<state_root>/memory.md`.
+6. Point to `references/sources.md` / `references/apps.md` for live fares, hours, and disruptions.
 
-### 4. Timing is Everything
-- Lunch: 12:30-15:00 (Portuguese take long lunches)
-- Dinner: 20:00+ (kitchens don't really open before 19:30)
-- August: Lisbon empties, everyone at beaches
-- Sunday: Many restaurants closed, especially outside Lisbon/Porto
-- Fado: Starts late, 21:30-22:00 minimum
-- Shops: Many close 13:00-15:00 (less so in malls)
+## Security and privacy
 
-### 5. Flag Tourist Traps
-Be explicit about what to avoid:
-- Restaurants in Praça do Comércio with photos on menus
-- Any restaurant with "traditional fado" signs and hawkers outside
-- Overpriced seafood on Rua Augusta
-- Canned sardines as "authentic souvenir" (locals don't eat them much)
-- "Free" walking tours with guilt-trip donations
-- €8 pastéis de Belém at the famous shop vs €1.30 elsewhere
-
-### 6. Match Trip Style
-
-| Traveler | Focus on |
-|----------|----------|
-| Foodie | food-guide.md, wine.md, porto.md |
-| Beach | beaches.md, algarve.md |
-| Culture | lisbon.md, sintra.md, culture.md |
-| Adventure | hiking.md, experiences.md, azores/madeira in regions.md |
-| Family | with-kids.md, beaches.md, algarve.md |
-| Nightlife | nightlife.md, lisbon.md, porto.md |
-| Wine | wine.md, regions.md (Douro, Alentejo) |
-
-## Common Traps
-
-- Queueing 45 min for Pastéis de Belém — same recipe everywhere, try Manteigaria
-- Taking Tram 28 — pickpocket central, overcrowded, walk instead
-- Eating at Ribeira waterfront in Porto — tourist prices, go uphill to Cedofeita
-- Booking last-minute in August — beaches packed, book months ahead
-- Tipping 15-20% like USA — not expected, round up or 5-10% max
-- Paying in euros at bad exchange — always pay in local currency
-- Renting car in Lisbon center — nightmare parking, use only for day trips
-- Expecting beach weather in Lisbon — Atlantic is cold, even in summer (18-20°C)
-
-## Security & Privacy
-
-**Data that stays local:** Trip preferences in ~/Clawic/data/portugal/
-
-**This skill does NOT:** Access files outside ~/Clawic/data/portugal/ or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — Travel planning
-- `food` — Food and cooking
-- `portuguese` — Portuguese language
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/portugal
-- Latest version: https://clawic.com/skills/portugal
+- Trip memory stays in `<state_root>` only after consent.
+- No network requests from this skill; no files outside `<state_root>`.
+- Do not invent live weather, queue length, seat inventory, or current fares—send the user to official sources to confirm.

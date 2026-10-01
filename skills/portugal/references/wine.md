@@ -2,7 +2,7 @@
 
 ## Why Portuguese Wine
 
-Underrated. Ancient grape varieties you've never heard of. Incredible value. Port and Madeira are famous, but table wines are the secret. Fourth largest wine producer in Europe. Diverse climates = diverse styles.
+Underrated. Ancient grape varieties you've rarely heard of. Incredible value. Port and Madeira are famous, but table wines are the secret. Fourth largest wine producer in Europe. Diverse climates = diverse styles.
 
 ## Wine Regions
 
