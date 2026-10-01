@@ -1,71 +1,57 @@
 ---
 name: wifi
-slug: wifi
-version: 1.0.0
-description: Troubleshoot and secure wireless networks with channel optimization and diagnostics.
-homepage: https://clawic.com/skills/wifi
+description: >
+  Troubleshoot wireless networks, optimize channels/bands, diagnose speed drops
+  and interference, place routers, and harden home Wi-Fi security (WPA2/WPA3,
+  WPS, guest SSIDs). Use when the user reports kitchen/microwave dead zones,
+  sticky band steering, weak RSSI, roaming drops, extender vs mesh choices, or
+  asks whether to hide the SSID. Prefer `network` for wired/DNS/routing/TLS
+  reachability outside the radio layer, and `wireguard`/`vpn` for tunnel VPNs.
 metadata:
-  clawdbot:
-    emoji: 📶
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: WiFi
+  version: "1.1.0"
+  openclaw: '{"emoji":"📶"}'
+  related-skills: '{"network":"Layer-3 reachability, DNS, routing, firewall, and TLS diagnosis beyond the wireless radio.","wireguard":"WireGuard tunnel setup when the issue is VPN pathing, not Wi-Fi airtime.","vpn":"VPN provider selection and privacy trade-offs outside local WLAN design."}'
 ---
 
-## Band Selection Traps
-- 2.4GHz penetrates walls better but congested — neighbors' networks interfere
-- 5GHz faster but shorter range — may not reach all rooms
-- Same SSID for both bands can cause issues — device may stick to weak 5GHz instead of switching
-- 6GHz (WiFi 6E) requires compatible devices — falls back to 5GHz if unsupported
+# WiFi
 
-## Channel Interference
-- 2.4GHz only has 3 non-overlapping channels (1, 6, 11) — using others causes interference with neighbors
-- "Auto" channel selection often picks poorly — scan and set manually in congested areas
-- 5GHz has more channels but DFS channels may pause for radar — causes brief disconnects near airports
-- Microwave ovens interfere with 2.4GHz channel 11 — kitchen dead zones are real
+Domain guidance for **home and small-office WLAN**: band/channel choice, interference, placement, guest isolation, and baseline security. This skill is **stateless** — it does not store credentials or persistent device inventories in the package.
 
-## Security Mistakes
-- WPA2-Personal minimum — WEP and WPA crackable in minutes
-- WPA3 preferred when all devices support — falls back silently if mixed
-- WPS is a backdoor — disable it, PIN can be brute-forced regardless of password strength
-- Hidden SSID doesn't improve security — devices broadcast it anyway when searching
-- MAC filtering trivially bypassed — MACs visible in air, easy to spoof
+## When to load
 
-## Speed Issues
-- "Connected" doesn't mean good signal — check RSSI, below -70dBm is poor
-- WiFi speed is shared medium — many devices = less bandwidth each
-- Advertised speeds are theoretical max — real throughput is 50-70% at best
-- Old devices slow entire network on 2.4GHz — legacy rates affect everyone
-- USB 3.0 devices interfere with 2.4GHz — especially external drives near router
+Load for wireless-specific work:
 
-## Connection Drops
-- DHCP lease expiring causes reconnect — reduce lease time for troubleshooting, increase for stability
-- Roaming between access points isn't seamless — same SSID doesn't mean smooth handoff
-- Power saving mode causes ping spikes — disable on devices where latency matters
-- Driver issues more common than hardware — update or rollback WiFi drivers first
+- speed drops, sticky 5 GHz, 2.4 GHz congestion, microwave/USB 3.0 interference
+- RSSI checks, channel scans, DFS pauses, packet-loss isolation (router vs ISP)
+- router placement, mesh vs range-extender trade-offs
+- WPA2-Personal minimum / WPA3-SAE, disable WPS, guest network isolation
+- Wi-Fi 6E 6 GHz client fallback and Wi-Fi 7 Multi-Link Operation (MLO) context
 
-## Diagnostics
-- Ping router IP, not internet — isolates WiFi from ISP issues
-- Signal strength varies by location — walk around while monitoring
-- Channel scanner shows neighbor congestion — choose least crowded
-- Packet loss under 1% is acceptable — higher indicates interference or range issues
+Prefer other skills when the ask is mainly:
 
-## Router Placement
-- Center of coverage area, not corner of house — signals radiate outward
-- Elevated position improves coverage — floor level gets blocked by furniture
-- Away from metal objects and aquariums — water and metal block signals
-- Router antennas perpendicular to each other — covers horizontal and vertical planes
+- DNS, routing, NAT, firewall, TLS → `network`
+- WireGuard peers / AllowedIPs → `wireguard`
+- VPN provider shopping → `vpn`
 
-## Guest Networks
-- Isolates untrusted devices from main network — IoT devices can't reach your computers
-- Separate password allows sharing without exposing main credentials
-- Bandwidth limiting available on most routers — prevent guests from saturating connection
-- Captive portal unnecessary for home — just use WPA2 with password
+## Routing
 
-## Mesh vs Extenders
-- Extenders halve bandwidth — repeating uses same channel for backhaul
-- Mesh systems with dedicated backhaul avoid this — wired backhaul even better
-- Single router often enough — try repositioning before buying mesh
-- Adding access points to wrong locations creates more problems — coverage overlap causes roaming issues
+Load supporting references only when needed:
+
+- **Bands, channels, speed, drops, diagnostics** → `references/troubleshooting.md`
+- **WPA/WPS/SSID/guest hardening** → `references/security.md`
+- **Placement, mesh vs extenders** → `references/placement.md`
+- **Gate 6 primary sources** → `references/sources.md`
+
+## Core rules
+
+1. **Isolate the radio first** — ping the gateway LAN IP before blaming the ISP; then check RSSI (roughly weaker than about −70 dBm is poor for interactive use).
+2. **Name the band** — 2.4 GHz reaches farther but is crowded; 5 GHz is faster with shorter range; 6 GHz (Wi-Fi 6E/7 capable clients) needs device support and falls back when unsupported.
+3. **Security floor** — WPA3-Personal (SAE) when the client set supports it; otherwise WPA2-Personal. Treat WEP/WPA-legacy and WPS PIN mode as unsafe defaults to replace.
+4. **Guest path** — put untrusted/IoT clients on an isolated guest SSID with its own passphrase; do not rely on hidden SSID or MAC filters as security.
+5. **Capacity vs coverage** — a single well-placed AP often beats a poorly placed extender; mesh with dedicated (ideally wired) backhaul beats same-channel repeaters that halve airtime.
+
+## Safety
+
+- Never commit real Wi-Fi passphrases, router admin passwords, or ISP credentials into the skill tree or git.
+- Use placeholders such as `<WLAN_PASSPHRASE>` in examples.
+- Do not claim a hidden SSID or MAC allow-list is a confidentiality control.
