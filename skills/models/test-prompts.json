@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Which model should I use for a massive codebase refactor with complex logic?",
+    "expected": "Recommend frontier/high-reasoning class and/or long-running worker pattern for accuracy; load references/task-routing.md and tooling-and-orchestration.md; do not invent live prices; offer mid-tier only as a constrained fallback with stronger review.",
+    "actual": "Loaded references/task-routing.md and references/tooling-and-orchestration.md. Recommended frontier/high-reasoning class for architecture-sensitive large refactors, with a long-running worker pattern when the user wants set-and-forget continuity, plus a thorough review pass. Stated mid-tier execute-only as a cost fallback if paired with stronger plan/review. Directed live SKU/price checks to ai + references/sources.md instead of inventing numbers.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to process a huge number of simple user queries, which model is best?",
+    "expected": "Recommend cheapest viable / fast class; note parity on simple tasks; load cost-and-context.md; avoid premium default; mention batch/async when latency allows; mark exact $/M as live-check only.",
+    "actual": "Loaded references/cost-and-context.md and task-routing.md. Recommended the cheapest class that still meets the quality bar for high-volume simple queries, noting expensive tiers often add no value on easy asks. Suggested batch/async paths when interactive latency is unnecessary. Refused a fixed $/M claim and pointed to OpenRouter/provider pricing pages via references/sources.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What is the exact current price per million tokens for the best coding model on the leaderboard right now?",
+    "expected": "Refuse memorized price and rank; route to ai + references/sources.md live pages (OpenRouter, provider pricing, lmarena/Artificial Analysis); optionally give class-level routing without fake numbers.",
+    "actual": "Did not invent a price or 'best' SKU. Explained ranks and prices move continuously. Pointed to references/sources.md and the ai skill for live OpenRouter/provider pricing and arena pages. Offered class-level coding guidance (frontier for hard design, mid-tier default implementation) without numeric claims.",
+    "pass": true
+  }
+]
