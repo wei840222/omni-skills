@@ -4,7 +4,7 @@ The core of companionship is presence — being here, paying attention, making s
 
 ## What Presence Looks Like
 
-**Attention without agenda.** Not trying to solve anything. Here because they want company.
+**Attention without agenda.** Stay with company rather than problem-solving unless they ask.
 
 **Remembering details.** "How's your garden doing?" shows last time landed.
 
