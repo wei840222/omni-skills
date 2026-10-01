@@ -5,7 +5,7 @@ Forgetting is the mechanism, not the enemy: retrieval after partial forgetting s
 ## Spacing Math
 
 - Gap = 10-20% of the retention horizon (Cepeda). Worked examples: exam in 30 days → first re-test at day 3-6; deadline in 7 days → roughly daily gaps; needed in a year → first re-test at 5-10 weeks.
-- No deadline: expanding ladder — 1 day, 3 days, 1 week, 2 weeks, 1 month — a miss moves the concept one step back. Expanding vs uniform matters far less than spacing at all (SKILL.md Where Experts Disagree).
+- No deadline: expanding ladder — 1 day, 3 days, 1 week, 2 weeks, 1 month — a miss moves the concept one step back. Expanding vs uniform matters far less than spacing at all (`references/expert-debates.md`).
 - A review that took zero effort was scheduled too early; a review that fails completely was scheduled too late. Both are schedule feedback, not learner failure.
 
 ## What Counts as a Review
@@ -15,9 +15,9 @@ Forgetting is the mechanism, not the enemy: retrieval after partial forgetting s
 
 ## Interleaving
 
-- After 3+ learned concepts, mix review questions across concepts instead of drilling one (evidence numbers live in SKILL.md Session Structure).
-- Interleave confusable pairs on purpose — discriminating between them is the skill blocked practice never trains.
-- Expect measured performance to drop when interleaving starts; the drop is the practice working, not a regression. Warn the learner or the drop demotivates (`learner-states.md`).
+- After 3+ learned concepts, mix review questions across concepts instead of drilling one (evidence numbers live in `references/session-structure.md`).
+- Interleave confusable pairs on purpose — discriminating between them is the skill blocked practice fails to train.
+- Expect measured performance to drop when interleaving starts; the drop is the practice working, not a regression. Warn the learner or the drop demotivates (`references/learner-states.md`).
 
 ## Deadline Compression
 
@@ -25,17 +25,17 @@ Forgetting is the mechanism, not the enemy: retrieval after partial forgetting s
 |---|---|
 | 14+ | Normal spacing at 10-20% of the retention horizon (Cepeda); full breadth |
 | 7-13 | Cut new-content breadth; gaps every 1-2 days (the same formula, applied to the shorter horizon); weight sessions toward practice testing of highest-weight topics |
-| 2-6 | Roughly daily gaps; stop introducing concepts that cannot get at least one spaced re-test before the deadline — a concept never re-tested is barely learned |
-| 1 or less | Retrieval only, highest-weight topics, stop early — sleep consolidates memory; a final cramming hour buys less than it costs |
+| 2-6 | Roughly daily gaps; halt introducing concepts that cannot get at least one spaced re-test before the deadline — a concept only re-tested ones are deeply learned |
+| 1 or less | Retrieval only, highest-weight topics, conclude early — sleep consolidates memory; a final cramming hour buys less than it costs |
 
 Topic weight under deadline = exam weight × current miss rate: a heavily weighted topic the learner already retrieves at 90% earns less time than a mid-weight topic sitting at 60%.
 
 ## SRS Handoff
 
 - If the learner runs a spaced-repetition system, export session misses as prompts phrased for retrieval — question on the front, their own generated answer on the back — and let the SRS own long-horizon scheduling; its default target (FSRS 0.9) sits at the top of the 70-90% band, consistent with Rule 4.
-- Deck authoring technique itself → `flashcards` / `anki` (SKILL.md When To Use).
+- Deck authoring technique itself → `flashcards` / `anki` (`SKILL.md` When to load).
 
 ## Retiring a Concept
 
-- A concept leaves the review rotation after correct recall in 3 separate sessions (successive relearning, Rawson and Dunlosky). One correct answer minutes after teaching counts toward nothing (SKILL.md Traps).
-- Log the retirement date in the topic log (`memory-template.md`); a retired concept still gets a spot-check when new material anchors on it.
+- A concept leaves the review rotation after correct recall in 3 separate sessions (successive relearning, Rawson and Dunlosky). One correct answer minutes after teaching counts toward nothing (`references/traps.md`).
+- Log the retirement date in the topic log (`assets/memory-template.md`); a retired concept still gets a spot-check when new material anchors on it.

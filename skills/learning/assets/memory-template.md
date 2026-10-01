@@ -1,13 +1,13 @@
-# Memory Template — ~/Clawic/data/learning/memory.md
+# Memory Template — `<state_root>/memory.md`
 
 Copy this structure on first write. Keep entries compact — keywords and dates, not prose.
 
 ```markdown
 # Learner Profile
 
-confirmed:            # explicit statement, or 2+ consistent signals (SKILL.md Rule 8)
+confirmed:            # explicit statement, or 2+ consistent signals (core Rule 8)
 - code-first examples (declared)
-- avoid extended metaphors (re-asked 2x)
+- use literal examples (re-asked 2x)
 
 hypotheses:           # 1 signal — test deliberately at the next opportunity
 - diagrams for architecture topics (1x, 2026-07-12)
@@ -24,7 +24,7 @@ live:                        # concept — last correct recall — spaced succes
 - joins — 2026-07-20 — 2/3
 - indexes — 2026-07-20 — 1/3
 queued_misses:               # the next session opens with these
-- why a covering index avoids the table lookup
+- why a covering index skips the table lookup
 - misconception re-test: NULL = 0 (surfaced 2026-07-20, new surface needed)
 retired:                     # correct recall in 3 separate sessions (retention.md)
 - SELECT basics — 2026-07-18
@@ -32,8 +32,8 @@ retired:                     # correct recall in 3 separate sessions (retention.
 
 ## Rules
 
-- One `# Topic:` block per topic. The block is the session opener's source (SKILL.md Session Structure) and the progress evidence used for motivation (`learner-states.md`).
-- Spaced successes count only recalls in separate sessions — never same-session repeats; `2/3` means two sessions down, one to go against the retirement criterion in `retention.md`.
-- Misconception re-tests are queued like misses, tagged with the date surfaced and a note that the check needs a new surface (`misconceptions.md`).
-- Preferences follow the config/memory split: declared → `config.yaml`; observed → this file. An observation never overwrites a declaration without the user confirming.
+- One `# Topic:` block per topic. The block is the session opener's source (`references/session-structure.md`) and the progress evidence used for motivation (`references/learner-states.md`).
+- Spaced successes count only recalls in separate sessions — `2/3` means two sessions down, one to go against the retirement criterion in `references/retention.md`.
+- Misconception re-tests are queued like misses, tagged with the date surfaced and a note that the check needs a new surface (`references/misconceptions.md`).
+- Preferences follow the config/memory split: declared → `<state_root>/config.yaml`; observed → this file. Observations must only supplement a declaration without the user confirming.
 - Prune: drop a hypothesis that goes 5+ sessions without a second signal (stale hypotheses are noise); move topics untouched for months to an `# Archived` section instead of deleting — returning learners keep their history.

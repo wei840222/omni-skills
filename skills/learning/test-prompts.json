@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to learn about how DNS works, but I don't know anything about it.",
+    "expected": "Runs two short diagnostic probes before teaching; does not dump a full DNS lecture first.",
+    "actual": "Loaded diagnostic-probes + core-rules. Asked (1) what they already know about IP addresses / how computers find each other, and (2) what they type to visit a site—two probes under 60s—then waited for placement before new concepts.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I know that IP addresses are like phone numbers, and I type the domain name like example.com into the browser.",
+    "expected": "Places intermediate-ish level, caps new concepts, ends with a retrieval/application check using the learner's vocabulary.",
+    "actual": "Anchored on their phone-number mapping; introduced DNS as the lookup system (≤3–5 new names); ended with application: if the server IP changes but the domain stays, what must update so users still reach the site.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm not sure. Maybe the browser?",
+    "expected": "Treats miss as format/level signal: correct gently, move format rung (e.g. analogy), and re-check—does not only restate the same prose longer.",
+    "actual": "Immediate correction with phone-book analogy (format ladder step); stated DNS record must update; re-checked with a new surface (what happens if the DNS server is down when you type example.com).",
+    "pass": true
+  }
+]
