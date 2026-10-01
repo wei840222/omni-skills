@@ -1,109 +1,75 @@
 ---
 name: mariadb
-slug: mariadb
-version: 1.0.0
-description: Write efficient MariaDB queries with proper indexing, temporal tables, and clustering.
-homepage: https://clawic.com/skills/mariadb
+description: >
+  Write and operate MariaDB correctly: utf8mb4/collations, indexes, sequences,
+  system-versioned (temporal) tables, JSON functions, Galera, thread pool,
+  engines, locking, EXPLAIN, and backup/restore. Use when the target is MariaDB
+  or MariaDB-specific syntax and ops differ from generic MySQL. Not for
+  dialect-agnostic SQL (`sql`), pure MySQL server work (`mysql`), embedded
+  SQLite (`sqlite`), or Timescale hypertables (`timescaledb`).
 metadata:
-  clawdbot:
-    emoji: 🦭
-    requires:
-      bins:
-      - mariadb
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: MariaDB
+  version: "1.1.0"
+  openclaw: '{"emoji":"🦭","requires":{"bins":["mariadb"]}}'
+  related-skills: '{"mysql":"Hand off when the server is MySQL-specific rather than MariaDB syntax or Galera/temporal features.","sql":"Use for dialect-agnostic SQL patterns before specializing to MariaDB.","sqlite":"Use when the workload fits embedded/local SQLite instead of a server MariaDB instance.","timescaledb":"Hand off time-series hypertable and continuous-aggregate work on PostgreSQL/Timescale."}'
 ---
 
-## Character Set
+## When to load
 
-- Always use `utf8mb4` for tables and connections—full Unicode including emoji
-- `utf8mb4_unicode_ci` for proper linguistic sorting, `utf8mb4_bin` for byte comparison
-- Set connection charset: `SET NAMES utf8mb4` or in connection string
-- Collation mismatch in JOINs forces conversion—kills index usage
+Load for **MariaDB** schema, query, cluster, temporal-table, Galera, thread-pool, engine, lock, or backup work.
 
-## Indexing
+Do **not** load as the primary skill for generic SQL (`sql`), MySQL-only server quirks (`mysql`), embedded SQLite (`sqlite`), or Timescale/Postgres time-series (`timescaledb`).
 
-- TEXT/BLOB columns need prefix length: `INDEX (description(100))`
-- Composite index order matters—`(a, b)` serves `WHERE a=?` but not `WHERE b=?`
-- Foreign keys auto-create index on child table—but verify with `SHOW INDEX`
-- Covering indexes: include all SELECT columns to avoid table lookup
+## Quick reference
 
-## Sequences
+| Topic | File | When to load |
+|-------|------|--------------|
+| Charset, indexes, sequences, temporal, JSON, engines, locks, EXPLAIN, backup | `references/mariadb-guide.md` | Default depth for MariaDB design and ops |
+| Domain knowledge & traps | `references/domain-knowledge.md` | Version-sensitive claims and MariaDB vs MySQL deltas |
+| Research sources | `references/sources.md` | Citing or refreshing official docs |
 
-- `CREATE SEQUENCE seq_name` for guaranteed unique IDs across tables
-- `NEXT VALUE FOR seq_name` to get next—survives transaction rollback
-- Better than auto-increment when you need ID before insert
-- `SETVAL(seq_name, n)` to reset—useful for migrations
+## Workflow
 
-## System Versioning (Temporal Tables)
+1. Confirm server identity and version: `SELECT VERSION();` / `SHOW VARIABLES LIKE 'version%';`. Prefer InnoDB for application data unless a documented engine choice applies.
+2. Enforce `utf8mb4` at schema and connection layer before storing text (`SET NAMES utf8mb4` or DSN charset).
+3. Design indexes for real predicates; use prefix lengths on TEXT/BLOB; verify with `SHOW INDEX` / `EXPLAIN`.
+4. Prefer MariaDB sequences when you need IDs before insert or across tables; use system versioning only when history queries are a product requirement.
+5. Keep Galera transactions small; set `wsrep_sync_wait` before critical reads when causal consistency matters.
+6. Validate plans with `EXPLAIN` / `EXPLAIN ANALYZE` (where available) before shipping slow-path changes.
+7. Load `references/mariadb-guide.md` for depth; load `references/domain-knowledge.md` when claiming version behavior; load `references/sources.md` when refreshing citations.
+8. Prefer concrete verification (`SHOW`, `EXPLAIN`, status checks) over memorized absolutes.
 
-- `ALTER TABLE t ADD SYSTEM VERSIONING` to track all historical changes
-- `FOR SYSTEM_TIME AS OF '2024-01-01 00:00:00'` queries past state
-- `FOR SYSTEM_TIME BETWEEN start AND end` for change history
-- Invisible columns `row_start` and `row_end` store validity period
+## Character set traps
 
-## JSON Handling
+- Prefer `utf8mb4`; older 3-byte UTF-8 aliases cannot store full Unicode including emoji.
+- Use `utf8mb4_unicode_ci` for linguistic case-insensitive sorting; `utf8mb4_bin` for exact byte comparison.
+- Keep collation consistent across joined columns—mismatches force conversions and hurt index use.
+- Set the connection charset to match schema defaults.
 
-- `JSON_VALUE(col, '$.key')` extracts scalar, returns NULL if not found
-- `JSON_QUERY(col, '$.obj')` extracts object/array with quotes preserved
-- `JSON_TABLE()` converts JSON array to rows—powerful for unnesting
-- `JSON_VALID()` before insert if column isn't strictly typed
+## Indexing traps
 
-## Galera Cluster
+- TEXT/BLOB indexes need an explicit prefix length.
+- Composite order matters: `(a, b)` serves `WHERE a=?` but not `WHERE b=?` alone.
+- Foreign keys usually create an index on the child; still verify with `SHOW INDEX`.
+- Covering indexes avoid table lookups when every selected column is in the index.
 
-- All nodes writable—but same-row conflicts cause rollback
-- `wsrep_sync_wait = 1` before critical reads—ensures node is synced
-- Keep transactions small—large transactions increase conflict probability
-- `wsrep_cluster_size` should be odd number—avoids split-brain
+## MariaDB-specific strengths
 
-## Window Functions
+- **Sequences**: `CREATE SEQUENCE` / `NEXT VALUE FOR` when you need pre-insert IDs that survive rollback better than ad-hoc auto-increment patterns.
+- **System versioning**: `ADD SYSTEM VERSIONING` plus `FOR SYSTEM_TIME AS OF` / `BETWEEN` for row history.
+- **Galera**: multi-primary cluster semantics; same-row conflicts roll back—keep writes small and plan quorum with odd `wsrep_cluster_size`.
+- **Thread pool**: `thread_handling=pool-of-threads` under high concurrency instead of one thread per connection by default habit.
+- **JSON**: `JSON_VALUE`, `JSON_QUERY`, `JSON_TABLE`, `JSON_VALID` for extract/unnest/guard paths.
 
-- `ROW_NUMBER() OVER (PARTITION BY x ORDER BY y)` for ranking within groups
-- `LAG(col, 1) OVER (ORDER BY date)` for previous row value
-- `SUM(amount) OVER (ORDER BY date ROWS UNBOUNDED PRECEDING)` for running total
-- CTEs with `WITH cte AS (...)` for readable complex queries
+## Failure modes
 
-## Thread Pool
+- "Too many connections" → pool clients, review `max_connections`, kill idle sessions intentionally.
+- "Lock wait timeout exceeded" → `SHOW ENGINE INNODB STATUS`, shorten transactions, fix lock order.
+- "Row size too large" → move wide payloads to TEXT/BLOB/JSON, normalize, or re-check row format.
+- Galera certification failures → retry with smaller transactions; avoid hot-row multi-primary writes.
+- Collation/join surprises → normalize charset/collation before blaming the optimizer.
 
-- Enable with `thread_handling=pool-of-threads`—better than thread-per-connection
-- `thread_pool_size` = CPU cores for CPU-bound, higher for I/O-bound
-- Reduces context switching with many concurrent connections
-- Monitor with `SHOW STATUS LIKE 'Threadpool%'`
+## Safety
 
-## Storage Engines
-
-- InnoDB default—ACID transactions, row locking, crash recovery
-- Aria for temporary tables—crash-safe replacement for MyISAM
-- MEMORY for caches—data lost on restart, but fast
-- Check engine: `SHOW TABLE STATUS WHERE Name='table'`
-
-## Locking
-
-- `SELECT ... FOR UPDATE` locks rows until commit
-- `LOCK TABLES t WRITE` for DDL-like exclusive access—blocks all other sessions
-- Deadlock detection automatic—one transaction rolled back; must retry
-- `innodb_lock_wait_timeout` default 50s—lower for interactive apps
-
-## Query Optimization
-
-- `EXPLAIN ANALYZE` for actual execution times (10.1+)
-- `optimizer_trace` for deep dive: `SET optimizer_trace='enabled=on'`
-- `FORCE INDEX (idx)` when optimizer chooses wrong index
-- `STRAIGHT_JOIN` to force join order—last resort
-
-## Backup and Recovery
-
-- `mariadb-dump --single-transaction` for consistent backup without locks
-- `mariadb-backup` for hot InnoDB backup—incremental supported
-- Binary logs for point-in-time recovery: `mysqlbinlog binlog.000001 | mariadb`
-- Test restores regularly—backups that can't restore aren't backups
-
-## Common Errors
-
-- "Too many connections"—increase `max_connections` or use connection pool
-- "Lock wait timeout exceeded"—find blocking query with `SHOW ENGINE INNODB STATUS`
-- "Row size too large"—TEXT/BLOB stored off-page, but row pointers have limits
-- "Duplicate entry for key"—check unique constraints, use `ON DUPLICATE KEY UPDATE`
+- Never commit live credentials, dumps with PII, or production connection strings into the skill package.
+- Treat backup success as restore-tested only; schedule restore drills.
+- Destructive DDL, mass `UPDATE`/`DELETE`, and cluster membership changes need explicit operator intent and a rollback path.
