@@ -5,8 +5,8 @@
 - **Last updated:** YYYY-MM-DD
 
 ## Trip Details
-- **Dates:** 
-- **Duration:** 
+- **Dates:**
+- **Duration:**
 - **Regions:** [Lisbon / Porto / Algarve / Douro / Sintra / Azores / Madeira / Alentejo]
 - **Travelers:** [solo / couple / family / group]
 - **Kids:** [yes (ages) / no]
@@ -50,7 +50,7 @@
 | | | | |
 
 ## Lessons Learned
-- 
+-
 
 ## For Next Trip
-- 
+-

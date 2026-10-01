@@ -161,7 +161,7 @@ Often better for families. Kitchen, space, laundry. Book via:
 ### 1 Week: Lisbon + Beach
 **Days 1-2:** Lisbon (Oceanário, castle, trams)
 **Day 3:** Sintra (Pena Palace, ice cream)
-**Day 4:** Drive to Algarve (stop in Évora or straight through)
+**Day 4:** Drive to Algarve (pause in Évora or straight through)
 **Days 5-7:** Algarve beach base (Lagos or Tavira)
 
 ### 1 Week: Algarve Only

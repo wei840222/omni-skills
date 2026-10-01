@@ -62,7 +62,7 @@
 - Centro region
 - Rota Vicentina access
 
-### When You Don't
+### When to Skip
 - Lisbon (nightmare to drive, park)
 - Porto (walkable, good metro)
 - Train routes only
@@ -100,7 +100,7 @@
 - Radar cameras common
 - Fuel: Full-serve disappearing, use self-serve (mais barato)
 - Parking: Blue zones paid, sometimes only Mon-Sat
-- Lisbon: Avoid. Seriously.
+- Lisbon: Skip entirely for car-first plans; use transit/day trips instead.
 
 ## Within Lisbon
 
