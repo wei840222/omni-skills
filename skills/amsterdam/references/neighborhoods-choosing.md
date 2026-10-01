@@ -186,7 +186,7 @@ Rate these factors 1-5 (5 = critical, 1 = not important):
 
 3. **Walk the neighborhood:**
    - Nearest supermarket
-   - Transit stop distance
+   - Transit station proximity
    - Green spaces
    - Restaurant/cafe options
 
@@ -199,7 +199,7 @@ Rate these factors 1-5 (5 = critical, 1 = not important):
 
 ## Step 6: The Red Flags
 
-### Avoid If...
+### Reconsider If...
 
  **Listing seems too good to be true** - Likely scam
  **Landlord wants payment before viewing** - Scam

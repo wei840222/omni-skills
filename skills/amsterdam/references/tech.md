@@ -1,3 +1,5 @@
+> **Orientation only (Gate 6):** salary bands drift by employer, equity, and tax year. Re-open IND / recruiter sources before quoting a threshold or offer range as current fact.
+
 # Amsterdam Tech Scene Guide 2025-2026
 
 > Comprehensive guide to working in tech in Amsterdam: salaries, companies, startup ecosystem, and career paths.

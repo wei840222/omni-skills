@@ -189,12 +189,12 @@
 1. **Book direct** - Often same price, better policies
 2. **Compare Booking.com** - Local company, best NL coverage
 3. **Check cancellation** - Flexible booking for changing plans
-4. **Avoid breakfast packages** - Better cafes nearby
+4. **Choose local cafes over breakfast packages** - Better cafes nearby
 5. **Look for parking deals** - If you have a car
 
 ---
 
-##  Areas to Avoid
+## Alternatives to High-Traffic Areas
 
 ### Red Light District
 
@@ -231,8 +231,8 @@ Late-night noise, drunk tourists, club crowds.
 - [ ] Is breakfast included? (Often not worth it)
 - [ ] Bike rental available?
 - [ ] Tourist tax included in price?
-- [ ] Parking options? (Most don't have any)
-- [ ] Lift/elevator? (Old buildings often don't)
+- [ ] Parking options? (Most have zero availability)
+- [ ] Lift/elevator? (Old buildings typically lack them)
 - [ ] Air conditioning? (Not standard)
 - [ ] Free cancellation until when?
 

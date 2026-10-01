@@ -1,3 +1,5 @@
+> **Orientation only (Gate 6):** rent and COL figures move monthly. Treat tables as planning bands; re-open Numbeo/Pararius/live listings before the user signs a lease.
+
 # Amsterdam Cost of Living Guide 2025-2026
 
 > Last updated: February 2026 | Currency: EUR (EUR ) | Tax: 36.97%-49.5% income tax
@@ -194,7 +196,7 @@ The Amsterdam housing market is **extremely tight**:
 | Parking (center) | EUR 5-8/hour, EUR 40-80/day |
 | Fuel (per liter) | EUR 1.97 |
 
-**Verdict:** Car ownership is expensive and often unnecessary in Amsterdam. Most residents don't own one.
+**Verdict:** Car ownership is expensive and often unnecessary in Amsterdam. Most residents rely on alternatives.
 
 ### Taxi/Ride-Hailing
 
@@ -388,7 +390,7 @@ Low-income residents can receive zorgtoeslag:
 3. **Bike theft:** Budget for good locks or bike insurance
 4. **Dining out:** Small portions, expensive compared to home cooking
 5. **Energy bills:** Old buildings = poor insulation = high bills
-6. **Tourist trap restaurants:** Avoid Leidseplein, Rembrandtplein
+6. **Tourist trap restaurants:** Bypass Leidseplein, Rembrandtplein
 7. **Speeding/parking fines:** Strict enforcement
 8. **Currency exchange:** Use Wise, not banks
 

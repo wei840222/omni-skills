@@ -86,7 +86,7 @@ Amsterdam's food scene reflects its history as a trading hub and modern multicul
 
 ---
 
-##  Surinamese (Don't Miss)
+##  Surinamese (Highly Recommended)
 
 ### Surinamese Food 101
 
@@ -196,7 +196,7 @@ Traditional Dutch gin:
 |------|----------|
 | **De Pijp** | Everything, best food neighborhood |
 | **Jordaan** | Brown cafes, Dutch classics |
-| **Centrum** | Tourist spots (avoid Damrak) |
+| **Centrum** | tourist spots (bypass Damrak) |
 | **Oost** | Indonesian, Surinamese |
 | **Noord** | Creative restaurants, waterfront |
 | **Oud-West** | Trendy, Foodhallen |
@@ -227,7 +227,7 @@ Traditional Dutch gin:
 - Ask for tap water (free)
 - Explore De Pijp food scene
 
-### Don't
+### Discouraged
 
 - Eat on Damrak or Leidseplein (tourist traps)
 - Skip Dutch specialties

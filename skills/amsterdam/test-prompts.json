@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a senior software engineer looking to move to Amsterdam. What is a typical salary band and which neighborhoods fit if I want active nightlife?",
+    "expected": "Gives senior SWE gross band as orientation (about EUR 80k-110k+), notes 30% ruling / tax caveat, recommends nightlife-friendly areas such as De Pijp, Jordaan, or Centrum with housing-market honesty, and points to official IND sources for visa thresholds.",
+    "actual": "Loaded amsterdam routing + references/tech.md and neighborhoods guides. Answered with senior SWE orientation band EUR 80,000-110,000 gross (staff higher), noted net depends on 30% ruling and tax year, suggested De Pijp / Jordaan / Centrum for nightlife while warning free-sector rent competition, and told the user to re-check IND HSM thresholds before relying on any number for an offer.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm planning a 3-day family trip to Amsterdam. Build a simple itinerary and advise public transport versus renting a car.",
+    "expected": "Provides a 3-day family-friendly outline, strongly advises against a rental car in the core, recommends GVB/trams/metro/ferries and optional bikes if the family is comfortable, and mentions museum booking / crowd timing.",
+    "actual": "Used visitor-itineraries + transport + visitor-tips. Delivered a 3-day family outline (museums, park, canal-adjacent walking, one short day trip option), strongly advised against renting a car because of parking cost and bike priority streets, recommended GVB and walking with optional bikes, and flagged advance tickets for major museums.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What should I do in the first two weeks after I move to Amsterdam for a tech job?",
+    "expected": "Gives a settling checklist: gemeente/BSN, health insurance, bank, DigiD, huisarts, OV-chipkaart/bike, and IND follow-ups if applicable, without inventing private account steps.",
+    "actual": "Routed to references/resident.md. Listed first-week and first-month actions (gemeente registration/BSN, health insurance activation, bank, SIM, bike, huisarts, DigiD, OV-chipkaart, IND if needed, 30% ruling application timing with employer) and kept documents/secrets out of skill state.",
+    "pass": true
+  }
+]

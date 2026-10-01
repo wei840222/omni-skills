@@ -212,7 +212,7 @@ The park is the neighborhood's heart:
 ### Finding Housing
 - **Oud-West:** Similar competition to De Pijp. Prepare documents, act fast.
 - **Westerpark:** Slightly easier. New builds coming online.
-- **Bos en Lommer:** Much easier to find. Don't dismiss based on reputation.
+- **Bos en Lommer:** Much easier to find. Evaluate beyond reputation.
 - **Nieuw-West:** Easiest in Amsterdam. Social housing options possible.
 
 ### Daily Life
