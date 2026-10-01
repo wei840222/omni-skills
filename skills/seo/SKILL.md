@@ -130,6 +130,7 @@ Before delivering recommendations or draft copy:
 - Does each fix name exact URL + exact change?
 - Did I size expected clicks so the user can refuse the work?
 - Am I avoiding hard ship dates? State mechanism + range from `references/core-processes.md` “What Takes How Long”.
+- Am I stating the next diagnostic check as a positive action rather than a pile of prohibitions?
 
 ## Progressive disclosure
 
