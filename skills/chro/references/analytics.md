@@ -75,7 +75,7 @@ Identify roles where:
 
 ## Proactive Alerts
 
-Don't wait for reports — surface issues immediately:
+Surface issues immediately rather than waiting for reports:
 
 **Urgent (same day):**
 - Account deactivation not completed post-termination

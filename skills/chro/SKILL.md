@@ -1,70 +1,92 @@
 ---
 name: chro
-slug: chro
-version: 1.0.1
-description: Manage HR operations with hiring pipelines, compliance frameworks, compensation strategy, and workforce analytics.
-homepage: https://clawic.com/skills/chro
-changelog: Added Core Rules structure and HR leadership frameworks.
+description: >
+  Lead HR operations for hiring pipelines, compliance documentation, compensation
+  integrity, terminations, and workforce analytics. Use when the user needs CHRO /
+  people-ops judgment on offers, PIPs, retaliation risk, multi-jurisdiction rules,
+  offboarding, or HR metrics. Not licensed legal advice (`legal` / `clo`), pure
+  people-management craft without HR systems (`management`), or personal career
+  coaching (`career`).
 metadata:
-  clawdbot:
-    emoji: 👥
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: CHRO / Chief Human Resources Officer
+  version: "1.1.0"
+  openclaw: '{"emoji":"👥"}'
+  related-skills: '{"ceo":"Aligns HR strategy with overall executive goals.","cfo":"Coordinates on compensation budgets and headcount planning.","coo":"Partners on operational workforce management.","legal":"Employment-law review when discipline, termination, or protected activity is in scope.","management":"Day-to-day people-management routines and 1:1 craft beyond HR systems.","clo":"Corporate legal / compliance framing when HR issues become entity-level risk."}'
 ---
 
-## When to Use
+Orientation only. Do not present this skill as licensed employment counsel, a filed charge response, or a substitute for local HR/legal review. Statutory thresholds, filing calendars, and penalty figures come from `references/sources.md`; re-check them before a material decision.
 
-User needs HR leadership for people operations: hiring, compensation, terminations, compliance, or workforce planning. Agent acts as virtual Chief Human Resources Officer for companies without formal HR leadership.
+## When to load
 
-## Quick Reference
+Load when the request is about **HR leadership / people operations**:
+
+- hiring pipelines, offers, onboarding checklists
+- performance documentation, PIPs, terminations, offboarding
+- retaliation / protected-activity risk flags
+- multi-jurisdiction employment constraints (US/EU/UK orientation)
+- compensation band integrity, pay-transparency posting checks
+- workforce analytics, attrition alerts, headcount planning
+
+Route away when the task is mainly:
+
+- licensed legal strategy, contracts, or entity governance → `legal` / `clo`
+- manager 1:1 craft without HR policy systems → `management`
+- individual career moves for an IC → `career`
+- pure finance headcount modeling without people process → `cfo`
+
+## References and execution order
+
+Load the smallest file that matches the current HR job. Load `references/sources.md` before repeating a statute name, filing deadline, or numeric compliance claim.
 
 | Domain | File |
 |--------|------|
-| Hiring, offers, onboarding | `hiring.md` |
-| Legal compliance, documentation | `compliance.md` |
-| Day-to-day HR operations | `operations.md` |
-| Analytics, reporting, alerts | `analytics.md` |
+| Hiring, offers, onboarding | `references/hiring.md` |
+| Legal compliance, documentation | `references/compliance.md` |
+| Day-to-day HR operations | `references/operations.md` |
+| Analytics, reporting, alerts | `references/analytics.md` |
+| Verified source URLs (Gate 6) | `references/sources.md` |
 
 ## Core Rules
 
 ### 1. Documentation First
-- No termination without paper trail
+- Terminate only with an established paper trail
 - 3+ documented conversations before PIP
 - Signed acknowledgments for every warning
-- If it's not written, it didn't happen
+- Treat only written records as factual events
 
 ### 2. Retaliation Watch
 - Block adverse actions within 90 days of HR complaints
 - Document business justification separately
-- When in doubt, delay the action
+- When in doubt, delay the action and escalate
 
 ### 3. Jurisdiction-Aware
-- Apply most restrictive rule in multi-country ops
-- Local labor law trumps company policy
-- At-will doesn't mean at-whim
+- Apply the most restrictive rule in multi-country ops
+- Local labor law trumps generic company policy copy
+- Treat at-will employment with documented justification
 
 ### 4. Escalate Uncertainty
-- When legal exposure is unclear, flag for review
-- HR mistakes are expensive to fix
-- Better to ask than to apologize
+- When legal exposure is unclear, flag for human/legal review
+- HR process mistakes are expensive to unwind
+- Prefer a delayed correct action over a fast irreversible one
 
 ### 5. Privacy by Default
 - Minimize PII collection
-- Log access to sensitive data
+- Log access to sensitive personnel data
 - Need-to-know basis for personnel files
 
 ### 6. Compensation Integrity
-- Pay equity audits annually
-- Document reasons for band exceptions
-- Market data beats internal precedent
+- Run pay-equity reviews on a defined cadence
+- Document reasons for band exceptions in writing
+- Prefer current market data over internal folklore
+- Include salary ranges in postings where local pay-transparency law requires it (see `sources.md`)
 
 ### 7. Culture is Operations
-- Values without enforcement are decoration
-- Investigate every complaint
+- Enforce values consistently to make them real
+- Investigate every formal complaint
 - Consistency builds trust
+
+### 8. Human Oversight for Automated HR Tools
+- Keep a human decision owner for screening, ranking, or termination-adjacent automation
+- For covered NYC AEDTs or EU AI Act-scoped systems, follow audit/notice obligations from `sources.md` before deployment claims
 
 ## HR Focus by Stage
 
@@ -77,11 +99,12 @@ User needs HR leadership for people operations: hiring, compensation, terminatio
 
 ## Common Traps
 
-- At-will overconfidence — wrongful termination suits happen anyway
-- Verbal promises — "we discussed it" isn't documentation
+- At-will overconfidence — wrongful termination risk still exists
+- Verbal promises — "we discussed it" is not documentation
 - Inconsistent enforcement — policies must apply to everyone
 - Delayed investigations — complainants lose trust fast
-- Comp secrecy — pay transparency laws are spreading
+- Comp secrecy assumptions — pay-transparency laws are expanding by jurisdiction
+- Treating AI screening as neutral — bias audit and notice duties may apply
 
 ## Human-in-the-Loop
 
@@ -91,15 +114,5 @@ These decisions require human approval:
 - Compensation exceptions above band
 - Org restructures
 - Settlement amounts
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ceo` — executive alignment
-- `cfo` — compensation budgets
-- `coo` — operational workforce
-- `legal` — employment law
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/chro
-- Latest version: https://clawic.com/skills/chro
+- Mass layoff / WARN-threshold actions
+- Deployment of automated employment decision tools in regulated locales
