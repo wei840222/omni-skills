@@ -4,7 +4,7 @@ Local search is a separate ranking system sitting on top of organic. The pack ha
 
 ## How The Local Pack Ranks
 
-Three factors, per Google: **proximity** (the searcher's location — outside your control), **relevance** (categories, profile completeness, site content), **prominence** (reviews, links, citations, offline notability). Everything actionable moves relevance or prominence. Never promise pack rankings to a client for searches happening across town: proximity caps the ceiling, and rank varies block by block — which is why a single "we rank #2 locally" number is meaningless without saying from where.
+Three factors, per Google: **proximity** (the searcher's location — outside your control), **relevance** (categories, profile completeness, site content), **prominence** (reviews, links, citations, offline notability). Everything actionable moves relevance or prominence. Report pack visibility only with the search location attached: proximity caps the ceiling, rank varies block by block, and a single "we rank #2 locally" number is meaningless without saying from where.
 
 ## Google Business Profile
 
