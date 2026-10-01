@@ -1,130 +1,155 @@
 ---
 name: resume
-slug: resume
-version: 1.0.0
-description: Adapt, diagnose, and optimize resumes to land interviews with ATS optimization, job-specific tailoring, and recruiter-tested tactics.
-homepage: https://clawic.com/skills/resume
+description: >
+  Diagnose resume gaps, tailor bullets to a job description, pass ATS parse checks,
+  and calibrate seniority/length so impact is scannable in seconds. Use when the user
+  asks why they are not getting callbacks, wants a resume rewritten for a posting,
+  needs ATS-safe formatting, is changing careers, or must condense a long career into
+  one or two pages. Not for offer/equity strategy without a document rewrite (`career`),
+  full application pipeline tracking (`job-search`), or general prose voice work (`writing`).
 metadata:
-  clawdbot:
-    emoji: 📄
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Resume
+  version: "1.1.0"
+  openclaw: '{"emoji":"📄"}'
+  related-skills: '{"career":"Offer evaluation, promotion, pivot, and layoff strategy when the document itself is not the deliverable.","job-search":"Application pipeline, company research, and interview prep beyond a single resume draft.","writing":"General prose voice and editing when the artifact is not a resume/CV.","negotiate":"Live salary or offer counters after the resume has done its job."}'
 ---
 
-## Quick Reference
+# Resume
 
-| File | Purpose |
-|------|---------|
-| `tailoring.md` | Adapt resume to specific job postings |
-| `diagnosis.md` | Find why resume isn't getting calls |
-| `ats.md` | Pass automated screening systems |
-| `seniority.md` | Calibrate for different career levels |
+This skill is **mostly stateless guidance**. It rewrites and diagnoses resume content the user provides. Optional drafts may live under a portable `<state_root>` only when the user asks to save versions.
 
----
+## State location
 
-## What the Agent Can Do
+Resolve `<state_root>` before any read/write of saved drafts:
 
-| User Request | Agent Action |
-|--------------|--------------|
-| "Why am I not getting calls?" | Diagnose: match gaps, red flags, weak positioning |
-| "Tailor this to [job posting]" | Extract keywords, reorder, adapt language |
-| "Will this pass ATS?" | Check format, keywords, parseability |
-| "I'm changing careers" | Identify transferable skills, build narrative bridge |
-| "Condense 15 years to 2 pages" | Prioritize recent impact, strategic omissions |
-| "Is my experience positioned well?" | Convert responsibilities → achievements |
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory: `<workspace>/resume/`, `<workspace>/memory/resume/`, `~/resume/`.
+3. If none exist and the user asked to persist a draft, create `<workspace>/resume/`.
 
----
+| Path | Required? | Role |
+|------|-----------|------|
+| `<state_root>/drafts/` | optional | Versioned resume/CV drafts the user asked to keep |
+| `<state_root>/notes.md` | optional | Target roles, constraints, approved phrasing |
 
-## The 6-Second Test
+Do not store secrets, full government IDs, or unredacted contact data beyond what the user put in the resume. Skill resources stay under `references/`; never mix them into `<state_root>`.
 
-Recruiters scan resumes in 6 seconds. Before anything else, verify:
+## When to load
 
-1. **Title clarity** — Current/target role obvious at top?
-2. **Impact visible** — Top 3 achievements jump out?
-3. **Relevance clear** — Match to target role evident?
-4. **Clean format** — No visual clutter slowing scan?
+Load this skill when the request is about **resume/CV craft**:
 
-If any fail → fix before other optimizations.
+- why applications get no interviews or callbacks
+- tailoring one resume to a specific job description
+- ATS parseability, keywords, and safe layout
+- career-change narrative and transferable-skill framing
+- seniority calibration (junior through executive length/tone)
+- turning responsibility lists into quantified achievements
 
----
+Route away when the ask is mainly:
 
-## Responsibilities → Achievements
+- offer, equity, promotion, or stay-vs-leave strategy → `career`
+- multi-company application tracking / interview loops → `job-search`
+- general email, essay, or social prose → `writing`
+- live counterparty salary negotiation → `negotiate`
 
-The #1 resume killer: listing tasks instead of results.
+Re-check `references/sources.md` before repeating ATS rejection rates, recruiter scan-time claims, or jurisdiction-specific CV photo rules as hard facts.
 
-**Transform pattern:**
+## Quick reference
+
+| Need | Load |
+|------|------|
+| No callbacks / gap diagnosis | `references/diagnosis.md` |
+| Job-specific rewrite / career change | `references/tailoring.md` |
+| ATS layout and parse safety | `references/ats.md` |
+| Level, length, executive condensation | `references/seniority.md` |
+| Verified source URLs (Gate 6) | `references/sources.md` |
+
+## Operating loop
+
+1. **Clarify target** — role title, seniority, geography/market, and whether a JD is available.
+2. **Six-second scan** — title clarity, top three impacts visible, relevance obvious, clean single-column scan path.
+3. **Diagnose or tailor** — load the matching reference; prefer evidence over generic polish.
+4. **Achievement pass** — every bullet: action verb + specific result + quantified impact when the user can support the number.
+5. **ATS pass** — standard headers, text-layer PDF/DOCX, exact JD terms integrated naturally.
+6. **Seniority pass** — length and tone match target level; older roles condensed when needed.
+7. **Sources** — if stating industry benchmarks, open `references/sources.md` and prefer linked primaries.
+
+## Core rules
+
+### 1. Six-second test (before deep rewrite)
+
+Recruiters often give a resume only a few seconds on first pass. Fix these first:
+
+1. **Title clarity** — current or target role is obvious at the top.
+2. **Impact visible** — top three achievements stand out without hunting.
+3. **Relevance clear** — match to the target role is evident.
+4. **Clean format** — single column, no visual clutter that slows the scan.
+
+If any fail, fix them before keyword stuffing or section reshuffles.
+
+### 2. Responsibilities → achievements
+
+Listing tasks without outcomes is the primary weak pattern.
+
+Transform patterns:
+
 - "Responsible for..." → "Achieved X resulting in Y"
 - "Managed team of..." → "Built team from X to Y, delivering Z"
 - "Worked on..." → "Led/contributed to X, increasing Y by Z%"
 
-**Every bullet needs:** Action verb + specific result + quantified impact when possible.
+Every bullet needs: **action verb + specific result + quantified impact when evidence exists**. Do not invent metrics; ask once for missing numbers or mark them as unknown.
 
----
+### 3. Tailoring workflow (when a JD exists)
 
-## Tailoring Workflow
+1. Extract must-haves vs nice-to-haves from the posting.
+2. Map the user's real achievements to each requirement.
+3. Name gaps honestly; reframe only when the underlying experience is real.
+4. Inject exact JD terms naturally (include spelled-out + acronym forms when both appear).
+5. Reorder so the most relevant experience appears first.
 
-When adapting to a specific job:
+Details: `references/tailoring.md`.
 
-1. **Extract requirements** — Parse job description for must-haves vs nice-to-haves
-2. **Map experience** — Which of user's achievements match each requirement?
-3. **Identify gaps** — What's missing? Can it be reframed or is it a real gap?
-4. **Inject keywords** — Add exact terms from JD, naturally integrated
-5. **Reorder sections** — Most relevant experience first
+### 4. Career changers
 
-See `tailoring.md` for job description parsing patterns.
+1. Translate vocabulary into the target industry's language.
+2. Surface transferable competencies (for example budget management → P&L ownership when accurate).
+3. Write a short narrative bridge (2–3 sentences) connecting past to target.
+4. Consider skills/summary before deep chronology when it helps the reader.
+5. Drop phrases that signal direction confusion; keep a coherent arc.
 
----
+### 5. Senior / long-career calibration
 
-## Career Changers
+For roughly 15+ years of experience:
 
-When user is switching industries/roles:
+1. One coherent career arc, not a disconnected role list.
+2. Weight the last 5–7 years; condense earlier roles.
+3. Omit outdated tech and irrelevant roles when they add noise.
+4. Show how leadership happened, not only that a title existed.
+5. If targeting a lower level, tone down scope signals that trigger "overqualified" filters.
 
-1. **Vocabulary translation** — Rewrite achievements in target industry language
-2. **Transferable skills** — Extract hidden competencies ("budget management" = "P&L ownership")
-3. **Narrative bridge** — 2-3 sentences connecting past to future coherently
-4. **Section reorder** — Skills/summary may go before experience
-5. **Red flag check** — Avoid phrases that signal confusion about direction
+Details: `references/seniority.md`.
 
-See `tailoring.md` section on industry translation.
+### 6. Red flags to repair
 
----
+- Unexplained gaps — add brief context the user approves.
+- Short stints without framing — position scope, contract nature, or outcome.
+- Tech-name typos and inconsistent product spelling.
+- Generic objectives ("seeking challenging opportunity") — replace with a targeted summary or remove.
+- Skills claimed without supporting bullets.
 
-## Senior/Executive Resumes
+### 7. Format defaults
 
-15+ years of experience requires different approach:
+| Topic | Default |
+|-------|---------|
+| Length | <10 years → 1 page; 10–20 → up to 2; executive → 2–3 when needed |
+| Files | Keep PDF (text layer), DOCX, and plain text ready |
+| Layout | Single column; standard fonts; minimal color; no critical info only in headers/footers |
+| Dates | One consistent scheme (MM/YYYY or Month YYYY) |
+| Photos | Omit for US applications; follow local norm only when the user confirms the market |
 
-1. **Career arc** — One coherent progression, not 12 disconnected roles
-2. **Recency weighting** — Last 5-7 years detailed, earlier roles condensed
-3. **Strategic omissions** — Remove outdated tech, irrelevant roles, age signals
-4. **Leadership evidence** — Show HOW you led, not just that you did
-5. **Role calibration** — Adjust tone if targeting lower level (avoid "overqualified" rejection)
+ATS-specific rules: `references/ats.md`.
 
-See `seniority.md` for condensing techniques.
+## Safety and honesty
 
----
-
-## Red Flags to Fix
-
-Immediate disqualification triggers:
-
-- **Unexplained gaps** — Address or the recruiter imagines worst
-- **Job hopping without context** — Brief roles need positioning
-- **Typos in tech names** — ReactJS vs React.js matters
-- **Generic objective** — "Seeking challenging opportunity" = delete
-- **Skills mismatch** — Claims that experience doesn't support
-
----
-
-## Format Rules
-
-- **Length:** <10 years = 1 page, 10-20 = 2 pages, exec = 2-3
-- **File:** Have PDF, DOCX, and plain text versions ready
-- **Design:** One column safer for ATS, minimal color, no graphics
-- **Dates:** Consistent format throughout (MM/YYYY or Month YYYY)
-
-For ATS-specific formatting, see `ats.md`.
+- Never fabricate employers, titles, dates, degrees, or metrics.
+- Mark uncertain claims; prefer user-confirmed numbers.
+- Jurisdiction-specific photo, age, or personal-data norms vary — verify via `references/sources.md` and the user's market.
+- This skill drafts and coaches; the user owns the final submission.

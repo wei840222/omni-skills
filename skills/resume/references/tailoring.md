@@ -117,7 +117,7 @@ Hospitality → Product:
 Finance → Sustainability:
 > "A decade in investment banking gave me deep understanding of how capital flows. I'm now channeling that expertise toward financing the energy transition."
 
-**Red flags to avoid:**
+**Red flags to omit:**
 - "Seeking new challenges" (vague)
 - "Burnt out in previous field" (negative)
 - "Always been passionate about..." without evidence (unbelievable)
