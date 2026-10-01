@@ -17,10 +17,10 @@ Both patterns are valid. Common split retained from the pre-refactor skill: inte
 
 This portfolio often beats one model for everything at similar total spend because cheap mistakes are caught before merge.
 
-## Failure modes
+## Common mistakes and recoveries
 
-- Using frontier models for chatbot-scale simple replies
-- Ignoring context limits and paying for repeated failed chunking
-- Expecting bit-identical answers across model updates
-- Trusting speed-optimized models as the only reviewer on safety-critical code
-- Skipping live verification for prices/ranks (`ai` + `sources.md`)
+- Using frontier models for chatbot-scale simple replies → switch to fast-cheap class and keep frontier for escalations only
+- Ignoring context limits and paying for repeated failed chunking → measure tokens and move long corpora to rag or a large-context class
+- Expecting bit-identical answers across model updates → pin eval prompts and re-baseline after provider changes
+- Trusting speed-optimized models as the only reviewer on safety-critical code → add a thorough review class or second-vendor pass
+- Skipping live verification for prices/ranks (`ai` + `sources.md`) → open the live page before quoting numbers
