@@ -73,6 +73,7 @@ Keep this file as the entry point; load the smallest matching reference.
 ## Requirements
 
 - Prefer a browser session where the user is already signed in to Glovo.
+- Prefer host browser automation paths the environment already exposes; do not invent a private Glovo API client.
 - Browser reading, clicking, typing, or screenshots must use a host-provided automation path the user already approved in the current environment.
 - Addresses, payment methods, and credentials stay inside the user's own browser or Glovo app.
 - Stay in **planning mode** until the current thread grants explicit browser-control approval.
