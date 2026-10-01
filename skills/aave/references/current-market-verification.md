@@ -2,7 +2,7 @@
 
 Load this reference when a request needs a current Aave market, position, contract-address, GHO, E-Mode, liquidation, permit, or Umbrella fact. It records the live facts to resolve from official sources; use a market name or interface screenshot as a discovery input, then resolve the exact deployment.
 
-**Verified:** 2026-08-08. Aave deployment, governance, liquidity, rate, and risk settings can change after this date.
+**Verified:** 2026-10-01. Official documentation and repository URLs below returned HTTP 200 on re-check. Aave deployment, governance, liquidity, rate, and risk settings can change after this date.
 
 ## Claim inventory and treatment
 
