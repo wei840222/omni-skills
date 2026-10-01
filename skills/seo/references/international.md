@@ -12,7 +12,7 @@ Two different problems get called "international SEO": serving the same language
 | Parameters | `example.com?lang=de` | None worth having | Fragile, poor for users and for crawlers |
 | Anything else | — | — | Default to subfolders unless a ccTLD is a business or legal requirement |
 
-Language and country are different axes. `/de/` (German language) and `/de-ch/` (German for Switzerland) answer different needs; do not create country variants you cannot keep genuinely distinct.
+Language and country are different axes. `/de/` (German language) and `/de-ch/` (German for Switzerland) answer different needs; create country variants only when they remain genuinely distinct.
 
 ## hreflang Rules
 
@@ -36,7 +36,7 @@ The most common real case (`en-US`, `en-GB`, `en-AU`) and the one where duplicat
 ## Geotargeting And Detection
 
 - Search Console international targeting (for subfolders and subdomains) sets a country preference; ccTLDs are targeted automatically and cannot be changed.
-- Never auto-redirect by IP. Crawlers fetch mostly from US IPs and will only ever see one version, and travelers get the wrong site. Offer a dismissible banner with a link instead, and let the URL the user chose stick.
+- Allow users to select their region manually. Crawlers fetch mostly from US IPs and will only ever see one version, and travelers get the wrong site. Offer a dismissible banner with a link instead, and let the URL the user chose stick.
 - Server-side language negotiation on the root URL is acceptable when each language also has its own stable, linkable URL.
 - Hosting location is a weak signal at best; a CDN is a better answer to latency than a local server is to ranking.
 

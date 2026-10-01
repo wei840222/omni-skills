@@ -8,7 +8,7 @@ Ask what the audit must answer, then pick the shape:
 
 | Trigger | Shape | Time |
 |---|---|---|
-| "Traffic dropped" | Diagnostic — run the triage order in SKILL.md, stop at the confirmed cause | Hours |
+| "Traffic dropped" | Diagnostic — run the triage order in SKILL.md, pause at the confirmed cause | Hours |
 | "We're about to redesign" | Risk audit — inventory, redirect plan, template review | 1-2 days |
 | "We want more traffic" | Opportunity audit — striking distance, gaps, page-type economics | 2-4 days |
 | "Health check before a quarter" | Full audit — all five layers, template-level | 3-5 days |
@@ -30,7 +30,7 @@ Missing data is a finding: no analytics goals configured means nobody can priori
 - Render JavaScript on the second pass and diff link counts and word counts against the first.
 - Crawl as Googlebot smartphone; mobile is the indexed version.
 - Large sites: crawl a stratified sample — 500-2,000 URLs per template — instead of all 400,000. Issues live in templates, not URLs.
-- Crawl the staging site too when one exists: staging leaks are found by crawling, never by asking.
+- Crawl the staging site too when one exists: staging leaks are found by crawling, requiring direct crawling rather than inquiry.
 
 ## Template Thinking
 
@@ -49,7 +49,7 @@ Score every finding, then sort descending:
 - Traffic at stake: current organic sessions on affected URLs, or for blocked/unindexed pages, the search volume of their target intent discounted to a realistic position (SKILL.md rule 9).
 - Confidence: 0.9 for "the page is blocked from indexing", 0.5 for "intent mismatch", 0.2 for anything whose mechanism you cannot name.
 - Effort: real engineering days, asked of whoever will ship it — not your guess.
-- Floor: a finding whose traffic at stake is under `min_impressions` per month (SKILL.md Configuration; default 100) goes in the grouped list, never in the Top 5 — five headline fixes that each move nothing is how audits lose credibility.
+- Floor: a finding whose traffic at stake is under `min_impressions` per month (SKILL.md Configuration; default 100) goes in the grouped list, excluding it from the Top 5 — five headline fixes that each move nothing is how audits lose credibility.
 
 Worked: a stray noindex on 40 pages worth 8,000 sessions/mo, confidence 0.9, effort 0.5 days → 14,400. A CLS fix worth maybe 300 sessions, confidence 0.2, effort 5 days → 12. The order is not a matter of taste.
 
@@ -61,7 +61,7 @@ Worked: a stray noindex on 40 pages worth 8,000 sessions/mo, confidence 0.9, eff
 4. **Technical quality** — speed, mobile, duplicates, structure.
 5. **Authority** — internal link distribution first, external links second.
 
-Never invert: prescribing a content rewrite for a page carrying a noindex is the classic wasted engagement.
+Maintain sequential order: prescribing a content rewrite for a page carrying a noindex is the classic wasted engagement.
 
 ## Deliverable
 
@@ -73,7 +73,7 @@ Never invert: prescribing a content rewrite for a page carrying a noindex is the
 5. Measurement plan — the GSC/analytics view that will show whether it worked, and when
 ```
 
-Write the exact change, never the category: "add `<link rel=canonical>` self-reference to the product template" beats "fix canonicalization". Every recommendation a developer can ticket without asking a question.
+Write the exact change, rather than a vague category: "add `<link rel=canonical>` self-reference to the product template" beats "fix canonicalization". Every recommendation a developer can ticket without asking a question.
 
 ## Audit Traps
 

@@ -45,7 +45,7 @@ Most content programs publish "how to" articles and wonder why organic traffic d
 ## Free Tools And Templates
 
 - The single most reliable link-earning asset for a commercial site: a calculator, generator, or template pack solving one narrow problem completely, free, no signup to use.
-- Make the tool page indexable and self-contained; do not hide it behind a form. Gating it converts a few and forfeits the links that would have paid for it.
+- Make the tool page indexable and self-contained; keep it publicly accessible. Gating it converts a few and forfeits the links that would have paid for it.
 - Add the surrounding content the query needs — the methodology behind the calculator is what makes the page rankable rather than a bare widget.
 
 ## Ordering The Build
@@ -60,8 +60,8 @@ Bottom-funnel first, in this order, because each earns while the next is written
 |---|---|---|
 | Comparison pages that only flatter you | Readers discount everything; conversion drops | Concede the competitor's real strengths |
 | "Contact us for pricing" | Loses the pricing query outright | Publish numbers, ranges, or the model |
-| Integration pages for integrations that do not exist | Doorway pages; disappoints the visitor who arrived | Only real ones |
+| Integration pages for integrations that lack functionality | Doorway pages; disappoints the visitor who arrived | Only real ones |
 | Gating the free tool | Trades the links that make it rank for a few emails | Free and indexable, capture later |
 | Writing bottom-funnel pages last | The traffic that pays for the program arrives last | Build them first |
-| Never updating competitor claims | Stale facts damage credibility and invite complaints | Date the page, schedule a review |
+| Allowing competitor claims to stall | Stale facts damage credibility and invite complaints | Date the page, schedule a review |
 | One page for "alternatives" and "vs" | Different intents, both underserved | Separate pages |

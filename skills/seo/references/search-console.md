@@ -13,10 +13,10 @@ Every other SEO number is modeled. Search Console is measured. Knowing its quirk
 - **16 months** of history, and no more. Export monthly if year-over-year matters; the day you need month 17 is the day you cannot have it.
 - The UI table caps at 1,000 rows; the API returns up to 25,000 rows per request. Any site above trivial size needs the API, Looker Studio, or the bulk BigQuery export for real work.
 - **Anonymized queries**: rare queries are withheld, so the sum of query rows is always less than the totals row. A "missing clicks" investigation usually ends here.
-- **Average position** is the average of the best position per impression, weighted by impressions. Ranking a new page at 60 for a thousand new queries drags the average down while traffic grows. Never report it as a success metric.
+- **Average position** is the average of the best position per impression, weighted by impressions. Ranking a new page at 60 for a thousand new queries drags the average down while traffic grows. Report positions per query instead of this metric.
 - Filtering by query changes the page list to pages that appeared for that query — this is the cannibalization view, not a page report.
 - Data lags roughly two to three days; the last days of any chart are incomplete.
-- Discover and News have separate reports with their own quirks and do not appear in the Search report.
+- Discover and News have separate reports with their own quirks and require separate analysis from the Search report.
 - Search Appearance filters exist for some features, but there is no filter for AI Overview presence.
 
 ## The Five Reports Worth Reading
@@ -49,7 +49,7 @@ Every other SEO number is modeled. Search Console is measured. Knowing its quirk
 - Split branded and non-branded in every report. Growth that is entirely branded came from marketing, not from SEO — say so.
 - Compare like periods: 28 days against the previous 28 and against the same 28 last year. Month-over-month on a seasonal business is a fiction generator.
 - Annotate the timeline with what shipped and with Google's announced updates; a chart without annotations invites the wrong causality.
-- Include a "what we expect next" line with the mechanism and range from SKILL.md's What Takes How Long, never a promised date.
+- Include a "what we expect next" line with the mechanism and range from SKILL.md's What Takes How Long, omitting firm deadlines.
 
 ## Proving A Change Worked
 

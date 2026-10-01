@@ -5,7 +5,7 @@ Google is most of the traffic in most markets, and it is not all of it. Bing's i
 ## Why Bing Is Worth An Afternoon
 
 - Bing Webmaster Tools is free, imports the site from Search Console in a couple of clicks, and reports crawl, index, and query data with fewer restrictions than GSC.
-- Its index grounds Copilot and, at times, other assistant products. Being absent from Bing can mean being absent from answers that never touch Google.
+- Its index grounds Copilot and, at times, other assistant products. Being absent from Bing can mean being absent from answers that operate entirely outside Google.
 - Its ranking preferences are less link-dependent and more literal about on-page relevance: exact-term usage in titles and headings, clean HTML, and older domains do relatively better than they do on Google.
 - Social and brand signals are described as part of Bing's picture in its own guidance; Google denies the same.
 - The URL and Content Submission APIs let you push URLs directly instead of waiting to be discovered.
@@ -15,7 +15,7 @@ Google is most of the traffic in most markets, and it is not all of it. Bing's i
 - A push protocol supported by Bing, Yandex, Seznam, and others: you notify the engines when a URL is created, updated, or deleted, instead of waiting for the next crawl.
 - Implementation is a key file at the site root plus one HTTP request per changed URL; most major CMS platforms and CDNs have a plugin or a toggle.
 - Google has not adopted it, so it changes nothing for Google traffic. Treat it as a cheap improvement for the engines that do use it, especially for news, ecommerce stock changes, and large catalogs.
-- Do not spam it: submitting unchanged URLs repeatedly gets the key throttled.
+- Submit URLs strategically: submitting unchanged URLs repeatedly gets the key throttled.
 
 ## Regional Engines
 
@@ -28,7 +28,7 @@ Google is most of the traffic in most markets, and it is not all of it. Bing's i
 | Privacy engines (DuckDuckGo, Ecosia, Brave) | Mostly syndicated from Bing or their own crawl | Bing coverage usually covers you |
 | Anywhere else | Google | Check actual market share before spending anything |
 
-Never assume a Google playbook transfers. Where a portal owns the market, the winning move is publishing on the portal's properties, not out-ranking them from outside.
+Assume distinct ranking behaviors for closed portals. Where a portal owns the market, the winning move is publishing on the portal's properties, not out-ranking them from outside.
 
 ## Apple, App, And In-Product Search
 

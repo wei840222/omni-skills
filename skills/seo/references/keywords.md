@@ -25,7 +25,7 @@ A usable winnability proxy without paid tools: `winnable ≈ (number of page-1 r
 ## Sizing Demand Without Paid Tools
 
 - Google Search Console already reports the queries you earn impressions for — the only exact, first-party demand data available. Start there, not in a keyword tool.
-- Google Trends gives relative interest, seasonality, and breakout terms; it never gives absolute volume.
+- Google Trends gives relative interest, seasonality, and breakout terms; it provides relative volume only.
 - Keyword Planner buckets ranges and merges close variants — fine for relative sizing, wrong as absolutes, and biased toward advertiser terms.
 - Zero-volume keywords convert: tools miss most long-tail. If autocomplete suggests it, people search it.
 - Autocomplete ordering is a rough popularity proxy within a prefix; the top suggestions are the common phrasings.
@@ -40,7 +40,7 @@ Click studies put position 1 around 25-30% CTR, falling steeply to low single di
 The highest-ROI keyword work. Search Console → Performance → filter positions 4-15 with impressions at or above `min_impressions` (SKILL.md Configuration; default 100/month, raise it on large sites). These pages already have relevance; they lack CTR or authority:
 
 1. Rewrite title and meta against the snippets currently above you.
-2. Fill content gaps — subtopics the ranking pages cover and you do not.
+2. Fill content gaps — subtopics the ranking pages cover and you lack.
 3. Add 2-3 internal links from your strongest related pages.
 
 Check this list before proposing any new article — improving these beats new content on effort per click, usually by an order of magnitude.
@@ -79,8 +79,8 @@ Rules: every keyword belongs to exactly one URL; queries whose SERPs are near-id
 - Weekly for money terms, monthly for long-tail; more frequent tracking measures noise.
 - Track a small basket of queries you actually care about rather than a thousand-keyword report nobody reads.
 - Log rank moves against Google's announced update dates — that is what separates "an update hit us" from "we broke something" (SKILL.md, Ranking Drop Triage).
-- Record positions per query, never the site-wide average position.
-- Store the basket and its history in `~/Clawic/data/seo/memory.md` so comparisons survive across sessions.
+- Record positions per query, focusing strictly on positions per query.
+- Store the basket and its history in `<state_root>/memory.md` so comparisons survive across sessions.
 
 ## Keyword Traps
 

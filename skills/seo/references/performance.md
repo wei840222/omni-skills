@@ -24,8 +24,8 @@ INP replaced FID in March 2024 and is strictly harder: FID measured only the fir
 
 Split the 2.5s budget into its four parts and find the one that owns the time: **TTFB → resource load delay → resource load time → element render delay** (web.dev's recommended split targets roughly 40% / 10% / 40% / 10%).
 
-- TTFB over ~800ms: server, database, or origin distance. Cache the HTML, put a CDN in front, and stop rendering pages per request that could be static.
-- Load delay: the browser learned about the LCP image late. Preload it (`<link rel="preload" as="image">`, or `fetchpriority="high"`), and never `loading="lazy"` on the hero — the single most common self-inflicted LCP failure.
+- TTFB over ~800ms: server, database, or origin distance. Cache the HTML, put a CDN in front, and serve static versions of pages that could be static.
+- Load delay: the browser learned about the LCP image late. Preload it (`<link rel="preload" as="image">`, or `fetchpriority="high"`), and use eager loading for the hero — the single most common self-inflicted LCP failure.
 - Load time: the image is too big. Correct dimensions, AVIF/WebP, responsive `srcset`.
 - Render delay: render-blocking CSS or JS, or a client-side framework that paints after hydration. Inline critical CSS, defer the rest, and server-render the above-the-fold content.
 - Carousels and video heroes: the LCP element becomes whatever renders last. Give the first slide a static, preloaded image.

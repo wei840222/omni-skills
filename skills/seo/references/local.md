@@ -11,7 +11,7 @@ Three factors, per Google: **proximity** (the searcher's location — outside yo
 - Claim and verify. Unverified profiles do not rank, and verification is now the slowest step in most local projects — start it first.
 - **Primary category is the strongest lever you control.** Pick the most specific match ("Personal Injury Attorney", not "Lawyer"); add secondary categories for genuinely offered services. Research it by checking the categories of the businesses already in the pack for your target query.
 - Complete every field: hours (including holiday hours), services with descriptions, products, attributes, opening date, and photos. Google reports that businesses with photos get 42% more direction requests.
-- Never stuff keywords into the business name. It violates the guidelines, competitors report it, and suspensions follow. The legal, real-world name only.
+- Use the legal, real-world business name only. Keyword-stuffed names violate guidelines, get reported by competitors, and lead to suspensions.
 - Service-area business with no walk-in customers: hide the address and set service areas. A visible home address invites suspension and does not help.
 - Post regularly, and seed the Q&A section with real customer questions answered by the business — if you leave it empty, competitors and spammers fill it.
 - Keep the website link pointing at the specific location page, not the homepage, on multi-location profiles.
@@ -37,14 +37,14 @@ Three factors, per Google: **proximity** (the searcher's location — outside yo
 - Rating, quantity, recency, and your response rate all feed prominence — and reviews are also the single biggest conversion factor in the pack.
 - Respond to every review, negatives especially. The response is written for the next customer reading it, not for the reviewer.
 - Steady velocity beats bursts. A sudden spike after years of silence looks purchased, because usually it is.
-- Ask at the point of satisfaction with a direct review link. Never gate reviews (filtering so only happy customers are asked) — gating violates Google's policy.
-- Never buy reviews: pattern detection leads to review removal or profile suspension, and removal takes the legitimate ones with it.
+- Ask at the point of satisfaction with a direct review link. Invite the full customer set; gating reviews so only happy customers are asked violates Google's policy.
+- Earn reviews from real customers only: bought-review patterns lead to review removal or profile suspension, and removal often takes legitimate ones with them.
 - Reviews mentioning the service and the city are the ones that read as relevance signals; asking "what did we do for you?" produces them naturally.
 - Fake negative reviews can be reported, but the durable answer is volume of real ones.
 
 ## Citations And Local Links
 
-- Structured citations: business directories carrying NAP. Get the core set right, then stop — the tenth directory adds nothing.
+- Structured citations: business directories carrying NAP. Get the core set right, then conclude — the tenth directory adds nothing.
 - Industry-specific directories (lawyers on Avvo, restaurants on TripAdvisor, trades on their trade bodies) outweigh generic ones.
 - Data aggregators push NAP to many directories at once; fix the source rather than fifty listings.
 - Unstructured mentions — local news, community blogs, event pages, sponsorships, chambers of commerce — double as local link building and are the strongest prominence lever available to a small business.

@@ -17,7 +17,7 @@ Two link economies exist. Internal links you control completely and can change t
 
 - 301s no longer lose PageRank (Google confirmed in 2016) — the old "10-15% loss" rule is dead, and consolidating via 301 is safe.
 - Keep chains ≤3 hops; long chains slow crawling and can be abandoned.
-- Redirect to the closest matching page, never mass-redirect to the homepage: Google treats irrelevant redirects as soft 404s and passes nothing.
+- Redirect to the closest matching page, redirect only to semantically equivalent pages: Google treats irrelevant redirects as soft 404s and passes nothing.
 - Reclaim lost equity: find 404s with external links (GSC's Not found report plus any backlink source) and redirect them to the closest live page. This is the cheapest link building there is, and it is finished in an afternoon.
 
 ## External Anchor Text
@@ -80,7 +80,7 @@ Outreach reality: response rates on cold link outreach are low single digits for
 
 | Trap | Why it fails | Do instead |
 |---|---|---|
-| Buying links from a rate card | Payment footprints are the pattern spam systems look for | Earn or do not have the link |
+| Buying links from a rate card | Payment footprints are the pattern spam systems look for | Focus on organic link acquisition |
 | Chasing domain rating | The metric is a third-party estimate, not a Google signal | Judge the page, its traffic, and its relevance |
 | Outreach before the asset exists | There is nothing worth linking to | Build the asset first |
 | Ignoring internal links | The one lever you fully control, free and immediate | Audit and repoint quarterly |
