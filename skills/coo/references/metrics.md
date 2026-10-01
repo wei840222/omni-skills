@@ -94,7 +94,7 @@ Why? → More rework needed
 Why? → Requirements unclear
 Why? → Specs not reviewed
 Why? → No review process
-Why? → Never prioritized
+Why? → Consistently deprioritized
 
 Root cause: Missing spec review process
 Fix: Implement spec review checklist

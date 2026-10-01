@@ -15,7 +15,7 @@
 ### Span of Control
 - **ICs:** 5-8 direct reports per manager
 - **Managers:** 4-6 per director
-- **Too wide:** People don't get enough support
+- **Too wide:** People receive insufficient support
 - **Too narrow:** Micromanagement, unnecessary hierarchy
 
 ### Team Topology
@@ -66,7 +66,7 @@ Start hiring: [When gap will exist - lead time]
 
 ### Delegation Levels
 
-1. **Do it, don't tell me** — Full autonomy
+1. **Act autonomously** — Full autonomy
 2. **Do it, keep me informed** — FYI updates
 3. **Do it after I approve** — Check before acting
 4. **Wait for me to decide** — Recommend, I decide
