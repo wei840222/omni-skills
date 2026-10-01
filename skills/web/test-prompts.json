@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm deploying a Next.js app to Vercel and some environment variables are missing on the client side. I prefixed them with SECRET_. What should I do?",
+    "expected": "Explain NEXT_PUBLIC_ is required to expose values to the client; never put real secrets behind NEXT_PUBLIC_; set vars in the Vercel dashboard and redeploy; load references/frameworks.md or deploy.md as needed.",
+    "actual": "Loaded frameworks/deploy guidance. Told the user client-visible Next.js env vars need the NEXT_PUBLIC_ prefix, SECRET_ stays server-only and will not appear in the browser bundle, real secrets must never use NEXT_PUBLIC_, and dashboard env changes require a redeploy.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My website layout shifts when images load, causing a bad CLS score. How can I fix this?",
+    "expected": "Instruct explicit width/height or aspect-ratio, reserve space for media, mention CLS not FID; point at references/performance.md.",
+    "actual": "Cited performance.md CLS rules: add width/height or CSS aspect-ratio, avoid late-injected unsized media, keep LCP image dimensions stable, and re-measure CLS after the change.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "The browser console shows a CORS error calling my API from the frontend. Can I fix it only in React?",
+    "expected": "State CORS is server-side / browser-enforced; configure ACAO on the API or same-origin proxy; reject browser-extension disable-CORS as a product fix.",
+    "actual": "Stated there is no pure client-side product fix. Recommended Access-Control-Allow-Origin (and needed methods/headers) on the API, or a same-origin rewrite/proxy; warned against telling users to disable CORS in the browser.",
+    "pass": true
+  }
+]
