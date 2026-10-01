@@ -1,0 +1,7 @@
+# Where experts disagree
+
+- **One big box versus several small ones.** Several small boxes buy isolation and blast-radius control at a fixed per-box overhead (address, backup add-on, patching, attention). Frontier: below roughly three services, one box and good backups usually wins; split when uptime expectations or owners diverge.
+- **Containers on a VPS, or system services.** Containers make rebuilds cheap and pin dependency versions; they also add a networking layer that can bypass the host firewall and surprising disk use. Frontier: multiple apps or unfamiliar stacks → containers; single well-understood service on a small box → system services.
+- **Control panels.** Tractable for non-specialists; large privileged attack surface that expects to own machine config. Frontier: humans who will not read logs → panel; anything you will automate → no panel (it fights config management).
+- **Budget hosts.** Excellent for build agents, mirrors, and experiments; disappointing when support or IO consistency matters. Frontier is whether a revenue number attaches to the box, not the list price alone.
+- **Firewall placement.** Provider-only survives a broken host and avoids per-distro syntax; host-only is versionable and travels with a migration. Each fails alone: provider layer cannot see container-published ports; host layer cannot help when the host is unreachable. Default to both (Core rule 3); if only one is possible, keep the provider layer.
