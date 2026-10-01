@@ -33,7 +33,7 @@ Gate 6 research anchors. Prefer these official pages over memory when facts may 
 
 - Confirmed HTTP 200 from this runner: Visit Portugal, Portugal.gov, Visit Lisboa, Visit Porto, CP, Metro Lisboa, CARRIS, Oceanário, ANA, Aeroporto de Lisboa, Your Europe emergency page, Segurança Social homepage.
 - Rede Expressos homepage is the canonical coach operator URL; some automated clients receive HTTP 403—treat product details as user-verified at booking time.
-- Metro do Porto and ANA/airport hostnames were unreachable or TLS-unstable from this runner; keep qualitative Porto metro / airport guidance and tell users to confirm on operator sites when booking.
+- Metro do Porto hostname was TLS-unstable from this runner; keep qualitative Porto metro guidance and tell users to confirm on the operator site when booking. ANA / Aeroporto de Lisboa verified 200.
 - Navegante / former Viva Viagem naming can drift—direct users to current Lisbon operator pages before purchase advice solidifies.
 - Live weather, ferry disruptions, and ticket inventory are **not** embedded—point users at sources above plus `references/apps.md`.
 
