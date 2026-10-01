@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my resume and tell me why I'm not getting callbacks for Senior Backend roles.",
+    "expected": "Loads references/diagnosis.md (and ats.md if format is in doubt), runs targeting/positioning/format/red-flag checks, and rewrites weak responsibility bullets toward quantified impact without inventing metrics.",
+    "actual": "Loaded references/diagnosis.md. Targeting looks generic for Senior Backend; positioning lists duties without latency/throughput/reliability outcomes; recommended reframing bullets with user-supplied metrics and an ATS keyword pass against a sample JD. Did not invent numbers.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm applying to this Principal Engineer job posting. Tailor my resume to match it.",
+    "expected": "Loads references/tailoring.md and references/seniority.md, extracts must-have vs nice-to-have terms from the JD, maps real experience, compresses older roles, and integrates exact terminology naturally.",
+    "actual": "Loaded references/tailoring.md and references/seniority.md. Parsed Principal Engineer must-haves (cross-functional leadership, system architecture at scale), mapped the last 5-7 years first, condensed earlier IC work, and injected JD phrases only where experience supports them.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Will this PDF pass ATS, and should I put a photo on a US application?",
+    "expected": "Loads references/ats.md and references/sources.md; recommends single-column text-layer PDF/DOCX, standard headers, and omitting photos for US-style applications unless the user confirms a different market norm.",
+    "actual": "Loaded references/ats.md and references/sources.md. Flagged two-column/table risk, required a text layer, standard section headers, and omitted photo/full address for US applications per EEOC-oriented guidance notes in sources.",
+    "pass": true
+  }
+]
