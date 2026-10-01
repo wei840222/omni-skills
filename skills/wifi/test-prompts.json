@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "My WiFi drops constantly in the kitchen when someone uses the microwave. What should I check?",
+    "expected": "Call out 2.4 GHz microwave interference (often near channel 11), prefer 5/6 GHz for kitchen clients if supported, or move 2.4 GHz to channel 1 or 6 after a scan; ping LAN gateway before blaming ISP.",
+    "actual": "Microwaves commonly interfere with 2.4 GHz, especially around channel 11. Move kitchen clients to 5 GHz or 6 GHz when they support it, or rescans and set 2.4 GHz to channel 1 or 6. Ping the router LAN IP first so you know it is radio interference rather than WAN loss.",
+    "pass": true,
+    "evidence": "references/troubleshooting.md band + channel + diagnostics; handoff review 2026-10-02."
+  },
+  {
+    "id": 2,
+    "prompt": "I want to set up a new router. Should I use WEP, WPA2, or WPA3, and should I hide my SSID?",
+    "expected": "Recommend WPA3-Personal/SAE when clients allow it, else WPA2-Personal minimum; reject WEP; explain hidden SSID is not a security control; mention disabling WPS.",
+    "actual": "Use WPA3-Personal (SAE) when every device you need supports it; otherwise WPA2-Personal (AES). Do not use WEP. Hiding the SSID does not stop discovery via probes, so leave it visible and rely on a strong passphrase. Disable WPS PIN/push as part of baseline hardening.",
+    "pass": true,
+    "evidence": "references/security.md + Wi-Fi Alliance security page listed in references/sources.md."
+  },
+  {
+    "id": 3,
+    "prompt": "Apartment Wi-Fi is slow at the far bedroom. Should I buy a cheap extender or mesh, and is Wi-Fi 7 MLO the same as 6 GHz?",
+    "expected": "Try better AP placement first; explain same-channel extenders cost airtime; mesh/wired backhaul is stronger; correct that MLO is a Wi-Fi 7 multi-link feature, not a synonym for 6 GHz.",
+    "actual": "Reposition/elevate the main AP toward the coverage center before buying hardware. Cheap same-channel extenders usually repeat and spend airtime on the hop. Mesh with dedicated or wired backhaul is the better capacity path. Wi-Fi 7 MLO is multi-link operation across links/bands when both ends support it — 6 GHz is a band that 6E/7 gear may use, not another name for MLO.",
+    "pass": true,
+    "evidence": "references/placement.md + troubleshooting.md Wi-Fi 7 MLO note + sources.md Wi-Fi 7 URL."
+  }
+]
