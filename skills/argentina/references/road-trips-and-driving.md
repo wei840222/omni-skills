@@ -15,7 +15,7 @@
 
 ## Driving Rules
 
-- Do not plan remote night driving unless unavoidable.
+- Limit driving to daylight hours in remote areas.
 - Patagonia wind, winter conditions, and fuel spacing require conservative pacing.
 - Mountain crossings to Chile are not casual add-ons; snow, queues, and paperwork can break the day.
 - If the trip includes wineries or long lunch culture, driver strategy matters before the hotel is chosen.

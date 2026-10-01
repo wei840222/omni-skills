@@ -1,6 +1,6 @@
 # Sources — Argentina Skill
 
-Last checked: 2026-03-09
+Last checked: 2026-10-01 (handoff re-verify pass; booking-critical claims still require live page check)
 
 ## Entry, Visa, and Border
 

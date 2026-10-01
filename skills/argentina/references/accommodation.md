@@ -2,10 +2,10 @@
 
 ## Base Selection Rules
 
-| Trip type | Best base logic | Avoid |
+| Trip type | Best base logic | Caution |
 |-----------|-----------------|-------|
 | Buenos Aires city trip | Walkable area with good evening return options | Cheapest far-out room that adds daily transport friction |
-| Mendoza | Decide between city base and vineyard base before booking tastings | Splitting too many one-night stops |
+| Mendoza | Decide between city base and vineyard base before booking tastings | Consolidate stays to minimize transit friction |
 | Iguazu | Stay at least 2 nights if adding Brazil side or late arrival | Same-day in and out for the falls |
 | Patagonia | Book around weather and excursion sequence | Over-optimizing nightly rate while losing transfer time |
 
@@ -21,7 +21,7 @@
 
 - Buenos Aires rewards neighborhood fit more than star count.
 - Mendoza needs clarity on whether the trip is urban, wine-focused, or Andes-focused.
-- El Calafate and El Chalten serve different functions; do not pretend one replaces the other.
+- El Calafate and El Chalten serve different functions; treat them as distinct destinations serving different functions.
 - Ushuaia and peak Patagonia windows should be booked earlier than relaxed city legs.
 
 ## Common Mistake

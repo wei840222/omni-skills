@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to visit Argentina for 10 days in November. What are the best regions to visit considering the weather and travel times?",
+    "expected": "Refuse a three-region sprint; propose one BA + one contrast cluster for November with weather note and transfer realism; ask preference between glaciers/lakes/wine.",
+    "actual": "For 10 days in November, keep one city anchor and one contrast region. Buenos Aires + Mendoza (wine/green vineyards) or Buenos Aires + South Patagonia lakes/glaciers both fit spring/early summer without peak January crowds. Do not stack Iguazu + Mendoza + Patagonia. Ask which contrast the traveler wants, then load weather-and-seasonality, regions, transport-domestic, and the matching regional playbook before locking day flow.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are crossing from Chile into Argentina by bus in the Lake District. What do we need to know about border customs and currency exchange?",
+    "expected": "Name agricultural customs risk, advise checking official entry rules, and give a practical first-hours money mix without inventing a fixed dual-rate guarantee.",
+    "actual": "Lake District bus crossings (e.g. toward Bariloche via Cardenal Samore) need passport/entry path checks plus strict agricultural limits—no fresh fruit, meat, or dairy. For money, plan ARS cash for small friction plus cards for larger spends; treat blog dual-rate advice as stale and re-check money-payments-and-exchange plus sources.md near travel. Load customs-and-border and money-payments-and-exchange before answering booking-critical detail.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can we do Iguazu, Mendoza, and El Calafate in one week?",
+    "expected": "Reject the plan as transfer-heavy fantasy; offer a one-week feasible alternative with two nodes max and explain flight cost of third node.",
+    "actual": "No. One week cannot absorb three long internal legs without turning the trip into airport time. Choose either north/waterfalls (BA or direct + Iguazu), wine (Mendoza), or south glaciers (El Calafate), optionally with a short BA buffer—not all three. Cite core rule 1 and transport-domestic transfer buffers.",
+    "pass": true
+  }
+]

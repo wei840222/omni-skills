@@ -1,137 +1,101 @@
 ---
 name: argentina
-slug: argentina
-version: 1.0.0
-description: Plan Argentina trips with region-specific routing, money strategy, seasonal timing, and practical travel logistics.
-homepage: https://clawic.com/skills/argentina
-changelog: Initial release with verified Argentina entry rules, regional route playbooks, money strategy, and practical travel logistics.
+description: >
+  Plan an Argentina trip by macro-region, entry path, money strategy, season,
+  and domestic transport. Use for Buenos Aires, Mendoza, Iguazu, Patagonia
+  Lakes, South Patagonia, Ushuaia, Salta/Jujuy, Peninsula Valdes, or Atlantic
+  coast routing with practical logistics. Not for filing a visa, booking
+  flights, or stating a nationality-specific entry rule without checking the
+  official source for that passport and travel date.
 metadata:
-  clawdbot:
-    emoji: 🇦🇷
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/argentina/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Argentina
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇦🇷"}'
+  related-skills: '{"booking":"Keep hotel, flight, and excursion reservation hygiene after the Argentina route is chosen.","car-rental":"Decide when a self-drive segment in wine country, lakes, or the north actually helps.","food":"Extend regional meal planning beyond the Argentina food playbook.","spanish":"Support menus, bookings, and on-the-ground Spanish once the route is set.","travel":"Build a multi-country itinerary when Argentina is only one stop."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/argentina/` doesn't exist or is empty, read `setup.md` and start naturally.
+Argentina trip state may exist in `<workspace>/argentina/`, `<workspace>/memory/argentina/`, or `~/argentina/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/argentina/`, `<workspace>/memory/argentina/`, `~/argentina/`.
+3. If none exists and the user wants planning context kept, create `<workspace>/argentina/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/argentina/` only. Otherwise ask for a state root before creating files.
 
-User is planning an Argentina trip and needs practical guidance beyond generic inspiration: entry rules, money and payments, region choice, flight and road logic, park access, safety, and day-to-day execution.
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants trip context kept across sessions. Legacy `~/Clawic/data/argentina/` is a migration source only. Keep it out of the active lookup order, and move it only when the user asks.
 
-## Architecture
+## When to load
 
-Memory lives in `~/Clawic/data/argentina/`. See `memory-template.md` for structure.
+Load this skill for an Argentina trip plan, itinerary, entry/money strategy, domestic transport choice, regional routing, park access, or seasonal safety question. Identify passport, dates/month, region cluster, and pace before locking a route.
 
-```
-~/Clawic/data/argentina/
-└── memory.md     # Trip context and evolving constraints
-```
+Read `references/sources.md` before repeating a visa duration, cash/card rule, park tariff, border-hop requirement, or emergency number. Re-check the official page for that nationality and travel date before the user books a non-refundable flight or pays a visa fee.
 
-## Quick Reference
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/setup.md` |
+| Visa, stay window, minor paperwork | `references/entry-and-documents.md` |
+| Customs, cash limits, food at borders | `references/customs-and-border.md` |
+| Cards, cash, exchange, VAT, tips | `references/money-payments-and-exchange.md` |
+| Macro-region selection | `references/regions.md` |
+| Sample 7–21 day frames | `references/itineraries.md` |
+| Lodging strategy | `references/accommodation.md` |
+| Budget layers and cost traps | `references/budget-and-costs.md` |
+| Flights, buses, trains, buffers | `references/transport-domestic.md` |
+| Self-drive and mountain roads | `references/road-trips-and-driving.md` |
+| Parks, permits, tickets | `references/national-parks-and-nature.md` |
+| Chile/Brazil/Uruguay side trips | `references/border-hops-and-neighbor-countries.md` |
+| Buenos Aires | `references/buenos-aires.md` |
+| Mendoza / wine country | `references/mendoza-and-wine-country.md` |
+| Iguazu / Misiones | `references/iguazu-and-misiones.md` |
+| Patagonia Lakes | `references/patagonia-lakes.md` |
+| South Patagonia | `references/patagonia-south.md` |
+| Ushuaia / Tierra del Fuego | `references/ushuaia-and-tierra-del-fuego.md` |
+| Salta / Jujuy | `references/salta-and-jujuy.md` |
+| Peninsula Valdes / Puerto Madryn | `references/peninsula-valdes-and-puerto-madryn.md` |
+| Cordoba / central | `references/cordoba-and-central-argentina.md` |
+| Atlantic coast / Mar del Plata | `references/atlantic-coast-and-mar-del-plata.md` |
+| Food, nightlife, family, access | `references/food-guide.md`, `references/nightlife.md`, `references/family-travel.md`, `references/accessibility.md` |
+| Safety and season | `references/safety-and-emergencies.md`, `references/weather-and-seasonality.md` |
+| Connectivity and apps | `references/telecoms-and-apps.md` |
+| Official source map | `references/sources.md` |
+| Persisted trip context | `assets/memory-template.md` |
 
-Use this map to jump into the right decision module before building the route.
+## Core rules
 
-| Topic | File |
-|-------|------|
-| **Entry, Border, and Money** | |
-| Tourist entry, visa, stays, paperwork | `entry-and-documents.md` |
-| Customs, cash limits, food, tax-free notes | `customs-and-border.md` |
-| Cash, cards, exchange logic, VAT, tips | `money-payments-and-exchange.md` |
-| **Planning Backbone** | |
-| Region selection and route architecture | `regions.md` |
-| Sample itineraries for 7-21 days | `itineraries.md` |
-| Accommodation strategy by trip style | `accommodation.md` |
-| Budget framing and cost traps | `budget-and-costs.md` |
-| **Transport and Nature** | |
-| Flights, buses, trains, airport buffers | `transport-domestic.md` |
-| Self-drive, mountain roads, border paperwork | `road-trips-and-driving.md` |
-| Parks, permits, tickets, outdoor logistics | `national-parks-and-nature.md` |
-| Neighbor-country side trips and border hops | `border-hops-and-neighbor-countries.md` |
-| **Major Regions and Cities** | |
-| Buenos Aires playbook | `buenos-aires.md` |
-| Mendoza and wine country playbook | `mendoza-and-wine-country.md` |
-| Iguazu and Misiones playbook | `iguazu-and-misiones.md` |
-| Patagonia Lakes playbook | `patagonia-lakes.md` |
-| South Patagonia playbook | `patagonia-south.md` |
-| Ushuaia and Tierra del Fuego playbook | `ushuaia-and-tierra-del-fuego.md` |
-| Salta and Jujuy playbook | `salta-and-jujuy.md` |
-| Peninsula Valdes and Puerto Madryn playbook | `peninsula-valdes-and-puerto-madryn.md` |
-| Cordoba and central Argentina playbook | `cordoba-and-central-argentina.md` |
-| Atlantic coast and Mar del Plata playbook | `atlantic-coast-and-mar-del-plata.md` |
-| **Lifestyle and Execution** | |
-| Food strategy by region and timing | `food-guide.md` |
-| Nightlife by city type | `nightlife.md` |
-| Traveling with children or mixed ages | `family-travel.md` |
-| Accessibility and low-mobility planning | `accessibility.md` |
-| Emergencies, theft, weather alerts, disruptions | `safety-and-emergencies.md` |
-| Climate and seasonality planning | `weather-and-seasonality.md` |
-| Connectivity, transport cards, helpful apps | `telecoms-and-apps.md` |
-| Research sources map | `sources.md` |
+1. Route by macro-region, not map fantasy: for short trips, one anchor cluster plus at most one contrast region.
+2. Lock entry path and money strategy before non-refundable flights or long-haul lodging.
+3. Ask for month first: Argentina changes sharply by season and latitude.
+4. Treat Patagonia as multiple products: Lake District, South Patagonia, and Ushuaia need separate segment plans.
+5. Always offer two transport models for multi-region routes (flight-heavy vs bus/road-heavy) with tradeoffs.
+6. Budget with friction: transfers, park tickets, excursion timing, and card/cash execution—not headline meal prices alone.
+7. Deliver action plans: base-city logic, day flow, booking deadlines, weather fallback, and a safety note for the chosen region.
 
-## Core Rules
+## Operating plan
 
-### 1. Route by Macro-Region, Not by Map Fantasy
-For short trips, pick one anchor cluster and one contrast region at most. Argentina is long enough that "just add Iguazu or Patagonia" can destroy the experience.
+Answer the immediate question first. When the user wants a route, return:
 
-### 2. Lock Entry and Money Before Non-Refundables
-Before buying flights, confirm the correct entry path, the length of stay, border-hop implications, and the payment strategy for cards, cash, and park tickets.
+- Base-city logic and the cluster being chosen
+- Day flow with transfer windows
+- Reservation deadlines
+- Weather or transport backup
+- Safety note for the chosen region
+- Money execution note (card vs ARS cash friction)
 
-### 3. Ask for Month First
-Argentina changes dramatically by season. Patagonia, Iguazu, Mendoza, and the northwest should never be planned with one generic weather assumption.
+For an empty state file, follow `references/setup.md` and copy the structure from `assets/memory-template.md` into `<state_root>/memory.md` only after the user wants memory kept.
 
-### 4. Treat Patagonia as Multiple Trips
-Lake District, South Patagonia, and Ushuaia are different products with different transport and weather logic. Do not merge them casually.
+## Common traps
 
-### 5. Always Offer Two Transport Models
-For each route, give at least two practical options with tradeoffs:
-- Flight-heavy: faster, fewer overnight transfers, more airport friction
-- Road/bus-heavy: slower, more scenery, more fatigue and weather sensitivity
+- Compressing Iguazu, Mendoza, and Patagonia into one short loop.
+- Applying one visa pathway to every passport.
+- Treating old dual-exchange-rate blog posts as current payment truth without checking sources near departure.
+- Planning South Patagonia and Ushuaia as one rushed two-night add-on.
+- Defaulting to a rental car inside dense Buenos Aires.
+- Ignoring agricultural customs limits on Chile/Argentina land borders.
+- Booking parks and boats without a weather-flex block in shoulder or winter months.
 
-### 6. Budget with Friction, Not Headlines
-Argentina trip quality often depends more on transfer costs, excursion timing, airport changes, and card/cash execution than on the hotel sticker price.
+## Source freshness
 
-### 7. Deliver Action Plans
-Output should include:
-- Base-city strategy
-- Day-by-day flow with transfer buffers
-- Booking deadlines or low-inventory warnings
-- Weather fallback or alternate plan
-- Safety, payment, and emergency notes
-
-## Common Traps
-
-- Buenos Aires + Mendoza + Iguazu + Patagonia in one short trip.
-- Assuming Patagonia is one interchangeable region.
-- Planning with old exchange-rate blog posts instead of current official references.
-- Ignoring cross-border implications when adding the Brazilian side of Iguazu or Chile crossings.
-- Using overnight buses or same-day airport changes without buffer.
-- Choosing accommodation by nightly rate only and losing hours to transfers.
-- Treating national park access as fully spontaneous in peak season.
-
-## Security & Privacy
-
-**Data that stays local:** Trip preferences in `~/Clawic/data/argentina/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/argentina/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structure
-- `car-rental` — Better rental strategy and handoff logistics
-- `booking` — Reservation workflows and confirmation hygiene
-- `food` — Deeper restaurant and cuisine recommendations
-- `spanish` — Language support for bookings, transport, and service interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/argentina
-- Latest version: https://clawic.com/skills/argentina
+Domain claims in this package were last bulk-checked against the URLs in `references/sources.md` (see file header). Before any booking-critical statement, open the matching official page again for the user's passport and travel month.

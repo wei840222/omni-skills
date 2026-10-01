@@ -13,7 +13,7 @@ Use this file when user wants to add the Brazil side of Iguazu, drive to Chile, 
 ## Chile Crossings
 
 - Chile mountain crossings from Mendoza and some Patagonian routes are weather and queue sensitive.
-- Never connect a mountain border day to a hard non-refundable deadline on the other side.
+- Ensure mountain border days are disconnected from non-refundable deadlines on the other side.
 
 ## Self-Drive Border Rule
 

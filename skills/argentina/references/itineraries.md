@@ -32,7 +32,7 @@
 
 ### Option B: Buenos Aires + South Patagonia + Mendoza
 - Strong premium mix if user accepts multiple flights
-- Do not add Iguazu unless trip length and tolerance are unusually high
+- Only add Iguazu if trip length and tolerance are unusually high
 
 ## 21 Days: Three-Region Maximum
 

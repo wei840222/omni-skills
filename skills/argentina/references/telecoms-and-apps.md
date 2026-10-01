@@ -14,7 +14,7 @@
 
 ## Practical Rule
 
-- Do not rely on perfect signal in remote regions.
+- Plan for intermittent or no signal in remote regions by downloading offline maps.
 - Keep tickets, addresses, and hotel details available without network access.
 
 ## Common Mistake

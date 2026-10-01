@@ -2,7 +2,7 @@
 
 ## Best Use Case
 
-Summer beach trips, domestic holiday atmosphere, surf or coastal breaks, and users traveling in the right season who do not need tropical water.
+Summer beach trips, domestic holiday atmosphere, surf or coastal breaks, and users traveling in the right season who prefer temperate water conditions.
 
 ## Core Advantage
 

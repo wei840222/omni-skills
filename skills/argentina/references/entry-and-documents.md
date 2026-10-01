@@ -10,7 +10,7 @@
 ## Tourist Entry Basics
 
 - Migraciones defines tourist entry as a stay of up to 3 months, extendable for another similar period.
-- Do not promise the extension automatically; tell user to verify conditions and timing with Migraciones.
+- Ensure users understand that extensions require verification of conditions tell user to verify conditions and timing with Migraciones.
 - Passport should be valid, in good condition, and ready for any onward-travel questions.
 
 ## Visa Workflow Notes
