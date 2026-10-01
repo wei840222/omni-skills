@@ -42,7 +42,7 @@ Template: `assets/memory-template.md`.
 
 ## When to load
 
-Load this skill when the user:
+Trigger on YouTube-URL + transcript intent. Load this skill when the user:
 
 - shares a YouTube watch/youtu.be/shorts URL and wants the spoken content as text
 - asks what someone said about a topic and needs timestamps or deep links
