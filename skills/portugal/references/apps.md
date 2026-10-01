@@ -188,3 +188,7 @@
 - **Yelp** — Not used in Portugal
 - **Citymapper** — Doesn't cover Portugal well
 - **Local taxi apps** — Just use Uber/Bolt
+
+## Live data
+
+For official operator pages and verification notes, see `references/sources.md`. Prefer those URLs when fares, card names, or hours may have changed.
