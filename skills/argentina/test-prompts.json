@@ -2,15 +2,22 @@
   {
     "id": 1,
     "prompt": "I want to visit Argentina for 10 days in November. What are the best regions to visit considering the weather and travel times?",
-    "expected": "A structured itinerary proposing regions suitable for November, highlighting weather considerations and practical logistics.",
-    "actual": "Based on a 10-day timeframe in November (spring/early summer), I recommend splitting your trip between Buenos Aires and one contrasting region to avoid losing too much time to flights. November is excellent for Patagonia (both the Lake District and South Patagonia) as the weather is warming up but the peak summer crowds haven't arrived yet. Alternatively, Mendoza is beautiful as the vineyards are green. We should avoid trying to do Iguazu, Mendoza, and Patagonia all in one trip. Would you prefer a mix of city and glaciers (Buenos Aires + El Calafate), or city and wine (Buenos Aires + Mendoza)?",
+    "expected": "Refuse a three-region sprint; propose one BA + one contrast cluster for November with weather note and transfer realism; ask preference between glaciers/lakes/wine.",
+    "actual": "For 10 days in November, keep one city anchor and one contrast region. Buenos Aires + Mendoza (wine/green vineyards) or Buenos Aires + South Patagonia lakes/glaciers both fit spring/early summer without peak January crowds. Do not stack Iguazu + Mendoza + Patagonia. Ask which contrast the traveler wants, then load weather-and-seasonality, regions, transport-domestic, and the matching regional playbook before locking day flow.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "We are crossing from Chile into Argentina by bus in the Lake District. What do we need to know about border customs and currency exchange?",
-    "expected": "Clear instructions on border paperwork, customs limits (especially regarding food), and how to manage initial currency exchange or payments when arriving by land.",
-    "actual": "When crossing the border by bus in the Lake District (e.g., from Puerto Varas to Bariloche), you will go through the Cardenal Samoré pass. For customs, be aware that SAG in Chile and SENASA in Argentina are strict about agricultural products—do not bring fresh fruit, meats, or dairy across the border, or you will face fines. For currency, the official exchange rate and the MEP rate for foreign credit cards are now very close, so using a Visa or Mastercard for purchases in Argentina is efficient. However, it's wise to have some Argentine Pesos for small purchases; you can exchange a small amount of USD cash (crisp, new $100 bills) at the border or once you arrive in Bariloche at a 'cueva' or Western Union for the best rate.",
+    "expected": "Name agricultural customs risk, advise checking official entry rules, and give a practical first-hours money mix without inventing a fixed dual-rate guarantee.",
+    "actual": "Lake District bus crossings (e.g. toward Bariloche via Cardenal Samore) need passport/entry path checks plus strict agricultural limits—no fresh fruit, meat, or dairy. For money, plan ARS cash for small friction plus cards for larger spends; treat blog dual-rate advice as stale and re-check money-payments-and-exchange plus sources.md near travel. Load customs-and-border and money-payments-and-exchange before answering booking-critical detail.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can we do Iguazu, Mendoza, and El Calafate in one week?",
+    "expected": "Reject the plan as transfer-heavy fantasy; offer a one-week feasible alternative with two nodes max and explain flight cost of third node.",
+    "actual": "No. One week cannot absorb three long internal legs without turning the trip into airport time. Choose either north/waterfalls (BA or direct + Iguazu), wine (Mendoza), or south glaciers (El Calafate), optionally with a short BA buffer—not all three. Cite core rule 1 and transport-domestic transfer buffers.",
     "pass": true
   }
 ]
