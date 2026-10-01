@@ -33,4 +33,4 @@ Andorra rewards shorter, cleaner plans. Most people enjoy it more when each day 
 
 - Sleep in Canillo if activities matter more than shopping.
 - Keep one indoor backup every day.
-- Avoid overdriving after late dinners or heavy mountain afternoons.
+- Pace driving carefully after late dinners or heavy mountain afternoons.

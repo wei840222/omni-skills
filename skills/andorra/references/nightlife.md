@@ -25,8 +25,8 @@ Andorra nightlife exists, but it is shaped by the season. Winter apres-ski and c
 | Friends on ski trip | Resort apres then capital if needed |
 | Low-key traveler | One good hotel bar or wine-focused dinner |
 
-## Mistakes to Avoid
+## Ensure
 
-- Promising Barcelona-style nightlife
+- Set realistic expectations for mountain nightlife
 - Staying in a quiet parish and expecting spontaneous late options
 - Forgetting the drive back after drinks in winter conditions

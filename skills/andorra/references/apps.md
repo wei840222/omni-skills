@@ -10,13 +10,13 @@ The best Andorra trip stack is small: maps, weather, mobility, and the specific 
 | Mountain weather | Meteo app | Weather flips matter |
 | Bus planning | Local mobility app or operator site | No train fallback |
 | Ski day | Grandvalira or resort app | Conditions, lifts, passes |
-| Connectivity | eSIM provider app | Avoid roaming surprises |
+| Connectivity | eSIM provider app | Prevent roaming surprises |
 
 ## Use Cases
 
 - Save key hotels, parkings, and trailheads before arriving.
 - Download maps offline if hiking or driving in patchy mountain areas.
-- Use the resort app only if skiing is central; do not overload casual travelers with tools they will not use.
+- Use the resort app only if skiing is central; keep casual travelers focused on essential tools.
 
 ## Best Practice
 
