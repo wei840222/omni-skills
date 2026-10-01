@@ -4,7 +4,7 @@
 
 - AFIP/ARCA allows entry or exit with less than USD 10,000 (or equivalent) without the special declaration.
 - Amounts above that require customs declaration; minors under 16 have a lower threshold.
-- Do not tell users to carry large undeclared cash to "optimize" exchange strategy.
+- Advise users to adhere to official declarations when carrying cash to "optimize" exchange strategy.
 
 ## Goods and Baggage Reality
 
@@ -14,7 +14,7 @@
 ## Food, Nature, and Border Hygiene
 
 - Argentina is strict enough that fresh foods, seeds, and outdoor items should not be assumed problem-free at the border.
-- Users planning rural travel or cross-border loops should avoid casual assumptions about what can be carried between countries.
+- Users planning rural travel or cross-border loops must verify specific rules about what can be carried between countries.
 
 ## Tax-Free and Tourist Refund Notes
 
@@ -24,7 +24,7 @@
 ## Vehicle and Border Crossings
 
 - Rental or private vehicles crossing into Chile or neighboring countries require pre-arranged paperwork.
-- Never build a same-day international flight plan after a land-border crossing in mountain or remote regions.
+- Schedule international flights on subsequent days after land-border crossings in mountain or remote regions.
 
 ## Common Mistake
 

@@ -9,14 +9,14 @@ Money strategy is part of the itinerary. Argentina punishes travelers who assume
 | Situation | Default tool | Watch-out |
 |-----------|--------------|-----------|
 | Big-city hotels and better restaurants | Card | Verify the rate and any foreign-tourist tax treatment |
-| Small shops, remote stops, tips, and some transport cases | Cash in ARS | Do not rely on finding a perfect ATM at the last minute |
+| Small shops, remote stops, tips, and some transport cases | Cash in ARS | Plan to acquire cash ahead of time since ATMs at the last minute |
 | Park gates and QR-linked access points | Card or pre-paid online | Some high-value nature zones are cashless or online-first |
 
 ## Rules That Matter
 
 - Old exchange-rate blog posts go stale fast. Check official references close to the trip.
 - Keep some ARS cash even on premium trips.
-- Do not count on ATMs as a frictionless fallback; limits and fees can make them poor rescue tools.
+- Treat ATMs as a secondary option; limits and fees can make them poor rescue tools.
 - For foreign tourists, eligible lodging VAT treatment can improve hotel math, but only when conditions are met.
 - Restaurant tipping is usually modest but common; keep small payment flexibility.
 

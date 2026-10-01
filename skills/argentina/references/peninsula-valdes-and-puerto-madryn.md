@@ -16,4 +16,4 @@ Strong nature payoff with relatively approachable physical demands compared with
 
 ## Common Mistake
 
-Treating Peninsula Valdes as a generic beach stop instead of a seasonal wildlife product.
+Mistaking Peninsula Valdes for a generic beach destination instead of a seasonal wildlife product.

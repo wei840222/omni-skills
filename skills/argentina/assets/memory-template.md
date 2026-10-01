@@ -23,7 +23,7 @@
 
 ## Constraints
 - **Must-see places:**
-- **Must-avoid:**
+- **Exclusions:**
 - **Weather tolerance:** [heat / cold / wind / rain / altitude sensitivity]
 - **Driving comfort:** [none / short only / mountain roads ok / long road trips]
 - **Border hops:** [none / Brazil / Chile / unknown]

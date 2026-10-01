@@ -12,7 +12,7 @@ Massive payoff for relatively short stays when timing, heat management, and bord
 
 - The Argentina side deserves a full day.
 - Official hours run 8:00 to 18:00, with the last train to Garganta del Diablo at 15:30.
-- Late starts are an avoidable mistake.
+- Early starts are crucial to maximize park time.
 
 ## Stay Strategy
 
@@ -27,4 +27,4 @@ Massive payoff for relatively short stays when timing, heat management, and bord
 
 ## Common Mistake
 
-Treating Iguazu as a half-day stop and then discovering that park timing, queues, and border friction consume the whole schedule.
+Underestimating Iguazu as a half-day stop and then discovering that park timing, queues, and border friction consume the whole schedule.

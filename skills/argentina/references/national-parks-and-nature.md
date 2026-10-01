@@ -8,9 +8,9 @@
 
 ## High-Value Practical Notes
 
-- Los Glaciares north gateways around El Chalten are online-first and card-only; do not rely on cash.
+- Los Glaciares north gateways around El Chalten are online-first and card-only; ensure you bring credit or debit cards as they are online-first and card-only.
 - Iguazu is timing-sensitive: arrive early, respect entry timing, and remember the last train to Garganta del Diablo leaves well before closing.
-- Aconcagua permits are season-based and more demanding than a casual national-park stop.
+- Aconcagua permits are season-based and require advanced planning beyond typical park visits.
 
 ## Reservation Pressure
 

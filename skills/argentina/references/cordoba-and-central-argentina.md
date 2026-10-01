@@ -6,7 +6,7 @@ Domestic-style pacing, sierras escapes, city plus slower inland rhythm, or trave
 
 ## Core Advantage
 
-Good value and easier pacing for users who do not need Patagonia-level spectacle on every day.
+Good value and easier pacing for users who prefer a more relaxed pace over extreme spectacle on every day.
 
 ## Route Strategy
 

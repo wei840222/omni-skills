@@ -12,7 +12,7 @@ Huge identity and mood payoff in a compact geography.
 
 - Short stays work if expectations are realistic.
 - Keep one weather-flex block before the most important boat or outdoor plan.
-- If combining with South Patagonia, use flights and do not compress the whole south into two rushed nights.
+- If combining with South Patagonia, use flights and allocate sufficient time instead of compressing the whole south into two nights.
 
 ## Park and Excursion Notes
 

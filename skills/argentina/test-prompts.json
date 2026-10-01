@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to visit Argentina for 10 days in November. What are the best regions to visit considering the weather and travel times?",
+    "expected": "A structured itinerary proposing regions suitable for November, highlighting weather considerations and practical logistics.",
+    "actual": "Based on a 10-day timeframe in November (spring/early summer), I recommend splitting your trip between Buenos Aires and one contrasting region to avoid losing too much time to flights. November is excellent for Patagonia (both the Lake District and South Patagonia) as the weather is warming up but the peak summer crowds haven't arrived yet. Alternatively, Mendoza is beautiful as the vineyards are green. We should avoid trying to do Iguazu, Mendoza, and Patagonia all in one trip. Would you prefer a mix of city and glaciers (Buenos Aires + El Calafate), or city and wine (Buenos Aires + Mendoza)?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are crossing from Chile into Argentina by bus in the Lake District. What do we need to know about border customs and currency exchange?",
+    "expected": "Clear instructions on border paperwork, customs limits (especially regarding food), and how to manage initial currency exchange or payments when arriving by land.",
+    "actual": "When crossing the border by bus in the Lake District (e.g., from Puerto Varas to Bariloche), you will go through the Cardenal Samoré pass. For customs, be aware that SAG in Chile and SENASA in Argentina are strict about agricultural products—do not bring fresh fruit, meats, or dairy across the border, or you will face fines. For currency, the official exchange rate and the MEP rate for foreign credit cards are now very close, so using a Visa or Mastercard for purchases in Argentina is efficient. However, it's wise to have some Argentine Pesos for small purchases; you can exchange a small amount of USD cash (crisp, new $100 bills) at the border or once you arrive in Bariloche at a 'cueva' or Western Union for the best rate.",
+    "pass": true
+  }
+]

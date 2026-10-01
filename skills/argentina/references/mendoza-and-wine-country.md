@@ -26,4 +26,4 @@ Strong blend of city comfort, vineyard access, and day-trip mountain scenery wit
 
 ## Common Mistake
 
-Trying to combine too many wineries, a full mountain day, and city dining in a rushed 48-hour stop.
+Overpacking the itinerary with wineries, a full mountain day, and city dining in a rushed 48-hour stop.

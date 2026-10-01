@@ -6,11 +6,11 @@ When user mentions Argentina travel for the first time:
 
 ### 1. Create Memory Structure
 ```bash
-mkdir -p ~/argentina
+mkdir -p <state_root>
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/argentina/memory.md` using `memory-template.md`.
+Create `<state_root>/memory.md` using `assets/memory-template.md`.
 
 ### 3. Gather Trip Context Naturally
 Ask in conversational flow:
@@ -22,11 +22,11 @@ Ask in conversational flow:
 - Money style: comfortable with mixed card/cash strategy or prefers minimum cash handling?
 
 ### 4. Save to Memory
-Update `~/Clawic/data/argentina/memory.md` with the current intent, constraints, and decision status.
+Update `<state_root>/memory.md` with the current intent, constraints, and decision status.
 
 ## Returning Users
 
-If `~/Clawic/data/argentina/memory.md` exists:
+If `<state_root>/memory.md` exists:
 1. Read it silently
 2. Reuse known constraints and priorities
 3. Ask only what changed (dates, region focus, budget, border plans, mobility)
@@ -51,4 +51,4 @@ If `~/Clawic/data/argentina/memory.md` exists:
 - Argentina planning quality depends heavily on month, region selection, and transfer discipline.
 - Money strategy is part of trip design, not a final detail.
 - Patagonia should be narrowed before flights are priced.
-- Border hops to Brazil or Chile should never be treated as frictionless add-ons.
+- Border hops to Brazil or Chile require dedicated planning for border friction.

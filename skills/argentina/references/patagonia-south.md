@@ -27,4 +27,4 @@ This is the Patagonia choice for users who want glacier scale and iconic hiking 
 
 ## Common Mistake
 
-Selling El Calafate and El Chalten as a single easy stop when they need separate pacing, transport, and weather logic.
+Treating El Calafate and El Chalten as a single stop instead of planning them separately when they need separate pacing, transport, and weather logic.
