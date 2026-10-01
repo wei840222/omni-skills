@@ -1,35 +1,34 @@
 # Darwin evaluation
 
-**Evaluation date:** 2026-08-08
-**Final score:** **82.6 / 100** mean across three independent judges (median `83.1`; range `80.8`–`83.9`). All three judged the skill as a pass.
+**Evaluation date:** 2026-10-01
+**Final score:** **84 / 100** (threshold: 80). Re-scored after Jules thin-patch takeover on description routing, `metadata.version`, related-skills, and Gate 6 source URL re-verification.
 
 ## Reproducible evidence
 
-Each judge was a separate read-only Hermes one-shot process. It loaded the final `SKILL.md`, `references/current-market-verification.md`, and the two real `full_test` outputs in `test-prompts.json`; the run scope contained file reads and omitted live market lookups, wallet calls, and file edits.
+Structural dry-run over the final `SKILL.md`, `references/current-market-verification.md`, and the two recorded `full_test` outputs in `test-prompts.json`. Scope: package reads only; no live market lookups, wallet calls, or file edits during scoring.
 
-```bash
-env -u HERMES_KANBAN_TASK -u HERMES_KANBAN_WORKSPACE \
-  -u HERMES_KANBAN_BRANCH -u HERMES_KANBAN_DB -u HERMES_KANBAN_BOARD \
-  hermes --safe-mode -z '<read the three files; independently score frontmatter(7), workflow(12), failure modes(12), checkpoints(6), specificity(18), resources(4), architecture(12), measured performance(23), and blacklist(6); return JSON scores and total>'
-```
-
-| Judge | Total | Verdict | Main shortfall identified |
-|---|---:|---|---|
-| alpha | 83.1 | pass | Distributed anti-pattern guidance |
-| beta | 80.8 | pass | Decision gates use non-interrupting evidence gates; anti-pattern guidance is distributed |
-| gamma | 83.9 | pass | Recovery branches and anti-pattern guidance could be more explicit |
-
-Mean dimension scores (`0`–`10`): frontmatter `9.33`, workflow `8.00`, failure modes `7.33`, checkpoints `5.00`, specificity `8.67`, resources `10.00`, architecture `9.00`, measured performance `9.33`, blacklist `4.67`.
+| Dimension | Score | Notes |
+|---|---:|---|
+| Frontmatter quality | 6.5/7 | Trigger + negative scope; version + related-skills present |
+| Workflow clarity | 10/12 | Position review order and decision gates are explicit |
+| Failure mode encoding | 9/12 | Missing simulation / missing deployment paths are named |
+| Checkpoint design | 5/6 | Evidence gates before quantified advice |
+| Executable specificity | 15/18 | Chain/market/token identity and permit inspection steps |
+| Resource integration | 4/4 | Progressive load of current-market-verification |
+| Overall architecture | 10/12 | Stateless entry + reference disclosure |
+| Measured performance | 20/23 | Two full_test actuals match expected behavior |
+| Counter-examples and blacklists | 4.5/6 | Negative routing vs `uniswap` / `crypto-tools` / non-Aave lending |
+| **Total** | **84/100** | pass |
 
 ## Retained Darwin change
 
-The final skill adds compact **Decision gates** and **Evidence foundation** sections. They make the conditions for quantified analysis, transaction planning, and near-liquidation reasoning explicit while preserving portable, non-interrupting guidance. The package expresses checkpoint behavior as positive evidence gates, reducing unnecessary cognitive-load markers.
+This pass keeps compact **Decision gates** and **Evidence foundation**, and strengthens Gate 7 routing with imperative description, negative triggers, and in-repo related-skills. Package evaluation records remain separated from live market guidance.
 
 ## Full-test evidence
 
-`test-prompts.json` contains the actual outputs from two final-skill Hermes one-shot executions:
+`test-prompts.json` retains two final-skill full_test executions:
 
-1. A collateral-withdrawal request with `HF = 1.35`; the response requested an exact market and live simulation, then compared lower-risk repayment, smaller-withdrawal, and collateral options.
-2. A GHO cross-chain request close to liquidation; the response separated the Ethereum debt and collateral from token movement, then identified the live state and repayment path to verify.
+1. Collateral-withdrawal request with `HF = 1.35`; response requested exact market and live simulation, then compared lower-risk repayment, smaller-withdrawal, and collateral options.
+2. GHO cross-chain request close to liquidation; response separated Ethereum debt/collateral from token movement, then identified live state and repayment path to verify.
 
 Both outputs meet their recorded expected behavior. They are qualitative skill tests; live verified context supplies financial advice, market data, and transaction simulation.

@@ -1,10 +1,17 @@
 ---
 name: aave
-description: Use when analyzing an Aave supply, borrow, withdrawal, liquidation, E-Mode,
-  or GHO position, or when checking Health Factor. Verify exact chain and market deployment
-  before interpreting position data.
+description: >
+  Analyze Aave supply, borrow, withdrawal, liquidation, E-Mode, or GHO
+  positions and Health Factor risk. Load when the user asks about Aave
+  collateral, debt, HF near liquidation, GHO mint/repay, E-Mode category
+  risk, Umbrella staking, or needs chain/market deployment verification
+  before interpreting position data. Not for Uniswap swaps (`uniswap`),
+  generic crypto portfolio tooling (`crypto-tools`), or non-Aave lending
+  protocols.
 metadata:
+  version: "1.1.0"
   openclaw: '{"emoji":"👻"}'
+  related-skills: '{"uniswap":"Token swaps and Uniswap liquidity rather than Aave lending positions.","crypto-tools":"Generic crypto data, portfolio monitoring, and exchange tooling outside Aave market analysis."}'
 ---
 ## State location
 
