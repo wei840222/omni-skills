@@ -1,99 +1,89 @@
 ---
 name: quiz
-slug: quiz
-version: 1.0.0
-description: Design engaging quizzes with effective questions, scoring logic, and results that drive learning or conversions.
-homepage: https://clawic.com/skills/quiz
+description: >
+  Design effective knowledge, personality, assessment, lead-gen, or trivia
+  quizzes with clear stems, plausible distractors, scoring logic, progress UX,
+  and actionable results. Use when creating, reviewing, or implementing a quiz
+  (questions, outcomes, scoring, or quiz UI). Not for flashcard decks
+  (`flashcards` / `anki` / `quizlet`), live adaptive tutoring sessions
+  (`learning` / `school`), multi-week study plans (`studying`), or general form
+  field validation without quiz outcomes (`forms`).
 metadata:
-  clawdbot:
-    emoji: ❓
-    displayName: Quiz
+  version: "1.1.0"
+  openclaw: '{"emoji":"❓"}'
+  related-skills: '{"learning":"Live adaptive teaching and misconception repair rather than one-shot quiz design.","flashcards":"Atomic recall cards and deck authoring when the deliverable is SRS cards, not a scored quiz.","quizlet":"Quizlet set/mode workflows rather than generic quiz design.","studying":"Exam calendars and multi-session revision grids outside a single quiz artifact.","forms":"Form fields, validation, and submissions when there is no quiz scoring or outcome mapping.","school":"K-12 tutoring with parental controls when the primary task is homework help, not authoring a quiz."}'
 ---
 
-## Situation Detection
+## State location
 
-| Context | Load |
-|---------|------|
-| Knowledge assessment, exams, certifications | `types.md` → Knowledge section |
-| Personality quizzes, "Which X are you?" | `types.md` → Personality section |
-| Lead generation, marketing quizzes | `types.md` → Lead-gen section |
-| Writing effective questions | `questions.md` |
-| Building quiz UI/UX, gamification | `implementation.md` |
+Quiz is primarily a **stateless design skill**. Optional draft quiz specs may live in `<workspace>/quiz/`, `<workspace>/memory/quiz/`, or `~/quiz/`.
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
----
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/quiz/`, `<workspace>/memory/quiz/`, `~/quiz/`.
+3. If multiple candidates exist, keep the highest-priority one, leave others independent, and tell the user which location was selected.
+4. If none exists and persistent drafts must be created, default to `<workspace>/quiz/` with brief consent on first write.
 
-## Universal Rules
+Use the selected `<state_root>` for every state path in this skill. Never write the literal string `<state_root>` to disk. Skill resources stay under `references/`.
 
-**One concept per question.** Double-barreled questions confuse and measure nothing. "Do you like pizza and exercise?" → Bad.
+## When to load
 
-**Wrong answers must be plausible.** If correct answer is obvious by elimination, you're testing pattern recognition, not knowledge.
+Load this skill when the user wants to **create, critique, or implement a quiz**:
 
-**Results must feel personal.** Generic outcomes kill engagement. "You got 7/10" loses to "You're an 80s Movie Expert — you caught references most people miss."
+- knowledge / certification / exam-style items with one correct answer
+- personality or “which type are you” outcome mapping
+- assessment diagnostics across competency dimensions
+- lead-gen quizzes that gate results behind contact capture
+- trivia / entertainment quizzes with score or leaderboard framing
+- question stems, distractors, scoring, progress UX, or results copy
 
-**Progress visibility motivates.** Show question count, progress bar, time remaining. Uncertainty creates anxiety and abandonment.
+Route away when the primary task is:
 
----
+- Anki/Quizlet card decks or study modes → `flashcards` / `anki` / `quizlet`
+- live teach-me / Socratic tutoring → `learning` / `school`
+- multi-week exam grids → `studying`
+- plain form fields without outcomes/scoring → `forms`
 
-## Quiz Types Quick Reference
+## When to load references
 
-| Type | Goal | Typical Length | Results |
-|------|------|----------------|---------|
-| Knowledge | Assess learning | 10-20 questions | Score + feedback per answer |
-| Personality | Engagement, sharing | 5-12 questions | Personality type/category |
-| Assessment | Diagnose level/fit | 10-30 questions | Detailed report |
-| Lead-gen | Capture email | 5-8 questions | Results gated behind email |
-| Trivia | Entertainment | Any | Leaderboard, social share |
+Keep this file as the entry point; load the smallest matching reference.
 
----
+| Need | File |
+|------|------|
+| Verified source URLs (Gate 6) | `references/sources.md` |
+| Quiz type patterns (knowledge, personality, assessment, lead-gen, trivia) | `references/types.md` |
+| Stems, distractors, item types, difficulty | `references/questions.md` |
+| Data model, UX, platforms, gamification, accessibility | `references/implementation.md` |
 
-## Question Design Checklist
+## Operating loop
 
-- [ ] Clear, unambiguous wording
-- [ ] One correct answer (or explicit multi-select instruction)
-- [ ] Distractors are plausible, not obviously wrong
-- [ ] No "all of the above" or "none of the above" (lazy design)
-- [ ] Avoid negatives ("Which is NOT...")
-- [ ] Test the concept, not reading comprehension
+1. **Clarify goal** — learning assessment, engagement, diagnosis, lead capture, or entertainment; note audience and length budget.
+2. **Pick type + scoring** — percentage, weighted, multi-dimension rubric, or outcome trait mapping; write that choice down before drafting items.
+3. **Draft items** — one concept per stem; plausible distractors; positive framing; no “all/none of the above” unless the product explicitly requires it.
+4. **Define results** — score bands or outcome descriptions that feel personal and end with a concrete next action.
+5. **UX pass** — progress visibility, mobile tap targets, feedback timing (immediate vs end), save-on-interrupt if long.
+6. **Review** — run the question checklist and red-flag scan before shipping; store durable drafts under `<state_root>/` only when the user wants them kept.
 
----
+## Core rules
 
-## Scoring Patterns
+- **One concept per question.** Split double-barreled stems.
+- **Plausible distractors.** Wrong options must come from common misconceptions or near-miss concepts, not jokes.
+- **Personal, actionable results.** Prefer typed outcomes or competency feedback over bare “7/10”.
+- **Progress visibility.** Show position in the set (count or bar); long quizzes without progress drive abandonment.
+- **Test the objective, not reading tricks.** Prefer positive stems; avoid obscure trivia that is off the stated learning goal.
+- **Mobile-first interaction.** Large tap targets, vertical scroll, no hover-only controls.
 
-**Simple percentage:** Correct/total × 100. Best for knowledge tests.
+## Red flags
 
-**Weighted scoring:** Some questions worth more. Good for prioritized competencies.
+- Correct answers always in the same option letter
+- One obviously wrong distractor among three lookalikes
+- Results with no “now what” action
+- Lead-gen gate whose result value is weaker than the email friction
+- Mobile UI with tiny buttons or horizontal scroll for options
 
-**Branching outcomes:** Answer combinations map to results. Used in personality quizzes.
+## Safety
 
-**Diagnostic rubric:** Score across multiple dimensions. Best for assessments and skill evaluations.
-
----
-
-## Engagement Boosters
-
-- Immediate feedback after each answer (right/wrong + explanation)
-- Visual progress indicator
-- Streak rewards ("3 in a row!")
-- Time pressure (optional, increases excitement but also anxiety)
-- Social sharing of results
-- Leaderboards for competitive contexts
-
----
-
-## Red Flags
-
-- All correct answers in position B/C → Detectable pattern
-- Questions testing obscure trivia vs actual learning objectives
-- Results that don't connect to actions ("Now what?")
-- Too long with no progress indication → Abandonment
-- Mobile-unfriendly UI (tiny buttons, horizontal scroll)
-
----
-
-## When to Load More
-
-| Situation | Reference |
-|-----------|-----------|
-| Designing for specific quiz type | `types.md` |
-| Writing and reviewing questions | `questions.md` |
-| Building quiz flow, UI, tools | `implementation.md` |
+- Do not invent certification cut-scores, legal/medical pass criteria, or vendor pricing from memory; cite a live source or mark unverified.
+- For graded/high-stakes exams, prefer end-of-quiz feedback over leaking answers mid-attempt when assessment purity matters.
+- Treat quiz answers and PII (email for lead-gen) as sensitive; do not commit real respondent data into the skill package.
