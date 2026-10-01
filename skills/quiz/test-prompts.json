@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a 3-question knowledge quiz about basic Python data types with scoring.",
+    "expected": "Knowledge quiz: clear stems, one best answer each, plausible distractors, simple points/percentage scoring, and brief answer key or feedback notes.",
+    "actual": "Python data types — knowledge quiz (3 items, 1 pt each, total 3).\n\nQ1. Which type holds a sequence of characters?\nA) int  B) float  C) str  D) bool\nCorrect: C. Distractors are other built-in scalars.\n\nQ2. What does type([1, 2, 3]) report?\nA) <class 'list'>  B) <class 'tuple'>  C) <class 'dict'>  D) <class 'set'>\nCorrect: A.\n\nQ3. Which is immutable?\nA) list  B) dict  C) tuple  D) set\nCorrect: C.\n\nScoring: sum correct; optional percent = score/3*100. Progress: show n of 3. Feedback: end-of-quiz answer key for assessment purity, or immediate explanations if learning mode.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Design a short personality quiz: 'What kind of remote worker are you?' with 2 questions and 3 outcomes.",
+    "expected": "Personality quiz with trait-mapped options, three named outcomes with descriptions, and explicit answer-to-outcome mapping—not a right/wrong knowledge test.",
+    "actual": "Quiz: What kind of remote worker are you? (2 Qs → 3 outcomes).\n\nQ1. On a break from deep work you usually:\nA) Walk outside  B) Message teammates  C) Do a quick chore\n\nQ2. Daily task tracking preference:\nA) Flexible notebook list  B) Structured Kanban  C) Memory + inbox\n\nOutcomes:\n1. Explorer (mostly A) — balances focus and recovery; flexible structure.\n2. Communicator (mostly B) — thrives on coordination and visible boards.\n3. Integrator (mostly C) — blends home/work pragmatically; watch overload.\n\nScoring: tally A/B/C; majority wins; ties prefer Q2. Each outcome ends with one next action (e.g. block a walk, schedule a standup, time-box chores).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Review this bad multiple-choice item and fix it: 'Which is NOT a primary color? A) Red B) Blue C) Yellow D) Green E) All of the above'",
+    "expected": "Flags negative stem and all-of-the-above; rewrites to a positive stem with four plausible options and one best answer.",
+    "actual": "Issues: negative stem ('NOT') plus 'all of the above' reduces discrimination.\nRewrite (positive, 4 options):\nWhich color is a secondary color in the RYB model?\nA) Red  B) Blue  C) Yellow  D) Green\nCorrect: D (green = blue+yellow). A–C are primaries—common confusion, not jokes.\nAdd short explanation in learning mode; avoid all/none-of-the-above.",
+    "pass": true
+  }
+]
