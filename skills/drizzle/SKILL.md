@@ -83,3 +83,9 @@ Prefer other skills when the ask is mainly:
 2. Show the minimal Drizzle-typed snippet with correct imports.
 3. Call out the matching failure mode (wrong driver import, object `where`, push-in-prod, missing `returning`, missing `limit`).
 4. Point to one reference file above for depth—do not dump all references.
+
+## Anti-patterns to avoid
+
+- Do not restate long negative catalogs; route with positive engine/query/migration plays above.
+- Do not dump every reference file on simple asks—load one matching file.
+- Do not invent drizzle-kit flags or dialect types; open `references/sources.md` links.
