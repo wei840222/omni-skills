@@ -46,7 +46,7 @@ Before reading or writing state, resolve `<state_root>` once per invocation:
 3. If multiple candidates exist, keep the highest-priority one, leave others independent, and tell the user which location was selected.
 4. If none exists and persistent state must be created, default to `<workspace>/glovo/` with brief consent on first write.
 
-Use the selected `<state_root>` for every state path in this skill. Resolve the placeholder before any filesystem write. Never write the literal string `<state_root>` to disk. Skill resources stay under `references/` and `assets/`. Never write learned data into `SKILL.md`.
+Use the selected `<state_root>` for every state path in this skill. Resolve the placeholder before any filesystem write. Resolve the `<state_root>` placeholder to a real path before any filesystem write. Skill resources stay under `references/` and `assets/`. Never write learned data into `SKILL.md`.
 
 ```text
 <state_root>/
