@@ -59,12 +59,12 @@ Ask user:
 
 Sometimes the resume isn't the problem:
 
-- **Skill gap:** Targeting roles requiring skills they don't have
+- **Skill gap:** Targeting roles requiring skills they lack
 - **Market timing:** Industry downturn, hiring freezes
 - **Experience mismatch:** Senior applying to junior (or vice versa)
 - **Location constraint:** Remote-only in RTO market
 
-**Agent should:** Be direct about this. Don't optimize a resume for an impossible target.
+**Agent should:** Be direct about this. Ensure the resume is optimized only for achievable targets.
 
 ---
 

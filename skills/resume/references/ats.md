@@ -54,7 +54,7 @@ ATS parses resumes, extracts data, and filters candidates before humans see them
 - **Best:** In achievement bullets (contextual)
 - **Good:** Skills section
 - **OK:** Summary
-- **Avoid:** Stuffing anywhere
+- **Omit:** Stuffing anywhere
 
 ---
 
@@ -62,7 +62,7 @@ ATS parses resumes, extracts data, and filters candidates before humans see them
 
 ATS looks for standard headers. Use these exact terms:
 
-| Standard (recognized) | Avoid (may not parse) |
+| Standard (recognized) | Unreliable (may not parse) |
 |-----------------------|----------------------|
 | Experience | Work History, Career, Journey |
 | Education | Academic Background, Studies |

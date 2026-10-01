@@ -94,7 +94,7 @@ When user has 50+ achievements to choose from:
 
 When targeting a specific level that's different from current:
 
-### Targeting Lower Level (avoid "overqualified" rejection)
+### Targeting Lower Level (prevent "overqualified" rejection)
 
 **Do:**
 - Emphasize hands-on work, not just strategy
@@ -102,13 +102,13 @@ When targeting a specific level that's different from current:
 - Express genuine interest in IC/tactical work
 - Mention why you want this level (be ready for interview)
 
-**Don't:**
-- Lead with "managed 100 people"
-- Use executive-only language ("drove strategy")
-- List only high-level achievements
-- Include salary expectations that signal senior
+**Instead of:**
+- Leading with "managed 100 people"
+- Using executive-only language ("drove strategy")
+- Listing only high-level achievements
+- Including salary expectations that signal senior
 
-### Targeting Higher Level (avoid "not ready" rejection)
+### Targeting Higher Level (prevent "not ready" rejection)
 
 **Do:**
 - Emphasize leadership moments, even informal
@@ -116,10 +116,10 @@ When targeting a specific level that's different from current:
 - Show strategic thinking, not just execution
 - Include relevant executive education/certifications
 
-**Don't:**
-- Lead with individual contributor work
-- Use junior language ("helped with", "assisted")
-- Downplay scope or impact
+**Instead of:**
+- Leading with individual contributor work
+- Using junior language ("helped with", "assisted")
+- Downplaying scope or impact
 
 ---
 
@@ -135,7 +135,7 @@ What to consider removing:
 | Hobbies | Unless directly relevant |
 | References line | "Available upon request" is assumed |
 | Full address | City, State sufficient |
-| Photo | Never in US, usually remove elsewhere |
+| Photo | Omit in US, typically omit elsewhere |
 
 ### How to omit without looking suspicious:
 
