@@ -20,6 +20,8 @@ Gate 6 research anchors. Prefer these official pages over memory when facts may 
 | CARRIS | Lisbon buses/trams | https://www.carris.pt/en/ |
 | Rede Expressos | Long-distance coaches (site may bot-block some clients; still canonical operator) | https://www.rede-expressos.pt/ |
 | Oceanário de Lisboa | Flagship family attraction hours/tickets | https://www.oceanario.pt/en/ |
+| ANA Aeroportos | Airport operator orientation | https://www.ana.pt/ |
+| Aeroporto de Lisboa | Lisbon airport traveler info | https://www.aeroportolisboa.pt/en |
 
 ## Safety and emergencies
 
@@ -29,7 +31,7 @@ Gate 6 research anchors. Prefer these official pages over memory when facts may 
 
 ## Verification notes (handoff 2026-10-02)
 
-- Confirmed HTTP 200 from this runner: Visit Portugal, Portugal.gov, Visit Lisboa, Visit Porto, CP, Metro Lisboa, CARRIS, Oceanário, Your Europe emergency page.
+- Confirmed HTTP 200 from this runner: Visit Portugal, Portugal.gov, Visit Lisboa, Visit Porto, CP, Metro Lisboa, CARRIS, Oceanário, ANA, Aeroporto de Lisboa, Your Europe emergency page, Segurança Social homepage.
 - Rede Expressos homepage is the canonical coach operator URL; some automated clients receive HTTP 403—treat product details as user-verified at booking time.
 - Metro do Porto and ANA/airport hostnames were unreachable or TLS-unstable from this runner; keep qualitative Porto metro / airport guidance and tell users to confirm on operator sites when booking.
 - Navegante / former Viva Viagem naming can drift—direct users to current Lisbon operator pages before purchase advice solidifies.
