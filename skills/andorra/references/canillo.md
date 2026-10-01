@@ -41,8 +41,8 @@ Canillo is the most versatile mountain base in Andorra. It works for skiing, fam
 - Late spring and autumn: good if the trip is about viewpoints, sanctuary, and lighter walks
 - Summer: strong family and soft-adventure base
 
-## Mistakes to Avoid
+## Ensure
 
-- Treating Roc del Quer or the bridge as spontaneous at peak times
-- Sleeping in the center and arriving late to ski parking or lifts
-- Assuming every plan in the parish is walkable without a car or shuttle strategy
+- Plan Roc del Quer or the bridge ahead at peak times
+- Arrive early to ski parking or lifts when sleeping in the center
+- Plan car or shuttle strategies for parish plans

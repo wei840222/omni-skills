@@ -23,7 +23,7 @@ Andorra's summer identity is alpine hiking. Snowpack, storms, and visibility mat
 
 ## Timing Rules
 
-- Start early in summer to avoid afternoon storm risk.
+- Start early in summer to minimize afternoon storm risk.
 - Shoulder season can bring mixed snow or muddy sections high up.
 - If visibility is bad, swap the big panoramic route for a valley day.
 

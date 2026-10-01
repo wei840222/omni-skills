@@ -1,8 +1,8 @@
-# Andorra Preferences — [User Name]
+# Andorra Preferences
 
-Personal preferences for Andorra travel. Update after each trip or conversation.
+Personal preferences for Andorra travel. Store only under the resolved `<state_root>` after user consent. Update after each trip or planning conversation.
 
-## Trip Profile
+## Trip profile
 
 | Preference | Value |
 |------------|-------|
@@ -28,23 +28,24 @@ Personal preferences for Andorra travel. Update after each trip or conversation.
 | Shopping interests | |
 | Activity splurges | |
 
-## Favorite Areas
+## Favorite areas
 
 | Area | Why it worked |
 |------|---------------|
 | | |
 
-## Useful Notes
+## Useful notes
 
-- 
+-
 
-## Trip History
+## Trip history
 
-### [Trip Name / Date]
-- **Base:** 
-- **Focus:** 
-- **What worked:** 
-- **What to change next time:** 
+### [Trip name / date]
+
+- **Base:**
+- **Focus:**
+- **What worked:**
+- **What to change next time:**
 
 ---
 

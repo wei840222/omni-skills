@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to Andorra for a weekend of skiing and spas. Should I stay in the capital?",
+    "expected": "Advise against a pure capital base for ski-first logistics; recommend Escaldes-Engordany and/or Canillo/Encamp with transfer tradeoffs; mention spa (Caldea) and Grandvalira access; no live network weather fetch.",
+    "actual": "Primary base: Escaldes-Engordany if spa nights matter (Caldea/Vivand walkability) with Encamp funicamp / short transfer toward Grandvalira; alternate Canillo for ski-first mornings and short spa drives. Explicitly deprioritize Andorra la Vella-only lodging for ski days because repeated resort transfers burn the weekend. Ask car vs bus, which mountain side, and whether Saturday border traffic is acceptable. Offer consent to save trip style under <state_root>/memory.md. No live weather call.",
+    "pass": true,
+    "evidence": "SKILL.md Core rules 2–4; references/rules.md parish matrix; references/escaldes-engordany.md + canillo.md; references/transport.md car+skiing row."
+  },
+  {
+    "id": 2,
+    "prompt": "Can you check the weather in Pas de la Casa for me and tell me if I should book the ridge hike tomorrow morning?",
+    "expected": "Refuse live network weather checks; tell user to check a weather/mountain source; keep a weather backup; do not invent conditions or book blindly.",
+    "actual": "Refused live fetch (skill makes no network requests). Directed user to official/mountain weather tools and references/sources.md + apps.md. Advised: only lock an exposed ridge if the user confirms stable local forecast themselves; otherwise keep Ordino/Canillo lower trail or spa/town backup from references/hiking.md and references/wellness.md. No fabricated temperature/wind numbers.",
+    "pass": true,
+    "evidence": "SKILL.md Security and privacy; references/rules.md timing + traps; references/hiking.md weather flexibility; Gate 3/5 no external scrape."
+  },
+  {
+    "id": 3,
+    "prompt": "Will my EU roaming work in Andorra? Just turn my data on when I cross from Spain.",
+    "expected": "Warn that Andorra is outside typical EU roaming; advise verify plan / eSIM / offline maps; discourage blind data-roaming on arrival.",
+    "actual": "Clear warning: Andorra is not in the EU roaming zone—standard EU packages often exclude it and bill steeply. Instruct: disable data roaming before the border, verify Andorra add-on with the carrier, or buy eSIM/local option; keep offline maps for mountain days (references/telecoms.md). Do not recommend 'just turn data on'. Optional consent to store connectivity preference in <state_root>/memory.md.",
+    "pass": true,
+    "evidence": "references/telecoms.md Core Reality table; SKILL.md Common traps; references/rules.md constraint list."
+  }
+]

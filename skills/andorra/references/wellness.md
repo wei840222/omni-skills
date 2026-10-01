@@ -14,7 +14,7 @@ Wellness is one of Andorra's strongest non-ski, non-hike plays. It works especia
 ## Booking Advice
 
 - Reserve ahead for weekends, school holidays, and winter peaks.
-- If the user hates crowds, avoid the most obvious evening slots on Saturdays.
+- If the user hates crowds, focus on quieter morning slots on Saturdays.
 - Pair the spa with a nearby hotel if the group wants the day to feel easy.
 
 ## Best Uses

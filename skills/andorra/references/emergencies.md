@@ -22,8 +22,8 @@ Andorra is straightforward in emergencies, but mountain conditions and cross-bor
 | Situation | Action |
 |-----------|--------|
 | Chest pain, major trauma, severe breathing issue | Call 112 immediately |
-| Ski or hiking injury | Stop moving, share location, call emergency support |
-| Winter road problem in dangerous conditions | Do not keep forcing the drive |
+| Ski or hiking injury | Pause movement, share location, call emergency support |
+| Winter road problem in dangerous conditions | Pull over safely and wait or call for help |
 
 ## Practical Preparedness
 

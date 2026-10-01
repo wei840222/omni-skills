@@ -1,137 +1,124 @@
 ---
 name: andorra
-slug: andorra
-version: 1.0.0
-description: Plan Andorra trips with parish-level tips for skiing, hiking, shopping, wellness, and cross-border logistics.
-homepage: https://clawic.com/skills/andorra
-changelog: Initial release with parish guides, seasonal planning, shopping strategy, and mountain logistics.
+description: >
+  Plan Andorra trips with parish-level bases for skiing, hiking, shopping,
+  wellness, and cross-border logistics. Use when choosing Andorra la Vella vs
+  Escaldes vs Canillo/Ordino, winter ski transfers, spa weekends, roaming outside
+  the EU, or Barcelona/Toulouse arrival routes. Not for multi-country trip systems
+  (`travel`), deep cuisine workflows (`food`), or Catalan/French language production
+  (`catalan` / `french`).
 metadata:
-  clawdbot:
-    emoji: 🇦🇩
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/andorra/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Andorra
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇦🇩"}'
+  related-skills: '{"travel":"Multi-country itineraries and general travel memory beyond Andorra-only parish routing.","food":"Deeper cuisine workflows beyond Andorran food pointers.","catalan":"Catalan language production and register rather than Andorra logistics.","french":"French writing and register for border-side service context."}'
 ---
+
+# Andorra
+
+Parish-aware trip planning for a tiny mountain country: base choice beats brochure scenery, winter and summer behave differently, and roaming / border / parking realities matter more than slogans.
+
+## State location
+
+Resolve `<state_root>` before any preference read/write:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory:
+   `<workspace>/andorra/`,
+   `<workspace>/memory/andorra/`,
+   `~/andorra/`.
+3. If none exist and the user asked to persist data, create
+   `<workspace>/andorra/`.
+
+| Path | Required? | Role |
+|------|-----------|------|
+| `<state_root>/memory.md` | optional | Trip style, season, base preferences, history |
+
+Do not treat the literal string `<state_root>` as a filesystem path. Skill resources stay under `references/` and `assets/`. Host-shared memory such as workspace `MEMORY.md` is outside `<state_root>` and needs separate consent.
+
+Template: `assets/memory-template.md`.
 
 ## Setup
 
-If `~/Clawic/data/andorra/` doesn't exist or is empty, read `setup.md` and start naturally.
+If `<state_root>` is missing or empty, read `references/setup.md` and start naturally. Ask season, trip style, arrival city, car vs bus, nights, and group before locking a parish base.
 
-## When to Use
+## When to load
 
-User planning a trip to Andorra or needing practical local guidance: where to stay, which parish fits their style, how to move around, what to book, and what to avoid in winter or summer.
+Load when the user is planning an **Andorra** trip or needs local logistics:
 
-## Architecture
+- which parish to sleep in for ski, hike, spa, shopping, or family trips
+- Grandvalira / Pal Arinsal access vs capital convenience
+- Barcelona / Toulouse arrivals, buses, driving, parking, border queues
+- duty-free shopping tactics and customs reality re-entering Spain/France
+- roaming outside the EU, eSIM, offline maps
+- Caldea / wellness days and bad-weather backups
 
-Memory lives in `~/Clawic/data/andorra/`. See `memory-template.md` for structure.
+Route away when the ask is mainly:
 
-```text
-~/Clawic/data/andorra/
-└── memory.md     # Trip context
-```
+- multi-country routing systems → `travel`
+- restaurant technique or deep cuisine systems → `food`
+- Catalan or French writing/production → `catalan` / `french`
 
-## Quick Reference
+## Quick reference
 
-| Topic | File |
-|-------|------|
-| **Parishes & Bases** | |
-| Capital, shopping, old town | `andorra-la-vella.md` |
-| Spa, shopping, easy central base | `escaldes-engordany.md` |
-| Grandvalira, viewpoints, family snow | `canillo.md` |
-| Old village, Sorteny, Arcalis side | `ordino.md` |
-| **Planning** | |
-| Sample trip plans by season | `itineraries.md` |
-| Where to stay by area and budget | `accommodation.md` |
-| Essential apps and booking tools | `apps.md` |
-| **Food & Drink** | |
-| Local dishes, bordas, what to order | `food-guide.md` |
-| Local wine, cellars, mountain drinks | `wine.md` |
-| **Activities** | |
-| Year-round highlights and bookings | `experiences.md` |
-| Best hikes and mountain timing | `hiking.md` |
-| Spas, thermal plans, rainy-day resets | `wellness.md` |
-| Bars, apres-ski, late-night reality | `nightlife.md` |
-| Shopping strategy and customs reality | `shopping.md` |
-| **Reference** | |
-| 7 parishes and what each is best for | `regions.md` |
-| Catalan culture, etiquette, rhythm | `culture.md` |
-| Traveling with children | `with-kids.md` |
-| **Practical** | |
-| Arrivals, buses, driving, parking | `transport.md` |
-| Roaming, eSIMs, Wi-Fi, mobile reality | `telecoms.md` |
-| Emergency numbers, hospital, mountains | `emergencies.md` |
+| Need | Load |
+|------|------|
+| Core rules, traps, security | `references/rules.md` |
+| 7 parishes at a glance | `references/regions.md` |
+| Capital logistics | `references/andorra-la-vella.md` |
+| Spa + central comfort | `references/escaldes-engordany.md` |
+| Grandvalira / family snow | `references/canillo.md` |
+| Quieter mountain base | `references/ordino.md` |
+| Sample season plans | `references/itineraries.md` |
+| Stay by style/budget | `references/accommodation.md` |
+| Apps and booking tools | `references/apps.md` |
+| Food pointers | `references/food-guide.md` |
+| Wine reality check | `references/wine.md` |
+| Bookable experiences | `references/experiences.md` |
+| Hiking timing/safety | `references/hiking.md` |
+| Spas / rainy-day reset | `references/wellness.md` |
+| Nightlife / après-ski | `references/nightlife.md` |
+| Shopping + customs | `references/shopping.md` |
+| Culture / etiquette | `references/culture.md` |
+| Traveling with kids | `references/with-kids.md` |
+| Arrivals, buses, driving | `references/transport.md` |
+| Roaming / eSIM / Wi-Fi | `references/telecoms.md` |
+| Emergency numbers | `references/emergencies.md` |
+| Official source anchors | `references/sources.md` |
+| Preference file shape | `assets/memory-template.md` |
 
-## Core Rules
+## Core rules
 
-### 1. Specific Over Scenic
-Don't say "Andorra has great mountains." Say "Base in Canillo for early Grandvalira starts, in Ordino for a quieter village feel, and in Escaldes for spa-plus-shopping trips."
+1. **Specific over scenic.** Name parish, lift area, avenue, or transfer—not “great mountains.”
+2. **Base matches trip style.** Capital/Escaldes for shopping+spa short stays; Canillo/Encamp for Grandvalira; Ordino/La Massana for quieter mountain; Sant Julià for southern access/Naturland.
+3. **Timing changes everything.** Winter weekends = border traffic + packed parking; summer = hikes/bike/lakes; shoulder seasons need mixed openings.
+4. **Call out real constraints.** No train in; EU roaming often fails; snow chains/tires may matter; mountain plans need weather backup.
+5. **Shopping is a tactic.** Guide by category; compare electronics; customs allowances still apply when re-entering Spain/France.
+6. **Match the traveler** using the matrix in `references/rules.md`.
+7. **Persist only with consent.** Preferences go under `<state_root>/memory.md` after the user agrees.
 
-### 2. Choose Parish by Trip Style
-Andorra is tiny but the base matters:
-- Andorra la Vella and Escaldes for shopping, buses, nightlife, short stays
-- Canillo and Encamp for Grandvalira access
-- Ordino and La Massana for quieter mountain trips
-- Sant Julia de Loria for southern access and Naturland
+## Security and privacy
 
-### 3. Timing Changes Everything
-- Winter weekends mean border traffic and packed parking
-- Spring and late autumn can be shoulder season with mixed openings
-- Summer is for hiking, cycling, lakes, and cooler weather than Barcelona
-- Sales, snow, and spa demand all spike on holidays
+- Trip preferences stay local under `<state_root>` after consent.
+- This skill does **not** make network requests, scrape live weather/traffic, or access files outside `<state_root>` and skill resources.
+- For live road/snow/weather status, point the user to official sources in `references/sources.md` and apps in `references/apps.md`—do not invent live conditions.
+- Never store payment cards, passport scans, or booking passwords in skill state.
 
-### 4. Call Out the Real Constraints
-Be explicit about the practical stuff users miss:
-- No train into Andorra
-- Roaming may not be included because Andorra is not in the EU
-- Snow chains or winter tires may matter
-- Some mountain plans require booking or weather flexibility
+## Common traps
 
-### 5. Shopping is a Tactic, Not a Buzzword
-Guide users by category, not just "duty free":
-- Perfume and cosmetics in the center
-- Ski gear near resort corridors
-- Compare prices before buying electronics
-- Remind them customs allowances still apply when re-entering Spain or France
+| Trap | Prevention |
+|------|------------|
+| Assume EU roaming covers Andorra | Warn pre-border; eSIM / offline maps (`references/telecoms.md`) |
+| Sleep in capital for ski-first trip | Prefer Canillo/Encamp/slope corridor (`references/rules.md`) |
+| Winter drive without chains/tires check | Flag road reality (`references/transport.md`) |
+| Treat “duty free” as always cheaper | Compare by category + customs (`references/shopping.md`) |
+| One rigid mountain plan | Always give indoor/spa/town backup |
+| Day-trip only mindset | Note early/late windows that need an overnight base |
 
-### 6. Match the Traveler
+## Default first answer shape
 
-| Traveler | Focus on |
-|----------|----------|
-| Ski trip | `canillo.md`, `ordino.md`, `transport.md`, `experiences.md` |
-| Summer mountain | `hiking.md`, `ordino.md`, `regions.md` |
-| Shopping + spa | `andorra-la-vella.md`, `escaldes-engordany.md`, `shopping.md`, `wellness.md` |
-| Family | `with-kids.md`, `canillo.md`, `itineraries.md` |
-| Quick weekend from Barcelona | `andorra-la-vella.md`, `escaldes-engordany.md`, `itineraries.md` |
-
-## Common Traps
-
-- Assuming EU roaming covers Andorra and getting a painful phone bill
-- Staying in the capital for a ski-first trip, then losing hours on transfers
-- Driving in snow without checking chains, tires, and road status
-- Thinking "duty free" means every product is automatically cheaper
-- Booking only one rigid mountain plan without a weather backup
-- Treating Andorra as only a day trip and missing the best early-morning or late-evening windows
-
-## Security & Privacy
-
-**Data that stays local:** Trip preferences in `~/Clawic/data/andorra/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/andorra/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — Travel planning
-- `food` — Food and cooking
-- `catalan` — Catalan language
-- `french` — French language
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/andorra
-- Latest version: https://clawic.com/skills/andorra
+1. Confirm season + trip style + car/bus + nights.
+2. Recommend **one primary parish base** and one fallback.
+3. Give the main daily transfer or walk pattern.
+4. Name 1–2 book-ahead items (spa, ski pass, weekend hotel).
+5. State roaming/border/parking caveat that fits the plan.
+6. Offer to save preferences under `<state_root>` only if useful.

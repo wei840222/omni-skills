@@ -27,6 +27,6 @@ Andorra is not a volume wine country, but it has a useful high-altitude angle an
 
 ## Reality Check
 
-- Local production is small, so do not oversell it as a full wine-destination trip.
+- Local production is small, so present it realistically, acknowledging the small production.
 - The stronger play is food-plus-bottle selection, not vineyard hopping.
 - For a short trip, one good dinner with a thoughtful list is enough.

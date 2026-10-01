@@ -28,7 +28,7 @@ Andorra food is mountain food with Catalan and French influence. The good move i
 - They are better for slow dinners than quick turnarounds before nightlife.
 - If the user hates heavy food, steer them toward central bistro-style options one night and only one traditional mountain dinner.
 
-## What to Avoid
+## Key Advice
 
 - Eating every meal in the busiest shopping streets
 - Assuming "duty free" means cheap restaurant pricing

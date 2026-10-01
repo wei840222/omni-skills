@@ -33,7 +33,7 @@ Andorra works best when the trip mixes one headline attraction with one slower l
 
 - One active anchor per day is enough.
 - Pair weather-sensitive plans with a city, shopping, or spa backup.
-- For weekend trips, do not chase every famous spot. Pick the one that matches the base.
+- For weekend trips, focus on spots that match the base. Pick the one that matches the base.
 
 ## Weak Trip Design
 

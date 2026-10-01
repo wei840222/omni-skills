@@ -22,7 +22,7 @@ Andorra is excellent for families when the trip has structure. The key is to mix
 
 ## Family Rules
 
-- Avoid overpacking the day.
+- Keep the daily schedule manageable.
 - Keep snacks, layers, and one indoor option ready.
 - If the children are new to snow, keep the first day lighter than the adults want.
 - Pick the hotel for logistics, not only for pool photos.

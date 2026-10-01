@@ -23,7 +23,7 @@ Escaldes is the easiest answer for people who want a comfortable central base: s
 
 - Book Caldea for late afternoon or evening if you want the town to feel worth it after dark.
 - Use Vivand and Carlemany for a slower shopping stretch than the busiest capital blocks.
-- Keep Escaldes as the base if your trip is half city, half mountain, and you do not want to repack.
+- Keep Escaldes as the base if your trip is half city, half mountain, and you prefer a single base.
 - Use it for shoulder-season trips when some higher mountain plans are uncertain.
 
 ## Good Pairings

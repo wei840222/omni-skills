@@ -33,8 +33,8 @@ There is no train into Andorra. Most trips arrive by road, usually from Barcelon
 | Car + skiing | Canillo, Encamp, or slope-oriented stays |
 | Car + hiking | Ordino, La Massana, or Canillo |
 
-## Mistakes to Avoid
+## Ensure
 
-- Booking the cheapest room without checking the daily transfer cost in time
-- Forgetting that parking can be the hidden tax of a city stay
-- Assuming a late-night winter drive is easy just because the distance is short
+- Verify daily transfer costs before booking rooms
+- Remember that parking adds to city stay costs
+- Prepare for slow late-night winter drives regardless of distance
