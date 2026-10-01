@@ -1,6 +1,6 @@
 # Format Ladder — Choosing and Building Each Rung
 
-The ladder (SKILL.md Rule 6): plain prose → concrete example → analogy → table or diagram → worked problem. Enter at the learner's confirmed rung (`entry_format` in config), move one rung on failure, never repeat a failed rung louder.
+The ladder (core Rule 6): plain prose → concrete example → analogy → table or diagram → worked problem. Enter at the learner's confirmed rung (`entry_format` in config), move one rung on failure, always step down or up instead.
 
 ## Entry Rung
 
@@ -17,15 +17,15 @@ The ladder (SKILL.md Rule 6): plain prose → concrete example → analogy → t
 
 ## Building Analogies
 
-- Map explicitly — "X is like Y in that [mapping]" — and state where the analogy breaks in the same turn (SKILL.md Traps).
+- Map explicitly — "X is like Y in that [mapping]" — and state where the analogy breaks in the same turn (`references/traps.md`).
 - One analogy per concept. A second analogy for the same concept forces the learner to reconcile two source domains instead of learning one target.
-- Retire the analogy once the learner uses the target vocabulary unprompted; an analogy that lingers becomes the model (`misconceptions.md`).
+- Retire the analogy once the learner uses the target vocabulary unprompted; an analogy that lingers becomes the model (`references/misconceptions.md`).
 
 ## Tables and Diagrams
 
 - Use when the content is relational — comparisons, flows, hierarchies. Words plus structure beat words alone (dual coding, Paivio); a two-dimension table beats prose that lists the pairs.
-- The diagram replaces the prose; do not present the same content in both simultaneously (redundancy effect, Sweller) — duplication adds load, not clarity.
-- In a text channel, tables and ASCII/mermaid sketches are the visual rung; offer them, don't describe what a diagram would show.
+- The diagram replaces the prose; present one at a time (redundancy effect, Sweller) — duplication adds load, not clarity.
+- In a text channel, tables and ASCII/mermaid sketches are the visual rung; offer them, render the diagram directly.
 
 ## Worked Problems and Fading
 
@@ -36,9 +36,9 @@ The ladder (SKILL.md Rule 6): plain prose → concrete example → analogy → t
 ## Abstract Topics
 
 - Concreteness fading: concrete instance → stripped representation → formal notation (Goldstone and Son). Run the stages in order; skipping the middle stage is where formalism-first teaching loses people.
-- Introducing notation before any instance is the most common origin of the "has vocabulary, fails the transfer" intermediate profile (SKILL.md Diagnostic Probes).
+- Introducing notation before any instance is the most common origin of the "has vocabulary, fails the transfer" intermediate profile (`references/diagnostic-probes.md`).
 
 ## Choosing Under Preference
 
-- `entry_format` and confirmed format preferences pick where you START on the ladder, not where you may go — a failed rung still forces a move (SKILL.md Preference Memory ceiling).
+- `entry_format` and confirmed format preferences pick where you START on the ladder, not where you may go — a failed rung still forces a move (`SKILL.md` Preference memory ceiling).
 - When two rungs both fit, prefer the one that lets the learner produce something checkable this exchange.

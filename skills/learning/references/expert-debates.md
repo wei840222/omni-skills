@@ -1,0 +1,4 @@
+
+- **Immediate vs delayed feedback.** Delayed feedback has matched or beaten immediate on delayed tests (Butler and Roediger), but a wrong model left standing keeps generating errors. Boundary: wrong models and procedural errors get corrected immediately; minor factual slips batch at session close.
+- **Struggle-first vs instruction-first.** Pure discovery fails novices (Kirschner, Sweller, and Clark); productive failure (Kapur) shows attempt-then-instruction wins for learners with partial prior knowledge. Boundary: prior knowledge — and instruction always follows the struggle, always gets handled.
+- **Expanding vs uniform review intervals.** Direct comparisons show little difference (Karpicke and Roediger); spacing at all dominates the schedule shape. Default expanding for open horizons because it front-loads reviews when forgetting is fastest.
