@@ -133,4 +133,4 @@ Before delivering recommendations or draft copy:
 
 ## Progressive disclosure
 
-Keep this file as the always-on entry. Load `references/*` only when the task needs depth beyond the rules above. Persist only user-declared preferences and observed site facts under `<state_root>/`.
+Keep this file as the always-on entry. Load `references/*` only when the task needs depth beyond the rules above. Persist only user-declared preferences and observed site facts under `<state_root>/`. Prefer one reference file at a time unless triage names a chain.
