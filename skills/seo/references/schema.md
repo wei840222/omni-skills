@@ -28,7 +28,7 @@ Valid markup is not the same as a supported feature: schema.org has hundreds of 
 - JSON-LD in a `<script type="application/ld+json">` block. Head or body both work; JSON-LD is the format Google recommends and the only one you can change without touching templates.
 - One entity per thing, connected by `@id` instead of repeated: an `Organization` block with a stable `@id`, referenced as `publisher` from every `Article`, is how a site describes itself once.
 - Markup must match content visible on the page. Marked-up text a user cannot see is a spam violation, and it is the most commonly enforced structured-data rule.
-- Required properties or nothing: a missing required property makes the item ineligible, not degraded. Recommended properties are warnings — they widen eligibility but do not block it.
+- Required properties or nothing: a missing required property makes the item ineligible, not degraded. Recommended properties are warnings — they widen eligibility but keep the item eligible.
 - Injected by JavaScript works only if the render succeeds; server-rendered markup avoids a whole class of "why did the rich result disappear" incidents.
 - Validate twice: the Rich Results Test for Google eligibility, the schema.org validator for syntax. GSC's Enhancements reports show what Google actually parsed on live URLs — the only source that reflects reality after deployment.
 
@@ -101,5 +101,5 @@ Valid markup is not the same as a supported feature: schema.org has hundreds of 
 | FAQ markup on every page "for the CTR" | The rich result is gone for ordinary sites; you carry the maintenance for nothing | Keep FAQ content for users; drop the markup |
 | Article and Product on the same page | Contradictory entity claims; Google picks one or neither | One primary entity per URL |
 | Copying a competitor's JSON-LD | Their `@id`s, URLs, and organization data travel with it | Generate from your own data |
-| Never checking the Enhancements report after launch | Templated errors multiply silently across thousands of URLs | Review the report a week after any template change |
+| Omitting checks of the Enhancements report after launch | Templated errors multiply silently across thousands of URLs | Review the report a week after any template change |
 | Stale `availability` and `price` | Mismatch with the page triggers loss of eligibility, and in shopping surfaces, suppression | Generate from the same source as the page |

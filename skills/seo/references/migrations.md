@@ -13,7 +13,7 @@ Every migration is the same bet: Google must re-crawl every old URL, follow a re
 | HTTP → HTTPS | Low | Full-site 301, update canonicals, internal links, and sitemaps |
 | Two or more of the above together | Compounding | Sequence them weeks apart; a combined migration is undiagnosable when it goes wrong |
 
-Never combine a domain change with a URL restructure and a redesign in one release unless the deadline is immovable — and then, expect to debug blind.
+Prefer shipping domain change, URL restructure, and redesign as separate releases. Combining all three in one cutover is reserved for immovable deadlines, and debugging will be partially blind.
 
 ## Pre-Launch Inventory (do this before any code freeze)
 

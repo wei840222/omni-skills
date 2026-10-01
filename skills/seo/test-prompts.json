@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our organic traffic dropped by 30% yesterday right after we migrated to a new JS framework, and Search Console is showing an increase in 'Crawled - currently not indexed' pages. Can you audit this drop?",
+    "expected": "Load ranking-drop triage and javascript/core-processes references; treat the JS migration as a high-probability render/index cause; require a sample URL; check rendered HTML vs raw HTML, robots/noindex, and the Crawled-currently-not-indexed report before prescribing content rewrites.",
+    "actual": "Resolved state root guidance, then loaded references/core-processes.md and references/javascript.md. Because the drop lines up with a JS framework migration, primary hypothesis is render budget/failure: Googlebot may crawl a shell while main content/links are missing from the rendered DOM, which often lands as Crawled - currently not indexed. Asked for a representative URL, will compare view-source vs rendered HTML, verify robots.txt and noindex, and only then move to content or link work.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you give me an SEO audit for my gardening blog with about 10 posts?",
+    "expected": "Load audits/core-processes checklist; ask for the site URL and Search Console access; scope a proportional audit (indexing, technical/CWV, on-page, content quality, internal links) and promise ranked fixes with traffic at stake rather than a huge warning dump.",
+    "actual": "Loaded references/audits.md and references/core-processes.md. Asked for the blog URL and whether Search Console is available. Planned a scoped pass: URL Inspection/coverage, mobile/CWV, titles/H1/internal links, thin or overlapping posts, then a Top fixes list ordered by likely traffic impact suitable for a 10-post site.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We want a new 3,000-word ultimate guide for 'best project management software' even though our /compare page already sits around position 7 with decent impressions.",
+    "expected": "Apply improve-before-create and one-intent-per-page rules; recommend strengthening the existing /compare URL (snippet, gaps, internal links) over a competing ultimate guide that would cannibalize; size expected clicks before net-new content.",
+    "actual": "Cited core rules 3 and 4: a position-7 URL with impressions is striking-distance work, not a reason to publish a competing guide. Recommended auditing the live SERP for best project management software, closing content gaps on /compare, rewriting title/meta, and adding internal links from strong pages. Flagged a separate ultimate guide as cannibalization risk and sized prize before any net-new build.",
+    "pass": true
+  }
+]

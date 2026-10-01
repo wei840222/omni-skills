@@ -6,7 +6,7 @@ Pipeline model: **discover → crawl → render → index → serve**. Every tec
 
 ## Which Control Does What
 
-| Control | Stops crawling | Stops indexing | Passes signals | Use for |
+| Control | Halts crawling | Halts indexing | Passes signals | Use for |
 |---|---|---|---|---|
 | `robots.txt Disallow` | Yes | No | No | Saving crawl budget on infinite or worthless URL spaces |
 | `<meta name="robots" content="noindex">` | No | Yes | Links followed until the page is dropped | Pages that must exist for users but not in search |
@@ -23,8 +23,8 @@ The combination that breaks sites: `Disallow` plus `noindex`. Blocked from crawl
 
 - Per host, protocol, and port: `https://example.com/robots.txt` does not govern `https://shop.example.com` or the http:// variant.
 - Google reads up to 500 KiB and ignores the rest — long generated files silently lose their tail rules.
-- `noindex` in robots.txt is unsupported (Google stopped honoring it in September 2019). Rules that "worked for years" may simply have stopped.
-- Never block CSS, JS, or the API endpoints a page needs: blocked resources produce a broken render, and Google indexes what it can render.
+- `noindex` in robots.txt is unsupported (Google deprecated support for it in September 2019). Rules that "worked for years" may simply have stopped.
+- Allow crawling of CSS, JS, or the API endpoints a page needs: blocked resources produce a broken render, and Google indexes what it can render.
 - Longest matching rule wins, and `Allow` beats `Disallow` at equal specificity — the way to open one path inside a blocked directory.
 - A 5xx on robots.txt makes Google pause crawling of the whole host. A 404 is safe (treated as "crawl everything"); an error page returning 200 with HTML is not.
 
@@ -40,7 +40,7 @@ Read the Page indexing status, then act:
 | Alternate page with proper canonical tag | Working as intended | Nothing |
 | Soft 404 | Thin, empty, or an error page returning 200 | Return a real 404, or add real content |
 | Excluded by noindex | A tag or header says so | Find which layer emits it: CMS setting, plugin, CDN, framework metadata |
-| Blocked by robots.txt | A Disallow rule matched | Decide: crawlable or truly excluded, never both |
+| Blocked by robots.txt | A Disallow rule matched | Decide: crawlable or truly excluded, choose exactly one status |
 | Page with redirect | Not a problem; the target is what matters | Verify the target returns 200 and is canonical |
 | Not found (404) | The URL 404'd when crawled | Deliberate deletion: leave it, or 410 to speed it up. Accident: restore the page or 301 it to the closest equivalent, then fix the links and sitemap entries still pointing there |
 | Server error (5xx) | The host failed under crawl, not an indexing setting | Crawl stats and server logs; sustained 5xx shrinks crawl rate for weeks |
@@ -90,12 +90,12 @@ The only source showing what Googlebot actually did. Pull them when the site is 
 - Which templates get crawled and how often — the honest importance ranking of your site.
 - URLs crawled that you did not know existed: parameters, old paths, injected spam.
 - Pages that earn traffic but are crawled monthly — an internal linking problem.
-- Googlebot receiving 5xx or 429 that users never see — CDN or WAF rate limiting by user agent.
+- Googlebot receiving 5xx or 429 hidden from users — CDN or WAF rate limiting by user agent.
 - Verify Googlebot by reverse DNS before drawing conclusions; a large share of self-declared Googlebot traffic is not Google.
 
 ## Mobile and HTTPS
 
-- Mobile-first indexing is universal: the mobile rendering is the indexed one. Content, links, and structured data that exist only on desktop do not exist.
+- Mobile-first indexing is universal: the mobile rendering is the indexed one. Content, links, and structured data that exist only on desktop are invisible to the index.
 - Viewport meta tag required; tap targets and legible font sizes affect usability, not ranking directly.
 - Intrusive interstitials covering content on entry from search are a demotion signal; reasonably sized cookie and legal notices are not.
 - HTTPS everywhere, no mixed content, HSTS once you are certain. After the switch: 301 all http URLs, then update canonicals, internal links, sitemap, and hreflang.

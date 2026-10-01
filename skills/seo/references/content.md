@@ -33,7 +33,7 @@ A brief that produces a rankable draft contains, and a brief that only lists a k
 
 ## E-E-A-T
 
-Not a score — no meter exists; the rater guidelines shape Google's systems indirectly. Demonstrate, never claim:
+Not a score — no meter exists; the rater guidelines shape Google's systems indirectly. Demonstrate with evidence rather than claiming:
 
 - **Experience** (added to the acronym in 2022): first-hand evidence — original photos, test data, screenshots, "we measured"
 - **Expertise**: author byline with verifiable credentials, linked to a bio page with history
@@ -52,7 +52,7 @@ Google's spam policy targets scaled content abuse — mass-producing pages prima
 - Question-shaped H2s matching People Also Ask phrasing, each followed by a short direct answer.
 - Lists and tables for procedural and comparison content — the formats extraction prefers.
 - Short paragraphs (2-3 sentences), a table of contents on long pieces, and descriptive subheads a skimmer can navigate by.
-- One idea per section, with the conclusion first and the reasoning after. Search readers do not read to the end.
+- One idea per section, with the conclusion first and the reasoning after. Search readers scan for immediate answers.
 - An FAQ section at the bottom for the remaining People Also Ask queries, as content — the markup no longer produces a rich result for ordinary sites.
 
 ## Freshness
@@ -69,7 +69,7 @@ For a page whose traffic has fallen while it still ranks in the top 20:
 1. Diagnose which happened: position lost (a competitor improved), CTR lost (snippet or SERP layout), or impressions lost (query demand fell or intent shifted).
 2. Search the query now. Compare the current page 1 against what your page assumes. Intent shift is the most common cause and the one a rewrite of the same angle will not fix.
 3. Update facts, prices, screenshots, and examples first; stale specifics are what readers and raters notice.
-4. Add the subtopics the current top five cover and you do not, and remove the sections nobody needs any more.
+4. Add the subtopics the current top five cover and you do not, and remove the obsolete sections.
 5. Rework the title and opening for the query as it is phrased today.
 6. Re-link: two or three fresh internal links from pages that gained authority since publication.
 7. Republish with an accurate modified date, then measure in a 28-day window against the previous one.
@@ -104,7 +104,7 @@ Run this yearly on a stable site, quarterly on one that publishes heavily.
 
 | Trap | Why it fails | Do instead |
 |---|---|---|
-| Writing to a word count | Length is a correlation, not a cause; padding is a negative signal to readers | Cover the intent, then stop |
+| Writing to a word count | Length is a correlation, not a cause; padding is a negative signal to readers | Cover the intent, then conclude |
 | Publishing without an information-gain answer | You ship the eleventh identical page | Answer the go/no-go question first |
 | Refreshing by changing the date | Deceptive and detectable | Change the content, then the date |
 | Deleting content in bulk after a quality hit | You remove pages that still earn and lose their links | Consolidate deliberately, page by page, with the data in front of you |

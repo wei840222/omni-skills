@@ -4,7 +4,7 @@ Programmatic SEO is one page per row of a dataset: "flights from {a} to {b}", "{
 
 ## The Go / No-Go Test
 
-Answer all four before generating anything. A no on any of them means stop.
+Answer all four before generating anything. Require a yes on all four before generating anything.
 
 1. **Demand per row**: does anyone search this combination? Sample 30 rows and check volume, autocomplete, and whether page 1 exists at all. Demand is usually a power law — thousands of rows and a few dozen with real volume.
 2. **Data you actually have**: is there something on the page besides the two variables? Prices, counts, comparisons, availability, real reviews. A template with the variable swapped and nothing else is a doorway page.
@@ -43,7 +43,7 @@ Google's scaled content abuse policy is about purpose and value, not about autom
 - Datasets scraped from a competitor and reformatted.
 - No internal reason the pages exist besides search.
 
-`risk_posture: conservative` (the default) means: prove demand, hold the wave size small, and never generate location pages for markets the business cannot actually serve.
+`risk_posture: conservative` (the default) means: prove demand, hold the wave size small, and generate location pages strictly for verified service areas.
 
 ## Programmatic Traps
 
@@ -54,5 +54,5 @@ Google's scaled content abuse policy is about purpose and value, not about autom
 | Skipping the manual prototype | You scale a page type nobody proved can rank | One page ranking first |
 | City pages for cities you do not serve | Doorway pages, an explicit policy violation | Only real service areas, with real local content |
 | Sitemap-only discovery | Leaves with no internal links get crawled late and dropped early | Hub pages and neighbor links |
-| Never pruning | Dead rows accumulate into a sitewide quality problem | Scheduled review; delete or consolidate what earns nothing |
+| Ignoring dead rows | Dead rows accumulate into a sitewide quality problem | Scheduled review; delete or consolidate what earns nothing |
 | Measuring by pages published | Publishing is not the outcome | Measure indexed rate, impressions per row, and conversions |

@@ -37,7 +37,7 @@ Inclusion in Google News no longer requires an application — eligible sites ar
 - Eligibility follows normal indexing plus interest. Large, high-quality images (Google's guidance is 1200px or wider) with `max-image-preview:large` are the mechanical prerequisite most sites miss.
 - Headlines must be accurate and interesting at once. Clickbait and exaggerated headlines are named in Google's Discover guidance as a reason for exclusion.
 - Content that performs: timely, entity-driven, human-interest, product and lifestyle pieces with a strong image. Reference and evergreen content rarely appears.
-- Volatility is structural. Never build a revenue forecast on Discover; treat it as upside and keep search as the base.
+- Volatility is structural. Avoid building revenue forecasts exclusively on Discover; treat it as upside and keep search as the base.
 - The Discover report in Search Console appears only once you receive Discover traffic, and it is the only place to measure it.
 
 ## Paywalls And Subscriptions

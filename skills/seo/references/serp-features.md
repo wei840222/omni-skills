@@ -14,7 +14,7 @@ For a target query, record: which features appear, in what order, how far down t
 | Image pack | Image search relevance, page context | Descriptive file names and alt text, image sitemap, context around the image |
 | Video results / key moments | Video-primary pages and YouTube | VideoObject markup, chapters, transcript on the page |
 | Top Stories | News-eligible publishers | Publisher-side eligibility, freshness, entity coverage |
-| Local pack | Proximity, relevance, prominence | Google Business Profile work; organic changes do not move it |
+| Local pack | Proximity, relevance, prominence | Google Business Profile work; organic changes act independently of it |
 | Shopping / merchant listings | Feed plus product markup | Feed accuracy and identifiers |
 | Reviews stars | Eligible review markup on non-self-serving content | Real third-party review data |
 | AI Overview | Grounded selection across the index | Answer-first, extractable, current pages |
@@ -34,7 +34,7 @@ For a target query, record: which features appear, in what order, how far down t
 - Each PAA question is a real query with its own answer source. Answering three or four of them properly on one page is a cheap way to hold extra space.
 - Expand PAA boxes repeatedly to harvest the question tree — it is free keyword research on the exact phrasing users type.
 - Answer format: question as H2 or H3, direct answer in the first sentence, elaboration after.
-- Do not build a page per PAA question. Cluster them into the page that owns the intent.
+- Cluster PAA questions into a comprehensive page. Cluster them into the page that owns the intent.
 
 ## Sitelinks, Brand, And The Knowledge Panel
 

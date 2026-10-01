@@ -1,12 +1,12 @@
 # Memory Template — SEO
 
-File formats for everything under `~/Clawic/data/seo/`. `config.yaml` is what the user **declared**; `memory.md` is what the agent **observed**. An observation never overwrites a declaration.
+File formats for everything under `<state_root>/`. `config.yaml` is what the user **declared**; `memory.md` is what the agent **observed**. An observation supplements a declaration.
 
-**Contents:** [config.yaml](#clawicdataseoconfigyaml) · [memory.md](#clawicdataseomemorymd) · [Status Values](#status-values) · [Audit Report Template](#audit-report-template)
+**Contents:** [config.yaml](#state_rootconfigyaml) · [memory.md](#state_rootmemorymd) · [Status Values](#status-values) · [Audit Report Template](#audit-report-template)
 
-## `~/Clawic/data/seo/config.yaml`
+## `<state_root>/config.yaml`
 
-Declared preferences only — what the user stated, never what the agent inferred.
+Declared preferences only — what the user stated.
 
 ```yaml
 site_type: ecommerce        # blog | ecommerce | saas | local | news | directory | auto
@@ -15,6 +15,7 @@ tool_access: gsc-only       # gsc-only | paid-suite
 risk_posture: conservative  # conservative | standard | aggressive
 cms: shopify                # wordpress | shopify | webflow | wix | headless | other | auto
 voice_file: voice.md        # long-form style guide in this folder; none if unset
+min_impressions: 100        # monthly impressions floor for opportunity lists
 
 # Preference areas — keys added as the user states preferences
 reporting:
@@ -32,7 +33,7 @@ cadence:
   gsc_review: monthly
 ```
 
-## `~/Clawic/data/seo/memory.md`
+## `<state_root>/memory.md`
 
 ```markdown
 # SEO Memory
@@ -64,7 +65,7 @@ last: YYYY-MM-DD
 | YYYY-MM-DD | [shipped / Google update / migration / drop] | [ours / Google] |
 
 ## Tried And Rejected
-<!-- Recommendations the user declined, and the reason. Do not re-propose without new evidence. -->
+<!-- Recommendations the user declined, and the reason. Repropose only with new evidence. -->
 
 ## Notes
 <!-- Site-specific context, patterns, vocabulary the business uses -->
@@ -78,38 +79,39 @@ last: YYYY-MM-DD
 | Value | Meaning |
 |-------|---------|
 | `ongoing` | Still learning the site and its constraints |
-| `complete` | Site profile, access, and constraints are known |
+| `paused` | Work stopped; resume from open priorities |
+| `closed` | Engagement finished; keep history for reference |
 
 ## Audit Report Template
 
-Save to `~/Clawic/data/seo/audits/[site]-[date].md`:
+Save as `<state_root>/audits/YYYY-MM-DD-<site>.md`:
 
 ```markdown
-# SEO Audit — [site] — [date]
+# SEO Audit — [site] — YYYY-MM-DD
 
-## Verdict
-[One paragraph: what is capping this site, and what fixing it is worth.]
+## Scope
+- Properties / locales covered
+- Tools used (GSC-only vs paid suite)
+- Out of scope
 
-## Top 5 Fixes
+## Top 5 fixes (traffic at stake)
 
-| # | URL or template | Exact change | Effort | Traffic at stake | Owner |
-|---|---|---|---|---|---|
+| Rank | URL or system | Issue | Expected impact | Effort |
+|---|---|---|---|---|
+| 1 | | | | |
 
-## Findings By Layer
-### Penalties and security
+## Findings by layer
+### Manual actions / security
 ### Indexing
-### Intent and content
-### Technical quality
-### Authority
+### Technical / CWV
+### On-page
+### Content / intent
+### Links / entity
 
-## Baselines
-- Clicks / impressions (last 28 days, and same period last year)
-- Indexed pages, by section
-- Core Web Vitals (field, p75): LCP [x]s, INP [x]ms, CLS [x]
+## Measurement plan
+- Baseline metrics and windows
+- What “worked” looks like in GSC
 
-## Not Verified
-[Access gaps, missing data, open questions.]
-
-## Measurement Plan
-[The exact GSC or analytics view that will show whether this worked, and when to look.]
+## Appendix
+- Exports, screenshots, crawler notes
 ```

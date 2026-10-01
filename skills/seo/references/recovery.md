@@ -19,8 +19,8 @@ Recovery starts with classification. The shape of the loss names the cause faste
 - Rollouts take roughly one to three weeks; judging anything before the rollout ends is reading noise.
 - The helpful content system stopped being a separate system in the March 2024 core update — sitewide quality assessment is now part of core ranking. Recovery is therefore a sitewide job, not a page fix.
 - A core update is a re-ranking of what already exists, not a punishment for a specific error. There is no line to fix; there is a comparison you lost.
-- Work the comparison: sample 20 queries you lost, read the pages that replaced you, and list concretely what they have (first-hand evidence, freshness, depth, brand familiarity, reviews) that you do not.
-- Recovery generally arrives at a later update, not between them. Sites that improved substantially and still waited two or three cycles are common; some never return. Say this before the work, not after.
+- Work the comparison: sample 20 queries you lost, read the pages that replaced you, and list concretely what they have (first-hand evidence, freshness, depth, brand familiarity, reviews) that you lack.
+- Recovery generally arrives at a later update, not between them. Sites that improved substantially and still waited two or three cycles are common; some remain suppressed indefinitely. Say this before the work, not after.
 - Deleting content wholesale is a bet, not a fix. Consolidating genuinely dead pages is defensible; deleting pages that still earn impressions removes evidence you needed.
 
 ## Manual Actions
@@ -50,7 +50,7 @@ Reviews take days to weeks. A rejected request usually means the cleanup was par
 
 Signatures, in the order they get missed:
 
-- **Cloaked spam pages**: your site ranks for pharma, gambling, or foreign-language terms you never wrote — visible only to Googlebot. Detect with URL Inspection (live test) and by searching `site:` for unrelated terms.
+- **Cloaked spam pages**: your site ranks for pharma, gambling, or foreign-language terms you did not publish — visible only to Googlebot. Detect with URL Inspection (live test) and by searching `site:` for unrelated terms.
 - **Injected redirects**: users from Google get redirected, direct visits look fine, often mobile-only or first-visit-only via cookie.
 - **Content injection**: hidden links or text in existing templates, usually in the footer or in a sprite of `display:none` markup.
 - **Fake pages at scale**: thousands of new URLs appear in the Page indexing report in days.

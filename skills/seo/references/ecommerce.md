@@ -54,7 +54,7 @@ Whitelist beats blacklist: pick the handful of facet URLs with proven demand, ma
 | Permanently discontinued, no value | 410 |
 | Seasonal product returning next year | Keep the URL live year-round; rebuilding it each season starts from zero |
 
-Never let a product 404 silently — catalogs leak traffic through deletions nobody logs.
+Log product deletions and map each retired URL to a successor or intentional 410/404 policy — silent 404s leak catalog traffic.
 
 ## Category Page Content
 

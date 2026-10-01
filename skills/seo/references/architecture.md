@@ -27,7 +27,7 @@ The working version of "topical authority", stripped of mysticism:
 ## Internal Link Distribution
 
 - Links in main navigation and footers appear on every page and therefore say little about relative importance; contextual body links are the ones that differentiate.
-- Give the pages that make money more internal links than the ones that do not. This is the only "authority sculpting" that works, and it costs nothing.
+- Give the pages that make money more internal links than the ones that yield fewer conversions. This is the only "authority sculpting" that works, and it costs nothing.
 - Every new page gets links from two or three strong, topically related pages on the day it publishes. Orphans get crawled late and rank late.
 - Audit periodically: pages with traffic but few internal links are the fastest wins; pages with many internal links and no traffic are wasted signal.
 - Breadcrumbs give Google an explicit hierarchy and give the SERP a cleaner display line.
@@ -39,7 +39,7 @@ Every indexable URL should have a reason to exist. Common bloat, and the disposi
 | URL type | Default disposition |
 |---|---|
 | Tag and author archives with one or two items | Noindex, or delete the taxonomy |
-| Paginated archive pages beyond page 1 | Indexable but self-canonical; never canonical to page 1 (Google dropped support for `rel=next/prev` as an indexing signal, and canonicalizing hides deep items) |
+| Paginated archive pages beyond page 1 | Indexable but self-canonical; maintain individual page indexing status (Google dropped support for `rel=next/prev` as an indexing signal, and canonicalizing hides deep items) |
 | Search results pages of your own site | Noindex; they are the textbook low-value URL |
 | Filter and sort combinations | Canonical to the clean URL; block combinatorial explosions from crawling |
 | Print, AMP-legacy, and duplicate mobile URLs | Consolidate to one canonical URL |
@@ -53,7 +53,7 @@ The test for any bloat question: "if this URL got a visitor from Google, would i
 - Google states it can handle both. Migration case studies keep showing subfolder gains, and the honest reading is that consolidation plus a relaunch's links explains much of the movement.
 - Default for new builds: subfolder (`example.com/blog/`), because reporting, internal linking, and shared authority are simpler.
 - Legitimate reasons for a subdomain: a genuinely separate product with its own audience, a hosted platform that cannot serve from a path, or regulatory separation.
-- Do not migrate a working subdomain for this reason alone; the migration risk exceeds the expected gain.
+- Retain functional subdomains unless broader structural improvements are guaranteed; the migration risk exceeds the expected gain.
 
 ## New Site From Zero
 
@@ -62,7 +62,7 @@ The test for any bloat question: "if this URL got a visitor from Google, would i
 - Ship the money pages and the top-of-cluster hubs first, not thirty blog posts. A new site's first job is to be findable for its own name and its clearest commercial intents.
 - Expect months before competitive queries move: a new domain has no links, no history, and no coverage. Plan the first two quarters on long-tail and brand.
 - Set up Search Console and analytics before launch, so the baseline exists.
-- Do not buy links to accelerate. A new domain with a sudden link profile is the easiest pattern in the world to spot.
+- Acquire velocity solely through earned links. A new domain with a sudden link profile is the easiest pattern in the world to spot.
 
 ## Navigation Design
 

@@ -7,7 +7,7 @@ Two things changed at once: Google answers more queries on the results page, and
 - Clicks fall on queries where a summary answers the question. Pew's 2025 browsing study found users clicked a result on 8% of visits with an AI summary versus 15% without — a large relative drop on informational queries, measured on a browsing panel rather than on your site.
 - Citation and classic ranking overlap substantially but far from completely; published 2024-25 analyses put the overlap between AI Overview sources and the classic top 10 roughly in the 40-60% band depending on vertical and method. Ranking well is the best available lever, not a guarantee.
 - Assistant referral traffic is small in absolute terms for most sites and converts differently: fewer sessions, higher intent, usually undercounted because some assistants strip referrers.
-- Do not quote a single industry percentage as fact to a client. Measure your own: compare clicks against impressions per query group over the last year.
+- Do not quote a single industry percentage as fact to a client. Measure your own metrics directly: compare clicks against impressions per query group over the last year.
 
 ## The Two Different Games
 
@@ -32,7 +32,7 @@ Two things changed at once: Google answers more queries on the results page, and
 - Google's AI features are served from the standard Google crawl. Blocking `Google-Extended` withholds content from certain Gemini uses but does not remove you from AI Overviews, which are grounded in the search index. There is no "search yes, AI Overview no" switch.
 - Non-Google AI crawlers are separate user agents and can be allowed or blocked individually in robots.txt. Blocking them removes you from those assistants' answers and from any referral they would send.
 - Decide deliberately per business model: a publisher monetizing pageviews and a SaaS company that wants to be recommended have opposite interests. Record the choice with its reason; this is the kind of decision that gets reversed by a stranger six months later.
-- `llms.txt` is a proposed convention, not a standard any major engine has confirmed reading. Cost is near zero, benefit is unproven — publish it if you like, and never present it as an optimization.
+- `llms.txt` is a proposed convention, not a standard any major engine has confirmed reading. Cost is near zero, benefit is unproven — publish it if you like, and present it purely as an optional convention.
 
 ## Measuring
 
@@ -45,7 +45,7 @@ Two things changed at once: Google answers more queries on the results page, and
 ## Strategy Shift That Follows
 
 1. Rebalance toward queries a summary cannot satisfy: transactional, comparative with personal fit, local, tool-driven, and anything requiring your data or account.
-2. Keep informational content that earns citations and trust, but stop measuring it in raw sessions alone; its job includes being the source that gets named.
+2. Keep informational content that earns citations and trust, but transition to measuring it beyond raw sessions; its job includes being the source that gets named.
 3. Invest in the assets a model cannot synthesize: proprietary data, tools and calculators, community, and named expertise.
 4. Strengthen brand search. When an assistant recommends categories rather than URLs, being the name people then search is the durable position.
 
