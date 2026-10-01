@@ -90,10 +90,10 @@ Convert VTT/SRV to Markdown segments with timestamps, optionally group by offici
 
 ## Security and privacy
 
-- Transcripts and preferences stay local and only after consent.
-- Do not commit cookies, `cookies.txt`, or auth headers into the skill tree or git.
-- Geo/age restrictions: report the blocker; cookies are user-provided opt-in only; this skill does not run proxies.
-- Strip live secrets if a transcript somehow contains them before any cache write.
+- Keep transcripts and preferences local, and write them only after consent.
+- Leave cookies, `cookies.txt`, and auth headers out of the skill tree and git; accept only user-supplied cookie inputs at runtime.
+- On geo/age restrictions, report the blocker and continue only with user-supplied `--cookies` / `--cookies-from-browser` when offered—no proxy path.
+- Before any cache write, redact live secrets if a transcript contains them and say that redaction happened.
 
 ## Common traps
 
