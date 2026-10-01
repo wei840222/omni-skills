@@ -60,7 +60,7 @@ Objective: Qualitative, inspiring goal
 - **Decouple work** — Can teams work in parallel?
 - **Clear interfaces** — Define handoffs precisely
 - **Buffer time** — Dependencies slip; plan for it
-- **Escalate early** — Don't wait until it's a crisis
+- **Escalate early** — Raise issues proactively before they become crises
 
 ## Escalation Framework
 

@@ -1,100 +1,54 @@
 ---
 name: coo
-slug: coo
-version: 1.0.2
-description: Be the COO with process design, organizational scaling, cross-functional execution, and operational excellence.
-homepage: https://clawic.com/skills/coo
-changelog: Updated name format, optimized description, added Related Skills and Feedback
+description: >
+  Design repeatable processes, scale organizations, run cross-functional execution,
+  and track operational metrics. Use when the user needs COO / operations judgment
+  on process mapping, automation readiness, span-of-control, OKRs, dependency
+  escalation, dashboards, or crisis operating rhythm. Not for company-level capital
+  strategy (`ceo`), financial models (`cfo`), technical architecture (`cto`), pure
+  people-management craft (`management`), or HR systems/compliance (`chro`).
 metadata:
-  clawdbot:
-    emoji: ⚡
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: COO / Chief Operations Officer
+  version: "1.1.0"
+  openclaw: '{"emoji":"⚡"}'
+  related-skills: '{"ceo":"Company-level strategy, capital allocation, and board calls rather than day-to-day operations.","cfo":"Cash, runway, budget, and board packs rather than process design.","cto":"Technical architecture and engineering org design rather than general operations.","business":"Idea validation and strategy frameworks before operationalizing.","management":"People-management routines and 1:1 craft beyond operational systems.","chro":"HR pipelines, compliance, and workforce systems rather than process ops."}'
 ---
 
-## When to Use
+# COO / Chief Operations Officer
 
-Agent needs to be the COO: process design, organizational scaling, cross-functional execution, vendor management, crisis management, or operational metrics.
+This skill is **stateless**. It provides strategic and operational guidance only. Do not invent local config directories, durable company state, or secret storage under the skill package. If the user asks to save notes, write only to the path they name.
+
+## When to load
+
+Load this skill when the request is about **operations leadership**:
+
+- process design, mapping, optimization, or automation readiness
+- organizational scaling, span of control, hiring-ahead capacity
+- cross-functional OKRs, dependency tracking, escalation
+- operational metrics, dashboards, variance analysis
+- crisis operating rhythm or restructuring logistics (advise; escalate decisions)
+
+Do **not** load this skill as a substitute for licensed employment counsel, audited financial statements, or irreversible org changes without a human owner.
 
 ## Quick Reference
 
-| Domain | File |
-|--------|------|
-| Process design and optimization | `process.md` |
-| Organizational scaling | `scaling.md` |
-| Cross-functional execution | `execution.md` |
-| Operational metrics | `metrics.md` |
+| Need | Load |
+|------|------|
+| Core rules, stage focus, traps, HITL | `references/guidelines.md` |
+| Process map, optimize, automate | `references/process.md` |
+| Breaking points, span, delegation | `references/scaling.md` |
+| OKRs, cadence, escalation | `references/execution.md` |
+| Leading/lagging metrics, reviews | `references/metrics.md` |
+| Verified source URLs | `references/sources.md` |
 
-## Core Rules
+## Operating stance
 
-1. **Systems over heroics** — Repeatable beats exceptional one-offs
-2. **Standardize before scaling** — Chaos multiplies with growth
-3. **Remove before automating** — Don't automate waste
-4. **Hire ahead of breaking** — Scrambling costs more than planning
-5. **One owner per outcome** — Shared accountability is no accountability
-6. **Decide at lowest level** — Don't bottleneck at the top
-7. **Process serves people** — Bureaucracy kills speed
+1. Prefer systems over heroics; standardize before scaling.
+2. Remove waste before automating; one owner per outcome.
+3. Decide at the lowest competent level; process serves people.
+4. For restructures, major vendor lock-in, headcount plans that change culture, or crisis response authority — escalate to a human (see `references/guidelines.md`).
 
-## By Company Stage
+## Security & privacy
 
-| Stage | COO Focus |
-|-------|-----------|
-| **Pre-PMF** | Minimal process, founder-driven, stay flexible |
-| **Seed** | Document what works, first operational hires |
-| **Series A** | Repeatable processes, team leads, basic metrics |
-| **Series B+** | Operational excellence, managers of managers, optimization |
-
-## Decision Checklist
-
-Before major operational changes:
-- Company stage? (startup chaos, growth scaling, mature optimization)
-- Team size? (breaking points at 10, 30, 100, 300)
-- Current bottlenecks? (people, process, tools)
-- Cross-functional dependencies? (who blocks whom)
-- Measurement baseline? (can't improve what you can't see)
-
-## Common Traps
-
-| Trap | Consequence |
-|------|-------------|
-| Process before problem | Bureaucracy without value |
-| Scaling without standards | Chaos multiplies |
-| Automating waste | Faster bad outcomes |
-| Hero culture dependency | Single points of failure |
-| Top-down bottlenecks | Slow decisions, disempowered teams |
-
-## Security & Privacy
-
-This skill provides strategic guidance only.
-
-**Data handling:**
-- No external API calls
-- No data leaves your machine
-- No persistent storage required
-
-## Human-in-the-Loop
-
-Escalate to human for:
-- Organizational restructures
-- Major vendor commitments
-- Headcount planning
-- Process changes affecting culture
-- Crisis response decisions
-- Cross-functional conflict resolution
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ceo` — executive strategy and board management
-- `cfo` — financial modeling and capital allocation
-- `cto` — technical strategy and architecture
-- `business` — strategy validation and planning
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/coo
-- Latest version: https://clawic.com/skills/coo
+- No external API calls required by this skill.
+- No credentials, payroll files, or personnel records in examples.
+- Guidance only; jurisdiction-specific employment or safety rules need local counsel/HR.

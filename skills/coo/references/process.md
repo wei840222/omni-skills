@@ -60,7 +60,7 @@ How we measure success
 
 ## When to Automate
 
-| Automate | Don't Automate |
+| Automate | Keep Manual |
 |----------|----------------|
 | High volume, repetitive | Rare, one-off tasks |
 | Well-defined rules | Requires judgment |
