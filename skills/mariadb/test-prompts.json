@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I create a composite index in MariaDB that covers queries filtering by 'status' and ordering by 'created_at'?",
+    "expected": "Load references/mariadb-guide.md; put equality column first then order column; show CREATE INDEX example and EXPLAIN verification.",
+    "actual": "Load references/mariadb-guide.md. Composite order matters: equality filters first, then range/order columns. Example: CREATE INDEX idx_status_created ON your_table (status, created_at); verify with SHOW INDEX / EXPLAIN SELECT ... WHERE status=? ORDER BY created_at.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you explain how to set up temporal tables in MariaDB to track history?",
+    "expected": "Load references/mariadb-guide.md; explain SYSTEM VERSIONING and FOR SYSTEM_TIME queries; mention retention.",
+    "actual": "Load references/mariadb-guide.md. Enable with ALTER TABLE t ADD SYSTEM VERSIONING. Query history with FOR SYSTEM_TIME AS OF 'timestamp' or BETWEEN start AND end. Plan retention/purge because history grows storage and backups.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We run MariaDB Galera and occasionally see write conflicts. What should we change first?",
+    "expected": "Explain certification conflicts, smaller transactions, avoid hot-row multi-primary writes, optional wsrep_sync_wait for critical reads.",
+    "actual": "Galera certifies writes; same-row concurrent commits roll one back. Keep transactions small, reduce hot-row multi-primary updates, retry safely, and use wsrep_sync_wait when a session must read its own causal writes. Check cluster size/quorum rather than only raising timeouts.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Should I use this skill for generic SQL formatting on Postgres?",
+    "expected": "Decline primary use; route to sql/timescaledb/mysql as appropriate; MariaDB skill is for MariaDB-specific work.",
+    "actual": "No—use sql for dialect-agnostic patterns and timescaledb/Postgres skills for that engine. Load mariadb only when the server is MariaDB or the task needs MariaDB-specific features (sequences, system versioning, Galera, MariaBackup).",
+    "pass": true
+  }
+]
