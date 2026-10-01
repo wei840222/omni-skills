@@ -35,6 +35,8 @@ Route away when the task is mainly:
 
 ## When to load references
 
+Load the smallest reference that matches the current decision; keep SKILL.md as the entry point.
+
 | Need | File |
 |------|------|
 | Coding and non-coding task matching | `references/task-routing.md` |
