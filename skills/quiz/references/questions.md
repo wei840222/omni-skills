@@ -90,7 +90,7 @@ Best for processes and timelines.
 | Medium | Apply the concept in a short scenario |
 | Hard | Discriminate near-miss options or multi-step reasoning |
 
-Do not spike difficulty with obscure trivia outside the stated objective.
+Keep difficulty spikes tied to the objective; obscure off-goal trivia weakens measurement with obscure trivia outside the stated objective.
 
 ## Knowledge item checklist
 
