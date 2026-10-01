@@ -1,286 +1,106 @@
 ---
 name: youtube-video-transcript
-slug: youtube-video-transcript
-version: 1.0.0
-description: Fetch, summarize, and save YouTube transcripts with timestamp navigation, chapter detection, and searchable content.
-homepage: https://clawic.com/skills/youtube-video-transcript
-changelog: Initial release with transcript extraction, timestamp navigation, chapter detection, and multi-format export.
+description: >
+  Fetch and format YouTube video transcripts with precise timestamp navigation,
+  chapter detection, quote extraction, and local cache-with-consent. Use when
+  the user shares a YouTube URL and asks to read, summarize, search, quote, or
+  export that video's spoken content. Not for generating/burning captions onto
+  a local media file (`video-captions`), general FFmpeg media processing
+  (`ffmpeg`), or summarizing text the user already has (`summarizer`).
 metadata:
-  clawdbot:
-    emoji: 📺
-    requires:
-      bins:
-      - yt-dlp
-    install:
-    - id: brew
-      kind: brew
-      formula: yt-dlp
-      bins:
-      - yt-dlp
-      label: Install yt-dlp (Homebrew)
-    - id: pip
-      kind: pip
-      package: yt-dlp
-      bins:
-      - yt-dlp
-      label: Install yt-dlp (pip)
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: YouTube Video Transcript
+  version: "1.1.0"
+  openclaw: '{"emoji":"📺","requires":{"bins":["yt-dlp"]},"install":[{"id":"brew","kind":"brew","formula":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (Homebrew)"},{"id":"pip","kind":"pip","package":"yt-dlp","bins":["yt-dlp"],"label":"Install yt-dlp (pip)"}]}'
+  related-skills: '{"summarizer":"Compress an already-extracted transcript or other text source once you have plain text.","video-captions":"Generate or burn captions for a local video file rather than fetch YouTube host subtitles.","ffmpeg":"Lower-level media convert/trim/extract when the request is not YouTube transcript work.","video":"General video tasks outside YouTube subtitle extraction.","extract-pdf-text":"Extract text from PDFs/scans before summarization; different source type."}'
 ---
 
-Most YouTube transcript tools either require paid APIs, use suspicious proxies, or just dump raw text without structure. This skill extracts transcripts locally using yt-dlp, preserves timestamps for navigation, detects chapters automatically, and exports to any format you need.
+# YouTube Video Transcript
 
-## When to Use
+Extract YouTube subtitles locally with `yt-dlp`, keep timestamps for navigation, prefer human-uploaded tracks over auto-generated ones, and only cache under a portable `<state_root>` after the user consents.
 
-User shares a YouTube link and wants to read instead of watch. User asks what someone says about a topic at a specific moment. User needs to extract quotes with timestamps for research or content creation. User wants to summarize a video or search within its content.
+## State location
 
-## How It Works
+Resolve `<state_root>` before any preference or cache read/write:
 
-```
-         ┌──────────────────────────────────────────────┐
-         │           YOUTUBE TRANSCRIPT FLOW            │
-         └──────────────────────────────────────────────┘
-                              │
-         ┌────────────────────┼────────────────────┐
-         ▼                    ▼                    ▼
-    ┌─────────┐         ┌──────────┐         ┌─────────┐
-    │  VIDEO  │         │ METADATA │         │SUBTITLES│
-    │   URL   │         │  FETCH   │         │  CHECK  │
-    └────┬────┘         └────┬─────┘         └────┬────┘
-         │                   │                    │
-         │  youtube.com/     │  Title, duration,  │  Manual first,
-         │  watch?v=...      │  chapters, lang    │  auto fallback
-         │                   │                    │
-         └───────────────────┴────────────────────┘
-                              │
-                              ▼
-                    ┌─────────────────┐
-                    │ EXTRACT + CLEAN │
-                    │ VTT → Markdown  │
-                    │ with timestamps │
-                    └────────┬────────┘
-                              │
-              ┌───────────────┼───────────────┐
-              ▼               ▼               ▼
-        ┌──────────┐   ┌───────────┐   ┌──────────┐
-        │ CHAPTERS │   │  SEARCH   │   │  EXPORT  │
-        │ detected │   │ by topic  │   │ MD/SRT/  │
-        │ or smart │   │ timestamp │   │ TXT/JSON │
-        └──────────┘   └───────────┘   └──────────┘
-```
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory:
+   `<workspace>/youtube-video-transcript/`,
+   `<workspace>/memory/youtube-video-transcript/`,
+   `~/youtube-video-transcript/`.
+3. If none exist and the user asked to persist data, create
+   `<workspace>/youtube-video-transcript/`.
 
-## The Extraction Process
+| Path | Required? | Role |
+|------|-----------|------|
+| `<state_root>/memory.md` | optional | Format/summary preferences and recent video index |
+| `<state_root>/videos/{video_id}.md` | optional | Cached transcript per video (consent required) |
+| `<state_root>/exports/` | optional | User-requested export files |
+| `<state_root>/research/{topic}/` | optional | Multi-video research folders the user asked to keep |
 
-### 1. 📋 Get Metadata First
+Do not treat the literal string `<state_root>` as a filesystem path. Skill resources stay under `references/` and `assets/`. Never store cookies, credentials, or browser profiles inside `<state_root>`.
 
-Always fetch video info before extracting subtitles:
+Template: `assets/memory-template.md`.
 
-```bash
-yt-dlp -j "VIDEO_URL"
-```
+## When to load
 
-This gives you title, duration, official chapters, and available languages. Use it to confirm the right video and check what subtitles exist.
+Load this skill when the user:
 
-### 2. 📝 Prefer Manual Subtitles
+- shares a YouTube watch/youtu.be/shorts URL and wants the spoken content as text
+- asks what someone said about a topic and needs timestamps or deep links
+- wants quotes with context for research or content reuse
+- wants chapter-oriented reading, SRT/VTT/Markdown export, or a consented local cache
 
-Manual (uploaded) subtitles are higher quality than auto-generated:
+Route away when the ask is mainly:
 
-```bash
-# Try manual first
-yt-dlp --write-sub --sub-lang en --skip-download "VIDEO_URL"
+- caption generation or burn-in for a local file → `video-captions`
+- codec/trim/scale/audio extract without YouTube subtitles → `ffmpeg` / `video`
+- summarizing text already on hand → `summarizer`
 
-# Fall back to auto-generated if manual unavailable
-yt-dlp --write-auto-sub --sub-lang en --skip-download "VIDEO_URL"
-```
+## Quick reference
 
-Auto-generated transcripts often have errors, missing punctuation, and wrong word boundaries. Manual subtitles are human-verified.
+| Need | Load |
+|------|------|
+| Install check, first-run order, consent prompts | `references/setup.md` |
+| Metadata → list-subs → extract → format pipeline | `references/workflow.md` |
+| Search, chapters, exports, batch, recovery | `references/patterns.md` |
+| yt-dlp flags, YouTube caption facts, sources | `references/sources.md` |
+| Preference / cache file shapes | `assets/memory-template.md` |
 
-### 3. 🕐 Preserve Timestamps Always
+## Core rules
 
-Every segment must include timestamps. Format: `[HH:MM:SS]` or `[MM:SS]` for videos under 1 hour.
+1. **Metadata before extraction.** Run `yt-dlp -j "URL"` first for title, duration, chapters, and id. Do not extract blind.
+2. **List tracks, then choose.** Run `yt-dlp --list-subs "URL"`. Prefer human-uploaded (`--write-subs`) over auto (`--write-auto-subs`). Report which language and whether the track was manual or automatic.
+3. **Timestamps stay attached.** Keep `[HH:MM:SS]` or `[MM:SS]` on every segment through display, search, quote, and export (except an explicit plain-text strip request).
+4. **Cache only with consent.** After the first useful extraction, ask once. Yes → write under `<state_root>/videos/`. No → show once and do not cache. Always name the path written.
+5. **Quality transparency.** Manual → "official/uploaded subtitles". Auto → "auto-generated (may have errors)". None → say so and stop; do not invent dialogue.
+6. **Local only.** No third-party transcript proxies. Optional `--cookies` / `--cookies-from-browser` only when the user supplies their own file or browser profile for age/region locks; never request passwords.
+7. **Deep links for hits.** When returning search/quote hits, include `https://youtube.com/watch?v=ID&t=SECONDS` (integer seconds).
 
-**Why this matters:** Users need to jump to specific moments. "Take me to where they discuss pricing" requires knowing the timestamp.
-
-**Output format:**
-```markdown
-[00:00] Welcome to this video about machine learning
-[00:15] Today we'll cover three main topics
-[00:30] First, let's talk about neural networks
-```
-
-## Chapter Detection
-
-### From Video Markers
-
-Many videos have chapter markers embedded. Extract from metadata:
+## Default pipeline
 
 ```bash
-yt-dlp -j "VIDEO_URL" | jq '.chapters'
+yt-dlp -j "VIDEO_URL"                 # metadata + chapters
+yt-dlp --list-subs "VIDEO_URL"        # available tracks
+# prefer manual, then auto; skip media download
+yt-dlp --skip-download --write-subs --sub-langs LANG --sub-format vtt/best "VIDEO_URL"
+# fallback:
+yt-dlp --skip-download --write-auto-subs --sub-langs LANG --sub-format vtt/best "VIDEO_URL"
 ```
 
-### Smart Detection (No Markers)
+Convert VTT/SRV to Markdown segments with timestamps, optionally group by official chapters (`jq '.chapters'` on the `-j` JSON), then answer the user request (full read, summary, search, quote, export).
 
-When video lacks chapters, detect natural breaks from transcript:
-- Topic changes (semantic shift in content)
-- Speaker changes (different voice patterns)
-- Explicit transitions ("Now let's talk about...", "Moving on...")
-- Long pauses between segments
+## Security and privacy
 
-## Search Within Transcripts
+- Transcripts and preferences stay local and only after consent.
+- Do not commit cookies, `cookies.txt`, or auth headers into the skill tree or git.
+- Geo/age restrictions: report the blocker; cookies are user-provided opt-in only; this skill does not run proxies.
+- Strip live secrets if a transcript somehow contains them before any cache write.
 
-When user asks "where do they talk about X":
+## Common traps
 
-1. Search transcript for keywords and semantic matches
-2. Return segments with timestamps
-3. Include surrounding context (10-15 seconds before/after)
-
-**Response format:**
-```
-Found 3 mentions of "machine learning":
-
-[05:23] "...this is where machine learning really shines..."
-Context: Discussing data processing approaches
-
-[12:45] "...traditional methods vs machine learning..."
-Context: Comparison section
-```
-
-Generate clickable links: `https://youtube.com/watch?v=VIDEO_ID&t=323`
-
-## Architecture
-
-Memory lives in `~/Clawic/data/youtube-video-transcript/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/youtube-video-transcript/
-├── memory.md          # Preferences + recent videos
-├── videos/            # Cached transcripts (with consent)
-│   └── {video_id}.md  # Individual video data
-└── exports/           # Exported files
-```
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Advanced patterns | `patterns.md` |
-
-## Core Rules
-
-### 1. Metadata Before Extraction
-
-Always run `yt-dlp -j URL` first. This confirms the video, shows available languages, and reveals official chapters. Never extract blind.
-
-### 2. Manual Over Auto
-
-| Subtitle Type | Quality | When to Use |
-|---------------|---------|-------------|
-| Manual | High | Always try first |
-| Auto-generated | Medium | Fallback only |
-
-Check with `yt-dlp --list-subs URL` for unfamiliar channels.
-
-### 3. Timestamps Are Sacred
-
-Never strip timestamps during any operation. They enable navigation, citation, and deep linking into the video.
-
-### 4. Cache With Consent
-
-| User Response | Action |
-|---------------|--------|
-| "Yes, save it" | Cache to ~/Clawic/data/youtube-video-transcript/videos/ |
-| "No thanks" | Don't cache, show once |
-| Not asked yet | Ask after first extraction |
-
-Always tell user where files are saved and offer to show or delete them.
-
-### 5. Handle Multiple Languages
-
-If user doesn't specify:
-1. Check available languages
-2. Prefer manual over auto
-3. Default to English
-4. Report which language was used
-
-```bash
-yt-dlp --list-subs "VIDEO_URL"
-```
-
-### 6. Quote Extraction Includes Context
-
-When extracting quotes for research:
-- 10-15 seconds before/after for context
-- Exact timestamp for the quote start
-- Speaker identification if multiple speakers
-
-### 7. Transparency on Quality
-
-| Subtitle Type | Tell User |
-|---------------|-----------|
-| Manual | "Using official subtitles" |
-| Auto-generated | "Using auto-generated (may have errors)" |
-| None available | "No subtitles found for this video" |
-
-## Export Formats
-
-| Format | Use Case | Command |
-|--------|----------|---------|
-| Markdown | Reading, notes | Default |
-| SRT | Video editors | `--sub-format srt` |
-| Plain text | Search, grep | Strip timestamps |
-| JSON | Programmatic | `--write-info-json` |
-
-## Common Traps
-
-| Trap | Consequence | Prevention |
-|------|-------------|------------|
-| Not checking subtitles first | Wasted time on unavailable video | Always `--list-subs` first |
-| Ignoring auto-generated quality | Garbage text with errors | Prefer manual, warn about auto |
-| Losing timestamps | Can't navigate video | Never strip in any operation |
-| Extracting without metadata | Missing title, chapters | Always fetch `-j` first |
-| Caching without consent | Privacy violation | Ask before saving |
-
-## Quick Commands
-
-| User Says | Action |
-|-----------|--------|
-| "Transcribe this video" | Extract + display |
-| "What do they say about X?" | Search + timestamps |
-| "Save this transcript" | Cache with confirmation |
-| "Export as SRT" | Convert format |
-| "Show saved videos" | List ~/Clawic/data/youtube-video-transcript/videos/ |
-| "Delete video X" | Remove from cache |
-
-## Security & Privacy
-
-**Data that stays local (with your consent):**
-- Transcripts cached in ~/Clawic/data/youtube-video-transcript/ (only if you agree)
-- Preferences stored locally (only after confirmation)
-- No external API calls beyond YouTube's public subtitle endpoints
-
-**Transparency guarantees:**
-- Always asks before saving transcripts locally
-- Tells you where files are saved
-- Offers to show or delete saved data anytime
-
-**This skill does NOT:**
-- Use proxy services or third-party APIs
-- Send your queries to external services
-- Store credentials or authentication
-- Save anything without your explicit consent
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `summarizer` — create summaries from any content
-- `video-captions` — generate and edit video subtitles
-- `ffmpeg` — advanced video and audio processing
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/youtube-video-transcript
-- Latest version: https://clawic.com/skills/youtube-video-transcript
+| Trap | Prevention |
+|------|------------|
+| Extract without `-j` / `--list-subs` | Always metadata + list first |
+| Treat auto as manual quality | Label auto; prefer uploaded tracks |
+| Strip timestamps during cleanup | Preserve through every transform |
+| Cache without asking | Ask after first extraction |
+| Legacy `--write-sub` flag | Current yt-dlp uses `--write-subs` / `--write-auto-subs` |
