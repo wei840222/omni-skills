@@ -34,7 +34,7 @@ Load this skill when the user wants to **create, critique, or implement a quiz**
 - knowledge / certification / exam-style items with one correct answer
 - personality or “which type are you” outcome mapping
 - assessment diagnostics across competency dimensions
-- lead-gen quizzes that gate results behind contact capture
+- lead-gen / lead generation quizzes that gate results behind contact capture
 - trivia / entertainment quizzes with score or leaderboard framing
 - question stems, distractors, scoring, progress UX, or results copy
 
