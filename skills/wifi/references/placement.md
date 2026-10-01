@@ -10,4 +10,4 @@
 - Same-channel **extenders** typically repeat and can **halve** effective throughput on the hop — expect airtime cost.
 - **Mesh** with a dedicated wireless backhaul, or better a **wired** backhaul, avoids spending client-serving airtime on the backhaul hop.
 - Try **repositioning one good AP** before buying mesh — many "need mesh" tickets are placement or band issues.
-- Extra APs in the wrong spots create sticky roaming and co-channel conflict — add coverage with a plan, not stacked SSIDs on top of each other.
+- Plan each added AP for a coverage hole and channel plan so roaming stays predictable and co-channel overlap stays controlled.
