@@ -5,8 +5,8 @@ Acquiring items: domains, NFTs, collectibles, products, bulk deals.
 
 ## Opening Strategy
 
-- Start at 30-50% of asking price (market dependent)
-- Never reveal your ceiling
+- When the principal authorizes an opening bid, a low-but-defensible first number (often well below ask in illiquid markets) is a common anchor; confirm the open with them first
+- Keep the ceiling confidential unless the principal authorizes disclosure
 - Show interest but not desperation
 - Research comparables first — argue with data, not emotion
 

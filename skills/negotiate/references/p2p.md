@@ -21,7 +21,7 @@ eBay, FB Marketplace, Wallapop, Craigslist, Mercari, Vinted. High volume, low tr
 
 ## Handling Lowballers
 
-Never insult or ignore completely. Template:
+Stay brief and firm. Template:
 
 > "Thanks for your interest! My minimum is €[floor]. Let me know if that works."
 
@@ -43,7 +43,7 @@ Only use if true:
 - "I can hold it until [time], then relisting"
 - "Moving soon, need gone by [date]"
 
-Never lie about other buyers. It damages trust and karma.
+Do not invent other buyers; false scarcity burns trust and can violate platform rules.
 
 ## Post-Agreement Ghosting
 
