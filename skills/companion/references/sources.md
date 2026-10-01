@@ -5,7 +5,6 @@ Primary URLs used while verifying companion / loneliness / listening guidance. P
 ## Loneliness, social connection, and presence
 
 - **WHO — Social isolation and loneliness programme page** — social connection supports healthy ageing; loneliness is a public-health concern distinct from chosen solitude — https://www.who.int/teams/social-determinants-of-health/demographic-change-and-healthy-ageing/social-isolation-and-loneliness
-- **CDC — About social connectedness** — plain-language value of meaningful contact and reducing isolation (not a clinical protocol) — https://www.cdc.gov/social-connectedness/about/index.html
 - **Campaign to End Loneliness** — practical non-clinical framing of loneliness and why presence/befriending-style contact matters — https://www.campaigntoendloneliness.org/
 
 ## Active listening and non-directive support
