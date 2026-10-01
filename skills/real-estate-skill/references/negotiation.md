@@ -4,7 +4,7 @@
 
 ### Pricing Your Offer
 
-**Never base on asking price.** Base on:
+**Base your offer strictly on:**
 - Recent comparable sales (last 3-6 months)
 - Days on market (DOM >30 = leverage)
 - Price reductions already made
@@ -31,10 +31,10 @@ Earnest money is applied to purchase. Only at risk if you breach contract.
 
 ### Inspection Contingency
 
-**Don't waive.** But you can make it attractive:
+**Maintain the inspection contingency.** You can make it attractive by:
 - Shorten period (10 days instead of 14)
 - Informational only (won't ask for repairs under $X)
-- Pre-inspect before offer (risky if you don't win)
+- Pre-inspect before offer (carries financial risk if the offer is rejected)
 
 **After inspection — request strategies:**
 - Ask for repairs (seller controls quality)
@@ -95,11 +95,11 @@ Sometimes silence is negotiation. Wait before sweetening.
 3. Items that affect financing (FHA/VA requirements)
 4. Significant deferred maintenance
 
-**Don't ask for:**
+**Lower priority after the list above:**
 - Cosmetic issues
 - Normal wear
-- Items visible before offer
-- Nitpicking ($50 items)
+- Items already visible before the offer
+- Small-ticket nitpicks (about $50 items)
 
 **Credit vs. Repair:**
 
