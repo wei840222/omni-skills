@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| analytics | 2026-10-02 | 84/100 (#664) |
 | figma | 2026-10-02 | 84/100 (#663) |
 | business | 2026-10-02 | 85/100 (#662) |
 | france | 2026-10-02 | 85/100 (#661) |
