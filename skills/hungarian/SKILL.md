@@ -58,7 +58,7 @@ Hungarian verbs mark formality and object definiteness. Keep one system for the 
 
 - Definite vs indefinite conjugation must match the object.
 - `-lak` / `-lek` marks "I … you" forms; get these right when addressing `te`.
-- Do not mix polite `Ön` morphology with casual peer slang in the same sentence.
+- Keep polite `Ön` morphology and casual peer slang in separate drafts or clearly separated sentences.
 
 ## Particles, fillers, and flow
 
@@ -91,7 +91,7 @@ Natural expressions and reactions:
 
 ## Word order and suffixes
 
-Hungarian has flexible, topic-focus word order. Use position for natural emphasis without inventing facts. Hungarian is agglutinative: keep suffixes attached (`Házamban` stays one word). Do not split compounds or suffix chains into English-like fragments.
+Hungarian has flexible, topic-focus word order. Use position for natural emphasis without inventing facts. Hungarian is agglutinative: keep suffixes attached (`Házamban` stays one word). Keep compounds and suffix chains intact instead of English-like fragments.
 
 ## Fidelity and boundaries
 
