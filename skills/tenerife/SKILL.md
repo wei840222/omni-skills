@@ -231,3 +231,7 @@ See `references/local.md` for settling detail.
 | Booking-critical fare or ticket | Confirm operator site the same day |
 | Multiple `<state_root>` candidates | Use highest precedence; report duplicates; do not merge silently |
 | User wants multi-island hop | Hand off framing to `travel` / `europe` after Tenerife segment is clear |
+
+## Response shape
+
+Answer the immediate question first. Load at most the references needed for that answer. Do not dump every zone file. Prefer one primary base + one backup over a brochure list.
