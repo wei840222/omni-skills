@@ -1,12 +1,12 @@
 ---
 name: news
 description: >
-  Create personalized news briefings that learn user interests, format
-  preferences, and timing. Use when the user asks for news, morning/evening
-  briefings, topic updates, multi-source coverage of contested events, or
-  profile-driven current-events digests. Prefer `summarizer` to condense a
-  single known article, `scrape` to extract one page, and `reading` for
-  long-form reading lists rather than recurring briefings.
+  Build personalized news briefings that learn interests, format, and timing.
+  Trigger when the user asks for news, morning/evening briefings, topic
+  updates, multi-source contested coverage, or profile-driven current-events
+  digests. Prefer `summarizer` to condense one known article, `scrape` for a
+  single page extract, and `reading` for long-form reading lists instead of
+  recurring briefings.
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"📰","os":["linux","darwin","win32"],"displayName":"News"}'
