@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a smooth micro-interaction for a 'like' button in a React app. It should feel responsive and premium.",
+    "expected": "Refuses vague 'smooth/premium' alone; writes a motion contract (trigger, states, spring/duration, reduced-motion fallback, acceptance); prefers high-level React motion/CSS; asks before large code dump only if needed.",
+    "actual": "Before code, lock a motion contract for the like control:\n- Trigger: pointer/keyboard activate on the like control.\n- States: unliked → pressed → liked (and reverse).\n- Motion: press scale ~0.96 within 100ms; release spring to ~1.06 then settle at 1.0; color/icon morph in parallel.\n- Tokens: spring stiffness ~300 damping ~18 (or 120–160ms CSS if springs unavailable).\n- Reduced motion: skip scale travel; 150ms color/opacity crossfade only; keep focus ring stable.\n- Acceptance: acknowledges input <100ms, no layout shift, interruptible on rapid toggle, works with keyboard.\nReact path: CSS transitions or Motion presence on the icon/color—not a page-level choreography library. I can emit a minimal Motion/`button` snippet next if you want implementation immediately.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should I animate a modal opening in Flutter while respecting reduced motion and back-gesture cancel?",
+    "expected": "Uses a motion contract; prefers showModalBottomSheet/showDialog or high-level transitions; defines backdrop + surface motion; reduced-motion fade; explicit cancel/back interruption; no decoration-first advice.",
+    "actual": "Motion contract first:\n- Trigger: user action opens a blocking modal/sheet.\n- Enter: barrier fade 0→~0.4; surface slides/rises 240–320ms with decelerate curve (or scale 0.96→1.0 for center dialogs).\n- Exit: faster than enter; barrier clears with the surface.\n- Reduced motion: barrier+surface opacity only; near-zero translation.\n- Cancel: system back, barrier tap, and rapid re-open must reverse or replace the current controller—no stuck barrier.\nFlutter routing: prefer `showModalBottomSheet` / `showDialog` (or `showGeneralDialog` with a short `PageRouteBuilder`) so route lifecycle owns interruption. Use implicit widgets inside the sheet for content; reach for explicit `AnimationController` only if you need custom choreography. QA: reduced-motion toggle, mid-animation back, and slow device barrier dismissal.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our design system needs shared motion tokens for web and React Native list reorder, including low-end devices.",
+    "expected": "Gives token ladder, compositor-safe property guidance, stack routing, low-end degradation, reduced-motion substitutions, and acceptance/QA checks; avoids committing secrets or hard-coded absolute state paths.",
+    "actual": "Publish a small token ladder, not per-screen magic numbers:\n- Micro feedback 100–160ms; state change 180–280ms; overlay/list layout 240–360ms.\n- Easing: standard decelerate for enter, slightly faster exit; springs only where gesture momentum exists.\n- Properties: prefer transform/opacity; list reorder should use layout-aware identity (RN layout animations / web FLIP or framework layout APIs) instead of top/left tweens.\n- Reduced motion: collapse travel and stagger; keep item identity via short crossfade.\n- Low-end: drop blur/shadow loops first, cap concurrent moving items, one primary motion at a time.\n- RN: native-driver/worklet paths for drag; avoid JS-thread critical choreography.\n- Web: CSS transform/opacity; reserve View Transitions for document-level shifts.\nStore approved ladders under resolved `<state_root>/tokens.md` after consent. Acceptance: no jank on mid-tier, interruptible drag cancel, stable focus/hit targets, reduced-motion parity of meaning.",
+    "pass": true
+  }
+]
