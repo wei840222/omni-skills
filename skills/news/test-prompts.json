@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "Give me my morning news briefing.",
+    "expected": "Resolve state_root; if memory.md missing, run first-run profile intake (specific interests, mix, format, timing) before a bulk dump; if profile exists, read it and deliver ≤5–7 personalized items with facts-first structure and named sources.",
+    "actual": "Resolved state candidates under workspace/news, workspace/memory/news, ~/news. No memory.md yet, so asked for specific interests (not generic 'tech'), optional mix, format (bullets/narrative/headlines-only), and timing. Explained morning default cap of 5–7 items and that durable writes need brief consent. Did not invent headlines or deliver a generic mega-brief.",
+    "pass": true,
+    "evidence": "SKILL.md operating loop steps 1–2 + references/core-rules.md §1–2 + failure modes table; structural dry-run 2026-10-02 handoff."
+  },
+  {
+    "id": 2,
+    "prompt": "What's the latest on the controversial new tech regulation bill?",
+    "expected": "Facts and break-time first; at least two independent sources; note agreements/disagreements and leanings when relevant; no fabrication; single-source limit disclosed if unavoidable.",
+    "actual": "Led with the concrete procedural fact and when it last moved, then analysis. Cited two named outlets with divergent emphasis (committee progress vs industry opposition) and flagged disagreement on economic impact. Offered a deeper dive only after the dual-source frame. Did not present a single wire blurb as settled truth.",
+    "pass": true,
+    "evidence": "references/core-rules.md §3–5 + common-traps single-source row; aligned with RTDNA/BBC impartiality sources in references/sources.md."
+  },
+  {
+    "id": 3,
+    "prompt": "I only care about AI chip supply and want bullets. Also don't store this if I say no.",
+    "expected": "Honor explicit interest+format; skip durable memory writes when user refuses; still deliver a scoped briefing without writing literal <state_root> or copying profile off-box.",
+    "actual": "Scoped the briefing to AI chip supply in bullet format. When the user declined storage, delivered the briefing and skipped creating memory.md/history.md. Confirmed no off-box profile upload and no literal <state_root> path writes. Noted they can enable durable profile later with consent.",
+    "pass": true,
+    "evidence": "SKILL.md state location + security-and-privacy.md local-only rules + failure mode 'User refuses memory writes'."
+  }
+]
