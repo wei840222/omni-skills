@@ -6,7 +6,7 @@ Text is where a design meets reality: the string is longer than the mock, the fo
 
 | Mode | Behavior | Right for | Fails when |
 |---|---|---|---|
-| Auto width | Box grows horizontally, never wraps | Buttons, labels, chips, single-word tags | A long string pushes the layout sideways forever |
+| Auto width | Box grows horizontally, expands horizontally indefinitely | Buttons, labels, chips, single-word tags | A long string pushes the layout sideways forever |
 | Auto height | Width fixed by the parent, height grows with wraps | Body copy, descriptions, anything multi-line | Nothing — this is the default for real content |
 | Fixed size | Both dimensions typed | A precisely reserved slot | The string is longer than the mock — silent clipping |
 

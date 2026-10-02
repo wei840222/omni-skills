@@ -76,5 +76,5 @@ Represent them as a labelled placeholder marked "native" and spec the parameters
 | Carousel fights the back gesture | Horizontal drag starting at the screen edge | Inset the drag region from the edge |
 | Date picker cannot be built as drawn | A native component was redrawn | Placeholder marked native, plus parameters |
 | Form unusable on tablet | Full-width layout on a wide screen | Clamp the measure; consider list-detail |
-| Field hidden behind the keyboard | Keyboard avoidance never specced | State what scrolls and what stays visible |
+| Field hidden behind the keyboard | Keyboard avoidance omitted from specs | State what scrolls and what stays visible |
 | Everything is a half pixel off | File designed at 2x | Rebuild at 1x logical size |

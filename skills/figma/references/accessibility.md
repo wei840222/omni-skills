@@ -17,7 +17,7 @@ The visual layer cannot express focus order, semantics, or state changes. If the
 
 ## Beyond Color
 
-- Never encode meaning in color alone. Error red needs an icon or text; a required field needs a marker; a chart series needs a shape, a pattern, or a direct label.
+- Ensure color is paired with an icon, text, or pattern to convey meaning. Error red needs an icon or text; a required field needs a marker; a chart series needs a shape, a pattern, or a direct label.
 - Test the palette against the common color-vision deficiencies with a simulation tool. Red/green pairs and blue/purple pairs are the usual failures.
 - Focus indicators are content, not decoration: spec the visible focus treatment (offset, thickness, color) as a component state, or engineers will use the browser default and someone will remove it in CSS.
 
@@ -66,10 +66,10 @@ Annotations attach to nodes and travel with the file. These are the items code c
 | Symptom | Cause | Fix |
 |---|---|---|
 | Contrast passes in Light, fails in Dark | Semantic token points at a different primitive per mode | Re-check every pair per mode; adjust the Dark primitive |
-| Audit reports missing focus indicators | Focus state never designed | Add a focus variant to every interactive component |
-| Screen reader announces nothing on filter change | State announcement never specced | Annotate the live-region behavior |
+| Audit reports missing focus indicators | Focus state omitted from design | Add a focus variant to every interactive component |
+| Screen reader announces nothing on filter change | State announcement omitted from specs | Annotate the live-region behavior |
 | Errors read as unattached text | No field association specced | Annotate which message belongs to which input |
 | Taps land on the wrong control | Hit areas smaller than the minimum, or adjacent | Pad inside the component; separate hit areas |
 | Chart unreadable for color-blind users | Meaning encoded in hue alone | Add shape, pattern, or direct labels |
 | Layout breaks at 200% zoom | Only tested at default type size | Design the largest-text state |
-| Images have no alt text in the build | Never provided in the file | Write the string per image; mark decorative ones |
+| Images have no alt text in the build | omitted in the file | Write the string per image; mark decorative ones |

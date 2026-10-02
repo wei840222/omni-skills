@@ -33,7 +33,7 @@ Bisect method: duplicate the file, delete half the pages, reopen. Repeat on the 
 
 Run in this order; each step makes the next cheaper.
 
-1. Downscale or flatten raster that will never be re-cropped, keeping editable originals on a hidden `_source` page.
+1. Downscale or flatten raster that will remain at their final dimensions, keeping editable originals on a hidden `_source` page.
 2. Find and rebuild or rasterize high-node vectors. Auto-traced artwork almost always redraws smaller by hand.
 3. Remove stacked effects that do not survive a side-by-side comparison at 100% zoom.
 4. Unlink libraries the file does not actually consume.
@@ -45,7 +45,7 @@ Run in this order; each step makes the next cheaper.
 
 - A file has a working size. When one page exceeds what fits comfortably, split it by feature rather than letting it grow.
 - Paste-special as plain content rather than pasting whole nested frames from other files, which drags their component and style dependencies along.
-- Do not archive by hiding: hidden layers still load. Move them to an `Archive` page or delete them with a named version as the safety net.
+- Archive explicitly using an `Archive` page or deleting them with a named version as the safety net instead of just hiding layers.
 - Component sets past their variant ceiling are a performance problem as well as a usability one; split them when editing one variant becomes noticeably slow.
 - Prefer the desktop app for large files: it gets its own process and memory budget instead of competing with forty browser tabs.
 

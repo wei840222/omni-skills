@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "The text in my button is spilling out when I translate it to German. It's inside an auto layout frame.",
+    "expected": "Instruct Hug contents on the text node and parent button frame instead of fixed width; walk panel path for sizing modes.",
+    "actual": "Set the text container sizing mode to Hug contents instead of Fixed width. Set the parent button frame to Hug contents horizontally so longer German copy can expand. Prefer Auto height on the text node; clear Max lines if ellipsis appears. Deliver Design panel sizing controls in click order.",
+    "pass": true,
+    "evidence": "references/text.md + references/auto-layout.md + SKILL.md Quick Reference text-clip row; official auto layout sizing modes."
+  },
+  {
+    "id": 2,
+    "prompt": "We have 100 variants of our Button component for sizes, states, icons, and themes. It's slowing down the file.",
+    "expected": "Move uncoupled axes to component properties and theming to variables/modes; keep variants for true visual divergence only.",
+    "actual": "Reduce combinatorial variants: keep size/state as true variant axes only when visuals diverge. Convert icon presence to boolean properties and icon choice to instance-swap properties. Move theme/brand to Variables modes on semantic tokens instead of duplicating variants. Republish after a named version so consumers can review the breaking cleanup.",
+    "pass": true,
+    "evidence": "references/components.md + references/variables.md + references/performance.md; official component properties and variables guides."
+  },
+  {
+    "id": 3,
+    "prompt": "Dark mode contrast fails even though Light mode passed. Fills use raw hex in places.",
+    "expected": "Bind fills to semantic variables, re-check contrast per mode, and avoid screenshot-only QA.",
+    "actual": "Select same-fill offenders and rebind to semantic color variables with Light/Dark modes. Verify contrast on the token pair in every shipping mode, not the Light screenshot. Prefer fixing the Dark primitive over duplicating screens. Annotate residual risks in Dev Mode when the visual layer cannot carry focus order.",
+    "pass": true,
+    "evidence": "references/variables.md + references/accessibility.md + setup plan-gate guidance; WCAG 2.2 contrast guidance."
+  }
+]
