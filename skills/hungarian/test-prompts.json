@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this to casual Hungarian for a close friend: Hey, are you free later? I just wanted to hang out if you are up for it.",
+    "expected": "Warm te-register with informal greeting and at least one natural particle/filler; no Ön/Maga; no added place or hard promise.",
+    "actual": "Szia, szabad vagy később? Csak meg akartam kérdezni, van-e kedved lógni, ha ráérsz.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Respond in Hungarian to a friend who asked: Szerinted megéri megvenni az új telefont?",
+    "expected": "Casual conversational reply with particles such as hát/szerintem and flexible natural order; keep uncertainty honest.",
+    "actual": "Hát, szerintem nem igazán éri meg. Kicsit túlárazott, és az előző is tök jól működik.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Write a short formal Hungarian note to an unfamiliar university office asking whether my document was received.",
+    "expected": "Formal Ön/Maga or institutional polite voice, full forms, no intimate slang or peer fillers like na/szóval stuffing.",
+    "actual": "Tisztelt Kolléga! Szeretném megkérdezni, hogy a benyújtott dokumentumom megérkezett-e. Tisztelettel.",
+    "pass": true
+  }
+]
