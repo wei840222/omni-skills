@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have an app on port 3000. Write a Caddyfile that serves example.com to it with HTTPS.",
+    "expected": "Minimal site block with reverse_proxy to localhost/127.0.0.1:3000; explain automatic HTTPS needs DNS A/AAAA plus ports 80/443 and persistent data dir; do not hand-roll certbot by default.",
+    "actual": "Provided example.com { reverse_proxy localhost:3000 }. Explained Caddy enables automatic HTTPS when the hostname is in config, DNS points at the host, ports 80/443 reach Caddy, and the data directory persists. Recommended caddy validate then caddy reload. Did not add manual Let's Encrypt steps or duplicate X-Forwarded-* headers.",
+    "pass": true,
+    "evidence": "SKILL.md minimal patterns + references/automatic-https.md public checklist; structural review 2026-10-02 handoff."
+  },
+  {
+    "id": 2,
+    "prompt": "How do I turn on debug logging in Caddy, and should I restart or reload after editing the Caddyfile?",
+    "expected": "Global options block with debug; prefer caddy fmt/validate/reload so a bad config keeps the previous config; restart only when process lifecycle requires it.",
+    "actual": "Showed a top-level { debug } global options block, then the site block. Instructed caddy fmt --overwrite, caddy validate --config, and caddy reload --config. Explained reload applies config without dropping the process and failed loads keep the prior config. Restart reserved for binary/unit changes, not routine Caddyfile edits.",
+    "pass": true,
+    "evidence": "SKILL.md core rules + references/caddyfile-and-ops.md config lifecycle; CLI docs in references/sources.md."
+  },
+  {
+    "id": 3,
+    "prompt": "Caddy in Docker cannot get certificates and loses them every redeploy. API container is named api on the compose network. What should I fix?",
+    "expected": "Persist /data and /config; proxy to service name api:port on shared user-defined network; ensure published 80/443 and DNS; consider staging ACME while testing; shared storage if multiple Caddy replicas.",
+    "actual": "Called out ephemeral container layers wiping certificate storage — mount persistent volumes for /data and /config. reverse_proxy api:<port> on the same Compose network instead of host-only DNS assumptions. Verified host publish/forward for 80/443 and DNS before production CA use; suggested staging ACME during bring-up. Noted multiple Caddy replicas need shared storage to avoid issuance fights.",
+    "pass": true,
+    "evidence": "references/automatic-https.md storage + references/caddyfile-and-ops.md Docker section + Docker Hub caddy image note in sources.md."
+  }
+]
