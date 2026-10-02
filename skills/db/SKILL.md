@@ -42,6 +42,10 @@ Prefer other skills when the ask is mainly:
 
 Optional audit notes, migration runbooks, and restore drill logs may live under `<workspace>/db/`, `<workspace>/memory/db/`, or `~/db/`. Resolve `<workspace>` as the host/runtime workspace root, never the shell cwd. Do not store production credentials in the skill tree.
 
+## Progressive disclosure
+
+Load only `SKILL.md` first. Open `references/database-gotchas.md` for trap depth and `references/sources.md` when citing or refreshing facts.
+
 ## Quick reference
 
 | Topic | File | When to load |
