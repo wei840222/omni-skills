@@ -1,55 +1,80 @@
 ---
 name: android-studio
-slug: android-studio
-version: 1.0.1
-description: Work fast in Android Studio IDE with debugging, profiling, refactoring, and productivity shortcuts.
-homepage: https://clawic.com/skills/android-studio
-changelog: Initial release with IDE workflows, debugging, profiling, and shortcuts.
+description: >
+  Optimize Android Studio IDE workflows: debugging, profiling, Layout/Database/Network
+  Inspector, platform-specific shortcuts, Gradle sync recovery, emulator tips, and
+  refactoring. Use when the user works inside Android Studio or asks for IDE hotkeys,
+  profiler setup, or build-sync fixes. Prefer `android` for app/build/runtime code,
+  `kotlin` for language craft, and `java` for Java-only syntax.
 metadata:
-  clawdbot:
-    emoji: 🤖
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Android Studio
+  version: "1.1.0"
+  openclaw: '{"emoji":"🤖"}'
+  related-skills: '{"android":"App build, runtime, targetSdk, signing, and Play shipping outside the IDE surface.","kotlin":"Kotlin language mechanics, coroutines, and null-safety rather than IDE navigation.","java":"Java syntax and interop details when the codebase is Java-first."}'
 ---
 
-## Setup
+# Android Studio
 
-On first use, read `setup.md` for integration guidelines.
+IDE-first guidance for **Android Studio** (IntelliJ-based): shortcuts, debugger/profiler,
+inspectors, Gradle sync recovery, and emulator productivity. This skill does not replace
+platform build or shipping advice in `android`.
 
-## When to Use
+## When to load
 
-User works with Android Studio IDE. Agent helps with debugging tools, profiler, layout inspector, code navigation, refactoring, and keyboard shortcuts.
+- Keyboard shortcuts, navigation, Live Templates, and refactoring inside Android Studio
+- Debugger strategy (conditional/log breakpoints, Evaluate Expression, attach on startup)
+- CPU / Memory / Energy / Network Profiler and App Inspection panels
+- Layout Inspector, Database Inspector, Network Inspector
+- Gradle sync failures, Build Variants panel, SDK Manager, emulator snapshots
 
-## Architecture
+Prefer other skills when the ask is mainly:
 
-Memory at `~/Clawic/data/android-studio/`. See `memory-template.md` for structure.
+- Gradle modules, `targetSdk`, crashes, Play upload → `android`
+- Kotlin language / coroutines / collections → `kotlin`
+- Java syntax depth → `java`
+- Generic IntelliJ non-Android work without Android tooling → do not force this skill
+
+## State location
+
+Optional IDE preference notes may live under `<workspace>/android-studio/`,
+`<workspace>/memory/android-studio/`, or `~/android-studio/`. Resolve `<state_root>` once
+per invocation:
+
+1. Use an explicitly configured path when available.
+2. Otherwise the first existing directory in that order.
+3. If multiple exist, use only the highest-precedence path and report duplicates.
+4. Create `<workspace>/android-studio/` only with user consent when no candidate exists.
 
 ```
-~/Clawic/data/android-studio/
-├── memory.md      # Preferences and project context
-└── shortcuts.md   # Custom shortcuts learned
+<state_root>/
+├── memory.md      # IDE version, platform keymap, project types, pain points
+└── shortcuts.md   # Custom shortcuts the user prefers
 ```
 
-## Quick Reference
+Never commit secrets, keystores, or `local.properties` into the skill package. Load
+`assets/memory-template.md` before writing state.
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Shortcuts | `shortcuts.md` |
-| Debugging | `debugging.md` |
+## Routing
 
-## Core Rules
+Keep `SKILL.md` as the progressive-disclosure router; load supporting files only when needed:
 
-### 1. Check IDE Version First
-Before suggesting features, confirm Android Studio version. Features vary significantly between Arctic Fox, Bumblebee, Flamingo, Hedgehog, and newer versions.
+- **First-run intake and preference capture** → `references/setup.md`
+- **Full shortcut tables** → `references/shortcuts.md`
+- **Breakpoint types and debugger playbooks** → `references/debugging.md`
+- **Inspectors, profiler traps, build/emulator/plugins** → `references/android-studio-guide.md`
+- **Gate 6 primary sources** → `references/sources.md`
+- **State shape** → `assets/memory-template.md`
 
-### 2. Platform-Aware Shortcuts
+## Core rules
+
+1. **Confirm the IDE version first** — feature names and menu paths differ across Arctic Fox → Ladybug+ codenames; do not invent panels for an unconfirmed version ([release notes](https://developer.android.com/studio/releases)).
+2. **Platform-aware shortcuts** — macOS and Windows/Linux keymaps differ; quote both when the host is unknown.
+3. **Prefer IDE inspectors over print-debug** — Layout Inspector for UI hierarchy, Profiler for timing/leaks, Database/Network inspectors for live data and traffic.
+4. **Debug the debug variant** — release builds strip symbols; use conditional breakpoints in hot loops; attach debugger for startup races.
+5. **Profile release-like builds** — debug overhead skews CPU/Memory; filter profiler recordings to the methods under test.
+6. **Sync before guessing Gradle** — invalidate caches only after confirming JDK/AGP alignment; delete `.gradle`/`.idea` as last resort (coordinate with `android` for toolchain pins).
+
+## Quick shortcuts
+
 | Action | macOS | Windows/Linux |
 |--------|-------|---------------|
 | Search Everywhere | Double Shift | Double Shift |
@@ -60,124 +85,26 @@ Before suggesting features, confirm Android Studio version. Features vary signif
 | Refactor This | Ctrl+T | Ctrl+Alt+Shift+T |
 | Run | Ctrl+R | Shift+F10 |
 | Debug | Ctrl+D | Shift+F9 |
-
-### 3. Use IDE Tools Over Manual Inspection
-- Layout Inspector over print debugging for UI issues
-- Profiler over manual timing for performance
-- Database Inspector over manual queries
-- Network Inspector over logging requests
-
-### 4. Leverage Code Generation
-- Live Templates for boilerplate (type abbreviation + Tab)
-- File Templates for new components
-- Generate menu (Cmd/Alt+N) for constructors, getters, overrides
-
-### 5. Debugging Strategy
-1. Breakpoints with conditions for targeted debugging
-2. Evaluate Expression (Alt+F8) for runtime inspection
-3. Watches for tracking variables across frames
-4. Frame inspection to navigate call stack
-
-## Debugging Traps
-
-- Setting breakpoints in hot loops → freezes IDE. Use conditional breakpoints.
-- Debugging release builds → missing symbols. Debug with debug variant.
-- Ignoring Logcat filters → drowning in logs. Filter by app package or tag.
-- Not using "Attach Debugger" → missing app startup. Attach to running process.
-
-## Profiling Traps
-
-- Profiling debug builds → misleading performance. Profile release builds.
-- CPU Profiler without filtering → overwhelming data. Focus on specific methods.
-- Memory Profiler heap dumps during GC → skewed results. Trigger GC first.
-- Ignoring Network Profiler → missing slow API calls. Always check network timing.
-
-## Essential IDE Features
-
-### Layout Inspector
-- Inspect live view hierarchy in running app
-- 3D mode for seeing layer depth
-- Attribute inspection for debugging constraints
-- Works with Compose and View system
-
-### Database Inspector
-- Query Room databases in real-time
-- Edit values directly for testing
-- Export data for analysis
-- Requires API 26+ on device
-
-### Network Inspector
-- Inspect OkHttp/Retrofit requests without code changes
-- View request/response bodies
-- Timeline for identifying slow calls
-- Requires enabling in manifest for release
-
-### App Inspection
-- Combined view of Database, Network, Background Tasks
-- WorkManager task monitoring
-- Background task scheduling inspection
-
-### Profiler Tools
-| Tool | Use Case |
-|------|----------|
-| CPU Profiler | Method timing, thread analysis |
-| Memory Profiler | Leaks, allocation tracking |
-| Energy Profiler | Battery usage patterns |
-| Network Profiler | Request timing, payload size |
-
-## Refactoring Shortcuts
-
-| Refactoring | macOS | Windows/Linux |
-|-------------|-------|---------------|
+| Evaluate Expression | Alt+F8 | Alt+F8 |
 | Rename | Shift+F6 | Shift+F6 |
 | Extract Method | Cmd+Alt+M | Ctrl+Alt+M |
-| Extract Variable | Cmd+Alt+V | Ctrl+Alt+V |
-| Extract Constant | Cmd+Alt+C | Ctrl+Alt+C |
-| Inline | Cmd+Alt+N | Ctrl+Alt+N |
-| Move | F6 | F6 |
-| Change Signature | Cmd+F6 | Ctrl+F6 |
 
-## Build Configuration
+## Failure modes
 
-### Gradle Sync Issues
-- File → Invalidate Caches / Restart for persistent issues
-- Delete `.gradle` and `.idea` folders as last resort
-- Check Gradle JDK in Preferences → Build → Gradle
+Scan this table before deep-diving references.
 
-### Build Variants
-- Select variant in Build Variants panel
-- Debug vs Release affects debugging capabilities
-- Product flavors for different app configurations
 
-### SDK Manager
-- Tools → SDK Manager for Android SDK updates
-- Install platform tools matching target devices
-- Keep build tools updated for latest features
+| Symptom | First move |
+|---------|------------|
+| IDE freezes on breakpoint in a hot loop | Convert to conditional or log breakpoint |
+| No symbols / wrong line mapping | Switch to debug build variant; disable minify for that variant |
+| Profiler numbers look too slow | Re-run on a non-debuggable or profileable release build |
+| Gradle sync loops or JDK errors | Check Preferences → Build → Gradle JDK; align with AGP (see `android`) |
+| Layout Inspector empty | App must be debuggable / running; prefer physical device API support matrix |
+| Database Inspector unavailable | Requires API 26+ device/emulator and a debuggable app |
 
-## Emulator Tips
+## Safety
 
-- Cold Boot vs Quick Boot: use Quick Boot for speed
-- Extended Controls (three dots) for sensors, location, battery
-- Snapshots for saving specific device states
-- Device mirroring for physical device control
-
-## Plugin Recommendations
-
-| Plugin | Purpose |
-|--------|---------|
-| Key Promoter X | Learn shortcuts |
-| Rainbow Brackets | Bracket matching |
-| ADB Idea | Quick ADB commands |
-| JSON To Kotlin Class | Data class generation |
-| Compose Color Preview | Color visualization |
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `android` — Android development patterns
-- `kotlin` — Kotlin language features
-- `java` — Java language patterns
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/android-studio
-- Latest version: https://clawic.com/skills/android-studio
+- Do not recommend shipping debug keystores or disabling verification permanently.
+- Treat Logcat dumps and heap dumps as potentially sensitive; redact tokens before pasting.
+- Prefer placeholders such as `<PACKAGE_NAME>`, `<DEVICE_SERIAL>` in examples.

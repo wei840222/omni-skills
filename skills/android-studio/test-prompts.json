@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I extract a method and rename a variable in Android Studio on macOS?",
+    "expected": "Provide macOS shortcuts: Extract Method Cmd+Alt+M and Rename Shift+F6; mention keymap can be verified in Settings → Keymap.",
+    "actual": "On macOS Android Studio (JetBrains keymap): Extract Method is Cmd+Alt+M; Rename is Shift+F6. If bindings differ, check Settings/Preferences → Keymap or Find Action (Cmd+Shift+A).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My app freezes while debugging and print statements are useless. What should I use instead?",
+    "expected": "Prefer conditional/log breakpoints over hot-loop line breakpoints; use CPU Profiler / Layout Inspector as appropriate; debug a debug or profileable build rather than pure release.",
+    "actual": "Avoid line breakpoints in hot loops—use conditional or log breakpoints. Prefer Android Studio CPU Profiler for timing and Layout Inspector for UI hierarchy instead of print spam. Attach/debug a debug or profileable variant so symbols stay useful.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Where should this skill store my Android Studio preferences, and when should I use android vs android-studio?",
+    "expected": "State under resolved <state_root> (workspace/android-studio, workspace/memory/android-studio, or ~/android-studio). Use android-studio for IDE/debugger/profiler/shortcuts; android for app build/runtime/Play.",
+    "actual": "Optional notes go under the resolved <state_root> among <workspace>/android-studio/, <workspace>/memory/android-studio/, or ~/android-studio/ after consent. Use android-studio for IDE workflows (shortcuts, inspectors, profiler, Gradle sync UI). Hand app/build/targetSdk/Play work to the android skill.",
+    "pass": true
+  }
+]

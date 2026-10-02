@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| android-studio | 2026-10-02 | 84/100 (#676) |
 | news | 2026-10-02 | 84/100 (#675) |
 | caddy | 2026-10-02 | 84/100 (#674) |
 | db | 2026-10-02 | 84/100 (#673) |
