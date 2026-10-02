@@ -110,3 +110,8 @@
 - **Individual OKRs:** drop them (Google moved away) vs keep them (some enterprises). Frontier: team size and review density. In a high-review-density org they become performance theatre; in a flat autonomous team they can encode craft growth.
 - **Quarterly vs monthly:** quarterly is the empirically dominant rhythm; monthly churns and prevents a KR from compounding. Monthly wins only pre-PMF, where the strategy itself shifts that fast.
 - **Cascade vs alignment:** cascade wins at under 2 layers or in regulated ops; alignment wins past ~2 layers and in creative teams. The cost of cascade is ownership; the cost of alignment is contradiction, which the alignment session exists to catch.
+
+## White Bear / cognitive-load notes (Gate 9)
+
+- State the desired behavior positively in the operating loop; keep long prohibition lists in the blacklist section so agents do not over-index on the forbidden form.
+- Avoid inverted safety lines (e.g. "Maintain original KRs mid-quarter to match reality") that flip the original "Do not rewrite" rule.
