@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "Sync the 'docs' folder to the 'backup' folder locally, making sure to remove any files in 'backup' that are no longer in 'docs'.",
+    "expected": "Dry-run first with rsync -avz --info=progress2 --delete docs/ backup/, confirm trailing slashes, then run without --dry-run; note this is mirror not versioned backup.",
+    "actual": "Resolved intent as exact one-way mirror. Proposed `rsync -avz --info=progress2 --dry-run --delete docs/ backup/` to preview deletes and layout, then the same command without `--dry-run` after review. Emphasized trailing slashes (contents of docs into backup) and that `--delete` mirroring is not a versioned backup—route recovery needs to `backups`. Offered log tee to `<state_root>/sync.log` if audit wanted.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Sync my local 'photos' directory to my S3 bucket using rclone. Make sure it's optimized for large files and high bandwidth.",
+    "expected": "Prefer dry-run; choose copy vs sync explicitly; use progress, sensible S3 chunk size and transfers; verify with rclone check.",
+    "actual": "Asked whether destination extras should be deleted. Defaulted to `rclone copy photos/ remote:bucket-path -P --s3-chunk-size 64M --transfers 8 --dry-run` for add/update-only safety, documented `rclone sync` only if exact mirror required. After dry-run, drop `--dry-run`, then `rclone check photos/ remote:bucket-path`. Pointed at references/sync-rules.md and references/sources.md (rclone sync/copy/check/S3).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I want to back up my code project to a remote server, but ignore the node_modules and .git folders.",
+    "expected": "Use rsync over SSH with exclude-from under <state_root>, dry-run, no blind --delete; clarify backup vs sync.",
+    "actual": "Created `<state_root>/.syncignore` with `node_modules/` and `.git/`, then dry-ran `rsync -avz --info=progress2 --exclude-from=<state_root>/.syncignore -e \"ssh -i ~/.ssh/key -o IdentitiesOnly=yes\" project/ user@host:repos/project/`. Clarified this is a remote mirror/copy, not immutable backup—suggested `backups` if retention/restore drills are required. No `--delete` unless explicitly requested after dry-run.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Both my laptop and desktop edit the same notes folder. Can I just run rsync each way on a cron?",
+    "expected": "Reject dual rsync as bidirectional; recommend Unison or a purpose-built bidirectional tool; explain conflict risk.",
+    "actual": "Rejected opposing cron rsync jobs as unsafe merge. Explained rsync is one-way and dual jobs overwrite without true conflict detection. Recommended `unison notes-laptop notes-desktop` (or Syncthing-class tools for continuous sync), with deliberate conflict handling. Cited references/sync-rules.md bidirectional section and Unison sources.",
+    "pass": true
+  }
+]
