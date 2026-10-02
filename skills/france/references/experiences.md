@@ -21,8 +21,8 @@
 | Autumn | Strong food and wine windows with better value |
 | Winter | City culture and festive markets in selected regions |
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Treating weather as stable across all regions.
+1. Avoid treating weather as stable across all regions.
 2. Running one fixed plan with no alternatives.
 3. Overfilling days with transfers plus late nights.

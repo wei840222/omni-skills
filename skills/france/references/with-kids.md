@@ -23,8 +23,8 @@
 ### Older kids
 - Mix museums, coast, and one active element daily
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Overbooking transfer-heavy days.
-2. Ignoring heat and hydration planning.
-3. Choosing stays too far from daily activity clusters.
+1. Avoid overbooking transfer-heavy days.
+2. Do not ignore heat and hydration planning.
+3. Avoid choosing stays too far from daily activity clusters.

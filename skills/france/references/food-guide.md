@@ -29,7 +29,7 @@ Strong produce and seafood routes, especially with market timing.
 - One or two blocks away from major landmarks often improves quality-price ratio.
 - Check closing days, especially Sundays and Mondays.
 
-## Food Traps to Avoid
+## Better Dining Practices
 
 1. Social-media lines with weak execution and high markup.
 2. Eating every meal in tourist-core strips.

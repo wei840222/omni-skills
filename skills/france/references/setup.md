@@ -6,11 +6,11 @@ When user mentions France travel for the first time:
 
 ### 1. Create Memory Structure
 ```bash
-mkdir -p ~/france
+mkdir -p <state_root>/
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/france/memory.md` using the template from `memory-template.md`.
+Create `<state_root>/memory.md` using the template from `assets/memory-template.md`.
 
 ### 3. Gather Trip Context
 Ask naturally (not as a form):
@@ -22,11 +22,11 @@ Ask naturally (not as a form):
 - Rail-focused, rental car, or mixed transport?
 
 ### 4. Save to Memory
-Update `~/Clawic/data/france/memory.md` with their answers.
+Update `<state_root>/memory.md` with their answers.
 
 ## Returning Users
 
-If `~/Clawic/data/france/memory.md` exists:
+If `<state_root>/memory.md` exists:
 1. Read it silently
 2. Reuse known preferences
 3. Ask what changed since last plan

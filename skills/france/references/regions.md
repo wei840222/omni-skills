@@ -15,4 +15,4 @@
 ## Route Planning Rule
 
 Choose one city-depth anchor plus one contrasting region for shorter trips.
-For longer trips, use 2-3 bases max to avoid transfer-heavy fatigue.
+For longer trips, use 2-3 bases max to minimize transfer fatigue by limiting bases.

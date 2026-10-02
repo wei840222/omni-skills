@@ -23,8 +23,8 @@
 - Water and wind conditions vary significantly by coast.
 - Parking and rail schedules should be checked before departure.
 
-## Mistakes to Avoid
+## Best Practices
 
 1. Planning beach-only days with no weather backup.
 2. Underestimating midday heat in Mediterranean summer.
-3. Making long detours for one short stop without route efficiency.
+3. Prioritize route efficiency over making long detours for brief stops.

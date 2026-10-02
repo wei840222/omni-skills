@@ -28,9 +28,9 @@ Excellent food and wine pairing potential with nearby Rhone access.
 ### Bordeaux city base
 Best launch point for winery-day routing.
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Overpacking winery visits in one day.
-2. Assuming all houses accept walk-ins.
-3. Driving after multi-stop tastings.
-4. Ignoring transfer times between appellation clusters.
+1. Avoid overpacking winery visits in one day.
+2. Do not assume all houses accept walk-ins.
+3. Plan for designated drivers or use local transport/tours when planning multi-stop tastings.
+4. Do not ignore transfer times between appellation clusters.

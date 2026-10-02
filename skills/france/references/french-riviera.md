@@ -24,12 +24,12 @@ The Riviera is beautiful but highly seasonal. Nice, Cannes, Antibes, and Monaco 
 ## Route Rules
 
 - Use rail for many coast-town hops when possible.
-- Keep fewer bases and avoid nightly hotel swaps.
+- Keep fewer bases and consolidate your stays to minimize hotel changes.
 - Book key beach clubs and dinner slots early in summer.
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Treating all Riviera towns as identical in budget and vibe.
+1. Avoid treating all Riviera towns as identical in budget and vibe.
 2. Overstacking beach, museums, and nightlife in one hot day.
-3. Driving and parking in peak summer cores without backup plan.
-4. Booking late in high season and expecting stable pricing.
+3. Avoid driving and parking in peak summer cores without backup plan.
+4. Avoid booking late in high season and expecting stable pricing.

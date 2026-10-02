@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 3-day trip to Paris next month. Can you help me plan the itinerary?",
+    "expected": "Provides a Paris-focused itinerary, asks clarifying questions about preferences, uses portable state location, and does not invent live ticket inventory.",
+    "actual": "Resolved `<state_root>` and started trip memory at `<state_root>/memory.md`. Asked about hotel base, museum interest, and dining style before drafting a focused 3-day Paris cluster plan; pointed timed entries to official museum pages in references/sources.md.",
+    "pass": true,
+    "evidence": "SKILL.md state + When to Use + references/paris.md + references/sources.md; handoff review 2026-10-02."
+  },
+  {
+    "id": 2,
+    "prompt": "I'm taking the train from Lyon to Marseille and want to avoid tourist traps. What should I prioritize?",
+    "expected": "Loads transport and food references, suggests SNCF Connect, advises against landmark-adjacent dining, and keeps live fare checks on official sources.",
+    "actual": "Loaded `references/transport.md` and `references/food-guide.md`. Recommended SNCF Connect for the rail leg, dining away from immediate landmark restaurant rows in both cities, and confirming disruptions/fares on SNCF Connect before payment.",
+    "pass": true,
+    "evidence": "references/transport.md + food-guide.md + apps.md + sources.md SNCF Connect URL."
+  },
+  {
+    "id": 3,
+    "prompt": "Can we do Paris, Provence, and the Riviera in four days with a rental car the whole time?",
+    "expected": "Flags transfer cost and too-many-bases risk; prefers fewer bases and rail for major city pairs; car only for village/coast loops; does not claim France is compact.",
+    "actual": "Warned that four days cannot absorb Paris + Provence + Riviera without burning the trip in transfers. Recommended one primary base (or two at most), rail for long city pairs, and car only for a short village or coast loop. Pointed to references/itineraries.md, transport.md, and Important Considerations.",
+    "pass": true,
+    "evidence": "SKILL.md Important Considerations + Core Rules 2/5 + references/itineraries.md/transport.md."
+  }
+]
