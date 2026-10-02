@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am experiencing slow internet speeds at home. How do I figure out if the problem is my ISP or my wifi router?",
+    "expected": "Load references/diagnostics.md. Require a wired Ethernet control test before blaming ISP or Wi-Fi; use a real browser/CLI throughput tool (not curl https://fast.com); check ping loss/jitter; if wired is fine and Wi-Fi is slow, hand off to the wifi skill; if wired stays slow after modem reboot, treat ISP/path as primary.",
+    "actual": "I would load references/diagnostics.md and start with measurement, not guesses. Connect a computer by Ethernet to the router/modem path and run a real throughput test in the Fast.com or Speedtest browser UI (or an installed speedtest CLI)—not `curl https://fast.com`, which only returns an HTML client. Compare wired download/upload to your contracted rate and note idle vs loaded latency. Run short pings to 8.8.8.8/1.1.1.1 for loss and jitter. If Ethernet is healthy but phones on Wi-Fi are slow, hand off to the `wifi` skill for radio/channel issues. If Ethernet stays slow after a modem/router reboot and multiple devices match, document times and results for ISP escalation (optional `<state_root>/incidents.md` with consent, no account secrets).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am traveling to Spain for a week and need data on my phone. Should I get an eSIM, a local SIM, or just use roaming? I want to avoid high costs but need something reliable.",
+    "expected": "Load references/mobile.md. Verify device eSIM compatibility in system settings before purchase; compare travel eSIM vs local SIM vs carrier roaming on total trip cost, caps, validity, and unlock status; avoid memorized 2025 vendor rankings—use live plan pages; advise turning the phone hotspot off while already on trusted Wi-Fi; mention data-conservation controls.",
+    "actual": "I would load references/mobile.md first. For a one-week Spain trip, start by confirming the handset can add an eSIM (Apple’s current eSIM setup doc is the reference for iPhone) and that the phone is unlocked if you might use a local SIM. Then compare three honest options with live plan pages: a travel eSIM (fast QR setup, quality varies by country pack), a local prepaid SIM (often best per-GB, more setup/ID friction), and home-carrier roaming (simplest, usually most expensive with fair-use throttles). There is no fixed 2025 brand ranking in this skill—open the seller’s Spain page for cap, hotspot allowance, and validity. After install, set the travel line for data, keep the home line for SMS/OTP if needed, turn the phone hotspot off while you are already on trusted Wi-Fi, and enable OS data-saver / per-app cellular limits for conservation.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "The Wi-Fi dies whenever someone runs the microwave in the kitchen. Which channels should I pick?",
+    "expected": "This is a radio/interference problem owned by the wifi skill, not primary internet/ISP diagnosis. Decline deep channel planning here and route to wifi; optional note that 2.4 GHz kitchen interference is common.",
+    "actual": "That symptom is almost certainly a local radio/interference issue (microwaves hammer 2.4 GHz), not an ISP last-mile failure, so I would not drive channel planning from the `internet` skill. Use the `wifi` skill for band/channel scans, RSSI, and placement. A quick internet-skill boundary check is enough: if a wired PC stays online while kitchen Wi-Fi drops during the microwave, you have already isolated it away from the ISP.",
+    "pass": true
+  }
+]
