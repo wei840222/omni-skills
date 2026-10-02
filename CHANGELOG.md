@@ -7,6 +7,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
+| terraform | 2026-10-03 | 84/100 (#681) |
 | hype | 2026-10-03 | 84/100 (#680) |
 | stellar | 2026-10-03 | 80/100 (#679) |
 | tenerife | 2026-10-03 | 84/100 (#677) |

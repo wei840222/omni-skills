@@ -1,6 +1,6 @@
 # Upgrades — CLI Versions, Provider Majors, And OpenTofu
 
-Two independent axes: the CLI version, and each provider's version. **Never move both in the same PR** — when the plan changes, you need to know which one did it.
+Two independent axes: the CLI version, and each provider's version. **Move each one in a separate PR** — when the plan changes, you need to know which one did it.
 
 ## Upgrading The CLI
 
@@ -19,7 +19,7 @@ Two independent axes: the CLI version, and each provider's version. **Never move
    - **(b) Nothing** — the provider's state upgrader handled a rename internally. This is the majority in a well-run major.
    - **(c) Resource splits**: one resource became several. The plan will offer to *remove* the settings, because they now live in resources that do not exist in your config yet. **This is import work, not an approval.** The canonical example is the AWS provider's 4.x series splitting `aws_s3_bucket`'s inline arguments (ACL, versioning, logging, lifecycle, server-side encryption) into separate resources.
 4. Zero-diff, or an explained diff per line, before moving to the next stack.
-5. Commit the regenerated lock file with every platform (`providers.md`).
+5. Commit the regenerated lock file with every platform (`references/providers.md`).
 
 Class (c) is the whole risk of a provider major. If the upgrade guide has a "the following resource is now several resources" section, budget a day, not an afternoon.
 
@@ -30,14 +30,14 @@ Warnings in plan output tell you what the next major removes. Grep CI logs for `
 ## Upgrading Modules
 
 - One module per PR, planned in every environment. Bundling three module bumps means bisecting an unexpected destroy by hand.
-- A module that renames internal resources without shipping `moved` blocks turns a version bump into a destroy. Read the CHANGELOG, and diff the source if it does not have one (`modules.md`).
+- A module that renames internal resources without shipping `moved` blocks turns a version bump into a destroy. Read the CHANGELOG, and diff the source if it does not have one (`references/modules.md`).
 - Registry modules can pull in provider constraints of their own. A module upgrade that suddenly requires a newer provider is a two-axis change — split it.
 
 ## Terraform ↔ OpenTofu
 
 - OpenTofu forked from the Terraform 1.6 line after the license change to BUSL. The `tofu` binary reads existing state, parses the same HCL, and is a drop-in for most codebases.
-- Divergence grows with every release on both sides: OpenTofu added native state encryption, and each project has shipped features the other has not. Version floors above 1.6 **do not transfer** — check `tofu version` against OpenTofu's own changelog before using a newer block.
-- Registry namespaces differ; `terraform state replace-provider` rewrites the recorded provider addresses (`refactoring.md`).
+- Divergence grows with every release on both sides. OpenTofu added native state encryption (1.7+) and other post-fork features; Terraform continues its own line (ephemeral values, write-only arguments, and later provider features). Version floors above 1.6 do not transfer — check `tofu version` against OpenTofu's own changelog before using a newer block.
+- Registry namespaces differ; `terraform state replace-provider` rewrites the recorded provider addresses (`references/refactoring.md`).
 - Treat a switch as a one-way door for the team, not per-repo. Mixed binaries against one state is how you get a state written by a version half the team cannot read.
 
 Migration checklist:
@@ -56,4 +56,4 @@ Then switch CI, then laptops, then delete the old binary from the runner image s
 
 - Patch upgrades on a schedule (monthly is enough for most teams) so the diff is always small.
 - Majors deliberately, one stack at a time, with the upgrade guide open.
-- A stack nobody has planned in six months is not stable, it is unknown — the scheduled drift job (`ci.md`) is what keeps that from being true.
+- A stack nobody has planned in six months is not stable, it is unknown — the scheduled drift job (`references/ci.md`) is what keeps that from being true.

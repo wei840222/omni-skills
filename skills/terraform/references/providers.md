@@ -39,10 +39,10 @@ terraform providers lock \
   -platform=darwin_arm64
 ```
 
-Those two are the `lock_platforms` default (CI runner plus Apple Silicon laptop). Add one `-platform` flag per extra target your team or runners use — `-platform=linux_arm64` for Graviton runners, `-platform=windows_amd64` for a Windows workstation — and keep the flags and `lock_platforms` in `~/Clawic/data/terraform/config.yaml` identical, since the Output Gates check that list.
+Those two are the `lock_platforms` default (CI runner plus Apple Silicon laptop). Add one `-platform` flag per extra target your team or runners use — `-platform=linux_arm64` for Graviton runners, `-platform=windows_amd64` for a Windows workstation — and keep the flags and `lock_platforms` in `<state_root>/config.yaml` identical, since the Output Gates check that list.
 
 - CI gate: `terraform init -lockfile=readonly` fails when the lock would have to change. That turns "someone bumped a provider by accident" from a silent diff into a red build.
-- "Inconsistent dependency lock file" means the config requires something the lock does not record — run `init -upgrade` locally and commit, never work around it in CI.
+- "Inconsistent dependency lock file" means the config requires something the lock does not record — run `init -upgrade` locally and commit, always resolve it locally first.
 
 ## Aliases: Two Regions, Two Accounts, One Config
 
@@ -91,4 +91,4 @@ module "edge" {
 
 ## When A Provider Is The Problem
 
-Symptoms that are the provider, not you: "Provider produced inconsistent final plan", an attribute that diffs after every apply, a crash with a stack trace, or an API field the resource simply does not expose. Upgrade to the newest patch of the current major first — then pin, comment, and file (`debug.md`).
+Symptoms that are the provider, not you: "Provider produced inconsistent final plan", an attribute that diffs after every apply, a crash with a stack trace, or an API field the resource simply does not expose. Upgrade to the newest patch of the current major first — then pin, comment, and file (`references/debug.md`).

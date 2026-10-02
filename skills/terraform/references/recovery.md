@@ -1,6 +1,6 @@
 # Recovery — After The Damage
 
-Every playbook here starts the same way: **stop the pipeline** so a second run cannot make it worse, then find out what is actually true before changing anything.
+Every playbook here starts the same way: **halt the pipeline** so a second run cannot make it worse, then find out what is actually true before changing anything.
 
 ## Stuck State Lock
 
@@ -8,7 +8,7 @@ Precondition: you have proven the holder is dead.
 
 1. Read the five fields the error prints: ID, Who, Created, Operation, Path. `Created` five minutes ago with `Operation: apply` is a live apply — wait.
 2. Confirm with the source: the CI job page (finished, cancelled, or still running) or the colleague named in `Who`.
-3. `terraform force-unlock <LOCK_ID>` — the ID from the error, never a guessed one.
+3. `terraform force-unlock <LOCK_ID>` — the ID from the error, using only the exact ID from the error.
 4. Then run `plan` and read it before anything else. If the holder died mid-apply, see the next playbook.
 
 Force-unlocking a **running** apply gives you two writers and a state that describes neither reality. There is no clean recovery from that; there is only reconstruction.
@@ -16,10 +16,10 @@ Force-unlocking a **running** apply gives you two writers and a state that descr
 ## Apply Interrupted (Ctrl-C, runner killed, credentials expired)
 
 - Terraform persists state after each resource completes, so the state is usually intact but partial.
-- First move is `terraform plan`. It tells you exactly what exists and what is missing — you do not have to guess.
+- First move is `terraform plan`. It tells you exactly what exists and what is missing — providing absolute certainty.
 - If the lock is still held by the dead job, unlock first (above), then plan.
-- Do not re-run with `-refresh=false`: you would be planning against a state that predates the damage.
-- Objects created by the API but never written to state show up as "already exists" errors on the next apply. Adopt them with an `import` block (`refactoring.md`).
+- Always run with refresh enabled: you would be planning against a state that predates the damage.
+- Objects created by the API but missing from state show up as "already exists" errors on the next apply. Adopt them with an `import` block (`references/refactoring.md`).
 
 ## State Corrupted Or Pushed Wrong
 
@@ -40,7 +40,7 @@ terraform plan          # must be zero-diff against reality
 Rebuild by import. This is a project, not a command.
 
 1. Inventory the real objects from the cloud provider's own tooling — that inventory is now your source of truth.
-2. Write `import` blocks for each. Where the config is gone too, `plan -generate-config-out=gen.tf` drafts it (`refactoring.md`).
+2. Write `import` blocks for each. Where the config is gone too, `plan -generate-config-out=gen.tf` drafts it (`references/refactoring.md`).
 3. Iterate to zero diff, one resource group at a time.
 4. Budget hours per dozen resources, more for anything with compound import IDs.
 
@@ -52,13 +52,13 @@ The object is alive and unmanaged; nothing is broken yet.
 
 - Best: restore the previous state version (above) — one operation, no ambiguity.
 - Otherwise: `import` it back at exactly the same address. Get the address from your PR or from the backup you took before the surgery.
-- Never "fix" it by letting the next apply create a replacement. That leaves a live orphan billing forever next to its new twin.
+- Resolve this by adopting the object instead of creating a replacement. That leaves a live orphan billing forever next to its new twin.
 
 ## An Unintended Destroy Applied
 
 Terraform has no undo.
 
-1. Stop the pipeline before a second apply removes more.
+1. halt the pipeline before a second apply removes more.
 2. Recover the **data** first: snapshots, point-in-time restore, backups. Recreating the resource is the easy half.
 3. Re-apply to recreate the resource, then restore the data into it.
 4. Write down the "forces replacement" attribute or the plan line that caused it — that is the postmortem, and it usually points at a `for_each` key change or a module upgrade without `moved` blocks.
@@ -84,7 +84,7 @@ Two pipelines will fight over it forever, each reverting the other.
 
 ## Secret Leaked Into State Or Logs
 
-Rotate first, clean second — the full order is in `secrets.md`. The state-specific part: old versions in the bucket still hold the value, so treat every principal with historical read access as having seen it.
+Rotate first, clean second — the full order is in `references/secrets.md`. The state-specific part: old versions in the bucket still hold the value, so treat every principal with historical read access as having seen it.
 
 ## Emergency Change With A Broken Pipeline
 

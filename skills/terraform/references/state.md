@@ -1,6 +1,6 @@
 # State — Backends, Locking, and Environment Layout
 
-State is not a cache. It holds the only link between a resource address in your code and the real object's ID, plus values the API will never return again (generated passwords, one-time tokens). Losing it does not lose the infrastructure — it loses your ability to manage it.
+State is not a cache. It holds the only link between a resource address in your code and the real object's ID, plus values the API returns only once (generated passwords, one-time tokens). Losing it does not lose the infrastructure — it loses your ability to manage it.
 
 ## Backend Choice
 
@@ -45,7 +45,7 @@ CLI workspaces are a fine tool used for what they are: they share the backend an
 Split along "what changes together", not along the org chart: network, data, application tiers. Signals to split, in order of how often they decide it:
 
 - Unrelated teams queue behind one lock.
-- Plans you stop watching (~3 min+, typically 300-500 resources in one state).
+- Plans you lose focus on (~3 min+, typically 300-500 resources in one state).
 - One stack's failure blocks an unrelated stack's release.
 - Different blast radius: a state that can delete a database should not also hold a feature flag.
 
@@ -53,7 +53,7 @@ One state = one lock = one apply unit. That is the whole cost model.
 
 ## Cross-State References
 
-- `terraform_remote_state` exposes only root outputs *in config*, but the reader needs read access to the **entire** state file — every secret in it included. That is the reason to avoid it, not performance.
+- `terraform_remote_state` exposes only root outputs *in config*, but the reader needs read access to the **entire** state file — every secret in it included. That is the reason to choose an alternative, not performance.
 - Preferred: the producing stack writes values to a parameter store or secret manager; consumers read them via a data source, scoped per key by IAM.
 - Either way you have created an ordering dependency between two pipelines that nothing enforces. Write it down in both repos, and make the consumer fail loudly (`precondition` on the data source) rather than plan with a stale value.
 
@@ -61,7 +61,7 @@ One state = one lock = one apply unit. That is the whole cost model.
 
 - The lock error prints ID, Who, Created, Operation, and Path. Those five fields decide whether you are looking at a live apply or a dead job.
 - `-lock-timeout=5m` makes a queued CI job wait instead of failing. Set it once via `TF_CLI_ARGS_plan` / `TF_CLI_ARGS_apply`.
-- `-lock=false` is for read-only inspection of a state you know nobody is writing. It is also a lie that the next person believes; never in a pipeline.
+- `-lock=false` is for read-only inspection of a state you know nobody is writing. It is also a lie that the next person believes; exclude it from pipelines.
 - `force-unlock` is a recovery action with preconditions, routed from SKILL.md Quick Reference.
 
 ## Moving State Between Backends
@@ -75,7 +75,7 @@ terraform state list | wc -l                                # must match
 terraform plan                                              # must be zero-diff
 ```
 
-A mismatched count or a non-empty plan means the migration copied the wrong state — stop before applying anything.
+A mismatched count or a non-empty plan means the migration copied the wrong state — halt and investigate before applying anything.
 
 ## Splitting One State Into Two
 
@@ -93,6 +93,6 @@ Two paths. Prefer the first.
 ## State Hygiene
 
 - Gitignore `*.tfstate*` and `.terraform/`. Commit `.terraform.lock.hcl`.
-- Do not put large blobs in resources that store their content in state (file contents, certificates, rendered documents): every plan pulls and every apply pushes the whole file.
-- Secrets in state are unavoidable, not acceptable by default — the containment measures are in `secrets.md`.
+- Store large blobs externally rather than in resources that store their content in state (file contents, certificates, rendered documents): every plan pulls and every apply pushes the whole file.
+- Secrets in state are unavoidable, not acceptable by default — the containment measures are in `references/secrets.md`.
 - Audit who can read the state bucket the same way you audit who can read production credentials, because it is the same list.

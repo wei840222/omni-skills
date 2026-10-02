@@ -6,7 +6,7 @@ A module is a contract with a version number. Every one you create is a thing to
 
 Write one when it **encodes policy**: mandatory tags, encryption defaults, naming rules, a network topology your organization has decided on. Or when the same composition appears in three places and has already drifted between two of them.
 
-Do not write one that renames another resource's arguments. That thin wrapper adds a version to pin, an indirection to trace, and an output to re-export by hand — in exchange for nothing.
+Create modules only for true abstraction, avoiding thin wrappers that just rename another resource's arguments. That thin wrapper adds a version to pin, an indirection to trace, and an output to re-export by hand — in exchange for nothing.
 
 ## Interface Design
 
@@ -57,13 +57,13 @@ module "replica" {
 ## Composition Rules
 
 - The **root** composes; modules take values, not other people's modules. A module that calls a third-party registry module drags that dependency into every consumer.
-- A module must never read its own remote state, and should not read the caller's: pass values in.
+- A module must receive values explicitly passed in rather than reading its own or the caller\'s remote state: pass values in.
 - Modules used with `for_each` (terraform >=0.13) are the clean way to express "one of these per environment/region"; a module with an internal list of environments is not.
 - Keep the module's blast radius aligned with the state's: a module that spans two blast radii forces them into one state.
 
 ## Testing And Documenting
 
-- `.tftest.hcl` files live in the module repo and test the contract — given these inputs, these outputs and these resource attributes. Details in `testing.md` (routed from SKILL.md Quick Reference).
+- `.tftest.hcl` files live in the module repo and test the contract — given these inputs, these outputs and these resource attributes. Details in `references/testing.md` (routed from SKILL.md Quick Reference).
 - Every variable and output gets a `description`. It is the module's only documentation on the registry page, and it is what the next reader diffs against behavior.
 - An `examples/` directory that actually applies in a sandbox is the difference between a module people adopt and one they copy.
 

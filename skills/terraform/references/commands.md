@@ -38,11 +38,11 @@ Single-quote every address: `[`, `]`, and `"` are shell metacharacters.
 
 ```bash
 terraform state mv 'aws_instance.web[0]' 'module.compute.aws_instance.web["blue"]'
-terraform state rm 'aws_iam_user.legacy'                 # stops managing; the object keeps running
+terraform state rm 'aws_iam_user.legacy'                 # ceases managing; the object keeps running
 terraform state rm 'aws_instance.web (deposed abc12345)'
 terraform state push backup-1770000000.tfstate
 terraform state replace-provider registry.terraform.io/-/aws registry.terraform.io/hashicorp/aws
-terraform force-unlock <LOCK_ID>                         # preconditions in recovery.md
+terraform force-unlock <LOCK_ID>                         # preconditions in references/recovery.md
 ```
 
 ## Init, Backends, Providers
@@ -50,7 +50,7 @@ terraform force-unlock <LOCK_ID>                         # preconditions in reco
 ```bash
 terraform init -upgrade                                  # re-select within constraints, rewrite the lock
 terraform init -migrate-state                            # copy state into the new backend
-terraform init -reconfigure                              # forget the old backend, do NOT copy
+terraform init -reconfigure                              # forget the old backend, starting fresh without copying
 terraform init -backend-config=env/prod.s3.tfbackend -input=false
 terraform init -lockfile=readonly                        # CI gate: fail if the lock would change
 terraform providers                                      # resolved provider tree, per module
@@ -94,4 +94,4 @@ TF_WORKSPACE=staging                     # selects a CLI workspace non-interacti
 ## Two Habits Worth The Keystrokes
 
 - `terraform plan -out=tfplan` even when you are "just looking" — the file is free and it is the only artifact you can apply honestly.
-- `terraform state pull > backup-$(date +%s).tfstate` before any command containing the word `state`. It has never once been wasted effort.
+- `terraform state pull > backup-$(date +%s).tfstate` before any command containing the word `state`. It has always proven valuable.

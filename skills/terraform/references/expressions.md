@@ -6,7 +6,7 @@ Most "Terraform is weird" moments are HCL evaluation rules, not infrastructure. 
 - Repeating a nested block (ingress rules, tags) → `dynamic` Blocks
 - Typing inputs and failing bad values early → Types and Validation
 - "Which function do I want here?" → Functions Worth Knowing
-- A diff that never goes away, or a value unknown at plan → Values That Change Every Run · Locals and Known-ness
+- A diff that persists indefinitely, or a value unknown at plan → Values That Change Every Run · Locals and Known-ness
 - A masked value spreading through outputs → Sensitivity Propagation
 - "Why is my variable not being applied?" → Variable Value Precedence
 
@@ -75,7 +75,7 @@ variable "cluster" {
 
 - `validation` blocks fail at plan with your message — the cheapest gate in the whole toolchain. Since terraform >=1.9 a validation condition may reference other variables; before that it could only reference itself.
 - `precondition` / `postcondition` inside `lifecycle` (terraform >=1.2) assert facts across resources. A `postcondition` on a data source catches a wrong lookup at the source instead of ten resources downstream.
-- `check` blocks (terraform >=1.5) report a failure as a warning without blocking the apply — the right tool for "this should be true but must not stop a deploy".
+- `check` blocks (terraform >=1.5) report a failure as a warning without blocking the apply — the right tool for "this should be true but should permit the deploy to proceed".
 
 ```hcl
 variable "env" {
@@ -114,19 +114,19 @@ resource "random_id" "suffix" {
 }
 ```
 
-The same reasoning applies to `filemd5()` on a file your build regenerates: it is a *deliberate* trigger, which is fine, or an accidental one, which is a permanent diff (`debug.md`).
+The same reasoning applies to `filemd5()` on a file your build regenerates: it is a *deliberate* trigger, which is fine, or an accidental one, which is a permanent diff (`references/debug.md`).
 
 ## Locals and Known-ness
 
 - `locals` cannot be self-referential and cannot take `depends_on`.
-- A local that references a resource attribute is unknown at plan exactly like the attribute is; wrapping something in a local never makes it known.
+- A local that references a resource attribute is unknown at plan exactly like the attribute is; wrapping something in a local leaves it equally unknown.
 - Splitting a big expression into locals is free at runtime and the single best readability move in a large module.
 
 ## Sensitivity Propagation
 
 - Sensitivity is contagious: merge one sensitive value into a map and the whole map is sensitive.
 - A sensitive value cannot be a `for_each` key, and a non-sensitive `output` derived from a sensitive value errors at plan. Both are the system working.
-- `nonsensitive()` exists for the case where the sensitivity was inherited rather than real. Reaching for it on an actual secret puts the value in plan output (`secrets.md`).
+- `nonsensitive()` exists for the case where the sensitivity was inherited rather than real. Reaching for it on an actual secret puts the value in plan output (`references/secrets.md`).
 
 ## Collection Gotchas
 
@@ -142,11 +142,11 @@ The same reasoning applies to `filemd5()` on a file your build regenerates: it i
 
 1. The `default` in the `variable` block.
 2. `TF_VAR_<name>` environment variables — invisible in the repo, and the usual culprit in CI (case-sensitive, exact variable name).
-3. `terraform.tfvars`, then `terraform.tfvars.json` — auto-loaded from the working directory, never named on the command line.
+3. `terraform.tfvars`, then `terraform.tfvars.json` — auto-loaded from the working directory, loaded automatically instead of naming them on the command line.
 4. `*.auto.tfvars` and `*.auto.tfvars.json` — auto-loaded too, applied in **alphabetical** filename order, so `10-base.auto.tfvars` loses to `20-prod.auto.tfvars`.
 5. `-var` and `-var-file` on the command line, applied in the order written: the last `-var 'region=eu-west-1'` beats every file, including one passed by an earlier `-var-file`.
 
 - Auto-loading is per working directory. A `terraform.tfvars` one directory up is not read — the file next to the root module is, which is why a `dir-per-env` layout works at all.
-- Complex-typed variables (`map`, `object`) are replaced wholesale by the winning source, never merged key by key.
+- Complex-typed variables (`map`, `object`) are replaced wholesale by the winning source, replaced wholesale instead of merged.
 - A saved plan freezes the resolved values: `apply tfplan` ignores `-var` entirely and re-passing one errors. Change a variable, re-plan.
 - A value for a variable that is not declared is only a warning from an auto-loaded file ("Value for undeclared variable") but an error from `-var`/`-var-file`. A silently ignored setting means a typo in the name, not a precedence problem.
