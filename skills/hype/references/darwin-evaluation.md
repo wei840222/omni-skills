@@ -1,8 +1,8 @@
 # Darwin evaluation (Gate 8)
 
-**Evaluation date:** 2026-10-03  
-**Package:** `skills/hype`  
-**Final score:** **84 / 100** (threshold ≥ 80)  
+**Evaluation date:** 2026-10-03
+**Package:** `skills/hype`
+**Final score:** **84 / 100** (threshold ≥ 80)
 **Method:** Structural dry-run over final `SKILL.md`, `references/trading-features.md`, `references/sources.md`, and three recorded full_test `actual` strings in `test-prompts.json`. No live trading, wallet connect, or fund movement during scoring.
 
 ## Dimension scores
@@ -24,13 +24,13 @@
 
 Executed as skill-conditioned answers against the repaired package text (not Jules' obsolete oracle):
 
-1. Deposit how-to — route-dependent USDC/Unit paths; rejects Arbitrum-only claim.  
-2. Liquidation order + “partial always” myth — book-first, conditional partial, backstop; sizing remedies.  
+1. Deposit how-to — route-dependent USDC/Unit paths; rejects Arbitrum-only claim.
+2. Liquidation order + “partial always” myth — book-first, conditional partial, backstop; sizing remedies.
 3. Fee revenue-share myth — HLP / assistance fund burn / deployers; staking discounts ≠ fee share.
 
 All three `pass: true` with expected/actual alignment in `test-prompts.json`.
 
 ## Iteration notes
 
-- Prior Jules patch failed Gate 8 on obsolete deposit oracle and missing execution evidence.  
+- Prior Jules patch failed Gate 8 on obsolete deposit oracle and missing execution evidence.
 - This pass rewrote oracles from official docs, recorded real actuals, and kept safety/auth checkpoints while scoring ≥ 80.
