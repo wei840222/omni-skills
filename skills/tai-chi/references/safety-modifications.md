@@ -26,14 +26,14 @@ Stop practice and recommend urgent professional or emergency help as appropriate
 
 - reduce stance depth first
 - keep knee tracking aligned with foot direction
-- avoid forcing deep bends or long holds
-- stop progression if pain rises during or after practice
+- keep bends shallow and holds brief
+- regress the practice if pain rises during or after practice
 
 ### Low-back irritation
 
 - keep spine tall and neutral
 - reduce twisting range
-- avoid collapsing chest or over-arching lumbar spine
+- keep the chest open and lumbar spine neutral
 - use shorter sessions until symptoms are stable
 
 ### Fatigue, illness recovery, or deconditioning
@@ -46,14 +46,14 @@ Stop practice and recommend urgent professional or emergency help as appropriate
 ### Pregnancy or postpartum context
 
 - keep transitions smooth and non-straining
-- avoid any forcing, breath holding, or unstable turning
+- maintain relaxed breathing and stable turning
 - use clinician guidance before starting or intensifying practice if pregnancy-related concerns exist
-- stop and seek care for concerning symptoms
+- pause and seek care for concerning symptoms
 
 ## Scope Boundaries
 
-- Do not prescribe tai chi as a cure.
-- Do not overrule a clinician or physical therapist.
+- Frame tai chi strictly as a wellness practice rather than a cure.
+- Defer to the advice of clinicians or physical therapists.
 - If the user has recent surgery, recurrent falls, worsening neurological symptoms, or unclear pain, keep advice conservative and recommend professional clearance.
 
 ## Safe Progress Rule
