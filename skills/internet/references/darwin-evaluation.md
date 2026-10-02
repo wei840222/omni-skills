@@ -1,8 +1,8 @@
 # Darwin evaluation (Gate 8)
 
-**Evaluation date:** 2026-10-03  
-**Package:** `skills/internet`  
-**Final score:** **84 / 100** (threshold ≥ 80)  
+**Evaluation date:** 2026-10-03
+**Package:** `skills/internet`
+**Final score:** **84 / 100** (threshold ≥ 80)
 **Method:** Structural dry-run over final `SKILL.md`, `references/*`, `references/sources.md`, and three recorded full_test `actual` strings in `test-prompts.json`. No live ISP account mutation, modem admin changes, or paid eSIM purchase during scoring.
 
 ## Dimension scores
@@ -36,8 +36,8 @@ Executed as skill-conditioned answers against the repaired package text on 2026-
 
 ## Freud audit (Gate 9)
 
-**Audit date:** 2026-10-03  
-**Package:** `skills/internet`  
+**Audit date:** 2026-10-03
+**Package:** `skills/internet`
 **Mode:** Mode 2 lenses 2 / 3 / 4 / 6 (cognitive load, identity conflicts, instruction contradiction, white-bear / ironic process)
 
 ## Lens 2 — Cognitive load
