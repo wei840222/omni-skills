@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "Our team wants an OKR for launching the new v2 dashboard this quarter. Help us write a good objective and key results.",
+    "expected": "Rejects task-KR framing ('launch v2'); writes a qualitative O plus measurable outcome KRs with baseline→target thinking; keeps launch tasks in the plan.",
+    "actual": "Treat 'launch v2 dashboard' as plan work, not a KR. Draft an outcome O (e.g. make the dashboard the default path for core workflows) and 3 measurable KRs such as: daily active dashboard users 1,200 → 3,000; median time on a core workflow 50s → 30s; dashboard CSAT 3.8 → 4.5/5. Require baselines the team can measure weekly; name one owner per KR; keep ship checklist items in the execution plan.",
+    "pass": true,
+    "evidence": "SKILL.md Quick reference task-KR row + references/guide.md Writing the objective / Writing key results / Common failures; What Matters how-to-write OKRs."
+  },
+  {
+    "id": 2,
+    "prompt": "How do we handle our stretch OKRs? If we miss them our bonuses are affected, so people just set low targets.",
+    "expected": "Names sandbagging from comp-coupling; recommends two-tier commit vs stretch and decoupling stretch from bonus; treats ~0.7 stretch as success.",
+    "actual": "This is sandbagging driven by tying stretch outcomes to bonus. Split commit OKRs (expect 1.0, review-eligible) from stretch/aspirational OKRs (aim 1.0, success near ~0.7, not in bonus math). Keep stretch scores out of compensation; review qualitative signals + commit results instead. Celebrating a 0.7 stretch preserves honest targeting; punishing it collapses the system within a cycle or two.",
+    "pass": true,
+    "evidence": "references/guide.md Commit vs stretch + Common failures; references/sources.md What Matters OKRs-and-compensation + Google re:Work OKR guide."
+  },
+  {
+    "id": 3,
+    "prompt": "Week 5 and one KR is stuck at 0.2. Leadership wants us to quietly lower the target so the quarter still looks green.",
+    "expected": "Blocks goalpost-moving; offers mid-quarter reset or kill; keeps score honest and records learning.",
+    "actual": "Do not edit the target downward to manufacture a green score — that is goalpost-moving and destroys signal. At ~week 4–5, either reset the KR explicitly (new target + written reason) or kill it and replace capacity. Keep the 0.2 history visible in the readout; investigate the driver, not the metric cosmetics. If leadership needs a forecast, report confidence and revised plan separately from rewriting the KR.",
+    "pass": true,
+    "evidence": "references/guide.md Cadence mid-quarter reset + blacklist goalpost-moving; SKILL.md operating loop step 6."
+  }
+]
