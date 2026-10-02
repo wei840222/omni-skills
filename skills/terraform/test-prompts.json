@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my main.tf that creates an aws_s3_bucket with inline versioning and server_side_encryption_configuration arguments. What should I change before apply?",
+    "expected": "Call out AWS provider v4+ resource splits: versioning/encryption/public access should be separate resources, not inline bucket args; mention blocking public access, TLS-only bucket policy, lifecycle for noncurrent versions, and tags; warn that applying deprecated inline args risks permanent diffs or upgrade pain.",
+    "actual": "Before apply, treat this as an AWS provider major-shape problem, not just style. Since AWS provider 4.x, versioning, server-side encryption, ACL, logging, and lifecycle no longer belong as long-lived inline arguments on aws_s3_bucket—they split into dedicated resources (aws_s3_bucket_versioning, aws_s3_bucket_server_side_encryption_configuration, aws_s3_bucket_public_access_block, aws_s3_bucket_lifecycle_configuration, etc.). Keep the bucket resource minimal, add those companion resources, force public access block, and prefer a bucket policy that denies non-TLS. Also add required tags and a noncurrent-version transition if cost matters. Run terraform plan -out=tfplan and read every forces-replacement line; if this is an upgrade from inline args, follow the provider upgrade guide and import/moved work rather than approving a surprise destroy.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "terraform apply failed with 'Provider produced inconsistent result after apply' on an AWS resource. How do I fix it without making things worse?",
+    "expected": "Explain provider/API normalization or provider bug; inspect which attribute drifted in the apply log; align config to API-normalized value or ignore_changes only for externally owned attributes; consider provider upgrade/pin; re-plan from saved understanding; do not force-unlock or state-rm as first step.",
+    "actual": "That error means the provider’s final read after apply did not match the values it just sent—common with API normalization (case, defaulting, eventual consistency) or a provider bug. First open the apply log and identify the exact attribute mismatch; do not start with force-unlock or state rm. Fix path: (1) update config to the normalized value the API stores, (2) if another controller mutates the field, add a narrow lifecycle.ignore_changes with a comment naming the writer, (3) if it is a known provider bug, upgrade the provider in a canary stack then pin via required_providers + lock file. Re-run plan -out=tfplan and only apply the saved plan after the inconsistency is explained. Treat a bare apply -auto-approve as off-limits while diagnosing.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I renamed a module call in code and the next plan wants to destroy the old address and create a new one. How do I keep the real infrastructure?",
+    "expected": "Use moved blocks (or import) so state addresses follow the rename; apply everywhere before deleting moved blocks; avoid manual state mv unless necessary; confirm zero-diff plan after move.",
+    "actual": "A rename in code changes the resource address Terraform tracks; without a move, plan correctly offers destroy+create even though the cloud objects are the same. Prefer a declarative moved block from the old module/resource address to the new one (Terraform >=1.1), commit it in the PR, and apply in every environment that still has the old address. Only after all states have applied should you remove the moved block. If you are adopting an object that was never in state, use an import block instead. terraform state mv is last-resort out-of-band surgery: unreviewable and easy to desync across envs. Success criterion: plan shows 0 add / 0 change / 0 destroy after the move lands.",
+    "pass": true
+  }
+]
