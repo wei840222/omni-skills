@@ -296,7 +296,7 @@ Tenerife packs extraordinary diversity into 2,034 km²:
 ### Respect Nature
 - Stay on marked trails
 - Take trash with you
-- Don't disturb wildlife
+- Observe wildlife quietly
 - No fires (forest fire risk serious)
 - Follow local regulations
 

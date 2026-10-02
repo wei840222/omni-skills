@@ -63,7 +63,7 @@ The original Tenerife tourist town, with 130+ years of welcoming visitors. Unlik
 - Often clears by early afternoon
 - 18-25°C year-round (pleasant)
 - More rain Oct-Feb, still mild
-- "If you don't like the weather, wait an hour"
+- "The weather changes rapidly; wait an hour for sunshine"
 
 ---
 

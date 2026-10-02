@@ -26,12 +26,12 @@ Tenerife is very safe. Violent crime rare, petty theft exists but lower than mos
 
 **In Tourist Areas**
 - Watch belongings in crowds
-- Don't leave valuables in car
+- Secure all valuables out of sight
 - Be aware of surroundings
 - Use hotel safes
 
 **Beaches**
-- Don't leave belongings unattended
+- Keep belongings secure
 - Watch for riptides (respect flags)
 - Secure car parking
 
@@ -100,7 +100,7 @@ Tenerife is very safe. Violent crime rare, petty theft exists but lower than mos
 |------|---------|
 | 🟢 Green | Safe to swim |
 | 🟡 Yellow | Caution, moderate conditions |
-| 🔴 Red | No swimming, dangerous |
+| 🚩 Red | No swimming, dangerous |
 | ⚫ Black | Beach closed |
 
 **Dangers**
@@ -141,7 +141,7 @@ Tenerife is very safe. Violent crime rare, petty theft exists but lower than mos
 **Tips**
 - Drive defensively
 - Use low gears downhill
-- Don't rush
+- Take your time
 - Pull over to let locals pass
 
 ---

@@ -1,6 +1,6 @@
 # Visitor Attractions — Tenerife
 
-## Must-See (Don't Miss)
+## Must-See (Highly Recommended)
 
 ### 1. Mount Teide National Park
 Spain's highest peak (3,718m) and UNESCO World Heritage Site.

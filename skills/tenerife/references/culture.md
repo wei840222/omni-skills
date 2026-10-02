@@ -31,7 +31,7 @@ Tenerife is Spanish, but distinctly Canarian — a blend of Spanish, indigenous 
 - Punctuality flexible
 - Rushing is uncommon
 - Patience appreciated
-- Don't stress about delays
+- Accept minor delays as normal
 
 ---
 
@@ -183,7 +183,7 @@ Tenerife is Spanish, but distinctly Canarian — a blend of Spanish, indigenous 
 - Smart casual for dinner
 - No strict rules
 
-### What to Avoid
+### Practices to Reconsider
 - Swimwear in shops/restaurants
 - Very skimpy clothing in towns
 - Bare feet off beach
@@ -234,7 +234,7 @@ Tenerife is Spanish, but distinctly Canarian — a blend of Spanish, indigenous 
 - Join local activities
 - Be patient with pace
 - Show interest in culture
-- Don't complain about Spain
+- Focus on the positives of Spain
 
 ### Common Mistakes
 - Staying in expat bubble
@@ -265,11 +265,11 @@ Tenerife is Spanish, but distinctly Canarian — a blend of Spanish, indigenous 
 
 ### Gestures
 - Thumb and finger rub: Money
-- Hand under chin flick: Don't care
+- Hand under chin flick: Indifference
 - Finger wagging: No
 - Eye point: Watch out
 
-### Topics to Avoid (Initially)
+### Sensitive Topics (Initially)
 - Politics (left/right divide)
 - Catalan independence (contentious)
 - Franco era

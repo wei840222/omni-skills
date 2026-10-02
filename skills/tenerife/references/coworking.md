@@ -83,7 +83,7 @@ Tenerife's coworking scene is smaller than mainland cities but growing with the 
 
 ### Cafe Etiquette
 - Buy something every 1-2 hours
-- Don't take tables during rush
+- Share tables during peak hours
 - Ask about WiFi before settling
 - Be mindful of calls
 - Tip if staying long

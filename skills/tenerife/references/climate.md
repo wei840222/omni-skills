@@ -145,7 +145,7 @@ Tenerife has more microclimates than almost anywhere its size. You can drive 30 
 - **South**: Pleasant, 22-24°C
 - **North**: Mild, occasional rain, 20-22°C
 - **Mountains**: Getting cold
-- **Best for**: Avoiding crowds, still warm enough
+- **Best for**: Fewer crowds, still warm enough
 
 ---
 
@@ -235,7 +235,7 @@ Tenerife has more microclimates than almost anywhere its size. You can drive 30 
 | Beach (guaranteed sun) | May-October |
 | Beach (fewer crowds) | May-June, September |
 | Hiking | March-May, October-November |
-| Avoiding crowds | May, October-November |
+| Fewer crowds | May, October-November |
 | Budget | May-June, October-November |
 | Whale watching | Year-round (peak Dec-Feb) |
 | Festivals | February (Carnival), June (Corpus Christi) |

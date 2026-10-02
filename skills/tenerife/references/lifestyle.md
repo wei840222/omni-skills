@@ -195,7 +195,7 @@ Living in Tenerife is about quality of life over career advancement. Lower costs
 
 ### Dining Out
 - Affordable compared to Northern Europe
-- Quality varies (avoid tourist traps)
+- Quality varies (seek local recommendations)
 - Local food excellent value
 - Fine dining options available
 
@@ -310,7 +310,7 @@ Living in Tenerife is about quality of life over career advancement. Lower costs
 - Participate in fiestas
 - Join local clubs
 - Shop at local businesses
-- Don't stay in expat bubble
+- Engage with the local community
 
 ### Common Paths
 1. **Permanent**: Full integration, career/business here

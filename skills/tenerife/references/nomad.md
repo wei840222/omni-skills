@@ -1,5 +1,8 @@
 # Digital Nomad Guide — Tenerife
 
+> **Orientation only.** Income floors, tax rates, and stay windows change. Re-open URLs in `references/sources.md` (and the live government page for the traveler's nationality/date) before advising a filing or non-refundable booking. Package euro figures are directional, not legal advice.
+
+
 ## Why Tenerife
 
 Tenerife has emerged as one of Europe's top digital nomad destinations.
@@ -239,7 +242,7 @@ Alternative approach:
 ### Spain Digital Nomad Visa (2023)
 - 1 year, renewable to 3
 - Work for non-Spanish companies
-- €3,000+/month income required
+- Income floor tracks SMI multiples — **confirm live official amount** (do not trust package memory)
 - Health insurance required
 - See visas.md for details
 
@@ -270,7 +273,7 @@ Alternative approach:
 - Accountant recommended
 
 ### Warning
-- Don't assume you can work invisibly
+- Be aware that working implies local tax obligations
 - Spain has tax treaties with most countries
 - Digital nomad visa requires tax compliance
 - Get professional advice

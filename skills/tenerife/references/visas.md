@@ -1,5 +1,8 @@
 # Visas & Residency — Tenerife
 
+> **Orientation only.** Income floors, tax rates, and stay windows change. Re-open URLs in `references/sources.md` (and the live government page for the traveler's nationality/date) before advising a filing or non-refundable booking. Package euro figures are directional, not legal advice.
+
+
 ## Overview by Nationality
 
 | Nationality | Short Stay | Long Stay | Work |
@@ -77,7 +80,7 @@ One of:
 ### Requirements
 
 **Income**
-- €3,000+/month (200% of Spanish minimum wage)
+- Income floor is commonly described as a multiple of Spanish SMI (often discussed around 200%); **confirm the live official euro amount** before advising
 - Proof via contracts, invoices, bank statements
 - Must be from non-Spanish employer/clients
 
@@ -271,13 +274,13 @@ Physical ID card for non-EU long-term residents.
 - Available after 10 years (general)
 - Or 2 years (Latin Americans, others)
 - Requires Spanish language test
-- Some countries don't allow dual citizenship
+- Some countries prohibit dual citizenship
 
 ---
 
 ## Common Mistakes
 
-### Avoid
+### Practices to Reconsider
 - Overstaying 90-day limit
 - Working on tourist status
 - Not registering when required
@@ -290,3 +293,7 @@ Physical ID card for non-EU long-term residents.
 - Track dates carefully
 - Get professional help if unsure
 - Apply before expiry for renewals
+
+
+**Note**: The Spain Digital Nomad Visa now requires an income of 200% of the SMI (Minimum Interprofessional Wage, approx €2,646/month as of 2024/2026).
+Source: [Spain Digital Nomad Visa Guidelines](https://extranjeros.inclusion.gob.es/es/normativa/index.html)
