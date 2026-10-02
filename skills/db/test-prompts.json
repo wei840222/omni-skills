@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review my PostgreSQL schema migration: ALTER TABLE users ADD COLUMN is_active BOOLEAN DEFAULT TRUE; on a table with 10M rows.",
+    "expected": "Warn that default/add behavior is version-sensitive; recommend expand path (nullable add, batched backfill, then default/constraint) and cite concurrent workload risk; point at references/database-gotchas.md Schema Changes and Postgres ALTER docs.",
+    "actual": "Flagged the 10M-row table as a rewrite/lock risk on older Postgres and still a migration-planning event on newer versions. Recommended: (1) ADD COLUMN nullable without heavy default work if needed, (2) batched backfill, (3) set default/constraint after data is warm, (4) confirm major version against official ALTER TABLE docs before claiming instantaneous default. Loaded references/database-gotchas.md Schema Changes and pointed at references/sources.md PostgreSQL ALTER links. No claim that MySQL and Postgres behave identically.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm writing a background worker in a serverless function that connects to MySQL, performs a query, and exits. What should I look out for?",
+    "expected": "Call out per-invocation connections exhausting max_connections; recommend a pooling proxy (RDS Proxy/PgBouncer/ProxySQL class); mention idle/timeout hygiene.",
+    "actual": "Warned that each serverless invoke often opens a fresh DB connection and can exhaust MySQL max_connections under concurrency, causing hangs or connection errors. Recommended placing RDS Proxy or another pooler between functions and MySQL, sizing the app-side pool to the proxy, and setting idle timeouts. Cited references/database-gotchas.md Connection Traps and sources for RDS Proxy / PgBouncer. Did not hardcode credentials into the skill tree.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We run reports on a Postgres replica right after writing on the primary and users sometimes miss their own rows. Is the replica broken?",
+    "expected": "Explain replication lag / read-your-writes; check lag metrics; route read-after-write to primary or wait for apply; do not write to replica.",
+    "actual": "Explained this is typically replication lag, not a corrupt replica. Advised measuring apply lag, sending read-your-writes to the primary (or session-level sync wait if the product provides it), and keeping replicas read-only. Cited references/database-gotchas.md Replication Traps and PostgreSQL HA docs in references/sources.md. Rejected writing to the replica as a fix.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Can I enforce email uniqueness only in the application layer so migrations stay flexible?",
+    "expected": "Reject app-only uniqueness under concurrency; require a database unique constraint; mention race windows.",
+    "actual": "Rejected application-only uniqueness as racy under concurrent inserts. Required a database UNIQUE constraint (and cleanup of duplicates before adding it). Noted check/FK constraints likewise belong in the database. Pointed at Data Integrity in references/database-gotchas.md. Offered expand path: dedupe → add constraint → keep app validation as UX only.",
+    "pass": true
+  }
+]
