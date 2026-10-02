@@ -91,6 +91,8 @@ Keep `SKILL.md` as the progressive-disclosure router; load supporting files only
 
 ## Failure modes
 
+Scan this table before deep-diving references.
+
 
 | Symptom | First move |
 |---------|------------|
