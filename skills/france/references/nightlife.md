@@ -25,8 +25,8 @@
 - Reservations matter in higher-demand cocktail bars.
 - Late-night transport should be planned before final venue.
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Assuming every famous strip equals best quality.
+1. Do not assume every famous strip equals best quality.
 2. Staying only in high-tourist nightlife rows.
 3. Starting too late with no reservation strategy.

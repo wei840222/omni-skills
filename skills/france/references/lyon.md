@@ -30,8 +30,8 @@
 - Lunch menus often outperform dinner value.
 - Book bouchons in advance on peak weekends.
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Treating Lyon only as a transfer stop.
-2. Booking no-reservation dining on busy weekends.
-3. Overplanning too many day trips from one short stay.
+1. Ensure you dedicate sufficient time to experience Lyon, rather than treating it merely as a transfer point.
+2. Secure reservations at popular bouchons and restaurants, especially on busy weekends.
+3. Limit day trips to ensure you have enough time to explore Lyon itself.

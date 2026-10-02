@@ -34,9 +34,9 @@
 - Walking between close neighborhoods often beats taxi in dense zones.
 - Museum reservations save major queue time.
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Eating every meal near the biggest landmarks.
-2. Overstacking major museums in one day.
-3. Assuming top restaurants always accept walk-ins.
-4. Ignoring transit strikes or disruption checks.
+1. Seek out neighborhood dining away from major landmarks for better quality and value.
+2. Limit major museum visits to one per day to prevent fatigue.
+3. Book top restaurants in advance to guarantee a table.
+4. Check local transit apps daily for strike or disruption alerts.

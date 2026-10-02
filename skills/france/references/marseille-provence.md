@@ -24,9 +24,9 @@ Marseille and inland Provence need pace planning. Distances are manageable, but 
 - Start outdoor plans early in hot months.
 - Keep one flexible slot for weather and transport changes.
 
-## Mistakes to Avoid
+## Best Practices
 
-1. Doing Marseille, Calanques, and multiple inland towns in one day.
-2. Ignoring heat and hydration on exposed routes.
-3. Driving narrow village roads at city-speed expectations.
-4. Staying only in one tourist-heavy strip without local alternatives.
+1. Spread your itinerary by selecting only one major coastal and one inland activity per day.
+2. Prioritize hydration and plan shaded breaks when navigating exposed routes in summer.
+3. Allow extra time and reduce speed when driving on narrow village roads.
+4. Balance your stay between popular areas and quieter local neighborhoods.

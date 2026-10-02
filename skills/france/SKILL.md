@@ -1,27 +1,31 @@
 ---
 name: france
-slug: france
-version: 1.0.0
-description: Discover France like a local with concrete city advice, regional route planning, food context, and practical travel logistics.
-homepage: https://clawic.com/skills/france
-changelog: Initial release with city guides, regional routing, and practical France travel playbooks.
+description: Plan and organize travel across France. Use when the user wants to coordinate French city itineraries, manage train routes, or find local dining and cultural experiences.
 metadata:
-  clawdbot:
-    emoji: 🇫🇷
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/france/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: France
+  version: "1.0.0"
+  openclaw: '{"emoji": "🇫🇷"}'
+  related-skills: '{"travel": "General trip planning and itinerary structuring", "food": "Deeper restaurant and cuisine recommendations", "french": "Language support for local communication and bookings", "english": "Backup communication support for multilingual travel"}'
 ---
+## State location
 
-## Setup
+France travel state may exist in `<workspace>/france/`, `<workspace>/memory/france/`, or `~/france/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-If `~/Clawic/data/france/` doesn't exist or is empty, read `setup.md` and start naturally.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/france/`, `<workspace>/memory/france/`, `~/france/`.
+3. If none exists and state must be created, default to `<workspace>/france/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
+
+
+## Using References
+
+Load `references/` files on demand based on the user's specific region or topic interest (for example `references/paris.md` for Paris questions). Keep `SKILL.md` as the router; do not load every city guide up front.
+
+- Live fares, strike notices, museum hours, and ticket inventory drift — confirm via `references/sources.md` and operator apps in `references/apps.md` before the user pays.
+- Do not treat the literal string `<state_root>` as a filesystem path.
 
 ## When to Use
 
@@ -29,10 +33,10 @@ User planning a trip to France or asking for local insights: what to prioritize,
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/france/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure.
 
 ```
-~/Clawic/data/france/
+<state_root>/
 └── memory.md     # Trip context
 ```
 
@@ -41,35 +45,36 @@ Memory lives in `~/Clawic/data/france/`. See `memory-template.md` for structure.
 | Topic | File |
 |-------|------|
 | **Cities and Regions** | |
-| Paris complete guide | `paris.md` |
-| Lyon complete guide | `lyon.md` |
-| Marseille and Provence complete guide | `marseille-provence.md` |
-| French Riviera complete guide | `french-riviera.md` |
+| Paris complete guide | `references/paris.md` |
+| Lyon complete guide | `references/lyon.md` |
+| Marseille and Provence complete guide | `references/marseille-provence.md` |
+| French Riviera complete guide | `references/french-riviera.md` |
 | **Planning** | |
-| Sample itineraries | `itineraries.md` |
-| Where to stay by style | `accommodation.md` |
-| Useful apps | `apps.md` |
+| Sample itineraries | `references/itineraries.md` |
+| Where to stay by style | `references/accommodation.md` |
+| Useful apps | `references/apps.md` |
 | **Food and Drink** | |
-| Regional dishes and restaurant strategy | `food-guide.md` |
-| Wine regions and tastings | `wine.md` |
+| Regional dishes and restaurant strategy | `references/food-guide.md` |
+| Wine regions and tastings | `references/wine.md` |
 | **Experiences** | |
-| Signature experiences | `experiences.md` |
-| Beaches and coastal strategy | `beaches.md` |
-| Hikes and mountain safety | `hiking.md` |
-| Nightlife by city and coast | `nightlife.md` |
+| Signature experiences | `references/experiences.md` |
+| Beaches and coastal strategy | `references/beaches.md` |
+| Hikes and mountain safety | `references/hiking.md` |
+| Nightlife by city and coast | `references/nightlife.md` |
 | **Reference** | |
-| Regions and route differences | `regions.md` |
-| Culture, etiquette, expectations | `culture.md` |
-| Traveling with children | `with-kids.md` |
+| Regions and route differences | `references/regions.md` |
+| Culture, etiquette, expectations | `references/culture.md` |
+| Traveling with children | `references/with-kids.md` |
 | **Practical** | |
-| Intercity transport and transfers | `transport.md` |
-| Phone and internet | `telecoms.md` |
-| Emergencies and safety | `emergencies.md` |
+| Intercity transport and transfers | `references/transport.md` |
+| Phone and internet | `references/telecoms.md` |
+| Emergencies and safety | `references/emergencies.md` |
+| Official sources (Gate 6) | `references/sources.md` |
 
 ## Core Rules
 
 ### 1. Specific Over Generic
-Do not say "do Paris highlights." Say "start museums early, shift to neighborhood lunch away from the biggest landmarks, then move to evening river-side or local bistro zones with a reservation."
+Provide specific advice like "start museums early, shift to neighborhood lunch away from the biggest landmarks, then move to evening river-side or local bistro zones with a reservation."
 
 ### 2. Local Perspective
 What locals and repeat travelers actually do, not brochure advice:
@@ -97,7 +102,7 @@ What locals and repeat travelers actually do, not brochure advice:
 - Meal windows and reservation timing are major quality levers in France
 
 ### 5. Flag Tourist Traps
-Be explicit about what to avoid:
+Direct users away from common pitfalls by explicitly stating alternatives:
 - Eating every meal in landmark-adjacent restaurant rows
 - Attempting Paris, Provence, and Riviera in a short trip with no transfer buffer
 - Booking no-reservation weekends in high-demand dining zones
@@ -107,36 +112,19 @@ Be explicit about what to avoid:
 
 | Traveler | Focus on |
 |----------|----------|
-| Foodie | `food-guide.md`, `lyon.md`, `paris.md` |
-| Culture and museums | `paris.md`, `regions.md`, `culture.md` |
-| Coast and scenery | `french-riviera.md`, `beaches.md`, `experiences.md` |
-| Family | `with-kids.md`, `accommodation.md`, `itineraries.md` |
-| Nightlife | `nightlife.md`, `paris.md`, `marseille-provence.md` |
-| Mixed route trip | `itineraries.md`, `transport.md`, `regions.md` |
+| Foodie | `references/food-guide.md`, `references/lyon.md`, `references/paris.md` |
+| Culture and museums | `references/paris.md`, `references/regions.md`, `references/culture.md` |
+| Coast and scenery | `references/french-riviera.md`, `references/beaches.md`, `references/experiences.md` |
+| Family | `references/with-kids.md`, `references/accommodation.md`, `references/itineraries.md` |
+| Nightlife | `references/nightlife.md`, `references/paris.md`, `references/marseille-provence.md` |
+| Mixed route trip | `references/itineraries.md`, `references/transport.md`, `references/regions.md` |
 
-## Common Traps
+## Important Considerations
 
-- Treating France as one compact destination with no transfer cost.
-- Choosing too many bases for short trips.
-- Ignoring reservation timing for top restaurants and museums.
-- Overplanning summer days without heat and crowd buffers.
-- Relying on car-first planning where rail is faster and lower stress.
-- Assuming every town follows the same opening-hour rhythm.
-
-## Security & Privacy
-
-**Data that stays local:** Trip preferences in `~/Clawic/data/france/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/france/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structuring
-- `food` — Deeper restaurant and cuisine recommendations
-- `french` — Language support for local communication and bookings
-- `english` — Backup communication support for multilingual travel
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/france
-- Latest version: https://clawic.com/skills/france
+- Budget transfer time: France is not one compact destination; same-day multi-region hops often fail.
+- Prefer fewer bases on short trips instead of nightly city hopping.
+- Reserve high-demand restaurants and timed museum entries early, especially weekends.
+- Keep summer outdoor blocks shorter with heat and crowd buffers.
+- Default to rail for major city pairs; use cars for village, wine, or mountain loops.
+- Re-check local Sunday/Monday opening patterns per town rather than assuming a national rhythm.
+- Confirm live rail disruptions, fares, and hours on official sources before locking the plan.
