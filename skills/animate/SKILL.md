@@ -63,7 +63,7 @@ After resolving `<state_root>`, if `<state_root>/memory.md` is missing or empty,
 
 ## When to load references
 
-Keep this file as the router; load the smallest matching reference.
+Keep this file as the router; load the smallest matching reference only. Do not preload the full references tree.
 
 | Need | File |
 |------|------|
