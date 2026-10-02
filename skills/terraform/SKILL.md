@@ -203,4 +203,3 @@ Load only when the task leaves pure Terraform workflow:
 - Never store credentials, role ARNs, or state file contents in skill memory or git.
 - Treat `apply`, `force-unlock`, `state rm`/`mv`/`push`, and backend migrations as high-blast-radius; show the exact command and wait for explicit confirmation.
 - Prefer declarative `moved` / `import` / `removed` blocks over out-of-band state surgery whenever the change must be reviewable across environments.
-
