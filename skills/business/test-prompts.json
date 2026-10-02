@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to build a marketplace for dog walkers. How should I validate this idea?",
+    "expected": "Apply the Validation Sequence stages Problem → Urgency → Willingness → Reach; require evidence before endorsement; start by probing problem evidence without rubber-stamping the marketplace idea.",
+    "actual": "Use the skill Validation Sequence. Start at Problem: ask for unprompted evidence that dog owners describe walking/access pain (5+ people). Do not skip to build advice until Problem and Urgency clear. Next check Willingness (pre-orders/LOIs) and Reach (channel tests).",
+    "pass": true,
+    "evidence": "Matched SKILL.md Core Rules §1 Validation Sequence table and 'Endorse only when backed by evidence'."
+  },
+  {
+    "id": 2,
+    "prompt": "My SaaS app has a monthly churn of 15%. Is this good?",
+    "expected": "Treat 15% monthly churn as a severe retention red flag versus healthy B2B targets often cited near <5% monthly; prioritize diagnosis of why users leave before acquisition spend; cite metrics guidance and sources.md caveats.",
+    "actual": "Flag 15% monthly churn as unhealthy versus common B2B SaaS targets (<5% monthly rule-of-thumb in references/metrics.md). Redirect to retention root-cause before growth. Note Gate 6 sources: prefer live benchmarks (ChartMogul/KeyBanc) and cohort data over static memory.",
+    "pass": true,
+    "evidence": "Cross-checked references/metrics.md churn guidance and references/sources.md benchmark anchors during handoff review."
+  },
+  {
+    "id": 3,
+    "prompt": "I need to decide whether to hire a full-time developer or an agency. Help me decide.",
+    "expected": "Classify as one-way vs two-way door (full-time hire harder to reverse), apply decision logging template, map options with constraints (budget/timeline), avoid rushing irreversible hire without data.",
+    "actual": "Classify full-time hire as closer to a one-way door and agency engagement as more reversible. Map options, constraints, and decision log fields (context/options/decision/reasoning/outcome). Gather input before irreversible headcount.",
+    "pass": true,
+    "evidence": "Matched SKILL.md Core Rules §4 Reversibility Assessment and §5 Track Decisions template."
+  }
+]

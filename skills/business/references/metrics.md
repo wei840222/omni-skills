@@ -143,7 +143,7 @@ Sessions per DAU:       >2
 | Disappointment | 40%+ would be "very disappointed" if gone |
 | Usage depth | Completing core action repeatedly |
 
-**Stop measuring:**
+**De-prioritize measuring:**
 - Revenue (too early)
 - Growth rate (meaningless at small scale)
 - Conversion optimization (optimize what works)

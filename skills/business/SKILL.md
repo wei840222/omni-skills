@@ -1,32 +1,34 @@
 ---
 name: business
-slug: business
-version: 1.1.0
-description: Validate ideas, build strategy, and make decisions with proven frameworks.
-homepage: https://clawic.com/skills/business
-changelog: Complete rewrite with validation system, decision tracking, and actionable frameworks.
+description: Apply proven business frameworks to validate startup ideas, define strategic priorities, track unit economics, and manage irreversible decisions.
 metadata:
-  clawdbot:
-    emoji: 💼
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Business Strategy
+  version: "1.1.0"
+  openclaw: '{"emoji": "💼"}'
+  related-skills: '{"ceo": "Executive leadership and board management.","cfo": "Financial planning and capital allocation.","pricing": "Pricing strategy and optimization.","startup": "Early-stage founder guidance.","strategy": "Competitive strategy and positioning."}'
 ---
 
 ## When to Use
 
 User has a business idea to validate, needs strategic direction, faces a key decision, or wants to evaluate progress. Agent acts as strategic advisor with frameworks, not just opinions.
 
+## State location
+
+Business state may exist in `<workspace>/business/`, `<workspace>/memory/business/`, or `~/business/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/business/`, `<workspace>/memory/business/`, `~/business/`.
+3. If none exists and state must be created, default to `<workspace>/business/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
-Decision memory lives in `~/Clawic/data/business/`. See `memory-template.md` for setup.
+Decision memory lives in `<state_root>`. See `assets/memory-template.md` for setup.
 
 ```
-~/Clawic/data/business/
+<state_root>/
 ├── decisions.md       # HOT: active decisions + outcomes
 ├── metrics.md         # Current business metrics
 ├── ideas/             # Idea validation logs
@@ -37,14 +39,15 @@ Decision memory lives in `~/Clawic/data/business/`. See `memory-template.md` for
 
 | Topic | File |
 |-------|------|
-| Memory setup | `memory-template.md` |
-| Validation frameworks | `frameworks.md` |
-| Metrics and thresholds | `metrics.md` |
+| Memory setup | `assets/memory-template.md` |
+| Validation frameworks | `references/frameworks.md` |
+| Metrics and thresholds | `references/metrics.md` |
+| Official sources (Gate 6) | `references/sources.md` |
 
 ## Core Rules
 
 ### 1. Validate Before Building
-Never endorse an idea without evidence. Follow the validation sequence:
+Endorse an idea only when backed by evidence. Follow the validation sequence:
 
 | Stage | Question | Evidence Required |
 |-------|----------|-------------------|
@@ -53,7 +56,7 @@ Never endorse an idea without evidence. Follow the validation sequence:
 | Willingness | Will they pay YOUR price? | Pre-orders, letters of intent |
 | Reach | Can you access these customers? | Channel identified and tested |
 
-Stop at first NO. Don't proceed without clearing each stage.
+Pause at the first NO. Proceed only after clearing each stage.
 
 ### 2. One Priority at a Time
 When asked "what should I focus on?", force a SINGLE priority:
@@ -62,7 +65,7 @@ When asked "what should I focus on?", force a SINGLE priority:
 - State the one thing clearly
 - Explain what gets deprioritized and why
 
-Never give parallel priorities. Decision paralysis kills startups.
+Assign a single, exclusive priority. Focused decision making accelerates startups.
 
 ### 3. Metrics Over Feelings
 For any "is it working?" question:
@@ -84,7 +87,7 @@ For every decision, classify:
 90% of decisions are two-way doors. Treat them accordingly.
 
 ### 5. Track Decisions
-Log every significant decision to `~/Clawic/data/business/decisions.md`:
+Log every significant decision to `<state_root>/decisions.md`:
 ```
 ## [DATE] Decision Name
 Context: Why this came up
@@ -122,11 +125,11 @@ For any new idea, run through in order:
 ┌─────────────────────────────────────────────────────────────┐
 │  1. PROBLEM                                                  │
 │     "Describe the problem without mentioning your solution"  │
-│     ✗ Fail: Can't articulate clearly → stop                  │
+│     ✗ Fail: Can't articulate clearly → pause                 │
 ├─────────────────────────────────────────────────────────────┤
 │  2. EVIDENCE                                                 │
 │     "How do you know this problem exists?"                   │
-│     ✗ Fail: "I think..." / "People would..." → stop          │
+│     ✗ Fail: "I think..." / "People would..." → pause         │
 │     ✓ Pass: Customer conversations, data, firsthand          │
 ├─────────────────────────────────────────────────────────────┤
 │  3. ALTERNATIVES                                             │
@@ -135,7 +138,7 @@ For any new idea, run through in order:
 ├─────────────────────────────────────────────────────────────┤
 │  4. DIFFERENTIATION                                          │
 │     "Why would they switch to you?"                          │
-│     ✗ Fail: "Better" / "Cheaper" without specifics → stop    │
+│     ✗ Fail: "Better" / "Cheaper" without specifics → pause   │
 ├─────────────────────────────────────────────────────────────┤
 │  5. WILLINGNESS                                              │
 │     "Have you asked anyone to pay? What happened?"           │
@@ -198,7 +201,7 @@ When asked "how do I monetize?", present 2-3 with tradeoffs:
 | Usage-based | Variable consumption | Hard to predict revenue |
 | Marketplace | Two-sided value | Chicken-egg problem |
 
-Guide to fit, don't list all options.
+Guide to the most suitable fit.
 
 ## Common Traps
 
@@ -220,7 +223,7 @@ Guide to fit, don't list all options.
 | Growth | Retention (D7/D30) | D7>40%, D30>20% |
 | Scale | Unit economics | LTV > 3x CAC |
 
-See `metrics.md` for detailed thresholds by business type.
+See `references/metrics.md` for detailed thresholds by business type.
 
 ## Scope
 
@@ -237,17 +240,3 @@ Defer to specialized skills for:
 - Fundraising mechanics (use `investor`)
 - Marketing execution (use `cmo`)
 - Product development (use `cpo`)
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `ceo` — Executive leadership and board management
-- `cfo` — Financial planning and capital allocation
-- `startup` — Early-stage founder guidance
-- `strategy` — Competitive strategy and positioning
-- `pricing` — Pricing strategy and optimization
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/business
-- Latest version: https://clawic.com/skills/business
