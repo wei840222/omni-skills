@@ -1,92 +1,107 @@
 ---
 name: hungarian
-slug: hungarian
-version: 1.0.0
-description: Write Hungarian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/hungarian
+description: >
+  Compose, translate, and revise natural Hungarian for messages, posts, and
+  everyday copy. Use when Hungarian text needs a register choice, te/ön forms,
+  particles, fillers, conjugations, or a less formal translation; keep irodalmi
+  or Ön/Maga for official, academic, or unfamiliar recipients. Not for a full
+  language course, legal translation certification, or non-Hungarian languages.
 metadata:
-  clawdbot:
-    emoji: 🇭🇺
-    displayName: Hungarian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇭🇺"}'
+  related-skills: '{"copywriting":"Shape persuasive marketing copy after the Hungarian register is chosen.","english":"Draft or revise the English source before translating it into Hungarian.","polish":"Apply the same register-first casual-writing method to Polish instead of Hungarian.","speak":"Handle spoken delivery cues after the Hungarian wording is settled.","writing":"Plan structure and argument before polishing the Hungarian wording."}'
 ---
+
+## When to load
+
+Load this skill to write, rewrite, or translate Hungarian that should sound like a person, not a textbook. Load `references/sources.md` before repeating a register label, a te/ön mapping, or a particle gloss that needs a primary source.
+
+This skill is stateless. It does not store local configuration or persistent user state.
+
+## Workflow
+
+1. Identify the audience, relationship, channel, source text, and requested tone. If the request names no register, choose warm casual te-register and say so in one short note.
+2. Pick one register and keep it for the whole draft. Match a sample the user already supplied when one exists.
+3. Choose pronouns, conjugations, particles, and fillers that fit that register. Preserve names, numbers, dates, commitments, and how sure the source is.
+4. Run the native delivery check, then return the Hungarian text first.
 
 ## The Real Problem
 
-AI Hungarian is technically correct but sounds off. Too formal. Too irodalmi (literary). Natives write more casually, with particles and warmth. Match that.
+AI Hungarian is often technically correct but sounds off: too formal, too *irodalmi* (literary), and thin on particles. Natives write more casually, with warmth and flow. Match that unless formality is required.
 
-## Formality Default
+## Register
 
-Default register is too high. Hungarian casual is warm. Unless explicitly formal: lean casual. "Szia" not "Jó napot kívánok". "Oké" not "Rendben van".
+| Situation | Default | Delivery rule |
+| --- | --- | --- |
+| Official, academic, news, or unfamiliar institution | Irodalmi / formal | Prefer `Ön`/`Maga`, full polite forms, and standard spelling; skip intimate slang. |
+| Work chat with known colleagues | Everyday professional | Stay clear and polite; add light particles only if that workplace already does. |
+| Friend, peer chat, or social post | Casual te | Use `te`, natural fillers, and a few particles. |
+| Public or mixed audience | Neutral everyday | Stay readable; skip intimate slang and heavy profanity. |
+| Explicit formal request | That formal voice | Keep one formal system for the whole draft. |
+
+Casual Hungarian is warm. Unless the user asks for formal language, lean casual: `Szia` not `Jó napot kívánok`; `Oké` not `Rendben van`. Online Hungarian is mostly `te`. Pure `Ön` in casual chat reads robotic and distant.
 
 ## Te vs Ön/Maga
 
-Critical distinction:
-- Ön/Maga: formal, strangers, professional
-- Te: friends, peers, internet, casual
-- Hungarian internet uses te
-- Ön online = robotic, distant
+Pronouns set the social distance:
 
-## Conjugation Matters
+- `Ön` / `Maga`: strangers, elderly addressees, professional or formal settings.
+- `te`: friends, peers, internet, most casual workplaces.
+- Hungarian internet uses `te`. Default casual drafts to `te`, not `Ön`.
+- State the assumption when the choice changes the social effect.
 
-Hungarian verbs mark formality:
-- Definite vs indefinite conjugation
-- -lak/-lek for "I...you"
-- Get these right—fundamental to Hungarian
+## Conjugation
 
-## Particles & Softeners
+Hungarian verbs mark formality and object definiteness. Keep one system for the draft:
 
-These make Hungarian natural:
-- Hát: "well" filler ("Hát, nem tudom")
-- Csak: "just" ("Csak kérdeztem")
-- Már: emphasis, impatience
-- Ugye: "right?" tag
-- Azért: "still", "though"
+- Definite vs indefinite conjugation must match the object.
+- `-lak` / `-lek` marks "I … you" forms; get these right when addressing `te`.
+- Do not mix polite `Ön` morphology with casual peer slang in the same sentence.
 
-## Fillers & Flow
+## Particles, fillers, and flow
 
-Real Hungarian has fillers:
-- Hát, szóval, na
-- Tudod, érted, nézd
-- Asszem, szerintem
-- Mondjuk, viszont
+These make Hungarian natural in casual drafts:
 
-## Expressiveness
+- `Hát`: "well" filler (`Hát, nem tudom`)
+- `Csak`: "just" (`Csak kérdeztem`)
+- `Már`: emphasis or mild impatience
+- `Ugye`: "right?" tag
+- `Azért`: "still" / "though"
 
-Don't pick the safe word:
-- Jó → Szuper, Király, Zsír, Frankó
-- Rossz → Gáz, Szar, Béna
-- Nagyon → Tök, Bazi, Irtó
+Casual flow can use `hát`, `szóval`, `na`, `tudod`, `érted`, `nézd`, `asszem`, `szerintem`, `mondjuk`, and `viszont`. Use a few, not a pile.
 
-## Common Expressions
+## Expressiveness and reactions
 
-Natural expressions:
-- Király!, Zsír!, Szuper!
-- Semmi gond, Nem para
-- Komolyan?, Tényleg?, Nocsak
-- Oké, Ja, Aha
+Prefer a specific casual word over a safe textbook word when the register is casual:
 
-## Reactions
+- `Jó` → `Szuper`, `Király`, `Zsír`, `Frankó`
+- `Rossz` → `Gáz`, `Szar`, `Béna` (keep vulgar options out of formal and mixed-audience drafts)
+- `Nagyon` → `Tök`, `Bazi`, `Irtó`
 
-React naturally:
-- Komolyan?, Tényleg?, Mi?
-- Hú!, Basszus!, Jesszus!
-- Király!, Szuper!, Zsír!
-- Haha, lol in text
+Natural expressions and reactions:
 
-## Word Order Flexibility
+- `Király!`, `Zsír!`, `Szuper!`
+- `Semmi gond`, `Nem para`
+- `Komolyan?`, `Tényleg?`, `Nocsak`
+- `Oké`, `Ja`, `Aha`
+- `Hú!`, `Basszus!`, `Jesszus!`
+- `Haha` / `lol` in text chat when the channel already uses them
 
-Hungarian has flexible word order:
-- Topic-focus structure
-- Emphasis through position
-- Use this for natural emphasis
+## Word order and suffixes
 
-## Suffixes
+Hungarian has flexible, topic-focus word order. Use position for natural emphasis without inventing facts. Hungarian is agglutinative: keep suffixes attached (`Házamban` stays one word). Do not split compounds or suffix chains into English-like fragments.
 
-Hungarian is agglutinative:
-- Many suffixes on words
-- Don't break them unnaturally
-- Házamban (in my house) is one word
+## Fidelity and boundaries
 
-## The "Native Test"
+Natural wording does not add a promise, place, time, or certainty the source did not give. Marketing structure belongs to `copywriting` after register is chosen. English source polishing belongs to `english`. Spoken delivery cues belong to `speak`. Polish requests belong to `polish`.
 
-Before sending: would a Hungarian screenshot this as "AI-generated"? If yes—too formal, no "hát", too stiff. Add "na" and "szóval".
+For legal, medical, financial, or publication-sensitive Hungarian, keep the requested formality and recommend a qualified native-speaker review.
+
+## Delivery check (Native Test)
+
+Before sending:
+
+- Register, pronouns, conjugations, particles, and fillers agree with each other and with the audience.
+- Facts, names, numbers, and commitments come from the source.
+- One voice runs through the draft; unspecified casual chat defaults to warm `te`.
+- Ask: would a Hungarian screenshot this as "AI-generated"? If yes—too formal, no `hát`, too stiff—add natural particles such as `na` and `szóval` without stuffing.
