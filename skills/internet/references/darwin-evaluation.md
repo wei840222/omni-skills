@@ -33,3 +33,48 @@ Executed as skill-conditioned answers against the repaired package text on 2026-
 - No third-party prompt-runner harness or separate model API was available in this cron host path; `actual` strings are package-conditioned repair responses with traceable expected alignment, not multi-model A/B logs.
 - Darwin numeric score is a structured dry-run judgment with the table above, not an external SaaS certificate.
 - No CI workflow run is embedded in this file; PR CI must be observed on GitHub after push.
+
+## Freud audit (Gate 9)
+
+**Audit date:** 2026-10-03  
+**Package:** `skills/internet`  
+**Mode:** Mode 2 lenses 2 / 3 / 4 / 6 (cognitive load, identity conflicts, instruction contradiction, white-bear / ironic process)
+
+## Lens 2 — Cognitive load
+
+| Finding | Severity | Resolution |
+| --- | --- | --- |
+| Original entrypoint mixed marketing homepage + nested clawdbot metadata | High | Gate 1 frontmatter; single emoji openclaw JSON string |
+| Deep procedure dumped into entrypoint without state/consent order | Med | Ordered routine + direct reference routing; core rules retained in SKILL.md |
+| Duplicate “rules” file extracted only for concision | High | Removed manufactured `rules.md`; improved core rules in place (Gate 2) |
+
+## Lens 3 — Identity / role conflicts
+
+| Finding | Severity | Resolution |
+| --- | --- | --- |
+| Skill spoke like an ISP salesperson and a radio engineer at once | Med | Explicit near-miss handoff to `wifi` / `network` / `vpn` / `wireguard` |
+| Incident logging implied storing account secrets | High | State table forbids credentials/addresses; placeholders only |
+
+## Lens 4 — Instruction contradictions
+
+| Finding | Severity | Resolution |
+| --- | --- | --- |
+| “Measure speed” via `curl https://fast.com` vs needing Mbps numbers | High | Diagnostics now forbid curl-as-speedtest; point to UI/CLI |
+| “Ping game servers” via marketing hostnames | High | Performance.md requires session telemetry or documented endpoints |
+| Hotspot tip “disable on home Wi-Fi” was easy to misread as disable home Wi-Fi | Med | Mobile.md clarifies: turn **phone hotspot** off while phone is on trusted Wi-Fi |
+
+## Lens 6 — White bear / ironic process
+
+| Finding | Severity | Resolution |
+| --- | --- | --- |
+| Long “do not do X” lists without positive default path | Med | Ordered routine states positive measure→classify→report path first; traps remain short |
+| Over-focus on vendor brand names invited ranking fixation | Med | Brand names demoted; live plan URL verification required |
+
+## Residual risk
+
+- Commercial ISP/eSIM offers remain time-sensitive; agents must not treat this package as a price database.
+- Router QoS click-paths stay model-specific and intentionally underspecified.
+
+## Verdict
+
+Cognitive-load and contradiction issues that blocked Gates 7–9 are addressed sufficiently for PR review. No further Freud rewrite required before Phase 6 unless review finds new Required items.

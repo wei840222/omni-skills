@@ -62,7 +62,7 @@ Keep `SKILL.md` as the progressive-disclosure router; load supporting references
 - **Gaming, streaming, video calls, QoS, bufferbloat** → `references/performance.md`
 - **Gate 6 primary sources** → `references/sources.md`
 - **Darwin score evidence** → `references/darwin-evaluation.md`
-- **Freud cognitive-load audit** → `references/freud-audit.md`
+- **Freud cognitive-load audit** → `references/darwin-evaluation.md` (Gate 9 section)
 
 ## Near-miss routing
 
