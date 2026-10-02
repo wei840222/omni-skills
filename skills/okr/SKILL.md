@@ -67,6 +67,12 @@ Keep `SKILL.md` as the router; load supporting files only when needed:
 | `references/guide.md` | Full O/KR craft, cadence, two-tier system, alignment, blacklist, adjacent systems, role interfaces, situations |
 | `references/sources.md` | Verifying OKR history, scoring conventions, or primary attributions against full URLs |
 
+## Progressive disclosure
+
+- Default path: `SKILL.md` router only (when-to-load, operating loop, quick reference).
+- Load `references/guide.md` for full O/KR craft, cadence, blacklist, and role interfaces.
+- Load `references/sources.md` only when attributing Grove/Doerr conventions or adjacent systems.
+
 ## Safety
 
 - Do not invent baseline or target numbers the user did not supply; mark unknowns.
