@@ -1,6 +1,6 @@
 # Memory Template — Android Studio
 
-Create `~/Clawic/data/android-studio/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure (only after user consent):
 
 ```markdown
 # Android Studio Memory
@@ -11,27 +11,29 @@ version: 1.0.0
 last: YYYY-MM-DD
 
 ## Environment
-ide_version: 
+ide_version:
 platform: macOS | Windows | Linux
 keymap: macOS | Windows/Linux
 
 ## Projects
 <!-- Types of projects they work on -->
-- 
+-
 
 ## Pain Points
 <!-- What slows them down -->
-- 
+-
 
 ## Learned Preferences
 <!-- Shortcuts, workflows they prefer -->
-- 
+-
 
 ---
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+Optional companion file: `<state_root>/shortcuts.md` for custom keymap notes.
+
+## Status values
 
 | Value | Meaning |
 |-------|---------|
