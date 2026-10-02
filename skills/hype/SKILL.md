@@ -34,6 +34,13 @@ This skill is stateless knowledge guidance. It does not store local configuratio
 | `references/trading-features.md` | Deposits/withdrawals, margin, leverage tiers, liquidations, funding, order notes, HLP, HYPE staking, common failures, or security checks. |
 | `references/sources.md` | Need primary-source URLs, claim freshness notes, or research provenance for PR/review. |
 
+## Near-miss routing
+
+- CEX Spot API keys / Binance signed REST → `binance`
+- Generic ETH gas or ERC-20 approve debugging without Hyperliquid deposit context → `ethereum`
+- Portfolio allocation education without Hyperliquid mechanics → `invest`
+- Aave Health Factor / supply-borrow → `aave`
+
 ## Quick checks
 
 - **Deposit path depends on login route.** Email onboarding can accept USDC on Arbitrum/Ethereum/Base/Polygon and several Unit-protocol spot assets; DeFi-wallet USDC deposit commonly starts from Arbitrum. Do not claim “Arbitrum only.”
