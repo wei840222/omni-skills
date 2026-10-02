@@ -118,7 +118,7 @@ rsync is one-way. When both sides may change, use **Unison** (`unison dir1 dir2`
 - Verify the mount or remote is still present before writing into a path that used to be a mountpoint.
 - Double-check source vs destination before `--delete` or `rclone sync`.
 - `rsync --delete` / cloud sync is **mirroring**, not a versioned backup — route recovery requirements to `backups`.
-- Never embed cloud credentials in scripts committed to the skill tree; configure remotes interactively or via host secrets (`rclone config`, env, or secret store).
+- Store cloud credentials in host secret flow only; configure remotes interactively or via env/secret store (`rclone config`), and keep them out of the skill tree.
 
 ## Quick command cheatsheet
 
