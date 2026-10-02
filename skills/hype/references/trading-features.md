@@ -129,7 +129,7 @@ Do **not** claim “partial liquidation always happens first.” Partial size re
 
 ## Security checklist
 
-- Prefer non-custodial wallet control; never share seed phrases or private keys.
+- Prefer non-custodial wallet control; keep seed phrases and private keys offline and out of chat—guide UI steps without requesting secrets.
 - Verify `app.hyperliquid.xyz` (or the chosen official interface) before connecting.
 - Enable trading only via the official signature prompt; revoke unused wallet connections when done.
 - Geo and interface restrictions may apply; this skill does not bypass them.
