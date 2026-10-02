@@ -665,7 +665,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | mercado-libre                | 2026-09-01 | 85/100        | #196 |
 | auto-update                  | 2026-09-28 | 85/100        | #1234 |
 
-| tai-chi | 2026-10-02 | 85/100 | #<PR_NUMBER> |
+| tai-chi                      | 2026-10-03 | 85/100        | #678 |
 ## Updating This Changelog
 
 For every skill-refactor pull request:
