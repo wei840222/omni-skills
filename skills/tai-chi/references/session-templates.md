@@ -1,7 +1,7 @@
 # Session Templates - Tai Chi
 
 Build the session around one purpose.
-Do not add extra drills unless they improve the main purpose.
+Include extra drills only if they actively improve the main purpose.
 
 ## 5-Minute Reset
 
@@ -62,7 +62,7 @@ Adjust any session with these rules:
 - reduce range before reducing control
 - shorten stance before removing movement entirely
 - use support from wall or chair if needed
-- stop if symptoms escalate instead of settling
+- transition to rest if symptoms escalate instead of settling
 
 Good finish:
 - user feels calmer or steadier than at the start

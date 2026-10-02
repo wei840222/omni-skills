@@ -1,6 +1,6 @@
 # Memory Template - Tai Chi (Practice Planner, Form Coach, Balance Tracker)
 
-Create `~/Clawic/data/tai-chi/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Tai Chi Memory
@@ -54,11 +54,11 @@ energy_after_practice:
 | `ongoing` | Active support | Continue coaching, logging, and review cycles |
 | `complete` | Stable routine | Use lightweight maintenance and periodic review |
 | `paused` | User paused practice | Keep context read-only until resumed |
-| `never_ask` | No setup prompts wanted | Do not ask setup questions unless requested |
+| `never_ask` | No setup prompts wanted | Ask setup questions only when explicitly requested |
 
 ## File Templates
 
-Create `~/Clawic/data/tai-chi/sessions/log.md`:
+Create `<state_root>/sessions/log.md`:
 
 ```markdown
 # Tai Chi Session Log
@@ -74,7 +74,7 @@ Create `~/Clawic/data/tai-chi/sessions/log.md`:
 - Next target:
 ```
 
-Create `~/Clawic/data/tai-chi/plans/current-plan.md`:
+Create `<state_root>/plans/current-plan.md`:
 
 ```markdown
 # Current Tai Chi Plan
@@ -88,7 +88,7 @@ Create `~/Clawic/data/tai-chi/plans/current-plan.md`:
 - Skip or modify if:
 ```
 
-Create `~/Clawic/data/tai-chi/form/checkpoints.md`:
+Create `<state_root>/form/checkpoints.md`:
 
 ```markdown
 # Tai Chi Form Checkpoints
@@ -101,7 +101,7 @@ Create `~/Clawic/data/tai-chi/form/checkpoints.md`:
 - Recheck on:
 ```
 
-Create `~/Clawic/data/tai-chi/summaries/weekly-review.md`:
+Create `<state_root>/summaries/weekly-review.md`:
 
 ```markdown
 # Weekly Tai Chi Review
@@ -115,7 +115,7 @@ Create `~/Clawic/data/tai-chi/summaries/weekly-review.md`:
 - Next-week focus:
 ```
 
-Create `~/Clawic/data/tai-chi/safety/modifications.md`:
+Create `<state_root>/safety/modifications.md`:
 
 ```markdown
 # Tai Chi Safety Modifications
@@ -124,7 +124,7 @@ Create `~/Clawic/data/tai-chi/safety/modifications.md`:
 - Situation:
 - Keep:
 - Reduce:
-- Avoid:
+- Focus away from:
 - Escalate if:
 ```
 
