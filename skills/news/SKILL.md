@@ -88,6 +88,8 @@ Keep this file as the progressive-disclosure router; load depth only when needed
 
 ## Failure modes
 
+Prefer the smallest recovery that restores a trustworthy briefing; avoid stacking prohibitions without a next action.
+
 | Condition | Response |
 |-----------|----------|
 | No `<state_root>` / empty profile | Resolve state; run first-run intake; do not dump a generic mega-brief |
