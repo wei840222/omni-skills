@@ -57,7 +57,7 @@ Use only the selected `<state_root>` for every state path in this skill. Never w
 
 ## Routing
 
-Keep this file as the router; load depth only when needed:
+Keep this file as the router (progressive disclosure); load depth only when needed:
 
 - **Exclusions, cloud flags, verification, bidirectional, remote SSH, pitfalls** → `references/sync-rules.md`
 - **Gate 6 primary sources** → `references/sources.md`
