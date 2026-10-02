@@ -53,6 +53,6 @@ Every deliverable should define:
 Use objective checks:
 - Acknowledges input fast enough
 - Preserves hierarchy and readability
-- Does not trap navigation or focus
+- Maintains free navigation and focus order
 - Works under interrupted or async states
 - Stays smooth on target devices

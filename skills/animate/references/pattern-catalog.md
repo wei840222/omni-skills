@@ -59,7 +59,7 @@ Use when:
 
 Preferred motion:
 - pressed state within 100ms
-- focus and validation transitions that do not move layout unpredictably
+- focus and validation transitions that maintain predictable layout
 
 Reduced motion:
 - color, opacity, or border emphasis without travel

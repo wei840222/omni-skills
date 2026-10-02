@@ -1,6 +1,6 @@
 # QA Playbook - Animate
 
-Do not sign off animation after it "looks nice" once.
+Require thorough testing across states beyond visual appearance.
 
 ## Minimum Validation
 
@@ -22,7 +22,7 @@ Visual quality:
 Behavior quality:
 - interaction is acknowledged quickly
 - touch, keyboard, and gesture input still work
-- navigation never feels blocked by animation
+- navigation flows freely during animation
 
 Performance quality:
 - no obvious jank on target devices
@@ -32,7 +32,7 @@ Performance quality:
 Accessibility quality:
 - reduced motion keeps the same meaning
 - focus order stays predictable
-- motion is not the only signal for state change
+- motion pairs with other signals for state change
 
 ## Shipping Artifacts
 
@@ -43,7 +43,7 @@ Leave behind:
 
 ## Fail Conditions
 
-Do not ship if:
+Block shipping if:
 - motion hides latency instead of explaining it
 - the app becomes harder to use under rapid interaction
 - reduced motion breaks the flow

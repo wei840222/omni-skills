@@ -1,6 +1,6 @@
 # Memory Template - Animate
 
-Create `~/Clawic/data/animate/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Animate Memory
@@ -48,7 +48,7 @@ integration: pending
 | `ongoing` | Default learning state | Keep refining motion defaults from real work |
 | `complete` | Stable motion language established | Reuse defaults unless user overrides |
 | `paused` | User wants fewer setup prompts | Ask only when a critical constraint is missing |
-| `never_ask` | User rejected setup prompts | Stop prompting and work silently |
+| `never_ask` | User rejected setup prompts | Work silently without prompting |
 
 ## Integration Values
 
@@ -60,7 +60,7 @@ integration: pending
 
 ## Key Principles
 
-- Store decisions that improve future motion outputs, not chat transcripts.
+- Store only decisions that improve future motion outputs.
 - Keep memory concise and implementation-oriented.
 - Redact sensitive identifiers before saving notes.
 - Update `last` whenever memory is edited.
