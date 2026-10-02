@@ -97,6 +97,8 @@ caddy reload --config /etc/caddy/Caddyfile
 
 ## Safety
 
+Keep the entrypoint to the five core rules; put challenge matrices and flag catalogs only in references.
+
 - Use placeholders for secrets; never embed DNS API tokens or private keys in examples committed to git.
 - Prefer `caddy reload` over process restart on a live edge so connections are not dropped for a config-only change.
 - Open both 80 and 443 for public HTTP-01 / TLS-ALPN issuance and HTTP→HTTPS redirect; use DNS-01 when the host is not publicly reachable on those ports.
