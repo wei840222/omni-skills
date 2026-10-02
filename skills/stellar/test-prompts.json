@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to send 10 XLM to an exchange. The exchange gave me the address GABC... and a memo '123456'. Can I skip the memo?",
+    "expected": "Agent should state that the memo is critical for exchanges and must not be skipped, otherwise funds will be lost.",
+    "actual": "According to the Stellar details, exchanges require a memo for deposits. Sending without a memo will result in lost funds. You must not skip the memo '123456' when sending 10 XLM to the exchange.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I just created a brand new Stellar wallet, GXYZ... Why can't I receive 0.5 XLM into it?",
+    "expected": "Agent should explain the base reserve requirement: 1 XLM (2 base reserves of 0.5 XLM) minimum balance is required to activate an account.",
+    "actual": "Stellar accounts require a minimum balance of 1 XLM (2 base reserves of 0.5 XLM) to activate. Sending only 0.5 XLM is insufficient to meet the base reserve requirement, which is why your new wallet cannot receive it yet. You need to send at least 1 XLM to initialize the account.",
+    "pass": true
+  }
+]
