@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up an alert for our web service. We want to know when it is too slow. Should we alert on average latency > 200ms?",
+    "expected": "Rejects mean latency as the primary page. Recommends p99/histogram buckets aligned to the SLO boundary and multi-window multi-burn-rate on an error budget rather than a static average threshold.",
+    "actual": "Skip average latency as the page condition—an average of 50ms can hide a p99 of several seconds. Use a Prometheus histogram with buckets that straddle the SLO (for example [25, 50, 100, 250, 500, 1000]ms) and measure p99 with `histogram_quantile(0.99, rate(http_duration_bucket[5m]))`. Prefer multi-window multi-burn-rate alerting on the latency/availability SLI error budget (fast burn pages, slow burn tickets) over a lone static mean threshold. Pair every page with a runbook.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our microservices trace volume is getting too expensive. How should we reduce the cost? Can we just send fewer spans to the backend SaaS?",
+    "expected": "Routes spans through an OpenTelemetry collector gateway, applies tail-based sampling that keeps errors and slow traces at 100% while sampling successes, and drops noisy health/metrics spans before SaaS ingest.",
+    "actual": "Cut cost at the collector, not by blind head-drop at the app. Send OTLP to an OpenTelemetry Collector gateway that holds whole traces, then tail-sample: keep `status != ok` at 100%, keep latency above p99 at 100%, sample remaining successes at about 1–5%. Drop `/healthz`, `/readyz`, and `/metrics` spans and strip high-cardinality attributes before export. Prefer this over shipping every span straight to a SaaS backend where you pay per byte without a free transform step.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "After a deploy our Prometheus bill exploded. tsdb shows a label with hundreds of thousands of values. What do we do, and how should future PRs prevent this?",
+    "expected": "Identifies unbounded label cardinality, moves user/request/URL dimensions to spans or logs, strips at the collector, and treats new labels as schema changes in review.",
+    "actual": "Treat the high-value-count label as an incident: identify it via `/api/v1/status/tsdb` (or vendor top-series), stop emitting `user_id` / raw URL / `request_id` as metric labels, and move those dimensions to span attributes or structured log fields (or exemplars). Add an OTel collector processor to drop `http.target` while keeping templated `http.route`. For future PRs, review every new label like a schema change—ask how many distinct values it can take and keep metric labels under a sane budget (<10 labels, well under ~100k active series per service).",
+    "pass": true
+  }
+]
