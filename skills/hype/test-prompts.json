@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I deposit funds to trade on Hyperliquid?",
+    "expected": "Explain that deposit methods depend on login route: email onboarding can accept USDC on Arbitrum/Ethereum/Base/Polygon (and listed Unit spot assets); DeFi-wallet USDC commonly uses Arbitrum; CCTP/CEX paths exist; do not claim Arbitrum-only or ban Ethereum deposits. Mention verifying the official app and converting spot assets to USDC when needed for perps.",
+    "actual": "Deposit path depends on how you log in. On email login at app.hyperliquid.xyz, the deposit window can accept USDC on Arbitrum, Ethereum, Base, or Polygon (arrives as USDC on HyperCore), plus listed Unit-protocol assets such as BTC on Bitcoin or ETH on Ethereum. With a DeFi wallet, connect, Enable Trading, then deposit—USDC on Arbitrum is the common USDC path, and the same spot assets can be sent to the shown address (you may need to sell them for USDC before trading perps). You can also use CEX withdrawals to Hyperliquid or CCTP from other chains (source gas required). Trading itself is gas-free. Always use the official interface and confirm the network/asset shown in the UI—do not assume deposits are Arbitrum-only or that Ethereum deposits are impossible.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an open cross-margin position. It says 'Order would trigger liquidation' when I try to add size, and someone told me partial liquidation always saves me first. What is actually going on?",
+    "expected": "Explain free-margin/leverage conflict on the new order; outline liquidation sequence (book market orders first; partial 20% only above 100k USDC notional with 30s cooldown; backstop below 2/3 maintenance via liquidator vault); reject 'partial always first'; suggest reduce size, add USDC, or lower leverage after user authorization.",
+    "actual": "That error means the additional size at your current leverage would push the account through the liquidation boundary given free cross margin—so the venue rejects the order rather than letting you open into immediate liquidation. On Hyperliquid, liquidation is not 'partial first always': when equity falls below maintenance margin, the engine first sends market orders to the book (full size, may fill partially). Only liquidatable positions larger than 100k USDC notional (10k on testnet) use a 20% partial book liquidation, then a 30s cooldown where further liquidations are full-size. If equity falls below 2/3 of maintenance without a successful book liquidation, backstop liquidation moves the position/margin to the liquidator vault (HLP component). Practical fixes before any signed action: reduce the add-on size, deposit more USDC to cross margin, close or reduce the existing position, or use a lower leverage/isolated setup if that matches your risk intent—confirm which action you want before placing orders.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Do HYPE stakers automatically get a share of all Hyperliquid trading fees?",
+    "expected": "Correct the misconception: fees go to HLP, assistance fund (burns HYPE), and deployers; stakers can get fee discounts by stake tier and separate staking rewards from emissions—not a blanket trading-fee revenue share to all stakers.",
+    "actual": "No. Official fee docs send trading fees to the community via HLP, the assistance fund (system address that converts fees to HYPE and burns them), and market deployers who may keep a configured share. Staking HYPE can unlock tiered trading fee discounts (for example Wood at >10 HYPE staked) and earns separate staking rewards from the emissions schedule, with a 7-day queue when moving HYPE from staking back to spot. That is not the same as automatically paying a cut of every trading fee out to all HYPE stakers as revenue share. Verify current tier tables on the fees and staking docs before relying on a discount percentage.",
+    "pass": true
+  }
+]

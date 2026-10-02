@@ -1,88 +1,50 @@
 ---
 name: hype
-slug: hype
-version: 1.0.0
-description: Assist with Hyperliquid perpetuals trading, deposits, withdrawals, and L1 features.
-homepage: https://clawic.com/skills/hype
+description: >
+  Assist with Hyperliquid perpetuals, deposits/withdrawals, cross/isolated margin,
+  liquidations, funding, HLP vaults, and HYPE staking. Use when the user asks about
+  Hyperliquid onboarding, margin modes, liquidation risk, funding rates, vault
+  deposits, or HYPE delegation. Not for unrelated CEX APIs (binance) or generic
+  portfolio allocation (invest).
 metadata:
-  clawdbot:
-    emoji: 🟢
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Hype
+  version: "1.0.0"
+  openclaw: '{"emoji":"🟢"}'
+  related-skills: '{"binance":"Binance Spot REST/WebSocket and CEX account flows instead of Hyperliquid L1 perps.","ethereum":"Ethereum gas, approvals, and L2 bridges when the path is EVM deposit plumbing rather than Hyperliquid trading.","bitcoin":"Bitcoin UTXO and fee recovery when Unit BTC deposit paths need chain-native diagnosis.","aave":"Aave lending Health Factor risk rather than Hyperliquid perp liquidations.","invest":"General portfolio education after Hyperliquid mechanics are settled.","crypto-tools":"Market data and multi-venue tooling once Hyperliquid-specific account rules are clear."}'
 ---
 
-## Deposits and Withdrawals
-- Deposits only via Arbitrum — bridge USDC from Arbitrum to Hyperliquid
-- Native USDC only — not USDC.e or other bridged versions
-- Withdrawals back to Arbitrum — same bridge, takes a few minutes
-- No direct deposits from Ethereum mainnet — must bridge to Arbitrum first
-- Minimum deposit/withdrawal amounts apply — check current limits
+This skill is stateless knowledge guidance. It does not store local configuration or persistent user state. The wallet owner retains signing and fund control.
 
-## Account Model
-- Single margin account — all positions share collateral
-- Cross-margin by default — profits from one position offset losses in another
-- Isolated margin available per position — limits risk but reduces capital efficiency
-- Account value = deposits + unrealized PnL — real-time calculation
+## Safety posture
 
-## Trading Perpetuals
-- Perpetual futures with up to 50x leverage — higher leverage = higher liquidation risk
-- Funding rates every hour — longs pay shorts or vice versa based on price vs index
-- Mark price for liquidations — not last traded price, reduces manipulation
-- Order types: limit, market, stop-loss, take-profit, trailing stop
-- Reduce-only orders to close without accidentally increasing position
+- Treat every rate, max leverage, deposit route, and fee tier as time-sensitive; verify against current official docs or the live app/API before irreversible actions.
+- Prefer read-only diagnosis first. For deposits, withdrawals, orders, approvals, vault transfers, or staking moves, state the exact action and wait for explicit user authorization before guiding a signed step.
+- Prefer official URLs and the app deposit UI over third-party bridges or unsolicited wallet connections.
 
-## Liquidations
-- Liquidation price visible before opening position — calculate carefully with leverage
-- Partial liquidations happen first — position reduced before full liquidation
-- Insurance fund covers bad debt — but don't rely on it
-- Cross-margin means other positions' profits protect you — but losses can cascade
-- ADL (Auto-Deleveraging) in extreme cases — profitable traders may be force-closed
+## Workflow
 
-## Order Execution
-- On-chain order book — fully decentralized, verifiable
-- Sub-second block times — near-instant execution
-- No gas fees for trading — fees are trading fees only
-- API available for programmatic trading — rate limits apply
-- Cancellations are instant — no pending cancel state
+1. Identify the user goal: onboard/deposit, withdraw, open or size a perp, diagnose margin/liquidation, funding, HLP vault, or HYPE staking/governance.
+2. Confirm account route (email login vs DeFi wallet), margin mode (cross vs isolated), asset, and whether the question is mainnet or testnet.
+3. Load only the matching reference section, then answer with current official constraints and recovery steps.
+4. For any fund movement or position change, restate the action, required network/asset, and risk boundary; proceed only after the user confirms.
 
-## Vaults and Staking
-- HLP (Hyperliquid Provider) vault — earn fees from market making
-- Deposit USDC to earn yield — but exposed to vault performance
-- Vault performance varies — can be negative during high volatility
-- Staking HYPE token for governance — separate from trading
+## Load references
 
-## HYPE Token
-- Native token of Hyperliquid L1 — used for gas on the L1 chain
-- Airdrop distributed to early users — based on trading volume and points
-- Staking for chain security — validators run on HYPE stake
-- Trading fees partially go to HYPE stakers — revenue sharing model
+| Reference | Load when |
+|---|---|
+| `references/trading-features.md` | Deposits/withdrawals, margin, leverage tiers, liquidations, funding, order notes, HLP, HYPE staking, common failures, or security checks. |
+| `references/sources.md` | Need primary-source URLs, claim freshness notes, or research provenance for PR/review. |
 
-## Risk Management
-- Set stop-losses before entering positions — discipline prevents disasters
-- Monitor funding rates — paying high funding erodes profits
-- Check open interest and liquidity — low liquidity means higher slippage
-- Avoid max leverage — leaves no room for price movement
-- Understand cross-margin implications — one bad trade can affect all positions
+## Near-miss routing
 
-## API and Automation
-- REST and WebSocket APIs available — full trading functionality
-- Rate limits per IP and account — respect limits to avoid bans
-- Testnet available — practice without real funds
-- SDK in Python — official and community libraries exist
+- CEX Spot API keys / Binance signed REST → `binance`
+- Generic ETH gas or ERC-20 approve debugging without Hyperliquid deposit context → `ethereum`
+- Portfolio allocation education without Hyperliquid mechanics → `invest`
+- Aave Health Factor / supply-borrow → `aave`
 
-## Common Issues
-- "Insufficient margin" — need more USDC or reduce position size
-- "Order would trigger liquidation" — leverage too high for position size
-- "Rate limited" — slow down API requests
-- Withdrawal delayed — network congestion, usually resolves quickly
-- Position not showing — refresh or check subaccounts
+## Quick checks
 
-## Security
-- Non-custodial — funds secured by your wallet
-- Connect via wallet signature — no deposits to exchange address
-- Revoke connections when done — permissions persist until revoked
-- Verify site URL — phishing sites common for DEXs
-- No KYC required — but geo-restrictions may apply
+- **Deposit path depends on login route.** Email onboarding can accept USDC on Arbitrum/Ethereum/Base/Polygon and several Unit-protocol spot assets; DeFi-wallet USDC deposit commonly starts from Arbitrum. Do not claim “Arbitrum only.”
+- **Max leverage is per asset and tier**, not a global 50x. BTC can reach 40x in the lowest tier; other assets are lower.
+- **Liquidation** first sends book market orders; positions above the partial-liquidation notional threshold may liquidate 20% first with a short cooldown; backstop liquidation via the liquidator vault applies if equity falls below 2/3 maintenance margin.
+- **Fees** go to HLP, the assistance fund (burns HYPE), and deployers—not a direct “trading fees to HYPE stakers” revenue share. Staking HYPE can unlock **fee discounts** by tier.
+- **Funding** is peer-to-peer and paid hourly.
