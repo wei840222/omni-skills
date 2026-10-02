@@ -1,145 +1,122 @@
 ---
 name: animate
-slug: animate
-version: 1.0.0
-description: Animate app and web UIs across Flutter, React, SwiftUI, Compose, and React Native with motion systems, guardrails, and reduced-motion fallbacks.
-homepage: https://clawic.com/skills/animate
-changelog: Initial release focused on app, web, and React animation systems, implementation guardrails, and QA.
+description: >
+  Design and implement product UI motion systems across Flutter, React/Next.js,
+  SwiftUI, Jetpack Compose, React Native, and web. Use for micro-interactions,
+  navigation/shared-element transitions, modals/sheets, loading feedback,
+  gesture response, motion tokens, reduced-motion fallbacks, and QA acceptance
+  criteria. Prefer media/video tools for timeline editing or GIF encoding; prefer
+  `design` / `figma` for pure visual taste or canvas mechanics without motion
+  implementation.
 metadata:
-  clawdbot:
-    emoji: MOTION
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/animate/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/animate/
-    displayName: Animate
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/animate/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🎞️","requires":{"config":["<state_root>"]}}'
+  related-skills: '{"flutter":"Flutter widget and navigation implementation beyond generic motion contracts.","react":"React/Next component and router patterns when motion is only one layer.","react-native":"RN/worklet/native-driver specifics past shared motion rules.","swift":"Swift/SwiftUI host patterns when Apple-platform motion is the main stack.","android":"Android/Compose platform constraints beyond cross-stack motion defaults.","design":"Visual design judgment when taste leads and motion is secondary.","figma":"Figma prototype and Smart Animate mechanics inside the design file.","frontend":"Broader web front-end architecture around CSS/JS motion choices.","css":"CSS transition/animation syntax depth without multi-stack product motion routing.","ui":"General UI product patterns when animation is not the primary ask.","animations":"Broader animation craft or non-product motion when not shipping app UI systems."}'
 ---
 
-## When to Use
+## State location
 
-User needs motion designed or implemented inside a product UI. Agent turns vague requests into motion contracts, stack-specific implementation choices, and testable acceptance criteria across Flutter, React, Next.js, SwiftUI, Compose, React Native, and broader web stacks.
+Animate preferences may exist in `<workspace>/animate/`, `<workspace>/memory/animate/`, or `~/animate/`.
+`<workspace>` means the workspace root provided by the host/runtime, not the shell cwd.
 
-Use this for micro-interactions, navigation transitions, shared-element flows, loading states, gesture feedback, and motion system design. Do not use it for video editing, GIF rendering, or media encoding.
+Before any state read or write, resolve `<state_root>` once per invocation:
 
-## Architecture
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/animate/`, `<workspace>/memory/animate/`, `~/animate/`.
+3. If multiple candidates exist, keep only the highest-precedence directory, leave others untouched, and tell the user which location was selected.
+4. If none exists and persistent state must be created, default to `<workspace>/animate/` after brief first-write consent.
 
-Memory lives in `~/Clawic/data/animate/`. If `~/Clawic/data/animate/` does not exist, run `setup.md`. See `memory-template.md` for structure and status fields.
+Use the selected `<state_root>` for every state path in this skill. Never write the literal string `<state_root>` to disk. Skill package files stay under `references/` and `assets/`; never write learned data into `SKILL.md`.
+
+Legacy path `~/Clawic/data/animate/` is a migration source only. It is outside active lookup. Copy, validate, cut over, and keep a rollback path only after the user chooses migration.
 
 ```text
-~/Clawic/data/animate/
-|- memory.md             # Durable motion preferences and platform context
-|- tokens.md             # Approved duration, easing, and spring ladders
-|- patterns.md           # Proven interaction and transition patterns
-|- platform-notes.md     # Stack-specific implementation decisions
-`- qa.md                 # Regressions, low-end findings, and accessibility notes
+<state_root>/
+├── memory.md          # Durable motion preferences and platform context
+├── tokens.md          # Approved duration, easing, and spring ladders
+├── patterns.md        # Proven interaction and transition patterns
+├── platform-notes.md  # Stack-specific implementation decisions
+└── qa.md              # Regressions, low-end findings, accessibility notes
 ```
 
-## Quick Reference
+## When to load
 
-Use the smallest relevant file for the current task.
+Load this skill when the user needs **product UI motion** designed or implemented:
 
-| Topic | File |
-|-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Motion system and spec contract | `motion-system.md` |
-| Platform routing by stack | `platform-routing.md` |
-| Starter snippets by stack | `implementation-snippets.md` |
-| Common app animation patterns | `pattern-catalog.md` |
-| Performance and accessibility guardrails | `performance-accessibility.md` |
-| QA and regression checks | `qa-playbook.md` |
+- micro-interactions, press/hover feedback, toggles, forms
+- navigation, shared-element, modal/sheet/drawer transitions
+- loading, success, error, retry, optimistic-update motion
+- cross-stack motion systems, tokens, reduced-motion fallbacks, QA criteria
 
-## Core Rules
+Route away when the primary task is:
 
-### 1. Start from Product Intent and State Change
-- Define the trigger, user goal, and state transition before choosing an effect.
-- Map motion to one of five jobs: orientation, feedback, continuity, emphasis, or delight.
-- If the intent is unclear, do not animate yet.
+- pure visual taste without implementation → `design`
+- Figma canvas/prototype mechanics → `figma`
+- CSS syntax-only depth without product motion routing → `css`
+- non-product / media timeline animation → media tools or `animations`
+- stack framework work with no motion contract → `flutter` / `react` / `react-native` / `swift` / `android` / `frontend`
 
-### 2. Write a Motion Contract Before Code
-Every proposal must specify:
-- Trigger and affected surfaces
-- Initial state, end state, and reduced-motion fallback
-- Duration, easing or spring, delay or stagger, and cancellation behavior
-- Acceptance criteria: responsiveness, accessibility, parity, and performance
+## Setup
 
-No vague wording like "smooth" or "premium" without values.
+After resolving `<state_root>`, if `<state_root>/memory.md` is missing or empty, read `references/setup.md` and follow it while still answering the current motion question first. Confirm before the first durable write. File shape: `assets/memory-template.md`.
 
-### 3. Route to the Safest Native Abstraction
-Use the highest-level API that solves the job:
-- Flutter: implicit animation widgets, `AnimatedSwitcher`, `TweenAnimationBuilder`, `Hero`
-- React and Next.js: CSS-first transitions, Motion presence/layout APIs, and router-safe transitions before bespoke choreography
-- SwiftUI: `withAnimation`, content transitions, `matchedGeometryEffect`
-- Compose: `animate*AsState`, `AnimatedVisibility`, `updateTransition`
-- React Native: native-thread or worklet-safe animation paths before JS-thread choreography
-- Web: CSS `transform` and `opacity`, View Transitions, or framework-native transitions before GSAP-level complexity
+## When to load references
 
-Avoid low-level animation code when a higher-level primitive already handles interruption and lifecycle.
+Keep this file as the router; load the smallest matching reference only. Do not preload the full references tree.
 
-### 4. Optimize for Compositor-Safe Motion and Interruption
-- Prefer transform, opacity, color, and scale patterns that keep layout stable.
-- Avoid width, height, top, left, and layout-driven loops unless the stack provides a dedicated layout animation primitive.
-- Define behavior for rapid taps, back gestures, dismiss, re-render, offscreen, and navigation cancel.
-- Users should never get stuck behind an animation.
+| Need | File |
+|------|------|
+| Setup / activation preferences | `references/setup.md` |
+| Memory file template | `assets/memory-template.md` |
+| Core rules and failure traps | `references/core-rules.md` |
+| Motion brief, tokens, contract | `references/motion-system.md` |
+| Stack routing (Flutter…web) | `references/platform-routing.md` |
+| Starter snippets by stack | `references/implementation-snippets.md` |
+| Pattern catalog | `references/pattern-catalog.md` |
+| Performance + accessibility | `references/performance-accessibility.md` |
+| QA / regression checklist | `references/qa-playbook.md` |
+| Security and privacy | `references/security-privacy.md` |
+| Gate 6 verified sources | `references/sources.md` |
 
-### 5. Ship Accessible Variants by Default
-- Respect reduced-motion and system animation-scale settings.
-- Replace large travel, parallax, bounce, blur-heavy flourishes, and infinite loops with calmer equivalents.
-- Never rely on movement alone to communicate status.
-- Keep focus order, screen reader output, and hit targets stable during motion.
+## Operating loop
 
-### 6. Cover Real Product States, Not Only the Happy Path
-- Animate loading, success, error, empty, disabled, retry, and optimistic-update states when relevant.
-- Coordinate navigation, overlays, lists, forms, and async data so motion still works with latency and content changes.
-- Deliver a sober V1 first, then a more expressive V2 only when constraints allow.
+1. **Clarify the motion job** — trigger, state change, intent (orientation / feedback / continuity / emphasis / delight), stack, and constraints.
+2. **Write a motion contract** before code — initial/end state, duration or spring, interruption/cancel, reduced-motion fallback, acceptance criteria. Ban vague “smooth/premium” without values.
+3. **Route to the safest high-level API** for the stack (`references/platform-routing.md`); drop lower only when lifecycle or gesture needs force it.
+4. **Ship accessible + interruptible defaults** — compositor-safe properties, reduced-motion variant, focus/hit-target stability, real device budget.
+5. **Verify** with preview/story, interrupted input, reduced motion, and mid-tier performance before calling done (`references/qa-playbook.md`).
+6. **Persist only reusable defaults** under `<state_root>/` when consent allows.
 
-### 7. Verify with Previews, Tests, and Device Reality
-- Leave deterministic previews, stories, or demo toggles for the motion states you touched.
-- Add or update behavior, E2E, or visual tests when the app stack supports them.
-- Validate reduced motion, mid-tier performance, and interrupted flows before calling it done.
+## Core rules
 
-## Common Traps
+1. Motion maps to a user-facing state change, not decoration.
+2. Every deliverable includes a reduced-motion path and cancellation behavior.
+3. Prefer `transform` / `opacity` / stack-native layout animation primitives; avoid layout thrash and infinite ornamental loops.
+4. Cover loading, error, empty, disabled, retry, and optimistic paths when relevant.
+5. Leave deterministic previews or tests for critical animated flows when the stack supports them.
+6. Do not store secrets or unnecessary personal data in motion memory.
 
-- Pretty animation without a user-facing reason -> extra motion, less clarity.
-- Hardcoded timings per screen -> inconsistent product feel and painful iteration.
-- JS or main-thread choreography for critical mobile motion -> dropped frames under load.
-- Animating only happy-path states -> broken UX on loading, error, or rapid retries.
-- Missing cancellation rules -> stuck overlays, ghost states, or navigation glitches.
-- Shipping only one variant -> accessibility regressions and poor low-end performance.
+## Failure modes
 
-## Security & Privacy
+| Condition | Response |
+|-----------|----------|
+| No `<state_root>` yet | Resolve per State location; answer first; ask once before create |
+| Request is “make it smooth” only | Force a motion contract with numbers and fallback |
+| Stack unclear | Ask one clarifying question; propose a stack-neutral contract meantime |
+| Reduced motion required | Swap travel/bounce/parallax for opacity/color/instant confirm |
+| Conflicting candidate state dirs | Highest precedence only; report conflict |
+| Media/video editing ask | Route out; do not stretch this skill into encoders |
 
-**Data that leaves your machine:**
-- None by default from this skill itself.
+## Out of scope
 
-**Data that stays local:**
-- Motion preferences, approved tokens, platform notes, and QA learnings under `~/Clawic/data/animate/`.
+- Video editing, GIF/Lottie authoring pipelines, or media encoding
+- Pure graphic-design taste without product motion implementation
+- Disabling OS accessibility animation settings for the user
+- Rewriting this skill package from runtime memory
 
-**This skill does NOT:**
-- Upload builds, videos, or telemetry automatically.
-- Modify files outside `~/Clawic/data/animate/` for memory.
-- Disable accessibility settings.
-- Modify its own `SKILL.md`.
+## Safety
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `flutter` - Widget lifecycles and performance rules useful for Flutter motion.
-- `react` - Component and rendering patterns that shape animation behavior in React apps.
-- `react-native` - Mobile lifecycle and animation-thread constraints for React Native.
-- `swift` - Swift and SwiftUI implementation patterns for Apple platforms.
-- `android` - Android and Compose implementation details for native motion.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/animate
-- Latest version: https://clawic.com/skills/animate
+- Examples use placeholders only; never commit real tokens or private paths.
+- Memory writes stay under the resolved `<state_root>/` after consent.
+- Do not exfiltrate motion notes, device inventories, or user identifiers.

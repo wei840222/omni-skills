@@ -10,7 +10,7 @@ Prefer:
 - carefully controlled color changes
 - stack-native layout animation primitives when layout must move
 
-Avoid by default:
+Defer by default:
 - width and height tweens
 - top and left movement
 - blur-heavy or shadow-heavy loops
@@ -25,7 +25,7 @@ Define behavior for:
 - async completion before animation ends
 - unmount or offscreen transitions
 
-If interruption is undefined, the motion is not ready.
+Ensure interruption is defined before finalizing motion.
 
 ## Reduced Motion
 

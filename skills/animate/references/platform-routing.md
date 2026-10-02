@@ -11,7 +11,7 @@ Start with:
 Drop lower only when needed:
 - `AnimationController` for explicit choreography
 - physics-based motion when user input or gesture momentum matters
-Avoid:
+Alternatives:
 - manual controllers for simple one-state transitions
 - rebuilding large trees every tick
 
@@ -23,7 +23,7 @@ Start with:
 Drop lower only when needed:
 - custom spring choreography across multiple surfaces
 - gesture libraries or scroll-linked systems for interaction-heavy screens
-Avoid:
+Alternatives:
 - route transitions that fight Suspense, hydration, or async data
 - mixing CSS, Motion, and GSAP on one surface without a clear owner
 
@@ -35,8 +35,8 @@ Start with:
 - `matchedGeometryEffect`
 Drop lower only when needed:
 - custom springs and phase-based animation
-- UIKit bridging for capabilities SwiftUI does not cover cleanly
-Avoid:
+- UIKit bridging for capabilities outside of SwiftUI coverage
+Alternatives:
 - mixing unrelated animation styles inside one flow
 - forcing identical motion when platform-native behavior reads better
 
@@ -49,7 +49,7 @@ Start with:
 Drop lower only when needed:
 - `Animatable`
 - low-level drawing or gesture-linked motion
-Avoid:
+Alternatives:
 - lower-level APIs when high-level transitions already model the state change
 - non-lambda modifiers for frequently changing animated values
 
@@ -60,7 +60,7 @@ Start with:
 - worklet or native-thread paths for gesture-heavy motion
 Drop lower only when needed:
 - hand-written JS-thread choreography for non-critical or prototype-only effects
-Avoid:
+Alternatives:
 - critical motion that depends on busy JS thread timing
 - mixing multiple motion engines on one surface without reason
 
@@ -69,7 +69,7 @@ Start with:
 - CSS transitions on `transform` and `opacity`
 - keyframes or View Transitions for short deterministic sequences
 - framework-native transitions in Vue, Svelte, or router layers before GSAP
-Avoid:
+Alternatives:
 - `transition: all`
 - animating layout properties when transform can express the same change
 - scroll effects that ignore reduced-motion settings
