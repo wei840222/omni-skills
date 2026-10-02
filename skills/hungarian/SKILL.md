@@ -18,6 +18,8 @@ Load this skill to write, rewrite, or translate Hungarian that should sound like
 
 This skill is stateless. It does not store local configuration or persistent user state.
 
+Not a substitute for certified legal/medical translation, full grammar tutoring, or non-Hungarian language skills.
+
 ## Workflow
 
 1. Identify the audience, relationship, channel, source text, and requested tone. If the request names no register, choose warm casual te-register and say so in one short note.
