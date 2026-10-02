@@ -44,7 +44,7 @@ Best if you only have one day (cruise ship, layover).
 ### Day 2: Teide & Volcano
 | Time | Activity |
 |------|----------|
-| 08:00 | Early drive to Teide (avoid clouds) |
+| 08:00 | Early drive to Teide (ensure clear views) |
 | 10:00 | Cable car ascent (pre-booked) |
 | 12:00 | Explore Roques de García, short walks |
 | 14:00 | Lunch at Parador de las Cañadas |
@@ -167,7 +167,7 @@ Options based on what you loved:
 - **Garachico + Icod + Puerto**: Nice west-north route
 - **La Laguna + Santa Cruz**: Close together, combine easily
 
-### Avoid
+### Practices to Reconsider
 - Teide on cloudy day (check forecasts)
 - Masca hike on weekends (crowded)
 - Multiple long drives same day (roads are slow)

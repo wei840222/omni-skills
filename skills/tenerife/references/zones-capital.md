@@ -235,4 +235,4 @@ Neither city has urban beach, but options close:
 - Beach is daily priority
 - Want guaranteed sun every day
 - Prefer resort amenities
-- Don't like cities
+- Prefer quieter areas

@@ -47,7 +47,7 @@ What Tenerife's south would be without mass tourism. A real town that happens to
 El Médano is windy. This is:
 - **Paradise** for kitesurfers and windsurfers
 - **Annoying** for beach lounging (sand blows)
-- **Cooling** in summer (never too hot)
+- **Cooling** in summer (reliably temperate)
 - **Constant** — expect wind daily, especially afternoons
 
 If wind bothers you, this isn't your place.
@@ -64,7 +64,7 @@ Wild, natural beach backed by the volcanic Montaña Roja cone.
 - Less wind than El Médano main
 - Protected natural space
 - Sunset walks up Montaña Roja
-- Popular but never overcrowded
+- Popular but generally spacious
 
 ### Living Near
 - Limited housing directly at beach
@@ -249,7 +249,7 @@ Low-key. Beach bars, small venues. Not a party destination. Social scene more da
 - Families wanting space
 - Those learning Spanish
 - Inland preference
-- Don't need beach daily
+- Prioritize features other than daily beach access
 
 **Go elsewhere if**:
 - Wind bothers you

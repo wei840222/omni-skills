@@ -46,7 +46,7 @@ Tenerife's food reflects its unique position: Spanish base, African influence, A
 
 ---
 
-## Guachinches — Don't Miss
+## Guachinches — Highly Recommended
 
 Traditional home restaurants in wine country:
 - Family runs bodega (winery)

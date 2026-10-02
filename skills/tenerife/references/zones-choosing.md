@@ -137,7 +137,7 @@
 **Reality**: You probably do unless you're in La Laguna/Santa Cruz and happy staying urban.
 
 ### Mistake 5: "El Médano is the obvious nomad choice"
-**Reality**: Great for many, but wind and small-town life don't suit everyone. La Laguna and Costa Adeje also have scenes.
+**Reality**: Great for many, but wind and small-town life appeal to specific tastes. La Laguna and Costa Adeje also have scenes.
 
 ---
 
@@ -157,7 +157,7 @@ Some residents split time:
 
 ### Seasons
 - Winter: South (guaranteed sun when it matters)
-- Summer: North (cooler, avoid south crowds)
+- Summer: North (cooler, bypass south crowds)
 - Longer-term planning required
 
 ---

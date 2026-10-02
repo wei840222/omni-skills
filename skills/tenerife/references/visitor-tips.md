@@ -13,7 +13,7 @@
 **Rent a Car** — Essential for real exploration
 - Book in advance online (€15-30/day)
 - Recommended: Cicar (local, good service), AutoReisen, TopCar
-- Avoid airport desk rentals (3x price)
+- Pre-book rentals online (3x price)
 - Full insurance recommended (mountain roads)
 - Diesel more common, cheaper
 
@@ -62,7 +62,7 @@
 - Light rain jacket (especially north)
 - Smart casual for evening (no strict dress codes)
 
-**Don't Forget**:
+**Remember to**:
 - EU adapter if needed (Type C/F)
 - Reusable water bottle
 - Daypack for hikes
@@ -103,7 +103,7 @@
 ### Health & Safety
 
 **Very Safe** — Low crime, standard precautions apply
-- Don't leave valuables in car (especially tourist areas)
+- Secure all valuables out of sight (especially tourist areas)
 - Beach warnings: Respect red/yellow flags
 - Mountain weather: Changes quickly, be prepared
 
@@ -194,7 +194,7 @@ Route through traditional wine region:
 **Duration**: 3-4 hours
 **Distance**: 1h from south
 
-If you don't want the gorge hike:
+For alternatives to the gorge hike:
 - Drive up (the road is an attraction itself)
 - Walk around village (1 hour)
 - Coffee/lunch with views
@@ -268,7 +268,7 @@ Traditional home restaurants in wine country:
 4. **Packing too light** — Teide is cold, north needs layers
 5. **No reservations** — Teide cable car and Masca sell out
 6. **Expecting Caribbean beaches** — Most beaches volcanic black (still beautiful)
-7. **Rushing Teide** — It deserves a full day, not a quick stop
+7. **Rushing Teide** — It deserves a full day, requires a dedicated pace
 8. **Tourist trap restaurants** — Walk 2 blocks from main strip for better food
 9. **Underestimating distances** — 50km can take 1.5 hours on mountain roads
 10. **Skipping La Laguna** — Most beautiful town, often overlooked

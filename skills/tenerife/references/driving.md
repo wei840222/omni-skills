@@ -206,14 +206,14 @@ Comprehensive (todo riesgo) for:
 - Hairpin bends (many)
 - Steep gradients
 - Single lane sections (some)
-- Stunning views (don't get distracted)
+- Stunning views (stay focused on the road)
 - Well maintained generally
 
 **Tips**:
 - Use low gears downhill
 - Honk on blind curves
 - Let faster traffic pass
-- Don't rush
+- Take your time
 - Pull over for views safely
 
 ### Specific Roads

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a digital nomad looking to move to Tenerife for 6 months. Where should I live, and what is the typical cost for a 1-bedroom apartment?",
+    "expected": "Recommend nomad-friendly bases (Costa Adeje, El Médano, La Laguna), cite directional 1BR rent bands, mention Spain Digital Nomad Visa only as orientation, and point to references/sources.md before locking income floors.",
+    "actual": "Primary bases: Costa Adeje, El Médano, La Laguna (see references/zones-choosing.md and references/nomad.md). Directional 1BR bands in SKILL.md: Costa Adeje about €800-1,200/month; Santa Cruz about €600-900/month — re-check Idealista. For a 6-month remote stay, outline Spain Digital Nomad Visa as a possible path and open live government sources in references/sources.md before quoting SMI multiples or filing steps.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My family is planning a 3-day trip to Tenerife. What are the best zones to stay for a quick trip, and do we need to rent a car?",
+    "expected": "Suggest family-friendly bases, point to the 3-day itinerary reference, and explain that a car is usually strongly recommended outside core corridors.",
+    "actual": "For a short family trip, start with La Laguna or Adeje village / south family resorts depending on beach vs culture priority (references/zones-choosing.md, references/visitor-lodging.md). Use the 3-day frame in references/visitor-itineraries.md. Renting a car is strongly recommended: TITSA covers main routes but mountain timing and day-trip density favor a car (references/driving.md, references/transport.md).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is the north or south better if I hate cloudy beach days but still want a non-generic town feel?",
+    "expected": "Explain microclimates, recommend a south or southeast base with guidance to avoid the most generic strips, and route to zone files.",
+    "actual": "Prefer south or southeast for reliable sun (SKILL climate rules + references/climate.md). For less generic feel than pure Las Américas strips, bias Costa Adeje side-streets, La Caleta, or El Médano rather than the densest package-tourist blocks (references/zones-south-upscale.md, references/zones-southeast.md, references/zones-south-tourist.md).",
+    "pass": true
+  }
+]

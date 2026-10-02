@@ -234,7 +234,7 @@ Most restaurants cater to tourists with:
 - Walk 2-3 blocks from main strip
 - Look for Spanish menus
 - Ask hotel staff where locals eat
-- Avoid "we speak English" signs
+- Seek authentic local venues
 
 ---
 

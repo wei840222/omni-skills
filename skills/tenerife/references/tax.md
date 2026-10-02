@@ -1,5 +1,8 @@
 # Tax & ZEC Benefits — Tenerife
 
+> **Orientation only.** Income floors, tax rates, and stay windows change. Re-open URLs in `references/sources.md` (and the live government page for the traveler's nationality/date) before advising a filing or non-refundable booking. Package euro figures are directional, not legal advice.
+
+
 ## Canary Islands Tax Advantages
 
 The Canary Islands have special tax status within Spain and the EU, creating legitimate advantages.
@@ -210,7 +213,7 @@ Progressive system (slightly lower in Canarias):
 
 ## Common Mistakes
 
-### Don't
+### Cautions
 - Assume you can work undeclared
 - Ignore 183-day rule
 - Mix personal and business finances
