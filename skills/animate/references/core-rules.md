@@ -55,3 +55,7 @@ Use higher-level primitives for interruption and lifecycle over low-level animat
 - Animating only happy-path states -> broken UX on loading, error, or rapid retries.
 - Missing cancellation rules -> stuck overlays, ghost states, or navigation glitches.
 - Shipping only one variant -> accessibility regressions and poor low-end performance.
+
+## Cognitive load
+
+Prefer executable next steps over prohibition checklists. Keep trap lists short and pair each trap with the positive rule above.
