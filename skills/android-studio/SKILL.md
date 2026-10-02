@@ -31,6 +31,7 @@ Prefer other skills when the ask is mainly:
 - Gradle modules, `targetSdk`, crashes, Play upload → `android`
 - Kotlin language / coroutines / collections → `kotlin`
 - Java syntax depth → `java`
+- Generic IntelliJ non-Android work without Android tooling → do not force this skill
 
 ## State location
 
