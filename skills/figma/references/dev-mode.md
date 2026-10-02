@@ -10,7 +10,7 @@ The deliverable is a file an engineer can read without asking questions, not a l
 - A compare-changes view showing what moved between versions or branches.
 - Annotations pinned to nodes, and dev resource links (Storybook story, Jira ticket, GitHub component).
 
-Dev Mode access is seat-gated — a Dev or Full seat per person. If engineers do not have the seat, the deliverable is a written spec page plus exported assets, not a Figma link.
+Dev Mode access is seat-gated — a Dev or Full seat per person. If engineers lack Dev Mode access, the deliverable is a written spec page plus exported assets, not a Figma link.
 
 ## Making the Tree Honest
 
@@ -36,7 +36,7 @@ Code Connect maps a Figma component to the real component in the codebase, so De
 ## Codegen Is a Draft
 
 - Trust the structure: auto layout maps to flexbox, hierarchy maps to nesting, variables map to token names.
-- Do not trust raw px values, absolutely-positioned geometry, or generated class names. They are a snapshot of one viewport width.
+- Validate raw px values, absolutely-positioned geometry, and generated class names independently. They are a snapshot of one viewport width.
 - Custom codegen plugins can emit the team's own component syntax; that is worth building only once the component names are stable.
 
 ## The Dev Mode MCP Server
@@ -79,5 +79,5 @@ A pixel-perfect file still leaves these undefined. Annotate them or the engineer
 | Constant "which state is this" questions | Sad paths missing | Add empty, loading, error, disabled frames |
 | Engineers cannot find the current screens | Explorations mixed with delivery | Ready-for-dev on sections; archive explorations |
 | MCP or codegen output floods the context | Whole-page fetch | Scope to a selected node |
-| Same accessibility question every sprint | Behavior never annotated | Annotate focus order, roles, and error copy in the file |
+| Same accessibility question every sprint | Behavior omitted from annotation | Annotate focus order, roles, and error copy in the file |
 | Handoff diff is described in a paragraph | Compare-changes not used | Send the compare view instead |

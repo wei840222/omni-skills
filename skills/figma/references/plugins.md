@@ -6,13 +6,13 @@ A plugin is third-party code running with read access to the open file. Both hal
 
 - The action repeats 10 or more times, or repeats on a schedule. Below that, doing it by hand is faster than finding, vetting, and learning a plugin.
 - The operation is mechanical and verifiable: rename, restyle, find, replace, count, audit. Judgment work does not automate well.
-- Read-only audits that do not need to write to the file belong on the REST API instead, which runs outside the editor and can cover many files at once.
+- Read-only audits that operate independently of the need to write to the file belong on the REST API instead, which runs outside the editor and can cover many files at once.
 
 ## Trust and Permissions
 
 - A plugin can read the entire open file, including pages you are not looking at, and can call external services if its manifest declares network access. The manifest's declared domains are visible before install — read them.
 - Vet on: who publishes it, how many installs, when it was last updated, what domains it contacts, and whether it needs write access at all.
-- Never run an unvetted plugin on a file containing unreleased product work, customer data in mocks, or credentials pasted into a sticky.
+- Run only verified plugins on a file containing unreleased product work, customer data in mocks, or credentials pasted into a sticky.
 - Organizations can allowlist plugins and publish private org-only plugins. On a regulated file, an allowlist is the control; "we told people to be careful" is not.
 - A plugin that asks for network access to do something purely local is the clearest red flag available.
 
@@ -22,12 +22,12 @@ Keep the list short — every installed plugin is a search-result competitor and
 
 | Need | Category |
 |---|---|
-| Icons | An icon-set browser, with a curated import policy: pull the fifty icons the product uses, never the full set |
+| Icons | An icon-set browser, with a curated import policy: pull the fifty icons the product uses, omitting unused ones |
 | Realistic content | A content generator for names, dates, avatars and copy at realistic lengths — replaces `Lorem ipsum` |
 | Token pipeline | A token plugin that exports variables to JSON and syncs to a repo, feeding a platform-code transformer |
 | Accessibility | A contrast and simulation plugin, plus an annotation kit for roles and focus order |
 | Cleanup | An audit plugin for detached instances, unused components, and stray styles |
-| Figma-to-code | Scaffolding tools — useful for a starting point, never for production output |
+| Figma-to-code | Scaffolding tools — useful for a starting point, treating them strictly as scaffolding |
 | User testing | A prototype-testing service that records unmoderated sessions |
 
 ## Writing Your Own
@@ -63,6 +63,6 @@ Recipes worth building in-house rather than installing:
 | Text edits fail silently | Font not loaded before the edit | Load the font, then write |
 | Fetch fails inside the plugin | Sandbox has no network | Move the fetch to the UI iframe and bridge with postMessage |
 | One operation takes twenty undos | Mutations not grouped | Group the mutation into a single undo step |
-| Plugin asks for unexpected domains | Network access beyond its function | Do not install; find an alternative |
+| Plugin asks for unexpected domains | Network access beyond its function | Find a more secure alternative plugin |
 | A vetted plugin broke after an update | Plugins auto-update | Pin critical workflows to a private org plugin you control |
 | Team has 40 plugins installed | No curation policy | Allowlist; delete the rest |

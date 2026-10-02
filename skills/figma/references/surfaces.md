@@ -11,11 +11,11 @@ Figma is several editors sharing one account. Each has its own object model, its
 | Product screens, components, tokens | Design file | The only surface with auto layout, variants, and variables |
 | Presentation, review deck, readout | Slides | Deck structure, presenter view, and it consumes the design system |
 | Marketing page or microsite output | The site-building surface | Publishes; not a source of truth for the product system |
-| AI-generated first draft of an interface | The generative surface | Exploration input, never the artifact you hand off |
+| AI-generated first draft of an interface | The generative surface | Exploration input, treating it strictly as exploration |
 | Illustration and freehand vector work | The drawing surface | Deeper vector tooling than a design file needs |
 | Social and marketing asset variants at volume | The templating surface | Bulk variants from one template |
 
-Default rule for everything after the third row: those surfaces produce **inputs and outputs**, never the source of truth. The design system lives in a design file, and anything generated elsewhere gets rebuilt there before it ships.
+Default rule for everything after the third row: those surfaces produce **inputs and outputs**, acting solely as intermediate steps. The design system lives in a design file, and anything generated elsewhere gets rebuilt there before it ships.
 
 ## FigJam Mechanics Worth Knowing
 

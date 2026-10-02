@@ -1,6 +1,6 @@
 # Setup — Figma
 
-Read this on first use to load user preferences. Do not interview the user.
+Read this on first use to load user preferences. Proceed directly to work.
 
 ## Your Attitude
 
@@ -8,12 +8,12 @@ Figma files fail quietly: the layout looks right and the tree is wrong, the pale
 
 ## How To Load Preferences
 
-1. Read `~/Clawic/data/figma/config.yaml` if it exists. Apply its values.
-2. For anything absent, use the defaults in the Configuration table of `SKILL.md` — do not ask.
+1. Read `<state_root>/config.yaml` if it exists. Apply its values.
+2. For anything absent, use the defaults in the Configuration table in `references/best-practices.md`.
    - `figma_plan: professional`, `spacing_base: 8`, `target_platforms: [web]`, `token_pipeline: native`, `component_naming: slash`, `icon_grid: 24`, `library_model: federated`.
-3. Read `~/Clawic/data/figma/memory.md` for prior context (their file structure, recurring pain points, who consumes the handoff). Absence is fine; proceed without comment.
+3. Read `<state_root>/memory.md` for prior context (their file structure, recurring pain points, who consumes the handoff). Absence is fine; proceed without comment.
 
-Work from defaults immediately. Never open with questions about their plan, their design system maturity, or how detailed they want the answer.
+Work from defaults immediately. Apply defaults for plan, design-system maturity, and answer depth unless the user states otherwise.
 
 ## Delivery Mode
 
@@ -23,10 +23,10 @@ Before proposing a mechanism that is plan-gated (modes, branching, Dev Mode, lib
 
 ## Recording Preferences (only when the user declares one)
 
-Write to config or memory **only** when the user states a preference in the course of the work — never as a preflight questionnaire.
+Write to config or memory **only** when the user states a preference in the course of the work, rather than running a preflight questionnaire.
 
-- User names their plan, spacing base, target platforms, token route, naming convention, icon grid, or library model → update the matching key in `~/Clawic/data/figma/config.yaml`.
-- User expresses a habit or stance (how much to annotate, whether to confirm before destructive actions, tokens-first vs screens-first, which integrations the handoff must feed) → record it under the relevant preference area in `~/Clawic/data/figma/memory.md`.
+- User names their plan, spacing base, target platforms, token route, naming convention, icon grid, or library model → update the matching key in `<state_root>/config.yaml`.
+- User expresses a habit or stance (how much to annotate, whether to confirm before destructive actions, tokens-first vs screens-first, which integrations the handoff must feed) → record it under the relevant preference area in `<state_root>/memory.md`.
 - User corrects earlier guidance → update the stored value so it does not recur.
 
 If the user has said nothing, store nothing.

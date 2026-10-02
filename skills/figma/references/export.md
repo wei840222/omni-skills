@@ -44,7 +44,7 @@ Figma does not export modern raster formats like WebP or AVIF directly; that con
 ## Image Handling
 
 - Figma keeps the original bitmap regardless of how small the layer is on canvas. A 4000 px photo cropped into a 200 px avatar still carries the full original in the file and in every export derived from it.
-- Downscale before placing, or crop-and-flatten a copy, when the original will never be re-cropped. This is simultaneously the export fix and the file-weight fix.
+- Downscale before placing, or crop-and-flatten a copy, when the original will remain at their final dimensions. This is simultaneously the export fix and the file-weight fix.
 - Transparent background: turn off the frame's fill. Exporting a frame with a white fill and then keying it out downstream is a lossy round trip.
 - Color profile matters for print and for wide-gamut displays; verify what the destination expects rather than assuming sRGB throughout.
 

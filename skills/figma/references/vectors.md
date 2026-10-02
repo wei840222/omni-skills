@@ -6,10 +6,10 @@ Icon work is where sloppiness compounds: a set built without a keyline drifts vi
 
 Build every icon inside the same square frame so consumers never have to compensate.
 
-- Frame size: the `icon_grid` variable, default 24 px. Live area = `icon_grid − 4` (20 px at 24), leaving 2 px of padding on every side so icons never touch their bounding box.
+- Frame size: the `icon_grid` variable, default 24 px. Live area = `icon_grid − 4` (20 px at 24), leaving 2 px of padding on every side so icons maintain a 2px clearance from the bounding box.
 - Keylines inside the live area: a square, a circle slightly larger than the square, and a horizontal and vertical rectangle. Optically, a circle must be a touch larger than a square to read as the same size — geometric equality reads as a smaller circle.
 - Stroke weight consistent across the whole set (commonly 1.5-2 px at a 24 px grid). One icon at a different weight is visible in a row of twenty.
-- Corner radius consistent: pick one value for outer corners and one for inner, and never mix.
+- Corner radius consistent: pick one value for outer corners and one for inner, and maintain visual consistency.
 - Optical centering beats geometric centering for asymmetric shapes. A play triangle centered by bounding box always looks left-heavy; nudge it right until it reads centered.
 
 ## Strokes
@@ -22,7 +22,7 @@ Build every icon inside the same square frame so consumers never have to compens
 ## Boolean Operations and Flatten
 
 - Union, Subtract, Intersect, Exclude stay live and editable; the source shapes remain inside the operation.
-- Flatten collapses to a single path and is irreversible in practice. Flatten when a shape ships and will never be edited; never flatten an icon you may recolor or restyle.
+- Flatten collapses to a single path and is irreversible in practice. Flatten when a shape ships and will never be edited; preserve editable paths for an icon you may recolor or restyle.
 - Keep editable originals on a hidden `_source` page. Cleanup passes destroy the only copy otherwise.
 - Masks are heavier than boolean subtract and complicate export. Prefer a boolean where the result is the same shape.
 
@@ -37,7 +37,7 @@ Build every icon inside the same square frame so consumers never have to compens
 - One component per icon inside a shared page, named `Icon / Category / Name` so the picker groups them.
 - Single path, single fill where possible. One fill bound to a color variable is what makes recoloring work; three hardcoded fills is what makes it not work.
 - Consumers reach icons through an instance-swap property with the icon set as preferred values, not by dragging from the assets panel into a component.
-- Do not import a thousand icons from a general library. Curate the fifty the product uses; every unused icon is picker noise and library weight.
+- Import and curate only the specific icons the product uses; every unused icon is picker noise and library weight.
 - Duplicated icons under different names are the most common icon-library defect. Name by concept (`Icon / Action / Delete`), not by shape (`Trash`), so nobody adds `Bin` next month.
 
 ## Cleaning Imported SVGs

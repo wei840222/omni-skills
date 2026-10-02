@@ -66,7 +66,7 @@ That last one is the sweep behind every rebind and consolidation pass: it is sco
 | Mode on a frame | Select the frame → Design tab → the collection's mode selector | Children inherit unless explicitly overridden |
 | Export rows | Design tab → Export → `+` per row (scale, format, suffix) | One selection satisfying three platforms |
 | Ready for dev | Select the frame or section → right-click, or set it in Dev Mode | What engineers see as scope |
-| Publish a library | Assets panel → library icon → Publish | Review per component, never Accept all |
+| Publish a library | Assets panel → library icon → Publish | Review per component, review per component individually |
 | Description and doc link | Select the main component → foot of the Design tab | The one documentation surface that reaches the assets panel and Dev Mode |
 
 ## Click Paths for the Operations This Skill Orders

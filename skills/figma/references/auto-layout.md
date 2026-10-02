@@ -8,14 +8,14 @@ Figma sizes containers from the outside in. A child cannot know how much space t
 
 1. Set the outermost frame to Fixed (a page canvas) or Fill (a nested section).
 2. Work down one level at a time; the first level where the size stops making sense is where the bug is.
-3. Never start from the leaf. Fixing a button's width inside a broken card just moves the symptom.
+3. always start diagnosing from the root parent. Fixing a button's width inside a broken card just moves the symptom.
 
 Symptom of the circular case: a frame that will not respond to dragging at all — a Fill child inside a Hug parent on the same axis has no defined size, and Figma pins it to whatever width it had at the moment the modes were set.
 
 ## Clamps Replace Breakpoints
 
 - `min-width` / `max-width` / `min-height` / `max-height` apply to Fill and Hug layers. Fill with a 320/1200 clamp inside a Fill parent centers and holds across the whole viewport range, with zero breakpoint frames.
-- Hug plus `min-width` is the correct recipe for "a button that never gets narrower than its target size" — Hug alone collapses to the label.
+- Hug plus `min-width` is the correct recipe for "a button that remains at least as wide as than its target size" — Hug alone collapses to the label.
 - Max-width on the text container, not on the text node, is what produces a readable measure that survives a wide viewport.
 - Clamps do not remove the need for real breakpoint frames when the *arrangement* changes (sidebar becomes a drawer). They remove the frames that only changed a width.
 

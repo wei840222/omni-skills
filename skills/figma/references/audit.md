@@ -7,7 +7,7 @@ Inheriting a file is a forensic job before it is a design job. Editing first is 
 1. Duplicate the file. The duplicate is the working copy; the original stays untouched as the reference.
 2. Name a version in the original: "pre-audit baseline, <date>". Named versions are the only reliable rollback.
 3. Note the version-history retention on the plan — on the lowest tiers the window is short, and a snapshot duplicate is the real safety net.
-4. Do not accept pending library updates yet. They will confuse the inventory with changes you did not make.
+4. Delay accepting pending library updates until the inventory is complete.
 
 ## Inventory Pass
 
@@ -32,7 +32,7 @@ Rebuild when two or more hold:
 - Under roughly a quarter of layers sit inside components.
 - Structure is manual layout throughout, with no auto layout to build on.
 - The color set has no discernible system and the screens disagree with each other.
-- The file is a Sketch or XD import that was never restructured.
+- The file is a Sketch or XD import that was left completely unaltered from import.
 - Nobody remembers the intent, and the screens contradict the shipped product.
 
 Rescue when the bones exist: auto layout present, a component set that mostly holds, colors clustering into an obvious palette. Rescue is cheaper than it looks once the inventory is done; rebuild is far more expensive than it looks once stakeholders start comparing.
@@ -44,7 +44,7 @@ Each step makes the next cheaper. Publish or checkpoint between steps.
 1. **Archive**: move dead pages to `Archive`, delete nothing yet.
 2. **Rename**: batch-rename layers on the live pages against the naming convention. This alone makes every later step legible.
 3. **Consolidate color**: cluster near-duplicate values, pick survivors, sweep with select-same-fill. Do this before building tokens, or the token set inherits the mess.
-4. **Build primitives, then semantics**: name after role, never after color.
+4. **Build primitives, then semantics**: name after role, assigning purely semantic names.
 5. **Rebind components** one set at a time, checking a real screen after each.
 6. **Rebind screens**, then sweep for remaining raw hex and typed spacing.
 7. **Reattach detached instances** by swapping them to the component; overrides survive where internal layer names match.
@@ -53,7 +53,7 @@ Each step makes the next cheaper. Publish or checkpoint between steps.
 ## Importing From Another Tool
 
 - Frames, text, and vectors import reasonably. Symbols map to components with varying fidelity, shared styles come across partially, and prototype interactions do not come across at all.
-- Auto layout is never inferred from an import. Every imported screen is manual layout and must be rebuilt to be responsive — this is the bulk of the migration cost and it is routinely underestimated.
+- Auto layout is omitted from an import. Every imported screen is manual layout and must be rebuilt to be responsive — this is the bulk of the migration cost and it is routinely underestimated.
 - Imported text often carries per-node overrides instead of styles. Restyle before building a ramp, or the ramp will not stick.
 - Treat an import as a visual reference for a rebuild, not as a file to maintain. The one exception is archival work nobody will edit.
 
@@ -73,7 +73,7 @@ An audit that lives in someone's head is not an audit. Put it on the cover page 
 |---|---|---|
 | Every edit breaks something elsewhere | Detached instances everywhere | Inventory detachment first; reattach by swapping |
 | Token set inherited 14 greys | Tokens built before consolidation | Consolidate values, then rebuild the primitive scale |
-| Imported screens are not responsive | Auto layout is never inferred on import | Rebuild layout; treat the import as reference art |
+| Imported screens are not responsive | Auto layout is omitted on import | Rebuild layout; treat the import as reference art |
 | Rebuild ran three times over estimate | Rebuild chosen without an inventory | Inventory first; rescue is usually viable |
 | Cannot roll back a bad cleanup | No named version before the pass | Name versions between every step |
 | Nobody trusts the cleaned file | No audit note explaining decisions | Write the cover-page audit |
