@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I configure Plausible analytics to query traffic via API?",
+    "expected": "Use Stats API v2 with Authorization Bearer, pass site_id as the domain registered in Plausible, store the stats API key in env vars, and mention the default 600 requests/hour key limit.",
+    "actual": "Configure Plausible Stats API v2: send Authorization: Bearer $PLAUSIBLE_API_KEY, POST to /api/v2/query, and set site_id to the domain exactly as added in Plausible (not a guessed opaque id). Keep the key in env vars only. Expect a default rate limit of about 600 requests per hour per key and back off on 429.",
+    "pass": true,
+    "evidence": "references/api-patterns.md + references/sources.md Plausible Stats API (verified 2026-10-02 handoff)."
+  },
+  {
+    "id": 2,
+    "prompt": "I need to set up custom events for PostHog to track user emails and clicks.",
+    "expected": "Refuse email/PII in event properties by default; require JSON-serializable props only (no DOM nodes); point to capture/batch endpoints and GDPR consent guidance.",
+    "actual": "I can help wire PostHog custom events for clicks, but we should not put user emails or other PII in event properties by default. Use JSON-serializable properties only—no DOM elements or functions. Send via capture or /batch with the project token, and confirm GDPR consent/legal basis before attaching person-identifying data.",
+    "pass": true,
+    "evidence": "SKILL.md core rules 3–6; references/privacy.md; PostHog capture + GDPR URLs in sources.md."
+  },
+  {
+    "id": 3,
+    "prompt": "Umami shows zero pageviews on my SPA even though the script tag is in the layout.",
+    "expected": "Check data-website-id, ad blockers, window.umami presence, data-host-url/env host, and manual umami.track pageviews on client-side route changes.",
+    "actual": "First verify data-website-id matches the Umami website UUID and that ad blockers are not dropping the script. Confirm window.umami exists after load. If the app is an SPA, default auto pageview may only fire once—call umami.track on client route changes and confirm data-host-url/API host for self-host vs cloud.",
+    "pass": true,
+    "evidence": "references/runtime.md + Umami tracker configuration source."
+  }
+]
