@@ -1,132 +1,59 @@
 ---
 name: macos
-slug: macos
-version: 1.0.0
-description: macOS system administration, command-line differences from Linux, and automation best practices.
-homepage: https://clawic.com/skills/macos
+description: >
+  Apply macOS-specific system administration, BSD/GNU CLI traps, Homebrew path
+  differences, Keychain secrets, launchd agents, TCC privacy permissions, and
+  automation with defaults/osascript. Use on Darwin hosts for sed -i, Keychain,
+  LaunchAgents, SIP, screenshots, or networksetup. Prefer `linux` for non-Darwin
+  hosts, `bash` for shell syntax depth, and `network` for non-radio L3/DNS work.
 metadata:
-  category: system
-  skills:
-  - macos
-  - osx
-  - apple
-  - darwin
-  - terminal
-  clawdbot:
-    emoji: 🍎
-    displayName: macOS
+  version: "1.1.0"
+  openclaw: '{"emoji":"🍎","os":["darwin"]}'
+  related-skills: '{"backups":"Cross-system backup retention and restore policy beyond local macOS copy tools.","bash":"Shell scripting syntax and safety beyond macOS BSD utility traps.","linux":"Non-Darwin host triage, systemd, and Linux package/firewall workflows.","network":"Layer-3 reachability, DNS, routing, and TLS diagnosis beyond macOS interface helpers.","windows":"Windows host traps and Credential Manager when the target is not Darwin."}'
 ---
 
-## BSD vs GNU Commands
+# macOS
 
-- `sed -i` requires extension argument: `sed -i '' 's/a/b/' file` — empty string for no backup, Linux doesn't need it
-- `find` doesn't support `-printf` — use `-exec stat` or `xargs` with `stat -f` instead
-- `date` uses different format flags: `date -j -f '%Y-%m-%d' '2024-01-15' '+%s'` — `-j` prevents setting time
-- `grep -P` (Perl regex) doesn't exist — use `grep -E` (extended) or install `ggrep` via Homebrew
-- `xargs` defaults to `/usr/bin/echo` not the command — always specify the command explicitly
-- `readlink -f` doesn't exist — use `realpath` or `python3 -c "import os; print(os.path.realpath('path'))"`
+Domain guidance for **Apple Darwin hosts**: BSD vs GNU CLI differences, Homebrew
+layout, Keychain, launchd, TCC privacy gates, defaults, and local automation.
+This skill is **stateless** — it does not store credentials or host inventories
+in the package.
 
-## Homebrew Paths
+## When to load
 
-- Apple Silicon: `/opt/homebrew/bin`, `/opt/homebrew/lib`
-- Intel: `/usr/local/bin`, `/usr/local/lib`
-- Check architecture: `uname -m` returns `arm64` or `x86_64`
-- Homebrew doesn't add to PATH automatically — check `~/.zprofile` for eval line
-- Running x86 binaries: `arch -x86_64 /bin/bash` then install/run Intel-only tools
+- Scripts fail on macOS because of BSD `sed`/`find`/`date`/`xargs`/`readlink`
+- Storing or reading secrets via Keychain (`security`) instead of plaintext files
+- Creating or debugging user LaunchAgents / system LaunchDaemons
+- Automation blocked by TCC (Full Disk Access, Automation, Screen Recording)
+- Homebrew path / arch (`arm64` vs `x86_64`) confusion
+- Local ops: `defaults`, `pbcopy`/`pbpaste`, `screencapture`, `caffeinate`, `open`
 
-## Keychain (Secrets)
+Prefer other skills when the ask is mainly:
 
-- Store: `security add-generic-password -a "$USER" -s "service_name" -w "secret_value" -U`
-- Retrieve: `security find-generic-password -a "$USER" -s "service_name" -w`
-- `-U` flag updates if exists — without it, duplicate entries error
-- Keychain prompts for access on first use — authorize permanently for automation
-- Delete: `security delete-generic-password -a "$USER" -s "service_name"`
+- Non-macOS Linux hosts / systemd → `linux`
+- Shell language craft (arrays, set -euo, quoting depth) → `bash`
+- DNS/routing/TLS outside macOS helpers → `network`
+- Windows Credential Manager / WinRM → `windows`
+- Backup retention policy across systems → `backups`
 
-## launchd (Services)
+## Routing
 
-- User agents: `~/Library/LaunchAgents/` — runs as user when logged in
-- System daemons: `/Library/LaunchDaemons/` — runs at boot as root
-- Load: `launchctl load -w ~/Library/LaunchAgents/com.example.plist`
-- Unload before editing: `launchctl unload` — edits to loaded plists are ignored
-- Check errors: `launchctl list | grep service_name` then `launchctl error <exit_code>`
-- Logs: `log show --predicate 'subsystem == "com.example"' --last 1h`
+Keep `SKILL.md` as the router; load supporting references only when needed:
 
-## Privacy Permissions (TCC)
+- **BSD/GNU traps, Homebrew, Keychain, launchd, TCC, defaults, files, clipboard, screenshots, power, network helpers, SIP, logs, open/osascript** → `references/macos-commands.md`
+- **Gate 6 primary sources** → `references/sources.md`
 
-- Automation scripts fail silently without Full Disk Access or Automation permissions
-- Grant in System Settings → Privacy & Security → corresponding category
-- Terminal and iTerm need separate permissions — granting to one doesn't grant to other
-- `tccutil reset` clears permissions: `tccutil reset AppleEvents` for Automation
-- Check granted permissions: `sqlite3 ~/Library/Application\ Support/com.apple.TCC/TCC.db "SELECT * FROM access"`
+## Core rules
 
-## defaults (Preferences)
+1. **Assume BSD userland** — `sed -i` needs an extension arg (`sed -i '' ...`); `find -printf`, `grep -P`, and `readlink -f` are missing or different; prefer `realpath` or explicit `stat -f`.
+2. **Never hardcode secrets** — use Keychain (`security add/find-generic-password`) or env/keychain pointers; examples use placeholders only.
+3. **TCC fails silent** — Full Disk Access, Automation, and Screen Recording are per-app; grant Terminal and iTerm separately; do not treat empty output as success.
+4. **launchd edits need unload** — unload before editing a loaded plist; prefer `~/Library/LaunchAgents/` for user agents.
+5. **Respect SIP** — `/System`, `/usr` (except `/usr/local`), `/sbin`, `/bin` stay protected; design around SIP instead of disabling it.
+6. **Name the arch** — Apple Silicon Homebrew is `/opt/homebrew`; Intel is `/usr/local`; check `uname -m` before blaming PATH.
 
-- Read: `defaults read com.apple.finder AppleShowAllFiles`
-- Write: `defaults write com.apple.finder AppleShowAllFiles -bool true`
-- Delete: `defaults delete com.apple.finder AppleShowAllFiles`
-- Restart app after changing: `killall Finder`
-- Find app bundle ID: `osascript -e 'id of app "App Name"'`
-- Export all: `defaults export com.apple.finder -` outputs XML
+## Safety
 
-## File Operations
-
-- `ditto` preserves resource forks and metadata — use instead of `cp` for app bundles
-- Create DMG: `hdiutil create -volname "Name" -srcfolder ./folder -format UDZO output.dmg`
-- Mount DMG: `hdiutil attach image.dmg` — returns mount point path
-- Unmount: `hdiutil detach /Volumes/Name`
-- Extended attributes: `xattr -l file` to list, `xattr -c file` to clear all
-- Quarantine removal: `xattr -d com.apple.quarantine app.app`
-
-## Clipboard
-
-- Copy to clipboard: `echo "text" | pbcopy`
-- Paste from clipboard: `pbpaste`
-- Copy file contents: `pbcopy < file.txt`
-- Preserve RTF: `pbpaste -Prefer rtf`
-- Clipboard works in SSH sessions to local machine — useful for remote file copying
-
-## Screenshots and Screen
-
-- Screenshot region to file: `screencapture -i output.png`
-- Screenshot window: `screencapture -w output.png`
-- Screenshot to clipboard: `screencapture -c`
-- Headless (no UI): `screencapture -x` — suppresses sound and cursor
-- Screen recording requires Screen Recording permission in Privacy settings
-
-## Process Management
-
-- Prevent sleep: `caffeinate -i command` — keeps system awake while command runs
-- Prevent sleep with timeout: `caffeinate -t 3600` — 1 hour
-- Check why not sleeping: `pmset -g assertions`
-- Power settings: `pmset -g` to view, `sudo pmset -a sleep 0` to disable sleep
-- Current app in focus: `osascript -e 'tell application "System Events" to get name of first process whose frontmost is true'`
-
-## Network
-
-- List interfaces: `networksetup -listallhardwareports`
-- Get IP: `ipconfig getifaddr en0` (Wi-Fi usually en0 on laptops)
-- DNS servers: `scutil --dns | grep nameserver`
-- Flush DNS: `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`
-- Proxy settings: `networksetup -getwebproxy "Wi-Fi"`
-
-## System Integrity Protection
-
-- Check status: `csrutil status`
-- Disable (Recovery Mode only): `csrutil disable` — not recommended for production
-- Protected paths: `/System`, `/usr` (except `/usr/local`), `/sbin`, `/bin`
-- Can't modify these even as root — design your automations around this
-
-## Logs
-
-- Stream live: `log stream --predicate 'process == "processname"'`
-- Search recent: `log show --last 1h --predicate 'eventMessage contains "error"'`
-- Subsystem filter: `log show --predicate 'subsystem == "com.apple.example"'`
-- Save to file: `log collect --output ./logs.logarchive` — opens in Console.app
-
-## Automation Tips
-
-- Open URL: `open "https://example.com"` — uses default browser
-- Open app: `open -a "Safari"` — by name, not path
-- Open file with specific app: `open -a "TextEdit" file.txt`
-- Run AppleScript: `osascript -e 'tell application "Finder" to get name of home'`
-- Spotlight search: `mdfind "kMDItemDisplayName == 'filename.txt'"` — faster than find for indexed files
+- Never commit real Keychain passwords, `.p12`/API tokens, or TCC database dumps into the skill tree or git.
+- Use placeholders such as `<SERVICE_NAME>`, `<SECRET_VALUE>`, `<PLIST_LABEL>`.
+- Do not recommend disabling SIP except as a temporary Recovery-mode debug step with explicit restore.

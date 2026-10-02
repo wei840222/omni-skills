@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I create a new generic password in the macOS keychain for automation without leaving the secret in a repo file?",
+    "expected": "Uses security add-generic-password with -U, placeholders for service/secret, retrieval via find-generic-password -w, and forbids committing plaintext secrets.",
+    "actual": "Store it in Keychain, not the repo. Example: `security add-generic-password -a \"$USER\" -s \"<SERVICE_NAME>\" -w \"<SECRET_VALUE>\" -U` then read with `security find-generic-password -a \"$USER\" -s \"<SERVICE_NAME>\" -w`. The `-U` flag updates an existing item. Keep real secrets out of git; scripts should pull from Keychain or an env pointer at runtime. First access may prompt via TCC/Keychain ACL—authorize only the intended automation identity.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Recursive sed s/foo/bar on my Mac keeps erroring on -i, and a LaunchAgent plist I edited is still running the old command.",
+    "expected": "Explains BSD sed -i '' requirement and that loaded launchd plists must be unloaded/bootout before edits take effect; mentions TCC if the agent needs protected paths.",
+    "actual": "Two separate Darwin traps: (1) BSD sed needs an extension argument—use `sed -i '' 's/foo/bar/g' file` (empty string = no backup). (2) launchd ignores edits to an already-loaded plist—`launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/<PLIST_LABEL>.plist` (or legacy unload), edit, then bootstrap/load again. If the agent touches protected paths, also check TCC Full Disk Access for the effective program binary, not only Terminal.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Homebrew formulas are missing on PATH after a fresh Apple Silicon install, and I need to keep a long encode job from sleeping.",
+    "expected": "Points to /opt/homebrew + brew shellenv on arm64, uname -m check, and caffeinate -i around the job; does not disable SIP.",
+    "actual": "On Apple Silicon, Homebrew lives under `/opt/homebrew`. Confirm `uname -m` is `arm64`, then ensure `eval \"$(/opt/homebrew/bin/brew shellenv)\"` is in `~/.zprofile` and re-open the shell. Keep the encode awake with `caffeinate -i <encode-command>` (or `caffeinate -t <seconds>`). Do not disable SIP to fix PATH; SIP is unrelated and should stay enabled outside Recovery debug sessions.",
+    "pass": true
+  }
+]
