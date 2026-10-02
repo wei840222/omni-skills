@@ -69,3 +69,10 @@ Cross-engine operational traps. Re-check version-specific DDL behavior against `
 - Dry-run or expand-only migrations on production-shaped staging first.
 - Pair every destructive DDL with a documented rollback window.
 - Prefer engine metrics (pool wait, lock waits, lag, bloat) over guesswork after incidents.
+
+
+## Cognitive-load notes (Freud)
+
+- Prefer positive operator defaults (pooler in path, expand-migrate-contract, UTC instants, DECIMAL money) over long prohibition lists.
+- Keep version-sensitive DDL claims next to a source check, not as memorized absolutes.
+- Route engine-specific depth to related skills instead of bloating this generic pack.
