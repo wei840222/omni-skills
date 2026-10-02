@@ -64,6 +64,13 @@ Keep `SKILL.md` as the progressive-disclosure router; load supporting references
 - **Darwin score evidence** → `references/darwin-evaluation.md`
 - **Freud cognitive-load audit** → `references/freud-audit.md`
 
+## Near-miss routing
+
+- Kitchen dead zones, microwave interference, channel/RSSI, mesh vs extender → `wifi`
+- DNS records, NAT, firewall, TLS certificate pathing → `network` / `dns`
+- VPN provider privacy shopping → `vpn`
+- WireGuard handshake / AllowedIPs → `wireguard`
+
 ## Ordered routine
 
 1. **Classify the ask** — diagnose link, compare ISP, travel data, or app-path performance.
