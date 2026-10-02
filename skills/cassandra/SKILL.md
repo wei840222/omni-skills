@@ -86,6 +86,6 @@ Execute in order; load references only when a rule points deeper.
 
 ## Safety
 
-- Never commit cluster passwords, TLS keys, JMX credentials, or production dumps into the skill package.
+- Keep cluster passwords, TLS keys, JMX credentials, and production dumps out of the skill package.
 - Confirm operator intent before `nodetool assassinate`, decommission, bulk deletes, or RF changes.
 - Treat snapshot/backup success as restore-tested only; document the restore path outside git secrets.

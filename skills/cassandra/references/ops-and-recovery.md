@@ -72,4 +72,4 @@ nodetool snapshot -t <SNAPSHOT_NAME> <KEYSPACE>
 
 - Explicit operator approval for `assassinate`, RF reduction, mass `TRUNCATE`/`DELETE`, and bulk `cleanup` after token changes.
 - Capture `nodetool status` + keyspace RF before and after topology changes.
-- Never store real JMX/`cqlsh` passwords in git or skill assets; use env/secret mounts.
+- Store JMX/`cqlsh` passwords in env/secret mounts, not in git or skill assets.
