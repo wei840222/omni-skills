@@ -58,6 +58,8 @@ Keep `SKILL.md` as the progressive-disclosure router; load supporting references
 
 ## Core rules
 
+Execute in order; load references only when a rule points deeper.
+
 1. **Model from queries, not entities.** List the concrete SELECT shapes first; create one table (or deliberate denormalized copy) per access path. Cassandra has no runtime joins for application queries.
 2. **Partition key owns placement.** Every equality filter that must hit one node set belongs in the partition key. Keep partitions bounded (target well under ~100MB / tens of millions of cells); add a time bucket or other splitter when a key grows without bound.
 3. **Clustering columns own on-disk order.** Range and `ORDER BY` must follow the declared clustering prefix. Fetching “latest N rows for X” needs `(partition, clustering…)` plus `CLUSTERING ORDER`, not partition-only PK.
