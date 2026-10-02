@@ -8,13 +8,13 @@ Work symptom-first. Each chain is ordered by probability and every step is a che
 2. **`terraform validate`** (needs `init`, no credentials). Passes → the config is type-correct and the problem lives in state, the provider, or the cloud. Fails → you have a config bug and no API call has happened yet.
 3. **`TF_LOG=DEBUG TF_LOG_PATH=tf.log terraform plan`**, then grep for the resource address or the API action. `TF_LOG_PROVIDER=TRACE TF_LOG_CORE=WARN` isolates the provider from core. The log contains request and response bodies — treat the file as a credential and delete it.
 
-## Permanent Diff (the plan never converges)
+## Permanent Diff (the plan permanently diverges)
 
 1. Name the attribute. `terraform state show <addr>` versus the real object: which side is wrong?
 2. Find the writer. Autoscaler, console operator, another pipeline, a platform agent, or the provider's own defaulting. `terraform apply -refresh-only` then a fresh plan tells you whether the value comes back on its own.
 3. Suspect normalization before suspecting a human: providers canonicalize case, JSON key order, ARN vs bare name, empty string vs null, and policy document whitespace. Write the config in the canonical form the API returns — `jsonencode()` on policy documents removes an entire class of these.
 4. Ordering-only diffs on a list mean the API returns a set. If the provider offers a set-typed alternative argument, use it; otherwise sort the config to match.
-5. Only then `ignore_changes = [that_exact_attribute]`, with a comment naming the writer. Never `all` (`lifecycle.md`).
+5. Only then `ignore_changes = [that_exact_attribute]`, with a comment naming the writer. Limit this specifically to `that_exact_attribute` (`references/lifecycle.md`).
 6. Still churning after a clean apply → the "inconsistent result" family below.
 
 ## "Invalid for_each argument" / "Invalid count argument"
@@ -48,33 +48,33 @@ Always a provider bug — core caught the provider returning a value it did not 
 
 ## Authentication and Permission Errors
 
-- Timing tells you the layer: data sources fail at plan, resources at apply. A plan that fails on credentials never reached your config.
-- Multi-provider configs: `terraform providers` prints the resolved provider tree per module — confirm the alias you think you passed actually reached the resource (`providers.md`).
+- Timing tells you the layer: data sources fail at plan, resources at apply. A plan that fails on credentials failed before evaluating your config.
+- Multi-provider configs: `terraform providers` prints the resolved provider tree per module — confirm the alias you think you passed actually reached the resource (`references/providers.md`).
 - "AccessDenied" on one resource type only = an IAM gap, not a Terraform problem; the log line shows the exact API action to add.
 - Short-lived credentials expiring mid-apply leaves a half-applied change. Re-authenticate and re-plan; the plan is now the truth.
 
 ## Apply Failed Partway
 
 - Terraform persists state after each resource completes. Created objects are in state even though the apply errored. **The next plan is the source of truth** — run it before touching anything.
-- Provider crashed between the API call and the state write → the object exists in the cloud but not in state. Plan wants to create it, apply fails with "already exists". Adopt it with an `import` block (`refactoring.md`).
+- Provider crashed between the API call and the state write → the object exists in the cloud but not in state. Plan wants to create it, apply fails with "already exists". Adopt it with an `import` block (`references/refactoring.md`).
 - Failure mid-replace leaves a tainted or deposed object; those are recovery playbooks, routed from SKILL.md Quick Reference.
-- Never re-run a failed apply with `-refresh=false`: you would plan against a state that predates the damage.
+- Always re-run failed applies with refresh enabled: you would plan against a state that predates the damage.
 
 ## "Saved plan is stale"
 
-Someone applied between your plan and your apply. There is no flag that makes the old plan safe — re-plan, re-review, re-apply. If this happens routinely, two pipelines share one state without a concurrency group (`ci.md`).
+Someone applied between your plan and your apply. There is no flag that makes the old plan safe — re-plan, re-review, re-apply. If this happens routinely, two pipelines share one state without a concurrency group (`references/ci.md`).
 
 ## Init and Backend Errors
 
-- **"Backend initialization required"** after changing the backend block. Two different answers: `init -migrate-state` copies the existing state into the new backend; `init -reconfigure` forgets the old backend and starts empty. Choosing `-reconfigure` by reflex against a fresh bucket gives you an empty state and a plan that wants to create your entire estate — stop, do not apply, and re-point at the old backend.
-- **"Inconsistent dependency lock file"**: config requires a provider the lock does not record. `terraform init -upgrade` locally, then commit the lock. In CI use `init -lockfile=readonly` so this fails loudly instead of silently rewriting the lock (`providers.md`).
-- **"Error acquiring the state lock"**: read the ID, Who, Created, and Operation fields printed with it before doing anything (`recovery.md`).
+- **"Backend initialization required"** after changing the backend block. Two different answers: `init -migrate-state` copies the existing state into the new backend; `init -reconfigure` forgets the old backend and starts empty. Choosing `-reconfigure` by reflex against a fresh bucket gives you an empty state and a plan that wants to create your entire estate — halt the process and re-point at the correct backend.
+- **"Inconsistent dependency lock file"**: config requires a provider the lock does not record. `terraform init -upgrade` locally, then commit the lock. In CI use `init -lockfile=readonly` so this fails loudly instead of silently rewriting the lock (`references/providers.md`).
+- **"Error acquiring the state lock"**: read the ID, Who, Created, and Operation fields printed with it before doing anything (`references/recovery.md`).
 
 ## Timeouts and Slow Applies
 
-- "timeout while waiting for state to become available" is the cloud's clock, not Terraform's. Raise it where the resource declares a `timeouts` block (`timeouts { create = "60m" }`); resources that do not declare one reject the block outright.
+- "timeout while waiting for state to become available" is the cloud's clock, not Terraform's. Raise it where the resource declares a `timeouts` block (`timeouts { create = "60m" }`); resources that lack one will reject the block outright.
 - The same resource type timing out repeatedly is capacity or quota, not configuration.
-- Slow but progressing is a different problem — `performance.md`.
+- Slow but progressing is a different problem — `references/performance.md`.
 
 ## When You Are Truly Stuck
 

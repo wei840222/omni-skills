@@ -11,8 +11,8 @@ lifecycle {
 ```
 
 - **It is infectious.** Opting in on one resource forces the same ordering onto everything that resource depends on. Expect it to spread through the graph, and expect the spread to be the surprise, not the flag.
-- **Unique names collide.** With CBD, the old and new objects exist at the same time — a fixed name on an IAM role, security group, or load balancer produces "already exists" at apply. Use `name_prefix`, or a `random_id` suffix with `keepers` (`expressions.md`).
-- It can manufacture cycles when it meets a `depends_on` pointing the other way (`debug.md`).
+- **Unique names collide.** With CBD, the old and new objects exist at the same time — a fixed name on an IAM role, security group, or load balancer produces "already exists" at apply. Use `name_prefix`, or a `random_id` suffix with `keepers` (`references/expressions.md`).
+- It can manufacture cycles when it meets a `depends_on` pointing the other way (`references/debug.md`).
 - A CBD apply that creates the new object and fails before destroying the old one leaves a **deposed** object in state. Recovery is routed from SKILL.md Quick Reference.
 - Worth it for anything fronted by a load balancer or referenced by a running fleet. Not worth it for a resource whose replacement is instant and unreferenced.
 
@@ -39,10 +39,10 @@ lifecycle {
 ```
 
 - Takes a **static list of attribute names** — no variables, no expressions, no computed lists.
-- The attribute becomes permanently unmanaged: your config can say anything and Terraform will never correct it. That is the point and the danger.
+- The attribute becomes permanently unmanaged: your config can say anything and Terraform will leave it exactly as is. That is the point and the danger.
 - `ignore_changes = all` freezes the whole resource. Every future edit becomes a silent no-op, including the security fix someone assumes shipped.
 - Always comment who writes the value. Without it, the next engineer inherits archaeology and eventually deletes the line to "clean up".
-- Reach for it **third**, after identifying the writer and after checking for provider normalization (`debug.md`).
+- Reach for it **third**, after identifying the writer and after checking for provider normalization (`references/debug.md`).
 
 ## `replace_triggered_by`
 
@@ -65,7 +65,7 @@ resource "terraform_data" "config_version" {
 
 ## `precondition` And `postcondition`
 
-They live inside `lifecycle` too (terraform >=1.2), but they are input validation rather than lifecycle control — assertions, thresholds, and where each one belongs are in `expressions.md`.
+They live inside `lifecycle` too (terraform >=1.2), but they are input validation rather than lifecycle control — assertions, thresholds, and where each one belongs are in `references/expressions.md`.
 
 ## Deleting Things On Purpose
 
@@ -76,4 +76,4 @@ Teardown fails for different reasons than creation, and always at the worst time
 - Dependencies destroy in reverse order, and anything created outside Terraform inside a managed container (an object written into a managed bucket, a record added to a managed zone) blocks its parent's deletion with an error the plan could not predict.
 - `prevent_destroy` anywhere in the graph fails the whole plan, not just that resource.
 
-Run one full create-then-destroy cycle in a sandbox before declaring a stack finished (`testing.md`). A stack nobody has ever destroyed usually cannot be.
+Run one full create-then-destroy cycle in a sandbox before declaring a stack finished (`references/testing.md`). A stack nobody has ever destroyed usually cannot be.

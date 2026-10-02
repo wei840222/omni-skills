@@ -1,6 +1,6 @@
 # Memory Template — Terraform
 
-Create `~/Clawic/data/terraform/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Terraform Memory
@@ -31,4 +31,4 @@ last: YYYY-MM-DD
 | `ongoing` | Still learning their stack layout |
 | `complete` | Know their states, pipeline, and constraints |
 
-Never record credentials, role ARNs, account IDs, or state bucket names with access details. Preferences only.
+Store preferences and stack context only. Omit credentials, role ARNs, account IDs, and state access details.

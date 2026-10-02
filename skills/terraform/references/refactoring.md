@@ -20,8 +20,8 @@ The acceptance test for every refactor — rename, module extraction, import, sp
 | Adopt an object that already exists in the cloud | `import` | Needs config for it; `-generate-config-out` writes a draft |
 | Stop managing, keep the object alive | `removed` block with `destroy = false` | Delete the resource block in the same commit |
 | Stop managing and delete the object | Delete the block; it becomes a normal destroy | Read the destroy count first |
-| Move a resource to a different state | `removed` in the source, then `import` in the destination | Source applies first (`state.md`) |
-| Change the resource *type* (provider split one resource into several) | `removed` + `import` | Or the provider's documented migration path (`upgrades.md`) |
+| Move a resource to a different state | `removed` in the source, then `import` in the destination | Source applies first (`references/state.md`) |
+| Change the resource *type* (provider split one resource into several) | `removed` + `import` | Or the provider's documented migration path (`references/upgrades.md`) |
 | Fix an address too broken to express declaratively | `state mv` / `state rm` on a pulled backup | Out-of-band; document it in the PR that follows |
 
 ## `moved` Blocks
@@ -35,7 +35,7 @@ moved {
 
 - Keep the block until **every** environment and every collaborator has applied it. Deleting it early against a state that never saw it is a destroy plus a create.
 - Chains resolve in one pass: `A → B` and `B → C` in the same file lands everything at C.
-- `moved` is state-only. It never calls the cloud, so a zero-diff plan is a complete proof that you got the addresses right.
+- `moved` is state-only. It operates entirely locally, so a zero-diff plan is a complete proof that you got the addresses right.
 - Removing the blocks later is a separate, boring PR. Do it — a file of historical `moved` blocks is a map of decisions nobody can safely delete a year later.
 
 ## Extracting A Module From Inline Resources

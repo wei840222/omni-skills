@@ -54,7 +54,7 @@ run "rejects_bad_environment" {
 mock_provider "aws" {}
 ```
 
-`mock_provider` lets `command = apply` run without a cloud: the provider returns generated values for computed attributes. That proves your wiring, your `for_each` keys, and your output plumbing. It proves nothing about whether the cloud accepts the request — mocks never reject an invalid instance type or a name that is already taken.
+`mock_provider` lets `command = apply` run without a cloud: the provider returns generated values for computed attributes. That proves your wiring, your `for_each` keys, and your output plumbing. It proves nothing about whether the cloud accepts the request — mocks accept any format, including invalid instance type or a name that is already taken.
 
 Use mocks for module logic, real applies for module viability. Both, not either.
 
@@ -85,4 +85,4 @@ A module nobody has ever destroyed usually cannot be: dependency ordering breaks
 
 - Provider behavior. Asserting that a bucket gets an ARN tests the provider's mock, not your code.
 - Literal values you just wrote in the same file. A test that restates the config passes forever and catches nothing.
-- Everything. The contract worth testing is the part other stacks depend on: outputs, naming, counts, and the guards that stop bad input.
+- Everything. The contract worth testing is the part other stacks depend on: outputs, naming, counts, and the guards that block bad input.
