@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you audit my Etsy listing for my handmade ceramic mugs? I'm getting 100 views a day but only 1 sale a week. I'll provide my title and images if you want.",
+    "expected": "Load listing-audit or setup guidance; treat high-view/low-sale as consideration/conversion; request title, first image, price+shipping, buyer; ask consent before saving to <state_root>/; do not invent metrics or guarantee rank.",
+    "actual": "Happy to audit the mug listing. ~1 sale / 700 views is roughly 0.14% conversion, so this is usually a consideration or conversion problem, not 'need more tags.'\n\nPlease send:\n- current title and main image\n- price + shipping\n- target buyer / use occasion\n- any favorites or cart signals you track\n\nMay I save durable shop context under the resolved <state_root>/ after you agree? I will not post or edit the live listing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to run a 50% off sale on my digital planners to boost my search ranking this weekend. Is that a good idea?",
+    "expected": "Consult core-rules; reject ranking-via-steep-discount without unit economics; warn unstable baseline; propose fee-aware margin check and a 7–14 day one-variable experiment instead of a weekend flash sale.",
+    "actual": "I would not run a 50% weekend flash sale just to chase rank. Core rules: protect post-fee margin first, and avoid short noisy windows that wreck the baseline.\n\nBefore any discount: estimate contribution margin including Etsy fees, payment fees, and delivery cost (re-check live fee pages—do not trust memorized %). If margin is unclear, we stop at a worksheet, not a go on paid/discount growth.\n\nBetter: one-variable test for 7–14 days (title opening, main image, or a modest offer) tracking views, favorites, carts, conversion. Want to set that experiment up instead?",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite my tags every day with the highest volume Etsy keywords so I climb search faster.",
+    "expected": "Reject daily title/tag thrash; explain unstable learning trap; push buyer-fit keyword clusters and full listing stack (photos/offer) before tag churn; no trademark stuffing.",
+    "actual": "Daily tag rewrites are a growth trap: you never keep a baseline, and high-volume terms without buyer fit inflate impressions while conversion falls. Build one primary intent cluster plus two supporting clusters, map them across title opening, tags, and description opening without clone phrasing or trademark hijacks, and fix main image/offer clarity before more tag churn.",
+    "pass": true
+  }
+]

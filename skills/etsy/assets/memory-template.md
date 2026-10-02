@@ -1,6 +1,8 @@
 # Memory Template - Etsy
 
-Create `~/Clawic/data/etsy/memory.md` with this structure:
+File shapes for durable state under `<state_root>/`. Create a file only when that data is needed.
+
+## `<state_root>/memory.md`
 
 ```markdown
 # Etsy Memory
@@ -38,9 +40,7 @@ integration: pending
 *Updated: YYYY-MM-DD*
 ```
 
-## listing-experiments.md Template
-
-Create `~/Clawic/data/etsy/listing-experiments.md`:
+## `<state_root>/listing-experiments.md`
 
 ```markdown
 # Listing Experiments
@@ -54,9 +54,7 @@ results:
 decision: keep | revert | iterate
 ```
 
-## launch-checklists.md Template
-
-Create `~/Clawic/data/etsy/launch-checklists.md`:
+## `<state_root>/launch-checklists.md`
 
 ```markdown
 # Launch Checklists
@@ -64,8 +62,9 @@ Create `~/Clawic/data/etsy/launch-checklists.md`:
 ## Pre-Launch
 - Listing title clarity verified
 - Photos show product use context
-- Price and shipping checks completed
+- Price and shipping checks completed (fee-aware margin noted)
 - Tags mapped to buyer intent clusters
+- Policy/IP risk scan completed
 
 ## Post-Launch
 - Initial metrics captured at 24h and 7d
@@ -73,7 +72,7 @@ Create `~/Clawic/data/etsy/launch-checklists.md`:
 - Next iteration hypothesis documented
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
