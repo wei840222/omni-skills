@@ -56,3 +56,7 @@ Do not coach users to evade Etsy seller policies, IP rules, or prohibited-item r
 - Ignoring listing photos while tweaking tags → search traffic may improve but sales stay flat.
 - Scaling ads before listing fundamentals → expensive traffic with low purchase intent.
 - Weekend flash sales without unit-economics check → temporary rank noise, lasting margin damage.
+
+## Instruction load
+
+Keep advice to the current bottleneck. Do not dump all six rules and the full audit playbook in one reply unless the user asked for a full audit.
