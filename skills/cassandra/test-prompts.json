@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are designing a new Cassandra table to store user logs. The query pattern is mostly getting the last 100 logs for a specific user ID. The current proposal is PRIMARY KEY (user_id). Is this correct?",
+    "expected": "Reject partition-only PK for latest-N time order; require clustering timestamp (or timeuuid) with CLUSTERING ORDER BY (... DESC); point to references/cassandra-best-practices.md example.",
+    "actual": "Load references/cassandra-best-practices.md. PRIMARY KEY (user_id) alone only co-locates the user's rows; it does not define time order for \"last 100\". Use PRIMARY KEY (user_id, log_timestamp) WITH CLUSTERING ORDER BY (log_timestamp DESC) (or timeuuid clustering) so reads can slice the newest events without app-side sort. Keep the partition bounded (time-bucket the partition key if a single user accumulates unbounded history).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our read queries are timing out. We have a table where we frequently delete rows and insert new ones. nodetool stats show a high number of tombstones. How do we fix this?",
+    "expected": "Explain DELETE/TTL tombstones and read amplification; stop mass deletes; tune TTL/compaction (often TWCS for time-series); repair; verify with tablestats/cfstats and compactionstats.",
+    "actual": "Load references/cassandra-best-practices.md and references/ops-and-recovery.md. High tombstones mean reads scan deletion markers until compaction purges them. (1) Stop mass DELETE patterns and redesign expiry (TTL aligned to real lifetime, bounded partitions). (2) Match compaction to workload—TWCS often fits time-series+TTL; LCS/STCS/UCS only with version-confirmed rationale. (3) Watch nodetool compactionstats and tablestats/cfstats while debt drains. (4) Keep repair scheduled so replica sets stay consistent; raising client timeouts alone does not remove tombstones.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you format this Postgres SELECT and add the right indexes? Not using Cassandra.",
+    "expected": "Decline primary Cassandra use; route to sql and/or db; mention engine-specific skills only if relevant.",
+    "actual": "Do not load cassandra as the primary skill for Postgres SQL craft. Use sql for dialect-agnostic query/index shape and db for shared relational ops traps; use postgres-oriented skills only if present for engine specifics. Cassandra guidance (partition keys, QUORUM, nodetool) does not apply here.",
+    "pass": true
+  }
+]
