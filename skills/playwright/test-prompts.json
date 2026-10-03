@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a Playwright test to log into a standard web app and assert the dashboard title is correct. Do not use waitForTimeout.",
+    "expected": "Uses web-first assertions and durable locators; avoids waitForTimeout/networkidle; may reference storageState or setup-project auth patterns.",
+    "actual": "structural_dry_run: routes to references/auth.md + references/waiting.md + references/selectors.md; uses getByRole/label locators; expect(page.getByRole('heading'...)).toBeVisible()/toHaveTitle; no waitForTimeout; storageState optional via setup project.",
+    "pass": true,
+    "evidence": "SKILL.md core rules 1-2,8 + references/waiting.md + references/auth.md; handoff 2026-10-03."
+  },
+  {
+    "id": 2,
+    "prompt": "Fix this failing test snippet where multiple elements match a locator causing a strict mode violation: await page.locator('button').click();",
+    "expected": "Narrows with getByRole/name, filter(hasText), or parent chain rather than blind .nth()/.first() unless position is under test.",
+    "actual": "structural_dry_run: references/selectors.md + SKILL quick failure map; replace with page.getByRole('button', { name: 'Submit' }) or .filter({ hasText }); documents strict mode as feature not bug.",
+    "pass": true,
+    "evidence": "SKILL.md quick failure map + references/selectors.md; handoff 2026-10-03."
+  },
+  {
+    "id": 3,
+    "prompt": "Tests pass on my laptop but fail in CI headless with missing browser executable and flaky timeouts. What should I check?",
+    "expected": "Pin Playwright Docker/image tag to @playwright/test version, install browsers in CI, compare viewport/workers/timezone/animations, use traces on-first-retry, avoid global timeout inflation.",
+    "actual": "structural_dry_run: references/ci-cd.md + references/browsers.md + references/flake.md; require mcr.microsoft.com/playwright:vX.Y.Z match package version; cache key includes version; trace on-first-retry; classify flake before raising timeouts.",
+    "pass": true,
+    "evidence": "SKILL.md core rules 5,6,9 + references/ci-cd.md + references/sources.md CI/browsers rows; handoff 2026-10-03."
+  }
+]
