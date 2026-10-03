@@ -99,11 +99,11 @@ Before creating or changing local files, describe the planned write and ask for 
 
 ## Common Traps
 
-- Launching vague searches without area context -> noisy, low-value results.
-- Sharing raw links that include private notes -> accidental disclosure.
-- Using UI scripting as default path -> brittle behavior across locales.
-- Opening many candidate links at once -> user loses context quickly.
-- Assuming route mode without confirmation -> wrong transport directions.
+- Launching vague searches without area context -> ask for city/neighborhood, then relaunch with `near`.
+- Sharing raw links that include private notes -> preview the URL and require explicit share approval.
+- Using UI scripting as default path -> prefer `open -a Maps` URL workflows; keep `osascript` as last fallback.
+- Opening many candidate links at once -> shortlist in text first; open one link unless the user confirms bulk.
+- Assuming route mode without confirmation -> confirm driving/walking/transit, set `dirflg`, then launch.
 
 ## External Endpoints
 
