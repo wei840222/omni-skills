@@ -8,3 +8,7 @@ Run these checks before sending casual Arabic text.
 4. **Script consistency**: Do not half-switch between Arabic script and Arabizi inside one message unless the user is clearly code-mixing.
 5. **Native screenshot test**: If a native would flag the line as AI (too complete, too formal, no particles, safe adjectives only), rewrite once toward warmer colloquial speech.
 6. **Scope**: Do not turn this skill into travel logistics, religious ruling, or generic translation of a long non-Arabic source — hand those off to the appropriate skill.
+
+## Cognitive-load note
+
+Prefer positive defaults (lock variety, add warmth) over long prohibition lists. Scope handoffs are explicit alternatives, not buried bans.
