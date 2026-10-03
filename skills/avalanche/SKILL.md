@@ -1,91 +1,32 @@
 ---
 name: avalanche
-slug: avalanche
-version: 1.0.0
-description: Assist with Avalanche C-Chain transactions, AVAX transfers, subnets, and cross-chain bridges.
-homepage: https://clawic.com/skills/avalanche
+description: >
+  Assist with Avalanche Primary Network operations across C-Chain, X-Chain, and
+  P-Chain: AVAX transfers, C-Chain gas, atomic cross-chain moves, staking or
+  delegation, Avalanche L1/subnet context, and bridging. Use when the user asks
+  about Avalanche, AVAX, Core wallet multi-chain flows, C-Chain RPC/chain id
+  43114, P-Chain validators, or moving assets to or from Avalanche. Not for
+  generic Ethereum L1-only work unless the user is bridging to Avalanche.
 metadata:
-  clawdbot:
-    emoji: 🔺
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Avalanche
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔺"}'
 ---
 
-## Network Architecture (Critical)
-- Avalanche has three chains: X-Chain, P-Chain, C-Chain — each serves different purpose
-- C-Chain is EVM compatible — where most DeFi and tokens live, uses AVAX for gas
-- X-Chain for fast transfers — native AVAX transfers, not EVM compatible
-- P-Chain for staking — validators and subnet management
-- Same AVAX token across all chains — but must transfer between chains to use
+This skill is stateless and does not store local configuration or persistent user state.
 
-## C-Chain (Most Common)
-- EVM compatible — MetaMask, same tools as Ethereum
-- Uses AVAX for gas — need AVAX to transact
-- Chain ID: 43114 — RPC: https://api.avax.network/ext/bc/C/rpc
-- Block explorer: snowtrace.io — transaction verification
-- Most tokens and DeFi here — Trader Joe, Aave, GMX
+## Workflow
 
-## Cross-Chain Transfers
-- Moving AVAX between chains uses Avalanche Wallet — not regular transfers
-- C-Chain ↔ X-Chain transfer takes seconds — but requires correct process
-- Export from one chain, import to another — two-step process
-- Use official Core wallet or Avalanche Wallet — supports all three chains
-- MetaMask only sees C-Chain — can't transfer to X or P chains directly
+1. Identify the chain role (C / X / P), wallet capability, asset location, and the exact operation (transfer, gas, stake/delegate, bridge, L1/subnet, or failure).
+2. Load only the reference that matches that branch, then verify with an explorer, RPC, Core wallet status, or primary docs before advising irreversible moves.
+3. Prefer official Core / Avalanche tooling for multi-chain and P-Chain work; treat MetaMask-class wallets as C-Chain-only unless the user already added another network.
 
-## Bridging from Other Networks
-- Avalanche Bridge official — bridge.avax.network, from Ethereum
-- Bridged tokens are wrapped — ETH becomes WETH.e on Avalanche
-- LayerZero, Stargate for multi-chain — faster alternatives with fees
-- Bridge fees plus gas on both chains — budget for both
-- Withdrawal to Ethereum can take time — depends on bridge used
+## Load the relevant reference
 
-## Gas and Fees
-- Gas model same as Ethereum post-EIP-1559 — base fee + priority fee
-- Cheaper than Ethereum, more than some L2s — typically $0.01-0.10 per transaction
-- Gas paid in AVAX only — no token payments for gas
-- Fast finality (under 2 seconds) — no waiting for confirmations
-- Failed transactions cost gas — same as Ethereum
-
-## Tokens and DeFi
-- AVAX is native gas token — also tradeable like ETH
-- WAVAX is wrapped AVAX — needed for some DeFi protocols
-- Major DEXs: Trader Joe, Pangolin — similar to Uniswap
-- Lending: Aave, Benqi — borrow and lend
-- Verify token addresses — scam tokens exist, check snowtrace.io
-
-## Subnets
-- Subnets are custom blockchains on Avalanche — like app-specific chains
-- DFK Chain (DeFi Kingdoms), Dexalot — examples of subnets
-- Each subnet can have own token for gas — not always AVAX
-- Bridging to subnets through official bridges — subnet-specific
-- Subnets have independent validators — different security assumptions
-
-## Staking
-- Minimum 25 AVAX to delegate — stake with validators
-- Minimum 2 weeks lock — staking period required
-- Rewards vary by validator — check uptime and commission
-- No slashing — underperforming validators just earn less
-- Liquid staking: sAVAX, ggAVAX — maintain liquidity while staking
-
-## Wallet Options
-- Core Wallet (official) — supports all three chains, subnets
-- MetaMask for C-Chain only — familiar interface, limited to C-Chain
-- Ledger supported — via Core or MetaMask
-- Mobile wallets available — Core has mobile app
-
-## Common Issues
-- "Insufficient funds" — need AVAX for gas on C-Chain
-- Tokens on wrong chain — bridged to X-Chain instead of C-Chain
-- Can't find tokens — wrong chain or need to add custom token
-- Slow bridge — some bridges take 10-30 minutes, be patient
-- Subnet tokens not showing — need to add subnet network to wallet
-
-## Security
-- Standard EVM security on C-Chain — same best practices as Ethereum
-- Private key controls all three chains — one seed, all chains
-- Verify addresses on all chains — X-Chain addresses start with "X-"
-- Revoke unused approvals — snowtrace.io token approval checker
-- Official bridges safest — third-party bridges add risk
+| Reference | Load when |
+| --- | --- |
+| `references/architecture.md` | Explaining Primary Network roles, C/X/P separation, or Avalanche L1/subnet context. |
+| `references/c-chain.md` | Handling C-Chain transactions, gas paid in AVAX, RPC/chain id, explorers, or EVM wallet setup. |
+| `references/cross-chain.md` | Moving AVAX between C/X/P, atomic export/import, or bridging from other networks. |
+| `references/staking.md` | Validator vs delegator stakes, lock periods, rewards, or liquid-staking handoffs. |
+| `references/troubleshooting.md` | Diagnosing insufficient gas, wrong-chain balances, missing tokens, or wallet limits. |
+| `references/sources.md` | Verifying stake floors, chain roles, RPC, bridge, or wallet claims against primary docs. |
