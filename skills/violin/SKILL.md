@@ -1,91 +1,47 @@
 ---
 name: violin
-slug: violin
-version: 1.0.0
-description: Violin practice strategies, technique correction, intonation development, and progress tracking.
-homepage: https://clawic.com/skills/violin
+description: >
+  Plan violin practice, diagnose left-hand and bow-arm problems, guide basic
+  instrument care, and track progress. Use when the user asks to learn,
+  practice, troubleshoot, maintain, or log work on a violin. Prefer
+  `acoustic-guitar` or `electric-guitar` for guitar, `piano` or `drums` for
+  those instruments, `music` for listening history, and `song` for original
+  writing.
 metadata:
-  category: music
-  skills:
-  - violin
-  - strings
-  - practice
-  - music
-  - instrument
-  clawdbot:
-    emoji: 🎻
-    displayName: Violin
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎻"}'
+  related-skills: '{"acoustic-guitar":"Acoustic guitar practice and care instead of violin technique.","drums":"Drum-kit practice and rudiments instead of violin work.","electric-guitar":"Amplified guitar tone and gear instead of violin practice.","habits":"Design the recurring practice habit once the violin routine itself is clear.","music":"Track listening history, playlists, and concerts rather than violin technique.","piano":"Keyboard practice plans and technique instead of violin.","song":"Original songwriting, lyrics, and harmony when composition is the goal."}'
 ---
 
-## Core Behavior
+## State location
 
-- Create `~/Clawic/data/violin/` as workspace on first interaction
-- After practice, offer to log progress; see `progress.md`
+Practice state may exist in `<workspace>/violin/`, `<workspace>/memory/violin/`, or `~/violin/`. Before reading or writing practice data, resolve `<state_root>` as follows:
 
-## Before Advising
+1. Use an explicitly configured state root when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/violin/`, `<workspace>/memory/violin/`, then `~/violin/`.
+3. If no candidate exists and the user asks to save practice data, create `<workspace>/violin/` only after confirming the destination.
+4. If several candidate directories exist, use only the highest-precedence one, tell the user that separate copies were detected, and leave the others unchanged.
 
-- Ask level — years playing, current repertoire
-- Ask goals — classical vs fiddle vs orchestral differ
-- Ask teacher status — self-taught needs different guidance
+Use the selected `<state_root>` for every practice-state operation in this invocation. Do not hardcode absolute host paths. Do not write runtime practice data into the skill package.
 
-## Practice Errors
+## Workflow
 
-- Practicing mistakes — slow until correct, then speed up
-- Ignoring intonation — check against open strings or drone
-- Too much repertoire, not enough scales — gaps show in pieces
-- Marathon sessions — 30 min focused beats 2 hours
+1. Establish the player's immediate goal: classical, fiddle, or orchestral focus; years playing; teacher status; current repertoire; and the next concrete outcome.
+2. Give one focused exercise with a tempo, duration, or repetition target, then name the observable cue for clean execution.
+3. When a technique, care, or logging detail is needed, load the matching reference below rather than loading every reference at once.
+4. When the user wants persistent tracking, confirm the state root and update only the requested records.
 
-## Left Hand Traps
+| Resource | Load when |
+| --- | --- |
+| `references/technique-and-care.md` | Explaining left hand, bow arm, intonation, vibrato, tone, diagnosing symptoms, string or bow care, or a symptom-based technique fix. |
+| `references/progress.md` | Creating or updating repertoire, session, technique, or goal records in `<state_root>`. |
+| `references/sources.md` | Verifying technique terminology, instrument structure, or Agent Skills packaging facts. |
 
-- Squeezing neck — thumb light, arm weight does work
-- Flat fingers — curve for clean stopping
-- Ignoring hand frame — 1-4 spacing set, don't reach
-- Shifting tension — release before shift, land light
+## Practice defaults
 
-## Bow Arm Traps
-
-- Pressing into string — arm weight not muscle
-- Stiff wrist — wrist leads at frog, flexible throughout
-- Ignoring contact point — wandering = wavering tone
-- Bow not parallel — watch in mirror
-
-## Mistakes by Level
-
-**Beginners:** Death grip, no vibrato concept, scratchy tone
-
-**Intermediate:** Shifting anxiety, position isolation, vibrato tense
-
-**Advanced:** Expressive ruts, neglecting études, avoiding positions
-
-## Intonation Work
-
-| Method | When |
-|--------|------|
-| Drone practice | Daily scales against tonic |
-| Double-stop checks | 4ths, 5ths, octaves expose errors |
-| Slow scales | Listen to each interval |
-
-## Tone Production
-
-- Speed + weight + contact point = tone color
-- Slow near bridge = intense; fast near fingerboard = soft
-- Pressure chokes sound — let string vibrate
-
-## Troubleshooting
-
-- "Scratchy tone" → check bow speed vs pressure
-- "Shifting out of tune" → release, shift, THEN place
-- "Vibrato tense" → arm vibrato first
-- "4th finger weak" → exercises, don't avoid
-
-## Setup
-
-Old strings = dull tone — change every 3-6 months; rehair bow when slippery
-
-## Progress Tracking
-
-Log to `~/Clawic/data/violin/`: repertoire, scales by key, shifting exercises
-
-## What to Surface
-
-- "G major clean? Ready for A-flat?" / "No shifting logs — want études?"
+- Apply one correction at a time and verify it with a short, observable check before adding another change.
+- Ask only the questions that change the advice: years playing, repertoire, classical vs fiddle vs orchestral goals, and teacher status.
+- Start with a technique the player can practice in the current session.
+- Prefer maker-specific care guidance over generic defaults when the two conflict.
+- If pain is sharp, radiating, or persists after rest, pause technical drills and recommend a qualified teacher or clinician rather than forcing more pressure or repetition.
+- After pain settles, return to lighter open-string and first-position drills before retrying shifts or extended techniques.

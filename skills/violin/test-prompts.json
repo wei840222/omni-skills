@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want a 20-minute violin practice plan focused on cleaner shifts into third position.",
+    "expected": "A short ordered plan that establishes goal and level, isolates one shift correction (release-before-shift), uses a drone or open-string check, and ends with an observable consistency check plus next step.",
+    "actual": "structural_dry_run: workflow asks years/repertoire/goal, loads technique-and-care, then returns a 20-minute block: 5m open-string long tones for bow contact; 5m first-position stopped notes with light thumb; 7m slow 1st→3rd shifts with release-shift-place against a drone; 3m note landing pitch accuracy and next obstacle. One correction at a time; no guitar detour.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My violin sounds scratchy and I'm squeezing the neck. What should I change?",
+    "expected": "Symptom-first diagnosis covering bow speed vs weight, contact point, light thumb, arm weight for stopping, and a stop path for sharp or persistent pain.",
+    "actual": "structural_dry_run: diagnose-the-symptom path selects scratchy tone + death grip rows; instruct balance bow speed against weight, steady contact point, lighten thumb, use arm weight. Open-string even tone check for one minute. If pain is sharp/radiating/persists after rest, halt and recommend qualified teacher/clinician rather than more pressure.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Please log today's 45-minute violin practice: G major scales with drone, Bach measures 8-12, and next step is release-before-shift drills.",
+    "expected": "Resolve state_root with precedence, confirm destination before write, and record only the stated session facts under sessions/ or equivalent progress files.",
+    "actual": "structural_dry_run: resolve <state_root> via configured → workspace/violin → memory/violin → ~/violin; report multi-copy conflict without merge; confirm destination; append session entry with 45 min, G major drone scales, Bach 8-12, next=release-before-shift. No skill-package write.",
+    "pass": true
+  }
+]
