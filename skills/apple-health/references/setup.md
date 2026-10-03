@@ -1,6 +1,6 @@
 # Setup — Apple Health
 
-Read this silently when `~/Clawic/data/apple-health/` does not exist or is empty.
+Read on first setup or configuration troubleshooting. Resolve `<state_root>` using SKILL.md before accessing notes; a missing state directory does not authorize creation.
 Start the conversation naturally and focus on enabling the connection fast.
 
 ## Priority Order
@@ -23,7 +23,7 @@ If user has no export yet:
 3. Continue only after they provide a concrete local path.
 
 ### 3. Wire MCP Server
-Use the config from `mcp-config.md` with:
+Use the config from `references/mcp-config.md` with:
 - command `npx`
 - package `@neiltron/apple-health-mcp`
 - env `HEALTH_DATA_DIR` set to a verified absolute path
@@ -38,20 +38,23 @@ Preflight before first run:
 ### 4. Run Verification Sequence
 After wiring:
 1. Run `health_schema`
-2. Run one bounded query from `query-recipes.md`
+2. Run one bounded query from `references/query-recipes.md`
 3. Confirm expected date range and units
 
 If any step fails, do not proceed to analysis. Fix integration first.
 
-If MCP still fails after Node LTS switch, use the fallback flow in `fallback-cli.md`.
+If MCP still fails after Node LTS switch, use the fallback flow in `references/fallback-cli.md`.
 
 ## What to Save
 
+Save only when the user consents to persistent health-related notes. Read `references/memory.md` for lifecycle rules and `assets/memory-template.md` for static formats. Store no raw health rows or credentials.
+
+
 | Save to | Content |
 |---------|---------|
-| `memory.md` | Status, integration mode, last validated export path, freshness timestamp |
-| `integrations.md` | MCP client config decisions and known working command/env |
-| `query-log.md` | Queries that worked, plus caveats on units and table names |
+| `<state_root>/memory.md` | Status, integration mode, last validated export path, freshness timestamp |
+| `<state_root>/integrations.md` | MCP client config decisions and known working command/env |
+| `<state_root>/query-log.md` | Queries that worked, plus caveats on units and table names |
 
 ## Guardrails
 

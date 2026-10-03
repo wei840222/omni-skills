@@ -1,36 +1,29 @@
 ---
 name: apple-health
-slug: apple-health
-version: 1.0.0
 description: Connect agents to Apple Health exports with MCP setup, schema validation, and privacy-safe analysis.
-homepage: https://clawic.com/skills/apple-health
-changelog: Initial release with Apple Health MCP integration workflow and guarded query patterns.
 metadata:
-  clawdbot:
-    emoji: ❤️
-    requires:
-      bins:
-      - node
-      - npx
-      env:
-      - HEALTH_DATA_DIR
-    install:
-    - id: npm
-      kind: npm
-      package: '@neiltron/apple-health-mcp'
-      bins:
-      - apple-health-mcp
-      label: Install Apple Health MCP Server (npm)
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Apple Health
+  version: "1.0.1"
+  openclaw: '{"emoji":"❤️","requires":{"bins":["node","npx"],"env":["HEALTH_DATA_DIR"]},"install":[{"id":"npm","kind":"npm","package":"@neiltron/apple-health-mcp","bins":["apple-health-mcp"],"label":"Install Apple Health MCP Server (npm)"}]}'
+  related-skills: '{"api":"API and MCP integration debugging outside exported-health analysis.","health":"General wellness framing beyond analysis of exported records.","ios":"iPhone export setup and iOS platform troubleshooting.","sleep":"Sleep coaching and interpretation beyond querying recorded sleep.","swift":"HealthKit application implementation rather than terminal export analysis."}'
 ---
+
+## State location
+
+Before the first state read, query, create, update or delete, resolve `<state_root>` once:
+
+1. Use the user- or host-configured state root when supplied.
+2. Otherwise use the first existing directory in this order: `<workspace>/apple-health/`, `<workspace>/memory/apple-health/`, `~/apple-health/`.
+3. If multiple candidates exist, use only the highest-precedence one and report the extra copies. Keep other copies unchanged and separate.
+4. Complete lookup before creation. If no candidate exists and the user consents to saving health-related notes, create `<workspace>/apple-health/`.
+5. `<workspace>` is the host/runtime workspace root, not the shell working directory. If unavailable, read an existing `~/apple-health/`; otherwise obtain an explicit root before creation.
+6. Keep this resolved root fixed throughout the invocation. Resolution selects a path; obtain consent before persisting or modifying health information.
+
+Use `<state_root>/memory.md`, `<state_root>/integrations.md`, `<state_root>/query-log.md` and `<state_root>/archive/` as needed. Runtime state and original exports stay outside the skill package and version control. Read-only analysis needs no state creation.
+Legacy `~/Clawic/data/apple-health/` is a migration source only. Copy only on an explicit migration request, validate the destination, retain the original for rollback, and obtain separate authorization before deletion.
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, read `references/setup.md` for integration guidelines.
 
 ## When to Use
 
@@ -38,15 +31,26 @@ User wants agents to read Apple Health data for trends, summaries, or SQL analys
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/apple-health/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/`. Read `references/memory.md` before persistent-note updates and `assets/memory-template.md` only when seeding requested notes.
 
 ```
-~/Clawic/data/apple-health/
+<state_root>/
 |-- memory.md              # Status, client integration state, latest export path
 |-- integrations.md        # Connected MCP clients and validation notes
 |-- query-log.md           # Reusable SQL/report prompts and known-good outputs
 `-- archive/               # Retired paths and old troubleshooting notes
 ```
+
+### State children
+
+| Path | Role | Create when |
+|---|---|---|
+| `<state_root>/memory.md` | Status, integration mode, validated export path and freshness | User first requests retained integration notes |
+| `<state_root>/integrations.md` | Client configuration pointers and validation notes | User requests a working integration be remembered |
+| `<state_root>/query-log.md` | Reproducible SQL, windows and non-sensitive caveats | User requests a reusable query be saved |
+| `<state_root>/archive/` | Retired path pointers or troubleshooting notes | User requests archival of an existing note |
+
+Create each optional child only when needed, after consent; read existing content before updating it. Retain configuration pointers and reproducible queries rather than raw health rows or credentials. There are no shared-memory or external state writes in this skill.
 
 ## Quick Reference
 
@@ -54,11 +58,12 @@ Use these files on demand instead of overloading the main instructions.
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| MCP client wiring | `mcp-config.md` |
-| Query recipes | `query-recipes.md` |
-| Fallback CLI paths | `fallback-cli.md` |
+| Setup process | `references/setup.md` — first use or troubleshooting configuration |
+| Persistent-note status and lifecycle | `references/memory.md` — before reading or updating health notes |
+| Memory template | `assets/memory-template.md` — only when creating user-requested notes |
+| MCP client wiring | `references/mcp-config.md` — before configuring a client |
+| Query recipes | `references/query-recipes.md` — after schema discovery when writing SQL |
+| Fallback CLI paths | `references/fallback-cli.md` — after startup or native-module failure |
 
 ## Core Rules
 
@@ -86,7 +91,7 @@ Before wiring MCP, verify runtime:
 Do not continue while runtime is incompatible.
 
 ### 4. Configure MCP With Explicit Path and Command
-Use the MCP server command from `mcp-config.md`:
+Use the MCP server command from `references/mcp-config.md`:
 - Command: `npx`
 - Args: `[@neiltron/apple-health-mcp]`
 - Env: `HEALTH_DATA_DIR=/absolute/path/to/export`
@@ -137,7 +142,7 @@ Data that leaves your machine:
 Data that stays local:
 - Apple Health CSV exports
 - MCP query outputs and summaries
-- Skill memory in `~/Clawic/data/apple-health/`
+- Skill memory in `<state_root>/`
 
 This skill does NOT:
 - Access iCloud Health data directly
@@ -148,16 +153,3 @@ This skill does NOT:
 
 By using this skill, you rely on third-party tooling (`@neiltron/apple-health-mcp` and the chosen iPhone export app).
 Only install and run if you trust those tools.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `health` - General health guidance boundaries and framing
-- `ios` - iOS-specific setup and platform troubleshooting
-- `sleep` - Sleep trend interpretation workflows
-- `api` - Reliable API and integration debugging habits
-- `swift` - HealthKit-side implementation context when app code is involved
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/apple-health
-- Latest version: https://clawic.com/skills/apple-health
