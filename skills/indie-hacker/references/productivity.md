@@ -76,3 +76,6 @@ Always ask "what's the ONE thing that moves revenue/users?"
 - Revenue from one big customer
 - MRR but negative trend
 - Product requires constant firefighting
+
+## Research anchors
+See `references/sources.md` for opportunity-cost and scoping sources.
