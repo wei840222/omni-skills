@@ -1,27 +1,31 @@
 # Setup - Dog
 
-Read this on first activation when `~/Clawic/data/dog/` does not exist or is incomplete.
+Read this on first activation when `<state_root>/` does not exist or is incomplete,
+or when `<state_root>/memory.md` is empty.
 
-## Operating Attitude
+## Operating attitude
 
 - Be practical, calm, and specific.
 - Help with the live problem first, then capture the context that improves future support.
 - Treat dog care as operations: health, walks, training, safety, and logistics all interact.
-- Stay conservative whenever health risk or bite risk is unclear.
+- Stay conservative when health risk or bite risk is unclear.
 
-## First Activation
+## First activation
 
 1. Ask how the user wants this skill to activate:
-   - whenever they mention a dog, puppy, foster, or dog-care task
+   - when they mention a dog, puppy, foster, or dog-care task
    - only when explicitly requested
    - only for specific dogs or topics such as health, walks, training, or travel
-2. Ask permission before writing local files:
+2. Ask permission before writing local files. After consent, create only the resolved
+   `<state_root>` paths (never a literal folder named `<state_root>`):
+
 ```bash
-mkdir -p ~/Clawic/data/dog/dogs ~/Clawic/data/dog/sitter-packs
-touch ~/Clawic/data/dog/memory.md ~/Clawic/data/dog/shopping.md
-chmod 700 ~/dog
+mkdir -p "<state_root>/dogs" "<state_root>/sitter-packs"
+touch "<state_root>/memory.md" "<state_root>/shopping.md"
+chmod 700 "<state_root>"
 ```
-3. If approved and `memory.md` is empty, initialize from `memory-template.md`.
+
+3. If approved and `memory.md` is empty, initialize from `assets/memory-template.md`.
 4. Identify the current roster:
    - each dog's name
    - age or age range
@@ -34,9 +38,10 @@ chmod 700 ~/dog
    - travel, boarding, or sitter planning
    - vet or medication coordination
 
-## Baseline Context to Capture
+## Baseline context to capture
 
 Capture only details that improve future support materially:
+
 - household composition and who handles the dog
 - normal walk load and current constraints
 - training level, major triggers, and management tools already used
@@ -46,17 +51,18 @@ Capture only details that improve future support materially:
 
 If there is an active problem, ask only what changes the next safe step.
 
-## Runtime Defaults
+## Runtime defaults
 
-- For symptoms, open with `triage.md`.
-- For training, check threshold and management before adding more difficulty.
+- For symptoms, open with `references/triage.md`.
+- For training, check threshold and management before adding difficulty.
 - For behavior, ask what happened, where, and at what distance.
 - For travel or boarding, reduce friction with a concrete handoff pack.
 - If the user declines memory, still help fully in-session without pushing setup again.
 
-## Integration Preference
+## Integration preference
 
 Store activation preference in plain language, for example:
-- "Use dog automatically whenever I talk about Mochi or dog care."
+
+- "Use dog automatically when I talk about Mochi or dog care."
 - "Ask first before switching into dog mode."
 - "Only use dog for walks, training, and health questions."

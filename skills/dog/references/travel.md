@@ -5,7 +5,7 @@
 - Know whether the dog travels best with a crate, harness, or barrier
 - Pack water, cleanup gear, meds, and a fallback rest plan
 - Keep travel load realistic for weather and recovery
-- Do not plan long, hot, or chaotic trips around an already stressed dog
+- Keep travel load realistic for weather, recovery, and the dog current stress level
 
 ## Sitter or Boarding Pack
 
