@@ -61,6 +61,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | apple-calendar-macos         | 2026-09-11 | 85/100 (#339)                    |
 | apple-health                 | 2026-10-03 | 88/100 (#688)                    |
 | apple-mail-macos             | 2026-09-03 | 85/100 (#240)                    |
+| apple-maps                   | 2026-10-04 | 84/100 (#701)                    |
 | apple-news                   | 2026-08-28 | 97/100                           |
 | apple-pay                    | 2026-10-03 | 84/100 (#695)                    |
 | apple-search-ads             | 2026-09-21 | 85/100 (#519)                    |
