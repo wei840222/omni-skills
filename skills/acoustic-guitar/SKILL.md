@@ -43,3 +43,4 @@ Use the selected `<state_root>` for every practice-state operation in this invoc
 - Start with a technique the player can practice in the current session.
 - Prefer maker-specific care guidance over generic humidity defaults when the two conflict.
 - If pain is sharp, radiating, or persists after rest, pause technical drills and recommend a qualified teacher or clinician rather than forcing more pressure or repetition.
+- After pain settles, return to lighter open-position drills before retrying barre pressure.
