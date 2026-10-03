@@ -2,22 +2,22 @@
   {
     "id": 1,
     "prompt": "I want to learn Travis picking on acoustic guitar. Give me a 20-minute practice plan.",
-    "expected": "A short, ordered plan that begins with alternating thumb bass, adds one melody finger, and gives an observable tempo or consistency check.",
-    "actual": "Start with five minutes of alternating thumb bass at a comfortable tempo, add one melody finger for five minutes, combine the pattern for five minutes, then record one minute and check whether the bass stays even. End by noting the tempo and the next obstacle.",
+    "expected": "A short ordered plan that starts with alternating thumb bass, adds one melody finger, joins the pattern only after the pulse is steady, and ends with an observable consistency check plus next step.",
+    "actual": "structural_dry_run: workflow asks goal (fingerpicking/Travis), loads technique-and-care, then returns a 20-minute block: 5m thumb-only alternating bass at a comfortable tempo; 5m thumb + one melody finger; 5m full pattern only if bass stays steady; 4m record/check even bass pulse; 1m note tempo and next obstacle. One correction at a time; no electric-gear detour.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "My F barre chord sounds muddy and my fingertips hurt. What should I change?",
-    "expected": "A symptom-first diagnosis that covers thumb placement, index-finger angle, minimum pressure, individual-string testing, and a safe escalation path.",
-    "actual": "Put the thumb behind the neck near the middle finger, roll the index finger slightly toward its bony edge, and use only enough pressure for a clean sound. Test every string before returning to the chord change. If pain is sharp or persists, pause and seek instruction from a qualified teacher or clinician.",
+    "expected": "Symptom-first diagnosis covering thumb placement, index angle, minimum pressure, per-string testing, shortened drills, and a stop path for sharp or persistent pain.",
+    "actual": "structural_dry_run: diagnose-the-symptom path selects barre row; instruct thumb behind neck near middle finger, roll index toward bony edge, minimum pressure, test each string before the progression, shorten drill length. If pain is sharp/radiating/persists after rest, halt and recommend qualified teacher/clinician rather than more pressure.",
     "pass": true
   },
   {
     "id": 3,
     "prompt": "Please log today's 40-minute acoustic guitar practice: Blackbird verse, ten minutes of alternating bass, and the next step is adding melody.",
-    "expected": "The agent resolves the state root, seeks consent before creating persistent state, and records a concise session entry with the stated facts.",
-    "actual": "I would first resolve `<state_root>` and confirm the destination before writing. The session entry would record 40 minutes, Blackbird verse, ten minutes of alternating bass, and 'add melody' as the next step.",
+    "expected": "Resolve state_root with precedence, confirm destination before write, and record only the stated session facts under sessions/ or equivalent progress files.",
+    "actual": "structural_dry_run: resolve <state_root> via configured \u2192 workspace/acoustic-guitar \u2192 memory/acoustic-guitar \u2192 ~/acoustic-guitar; report multi-copy conflict without merge; confirm destination; append session entry with 40 min, Blackbird verse, 10 min alternating bass, next=add melody. No skill-package write.",
     "pass": true
   }
 ]
