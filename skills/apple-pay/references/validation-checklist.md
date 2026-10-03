@@ -32,10 +32,10 @@ Use this checklist before recommending release.
 ## Observability and Safety
 
 - Payment events include request id and outcome.
-- Logs avoid raw payment tokens and private data.
+- Logs omit raw payment tokens and private data.
 - Alerts exist for elevated failures or timeouts.
 - Rollback plan is documented and tested.
 
 ## Release Gate
 
-Do not recommend production rollout until all checklist sections pass.
+Recommend production rollout only after all checklist sections pass.

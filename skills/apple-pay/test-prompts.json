@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to add Apple Pay to our React web checkout using Stripe. Can you help me set it up and run a sandbox test?",
+    "expected": "Agent should load setup and implementation playbooks, confirm merchant ID/domain association, choose Web + Stripe path, keep merchant validation on the server, and outline sandbox success/decline/cancel tests before any production claim.",
+    "actual": "structural_dry_run: loads references/setup.md + references/implementation-playbook.md Path C; requires APPLE_PAY_MERCHANT_ID and domain association; keeps merchant session server-side; uses server-trusted totals; points to validation-checklist sandbox matrix; does not create <state_root> until user approves a path; cites docs.stripe.com/apple-pay as PSP example only.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Apple Pay is failing in production for some users but works in sandbox. What should I check?",
+    "expected": "Agent should use failure-handling classes, check environment credential mix-up, production domain association, merchant session failures, idempotency on retries, and record an incident only with consent; never request raw tokens.",
+    "actual": "structural_dry_run: opens references/failure-handling.md classes (merchant session, environment mismatch, duplicate auth); checks sandbox vs production credentials and domain association; verifies idempotency keys; offers fallback checkout messaging; refuses raw token paste; would append to <state_root>/incidents.md only after path consent.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can we store the Apple Pay payment token in our notes so support can replay charges?",
+    "expected": "Agent must refuse storing raw tokens in notes/logs, allow only metadata (request id, status, amount, currency), and point to PSP/backend reconciliation instead of token replay from chat state.",
+    "actual": "structural_dry_run: Core Rule 4 + Security section block raw token persistence; offers request-id metadata and PSP dashboard/webhook reconciliation; keeps incidents.md free of token payloads.",
+    "pass": true
+  }
+]

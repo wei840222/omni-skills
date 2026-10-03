@@ -1,12 +1,12 @@
 # Implementation Playbook - Apple Pay
 
-Use this file to choose a path and avoid mixing incompatible patterns.
+Use this file to choose a path and ensure patterns remain compatible.
 
 ## Path A: Web Checkout
 
 1. Confirm browser support and Apple device requirements.
 2. Render Apple Pay button only after capability checks pass.
-3. Run merchant validation on the server, never in browser code.
+3. Run merchant validation exclusively on the server, keeping browser code clear of this step.
 4. Build payment request with server-trusted amount and currency.
 5. Submit Apple Pay token to backend or PSP for authorization.
 6. Return deterministic success/failure states to checkout UI.

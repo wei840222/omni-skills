@@ -1,29 +1,33 @@
 ---
 name: apple-pay
-slug: apple-pay
-version: 1.0.0
-description: Implement Apple Pay for web and iOS with merchant validation, token handling, and production-safe checkout flows.
-homepage: https://clawic.com/skills/apple-pay
-changelog: Expanded implementation and rollout guidance with stronger validation and incident handling playbooks.
+description: >
+  Implement Apple Pay for web and iOS checkout with merchant validation,
+  server-trusted totals, token safety, sandbox testing, and production
+  rollout gates. Use when adding wallet checkout, diagnosing merchant
+  session or domain association failures, or planning recurring capture
+  through a PSP. Prefer `payments` for provider selection across cards
+  and wallets, `ios` for general iOS app work without payment tokens,
+  `app-store-connect` for Apple account ops outside merchant validation,
+  and `auth`/`api` when the task is identity or backend contracts only.
 metadata:
-  clawdbot:
-    emoji: 🍎
-    requires:
-      bins:
-      - curl
-      - jq
-      env:
-      - APPLE_PAY_MERCHANT_ID
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Apple Pay
+  version: "1.0.1"
+  openclaw: '{"emoji":"🍎","requires":{"bins":["curl","jq"],"env":["APPLE_PAY_MERCHANT_ID"]},"os":["darwin","linux","win32"],"displayName":"Apple Pay"}'
+  related-skills: '{"api":"Backend contracts, webhooks, and failure-safe integrations around Apple Pay authorization.","app-store-connect":"Apple developer account and capability ops outside merchant-session validation.","auth":"Authentication and session hardening adjacent to checkout identity.","ios":"iOS app implementation and device debugging when payment tokens are not the focus.","payments":"Provider selection and multi-method checkout design beyond Apple Pay alone."}'
 ---
 
 ## Setup
 
-On first use, read `setup.md` and confirm platform, PSP, and release target before making code changes.
+On first use, load `references/setup.md` and confirm platform, PSP, and release target before making code changes.
+
+## State location
+
+Before the first state read, create, or update, resolve `<state_root>` once:
+
+1. Explicit path supplied by the user for this integration.
+2. Existing project-local Apple Pay notes directory already in use.
+3. Otherwise ask once; do not create notes until the user approves a path.
+
+Use `<state_root>/memory.md`, `<state_root>/implementations.md`, `<state_root>/validation-log.md`, and `<state_root>/incidents.md` as needed. Runtime notes stay outside the skill package and version control. Read-only guidance needs no state creation. If multiple candidate roots exist, stop and ask which copy is authoritative; never merge silently.
 
 ## When to Use
 
@@ -31,10 +35,10 @@ User needs Apple Pay for checkout, subscriptions, or wallet-first conversion imp
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/apple-pay/`. See `memory-template.md` for setup and status fields.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for setup and status fields.
 
 ```
-~/Clawic/data/apple-pay/
+<state_root>/
 |-- memory.md                 # Project snapshot, risk status, and rollout state
 |-- implementations.md        # Selected approach and platform notes
 |-- validation-log.md         # Test evidence and environment results
@@ -43,17 +47,18 @@ Memory lives in `~/Clawic/data/apple-pay/`. See `memory-template.md` for setup a
 
 ## Quick Reference
 
-Use the smallest relevant file for the current task.
+Load only the smallest relevant file for the current task; keep SKILL.md as the router.
 
 | Topic | File |
 |-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Implementation plan | `implementation-playbook.md` |
-| Validation matrix | `validation-checklist.md` |
-| Failure recovery | `failure-handling.md` |
-| Release and operations | `launch-playbook.md` |
-| Recurring and subscription flows | `recurring-payments.md` |
+| Setup flow | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
+| Implementation plan | `references/implementation-playbook.md` |
+| Validation matrix | `references/validation-checklist.md` |
+| Failure recovery | `references/failure-handling.md` |
+| Release and operations | `references/launch-playbook.md` |
+| Recurring and subscription flows | `references/recurring-payments.md` |
+| Official sources | `references/sources.md` |
 
 ## Requirements
 
@@ -61,11 +66,11 @@ Use the smallest relevant file for the current task.
 - CLI tools for diagnostics: `curl`, `jq`
 - Access to Apple merchant account assets for the target environment
 
-Never ask users to paste private keys or full certificate private material into chat.
+Keep private keys and full certificate private material out of chat.
 
 ## Data Storage
 
-Local notes stay under `~/Clawic/data/apple-pay/`:
+Local notes stay under `<state_root>/`:
 - memory file for current state and integration decisions
 - validation log file for test outcomes and evidence
 - incidents file for failure signatures and mitigations
@@ -84,7 +89,7 @@ Then choose one primary path:
 - Native iOS with PassKit
 - PSP-mediated integration (for example Stripe, Adyen, Braintree)
 
-Do not mix paths in one patch unless user asks for a migration plan.
+Maintain a single path per patch, unless the user requests a migration plan.
 
 ### 2. Require Merchant and Domain Prerequisites
 Before implementation, confirm:
@@ -101,13 +106,13 @@ Amounts and currency must match across:
 - Server-side cart or order totals
 - PSP authorization and capture calls
 
-Never trust client totals for final charge amount.
+Rely solely on server totals for the final charge amount.
 
 ### 4. Keep Token Handling Minimal and Auditable
 Treat Apple Pay payment tokens as sensitive:
 - Forward token payload only to backend or PSP
 - Persist metadata only (request id, status, amount, currency)
-- Never store raw token payload in logs, notes, or screenshots
+- Keep raw token payloads entirely out of logs, notes, and screenshots
 
 ### 5. Build Idempotent and Recoverable Payment Steps
 Require idempotency and reconciliation for all critical calls:
@@ -118,7 +123,7 @@ Require idempotency and reconciliation for all critical calls:
 Every retried request must reuse stable idempotency keys to prevent duplicates.
 
 ### 6. Separate Sandbox and Production Release Gates
-Do not recommend production rollout until all gates pass:
+Recommend production rollout only when all gates pass:
 - Sandbox success, decline, cancellation, and timeout paths are tested
 - Device and browser matrix is complete for supported audience
 - Fallback card or alternative checkout works when Apple Pay is unavailable
@@ -135,12 +140,14 @@ Prefer stable payment reliability over feature breadth.
 
 ## Common Traps
 
-- Running merchant validation from the client -> exposes sensitive flow and fails reviews
-- Trusting client-side totals -> mismatch between authorized and captured amounts
-- Reusing sandbox credentials in production -> live checkout failures at launch
-- Treating simulator-only tests as release evidence -> real devices still fail
-- Missing idempotency on retries -> duplicate charges and refund overhead
-- Launching without fallback checkout -> conversion loss when wallet is unavailable
+Prefer the paired recovery after each trap (fix → verify → retest).
+
+- Running merchant validation from the client -> exposes sensitive flow and fails reviews; move validation to the server and retest the merchant session
+- Trusting client-side totals -> mismatch between authorized and captured amounts; recompute totals server-side before authorize/capture
+- Reusing sandbox credentials in production -> live checkout failures at launch; split credentials and re-run domain association on the production host
+- Treating simulator-only tests as release evidence -> real devices still fail; require at least one real-device matrix row before go-live
+- Missing idempotency on retries -> duplicate charges and refund overhead; attach stable idempotency keys and reconcile webhooks before retry storms
+- Launching without fallback checkout -> conversion loss when wallet is unavailable; ship card/alternative checkout before traffic ramp
 
 ## External Endpoints
 
@@ -159,7 +166,7 @@ Data that leaves your machine:
 - Payment tokens sent to the configured PSP or backend
 
 Data that stays local:
-- Integration notes and rollout state under `~/Clawic/data/apple-pay/`
+- Integration notes and rollout state under `<state_root>/`
 - Validation evidence and failure logs without raw tokens
 
 This skill does NOT:
@@ -173,14 +180,8 @@ Apple Pay integrations depend on Apple infrastructure and the chosen PSP.
 Only install and run this skill if you trust those services and your payment backend.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 - `payments` - General payment design and checkout decision frameworks
 - `app-store-connect` - Apple ecosystem account and operational workflows
 - `ios` - iOS implementation and device-level debugging patterns
 - `auth` - Authentication and session hardening in transaction flows
 - `api` - Reliable backend API contracts and failure-safe integrations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/apple-pay
-- Latest version: https://clawic.com/skills/apple-pay
