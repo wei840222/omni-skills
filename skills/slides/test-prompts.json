@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a 5-slide pitch deck for a new SaaS product using Marp. Make it professional.",
+    "expected": "Produce Marp markdown with frontmatter marp: true, five slides following pitch structure (title/problem/solution/demo/contact), and save under <state_root>/projects/ for the project.",
+    "actual": "Created pitch_deck.md with marp: true frontmatter and five slides (Title, Problem, Solution, Demo, Contact). Saved to <state_root>/projects/saas_pitch/pitch_deck.md after resolving state_root.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need a corporate quarterly update presentation in PowerPoint. I don't have a template but our main color is blue. It needs to include a chart for Q3 revenue.",
+    "expected": "Use python-pptx with Inches/Pt units, apply a blue title color, include a CategoryChart for Q3 revenue, and write a .pptx under the resolved <state_root> project path.",
+    "actual": "Wrote a python-pptx script using Inches/Pt. Built title and content slides with blue title color and a CategoryChart for Q3 revenue. Saved quarterly_update.pptx under <state_root>/projects/q3_update/.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Revise my deck: each slide still has 10 long sentence bullets and three different fonts.",
+    "expected": "Apply 6x6 density limits, one idea per slide with splits as needed, enforce a single type hierarchy and max 3-4 colors, and cite design.md rules.",
+    "actual": "Split overflowing slides, shortened bullets to the 6x6 rule, unified heading/body fonts, and reduced palette to three colors per references/design.md before regenerating the preview set.",
+    "pass": true
+  }
+]
