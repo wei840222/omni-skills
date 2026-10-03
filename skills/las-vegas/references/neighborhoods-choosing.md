@@ -162,7 +162,7 @@ Before touring, answer these:
 ## The Rental vs Buy Decision
 
 ### Rent If
-- New to Vegas (don't know areas yet)
+- New to Vegas (unfamiliar with local areas)
 - Uncertain about staying long-term
 - Need to rebuild credit/savings
 - Job is unstable
@@ -176,7 +176,7 @@ Before touring, answer these:
 - Found the right neighborhood
 
 ### The Vegas-Specific Factor
-Vegas housing is volatile. 2008 crash devastated values. 2020-2024 saw 50%+ gains. Don't assume appreciation; buy what you can afford if values drop.
+Vegas housing is volatile. 2008 crash devastated values. 2020-2024 saw 50%+ gains. Focus on affordability over speculative appreciation; buy what you can afford if values drop.
 
 ## Final Recommendations by Budget
 

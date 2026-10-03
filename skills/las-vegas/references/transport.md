@@ -72,7 +72,7 @@ Cheapest stations: Costco, Sam's Club, off-Strip locations
 - Reality: Slow but covers Strip well. Tourists mostly.
 
 **SDX (Strip & Downtown Express)**:
-- Faster limited-stop service
+- Faster limited-station service
 - Same fare as Deuce
 - Runs less frequently
 
@@ -102,7 +102,7 @@ Cheapest stations: Costco, Sam's Club, off-Strip locations
 ### Trams (Free)
 
 **Free trams connect**:
-- Mandalay Bay ↔ Excalibur (with Luxor stop)
+- Mandalay Bay ↔ Excalibur (with Luxor station)
 - Bellagio ↔ Park MGM (via Aria, Crystals)
 
 **Use these**: They save walking in the heat.
@@ -254,7 +254,7 @@ Most Vegas neighborhoods are NOT walkable for errands. Strip malls, wide roads, 
 
 ### Remote Worker
 - Car still needed for errands, life
-- Can avoid rush hour (huge quality of life boost)
+- Working flexible hours bypasses rush hour (huge quality of life boost)
 - Location flexibility is valuable
 
 ## Money-Saving Tips
@@ -262,7 +262,7 @@ Most Vegas neighborhoods are NOT walkable for errands. Strip malls, wide roads, 
 **Gas**:
 - Costco/Sam's Club membership pays off
 - Apps: GasBuddy for cheap stations
-- Avoid Strip/airport stations
+- Favor off-Strip stations
 
 **Parking**:
 - Player's card often = free or validated parking
@@ -272,7 +272,7 @@ Most Vegas neighborhoods are NOT walkable for errands. Strip malls, wide roads, 
 **Rideshare**:
 - Compare Uber vs Lyft (prices vary)
 - Walk to cheaper pickup spots (off Strip)
-- Schedule rides when possible (avoids surge)
+- Schedule rides when possible (skips surge)
 
 **Public transit**:
 - 24-hour pass better than single fares

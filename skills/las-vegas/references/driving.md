@@ -80,7 +80,7 @@ Nevada gas is higher than national average:
 ### Saving Money
 - Costco/Sam's Club (membership pays off)
 - GasBuddy app
-- Avoid Strip and airport stations
+- Favor off-Strip stations
 - Off-brand stations (same quality)
 
 ## Parking
@@ -113,7 +113,7 @@ Vegas heat is brutal on vehicles:
 | Tires | Faster wear | Check pressure frequently |
 | Wiper blades | 6-12 months | Sun degrades rubber |
 | Coolant | Regular checks | Overheating risk |
-| AC | Annual service | Don't skip this |
+| AC | Annual service | Mandatory maintenance |
 
 ### Finding Mechanics
 - Dealers: Expensive but reliable
@@ -133,12 +133,12 @@ Vegas heat is brutal on vehicles:
 - Remote start is worth it (cool car before entering)
 - Windshield sunshade (essential)
 - Tinted windows (reduces heat, legal limits apply)
-- Never leave people/pets in car
+- Ensure cars are always empty of people/pets when parked
 - Carry water in vehicle always
 
 ### Commute Optimization
 - Know alternate routes (I-15 backup = surface streets)
-- Flexible hours help (avoid peak rush)
+- Flexible hours help (bypassing peak rush)
 - Remote work is the best commute
 - Podcasts/audiobooks for the time
 

@@ -56,7 +56,7 @@ Las Vegas is cheaper than California and the coasts, but NOT cheap. Prices have 
 | Water/Sewer | $50-100 | $40-80 |
 | Trash | $25-40 | $25-40 |
 
-**Why summer electricity is insane**: A/C runs 24/7 when it's 115°F outside. This is unavoidable.
+**Why summer electricity is insane**: A/C runs 24/7 when it's 115°F outside. This is unskipable.
 
 ### Internet
 
@@ -227,7 +227,7 @@ Entertainment can be cheap or extremely expensive.
 ## Hidden Costs
 
 ### Summer Survival
-- Higher electricity (can't avoid A/C)
+- Higher electricity (A/C is strictly necessary)
 - Sunscreen, skincare
 - More restaurant meals (too hot to cook)
 - Indoor entertainment premium

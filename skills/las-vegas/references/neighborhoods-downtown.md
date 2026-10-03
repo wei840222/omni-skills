@@ -179,7 +179,7 @@ Downtown offers urban lifestyle rare in Vegas:
 
 **Homeless population**: Visible downtown, especially near bus station and underpasses. Most are harmless but can be aggressive asking for money.
 
-**Car safety**: Break-ins happen. Don't leave anything visible. Use secure parking if available.
+**Car safety**: Break-ins happen. Secure all items out of sight. Use secure parking if available.
 
 ## Downtown vs. The Strip
 
@@ -223,7 +223,7 @@ Many locals prefer downtown for nights out — better value, more character.
 **Yes if you**:
 - Value urban lifestyle over suburban convenience
 - Work downtown or remote
-- Don't have kids (or they're older)
+- Household without young kids
 - Enjoy arts, nightlife, walkability
 - Accept some grittiness for authenticity
 

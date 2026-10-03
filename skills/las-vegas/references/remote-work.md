@@ -254,7 +254,7 @@ If staying 2+ years, almost always financially beneficial.
 - High earners who benefit from tax savings
 - People who love entertainment and dining
 - Outdoor enthusiasts (cooler months)
-- Those who don't need daily in-person collaboration
+- Those working independently without daily in-person collaboration
 - People with West Coast work schedules
 
 ### Not Ideal For

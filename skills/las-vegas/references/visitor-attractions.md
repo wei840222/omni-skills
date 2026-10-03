@@ -80,7 +80,7 @@ Use that time for:
 - Bellagio Conservatory
 - Wynn/Encore grounds
 - Fremont Street after dark
-- A real museum stop instead of chasing a defunct attraction
+- A real museum visit for a reliable experience
 
 ### Wynn/Encore Grounds
 **Why it matters**: Most beautiful resort landscaping on The Strip. Free to explore.
@@ -164,10 +164,10 @@ Use that time for:
 - Time needed: 2-4 hours
 - Parking: $10
 
-**Strategy**: Go early morning to avoid heat and crowds. The Mike O'Callaghan-Pat Tillman Memorial Bridge (free) offers great dam views.
+**Strategy**: Go early morning to secure cooler temperatures and open spaces. The Mike O'Callaghan-Pat Tillman Memorial Bridge (free) offers great dam views.
 
 ### Grand Canyon (West Rim)
-**Why it matters**: If you've never seen the Grand Canyon, the West Rim is accessible from Vegas.
+**Why it matters**: If you are experiencing for the first time the Grand Canyon, the West Rim is accessible from Vegas.
 
 **Practical info**:
 - Distance: 2.5 hours driving
@@ -203,7 +203,7 @@ Use that time for:
 
 ### Madame Tussauds
 **The issue**: Expensive ($35) wax museum that exists in every major city.
-**Alternative**: If you've never been to one, Vegas is fine. But nothing Vegas-specific.
+**Alternative**: If you are visiting for the first time to one, Vegas is fine. But nothing Vegas-specific.
 
 ### Bodies/Titanic Exhibitions
 **The issue**: Permanent exhibitions that have been here for years. Pricey ($32), seen-it-once experiences.
@@ -236,7 +236,7 @@ Use that time for:
 
 ## Casino Floor Highlights
 
-Even if you don't gamble, some casino floors are worth experiencing:
+Regardless of your gaming preferences, some casino floors are worth experiencing:
 
 | Casino | Why Visit |
 |--------|-----------|
@@ -254,7 +254,7 @@ Even if you don't gamble, some casino floors are worth experiencing:
 
 **Spring (Mar-May)**: March Madness basketball crowds, pool season starts, conventions peak.
 
-**Summer (Jun-Aug)**: Brutal heat, cheap rooms, pool parties peak. Avoid outdoor day trips.
+**Summer (Jun-Aug)**: Brutal heat, cheap rooms, pool parties peak. Focus strictly on indoor activities.
 
 **Fall (Sep-Nov)**: Heat breaks by October. Raiders season. Life is Beautiful festival. F1 (November).
 

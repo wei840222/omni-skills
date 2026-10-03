@@ -107,7 +107,7 @@ Heavily regulated by Nevada Gaming Control Board.
 - Gaming license required for any gaming involvement
 - Extensive background checks
 - High compliance requirements
-- Don't start a gaming-adjacent business without legal counsel
+- Retain legal counsel before starting a gaming-adjacent business
 
 ### Cannabis
 Legal in Nevada but highly regulated:

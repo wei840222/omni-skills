@@ -77,10 +77,10 @@ Treat residency as a full-facts test, not a magic threshold:
 **Why it matters**: If you came from a high-tax state (CA, NY), they may audit your residency. Document everything.
 
 ### What NOT to Do
-- Don't keep your old state's license
-- Don't maintain property/voting registration in old state
-- Don't leave your practical life anchored in old state
-- Don't claim residency just for tax purposes without actually moving
+- Update your license to Nevada promptly
+- Transfer all primary voting and registrations to Nevada
+- Fully transition your practical life to Nevada
+- Ensure physical relocation aligns with tax residency claims
 
 ## Housing Search
 
@@ -96,7 +96,7 @@ Treat residency as a full-facts test, not a magic threshold:
 **Where to search**:
 - Zillow, Apartments.com
 - Facebook Marketplace (be careful of scams)
-- Drive neighborhoods (smaller landlords don't advertise online)
+- Drive through neighborhoods (smaller landlords often rely on physical signage)
 - Craigslist (lots of scams, but some legit)
 
 **Red flags**:

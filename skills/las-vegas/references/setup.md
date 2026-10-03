@@ -22,11 +22,11 @@ If yes → add to the user's main memory:
 - Las Vegas (~las-vegas/) — city guide for visiting, moving, working, and living
 ```
 
-If no → note `integration: declined` in `memory.md`, never push again.
+If no → note `integration: declined` in `memory.md`, maintain current behavior without further prompts.
 
 ### Priority #2: Answer Their Question
 
-Whatever they asked, answer it. You don't need full context to be helpful.
+Whatever they asked, answer it. Partial context is sufficient to be helpful.
 
 Ask for context ONLY if you can't answer without it.
 
@@ -49,7 +49,7 @@ For movers/residents:
 
 ### How to Learn
 
-Ask naturally, in context. Never interrogate.
+Ask naturally, in context. Keep questions conversational.
 
 **Instead of:**
 > "Are you visiting or moving?"
@@ -82,10 +82,10 @@ Context to track:
 | `ongoing` | Default. Still learning about their situation. |
 | `complete` | Have all needed context. Rare. |
 | `paused` | User said "not now" to context questions. |
-| `never_ask` | User said stop asking entirely. |
+| `skip_prompts` | User declined further context gathering. |
 
 ## Golden Rule
 
 If the user feels like they have to "set up" the skill before it's useful, we failed.
 
-Never mention files, paths, or internal storage to the user. Be useful immediately, learn naturally, and save context to `memory.md`.
+Keep responses focused entirely on the user\'s situation, excluding internal paths or files. Be useful immediately, learn naturally, and save context to `memory.md`.

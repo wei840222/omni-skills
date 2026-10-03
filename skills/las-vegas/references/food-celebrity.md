@@ -140,7 +140,7 @@ Las Vegas has more celebrity chef restaurants per square mile than any city in t
 - **Concept**: French pastries
 - **Must-order**: Croissants, macarons, coffee
 - **Price**: $ ($10-20/person)
-- **Worth it?**: Essential morning stop
+- **Worth it?**: Essential morning visit
 
 ## Other Notable Celebrity Restaurants
 

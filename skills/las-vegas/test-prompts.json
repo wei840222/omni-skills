@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 3-day weekend trip to Vegas with my friends. What should our itinerary look like?",
+    "expected": "The agent should load visitor-itineraries.md and visitor-attractions.md from references/, determine the group's interests, and provide a 3-day itinerary focused on a weekend trip.",
+    "actual": "Loaded references/visitor-itineraries.md and references/visitor-attractions.md. Gathered context that the user is a visitor on a weekend trip. Suggested a 3-day itinerary including Strip highlights, a Cirque show, and recommended dining areas like Downtown.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a remote tech worker living in California considering moving to Las Vegas to save on taxes. Which neighborhoods should I look at?",
+    "expected": "The agent should identify the persona as a remote worker/potential mover, load remote-work.md, resident.md, and neighborhoods-choosing.md from references/, explain the tax haven realities (no state income tax but needing real ties), and suggest neighborhoods like Summerlin or Henderson for remote workers.",
+    "actual": "Identified user as a potential mover and remote worker. Loaded references/remote-work.md, references/resident.md, and references/neighborhoods-choosing.md. Explained Nevada tax residency requirements and recommended Summerlin and Henderson for reliable internet, quiet environment, and proximity to amenities.",
+    "pass": true
+  }
+]

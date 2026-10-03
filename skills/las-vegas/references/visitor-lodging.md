@@ -272,7 +272,7 @@ Before booking, add these to your budget:
 - Some hotels have "party suite" packages
 
 ### Families
-- Avoid Cosmopolitan (adults-focused)
+- Note Cosmopolitan caters heavily to adults
 - Excalibur, Circus Circus, Mandalay Bay best for kids
 - Request rooms away from elevators and pool
 - All-suite (Venetian) helps with kids
@@ -289,7 +289,7 @@ Before booking, add these to your budget:
 - Pools vary in accessibility (check specific hotel)
 - Monorail is accessible; some pedestrian bridges are not
 
-## What to Avoid
+## Areas Requiring Caution
 
 - **Rooms facing construction** (check Trip Advisor for current projects)
 - **Connecting rooms you didn't request** (noise from neighbors)

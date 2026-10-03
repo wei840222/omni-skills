@@ -205,7 +205,7 @@ CCSD provides special education services:
 
 1. **Research obsessively before choosing where to live**
    - School zone is critical
-   - Don't assume area = good schools
+   - Verify school ratings independently of the neighborhood
 
 2. **Consider private or charter if public options are weak**
    - Private school may justify Summerlin premium

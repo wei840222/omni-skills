@@ -12,7 +12,7 @@ Vegas is surrounded by exceptional outdoor recreation. The catch: seasonal timin
 | Dec-Feb | ★★★★ | Cool, possible snow at elevation |
 | Mar-Apr | ★★★★★ | Ideal before heat |
 | May | ★★★ | Getting hot, early mornings only |
-| Jun-Aug | ★ | Dangerous heat, avoid |
+| Jun-Aug | ★ | Dangerous heat, skip |
 | Sep | ★★ | Still hot, late month improves |
 
 ## Red Rock Canyon
@@ -259,7 +259,7 @@ Same as running: October-April primary season
 
 ### Flash Floods
 - Check weather before canyon hikes
-- Never enter flooded washes
+- Stay entirely clear of flooded washes
 - Monsoon season: July-August
 
 ### Cell Service

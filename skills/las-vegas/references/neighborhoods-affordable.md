@@ -76,7 +76,7 @@ Las Vegas is still affordable compared to California, but prices have risen 50%+
 - Those building credit/savings for better area later
 - People who research specific neighborhoods carefully
 
-**Who should avoid**:
+**Who should reconsider**:
 - Families prioritizing schools
 - Safety-anxious buyers
 - Those unfamiliar with urban living
@@ -137,7 +137,7 @@ Las Vegas is still affordable compared to California, but prices have risen 50%+
 - Budget-conscious professionals
 - Those who want diversity
 
-**Who should avoid**:
+**Who should reconsider**:
 - Families wanting top schools
 - Those wanting newest amenities
 
@@ -238,7 +238,7 @@ Las Vegas is still affordable compared to California, but prices have risen 50%+
 - Apartments.com
 - Facebook Marketplace (be careful)
 
-**In person**: Drive neighborhoods. Many smaller complexes don't advertise online.
+**In person**: Drive neighborhoods. Many smaller complexes rely on physical signage.
 
 ### Negotiation Tips
 

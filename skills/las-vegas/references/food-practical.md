@@ -111,7 +111,7 @@ Vegas has improved dramatically. Best options:
 - High-end restaurants handle allergies well
 - Always disclose at reservation AND to server
 - Carry an EpiPen if severe
-- Avoid buffets for serious allergies (cross-contamination)
+- Choose dedicated restaurants over buffets for serious allergies (cross-contamination)
 
 ## Tipping Guide
 
@@ -257,7 +257,7 @@ Vegas portions are often huge:
 
 ### Corkage
 - Most restaurants charge corkage ($25-75)
-- Some don't allow outside wine at all
+- Many strictly prohibit outside wine
 - Always call ahead
 
 ## Common Mistakes
