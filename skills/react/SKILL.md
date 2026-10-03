@@ -66,7 +66,7 @@ Prefer other skills when the ask is mainly:
 
 ## Routing
 
-Keep `SKILL.md` as the progressive-disclosure router; load the smallest relevant file.
+Keep `SKILL.md` as the progressive-disclosure router; load the smallest relevant file before editing application code.
 
 | Situation | Load |
 |---|---|
