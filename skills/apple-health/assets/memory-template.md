@@ -48,7 +48,7 @@ Static format for `<state_root>/integrations.md`:
 
 ## MCP Command
 - command: npx
-- args: @neiltron/apple-health-mcp
+- args: ["-y", "@neiltron/apple-health-mcp"]
 - HEALTH_DATA_DIR: /absolute/path
 
 ## Known Issues

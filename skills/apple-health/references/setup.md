@@ -1,63 +1,41 @@
 # Setup — Apple Health
 
-Read on first setup or configuration troubleshooting. Resolve `<state_root>` using SKILL.md before accessing notes; a missing state directory does not authorize creation.
-Start the conversation naturally and focus on enabling the connection fast.
+Read for first setup or existing-client troubleshooting. Resolve state using SKILL.md before accessing notes; a missing directory is not creation consent.
 
-## Priority Order
+## 1. Confirm goal and client
 
-### 1. Confirm Goal and Client
-Ask what the user wants first:
-- connect now
-- only evaluate options
-- troubleshoot existing MCP setup
+Use known intent when supplied: connect now, evaluate options (`not-now`), or troubleshoot. Ask only for missing decisions. Identify the actual MCP-compatible client and configuration location from its current documentation. Planning mode leaves installations and configuration unchanged.
 
-Then confirm the MCP client (for example Claude Desktop, Cursor, or another MCP-compatible client).
+## 2. Confirm the export and privacy boundary
 
-### 2. Confirm Data Source
-State this clearly: terminal agents do not read live HealthKit directly.
-This workflow uses Apple Health exports in CSV format.
+This MCP reads Simple Health Export CSV files, not live HealthKit/iCloud or native `export.xml`.
+If no supported export exists, describe the maintainer's supported iPhone CSV export workflow and request the readable unzipped local directory. Installing an exporter, transferring sensitive files or paying for an app requires separate authorization. Validate an actual absolute directory with nonempty HK quantity/category/workout CSVs; preserve the original export.
 
-If user has no export yet:
-1. Ask them to export Apple Health CSV data from iPhone.
-2. Ask where the unzipped export folder is on their computer.
-3. Continue only after they provide a concrete local path.
+Before any `health_schema`, `health_query` or `health_report` call, apply SKILL.md Security & Privacy: schema can expose sample rows and client results may reach the model provider. Establish informed authorization or use an approved local-only path instead.
 
-### 3. Wire MCP Server
-Use the config from `references/mcp-config.md` with:
-- command `npx`
-- package `@neiltron/apple-health-mcp`
-- env `HEALTH_DATA_DIR` set to a verified absolute path
+## 3. Verify runtime and configure
 
-If configuration is partial or placeholder-based, fix it before testing queries.
+Read `references/mcp-config.md`. Check `node -v`, `npx --version` and the exact package engines/version; published version 1.4.5 requires Node >=22. Confirm the export directory rather than inferring it from a parent archive path.
+After setup authorization, merge the apple-health entry into the existing client config, preserving unrelated servers and a rollback copy. Replace sample paths before use; use stdio transport. Restart the client only according to its verified procedure.
 
-Preflight before first run:
-1. Check `node -v` and prefer LTS (18, 20, or 22).
-2. Run `npx -y @neiltron/apple-health-mcp` once.
-3. If startup fails with missing `duckdb.node`, switch Node version and retry.
+For missing native modules/startup failure, use the bounded diagnostic path in `references/fallback-cli.md`; package launch alone is not integration verification.
 
-### 4. Run Verification Sequence
-After wiring:
-1. Run `health_schema`
-2. Run one bounded query from `references/query-recipes.md`
-3. Confirm expected date range and units
+## 4. Verify before analysis
 
-If any step fails, do not proceed to analysis. Fix integration first.
+1. Run authorized `health_schema`; confirm at least one catalog table and required columns/units/labels.
+2. Run one analytical query from `references/query-recipes.md` adapted to that schema and an explicit finite date window.
+3. Confirm the observed result's units, coverage, source and freshness. An error is not a zero-data result.
 
-If MCP still fails after Node LTS switch, use the fallback flow in `references/fallback-cli.md`.
+If verification fails, retain the error and fix the implicated runtime/path/schema layer before reporting trends.
 
-## What to Save
+## Optional retained notes
 
-Save only when the user consents to persistent health-related notes. Read `references/memory.md` for lifecycle rules and `assets/memory-template.md` for static formats. Store no raw health rows or credentials.
+After consent, read `references/memory.md` and use `assets/memory-template.md` only for a needed child:
 
+| Destination | Minimum content |
+|---|---|
+| `<state_root>/memory.md` | Status, mode, validated export pointer, freshness |
+| `<state_root>/integrations.md` | Client/config pointers, verified command/env and checks |
+| `<state_root>/query-log.md` | Reproducible SQL, window and unit/source/time caveats |
 
-| Save to | Content |
-|---------|---------|
-| `<state_root>/memory.md` | Status, integration mode, last validated export path, freshness timestamp |
-| `<state_root>/integrations.md` | MCP client config decisions and known working command/env |
-| `<state_root>/query-log.md` | Queries that worked, plus caveats on units and table names |
-
-## Guardrails
-
-- Never claim real-time Apple Health sync from terminal-only setup.
-- Never expose raw CSV rows unless user asks.
-- Always disclose when analysis comes from old exports.
+Keep raw rows and credentials out of retained notes. Current-day claims need a current export; unknown freshness stays unknown. Default output is aggregated recorded-data analysis, not diagnosis.

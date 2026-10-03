@@ -1,13 +1,15 @@
-# MCP Configuration — Apple Health
+# MCP configuration — Apple Health
 
-Use this server in MCP-compatible clients:
+Use a trusted MCP-compatible client with local stdio transport. Obtain setup/package-execution consent and establish the health-data client/provider boundary in SKILL.md first.
+
+Merge this entry into the client's actual existing configuration; preserve other entries and a rollback copy. The example path must be replaced with a verified, readable absolute directory:
 
 ```json
 {
   "mcpServers": {
     "apple-health": {
       "command": "npx",
-      "args": ["@neiltron/apple-health-mcp"],
+      "args": ["-y", "@neiltron/apple-health-mcp"],
       "env": {
         "HEALTH_DATA_DIR": "/absolute/path/to/health-export"
       }
@@ -16,22 +18,22 @@ Use this server in MCP-compatible clients:
 }
 ```
 
-## Runtime Compatibility
+`-y` accepts npm acquisition prompts after user authorization; it is not consent by itself. For reproducible operation, verify a package version and use `@neiltron/apple-health-mcp@<VERIFIED_VERSION>` rather than guessing a version. Client config/env paths differ; use that client's current docs. A configured `HEALTH_DATA_DIR` inside the server environment need not be a global shell variable.
 
-- Prefer Node LTS (`18`, `20`, or `22`).
-- If startup fails with `duckdb.node` missing, switch Node version and retry.
-- Validate once with: `npx -y @neiltron/apple-health-mcp`
+## Runtime and integration checks
 
-## Minimum Validation Checklist
+- Published npm version 1.4.5 declares Node >=22. Verify `node -v` and the selected package engines; Node 18/20 are incompatible with that requirement.
+- Validate the absolute directory and supported nonempty Simple Health Export CSV layout; native `export.xml` is unsupported.
+- After authorization, client discovery of `health_schema`, `health_query` and `health_report` proves tool registration. At least one schema table plus one successful bounded query proves usable integration; process startup alone does not.
+- On native-module or startup failure, use `references/fallback-cli.md` with the original error preserved.
 
-- Path is absolute and exists.
-- Folder contains `HK*` CSV files.
-- `HEALTH_DATA_DIR` points to unzipped export root, not a parent folder.
-- `health_schema` returns at least one table.
+## Optional server environment
 
-## Optional Environment Variables
+| Variable | Documented default | Effect |
+|---|---|---|
+| `MAX_MEMORY_MB` | `2048` | DuckDB memory limit in MB |
+| `CACHE_SIZE` | `100` | Maximum cached query-result count |
 
-- `MAX_MEMORY_MB` (default `1024`)
-- `CACHE_SIZE` (default `100`)
+Each touched table loads its full CSV history into process memory even for bounded SQL. A load over the memory limit returns an error; the server disables temporary spill storage. Increase memory only for a measured need within host capacity and with authorization, or provide a narrower approved export. Restart rebuilds the in-memory database; persistent incremental import is not current behavior.
 
-Only increase memory if large exports actually require it.
+Source/version boundary: defaults and requirements were checked on 2026-10-03 against the sources in `references/sources.md`; verify again when changing versions.
