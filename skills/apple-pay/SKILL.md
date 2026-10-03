@@ -140,12 +140,14 @@ Prefer stable payment reliability over feature breadth.
 
 ## Common Traps
 
-- Running merchant validation from the client -> exposes sensitive flow and fails reviews
-- Trusting client-side totals -> mismatch between authorized and captured amounts
-- Reusing sandbox credentials in production -> live checkout failures at launch
-- Treating simulator-only tests as release evidence -> real devices still fail
-- Missing idempotency on retries -> duplicate charges and refund overhead
-- Launching without fallback checkout -> conversion loss when wallet is unavailable
+Prefer the paired recovery after each trap (fix → verify → retest).
+
+- Running merchant validation from the client -> exposes sensitive flow and fails reviews; move validation to the server and retest the merchant session
+- Trusting client-side totals -> mismatch between authorized and captured amounts; recompute totals server-side before authorize/capture
+- Reusing sandbox credentials in production -> live checkout failures at launch; split credentials and re-run domain association on the production host
+- Treating simulator-only tests as release evidence -> real devices still fail; require at least one real-device matrix row before go-live
+- Missing idempotency on retries -> duplicate charges and refund overhead; attach stable idempotency keys and reconcile webhooks before retry storms
+- Launching without fallback checkout -> conversion loss when wallet is unavailable; ship card/alternative checkout before traffic ramp
 
 ## External Endpoints
 
