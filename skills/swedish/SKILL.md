@@ -46,7 +46,7 @@ Modern Swedish almost always uses **du**:
 
 - `du`: default for strangers, colleagues, and ordinary writing
 - `ni`: rare as polite singular; can sound sarcastic, ceremonial, or old-fashioned
-- Do not upgrade to polite `ni` unless the user explicitly requests formal address
+- Keep *du* unless the user explicitly requests formal address; only then consider marked polite `ni`
 
 ## Particles and softeners
 
