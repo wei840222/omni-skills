@@ -39,3 +39,7 @@ These defaults are omni-skills operating policy for planning, labeled as such in
 - Removed hard-coded `~/Clawic/data/help-center/` state paths
 - Softened absolute vendor “best for / higher cost / less extensible” marketing language into verify-on-official-page heuristics
 - Avoided embedding specific dollar prices from transient marketing pages into skill procedures
+
+## Retrieval stamp
+
+- Repair research pass: 2026-10-03T08:30+08:00 (Ani local takeover).
