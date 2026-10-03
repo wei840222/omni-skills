@@ -16,7 +16,7 @@
 ## Stack Decisions
 
 <!-- Fill once; sessions read this instead of re-asking. Deviations from the
-     recommended stack (setup.md) get a one-line reason in Notes. -->
+     recommended stack (references/setup.md) get a one-line reason in Notes. -->
 
 | Layer | Choice | Notes / why deviated |
 |-------|--------|----------------------|
@@ -54,3 +54,4 @@
 - [React Docs](https://react.dev)
 - [Next.js Docs](https://nextjs.org/docs)
 - [TanStack Query](https://tanstack.com/query)
+- [Zustand](https://zustand.docs.pmnd.rs/)
