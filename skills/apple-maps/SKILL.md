@@ -60,6 +60,7 @@ Memory lives in `<state_root>/`. See `references/memory.md` for structure.
 | Deterministic operation flows | `references/operation-patterns.md` |
 | Safety checklist before action | `references/safety-checklist.md` |
 | Failure handling and recovery | `references/troubleshooting.md` |
+| Verified research sources | `references/sources.md` |
 
 ## Data Storage
 
