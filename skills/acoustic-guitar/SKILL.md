@@ -1,6 +1,11 @@
 ---
 name: acoustic-guitar
-description: Plan acoustic guitar practice, diagnose fingerpicking and strumming problems, guide instrument care, and track progress. Use when the user asks to learn, practice, troubleshoot, maintain, or log work on an acoustic guitar.
+description: >
+  Plan acoustic guitar practice, diagnose fingerpicking and strumming problems,
+  guide instrument care, and track progress. Use when the user asks to learn,
+  practice, troubleshoot, maintain, or log work on an acoustic guitar. Prefer
+  `electric-guitar` for amplified tone and gear, `piano` or `drums` for those
+  instruments, `music` for listening history, and `song` for original writing.
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🎸"}'
