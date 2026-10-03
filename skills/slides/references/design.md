@@ -140,10 +140,10 @@ Charts: Distinct colors, not random
 | Highlight sequence | Use different effects per slide |
 | Draw attention once | Repeat same animation |
 
-## Anti-Patterns to Avoid
+## Prefer these over common failure modes
 
 ### Visual Chaos
-- ❌ Multiple fonts fighting for attention
+- Prefer one type family (or a deliberate heading/body pair) over multiple competing fonts
 - ❌ Rainbow colors with no system
 - ❌ Inconsistent spacing/margins
 - ❌ Clipart from different eras
@@ -176,3 +176,11 @@ Before delivering any deck:
 - [ ] Images high quality, aligned?
 - [ ] Animations serve a purpose?
 - [ ] Exported correctly (fonts embedded)?
+
+
+## Acceptance checks before delivery
+
+- Body text is at least 24pt on projected decks
+- Contrast is readable on the actual background
+- Margins and column alignment are consistent across the sample slides
+- Palette stays within 3–4 colors including neutrals
