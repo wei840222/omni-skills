@@ -104,3 +104,4 @@ Persistent planning state lives under the resolved `<state_root>`. Package templ
 - Do not send local planning files to third-party APIs.
 - Do not read or write outside the resolved `<state_root>` for skill memory unless the host supplies another path and the user consents.
 - Examples use placeholders only; never commit secrets or customer content into the skill package.
+
