@@ -58,7 +58,8 @@ with user consent; do not auto-delete.
 
 ## Routing
 
-Keep `SKILL.md` as the progressive-disclosure router; load the smallest relevant file:
+Keep `SKILL.md` as the progressive-disclosure router; load the smallest relevant file.
+Load at most one reference cluster per failure class before editing specs:
 
 | Situation | Load |
 |---|---|
