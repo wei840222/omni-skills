@@ -56,3 +56,5 @@ Post-mortem required for every killed idea (see `assets/memory-template.md`).
 - https://en.wikipedia.org/wiki/Minimum_viable_product (MVP strategies)
 - https://en.wikipedia.org/wiki/Lean_startup (Validated learning)
 - https://www.ycombinator.com/library/4D-how-to-validate-your-startup-idea (YC Validation guide)
+
+See also `references/sources.md` for the full Gate 6 source list.
