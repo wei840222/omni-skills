@@ -68,4 +68,7 @@
 ### What Doesn't Compound
 - Twitter threads (24h visibility)
 - Product Hunt launches (one-time spike)
-- Paid ads (stops when money stops)
+- Paid ads (traffic ceases when budget runs out)
+
+## Research anchors
+See `references/sources.md` for distribution and PLG source links used in this refactor.

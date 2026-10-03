@@ -1,11 +1,11 @@
 # Indie Hacker Memory Setup
 
-Create `~/Clawic/data/indie-hacker/` on first use.
+Create `<state_root>/` on first use (see `SKILL.md` state location rules).
 
 ## Structure
 
-```
-~/Clawic/data/indie-hacker/
+```text
+<state_root>/
 ├── memory.md              # HOT: active projects, week priorities
 ├── projects/
 │   └── {project-name}.md  # Per-project tracking
@@ -43,7 +43,7 @@ One sentence: what matters this week.
 - Users: X
 
 ## Stack
-- Frontend: 
+- Frontend:
 - Backend:
 - Payments:
 - Hosting:

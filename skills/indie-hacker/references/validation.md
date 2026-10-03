@@ -42,7 +42,7 @@ When to kill:
 - 0 paying pre-orders from 50+ conversations
 - Every conversation requires education ("let me explain what this does...")
 
-Post-mortem required for every killed idea (see `memory-template.md`).
+Post-mortem required for every killed idea (see `assets/memory-template.md`).
 
 ## Common Validation Mistakes
 
@@ -51,3 +51,10 @@ Post-mortem required for every killed idea (see `memory-template.md`).
 - Building to validate instead of validating to build
 - Targeting "everyone" instead of specific segment
 - Ignoring existing solutions
+
+## Reference Sources
+- https://en.wikipedia.org/wiki/Minimum_viable_product (MVP strategies)
+- https://en.wikipedia.org/wiki/Lean_startup (Validated learning)
+- https://www.ycombinator.com/library/4D-how-to-validate-your-startup-idea (YC Validation guide)
+
+See also `references/sources.md` for the full Gate 6 source list.

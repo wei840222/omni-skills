@@ -22,7 +22,7 @@
 ### 1. Competitor Benchmark
 - Find 3-5 direct competitors
 - Note their pricing tiers
-- You don't need to be cheapest — need clear differentiation
+- Focus on clear differentiation rather than being the cheapest
 
 ### 2. Value Calculation
 - What does customer save/earn with your tool?
@@ -41,7 +41,7 @@
 1. Start at confident price
 2. Raise 20% every 2 weeks
 3. Monitor conversion rate
-4. Stop when conversion drops >30%
+4. Revert price if conversion drops >30%
 
 ### Grandfathering
 - Raise prices on NEW customers only
