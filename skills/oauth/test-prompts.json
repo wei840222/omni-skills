@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm building a single-page app (React) that needs to login users and call an API. Which OAuth flow should I use and how do I secure it?",
+    "expected": "Should recommend Authorization Code flow with PKCE, reading flows.md and security.md, advising against implicit flow and storing tokens in localStorage.",
+    "actual": "I will use the Authorization Code flow with PKCE for your SPA. First, I read `references/flows.md` which confirms that Implicit flow is deprecated and Auth Code + PKCE is required for public clients like SPAs. Next, based on `references/security.md` and `references/tokens.md`, I will set up the PKCE code_verifier and code_challenge (S256), include a CSRF state parameter, and ensure tokens are not stored in localStorage to prevent XSS. Access tokens should be short-lived.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an OAuth token endpoint. Can I use the Resource Owner Password Credentials flow for my mobile app so the user can just type their password directly?",
+    "expected": "Should strongly advise against ROPC, citing OAuth 2.1 deprecation from flows.md, and recommend Auth Code + PKCE instead.",
+    "actual": "No, you should not use the Resource Owner Password Credentials (ROPC) flow. I read `references/flows.md`, which states that ROPC is deprecated in OAuth 2.1 and is highly insecure because it exposes the user's password to the app. For a mobile app (a public client), you must use the Authorization Code flow with PKCE, as detailed in `references/security.md`.",
+    "pass": true
+  }
+]
