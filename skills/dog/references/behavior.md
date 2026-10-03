@@ -13,7 +13,7 @@ Log the trigger, distance, intensity, and recovery for:
 ## First Adjustments
 
 - Reactivity -> add distance, shorter exposures, and cleaner reinforcement timing
-- Separation distress -> change departures gradually and avoid punishing panic
+- Separation distress -> change departures gradually and change departures gradually with lower arousal
 - Guarding -> manage access and escalate to a professional plan sooner
 - Indoor accidents -> review schedule, supervision, stress, and possible medical causes
 - Fear handling -> break the task into easier steps and pay for participation

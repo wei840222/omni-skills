@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We just got a new 8-week-old golden retriever puppy named Max! Can you help us get set up?",
+    "expected": "Load references/setup.md and assets/memory-template.md; ask activation preference and memory consent; capture Max age/breed; create <state_root>/dogs/Max/ only after consent; help immediately without blocking on full setup.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: package routes setup→references/setup.md and template→assets/memory-template.md; State location requires consent before create; no live model harness log in this handoff environment.",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "Max is 6 months old now. During our walk today, a skateboarder went by and he lunged and barked wildly. He wouldn't calm down for 10 minutes.",
+    "expected": "Load references/behavior.md and references/training.md; ask distance/intensity/recovery; increase distance and reward calm; avoid punishment or flooding as the default.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: behavior.md tracks trigger/distance/intensity/recovery; training.md threshold guidance increases distance first; no live harness execution log.",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "Max is suddenly vomiting a lot and his stomach feels hard and looks swollen. He's trying to throw up but nothing comes out. What should we do?",
+    "expected": "Load references/triage.md; treat swollen abdomen + unproductive retching as emergency GDV pattern; direct to emergency vet immediately; no watch-and-wait.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: triage.md Emergency Now lists swollen abdomen with unproductive retching; Safe Language forbids diagnosing from chat and watching through red flags; sources.md cites AKC bloat page. No live harness execution log.",
+    "pass": false
+  }
+]
