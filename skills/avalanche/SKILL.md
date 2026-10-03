@@ -18,7 +18,7 @@ This skill is stateless and does not store local configuration or persistent use
 
 1. Identify the chain role (C / X / P), wallet capability, asset location, and the exact operation (transfer, gas, stake/delegate, bridge, L1/subnet, or failure).
 2. Load only the reference that matches that branch, then verify with an explorer, RPC, Core wallet status, or primary docs before advising irreversible moves.
-3. Prefer official Core / Avalanche tooling for multi-chain and P-Chain work; treat MetaMask-class wallets as C-Chain-only unless the user already added another network.
+3. Route multi-chain and P-Chain work through official Core / Avalanche tooling; use MetaMask-class wallets for C-Chain EVM flows, and only after the user already added another explicit network.
 
 ## Prefer other skills when
 
