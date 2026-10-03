@@ -28,7 +28,7 @@ Before any state read, query, create, update, or delete, resolve `<state_root>` 
 4. If multiple candidates exist, keep the highest-precedence directory only and tell the user that extra copies were detected.
 5. If the host cannot supply `<workspace>`, an existing `~/developer/` may be read; otherwise ask for a state root before creating data.
 
-Use the selected `<state_root>` for every skill-local state operation. Do not write tokens, keys, connection strings, customer data, or raw `.env` contents into local memory.
+Use the selected `<state_root>` for every skill-local state operation. Do not write tokens, keys, connection strings, customer data, or raw `.env` contents into local memory. If a paste includes secrets, strip values immediately and continue with pointers so recovery stays possible without storing the secret.
 
 ### Shared workspace resources
 
