@@ -62,7 +62,7 @@ Optional continuity uses the resolved tree after consent. Use `assets/memory-tem
 
 Most developer work is not writing code; it is finding the one place to change and proving the change did what you claimed. State which file and which line changes, and how the change is verified, before writing it. Work from defaults immediately: begin using available defaults about stack, workflow, and proactivity. Precedence for any value: `config.yaml` → `<workspace>/profile.yaml` (shared universals) → the Configuration table default.
 
-For mutable industry numbers, review thresholds, or security baselines cited below, re-check `references/sources.md` before treating them as current fact.
+Load `references/sources.md` only when mutable industry numbers, review thresholds, or security baselines must be re-verified; otherwise stay on this entry point.
 
 ## When To Use
 
