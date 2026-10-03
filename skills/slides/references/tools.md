@@ -56,10 +56,10 @@ chart_data.add_series('Sales', (100, 200, 150))
 
 ### Critical: Always Use Units
 ```python
-# ❌ WRONG
+# Prefer units API
 shape.left = 100
 
-# ✅ CORRECT
+# Correct
 from pptx.util import Inches, Pt, Emu
 shape.left = Inches(1)
 shape.width = Inches(4)
@@ -221,7 +221,7 @@ function hello() {
 
 ### Run
 ```bash
-npx slidev slides.md
+npx slidev
 npx slidev build  # Export to static
 npx slidev export # Export to PDF
 ```

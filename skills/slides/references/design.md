@@ -19,7 +19,7 @@
 3. **Regular** — Body text
 4. **Light** — Captions, secondary info
 
-Never use more than 3 weights in one deck.
+Limit to a maximum of 3 weights in one deck.
 
 ## Color System
 
@@ -65,7 +65,7 @@ Charts: Distinct colors, not random
 | Windows | Segoe UI | Cambria | Cascadia |
 
 ### Text Alignment
-- **Left-align** body text (never justify)
+- **Left-align** body text (avoid justification)
 - **Center** titles only if short
 - **Right-align** rarely, only for specific layouts
 
@@ -98,11 +98,11 @@ Charts: Distinct colors, not random
 
 ### Image Quality
 - **Minimum resolution:** 150 DPI for print, 72 DPI for screen
-- **Never stretch** — maintain aspect ratio
+- **Maintain aspect ratio** — avoid stretching
 - **Consistent treatment:** Same border radius, shadows, or none
 
 ### Icon Consistency
-- One icon set per deck (don't mix styles)
+- One icon set per deck (maintain consistent styles)
 - Same size for similar-purpose icons
 - Match icon weight to text weight
 
@@ -113,7 +113,7 @@ Charts: Distinct colors, not random
 | Legends | Near data, not in corner |
 | Colors | Match brand palette |
 | Labels | On data points when possible |
-| 3D effects | Never |
+| 3D effects | Avoid |
 
 ### Background Images
 - Use overlays for text legibility
@@ -133,7 +133,7 @@ Charts: Distinct colors, not random
 - **Easing:** ease-out for entrance, ease-in for exit
 
 ### When to Animate
-| ✅ Do | ❌ Don't |
+| ✅ Do | ❌ Avoid |
 |-------|---------|
 | Reveal quiz answers | Animate every bullet |
 | Build complex diagrams | Spin logos |

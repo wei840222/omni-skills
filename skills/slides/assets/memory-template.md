@@ -1,16 +1,19 @@
 # Memory Setup — Slides
 
+All paths below use the resolved `<state_root>` from `SKILL.md` (never the literal string on disk).
+
 ## Initial Setup
 
-Create directory on first use:
+Create directories on first use:
+
 ```bash
-mkdir -p ~/Clawic/data/slides/{styles,projects,templates}
-touch ~/Clawic/data/slides/memory.md
+mkdir -p <state_root>/{styles,projects,templates}
+touch <state_root>/memory.md
 ```
 
 ## memory.md Template
 
-Copy to `~/Clawic/data/slides/memory.md`:
+Copy to `<state_root>/memory.md`:
 
 ```markdown
 # Slides Memory
@@ -22,9 +25,9 @@ Copy to `~/Clawic/data/slides/memory.md`:
 
 ## Preferred Tools
 <!-- Default tools by context -->
-- Corporate decks: 
-- Tech talks: 
-- Quick presentations: 
+- Corporate decks:
+- Tech talks:
+- Quick presentations:
 
 ## Recent Learnings
 <!-- Style corrections, preferences discovered -->
@@ -60,9 +63,9 @@ For each brand/client style:
 - Caption: 18pt
 
 ## Logo
-- Path: 
+- Path:
 - Placement: top-right | bottom-left
-- Min size: 
+- Min size:
 
 ## Additional Rules
 <!-- Company-specific guidelines -->
@@ -83,18 +86,18 @@ For each brand/client style:
 - Duration: X minutes
 - Slide count: ~X
 - Format: .pptx | Google Slides | web
-- Must include: 
-- Avoid: 
+- Must include:
+- Prefer to skip:
 
 ## Key Messages
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Assets Available
-- Data sources: 
-- Images: 
-- Previous versions: 
+- Data sources:
+- Images:
+- Previous versions:
 ```
 
 ## projects/{name}/versions.md Template
@@ -104,12 +107,12 @@ For each brand/client style:
 
 ## v1.0 — YYYY-MM-DD
 - Initial version
-- Audience: 
+- Audience:
 - Slides: X
 
 ## v1.1 — YYYY-MM-DD
-- Changes: 
-- Reason: 
+- Changes:
+- Reason:
 
 <!-- Add new versions at top -->
 ```
@@ -127,12 +130,12 @@ For reusable deck structures:
 ## Structure
 
 ### Slide 1: {Title}
-- Content: 
+- Content:
 - Layout: title-only | title-content | two-column
 
 ### Slide 2: {Title}
-- Content: 
-- Layout: 
+- Content:
+- Layout:
 
 <!-- Continue for all slides -->
 
