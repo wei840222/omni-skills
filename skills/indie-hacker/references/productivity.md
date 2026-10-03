@@ -17,7 +17,7 @@
 ## Ruthless Prioritization
 
 ### The ONE Thing Rule
-Never ask "what should I work on?"
+Always propose the next highest-leverage task instead of asking "what should I work on?"
 Always ask "what's the ONE thing that moves revenue/users?"
 
 ### Weekly Planning Template
@@ -34,7 +34,7 @@ Always ask "what's the ONE thing that moves revenue/users?"
 ## Time-Efficient Defaults
 
 ### Build vs Buy
-| Need | Don't Build | Just Use |
+| Need | Instead of Building | Just Use |
 |------|-------------|----------|
 | Auth | Custom auth | Clerk, Auth0, Supabase |
 | Payments | Payment flows | Stripe, Lemon Squeezy |
@@ -57,7 +57,7 @@ Always ask "what's the ONE thing that moves revenue/users?"
 ### Energy Matching
 - High energy (morning/early) → hard problems, coding
 - Low energy (evening/tired) → admin, email, planning
-- Never code when exhausted — creates bugs and debt
+- Code only when rested to maintain quality and prevent technical debt
 
 ## When to Quit (Day Job)
 

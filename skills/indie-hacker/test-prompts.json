@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to build a new AI tool for creating marketing emails. What should I do first?",
+    "expected": "The agent should advise finding 5 people with the problem and validating willingness to pay before writing any code, following the 2-week validation timeline.",
+    "actual": "Before writing any code for the AI marketing email tool, you must validate the idea. Find 5 people who currently struggle with marketing emails and DM them to understand their pain points. Ask them what they use now and what is painful. Then, check their willingness to pay: 'If this existed for $X, would you buy it?'. If you can't find 5 people in 48 hours or if they aren't willing to discuss price, this is a red flag. Give yourself a maximum of 2 weeks to complete this validation step.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I've been building my social media app for 3 months and I have 200 users, but no one is paying for the premium version. How do I improve my funnel?",
+    "expected": "The agent should be brutally honest that 'nobody's buying' means a pivot or kill decision is required, rather than giving tactical funnel optimization advice.",
+    "actual": "Brutal honesty is required here: 3 months without traction and no paying users means you need to make an explicit decision to kill the project or pivot. 'Nobody's buying' is not a signal to 'try harder' or optimize the funnel. Do not spend more time perfecting the funnel. Evaluate whether to shut this down and focus on an idea that has validated willingness to pay.",
+    "pass": true
+  }
+]
