@@ -28,13 +28,13 @@
 
 ## 5 Days: Balanced Orlando
 
-- Day 1: Arrival, grocery stop, easy evening
+- Day 1: Arrival, grocery run, easy evening
 - Day 2: Full park day
 - Day 3: Half-day park plus rest
 - Day 4: Non-park day trip or local city day
 - Day 5: Second major park day or shopping and departure
 
-## Do Not Overload These Combinations
+## Manage These Combinations Carefully
 
 - Disney and Universal on back-to-back rope-drop days without rest
 - Airport arrival plus evening park ticket unless staying on-site

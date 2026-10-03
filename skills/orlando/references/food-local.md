@@ -25,6 +25,6 @@ Orlando local food is not one singular cuisine. Think of it as Florida plus Cent
 | Upscale Florida dinner | Winter Park, Dr. Phillips |
 | Brunch | Winter Park, College Park, Mills 50 |
 
-## Mistake to Avoid
+## Key Lesson
 
-Do not ask Orlando to behave like New Orleans or Charleston. Its local flavor is more hybrid and spread out.
+Understand that Orlando differs from New Orleans or Charleston. Its local flavor is more hybrid and spread out.

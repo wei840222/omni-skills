@@ -15,7 +15,7 @@ Immigration is U.S.-level, not Orlando-specific, but Orlando can still be a good
 
 ## Good Guidance Rules
 
-- Never present Orlando as if the city itself creates a visa path.
+- Clarify that Orlando operates under standard US visa rules rather than city-specific paths.
 - Use immigration counsel for exact filing strategy.
 - Treat job offer quality and employer sophistication as more important than city marketing.
 

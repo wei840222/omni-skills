@@ -13,7 +13,7 @@
 
 ## What Actually Works
 
-- Kennedy Space Center plus beach stop if the group has energy
+- Kennedy Space Center plus beach visit if the group has energy
 - Springs day when the forecast is hot but not storm-dominated
 - Winter Park day if the user wants "real Orlando" and not another ticketed attraction
 

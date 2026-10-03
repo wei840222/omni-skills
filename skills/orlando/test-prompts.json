@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We have 3 days in Orlando with two kids (8 and 11). We only care about Disney parks and want to minimize walking between hotels and gates. Where should we stay and how should we move around?",
+    "expected": "Classifies a short Disney-first family visit. Recommends Lake Buena Vista / Disney resort or nearby shuttle-friendly lodging, explains Disney transport vs rental car tradeoffs, and points to visitor-lodging, theme-parks-practical, and visitor-itineraries references before promising exact ticket prices.",
+    "actual": "Based on your 3-day Disney-focused trip, I recommend staying in the Lake Buena Vista area or an official Disney Resort to minimize travel time. For transportation, renting a car gives you flexibility, but if you stay on property, you can rely entirely on Disney transport (buses, Skyliner, Monorail) and occasional rideshares, which saves on parking fees.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are a remote-working couple considering a move to Orlando. We want a walkable neighborhood with good coffee shops, but we also fly out of MCO twice a month for work. We have a budget of $2500/month for rent. What areas should we look at?",
+    "expected": "Identifies relocating remote workers needing airport access and a polished lifestyle. Recommends Lake Nona for MCO proximity or Winter Park/Thornton Park for walkability, adjusts expectations around the $2500 budget and toll roads, and references neighborhoods-downtown, neighborhoods-lake-nona, and cost.",
+    "actual": "For a walkable lifestyle with coffee shops, Thornton Park and Winter Park are excellent choices, though Winter Park can push the upper limits of your $2,500/month budget. Given your frequent flights from MCO, Lake Nona is highly strategic (very close to the airport and polished), though less traditionally walkable than Downtown. You should weigh the easy MCO commute via SR 417 against the historic charm of the older districts.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is International Drive a good place to live year-round if I work remote and rarely go to the parks?",
+    "expected": "Rejects I-Drive as a default residential base; explains tourism-corridor noise, pricing, and weak local-neighborhood fit; redirects to Downtown/Winter Park/Lake Nona style options using neighborhoods-tourism and neighborhoods-choosing.",
+    "actual": "International Drive is mainly a tourism corridor, not a year-round local neighborhood. For remote work with rare park days, prefer Thornton Park, Winter Park, Baldwin Park, or Lake Nona depending on walkability versus airport access, and treat I-Drive as lodging for visitors rather than a residential default.",
+    "pass": true
+  }
+]
