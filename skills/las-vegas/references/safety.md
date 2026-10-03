@@ -42,7 +42,7 @@ Las Vegas is generally safe for visitors and residents, but like any major city,
 **Pickpocketing**:
 - Crowded areas (Fremont Street, busy casino floors)
 - Distracted photo-takers
-- Prevention: Keep valuables secure, use front pockets, don't flash cash
+- Prevention: Keep valuables secure, use front pockets, keep cash concealed
 
 **Scams**:
 - Costumed characters demanding tips (legal but aggressive)
@@ -51,13 +51,13 @@ Las Vegas is generally safe for visitors and residents, but like any major city,
 - Fake taxi meters (use rideshare apps)
 
 **Vehicle break-ins**:
-- Don't leave anything visible
+- Secure all items completely out of sight
 - Use valet or secure parking
 - Common at trailheads (Red Rock, etc.)
 
 ### Residents Face
 **Property crime**:
-- Car break-ins (don't leave valuables)
+- Car break-ins (keep valuables out of sight)
 - Package theft (use secure delivery)
 - Home break-ins (varies by area)
 
@@ -142,7 +142,7 @@ Las Vegas is generally safe for visitors and residents, but like any major city,
 ### What Gets You Watched
 - Unusual betting patterns
 - Winning too much
-- Counting cards (not illegal but they'll stop you)
+- Counting cards (not illegal but casinos enforce restrictions)
 - Acting suspicious
 - Intoxicated and causing issues
 
@@ -188,7 +188,7 @@ Las Vegas is generally safe for visitors and residents, but like any major city,
 - Use reputable establishments only
 
 ### Protecting Yourself
-- Don't flash cash
+- Keep cash concealed
 - Use cards when possible
 - Keep phone/wallet secure
 - Be skeptical of "free" offers
@@ -238,7 +238,7 @@ Las Vegas is generally safe for visitors and residents, but like any major city,
 ### Flash Floods
 - Desert doesn't absorb water
 - Washes flood instantly during monsoons (July-August)
-- **Never** drive through flooded washes
+- **Always** detour around flooded washes
 - Stay out of flood channels, even when dry
 
 ### Earthquakes
@@ -255,29 +255,29 @@ Las Vegas is generally safe for visitors and residents, but like any major city,
 ### Walking the Strip
 - Stay on main sidewalks
 - Use pedestrian bridges
-- Don't engage with aggressive promoters
+- Walk past aggressive promoters
 - Watch for distracted drivers
 - Hydrate in summer
 
 ### Gambling
 - Set a budget before starting
 - Use player's card (helps track play)
-- Don't chase losses
+- Accept losses and step away
 - Take breaks
-- Don't leave drink unattended
+- Keep drinks in hand or with a trusted companion
 
 ### Nightlife
 - Stay with your group
 - Watch your drink
 - Use rideshare home
-- Don't accept drinks from strangers
+- Only consume drinks you ordered yourself
 - Know where you're staying
 
 ### Hiking
 - **Tell someone your plans**
 - Bring more water than you think
 - Start early, finish before heat
-- Don't hike alone in remote areas
+- Hike with companions in remote areas
 - Check weather (flash flood warnings)
 
 ### At Home

@@ -78,14 +78,14 @@ Las Vegas has a hot desert climate (Köppen: BWh). It's one of the hottest citie
 - Drink water constantly (before you're thirsty)
 - 8-12 glasses minimum on hot days
 - Electrolytes if sweating heavily
-- Avoid excessive alcohol/caffeine
+- Moderate alcohol/caffeine intake
 
 **Behavior**:
 - Stay indoors 11am-6pm when possible
 - Exercise at dawn or late evening only
 - Use AC liberally (not the time to save electricity)
 - Park in shade; use sunshades
-- Never leave people/pets in cars
+- Ensure cars are always empty of people/pets when parked
 
 **Dress**:
 - Light colors
@@ -129,10 +129,10 @@ Moisture from the Gulf of California moves into the Southwest, causing:
 - Desert soil doesn't absorb water
 - Washes flood within minutes
 - Walls of water can be 6+ feet
-- **Never drive through flooded roads**
+- **Always reroute away from flooded roads**
 - People die in flash floods every year
 
-**The rule**: "Turn around, don't drown"
+**The rule**: "Turn around for safety"
 
 ### Watching for Storms
 - Check weather before hiking

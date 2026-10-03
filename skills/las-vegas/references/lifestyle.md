@@ -14,7 +14,7 @@ Vegas residents have access to world-class entertainment while living normal sub
 - Concerts: Constant stream of artists
 
 ### What Residents Actually Do
-Most don't go to shows every week. Entertainment becomes normalized:
+Most attend shows occasionally. Entertainment becomes normalized:
 - Save Strip for visitors or special occasions
 - Local casinos for casual hangouts
 - Red Rock and outdoor activities

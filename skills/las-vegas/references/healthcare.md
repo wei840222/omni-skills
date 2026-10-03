@@ -250,7 +250,7 @@ Some Vegas residents travel for care:
 ### Ongoing
 - Establish relationship with PCP
 - Get preventive screenings
-- Don't delay needed care
+- Seek needed care promptly
 - Advocate for yourself
 
 ## Quality Ratings

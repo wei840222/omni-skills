@@ -145,7 +145,7 @@ Use free spectacle when:
 | Cirque / production show | Center sections beat extreme closeness |
 | Magic | Closer matters more |
 | Comedy | Mid-close, but not always front row unless they want interaction |
-| Arena concerts | Avoid severe side-view seats unless discount is huge |
+| Arena concerts | Select central seating unless discount is huge |
 
 ### Day-of-Week Reality
 
@@ -185,4 +185,4 @@ Use free spectacle when:
 - Happy hour
 - Free spectacle first
 - Same-day discounted ticket only if the value is obvious
-- Finish downtown instead of doing another Strip surcharge-heavy stop
+- Finish downtown to balance out Strip surcharges

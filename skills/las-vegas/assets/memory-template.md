@@ -1,6 +1,6 @@
 # Memory Template — Las Vegas
 
-Create `~/Clawic/data/las-vegas/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Las Vegas Memory
@@ -68,12 +68,12 @@ Deal-breakers:
 |-------|---------|----------|
 | `ongoing` | Still learning | Gather context opportunistically |
 | `complete` | Have enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
-| `never_ask` | User said stop | Never ask for more context |
+| `paused` | User said "not now" | Work strictly with existing context |
+| `skip_prompts` | User declined prompts | Proceed without requesting further context |
 
 ## Key Principles
 
 - **No config keys visible** — use natural language, not "budget: moderate"
-- **Learn from conversation** — don't ask preferences directly, observe and confirm
+- **Learn from conversation** — observe and confirm preferences organically
 - **Most users stay `ongoing`** — always learning, that's fine
 - Update `last` on each use

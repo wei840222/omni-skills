@@ -88,7 +88,7 @@ The Cosmo has arguably the best restaurant concentration on the Strip:
 
 ## Chinatown (Spring Mountain Road)
 
-**The layout**: Strip malls along Spring Mountain, west of Strip. Don't judge by exteriors.
+**The layout**: Strip malls along Spring Mountain, west of Strip. Focus on interior quality over exteriors.
 
 **By cuisine**:
 
@@ -236,4 +236,4 @@ Uber required: Everything else (Chinatown 15 min, Strip 15-20 min)
 ### Foodie Vegas Trip
 - **Reservations needed**: é, Carbone, SW Steakhouse, Bazaar Meat
 - **No reservation**: Raku, Lotus of Siam (wait), Chinatown spots
-- **Don't miss**: One omakase, one Chinatown night, one steakhouse
+- **Highly recommended**: One omakase, one Chinatown night, one steakhouse

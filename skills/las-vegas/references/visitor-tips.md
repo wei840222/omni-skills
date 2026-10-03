@@ -11,9 +11,9 @@
 - Drink slowly — those "free" drinks impair judgment
 - Table minimums: $15-25 on Strip, $5-10 Downtown
 - Slot payback: Downtown ~94%, Strip ~90-92%
-- Best odds: Blackjack, craps (pass/don't pass), baccarat
+- Best odds: Blackjack, craps (pass/pass-line alternatives), baccarat
 
-**If you don't gamble**:
+**If you prefer non-gaming activities**:
 - Walk through casinos — they're attractions themselves
 - Sit at a slot machine briefly if you want free drinks
 - Video poker at $1/hand while drinking beats $18 cocktails
@@ -188,7 +188,7 @@
 
 ### Hydration Is Not Optional
 - Vegas average humidity: 10-20%
-- You're sweating even when you don't feel it
+- You lose hydration continuously in the dry air
 - Symptoms of dehydration: headache, dizziness, fatigue
 - **Drink water constantly** — one glass per alcoholic drink minimum
 
@@ -239,8 +239,8 @@
 ## Vegas Etiquette
 
 ### Casino Floor
-- **Don't touch cards in blackjack** (hand signals only)
-- **Don't hand cash directly to dealer** — lay it on the table
+- **Use hand signals only in blackjack** (hand signals only)
+- **Place cash flat on the table** — lay it on the table
 - **Color up before leaving table** (exchange small chips for larger)
 - **Tip dealers** on big wins or when leaving
 - **Keep phone calls away from tables**
@@ -255,13 +255,13 @@
 - **Arrive early** — late seating often restricted
 - **No photography** in most shows
 - **Silence phones** — seriously
-- **Don't talk during performance**
+- **Maintain silence during performances**
 
 ### General
 - **Keep it moving on escalators** — walk left, stand right
-- **Don't block sidewalks** for photos
+- **Keep pathways clear** when taking photos
 - **Tip generously** — Vegas service industry relies on tips
-- **Don't be that person** who's too drunk too early
+- **Pace your drinking appropriately**
 
 ## First-Timer Mistakes
 

@@ -260,7 +260,7 @@ Vegas servers often work harder than elsewhere. Tip well.
 4. Carbone (hype justified)
 5. Bazaar Meat (creative and delicious)
 
-### Tourist Traps to Avoid
+### Lower-Value Tourist Stops
 - Generic Strip casino buffets (quality crashed)
 - "Italian" restaurants with outdoor hawkers
 - Overpriced basic food with Strip views

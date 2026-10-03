@@ -312,7 +312,7 @@ From most Summerlin neighborhoods:
 - Love outdoor activities
 - Want well-maintained surroundings
 - Accept HOA rules
-- Work remote or don't mind commute
+- Work remotely or accept longer commutes
 
 **No if you**:
 - Want urban energy

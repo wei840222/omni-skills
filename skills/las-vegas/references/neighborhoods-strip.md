@@ -28,7 +28,7 @@
 - 5-15 minute commute to Strip jobs
 - Some walkability to Strip attractions
 - More affordable than suburbs (relatively)
-- Don't need a car for some lifestyles
+- Can navigate some lifestyles without a car
 
 **Cons**:
 - Tourist overflow, Uber traffic

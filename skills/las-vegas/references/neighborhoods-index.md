@@ -133,7 +133,7 @@ Understanding Las Vegas requires knowing its recent history:
 - Near Stratosphere area
 - Downtown late night (petty crime)
 
-**Important**: Even "safer" areas have property crime. Lock cars, don't leave valuables visible.
+**Important**: Even "safer" areas have property crime. Lock cars, keep valuables completely hidden.
 
 ## School District Notes
 
@@ -191,7 +191,7 @@ Read CC&Rs carefully before buying.
 - US-95 (northwest): Bad near downtown
 - Surface streets: Signal timing is terrible
 
-**Work from home advantage**: Vegas traffic is a major quality-of-life issue. Remote workers avoid the worst of it.
+**Work from home advantage**: Vegas traffic is a major quality-of-life issue. Remote workers bypass the heaviest traffic.
 
 **From Summerlin to Strip**: 20 min off-peak, 40-60 min rush hour
 **From Henderson to Strip**: 25 min off-peak, 45-60 min rush hour
