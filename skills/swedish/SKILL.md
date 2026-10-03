@@ -15,6 +15,8 @@ metadata:
 
 Research notes for du-reform, particles, lagom tone, and Scandinavian adjacency live in `references/sources.md`.
 
+Expanded particle tables and lagom examples live in `references/conversational-rules.md` (progressive disclosure).
+
 ## When to load
 
 Load this skill to write, rewrite, or translate **Swedish** that should sound like a person, not a textbook. Prefer this skill over generic `translate` when particles, du-address, fillers, lagom understatement, or casual Swedish tone change the draft.
