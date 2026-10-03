@@ -1,6 +1,12 @@
 ---
 name: apple-health
-description: Connect agents to Apple Health exports with MCP setup, schema validation, and privacy-safe analysis.
+description: >
+  Connect a trusted MCP client to local Apple Health CSV exports for schema-first
+  sleep, heart-rate and workout analysis. Use when validating an export, wiring
+  or troubleshooting Apple Health MCP, or querying recorded health trends.
+  For setup planning, explain options without changing configuration. Live
+  HealthKit/iCloud access, app implementation and personal medical diagnosis
+  are outside this export-analysis workflow.
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"❤️","requires":{"bins":["node","npx"],"env":["HEALTH_DATA_DIR"]},"install":[{"id":"npm","kind":"npm","package":"@neiltron/apple-health-mcp","bins":["apple-health-mcp"],"label":"Install Apple Health MCP Server (npm)"}]}'
@@ -27,7 +33,7 @@ On first use, read `references/setup.md` for integration guidelines.
 
 ## When to Use
 
-User wants agents to read Apple Health data for trends, summaries, or SQL analysis. Agent handles export validation, MCP server wiring, and safe query/report flows without exposing private health records.
+Use for recorded Apple Health CSV trends, summaries, SQL analysis, export validation and MCP configuration troubleshooting. Planning-only requests stay in `not-now` mode. For HealthKit app implementation use `swift`; for general wellness without an export use `health`. Private records require the client/provider authorization boundary below before any tool call.
 
 ## Architecture
 
@@ -69,7 +75,7 @@ Use these files on demand instead of overloading the main instructions.
 ## Core Rules
 
 ### 1. Confirm Integration Mode Before Doing Anything
-Start by clarifying one of these modes:
+Use the user's stated intent; ask only when the integration mode is missing:
 - `csv-export` using Apple Health CSV exports and MCP
 - `not-now` if user is only planning and does not want setup yet
 
