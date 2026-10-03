@@ -56,10 +56,10 @@ chart_data.add_series('Sales', (100, 200, 150))
 
 ### Critical: Always Use Units
 ```python
-# ❌ WRONG
+# Prefer units API
 shape.left = 100
 
-# ✅ CORRECT
+# Correct
 from pptx.util import Inches, Pt, Emu
 shape.left = Inches(1)
 shape.width = Inches(4)
@@ -221,7 +221,7 @@ function hello() {
 
 ### Run
 ```bash
-npx slidev slides.md
+npx slidev
 npx slidev build  # Export to static
 npx slidev export # Export to PDF
 ```
@@ -287,3 +287,14 @@ with sync_playwright() as p:
     page.goto('http://localhost:8000')
     page.screenshot(path='slide.png', full_page=True)
 ```
+
+
+## Canonical references
+
+Use these official docs when selecting or updating tool guidance (verify at run time):
+
+- python-pptx quickstart: https://python-pptx.readthedocs.io/en/latest/user/quickstart.html
+- Google Slides API overview: https://developers.google.com/workspace/slides/api/guides/overview
+- reveal.js markup: https://revealjs.com/markup/
+- Slidev guide: https://sli.dev/guide/
+- Marp CLI / getting started: https://github.com/marp-team/marp-cli

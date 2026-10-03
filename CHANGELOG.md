@@ -577,6 +577,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | skill-test                   | 2026-09-30 | 86/100 (#630)                    |
 | skool                        | 2026-09-15 | 85/100 (#406)                    |
 | sleep                        | 2026-09-14 | 85/100 (#382)                    |
+| slides                       | 2026-10-04 | 84/100 (#705)                    |
 | slovenian                    | 2026-09-21 | 85/100 (#520)                    |
 | smart-home                   | 2026-09-18 | 85/100 (#474)                    |
 | smoking                      | 2026-09-24 | 85/100 (#552)                    |
