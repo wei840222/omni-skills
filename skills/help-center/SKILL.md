@@ -1,106 +1,106 @@
 ---
 name: help-center
-slug: help-center
-version: 1.0.0
-description: Build and run help centers with provider selection, migration playbooks, workflow mapping, content taxonomy, and support deflection metrics.
-homepage: https://clawic.com/skills/help-center
-changelog: Initial release with provider selection matrix, custom stack blueprint, migration playbook, and help center operations guidance.
+description: >
+  Design, migrate, and operate a help center: capture the support model, score
+  providers or a custom stack, plan taxonomy and redirects, map docs to ticket
+  workflows, and run content ops with deflection metrics. Use when the user is
+  choosing a knowledge-base platform, migrating articles, launching a help
+  center, or improving search and self-service. Not for live ticket handling
+  (`customer-support`), pure product docs without support deflection
+  (`documentation`), generic process mapping alone (`workflow`), or CRM
+  lifecycle work (`crm`).
 metadata:
-  clawdbot:
-    emoji: 🛟
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Help Center
+  version: "1.0.0"
+  openclaw: '{"emoji":"🛟"}'
+  related-skills: '{"crm":"Connect support insights to customer lifecycle systems after help-center priorities are set.","customer-support":"Run live frontline ticket and escalation workflows after the help center is planned.","documentation":"Write product or internal docs when the task is content quality rather than support deflection.","workflow":"Design repeatable operational handoffs that the help center should feed."}'
 ---
+
+## State location
+
+Help-center planning state may exist in `<workspace>/help-center/`, `<workspace>/memory/help-center/`, or `~/help-center/`. `<workspace>` is the host/runtime workspace root; do not invent it from the shell working directory.
+
+Before any state read, query, create, update, or delete, resolve `<state_root>` once:
+
+1. Use an explicitly configured path from the user or host when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/help-center/`, `<workspace>/memory/help-center/`, `~/help-center/`.
+3. When no candidate exists and the host supplied `<workspace>`, propose `<workspace>/help-center/` and obtain named consent before creating it.
+4. When no candidate exists and no host workspace is available, ask for an explicit state path before creating state.
+
+When multiple candidates exist, use only the highest-precedence one, tell the user about the extra copies, and leave the others unchanged. Keep the selected `<state_root>` fixed for the rest of the run. Create the resolved path itself, never a literal directory named `<state_root>`.
 
 ## Setup
 
-If `~/Clawic/data/help-center/` does not exist or is empty, explain that local planning files can be created for this skill and follow `setup.md`.
+After resolving `<state_root>`, if `<state_root>/memory.md` is missing or empty, load `references/setup.md` and follow it before durable recommendations.
 
-## When to Use
+## When to load
 
-User needs to create, migrate, or improve a help center. Handles provider selection, custom architecture, knowledge base structure, support workflow design, and ongoing optimization.
+Load this skill to plan or improve a help center as support infrastructure: provider vs custom-stack choice, taxonomy, migration, launch, and deflection-focused content ops. Stay in planning mode until the user explicitly authorizes provider-side edits.
+
+## Workflow
+
+1. Resolve `<state_root>` with the State location procedure. If durable memory is needed and missing, run setup with consent.
+2. Capture the support model first: channels, monthly ticket volume, languages, compliance, team size, current stack. Refuse provider picks until these inputs exist or the user accepts explicit assumptions.
+3. Choose the objective branch and load only the matching reference:
+   - Provider or custom-stack choice → `references/provider-matrix.md` and, when custom wins, `references/build-own-stack.md`
+   - Migration → `references/migration-playbook.md`
+   - Content operations → `references/content-ops.md`
+   - Launch readiness → `references/launch-checklist.md`
+4. Produce a single next plan with owners, risks, and rollback. Write approved decisions only to `<state_root>/memory.md` (and optional planning files) after consent.
+5. On blocked inputs, missing consent, or conflicting state roots, stop durable writes, state the gap, and offer the safest reversible next step.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/help-center/`. See `memory-template.md` for structure.
+Persistent planning state lives under the resolved `<state_root>`. Package templates stay in `assets/`; load them only when creating files.
 
+```text
+<state_root>/
+├── memory.md            # Required once durable planning is enabled
+├── provider-score.md    # Optional scoring snapshots
+├── content-inventory.md # Optional article inventory and gaps
+└── rollout-log.md       # Optional launch and post-launch notes
 ```
-~/Clawic/data/help-center/
-├── memory.md           # Status, decisions, and constraints
-├── provider-score.md   # Provider scoring snapshots
-├── content-inventory.md # Existing articles and gaps
-└── rollout-log.md      # Launch and post-launch notes
-```
 
-## Quick Reference
+| Path | Role | Creation condition |
+| --- | --- | --- |
+| `<state_root>/memory.md` | Status, constraints, decisions, rejected options | First durable planning session after consent |
+| `<state_root>/provider-score.md` | Weighted provider scores | When a scored comparison is saved |
+| `<state_root>/content-inventory.md` | Keep/merge/rewrite/archive inventory | When migration or content audit starts |
+| `<state_root>/rollout-log.md` | Launch notes and incidents | When launch monitoring begins |
 
-| Topic | File |
-|-------|------|
-| Setup and integration | `setup.md` |
-| Memory template | `memory-template.md` |
-| Provider comparison | `provider-matrix.md` |
-| Build your own stack | `build-own-stack.md` |
-| Migration plan | `migration-playbook.md` |
-| Content operations | `content-ops.md` |
-| Launch checklist | `launch-checklist.md` |
+## Quick reference
 
-## Core Rules
+| Topic | File | Load when |
+| --- | --- | --- |
+| First-run setup | `references/setup.md` | `<state_root>/memory.md` missing/empty or integration preference unset |
+| Provider comparison | `references/provider-matrix.md` | Choosing vendors or custom stack |
+| Custom stack blueprint | `references/build-own-stack.md` | Custom or sovereignty path is in scope |
+| Migration | `references/migration-playbook.md` | Moving articles, URLs, or platforms |
+| Content operations | `references/content-ops.md` | Editorial cadence and deflection metrics |
+| Launch checklist | `references/launch-checklist.md` | Pre-go-live readiness |
+| Memory template | `assets/memory-template.md` | Creating `<state_root>/memory.md` |
+| Research notes | `references/sources.md` | Restating vendor scope or policy thresholds |
 
-### 1. Frame the Support Model Before Picking Tools
-Capture support channels, monthly ticket volume, languages, compliance constraints, and team size first. Do not recommend a provider or architecture without these inputs.
+## Core rules
 
-### 2. Compare Provider and Build-Your-Own Paths Explicitly
-Use `provider-matrix.md` to score at least two vendor options and one custom-stack option against the same criteria: total cost, speed, customization, lock-in risk, and maintenance burden.
+1. **Support model before tools.** Capture channels, volume, languages, compliance, and staffing before scoring platforms.
+2. **Compare at least two vendors plus one custom option** with the same weighted criteria in `references/provider-matrix.md`. Treat fit labels as planning heuristics; verify current packaging and pricing on official pages before any buy decision.
+3. **Design taxonomy early.** Categories, ownership, article standards, and review cadence come before bulk migration.
+4. **Map docs to ticket workflows.** Every category needs triage tags, escalation routes, and SLA targets.
+5. **Treat migration as a controlled release.** Inventory → map → dry run → cutover with redirects and a rehearsed rollback (`references/migration-playbook.md`).
+6. **Operate on leading and lagging metrics.** Track deflection, first response time, unresolved search queries, freshness, and escalation noise weekly.
+7. **Record decisions with consent.** Update `<state_root>/memory.md` with rationale, rejected options, and risks after the user approves the write.
 
-### 3. Design Information Architecture Early
-Define categories, article templates, ownership, and review cadence before content migration. A help center without taxonomy rules becomes unsearchable within weeks.
+## Recovery and boundaries
 
-### 4. Tie the Help Center to Ticketing Workflows
-Map every article category to triage tags, escalation routes, and SLA targets. A help center is operational infrastructure, not only documentation.
+- Missing support-model inputs → ask for the minimum set or label assumptions; do not finalize a provider pick.
+- Multiple state roots → use highest precedence only and report the conflict.
+- User declines local files → keep the session stateless and answer from package references only.
+- Provider production changes → require explicit authorization for the named environment; this skill plans, it does not push live KB edits by default.
+- Conflicting official packaging vs local notes → prefer the live vendor page and record the check date in memory.
 
-### 5. Treat Migration as a Controlled Release
-Use `migration-playbook.md` for inventory, redirects, URL mapping, and fallback plans. Never migrate content without rollback steps and QA checks.
+## Security and privacy
 
-### 6. Operate with Leading and Lagging Metrics
-Track deflection rate, first response time, article freshness, unresolved search queries, and escalation frequency. Review weekly and update content priorities.
-
-### 7. Save Decisions and Constraints for Future Sessions
-After each strategic choice, update `~/Clawic/data/help-center/memory.md` with decision rationale, rejected options, and open risks so future work stays consistent.
-
-## Common Traps
-
-- Choosing a provider by brand familiarity alone -> hidden costs and painful migration later.
-- Migrating old articles without rewrite standards -> users keep opening tickets for already documented issues.
-- Ignoring search analytics -> dead articles stay published while top unanswered intents grow.
-- Launching without ownership model -> stale content accumulates and trust drops.
-- Tracking only page views -> no visibility into support impact or deflection quality.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- None by default. This skill focuses on local planning and decision support.
-
-**Data that stays local:**
-- Planning notes, scoring decisions, and rollout logs in `~/Clawic/data/help-center/`.
-
-**This skill does NOT:**
-- Send local files to third-party APIs.
-- Execute provider-side changes automatically.
-- Access files outside `~/Clawic/data/help-center/` for memory storage.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `customer-support` — run frontline support workflows and escalation handling.
-- `documentation` — write clear internal and external product documentation.
-- `workflow` — design repeatable operational workflows with clear handoffs.
-- `crm` — connect support insights with customer lifecycle systems.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/help-center
-- Latest version: https://clawic.com/skills/help-center
+- Default data path is local planning under `<state_root>/` only.
+- Do not send local planning files to third-party APIs.
+- Do not read or write outside the resolved `<state_root>` for skill memory unless the host supplies another path and the user consents.
+- Examples use placeholders only; never commit secrets or customer content into the skill package.

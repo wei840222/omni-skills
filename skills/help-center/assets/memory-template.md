@@ -1,6 +1,6 @@
 # Memory Template — Help Center
 
-Create `~/Clawic/data/help-center/memory.md` with this structure:
+Create `<state_root>/memory.md` from this structure after the user consents to the real resolved path:
 
 ```markdown
 # Help Center Memory
@@ -33,17 +33,18 @@ integration: pending
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
-|-------|---------|----------|
+| --- | --- | --- |
 | `ongoing` | Context still evolving | Keep collecting constraints and decisions |
 | `complete` | Initial operating model defined | Focus on execution and iteration |
-| `paused` | User deferred planning | Keep context, stop proactive planning prompts |
-| `never_ask` | User opted out of setup prompts | Execute only direct requests |
+| `paused` | User deferred planning | Keep context; answer only when asked |
+| `skip_setup` | User opted out of setup prompts | Execute only direct requests; skip durable prompts |
 
-## Storage Rules
+## Storage rules
 
-- Save only user-approved decisions and explicit constraints.
-- Update `last` on each skill use.
+- Write only user-approved decisions and explicit constraints.
+- Update `last` on each durable skill use.
 - Keep entries concise and action-oriented.
+- Optional files (`provider-score.md`, `content-inventory.md`, `rollout-log.md`) are created only when that work actually starts.
