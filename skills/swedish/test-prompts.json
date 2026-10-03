@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a casual text message to a friend asking if they want to grab a coffee later today.",
+    "expected": "Very casual Swedish with du-address, informal greeting (Tja/Hej), optional light English mix, no God dag and no polite ni.",
+    "actual": "Tja! Lust att ta en kaffe sen? Hade varit nice!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Reply to an email from a colleague who just sent the report, confirming you received it and that it looks pretty good.",
+    "expected": "Relaxed professional Swedish with lagom understatement (helt okej/ser bra ut), light particle optional, no over-enthusiasm.",
+    "actual": "Tack! Fick rapporten, den ser helt okej ut. Grymt jobbat typ.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Translate this to casual Swedish for a close friend: That meeting was extremely bad and I am so tired of it.",
+    "expected": "Expressive casual Swedish (kasst/skit/as-), du-voice, lagom-not-hype recovery path, no formal ni.",
+    "actual": "Fan vad kasst det mötet var. Orkar seriöst inte mer typ.",
+    "pass": true
+  }
+]
