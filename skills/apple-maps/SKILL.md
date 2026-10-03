@@ -1,39 +1,34 @@
 ---
 name: apple-maps
-slug: apple-maps
-version: 1.0.0
-description: Search places, open routes, and run Apple Maps workflows on macOS using local CLI commands and shortcut automation with explicit safety checks.
-homepage: https://clawic.com/skills/apple-maps
-changelog: Initial release with deterministic Apple Maps URL workflows, shortcuts CLI fallback, and confirmation gates for high-impact actions.
+description: >
+  Search places, open nearby results, and launch driving, walking, or transit
+  routes in Apple Maps on macOS through Maps URL schemes and local CLI fallbacks.
+  Use when the user asks to find a place, center a map, get directions, or open
+  Apple Maps from the terminal with explicit confirmation for bulk or share actions.
 metadata:
-  clawdbot:
-    emoji: 🗺️
-    requires:
-      bins: []
-      anyBins:
-      - open
-      - shortcuts
-      - osascript
-      config:
-      - ~/Clawic/data/apple-maps/
-    os:
-    - darwin
-    configPaths:
-    - ~/Clawic/data/apple-maps/
-    displayName: Apple Maps (MacOS)
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/apple-maps/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🗺️","os":["darwin"],"requires":{"anyBins":["open","shortcuts","osascript"]}}'
+  related-skills: '{"car-rental":"Route-linked transport planning adjacent to map destinations.","macos":"macOS command workflows and automation patterns used by Maps launches.","restaurants":"Food venue discovery and shortlist workflows that often hand off to Maps.","travel":"Travel-planning flows and destination strategy that need map or route opens."}'
 ---
+## State location
+
+Apple-maps state may exist in `<workspace>/apple-maps/`, `<workspace>/memory/apple-maps/`, or `~/apple-maps/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/apple-maps/`, `<workspace>/memory/apple-maps/`, `~/apple-maps/`.
+3. If none exists and state must be created, default to `<workspace>/apple-maps/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, follow `setup.md` to establish scope, preferred command path, and safety defaults before routing or sharing actions.
+On first use, follow `references/setup.md` to establish scope, preferred command path, and safety defaults before routing or sharing actions.
 
 ## When to Use
 
-User wants to search places, categories, addresses, and routes in Apple Maps from macOS without browser-first workflows.
+User wants to search places, categories, addresses, and routes in Apple Maps from macOS using dedicated native apps instead of browser workflows.
 Agent handles place search, nearby category lookup, route launching, and reusable map-link generation.
 
 ## Requirements
@@ -45,10 +40,10 @@ Agent handles place search, nearby category lookup, route launching, and reusabl
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/apple-maps/`. See `memory-template.md` for structure.
+Memory lives in `<state_root>/`. See `references/memory.md` for structure.
 
 ```text
-~/Clawic/data/apple-maps/
+<state_root>/
 ├── memory.md             # Status, defaults, and validated command path
 ├── command-paths.md      # Command priority, probes, and URL strategy
 ├── safety-log.md         # Confirmations for high-impact actions
@@ -59,16 +54,16 @@ Memory lives in `~/Clawic/data/apple-maps/`. See `memory-template.md` for struct
 
 | Topic | File |
 |-------|------|
-| Setup and first-run behavior | `setup.md` |
-| Memory structure | `memory-template.md` |
-| Command hierarchy and probes | `command-paths.md` |
-| Deterministic operation flows | `operation-patterns.md` |
-| Safety checklist before action | `safety-checklist.md` |
-| Failure handling and recovery | `troubleshooting.md` |
+| Setup and first-run behavior | `references/setup.md` |
+| Memory structure | `references/memory.md` |
+| Command hierarchy and probes | `references/command-paths.md` |
+| Deterministic operation flows | `references/operation-patterns.md` |
+| Safety checklist before action | `references/safety-checklist.md` |
+| Failure handling and recovery | `references/troubleshooting.md` |
 
 ## Data Storage
 
-All skill files are stored in `~/Clawic/data/apple-maps/`.
+All skill files are stored in `<state_root>/`.
 Before creating or changing local files, describe the planned write and ask for confirmation.
 
 ## Core Rules
@@ -99,7 +94,7 @@ Before creating or changing local files, describe the planned write and ask for 
 
 ### 7. Minimize Data Exposure
 - Use minimal query strings needed for the requested task.
-- Do not send map queries to undeclared third-party APIs.
+- Limit map queries exclusively to declared Apple Maps APIs.
 
 ## Common Traps
 
@@ -120,29 +115,17 @@ No other external endpoint is required by default.
 ## Security & Privacy
 
 **Data that stays local:**
-- Operational defaults, safety choices, and command reliability notes in `~/Clawic/data/apple-maps/`.
+- Operational defaults, safety choices, and command reliability notes in `<state_root>/`.
 
 **Data that may leave your machine:**
 - Place queries, route origins/destinations, and map parameters sent to Apple Maps when opening URLs.
 
-**This skill does NOT:**
-- Execute undeclared API calls.
-- Persist sensitive location context without user approval.
-- Run bulk opens or share actions without explicit confirmation.
+**This skill is designed to:**
+- Execute only explicitly declared Apple Maps API calls.
+- Persist sensitive location context only after explicit user approval.
+- Run bulk opens or share actions only after explicit user confirmation.
 
 ## Trust
 
 By using this skill, map queries and route parameters are sent to Apple Maps.
 Only use this workflow if you trust Apple Maps with that data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `macos` - macOS command workflows and automation patterns.
-- `travel` - travel-planning flows and destination strategy.
-- `restaurants` - food venue discovery and shortlist workflows.
-- `car-rental` - route-linked transport planning.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/apple-maps
-- Latest version: https://clawic.com/skills/apple-maps

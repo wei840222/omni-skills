@@ -1,4 +1,4 @@
-# Command Paths - Apple Maps (MacOS)
+# Command Paths - Apple Maps (macOS)
 
 Use this order for deterministic command selection.
 
@@ -20,21 +20,26 @@ command -v osascript
 
 ## URL Launch Pattern
 
-Use `open -a Maps` with explicit URLs:
+Use `open -a Maps` with explicit HTTPS Maps URLs:
 
 ```bash
 open -a Maps "https://maps.apple.com/?q=coffee+near+me"
-open -a Maps "https://maps.apple.com/?q=restaurants&near=Madrid"
-open -a Maps "https://maps.apple.com/?saddr=Cupertino&daddr=San+Francisco&dirflg=d"
+open -a Maps "https://maps.apple.com/?ll=50.894967,4.341626&q=Atomium"
+open -a Maps "https://maps.apple.com/?daddr=San+Francisco&dirflg=d&t=h"
+open -a Maps "https://maps.apple.com/?saddr=Cupertino&daddr=San+Francisco&dirflg=r"
 ```
 
 ## URL Parameter Rules
 
-- `q` for search terms or place names.
-- `near` to bias search near a specific area.
-- `saddr` and `daddr` for routing origin and destination.
-- `dirflg` for route mode (`d` driving, `w` walking, `r` transit).
-- `ll` and `z` for map center and zoom when explicit map framing is needed.
+Derived from Apple Map Links guidance:
+
+- `q` — query string treated like Maps search input; can also label a pin when used with `ll`
+- `near` — bias search near a place or `latitude,longitude`
+- `ll` — map center as `latitude,longitude`
+- `z` — zoom level
+- `saddr` / `daddr` — route origin and destination; `daddr` is required for directions; omit `saddr` to start from the device location ("from here")
+- `dirflg` — transport type: `d` driving, `w` walking, `r` transit
+- `t` — map type when needed (for example `h` hybrid)
 
 ## Selection Rules
 
