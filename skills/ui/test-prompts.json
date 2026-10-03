@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I align elements in a UI component?",
+    "expected": "Point to grid (8px/4px), shared invisible edges, LTR left-edge anchor, and optical alignment when math centers look wrong; load design-guidelines Alignment section.",
+    "actual": "structural_dry_run@2026-10-03T16:45+08:00. Would answer from SKILL.md Core Rule 3 + references/design-guidelines.md Alignment: 8px/4px grid, share edges, LTR left anchor, optical alignment when needed. No state write. Live design tool not required.",
+    "pass": true,
+    "evidence": "skills/ui/SKILL.md Core rules + references/design-guidelines.md#Alignment"
+  },
+  {
+    "id": 2,
+    "prompt": "Is it okay to use only color to indicate an error state?",
+    "expected": "Refuse color-only errors; require icon/text/pattern plus semantic color; cite WCAG 1.4.1; optional contrast check note.",
+    "actual": "structural_dry_run@2026-10-03T16:45+08:00. Core Rule 5 + Color Usage + sources WCAG 1.4.1: reject color-only error; add icon and inline text; keep red as reinforcement. Contrast still needs product measurement when shipping.",
+    "pass": true,
+    "evidence": "references/design-guidelines.md#Color-Usage + references/sources.md WCAG 1.4.1"
+  },
+  {
+    "id": 3,
+    "prompt": "What are the typography rules for line height and length?",
+    "expected": "Body line-height ~1.4–1.6 and measure ~45–75 characters; left-align body; defer deep type systems to typography skill.",
+    "actual": "structural_dry_run@2026-10-03T16:45+08:00. Core Rule 4 + Typography guidelines: line-height 1.4–1.6, measure 45–75ch, left-align body. Would mention typography skill for optical size/tracking depth.",
+    "pass": true,
+    "evidence": "SKILL.md Core Rule 4 + references/design-guidelines.md#Typography"
+  }
+]
