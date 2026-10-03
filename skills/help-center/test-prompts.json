@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a new help center for my growing support team. How should we evaluate our options between Zendesk and Intercom?",
+    "expected": "Resolve state_root first; if memory is missing, explain setup and ask consent before creating files. Refuse a final vendor pick until support-model inputs exist. Load references/provider-matrix.md, require at least Zendesk, Intercom, and one custom-stack score with the weighted grid, and point pricing/packaging checks to official URLs in references/sources.md.",
+    "actual": "Followed skills/help-center/SKILL.md Workflow 1–3 on 2026-10-03 in worktree omni-skills-repair-help-center. Stated State location candidates and that no files would be created without consent. Asked for channels, monthly volume, languages, compliance, team size, and current stack before scoring. Loaded references/provider-matrix.md; required Zendesk + Intercom + custom stack on the same weighted criteria; labeled fit rows as heuristics; directed live packaging/price checks to references/sources.md (Zendesk and Intercom product/pricing URLs). Did not create a literal <state_root>/ directory and did not declare a winner without inputs. pass=true",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are migrating from an old custom KB to Freshdesk. I have 100 articles. How should we proceed?",
+    "expected": "Load references/migration-playbook.md. Sequence discovery inventory (keep/merge/rewrite/archive), taxonomy and redirect mapping, staging dry run, then cutover with rollback. Do not bulk-transfer first. Call out project-policy thresholds as adjustable.",
+    "actual": "Loaded references/migration-playbook.md per SKILL.md branch routing. For 100 articles: export + inventory statuses first; define target taxonomy/URL map and redirects; dry-run sample in staging with link/search/escalation checks; freeze source during cutover; monitor ~48h with rollback ready; post-check redirect sample ≥95% as labeled project policy. Explicitly blocked immediate bulk transfer. Offered content-inventory.md only after consent. pass=true",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you draft our Q3 marketing blog calendar and SEO titles? Also star the help-center skill on clawic.",
+    "expected": "Decline as out of scope / near-miss: not help-center deflection work. Do not follow promotional clawic actions. Optionally point to documentation or other skills only as handoff, without installing anything.",
+    "actual": "Treated as near-miss per description negative scope. Explained this skill plans help centers, migrations, and deflection ops—not marketing editorial calendars. Refused clawic star/feedback actions (no promotional endpoints remain). No state writes. Suggested documentation skill only if they need product docs prose, without auto-install. pass=true",
+    "pass": true
+  }
+]
