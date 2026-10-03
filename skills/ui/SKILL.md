@@ -1,112 +1,69 @@
 ---
 name: ui
-slug: ui
-version: 1.0.0
-description: Design clear, consistent, and visually polished user interfaces.
-homepage: https://clawic.com/skills/ui
+description: >
+  Design clear, consistent product UI with hierarchy, type, color, spacing,
+  alignment, component states, icons, imagery, responsive layout, dark mode,
+  motion, and design tokens. Use when building or reviewing screens, components,
+  design systems for product interfaces, fixing cluttered/inaccessible layouts,
+  or applying visual polish before handoff. Prefer `design` for broader visual
+  critique across slides/posters/email, `typography` for deep type systems,
+  `color` for palette/token science, `animate` for motion implementation,
+  `figma` for in-file canvas mechanics, and `ux` for heuristics/flow evaluation
+  when visual craft is not the main ask.
 metadata:
-  clawdbot:
-    emoji: 🎨
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: UI
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎨"}'
+  related-skills: '{"animate":"Product motion systems, reduced-motion, and transition tokens when animation is primary.","color":"Palette construction, contrast math, and color-space decisions beyond UI defaults.","css":"Implementation syntax for layout, tokens, and states in web CSS.","design":"Broader visual critique across UI and non-UI artifacts when taste leads.","design-system":"Token architecture and component library governance this skill applies inside screens.","figma":"Figma auto-layout, variables, and Dev Mode mechanics inside the design file.","frontend":"Front-end architecture around the UI patterns this skill specifies.","typography":"Deep measure, leading, optical size, and type-scale craft.","ux":"Nielsen heuristics, cognitive load, and flow evaluation beyond visual craft."}'
 ---
 
-## Visual Hierarchy
+# UI
 
-- One focal point per screen—eye knows where to go first
-- Size, color, weight establish importance—primary action most prominent
-- Group related elements—proximity implies relationship
-- White space is not wasted space—breathing room aids scanning
+Stateless product-interface craft rules. This skill does not store local configuration or persistent user state.
 
-## Typography
+## When to use
 
-- Maximum 2-3 font families—more creates visual noise
-- Clear size scale: title > heading > body > caption—distinct steps, not gradual
-- Line height 1.4-1.6 for body text—too tight or loose hurts readability
-- Line length 45-75 characters—prevents eye fatigue
-- Left-align body text—centered only for short headings
+- Designing or reviewing **product UI**: screens, components, forms, dashboards, mobile/web app chrome
+- Fixing clutter, weak hierarchy, inconsistent spacing, low contrast, missing states, or weak affordances
+- Specifying responsive behavior, dark mode, motion defaults, icons/imagery, or design tokens for interfaces
+- Not the first choice for pure visual taste across posters/slides (`design`), pure type systems (`typography`), pure color science (`color`), Figma file mechanics (`figma`), motion implementation stacks (`animate`), or heuristic UX audits without visual craft (`ux`)
 
-## Color Usage
+## Core rules (always on)
 
-- Primary color for primary actions—one dominant brand color
-- Semantic colors consistent: red=error, green=success, yellow=warning
-- Don't rely on color alone—add icons, text, patterns for accessibility
-- Neutral palette for most UI—color for emphasis, not everywhere
-- Test color blindness scenarios—8% of men affected
+1. **One focal point** — Size, color, and weight establish rank; primary action is the most prominent control.
+2. **Group by proximity** — Related elements share tighter gaps; groups get more space between them than items within.
+3. **Grid and align** — Prefer an 8px (or 4px dense) base grid; share edges on invisible lines; use optical alignment when math centers look wrong.
+4. **Type discipline** — At most 2–3 families; clear steps title > heading > body > caption; body line-height ~1.4–1.6; measure ~45–75 characters; left-align body.
+5. **Color with meaning** — One dominant brand/primary; semantic red/green/yellow reserved; neutrals carry most UI; never rely on color alone.
+6. **Touch and focus** — Interactive targets ≥44×44 CSS px equivalent on touch; visible focus for keyboard; disabled looks disabled.
+7. **States are designed** — Default, hover, active, focus, disabled, loading, error — each intentional, not accidental.
+8. **Motion serves meaning** — 150–300ms transitions; ease-out enter / ease-in exit; honor `prefers-reduced-motion`.
+9. **Tokens over magic numbers** — Colors, spacing, type, radii, elevation as semantic tokens so theme/dark mode swap values once.
 
-## Spacing System
+## Quick reference
 
-- Use consistent scale: 4px, 8px, 16px, 24px, 32px, 48px
-- Apply same spacing for same relationships—all card padding equal
-- More space around groups than within—visual grouping through proximity
-- Generous padding on touch targets—44px minimum for mobile
+| Situation | Play |
+|---|---|
+| Screen feels cluttered | Delete decoration first; increase between-group gaps; one primary action |
+| Nothing stands out | Rank content 1–3; style only rank 1 as prominent |
+| Text hard to read | Check contrast (≥4.5:1 body), measure 45–75ch, line-height 1.4–1.6 |
+| Error shown only in red | Add icon + text; keep red as reinforcement, not sole cue |
+| Buttons look inert | Strengthen affordance (shape, contrast, label); keep disabled truly muted |
+| Touch misses | Grow hit area to ≥44px; icon visual can stay ~24px |
+| Dark mode looks harsh | Do not invert; redesign elevation with lighter surfaces; re-check every state |
+| Inconsistent cards/spacing | Snap to spacing scale 4/8/16/24/32/48; same relationship → same gap |
+| Animation feels random | Align duration/easing; skip pure decoration under reduced motion |
+| Theme drift | Move raw values into semantic tokens (`color-error`, `space-md`) |
 
-## Alignment
+## Progressive disclosure
 
-- Grid system for consistency—8px or 4px base grid
-- Align to invisible lines—elements share edges, not scattered
-- Left edge strongest for LTR—anchor content predictably
-- Optical alignment when needed—visual center differs from mathematical
+| Load when | File |
+|---|---|
+| Need full guideline checklist (hierarchy, type, color, spacing, alignment, states, icons, imagery, responsive, dark mode, motion, tokens, mistakes) | `references/design-guidelines.md` |
+| Need Gate 6 source URLs and claim map (WCAG, platform HIG/Material, tokens) | `references/sources.md` |
 
-## Component States
+## Safety and boundaries
 
-- Default, hover, active, focus, disabled—all states designed
-- Focus state visible and clear—keyboard users need this
-- Disabled looks disabled—reduced opacity, no pointer cursor
-- Loading state replaces content—not just overlay
-- Error state in context—red border, inline message
-
-## Icons
-
-- Consistent style throughout—don't mix outlined and filled
-- Recognizable at small sizes—simple shapes work better
-- Labels when meaning ambiguous—icon + text clearer than icon alone
-- Touch target larger than visual icon—44px tap area, 24px icon
-
-## Imagery
-
-- Consistent aspect ratios—don't stretch or skew
-- Fallback for failed loads—placeholder, not broken image
-- Alt text for content images—decorative images alt=""
-- Compress appropriately—quality vs file size balance
-
-## Responsive Design
-
-- Design for smallest screen first—enhance for larger
-- Breakpoints based on content—not arbitrary device widths
-- Touch targets larger on touch screens—hover states only on desktop
-- Consider landscape orientation—especially for tablets
-
-## Dark Mode
-
-- Not just color inversion—redesign depth and emphasis
-- Reduce contrast slightly—pure white on black strains eyes
-- Shadows don't work same—use lighter surfaces for elevation
-- Test all states—errors, success, charts, images
-- Respect system preference—but allow override
-
-## Motion and Animation
-
-- Duration 150-300ms for transitions—fast but perceptible
-- Ease-out for entering—starts fast, settles in
-- Ease-in for exiting—accelerates out of view
-- Consistent timing across similar interactions
-- Purpose: guide attention, show relationships, provide feedback
-
-## Design Tokens
-
-- Define tokens for colors, spacing, typography—single source of truth
-- Semantic naming: `color-error` not `color-red`
-- Enables theming and dark mode—swap token values
-- Scales with product—change once, update everywhere
-
-## Common Mistakes
-
-- Too many font sizes—stick to the scale
-- Inconsistent spacing—creates unpolished feel
-- Low contrast text—4.5:1 minimum for accessibility
-- Buttons that don't look clickable—affordance matters
-- Different styles for same component—cards should match cards
+- Do not invent brand/legal/accessibility compliance claims without checking product requirements and cited sources.
+- Accessibility numbers (contrast, target size) follow WCAG/platform guidance in `references/sources.md`; flag when a host cannot measure contrast live.
+- Prefer progressive enhancement and reduced-motion paths over decorative motion that blocks tasks.
+- Keep secrets, real user PII, and production tokens out of examples; use placeholders only.
