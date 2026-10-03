@@ -20,6 +20,12 @@ This skill is stateless and does not store local configuration or persistent use
 2. Load only the reference that matches that branch, then verify with an explorer, RPC, Core wallet status, or primary docs before advising irreversible moves.
 3. Prefer official Core / Avalanche tooling for multi-chain and P-Chain work; treat MetaMask-class wallets as C-Chain-only unless the user already added another network.
 
+## Prefer other skills when
+
+- Pure Ethereum L1 gas/nonce/MEV with no Avalanche destination → `ethereum`
+- Solana cluster or SPL account work → `solana`
+- Generic Bitcoin UTXO work → `bitcoin`
+
 ## Load the relevant reference
 
 | Reference | Load when |
