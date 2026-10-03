@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "prompt": "Say hello to a friend in Egyptian Arabic and ask how they are doing.",
+    "expected": "Egyptian colloquial greeting such as إزيك / عامل إيه; casual register; not pure MSA.",
+    "actual": "إزيك يا صاحبي، عامل إيه؟ يا رب تكون بخير.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a casual text message in Gulf Arabic expressing excitement about going out tonight.",
+    "expected": "Gulf markers (e.g. شلونك / يالله / مره) and excited casual tone; locked Gulf variety.",
+    "actual": "شلونك؟ والله مره متحمس لطلعة الليلة، يالله متى نمشي؟",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite this stiff MSA chat line so it sounds like Levantine texting: 'كيف حالكم؟ أنا بخير والحمد لله.'",
+    "expected": "Levantine casual flavor (هلا/كيفك/هيك/كتير class), fillers OK, not formal MSA.",
+    "actual": "هلا، كيفك؟ أنا منيح والحمد لله، وإنت شو أخبارك؟",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Friend wants Arabizi only: say you will be 10 minutes late.",
+    "expected": "Latin/Arabizi orthography with common digit conventions if needed; short SMS tone.",
+    "actual": "wallah ana late 10 mins, now coming yalla.",
+    "pass": true
+  },
+  {
+    "id": 5,
+    "prompt": "User asked for formal news-style Arabic about a ministry announcement. Keep MSA.",
+    "expected": "MSA/formal register appropriate to news; do not force heavy dialect.",
+    "actual": "أعلنت الوزارة اليوم عن بدء المرحلة الجديدة من المشروع، على أن يتم تنفيذها وفق الجدول المعتمد.",
+    "pass": true
+  },
+  {
+    "id": 6,
+    "prompt": "Do not mix dialects: user said they are Egyptian. Reply that tonight is canceled.",
+    "expected": "Egyptian-locked cancellation; no Gulf/Moroccan markers mixed in.",
+    "actual": "يا صاحبي الليلة اتلغت خالص، لو سمحت بلغ الباقي كده.",
+    "pass": true
+  }
+]
