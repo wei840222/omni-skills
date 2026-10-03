@@ -8,7 +8,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score  |
 | ---------------------------- | ---------- | ------------- | ---- |
 | indie-hacker | 2026-10-03 | 82/100 (#690) |
-| oauth | 2026-10-03 | 80/100 (#PR) |
+| oauth | 2026-10-03 | 80/100 (#691) |
 | swedish | 2026-10-03 | 82/100 (#689) |
 | apple-health | 2026-10-03 | 88/100 (#688) |
 | orlando | 2026-10-03 | 84/100 (#686) |
