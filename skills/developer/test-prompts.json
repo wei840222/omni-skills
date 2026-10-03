@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Investigate the failing unit tests in the auth module, and push a fix.",
+    "expected": "Reads configuration if present, reproduces the auth module failure first, writes or updates the fix, runs local tests to verify red-then-green, and only then commits/pushes.",
+    "actual": "Structural dry-run against skills/developer: resolves State location, prefers reproduction (Rule 1), would open <state_root>/config.yaml and repos profile when present, fix auth mock/shape, run targeted tests, then push. Live agent run not re-executed in this handoff; fixture documents expected protocol only.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We just got paged that the checkout service is returning 500s. Fix it.",
+    "expected": "Follows on-call order: mitigate first (rollback/flag/scale), confirm user-visible recovery, then diagnose root cause; does not start with a speculative code rewrite under fire.",
+    "actual": "Structural dry-run: Output Gates + Traps require mitigate-then-diagnose; would check recent deploy, roll back or flag, confirm 200s, then inspect logs. Live paging environment not available in handoff; protocol fixture only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "This PR is 1,200 lines mixing a rename with a behavior change. What should I do before asking for review?",
+    "expected": "Applies Rule 2/4: split under max_pr_lines into preparatory refactor, behavior, cleanup; refuses mixed commits; states review risk of oversized diffs.",
+    "actual": "Structural dry-run: Core Rules §2 and §4 require split; cites review-capacity sources in references/sources.md. No live review session in handoff.",
+    "pass": true
+  }
+]
