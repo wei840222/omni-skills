@@ -377,6 +377,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | kotlin                       | 2026-09-20 | 85/100 (#501)                    |
 | landing-page                 | 2026-09-01 | 85/100 (#198)                    |
 | laravel                      | 2026-09-30 | Gates 1-5 compliance only (#608) |
+| las-vegas                    | 2026-10-04 | 84/100 (#703)                    |
 | latex                        | 2026-09-05 | 85/100 (#266)                    |
 | law                          | 2026-09-08 | 85/100 (#312)                    |
 | learning                     | 2026-10-01 | 84/100 (#645)                    |
