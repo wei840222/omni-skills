@@ -47,7 +47,7 @@ Memory lives in `<state_root>/`. See `assets/memory-template.md` for setup and s
 
 ## Quick Reference
 
-Use the smallest relevant file for the current task.
+Load only the smallest relevant file for the current task; keep SKILL.md as the router.
 
 | Topic | File |
 |-------|------|
