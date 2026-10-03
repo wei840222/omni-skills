@@ -50,13 +50,13 @@ GROUP BY DATE_TRUNC('week', startDate), sourceName
 ORDER BY week, sourceName;
 ```
 
-Use each discovered activity table or a schema-driven union; do not assume one combined `hkworkoutactivitytype` exists. Check duplicate recordings before adding counts across sources. Durations use `DATE_DIFF('second', startDate, endDate) / 60.0` minutes. For a verified overview, `health_report` aggregates discovered workout tables, but does not replace overlap/time/privacy checks.
+Use each discovered activity table or a schema-driven union; discover whether a combined `hkworkoutactivitytype` exists before using one. Check duplicate recordings before adding counts across sources. Durations use `DATE_DIFF('second', startDate, endDate) / 60.0` minutes. For a verified overview, `health_report` aggregates discovered workout tables, and still require overlap/time/privacy checks.
 
 ## Tool and time semantics
 
 - `health_query` arguments contain `query` and `format` (`json`, `csv` or `summary`). Construct one real SELECT-family statement from observed schema.
 - `health_report` supports weekly/monthly/custom; custom uses `start_date` and `end_date` in YYYY-MM-DD form. Verify the live tool schema rather than assuming report end-bound semantics match SQL.
-- The importer strips source timezone offsets and stores local clocks as TIMESTAMP. A returned JSON `Z` is not proof of UTC. `CAST(startDate AS VARCHAR)` can expose the stored clock time; it cannot reconstruct the lost offset. Cross-zone chronology needs the original export/timezone evidence.
+- The importer strips source timezone offsets and stores local clocks as TIMESTAMP. A returned JSON `Z` is not proof of UTC. `CAST(startDate AS VARCHAR)` can expose the stored clock time; reconstructing the lost offset needs the original export/timezone evidence. Cross-zone chronology needs the original export/timezone evidence.
 - Full CSV history is loaded for every touched table regardless of query bounds. A memory failure is not zero recorded activity.
 - Report exact window, unit, per-source/overlap policy, export freshness and missing dates. Keep output aggregate by default and apply SKILL.md client/provider authorization before all tools, including schema.
 

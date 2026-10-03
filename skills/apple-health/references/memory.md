@@ -8,11 +8,11 @@ Resolve `<state_root>` with SKILL.md before any note operation. Read `<state_roo
 |-------|---------|----------|
 | `ongoing` | Normal state | Keep refining integration and analysis habits |
 | `complete` | Stable setup | Skip setup prompts, go straight to analysis |
-| `paused` | User postponed integration | Do not push setup, only answer planning questions |
-| `never_ask` | User declined setup | Never re-prompt integration unless user requests |
+| `paused` | User postponed integration | Answer planning questions only; wait for an explicit setup request |
+| `never_ask` | User declined setup | Wait for an explicit user request before offering integration again |
 
 ## Key Principles
 
 - Prefer reproducible queries over ad-hoc analysis.
-- Record freshness to avoid misleading "latest" claims.
+- Record freshness so "latest" claims stay accurate.
 - Keep health data handling minimal and privacy-first.
