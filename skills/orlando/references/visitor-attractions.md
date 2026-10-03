@@ -33,7 +33,7 @@
 
 - Disney Springs for an arrival or off day
 - Winter Park scenic walk and Park Avenue
-- Celebration walking and coffee stop
+- Celebration walking and coffee visit
 - Lake Eola loop and swan boats
 - Kraft Azalea Garden or Mead Garden in the Winter Park area
 - Resort hopping around Disney deluxe hotels if the user likes themed environments

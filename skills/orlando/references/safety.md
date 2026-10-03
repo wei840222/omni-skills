@@ -13,7 +13,7 @@
 | Ticket and parking scams | Buy from official channels only |
 | Heat exhaustion | Carry water and use indoor resets |
 | Lightning and storms | Leave pools and open areas immediately |
-| Break-ins at attractions or trailheads | Do not leave visible bags in the car |
+| Break-ins at attractions or trailheads | Keep bags out of sight in the car |
 | Vacation-rental surprises | Verify legal status and fees |
 
 ## Florida Legal Basics
@@ -21,7 +21,7 @@
 - Recreational cannabis is still illegal in Florida.
 - Open containers in vehicles are not allowed.
 - School-bus and school-zone enforcement is real.
-- Gun laws are more permissive than in many states, so avoid assumptions.
+- Gun laws are more permissive than in many states, so be aware of the local context.
 - Short-term rental rules vary by local jurisdiction and HOA.
 
 ## Theme-Park Safety Moves

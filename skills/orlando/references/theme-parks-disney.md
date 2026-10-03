@@ -12,7 +12,7 @@
 1. Pick your 1-2 non-negotiables for each park before arrival.
 2. Stack the morning well, because that is when standby lines are most humane.
 3. Leave room for one pool or hotel reset on longer trips.
-4. Do not pay for every premium add-on by default.
+4. Select premium add-ons intentionally.
 
 ## Park Personality
 

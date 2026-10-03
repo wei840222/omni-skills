@@ -4,7 +4,7 @@
 
 - Reserve top places on weekends, school-break weeks, and major convention windows.
 - Eat earlier than usual with kids in summer.
-- Do not expect easy spontaneous seating in the tourism corridor during peak seasons.
+- Spontaneous seating is rare in the tourism corridor during peak seasons.
 
 ## Tipping and Budgeting
 

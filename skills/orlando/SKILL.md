@@ -1,29 +1,31 @@
 ---
 name: orlando
-slug: orlando
-version: 1.0.0
-description: Navigate Orlando as visitor, resident, remote worker, or family with theme parks, neighborhoods, transit, costs, and local strategies.
-homepage: https://clawic.com/skills/orlando
-changelog: Initial release with deep Orlando guidance for theme parks, relocation, family planning, and daily city logistics.
+description: >
+  Navigate Orlando for theme-park trips, conferences, relocation, remote work,
+  neighborhoods, transit, costs, schools, and Central Florida logistics. Use when
+  the user plans Disney/Universal/SeaWorld days, picks hotel zones, compares Lake
+  Nona vs Winter Park vs I-Drive, budgets MCO access and tolls, or moves to metro
+  Orlando. Not for Florida-wide region choice alone (`florida`), multi-city trip
+  systems (`travel`), or generic car booking without Orlando context (`car-rental`).
 metadata:
-  clawdbot:
-    emoji: 🎢
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/orlando/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/orlando/
-    displayName: Orlando
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/orlando/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🎢"}'
+  related-skills: '{"travel":"Multi-destination trip systems beyond Orlando-only routing.","florida":"Statewide Florida region, insurance, and storm context outside metro Orlando.","united-states":"National U.S. context when the decision is not Orlando-specific.","car-rental":"Vehicle rental logistics after Orlando car-need is decided.","money":"Budget framing and currency math around Orlando trip or move costs."}'
 ---
+
+## State location
+
+Orlando continuity state may exist in `<workspace>/orlando/`, `<workspace>/memory/orlando/`, or `~/orlando/`. `<workspace>` is the host/runtime workspace root; do not invent it from the shell working directory.
+
+Before any state read, query, create, update, or delete, resolve `<state_root>` once:
+
+1. Use an explicitly configured path from the user or host when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/orlando/`, `<workspace>/memory/orlando/`, `~/orlando/`.
+3. If none exists and state must be created after consent, default to `<workspace>/orlando/`.
+4. If multiple candidates exist, keep the highest-precedence directory only and tell the user that extra copies were detected.
+5. If the host cannot supply `<workspace>`, an existing `~/orlando/` may be read; otherwise ask for a state root before creating data.
+
+Use the selected `<state_root>` for every state operation in this skill. Do not write passports, payment data, or insurance IDs into local memory unless the user explicitly requests that storage.
 
 ## When to Use
 
@@ -31,64 +33,66 @@ User asks about Orlando for any purpose: theme-park trip, conference, relocation
 
 ## Architecture
 
-This skill works statelessly for one-off Orlando questions. If the user wants continuity, memory lives in `~/Clawic/data/orlando/`. If `~/Clawic/data/orlando/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+This skill answers one-off Orlando questions without state. Optional continuity uses resolved `<state_root>/memory.md` after consent. If no state root exists yet and the user wants continuity, load `references/setup.md` and create memory only after confirmation. Use `assets/memory-template.md` for the file shape.
 
 ```text
-~/Clawic/data/orlando/
+<state_root>/
 |-- memory.md     # User context, trip style, park priorities, move plans, and open loops
 ```
 
 ## Quick Reference
 
-Load the narrowest file that solves the user's immediate problem. Do not dump the full city when one decision is enough.
+Load the narrowest file that solves the user's immediate problem. Provide only the necessary context for a single decision.
 
 | Topic | File |
 |-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
+| Setup guide | `references/setup.md` |
+| Memory template | `assets/memory-template.md` |
 | **Visitors** | |
-| Best attractions and what to skip | `visitor-attractions.md` |
-| 1, 3, and 5 day planning | `visitor-itineraries.md` |
-| Hotel zones and resort strategy | `visitor-lodging.md` |
-| Practical trip tactics | `visitor-tips.md` |
-| Best day trips beyond the parks | `day-trips.md` |
+| Best attractions and what to skip | `references/visitor-attractions.md` |
+| 1, 3, and 5 day planning | `references/visitor-itineraries.md` |
+| Hotel zones and resort strategy | `references/visitor-lodging.md` |
+| Practical trip tactics | `references/visitor-tips.md` |
+| Best day trips beyond the parks | `references/day-trips.md` |
 | **Theme Parks** | |
-| Park portfolio and audience fit | `theme-parks-overview.md` |
-| Disney strategy | `theme-parks-disney.md` |
-| Universal strategy | `theme-parks-universal.md` |
-| Tickets, Express, Lightning Lane, and logistics | `theme-parks-practical.md` |
+| Park portfolio and audience fit | `references/theme-parks-overview.md` |
+| Disney strategy | `references/theme-parks-disney.md` |
+| Universal strategy | `references/theme-parks-universal.md` |
+| Tickets, Express, Lightning Lane, and logistics | `references/theme-parks-practical.md` |
 | **Neighborhoods** | |
-| Metro comparison | `neighborhoods-index.md` |
-| Downtown, Thornton Park, Milk District, Ivanhoe | `neighborhoods-downtown.md` |
-| Winter Park, Audubon Park, College Park | `neighborhoods-park-avenue.md` |
-| Lake Nona, Conway, Baldwin Park, southeast side | `neighborhoods-lake-nona.md` |
-| I-Drive, Dr. Phillips, Lake Buena Vista, Celebration | `neighborhoods-tourism.md` |
-| Winter Garden, Windermere, Oviedo, Apopka, Clermont | `neighborhoods-suburban.md` |
-| How to choose an area | `neighborhoods-choosing.md` |
+| Metro comparison | `references/neighborhoods-index.md` |
+| Downtown, Thornton Park, Milk District, Ivanhoe | `references/neighborhoods-downtown.md` |
+| Winter Park, Audubon Park, College Park | `references/neighborhoods-park-avenue.md` |
+| Lake Nona, Conway, Baldwin Park, southeast side | `references/neighborhoods-lake-nona.md` |
+| I-Drive, Dr. Phillips, Lake Buena Vista, Celebration | `references/neighborhoods-tourism.md` |
+| Winter Garden, Windermere, Oviedo, Apopka, Clermont | `references/neighborhoods-suburban.md` |
+| How to choose an area | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Dining scene overview | `food-overview.md` |
-| Florida and Southern staples | `food-local.md` |
-| Global dining and tasting menus | `food-international.md` |
-| Best dining districts | `food-areas.md` |
-| Reservations, tipping, dietary, kids | `food-practical.md` |
+| Dining scene overview | `references/food-overview.md` |
+| Florida and Southern staples | `references/food-local.md` |
+| Global dining and tasting menus | `references/food-international.md` |
+| Best dining districts | `references/food-areas.md` |
+| Reservations, tipping, dietary, kids | `references/food-practical.md` |
 | **Practical** | |
-| Moving and settling | `resident.md` |
-| Transit, airport, Brightline, rideshare | `transport.md` |
-| Cost of living and trip budgeting | `cost.md` |
-| Safety, scams, and legal basics | `safety.md` |
-| Heat, storms, and seasonality | `climate.md` |
-| Utilities, SIMs, errands, and local services | `local.md` |
+| Moving and settling | `references/resident.md` |
+| Transit, airport, Brightline, rideshare | `references/transport.md` |
+| Cost of living and trip budgeting | `references/cost.md` |
+| Safety, scams, and legal basics | `references/safety.md` |
+| Heat, storms, and seasonality | `references/climate.md` |
+| Utilities, SIMs, errands, and local services | `references/local.md` |
 | **Career** | |
-| Tech, simulation, defense, and remote work | `tech.md` |
-| Florida business setup and local licenses | `business.md` |
-| U.S. immigration context for Orlando moves | `immigration.md` |
-| Startups, coworking, and founders | `startup.md` |
+| Tech, simulation, defense, and remote work | `references/tech.md` |
+| Florida business setup and local licenses | `references/business.md` |
+| U.S. immigration context for Orlando moves | `references/immigration.md` |
+| Startups, coworking, and founders | `references/startup.md` |
 | **Lifestyle** | |
-| Culture and social norms | `culture.md` |
-| Healthcare and insurance navigation | `healthcare.md` |
-| Schools, colleges, and family planning | `education.md` |
-| Daily life, fitness, and social rhythm | `lifestyle.md` |
-| Car ownership and toll-road reality | `driving.md` |
+| Culture and social norms | `references/culture.md` |
+| Healthcare and insurance navigation | `references/healthcare.md` |
+| Schools, colleges, and family planning | `references/education.md` |
+| Daily life, fitness, and social rhythm | `references/lifestyle.md` |
+| Car ownership and toll-road reality | `references/driving.md` |
+| **Sources** | |
+| Official and dated research links | `references/sources.md` |
 
 ## Core Rules
 
@@ -105,7 +109,7 @@ Load the narrowest file that solves the user's immediate problem. Do not dump th
 ### 3. Theme Parks Operate Like a Second City
 - Walt Disney World, Universal Orlando Resort, and SeaWorld shape roads, hotel pricing, staffing, and even meal timing.
 - Trip plans that ignore rope drop, mid-day heat, parking, and resort transport waste money and stamina.
-- For park-first trips, load `theme-parks-overview.md` and `theme-parks-practical.md` before making itinerary promises.
+- For park-first trips, load `references/theme-parks-overview.md` and `references/theme-parks-practical.md` before making itinerary promises.
 
 ### 4. Car-First City, With Exceptions
 - Most of metro Orlando still works best with a car.
@@ -115,7 +119,7 @@ Load the narrowest file that solves the user's immediate problem. Do not dump th
 ### 5. Heat, Storms, and Rain Are Operational Constraints
 - Summer is not just "warm." Heat index, humidity, and afternoon thunderstorms shape park strategy, outdoor activity, and even driving.
 - Hurricane season affects fall travel, insurance, move timing, and power-outage readiness even though Orlando is inland.
-- Load `climate.md` whenever the user is planning June through October.
+- Load `references/climate.md` whenever the user is planning June through October.
 
 ### 6. Cost Reality Is Split in Two
 - Orlando can look affordable compared with Miami, New York, or California, but wages are lower and tourism pricing distorts housing, dining, and short-term lodging.
@@ -125,7 +129,7 @@ Load the narrowest file that solves the user's immediate problem. Do not dump th
 ### 7. Orlando Work Is More Diverse Than the Stereotype
 - Hospitality is huge, but Orlando also has simulation and defense work, healthcare, logistics, higher education, sports business, and founder communities.
 - Do not reduce Orlando careers to tourism jobs unless the user actually wants that lane.
-- Use `tech.md`, `business.md`, and `startup.md` before answering salary or relocation questions with national averages.
+- Use `references/tech.md`, `references/business.md`, and `references/startup.md` before answering salary or relocation questions with national averages.
 
 ### 8. Verify Unstable Rules From Official Sources
 - Park perks, Lightning Lane or Express rules, parking prices, toll policy, school boundaries, and immigration requirements change.
@@ -184,7 +188,7 @@ Key Florida and Orlando basics users should know:
 - Heat, lightning, and pool safety are real liability issues for families.
 - Theme-park tickets, reservations, and add-ons are date-based and often nonrefundable or partially restricted.
 
-See `safety.md` for scams, laws, and practical risk reduction.
+See `references/safety.md` for scams, laws, and practical risk reduction.
 
 ## External Endpoints
 
@@ -194,7 +198,7 @@ Use these only when the user needs live verification for prices, transit, filing
 |----------|-----------|---------|
 | https://www.visitorlando.com | Page requests only unless user asks for booking-style help | Official destination updates, attractions, and seasonal events |
 | https://www.orlando.gov | Page requests only unless the user asks for permit or address-specific guidance | City services, neighborhoods, utilities, and local rules |
-| https://www.golynx.com | Route, stop, or fare context if the user asks for transit planning | Orlando bus network, LYMMO, and fare guidance |
+| https://www.golynx.com | Route, pause, or fare context if the user asks for transit planning | Orlando bus network, LYMMO, and fare guidance |
 | https://sunrail.com | Station, schedule, or fare context if the user asks for commuter rail help | SunRail service and pricing |
 | https://disneyworld.disney.go.com | Date and park context only if the user asks for exact ticket or park-planning help | Official Disney rules, prices, and hours |
 | https://www.universalorlando.com | Date and park context only if the user asks for exact ticket or Express guidance | Official Universal rules, prices, and hours |
@@ -211,28 +215,9 @@ No other data is sent externally.
 - Travel dates, route context, ZIP, district, or filing type only when the user asks for location-specific or date-specific guidance
 
 **Data that stays local:**
-- Trip goals, neighborhood shortlist, commute constraints, school needs, and open loops in `~/Clawic/data/orlando/`
+- Trip goals, neighborhood shortlist, commute constraints, school needs, and open loops in `<state_root>/`
 
 **This skill does NOT:**
 - Buy tickets, submit forms, or create reservations without explicit instruction
 - Store passport numbers, payment data, or health-insurance identifiers in local memory
 - Pretend the tourism corridor and the residential city are the same thing
-
-## Trust
-
-By using this skill, limited travel, location, or filing context may be checked against official Orlando, Florida, park, transit, and university websites when the user asks for precise guidance.
-
-Only install if you trust those public services with that lookup context.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` - General trip planning and itinerary design
-- `florida` - Statewide weather, insurance, and moving context beyond Orlando
-- `united-states` - National baseline for immigration, healthcare, and relocation questions
-- `car-rental` - Airport pickup, toll roads, and rental-car decision support
-- `money` - Budgeting support for trips, housing, and family cost planning
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/orlando
-- Latest version: https://clawic.com/skills/orlando

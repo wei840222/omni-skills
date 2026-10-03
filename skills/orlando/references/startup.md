@@ -9,7 +9,7 @@
 
 ## What Orlando Is Not
 
-- A giant venture market with nonstop dense founder collisions
+- A growing venture market with regular founder collisions
 - The best place to raise a large institutional round by default
 
 ## Good Founder Assets

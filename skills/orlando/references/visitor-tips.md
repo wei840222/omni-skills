@@ -3,7 +3,7 @@
 ## High-Leverage Tactics
 
 1. Arrive early, rest mid-day, and stay late only if the group has stamina.
-2. Buy groceries or basic pharmacy items on day one to avoid resort-price bleeding.
+2. Buy groceries or basic pharmacy items on day one to reduce resort spending.
 3. Carry ponchos, a refillable bottle, sunscreen, and dry socks in summer.
 4. Use mobile ordering inside parks whenever possible.
 5. Leave room for one recovery block every two hard-charging days.
@@ -23,7 +23,7 @@
 
 ## If Traveling With Kids
 
-- Never schedule three consecutive rope-drop mornings.
+- Schedule rest days between consecutive rope-drop mornings.
 - Build one cool-down indoor activity or pool block per day.
 - Measure success by the few best moments, not by attraction count.
 

@@ -1,6 +1,6 @@
 # Memory Template - Orlando
 
-Create `~/Clawic/data/orlando/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Orlando Memory
@@ -34,12 +34,12 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Still learning | Gather context opportunistically |
 | `complete` | Has enough context | Work normally |
-| `paused` | User said "not now" | Do not press for more detail |
-| `never_ask` | User said stop | Never ask for more context |
+| `paused` | User said "not now" | Wait for user to resume |
+| `never_ask` | User said pause | Honor user request to cease inquiry |
 
 ## Key Principles
 
 - **No config keys visible** - use natural language observations, not robotic settings
-- **Learn from behavior** - notice patterns across trips or move decisions, do not interrogate
+- **Learn from behavior** - notice patterns across trips or move decisions, gather context naturally
 - **Most stay `ongoing`** - Orlando needs shift over time, that is normal
 - Update `last` on each use

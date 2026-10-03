@@ -23,7 +23,7 @@
 | Family setup | Choose school fit and commute before chasing house features |
 | Remote work | Pay for neighborhood quality, not just square footage |
 | Southwest jobs | Live on the same side of the metro if possible |
-| Frequent flying | Do not ignore airport access |
+| Frequent flying | Prioritize airport access |
 
 ## Weak Default Moves
 

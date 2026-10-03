@@ -31,7 +31,7 @@
 | 3 days | Two park days + one soft day |
 | 5 days | Two to three hard park days + one city or recovery day |
 
-## Do Not Pretend These Are Equal
+## Understand the Differences
 
 - Disney is better at all-ages family immersion.
 - Universal is better at teen/adult momentum.
