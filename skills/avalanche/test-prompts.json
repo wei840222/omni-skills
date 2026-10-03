@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I transfer my AVAX from C-Chain to X-Chain?",
+    "expected": "Identify atomic export/import via a multi-chain wallet (Core); state MetaMask cannot finish X-Chain leg; verify destination X-Chain balance after both legs.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: SKILL routes cross-chain→references/cross-chain.md; guide requires export then import on Core/Avalanche wallet and labels MetaMask as C-Chain-only. No live model harness log in this handoff environment.",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "I'm trying to send AVAX but getting 'Insufficient funds', yet I have token balances on Trader Joe.",
+    "expected": "Explain C-Chain gas must be paid in AVAX; token balances do not cover fees; keep an AVAX gas buffer.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: references/c-chain.md and troubleshooting.md state gas is AVAX-only and map the insufficient-funds + token-balance symptom to a gas buffer fix. No live harness execution log.",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "Can I use MetaMask to manage my subnet validators?",
+    "expected": "No—validators/delegation are P-Chain operations; MetaMask is C-Chain-only; use Core and confirm mainnet stake floors from sources.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-03: architecture/staking/troubleshooting state P-Chain staking and MetaMask C-Chain limit; sources.md cites 2,000/25 AVAX mainnet floors. No live harness execution log.",
+    "pass": false
+  }
+]
