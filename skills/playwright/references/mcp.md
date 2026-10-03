@@ -59,7 +59,7 @@ Working loop: **snapshot → act on a ref from that snapshot → snapshot again*
 ## Sessions And Credentials
 
 - `--isolated` for anything touching credentials you do not want to persist.
-- A persistent `--user-data-dir` is a stored login: it lives on disk, survives restarts, and belongs nowhere near a shared machine. Never inside `~/Clawic/data/playwright/`.
+- A persistent `--user-data-dir` is a stored login: it lives on disk, survives restarts, and belongs nowhere near a shared machine. Never inside `<state_root>/`.
 - Have the user log in themselves in a headed session, then reuse the state; do not ask for a password to type in.
 
 ## Graduating To Code
