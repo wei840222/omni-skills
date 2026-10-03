@@ -1,135 +1,97 @@
 ---
 name: applescript
-slug: applescript
-version: 1.0.0
-description: Write and run safe AppleScript automation on macOS with dictionary discovery, robust quoting, and deterministic read-first workflows.
-homepage: https://clawic.com/skills/applescript
-changelog: Initial release with safety-first AppleScript execution rules and reusable automation patterns.
+description: >
+  Write and run safe AppleScript automation on macOS with osascript, dictionary
+  discovery, robust argument transport, and read-before-write verification. Use
+  when controlling scriptable Mac apps, extracting local app data, or automating
+  UI via System Events on Darwin. Not for Linux/Windows hosts, pure shell tasks
+  (bash), general macOS admin without AppleEvents (macos), or note-taking apps
+  as a content skill (notes).
 metadata:
-  clawdbot:
-    emoji: A
-    requires:
-      bins:
-      - osascript
-    os:
-    - darwin
-    configPaths:
-    - ~/Clawic/data/applescript/
-    displayName: AppleScript
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/applescript/
+  version: "1.0.0"
+  openclaw: '{"emoji":"🍎","os":["darwin"],"requires":{"bins":["osascript"]}}'
+  related-skills: '{"automate":"General automation reliability and workflow design around AppleScript steps.","bash":"Shell wrappers, quoting, and process control when invoking osascript from scripts.","files":"Safe bulk file operations outside app dictionaries.","macos":"Darwin host admin, TCC privacy gates, and non-AppleEvent system tooling.","notes":"Structured note capture when the target is knowledge content rather than Notes.app scripting."}'
 ---
 
-## Setup
+## State location
 
-On first use, follow `setup.md` to configure activation and safety preferences.
-Setup review is read-only.
-Any local file creation or modification requires explicit user confirmation.
+AppleScript skill state may exist in `<workspace>/applescript/`, `<workspace>/memory/applescript/`, or `~/applescript/`. Before any state read or write, resolve one `<state_root>`:
 
-## When to Use
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order: `<workspace>/applescript/`, `<workspace>/memory/applescript/`, `~/applescript/`.
+3. If multiple candidates exist, use only the highest-precedence directory, report the split, and leave lower-precedence copies unchanged.
+4. If none exists and persistent state is needed, propose `<workspace>/applescript/` and create it only after the user confirms.
+5. If the host cannot supply `<workspace>`, read an existing `~/applescript/` only; otherwise ask for a state root before creating data.
 
-User needs AppleScript automation on macOS for app control, data extraction, or scripted UI actions.
-Agent handles script design, safe execution with `osascript`, output parsing, and troubleshooting.
+Keep the selected `<state_root>` fixed for the invocation. After resolution it holds optional domain files:
+
+```text
+<state_root>/
+├── memory.md      # preferences, safety floor, last working patterns (create on first durable save)
+├── snippets.md    # reusable verified script fragments (create when a pattern is reused)
+├── failures.md    # error signatures and fixes (create on first captured failure)
+└── app-notes.md   # per-app dictionary terms and behavior (create when an app is probed)
+```
+
+Legacy vendor path `~/Clawic/data/applescript/` is a migration source only. Do not put it in active lookup order. Copy into `<state_root>` only after explicit user authorization with validation and rollback.
+
+## When to use
+
+- User needs AppleScript or `osascript` on a Mac for app control, local data extraction, or scripted UI.
+- Target app is installed and scriptable, or UI automation via System Events is explicitly requested.
+- Prefer `macos` for TCC/Keychain/launchd admin without AppleEvents; prefer `bash` for shell-only work; prefer `notes` when the product is note content rather than Notes.app automation.
 
 ## Requirements
 
-- macOS with `osascript` available.
-- Target app installed and scriptable when app automation is requested.
-- Explicit user confirmation before destructive operations.
+- Darwin host with `osascript` available (`/usr/bin/osascript`).
+- Target app installed and scriptable for dictionary-based automation; UI scripting additionally needs Accessibility permission for the controlling process.
+- Explicit user confirmation before destructive, bulk, send, or irreversible actions.
+- Automation permission prompts accepted for each controlling app when macOS requires them.
 
-## Architecture
+## References
 
-Memory lives in `~/Clawic/data/applescript/`. See `memory-template.md` for structure.
+Load only when the current step needs them:
 
-```text
-~/Clawic/data/applescript/
-├── memory.md                  # Preferences, safe defaults, and last working patterns
-├── snippets.md                # Reusable script snippets
-├── failures.md                # Error signatures and known fixes
-└── app-notes.md               # Per-app dictionary and behavior notes
-```
+| File | Load when |
+| --- | --- |
+| `references/setup.md` | First use, activation preferences, or consent for persistent state |
+| `references/app-dictionary-workflow.md` | Before scripting an unfamiliar app or inventing class/property names |
+| `references/script-patterns.md` | Building `osascript` invocations, safe argument transport, read-modify-verify |
+| `references/safety-checklist.md` | Before delete, bulk edit, send, or irreversible app actions |
+| `references/troubleshooting.md` | `osascript` failure, permission denial, dictionary mismatch, or timing errors |
+| `references/memory.md` | Creating or updating durable preferences and app profiles under `<state_root>` |
+| `references/sources.md` | Verifying domain claims or citing primary Apple documentation |
+| `assets/memory-template.md` | Copying the static memory skeleton into `<state_root>/memory.md` after consent |
 
-## Quick Reference
+## Core rules
 
-Use these files only when the current request needs deeper detail.
+1. **Classify scope first.** Label the request read-only, reversible write, or destructive write. If unclear, ask one disambiguation question before execution.
+2. **Confirm platform and binary.** On non-Darwin hosts, stop and say `osascript` is unavailable. On Darwin, verify `command -v osascript` before running scripts.
+3. **Discover vocabulary.** For app automation, follow `references/app-dictionary-workflow.md` and record verified terms in `<state_root>/app-notes.md` after consent. Do not invent classes, properties, or commands.
+4. **Transport values safely.** Pass dynamic text through argv into an AppleScript `on run argv` handler, or use AppleScript `quoted form` when a shell fragment is unavoidable. Prefer argv over string concatenation into `-e` scripts. Details: `references/script-patterns.md`.
+5. **Keep scripts bounded and observable.** Prefer short scripts with explicit targets and concise structured output (one record per line when listing).
+6. **Read before write; verify after write.** Pre-read target identity for creates/updates; read back final state and report it.
+7. **Destructive floor is mandatory.** Apply `references/safety-checklist.md`. Require two-step confirmation for delete, bulk edit, empty trash, send, or irreversible actions. Preference files may raise the confirmation bar; they must not lower it below this floor.
+8. **Fail with recovery.** Capture the exact `osascript` command, exit status, and stderr. Use `references/troubleshooting.md` and append durable failure notes to `<state_root>/failures.md` only after consent.
+9. **Stay local by default.** Keep snippets, outputs, and troubleshooting notes on-machine. Do not read unrelated credentials or send automation data to third parties unless the user explicitly authorizes a separate channel.
 
-| Topic | File |
-|-------|------|
-| Setup behavior and onboarding | `setup.md` |
-| Memory structure | `memory-template.md` |
-| App dictionary workflow | `app-dictionary-workflow.md` |
-| Script design patterns | `script-patterns.md` |
-| Destructive-operation guardrails | `safety-checklist.md` |
-| Debug and recovery steps | `troubleshooting.md` |
+## Security and privacy
 
-## Data Storage
+**Stays local by default:** script snippets, runtime notes, command output needed for the task, and optional state under `<state_root>/`.
 
-All local skill data stays in `~/Clawic/data/applescript/`.
-Before creating or changing local files, explain the write and ask for confirmation.
+**Does not leave the machine by default:** no third-party upload of automation data.
 
-## Core Rules
+**This skill does not:**
 
-### 1. Choose Operation Scope Before Writing Any Script
-- Classify request as read-only, reversible write, or destructive write.
-- If scope is unclear, ask one disambiguation question before execution.
-
-### 2. Discover App Vocabulary Before Automation
-- Use dictionary inspection workflow from `app-dictionary-workflow.md` before guessing object names.
-- Do not invent app classes, properties, or commands.
-
-### 3. Escape Dynamic Input Deterministically
-- Never concatenate raw user text into AppleScript command strings.
-- Use safe quoting patterns from `script-patterns.md` for every variable.
-
-### 4. Keep Scripts Bounded and Observable
-- Prefer short scripts with explicit targets and explicit output values.
-- Return concise structured output so results can be validated quickly.
-
-### 5. Read Before Write, Verify After Write
-- For updates and creates, run a pre-read to confirm target identity.
-- Run a read-back check after writes and report the final state.
-
-### 6. Require Two-Step Confirmation for Destructive Actions
-- Apply `safety-checklist.md` before delete, bulk edit, or irreversible app actions.
-- If confirmation is missing, stop and ask explicitly.
-
-### 7. Fail Loudly With Actionable Recovery
-- On error, capture exact failing command and error text.
-- Use `troubleshooting.md` to provide next-step fixes instead of generic retries.
-
-## Common Traps
-
-- Guessing app dictionary terms -> script compiles but fails at runtime.
-- Injecting unescaped quotes in user values -> syntax errors or wrong command targets.
-- Writing without pre-read on duplicate item names -> wrong object modified.
-- Running UI automation too early after launching an app -> intermittent failures.
-- Treating all errors as permission issues -> repeated failures without progress.
-
-## Security & Privacy
-
-**Data that stays local:**
-- AppleScript snippets, runtime notes, and troubleshooting memory in `~/Clawic/data/applescript/`.
-- Command output needed only for requested tasks.
-
-**Data that may leave your machine:**
-- None by default. This skill focuses on local macOS automation.
-
-**This skill does NOT:**
-- Read unrelated authentication values.
-- Send automation data to third-party APIs.
+- Read unrelated authentication values or Keychain secrets for convenience.
 - Execute destructive app actions without explicit confirmation.
+- Treat UI scripting (Accessibility) as equivalent to dictionary scripting; name the permission class in use.
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `macos` - macOS command and system operation patterns.
-- `automate` - General automation workflow design and reliability strategy.
-- `bash` - Shell scripting helpers for wrapping and testing commands.
-- `notes` - Knowledge capture and structured note workflows.
-- `files` - Safe file read and write workflows with clear boundaries.
+## Common traps
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/applescript
-- Latest version: https://clawic.com/skills/applescript
+- Guessing dictionary terms → compiles then fails at runtime; probe first.
+- Embedding raw user text in `-e` strings → quote breaks and wrong targets; use `on run argv`.
+- Writing without pre-read on duplicate names → wrong object modified.
+- UI automation immediately after launch → intermittent misses; wait for process readiness with a bounded retry.
+- Treating every error as a TCC denial → re-check dictionary, app state, and quoting before permission loops.
+- Lowering safety defaults in memory templates → mandatory confirmation floor still applies.
