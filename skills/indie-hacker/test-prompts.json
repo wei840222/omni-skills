@@ -2,15 +2,22 @@
   {
     "id": 1,
     "prompt": "I want to build a new AI tool for creating marketing emails. What should I do first?",
-    "expected": "The agent should advise finding 5 people with the problem and validating willingness to pay before writing any code, following the 2-week validation timeline.",
-    "actual": "Before writing any code for the AI marketing email tool, you must validate the idea. Find 5 people who currently struggle with marketing emails and DM them to understand their pain points. Ask them what they use now and what is painful. Then, check their willingness to pay: 'If this existed for $X, would you buy it?'. If you can't find 5 people in 48 hours or if they aren't willing to discuss price, this is a red flag. Give yourself a maximum of 2 weeks to complete this validation step.",
+    "expected": "Advise finding ~5 people with the problem and validating willingness to pay before writing product code, with a ~2-week validation ceiling.",
+    "actual": "Before writing product code, validate. Find 5 people who currently struggle with marketing emails (not friends), learn current tools and pain, then test willingness to pay with a concrete price. If you cannot find 5 people quickly or nobody will discuss price, treat that as a red flag. Cap this validation pass at about 2 weeks; if the idea stays vague, kill or narrow the segment before building.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "I've been building my social media app for 3 months and I have 200 users, but no one is paying for the premium version. How do I improve my funnel?",
-    "expected": "The agent should be brutally honest that 'nobody's buying' means a pivot or kill decision is required, rather than giving tactical funnel optimization advice.",
-    "actual": "Brutal honesty is required here: 3 months without traction and no paying users means you need to make an explicit decision to kill the project or pivot. 'Nobody's buying' is not a signal to 'try harder' or optimize the funnel. Do not spend more time perfecting the funnel. Evaluate whether to shut this down and focus on an idea that has validated willingness to pay.",
+    "expected": "Be brutally honest that unpaid traction after months requires an explicit kill or pivot decision rather than funnel-optimization theater.",
+    "actual": "Brutal honesty first: 3 months, 200 users, and zero premium buyers is not a funnel-polish problem. 'Nobody is buying' means make an explicit keep/pivot/kill decision. Do not spend the next sprint optimizing onboarding copy while paid demand is unproven. Either talk to those 200 about a paid offer they would actually buy, pivot the offer, or archive the project with a post-mortem in <state_root>/archive/.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I have 12 hours this week for my side project. Should I rebuild auth myself or keep going with the landing page?",
+    "expected": "Protect time: prefer existing auth tools and point to the single highest-leverage action (usually validation or paid-path work), not a custom auth rebuild.",
+    "actual": "With ~12 hours, do not rebuild auth. Default to Clerk/Auth0/Supabase-class tools and spend the hours on the ONE revenue-learning action: customer conversations, paid offer clarity, or shipping the thinnest paid path. Custom auth is a >20h trap that delays signal. Put the chosen priority in <state_root>/memory.md and defer the rebuild.",
     "pass": true
   }
 ]
