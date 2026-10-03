@@ -1,133 +1,38 @@
 ---
 name: gratitude
-slug: gratitude
-version: 1.0.0
-description: Build a personal gratitude practice for logging what's good, discovering patterns, and cultivating appreciation.
-homepage: https://clawic.com/skills/gratitude
+description: Track daily gratitude, discover patterns, and build a positive reflection practice. Use when the user expresses gratitude, wants to log a good moment, or asks for help reflecting on the positive aspects of their day.
 metadata:
-  clawdbot:
-    emoji: 🙏
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Gratitude
+  version: "1.0.0"
+  openclaw: '{"emoji":"🙏"}'
+  related-skills: '{"habits":"Integrates gratitude logging into trackable daily routines.","journal":"Captures longer-form personal reflections beyond short gratitude entries.","reflection":"Provides structured frameworks for deeper personal review and insight."}'
 ---
 
+## State location
+
+Gratitude state may exist in `<workspace>/gratitude/`, `<workspace>/memory/gratitude/`, or `~/gratitude/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/gratitude/`, `<workspace>/memory/gratitude/`, `~/gratitude/`.
+3. If none exists and state must be created, default to `<workspace>/gratitude/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Core Behavior
-- Help user log what they're grateful for
-- Surface patterns and insights over time
-- Help identify gratitude when they're stuck
-- Create `~/Clawic/data/gratitude/` as workspace
+- Help user log what they're grateful for.
+- Surface patterns and insights over time.
+- Help identify gratitude when they're stuck.
 
 ## File Structure
-```
-~/Clawic/data/gratitude/
-├── log/
-│   └── 2024/
-├── patterns.md
-├── favorites.md
-└── practice.md
-```
 
-## Daily Entry
-```markdown
-# log/2024/02/11.md
-## Morning
-- Quiet coffee before everyone woke up
-- Good sleep last night
+- `<state_root>/log/YYYY/MM/DD.md`: Daily entries.
+- `<state_root>/patterns.md`: Aggregated themes and insights.
+- `<state_root>/favorites.md`: Standout entries for hard days.
+- `<state_root>/practice.md`: User preferences for frequency and style.
 
-## Evening
-- Productive meeting, felt heard
-- Dinner with Sarah, good conversation
-- Warm house on cold day
-```
+## Instructions
 
-## Quick Capture
-User says "grateful for X" → log immediately with timestamp
-
-User says "gratitude" → prompt gently:
-- "What's one good thing from today?"
-- "Anything small that made you smile?"
-- "What went better than expected?"
-
-## When User Is Stuck
-Help identify without forcing:
-- "What's something you usually take for granted?"
-- "Anyone who helped you recently?"
-- "Something your body did well today?"
-- "A small comfort you enjoyed?"
-
-Categories to explore:
-- People, relationships
-- Health, body
-- Home, comfort, safety
-- Work, progress, learning
-- Nature, beauty
-- Small pleasures
-
-## Patterns & Insights
-```markdown
-# patterns.md
-## Frequent Themes
-- Morning quiet time (appears 60% of entries)
-- Conversations with close friends
-- Physical comfort (warmth, rest, food)
-
-## People Mentioned Most
-- Sarah: 12 times
-- Mom: 8 times
-- Work team: 6 times
-
-## Insights
-- You notice nature more on weekends
-- Productivity gratitude peaks midweek
-- Social connection is core theme
-```
-
-## Favorites
-```markdown
-# favorites.md
-Entries to revisit on hard days:
-
-- "Laughing until crying with Jake" — Feb 3
-- "Mom's call when I needed it" — Jan 28
-- "Finishing project I was proud of" — Jan 15
-```
-
-## Practice Preferences
-```markdown
-# practice.md
-## Frequency
-- Daily: morning, evening, or both
-- Prompt me: yes/no
-
-## Style
-- Quick: 1-3 items
-- Reflective: with context/why
-```
-
-## What To Surface
-- "You've logged 30 days straight"
-- "Sarah appears often — she matters to you"
-- "On hard days, you're still grateful for basics"
-- "Last month: 40% people, 30% small pleasures"
-
-## Weekly/Monthly Reflection
-- Themes from the week
-- Who showed up in entries
-- What category was most present
-- One standout moment
-
-## On Hard Days
-When user is struggling:
-- "Want to look at a favorite entry?"
-- "Even something tiny counts"
-- "What's one thing that didn't go wrong?"
-- Don't push — sometimes just listening
-
-## What NOT To Do
-- Force positivity when they're hurting
-- Make it feel like homework
-- Judge entries as too small
-- Preach about gratitude benefits
+- **Capturing Entries**: When the user wants to log gratitude, or if they need prompts to find something they are grateful for, read `references/capture.md`.
+- **Reviewing Insights**: To summarize past entries or surface meaningful patterns during check-ins, read `references/reflection.md`.
+- **Data Formatting**: Use `assets/data-templates.md` when creating or updating any file in `<state_root>`.
