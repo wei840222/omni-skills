@@ -56,10 +56,12 @@ Stateless product-interface craft rules. This skill does not store local configu
 
 ## Progressive disclosure
 
+Load references only when the task needs depth beyond Core rules and Quick reference.
+
 | Load when | File |
 |---|---|
-| Need full guideline checklist (hierarchy, type, color, spacing, alignment, states, icons, imagery, responsive, dark mode, motion, tokens, mistakes) | `references/design-guidelines.md` |
-| Need Gate 6 source URLs and claim map (WCAG, platform HIG/Material, tokens) | `references/sources.md` |
+| Implementing or reviewing full guideline checklist (hierarchy, type, color, spacing, alignment, states, icons, imagery, responsive, dark mode, motion, tokens, common mistakes) | `references/design-guidelines.md` |
+| Verifying contrast, target size, focus, tokens, or reduced-motion claims against Gate 6 sources | `references/sources.md` |
 
 ## Safety and boundaries
 
