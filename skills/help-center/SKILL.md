@@ -101,7 +101,7 @@ Persistent planning state lives under the resolved `<state_root>`. Package templ
 ## Security and privacy
 
 - Default data path is local planning under `<state_root>/` only.
-- Do not send local planning files to third-party APIs.
-- Do not read or write outside the resolved `<state_root>` for skill memory unless the host supplies another path and the user consents.
-- Examples use placeholders only; never commit secrets or customer content into the skill package.
+- Keep local planning files on-machine; third-party API uploads require a separate explicit user authorization naming the destination.
+- Skill memory reads and writes stay inside the resolved `<state_root>` unless the host supplies another path and the user consents to that path.
+- Examples use placeholders only; keep secrets and customer content out of the skill package and git commits.
 

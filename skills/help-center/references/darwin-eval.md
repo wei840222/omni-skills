@@ -25,3 +25,14 @@ Evaluator: local structured review against `.agents/skills/darwin-skill` rubric 
 ## Non-regression
 
 - `uvx --from skills-ref agentskills validate skills/help-center` → exit 0 after evaluation notes added
+
+## Freud Mode 2 (lenses 2/3/4/6)
+
+| Lens | Findings | Resolution |
+| --- | --- | --- |
+| 2 Positive vs Negative | Hard "never/do not" clusters in Jules draft | Safety kept as positive procedures: capture inputs first; local planning default; named consent before writes/live edits |
+| 3 Consistency | Bare `memory.md` vs `<state_root>` mix | All runtime paths use `<state_root>/...` |
+| 4 Anchoring precision | Absolute vendor cost/extensibility claims | Official-page verification + labeled project-policy thresholds |
+| 6 Working space hygiene | Promo + setup + rules jammed in entry | Concise workflow entry; details in references; no stop-marker white bears |
+
+Validator after Freud pass: `uvx --from skills-ref agentskills validate skills/help-center` exit 0.
