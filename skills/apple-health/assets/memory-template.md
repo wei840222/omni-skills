@@ -1,13 +1,13 @@
 # Memory Template — Apple Health
 
-Create `~/Clawic/data/apple-health/memory.md` with this structure:
+Static format for `<state_root>/memory.md`:
 
 ```markdown
 # Apple Health Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.0.1
 last: YYYY-MM-DD
 integration: pending
 mode: csv-export
@@ -33,9 +33,9 @@ freshness: unknown
 *Updated: YYYY-MM-DD*
 ```
 
-## integrations.md Template
+## Integration-note template
 
-Create `~/Clawic/data/apple-health/integrations.md`:
+Static format for `<state_root>/integrations.md`:
 
 ```markdown
 # Apple Health Integrations
@@ -48,16 +48,16 @@ Create `~/Clawic/data/apple-health/integrations.md`:
 
 ## MCP Command
 - command: npx
-- args: @neiltron/apple-health-mcp
+- args: ["-y", "@neiltron/apple-health-mcp"]
 - HEALTH_DATA_DIR: /absolute/path
 
 ## Known Issues
 - [Issue]: [Fix]
 ```
 
-## query-log.md Template
+## Query-note template
 
-Create `~/Clawic/data/apple-health/query-log.md`:
+Static format for `<state_root>/query-log.md`:
 
 ```markdown
 # Apple Health Query Log
@@ -69,18 +69,3 @@ Create `~/Clawic/data/apple-health/query-log.md`:
 - Result summary:
 - Caveats:
 ```
-
-## Status Values
-
-| Value | Meaning | Behavior |
-|-------|---------|----------|
-| `ongoing` | Normal state | Keep refining integration and analysis habits |
-| `complete` | Stable setup | Skip setup prompts, go straight to analysis |
-| `paused` | User postponed integration | Do not push setup, only answer planning questions |
-| `never_ask` | User declined setup | Never re-prompt integration unless user requests |
-
-## Key Principles
-
-- Prefer reproducible queries over ad-hoc analysis.
-- Record freshness to avoid misleading "latest" claims.
-- Keep health data handling minimal and privacy-first.

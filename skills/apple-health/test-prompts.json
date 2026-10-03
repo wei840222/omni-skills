@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Analyze my local Apple Health CSV export for sleep trends over the last 30 days. It includes in-bed, awake, asleep stages and two recording devices.",
+    "expected": "Establish authorization for the export and MCP client/provider egress before even schema discovery; validate supported CSV/runtime, discover schema and labels, use explicit finite bounds, exclude awake/in-bed, inspect overlap, separate sources, and report freshness/time conventions.",
+    "actual": "Skill-conditioned structural dry-run against skills/apple-health on 2026-10-03 in worktree /tmp/omni-skills-apple-health-453649 (head after Phase 3). Mode csv-export from stated local export intent. Would: (1) confirm client/provider egress authorization before any health tool; (2) resolve state_root candidates without creating notes unless consented; (3) validate folder for HKQuantity/HKCategory/HKWorkout CSV layout and reject native export.xml; (4) preflight node -v >=22 and HEALTH_DATA_DIR absolute path per references/mcp-config.md; (5) after auth, health_schema then map valueText asleep labels and sourceName; (6) load references/query-recipes.md sleep recipe with exclusive end bound last 30d, exclude awake/in-bed, group by sourceName, flag overlap, state stored clock times and that Z is not recovered UTC; (7) report freshness only from known export timestamp. No live MCP or real PHI queried; protocol fixture only.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Connect directly to my iCloud Health and check if my average resting heart rate has increased.",
+    "expected": "Explain that this workflow reads supported local CSV exports rather than live iCloud/HealthKit. Ask for the supported local export only if the user wants setup; preserve the client/provider consent boundary and claim no connection or result.",
+    "actual": "Skill-conditioned structural dry-run: Core Rule 1 and Security state live HealthKit/iCloud are outside this workflow. Response would refuse a direct iCloud connection, claim no resting-HR result, and offer csv-export setup only after an explicit setup request plus local Simple Health Export CSV path and client/provider authorization. No MCP install, schema, or query would run. Fixture documents boundary behavior only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I just want advice on falling asleep faster. I have no Apple Health export and do not want to configure anything.",
+    "expected": "Treat this as a near-miss for export analysis, route sleep coaching to sleep/health, and leave MCP installation, configuration, queries and persistent health notes unchanged.",
+    "actual": "Skill-conditioned structural dry-run / near-miss routing: description and When to Use exclude sleep coaching without an export. Would set not-now, leave MCP/install/config/query/state untouched, and hand off coaching framing to sleep or health related-skills. No HEALTH_DATA_DIR wiring and no note creation. Routing fixture only.",
+    "pass": true
+  }
+]
