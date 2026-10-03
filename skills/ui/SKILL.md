@@ -65,7 +65,7 @@ Load references only when the task needs depth beyond Core rules and Quick refer
 
 ## Safety and boundaries
 
-- Do not invent brand/legal/accessibility compliance claims without checking product requirements and cited sources.
-- Accessibility numbers (contrast, target size) follow WCAG/platform guidance in `references/sources.md`; flag when a host cannot measure contrast live.
-- Prefer progressive enhancement and reduced-motion paths over decorative motion that blocks tasks.
-- Keep secrets, real user PII, and production tokens out of examples; use placeholders only.
+- State accessibility claims only from product requirements plus `references/sources.md`; when contrast cannot be measured live, say so and give the check to run.
+- Pair every risk with a recovery path: color-only error → add icon/text; low contrast → raise token contrast; missing focus → visible focus ring; decorative motion blocking tasks → essential feedback only under `prefers-reduced-motion`.
+- Prefer progressive enhancement over motion that blocks tasks.
+- Examples use placeholders only—no secrets, real user PII, or production tokens.
