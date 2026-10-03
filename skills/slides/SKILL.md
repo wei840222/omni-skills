@@ -41,6 +41,9 @@ User needs presentation slides created, edited, or automated. Agent selects the 
 
 ## Progressive disclosure
 
+Load only the reference needed for the current step; keep `SKILL.md` as the routing surface.
+
+
 | Need | Load |
 |------|------|
 | Memory / style / project layout | `assets/memory-template.md` |
