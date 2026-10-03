@@ -1,13 +1,13 @@
 # Setup - Apple Pay
 
-Read this when `~/Clawic/data/apple-pay/` is missing or empty.
+Read this when `<state_root>/` is missing or empty.
 Keep setup practical and non-blocking.
 
 ## Operating Priorities
 
 - Answer the immediate user request first.
 - Confirm platform and payment architecture early.
-- Avoid long onboarding before delivering value.
+- Keep onboarding brief to accelerate value delivery.
 
 ## First Activation Flow
 
@@ -28,15 +28,15 @@ Keep setup practical and non-blocking.
 - Authorization/capture flow requirements
 - Refund and support expectations
 
-4. If setup context is approved, initialize local workspace:
+4. If the user approves persistent notes, resolve `<state_root>` once (explicit path, existing project notes, or one ask). Then initialize:
 ```bash
-mkdir -p ~/apple-pay
-touch ~/Clawic/data/apple-pay/{memory.md,implementations.md,validation-log.md,incidents.md}
-chmod 700 ~/apple-pay
-chmod 600 ~/Clawic/data/apple-pay/{memory.md,implementations.md,validation-log.md,incidents.md}
+mkdir -p <state_root>
+touch <state_root>/{memory.md,implementations.md,validation-log.md,incidents.md}
+chmod 700 <state_root>
+chmod 600 <state_root>/{memory.md,implementations.md,validation-log.md,incidents.md}
 ```
 
-5. If `memory.md` is empty, initialize it from `memory-template.md`.
+5. If `memory.md` is empty and seeding is requested, initialize it from `assets/memory-template.md`.
 
 ## Integration Defaults
 
@@ -55,6 +55,6 @@ chmod 600 ~/Clawic/data/apple-pay/{memory.md,implementations.md,validation-log.m
 
 ## Guardrails
 
-- Never ask the user to expose private keys in chat.
-- Never store raw Apple Pay token payloads in local notes.
-- Never claim production readiness without validation evidence.
+- Keep private keys out of the chat window.
+- Omit raw Apple Pay token payloads from local notes.
+- Claim production readiness only when backed by validation evidence.

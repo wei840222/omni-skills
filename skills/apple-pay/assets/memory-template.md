@@ -1,6 +1,6 @@
 # Memory Template - Apple Pay
 
-Create `~/Clawic/data/apple-pay/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Apple Pay Memory
@@ -50,11 +50,11 @@ launch_state: planning | validating | ready | paused
 | `ongoing` | Integration in progress | Keep gathering context and validating changes |
 | `complete` | Core flow validated | Focus on optimization and maintenance |
 | `paused` | User paused work | Keep context read-only until resumed |
-| `never_ask` | User wants no setup prompts | Do not request setup details unless user asks |
+| `never_ask` | User wants no setup prompts | Request setup details only when prompted by user |
 
 ## File Templates
 
-Create `~/Clawic/data/apple-pay/validation-log.md`:
+Create `<state_root>/validation-log.md`:
 
 ```markdown
 # Apple Pay Validation Log
@@ -68,7 +68,7 @@ Create `~/Clawic/data/apple-pay/validation-log.md`:
 - Follow-up:
 ```
 
-Create `~/Clawic/data/apple-pay/incidents.md`:
+Create `<state_root>/incidents.md`:
 
 ```markdown
 # Apple Pay Incidents
@@ -85,4 +85,4 @@ Create `~/Clawic/data/apple-pay/incidents.md`:
 
 - Keep persisted notes short and actionable.
 - Store evidence links, not raw sensitive payloads.
-- Update `last` whenever status changes.
+- Update `last` each time status changes.

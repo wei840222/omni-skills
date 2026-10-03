@@ -24,9 +24,9 @@ Use this file to classify failures fast and choose the next action.
 
 - Explain whether the user can retry immediately.
 - Offer fallback payment without losing cart context.
-- Avoid exposing internal error identifiers in UI text.
+- Mask internal error identifiers in UI text.
 
-## Hard Stop Conditions
+## Critical Blockers
 
 Pause rollout when:
 - Merchant validation fails in production.
