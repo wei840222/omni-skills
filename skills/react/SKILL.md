@@ -245,7 +245,7 @@ useEffect(() => {
 
 ## AI Mistakes to Avoid
 
-Patterns generated code gets wrong — check these when reviewing:
+Patterns generated code gets wrong — check these when reviewing. Prefer the Correct pattern column as the default fix path, not only the mistake name:
 
 | Mistake | Correct pattern |
 |---------|-----------------|
