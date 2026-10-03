@@ -360,6 +360,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | invoice                      | 2026-09-30 | 84/100 (#615)                    |
 | invoices                     | 2026-09-03 | 85/100 (#231)                    |
 | ios                          | 2026-08-29 | 85/100                           |
+| iot                          | 2026-10-04 | 84/100 (#706)                    |
 | iphone                       | 2026-08-24 | 97/100                           |
 | irish                        | 2026-08-30 | 85/100                           |
 | italian                      | 2026-09-11 | 85/100 (#335)                    |
