@@ -1,4 +1,4 @@
-# Waiting — Actionability, Timeouts, and Never Sleeping
+# Waiting — Actionability, Timeouts, and State-Based Waiting
 
 Playwright already waits. Every failure that looks like "needs a bigger wait" is really one of: the condition never happens, the wrong condition is being waited on, or the element is actionable-blocked by something real.
 
@@ -43,7 +43,7 @@ test.setTimeout(120_000);                                // this one test only
 test.slow();                                             // triples the timeout for this test
 ```
 
-Never raise `timeout` globally to fix one test: every genuine hang then costs the new ceiling, and a 60 s default turns a 30-test failure into a half-hour CI job.
+Fix the specific test timeout instead of raising it globally: every genuine hang then costs the new ceiling, and a 60 s default turns a 30-test failure into a half-hour CI job.
 
 ## Wait On The Right Thing
 
