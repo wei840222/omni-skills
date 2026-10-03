@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I secure my self-hosted MQTT broker used for IoT sensors?",
+    "expected": "Requires authentication, TLS for untrusted/external access, unique per-device credentials, and IoT VLAN/segmentation; does not recommend open anonymous internet exposure.",
+    "actual": "Enforce unique per-device credentials, enable TLS on any listener reachable outside the trusted LAN, keep the broker off the public internet without those controls, and place sensors on a separate IoT VLAN so a compromised gadget cannot freely scan laptops.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm building a battery-powered ESP32 sensor. What protocols and power management strategies should I use?",
+    "expected": "Recommends lightweight publish protocols (MQTT/CoAP), deep sleep with timed or interrupt wake, power-budget math, voltage monitoring, and ESP-IDF or Arduino/PlatformIO with OTA.",
+    "actual": "Use MQTT (or CoAP on ultra-constrained links) instead of chatty HTTP polling; design around ESP32 deep sleep with timer/interrupt wake, measure mAh vs average draw including radio peaks, monitor battery voltage, and pick Arduino or ESP-IDF with signed OTA so you are not stuck doing physical flashes.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I buy a cloud-only smart plug with no local API for a homelab that already runs Home Assistant?",
+    "expected": "Prefers local API / flashable / open-protocol devices; flags vendor shutdown and offline failure risk; may mention Tasmota/Shelly/Matter local paths.",
+    "actual": "Prefer a plug with a local API or a flashable firmware path (Shelly, Tasmota-compatible, or Matter/local HA integration). Cloud-only units brick or stall when the vendor or WAN is down, which fights a local Home Assistant design.",
+    "pass": true
+  }
+]

@@ -1,98 +1,58 @@
 ---
 name: iot
-slug: iot
-version: 1.0.0
-description: Assist with IoT device setup, protocols, security hardening, and home automation integration.
-homepage: https://clawic.com/skills/iot
+description: >
+  Design, harden, and troubleshoot IoT devices and networks: protocol selection
+  (MQTT, CoAP, Zigbee, Thread/Matter, BLE, LoRa), ESP32/ESP8266 firmware choices,
+  power budgets, Home Assistant / ESPHome / Zigbee2MQTT / Tasmota integration,
+  and local-first security. Use when the user asks about sensors, brokers, mesh
+  radios, smart-home bridges, OTA updates, or IoT VLAN isolation. Not for pure
+  broker internals alone (`mqtt`), Zigbee mesh-only ops (`zigbee`), generic LAN
+  firewalling without devices (`firewall`), or Arduino non-IoT sketches
+  (`arduino`).
 metadata:
-  clawdbot:
-    emoji: 📡
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: IoT
+  version: "1.0.0"
+  openclaw: '{"emoji":"📡"}'
+  related-skills: '{"mqtt":"Broker, topic, QoS, TLS, and client-ID design when the work is MQTT-specific.","zigbee":"Zigbee mesh pairing, routing, and coordinator migration beyond multi-protocol IoT planning.","smart-home":"Hub and automation product choices when protocol selection is only one layer.","arduino":"General Arduino sketch and board work outside ESP/IoT deployment.","firewall":"Host or edge firewall rules once IoT VLAN and exposure decisions are set."}'
 ---
 
-## Protocol Selection
-- MQTT for lightweight messaging — pub/sub, low bandwidth, ideal for sensors
-- CoAP for constrained devices — UDP-based, REST-like, very low power
-- HTTP/REST for capable devices — familiar but heavier, use when bandwidth allows
-- WebSocket for real-time bidirectional — dashboards, live updates
-- Zigbee/Z-Wave for mesh networks — no WiFi needed, battery-friendly
+This skill is stateless and does not store local configuration or persistent user state. Keep inventories, credentials, and network diagrams in ordinary user files outside the skill package.
 
-## MQTT Essentials
-- Broker is the central hub — Mosquitto most common self-hosted
-- Topics are hierarchical — home/livingroom/temperature
-- QoS levels: 0 (fire-forget), 1 (at least once), 2 (exactly once)
-- Retain flag keeps last message — new subscribers get current state
-- Will message announces disconnection — device offline detection
+# IoT
 
-## Security (Critical)
-- Never expose MQTT broker to internet without auth — bots scan constantly
-- TLS mandatory for any external access — encrypt all traffic
-- Unique credentials per device — revoke one without affecting others
-- Firmware updates must be signed — prevent malicious updates
-- Segment IoT on separate VLAN — isolate from main network
+Cross-protocol guidance for Internet of Things devices: choose transports, harden brokers and firmware, plan power and reliability, and integrate with common local smart-home stacks without cloud lock-in.
 
-## Common Vulnerabilities
-- Default credentials left unchanged — first thing attackers try
-- Unencrypted protocols on network — credentials sniffable
-- No firmware update mechanism — stuck with known vulnerabilities
-- Cloud dependency without fallback — device useless when server down
-- Debug ports left enabled — UART, JTAG exposed
+## When to load
 
-## Home Assistant Integration
-- MQTT discovery auto-configures devices — follow HA format
-- ESPHome for custom ESP devices — YAML config, OTA updates
-- Zigbee2MQTT bridges Zigbee to MQTT — hundreds of devices supported
-- Tasmota for off-the-shelf flashing — many WiFi devices supported
+Load this skill when the request involves **devices + network + protocol tradeoffs**, for example:
 
-## ESP32/ESP8266 Development
-- Arduino framework most accessible — huge library ecosystem
-- ESP-IDF for production — FreeRTOS, more control, steeper curve
-- PlatformIO over Arduino IDE — better dependency management
-- Deep sleep for battery life — microamps when sleeping
-- OTA updates essential — don't require physical access
+- picking MQTT vs CoAP vs HTTP vs mesh radios for sensors
+- securing a self-hosted broker or IoT VLAN
+- ESP32/ESP8266 framework, deep sleep, or OTA design
+- Home Assistant, ESPHome, Zigbee2MQTT, or Tasmota integration paths
+- Matter/Thread coexistence with Wi-Fi and Zigbee
 
-## Power Management
-- Battery devices need deep sleep — wake on timer or interrupt
-- Calculate power budget — mAh capacity vs average consumption
-- Solar charging viable — small panel can sustain low-power sensors
-- Supercapacitors for burst power — supplement weak batteries
-- Monitor battery voltage — alert before device dies
+Prefer sibling skills when the problem is already narrowed: `mqtt` for broker-only work, `zigbee` for mesh-only ops, `firewall` for host firewall syntax, `arduino` for non-IoT MCU sketches.
 
-## Connectivity Patterns
-- WiFi: high bandwidth, high power — plugged devices
-- Zigbee/Z-Wave: mesh, low power — battery sensors
-- LoRa: long range, low bandwidth — outdoor, agricultural
-- BLE: short range, low power — wearables, beacons
-- Thread/Matter: new standard — Apple/Google/Amazon unified
+## Quick workflow
 
-## Reliability
-- Watchdog timer prevents freezes — reset if loop stalls
-- Persistent storage for state — survive power cycles
-- Heartbeat/ping monitoring — detect silent failures
-- Graceful degradation — work offline when cloud unavailable
-- Redundant sensors for critical systems — don't trust single point
+1. **Scope the device class** — battery vs mains, indoor vs outdoor, required latency/bandwidth, local-only vs cloud-assisted.
+2. **Pick the transport** — load `references/guides.md` § Protocol Selection and Connectivity Patterns.
+3. **Harden first** — authentication, TLS/mTLS where exposed, unique per-device credentials, signed firmware, IoT VLAN; see Security sections in `references/guides.md`.
+4. **Plan power and reliability** — deep sleep, watchdog, offline retention, heartbeat; avoid single-sensor critical paths.
+5. **Integrate locally** — Home Assistant MQTT discovery, ESPHome, Zigbee2MQTT, Tasmota; prefer local APIs over cloud-only vendors.
+6. **Verify sources** — version-sensitive claims (Matter revisions, chip variants) against URLs in `references/sources.md`.
 
-## Data Considerations
-- Sample rate vs storage — don't over-collect
-- Local processing when possible — reduce bandwidth, latency
-- Time synchronization critical — NTP for timestamps
-- Aggregate before sending — reduce message count
-- Retain important data locally — survive connectivity loss
+## Progressive disclosure
 
-## Debugging
-- Serial output for development — remove in production
-- MQTT debug topics — publish diagnostics
-- LED status indicators — quick visual feedback
-- Remote logging carefully — don't flood network
-- Simulate sensors for testing — don't wait for real conditions
+| Resource | When to load |
+|---|---|
+| `references/guides.md` | Protocol matrices, MQTT essentials, security, ESP power, HA integration, debugging, vendor lock-in |
+| `references/sources.md` | Official docs used for Gate 6 freshness (Matter, ESP-IDF, Mosquitto, HA, ESPHome, Z2M, Tasmota) |
+| `test-prompts.json` | Evaluation harness only; not loaded during normal execution |
 
-## Vendor Lock-in
-- Prefer local API devices — Tuya local, Shelly, Tasmota-compatible
-- Cloud-only devices risky — company shutdowns brick devices
-- Open protocols over proprietary — MQTT, Zigbee over custom
-- Check if flashable — many devices accept custom firmware
-- Matter promises interoperability — but still maturing
+## Safety boundaries
+
+- Treat device credentials, `.p8`/TLS keys, and broker passwords as secrets; examples use unmistakable placeholders only.
+- Prefer **local control paths** and segmented networks before exposing any broker or device management port.
+- Do not recommend disabling authentication, leaving debug UART/JTAG enabled in production, or shipping unsigned firmware updates.
+- Medical, industrial safety, or life-critical control loops need domain specialists; this skill covers consumer/homelab IoT patterns.
