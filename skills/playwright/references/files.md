@@ -85,6 +85,6 @@ Clipboard permissions are Chromium-specific; in Firefox and WebKit, assert the v
 
 ## File System Boundaries
 
-- Write only into `test.info().outputPath(...)` or the system temp dir. Never into the user's home, never into `~/Clawic/data/playwright/`.
+- Write only into `test.info().outputPath(...)` or the system temp dir. Never into the user's home, never into `<state_root>/`.
 - Generated fixtures belong in `.gitignore`; committed fixtures stay small and are checked for real content (a 0-byte PNG passes an upload and fails an assertion later).
 - Clean up in fixture teardown, after `use()`, so it runs even when the test fails.

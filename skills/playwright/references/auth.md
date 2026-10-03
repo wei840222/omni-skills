@@ -118,6 +118,6 @@ export const test = base.extend<{}, { account: Account }>({
 
 ## Handling Credentials
 
-- Read from `process.env`, injected by CI secrets. Never hardcoded, never in the repo, never in `~/Clawic/data/playwright/`.
+- Read from `process.env`, injected by CI secrets. Never hardcoded, never in the repo, never in `<state_root>/`.
 - Traces and videos capture typed values: mask password fields or set `trace: 'off'` for the auth setup project if the app echoes anything sensitive.
 - The test user is a real account with real permissions — scope it to a throwaway tenant, not to production data.
