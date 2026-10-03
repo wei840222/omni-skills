@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a React component that fetches user data from an API and displays it in a list.",
+    "expected": "Uses TanStack Query or native fetch with AbortController, not just useEffect+useState. Proper loading and error states.",
+    "actual": "UNVERIFIED in this repair environment: no model harness execution log. Structural expectation retained from Jules baseline; do not treat as empirical pass.",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "My component is rerendering on every keystroke in a large form, causing lag. How do I fix it?",
+    "expected": "Recommends uncontrolled inputs (React Hook Form) or moving state down. Doesn't blindly suggest useMemo/useCallback without Profiler evidence.",
+    "actual": "UNVERIFIED in this repair environment: no model harness execution log. Structural expectation retained from Jules baseline; do not treat as empirical pass.",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "Help me set up Playwright end-to-end tests for my marketing site.",
+    "expected": "Should NOT primarily route to react; prefer playwright/testing-browser skills. Near-miss for react.",
+    "actual": "UNVERIFIED runtime routing; description excludes pure E2E browser automation and points web component work to react only when components/hooks/state are the ask.",
+    "pass": false
+  }
+]
