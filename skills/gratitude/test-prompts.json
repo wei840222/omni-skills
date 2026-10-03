@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm grateful for the sunny weather today.",
+    "expected": "Log the entry 'sunny weather today' into the daily log for today under Morning or Evening.",
+    "actual": "I have logged 'sunny weather today' in your daily gratitude log. \n\nPath: `<state_root>/log/2026/10/03.md`",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I've had a really hard day and can't think of anything to be grateful for.",
+    "expected": "Offer gentle suggestions from references/capture.md such as 'What's something you usually take for granted?' or 'A small comfort you enjoyed?', without forcing positivity.",
+    "actual": "I'm sorry you had a hard day. Sometimes it's tough to find something when everything feels overwhelming. What's one small comfort you enjoyed today, or something you usually take for granted? Even something tiny counts, and it's also okay if you just want to rest without logging anything.",
+    "pass": true
+  }
+]

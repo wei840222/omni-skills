@@ -304,6 +304,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | grafana                      | 2026-09-01 | 85/100 (#207)                    |
 | grammar                      | 2026-08-16 | 84/100                           |
 | graphql                      | 2026-08-25 | 84/100                           |
+| gratitude                    | 2026-10-04 | 85/100 (#704)                    |
 | greece                       | 2026-08-28 | 85/100                           |
 | greek                        | 2026-09-06 | 85/100 (#282)                    |
 | grocery                      | 2026-08-23 | 97/100                           |
