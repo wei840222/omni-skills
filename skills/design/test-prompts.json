@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm designing a new landing page for a SaaS product. Give me a starting 60-30-10 color palette with a primary blue accent, and a type scale using ratio 1.25 from a 16px body.",
+    "expected": "Applies Core Rule 5 60-30-10 with one blue accent, tints neutrals ~2-5% with the accent, and emits the 1.25 ladder 16/20/25/31/39 without inventing a second competing accent.",
+    "actual": "Returns accent blue as ~10%, secondary muted support ~30%, surface/neutral ~60% tinted from the accent; type ladder 16/20/25/31/39; no second equal-saturation accent.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My form looks cluttered: full-width inputs, labels only as placeholders, and every field 10px apart. Critique it.",
+    "expected": "Loads references/critique.md and references/ui-screens.md; flags placeholder-as-label, equal 10px gaps destroying grouping, and full-width inputs; recommends labels above fields and base-8 spacing (8 label-to-field, 24 field-to-field).",
+    "actual": "Calls out placeholder-as-label trap, equal 10px spacing, and full-width inputs; recommends visible labels, base-8 proximity grouping, and input widths matched to expected content.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Convert this light marketing page to dark mode without just inverting colors.",
+    "expected": "Routes to references/dark-mode.md and references/palettes.md; lightens surfaces for elevation, desaturates accents 10-20%, uses ~87% white text, and re-runs contrast gates per theme instead of pure inversion.",
+    "actual": "Rejects pure inversion; rebuilds surfaces on a dark ramp, desaturates/lightens accents, sets body text near 87% white, and rechecks contrast and chart/illustration seams per theme.",
+    "pass": true
+  }
+]
