@@ -12,7 +12,7 @@ protocol behavior, product marketing claims, or platform policy.
 ## VPN privacy threat model
 
 - EFF Surveillance Self-Defense — Choosing the VPN That’s Right for You:
-  https://ssd.eff.org/module/choosing-vpn-thats-right-you  
+  https://ssd.eff.org/module/choosing-vpn-thats-right-you
   Takeaways: a VPN routes traffic through another network and can mask IP from
   sites and local network observers; the VPN operator sees traffic metadata the
   ISP no longer does; VPNs are not complete anonymity tools; payment and
@@ -21,13 +21,13 @@ protocol behavior, product marketing claims, or platform policy.
 
 ## WireGuard protocol and ports
 
-- WireGuard protocol & cryptography: https://www.wireguard.com/protocol/  
+- WireGuard protocol & cryptography: https://www.wireguard.com/protocol/
   Takeaway: all WireGuard packets are sent over **UDP**.
-- WireGuard conceptual overview: https://www.wireguard.com/  
+- WireGuard conceptual overview: https://www.wireguard.com/
   Takeaway: WireGuard securely encapsulates IP packets over UDP; examples show
   diverse endpoint UDP ports, not a single mandatory listener.
 - wireguard-tools `wg(8)` manual:
-  https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8  
+  https://git.zx2c4.com/wireguard-tools/about/src/man/wg.8
   Takeaways: `ListenPort` is optional; if omitted or `0`, a random port is
   chosen when the interface comes up; `PersistentKeepalive` may be set (e.g.
   25s) to refresh NAT mappings; example configs often show `51820` but that is
@@ -36,14 +36,14 @@ protocol behavior, product marketing claims, or platform policy.
 ## OpenVPN transport
 
 - OpenVPN 2.6 reference manual:
-  https://openvpn.net/community-resources/reference-manual-for-openvpn-2-6/  
+  https://openvpn.net/community-resources/reference-manual-for-openvpn-2-6/
   Takeaways: OpenVPN supports TCP or UDP tunnel transport; `--proto`
   selects `tcp` or `udp` (with optional `4`/`6` suffix); TCP profiles remain a
   documented fallback when UDP is blocked.
 
 ## PPTP historical status
 
-- IETF RFC 2637 (PPTP): https://datatracker.ietf.org/doc/html/rfc2637  
+- IETF RFC 2637 (PPTP): https://datatracker.ietf.org/doc/html/rfc2637
   Takeaway: PPTP is a 1999-era PPP-tunneling specification; do not treat it as
   a modern confidentiality baseline. Prefer WireGuard, OpenVPN TLS mode, or
   current platform IKEv2/IPsec guidance instead of PPTP for new setups.
