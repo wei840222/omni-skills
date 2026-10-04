@@ -48,7 +48,7 @@ Prefer sibling skills when the problem is already broader: `iot` for multi-proto
 |---|---|
 | `references/best-practices.md` | Security, QoS, topics, sessions, retained/will, Mosquitto knobs, debugging |
 | `references/sources.md` | Official MQTT / Mosquitto / HA docs used for Gate 6 freshness |
-| `test-prompts.json` | Evaluation harness only; not loaded during normal execution |
+| `test-prompts.json` | Evaluation harness only — do not load during normal user assistance |
 
 ## Operating rules
 
