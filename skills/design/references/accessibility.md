@@ -46,3 +46,11 @@ Design-time execution rules. A full WCAG audit with screen-reader passes belongs
 | `outline: none` for aesthetics | Keyboard users lose their position entirely | Styled focus ring, 2px, 3:1 against surroundings |
 | Meaning in hover-only tooltips | No touch or keyboard equivalent | Visible label or tap/focus-triggered disclosure |
 | Animation as the only state feedback | Invisible under reduced-motion | State also encoded in color/text/icon; motion is garnish |
+
+## Sources
+
+- W3C WCAG 2.2 Contrast (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+- W3C WCAG 2.2 Target Size (Minimum): https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
+- WebAIM Contrast: https://webaim.org/articles/contrast/
+- Material 3 Color system: https://m3.material.io/styles/color/system/overview
+- Apple HIG Layout: https://developer.apple.com/design/human-interface-guidelines/layout
