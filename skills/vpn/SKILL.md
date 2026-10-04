@@ -50,9 +50,12 @@ resolver policy that is not tunnel-bound.
 
 ## Progressive disclosure
 
+Keep detailed procedures in this entrypoint (original operational categories).
+Load supporting files only when needed:
+
 | Resource | When to load |
 |---|---|
-| `references/sources.md` | Citing WireGuard/OpenVPN/EFF or Agent Skills facts; Gate 6 freshness |
+| `references/sources.md` | Before citing WireGuard/OpenVPN/EFF or Agent Skills facts |
 | `test-prompts.json` | Evaluation harness only — do not load during normal assistance |
 
 ## Operating rules
