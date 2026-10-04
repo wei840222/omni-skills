@@ -1,70 +1,71 @@
 ---
 name: architect
-slug: architect
-version: 1.0.0
-description: Design buildings and spaces with principles of form, function, sustainability, and building codes.
-homepage: https://clawic.com/skills/architect
+description: >
+  Assist with architectural design of buildings and spaces: form/function,
+  circulation, site orientation, passive design, zoning/permit boundaries, and
+  client trade-offs. Use when users ask to design or plan buildings/spaces,
+  discuss architectural principles, or need conceptual massing and adjacency
+  guidance. Not for interior fit-out alone (interior-design), renovation
+  project management (home-renovation), visual UI/graphic design (design),
+  role-based IBC/professional practice depth (architecture), or reusable design
+  tokens (design-system).
 metadata:
-  clawdbot:
-    emoji: 🏛️
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Architect
+  version: "1.0.0"
+  openclaw: '{"emoji":"🏛️"}'
+  related-skills: '{"architecture":"Role-based code, licensure, and professional practice depth after conceptual design.","interior-design":"Room-level fit-out, materials, and staging after shell and adjacencies are set.","home-renovation":"Contractor bids, sequencing, and renovation project tracking.","design":"Visual hierarchy and critique when the need is graphic/UI, not building design.","home":"Household context and home-life constraints feeding residential design."}'
 ---
 
-# Architecture Assistance Rules
+## State location
 
-## Design Fundamentals
-- Form follows function — spaces serve purpose before aesthetics
-- Circulation defines experience — movement through space matters as much as the space itself
-- Natural light transforms everything — orientation affects mood, energy costs, and daily rhythm
-- Scale to the human body — ceiling heights, doorways, and furniture all relate to people using them
+Optional project notes may live under a host-resolved state root.
 
-## Space Planning
-- Ask about daily routines before drawing floor plans — usage patterns should drive layout decisions
-- Public to private gradient: entry flows to living flows to sleeping
-- Adjacencies reduce friction — kitchen near dining, bathroom accessible from bedrooms
-- Storage is always underestimated
+Before any state read or write, resolve `<state_root>` once per invocation:
 
-## Working with Clients
-- Clarify budget early — design within reality
-- Visual references (photos, Pinterest) establish shared vocabulary and prevent misunderstandings
-- Trade-offs must be explicit: bigger kitchen means smaller living room, period
-- Phased construction is valid when budget is limited — design for future expansion
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/architect/`, `<workspace>/memory/architect/`, `~/architect/`.
+3. If multiple candidates exist, keep only the highest-precedence directory, leave others untouched, and tell the user which location was selected.
+4. If none exists and persistent tracking is requested, default to `<workspace>/architect/` only when a host-provided workspace is available; otherwise request an explicit path.
 
-## Codes and Permits
-- Building codes vary by jurisdiction — always verify local requirements before proposing solutions
-- Zoning determines what's possible: setbacks, height limits, allowed uses
-- Permits required before construction — unpermitted work creates liability and resale problems
-- Historic districts add restrictions — research before proposing changes to existing buildings
+Use the selected `<state_root>` for every state path in this skill. Never write the literal string `<state_root>` to disk. Skill package files stay under `references/`; never write learned data into `SKILL.md`.
 
-## Sustainability
-- Passive design first: orientation, insulation, shading reduce energy needs before mechanical systems
-- Local materials reduce transport impact and usually fit context better
-- Lifecycle cost includes decades of operation — cheap construction with high energy bills isn't savings
+```text
+<state_root>/
+├── memory.md        # Active brief, decisions, open questions
+└── projects/        # Optional per-project notes after tracking is enabled
+```
 
-## Site and Context
-- Sun path analysis determines orientation — passive solar, daylighting, summer shading
-- Topography affects both design possibilities and construction cost
-- What to frame (views) vs what to screen (neighbors, roads)
-- Buildings exist in neighborhoods, climates, and cultures — context shapes appropriate solutions
+## When to use
 
-## Materials
-- Material properties constrain form — wood spans differ from steel differ from concrete
-- Climate affects choice: freeze-thaw cycles, humidity, UV exposure
-- Maintenance requirements vary dramatically — specify materials owners can actually maintain
-- Local availability affects cost and timeline
+Trigger for **building and space design** work:
 
-## Common Mistakes
-- Designing for photos rather than living — Instagram-worthy isn't always comfortable
-- Empty rooms deceive — always plan with furniture drawn to scale
-- Underestimating space for mechanical systems — HVAC ducts and plumbing need room
-- Trend-chasing over timelessness
+- conceptual massing, adjacencies, and public-to-private gradients
+- site orientation, daylight, passive design, and climate-aware layout
+- zoning/permit **boundaries** and when to involve licensed professionals
+- client trade-offs (budget, phased construction, expansion)
 
-## Presenting Ideas
-- Diagrams and concepts before detailed drawings — get alignment on approach first
-- Walk through the experience: "you enter here, turn, and see the garden through..."
-- Physical or 3D models help non-designers understand space far better than plans
-- Include cost implications at each decision point
+Bypass pure interior finishes (`interior-design`), contractor PM (`home-renovation`), visual/UI critique (`design`), and deep IBC/role practice (`architecture`).
+
+## Core workflow
+
+1. Classify the ask: concept, site, codes/permits boundary, materials, or presentation.
+2. Gather context: location/jurisdiction, site constraints, program/routines, budget tier, and what must remain.
+3. Load only the matching reference from the table below before detailed advice.
+4. Give one recommended path with explicit trade-offs; flag when permits, licensure, or engineers are required.
+5. Persist confirmed preferences only after the user opts into tracking under `<state_root>/`.
+
+## Reference guide
+
+| Topic | File | Load when |
+|-------|------|-----------|
+| Design rules and traps | `references/architecture-rules.md` | Before layout, site, or client trade-off advice |
+| Codes, zoning, permits | `references/codes-and-permits.md` | Jurisdiction, setbacks, historic districts, permit questions |
+| Domain sources | `references/sources.md` | Verifying code, passive design, or accessibility claims |
+| Project memory template | `references/memory-template.md` | Creating opted-in `<state_root>/memory.md` |
+
+## Scope and safeguards
+
+- Provide conceptual design and planning guidance; local adopted codes and licensed professionals control final compliance.
+- Ask for project location before jurisdiction-specific conclusions.
+- Structural, MEP, fire-life safety, accessibility compliance, and permit filings stay with qualified local professionals.
+- Keep purchasing, contracts, and construction means/methods with the user or authorized contractor.
