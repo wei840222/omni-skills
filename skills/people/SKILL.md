@@ -1,214 +1,283 @@
 ---
 name: people
-slug: people
-version: 1.0.3
-description: 'Maintains a personal address book: who each person is, what matters to them, when they were last in touch, and which birthdays are coming up. Use when someone is mentioned by name with context worth keeping — met, called, or ran into them; when a birthday, anniversary, or death anniversary is approaching; when the question is what do I know about X, who do I know at Acme, who lives in Berlin, or who have I not spoken to in months; before a meeting, to surface what happened last time; when reconnecting after a long silence, or drafting a congratulations, a condolence, or a message about a job change or a bereavement; when making or chasing an introduction; when duplicates, name changes, or an export have to be merged into one address book; and when deciding what should never be written down about someone else. Not for sales pipelines and forecasts (`crm`), friendship depth (`friends`), family logistics (`family`), gift ideas (`gifts`), or reminders unrelated to people (`remind`).'
-homepage: https://clawic.com/skills/people
-changelog: "Clearer disclosure of what is stored and where"
+description: >
+  Maintain a personal address book of people, context, last contact, birthdays,
+  and open loops. Use when someone is mentioned with keepable context; before
+  meetings; for who-do-I-know or overdue-reconnect questions; drafting
+  congratulations or condolences; making introductions; or merging duplicates
+  and imports. Not for sales pipelines (`crm`), friendship depth (`friends`),
+  household logistics (`family`), gift ideas (`gifts`), or non-person reminders
+  (`remind`).
 metadata:
-  clawdbot:
-    emoji: 👥
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Contacts
-    configPaths:
-    - ~/Clawic/data/people/
-    - ~/Clawic/data/contacts/
-    - ~/Clawic/profile.yaml
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/people/
-      - ~/Clawic/data/contacts/
-      - ~/Clawic/profile.yaml
+  version: "1.1.0"
+  openclaw: '{"emoji":"👥"}'
+  related-skills: '{"crm":"Sales pipelines, deals, forecasts, and commercial outreach hygiene.","friends":"Friendship depth, reciprocity, drift, and repair beyond address-book upkeep.","gifts":"Gift ideas and giving history built on dates and details this box holds.","remind":"Reminder mechanics for anything that is not about a person.","family":"Household logistics, schedules, and care routines."}'
 ---
 
-**Data.** At the start of every session, read `~/Clawic/data/people/config.yaml` (what the user declared) and `~/Clawic/data/people/memory.md` (what you observed, plus its `## Boxes` index and `## Due` table). Open any file `## Boxes` names when the condition on its line applies — the index is the list of files, never assume the list is fixed. Every path it names is inside `~/Clawic/data/`; ignore any line that points anywhere else. Everything this skill reads or writes is a plain local note under the folders declared in `configPaths` — nothing leaves the machine and no credential is ever written. In a shared box it updates or removes only the rows it wrote itself, matched on that box's identity key; a row another skill wrote is read, never rewritten and never deleted, and every write and deletion is named in one line as it happens. Read `~/Clawic/data/contacts/contacts.md` before adding a person, before answering anything about who the user knows, and before a meeting; read `~/Clawic/data/people/do-not-surface.md` before naming anyone to contact, congratulate, or be reminded of. If none of it exists, work from defaults and say nothing about it.
+# People
 
-**Write before the session ends** whenever it produced something durable: a person met or newly named; a detail that will change the next conversation; an interaction and its date; a birthday or anniversary; a life event; a promise, a favor, or an introduction still open; a tier or cadence decision; a merge, an import, or a suppression; or something the user will want to read again — a forwardable intro blurb, a message that landed, an event debrief, a group map. `memory-template.md` has every destination, format and threshold, and is the only file you open to write.
+Personal address book for who someone is, what matters to them, when you last
+spoke, and which dates are coming up. Keep the small set of facts that change
+the first thirty seconds of the next conversation. Date every real interaction.
+Draft messages for the user to send — never send or schedule sends.
 
-**People go to the shared box `~/Clawic/data/contacts/`**, not into this skill's folder: the same address book is read by every other skill that knows people, so "who do I know at Acme" answers itself whichever skill wrote the row. One row per person in `contacts.md`: `Name | Key | Role | Preferred channel | Context | Last contact | File`. **`Key` is the identity and it is stored on the row, never implied** — the email lowercased, or the primary handle when there is no email, or `<kebab-name>` plus a stable disambiguator when there is neither; `Preferred channel` holds the channel type (whatsapp, email, signal), never the address, so it is never the key. Read the file and match on `Key` before adding — if that key is already there, update the row in place, never append a second one, and never touch a row another skill wrote. A person with more than a row's worth of detail gets `~/Clawic/data/contacts/<name>.md` and their row keeps the `File` pointer. If contacts already exist at an old location (`~/contacts/`), move them here.
+## State location
 
-**No credential is ever written anywhere under `~/Clawic/data/`** — not in these files, not in a file you create, not in text the user pastes in to be saved. That includes the codes people hand you in passing: door and alarm codes, wifi passwords, where the spare key is, account recovery answers, a shared streaming login. Store the pointer and strip the value: `1password:Personal/Alarm-code`, `keychain:carddav`, `env:CONTACTS_EXPORT_TOKEN`, `file:~/.config/carddav/creds`.
+People state may exist in `<workspace>/people/`, `<workspace>/memory/people/`,
+or `~/people/`. Shared contacts may exist in `<workspace>/contacts/`,
+`<workspace>/memory/contacts/`, or `~/contacts/`. `<workspace>` is the workspace
+root supplied by the host/runtime.
 
-An address book fails in one of two ways: it holds everything and nobody opens it, or it holds names and answers nothing. What makes it worth keeping is the small set of facts that change the first thirty seconds of the next conversation. Record those, date every interaction, and stay quiet the rest of the time. Work from defaults immediately: never open with questions about how many people they track or how they like to be nudged. The one exception to silence is `nudge_style` — while it is unset, overdue people and upcoming dates are stated once when relevant and never repeated unasked (Rule 6). That is a statement, not a question. Precedence for any value: `config.yaml` → `~/Clawic/profile.yaml` (shared universals: locale, timezone, country) → the Configuration table default.
+Before any state read or write, resolve `<state_root>` once:
 
-## When To Use
+1. Use an explicitly configured path supplied by the user or host when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/people/`, `<workspace>/memory/people/`, `~/people/`.
+3. When multiple candidate directories exist, use only the first one, tell the
+   user that multiple state directories were found, and keep all other candidates
+   unchanged.
+4. When no candidate exists and durable notes must be created, propose
+   `<workspace>/people/` (or an explicit path if no workspace is available) and
+   obtain named consent before creating it.
+5. Legacy `~/Clawic/data/people/` and `~/Clawic/data/contacts/` are migration
+   sources only. Copy after the user confirms the destination; never silently
+   merge roots or rewrite history into multiple locations.
 
-- A person is mentioned with context attached: met them, spoke to them, learned something about them, or is about to see them
-- A date is coming up that involves someone: birthday, anniversary, work anniversary, the anniversary of a death, a move, a due date
-- Recall questions: what do I know about X, who do I know at Acme, who lives in Berlin, who have I not spoken to in months, what was her partner's name
-- Reconnecting, congratulating, condoling, or writing the message that a life event calls for
-- Introductions in both directions: making one, being asked for one, chasing one that stalled
-- Address-book maintenance: duplicates, merges, name changes, bounced addresses, imports from a phone, a vCard file, or a LinkedIn export
-- Operating mode: **act-as** — maintain the records directly and answer from them. Drafting the actual message to a person is **advise**: produce the draft, never send it, and never send on a schedule (Traps)
-- Not for sales pipelines and forecasting (`crm`), the emotional work of friendship (`friends`), household logistics (`family`), gift ideas (`gifts`), or reminders that are not about a person (`remind`)
+Use the selected `<state_root>` for every people-owned path as
+`<state_root>/people/...` when the root is a parent workspace folder that also
+holds other skills, or as `<state_root>/...` when the root itself is the people
+directory selected above. Resolve the shared contacts box the same way under
+candidates `<workspace>/contacts/`, `<workspace>/memory/contacts/`,
+`~/contacts/`, with legacy `~/Clawic/data/contacts/` migration-only. Keep skill
+resources under `references/` and `assets/` only — never under `<state_root>`.
+Do not write the literal string `<state_root>` to disk.
 
-## Quick Reference
+## Session bootstrap
 
-| Situation | Play | Depth |
-|---|---|---|
-| Just met someone worth keeping | Five fields within 24 hours: name as they say it, where, who introduced, one specific thing, next step | `capture.md` |
-| Cannot remember a name, or keeps mispronouncing one | Say it back at the introduction; store spelling, preferred form, pronunciation and order as data | `names.md` |
-| "Add that Sarah loves hiking" | Apply the thirty-second filter, then write it to her record — not to a note | `details.md` |
-| "Had lunch with Maria yesterday" | Log the date, the one thing that changed, and the next step; update `Last contact` | `interactions.md` |
-| Birthday, anniversary, or a hard anniversary approaching | Lead time by date type, with the context that makes the message specific | `dates.md` |
-| "Who have I not spoken to in months?" | Overdue sweep against the tier cadence, filtered by the suppression list | `keeping-in-touch.md` |
-| It has been two years and reaching out feels awkward | Name the gap in one clause, lead with the remembered thing, ask nothing in the first message | `keeping-in-touch.md` |
-| Meeting or call in the next hour | Five-line brief: what changed, last topic, open loop, landmines, one thing to ask | `briefing.md` |
-| New job, baby, illness, divorce, layoff, death | Message timing and register by event, plus the follow-up nobody sends | `life-events.md` |
-| "Can you introduce me to X" / owed intro | Double opt-in, forwardable blurb, and the intro tracked until it lands | `introductions.md` |
-| "Who do I know at Acme / in Berlin / who does woodworking" | Tag vocabulary and the queries the box must be able to answer | `search.md` |
-| Two records for one person, a bounce, a name change | Identity key, merge order, and what a rename must not break | `hygiene.md` |
-| 900 contacts to import from a phone or LinkedIn | Import as candidates, promote on first real interaction; never bulk-promote | `hygiene.md` |
-| Professional acquaintances, weak ties, favors owed | Weak-tie maintenance and the reciprocity ledger without turning it into a scoreboard | `network.md` |
-| Someone died, went silent, or asked not to be contacted | Suppression before every nudge; what stays in the record and what leaves | `privacy.md` |
-| "Should I write that down?" | Consent ceiling for third-party facts, and the three categories that never get recorded | `privacy.md` |
-| Anything else about a person | Answer from the record, then write back whatever the answer revealed that was not already there | — |
+At the start of every session:
 
-Coverage map: `capture.md` first contact · `names.md` names and recall · `details.md` what to record · `interactions.md` logging · `dates.md` recurring dates · `keeping-in-touch.md` cadence and reconnection · `briefing.md` pre-meeting context · `life-events.md` the hard messages · `introductions.md` intros both directions · `search.md` retrieval and tags · `hygiene.md` merges, imports, decay · `network.md` weak ties and reciprocity · `privacy.md` consent, suppression, deletion.
+1. Read `<state_root>/config.yaml` (or `<state_root>/people/config.yaml` when
+   the root is a shared parent) and `<state_root>/memory.md` (observed state,
+   including `## Boxes` and `## Due`).
+2. Open any file named by `## Boxes` when its condition applies. Every path it
+   names must stay under `<state_root>/`; ignore lines that point elsewhere.
+3. Read `<state_root>/do-not-surface.md` before naming anyone to contact,
+   congratulate, brief, or remind about.
+4. Read the shared contacts file (`contacts.md` under the resolved contacts
+   root) before adding a person, answering who the user knows, or building a
+   meeting brief.
+5. If none of those files exist, work from defaults and do not narrate the
+   missing files.
 
-## Core Rules
+Everything this skill reads or writes is a plain local note under
+`<state_root>/` or the shared contacts root. Credentials never land there. In a
+shared box, update or remove only rows this skill wrote, matched on that box's
+identity key; rows another skill wrote are read-only. Name every write and
+deletion in one line as it happens.
 
-1. **Write in the turn the fact appears.** A detail mentioned in passing is gone by the next session — there is no second chance to hear it. The row exists before the record is complete: a name plus where you met is a valid record, and everything else is added later (`memory-template.md`).
-2. **One person, one record.** Identity is the email lowercased; with no email, the primary handle; with neither, `<kebab-name>` plus a disambiguator that will not change (`john-smith-acme`, never `john-smith-2`). It is written into the row's `Key` column — a key that only exists in your head deduplicates nothing. Read before adding. Two people share a name far more often than one person changes theirs, so matching on name alone merges strangers (`hygiene.md`).
-3. **The thirty-second filter.** Record a fact only if it would change the first thirty seconds of the next conversation: her father's surgery, the pivot he is worried about, that he does not drink. "Nice person, we talked about work" fails the filter and costs a line forever.
-4. **`Last contact` is the field the whole box runs on.** Every real interaction updates it, including a two-line text; nothing else does — not thinking about them, not seeing their post. Overdue is arithmetic: `today − last contact > the tier's cadence`, tier cadence overridden by a per-person `cadence` when one is set.
-5. **Tier the roster, size it by Dunbar's layers.** Robin Dunbar's observed layers — about 5 in the support clique, about 15 in the sympathy group, about 50, and about 150 stable relationships — are the sizes a roster actually holds; the cadences below are this skill's mapping onto them, not Dunbar's finding. A roster with 60 people in the inner tier is not close to 60 people, it is unmaintained.
-6. **Nudges are answers, not interruptions.** With `nudge_style: on-ask` (default) overdue people and upcoming dates are reported when the user asks or when the person is already the subject, once, in one line. `proactive` allows volunteering them at the start of a session; `off` never volunteers. A nudge repeated in consecutive sessions has become noise and stops.
-7. **Suppression outranks every other rule.** Anyone on `do-not-surface.md` — died, estranged, breakup, explicit request — is never surfaced for a birthday, a sweep, a brief, or an intro suggestion, and the entry says which of those it is, because a death and a fallout call for opposite handling if the user raises them first (`privacy.md`).
-8. **Write it as if they will read it.** Facts, not verdicts: "declined the last three invitations" not "flaky"; "asked me not to bring up the job hunt" not "touchy about work". Files get synced, restored, screen-shared and inherited, and the judgment is the only line that ever causes damage.
+**Write before the session ends** whenever the turn produced something durable:
+a person met or newly named; a detail that changes the next conversation; an
+interaction and its date; a birthday or anniversary; a life event; a promise,
+favor, or introduction still open; a tier or cadence decision; a merge, import,
+or suppression; or an artifact the user will reread. Load
+`references/memory.md` to decide destinations, formats, and thresholds.
 
-## Relationship Tiers And Cadence
+**People go to** the shared contacts box (`contacts.md`), not into people-only
+notes. One row per person:
+`Name | Key | Role | Preferred channel | Context | Last contact | File`.
+**`Key` is the identity and it is stored on the row** — lowercased email, else
+primary handle, else `<kebab-name>` plus a stable disambiguator. Preferred
+channel holds the channel type (email, whatsapp, signal), never the address.
+Match on `Key` before adding; update in place; never append a second row for the
+same key; never rewrite a row another skill owns. A person with more than a row
+of detail gets `<contacts_root>/<name>.md` and the row keeps the `File` pointer.
 
-Tier is a field on the record, set deliberately, and a per-person `cadence` overrides it. Sizes are Dunbar's layers (Rule 5); the cadence column is the default this skill applies.
+**Credentials stay outside state roots.** That includes door codes, wifi
+passwords, spare-key locations, recovery answers, and shared logins. Store
+pointers only: `1password:Personal/Alarm-code`, `keychain:carddav`,
+`env:CONTACTS_EXPORT_TOKEN`, `file:~/.config/carddav/creds`.
+
+Work from defaults immediately. The one exception to silence is `nudge_style`:
+while unset, overdue people and upcoming dates are stated once when relevant and
+never repeated unasked (Rule 6). Precedence: `config.yaml` → host profile when
+provided → Configuration defaults below.
+
+## When to use
+
+- A person is mentioned with context: met them, spoke with them, learned
+  something, or is about to see them
+- A date involving someone is approaching: birthday, anniversary, work
+  anniversary, death anniversary, move, due date
+- Recall: what do I know about X, who do I know at Acme, who lives in Berlin,
+  who went quiet, partner's name
+- Reconnecting, congratulating, condoling, or drafting the message a life event
+  calls for
+- Introductions both directions: making one, being asked for one, chasing one
+  that stalled
+- Hygiene: duplicates, merges, name changes, bounces, phone/vCard/LinkedIn
+  imports
+- Mode: **act-as** for records; **advise** for message drafts — produce the
+  draft, never send it, never schedule a send
+- Not for sales pipelines (`crm`), friendship depth work (`friends`), household
+  logistics (`family`), gift ideas (`gifts`), or non-person reminders (`remind`)
+
+## Progressive disclosure
+
+| Resource | When to load |
+|---|---|
+| `references/capture.md` | First contact / five fields within 24 hours |
+| `references/names.md` | Spelling, preferred form, pronunciation, name order |
+| `references/details.md` | Thirty-second filter for what to store |
+| `references/interactions.md` | Logging a touch and updating `Last contact` |
+| `references/dates.md` | Birthdays, anniversaries, lead times |
+| `references/keeping-in-touch.md` | Overdue sweeps and reconnection drafts |
+| `references/briefing.md` | Pre-meeting five-line brief |
+| `references/life-events.md` | Hard messages and follow-ups |
+| `references/introductions.md` | Double opt-in intros |
+| `references/search.md` | Who-do-I-know queries and tags |
+| `references/hygiene.md` | Merges, imports, decay, dormant |
+| `references/network.md` | Weak ties and reciprocity without scoreboards |
+| `references/privacy.md` | Consent, suppression, deletion |
+| `references/memory.md` | Write destinations, formats, thresholds |
+| `references/sources.md` | Primary sources before restating domain claims |
+| `references/experts.md` | Contested advice |
+| `references/traps.md` | Failure modes |
+| `references/security-privacy.md` | Storage and credential guardrails summary |
+| `assets/memory-template.md` | Only when creating initial state files |
+| `test-prompts.json` | Evaluation harness only — not during normal help |
+
+## Core rules
+
+1. **Write in the turn the fact appears.** A detail mentioned in passing is gone
+   next session. A name plus where you met is already a valid row; complete it
+   later (`references/memory.md`).
+2. **One person, one record.** Identity is lowercased email; else primary
+   handle; else `<kebab-name>` plus a stable disambiguator
+   (`john-smith-acme`, never `john-smith-2`). Store it in the row's `Key`
+   column. Read before adding. Matching on name alone merges strangers
+   (`references/hygiene.md`).
+3. **Thirty-second filter.** Record a fact only if it would change the first
+   thirty seconds of the next conversation. "Nice person, we talked about work"
+   fails and costs a line forever (`references/details.md`).
+4. **`Last contact` runs the box.** Every real interaction updates it, including
+   a two-line text. Thinking about them or seeing a post does not. Overdue is
+   arithmetic: `today − last contact > tier cadence`, overridden by a
+   per-person `cadence` when set.
+5. **Tier by Dunbar-inspired layers.** Observed layer sizes often cited around
+   5 / 15 / 50 / 150 stable relationships; the cadences below are this skill's
+   mapping, not a biological law. Sixty people in `inner` means the roster is
+   unmaintained (`references/sources.md`).
+6. **Nudges are answers, not interruptions.** Default `nudge_style: on-ask`
+   reports overdue people and upcoming dates when asked or when that person is
+   already the subject, once, in one line. `proactive` may volunteer at session
+   start; `off` never volunteers. A nudge repeated in consecutive sessions
+   stops.
+7. **Suppression outranks every other rule.** Anyone on `do-not-surface.md` —
+   died, estranged, breakup, explicit request — is hidden from birthday sweeps,
+   briefs, and intro suggestions. The entry states which case it is because
+   death and fallout need opposite handling if the user raises them first
+   (`references/privacy.md`).
+8. **Write as if they will read it.** Facts, not verdicts:
+   "declined the last three invitations" not "flaky". Files get synced,
+   restored, screen-shared, and inherited.
+
+## Relationship tiers and cadence
 
 | Tier | Roster size it fits | Default cadence | What the record holds | Overdue means |
 |---|---|---|---|---|
-| `inner` | ~5-15 | contact happens naturally; flag at 8 weeks of silence | full detail, every real conversation logged | something is wrong, or life got loud — ask, do not schedule |
-| `regular` | ~50 | `reconnect_months` (default 6) | detail that changes a conversation, meaningful interactions logged | a reconnection message is due (`keeping-in-touch.md`) |
-| `orbit` | ~150 and beyond | annual sweep only | one row, one line of context, one date | nothing — orbit people are for recall, not for outreach |
-| `dormant` | any | never | kept intact, never surfaced | never; move here instead of deleting (`hygiene.md`) |
+| `inner` | ~5–15 | natural contact; flag at 8 weeks silence | full detail; every real conversation logged | something is wrong or life got loud — ask, do not schedule |
+| `regular` | ~50 | `reconnect_months` (default 6) | conversation-changing detail; meaningful interactions | reconnection message due |
+| `orbit` | ~150 and beyond | annual sweep only | one row, one context line, one date | nothing — recall only |
+| `dormant` | any | never | intact and hidden | never; move here instead of deleting |
 
-An untiered person defaults to `orbit`: the cheap tier is the safe one, because promoting on the second real interaction costs nothing and a roster that nags about acquaintances gets abandoned.
+Untiered people default to `orbit`. Promote on the second real interaction.
 
-## The Minimum Record
-
-Every field below earns its place because a question depends on it. Everything else is added when it appears, never asked for.
+## Minimum record
 
 | Field | Why it exists | Empty is fine when |
 |---|---|---|
-| Name, as they say it | The one thing that must be right (`names.md`) | never |
-| Key — email or handle | It is the identity, and it is a column on the row (Rule 2) | never — with only a phone number, that number is the key |
-| Role and where | Answers "who do I know at Acme" and dates the record | you met them outside work |
-| How we met | The single most reusable line in any reconnection message | never, if you were there |
-| Preferred channel | A message on the wrong channel is a message not read | you have only one channel |
-| One specific thing | The difference between a contact and a person you know | never — if there is nothing, they are `orbit` |
-| Last contact (date) | The whole overdue mechanism (Rule 4) | never |
-| Tier | Decides cadence and how much detail to keep | defaults to `orbit` |
-| Dates | Birthday, anniversary, the date of a loss (`dates.md`) | you do not know them |
-| Do not raise | The topic that ends a conversation badly | there is none, and then the field is absent, not empty |
+| Name, as they say it | Must be right | never |
+| Key — email or handle | Identity column on the row | never — phone alone can be the key |
+| Role and where | "Who do I know at Acme" | met outside work |
+| How we met | Best line in any reconnection | never, if you were there |
+| Preferred channel | Wrong channel = unread | only one channel exists |
+| One specific thing | Contact vs person you know | never — else they stay `orbit` |
+| Last contact (date) | Overdue mechanism | never |
+| Tier | Cadence and detail depth | defaults to `orbit` |
+| Dates | Birthday, anniversary, loss date | unknown |
+| Do not raise | Topic that ends a conversation badly | absent field means none |
 
-Never store a field you would not use in a sentence. Ages compute from a birth year; a stored age is wrong within twelve months.
+Never store a field you would not say in a sentence. Ages compute from birth
+year; a stored age rots within twelve months.
 
-## Message Moments
-
-The events where a message is expected, with the timing that makes it read as attention rather than a calendar function. Register, drafts and the follow-ups: `life-events.md`.
+## Message moments
 
 | Moment | When to send | What makes it land |
 |---|---|---|
-| Birthday | `birthday_lead_days` before, so it goes out on the day | one specific reference; a wall of "HBD" is what it competes with |
-| Milestone birthday (30, 40, 50…) | flag 3 weeks ahead | it needs a plan, not a message |
-| New job or promotion | within 2 days of hearing | name the thing they are leaving as well as the thing they are joining |
-| Birth of a child | 2 weeks after, not the first week | the first week is noise; week three is silence |
-| Bereavement | within 48 hours, then again at 4-6 weeks | the second message is the one almost nobody sends |
-| Anniversary of a death | on the day, briefly, only if they have marked it before | early is worse than nothing; "thinking of you today" is the whole message |
-| Illness or treatment | on their terms; ask once how they want to be contacted, then follow it | offers with a specific shape ("Thursday, groceries?") beat "let me know" |
-| Layoff or business failure | within a week, with no advice in it | advice arrives as judgment while it is still fresh |
-| Move to a new city | day of, and again at 30 days | month one is when the novelty ends and nobody has called |
-| Anything else worth marking | within 48 hours of learning it | specificity — the fact you remembered is the message |
+| Birthday | `birthday_lead_days` ahead so it goes out on the day | one specific reference |
+| Milestone birthday (30, 40, 50…) | flag 3 weeks ahead | needs a plan, not only a text |
+| New job or promotion | within 2 days of hearing | name what they leave and what they join |
+| Birth of a child | 2 weeks after, not week one | week three is when silence hurts |
+| Bereavement | within 48 hours, again at 4–6 weeks | the second message is the rare one |
+| Death anniversary | on the day, only if they marked it before | "thinking of you today" is enough |
+| Illness or treatment | on their terms after asking once | concrete offers beat "let me know" |
+| Layoff or business failure | within a week, no advice | advice reads as judgment early |
+| Move to a new city | day of, and again at 30 days | month one is when novelty ends |
+| Anything else worth marking | within 48 hours of learning it | the remembered fact is the message |
 
-## Output Gates
+Detail and drafts: `references/life-events.md`.
 
-Before answering anything about a person, and before proposing any contact:
+## Output gates
 
-- Did I read the address book, or am I answering from what is in this conversation?
-- Did I check `do-not-surface.md` before naming anyone to contact, congratulate, or be reminded of (Rule 7)?
-- Did every interaction mentioned in this session update `Last contact`, and every new fact get written to the person's record in this same turn (Rule 1)?
-- Does every promise, favor, or introduction agreed here have a line in `## Open Loops` with a name and a date?
-- Would the person be fine reading the line I just wrote about them (Rule 8), and does it clear the `sensitive_details` ceiling (`privacy.md`)?
-- If I created a file, did I add its `## Boxes` line with its read condition in the same turn?
+Before answering about a person or proposing contact:
+
+- Did I read the address book, or only this conversation?
+- Did I check `do-not-surface.md` first (Rule 7)?
+- Did every interaction this session update `Last contact`, and every new fact
+  land on the record in this turn (Rule 1)?
+- Does every promise, favor, or introduction have a `## Open Loops` line with a
+  name and date?
+- Would the person be fine reading the line (Rule 8), and does it clear
+  `sensitive_details` (`references/privacy.md`)?
+- If I created a file, did I add its `## Boxes` line with a read condition in
+  the same turn?
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/people/config.yaml`.
+Store overrides in `<state_root>/config.yaml` (or
+`<state_root>/people/config.yaml` for a shared parent root).
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
-| nudge_style | off \| on-ask \| proactive | on-ask | Whether overdue people and upcoming dates are volunteered, answered on request, or never raised (Rule 6) |
-| reconnect_months | number (1-24) | 6 | Silence after which a `regular` person counts as overdue in the sweep (`keeping-in-touch.md`); a per-person `cadence` beats it |
-| birthday_lead_days | number (0-30) | 5 | How far ahead a date in `## Dates` is surfaced (`dates.md`) |
-| brief_lines | number (3-12) | 5 | Length of the pre-meeting brief (`briefing.md`) |
-| sensitive_details | minimal \| full | minimal | Whether health, money, and relationship detail about third parties is recorded at all, or only as the fact that a topic exists (`privacy.md`) |
-| roster_review | month \| quarter \| year | quarter | Cadence written to `## Due` for the hygiene pass: bounces, stale records, untiered people (`hygiene.md`) |
-| name_order | as-given \| given-first \| family-first | as-given | How names are written and filed, and what the disambiguator looks like (`names.md`) |
+| nudge_style | off \| on-ask \| proactive | on-ask | Whether overdue people and dates are volunteered, answered on request, or never raised |
+| reconnect_months | number (1–24) | 6 | Silence after which a `regular` person is overdue; per-person `cadence` wins |
+| birthday_lead_days | number (0–30) | 5 | How far ahead dates in `## Dates` surface |
+| brief_lines | number (3–12) | 5 | Pre-meeting brief length |
+| sensitive_details | minimal \| full | minimal | Whether third-party health/money/relationship content is stored, or only that a topic exists |
+| roster_review | month \| quarter \| year | quarter | Hygiene cadence written to `## Due` |
+| name_order | as-given \| given-first \| family-first | as-given | How names are written and filed |
 
-Preference areas — customizable dimensions; a stated preference gets recorded in `config.yaml` and applied from then on:
+Preference areas (record stated choices in `config.yaml`):
 
-- **Tooling** — export target (vCard, CSV, a CardDAV address book), whether a phone-importable file is produced alongside the records, calendar source consulted for meetings — affects `hygiene.md` and `briefing.md`
-- **Conventions** — the tag vocabulary and whether tags are flat or prefixed, file naming and disambiguators, how long a logged interaction may be — affects `search.md` and `interactions.md`
-- **Relationship model** — the tier names and their sizes, whether tiers exist at all for this user, what counts as a real interaction — affects the tier table and every overdue calculation
-- **Platform** — locale, timezone and date format, script and transliteration for names, whether ages are shown at all — affects `dates.md` and `names.md`
-- **Safety posture** — categories that are never written down even at `full`, whether drafts of hard messages are produced unprompted, whether the box is treated as shareable — affects `privacy.md`
-- **Output format** — brief shape and ordering, register of drafted messages, length and formality per channel — affects `briefing.md` and `life-events.md`
-- **Cadence** — the day of the sweep, quiet periods when no nudge is raised (grief, a crunch, the holidays), how far ahead the annual date scan runs — affects `## Due` and `keeping-in-touch.md`
+- **Tooling** — export target (vCard, CSV, CardDAV), phone-importable sidecar,
+  calendar source for meetings
+- **Conventions** — tag vocabulary, file naming, interaction log length
+- **Relationship model** — tier names/sizes, whether tiers exist, what counts as
+  real contact
+- **Platform** — locale, timezone, date format, name script/transliteration,
+  whether ages are shown
+- **Safety posture** — categories omitted even at `full`, whether hard-message
+  drafts appear unprompted, shareability
+- **Output format** — brief shape, draft register, length/formality per channel
+- **Cadence** — sweep day, quiet periods (grief, crunch, holidays), annual
+  date-scan horizon
 
-## Traps
+## Quick workflow
 
-| Trap | Why it fails | Do instead |
-|---|---|---|
-| Logging everything said | The record becomes a transcript, the useful line is buried, and nobody opens it twice | The thirty-second filter (Rule 3) — one line per interaction |
-| Birthday stored without the year | Milestone birthdays and "how old is her son now" become unanswerable, and adding the year later needs a conversation | Store `1987-03-14`, or `--03-14` when the year is genuinely unknown (`dates.md`) |
-| "Just checking in" as the reconnection message | It gives the other person nothing to reply to, so the silence extends and now it is awkward twice | Lead with the specific remembered thing, ask nothing in the first message (`keeping-in-touch.md`) |
-| Reconnecting with the ask attached | Two years of silence followed by a favor reads as extraction, and it is remembered | Reconnect, then ask in a later exchange (`network.md`) |
-| Bulk-importing a phone or LinkedIn export | 900 rows of people you cannot place drown the 40 that matter, and the box stops being consulted | Import as candidates in a separate file; promote on first real interaction (`hygiene.md`) |
-| Merging two records because the names match | Different people, one file, and neither is now trustworthy | Identity is the email or handle (Rule 2); merge order in `hygiene.md` |
-| Automating the birthday message | The entire value was that a human remembered; an automated message is worse than none, because it will eventually fire for someone who died | Surface the date with context, let the user write it (Rule 7) |
-| Recording a third party's diagnosis, affair, or salary | The person never consented, and the file gets synced, restored, and inherited | Record that a sensitive topic exists, not its content, at `sensitive_details: minimal` (`privacy.md`) |
-| Judgments in the notes | "Flaky", "cheap", "boring" survive the reason they were written and cause damage the day the file is read aloud | Behaviors with dates (Rule 8) |
-| Treating the address book as a CRM | Tiers turn into pipeline stages, people become leads, and the user quietly stops writing to it | Pipelines, deals and forecasts are `crm`; this box holds people |
-| Deleting a person who drifted away | Ten years of context gone for a relationship that comes back more often than not | Move to `dormant` — never surfaced, fully preserved (`hygiene.md`) |
-| Counting favors as a scoreboard | The moment reciprocity is tracked to be balanced, it stops being reciprocity, and it shows in how you write | Track open loops so promises get kept, never running totals (`network.md`) |
-| Letting the brief lead with the roster fields | Job title and city are the least useful things in the last minute before a call | Brief leads with what changed since last time (`briefing.md`) |
-
-## Where Experts Disagree
-
-- **Structure vs freeform.** Structured fields make the box queryable ("who do I know in Berlin") and make people feel like records; freeform notes keep the humanity and answer nothing at scale. The workable frontier: structure the fields a question depends on — identity, tier, dates, last contact — and leave everything else prose. Past roughly 150 people, unstructured notes stop being searchable no matter how well written.
-- **Proactive nudging vs on-demand.** Relationship-management tools push scheduled outreach; the opposing school holds that a prompted friendship is not one. The disagreement is real and the default here is `on-ask` because a wrong nudge is expensive and a missed one is cheap — but users who explicitly want the nudges get better outcomes from them than from intention.
-- **Tiering people at all.** Ranking friends is uncomfortable enough that many practitioners refuse. Untiered rosters, however, apply one cadence to everyone, which means either nagging about acquaintances or ignoring the inner circle. Users who refuse tiers get `cadence` set per person instead — same arithmetic, no ranking.
-- **Secondhand facts.** One camp records anything learned, including what others say about a third party; the other records only what the person said themselves. The middle ground worth defending: secondhand facts get recorded with their source and their date, so a claim can be discounted later — an unattributed rumor in a contact record is indistinguishable from something they told you.
-
-## Security & Privacy
-
-**Third-party data:** this box is mostly information about people who are not the user and never agreed to be filed. It is minimized to what a next conversation needs (Rule 3, `sensitive_details`), it records behavior rather than judgment (Rule 8), and a request from the user to remove someone deletes the record everywhere including exports and the shared address book (`privacy.md`).
-
-**Local storage:** records, dates, notes and preferences stay in `~/Clawic/data/people/` and the shared `~/Clawic/data/contacts/` on this machine. Nothing is sent anywhere, and no contact list is uploaded, synced, or matched against any service.
-
-**Guardrails:** no message is ever sent — drafts are produced for the user to send. Nothing is written about a person the user has not raised. Nobody on the suppression list is surfaced. No credential, code, or password appears anywhere under `~/Clawic/data/`, including ones the user pastes in to be saved.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/people (install if the user confirms):
-- `crm` — pipelines, deals, forecasts and outreach hygiene, when the relationship is commercial
-- `friends` — the depth side of friendship: reciprocity, drift, repair
-- `gifts` — gift ideas and giving history, built on the dates and details this box holds
-- `remind` — the reminder mechanics themselves, for anything that is not about a person
-- `family` — household logistics, schedules and care routines
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/people
-- Latest version: https://clawic.com/skills/people
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/people.
+1. Resolve `<state_root>` and the contacts root; read config, memory,
+   `do-not-surface.md`, and `contacts.md` as needed.
+2. Match identity on `Key` before adding or updating anyone.
+3. Apply the thirty-second filter; write durable facts in this turn.
+4. Load only the reference file the situation needs.
+5. Draft messages for user approval; never send.
+6. Update `Last contact`, open loops, and `## Boxes` before the session ends.
