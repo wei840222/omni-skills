@@ -1,6 +1,6 @@
 # Memory Template — Atlassian Cloud APIs + CLIs
 
-Create `~/Clawic/data/atlassian/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Atlassian Memory
@@ -28,7 +28,7 @@ integration: pending | done | declined
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
@@ -37,9 +37,9 @@ integration: pending | done | declined
 | `paused` | User does not want more setup right now | Work with current context only |
 | `never_ask` | User wants zero proactive setup questions | Never reopen setup unless they ask |
 
-## Key Principles
+## Key principles
 
-- Never store tokens, keys, passwords, session cookies, or secrets
+- Keep tokens, keys, passwords, session cookies, and secrets out of this file
 - Save product scope and only the IDs the user explicitly wants remembered
 - Prefer natural-language notes over config-style switches
-- Update `last` each time the skill is used
+- Update `last` each time durable defaults change

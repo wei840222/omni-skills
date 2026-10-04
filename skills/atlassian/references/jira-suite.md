@@ -57,7 +57,7 @@ curl -s "https://<site>.atlassian.net/rest/servicedeskapi/request" \
 - Transition actions use transition IDs or status mappings, not free-form status text.
 - Agile entities like boards and sprints are not in Platform REST v3.
 - JSM permissions can differ sharply from plain Jira project permissions.
-- Pagination uses `startAt` and `maxResults`; do not assume full result sets.
+- Pagination uses `startAt` and `maxResults`; expect partial pages until pagination is exhausted.
 - Search and mutation permissions are project- and role-dependent even with valid auth.
 
 ## Official Docs
