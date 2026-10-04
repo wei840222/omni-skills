@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this SaaS landing hero: huge gradient background, five competing CTAs, three display fonts, and body text at #777 on #fff. Tell me if it looks good and how we should calibrate if I disagree.",
+    "expected": "Agent loads visual + learning references, flags hierarchy/CTA/type/contrast issues, gives a provisional verdict with reasons, asks a calibration question, and mentions storing disagreement under <state_root>/.",
+    "actual": "Provisional verdict: weak taste execution despite energetic styling. Signals: (1) five CTAs fight for rank-1 focus—pick one primary action; (2) three display fonts read as committee collage—cap at one family or two with clear roles (references/visual.md); (3) #777 on #fff is about 4.5:1 borderline and often fails real rendering—prefer darker body near #111–#1a1a1a for AA comfort (WCAG 1.4.3); (4) full-bleed gradient is decorating before hierarchy is solved. I checked references/visual.md and references/learning.md. Calibration question: do you want radical restraint (more whitespace, one CTA) or bold marketing maximalism on purpose? If you disagree, I will record the correction under <state_root>/corrections/visual/ and extract a pattern into <state_root>/patterns/ rather than defend this call.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I disagreed with your last note that my homepage copy was 'too salesy'. I actually want punchy, direct marketing language. Update how you judge my writing.",
+    "expected": "Agent accepts correction without defense, extracts a reusable pattern, and writes correction/pattern/calibration updates under <state_root>/ using learning.md.",
+    "actual": "Correction accepted—no defense of the prior 'too salesy' label. Gap type: human-specific preference, not a universal prose law. Pattern hypothesis: In homepage/marketing context for this user, prefer punchy direct marketing language over understated or anti-sales tone (references/learning.md). I will store the episode in <state_root>/corrections/writing/, write the pattern into <state_root>/patterns/, note the preference in <state_root>/preferences/writing/, and lower confidence on anti-hype defaults for this domain in <state_root>/calibration.md until more samples agree. Confirm: should blog posts stay punchy too, or only paid/homepage surfaces?",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Give me a full 60-30-10 palette, type scale from 16px at 1.25, and spacing system for a dashboard. Also rate whether the vibe is tasteful.",
+    "expected": "Agent recognizes quantified design-system work belongs to design skill; may offer a brief taste lens but hands off execution to design rather than inventing a parallel system inside taste.",
+    "actual": "Taste can comment on restraint and hierarchy once a direction exists, but a full 60-30-10 palette, 1.25 type scale, and spacing system is design execution—not taste calibration. Hand off to `design` for the quantified system (and `color`/`typography` if you need deep tokens). If you only need a taste check after that system exists, return with samples and I will judge hierarchy/restraint and store preferences under <state_root>/.",
+    "pass": true
+  }
+]
