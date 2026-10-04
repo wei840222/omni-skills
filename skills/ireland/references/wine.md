@@ -19,15 +19,15 @@ Ireland is not a major wine-producing destination, so the best value is in stron
 
 - Distillery visits are often the highest-value beverage experience in Ireland.
 - Book timed tours early in peak months.
-- Pair distillery visits with neighborhood food plans to avoid rushed schedules.
+- Pair distillery visits with neighborhood food plans to maintain a relaxed schedule.
 
 ## Planning Tips
 
-- Do not overbook tastings on driving days.
+- Keep tasting schedules light on driving days.
 - If combining pubs and tastings, decide in advance who is not driving.
 - Compare standard vs premium tasting tiers before booking.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Expecting wine-region style routes similar to continental Europe.
 2. Booking back-to-back tastings with no meal buffer.

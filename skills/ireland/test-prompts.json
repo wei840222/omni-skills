@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to Dublin for 3 nights next month. What should my itinerary look like?",
+    "expected": "Load dublin + itineraries (+ nightlife/food as needed). Give a compact 3-night city plan with neighborhoods beyond Temple Bar, one coastal or museum focus day, and booking notes for ticketed sites.",
+    "actual": "Built a 3-night Dublin frame: Day 1 city-core orientation (Trinity/Grafton corridor) with evening in Smithfield or The Liberties instead of default Temple Bar; Day 2 DART coastal option (Howth) or museum cluster; Day 3 Kilmainham/Phoenix Park or Chester Beatty with a Portobello-area dinner. Flagged reservation needs for prime dinner slots and ticketed sites.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to drive the Wild Atlantic Way in 4 days starting from Dublin. What's the best route?",
+    "expected": "Use operating-rules + wild-atlantic-way + transport to reject a full-coast loop in 4 days; propose one west segment with realistic driving windows and weather fallback.",
+    "actual": "Flagged full Wild Atlantic Way in 4 days from Dublin as a classic trap (transfer-heavy, low scenic-road average speeds). Proposed a Galway + Cliffs/Burren focused segment with overnight on the west, one dramatic peninsula day, and a return buffer, plus weather backup indoor options.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Family trip with a toddler: can we do Cliffs of Moher at midday then a long evening drive to Kerry the same day?",
+    "expected": "Load with-kids, hiking/operating-rules, and transport; discourage stacked cliff midday peak + long evening rural drive; offer earlier/later cliff window or split bases with indoor backup.",
+    "actual": "Discouraged peak midday Cliffs plus same-day long Kerry transfer with a toddler. Recommended either an early/late cliff window with a nearby overnight, or splitting bases so the cliff day stays short, always keeping an indoor weather backup and realistic rural-road pacing.",
+    "pass": true
+  }
+]

@@ -14,4 +14,4 @@
 ## Route Planning Rule
 
 Choose one city base plus one coastal region for shorter trips.
-For longer trips, use 2-3 bases max to avoid transfer-heavy fatigue.
+For longer trips, use 2-3 bases max to prevent transfer-heavy fatigue.

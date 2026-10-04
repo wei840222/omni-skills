@@ -21,7 +21,7 @@
 | Autumn | Great balance of atmosphere and lower pressure |
 | Winter | Strong city-culture and pub-focus trips |
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Scheduling every day as weather-perfect.
 2. Using one fixed plan with no alternatives.

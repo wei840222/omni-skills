@@ -34,7 +34,7 @@
 - LUAS (tram) is efficient for cross-city hops.
 - Taxis are easy but surge during event nights.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Spending every night only in Temple Bar.
 2. Packing too many ticketed sites in one day.

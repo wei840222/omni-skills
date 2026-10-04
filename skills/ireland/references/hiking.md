@@ -22,7 +22,7 @@ Pick hikes by current conditions, footwear readiness, and time budget, not just 
 - Start earlier than expected for longer routes.
 - Turn back when visibility or footing conditions degrade.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Casual shoes on muddy or rocky routes.
 2. Ignoring changing weather in open terrain.

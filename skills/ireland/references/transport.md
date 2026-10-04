@@ -20,7 +20,7 @@
 - TFI tools and journey planners improve day-to-day routing.
 - Use live-departure apps for current disruptions.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Overestimating daily mileage possible on scenic roads.
 2. Booking tight transfer windows before fixed tours.
