@@ -32,3 +32,8 @@ Milan is Italy's financial and commercial center, with strong access to legal se
 - Porta Nuova and central business corridors for corporate proximity.
 - CityLife for modern office infrastructure.
 - Outer districts for lower operating cost if client-facing centrality is lower.
+
+## Sources (Gate 6)
+- Agenzia delle Entrate — tax and business registration: https://www.agenziaentrate.gov.it/portale/web/english
+- InfoCamere / Registro Imprese: https://www.registroimprese.it/
+- Ministero delle Imprese e del Made in Italy: https://www.mimit.gov.it/

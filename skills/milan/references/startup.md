@@ -33,3 +33,8 @@ Milan has Italy's strongest concentration of startups, VC activity, corporate in
 - Ignoring unit economics while chasing visibility.
 - Over-indexing on events instead of customer calls.
 - Choosing expensive office footprint too early.
+
+## Sources (Gate 6)
+- Italian Startup Act overview via MIMIT: https://www.mimit.gov.it/
+- Assolombarda innovation network: https://www.assolombarda.it/
+- YesMilano business / innovation pages: https://www.yesmilano.it/en

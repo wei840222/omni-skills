@@ -48,3 +48,10 @@ Milan has one of Italy's best urban transport systems, with integrated metro, tr
 - Not validating paper tickets.
 - Choosing accommodation without checking real commute time.
 - Overusing taxis in peak congestion windows.
+
+## Sources (Gate 6)
+- ATM Milano official site — network, tickets, validation: https://www.atm.it/en/Pages/default.aspx
+- Comune di Milano Area C — access rules and payments: https://www.comune.milano.it/aree-tematiche/mobilita/area-c
+- Trenitalia — national rail connections: https://www.trenitalia.com/en.html
+- Milano Malpensa Airport — access and transfers: https://www.milanomalpensa-airport.com/en/
+- Milano Linate Airport — access and transfers: https://www.milanolinate-airport.com/en/

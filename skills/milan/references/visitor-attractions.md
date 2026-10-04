@@ -50,3 +50,9 @@
 - During Design Week and Fashion Week, reserve everything earlier than usual.
 
 *Last updated: February 2026. Prices are approximate and vary by season and event weeks.*
+
+## Sources (Gate 6)
+- Veneranda Biblioteca Ambrosiana / Cenacolo Vinciano booking channel guidance: https://cenacolovinciano.org/en/
+- Duomo di Milano official tickets: https://www.duomomilano.it/en/
+- Comune di Milano tourism: https://www.yesmilano.it/en
+- Pinacoteca di Brera: https://pinacotecabrera.org/en/

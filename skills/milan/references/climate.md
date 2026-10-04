@@ -30,3 +30,7 @@ Milan has four distinct seasons with hot summers, colder winters, and frequent s
 1. Bring layers year-round.
 2. Keep waterproof option in spring and autumn.
 3. Include comfortable walking shoes for long urban routes.
+
+## Sources (Gate 6)
+- Aeronautica Militare meteorological service: https://www.meteoam.it/
+- ARPA Lombardia air quality: https://www.arpalombardia.it/

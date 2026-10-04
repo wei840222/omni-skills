@@ -32,3 +32,7 @@ Milan has strong university presence, diverse private and public school options,
 1. Define language and curriculum goal first.
 2. Map school route to daily commute.
 3. Budget for full annual cost, not only tuition.
+
+## Sources (Gate 6)
+- Ministero dell'Istruzione e del Merito: https://www.miur.gov.it/
+- Study in Italy portal: https://studyinitaly.esteri.it/

@@ -31,3 +31,9 @@ Milan is Italy's top private-sector tech and digital jobs hub, with strongest de
 1. Target firms by compensation band, not only brand name.
 2. Clarify remote and hybrid expectations early.
 3. Map commute before accepting offers tied to specific districts.
+
+## Sources (Gate 6)
+- ISTAT labour market statistics: https://www.istat.it/en/
+- Assolombarda — Milan business ecosystem: https://www.assolombarda.it/
+- Italian Tech / startup ecosystem reporting should be verified against current employer offers; treat salary bands as indicative ranges only.
+- Official public employment / contract frameworks vary by CCNL; confirm with employer offer letters.
