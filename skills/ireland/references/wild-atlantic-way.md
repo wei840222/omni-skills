@@ -24,9 +24,9 @@ This route is about controlled pacing, not maximum mileage. The coastline is spe
 - Build realistic average speed assumptions on coastal roads.
 - Start earlier than city habits suggest.
 - Keep fuel, food, and weather checks proactive.
-- Never stack multiple long scenic loops in one day.
+- Limit scenic loops to one per day.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Attempting the full route with too few nights.
 2. Ignoring weather and visibility conditions before long drives.

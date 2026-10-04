@@ -29,7 +29,7 @@
 - Better for 2-3 nights than one rushed evening stop.
 - Music sessions vary by night, check current listings.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Staying only in the busiest core blocks.
 2. Assuming live sessions happen identically every night.

@@ -17,7 +17,7 @@
 - Wind and visibility can change quickly.
 - Parking pressure spikes on sunny weekends and holiday periods.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Planning a beach-only day with no weather backup.
 2. Underestimating wind chill near cliffs and exposed coasts.

@@ -23,7 +23,7 @@
 ### Older kids
 - Castle/history + coastal stops + one active element daily
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Overbooking long scenic drives back-to-back.
 2. Ignoring weather backup plans.

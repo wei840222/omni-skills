@@ -29,7 +29,7 @@ Great pub-food ecosystem and nearby coastal seafood influence.
 - In visitor-heavy streets, one or two blocks away often improves quality-price ratio.
 - Tipping expectations are lighter than US norms, but good service is usually acknowledged.
 
-## Food Traps to Avoid
+## Food Traps
 
 1. Repeating only tourist-core pub meals for multiple days.
 2. Ignoring reservation patterns in peak weekends.

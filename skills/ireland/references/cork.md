@@ -26,10 +26,10 @@
 ## Cork Strategy
 
 - Use Cork as 2-3 night base for city + coast split.
-- Do not overfill with too many long same-day loops.
+- Maintain a balanced pace rather than overfilling with same-day loops.
 - Weekends can book out early in peak season.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Treating Cork only as a pass-through stop.
 2. Overcommitting to long drives after late nights.

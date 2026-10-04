@@ -25,7 +25,7 @@
 - Peak Friday/Saturday hours can create heavy queue windows.
 - Late-night transport plans should be set before final venue.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Assuming every famous pub means best music quality.
 2. Staying only in highest-tourist nightlife strips.
