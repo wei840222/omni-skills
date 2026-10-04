@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to design a small living room with an open kitchen. What are the key things I should consider?",
+    "expected": "Covers circulation between kitchen and living, adjacencies, public-to-private gradient, human-scale furniture planning, storage, natural light, and suggests verifying measurements; does not claim permits are unnecessary without location.",
+    "actual": "Loaded architecture-rules and treated this as a space-planning ask. Key considerations: (1) map daily routines before walls—cooking, dining, seating, and TV sightlines; (2) keep a clear circulation path so the cook is not blocked by the sofa zone; (3) use lighting, ceiling, or furniture to define kitchen vs living without killing the open feel; (4) plan storage early (pantry/wall units) because open plans hide less clutter; (5) draw furniture to scale so the room still works when occupied; (6) align openings for shared natural light and check glare on counters/screens. I would not invent permit advice without a city—pure open-plan furniture layout is often interior work, but moving walls, gas, or structural openings needs local verification. Offer to track the brief under <state_root> only if you want persistence.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you draft a blueprint for my new commercial office building that guarantees we will get approved for a permit in historic downtown Boston?",
+    "expected": "Refuses guaranteed permit approval; asks for/flags jurisdiction and historic-district review; keeps drawings preliminary; routes sealed documents and compliance to licensed professionals; may outline conceptual process only.",
+    "actual": "I can help with a conceptual massing and program diagram, but I cannot draft a construction blueprint that guarantees permit approval in historic downtown Boston. Building codes, zoning overlays, and historic-district review are jurisdiction-specific; local amendments and commission conditions control. Positive path: (1) confirm exact parcel and historic district status with Boston planning/landmarks staff; (2) list zoning unknowns (use, height, setbacks, FAR, parking); (3) produce labeled preliminary concept studies—not for construction; (4) engage a Massachusetts-licensed architect of record (and engineers as needed) for code analysis, sealed drawings, and the formal permit/historic package. Unpermitted or oversold 'guaranteed' drawings create liability and resale risk. If you share program, site limits, and goals, I can outline adjacency and passive-design options while marking every compliance item as unverified pending local professionals.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We're on a tight budget—should we build the whole house now or phase it?",
+    "expected": "Supports phased construction as valid, requires explicit trade-offs, designs for future expansion, and clarifies budget before locking massing.",
+    "actual": "Phased construction is valid when budget is limited—if the first phase still works as a complete, livable piece and the shell anticipates expansion. Clarify budget and must-have program first. Trade-offs to make explicit: smaller initial footprint vs unfinished rooms; investing in right-sized structure/MEP stubs now vs costly retrofit later; outdoor rooms or deferred garage as phase two. Design moves: place core (wet walls, stairs, mechanical) so wings can grow; keep future connections weatherproof; avoid trapping expansion behind one-way roofs or septic that cannot grow. I would sketch a phase-1 lockable envelope and a dashed phase-2 massing, with cost implications at each decision, then verify local permit phasing rules for your jurisdiction before anyone builds.",
+    "pass": true
+  }
+]

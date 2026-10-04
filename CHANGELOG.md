@@ -70,6 +70,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | arabic                       | 2026-10-04 | 85/100 (#702)                    |
 | arbitrage                    | 2026-10-04 | 84/100 (#707)                    |
 | arbitrum                     | 2026-10-04 | 84/100 (#712)                    |
+| architect                    | 2026-10-04 | 84/100 (#714)                    |
 | architecture                 | 2026-09-10 | 85/100 (#331)                    |
 | archive                      | 2026-09-05 | 85/100 (#274)                    |
 | arduino                      | 2026-08-31 | 91/100 (#167)                    |
