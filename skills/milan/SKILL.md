@@ -60,6 +60,13 @@ User asks about Milan for any purpose: visiting, moving, studying, working, or l
 | Day to day life and social scene | `references/lifestyle.md` |
 | Driving and ZTL rules | `references/driving.md` |
 
+## Load Order
+
+1. Classify the user (visitor / resident / student / worker / founder).
+2. Open the matching Quick Reference row before drafting advice.
+3. Cross-check traps (Area C, Ferragosto, ticket validation) when plans involve driving, August travel, or transit fines.
+4. For legal status or company setup, prefer the official sources listed in the loaded reference file over memory.
+
 ## Core Rules
 
 ### 1. Identify User Profile First
