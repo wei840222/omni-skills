@@ -56,3 +56,15 @@ protocol behavior, product marketing claims, or platform policy.
   every brand — verify the specific operator when making purchase advice.
 - WireGuard battery advantage on mobile is commonly reported but
   device/client-specific; measure rather than quote a fixed percentage.
+
+## Claim inventory (refactor)
+
+| Claim class | Example | Disposition |
+|---|---|---|
+| stable-domain | VPN shifts trust to operator | retained + EFF citation |
+| stable-domain | DNS can bypass tunnel | retained with verification step |
+| stable-domain | Kill switch fail-closed | retained with test method |
+| obsolete/wrong | "WireGuard uses fixed ports" | replaced with UDP + configurable ListenPort |
+| version-sensitive | OpenVPN `--proto` tcp/udp | cited OpenVPN 2.6 manual |
+| platform-specific | Wi‑Fi calling / banking blocks | retained as conditional, not universal |
+| marketing | free VPN always sells data | softened to default caution pending operator docs |
