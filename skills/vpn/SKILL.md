@@ -56,7 +56,7 @@ Load supporting files only when needed:
 | Resource | When to load |
 |---|---|
 | `references/sources.md` | Before citing WireGuard/OpenVPN/EFF or Agent Skills facts |
-| `test-prompts.json` | Evaluation harness only — do not load during normal assistance |
+| `test-prompts.json` | Evaluation harness only — load only when running skill tests |
 
 ## Operating rules
 
@@ -69,7 +69,7 @@ Load supporting files only when needed:
   (VPN tunnel). HTTPS sites still protect payloads from the VPN hop; the VPN
   hop still learns domains and timing that DNS/SNI/metadata expose.
 - Treat “no logs” marketing as **unverified** until an independent audit and
-  jurisdiction story are checked in-session; do not promise anonymity.
+  jurisdiction story are checked in-session; describe residual identity risks instead of promising anonymity.
 - Name remaining identifiers explicitly: account logins, payment instruments,
   browser fingerprinting, cookies, and device identifiers still identify users
   after the IP changes.
@@ -123,8 +123,8 @@ Load supporting files only when needed:
   docs). `ListenPort` is **configurable**; if omitted or set to `0`,
   wireguard-tools selects a random port when the interface comes up — it is
   **not** a single fixed industry port. Common examples use `51820`, but
-  blockers can target any observed UDP port; do not claim “fixed ports” as the
-  reason WG is easier to block than OpenVPN-on-443.
+  blockers can target any observed UDP port; explain WG blockability via observed
+  UDP endpoints rather than a myth of a single fixed industry port versus OpenVPN-on-443.
 - When UDP appears blocked, prefer an OpenVPN TCP profile or a provider’s TCP
   fallback rather than inventing non-UDP WireGuard transports.
 - Route deep WireGuard peer/`AllowedIPs` work to the `wireguard` skill.
