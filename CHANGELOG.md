@@ -294,6 +294,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | germany                      | 2026-08-29 | 85/100                           |
 | gifts                        | 2026-09-25 | 85/100 (#581)                    |
 | github-actions               | 2026-08-30 | 85/100 (#165)                    |
+| gitlab                       | 2026-10-04 | 84/100 (#709)                    |
 | glovo                        | 2026-10-01 | 84/100 (#649)                    |
 | goals                        | 2026-09-02 | 85/100 (#214)                    |
 | golf                         | 2026-08-05 | ~75                              |

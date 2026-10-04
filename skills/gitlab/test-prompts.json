@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I make a GitLab CI job only run when pushing a tag?",
+    "expected": "Uses rules with if: $CI_COMMIT_TAG (and ideally a terminal when: never); does not mix only/except with rules; mentions first-match behavior.",
+    "actual": "Use rules, not only/except mixed on the same job. Example: rules: [{if: $CI_COMMIT_TAG}, {when: never}]. First matching rule wins; missing when defaults to on_success.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My docker build in GitLab CI cannot connect to the docker daemon while using docker:dind. What should I check?",
+    "expected": "Checks privileged/runner capability, DOCKER_HOST, and DOCKER_TLS_CERTDIR/TLS coherence; mentions non-privileged alternatives when shared runners block privileged mode.",
+    "actual": "Verify three layers together: (1) runner allows privileged DinD or use an alternative build approach, (2) DOCKER_HOST points at the DinD service, (3) TLS is fully configured or DOCKER_TLS_CERTDIR is intentionally empty. Tag mismatches can also leave related jobs pending.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I used extends so a child job would inherit script steps, but the parent script disappeared. Why?",
+    "expected": "Explains extends replaces keyword values (including script arrays) rather than appending; recommends !reference to compose scripts.",
+    "actual": "extends reverse-deep-merges keys but does not merge keyword values — a child script: replaces the parent script:. Compose with !reference [.parent, script] plus additional steps, then re-lint the expanded config.",
+    "pass": true
+  }
+]
