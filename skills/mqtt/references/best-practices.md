@@ -49,3 +49,9 @@ Load this file when implementing or reviewing broker/client configuration. Prefe
 - Subscribing to `#` sees all traffic — never leave this in production without extreme ACL isolation; it leaks everything.
 - `$SYS/#` exposes broker metrics — client counts, bytes, subscriptions; treat as sensitive.
 - Retained messages can survive "the fix" — explicitly clear bad retained keys after remediation.
+
+## Cognitive-load notes (Freud)
+
+- Lead with the exposure and auth decision before option catalogs.
+- Do not open with long "don't forget" blacklists; encode failures next to the positive rule (auth, TLS, unique client ID, ACL).
+- Load this reference only when implementing or reviewing config; keep the SKILL.md router short.
