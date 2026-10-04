@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 10 days for my first trip to Indonesia. I want to see Bali, Java (Yogyakarta and Bromo), Komodo, and Sumatra.",
+    "expected": "Warn against over-routing; explain transfer friction across distant islands; recommend 1–2 clusters (e.g. Bali+Java or Bali+Komodo) with buffer days; load regions, itineraries, and transport-domestic before locking a day-by-day.",
+    "actual": "Rejected a four-region sprint for 10 days. Explained that Bali, Java, Komodo, and Sumatra are separate transfer systems and would collapse into airport/boat time. Proposed pairing Bali with one contrast cluster (Yogyakarta/Bromo or Labuan Bajo/Komodo), keeping one buffer day, and asked which objective matters most before loading regions + transport-domestic + the matching playbooks.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My family and I (including a toddler and my 70-year-old parents) want to visit Nusa Penida and hike Mount Batur.",
+    "expected": "Load family-travel, accessibility, and safety; advise against steep unrailed Nusa Penida stairs and night rocky Batur for this group; offer flatter Bali bases (Sanur/Nusa Dua/Ubud temple loops) with driver logistics.",
+    "actual": "Loaded family-travel, accessibility, and safety framing. Strongly discouraged Nusa Penida cliff stairs and Mount Batur night hike for toddler + seniors. Redirected to Sanur or Nusa Dua bases, shorter temple or rice-terrace loops with a private driver, and kept scooter and boat-heavy days off the default plan.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm planning to take a fast boat from the Gili Islands to Bali and then catch an international flight home on the same afternoon.",
+    "expected": "Load transport and safety references; warn that fast boats are delay-prone in rough seas; recommend returning to Bali the day before the international flight and staying near DPS.",
+    "actual": "Flagged same-day Gili fast-boat → international flight as fragile. Cited sea-condition cancellations and immigration/transfer buffers. Advised overnighting in Bali near DPS (Jimbaran/Kuta corridor) the night before departure and treating the boat day as its own segment.",
+    "pass": true
+  }
+]
