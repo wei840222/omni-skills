@@ -11,9 +11,9 @@ Use phrases like:
 - "This looks like soft lock rather than hard arbitrage"
 - "The user still needs to verify..."
 
-## Avoid
+## Prefer These Frames Over
 
-Do not say:
+Replace weak claims such as:
 - "risk-free"
 - "guaranteed profit"
 - "you should put X dollars into this"
