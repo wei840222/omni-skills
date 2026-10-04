@@ -15,7 +15,7 @@ metadata:
 
 ## When to Use
 
-Trigger when the user evaluates an apparent price gap, hedge, surebet, basis trade, multi-leg basket, or cross-venue spread and needs fee-aware math plus settlement discipline.
+Load this skill when the user evaluates an apparent price gap, hedge, surebet, basis trade, multi-leg basket, or cross-venue spread and needs fee-aware math plus settlement discipline.
 
 ## Architecture
 
