@@ -31,3 +31,7 @@ Masked variables must meet GitLab's masking constraints. Invalid values may be r
 3. Are variables empty? (protected scope)
 4. Is the executor capable? (DinD / services)
 5. Only then rewrite business script steps
+
+## White-bear note
+
+Do not jump to rewriting deploy scripts while the job is still uncreated, pending, or missing variables — fix selection and environment first.
