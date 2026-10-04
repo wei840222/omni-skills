@@ -10,7 +10,7 @@ net_pnl = gross_pnl - fees - financing - transfer_cost - FX_slippage - other_kno
 net_edge_pct = net_pnl / capital_committed
 ```
 
-Never use gross edge as the decision number.
+Always use net edge as the decision number.
 
 ## 2. Surebet Test
 
