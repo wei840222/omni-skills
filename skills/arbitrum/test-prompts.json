@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How long does it take to withdraw funds from Arbitrum One to Ethereum mainnet using the official bridge, and what do I do when the wait is over?",
+    "expected": "Explains the multi-day dispute/challenge window (~7 days in bridge UX, ~6.4 days/45818 blocks in chain params), that this is security not a bug, and that the user must claim on L1 afterward with L1 ETH for gas.",
+    "actual": "On the official Arbitrum bridge, a native withdrawal from Arbitrum One to Ethereum is a two-phase exit: (1) initiate on L2, then wait out the dispute window—bridge docs describe about seven days for One/Nova, while chain parameters list roughly 6.4 days (45818 blocks); (2) after the window, open the bridge transaction history and Claim on Ethereum, paying L1 gas in ETH. The delay exists so invalid state can be challenged; third-party fast bridges are optional if you accept extra risk and fees.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I deployed a smart contract but get insufficient ETH for gas on Arbitrum. I hold plenty of ARB. Also, is Arbitrum Nova the same chain?",
+    "expected": "States ETH is the gas token and ARB is governance only; Nova is a separate AnyTrust chain (42170) distinct from One (42161).",
+    "actual": "Arbitrum One and Nova both charge gas in native ETH, not ARB. ARB is the governance token for DAO voting and will not pay deployment or transaction fees—bridge or buy a small amount of ETH on the destination chain first. Nova is not the same network as One: One is chain ID 42161 (Optimistic Rollup), Nova is 42170 (AnyTrust) with different RPC, bridge context, and trust assumptions. Confirm chain ID in the wallet before retrying the deploy.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I ship a new Rust Stylus contract to Arbitrum One today, and what happens if the sequencer is slow?",
+    "expected": "Mentions checking Stylus new-activation pause status; sequencer delay vs force-inclusion; does not claim sequencer can steal bridge funds.",
+    "actual": "Before shipping new Stylus code, re-read the Stylus gentle introduction: the Security Council has temporarily paused new Stylus contract activations on Arbitrum One and Nova, while already-activated contracts may keep running until expiry. If the sequencer is merely slow or down, inclusion is delayed; protocol force-inclusion via the parent-chain inbox remains the censorship-resistance path and is slower/costlier than the happy path. Sequencer operators order transactions—they are not a substitute for stealing funds locked in the bridge dispute game.",
+    "pass": true
+  }
+]
