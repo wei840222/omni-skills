@@ -27,7 +27,7 @@ Before any state read or write, resolve `<state_root>` once per invocation:
 3. If multiple candidates exist, keep only the highest-precedence directory, leave others untouched, and tell the user which location was selected.
 4. If none exists and persistent tracking is requested, default to `<workspace>/architect/` only when a host-provided workspace is available; otherwise request an explicit path.
 
-Use the selected `<state_root>` for every state path in this skill. Never write the literal string `<state_root>` to disk. Skill package files stay under `references/`; never write learned data into `SKILL.md`.
+Use the selected `<state_root>` for every state path in this skill. Write only the resolved filesystem path instead of the literal string `<state_root>` to disk. Skill package files stay under `references/`; keep learned data under `<state_root>/` only; `SKILL.md` stays package source.
 
 ```text
 <state_root>/
