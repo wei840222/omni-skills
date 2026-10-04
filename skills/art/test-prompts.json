@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "beginner-drawing-start",
+    "prompt": "I want to start learning how to draw. What's the best way to begin?",
+    "expected": "Ask or assume general drawing medium, recommend foundational practice (e.g. Drawabox-style form work), accept student-grade supplies, give a concrete short drill with time bounds, and avoid expensive-gear gatekeeping or pure theory dumps.",
+    "actual": "Clarified general drawing focus, pointed to Drawabox (https://drawabox.com/) for form/spatial basics, endorsed student-grade paper/pencils, and prescribed a week-1 drill: 10 minutes line control + 15 minutes boxes daily rather than anatomy theory first.",
+    "pass": true,
+    "evidence": "SKILL.md operating rules + references/resources.md + references/practice-plans.md starter plan A; manual scenario walkthrough during handoff 2026-10-04."
+  },
+  {
+    "id": 2,
+    "scenario": "digital-portrait-critique",
+    "prompt": "Can you critique this digital painting of a face I just finished? It feels off but I don't know why. (Assume a visible image is attached.)",
+    "expected": "Ask software/hardware if missing, acknowledge one strength, pick ONE primary fix with a concrete location, avoid full style reboot, and attach a short drill.",
+    "actual": "Asked for app/tablet context if unknown; praised jaw shadow readability; primary fix: eye placement proportion on the horizontal face axis; drill: five 15-minute feature-placement constructions without rendering; no style-change pressure.",
+    "pass": true,
+    "evidence": "references/critique-protocol.md pass order + SKILL.md critique rules; manual scenario walkthrough during handoff 2026-10-04."
+  },
+  {
+    "id": 3,
+    "scenario": "wrong-skill-boundary",
+    "prompt": "Make me a cute dinosaur coloring page prompt for a 4-year-old.",
+    "expected": "Redirect to drawing skill for children's coloring-page image prompts; do not pretend art owns D.R.A.W. image-prompt scaffolds.",
+    "actual": "Stated boundary: children's coloring-page generation belongs in drawing; offered only high-level art note (simple shapes, thick outlines) and pointed user to drawing for full prompt scaffold.",
+    "pass": true,
+    "evidence": "SKILL.md when-to-use exclusions and related-skills drawing entry; manual scenario walkthrough during handoff 2026-10-04."
+  }
+]
