@@ -1,151 +1,102 @@
 ---
 name: indonesia
-slug: indonesia
-version: 1.0.0
-description: Plan Indonesia trips with island-routing logic, verified entry guidance, weather-aware logistics, and practical local execution.
-homepage: https://clawic.com/skills/indonesia
-changelog: Initial release with Indonesia entry guidance, island-routing playbooks, and practical travel logistics.
+description: >
+  Plan an Indonesia trip by island cluster, entry path, weather and sea conditions,
+  and transfer realism. Use for Bali, Nusa islands, Java (Jakarta, Yogyakarta,
+  Bromo/Ijen), Lombok/Gilis, Komodo/Flores, or Sumatra routing with practical
+  on-the-ground logistics. Not for inventing a nationality-specific visa outcome,
+  fixing same-day boat-to-flight connections, or treating map distance as travel time.
 metadata:
-  clawdbot:
-    emoji: 🇮🇩
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/indonesia/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Indonesia
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇮🇩"}'
+  related-skills: '{"travel":"Multi-country or multi-region itineraries when Indonesia is only one stop.","booking":"Hotel, flight, ferry, and excursion reservation hygiene after the Indonesia route is chosen.","food":"Broader meal planning beyond the Indonesia food playbook.","esim":"Connectivity and eSIM setup once island bases are set.","indonesian":"Bahasa Indonesia support for menus, bookings, and on-the-ground phrases."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/indonesia/` does not exist or is empty, read `setup.md` and start naturally.
+Indonesia trip state may exist in `<workspace>/indonesia/`, `<workspace>/memory/indonesia/`, or `~/indonesia/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/indonesia/`, `<workspace>/memory/indonesia/`, `~/indonesia/`.
+3. If none exists and the user wants planning context kept, create `<workspace>/indonesia/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/indonesia/` only. Otherwise ask for a state root before creating files.
 
-User is planning an Indonesia trip and needs practical guidance beyond generic highlights: visa pathway, island choice, route design, surf and weather fit, transport tradeoffs, and on-the-ground execution across a large archipelago.
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants trip context kept across sessions. Legacy `~/Clawic/data/indonesia/` is a migration source only. Keep it out of the active lookup order, and move it only when the user asks.
 
-## Architecture
+### State tree
 
-Memory lives in `~/Clawic/data/indonesia/`. See `setup.md` for first activation flow and `memory-template.md` for the file structure.
+| Path | Purpose |
+| --- | --- |
+| `<state_root>/memory.md` | Trip context, activation preference, and evolving constraints |
 
-```text
-~/Clawic/data/indonesia/
-└── memory.md     # Trip context and evolving constraints
-```
+## When to load
 
-## Quick Reference
+Load this skill for an Indonesia trip plan, island choice, entry/visa pathway check, domestic transport tradeoff, weather or sea-condition planning, family/accessibility pacing, or destination playbook across Bali, Java, Lombok, Komodo/Flores, or Sumatra.
 
-Use this map to load only the Indonesia subtopic that changes the decision in front of you.
+Identify passport nationality, travel month, trip length, primary goal, and boat/flight tolerance before locking a multi-island route.
 
-| Topic | File |
-|-------|------|
-| **Entry and Arrival** | |
-| Visa, VOA, onward proof, stay limits | `entry-and-documents.md` |
-| Customs, e-CD, airport arrival, first-hour logic | `customs-and-arrival.md` |
-| **Planning Backbone** | |
-| Island choice and route strategy | `regions.md` |
-| Sample itineraries | `itineraries.md` |
-| Where to stay by route style | `accommodation.md` |
-| Budget planning | `budget-and-costs.md` |
-| Cards, cash, and payment norms | `payments-and-money.md` |
-| **Transport** | |
-| Flights, trains, ferries, boats, and city transit | `transport-domestic.md` |
-| Driving and scooter risk | `road-trips-and-driving.md` |
-| **Destination Playbooks** | |
-| Bali, Uluwatu, Ubud, Canggu, Nusa islands | `bali-and-nusa-islands.md` |
-| Jakarta, Bandung, and West Java gateways | `jakarta-and-west-java.md` |
-| Yogyakarta, Borobudur, and Prambanan | `yogyakarta-and-central-java.md` |
-| East Java, Bromo, and Ijen | `east-java-and-bromo-ijen.md` |
-| Lombok, Gilis, and quieter beach routes | `lombok-and-gili-islands.md` |
-| Komodo, Flores, and Labuan Bajo | `komodo-and-flores.md` |
-| Sumatra and orangutan or volcano routes | `sumatra-and-bukit-lawang.md` |
-| **Lifestyle and Execution** | |
-| Food by island and meal style | `food-guide.md` |
-| Nightlife by destination type | `nightlife.md` |
-| Traveling with children or older relatives | `family-travel.md` |
-| Accessibility and low-mobility strategy | `accessibility.md` |
-| **Safety and Conditions** | |
-| Emergencies, health, scams, volcano and sea risk | `safety-and-emergencies.md` |
-| Climate, monsoon timing, and seasonality | `weather-and-seasonality.md` |
-| **Tools** | |
-| Connectivity and useful apps | `telecoms-and-apps.md` |
-| Official source map | `sources.md` |
+Read `references/sources.md` before repeating a visa duration, VOA eligibility, Bali levy rule, customs process, park fee, volcano alert, or emergency number. Re-check the official page for that passport and travel date before the user books a non-refundable flight or pays a visa fee.
 
-## Core Rules
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/setup.md` |
+| Visa, VOA, onward proof, stay limits | `references/entry-and-documents.md` |
+| Customs, arrival hour, first transfers | `references/customs-and-arrival.md` |
+| Island choice and route strategy | `references/regions.md` |
+| Sample itinerary frames | `references/itineraries.md` |
+| Lodging strategy | `references/accommodation.md` |
+| Budget layers and cost traps | `references/budget-and-costs.md` |
+| Cards, cash, payment norms | `references/payments-and-money.md` |
+| Flights, trains, ferries, boats | `references/transport-domestic.md` |
+| Scooter, driver, road risk | `references/road-trips-and-driving.md` |
+| Bali and Nusa islands | `references/bali-and-nusa-islands.md` |
+| Jakarta and West Java | `references/jakarta-and-west-java.md` |
+| Yogyakarta and Central Java | `references/yogyakarta-and-central-java.md` |
+| East Java, Bromo, Ijen | `references/east-java-and-bromo-ijen.md` |
+| Lombok and Gili islands | `references/lombok-and-gili-islands.md` |
+| Komodo and Flores | `references/komodo-and-flores.md` |
+| Sumatra and Bukit Lawang | `references/sumatra-and-bukit-lawang.md` |
+| Food, nightlife, family, access | `references/food-guide.md`, `references/nightlife.md`, `references/family-travel.md`, `references/accessibility.md` |
+| Safety and season | `references/safety-and-emergencies.md`, `references/weather-and-seasonality.md` |
+| Connectivity and apps | `references/telecoms-and-apps.md` |
+| Official source map | `references/sources.md` |
+| Persisted trip context template | `assets/memory-template.md` |
+| Evaluation harness only | `test-prompts.json` |
 
-### 1. Route by Islands and Transfer Friction, Not by Postcard Count
-Indonesia punishes over-routing. For most users, keep one main island cluster per week:
-- Bali plus Nusa or Bali plus Lombok
-- Java backbone with Yogyakarta and East Java
-- Flores and Komodo
-- Sumatra wildlife and volcanoes
+## Core rules
 
-### 2. Clear Entry Path First
-Use `entry-and-documents.md` before recommending non-refundable flights. Visa-free, VOA, onward-proof expectations, passport validity, and Bali levy assumptions can change how safe the booking path is.
+1. Route by island cluster and transfer friction, not postcard count. For most travelers, keep one main cluster per week (Bali±Nusa/Lombok, Java backbone, Flores/Komodo, or Sumatra).
+2. Clear entry path first: passport route, onward proof, and Bali levy assumptions before non-refundable long-haul tickets.
+3. Match the island to the user's real objective (first-trip ease, surf, diving, temples, volcanoes, family pacing, remote nature)—not hype alone.
+4. Make every plan season- and sea-aware before locking boat days, dive trips, volcano starts, or beach-heavy routes.
+5. Prefer driver or rides over scooters unless the user explicitly accepts wet-road and traffic risk.
+6. Budget with friction: domestic flights, boats, park fees, cash pockets, and buffer days—not headline hotel rates alone.
+7. Deliver action plans: base logic, day flow with transfer windows, booking deadlines, weather fallback, and a safety note for the chosen cluster.
 
-### 3. Match the Island to the User, Not the Hype
-Always identify the user's real objective:
-- First trip and easy logistics
-- Surf and beach time
-- Diving and boats
-- Culture and temples
-- Volcanoes and hiking
-- Family pacing
-- Low-friction luxury or remote nature
+## Operating plan
 
-### 4. Make Every Plan Season-Aware
-Use `weather-and-seasonality.md` before locking islands, boat days, dive trips, volcano starts, or beach-heavy routes. Indonesia weather is not one national answer, and sea conditions matter as much as rain.
+Answer the immediate question first. When the user wants a route, return:
 
-### 5. Treat Boats, Scooters, and Mountain Sun as Real Risk
-Do not romanticize fast boats, scooters, or volcano starts:
-- Tight same-day boat plus flight chains are fragile
-- Beginner scooter recommendations are often bad advice
-- Heat, dehydration, altitude, rough roads, and poor clinic access change destination fit
+- Base-island logic and the cluster being chosen
+- Day flow with realistic transfer windows
+- Reservation deadlines (visa/levy checks, parks, boats, domestic flights)
+- Weather or sea-condition backup
+- Safety note for the chosen cluster
+- Money and connectivity first-day plan
 
-### 6. Budget With Real Archipelago Math
-Price the whole route, not the villa headline:
-- Domestic flight baggage
-- Boat tickets and harbor transfers
-- Driver days and airport friction
-- Tourist levy, visa fees, park fees, and guide costs
-- Cash-only moments outside major hubs
+For an empty state file, follow `references/setup.md` and copy the structure from `assets/memory-template.md` into `<state_root>/memory.md` only after the user wants memory kept.
 
-### 7. Deliver Operational Plans
-Every output should include:
-- Base logic and what to skip
-- Day-by-day flow with realistic transfer windows
-- What must be booked early
-- Weather or sea-condition fallback
-- Safety, payment, and mobility notes for the chosen route
+## Prefer these checks
 
-## Common Traps
+- Compress island lists when the calendar only supports one or two clusters.
+- Re-check nationality-specific entry rules instead of reusing another traveler's pathway.
+- Treat same-day boat-to-international-flight connections as fragile; return the day before.
+- Separate Bali levy and customs steps from immigration when advising arrival hour.
+- Plan family and accessibility routes with fewer stairs, night hikes, and rough-road scooters.
 
-- Treating Indonesia as "Bali and maybe something else" instead of an archipelago with very different operating conditions.
-- Trying Bali, Yogyakarta, Komodo, Gilis, and Sumatra in one short trip.
-- Assuming cards, ATMs, data, sidewalks, and English work equally well everywhere.
-- Booking fast boats and flights on the same day with no buffer.
-- Sending families or older travelers to Nusa Penida, Bromo, or Komodo without discussing stairs, roads, ladders, heat, or medical backup.
-- Giving one monsoon answer for the whole country.
-- Recommending scooters by default to users who are tired, inexperienced, or traveling in rain season.
+## Source freshness
 
-## Security & Privacy
-
-**Data that stays local:** Trip preferences in `~/Clawic/data/indonesia/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/indonesia/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structure
-- `booking` — Reservation workflows and confirmation hygiene
-- `food` — Deeper restaurant and cuisine planning
-- `esim` — Better mobile-data setup before arrival
-- `indonesian` — Language support for bookings, transport, and daily interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/indonesia
-- Latest version: https://clawic.com/skills/indonesia
+Domain claims in this package were last bulk-checked against the URLs in `references/sources.md` (see file header). Before any booking-critical statement, open the matching official page again for the user's passport and travel month.
