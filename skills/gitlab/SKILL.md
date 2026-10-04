@@ -1,49 +1,53 @@
 ---
 name: gitlab
-slug: gitlab
-version: 1.0.0
-description: Avoid common GitLab CI/CD mistakes — rules gotchas, silent failures, and YAML merge traps.
-homepage: https://clawic.com/skills/gitlab
+description: >
+  Diagnose, troubleshoot, and write GitLab CI/CD pipelines. Use when fixing
+  GitLab pipeline errors, rules evaluation, YAML inheritance traps, Docker-in-Docker
+  failures, artifacts/cache surprises, protected/masked variables, or MR vs branch
+  pipeline triggers. Not for generic CI product selection (`ci-cd`), GitHub Actions
+  semantics (`github-actions`), plain Docker host ops (`docker`), or YAML parser
+  issues alone (`yaml`).
 metadata:
-  clawdbot:
-    emoji: 🦊
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: GitLab
+  version: "1.0.0"
+  openclaw: '{"emoji":"🦊"}'
+  related-skills: '{"ci-cd":"Cross-platform CI product choice and generic pipeline pitfalls.","github-actions":"GitHub Actions workflow semantics instead of GitLab CI.","docker":"Host Docker/daemon issues outside GitLab runner DinD.","yaml":"Parser-level YAML quoting and indentation without CI keywords.","git":"Git branching and merge mechanics outside pipeline YAML."}'
 ---
 
-## Rules Gotchas
-- `rules:` and `only:/except:` can't mix — use one or the other per job
-- First matching rule wins — put specific rules before general ones
-- Missing `when:` defaults to `on_success` — `rules: - if: $CI_COMMIT_TAG` runs on tag
-- Empty rules array `rules: []` means never run — different from no rules at all
-- Add `- when: never` at end to prevent fallthrough — otherwise unmatched conditions may run
+## State location
 
-## Silent Failures
-- Protected variables missing on non-protected branches — job runs but variable is empty
-- Runner tag mismatch — job stays pending forever with no error
-- `docker:dind` on non-privileged runner — fails with cryptic Docker errors
-- Masked variable format invalid — variable exposed in logs anyway
+This skill is stateless and does not store local configuration or persistent user state. Keep pipeline drafts, incident notes, and project-specific runner inventories in ordinary user files outside the skill package.
 
-## YAML Merge Traps
-- `extends:` doesn't deep merge arrays — scripts, variables arrays get replaced, not appended
-- Use `!reference [.job, script]` to reuse — `script: [!reference [.base, script], "my command"]`
-- `include:` files can override each other — last one wins for same keys
-- Anchors `&`/`*` don't work across files — use `extends:` for cross-file reuse
+## When to Use
 
-## Artifacts vs Cache
-- Cache not guaranteed between runs — treat as optimization, not requirement
-- Artifacts auto-download by stage — add `dependencies: []` to skip if not needed
-- `needs:` downloads artifacts by default — `needs: [{job: x, artifacts: false}]` to skip
+- Job never runs, always runs, or runs on the wrong branch/tag/MR
+- `extends` / `include` / `!reference` produced unexpected scripts or variables
+- Job pending forever, empty secrets, or DinD cannot reach the daemon
+- Artifacts missing across jobs, or cache treated as a hard dependency
+- Choosing between branch pipelines, MR pipelines, and `CI_PIPELINE_SOURCE` values
 
-## Docker-in-Docker
-- Shared runners usually don't support privileged — need self-hosted or special config
-- `DOCKER_HOST: tcp://docker:2375` required — job uses wrong Docker otherwise
-- `DOCKER_TLS_CERTDIR: ""` or configure TLS properly — half-configured TLS breaks builds
+Redirect product-level “which CI vendor” questions to `ci-cd`. Redirect GitHub Actions YAML to `github-actions`.
 
-## Pipeline Triggers
-- `CI_PIPELINE_SOURCE` differs by trigger — `push`, `merge_request_event`, `schedule`, `api`, `trigger`
-- MR pipelines need `rules: - if: $CI_MERGE_REQUEST_IID` — not just branch rules
-- Detached vs merged result pipelines — detached tests source, merged tests result of merge
+## Quick Reference
+
+| Topic | File | When to load |
+|-------|------|--------------|
+| Rules and triggers | `references/rules.md` | Job selection, tags, MR vs branch, fallthrough |
+| Inheritance and reuse | `references/inheritance.md` | `extends`, `!reference`, `include`, anchors |
+| Execution environment | `references/environment.md` | DinD, runner tags, artifacts vs cache |
+| Silent failures | `references/silent-failures.md` | Pending jobs, empty protected vars, mask leaks |
+| Domain knowledge and sources | `references/domain-knowledge.md` | Before asserting GitLab CI semantics or citing docs |
+
+## Operating Rules
+
+1. Prefer `rules:` over legacy `only:`/`except:`; never mix them on the same job.
+2. Treat the first matching `rules` entry as decisive; end catch-alls with `when: never` when fallthrough must not create the job.
+3. Assume `extends` reverse-deep-merges keys but **replaces** keyword values (including arrays) — use `!reference` to compose scripts.
+4. Treat cache as best-effort optimization; require artifacts (or explicit `needs`) for required outputs.
+5. For DinD, verify privileged runner capability, `DOCKER_HOST`, and TLS (`DOCKER_TLS_CERTDIR`) together — partial setup fails cryptically.
+6. Name the failure layer before editing YAML: rules selection, variable scope, runner/executor, inheritance merge, or artifact graph.
+
+## Safety
+
+- Never commit real CI/CD variable values, tokens, or `.gitlab-ci.yml` secrets; use placeholders such as `$PROJECT_TOKEN` or `glpat-***`.
+- Do not advise disabling masking or protection solely to “make the job work”; fix branch protection and variable scope instead.
+- Prefer non-privileged Docker build alternatives when the runner cannot enable privileged mode.
