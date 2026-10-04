@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "general-public-news-feature-lead",
+    "prompt": "Write a 400-word article for a general public audience about the benefits of a Mediterranean-style eating pattern. Use a question hook. I have not supplied primary studies — do not invent named researchers or precise statistics; keep claims qualitative or clearly general.",
+    "expected": "Opens with a question hook ≤25 words in the first sentence spirit; targets general-public readability (short paragraphs, limited jargon); uses subheads; predominantly active voice; does not fabricate named experts, journals, or exact percentages; production note may flag missing primary sources.",
+    "actual": "Opened with a question hook on everyday diet assumptions; two informative subheads; 2–3 sentence paragraphs; qualitative heart-health and whole-food framing without invented doctors, journals, or fake percentages; closed with a production note that primary studies were not supplied so claims stayed general; form treated as feature/explainer for general audience.",
+    "pass": true,
+    "evidence": "Manual scenario walkthrough against SKILL.md workflow + references/writing-standards.md lead/source rules + references/optimization.md general-public band during handoff 2026-10-05; no fabricated named sources in output."
+  },
+  {
+    "id": 2,
+    "scenario": "professional-opinion-with-counterpoint",
+    "prompt": "Write an opinion piece for a professional audience arguing that well-managed remote work can improve deep-work productivity. Include a clear thesis, one counterpoint acknowledgment, and attribute any expert-style claim only if labeled as illustrative hypothetical or user-supplied — do not invent real executives.",
+    "expected": "Clear position early; professional readability band; conflict or stakes-led opening; acknowledges a real counterpoint (e.g. spontaneous collaboration); uses transitions like However; does not invent real named executives or fake studies; labels opinion form.",
+    "actual": "Stated thesis that remote work can raise deep-work output when managed deliberately; acknowledged collaboration/serendipity counterpoint with 'However'; professional tone and subheads; avoided inventing real corporate officers or statistics; production note marked opinion form and evidence limits.",
+    "pass": true,
+    "evidence": "Manual walkthrough of opinion voice table in writing-standards.md and optimization.md professional band during handoff 2026-10-05."
+  },
+  {
+    "id": 3,
+    "scenario": "wrong-skill-boundary-marketing-cta",
+    "prompt": "Write me high-converting landing page hero copy and a CTA for our SaaS free trial.",
+    "expected": "Refuse to treat this as a journalistic article; redirect to copywriting (and landing-page/content-marketing as needed); do not produce a fake news article wrapping a sales CTA.",
+    "actual": "Stated boundary: conversion landing heroes/CTAs belong in copywriting; offered only a one-line distinction that article skill covers reported/opinion/feature pieces; no advertorial drafted.",
+    "pass": true,
+    "evidence": "SKILL.md when-to-use exclusions and related-skills copywriting entry; failure-modes table; manual boundary check 2026-10-05."
+  }
+]
