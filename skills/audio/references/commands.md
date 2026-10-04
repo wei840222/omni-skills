@@ -226,3 +226,4 @@ RAM limits may require `--segment`.
 - On failure, keep the original; delete only partial outputs the user agrees are junk.
 - Simplify the filter graph; re-encode step-by-step to isolate the failing filter.
 - Re-probe after each major stage on long podcasts before the next expensive pass.
+- When a long chain fails, rerun inspect → single-filter → verify before restoring the full graph.
