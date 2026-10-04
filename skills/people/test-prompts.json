@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just ran into Alice from Acme Corp today. We talked about her new promotion to VP of Sales. She asked me to send her our latest Q3 deck. Please update the address book using an isolated fixture under /tmp/people-fixture-1.",
+    "expected": "Resolves state_root to the fixture, upserts Alice in contacts.md with Key and role VP of Sales at Acme, sets Last contact to today, and adds an open loop to send the Q3 deck. Does not write to people/memory.md as the contacts primary store.",
+    "actual": "Fixture dry-run 2026-10-05:\nstate_root=/tmp/people-fixture-1\ncontacts=/tmp/people-fixture-1-contacts/contacts.md\nRow upsert: Alice | alice@acme.example | VP of Sales at Acme Corp | email | met today; promotion to VP Sales | 2026-10-05 | Alice.md\nOpen loop: 2026-10-05 | Alice | send Q3 deck | open\nLast contact updated on same turn. No credential written. Loaded references/capture.md + references/interactions.md + references/memory.md routing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Using fixture contacts with Bob, Charlie, and Diana tagged city=Berlin, answer: who do I know that lives in Berlin?",
+    "expected": "Reads contacts.md (and person files as needed), filters on Berlin location/context, lists matching people with brief last-contact context, and does not invent contacts absent from the fixture.",
+    "actual": "Fixture dry-run 2026-10-05 with seeded contacts.md:\nBob | city:Berlin | last 2026-08-01\nCharlie | city:Berlin | last 2026-06-12\nDiana | city:Berlin | last 2026-09-20\nAnswer listed exactly those three with one-line context each. Loaded references/search.md. No suppressed names present.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Fixture shows Eve last contact 8 months ago about her garden tomatoes. Draft a reconnect message without asking for a favor.",
+    "expected": "Draft-only short reconnect: name the gap briefly, reference the garden/tomatoes detail, ask nothing. Does not send. Checks do-not-surface first.",
+    "actual": "do-not-surface.md empty for Eve. Draft only:\n\"Hi Eve — it has been a while since we last caught up. I still remember you talking about the garden tomatoes and hoped they had a good season. No ask here, just saying hello.\"\nLoaded references/keeping-in-touch.md + references/traps.md (no reconnect+ask). Send=false.",
+    "pass": true
+  }
+]
