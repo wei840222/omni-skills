@@ -1,6 +1,6 @@
 # Memory Template — Arbitrage
 
-Create `~/Clawic/data/arbitrage/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Arbitrage Memory
@@ -47,13 +47,13 @@ integration: pending | done | declined
 Create on first activation:
 
 ```bash
-mkdir -p ~/Clawic/data/arbitrage/archive
-touch ~/Clawic/data/arbitrage/{memory.md,opportunities.md,venue-notes.md}
+mkdir -p <state_root>/archive
+touch <state_root>/{memory.md,opportunities.md,venue-notes.md}
 ```
 
 ## Opportunities Template
 
-For `~/Clawic/data/arbitrage/opportunities.md`:
+For `<state_root>/opportunities.md`:
 
 ```markdown
 # Arbitrage Opportunities
@@ -79,7 +79,7 @@ For `~/Clawic/data/arbitrage/opportunities.md`:
 
 ## Venue Notes Template
 
-For `~/Clawic/data/arbitrage/venue-notes.md`:
+For `<state_root>/venue-notes.md`:
 
 ```markdown
 # Venue Notes

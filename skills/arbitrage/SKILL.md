@@ -1,38 +1,30 @@
 ---
 name: arbitrage
-slug: arbitrage
-version: 1.0.0
-description: Find, validate, and compare arbitrage opportunities across markets with fee-aware math, execution sequencing, and failure-mode checks.
-homepage: https://clawic.com/skills/arbitrage
-changelog: Adds the Locked Spread Protocol, fee-aware calculators, and venue validation playbooks for cleaner arbitrage analysis.
+description: >
+  Evaluate cross-venue price gaps, surebets, hedges, basis trades, and multi-leg
+  baskets with fee-aware net edge, fill sequencing, and settlement checks. Use
+  when the user asks about arbitrage, locked spreads, surebets, mispricing, or
+  soft locks across books, prediction markets, crypto venues, or retail channels.
+  Not for pure technical analysis without a second leg (`trading`), long-horizon
+  portfolio construction (`invest`), or B2B SaaS list-price design (`pricing`).
 metadata:
-  clawdbot:
-    emoji: $
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/arbitrage/
-    displayName: Arbitrage
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/arbitrage/
+  version: "1.0.0"
+  openclaw: '{"emoji":"⚖️","requires":{"config":["<state_root>"]}}'
+  related-skills: '{"trading":"Single-venue charting, TA, and position sizing without a locked second leg.","trader":"Execution desk workflow once a structure is already classified.","pricing":"B2B SaaS packaging and list price, not cross-venue arb.","invest":"Long-horizon allocation and portfolio construction outside locked spreads."}'
 ---
 
 ## When to Use
 
-User is evaluating an apparent price gap, hedge, surebet, basis trade, multi-leg basket, or cross-venue spread. Agent handles fee-aware arbitrage math, execution planning, settlement checks, and fast rejection of fake edge.
+Load this skill when the user evaluates an apparent price gap, hedge, surebet, basis trade, multi-leg basket, or cross-venue spread and needs fee-aware math plus settlement discipline.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/arbitrage/`. If `~/Clawic/data/arbitrage/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+State and configuration live in `<state_root>/`.
+Load `references/setup.md` if `<state_root>/` does not exist.
+See `assets/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/arbitrage/
+<state_root>/
 ├── memory.md         # Preferences, constraints, and activation rules
 ├── opportunities.md  # Active ideas, status, and next checks
 ├── venue-notes.md    # Withdrawal, fill, and settlement notes by venue
@@ -41,121 +33,38 @@ Memory lives in `~/Clawic/data/arbitrage/`. If `~/Clawic/data/arbitrage/` does n
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Locked Spread Protocol | `workflow.md` |
-| Fee-aware formulas | `calculator.md` |
-| Venue and settlement checks | `venue-checks.md` |
-| Scenario playbooks | `playbooks.md` |
-| Safe language and disclaimers | `legal.md` |
+| Topic | Instruction |
+|-------|-------------|
+| Setup guide | Load `references/setup.md` |
+| Memory template | Load `assets/memory-template.md` |
+| Locked Spread Protocol | Load `references/workflow.md` |
+| Fee-aware formulas | Load `references/calculator.md` |
+| Venue and settlement checks | Load `references/venue-checks.md` |
+| Scenario playbooks | Load `references/playbooks.md` |
+| Safe language and disclaimers | Load `references/legal.md` |
+| Research sources | Load `references/sources.md` |
 
 ## Requirements
 
-- No credentials required
-- No extra binaries required
-- Live data only when the user provides it or explicitly asks you to fetch it
+- No credentials required.
+- No extra binaries required.
+- Live market data only when the user provides it or explicitly asks you to fetch it.
+- Analysis and trade structure only; not personalized financial, legal, or tax advice.
 
-## Locked Spread Protocol
+## Instructions
 
-Use the full protocol in `workflow.md`. At minimum, every opportunity passes these gates:
+1. Load `references/workflow.md` immediately for any new opportunity (Locked Spread Protocol).
+2. Write every leg with venue, instrument, side, price, size limit, timestamp, and settlement rule.
+3. Normalize fees, spread, financing, transfer, FX, and other known drag with `references/calculator.md` before calling anything edge.
+4. Run `references/venue-checks.md` for resolution language, voids, depth, withdrawal, and region/KYC limits.
+5. Classify hard lock vs soft lock vs expected value; reject fake edge (stale quotes, promo-only, incomplete outcome partitions).
+6. Output a structured decision memo: net edge, sequence, weakest venue, kill conditions, and size constraints.
+7. Use `references/legal.md` phrasing; maintain an objective analytical stance without guarantees or personalized advice.
+8. Persist only user-stated preferences and repeated failure modes under `<state_root>/` using `assets/memory-template.md`.
 
-1. Confirm the legs really describe the same economic outcome
-2. Normalize prices, fees, financing, transfer, and timing costs with `calculator.md`
-3. Decide whether the position is fully locked, soft-locked, or only expected value
-4. Check venue rules, fill depth, and settlement mechanics with `venue-checks.md`
-5. Classify the trade and explain the remaining failure modes before discussing size
+## Safety Boundaries
 
-## Core Rules
-
-### 1. Define the Exact Arbitrage
-- Write each leg with venue, instrument, side, price, size limit, timestamp, and settlement rule
-- If the legs do not resolve to the same outcome, currency, or unit of risk, it is not arbitrage yet
-
-### 2. Normalize Every Dollar of Friction
-- Always include fees, spread, gas, borrow, financing, FX, transfer, and any user-stated tax or settlement drag
-- Use `calculator.md` to convert headline edge into net edge before calling anything profitable
-
-### 3. Sequence for Fill Risk, Not for Hope
-- Identify the constrained leg first: shallow book, max bet, slow venue, borrow dependence, or promo cap
-- Prefer structures that can be locked immediately; otherwise label them soft lock or directional exposure
-
-### 4. Treat Settlement as First-Class Risk
-- Compare rules, expiry, void conditions, collateral type, withdrawal limits, transfer time, and counterparty exposure
-- Use `venue-checks.md` and `playbooks.md` whenever the opportunity crosses venues or products
-
-### 5. Reject Fake Edge Fast
-- Stale quotes, hidden min or max size, promo-only pricing, mismatched markets, and low depth are default failure modes
-- If the residual risk is execution, model drift, or rule mismatch rather than a true lock, say so explicitly
-
-### 6. Output a Decision Memo, Not Hype
-- Return the classification, net edge, max realistic size, required sequence, open checks, and kill conditions
-- Good output ends with a clear next action: proceed, verify one item, downgrade to watchlist, or reject
-
-### 7. Analysis Never Becomes Advice
-- Never call a trade risk-free, guaranteed, or suitable for the user personally
-- Provide analysis and trade structure only; do not execute trades or give portfolio-specific recommendations
-
-## Opportunity Types
-
-| Type | Typical Setup | What Makes It Real |
-|------|---------------|--------------------|
-| Cross-venue spot | Buy cheaper on venue A, sell higher on venue B | Enough depth, transferable inventory, fees covered |
-| Surebet or matched book | Opposite sides across books or exchanges | Implied probability sum below 100 percent after fees |
-| Prediction market basket | Buy outcomes whose total cost is below guaranteed payout | Resolution rules and outcome partition match exactly |
-| Basis or carry | Spot versus future, perp, or synthetic hedge | Funding, carry, borrow, and expiry all modeled |
-| Retail or pricing mismatch | Same item or service priced differently by channel | Shipping, returns, fraud, tax, and inventory verified |
-
-## Arbitrage Traps
-
-| Trap | Why It Fails | Better Move |
-|------|--------------|-------------|
-| Matching names instead of resolution rules | Similar labels can settle differently | Compare exact payout and settlement language |
-| Using top-of-book only | Apparent edge disappears after first fill | Calculate size against real depth |
-| Ignoring transfer time | Edge can vanish before hedge arrives | Price latency as a cost, not a note |
-| Forgetting limits and KYC | One leg fills, the other is capped or blocked | Check limits, region, and account status first |
-| Treating rebates as guaranteed | Rebates or promos can change net economics | Separate hard edge from conditional incentives |
-| Mixing currencies loosely | FX and spread can erase edge | Convert every leg into one base currency |
-| Calling EV arbitrage | Positive EV is not a locked spread | Label it expected value, not arbitrage |
-| Overstating size | The shallowest leg defines realistic capacity | Size to the weakest link |
-
-## Scope
-
-This skill ONLY:
-- Analyzes arbitrage structures and net economics
-- Stores user-stated constraints in `~/Clawic/data/arbitrage/`
-- Uses its own auxiliary files for formulas, venue checks, and playbooks
-- References timestamps and missing inputs when data may be stale
-
-This skill NEVER:
-- Executes real trades, transfers, or withdrawals
-- Uses exchange keys, broker credentials, or wallet secrets
-- Calls an opportunity risk-free or guaranteed
-- Gives personalized financial, tax, or legal advice
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- None by default
-- If the user explicitly asks for live public data, only the requested symbols, markets, or venue pages needed for the analysis
-
-**Data that stays local:**
-- Preferences, venue notes, and working opportunity notes in `~/Clawic/data/arbitrage/`
-
-**This skill does NOT:**
-- Store credentials
-- Read unrelated files
-- Make undeclared network requests
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `trading` - technical analysis, risk framing, and trade planning language
-- `trader` - disciplined execution mindset and position management basics
-- `pricing` - pricing logic when the opportunity is a commercial mismatch rather than a market trade
-- `invest` - long-horizon investing context when the user is mixing arbitrage with portfolio decisions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/arbitrage
-- Latest version: https://clawic.com/skills/arbitrage
+- Prefer net edge over gross edge; never label a trade locked until settlement rules match.
+- Cap or reject when withdrawal latency, size caps, or void asymmetry break the hedge path.
+- Strip credentials and account identifiers before writing anything under `<state_root>/`.
+- If legs do not resolve to the same economic outcome, downgrade to watchlist or reject.

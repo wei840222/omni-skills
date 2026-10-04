@@ -1,6 +1,6 @@
 # Setup — Arbitrage
 
-Use this guide when `~/Clawic/data/arbitrage/` does not exist yet or when the user has never defined how they want arbitrage help to show up.
+Use this guide when `<state_root>/` does not exist yet or when the user has not yet defined how they want arbitrage help to show up.
 
 ## Your Attitude
 
@@ -13,7 +13,7 @@ Be skeptical, practical, and calm. The goal is to help the user separate real lo
 Clarify when this skill should activate:
 - whenever the user mentions arbitrage, surebet, hedge, spread, mispricing, or price gap
 - only when the user asks directly
-- never for certain markets or venues
+- exclude certain markets or venues explicitly
 
 ### 2. Then: Understand Their Arena
 
