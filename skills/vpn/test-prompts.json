@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "new-vpn-privacy-setup",
+    "prompt": "I just installed a commercial VPN on my laptop. What should I verify before I trust it on coffee-shop Wi-Fi?",
+    "expected": "Collect OS/client/protocol context; explain trust shift to provider; require full-tunnel default for privacy; run external IP + DNS leak checks; validate kill switch with forced disconnect; avoid anonymity promises.",
+    "actual": "Asked OS/client/protocol if unknown. Stated VPN shifts path trust to the operator (EFF framing) while HTTPS still protects site content. Recommended full tunnel on untrusted Wi-Fi. Required three acceptance checks before trust: external IP matches exit, DNS resolvers are tunnel/provider set, forced disconnect does not fail-open. Offered rollback (disconnect profile / pause kill switch) and refused anonymity guarantees.",
+    "pass": true,
+    "evidence": "SKILL.md Quick workflow steps 1–4, Privacy and trust, DNS leaks, Kill switch, Acceptance checks; manual walkthrough 2026-10-04T17:25+08 against skills/vpn/SKILL.md on branch refactor/vpn-jules-18383101135265421650 @HEAD."
+  },
+  {
+    "id": 2,
+    "scenario": "connected-no-internet-and-wireguard-ports",
+    "prompt": "My VPN shows Connected but sites will not load. Someone said WireGuard uses fixed ports so maybe my network blocked 51820. What do I check?",
+    "expected": "Ordered diagnosis starting with DNS after client-up; correct WireGuard UDP + configurable ListenPort (not a single fixed port); OpenVPN TCP fallback if UDP blocked; no invented non-UDP WG transport.",
+    "actual": "Ran ordered diagnosis: client/handshake state → endpoint reachability → DNS (primary suspect for connected-without-internet) → routing → local firewall. Corrected fixed-port myth: WireGuard is UDP-only with configurable ListenPort (random if 0/omitted; 51820 is common example only). If UDP blocked, pointed to OpenVPN TCP/--proto fallback rather than non-UDP WireGuard. Cited references/sources.md for protocol claims.",
+    "pass": true,
+    "evidence": "SKILL.md Connection failures + Protocol selection + references/sources.md WireGuard/OpenVPN sections; manual walkthrough 2026-10-04T17:25+08."
+  },
+  {
+    "id": 3,
+    "scenario": "wrong-skill-boundary-wireguard-peers",
+    "prompt": "Help me write a wg-quick config with two peers, AllowedIPs, and PersistentKeepalive for a Raspberry Pi exit.",
+    "expected": "Hand off primary work to wireguard skill; vpn may note self-hosted exit IP and DDNS caveats only at high level.",
+    "actual": "Declared boundary: peer keys, AllowedIPs, and wg-quick layout belong in `wireguard`. Gave only high-level self-hosted exit notes (home public IP as exit, DDNS if needed, keep private keys out of git) and redirected detailed config to wireguard.",
+    "pass": true,
+    "evidence": "SKILL.md When to use + related-skills wireguard + Self-hosted exits; manual walkthrough 2026-10-04T17:25+08."
+  }
+]

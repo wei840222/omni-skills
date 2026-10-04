@@ -174,10 +174,10 @@ Load supporting files only when needed:
   or kill-switch rules that could cut the user off mid-session.
 - Require explicit consent before changing host firewall defaults, installing
   clients, or disabling security agents.
-- Never ask for or store real private keys, PSKs, account passwords, or full
-  `.conf` bodies in skill state; redact to placeholders in examples.
-- Do not promise anonymity, malware blocking, or “FBI-proof” browsing; stay
-  inside documented tunnel and trust-shift facts.
+- Request only redacted examples; keep real private keys, PSKs, account passwords,
+  and full `.conf` bodies out of skill state and chat logs (use `<SERVER_PRIVATE_KEY>`).
+- Stay inside documented tunnel and trust-shift facts; describe anonymity, malware
+  blocking, or “FBI-proof” browsing as out of scope for this skill.
 - Prefer read-only diagnosis (status, routes, DNS, handshake age) before
   mutating system network settings; provide a rollback (disconnect profile,
   restore previous DNS, disable kill switch) for every change.
