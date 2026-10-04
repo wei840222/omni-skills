@@ -46,6 +46,10 @@ Redirect product-level “which CI vendor” questions to `ci-cd`. Redirect GitH
 5. For DinD, verify privileged runner capability, `DOCKER_HOST`, and TLS (`DOCKER_TLS_CERTDIR`) together — partial setup fails cryptically.
 6. Name the failure layer before editing YAML: rules selection, variable scope, runner/executor, inheritance merge, or artifact graph.
 
+## Description routing notes
+
+Keep always-loaded text short: route DinD, rules, and inheritance details through `references/` so agents load only the failing layer.
+
 ## Safety
 
 - Never commit real CI/CD variable values, tokens, or `.gitlab-ci.yml` secrets; use placeholders such as `$PROJECT_TOKEN` or `glpat-***`.
