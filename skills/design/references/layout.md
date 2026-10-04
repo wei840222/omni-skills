@@ -12,7 +12,7 @@
 - Every element's left edge (right edge in RTL) sits on one of <= 3 vertical lines per view (Core Rule 6). Count them explicitly during review.
 - Mixed alignment inside one group is the invisible killer: a centered heading over left-aligned body forces two reading entry points. Pick one per group.
 - Baseline alignment across columns: text blocks side by side align on their first baseline, not their container tops — container-top alignment with different type sizes looks drunk.
-- Numbers in columns right-align with tabular figures; text left-aligns; never center table columns (`ui-screens.md`).
+- Numbers in columns right-align with tabular figures; text left-aligns; never center table columns (`references/ui-screens.md`).
 
 ## Composition (posters, heroes, covers)
 

@@ -26,10 +26,10 @@ System stack: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
 
 - Body: 16px floor, 1.5 line-height, 45-75ch measure (66ch target, Bringhurst). These three interlock — widen the measure, add line-height.
 - Headings: tighten line-height to 1.1-1.3 and letterspacing slightly negative (-1% to -2%) above ~31px; large type looks loose at default tracking.
-- ALL CAPS only for 1-2 word labels, +5-10% letterspacing. Never track lowercase body text.
+- ALL CAPS only for 1-2 word labels, +5-10% letterspacing. Keep lowercase body text tracking at 0.
 - Numbers: tabular (fixed-width) figures in tables, timers, and prices in lists — proportional figures make columns jitter. `font-variant-numeric: tabular-nums`.
 - Hierarchy through the scale (`type_scale_ratio`), not ad-hoc sizes: every size on the page comes from the ladder (16/20/25/31/39 at 1.25). An off-ladder size is a bug, not a nuance.
-- Emphasis inside body text: italic for standard emphasis, bold sparingly for scannable keywords, never underline (reads as link) and never color alone.
+- Emphasis inside body text: italic for standard emphasis, bold sparingly for scannable keywords, never underline (reads as link) and always pair color with a secondary visual indicator.
 - CJK text: no italics (fake obliques distort ideographs), line-height 1.7-2.0, and measure counts characters not ch units.
 
 ## Loading (web)

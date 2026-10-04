@@ -20,7 +20,7 @@ Full color systems, tokens, and cross-surface validation live in the `color` ski
 ## Multi-Color Needs
 
 - A second accent is justified only by a second persistent dimension (e.g. "income vs expenses" throughout). Choose it at the same lightness and saturation as the first, ~120-180 degrees away in hue; then both stay subordinate to 60-30-10.
-- Categorical sets (tags, calendars, avatars): sample 5-7 hues at ONE fixed lightness/saturation so no category looks more important; chart series cap at 6 and follow their own rules (`data-viz.md`).
+- Categorical sets (tags, calendars, avatars): sample 5-7 hues at ONE fixed lightness/saturation so no category looks more important; chart series cap at 6 and follow their own rules (`references/data-viz.md`).
 - Gradients: two neighbors on the hue wheel (blue→violet), never complements (blue→orange muddies at the midpoint). One gradient per view, on a display element, never behind body text without a contrast check at the worst point.
 
 ## Backgrounds and Surfaces
@@ -31,7 +31,7 @@ Full color systems, tokens, and cross-surface validation live in the `color` ski
 
 ## Dark Variant
 
-Map the ramp, don't invert it: surfaces use the 10-20% lightness steps (never pure #000 by default), text drops to ~87% white, accents desaturate 10-20% and lighten one step to keep contrast. Full treatment: `dark-mode.md`.
+Map the ramp, don't invert it: surfaces use the 10-20% lightness steps (never pure #000 by default), text drops to ~87% white, accents desaturate 10-20% and lighten one step to keep contrast. Full treatment: `references/dark-mode.md`.
 
 ## Traps
 

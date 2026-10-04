@@ -7,13 +7,13 @@ Brand positioning and messaging strategy live in the `branding` skill; this file
 - One headline stating the outcome for the visitor (not the product's category), one subline, one CTA. Every extra element above the fold splits the single rank-1.
 - Headline at the top of the type ladder (39px+ desktop, one step down mobile), max 2 lines; a 3-line headline is a subline in disguise — cut it.
 - The CTA is the highest-contrast element on the page (accent fill, 60-30-10). "Get started free" beats "Submit"; label = the action's outcome.
-- Hero media (screenshot, product shot) supports the claim; if it's decorative stock, the text-only version is stronger. Faces and motion vectors point INTO the headline (`layout.md`).
+- Hero media (screenshot, product shot) supports the claim; if it's decorative stock, the text-only version is stronger. Faces and motion vectors point INTO the headline (`references/layout.md`).
 - Navigation stays minimal on conversion pages: every nav link is an exit ramp; landing pages for campaigns often drop nav entirely except the logo.
 
 ## Section Rhythm
 
 - Page = argument: hero claim → proof (how it works, 3 steps max) → evidence (social proof, numbers) → objection handling (FAQ, pricing clarity) → repeated CTA. Each section answers the objection the previous one raised.
-- Consistent section padding (96px desktop / 48px mobile) so scrolling has a beat; alternate background tint at most every other section (`layout.md`).
+- Consistent section padding (96px desktop / 48px mobile) so scrolling has a beat; alternate background tint at most every other section (`references/layout.md`).
 - One idea per section, one heading on the scale. Sections with two messages split into two sections or lose one.
 - Feature lists: 3 or 6 items in a grid — icon + 3-5 word claim + one supporting sentence. Paragraph-length feature descriptions never get read on a scroll.
 - Repeat the CTA after each major proof block and at page end; same label every time — synonym CTAs ("Start now" / "Try it" / "Go") read as different actions.

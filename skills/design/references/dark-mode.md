@@ -1,6 +1,6 @@
 # Dark Mode — Theming, Not Inversion
 
-Dark mode is a second palette derived from the same ramp (`palettes.md`), not a filter. Every rule in SKILL.md still applies; the gates run once per theme.
+Dark mode is a second palette derived from the same ramp (`references/palettes.md`), not a filter. Every rule in SKILL.md still applies; the gates run once per theme.
 
 ## Surfaces and Elevation
 
@@ -26,14 +26,14 @@ Dark mode is a second palette derived from the same ramp (`palettes.md`), not a 
 
 - Illustrations and diagrams designed on white need a dark variant or a subtle light backing plate; transparent PNGs with dark strokes vanish.
 - Photos: reduce brightness slightly (5-10%) so they don't glow against dark chrome; pure-white product shots get a soft dark treatment or a card.
-- Charts: re-derive gridlines (white at low opacity) and re-check series colors on the dark surface (`data-viz.md`).
+- Charts: re-derive gridlines (white at low opacity) and re-check series colors on the dark surface (`references/data-viz.md`).
 
 ## Implementation Hygiene
 
 - Both themes come from one token set with two values per token; hardcoded hex anywhere guarantees a missed spot (the white flash, the unreadable tooltip). Token architecture at scale: `design-system` skill.
 - Honor the OS preference (`prefers-color-scheme`) as the default; a manual toggle stores an override.
 - Test the seams: focus rings, selection color, scrollbars, form autofill backgrounds, and loading skeletons — the five spots that stay light-mode by accident.
-- Email dark mode is a different, hostile problem (forced inversion): `email.md`.
+- Email dark mode is a different, hostile problem (forced inversion): `references/email.md`.
 
 ## Traps
 

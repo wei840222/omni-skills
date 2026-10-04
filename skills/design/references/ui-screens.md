@@ -10,13 +10,13 @@ Component interaction patterns live in the `ui` skill; this file covers the visu
 - Spacing per Core Rule 3: 8px label-to-field, 24px field-to-field, 48px section-to-section.
 - Inputs 16px font minimum — below 16px iOS Safari zooms the viewport on focus.
 - Errors: inline under the offending field, red text + icon, field border red; keep the label visible. A summary toast alone strands the user hunting.
-- One primary button per form, aligned to the field column's line, action-verb label ("Create account", not "Submit"). Secondary action styled as ghost/link, never a second filled button.
+- One primary button per form, aligned to the field column's line, action-verb label ("Create account", not "Submit"). Style the secondary action as a ghost or link.
 
 ## Tables
 
 - Numbers right-aligned with tabular figures; text left-aligned; headers align with their column's content. Center-aligned columns scan worst — avoid.
 - Row height: comfortable 48-56px, dense 32-40px (`base_unit` 4 mode); pick one per table.
-- Zebra stripes OR row borders, never both; with generous row height, whitespace alone separates fine.
+- Choose either zebra stripes or row borders exclusively; with generous row height, whitespace alone separates fine.
 - Numeric precision is design: align decimal points, same decimals per column, thousands separators. 1,204.5 over 1204.50000 in the same column screams unreviewed output.
 - Long tables: sticky header, first column pinned if it's the row identity.
 - Row actions appear on hover/focus on pointer devices but stay always-visible on touch (`platform`).
@@ -24,9 +24,9 @@ Component interaction patterns live in the `ui` skill; this file covers the visu
 ## Dashboards
 
 - One rank-1 metric per screen — the number the user opens the dashboard for — at display size (31-39px). Everything else supports it.
-- KPI cards: value large (25-31px), label small and muted above or below, trend delta with direction glyph + color (never color alone, Core Rule 7).
+- KPI cards: value large (25-31px), label small and muted above or below, trend delta with direction glyph + color (always pair color with a secondary visual indicator, Core Rule 7).
 - Group charts by question, not by chart type; a 2x2 of related charts beats 8 unrelated tiles.
-- Full-width layout, 24px outer margins, cards on the grid with equal gutters (`layout.md`).
+- Full-width layout, 24px outer margins, cards on the grid with equal gutters (`references/layout.md`).
 - Refresh/timestamp visible when data can be stale: "as of 09:41" is rank-3 metadata, small and muted, but present.
 
 ## The Four Non-Happy States
@@ -35,7 +35,7 @@ Design these before polishing the happy path — they ship broken otherwise (SKI
 
 | State | Rule |
 |---|---|
-| Empty | Teach, don't apologize: what this area will show + the action that fills it. Never a bare "No data" |
+| Empty | Teach, don't apologize: what this area will show + the action that fills it. Provide a clear explanation and next action instead of a bare "No data" |
 | Loading | Skeleton in the final layout (prevents shift); spinner only for sub-second or indeterminate whole-screen waits |
 | Error | What failed, in user terms + retry action. Keep the layout; don't collapse to a blank error page for a partial failure |
 | Overflow | Decide truncation per element: ellipsis + tooltip for identifiers, line-clamp for descriptions, "+N more" for chips. Test with 3x expected content length and German-length words |
