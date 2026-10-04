@@ -417,6 +417,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | metaverse                    | 2026-09-19 | 85/100 (#480)                    |
 | metrics                      | 2026-09-16 | 85/100 (#424)                    |
 | miami                        | 2026-09-14 | 85/100 (#392)                    |
+| milan                        | 2026-10-04 | 84/100 (#708)                    |
 | minecraft                    | 2026-09-02 | 85/100 (#219)                    |
 | minimax                      | 2026-09-20 | 85/100 (#495)                    |
 | minio                        | 2026-09-18 | 85/100 (#450)                    |

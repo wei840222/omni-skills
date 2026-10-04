@@ -32,3 +32,8 @@ Milan offers strong public and private healthcare options, with major hospitals 
 - Book non-urgent specialist visits early.
 - Use pharmacy support for minor routine guidance.
 - Keep language support options if Italian is limited.
+
+## Sources (Gate 6)
+- Ministero della Salute: https://www.salute.gov.it/
+- Regione Lombardia health services: https://www.regione.lombardia.it/
+- Tessera Sanitaria / SSN orientation for residents should follow official enrolment steps after legal residence status.

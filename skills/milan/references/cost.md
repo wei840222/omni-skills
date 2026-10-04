@@ -42,3 +42,9 @@
 2. Use monthly transport pass if commuting regularly.
 3. Book event-period travel and lodging early.
 4. Track housing total cost including fees.
+
+## Sources (Gate 6)
+- ISTAT consumer prices and statistics: https://www.istat.it/en/
+- Numbeo Milan cost of living (crowdsourced ranges; cross-check locally): https://www.numbeo.com/cost-of-living/in/Milan
+- Comune di Milano — living and services portal: https://www.comune.milano.it/
+- Eurostat purchasing power and price level context: https://ec.europa.eu/eurostat

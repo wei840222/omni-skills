@@ -33,3 +33,12 @@ Milan is in Italy, so immigration status follows national rules. City choices ma
 - Build a document checklist early.
 - Keep translated and legalized copies where required.
 - Use expert support for complex family or business cases.
+
+## Sources (Gate 6)
+- Ministero degli Affari Esteri — visas for Italy: https://www.esteri.it/en/servizi-consolari-e-visti/ingressosoggiornoinitalia/visto_ingresso/
+- Polizia di Stato — permesso di soggiorno: https://www.poliziadistato.it/articolo/permesso-di-soggiorno
+- EU Immigration Portal — Italy: https://immigration-portal.ec.europa.eu/italy_en
+- EU Blue Card information: https://immigration-portal.ec.europa.eu/eu-blue-card_en
+
+## Research note
+Salary, housing, and permit ranges are indicative; always re-check the linked official pages before advising on a live case.

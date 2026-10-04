@@ -45,3 +45,9 @@
 - Book accommodation and trains early.
 - Expect longer waits for taxis and top restaurants.
 - Shift museum visits to early slots.
+
+## Sources (Gate 6)
+- ATM strike and service notices: https://www.atm.it/en/Pages/default.aspx
+- YesMilano official visitor portal: https://www.yesmilano.it/en
+- Cenacolo Vinciano (Last Supper) advance booking: https://cenacolovinciano.org/en/
+- Ferragosto / August closures are seasonal cultural norms; verify venue hours for the travel week.

@@ -39,3 +39,8 @@ Driving in central Milan is often less practical than transit because of congest
 2. Ignoring local signage and time windows.
 3. Assuming easy parking in central neighborhoods.
 4. Missing toll and fee planning on intercity routes.
+
+## Sources (Gate 6)
+- Comune di Milano Area C: https://www.comune.milano.it/aree-tematiche/mobilita/area-c
+- Comune di Milano ZTL overview: https://www.comune.milano.it/aree-tematiche/mobilita/ztl
+- ACI / Italian driving rules context: https://www.aci.it/

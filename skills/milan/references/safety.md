@@ -31,3 +31,8 @@ Milan is generally safe by European big-city standards, with most issues concent
 - Map safe route alternatives for late returns.
 - Prefer licensed transport channels at night.
 - Keep emergency contacts and copies of key documents.
+
+## Sources (Gate 6)
+- ATM fare validation rules: https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/default.aspx
+- Comune di Milano Area C penalties context: https://www.comune.milano.it/aree-tematiche/mobilita/area-c
+- Polizia di Stato public safety guidance: https://www.poliziadistato.it/

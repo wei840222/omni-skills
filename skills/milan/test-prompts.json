@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a senior software engineer looking to move to Milan for work. What should I know about salaries, neighborhoods to live in, and setting up my visas?",
+    "expected": "Load references/tech.md, references/neighborhoods-choosing.md, and references/visas.md. Cover indicative salary bands, district trade-offs, and visa/permit sequence with lead-time warnings; cite that immigration follows national Italian rules.",
+    "actual": "Structural routing check: SKILL.md Quick Reference maps career topics to tech.md, neighborhoods-choosing.md, and visas.md; visas.md lists work visa + permesso sequence and failure points; tech.md lists senior software EUR 55k-90k as indicative range.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are visiting Milan for 3 days in August. Where should we stay, and how do we book the Last Supper?",
+    "expected": "Load visitor-itineraries.md, visitor-lodging.md, and visitor-tips.md. Warn about Ferragosto closures and advance Last Supper booking via official Cenacolo channel.",
+    "actual": "Structural routing check: visitor tables point to itineraries/lodging/tips; visitor-tips and attractions sources include cenacolovinciano.org and August closure guidance.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I drive into central Milan to park near the Duomo without special permits?",
+    "expected": "Load driving.md, transport.md, and safety.md. Explain ZTL/Area C constraints, ticket validation, and that cars are constrained versus metro/tram.",
+    "actual": "Structural routing check: Core Rules \u00a73 and traps explicitly warn about Area C vs normal parking; driving.md and safety.md cover ZTL/Area C penalties with official Comune sources.",
+    "pass": true
+  }
+]

@@ -1,21 +1,19 @@
 ---
 name: milan
-slug: milan
-version: 1.0.0
-description: Navigate Milan as visitor, resident, student, or professional with neighborhoods, transport, costs, visas, food, and practical local insights.
-homepage: https://clawic.com/skills/milan
-changelog: Initial release with complete Milan guidance for visitors, residents, students, and professionals.
+description: >
+  Guide visitors, residents, students, and professionals through Milan neighborhoods,
+  transport (metro/tram/ZTL/Area C), costs, visas and permits, food areas, tech salaries,
+  startups, healthcare, and lodging. Use when the user asks about Milan travel, relocation,
+  living costs, Duomo/Last Supper planning, Ferragosto closures, or working in Italy's
+  business hub. Not for generic Italy itineraries without Milan focus (`travel`), pure
+  Italian language practice (`italian`), or non-Milan expat admin (`expat`).
 metadata:
-  clawdbot:
-    emoji: M
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Milan
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇮🇹"}'
+  related-skills: '{"travel":"Broader multi-city trip logistics when Milan is only one stop.","expat":"General relocation mindset and admin priorities outside Milan-specific districts.","food":"Personalized restaurant research when city context is already set.","italian":"Language help for bureaucracy and daily phrases.","business":"Company operations beyond Milan company-setup notes."}'
 ---
+
+This skill is stateless and does not store local configuration or persistent user state. Keep itineraries, rental notes, visa checklists, and personal documents in ordinary user files outside the skill package.
 
 ## When to Use
 
@@ -26,41 +24,48 @@ User asks about Milan for any purpose: visiting, moving, studying, working, or l
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions and what to skip | `visitor-attractions.md` |
-| Itineraries (1, 3, 7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Practical tips and day trips | `visitor-tips.md` |
+| Attractions and what to skip | `references/visitor-attractions.md` |
+| Itineraries (1, 3, 7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Practical tips and day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Historic and central zones | `neighborhoods-central.md` |
-| Trendy and social zones | `neighborhoods-trendy.md` |
-| Business and modern districts | `neighborhoods-business.md` |
-| Family and value districts | `neighborhoods-suburban.md` |
-| Choosing framework | `neighborhoods-choosing.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Historic and central zones | `references/neighborhoods-central.md` |
+| Trendy and social zones | `references/neighborhoods-trendy.md` |
+| Business and modern districts | `references/neighborhoods-business.md` |
+| Family and value districts | `references/neighborhoods-suburban.md` |
+| Choosing framework | `references/neighborhoods-choosing.md` |
 | **Food** | |
-| Dining scene overview | `food-overview.md` |
-| Milan and Lombardy classics | `food-local.md` |
-| International and fine dining | `food-international.md` |
-| Best areas for food | `food-areas.md` |
-| Dietary, timing, booking rules | `food-practical.md` |
+| Dining scene overview | `references/food-overview.md` |
+| Milan and Lombardy classics | `references/food-local.md` |
+| International and fine dining | `references/food-international.md` |
+| Best areas for food | `references/food-areas.md` |
+| Dietary, timing, booking rules | `references/food-practical.md` |
 | **Practical** | |
-| Moving and settling | `resident.md` |
-| Metro, trams, trains, airports | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety and legal basics | `safety.md` |
-| Weather and seasons | `climate.md` |
-| SIM, banking, local apps | `local.md` |
+| Moving and settling | `references/resident.md` |
+| Metro, trams, trains, airports | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety and legal basics | `references/safety.md` |
+| Weather and seasons | `references/climate.md` |
+| SIM, banking, local apps | `references/local.md` |
 | **Career and Business** | |
-| Tech market and salaries | `tech.md` |
-| Company setup and taxes | `business.md` |
-| Visas and permits | `visas.md` |
-| Startup ecosystem | `startup.md` |
+| Tech market and salaries | `references/tech.md` |
+| Company setup and taxes | `references/business.md` |
+| Visas and permits | `references/visas.md` |
+| Startup ecosystem | `references/startup.md` |
 | **Lifestyle** | |
-| Culture and social norms | `culture.md` |
-| Healthcare and insurance | `healthcare.md` |
-| Schools and universities | `education.md` |
-| Day to day life and social scene | `lifestyle.md` |
-| Driving and ZTL rules | `driving.md` |
+| Culture and social norms | `references/culture.md` |
+| Healthcare and insurance | `references/healthcare.md` |
+| Schools and universities | `references/education.md` |
+| Day to day life and social scene | `references/lifestyle.md` |
+| Driving and ZTL rules | `references/driving.md` |
+
+## Load Order
+
+1. Classify the user (visitor / resident / student / worker / founder).
+2. Open the matching Quick Reference row before drafting advice.
+3. Cross-check traps (Area C, Ferragosto, ticket validation) when plans involve driving, August travel, or transit fines.
+4. For legal status or company setup, prefer the official sources listed in the loaded reference file over memory.
 
 ## Core Rules
 
@@ -70,21 +75,13 @@ User asks about Milan for any purpose: visiting, moving, studying, working, or l
 - Load the matching file before giving recommendations.
 
 ### 2. Milan Is Neighborhood-Driven
-The city changes block by block. Price, safety, noise, and lifestyle vary heavily by district. Never answer housing or nightlife questions without district context.
+The city changes block by block. Price, safety, noise, and lifestyle vary heavily by district. Always require district context before answering housing or nightlife questions.
 
 ### 3. Public Transport Works, Cars Are Constrained
 Metro, tram, and rail are strong for daily movement. Central driving is limited by ZTL and Area C rules. For most newcomers, public transport plus walking is faster and cheaper.
 
-### 4. Budget Reality (Feb 2026)
-
-| Item | Typical Range |
-|------|---------------|
-| 1BR rent (inside ring) | EUR 1,200-2,200 per month |
-| 1BR rent (outer zones) | EUR 850-1,400 per month |
-| Senior software salary | EUR 55,000-90,000 gross per year |
-| Monthly transport pass | EUR 39 |
-| Mid-range dinner | EUR 25-45 per person |
-| Espresso at bar | EUR 1.20-1.80 |
+### 4. Budget Reality
+Load `references/cost.md` for current typical ranges on rent, transport passes, and dining costs.
 
 ### 5. Timing Culture Matters
 - Lunch and dinner times are later than in many US cities.
@@ -101,16 +98,13 @@ Design Week, Fashion Week, and major football matches move prices quickly. Menti
 ### 8. Compare Milan Inside Italy
 Milan is faster, more expensive, and more international than most Italian cities. For users comparing Rome, Venice, or Florence, highlight concrete trade-offs.
 
-## Milan-Specific Traps
+## Milan-Specific Recovery Checks
 
-- Confusing Area C with normal parking - entering with a car can trigger fines.
-- Booking Duomo terraces or Last Supper too late - top slots sell out fast.
-- Assuming all restaurants are open all day - many close between lunch and dinner.
-- Renting near nightlife without checking street noise - Navigli and parts of Isola can be loud.
-- Underestimating August closures - many local services slow down or shut.
-- Using taxis from airports without checking flat or metered options.
-- Ignoring strike risk - transport strikes can disrupt metro and rail.
-- Signing rental deals without contract registration checks.
+Before finalizing advice, load `references/safety.md` and `references/visitor-tips.md` and confirm:
+- Area C / ZTL plans use the correct permit or choose metro/tram instead of assuming normal parking.
+- August (Ferragosto) itineraries re-check venue hours and booking lead times.
+- Transit plans include ticket validation and a strike/service-notice check.
+- Housing picks near Navigli/Isola nightlife include noise expectations up front.
 
 ## Legal Awareness
 
@@ -120,17 +114,4 @@ Milan is faster, more expensive, and more international than most Italian cities
 - Carry valid ID and residence documents if staying long term.
 - Work and study status must match visa or permit conditions.
 
-See `safety.md` and `visas.md` for details.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` - trip planning, logistics, and scheduling
-- `expat` - relocation mindset, admin priorities, and adaptation
-- `food` - dining research and personalized restaurant planning
-- `italian` - language help for daily life and bureaucracy
-- `business` - company and operations support
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/milan
-- Latest version: https://clawic.com/skills/milan
+See `references/safety.md` and `references/visas.md` for details.
