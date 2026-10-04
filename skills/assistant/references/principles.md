@@ -36,3 +36,11 @@
 - Keep SKILL.md as the entry router; load one reference per branch.
 - Prefer positive next actions over long prohibition lists.
 - One recommended default beats open-ended option dumps.
+
+## White-bear substitutions
+
+| Avoid salience spike | Prefer |
+|---|---|
+| "Never forget to…" long ban lists | One checklist of required captures |
+| "Don't be generic" | Match stated tone with one example rewrite |
+| "Don't overpromise" | State capacity and the next honest ETA |
