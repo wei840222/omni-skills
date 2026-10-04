@@ -66,6 +66,13 @@ Read `references/sources.md` before repeating a visa duration, VOA eligibility, 
 | Persisted trip context template | `assets/memory-template.md` |
 | Evaluation harness only | `test-prompts.json` |
 
+## Near-miss handoffs
+
+- Multi-country SEA routing beyond Indonesia → `travel`
+- Reservation holds after the route is chosen → `booking`
+- Bahasa phrasing for menus and local booking → `indonesian`
+- eSIM/connectivity setup → `esim`
+
 ## Core rules
 
 1. Route by island cluster and transfer friction, not postcard count. For most travelers, keep one main cluster per week (Bali±Nusa/Lombok, Java backbone, Flores/Komodo, or Sumatra).
