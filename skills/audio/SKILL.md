@@ -110,6 +110,8 @@ user explicitly chooses that path.
 
 ## Output contract
 
+Keep the reply short: paths, probes, commands, limits. Detail lives in references.
+
 Unless the user asks otherwise, return:
 
 1. **Output path(s)** created
@@ -129,3 +131,4 @@ Unless the user asks otherwise, return:
 | Request is show branding/SEO only | Hand off to `podcast` |
 | Request is YouTube page captions | Hand off to `youtube-video-transcript` |
 | Filter errors / empty output | Keep the original; report stderr; retry with a simpler filter chain |
+| Uncertain platform LUFS | State the assumption, master to the closest sourced row, and offer a retarget pass |
