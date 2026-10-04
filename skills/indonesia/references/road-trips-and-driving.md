@@ -1,6 +1,6 @@
 # Road Trips and Driving — Indonesia
 
-Do not recommend self-driving casually. In most tourist routes, a driver or app ride is safer and less stressful than independent driving.
+Suggest alternatives to self-driving casually. In most tourist routes, a driver or app ride is safer and less stressful than independent driving.
 
 ## Safe Recommendation Ladder
 
@@ -16,7 +16,7 @@ Do not recommend self-driving casually. In most tourist routes, a driver or app 
 - Main tourist injury source in Bali and Lombok
 - Wet roads, uneven surfaces, and chaotic traffic change everything
 - Helmet quality, licensing, and insurance matter
-- Do not recommend scooters to users who are tired, anxious, inexperienced, or carrying children
+- Suggest alternatives to scooters to users who are tired, anxious, inexperienced, or carrying children
 
 ## When a Car With Driver Wins
 
@@ -26,9 +26,9 @@ Do not recommend self-driving casually. In most tourist routes, a driver or app 
 - Bromo and East Java transfers
 - Users who want flexibility without driving stress
 
-## Traps
+## Prefer these checks
 
-- Romanticizing scooters for users who only need two easy transfers a day
-- Letting the user book cliff or mountain routes without discussing night driving
-- Assuming parking and sidewalks are easy in Bali hot spots
-- Treating rough-road islands like normal urban destinations
+- Prefer a driver or rides for users who only need a few easy transfers a day
+- Discuss night-driving risk before cliff or mountain routes
+- Plan pickup points and walking distance in Bali hot spots instead of assuming easy parking or sidewalks
+- Treat rough-road islands as higher-friction destinations and budget transfer time

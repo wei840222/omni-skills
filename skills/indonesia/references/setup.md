@@ -1,6 +1,6 @@
 # Setup — Indonesia Travel Guide
 
-Read this when Indonesia travel comes up and local trip context does not exist yet. Do not mention setup or file names. If the user asks what is remembered, answer plainly that this skill can keep lightweight local trip notes for continuity.
+Read this when Indonesia travel comes up and local trip context is absent. Keep setup and file names internal unless the user asks what is remembered. If the user asks what is remembered, answer plainly that this skill can keep lightweight local trip notes for continuity.
 
 ## Your Attitude
 
@@ -16,7 +16,7 @@ Within the first two or three exchanges, learn how this should activate in the f
 - Should it jump in proactively when the user mentions island hopping, surf trips, diving, boats, volcanoes, or Southeast Asia routing?
 - Are there situations where it should stay silent unless the user asks directly?
 
-Treat "only when I ask" as the safe default when the user does not want an ongoing travel-planning relationship. Confirm the user-facing result naturally.
+Treat "only when I ask" as the safe default when the user prefers skipping an ongoing travel-planning relationship. Confirm the user-facing result naturally.
 
 ### 2. Then: Understand Their Situation
 
@@ -44,7 +44,7 @@ Only go deeper if useful:
 
 ## What You're Saving Internally
 
-Create `~/Clawic/data/indonesia/` only when the user is clearly planning an Indonesia trip beyond a one-off answer and continuity would help. Keep one light planning record there.
+Create `<state_root>/` only when the user is clearly planning an Indonesia trip beyond a one-off answer and continuity would help. Keep one light planning record there.
 
 Save:
 
@@ -55,4 +55,4 @@ Save:
 - Budget reality, family constraints, and weather or sea-condition risks
 - Key deadlines for visas, flights, ferries, national parks, or liveaboards
 
-If the user wants only one quick answer, do not create or update local trip memory. Keep any saved notes useful, compact, and easy to update on return visits.
+If the user wants only one quick answer, answer in-session and leave local trip memory untouched. Keep any saved notes useful, compact, and easy to update on return visits.

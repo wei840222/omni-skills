@@ -20,7 +20,7 @@ Use this before the user spends money. Rules can change, so anchor the plan in o
 | 30-60 day leisure trip | VOA plus extension, if eligible |
 | Work, journalism, research, long stay | Pre-arranged visa only |
 
-Do not guess which passports qualify. Tell the user to check the current official list before purchase.
+Confirm passport eligibility on the current official Immigration list before the user purchases tickets or pays visa fees.
 
 ## What to Verify Before Booking
 

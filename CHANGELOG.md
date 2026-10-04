@@ -358,6 +358,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | inbox                        | 2026-08-30 | 85/100 (#164)                    |
 | india                        | 2026-09-16 | 85/100 (#427)                    |
 | indie-hacker                 | 2026-10-03 | 82/100 (#690)                    |
+| indonesia                    | 2026-10-05 | 84/100 (#724)                    |
 | indonesian                   | 2026-09-24 | 85/100 (#566)                    |
 | influencer                   | 2026-08-12 | 88/100                           |
 | influxdb                     | 2026-09-20 | 85/100 (#498)                    |
