@@ -77,6 +77,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | argentina                    | 2026-10-01 | 81/100 (#640)                    |
 | art                          | 2026-10-04 | 85/100 (#716)                    |
 | article                      | 2026-10-05 | 84/100 (#721)                    |
+| taste                        | 2026-10-05 | 84/100 (#722)                    |
 | asi                          | 2026-09-02 | 84/100 (#220)                    |
 | aso                          | 2026-09-05 | 85/100 (#270)                    |
 | assistant                    | 2026-10-04 | 81/100 (#710)                    |
