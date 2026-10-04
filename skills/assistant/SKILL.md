@@ -38,7 +38,7 @@ Use the selected `<state_root>` for every state operation in this skill. Never w
 - Propose schedule options with conflict checks, time zones, and buffers
 - Separate approval-required actions from autonomous handling
 
-Redirect whole-life capacity diagnosis to `productivity`. Redirect day/week blocking mechanics to `time-management`. Redirect multi-channel unread methodology to `inbox`. Redirect preference memory and send-on-confirm drafts to `secretary`.
+Redirect whole-life capacity diagnosis to `productivity`. Redirect day/week blocking mechanics to `time-management`. Redirect multi-channel unread methodology to `inbox`. Redirect preference memory and send-on-confirm drafts to `secretary`. Redirect persona/voice identity work to `agent`.
 
 ## Quick Reference
 
