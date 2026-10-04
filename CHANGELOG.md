@@ -453,6 +453,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | notion-calendar              | 2026-09-25 | 84/100 (#573)                    |
 | nutrition                    | 2026-09-17 | 85/100 (#442)                    |
 | nutritionist                 | 2026-08-29 | 85/100                           |
+| nuxt                         | 2026-10-04 | 84/100 (#715)                    |
 | oauth                        | 2026-10-03 | 80/100 (#691)                    |
 | observability                | 2026-10-02 | 84/100 (#668)                    |
 | okr                          | 2026-10-02 | 84/100 (#665)                    |
