@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Here's my email thread with the marketing team. We need to finalize the Q3 budget by Friday, and I need a quick summary of the open items and an action list.",
+    "expected": "Returns a short thread summary with key points, open actions with owners/deadlines when known, and a draft-next-reply offer without sending. May mention 4Ds only if it changes triage; does not dump the full thread into state.",
+    "actual": "Summary of Q3 Budget Marketing Thread:\n\n**Decision needed:** Approve or adjust marketing's proposed spend before Friday.\n**Key points:**\n- Marketing requests a 10% increase for social ads.\n- Q3 budget must be finalized by this Friday.\n\n**Open actions:**\n1. Review the proposed 10% ad increase (you).\n2. Approve or adjust the budget (you).\n3. Reply to marketing by Thursday afternoon (you).\n\nI can draft a reply that approves, counters, or asks for a breakdown—say which direction and I will prepare text only (no send).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm overwhelmed today. I have 15 emails, a project deadline tomorrow, and a new urgent request from the CEO about the quarterly report.",
+    "expected": "Uses Eisenhower/GTD-style ranking: CEO + tomorrow deadline first; batches the 15 emails; proposes a focus block; does not pretend all 15 are equally urgent. Offers next physical actions and asks only for missing inputs that change the plan.",
+    "actual": "Ranking with Eisenhower + capture/clarify:\n\n**Do now (Important & Urgent):**\n1. CEO quarterly-report request — clarify exact deliverable and deadline, then start the first draft section.\n2. Project due tomorrow — define the minimum shippable slice and block focus time.\n\n**Batch later (mostly Not-Urgent or delegate/defer):**\n- 15 emails — one inbox pass with 4Ds after the focus block; I will not treat unread count as priority.\n\n**Next 2 hours:** silence non-essential notifications; work CEO request first, then tomorrow's project. After that, 25-minute email batch.\n\nNeed from you only if missing: CEO report format/length, and whether any of the 15 emails are hard blockers.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Propose three times next week for a 30-minute sync with a teammate in UTC+8 and me in America/Los_Angeles. Don't send the invite yet.",
+    "expected": "Proposes times with both time zones, includes buffers/conflict caveat, and explicitly does not send invites without approval.",
+    "actual": "Three 30-minute options (showing both zones). I will not send an invite until you confirm:\n\n1. Tue 09:00–09:30 America/Los_Angeles = Wed 00:00–00:30 UTC+8 — only if late-night is OK for them.\n2. Tue 18:00–18:30 America/Los_Angeles = Wed 09:00–09:30 UTC+8 — stronger overlap.\n3. Wed 17:30–18:00 America/Los_Angeles = Thu 08:30–09:00 UTC+8 — morning for them, end-of-day for you.\n\nPlease confirm calendar conflicts on your side; I can adjust and draft an invite body after you pick one.",
+    "pass": true
+  }
+]
