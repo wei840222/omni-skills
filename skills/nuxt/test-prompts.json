@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I fetch data in a Nuxt 3 component during SSR?",
+    "expected": "Recommends useFetch/useAsyncData over top-level $fetch in setup, explains dedupe/payload, mentions key and useLazyFetch for non-blocking cases; points at nuxt-patterns.",
+    "actual": "Failing layer: data fetching. In component/page setup use `useFetch` or `useAsyncData` so Nuxt deduplicates the request and transfers SSR payload. Avoid bare `$fetch` in `<script setup>`—it tends to run on server and again on client. Add a stable `key` when params change without changing the path; use `useLazyFetch` when navigation should not block and handle pending/error. Load `references/nuxt-patterns.md`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm seeing hydration mismatches because of Date.now() in my template. What's the best way to fix this in Nuxt?",
+    "expected": "Identifies hydration layer; suggests compute once/pass from server or ClientOnly; bans relying on client-only first paint without fallback.",
+    "actual": "Failing layer: hydration. `Date.now()`/`Math.random()` in render produce different server vs client HTML. Compute the value once on the server and pass it down, or wrap the browser-only UI in `<ClientOnly>` with a fallback. Browser APIs belong in `onMounted` or `import.meta.client` guards. Load `references/nuxt-patterns.md` (Hydration traps).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need a POST /api/checkout handler with a secret Stripe key, and a page middleware that sends anonymous users to login. How should I structure this in Nuxt?",
+    "expected": "server/api method-suffixed handler + private runtimeConfig; middleware must return navigateTo; secrets not in public config; API re-checks auth.",
+    "actual": "Split layers: (1) `server/api/checkout.post.ts` reads the body with `readBody`, uses private `runtimeConfig` for the Stripe secret (not `runtimeConfig.public` / `NUXT_PUBLIC_*`), throws `createError` on failure. (2) Vue middleware via `definePageMeta` or `middleware/auth.ts` must `return navigateTo('/login')`. Middleware is UX only—re-verify the session inside the API handler. Load `references/nuxt-patterns.md` (Server routes, Middleware, Configuration).",
+    "pass": true
+  }
+]

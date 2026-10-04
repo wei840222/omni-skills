@@ -1,80 +1,87 @@
 ---
 name: nuxt
-slug: nuxt
-version: 1.0.0
-description: Build Vue 3 SSR/SSG applications with proper data fetching, hydration, and server patterns.
-homepage: https://clawic.com/skills/nuxt
+description: >
+  Build and debug Nuxt 3/4 Vue apps around SSR data fetching, hydration,
+  auto-imports, server routes, useState, middleware, runtimeConfig, and SEO.
+  Use when useFetch vs $fetch, hydration mismatches, Nitro API handlers,
+  route middleware, or Nuxt routeRules come up. Not for plain Vue SPA-only
+  work (vue), React/Next (react/nextjs), or generic Vite bundler setup (vite).
 metadata:
-  clawdbot:
-    emoji: 💚
-    requires:
-      bins:
-      - node
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Nuxt
+  version: "1.0.0"
+  openclaw: '{"emoji":"💚","requires":{"bins":["node"]}}'
+  related-skills: '{"vue":"Vue reactivity, SFC, and SPA patterns when the problem is not Nuxt-specific.","vite":"Bundler and Vite plugin issues outside Nuxt conventions.","typescript":"Language-level typing outside Nuxt auto-import and Nitro types.","frontend":"Cross-framework UI polish and accessibility.","seo":"General SEO strategy beyond Nuxt useSeoMeta helpers.","nodejs":"Node runtime and process concerns outside Nitro handlers."}'
 ---
 
-# Nuxt 3 Patterns
+# Nuxt
 
-## Data Fetching
-- `useFetch` deduplicates and caches requests during SSR — use it in components, not `$fetch` which fetches twice (server + client)
-- `$fetch` is for event handlers and server routes only — in `<script setup>` it causes hydration mismatches
-- `useFetch` runs on server during SSR — check `process.server` if you need client-only data
-- Add `key` option to `useFetch` when URL params change but path stays same — without it, cache returns stale data
-- `useLazyFetch` doesn't block navigation — use for non-critical data, but handle the pending state
+Nuxt-specific SSR/SSG guidance for Vue apps: pick the right data-fetching API, keep server and client HTML aligned, use Nitro server routes correctly, and keep secrets out of the client bundle.
 
-## Hydration Traps
-- `Date.now()` or `Math.random()` in templates cause hydration mismatches — compute once in setup or use `<ClientOnly>`
-- Browser-only APIs (localStorage, window) crash SSR — wrap in `onMounted` or `process.client` check
-- Conditional rendering based on client-only state mismatches — use `<ClientOnly>` component with fallback
-- `v-if` with async data shows flash of wrong content — use `v-show` or skeleton states instead
+This skill is stateless. Keep project notes, env inventories, and deploy runbooks in ordinary user files outside the skill package.
 
-## Auto-imports
-- Components in `components/` auto-import with folder-based naming — `components/UI/Button.vue` becomes `<UIButton>`
-- Composables in `composables/` must be named `use*` for auto-import — `utils.ts` exports won't auto-import
-- Server utils in `server/utils/` auto-import in server routes only — not available in client code
-- Disable auto-imports per-file with `// @ts-nocheck` or explicitly import to avoid naming collisions
+## When to use
 
-## Server Routes
-- Files in `server/api/` become API routes — `server/api/users.get.ts` handles GET /api/users
-- Method suffix (`.get.ts`, `.post.ts`) is required for method-specific handlers — without it, handles all methods
-- `getQuery(event)` for query params, `readBody(event)` for POST body — don't access `event.req` directly
-- Return value is auto-serialized to JSON — throw `createError({ statusCode: 404 })` for errors
+- Choosing `useFetch` / `useAsyncData` vs `$fetch` in components or event handlers
+- Fixing hydration mismatches from `Date.now()`, `Math.random()`, `localStorage`, or client-only branches
+- Writing `server/api` handlers, middleware, or `runtimeConfig` secrets
+- Debugging auto-import naming, `useState` collisions, or Pinia SSR setup
+- SEO with `useSeoMeta` / `useHead`, or deploy choices (`nuxt build` vs `nuxt generate`, `routeRules`)
 
-## State Management
-- `useState` is SSR-safe and persists across navigation — regular `ref()` resets on each page
-- `useState` key must be unique app-wide — collisions silently share state between components
-- Pinia stores need `storeToRefs()` to keep reactivity when destructuring — without it, values lose reactivity
-- Don't initialize state with browser APIs in `useState` default — it runs on server too
+Prefer `vue` for SPA-only reactivity, `vite` for bare Vite config, `react`/`nextjs` for React stacks, and `seo` for non-Nuxt SEO strategy.
 
-## Middleware
-- Global middleware in `middleware/` with `.global.ts` suffix runs on every route — order is alphabetical
-- Route middleware defined in `definePageMeta` runs after global — use for auth checks on specific pages
-- `navigateTo()` in middleware must be returned — forgetting `return` continues to the original route
-- Server middleware in `server/middleware/` runs on all server requests including API routes
+## Quick workflow
 
-## Configuration
-- `runtimeConfig` for server secrets, `runtimeConfig.public` for client-safe values — env vars override with `NUXT_` prefix
-- `app.config.ts` for build-time config that doesn't need env vars — it's bundled into the app
-- `nuxt.config.ts` changes require restart — `app.config.ts` changes hot-reload
+1. **Name the layer** — data fetching, hydration, server route, state, middleware, config, or SEO.
+2. **Check the boundary** — does the code run on server, client, or both? Secrets and browser APIs cannot cross blindly.
+3. **Load one reference** — open only the matching file from the table below.
+4. **Verify against sources** — version-sensitive API claims against URLs in `references/sources.md`.
+5. **Keep answers operational** — state the failing layer, the concrete API, and the reference that justifies it.
 
-## SEO and Meta
-- `useSeoMeta` for standard meta tags — type-safe and handles og:/twitter: prefixes automatically
-- `useHead` for custom tags, scripts, and links — more flexible but no type safety for meta names
-- Meta in `definePageMeta` is static — use `useSeoMeta` in setup for dynamic values
-- `titleTemplate` in `nuxt.config` for consistent titles — `%s - My Site` pattern
+## Progressive disclosure
 
-## Plugins
-- Plugins run before app creation — use `nuxtApp.hook('app:created')` for post-creation logic
-- `provide` in plugins makes values available via `useNuxtApp()` — but composables are cleaner
-- Plugin order: numbered prefixes (`01.plugin.ts`) run first, then alphabetical — dependencies need explicit ordering
-- Client-only plugins: `.client.ts` suffix — server-only: `.server.ts` suffix
+| Resource | When to load |
+|---|---|
+| `references/nuxt-patterns.md` | Data fetching, hydration, auto-imports, server routes, state, middleware, config, SEO, plugins, build |
+| `references/sources.md` | Official Nuxt / Nitro / Pinia docs used for Gate 6 freshness |
+| `test-prompts.json` | Evaluation harness only — do not load during normal user assistance |
 
-## Build and Deploy
-- `nuxt generate` creates static files — but API routes won't work without a server
-- `nuxt build` creates server bundle — deploy the `.output` directory
-- ISR with `routeRules`: `'/blog/**': { isr: 3600 }` — caches pages for 1 hour
-- Prerender specific routes: `routeRules: { '/about': { prerender: true } }` — builds static HTML at build time
+## Operating rules
+
+### Data fetching
+
+- In components and pages during SSR, prefer `useFetch` / `useAsyncData` so Nuxt deduplicates and transfers payload; bare `$fetch` in `<script setup>` often runs on server and again on client.
+- Use `$fetch` in event handlers, `server/` code, and other non-setup call sites where a one-shot request is intentional.
+- Pass a stable `key` when the URL path is fixed but params/filters change; otherwise cached payload can look stale.
+- Use `useLazyFetch` / `useLazyAsyncData` when navigation must not block; always handle pending and error states.
+
+### Hydration
+
+- Do not render `Date.now()`, `Math.random()`, or locale/timezone-dependent strings during SSR without a shared server-provided value.
+- Browser-only APIs (`window`, `document`, `localStorage`) belong in `onMounted`, `import.meta.client` guards, or `<ClientOnly>`.
+- Client-only UI that would change the first paint should use `<ClientOnly>` with a fallback rather than a server/client-divergent `v-if`.
+
+### Auto-imports and server routes
+
+- `components/` auto-import with directory prefixes (`components/UI/Button.vue` → `<UIButton>`).
+- Composables auto-import when named `use*`; plain `utils` exports need explicit import.
+- `server/utils/` is server-only — never assume it exists in client bundles.
+- `server/api/users.get.ts` maps to `GET /api/users`; method suffixes select HTTP verbs.
+- Read input with `getQuery` / `readBody` / H3 helpers; throw `createError({ statusCode })` for failures.
+
+### State, middleware, config
+
+- `useState` is SSR-friendly shared state keyed app-wide — colliding keys silently share data; defaults must be server-safe.
+- Prefer `storeToRefs` when destructuring Pinia state; create Pinia per request on SSR.
+- Global route middleware uses `middleware/*.global.ts`; page middleware via `definePageMeta`. Always `return navigateTo(...)` when redirecting.
+- Put secrets in private `runtimeConfig`; expose only `runtimeConfig.public`. Override with `NUXT_` env vars. Never send private keys to the client payload.
+
+### SEO, plugins, deploy
+
+- Prefer `useSeoMeta` for typed meta; `useHead` for arbitrary tags/scripts.
+- Plugins: `.client.ts` / `.server.ts` suffixes; ordered prefixes when dependencies matter.
+- `nuxt generate` is static — API routes need a server. Deploy `nuxt build` output from `.output`. Use `routeRules` for ISR/prerender intentionally.
+
+## Safety boundaries
+
+- Treat `runtimeConfig` private keys, `.env`, and deployment tokens as secrets — never commit or echo them into client guidance.
+- Do not invent Nuxt version behavior from memory; re-open `references/sources.md` links for disputed APIs.
+- Route non-Nuxt Vue questions to `vue` instead of overloading this skill.
