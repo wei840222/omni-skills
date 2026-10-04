@@ -39,3 +39,6 @@ Milan is in Italy, so immigration status follows national rules. City choices ma
 - Polizia di Stato — permesso di soggiorno: https://www.poliziadistato.it/articolo/permesso-di-soggiorno
 - EU Immigration Portal — Italy: https://immigration-portal.ec.europa.eu/italy_en
 - EU Blue Card information: https://immigration-portal.ec.europa.eu/eu-blue-card_en
+
+## Research note
+Salary, housing, and permit ranges are indicative; always re-check the linked official pages before advising on a live case.
