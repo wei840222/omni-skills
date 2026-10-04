@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I see BTC at 60000 on Venue A and 60050 on Venue B. Can you check this arbitrage opportunity?",
+    "expected": "Load workflow.md and calculator.md, calculate net edge considering fees on both venues and transfer costs. Ask for the fees and transfer details since they are missing. Refuse to call it edge until these are verified.",
+    "actual": "I need to normalize the economics before we can call this a true arbitrage opportunity. Let's run this through the Locked Spread Protocol.\n\nFirst, what are the trading fees on Venue A and Venue B? Second, how much does it cost to transfer BTC between these venues, and what is the expected transfer time? Finally, what is the available liquidity (book depth) at these prices?\n\nOnce we have these details, we can calculate the true net edge.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "There's a surebet here: DraftKings has team A +110 and FanDuel has team B +110.",
+    "expected": "Load workflow.md and venue-checks.md, check if the outcomes are exactly complementary. Calculate net implied probability. Note that EV is not a lock.",
+    "actual": "Let's analyze this cross-venue surebet using the Locked Spread Protocol.\n\nFirst, we need to verify the exact resolution rules. Do both books treat overtime the same way? Are there any void conditions (e.g., weather cancellations) that differ between DraftKings and FanDuel?\n\nIf the rules match exactly, +110 on both sides yields an implied probability of 47.62% each, totaling 95.24%. This leaves a gross edge of 4.76%. However, we must confirm the maximum bet size on both books and verify if either side is using promo funds (which often have different withdrawal rules).\n\nDecision: Verify the exact overtime/void rules and max bet limits before proceeding.",
+    "pass": true
+  }
+]
