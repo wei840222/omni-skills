@@ -98,13 +98,13 @@ Design Week, Fashion Week, and major football matches move prices quickly. Menti
 ### 8. Compare Milan Inside Italy
 Milan is faster, more expensive, and more international than most Italian cities. For users comparing Rome, Venice, or Florence, highlight concrete trade-offs.
 
-## Milan-Specific Traps
+## Milan-Specific Recovery Checks
 
-Review `references/safety.md` and `references/visitor-tips.md` to avoid common mistakes, such as:
-- Confusing Area C with normal parking.
-- Underestimating August (Ferragosto) closures.
-- Forgetting to validate transport tickets or check strike risks.
-- Renting near noisy nightlife areas without context.
+Before finalizing advice, load `references/safety.md` and `references/visitor-tips.md` and confirm:
+- Area C / ZTL plans use the correct permit or choose metro/tram instead of assuming normal parking.
+- August (Ferragosto) itineraries re-check venue hours and booking lead times.
+- Transit plans include ticket validation and a strike/service-notice check.
+- Housing picks near Navigli/Isola nightlife include noise expectations up front.
 
 ## Legal Awareness
 
