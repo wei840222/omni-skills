@@ -37,7 +37,8 @@ Prefer sibling skills when the problem is already broader: `ethereum` for L1 fee
 2. **Name the direction** — parent→child deposit vs child→parent withdrawal vs same-chain tx.
 3. **Load one reference** — bridging, networks, technical, or sources; do not load all by default.
 4. **Verify before irreversible steps** — explorer/RPC, official bridge UI history, and enough **ETH** for gas on the destination.
-5. **Separate soft vs hard finality** — sequencer inclusion is fast; native L2→L1 finality waits out the dispute window, then a claim on L1.
+5. **Cite sources for fragile facts** — dispute window, Stylus activation policy, and chain params change; load `references/sources.md` when uncertain.
+6. **Separate soft vs hard finality** — sequencer inclusion is fast; native L2→L1 finality waits out the dispute window, then a claim on L1.
 
 ## Load the relevant reference
 
