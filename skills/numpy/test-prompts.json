@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a Python script to create a 3x3 matrix of zeros and then replace the middle element with 5 using numpy.",
+    "expected": "Uses import numpy as np, np.zeros((3, 3)), and arr[1, 1] = 5 with a printed or asserted result.",
+    "actual": "Executed with NumPy 2.5.3:\n```python\nimport numpy as np\narr = np.zeros((3, 3))\narr[1, 1] = 5\nprint(arr)\n```\nOutput:\n[[0. 0. 0.]\n [0. 5. 0.]\n [0. 0. 0.]]",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an array of floats `data = [1.2, 2.8, 3.1]`. How do I efficiently convert this to an array of 8-bit integers using numpy? Also explain what happens if I assign 1.9 into a default integer array.",
+    "expected": "Uses vectorized np.array(..., dtype=np.int8) or astype; explains silent truncation on int arrays; no Python element loop.",
+    "actual": "Executed with NumPy 2.5.3:\n```python\nimport numpy as np\ndata = [1.2, 2.8, 3.1]\narr = np.array(data, dtype=np.int8)\nprint(arr, arr.dtype)  # [1 2 3] int8\n\nint_arr = np.array([1, 2, 3])\nint_arr[0] = 1.9\nprint(int_arr)  # [1 2 3] — float truncated\n```\nMatches expected vectorized cast + truncation warning.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Broadcast a column vector shape (3,1) with a length-4 row and show the result shape. Then demonstrate that a basic slice is a view by mutating it.",
+    "expected": "Shows (3,4) broadcast result and a slice mutation that changes the base array, contrasting with fancy-index copy behavior.",
+    "actual": "Executed with NumPy 2.5.3:\n```python\nimport numpy as np\ncol = np.array([[1], [2], [3]])\nrow = np.array([10, 20, 30, 40])\nout = col + row\nprint(out.shape, out.tolist())\n# (3, 4) [[11, 21, 31, 41], [12, 22, 32, 42], [13, 23, 33, 43]]\n\nbase = np.array([1, 2, 3, 4, 5])\nview = base[1:4]\nview[0] = 99\nprint(base)  # [1 99 3 4 5] — slice is a view\nprint(base[[1, 2, 3]].base)  # None — fancy index copy\n```\n",
+    "pass": true
+  }
+]
