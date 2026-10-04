@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a semantic color scale for our new design system. Our primary brand color is hex #3B82F6.",
+    "expected": "Defines primitives from #3B82F6, maps semantic roles (primary, on-primary, surfaces), documents usage, and keeps values under <state_root> without hardcoding the hex into every component.",
+    "actual": "Resolved <state_root>, wrote primitives (e.g. blue-500: #3B82F6) and semantic roles (primary → primitive) with usage notes in <state_root>/memory.md and optional <state_root>/tokens/colors.json; components referenced semantic tokens only.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to add a banner component that has a complex multi-state gradient. Can you just build the banner component with these hardcoded styles?",
+    "expected": "Refuses one-off hardcoded styles as the system path; extracts the gradient into tokens first, then applies semantic/component tokens to the banner.",
+    "actual": "Treated hardcoded multi-state gradient as an anti-pattern for a reusable system; defined primitive gradient stops, mapped semantic banner roles, then specified the banner against those tokens and recorded the decision in <state_root>/memory.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should our button props be different on every screen so each team can invent names?",
+    "expected": "Recommends a shared component API (variant/size/disabled) and documents exceptions only when product standards require them.",
+    "actual": "Rejected per-screen prop invention; required shared variant/size/disabled contract per guidelines and noted any exception must be written in <state_root>/memory.md Decisions.",
+    "pass": true
+  }
+]

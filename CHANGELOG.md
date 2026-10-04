@@ -206,6 +206,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | deno                         | 2026-09-30 | Gates 1-5 compliance only (#609) |
 | deploy                       | 2026-08-07 | ~82/100                          |
 | dermatologist                | 2026-09-07 | 85/100 (#294)                    |
+| design-system               | 2026-10-04 | 83/100 (#713)                    |
 | designer                     | 2026-09-01 | 85/100 (#183)                    |
 | developer                    | 2026-10-03 | 85/100 (#687)                    |
 | dhgate                       | 2026-09-14 | 85/100 (#399)                    |
