@@ -691,6 +691,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | violin                       | 2026-10-03 | 80/100 (#700)                    |
 | vite                         | 2026-08-31 | 85/100 (#177)                    |
 | voice-notes                  | 2026-08-11 | 85/100                           |
+| vpn                          | 2026-10-04 | 88/100 (#717)                    |
 | vps                          | 2026-10-01 | 84/100 (#638)                    |
 | vr                           | 2026-08-31 | 85/100 (#175)                    |
 | vscode                       | 2026-08-31 | 85/100 (#174)                    |
