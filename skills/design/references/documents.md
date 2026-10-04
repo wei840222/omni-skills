@@ -6,7 +6,7 @@ Reading artifacts: multi-page, linear, often printed. Hierarchy spans pages, not
 
 - A4 (210x297mm) or US Letter (216x279mm) — match the audience's region; a Letter layout prints clipped on A4 trays and vice versa.
 - Margins: 20-25mm (0.8-1in) all around for documents; resumes can tighten to 15mm. Bound documents add 5mm to the inner margin.
-- Body: 10-12pt print (serif text face, `fonts.md`), 1.4-1.5 line-height, single column at 60-70ch — the same measure law as screens, different units.
+- Body: 10-12pt print (serif text face, `references/fonts.md`), 1.4-1.5 line-height, single column at 60-70ch — the same measure law as screens, different units.
 - Running elements: page numbers outside bottom corner, document title or section in the header from page 2 on. A multi-page PDF without page numbers fails the first time someone cites it.
 
 ## Report Hierarchy
@@ -37,7 +37,7 @@ Reading artifacts: multi-page, linear, often printed. Hierarchy spans pages, not
 - Destined for screens: RGB, hyperlinked table of contents and cross-references, bookmarks panel populated for 10+ page documents.
 - Landscape 16:9 pages for read-on-screen decks/reports beat portrait A4 scrolling in viewers.
 - File size: compress images to ~150 DPI for screen-only PDFs; a 40MB attachment is a design failure.
-- Tagged PDF (reading order, alt text) when the document is public-facing (`accessibility.md`).
+- Tagged PDF (reading order, alt text) when the document is public-facing (`references/accessibility.md`).
 
 ## Traps
 

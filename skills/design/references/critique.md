@@ -21,9 +21,9 @@ Ordered by how often each is the actual cause in generated or non-designer work:
 
 1. Misaligned edges — elements 2-5px off a shared line. Snap everything to <= 3 alignment lines.
 2. Mixed radii, mixed shadows, or mixed icon styles on sibling elements — one scale per artifact.
-3. Default-stack fonts mixed with a styled font, or faux bold/italic (browser-synthesized) — load the real weights (`fonts.md`).
+3. Default-stack fonts mixed with a styled font, or faux bold/italic (browser-synthesized) — load the real weights (`references/fonts.md`).
 4. Pure #000 on #FFF plus fully saturated accent colors — near-black text, tinted neutrals, one desaturated accent.
-5. Stretched or off-ratio images and logos — crop, never distort.
+5. Stretched or off-ratio images and logos — crop, preserve aspect ratio.
 6. Centered long text with ragged widths — left-align (Core Rule 6).
 
 ## "Flat / boring / nothing stands out"
@@ -53,7 +53,7 @@ Ordered by how often each is the actual cause in generated or non-designer work:
 1. Pure gray neutrals beside a saturated accent — tint neutrals 2-5% with the accent hue.
 2. Two accent hues competing at equal saturation — demote one to a tint or drop it (60-30-10).
 3. Accent used on non-interactive decoration — the accent must mean something (action/state), or it is noise.
-4. Semantic collision: brand red next to error red, or green decoration near success states — shift the non-semantic use (`palettes.md`).
+4. Semantic collision: brand red next to error red, or green decoration near success states — shift the non-semantic use (`references/palettes.md`).
 5. Hues at mismatched lightness (neon yellow next to navy at full strength) — rebuild both from the same lightness ramp.
 
 ## "Too corporate / generic / AI-looking"

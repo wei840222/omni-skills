@@ -8,7 +8,7 @@ Email clients are the most hostile rendering target in design: assume 2005-era C
 - Layout with tables (`role="presentation"`), not flexbox/grid: Outlook on Windows renders with Word's engine — no flex, no grid, no background images without VML fallbacks, unreliable padding on div/p.
 - Inline the critical CSS on each element; `<style>` blocks are stripped or partially supported in several clients. Media queries work in major mobile clients but treat them as enhancement.
 - Gmail clips messages over 102KB of HTML (shows "View entire message" and hides the rest — including the unsubscribe footer). Keep HTML weight well under; images don't count toward the limit.
-- Web fonts render only in a minority of clients (Apple Mail, some others): declare them, but design so the fallback stack looks intentional (`fonts.md` metrics-compatible fallback).
+- Web fonts render only in a minority of clients (Apple Mail, some others): declare them, but design so the fallback stack looks intentional (`references/fonts.md` metrics-compatible fallback).
 - No JavaScript, no video autoplay, forms unreliable — every interaction is a link out.
 
 ## Layout That Survives
@@ -32,7 +32,7 @@ Email clients are the most hostile rendering target in design: assume 2005-era C
 ## Hierarchy for the Inbox
 
 - The design starts before the open: sender name, subject (~40 chars survive mobile truncation), and preheader text (the first hidden/visible text, ~80 chars) are the artifact's rank-1 — set the preheader deliberately or the first `<td>`'s content leaks into it.
-- One message, one CTA per email — the landing-page hero rule (`landing-pages.md`) compressed further. The CTA appears within the first screen and repeats near the end.
+- One message, one CTA per email — the landing-page hero rule (`references/landing-pages.md`) compressed further. The CTA appears within the first screen and repeats near the end.
 - Footer is legally load-bearing: sender address and a working unsubscribe link — designed small (rank-3, muted) but present and tappable.
 
 ## Testing

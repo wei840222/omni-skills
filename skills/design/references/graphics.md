@@ -14,7 +14,7 @@ One-glance artifacts: seen small, in a feed, for about a second. Different physi
 - Rank-1 at visual center or upper third, sized to dominate: the headline occupies roughly a third of the composition's area.
 - The reading gravity: big message → supporting visual → details (date/place/URL) in ONE small cluster near the bottom edge. Scattered detail lines are the amateur tell on posters.
 - Viewing distance sets the floor: street posters need the message legible at 3-5m — when in doubt, double the size you first set.
-- Rule-of-thirds placement for photographic posters; scrim under any text on photo until contrast passes (`palettes.md`).
+- Rule-of-thirds placement for photographic posters; scrim under any text on photo until contrast passes (`references/palettes.md`).
 
 ## Common Canvas Sizes
 
@@ -35,7 +35,7 @@ Design at 2x when the target is raster; export per platform rather than letting 
 
 - 3 elements maximum: face or subject, 2-4 word text, one background. Every published guide beyond that is noise at 120px.
 - Text on thumbnails is display type: 700+ weight, extreme contrast (white with dark outline or block background), never body-style text.
-- The subject's gaze or motion vector points at the text or into the frame (`layout.md` composition).
+- The subject's gaze or motion vector points at the text or into the frame (`references/layout.md` composition).
 
 ## Banners and Ads
 

@@ -23,14 +23,14 @@
 ## Charts on Slides
 
 - One chart per slide, title = the finding. Strip to the single series that proves the point; the full analysis lives in the appendix.
-- Direct-label the key data point on the slide (callout + accent); the audience has ~10 seconds, not time to decode a legend (`data-viz.md`).
+- Direct-label the key data point on the slide (callout + accent); the audience has ~10 seconds, not time to decode a legend (`references/data-viz.md`).
 - Rebuild spreadsheet-default charts: default gridlines, 3D effects, and legends at 10pt do not survive projection.
 
 ## Projection Reality
 
 - Projectors compress contrast: mid-gray text on white washes out. Keep text at near-black on white, or white on a dark slide — nothing between.
 - Dark decks look premium in a dark room, light decks win in daylight offices; pick per venue, don't mix within a deck.
-- Thin fonts and hairline rules vanish at distance: 400 weight minimum for body, 2px+ rule lines (`fonts.md` — one sans, 400/700).
+- Thin fonts and hairline rules vanish at distance: 400 weight minimum for body, 2px+ rule lines (`references/fonts.md` — one sans, 400/700).
 - Test at thumbnail size: if the slide sorter view communicates each slide's point, the room will read it too.
 
 ## Delivery Formats

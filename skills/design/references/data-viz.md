@@ -1,6 +1,6 @@
 # Data Viz — Charts That Answer a Question
 
-A chart exists to answer one question; the question picks the chart, the encoding, and what gets deleted. Chart placement in dashboards: `ui-screens.md`.
+A chart exists to answer one question; the question picks the chart, the encoding, and what gets deleted. Chart placement in dashboards: `references/ui-screens.md`.
 
 ## Chart Choice by Question
 
@@ -32,14 +32,14 @@ Default when unsure: horizontal bar — labels stay readable and comparison is b
 4. Axis tick density → 4-6 ticks; abbreviated numbers (12k, 1.4M) over raw digits.
 5. Redundant axis titles when the chart title already names the measure.
 
-The chart title states the finding, not the topic: "Signups doubled after the pricing change", not "Signups over time" — same assertion rule as `slides.md`.
+The chart title states the finding, not the topic: "Signups doubled after the pricing change", not "Signups over time" — same assertion rule as `references/slides.md`.
 
 ## Color in Charts
 
-- Magnitude → one-hue sequential lightness ramp; signed/divergent data → diverging ramp through a neutral midpoint at the meaningful zero (`palettes.md` ramp mechanics).
+- Magnitude → one-hue sequential lightness ramp; signed/divergent data → diverging ramp through a neutral midpoint at the meaningful zero (`references/palettes.md` ramp mechanics).
 - Categorical series: distinguishable hues at equal lightness, 6 maximum — beyond that, group into "other" or split into small multiples.
 - Emphasis pattern: the series under discussion in the accent color, all others gray. This single move turns a spaghetti line chart into an argument.
-- Never encode by hue alone: vary lightness so the chart survives grayscale and CVD (Core Rule 7); check red/green pairs specifically (`accessibility.md`).
+- Never encode by hue alone: vary lightness so the chart survives grayscale and CVD (Core Rule 7); check red/green pairs specifically (`references/accessibility.md`).
 - Semantic consistency across a document: the same entity keeps the same color in every chart.
 
 ## Text in Charts
