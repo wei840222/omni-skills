@@ -429,6 +429,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | models                       | 2026-10-01 | 84/100 (#641)                    |
 | monetize                     | 2026-08-21 | 89.2/100                         |
 | money                        | 2026-09-01 | 80/100 (#204)                    |
+| mqtt                         | 2026-10-04 | 82/100 (#711)                    |
 | mumbai                       | 2026-08-26 | 85/100                           |
 | music                        | 2026-09-08 | 85/100 (#303)                    |
 | music-generation             | 2026-09-09 | 85/100 (#325)                    |

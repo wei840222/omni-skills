@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I structure my MQTT topics for a smart home system?",
+    "expected": "Avoids leading slash, keeps wildcards on subscribe only, warns about # subtree matching and broker depth limits; gives concrete home/... examples.",
+    "actual": "Use hierarchical topics without a leading slash (prefer `home/livingroom/temp` over `/home/livingroom/temp`). Publish only to concrete topics—never to `+` or `#`. Reserve wildcards for subscriptions, and treat `home/#` as the entire subtree. Check your broker's topic-depth and throughput limits before deep nesting, and document which paths are retained versus ephemeral.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm setting up a Mosquitto broker for external access. What do I need to keep in mind?",
+    "expected": "Requires authentication, TLS on external listeners, least-privilege ACLs, unique client IDs; optional persistence/queue limits; rejects anonymous public bind.",
+    "actual": "Do not expose anonymous Mosquitto on a public interface. Require authentication, enable TLS on any listener reachable outside the trusted path, and grant least-privilege ACLs per device or role. Give every client a unique client ID to avoid session fights. Prefer separate local vs external listeners; set persistence if you need retained/durable state across restarts, and cap queued messages so one slow subscriber cannot exhaust memory. Binding `0.0.0.0` is an explicit exposure decision, not a default convenience.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We see duplicate command executions from an MQTT subscriber. What should we check?",
+    "expected": "Explains QoS 1 at-least-once duplicates, effective min QoS, idempotent handlers; may mention shared vs unique client IDs and retained redelivery pitfalls.",
+    "actual": "First check QoS: effective QoS is min(publisher, subscriber). QoS 1 is at-least-once and can deliver duplicates after reconnect—command handlers must be idempotent (dedupe keys or state gates). Confirm the subscriber is not using a colliding client ID that flaps sessions, and that a retained command topic is not replaying an old payload to every new subscriber. Use QoS 2 only if duplicates are truly unacceptable and the extra overhead is justified; otherwise fix idempotency and retained-command design.",
+    "pass": true
+  }
+]
