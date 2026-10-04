@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new Jira issue in project ENG for a frontend bug.",
+    "expected": "Selects Jira Platform REST (not agile-only), requests site + email/API token (or acli jira auth), resolves project key ENG, builds issue create payload, and confirms before write.",
+    "actual": "Dry-run package review: SKILL + references/jira-suite.md + product-map route to https://{site}.atlassian.net/rest/api/3 and acli jira workitem create; auth matrix requires email+token; core rules require target resolution and write confirmation. No live Jira call in this harness.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "List the last 5 incidents in Opsgenie for the EU region.",
+    "expected": "Uses api.eu.opsgenie.com, requests Opsgenie API key only, and fetches a bounded incident list without mixing tenant Atlassian auth.",
+    "actual": "Dry-run package review: admin-ops + product-map document EU base URL https://api.eu.opsgenie.com and API-key auth; SKILL external endpoints table includes EU host; traps warn against tenant GraphQL reuse. No live Opsgenie call in this harness.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Open a Confluence page by title on our Cloud site and summarize it.",
+    "expected": "Uses Confluence Cloud wiki API v2 host with /wiki/, requests Confluence-capable auth, resolves space/page IDs rather than title alone, and stays read-only unless asked to edit.",
+    "actual": "Dry-run package review: content-dev-collab base https://{site}.atlassian.net/wiki/api/v2; gotchas require /wiki/ and IDs over titles; workflow defaults to read before write. No live Confluence call in this harness.",
+    "pass": true
+  }
+]
