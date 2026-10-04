@@ -1,96 +1,57 @@
 ---
 name: arbitrum
-slug: arbitrum
-version: 1.0.0
-description: Assist with Arbitrum One transactions, bridging, gas optimization, and L2 ecosystem navigation.
-homepage: https://clawic.com/skills/arbitrum
+description: >
+  Operate Arbitrum One and Nova: official bridging and ~7-day exits, ETH gas vs ARB
+  governance, chain IDs/RPCs, Stylus status, sequencer force-inclusion, and BoLD
+  dispute context. Use for Arbitrum deposits, withdrawals, wallet setup, L2 gas,
+  or One-vs-Nova confusion. Not for general Ethereum L1 fee markets alone
+  (`ethereum`), multi-chain architecture choice (`blockchain`), or Solidity authoring
+  (`solidity`).
 metadata:
-  clawdbot:
-    emoji: 🔵
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Arbitrum
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔵"}'
+  related-skills: '{"blockchain":"Broader ledger and EVM interaction decisions when the problem is not Arbitrum-specific.","ethereum":"L1 gas, approvals, MEV, and cross-L2 bridge framing once Arbitrum-specific steps are clear.","solidity":"Contract authoring and audit patterns when the task moves from chain ops into Solidity code."}'
 ---
 
-## Network Basics
-- Arbitrum One is an optimistic rollup — L2 scaling for Ethereum
-- EVM equivalent — same tools, wallets, contracts as Ethereum
-- ETH is the gas token — not a separate token
-- ARB is governance token — not used for gas
-- Same addresses as Ethereum — but different network, different balances
+This skill is stateless and does not store local configuration or persistent user state.
 
-## Bridging
-- Official bridge: bridge.arbitrum.io — most secure
-- Deposits (L1→L2): ~10 minutes — after Ethereum confirmation
-- Withdrawals (L2→L1): 7 days — optimistic rollup security delay
-- Third-party bridges faster — Hop, Across, Stargate, but add risk
-- Always bridge some ETH first — need gas on Arbitrum
+# Arbitrum
 
-## The 7-Day Withdrawal
-- Optimistic rollups assume transactions valid — fraud proofs during 7 days
-- Cannot speed up native bridge withdrawal — security requirement
-- Plan ahead for exits — don't bridge if you need funds in <7 days
-- Third-party bridges use liquidity — faster but fees apply
-- Withdrawal can be claimed after 7 days — requires L1 transaction
+Arbitrum-specific guidance for **Arbitrum One** (Optimistic Rollup) and **Arbitrum Nova** (AnyTrust): bridging, gas token rules, network parameters, Stylus, sequencer behavior, and dispute-window exits secured on Ethereum.
 
-## Gas and Fees
-- Much cheaper than Ethereum mainnet — typically 10-50x lower
-- Two components: L2 execution + L1 data posting
-- L1 data costs can spike — when Ethereum is congested
-- Gas prices in gwei — same units as Ethereum
-- Fast blocks — ~0.25 seconds
+## When to load
 
-## ARB Token
-- Governance token — vote on DAO proposals
-- Not used for gas — ETH pays for transactions
-- Airdropped to early users — claiming period ended
-- Staking coming — ARB staking in development
-- Available on major exchanges — high liquidity
+Load this skill when the request is **Arbitrum-specific**, for example:
 
-## DeFi Ecosystem
-- GMX — largest perps DEX on Arbitrum
-- Uniswap, SushiSwap — major DEXs deployed
-- Aave, Radiant — lending protocols
-- Camelot — native Arbitrum DEX
-- Significant TVL — billions in value locked
+- depositing or withdrawing via the official bridge (`bridge.arbitrum.io`)
+- clarifying ETH (gas) vs ARB (governance)
+- adding One (`42161`) or Nova (`42170`) to a wallet
+- explaining the native exit delay, claim step, or third-party fast bridges
+- Stylus contract status, sequencer downtime, or force-inclusion
 
-## Wallet Configuration
-- MetaMask works natively — add network from chainlist.org
-- Chain ID: 42161 — RPC: https://arb1.arbitrum.io/rpc
-- Block explorer: arbiscan.io — verify transactions
-- Same seed as Ethereum — different network selection
+Prefer sibling skills when the problem is already broader: `ethereum` for L1 fee markets and generic L2 framing, `blockchain` for fit/architecture, `solidity` for writing contracts.
 
-## Arbitrum Nova
-- Separate chain from Arbitrum One — optimized for gaming/social
-- Lower fees than One — less security guarantees
-- Different bridge — don't confuse with One
-- Chain ID: 42170 — verify you're on correct chain
+## Quick workflow
 
-## Stylus
-- Run Rust, C, C++ contracts — not just Solidity
-- WASM-based execution — alongside EVM
-- Coming feature — expands developer options
-- Same security as EVM contracts — audited runtime
+1. **Name the chain** — Arbitrum One vs Nova vs Sepolia; confirm chain ID before any send or bridge.
+2. **Name the direction** — parent→child deposit vs child→parent withdrawal vs same-chain tx.
+3. **Load one reference** — bridging, networks, technical, or sources; do not load all by default.
+4. **Verify before irreversible steps** — explorer/RPC, official bridge UI history, and enough **ETH** for gas on the destination.
+5. **Separate soft vs hard finality** — sequencer inclusion is fast; native L2→L1 finality waits out the dispute window, then a claim on L1.
 
-## Common Issues
-- "Insufficient ETH for gas" — need ETH, not just tokens
-- Wrong network — sent to Arbitrum address on Ethereum (recoverable but complex)
-- Withdrawal pending — 7-day wait is normal, not stuck
-- Transaction reverted — check slippage, approvals, balance
-- "Network not found" — add Arbitrum network to wallet
+## Load the relevant reference
 
-## Sequencer
-- Single sequencer currently — Offchain Labs operated
-- Centralization concern — decentralization roadmap exists
-- Sequencer can't steal funds — only order transactions
-- If sequencer down — delayed but not lost, can force include
-- Decentralized sequencer coming — DAO governance
+| Reference | Load when |
+|---|---|
+| `references/bridging.md` | Deposits, native withdrawals, claim step, third-party fast exits, stuck bridge txs. |
+| `references/networks.md` | Chain IDs, RPCs, explorers, One vs Nova (Rollup vs AnyTrust), gas token, ARB role. |
+| `references/technical.md` | Fees (L2 + L1 data), Stylus status, sequencer/force-inclusion, BoLD dispute window, common failures. |
+| `references/sources.md` | Re-check time-sensitive protocol claims against primary docs. |
 
-## Security
-- Same security as Ethereum for assets — after 7-day challenge period
-- Smart contracts same risks — audit status matters
-- Fraud proof protects users — invalid state transitions challenged
-- Bridge is secured by Ethereum — L1 is the settlement layer
-- Use official bridge for large amounts — third-party bridges add risk
+## Non-negotiable operating rules
+
+- Treat **ETH** as the gas token on Arbitrum One and Nova; **ARB** is governance, not gas.
+- Treat official bridge **child→parent** exits as a multi-day dispute window (docs and UI describe about **seven days**; chain params list ~**6.4 days** / 45818 blocks on One/Nova), then an L1 **claim**—not a stuck transfer.
+- Prefer the **official bridge** for large value; third-party bridges trade speed for extra smart-contract and liquidity risk.
+- Never mix **One** and **Nova** chain IDs, RPCs, or bridges in the same instruction.
+- For new **Stylus** work, confirm current activation policy on One/Nova before telling users to deploy (activations have been paused by Security Council notice while existing activated contracts can keep running until expiry).
