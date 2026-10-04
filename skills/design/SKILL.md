@@ -70,6 +70,7 @@ Preference areas to record as the user reveals them:
 ## Progressive Disclosure
 
 Load specific references based on the current task:
+- **Setup & memory**: Load `references/setup.md` on first use or preference capture; `references/memory.md` defines the memory file shape under `<state_root>`.
 - **Analysis**: Load `references/critique.md` when diagnosing cluttered or flat designs.
 - **Typography & Color**: Load `references/fonts.md` for pairings and `references/palettes.md` for building color systems.
 - **Layout & Structure**: Load `references/layout.md` for grids and responsive behavior.
