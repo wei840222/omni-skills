@@ -1,15 +1,16 @@
 # Discover - AGENTS Routing Block
 
 Add this block to the workspace `AGENTS.md` only if the user wants persistent discovery behavior.
-Append it or merge it into an existing routing section. Never replace the whole file.
+Append it or merge it into an existing routing section. Preserve existing file content.
 
 ```markdown
 ## Discovery Routing
 
 When the user wants new ideas, new angles, new opportunities, or "keep discovering this over time":
 - activate the installed `discover` skill
-- read `~/Clawic/data/discover/memory.md` and `~/Clawic/data/discover/watchlist.md` if they exist
-- add durable discovery interests to `~/Clawic/data/discover/watchlist.md`
+- resolve `<state_root>` per the skill State location section
+- read `<state_root>/memory.md` and `<state_root>/watchlist.md` if they exist
+- add durable discovery interests to `<state_root>/watchlist.md`
 - prefer novelty over repetition: new evidence, new angle, new operator, new warning, or new opportunity
 - use heartbeat only for approved topics with a clear novelty bar
 ```

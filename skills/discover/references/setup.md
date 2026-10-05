@@ -1,15 +1,15 @@
 # Setup - Discover
 
-Use this file when `~/Clawic/data/discover/` is missing or empty.
+Use this file when `<state_root>/` is missing or empty.
 
 Answer the immediate question first, then install the future discovery behavior early so the skill knows what to keep exploring and how proactive it may be.
 
-## Immediate First-Run Actions
+## Immediate first-run actions
 
 ### 1. Lock integration behavior early
 
 Within the first exchanges, clarify:
-- should this activate whenever the user asks for new angles, opportunities, or things they may not know yet
+- should this activate when the user asks for new angles, opportunities, or things they may not know yet
 - should it also activate when the user hints at an open loop like moving country, changing tax setup, or exploring a new market
 - are there topics where discovery should stay quiet unless explicitly asked
 
@@ -44,14 +44,14 @@ Default to conservative behavior:
 
 ### 4. Prepare the AGENTS routing early
 
-If a workspace `AGENTS.md` exists, show the exact block from `AGENTS.md` and wait for explicit approval before writing it.
+If a workspace `AGENTS.md` exists, show the exact block from package `AGENTS.md` and wait for explicit approval before writing it.
 
 Keep the change small.
 The goal is only to make discovery activate when the user wants new things, not to rewrite the workspace personality.
 
 ### 5. Prepare the HEARTBEAT contract early
 
-If a workspace `HEARTBEAT.md` exists, show the exact block from `HEARTBEAT.md` and wait for explicit approval before writing it.
+If a workspace `HEARTBEAT.md` exists, show the exact block from package `HEARTBEAT.md` and wait for explicit approval before writing it.
 
 Heartbeat should stay quiet by default.
 No novelty means `HEARTBEAT_OK`.
@@ -59,16 +59,17 @@ No novelty means `HEARTBEAT_OK`.
 ### 6. Create local state after the behavior path is accepted
 
 ```bash
-mkdir -p ~/Clawic/data/discover/{findings,archive}
-touch ~/Clawic/data/discover/{memory.md,watchlist.md,heartbeat-state.md}
-chmod 700 ~/discover ~/Clawic/data/discover/findings ~/Clawic/data/discover/archive
-chmod 600 ~/Clawic/data/discover/{memory.md,watchlist.md,heartbeat-state.md}
+# After resolving the real directory for <state_root> (never mkdir the literal placeholder):
+mkdir -p "$STATE_ROOT"/{findings,archive}
+touch "$STATE_ROOT"/{memory.md,watchlist.md,heartbeat-state.md}
+chmod 700 "$STATE_ROOT" "$STATE_ROOT"/findings "$STATE_ROOT"/archive
+chmod 600 "$STATE_ROOT"/{memory.md,watchlist.md,heartbeat-state.md}
 ```
 
 If the files are empty:
-- initialize `~/Clawic/data/discover/memory.md` from `memory-template.md`
-- initialize `~/Clawic/data/discover/watchlist.md` from `watchlist-template.md`
-- initialize `~/Clawic/data/discover/heartbeat-state.md` from `heartbeat-state.md`
+- initialize `<state_root>/memory.md` from `references/memory-template.md`
+- initialize `<state_root>/watchlist.md` from `references/watchlist-template.md`
+- initialize `<state_root>/heartbeat-state.md` from `references/heartbeat-state.md`
 
 ### 7. What to save
 
@@ -79,4 +80,4 @@ Save only what improves future discovery:
 - heartbeat approvals, pauses, and active hours
 - findings that were actually new enough to matter
 
-Do not store secrets, credentials, or one-off curiosities that do not deserve durable tracking.
+Keep secrets, credentials, and one-off curiosities out of durable tracking.

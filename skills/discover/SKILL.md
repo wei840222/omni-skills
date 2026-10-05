@@ -1,77 +1,54 @@
 ---
 name: discover
-slug: discover
-version: 1.0.1
-description: Discover new ideas, sources, opportunities, and angles with durable watchlists, novelty rules, and heartbeat-backed finding logs.
-homepage: https://clawic.com/skills/discover
-changelog: Initial release with discovery watchlists, novelty filters, heartbeat logging, and lightweight workspace routing.
+description: >
+  Keep discovering new angles, risks, operators, jurisdictions, and practical next
+  paths on topics that matter over time. Use when the user asks to keep an eye on a
+  topic, track novelty, find non-obvious angles, maintain a discovery watchlist, or
+  run quiet heartbeat-backed discovery that returns HEARTBEAT_OK when nothing changed.
+  Not for one-shot summaries, generic research dumps without a novelty bar, or pure
+  note capture without ongoing discovery intent.
 metadata:
-  clawdbot:
-    emoji: 🔭
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/discover/
-    configPaths.optional:
-    - ./AGENTS.md
-    - ./HEARTBEAT.md
-    displayName: Discover
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/discover/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🔭","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"heartbeat":"Owns recurring OpenClaw heartbeat playbooks and quiet no-change contracts when discovery is heartbeat-approved.","in-depth-research":"Deep multi-source investigation when a single discovery needs exhaustive methodology rather than ongoing novelty tracking.","market-research":"Market and competitor framing when discovery topics are commercial rather than open-loop life or opportunity tracks.","notes":"Retrieval-oriented capture when the user wants a second brain entry instead of novelty-over-time discovery.","schedule":"Exact-time cron or calendar jobs when discovery work needs precise timing instead of heartbeat."}'
 ---
 
-## When to Use
+# Discover
 
-Use this skill when the user does not just want an answer once. Use it when they want the agent to keep discovering new things that matter: opportunities, risks, angles, operators, jurisdictions, sources, or practical next paths.
+Turn durable curiosity into a visible watchlist, a high novelty bar, and quiet recurring checks. Prefer findings that change options or next moves over volume.
 
-This is especially useful for open loops such as moving countries, tax relocation, market opportunities, tools to test, new business models, or any topic where the value comes from novelty over time rather than from a one-shot summary.
+## State location
 
-## Architecture
+Discover state may exist in `<workspace>/discover/`, `<workspace>/memory/discover/`, or `~/discover/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Memory lives in `~/Clawic/data/discover/`. If `~/Clawic/data/discover/` does not exist, run `setup.md`. Use `memory-template.md`, `watchlist-template.md`, and `heartbeat-state.md` as the baseline structures.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/discover/`, `<workspace>/memory/discover/`, `~/discover/`.
+3. If none exists and state must be created, default to `<workspace>/discover/`.
 
-Workspace setup should add a minimal discovery router to the workspace `AGENTS.md` and a quiet recurring check to `HEARTBEAT.md`, with recurring behavior routed through `heartbeat-rules.md`.
+Use the selected `<state_root>` for every state operation in this skill. If multiple candidates exist, use only the highest-precedence one, report the conflict, and leave the others unchanged.
 
-```text
-~/Clawic/data/discover/
-├── memory.md             # Activation rules, novelty bar, and autonomy boundaries
-├── watchlist.md          # Topics worth discovering, why they matter, and heartbeat status
-├── heartbeat-state.md    # Last run, last angle used, and no-op markers
-├── findings/
-│   └── {topic}.md        # Dated log of only the discoveries that were actually new
-└── archive/              # Retired topics and frozen logs
-```
+## Shared workspace writes
 
-## Quick Reference
+Workspace `AGENTS.md` and `HEARTBEAT.md` are host-owned paths outside `<state_root>`. Propose the exact blocks from package `AGENTS.md` / `HEARTBEAT.md` and wait for explicit approval before writing them. Keep those edits minimal and discovery-scoped.
 
-| Topic | File | Use it for |
-|-------|------|------------|
-| Setup and workspace routing | `setup.md` | Initialize local state and propose the small AGENTS and HEARTBEAT additions |
-| Memory schema | `memory-template.md` | Create `~/Clawic/data/discover/memory.md` with status and stable preferences |
-| Baseline memory example | `memory.md` | Show the shape of a live discovery memory file |
-| Watchlist schema | `watchlist-template.md` | Create `~/Clawic/data/discover/watchlist.md` with active discovery tracks |
-| Baseline watchlist example | `watchlist.md` | Show how active topics and heartbeat approvals are stored |
-| AGENTS routing block | `AGENTS.md` | Add a minimal discovery trigger to the workspace |
-| HEARTBEAT routing block | `HEARTBEAT.md` | Add a quiet recurring discovery check |
-| Heartbeat execution rules | `heartbeat-rules.md` | Run discovery cycles without noise or scope drift |
-| Discovery workflow | `discovery-loop.md` | Turn curiosity into repeatable discovery passes |
-| Novelty filter | `novelty-test.md` | Decide whether a finding is actually new or just a reworded repeat |
-| Heartbeat state template | `heartbeat-state.md` | Initialize recurring state markers safely |
+## When to use
 
-## Requirements
+- Keep discovering opportunities, risks, angles, operators, jurisdictions, sources, or next paths over time
+- Maintain a watchlist with an explicit novelty bar
+- Run heartbeat-backed discovery that stays quiet when nothing material changed
+- Open loops such as relocation, tax residency, market entry, tools to test, or business-model exploration
 
-- No credentials are required by default.
-- Ask before enabling heartbeat or any recurring discovery loop.
-- Ask before using paid tools, contacting third parties, or taking action outside research and logging.
-- Keep external lookup scope narrow and tied to active watchlist topics.
+Hand off when the job is really:
 
-## Detection Triggers
+- one-shot research with no ongoing track → `in-depth-research`
+- commercial market framing only → `market-research`
+- retrieval notes / second brain → `notes`
+- exact-time jobs → `schedule`
+- generic heartbeat plumbing without discovery state → `heartbeat`
+
+## Detection triggers
 
 Route here when the conversation sounds like any of these:
 
@@ -81,114 +58,43 @@ Route here when the conversation sounds like any of these:
 - "Find me angles I have not thought about"
 - "Track this over time and tell me only if there is something new"
 - "I may move country / change tax residency / enter a market, keep digging"
-- "Do not repeat the same obvious stuff"
+- "Provide novel insights beyond the obvious stuff"
 
-## Core Rules
+## Quick reference
 
-### 1. Lock Why the Topic Matters Before Exploring
-- Every discovery track needs a concrete reason: a decision, move, risk, opportunity, or curiosity that could change what the user does.
-- Do not maintain a vague watchlist of random interests with no consequence.
+Load only the reference that matches the current step. Prefer one-level paths from this skill root.
 
-### 2. Keep a Visible Watchlist
-- Durable discovery topics belong in `~/Clawic/data/discover/watchlist.md`, not scattered through chat.
-- Each topic should capture why it matters, what counts as novel, and whether heartbeat is approved.
+| Topic | File | Load when |
+|-------|------|-----------|
+| Architecture | `references/architecture-rules.md` | Resolve state tree roles after `<state_root>` is chosen |
+| Core rules | `references/core-rules.md` | Run any discovery pass |
+| Security and scope | `references/security-and-scope.md` | Privacy, external lookups, or autonomy boundaries |
+| Traps | `references/traps.md` | Review failure modes before expanding scope |
+| Setup | `references/setup.md` | First use or empty state |
+| Memory schema | `references/memory-template.md` | Create or repair `<state_root>/memory.md` |
+| Baseline memory example | `references/memory.md` | Show shape of a live memory file |
+| Watchlist schema | `references/watchlist-template.md` | Create or repair `<state_root>/watchlist.md` |
+| Baseline watchlist example | `references/watchlist.md` | Show active / parked / retired topics |
+| Novelty filter | `references/novelty-test.md` | Decide whether a finding is log-worthy |
+| Discovery loop | `references/discovery-loop.md` | Run a full discovery pass with lens rotation |
+| Heartbeat rules | `references/heartbeat-rules.md` | Execute an approved recurring check |
+| Heartbeat state template | `references/heartbeat-state.md` | Initialize `<state_root>/heartbeat-state.md` |
+| Research sources | `references/sources.md` | Verify format, novelty, or heartbeat claims against primary URLs |
 
-### 3. Novelty Beats Volume
-- A discovery only counts if it adds something the user did not already have: a new fact, a new operator, a new source family, a changed constraint, a better comparison, or a practical path forward.
-- Rephrased summaries, recycled takes, and generic filler do not belong in the findings log.
+## Requirements
 
-### 4. Rotate Discovery Lenses
-- Do not search the same way every time.
-- Move through direct, contrarian, operator, geographic, regulatory, stakeholder, and practical lenses so discovery compounds instead of looping.
+- No credentials are required by default.
+- Ask before enabling heartbeat or any recurring discovery loop.
+- Ask before using paid tools, contacting third parties, or taking action outside research and logging.
+- Keep external lookup scope narrow and tied to active watchlist topics.
+- Resolve `<state_root>` once per invocation before any state read or write.
 
-### 5. Heartbeat Needs an Explicit Contract
-- Heartbeat may review only topics marked as approved in `~/Clawic/data/discover/watchlist.md`.
-- Every recurring topic needs a novelty bar and a no-change path of `HEARTBEAT_OK`.
+## Operating sequence
 
-### 6. Log Deltas, Not Essays
-- Write only the new part into `~/Clawic/data/discover/findings/{topic}.md`.
-- Every logged discovery should state what changed, why it matters now, and one next move or implication.
-
-### 7. Stay Scoped and Trustworthy
-- Do not silently broaden a topic from "move to another country for tax reasons" into generic life coaching or endless news.
-- Ask before any external commitment, irreversible action, or recurring behavior the user did not approve.
-
-## Common Traps
-
-| Trap | Why It Fails | Better Move |
-|------|--------------|-------------|
-| Keeping a vague "interesting things" list | Discovery loses relevance fast | Tie each topic to a decision, risk, or opportunity |
-| Logging every article or tweet | Noise buries novelty | Apply `novelty-test.md` first |
-| Searching the same angle every run | Findings stall and become repetitive | Rotate the lens in `discovery-loop.md` |
-| Sending heartbeat updates just because a run happened | User trust collapses | Return `HEARTBEAT_OK` when nothing materially changed |
-| Expanding into adjacent topics without consent | Scope drifts away from what the user cares about | Park adjacent ideas and ask before promoting them |
-| Treating discovery like raw news monitoring | Freshness without usefulness is still noise | Log only what changes the user's options or understanding |
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://www.google.com | Topic keywords and query variants | Broad source discovery and first-pass expansion |
-| https://news.google.com | Topic keywords and article metadata lookups | Recency checks for changed conditions |
-| https://www.reddit.com | Topic keywords and public thread metadata references | Community and operator signal discovery |
-| Topic-specific public primary sources | Narrow lookups relevant to the active topic | Validate practical details, constraints, or changed rules |
-
-No other data should be sent externally unless the user explicitly approves broader discovery tooling.
-
-## Data Storage
-
-Local state in `~/Clawic/data/discover/` includes:
-
-- activation preferences and discovery boundaries in `memory.md`
-- active topics and heartbeat approvals in `watchlist.md`
-- recurring run markers in `heartbeat-state.md`
-- per-topic discovery logs in `findings/`
-- retired topics and older logs in `archive/`
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- topic names, query variants, and source lookups needed to discover new information
-
-**Data that stays local:**
-- discovery preferences and activation rules in `~/Clawic/data/discover/memory.md`
-- active interest watchlists and heartbeat state in `~/Clawic/data/discover/watchlist.md` and `~/Clawic/data/discover/heartbeat-state.md`
-- dated findings in `~/Clawic/data/discover/findings/`
-
-**This skill does NOT:**
-- create hidden recurring loops
-- treat repetition as novelty
-- store secrets or credentials in local discovery memory
-- contact third parties, buy services, or make commitments automatically
-- modify its own `SKILL.md`
-
-## Trust
-
-This skill relies on public internet sources chosen by the topic and the user's boundaries.
-Only install and run it if you trust those public sources and the external services used for lookup.
-
-## Scope
-
-This skill ONLY:
-- maintains local discovery state in `~/Clawic/data/discover/`
-- turns durable curiosity into a visible watchlist with explicit novelty rules
-- uses heartbeat only for approved tracks with a quiet no-change path
-
-This skill NEVER:
-- confuse generic summaries with discoveries
-- keep monitoring topics that were never approved for recurrence
-- broaden scope silently
-- turn discovery into external action without approval
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `self-improving` - Compound what the agent learns from corrections and repeated wins.
-- `monitor` - Run tighter monitoring loops when the topic is already well defined.
-- `decide` - Turn discoveries into clear decisions and tradeoff calls.
-- `digest` - Compress many findings into a high-signal brief.
-- `autonomy` - Shape when the agent should act proactively versus wait.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/discover
-- Latest version: https://clawic.com/skills/discover
+1. Resolve `<state_root>` (State location above).
+2. If state is missing, follow `references/setup.md` and wait for consent on workspace routing / heartbeat blocks.
+3. Read `<state_root>/memory.md` and `<state_root>/watchlist.md` when they exist.
+4. Lock why the topic matters, then run `references/discovery-loop.md` with one fresh lens.
+5. Apply `references/novelty-test.md` before logging.
+6. Append only deltas to `<state_root>/findings/{topic}.md`.
+7. For heartbeat runs, follow `references/heartbeat-rules.md` and return `HEARTBEAT_OK` when nothing material changed.
