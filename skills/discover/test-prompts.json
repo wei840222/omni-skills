@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "first-topic-watchlist-setup",
+    "prompt": "Keep an eye on any new regulatory changes regarding digital nomad visas in Japan. Log anything genuinely new.",
+    "expected": "Resolve <state_root> per State location; load references/setup.md if empty; create or update <state_root>/watchlist.md with a Japan digital-nomad-visa topic, why-it-matters, novelty bar focused on official rule changes, and Heartbeat proposed|active only after consent; confirm no credentials required; avoid treating a one-shot summary as a discovery log entry.",
+    "actual": "Resolved <state_root> to workspace/discover (no prior candidates). Loaded references/setup.md + references/watchlist-template.md. Wrote Active Topic 'Japan digital nomad visas' with novelty bar = official Immigration Services Agency / MOFA rule changes, operator path changes, or new eligibility constraints. Heartbeat left as proposed pending explicit approval. Initialized memory.md + heartbeat-state.md templates. Confirmed no secrets written. Did not log generic visa explainers as findings.",
+    "pass": true,
+    "evidence": "Dry-run against skills/discover package 2026-10-05; State location order workspace/discover → memory/discover → ~/discover; references/setup.md consent gates; references/novelty-test.md excludes generic education"
+  },
+  {
+    "id": 2,
+    "scenario": "novelty-pass-with-lens-rotation",
+    "prompt": "What are some new angles on SaaS pricing models I haven't tracked yet? I already know classic tiered plans.",
+    "expected": "Read <state_root>/watchlist.md if present; run references/discovery-loop.md with a non-direct lens (operator/contrarian/practical); apply novelty-test to filter generic tier advice; log only deltas that change options; cite when external claims need verification.",
+    "actual": "Checked watchlist (empty SaaS pricing track → proposed topic). Ran discovery-loop with operator + contrarian lenses. Kept hybrid usage+outcome pricing and packaging that shifts buyer risk as candidates; filtered pure 'use three tiers' advice via novelty-test. Drafted findings entry shape: what changed, why it matters, one next move. Offered market-research handoff if the user wants competitive landscape depth instead of ongoing novelty tracking.",
+    "pass": true,
+    "evidence": "references/discovery-loop.md lenses; references/novelty-test.md fast test; related-skills market-research boundary; manual package walkthrough 2026-10-05"
+  },
+  {
+    "id": 3,
+    "scenario": "heartbeat-quiet-path",
+    "prompt": "Heartbeat: re-check my approved discovery topics. Nothing important changed since last time.",
+    "expected": "Load references/heartbeat-rules.md; read only Heartbeat: active topics; rotate lens marker; return HEARTBEAT_OK without chatty status when novelty-test fails; update <state_root>/heartbeat-state.md last_angle_used and last_heartbeat_result.",
+    "actual": "Loaded heartbeat-rules.md. No Heartbeat: active topics beyond proposed ones → nothing to deep-scan. Set last_heartbeat_result: HEARTBEAT_OK and rotated last_angle_used placeholder. Returned HEARTBEAT_OK with no user-facing noise. Did not invent findings or expand parked topics.",
+    "pass": true,
+    "evidence": "references/heartbeat-rules.md If Nothing Changed branch; package HEARTBEAT.md contract; dry-run 2026-10-05"
+  }
+]
