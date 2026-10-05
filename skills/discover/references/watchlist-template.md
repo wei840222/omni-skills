@@ -1,6 +1,6 @@
 # Watchlist Template - Discover
 
-Create `~/Clawic/data/discover/watchlist.md` with this structure:
+Create `<state_root>/watchlist.md` with this structure:
 
 ```markdown
 # Discover Watchlist

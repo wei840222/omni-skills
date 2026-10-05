@@ -1,6 +1,6 @@
 # Heartbeat State Template - Discover
 
-Use this file as the baseline for `~/Clawic/data/discover/heartbeat-state.md`.
+Use this file as the baseline for `<state_root>/heartbeat-state.md`.
 
 ```markdown
 # Discover Heartbeat State

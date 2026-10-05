@@ -221,6 +221,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | diagram                      | 2026-09-10 | 85/100 (#332)                    |
 | dietitian                    | 2026-08-31 | 85/100 (#179)                    |
 | digest                       | 2026-09-23 | 85/100 (#546)                    |
+| discover                     | 2026-10-05 | 86/100 (#727)                    |
 | diverge                      | 2026-08-12 | 85/100                           |
 | django                       | 2026-09-01 | 85/100 (#208)                    |
 | dns                          | 2026-09-24 | 85/100 (#560)                    |

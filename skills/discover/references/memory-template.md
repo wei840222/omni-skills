@@ -1,6 +1,6 @@
 # Memory Template - Discover
 
-Create `~/Clawic/data/discover/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Discover Memory
@@ -18,17 +18,17 @@ integration: pending
 ## Discovery Preferences
 - Preferred mix of opportunities, warnings, comparisons, operators, or contrarian angles
 - Preferred autonomy level: on request, suggestive, or heartbeat-backed
-- Sources to prefer or avoid, if explicit
+- Sources to prefer, if explicit
 
 ## Notes
 - Stable observations that improve future discovery work
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Discovery is active | Keep reading memory on activation |
-| `paused` | Do not initiate discovery | Only use when user asks directly |
+| `paused` | Bypass discovery | Only use when user asks directly |
 | `complete` | Setup is stable | Use normal workflow |
-| `never_ask` | Avoid setup-style questions | Infer from active work only |
+| `never_ask` | Bypass setup-style questions | Infer from active work only |
