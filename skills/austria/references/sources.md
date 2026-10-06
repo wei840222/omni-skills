@@ -1,12 +1,13 @@
 # Sources — Austria Skill
 
-Last checked: 2026-03-09
+Last checked: 2026-10-07
 
 ## Entry, Visa, and Border
 
 - Austria government portal, entering and residing: https://www.oesterreich.gv.at/en/themen/leben_in_oesterreich/aufenthalt.html
 - Austrian foreign ministry, visa information: https://www.bmeia.gv.at/en/travel-stay/entry-and-residence-in-austria/visa-information
 - EU travel portal, ETIAS: https://travel-europe.europa.eu/etias_en
+- European Commission ETIAS policy page: https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/smart-borders/european-travel-information-authorisation-system_en
 
 ## Customs and Cash
 

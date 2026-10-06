@@ -33,4 +33,4 @@ Graz offers a compact, livable city with strong dining, easier pacing, and acces
 
 ## Common Mistake
 
-Treating Graz as just a quick stop between bigger names. It works best when the trip values pace, food, and regional contrast rather than attraction count.
+Treating Graz as just a quick pause between bigger names. It works best when the trip values pace, food, and regional contrast rather than attraction count.

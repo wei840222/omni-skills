@@ -16,7 +16,7 @@ This corridor offers one of Austria's easiest high-value contrasts: strong train
 
 ## Route Logic
 
-- Wachau is best done as a deliberate slow day, not as a rushed stop squeezed between major rail legs.
+- Wachau is best done as a deliberate slow day, rather than a rushed visit squeezed between major rail legs.
 - Linz works better as a practical culture-and-break point than as a headline destination for first-time Austria users.
 - This corridor pairs especially well with Vienna plus Salzburg, or Vienna plus Upper Austria.
 
@@ -34,4 +34,4 @@ This corridor offers one of Austria's easiest high-value contrasts: strong train
 
 ## Common Mistake
 
-Treating Wachau as a quick photo stop. The region pays off when the route leaves space for villages, food, and river pace instead of forcing it into a transfer day.
+Treating Wachau as a quick photo visit. The region pays off when the route leaves space for villages, food, and river pace instead of forcing it into a transfer day.
