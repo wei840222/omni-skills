@@ -1,171 +1,51 @@
 ---
 name: first-principles-thinking
-slug: first-principles-thinking
-version: 1.0.0
-description: Break problems to fundamentals, rebuild from truth, eliminate hidden assumptions.
-homepage: https://clawic.com/skills/first-principles-thinking
-changelog: Initial release with three-step protocol, assumption detection, and domain applications.
+description: >
+  Break a stuck or novel problem down to verified fundamentals, strip hidden
+  assumptions, and rebuild a solution from physics, logic, or math rather than
+  convention. Use when conventional methods fail, the user asks for first
+  principles, root-cause redesign, blank-slate thinking, or assumption audits.
+  Not for routine optimization with a proven playbook (use analogy), pure
+  long-horizon consequence chains (second-order-effects), or logging a past
+  decision pattern (decide).
 metadata:
-  clawdbot:
-    emoji: 🔬
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: First Principles Thinking
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔬"}'
+  related-skills: '{"business":"Strategy and commercial constraints once fundamentals are clear.","ceo":"Executive framing when the rebuilt option needs leadership tradeoffs.","decide":"Log the chosen option and approval boundary after fundamentals rebuild.","second-order-effects":"Trace multi-order consequences after a rebuilt option is on the table.","six-thinking-hats":"Parallel thinking modes when multiple stakeholder lenses are needed.","startup":"Zero-to-PMF rebuilds that start from customer fundamentals.","strategy":"Portfolio and positioning choices after the problem is reduced to fundamentals."}'
 ---
 
-## When to Use
+## When to load
 
-User faces complex problem where conventional solutions fail. Existing approaches seem inadequate. Need to challenge assumptions or innovate fundamentally. Stuck in "that's how it's always done" thinking.
+| Need | Resource |
+| --- | --- |
+| Full three-step protocol, traps, output schema | `references/core-rules.md` |
+| Five Whys depth, component/cost/constraint maps | `references/decomposition.md` |
+| Seven assumption traps and stress tests | `references/assumptions.md` |
+| Definitions and dated citations | `references/sources.md` |
+| Evaluation harness only | `test-prompts.json` |
 
-## Quick Reference
+## Operating sequence
 
-| Topic | File |
-|-------|------|
-| Decomposition techniques | `decomposition.md` |
-| Common assumption traps | `assumptions.md` |
+1. **State the problem in one sentence** with the outcome that matters. Separate stated want from underlying need.
+2. **Inventory assumed constraints** and tag each as physics, logic, regulation, convention, or untested assumption. Load `references/assumptions.md` when the phrasing looks like historical, authority, social, or resource lock-in.
+3. **Decompose to functions, not implementations.** Keep going until claims rest on physics, logic, math, or a named regulation. Load `references/decomposition.md` for Five Whys depth, component maps, and cost stacks.
+4. **Verify each remaining claim.** Ask origin, falsifier, and whether the reason still applies. Prefer primary evidence over analogy.
+5. **Rebuild upward** from verified fundamentals only. Generate options per function, score against fundamentals, then combine a minimum-viable solution that can actually be built.
+6. **Emit the structured output** in `references/core-rules.md` (problem, assumed constraints, fundamentals, decomposition, rebuilt solution, assumptions challenged). Hand off to `second-order-effects` when multi-order impact matters, or to `decide` when the choice must be logged.
+7. **Load `references/sources.md`** before citing definitions, historical examples, or external method claims so dates stay attached.
 
-## Core Rules
+## Scope
 
-### 1. The Three-Step Protocol
+- Keep this skill reasoning-only: no persistent skill state, no network calls, no package-local writes.
+- Prefer first principles for novel or stuck problems; prefer analogy when a proven playbook already fits and time is tight.
+- Keep implementation constraints visible; a fundamental solution that cannot be built is incomplete.
+- Challenge conventions without discarding valid physics or hard legal limits.
 
-**Step 1 — Decompose:** Break the problem into fundamental components.
-- What are the absolute physical/logical constraints?
-- What is actually true vs what we assume is true?
-- Strip away all conventions, traditions, analogies.
+## Near-misses
 
-**Step 2 — Verify:** Challenge each component.
-- "Why do we believe this?" — trace to origin
-- "Is this a law of nature or a human convention?"
-- "What evidence supports this being fundamental?"
-
-**Step 3 — Rebuild:** Construct solution from verified fundamentals only.
-- Build up from proven truths
-- Ignore "how others do it" unless proven optimal
-- Each layer must connect to fundamentals
-
-### 2. Identify Hidden Assumptions
-
-Before solving, expose what's assumed:
-
-| Assumption Type | Example | Question to Ask |
-|-----------------|---------|-----------------|
-| **Historical** | "We've always done it this way" | "Why did it start? Does that reason still apply?" |
-| **Authority** | "Experts say X" | "What's the underlying evidence?" |
-| **Analogical** | "It's like Y, so..." | "Are the underlying mechanics actually similar?" |
-| **Social** | "Everyone does it" | "Does popularity equal optimality?" |
-| **Resource** | "We can't afford to..." | "What if resources weren't the constraint?" |
-
-### 3. The Constraint Test
-
-For each constraint ask:
-1. Is this a **law of physics**? → Respect it
-2. Is this a **logical necessity**? → Respect it  
-3. Is this a **regulation/rule**? → Can be changed (with effort)
-4. Is this a **convention**? → Can be ignored
-5. Is this an **assumption**? → Must be verified
-
-### 4. When NOT to Use First Principles
-
-First principles is expensive. Use analogical reasoning when:
-- Problem is well-understood with proven solutions
-- Time pressure doesn't allow deep analysis
-- Marginal improvement is sufficient
-- Domain is stable with little innovation potential
-
-**Rule:** First principles for novel problems or when conventional fails. Analogy for routine optimization.
-
-### 5. Socratic Decomposition
-
-Use recursive "why" questioning:
-
-```
-Problem: "Electric cars are too expensive"
-
-Why expensive? → Batteries cost a lot
-Why batteries expensive? → Materials + manufacturing
-Why materials expensive? → Cobalt, lithium pricing
-Why those materials? → Current chemistry requires them
-Is that fundamental? → No, chemistry can change
-
-Fundamental: Need energy storage. Not: Need cobalt batteries.
-```
-
-Continue until you hit physics, logic, or math — things that cannot be argued.
-
-### 6. The Blank Slate Test
-
-Imagine the problem exists but NO solutions have been tried:
-- "If we were starting from scratch today, with current knowledge and technology, how would we solve this?"
-- This bypasses legacy thinking and sunk cost fallacy.
-
-### 7. Output Format
-
-When applying first principles, structure response as:
-
-```
-## Problem Statement
-[Clear definition of what we're solving]
-
-## Assumed Constraints (to verify)
-- Constraint A — [source: historical/authority/etc.]
-- Constraint B — [source]
-
-## Fundamental Truths
-- Truth 1 (physics/logic/math based)
-- Truth 2
-
-## Decomposition
-[Break down into components]
-
-## Rebuilt Solution
-[Solution constructed from fundamentals only]
-
-## Assumptions Challenged
-- [What we discovered wasn't actually fundamental]
-```
-
-## Common Traps
-
-- **Stopping too early** → "Materials are expensive" isn't fundamental; "atoms have mass" is. Keep going.
-- **Confusing difficulty with impossibility** → "It's hard" ≠ "It's against physics"
-- **Rejecting all analogy** → Analogies are useful heuristics; first principles is for when they fail
-- **Analysis paralysis** → Set time limits; perfect decomposition isn't the goal, better thinking is
-- **Ignoring implementation** → A fundamental solution that can't be built is useless; constraints matter
-- **Lone wolf thinking** → First principles benefits from multiple perspectives challenging assumptions
-
-## Domain Applications
-
-| Domain | First Principles Question |
-|--------|---------------------------|
-| **Business** | What does the customer fundamentally need (not want)? |
-| **Engineering** | What do physics and materials actually allow? |
-| **Product** | What job is being done at the most basic level? |
-| **Cost** | What are the raw inputs and minimum required labor? |
-| **Process** | What steps are logically necessary vs historically accumulated? |
-
-## Security & Privacy
-
-**Data that stays local:**
-- All reasoning happens in conversation context
-- No data stored or transmitted
-
-**This skill does NOT:**
-- Store any information between sessions
-- Make network requests
-- Access external files
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `decide` — auto-learn decision patterns
-- `business` — validate and refine strategy
-- `ceo` — executive decision-making
-- `startup` — build from zero to PMF
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/first-principles-thinking
-- Latest version: https://clawic.com/skills/first-principles-thinking
+| Request shape | Better skill |
+| --- | --- |
+| “What happens after we ship X over 1–3 years?” | `second-order-effects` |
+| “Log how we chose the database last time.” | `decide` |
+| Parallel stakeholder lenses without root rebuild | `six-thinking-hats` |
+| Pure strategy portfolio choice after fundamentals are known | `strategy` |
