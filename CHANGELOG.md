@@ -80,6 +80,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | atlassian                    | 2026-10-05 | 84/100 (#723)                    |
 | audio                        | 2026-10-05 | 90/100 (#726)                    |
 | australia                    | 2026-10-07 | 84/100 (#729)                    |
+| cdn                          | 2026-10-07 | 85/100 (#734)                    |
 | google-reviews               | 2026-10-07 | 84/100 (#730)                    |
 | ireland                      | 2026-10-05 | 84/100 (#725)                    |
 | taste                        | 2026-10-05 | 84/100 (#722)                    |
