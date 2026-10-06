@@ -16,7 +16,7 @@
 ## Origin Protection
 
 ### Hide Origin IP
-- Never expose origin server IP in DNS
+- Keep origin server IP hidden in DNS
 - Use CDN's origin shield feature
 - Configure firewall to only accept CDN IPs
 
@@ -104,6 +104,6 @@ Permissions-Policy: geolocation=(), microphone=()
 - Never cache based on user-controllable headers without validation
 
 ### Sensitive Data
-- **NEVER cache:** Auth responses, tokens, user-specific data
+- **Avoid caching:** Auth responses, tokens, user-specific data
 - Use `Cache-Control: no-store` for sensitive endpoints
 - Audit cache keys regularly

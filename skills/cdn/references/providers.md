@@ -5,7 +5,7 @@
 | Provider | Best For | CLI | Free Tier |
 |----------|----------|-----|-----------|
 | **Cloudflare** | General web, DDoS protection | `wrangler`, API | Generous free tier |
-| **AWS CloudFront** | AWS ecosystem, S3 integration | `aws cloudfront` | 1TB/month free (first year) |
+| **AWS CloudFront** | AWS ecosystem, S3 integration | `aws cloudfront` | See current AWS free tier / pricing page |
 | **Bunny CDN** | Cost-effective, simple | API, dashboard | No free tier, but cheap |
 | **Fastly** | Real-time purging, edge compute | `fastly` CLI | Limited free tier |
 | **Vercel/Netlify** | JAMstack, static sites | Built-in | Generous for static |
@@ -63,17 +63,19 @@ curl -X POST "https://api.bunny.net/pullzone/{id}/purgeCache" \
 
 ## Cost Estimation
 
-Typical costs per 1TB bandwidth:
-- Cloudflare Pro: ~$20/month flat
-- CloudFront: ~$85 (varies by region)
-- Bunny: ~$10
-- Fastly: ~$100+
+Treat any unit-cost snapshot as **indicative only**. Plans, regional multipliers,
+and free-tier windows change; open the vendor pricing page before advising a buy:
 
-For accurate estimates, calculate:
-1. Monthly bandwidth (GB)
-2. Number of requests
-3. Geographic distribution (some regions cost more)
-4. Features needed (WAF, image optimization, etc.)
+- Cloudflare plans: https://www.cloudflare.com/plans/
+- CloudFront pricing: https://aws.amazon.com/cloudfront/pricing/
+- bunny.net pricing: https://bunny.net/pricing/
+- Fastly pricing: https://www.fastly.com/pricing/
+
+When estimating for a user, gather:
+1. Monthly bandwidth (GB) and request count
+2. Geographic distribution (regional multipliers)
+3. Features needed (WAF, image optimization, real-time purge, edge compute)
+4. Whether traffic is cacheable static vs dynamic/API
 
 ## Multi-CDN Strategy
 
@@ -86,3 +88,10 @@ Implementation:
 1. DNS-based routing (Cloudflare Load Balancing, Route 53)
 2. Origin-side logic for content routing
 3. Monitoring to detect and failover on degradation
+
+
+## Useful Documentation Links
+- [Cloudflare API Docs](https://developers.cloudflare.com/api/)
+- [AWS CloudFront Docs](https://docs.aws.amazon.com/cloudfront/)
+- [Bunny CDN API](https://docs.bunny.net/reference/bunnynet-api-overview)
+- [Fastly CLI](https://developer.fastly.com/reference/cli/)

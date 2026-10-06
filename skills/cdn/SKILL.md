@@ -1,70 +1,66 @@
 ---
 name: cdn
-slug: cdn
-version: 1.0.1
-description: Configure, optimize, and troubleshoot CDN deployments with caching strategies, security hardening, and multi-provider management.
-homepage: https://clawic.com/skills/cdn
+description: >
+  Configure, optimize, and troubleshoot CDN deployments: provider choice,
+  Cache-Control and cache keys, invalidation/purge pipelines, edge security
+  (TLS, WAF, origin shield), and cache-miss debugging. Use when the user is
+  setting up Cloudflare/CloudFront/Bunny/Fastly (or similar), tuning hit
+  ratio, purging after deploy, hardening origin exposure, or diagnosing stale
+  content and origin overload. Prefer `http` for pure protocol Cache-Control
+  semantics, `dns` for DNS-only or proxy-vs-DNS-only record work, `ssl` for
+  certificate issuance outside the CDN edge, `nginx` for origin reverse-proxy
+  termination, and `network`/`firewall` when the problem is reachability or
+  host packet filters rather than edge caching.
 metadata:
-  clawdbot:
-    emoji: 🌐
-    displayName: CDN
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌐"}'
+  related-skills: '{"http":"Protocol-level Cache-Control, conditional requests, and status codes when the task is not CDN-edge specific.","dns":"DNS records, TTL, and Cloudflare proxy vs DNS-only before CDN hostname work.","ssl":"Certificate issuance and renewal once DNS control is verified outside CDN-managed certs.","nginx":"Origin reverse-proxy and TLS termination behind the CDN.","network":"Layer-3 reachability when CDN is only one hop among many.","firewall":"Host or edge packet filters that must allow only CDN egress IPs to origin.","aws":"Broader AWS account and IAM context when CloudFront sits inside a larger AWS design.","cloud":"General cloud landing-zone choices before locking a CDN provider."}'
 ---
 
-## When to Use
+# CDN
 
-User wants to set up, optimize, or debug a CDN. Covers provider selection, caching, security, and performance monitoring.
+Edge caching and delivery guidance for public web and API traffic: when a CDN
+helps, how to set cache policy, how to purge safely, how to keep the origin
+off the public internet, and how to debug HIT/MISS and stale-content reports.
 
-## Quick Reference
+This skill is **stateless**. Keep provider accounts, zone IDs, API tokens, and
+distribution configs in ordinary user files outside the skill package.
 
-| Topic | File |
-|-------|------|
-| Provider comparison & CLIs | `providers.md` |
-| Security hardening | `security.md` |
-| Caching strategies | `caching.md` |
-| Troubleshooting | `troubleshooting.md` |
+## When to load
 
-## Core Capabilities
+| Need | Resource |
+| --- | --- |
+| Provider comparison, CLI purge snippets, selection matrix | `references/providers.md` |
+| Cache-Control recipes, cache keys, invalidation strategies | `references/caching.md` |
+| TLS, origin shield, WAF, rate limits, cache poisoning | `references/security.md` |
+| HIT/MISS, stale content, origin overload, cert symptoms | `references/troubleshooting.md` |
+| Deploy checklists and “do I need a CDN?” | `references/best-practices.md` |
+| Dated official docs used for Gate 6 claims | `references/sources.md` |
+| Evaluation harness only | `test-prompts.json` |
 
-1. **Provider selection** — Compare Cloudflare, CloudFront, Bunny, Fastly based on use case, traffic, budget
-2. **Cache configuration** — Set optimal cache-control headers, TTLs, cache keys
-3. **Security setup** — SSL/TLS, WAF rules, DDoS protection, origin shielding
-4. **Performance monitoring** — Cache hit ratios, TTFB, regional latency
-5. **Invalidation** — Purge strategies, CI/CD integration, tagged invalidation
-6. **Cost optimization** — Bandwidth analysis, tier recommendations, multi-CDN strategies
-7. **Troubleshooting** — Debug cache misses, stale content, origin overload
+## Operating sequence
 
-## Cache-Control Checklist
+1. **Confirm the problem is edge delivery** (global latency, cache hit ratio, purge after deploy, origin hiding, WAF at the edge). If it is pure HTTP header semantics with no CDN product in play, prefer `http`.
+2. **Identify provider and surface** (Cloudflare zone, CloudFront distribution, Bunny pull zone, Fastly service). Load `references/providers.md` for CLI/API shapes; verify live pricing and quotas on the vendor page before quoting costs.
+3. **Separate browser cache, CDN cache, and origin**. Load `references/caching.md` for Cache-Control and key design; load `references/troubleshooting.md` when status is MISS/BYPASS/stale.
+4. **Harden origin before widening cache**. Load `references/security.md` for TLS floor, authenticated origin pulls, CDN-only firewall allowlists, and sensitive `no-store` paths.
+5. **Prefer versioned URLs over emergency full purge**. Use tagged/surrogate purge when the vendor supports it; full purge is last resort.
+6. **Hand off when needed**: DNS apex/proxy mode → `dns`; origin nginx/TLS → `nginx`/`ssl`; raw connectivity → `network`/`firewall`.
 
-Before deploying, verify:
-- [ ] Hashed assets (JS/CSS) → `Cache-Control: public, max-age=31536000, immutable`
-- [ ] HTML pages → Short TTL or `no-cache` with revalidation
-- [ ] Images → Long TTL with content-based URLs or versioning
-- [ ] API responses → Usually `no-store` unless explicitly cacheable
-- [ ] User-specific content → `private` or `no-store`
+## Scope
 
-## Security Checklist
+- Guidance only: no package-local writes, no required network calls from the skill package itself.
+- Examples use placeholders (`{zone_id}`, `EDFDVBD6EXAMPLE`, `$BUNNY_API_KEY`, `***`). Never embed real tokens.
+- Cost figures in references are indicative snapshots; always re-check the vendor pricing page for the user’s region and plan.
+- Do not treat CDN presence as a substitute for origin authn/authz or correct `Cache-Control` on sensitive responses.
 
-- [ ] TLS 1.2+ enforced, weak ciphers disabled
-- [ ] HSTS enabled with appropriate max-age
-- [ ] Origin IPs hidden, authenticated origin pulls configured
-- [ ] Rate limiting on sensitive endpoints (login, API)
-- [ ] Security headers: CSP, X-Frame-Options, X-Content-Type-Options
+## Near-misses
 
-## Common Mistakes
-
-- Caching user-specific responses (auth tokens, personalized content)
-- Using `max-age` without `immutable` for versioned assets
-- Purging entire cache instead of targeted paths
-- Ignoring `Vary` headers (cache poisoning risk)
-- Origin not rejecting direct access (bypassing CDN protections)
-
-## Decision: Do I Need a CDN?
-
-Ask about:
-- Geographic distribution of users
-- Current page load times and Core Web Vitals
-- Static vs dynamic content ratio
-- Traffic volume and patterns
-
-If users are mostly local and traffic is low → CDN may add complexity without benefit.
-If global users OR heavy static assets OR need DDoS protection → CDN adds value.
+| Request shape | Better skill |
+| --- | --- |
+| “What does `no-cache` vs `no-store` mean?” with no CDN product | `http` |
+| “Fix my apex CNAME / proxy orange-cloud only” | `dns` |
+| “Issue a Let’s Encrypt cert on the origin box” | `ssl` |
+| “nginx reverse proxy + upstream TLS” | `nginx` |
+| “Packets never reach the host / traceroute dies” | `network` / `firewall` |
+| “Design the whole AWS account around CloudFront” | `aws` / `cloud` |
