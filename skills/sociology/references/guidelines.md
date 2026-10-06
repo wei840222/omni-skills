@@ -33,3 +33,4 @@ Domain facts and URLs: `references/domain-knowledge.md`.
 - One primary audience branch per turn; do not load every reference file at once.
 - Prefer a single worked example before theory lists.
 - Defer classical name-lists until the user asks or the student/researcher branch is active.
+- Avoid stacking beginner metaphors with full method hygiene in the same reply unless the user switches level.
