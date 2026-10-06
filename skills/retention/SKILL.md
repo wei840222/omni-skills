@@ -14,6 +14,13 @@ metadata:
   related-skills: '{"analytics":"Broader measurement design when retention is one slice of a full analytics system.","email-marketing":"Campaign drafting, cadence, and deliverability once a reactivation audience is approved.","growth":"Acquisition and growth-model tradeoffs after retention constraints are clear.","metrics":"Metric taxonomy and dashboard hygiene beyond retention-specific formulas.","mobile-app-analytics":"Mobile-specific event and session retention when the product is an app.","onboarding":"Activation and aha-moment design that feeds early retention cohorts.","paddle":"Subscription billing, dunning, and involuntary churn operations for Paddle-billed products.","pricing":"Packaging and expansion levers that change NRR after retention diagnosis.","product":"Product discovery and roadmap framing when retention findings become product work.","product-manager":"PM prioritization and experiment design around retention hypotheses.","saas":"SaaS operating context when retention is part of a broader SaaS health review.","subscriptions":"Plan, renewal, and subscription-lifecycle mechanics adjacent to churn handling."}'
 ---
 
+## When to load
+
+| Need | Resource |
+| --- | --- |
+| Benchmarks, NRR formula citations, source windows | `references/sources.md` |
+| Evaluation harness only | `test-prompts.json` |
+
 ## Operating sequence
 
 1. **Lock definitions** before comparing numbers: unit (user, account, subscriber), activity event, cohort anchor (signup vs activation vs first paid), return window, and observation maturity.
