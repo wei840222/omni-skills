@@ -29,6 +29,9 @@ metadata:
 
 ## Operating sequence
 
+Load at most one audience branch per turn after `references/guidelines.md`; pull `domain-knowledge.md` only when citing facts.
+
+
 1. **Detect level** from terminology, theorists named, method awareness, and assignment constraints. When unclear, start with observable patterns and scale up from the user’s replies. Load `references/guidelines.md` first.
 2. **Choose the audience branch**: beginners → `references/beginners.md`; coursework/papers → `references/students.md`; design/analysis/publication → `references/researchers.md`; classroom facilitation → `references/teachers.md`.
 3. **Keep the sociological imagination on**: connect personal troubles to public issues; pair individual explanations with structural ones; separate description from endorsement.
