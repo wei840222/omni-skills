@@ -36,7 +36,7 @@ metadata:
 
 ## Scope
 
-- Reasoning only: no persistent skill state, no network calls, no package-local writes.
+- Keep this skill reasoning-only: no persistent skill state, no network calls, no package-local writes.
 - Prefer first principles for novel or stuck problems; prefer analogy when a proven playbook already fits and time is tight.
 - Keep implementation constraints visible; a fundamental solution that cannot be built is incomplete.
 - Challenge conventions without discarding valid physics or hard legal limits.
