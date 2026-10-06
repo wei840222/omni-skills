@@ -1,6 +1,6 @@
 # Memory Template - Storytelling
 
-Create `~/Clawic/data/storytelling/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure after the user consents to persistence:
 
 ```markdown
 # Storytelling Memory
@@ -33,19 +33,25 @@ integration: pending | done | declined
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+Optional companion files under the same `<state_root>/`:
+
+- `story-bank.md` — longer reusable scenes and proof artifacts
+- `messaging-pillars.md` — stable claims and evidence map
+- `edit-log.md` — draft iterations and rejected directions
+
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Still learning context | Ask only when missing context changes narrative choices |
 | `complete` | Context is stable | Prioritize execution and iterative improvement |
 | `paused` | User deferred setup | Use existing context without extra setup prompts |
-| `never_ask` | User requested no setup prompts | Never ask setup questions again |
+| `never_ask` | User requested no setup prompts | Skip setup questions |
 
-## Key Principles
+## Key principles
 
 - Keep memory in natural language, not rigid configuration lists.
 - Store only details that improve story quality, consistency, or decision impact.
 - Update `last` after each meaningful storytelling session.
-- Preserve failed narrative attempts to avoid repeated mistakes.
-- Never persist credentials or private secrets unless the user explicitly asks.
+- Preserve failed narrative attempts so the same mistakes are not repeated.
+- Persist credentials or private secrets only when the user explicitly asks, and prefer pointers over raw values.
