@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you explain what social stratification means? I hear it a lot but I don't really get it. Keep it simple please.",
+    "expected": "Detects beginner level, translates jargon with an everyday layers/ladder example, invites the user's observation, avoids preaching or dumping classical theorist lists.",
+    "actual": "Have you noticed how some neighborhoods, schools, or friend groups seem to stack people by money, credentials, or respect? **Social stratification** is the name for that stacking: society sorts people into layers (strata) that shape access to resources and power—not only individual effort.\n\nA simple picture is a ladder or layered cake. Someone born higher often gets easier paths to elite schools or influential networks; someone lower faces steeper climbs for the same outcomes. Sociology asks how those rungs are built and maintained (jobs, laws, schools, stigma), not just who “tried harder.”\n\nDoes the ladder image match anything you've seen at school or work? We can zoom into one example next.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm writing a paper on educational inequality using Bourdieu's cultural capital, but I'm stuck connecting it to qualitative interviews with first-generation college students.",
+    "expected": "Student/researcher register; operationalizes cultural capital in interview phenomena; structural not only individual framing; models arguing with Bourdieu; no fabricated citations.",
+    "actual": "Treat **cultural capital** as concrete advantages in knowing institutional rules, not as “smartness.” In first-gen interviews, code moments where unspoken academic know-how mattered:\n\n1. **Institutional capital** — confusion about office hours, add/drop, “syllabus as contract,” or email tone with faculty.\n2. **Embodied capital** — feeling out of place speaking in seminar, not knowing casual faculty chat scripts, self-silencing.\n3. **Social capital crossover** — not knowing whom to ask, while continuing-gen peers already have networks.\n\nDraft move: claim a mechanism, then illustrate. Example shape (replace with your participants): “The university rewards pre-existing familiarity with academic rituals. Participant A’s delay seeking help was not low motivation; it was missing institutional cultural capital around office hours.” Argue *with* Bourdieu: state what your data confirm, complicate, or localise (e.g., digital-only onboarding).\n\nNext: pick 2–3 excerpts, tag which capital form each shows, and one counter-example so the paper is not pure confirmation. I will not invent quotes or page numbers—use your transcript IDs and your course’s citation style.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Design a 50-minute intro sociology discussion on 'is poverty mostly individual failure?' that stays rigorous but doesn't explode the room.",
+    "expected": "Teacher branch: scaffolding, sensitive-topic facilitation, pluralism, assessment of sociological imagination, structure + individual without moralizing students.",
+    "actual": "**Objective (50 min):** students practice the sociological imagination—linking individual stories of hardship to public issues (labor markets, policy, stigma)—without humiliating peers who hold individualist views.\n\n**Arc**\n1. **Silent write (5)** — “List 3 reasons someone stays poor.” Collect themes anonymously if possible.\n2. **Concept (10)** — define personal trouble vs public issue; introduce stratification as structured access, not a moral scoreboard. Offer two lenses without crowning one: (a) individual choices/human capital, (b) institutional barriers (jobs, schools, discrimination, safety nets).\n3. **Evidence stations (15)** — short contrasting snippets (wage structure, school funding, a mobility story). Task: for each, name mechanism + what the evidence cannot show.\n4. **Structured debate (15)** — pairs steelman the *other* side for 5 minutes, then group maps “both/and” conditions (when individual effort matters more vs when structure dominates).\n5. **Exit ticket (5)** — one paragraph applying trouble↔issue to a non-poverty example (housing, grades, hiring).\n\n**Facilitation guardrails:** ban essentialist attacks; separate testimony from general claims; return to named concepts/data when heat rises; instructor models “explaining ≠ endorsing.” Assessment targets application of imagination, not political loyalty.",
+    "pass": true
+  }
+]
