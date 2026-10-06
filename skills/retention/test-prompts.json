@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "What is a good Day 30 retention rate for a B2B SaaS product?",
+    "expected": "Refuses universal D30 bands; locks definitions; cites Lenny 6-month/12-month windows and NRR/GRR pairing; offers user-cohort computation path.",
+    "actual": "Definitions first: unit (user vs account), activity event, cohort anchor (signup vs activation), and observation maturity. A single universal “good D30” for B2B SaaS is not supported by the cited sources in this skill.\n\nWhat the package does support:\n- Day-n retention = cohort members who meet the activity definition on day n ÷ cohort size; say whether day 0 is signup or activation.\n- Public comps in references/sources.md are windowed differently: Lenny Rachitsky with Casey Winters (2020-06-09) publishes GOOD→GREAT **6-month user retention** (SMB/mid-market SaaS ~60%→~80%; enterprise SaaS ~70%→~90%) and **12-month NRR**, not D30. Do not relabel those as D30.\n- For revenue health, pair logo churn with NRR/GRR (Stripe): NRR = (start MRR + expansion − contraction − churned cohort MRR) / start MRR on the same starting customers; GRR omits expansion and cannot exceed 100%.\n- Paddle notes SaaS churn averages disagree by industry, ARPU, contract length, and stage—prefer a peer set over one monthly target.\n\nPractical answer: compute D30 from the user’s own activation-anchored cohorts by segment (plan/channel). Use Lenny’s 6-month bands only as orientation after restating the 6-month window. If stakeholders insist on D30 targets, mark them as internal goals, not Lenny/Paddle universal benchmarks.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our users are churning after 3 months. How should we design a reactivation campaign?",
+    "expected": "Distinguishes tenure vs inactivity; splits voluntary/involuntary; applies consent/suppression/ask-before-send; optional cancel-path guidance when relevant.",
+    "actual": "Do not treat “churning after 3 months of tenure” as “90 days inactive.” Tenure is time since signup/start; inactivity is time since last qualifying activity (or since cancel). Lock both before designing a campaign.\n\nOperating sequence from the skill:\n1) Define unit, activity event, and whether the users canceled, stopped paying, or went silent while billed.\n2) Split voluntary vs involuntary (payment failure / dunning) vs unknown.\n3) Build one cohort view for the 3-month tenure slice and segment (plan, channel).\n4) One hypothesis → one intervention with success metric and stop rule.\n\nIf the need is reactivation of inactive accounts:\n- Define inactivity from last activity, not tenure.\n- Use the inactivity ladder only as a product-calibrated template (soft check-in → value/what’s-new → incentive if policy allows → feedback + suppress).\n- Message shape: [Acknowledge absence] + [Concrete new value] + [One-click re-entry].\n- Guardrails: consent/legal basis, suppression (unsub/bounce/DNC), frequency cap, stop-on-return, separate payment-failure track, ask-before-send for email/SMS/push.\n\nIf the need is cancel-flow or save offers for still-active 3-month accounts showing risk signals (login drop, core feature stop, export requests): use churn-prevention steps and keep cancel reachable with optional (not mandatory) reason capture and only verified data-retention policy text.\n\nOutput draft: audience definition, track (voluntary vs involuntary), one primary CTA, suppression rules, and the metric that decides stop/scale—plus a note that external sends stay ask-first.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We started the month with $100k MRR from existing customers, lost $5k to churn, $2k to downgrades, and gained $8k from upsells. What is NRR and what else should we report?",
+    "expected": "Computes 101% NRR, 93% GRR, excludes new logos, warns NRR can mask logo churn.",
+    "actual": "Worked NRR on one starting cohort (Stripe-aligned):\n\nGiven starting cohort recurring revenue $100,000.\nDuring period: −$5,000 churned MRR, −$2,000 contraction, +$8,000 expansion.\nNRR = (100000 + 8000 − 2000 − 5000) / 100000 = 101%.\n\nRules enforced by the skill:\n- Same starting customer set only; exclude newly acquired logos’ revenue from the numerator story.\n- Pair with GRR = (100000 − 2000 − 5000)/100000 = 93% so expansion cannot hide logo/revenue loss.\n- Also report logo churn for the period.\n- High NRR with rising logo churn is a failure mode called out under Common mistakes.\n\nIf the user mixes new-logo revenue into NRR, reject that framing and recompute on the starting cohort only.",
+    "pass": true
+  }
+]
