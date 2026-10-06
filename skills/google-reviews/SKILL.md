@@ -1,187 +1,91 @@
 ---
 name: google-reviews
-slug: google-reviews
-version: 1.0.0
-description: Research Google Maps and Shopping reviews for any company. Run multi-brand monitoring with heartbeat refreshes and sentiment reports.
-homepage: https://clawic.com/skills/google-reviews
-changelog: Expanded the skill to support immediate company review analysis before optional recurring monitoring workflows.
+description: >
+  Research Google Maps and Google Shopping review signals for companies and products,
+  normalize multi-source evidence, and optionally run multi-brand heartbeat monitoring
+  with sentiment and decision-ready reports. Use when the user asks for Google Business
+  Profile / Maps reviews, Shopping or merchant review signals, competitor reputation
+  checks, rating drift, negative-theme spikes, or recurring Google review monitoring.
+  Not for non-Google-only platforms unless explicitly cross-checking (yelp), generic
+  map routing without review analysis (maps / apple-maps), inventing live API results,
+  or posting owner replies without explicit authorization.
 metadata:
-  clawdbot:
-    emoji: ⭐
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/google-reviews/
-    displayName: Google Reviews
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/google-reviews/
+  version: "1.1.0"
+  openclaw: '{"emoji":"⭐","requires":{"bins":["curl","jq"]}}'
+  related-skills: '{"alerts":"Escalation, cooldown, and alert-routing patterns once Google review thresholds fire.","analysis":"Broader trend synthesis when the ask is executive analytics beyond Google review monitoring.","apple-maps":"Directions and place confirmation after a Google-reviewed shortlist is chosen.","competitor-monitoring":"Multi-competitor watch programs that go beyond Google review surfaces.","heartbeat":"Cadence design for low-noise recurring refresh loops.","maps":"Geocoding, routing, and distance checks around reviewed places.","monitoring":"Broader monitoring architecture and incident hygiene outside Google review scope.","shopping":"Product buying-signal analysis adjacent to Shopping review interpretation.","yelp":"Cross-check Google review patterns against Yelp local-business signals."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` to prioritize company-level review research and then define optional monitoring cadence.
+Google Reviews state may exist in `<workspace>/google-reviews/`, `<workspace>/memory/google-reviews/`, or `~/google-reviews/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/google-reviews/`, `<workspace>/memory/google-reviews/`, `~/google-reviews/`.
+3. If none exists and the user wants monitoring context kept, create `<workspace>/google-reviews/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/google-reviews/` only. Otherwise ask for a state root before creating files.
 
-Use this skill when the user wants to research review signals about any company across Google surfaces and decide quickly with evidence.
+Use the selected `<state_root>` for every state operation in this skill. Create or update child paths only when the corresponding task needs them. Legacy `~/Clawic/data/google-reviews/` is a migration source only—keep it out of the active lookup order and move it only when the user asks.
 
-Use it for one-off company checks, competitor review comparisons, reputation due diligence, and source-based review analysis on Google Maps and Google Shopping.
+### State tree
 
-If the user needs recurring tracking after the first analysis, switch into monitoring mode with heartbeat refreshes, sentiment trends, and scheduled reports.
+| Path | Purpose |
+| --- | --- |
+| `<state_root>/memory.md` | Activation preference, watchlist summary, cadence, alert policy |
+| `<state_root>/brands/{brand}.md` | Per-brand scope, sources, thresholds, ownership |
+| `<state_root>/snapshots/{brand}/{source}.jsonl` | Normalized review snapshots by refresh cycle |
+| `<state_root>/reports/daily/` | Daily action reports |
+| `<state_root>/reports/weekly/` | Weekly trend reports |
+| `<state_root>/heartbeat/monitor-state.md` | Last run, cooldowns, connector health |
 
-## Architecture
+## When to load
 
-Memory lives in `~/Clawic/data/google-reviews/`. See `memory-template.md` for structure and status fields.
+Load this skill for Google Maps / Business Profile review research, Google Shopping or merchant review signals, competitor reputation due diligence on Google surfaces, rating or theme drift analysis, and optional recurring multi-brand monitoring with heartbeat refreshes.
 
-```text
-~/Clawic/data/google-reviews/
-|-- memory.md                     # Stable monitoring preferences and activation behavior
-|-- brands/
-|   `-- {brand}.md               # Per-brand scope, sources, and thresholds
-|-- snapshots/
-|   `-- {brand}/{source}.jsonl   # Normalized review snapshots by refresh cycle
-|-- reports/
-|   |-- daily/
-|   `-- weekly/
-`-- heartbeat/
-    `-- monitor-state.md         # Last run timestamp, alert cooldowns, and health notes
-```
+Identify the company or product target, decision the user needs, source mode (API, export, or user-approved page check), and whether the ask is one-off research or ongoing monitoring before locking cadence.
 
-## Requirements
+| Need | File |
+| --- | --- |
+| First use / empty state | `references/setup.md` |
+| Core operating rules | `references/core-rules.md` |
+| Source connector matrix | `references/source-connectors.md` |
+| Canonical review fields | `references/review-schema.md` |
+| Sentiment and themes | `references/sentiment-rules.md` |
+| Heartbeat cadence | `references/heartbeat-recipes.md` |
+| Report templates | `references/reporting-playbook.md` |
+| Official source map | `references/sources.md` |
+| Memory template | `assets/memory-template.md` |
+| Evaluation harness only | `test-prompts.json` |
 
-User provides:
-- Company or brand targets and analysis question scope
-- Access method for each source (official API, export, or user-approved fetch workflow)
-- Optional alert channel and reporting cadence for recurring tracking
+## Near-miss handoffs
 
-Optional tooling:
-- `jq` for JSON shaping in shell workflows
-- Spreadsheet or BI destination for long-range trends
+- Yelp-only local discovery or listing audits → `yelp`
+- Directions after a shortlist is chosen → `maps` / `apple-maps`
+- Product buying decision beyond review signals → `shopping`
+- Multi-competitor programs beyond Google surfaces → `competitor-monitoring`
+- Generic alert routing / incident hygiene → `alerts` / `monitoring`
+- Executive analytics without Google-review focus → `analysis`
 
-## Quick Reference
+## Core workflow
 
-| Topic | File |
-|------|------|
-| Setup flow | `setup.md` |
-| Memory schema | `memory-template.md` |
-| Google source connector rules | `source-connectors.md` |
-| Canonical review data model | `review-schema.md` |
-| Sentiment and issue tagging | `sentiment-rules.md` |
-| Heartbeat cadence patterns | `heartbeat-recipes.md` |
-| Report and alert templates | `reporting-playbook.md` |
+1. Resolve mode: **research** (default) or **monitor** only after the user needs ongoing tracking.
+2. Resolve identity: company, brand, location, product, or merchant entity before comparing.
+3. Choose access path: authorized Business Profile / Places / Merchant workflows, user export, or user-approved public-page verification. State the source mode in the result.
+4. Normalize evidence with `references/review-schema.md`; keep source-native IDs and timestamps.
+5. Classify sentiment and themes with `references/sentiment-rules.md`; pair every claim with volume, recency, and snippets.
+6. Answer the user question with confidence and gaps before offering monitoring setup.
+7. For monitoring, load `references/heartbeat-recipes.md` and `references/reporting-playbook.md`; persist only under the resolved `<state_root>/`.
 
-## Data Storage
+## Safe operation
 
-All skill-local monitoring state stays in `~/Clawic/data/google-reviews/`.
-Create on first use:
+- Owner replies, public posts, account changes, and external deliveries stay ask-first.
+- Do not store API keys, OAuth tokens, or signed URLs in markdown state.
+- Claim live monitoring only after a refresh actually ran; mark failed connectors `degraded` and continue with available sources.
+- Re-check official docs in `references/sources.md` before asserting endpoint fields, reply policy, or quota behavior.
 
-```bash
-mkdir -p ~/Clawic/data/google-reviews/{brands,snapshots,reports/daily,reports/weekly,heartbeat}
-```
+## Cognitive-load path
 
-## Core Rules
-
-### 1. Start in Research Mode Before Monitoring
-- Begin with the user question about a company: what they need to know, where, and why.
-- Pull current review evidence first (ratings, review volume, theme mix, recency) for the requested company scope.
-- Return a clear answer with sources and confidence before proposing any recurring workflow.
-
-### 2. Normalize Every Source into One Review Schema
-- Ingest source data through the canonical fields in `review-schema.md`.
-- Keep source-native IDs and timestamps for traceability.
-- Never merge records without dedup keys (`source`, `entity_id`, `review_id`).
-
-### 3. Offer Monitoring Mode Only When Ongoing Tracking Is Needed
-- Convert to recurring monitoring after user intent is explicit or repeated.
-- Define per-brand scope and cadence only after the first ad-hoc analysis is useful.
-- Keep a clear separation between one-off research output and recurring alert output.
-
-### 4. Use Delta Refreshes and Cooldowns
-- Refresh only the trailing window needed for new or edited reviews.
-- Apply configurable cooldowns to prevent repeated alerts for the same issue cluster.
-- If a source fails, mark it degraded and continue with available sources.
-
-### 5. Make Sentiment and Themes Explainable
-- Use `sentiment-rules.md` to classify review tone and detect recurring themes.
-- Pair sentiment with evidence: quote snippets and volume changes.
-- Do not present sentiment as certainty when sample size is too small.
-
-### 6. Separate Heartbeat Checks from Deep Analysis
-- Heartbeat runs should be lightweight: new-review count, rating swing, and critical-topic triggers.
-- Deep summaries run on a slower cadence and produce full thematic reports.
-- If heartbeat sees no actionable change, return a compact no-change status.
-
-### 7. Report with Decision-Ready Structure
-- Build outputs with `reporting-playbook.md`: what changed, why it matters, what to do next.
-- Always include per-brand priorities and owner-ready actions.
-- Keep historical trend context so week-over-week movement is visible.
-
-### 8. Protect Privacy and Operational Boundaries
-- Store only monitoring-relevant data in `~/Clawic/data/google-reviews/`.
-- Avoid collecting PII beyond what appears in the public or user-provided review payload.
-- Never claim live monitoring if refresh jobs were not executed successfully.
-
-## Common Traps
-
-- Jumping directly to monitoring setup before answering the immediate company question.
-- Monitoring only star averages -> sentiment shifts are missed until damage is visible.
-- Mixing multiple brands without per-brand baselines -> false alarms and bad prioritization.
-- Treating Google sources as identical -> business profile and shopping pipelines behave differently.
-- Running expensive full refresh on every heartbeat -> unnecessary cost and fragile operations.
-- Alerting on single negative reviews -> noisy workflows with low decision value.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://mybusiness.googleapis.com | Location and account identifiers, review query parameters | Business Profile review retrieval when user authorizes API workflows |
-| https://merchantapi.googleapis.com | Merchant account and product identifiers, review aggregation requests | Google Shopping and merchant review monitoring workflows |
-| User-approved Google review pages | Query terms and page requests | Manual verification when API access is unavailable |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-Data that may leave your machine:
-- Brand identifiers and review query parameters sent to user-approved Google endpoints.
-- Optional report delivery payloads if user requests external posting.
-
-Data that stays local:
-- Brand watchlists, normalized snapshots, and monitoring reports in `~/Clawic/data/google-reviews/`.
-
-This skill does NOT:
-- Store credentials in markdown files.
-- Auto-post public replies to reviews unless user explicitly asks.
-- Access undeclared external services.
-- NEVER modify its own skill definition file.
-
-## Scope
-
-This skill ONLY:
-- Researches Google review signals for any company and question scope
-- Compares review patterns across sources and entities with explainable evidence
-- Runs optional recurring monitoring, heartbeat updates, and configurable reports
-
-This skill NEVER:
-- Fabricate review data or claim API results without evidence
-- Hide failed refreshes or missing sources
-- Execute irreversible actions without explicit user instruction
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `heartbeat` - proactive cadence design and low-noise monitoring loops
-- `alerts` - escalation policies, cooldowns, and alert routing patterns
-- `monitoring` - broader monitoring architecture and incident hygiene
-- `shopping` - product review interpretation and buying-signal analysis
-- `analysis` - trend synthesis and executive-ready summaries
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/google-reviews
-- Latest version: https://clawic.com/skills/google-reviews
+Keep the main path to: mode → identity → source path → normalize → answer → optional monitor.
+Load one reference for the active branch rather than restating every connector matrix in the entry point.
