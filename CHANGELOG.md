@@ -555,6 +555,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | report                       | 2026-09-13 | 85/100 (#374)                    |
 | restaurants                  | 2026-09-12 | 85/100 (#346)                    |
 | resume                       | 2026-10-02 | 84/100 (#655)                    |
+| retention                   | 2026-10-07 | 88/100 (#731)                    |
 | reverse-engineering          | 2026-09-18 | 85/100 (#463)                    |
 | review-code                  | 2026-09-30 | 86/100 (#620)                    |
 | roblox                       | 2026-08-18 | 90/100                           |
