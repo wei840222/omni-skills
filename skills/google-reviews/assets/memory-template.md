@@ -1,19 +1,19 @@
-# Memory Template - Google Reviews
+# Memory Template — Google Reviews
 
-Create `~/Clawic/data/google-reviews/memory.md`:
+Create `<state_root>/memory.md` from this template when the user wants persistence.
 
 ```markdown
 # Google Reviews Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | done | declined
 
 ## Monitoring Context
 - Frequently analyzed companies and ownership context
-- Source mapping by brand (Business Profile, Shopping, manual checks)
+- Source mapping by brand (Business Profile, Places, Shopping/merchant, manual)
 - Priority markets or languages to monitor
 
 ## Research Patterns
@@ -28,17 +28,10 @@ integration: pending | done | declined
 
 ## Reporting Preferences
 - Audience: operator, manager, or executive
-- Preferred format: digest, action report, trend summary
-- Delivery timing and escalation expectations
+- Default template: snapshot | heartbeat digest | daily | weekly
+- Delivery channel (ask-first if external)
 
-## Theme Memory
-- Recurring complaint categories by brand
-- Recent wins or resolved themes worth tracking
-- Open risk topics requiring follow-up
-
-## Notes
-- Operational constraints and integration caveats
-- Source reliability or data quality concerns
+## Connector Notes
+- Active access modes per brand
+- Known degraded sources and last errors
 ```
-
-Never store raw credentials, auth tokens, or private customer identifiers in memory files.
