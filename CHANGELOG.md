@@ -82,6 +82,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | australia                    | 2026-10-07 | 84/100 (#729)                    |
 | google-reviews               | 2026-10-07 | 84/100 (#730)                    |
 | ireland                      | 2026-10-05 | 84/100 (#725)                    |
+| sociology                    | 2026-10-07 | 86/100 (#733)                    |
 | taste                        | 2026-10-05 | 84/100 (#722)                    |
 | asi                          | 2026-09-02 | 84/100 (#220)                    |
 | aso                          | 2026-09-05 | 85/100 (#270)                    |
