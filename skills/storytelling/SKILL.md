@@ -1,170 +1,117 @@
 ---
 name: storytelling
-slug: storytelling
-version: 1.0.0
-description: Craft clear, emotionally resonant stories with audience-first framing, narrative arc control, and channel-specific rewrites.
-homepage: https://clawic.com/skills/storytelling
-changelog: Initial release with audience framing, story arc diagnostics, and channel-specific rewrite playbooks.
+description: >
+  Craft clear, emotionally resonant stories with audience-first framing, causal
+  arc control, scene density, evidence placement, and channel-specific rewrites.
+  Use when the user needs a product story, founder narrative, case study, pitch,
+  speech, long-form narrative, short-form adaptation, or when a draft feels flat,
+  disconnected, or emotionally vague. Not for general prose polish without narrative
+  intent (writing), conversion sales copy (copywriting), or pure content calendars
+  (content-marketing).
 metadata:
-  clawdbot:
-    emoji: 📖
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/storytelling/
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Storytelling
+  version: "1.1.0"
+  openclaw: '{"emoji":"📖","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"writing":"Improve sentence-level prose, voice fingerprint, and revision passes when the problem is wording rather than story logic.","content-marketing":"Connect finished stories to funnel stages, distribution plans, and editorial calendars.","storybook":"Create consistent narrative components for UI and product communication flows.","history":"Build chronology-aware historical narratives with source-aware framing.","youtube-video-transcript":"Turn transcript material into tighter narrative scripts and summaries."}'
 ---
 
-## Setup
+# Storytelling
 
-On first use, read `setup.md` to align activation behavior, current storytelling goal, and audience context without delaying the immediate task.
+Turn facts, tension, and proof into a story the audience can follow, feel, and act on. Prefer causal arcs and concrete scenes over topic lists and vague inspiration.
 
-## When to Use
+## State location
 
-User needs to explain, persuade, or teach through narrative and wants a story that is coherent, specific, and emotionally engaging.
-Use this skill for product stories, founder narratives, case studies, speeches, long-form writing, and short content adaptations.
+Storytelling state may exist in `<workspace>/storytelling/`, `<workspace>/memory/storytelling/`, or `~/storytelling/`.
+`<workspace>` means the workspace root provided by the host/runtime, not the shell cwd.
+
+Before any state read or write, resolve `<state_root>` once per invocation:
+
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/storytelling/`, `<workspace>/memory/storytelling/`, `~/storytelling/`.
+3. If multiple candidates exist, keep only the highest-precedence directory, leave others untouched, and tell the user which location was selected.
+4. If none exists and persistent state must be created, default to `<workspace>/storytelling/` after brief first-write consent.
+
+Use the selected `<state_root>` for every state path in this skill. Resolve `<state_root>` to a real path before filesystem work. Skill package files stay under `references/`; keep learned data in `<state_root>/`, not in `SKILL.md`.
+
+## When to use
+
+- Product stories, founder narratives, case studies, speeches, pitch decks narratives
+- Long-form writing that needs a causal arc rather than a topic outline
+- Short-form adaptations that must keep conflict, decision, proof, and implication
+- Drafts that feel flat, disconnected, chronological-only, or emotionally vague
+- Audience-first reframes when the current belief and desired shift are unclear
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/storytelling/`. See `memory-template.md` for baseline structure.
-
 ```text
-~/Clawic/data/storytelling/
-|-- memory.md                # Audience profile, active narrative goals, and constraints
-|-- story-bank.md            # Reusable stories, scenes, and proof points
-|-- messaging-pillars.md     # Core themes, promises, and supporting evidence
-`-- edit-log.md              # Draft iterations, decisions, and what changed
+<state_root>/
+|-- memory.md              # Audience profile, goals, constraints, voice notes
+|-- story-bank.md          # Reusable stories, scenes, and proof points
+|-- messaging-pillars.md   # Core themes, promises, and supporting evidence
+`-- edit-log.md            # Draft iterations, decisions, and rejected directions
 ```
 
-## Quick Reference
+Load `references/memory-template.md` when creating or reshaping state files.
 
-Load only the smallest file needed to solve the current bottleneck.
+## Progressive disclosure
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory structure and status model | `memory-template.md` |
-| Arc design and narrative sequencing | `story-arc-map.md` |
-| Scene construction and detail layering | `scene-design.md` |
-| Format-specific adaptations and compression | `rewrite-modes.md` |
-| Voice calibration and consistency checks | `voice-consistency.md` |
+Keep `SKILL.md` as the routing surface. Load only the smallest reference needed for the current bottleneck.
 
-## Data Storage
+| Need | Load |
+|------|------|
+| First-use alignment and activation | `references/setup.md` |
+| Memory and status model | `references/memory-template.md` |
+| Arc design and sequencing | `references/story-arc-map.md` |
+| Scene construction and pacing | `references/scene-design.md` |
+| Channel compression and rewrites | `references/rewrite-modes.md` |
+| Voice calibration across drafts | `references/voice-consistency.md` |
+| Core operating rules | `references/core-rules.md` |
+| Common failure modes | `references/storytelling-traps.md` |
+| Local state inventory | `references/data-storage.md` |
+| Security and privacy boundaries | `references/security-and-privacy.md` |
+| Scope boundaries | `references/scope.md` |
+| Verified craft sources | `references/sources.md` |
 
-Local notes in `~/Clawic/data/storytelling/` may include:
-- audience assumptions, emotional target, and success criteria
-- bank of anecdotes, examples, and proof artifacts
-- draft variants, edit decisions, and rejected directions
-- reusable hooks, openings, transitions, and closings
+## Operating sequence
 
-## Core Rules
+1. Resolve `<state_root>` (State location above). On first use or empty state, read `references/setup.md`.
+2. Capture one audience outcome, one central tension, and one desired resolution before drafting prose.
+3. Build a skeleton arc with `references/story-arc-map.md` (situation → friction → choice → execution → outcome → transfer).
+4. Draft scenes only where empathy or credibility must spike; summarize elsewhere (`references/scene-design.md`).
+5. Place specific evidence at the point of highest skepticism (`references/core-rules.md`).
+6. Run a separate judgment pass: cut, reorder, and sharpen. Keep ideation and critique as two passes.
+7. Adapt to channel with `references/rewrite-modes.md` while preserving conflict, decision, proof, and implication.
+8. End with one clear action, belief shift, or watchpoint. Persist only consented notes under `<state_root>/`.
 
-### 1. Anchor Every Story to One Audience Outcome
-Define one concrete outcome before drafting:
-- understand a complex idea
-- believe a claim
-- make a decision
-- remember a key message
+## Operating rules
 
-If the desired audience shift is not explicit, the story drifts into pleasant but ineffective prose.
-
-### 2. Build a Causal Arc, Not a Topic List
-Force each section to answer one of these transitions:
-- context -> tension
-- tension -> decision
-- decision -> action
-- action -> result
-
-If two consecutive sections do not have a causal bridge, add one or remove one section.
-
-### 3. Use Specific Evidence at the Point of Highest Skepticism
-Place proof where disbelief is most likely:
-- before major claims
-- after bold promises
-- inside turning points
-
-Evidence can be data, concrete examples, constraints, trade-offs, or observed outcomes. Generic claims without proof collapse trust.
-
-### 4. Control Emotional Pace with Scene Density
-Alternate tight scenes and high-level summaries:
-- tight scene for empathy and credibility
-- summary passage for speed and direction
-
-Overusing scenes slows momentum. Overusing summaries removes emotional impact.
-
-### 5. Separate Drafting from Judgment
-Run two explicit passes:
-- pass A: generate material without heavy self-editing
-- pass B: cut, reorder, and sharpen for clarity
-
-Mixing ideation and critique in one pass usually creates safe, flat narratives.
-
-### 6. Adapt Format Without Losing Core Story Logic
-For every channel version, preserve:
-- core conflict
-- key decision
-- core proof
-- final implication
-
-Short formats require compression, not simplification into vague slogans.
-
-### 7. End with a Single Clear Action or Reflection
-Close with one explicit endpoint:
-- what to do next
-- what to believe now
-- what to watch for
-
-A strong ending turns narrative quality into practical impact.
-
-## Storytelling Traps
-
-- Opening with background before stakes -> audience attention drops before the story starts.
-- Adding too many subplots -> the central message becomes untraceable.
-- Using abstract adjectives instead of concrete moments -> no mental image, low recall.
-- Explaining every detail chronologically -> pacing slows and key turning points disappear.
-- Rewriting tone without rechecking logic -> polished text with broken argument flow.
-- Ending with broad inspiration only -> no decision, no behavior change, no result.
-
-## Security & Privacy
-
-Data that leaves your machine:
-- none by default from this instruction set
-- only user-approved outbound requests when the user explicitly asks for external research
-
-Data that stays local:
-- storytelling context and iterative notes under `~/Clawic/data/storytelling/`
-- draft structure choices and narrative experiments
-
-This skill does NOT:
-- request secrets, passwords, or private credentials
-- make hidden network calls
-- perform irreversible actions automatically
+- Anchor every story to one explicit audience outcome before generating language.
+- Prefer causal bridges over chronological dumps or topic lists.
+- Use concrete moments, constraints, and observed outcomes instead of abstract adjectives.
+- Keep drafting and judgment as two passes so the first draft stays generative and the second stays ruthless.
+- Compress format without erasing story logic; short form is compression, not sloganization.
+- Treat audience profiles, story banks, drafts, and edit logs as local user data. Create or modify `<state_root>/` files only after consent when persistence is needed.
+- Remain useful without storage: deliver an in-chat arc and draft when the user declines persistence.
 
 ## Scope
 
-This skill ONLY:
-- structures narrative strategy for clarity, persuasion, and memorability
-- improves story logic, evidence placement, pacing, and adaptation
-- supports iterative drafting with explicit quality checks
+This skill handles:
 
-This skill NEVER:
-- fabricate facts or testimonials
-- claim outcomes that evidence cannot support
-- replace domain review when factual or legal accuracy is required
+- Narrative strategy for clarity, persuasion, and memorability
+- Story logic, evidence placement, pacing, and multi-channel adaptation
+- Iterative drafting with explicit quality checks
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `writing` - Improve writing quality with clearer structure and stronger revision passes.
-- `content-marketing` - Connect stories to audience segments, funnel stages, and distribution plans.
-- `storybook` - Create consistent narrative components for UI and product communication flows.
-- `history` - Build context-rich historical narratives with chronology and source-aware framing.
-- `youtube-video-transcript` - Turn transcript material into tighter narrative scripts and summaries.
+Route elsewhere or stop when:
 
-## Feedback
+- The need is general prose polish without narrative structure (`writing`)
+- The need is conversion-first sales copy without story craft (`copywriting`)
+- The need is editorial calendars or funnel planning alone (`content-marketing`)
+- Facts, legal claims, or testimonials require domain review the user has not provided
 
-- If useful, star it: https://clawic.com/skills/storytelling
-- Latest version: https://clawic.com/skills/storytelling
+## Safety
+
+- Mark unknowns instead of inventing facts or testimonials.
+- Claim only outcomes the available evidence can support.
+- Prefer placeholders over collecting secrets, passwords, or private credentials.
+- Keep network calls explicit and user-requested.
+- Treat publish or send actions as separate authorized steps.

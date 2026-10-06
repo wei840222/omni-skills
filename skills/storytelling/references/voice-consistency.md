@@ -2,33 +2,36 @@
 
 Use this file when drafts feel inconsistent across sections or versions.
 
-## Voice Coordinates
+## Voice coordinates
 
 Track five coordinates and keep them stable unless intentionally changed:
+
 - formality level
 - sentence rhythm
 - emotional intensity
 - technical density
 - directness of claims
 
-## Calibration Pass
+## Calibration pass
 
 Run this pass before finalizing:
-- highlight three representative paragraphs
-- score each coordinate from 1 to 5
-- align outliers to the target voice profile
 
-## Drift Signals
+1. Highlight three representative paragraphs.
+2. Score each coordinate from 1 to 5.
+3. Align outliers to the target voice profile.
+
+## Drift signals
 
 Common drift indicators:
+
 - abrupt switch from concrete language to abstraction
 - repeated filler adjectives with low informational value
 - alternating between promotional and analytical tones
 - sudden increase in jargon without audience need
 
-## Correction Moves
+## Correction moves
 
-- replace weak adjectives with evidence-backed statements
-- normalize sentence length around the target rhythm
-- remove metaphor clusters that obscure core meaning
-- recheck opening and closing for tonal alignment
+- Replace weak adjectives with evidence-backed statements.
+- Normalize sentence length around the target rhythm.
+- Prefer one clear metaphor over metaphor clusters that obscure meaning.
+- Recheck opening and closing for tonal alignment.
