@@ -279,6 +279,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | find                         | 2026-08-26 | 92/100                           |
 | fine-tuning                  | 2026-09-28 | 80.8/100 (#592)                  |
 | finnish                      | 2026-09-25 | 84/100 (#575)                    |
+| first-principles-thinking     | 2026-10-07 | 88/100 (#732)                    |
 | fishing                      | 2026-09-12 | 85/100 (#344)                    |
 | fitness                      | 2026-09-12 | 85/100 (#347)                    |
 | fiverr                       | 2026-09-30 | 85/100 (#621)                    |
