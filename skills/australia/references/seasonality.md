@@ -19,4 +19,3 @@ Add one buffer day for every major weather-sensitive block.
 ## Source check
 
 Cross-check hemisphere-opposite seasons and regional weather windows via Bureau of Meteorology and Tourism Australia weather pages listed in `references/sources.md` before locking outdoor-heavy itineraries.
-
