@@ -17,3 +17,7 @@
 1. Planning beach-only days with no weather backup.
 2. Ignoring surf and marine condition updates.
 3. Long detours for short stops with low route payoff.
+
+## Source check
+
+For marine and stinger-season claims in tropical north routes, re-check live state advisories and the source map in `references/sources.md` before booking non-flex reef or beach days.
