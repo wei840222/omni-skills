@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path-product-launch-story",
+    "prompt": "Draft a short product-launch story for our ops dashboard. Audience: skeptical team leads. Outcome: they believe the tool reduces weekly status thrash. Keep it under 250 words and end with one clear next step.",
+    "expected": "Resolve <state_root> only if persistence is needed; capture one audience outcome and central tension first; build situation→friction→choice→execution→outcome→transfer; place proof at skepticism peak; keep causal bridges; end with one concrete action; avoid fabricated metrics; offer writing handoff only if sentence polish is requested without story work.",
+    "actual": "Stated outcome = team leads believe weekly status thrash drops. Arc: thrash from multi-tool status hunting (friction) → choose a single live ops dashboard (choice) → pilot on two squads with one shared board (execution) → leads stop chasing screenshots and review one board in standup (outcome) → transfer = run a 2-week pilot on one squad and compare prep time. Used a concrete scene (Monday 9:10, three tabs, still missing owner) instead of adjectives. Marked metrics as unknown rather than inventing adoption numbers. Closed with one next step. Did not write state without consent.",
+    "pass": true,
+    "evidence": "Package walkthrough 2026-10-06 against skills/storytelling SKILL.md Operating sequence + references/story-arc-map.md + references/core-rules.md; no secrets; no clawic paths"
+  },
+  {
+    "id": 2,
+    "scenario": "complex-flat-case-study-rewrite",
+    "prompt": "This customer case study reads flat: chronology of meetings, feature list, then 'they were happy.' Make it emotionally credible for a homepage case study and also give a LinkedIn-length compression. Do not invent ROI.",
+    "expected": "Diagnose missing tension/decision/proof/transfer; rebuild causal arc; add one earned scene; keep claims evidence-bounded; produce long-form plus Mode 3 short social rewrite preserving conflict/decision/proof/implication; load rewrite-modes and storytelling-traps as needed; refuse fabricated testimonials or ROI.",
+    "actual": "Flagged chronology-without-stakes and inspiration-only ending via storytelling-traps. Rebuilt: situation (support queue overrun) → friction (CSAT risk, night paging) → choice (adopt triage rules + shared story of 'first meaningful response') → execution (two-week rule change) → outcome (qualitative: fewer after-hours pings; ROI left blank pending user data) → transfer (what a peer team should try Monday). Added one compressed scene at the skepticism peak. Produced LinkedIn version opening on conflict, one proof detail, one takeaway. Explicitly left ROI as placeholder. Suggested content-marketing only if funnel placement is next.",
+    "pass": true,
+    "evidence": "references/storytelling-traps.md + references/rewrite-modes.md Mode 1/3 + references/scope.md no fabricated outcomes; dry-run 2026-10-06"
+  },
+  {
+    "id": 3,
+    "scenario": "edge-missing-audience-and-state",
+    "prompt": "Help me tell our story better. Not sure who it's for. Also save whatever you learn.",
+    "expected": "Run setup alignment for audience/outcome/channel; ask only material gaps; obtain consent before creating <state_root>; resolve State location order workspace/storytelling → memory/storytelling → ~/storytelling; initialize memory template fields without secrets; still deliver a provisional arc from stated unknowns rather than blocking forever.",
+    "actual": "Loaded references/setup.md. Asked three material questions only: audience, desired belief/action shift, channel. User said 'save' → treated as persistence consent. Resolved <state_root> to <workspace>/storytelling/ (no prior candidates). Created memory.md from references/memory-template.md with status=ongoing, empty story bank, and recorded unknowns. Drafted a provisional skeleton labeled assumptions vs knowns instead of inventing audience. No credentials requested or stored.",
+    "pass": true,
+    "evidence": "SKILL.md State location + references/setup.md + references/memory-template.md; consent-before-write; dry-run 2026-10-06"
+  }
+]
