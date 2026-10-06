@@ -84,7 +84,6 @@ This table is the canonical record of skill refactor pull requests merged into `
 | cdn                          | 2026-10-07 | 85/100 (#734)                    |
 | google-reviews               | 2026-10-07 | 84/100 (#730)                    |
 | ireland                      | 2026-10-05 | 84/100 (#725)                    |
-| remote-desktop               | 2026-10-07 | 88/100 (#736)                    |
 | taste                        | 2026-10-05 | 84/100 (#722)                    |
 | asi                          | 2026-09-02 | 84/100 (#220)                    |
 | aso                          | 2026-09-05 | 85/100 (#270)                    |
@@ -554,6 +553,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | regex                        | 2026-08-16 | 90/100                           |
 | remember                     | 2026-09-04 | 85/100 (#259)                    |
 | remind                       | 2026-09-04 | 85/100 (#260)                    |
+| remote-desktop               | 2026-10-07 | 88/100 (#736)                    |
 | render-deploy                | 2026-09-13 | 85/100 (#371)                    |
 | rental                       | 2026-09-15 | 85/100 (#402)                    |
 | report                       | 2026-09-13 | 85/100 (#374)                    |
