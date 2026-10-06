@@ -315,6 +315,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | google-colab                 | 2026-09-30 | 86/100 (#625)                    |
 | google-fonts                 | 2026-08-29 | 88/100                           |
 | google-play-store            | 2026-09-25 | 86/100 (#583)                    |
+| google-reviews               | 2026-10-07 | 84/100 (#730)                    |
 | google-workspace-cli         | 2026-09-24 | 85/100 (#569)                    |
 | gradio                       | 2026-09-24 | 85/100 (#563)                    |
 | grafana                      | 2026-09-01 | 85/100 (#207)                    |
