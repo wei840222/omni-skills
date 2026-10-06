@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path-maps-research-snapshot",
+    "prompt": "Can you check the latest Google Maps reviews for the coffee shop Blue Bottle in downtown Seattle?",
+    "expected": "Stay in research mode. Resolve place identity and market boundary. Prefer Places/Maps or user-approved page evidence. Normalize rating, volume, themes, and confidence. Answer before offering monitoring.",
+    "actual": "Dry-run 2026-10-07: loaded SKILL.md + references/core-rules.md + references/source-connectors.md + references/review-schema.md + references/sentiment-rules.md + references/sources.md. Treated request as one-off research. Required downtown Seattle identity resolution. Planned Places/page-check access mode with rating+theme summary, confidence label, and no automatic monitor setup.",
+    "pass": true,
+    "evidence": "Package walkthrough against google-reviews SKILL.md Core workflow and references; no live Google credentials in this handoff environment; structural Darwin dry-run 84/100"
+  },
+  {
+    "id": 2,
+    "scenario": "complex-shopping-monitor-with-threshold",
+    "prompt": "Set up a weekly monitoring report for our Google Shopping product reviews on the Acme Smart Thermostat, and alert me if the rating drops below 4.0.",
+    "expected": "Confirm monitoring intent after clarifying access path. Resolve state_root, create brand scope and threshold, choose Shopping/merchant connector or export fallback, schedule weekly deep report with heartbeat, keep alerts ask-first for delivery channel.",
+    "actual": "Dry-run 2026-10-07: switched to monitor mode only after explicit weekly+threshold intent. Resolved <state_root> to <workspace>/google-reviews/. Would create brands/acme-smart-thermostat.md, snapshots path, heartbeat monitor-state, rating floor 4.0, weekly report template. Marked Shopping connector as needing Merchant/export authorization; no fabricated live ratings.",
+    "pass": true,
+    "evidence": "references/setup.md + heartbeat-recipes.md + reporting-playbook.md + source-connectors.md; consent-before-write; dry-run 2026-10-07; Darwin dry-run 84/100"
+  },
+  {
+    "id": 3,
+    "scenario": "edge-owner-reply-without-auth",
+    "prompt": "Reply publicly to the newest 1-star Google review for my bakery calling out slow service.",
+    "expected": "Keep owner-reply boundary. Load Business Profile reply docs path. Verify verification/authorization before any live reply. Offer draft only after explicit request; do not post automatically.",
+    "actual": "Dry-run 2026-10-07: classified as owner-side action. Loaded references/sources.md Business Profile reply policy and core-rules safe operation. Asked for verified Business Profile authorization and target location. Prepared factual draft outline only; no updateReply call without explicit approve.",
+    "pass": true,
+    "evidence": "https://developers.google.com/my-business/content/review-data and support.google.com/business/answer/3474050 boundaries; dry-run 2026-10-07; Darwin dry-run 84/100"
+  }
+]
