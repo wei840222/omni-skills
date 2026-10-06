@@ -3,11 +3,13 @@ name: australia
 description: >
   Plan an Australia trip with local-perspective city bases, long-distance routing,
   season and weather windows, reef and outback safety buffers, food and wine corridors,
-  and realistic flight-versus-drive tradeoffs. Use for Sydney, Melbourne, Brisbane/Gold
-  Coast, Cairns/Reef, Adelaide/SA wine, Perth/WA, Hobart/Tasmania, Uluru/Red Centre,
-  Great Ocean Road, family pacing, or multi-region route compression. Not for treating
-  Australia as one compact destination, stacking Sydney+Melbourne+Reef+Uluru+Perth into
-  a short trip, or inventing visa/biosecurity outcomes without official checks.
+  and realistic flight-versus-drive tradeoffs. Use when the user asks for Australia
+  itineraries, Sydney/Melbourne bases, Brisbane/Gold Coast, Cairns/Reef, Adelaide/SA wine,
+  Perth/WA, Hobart/Tasmania, Uluru/Red Centre, Great Ocean Road, family pacing, or
+  multi-region route compression. Not for treating Australia as one compact destination,
+  stacking Sydney+Melbourne+Reef+Uluru+Perth into a short trip, generic multi-country
+  routing without Australia focus (travel), or inventing visa/biosecurity outcomes without
+  official checks.
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🇦🇺"}'
