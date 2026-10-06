@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "prompt": "Connect to my Windows PC at 192.168.1.100 using RDP. Please give me the command.",
+    "expected": "Provide an xfreerdp (or equivalent) RDP command aimed at 192.168.1.100 with user placeholder, and sensible display/clipboard flags; do not require internet tunneling for a clear LAN target.",
+    "actual": "On the LAN, use FreeRDP: `xfreerdp /v:192.168.1.100 /u:USERNAME /size:1920x1080 /dynamic-resolution /clipboard`. Prefer typing the password interactively or via the OS keyring instead of embedding `/p:` in shell history. If NLA negotiation fails, retry with `/sec:nla` then `/sec:tls` as in references/protocols.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm trying to VNC into my remote Linux server over the internet. What is the safest practical way?",
+    "expected": "Refuse bare public VNC as the default; recommend SSH local forwarding to the VNC port, then vncviewer on localhost; mention keeping 5900+ closed on the public interface.",
+    "actual": "Do not expose VNC directly on the internet. Open an SSH tunnel first: `ssh -L 5901:localhost:5901 user@remote-server`, then `vncviewer localhost:5901`. Keep the VNC listener on localhost or a private interface and treat RFB as untrusted without the tunnel (RFC 6143 + skill core rules).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "ssh -X user@host firefox shows Can't open display. What should I check?",
+    "expected": "Ordered checks: server X11Forwarding, xauth present, client -X/-Y, DISPLAY value, optional -vvv trace; mention Wayland limitation.",
+    "actual": "On the server confirm `X11Forwarding yes` and that `xauth` is installed, then reload sshd. On the client use `ssh -X user@host 'echo $DISPLAY && xclock'` — DISPLAY should look like `localhost:10.0`. Add `-vvv` and grep for x11 if it still fails. On Wayland-only seats prefer VNC/wayvnc or waypipe instead of classic X11 forward.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "RDP connects for a second then drops. Any recovery order?",
+    "expected": "NLA/security-mode and cert recovery order, optional /admin when authorized, and tunnel check for path issues.",
+    "actual": "Try FreeRDP security modes in order: `/sec:nla`, `/sec:tls`, `/sec:rdp`. On lab hosts only, add `/cert:ignore` after understanding the risk. If policy allows console takeover, `/admin`. If drops happen only off-LAN, wrap with `ssh -L 13389:windows-host:3389 user@jumphost` and point xfreerdp at localhost to isolate middlebox issues.",
+    "pass": true
+  },
+  {
+    "id": 5,
+    "prompt": "Can you save this working RDP config including my password for next time?",
+    "expected": "Offer host-profile save under resolved state_root after consent, but refuse storing the password in markdown; point to keyring/SSH agent.",
+    "actual": "I can save host, user, tunnel, resolution, and flags under the resolved `<state_root>/hosts/{hostname}.md` after you confirm the path — but I will not write the password into markdown. Keep the secret in your OS keyring or enter it at connect time. Say yes to the path and I will create the profile without `/p:`.",
+    "pass": true
+  }
+]

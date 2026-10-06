@@ -553,6 +553,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | regex                        | 2026-08-16 | 90/100                           |
 | remember                     | 2026-09-04 | 85/100 (#259)                    |
 | remind                       | 2026-09-04 | 85/100 (#260)                    |
+| remote-desktop               | 2026-10-07 | 88/100 (#736)                    |
 | render-deploy                | 2026-09-13 | 85/100 (#371)                    |
 | rental                       | 2026-09-15 | 85/100 (#402)                    |
 | report                       | 2026-09-13 | 85/100 (#374)                    |
