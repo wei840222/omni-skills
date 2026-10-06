@@ -16,7 +16,7 @@ Australia can be high-cost in major cities and remote regions. Planning quality 
 - Lunch and neighborhood dining improve food value.
 - Shoulder periods often improve overall spend efficiency.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Underbudgeting domestic transfers.
 2. Last-minute booking in peak corridors.

@@ -6,7 +6,7 @@ This route is scenic but often overcompressed. Better outcomes come from one ove
 
 ## Strategy
 
-- Start early and avoid peak convoy windows where possible.
+- Start early and plan around peak convoy windows where possible.
 - Pair viewpoints by geography to cut backtracking.
 - Keep one weather-alternate stop ready.
 
@@ -16,7 +16,7 @@ This route is scenic but often overcompressed. Better outcomes come from one ove
 - Driving focus matters more than attraction count.
 - Reserve key stays early in peak seasons.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Treating it as a casual add-on day from Melbourne.
 2. Overstopping and losing safe daylight return margin.

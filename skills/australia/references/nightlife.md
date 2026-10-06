@@ -13,7 +13,7 @@
 - Check city-specific lockout/entry patterns where relevant.
 - Balance nightlife intensity with next-day transfer plans.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Staying only in highest-tourist nightlife strips.
 2. No late-night transport backup.

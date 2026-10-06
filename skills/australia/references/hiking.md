@@ -18,7 +18,7 @@ Choose hikes by current weather, heat index, and realistic fitness, not only pho
 - Respect closures and fire-condition advisories.
 - Turn back when conditions degrade.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Underestimating heat and dehydration risk.
 2. Late starts in exposed routes.

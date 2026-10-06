@@ -18,7 +18,7 @@ Desert planning is about heat, hydration, and timing discipline. Sunrise/sunset 
 - Keep strict water and sun management.
 - Treat long drives as primary activity blocks.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Midday-heavy outdoor plans in hot months.
 2. Underestimating desert driving fatigue.

@@ -16,7 +16,7 @@
 - Book key cellar doors in advance in peak periods.
 - Cap tastings and pair with food to maintain route quality.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Overpacking winery stops in one day.
 2. No designated-driver strategy.

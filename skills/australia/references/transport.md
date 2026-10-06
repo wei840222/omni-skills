@@ -19,7 +19,7 @@
 - Best for region-focused routes where driving is part of trip design.
 - Use daylight-focused planning in remote segments.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Treating long domestic transfers as full sightseeing days.
 2. Tight connections with no disruption margin.

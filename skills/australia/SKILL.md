@@ -1,154 +1,116 @@
 ---
 name: australia
-slug: australia
-version: 1.0.0
-description: Discover Australia like a local with deep city-region coverage, practical route planning, food context, and execution-ready travel logistics.
-homepage: https://clawic.com/skills/australia
-changelog: Initial release with expanded city-region guides, coast and outback routing, and practical Australia travel logistics.
+description: >
+  Plan an Australia trip with local-perspective city bases, long-distance routing,
+  season and weather windows, reef and outback safety buffers, food and wine corridors,
+  and realistic flight-versus-drive tradeoffs. Use for Sydney, Melbourne, Brisbane/Gold
+  Coast, Cairns/Reef, Adelaide/SA wine, Perth/WA, Hobart/Tasmania, Uluru/Red Centre,
+  Great Ocean Road, family pacing, or multi-region route compression. Not for treating
+  Australia as one compact destination, stacking Sydney+Melbourne+Reef+Uluru+Perth into
+  a short trip, or inventing visa/biosecurity outcomes without official checks.
 metadata:
-  clawdbot:
-    emoji: 🇦🇺
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/australia/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Australia
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇦🇺"}'
+  related-skills: '{"travel":"Multi-country or multi-region itineraries when Australia is only one stop.","booking":"Hotel, flight, car, and attraction reservation hygiene after the Australia route is chosen.","food":"Broader meal planning beyond the Australia food playbook.","english":"Booking and communication support when language scaffolding is the main need.","sydney":"Deeper Sydney visitor, resident, and neighborhood guidance when the trip is Sydney-centric."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/australia/` doesn't exist or is empty, read `setup.md` and start naturally.
+Australia trip state may exist in `<workspace>/australia/`, `<workspace>/memory/australia/`, or `~/australia/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/australia/`, `<workspace>/memory/australia/`, `~/australia/`.
+3. If none exists and the user wants planning context kept, create `<workspace>/australia/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/australia/` only. Otherwise ask for a state root before creating files.
 
-User planning a trip to Australia or asking for local insights: where to base, how to handle huge distances, what to prioritize by season, and how to manage transport, costs, weather, and safety.
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants trip context kept across sessions. Legacy `~/Clawic/data/australia/` is a migration source only. Keep it out of the active lookup order, and move it only when the user asks.
 
-## Architecture
+### State tree
 
-Memory lives in `~/Clawic/data/australia/`. See `memory-template.md` for structure.
+| Path | Purpose |
+| --- | --- |
+| `<state_root>/memory.md` | Trip context, activation preference, and evolving constraints |
 
-```
-~/Clawic/data/australia/
-└── memory.md     # Trip context
-```
+## When to load
 
-## Quick Reference
+Load this skill for an Australia trip plan, multi-city route compression, Sydney/Melbourne city bases, reef or outback blocks, Great Ocean Road pacing, SA wine corridors, WA distance realism, Tasmania weather-aware driving, family travel, or practical flight-versus-drive tradeoffs.
 
-| Topic | File |
-|-------|------|
-| **Major Hubs and Regions** | |
-| Sydney complete guide | `sydney.md` |
-| Melbourne complete guide | `melbourne.md` |
-| Brisbane and Gold Coast complete guide | `brisbane-gold-coast.md` |
-| Cairns and Great Barrier Reef complete guide | `cairns-reef.md` |
-| Adelaide and South Australia complete guide | `adelaide-sa.md` |
-| Perth and Western Australia complete guide | `perth-wa.md` |
-| Hobart and Tasmania complete guide | `hobart-tasmania.md` |
-| Uluru and Red Centre complete guide | `uluru-red-centre.md` |
-| Great Ocean Road complete guide | `great-ocean-road.md` |
-| **Planning** | |
-| Core itineraries | `itineraries.md` |
-| Long-distance route patterns | `road-trips.md` |
-| Where to stay by style | `accommodation.md` |
-| Entry and biosecurity planning | `entry-and-biosecurity.md` |
-| Useful apps | `apps.md` |
-| **Food and Drink** | |
-| Regional dishes and restaurant strategy | `food-guide.md` |
-| Wine regions and bar strategy | `wine.md` |
-| **Experiences** | |
-| Signature experiences | `experiences.md` |
-| Beaches and coastal planning | `beaches.md` |
-| Hikes and trail safety | `hiking.md` |
-| Nightlife by city type | `nightlife.md` |
-| **Reference** | |
-| Regions and route differences | `regions.md` |
-| Culture, etiquette, expectations | `culture.md` |
-| Seasonality and climate strategy | `seasonality.md` |
-| Traveling with children | `with-kids.md` |
-| Wildlife and outdoor safety | `wildlife-safety.md` |
-| National parks and permits | `national-parks-and-permits.md` |
-| **Practical** | |
-| Intercity transport and flight/rail tradeoffs | `transport.md` |
-| Phone and internet | `telecoms.md` |
-| Payments and cost planning | `payment-and-costs.md` |
-| Emergencies and safety | `emergencies.md` |
+Identify travel month, trip length, driving comfort, city-versus-nature split, heat/humidity tolerance, and must-see constraints before locking multi-base routes.
 
-## Core Rules
+Read `references/sources.md` before repeating emergency numbers, entry/biosecurity claims, marine/stinger season notes, park access rules, or booking-critical visitor guidance. Re-check the official page for the traveler's dates before non-refundable bookings.
 
-### 1. Specific Over Generic
-Do not say "do Australia highlights." Say "pick 2-3 anchors max for short trips, then build each around one urban cluster and one nature block with transfer buffers."
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/setup.md` |
+| Core rules and tourist traps | `references/core-rules.md` |
+| Region choice and route strategy | `references/regions.md` |
+| Sample itinerary frames | `references/itineraries.md` |
+| Long-distance route patterns | `references/road-trips.md` |
+| Lodging strategy | `references/accommodation.md` |
+| Entry and biosecurity | `references/entry-and-biosecurity.md` |
+| Sydney playbook | `references/sydney.md` |
+| Melbourne playbook | `references/melbourne.md` |
+| Brisbane and Gold Coast | `references/brisbane-gold-coast.md` |
+| Cairns and Reef | `references/cairns-reef.md` |
+| Adelaide and SA | `references/adelaide-sa.md` |
+| Perth and WA | `references/perth-wa.md` |
+| Hobart and Tasmania | `references/hobart-tasmania.md` |
+| Uluru and Red Centre | `references/uluru-red-centre.md` |
+| Great Ocean Road | `references/great-ocean-road.md` |
+| Food and wine | `references/food-guide.md`, `references/wine.md` |
+| Experiences, beaches, hikes, nightlife | `references/experiences.md`, `references/beaches.md`, `references/hiking.md`, `references/nightlife.md` |
+| Culture, kids, seasonality | `references/culture.md`, `references/with-kids.md`, `references/seasonality.md` |
+| Parks, wildlife, transport, apps, telecoms, costs | `references/national-parks-and-permits.md`, `references/wildlife-safety.md`, `references/transport.md`, `references/apps.md`, `references/telecoms.md`, `references/payment-and-costs.md` |
+| Safety | `references/emergencies.md` |
+| Official source map | `references/sources.md` |
+| Persisted trip context template | `assets/memory-template.md` |
+| Evaluation harness only | `test-prompts.json` |
 
-### 2. Local Perspective
-What locals and repeat travelers actually do, not brochure advice:
-- Australia rewards fewer bases with deeper local coverage
-- Domestic transfer days often consume most useful daylight
-- Weather windows can reshape coastal and outback plans quickly
-- Car vs flight decisions should be route-specific, not ideology
+## Near-miss handoffs
 
-### 3. Regional Differences
+- Multi-country routing beyond Australia → `travel`
+- Reservation holds after the route is chosen → `booking`
+- Broader cuisine planning beyond Australia playbooks → `food`
+- Booking and communication scaffolding → `english`
+- Sydney-only deep dive (visitor/resident/neighborhoods) → `sydney`
 
-| Region | Key difference |
-|--------|----------------|
-| NSW (Sydney and coast) | Big-city pace plus coastal add-ons and strong weekend demand |
-| Victoria (Melbourne and surrounds) | Food and culture density, strong road-trip overlays |
-| Queensland | Tropical north, reef logic, humidity and cyclone-season considerations |
-| South Australia | Wine and outback gateway routes, lower crowd pressure |
-| Western Australia | Huge distances, premium nature routes, transfer-heavy planning |
-| Tasmania | Cool-climate food and nature with weather-sensitive driving |
-| NT Red Centre | Desert conditions, heat risk, sunrise/sunset pacing |
+## Core rules
 
-### 4. Timing is Everything
-- Australian seasons are opposite to northern-hemisphere assumptions
-- School holidays and long weekends can spike pricing and occupancy
-- Wet season affects parts of tropical north route reliability
-- Bushfire and heat periods can change road and park access
-- Shoulder windows often give best crowd-value balance
+1. Prefer 2–3 anchors max on short trips; pair one urban cluster with one nature block and transfer buffers.
+2. Be specific: name bases, timing windows, weather backups, and flight-versus-drive logic instead of brochure slogans.
+3. Treat domestic transfer days as real calendar cost; they often consume most useful daylight.
+4. Never treat Australia as one compact destination. Cap checklist-heavy Sydney+Melbourne+Reef+Uluru+Perth stacks.
+5. Match the plan to hemisphere-opposite seasons, school holidays, wet-season reliability, bushfire/heat windows, and reef/marine conditions.
+6. Deliver action plans: base logic, day flow, reservation deadlines, weather/safety backup, and a transport note for the chosen region.
 
-### 5. Flag Tourist Traps
-Be explicit about what to avoid:
-- Trying Sydney, Melbourne, Uluru, and Reef in one short trip with no slack
-- Overpaying in harbor/beach strips without quality checks
-- Ignoring realistic self-drive fatigue on long open-road segments
-- Treating every reef or outback day as weather-guaranteed
+## Operating plan
 
-### 6. Match Trip Style
+Answer the immediate question first. When the user wants a route, return:
 
-| Traveler | Focus on |
-|----------|----------|
-| Foodie | `food-guide.md`, `melbourne.md`, `sydney.md` |
-| Coast and beaches | `beaches.md`, `cairns-reef.md`, `brisbane-gold-coast.md` |
-| Nature and hiking | `hiking.md`, `hobart-tasmania.md`, `national-parks-and-permits.md` |
-| Family | `with-kids.md`, `accommodation.md`, `itineraries.md` |
-| Nightlife and city | `nightlife.md`, `sydney.md`, `melbourne.md` |
-| Long route explorer | `road-trips.md`, `transport.md`, `seasonality.md` |
+- Base logic and the region cluster being chosen
+- Day flow with realistic flight or driving windows
+- Reservation deadlines (lodging, reef operators, parks, car pickup)
+- Weather and safety backup for coastal, reef, desert, or remote days
+- Food or wine note that avoids default tourist-trap strips when relevant
+- First-day transport and connectivity plan
 
-## Common Traps
+For an empty state file, follow `references/setup.md` and copy the structure from `assets/memory-template.md` into `<state_root>/memory.md` only after the user wants memory kept.
 
-- Treating Australia as one compact destination.
-- Too many bases for the available days.
-- Underestimating domestic flight and transfer overhead.
-- Ignoring seasonal weather and bushfire dynamics.
-- No backup plans for coastal or remote-day routes.
-- Assuming late booking works in all regions year-round.
+## Prefer these checks
 
-## Security & Privacy
+- Compress region lists when the calendar only supports two bases plus one nature block.
+- Re-check live weather, park, and marine pages before locking reef, desert, or long remote drives.
+- Keep tasting and pub plans light on driving days; decide the non-driver in advance.
+- For families, reduce back-to-back long transfers and always keep an indoor or low-heat backup.
+- For entry/biosecurity and restricted goods, confirm the traveler's nationality and dates rather than assuming ETA/eVisitor defaults.
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/australia/`
+## Source freshness
 
-**This skill does NOT:** Access files outside `~/Clawic/data/australia/` or make network requests.
+Domain claims in this package were last bulk-checked against the URLs in `references/sources.md` (see file header). Before any booking-critical statement, open the matching official page again for the user's travel month and route.
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structuring
-- `food` — Deeper restaurant and cuisine recommendations
-- `english` — Communication support and booking clarity
-- `booking` — Reservation and scheduling support workflows
+## Security and privacy
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/australia
-- Latest version: https://clawic.com/skills/australia
+Trip preferences stay in `<state_root>/` when the user opts into memory. Do not invent network side effects; this skill is guidance plus local state only.

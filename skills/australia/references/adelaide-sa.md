@@ -20,7 +20,7 @@ Low-friction city base plus wine and coastal routes. Excellent value when paced 
 - Choose one wine corridor per day, not multiple.
 - Keep driving and tasting days separated by clear safety logic.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Overpacking wine regions in one day.
 2. Underestimating island/outback transfer overhead.

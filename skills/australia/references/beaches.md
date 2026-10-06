@@ -12,7 +12,7 @@
 - North Queensland routes require marine-weather awareness.
 - Stinger-season and surf safety conditions should drive day planning.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Planning beach-only days with no weather backup.
 2. Ignoring surf and marine condition updates.

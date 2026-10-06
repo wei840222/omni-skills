@@ -17,7 +17,7 @@
 - Use lunch for better value in premium areas.
 - One block away from major waterfront strips often improves quality-price ratio.
 
-## Food Traps to Avoid
+## Common Food Traps
 
 1. Eating every meal in top tourist strips.
 2. Queue-chasing with no quality signal checks.

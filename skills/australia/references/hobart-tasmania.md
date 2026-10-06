@@ -18,7 +18,7 @@ Tasmania is compact on map but slower in practice. Great for food and nature whe
 - Weather and road conditions can shift quickly.
 - Build one lower-intensity day per multi-drive block.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Overstacking long scenic drives daily.
 2. Ignoring weather buffers for hikes and coast stops.
