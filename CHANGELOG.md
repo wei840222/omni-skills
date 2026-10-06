@@ -605,6 +605,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | slovenian                    | 2026-09-21 | 85/100 (#520)                    |
 | smart-home                   | 2026-09-18 | 85/100 (#474)                    |
 | smoking                      | 2026-09-24 | 85/100 (#552)                    |
+| sociology                    | 2026-10-07 | 86/100 (#733)                    |
 | software-architect           | 2026-08-04 | 81/100                           |
 | solana                       | 2026-09-01 | 85/100 (#194)                    |
 | spain                        | 2026-08-31 | 85/100 (#170)                    |
