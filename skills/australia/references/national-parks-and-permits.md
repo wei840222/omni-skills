@@ -16,8 +16,12 @@ Access, closures, and permit requirements vary by park and season. Verify curren
 - Some routes require stricter vehicle planning.
 - Follow ranger guidance and posted restrictions.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Assuming all parks have same rules and pass systems.
 2. No backup plan for closures or fire/weather alerts.
 3. Late arrival to high-demand entry zones.
+
+## Source check
+
+Verify park access and permit rules via Parks Australia and the live park page linked from `references/sources.md` before locking remote days.

@@ -21,7 +21,7 @@ Reef quality depends on season, sea conditions, and operator choice. Plan by wea
 - Choose fewer high-quality reef trips over multiple rushed bookings.
 - Protect sun and hydration management.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Booking non-flex reef days with no weather backup.
 2. Overcommitting to back-to-back full marine days.

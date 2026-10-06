@@ -27,3 +27,7 @@
 
 - Call emergency services immediately for urgent danger, injury, fire, or major incident.
 - For non-urgent issues, use local health advice lines or on-site support services.
+
+## Source check
+
+Confirm emergency-number and outdoor warnings via `references/sources.md` and live local advisories before travel-critical claims.

@@ -15,7 +15,7 @@
 - Plan one anchor activity per day plus downtime.
 - Build heat, rain, and indoor backups into daily plans.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Overloading long transfer-heavy days.
 2. Ignoring sun and hydration planning.

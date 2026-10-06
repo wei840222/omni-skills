@@ -21,7 +21,7 @@ Alice Springs/Yulara with strict heat and fuel planning.
 - Keep daylight-arrival targets in remote regions.
 - Always carry fuel/time/weather margin.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Night-driving remote roads without necessity.
 2. No slack for closures or weather changes.

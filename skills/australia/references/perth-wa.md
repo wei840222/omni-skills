@@ -17,10 +17,10 @@ WA offers huge value but enormous distances. Route quality depends on realistic 
 
 ## Strategy
 
-- Use Perth as anchor and avoid overreaching north/south in one short trip.
+- Use Perth as anchor and focus on a concise north/south scope in one short trip.
 - Protect long-drive days with hard stop times.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Treating WA distances like east-coast distances.
 2. Planning night driving in remote segments without need.

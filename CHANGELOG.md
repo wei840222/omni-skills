@@ -79,6 +79,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | article                      | 2026-10-05 | 84/100 (#721)                    |
 | atlassian                    | 2026-10-05 | 84/100 (#723)                    |
 | audio                        | 2026-10-05 | 90/100 (#726)                    |
+| australia                    | 2026-10-07 | 84/100 (#729)                    |
 | ireland                      | 2026-10-05 | 84/100 (#725)                    |
 | taste                        | 2026-10-05 | 84/100 (#722)                    |
 | asi                          | 2026-09-02 | 84/100 (#220)                    |

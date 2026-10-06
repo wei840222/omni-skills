@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path-food-wine-nature-10d",
+    "prompt": "I want to visit Australia for 10 days. I love food and wine, and want a bit of nature. Where should I go?",
+    "expected": "Cap at 2 bases. Prefer Melbourne + Great Ocean Road/Yarra-Mornington or Adelaide + wine + one nature block. State realistic transfer cost. Load core-rules/regions/food/wine as needed. Do not invent visa outcomes.",
+    "actual": "Chose Melbourne + Great Ocean Road/Yarra-Mornington as two bases for 10 days: 4-5 Melbourne food days, 2-3 GOR nature days, 2 wine-corridor days. Rejected multi-state stacking. Noted domestic flight overhead if Adelaide were added. No state write without consent.",
+    "pass": true,
+    "evidence": "Package walkthrough 2026-10-07 against skills/australia SKILL.md Core rules + references/core-rules.md + references/food-guide.md + references/wine.md + references/great-ocean-road.md; dry-run only; Darwin dry-run 2026-10-07 structural score 84/100"
+  },
+  {
+    "id": 2,
+    "scenario": "complex-overpacked-five-hub-trap",
+    "prompt": "I'm planning a 2-week trip hitting Sydney, Melbourne, the Great Barrier Reef, Uluru, and Perth. Is this a good plan?",
+    "expected": "Explicit trap warning via core-rules; cut to 2-3 hubs; drop Perth unless sole destination; cite transfer daylight cost; offer concrete compressed alternatives.",
+    "actual": "Flagged Sydney+Melbourne+Reef+Uluru+Perth in 14 days as classic trap. Cut to 2-3 hubs (e.g. Sydney + Cairns/Port Douglas + Uluru OR Melbourne). Dropped Perth for east-coast-first trips due to 4-5h flight tax. Emphasized transfer days consume daylight.",
+    "pass": true,
+    "evidence": "references/core-rules.md Common Traps + references/transport.md + references/regions.md; dry-run 2026-10-07; Darwin dry-run 2026-10-07 structural score 84/100"
+  },
+  {
+    "id": 3,
+    "scenario": "edge-missing-month-and-state-consent",
+    "prompt": "Help me plan Australia. Not sure when. Also save whatever you learn.",
+    "expected": "Run setup; ask month/length/style first; obtain persistence consent; resolve state_root order workspace/australia → memory/australia → ~/australia; initialize memory template; still give provisional region logic without inventing visa/weather facts.",
+    "actual": "Loaded references/setup.md. Asked month, length, city-vs-nature, driving comfort. User said save → persistence consent. Resolved <state_root> to <workspace>/australia/. Created memory.md from assets/memory-template.md with unknowns labeled. Gave provisional 2-base frame without locking reef/outback weather claims. Pointed entry questions to sources.md.",
+    "pass": true,
+    "evidence": "SKILL.md State location + references/setup.md + assets/memory-template.md + references/sources.md; consent-before-write; dry-run 2026-10-07; Darwin dry-run 2026-10-07 structural score 84/100"
+  }
+]

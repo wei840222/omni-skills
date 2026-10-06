@@ -24,7 +24,7 @@
 - Keep one market-and-food day plus one culture day.
 - Weather can swing quickly, keep indoor backups.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Only staying in busiest CBD strips.
 2. Overplanning day trips without weather fallback.

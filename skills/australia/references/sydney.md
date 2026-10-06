@@ -24,7 +24,7 @@
 - Keep beach plans weather and surf-condition aware.
 - Reserve top-demand restaurants on Thu-Sun.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Spending every meal near Circular Quay.
 2. Overstacking CBD plus beach plus long night in one day.

@@ -16,10 +16,10 @@ Urban-river city plus high-energy beach corridor. Best results come from choosin
 
 ## Strategy
 
-- Avoid daily back-and-forth between Brisbane and southern beach zones.
+- Minimize daily back-and-forth between Brisbane and southern beach zones.
 - Build one city day, one coast day, one flexible weather day.
 
-## Mistakes to Avoid
+## Common Mistakes
 
 1. Underestimating corridor traffic patterns.
 2. Overstacking theme-park and beach days.
