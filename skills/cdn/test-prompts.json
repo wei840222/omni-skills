@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I invalidate a specific path in AWS CloudFront?",
+    "expected": "Give the aws cloudfront create-invalidation shape with distribution id and paths, plus how to check invalidation status; use placeholders not real IDs.",
+    "actual": "Use the CloudFront invalidation API via AWS CLI (placeholder IDs):\n\n```bash\naws cloudfront create-invalidation \\\n  --distribution-id EDFDVBD6EXAMPLE \\\n  --paths \"/images/*\" \"/css/app.css\"\n\naws cloudfront get-invalidation \\\n  --distribution-id EDFDVBD6EXAMPLE \\\n  --id IEXAMPLEINVALIDATION\n```\n\nPrefer versioned asset URLs so routine deploys avoid broad invalidations. API reference: CreateInvalidation in AWS CloudFront docs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My users are seeing stale content even though I purged the Cloudflare cache.",
+    "expected": "Separate CDN purge completion, other edges, browser cache, Cache-Control/max-age, and intermediate proxies; give practical verification commands.",
+    "actual": "After a Cloudflare purge, stale views usually mean another cache layer still holds the object:\n\n1. Confirm the purge finished (dashboard/API success for the exact URLs or tags).\n2. Probe the edge with a cache-bypassing request: `curl -sI -H \"Cache-Control: no-cache\" https://example.com/app.js` and read `CF-Cache-Status` / `Age`.\n3. Rule out browser cache and service workers; versioned filenames or a short HTML `no-cache` policy avoid this class of tickets.\n4. Check origin actually serves the new bytes, and that `max-age` / `s-maxage` are not re-filling an old representation from a mis-targeted purge set.\n5. Remember shared proxies between user and CDN can retain copies unrelated to Cloudflare's edge.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I put a mostly local, low-traffic brochure site on a paid multi-CDN setup?",
+    "expected": "Advise that CDN value depends on geography, static asset weight, and DDoS needs; low local traffic may not justify multi-CDN complexity.",
+    "actual": "Probably not by default. Ask for user geography, current Core Web Vitals, static vs dynamic mix, and traffic volume. A mostly local low-traffic brochure site often gains little from paid multi-CDN complexity; a single simple CDN or even origin + good Cache-Control may be enough. Multi-CDN becomes justified with global users, heavy static bandwidth, strict uptime/DDoS needs, or provider lock-in risk—and even then DNS failover and monitoring cost must be priced in. Check current vendor pricing pages before recommending a plan.",
+    "pass": true
+  }
+]
