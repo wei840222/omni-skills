@@ -55,7 +55,7 @@ Load `references/memory-template.md` when creating or reshaping state files.
 
 ## Progressive disclosure
 
-Load only the smallest reference needed for the current bottleneck.
+Keep `SKILL.md` as the routing surface. Load only the smallest reference needed for the current bottleneck.
 
 | Need | Load |
 |------|------|
