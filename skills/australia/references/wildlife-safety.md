@@ -7,13 +7,13 @@ Wildlife encounters are part of Australia travel, but safety behavior should alw
 ## Practical Rules
 
 - Follow local signage for marine and land risks.
-- Keep distance from wildlife and ensure animals are not fed.
+- Keep distance from wildlife and do not feed wildlife.
 - Check local advisories for stingers, crocs, snakes, and surf conditions where relevant.
 
 ## Outdoor Safety Basics
 
 - Carry water, sun protection, and communication backups.
-- Ensure a clear route and return plan before taking remote routes.
+- Set a clear route and return plan before remote segments.
 - Escalate early if conditions feel unsafe.
 
 ## Common Mistakes
