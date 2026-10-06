@@ -29,3 +29,9 @@ Load this file when quoting benchmarks, NRR formulas, or churn ranges. Keep the 
 1. Always pair a number with source, date, metric name, and window.
 2. Do not relabel 6-month or 12-month comps as D30.
 3. Prefer the user’s own cohort math over external bands when data exists.
+
+## Extraction notes (repair)
+
+- Lenny 2020 tables are expert synthesis for **month-6 user retention** and **month-12 NRR**; paid-company denominators appear in some SMB examples in the article body—do not silently convert to D30 free-user comps.
+- Stripe NRR example uses beginning recurring revenue ± expansion/contraction/churn for the **same** starting customers.
+- Paddle emphasizes definition mismatch (logo vs revenue, monthly vs annual) before any single “good churn %”.
