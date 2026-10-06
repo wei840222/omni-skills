@@ -16,7 +16,7 @@ Salzburg gives a compact historic center with unusually easy access to lakes, sc
 
 ## Route Logic
 
-- City plus one lake district day is usually stronger than trying to cover Hallstatt, Wolfgangsee, and mountain lifts in one compressed stop.
+- City plus one lake district day is usually stronger than trying to cover Hallstatt, Wolfgangsee, and mountain lifts in one compressed itinerary.
 - If Hallstatt is the headline, plan around first-arrival and last-departure timing to reduce crowd friction.
 - Do not promise broad Salzkammergut coverage without a car or deliberate bus-and-boat planning.
 

@@ -14,7 +14,7 @@ Austria is not only schnitzel and dessert. Use food as a routing and timing adva
 
 - Reserve for destination restaurants, top Heuriger, and popular lake or ski village spots.
 - Lunch is often the easier moment for traditional dishes in tourist zones with better value than dinner.
-- Coffeehouse time is part of the experience, not a rushed caffeine stop.
+- Coffeehouse time is part of the experience, not a rushed caffeine break.
 - Sunday and holiday closures matter; hotel restaurants and tourist centers cover the gap, but quality varies.
 - In ski areas and mountain huts, weather and lift timing should shape the meal plan.
 
@@ -22,7 +22,7 @@ Austria is not only schnitzel and dessert. Use food as a routing and timing adva
 
 - In Vienna, separate the coffeehouse plan from the Heuriger plan. They are different products.
 - In Salzburg and Hallstatt-heavy routes, sleep outside the hottest photo spots if food quality matters.
-- In Styria, build vineyard lunches or farm-to-table detours into the route instead of treating the region as a quick transit stop.
+- In Styria, build vineyard lunches or farm-to-table detours into the route instead of treating the region as a quick transit pause.
 - In Tyrol, use a long lunch strategically on poor-visibility days.
 
 ## Tourist Traps

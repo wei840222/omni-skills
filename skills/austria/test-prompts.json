@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 7-day trip to Austria in August. I want to start in Vienna and end in Salzburg, seeing some lakes and maybe a short hike. We prefer trains over driving. Can you suggest an itinerary?",
+    "expected": "Provides a 7-day Vienna-Salzburg itinerary utilizing rail. Recommends OBB/ÖBB trains, highlights the Salzkammergut lake region, suggests a short hike, and outlines practical base-city strategies with crowd timing for Hallstatt if mentioned.",
+    "actual": "Here is a 7-day rail-first itinerary for Austria in August using Vienna and Salzburg as bases on the ÖBB Railjet corridor.\n\n**Days 1-3: Vienna** — historic core, public transit, coffeehouse rhythm.\n**Day 4: Transfer** — morning train toward Salzburg; optional Wachau/Linz stop only if daylight remains.\n**Days 5-7: Salzburg & Salzkammergut** — day trip by regional train/bus to Wolfgangsee or Hallstatt (arrive early for crowds), keep one short hike weather-gated, return to Salzburg for departure.\n\nBook key long-distance seats early in peak summer and keep a weather spare half-day.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We want to drive around Austria in late November for 10 days, visiting mountain huts and small alpine villages.",
+    "expected": "Warns about November shoulder season, limited hut/lift access, winter driving equipment rules, closed high alpine passes, and suggests cities, lower lakes, spas, or early Christmas markets instead of high-alpine hut hopping.",
+    "actual": "Late November is a high-friction shoulder season in Austria.\n\n**Do not promise hut-to-hut alpine driving:** many mountain huts and summer lifts are closed; ski season may not be fully open; high passes (e.g. Grossglockner) can be shut; daylight is short and fog inversion is common.\n**Driving law/logistics:** winter equipment rules apply in the cold season—confirm current winter-tyre/chain expectations and ASFINAG conditions before locking a car-first plan.\n**Better pattern:** city + early Christmas markets (Vienna/Salzburg/Innsbruck), lower-elevation lakes, thermal spas, with flexible weather days. Keep high-alpine villages as optional, not the spine of the route.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Do I need a car for Vienna plus Salzburg in five days?",
+    "expected": "Recommend rail-first for Vienna+Salzburg classic short trip; car adds parking cost and little value inside historic cores; optional car only for lake detours beyond the city pair.",
+    "actual": "No—default to rail for a five-day Vienna + Salzburg trip. The cities are well linked by ÖBB, and cars inside Vienna or central Salzburg mainly add parking cost and traffic friction. Use public transit in both bases. Add a car only if you deliberately extend into multi-stop lake or alpine village days that rail/bus cannot cover cleanly within the remaining daylight.",
+    "pass": true
+  }
+]

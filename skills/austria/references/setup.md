@@ -7,10 +7,10 @@ When Austria comes up for the first time, create a lightweight local memory and 
 Create the workspace:
 
 ```bash
-mkdir -p ~/austria
+mkdir -p "<state_root>"
 ```
 
-Create `~/Clawic/data/austria/memory.md` from `memory-template.md`.
+Create `<state_root>/memory.md` from `references/memory-template.md`.
 
 ## What To Learn Early
 
@@ -26,7 +26,7 @@ Start with the trip-shaping facts instead of generic preferences:
 
 ## Returning Users
 
-If `~/Clawic/data/austria/memory.md` exists:
+If `<state_root>/memory.md` exists:
 
 1. Read it silently.
 2. Reuse known trip style, transport bias, and constraint history.
