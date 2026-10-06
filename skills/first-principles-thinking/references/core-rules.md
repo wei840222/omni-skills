@@ -28,7 +28,7 @@ Construct a solution from verified fundamentals only:
 - Build up from proven truths
 - Use “how others do it” only when that path is independently optimal
 - Keep every layer connected to a verified fundamental
-- Reject options that violate physics or named hard constraints
+- Filter out options that violate physics or named hard constraints
 
 ## Constraint test
 
