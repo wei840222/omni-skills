@@ -28,7 +28,7 @@ metadata:
 3. **Build one cohort view** with segmentation (channel, plan, persona). Do not average power users into a single curve.
 4. **Separate voluntary vs involuntary churn** and tenure vs inactivity before prescribing campaigns.
 5. **Form one testable hypothesis** (metric → segment → cause → intervention) with success metric and stop rule.
-6. **Draft outputs** the user can act on: table layout, signal checklist, cancel-flow copy, or campaign brief. External sends, billing changes, and data deletion stay ask-first.
+6. **Draft outputs** the user can act on: table layout, signal checklist, cancel-flow copy, or campaign brief. Before any external send, billing change, or data deletion, pause for explicit user approval, then continue with the approved action only.
 7. Load `references/sources.md` when citing benchmarks, formulas, or external ranges so dated windows stay attached to sources.
 
 ## Core metrics
