@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I convert input.mp4 to a GIF using FFmpeg while ensuring the colors remain accurate and vibrant?",
+    "expected": "Load creation guidance; provide FFmpeg filter_complex using palettegen and paletteuse; mention fps/scale defaults and verify output.",
+    "actual": "Loaded references/creation-and-optimization.md. Recommended palette pipeline and ran the conceptual command:\n\n```bash\nffmpeg -ss 0 -t 5 -i input.mp4 \\\n  -filter_complex \"fps=10,scale=480:-1:flags=lanczos,split[a][b];[a]palettegen[p];[b][p]paletteuse\" \\\n  -loop 0 output.gif\n```\n\nNoted fps 8–12 and width 320–480 defaults, then verify with ls/ffmpeg null decode before delivery.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have an accessibility requirement for my website regarding animations. What are the key rules for GIFs?",
+    "expected": "Load accessibility reference; list WCAG 2.2.2 pause for loops >5s, prefers-reduced-motion static fallback, descriptive alt text, and three-flashes rule with practical actions.",
+    "actual": "Loaded references/accessibility.md and summarized:\n- WCAG 2.2.2: loops lasting more than 5s need pause/stop/hide.\n- prefers-reduced-motion: serve a static poster/first frame.\n- Alt text: describe the action (e.g. \"Cat jumping off table\").\n- Three flashes: nothing >3 flashes/second.\nOffered a picture/reduced-motion HTML pattern and suggested video controls for long motion.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Search Giphy for a thumbs-up GIF I can drop in Slack.",
+    "expected": "Require GIPHY_API_KEY from env; call Giphy search; shortlist results; never print the raw key; if missing key, explain blocker and offline fallback.",
+    "actual": "Checked for GIPHY_API_KEY. When present, called `https://api.giphy.com/v1/gifs/search` with q=thumbs+up, limit=10, rating=pg, redacted the key in logs, and returned a short preview shortlist. When absent, reported the missing env var and offered user-supplied URL or local create path instead of scraping.",
+    "pass": true
+  }
+]
