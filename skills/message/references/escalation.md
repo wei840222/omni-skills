@@ -95,8 +95,8 @@ Only when the user has already authorized this class of send in the current task
 - "Running late" notes the user asked to send
 - Birthday wishes after the draft was approved
 
-## Golden rule
+## Default when unsure
 
-When uncertain: **ask and wait for approval.**
+**Ask once and wait for approval**, then send.
 
-A missed message can be sent later. A bad message cannot be unsent.
+Late is recoverable; an irreversible bad send is not.

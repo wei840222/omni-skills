@@ -1,6 +1,6 @@
-# Common Traps
+# Pre-send checklist
 
-Scan once before send.
+Run this short scan after the draft is ready.
 
 | Trap | Better move |
 |------|-------------|
