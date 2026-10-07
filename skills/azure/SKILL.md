@@ -53,11 +53,11 @@ Never write credentials, keys, tokens, or connection strings under `<state_root>
 
 ## Routing
 
-Keep `SKILL.md` as the entry point. Load supporting files only when needed:
+Keep `SKILL.md` as the entry point. Do not preload the full package. Load one supporting file only when the turn needs it:
 
 - **Rules, failures, limits, cost reflexes, security baseline** → `references/domain.md`
 - **State inventory, config variables, write-before-end rules** → `references/state.md`
-- **Gate 6 primary sources** → `references/sources.md`
+- **Primary Microsoft Learn / Agent Skills URLs** → `references/sources.md`
 
 ## Workflow
 
