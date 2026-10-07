@@ -666,7 +666,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | timescaledb                  | 2026-09-02 | 85/100 (#210)                    |
 | tokyo                        | 2026-09-04 | 85/100 (#247)                    |
 | toml                         | 2026-09-05 | 85/100 (#263)                    |
-| tools                         | 2026-10-07 | 86/100 (#737)                    |
+| tools                        | 2026-10-07 | 86/100 (#737)                    |
 | toronto                      | 2026-08-31 | 85/100 (#166)                    |
 | trader                       | 2026-08-22 | 97/100                           |
 | trading                      | 2026-09-03 | 85/100 (#237)                    |
