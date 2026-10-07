@@ -95,4 +95,3 @@ The skill needs no credentials itself. For third-party integrations, keep creden
 | Memory Template | `assets/memory-template.md` | Creating `<state_root>/memory.md` after consent |
 | Official source checks | `references/sources.md` | Verifying version-sensitive API claims |
 | Baseline behavior disposition | `references/semantic-inventory.md` | Audit of pre-refactor behavior retention |
-| Prompt and rubric evidence (audit-only) | `references/evaluation.md` | Gate 8 evidence review only; not normal execution |
