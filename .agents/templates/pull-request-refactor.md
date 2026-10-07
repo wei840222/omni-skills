@@ -81,6 +81,8 @@ For every `remove` entry, cite evidence that the content is obsolete, incorrect,
 
 ## Darwin Skill Score
 
+> Provenance only: keep this section in the PR body and put `XX/100` in root `CHANGELOG.md`. Do **not** add `references/darwin-evaluation.md`, `evaluation-record.md`, `freud-audit.md`, or similar Gate 8/9 score dumps into the skill package, and do not link them from `SKILL.md`.
+
 **Final score: <score>/100** ✓ (threshold: 80)
 
 ### Dimension Scores
