@@ -1,0 +1,16 @@
+[
+  {
+    "id": "english-happy-ai-cadence",
+    "prompt": "Rewrite for neutral en-US email to a teammate. Text: \"I hope this email finds you well. I wanted to reach out regarding the fact that we need to utilize our resources in order to facilitate a decision in the near future. Furthermore, there are a number of issues that are quite significant. In conclusion, please do not hesitate to contact me should you require any further assistance.\" Return only the rewritten email body.",
+    "expected": "Native-leaning neutral en-US: no hope-you-are-well opener; no In conclusion closer; prefer use/help/decide over utilize/facilitate; at least one concrete specific or clear ask; natural contractions; mixed sentence length; single variety.",
+    "actual": "Quick one \u2014 we need to decide how to use the team this week.\n\nThree issues are blocking us: the API review, the pricing copy, and the QA window. Can you take the API review by Thursday so we can decide Friday?\n\nI'll send the notes after you reply. Thanks.",
+    "pass": true
+  },
+  {
+    "id": "english-edge-second-occurrence-article",
+    "prompt": "User variety en-GB. First message already corrected 'The life is hard without friends.' to 'Life is hard without friends.' and explained generics briefly. Second message: 'I think the nature is beautiful here.' Apply Core Rule 8: correct the sentence, name the error class in one line, and show the ## Recurring Errors markdown bullet you would append (do not claim a file write unless a state_root was consented). First-occurrence-only journaling must not happen.",
+    "expected": "Corrected sentence without generic the on nature; names article/generic-abstract class; shows a Recurring Errors bullet; does not invent a completed write to a real path without consent; second-occurrence threshold respected.",
+    "actual": "Corrected sentence: Life-style generic fixed as: I think nature is beautiful here.\nError class (second occurrence): generic-abstract articles (L1 article interference).\nRule: generic abstracts like life/nature usually take no article in this sense.\n## Recurring Errors\n- 2026-10-07 | generic-abstract articles | No the with generic abstracts (life, nature) | the nature is beautiful -> nature is beautiful | count=2\nNo consented state_root, so journal bullet shown only (not written to disk).",
+    "pass": true
+  }
+]
