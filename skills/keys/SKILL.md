@@ -82,3 +82,12 @@ Adding another service means editing `ALLOWED_URLS` in `scripts/keys-broker.sh` 
 - [ ] URL is HTTPS and matches that service's allowlist prefix
 - [ ] Key was never pasted into chat or committed to git
 - [ ] Response handling does not log Authorization headers or raw key material
+
+## Anti-patterns
+
+- Pasting API keys into chat, commits, or ticket bodies
+- Raw `curl` with `Authorization` after a key entered the context
+- Widening `ALLOWED_URLS` to `https://` for all hosts
+- Running `security … -w` / `secret-tool lookup` into agent-captured logs just to "confirm" a secret
+- Expecting the broker to work inside Docker, WSL, or headless Linux without a keyring
+
