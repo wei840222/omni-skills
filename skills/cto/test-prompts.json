@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are a Series A company with 15 engineers. The team is pushing hard to rewrite our monolithic Node.js backend into Go microservices because deploys are getting slow.",
+    "expected": "Applies Series A stage, advises against big-bang rewrite, points at deploy bottleneck and strangler/extract, classifies door, and states cost in weeks vs quarters.",
+    "actual": "Series A / ~15 engineers: foundations and tech leads, not a full rewrite. Treat big-bang Go microservices as irreversible and high-cost (often 2\u20133\u00d7 estimate while freezing features). First measure the deploy bottleneck (CI, tests, artifact size). Keep the monolith until team-level deploy contention is weekly; if one component truly blocks, extract only that slice via strangler fig (references/debt.md + architecture.md). Default: fix the pipeline (reversible, weeks) over rewrite (quarters of lost product velocity).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Should we build our own authentication service or use Auth0? We're a Seed stage startup with 4 engineers.",
+    "expected": "Seed defaults to buy for commodity auth, frames TCO with upkeep, requires exit/export path, and classifies the door.",
+    "actual": "Seed / 4 engineers: default buy (Auth0 or similar) unless you are an identity company. Auth is not core IP at this stage; build TCO is estimate\u00d7~2 plus ongoing upkeep (one engineer-month/quarter often exceeds typical SaaS before opportunity cost). Negotiate data export before signing so the door stays two-way. Escape hatch: revisit build only when scale, compliance, or differentiation makes buy untenable.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our board wants 99.99% uptime and daily deploys. We have 8 engineers and page 5 times a night.",
+    "expected": "Uses DORA/error-budget framing, challenges extra nines cost, prioritizes alert noise and on-call sustainability before vanity SLOs, and routes to operations reference.",
+    "actual": "With 8 engineers and ~5 pages/night, on-call is already past a sustainable load\u2014fix alert noise and runbooks before promising 99.99%. Each extra nine roughly multiplies reliability cost; many products cannot distinguish 99.9 from 99.99 given client-side variance. Set an SLO and error budget both sides accept (SRE framing), improve lead time and change failure with smaller releases/flags, then raise deploy frequency. Load references/operations.md for DORA bands, error budgets, and rotation sizing; translate to the board as risk + investment, not architecture slogans.",
+    "pass": true
+  }
+]
