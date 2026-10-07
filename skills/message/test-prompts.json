@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Draft an email to a new enterprise client introducing our team and proposing a kickoff next week.",
+    "expected": "Treat first contact + enterprise client as review-before-send; draft formal email; do not auto-send; cite escalation/first-contact rule.",
+    "actual": "Loaded references/escalation.md (First contact + High-stakes relationships). Produced a formal introduction email with specific subject line, named the channel as email, marked risk=draft-for-review, and asked the user to approve before send. No send action.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Reply to my boss on Slack. He asked 'Are we going to hit the Friday deadline?'. I usually just say yes or no.",
+    "expected": "Match brief Slack style; avoid padded corporate phrasing; still avoid inventing commitment detail the user did not supply.",
+    "actual": "Loaded references/tone.md and core-rules style matching. Drafted a short Slack reply: 'Yes.' Offered an optional one-line status only if the user wants more. Stayed in-thread guidance; no emoji inflation.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A client emailed that they are furious and want to cancel their contract immediately. Reply to them.",
+    "expected": "Keyword/legal escalation: draft only, de-escalate, no auto-send, no unilateral concessions on refund/termination.",
+    "actual": "Matched escalation keywords furious/cancel/contract. Returned a calm draft acknowledging frustration, requesting a short call or details, and making no refund or termination commitment. Labeled risk=draft-for-review and blocked send pending approval.",
+    "pass": true
+  }
+]
