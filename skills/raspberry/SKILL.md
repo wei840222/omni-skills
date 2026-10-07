@@ -1,61 +1,59 @@
 ---
 name: raspberry
-slug: raspberry
-version: 1.0.0
-description: Set up and maintain Raspberry Pi avoiding common hardware and configuration pitfalls.
-homepage: https://clawic.com/skills/raspberry
+description: >
+  Set up, harden, and troubleshoot Raspberry Pi SBCs: power budgets, boot media,
+  Imager/headless SSH, GPIO 3.3V safety, NetworkManager networking, USB/NVMe boot,
+  Docker on ARM, and LED/undervoltage diagnostics. Use when the user mentions
+  Raspberry Pi, Pi OS, raspi-config, GPIO headers, microSD wear, or Pi power/boot
+  failures. Prefer `linux` for generic host triage, `docker` for non-Pi container
+  internals, `network`/`firewall`/`wireguard` for broader networking, and `iot` or
+  `smart-home` when the Pi is only one device in a multi-protocol plan.
 metadata:
-  clawdbot:
-    emoji: 🍓
-    os:
-    - linux
-    - darwin
-    displayName: Raspberry Pi
+  version: "1.0.0"
+  openclaw: '{"emoji":"🍓","os":["linux","darwin"]}'
+  related-skills: '{"docker":"Container Engine install and image/runtime debugging once the Pi host is stable.","firewall":"Host or edge firewall rules after Pi exposure decisions.","iot":"Multi-protocol device planning when the Pi is one node among others.","linux":"Generic Linux host triage beyond Pi-specific boot, power, and GPIO.","network":"Broader LAN design when Pi networking is only one segment.","smart-home":"Hub and room automation product choice when Pi is an appliance host.","wireguard":"VPN overlay when remote Pi access should not rely on forwarded SSH."}'
 ---
 
-## Power Supply Issues
-- Lightning bolt icon = undervoltage — random crashes, corruption, weird behavior until fixed
-- Pi 4/5 needs 3A+ supply — older 2A adapters cause instability
-- USB peripherals draw from Pi's power budget — use powered hub for multiple devices
-- Official power supply recommended — cheap adapters often can't sustain required amperage
+This skill is stateless and does not store local configuration or persistent user state. Keep inventory notes, hostnames, and credentials in ordinary user files outside the skill package.
 
-## Storage Reliability
-- SD cards fail under heavy writes — databases and logs kill them within months
-- USB boot with SSD for reliability — SD for bootloader only, root on SSD
-- Quality SD cards matter — Samsung EVO, SanDisk Extreme; not generic cards
-- Read-only filesystem for kiosks — prevents corruption on power loss
+# Raspberry Pi
 
-## GPIO Dangers
-- 3.3V logic only — 5V input permanently damages the Pi, no protection
-- Check operating voltage of sensors/modules — many Arduino accessories are 5V
-- Some GPIO used by default — I2C, SPI, UART pins need dtparam to free up
-- Hardware PWM only on GPIO 18 — software PWM on others is less precise
+Board-centric guidance for flagship Raspberry Pi SBCs (and closely related Zero / keyboard models where noted): power integrity, durable boot media, first-boot and headless access, 3.3V GPIO safety, networking, storage/boot modes, Docker on ARM, and LED-based diagnostics.
 
-## Network Setup Traps
-- WiFi country code required — won't connect without proper regulatory setting
-- Headless SSH: empty file named `ssh` in boot partition — not `ssh.txt`
-- Static IP via `/etc/dhcpcd.conf` — editing wrong file does nothing
-- Don't port forward SSH — use Tailscale, Cloudflare Tunnel, or WireGuard
+## When to load
 
-## Docker on Pi
-- ARM images only — `linux/arm64` or `linux/arm/v7`, many images unavailable
-- 32-bit OS limits to 3GB RAM — use 64-bit for 4GB+ models
-- SD card unsuitable for Docker — volume writes accelerate card death
-- Install via `curl -fsSL https://get.docker.com | sh` — apt version is outdated
+Load this skill when the request is **Raspberry Pi-specific**, for example:
 
-## Headless Setup
-- Configure hostname, WiFi, user in Raspberry Pi Imager — before first boot
-- Username `pi` with default password deprecated — create custom user
-- First boot takes 2-3 minutes — filesystem resize, don't panic
+- choosing a power supply for Pi 4 / Pi 5 / Zero
+- flashing Raspberry Pi OS with Imager and enabling headless SSH
+- undervoltage, red/green LED patterns, or boot failures
+- GPIO voltage mistakes, pin mux (I2C/SPI/UART/PWM), or motor drive isolation
+- microSD wear, USB SSD / NVMe boot, or read-only kiosk root
+- Docker on Raspberry Pi OS / ARM image constraints
+- securing remote access without raw SSH port-forward
 
-## Performance Tuning
-- `gpu_mem=16` for headless — frees RAM when no display connected
-- ZRAM for swap on low-RAM models — better than SD swap
-- Disable Bluetooth and GUI if unused — saves resources
+Prefer sibling skills when the problem is already broader: `linux` for generic host triage, `docker` for Engine/image internals after the board boots, `network` / `firewall` / `wireguard` for LAN or VPN design, `iot` / `smart-home` when the Pi is only one node in a multi-protocol plan.
 
-## Troubleshooting Patterns
-- Red light only = power issue — no boot attempt, check supply
-- Green light blinking patterns = specific boot failures — check documentation
-- No HDMI output — connect before powering, Pi doesn't hot-plug HDMI
-- Kernel panic on boot = corrupted SD — reflash image
-- SSH refused — verify SSH enabled, check IP, check firewall
+## Quick workflow
+
+1. **Power first** — match official current guidance (Pi 5 → 27 W USB-C; Pi 4/400 → 3A USB-C; earlier micro-USB boards → 2.5A). Treat undervoltage LEDs as a stop-the-line signal before chasing software bugs.
+2. **Boot media** — prefer durable media (USB SSD / NVMe where the model supports it) for write-heavy workloads; keep quality microSD for light or bootloader-only roles.
+3. **Image + customize** — use Raspberry Pi Imager; set hostname, user (not deprecated default-only `pi` flows), Wi-Fi country, and SSH **before** first boot when headless.
+4. **Network safely** — prefer DHCP reservation on the router; use `nmcli` static IP only when required. Do not expose SSH by WAN port-forward; prefer Tailscale, Raspberry Pi Connect, Cloudflare Tunnel, or WireGuard (`wireguard`).
+5. **GPIO discipline** — all user GPIO is 3.3V-tolerant; never feed 5V logic into inputs; drive motors through a proper driver/H-bridge, not bare pins.
+6. **Containers last** — install Docker from current Docker docs for the OS arch; pull `linux/arm64` or `linux/arm/v7` images; keep container volumes off dying microSD cards.
+7. **Verify sources** — version-sensitive power, boot, LED, and OS claims against URLs in `references/sources.md`.
+
+## Progressive disclosure
+
+| Resource | When to load |
+|---|---|
+| `references/rules.md` | Power, storage, GPIO, network, Docker, headless, performance, troubleshooting rules |
+| `references/sources.md` | Official Raspberry Pi / Docker / GPIO Zero docs used for Gate 6 freshness |
+
+## Safety boundaries
+
+- Do not invent amperage, pin numbers, or boot OTP steps from memory when they affect hardware safety—open `references/rules.md` and `references/sources.md`.
+- Do not store passwords, Wi-Fi PSKs, or SSH private keys inside the skill package.
+- Do not recommend permanent OTP programming (`program_usb_boot_mode` and similar) without stating that OTP changes are irreversible.
+- Treat third-party HATs and “5V Arduino” modules as hostile until their logic level is verified.
