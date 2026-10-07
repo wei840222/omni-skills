@@ -64,7 +64,7 @@ Each milestone must include:
 - observed friction
 - one concrete balancing action
 
-Do not accept a feature batch without a playtest note under `<state_root>/playtest-log.md`.
+Accept a feature batch only after a playtest note under `<state_root>/playtest-log.md`.
 
 ### 7. Preserve reusable project knowledge
 
