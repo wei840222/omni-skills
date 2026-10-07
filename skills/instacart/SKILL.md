@@ -52,7 +52,8 @@ Load this skill when the user needs Instacart-specific execution: Developer Plat
 
 ## Decision gates
 
-1. **Surface first.** Choose Developer Platform MCP, Developer Platform REST, or Instacart Connect before assembling any request. Read
+1. **Surface first.** Choose Developer Platform MCP, Developer Platform REST, or
+   Instacart Connect before assembling any request. Read
    `references/connect-boundaries.md` when fulfillment, delivery windows, order
    lifecycle, or post-checkout callbacks appear.
 2. **Environment and auth.** Confirm development vs production host, key scope
