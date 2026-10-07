@@ -45,7 +45,7 @@ Never print full API keys in logs, commits, or chat. Use env vars and redacted e
 3. Prefer MP4/WebM loop embeds for web delivery when the audience can play video; GIF is for chat, email, or forced-GIF surfaces.
 4. Inspect source with `ffprobe` when available before encoding (duration, resolution, rotation).
 5. Apply accessibility before delivery: pause control for long loops, `prefers-reduced-motion` static fallback, descriptive alt text, no >3 flashes/second.
-6. Process only files or URLs the user provides; do not upload private media to third-party APIs without explicit consent.
+6. Process only user-provided files or URLs; upload private media to third-party APIs only with explicit consent.
 7. After encode, verify output exists, duration/frame sanity, and approximate size before claiming success.
 
 ## Fast path
