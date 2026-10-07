@@ -29,7 +29,7 @@ Different checks solve different problems:
 
 ## Colorblind-Safe State Design
 
-- Red and green can exist in the same system, but never as the only distinction.
+- Red and green can exist in the same system, but keep a non-color cue so they are not the only distinction.
 - Blue and orange are often safer opposites than red and green.
 - Test categorical palettes for deuteranopia and protanopia before finalizing them.
 - Error and success need different shapes or copy if the stakes are real.
@@ -52,7 +52,7 @@ Different checks solve different problems:
 
 - Legends, labels, and series lines need contrast against the chart background and against each other.
 - Thin lines and pale fills disappear first on projectors, dashboards, and screenshots.
-- Use direct labeling when possible so users do not rely entirely on color-coded legends.
+- Prefer direct labeling so legends are not the only way to read a series.
 - Diverging scales should keep the midpoint visually distinct, not muddy.
 
 ## Common Accessibility Traps
@@ -72,3 +72,9 @@ Different checks solve different problems:
 □ Text over imagery checked on the actual image
 □ Small badges, pills, and labels tested at production size
 ```
+
+## Advanced Validation (APCA / WCAG 3 draft)
+
+- APCA (Accessible Perceptual Contrast Algorithm) models contrast with text size and weight more carefully than a single WCAG 2.x ratio, which helps when judging dark-mode surfaces.
+- When a contract or policy requires WCAG 2.x, keep validating 4.5:1 / 3:1 (and AAA where required). Use APCA as a perceptual cross-check, not as a silent replacement for the mandated criteria.
+- Cite URLs in `references/sources.md` (WCAG 2.2 Understanding docs, WCAG 3.0 WD, Silver visual-contrast notes, SAPC-APCA). Re-measure hex pairs instead of copying ratios from memory.

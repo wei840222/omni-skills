@@ -19,7 +19,7 @@
 
 - Define page, card, elevated, inverse, and overlay surfaces early.
 - Surface separation should come from lightness structure first, not decorative shadows alone.
-- Tinted surfaces need separate text and border checks; do not assume the default foreground still works.
+- Tinted surfaces need separate text and border checks; verify that the default foreground still works.
 - Dark mode often needs tighter surface spacing in lightness to feel coherent.
 
 ## Semantic States
@@ -27,7 +27,7 @@
 - Primary, success, warning, error, and info should each have a clear role.
 - Define the full state package: fill, text, border, icon, focus ring, and subtle background.
 - Warning and error need enough separation from brand accents to avoid ambiguity.
-- Do not force one hue to cover CTA emphasis and negative state signaling.
+- Avoid forcing one hue to cover CTA emphasis and negative state signaling.
 
 ## Interactive States
 

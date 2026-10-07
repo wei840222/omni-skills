@@ -9,7 +9,7 @@
 | Space | Best for | Watch out for |
 |-------|----------|---------------|
 | HEX / RGB | Final web and UI values | Poor for reasoning about perceived lightness |
-| HSL / HSV | Quick exploration and rough tweaks | Equal steps do not look visually equal |
+| HSL / HSV | Quick exploration and rough tweaks | Equal steps do not always look visually equal |
 | LAB / LCH | Editing and device-independent reasoning | Can still feel less intuitive than OK spaces for UI ramps |
 | OKLab / OKLCH | Perceptual ramps, theme derivation, token systems | Some tools still need conversion support |
 | CMYK | Print production | Smaller gamut and device dependence |
