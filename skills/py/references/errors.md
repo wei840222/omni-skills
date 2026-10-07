@@ -5,7 +5,7 @@ The default failure mode is not a crash; it is a swallowed exception that turns 
 ## Catching
 
 - Catch the narrowest class that you can actually handle. `except Exception` at a boundary (a request handler, a job runner, `main`) is correct; the same line in the middle of business logic is a bug generator.
-- `except Exception` does not catch `KeyboardInterrupt`, `SystemExit`, or `GeneratorExit` — those inherit from `BaseException`, deliberately. `except BaseException` is for a top-level "log then re-raise", never for control flow.
+- `except Exception` does not catch `KeyboardInterrupt`, `SystemExit`, or `GeneratorExit` — those inherit from `BaseException`, deliberately. `except BaseException` is for a top-level "log then re-raise", only for top-level logging.
 - `except Exception: pass` needs one of two things on the same screen: a log line with the exception, or a comment naming why this specific failure is expected and harmless. Anything else is a bug you have promised not to notice.
 - Use `try/except/else/finally` to keep the risky call alone: only the call goes in `try`, the success path goes in `else`. Otherwise an exception raised by the success path gets caught by a handler written for the risky one.
 - `contextlib.suppress(FileNotFoundError)` is the readable form of "this specific absence is fine".
@@ -32,10 +32,10 @@ finally:
 ## Designing Exceptions
 
 - One base per package (`class MyLibError(Exception)`), everything else inherits from it. Callers get one line to catch your whole surface without catching the world; you get freedom to add classes later.
-- Subclass the stdlib class that matches the semantics (`ValueError` for a bad value, `LookupError`, `TimeoutError`, `OSError`), so code that never heard of your library still handles it sensibly. Inherit from both when it helps: `class ConfigError(MyLibError, ValueError)`.
+- Subclass the stdlib class that matches the semantics (`ValueError` for a bad value, `LookupError`, `TimeoutError`, `OSError`), so code that lacks knowledge of your library still handles it sensibly. Inherit from both when it helps: `class ConfigError(MyLibError, ValueError)`.
 - Carry data as attributes (`exc.status`, `exc.field`), not by formatting into the message and re-parsing it upstream.
 - Message rule: state the expected shape and show the offending value with `!r` — `raise ValueError(f"expected ISO-8601 date, got {value!r}")`. Without `!r`, `None`, `"None"` and `" None "` print identically.
-- Do not use exceptions for expected control flow across a hot loop: raising and catching costs roughly a microsecond, which matters only at 10^5+ iterations — but the readability cost is immediate.
+- Reserve exceptions for unexpected failures instead of expected control flow across a hot loop: raising and catching costs roughly a microsecond, which matters only at 10^5+ iterations — but the readability cost is immediate.
 
 ## ExceptionGroup (`python >=3.11`)
 
@@ -46,12 +46,12 @@ finally:
 ## Timeouts — Every Blocking Call Gets One
 
 - `requests` has NO default timeout: a hung server hangs your process forever. `requests.get(url, timeout=(3.05, 27))` — connect timeout slightly above a multiple of the 3 s TCP retransmit window, read timeout from your own SLA. `httpx` defaults to 5 s; setting it explicitly still beats relying on a library default that changes.
-- Sockets, DB drivers, locks, `subprocess.run`, `queue.get` and `asyncio` all take a timeout. The ones you leave off are the frames you will find in the hung-process stack (`debugging.md`).
+- Sockets, DB drivers, locks, `subprocess.run`, `queue.get` and `asyncio` all take a timeout. The ones you leave off are the frames you will find in the hung-process stack (`references/debugging.md`).
 - A timeout that is longer than the caller's timeout is decorative. Budget downward: gateway 30 s → service 10 s → each upstream 3 s.
 
 ## Retrying
 
-Retry only idempotent operations, only on transient classes: connection errors, read timeouts, HTTP 429 and 5xx. Never on 4xx validation errors — the request will be just as invalid the third time, and a retry loop on a POST that already succeeded creates duplicates.
+Retry only idempotent operations, only on transient classes: connection errors, read timeouts, HTTP 429 and 5xx. Skip 4xx validation errors — the request will be just as invalid the third time, and a retry loop on a POST that already succeeded creates duplicates.
 
 ```python
 delay = min(cap, base * 2 ** attempt) * random.uniform(0.5, 1.0)   # exponential + jitter
@@ -65,12 +65,12 @@ delay = min(cap, base * 2 ** attempt) * random.uniform(0.5, 1.0)   # exponential
 ## Warnings
 
 - `warnings.warn("x is deprecated", DeprecationWarning, stacklevel=2)` — without `stacklevel=2` the warning points at your own library line instead of the caller's, which makes it unactionable.
-- DeprecationWarnings are hidden by default outside `__main__`. Run the test suite with `-W error::DeprecationWarning` before any dependency or interpreter upgrade (`versions.md`).
-- A warning that fires on every call in a loop drowns the log; `warnings` deduplicates per location by default — do not defeat that with `simplefilter("always")` in library code.
+- DeprecationWarnings are hidden by default outside `__main__`. Run the test suite with `-W error::DeprecationWarning` before any dependency or interpreter upgrade (`references/versions.md`).
+- A warning that fires on every call in a loop drowns the log; `warnings` deduplicates per location by default — preserve that behavior with `simplefilter("always")` in library code.
 
 ## Where Errors Go To Die
 
-- Exceptions in a thread never reach the main thread's handler: the default `threading.excepthook` prints to stderr and the thread ends. Wrap the thread body, or use `concurrent.futures` and call `.result()` (`concurrency.md`).
-- Exceptions inside `atexit` handlers and `__del__` are printed and swallowed — never rely on them for cleanup that matters.
-- An uncaught exception exits with code 1; `SystemExit(n)` exits with `n`; `KeyboardInterrupt` conventionally exits 130 (`cli.md`).
-- Log the exception where you HANDLE it, once, with `logger.exception(...)` inside the except block (`logging.md`). Logging and re-raising at every level produces the same stack five times.
+- Exceptions in a thread fail to reach the main thread's handler: the default `threading.excepthook` prints to stderr and the thread ends. Wrap the thread body, or use `concurrent.futures` and call `.result()` (`references/concurrency.md`).
+- Exceptions inside `atexit` handlers and `__del__` are printed and swallowed — seek alternatives for cleanup that matters.
+- An uncaught exception exits with code 1; `SystemExit(n)` exits with `n`; `KeyboardInterrupt` conventionally exits 130 (`references/cli.md`).
+- Log the exception where you HANDLE it, once, with `logger.exception(...)` inside the except block (`references/logging.md`). Logging and re-raising at every level produces the same stack five times.

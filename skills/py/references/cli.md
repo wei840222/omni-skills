@@ -14,9 +14,9 @@ if __name__ == "__main__":
     sys.exit(main())
 ```
 
-- `main` returns an int and takes `argv` — that is what makes it testable without a subprocess (`testing.md`).
+- `main` returns an int and takes `argv` — that is what makes it testable without a subprocess (`references/testing.md`).
 - The `if __name__` guard is not style: without it the body runs on import and again in every multiprocessing spawn child (Core Rule 9).
-- Ship it as both `python -m mypkg` (a `__main__.py`) and a console entry point (`packaging.md`). The module form works before installation and in a debugger.
+- Ship it as both `python -m mypkg` (a `__main__.py`) and a console entry point (`references/packaging.md`). The module form works before installation and in a debugger.
 
 ## argparse Without Surprises
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 | 2 | Usage error — argparse already uses this for bad arguments |
 | 130 | Interrupted by Ctrl-C (128 + SIGINT) — the convention shells expect |
 | 141 | SIGPIPE (128 + 13) — a downstream reader closed early, usually not an error |
-| 137 / 143 | Killed by SIGKILL (OOM) / SIGTERM (`debugging.md`) |
+| 137 / 143 | Killed by SIGKILL (OOM) / SIGTERM (`references/debugging.md`) |
 
 `sys.exit("message")` prints the string to STDERR and exits 1 — convenient, and easy to misread as printing to stdout. `sys.exit(0)` inside a `try` still runs `finally` blocks, because `SystemExit` is an exception; `os._exit()` skips everything including buffer flushes, and is for post-fork children only.
 
@@ -64,7 +64,7 @@ except BrokenPipeError:
 
 - `signal.signal` can only be called from the main thread, and the handler runs between bytecodes — never inside a C call that is already blocking.
 - SIGTERM (what a supervisor, Docker, or Kubernetes sends) has no default Python handler: the process dies immediately and `finally` blocks, context managers, and `atexit` do NOT run. Register one that raises `SystemExit` and cleanup starts working.
-- Ctrl-C raises `KeyboardInterrupt` in the main thread only; a worker thread keeps running and can hold the process open unless it is a daemon (`concurrency.md`).
+- Ctrl-C raises `KeyboardInterrupt` in the main thread only; a worker thread keeps running and can hold the process open unless it is a daemon (`references/concurrency.md`).
 - Catch `KeyboardInterrupt` at the top level to exit 130 quietly instead of dumping a traceback that looks like a crash.
 
 ## Behaving Well In Automation
@@ -73,4 +73,4 @@ except BrokenPipeError:
 - Make the destructive path explicit (`--yes`, or a confirmation only when `stdin.isatty()`) — a prompt in a cron job hangs forever.
 - Machine-readable output behind a flag (`--json`) so the tool is composable without parsing human text.
 - Set the exit code from the result, not from "the code reached the end": partial failure in a batch should exit non-zero, and the summary belongs on stderr.
-- Long jobs: log progress with a count and a rate to stderr, and make re-running after a crash safe (`files.md` atomic writes).
+- Long jobs: log progress with a count and a rate to stderr, and make re-running after a crash safe (`references/files.md` atomic writes).

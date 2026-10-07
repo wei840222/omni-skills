@@ -28,17 +28,17 @@
 - `"filename.txt".strip(".txt")` strips a CHARACTER SET, not a suffix — returns `"filename"` sometimes, `"filenam"` for `"format.txt"`. Use `removesuffix`/`removeprefix` (`python >=3.9`).
 - Building strings with `+=` in a loop is O(n²); accumulate in a list and `''.join(parts)`.
 - `"a b  c".split()` collapses whitespace runs and drops leading/trailing empties; `"a b  c".split(" ")` yields an empty string per extra space. Two behaviors, one name.
-- Case-insensitive comparison is `casefold()`, not `lower()` (German `"ß".casefold() == "ss"`). Text from two different systems also needs Unicode normalization before comparison (`files.md`).
+- Case-insensitive comparison is `casefold()`, not `lower()` (German `"ß".casefold() == "ss"`). Text from two different systems also needs Unicode normalization before comparison (`references/files.md`).
 - `startswith`/`endswith` accept a TUPLE: `name.endswith((".yml", ".yaml"))` instead of an `or` chain.
-- `bytes` and `str` never compare equal (`b"a" == "a"` is False) and never implicitly convert. Indexing bytes gives an int (`b"abc"[0] == 97`); slicing gives bytes. Encode and decode once, at the boundary (`files.md`).
-- `f"{value=}"` (`python >=3.8`) prints the expression and its value — the fastest debug print available. f-strings do NOT belong in logging calls (`logging.md`) or in SQL and shell strings (`security.md`).
+- `bytes` and `str` never compare equal (`b"a" == "a"` is False) and never implicitly convert. Indexing bytes gives an int (`b"abc"[0] == 97`); slicing gives bytes. Encode and decode once, at the boundary (`references/files.md`).
+- `f"{value=}"` (`python >=3.8`) prints the expression and its value — the fastest debug print available. f-strings do NOT belong in logging calls (`references/logging.md`) or in SQL and shell strings (`references/security.md`).
 
 ## Immutability edge cases
 - `t = (1, [2]); t[1] += [3]` both mutates the inner list AND raises `TypeError`: the in-place add succeeds, then the tuple assignment fails. The data changed and the traceback says it did not.
 - A tuple containing a list is unhashable — and you only find out at the moment you use it as a dict key or put it in a set.
 
 ## Hints and limits
-- Type hints never enforce at runtime: `def f(x: int)` happily takes a string. Enforcement needs a checker in CI or runtime validation at the boundary (`type-checking.md`, `data-modeling.md`).
+- Type hints never enforce at runtime: `def f(x: int)` happily takes a string. Enforcement needs a checker in CI or runtime validation at the boundary (`references/type-checking.md`, `references/data-modeling.md`).
 - `Any` vs `object`: `Any` silences the checker transitively (errors vanish downstream); `object` forces explicit narrowing before use. For "accepts anything, must be checked", annotate `object`.
 - `Optional[X]` means `X | None` — nothing to do with the argument having a default. An arg can be optional without Optional, and required-but-nullable with it.
 - `int` is arbitrary precision, but int↔str conversion beyond 4300 digits raises `ValueError` since `python >=3.11` (DoS fix, CVE-2020-10735); raise the limit with `sys.set_int_max_str_digits()` if you legitimately parse huge numbers.

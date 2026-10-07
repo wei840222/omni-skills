@@ -5,7 +5,7 @@ Two separate jobs get confused here: reproducing an environment (venv + lock) an
 ## The Environment Rules
 
 - One venv per project, inside the project: `python3.12 -m venv .venv` names the interpreter explicitly, so an upgrade of "python3" cannot silently move you.
-- `python -m pip install …`, never bare `pip`. Bare `pip` is whatever shim is first on PATH; `python -m pip` installs into the interpreter you are about to run. Every "installed but ModuleNotFoundError" is this.
+- `python -m pip install …`, skipping bare `pip`. Bare `pip` is whatever shim is first on PATH; `python -m pip` installs into the interpreter you are about to run. Every "installed but ModuleNotFoundError" is this.
 - Never install into the system interpreter. Distros mark it externally managed (PEP 668) and pip refuses with `error: externally-managed-environment` — that error is correct, and `--break-system-packages` earns its name.
 - A venv is not relocatable: its scripts hard-code the absolute interpreter path. Moving or renaming the project directory, or upgrading a Homebrew/pyenv Python underneath it, produces `No module named encodings` or a shim pointing at a deleted binary. Delete and recreate; never hand-edit `pyvenv.cfg`.
 - `.venv/` in `.gitignore`, always. The lockfile is the artifact you commit, not the tree.

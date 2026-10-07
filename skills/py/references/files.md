@@ -15,10 +15,10 @@ Two rules cover most of this file: declare the encoding at every boundary, and n
 
 - `pathlib` by default: `Path("data") / "in.csv"`, `p.with_suffix(".json")`, `p.read_text(encoding="utf-8")`, `p.stem`, `p.parent`, `p.exists()`.
 - Anchor relative paths to the code, not the caller's cwd: `HERE = Path(__file__).resolve().parent`. A script that works from the project root and fails from anywhere else is this bug.
-- Joining with an absolute second element DISCARDS the first: `Path("/srv/data") / "/etc/passwd"` is `/etc/passwd`, and `os.path.join` does the same. Any user-supplied path component needs the containment check in `security.md`.
+- Joining with an absolute second element DISCARDS the first: `Path("/srv/data") / "/etc/passwd"` is `/etc/passwd`, and `os.path.join` does the same. Any user-supplied path component needs the containment check in `references/security.md`.
 - `.resolve()` follows symlinks and normalizes `..`; `.absolute()` does neither. Compare and store resolved paths, or the same file has two names.
 - `Path.glob("*.csv")` is one level, `rglob` recurses; neither matches dotfiles. For large trees `os.scandir` avoids a second `stat()` per entry and is several times faster than `os.walk`+`os.path.isdir`.
-- Package data files are NOT filesystem paths: `importlib.resources.files("mypkg") / "schema.json"` works when the package is a zip or an installed wheel (`packaging.md`).
+- Package data files are NOT filesystem paths: `importlib.resources.files("mypkg") / "schema.json"` works when the package is a zip or an installed wheel (`references/packaging.md`).
 
 ## Writing Without Losing Data
 
@@ -39,12 +39,12 @@ os.replace(tmp, path)          # atomic on the same filesystem, on POSIX and Win
 ## Temp Files
 
 - `tempfile.NamedTemporaryFile(delete=False)` when another process must open it; on Windows the file cannot be reopened while the handle is live, so close first. `tempfile.TemporaryDirectory()` as a context manager cleans up even on exception.
-- Never build a temp path yourself (`/tmp/myapp-{pid}`): it is a symlink race and a collision (`security.md`). `mkstemp` returns an OS-level fd — wrap it in `os.fdopen` or you leak the descriptor.
+- Never build a temp path yourself (`/tmp/myapp-{pid}`): it is a symlink race and a collision (`references/security.md`). `mkstemp` returns an OS-level fd — wrap it in `os.fdopen` or you leak the descriptor.
 
 ## CSV
 
 - `open(path, newline="")` for both reading and writing with the `csv` module. Without it, files written on Windows get a blank line between rows, and quoted fields containing newlines split into phantom rows.
-- Never split a CSV line on `,` yourself: quoted fields legally contain commas, quotes, and newlines. `csv.reader` handles all three.
+- Rely on csv.reader instead of splitting a CSV line on `,` yourself: quoted fields legally contain commas, quotes, and newlines. `csv.reader` handles all three.
 - Everything comes back as `str` — there are no types in CSV. Convert explicitly, and expect empty strings where you wanted `None`.
 - `_csv.Error: field larger than field limit (131072)` on a legitimate large field: raise it with `csv.field_size_limit(10**7)`.
 - `csv.DictWriter` needs `fieldnames` up front and raises on extra keys (`extrasaction="ignore"` to drop them).
@@ -54,7 +54,7 @@ os.replace(tmp, path)          # atomic on the same filesystem, on POSIX and Win
 - `json.dumps` cannot serialize `datetime`, `Decimal`, `set`, `bytes`, or dataclasses: pass `default=` (or `cls=`) and decide the representation once, centrally.
 - Dict keys become strings: `{1: "a"}` round-trips to `{"1": "a"}`. Silent, lossy, and a classic source of "the key disappeared after caching".
 - `allow_nan` is True by default, so `float("nan")` and `inf` are emitted as bare `NaN`/`Infinity` — which is NOT valid JSON and blows up in other languages' parsers. Pass `allow_nan=False` to find them at the source.
-- Floats round-trip exactly through `repr`, but `Decimal("0.10")` becomes `0.1` unless you serialize it as a string. For money, string in and string out (`types.md`).
+- Floats round-trip exactly through `repr`, but `Decimal("0.10")` becomes `0.1` unless you serialize it as a string. For money, string in and string out (`references/types.md`).
 - `ensure_ascii=True` (default) escapes every non-ASCII character; set `ensure_ascii=False` plus an explicit UTF-8 encoding for human-readable output.
 - Untrusted input: `json.loads` is memory-safe but not size-safe — a 500 MB body becomes a 2 GB object graph. Cap the read length before parsing.
 
@@ -63,5 +63,5 @@ os.replace(tmp, path)          # atomic on the same filesystem, on POSIX and Win
 - `for line in f` streams with buffering; `f.read()` loads everything. `f.readlines()` is the same mistake with extra steps.
 - Binary chunks: `iter(functools.partial(f.read, 1 << 16), b"")` reads 64 KiB at a time until EOF.
 - Random access over a big file: `mmap` gives you slices without loading it; the OS pages it in and out.
-- Counting or filtering lines is I/O-bound; parallelizing it usually does nothing (`performance.md`).
+- Counting or filtering lines is I/O-bound; parallelizing it usually does nothing (`references/performance.md`).
 - Compressed files stream too: `gzip.open(path, "rt", encoding="utf-8")` is a drop-in for text mode.
