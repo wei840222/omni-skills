@@ -16,6 +16,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
 | toefl                        | 2026-10-07 | 86/100 (#750)                    |
+| devops                       | 2026-10-08 | 90/100 (#751)                    |
 | color                        | 2026-10-07 | 86/100 (#749)                    |
 | keys                         | 2026-10-07 | 86/100 (#748)                    |
 | git                          | 2026-10-07 | 86/100 (#747)                    |

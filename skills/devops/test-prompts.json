@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Design a deployment strategy for a stateless microservice with instant rollback needs and spare capacity for a short double-run.",
+    "expected": "Select blue-green or rolling with rationale from Release Strategies; name DORA metrics moved; record artifact identity + previous; no live secrets; state paths under <state_root>.",
+    "actual": "Chose blue-green when 2x capacity exists and cutover must reverse in seconds; otherwise rolling as default for stateless services. Named Change Failure Rate and Time to Restore as the metrics moved. Required build-once artifact digest promotion (Core rule 1) and rollback as redeploy of recorded previous artifact in <state_root>/releases/<year>.md (Core rule 2). Pointed to Release Strategies table and Output Gates. No credentials written.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our PR pipeline takes 25 minutes, mostly integration tests. Developers say feedback is too slow.",
+    "expected": "Apply pipeline_time_budget_min default 10; order stages by catch-rate; cache/parallelize or move heavy tests off PR path; name Change Lead Time; no stack interrogation opener.",
+    "actual": "Applied Core rule 4 against default pipeline_time_budget_min=10. Ordered lint/unit/build before integration; recommended dependency-layer cache and parallel independent jobs; move multi-minute integration to required post-merge or nightly if still over budget. Named Change Lead Time as the DORA metric moved. Worked from defaults without asking stack questions first. Offered to record the budget and pain point under <state_root>/memory.md ## Pain Points when durable.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Alerts page on high CPU all night but users were fine. We also missed a real outage because the metrics pipeline was down.",
+    "expected": "Symptom/SLI burn-rate paging per Core rule 7 and Error Budgets table; cause metrics to dashboards; missing-data behavior; inhibit dependency storms.",
+    "actual": "Restated Core rule 7: page on user-visible SLI burn rate (14.4x/1h teaching default from SRE workbook burn-rate model in references/sources.md), not CPU. Moved resource signals to dashboards/tickets. Required explicit missing-data behavior so a dark metrics pipeline cannot read as healthy, and dependency-aware inhibition so one upstream outage does not page every downstream. Pointed to Error Budgets And Paging and Failure Signatures rows. No secret material written.",
+    "pass": true
+  }
+]
