@@ -10,6 +10,8 @@ Use this file when defining or refactoring table and index design.
 4. Decide soft-delete behavior up front.
 5. Map each user-visible feature (including admin and background queues) to an expected query path; inspect scanned-document limits and pagination.
 
+**Completion check for a schema change:** every new table names tenant field(s), every production read path names its index (or a justified bounded scan with size/latency limits), and every uniqueness rule names the mutation that enforces it.
+
 ## Index Design Heuristics
 
 - List observed user-facing query paths and order indexes by their leading equality filters, next range field, and required sort; prioritize paths with measured document scans or latency risk.
@@ -35,6 +37,10 @@ Use this file when defining or refactoring table and index design.
 - Which retry path can now duplicate writes?
 - Which dashboards or alerts must change?
 
-### Common Traps
-- Building schema from entities only, not query paths -> slow reads and rework.
-- Adding indexes reactively during outages -> unstable rollout under pressure.
+### Common traps → recovery
+| Trap | Recovery |
+|---|---|
+| Building schema from entities only, not query paths | Rewrite indexes from observed filters/sort/tenant scope before ship. |
+| Adding indexes reactively during outages | Freeze emergency index adds; measure the failing query, then review a targeted change. |
+| Assuming index uniqueness | Add transactional lookup+write and a duplicate-path test. |
+| Unbounded table scan in production | Record max size/scanned docs/latency; add leading-equality index when limits fail. |
