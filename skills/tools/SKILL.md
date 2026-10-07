@@ -111,5 +111,5 @@ Create this file on first durable preference write:
 | Multiple candidate state dirs | Keep highest-precedence only; report paths; do not merge. |
 | Missing `preferences.md` | Work from no defaults; create the template only when writing a real preference. |
 | User rejects a suggestion | Record under Avoid or Preferences if they want it durable; continue with their choice. |
-| Unfamiliar tool name | State the gap, research or ask, then proceed; do not invent product facts. |
+| Unfamiliar tool name | State the gap, research or ask once, then proceed with verified product facts only. |
 | Preference conflicts with task needs | Name the conflict, quantify switching cost vs benefit, let the user choose. |
