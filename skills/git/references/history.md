@@ -18,7 +18,7 @@
 ## Reset
 
 - `--soft` moves HEAD only (changes stay staged); `--mixed` also unstages; `--hard` also overwrites the working tree. Only `--hard` destroys anything.
-- `reset --hard` casualties are asymmetric: committed work → reflog, trivially recoverable; staged-but-uncommitted → dangling blobs, `git fsck --lost-found`, tedious but possible; never-staged edits → gone forever. This ranking is why staging early is cheap insurance even without committing.
+- `reset --hard` casualties are asymmetric: committed work → reflog, trivially recoverable; staged-but-uncommitted → dangling blobs, `git fsck --lost-found`, tedious but possible; unstaged edits → gone forever. This ranking is why staging early is cheap insurance even without committing.
 - `ORIG_HEAD` is set by merge, rebase, and reset: `git reset --hard ORIG_HEAD` is the one-command undo immediately after any of them.
 - Untracked files ignore reset entirely — a "clean" `reset --hard` can still leave a dirty `git status`.
 - `git reset <sha> -- <path>` is a different operation despite the shared name: it stages that path as of that commit and never moves HEAD.
