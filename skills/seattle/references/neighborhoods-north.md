@@ -282,4 +282,4 @@
 - Students
 - Budget-conscious newcomers
 - Those wanting transit access cheaply
-- People who don't mind young crowds
+- People comfortable with young crowds

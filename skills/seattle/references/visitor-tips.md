@@ -4,7 +4,7 @@
 
 ### Weather Preparation
 1. **Layers, layers, layers** - Morning fog, midday sun, evening chill
-2. **Skip the umbrella** - Locals don't use them (light drizzle)
+2. **Skip the umbrella** - Locals prefer waterproof layers (light drizzle)
 3. **Waterproof jacket** - Yes
 4. **Check forecast obsessively** - If sunny day predicted, reschedule outdoor plans to catch it
 

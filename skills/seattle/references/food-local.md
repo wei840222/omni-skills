@@ -88,7 +88,7 @@ Seattle invented modern coffee culture.
 | Espresso Vivace | Capitol Hill | Legendary espresso |
 
 ### The Order
-- Locals don't do complicated Starbucks orders
+- Locals prefer simple coffee orders
 - Simple: espresso drinks, pour-overs
 - No judgment, but simplicity is respected
 

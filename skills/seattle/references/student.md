@@ -21,9 +21,9 @@
 
 **Location:** U-District, north Seattle
 
-**Cost (2024):**
-- In-state: ~$12K/year tuition
-- Out-of-state: ~$40K/year tuition
+**Cost (verify on UW COA; see `references/sources.md`):**
+- In-state: ~$12K-$13K/year tuition
+- Out-of-state: ~$41K-$42K/year tuition
 - Total COA: $25-45K/year
 
 **For Tech Students:**

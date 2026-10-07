@@ -249,3 +249,8 @@ Regional transit card for all systems:
 | U-District | Downtown | Light rail (15 min) |
 
 **Golden rule:** Live on same side of lake as work.
+
+
+## Fare authority
+
+Confirm current Link/bus fares and passes on Sound Transit: https://www.soundtransit.org/ride-with-us/how-to-pay/fares (see also `references/sources.md`). Adult Link one-way was published at $3 during the 2026-10-07 refactor check—passes and products change.

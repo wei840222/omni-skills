@@ -1,180 +1,139 @@
 ---
 name: seattle
-slug: seattle
-version: 1.0.0
-description: Navigate Seattle as visitor, resident, or tech worker with neighborhoods, transport, costs, weather, and local insights.
-homepage: https://clawic.com/skills/seattle
+description: >
+  Navigate Seattle for visiting, moving, studying, or working in tech. Use when
+  the user asks about Seattle neighborhoods, housing costs, weather myths, food,
+  Amazon/Microsoft/Eastside commuting, light rail, or Pacific Northwest travel
+  itineraries. Prefer `travel` for multi-city trip logistics, `dubai` for another
+  city-guide pattern, and `negotiate` for offer/comp discussions beyond local
+  salary ranges.
 metadata:
-  clawdbot:
-    emoji: 🌲
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Seattle
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌲"}'
+  related-skills: '{"dubai":"Parallel city-guide pattern for another metro with progressive neighborhood/food routing.","negotiate":"Salary and offer negotiation once Seattle/tech comp ranges are framed.","travel":"Multi-stop trip planning and logistics beyond a single Seattle stay."}'
 ---
 
-## When to Use
+This skill is stateless and does not store local configuration or persistent user state. Keep moving checklists, lease notes, and personal budgets in ordinary user files outside the skill package.
 
-User asks about Seattle for any purpose: visiting, moving, working in tech, studying, or enjoying Pacific Northwest lifestyle. Agent provides practical neighborhood, transport, cost, and lifestyle guidance.
+# Seattle
 
-## Quick Reference
+Practical guidance for visiting, moving to, studying in, or working in the Seattle metro (Seattle proper + Eastside). Load references only for the user's role and timeline.
+
+## When to load
+
+- Neighborhood and housing fit (Capitol Hill, SLU, Ballard, Eastside, South Seattle)
+- Weather myths vs grey-day reality; packing for visits
+- Cost of living, WA tax posture, or transit vs car trade-offs
+- Tech hub orientation (Amazon SLU, Microsoft Redmond, other Eastside campuses)
+- Short visit itineraries, food, outdoor day trips
+
+Prefer `travel` when the trip spans multiple cities, `negotiate` when the user is bargaining an offer, and other city skills (for example `dubai`) when the request is not about Seattle.
+
+## Quick workflow
+
+1. **Identify context** — tourist, mover, tech worker (Amazon vs Microsoft/Eastside), student, remote, outdoor-focused; timeline short visit vs relocating.
+2. **Load one reference lane** — visitor / neighborhoods / food / practical / career from the table below; do not dump every file.
+3. **Correct myths early** — rain volume vs grey/SAD; Seattle proper vs Eastside commute pain; Pike Place morning vs noon crowds.
+4. **Ground money claims** — treat rents, home prices, and total-comp bands as ranges that drift; prefer `references/cost.md` / `references/tech.md` and `references/sources.md` over inventing a single number.
+5. **Match neighborhood to job side of the lake** — Amazon-heavy Seattle proper vs Microsoft/Eastside; flag 520/I-90 bridge traffic.
+6. **Verify sticky facts** — tax posture, Link fares, UW tuition bands against URLs in `references/sources.md` when advising decisions.
+
+## Progressive disclosure
 
 | Topic | File |
 |-------|------|
 | **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips and day trips | `visitor-tips.md` |
+| Attractions (must-see vs skip) | `references/visitor-attractions.md` |
+| Itineraries (1/3/7 days) | `references/visitor-itineraries.md` |
+| Where to stay | `references/visitor-lodging.md` |
+| Tips and day trips | `references/visitor-tips.md` |
 | **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Downtown and Belltown | `neighborhoods-downtown.md` |
-| Capitol Hill and Central District | `neighborhoods-central.md` |
-| Queen Anne and Magnolia | `neighborhoods-queen-anne.md` |
-| Ballard, Fremont, Wallingford | `neighborhoods-north.md` |
-| Eastside (Bellevue, Kirkland, Redmond) | `neighborhoods-eastside.md` |
-| South Seattle | `neighborhoods-south.md` |
+| Quick comparison | `references/neighborhoods-index.md` |
+| Downtown and Belltown | `references/neighborhoods-downtown.md` |
+| Capitol Hill and Central District | `references/neighborhoods-central.md` |
+| Queen Anne and Magnolia | `references/neighborhoods-queen-anne.md` |
+| Ballard, Fremont, Wallingford | `references/neighborhoods-north.md` |
+| Eastside (Bellevue, Kirkland, Redmond) | `references/neighborhoods-eastside.md` |
+| South Seattle | `references/neighborhoods-south.md` |
 | **Food** | |
-| Overview and dining scene | `food-overview.md` |
-| Local specialties (seafood, coffee) | `food-local.md` |
-| International cuisine | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Practical (apps, grocery, dietary) | `food-practical.md` |
+| Overview and dining scene | `references/food-overview.md` |
+| Local specialties (seafood, coffee) | `references/food-local.md` |
+| International cuisine | `references/food-international.md` |
+| Best areas for dining | `references/food-areas.md` |
+| Practical (apps, grocery, dietary) | `references/food-practical.md` |
 | **Practical** | |
-| Moving and settling | `resident.md` |
-| Transport (car vs transit reality) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety | `safety.md` |
-| Weather (myth vs reality) | `climate.md` |
-| Local services | `local.md` |
+| Moving and settling | `references/resident.md` |
+| Transport (car vs transit reality) | `references/transport.md` |
+| Cost of living | `references/cost.md` |
+| Safety | `references/safety.md` |
+| Weather (myth vs reality) | `references/climate.md` |
+| Local services | `references/local.md` |
 | **Career** | |
-| Tech industry and salaries | `tech.md` |
-| Startups and funding | `startup.md` |
-| Students | `student.md` |
-| Remote workers | `remote.md` |
+| Tech industry and salaries | `references/tech.md` |
+| Startups and funding | `references/startup.md` |
+| Students | `references/student.md` |
+| Remote workers | `references/remote.md` |
+| **Sources** | |
+| Gate 6 verified URLs | `references/sources.md` |
 
-## Core Rules
+## Core orientation (keep short)
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, outdoor enthusiast
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
+### Weather reality
+Seattle's rain reputation is about **frequency of grey drizzle**, not tropical downpours. Annual liquid totals are often lower than many East Coast/Southeast cities; **overcast days and seasonal affective strain** are the harder part. Locals favor waterproof layers over constant umbrellas. Jul–Sep is typically the dry, outdoor season—book hikes and ferries early.
 
-### 2. Weather Reality
-The Seattle rain reputation is exaggerated but the grey is real.
+### Tax posture
+Washington **does not currently have an individual state income tax** (WA DOR). Trade-offs show up in retail sales tax and other local costs—do not claim a single citywide sales-tax percent without checking current local rates.
 
-| Myth | Reality |
-|------|---------|
-| "Rains constantly" | 37 inches/year (less than NYC, Miami, Atlanta) |
-| "Need umbrella always" | Light drizzle, locals rarely use umbrellas |
-| "Always cloudy" | TRUE: 200+ overcast days/year |
-| "No summer" | Jul-Sep is gorgeous (70-80F, sunny, dry) |
+### Lake split
+- **Amazon / Seattle proper**: Capitol Hill, SLU, Ballard, and nearby walkable neighborhoods dominate young-tech social maps.
+- **Microsoft / many Eastside campuses**: Bellevue, Kirkland, Redmond; living cross-lake without a plan means brutal 520/I-90 time.
+- Treat "Seattle" vs "Eastside" as different daily lives, not synonyms.
 
-**Seasonal affective disorder is real.** Many residents use light therapy lamps October-March.
+### Transit snapshot
+Link light rail is expanding and is useful for airport and north–south spines; Sound Transit publishes adult Link one-way fares (commonly **$3** adult one-way on Link—confirm passes on the official fares page). Cars remain common for suburbs, Eastside laterals, and outdoor trips. See `references/transport.md`.
 
-### 3. No State Income Tax
-Washington has NO state income tax. This is a major draw for tech workers.
-- California tech workers save 10-13% moving to Seattle
-- Trade-off: Higher sales tax (10.25% in Seattle)
-- Trade-off: Property taxes moderate but rising
+### Neighborhood matching (starter)
 
-### 4. Reference Data
-
-| Item | Range |
-|------|-------|
-| 1BR rent (Capitol Hill) | $1,800-2,400/month |
-| 1BR rent (Eastside) | $2,200-3,000/month |
-| Senior SWE salary (L6) | $350K-500K total comp |
-| Coffee (specialty) | $5-7 |
-| Light rail monthly pass | $99 |
-| Median home price | $850K |
-
-### 5. Tech Hub Reality
-Seattle metro is one of the top 3 tech hubs in the US.
-
-| Company | Location | Notes |
-|---------|----------|-------|
-| Amazon | South Lake Union | HQ, 50K+ employees in Seattle |
-| Microsoft | Redmond | HQ, massive campus |
-| Meta | Bellevue | Large office, growing |
-| Google | Kirkland, Seattle | Multiple offices |
-| Apple | Seattle | Growing presence |
-
-**Eastside vs Seattle:** Microsoft people live on Eastside (Bellevue, Kirkland, Redmond). Amazon people live in Seattle proper. The commute across Lake Washington is painful.
-
-### 6. Neighborhood Matching
-
-| Profile | Best Areas |
-|---------|------------|
+| Profile | First places to compare |
+|---------|-------------------------|
 | Young tech (Amazon) | Capitol Hill, South Lake Union, Ballard |
-| Young tech (Microsoft) | Bellevue, Kirkland, Redmond |
+| Young tech (Microsoft/Eastside) | Bellevue, Kirkland, Redmond |
 | Families | Eastside, West Seattle, North Seattle |
 | Nightlife and culture | Capitol Hill |
-| Hip and artsy | Fremont, Ballard |
-| Quiet and nature | Magnolia, Queen Anne |
-| Budget-conscious | South Seattle, Beacon Hill |
+| Hip / artsy | Fremont, Ballard |
+| Quiet / nature-leaning | Magnolia, Queen Anne |
+| Budget-conscious entry | South Seattle, Beacon Hill (verify block-level fit) |
 
-### 7. Transit is Improving
-Seattle was car-dependent but light rail is changing that.
+### Money ranges are directional
+Use `references/cost.md` and `references/tech.md` for rent/comp bands. In chat, label figures as approximate and time-sensitive (Zillow/home-value indexes and job offers move). Example orientation only: walkable Capitol Hill 1BR often prices above Eastside suburban stock in different ways; senior SWE total comp at large tech is wide and offer-specific.
 
-| Mode | Reality |
-|------|---------|
-| Light rail | Expanding rapidly, now reaches airport and Northgate |
-| Buses | Extensive, reliable, free downtown (sometimes) |
-| Car | Still needed for suburbs, Eastside, outdoor trips |
-| Bike | Growing infrastructure, hilly but e-bikes help |
+## Seattle-specific traps
 
-See `transport.md` for detailed breakdown.
+- **"It rains all the time"** — grey/drizzle frequency ≠ constant heavy rain; pack layers.
+- **Underestimating the grey** — budget light strategy Oct–Mar if sensitive to low sun.
+- **Seattle = Eastside** — bridge traffic and job-side housing matter more than city-brand prestige.
+- **Pike Place at noon first** — go early (about 9am) before peak tourist density.
+- **Ignoring Bellevue** — Eastside dining and job gravity are real.
+- **Summer FOMO** — Jul–Sep outdoor demand spikes; book ahead.
+- **Seattle Freeze** — social circles can feel slow to open; plan repeated low-pressure hangs.
+- **Car break-ins / package theft** — common enough to warrant empty-car and delivery hygiene (`references/safety.md`).
 
-## Seattle-Specific Traps
+## Outdoor context
 
-- **"It rains all the time"** - No. It's grey and drizzly, not heavy rain. Bring layers, not umbrella.
-- **Underestimating the grey** - 200+ overcast days. SAD is real. Budget for light therapy.
-- **Thinking Seattle = Eastside** - They're different worlds. 520/I-90 bridge traffic is brutal.
-- **Skipping Pike Place morning** - Go at 9am. By noon it's tourist chaos.
-- **Ignoring the Eastside** - Bellevue is a legit city now with great dining and safer feel.
-- **Summer FOMO** - Everyone disappears to mountains/islands Jul-Sep. Book ahead.
-- **Forgetting layers** - Morning fog, midday sun, evening chill. Layer up.
-- **Capitol Hill = party only** - It's also the best walkable urban neighborhood.
-- **Passive-aggressive locals** - "Seattle Freeze" is real. Making friends takes effort.
+Within roughly 1–3 hours: Mt. Rainier, Olympics, San Juans (ferry), Snoqualmie Falls, Crystal Mountain, North Cascades. REI flagship culture is a lifestyle signal—gear and day-trip planning are first-class topics (`references/visitor-tips.md`).
 
-## Outdoor Context
+## Coffee culture
 
-Seattle's biggest draw is nature access. Within 1-3 hours:
+Starbucks origin story is tourist lore; locals often point to third-wave and classic Seattle roasters (Victrola, Elm, Slate, Milstead, Caffe Vita, Espresso Vivace, and many independents). Order plainly; craft expectations are normal.
 
-| Destination | Distance | Best For |
-|-------------|----------|----------|
-| Mt. Rainier | 2h | Hiking, views |
-| Olympic National Park | 2-3h | Rainforest, coast |
-| San Juan Islands | 2h + ferry | Kayaking, orcas |
-| Snoqualmie Falls | 30min | Easy day trip |
-| Crystal Mountain | 2h | Skiing |
-| North Cascades | 2-3h | Remote wilderness |
+## Safety boundaries
 
-**REI flagship** is in Seattle for a reason. Outdoor gear is a lifestyle here.
+- Do not invent live rent medians, tax percents, Link pass prices, or UW tuition from memory when the user is making a move/budget decision—open `references/sources.md` and the matching reference file.
+- Do not store leases, SSNs, employer offer letters, or travel document scans in the skill package.
+- Do not present neighborhood safety as universal; block-level conditions change—pair guidance with official/local reporting habits in `references/safety.md`.
 
-## Coffee Culture
+## Non-goals
 
-Seattle invented modern coffee culture (Starbucks, 1971). But locals drink at:
-
-| Type | Examples |
-|------|----------|
-| Third-wave roasters | Victrola, Elm, Slate, Milstead |
-| Classic Seattle | Caffe Vita, Espresso Vivace |
-| Everywhere | Independent shops on every block |
-
-**Ordering tip:** Just say what you want. No judgment. But expect baristas to care about their craft.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — trip planning and logistics
-- `dubai` — another city guide
-- `negotiate` — salary and offer discussions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/seattle
-- Latest version: https://clawic.com/skills/seattle
+- Not a full multi-city itinerary engine (`travel`) or generic comp negotiation coach (`negotiate`).
+- Not a complete restaurant database; keep discovery in food references and current local sources.
+- Do not duplicate long neighborhood essays in `SKILL.md`; route to `references/neighborhoods-index.md` and the neighborhood detail files.

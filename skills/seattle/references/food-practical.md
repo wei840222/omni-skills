@@ -222,4 +222,4 @@ Brunch culture is strong. Expect waits.
 - Peak time: 10am-1pm
 - Weekends = lines
 - Some take reservations
-- Go at 9am or 2pm to avoid crowds
+- Go at 9am or 2pm to skip the crowds
