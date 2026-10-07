@@ -119,4 +119,3 @@ Replace models and paths with current provider docs when the upstream API drifts
 - Anthropic API keys: https://docs.anthropic.com/en/api/getting-started
 - Stripe authentication: https://docs.stripe.com/api/authentication
 - GitHub REST authentication: https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api
-

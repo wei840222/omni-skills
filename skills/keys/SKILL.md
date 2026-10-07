@@ -90,4 +90,3 @@ Adding another service means editing `ALLOWED_URLS` in `scripts/keys-broker.sh` 
 - Widening `ALLOWED_URLS` to `https://` for all hosts
 - Running `security … -w` / `secret-tool lookup` into agent-captured logs just to "confirm" a secret
 - Expecting the broker to work inside Docker, WSL, or headless Linux without a keyring
-
