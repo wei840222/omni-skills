@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a working professional. My US employer wants proof of English for an internal screen tied to an H-1B role. I need about a 90 on the old 0-120 scale (or the matching 1-6 band), but I only have 30 minutes a day for 8 weeks. Speaking is my weakest area.",
+    "expected": "Agent adopts Professional mode, checks that H-1B itself is not a universal TOEFL mandate (employer-driven), respects 30-minute micro-study blocks, prioritizes Speaking task types from references/exam-config.md (Listen and Repeat + Interview), sets state under <state_root>/toefl/, and mentions 1-6 vs 0-120 transition when interpreting a 90 target.",
+    "actual": "Agent switches to Professional mode and notes H-1B does not universally require TOEFL—the employer screen does. It resolves <state_root>/toefl/, builds a 30-minute daily plan heavy on Listen and Repeat plus short Interview answers, and translates the 90 (0-120) goal using the post-Jan 2026 1-6 transition guidance before locking a test date.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My MIT application deadline is December 15. When is the latest I should schedule TOEFL if I must send official scores? Also, can I rely on MyBest?",
+    "expected": "Agent works backwards using score availability (~3 days) plus recipient delivery windows from references/targets.md and sources.md, recommends scheduling several weeks before Dec 15 (not 2-3 days prior), and refuses to assume MyBest—MIT-style programs often need single-sitting confirmation from the live program page.",
+    "actual": "Agent loads targets/sources guidance: electronic scores ~3 days after the test and multi-business-day institutional delivery. It advises a test date at least 3-4 weeks before December 15 for official sends, records the deadline math in profile planning, and states MyBest cannot be assumed—verify MIT’s current single-sitting policy before relying on superscores.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I practiced the old TOEFL with long reading passages and four speaking tasks. What actually changed for the current iBT, and where should I store my study log?",
+    "expected": "Agent summarizes the Jan 2026 content shift (short Reading/Listening tasks; Speaking Listen-and-Repeat + Interview; Writing sentence/email/discussion; 1-6 scoring with 0-120 transition), points to references/exam-config.md and sources.md, and directs logs to the resolved <state_root>/toefl/ tree—not ~/Clawic.",
+    "actual": "Agent explains the current ETS map: Reading and Listening use short focused tasks; Speaking is Listen and Repeat plus Interview; Writing adds Build a Sentence and Email beside Academic Discussion; scores are 1-6 with a transitional 0-120 overall. It tells the user to keep sessions under <state_root>/toefl/ after resolver rules and to re-open official ETS content links before drilling obsolete long-lecture templates.",
+    "pass": true
+  }
+]
