@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a new software engineer moving to Seattle to work at Amazon. I'm looking for a neighborhood that has good nightlife and a short commute.",
+    "expected": "Recommends Capitol Hill and/or South Lake Union for Amazon + nightlife, contrasts Eastside/Microsoft housing, notes WA has no individual state income tax per DOR framing, and points to neighborhood references rather than inventing a single rent.",
+    "actual": "For Amazon with nightlife + short commute, start with Capitol Hill (walkable nightlife) and South Lake Union (campus-adjacent). Ballard is a common runner-up. Do not default to Bellevue/Redmond unless the role is Eastside\u2014cross-lake commuting via 520/I-90 is painful. Washington currently has no individual state income tax (WA DOR), with trade-offs in other taxes. Treat rent bands as directional and open references/neighborhoods-central.md plus neighborhoods-downtown.md for detail.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a 3 day layover in Seattle in late October. Is it going to rain all the time? I want to visit Pike Place Market and maybe go hiking.",
+    "expected": "Reframes rain myth toward grey/drizzle vs downpour, recommends waterproof layers over umbrella fixation, Pike Place early morning, and a nearby outdoor option such as Snoqualmie Falls; routes to visitor references.",
+    "actual": "Late October is typically grey and drizzly more than constant heavy rain\u2014pack layers and a waterproof shell; locals often skip umbrellas for light drizzle. For three days: hit Pike Place around 9am before peak crowds, keep one flexible outdoor block (Snoqualmie Falls is a common short trip), and load references/visitor-itineraries.md plus visitor-tips.md. Jul\u2013Sep is the reliably dry outdoor season; shoulder season needs forecast flexibility.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I live in Seattle or Bellevue if I work at Microsoft in Redmond and care about weekend city nightlife?",
+    "expected": "Explains Eastside job-side housing vs Seattle nightlife trade-off, flags bridge commute cost, and refuses a one-size answer without schedule constraints.",
+    "actual": "Microsoft Redmond is an Eastside gravity well\u2014Bellevue/Kirkland/Redmond usually win on daily commute. Living in Capitol Hill for nightlife means paying 520/I-90 time most workdays. Hybrid schedules change the math: more office days favor Eastside; rare office days can justify Seattle proper. Compare references/neighborhoods-eastside.md against Capitol Hill notes and be explicit about traffic pain rather than selling a single 'best' city brand.",
+    "pass": true
+  }
+]
