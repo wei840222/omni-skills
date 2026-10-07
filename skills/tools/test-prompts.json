@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I prefer using Postgres for all my database needs. Make a note of this.",
+    "expected": "Resolve `<state_root>`, create `<state_root>/preferences.md` if needed from the template, and add `db: Postgres` under ### Stack without inventing other preferences.",
+    "actual": "Resolved `<state_root>` via first-existing order to `<workspace>/tools/` (none existed, so default create). Wrote `preferences.md` with the four-section template and added `db: Postgres` under ### Stack. Confirmed no password or connection string was stored.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to set up a new React project, what database should I use?",
+    "expected": "Read `<state_root>/preferences.md`, honor Stack default Postgres, and only discuss alternatives if criteria.md thresholds (large gain / user asked / Open To) are met.",
+    "actual": "Loaded `<state_root>/preferences.md`, found `db: Postgres` on Stack, and recommended Postgres as the default for the React app. Mentioned that alternatives would be evaluated only if Postgres blocked the task or the user asked for a comparison; did not push a switch unprompted.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should I abandon Obsidian for Notion just because a blog said Notion is trending?",
+    "expected": "Apply switching-cost vs hours-saved criteria; keep current notes tool unless user hits real limits or Open To welcomes churn; offer to record the decision.",
+    "actual": "Checked Preferences/Open To (stability). A trend article alone is not a significant-gain trigger. Kept Obsidian as the default, listed concrete migration cost (links, plugins, local files), and offered to add `notes: Obsidian` or an Avoid entry for Notion only if the user wanted it durable.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "There is both <workspace>/tools/ and ~/tools/ with different Stack lists. Which do you use?",
+    "expected": "Select highest-precedence existing root only, report the conflict, and refuse automatic merge.",
+    "actual": "Selected `<workspace>/tools/` as highest precedence, reported that `~/tools/` also exists, and refused to merge or cross-write. Asked which ledger should remain canonical before any edit.",
+    "pass": true
+  }
+]
