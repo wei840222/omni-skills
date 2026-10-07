@@ -120,7 +120,7 @@ Ratios are more stable than absolute list prices — **re-check Cost Management 
 
 ## Output gates
 
-Before delivering architecture, policy, template, or command:
+Prefer the smallest safe next command that proves the claim. Before delivering architecture, policy, template, or command:
 
 - Monthly cost stated for the **actual** region/subscription?
 - Stored inventory **and** live subscription checked?
