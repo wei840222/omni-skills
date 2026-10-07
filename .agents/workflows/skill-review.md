@@ -153,7 +153,7 @@ Cross-check the PR description and package against `.agents/workflows/skill-refa
 | 5 Clawic removal     | No `clawic.com` homepage/feedback promo; `_meta.json` removed when that is project policy                                                                                                                                 |
 | 6 Research           | PR lists verifiable full URLs grouped by topic; claims in the skill match cited guidance                                                                                                                                  |
 | 7 Best practices     | Progressive disclosure; description is imperative and trigger-rich; always-needed content stays in `SKILL.md`                                                                                                             |
-| 8 Darwin + tests     | `test-prompts.json` present at skill root with valid object schema (`id`, `prompt`, `expected`, `actual`, `pass: true`), not bare string arrays; numeric Darwin score (`XX/100`) recorded in CHANGELOG before final merge |
+| 8 Darwin + tests     | `test-prompts.json` present at skill root with valid object schema (`id`, `prompt`, `expected`, `actual`, `pass: true`), not bare string arrays; numeric Darwin score (`XX/100`) recorded in CHANGELOG + PR body only; **no** Gate 8/9 score residues (`darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`, or `SKILL.md` links to them) inside the skill package |
 | 9 Freud              | Prohibitions reframed positively where required; no disruptive stop-only markers that increase cognitive load without a recovery path                                                                                     |
 
 Record each failed gate with severity:
@@ -289,6 +289,7 @@ When the author says the review findings are fixed:
 - Validator fails
 - Factual/instructional error that would make an agent run a wrong or unsafe command
 - Gate 5 leftovers (`clawic.com` promo) on a compliance refactor
+- Gate 8/9 evaluation residues committed into the skill package (`references/darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`, or equivalent score dumps) or `SKILL.md` routing agents to those audit files
 - Claimed state/path contracts are inconsistent or package-writable by default
 - Security guidance mixes unrelated controls in a way that teaches the wrong fix
 - Missing critical recovery path for a dangerous operation the skill encourages
@@ -297,10 +298,12 @@ When the author says the review findings are fixed:
 
 - Optional `related-skills` suggestions
 - Progressive-disclosure tidy-ups under a still-readable size
-- Darwin score numerology without structural failure
+- Darwin score numerology without structural failure (score belongs in CHANGELOG/PR body; absence of a package-local score file is correct)
 - Pure prose style preferences
 - Empty `actual` / `pass: false` harness residue when house style still treats Darwin as in-progress **and** the skill body itself is structurally sound — prefer Optional unless the PR claims Gate 8 complete
 - Theoretical perfection beyond “working well and safer than base”
+
+**Not optional:** author-only Gate 8/9 score reports inside `skills/<slug>/` are Required findings even when the numeric score is already in CHANGELOG. Domain-content files named `evaluation.md` that the skill actually teaches at runtime (RAG golden sets, investment rubrics, etc.) are allowed when `SKILL.md` routes to them as product guidance.
 
 ### Finding shape (Required)
 

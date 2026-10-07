@@ -54,7 +54,6 @@ On first approved use, read `references/setup.md`, then initialize only the file
 | Preparing questions or a visit summary | `references/consult-prep.md` or `references/consult-workflow.md` |
 | Storage, sharing, minors, intimate-area images, or productization | `references/legal-boundaries.md` |
 | Baseline dermatology and source-backed triage context | `references/domain.md` |
-| Darwin structural score and scenario assessment | `references/darwin-evaluation.md` |
 
 ## Core Workflow
 

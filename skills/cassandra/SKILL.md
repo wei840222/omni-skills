@@ -54,7 +54,6 @@ Keep `SKILL.md` as the progressive-disclosure router; load supporting references
 - **Data modeling, keys, CQL traps, consistency, batches, LWT, collections** → `references/cassandra-best-practices.md`
 - **Compaction, repair, nodetool/cqlsh ops, failure recovery** → `references/ops-and-recovery.md`
 - **Gate 6 primary sources** → `references/sources.md`
-- **Darwin score evidence** → `references/darwin-evaluation.md`
 
 ## Core rules
 

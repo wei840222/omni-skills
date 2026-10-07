@@ -61,8 +61,6 @@ Keep `SKILL.md` as the progressive-disclosure router; load supporting references
 - **Travel eSIM / local SIM / roaming, hotspot, data conservation** → `references/mobile.md`
 - **Gaming, streaming, video calls, QoS, bufferbloat** → `references/performance.md`
 - **Gate 6 primary sources** → `references/sources.md`
-- **Darwin score evidence** → `references/darwin-evaluation.md`
-- **Freud cognitive-load audit** → `references/darwin-evaluation.md` (Gate 9 section)
 
 ## Near-miss routing
 

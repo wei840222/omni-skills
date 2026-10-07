@@ -89,6 +89,7 @@ Complete the refactor through the following phases **in strict sequential order*
 - Create a pull request targeting `main` and assign a reviewer.
 - Populate the pull request description with `.agents/templates/pull-request-refactor.md`.
 - After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
+- Gate 8/9 scores and audit notes live in the PR body + root `CHANGELOG.md` only. Do not commit `darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`, or equivalent score dumps into `skills/<slug>/`, and do not link them from `SKILL.md`.
 - Do not merge the PR or delete branches without explicit authorization.
 
 ---

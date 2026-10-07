@@ -112,7 +112,7 @@ Reviewed with **code-review-and-quality** + **writing-for-agents** + **darwin-sk
 - [ ] Gates 1–5 compliance signals present
 - [ ] Gate 6 sources adequate or N/A with reason
 - [ ] Gate 7 description / disclosure acceptable
-- [ ] Gate 8 structural quality acceptable (tests noted if present)
+- [ ] Gate 8 structural quality acceptable (tests noted if present; no darwin/freud score residue files in package)
 - [ ] Gate 9 no blocking white-bear / load issues
 - [ ] Three-lens review: no wrong commands, unsafe defaults, or broken recoveries
 
