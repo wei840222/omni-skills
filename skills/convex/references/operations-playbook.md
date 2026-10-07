@@ -18,11 +18,21 @@ Use this file for release readiness and incident response.
 ## Incident Triage
 
 When production breaks:
-1. Capture failing function and affected records.
+1. Capture failing function and affected records (actor, function, record IDs; no secrets).
 2. Classify: data integrity, auth leak, performance, or external dependency.
 3. Pause harmful writes first.
 4. Select a reversible mitigation matched to the failure class (pause a faulty writer, restrict a leaking read path, or isolate a failing external dependency), then verify the affected path recovers and unaffected paths remain healthy.
-5. Draft a user-impact summary and next checkpoint; publish only with the service owner's authorization.
+5. Draft a user-impact summary and next authorization checkpoint; publish only with the service owner's authorization.
+
+### Failure recovery matrix
+
+| Failure | Immediate action | Recovery check |
+|---|---|---|
+| Mutation OCC conflict / repeated retry | Keep the mutation idempotent; reduce read-set or serialize the hot key | Same write succeeds once; no duplicate side effects. |
+| Action external call timeout | Leave DB consistent via outbox/`failed` status; retry action with provider idempotency key | Status progresses to `applied` or stays safely `failed` for replay. |
+| Webhook signature mismatch | Reject with non-2xx without writing business data | No row created; valid signed replay still applies once. |
+| Auth/tenant miss on a live path | Deny the entry point; patch server-side checks before re-enabling | Unauthenticated and cross-tenant tests fail closed. |
+| Migration leaves clients broken | Roll back to the rehearsed prior revision or re-enable dual-read | Named clients read/write successfully again. |
 
 ## Post-Incident Learning
 
@@ -76,3 +86,6 @@ When fixing incidents:
 | Missing actor identity or mismatched tenant | Deny access at the entry point | Test unauthenticated and cross-tenant requests. |
 | Removing a schema field while active clients still read it | Stage additive compatibility and backfill first | Confirm both old and new clients before removal. |
 | Replaying a callback after partial processing | Deduplicate by stable event key within the internal mutation and reconcile any external side effect | Replay the same event and confirm one applied state change. |
+| Early provider 2xx before durable apply | Return success only after apply or recognized duplicate; otherwise provider-retryable failure | Interrupted delivery recovers on redelivery. |
+| Treating a schema index as SQL UNIQUE | Enforce uniqueness with indexed lookup + write in one mutation | Duplicate insert fails in the same path. |
+| Deploy or state write without named approval | Return a draft plan and request project/environment or persistence consent | No production mutate or `<state_root>` write until approved. |

@@ -189,7 +189,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | content-marketing            | 2026-09-06 | 85/100 (#288)                    |
 | contract                     | 2026-08-31 | 85/100 (#178)                    |
 | contracts                    | 2026-08-28 | 94/100                           |
-| convex                       | 2026-09-28 | 80.8/100 (#591)                  |
+| convex                       | 2026-10-07 | 83.7/100 (#743)                  |
 | coo                          | 2026-10-02 | 84/100 (#654)                    |
 | cooking                      | 2026-09-13 | 86/100 (#362)                    |
 | copilot                      | 2026-09-02 | 85/100 (#225)                    |
