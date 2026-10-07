@@ -18,13 +18,17 @@ metadata:
 
 ## When to use
 
-Load this skill when the deliverable is an outbound message (or a decision not to send yet) on a real channel. Prefer siblings when the job is broader:
+Load this skill when the deliverable is an outbound message—or an explicit hold on sending—on a real channel.
 
-- `email-management` for inbox queues and follow-up ledgers
-- `writing` for essays, memos, or multi-paragraph voice work
-- `copywriting` for ads, landing pages, and campaign CTAs
-- `escalate` for standing autonomy policy across many actions
-- `telegram-bot-api` / `whatsapp-business-api` for provider HTTP APIs
+Hand off to a sibling when that skill owns the job:
+
+| Job | Skill |
+|-----|-------|
+| Inbox queues / follow-up ledgers | `email-management` |
+| Long-form voice and rewrite craft | `writing` |
+| Ads, landing pages, campaign CTAs | `copywriting` |
+| Standing ask-vs-act policy | `escalate` |
+| Provider HTTP APIs | `telegram-bot-api`, `whatsapp-business-api` |
 
 ## Workflow
 
