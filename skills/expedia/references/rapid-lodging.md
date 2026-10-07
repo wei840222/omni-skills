@@ -11,7 +11,7 @@ Use it when the task needs:
 - live shop and price-check steps
 - booking and booking-management flows
 
-Do not use it just to answer a simple public Expedia search question.
+Use public web navigation to answer simple public Expedia search questions.
 
 ## Authentication reality
 
@@ -37,25 +37,25 @@ Use the same timestamp for the signature and the header.
 4. booking only after explicit approval
 5. retrieve or manage booking when needed
 
-Never jump from initial search directly to booking.
+Always execute the intermediate price check and validation steps before moving from initial search to booking.
 
 ## Booking-safe rules
 
 - Price check before any booking recommendation.
 - Re-surface cancellation and fee details after price check, not before.
 - Treat hold or resume flows as temporary, not durable storage.
-- Do not store returned links or tokens for long-term reuse.
+- Treat returned links or tokens as short-lived single-use elements.
 
 ## Logging safety
 
-In `~/Clawic/data/expedia/partners/request-log.md`, keep only:
+In `<state_root>/partners/request-log.md`, keep only:
 - mode: rapid
 - endpoint family
 - safe query summary
 - status
 - timestamp
 
-Do not log:
+Exclude from logs:
 - full auth headers
 - shared-secret material
 - traveler payment data

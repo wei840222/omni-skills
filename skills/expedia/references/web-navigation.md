@@ -17,7 +17,7 @@ Prefer this order:
 3. open shortlisted candidates
 4. verify fees, policies, and package details on the candidate page
 
-Avoid fragile click chains when a stable search URL or visible filter path is enough.
+Use stable search URLs or visible filter paths instead of fragile click chains.
 
 ## What to verify on-page
 

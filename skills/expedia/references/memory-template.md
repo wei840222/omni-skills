@@ -1,6 +1,6 @@
 # Memory Template — Expedia
 
-Create `~/Clawic/data/expedia/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Expedia Memory
@@ -44,7 +44,7 @@ integration: pending | done | declined
 |-------|---------|----------|
 | `ongoing` | Preferences still evolving | Keep learning from Expedia tasks |
 | `complete` | Stable decision profile | Prioritize known defaults |
-| `paused` | User wants minimal setup | Avoid extra discovery prompts |
+| `paused` | User wants minimal setup | Skip extra discovery prompts |
 | `never_ask` | User requested no setup prompts | Follow only explicit instructions |
 
 ## Rules
@@ -52,4 +52,4 @@ integration: pending | done | declined
 - Keep notes in natural language.
 - Update `last` on each meaningful interaction.
 - Store reasons, not only outcomes.
-- Never remove historical patterns without user approval.
+- Keep historical patterns unless the user explicitly asks to remove them.

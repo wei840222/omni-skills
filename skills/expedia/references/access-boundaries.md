@@ -19,7 +19,7 @@ This skill must stay inside official or visibly accessible Expedia behavior.
 ## Practical boundaries
 
 - If a rate still needs a price check, say so explicitly.
-- If a deeplink or token may expire, do not present it as durable.
+- Explicitly state the expiration conditions for any temporary deeplink or token.
 - If Expedia surface limitations prevent certainty, stop and label the uncertainty instead of guessing.
 
 ## Output policy

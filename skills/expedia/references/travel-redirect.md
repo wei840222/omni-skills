@@ -35,7 +35,7 @@ Only run this when the workspace is an authorized Expedia Travel Redirect integr
 
 - Deeplinks are discovery outputs, not permanent identifiers.
 - If the returned link is time-sensitive or session-bound, say so clearly.
-- Do not present redirect mode as equivalent to a native booking flow.
+- Clarify that redirect mode differs from a native booking flow.
 
 ## Output contract
 
