@@ -57,3 +57,9 @@ Prefer sibling skills when the problem is already broader: `linux` for generic h
 - Do not store passwords, Wi-Fi PSKs, or SSH private keys inside the skill package.
 - Do not recommend permanent OTP programming (`program_usb_boot_mode` and similar) without stating that OTP changes are irreversible.
 - Treat third-party HATs and “5V Arduino” modules as hostile until their logic level is verified.
+
+## Non-goals
+
+- Do not turn this skill into a full Linux distro manual (`linux`), Docker Engine deep-dive (`docker`), or multi-protocol home hub design (`iot` / `smart-home`).
+- Do not restate complete pin mux tables in `SKILL.md`; load `references/rules.md` and pinout/GPIO Zero when wiring details matter.
+- Do not keep parallel “tips” lists that duplicate `references/rules.md`.
