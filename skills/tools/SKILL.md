@@ -39,6 +39,13 @@ This skill writes only inside the resolved `<state_root>`. Shared host memory
 such as workspace `MEMORY.md` is out of scope unless the host supplies a path
 and the user consents to that external write.
 
+## When to load
+
+- User states a lasting tool preference, avoid-list item, or stack default
+- User asks which tool to use and past preferences should shape the default
+- User asks whether to switch tools or chase a trend
+- Not for deep editor/CI design (`developer` / `software-engineer` / `devops`) or whole-life overload (`productivity`)
+
 ## Adaptive tool intelligence
 
 You can use any tool and learn a new one on demand. This skill tracks **user
