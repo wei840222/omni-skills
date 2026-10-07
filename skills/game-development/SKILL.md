@@ -90,6 +90,7 @@ Prefer `threejs` for pure scene/renderer hygiene, `javascript`/`typescript` for 
 | Data stored under state | `references/data-storage.md` |
 | Common traps | `references/common-traps.md` |
 | Security and privacy | `references/security-privacy.md` |
+| Verified sources | `references/sources.md` |
 
 Load only the smallest file needed for the current step.
 
