@@ -52,7 +52,7 @@ Never print full API keys in logs, commits, or chat. Use env vars and redacted e
 
 1. Clarify goal: search existing GIF, create from video, optimize an existing GIF, or accessibility review.
 2. If creating: confirm input path, start time, duration, max width, and size budget.
-3. Load the matching reference only when needed (table below).
+3. Load only the matching reference from the table below—do not preload every file.
 4. Run the smallest safe command path; optimize with gifsicle when installed.
 5. Validate output + accessibility notes; offer MP4/WebM alternative when GIF is oversized.
 
