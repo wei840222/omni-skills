@@ -1,6 +1,6 @@
 # Recovery — Getting Work Back
 
-Order of operations when something is missing: **stop touching the repo**, do not run `git gc`, do not re-clone, then classify the loss. Classification decides everything.
+Order of operations when something is missing: **pause touching the repo**, do not run `git gc`, do not re-clone, then classify the loss. Classification decides everything.
 
 ## What Survives What
 

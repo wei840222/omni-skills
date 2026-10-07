@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I accidentally committed to the main branch instead of my feature branch. How do I move the commit?",
+    "expected": "Instructions to create a new branch from current state, reset main back one commit, and checkout the new branch.",
+    "actual": "Create a feature branch pointing at the current tip to keep the commit (`git branch feature-branch`), move main back one commit only if that tip is unpublished (`git reset --hard HEAD~1` after confirming `git log @{u}..` or no upstream), then check out the feature branch (`git checkout feature-branch`). If main was already pushed, do not reset published history—branch off and open a PR instead.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a complex rebase conflict with multiple files and my git keeps stopping on the same conflict over and over. I just want to combine them.",
+    "expected": "Advice to abort the rebase and do a merge, or enable rerere.",
+    "actual": "Abort the rebase with `git rebase --abort`. If a rebase replays multiple commits across the same conflicted region, merge instead (`git merge origin/main`) for one resolution, or enable `git config rerere.enabled true` so repeated resolutions are reused.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I did a hard reset and think I lost commits. Can I get them back?",
+    "expected": "Use reflog to find the previous HEAD and recreate a branch before gc prunes unreachable objects.",
+    "actual": "Run `git reflog` and locate the pre-reset entry (often `HEAD@{1}`). Recreate a branch immediately: `git branch recover/<label> HEAD@{1}` or `git reset --hard HEAD@{1}` only if that is the intended tip. Committed work usually survives ~30–90 days via reflog; unstaged edits and `clean -f` deletions do not.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "I need to force-push my rewritten feature branch. What is the safe command?",
+    "expected": "Use --force-with-lease on an own non-protected branch, not plain --force on main.",
+    "actual": "Confirm the branch is yours and not in protected_branches (`main`/`master`). Prefer `git push --force-with-lease` (and `--force-if-includes` on Git ≥2.30). Never force-push protected shared branches; fix forward with revert there.",
+    "pass": true
+  }
+]

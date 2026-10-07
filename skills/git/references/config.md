@@ -38,7 +38,7 @@ Debugging any "Git ignores my setting" report starts with `--show-origin`; the u
   ```
   then a remote URL of `git@github-work:org/repo.git`. Without `IdentitiesOnly`, the agent offers keys in its own order and the wrong account authenticates — the cause of "pushed to the right repo as the wrong user".
 - Credential helpers cache HTTPS tokens: `osxkeychain`, `libsecret`, `manager`, or `cache --timeout=3600`. A rotated token that keeps failing is the OLD one being replayed from the store — erase it (`printf 'protocol=https\nhost=github.com\n' | git credential-osxkeychain erase`) before storing the new one.
-- Never put a token in the remote URL: it lands in `.git/config`, in shell history, and in any `git remote -v` output someone pastes into a ticket.
+- Avoid putting a token in the remote URL: it lands in `.git/config`, in shell history, and in any `git remote -v` output someone pastes into a ticket.
 
 ## Signing
 
@@ -58,7 +58,7 @@ git config --global tag.gpgsign true
 
 - Precedence: the LAST matching pattern wins, and per-directory `.gitignore` files override the ones above them.
 - `git check-ignore -v <path>` prints the exact file, line, and pattern responsible. Use it before arguing with the ignore file.
-- Ignore rules never apply to tracked files — untracking needs `git rm --cached <path>` and a commit (SKILL.md Traps).
+- Ignore rules do not apply to tracked files — untracking needs `git rm --cached <path>` and a commit (SKILL.md Traps).
 - A negation cannot rescue a file whose parent directory is excluded: `logs/` then `!logs/keep.txt` fails, because Git never descends into an excluded directory. Exclude the contents instead: `logs/*` then `!logs/keep.txt`.
 - Personal, unshared ignores go in `.git/info/exclude` (per repo) or `core.excludesFile` (global) — editor and OS clutter does not belong in the project's `.gitignore`.
 - `--assume-unchanged` and `--skip-worktree` are not "ignore for tracked files". `--assume-unchanged` is a performance promise you are breaking (Git may notice changes anyway); `--skip-worktree` makes Git preserve your local version and fail confusingly on incoming changes. The correct pattern remains: tracked `.example` template plus an ignored real file.

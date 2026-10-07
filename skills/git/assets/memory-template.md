@@ -1,6 +1,6 @@
 # Memory Template — Git
 
-Create `~/Clawic/data/git/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure (only after State location consent):
 
 ```markdown
 # Git Memory
@@ -32,7 +32,7 @@ last: YYYY-MM-DD
 
 ## What Goes Where
 
-- Declared preferences with a variable in the SKILL.md Configuration table → `config.yaml`, not here.
+- Declared preferences with a variable in the SKILL.md Configuration table → `<state_root>/config.yaml`, not here.
 - Everything observed, inferred, or stated without a matching variable → this file.
 - A convention read out of a repository's own history is neither: follow it for that repo and record nothing.
 

@@ -11,7 +11,7 @@ Another Git process holds the index, or one crashed. Check for a live process (a
 Wrong directory, or the `.git` file of a linked worktree points at a main repo that moved (`worktrees.md`). `git rev-parse --show-toplevel` confirms where Git thinks it is.
 
 **`fatal: detected dubious ownership in repository at ...`**
-`git >=2.35.2` refuses repos owned by another user — normal in containers, CI, and after `sudo`. Fix the ownership if you can (`chown -R`); otherwise `git config --global --add safe.directory /path`. `safe.directory '*'` disables the check entirely and is a container-only shortcut, never a workstation default.
+`git >=2.35.2` refuses repos owned by another user — normal in containers, CI, and after `sudo`. Fix the ownership if you can (`chown -R`); otherwise `git config --global --add safe.directory /path`. `safe.directory '*'` disables the check entirely and is a container-only shortcut, not a workstation default.
 
 ## Refuses To Change The Working Tree
 

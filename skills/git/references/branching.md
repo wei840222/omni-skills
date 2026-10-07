@@ -27,7 +27,7 @@
 - Fast-forward vs merge commit is not cosmetic: `--no-ff` gives you a revert handle — `git revert -m 1 <merge-sha>` undoes the whole feature in one commit; a fast-forwarded feature must be reverted commit by commit.
 - Merging a long-lived branch produces one mega merge commit that is hard to review and hard to revert partially — rebase it into reviewable shape first (rule 5 in SKILL.md caps when).
 - `git merge --no-commit --no-ff branch` stages the result for inspection first; `git merge --abort` then costs nothing.
-- `git merge --ff-only` is the safe integration command for automation: it fast-forwards or fails, never inventing a merge nobody reviewed.
+- `git merge --ff-only` is the safe integration command for automation: it fast-forwards or fails, without inventing an unreviewed merge.
 - Reverting a merge poisons the re-merge (details → `history.md`, Revert section).
 - Squash-merge orphans the source branch: keep committing on it and the next merge conflicts with your own squashed changes. Delete the branch after squash-merge; start fresh from main.
 
