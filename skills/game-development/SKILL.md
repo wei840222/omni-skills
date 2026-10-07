@@ -92,7 +92,7 @@ Prefer `threejs` for pure scene/renderer hygiene, `javascript`/`typescript` for 
 | Security and privacy | `references/security-privacy.md` |
 | Verified sources | `references/sources.md` |
 
-Load only the smallest file needed for the current step.
+Load only the smallest relevant file for the current step; do not preload the full references set.
 
 ## Requirements (summary)
 
