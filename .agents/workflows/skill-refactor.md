@@ -256,6 +256,8 @@ The Agent Skills specification allows other additional files at the skill root, 
 
 Store supplemental documents that an agent reads only in specific situations, such as operating procedures, domain rules, diagnostic knowledge, data semantics, and detailed references. Each reference file should focus on one topic, and `SKILL.md` must explicitly explain when to read it.
 
+`references/` is for **runtime** domain guidance the skill loads during normal execution. Do **not** place refactor-time quality-audit residues here (Darwin score reports, Freud audit dumps, Gate 8 scratch notes, or similar author-only evaluation artifacts). Those belong in the PR body and root `CHANGELOG.md`, not in the skill package.
+
 ##### `assets/`
 
 Store static resources that an agent uses, copies, or emits, such as document templates, configuration templates, images, schemas, lookup tables, and sample data. Assets must not contain the primary decision process. If an original file mixes operating rules with templates, split it by role into one reference and one asset, each with a single source of truth.
@@ -883,13 +885,37 @@ Requirements:
 
 - Run `/darwin-skill` against the package and review dimension feedback.
 - Iterate on instructions based on valid feedback while preserving compliance gates and domain accuracy.
-- Achieve a final evaluation score of at least 80/100, and record the numeric score (formatted as `XX/100`) in `CHANGELOG.md`.
+- Achieve a final evaluation score of at least 80/100, and record the numeric score (formatted as `XX/100`) in root `CHANGELOG.md` and the PR body only.
+
+#### Evaluation artifact placement (required)
+
+Gate 8 evidence is **author/review provenance**, not skill runtime content.
+
+**Allowed in the skill package:**
+
+- `test-prompts.json` at the skill root (execution harness only).
+- Domain evaluation guides that the skill itself teaches at runtime (for example RAG golden-set procedure, investment opportunity rubric). Those are product content, not Gate 8 score dumps.
+
+**Forbidden in the skill package** (do not create, commit, keep, or link from `SKILL.md`):
+
+- `references/darwin-evaluation.md`, `references/darwin-eval.md`, `references/evaluation-record.md`, `references/freud-audit.md`, root-level `darwin-evaluation.md` / `evaluation-record.md`, or any similarly named Gate 8/9 score report.
+- Author-only Darwin dimension tables, provisional score narratives, or Freud Mode-2 dump files written solely to prove a gate passed.
+- `SKILL.md` sections such as “Package evaluation records” that route agents to those audit files.
+
+**Where scores and audit notes go instead:**
+
+- Numeric Darwin score → root `CHANGELOG.md` (`XX/100`) and the PR template “Darwin Skill Score” section.
+- Dimension breakdown / key improvements → PR body only.
+- Freud lens findings → PR body “Freud Cognitive Load…” section only.
+
+If a prior refactor left a forbidden residue file in the package, delete it and remove any `SKILL.md` link before the Gate 8 commit (or in a dedicated cleanup commit on the same branch).
 
 #### Gate 8 pass criteria
 
 - [ ] `test-prompts.json` exists in the skill directory containing 2-3 English test prompts (happy path + complex scenario).
 - [ ] All test prompts were executed, with real outputs recorded in `actual` and accurate `pass` status.
 - [ ] `/darwin-skill` evaluation was executed and achieved a score of at least 80/100.
+- [ ] Final score is recorded in root `CHANGELOG.md` and the PR body; no Darwin/Freud gate score report was added under the skill package.
 - [ ] No regression occurred in specification compliance, safety, portability, or source fidelity to boost scores.
 
 ---
@@ -900,7 +926,8 @@ Before advancing to Phase 5:
 
 1. Verify `test-prompts.json` contains real execution logs and pass status.
 2. Confirm `/darwin-skill` score >= 80/100.
-3. Create Phase 4 commit:
+3. Confirm the working tree has **no** new Gate 8/9 residue files under `skills/<slug>/` (see Evaluation artifact placement above). Score notes stay out of the package diff.
+4. Create Phase 4 commit:
    ```bash
    git commit -m "darwin(<slug>): iterate evaluation to score >= 80 (Gate 8)"
    ```
@@ -936,6 +963,7 @@ _(Lenses 1 and 5 are skipped as they apply to personas, not skill packages)._
 - [ ] Prohibition statements ("don't", "never") were converted into positive execution definitions.
 - [ ] Visual stop markers (`🔴 STOP`, `🛑 CHECKPOINT`) causing white bear effects were removed or rephrased positively.
 - [ ] Critical instructions are prominently structured and concept load stays under cognitive thresholds (<= 25 concepts).
+- [ ] Freud findings are recorded in the PR body only; no `freud-audit.md` (or equivalent) was committed into the skill package.
 - [ ] Re-ran reference validator to ensure Freud corrections did not break any Gate 1-5 compliance rules.
 
 ---
@@ -963,7 +991,7 @@ Before advancing to Phase 6:
    gh pr create --base main --reviewer <reviewer> --body-file .agents/templates/pull-request-refactor.md
    ```
 3. Populate the pull request description with `.agents/templates/pull-request-refactor.md` (including Gate 6 Research Sources).
-4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, date, and final Darwin score (`XX/100`); commit and push that update so it lands with the merged PR.
+4. After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, date, and final Darwin score (`XX/100`); commit and push that update so it lands with the merged PR. Do not copy that score report into `skills/<slug>/`.
 5. Do not merge the PR or delete branches without explicit authorization.
 
 ---
@@ -978,10 +1006,21 @@ Before committing any phase:
 - Scan package for credentials, private keys, or sensitive user data.
 - Run `git diff --check` to ensure no whitespace or formatting errors.
 - Confirm working-tree contains only authorized changes for the target skill.
+- For Phase 4/5 commits: confirm no new Gate 8/9 score residues (`darwin-evaluation*`, `evaluation-record*`, `freud-audit*`) appear under `skills/<slug>/`.
 
 ---
 
 ## Common Pitfalls
+
+### Gate 8/9 evaluation residues in the skill package
+
+Do **not** commit author-only quality audit files into `skills/<slug>/`:
+
+- `references/darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`
+- Root-level score dumps with the same purpose
+- `SKILL.md` sections that route runtime agents to those audit files
+
+Record Darwin `XX/100` in root `CHANGELOG.md` and the PR body. Keep dimension tables, Freud lens notes, and triage narratives in the PR description only. `test-prompts.json` at the skill root remains the sole allowed Gate 8 harness file inside the package. Domain-content guides named `evaluation.md` that the skill teaches at runtime (RAG golden sets, investment rubrics, and similar) are not Gate 8 residues and may stay when `SKILL.md` routes to them as product guidance.
 
 ### `age` encryption passphrase mode
 
