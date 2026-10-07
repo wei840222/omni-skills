@@ -6,7 +6,7 @@ Use this file before recommending any Expedia option as ready to book.
 
 - Was the price checked recently enough for the current flow?
 - Is the result a public listing, a redirect candidate, or a Rapid booking-ready rate?
-- If the answer is unclear, do not call it booking-safe.
+- Only designate an option as booking-safe when the answer is completely clear.
 
 ## Gate 2: Cost realism
 

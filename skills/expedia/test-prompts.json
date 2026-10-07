@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find me a hotel in Tokyo for next week using Expedia.",
+    "expected": "Resolve mode as public web navigation; state required parameters (dates, traveler count); provide 3-5 options from public-page evidence; treat listing prices as estimates pending taxes/fees; do not claim final bookable totals without a price check.",
+    "actual": "Activated Expedia public-page web mode. Asked for check-in/out dates and traveler count, then shortlisted 3 central Tokyo hotels with estimated nightly base rates and explicit note that taxes and fees still need verification before booking. Offered a full price-check path for the preferred option.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to book the cheapest Expedia package for Hawaii.",
+    "expected": "Apply total-cost logic: compare package components beyond headline price, surface baggage/seat/resort-fee exposure, and refuse to treat cheapest headline as ready-to-book without booking gates.",
+    "actual": "Stayed in web mode and applied total-cost comparison. Pulled top package candidates, broke out flight+hotel shape, flagged basic-economy baggage risk and possible resort fees, and marked options as ready-to-price-check rather than ready-to-book until cancellation and fee checks complete.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Generate a booking deeplink for the top result in London using the Expedia Rapid API.",
+    "expected": "Identify Rapid mode, require verified partner credentials under resolved <state_root>, refuse authenticated Rapid deeplink generation when credentials are missing, and offer public web search as fallback with mode disclosure.",
+    "actual": "Detected Rapid lodging request, resolved no partner credentials in <state_root>/partners/, refused authenticated Rapid deeplink generation, disclosed the missing-auth blocker, and offered public Expedia web search instead while keeping secrets out of logs.",
+    "pass": true
+  }
+]
