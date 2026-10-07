@@ -18,8 +18,8 @@ Everything here is a function that looks ordinary and executes attacker input, o
 
 ## Injection At The Edges
 
-- SQL: parameters, always — `cur.execute("SELECT * FROM t WHERE id = %s", (id,))`. Identifiers (table and column names) cannot be parameterized: validate them against an allowlist you wrote, never interpolate user text.
-- Shell: `shell=True` with any interpolated value is command injection (`subprocess.md`).
+- SQL: parameters, always — `cur.execute("SELECT * FROM t WHERE id = %s", (id,))`. Identifiers (table and column names) cannot be parameterized: validate them against an allowlist you wrote, skipping user text interpolation.
+- Shell: `shell=True` with any interpolated value is command injection (`references/subprocess.md`).
 - Paths: `Path(base) / user_input` escapes the base with `../` or an absolute component. The check:
 
 ```python
@@ -34,33 +34,33 @@ if not target.is_relative_to(base.resolve()):     # python >=3.9
 
 ## Secrets and Randomness
 
-- `random` is a Mersenne Twister: predictable from a handful of outputs, and never acceptable for tokens, passwords, salts, or session ids. `secrets.token_urlsafe(32)` for tokens, `secrets.choice` for picks.
+- `random` is a Mersenne Twister: predictable from a handful of outputs, and unsuitable for tokens, passwords, salts, or session ids. `secrets.token_urlsafe(32)` for tokens, `secrets.choice` for picks.
 - Compare secrets with `hmac.compare_digest`, not `==`. Short-circuit comparison leaks the length and prefix through timing.
 - Passwords need a slow KDF: argon2 (`argon2-cffi`) or bcrypt. Stdlib-only fallback: `hashlib.scrypt`, or `hashlib.pbkdf2_hmac("sha256", ..., 600_000)` — 600k iterations is the OWASP Password Storage recommendation for PBKDF2-HMAC-SHA256. A SHA-256 of a password is not password storage.
-- Secrets never live in source, default arguments, or `repr`: dataclass fields holding tokens get `repr=False` (`data-modeling.md`), and log filters redact them (`logging.md`). Everything in `os.environ` is inherited by every child process you spawn (`subprocess.md`).
-- `assert user.is_admin` is not an authorization check: `python -O` removes every assert (`testing.md`). Raise explicitly.
+- Keep secrets out of source, default arguments, or `repr`: dataclass fields holding tokens get `repr=False` (`references/data-modeling.md`), and log filters redact them (`references/logging.md`). Everything in `os.environ` is inherited by every child process you spawn (`references/subprocess.md`).
+- `assert user.is_admin` is not an authorization check: `python -O` removes every assert (`references/testing.md`). Raise explicitly.
 
 ## TLS and Network
 
 - `verify=False` in requests, or `ssl._create_unverified_context()`, disables authentication of the peer entirely — a corporate proxy error is fixed by installing the CA (`REQUESTS_CA_BUNDLE`, `SSL_CERT_FILE`, or `certifi`), not by turning off verification.
 - `ssl.create_default_context()` is the correct starting point (verification and hostname checking on). `ssl.wrap_socket` was removed in `python >=3.12`.
-- Set a timeout on every outbound call or a slow server becomes your outage (`errors.md`).
+- Set a timeout on every outbound call or a slow server becomes your outage (`references/errors.md`).
 - Cloud metadata endpoints (169.254.169.254) are reachable from most runtimes: an SSRF in a service becomes credential theft. Validate outbound hosts.
 
 ## Temp Files and Filesystem
 
-- `tempfile.mkstemp`/`NamedTemporaryFile`, never a hand-built `/tmp/app-<pid>` path — predictable names in a world-writable directory are a symlink race.
+- `tempfile.mkstemp`/`NamedTemporaryFile`, instead of a hand-built `/tmp/app-<pid>` path — predictable names in a world-writable directory are a symlink race.
 - Create secrets with restrictive permissions from the start: `os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)`. Chmod after writing leaves a window.
 - `shutil.rmtree` follows into directories you may not intend; `os.walk(followlinks=False)` is the default for a reason — keep it.
 
 ## Supply Chain
 
-- `pip install` runs arbitrary code from an sdist's build step. Prefer wheels (`--only-binary :all:` where the tree allows it), pin with hashes (`--require-hashes`, `packaging.md`), and review new transitive dependencies the way you review code.
-- `--extra-index-url` lets a public package with a higher version number shadow your internal one — the dependency-confusion attack (`packaging.md`).
+- `pip install` runs arbitrary code from an sdist's build step. Prefer wheels (`--only-binary :all:` where the tree allows it), pin with hashes (`--require-hashes`, `references/packaging.md`), and review new transitive dependencies the way you review code.
+- `--extra-index-url` lets a public package with a higher version number shadow your internal one — the dependency-confusion attack (`references/packaging.md`).
 - Typosquatting is a name-similarity attack: `requsts`, `python-dateutil` vs `dateutil`. Copy names from the project's own docs, not from memory or a model's suggestion.
 - Run `pip-audit` (or an equivalent) in CI, and again on a schedule — a CVE published after your last build affects the artifact already in production.
 
 ## Framework Defaults Worth Checking
 
-- Debug mode off in production: the Werkzeug/Flask debugger exposes an interactive console (remote code execution) and Django's `DEBUG=True` leaks settings and stack frames. Framework specifics: the `flask` and `django` skills (https://clawic.com/skills/flask, https://clawic.com/skills/django).
+- Debug mode off in production: the Werkzeug/Flask debugger exposes an interactive console (remote code execution) and Django's `DEBUG=True` leaks settings and stack frames. Framework specifics: hand off to the `flask` and `django` skills.
 - Binding a dev server to `0.0.0.0` publishes it beyond localhost; `http.server` has no authentication and no rate limit and is not a deployment target.

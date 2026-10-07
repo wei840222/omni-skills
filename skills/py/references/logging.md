@@ -61,7 +61,7 @@ logging.config.dictConfig({
 
 - Log to stdout and let the supervisor (systemd, Docker, the platform) capture and rotate. That is the only design that survives multiple worker processes.
 - `RotatingFileHandler` is NOT multi-process safe: two workers rotate the same file and truncate each other's records. Under gunicorn/uvicorn workers, use stdout, a `SocketHandler` to one collector, or `concurrent-log-handler`.
-- Timestamps in UTC: `logging.Formatter.converter = time.gmtime`, or emit ISO-8601 with an offset. Local time in logs costs an hour of confusion twice a year (`datetime.md`).
+- Timestamps in UTC: `logging.Formatter.converter = time.gmtime`, or emit ISO-8601 with an offset. Local time in logs costs an hour of confusion twice a year (`references/datetime.md`).
 - Logging is synchronous: a slow handler (network, disk under pressure) blocks the thread that logged. For request paths, `QueueHandler` + `QueueListener` move the write to a background thread.
 
 ## Secrets and Volume

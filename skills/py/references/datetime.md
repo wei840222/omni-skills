@@ -14,7 +14,7 @@ One rule prevents most of the damage: every `datetime` that leaves a function is
 - Store instants in UTC (`timestamptz`, or an ISO-8601 string with an offset). Convert to a zone only for display.
 - The exception that matters: a FUTURE local commitment ("the standup at 09:00 in Berlin next March") must be stored as local wall time + the zone NAME, not as UTC. Governments change offsets; a UTC instant frozen today drifts to the wrong local hour when the rules change.
 - Dates without times (`date`) are not midnight-in-some-zone. A birthday is a `date`; a deadline is a `datetime`. Promoting a `date` to a `datetime` requires choosing a zone — make that choice visible.
-- `datetime` is a subclass of `date`, so `isinstance(dt, date)` is True for both. When the distinction matters, test `type(x) is date` or check for a `.hour` attribute (`classes.md`).
+- `datetime` is a subclass of `date`, so `isinstance(dt, date)` is True for both. When the distinction matters, test `type(x) is date` or check for a `.hour` attribute (`references/classes.md`).
 
 ## Arithmetic
 
@@ -40,14 +40,14 @@ later = (dt.astimezone(timezone.utc) + timedelta(hours=24)).astimezone(dt.tzinfo
 ## Measuring Elapsed Time
 
 - `time.monotonic()` for durations and timeouts — it cannot go backwards. `time.time()` can jump when NTP corrects the clock, which turns a duration negative and a rate-limiter into a bug.
-- `time.perf_counter()` for benchmarks (highest resolution available, monotonic, `performance.md`).
+- `time.perf_counter()` for benchmarks (highest resolution available, monotonic, `references/performance.md`).
 - `time.time()` only when you need a real-world instant to store or display.
 - Sleeping is not scheduling: `time.sleep(60)` in a loop drifts by however long the body takes. Schedule against a deadline: `next_run += 60; time.sleep(max(0, next_run - time.monotonic()))`.
 
 ## Boundaries With Other Systems
 
 - Databases: a `timestamp without time zone` column returns naive datetimes no matter what you inserted. `timestamptz` (Postgres) round-trips aware values correctly; SQLite has no date type at all and stores whatever string you give it.
-- JSON has no date type: serialize with `dt.isoformat()` and parse with `fromisoformat` (`files.md`).
+- JSON has no date type: serialize with `dt.isoformat()` and parse with `fromisoformat` (`references/files.md`).
 - HTTP headers use RFC 7231 dates in GMT (`email.utils.parsedate_to_datetime` parses them correctly; `strptime` with a hand-written format does not).
 - CSV/Excel: Excel serial dates are days since 1899-12-30 with a deliberate leap-year bug for 1900 — convert with a library, never by hand.
-- Servers run UTC; your laptop does not. Any test that depends on the local zone must set it explicitly (`freezegun`, or `TZ=UTC` in the test environment) or it fails only for the colleague in another country (`testing.md`).
+- Servers run UTC; your laptop does not. Any test that depends on the local zone must set it explicitly (`freezegun`, or `TZ=UTC` in the test environment) or it fails only for the colleague in another country (`references/testing.md`).

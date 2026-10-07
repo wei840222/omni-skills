@@ -5,14 +5,14 @@
 - `dict.fromkeys(keys, [])` has the identical bug: every key shares ONE list. Build with `{k: [] for k in keys}`.
 - `a[:]`, `list(a)`, `dict(d)`, `.copy()` are all SHALLOW — nested objects stay shared. Nested structures need `copy.deepcopy`, but it is slow and follows every reference; for a known shape like dict-of-lists, `{k: v[:] for k, v in d.items()}` is the fast targeted copy.
 - Mutating a dict key object after insertion (possible with custom `__hash__` on mutable state) makes the entry unfindable — lookup hashes the new state, the bucket holds the old. Keys must be effectively immutable.
-- A function that mutates a list it was passed changes the caller's data. Either say so in the name and docstring, or copy on entry — silent argument mutation is the hardest class of bug to locate later (`debugging.md`).
+- A function that mutates a list it was passed changes the caller's data. Either say so in the name and docstring, or copy on entry — silent argument mutation is the hardest class of bug to locate later (`references/debugging.md`).
 
 ## Ordering
 - Dict preserves insertion order (guaranteed since `python >=3.7`). Sets do NOT, and str hashing is salted per process (`PYTHONHASHSEED`) — set iteration order changes between runs. Never serialize set iteration order into golden files; `sorted()` first.
 - `list.sort`/`sorted` are stable: for multi-key mixed-direction sorts, sort by the secondary key first, then the primary — or negate numeric keys in a single tuple key.
 - `itertools.groupby` groups only CONSECUTIVE equal keys — on unsorted input it silently yields fragmented groups. Sort by the same key first, or use a dict accumulator.
 - `Counter.most_common()` breaks ties by insertion order: stable within a run, meaningless across runs whose input arrived in a different order. Sort explicitly when ties matter.
-- In-place methods return None: `xs = xs.sort()` sets `xs` to None, and so do `append`, `extend`, `update`, and `reverse`. This is where a large share of `AttributeError: 'NoneType' object has no attribute` comes from (`debugging.md`).
+- In-place methods return None: `xs = xs.sort()` sets `xs` to None, and so do `append`, `extend`, `update`, and `reverse`. This is where a large share of `AttributeError: 'NoneType' object has no attribute` comes from (`references/debugging.md`).
 
 ## Lookup and mutation
 - `d[k]` on a `defaultdict` INSERTS the key — logging `d[k]` or checking `if d[k]:` pollutes the dict. Membership tests must use `k in d`.
@@ -27,7 +27,7 @@
 ## Comprehensions
 - The loop variable does not leak out (unlike Python 2), but the FIRST iterable is evaluated in the ENCLOSING scope — which is why a comprehension in a class body cannot see other class attributes and raises `NameError`. Use a plain loop in class bodies.
 - Clause order matches the equivalent nested loops read left to right: `[y for row in m for y in row]` flattens; swapping the clauses is a `NameError`.
-- A generator expression is lazy and single-use: `sum(x*x for x in xs)` never builds a list, and a generator stored in a variable is exhausted after one pass (`functions.md`).
+- A generator expression is lazy and single-use: `sum(x*x for x in xs)` never builds a list, and a generator stored in a variable is exhausted after one pass (`references/functions.md`).
 - `dict(pairs)` and `{k: v for k, v in pairs}` both keep the LAST value for a duplicated key, silently. If duplicates are an error, count them first.
 
 ## Sets
@@ -38,7 +38,7 @@
 
 ## Cost
 - `x in list` is O(n). If you test membership against the same collection more than once, build a `set` once — the O(n) build amortizes immediately and each lookup drops to O(1).
-- `list.pop(0)` and `list.insert(0, x)` are O(n) because every element shifts; `collections.deque` is O(1) at both ends (`stdlib.md`).
+- `list.pop(0)` and `list.insert(0, x)` are O(n) because every element shifts; `collections.deque` is O(1) at both ends (`references/stdlib.md`).
 - Top-k from n items when k << n: `heapq.nlargest(k, xs)` is O(n log k) vs full sort O(n log n) — matters from thousands of items up.
 - `zip` silently truncates to the shortest input — misaligned data disappears instead of erroring. Pass `strict=True` (`python >=3.10`) whenever inputs must be equal length.
-- A list of a million small objects costs far more than the objects themselves (a pointer per slot plus over-allocation); `array.array` or numpy is an order of magnitude smaller for homogeneous numbers (`performance.md`).
+- A list of a million small objects costs far more than the objects themselves (a pointer per slot plus over-allocation); `array.array` or numpy is an order of magnitude smaller for homogeneous numbers (`references/performance.md`).
