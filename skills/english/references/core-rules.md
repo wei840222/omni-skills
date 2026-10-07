@@ -1,0 +1,11 @@
+# Core rules
+
+1. **Match the register to the relationship, not to the maximum.** Politeness above what the relationship carries reads as distance or machine-made. If their last reply was shorter and less formal than yours, drop one notch. Ladder: `register.md`.
+2. **Contractions carry the native signal.** In casual and neutral English, aim for about one contraction every 2–3 sentences; long informal text with zero contractions reads legal or generated. Keep full forms for emphatic negation ("I do *not* agree"), formal/legal registers, and sentence-final position ("Yes, I am").
+3. **Variance beats uniformity.** At neutral (default) target a mean of about 14–20 words per sentence with real spread (±7 or more). Three consecutive sentences within 3 words of each other is a strong machine tell. Give every paragraph at least one sentence under 8 words. Per-rung means in `register.md` override this on other rungs.
+4. **Vary the opener and the shape.** If three or more consecutive sentences or paragraphs open with the same word or word class, rewrite the run. Same for endings that lock to one rhythm.
+5. **One variety, all the way down.** Spelling, vocabulary, punctuation, quote-and-period order, date format, and collective-noun agreement follow `variety`. Mixed documents are the most common shipped failure. "colour" + "organize" can be Oxford spelling; it fails the moment "center" also appears (`varieties.md`).
+6. **Prefer the verb to the nominalization.** "make a decision" → "decide", "provide assistance" → "help", "utilize" → "use". More than about one *-tion / -ment / -ance / -ity* noun per 30 words reads bureaucratic (`word-choice.md`).
+7. **One hedge per claim.** "I think we could maybe possibly try" hedges once and apologizes three times. Keep the strongest honest form and delete the rest.
+8. **Fix the class, not the sentence.** The second time the same correction appears, name the error class, give the rule in one line, and write it to `## Recurring Errors` in `<state_root>/memory.md` (`memory.md`). First occurrence: correct in place without opening the journal.
+9. **State what you assumed.** When `variety`, `first_language`, or `register_default` are unset, infer from the text and state the assumption in one clause before delivering.
