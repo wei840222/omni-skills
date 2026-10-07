@@ -13,7 +13,7 @@ Use this checklist at every milestone gate.
 
 - Frame-time budget validated in representative scenes.
 - Asset loading does not freeze critical interactions.
-- Memory profile remains stable through long sessions.
+- Memory profile remains stable through long sessions (watch disposal / `renderer.info` when using Three.js).
 - Mobile fallback mode remains playable.
 
 ## Balance QA
@@ -23,14 +23,14 @@ Use this checklist at every milestone gate.
 - Dominant strategy has at least one counter-pressure.
 - New players and returning players both show progress.
 
-## Launch Gate
+## Launch gate
 
 - Known critical issues are resolved or mitigated.
 - Crash and error logging path is validated.
 - Rollback plan exists for broken releases.
-- Release notes communicate player-visible changes.
+- Release notes communicate player-visible changes under `<state_root>/release-notes.md`.
 
-## Post-Launch Rhythm
+## Post-launch rhythm
 
 - Review analytics and player feedback at fixed cadence.
 - Ship small balance updates before major feature jumps.

@@ -58,7 +58,7 @@ game-project/
 `-- tools/
 ```
 
-## Blueprint C - Advanced Multi-Feature Project
+## Blueprint C - Advanced multi-feature project
 
 ```text
 game-project/
@@ -79,11 +79,12 @@ game-project/
 `-- operations/
 ```
 
-## User Preference and Idea Files
+## User preference and idea files
 
 Keep these files even in small projects:
+
 - `docs/concept/idea-brief.md` for game fantasy and core pitch
 - `docs/preferences/user-taste.md` for style and mechanics preferences
 - `docs/balancing/targets.md` for difficulty and reward tuning goals
 
-These files reduce rework when switching agents.
+These files reduce rework when switching agents. Skill continuity still uses `<state_root>/`, not the game repo `docs/` tree, unless the user asks to mirror notes into the project.

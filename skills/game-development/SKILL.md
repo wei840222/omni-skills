@@ -1,181 +1,110 @@
 ---
 name: game-development
-slug: game-development
-version: 1.0.0
-description: Design and ship browser-playable games from no-build Three.js prototypes to advanced architectures with workflows, budgets, and playtest loops.
-homepage: https://clawic.com/skills/game-development
-changelog: Initial release with browser-first workflows, architecture patterns, project templates, and advanced game system playbooks.
+description: >
+  Design and ship browser-playable games from no-build Three.js prototypes to
+  modular TypeScript builds, with vertical-slice workflows, performance budgets,
+  playtest loops, and optional multiplayer/live-ops plans. Use when the user
+  wants a playable browser game, endless runner/arena/puzzle/platformer slice,
+  Three.js no-build prototype, game architecture split (core vs presentation),
+  asset budgets, save/recovery design, or launch/balance checklists. Not for
+  pure Three.js scene hygiene without gameplay (`threejs`), language-only JS/TS
+  debugging (`javascript`, `typescript`), or engine-editor deep dives that are
+  already covered by `unity` / `unreal-engine`.
 metadata:
-  clawdbot:
-    emoji: 🕹️
-    requires:
-      bins:
-      - node
-      - python3
-      env: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Game Development
+  version: "1.1.0"
+  openclaw: '{"emoji":"🕹️","requires":{"bins":["node","python3"]}}'
+  related-skills: '{"threejs":"WebGL scene setup, disposal, responsive canvas, and GPU hygiene once gameplay needs 3D rendering.","javascript":"Browser/Node language edges for game scripts outside architecture choices.","typescript":"Typed modular game codebases and bundler/tsconfig work for Browser Structured delivery.","unity":"Editor-heavy engine path when browser delivery is no longer the right profile.","unreal-engine":"High-fidelity C++/replication engine path when advanced rendering or netcode demands it."}'
 ---
 
-## Setup
+# Game Development
 
-On first use, read `setup.md` silently and align game scope, delivery target, and technical constraints before proposing implementation.
+Ship a **playable loop** first. Lock one delivery profile, build input → movement → objective → fail → restart, then expand systems only after playtest evidence.
 
-## When to Use
+## State location
 
-Use this skill when users want to create playable games with agents, especially instant browser games with Three.js that run without a compile step. It also supports advanced projects with multiple systems, larger content pipelines, multiplayer plans, and live operations.
+Game-development state may exist in `<workspace>/game-development/`, `<workspace>/memory/game-development/`, or `~/game-development/`.
+`<workspace>` is the host/runtime workspace root (from host config), not the shell cwd alone.
 
-## Architecture
+Before any state read or write, resolve `<state_root>` once per invocation:
 
-Memory lives in `~/Clawic/data/game-development/`. See `memory-template.md` for setup and status fields.
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/game-development/`, `<workspace>/memory/game-development/`, `~/game-development/`.
+3. If multiple candidates exist, keep only the highest-precedence directory, leave others untouched, and tell the user which location was selected.
+4. If none exists and durable notes must be saved, propose `<workspace>/game-development/` (or an explicit path if no workspace is available) and obtain named consent before creating it.
+5. Legacy paths `~/Clawic/data/game-development/` and bare copies outside the selected root are migration sources only. Copy into the selected layout only after the user names the destination; leave legacy trees untouched unless the user asks to remove them.
 
+Use the selected `<state_root>` for every state path in this skill. Never write the literal string `<state_root>` to disk. Skill package files stay under `references/` and `assets/`; never write learned data into `SKILL.md`.
+
+### State tree (after resolution)
+
+```text
+<state_root>/
+├── memory.md              # Status, snapshot, budgets, risks
+├── concept-briefs.md      # Fantasy, audience, pillars
+├── user-preferences.md    # Taste and non-negotiables
+├── system-decisions.md    # Architecture tradeoffs
+├── playtest-log.md        # Findings and balance actions
+├── roadmap.md             # Milestones and blockers
+└── release-notes.md       # Player-visible changes
 ```
-~/Clawic/data/game-development/
-|-- memory.md                     # Current project state, scope, and delivery profile
-|-- concept-briefs.md             # Game concepts, target audience, and pillar ideas
-|-- user-preferences.md           # User taste, constraints, and style preferences
-|-- system-decisions.md           # Technical decisions and tradeoffs
-|-- playtest-log.md               # Session findings, issues, and balancing actions
-|-- roadmap.md                    # Milestones and release checkpoints
-`-- release-notes.md              # What changed between iterations
-```
 
-## Quick Reference
+On first use, read `references/setup.md`. Create files from `assets/memory-template.md` only after consent.
 
-Use the smallest relevant file for the current task.
+## When to use
+
+- Instant browser games (especially no-build Three.js HTML/JS)
+- Vertical slices: endless runner, arena, puzzle, platformer, idle, tactical
+- Choosing Browser Instant vs Browser Structured vs Engine Path
+- Performance budgets, asset pipelines, save/recovery, multiplayer escalation
+- Playtest, balance, and launch gates
+
+Prefer `threejs` for pure scene/renderer hygiene, `javascript`/`typescript` for language-only failures, and `unity`/`unreal-engine` when the user already committed to those editors.
+
+## Session workflow
+
+1. **Resolve state** — run the State location procedure if continuity matters.
+2. **Lock delivery profile** — Browser Instant, Browser Structured, or Engine Path (`references/core-rules.md`). Do not mix profiles in one milestone unless the user asks to migrate.
+3. **Define the five-step slice** — input, movement, objective, fail state, restart.
+4. **Set budgets before content** — frame time, draw calls, texture/audio memory, mobile fallback (`references/browser-threejs-fast-path.md`, `references/content-pipeline.md`).
+5. **Separate simulation from presentation** — deterministic rules own truth; render/VFX observe (`references/systems-and-state.md`, `references/architecture.md`).
+6. **Playtest every milestone** — objective, expected behavior, friction, one balance action (`references/qa-balance-launch.md`).
+7. **Escalate carefully** — multiplayer/live-ops only after single-player loop quality (`references/multiplayer-and-live-ops.md`).
+
+## Quick reference
 
 | Topic | File |
 |-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Genre and loop selection | `game-types-and-loops.md` |
-| No-build browser path with Three.js | `browser-threejs-fast-path.md` |
-| Project folder blueprints | `project-structure-blueprints.md` |
-| Systems architecture and state design | `systems-and-state.md` |
-| Asset/content pipeline and tooling | `content-pipeline.md` |
-| Multiplayer and live operations | `multiplayer-and-live-ops.md` |
-| QA, balancing, and launch checklist | `qa-balance-launch.md` |
+| First activation / consent setup | `references/setup.md` |
+| Memory and file templates | `assets/memory-template.md` |
+| Core delivery rules | `references/core-rules.md` |
+| Genre → loop mapping | `references/game-types-and-loops.md` |
+| No-build Three.js path | `references/browser-threejs-fast-path.md` |
+| Folder blueprints | `references/project-structure-blueprints.md` |
+| Systems and save/recovery | `references/systems-and-state.md` |
+| Architecture overview | `references/architecture.md` |
+| Asset/content pipeline | `references/content-pipeline.md` |
+| Multiplayer and live ops | `references/multiplayer-and-live-ops.md` |
+| QA / balance / launch | `references/qa-balance-launch.md` |
+| Runtime requirements | `references/requirements.md` |
+| Data stored under state | `references/data-storage.md` |
+| Common traps | `references/common-traps.md` |
+| Security and privacy | `references/security-privacy.md` |
+| Verified sources | `references/sources.md` |
 
-## Requirements
+Load only the smallest relevant file for the current step; do not preload the full references set.
 
-- Runtime for local preview scripts: `node`
-- Optional tools for offline asset processing: `python3`
-- Browser target for quick iterations: Chrome, Edge, Safari, or Firefox
+## Requirements (summary)
 
-Prefer local and static workflows first. Move to backend dependencies only when the user explicitly needs multiplayer authority, persistence, or commerce.
+- Local preview scripts: `node`
+- Optional offline asset helpers: `python3`
+- Browser targets for instant path: Chromium, Firefox, or Safari family
 
-## Data Storage
+Prefer static local workflows first. Add backends only when the user needs authority, persistence, or commerce (`references/requirements.md`).
 
-Local notes stay under `~/Clawic/data/game-development/` and should capture:
-- the current game concept and loop assumptions
-- the user preferences and non-negotiable constraints
-- technical architecture choices with reasons
-- playtest findings, balancing deltas, and release decisions
+## Safety
 
-Keep notes concise and operational. Store decisions and outcomes, not long transcripts.
-
-## Core Rules
-
-### 1. Lock the Delivery Profile First
-Choose one profile before coding:
-- Browser Instant: no-build HTML/CSS/JS delivery, fastest iteration, easiest sharing
-- Browser Structured: TypeScript or bundler workflow with modular architecture
-- Engine Path: Unity, Unreal, or Godot when editor tooling and content scale justify it
-
-Do not mix profiles in one milestone unless the user asks for migration.
-
-### 2. Start From a Vertical Slice, Not a Full Game Plan
-Always build a playable loop in this order:
-- input
-- movement
-- objective
-- fail state
-- restart
-
-A complete five-minute loop is more valuable than ten untested systems.
-
-### 3. Treat Browser Performance as a Product Requirement
-For browser-first games, define budgets before adding content:
-- frame target and frame-time budget
-- draw calls and shader complexity budget
-- texture and audio memory budget
-- mobile fallback quality tier
-
-If a feature breaks the budget, simplify first and optimize second.
-
-### 4. Separate Deterministic Core Logic From Presentation
-Keep rules deterministic and testable:
-- game state transitions
-- hit and scoring logic
-- progression and economy math
-
-Render, VFX, and animation should observe state, not own truth.
-
-### 5. Use Progressive Complexity
-System order for agent-driven delivery:
-- loop and controls
-- feedback and readability
-- enemy or puzzle variation
-- progression layer
-- social or online features
-
-Only unlock the next layer after the previous one is playable and measured.
-
-### 6. Make Playtesting Continuous
-Each milestone must include:
-- test objective
-- expected player behavior
-- observed friction
-- one concrete balancing action
-
-No new feature batch should be accepted without a playtest note.
-
-### 7. Preserve Reusable Project Knowledge
-Update local memory after major decisions:
-- concept changes
-- preference updates
-- architecture pivots
-- launch risks
-
-This allows agents to continue work without repeating discovery.
-
-## Common Traps
-
-- Building menus, inventory, and cosmetics before core loop validation -> large scope with no fun proof
-- Tying physics and gameplay directly to frame rate -> inconsistent behavior across devices
-- Importing heavy 3D assets too early for browser targets -> unusable mobile experience
-- Skipping input latency and camera readability checks -> players quit despite stable FPS
-- Adding multiplayer before single-player loop quality -> expensive complexity without retention value
-- Ignoring save and state recovery strategy -> broken sessions and user frustration
-
-## Security & Privacy
-
-Data that stays local:
-- concept notes and user preferences under `~/Clawic/data/game-development/`
-- project decision logs and playtest outcomes
-
-Data that may leave your machine only if explicitly requested:
-- source code pushed to remote repositories
-- asset uploads to CDN or build hosts
-- backend telemetry or analytics events
-
-This skill does NOT:
-- force external services for simple browser prototypes
-- require paid APIs for baseline game creation
-- recommend production launch without performance and playtest evidence
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `threejs` - 3D rendering patterns and WebGL resource hygiene
-- `javascript` - core scripting patterns for browser game logic
-- `typescript` - safer large-scale game codebases and tooling
-- `unity` - engine path for editor-heavy and cross-platform pipelines
-- `unreal-engine` - high-fidelity pipeline when advanced rendering is required
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/game-development
-- Latest version: https://clawic.com/skills/game-development
+- Keep concept notes, preferences, and playtest logs under the resolved `<state_root>/`.
+- Push source, CDN uploads, or telemetry only when the user explicitly requests it.
+- Do not force paid APIs or external services for simple browser prototypes.
+- Do not claim launch readiness without at least one complete playtest cycle and budget evidence (`references/security-privacy.md`).

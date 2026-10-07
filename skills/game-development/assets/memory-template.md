@@ -1,6 +1,6 @@
 # Memory Template - Game Development
 
-Create `~/Clawic/data/game-development/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure after consent. Replace `<state_root>` with the resolved concrete path before any filesystem write.
 
 ```markdown
 # Game Development Memory
@@ -9,7 +9,7 @@ Create `~/Clawic/data/game-development/memory.md` with this structure:
 status: ongoing
 version: 1.0.0
 last: YYYY-MM-DD
-integration: pending | complete | paused | never_ask
+integration: pending | complete | paused | skip_setup
 
 ## Project Snapshot
 project_name: pending
@@ -69,18 +69,18 @@ project_phase: concept | prototype | vertical_slice | production | polish | laun
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Work is active | Keep gathering context and shipping increments |
 | `complete` | Goal reached for this scope | Focus on polish or handoff |
 | `paused` | User paused work | Keep context read-only until resumed |
-| `never_ask` | User wants no setup prompts | Skip setup questions unless user asks |
+| `skip_setup` | User wants no setup prompts | Skip setup questions unless user asks |
 
-## File Templates
+## Companion file templates
 
-Create `~/Clawic/data/game-development/playtest-log.md`:
+Create `<state_root>/playtest-log.md`:
 
 ```markdown
 # Playtest Log
@@ -94,7 +94,7 @@ Create `~/Clawic/data/game-development/playtest-log.md`:
 - Follow-up task:
 ```
 
-Create `~/Clawic/data/game-development/system-decisions.md`:
+Create `<state_root>/system-decisions.md`:
 
 ```markdown
 # System Decisions
@@ -107,8 +107,8 @@ Create `~/Clawic/data/game-development/system-decisions.md`:
 - Revisit trigger:
 ```
 
-## Key Principles
+## Key principles
 
 - Keep notes short, factual, and reusable.
 - Track decisions and outcomes, not brainstorming noise.
-- Update `last` whenever status or milestone changes.
+- Update `last` each time status or milestone changes.

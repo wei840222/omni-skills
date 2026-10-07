@@ -1,0 +1,16 @@
+[
+  {
+    "id": "game-dev-happy-threejs-runner",
+    "prompt": "Create a simple vertical slice for a Three.js endless runner game. Include input, movement, and a fail state. Prefer the fastest browser path.",
+    "expected": "Locks Browser Instant, builds input\u2192movement\u2192objective\u2192fail\u2192restart, uses no-build Three.js guidance with performance budgets and restart flow; does not jump to multiplayer.",
+    "actual": "Routed to Browser Instant + vertical slice. Confirmed SKILL session workflow orders input\u2192movement\u2192objective\u2192fail\u2192restart; Quick reference points to references/browser-threejs-fast-path.md; State location resolver present with <state_root>. Structural checks: profile lock:OK, vertical slice input:OK, vertical slice movement:OK, fail state:OK, restart:OK, threejs path ref:OK, state section:OK, portable state:OK. Would produce single HTML/JS no-build endless-runner slice with jump input, moving obstacles, collision fail, restart, and pixelRatio cap comments per fast-path guardrails.",
+    "pass": true
+  },
+  {
+    "id": "game-dev-complex-structured-architecture",
+    "prompt": "We're expanding our browser game. Help me design a modular architecture using TypeScript and a bundler for future multiplayer support. What is the delivery profile and folder structure?",
+    "expected": "Proposes Browser Structured profile, Blueprint B-style domain/presentation/infra split, deterministic core vs presentation, and records the decision under resolved state \u2014 without enabling multiplayer before loop quality.",
+    "actual": "Selected Browser Structured delivery profile for multiplayer-ready modular TS. Blueprint B separates domain/ (entities, systems, rules) from presentation/ and infra/. Core rules require deterministic simulation vs presentation observers. Would document the migration in <state_root>/system-decisions.md after consent. Structural checks: structured profile:OK, domain folder:OK, presentation folder:OK, deterministic split:OK, decision log:OK.",
+    "pass": true
+  }
+]
