@@ -26,7 +26,7 @@
 - Validate the logo on light, dark, photographic, and low-contrast environments.
 - Protect enough clear space that color is not doing all the separation work.
 - When the brand mark depends on color contrast internally, test small sizes aggressively.
-- Do not let social avatars, favicons, or stickers force a weaker crop or weaker color relationship.
+- Avoid letting social avatars, favicons, or stickers force a weaker crop or weaker color relationship.
 
 ## Campaign and Marketing Use
 

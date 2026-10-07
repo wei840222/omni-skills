@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a scalable neutral palette for a dark mode dashboard. Currently I only have a brand hex code #3B82F6. What steps and spaces should I use?",
+    "expected": "Loads ui-systems/palettes/color-spaces, recommends OKLCH/OKLab for even lightness steps, builds a neutral ladder plus semantic tokens instead of hue-named hexes, and validates body-text contrast on real dark surfaces.",
+    "actual": "Load `references/ui-systems.md`, `references/palettes.md`, and `references/color-spaces.md`. A single brand hex is not a system: generate a perceptually uniform neutral ladder in OKLCH, map semantic roles (surface-base, surface-elevated, text-primary, status-*), keep the brand as a controlled accent, and check 4.5:1 body text on the actual dark cards—not only on pure black.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you check if these two colors work together? Background #F3F4F6 and text #9CA3AF.",
+    "expected": "Fails WCAG AA body-text contrast with a recomputed ratio near 2.3:1, points to accessibility.md/sources.md, and requires a darker text (e.g. #4B5563 ~6.9:1) plus non-color cues for meaning.",
+    "actual": "Load `references/accessibility.md` and `references/sources.md`. Recomputed sRGB relative luminance gives about 2.31:1 for #F3F4F6 on #9CA3AF, which fails WCAG 2.2 SC 1.4.3 (4.5:1 normal text). Darken text to about #4B5563 (~6.87:1) or darker, and keep status meaning readable without hue alone. APCA may be used as a perceptual cross-check; it does not replace mandated WCAG 2.x when policy requires it.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We need chart series colors for a finance dashboard that must stay readable for deuteranopia and still print in CMYK for a quarterly PDF.",
+    "expected": "Loads data-viz and print references, rejects color-only series encoding, recommends labeled categorical colors with CVD-safe separation, and requires proofed CMYK conversion rather than trusting screen hexes.",
+    "actual": "Load `references/data-viz.md` and `references/print.md` (plus `references/sources.md` for use-of-color). Use a categorical set with direct labels/patterns so series survive deuteranopia and grayscale. Avoid red/green-only opposites. For the PDF, convert through a managed CMYK profile, check thin lines on the proof stock, and treat screen hex values as drafts until the proof passes.",
+    "pass": true
+  }
+]

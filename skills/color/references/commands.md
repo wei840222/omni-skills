@@ -139,7 +139,7 @@ for (let i = 0; i < 5; i++) {
 
 ## Command Traps
 
-- Do not generate ramps mechanically and skip visual review.
-- Do not convert profiles without checking the target environment.
+- Avoid generating ramps mechanically and skip visual review.
+- Avoid converting profiles without checking the target environment.
 - Avoid naming tokens directly from generated values if they are meant to stay semantic.
 - Spot-check real contrast and export behavior after any automated conversion.
