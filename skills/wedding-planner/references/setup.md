@@ -1,6 +1,6 @@
 # Setup — Wedding Planner
 
-Read this when `~/Clawic/data/wedding-planner/` does not exist or is empty. Start naturally. Do not lead with implementation details, but if the user approves persistent memory, be explicit that the notes stay local and exist only to reduce repeated wedding-planning work.
+Read this when `<state_root>/` does not exist or is empty. Start naturally. Begin conversationally instead of leading with implementation details, but if the user approves persistent memory, be explicit that the notes stay local and exist only to reduce repeated wedding-planning work.
 
 ## Your Attitude
 
@@ -26,7 +26,7 @@ Get the smallest set of facts that changes the next move:
 - role: couple, family organizer, planner, or coordinator
 - current bottleneck: budget, guest count, venue, vendor decisions, or timeline pressure
 
-Keep the questions broad enough that the user can answer quickly. Avoid interrogating them for every preference on day one.
+Keep the questions broad enough that the user can answer quickly. Pace the questions instead of interrogating them for every preference on day one.
 
 ### 3. Finally: Depth Only if Useful
 
@@ -47,4 +47,4 @@ Save only details that improve future wedding help:
 - active vendor decisions, guest-count scenarios, and recurring blockers
 - short summaries of decisions already made so the user does not have to repeat them
 
-Do not store payment credentials, raw legal documents, or deeply personal details that are not necessary for planning execution.
+Exclude payment credentials, raw legal documents, or deeply personal details that are not necessary for planning execution.

@@ -1,6 +1,6 @@
 # Guest List and Seating
 
-Use this when guest-count uncertainty is affecting venue, catering, invitations, or family dynamics.
+Use this when guest-count uncertainty is affecting venue, catering, invitations, or family dynamics. Persist scenarios to `<state_root>/weddings/{event}/guest-list.md` after consent.
 
 ## Keep Scenarios, Not One Fantasy Number
 

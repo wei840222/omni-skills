@@ -1,10 +1,11 @@
 # Budget and Payments
 
-Use this when budget anxiety, scope creep, or payment timing is the current bottleneck.
+Use this when budget anxiety, scope creep, or payment timing is the current bottleneck. Persist numbers to `<state_root>/weddings/{event}/budget.md` only after the user consents to durable notes.
 
 ## Budget Structure
 
 Track four numbers separately:
+
 - target ceiling
 - currently committed spend
 - already paid deposits
@@ -30,6 +31,8 @@ Use one line per category:
 | Transport | | | | | | |
 | Misc / contingency | | | | | | |
 
+Category share benchmarks from commercial wedding media are market-specific and change yearly. Prefer the user's real quotes and ceiling over published average percentages. When citing any external average, open a live source the same session and label it as scenario input only.
+
 ## Decision Rules
 
 - No upgrade is "small" if it creates budget drift in three categories at once.
@@ -41,3 +44,5 @@ Use one line per category:
 - Put every deposit and final balance on the backward timeline immediately.
 - Mark which payments are non-refundable and which are only partially refundable.
 - If family members are paying for something, record who owns the decision and who needs approval before a commitment is made.
+- Never store full card numbers, CVVs, bank logins, or payment tokens in state. Last-four or a secret pointer only.
+- Draft vendor acceptance or payment instructions for user review; do not send money or sign on the user's behalf.
