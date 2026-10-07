@@ -77,7 +77,7 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 ```
 
-**Critical:** Never lose your upload keystore. Google Play doesn't allow key changes.
+**Critical:** Always securely backup your upload keystore. Google Play enforces strict key permanence.
 
 ## Flutter
 

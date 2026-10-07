@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a GitHub Actions workflow for a Node.js project that installs dependencies, runs tests, and builds the project on every push to main.",
+    "expected": "Provides a correct GitHub Actions YAML using actions/checkout and actions/setup-node, running npm ci, test, and build.",
+    "actual": "Provided the standard Node.js/Next.js GitHub Actions template from references/templates.md, appropriately using actions/setup-node@v4 and node-version 20.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our iOS builds on GitHub Actions are failing with 'No signing certificate'. How do we fix this?",
+    "expected": "Explains Fastlane Match setup and provides the snippet for fastlane match appstore --readonly.",
+    "actual": "Identified the missing signing certificate error and recommended using Fastlane Match to store certs/profiles in an encrypted git repo, providing the initialization commands and the CI workflow snippet.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "My Next.js builds on GitHub Actions take 15 minutes because it rebuilds everything. How can I speed this up?",
+    "expected": "Instructs the user to cache the .next/cache directory and provides the exact cache action snippet.",
+    "actual": "Suggested persisting the Next.js cache across builds and provided the actions/cache@v4 configuration targeting the .next/cache path and using package-lock.json as the cache key.",
+    "pass": true
+  }
+]
