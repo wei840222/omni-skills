@@ -42,11 +42,11 @@ Promotion test: the person is **already operating** at the next level — promot
 
 - Manager span: 5-8 directs. Below 4, the layer isn't paying for itself; above 8, 1:1s and growth conversations decay first.
 - Squads: 5-8 engineers, ownership of a service or feature area, embedded PM/design when possible, cross-team dependencies minimized by design.
-- **Conway's law is a tool, not a warning**: teams ship their communication structure, so draw the org chart you want your architecture to become (the inverse Conway maneuver) — reorg first, extract services second (→ `architecture.md`).
+- **Conway's law is a tool, not a warning**: teams ship their communication structure, so draw the org chart you want your architecture to become (the inverse Conway maneuver) — reorg first, extract services second (→ `references/architecture.md`).
 
 ## Retention
 
 - Re-level compensation against market annually, unprompted. The raise that retains costs less than the search that replaces: contingency recruiters alone run 20-25% of first-year salary, before the empty-seat months and ramp.
 - Track **regretted** attrition separately from total — total attrition including managed-out low performers is noise; one regretted staff-level loss is a fire alarm.
 - The exit-interview answer is rarely the real reason. Watch upstream signals: stopped volunteering in design reviews, calendar suddenly private, "how's the roadmap looking" questions.
-- Sustainable on-call (→ `operations.md`), visible career growth, and voice in decisions retain more than perks — perks are matched by any competitor in a week; the other three aren't.
+- Sustainable on-call (→ `references/operations.md`), visible career growth, and voice in decisions retain more than perks — perks are matched by any competitor in a week; the other three aren't.
