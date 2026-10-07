@@ -73,4 +73,4 @@ Before production:
 - treat a new production key as non-functional while pending approval
 - keep public messaging and logo usage aligned with Instacart guidelines
 
-Do not claim Instacart endorsement or invent brand usage rules.
+Claim only approved, guideline-aligned messaging; skip endorsement language and invented brand rules.
