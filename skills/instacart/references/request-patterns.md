@@ -1,9 +1,9 @@
 # Request Patterns - Instacart
 
-## Recipe Page Pattern
+## Recipe page
 
 ```bash
-curl -s "https://connect.dev.instacart.tools/idp/v1/products/recipe" \
+curl -sS "https://connect.dev.instacart.tools/idp/v1/products/recipe" \
   -H "Authorization: Bearer $INSTACART_API_KEY" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
@@ -29,10 +29,13 @@ curl -s "https://connect.dev.instacart.tools/idp/v1/products/recipe" \
   }' | jq
 ```
 
-## Shopping List Pattern
+Keep only the searchable product name in `name`. Put brand and health intent in
+filters. See `references/units.md` for valid units.
+
+## Shopping list page
 
 ```bash
-curl -s "https://connect.dev.instacart.tools/idp/v1/products/products_link" \
+curl -sS "https://connect.dev.instacart.tools/idp/v1/products/products_link" \
   -H "Authorization: Bearer $INSTACART_API_KEY" \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
@@ -56,24 +59,31 @@ curl -s "https://connect.dev.instacart.tools/idp/v1/products/products_link" \
   }' | jq
 ```
 
-## Canonicalization Rules
+## Nearby retailers
 
-- Lowercase unit aliases to a supported form before hashing.
+```bash
+curl -sS \
+  "https://connect.dev.instacart.tools/idp/v1/retailers?postal_code=90210&country_code=US" \
+  -H "Authorization: Bearer $INSTACART_API_KEY" \
+  -H "Accept: application/json" | jq
+```
+
+## Canonicalization for URL cache
+
+Before hashing a payload into `<state_root>/url-cache.md`:
+
+- Lowercase unit aliases to a supported form.
 - Keep product names generic; move brand intent to filters.
-- Sort filter arrays if order is not semantically meaningful.
-- Strip empty optional fields before hashing or caching.
-- Hash the normalized request plus environment to build URL-cache keys.
+- Sort filter arrays when order is not semantic.
+- Strip empty optional fields.
+- Hash normalized request + environment (dev/prod).
 
-## Measurement Rules
+Reuse a cached `products_link_url` when title, items, instructions, filters, and
+link settings are unchanged.
 
-- Prefer `each` for countable products.
-- Provide multiple measurements only when truly helpful.
-- Put the preferred measurement first.
-- Reject zero or negative quantities before sending traffic.
+## Identifier rules
 
-## Identifier Rules
-
-- Use `product_ids` when you already trust Instacart ids.
-- Use `upcs` when UPC-priority matching is needed.
-- Never send both for the same item.
-- Never duplicate the same identifier across multiple items in one payload.
+- Prefer `product_ids` when Instacart ids are already trusted.
+- Prefer `upcs` when UPC-priority matching is required.
+- Send only one identifier family per item.
+- Keep each identifier unique across items in one payload.

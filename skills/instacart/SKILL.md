@@ -1,205 +1,107 @@
 ---
 name: instacart
-slug: instacart
-version: 1.0.0
-description: Build Instacart recipe pages, shopping lists, and retailer lookups with MCP, REST, secure auth, and launch-ready integration rules.
-homepage: https://clawic.com/skills/instacart
-changelog: Initial release with MCP, REST, Connect boundary, and API integration playbooks for Instacart.
+description: >
+  Build Instacart Marketplace recipe pages, shopping-list pages, and nearby
+  retailer lookups with Developer Platform REST or MCP, including auth, payload
+  shaping, launch approval, and Connect boundary checks. Use when the user needs
+  Instacart Developer Platform integration, shoppable recipe or list links,
+  MCP create-recipe/create-shopping-list handoff, retailer discovery by postal
+  code, or production launch readiness. Prefer `grocery` for generic shopping
+  planning without Instacart APIs, `api` for generic REST patterns, `auth` for
+  credential hygiene outside Instacart keys, `webhook` for Connect callbacks,
+  and `workflow` for non-Instacart runbook design.
 metadata:
-  clawdbot:
-    emoji: IC
-    requires:
-      env:
-      - INSTACART_API_KEY
-      bins:
-      - jq
-    primaryEnv: INSTACART_API_KEY
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Instacart
+  version: "1.0.0"
+  openclaw: '{"emoji":"🛒","requires":{"env":["INSTACART_API_KEY"],"bins":["jq"]},"primaryEnv":"INSTACART_API_KEY"}'
+  related-skills: '{"api":"Generic REST request and error-handling patterns beyond Instacart endpoints.","auth":"Credential and environment hygiene when the problem is not Instacart-key specific.","grocery":"Grocery planning and item taxonomy without Instacart Developer Platform calls.","webhook":"Callback verification when Connect post-checkout events are in scope.","workflow":"General operating runbooks outside Instacart surface routing."}'
 ---
+
+## State location
+
+Instacart operating state may exist in `<workspace>/instacart/`, `<workspace>/memory/instacart/`, or `~/instacart/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/instacart/`, `<workspace>/memory/instacart/`, `~/instacart/`.
+3. If none exists and state must be created, default to `<workspace>/instacart/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+If more than one candidate exists, keep the highest-precedence directory only,
+report the conflict, and do not merge or cross-write the copies.
+
+```text
+<state_root>/
+|-- memory.md          # Activation rules, surface defaults, launch boundary
+|-- url-cache.md       # Normalized payload hashes → products_link URLs
+|-- retailer-notes.md  # Geo defaults and preferred retailer_key values
+|-- launch-notes.md    # Production approval and messaging constraints
+`-- incidents.md       # Failed requests, root causes, fixes
+```
+
+This skill writes only inside the resolved `<state_root>`. Never store raw API
+keys in state files; keep secrets in the environment or secret manager.
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+If `<state_root>/` does not exist or is empty, read `references/setup.md` and start naturally.
 
-## When to Use
+## When to load
 
-User needs Instacart-specific execution rather than generic grocery advice. Activate for shoppable recipe pages, shopping list pages, nearby retailer lookup, MCP-based agent handoff, launch-readiness checks, or API troubleshooting around Instacart Developer Platform.
+Load this skill when the user needs Instacart-specific execution: Developer Platform recipe or shopping-list pages, nearby retailer lookup, MCP agent handoff, launch approval checks, or API troubleshooting. Skip generic meal planning that has no Instacart link or API work.
 
-## Architecture
+## Decision gates
 
-Memory lives in `~/Clawic/data/instacart/`. See `memory-template.md` for setup.
+1. **Surface first.** Choose Developer Platform MCP, Developer Platform REST, or
+   Instacart Connect before assembling any request. Read
+   `references/connect-boundaries.md` when fulfillment, delivery windows, order
+   lifecycle, or post-checkout callbacks appear.
+2. **Environment and auth.** Confirm development vs production host, key scope
+   (read-only / read-write / admin), and that production keys are approved before
+   write traffic. Read `references/auth-playbook.md`.
+3. **Payload quality.** Keep product `name` generic; put brand and health intent in
+   filters; use supported units; never send both `product_ids` and `upcs` on one
+   item. Read `references/request-patterns.md` and `references/units.md`.
+4. **Idempotency.** Cache `products_link_url` by normalized payload + environment in
+   `<state_root>/url-cache.md` before recreating equivalent pages.
+5. **Launch messaging.** Public claims about an Instacart integration require full
+   production approval. Read `references/launch-and-messaging.md`.
 
-```text
-~/Clawic/data/instacart/
-|-- memory.md                # Operating context, activation rules, approved surfaces
-|-- url-cache.md             # Payload hashes and generated products_link URLs
-|-- retailer-notes.md        # Preferred retailers, geo defaults, and known-good keys
-|-- launch-notes.md          # Production approval state and messaging constraints
-`-- incidents.md             # Failed requests, root causes, and fixes
-```
-
-## Quick Reference
-
-Use the smallest relevant file for the current task.
+## When to load map
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory schema and status values | `memory-template.md` |
-| Auth, environments, and key model | `auth-playbook.md` |
-| Core endpoint coverage | `endpoint-map.md` |
-| Request bodies, payload shaping, and curl examples | `request-patterns.md` |
-| MCP server setup and tool limits | `mcp-integration.md` |
-| Connect and fulfillment boundaries | `connect-boundaries.md` |
-| Errors, retries, and low-signal matches | `troubleshooting.md` |
+| First-use setup and activation | `references/setup.md` |
+| Auth, hosts, key scopes, smoke tests | `references/auth-playbook.md` |
+| REST endpoints and response shape | `references/endpoint-map.md` |
+| Recipe / shopping-list request patterns | `references/request-patterns.md` |
+| Units of measurement | `references/units.md` |
+| MCP tools and when to prefer REST | `references/mcp-integration.md` |
+| Developer Platform vs Connect | `references/connect-boundaries.md` |
+| Core operating rules | `references/core-rules.md` |
+| Common traps | `references/common-traps.md` |
+| Errors, retries, weak matches | `references/troubleshooting.md` |
+| Launch approval and public messaging | `references/launch-and-messaging.md` |
+| Security and data boundaries | `references/security-and-privacy.md` |
+| Memory schema | `references/memory-template.md` |
+| Research sources | `references/sources.md` |
+
+| Evaluation harness only | `test-prompts.json` |
 
 ## Requirements
 
-- Required secret: `INSTACART_API_KEY`
-- Required tool for the documented smoke tests: `jq`
-- Optional tool for MCP Inspector workflows: `npx`
-- Optional: MCP Inspector for validating MCP connectivity
+- Required secret: `INSTACART_API_KEY` (Bearer token for Developer Platform REST/MCP)
+- Required tool for documented smoke tests: `jq`
+- Optional: MCP Inspector (`npx`) for MCP connectivity checks
 
-Never ask the user to paste API keys into chat. Use environment variables or their existing secret manager.
-
-## Data Storage
-
-Local notes in `~/Clawic/data/instacart/` should store:
-- approved environment and surface selection
-- geo defaults such as `country_code` and common postal codes
-- known-good payload shapes and normalized line-item conventions
-- generated link cache keyed by normalized content hash
-- production approval status and messaging restrictions
-
-## Core Rules
-
-### 1. Choose the Right Surface Before Sending Traffic
-Decide explicitly between:
-- Developer Platform MCP for agent-native `create-recipe` and `create-shopping-list`
-- Developer Platform REST for recipe pages, shopping list pages, and nearby retailers with full request control
-- Instacart Connect for branded ecommerce, fulfillment, post-checkout, sandbox callbacks, or retailer workflows
-
-Do not mix these surfaces casually. Wrong routing creates auth failures, wrong expectations, and rework.
-
-### 2. Lock Environment, Auth, and Scope First
-Before any request, confirm:
-- development or production
-- the correct base URL for that environment
-- `Authorization: Bearer <API key>` for Developer Platform REST
-- whether the API key has the required permission level and endpoint access
-
-Production keys should only be used after the integration has passed Instacart review and is active.
-
-### 3. Normalize Inputs for Matching, Not Human Prose
-Instacart matching is heuristic. For each ingredient or line item:
-- keep `name` generic and searchable
-- keep brand preferences in `filters.brand_filters`
-- keep health preferences in `filters.health_filters`
-- use either `product_ids` or `upcs`, never both
-- use supported units and positive quantities only
-
-Do not hide size, brand, dietary intent, and geo assumptions inside one noisy string.
-
-### 4. Validate Geo and Retailer Context Up Front
-For nearby retailer lookup, use `postal_code` plus `country_code`.
-- current public docs show `US` and `CA`
-- retailer lookup returns organization-level `retailer_key`, not a specific store id
-- a valid postal code does not guarantee good ingredient coverage
-
-Run retailer lookup before presenting a user-facing link when store relevance matters.
-
-### 5. Add Client-Side Idempotency
-Recipe and shopping-list creation return a fresh `products_link_url`, and the docs recommend caching until content changes.
-- canonicalize the request payload
-- hash the normalized payload plus environment
-- reuse the stored URL when nothing material changed
-- regenerate only when title, items, instructions, filters, or link settings changed
-
-Do not spam page-creation endpoints for equivalent content.
-
-### 6. Treat Measurements and Filters as Ranking Inputs
-Ordering and correctness matter:
-- for countable items, prefer `each`
-- if multiple measurements are provided, order them intentionally
-- keep brand and health filters separate from the product name
-- keep brand spelling and health filters exact
-- stay conservative on filter count per item for better matches
-
-Poor units and noisy names are a common cause of missing quantity or weak matches.
-
-### 7. Respect Launch and Messaging Constraints
-Before moving to production:
-- complete development testing
-- pass the pre-launch and approval workflow
-- assume a new production key is non-functional while pending approval
-- keep public messaging and logo usage aligned with Instacart guidelines
-
-Never claim Instacart endorsement, invent brand usage rules, or ship production messaging without checking current guidance.
-
-## Common Traps
-
-- Using Connect when the task only needs a shoppable page -> heavier auth and wrong integration surface
-- Using MCP for retailer lookup -> current MCP toolset does not cover it
-- Mixing `product_ids` and `upcs` on the same item -> 400 validation error
-- Repeating the same UPC or product id across multiple items -> duplicate identifier errors
-- Stuffing brands into `name` instead of `brand_filters` -> weaker fallback matching
-- Sending unsupported or vague units -> product may match without a useful quantity
-- Treating `retailer_key` as a specific store record -> bad downstream assumptions
-- Recreating identical pages on every run -> unnecessary link churn and harder attribution
-- Requesting production traffic before approval -> key stays pending and does not function
-- Publishing UI or marketing copy without guideline review -> launch risk and brand rejection
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| https://connect.dev.instacart.tools | API key header, retailer lookup params, page-creation payloads | Developer Platform development REST traffic |
-| https://connect.instacart.com | API key header, retailer lookup params, page-creation payloads | Developer Platform production REST traffic |
-| https://mcp.dev.instacart.tools/mcp | API key header and tool payloads | Development MCP server for agent testing |
-| https://mcp.instacart.com/mcp | API key header and tool payloads | Production MCP server |
-| https://dashboard.instacart.com | Account and API key management traffic | Create keys and review approval state |
-| https://enterprise-servicedesk.instacart.com | Support case metadata | Escalate rejected or broken integrations |
-
-No other data should be sent externally unless the user explicitly adopts Instacart Connect or additional partner programs.
-
-## Security & Privacy
-
-Data that leaves your machine:
-- request bodies for recipe pages and shopping list pages
-- retailer lookup parameters such as postal code and country
-- API key authentication headers
-- optional MCP tool payloads
-
-Data that stays local:
-- caches and operating notes in `~/Clawic/data/instacart/`
-- request diffs, retry notes, and approved retailer defaults
-- raw secrets if the user stores them in an environment manager
-
-This skill does NOT:
-- request API keys in chat
-- bypass Instacart approval gates
-- imply retailer fulfillment features are available through Developer Platform page APIs
-- send undeclared traffic outside the documented Instacart surfaces
-
-## Trust
-
-By using this skill, data is sent to Instacart services and any explicitly configured Connect workflows.
-Only install and run it if you trust Instacart with the grocery and integration data you send.
+Keep API keys out of chat. Use environment variables or the user's secret manager.
 
 ## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
 
-- `api` - Build reliable REST request and error-handling patterns
-- `auth` - Structure credential hygiene and environment separation
-- `grocery` - Handle grocery-domain planning and item taxonomy
-- `webhook` - Model callback verification and event-driven workflows
-- `workflow` - Turn repeated integration steps into clear operating runbooks
+Consider these skills when the request leaves Instacart Developer Platform scope:
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/instacart
-- Latest version: https://clawic.com/skills/instacart
+- `api` — generic REST patterns
+- `auth` — non-Instacart credential hygiene
+- `grocery` — shopping planning without Instacart APIs
+- `webhook` — Connect callback verification
+- `workflow` — general runbook design

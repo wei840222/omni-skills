@@ -1,6 +1,6 @@
 # Memory Template - Instacart
 
-Create `~/Clawic/data/instacart/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Instacart Memory
@@ -34,18 +34,18 @@ integration: pending
 Updated: YYYY-MM-DD
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Still learning usage patterns | Gather context opportunistically |
 | `complete` | Enough context to operate smoothly | Use stored defaults unless the task changes |
 | `paused` | User does not want deeper setup now | Help with the immediate task and avoid extra intake |
-| `never_ask` | User does not want this configured further | Stop asking setup-like follow-ups |
+| `decline_configuration` | User prefers to skip further configuration | Stop asking setup-like follow-ups |
 
-## Key Principles
+## Principles
 
 - Keep secrets out of memory files
 - Store boundaries, not credentials
 - Prefer natural-language notes over rigid config
-- Update `last` every time the skill is used
+- Update `last` when durable context changes
