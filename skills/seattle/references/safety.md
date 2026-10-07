@@ -60,7 +60,7 @@ Seattle is **generally safe** but has **visible homelessness and property crime*
 **Car Break-ins**
 - Very common, especially near trailheads
 - Never leave ANYTHING visible
-- "Nothing to steal" signs don't work
+- "Nothing to steal" signs are ineffective
 - Report to police (for insurance)
 
 **Package Theft**
@@ -133,7 +133,7 @@ Seattle is **generally safe** but has **visible homelessness and property crime*
 1. **Two locks** (U-lock + cable)
 2. **Register your bike** with police
 3. **Take photos** of serial number
-4. **Bring inside** whenever possible
+4. **Bring inside** when possible
 5. **Lock through frame** not just wheel
 
 ---

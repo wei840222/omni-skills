@@ -131,7 +131,7 @@ Seattle metro is **one of the top 3 tech hubs in the US** (with SF and NYC). Two
 | Redmond | 5-15 min drive |
 | Bellevue | 15-25 min drive |
 | Kirkland | 15-20 min drive |
-| Seattle | 30-60 min (don't) |
+| Seattle | 30-60 min (not recommended) |
 
 **Rule:** Live on same side of lake as office.
 

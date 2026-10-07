@@ -80,7 +80,7 @@
 - Young professionals (20s-30s)
 - Restaurant/service industry workers
 - People who like walking to bars
-- Those who don't mind noise
+- Those comfortable with noise
 
 ### Pros
 - Best restaurant/bar access
@@ -200,7 +200,7 @@
 ### Who Lives Here
 - Artists (some)
 - Those who want cheap downtown
-- People who don't mind grit
+- People comfortable with urban grit
 - Not recommended for most newcomers
 
 ### Pros
