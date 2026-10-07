@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Can you check nearby retailers for Instacart in zip code 90210 using the REST API?",
+    "expected": "Uses Developer Platform REST GET /idp/v1/retailers with postal_code=90210 and country_code=US (or asks to confirm CA), Bearer auth, and treats retailer_key as organization-level metadata rather than a store inventory guarantee.",
+    "actual": "Use development REST host https://connect.dev.instacart.tools unless production is approved. Call GET /idp/v1/retailers?postal_code=90210&country_code=US with Authorization: Bearer $INSTACART_API_KEY and Accept: application/json. Parse retailers[].retailer_key/name as organization-level selection hints, not specific store ids or stock guarantees. MCP create tools cannot replace this lookup.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a new shopping list for taco night on Instacart.",
+    "expected": "Chooses Developer Platform MCP create-shopping-list or REST POST /idp/v1/products/products_link, keeps item names generic, uses supported units, avoids mixing product_ids and upcs, and returns/caches products_link_url without claiming order placement.",
+    "actual": "Default to MCP create-shopping-list when only page creation is needed; otherwise POST /idp/v1/products/products_link with title and line_items whose name fields stay generic (tortillas, ground beef, salsa) and countable units like each. Do not send both product_ids and upcs on one item. Return the products_link_url, cache it under <state_root>/url-cache.md by normalized payload+env, and clarify the user still selects a store and checks out on Instacart.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We need delivery windows and order tracking inside our branded store site—should we use the recipe page API?",
+    "expected": "Routes away from Developer Platform page APIs to Instacart Connect for branded ecommerce, fulfillment, delivery/pickup, and post-checkout; explains Developer Platform only yields Marketplace page links.",
+    "actual": "No—delivery windows, fulfillment, and order tracking are Connect partner capabilities. Developer Platform recipe/shopping-list APIs only create Marketplace page links where the shopper completes store selection and checkout. Keep Developer Platform for shoppable links; move this requirement to Connect auth and guides.",
+    "pass": true
+  }
+]
