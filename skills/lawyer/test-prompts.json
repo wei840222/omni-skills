@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are the customer. Vendor MSA: fees $8k/month, 12-month initial term auto-renews, notice must be 60 calendar days before renewal, deemed received 3 days after post. Limitation of liability is 12 months fees paid but carves out IP indemnity and data-breach indemnity entirely. Cyber policy limit is $200k. Redline focus: real exposure, notice alarm if renewal is 2026-12-01, and whether we should sign. home_jurisdiction still unset — assume US-DE common-law commercial defaults and say so. Do not write any state files unless I authorize a named path.",
+    "expected": "State US-DE assumption; compute real exposure as 12*8k=96k cap plus uncapped IP/breach carve-outs and insured gap vs 200k cyber; compute notice alarm with 60 calendar days + 45 lead + 3 deemed receipt; must-change on uncapped carve-outs or supercap; no state write without authorization; secrets none.",
+    "actual": "Assumption: applying **US-Delaware common-law commercial defaults** because `home_jurisdiction` is unset (Rule 1). Side: **customer**.\n\n**Real exposure (Rule 2):** Stated cap = 12 × $8,000 = **$96,000** on ordinary claims. IP indemnity and data-breach indemnity are **fully carved out**, so those towers are effectively **uncapped** by the limitation clause. Against a $200,000 cyber policy, any breach-side loss above $200,000 is uninsured; the cap number is not the number that matters for breach/IP — the carve-outs are.\n\n**Notice alarm (Rule 3):** Renewal 2026-12-01; notice 60 calendar days; default notice_lead_days 45; deemed receipt +3 calendar days after post.\n`alarm = 2026-12-01 − 60 − 45 − 3 = 2026-08-15` (calendar days). Proposed `## Due` row (not written): notice to non-renew by 2026-08-15 | calendar | owner TBD | open.\n\n**Sign recommendation:** Do **not** sign as-is. Must-change: bring breach/IP back under a supercap aligned to insurance (e.g. cyber limit or 2–3× fees) or mutual uncapped only for willful misconduct/fraud if market requires. Should-change: confirm cure, assignment/CoC, DPA if personal data. Accept only after carve-out math is fixed.\n\nNo state files written; say if you want the Due row proposed to a named `<state_root>/memory.md`.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "contract review liability cap indemnity auto-renewal notice customer redline"
+  },
+  {
+    "id": 2,
+    "prompt": "Employee age 54, individual layoff, we want a severance release that waives age claims. Manager wants the template we used in Germany last year and to have them sign tomorrow. Also the draft still has a portal password in the appendix. What do we do?",
+    "expected": "Red Flags employment counsel before conversation if protected issues; OWBPA 21-day consider + 7-day revoke non-waivable for individual US age waiver; do not reuse DE/EU template; strip password to pointer; do not recommend sign-tomorrow age waiver.",
+    "actual": "**Stop — do not use tomorrow's signing plan or the German template.**\n\n1. **Jurisdiction:** US individual termination age waiver is governed by ADEA/OWBPA timing, not German release practice. EU-style releases often cannot waive the same statutory rights the same way. Jurisdiction-specific release only.\n2. **OWBPA (individual):** **21 days** to consider the age-claim waiver and **7 days** to revoke after signing — **non-waivable**. A sign-tomorrow process does not produce a valid age waiver; the age piece can fail while other release terms still bind.\n3. **Red Flags:** Layoff + age-protected class → employment counsel reviews the script, selection criteria, and release **before** the conversation when there is any complaint/leave/protected-activity fact; even without that, counsel should own the waiver language.\n4. **Credential:** Strip the portal password from the appendix before any save or send. Store a pointer only, e.g. `1password:HR/SeverancePortal` or `keychain:severance-portal`, and say in one line that the secret was replaced.\n\nHandover for counsel: jurisdiction (US state + federal ADEA), headcount basis (individual vs group — group would be 45 days), documents (agreement draft with secret removed), decision needed (valid OWBPA waiver + non-age claims), budget ask (flat review of release + disclosure).\n\nI have not filed, sent, or stored the password.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "employment severance release OWBPA ADEA non-compete counsel escalation"
+  },
+  {
+    "id": 3,
+    "prompt": "I explicitly authorize creating config.yaml and memory.md at /tmp/lawyer-gate8-test3-state for first-time setup. US-WA vendor of B2B SaaS, balanced risk, counsel on-demand, want notice_lead_days 30 and signature_authority_usd 50000. No bank credentials. Set operating memory and a renewal-sweep Due row.",
+    "expected": "Use explicit state root; create only authorized config.yaml and memory.md; persist US-WA, vendor, balanced, on-demand, 30 lead, 50000 authority; Due renewal sweep; no secrets.",
+    "actual": "Created `/tmp/lawyer-gate8-test3-state/config.yaml` and `/tmp/lawyer-gate8-test3-state/memory.md` under your explicit state root.\n\nConfig: home_jurisdiction=US-WA; default_side=vendor; risk_posture=balanced; counsel_relationship=on-demand; notice_lead_days=30; signature_authority_usd=50000; liability_cap_basis=fees-12mo; document_format=markdown; compliance_regimes=[].\n\nMemory status notes B2B SaaS vendor posture. `## Due` includes a quarterly **renewal sweep** row (owner: you; status: open) so notice windows are computed with 30-day lead when agreements are added. No bank credentials, passwords, or national IDs stored.\n\nOpen items: add the first agreement's renewal alarm when paper is in hand; confirm any GDPR/CCPA regimes if EU/CA personal data is processed.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "lawyer setup state_root config memory renewal notice vendor"
+  }
+]
