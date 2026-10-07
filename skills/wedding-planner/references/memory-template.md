@@ -1,6 +1,6 @@
 # Memory Template — Wedding Planner
 
-Create `~/Clawic/data/wedding-planner/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Wedding Planner Memory
@@ -59,4 +59,4 @@ memory_mode: approved | one-off | declined
 - Record stable planning constraints, not every passing idea.
 - Keep budget, guest count, and timeline easy to scan because they drive most downstream choices.
 - Prefer short summaries of decisions over long diary-style notes.
-- Do not store payment credentials, full contracts, or sensitive personal details unless the user explicitly asks and it is operationally necessary.
+- Exclude payment credentials, full contracts, or sensitive personal details unless the user explicitly asks and it is operationally necessary.

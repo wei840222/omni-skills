@@ -1,6 +1,6 @@
 # Timeline and Run of Show
 
-Use this when the wedding date exists and the user needs sequence, deadlines, or day-of clarity.
+Use this when the wedding date exists and the user needs sequence, deadlines, or day-of clarity. Persist milestones and run-of-show to `<state_root>/weddings/{event}/timeline.md` after consent.
 
 ## Backward Plan
 
@@ -16,7 +16,7 @@ Start from the wedding date and move backward through the major locks:
 | 2-4 weeks | final counts, emergency kit, run-of-show, contact sheet |
 | week of | confirmations, packing, handoffs, weather or contingency checks |
 
-Adjust the cadence for short engagements or elopements, but do not skip dependency logic.
+Adjust the cadence for short engagements or elopements, but preserve the dependency logic.
 
 ## Milestone Rules
 

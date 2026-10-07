@@ -1,6 +1,6 @@
 # Vendor Scorecards
 
-Use this when the user is comparing vendors, negotiating offers, or trying to narrow a shortlist without losing track of trade-offs.
+Use this when the user is comparing vendors, negotiating offers, or trying to narrow a shortlist without losing track of trade-offs. Write shortlist outcomes to `<state_root>/weddings/{event}/vendors.md` after consent.
 
 ## Scorecard Fields
 
