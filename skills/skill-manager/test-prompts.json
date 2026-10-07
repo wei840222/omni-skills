@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm setting up a new project with Next.js and Firebase. What skills should I install?",
+    "expected": "Resolve state root if inventory is needed; suggest only from current Next.js/Firebase context; name candidate slugs if known; ask explicit consent before any npx clawic add; do not invent installs.",
+    "actual": "Treated as contextual suggestion (references/suggestions.md). Offered to check for nextjs/firebase-related skills and, if found, ask before `npx clawic add <slug>`. Did not run install without consent. Declined list would be checked if inventory existed under <state_root>/inventory.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "List all my installed skills and help me clean up ones I'm not using anymore.",
+    "expected": "Resolve <state_root>, read inventory.md, list Installed rows with purpose, ask per skill whether still used, remove only after confirmation, update inventory.",
+    "actual": "Followed periodic audit in references/lifecycle.md: resolve <state_root>, read inventory, list installed with purpose, ask keep/remove per row, delete skill folders only after confirmation (no clawic uninstall), then drop inventory rows. No auto-remove.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Update every skill I have installed.",
+    "expected": "Require explicit bulk consent; use npx clawic update --all (not agentskills); refresh inventory versions; hand off to skill-update when preview/backup/rollback is needed.",
+    "actual": "Confirmed bulk intent, then `npx clawic update --all` per lifecycle.md. Documented that uvx agentskills is validator-only. Offered skill-update when user wants diff/backup/rollback before applying.",
+    "pass": true
+  }
+]
