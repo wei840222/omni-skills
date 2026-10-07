@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I correctly set up a headless Raspberry Pi 5 with a reliable power source and SSH?",
+    "expected": "Recommends the official 27W USB-C PSU for Pi 5, Raspberry Pi Imager customisation for hostname/user/Wi-Fi/SSH (or empty boot firmware ssh file), custom user instead of deprecated default-only pi flows, and waiting through first-boot resize.",
+    "actual": "For Pi 5 use the official 27 W USB-C power supply first—undervoltage causes crashes before software fixes help. Flash Raspberry Pi OS with Imager; in Customisation set hostname, Wi-Fi country, a custom username/password (avoid deprecated default-only pi assumptions), and enable SSH (password or public key). Manual fallback: empty file named ssh with no extension in the boot firmware partition. First boot can take a few minutes for filesystem resize; then apt update/full-upgrade. Do not WAN port-forward SSH—prefer Tailscale, Pi Connect, or WireGuard.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm seeing kernel panics on boot after running a database in Docker on my Pi's microSD. What should I do?",
+    "expected": "Attributes failure to SD wear from heavy writes; advises reflashing fresh media and moving root or Docker volumes to USB SSD/NVMe; notes ARM image arch and avoiding amd64-only images.",
+    "actual": "Kernel panics after heavy DB/container writes usually mean microSD corruption. Reflash a known-good image onto fresh media. Move root and Docker volumes to USB SSD or NVMe where the model supports those boot/storage paths; keep SD for light or bootloader-only roles. Pull linux/arm64 or linux/arm/v7 images, not amd64-only tags, and prefer 64-bit OS on 4 GB+ boards. Overlay/read-only root helps kiosk durability after recovery.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I wire this 5V Arduino sensor straight into the Pi GPIO and drive a small DC motor from a GPIO pin?",
+    "expected": "Rejects 5V into 3.3V GPIO, rejects direct motor drive, requires level shifting and H-bridge/motor controller; points at pinout/GPIO Zero and alternate-function conflicts.",
+    "actual": "No. User GPIO is 3.3 V only—5 V on an input can permanently damage the SoC. Level-shift the sensor or choose a 3.3 V module. Never drive a DC motor from a bare GPIO; use an H-bridge or motor controller and power the motor from a suitable supply. Check pinout/GPIO Zero for pin roles so I2C/SPI/UART/PWM overlays are not fighting the HAT wiring.",
+    "pass": true
+  }
+]
