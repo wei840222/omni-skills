@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We get SkuNotAvailable when deploying a D-series VM in East US. What should we check first?",
+    "expected": "Treat as regional/zonal capacity or family availability first; suggest az vm list-skus / other zone or size; then check per-family vCPU quota; do not jump straight to rewriting the whole architecture.",
+    "actual": "Loaded references/domain.md Failure signatures + Limits. Explained SkuNotAvailable/AllocationFailed as capacity-or-family more often than app logic. Suggested: confirm subscription+region context, az vm list-skus for East US, try paired zone or nearby size in family, then az vm list-usage for quota. Named blast radius of chasing a single SKU during an incident.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "App Service returns 502 and the request dies right around 230 seconds. Help debug.",
+    "expected": "Identify App Service front-end idle/request timeout near 230s as platform behavior; recommend making work async rather than raising a nonexistent HTTP timeout; check app/container logs for long-running sync work.",
+    "actual": "Cited App Service ~230s inbound behavior from domain guide and Microsoft Learn FAQ source. Stated the limit is not a normal app setting. Recommended move long work to queue/worker (Functions/Container Apps/WebJobs), return 202 quickly, inspect logs for the slow path. Offered read-only az webapp log commands before any plan change.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Private endpoint is created for our storage account but the app still resolves a public IP from inside the VNet.",
+    "expected": "Walk Private DNS zone → VNet link → custom DNS → NSG/route/firewall; resolve FQDN from inside the VNet before opening public access; no credential dumping.",
+    "actual": "Routed to Private endpoint DNS failure signature. Ordered checks: private DNS zone exists and is linked to the app VNet, no custom DNS override, nslookup/Resolve-DnsName from a VM in the subnet, then storage firewall/PE approval. Kept credentials out of state; suggested pointer-only notes if recording the endpoint id.",
+    "pass": true
+  }
+]
