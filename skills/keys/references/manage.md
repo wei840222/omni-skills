@@ -112,3 +112,11 @@ keys-broker call '{"action":"call","service":"github","url":"https://api.github.
 ```
 
 Replace models and paths with current provider docs when the upstream API drifts.
+
+## Upstream API docs (verify before path changes)
+
+- OpenAI Auth / API reference: https://platform.openai.com/docs/api-reference/authentication
+- Anthropic API keys: https://docs.anthropic.com/en/api/getting-started
+- Stripe authentication: https://docs.stripe.com/api/authentication
+- GitHub REST authentication: https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api
+
