@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a Python function that reads a JSON file and returns its contents. Standard library only. min_python is 3.11.",
+    "expected": "Uses with open(..., encoding='utf-8') and json.load; no bare open without encoding; type hints optional but ok; no shell.",
+    "actual": "```python\nimport json\nfrom pathlib import Path\n\ndef read_json(path: str | Path) -> object:\n    with open(path, encoding='utf-8') as f:\n        return json.load(f)\n```\nUses a context manager and declares UTF-8 at the I/O boundary (Core rule 6/8). No pickle/eval.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "python read json utf-8 open context manager"
+  },
+  {
+    "id": 2,
+    "prompt": "I want a class method default argument that is an empty list so callers can append. What is the correct pattern?",
+    "expected": "Rejects mutable default in signature; uses None sentinel and initializes inside the body; warns that xs or [] loses an intentionally empty caller list.",
+    "actual": "Do not write `def f(self, xs=[])` — the list is created once at def time and shared across calls. Use:\n```python\ndef f(self, xs: list | None = None) -> list:\n    if xs is None:\n        xs = []\n    xs.append(1)\n    return xs\n```\nAvoid `xs = xs or []`: a caller who passes `[]` to be filled in place would get a fresh list and never see the appends (`references/core-rules.md`, `references/functions.md`).",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "python mutable default argument None sentinel"
+  },
+  {
+    "id": 3,
+    "prompt": "I explicitly authorize creating config.yaml at /tmp/py-gate8-test3-state for first-time setup. Prefer uv, min_python 3.12, pytest, type_strictness gradual. No secrets. Confirm state_root resolution.",
+    "expected": "Uses the explicit state root only; writes config.yaml with those preferences; does not invent workspace from cwd; no credentials.",
+    "actual": "Resolved `<state_root>` to the explicit path `/tmp/py-gate8-test3-state` (rule 1 beats candidate dirs). Created only `config.yaml`:\n```yaml\nmin_python: \"3.12\"\npackage_manager: uv\ntest_runner: pytest\ntype_strictness: gradual\ntarget_os: cross\nsrc_layout: src\nline_length: 88\nchange_workflow: test-first\n```\nNo other state files, no secrets, no migration from legacy Clawic paths.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "python state_root config.yaml uv pytest preferences"
+  }
+]
