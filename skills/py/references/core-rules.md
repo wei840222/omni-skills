@@ -2,6 +2,8 @@
 
 ## Core Rules
 
+Do this first; the traps table below is the failure mode mirror.
+
 1. No mutable defaults: `def f(xs=None)` then `if xs is None: xs = []`. Replace `xs = xs or []` — a caller passing an empty list to be filled gets a fresh list instead; their reference stays empty.
 2. `is` only for `None`, `True`, `False`, and sentinel objects; `==` for everything else. Interning makes `is` on ints and strings pass in tests and fail in production (`references/types.md`).
 3. Iterate copies instead of mutating the collection you iterate — dicts raise `RuntimeError`, lists silently skip elements. Iterate a copy (`for x in list(xs)`) or collect changes and apply after.
