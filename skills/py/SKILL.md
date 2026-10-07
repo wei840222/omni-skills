@@ -116,7 +116,7 @@ Syntax and stdlib floors that shape everyday code. Support windows and upgrade p
 
 ## Output gates
 
-Before delivering Python code, check:
+Run these checks before delivering Python code. Prefer loading one matching reference over restating entire guides in the answer.
 
 - No mutable default argument, and no `xs or []` where an empty argument is meaningful
 - Every text `open`, `subprocess`, and decode boundary declares `encoding="utf-8"`; every file, lock, socket, and connection is acquired in a `with`
