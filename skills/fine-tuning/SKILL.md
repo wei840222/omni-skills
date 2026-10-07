@@ -46,4 +46,3 @@ metadata:
 | Privacy and compliance | `references/compliance.md` |
 | Official source checks | `references/sources.md` |
 | Original behavior disposition | `references/semantic-inventory.md` |
-| Evaluation evidence | `references/evaluation-record.md` |

@@ -143,7 +143,6 @@ Runtime state lives under the resolved `<state_root>`. Skill resources stay in `
 | Ledger software | `references/software.md` | Feeds, rules, migrations |
 | Licensed escalation | `references/escalate.md` | Trust-fund, amendment, attestation, fraud signals |
 | Verified sources | `references/sources.md` | Re-check filing-year figures and primary URLs |
-| Darwin triage score | `references/darwin-evaluation.md` | Gate 8 dimension breakdown and test summary |
 
 ## Core rules
 
