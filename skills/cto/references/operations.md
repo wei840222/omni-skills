@@ -17,7 +17,7 @@ Move one bucket at a time; the leverage metric for most teams is **lead time** �
 
 Set an SLO, spend the difference deliberately. Worked example: 99.9% availability over 30 days = 30 × 24 × 60 × 0.001 = **43.2 minutes** of allowed downtime. Budget remaining → ship features freely. Budget exhausted → feature freeze, reliability work only, until the rolling window recovers. The point: it converts "how reliable is reliable enough" from a standoff between product and engineering into arithmetic both sides agreed to in advance.
 
-Don't set 99.99% because it sounds better — each extra nine roughly 10×es the cost, and your users can't tell 99.9 from 99.99 if their own wifi is worse.
+Prefer not setting 99.99% only because it sounds better — each extra nine roughly 10×es the cost, and your users can't tell 99.9 from 99.99 if their own wifi is worse.
 
 ## On-Call
 
@@ -60,6 +60,6 @@ CI → staging → canary (small % of real traffic) → full rollout → watch d
 
 ## Security Baseline
 
-- Dependency scanning automated in CI; secrets never in code (scanner in CI too — the leak you catch pre-push costs nothing, the one on GitHub costs a rotation drill)
+- Dependency scanning automated in CI; keep secrets out of code (scanner in CI too — the leak you catch pre-push costs nothing, the one on GitHub costs a rotation drill)
 - Least privilege, access reviews on a calendar (quarterly beats "when we remember")
 - Incident response plan exists and has been walked through once — a plan first read during the incident isn't a plan
