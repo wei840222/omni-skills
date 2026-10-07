@@ -2,36 +2,37 @@
 
 Use this file only when single-player loop quality is already validated.
 
-## Multiplayer Escalation Path
+## Multiplayer escalation path
 
-- Local multiplayer or async ghost data first
-- Lightweight online sync for non-critical interactions
-- Authoritative server for competitive or economy-sensitive games
+1. Local multiplayer or async ghost data first
+2. Lightweight online sync for non-critical interactions
+3. Authoritative server for competitive or economy-sensitive games
 
-Do not jump directly to full authoritative architecture without product evidence.
+Gather product evidence before adopting full authoritative architecture.
 
-## Netcode Decision Heuristics
+## Netcode decision heuristics
 
 - Turn-based or low-frequency interactions: lockstep or command sync
 - Action gameplay with precision demands: client prediction plus reconciliation
 - Social/co-op relaxed gameplay: state replication with smoothing
 
-## Session Reliability Basics
+## Session reliability basics
 
 - Explicit reconnect states
 - Clear host/server authority rules
 - Deterministic timeout and retry policy
 - Duplicate message handling via idempotent message IDs
 
-## Live Ops Baseline
+## Live ops baseline
 
 Before live events or seasonal content:
+
 - telemetry for retention and drop-off points
 - remote-config or data-driven tunables
 - rollback plan for faulty content updates
 - support playbook for incident communication
 
-## Scope Warning
+## Scope warning
 
 Multiplayer and live ops multiply cost across code, QA, hosting, and support.
-Only enable when business goals require it.
+Enable them only when business goals require it.
