@@ -48,7 +48,7 @@ Route away when the task is mainly:
 - multi-country Asia trip design → `travel`
 - another capital as the primary base → `tokyo` / `seoul` / `singapore`
 
-Read `references/sources.md` before repeating a visa duration, fee, tax threshold, or legal rule. Re-check the official page for that nationality and travel date before the user books non-refundable travel, signs a lease, or pays a visa fee.
+Prefer `references/domain.md` + one leaf file over loading the whole package. Read `references/sources.md` before repeating a visa duration, fee, tax threshold, or legal rule. Re-check the official page for that nationality and travel date before the user books non-refundable travel, signs a lease, or pays a visa fee.
 
 ## Quick reference
 
