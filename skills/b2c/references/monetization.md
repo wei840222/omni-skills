@@ -2,7 +2,7 @@
 
 ## Model Selection Matrix
 
-| Model | Best When | Avoid When |
+| Model | Best When | Suboptimal When |
 |-------|-----------|------------|
 | **Freemium** | Product has natural limits (storage, features) | Core value is one action |
 | **Free Trial** | Value compounds over time | Value is instant |

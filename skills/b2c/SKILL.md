@@ -1,65 +1,86 @@
 ---
 name: b2c
-slug: b2c
-version: 1.0.0
-description: Build consumer apps with validated demand, sustainable unit economics, and growth loops that compound.
-homepage: https://clawic.com/skills/b2c
+description: >
+  Design consumer product strategy with validated demand, monetization choice,
+  activation/retention kill metrics, CAC/LTV/payback denominators, and growth
+  loops. Use for B2C apps, freemium/trial paywalls, consumer SaaS, casual games,
+  and unit-economics reviews. Not for enterprise B2B deal qualification (`b2b`)
+  or CRM/API plumbing.
 metadata:
-  clawdbot:
-    emoji: 📱
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: B2C Strategy
+  version: "1.0.0"
+  openclaw: '{"emoji":"📱"}'
+  related-skills: '{"b2b":"Enterprise deal qualification when the customer is a buying committee rather than end consumers.","growth":"Channel experiment execution after B2C stage and loop choices are set.","pricing":"Deep price research once the monetization model is chosen.","retention":"Deep cohort retention diagnostics after stage priorities point at habit.","saas":"Broader SaaS ops once consumer-specific economics are framed.","product":"General product discovery adjacent to consumer monetization and loops."}'
 ---
 
-## Quick Reference
+## When to use
+
+Load for consumer (B2C) product and growth judgment: demand validation, monetization/paywall, activation/retention, unit economics, growth loops, stage priorities.
+
+## Scope
+
+Knowledge-only coaching. No persistent analytics state, billing config, or ad-account credentials. Ask for measured inputs; do not invent cohort rates, spend, or revenue.
+
+## Primary workflow
+
+1. Classify the ask (demand, monetization, activation/retention, economics, loop/channel, stage).
+2. Inventory known facts (category, stage, model, D1/D7/D30 or M6, conversion definition, ARPU, spend, **new paying customers**, payback policy). Label unknowns.
+3. Load the reference that owns the bottleneck:
+
+| Bottleneck | Load |
+|------------|------|
+| Monetization / paywall | `references/monetization.md` |
+| CAC / LTV / payback | `references/economics.md` |
+| Growth loops / channels | `references/growth.md` |
+| Retention / conversion bands | `references/benchmarks.md` |
+
+4. Apply core rules below.
+5. Output recommendation, missing inputs, kill metric, and next measurement.
+
+## Core framework
+
+### Stage-aware priorities
+| Stage | Focus | Key signal |
+|-------|-------|------------|
+| Pre-PMF | Activation + Retention | Weak habit / retention vs category → fix product before scale |
+| Post-PMF | Acquisition + Conversion | CAC payback vs funding posture |
+| Scaling | LTV optimization + Loops | LTV:CAC on **contribution** basis |
+
+### The 30-second rule
+Consumer products win or lose in the first session surface:
+1. Is there a hook? (emotional trigger, curiosity, benefit)
+2. How many taps to value? (target: ≤3)
+3. Is signup deferred until after value shown when feasible?
+
+### Critical metrics
+- **Activation**: % reaching named aha moment in first session
+- **Retention**: D1/D7/D30 and M6 when available, by acquisition cohort
+- **Monetization**: Conversion rate, ARPU, payback period
+- **Referral**: K-factor, organic vs paid ratio
+- **CAC**: fully loaded spend / **new paying customers** (CPI separate if only installs)
+- **LTV/payback**: state revenue vs contribution-margin basis
+
+## Anti-patterns → preferred moves
+1. **Building for power users** → design the casual-majority default path
+2. **Generous freemium that fully solves the job** → natural limits or trial
+3. **Vanity MAU** → define “active,” then report retention on that event
+4. **B2B-long onboarding for consumers** → show value fast
+5. **Ignoring emotions** → pair benefit with felt hook early
+6. **Late paywall after free habit** → gate after aha at a natural limit
+7. **Scaling ads before retention shape is known** → fix activation/retention first
+8. **CAC from installs + LTV from payers** → align denominators
+
+## Decision support
+1. Validate demand first (real complaints / willingness to pay)
+2. Design monetization model early (model before fine price)
+3. Define activation moment in observable events
+4. Plan at least one compounding growth loop
+5. Set kill metrics before scaling spend
+
+## Reference routing
 
 | Topic | File |
 |-------|------|
-| Monetization models & paywall design | `monetization.md` |
-| Unit economics (CAC, LTV, payback) | `economics.md` |
-| Growth loops & acquisition channels | `growth.md` |
-| Retention benchmarks by category | `benchmarks.md` |
-
-## Core Framework
-
-### Stage-Aware Priorities
-| Stage | Focus | Key Metric |
-|-------|-------|------------|
-| Pre-PMF | Activation + Retention | D7 retention > 20% |
-| Post-PMF | Acquisition + Conversion | CAC payback < 6 months |
-| Scaling | LTV optimization + Loops | LTV:CAC > 3:1 |
-
-### The 30-Second Rule
-Consumer products win or lose in the first 30 seconds:
-1. Is there a hook? (emotional trigger, curiosity, benefit)
-2. How many taps to value? (target: ≤3)
-3. Is signup deferred until after value shown?
-
-### Critical Metrics
-- **Activation**: % reaching "aha moment" in first session
-- **Retention**: D1/D7/D30 by acquisition cohort
-- **Monetization**: Conversion rate, ARPU, payback period
-- **Referral**: Viral coefficient (K-factor), organic vs paid ratio
-
-## Anti-Patterns (Common B2C Mistakes)
-
-1. **Building for power users** — The 80% casual users pay the bills
-2. **Generous freemium** — If free tier solves the problem, why upgrade?
-3. **Vanity metrics** — MAU without defining "active" hides churn
-4. **B2B thinking** — Long onboarding, feature demos, rational appeals
-5. **Ignoring emotions** — Status, FOMO, delight drive consumer behavior
-6. **Late paywall** — Users habituate to free before seeing upgrade value
-
-## Decision Support
-
-For any B2C decision, apply this framework:
-1. **Validate demand first** — Search Reddit/Twitter/forums for complaints about the problem
-2. **Design monetization early** — Model matters more than price initially
-3. **Define activation moment** — What must happen for user to "get it"?
-4. **Plan growth loop** — Paid-only doesn't scale; what compounds?
-5. **Set kill metrics** — Below what retention do you pivot?
+| Monetization models & paywall design | `references/monetization.md` |
+| Unit economics (CAC, LTV, payback) | `references/economics.md` |
+| Growth loops & acquisition channels | `references/growth.md` |
+| Retention benchmarks by category | `references/benchmarks.md` |
