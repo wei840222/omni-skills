@@ -24,6 +24,12 @@ Load for **enterprise B2B sales judgment**:
 - Multi-threading and champion development
 - Pipeline hygiene, stalled-deal recovery, and forecast honesty
 
+Adjacent non-triggers (stay with the sibling skill instead):
+
+- Pure CRM import, dedupe, or do-not-contact list work without a deal strategy question
+- Multi-touch campaign copy spanning many accounts with no single-opportunity plan
+- Salesforce authentication, SOQL, or Bulk API failures
+
 Hand off when a sibling owns the job:
 
 | Job | Skill |
