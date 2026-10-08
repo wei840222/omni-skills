@@ -1,6 +1,6 @@
 # Comparison Traps
 
-Common mistakes that invalidate comparisons.
+Patterns that weaken comparisons — detect early and recover.
 
 ## Research traps
 
@@ -25,7 +25,7 @@ Common mistakes that invalidate comparisons.
 
 ## Recovery
 
-When a trap is detected:
+When one of these patterns appears:
 
 1. Acknowledge it explicitly to the user
 2. Re-research the affected dimension to parity
