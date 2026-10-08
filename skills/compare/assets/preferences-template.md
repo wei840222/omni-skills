@@ -1,10 +1,12 @@
 # User Comparison Preferences
 
-Learned value priorities by category. Updated after comparisons.
+Learned value priorities by category. Updated after comparisons with user consent.
 
 ## Format
 
 `category: criterion > criterion > criterion (confidence)`
+
+Confidence tags: `confirmed` (user stated), `pattern` (repeated behavior), `inferred` (weak signal — treat lightly).
 
 ---
 
@@ -25,4 +27,4 @@ Learned value priorities by category. Updated after comparisons.
 
 ---
 
-*Empty = observe and fill after comparisons.*
+*Empty sections mean: observe and fill only after real comparisons.*

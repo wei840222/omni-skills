@@ -1,6 +1,6 @@
 # Default Comparison Criteria by Domain
 
-Use as starting point. User preferences override.
+Use as a starting point. User preferences and explicit statements override.
 
 ## Products / Physical Goods
 
@@ -83,13 +83,13 @@ Use as starting point. User preferences override.
 
 ---
 
-## Adjusting Weights
+## Adjusting weights
 
 These are starting points. Adjust based on:
 
-1. **Explicit user statement**: "Price doesn't matter" → reduce weight
+1. **Explicit user statement**: "Price doesn't matter" → reduce weight; redistribute remaining weight proportionally unless the user specifies replacements
 2. **Context signals**: Urgent need → increase availability weight
-3. **Past behavior**: User always asks about X → increase X weight
+3. **Past behavior**: Prior `<state_root>/preferences.md` lines for the same category
 4. **Category specifics**: Luxury purchase → quality > price
 
-**Document adjustments** in preferences.md for future comparisons.
+Document adjustments in `<state_root>/preferences.md` for future comparisons after user-authorized writes.
