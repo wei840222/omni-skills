@@ -58,7 +58,7 @@ Prefer sibling skills when the job is mainly:
 
 ## Safety defaults
 
-- Keep private keys mode `600` (or tighter) and out of git, chat logs, and skill packages.
-- Use Let's Encrypt **staging** while developing ACME clients; production has rate limits.
-- Renew 90-day certificates around day 60; never rely on last-day manual renewal.
-- Serve intermediates with the leaf (`fullchain` / chain file); browsers may hide incomplete-chain bugs that `curl` still fails on.
+- Store private keys at mode `600` (or tighter) and only on the host path the TLS unit reads.
+- Develop ACME clients against Let's Encrypt **staging** so production rate limits stay available for real hosts.
+- Schedule renewal of 90-day certificates around day 60 with `certbot renew --dry-run` before trusting timers.
+- Serve intermediates with the leaf (`fullchain` / chain file), then confirm `openssl s_client` returns verify code `0 (ok)`.
