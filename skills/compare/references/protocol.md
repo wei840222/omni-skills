@@ -62,3 +62,7 @@ Lead with caveats when any row is Low or Caveat. Offer the next research step wh
 - Note which criteria the user actually cared about
 - With consent, update `<state_root>/preferences.md` by category using `assets/preferences-template.md` format
 - Do not invent preference history
+
+## Research notes (Gate 6)
+
+Weighted multi-criteria scoring follows standard multi-attribute decision practice: define criteria and weights first, gather comparable evidence, then aggregate. Prefer whole-number criterion scores to avoid false precision. Research parity before scoring is the skill-specific control that keeps uneven source depth from silently deciding the winner.
