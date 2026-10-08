@@ -10,8 +10,8 @@ Bali is majority Hindu within Indonesia and has strong ceremonial rhythms. Respe
 
 - Wear modest attire at temples.
 - Use sarong/sash where required.
-- Do not disturb ceremonies or offerings.
-- Avoid loud/irreverent behavior in sacred spaces.
+- Maintain distance from ceremonies or offerings.
+- Maintain quiet and respectful behavior in sacred spaces.
 
 ## Key Cultural Calendar Effects
 

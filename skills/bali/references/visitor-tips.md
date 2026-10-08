@@ -15,7 +15,7 @@
 - Card works widely in tourist zones, but carry cash for small warungs/parking.
 - Prefer ATM withdrawals from bank-attached machines.
 - Keep multiple payment rails (two cards + some cash).
-- FX kiosks vary in reliability; avoid aggressive street offers.
+- FX kiosks vary in reliability; bypass aggressive street offers.
 
 ## Connectivity
 
@@ -35,7 +35,7 @@
 ## Respect and Etiquette
 
 - Temple visits require modest dress; use sarong/sash where required.
-- Do not step on ritual offerings in streets.
+- Walk carefully around ritual offerings in streets.
 - Keep respectful behavior during ceremonies and processions.
 
 ## Transport Reality

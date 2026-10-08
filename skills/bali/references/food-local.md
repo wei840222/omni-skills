@@ -18,7 +18,7 @@
 
 - First-timers: nasi campur and sate lilit at clean, busy spots.
 - Culinary explorers: babi guling and betutu with local recommendations.
-- Sensitive stomachs: start mild, avoid uncertain raw add-ons.
+- Sensitive stomachs: start mild, skip uncertain raw add-ons.
 
 ## Local Dining Rules
 

@@ -63,7 +63,7 @@ The right plan depends on traffic tolerance, mobility style, and weather.
 
 ## Booking and Operational Advice
 
-- Prefer private driver for multi-stop inland days.
+- Hire a private driver for multi-stop inland days.
 - Keep maximum 2 major stops per day in high-traffic corridors.
 - In wet season, maintain fallback indoor/cafe plans.
 - Book sunrise/sunset experiences at least 24-48h ahead in peak months.

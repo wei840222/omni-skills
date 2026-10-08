@@ -66,7 +66,7 @@
 - Pressure to transfer full amount without viewing.
 - Vague ownership/management identity.
 - No clear clause for major maintenance outages.
-- Old photos that do not match location pin.
+- Old photos that mismatch location pin.
 
 ## Booking Windows
 

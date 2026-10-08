@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a remote worker planning to move to Bali for 6 months. I need reliable internet, coworking, and cafes more than surfing. Which neighborhood should I choose and what visa do I need?",
+    "expected": "The agent should load neighborhoods-choosing.md or area files, tech.md or startup.md, and visas.md; separate stay from work permission; recommend Canggu/Berawa or Ubud as candidates; refuse to lock a multi-month visa class or duration unless the current official immigration page states it for the user's nationality.",
+    "actual": "I loaded references/neighborhoods-choosing.md, references/neighborhoods-canggu.md, references/neighborhoods-ubud.md, references/tech.md, and references/visas.md. For cafe/coworking density without a surf-first lifestyle, Ubud and inland Canggu/Berawa are the strongest starting shortlist. Visa on Arrival / B1 is a short tourist entry path, not a default 6-month remote-work answer, and stay permission is not work permission. I will not name a specific multi-month class or quote a fixed duration until the current imigrasi/e-Visa page lists that pathway for your nationality. Share nationality, employer location, and whether any local Indonesian clients are involved before flights or a long lease.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are a family with two young children looking to relocate to Bali. We need international schools and a quieter area, not a party zone. What areas are recommended and what are typical school costs?",
+    "expected": "The agent should load neighborhoods-south.md or neighborhoods-choosing.md plus education.md and cost.md; recommend calmer family bases such as Sanur or quieter pockets near school catchments; present school costs as dated ranges and note international schooling as a major fixed cost.",
+    "actual": "I loaded references/neighborhoods-south.md, references/neighborhoods-choosing.md, references/education.md, and references/cost.md. Quieter family-oriented starting points are Sanur and selected inland pockets such as Umalas rather than nightlife-heavy Seminyak strips. International and private school options concentrate differently by area; treat tuition as a major fixed cost and use education.md annual ranges (lower private through premium international) only as dated guidance, then re-check the school site for the intake year. Test door-to-door commute before signing a long lease.",
+    "pass": true
+  }
+]

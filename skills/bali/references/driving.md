@@ -10,7 +10,7 @@ Most severe expat incidents involve scooters. Treat scooter decisions as a risk 
 
 - Carry valid license and relevant international permit where required.
 - Wear certified helmet on every ride.
-- Never ride after alcohol.
+- Ride only when sober.
 - Keep insurance terms explicit for motorcycle incidents.
 
 ## When Scooter Is Reasonable
@@ -22,7 +22,7 @@ Most severe expat incidents involve scooters. Treat scooter decisions as a risk 
 | Route type | Mostly short and familiar routes |
 | Weather | No heavy-rain dependence |
 
-## When to Avoid Scooter
+## When to Skip Scooter
 
 - First week on island with no local road adaptation.
 - Users with low risk tolerance or poor night vision.
@@ -38,5 +38,5 @@ Most severe expat incidents involve scooters. Treat scooter decisions as a risk 
 ## Parking and Security Tips
 
 - Use attended parking when possible.
-- Lock bike and avoid leaving valuables in compartments.
+- Lock bike and keep valuables with you.
 - Photograph rental condition before and after use.

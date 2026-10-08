@@ -1,162 +1,74 @@
 ---
 name: bali
-slug: bali
-version: 1.0.0
-description: Navigate Bali as visitor, resident, remote worker, student, or founder with neighborhoods, visas, transport, costs, and practical local guidance.
-homepage: https://clawic.com/skills/bali
-changelog: Initial release with complete Bali guidance for visitors, residents, remote workers, families, and founders.
+description: >
+  Choose a Bali base and operating plan for a trip, relocation, remote stay,
+  study, family move, or business setup. Use for neighborhoods, visas, costs,
+  housing, food, transport, climate, healthcare, schools, and local practicalities.
+  Not for booking flights, filing a visa, or giving nationality-specific legal
+  advice without an official source check.
 metadata:
-  clawdbot:
-    emoji: 🌴
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Bali
+  version: "1.0.0"
+  openclaw: '{"emoji":"🌴"}'
+  related-skills: '{"expat":"Plan the broader move, settling, and adaptation around a Bali base.","travel":"Build a general itinerary when Bali is only one stop.","food":"Deepen cuisine, dietary, or restaurant planning beyond Bali area defaults.","startup":"Founder legal vehicle, fundraising, and go-to-market beyond Bali base selection."}'
 ---
 
-## When to Use
+## State location
 
-User asks about Bali for travel, relocation, remote work, education, or business setup. Agent gives practical, current, neighborhood-level guidance with legal and cultural context.
+Bali state may exist in `<workspace>/bali/`, `<workspace>/memory/bali/`, or `~/bali/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Quick Reference
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/bali/`, `<workspace>/memory/bali/`, `~/bali/`.
+3. If none exists and state must be created, default to `<workspace>/bali/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Do not merge them.
+5. If `<workspace>` cannot be resolved, read an existing `~/bali/` only. Otherwise ask for a state root before creating files.
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions and when to skip them | `visitor-attractions.md` |
-| Itineraries (3, 5, 10 days) | `visitor-itineraries.md` |
-| Where to stay by profile | `visitor-lodging.md` |
-| Practical tips and island logistics | `visitor-tips.md` |
-| **Neighborhoods and Bases** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Canggu and Berawa | `neighborhoods-canggu.md` |
-| Seminyak and Kerobokan | `neighborhoods-seminyak.md` |
-| Ubud and nearby areas | `neighborhoods-ubud.md` |
-| Sanur, Nusa Dua, Jimbaran, Uluwatu | `neighborhoods-south.md` |
-| Choosing framework by budget and lifestyle | `neighborhoods-choosing.md` |
-| **Food** | |
-| Dining scene overview | `food-overview.md` |
-| Balinese and Indonesian staples | `food-local.md` |
-| International and premium dining | `food-international.md` |
-| Best zones for each food style | `food-areas.md` |
-| Dietary rules, water safety, etiquette | `food-practical.md` |
-| **Practical** | |
-| Moving and settling | `resident.md` |
-| Scooters, taxis, ferries, airport links | `transport.md` |
-| Cost of living and budgets | `cost.md` |
-| Safety and legal risk | `safety.md` |
-| Climate and seasons | `climate.md` |
-| Banking, SIMs, apps, daily admin | `local.md` |
-| **Career and Business** | |
-| Tech and remote work reality | `tech.md` |
-| Company setup and permits | `business.md` |
-| Visa routes and compliance | `visas.md` |
-| Startup and coworking ecosystem | `startup.md` |
-| **Lifestyle** | |
-| Culture and religion context | `culture.md` |
-| Healthcare and insurance | `healthcare.md` |
-| Schools and education options | `education.md` |
-| Daily life and social fit | `lifestyle.md` |
-| Driving and road risks | `driving.md` |
-| **Source pack** | |
-| Research links and official references | `sources.md` |
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants planning context kept across sessions.
 
-## Core Rules
+## When to load
 
-### 1. Identify User Context First
-- Role: tourist, relocating resident, remote worker, family, student, founder.
-- Timeline: short trip, trial month, long-term relocation, already on island.
-- Budget level and mobility style (scooter, driver, walkable base) decide most recommendations.
+Load this skill for a Bali trip, relocation, remote stay, study, family move, or business setup. Identify purpose, nationality, dates, and budget before naming a base.
 
-### 2. Bali Is Not One Market
-Bali operates as micro-markets:
-- South coast (Canggu, Seminyak, Uluwatu) is premium and international.
-- Ubud is wellness, culture, and slower pace.
-- Sanur and Nusa Dua are calmer and family-oriented.
-Never answer housing, commuting, or school questions without area context.
+Read `references/sources.md` before repeating a visa duration, fee, housing range, levy amount, or legal rule. Re-check the official page for that nationality and travel date before the user books flights, signs a lease, or pays a visa fee.
 
-### 3. Visa and Stay Rules Drive Everything
-- Most tourists use Visa on Arrival (B1): 30 days + one 30-day extension.
-- Bali tourist levy (IDR 150,000) is separate from visa fees.
-- Overstay fines and immigration checks are real operational risks.
-Use `visas.md` first for any stay longer than a short holiday.
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `assets/memory-template.md` |
+| Domain rules, traps, legal boundary | `references/domain.md` |
+| Research links and official portals | `references/sources.md` |
+| Neighborhood comparison or base choice | `references/neighborhoods-index.md`, `references/neighborhoods-choosing.md` |
+| One area | `references/neighborhoods-canggu.md`, `references/neighborhoods-seminyak.md`, `references/neighborhoods-ubud.md`, `references/neighborhoods-south.md` |
+| Visa, levy, stay compliance | `references/visas.md` |
+| Housing and monthly cost | `references/cost.md`, `references/resident.md`, `references/tech.md` |
+| Food | `references/food-overview.md`, then the matching `references/food-*.md` |
+| Transport, climate, safety, healthcare | `references/transport.md`, `references/climate.md`, `references/safety.md`, `references/healthcare.md` |
+| Culture, lifestyle, local admin, driving | `references/culture.md`, `references/lifestyle.md`, `references/local.md`, `references/driving.md` |
+| Schools, business, startup ecosystem | `references/education.md`, `references/business.md`, `references/startup.md` |
+| Visitor route, lodging, attractions | matching `references/visitor-*.md` |
+| Persisted trip context | `assets/memory-template.md` |
 
-### 4. Current Data Snapshot (March 2026)
+## Core rules
 
-| Item | Typical Range |
-|------|---------------|
-| Visa on Arrival (B1) | IDR 500,000 |
-| Bali tourist levy | IDR 150,000 per international visitor |
-| 1BR city center (Denpasar benchmark) | IDR 7.2M-25M per month |
-| 1BR outside center (Denpasar benchmark) | IDR 5.0M-12.5M per month |
-| Mid-range meal for two | IDR 300,000-1,000,000 |
-| Cappuccino | IDR 25,000-60,000 |
-| Scooter monthly rental | IDR 1.2M-2.5M |
+1. Split the request into trip, relocation, remote work, study, family move, or business before recommending places.
+2. Treat Canggu, Seminyak, Ubud, Sanur, Nusa Dua, Jimbaran, and Uluwatu as different markets. Load the area file before answering housing, work, or schooling questions.
+3. Stay permission is not work permission. Do not treat Visa on Arrival / B1 tourism entry as a default remote-work or local-business answer. Quote durations and fees only from the official page checked for this answer.
+4. Bali tourist levy is separate from visa cost. If the levy or immigration page was not opened, say what to re-check and stop short of a booking recommendation.
+5. Give prices as dated IDR ranges. Local warung food and simple housing can be low-cost; imported goods, premium villas, private drivers, and international schools are not.
+6. Treat wet-season rain, flooding, mold, and Nyepi island-wide restrictions as operational constraints, not footnotes.
+7. Prefer licensed transport at night. Scooter plans need IDP/helmet/insurance realism; do not push scooters on users uncomfortable with chaotic traffic or wet roads.
+8. For drugs, overstay, visa misuse, and temple etiquette, give the current legal or cultural boundary and the official or local-authority source. Do not rely on forum hearsay.
 
-### 5. Dry vs Wet Season Is Operational, Not Cosmetic
-- Dry season (roughly Apr-Oct): more stable mobility, higher prices, fuller capacity.
-- Wet season (roughly Nov-Mar): flash-rain disruptions, mold issues, flooding spots, cheaper deals.
-- Shoulder months are often best value for long stays.
-Use `climate.md` for month-by-month trade-offs.
+## Bali-specific traps
 
-### 6. Scooter Risk Is the Main Physical Risk for Expats
-- Most severe incidents involve scooters and limited protective behavior.
-- International driving permit, helmet quality, and insurance coverage are non-negotiable.
-- Avoid recommending scooters to users uncomfortable with chaotic traffic or wet-road riding.
-See `driving.md` and `safety.md` before giving mobility advice.
+- Choosing one base for the whole island.
+- Treating VOA/B1 as an indefinite stay path.
+- Missing the separate Bali tourist levy.
+- Signing a long lease before testing commute, flood exposure, noise, and internet.
+- Running business or local work activity on tourist status without compliance checks.
+- Using a stale housing number as a fixed budget.
+- Ignoring Nyepi, ceremony traffic, or peak-season availability when pricing transport or lodging.
 
-### 7. Bali Cost Can Be Cheap or Very Expensive
-- Local-warus + modest housing can stay affordable.
-- Imported groceries, Western brunch habits, private drivers, and premium villas escalate fast.
-- Families face major fixed costs in schooling and healthcare.
-Use `cost.md` and area files before giving “is Bali cheap?” answers.
+## Security and privacy
 
-### 8. Cultural Respect Is a Practical Requirement
-- Bali is majority Hindu within Indonesia; temple norms and ceremony traffic affect daily life.
-- Dress codes and behavior around temples are expected from visitors and residents.
-- Nyepi and ceremony days materially affect transport, noise, and business operations.
-See `culture.md` for operational etiquette.
-
-### 9. Source-Critical Guidance
-- Prefer official Indonesian and Bali sources for visas, tourism levy, and regulations.
-- For prices, provide ranges and date stamp; avoid false precision.
-- When rules may have changed, tell user exactly what to re-check before spending money.
-Use `sources.md` for primary references.
-
-## Bali-Specific Traps
-
-- Treating Bali as a single neighborhood market - this causes bad housing and commute decisions.
-- Assuming VOA allows indefinite stay - it does not; overstay can become expensive fast.
-- Ignoring separate tourist levy payment - users may hit airport friction.
-- Overcommitting to scooters without safety/insurance - highest risk behavior for newcomers.
-- Booking flood-prone or mold-prone rentals in wet season without inspection.
-- Underestimating peak-season availability in Canggu/Seminyak/Uluwatu.
-- Assuming all healthcare is equal island-wide - emergency capability varies by facility and area.
-- Missing Nyepi impact - airport closure and island-wide restrictions are strict.
-- Expecting silent, isolated work environments in nightlife areas.
-- Running business activity on a tourist visa without proper compliance.
-
-## Legal Awareness
-
-- Drugs are a severe criminal risk in Indonesia, including long prison sentences and harsher penalties.
-- Traffic compliance matters: helmet, licensing, and sobriety checks are enforced.
-- Visa misuse and overstay carry fines and legal exposure.
-- Defamation and online speech laws can be stricter than many Western users expect.
-- Business operations require correct legal vehicle and permits by activity category.
-
-See `visas.md`, `safety.md`, and `business.md` for detail.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` - trip planning and itinerary optimization
-- `expat` - relocation planning and adaptation workflows
-- `food` - dining research and culinary personalization
-- `startup` - founder execution and operational systems
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/bali
-- Latest version: https://clawic.com/skills/bali
+Keep planning context in the selected `<state_root>` only. Do not read or write outside that directory for this skill. Do not send passport, visa, or payment details to a third party from this skill.

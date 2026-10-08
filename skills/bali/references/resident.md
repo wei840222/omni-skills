@@ -27,7 +27,7 @@
 
 | Priority | Why |
 |----------|-----|
-| Visa compliance system | Avoid legal and financial penalties |
+| Visa compliance system | Prevent legal and financial penalties |
 | Housing quality checks | Prevent mold, noise, and maintenance issues |
 | Mobility and safety plan | Reduce biggest daily risk exposure |
 | Healthcare access | Fast response when needed |

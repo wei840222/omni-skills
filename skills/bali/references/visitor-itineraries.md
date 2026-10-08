@@ -55,7 +55,7 @@ Optional replacement for Day 3 or 5:
 - Prioritize Sanur or Nusa Dua base.
 - Keep transfer windows short.
 - Use one park day (Waterbom/Bali Safari) and one culture-light day.
-- Avoid aggressive island-hopping with younger kids.
+- Plan relaxed, single-base stays with younger kids.
 
 ## Remote Worker + Leisure (7 Days)
 
@@ -81,4 +81,4 @@ Optional replacement for Day 3 or 5:
 ## Departure-Day Rule
 
 - For international flights, leave buffer for traffic + airport queueing.
-- Avoid long-distance inland plans on departure day.
+- Plan nearby, easily accessible activities on departure day.
