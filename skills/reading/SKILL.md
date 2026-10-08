@@ -1,60 +1,67 @@
 ---
 name: reading
-slug: reading
-version: 1.0.0
-description: Help users read better — book recommendations, retention strategies, and matching reading approach to goals.
-homepage: https://clawic.com/skills/reading
+description: >
+  Coach better reading: match book or article choice to goals and available
+  time, pick skim vs deep-read vs linear flow, raise retention with active
+  recall, and decide when to quit or switch formats. Use when the user wants
+  book recommendations, help finishing books, reading plans for short daily
+  windows, retention after reading, audiobook vs print choices, or permission
+  to stop a slog. Not for literary theory essays (`literature`), live teach-me
+  sessions (`learning`), exam/course study plans (`studying` / `study`), or
+  long-horizon self-taught curricula (`learn`).
 metadata:
-  category: learning
-  skills:
-  - reading
-  - books
-  - learning
-  - retention
-  clawdbot:
-    emoji: 📚
-    displayName: Reading
+  version: "1.1.0"
+  openclaw: '{"emoji":"📚"}'
+  related-skills: '{"literature":"Scholarly close reading, theory lenses, and critical essays rather than everyday reading coaching.","learning":"In-session teaching and misconception repair when the goal is understanding a topic live.","studying":"Exam countdowns, coursework schedules, and retrieval blocks tied to assessments.","learn":"Multi-week self-directed curriculum and mastery systems without a course or exam.","bookmarks":"Saving and organizing links or read-later queues after a title is chosen.","book-writing":"Planning and drafting long-form manuscripts rather than reading existing works.","spaced-repetition":"Long-horizon review scheduling once reading takeaways become durable cards or prompts."}'
 ---
 
-## Before Recommending Books
+# Reading coach
 
-- Ask what they've read and liked — recommendations without context waste time
-- Ask WHY they want to read this topic — learning vs entertainment vs solving specific problem
-- Ask available time — 10 min/day vs 2 hours changes what to suggest
-- One great recommendation beats list of 10 — decision paralysis kills action
-- Consider format: commuter needs audiobook, parent needs short chapters
+Stateless coaching skill for **choosing what and how to read**, raising retention, and exiting books that no longer serve the goal. It does not store reading lists or progress files.
 
-## Matching Approach to Goal
+## When to load
 
-| Goal | Approach |
-|------|----------|
-| Extract specific info | Skim, index, targeted chapters |
-| Deep learning | Slow read, notes, re-read sections |
-| Entertainment | Linear, don't interrupt flow |
-| Deciding if worth reading | First chapter + reviews + summary |
-| Research a topic | Multiple books, cross-reference |
+Load when the user needs:
 
-Don't assume they need to read cover-to-cover — ask what they actually need.
+- a next book or article matched to goal, taste, time, and format
+- a reading method (skim, deep study, linear entertainment, research cross-read)
+- retention tactics after chapters (explain-back, spaced revisit, one takeaway)
+- help quitting a slog, switching level/format, or replacing a 600-page commitment
+- audiobook vs print/ebook fit for commute, caregiving, or focus limits
 
-## Retention That Actually Works
+Hand off when a sibling owns the job:
 
-- Ask them to explain back what they learned — reveals gaps immediately
-- Suggest connecting to something they already know — isolated facts don't stick
-- One actionable takeaway per chapter — "What will you do with this?"
-- Revisit after 1 week: "What do you remember?" — spaced recall beats rereading
-- Writing summary in own words beats highlighting — active processing required
+| Job | Skill |
+| --- | --- |
+| Literary theory, close reading, critical essays | `literature` |
+| Live “teach me X” explanation sessions | `learning` |
+| Exam/course revision schedules | `studying` / `study` |
+| Multi-week self-taught mastery systems | `learn` |
+| Save/search read-later links | `bookmarks` |
+| Drafting a book manuscript | `book-writing` |
+| SRS deck scheduling after takeaways are atomic | `spaced-repetition` |
 
-## When to Suggest Quitting
+## Core path
 
-- They've given it 50+ pages and aren't engaged — sunk cost isn't reason to continue
-- They're forcing themselves — reading shouldn't feel like punishment
-- The book is above/below their current level — suggest alternative at right level
-- Their goal can be met faster — summary, article, or different book might serve better
+1. **Context before titles** — past likes, *why* this topic (learn / entertainment / solve), daily minutes, and format constraints.
+2. **One next read** — curate ruthlessly; one strong pick beats a list of ten.
+3. **Match method to goal** — load `references/domain.md` for skim vs deep vs linear vs research patterns.
+4. **Retention on purpose** — explain-back, link to prior knowledge, one actionable takeaway, spaced revisit; prefer own-words summary over highlighting.
+5. **Exit rules** — after a fair sample (about 50+ pages or equivalent), disengagement, level mismatch, or a faster path to the goal are enough reason to stop or switch.
+6. **Cite carefully** — load `references/sources.md` when quoting study techniques or comprehension guidance so dated windows stay attached.
 
-## Common Assistance Mistakes
+## Depth on demand
 
-- Recommending classics because "should read" — match to their actual interests
-- Long book lists that overwhelm — curate ruthlessly, one next read
-- Assuming physical book when audiobook fits their life better
-- Not asking about past reading failures — "I always start but never finish" needs different approach
-- Treating all books as equal time investment — 200 pages ≠ 600 pages
+| Need | Load |
+| --- | --- |
+| Recommend / method / retention / quit / common mistakes | `references/domain.md` |
+| Verified research and format sources | `references/sources.md` |
+| Evaluation harness only | `test-prompts.json` |
+
+## Operating defaults
+
+- Prefer questions that unlock a fit over dumping classics “everyone should read.”
+- Treat time cost honestly: 200 pages ≠ 600 pages; short chapters and audio can be the correct primary format.
+- Keep entertainment linear; interrupt deep-learning reads with retrieval, not the reverse.
+- Label uncertainty on specific title fit; ask which angle of the topic matters most before locking a pick.
+- No secrets, accounts, or purchase automation—recommendations stay informational unless the user asks to act.
