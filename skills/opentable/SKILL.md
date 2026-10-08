@@ -83,6 +83,7 @@ Load only what improves the current answer.
 | Listing conversion checklist | `references/listing-optimization.md` |
 | Overbooking / outage playbook | `references/incident-response.md` |
 | Memory field templates | `references/memory-template.md` |
+| Continuity starter template | `assets/memory-template.md` |
 
 ## Security and privacy
 
