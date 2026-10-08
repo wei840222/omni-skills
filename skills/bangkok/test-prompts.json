@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I am a digital nomad with a budget of 45,000 THB/month. I want to live near the BTS line but not in the most expensive areas. What are my options?",
+    "expected": "Identify role=nomad and monthly budget; load neighborhoods-choosing / On Nut–Phra Khanong / Ari guidance; give rent+food+transport ranges in ฿ with ~USD; separate stay permission from work permission; mention DTV as foreign-client remote-work orientation only and refuse locking fees/funds without live official page; do not recommend working for Thai companies on tourist entry.",
+    "actual": "Treated role as digital nomad with ฿45,000/month cap. Loaded neighborhoods-choosing plus budget BTS-side options: On Nut and Phra Khanong as primary, Ari as slightly pricier lifestyle option. Rough stack: condo ฿15k–22k + food ฿8k–12k + transport ฿2k–3.5k + utilities/SIM ฿3k–5k ≈ ฿28k–42.5k before buffer, so ฿45k is comfortable if they skip Thonglor rents. Stated DTV is the usual foreign-employer/client stay path orientation—not a Thai work permit—and that any Thai-company work needs a real work route. Did not lock DTV fee or ฿500k proof from memory; pointed to references/sources.md / live MFA–eVisa pages before they pay. Offered Asok as a short test base if they want to sample before signing a year lease.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can I work for Thai companies while on a tourist visa if I only do it part-time?",
+    "expected": "Hard no: tourist/visa-exempt entry is not a work permit; part-time, unpaid, or 'just helping' still counts. Surface deportation/ban risk. Clarify DTV covers remote work for foreign clients/employers, not local Thai employment. Point to visas.md / nomad.md and official sources before any workaround advice.",
+    "actual": "Answered no. Any work performed in Thailand for Thai companies or clients—including part-time, trial, or unpaid—needs lawful work authorization; tourist/visa-exempt stamps do not provide it. Warned that 'only part-time' is a common trap that still risks fine, deportation, and future entry problems. Separated DTV: useful for remote work paid by foreign employers/clients, still not a substitute Thai work permit. Directed them to visas.md and nomad.md for legal stay vs work split, and to live Immigration/MFA pages before changing plans. No workaround chaining of exempt entries suggested.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I might stay in Bangkok about 7 months this year on back-to-back visa-exempt entries. Anything I should know about taxes?",
+    "expected": "Raise the ~180-day Thai tax-resident trigger; explain that DTV/tourist status does not shelter remitted foreign income after the 2024 change; route to taxes.md; tell user to verify current Revenue Department guidance before remitting or filing; discourage relying on chained exemptions alone for long stays.",
+    "actual": "Flagged calendar-year day count first: plans near or over ~180 days in Thailand typically create Thai tax residency regardless of stamp type, including chained visa-exempt entries. Explained immigration status ≠ tax shelter: since the 2024 remittance rule change, foreign income brought in by a resident is a live issue—DTV does not erase it; LTR is the orientation path people compare when they need structured relief. Loaded taxes.md framing, told them not to treat package ranges as a filing position, and to open Revenue Department English pages (and a licensed advisor for filing) before large remittances. Also noted chained exempt entries themselves draw immigration scrutiny past ~90 days/year patterns—real visa planning belongs in visas.md, not stamp gymnastics.",
+    "pass": true
+  }
+]
