@@ -22,7 +22,7 @@ Strongest single move when the author is confident: "It is 6 months from now and
 
 ## Attack Rules
 
-- Attack the assumption, never the wording or the author. "This paragraph is unclear" is copyediting, not review.
+- Attack the assumption, leaving wording or the author out of scope. "This paragraph is unclear" is copyediting, not review.
 - Every attack names the observable evidence that would confirm it ("if demand is fake, the waitlist converts under X"). An attack with no observable consequence is a vibe.
 - Severity-label every attack: **kill** (plan dies), **wound** (plan needs surgery), **cosmetic** (note and move on). Only kill-class attacks justify another round.
 - The author steelmans before rebutting (SKILL.md Running the Exchange step 3). Real-time defense is the review's failure mode: the author leaves having practiced their pitch, not having tested it.

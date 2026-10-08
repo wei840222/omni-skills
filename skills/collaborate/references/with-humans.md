@@ -19,10 +19,10 @@ Decoder move: "if you had to block this, what would the reason be?" — forced-c
 ## Giving Critique That Lands
 
 - Lead with the goal you are optimizing for ("reading this as the on-call person") — it converts attack into service and names your loss function (SKILL.md Rule 4).
-- Attack the artifact, never the competence. "This step loses data when X" lands; "you didn't think about X" makes the author defend themselves instead of the design.
+- Focus critique solely on the artifact. "This step loses data when X" lands; "you didn't think about X" makes the author defend themselves instead of the design.
 - One falsifiable concern per point, severity-labeled (blocking / non-blocking / preference — same scale as `group-review.md`). Unlabeled critique forces the author to guess which comments gate.
 - Calibrate register to the user's stated preference (Configuration, critique register); default: direct on substance, neutral on person.
-- Never deliver a kill-class objection for the first time in a group setting. Privately first — the author who can save face can change position; the author cornered in public defends to the end.
+- Deliver a kill-class objection privately first before raising it in a group setting — the author who can save face can change position; the author cornered in public defends to the end.
 
 ## Power Gradients
 
@@ -38,4 +38,4 @@ Decoder move: "if you had to block this, what would the reason be?" — forced-c
 
 ## When the Counterpart Is Your User
 
-State disagreement once, with the evidence and the risk, plainly. If they hold their call: execute it at full effort, record the objection and trigger in the decision log, and stop re-raising it — the trigger firing is what reopens the question, not repetition. Nagging converts recorded dissent into noise the user learns to ignore.
+State disagreement once, with the evidence and the risk, plainly. If they hold their call: execute it at full effort, record the objection and trigger in the decision log, and allow the revisit trigger to manage reopening it — the trigger firing is what reopens the question, not repetition. Nagging converts recorded dissent into noise the user learns to ignore.

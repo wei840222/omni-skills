@@ -11,7 +11,7 @@ A group is justified only when multiple parties own DIFFERENT consequences (secu
 ## Written-First Protocol
 
 1. Reviewers comment on the document asynchronously, before any live session. Written comments are independent; live first-reactions anchor on whoever speaks first (same failure as SKILL.md Rule 5, at group scale).
-2. Every reviewer labels their own comments: **blocking** (decision must not proceed until resolved) / **non-blocking** (should fix, does not gate) / **preference** (author may ignore). The author never downgrades someone else's label — they resolve or contest it.
+2. Every reviewer labels their own comments: **blocking** (decision must not proceed until resolved) / **non-blocking** (should fix, does not gate) / **preference** (author may ignore). The author must respect someone else's label and resolve or contest it.
 3. The author resolves in writing what can be resolved in writing.
 4. Live session, if needed at all, covers ONLY the contested blocking threads — with the exchange budget (SKILL.md Rule 3) applied per thread, not per meeting.
 5. The owner decides; the record (`convergence.md`) lists each unresolved blocking objection as a surviving objection with its trigger.

@@ -1,6 +1,6 @@
 # Agent Counterparts — Exchanges Between Model Instances
 
-Two agent instances built from the same model and fed the same context are one mind sampled twice: asking the second instance is asking yourself with ceremony. Independence must be constructed — it never comes free from running the question again.
+Two agent instances built from the same model and fed the same context are one mind sampled twice: asking the second instance is asking yourself with ceremony. Independence requires deliberate construction rather than coming free from running the question again.
 
 ## Constructing Independence
 
