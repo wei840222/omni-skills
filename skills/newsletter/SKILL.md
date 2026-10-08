@@ -43,7 +43,7 @@ Hand off when a sibling owns the job:
 1. **Clarify job** — launch, content craft, growth, deliverability, metrics, or monetization.
 2. **Constraints first** — audience, cadence capacity, ESP, geography (compliance differs), and whether mail is marketing vs transactional.
 3. **Load depth on demand** — prefer one section of `references/domain.md` over the whole file.
-4. **Cite fragile facts** — auth thresholds, complaint rates, bulk-sender rules, and legal requirements only after `references/sources.md` (and re-check the live page before the user changes DNS or contracts an ESP).
+4. **Cite fragile facts** — auth thresholds, complaint rates, bulk-sender rules, and legal requirements only after loading `references/sources.md`; re-check the live provider page before DNS or ESP cutovers.
 5. **One next action** — a concrete subject test, auth checklist, win-back step, or sponsor brief beats a generic “best practices” dump.
 
 ## Depth on demand
