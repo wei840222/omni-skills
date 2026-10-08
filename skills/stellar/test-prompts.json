@@ -2,15 +2,22 @@
   {
     "id": 1,
     "prompt": "I want to send 10 XLM to an exchange. The exchange gave me the address GABC... and a memo '123456'. Can I skip the memo?",
-    "expected": "Agent should state that the memo is critical for exchanges and must not be skipped, otherwise funds will be lost.",
-    "actual": "According to the Stellar details, exchanges require a memo for deposits. Sending without a memo will result in lost funds. You must not skip the memo '123456' when sending 10 XLM to the exchange.",
+    "expected": "Agent states exchange memos are mandatory; skipping or altering the memo can permanently lose funds, and the provided memo must be included exactly.",
+    "actual": "No. Centralized exchanges require the memo they issue for deposits. Sending 10 XLM to GABC... without memo '123456' (or with the wrong type/value) can make the credit unrecoverable. Include memo '123456' exactly as the venue specified.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "I just created a brand new Stellar wallet, GXYZ... Why can't I receive 0.5 XLM into it?",
-    "expected": "Agent should explain the base reserve requirement: 1 XLM (2 base reserves of 0.5 XLM) minimum balance is required to activate an account.",
-    "actual": "Stellar accounts require a minimum balance of 1 XLM (2 base reserves of 0.5 XLM) to activate. Sending only 0.5 XLM is insufficient to meet the base reserve requirement, which is why your new wallet cannot receive it yet. You need to send at least 1 XLM to initialize the account.",
+    "expected": "Agent explains the account must hold two base reserves (currently 1 XLM) to exist; 0.5 XLM is only one base reserve and is not enough to activate.",
+    "actual": "A new G-address account must maintain two base reserves to exist—currently 1 XLM (0.5 XLM × 2). Funding only 0.5 XLM does not meet that minimum, so the account is not activated for normal receive. Send at least 1 XLM (unless a sponsor covers reserves).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Does Stellar's built-in DEX only do order books, or is there an AMM too?",
+    "expected": "Agent states SDEX has classic order books and in-protocol liquidity pools that function as constant-product AMMs; path payments can route across both.",
+    "actual": "Both. Stellar's protocol DEX includes classic order-book offers and liquidity pools that act as constant-product AMMs. Path payments can take liquidity from books and pools. Pool-share trustlines cost two base reserves and are separate from ordinary asset trustlines.",
     "pass": true
   }
 ]
