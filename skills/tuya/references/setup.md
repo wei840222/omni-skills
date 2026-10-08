@@ -1,6 +1,6 @@
 # Setup - Tuya Smart
 
-Read this when `~/Clawic/data/tuya/` does not exist or is empty.
+Read this when `<state_root>/` does not exist or is empty.
 Keep onboarding short and immediately useful.
 
 ## Operating Priorities
@@ -15,7 +15,7 @@ Keep onboarding short and immediately useful.
 1. Confirm activation boundaries early:
 - Should this activate whenever Tuya, Smart Life, IoT switches, lights, plugs, sensors, or scenes are mentioned?
 - Should behavior be proactive or only on explicit request?
-- Are there contexts where this must never auto-activate?
+- Are there contexts where this must remain inactive?
 
 2. Confirm environment model:
 - Tuya cloud region and project context
@@ -29,10 +29,10 @@ Keep onboarding short and immediately useful.
 
 4. If context is approved, initialize local workspace:
 ```bash
-mkdir -p ~/tuya
-touch ~/Clawic/data/tuya/{memory.md,environments.md,devices.md,automations.md,incidents.md}
-chmod 700 ~/tuya
-chmod 600 ~/Clawic/data/tuya/{memory.md,environments.md,devices.md,automations.md,incidents.md}
+mkdir -p <state_root>
+touch <state_root>/{memory.md,environments.md,devices.md,automations.md,incidents.md}
+chmod 700 <state_root>
+chmod 600 <state_root>/{memory.md,environments.md,devices.md,automations.md,incidents.md}
 ```
 
 5. If `memory.md` is empty, initialize it from `memory-template.md`.
@@ -54,6 +54,6 @@ chmod 600 ~/Clawic/data/tuya/{memory.md,environments.md,devices.md,automations.m
 
 ## Guardrails
 
-- Never request pasting raw Access Secret values into chat text.
-- Never imply write success without status verification evidence.
-- Never recommend bypassing Tuya platform policies or undocumented endpoints.
+- Require users to set the Access Secret via environment variables rather than pasting it into chat text.
+- Confirm write success only with status verification evidence.
+- Recommend only documented Tuya platform policies and endpoints.

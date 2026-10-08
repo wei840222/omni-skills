@@ -58,4 +58,4 @@ Checks:
 Recovery:
 - Reduce batch size and apply canary-first rollout.
 - Split fleet by product capability profile.
-- Add per-device verification and fail-fast stop conditions.
+- Add per-device verification and fail-fast halt conditions.

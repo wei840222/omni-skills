@@ -18,7 +18,7 @@ Use this sequence for reliable command execution on Tuya devices.
 5. Generate validated command payload.
 6. Send command.
 7. Read status again and compare against expected state.
-8. Record result and stop on mismatch.
+8. Record result and halt on mismatch.
 
 ## Command Payload Pattern
 

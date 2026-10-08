@@ -9,7 +9,7 @@ Use these patterns for multi-device operations and automations.
 3. Execute canary on one device.
 4. Verify state convergence.
 5. Roll out in small batches.
-6. Stop immediately on drift or repeated errors.
+6. Halt immediately on drift or repeated errors.
 
 ## Playbook 2: Scene-Like State Coordination
 
@@ -47,6 +47,6 @@ Track for each run:
 
 ## Practical Limits
 
-- Avoid uncontrolled parallel writes on first rollout.
-- Avoid mixed-region operations in one execution plan.
-- Avoid blind retries when signature or permission errors are present.
+- Ensure controlled, staged writes on first rollout.
+- Ensure operations are limited to a single region in one execution plan.
+- Halt and investigate retries when signature or permission errors are present.

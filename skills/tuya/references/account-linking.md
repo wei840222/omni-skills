@@ -14,7 +14,7 @@ Tuya documents different account behavior by app type:
   - Uses virtual account behavior for testing and service workflows.
   - May not represent full real-user app-account binding behavior.
 
-Do not assume device ownership APIs behave the same across these models.
+Treat device ownership APIs as having different behaviors across these models.
 
 ## User Permission Package Requirements
 
@@ -40,7 +40,7 @@ Before user-scoped device operations, verify:
 
 ## What to Store Locally
 
-Keep concise, non-secret notes in `~/Clawic/data/tuya/environments.md`:
+Keep concise, non-secret notes in `<state_root>/environments.md`:
 - app model in use
 - region and endpoint mapping
 - user-linking assumptions validated
