@@ -1,0 +1,96 @@
+[
+  {
+    "name": "api-health",
+    "description": "Check API returns 200",
+    "checks": [
+      {
+        "type": "http",
+        "target": "https://api.example.com/health",
+        "expect": 200
+      }
+    ],
+    "interval": "5m",
+    "requires": []
+  },
+  {
+    "name": "api-ssl",
+    "description": "Check SSL cert not expiring soon",
+    "checks": [
+      {
+        "type": "ssl",
+        "target": "api.example.com",
+        "warn_days": 14
+      }
+    ],
+    "interval": "24h",
+    "requires": []
+  },
+  {
+    "name": "postgres-up",
+    "description": "Check postgres is running",
+    "checks": [
+      {
+        "type": "process",
+        "target": "postgres"
+      }
+    ],
+    "interval": "1m",
+    "requires": []
+  },
+  {
+    "name": "disk-root",
+    "description": "Check disk not full",
+    "checks": [
+      {
+        "type": "disk",
+        "target": "/",
+        "warn_percent": 80
+      }
+    ],
+    "interval": "1h",
+    "requires": []
+  },
+  {
+    "name": "api-port",
+    "description": "Check TCP port accepts a connection",
+    "checks": [
+      {
+        "type": "port",
+        "target": "api.example.com",
+        "port": 443
+      }
+    ],
+    "interval": "5m",
+    "requires": []
+  },
+  {
+    "name": "custom-check",
+    "description": "User's custom check",
+    "checks": [
+      {
+        "type": "custom",
+        "command": "user-provided-command",
+        "expect": "success"
+      }
+    ],
+    "interval": "15m",
+    "requires": [
+      "user-granted-access"
+    ]
+  },
+  {
+    "name": "server-disk",
+    "description": "Check remote server disk",
+    "checks": [
+      {
+        "type": "disk",
+        "target": "/",
+        "host": "server1"
+      }
+    ],
+    "interval": "1h",
+    "requires": [
+      "ssh:server1"
+    ]
+  }
+]

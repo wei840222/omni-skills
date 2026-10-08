@@ -1,0 +1,41 @@
+{
+  "config": {
+    "alerts": {
+      "default_channel": "log",
+      "channels": {
+        "pushover": {
+          "token": "ENV:PUSHOVER_TOKEN",
+          "user": "ENV:PUSHOVER_USER"
+        },
+        "webhook": {
+          "url": "USER_PROVIDED_WEBHOOK_URL"
+        }
+      }
+    },
+    "monitors": {
+      "my-api": {
+        "alert_channels": [
+          "pushover",
+          "webhook"
+        ],
+        "failure_threshold": 2
+      }
+    }
+  },
+  "failure_payload": {
+    "ts": "2024-03-15T10:30:00Z",
+    "monitor": "my-api",
+    "status": "fail",
+    "previous": "ok",
+    "consecutive_failures": 3,
+    "message": "HTTP 503 after 2 minutes of failures"
+  },
+  "recovery_payload": {
+    "ts": "2024-03-15T10:45:00Z",
+    "monitor": "my-api",
+    "status": "ok",
+    "previous": "fail",
+    "downtime_minutes": 15,
+    "message": "Back to OK after 15 minutes"
+  }
+}
