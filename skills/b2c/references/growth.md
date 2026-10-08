@@ -1,65 +1,85 @@
-# Growth Loops & Acquisition Channels
+# Growth loops & acquisition channels
 
-## Growth Loop Types
+Load when designing compounding growth, choosing channels, or planning the first 100 users.
 
-### 1. Viral Loop
+## Growth loop types
+
+### 1. Viral loop
+
+```text
+User → invites friend → friend activates → repeat
 ```
-User → Invites friend → Friend converts → Repeat
+
+- **K-factor** ≈ invites sent per user × invitee conversion to activated user.
+- K > 1 can compound; K < 1 still reduces CAC when paired with other loops.
+- Fits social, multiplayer, collaboration, and share-native products.
+
+### 2. Content loop
+
+```text
+Product creates shareable/indexable output → discovery → new user → more output
 ```
-- **K-factor** = Invites sent × Conversion rate
-- K > 1 = exponential growth
-- Best for: social products, multiplayer, collaboration
 
-### 2. Content Loop
+- Examples of the pattern (not endorsements): template galleries, public creations, UGC feeds.
+- Requires output worth indexing or sharing plus permissions/privacy clarity.
+
+### 3. Paid loop
+
+```text
+$ spent → users acquired → revenue/contribution → reinvest $
 ```
-Product creates content → Content gets indexed/shared → Discovery → User
+
+- Scales linearly; sustainability needs contribution LTV > CAC with room to reinvest.
+- Does not compound by itself — pair with retention and preferably another loop.
+
+### 4. Data / network loop
+
+```text
+Users → data or network density → better product or liquidity → more users
 ```
-- Examples: Canva (designs), Notion (templates), TikTok (videos)
-- Requires: shareable output, SEO value
 
-### 3. Paid Loop
-```
-$ spent → Users acquired → Revenue → Reinvest $
-```
-- Sustainable when: LTV > CAC with margin for reinvestment
-- Doesn't compound, but scales linearly
+- Examples of the pattern: recommendations that improve with usage; marketplaces with liquidity.
+- Defensibility rises when the loop is hard to copy and privacy-respecting.
+- NFX documents many network-effect shapes; pick the shape that matches the product rather than claiming “we have network effects” generically: https://www.nfx.com/post/network-effects-manual
 
-### 4. Data Loop
-```
-Users → Data → Better product → More users
-```
-- Examples: Waze (traffic), Spotify (recommendations)
-- Defensible moat when it works
+Reforge’s framing: **loops replace pure funnel thinking** as the unit of growth design — each loop should name the reinvestment step explicitly: https://www.reforge.com/blog/growth-loops
 
-## Channel Selection
+## Channel selection questions
 
-### Discovery Questions
-1. Where does your audience already spend time?
-2. What do they search for when they have the problem?
-3. Who do they trust for recommendations?
-4. Is the problem talked about publicly?
+1. Where does the audience already spend time?
+2. What do they search when the problem hurts?
+3. Whom do they trust for recommendations?
+4. Is the problem discussed publicly (forums, social proof, UGC)?
 
-### Channel Matrix
-| Channel | CAC Range | Volume | Time to Scale |
-|---------|-----------|--------|---------------|
-| Organic social | Low | Medium | 6-12 months |
-| SEO | Low | High | 12-24 months |
-| Paid social | Medium-High | High | 1-3 months |
-| Influencers | Variable | Medium | 3-6 months |
-| App Store | Medium | Medium | 6-12 months |
-| Referral | Low | Low-Medium | 3-6 months |
+### Channel matrix (directional only)
 
-## First 100 Users Tactics
+| Channel | Typical CAC posture | Volume potential | Time to meaningful scale |
+|---------|---------------------|------------------|--------------------------|
+| Organic social | Lower cash CAC, high time | Medium | Months |
+| SEO / content | Lower cash CAC later | High if intent exists | 12–24 months common |
+| Paid social | Medium–high | High | Weeks–months |
+| Influencers / creators | Variable | Medium | Months |
+| App stores / featured | Medium + ranking work | Medium | Months |
+| Referral | Low cash if product pulls | Low–medium | Months |
 
-1. **Launch where they are** — Post in relevant communities (Reddit, Discord, Slack)
-2. **Solve one person's problem** — DM people complaining about the problem
-3. **Build in public** — Share progress, get early believers
-4. **Leverage your network** — Personal asks convert better than ads
-5. **Create a waitlist** — Scarcity + anticipation
+## First 100 users
 
-## Anti-Patterns
+1. Launch in communities where the pain is already voiced.
+2. Solve one concrete person’s problem end-to-end; capture the story with consent.
+3. Build in public only when it creates trust, not noise.
+4. Personal network asks beat cold ads before messaging is proven.
+5. Waitlists help when scarcity is real and feedback loops are instrumented.
 
-- **Premature paid ads** — Before knowing LTV, you'll burn money
-- **Feature launches as growth** — Users don't care about features
-- **Ignoring organic** — Paid-only doesn't compound
-- **Copy competitor channels** — Their economics aren't yours
+## Anti-patterns → preferred moves
+
+| Instead of | Do |
+|------------|----|
+| Premature paid scale | Prove retention curve shape and rough LTV before large spend |
+| Shipping features as “growth” | Ship loops and distribution surfaces users actually share or return through |
+| Paid-only acquisition | Add at least one organic or product-led loop |
+| Copying a competitor’s channel mix | Re-derive channels from audience location and unit economics |
+| Ignoring notification/habit systems after PMF | Instrument habit loops (streaks, timely value pings) with user control — see Duolingo growth write-up in `references/sources.md` |
+
+## Related sources
+
+See `references/sources.md` (growth loops / network effects / habit growth).
