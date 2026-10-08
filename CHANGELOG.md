@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| personal-finance-tracker     | 2026-10-08 | 86/100 (#767)                    |
 | bali                         | 2026-10-08 | 86/100 (#766)                    |
 | systems-architect            | 2026-10-08 | 86/100 (#765)                    |
 | sonoff                       | 2026-10-08 | 86/100 (#764)                    |
