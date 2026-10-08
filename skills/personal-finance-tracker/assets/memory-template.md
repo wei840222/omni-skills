@@ -1,13 +1,13 @@
 # Memory Template — Personal Finance Tracker
 
-Create `~/Clawic/data/personal-finance-tracker/memory.md` only if the user wants continuity across sessions.
+Create `<state_root>/memory.md` only if the user wants continuity across sessions and `<state_root>` is already resolved.
 
 ```markdown
 # Personal Finance Tracker Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending
 
@@ -32,12 +32,12 @@ integration: pending
 
 ## Optional Support Files
 
-If the user wants deeper continuity, create:
+If the user wants deeper continuity, create under the same resolved root:
 
-- `~/Clawic/data/personal-finance-tracker/accounts.md` — balances, account roles, sync notes
-- `~/Clawic/data/personal-finance-tracker/recurring.md` — subscriptions, bills, annual expenses
-- `~/Clawic/data/personal-finance-tracker/plans.md` — debt payoff, savings, and cut decisions
-- `~/Clawic/data/personal-finance-tracker/reviews.md` — weekly and monthly snapshots
+- `<state_root>/accounts.md` — balances, account roles, sync notes
+- `<state_root>/recurring.md` — subscriptions, bills, annual expenses
+- `<state_root>/plans.md` — debt payoff, savings, and cut decisions
+- `<state_root>/reviews.md` — weekly and monthly snapshots
 
 ## Key Principles
 
@@ -45,3 +45,4 @@ If the user wants deeper continuity, create:
 - Save decisions and pressure points, not full ledgers
 - Update `last` whenever the local workspace changes
 - Ask before widening the scope of stored data
+- Never write credentials, full card numbers, or full statements

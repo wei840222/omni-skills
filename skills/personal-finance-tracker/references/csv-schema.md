@@ -27,6 +27,7 @@ If the user pastes raw transactions in chat, convert them into this schema befor
 3. Strip currency symbols and thousands separators from `amount`.
 4. Collapse obvious merchant variants like `SPOTIFY*`, `Spotify`, and `SPOTIFY AB`.
 5. Remove pending duplicates before trend analysis.
+6. Confirm locale for ambiguous day/month order before month-level trends.
 
 ## Minimal Example
 

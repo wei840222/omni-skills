@@ -5,10 +5,13 @@ Use this to keep reviews short, repeatable, and decision-oriented.
 ## 30-Second Runway Review
 
 Answer these in order:
+
 1. Cash available today
 2. Bills and debt payments due before next income event
 3. Free-to-spend amount after essentials
 4. Biggest recurring drains or surprise charges
+
+Free-to-spend = cash today − obligations before next pay (after essentials already counted in those obligations). A negative result means the user is not safe yet.
 
 ## Weekly Review
 

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just checked my account and I have $400. I need to pay a $150 credit card bill on Thursday and my $300 rent is due on the 1st (next week). Am I okay this week? Do a fast snapshot.",
+    "expected": "The agent should perform a fast runway review: cash on hand ($400) minus upcoming obligations ($150 + $300 = $450) leaving free-to-spend of -$50. It must state the user is not safe this week and give at most three concrete next actions to cover the $50 gap without claiming bank access.",
+    "actual": "Runway:\n- Cash today: $400\n- Obligations before next pay: $450 ($150 card Thursday + $300 rent next week)\n- Free to spend: -$50\n\nYou are short $50 before those due dates, so this week is not safe yet.\n\nNext actions:\n1. Cover $50 immediately (transfer, delay a non-essential, or extra income).\n2. Pay the $150 card on Thursday once the gap is closed.\n3. Confirm rent due date and which account funds it.\n\nGuidance only — this skill does not move money or log into banks.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Here's my CSV export:\ndate,amount,merchant\n2023-10-01,-15,Netflix\n2023-11-01,-15,Netflix.com\n2023-12-01,-15,NETFLIX\nRun a recurring charge scan with scripts/recurring_scan.py.",
+    "expected": "After merchant normalization, identify Netflix as one monthly recurring charge: 3 charges, average $15.00. Do not treat Netflix/Netflix.com/NETFLIX as three separate merchants.",
+    "actual": "Recurring charge candidates\n- Netflix: monthly, 3 charges, avg 15.00\n\n(Evidence: python3 skills/personal-finance-tracker/scripts/recurring_scan.py on the three-row CSV above; exit 0.)",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I have positive net cashflow this month but rent hits in three days and my checking balance is thin. How should a weekly review talk about safety?",
+    "expected": "The agent must separate monthly net from runway safety: positive month totals do not imply safety if near-term due dates exceed cash on hand. End with a short protect/watch/cut action list and avoid regulated-advice framing.",
+    "actual": "Weekly review framing:\n- Monthly net is a rear-view metric; safety is cash today minus obligations before next pay.\n- If rent is due in three days and checking is thinner than rent + minimums, mark runway as unprotected even if the month is green overall.\n- Watch: early due-date clustering, annual bills hiding in category charts.\n- Next actions (max 3): protect rent/minimums first, list the largest recurring drains, defer optimization until free-to-spend is non-negative.\n- Analysis only; no bank login or payment execution.",
+    "pass": true
+  }
+]

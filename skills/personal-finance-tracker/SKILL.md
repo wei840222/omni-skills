@@ -1,48 +1,34 @@
 ---
 name: personal-finance-tracker
-slug: personal-finance-tracker
-version: 1.0.0
-description: Track personal finances with cashflow reviews, recurring bill detection, debt triage, CSV imports, and net worth snapshots.
-homepage: https://clawic.com/skills/personal-finance-tracker
-changelog: Initial release with cashflow review protocol, CSV analysis tools, recurring spend detection, and privacy-first local tracking.
+description: >
+  Track personal finances with runway snapshots, recurring bill detection,
+  debt triage, CSV imports, and net-worth notes. Use for cashflow reviews,
+  expense cleanup, subscription drag, and weekly or monthly money decisions.
+  Not for moving money, bank login, regulated financial advice, company finance
+  (`cfo`), household money-ladder sequencing alone (`money`), or subscription
+  inventory without cashflow context (`subscriptions`).
 metadata:
-  clawdbot:
-    emoji: 💸
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/personal-finance-tracker/
-    displayName: Personal Finance Tracker
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/personal-finance-tracker/
+  version: "1.1.0"
+  openclaw: '{"emoji":"💸"}'
+  related-skills: '{"money":"Household money-ladder sequencing beyond statement rollups.","subscriptions":"Subscription inventory and renewal cuts when cashflow context is already known.","csv":"CSV cleanup and column mapping before finance rollups.","cfo":"Company finance and operating decisions, not household trackers."}'
 ---
 
-# Personal Finance Tracker
+## State location
 
-Personal finance tracker for cashflow control, recurring bills, debt pressure, and weekly money decisions.
+Personal finance tracker state may exist in `<workspace>/personal-finance-tracker/`, `<workspace>/memory/personal-finance-tracker/`, or `~/personal-finance-tracker/`.
 
-## Setup
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-On first use, read `setup.md` for integration guidelines. Ask before creating `~/Clawic/data/personal-finance-tracker/` or saving any financial context locally.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/personal-finance-tracker/`, `<workspace>/memory/personal-finance-tracker/`, `~/personal-finance-tracker/`.
+3. If none exists and the user wants persistent tracking, create `<workspace>/personal-finance-tracker/`. If `<workspace>` is unavailable, ask for a state root instead of guessing from the current directory.
+4. If more than one candidate exists, use only the highest-precedence directory and report the conflict; do not merge trees automatically.
 
-## When to Use
-
-User needs personal finance tracking, finance tracker help, budgeting, expense tracking, cashflow visibility, debt prioritization, subscription cleanup, or recurring bill review. Agent handles fast money snapshots, pasted transaction cleanup, CSV imports, recurring spend detection, debt triage, runway checks, and weekly or monthly review workflows.
-
-Use this when the job is making clearer money decisions, not just logging another transaction. The outcome should be an actionable view of what to protect, what to cut, and what needs attention before the next paycheck or billing cycle.
-
-## Architecture
-
-Local workspace is optional and only created with user consent.
+Use the selected `<state_root>` for every state operation in this skill. Prefer portable `<state_root>` paths; never hard-code host-specific absolute roots. Skill resources stay under `references/`, `assets/`, and `scripts/`; never treat the literal string `<state_root>` as a filesystem path.
 
 ```text
-~/Clawic/data/personal-finance-tracker/
+<state_root>/
 ├── memory.md        # High-signal money context and review cadence
 ├── accounts.md      # Balances, account roles, sync notes
 ├── recurring.md     # Bills, subscriptions, annual charges, due dates
@@ -50,110 +36,57 @@ Local workspace is optional and only created with user consent.
 └── reviews.md       # Weekly and monthly snapshots
 ```
 
-## Quick Reference
+Create or update state files only after the user opts in. Store high-signal summaries only—no credentials, full card numbers, or full statements.
 
-Load only what improves the current answer. Prefer the scripts for deterministic summaries and the playbooks for judgment.
+## When to use
 
-| Topic | File |
-|-------|------|
-| Setup and activation | `setup.md` |
-| Optional continuity memory | `memory-template.md` |
-| CSV schema and normalization | `csv-schema.md` |
-| Review cadence and reporting | `review-rhythm.md` |
-| Debt and subscription triage | `debt-triage.md` |
-| Local command recipes | `commands.md` |
-| CSV cashflow rollup script | `cashflow_rollup.py` |
-| Recurring charge scanner | `recurring_scan.py` |
+Load for **household cashflow visibility and decision support**:
 
-## Core Rules
+- Fast runway check: cash now, bills before next pay, free-to-spend
+- CSV or pasted transaction cleanup and rollup
+- Recurring charge / subscription drag detection
+- Debt pressure triage against near-term obligations
+- Weekly or monthly money review with a short next-action list
 
-### 1. Start with the Runway Review
-- Answer three questions first: what cash is available now, what fixed obligations hit next, and what room is actually free to spend.
-- A finance tracker that cannot tell the user whether they are safe this week is not useful.
-- Use `review-rhythm.md` to frame the first snapshot in under 30 seconds.
+Hand off when a sibling owns the job:
 
-### 2. Normalize inputs before making claims
-- Clean dates, signs, merchants, categories, and duplicates before summarizing patterns, whether the input comes from CSV exports or pasted transaction lines.
-- Messy exports create fake insights and broken budgets.
-- Use `csv-schema.md` and `cashflow_rollup.py` before giving trend or category conclusions.
+| Job | Skill |
+|-----|-------|
+| Debt vs save vs invest sequencing | `money` |
+| Subscription inventory without full cashflow | `subscriptions` |
+| Raw CSV mapping/cleanup tooling | `csv` |
+| Company finance / operating scenarios | `cfo` |
 
-### 3. Separate recurring drag from one-off spend
-- Distinguish rent, utilities, debt payments, subscriptions, and annual charges from irregular purchases.
-- Users usually fail because fixed drag hides inside noisy transaction lists.
-- Use `recurring_scan.py` and `debt-triage.md` to isolate what repeats and what can be cut.
+## Core rules
 
-### 4. Prioritize cashflow before optimization theater
-- Protect essentials, taxes, minimum debt payments, and near-term obligations before discussing long-range goals.
-- Fancy charts are useless if the account risks overdraft next week.
-- Recommend protect, watch, cut, or defer actions instead of generic motivation.
+1. Start with the runway review: cash available, obligations before next income, free-to-spend after essentials.
+2. Normalize dates, signs, merchants, categories, and duplicates before trend claims.
+3. Separate recurring drag from one-off spend before cut recommendations.
+4. Protect essentials, taxes, minimum debt payments, and near-term due dates before optimization theater.
+5. End every review with at most three concrete actions: pay, cancel, renegotiate, transfer, delay, or monitor.
+6. Keep storage minimal, local, and opt-in; ask before creating `<state_root>/`.
+7. Analyze and plan only—do not move money, cancel services, log into banks, or present regulated financial advice.
 
-### 5. Turn every review into a concrete next-action list
-- End each session with a short list: pay, cancel, renegotiate, transfer, delay, or monitor.
-- The skill should reduce decision fatigue, not create another dashboard the user ignores.
-- Use `review-rhythm.md` to close weekly and monthly reviews with named actions.
+## Quick reference
 
-### 6. Keep storage minimal, local, and opt-in
-- Save only balances, recurring commitments, debt priorities, and review decisions the user wants remembered.
-- Never create local files silently for sensitive finance data.
-- Use `memory-template.md` only after the user agrees to continuity.
+Load only what improves the current answer.
 
-### 7. Never cross from guidance into account control
-- This skill can analyze, classify, forecast, and prepare plans.
-- It must not move money, cancel services, log into banks, or present itself as regulated financial advice.
-- Keep recommendations transparent, reversible, and grounded in the user-provided data.
+| Need | File |
+|------|------|
+| First-use attitude and activation | `references/setup.md` |
+| Domain rules, traps, operating rhythm | `references/domain.md` |
+| Security and state tree detail | `references/state.md` |
+| CSV schema and normalization | `references/csv-schema.md` |
+| Review cadence and output format | `references/review-rhythm.md` |
+| Debt and subscription triage | `references/debt-triage.md` |
+| Local command recipes | `references/commands.md` |
+| Continuity memory template | `assets/memory-template.md` |
+| Cashflow rollup script | `scripts/cashflow_rollup.py` |
+| Recurring charge scanner | `scripts/recurring_scan.py` |
 
-## Operating Rhythm
+## Security and privacy
 
-### Fast snapshot
-- Cash on hand now
-- Payments due in the next 7 to 14 days
-- Largest recurring drains
-- Free-to-spend amount after essentials
-
-### Weekly review
-- Compare actual outflow vs expected outflow
-- Flag duplicate charges, subscription drift, and overspend categories
-- Update the cut list and next bill dates
-
-### Monthly reset
-- Rebuild recurring obligations
-- Re-rank debt pressure and savings targets
-- Capture what changed in income, bills, and available runway
-
-## Common Traps
-
-- Tracking every coffee but ignoring annual charges -> false sense of control and surprise cash hits.
-- Mixing personal, business, and tax money in one mental bucket -> bad decisions and missed obligations.
-- Treating subscriptions as harmless small spend -> silent monthly drag compounds quickly.
-- Looking only at category charts -> hides due dates, debt penalties, and account timing risk.
-- Forecasting from raw exports without cleanup -> duplicates and sign errors corrupt the plan.
-- Letting the agent store full statements by default -> unnecessary privacy exposure.
-
-## Security & Privacy
-
-**Data that stays local when the user opts in:**
-- Balances, recurring bills, review notes, and debt priorities in `~/Clawic/data/personal-finance-tracker/`
-- CSV files and local script outputs run on the user's machine
-
-**This skill does NOT:**
-- Connect to banks or fintech APIs on its own
-- Send transaction data to undeclared external services
-- Create local storage without user consent
-- Move money, cancel subscriptions, or change accounts automatically
-
-**Guardrails:**
-- Store only high-signal summaries, never full credentials or card numbers
-- Ask before persisting any sensitive context
-- Prefer local CSV analysis to cloud processing
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `money` — General money planning and financial conversations
-- `subscriptions` — Subscription audits, trims, and renewal decisions
-- `csv` — CSV cleanup, mapping, and transformation workflows
-- `cfo` — Higher-level financial operating decisions and scenario planning
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/personal-finance-tracker
-- Latest version: https://clawic.com/skills/personal-finance-tracker
+- Opt-in local state only under the resolved `<state_root>/`.
+- Prefer local CSV analysis; do not send transaction data to undeclared external services.
+- Never store credentials, full card numbers, or full bank statements.
+- Recommendations stay transparent, reversible, and grounded in user-provided data.
