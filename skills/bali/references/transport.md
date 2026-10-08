@@ -43,5 +43,5 @@ Maximize experience by limiting cross-island hops:
 
 During heavy rain periods:
 - Expect substantial delays.
-- Avoid last-minute inter-area reservations.
+- Book inter-area transport well in advance.
 - Keep cancellation-friendly bookings.

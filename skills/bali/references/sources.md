@@ -1,6 +1,6 @@
 # Bali Research Sources (2025-2026)
 
-> Last reviewed: March 2026
+> Last reviewed: October 2026
 
 This file tracks key online sources used to build the Bali skill. Re-check critical legal and price items before final user recommendations.
 
@@ -64,15 +64,15 @@ This file tracks key online sources used to build the Bali skill. Re-check criti
 | Siloam Hospitals | https://www.siloamhospitals.com/ |
 | BIMC Hospitals Bali | https://bimcbali.com/ |
 | Bali Island School | https://www.baliislandschool.com/ |
-| Canggu Community School | https://www.canggucommunityschool.com/ |
 | Green School Bali | https://www.greenschool.org/bali |
+| School shortlists | Prefer current school sites and parent verification; do not rely on a single stale directory URL |
 
 ## Community and Work Infrastructure
 
 | Topic | Source |
 |------|--------|
 | Outpost coworking | https://outpost.id/ |
-| BWork Bali coworking | https://www.bworkbali.com/ |
+| BWork Bali coworking | https://bwork.id/ |
 
 ## Data Freshness Rules
 

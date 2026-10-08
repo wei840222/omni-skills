@@ -20,7 +20,7 @@
 ## Bali Belly Risk Reduction
 
 - Favor high-turnover kitchens.
-- Avoid risky raw foods in uncertain settings.
+- Skip risky raw foods in uncertain settings.
 - Wash hands frequently and carry sanitizer.
 - Start with moderate spice if newly arrived.
 

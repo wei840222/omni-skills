@@ -43,7 +43,7 @@
 - Prioritize flood and drainage quality in wet season.
 - Ask for real internet speed tests at peak hours.
 
-## Who Should Avoid
+## Who Should Skip
 
 - Users wanting silence and easy driving.
 - Families needing large green public spaces and low traffic stress.

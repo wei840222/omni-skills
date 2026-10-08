@@ -52,4 +52,4 @@ Temperature stays warm year-round; rainfall is the main operational variable.
 
 - Hydrate continuously in midday heat.
 - Use high-SPF sun protection year-round.
-- Avoid peak physical exertion at midday in humid periods.
+- Schedule physical exertion for mornings or evenings during humid periods.

@@ -24,7 +24,7 @@ Indonesia is generally workable for travel and long stays, but official advisori
 ## Personal Safety Baseline
 
 1. Use registered transport channels.
-2. Avoid intoxicated scooter riding.
+2. Ride scooters sober.
 3. Keep copies of passport/visa data separately.
 4. Use trusted ATMs and card practices.
 5. Monitor local hazard alerts (weather/volcanic notices).

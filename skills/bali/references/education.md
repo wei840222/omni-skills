@@ -1,6 +1,6 @@
 # Bali Education Guide for Expat Families 2026
 
-> Last updated: March 2026
+> Last updated: October 2026 | Confirm tuition and catchment on each school site before recommending a lease.
 
 ## Education Landscape
 
@@ -31,9 +31,10 @@ Bali offers international schools, private local schools, and homeschooling-styl
 
 ## Area Fit Notes
 
-- Canggu/Berawa: strong density of international-family demand.
-- Sanur: family-friendly pace with easier routines for some schools.
-- Ubud: selective alternative education options.
+- Canggu/Berawa: strong density of international-family demand; verify current school sites rather than stale directory URLs.
+- Sanur: family-friendly pace; Bali Island School is a common reference point (https://www.baliislandschool.com/).
+- Ubud: selective alternative options such as Green School Bali (https://www.greenschool.org/bali).
+- Do not quote a closed or unresolved school domain as a live enrollment source.
 
 ## Common Mistakes
 
