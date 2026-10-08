@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have a lot of empty tables at 5:30 PM and 9:30 PM, but we are completely fully booked and over capacity from 7:00 PM to 8:30 PM. How can I adjust my OpenTable strategy to fix this?",
+    "expected": "Advises using pacing controls and table mix as primary levers. Suggests adjusting release cadence and flow for high-value windows, separating peak/off-peak strategy, and avoiding broad slot changes without documenting impact.",
+    "actual": "Separate peak (7:00–8:30) from shoulder windows first. Use pacing and table-mix levers before blanket blocks: tighten release cadence or party-size mix in the overloaded peak so kitchen/floor can absorb covers, while testing slightly larger parties or experience inventory at 5:30 and 9:30 to pull demand. Document the hypothesis, one controlled change, and a one-week measurement window in reservation-log.md before scaling.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We just had a major power outage in the kitchen and cannot serve food for the rest of the night. What should I do about the reservations on the books?",
+    "expected": "Refers to incident-response.md. Advises detecting quickly, providing clear fallback paths, messaging affected guests with clear options (without punitive language), and logging the cause/mitigation.",
+    "actual": "Treat as a critical incident per references/incident-response.md: freeze further risky inventory for tonight, stop new exposure, and message affected guests immediately with plain-language options (reschedule, waitlist another day, or cancel) using neutral non-punitive wording. Assign one owner for updates, offer a fallback intake path, then log symptom, guest impact, mitigation, and a preventive control in incidents.md.",
+    "pass": true
+  }
+]
