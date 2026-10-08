@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I check the expiration date of an SSL certificate for example.com?",
+    "expected": "Give an openssl one-liner that prints notBefore/notAfter for the live host, preferably with SNI (-servername).",
+    "actual": "Use openssl against the live endpoint with SNI, then decode dates only:\n```bash\necho | openssl s_client -connect example.com:443 -servername example.com 2>/dev/null \\\n  | openssl x509 -noout -dates -subject -ext subjectAltName\n```\n`notAfter` is the expiry. For a deeper chain check, run `openssl s_client -connect example.com:443 -servername example.com </dev/null` and confirm `Verify return code: 0 (ok)`.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm seeing a 'certificate chain incomplete' error. The site works in Chrome but fails in curl. What's the issue and how do I fix it?",
+    "expected": "Explain missing intermediate on the wire; Chrome may fetch/cache intermediates while curl does not; fix by serving fullchain/intermediate and re-verify with openssl.",
+    "actual": "Chrome often completes a partial chain via AIA or cache, so the site can look fine in a browser while curl/OpenSSL still report `unable to verify the first certificate` (verify code 21). The server is almost certainly sending only the leaf. For Let's Encrypt layouts, point the TLS config at `fullchain.pem` (leaf + intermediates) instead of leaf-only `cert.pem`, reload the server, then re-run:\n```bash\nopenssl s_client -connect example.com:443 -servername example.com </dev/null\n```\nAccept only when the verify return code is `0 (ok)`.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Configure Nginx for HTTPS with Let's Encrypt files and HTTP/2, then tell me how to renew safely.",
+    "expected": "Nginx listen 443 ssl + http2 on; fullchain/privkey paths; HSTS optional; certbot renew --dry-run and ~60-day cadence for 90-day certs.",
+    "actual": "Minimal Nginx pattern from this skill:\n```nginx\nserver {\n    listen 443 ssl;\n    http2 on;\n    server_name example.com;\n    ssl_certificate     /etc/letsencrypt/live/example.com/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;\n    ssl_protocols TLSv1.2 TLSv1.3;\n}\n```\nValidate and reload with `nginx -t && systemctl reload nginx`. Let's Encrypt default DV certs last 90 days—renew around day 60. Rehearse with `certbot renew --dry-run` before relying on the timer; use staging while developing ACME clients so production rate limits stay clear.",
+    "pass": true
+  }
+]
