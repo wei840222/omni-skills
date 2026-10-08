@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this stalled enterprise deal: We had a great demo 30 days ago and a verbal yes, but the champion has gone quiet and we only ever spoke with that one person. CRM still shows Negotiation. What should we do next?",
+    "expected": "Treat the deal as stalled and single-threaded; distrust the Negotiation label without recent activity or a dated next step; recommend multi-threading to economic buyer/other stakeholders, re-qualify MEDDIC gaps, and set one concrete next step or an explicit missing-data ask. Do not invent new customer facts.",
+    "actual": "Situation read: CRM says Negotiation after a demo ~30 days ago and a verbal yes, but the only engaged contact (the champion) is quiet and no dated next step is stated. Treat the stage label as untrusted: long silence + single-threaded coverage + verbal without paperwork motion are review triggers, not commit evidence.\n\nGaps (MEDDPICC): Economic Buyer unknown; Decision Process / Paper Process unknown; Champion at-risk (gone quiet); Competition unknown; Metrics/pain not reconfirmed after the demo.\n\nRecommended moves:\n1. Multi-thread before adding forecast confidence — identify Economic Buyer, technical evaluator, and at least one other influencer; do not rely on the quiet champion alone.\n2. Re-open with value for the champion (ROI/internal pitch aid) and a low-friction ask for who else must agree.\n3. Re-qualify Identify/Implicate Pain and Metrics with whatever was claimed in the demo; do not invent new customer facts.\n4. Start Paper Process visibility only after decision intent is real; a verbal yes without paperwork is not late-stage safe.\n\nNext step: Owner sets one dated mutual next step within 48h (e.g. champion intro to EB or written mutual action plan). If the user declines scheduling, classify the opp stalled and keep it out of Commit until a dated step exists.\nSources/confidence: heuristics from skill core rules + pipeline review signals; no fabricated account politics.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Draft a cold email for the VP of Sales at Acme Corp after a public $50M Series B announcement. I have no case studies or product metrics to share yet—only that we help sales teams coach new reps.",
+    "expected": "Use research-bound personalization on the Series B; avoid invented customers or percentage lifts; keep a short structure with one CTA; call out missing proof inputs rather than fabricating social proof.",
+    "actual": "Draft (research-bound; Series B is the only verified hook supplied):\n\nSubject: After Acme's $50M Series B — coaching ramp for new AEs?\n\nHi <Name>,\nCongrats on the Series B — teams often feel ramp pressure right as headcount jumps.\nWe help sales leaders coach new reps without a feature dump on day one.\nI do not have a named case study or % lift I can honestly cite yet, so I will not invent one.\nWorth a 15-minute look at how you run first-90-day coaching today?\n\nMissing inputs for a stronger version: ICP proof points, one real customer story, tech stack, and the VP's public priorities beyond the raise.\nCTA: single question only; no multi-ask.\nSources: user-supplied Series B + coaching value prop only.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our VP insists every rep needs 3x pipeline coverage. Our average revenue win rate is about 25% and median cycle is 60 days. How should I push back in the forecast meeting?",
+    "expected": "Explain that 3x is not universal; compute coverage from quota, win rate, and cycle length; give the Salesforce-style formula and an example; keep commit categories honest.",
+    "actual": "Push back with math, not opinion.\n\n3× quota is not universal. Salesforce coaching (Jack Keenan) notes 3× only fits ~33% revenue win rate with a ~one-year cycle. Your inputs: win rate ≈25%, median cycle ≈60 days.\n\nFormula:\n  Pipeline needed ≈ Annual quota ÷ revenue win rate ÷ (365 ÷ sales cycle days)\n\nExample for $100,000 quota:\n  100000 ÷ 0.25 ÷ (365/60) ≈ $65,757 open pipeline — not $300,000.\n\nIn the forecast meeting:\n1. Show the computed coverage target from your win rate + cycle.\n2. Keep Commit / Best case / Pipeline / Omit honest; do not inflate stage names to fake 3×.\n3. If leadership still wants a buffer, negotiate an explicit buffer on top of the formula rather than a frozen 3× myth.\n\nSources: references/pipeline.md + references/sources.md (Salesforce blog URL).",
+    "pass": true
+  }
+]
