@@ -1,156 +1,128 @@
 ---
 name: paperclip
-slug: paperclip
-version: 1.0.0
-description: Run Paperclip locally for agent orchestration, AI company setup, and OpenClaw, Codex, or Claude control-plane operations.
-homepage: https://clawic.com/skills/paperclip
-changelog: Added local-first Paperclip operations, adapter selection, and OpenClaw integration guidance.
+description: >
+  Run Paperclip as a local AI-company control plane: onboard/run instances,
+  design org charts, pick adapters (Claude/Codex/OpenClaw and others), operate
+  issues/approvals/heartbeats/budgets, and call the JSON API. Use when the user
+  wants Paperclip install, multi-agent company orchestration, OpenClaw-as-employee
+  setup, CLI/API automation, or spend governance. Not a general coding agent,
+  chat UI replacement, or one-off single-agent harness without company state.
 metadata:
-  clawdbot:
-    emoji: 📎
-    requires:
-      bins:
-      - curl
-      - pnpm
-      env:
-        optional:
-        - PAPERCLIP_API_URL
-        - PAPERCLIP_API_KEY
-        - PAPERCLIP_COMPANY_ID
-        - PAPERCLIP_RUN_ID
-        - OPENAI_API_KEY
-        - ANTHROPIC_API_KEY
-        - OPENCLAW_GATEWAY_TOKEN
-      config:
-      - ~/Clawic/data/paperclip/
-      - ~/.paperclip/instances/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/paperclip/
-    - ~/.paperclip/instances/
-    displayName: Paperclip
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/paperclip/
-      - ~/.paperclip/instances/
+  version: "1.1.0"
+  openclaw: '{"emoji":"📎","requires":{"bins":["curl"],"env":{"optional":["PAPERCLIP_API_URL","PAPERCLIP_API_KEY","PAPERCLIP_COMPANY_ID","PAPERCLIP_AGENT_ID","PAPERCLIP_RUN_ID","PAPERCLIP_HOME","OPENAI_API_KEY","ANTHROPIC_API_KEY","OPENCLAW_GATEWAY_TOKEN"]}}}'
+  related-skills: '{"agent":"General single-agent execution patterns when Paperclip is not the control plane.","agents":"Multi-agent role design that maps into Paperclip org charts.","api":"Generic HTTP/API payload design when debugging Paperclip endpoints.","company":"Company strategy framing before encoding goals and reporting lines in Paperclip.","workflow":"Repeatable handoffs that become issues, routines, or approval gates."}'
 ---
+
+## When to use
+
+Load for **Paperclip control-plane work**:
+
+- Install / onboard / doctor a local Paperclip instance
+- Create companies, hire agents, set goals and reporting lines
+- Choose adapters (`claude_local`, `codex_local`, `openclaw_gateway`, …)
+- Operate issues, approvals, heartbeats, routines, and budgets
+- Integrate OpenClaw as an employee over the gateway
+- Automate the same flows with `paperclipai` CLI or `/api`
+
+Hand off when a sibling owns the job:
+
+| Job | Skill |
+|-----|-------|
+| One agent run without company state | `agent` |
+| Role design before Paperclip encoding | `agents` / `company` |
+| Generic HTTP debugging outside Paperclip schemas | `api` |
+| Process design not yet bound to issues/routines | `workflow` |
+
+## State location
+
+This skill keeps **operator memory** (instances touched, adapter prefs, blockers)
+separate from **Paperclip application data**.
+
+Skill operator state may exist in `<workspace>/paperclip/`,
+`<workspace>/memory/paperclip/`, or `~/paperclip/`.
+`<workspace>` means the workspace root provided by the host/runtime, not the shell CWD.
+
+Before any skill-state read or write, resolve `<state_root>` once:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/paperclip/`, `<workspace>/memory/paperclip/`, `~/paperclip/`.
+3. If none exists and the user asks to save durable operator notes, create
+   `<workspace>/paperclip/` only after consent.
+4. If multiple candidates exist, use only the highest-precedence path, report the
+   duplicates, and leave the others untouched.
+
+Use the selected `<state_root>` for every **skill memory** operation in this skill.
+Create only the resolved filesystem path; the placeholder name `<state_root>` is
+documentation-only.
+
+**Paperclip instance home** (config, embedded DB, logs, storage, secrets) defaults
+to `~/.paperclip` (`PAPERCLIP_HOME`), with the default instance under
+`~/.paperclip/instances/default/`. Isolate with `--data-dir <path>` or
+`paperclipai run --data-dir …`. Do **not** write instance DB/secrets into
+`<state_root>` unless the user explicitly set `--data-dir` there.
+
+Legacy path `~/Clawic/data/paperclip/` is a migration source only. Propose copy,
+validation, cutover, and rollback; do not move or delete automatically.
 
 ## Setup
 
-On first use, read `setup.md` for integration guidance.
+After resolving `<state_root>`, if `<state_root>/memory.md` is missing, read
+`references/setup.md`. Confirm before the first write to `<state_root>`.
 
-## When to Use
+For product install itself, load `references/quickstart.md`.
 
-User needs to install, operate, or evaluate Paperclip as the control plane for a team of AI agents. Use for local-first setup, agent-company design, adapter selection, OpenClaw integration, CLI operations, and API-based coordination.
+## Primary workflow
 
-## Architecture
+Execute in order. Stop early only when a step already blocks progress.
 
-Skill memory lives in `~/Clawic/data/paperclip/`. Paperclip application data usually lives in `~/.paperclip/instances/`. If `~/Clawic/data/paperclip/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+1. **Intent** — Classify: install, diagnose, company design, adapter choice,
+   day-to-day ops, OpenClaw hire, or API automation.
+2. **Resolve paths** — Select `<state_root>` for skill notes; detect Paperclip
+   home (`PAPERCLIP_HOME` / `--data-dir` / `~/.paperclip`) and API base
+   (`--api-base` → `PAPERCLIP_API_URL` → profile → local config port →
+   `http://localhost:3100`).
+3. **Route detail** — Load only the reference that owns the current pain:
 
-```
-~/Clawic/data/paperclip/
-├── memory.md            # Operator context, active instances, adapter preferences
-├── companies.md         # Company names, goals, and status snapshots
-├── commands.md          # Reused CLI/API snippets that worked
-└── notes.md             # Open questions, blockers, migration notes
-```
+| Bottleneck | Load |
+|------------|------|
+| First-run activation / consent | `references/setup.md` |
+| Install, onboard, run, doctor | `references/quickstart.md` |
+| Adapter matrix and selection | `references/adapters.md` |
+| CLI/API day-to-day commands | `references/operations.md` |
+| OpenClaw gateway hire path | `references/openclaw.md` |
+| Rules, traps, security, endpoints | `references/domain.md` |
+| Operator memory schema | `references/memory-template.md` |
+| Verified product sources | `references/sources.md` |
 
-## Quick Reference
+4. **Prefer control-plane verbs** — Companies, issues, approvals, heartbeats,
+   and budgets stay in Paperclip; runtimes only execute assigned work.
+5. **Confirm before external impact** — Creating companies, waking agents,
+   approving strategy, changing budgets, or calling paid providers needs current
+   explicit authorization. Never embed real API keys in memory files.
+6. **Write durable notes** — After consent, update `<state_root>/memory.md` and
+   related notes with non-secret environment facts only.
+
+## Operating rules
+
+- Treat Paperclip as the company OS, not the domain worker.
+- Model goal, org chart, workspaces, and budgets before waking many agents.
+- Prefer `npx paperclipai@latest …` or an installed `paperclipai` binary for
+  packaged installs; use `pnpm paperclipai` only inside a Paperclip monorepo checkout.
+- Heartbeats are the default execution loop; agents need not run continuously.
+- From Docker/OpenClaw containers, never assume `localhost` reaches the host
+  Paperclip process—use a reachable host alias and `allowed-hostname` when needed.
+- Atomic issue checkout matters: do not bypass it with ad-hoc parallel edits.
+
+## Quick reference
 
 | Topic | File |
 |-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Local bootstrap | `quickstart.md` |
-| Adapter selection | `adapters.md` |
-| Daily operator commands | `operations.md` |
-| OpenClaw integration | `openclaw.md` |
-
-## Requirements
-
-- Node.js 20+ for the official `paperclipai` package and local server
-- pnpm 9.15+ for repo-based workflows
-- `curl` for direct API checks and automation
-- Provider credentials only for the adapters the user chooses to run
-
-## Core Rules
-
-### 1. Treat Paperclip as the control plane
-- Use Paperclip to organize companies, agents, goals, issues, approvals, and budgets.
-- Do not treat it as the domain worker itself; the actual work is done by the attached runtimes.
-
-### 2. Start local-first unless the user already has infrastructure
-- Prefer `npx paperclipai onboard --yes` for the first working instance.
-- Use `--data-dir` when testing in a throwaway environment or when isolation matters.
-
-### 3. Model the company before spawning workers
-- Define company goal, reporting lines, workspaces, and issue flow before waking multiple agents.
-- Paperclip becomes valuable when ownership, budgets, and escalation paths are explicit.
-
-### 4. Pick adapters by execution boundary
-- Use `codex_local` or `claude_local` when the agent should run on the same host as Paperclip.
-- Use `openclaw_gateway` when OpenClaw lives outside the control plane and should be hired as an employee.
-
-### 5. Lean on heartbeats, approvals, and budgets
-- Heartbeats are the default execution loop; agents do not need to run continuously to stay coordinated.
-- Approval gates and spend caps are core operating controls, not optional extras.
-
-### 6. Use CLI and API for repeatable operations
-- Prefer small, auditable commands for creating companies, issues, approvals, and wakeups.
-- Keep human chat in OpenClaw, Codex, or Claude if that is the preferred interface, while Paperclip remains the source of truth.
-
-## Common Traps
-
-- Treating Paperclip like a chatbot UI -> you miss the org chart, governance, and cost-control layer that makes it useful.
-- Starting many agents before defining reports-to, workspaces, and budgets -> the system devolves into unmanaged parallel tabs.
-- Using `localhost` from inside OpenClaw Docker -> the container points to itself, not the Paperclip host.
-- Expecting Codex or Claude adapters to work without the local CLI installed and authenticated -> heartbeats fail before useful work starts.
-- Skipping issue checkout semantics -> multiple agents can step on the same task outside the Paperclip workflow.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| `http://localhost:3100/api` or configured Paperclip API base | Company, agent, issue, approval, and run metadata | Control-plane reads and writes |
-| `ws://127.0.0.1:18789` or configured OpenClaw gateway URL | Wake payloads, session routing, streamed agent events | OpenClaw adapter transport |
-
-No other endpoints should be contacted unless the user explicitly configures remote deployments or model providers.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- Requests to the user-selected Paperclip API base
-- Requests to the configured OpenClaw gateway when that adapter is enabled
-- Any provider traffic created by the agent runtimes the user installs and authorizes
-
-**Data that stays local:**
-- Paperclip instance state in `~/.paperclip/instances/`
-- Skill memory in `~/Clawic/data/paperclip/`
-- Local workspaces attached to projects
-
-**This skill does NOT:**
-- Require a Paperclip cloud account
-- Expose secrets in commands or memory files
-- Assume a public deployment by default
-
-## Trust
-
-By using this skill, operational data is sent to the Paperclip deployment and agent adapters the user configures.
-Only install if you trust that deployment, its storage, and the model providers behind those agents.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `agent` — General agent execution and delegation patterns
-- `agents` — Multi-agent coordination and role design
-- `company` — Company-level strategy and operating structure
-- `workflow` — Repeatable operational workflows and handoffs
-- `api` — Direct API usage, payload design, and HTTP troubleshooting
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/paperclip
-- Latest version: https://clawic.com/skills/paperclip
+| Setup / consent | `references/setup.md` |
+| Local bootstrap | `references/quickstart.md` |
+| Adapters | `references/adapters.md` |
+| CLI + API ops | `references/operations.md` |
+| OpenClaw | `references/openclaw.md` |
+| Domain rules | `references/domain.md` |
+| Memory template | `references/memory-template.md` |
+| Sources | `references/sources.md` |
