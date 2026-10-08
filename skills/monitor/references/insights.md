@@ -1,5 +1,7 @@
 # Monitor Analysis Patterns
 
+Before each shell example, resolve the actual state root as SKILL.md specifies and bind it to `state_root`. Read `<state_root>/logs/{name}/YYYY-MM.jsonl`; logs are optional and created only on the first result.
+
 ## Uptime Calculation
 
 ```bash
@@ -8,7 +10,7 @@ jq -s '
   (map(select(.status == "ok")) | length) as $ok |
   length as $total |
   ($ok / $total * 100) | floor
-' logs/http-api-prod/2024-03.jsonl
+' "$state_root/logs/http-api-prod/2024-03.jsonl"
 ```
 
 ## Latency Statistics
@@ -23,7 +25,7 @@ jq -s '
     p99: .[length * 0.99 | floor],
     avg: (add / length | floor)
   }
-' logs/http-api-prod/2024-03.jsonl
+' "$state_root/logs/http-api-prod/2024-03.jsonl"
 ```
 
 ## Pattern Detection
@@ -39,20 +41,7 @@ jq -s '
 
 ## Weekly Summary Template
 
-```
-## Monitor Summary: Week of 2024-03-11
-
-### http-api-prod
-- Uptime: 99.2%
-- Incidents: 2 (3 min, 7 min)
-- Avg latency: 142ms (P95: 340ms)
-- Trend: ↑ 15% slower than last week
-
-### http-website-main
-- Uptime: 100%
-- Avg latency: 89ms (P95: 210ms)
-- Trend: Stable
-```
+Use `assets/weekly-summary.md` listed directly in SKILL.md. Its numbers are illustrative; replace every value with observed log evidence.
 
 ## Suggested Monitors
 
