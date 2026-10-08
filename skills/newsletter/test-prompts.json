@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm starting a newsletter about gardening but I'm worried about spam complaints. What should I do for deliverability?",
+    "expected": "Prioritize auth and list quality over creative tips; mention SPF/DKIM/DMARC for bulk path, one-click unsubscribe (RFC 8058), complaint rate under 0.3%, warm-up, no purchased lists; cite official sender pages rather than inventing guarantees.",
+    "actual": "Bottleneck framed as deliverability/reputation, not subject-line hacks. Baseline: SPF+DKIM (add DMARC before scaling), valid PTR, TLS. For volume toward Gmail/Yahoo bulk class: DMARC alignment, marketing one-click List-Unsubscribe + List-Unsubscribe-Post (RFC 8058) plus visible body link, honor unsubscribes within ~48h/2 days. Keep spam complaints under 0.3%; warm domain with engaged gardeners first; purge hard bounces; never buy lists. Pointed to Gmail sender guidelines/FAQ and Yahoo sender best practices for live thresholds. One next action: finish DNS auth + confirm ESP emits one-click headers on a seed list before growth campaigns.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How can I increase the open rates for my daily tech newsletter? Currently sitting around 15%.",
+    "expected": "Treat opens as noisy (MPP); check cadence sustainability and list hygiene; improve subject/preview craft; offer frequency experiment; avoid a fake universal 40% benchmark as science.",
+    "actual": "Restated job: raise engagement on a daily tech list with ~15% opens. Cautioned that Apple Mail Privacy Protection inflates opens—pair with clicks/unsub/complaints. Cadence: daily only if quality holds; proposed a segment test of 3x/week vs daily. Craft: specific subject + curiosity without spam bait; preview text extends subject, not 'View in browser'. Hygiene: win-back then suppress 90+ day inactives so denominator reflects real readers. Explicitly avoided promising a universal 40%+ open target. Next action: one week subject A/B on active cohort + inactive suppress draft.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I buy a targeted email list of CTOs to grow faster, and what open rate should I promise my sponsor?",
+    "expected": "Reject purchased lists; explain reputation/legal risk; refuse guaranteed open-rate promises to sponsors; suggest permission-based growth and click/reply based value proof.",
+    "actual": "Hard no on buying CTO lists—purchased/scraped data drives complaints, blocks, and CAN-SPAM/permission failures. Refused any promised open-rate guarantee to sponsors (opens are noisy; guaranteeing delivery metrics is a trust and compliance trap). Alternative growth: lead magnet for CTOs, partner cross-promos, referral from existing readers. Sponsor value via aligned audience + labeled placement + click/reply evidence from past issues, not vanity opens. Next action: define ICP lead magnet and a single partner swap before paid acquisition fantasies.",
+    "pass": true
+  }
+]

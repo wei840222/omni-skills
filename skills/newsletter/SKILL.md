@@ -1,131 +1,63 @@
 ---
 name: newsletter
-slug: newsletter
-version: 1.0.0
-description: Create, grow, and monetize newsletters with effective content and subscriber strategies.
-homepage: https://clawic.com/skills/newsletter
+description: >
+  Advise on email newsletter strategy: subject lines, preview text, issue structure,
+  cadence, list growth, landing pages, welcome sequences, segmentation, deliverability
+  (SPF/DKIM/DMARC, one-click unsubscribe), metrics, sponsorships, and re-engagement.
+  Use when starting a newsletter, fixing low opens/clicks, improving inbox placement,
+  planning monetization, or cleaning an inactive list. Not for one-off interpersonal
+  sends (`message`), marketing landing-page systems (`copywriting`), long-form prose
+  craft (`writing`), or inbox triage queues (`email-management`).
 metadata:
-  clawdbot:
-    emoji: 📧
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Newsletter
+  version: "1.1.0"
+  openclaw: '{"emoji":"📧"}'
+  related-skills: '{"copywriting":"Landing pages, lead magnets, and campaign CTAs beyond newsletter issue craft.","writing":"Long-form voice and rewrite craft when the deliverable is prose quality, not list ops.","message":"One-off interpersonal or channel-safe outbound drafts rather than broadcast list sends.","email-management":"Inbox triage and follow-up queues rather than publishing a list.","growth":"Broader acquisition systems when email is only one channel."}'
 ---
 
-## Subject Lines
+# Newsletter strategy
 
-- Curiosity gap—promise value, don't reveal everything
-- Specific > vague: "5 tools I use daily" > "Useful tools"
-- Numbers work—quantified promises feel tangible
-- Personal: "you" and lowercase feels like friend
-- Urgency when genuine—time-sensitive content only
-- Test constantly—small changes, big impact on opens
-- Avoid spam triggers—"FREE", all caps, excessive punctuation
+Stateless domain skill for **email newsletter creation, growth, deliverability, metrics, and monetization**. It does not store ESP credentials, subscriber lists, or campaign history in the package.
 
-## Preview Text
+## When to load
 
-- Extension of subject, not repetition
-- Complete the curiosity—add context that increases open
-- Don't waste on "View in browser"—prime real estate
-- First line of email becomes preview if not set—control it
+Load when the user needs:
 
-## Content Structure
+- start a newsletter (positioning, cadence, welcome sequence, landing page)
+- raise opens/clicks with subject lines, preview text, structure, or list hygiene
+- fix deliverability (auth, complaints, unsubscribes, warm-up)
+- segment, re-engage, or clean inactive subscribers
+- monetize via sponsorships, premium tiers, products, or affiliates
 
-- TL;DR at top for skimmers—then expand below
-- One main idea per issue—focus beats variety
-- Scannable: headers, bullets, bold key phrases
-- Consistent format—readers know what to expect
-- Personal voice—distinct from generic corporate
-- End with clear CTA—one action, not five
+Hand off when a sibling owns the job:
 
-## Frequency
+| Job | Skill |
+| --- | --- |
+| One-off interpersonal send / tone on a channel | `message` |
+| Landing-page / ad CTA systems | `copywriting` |
+| Long-form prose voice beyond an issue draft | `writing` |
+| Inbox triage and follow-up ledgers | `email-management` |
+| Multi-channel acquisition systems | `growth` |
 
-- Consistency over frequency—weekly better than sporadic daily
-- Set expectations at signup—"Every Tuesday" not "sometimes"
-- Quality per issue matters more—don't pad to hit schedule
-- Test frequency changes—some audiences want more, some less
+## Core path
 
-## Growth Strategies
+1. **Clarify job** — launch, content craft, growth, deliverability, metrics, or monetization.
+2. **Constraints first** — audience, cadence capacity, ESP, geography (compliance differs), and whether mail is marketing vs transactional.
+3. **Load depth on demand** — prefer one section of `references/domain.md` over the whole file.
+4. **Cite fragile facts** — auth thresholds, complaint rates, bulk-sender rules, and legal requirements only after loading `references/sources.md`; re-check the live provider page before DNS or ESP cutovers.
+5. **One next action** — a concrete subject test, auth checklist, win-back step, or sponsor brief beats a generic “best practices” dump.
 
-- Lead magnet: valuable free resource for email
-- Content upgrades: bonus content within popular posts
-- Referral program: rewards for sharing
-- Cross-promotions: swap with similar newsletters
-- Social proof: subscriber count, testimonials
-- Twitter/LinkedIn teasers—excerpt best parts publicly
+## Depth on demand
 
-## Landing Page
+| Need | Load |
+| --- | --- |
+| Subject lines, structure, growth, metrics, monetization, traps | `references/domain.md` |
+| Official sender requirements and citation rules | `references/sources.md` |
+| Evaluation harness only | `test-prompts.json` |
 
-- Single focus: email capture—no other distractions
-- Clear value proposition—what they get, how often
-- Social proof—subscriber count, notable readers, testimonials
-- Preview content—show what emails look like
-- Low friction form—email only, name optional
-- Mobile optimized—significant traffic from social
+## Safety defaults
 
-## Welcome Sequence
-
-- Immediate welcome—confirm subscription, set expectations
-- Best content showcase—send top 3 past issues
-- Ask what they want—segment based on response
-- Personal story—build connection, why you write
-- Quick win—valuable content immediately
-
-## Segmentation
-
-- By interest: what topics they clicked
-- By engagement: active vs dormant
-- By source: different lead magnets = different interests
-- By behavior: purchasers vs free only
-- Personalize content per segment—relevance increases engagement
-
-## Deliverability
-
-- Warm up new domain—start small, increase volume
-- Clean list regularly—remove bounces, long-term inactive
-- Authenticate: SPF, DKIM, DMARC configured
-- Easy unsubscribe—hidden unsubscribe hurts reputation
-- Monitor spam complaints—above 0.1% is problem
-- Avoid purchased lists—destroy reputation instantly
-
-## Metrics
-
-- Open rate: 40%+ good, below 20% problem—but Apple Mail inflates
-- Click rate: 2-5% typical, depends on content type
-- Growth rate: net new subscribers per period
-- Reply rate: engagement signal, builds relationship
-- Revenue per subscriber: for monetized newsletters
-
-## Monetization
-
-- Sponsorships: once established, charge per issue or CPM
-- Premium tier: exclusive content, community access
-- Products: courses, guides, templates
-- Affiliate: products you genuinely recommend
-- Classified ads: job boards, tools relevant to audience
-
-## Sponsors
-
-- Audience alignment—sponsor fits reader interest
-- Clear "sponsored" label—transparency builds trust
-- Limited per issue—one primary, maybe one classified
-- Write ad yourself—matches voice, performs better
-- Pricing: CPM model or flat rate based on audience value
-
-## Re-engagement
-
-- Segment inactive (90+ days no open)
-- Win-back campaign: "Still interested?"
-- Remove if no response—quality over quantity
-- Different subject line style—pattern interrupt
-- Final email: "Last chance before I remove you"
-
-## Writing Habits
-
-- Consistent publishing day—readers expect it
-- Write for one person—specific reader in mind
-- Share what you learned—curate and add insight
-- Link to sources—credit and provide depth
-- Proofread: typos damage credibility
+- Do not invent ESP pricing, inbox placement guarantees, or jurisdiction-specific legal advice from memory.
+- Never recommend purchased lists, scraped addresses, or hiding unsubscribe controls.
+- Treat subscriber PII and ESP API keys as secrets; keep them out of skill files and examples.
+- For commercial US email, surface CAN-SPAM obligations (honest headers, physical address, working opt-out) and note other regions need local counsel — this skill is strategy guidance, not legal representation.
+- Prefer organic permission-based lists and measurable experiments over vanity open-rate targets inflated by Apple Mail Privacy Protection.
