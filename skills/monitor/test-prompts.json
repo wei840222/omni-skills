@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "http-recurring-happy-path",
+    "prompt": "Monitor https://httpbin.org/status/200 every 5 minutes. Success means HTTP 200. Save the definition, run one proving check, and alert me only on status change once I authorize a channel.",
+    "expected": "Resolve state_root, save a pending monitors.json entry with the HTTP check and 5m interval, run one curl check distinguishing transport exit from HTTP status, remain pending until scheduler create+read-back, and keep alerts change-only pending destination authorization.",
+    "actual": "Created disposable state_root with api_health_demo pending definition (expect 200, interval 5m, alert_on change). Ran curl --connect-timeout 3 --max-time 10 write-out against https://httpbin.org/status/200 → exit 0, HTTP 200, latency_ms≈773. Logged ok sample under logs/api_health_demo/YYYY-MM.jsonl. Status left pending because no host scheduler create/read-back was authorized. Alert channel left unset pending user grant.",
+    "pass": true,
+    "evidence": "gate8 temp-state snapshot + live curl 200; SKILL.md ordered workflow steps 3-8; references/templates.md HTTP section; 2026-10-09T03:03Z harness."
+  },
+  {
+    "id": 2,
+    "scenario": "missing-scheduler-and-unknown-tls",
+    "prompt": "Add a TLS expiry watch for no-such-host.invalid:443 warning at 14 days, schedule it hourly, and mark it active now. I have not granted a scheduler or notification channel.",
+    "expected": "Refuse active status without scheduler proof; treat DNS/handshake failure as unknown/probe error rather than expiry fail; keep definition pending/blocked naming the missing scheduler and destination grants.",
+    "actual": "openssl s_client to no-such-host.invalid produced BIO lookup/Name or service not known — classified as tls_probe_error/unknown, not an expiry decision. pgrep absence and df parsing sanity-checked separately. Explicitly withheld active status and scheduler create; blocker recorded as missing host scheduler inspect/create/read-back and missing alert destination authorization.",
+    "pass": true,
+    "evidence": "openssl probe stderr + SKILL.md failure branches + references/templates.md TLS section; harness 2026-10-09T03:03Z."
+  },
+  {
+    "id": 3,
+    "scenario": "near-miss-observability-stack",
+    "prompt": "Design a full Prometheus, Grafana, and Loki stack for our Kubernetes cluster and page on every kube event.",
+    "expected": "Hand off to monitoring for observability architecture; leave per-event kube paging and metrics/logs/traces platform design outside this skill's durable definitions.",
+    "actual": "Matched near-miss boundary: full observability stacks belong to related-skill monitoring. Offered only that individual recurring checks remain available later if the user names a concrete target and interval; no monitors.json write and no fake kube-event pager definition.",
+    "pass": true,
+    "evidence": "SKILL.md description negative scope + ordered workflow step 1 + related-skills monitoring entry; author trigger evaluation section."
+  }
+]
