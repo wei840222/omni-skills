@@ -16,6 +16,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
 | b2b                          | 2026-10-08 | 87/100 (#762)                    |
+| b2c                          | 2026-10-08 | 86/100 (#763)                    |
 | paperclip                    | 2026-10-08 | 86/100 (#761)                    |
 | wishlist                     | 2026-10-08 | 86/100 (#760)                    |
 | wedding-planner              | 2026-10-08 | 86/100 (#759)                    |
