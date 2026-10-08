@@ -1,6 +1,6 @@
 # Memory Template - OpenTable
 
-Create `~/Clawic/data/opentable/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # OpenTable Memory
@@ -50,11 +50,11 @@ planning_window: weekly
 | `ongoing` | Active optimization cycle | Keep gathering signals and iterating |
 | `complete` | Current objective met | Shift to monitoring and next target |
 | `paused` | User paused optimization | Keep context read-only until resumed |
-| `never_ask` | User wants no setup prompts | Avoid setup questions unless user asks |
+| `never_ask` | User wants no setup prompts | Skip setup questions unless user asks |
 
 ## File Templates
 
-Create `~/Clawic/data/opentable/reservation-log.md`:
+Create `<state_root>/reservation-log.md`:
 
 ```markdown
 # OpenTable Reservation Log
@@ -67,7 +67,7 @@ Create `~/Clawic/data/opentable/reservation-log.md`:
 - Keep or rollback:
 ```
 
-Create `~/Clawic/data/opentable/incidents.md`:
+Create `<state_root>/incidents.md`:
 
 ```markdown
 # OpenTable Incidents

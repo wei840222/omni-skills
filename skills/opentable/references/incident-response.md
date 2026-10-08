@@ -6,7 +6,7 @@
 |------|------------------|--------------------|
 | Overbooking | More covers than seatable capacity | Protect in-house service and communicate options |
 | Confirmation failure | Guests claim no confirmation or wrong time | Reconcile reservation state and reduce arrival friction |
-| Availability mismatch | Slots shown despite operational block | Stop new exposure and correct inventory quickly |
+| Availability mismatch | Slots shown despite operational block | Halt new exposure and correct inventory quickly |
 | Outage or degraded platform | Booking flow unavailable or unstable | Activate fallback intake and preserve guest trust |
 
 ## First 30 Minutes
