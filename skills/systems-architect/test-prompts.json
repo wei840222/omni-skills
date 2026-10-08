@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Design a highly available public web app on a single cloud with a relational database. We need about 99.9% availability and can tolerate roughly an hour of data loss in a regional disaster.",
+    "expected": "Recommends multi-AZ as default, private app tiers with public ingress only, states SLO/error-budget framing, maps RTO/RPO to warm or hot standby rather than jumping to active-active, and separates platform topology from provider-native next steps.",
+    "actual": "Framed as reliability+topology decision. Set 99.9% SLO with error budget (~8.76h/year) as floor and ceiling. Default: multi-AZ region, ALB/API gateway public, app and DB in private subnets, DB Multi-AZ synchronous for AZ loss (RPO≈0 inside region). Regional DR: warm standby with cross-region async replica matching ~1h RPO; documented failover runbook and restore drill. Rejected active-active as unnecessary cost given RPO. Handoff: terraform/aws for resources, monitoring for golden signals (latency/traffic/errors/saturation), devops for deploy/paging.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We expect a 10x traffic spike for a two-day launch. Current p95 is fine at steady state but we have never load-tested. Should we multi-region everything this week?",
+    "expected": "Prioritizes baseline measurement and load testing over premature multi-region; discusses capacity lead time, cost nonlinearity, canary/scale plan, and when multi-region would actually be justified.",
+    "actual": "Advised against emergency multi-region. Sequence: (1) measure baseline QPS, concurrency, payload, dependency saturation; (2) load-test to breaking point and name bottlenecks; (3) right-size steady capacity and pre-warm autoscaling for the event window; (4) cost-model 10x (not 10x spend). Multi-region only if RTO/RPO or single-region risk already fails targets—launch spike alone does not. Added canary on critical path, backpressure/rate limits at ingress, and rollback owner. Pointed capacity/migration rules in domain.md and reliability.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should our checkout API call inventory synchronously, and how do we stop a slow inventory service from taking down checkout?",
+    "expected": "Discusses sync vs async trade-offs for checkout, timeouts/retries/idempotency, bulkheads/backpressure, and optional async offload for non-blocking work without losing the user-visible need for stock confirmation.",
+    "actual": "Kept stock reservation on the synchronous checkout path with strict timeouts, bounded retries+jitter, idempotency keys, and a circuit breaker to fail closed with a clear user message when inventory is dark. Bulkheaded checkout from non-critical recommendations. Queued post-purchase fulfillment asynchronously with DLQ+replay owner. Emphasized rate limits/backpressure so inventory slowness sheds load instead of cascading. Linked security-integration.md patterns; handoff to software-architect for service boundaries if decomposition is unclear.",
+    "pass": true
+  }
+]
