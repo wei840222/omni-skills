@@ -26,7 +26,7 @@ The trigger must be observable and thresholded — a condition someone can notic
 
 ## The Record
 
-Fields and storage format: `decision-log.md`. Written by the decision owner, at convergence time — records reconstructed later inherit the winner's memory. Goes to `~/Clawic/data/collaborate/decisions.md` when `log_decisions` is on, or to the user's own convention (ADRs, repo docs — Configuration preference areas) when they have one; one home per decision, never both.
+Fields and storage format: `decision-log.md`. Written by the decision owner, at convergence time — records reconstructed later inherit the winner's memory. Goes to `<state_root>/decisions.md` when `log_decisions` is on, or to the user's own convention (ADRs, repo docs — Configuration preference areas) when they have one; one home per decision, choose exactly one.
 
 ## Close the Loop With the Counterpart
 

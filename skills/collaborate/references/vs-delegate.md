@@ -31,7 +31,7 @@ The core distinction: delegation transfers EXECUTION and keeps judgment; collabo
 ## Hybrid Sequences
 
 - **Shape → execute** (most common): collaborate to settle the approach — the exchange's decision record becomes the delegation's spec. The record's acceptance criteria ARE writable now precisely because the exchange defined them; that is the routing flip (SKILL.md Rule 2) happening live.
-- **Execute → judge reception**: delegated work came back green on criteria but feels off → the criteria missed a dimension; run an audience pass (`audience-pass.md`) to name it, then amend the criteria — do not bounce the deliverable with "something's off."
+- **Execute → judge reception**: delegated work came back green on criteria but feels off → the criteria missed a dimension; run an audience pass (`audience-pass.md`) to name it, then amend the criteria instead of bouncing the deliverable with "something's off."
 - **Collaborate at boundaries only**: long solo or delegated work with exchange checkpoints at irreversible moments (design locked, API frozen, before the migration). Cheaper than pairing, catches the one-way doors; the checkpoint list is written when work starts, not improvised when confidence dips.
 - **Diverge → collaborate**: generate options wide (route to `diverge`), pick the strongest, then run ONE exchange on it. Running exchanges on every divergent option burns the budget on candidates that lose anyway.
 

@@ -6,7 +6,7 @@ For the stuck state: both options survive scrutiny and you keep re-reading them.
 
 1. **Check reversibility.** Two-way door with undo cost under `solo_undo_threshold` (default 15 min)? Pick either, ship, observe — the exchange costs more than trying. One-way doors are what second opinions are for.
 2. **Write both loss stories.** For each option, one line: what you lose if it is wrong. If one story is clearly worse, you were not stuck — you were avoiding the safe-but-boring option.
-3. **Write your leaning and its kill condition** (SKILL.md Rule 5) — but do not show it yet.
+3. **Write your leaning and its kill condition** (SKILL.md Rule 5) — but withhold it until later.
 
 ## Techniques
 

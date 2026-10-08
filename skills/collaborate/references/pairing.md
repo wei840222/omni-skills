@@ -14,12 +14,12 @@ When it loses: mechanical work with writable acceptance criteria (delegate — p
 
 - **Driver** produces: types, executes, owns the next line.
 - **Navigator** holds intent: watches for drift from the goal, tracks the plan, spots the wrong sub-problem being solved.
-- The navigator speaks at intent level ("we're handling the error case before the happy path works"), never keystroke level ("missing semicolon") — keystroke backseat driving destroys the driver's flow and wastes the navigator's altitude. Exception: the driver asks.
+- The navigator speaks at intent level ("we're handling the error case before the happy path works"), avoid keystroke level ("missing semicolon") — keystroke backseat driving destroys the driver's flow and wastes the navigator's altitude. Exception: the driver asks.
 - A silent navigator is not pairing; it is solo work with an audience. The navigator's output is a running commentary of intent-level observations — if there is nothing to say for long stretches, the work did not need pairing.
 
 ## Rotation
 
-Swap roles at natural boundaries — a test passes, a section completes, a hypothesis dies. Never mid-thought on a timer: the swap's cost is context transfer, and mid-thought the context is at its largest. If one person has driven the whole session, the navigator has become a spectator — force the swap at the next boundary.
+Swap roles at natural boundaries — a test passes, a section completes, a hypothesis dies. Swap at clear breakpoints rather than mid-thought on a timer: the swap's cost is context transfer, and mid-thought the context is at its largest. If one person has driven the whole session, the navigator has become a spectator — force the swap at the next boundary.
 
 ## Human–Agent Pairing
 
@@ -38,5 +38,5 @@ Park it. Note the disagreement in one line, finish the current step, resolve at 
 | Two drivers | Both produce, nobody holds intent; drift goes unnoticed | Roles named out loud at session start |
 | Keystroke navigation | Flow destroyed; navigator abandons the map for typos | Intent level only, unless asked |
 | Pairing as surveillance | The navigator is auditing, not collaborating; driver performs instead of thinks | If the goal is verification, that is review — do it async |
-| Never rotating | Navigator disengages into spectator | Swap at natural boundaries |
+| Failing to rotate | Navigator disengages into spectator | Swap at natural boundaries |
 | Debating mid-flow | Both roles collapse simultaneously | Park in one line; resolve at the boundary |

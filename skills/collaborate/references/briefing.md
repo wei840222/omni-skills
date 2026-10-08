@@ -17,7 +17,7 @@ The core trade-off: too little context → generic critique; too much → the co
 
 - Always include: goal, constraints, the artifact.
 - Dose by exchange type: **anchored** (adversarial review — include your position and kill condition; it is the target) vs **blind** (second opinions, audience pass — withhold your leaning and reasoning until after their first pass). Decided per SKILL.md Where Experts Disagree.
-- Never include: your chat history, your discarded options with commentary ("we rejected X because..." teaches them your frame), other people's opinions of the work.
+- Exclude: your chat history, your discarded options with commentary ("we rejected X because..." teaches them your frame), other people's opinions of the work.
 - Your reasoning is the most contaminating item you own. Share it after their independent read, as round two material.
 
 ## Question Bank
@@ -36,10 +36,10 @@ The falsifiable question is per-counterpart; match it to the lens:
 ## Banned Forms
 
 - "Any thoughts?" / "Feedback welcome" — returns generalities (SKILL.md Traps).
-- Leading questions: "don't you think the caching approach is fine?" — you just dictated the answer.
+- Leading questions: "wouldn't you agree the caching approach is fine?" — you just dictated the answer.
 - Compound questions: "is it correct, and also fast enough, and is the naming good?" — the counterpart picks the easiest and drops the rest. One question; further questions are the next round's material.
 - Questions the counterpart cannot falsify from what you gave them. If answering requires data you withheld, the brief is incomplete, not the counterpart.
 
 ## Re-Briefing
 
-A vague or off-target first response is usually the brief's fault. One repair attempt: restate the loss function and the falsifiable question, cut everything else. If the second response is still generic, the counterpart cannot be surprised into usefulness — replace the counterpart (`counterparts.md`), do not extend the rounds.
+A vague or off-target first response is usually the brief's fault. One repair attempt: restate the loss function and the falsifiable question, cut everything else. If the second response is still generic, the counterpart cannot be surprised into usefulness — replace the counterpart (`counterparts.md`), halt the rounds and replace the counterpart.

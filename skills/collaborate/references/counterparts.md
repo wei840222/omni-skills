@@ -35,7 +35,7 @@ When no real counterpart is reachable (`counterpart_mode` resolves to simulate):
 2. Re-read that line at the start of every round; dropping it mid-round reverts you to self-agreement (SKILL.md Traps).
 3. Produce the counterpart's strongest attack, not their probable politeness. Simulated counterparts have no social cost — use that.
 4. Signs the simulation collapsed: critiques turn abstract ("consider edge cases"), you start agreeing within the same paragraph, the attack targets wording. Any sign → restate the loss function and redo the round.
-5. Honest ceiling: a simulation shares your information by construction. It can vary the loss function, never the inputs. When the gap you need is information (domain facts, user reality), simulation cannot close it — recruit, or go get the facts first (SKILL.md routing check 5).
+5. Honest ceiling: a simulation shares your information by construction. It can vary the loss function, keeping inputs constant. When the gap you need is information (domain facts, user reality), simulation cannot close it — recruit, or go get the facts first (SKILL.md routing check 5).
 
 ## Anti-Patterns
 

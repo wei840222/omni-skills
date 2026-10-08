@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm going to commit a large refactor of the database layer. I think it looks solid, but I want you to attack the assumptions to make sure I haven't missed anything critical.",
+    "expected": "Agent initiates an adversarial review, focusing on the top 3 assumptions that could kill the plan rather than code formatting or wording.",
+    "actual": "Initiated adversarial review. Challenged the assumptions regarding transaction isolation levels, connection pooling limits during peak load, and rollback strategies for partial failures.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are stuck deciding between using Redis or Memcached for our caching layer. Both options are defensible, and we keep re-reading the proposals without making a decision. Help us resolve this.",
+    "expected": "Agent uses loss-function swap or second-opinions to judge each option from the perspective of a maintainer 6 months from now, rather than just averaging the two designs.",
+    "actual": "Applied the 'maintainer at month 6' lens. Highlighted that Redis offers persistence which aids debugging after restarts, whereas Memcached requires full cache warm-up. Recommended Redis to minimize operational overhead during incidents.",
+    "pass": true
+  }
+]
