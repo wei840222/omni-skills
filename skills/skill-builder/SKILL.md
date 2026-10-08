@@ -78,7 +78,8 @@ catalog search (`skill-finder`), sandbox trial (`skill-test`), security scan
    only `<state_root>/...` paths afterward. Ask before creating files.
 5. Add gotchas, defaults (not option menus), and recovery branches for fragile
    steps.
-6. Validate: `uvx --from skills-ref agentskills validate skills/<slug>`.
+6. Checkpoint: re-read name/description/triggers as a fresh agent, then validate
+   with `uvx --from skills-ref agentskills validate skills/<slug>`.
 7. Add or update root `test-prompts.json` with realistic prompts and expected
    outcomes; iterate until behavior is stable.
 8. Hand off install/trial/publish work to the related skills above.
