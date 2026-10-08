@@ -1,190 +1,91 @@
 ---
 name: wishlist
-slug: wishlist
-version: 1.0.0
-description: Build a personal wishlist system for capturing wants, tracking prices, and smart purchasing decisions.
-homepage: https://clawic.com/skills/wishlist
+description: >
+  Capture wants, track target prices, prioritize purchases, and log bought items
+  in a local wishlist. Use when the user says they want something, asks what to
+  buy next, wants price alerts or deal timing for saved items, reviews stale
+  wants, or records a purchase from the list. Not for gift ideas for other people
+  (`gifts`), one-shot buy-vs-wait advice without a saved list (`shopping` /
+  `price`), checkout execution (`buy`), or household budget math (`money` /
+  `expenses`).
 metadata:
-  clawdbot:
-    emoji: ⭐
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Wishlist
+  version: "1.1.0"
+  openclaw: '{"emoji":"⭐"}'
+  related-skills: '{"shopping":"Product research and buy-vs-wait once a wishlist item is ready for a purchase decision.","price":"Fair-value and sale-legitimacy checks when the question is the price itself, not list hygiene.","buy":"Checkout, order placement, and scam checks after the user decides to purchase a saved item.","gifts":"Gift ideas and occasion tracking for other people rather than the user own wants list.","money":"Affordability, cash-flow timing, and budget ceilings before committing a must-have spend.","expenses":"Post-purchase spend logging after an item moves to purchased.","remind":"Calendar nudges for sale windows or review dates once the list decision is set."}'
 ---
 
-## Core Behavior
-- User shares something they want → capture with details
-- User asks what to buy → surface by priority and price
-- Periodically check prices on tracked items
-- Create `~/Clawic/data/wishlist/` as workspace
+## When to use
 
-## File Structure
-```
-~/Clawic/data/wishlist/
-├── items/
-│   └── sony-headphones.md
-├── by-priority/
-│   ├── must-have.md
-│   ├── want.md
-│   └── someday.md
-├── by-category/
-│   ├── tech.md
-│   ├── home.md
-│   └── clothing.md
-├── purchased.md
-├── price-alerts.md
-└── settings.md
-```
+Load for **personal want capture and purchase timing**:
 
-## Item Entry
-```markdown
-# sony-headphones.md
-## Item
-Sony WH-1000XM5 Headphones
+- "I want … / add this to my wishlist"
+- "What should I buy next?" / priority surfacing
+- Price check or alert against saved targets
+- Monthly relevance review of stale items
+- Move a bought item into the purchased log
 
-## Why I Want It
-Best noise cancelling, work from cafes
+Hand off when a sibling owns the job:
 
-## Priority
-Must-have
+| Job | Skill |
+|-----|-------|
+| Gift ideas for someone else | `gifts` |
+| One-shot product pick without list state | `shopping` |
+| Sale legitimacy / fair value only | `price` |
+| Place the order / negotiate checkout | `buy` |
+| Can I afford this / debt vs save | `money` |
+| Log the spend after purchase | `expenses` |
+| Timed nudge without list mutation | `remind` |
 
-## Category
-Tech
+## State location
 
-## Price Tracking
-- Target price: $300
-- Current best: $349 (Amazon)
-- Last checked: Feb 11, 2024
+Wishlist state may exist in `<workspace>/wishlist/`, `<workspace>/memory/wishlist/`, or `~/wishlist/`. `<workspace>` means the workspace root provided by the host/runtime, not the shell CWD.
 
-## Links
-- Amazon: [url]
-- Best Buy: [url]
+Before any state read or write, resolve `<state_root>` once:
 
-## Price History
-- Feb 1: $379
-- Feb 10: $349 (dropped!)
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order: `<workspace>/wishlist/`, `<workspace>/memory/wishlist/`, `~/wishlist/`.
+3. If none exists and the user asks to save durable wishlist data, create `<workspace>/wishlist/` only after consent.
+4. If multiple candidates exist, use only the highest-precedence path, report the duplicates, and leave the others untouched.
 
-## Notes
-Wait for Prime Day or Black Friday
-Consider refurbished
+Use the selected `<state_root>` for every state operation in this skill. Create only the resolved filesystem path; the placeholder name `<state_root>` is documentation-only.
 
-## Added
-January 15, 2024
-```
+Legacy path `~/Clawic/data/wishlist/` is a migration source only. Propose copy, validation, cutover, and rollback; do not move or delete automatically.
 
-## Quick Capture
-For fast saving:
-```markdown
-User: "I want those Sony headphones"
-→ Create item with name
-→ Ask: priority? budget? link?
-→ Start tracking
-```
+## Setup
 
-## Priority Levels
-```markdown
-# by-priority/must-have.md
-Items you're actively planning to buy:
-- Sony WH-1000XM5 — waiting for <$300
-- Standing desk — researching options
+After resolving `<state_root>`, if `<state_root>/settings.md` is missing, read `references/setup.md`. Confirm before the first write to `<state_root>`.
 
-# by-priority/want.md
-Would buy if good deal:
-- Kindle Paperwhite
-- AirTag 4-pack
+## Primary workflow
 
-# by-priority/someday.md
-Nice to have, no rush:
-- Espresso machine
-- Drone
-```
+Execute in order. Stop early only when a step already blocks progress.
 
-## Price Alerts
-```markdown
-# price-alerts.md
-## Active Alerts
-- Sony WH-1000XM5: alert if <$300
-- Kindle Paperwhite: alert if <$100
-- Standing desk: alert if <$400
+1. **Intent** — Classify: capture, prioritize, price-check, review, or purchase-log.
+2. **Resolve state** — Select `<state_root>`; load `settings.md` when present.
+3. **Route detail** — Load only the reference that owns the current pain:
 
-## Triggered
-- Feb 10: Sony dropped to $349 (still above target)
-```
+| Bottleneck | Load |
+|------------|------|
+| Paths, schemas, indexes | `references/state.md` |
+| Capture, priority, purchase flow | `references/domain.md` |
+| First-run activation | `references/setup.md` |
+| Verified consumer guidance | `references/sources.md` |
 
-## Settings
-```markdown
-# settings.md
-## Price Check Frequency
-Weekly on Sundays
+4. **Capture with friction** — For a new want, ask priority, target price/budget, and at least one product link when missing; write `items/{slug}.md` and update priority/category indexes.
+5. **Decide with evidence** — Before recommending buy-now, compare current price to target and history; surface must-have items under target first.
+6. **Confirm before external impact** — Draft only for purchase, cart, or payment actions; place an order or spend only with explicit current-task authorization.
+7. **Write durable notes** — After consent, update the item file, indexes, `price-alerts.md`, and `purchased.md` as applicable.
 
-## Alert Preferences
-Notify when:
-- Price drops below target
-- Price drops >15% from last check
-- Item goes on sale
+## Operating rules
 
-## Preferred Stores
-- Amazon
-- Best Buy
-- Direct from manufacturer
-```
+- Check the wishlist before suggesting an impulsive purchase of something already tracked.
+- Keep card numbers, CVVs, bank logins, and full payment tokens out of every state file; retain at most last-four, nickname, or a secret pointer.
+- Treat retailer countdown timers and "only N left" copy as weak urgency signals; evaluate the item at regular price first.
+- Prefer ranges and observed prices; leave market averages blank when not measured.
+- Review must-have and want items at least monthly: still relevant, still needed, still the right target?
 
-## Price Checking
-When checking prices:
-- Search current prices across configured stores
-- Compare to target and history
-- Surface significant drops
-- Update last checked date
+## Progressive enhancement
 
-## What To Surface
-- "Sony headphones dropped $30 this week"
-- "3 items on your must-have list under budget"
-- "Kindle hasn't changed price in 2 months"
-- "Black Friday coming — review high-priority items"
-
-## Smart Suggestions
-- "This item often discounts on Prime Day"
-- "Refurbished available at 40% off"
-- "Similar item with better reviews for less"
-- "You've wanted this 6 months — still relevant?"
-
-## Purchase Flow
-When user decides to buy:
-- Confirm current best price
-- Move to purchased.md with date and final price
-- Note: got target price? above/below?
-
-## Purchased Log
-```markdown
-# purchased.md
-## 2024
-- Sony WH-1000XM5: $299 (Feb 20) — hit target!
-- Standing desk: $450 (Jan 15) — slightly over
-
-## Stats
-- Items bought at/under target: 70%
-- Average wait time: 45 days
-- Total saved vs original price: $340
-```
-
-## Categories
-Organize by type for browsing:
-- Tech: gadgets, electronics
-- Home: furniture, appliances
-- Clothing: wardrobe additions
-- Hobby: gear for interests
-- Gifts: things to gift others
-
-## Progressive Enhancement
-- Start: capture items with priority
-- Add target prices
-- Enable price checking
-- Review monthly: still want it?
-
-## What NOT To Do
-- Buy impulsively without checking wishlist first
-- Keep items forever without reviewing
-- Ignore price history patterns
-- Forget why you wanted something
+1. Capture name + priority.
+2. Add target price and links.
+3. Enable price checks / alerts from `settings.md`.
+4. Monthly relevance review; move bought items to `purchased.md`.
