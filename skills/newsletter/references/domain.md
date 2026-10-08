@@ -118,7 +118,7 @@ Exact enforcement dates and edge cases change — re-open the live Gmail/Yahoo s
 | Net growth | New confirmed minus unsub/bounce/suppress |
 | Revenue per subscriber | For monetized lists; track by segment |
 
-Do not chase a universal “40%+ open = good” rule as science; use cohort baselines on **your** list and prioritize clicks, replies, and revenue when open data is polluted.
+Skip fixed open-rate trophies; use cohort baselines on **your** list and prioritize clicks, replies, and revenue when open data is polluted.
 
 ## Monetization
 
