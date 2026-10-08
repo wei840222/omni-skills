@@ -43,6 +43,8 @@ OpenClaw fields in a `metadata.openclaw` JSON string; store relationships in a
 `metadata.related-skills` JSON string.
 
 Specification: https://agentskills.io/specification
+Document index: https://agentskills.io/llms.txt
+Best practices: https://agentskills.io/skill-creation/best-practices
 
 ### 5. Auxiliary files over inline bulk
 
