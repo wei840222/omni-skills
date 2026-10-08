@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want a new skill that merges PDFs and extracts text. How should I structure it?",
+    "expected": "Guide directory=name match, trigger-rich description, short SKILL.md with routing to references/, optional scripts; suggest validate via uvx --from skills-ref agentskills validate; ask before any state files; do not push catalog promo links.",
+    "actual": "Proposed pdf-oriented slug matching the folder name, description covering merge/extract + use-when intents, SKILL.md core workflow with progressive disclosure to references/, and validation command `uvx --from skills-ref agentskills validate skills/<slug>`. No file writes without consent; no clawic homepage CTAs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My skill's SKILL.md is 150 lines because I inlined 20 commit-message templates. Review it?",
+    "expected": "Flag always-loaded bloat; move templates to assets/ or references/; keep routing table and when-to-load cues; restate progressive disclosure limits from the Agent Skills spec.",
+    "actual": "Called out Gate-style progressive disclosure: keep SKILL.md lean, move the 20 templates to assets/templates.md or references/, link with an explicit load condition, and re-validate. Emphasized description/trigger quality stays in frontmatter, not template dumps.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Where should skill-builder store my draft project list, and can you just create ~/Clawic/data/skill-builder automatically?",
+    "expected": "Resolve <state_root> with workspace/memory/home candidates; refuse silent ~/Clawic creation; require consent; legacy Clawic paths are not active lookup order.",
+    "actual": "Explained State location resolver: explicit config first, then <workspace>/skill-builder/, <workspace>/memory/skill-builder/, ~/skill-builder/. Refused auto-creating ~/Clawic/data/skill-builder; legacy Clawic paths are read-only legacy notes and need a separate migration decision. Would create <state_root>/projects.md only after named consent.",
+    "pass": true
+  }
+]
