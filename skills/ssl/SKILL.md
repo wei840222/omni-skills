@@ -1,100 +1,64 @@
 ---
 name: ssl
-slug: ssl
-version: 1.0.2
-description: Set up HTTPS, manage TLS certificates, and debug secure connection issues.
-homepage: https://clawic.com/skills/ssl
+description: >
+  Issue, renew, and debug TLS/SSL certificates and HTTPS endpoints with certbot,
+  ACME clients, openssl, and server configs (Nginx, Apache, Caddy, Traefik,
+  HAProxy, Node). Use for Let's Encrypt issuance, chain/expiry/hostname errors,
+  mixed content, format conversion (PEM/DER/PKCS#12), and automated renewal.
+  Prefer `nginx`/`caddy`/`traefik` for reverse-proxy routing beyond TLS
+  termination, `network` for generic reachability outside certificates, and
+  `oauth` for application identity rather than transport TLS.
 metadata:
-  clawdbot:
-    emoji: 🔒
-    displayName: SSL
+  version: "1.1.0"
+  openclaw: '{"emoji":"🔒"}'
+  related-skills: '{"caddy":"Automatic HTTPS and simpler reverse-proxy configs when Caddy owns termination.","linux":"Host permissions, systemd timers, and firewall ports that block ACME or private-key reads.","network":"Layer-3 reachability, DNS, and routing diagnosis outside certificate content.","nginx":"Nginx reverse-proxy routing, upstreams, and TLS termination directives beyond issuance.","oauth":"Application identity (JWT/OAuth) separate from transport-layer TLS.","traefik":"Traefik ACME resolvers and router TLS when the edge is Traefik."}'
 ---
 
-## Triggers
+# SSL / TLS certificates
 
-Activate on: SSL certificate, HTTPS setup, Let's Encrypt, certbot, TLS configuration, certificate expired, mixed content, certificate chain error.
+Stateless domain skill for **HTTPS certificate lifecycle and secure-connection debugging**. It does not store private keys, account credentials, or host inventories in the package.
 
-## Core Tasks
+## When to load
 
-| Task | Tool/Method |
-|------|-------------|
-| Get free cert | `certbot`, acme.sh, Caddy (auto) |
-| Check cert status | `openssl s_client -connect host:443` |
-| View cert details | `openssl x509 -in cert.pem -text -noout` |
-| Test config | ssllabs.com/ssltest or `testssl.sh` |
-| Convert formats | See `formats.md` |
+Load when the user needs:
 
-## Quick Cert Commands
+- free DV certs via Let's Encrypt / ACME (`certbot`, acme.sh, Caddy auto-HTTPS, Traefik ACME)
+- expiry, chain incomplete, hostname mismatch, mixed content, or authority-invalid errors
+- openssl inspection of live endpoints or on-disk certs
+- certificate format conversion (PEM, DER, PKCS#12, PKCS#7)
+- server TLS snippets for Nginx, Apache, Caddy, Traefik, HAProxy, or Node
+- renewal automation and dry-run validation
 
-```bash
-# Let's Encrypt with certbot (most common)
-certbot certonly --nginx -d example.com -d www.example.com
+Prefer sibling skills when the job is mainly:
 
-# Check expiry
-echo | openssl s_client -connect example.com:443 2>/dev/null | openssl x509 -noout -dates
+| Job | Skill |
+| --- | --- |
+| Nginx locations, upstreams, proxy errors | `nginx` |
+| Caddy site blocks beyond auto-HTTPS | `caddy` |
+| Traefik routers/services beyond ACME | `traefik` |
+| DNS/routing/firewall reachability | `network` / `linux` |
+| App auth (JWT, OAuth) | `oauth` |
 
-# Verify chain is complete
-openssl s_client -connect example.com:443 -servername example.com
-# Look for "Verify return code: 0 (ok)"
-```
+## Core path
 
-## Common Errors
+1. Confirm the failure class (issuance, chain, expiry, name mismatch, mixed content, client trust).
+2. Inspect with openssl before rewriting server config.
+3. Prefer full chain files (`fullchain.pem`) and automated renewal over one-off manual certs.
+4. After any config change, reload the server and re-check verify return code `0 (ok)`.
 
-| Error | Cause | Fix |
-|-------|-------|-----|
-| `certificate has expired` | Cert past valid date | Renew with certbot renew |
-| `unable to verify` / `self signed` | Missing intermediate cert | Include full chain in config |
-| `hostname mismatch` | Cert doesn't cover this domain | Get cert for correct domain or add SAN |
-| `mixed content` | HTTP resources on HTTPS page | Change all URLs to HTTPS or use `//` |
-| `ERR_CERT_AUTHORITY_INVALID` | Self-signed or untrusted CA | Use Let's Encrypt or install CA cert |
+## Depth on demand
 
-For detailed troubleshooting steps, see `troubleshooting.md`.
+| Need | Load |
+| --- | --- |
+| Tasks, quick commands, error matrix, cert types, renewal defaults | `references/domain.md` |
+| PEM/DER/PKCS conversions and key/cert match checks | `references/formats.md` |
+| Nginx / Apache / Caddy / Traefik / HAProxy / Node patterns | `references/servers.md` |
+| Diagnostic commands and per-problem fix branches | `references/troubleshooting.md` |
+| Gate 6 primary sources and current limits | `references/sources.md` |
 
-## Server Config Patterns
+## Safety defaults
 
-**Nginx:**
-```nginx
-server {
-    listen 443 ssl http2;
-    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-}
-```
-
-**Apache:**
-```apache
-SSLEngine on
-SSLCertificateFile /path/to/cert.pem
-SSLCertificateKeyFile /path/to/privkey.pem
-SSLCertificateChainFile /path/to/chain.pem
-```
-
-For Node.js, Caddy, Traefik, and HAProxy, see `servers.md`.
-
-## Renewal
-
-Let's Encrypt certs expire in 90 days. Always automate:
-
-```bash
-# Test renewal
-certbot renew --dry-run
-
-# Cron (certbot usually adds this)
-0 0 * * * certbot renew --quiet
-```
-
-## Certificate Types
-
-| Type | Use case |
-|------|----------|
-| Single domain | One site (example.com) |
-| Wildcard (*.domain.com) | All subdomains |
-| Multi-domain (SAN) | Multiple different domains on one cert |
-| Self-signed | Local dev only — browsers will warn |
-
-## What This Doesn't Cover
-
-- Application auth (JWT, OAuth) → see `oauth` skill
-- SSH keys → see `linux` or server skills
-- VPN/tunnel setup → see networking skills
-- Firewall configuration → see server/infrastructure skills
+- Store private keys at mode `600` (or tighter) and only on the host path the TLS unit reads.
+- Develop ACME clients against Let's Encrypt **staging** so production rate limits stay available for real hosts.
+- Schedule renewal of 90-day certificates around day 60 with `certbot renew --dry-run` before trusting timers.
+- Serve intermediates with the leaf (`fullchain` / chain file), then confirm `openssl s_client` returns verify code `0 (ok)`.
