@@ -32,7 +32,7 @@ Adjacent non-triggers (stay with the sibling skill instead):
 
 ## Scope
 
-Knowledge-only coaching. This skill does **not** own persistent product analytics state, billing configuration, or ad-account credentials. Ask for measured inputs; do not invent cohort rates, spend, or revenue.
+Knowledge-only coaching. Keep working memory on the active bottleneck (one reference file at a time). This skill does **not** own persistent product analytics state, billing configuration, or ad-account credentials. Ask for measured inputs; do not invent cohort rates, spend, or revenue.
 
 ## Primary workflow
 
@@ -51,7 +51,7 @@ Execute in order. Stop early when a missing input blocks a safe recommendation.
 | Verified sources used in this package | `references/sources.md` |
 
 4. **Apply core operating rules** (below) to the known facts.
-5. **Produce an evidence-bound output** — recommendation, missing-data asks, kill metric, and one next measurement or experiment. If benchmarks are used, state cohort window, category, and whether figures are hypotheses vs measured. If the user cannot supply spend or paying-customer counts, refuse CAC claims and list the exact inputs needed.
+5. **Produce an evidence-bound output** — recommendation, missing-data asks, kill metric, and one next measurement or experiment. If benchmarks are used, state cohort window, category, and whether figures are hypotheses vs measured. If analytics are missing, switch to an instrumentation plan (events, cohorts, payer denominator) before any scale advice. If the user cannot supply spend or paying-customer counts, withhold CAC/LTV:CAC claims and list the exact inputs needed.
 
 ## Core rules
 
