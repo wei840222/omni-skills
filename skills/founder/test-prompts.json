@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a solo founder, pre-product, and want to hire 3 senior devs to start building.",
+    "expected": "Advises against hiring senior people too early, encourages talking to customers and building a small MVP first. Warns about cash burn, infrastructure gaps, and focus.",
+    "actual": "Do not hire three senior engineers yet. Pre-product, expensive senior hires usually need clear problem validation, a tiny MVP, and enough infrastructure to use their seniority. First: talk to target customers and confirm the problem is worth solving. Second: ship an embarrassingly small MVP yourself (or with the leanest help) to test one hypothesis fast. Third: protect cash/runway—senior burn without learning speed is a common early failure. After scars from doing the work, hire for slope and specific gaps, not a full senior team on day zero.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We've had 15 meetings with VCs and all passed. I think our startup is dead. Should we pivot?",
+    "expected": "Encourages calm, notes many meetings per yes can be normal, avoids panic pivot, focuses on runway weeks and customer traction evidence.",
+    "actual": "Fifteen passes hurts, but it is weak proof the company is dead by itself—fundraising often takes many meetings per yes, and investors pattern-match imperfectly. Do not panic-pivot from rejects alone. Check runway in weeks, current customer evidence (retention, pull, revenue), and whether the problem still has conviction. Pivot only when customer/data evidence shows the strategy fails; keep vision/problem if that still holds. If runway is short, prioritize survival moves and a concrete next customer experiment over a theatrical strategy rewrite.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our paid ads are scaling and signups are up, but users churn within two weeks. Should we increase ad spend?",
+    "expected": "Rejects scaling acquisition while retention leaks; prioritizes PMF/retention diagnosis over spend; asks for cohort evidence.",
+    "actual": "No—do not increase ad spend while two-week churn is unresolved. Acquisition into a leaky bucket burns cash and confuses PMF. Pause scale-up, inspect retention cohorts and activation, and talk to churned users about the failed job-to-be-done. Prefer fixing the core loop for users who would be very disappointed to lose the product before buying more top-of-funnel. Revisit spend only after retention stabilizes enough that added acquisition compounds.",
+    "pass": true
+  }
+]
