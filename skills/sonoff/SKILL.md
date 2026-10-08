@@ -1,165 +1,85 @@
 ---
 name: sonoff
-slug: sonoff
-version: 1.0.0
-description: Control and automate SONOFF devices with eWeLink cloud workflows, LAN and DIY mode operations, and safe multi-device execution.
-homepage: https://clawic.com/skills/sonoff
-changelog: Initial release with SONOFF and eWeLink workflows for cloud and LAN control, device discovery, command safety, and incident-ready automation playbooks.
+description: >
+  Control and automate SONOFF devices through eWeLink cloud, LAN control, DIY
+  mode local HTTP, and SONOFF iHost Open API paths with capability checks,
+  read-before/after-write verification, and canary-first multi-device rollouts.
+  Use when the user needs SONOFF/eWeLink plugs, switches, relays, DIY zeroconf
+  control, iHost local REST/SSE, or safe fleet commands. Not for generic
+  multi-protocol hub planning (`smart-home`), broker-only MQTT design (`mqtt`),
+  or cross-vendor IoT architecture without a SONOFF control question (`iot`).
 metadata:
-  clawdbot:
-    emoji: S
-    requires:
-      bins:
-      - curl
-      - jq
-      env:
-      - EWELINK_API_TOKEN
-    primaryEnv: EWELINK_API_TOKEN
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Sonoff
+  version: "1.0.0"
+  openclaw: '{"emoji":"🔌","env":["EWELINK_API_TOKEN"]}'
+  related-skills: '{"api":"General HTTP client and auth patterns when eWeLink cloud calls need request-shape help beyond SONOFF plane selection.","home-server":"Always-on host placement for iHost, local bridges, or controllers that run beside SONOFF automation.","iot":"Multi-protocol device and transport planning when SONOFF is only one node in a broader fleet.","mqtt":"Broker, topic, and QoS design when SONOFF state is bridged through MQTT rather than direct DIY/iHost HTTP.","smart-home":"Hub, room, and protocol product choices when the ask is ecosystem planning rather than SONOFF command execution."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` and align activation boundaries, control plane preferences, and write-safety defaults before sending SONOFF commands.
+Operational notes for SONOFF environments, devices, automations, and incidents may live under a portable `<state_root>/`. Resolve it once before any state read or write:
 
-## When to Use
+1. Use an explicitly configured path when the user or host supplies one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/sonoff/`, `<workspace>/memory/sonoff/`, `~/sonoff/`.
+3. If none exists and persistent notes are needed, default to `<workspace>/sonoff/`.
 
-Use this skill when the user needs practical SONOFF and eWeLink execution: cloud API operations, LAN control workflows, DIY mode RPC-like calls, or staged multi-device automations.
-Use this instead of generic smart-home advice when outcomes depend on SONOFF-specific eWeLink modes, LAN support differences, and safe rollout behavior.
+Use the selected `<state_root>` for every state operation in this skill. Create state only when the user wants durable control context. Keep raw tokens out of state files; load `EWELINK_API_TOKEN` from the environment for cloud mode.
 
-## Architecture
+## When to load
 
-Memory lives in `~/Clawic/data/sonoff/`. See `memory-template.md` for structure and status values.
+Load for **SONOFF-specific control and automation**:
 
-```text
-~/Clawic/data/sonoff/
-|-- memory.md                 # Core context and activation boundaries
-|-- environments.md           # LAN segments, iHost, cloud mode, and endpoint mapping
-|-- devices.md                # Device registry, capabilities, and command patterns
-|-- automations.md            # Orchestration rules, scheduling, and rollback plans
-`-- incidents.md              # Failure signatures and validated recoveries
-```
+- eWeLink cloud command/status workflows with account-scoped credentials
+- LAN control on devices that actually advertise LAN capability
+- DIY mode local HTTP (`/zeroconf/*`) on compatible DIY firmware
+- SONOFF iHost / eWeLink CUBE local Open API REST and SSE flows
+- Multi-device rollout with canary, halt, and rollback checkpoints
 
-## Quick Reference
+Prefer sibling skills instead when:
 
-Use the smallest file needed for the current task.
+- Protocol/hub product choice across vendors → `smart-home`
+- MQTT broker/ACL design without a SONOFF plane decision → `mqtt`
+- Cross-protocol IoT architecture without SONOFF execution → `iot`
+
+## Primary workflow
+
+Execute in order. Stop when a missing plane, capability, or confirmation blocks a safe write.
+
+1. **Classify the ask** — single-device status/command, diagnostics, DIY/LAN setup, iHost local API, or multi-device rollout.
+2. **Resolve control plane first** — eWeLink cloud, LAN, DIY mode, or iHost Open API. Load `references/control-planes.md`. Emit write payloads only after the plane is explicit.
+3. **Resolve auth and identity** — environment token for cloud; reachability and mode eligibility for LAN/DIY; short-lived bridge token for iHost. Load `references/auth-and-access.md`. Map cloud id / LAN id / iHost id before mixed-plane work.
+4. **Read baseline, then write** — load `references/device-operations.md`. Capture observed state, validate model-legal fields, execute, re-read, and treat acknowledgment alone as incomplete.
+5. **Scale only after canary** — for fleets, load `references/orchestration-playbooks.md`. One-device canary → small batches → hard halt on divergence.
+6. **Diagnose with plane-specific recovery** — load `references/troubleshooting.md` on failure; freeze further writes until identity and state reconcile.
+7. **Persist only approved context** — on first durable setup, load `references/setup.md` and `references/memory-template.md`; keep structure under `references/state.md`.
+
+## Core operating rules
+
+1. **Plane before payload** — choose and record the control plane before any command template.
+2. **Capability is a hard gate** — unsupported LAN/DIY assumptions fail closed; they are not transient retries.
+3. **Observed state wins** — baseline read, write, verify; prefer reachable LAN observation for immediate local decisions when policy allows.
+4. **High-impact needs explicit confirmation** — power relays on critical circuits, heating, locks, alarms, and bulk updates stay read-only until the user approves apply mode.
+5. **Idempotent automation** — deterministic run ids, bounded retries, per-step expected-state checks, and a named halt condition.
+6. **Secrets stay in the environment** — use `EWELINK_API_TOKEN` from env for cloud; keep production tokens out of chat and out of `<state_root>/` files.
+
+## Quick reference
 
 | Topic | File |
 |-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory and workspace templates | `memory-template.md` |
-| Control plane selection | `control-planes.md` |
-| Access and auth models | `auth-and-access.md` |
-| Device command workflows | `device-operations.md` |
-| Multi-device rollout playbooks | `orchestration-playbooks.md` |
-| Diagnostics and recovery | `troubleshooting.md` |
+| First activation and write boundaries | `references/setup.md` |
+| State layout and requirements | `references/state.md` |
+| Memory / device / incident templates | `references/memory-template.md` |
+| Control-plane selection | `references/control-planes.md` |
+| Auth and iHost token flow | `references/auth-and-access.md` |
+| Single-device command loop | `references/device-operations.md` |
+| Multi-device rollout and incidents | `references/orchestration-playbooks.md` |
+| Diagnostics and recovery | `references/troubleshooting.md` |
+| Domain rules, traps, endpoints | `references/domain.md` |
+| Verified primary sources | `references/sources.md` |
 
-## Requirements
+## Output contract
 
-- SONOFF devices reachable in target network or eWeLink account access for cloud mode
-- For cloud operations: `EWELINK_API_TOKEN` in environment
-- For LAN and DIY mode operations: device supports LAN/DIY mode and local reachability
-
-Never ask users to paste production secrets in chat logs. Prefer local environment variables and redacted examples.
-
-## Data Storage
-
-Keep local operational notes in `~/Clawic/data/sonoff/`:
-- control plane decisions and endpoint mapping
-- device capability notes by model and firmware
-- automation constraints, canary scope, and rollback rules
-- incident signatures and mitigations
-
-## Core Rules
-
-### 1. Select Control Plane Before Any Command
-- Choose eWeLink cloud, LAN control, DIY mode, or iHost local API first.
-- Block execution when plane is ambiguous because results and state consistency differ across planes.
-
-### 2. Validate Device Capability and Mode Eligibility
-- Confirm if each device supports LAN control or DIY mode before local commands.
-- Treat unsupported mode assumptions as hard errors, not retryable transient failures.
-
-### 3. Discover Before Write
-- Read current status and device metadata before generating command payloads.
-- Build writes only with model-valid fields and method paths.
-
-### 4. Use Read-Before-Write and Read-After-Write Loops
-- Capture baseline state before every write action.
-- Verify final observed state after command execution and stop rollout on mismatch.
-
-### 5. Enforce Explicit Safety Gates for High-Impact Actions
-- Start in read-only inspection and dry-run planning mode.
-- Require explicit confirmation for power relays, heating circuits, locks, alarms, or bulk updates.
-
-### 6. Keep Cloud and LAN Views Reconciled
-- If cloud and LAN states diverge, resolve identity and sync assumptions before more writes.
-- Prefer directly observed LAN state for immediate local decisions when reachable.
-
-### 7. Design Automations as Idempotent and Observable
-- Use deterministic run ids, bounded retries, and hard stop conditions.
-- Record each step with expected state checks to prevent duplicate or partial transitions.
-
-### 8. Preserve Security and Privacy Boundaries
-- Use least-privilege credentials and only declared endpoints.
-- Read `EWELINK_API_TOKEN` from environment and never persist raw tokens in notes.
-
-## Common Traps
-
-- Assuming every SONOFF model supports LAN or DIY mode -> local calls fail by design.
-- Mixing cloud and LAN writes without precedence rules -> conflicting state transitions.
-- Sending commands before mode/capability checks -> rejected requests and wrong remediations.
-- Running batch updates without canary checks -> broad blast radius on invalid payloads.
-- Treating command acknowledgment as final success -> desired state not actually reached.
-- Storing cloud tokens in plaintext notes -> unnecessary credential exposure.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| http://<device-ip>:8081/zeroconf/* | Device id and command payload fields | SONOFF DIY mode local control and status retrieval |
-| http://<ihost-ip>/open-api/v2/rest/* | Local token and control payloads | SONOFF iHost eWeLink CUBE local API control |
-| http://<ihost-ip>/open-api/v2/sse/* | Event subscription parameters | Local iHost event stream and status updates |
-| https://*.coolkit.cc | Account-scoped API requests and device command payloads | eWeLink cloud control for SONOFF devices |
-| https://dev.ewelink.cc | Integration metadata and docs lookups | Validate eWeLink developer behavior and constraints |
-| https://help.sonoff.tech | Documentation query terms | Validate SONOFF DIY and API protocol details |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-Data that leaves your machine:
-- local LAN requests or cloud API payloads needed for requested SONOFF operations
-- optional local event subscription traffic for iHost SSE workflows
-
-Data that stays local:
-- environment mapping, device notes, and playbooks under `~/Clawic/data/sonoff/`
-- incident timelines and rollback decisions
-
-This skill does NOT:
-- use undeclared third-party endpoints
-- request bypass or evasion techniques
-- store `EWELINK_API_TOKEN` in local skill files
-- execute bulk writes without user confirmation and verification strategy
-
-## Trust
-
-This skill sends operational data to SONOFF devices and optionally eWeLink cloud services when execution is approved.
-Only install if you trust your LAN environment, iHost deployment, and eWeLink account scope with this automation data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `iot` - Device connectivity and IoT system integration patterns
-- `smart-home` - Home automation architecture and reliability practices
-- `api` - API contract design and robust request handling
-- `mqtt` - Messaging patterns for telemetry and event-driven orchestration
-- `home-server` - Self-hosted service operations and network reliability workflows
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/sonoff
-- Latest version: https://clawic.com/skills/sonoff
+- Name the selected control plane and the evidence used (capability, reachability, or policy).
+- For writes: baseline → command → observed result; say when verification is still open.
+- For missing inputs (token, device id, mode support, iHost address): list exact blockers instead of inventing success.
+- For batch work: report canary outcome, batch size, halt reason, and rollback owner.
