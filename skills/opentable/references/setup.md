@@ -1,6 +1,6 @@
 # Setup - OpenTable
 
-Read this when `~/Clawic/data/opentable/` is missing or empty.
+Read this when `<state_root>/` is missing or empty.
 Keep setup practical and non-blocking.
 
 ## Operating Priorities
@@ -28,15 +28,24 @@ Keep setup practical and non-blocking.
 - cancellation policy and communication standards
 - event or holiday exceptions already scheduled
 
-4. If context is approved, initialize local workspace:
+4. If context is approved, resolve `<state_root>` per `SKILL.md`, then initialize local workspace:
+
 ```bash
-mkdir -p ~/opentable
-touch ~/Clawic/data/opentable/{memory.md,reservation-log.md,guest-signals.md,incidents.md}
-chmod 700 ~/opentable
-chmod 600 ~/Clawic/data/opentable/{memory.md,reservation-log.md,guest-signals.md,incidents.md}
+mkdir -p "<state_root>"
+touch "<state_root>/memory.md" \
+  "<state_root>/reservation-log.md" \
+  "<state_root>/guest-signals.md" \
+  "<state_root>/incidents.md"
+chmod 700 "<state_root>"
+chmod 600 "<state_root>/memory.md" \
+  "<state_root>/reservation-log.md" \
+  "<state_root>/guest-signals.md" \
+  "<state_root>/incidents.md"
 ```
 
-5. If `memory.md` is empty, initialize it from `memory-template.md`.
+Replace the literal `<state_root>` placeholder with the resolved path. Never create nested `<state_root>/opentable/` when the root already is the opentable directory.
+
+5. If `memory.md` is empty, initialize it from `assets/memory-template.md` and extend with fields from `references/memory-template.md` as needed.
 
 ## Integration Defaults
 
@@ -54,6 +63,6 @@ chmod 600 ~/Clawic/data/opentable/{memory.md,reservation-log.md,guest-signals.md
 
 ## Guardrails
 
-- Never request raw credentials or private tokens in chat.
-- Never claim impact without measurable before/after evidence.
-- Never recommend capacity expansions that operations cannot support.
+- Ensure raw credentials and private tokens remain out of chat.
+- Claim impact only with measurable before/after evidence.
+- Recommend capacity expansions only if operations can support them.

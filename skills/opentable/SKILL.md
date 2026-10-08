@@ -1,161 +1,93 @@
 ---
 name: opentable
-slug: opentable
-version: 1.0.0
-description: Guide OpenTable availability, booking flows, and guest messaging with conversion-focused listing, pacing, and incident response playbooks.
-homepage: https://clawic.com/skills/opentable
-changelog: Initial release.
+description: >
+  Guide OpenTable availability, booking flows, guest messaging, listing conversion,
+  pacing, and incident response for restaurants and hospitality venues. Use when
+  adjusting OpenTable inventory or daypart strategy, reducing no-shows, rewriting
+  listing/policy copy, handling overbooking or outages, or setting up local
+  reservation operations memory. Not for general booking workflows outside OpenTable
+  (`booking`), pure CRM lifecycle (`crm`), multi-channel support queues
+  (`customer-support`), travel itineraries (`travel`), or analytics system design
+  without a reservation operations question (`analytics`).
 metadata:
-  clawdbot:
-    emoji: 🍽️
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: OpenTable
+  version: "1.1.0"
+  openclaw: '{"emoji":"🍽️"}'
+  related-skills: '{"booking":"Booking workflows and reservation operations in adjacent channels.","customer-support":"Guest communication quality and service recovery patterns.","analytics":"Metric design and experiment readouts for operational decisions.","crm":"Guest segmentation and lifecycle handling beyond single reservations.","travel":"Broader travel planning context that intersects with dining reservations."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` and confirm service model, reservation goals, and operating constraints before proposing changes.
+OpenTable operations state may exist in `<workspace>/opentable/`, `<workspace>/memory/opentable/`, or `~/opentable/`.
 
-## When to Use
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-User needs to operate or improve OpenTable performance for a restaurant, group, or hospitality concept. Agent handles reservation strategy, listing quality, pacing controls, guest communication, and failure recovery.
-This skill is advisory by default and does not configure authenticated OpenTable automation on its own.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/opentable/`, `<workspace>/memory/opentable/`, `~/opentable/`.
+3. If none exists and the user wants persistent tracking, create `<workspace>/opentable/`. If `<workspace>` is unavailable, ask for a state root instead of guessing from the current directory.
+4. If more than one candidate exists, use only the highest-precedence directory and report the conflict; do not merge trees automatically.
 
-## Architecture
+Use the selected `<state_root>` for every state operation in this skill. Prefer portable `<state_root>` paths; never hard-code host-specific absolute roots. Skill resources stay under `references/` and `assets/`; never treat the literal string `<state_root>` as a filesystem path.
 
-Memory lives in `~/Clawic/data/opentable/`. See `memory-template.md` for setup and status fields.
-
+```text
+<state_root>/
+├── memory.md            # Current strategy, goals, and integration state
+├── reservation-log.md   # Demand patterns, pacing changes, and outcomes
+├── guest-signals.md     # No-show patterns, special requests, and friction points
+└── incidents.md         # Overbooking, outage, and recovery records
 ```
-~/Clawic/data/opentable/
-|-- memory.md                 # Current strategy, goals, and integration state
-|-- reservation-log.md        # Demand patterns, pacing changes, and outcomes
-|-- guest-signals.md          # No-show patterns, special requests, and friction points
-`-- incidents.md              # Overbooking, outage, and recovery records
-```
 
-## Quick Reference
+Create or update state only after the user opts in. Store operational decisions and trends only—no full guest personal datasets or credentials.
 
-Use the smallest relevant file for the task.
+## When to use
 
-| Topic | File |
-|-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Reservation operations | `reservation-playbook.md` |
-| Listing and conversion optimization | `listing-optimization.md` |
-| Incident and outage response | `incident-response.md` |
+Load for **OpenTable reservation operations and guest-facing booking quality**:
 
-## Data Storage
+- Daypart inventory, pacing, and table-mix adjustments
+- Listing conversion and policy copy that reduces booking friction
+- No-show mitigation via reminders and cancellation clarity
+- Overbooking, confirmation failure, or platform outage response
+- Weekly experiments with one measurable hypothesis at a time
+- Local ops memory for strategy, reservation log, guest signals, and incidents
 
-Local notes stay under `~/Clawic/data/opentable/`:
-- strategy snapshot and current priorities in memory file
-- reservation pacing and demand signals in reservation log
-- guest behavior patterns in guest signals file
-- incident timeline and mitigations in incidents file
+Hand off when a sibling owns the job:
 
-## Core Rules
+| Job | Skill |
+|-----|-------|
+| Booking flows outside OpenTable | `booking` |
+| Support queue / case handling patterns | `customer-support` |
+| Metric frameworks without a live ops question | `analytics` |
+| Guest lifecycle beyond a single reservation | `crm` |
+| Broader trip planning around dining | `travel` |
 
-### 1. Anchor Every Change to a Service Goal
-Before touching availability or policies, identify the target outcome:
-- raise seated covers
-- increase average check through better mix
-- reduce no-shows and dead inventory
-- protect guest experience at peak times
+## Core rules
 
-If the goal is unclear, propose options and get confirmation first.
+1. Anchor every availability or policy change to a stated service goal (covers, yield, no-shows, or guest experience).
+2. Keep inventory honest: open only slots kitchen and floor can actually seat; separate peak, shoulder, and off-peak strategy.
+3. Prefer pacing and table mix as primary levers before blanket blocks; document expected impact before broad slot changes.
+4. Design guest messaging to reduce uncertainty with explicit cancellation windows and deliverable special-request language.
+5. Run one controlled weekly experiment with hypothesis, change, measurement window, and keep/rollback decision.
+6. Prepare failure paths before peaks: detect fast, offer fallback booking/waitlist options, message clearly, log cause and prevention.
+7. Use least-privilege access; never ask users to paste OpenTable credentials or private tokens into chat.
 
-### 2. Keep Inventory Honest Across All Time Windows
-Availability must reflect what operations can actually seat.
-- do not open slots that kitchen or floor cannot absorb
-- separate peak, shoulder, and off-peak strategy
-- treat special events and holidays as explicit override windows
+## Quick reference
 
-Prefer fewer accurate slots over inflated inventory that leads to walk-back.
+Load only what improves the current answer.
 
-### 3. Use Pacing and Table Mix as Primary Control Levers
-Adjust flow with pacing first, not only with blanket block rules.
-- map party-size mix by hour
-- reserve capacity for high-value windows and turn targets
-- adjust release cadence for same-day demand spikes
+| Need | File |
+|------|------|
+| First-run setup and opt-in state init | `references/setup.md` |
+| Domain rules, traps, and trust boundary | `references/domain.md` |
+| State tree and security defaults | `references/state.md` |
+| Daily reservation operating loop | `references/reservation-playbook.md` |
+| Listing conversion checklist | `references/listing-optimization.md` |
+| Overbooking / outage playbook | `references/incident-response.md` |
+| Memory field templates | `references/memory-template.md` |
+| Continuity starter template | `assets/memory-template.md` |
 
-Never apply broad slot changes without documenting expected impact.
+## Security and privacy
 
-### 4. Design Guest Messaging to Prevent Friction
-Confirmations, reminders, and policy copy should reduce uncertainty.
-- keep cancellation windows explicit
-- send reminder timing based on lead-time profile
-- align special request language with what can actually be delivered
-
-Do not use punitive language when a neutral policy explanation works.
-
-### 5. Run Weekly Experiments With Measurable Hypotheses
-Every optimization cycle must include:
-- one hypothesis
-- one controlled change
-- one measurable result window
-- one decision to keep, rollback, or iterate
-
-Avoid stacking many changes in the same week when attribution matters.
-
-### 6. Prepare Failure Paths Before They Are Needed
-For outages, overbookings, and confirmation failures:
-- detect quickly with operational signals
-- provide fallback booking or waitlist path
-- message affected guests with clear options
-- log cause, workaround, and prevention action
-
-Reliability and trust beat short-term occupancy gains.
-
-### 7. Protect Access and Guest Data Boundaries
-Use least-privilege access for reservation operations.
-- keep account roles scoped to responsibilities
-- avoid storing sensitive guest details in long-lived notes
-- document only what is required for operational decisions
-
-Never ask users to paste credentials or private account tokens into chat.
-
-## Common Traps
-
-- Chasing occupancy without pacing controls -> service collapses during peak turns
-- Opening too much inventory early -> high-value demand displaced by low-yield bookings
-- Weak reminder and cancellation copy -> avoidable no-shows and support load
-- Editing listing content without testing impact -> conversion drops without clear cause
-- Ignoring incident postmortems -> repeated failures and reactive firefighting
-
-## Security & Privacy
-
-Data that leaves your machine by default:
-- none required by this playbook itself
-
-Data that stays local:
-- operational notes and decisions stored under `~/Clawic/data/opentable/`
-- local experiment and incident logs without full guest datasets
-
-This skill does NOT:
-- configure or execute authenticated OpenTable API access by itself
-- request hidden background data collection
-- persist credentials in local markdown files
-- run undeclared network destinations
-
-## Trust
-
-OpenTable workflows depend on OpenTable services and configured integrations.
-Only install and run this skill if you trust those services with reservation operations.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `booking` - booking workflows and reservation operations in adjacent channels
-- `customer-support` - guest communication quality and service recovery patterns
-- `analytics` - metric design and experiment readouts for operational decisions
-- `crm` - guest segmentation and lifecycle handling beyond single reservations
-- `travel` - broader travel planning context that intersects with dining reservations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/opentable
-- Latest version: https://clawic.com/skills/opentable
+- Opt-in local state only under the resolved `<state_root>/`.
+- This skill does not configure or execute authenticated OpenTable API access by itself.
+- Do not persist credentials in markdown notes or run undeclared network destinations.
+- Keep guest notes high-signal and operational; avoid long-lived sensitive personal data.

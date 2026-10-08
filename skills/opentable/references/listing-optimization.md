@@ -25,7 +25,7 @@ If a guest must guess, conversion drops.
 - Replace vague claims with observable details.
 - Keep policy text firm but non-punitive.
 - Align tone with service level and audience.
-- Avoid long blocks of text where bullets communicate faster.
+- Use bullets instead of long blocks of text to communicate faster.
 
 ## Experiment Ideas
 
