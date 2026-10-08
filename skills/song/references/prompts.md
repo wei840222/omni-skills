@@ -143,12 +143,12 @@ Modern country, stadium anthem, upbeat, feel-good, male vocal with twang, acoust
 - "Different chord voicings"
 - "More pronounced hook"
 
-### Negative prompts (what to avoid):
-- "No autotune"
-- "Avoid generic pop production"
-- "No excessive reverb"
-- "No vocal fry"
-- "Avoid EDM drops"
+### Style constraints (prefer positive wording):
+- "Natural pitch, minimal pitch correction"
+- "Distinct arrangement, specific genre texture"
+- "Dry to moderate reverb, intimate space"
+- "Clean sustained tone without vocal fry"
+- "Linear build without EDM drop clichés"
 
 ---
 

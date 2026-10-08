@@ -150,7 +150,7 @@ Intro ──── Break ────
 ### Section transitions:
 - Drum fill before chorus
 - Cymbal swell into drop
-- Stop/pause before big moment
+- Brief pause before the peak moment
 - Pre-chorus lift
 - Bass drop out then return
 
@@ -165,7 +165,7 @@ Chorus → Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Chorus
 - Hooks listener immediately
 - Works when chorus is extremely strong
 
-### No chorus:
+### Chorus-free (strophic / verse-led):
 ```
 Verse 1 → Verse 2 → Verse 3 → Verse 4
 ```

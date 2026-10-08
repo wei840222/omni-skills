@@ -1,84 +1,79 @@
 ---
 name: song
-slug: song
-version: 1.0.0
-description: Write original songs with guided lyric development, chord progressions, melody contours, and AI music generator prompts for composers at any level.
-homepage: https://clawic.com/skills/song
+description: >
+  Write original songs with guided discovery, structure, lyrics, chord progressions,
+  melody contours, and AI music-generator prompts (Suno/Udio-style tags). Use when
+  the user wants to compose, finish a hook, draft verses/chorus/bridge, pick a form
+  (verse-chorus, AABA), or prepare generation prompts. Not for curating listening
+  history (`music`), end-to-end AI audio generation workflows (`music-generation` /
+  `suno`), local audio file processing (`audio`), or long-form prose craft (`writing`).
 metadata:
-  clawdbot:
-    emoji: 🎵
-    displayName: Song
+  version: "1.1.0"
+  openclaw: '{"emoji":"🎵"}'
+  related-skills: '{"music":"Track discoveries, playlists, and concerts rather than compose.","music-generation":"Run multi-provider AI generation once composition intent is clear.","suno":"Suno-specific generation, credits, and delivery when the user targets that product.","audio":"Process local audio/video files with FFmpeg rather than write songs.","writing":"General prose voice craft outside lyric meter and song form."}'
 ---
 
-## Role
+# Song
 
-Create songs through a structured process. Gather musical preferences, generate lyrics, suggest harmony, prepare prompts for AI generators (Suno, Udio). Learn what works for each user.
+Pre-production songwriting skill for **lyrics, form, harmony suggestions, and generator prompts**. It keeps optional drafts and taste preferences under portable `<state_root>` only; the skill package stays read-only.
 
-**Key flow:** Discovery → Structure → Lyrics → Harmony → Polish → Generate
+## State location
 
----
+Song drafts and preferences may exist in `<workspace>/song/`, `<workspace>/memory/song/`, or `~/song/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Storage
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/song/`, `<workspace>/memory/song/`, `~/song/`.
+3. If none exists and state must be created, default to `<workspace>/song/`.
 
-```
-~/songs/
-├── drafting/                   # Active song drafts
-│   └── {song-name}/
-│       ├── current.md          # ALWAYS read this first
-│       ├── versions/           # v001.md, v002.md, ...
-│       ├── notes.md            # Ideas, inspiration, fragments
-│       └── prompts.md          # AI generator prompts tried
-├── released/                   # Finished songs
-│   └── {song-name}/
-│       ├── final.md            # Final lyrics + chords
-│       └── meta.md             # Genre, key, BPM, notes
-└── preferences.md              # User style preferences
-```
+Use the selected `<state_root>` for every state operation in this skill. If more than one candidate exists, keep the highest-precedence directory, report the conflict, and leave the others untouched. Do not invent listening history or finished songs the user did not confirm.
 
-**Version rule:** Never edit in place. Copy to versions/, increment, edit copy, update current.md.
+## When to load
 
----
+- original lyrics, hooks, verses, chorus, bridge, or full song drafts
+- form/structure choices (verse-chorus, AABA, strophic, freeform)
+- mood-matched chord progressions and simple contour notes
+- Suno/Udio-style section tags and style prompts for later generation
+- learning the user's songwriting preferences across sessions
 
-## Quick Reference
+Hand off when a sibling owns the job:
 
-| Topic | File |
-|-------|------|
-| Songwriting phases | `phases.md` |
-| Lyric writing techniques | `lyrics.md` |
-| Chord progressions by mood | `harmony.md` |
-| AI generator prompts | `prompts.md` |
-| Song structure patterns | `structure.md` |
+| Job | Skill |
+| --- | --- |
+| Save albums/playlists/concerts | `music` |
+| Multi-provider AI generation end-to-end | `music-generation` |
+| Suno plan, credits, API/browser delivery | `suno` |
+| Convert/normalize local audio files | `audio` |
+| Non-lyric prose voice rewrite | `writing` |
 
----
+## Core path
 
-## Process Summary
+1. **Resolve state** — load `<state_root>/preferences.md` when present before inventing a new voice.
+2. **Discovery** — mood, genre, theme, reference vibe, vocal perspective, tempo feel (`references/phases.md`).
+3. **Structure** — pick a form and section lengths before long lyric dumps (`references/structure.md`).
+4. **Lyrics** — section by section; check rhyme, meter, and emotional arc (`references/lyrics.md`).
+5. **Harmony** — suggest progressions that match mood/genre; keep theory practical (`references/harmony.md`).
+6. **Polish** — singability, hook strength, flow; offer iteration instead of declaring a song finished.
+7. **Generate prompts** — only when the user wants AI audio; prepare tags via `references/prompts.md`, then hand off delivery to `music-generation` / `suno` if they need provider execution.
 
-1. **Discovery** — Genre, mood, theme, inspiration. Load user's previous preferences if stored.
-2. **Structure** — Choose form (verse-chorus-bridge, AABA, etc.). Define section lengths.
-3. **Lyrics** — Draft section by section. Check rhyme, meter, emotional arc. See `lyrics.md`.
-4. **Harmony** — Suggest progressions matching mood/genre. See `harmony.md`.
-5. **Polish** — Review singability, hook strength, flow. Iterate with user.
-6. **Generate** — Prepare AI music prompts with metatags. See `prompts.md`.
+## Progressive disclosure
 
----
+| Need | Load |
+| --- | --- |
+| Draft tree, versioning, preferences | `references/state.md` |
+| Six-step process summary | `references/process.md` |
+| Phase questions and section goals | `references/phases.md` |
+| Lyric craft and emotional techniques | `references/lyrics.md` |
+| Chord progressions by mood | `references/harmony.md` |
+| Song form patterns and transitions | `references/structure.md` |
+| Suno/Udio section and style tags | `references/prompts.md` |
+| Verified sources and fragile claims | `references/sources.md` |
 
-## Learning User Preferences
+## Safety defaults
 
-Track in `~/songs/preferences.md`:
-- Genres they gravitate toward
-- Rhyme strictness (tight vs. loose)
-- Vocabulary style (poetic vs. conversational)
-- Themes that resonate
-- Progressions they've liked
-- What NOT to suggest (overused clichés, etc.)
-
-Update after each song based on their feedback.
-
----
-
-## Boundaries
-
-- **Focus on pre-production**: Lyrics, structure, harmony, prompts
-- **Not a music theory course**: Explain enough to be useful, not exhaustive
-- **User's voice matters**: Suggest alternatives, don't dictate
-- Never claim the song is "finished" — always offer iteration
+- Focus on **pre-production** (words, form, harmony, prompts); leave DAW mixing and mastering out of scope unless the user only needs a short practical note.
+- Treat drafts, preferences, and unfinished lyrics as private state under `<state_root>/`.
+- Suggest alternatives; keep the user's voice primary.
+- Offer iteration; frame songs as improvable drafts rather than final seals.
+- Re-check `references/sources.md` before restating product limits, generator feature matrices, or third-party pricing.

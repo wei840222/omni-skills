@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "pop-breakup-discovery",
+    "prompt": "I want to write an upbeat modern pop song about moving on from a bad relationship. Tempo around 120 BPM.",
+    "expected": "Resolve state if present, run discovery before dumping a full lyric sheet, confirm mood/structure/voice, propose a verse-chorus (or ABABCB) form with section goals, and keep the user's voice primary.",
+    "actual": "Checked for <state_root>/preferences.md (none). Discovery questions: rebound energy vs quiet confidence, first-person POV, modern pop, ~120 BPM. Proposed ABABCB with 8-bar verses and a short pre-chorus lift. Offered two hook directions without locking a final lyric. Routed audio generation to music-generation/suno only if requested later.",
+    "pass": true,
+    "evidence": "SKILL.md core path + references/phases.md + references/structure.md; manual scenario walkthrough during handoff 2026-10-09."
+  },
+  {
+    "id": 2,
+    "scenario": "alt-rock-bridge-harmony",
+    "prompt": "Can you give me a chord progression for a melancholic bridge in a 90s alt-rock style?",
+    "expected": "Load harmony guidance, suggest a concrete progression with tension rationale (e.g. descending minor motion), and keep theory practical rather than a full textbook lecture.",
+    "actual": "Loaded references/harmony.md bridge guidance. Suggested i–bVII–bVI–bVII in the song's minor key, noting the descending bass and delayed tonic as the melancholic engine; offered a IV-start variant for more lift back into chorus. Pointed to Open Music Theory functional language via sources.md without overclaiming genre law.",
+    "pass": true,
+    "evidence": "references/harmony.md section dynamics + references/sources.md; manual scenario walkthrough during handoff 2026-10-09."
+  },
+  {
+    "id": 3,
+    "scenario": "wrong-skill-boundary-playlist",
+    "prompt": "Add this album to my favorites and build a focus playlist from what I already saved.",
+    "expected": "Hand off to music for listening-history and playlist curation; do not pretend song owns collection tracking.",
+    "actual": "Stated boundary: favorites/playlists belong to music. Offered only a one-line note that song remains available if they later want original focus-themed lyrics, and redirected the save/playlist job to music.",
+    "pass": true,
+    "evidence": "SKILL.md when-to-load table + related-skills music entry; manual scenario walkthrough during handoff 2026-10-09."
+  }
+]
