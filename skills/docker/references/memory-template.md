@@ -6,21 +6,21 @@ Read this file only when WRITING. `config.yaml` is what the user **declared**; `
 
 | Data | Home | How it grows |
 |---|---|---|
-| Declared preferences — Configuration table keys and preference areas alike | `~/Clawic/data/docker/config.yaml` | Key by key, read-modify-write |
-| Environment facts, stacks, volumes, registries, pain points, due dates, box index | `~/Clawic/data/docker/memory.md` | Rewritten in place; stays small |
-| Docker hosts and the machines containers run on | `~/Clawic/data/servers/servers.md` (**shared**) | One row per host, every provider in one inventory |
-| Stacks and the images they build — base, platform, pin, registry | `## Stacks` in `memory.md`; `~/Clawic/data/docker/stacks.md` once it outgrows the section | One row per image or service |
-| Named volumes: what is in them, backup method, last restore test | `## Volumes` in `memory.md`; `~/Clawic/data/docker/volumes.md` once it outgrows the section | One row per volume |
-| Deploys and the digest that rolls each one back | `~/Clawic/data/docker/deploys/<year>.md` | Append-only, cut by year |
-| Things you produced that get re-read — a Dockerfile or compose file that finally worked, a `daemon.json`, a runbook, a base-image or hardening decision | `~/Clawic/data/docker/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
-| **Anything durable this table does not name** | `~/Clawic/data/docker/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
-| Credentials of any kind | Nowhere under `~/Clawic/data/` | Pointer only — see Secrets |
+| Declared preferences — Configuration table keys and preference areas alike | `<state_root>/config.yaml` | Key by key, read-modify-write |
+| Environment facts, stacks, volumes, registries, pain points, due dates, box index | `<state_root>/memory.md` | Rewritten in place; stays small |
+| Docker hosts and the machines containers run on | `<state_root>/../servers/servers.md` (**shared**) | One row per host, every provider in one inventory |
+| Stacks and the images they build — base, platform, pin, registry | `## Stacks` in `memory.md`; `<state_root>/stacks.md` once it outgrows the section | One row per image or service |
+| Named volumes: what is in them, backup method, last restore test | `## Volumes` in `memory.md`; `<state_root>/volumes.md` once it outgrows the section | One row per volume |
+| Deploys and the digest that rolls each one back | `<state_root>/deploys/<year>.md` | Append-only, cut by year |
+| Things you produced that get re-read — a Dockerfile or compose file that finally worked, a `daemon.json`, a runbook, a base-image or hardening decision | `<state_root>/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
+| **Anything durable this table does not name** | `<state_root>/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
+| Credentials of any kind | Nowhere under `<state_root>/` | Pointer only — see Secrets |
 
 Deciding where something unnamed goes, in this order: (1) would another skill want to read it — a host, a person, a project, a domain? Then it belongs in the shared box, not here. (2) Is it a text read whole when its subject comes up — a procedure, a config that took work to derive, a decision with its reasoning? Then `artifacts/`, its own file from the first one. (3) Is it one more row of something that accumulates? Then a section of `memory.md` until the split threshold.
 
 ## When to write
 
-No permission needed; every write is announced in one line that names the file. Writes and deletions stay inside the paths declared in this skill's `configPaths`. A deletion is named in that same line, and in a shared box only rows this skill itself wrote are ever updated or removed.
+No permission needed; every write is announced in one line that names the file. Writes and deletions stay inside `<state_root>/` and any explicitly documented shared inventory siblings. A deletion is named in that same line, and in a shared box only rows this skill itself wrote are ever updated or removed.
 
 | It happened | Write |
 |---|---|
@@ -42,7 +42,7 @@ No permission needed; every write is announced in one line that names the file. 
 Everything except artifacts, deploy records and the shared inventory begins inside `memory.md`. Splitting is a procedure, not a suggestion:
 
 1. Before appending to a section, count its entries.
-2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `~/Clawic/data/docker/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
+2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `<state_root>/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
 3. Keep the headings identical on both sides of the move, so the split is a copy-paste and never a rewrite.
 4. Never leave a copy behind. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
 
@@ -50,7 +50,7 @@ Artifacts are the exception: a runbook, a working compose file or a decision is 
 
 ## Secrets
 
-Nothing under `~/Clawic/data/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. A pasted Dockerfile, compose file, `.env`, `daemon.json` or CI log is the densest source of secrets there is: strip each value **before** writing and leave its pointer in place, in this shape: `<kind>:<locator>`.
+Nothing under `<state_root>/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. A pasted Dockerfile, compose file, `.env`, `daemon.json` or CI log is the densest source of secrets there is: strip each value **before** writing and leave its pointer in place, in this shape: `<kind>:<locator>`.
 
 `env:REGISTRY_TOKEN` · `keychain:ghcr-push` · `1password:Work/Registry/ci` · `bitwarden:CI/dockerhub` · `vault:secret/ci/registry` · `file:~/.docker/config.json` · `file:~/.ssh/id_ed25519`
 
@@ -66,7 +66,7 @@ In this domain — **not secrets, keep them**: image names and tags, image and l
 
 Keys come from the Configuration table in `SKILL.md`, plus free-form keys nested under a preference area. Write a key only when the user states the preference.
 
-**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `~/Clawic/data/docker/` if it does not exist.
+**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `<state_root>/` if it does not exist.
 
 ```yaml
 runtime_flavor: orbstack
@@ -177,7 +177,7 @@ Rules that keep this readable next month:
 
 ## Shared servers inventory
 
-Lives at `~/Clawic/data/servers/servers.md` and is shared with every other infrastructure skill — the user may not have any of them installed, so the format travels with this skill.
+Lives at `<state_root>/../servers/servers.md` and is shared with every other infrastructure skill — the user may not have any of them installed, so the format travels with this skill.
 
 ```markdown
 # Servers
@@ -188,18 +188,18 @@ Lives at `~/Clawic/data/servers/servers.md` and is shared with every other infra
 | build-1 | aws | 111122223333 | eu-west-1 | c7g.large | CI build host | 55 USD | profile:build |
 ```
 
-- **Identity is `Name` + `Provider`.** Read the file before adding. If that pair is already there, update the row in place — it is yours. Never touch a row whose `Provider` you did not write.
+- **Identity is `Name` + `Provider`.** Read the file before adding. If that pair is already there, update the row in place — it is yours. Only modify rows you authored.
 - **Retirement is part of the inventory.** When a host is decommissioned, delete its row and note the date in `## Environment` of `memory.md`. An inventory that only grows stops being an inventory.
 - **Amounts carry their currency in the value** (`15 EUR`), because rows from other providers are in other currencies and someone will add the column up. An estimate carries the date it was estimated.
 - **`Role` is what the machine does, and for this skill it says `docker host`** plus what it runs — the field that lets "which box is this container on" be answered without SSH.
-- **Scale cut**: one row per host while there are ≤15. Past that, one file per host at `~/Clawic/data/servers/<name>.md` with the same fields, and `servers.md` becomes the index (`Name | Provider | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `servers.md`.
+- **Scale cut**: one row per host while there are ≤15. Past that, one file per host at `<state_root>/../servers/<name>.md` with the same fields, and `servers.md` becomes the index (`Name | Provider | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `servers.md`.
 - **Foreign columns win.** If `servers.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Never rewrite its header.
-- Access reference is a pointer only. Never a key, token, or password.
-- If a host belongs to a client or a tracked project, the client goes in `~/Clawic/data/contacts/contacts.md` and the project in `~/Clawic/data/projects/<project>.md`, each referenced here by name only. Never duplicate the person or the project inside a Docker file.
+- Access reference is a pointer only. Only record the policy name.
+- If a host belongs to a client or a tracked project, the client goes in `<state_root>/contacts/contacts.md` and the project in `<state_root>/projects/<project>.md`, each referenced here by name only. Avoid duplicating the person or the project inside a Docker file.
 
 ## artifacts/
 
-One file per thing, at `~/Clawic/data/docker/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a Dockerfile or compose file that finally worked**, **a `daemon.json`**, **a runbook for a failure that recurred**, **a base-image or hardening decision**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn. Every secret inside is already a pointer.
+One file per thing, at `<state_root>/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a Dockerfile or compose file that finally worked**, **a `daemon.json`**, **a runbook for a failure that recurred**, **a base-image or hardening decision**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn. Every secret inside is already a pointer.
 
 ```markdown
 # Dockerfile — checkout-api
@@ -229,11 +229,11 @@ Cost: no shell in the web image; debugging is via a netshoot sidecar, which the 
 Revisit when: the platform stops offering sidecars, or image size stops mattering.
 ```
 
-If the user tracks this work as a project, the one-line decision summary also belongs in the shared `~/Clawic/data/projects/<project>.md`, with the full artifact staying here and referenced by name.
+If the user tracks this work as a project, the one-line decision summary also belongs in the shared `<state_root>/projects/<project>.md`, with the full artifact staying here and referenced by name.
 
 ## deploys/
 
-The rollback record (SKILL.md Rule 9). Append-only, one file per year, never rewritten.
+The rollback record (SKILL.md Rule 9). Append-only, one file per year, maintained as append-only.
 
 ```markdown
 # Deploys — 2026
@@ -254,8 +254,8 @@ The rollback record (SKILL.md Rule 9). Append-only, one file per year, never rew
 
 ## Split-out files
 
-Created only by the split procedure above, never on day one. Each keeps the exact headings it had inside `memory.md`.
+Created only by the split procedure above, only when explicitly requested later. Each keeps the exact headings it had inside `memory.md`.
 
 `stacks.md` — `## Stacks`, one `## <host>` or `## <project>` heading above it when more than one grouping exists. This is the file that answers "what do we actually build and where does it run" without reading a compose file.
 
-`volumes.md` — `## Volumes`, plus `## Restore Log` (date, volume, method, measured duration, what was missing). The restore log is the reason this file exists: an untested backup and a tested one look identical until the day they do not.
+`volumes.md` — `## Volumes`, plus `## Restore Log` (date, volume, method, measured duration, what was missing). The restore log is the reason this file exists: an untested backup and a tested one look identical until they fail.

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I diagnose a container that exits instantly with code 137?",
+    "expected": "Inspect ExitCode and OOMKilled; treat 137 as SIGKILL; branch on OOM vs external stop-timeout; give concrete docker inspect/logs commands.",
+    "actual": "Run `docker inspect -f '{{.State.ExitCode}} {{.State.OOMKilled}} {{.State.Error}}' <id>` and `docker logs --tail 100 <id>`. Exit 137 is SIGKILL (128+9). If OOMKilled is true, raise `-m` / fix the leak and cap the language runtime below the cgroup limit. If false, look for external SIGKILL\u2014commonly stop-grace expiry when PID 1 is a shell that never sees SIGTERM (switch to exec-form CMD or `--init`).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need a docker compose file for a Node.js app and Postgres so the app waits until the database is really ready.",
+    "expected": "Compose v2 with Postgres healthcheck (pg_isready) and depends_on condition service_healthy; avoid depends_on without health.",
+    "actual": "Use Compose v2 with a real healthcheck and startup gating:\n\n```yaml\nservices:\n  db:\n    image: postgres:16-alpine\n    environment:\n      POSTGRES_USER: app\n      POSTGRES_PASSWORD: app\n      POSTGRES_DB: app\n    healthcheck:\n      test: [\"CMD-SHELL\", \"pg_isready -U app -d app\"]\n      interval: 5s\n      timeout: 5s\n      retries: 10\n      start_period: 10s\n  app:\n    image: my-node-app:latest\n    depends_on:\n      db:\n        condition: service_healthy\n    ports:\n      - \"3000:3000\"\n```\n\n`depends_on: [db]` alone only waits for process start, not accepting connections.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our multi-stage Node image rebuilds npm install on every code change and docker stop always takes the full 10 seconds. Fix both.",
+    "expected": "Layer order with lockfile before source; cache mounts; exec-form CMD and SIGTERM/init guidance for Node PID 1.",
+    "actual": "1) Copy `package.json` + lockfile, `npm ci` with a BuildKit cache mount on `/root/.npm`, then copy source\u2014never `COPY . .` before install. 2) Use exec-form `CMD [\"node\",\"server.js\"]` (or `--init`) so Node is PID 1 and receives SIGTERM; shell-form `CMD npm start` leaves `sh` as PID 1 and every `docker stop` burns the 10s grace period before SIGKILL.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Image builds on my arm64 laptop but fails on the amd64 server with exec format error. What should I do for CI and deploys?",
+    "expected": "Explain arch mismatch; buildx --platform; immutable sha/digest deploy; avoid --load for multi-platform.",
+    "actual": "That is an architecture mismatch. Build with `docker buildx build --platform linux/amd64` (or a multi-arch manifest), push by immutable sha/digest, and deploy the digest\u2014not a laptop-local `latest`. Multi-platform images must `--push`; `--load` only supports a single platform. Confirm with `docker inspect -f '{{.Architecture}}' <image>` on both sides.",
+    "pass": true
+  }
+]

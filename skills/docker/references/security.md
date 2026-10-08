@@ -1,6 +1,6 @@
 # Security — Hardening and Traps
 
-**Before hardening anything**, read `## Stacks` in `~/Clawic/data/docker/memory.md` and any `artifacts/` file its `## Boxes` index names for this service: the capability that had to be added back, the CVE accepted with a reason, and the base-image decision are all things somebody already paid for once. `hardening_profile` in `config.yaml` decides whether the flags below are emitted by default or only on request.
+**Before hardening anything**, read `## Stacks` in `<state_root>/memory.md` and any `artifacts/` file its `## Boxes` index names for this service: the capability that had to be added back, the CVE accepted with a reason, and the base-image decision are all things somebody already paid for once. `hardening_profile` in `config.yaml` decides whether the flags below are emitted by default or only on request.
 
 ## User
 
@@ -41,8 +41,8 @@ docker run --read-only --tmpfs /tmp \
 ## Network Exposure
 
 - A container with default networking can reach cloud metadata services (169.254.169.254) — an SSRF inside the container becomes credential theft. Block it at the host firewall or use per-container network policy.
-- Same-network containers reach each other on every port (→ `networking.md`, Reachability Matrix) — segment by putting each trust boundary on its own network; a compromised frontend shouldn't see the admin service.
-- Published ports on Linux bypass ufw, so `-p 5432:5432` on an internet-facing host is a public database even under "deny all" (→ `networking.md`, The Firewall Truth). Bind to `127.0.0.1` unless the port is meant for the world.
+- Same-network containers reach each other on every port (→ `references/networking.md`, Reachability Matrix) — segment by putting each trust boundary on its own network; a compromised frontend shouldn't see the admin service.
+- Published ports on Linux bypass ufw, so `-p 5432:5432` on an internet-facing host is a public database even under "deny all" (→ `references/networking.md`, The Firewall Truth). Bind to `127.0.0.1` unless the port is meant for the world.
 
 ## Supply Chain
 
@@ -53,10 +53,10 @@ docker run --read-only --tmpfs /tmp \
 
 ## What Gets Written Down
 
-Hardening decisions decay the moment they leave the session. Three destinations, all in `memory-template.md`:
+Hardening decisions decay the moment they leave the session. Three destinations, all in `references/memory-template.md`:
 
-- **The hardened run/compose stanza or Dockerfile that finally worked**, including every capability that had to be added back and why it was needed → `~/Clawic/data/docker/artifacts/<kebab-name>.md`, with its `## Boxes` line in the same turn. `--cap-drop ALL` then re-adding one capability is a diagnostic session; nobody should run it twice for the same service.
+- **The hardened run/compose stanza or Dockerfile that finally worked**, including every capability that had to be added back and why it was needed → `<state_root>/artifacts/<kebab-name>.md`, with its `## Boxes` line in the same turn. `--cap-drop ALL` then re-adding one capability is a diagnostic session; nobody should run it twice for the same service.
 - **A CVE accepted with a reason, or a scanner exception** → `artifacts/`, with the date, the finding id, the reason, and the condition under which it must be revisited. An exception with no revisit condition is a permanent hole with a note attached.
 - **The rebuild-and-rescan cadence** → a `## Due` row. A base pinned six months ago carries six months of published CVEs, and only a dated schedule catches that.
 
-**Secrets never land in any of it.** Everything under `~/Clawic/data/` — including files you create and text the user pastes for safekeeping — stores the pointer, not the value: `env:REGISTRY_TOKEN`, `keychain:ghcr-push`, `file:~/.docker/config.json`. Strip before writing, and say in one line that you did.
+**Keep secrets out of storage.** Everything under `<state_root>/` — including files you create and text the user pastes for safekeeping — stores the pointer, not the value: `env:REGISTRY_TOKEN`, `keychain:ghcr-push`, `file:~/.docker/config.json`. Strip before writing, and say in one line that you did.

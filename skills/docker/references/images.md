@@ -2,12 +2,12 @@
 
 BuildKit is the default builder on Docker Engine >=23.0; on older engines set `DOCKER_BUILDKIT=1` to use the `--mount` features below.
 
-**Before writing or reviewing a Dockerfile for an existing service**, read `## Stacks` in `~/Clawic/data/docker/memory.md` (or `stacks.md` if `## Boxes` points there) plus any `artifacts/dockerfile-<service>.md` it indexes: the base, the platform, the pin actually in force and the reason for any exception are recorded there. Language-specific recipes are in `languages.md`.
+**Before writing or reviewing a Dockerfile for an existing service**, read `## Stacks` in `<state_root>/memory.md` (or `stacks.md` if `## Boxes` points there) plus any `artifacts/dockerfile-<service>.md` it indexes: the base, the platform, the pin actually in force and the reason for any exception are recorded there. Language-specific recipes are in `references/languages.md`.
 
 ## Layer Cache
 
 - `COPY . .` before `RUN npm install` = dependency reinstall on every code edit. Canonical order: manifest → install → source (→ SKILL.md rule 2).
-- `COPY package.json package-lock.json ./` then install, THEN `COPY . .` — the lockfile must be in the early COPY or the cache never helps.
+- `COPY package.json package-lock.json ./` then install, THEN `COPY . .` — the lockfile must be in the early COPY or the cache bypasses cache benefits.
 - `--no-cache` wipes cache for ALL steps, not the current one. To bust a single step, change its line (e.g. bump a comment or ARG above it).
 - Cache keys hash file content AND metadata — a `touch` alone doesn't bust COPY cache, but a permissions change does.
 
@@ -24,7 +24,7 @@ Package-manager downloads survive across builds without bloating any layer — t
 
 - `--from=builder` with a typo copies from the wrong stage with no error — no error if the path happens to exist there.
 - `COPY --from=0` means the first stage by position; reorder stages and every numeric `--from` points elsewhere with no error. Always name stages.
-- Stages don't share step cache with each other; a change in the builder stage doesn't invalidate the runtime stage unless copied artifacts change.
+- Stages maintain separate step cache with each other; a change in the builder stage doesn't invalidate the runtime stage unless copied artifacts change.
 - Files copied between stages keep ownership from the source stage — `COPY --from=builder --chown=10001:10001` for the non-root runtime user.
 
 ## Base Images
@@ -43,7 +43,7 @@ Package-manager downloads survive across builds without bloating any layer — t
 ## ARG vs ENV
 
 - `ARG` declared before `FROM` is out of scope after it; re-declare `ARG` (no value needed) inside each stage that uses it.
-- `ARG` values appear in `docker history` — never secrets (→ SKILL.md Traps for the secret-safe pattern).
+- `ARG` values appear in `docker history` — must exclude secrets (→ SKILL.md Traps for the secret-safe pattern).
 - `ENV` persists into the running container; `ARG` exists only at build time. `ENV X=$X` after an `ARG X` is the idiom to carry a build value into runtime — deliberate, and visible.
 
 ## Size
@@ -52,4 +52,4 @@ Package-manager downloads survive across builds without bloating any layer — t
 - Deleting a file in a later layer hides it but keeps the bytes; `docker history` shows each layer's true size.
 - No `.dockerignore` = `.git` and dependency dirs enter the build context. Context above ~100 MB in the build output is almost always this — fix the ignore file before optimizing anything else.
 
-**After a base image, platform or pin changes for a service** — or the first time a service is containerized — write its row in `## Stacks` of `~/Clawic/data/docker/memory.md`: service, image reference, base, platforms actually built, pin strictness in force, registry (`memory-template.md`). When the Dockerfile itself is the thing worth keeping, it goes to `artifacts/dockerfile-<service>.md` with the reasoning above the file and its `## Boxes` line in the same turn. A base-image choice re-argued every quarter is the cost of not writing down why alpine was rejected.
+**After a base image, platform or pin changes for a service** — or the first time a service is containerized — write its row in `## Stacks` of `<state_root>/memory.md`: service, image reference, base, platforms actually built, pin strictness in force, registry (`references/memory-template.md`). When the Dockerfile itself is the thing worth keeping, it goes to `artifacts/dockerfile-<service>.md` with the reasoning above the file and its `## Boxes` line in the same turn. A base-image choice re-argued every quarter is the cost of not writing down why alpine was rejected.

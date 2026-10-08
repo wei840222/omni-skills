@@ -2,7 +2,7 @@
 
 Mental model: every container has its own network namespace; a "network" is a virtual switch with an embedded DNS server; `-p` is a NAT rule from the host into one namespace. Most "networking bugs" are one of these three pieces misassigned.
 
-**Before diagnosing reachability on a machine you have seen before**, read `## Environment` in `~/Clawic/data/docker/memory.md`: the VPN MTU, the corporate CA, the daemon DNS override, the address pool chosen to avoid a collision, and which host ports are already taken by non-Docker services are recorded there. Those five facts account for most of the failures below and none of them are discoverable from the container.
+**Before diagnosing reachability on a machine you have seen before**, read `## Environment` in `<state_root>/memory.md`: the VPN MTU, the corporate CA, the daemon DNS override, the address pool chosen to avoid a collision, and which host ports are already taken by non-Docker services are recorded there. Those five facts account for most of the failures below and none of them are discoverable from the container.
 
 ## Reachability Matrix
 
@@ -20,13 +20,13 @@ Mental model: every container has its own network namespace; a "network" is a vi
 - Docker programs its own iptables chains (`DOCKER`) evaluated BEFORE ufw/firewalld rules: `-p 5432:5432` on an internet-facing host is a public database even with ufw "deny all".
 - Local-only publishing is the fix that always works: `-p 127.0.0.1:5432:5432`.
 - Fleet-level: set `"iptables": false` only if you fully own the firewall config — it breaks container internet access until you replicate the NAT rules yourself. Most teams should publish on localhost + reverse-proxy instead.
-- Cloud metadata endpoint `169.254.169.254` is reachable from default networking — SSRF in a container becomes credential theft; block it host-level (security.md).
+- Cloud metadata endpoint `169.254.169.254` is reachable from default networking — SSRF in a container becomes credential theft; block it host-level (references/security.md).
 
 ## DNS
 
 - Embedded resolver = `127.0.0.11` inside user-defined networks; it forwards non-container names to the daemon's DNS config.
 - `--dns 8.8.8.8` sets the UPSTREAM of the embedded resolver and REPLACES the list (does not append); container-name resolution keeps working. The real trap is a daemon-level `"dns"` misconfig, which breaks external lookups for every container at once.
-- Split-horizon/VPN DNS: containers don't inherit the host's resolver magic (systemd-resolved, VPN split DNS). Symptom: host resolves `internal.corp`, container doesn't. Fix: daemon.json `"dns": ["<corp resolver>"]` or per-run `--dns`.
+- Split-horizon/VPN DNS: containers omit inheriting the host's resolver magic (systemd-resolved, VPN split DNS). Symptom: host resolves `internal.corp`, container doesn't. Fix: daemon.json `"dns": ["<corp resolver>"]` or per-run `--dns`.
 - `getent hosts <name>` is the portable in-container test (exists in musl and glibc); `nslookup`/`dig` usually aren't installed.
 
 ## MTU (the VPN hang)
@@ -61,4 +61,4 @@ docker exec <c> getent hosts <name>                      # portable resolution t
 docker exec <c> sh -c 'ss -ltn || netstat -ltn'          # who listens where
 ```
 
-**Write the network facts that are properties of the machine, not of the bug**: the VPN's MTU and the value the networks were created with, the corporate CA and where it is mounted, a daemon-level DNS or address-pool override, a host port permanently held by a non-Docker service. One line each in `## Environment` of `~/Clawic/data/docker/memory.md`, in the same turn you establish them (`memory-template.md`). Anything that only makes sense as a whole file — a `daemon.json`, a working proxy and CA setup — is an `artifacts/` file with its `## Boxes` line. These are the facts that are invisible from inside a container and expensive to rediscover.
+**Write the network facts that are properties of the machine, not of the bug**: the VPN's MTU and the value the networks were created with, the corporate CA and where it is mounted, a daemon-level DNS or address-pool override, a host port permanently held by a non-Docker service. One line each in `## Environment` of `<state_root>/memory.md`, in the same turn you establish them (`references/memory-template.md`). Anything that only makes sense as a whole file — a `daemon.json`, a working proxy and CA setup — is an `artifacts/` file with its `## Boxes` line. These are the facts that are invisible from inside a container and expensive to rediscover.

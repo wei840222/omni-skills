@@ -2,7 +2,7 @@
 
 Decision rule first: **named volume for data the container owns** (databases, caches, uploads); **bind mount for data you edit on the host** (source code, config you tweak); **tmpfs for data that must not survive** (secrets at rest, scratch space).
 
-**Before any backup, restore, or command that deletes a volume**, read `## Volumes` in `~/Clawic/data/docker/memory.md` (or `volumes.md` if `## Boxes` points there): what each volume holds, how it is backed up, and whether the restore has ever been tested. `down -v` against a volume whose row says `Restore tested: never` is a data-loss event with a countdown, not a cleanup.
+**Before any backup, restore, or command that deletes a volume**, read `## Volumes` in `<state_root>/memory.md` (or `volumes.md` if `## Boxes` points there): what each volume holds, how it is backed up, and whether the restore has ever been tested. `down -v` against a volume whose row says `Restore tested: never` is a data-loss event with a countdown, not a cleanup.
 
 ## Named Volumes
 
@@ -33,11 +33,11 @@ docker run --rm -v pgdata2:/to -v "$PWD":/from alpine tar xzf /from/pgdata-2026-
 - Moving data between hosts = the same tarball pattern + scp; there is no built-in volume migration.
 - **A backup that has never been restored is a hypothesis.** Restore into a scratch volume, start the app against it, and time it. Schedule the drill as a `## Due` row (quarterly is the usual default) rather than trusting that it happened.
 
-**Write after every volume event**: creation, a change of what it holds, a backup method, a backup run, and above all a restore — the row goes in `## Volumes` of `~/Clawic/data/docker/memory.md`, with `Restore tested` carrying a date and a measured duration or the literal word `never` (`memory-template.md`). Once the section passes ~15 volumes it splits to `volumes.md` with the same headings plus `## Restore Log`. The word `never` in a column is what turns an assumption into a visible risk; deleting it because it looks bad is how the assumption survives.
+**Write after every volume event**: creation, a change of what it holds, a backup method, a backup run, and above all a restore — the row goes in `## Volumes` of `<state_root>/memory.md`, with `Restore tested` carrying a date and a measured duration or the literal word `never` (`references/memory-template.md`). Once the section passes ~15 volumes it splits to `volumes.md` with the same headings plus `## Restore Log`. The word `never` in a column is what turns an assumption into a visible risk; deleting it because it looks bad is how the assumption survives.
 
 ## tmpfs
 
-- `--tmpfs /tmp` (or Compose `tmpfs:`) = RAM-backed, gone at stop, never touches disk — the right home for decrypted secrets and scratch files under `--read-only` (security.md).
+- `--tmpfs /tmp` (or Compose `tmpfs:`) = RAM-backed, gone at stop, never touches disk — the right home for decrypted secrets and scratch files under `--read-only` (references/security.md).
 - Size it: `--tmpfs /tmp:size=64m` — unsized tmpfs can eat RAM inside your memory limit and masquerade as an app leak.
 
 ## Drivers and the Filesystem Underneath
