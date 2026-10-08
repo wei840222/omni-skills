@@ -56,7 +56,7 @@ Execute these steps in order for every comparison:
 
 ## Core principle
 
-A comparison is only as reliable as its weakest-researched dimension. Uneven confidence invalidates the ranking.
+A comparison is only as reliable as its weakest-researched dimension. Uneven confidence invalidates the ranking. Keep always-on guidance here; load references only for the active step.
 
 ## Resources
 
