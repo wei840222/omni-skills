@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| founder                      | 2026-10-09 | 85/100 (#782)                    |
 | tuya                         | 2026-10-09 | 85/100 (#781)                    |
 | compare                      | 2026-10-09 | 85/100 (#780)                    |
 | monitor                       | 2026-10-09 | 85/100 (#779)                    |
