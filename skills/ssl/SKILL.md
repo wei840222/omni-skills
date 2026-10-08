@@ -7,7 +7,7 @@ description: >
   mixed content, format conversion (PEM/DER/PKCS#12), and automated renewal.
   Prefer `nginx`/`caddy`/`traefik` for reverse-proxy routing beyond TLS
   termination, `network` for generic reachability outside certificates, and
-  `oauth` for application auth rather than transport TLS.
+  `oauth` for application identity rather than transport TLS.
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🔒"}'
