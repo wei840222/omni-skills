@@ -119,6 +119,8 @@ Before emitting an answer, verify:
 
 ## Traps
 
+Common failure modes. Prefer the "Do instead" column over restating the trap.
+
 | Trap | Why it fails | Do instead |
 |------|--------------|------------|
 | Chaining visa-exempt entries | Immigration tracks entries; back-to-back stamps → questioning or denial | Real visa (DTV, ED, Non-O) — `visas.md` |
