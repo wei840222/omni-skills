@@ -58,7 +58,7 @@ Execute in order. Stop early when a missing input blocks a safe recommendation.
 | Verified sources used in this package | `references/sources.md` |
 
 4. **Apply core operating rules** (below) to the known facts.
-5. **Produce an evidence-bound output** — recommendation, missing-data asks, and one concrete next step with owner + date when the user wants action. If research depth is insufficient for claims, say what is missing instead of fabricating proof points.
+5. **Produce an evidence-bound output** — recommendation, missing-data asks, and one concrete next step with owner + date when the user wants action. If research depth is insufficient for claims, say what is missing instead of fabricating proof points. If the user declines a next step, keep the deal out of Commit and state that choice plainly—no halt-marker theatre.
 
 ## Core rules
 
