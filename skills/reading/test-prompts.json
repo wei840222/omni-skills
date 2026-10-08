@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to learn about Roman history but I have only 15 minutes a day to read.",
+    "expected": "Gather or restate goal+time constraints; prefer short-session or audio-friendly path; give one primary next read or method fit for ~15 minutes/day; avoid dumping a long classic list; optionally ask which angle of Rome matters.",
+    "actual": "Restated constraint: deep-ish learning goal, ~15 min/day. Method: audiobook or short-chapter survey during commute/chores beats a dense academic doorstop in print. Primary pick: Mary Beard SPQR as audiobook (widely available; narrative enough for short daily chunks)—flag that it is still a long book, so success metric is steady streak + weekly explain-back of one idea, not finishing date vanity. Alternate: a shorter overview essay/podcast arc first if they want faster orientation. Asked which slice they care about (politics, military, daily life, late empire) before adding a second title. No ten-book list.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm 100 pages into 'Thinking, Fast and Slow' and it's a slog. I feel like I'm forcing myself to finish it.",
+    "expected": "Normalize quitting after a fair sample; reject sunk-cost framing; offer summary/alternate path or format change aligned to their goal; keep tone supportive.",
+    "actual": "Fair sample already cleared (~100 pages > 50-page heuristic). Advised stopping or parking the book: forcing it trains aversion, not wisdom. Sunk cost called out as non-reason. Options: (1) quit and take a reputable summary of dual-process highlights if the goal was familiarity; (2) switch to a more narrative behavioral-econ title if they still want the topic with momentum; (3) keep only chapters tied to a concrete decision they face, skim-index the rest. Offered to help name the goal so the replacement stays tight. No shame script.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Recommend classics I should read to be well-educated. Give me a big list.",
+    "expected": "Resist overwhelm list; ask taste/goals/time; offer one next read plus optional alternate; avoid pure prestige dumping.",
+    "actual": "Declined prestige dump. Asked three filters: fiction vs ideas, eras they already like, and weekly hours. Interim default if they want a single bridge classic with high transfer: one title matched after those answers (example pattern: if they like character-driven prose → a single widely discussed novel; if they want civic ideas → one political essay collection)—still one primary, one optional alternate format. Explained decision paralysis risk of long canon lists and that 'well-educated' is goal-specific. Invited constraints before expanding.",
+    "pass": true
+  }
+]
