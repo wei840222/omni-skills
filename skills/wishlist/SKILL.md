@@ -72,7 +72,7 @@ Execute in order. Stop early only when a step already blocks progress.
 
 4. **Capture with friction** — For a new want, ask priority, target price/budget, and at least one product link when missing; write `items/{slug}.md` and update priority/category indexes.
 5. **Decide with evidence** — Before recommending buy-now, compare current price to target and history; surface must-have items under target first.
-6. **Confirm before external impact** — Draft only for purchase, cart, or payment actions; never place an order or spend without explicit current-task authorization.
+6. **Confirm before external impact** — Draft only for purchase, cart, or payment actions; place an order or spend only with explicit current-task authorization.
 7. **Write durable notes** — After consent, update the item file, indexes, `price-alerts.md`, and `purchased.md` as applicable.
 
 ## Operating rules
@@ -80,7 +80,7 @@ Execute in order. Stop early only when a step already blocks progress.
 - Check the wishlist before suggesting an impulsive purchase of something already tracked.
 - Keep card numbers, CVVs, bank logins, and full payment tokens out of every state file; retain at most last-four, nickname, or a secret pointer.
 - Treat retailer countdown timers and "only N left" copy as weak urgency signals; evaluate the item at regular price first.
-- Prefer ranges and observed prices over invented market averages.
+- Prefer ranges and observed prices; leave market averages blank when not measured.
 - Review must-have and want items at least monthly: still relevant, still needed, still the right target?
 
 ## Progressive enhancement

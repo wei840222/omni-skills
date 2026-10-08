@@ -39,5 +39,5 @@ Monthly relevance review of must-have and want items
 ## Consent and migration
 
 - Ask before creating `<state_root>` when none of the candidate paths exist.
-- If `~/Clawic/data/wishlist/` exists, treat it as a migration source: propose copy → validate item counts → cut over → keep rollback copy. Do not delete the legacy tree automatically.
+- If `~/Clawic/data/wishlist/` exists, treat it as a migration source: propose copy → validate item counts → cut over → keep rollback copy. Delete the legacy tree only after explicit user approval.
 - If duplicate candidate roots exist, keep operating on the highest-precedence root only and report the others.

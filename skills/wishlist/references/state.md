@@ -133,5 +133,5 @@ Recompute stats from logged rows; do not hard-code marketing percentages.
 ## Path safety
 
 - Write only under the resolved `<state_root>`.
-- Never treat the literal string `<state_root>` as a directory name.
+- Write only the resolved filesystem path; the placeholder name `<state_root>` stays documentation-only.
 - Shared host memory such as workspace `MEMORY.md` is outside this tree; mention wishlist facts there only when the user asks for a cross-skill summary.

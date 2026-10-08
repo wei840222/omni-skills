@@ -31,7 +31,7 @@ Stable-domain practices retained from the skill design (not vendor price claims)
 
 ## Out of scope claims
 
-Do not hard-code:
+Leave the following unset unless a current primary source is attached in-session:
 
 - Current street prices for named SKUs
 - Guaranteed discount percentages for Prime Day / Black Friday

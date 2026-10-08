@@ -41,7 +41,7 @@ When checking prices:
 4. Surface significant moves: below target, ≥15% drop from last check (default), or first time on a configured sale flag.
 5. Update `Last checked` and append history when the price changed.
 
-Do not invent market averages, "usual" street prices, or unverified coupon stacks.
+Record only observed quotes; leave market averages, "usual" street prices, and unverified coupon stacks blank until measured.
 
 ## What to surface
 
@@ -75,7 +75,7 @@ Organize for browsing, not as a rigid taxonomy:
 
 - Tech, Home, Clothing, Hobby, Gifts-for-self, user-defined
 
-Category indexes are optional convenience; missing category never blocks capture.
+Category indexes are optional convenience; capture proceeds even when category is unknown.
 
 ## Review and hygiene
 
