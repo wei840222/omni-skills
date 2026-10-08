@@ -53,7 +53,7 @@ Latency sample eligibility (all completed HTTP responses or successful responses
 
 - Group failures by hour or weekday using an explicit reporting timezone. Summarize observed patterns such as morning failures or weekend latency without inferring causes.
 - Compare equivalent periods and the same monitor/predicate. Identify user-confirmed maintenance windows separately.
-- The original suggested P95 rise threshold of **20%** is an optional policy, not a benchmark. Obtain authorization before scheduling a trend alert. A zero/missing prior P95 cannot support a percentage increase; report absolute values instead.
+- The original suggested P95 rise threshold of **20%** is an optional policy, not a benchmark. Schedule a trend alert only after explicit authorization. When the prior P95 is zero or missing, report absolute values instead of a percentage increase.
 - Request the required sample minimum when the user needs actionable trend alerts. Sparse samples and changed intervals lower confidence.
 
 ## Weekly Summary

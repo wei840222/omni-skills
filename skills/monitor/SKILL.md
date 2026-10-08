@@ -4,9 +4,9 @@ description: >
   Define and run a user-requested recurring HTTP, TLS-expiry, process, disk,
   port, or custom check with persisted results and change-only alerts. Use when
   the user names a concrete target plus an interval or wants status-change
-  notifications for that check. Do not use for full observability stacks
-  (metrics/logs/traces architecture belongs to monitoring) or one-off ad-hoc
-  probes with no definition or schedule intent.
+  notifications for that check. Full observability stacks (metrics, logs, traces)
+  belong to monitoring; one-off ad-hoc probes without save or schedule intent stay
+  outside durable monitor definitions.
 metadata:
   version: "1.0.4"
   openclaw: '{"emoji":"📡","requires":{"bins":["curl"]}}'
@@ -189,17 +189,3 @@ The definition's `requires` field records granted capabilities:
 - `["docker"]`: explicit Docker grant for the selected context.
 
 Verify actual access independently of the recorded grant. Notification destinations and scheduler mutations require explicit authorization too. A missing grant leaves the definition pending and names the permission needed.
-
-## Trigger evaluation (author notes)
-
-Positive prompts that should load this skill:
-
-- "Ping https://api.example.com/health every 5 minutes and alert me on failure."
-- "Watch whether postgres is running and notify on change."
-- "Warn me 14 days before api.example.com's TLS cert expires."
-
-Near-miss prompts that should not own the whole task:
-
-- "Design a Prometheus + Grafana stack for the cluster" → `monitoring`.
-- "Just curl that URL once and tell me the status" → one-off probe; no durable monitor unless the user then asks to save/schedule it.
-- "Page me about every Kubernetes event" → platform observability / incident tooling, not a single user-defined check.
