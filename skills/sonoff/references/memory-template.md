@@ -1,6 +1,6 @@
 # Memory Template - Sonoff
 
-Create `~/Clawic/data/sonoff/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Sonoff Memory
@@ -19,7 +19,7 @@ integration: pending | complete | paused | never_ask
 ## Environment Context
 - Cloud, LAN, and iHost control boundaries
 - Segment and reachability assumptions
-- Token and auth handling constraints
+- Token and auth handling constraints (no raw secrets)
 - Risk mode (read-only, guarded writes, apply)
 
 ## Device Control Context
@@ -29,7 +29,7 @@ integration: pending | complete | paused | never_ask
 
 ## Automation Constraints
 - Rollout ordering and blast-radius limits
-- Retry policy and stop conditions
+- Retry policy and halt conditions
 - Rollback owner and rollback criteria
 
 ## Open Risks
@@ -51,11 +51,11 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | Context still evolving | Keep learning environment and control patterns |
 | `complete` | Stable operating context | Focus on execution and optimization |
 | `paused` | User paused setup expansion | Use existing context and ask only if blocked |
-| `never_ask` | User wants no setup prompts | Do not ask setup questions unless explicitly requested |
+| `never_ask` | User wants no setup prompts | Avoid setup prompts unless the user asks |
 
 ## File Templates
 
-Create `~/Clawic/data/sonoff/devices.md`:
+Create `<state_root>/devices.md`:
 
 ```markdown
 # Device Registry
@@ -68,7 +68,7 @@ Create `~/Clawic/data/sonoff/devices.md`:
 - Last verified:
 ```
 
-Create `~/Clawic/data/sonoff/incidents.md`:
+Create `<state_root>/incidents.md`:
 
 ```markdown
 # Incident Log
@@ -85,4 +85,4 @@ Create `~/Clawic/data/sonoff/incidents.md`:
 
 - Keep entries concise and operational.
 - Record only SONOFF and eWeLink relevant context.
-- Never store raw credentials or unrelated private data.
+- Keep raw credentials and unrelated private data out of these files.
