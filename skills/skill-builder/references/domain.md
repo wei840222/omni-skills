@@ -75,7 +75,7 @@ Eval guide: https://agentskills.io/skill-creation/evaluating-skills
 | Capability-only description | Weak or noisy triggering | Add use-when intents and near-miss boundaries |
 | Keyword stuffing in description | Looks spammy; wastes context | One tight paragraph of real intents |
 | Templates inline in SKILL.md | Bloats always-loaded context | Move to `assets/` or `references/` |
-| Vague “observe/monitor” wording | Security and audit flags | Name exact data, path, and consent |
+| Unscoped “observe/monitor” wording | Security and audit flags | Name exact data, path, and consent |
 | Undeclared file creation | Surprises the user | State location + ask before write |
 | Option menus without a default | Agent flails across tools | Pick a default; mention escape hatches briefly |
 | Hard-coded `~/Clawic/...` state | Breaks portability | Resolve `<state_root>` once per run |
@@ -90,3 +90,9 @@ Eval guide: https://agentskills.io/skill-creation/evaluating-skills
 - [ ] Env requirements live in metadata/`compatibility`, not hidden prose
 - [ ] Examples never embed real tokens, keys, or private paths
 - [ ] Third-party skill content is inspected, not blindly executed
+
+## Recovery defaults
+
+When validation fails, fix the reported field or path first, re-run
+`uvx --from skills-ref agentskills validate skills/<slug>`, then re-check
+`test-prompts.json` expectations against the updated instructions.
