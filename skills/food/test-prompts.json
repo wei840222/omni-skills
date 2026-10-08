@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I just ate a ham and cheese sandwich with a side of apple slices.",
+    "expected": "Classify as meal, extract items, tag #meal, offer a conditional nutrition estimate, and avoid forcing macros or medical claims.",
+    "actual": "Detected text meal log. Items: ham and cheese sandwich; apple slices. Tags: #meal (context home unless stated). Stored intent: append under meal log / Patterns when continuity is on. Offer: \"Want a nutrition estimate?\" If yes and macros needed, hand off detail to `calories`. No medical advice.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm deathly allergic to peanuts. Also, here is a photo of some pad thai I just ordered from a local Thai place.",
+    "expected": "Persist peanut allergy in Preferences, classify pad thai as #meal and #restaurant, flag likely peanut/cross-contact risk, ask confirmation before treating it as safe, and avoid clearing the allergy.",
+    "actual": "Preferences update: peanuts: allergy (hard stop). Classified pad thai photo+order text as #meal #restaurant; place note candidate under Places. Conflict flag: pad thai commonly includes peanuts or shared fryers—warned and asked whether the kitchen confirmed a peanut-free prep before logging as safe. Did not claim medical clearance. Nutrition estimate offered only after safety confirmation.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Scan this yogurt label: brand Hacendado, 170g serving, 120 kcal. Save it so next time I can just say I had it.",
+    "expected": "Run label/product pipeline, normalize serving, store under Products for quick-log, tag #product, and keep state under resolved <state_root>/memory.md only after opt-in.",
+    "actual": "Label pipeline: product Hacendado yogurt, serving 170g, 120 kcal/serving. Tag #product. After opt-in and <state_root> resolution, Products line: `Hacendado yogurt: 120/170g`. Quick-log hint: next time say \"had Hacendado yogurt\" and confirm serving count. No legacy vendor paths; no forced macro coaching.",
+    "pass": true
+  }
+]
