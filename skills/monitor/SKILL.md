@@ -1,8 +1,14 @@
 ---
 name: monitor
-description: Define user-requested recurring HTTP, TLS expiry, process, disk, port, or custom checks with persisted results and change-only alerts. Use when the user specifies what to monitor and an interval; scheduling requires an available host scheduler. Broad observability architecture belongs to monitoring rather than individual monitor definitions.
+description: >
+  Define and run a user-requested recurring HTTP, TLS-expiry, process, disk,
+  port, or custom check with persisted results and change-only alerts. Use when
+  the user names a concrete target plus an interval or wants status-change
+  notifications for that check. Do not use for full observability stacks
+  (metrics/logs/traces architecture belongs to monitoring) or one-off ad-hoc
+  probes with no definition or schedule intent.
 metadata:
-  version: "1.0.3"
+  version: "1.0.4"
   openclaw: '{"emoji":"📡","requires":{"bins":["curl"]}}'
   related-skills: '{"monitoring":"Design metrics, logs, traces, and observability stacks beyond individual periodic checks."}'
 ---
@@ -60,6 +66,28 @@ A definition file is configuration, not a scheduler. Claims that a monitor is ru
 - Shell examples target a POSIX shell; check local tool variants before use. Native Windows requires a supported shell or an explicitly verified adapter.
 
 Inspect capabilities first. Missing binaries or adapters produce an actionable blocker; installation is a separate authorization decision.
+
+## Ordered workflow
+
+Execute these steps in order for every new or updated monitor:
+
+1. **Classify the request** — individual recurring check → continue here; full observability stack → hand off to `monitoring`; one-off probe with no save/schedule intent → run the probe only and stop without writing definitions.
+2. **Capture WHAT / HOW / WHEN / ALERT** — exact target, method, success predicate, interval/timezone, transition policy, destination, and disclosure scope. Ask only for missing decisions.
+3. **Resolve state** — bind `state_root`, report conflicts, and obtain creation consent when no candidate exists.
+4. **Verify tools and grants** — confirm required binaries, host scheduler inspect/create/read-back, notification route, and any SSH/Docker/custom grants for the exact scope.
+5. **Draft definition** — write or update only the named key in `<state_root>/monitors.json` with `status: pending`. Load `references/templates.md` and `assets/monitor-examples.json` when selecting check procedures.
+6. **Prove one check** — execute the confirmed method once; record `ok` / `fail` / `unknown` with redacted diagnostics. Load channel guidance from `references/alerts.md` only when configuring or sending alerts.
+7. **Schedule when authorized** — create or update the durable host job, then read it back (id, schedule, next run). Keep `pending` until that proof exists.
+8. **Activate and confirm** — set `active` only after job read-back plus at least one observed check result (and delivery proof when alerts are in scope). Return the confirmation block below.
+9. **Analyze only on request** — load `references/insights.md` and `assets/weekly-summary.md` when computing sampled availability, latency, trends, or weekly reports from existing logs.
+
+Failure branches stay explicit:
+
+- Missing target, method, interval, or destination → stay in discovery; write nothing durable yet.
+- Missing binary, grant, scheduler, or secret route → save `pending`/`blocked` with the exact blocker; leave existing jobs untouched.
+- Check transport/parse error → record `unknown`; keep last known status; suppress false down/up flips.
+- Scheduler create succeeds but read-back fails → treat as not active; remediate or roll back the job before claiming success.
+- Notification acceptance fails → keep the event pending with redacted diagnostics; suppress only after confirmed acceptance.
 
 ## Quick Reference
 
@@ -161,3 +189,17 @@ The definition's `requires` field records granted capabilities:
 - `["docker"]`: explicit Docker grant for the selected context.
 
 Verify actual access independently of the recorded grant. Notification destinations and scheduler mutations require explicit authorization too. A missing grant leaves the definition pending and names the permission needed.
+
+## Trigger evaluation (author notes)
+
+Positive prompts that should load this skill:
+
+- "Ping https://api.example.com/health every 5 minutes and alert me on failure."
+- "Watch whether postgres is running and notify on change."
+- "Warn me 14 days before api.example.com's TLS cert expires."
+
+Near-miss prompts that should not own the whole task:
+
+- "Design a Prometheus + Grafana stack for the cluster" → `monitoring`.
+- "Just curl that URL once and tell me the status" → one-off probe; no durable monitor unless the user then asks to save/schedule it.
+- "Page me about every Kubernetes event" → platform observability / incident tooling, not a single user-defined check.
