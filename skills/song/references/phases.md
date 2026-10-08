@@ -14,7 +14,7 @@
 - **Tempo feel?** (ballad, mid-tempo, upbeat, driving)
 
 ### Load preferences:
-If `~/songs/preferences.md` exists, read it first. Ask:
+If `<state_root>/preferences.md` exists, read it first. Ask:
 > "Last time you liked [X style]. Same direction, or trying something new?"
 
 ---
@@ -60,7 +60,7 @@ If `~/songs/preferences.md` exists, read it first. Ask:
 - Syllable count (singability)
 - Stressed syllables align with musical emphasis
 - Rhyme scheme consistency
-- Avoiding clichés unless intentional
+- Use familiar clichés only when the twist is intentional
 
 See `lyrics.md` for detailed techniques.
 

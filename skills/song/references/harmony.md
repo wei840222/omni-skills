@@ -71,7 +71,7 @@
 
 ### To create mystery:
 - Ambiguous chords (add2, sus, no3)
-- Avoid clear tonic
+- Delay or blur a clear tonic center
 - Modal interchange
 - Pedal tones
 
@@ -105,7 +105,7 @@
 ## Practical Tips
 
 1. **Try the progression before committing**: Play through, sing melody over it
-2. **Match energy to section**: Don't use most powerful progression in verse
+2. **Match energy to section**: Keep verse progressions milder; save the strongest motion for chorus/peak
 3. **Consider bass movement**: Smooth bass lines feel cohesive
 4. **Inversions add interest**: C/E instead of C changes the feel
 5. **Silence is a chord**: Rests create drama

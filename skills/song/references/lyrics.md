@@ -38,7 +38,7 @@
 
 ## Emotional Techniques
 
-### Show, don't tell:
+### Show rather than tell:
 - ❌ "I'm sad"
 - ✅ "The coffee's cold, I haven't moved in hours"
 
@@ -52,7 +52,7 @@
 
 ### Metaphor and simile:
 - Extended metaphors (carry through the song)
-- Fresh comparisons (avoid "heart on fire" unless subverting)
+- Fresh comparisons (use "heart on fire" only when deliberately subverting it)
 
 ---
 
