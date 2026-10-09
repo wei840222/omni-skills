@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 3-day tourist trip to Helsinki in December. I hate the cold but want to see the main sights. What should I know?",
+    "expected": "Practical advice regarding the very cold and dark weather in December (e.g., short daylight hours, dressing warmly), alongside a brief overview of indoor attractions and 3-day itinerary guidance by referencing visitor-itineraries.md and visitor-attractions.md.",
+    "actual": "December Helsinki is dark and cold: package climate guidance points to roughly 6 hours of daylight and winter temperatures often around -5 to -15°C, so pack layers and plan short outdoor windows. For a 3-day trip that avoids long outdoor cold exposure, route via references/climate.md + references/visitor-itineraries.md + references/visitor-attractions.md: prioritize indoor anchors (Oodi Library, Amos Rex, museum blocks, traditional sauna) and keep outdoor sights short between warm stops. Treat any opening-hour or ticket price as verify-live; this skill routes orientation, not live booking inventory.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am a non-EU citizen considering moving to Helsinki for a software engineering job. I have an offer for €6,000/month. What's the reality of costs, visas, and where should I live?",
+    "expected": "Information on the EU Blue Card or Work Residence Permit for non-EU citizens, confirmation that €6,000 is a standard senior SWE salary but involves high taxes, and recommendations for tech-friendly neighborhoods (like Ruoholahti or city center) by referencing visas.md, cost.md, and neighborhoods-choosing.md.",
+    "actual": "Non-EU software work in Helsinki usually starts from Migri work-based permits, most often Specialist or EU Blue Card (references/visas.md + references/sources.md). Package orientation from 2026-10-09 Migri retrievals: Specialist and EU Blue Card share a EUR 3,937/month gross floor in 2026; Blue Card employment must last at least six months; first-permit fees orient to EUR 530 electronic / EUR 630 paper — re-open the live Migri page before filing. EUR 6,000/month gross is competitive senior-SWE orientation (references/tech.md / domain), but Finnish tax take is high; use ranges only. Neighborhood routing for tech workers often starts with Ruoholahti / city center / Kallio-style comparisons in references/neighborhoods-choosing.md; verify current rent listings. Do not treat tourism entry as work permission; confirm permit path for the exact nationality and contract before resigning or booking non-refundable moves.",
+    "pass": true
+  }
+]
