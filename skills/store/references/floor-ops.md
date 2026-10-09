@@ -4,7 +4,7 @@
 
 - Put the strongest seller or quickest operator where customer decisions actually happen.
 - Protect the queue and fitting-room bottlenecks before adding low-value tasks.
-- Move people with traffic, not by fixed zones that no longer match the day.
+- Move people with traffic, adapting zones dynamically to match the day.
 
 ## Task Timing
 
@@ -25,7 +25,7 @@
 
 ## Hard Rules
 
-- Do not run deep stock tasks during peak trade unless service is protected.
-- Do not let every staff member improvise priorities independently.
-- Do not leave the entrance or top table stale; first impression drives conversion.
-- Do not assume "busy" means productive; check conversion and basket size too.
+- Run deep stock tasks only during off-peak hours to protect service.
+- Ensure all staff members align on shared priorities set by the shift leader.
+- Keep the entrance and top table fresh and impactful to drive conversion.
+- Verify productivity by checking conversion and basket size alongside overall traffic.

@@ -9,8 +9,8 @@
 ## Shrink Signals
 
 - High-value items disappear without matching sales.
-- Receiving paperwork and floor stock never reconcile cleanly.
-- Damaged or unsellable items are not logged consistently.
+- Receiving paperwork and floor stock rarely reconcile cleanly.
+- Damaged or unsellable items lack consistent logging.
 - Busy periods produce unexplained inventory swings.
 
 ## Incident Logging
@@ -34,7 +34,7 @@ Record:
 
 ## Hard Rules
 
-- Never smooth over cash discrepancies to keep the shift moving.
-- Never log shrink as "unknown" if there is any likely cause to test.
-- Never keep incident notes only in chat or memory; recurring issues need a record.
-- Never store card data, PINs, or unnecessary personal identifiers in incident logs.
+- Document and investigate all cash discrepancies before continuing the shift.
+- Identify and log a specific, testable cause for shrink rather than marking it unknown.
+- Record incident notes in persistent logs to effectively track recurring issues.
+- Keep incident logs entirely free of card data, PINs, or unnecessary personal identifiers.

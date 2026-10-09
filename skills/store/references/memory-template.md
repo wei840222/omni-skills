@@ -1,6 +1,6 @@
 # Memory Template - Store
 
-Create `~/Clawic/data/store/memory.md` with this structure:
+After `<state_root>` is resolved and the user consents to writes, create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Store Memory
@@ -48,7 +48,7 @@ targets:
 
 ## File Templates
 
-Create `~/Clawic/data/store/routines.md`:
+Create `<state_root>/routines.md`:
 
 ```markdown
 # Store Routines
@@ -72,7 +72,7 @@ Create `~/Clawic/data/store/routines.md`:
 - next-day priorities
 ```
 
-Create `~/Clawic/data/store/inventory.md`:
+Create `<state_root>/inventory.md`:
 
 ```markdown
 # Inventory Notes
@@ -89,7 +89,7 @@ Create `~/Clawic/data/store/inventory.md`:
 - transfer_or_order_actions:
 ```
 
-Create `~/Clawic/data/store/staff.md`:
+Create `<state_root>/staff.md`:
 
 ```markdown
 # Staff Notes
@@ -105,7 +105,7 @@ Create `~/Clawic/data/store/staff.md`:
 - break_risks:
 ```
 
-Create `~/Clawic/data/store/kpis.md`:
+Create `<state_root>/kpis.md`:
 
 ```markdown
 # KPI Tracker
@@ -120,7 +120,7 @@ Create `~/Clawic/data/store/kpis.md`:
 - shrink_or_loss_notes:
 ```
 
-Create `~/Clawic/data/store/promotions.md`:
+Create `<state_root>/promotions.md`:
 
 ```markdown
 # Promotions
@@ -133,7 +133,7 @@ Create `~/Clawic/data/store/promotions.md`:
 - result:
 ```
 
-Create `~/Clawic/data/store/incidents.md`:
+Create `<state_root>/incidents.md`:
 
 ```markdown
 # Incident Log
@@ -151,4 +151,4 @@ Create `~/Clawic/data/store/incidents.md`:
 - Keep local notes brief, current, and tied to decisions.
 - Prefer store-level signals over one-off anecdotes.
 - Ask before writes and update `last` when the operating context changes.
-- Do not store payroll details, private employee records, or payment credentials.
+- Keep payroll details, private employee records, and payment credentials entirely out of these files.
