@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are getting a lot of stock-outs on fast-moving items, but the system says we have them. Help me fix this.",
+    "expected": "Prioritize cycle counts on fast movers, separate shelf vs back-stock vs receiving errors, and load inventory-control + domain guidance without inventing quantities.",
+    "actual": "Loaded references/domain.md + references/inventory-control.md. Treat system-vs-shelf mismatch as an accuracy problem: cycle-count high-velocity SKUs first (not full-store), walk back stock and recent receiving, split damaged/returnable from saleable, and log repeated stock-outs before reordering. Do not invent on-hand figures; confirm physical count before purchase orders.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have to write the schedule for next week. The afternoons get really busy but my team likes equal hours.",
+    "expected": "Staff to traffic and mission; reject equal-hours-as-fairness when peaks fail; cite staffing + domain rules.",
+    "actual": "Loaded references/domain.md (Staff to Traffic and Mission) + references/staffing.md. Equal hours is not fairness if afternoon peaks lose conversion and queue control. Map traffic peaks and delivery windows, put strongest coverage on conversion moments, protect open/close competence, and capture deferred tasks when labor is tight so under-staffing is visible in weekly review.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Till is short $40 at close and someone wants to leave. What now?",
+    "expected": "Stop-and-document cash variance before ending the shift; no card data in logs; cash-and-loss hard rules.",
+    "actual": "Loaded references/cash-and-loss.md + opening-closing close priorities. Document and investigate the discrepancy before concluding the shift; separate sales/refunds/paid-outs; escalate repeated small variances. Incident notes stay free of card data, PINs, and unnecessary personal identifiers. Do not wave away a $40 miss as noise.",
+    "pass": true
+  }
+]
