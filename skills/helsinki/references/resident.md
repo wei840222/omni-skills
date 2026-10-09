@@ -73,7 +73,7 @@ Must have valid permit:
 - Student permit
 - Family permit
 
-See `visas.md` for details.
+See `references/visas.md` for details.
 
 ## Housing
 
@@ -92,7 +92,7 @@ See `visas.md` for details.
 4. **Documents**: ID, proof of income, references
 5. **Contract**: Typically 1 year minimum, check terms
 
-### Typical Costs (Feb 2026)
+### Typical Costs (package orientation)
 
 | Type | Location | Monthly Rent |
 |------|----------|--------------|
@@ -199,7 +199,7 @@ Often NOT included in rent:
 - Many use for convenience
 - Work often includes private insurance
 
-See `healthcare.md` for full details.
+See `references/healthcare.md` for full details.
 
 ## Tax Registration
 

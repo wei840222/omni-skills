@@ -1,198 +1,110 @@
 ---
 name: helsinki
-slug: helsinki
-version: 1.0.0
-description: Navigate Helsinki as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/helsinki
+description: >
+  Navigate Helsinki as a visitor, resident, tech worker, student, or entrepreneur:
+  neighborhoods, HSL transport, costs, visas/permits, food, climate, and local life.
+  Use when planning a Helsinki trip or move, comparing areas, estimating living costs,
+  choosing work/study/startup permit paths, or settling practical Finnish admin.
+  Not for multi-country itinerary systems (travel), generic founder coaching (startup),
+  or other city bases (dubai and siblings).
 metadata:
-  clawdbot:
-    emoji: 🇫🇮
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Helsinki
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇫🇮"}'
+  related-skills: '{"dubai":"Parallel Gulf city base when comparing Helsinki vs Dubai living or work.","startup":"Founder operating judgment and multi-function startup orchestration beyond Helsinki base selection.","travel":"Multi-stop itinerary framing when Helsinki is only one city in a larger trip."}'
 ---
 
-## Setup
+## State location
 
-On first use, read `setup.md` for integration guidelines.
+Optional Helsinki planning context may exist in `<workspace>/helsinki/`, `<workspace>/memory/helsinki/`, or `~/helsinki/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/helsinki/`, `<workspace>/memory/helsinki/`, `~/helsinki/`.
+3. If none exists and the user wants preferences kept, create `<workspace>/helsinki/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/helsinki/` only. Otherwise ask for a state root before creating files.
 
-User asks about Helsinki for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants planning context kept across sessions. Host-shared memory such as workspace `MEMORY.md` is outside `<state_root>` and needs separate user consent; do not write passport, application IDs, or payment details there from this skill.
 
-## Quick Reference
+This skill is primarily **routing knowledge**. Durable notes are optional. Do not invent a CRM or visa case file unless the user asks to keep state. Template: `references/memory-template.md`.
 
-| Topic | File |
-|-------|------|
-| **Setup** | |
-| Integration guidelines | `setup.md` |
-| Memory template | `memory-template.md` |
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips and day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| City Center, Kamppi, Punavuori | `neighborhoods-center.md` |
-| Kallio, Vallila, Soernaeinen | `neighborhoods-trendy.md` |
-| Toeoeloe, Lauttasaari, Munkkiniemi | `neighborhoods-residential.md` |
-| Espoo, Vantaa, suburbs | `neighborhoods-suburban.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview and dining scene | `food-overview.md` |
-| Finnish and Nordic cuisine | `food-local.md` |
-| International and fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Dietary, alcohol, culture | `food-practical.md` |
-| **Practical** | |
-| Moving and settling | `resident.md` |
-| Transport (metro, trams, HSL) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety and laws | `safety.md` |
-| Weather and survival tips | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
-| **Career** | |
-| Tech industry and salaries | `tech.md` |
-| Business setup and regulations | `business.md` |
-| Visas (work, EU Blue Card, startup) | `visas.md` |
-| Startups and funding | `startup.md` |
-| **Lifestyle** | |
-| Culture and customs | `culture.md` |
-| Healthcare system | `healthcare.md` |
-| Schools and education | `education.md` |
-| Expat lifestyle and social | `lifestyle.md` |
-| Driving and car ownership | `driving.md` |
+## When to load
 
-## Core Rules
+Load for Helsinki **visitor**, **relocation**, **tech/work**, **study**, or **business** questions:
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, entrepreneur
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
+- trip plans, lodging, attractions, winter survival, day trips
+- neighborhood choice, rent ranges, settling-in admin
+- HSL/metro/tram/commuter reality (without treating stale fares as live fact)
+- non-EU work permits (specialist, EU Blue Card), student or startup paths
+- cost of living, healthcare orientation, schools, culture, driving
 
-### 2. EU/Schengen Context
-Helsinki is in the EU and Schengen Area. Key implications:
-- EU/EEA citizens: No visa needed, right to work
-- Non-EU: Need residence permit for stays over 90 days
-- Schengen visa (90 days) for tourism from many countries
-See `visas.md` for current requirements and processes.
+Route away when the ask is mainly:
 
-### 3. Nordic Culture
-Finland has distinct cultural norms:
-- **Personal space**: Finns value quiet and distance
-- **Sauna**: Central to Finnish life, social bonding activity
-- **Punctuality**: Being late is disrespectful
-- **Directness**: Communication is honest, not rude
-- **Alcohol**: State monopoly (Alko) for strong drinks
-See `culture.md` for detailed guidance.
+- multi-country trip systems → `travel`
+- founder coaching / multi-function startup ops beyond city base → `startup`
+- another city as the primary base → `dubai` (or that city's skill)
 
-### 4. Weather Reality
-- **Winter (Nov-Mar)**: -5 to -15 deg C, 6 hours daylight in December
-- **Summer (Jun-Aug)**: 15-25 deg C, nearly 24h daylight in June
-- **Dark season**: Seasonal depression common, light therapy used
-- **Snow**: November to April typically
-See `climate.md` for monthly breakdown and survival strategies.
+## Critical verification path
 
-### 5. Current Data (Feb 2026)
+Before stating a **visa duration, salary floor, processing fee, student funds floor, HSL fare, tax rate, or legal consequence** as current fact:
 
-| Item | Range |
-|------|-------|
-| 1BR rent (Center) | EUR 1,200-1,800/month |
-| 1BR rent (Kallio) | EUR 900-1,400/month |
-| Senior SWE salary | EUR 5,500-8,000/month gross |
-| HSL monthly pass (AB zone) | EUR 62.70 |
-| Dinner (mid-range) | EUR 25-45/person |
-| School fees (public) | EUR 0 (free) |
+1. Open `references/sources.md` for the canonical URL.
+2. Re-check the live official page for that nationality, permit type, and date.
+3. If the live page cannot be opened, say the claim is unverified and give the URL to check — do not invent a number.
 
-### 6. Cost Reality
-Finland has high taxes but strong social benefits:
-- **Income tax**: 30-50% depending on income
-- **Healthcare**: Mostly free with small fees
-- **Education**: Free including university
-- **Housing**: 30-40% of budget typical
-- **Groceries**: Higher than EU average
-- **Hidden benefit**: No tuition even for non-EU students
+Orientation ranges in this package are for routing only. They are not filing advice.
 
-### 7. Transit Excellence
-Helsinki has excellent public transport:
-- **Metro**: 2 lines covering south and west
-- **Trams**: 13 lines, iconic yellow trams
-- **Buses**: Extensive network
-- **Commuter trains**: Connect to Espoo, Vantaa, beyond
-- **HSL app**: Essential, covers all transport
-- **Bikes**: City bikes (Apr-Oct), cycling culture strong
-Most residents do NOT need a car. See `transport.md`.
+## Core path
 
-### 8. Neighborhood Matching
+1. Identify **role** (visitor / resident / tech worker / student / entrepreneur) and **timeline** before naming a neighborhood or permit.
+2. Load `references/domain.md` for Helsinki traps and EU/Schengen framing; load one leaf file for the active branch.
+3. Prefer ranges over false precision. Label time-sensitive money and legal claims as verify-before-money.
+4. Respect stored preferences in `<state_root>/memory.md` when present.
+5. Default language: English. If the user writes in Finnish, reply in Finnish.
 
-| Profile | Best Areas |
-|---------|------------|
-| Young professionals | Kallio, Punavuori, Vallila |
-| Families | Toeoeloe, Lauttasaari, Espoo (Tapiola) |
-| Students | Kallio, Arabia, Otaniemi (Aalto) |
-| Budget-conscious | Itaekeskus, Vuosaari, Vantaa |
-| Tech workers | Ruoholahti, Keilaniemi, city center |
-| Expat community | Toeoeloe, Lauttasaari, Westend (Espoo) |
+## Quick reference
 
-## Finnish Language Context
+| Topic | Load when | File |
+|-------|-----------|------|
+| Domain rules, traps, freshness | Always first for non-trivial asks | `references/domain.md` |
+| Official / research links | Before quoting fees, floors, fares | `references/sources.md` |
+| First-use / optional memory | Empty state or user wants notes kept | `references/setup.md`, `references/memory-template.md` |
+| **Visitors** | | |
+| Attractions | Sightseeing priorities | `references/visitor-attractions.md` |
+| Itineraries | 1/3/7-day plans | `references/visitor-itineraries.md` |
+| Lodging | Where to stay | `references/visitor-lodging.md` |
+| Tips / day trips | Practical visitor edges | `references/visitor-tips.md` |
+| **Neighborhoods** | | |
+| Comparison | Choosing area | `references/neighborhoods-index.md`, `references/neighborhoods-choosing.md` |
+| Center | City Center, Kamppi, Punavuori | `references/neighborhoods-center.md` |
+| Trendy | Kallio, Vallila, Sörnäinen | `references/neighborhoods-trendy.md` |
+| Residential | Töölö, Lauttasaari, Munkkiniemi | `references/neighborhoods-residential.md` |
+| Suburban | Espoo, Vantaa, outer | `references/neighborhoods-suburban.md` |
+| **Food** | | |
+| Overview → leaf | Dining branch | `references/food-overview.md` then matching `references/food-*.md` |
+| **Practical** | | |
+| Settling | Moving in | `references/resident.md` |
+| Transport | Metro/tram/HSL | `references/transport.md` |
+| Cost | Budgets / rent orientation | `references/cost.md` |
+| Safety / law | Legal lines | `references/safety.md` |
+| Climate | Season survival | `references/climate.md` |
+| Local admin | Banking, SIM | `references/local.md` |
+| Driving | Car ownership | `references/driving.md` |
+| **Career** | | |
+| Tech / salaries | Work market | `references/tech.md` |
+| Business | Company setup | `references/business.md` |
+| Visas / permits | Work, Blue Card, study, startup | `references/visas.md` |
+| Startups / funding | Ecosystem | `references/startup.md` |
+| **Lifestyle** | | |
+| Culture | Customs | `references/culture.md` |
+| Healthcare | System orientation | `references/healthcare.md` |
+| Education | Schools | `references/education.md` |
+| Expat social | Community | `references/lifestyle.md` |
 
-Finnish is challenging but not required for daily life:
-- **At work**: English widely used in tech, international companies
-- **Services**: Most Finns speak excellent English
-- **Official matters**: Available in Finnish, Swedish, often English
-- **Integration**: Learning Finnish shows commitment, helps socially
-- **Swedish**: Official language, ~5% native speakers
+## Failure recovery
 
-Basic Finnish helps but is not essential for first years.
-
-## Seasons Impact Everything
-
-| Season | Temperature | Daylight | Lifestyle |
-|--------|-------------|----------|-----------|
-| Summer (Jun-Aug) | 15-25 deg C | 18-24h | Outdoor focus, terraces, festivals |
-| Fall (Sep-Nov) | 5-12 deg C | 8-12h | Ruska (autumn colors), cozy cafes |
-| Winter (Dec-Feb) | -5 to -15 deg C | 4-7h | Indoor life, sauna, winter sports |
-| Spring (Mar-May) | 0-10 deg C | 10-16h | Melting, vappu (May Day), renewal |
-
-Plan activities around seasons. Summer Helsinki vs Winter Helsinki are very different experiences.
-
-## Helsinki-Specific Traps
-
-- **Winter darkness** - 6h daylight in December. Vitamin D and light therapy common.
-- **Alcohol prices** - Strong drinks only at Alko (state shops). Beer/wine at supermarkets.
-- **Sunday closures** - Many shops closed or limited hours on Sundays.
-- **Cash rare** - Card payments everywhere, even small amounts.
-- **Personal space** - Do not sit next to stranger on empty bus. Give space.
-- **Small talk** - Finns do not do small talk. Silence is comfortable.
-- **Sauna etiquette** - Naked in public saunas. Swimwear only in mixed/tourist saunas.
-- **Queuing** - Take a number in shops. Queue discipline is sacred.
-- **Tipping** - Not expected. Service included. Round up if excellent.
-- **Friday traffic** - Everyone leaves city Friday afternoon. Roads/ferries packed.
-
-## Legal Awareness
-
-Finland has straightforward laws but some specifics:
-- **Drugs**: Zero tolerance. Cannabis illegal. Can affect residence permit.
-- **Alcohol**: Legal at 18 (beer/wine), 20 (spirits). No public drinking in most areas.
-- **Cycling**: Lights required when dark. Helmet recommended.
-- **Nature**: Everyman's right allows hiking/camping almost anywhere
-- **Taxes**: Register, file annually. Tax authority (Vero) is efficient.
-- **Work permit**: Non-EU must have before starting work.
-
-See `safety.md` for comprehensive guidance.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dubai` - similar city guide format
-- `travel` - trip planning and logistics
-- `startup` - entrepreneurship guidance
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/helsinki
-- Latest version: https://clawic.com/skills/helsinki
+- Missing role/timeline → ask one clarifying question; default short-visit advice to visitor files, multi-month plans to `resident.md` + `visas.md`.
+- Live official page blocked or CAPTCHA → keep package text as orientation only; surface the canonical URL from `references/sources.md`.
+- Conflicting package number vs live official page → trust the live page and note the package may be stale.
+- User wants durable notes but no writable state root → ask for an authorized path; do not write outside `<state_root>` or host-shared memory without consent.

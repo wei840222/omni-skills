@@ -64,7 +64,7 @@
 - Unlimited data common
 - Online ordering easy
 
-### Typical Plans (Feb 2026)
+### Typical Plans (package orientation — verify carriers)
 
 | Type | Data | Price/Month |
 |------|------|-------------|
@@ -181,7 +181,7 @@ A 23 = Stairway A, Apartment 23
 
 ## Healthcare Access
 
-See `healthcare.md` for full details.
+See `references/healthcare.md` for full details.
 
 ### Quick Reference
 

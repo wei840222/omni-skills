@@ -67,7 +67,7 @@
 | OK | Bus/metro combo, 20-30 min | Vuosaari, Vantaa |
 | Limited | Mostly bus, 30+ min | Far suburbs |
 
-## Rent Trends (Feb 2026)
+## Rent Trends (package orientation — verify listings)
 
 - **Rising**: Kallio, Vallila (gentrification)
 - **Stable**: Toeoeloe, Lauttasaari

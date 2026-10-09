@@ -49,7 +49,7 @@ Helsinki has growing international community:
 - Join clubs based on interests
 - Take Finnish classes (social bonding)
 - Accept invitations (rare but meaningful)
-- Do not take slowness personally
+- Understand slowness is cultural
 
 ### Activities for Meeting People
 

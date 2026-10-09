@@ -23,7 +23,7 @@ Sisu = Resilience, determination, grit, inner strength
 - Quality over quantity in speech
 
 **For newcomers:**
-- Do not fill silences nervously
+- Embrace silences peacefully
 - Wait for natural conversation flow
 - Silence means thinking, not rejection
 
@@ -38,7 +38,7 @@ Sisu = Resilience, determination, grit, inner strength
 
 **Adjustment:**
 - Take words at face value
-- Do not search for hidden meanings
+- Focus on the literal meaning
 - Direct is not rude
 
 ### Personal Space
@@ -118,7 +118,7 @@ Sisu = Resilience, determination, grit, inner strength
 7. Repeat 2-4 times
 8. Rest, drink water
 
-**Do not:**
+**Cultural taboos:**
 - Wear dirty clothes in
 - Talk loudly
 - Stay too long (know your limits)
@@ -138,14 +138,14 @@ Sisu = Resilience, determination, grit, inner strength
 - Simple "Moi" (hi/bye)
 
 **No:**
-- Cheek kissing (not Finnish)
+- Stick to a handshake (avoid cheek kissing)
 - Excessive warmth on first meeting
 
 ### Small Talk
 
 **Limited.**
 
-Finns find small talk unnecessary. Do not expect:
+Finns find small talk unnecessary. Expect minimal small talk:
 - Weather chat (though acceptable)
 - "How are you?" as routine
 - Filler conversation
@@ -249,7 +249,7 @@ But if invited:
 
 **Strongly valued:**
 - Leave on time
-- Do not email weekends
+- Reserve weekends for personal time only
 - Summer holidays 4+ weeks
 - Parental leave used
 - Sick days taken without guilt
@@ -259,7 +259,7 @@ But if invited:
 **Country essentially closes in July.**
 
 - Most take 3-4 weeks off
-- Do not schedule important business
+- Postpone important business
 - Cottage life priority
 
 ## Nature Connection
@@ -300,7 +300,7 @@ Year-round importance:
 ### Secular Society
 
 - Religion private matter
-- Do not ask about beliefs
+- Keep beliefs private
 - Tolerance expected
 
 ## Sports
