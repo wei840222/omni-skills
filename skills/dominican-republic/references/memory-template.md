@@ -1,6 +1,8 @@
 # Memory Template - Dominican Republic
 
-Use this file only after resolving `<state_root>`. Create `<state_root>/memory.md` with this structure when durable trip context must persist.
+Use this file only after resolving `<state_root>` via `SKILL.md`. Create
+`<state_root>/memory.md` with this structure when durable trip context must
+persist.
 
 ```markdown
 # Dominican Republic Trip Memory
@@ -77,4 +79,4 @@ integration: pending | complete | paused | never_ask
 - Save coast choice, water fit, and transfer tolerance because they decide most Dominican Republic plans.
 - Preserve airport, resort, and driving decisions because they create the biggest downstream friction.
 - Replace guesses once flights, hotels, and transport become fixed.
-- Never store credentials, full passport numbers, payment card data, or third-party private contact details.
+- Avoid storing credentials, full passport numbers, payment card data, or third-party private contact details.

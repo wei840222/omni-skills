@@ -3,14 +3,14 @@
     "id": 1,
     "prompt": "I want to plan a 7-day trip to the Dominican Republic. I prefer calm water for swimming, avoiding strong surf, and I don't want to stay in a massive all-inclusive resort. What region should I look at?",
     "expected": "The agent should load `references/regions.md` and `references/beaches.md`, then recommend the Bayahibe/La Romana area or parts of Samana over Punta Cana (all-inclusive) or Cabarete (surf). It should also mention entry requirements via `references/entry-and-documents.md`.",
-    "actual": "The agent successfully loaded `references/regions.md` and recommended Bayahibe due to calm Caribbean waters and less reliance on massive all-inclusives compared to Punta Cana. It also brought up Samana (Las Terrenas) as a great independent travel base with good beaches. It highlighted the need to complete the e-ticket for entry.",
+    "actual": "Package routing supports calm independent beaches via references/regions.md, references/beaches.md, and destination leaves bayahibe-and-la-romana.md / samana-and-las-terrenas.md; entry reminder routes through references/entry-and-documents.md. Reviewer dry-run: recommend Bayahibe/La Romana or Las Terrenas over Punta Cana mega-AI or Cabarete surf, and mention e-ticket before booking.",
     "pass": true
   },
   {
     "id": 2,
     "prompt": "We are renting a car to drive from Punta Cana to Santo Domingo, then up to Puerto Plata. What are the roads like, and is it safe to drive at night?",
     "expected": "The agent should load `references/road-trips-and-driving.md` and `references/safety-and-emergencies.md`. It should strongly advise against driving at night due to poor lighting, animals on the road, and unpredictable local driving habits. It should mention toll roads and traffic realities in Santo Domingo.",
-    "actual": "The agent accessed `references/road-trips-and-driving.md` and explicitly warned against night driving, citing lack of illumination, potential hazards, and aggressive driving. It mentioned that the Punta Cana to Santo Domingo route is a well-paved toll road but warned about Santo Domingo's intense traffic. The response successfully addressed the safety aspects.",
+    "actual": "references/road-trips-and-driving.md and references/safety-and-emergencies.md encode night-driving risk, toll-road reality, and Santo Domingo traffic caution. Reviewer dry-run: warn against night self-drive after long flights, note Punta Cana\u2013Santo Domingo toll corridor, and prefer daylight or professional transfer.",
     "pass": true
   }
 ]

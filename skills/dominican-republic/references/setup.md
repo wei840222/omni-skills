@@ -1,6 +1,9 @@
 # Setup - Dominican Republic Travel Guide
 
-Read this when `<state_root>/` does not exist or is empty. Resolve `<state_root>` using `SKILL.md` before following this guide. Initialize `<state_root>/memory.md` from `references/memory-template.md` only when durable trip context must persist.
+Read this when `<state_root>/` does not exist or is empty. Resolve `<state_root>`
+using the **State location** section in `SKILL.md` before following this guide.
+Initialize `<state_root>/memory.md` from `references/memory-template.md` only
+when durable trip context must persist.
 
 ## First Contact
 
@@ -50,4 +53,4 @@ Read `<state_root>/memory.md`, reuse what is still valid, and ask only what chan
 - Dominican Republic trip quality depends more on choosing the right coast than on packing in more stops.
 - East-coast resort ease, north-coast wind, Samana nature, and Santo Domingo city logic are different products.
 - The safest planning move is fewer transfers, clearer water-fit, and better weather margin.
-- Do not write credentials or full identity documents into skill state.
+- Avoid writing credentials or full identity documents into skill state.
