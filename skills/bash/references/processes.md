@@ -7,7 +7,7 @@ Bash is a process orchestrator. Everything here is about the three things it doe
 ```bash
 cmd &                 # start
 pid=$!                # capture IMMEDIATELY — $! is overwritten by the next &
-wait "$pid"           # returns THAT job's exit code; without wait you never learn it
+wait "$pid"           # returns THAT job's exit code; without wait you cannot determine it
 ```
 
 - `wait` with no argument returns 0 after all children finish, hiding every failure. Waiting per-PID is the only way to attribute a failure to a job
@@ -30,7 +30,7 @@ wait "$pid"           # returns THAT job's exit code; without wait you never lea
 - While a foreground child runs, bash defers the trap until that child returns. A script that must react instantly runs the child in the background and `wait`s — `wait` IS interruptible by a trap
 - Ignore a signal deliberately with `trap '' INT` (empty string), and restore with `trap - INT`. Note an ignored signal stays ignored in children, which can make them unkillable
 - Sending: `kill -TERM "$pid"` targets one process; `kill -TERM -- -"$pgid"` (note the dash) targets the whole process group — the way to stop a child that spawned its own children
-- Escalate, do not start with SIGKILL: TERM, wait a few seconds, then KILL. Killing first skips the child's own cleanup and leaves the mess for you
+- Escalate, avoid starting with SIGKILL: TERM, wait a few seconds, then KILL. Killing first skips the child's own cleanup and leaves the mess for you
 
 ## Passing Signals Through: exec
 

@@ -13,7 +13,7 @@ Bash has exactly two containers: indexed arrays and associative arrays (`bash >=
 - Empty array + `set -u`: `"${arr[@]}"` errors on bash <4.4 — portable guard: `${arr[@]+"${arr[@]}"}`
 - `arr+=(item)` appends an element — `arr+=item` string-appends to element 0, no error
 - `for i in {1..$n}` — brace expansion runs before variable expansion, you get the literal `{1..3}` — use `for ((i=1; i<=n; i++))`
-- `unset arr[2]` — quote it: `unset 'arr[2]'`, or a file named `arr2` glob-matches; the index gap stays, indices never shift
+- `unset arr[2]` — quote it: `unset 'arr[2]'`, or a file named `arr2` glob-matches; the index gap stays, indices remain fixed
 - Sparse gaps: `copy=("${arr[@]}")` re-indexes 0..n and loses original indices — iterate `"${!arr[@]}"` if indices carry meaning
 - `${arr[-1]}` needs bash >=4.3 — portable last element: `${arr[@]: -1}` (the space is required; without it `:-` becomes default-value syntax)
 - Slices: `${arr[@]:1:2}` — elements 1 and 2; works on `$@` too: `"${@:2}"` = args from the 2nd on

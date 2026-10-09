@@ -19,7 +19,7 @@ A CI step is a fresh, non-interactive shell on a machine that will be destroyed.
 
 ## Secrets
 
-- Masking is substring matching on the log stream. It fails on transformed values: base64, URL-encoded, uppercased, or a multi-line secret printed one line at a time — the mask never fires and the value is in the log forever
+- Masking is substring matching on the log stream. It fails on transformed values: base64, URL-encoded, uppercased, or a multi-line secret printed one line at a time — the mask remains untriggered and the value is in the log forever
 - `set -x` prints every expansion, secrets included. Wrap credential handling in `set +x` … `set -x`, and never enable tracing job-wide "just for this debug run"
 - Never pass a secret as a command-line argument: it is visible in `ps`, in crash dumps, and in any provider that echoes the command. Use an environment variable or a file with mode 0600
 - Interpolating provider template variables into a shell block is a shell-injection hole: a value like a pull-request title becomes code. Bind it to an environment variable and reference `"$TITLE"` inside the script — the value never touches the shell parser
@@ -41,7 +41,7 @@ A CI step is a fresh, non-interactive shell on a machine that will be destroyed.
 
 ## Failure Modes That Only Appear In CI
 
-- Timing: parallel jobs share one CPU quota, so a race that never triggers on a laptop triggers on every third build. Fix the race; retries hide it
+- Timing: parallel jobs share one CPU quota, so a race that bypasses on a laptop triggers on every third build. Fix the race; retries hide it
 - The job timeout kills the process group without running EXIT traps — cleanup that only exists in a trap never happens. Make external resources self-expiring (TTL tags, lifecycle rules) rather than relying on cleanup
 - Rate limits and registry throttling look like random network failures; authenticate pulls and cache dependencies before adding retries
 - `git` in a shallow clone (`fetch-depth: 1`) has no history: `git describe`, `git log`, and diff-against-base all fail. Request the depth you need

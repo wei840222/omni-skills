@@ -57,7 +57,7 @@ trap 'printf "=== %s end rc=%d\n" "$(date -u +%FT%TZ)" "$?"' EXIT
 
 - A job that occasionally takes longer than its interval WILL overlap; cron starts a second copy regardless. Wrap it: `*/5 * * * * flock -n /var/lock/job.lock /opt/jobs/job.sh` — `-n` skips the run if the previous one is still going (in-script locking: `redirection.md`)
 - Cron does not catch up: a host asleep or down at 03:17 simply misses the run. If missed runs matter, use a systemd timer with `Persistent=true`, or make the job idempotent and run it more often
-- DST: behavior is implementation-specific, so do not rely on it. On a daemon with no DST handling, a job at 02:30 local runs twice on the fall-back day and zero times on the spring-forward day; Vixie cron/cronie (Debian, RHEL) compensate for shifts under 3 h — a skipped fixed-time job runs once right after the change, and a job repeated by the fall-back hour runs only once. Schedule outside 01:00-03:00, or set `CRON_TZ=UTC` (Vixie cron) / run the daemon in UTC
+- DST: behavior is implementation-specific, so avoid relying on it. On a daemon with no DST handling, a job at 02:30 local runs twice on the fall-back day and zero times on the spring-forward day; Vixie cron/cronie (Debian, RHEL) compensate for shifts under 3 h — a skipped fixed-time job runs once right after the change, and a job repeated by the fall-back hour runs only once. Schedule outside 01:00-03:00, or set `CRON_TZ=UTC` (Vixie cron) / run the daemon in UTC
 - Herd effects: every host firing at `0 * * * *` hammers the same endpoint. Stagger with a per-host offset — `$(( RANDOM % 300 ))` seconds of sleep inside the job, or a distinct minute per host
 
 ## systemd Timers (Linux, when cron is not enough)
@@ -87,6 +87,6 @@ User=backup                                 RandomizedDelaySec=600
 ## Knowing It Ran
 
 - Exit codes are the interface: nonzero must mean "a human needs to look". A script that catches every error and exits 0 makes the scheduler useless
-- Dead-man's-switch beats alert-on-failure for scheduled work: ping a monitoring endpoint at the END of a successful run and alert when the ping is missing — that also catches "cron never started it" and "the host is off"
+- Dead-man's-switch beats alert-on-failure for scheduled work: ping a monitoring endpoint at the END of a successful run and alert when the ping is missing — that also catches "cron failed to start it" and "the host is off"
 - Write a state file with the last successful run timestamp; a five-line check on it is a better health check than reading logs
 - Keep a manual override path: every scheduled script should be safe to run by hand at any time, which is the same property as idempotence (`files.md`)

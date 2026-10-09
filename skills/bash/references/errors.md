@@ -7,7 +7,7 @@ The three `set -e` killers practitioners actually hit — `local` masking, `((i+
 - Not in an `if`/`while` condition — and that immunity extends to the ENTIRE body of any function called there: `if myfunc; then` runs all of `myfunc` with `-e` off
 - Not after `||` or `&&` — `cmd || true` is the idiomatic "allowed to fail"; in `a && b && c` only the LAST command's status can kill the script
 - Not inside `$(cmd)` in an assignment — the subshell's failure vanishes; fix with `shopt -s inherit_errexit` (bash >=4.4)
-- Not for a negated command: `! cmd` never triggers `-e`
+- Not for a negated command: `! cmd` bypasses `-e`
 - `exit` in a subshell exits only the subshell — the parent continues
 - Consequence: `-e` is a net for the straight-line 80%, not a control-flow mechanism. Anything you actually care about gets an explicit check
 
@@ -29,7 +29,7 @@ The three `set -e` killers practitioners actually hit — `local` masking, `((i+
 - A second `trap ... EXIT` REPLACES the first silently — one handler per script; extend by appending inside it, and read the current one with `trap -p EXIT`
 - Single-quote the trap body so it expands when it FIRES, not when it is registered (→ SKILL.md Traps)
 - `ERR` traps don't fire inside functions or subshells unless you `set -E` (errtrace)
-- Register the trap on the line immediately after the resource exists — never before it, never three lines later:
+- Register the trap on the line immediately after the resource exists — register after it, ensure it is registered immediately after:
   ```bash
   tmp=$(mktemp -d) || die "mktemp failed"
   trap 'rm -rf "$tmp"' EXIT        # the very next line
@@ -42,7 +42,7 @@ The three `set -e` killers practitioners actually hit — `local` masking, `((i+
 
 - `return` outside a function is an error — `exit` at top level, `return` in functions
 - A function's status is its last command's status unless you `return` explicitly; a trailing `echo` or `[[ ]]` silently becomes the return value
-- Sourced libraries return, never exit — `exit` in a sourced function kills the caller's shell (→ SKILL.md Traps)
+- Sourced libraries return, must not exit — `exit` in a sourced function kills the caller's shell (→ SKILL.md Traps)
 - Distinguish "failed" from "answered no": `is_ready` returning 1 for "not ready" collides with 1 for "broke". Reserve `return 2` for real errors and say so in the function header
 
 ## Exit Code Discipline
@@ -74,7 +74,7 @@ retry() {                         # retry <attempts> <cmd...>
 ```
 
 - A retried non-idempotent POST duplicates work; add a request id and make it idempotent before wrapping it
-- Never retry argument-class failures: a bad flag fails identically every time and buys nothing but the backoff delay
+- Avoid retrying argument-class failures: a bad flag fails identically every time and buys nothing but the backoff delay
 
 ## Partial Failure In Loops
 
