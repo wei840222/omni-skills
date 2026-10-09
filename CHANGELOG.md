@@ -641,6 +641,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | sell                         | 2026-08-06 | ~82/100                          |
 | sem                          | 2026-09-01 | 85/100 (#200)                    |
 | seo                          | 2026-10-02 | 84/100 (#652)                    |
+| server                       | 2026-10-10 | 86/100 (#790)                    |
 | seoul                        | 2026-09-16 | 85/100 (#432)                    |
 | serbian                      | 2026-09-20 | 85/100 (#504)                    |
 | shanghai                     | 2026-09-25 | 85/100 (#571)                    |
