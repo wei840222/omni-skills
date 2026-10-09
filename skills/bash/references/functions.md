@@ -85,16 +85,17 @@ debug() { [[ $LOG_LEVEL == debug ]] && log DEBUG "$@"; return 0; }
 
 ## Loading User Configuration
 
-Read the values declared in SKILL.md Configuration from `~/Clawic/data/bash/config.yaml` when they exist and fall back to the defaults; never prompt for them. Parse with `yq` if available, otherwise read only the flat `key: value` lines you know:
+After resolving `<state_root>` (see `SKILL.md` State location), read preference keys from `<state_root>/config.yaml` when the file exists and fall back to the defaults in `references/state.md`. Do not prompt for defaults. Parse with `yq` if available, otherwise read only the flat `key: value` lines you know:
 
 ```bash
-cfg=$HOME/Clawic/data/bash/config.yaml            # the canonical location, unconditionally
+# state_root must already be the resolved absolute path for this invocation
+cfg="${state_root}/config.yaml"
 [[ -r $cfg ]] && while IFS=': ' read -r k v; do
   case $k in indent_style|lint_gate|bash_floor) printf -v "cfg_$k" '%s' "$v" ;; esac
 done < "$cfg"
 ```
 
-Never `source` a YAML or INI file to "parse" it — that executes whatever is inside, which is code execution from a config file (`security.md`).
+Do not `source` a YAML or INI file to "parse" it — that executes whatever is inside, which is code execution from a config file (`security.md`).
 
 ## Recursion and Limits
 

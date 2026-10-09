@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a bash script that iterates over all .txt files in the current directory and safely renames them to .md files, handling spaces in filenames.",
+    "expected": "A bash script using a robust iteration loop (e.g. shopt -s nullglob and a for loop, or find with -print0) and proper quoting of variables.",
+    "actual": "```bash\n#!/usr/bin/env bash\nset -euo pipefail\nshopt -s nullglob\nfor f in *.txt; do\n  mv -- \"$f\" \"${f%.txt}.md\"\ndone\n```\nUses nullglob so a missing match does not become a literal '*.txt', quotes \"$f\", and guards leading-dash names with --.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Explain why my script `count=0; ls -1 | while read f; do ((count++)); done; echo $count` outputs 0, and fix it.",
+    "expected": "Explanation that the while loop runs in a subshell due to the pipe, so the incremented `count` is lost. A fixed version using process substitution or lastpipe.",
+    "actual": "The pipe creates a subshell, so `count` is incremented in a separate process and lost when the loop ends. Prefer process substitution (and avoid parsing ls):\n```bash\ncount=0\nwhile IFS= read -r f; do\n  ((count++)) || true\ndone < <(printf '%s\\n' *)\necho \"$count\"\n```",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Why does `set -e; false || true; echo survived` print survived, and how should cleanup still run on real failures?",
+    "expected": "Explain that commands in || lists are exempt from errexit; recommend an EXIT trap for cleanup and testing the failure path.",
+    "actual": "`set -e` does not exit when the failing command is part of an `||`/`&&` list (one of the five blind spots). Cleanup belongs in `trap '... ' EXIT` so it runs on real abort paths; verify by swapping a command for `false` and confirming the trap and nonzero exit.",
+    "pass": true
+  }
+]

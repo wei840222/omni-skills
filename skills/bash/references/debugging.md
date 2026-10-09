@@ -45,14 +45,14 @@ Bash fails quietly: a typo becomes an empty string, an empty string becomes a di
    ```
    `-E` (errtrace) is what makes the ERR trap fire inside functions and subshells; without it the trap is silent exactly where you need it.
 2. Full stack: inside the handler, `local i=0; while caller "$i"; do ((i++)); done` prints `line function file` for every frame.
-3. If the ERR trap never fires, the exit was deliberate: grep for `exit`, and remember a `return` at top level is an error, not an exit.
+3. If the ERR trap remains untriggered, the exit was deliberate: grep for `exit`, and remember a `return` at top level is an error, not an exit.
 4. Still invisible? The script may be dying in a subshell whose failure propagates on assignment — `shopt -s inherit_errexit` (`bash >=4.4`) makes `x=$(failing)` fail visibly.
 
 ## Chain: It Hangs
 
 1. Something is reading stdin. Inside a `while read` loop, `ssh`/`mysql`/`ffmpeg` swallow the remaining input and the loop appears to stall — add `ssh -n` or `< /dev/null` to the inner command.
 2. A prompt with nowhere to go: `sudo` asking for a password with no TTY, or `read` with no input. Detect the environment instead of assuming: `[[ -t 0 ]]` before prompting.
-3. A pipe buffer deadlock: a Linux pipe holds 65536 bytes; a process substitution whose reader never drains blocks the writer forever once it exceeds that. Consume the whole stream or redirect it to a file.
+3. A pipe buffer deadlock: a Linux pipe holds 65536 bytes; a process substitution whose reader fails to drain blocks the writer forever once it exceeds that. Consume the whole stream or redirect it to a file.
 4. Waiting on a child that will not exit: `ps -o pid,ppid,stat,wchan,args --forest -g $(ps -o pgid= -p <pid>)` shows which descendant is alive and in what state.
 5. Prevention, not diagnosis: wrap every network or lock call in `timeout 30 cmd` — exit 124 means expiry (SKILL.md Exit Codes).
 
@@ -61,7 +61,7 @@ Bash fails quietly: a typo becomes an empty string, an empty string becomes a di
 | Difference | Check |
 |---|---|
 | Aliases and shell functions from `~/.bashrc` | Non-interactive shells expand no aliases at all. `type -a cmd` in both contexts; scripts must call the real binary |
-| Your interactive shell is zsh or fish | The "working" version was never bash. Re-run with `bash -c '…'` before debugging the script |
+| Your interactive shell is zsh or fish | The "working" version was was not bash. Re-run with `bash -c '…'` before debugging the script |
 | PATH and environment | `diff <(env) <(env -i bash -lc env)` — the delta is what the script will not have |
 | Shell options set in your profile (`extglob`, `globstar`) | Scripts start with defaults: `shopt -s` the ones you rely on, in the script |
 | Current directory | Interactive you are in the project; the script may run from `/` or `$HOME`. Anchor: `cd "$(dirname "${BASH_SOURCE[0]}")"` |

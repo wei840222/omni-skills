@@ -81,7 +81,7 @@ awk '{print $NF}' file                                 # last field, whatever th
 - `EPOCHSECONDS` (`bash >=5.0`) gives the same number with no fork; `$SECONDS` counts elapsed seconds since the shell started, also builtin
 - Format a duration without a helper: `printf '%02d:%02d:%02d\n' $((s/3600)) $((s%3600/60)) $((s%60))`
 - Date arithmetic ("7 days ago") has no portable builtin form: `date -d '7 days ago' +%F` on GNU, `date -v-7d +%F` on BSD, or compute in epoch seconds (`$(( now - 7*86400 ))`) — the epoch form is wrong across a DST boundary by an hour, which matters for local-time reports and not for retention cutoffs
-- Never parse a locale-formatted date back into a value; keep the machine format in the data and format for humans only at the last printf
+- Avoid parsing a locale-formatted date back into a value; keep the machine format in the data and format for humans only at the last printf
 
 ## Building Output
 

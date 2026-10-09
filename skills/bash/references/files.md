@@ -18,7 +18,7 @@ here=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)   # physical dir of 
 
 - `shopt -s nullglob` — a non-matching glob expands to nothing instead of to its own literal text. Without it, `for f in *.txt` in an empty directory processes a file literally named `*.txt`
 - `shopt -s failglob` — a non-matching glob is an ERROR. Right for a script where a missing input is a bug; wrong for optional sets
-- `shopt -s dotglob` — include dotfiles. `*` never matches `.` or `..`, but it also never matches `.env` without this
+- `shopt -s dotglob` — include dotfiles. `*` does not match `.` or `..`, but it also does not match `.env` without this
 - `shopt -s globstar` (`bash >=4.0`) — `**/` recurses; note `**` follows symlinked directories, so a symlink loop makes it hang. For large trees `find` is faster and interruptible
 - `shopt -s nocaseglob` for case-insensitive matching; remember macOS filesystems are usually case-INSENSITIVE, so `Makefile` and `makefile` collide there and not on Linux
 - Set these per script, not per user: options are not inherited by scripts (`debugging.md`)
@@ -42,7 +42,7 @@ dir=$(mktemp -d) || die "mktemp -d failed"                 # directory
 trap 'rm -rf "$tmp" "$dir"' EXIT                           # the next line, always
 ```
 
-- Never hardcode `/tmp/myscript.$$`: the PID is predictable and the file may already exist as a symlink pointing somewhere fatal (`security.md`)
+- Avoid hardcoding `/tmp/myscript.$$`: the PID is predictable and the file may already exist as a symlink pointing somewhere fatal (`security.md`)
 - Portable template: `mktemp "${TMPDIR:-/tmp}/myjob.XXXXXX"` — GNU accepts a bare `-t prefix`, BSD/macOS wants the template; the explicit form works on both
 - `mktemp -d` in the same directory as the final destination when you plan to `mv` into place — a rename across filesystems is a copy and is no longer atomic
 - Large intermediates belong in `$TMPDIR`, not next to the source; on many hosts `/tmp` is tmpfs (RAM) and a multi-GB spill turns into memory pressure

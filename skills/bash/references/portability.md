@@ -1,6 +1,6 @@
 # Portability — macOS vs GNU, Old Bash, POSIX sh, WSL
 
-Two different portability problems get conflated. One is the SHELL (which bash version, or not bash at all — SKILL.md Version Floors). The other is the TOOLS (BSD vs GNU coreutils), and it bites scripts that never use a single bashism.
+Two different portability problems get conflated. One is the SHELL (which bash version, or not bash at all — SKILL.md Version Floors). The other is the TOOLS (BSD vs GNU coreutils), and it bites scripts that use only standard POSIX features.
 
 ## Decide The Target Before Writing
 
@@ -15,8 +15,8 @@ Record the answer in the header comment and in `bash_floor`/`target_os` (SKILL.m
 
 ## The Shell Itself
 
-- macOS `/bin/bash` is 3.2 forever (GPLv3). `#!/usr/bin/env bash` picks up a Homebrew bash 5 at `/opt/homebrew/bin/bash` if it is on PATH; `#!/bin/bash` never will
-- Enforce, do not hope: `((BASH_VERSINFO[0] >= 4)) || die "needs bash 4+ (brew install bash)"` at the top beats a `bad substitution` on line 200
+- macOS `/bin/bash` is 3.2 forever (GPLv3). `#!/usr/bin/env bash` picks up a Homebrew bash 5 at `/opt/homebrew/bin/bash` if it is on PATH; `#!/bin/bash` will fail to do so
+- Enforce, enforce: `((BASH_VERSINFO[0] >= 4)) || die "needs bash 4+ (brew install bash)"` at the top beats a `bad substitution` on line 200
 - Debian/Ubuntu `/bin/sh` is dash, not bash: a script with `#!/bin/sh` that uses `[[ ]]`, arrays, or `<<<` fails only on those systems. `checkbashisms` or `shellcheck -s sh` finds them
 - Alpine images ship busybox `ash` and often no bash at all — `#!/bin/bash` gives "no such file or directory" even though the file exists (that message refers to the interpreter)
 - What breaks first on bash 3.2, in observed order: `mapfile`, `declare -A`, `${var^^}`, `${arr[-1]}`, `declare -n`, `&>>`, `;&`. Fallbacks for each are in the guides for arrays and expansion
@@ -40,7 +40,7 @@ Record the answer in the header comment and in `bash_floor`/`target_os` (SKILL.m
 | Timeout | `timeout 30 cmd` | `gtimeout`, or none | the watchdog pattern in `processes.md` |
 | find printf | `find -printf '%p\n'` | not available | `find … -exec stat …` or `-print` |
 
-- Detect once, at the top, and store the choice — never branch inside a loop:
+- Detect once, at the top, and store the choice — branch outside a loop:
   ```bash
   if sed --version >/dev/null 2>&1; then SED_INPLACE=(sed -i); else SED_INPLACE=(sed -i ''); fi
   "${SED_INPLACE[@]}" 's/a/b/' file          # array, so the empty argument survives (SKILL.md Core Rule 3)

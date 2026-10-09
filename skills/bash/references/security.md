@@ -1,6 +1,6 @@
 # Security — Injection, Secrets, Privileges, Temp Files
 
-The threat model for a shell script: any value the script did not write itself is potentially attacker-controlled — arguments, environment, filenames on disk, HTTP responses, git branch names, CI template variables. The whole discipline is keeping those values as DATA and never letting them become SYNTAX.
+The threat model for a shell script: any value the script did not write itself is potentially attacker-controlled — arguments, environment, filenames on disk, HTTP responses, git branch names, CI template variables. The whole discipline is keeping those values as DATA and keeping them strictly as DATA.
 
 ## Data Must Never Become Syntax
 
@@ -14,7 +14,7 @@ The threat model for a shell script: any value the script did not write itself i
 | `source "$file"` for config | A config file is executable code | Parse `key: value` lines yourself (`functions.md`) |
 | `bash <(curl …)`, `curl … \| sh` | Executes whatever the server returns, including a truncated download | Download, verify a published checksum or signature, inspect, then run |
 
-- Validate with an ALLOWLIST, never a denylist: `[[ $env == @(dev|staging|prod) ]] || die` beats trying to strip dangerous characters
+- Validate with an ALLOWLIST, use an ALLOWLIST exclusively: `[[ $env == @(dev|staging|prod) ]] || die` beats trying to strip dangerous characters
 - Length-bound anything that becomes part of a filename or a command line — an argument list is finite (`debugging.md`)
 - Treat a value's TYPE as part of its validation: integers by regex, paths by canonicalization plus a prefix check, identifiers by `^[A-Za-z0-9_-]+$`
 
@@ -35,7 +35,7 @@ real=$(cd -- "$base" && cd -- "$(dirname -- "$user_path")" 2>/dev/null && pwd -P
 - Argv is world-readable: `mysql -p"$pass"`, `curl -u user:"$pass"`, and `aws --secret …` are visible in `ps` to every local user. Use stdin, a config file with mode 0600, or an environment variable
 - The environment is readable by the same UID's processes and appears in crash dumps and in `/proc/<pid>/environ`; it is better than argv, worse than a file descriptor
 - `set -x` prints every value (`ci.md`); `PS4` output goes to stderr and straight into logs. Bracket credential handling with `set +x` … `set -x`
-- Never write a secret into the repo, a temp file in `/tmp`, or a log line — and remember that `set -e` failures print the failing command in many CI wrappers
+- Avoid writing a secret into the repo, a temp file in `/tmp`, or a log line — and remember that `set -e` failures print the failing command in many CI wrappers
 - History: a script does not touch `~/.bash_history`, but the human who tested the command by hand did. Advise `HISTCONTROL=ignorespace` and a leading space, or rotate the credential
 - Give every fetched credential a lifetime: a short-lived token that leaks costs an hour, a static key costs until someone notices
 
@@ -44,13 +44,13 @@ real=$(cd -- "$base" && cd -- "$(dirname -- "$user_path")" 2>/dev/null && pwd -P
 - `/tmp` is world-writable and shared: `/tmp/myjob.$$` is guessable, and an attacker can pre-create it as a symlink so your write lands in their target. `mktemp` creates with mode 0600 and a random name, atomically — always use it (`files.md`)
 - Never `chmod 777` a temp path to "fix permissions"; set the umask (`umask 077`) before creating instead
 - Do the whole job inside one `mktemp -d` you own, and delete the directory in a trap. Working directly in `/tmp` means every intermediate is another race
-- On multi-user hosts prefer `$TMPDIR` when it points somewhere per-user, and never assume `/tmp` is private on shared CI runners
+- On multi-user hosts prefer `$TMPDIR` when it points somewhere per-user, and avoid assuming `/tmp` is private on shared CI runners
 
 ## Privileges
 
-- Check, do not assume: `(( EUID == 0 ))` for "must be root", and the inverse for scripts that must NOT run as root (a script that creates files as root breaks the user's tree)
+- Check, avoid assuming: `(( EUID == 0 ))` for "must be root", and the inverse for scripts that must NOT run as root (a script that creates files as root breaks the user's tree)
 - Setuid on a shell script does nothing on Linux — the kernel ignores it, and every workaround (wrapper binaries, `sudo` shims) is a privilege-escalation surface. Grant a narrow `sudo` rule for one exact command instead
-- Sudo rules should name the binary and its arguments, never `ALL` and never a shell. `NOPASSWD: /usr/bin/systemctl restart app.service` is a rule; `NOPASSWD: /bin/bash` is a root shell for anyone who can run the script
+- Sudo rules should name the binary and its arguments, never `ALL` and exclude shell access. `NOPASSWD: /usr/bin/systemctl restart app.service` is a rule; `NOPASSWD: /bin/bash` is a root shell for anyone who can run the script
 - Escalate as late and as narrowly as possible: run the script as the unprivileged user and `sudo` the one command that needs it, rather than running the whole thing as root
 - `sudo` resets the environment (`env_reset`, `secure_path`): pass what is needed explicitly, and remember the redirection is done by YOUR shell (→ SKILL.md Traps)
 - PATH is an attack surface when it contains `.` or a user-writable directory: set `PATH` explicitly at the top of any privileged script, and call critical binaries by absolute path
