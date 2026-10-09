@@ -13,7 +13,7 @@ Contents: Choosing an Engine · Identifiers and Quoting · Strings and Collation
 | MySQL / MariaDB | The platform or host dictates it, or the team's operational muscle is there | No transactional DDL; historically lenient defaults; MariaDB and MySQL have diverged |
 | SQL Server | .NET/Windows shops, existing licensing, strong tooling requirements | Licensing; default lock-based isolation until `READ_COMMITTED_SNAPSHOT` is enabled |
 
-Do not switch engines for a performance problem that is really a missing index or a bad plan. Do switch when the workload shape is wrong: heavy analytical scans belong in a columnar store (`duckdb`, `clickhouse`, a warehouse), not in a tuned OLTP database.
+Avoid switching engines for a performance problem that is really a missing index or a bad plan. Do switch when the workload shape is wrong: heavy analytical scans belong in a columnar store (`duckdb`, `clickhouse`, a warehouse), not in a tuned OLTP database.
 
 ## Identifiers and Quoting
 
@@ -24,7 +24,7 @@ Do not switch engines for a performance problem that is really a missing index o
 | SQLite | `"col"`, `` `col` ``, `[col]` | Preserved, compared case-insensitively | Very permissive; hides problems until you migrate |
 | SQL Server | `[col]` | Preserved, compared by database collation | Usually case-insensitive |
 
-Use lowercase snake_case unquoted everywhere and the problem never appears. MySQL's `lower_case_table_names` is set at initialization and cannot be safely changed afterwards — decide before the first deploy.
+Use lowercase snake_case unquoted everywhere and the problem is prevented. MySQL's `lower_case_table_names` is set at initialization and cannot be safely changed afterwards — decide before the first deploy.
 
 ## Strings and Collation
 

@@ -125,7 +125,7 @@ CREATE POLICY tenant_write ON documents FOR INSERT
 
 ## Connection Secrets
 
-- Credentials belong in a secret manager or the platform's secret store, injected at runtime. Never in the repository, never in a migration file, never in `~/Clawic/data/sql/`.
+- Credentials belong in a secret manager or the platform's secret store, injected at runtime. Never in the repository, never in a migration file, never in `<state_root>/`.
 - Connection strings appear in process listings, crash dumps, ORM debug output, and error pages. Prefer environment-injected components over one URL string, and redact them in every log formatter.
 - Rotate by supporting two valid credentials at once (add the new one, deploy, remove the old); rotation with a single credential is an outage.
 - Use per-service credentials so one compromised service is one revocation, and so the audit log can attribute activity.

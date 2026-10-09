@@ -1,6 +1,6 @@
 # Memory Template — SQL
 
-Create `~/Clawic/data/sql/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # SQL Memory

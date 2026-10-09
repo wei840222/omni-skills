@@ -62,14 +62,14 @@ Check in this order; the first four cover most cases.
 5. **`OR` across columns**, leading wildcard `LIKE '%x'`, or a non-C locale with `LIKE 'x%'` in PostgreSQL (SKILL.md Index Strategy).
 6. **Different collation** between the index and the query's comparison (MySQL joins across `utf8mb4_general_ci` and `utf8mb4_0900_ai_ci` cannot use the index).
 7. **The index is invalid or being built.** PostgreSQL `indisvalid = false`; MySQL `SHOW INDEX` `Comment` column.
-8. Prove it before rewriting: force the choice temporarily (`SET enable_seqscan = off` in PostgreSQL, `FORCE INDEX` in MySQL) and compare actual times. If forcing the index is slower, the planner was right — never ship the hint as the fix.
+8. Prove it before rewriting: force the choice temporarily (`SET enable_seqscan = off` in PostgreSQL, `FORCE INDEX` in MySQL) and compare actual times. If forcing the index is slower, the planner was right — avoid shipping the hint as the fix.
 
 ## Query Hangs (no result, no error)
 
 1. Is it running or waiting? PostgreSQL `pg_stat_activity.wait_event_type = 'Lock'` means waiting; MySQL `SHOW PROCESSLIST` state `Waiting for table metadata lock`.
 2. Waiting → find the blocker (PostgreSQL `pg_blocking_pids(pid)`, MySQL `sys.innodb_lock_waits`) and decide: cancel it, or wait if it is nearly done.
 3. Running with no output → it may be working correctly on too much data; `EXPLAIN` without `ANALYZE` returns instantly and shows the plan it chose.
-4. Client shows nothing while the server is idle → the result is buffered by the driver, or the app never fetched; check the driver's cursor/fetch mode.
+4. Client shows nothing while the server is idle → the result is buffered by the driver, or the app failed to fetch; check the driver's cursor/fetch mode.
 5. `ALTER TABLE` hangs → the lock queue, not the DDL. Every new query is now queued behind it: cancel, set `lock_timeout`, retry.
 6. An open transaction in a REPL or notebook is the most common self-inflicted hang: an uncommitted `BEGIN` in another window holds the lock.
 
@@ -88,7 +88,7 @@ Check in this order; the first four cover most cases.
 | "connection refused" | Server not listening on that address, or wrong port | Check bind address and port before credentials |
 | "no pg_hba.conf entry" / "Host is not allowed" | Host-based auth rules, not a bad password | Fix the auth rule for the client's network |
 | "password authentication failed" for one app only | Different role than you tested with, or a rotated secret | Compare the role, not the password |
-| "SSL required" / cert errors | Managed providers force TLS | Set the driver's SSL mode; do not disable verification to move on |
+| "SSL required" / cert errors | Managed providers force TLS | Set the driver's SSL mode; maintain verification to move on |
 | Connections work then die after minutes | Idle timeout in a proxy/load balancer below the pool's `max_lifetime` | Set pool `max_lifetime` under the infrastructure timeout |
 | Intermittent failures under load only | Pool exhaustion — waiters timing out, not the database refusing | Instrument pool wait time before touching the server |
 
@@ -98,15 +98,15 @@ Check in this order; the first four cover most cases.
 - Unique violation under concurrency despite a check-then-insert → the check-then-insert race; use `INSERT ... ON CONFLICT`/`ON DUPLICATE KEY` or catch the violation.
 - Foreign key violation on delete → children exist; decide `RESTRICT` vs `CASCADE` deliberately, and confirm the child FK column is indexed (SKILL.md rule 4).
 - Foreign key violation on insert with a valid-looking id → different tenant, or the parent row was inserted in another uncommitted transaction.
-- NOT NULL violation only in production → a default exists in one environment's schema and not the other; diff the schemas, don't reason about them.
-- CHECK violation after a data import → the import brought values the constraint never saw; the constraint is right.
+- NOT NULL violation only in production → a default exists in one environment's schema and not the other; diff the schemas, compare them directly.
+- CHECK violation after a data import → the import brought values the constraint has yet to see; the constraint is right.
 
 ## Disk Full / Database Won't Accept Writes
 
 1. Locate the consumer before deleting anything: table and index sizes ranked descending.
 2. Common consumers in order: an unpartitioned events/audit/log table, bloat from dead tuples pinned by a long transaction, WAL retained by an inactive replication slot, an abandoned temp/sort spill.
 3. `DELETE` does not return space to the filesystem on PostgreSQL or MySQL/InnoDB — it creates dead rows the vacuum must clean. Dropping a partition does.
-4. Never `DROP` to free space during an incident until the backup is verified restorable.
+4. Delay `DROP` to free space during an incident until the backup is verified restorable.
 5. PostgreSQL specifically: an inactive replication slot retains WAL forever and is the classic unannounced disk killer — check `pg_replication_slots` for `active = false`.
 
 ## Encoding and Character Problems
@@ -132,7 +132,7 @@ Check in this order; the first four cover most cases.
 
 1. Check the runner's state table first — a "dirty" flag means it knows it stopped mid-way; resolve that before rerunning anything.
 2. MySQL has no transactional DDL: half the statements are already committed. Determine what actually applied by inspecting the schema, not the migration file.
-3. Re-running a partially applied migration usually fails on "already exists". Write the repair as a NEW migration; never edit an applied one.
+3. Re-running a partially applied migration usually fails on "already exists". Write the repair as a NEW migration; create a new migration instead of editing an applied one.
 4. A migration that timed out may still be running server-side — kill the backend before retrying, or the retry deadlocks against it.
 5. Prevention: run every migration against a restored copy of production-shaped data before it reaches production.
 

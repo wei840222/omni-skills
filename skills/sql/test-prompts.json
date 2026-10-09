@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I optimize this slow SQL query that joins three tables and takes 5 seconds?",
+    "expected": "Start from EXPLAIN (ANALYZE, BUFFERS) or engine equivalent; rank worst node; check sequential scans, missing/unusable indexes, join order, and fan-out before rewriting; propose index or rewrite with evidence.",
+    "actual": "Loaded performance/domain guidance, required EXPLAIN (ANALYZE, BUFFERS) first, identified likely seq scans or bad join estimates on the three-table join, and proposed index/query changes only after naming the expensive node.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Design a relational schema for a multi-tenant SaaS application.",
+    "expected": "Shared-schema with tenant_id on tenant-owned tables, index tenant_id (and composites starting with it), enforce isolation via constraints/RLS where supported, avoid cross-tenant unique keys without tenant scope.",
+    "actual": "Loaded schemas/modeling guidance, recommended shared DB + tenant_id on every tenant-owned table, composite indexes leading with tenant_id, and RLS or equivalent enforcement so queries cannot leak across tenants.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What is the best way to handle timezone conversions in MySQL?",
+    "expected": "Store UTC instants; convert at the edge with CONVERT_TZ or app layer; prefer half-open ranges; note DATETIME vs TIMESTAMP session-timezone behavior and avoid loading wall times as UTC by accident.",
+    "actual": "Loaded datetime guidance, advised UTC storage, CONVERT_TZ or app-side conversion for display, warned about TIMESTAMP session zone vs DATETIME, and preferred half-open date ranges for predicates.",
+    "pass": true
+  }
+]
