@@ -37,7 +37,7 @@ FROM days LEFT JOIN orders o ON o.created_at >= days.day AND o.created_at < days
 GROUP BY days.day;
 ```
 
-Join the spine on a half-open range, never on a cast (`DATE(o.created_at) = d.day` is not sargable). A permanent `calendar` table with columns for week, month, quarter, fiscal period, and holiday flags removes this boilerplate everywhere and makes fiscal calendars possible at all.
+Join the spine on a half-open range, avoid joining on a cast (`DATE(o.created_at) = d.day` is not sargable). A permanent `calendar` table with columns for week, month, quarter, fiscal period, and holiday flags removes this boilerplate everywhere and makes fiscal calendars possible at all.
 
 ## Cohort Retention
 
@@ -170,7 +170,7 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY mv_daily_revenue;
 ```
 
 - Plain `REFRESH` takes an exclusive lock for the full rebuild — the view is unreadable while it runs. `CONCURRENTLY` avoids that but requires a unique index and is slower.
-- PostgreSQL materialized views never refresh themselves; something must schedule it, and nothing warns you when that job dies. `computed_at` in a rollup table beats a materialized view precisely because staleness is visible.
+- PostgreSQL materialized views require external scheduling to refresh; something must schedule it, and nothing warns you when that job dies. `computed_at` in a rollup table beats a materialized view precisely because staleness is visible.
 - Choose a materialized view when the query is complex and full recomputation is cheap; choose a rollup table when the data is append-heavy and incremental refresh is the point.
 - MySQL has no materialized views — use a rollup table. SQL Server indexed views refresh synchronously on write, which shifts the cost onto every insert.
 
@@ -186,8 +186,8 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY mv_daily_revenue;
 
 - Exact `COUNT(*)` on a huge table scans it; the planner's estimate is instant and accurate to the last `ANALYZE`.
 - `TABLESAMPLE SYSTEM (1)` samples pages (fast, clustered bias); `BERNOULLI (1)` samples rows uniformly and scans more.
-- A sampled metric needs its error stated. A 1% sample of a 100k-row table gives roughly 1,000 rows; a proportion measured on 1,000 rows has a margin of error of about ±3 percentage points at 95% confidence (≈ 1/√n). Do not report a 0.5% change from that sample.
-- Billing, invoices, and compliance figures are never sampled or estimated.
+- A sampled metric needs its error stated. A 1% sample of a 100k-row table gives roughly 1,000 rows; a proportion measured on 1,000 rows has a margin of error of about ±3 percentage points at 95% confidence (≈ 1/√n). Avoid reporting a 0.5% change from that sample.
+- Billing, invoices, and compliance figures are require exact calculation instead of sampling.
 
 ## Traps
 
