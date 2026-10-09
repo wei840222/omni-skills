@@ -31,7 +31,7 @@
 
 ## Hard Rules
 
-- Do not celebrate sales wins that came from margin collapse.
-- Do not blame staff before checking traffic mix, stock position, and promo setup.
-- Do not review metrics without naming the action they imply.
-- Do not carry more than one major operational priority into the next week.
+- Evaluate sales wins holistically by confirming they maintain healthy margins.
+- Analyze traffic mix, stock position, and promo setup before attributing performance issues to staff.
+- Assign a specific action to every metric reviewed.
+- Limit the major operational priority to a single focus for the upcoming week.

@@ -1,148 +1,107 @@
 ---
 name: store
-slug: store
-version: 1.0.0
-description: Manage a physical store of any kind with opening routines, inventory control, staffing, cash discipline, merchandising, and weekly reviews.
-homepage: https://clawic.com/skills/store
-changelog: Initial release with daily store operations, stock control, staffing routines, and weekly performance review workflows.
+description: >
+  Run physical retail operations: opening/closing routines, inventory accuracy,
+  staffing to traffic, cash/shrink control, merchandising, and weekly KPI reviews.
+  Use for boutiques, convenience stores, specialty retail, showrooms, kiosks, or
+  multi-shift brick-and-mortar shops that need floor execution. Not for pure
+  ecommerce ops, generic business strategy without a store floor, or payments
+  provider integration.
 metadata:
-  clawdbot:
-    emoji: 🏬
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/store/
-    displayName: Store
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/store/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🏬"}'
+  related-skills: '{"business":"Strategic validation, unit economics, and irreversible decisions beyond day-to-day floor ops.","payments":"Payment-provider and tender-flow mechanics when POS outages or refund rails need product detail.","accounting":"Books, COGS, and financial close when store KPIs must connect to formal accounting.","customer-support":"Post-purchase complaint handling and service recovery scripts beyond floor incident notes.","management":"People-management frameworks for coaching, feedback, and team conflict beyond shift staffing."}'
 ---
 
-## When to Use
+# Store
 
-User runs a physical store, retail shop, showroom, kiosk, or multi-shift location and needs operational control instead of generic business advice.
-Agent helps with daily store rhythm, inventory accuracy, staffing decisions, promotions, shrink control, and weekly KPI reviews.
-It fits boutiques, convenience stores, specialty retail, home-goods shops, electronics stores, and other brick-and-mortar formats where floor execution matters.
+Physical-store operating judgment for cash, stock, labor, service, and weekly review.
+Keep package files under `references/`. Durable store notes live only under a resolved `<state_root>`.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/store/`. If `~/Clawic/data/store/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Store state may exist in `<workspace>/store/`, `<workspace>/memory/store/`, or `~/store/`.
+`<workspace>` means the workspace root provided by the host/runtime, not the shell cwd.
 
-```text
-~/Clawic/data/store/
-├── memory.md          # Status, store profile, active priorities
-├── routines.md        # Opening, peak-hour, and closing standards
-├── inventory.md       # Stock priorities, adjustments, replenishment notes
-├── staff.md           # Roles, shift habits, coaching notes
-├── kpis.md            # Sales, traffic, conversion, ticket, margin
-├── promotions.md      # Offer goals, timing, execution notes
-└── incidents.md       # Loss, customer issues, equipment, safety events
-```
+Before any state read or write, resolve `<state_root>` once per invocation:
 
-## Quick Reference
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/store/`, `<workspace>/memory/store/`, `~/store/`.
+3. If multiple candidates exist, keep only the highest-precedence directory, leave others untouched, and tell the user which location was selected.
+4. If none exists and persistent state must be created, default to `<workspace>/store/` after brief first-write consent.
+5. If `<workspace>` cannot be resolved, read an existing `~/store/` only. Otherwise ask for a state root before creating files.
 
-Load only the smallest playbook that matches the current store problem so the operating advice stays fast and specific.
+Use the selected `<state_root>` for every state path in this skill. Resolve it to a real path before filesystem work. Create or update files under `<state_root>/` only after plain-language consent. Never write card numbers, PINs, payroll secrets, or unnecessary personal identifiers into state files.
 
-| Topic | File | Use it for |
-|-------|------|------------|
-| Setup and activation flow | `setup.md` | Decide how proactively the store support should jump in |
-| Memory structure and starter files | `memory-template.md` | Create local store notes without storing sensitive data |
-| Opening and closing routines | `opening-closing.md` | Open strong, close clean, and avoid shift-to-shift drift |
-| Inventory control rules | `inventory-control.md` | Cycle counts, replenishment priorities, and stock-out diagnosis |
-| Floor management during the day | `floor-ops.md` | Peak-hour priorities, queue control, and recovery timing |
-| Merchandising and promo execution | `merchandising.md` | Displays, signage, promo ownership, and sell-through checks |
-| Scheduling and coaching | `staffing.md` | Shift coverage, coaching focus, and labor-pressure decisions |
-| Cash, shrink, and incident handling | `cash-and-loss.md` | Till variance, loss signals, incidents, and escalation discipline |
-| Weekly metrics and review rhythm | `metrics.md` | KPI review, action ownership, and next-week operating focus |
+Template and first-use flow: `references/memory-template.md`, `references/setup.md`.
 
-## Data Storage
+## When to use
 
-Local store notes live in `~/Clawic/data/store/`.
-Before the first write in a session, explain the planned files in plain language and ask for confirmation.
+- Opening, peak-hour, and closing routines for a physical shop
+- Stock-outs, cycle counts, replenishment, receiving mismatches
+- Scheduling to traffic, role coverage, coaching on conversion/basket
+- Cash variance, shrink signals, incident logging, promo floor execution
+- Weekly review of sales, traffic, conversion, ticket, margin, labor, stock-outs
 
-## Core Rules
+Route away when the task is mainly:
 
-### 1. Protect Cash, Margin, and Stock First
-- Treat cash handling, stock accuracy, and shrink prevention as the store's operating truth.
-- A store can look busy while quietly losing money through poor controls.
+- idea validation / unit economics without a floor → `business`
+- payment-provider APIs or tender product setup → `payments`
+- formal books / COGS close → `accounting`
+- ticketed post-purchase support workflows → `customer-support`
+- people-management systems beyond shift ops → `management`
 
-### 2. Run the Store by Rhythm, Not by Random Requests
-- Separate the day into opening, trade hours, replenishment windows, and closing.
-- Use the right task at the right moment so service and standards do not collide.
+## When to load references
 
-### 3. Make Decisions from Store-Level Numbers
-- Track sales, traffic, conversion, average ticket, gross margin, stock-outs, and labor hours.
-- Do not recommend staffing, purchasing, or promotions without naming the metric behind the move.
+Keep `SKILL.md` as the entry point. Load supporting files only when needed:
 
-### 4. Keep Inventory Accurate Enough to Trust
-- Recount fast-moving, high-value, and high-shrink items more often than the rest.
-- Inventory records that drift even slightly ruin replenishment, promotions, and profit analysis.
+| Reference | Load when |
+|---|---|
+| `references/domain.md` | Architecture, core rules, common traps, quick map |
+| `references/setup.md` | First use, activation preference, store-shape intake |
+| `references/memory-template.md` | Creating consented local note files under `<state_root>/` |
+| `references/opening-closing.md` | Open/close checklists and bookend competence |
+| `references/inventory-control.md` | Cycle counts, replenishment, stock-out diagnosis |
+| `references/floor-ops.md` | Peak coverage, queue control, recovery timing |
+| `references/merchandising.md` | Displays, signage, promo ownership and sell-through |
+| `references/staffing.md` | Schedules, coaching focus, labor pressure |
+| `references/cash-and-loss.md` | Till variance, shrink, incidents, escalation |
+| `references/metrics.md` | Weekly KPI review sequence and pattern reads |
+| `references/sources.md` | Verify retail-ops claims against primary URLs |
 
-### 5. Staff to Traffic and Mission
-- Schedule around real demand peaks, delivery windows, and known task loads.
-- Equal hours for everyone is not fairness if service fails during busy periods.
+## Operating loop
 
-### 6. Promotions Must Have a Clear Job
-- Every promotion needs a goal: drive traffic, clear stock, raise basket size, or defend margin.
-- If the offer has no owner, expiry, and success metric, treat it as noise.
+1. **Classify the live store problem** — cash/stock, service/queue, labor, promo, or weekly review.
+2. **Load the smallest matching reference** — do not dump every playbook.
+3. **Decide from store-level numbers** — name the metric behind staffing, purchase, or promo moves.
+4. **Protect cash, margin, and stock first** — service still matters, but weak controls quietly erase busy days.
+5. **Leave one owned next action** — owner, timing, and how success will be checked.
+6. **Persist only consented notes** under `<state_root>/`; keep package files immutable.
 
-### 7. Log Repeated Friction and Close the Loop
-- Capture incidents, customer complaints, equipment issues, and recurring floor bottlenecks.
-- A store improves when the same problem stops happening, not when it gets handled faster each time.
+## Core rules
 
-## Common Traps
+1. **Protect cash, margin, and stock first** — treat controls as operating truth, not admin afterthoughts.
+2. **Run by rhythm** — opening, trade, replenishment windows, closing; right task at the right moment.
+3. **Staff to traffic and mission** — equal hours is not fairness if peaks fail.
+4. **Count what moves and what leaks** — fast movers, high value, high shrink, active promo lines.
+5. **Promotions need a job** — traffic, clearance, basket, or margin defense with owner, expiry, and metric.
+6. **Log repeated friction** — incidents and complaints are signals; close root causes, not only speed.
 
-- Chasing total sales only -> margin, conversion, or labor productivity quietly deteriorate.
-- Replenishing from memory -> empty pegs, overstock, and stock-outs compound together.
-- Running promos without floor execution -> offer exists on paper but customers never see it.
-- Scheduling by fixed habit -> busy hours get understaffed while quiet hours absorb payroll.
-- Counting everything at month end only -> shrink and receiving errors become impossible to trace.
-- Treating complaints as one-offs -> recurring service failures stay invisible.
+## Failure recovery
 
-## External Endpoints
+| Failure | Recovery |
+|---|---|
+| User wants durable notes but no writable state root | Ask for an authorized path; do not write outside `<state_root>` |
+| System stock disagrees with shelf | Cycle-count the SKU family; check receiving, back stock, damage, theft signals (`references/inventory-control.md`) |
+| Peak chaos | Collapse to service, queue, cash, visible gaps; name one shift lead (`references/floor-ops.md`) |
+| Till variance | Stop and document before continuing the shift (`references/cash-and-loss.md`) |
+| Promo not converting | Verify price/sign/placement/owner before blaming staff (`references/merchandising.md`) |
+| Missing baseline KPIs | Say what is missing; do not invent sales, traffic, or margin figures |
 
-This skill makes NO external network requests.
+## Security & privacy
 
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| None | None | N/A |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- Nothing by default. This is an instruction-only, local-first operations workflow.
-
-**Data stored locally:**
-- Store profile, routines, KPI snapshots, staffing patterns, stock notes, promotions, and incident logs.
-- Stored in `~/Clawic/data/store/`.
-
-**This skill does NOT:**
-- request or store raw card numbers, PINs, or payment credentials.
-- collect unnecessary employee personal data or private customer identifiers.
-- make undeclared network calls.
-- modify its own core files.
-
-## Trust
-
-This is an instruction-only retail operations skill.
-No third-party service access is required.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `business` - strategic framing for store growth, priorities, and expansion decisions.
-- `payments` - payment flow, checkout reliability, and processor-side issue handling.
-- `accounting` - bookkeeping and financial statement logic behind store performance questions.
-- `customer-support` - communication habits for returns, complaints, and service recovery.
-- `management` - broader team leadership patterns beyond day-to-day floor control.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/store
-- Latest version: https://clawic.com/skills/store
+- Instruction-only, local-first. No external network calls required by this skill.
+- State may hold store profile, routines, KPI snapshots, staffing patterns, stock notes, promotions, and incident logs under `<state_root>/store` layout described in `references/domain.md` (files live directly under `<state_root>/` as listed in the template).
+- Exclude raw card data, PINs, payment credentials, and unnecessary employee/customer personal identifiers.
+- Treat skill package files as immutable; user data stays in `<state_root>/`.

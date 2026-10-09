@@ -19,15 +19,15 @@
 ## Closing Priorities
 
 1. Cash-up with a second check on discrepancies, refunds, and suspicious transactions.
-2. Recover the sales floor so the next opening does not start behind.
+2. Recover the sales floor to ensure the next opening starts ahead.
 3. Replenish fast movers and prep high-risk lines for the morning.
 4. Record incidents: shrink, complaints, equipment issues, or staffing gaps.
 5. Lock stockroom, sensitive inventory, tills, and access points in the same order every night.
-6. Leave the next-shift note with concrete actions, not vague warnings.
+6. Leave the next-shift note with concrete actions and clear directives.
 
 ## Hard Rules
 
-- Do not skip the opening walk because traffic starts early.
-- Do not close by cleaning only the visible zones; cash, stock, and notes matter more.
-- Do not carry unresolved discrepancies into the next day without logging them.
-- Do not leave promo execution to memory; confirm it physically.
+- Complete the full opening walk regardless of early traffic.
+- Prioritize cash, stock, and notes alongside visible zones during the closing routine.
+- Log all unresolved discrepancies before concluding the day.
+- Confirm promo execution physically rather than relying on memory.

@@ -665,6 +665,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | stock-images                 | 2026-10-02 | 84/100 (#653)                    |
 | stock-market                 | 2026-08-04 | 80.1/100                         |
 | storage                      | 2026-08-24 | 89/100                           |
+| store                        | 2026-10-09 | 86/100 (#784)                    |
 | storybook                    | 2026-09-02 | 85/100 (#222)                    |
 | storytelling                 | 2026-10-06 | 84/100 (#728)                    |
 | stripe-api-integration       | 2026-08-30 | 86/100                           |

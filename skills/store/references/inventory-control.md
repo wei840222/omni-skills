@@ -26,14 +26,14 @@
 ## Root Causes to Check
 
 - Delivery came short.
-- Product is in the building but not on the floor.
+- Product is in the building, awaiting placement on the floor.
 - Wrong size or color mix was ordered.
 - Forecast ignored promo uplift.
 - Staff avoided replenishment because service pressure was too high.
 
 ## Hard Rules
 
-- Never trust the system blindly when the shelf says otherwise.
-- Never place a new order without checking existing back stock and inbound deliveries.
-- Never mix damaged, returnable, and saleable stock in the same area.
-- Never wait until month end to investigate unexplained shrink.
+- Verify system data against physical shelf counts consistently.
+- Confirm existing back stock and inbound deliveries prior to placing a new order.
+- Separate damaged, returnable, and saleable stock into distinct areas.
+- Investigate unexplained shrink immediately as soon as it is identified.

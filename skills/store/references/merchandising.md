@@ -23,7 +23,7 @@
 
 ## Hard Rules
 
-- Never run overlapping messages in the same zone.
-- Never keep a promotion live because "it has always been there."
-- Never judge a display by personal taste alone; use sell-through and conversion.
-- Never put fragile or high-shrink promo items where control disappears.
+- Ensure each zone features a single, clear promotional message.
+- Retire promotions systematically once their designated goal or timeframe is met.
+- Evaluate displays based on objective metrics like sell-through and conversion rates.
+- Place fragile or high-shrink promo items in high-visibility zones to maintain control.

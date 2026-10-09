@@ -3,7 +3,7 @@
 ## Scheduling Principles
 
 - Match labor to traffic peaks, delivery windows, and mandatory recovery work.
-- Use strongest coverage when conversion opportunities are highest, not just when the roster is full.
+- Use strongest coverage when conversion opportunities are highest, rather than simply when the roster is full.
 - Protect opening and closing competence; weak bookends create daily drag.
 
 ## Coaching Focus
@@ -24,7 +24,7 @@
 
 ## Hard Rules
 
-- Do not schedule from habit if traffic data says the day has changed.
-- Do not keep weak performers in the same blind spot forever; coach or reassign.
-- Do not treat "everyone does everything" as a real plan during peak hours.
-- Do not use overtime as the default fix for bad routines.
+- Update scheduling patterns whenever traffic data indicates a shift in demand.
+- Address weak performance actively through focused coaching or reassignment.
+- Assign specific roles during peak hours to ensure complete coverage.
+- Resolve bad routines through process improvement rather than relying on overtime.
