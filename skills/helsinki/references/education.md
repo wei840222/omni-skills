@@ -156,7 +156,7 @@ Institutions:
 **Admission:**
 - Entrance exams
 - Very competitive
-- Free tuition (even non-EU)
+- Tuition rules differ for EU/EEA vs non-EU; many non-EU bachelor/master programmes charge tuition — verify the programme page
 
 ### Universities of Applied Sciences (AMK)
 
@@ -165,11 +165,11 @@ Institutions:
 - Similar to polytechnics elsewhere
 - Bachelor level
 - More practical than universities
-- Also free
+- Tuition same caveat as universities — verify programme pages
 
 ### Costs
 
-**Tuition: Free** (even for international students)
+**Tuition:** Free for many EU/EEA paths; **non-EU tuition is common** on English-taught programmes — verify the university fee page before assuming free study
 
 **Living costs:**
 - EUR 700-1,200/month

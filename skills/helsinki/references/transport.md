@@ -10,6 +10,8 @@
 
 ## Zone System
 
+> **Freshness gap (2026-10-09):** Live HSL fare pages returned security-challenge content during automated retrieval. Euro figures below are **historical package orientation only**. Re-open https://www.hsl.fi/en/tickets-and-fares/ticket-prices before advising a purchase.
+
 | Zone | Coverage | Single (80 min) | Day | Month |
 |------|----------|-----------------|-----|-------|
 | AB | Helsinki proper | EUR 2.95 | EUR 9.50 | EUR 62.70 |
@@ -176,7 +178,7 @@ Stations throughout Helsinki and Espoo
 - Studded tires required in winter (Dec-Feb)
 - Parking expensive in center (EUR 4-6/hour)
 
-See `driving.md` for full details.
+See `references/driving.md` for full details.
 
 ## Taxis and Ride-Hailing
 

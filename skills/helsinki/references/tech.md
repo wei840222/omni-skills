@@ -82,7 +82,7 @@ Many global companies have Helsinki presence:
 - Accenture
 - KPMG, Deloitte
 
-## Salary Ranges (Feb 2026)
+## Salary Ranges (package orientation — market varies)
 
 ### Software Development
 
@@ -219,7 +219,7 @@ Tech recruiters active:
 - Tied to employer initially
 - Renewal easier
 
-See `visas.md` for details.
+See `references/visas.md` for details.
 
 ## Remote Work Considerations
 

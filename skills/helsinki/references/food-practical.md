@@ -136,7 +136,7 @@
 - **Fine dining**: Required, days in advance
 - **Popular spots**: Weekend recommended
 - **Casual**: Usually walk-in OK
-- **Lunch**: Never needed
+- **Lunch**: Reservations are rarely required
 
 ### Timing
 - **Lunch rush**: 11:30-12:30

@@ -1,5 +1,7 @@
 # Helsinki Cost of Living
 
+> Cost tables are orientation ranges, not quotes. Re-check listings, HSL, and Vero when money is committed. Last package review: 2026-10-09.
+
 ## Monthly Budget Overview
 
 ### Single Person
@@ -47,7 +49,7 @@ Note: Public education and healthcare mostly free.
 
 ## Housing Costs
 
-### Rent by Area (1BR, Feb 2026)
+### Rent by Area (1BR, package orientation — verify listings)
 
 | Area | Budget | Average | Premium |
 |------|--------|---------|---------|
@@ -73,7 +75,7 @@ Note: Public education and healthcare mostly free.
 
 ## Food Costs
 
-### Grocery Prices (Feb 2026)
+### Grocery Prices (package orientation)
 
 | Item | Price |
 |------|-------|
@@ -109,6 +111,8 @@ Note: Public education and healthcare mostly free.
 ## Transport Costs
 
 ### HSL Public Transport
+
+> **Freshness gap (2026-10-09):** HSL live fares not independently confirmed this run (CAPTCHA). Treat table as orientation; verify on https://www.hsl.fi/en/tickets-and-fares before purchase.
 
 | Pass | Price/Month |
 |------|-------------|

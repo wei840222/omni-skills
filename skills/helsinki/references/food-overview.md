@@ -20,7 +20,7 @@ Helsinki's food scene has evolved dramatically. Once known for simple, hearty fa
 | Coffee (kahvi) | Afternoon | Social ritual |
 | Dinner | 17:00-20:00 | Earlier than Mediterranean |
 
-## Price Guide (Feb 2026)
+## Price Guide (package orientation)
 
 | Type | Price Range | Example |
 |------|-------------|---------|

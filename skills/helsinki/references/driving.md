@@ -219,7 +219,7 @@ Useful for:
 - Random breathalyzers
 - Penalties severe (license, fines, jail possible)
 
-**Zero tolerance culture.** Do not risk it.
+**Zero tolerance culture.** Strict compliance is essential.
 
 ## Alternatives to Owning
 

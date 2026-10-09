@@ -172,7 +172,7 @@
 - **Quiet**: Sauna is for relaxation, not loud chat
 
 ### Finnish Behavior
-- **Silence is fine**: Do not fill pauses with small talk
+- **Silence is fine**: Embrace pauses rather than forcing small talk
 - **Personal space**: More than other cultures
 - **Punctuality**: Be on time, always
 - **Queuing**: Take a number, wait your turn

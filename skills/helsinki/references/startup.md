@@ -243,7 +243,7 @@ Location: Former hospital in Kamppi
 - Leverage Nordic connections
 - Build diverse team
 
-### Don't
+### Pitfalls
 
 - Underestimate grants (free money!)
 - Ignore the gaming network
@@ -304,4 +304,4 @@ Location: Former hospital in Kamppi
 - Why Finland specifically
 - Realistic plan
 
-See `visas.md` for permit details.
+See `references/visas.md` for permit details.
