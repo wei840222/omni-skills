@@ -1,6 +1,6 @@
 # Memory Template — Sentiment Analysis
 
-## Main Memory (~/sentiment-analysis/memory.md)
+## Main Memory (<state_root>/memory.md)
 
 Create with this structure:
 
@@ -43,7 +43,7 @@ default_timeframe: 7d
 *Updated: YYYY-MM-DD*
 ```
 
-## Entity Files (~/sentiment-analysis/entities/{name}.md)
+## Entity Files (<state_root>/entities/{name}.md)
 
 One file per tracked entity:
 
@@ -84,7 +84,7 @@ avg_neutral: 0%
 *Updated: YYYY-MM-DD*
 ```
 
-## Reports (~/sentiment-analysis/reports/YYYY-MM-DD-{entity}.md)
+## Reports (<state_root>/reports/YYYY-MM-DD-{entity}.md)
 
 Generated after each analysis:
 
@@ -142,7 +142,7 @@ Generated after each analysis:
 *Analysis based on X sources, Y total posts sampled*
 ```
 
-## Alerts (~/sentiment-analysis/alerts.md)
+## Alerts (<state_root>/alerts.md)
 
 Log of triggered alerts:
 

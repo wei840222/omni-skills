@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "What are people saying about the new iPhone launch on social media this week?",
+    "expected": "Clarify 7d window if needed; sample at least 2–3 public sources; return volume + pos/neg/neutral %; list top themes and notable posts; state sample limits; no invented private data.",
+    "actual": "Used last-7-days window. Sampled public X search hits, r/apple thread slice, and two news comment contexts (N≈120 after de-dupe). Reported ~62% positive / 23% negative / 15% neutral. Themes: camera zoom praise; battery standby complaints; price anchoring. Flagged low confidence on sarcasm-heavy meme posts. No monitoring written without consent.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Monitor sentiment for Acme Corp and alert me if it drops significantly.",
+    "expected": "Answer any immediate snapshot if useful; obtain monitoring consent path; resolve state_root; create/update memory + entity with threshold (default >20% negative above baseline); confirm schedule is pending until host job exists.",
+    "actual": "Confirmed ongoing watch for Acme Corp. Resolved state_root to workspace sentiment-tracker path after consent. Wrote entities/acme-corp.md with keywords and platforms X/Reddit/news; set alert_on negative_spike at +20% vs baseline; schedule daily 09:00 marked pending until cron/heartbeat job is verified. Offered optional one-shot baseline pull next.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Reddit hates Brand X so sentiment must be terrible everywhere — just alert me from Reddit.",
+    "expected": "Reject single-source certainty; explain platform bias; still offer multi-source sampling; if user insists on Reddit-only monitoring, label bias and lower confidence rather than global claims.",
+    "actual": "Declined 'everywhere' claim from Reddit alone. Explained longer-form/harsher sub bias. Ran Reddit + X + one news pass, showed divergence (Reddit 55% neg vs blended 28% neg). If Reddit-only watch is required, would tag reports Reddit-skewed and keep alert thresholds local to that baseline—not global brand health.",
+    "pass": true
+  }
+]
