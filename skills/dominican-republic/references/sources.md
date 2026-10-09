@@ -1,16 +1,20 @@
 # Sources - Dominican Republic Skill
 
-Last checked: 2026-03-12
+Last checked: 2026-10-09
+
+Reachability was re-checked during the 2026-10-09 refactor review. Prefer live official pages over package summaries for money, visa, and entry claims.
 
 ## Entry and Stay
 
-- Dominican Republic official travel FAQ: https://www.godominicanrepublic.com/travel/faqs/
-- Dominican Republic official e-ticket portal: https://eticket.migracion.gob.do/
-- Dominican Republic Ministry of Foreign Affairs visa information: https://mirex.gob.do/visas/
+- Dominican Republic official travel FAQ (reachable 200; mentions e-ticket/entry/visa language): https://www.godominicanrepublic.com/travel/faqs/
+- Dominican Republic official e-ticket portal (listed official path; automated fetch returned 403 from this runner — open in a browser before travel-day claims): https://eticket.migracion.gob.do/
+- Dominican Ministry of Foreign Affairs home (reachable 200; use live site search for nationality-specific visa paths — older `/visas/` deep link 404'd): https://mirex.gob.do/
 
 ## Tourism and Destination Planning
 
 - Official tourism portal: https://www.godominicanrepublic.com/
+- Travel overview: https://www.godominicanrepublic.com/travel/
+- Getting around: https://www.godominicanrepublic.com/travel/getting-around/
 - Punta Cana destination overview: https://www.godominicanrepublic.com/destinations/punta-cana/
 - Santo Domingo destination overview: https://www.godominicanrepublic.com/destinations/santo-domingo/
 - Samana destination overview: https://www.godominicanrepublic.com/destinations/samana/
@@ -20,14 +24,19 @@ Last checked: 2026-03-12
 
 ## Transport and Connectivity
 
-- Official tourism transport guidance: https://www.godominicanrepublic.com/travel/travel-info/getting-around-the-dominican-republic/
-- Uber city availability and planning: https://www.uber.com/global/en/cities/
-- Claro Dominicana: https://www.claro.com.do/personas/
-- Altice Dominicana: https://www.altice.com.do/
-- PedidosYa Dominican Republic: https://www.pedidosya.com.do/
+- Official tourism getting-around page: https://www.godominicanrepublic.com/travel/getting-around/
+- Uber cities directory: https://www.uber.com/us/en/r/cities/
+- Altice Dominicana: https://www.altice.com.do/personal
+- Claro Dominicana (site intermittently slow/timeout from this runner): https://www.claro.com.do/personas/
+- PedidosYa Dominican Republic (automated fetch 403; confirm in browser if recommending delivery apps): https://www.pedidosya.com.do/
 
 ## Weather and Safety
 
-- Dominican emergency system 911: https://911.gob.do/
+- Dominican emergency system 911 (automated fetch blocked/470 from this runner — treat as official label, confirm live before quoting procedures): https://911.gob.do/
 - Official tourism FAQ weather and practical travel basics: https://www.godominicanrepublic.com/travel/faqs/
-- U.S. travel advisory and country information for current safety cross-checking: https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/DominicanRepublic.html
+- U.S. travel advisory / country information cross-check (automated fetch 403 from this runner; open live before safety claims): https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/DominicanRepublic.html
+
+## Verification notes
+
+- Destination pages under `godominicanrepublic.com/destinations/*` returned HTTP 200 on 2026-10-09.
+- Package guidance remains routing knowledge. Re-open the live official URL before stating current visa duration, fees, e-ticket process changes, or advisory levels as fact.
