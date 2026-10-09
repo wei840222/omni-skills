@@ -2,7 +2,7 @@
 
 ## File Formats
 
-### index.md (~/Clawic/data/tutor/)
+### index.md (`<state_root>/`)
 ```markdown
 # Learners
 
@@ -101,7 +101,7 @@ Multiplication facts 7-9
 ## Progress Reports
 
 ### For Parents (minors)
-Generate to `~/Clawic/data/tutor/{learner}/reports/{date}-report.md`:
+Generate to `<state_root>/{learner}/reports/{date}-report.md`:
 
 ```markdown
 # Progress Report — Emma
@@ -141,11 +141,11 @@ Use patterns to adjust teaching and inform reports.
 
 ---
 
-## Red Flags
+## Escalation signals for parents
 
-Escalate to parent/guardian if:
+Flag parent/guardian review when:
 - Consistent decline over 3+ sessions
 - Zero engagement pattern
-- Mentions of anxiety, distress
-- Signs suggesting learning disability
+- Mentions of anxiety or distress
+- Signs suggesting learning support needs assessment
 - Concerning emotional states

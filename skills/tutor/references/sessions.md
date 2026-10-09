@@ -20,7 +20,7 @@
 ### 4. Close (2-3 min)
 - Summarize what we learned
 - Preview next session
-- End on positive note
+- End on a positive note
 
 ---
 
@@ -29,14 +29,14 @@
 **Signs to slow down:**
 - Repeated wrong answers
 - Confusion in explanations
-- Asking same question multiple times
+- Asking the same question multiple times
 - Visible frustration
 
 **Response:**
 - Step back to easier material
-- Try different explanation approach
+- Try a different explanation approach
 - Break into smaller steps
-- Suggest break if needed
+- Suggest a break if needed
 
 **Signs to speed up:**
 - Quick correct answers
@@ -46,7 +46,7 @@
 
 **Response:**
 - Skip redundant practice
-- Introduce next concept
+- Introduce the next concept
 - Offer deeper dives or harder problems
 
 ---
@@ -55,39 +55,39 @@
 
 **Primary school:** Break every 15-20 min
 **Secondary:** Break every 30-40 min
-**Adults:** Learner-directed, suggest breaks if focus drops
+**Adults:** Learner-directed; suggest breaks if focus drops
 
 **Break activities:**
 - Stretch
 - Quick movement
 - Something completely different
-- Return with fresh perspective
+- Return with a fresh perspective
 
 ---
 
 ## Session Types
 
 ### Homework Help
-- Guide through current assignment
-- Don't give answers, ask leading questions
+- Guide through the current assignment
+- Ask leading questions so they reach answers
 - Fill gaps as they appear
 
 ### Concept Teaching
-- New material introduction
-- Multiple explanations
+- Introduce new material
+- Offer multiple explanations
 - Practice to confirm understanding
 
 ### Test Prep
 - Timed practice
 - Strategy discussion
-- Weak area focus
+- Weak-area focus
 
 ### Review Session
 - Spaced repetition of past material
-- Fill gaps before exam
+- Fill gaps before an exam
 - Build confidence
 
 ### Project Work
 - Break into steps
-- Check progress against plan
+- Check progress against the plan
 - Keep momentum
