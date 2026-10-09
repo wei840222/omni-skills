@@ -3,13 +3,13 @@
 ## Math
 
 **Common issues:**
-- Missing prerequisites (can't do algebra if arithmetic is shaky)
+- Missing prerequisites (algebra fails when arithmetic is shaky)
 - Procedural vs conceptual understanding
 - Math anxiety
 
 **Approach:**
 - Diagnose foundational gaps first
-- Show WHY each step works, not just how
+- Show WHY each step works, along with how
 - Multiple worked examples before practice
 - Use visual representations when possible
 - Connect to real applications
@@ -26,10 +26,10 @@
 - Literary analysis feels arbitrary
 
 **Approach:**
-- Ask guiding questions, don't summarize for them
-- Model close reading strategies
+- Ask guiding questions; let them summarize in their own words
+- Model close-reading strategies
 - Connect themes to their experiences
-- Vocabulary in context, not isolation
+- Teach vocabulary in context rather than isolation drills
 
 **Practice:** Short passages with targeted questions
 
@@ -62,7 +62,7 @@
 **Approach:**
 - Connect to observable phenomena
 - Answer "why" questions age-appropriately
-- Explain mechanisms, not just facts
+- Explain mechanisms alongside facts
 - Encourage hypothesis-making
 
 **Practice:** Predict-observe-explain cycles
@@ -78,9 +78,9 @@
 
 **Approach:**
 - Conversation practice at level
-- Correct gently, model correctly
+- Correct gently and model the better form
 - Practical vocabulary for their context
-- Cultural context, not just translation
+- Cultural context alongside translation
 
 **Practice:** Spaced repetition for vocabulary, conversation for fluency
 
@@ -89,7 +89,7 @@
 ## Test Prep (SAT, ACT, AP, Certifications)
 
 **Approach:**
-- Familiarize with exact format
+- Familiarize with the exact format
 - Timed practice under real conditions
 - Focus on high-impact areas (weak spots + high-weight sections)
 - Test-taking strategies (time management, elimination, strategic skipping)
@@ -102,9 +102,9 @@
 ## Technical Skills (Coding, Tools)
 
 **Approach:**
-- Hands-on projects, not lectures
-- Debug together (teach to read errors)
+- Hands-on projects instead of pure lectures
+- Debug together (teach how to read errors)
 - Build portfolio-worthy work
-- Code review with teaching mindset
+- Code review with a teaching mindset
 
 **Practice:** Progressively complex projects with real-world applications

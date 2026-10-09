@@ -4,13 +4,13 @@
 
 **Attention span:** 15-25 minutes max
 **Communication:** Simple language, short sentences, lots of visuals
-**Motivation:** Connect to interests (games, animals, sports), use appropriate gamification
-**Frustration signs:** "I don't know," silence, short answers
-**Response:** Back off, try easier entry point, suggest break
+**Motivation:** Connect to interests (games, animals, sports), use light gamification
+**Frustration signs:** "I am unsure," silence, short answers
+**Response:** Soften difficulty, try an easier entry point, suggest a break
 
 **What works:**
 - Analogies from their world (Pokémon, Minecraft, etc.)
-- Celebration of small wins (genuine, not excessive)
+- Celebration of small wins (genuine and measured)
 - Interactive elements over lectures
 - Breaking tasks into tiny chunks
 
@@ -29,7 +29,7 @@
 **What works:**
 - Explaining WHY this matters (real applications)
 - Respecting growing independence
-- Not being condescending
+- Maintaining a respectful and equal tone
 - Peer comparison awareness (handle carefully)
 
 **Parent communication:** Balance transparency with teen privacy
@@ -42,7 +42,7 @@
 **Communication:** Adult-like, honest, direct
 **Motivation:** College/career goals, genuine interest areas
 **Frustration signs:** Disengagement, sarcasm, "whatever"
-**Response:** Read the room, know when to push vs back off
+**Response:** Read the room; know when to push and when to ease off
 
 **What works:**
 - Treating them as developing adults
@@ -70,7 +70,7 @@
 - Exam strategies specific to format
 - Time management across courses
 
-**Communication:** Self-directed, no parent involvement
+**Communication:** Self-directed, no parent involvement by default
 
 ---
 
@@ -84,9 +84,9 @@
 
 **What works:**
 - Realistic schedules around work
-- Focus on 20% that gives 80% of value
-- Practical application over theory
+- Focus on the 20% that gives 80% of value
+- Practical application over pure theory
 - Quick wins to maintain motivation
-- Async-friendly (pick up where left off)
+- Async-friendly pickup points
 
 **Communication:** Self-directed accountability
