@@ -1,171 +1,197 @@
 ---
 name: sentiment-tracker
-slug: sentiment-tracker
-version: 1.0.0
-description: Monitor brand sentiment, crypto opinions, and product perception across social media with automated tracking, alerts, and multi-entity dashboards.
-homepage: https://clawic.com/skills/sentiment-tracker
+description: >
+  Monitor brand, product, crypto, and competitor public sentiment across X,
+  Reddit, YouTube, Hacker News, TikTok, and news with one-shot reports,
+  multi-entity comparison, baseline alerts, and local entity history. Use when
+  the user asks what people are saying, wants ongoing mention monitoring, or
+  needs relative sentiment between entities. Not for internal app analytics
+  (`analytics`), brand identity systems (`branding`), or infrastructure/HTTP
+  health checks (`monitor`).
 metadata:
-  clawdbot:
-    emoji: 📊
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Sentiment Tracker
+  version: "1.0.0"
+  openclaw: '{"emoji":"📊"}'
+  related-skills: '{"analytics":"Web traffic and conversion measurement rather than public social sentiment.","branding":"Brand strategy and identity systems used to interpret perception, not live mention sampling.","monitor":"Recurring HTTP/TLS/process health checks rather than social-opinion tracking."}'
 ---
 
-# Sentiment Analysis
+## State location
 
-Track what people say about anything — brands, crypto, products, competitors — across Twitter/X, Reddit, YouTube, Hacker News, and news sites.
+Optional durable sentiment state may exist in
+`<workspace>/sentiment-tracker/`, `<workspace>/memory/sentiment-tracker/`, or
+`~/sentiment-tracker/`.
 
-**One-shot analysis** for quick checks. **Scheduled monitoring** for ongoing tracking. **Multi-entity dashboards** to compare multiple things at once.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists; resolve it to an absolute directory.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/sentiment-tracker/`, `<workspace>/memory/sentiment-tracker/`, `~/sentiment-tracker/`.
+3. If more than one candidate exists, use only the highest-precedence path,
+   report the conflict, and leave other copies unchanged.
+4. If none exists and durable tracking must be created, default to
+   `<workspace>/sentiment-tracker/` only with user consent.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd.
+   An existing `~/sentiment-tracker/` may be read; otherwise ask before creating data.
+6. Once selected, keep the same `<state_root>` for the whole invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Outside this section, every skill-state path uses `<state_root>/...`.
+Legacy `~/sentiment-analysis/` trees are migration sources only; copy with
+explicit authorization, validate, cut over, and keep a rollback copy.
+
+**Data layout**
+
+```text
+<state_root>/
+├── memory.md                 # Config, entities, preferences
+├── entities/                 # One file per tracked entity
+│   └── {entity}.md
+├── reports/                  # Generated analysis reports
+│   └── YYYY-MM-DD-{entity}.md
+└── alerts.md                 # Alert history
+```
+
+Avoid storing secrets, private account credentials, or non-public post bodies
+that the host is not already authorized to read.
+
+## Role
+
+Act as a careful public-opinion analyst: sample multiple platforms, quantify
+sentiment with an explicit time window, separate volume from valence, and only
+alert on meaningful baseline deviations.
+
+## When to use
+
+- One-shot: "What are people saying about [brand/product/crypto]?"
+- Ongoing: "Monitor [entity] and alert me on negative spikes"
+- Comparison: "Compare sentiment: [A] vs [B]"
+- Theme digests after launches, incidents, or campaigns
+
+Hand off when a sibling owns the job:
+
+| Job | Skill |
+| --- | --- |
+| Traffic/conversion analytics | `analytics` |
+| Brand identity / messaging systems | `branding` |
+| HTTP/TLS/process health monitors | `monitor` |
 
 ## Setup
 
-On first use, read `setup.md` and follow its guidelines. Data is stored locally in `~/sentiment-analysis/`.
+On first use, read `references/setup.md` and follow its order: answer the
+immediate question first, then offer ongoing tracking, then capture preferences
+into `<state_root>/memory.md`.
 
-## When to Use
+## Ordered workflow
 
-User wants to know public opinion about something. Could be:
-- "What are people saying about [brand]?"
-- "How's sentiment on [crypto] right now?"
-- "Monitor [product] mentions and alert me on negative spikes"
-- "Compare sentiment: [brand A] vs [brand B]"
+1. **Clarify entity + window** — name/keywords, platforms if specified, default
+   window **last 7 days** unless the user sets 24h / 30d / custom.
+2. **Resolve state** — bind `<state_root>` before any write; one-shot answers may
+   skip persistence until the user opts into monitoring.
+3. **Sample ≥2–3 sources** — prefer complementary bias (e.g. X + Reddit + news).
+   Note source mix and sampling limits in the report.
+4. **Read posts, not only keywords** — discount sarcasm, meme copy, coordinated
+   spam, and PR-filtered headlines when labeling valence.
+5. **Quantify** — volume, % positive / negative / neutral, top themes, notable
+   posts with platform + engagement context.
+6. **Compare baselines** — for monitored entities, load prior entity history
+   before claiming a spike or recovery.
+7. **Alert only on meaning** — negative share >20% above baseline, viral
+   negative (>10× normal engagement), new negative theme, or competitor
+   positive spike the user cares about.
+8. **Persist when authorized** — update entity file, append report, log alerts;
+   keep schedules in `memory.md` and deliver through the user-preferred channel.
 
-## Architecture
+Failure branches:
 
-Data lives in `~/sentiment-analysis/`. See `memory-template.md` for setup.
+- Too few public hits → report low-confidence / insufficient sample; do not invent percentages.
+- Single-platform-only access → state the bias explicitly and avoid strong claims.
+- Conflicting state roots → stop writes until the user picks one root.
+- Private or authenticated content required → stay on public sampling; request
+  an explicit grant before any logged-in path.
 
-```
-~/sentiment-analysis/
-├── memory.md           # Config, entities, preferences
-├── entities/           # One file per tracked entity
-│   ├── brand-name.md
-│   └── crypto-xyz.md
-├── reports/            # Generated analysis reports
-│   └── YYYY-MM-DD-entity.md
-└── alerts.md           # Alert history
-```
+## Report shape
 
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-
-## Core Rules
-
-### 1. Source Diversity Matters
-Never rely on a single platform. Each source has bias:
-- **Twitter/X**: Real-time, emotional, viral content
-- **Reddit**: Longer discussions, honest opinions, niche communities
-- **YouTube**: Comments show product experiences
-- **Hacker News**: Tech-focused, skeptical, early adopter views
-- **News sites**: Official narratives, PR-filtered
-
-Use at least 2-3 sources per analysis. Note source distribution in reports.
-
-### 2. Time Windows Change Everything
-Sentiment shifts fast. Always specify and report time window:
-- **Last 24h**: Breaking news, viral events
-- **Last 7d**: Weekly trends, sustained campaigns
-- **Last 30d**: Product launches, seasonal patterns
-
-Default: Last 7 days unless user specifies otherwise.
-
-### 3. Quantify, Don't Guess
-Every report includes concrete metrics:
-```
+```text
 📊 Entity: [Name]
 🕐 Period: [Date range]
-📈 Volume: [X mentions found]
+📈 Volume: [N mentions sampled]
 😊 Positive: XX% | 😠 Negative: XX% | 😐 Neutral: XX%
 
 Top Themes:
-1. [Theme] — XX mentions, XX% negative
-2. [Theme] — XX mentions, XX% positive
+1. [Theme] — N mentions, XX% negative|positive
+2. [Theme] — N mentions, XX% negative|positive
 
 Notable Posts:
-- [Quote] — [Platform, engagement]
+- "[quote]" — [platform, engagement]
 ```
 
-### 4. Alerts Are Specific
-Don't alert on every change. Track baselines and alert on:
-- Negative spike >20% above baseline
-- Viral negative post (>10x normal engagement)
-- New negative theme appearing
-- Competitor positive spike
+Multi-entity comparison:
 
-### 5. Multi-Entity Comparison
-When tracking multiple entities, always show relative performance:
-```
+```text
 📊 Sentiment Comparison (Last 7d)
 
 | Entity | Volume | Positive | Negative | Trend |
 |--------|--------|----------|----------|-------|
-| Brand A | 1,240 | 62% | 18% | ↗️ +5% |
+| Brand A | 1240 | 62% | 18% | ↗️ +5% |
 | Brand B | 890 | 45% | 32% | ↘️ -8% |
 ```
 
-### 6. Scheduled Monitoring
-For ongoing tracking, use cron. Default schedules:
-- **Critical entities**: Daily at 09:00
-- **Regular entities**: Every 3 days
-- **Background entities**: Weekly
+## Scheduled monitoring
 
-Store schedule in memory.md. Deliver reports to user's preferred channel.
+When the user wants ongoing tracking, prefer host automation the workspace
+already exposes (cron / heartbeat / equivalent). Defaults if unspecified:
 
-### 7. Save Everything
-After each analysis:
-1. Update entity file with new data
-2. Compare to previous analysis
-3. Note trend changes
-4. Archive raw findings
+- Critical entities: daily ~09:00 local
+- Regular entities: every 3 days
+- Background entities: weekly
 
-## Common Traps
+Store schedule + alert threshold in `<state_root>/memory.md`. A schedule entry
+alone is not proof a job runs—confirm the durable job or say it is pending.
 
-- **Single-source analysis** → Completely skewed view. Reddit hates everything, Twitter loves drama. Always cross-reference.
-- **No time window** → "Sentiment is positive" means nothing without dates. A product can be loved one week, hated the next.
-- **Vanity metrics** → High volume ≠ positive sentiment. 1000 mentions with 80% negative is worse than 100 mentions with 60% positive.
-- **Ignoring context** → A spike in "crypto X is dead" might be sarcasm or memes. Read actual posts, not just keyword counts.
-- **Alert fatigue** → Alerting on every fluctuation makes users ignore alerts. Only signal meaningful changes.
+## Source bias cheat-sheet
 
-## External Endpoints
+| Source | Typical bias / use |
+| --- | --- |
+| X | Real-time, emotional, viral; API limits may force search/manual sampling |
+| Reddit | Longer threads, niche subs, often harsher tone |
+| YouTube | Product experience in comments; creator framing |
+| Hacker News | Tech-skeptical early-adopter lens |
+| TikTok | Fast visual trends; younger cohorts |
+| News | Official/PR-filtered narratives |
 
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| Search engines (via web_search) | Query text | Find mentions |
-| Social platforms (via web_fetch) | URL requests | Read content |
+## Common failure modes → recovery
 
-No API keys required. No data stored externally. All analysis happens locally.
+| Trap | Recovery |
+| --- | --- |
+| Single-source skew | Add 1–2 contrasting platforms before concluding |
+| No time window | Restate window; default 7d |
+| Volume ≠ positivity | Always pair volume with valence % |
+| Keyword-only sarcasm | Read representative posts; mark uncertain labels |
+| Alert fatigue | Keep >20% baseline / viral / new-theme gates |
 
-## Security & Privacy
+## External data boundaries
 
-**Data that leaves your machine:**
-- Search queries sent to web search (query text only)
-- URL requests to public posts (reading only)
+| Path | Data | Purpose |
+| --- | --- | --- |
+| Host web search | Query text | Find public mentions |
+| Host web fetch | Public URL requests | Read public pages/posts |
 
-**Data that stays local:**
-- All entity tracking in ~/sentiment-analysis/
-- Historical sentiment data
-- Alert configurations
+Prefer host-local analysis. Do not invent API keys. Persist only under
+`<state_root>/`. Public fetch/search is read-oriented sampling of content the
+user already asked to inspect.
 
-**This skill does NOT:**
-- Require accounts on any platform
-- Store data on external servers
-- Send personal information anywhere
-- Access private/protected content
+## Operating defaults
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `analytics` — web traffic and conversion data
-- `branding` — brand strategy and guidelines
-- `monitor` — system and service monitoring
+- Answer the one-shot question before upselling monitoring.
+- Cross-reference platforms; state sample size and limits.
+- Keep alerts rare and baseline-relative.
+- Load `references/memory.md` when creating or reshaping state files.
+- Load `references/sources.md` when refreshing method or platform caveats.
+- Load `references/setup.md` on first-run onboarding.
 
-## Feedback
+## Quick reference
 
-- If useful, star it: https://clawic.com/skills/sentiment-tracker
-- Latest version: https://clawic.com/skills/sentiment-tracker
+| Topic | File |
+| --- | --- |
+| First-run onboarding | `references/setup.md` |
+| Memory / entity templates | `references/memory.md` |
+| Method & platform sources | `references/sources.md` |
