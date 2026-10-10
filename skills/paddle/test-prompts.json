@@ -1,0 +1,30 @@
+[
+  {
+    "id": "paddle-1",
+    "prompt": "How do I open a Paddle sandbox checkout for a monthly plan without putting the API key in the browser?",
+    "expected": "Use a client-side token with Paddle.js Initialize/Checkout.open, sandbox Environment.set, priceId pri_…, customData for internal user id; keep Bearer API keys server-side; provision from webhooks not checkout.completed alone.",
+    "actual": "SKILL.md quick checkout sketch + Core rules 1–3; references/api.md Paddle.js section; setup.md sandbox path steps 3–8.",
+    "pass": true
+  },
+  {
+    "id": "paddle-2",
+    "prompt": "Our webhook handler sometimes double-grants access and fails signature checks after we added express.json().",
+    "expected": "Verify Paddle-Signature on raw body before parse; HMAC ts:body with destination secret; 200 within 5s; dedupe on event_id; order with occurred_at; one secret per notification destination.",
+    "actual": "Core rule 3; failure signatures for mismatch/duplicates; references/webhooks.md delivery contract, signature steps, Node raw middleware sketch, idempotent pattern.",
+    "pass": true
+  },
+  {
+    "id": "paddle-3",
+    "prompt": "Should we revoke product access as soon as subscription.status becomes past_due?",
+    "expected": "No — keep access on past_due, warn and offer portal/update payment; Rely on Retain for auto-collected retries; revoke when status is canceled (honor scheduled_change until effective).",
+    "actual": "Core rule 4 status table; references/domain.md status→access, Retain section, traps table for first past_due revoke.",
+    "pass": true
+  },
+  {
+    "id": "paddle-4",
+    "prompt": "User upgraded mid-cycle and hit an immediate charge limit; what proration mode and API limits apply?",
+    "expected": "proration_billing_mode values including prorated_immediately and next-period options; note 20/hour and 100/24h per-subscription immediate chargeable update caps; 240 rpm general API limit; prefer webhooks over polling.",
+    "actual": "Core rules 5–6; references/api.md rate limits table; references/domain.md proration table and traps.",
+    "pass": true
+  }
+]
