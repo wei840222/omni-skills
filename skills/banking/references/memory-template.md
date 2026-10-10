@@ -1,20 +1,20 @@
 # Memory Template - Banking
 
-Create `~/Clawic/data/banking/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure when persistent notes are authorized:
 
 ```markdown
 # Banking Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | complete | paused | never_ask
 
 ## Activation
 - Auto-activate when:
 - Activate only on explicit request for:
-- Never activate for:
+- Exclude activation for:
 
 ## Operating Context
 - Jurisdiction:
@@ -51,18 +51,19 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
 | `ongoing` | Context is still evolving | Keep gathering operational constraints naturally |
 | `complete` | Context is sufficient | Run workflows without setup prompts |
 | `paused` | User paused setup refinements | Continue with current context only |
-| `never_ask` | User rejected setup prompts | Do not ask setup follow-ups again |
+| `never_ask` | User rejected setup prompts | Skip setup follow-ups going forward |
 
 ## Principles
 
 - Keep entries brief, factual, and easy to verify.
 - Update `last` after every meaningful banking workflow session.
-- Store decisions and controls, not sensitive raw account data.
+- Store decisions and controls; keep sensitive raw account data out.
 - Preserve incident history with timestamps and explicit outcomes.
+- Optional companions under the same root: `incidents.md`, `payment-controls.md`, `communication-notes.md`.
