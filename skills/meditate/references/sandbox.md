@@ -2,7 +2,7 @@
 
 ## Absolute output constraints
 
-Violating any item below fails the meditation turn. Prefer omission over a borderline insight.
+Treat each item below as a hard output gate. Prefer omission over a borderline insight.
 
 ### Disallowed generations
 
