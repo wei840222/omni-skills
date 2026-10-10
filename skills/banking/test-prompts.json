@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "A customer is calling to dispute an unauthorized $500 transfer from their personal checking account to an unknown recipient. I am unsure what to do next.",
+    "expected": "Classify as fraud/unauthorized; prioritize containment (freeze/hold when policy allows, preserve txn IDs/timestamps, notify fraud/ops) before root-cause; then intake fields and neutral customer update with next checkpoint. No definitive legal conclusion.",
+    "actual": "Classified as P1 unauthorized transfer. Immediate safe action: freeze/hold the checking path per policy, hold related pending items, preserve transaction ID/timestamps/channel, notify ops + fraud owners. Output used intake sequence (summary → containment → validation → escalation → next update window). Customer wording used unauthorized-activity template without guarantees. Deferred root-cause and dispute paperwork until containment started. No portal login or fund movement by the agent.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to process a wire transfer for a business client in the UK. They want to send funds internationally today to a brand-new beneficiary and are pushing for immediate release.",
+    "expected": "Confirm jurisdiction and account context; run pre-execution controls (authority, beneficiary validation, amount/currency/fees, cutoff, approvals, dual-control, rollback). Treat new beneficiary + urgent same-day as high-risk; pause pure execution advice until controls verified; escalate sanctions/AML if indicators appear.",
+    "actual": "Captured UK business + international rail + same-day urgency. Paused release advice until controls verified: sender authority, approved beneficiary validation (callback/dual entry), amount/currency/fees, cutoff/settlement expectation, dual-control approvals, recall/freeze path. Flagged new beneficiary + urgent same-day as high-risk signal and switched toward incident posture rather than 'just send it'. Stated assumed need for sanctions/KYC completion without giving definitive legal advice; offered neutral status template if delay occurs.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Ledger cash does not match the processor statement by $12,480 after yesterday's ACH batch. Help me fix it fast.",
+    "expected": "Reconciliation triage: timing/cutoff first, then duplicates/partials, statement vs ledger, single txn lifecycle trace, record root cause and prevention control. No guessing missing controls or posting destructive log edits.",
+    "actual": "Classified as reconciliation. Ran triage order: value-date/cutoff/weekend/timezone mismatch → duplicate or partial settlements → ledger vs processor amount → isolate one transaction ID and full lifecycle → document root cause + prevention control in state notes. Refused destructive log edits; kept append-only evidence. Asked only for missing control fields if approval thresholds were unknown before any 'force balance' suggestion.",
+    "pass": true
+  }
+]
