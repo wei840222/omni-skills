@@ -1,15 +1,18 @@
-# Memory Setup — Meditate
+# Memory setup — Meditate
 
-## Initial Setup
+## Initial setup
 
-Create directory on first use:
+On first authorized write, ensure the resolved state tree exists:
+
 ```bash
-mkdir -p ~/Clawic/data/meditate/archive
+mkdir -p <state_root>/archive
 ```
 
-## profile.md Template
+Replace `<state_root>` with the absolute directory selected by the State location rules. Do not create the literal folder name `<state_root>`.
 
-Copy to `~/Clawic/data/meditate/profile.md`:
+## profile.md template
+
+Copy to `<state_root>/profile.md`:
 
 ```markdown
 # User Profile
@@ -18,26 +21,26 @@ Copy to `~/Clawic/data/meditate/profile.md`:
 <!-- entrepreneur | developer | creative | personal | system | unknown -->
 Type: unknown
 Confidence: low
-Last updated: never
+Last updated: none
 
 ## Rhythm Preferences
 Frequency: conservative
-Last meditation: never
+Last meditation: none
 Feedback rate: 0%
 
 ## Focus Areas
 <!-- Topics user has confirmed interest in -->
 
 ## Excluded Topics
-<!-- Topics user said "don't think about" -->
+<!-- Topics user requested to exclude -->
 
 ---
-*Updated automatically based on feedback*
+*Updated from feedback signals*
 ```
 
-## topics.md Template
+## topics.md template
 
-Copy to `~/Clawic/data/meditate/topics.md`:
+Copy to `<state_root>/topics.md`:
 
 ```markdown
 # Active Meditation Topics
@@ -58,9 +61,9 @@ Copy to `~/Clawic/data/meditate/topics.md`:
 *Priorities shift based on user feedback*
 ```
 
-## insights.md Template
+## insights.md template
 
-Copy to `~/Clawic/data/meditate/insights.md`:
+Copy to `<state_root>/insights.md`:
 
 ```markdown
 # Pending Insights
@@ -78,9 +81,9 @@ Generated: HH:MM
 *Present oldest first*
 ```
 
-## feedback.md Template
+## feedback.md template
 
-Copy to `~/Clawic/data/meditate/feedback.md`:
+Copy to `<state_root>/feedback.md`:
 
 ```markdown
 # Feedback Log
@@ -101,5 +104,9 @@ Negative: 0
 Silence: 0
 
 ---
-*Stats update automatically*
+*Stats update when feedback is recorded*
 ```
+
+## Legacy migration
+
+If meditation files are found only under a legacy vendor path outside the candidate roots, copy them once into the resolved `<state_root>/` with user consent, report what moved in one line, and leave the skill package free of marketplace homepage links.

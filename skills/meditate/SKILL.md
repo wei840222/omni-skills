@@ -1,142 +1,87 @@
 ---
 name: meditate
-slug: meditate
-version: 1.0.1
-description: Think proactively during idle time with sandboxed reflections, adaptive rhythms, and feedback-driven focus areas.
-homepage: https://clawic.com/skills/meditate
-changelog: Minor refinements for consistency
+description: >
+  Generate sandboxed idle-time reflections: profile-aware observations and
+  questions, adaptive cadence from feedback, and a small local insight queue.
+  Use when the agent has idle time between interactions, or the user asks to
+  meditate, ruminate, or surface non-actionable insights from recent chat
+  patterns. Prefer `reflection` for pre-delivery self-critique and lesson
+  logging, `journal` for user-authored entries and reviews, `habits` for
+  cue/routine tracking, and `daily-planner` for scheduling blocks. This skill
+  produces text-only reflections and never executes actions on the user's behalf.
 metadata:
-  clawdbot:
-    emoji: 🧘
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Meditate
+  version: "1.1.0"
+  openclaw: '{"emoji":"🧘"}'
+  related-skills: '{"reflection":"Pre-delivery self-critique and post-mistake lesson capture rather than idle pattern meditation.","journal":"User-authored journaling practice and multi-scale reviews.","habits":"Cue and streak tracking once a meditation cadence is chosen.","daily-planner":"Places protected thinking time into the day schedule.","memory":"Long-term shared memory retrieval outside the meditate state tree."}'
 ---
 
-## When to Use
+# Meditate
 
-Agent has idle time between user interactions. User wants proactive thinking that generates insights, questions, or observations without executing any actions.
+Own **idle-time sandboxed meditation**: detect conversation patterns, queue a few text-only observations/questions, adapt cadence from feedback, and keep mutable state out of the skill package.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/meditate/`. See `memory-template.md` for setup.
+Meditate state may exist in `<workspace>/meditate/`, `<workspace>/memory/meditate/`, or `~/meditate/`.
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-```
-~/Clawic/data/meditate/
-├── profile.md         # User type, focus areas, rhythm preferences
+1. Use an explicitly configured path when the user or host provides one; resolve it to an absolute directory.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/meditate/`, `<workspace>/memory/meditate/`, `~/meditate/`.
+3. If multiple candidates exist, keep only the highest-precedence directory, report the conflict, and leave siblings unchanged.
+4. If none exists and state must be created, default to `<workspace>/meditate/` only after brief consent.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd. An existing `~/meditate/` may be read; otherwise ask before creating data.
+6. Keep the selected `<state_root>` fixed for the whole invocation.
+
+Use the selected `<state_root>` for every state path in this skill. Outside this section, every skill-state path uses `<state_root>/...`. Skill resources stay under `references/`. Do not treat the literal string `<state_root>` as a filesystem path. Do not write secrets, credentials, or raw private dumps into insight files. Do not write learned preferences into `SKILL.md`.
+
+Default layout (create on first authorized write):
+
+```text
+<state_root>/
+├── profile.md         # Detected profile, rhythm preferences, focus areas
 ├── topics.md          # Active meditation topics with priority
-├── insights.md        # Pending insights to present (queue)
-├── feedback.md        # User reactions to past insights
-└── archive/           # Delivered insights with outcomes
+├── insights.md        # Pending insights queue (max 3)
+├── feedback.md        # User reactions and engagement stats
+└── archive/           # Presented insights with outcomes
 ```
 
-## Quick Reference
+If older files exist only under a legacy path outside the candidate roots (for example a vendor data directory), offer a one-time migrate into the resolved `<state_root>/` and say in one line what moved; do not keep marketplace homepage links.
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Meditation types | `topics.md` |
-| Sandbox rules | `sandbox.md` |
-| Feedback system | `feedback.md` |
+## Core behavior
 
-## Scope
+- Produce **text-only** observations and questions; frame suggestions as “What if we considered X?” rather than “I’ll do X”.
+- Resolve `<state_root>` before any profile/topic/queue read or write.
+- Keep at most **3** pending insights; present oldest first; archive after present.
+- Adapt frequency from feedback (positive → maintain/increase; silence/negative → reduce).
+- Confirm profile and topic preferences through feedback; do not lock a profile without signal.
+- Prefer routing to `reflection`, `journal`, `habits`, or `daily-planner` when the user wants critique, authored entries, streaks, or calendar blocks.
 
-This skill ONLY:
-- Reads conversation history to find patterns
-- Reads memory files in `~/Clawic/data/meditate/`
-- Generates text reflections and questions
-- Stores insights in local queue
+## When idle time or a meditation request arrives
 
-This skill NEVER:
-- Executes commands or scripts
-- Modifies files outside `~/Clawic/data/meditate/`
-- Sends messages or notifications
-- Accesses external services
-- Creates executable code
-- Takes any action on behalf of user
+1. Resolve `<state_root>` and load `profile.md` / `topics.md` when present (`references/memory-template.md` for templates).
+2. Decide whether cadence allows a new insight (`references/domain.md` adaptive rhythm). If over-quota or user asked to pause, skip generation and say so briefly.
+3. Classify a working profile from recent shared conversation patterns only (`references/topics.md`); store updates in `<state_root>/profile.md` after confirmation, not speculation alone.
+4. Draft 1–2 insights in the standard output format (`references/domain.md`); run the sandbox checklist (`references/sandbox.md`) before presenting.
+5. Enqueue under `<state_root>/insights.md` (cap 3). Present oldest pending item first.
+6. After user response or measurable silence, update `<state_root>/feedback.md` and topic priorities (`references/feedback.md`).
+7. Archive presented items under `<state_root>/archive/` with outcome notes; clear archive entries older than 30 days when touching archive.
 
-## Self-Modification
+## Failure and safety
 
-This skill NEVER modifies its own SKILL.md.
-All data stored in `~/Clawic/data/meditate/` directory only.
+- Action-shaped request (“give me an action plan”, “run this”, “send that”): keep output as observations/questions only; offer to hand off to a task skill if the user explicitly wants execution.
+- Missing `<state_root>` and no host workspace: read-only meditation from current chat context is allowed; ask before creating durable files.
+- Multiple candidate roots: use highest precedence only; report siblings; do not merge.
+- Personal data in queue: store non-sensitive summaries; omit secrets, credentials, and third-party private content.
+- External research during meditation: only with explicit user permission for that turn.
+- Sandbox doubt: omit the insight rather than emit commands, scripts, network calls, or file edits outside `<state_root>/`.
 
-## Core Rules
+## Progressive disclosure
 
-### 1. Sandbox is Absolute
-- Generate ONLY text observations and questions
-- NEVER produce commands, scripts, or actionable code
-- NEVER suggest "I'll do X" — only "What if we considered X?"
-- All output must be pure reflection, not preparation for action
-
-### 2. Adaptive Rhythm
-| User Activity | Meditation Frequency |
-|---------------|---------------------|
-| Very active (daily chats) | 1-2x per night, brief |
-| Moderate (weekly) | 2-3x per week, medium |
-| Low (monthly) | 1x per week, comprehensive |
-| No feedback on insights | Reduce frequency |
-| Positive feedback | Maintain or slightly increase |
-
-### 3. Start Small, Expand with Permission
-- First meditations: 1-2 short observations
-- After positive feedback: expand breadth
-- After "don't think about X": remove from topics
-- After "this is useful": prioritize similar topics
-- Never assume preferences — confirm through feedback
-
-### 4. Detect User Profile
-Observe conversation patterns to identify:
-| Profile | Focus Areas |
-|---------|-------------|
-| Entrepreneur | Projects, priorities, strategy gaps |
-| Developer | Architecture, code quality, tech debt |
-| Creative | Prompt patterns, style evolution, tools |
-| Personal | Calendar, habits, goals mentioned |
-| System | Configurations, workflows, automations |
-
-Store detected profile in `~/Clawic/data/meditate/profile.md`. Update only after confirmation.
-
-### 5. Meditation Output Format
-Always present insights as questions or observations:
-```
-🧘 Meditation Insights
-
-**Observation:** [what you noticed]
-**Question:** [something to consider]
-**Context:** [brief why this might matter]
-
----
-Feedback: Was this useful? (helps me adjust)
-```
-
-### 6. Feedback Integration
-| User Response | Action |
-|---------------|--------|
-| "Useful" / positive | Log topic as high-value, continue |
-| "Not relevant" | Demote topic priority |
-| "Don't think about X" | Remove X from topics entirely |
-| "Think more about Y" | Prioritize Y |
-| Silence | Reduce frequency slightly |
-
-### 7. Insight Queue Management
-- Maximum 3 pending insights at any time
-- Present oldest first
-- Archive after presenting (with user reaction if any)
-- Never repeat exact same insight
-
-### 8. Privacy Boundaries
-- Only meditate on data user has shared directly
-- Never analyze external sources without permission
-- Never include personal data in insight queue
-- Clear archive after 30 days
-
-## Common Traps
-
-- Generating action items instead of reflections → always frame as questions
-- Meditating too frequently when user doesn't engage → reduce on silence
-- Assuming user wants specific topic → always detect through feedback
-- Creating executable content → all output must be discussion-only
+| Topic | Load when | File |
+|-------|-----------|------|
+| Domain rules, rhythm, output format | Every meditation run | `references/domain.md` |
+| Sandbox checklist and output validation | Before presenting any insight | `references/sandbox.md` |
+| Profile topic catalogs | Profile detection or topic planning | `references/topics.md` |
+| Feedback interpretation and recovery | After user response or silence | `references/feedback.md` |
+| State file templates | First setup or empty `<state_root>` | `references/memory-template.md` |
+| Research sources | Freshness checks or PR/audit context | `references/sources.md` |
