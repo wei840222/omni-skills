@@ -60,6 +60,7 @@ Load `references/memory-template.md` for templates. Load `references/setup.md` o
 3. Run the lowest-risk read probe before click, type, or screenshot.
 4. One action → one verification (re-read title/URL/DOM or screenshot).
 5. Re-open `references/sources.md` before restating version-sensitive WebDriver/Safari claims.
+6. Keep the description trigger-focused: real Safari / safaridriver / permissions — not generic browser QA.
 
 | Need | Load |
 | --- | --- |
