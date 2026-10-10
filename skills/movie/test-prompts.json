@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to break down a new script about a cyberpunk heist into a shot list. Also, let me know which tool is best for the action sequences.",
+    "expected": "Resolve state_root/movies project tree. Load references/preproduction.md for shot-list breakdown and references/domain.md foundations. For action routing use references/tools.md heuristics and re-open references/sources.md vendor URLs before locking a named product or duration. Do not jump straight to video-generation as the whole workflow.",
+    "actual": "Selected movie skill, resolved <state_root>, and created/used <state_root>/<project>/. Built style-bible and character-sheet checklist first, then a scene-by-scene shot list from references/preproduction.md. For action beats, references/tools.md pointed at a motion-forward family; opened sources.md vendor pages instead of inventing duration caps. Offered next step: generate animatic takes with locked style keywords.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I generated a shot of the main character, but the lighting completely changed in the next shot and they are wearing a different coat. What should I do?",
+    "expected": "Load references/domain.md Critical Rules (consistency over speed). Reject the broken take, re-attach character references and style-bible lighting keywords, re-generate, and log under <state_root>/<project>/shots/. Do not treat 'fix in post' as the default.",
+    "actual": "Cited Critical Rules in references/domain.md: consistency beats speed. Rejected the inconsistent take, required character sheet + style-bible lighting keywords on the next prompt, and logged the failure under the project shots folder for continuity review.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Just call the Sora API for one 60-second clip; no project folder needed.",
+    "expected": "Recognize single-clip API work belongs primarily to video-generation; movie may still warn about missing continuity foundations if the user later expands to multi-shot. Do not invent Sora duration limits—point to OpenAI video-generation docs in sources.md if limits are discussed.",
+    "actual": "Routed the one-off API generation to video-generation. Noted that multi-shot continuity would return to movie with a resolved <state_root> project tree. Refused to invent a 60s guarantee and cited references/sources.md OpenAI video-generation guide for live limits.",
+    "pass": true
+  }
+]

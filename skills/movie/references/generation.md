@@ -73,26 +73,26 @@ Lock these in your style bible and repeat in EVERY prompt:
 - Specific director/film references
 - Grain/texture level
 
-## Tool-Specific Syntax
+## Tool-family syntax (verify live docs in `references/sources.md`)
 
-### Seedance 2.0
+### Motion-forward family (e.g. Seedance-class)
 - Excels with action verbs
 - Specify motion intensity: "gentle sway" vs "explosive movement"
 - Works well with dance/choreography descriptions
 
-### Kling 3.0
-- Strong lip sync capability
+### Dialogue / lip-sync family (e.g. Kling-class)
+- Strong lip sync when the current product supports it
 - Include dialogue in prompt for better mouth movement
-- Good with cultural/regional styles
+- Good with cultural/regional styles when the model card claims that strength
 
-### Runway Gen-4
-- Motion brush: specify areas of movement
+### Controllable style family (e.g. Runway Gen-4-class)
+- Motion brush: specify areas of movement when the UI exposes it
 - Style reference: upload reference image
 - Camera control: explicit movement paths
 
-### Sora
+### Narrative / physics-oriented family (e.g. Sora-class)
 - Natural language descriptions work best
-- Can handle longer, more complex prompts
+- Prefer current OpenAI video-generation docs over memorized duration caps
 - Physics-aware: describe weight, momentum
 
 ## Iteration Workflow

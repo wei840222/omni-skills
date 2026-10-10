@@ -109,7 +109,7 @@ If you have a dialogue script, create SRT:
 ```
 1
 00:00:01,000 --> 00:00:03,500
-I never thought it would end like this.
+I could hardly believe it would end like this.
 
 2
 00:00:04,000 --> 00:00:06,000
