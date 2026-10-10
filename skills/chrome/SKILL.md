@@ -72,7 +72,7 @@ Default note file: `<state_root>/memory.md` (create on first authorized write). 
 | Commands hang or return empty | Confirm domain `*.enable` ran; match response `id`; ensure target WebSocket still open |
 | Connected but wrong document | Re-list `/json/list`; attach to page target `webSocketDebuggerUrl`, not an unrelated worker/browser root |
 | Fuzzy / low-res screenshot on Retina | Set `fromSurface: true`; set `deviceScaleFactor` via Emulation; do not invent a `scale` param on captureScreenshot |
-| `getResponseBody` fails | Wait until loading finished; use correct `requestId`; enable Network with adequate buffers |
+| `getResponseBody` fails | Wait until `loadingFinished`; use the same `requestId`; enable Network with adequate buffers before heavy body retention |
 | Intercept API missing | Migrate to Fetch domain; fail with `errorReason` such as `BlockedByClient` |
 | MV3 background "forgets" state | Persist with `chrome.storage`; use `chrome.alarms` instead of long `setInterval`; avoid relying on global vars across worker restarts |
 | Content script cannot see page globals | `chrome.scripting.executeScript` into page world, or `postMessage` bridge |
