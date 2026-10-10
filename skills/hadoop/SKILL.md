@@ -1,214 +1,166 @@
 ---
 name: hadoop
-slug: hadoop
-version: 1.0.0
-description: Manage Hadoop clusters with HDFS operations, YARN job tuning, and distributed processing diagnostics.
-homepage: https://clawic.com/skills/hadoop
+description: >
+  Operate Apache Hadoop clusters with HDFS storage checks, YARN application
+  lifecycle, MapReduce memory tuning, safe-mode recovery, and distributed-job
+  diagnostics. Use when the user mentions HDFS, YARN, MapReduce, NameNode,
+  DataNode, ResourceManager, NodeManager, Hive-on-YARN, Spark-on-YARN, dfsadmin,
+  fsck, balancer, container OOM, ACCEPTED-not-RUNNING jobs, safe mode, under-
+  replicated or corrupt blocks, queue capacity, or Kerberos access to a Hadoop
+  cluster. Not for pure Kubernetes scheduling (`k8s`), single-host Docker only
+  (`docker`), or generic Linux host administration outside the Hadoop stack
+  (`linux` / `bash`).
 metadata:
-  clawdbot:
-    emoji: 🐘
-    requires:
-      bins:
-      - hdfs
-      - yarn
-      - hadoop
-    os:
-    - linux
-    - darwin
-    displayName: Hadoop
+  version: "1.1.0"
+  openclaw: '{"emoji":"🐘","requires":{"bins":["hdfs","yarn","hadoop"]},"os":["linux","darwin"]}'
+  related-skills: '{"bash":"Shell quoting, pipelines, and script hardening around hdfs/yarn one-liners.","docker":"Containerized edge clients or single-host daemons that still talk to HDFS/YARN.","linux":"Host disks, NTP, firewall, systemd, and OS limits underneath NameNode/DataNode/NodeManager."}'
 ---
 
-## Setup
+# Hadoop
 
-If `~/Clawic/data/hadoop/` doesn't exist or is empty, read `setup.md` and start the conversation naturally.
+Diagnose and operate **HDFS + YARN** with concrete commands, recovery branches,
+and portable cluster notes. Prefer the smallest check that names the failing
+subsystem: storage, scheduler/queue, container memory, auth, or node health.
 
-## When to Use
+## State location
 
-User works with Hadoop ecosystem (HDFS, YARN, MapReduce, Hive). Agent handles cluster diagnostics, job optimization, storage management, and troubleshooting distributed processing failures.
+Hadoop notes may exist in `<workspace>/hadoop/`,
+`<workspace>/memory/hadoop/`, or `~/hadoop/`.
 
-## Architecture
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-Memory lives in `~/Clawic/data/hadoop/`. See `memory-template.md` for structure.
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/hadoop/`, `<workspace>/memory/hadoop/`, `~/hadoop/`.
+3. If none exists and durable state must be created, default to
+   `<workspace>/hadoop/` only with user consent.
+4. When more than one candidate exists, use only the highest-precedence path,
+   report the conflict, and leave other copies unchanged.
+5. If the host cannot supply `<workspace>`, leave the workspace root unset and
+   avoid treating the shell cwd as a substitute. An existing `~/hadoop/` may be
+   read; otherwise ask before creating data.
+6. Once selected, keep the same `<state_root>` for the whole invocation.
 
+Use the selected `<state_root>` for every state operation in this skill.
+Outside this section, every skill-state path uses `<state_root>/...`.
+
+**Data.** Read `<state_root>/memory.md` and any cluster file it indexes under
+`<state_root>/clusters/{name}.md` when they exist. Load
+`references/memory-template.md` for formats. Create optional cluster files only
+when the user needs durable per-cluster context.
+
+**Credentials stay out of state.** Record pointers only
+(`env:HADOOP_USER`, `keytab:~/.keytabs/hive.service.keytab`,
+`cmd:kinit -kt …`). Keep passwords, keytab bytes, and tokens outside
+`<state_root>/` — store only non-secret pointers.
+
+**Legacy paths.** Historical notes under `~/Clawic/data/hadoop/` or other
+non-candidate roots are **not** in active lookup order and must **not** be
+moved, merged, or deleted during ordinary sessions. Migration is a separate
+user decision with copy, validation, cutover, and rollback.
+
+## When to load
+
+- HDFS capacity, quotas, trash, replication, fsck, snapshots, or balancer work
+- YARN list/status/kill/changeQueue, queue pressure, node health, RM HA
+- MapReduce/Spark-on-YARN container memory, OOM exit codes, speculative tasks
+- Safe mode, missing blocks, Kerberos/`Permission denied`, stuck ACCEPTED apps
+- First-use setup of durable cluster notes → `references/setup.md`
+
+## Routing
+
+Load supporting resources only on demand:
+
+| Need | File |
+| --- | --- |
+| First-use integration questions | `references/setup.md` |
+| Memory and cluster note templates | `references/memory-template.md` |
+| Core rules, traps, security defaults | `references/domain.md` |
+| HDFS shell, fsck, dfsadmin, snapshots | `references/hdfs.md` |
+| YARN apps, queues, nodes, memory knobs | `references/yarn.md` |
+| Symptom → fix playbooks | `references/troubleshooting.md` |
+| Gate 6 research URLs | `references/sources.md` |
+
+## Quick diagnosis
+
+```text
+Job or cluster symptom?
+├── Storage / "No space left" / missing blocks → hdfs dfs -df -h, fsck, expunge
+├── App ACCEPTED only → yarn application -status, yarn queue -status, yarn node -list
+├── Container killed / exit 137 / -100 → memory math in references/yarn.md
+├── Safe mode / read-only HDFS → hdfs dfsadmin -safemode get + fsck corrupt list
+└── Auth / Permission denied → klist, hdfs dfs -getfacl, then fix ACLs as admin
 ```
-~/Clawic/data/hadoop/
-├── memory.md        # Cluster configs, common issues, preferences
-├── clusters/        # Per-cluster notes and configs
-│   └── {name}.md    # Specific cluster context
-└── scripts/         # Custom diagnostic scripts
-```
 
-## Quick Reference
+## Core workflow
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| HDFS operations | `hdfs.md` |
-| YARN tuning | `yarn.md` |
-| Troubleshooting | `troubleshooting.md` |
+1. **Resolve context.** Read `<state_root>/memory.md` when present; confirm
+   distribution (Apache / CDP / EMR / Dataproc), cluster name, and auth mode.
+2. **Health before mutate.** Run read-only cluster checks before delete, kill,
+   safemode leave, balancer, or replication changes:
+   ```bash
+   hdfs dfsadmin -report
+   hdfs dfs -df -h
+   yarn node -list
+   yarn application -list
+   ```
+3. **Name the subsystem.** Storage issues cascade into compute failures. Check
+   HDFS capacity and block health before rewriting job code.
+4. **Apply the smallest fix.** Prefer expunge/trash cleanup, queue move, or
+   container memory correction over cluster-wide restarts.
+5. **Confirm destructive intent.** Permanent delete (`-skipTrash`),
+   `fsck -delete`, forced safemode leave, RM failover, and mass kill require an
+   explicit user confirmation and a stated blast radius.
+6. **Write durable notes** only after consent: update
+   `<state_root>/memory.md` / `<state_root>/clusters/{name}.md` with non-secret
+   facts (versions, pain points, successful knobs).
 
-## Core Rules
+## Essential commands
 
-### 1. Verify Cluster State First
-Before any operation, check cluster health:
 ```bash
-hdfs dfsadmin -report
-yarn node -list
-```
-Never assume cluster is healthy. A single dead DataNode changes everything.
-
-### 2. Storage Before Compute
-HDFS issues cascade into job failures. Always check:
-```bash
-hdfs dfs -df -h                    # Capacity
-hdfs fsck / -files -blocks         # Block health
-```
-A job failing with "No space left" is storage, not code.
-
-### 3. Resource Calculator Awareness
-YARN allocates based on configured scheduler. Know which is active:
-```bash
-yarn rmadmin -getServiceState rm1
-cat /etc/hadoop/conf/yarn-site.xml | grep scheduler
-```
-Default (Capacity) vs Fair scheduler behave very differently.
-
-### 4. Replication Factor Context
-Default replication=3. For temp data, suggest 1-2 to save space:
-```bash
-hdfs dfs -setrep -w 1 /tmp/scratch/
-```
-For critical data, verify replication is honored:
-```bash
-hdfs fsck /data/critical -files -blocks -replicaDetails
-```
-
-### 5. Log Location Awareness
-Hadoop logs scatter across machines. Key locations:
-| Component | Log Path |
-|-----------|----------|
-| NameNode | /var/log/hadoop-hdfs/hadoop-hdfs-namenode-*.log |
-| DataNode | /var/log/hadoop-hdfs/hadoop-hdfs-datanode-*.log |
-| ResourceManager | /var/log/hadoop-yarn/yarn-yarn-resourcemanager-*.log |
-| NodeManager | /var/log/hadoop-yarn/yarn-yarn-nodemanager-*.log |
-| Application | yarn logs -applicationId <app_id> |
-
-### 6. Safe Mode Handling
-NameNode enters safe mode on startup or low block count:
-```bash
-hdfs dfsadmin -safemode get        # Check status
-hdfs dfsadmin -safemode leave      # Exit (if blocks OK)
-```
-Never force-leave if blocks are actually missing.
-
-### 7. Memory Settings Matter
-90% of "job killed" issues are memory:
-```bash
-# Container settings
-yarn.nodemanager.resource.memory-mb     # Total per node
-yarn.scheduler.minimum-allocation-mb    # Min container
-mapreduce.map.memory.mb                 # Map task
-mapreduce.reduce.memory.mb              # Reduce task
-```
-Check these before assuming code is wrong.
-
-## HDFS Operations
-
-### Essential Commands
-```bash
-# Navigation
-hdfs dfs -ls /path
-hdfs dfs -du -h /path              # Size with human units
-hdfs dfs -count -q /path           # Quota info
-
-# Data movement
-hdfs dfs -put local.txt /hdfs/     # Upload
-hdfs dfs -get /hdfs/file.txt .     # Download
-hdfs dfs -cp /src /dst             # Copy within HDFS
-hdfs dfs -mv /src /dst             # Move within HDFS
-
-# Maintenance
-hdfs dfs -rm -r /path              # Delete (trash)
-hdfs dfs -rm -r -skipTrash /path   # Delete (permanent)
-hdfs dfs -expunge                  # Empty trash
-```
-
-### Block Management
-```bash
-# Find corrupt blocks
+# HDFS capacity and namespace
+hdfs dfs -df -h
+hdfs dfs -du -h /path
+hdfs dfs -count -q /path
+hdfs fsck /path -files -blocks
 hdfs fsck / -list-corruptfileblocks
+hdfs dfsadmin -safemode get
+hdfs dfsadmin -report
 
-# Delete corrupt file (after confirming unrecoverable)
-hdfs fsck /path/file -delete
-
-# Force replication
-hdfs dfs -setrep -w 3 /important/data/
-```
-
-## YARN Job Management
-
-### Application Lifecycle
-```bash
-# List applications
-yarn application -list                    # Running
-yarn application -list -appStates ALL     # All states
-
-# Application details
+# YARN applications and nodes
+yarn application -list
+yarn application -list -appStates ACCEPTED,RUNNING,FAILED
 yarn application -status <app_id>
-
-# Kill stuck application
 yarn application -kill <app_id>
-
-# Get logs (after completion)
+yarn application -changeQueue <app_id> -queue <queue>
 yarn logs -applicationId <app_id>
-yarn logs -applicationId <app_id> -containerId <container_id>
-```
-
-### Queue Management
-```bash
-# List queues
-yarn queue -list
-
-# Queue status
+yarn node -list
 yarn queue -status <queue_name>
-
-# Move application between queues
-yarn application -movetoqueue <app_id> -queue <target_queue>
+yarn rmadmin -getServiceState rm1
 ```
 
-## Common Traps
+Default HDFS replication is commonly **3** and is configurable per file; treat
+site `dfs.replication` as source of truth rather than hard-coding. YARN and
+MapReduce memory properties often default to sentinel/`-1` (resource calculator
+derived) in current Apache defaults—read live `yarn-site.xml` /
+`mapred-site.xml` before prescribing numbers.
 
-- **Deleting without -skipTrash on full cluster** → Trash still uses space, cluster stays full
-- **Setting container memory below JVM heap** → Instant container kill, confusing errors
-- **Ignoring speculative execution on slow jobs** → Wastes resources on duplicated tasks
-- **Running fsck on busy cluster** → Performance impact, run during maintenance
-- **Assuming HDFS = POSIX semantics** → No append-in-place, no random writes
-- **Forgetting timezone in scheduling** → Oozie/Airflow jobs fire at wrong times
+## Security boundaries
 
-## Security & Privacy
+- Cluster notes and preferences stay under `<state_root>/`.
+- `hdfs` / `yarn` / `hadoop` commands use the user's configured cluster endpoints
+  and may read host paths such as `/etc/hadoop/conf` and `/var/log/hadoop-*`.
+- Destructive or irreversible operations proceed only after explicit confirmation.
+- Kerberos keytabs and tokens stay outside skill state; use `kinit` / host secret
+  stores and record pointers only.
 
-**Data that stays local:**
-- Cluster notes saved in ~/Clawic/data/hadoop/clusters/
-- Preferences and environment context
+## Common traps
 
-**What commands access:**
-- hdfs/yarn commands connect to your Hadoop cluster
-- Some commands read system paths (/var/log, /etc/hadoop/conf)
-- Destructive commands require explicit user confirmation
+- Trash still consumes HDFS space after `rm` without `-skipTrash` + `expunge`
+- JVM heap ≥ container size → instant kill with confusing YARN messages
+- Speculative execution duplicates expensive tasks on already-slow jobs
+- Full-cluster `fsck` on a busy NN hurts latency — scope path + maintenance window
+- HDFS is not POSIX: no in-place random write; append only when enabled
+- Scheduler timezone / DST mistakes for Oozie or external orchestrators
 
-**This skill does NOT:**
-- Store credentials (use kinit/keytab separately)
-- Make external API calls beyond your cluster
-- Run destructive commands without asking first
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `linux` — system administration
-- `docker` — containerized deployments
-- `bash` — shell scripting
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/hadoop
-- Latest version: https://clawic.com/skills/hadoop
+Details, recovery tables, and verified sources live in `references/`.
