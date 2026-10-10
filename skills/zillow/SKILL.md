@@ -71,6 +71,8 @@ If a page is blocked, stale, or unavailable, explain the limitation and ask for 
 
 ## Decision checks and common mistakes
 
+Prefer evidence-backed next actions over absolute bans. Common failure modes:
+
 - Zestimate alone, asking prices, or views/saves do not establish market value or buyer intent; reconcile them with closed sales and actual showings/offers.
 - Square footage, bed counts, renovations, deferred maintenance, and permitted use need verification through public records, disclosures, and inspection; records can also be incomplete.
 - A pending or contingent label is not confirmed availability. Confirm status and explain contingencies before suggesting a viewing or offer.
