@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "List all applications currently running in YARN and show how to inspect one app.",
+    "expected": "Uses yarn application -list (optionally with -appStates), yarn application -status <app_id>, and yarn logs -applicationId without inventing non-CLI syntax.",
+    "actual": "Dry-run against skills/hadoop on 2026-10-10: routed to Core workflow + Essential commands; proposed `yarn application -list`, `yarn application -list -appStates RUNNING`, `yarn application -status <app_id>`, and `yarn logs -applicationId <app_id>`. Cited references/yarn.md for queue/node follow-ups. No hadoop/yarn binaries in this workspace, so cluster execution was not live; command shapes match Apache YarnCommands.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "A MapReduce job failed with 'No space left on device'. Troubleshoot whether this is HDFS capacity, trash, or corrupt blocks before touching job code.",
+    "expected": "Checks hdfs dfs -df -h, du on heavy paths, expunge/trash, and fsck corrupt listing; treats storage before compute; asks before -skipTrash or fsck -delete.",
+    "actual": "Dry-run: followed Storage before compute — `hdfs dfs -df -h`, `hdfs dfs -du -s -h`, `hdfs dfs -expunge`, path du on /tmp and staging, `hdfs fsck / -list-corruptfileblocks`, and only then job logs. Flagged permanent delete and fsck -delete as confirm-gated. Matched references/troubleshooting.md HDFS full playbook. No live HDFS endpoint here; procedure aligned with FileSystemShell + HDFSCommands.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "YARN shows my application stuck in ACCEPTED and containers never start. What should I check in order?",
+    "expected": "Orders yarn application -status, yarn queue -status, yarn node -list; considers max allocation and changeQueue; avoids immediate code rewrite.",
+    "actual": "Dry-run: status → queue -status → node -list; explained capacity/ACL/label/AM ask above max allocation; offered `yarn application -changeQueue` (noting deprecated movetoqueue). Pointed to references/yarn.md container failure table. Pass on procedural accuracy; live queue metrics unavailable in this environment.",
+    "pass": true
+  }
+]
