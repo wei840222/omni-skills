@@ -8,7 +8,7 @@ Run one safe read command before any click, type, or screenshot:
 osascript -e 'tell application "Safari" to get name of front window'
 ```
 
-If this fails, do not continue with live-session control until the permission path is clear.
+If this fails, pause live-session control until the permission path is clear.
 
 ## Permission Ladder
 
@@ -47,7 +47,7 @@ safaridriver --diagnose -p 0
 ### Screen Recording
 
 If the workflow needs screenshots of the live Safari window, the terminal app may need Screen Recording permission.
-Do not assume this is granted just because `screencapture` exists.
+Avoid assuming this is granted just because `screencapture` exists.
 
 ## JavaScript Preflight
 
@@ -57,7 +57,7 @@ If the plan uses `do JavaScript` in Safari, verify a simple read script first:
 osascript -e 'tell application "Safari" to do JavaScript "document.title" in current tab of front window'
 ```
 
-If Safari blocks this path, stop and resolve the browser-side permission or menu setting before writing more automation around it.
+If Safari blocks this path, pause and resolve the browser-side permission or menu setting before writing more automation around it.
 
 ## Safe Preflight Checklist
 
@@ -70,5 +70,5 @@ If Safari blocks this path, stop and resolve the browser-side permission or menu
 ## Common Mistakes
 
 - Starting with a click command before a read probe -> hard to tell whether failure is permissions or selector logic.
-- Forgetting that each terminal app has separate macOS permissions -> Terminal and iTerm do not share approval.
+- Forgetting that each terminal app has separate macOS permissions -> Terminal and iTerm lack shared approval.
 - Leaving `safaridriver` running without deciding whether the session should be real-state or isolated-state -> later assumptions become muddy.

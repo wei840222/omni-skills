@@ -2,7 +2,7 @@
 
 ## Best Fit
 
-Use `safaridriver` when the user wants Safari-specific automation but not direct control over their currently open tabs.
+Use `safaridriver` when the user wants Safari-specific automation rather than direct control over their currently open tabs.
 This is the cleaner mode for repeatable flows, tests, and isolated repros.
 
 ## Driver Lifecycle
@@ -47,7 +47,7 @@ driver.quit()
 ## Session Rules
 
 - Treat WebDriver mode as isolated until proven otherwise.
-- Do not promise that cookies, tabs, or logins from the user's visible Safari windows are automatically shared.
+- Avoid promising that cookies, tabs, or logins from the user's visible Safari windows are automatically shared.
 - Use WebDriver mode for clean repros, form workflows, and deterministic browser-state checks.
 
 ## Verification Rule

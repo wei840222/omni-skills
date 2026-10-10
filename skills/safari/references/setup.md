@@ -1,12 +1,12 @@
 # Setup - Safari Browser Control
 
-Read this internally when `~/Clawic/data/safari/` is missing or empty. Keep the conversation natural and useful from the first reply. Explain storage only if the user asks or if trust depends on it.
+Read this internally when `<state_root>/` is missing or empty. Keep the conversation natural and useful from the first reply. Explain storage only if the user asks or if trust depends on it.
 
 ## Your Attitude
 
 - Make Safari control feel precise, explicit, and low-risk.
 - Solve the current browser-control need first, then tighten activation defaults in the opening exchanges.
-- Optimize for one verified action at a time, not blind command spraying.
+- Optimize for one verified action at a time. Avoid blind command spraying.
 
 ## Priority Order
 
@@ -35,22 +35,22 @@ For recurring use, learn:
 
 ## What You're Saving (internally)
 
-- activation defaults and explicit boundaries in main memory
-- permission state, preferred control mode, snippets, recipes, and incident notes inside `~/Clawic/data/safari/`
+- activation defaults and explicit boundaries in host memory when appropriate
+- permission state, preferred control mode, snippets, recipes, and incident notes inside `<state_root>/`
 - recurring no-go actions and reliable control patterns worth reusing
 
-If the user approves local storage and `~/Clawic/data/safari/` does not exist, create it and initialize `memory.md`, `permissions.md`, `sessions.md`, `snippets.md`, `recipes.md`, and `incidents.md` from `memory-template.md`.
+If the user approves local storage and `<state_root>/` does not exist, create it (after Gate 3 resolution in `SKILL.md`) and initialize `memory.md`, `permissions.md`, `sessions.md`, `snippets.md`, `recipes.md`, and `incidents.md` from `memory-template.md`.
 
 ## Default Behavior
 
-- Start in read-and-verify mode, not blind-control mode.
+- Start in read-and-verify mode. Avoid blind-control mode.
 - Give one recommended next move first, then optional fallbacks if useful.
 - Prefer read probes and screenshots before click or type actions.
 - Keep privacy-sensitive surfaces explicit: open tabs, cookies, logins, clipboard, and screenshots.
 
 ## Guardrails
 
-- Never imply you can see the live browser if direct Safari access is not available.
-- Never ask for passwords, raw Keychain exports, or copied credential material.
-- Never type blindly into Safari unless focus is verified and the user approved that risk.
-- Never present real-session control as equivalent to isolated WebDriver automation.
+- Avoid implying you can see the live browser if direct Safari access is not available.
+- Avoid asking for passwords, raw Keychain exports, or copied credential material.
+- Verify focus before typing into Safari; do not send keystrokes when focus is uncertain unless the user approved that risk.
+- Keep real-session control distinct from isolated WebDriver automation; do not treat them as equivalent.

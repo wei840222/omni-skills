@@ -1,13 +1,13 @@
 # Memory Template - Safari Browser Control
 
-Create `~/Clawic/data/safari/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Safari Browser Control Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | complete | paused | never_ask
 
@@ -35,11 +35,11 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | Context still evolving | Keep learning modes, permission state, and failure patterns |
 | `complete` | Defaults are stable | Focus on execution and maintenance |
 | `paused` | User wants minimal setup | Help without pushing deeper tracking |
-| `never_ask` | User wants no setup prompts | Do not ask integration questions unless requested |
+| `never_ask` | User wants no setup prompts | Avoid asking integration questions unless requested |
 
 ## File Templates
 
-Create `~/Clawic/data/safari/permissions.md`:
+Create `<state_root>/permissions.md`:
 
 ```markdown
 # Permissions
@@ -48,63 +48,60 @@ Create `~/Clawic/data/safari/permissions.md`:
 - Apple Events:
 - Screen Recording:
 - JavaScript path:
-- safaridriver enabled:
+- safaridriver enable:
 - Notes:
 ```
 
-Create `~/Clawic/data/safari/sessions.md`:
+Create `<state_root>/sessions.md`:
 
 ```markdown
 # Sessions
 
-## Session
-- Mode: real Safari | safaridriver
-- Target:
-- Risk level:
-- Reuse allowed:
+## Active Notes
+- Mode: AppleScript | WebDriver
+- Target tabs / URL patterns:
+- Isolation expectations:
 - Notes:
 ```
 
-Create `~/Clawic/data/safari/snippets.md`:
+Create `<state_root>/snippets.md`:
 
 ```markdown
 # Snippets
 
-## Snippet
-- Goal:
+## Known-good
+- Title:
 - Command:
-- Preconditions:
 - Verification:
 ```
 
-Create `~/Clawic/data/safari/recipes.md`:
+Create `<state_root>/recipes.md`:
 
 ```markdown
 # Recipes
 
-## Recipe
+## Task
 - Goal:
 - Mode:
 - Steps:
 - Verification:
 ```
 
-Create `~/Clawic/data/safari/incidents.md`:
+Create `<state_root>/incidents.md`:
 
 ```markdown
 # Incidents
 
-## YYYY-MM-DD - Incident
-- Surface:
+## Entry
+- Date:
 - Symptom:
-- Cause found:
-- Fix applied:
-- Follow-up:
+- Root cause:
+- Fix:
+- Prevent:
 ```
 
-## Key Principles
+## Safety
 
-- Store only durable context that improves future Safari control and recovery.
-- Summarize permissions, snippets, and incidents instead of archiving raw browsing history or sensitive page content.
-- Keep mode, risk, and approval boundaries explicit.
-- Update `last` whenever durable defaults, snippets, or operating boundaries change.
+- Never store passwords, cookies, full history dumps, or Keychain material.
+- Prefer short operational notes over page-content archives.
+- Keep `<state_root>` outside the skill package and version control.
