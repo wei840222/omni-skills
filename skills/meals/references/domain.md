@@ -47,7 +47,7 @@ Track what the household usually has (salt, oil, garlic, rice, pasta, common spi
 - Favorites and go-to weeknight meals
 - Cuisine cadence (optional themes)
 
-Never invent an allergy. If unknown, ask once.
+Do not invent an allergy. If unknown, ask once.
 
 ## Progressive enhancement
 
