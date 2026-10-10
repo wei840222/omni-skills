@@ -10,7 +10,7 @@
 </svg>
 ```
 
-## Common mistakes checklist
+## Pre-ship checklist
 
 - [ ] `viewBox` present (not only fixed `width`/`height`)
 - [ ] Coordinates fall inside the viewBox bounds

@@ -41,7 +41,7 @@ Default preference file: `<state_root>/memory.md` (create on first authorized wr
 1. Classify the ask: new icon/chart, export cleanup, a11y fix, theming, embedding choice, or SVGO pass.
 2. Resolve `<state_root>` only when preferences or prior defaults matter; otherwise stay stateless.
 3. Apply the minimum viable SVG defaults below, then load only the matching reference.
-4. Verify the output still has `viewBox` (and `title`/`role` when informative) after any optimize step.
+4. Verify the output still has `viewBox` (and `title`/`role` when informative) after any optimize step; if missing, restore them before shipping.
 5. Hand off sibling work: product icon systems → `icons`; layout/CSS architecture → `css`; document semantics → `html`; Figma canvas issues → `figma`; raster delivery → `image`.
 
 | Need | Load |
