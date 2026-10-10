@@ -69,7 +69,7 @@ user decision with copy, validation, cutover, and rollback.
 
 ## Routing
 
-Load supporting resources only on demand:
+Load supporting resources only on demand (progressive disclosure):
 
 | Need | File |
 | --- | --- |
