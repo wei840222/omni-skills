@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create an accessible inline SVG icon for a close button that can inherit CSS color.",
+    "expected": "Inline SVG with viewBox, role=img, first-child title, currentColor styling, and no hard-coded black fill on the glyph.",
+    "actual": "Produced: <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\" role=\"img\"><title>Close</title><path d=\"M18 6L6 18M6 6l12 12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>. Matched expected a11y + theming shape; validator clean on package.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "An Illustrator export lost scaling after SVGO. Restore a safe optimize path that keeps viewBox and title.",
+    "expected": "Explain removeViewBox/removeTitle risk, give override config, and require post-optimize verification of viewBox and title.",
+    "actual": "Referenced references/optimization.md overrides (removeViewBox/removeTitle/removeDesc/cleanupIds false), pointed to svgo.dev preset-default docs, and required re-check of viewBox + title after npx svgo. Did not claim fixed ms benchmarks.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should this logo use <img>, inline SVG, or a sprite if marketing needs CSS hover recolor on a landing page?",
+    "expected": "Recommend inline SVG (or carefully designed sprite) for CSS recolor; discourage plain <img>/CSS background for theming; mention xmlns for external files.",
+    "actual": "Chose inline SVG for full CSS control per references/embedding.md and styling.md; noted <img>/background cannot recolor; sprite only with currentColor-aware symbols; external files keep xmlns.",
+    "pass": true
+  }
+]
