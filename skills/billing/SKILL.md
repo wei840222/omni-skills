@@ -2,8 +2,9 @@
 name: billing
 description: >
   Design and debug subscription billing, invoices, PSP webhooks, proration,
-  tax handling, and revenue recognition. Use when configuring Stripe or another
-  PSP, diagnosing webhook or access bugs, or calculating mid-cycle plan changes.
+  dunning, tax handling, and revenue recognition. Use when configuring Stripe
+  or another PSP, diagnosing webhook/access bugs, mid-cycle plan changes,
+  cancel-at-period-end vs immediate delete, or ASC 606 deferred revenue.
   Not for one-off checkout-only flows owned by payments, stripe-api-integration,
   or paypal, and not for bookkeeping close owned by accounting.
 metadata:
