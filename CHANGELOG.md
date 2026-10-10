@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| paddle                       | 2026-10-10 | 86/100 (#791)                    |
 | sentiment-tracker            | 2026-10-10 | 86/100 (#788)                    |
 | sql                          | 2026-10-10 | 86/100 (#789)                  |
 | tutor                        | 2026-10-09 | 86/100 (#787)                    |
@@ -538,6 +539,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | pay                          | 2026-08-10 | 94/100                           |
 | paypal                       | 2026-09-21 | 85/100 (#527)                    |
 | paywall                      | 2026-09-15 | 85/100 (#403)                    |
+| paddle                       | 2026-10-10 | 86/100 (#791)                    |
 | pdf-generator                | 2026-09-13 | 85/100 (#368)                    |
 | period                       | 2026-09-05 | 85/100 (#269)                    |
 | persian                      | 2026-09-14 | 85/100 (#391)                    |
