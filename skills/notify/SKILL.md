@@ -1,118 +1,85 @@
 ---
 name: notify
-slug: notify
-version: 1.0.1
-description: Delivers agent notifications with channel selection, timing, batching, and fatigue control. Use when sending notifications or alerts to users from an agent.
-homepage: https://clawic.com/skills/notify
+description: >
+  Choose delivery channel, timing, batching, quiet hours, escalation, and
+  fatigue controls for agent-originated user notifications. Use when an outcome,
+  error, schedule confirmation, or digest must reach the user without spam; when
+  channel/urgency/batching policy is unclear; or when quiet-hours and secondary
+  channels matter. Not for inventing new world-state alerts (`alerts`), personal
+  commitment nudges (`remind`), outbound message drafting (`message`), or
+  recurring metric report generation (`report`).
 metadata:
-  clawdbot:
-    emoji: 🔔
-    displayName: Notify
+  version: "1.0.1"
+  openclaw: '{"emoji":"🔔","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"alerts":"Decides that new or urgent world-state warrants attention before this skill chooses how to deliver it.","remind":"Surfaces commitments the user already knows rather than delivery policy.","message":"Drafts channel-safe outbound wording once notify has chosen channel and timing.","report":"Builds recurring metric digests whose delivery still follows this skill.","schedule":"Runs timed jobs that may emit notifications through this skill.","monitor":"Persists recurring checks that should notify on change, not on every poll."}'
 ---
-# Notify - Smart Notification Delivery
 
-## When to Use This Skill
+# Notify
 
-Use when sending notifications to users from an AI agent. Covers channel selection, timing, formatting, and avoiding notification fatigue.
+Own **how and when** an already-decided user-facing update is delivered. Do not invent incidents, draft long copy, or replace monitoring/alert design.
 
-## Notification Types and Routing
+## State location
 
-| Type | Channel | Timing | Group |
-|------|---------|--------|-------|
-| System down, security alert | Push + primary chat | Immediate, 24/7 | Never |
-| Deadline <2h, needs action | Primary chat | Immediate | By project |
-| Task completed | Primary chat | Batch 5-15min | Yes |
-| Daily/weekly summary | Email or chat | Scheduled | Everything |
-| Debug, internal status | Log only | Never notify | N/A |
+Notification preferences, quiet-hours settings, batch queues, and delivery logs may live under `<state_root>/`.
 
-## Critical Mistakes to Avoid
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-### Empty notifications
-```
-BAD:  "Task completed ✅"
-GOOD: "✅ Deploy v2.3.1 done. Preview: dev.app.com"
+1. Use an explicitly configured path when one exists; resolve it to an absolute directory.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/notify/`, `<workspace>/memory/notify/`, `~/notify/`.
+3. If multiple candidates exist, keep the highest-precedence directory, leave others independent, and tell the user which location was selected.
+4. If none exists and preferences or queues must be created, default to `<workspace>/notify/` and obtain brief consent before the first persistent write.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd. An existing `~/notify/` may be read; otherwise ask before creating data.
 
-BAD:  "Error occurred"  
-GOOD: "❌ Build failed: missing env var STRIPE_KEY in production"
-```
+Use the selected `<state_root>` for every state path in this skill. Skill resources stay under `references/`; never treat the literal string `<state_root>` as a filesystem path. Never write learned preferences into `SKILL.md`.
 
-### Notification spam
-- Never send "still running" or "everything OK" messages
-- Never send 10 messages for 10 subtasks - batch into 1
-- Never notify at 3AM for something that can wait until 9AM
-
-### Wrong channel urgency
-```
-BAD:  Critical alert via email (seen 4 hours later)
-GOOD: Critical alert via push + SMS
-
-BAD:  Weekly summary via SMS at 11pm
-GOOD: Weekly summary via email Monday 9am
+```text
+<state_root>/
+├── preferences.md   # primary channel, timezone, quiet hours, critical channel
+├── queue/           # batched or quiet-hours deferred items
+└── delivery.log     # optional send outcomes for debugging
 ```
 
-## Formatting Rules
+## When to use
 
-### By channel
-- **Telegram/Discord**: No markdown tables. Use bullet lists
-- **Email**: Full formatting OK, include actionable subject line
-- **SMS**: Under 160 chars, most critical info first
-- **Push**: Title (50 chars) + body (100 chars max)
+- An agent needs to notify the user of a completion, failure, schedule confirmation, or digest
+- Channel, urgency, batching, quiet hours, or secondary escalation is unclear
+- The user asks to reduce notification noise or set delivery preferences
 
-### Universal rules
-- Lead with outcome, not process
-- Include ONE clear action if action needed
-- Timestamp in user's timezone
-- Context: what + impact + suggested action
+**Not this skill**
 
-## Timing and Batching
+| Job | Skill |
+|-----|-------|
+| New/urgent world-state alert design | `alerts` |
+| Known-commitment nudge | `remind` |
+| Outbound wording / social risk | `message` |
+| Recurring metric report body | `report` |
+| Job execution timing | `schedule` |
+| Durable check definitions | `monitor` |
 
-### Quiet hours
-- Default: 23:00-08:00 in user's timezone
-- Critical (level 5) can break quiet hours
-- Queue non-critical, deliver at 08:00
+## Ordered workflow
 
-### Batching logic
-```
-If 3+ notifications within 5 minutes for same project:
-  → Combine into single message with summary
+1. **Confirm there is something worth sending** — Skip no-change, still-running, and debug-only chatter. Prefer final outcomes and actionable failures.
+2. **Load preferences** — Resolve `<state_root>` and read `preferences.md` when present. If primary channel, timezone, quiet hours, or critical channel are unknown, ask once before the first non-critical send.
+3. **Classify urgency** — Read `references/domain.md` routing table. Level 5 / security / system-down may break quiet hours; informational items queue for digest.
+4. **Choose one primary channel** — Match urgency to channel. Do not fan out the same text to every channel.
+5. **Apply timing and batching** — Honor quiet hours. If 3+ related updates land within 5 minutes for the same project, collapse into one summary.
+6. **Format for the channel** — Lead with outcome, one action if needed, user-local timestamp, and concrete context. Avoid markdown tables on chat surfaces.
+7. **Escalate only when critical and unanswered** — Follow the capped path in `references/domain.md`. Never contact third parties without explicit permission.
+8. **Record optional delivery state** — After authorized sends, append a short line to `delivery.log` when debugging is useful.
 
-If notification is informational (level 1-2):
-  → Queue for next digest (morning or evening)
-```
+## Quick reference
 
-## Confirmation Format
+| Need | Load |
+|------|------|
+| Routing, formatting, quiet hours, escalation, anti-patterns | `references/domain.md` |
+| Verified sources | `references/sources.md` |
 
-When scheduling any notification, confirm:
-```
-✅ Scheduled: "Weekly metrics report"
-📅 Every Monday 09:00 (Europe/Madrid)
-📬 Via: Email
-🔕 Respects quiet hours: Yes
-```
+## Output shape
 
-## Escalation
+When preparing or confirming a notification, include:
 
-If user doesn't respond to critical alert:
-1. Wait 2 hours
-2. Send ONE reminder via same channel
-3. If still no response after 4h: try secondary channel (if configured)
-4. Never contact others without explicit permission
-5. After 3 attempts: log and stop (don't spam forever)
-
-## User Preferences Checklist
-
-Before sending first notification, know:
-- [ ] Primary channel (Telegram/Slack/email)
-- [ ] Timezone
-- [ ] Quiet hours (or use default 23-08)
-- [ ] Critical alert channel (same or SMS)
-
-## Anti-patterns
-
-| Pattern | Problem | Fix |
-|---------|---------|-----|
-| "Notification sent" after every action | Trust erosion | Only notify on completion or error |
-| Same message to 3 channels | Redundant noise | Pick ONE appropriate channel |
-| JSON dumps in chat | Unreadable | Format or link to full log |
-| "Reminder: X" daily until done | Harassment | Max 3 reminders, then ask if still relevant |
-| Notify on no-change | Pointless | Only notify if there IS something to report |
+1. **Decision** — send now / batch / queue for quiet-hours end / log-only
+2. **Channel** — one primary path (and secondary only if escalation rules apply)
+3. **Message** — outcome-first text within channel limits
+4. **Preferences gap** — any missing timezone/channel facts that blocked a confident send
