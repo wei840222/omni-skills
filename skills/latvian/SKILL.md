@@ -20,7 +20,7 @@ Expanded particle tables, expressiveness, and delivery checks live in `reference
 
 Load this skill to write, rewrite, or translate **Latvian** that should sound like a person, not a textbook. Prefer this skill over generic `translate` when tu/jūs choice, particles (`nu`, `jau`, `vai`, `gan`), fillers, or casual Latvian tone change the draft.
 
-Do **not** load as the primary skill for Lithuanian (`lithuanian`), Russian (`russian`), or Polish (`polish`).
+For Lithuanian, Russian, or Polish targets, load `lithuanian`, `russian`, or `polish` as the primary skill instead.
 
 This skill is stateless. It does not store local configuration or persistent user state.
 
