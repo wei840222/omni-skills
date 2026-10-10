@@ -1,16 +1,23 @@
 [
   {
     "id": 1,
-    "prompt": "How do I securely handle Stripe webhooks to avoid duplicate events?",
-    "expected": "Provide instructions to verify the Stripe-Signature header and implement idempotency checks using the event_id.",
-    "actual": "To securely handle Stripe webhooks, you must verify the Stripe-Signature header using your webhook secret to ensure the payload is from Stripe. Because webhooks can arrive out of order and may be duplicated, you should store the event_id in your database and use it as an idempotency key. Wait to parse the JSON until after signature verification; use the raw request body.",
+    "prompt": "How do I upgrade a user's subscription from Basic to Pro mid-cycle in Stripe?",
+    "expected": "Load billing. Point to Update Subscription and require an explicit proration_behavior (create_prorations for standard upgrades; none for deferred downgrades; always_invoice when immediate invoice is required). Do not rely on an omitted PSP default.",
+    "actual": "Loaded billing + references/domain.md and sources for prorations. Recommended subscriptions.update with proration_behavior=create_prorations for a standard Basic→Pro upgrade so unused Basic time is credited and Pro is charged on the next invoice. Noted none vs always_invoice as explicit alternatives. Did not invent amounts or tax rates.",
     "pass": true
   },
   {
     "id": 2,
-    "prompt": "We are a SaaS company moving to an annual plan. How should we configure revenue recognition and handle proration for mid-cycle plan downgrades?",
-    "expected": "Explain ASC 606 revenue recognition for annual plans (recognizing monthly over the service period, deferred revenue is a liability) and advise setting the proration mode to 'none' for downgrades.",
-    "actual": "For annual SaaS plans under ASC 606, you cannot recognize 100% of the revenue upfront. Annual payments must be recorded as deferred revenue (a liability) and recognized incrementally each month over the service period. For mid-cycle plan downgrades, set the proration mode explicitly to 'none' so that changes only take effect at the next renewal cycle, avoiding immediate credit or charge issues.",
+    "prompt": "A customer requested immediate cancellation and deletion of their account. Should I use subscription.delete() or cancel_at_period_end: true?",
+    "expected": "Advise subscription.delete() (or equivalent immediate cancel) because the customer asked for immediate deletion; explain cancel_at_period_end is the default revenue-preserving churn path when access may continue until period end. Mention refund policy as a separate decision.",
+    "actual": "Distinguished cancel_at_period_end (access through period_end, no renewal) from immediate delete. Because the customer requested immediate account deletion, recommended subscription.delete()/immediate cancel rather than period-end cancel. Flagged prorated refund as policy-dependent. Kept PCI/token data out of examples.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Our webhook handler parses JSON first, then checks Stripe-Signature, and grants access on invoice.paid without storing event ids. What should we fix?",
+    "expected": "Require signature verification on the raw body before parse, idempotency via event_id, and access grants that tolerate out-of-order subscription.updated vs invoice.paid (eventual consistency / status+period checks).",
+    "actual": "Called out three defects: verify Stripe-Signature on raw body before JSON parse; persist event_id and short-circuit duplicates; do not assume invoice.paid ordering—re-read subscription status and period before granting access. Pointed to references/webhooks.md and domain race-condition rule.",
     "pass": true
   }
 ]
