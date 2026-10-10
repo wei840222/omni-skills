@@ -10,7 +10,6 @@ Verified while refactoring `notify` (2026-10-10). Prefer these over memory when 
 
 - [NN/g: Indicators, Validations, and Notifications](https://www.nngroup.com/articles/indicators-validations-notifications/) — distinguish status indicators from interruptive notifications
 - [Atlassian: Alert fatigue](https://www.atlassian.com/incident-management/on-call/alert-fatigue) — noise, prioritization, and on-call load
-- [PagerDuty: What is alert fatigue?](https://www.pagerduty.com/resources/learn/what-is-alert-fatigue/) — excessive alerts reduce response quality
 
 ## Platform delivery constraints
 
