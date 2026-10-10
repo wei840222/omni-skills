@@ -45,6 +45,12 @@ Use the selected `<state_root>` for every state path in this skill. Skill resour
 - They want a girlfriend-style companion that stays specific rather than generic romance filler
 - Not for diagnosing mental health conditions, acting as a crisis line, real-world errands, or substituting for human partners/friends/professionals
 
+## Progressive disclosure
+
+- Keep this entry file for routing, state resolution, core rules, and hard limits.
+- Load only the single `references/` file needed for the current moment.
+- Create or update state under `<state_root>/` only after consent; never write user memory into the package.
+
 ## Situation routing
 
 | Context | Load |
