@@ -17,11 +17,11 @@
 Critical states and transitions:
 | State | Meaning | Access |
 |-------|---------|--------|
-| `trialing` | Free trial period | ✅ Full |
-| `active` | Paid and current | ✅ Full |
-| `past_due` | Payment failed, retrying | ⚠️ Grace period |
+| `trialing` | Free trial period | Full |
+| `active` | Paid and current | Full |
+| `past_due` | Payment failed, retrying | Grace period |
 | `canceled` | Will end at period end | ✅ Until period_end |
-| `unpaid` | Exhausted retries | ❌ None |
+| `unpaid` | Exhausted retries | None |
 
 Grant paid access only when status is `trialing` or `active` and the current period has not ended. Treat `past_due` as grace-period policy, not full paid certainty; `unpaid` and post-period `canceled` revoke access.
 
