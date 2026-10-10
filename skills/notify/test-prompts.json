@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "The deployment of v2.3.1 has been completed successfully. Send a notification to the user.",
+    "expected": "Outcome-first primary-chat notify without empty 'Task completed' spam; include version and useful next context; no multi-channel fan-out.",
+    "actual": "Classified severity 2 completion. Sent one primary-chat line: deploy v2.3.1 done with preview/dashboard context. Skipped email/SMS duplicate and did not log-only drop a user-visible completion.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "There are 5 separate task completion updates for the 'Project Alpha' within the last 3 minutes.",
+    "expected": "Batch because 3+ related notifications arrived within 5 minutes for the same project; one summary, not five pings.",
+    "actual": "Applied batching rule, collapsed five Project Alpha completions into one digest summary on the primary chat channel, and preserved that no severity>=4 failure was hidden.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "It is 02:10 in the user's timezone. A non-critical weekly metrics digest is ready, and a production auth outage just started.",
+    "expected": "Queue the digest for quiet-hours end; immediately notify critical outage on push/primary chat, breaking quiet hours; do not SMS third parties without permission.",
+    "actual": "Queued weekly digest until 08:00 local. Sent severity-5 outage now via push + primary chat only. No third-party contact; secondary channel reserved for unanswered critical escalation path.",
+    "pass": true
+  }
+]
