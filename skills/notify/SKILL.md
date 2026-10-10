@@ -2,12 +2,12 @@
 name: notify
 description: >
   Choose delivery channel, timing, batching, quiet hours, escalation, and
-  fatigue controls for agent-originated user notifications. Use when an outcome,
-  error, schedule confirmation, or digest must reach the user without spam; when
-  channel/urgency/batching policy is unclear; or when quiet-hours and secondary
-  channels matter. Not for inventing new world-state alerts (`alerts`), personal
-  commitment nudges (`remind`), outbound message drafting (`message`), or
-  recurring metric report generation (`report`).
+  fatigue controls for agent-originated user notifications. Use when sending or
+  throttling an outcome, error, schedule confirmation, or digest; when primary
+  vs critical channel, urgency, batching, or quiet-hours policy is unclear; or
+  when reducing notification spam. Not for inventing new world-state alerts
+  (`alerts`), personal commitment nudges (`remind`), outbound message drafting
+  (`message`), or recurring metric report generation (`report`).
 metadata:
   version: "1.0.1"
   openclaw: '{"emoji":"🔔","requires":{"config":["<state_root>/"]}}'
