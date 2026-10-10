@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I take a screenshot of the active tab on a Retina display using Chrome DevTools Protocol?",
+    "expected": "GET /json/list for webSocketDebuggerUrl; Page.enable; Page.captureScreenshot with fromSurface true; high-DPI via Emulation deviceScaleFactor; no invented scale param on captureScreenshot.",
+    "actual": "Instructed listing targets via /json/list, enabling Page, calling Page.captureScreenshot with fromSurface: true, and setting Emulation.setDeviceMetricsOverride deviceScaleFactor for high-DPI. Explicitly noted tip-of-tree captureScreenshot has no scale parameter. Cited protocol viewer Page docs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm writing a Manifest V3 extension. Can I use a global variable to store data in my background script across multiple events?",
+    "expected": "No — service workers are ephemeral; use chrome.storage and chrome.alarms; await storage APIs.",
+    "actual": "Rejected durable globals. Directed to chrome.storage.local (async await), chrome.alarms instead of long setInterval, and linked MV3 service worker + storage docs. Noted QUOTA_EXCEEDED handling.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I need to block analytics URLs and optionally stub a response before navigation using CDP. Which APIs should I use in 2026?",
+    "expected": "Network.setBlockedURLs for simple blocks before navigate; Fetch.enable/requestPaused/failRequest|fulfillRequest|continueRequest for interception; not Network.setRequestInterception.",
+    "actual": "Recommended setBlockedURLs before Page.navigate for denylist; full intercept via Fetch domain with failRequest errorReason BlockedByClient or fulfillRequest. Warned off legacy Network.setRequestInterception teaching path. Cited Fetch and Network protocol pages.",
+    "pass": true
+  }
+]
