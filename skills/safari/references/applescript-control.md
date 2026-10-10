@@ -111,7 +111,7 @@ osascript -e 'tell application "Safari" to activate'
 osascript -e 'tell application "System Events" to keystroke "hello world"'
 ```
 
-Do not use blind keystrokes until the correct app, tab, and input focus are confirmed.
+Avoid using blind keystrokes until the correct app, tab, and input focus are confirmed.
 
 ## Switch Tabs Explicitly
 

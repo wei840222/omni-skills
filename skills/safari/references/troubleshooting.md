@@ -33,7 +33,7 @@ Use this order:
 
 ### Typing lands in the wrong place
 
-- Stop using blind keystrokes immediately.
+- Halt blind keystrokes immediately.
 - Re-activate Safari and verify the exact tab and focused element.
 - Prefer DOM-based input with read-back verification.
 
