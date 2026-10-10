@@ -1,0 +1,23 @@
+[
+  {
+    "id": "physics-1",
+    "prompt": "Explain why the sky is blue to a 5 year old.",
+    "expected": "Intuition-first everyday analogy; shorter-wavelength/blue sunlight scatters more in air; no equation dump; accurate enough not to teach a false mechanism.",
+    "actual": "Loaded beginners + core-rules path. Answer shape: sunlight has many colors; air makes blue light bounce around more (like small waves splashing more); other colors travel straighter, so daytime sky looks blue. Optional one-line deeper offer without forcing Rayleigh name.",
+    "pass": true
+  },
+  {
+    "id": "physics-2",
+    "prompt": "Derive the time dilation formula starting from the Lorentz transformations and state assumptions.",
+    "expected": "States inertial frames/c invariant assumptions; from t'=γ(t−vx/c²) considers Δx'=0 proper-time interval; obtains Δt=γΔτ with γ=1/√(1−v²/c²); units/limit v→0 check; not a full GR treatment.",
+    "actual": "Loaded students + core-rules. Steps: Lorentz t' and x'; same-location clock in moving frame Δx'=0 ⇒ Δt'=γΔt_proper form; identify proper time; γ definition; check γ→1 as v→0; note special-relativity flat-spacetime scope.",
+    "pass": true
+  },
+  {
+    "id": "physics-3",
+    "prompt": "Design a middle-school demo that air has mass without using fire, and name one misconception it targets.",
+    "expected": "Safe materials, procedure, expected observation, misconception (air is nothing/weightless), and a failure note; teachers path.",
+    "actual": "Loaded teachers path. Balance two balloons or a sealed bottle on a scale before/after adding air; inflated/heavier side shows trapped air has mass; misconception air is weightless; failure if leaks or unequal balloons—repeat with rigid bottle+pump if needed. No flames.",
+    "pass": true
+  }
+]
