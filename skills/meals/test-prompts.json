@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a meal plan for this week. I have 4 dinners to cook. We want healthy meals.",
+    "expected": "Load meals skill. Resolve state_root. Ask household size, busy nights, restrictions if unknown. Draft 4 dinners with variety (protein/cuisine), mark quick options for busy nights, use plate-balance pattern from sources without inventing calorie targets. Offer shopping list after acceptance. Do not route to calories-only logging.",
+    "actual": "Selected meals skill and resolved <state_root> candidates. Asked how many people and which nights are busy before locking dishes. Proposed four dinners with different mains, one leftover-friendly batch, and vegetable-forward sides aligned to Healthy Eating Plate language from references/sources.md. Avoided calorie RDA invention. Offered to write plan under <state_root>/plans/ and generate shopping list next.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a shopping list from my weekly plan.",
+    "expected": "Read active plan under state_root/plans, aggregate ingredients, combine quantities, group by store section, subtract pantry staples from preferences, write list under state_root/shopping. Ask once if plan id is ambiguous. Do not open generic shopping skill unless non-meal errands dominate.",
+    "actual": "Located the current weekly plan file, aggregated ingredients, merged duplicate produce/protein lines, grouped by produce/dairy/meat/pantry, removed staples listed in preferences.md, and wrote <state_root>/shopping/<plan-id>.md. Confirmed excluded pantry items and asked only whether any extras were needed.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Save the chicken stir-fry meal we had last night to the database. It was great and took about 20 minutes.",
+    "expected": "Create or update <state_root>/meals/chicken-stir-fry.md with cook time ~20m, quick-weeknight tag, rating make-again=yes. Do not invent ingredients the user did not state. Keep calories skill out unless user asks to log macros.",
+    "actual": "Wrote <state_root>/meals/chicken-stir-fry.md with name, ~20 minute cook time, quick-weeknight tag, and make-again=yes from 'great'. Noted missing ingredient list as unknown rather than fabricating. Confirmed it will surface on future busy-night planning. Did not open calories logging.",
+    "pass": true
+  }
+]
