@@ -18,7 +18,7 @@ Verified 2026-09-24. Use these URLs before advising a PSP default, deadline, or 
 
 ## Tax, PCI, disputes, usage, Connect
 
-- **Stripe Tax** — tax calculation is jurisdiction-specific; do not hardcode rates via https://docs.stripe.com/tax
+- **Stripe Tax** — tax calculation is jurisdiction-specific; fetch rates dynamically via https://docs.stripe.com/tax
 - **Stripe — Security** — tokenization and keeping card data off your servers via https://docs.stripe.com/security
 - **PCI DSS** — cardholder data scope via https://www.pcisecuritystandards.org/standards/pci-dss/
 - **Stripe — Disputes** — evidence windows and automatic loss on a missed deadline via https://docs.stripe.com/disputes

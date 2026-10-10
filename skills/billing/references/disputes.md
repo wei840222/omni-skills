@@ -76,7 +76,7 @@ async function assessFraudRisk(dispute) {
 
 ### What You CAN Store
 - PSP tokens (`pm_*`, `cus_*`)
-- Last 4 digits (alone, not with expiry)
+- Last 4 digits (alone, kept strictly separate from expiry)
 - Card brand
 - Billing address
 

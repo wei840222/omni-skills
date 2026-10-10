@@ -63,7 +63,7 @@ async function validateVATNumber(vatNumber: string): Promise<ValidationResult> {
 | IRPF Artists | 15% or 7% | Artistic work |
 | None | 0% | Invoices to individuals, SL to SL |
 
-**Important**: Retentions apply when autónomo invoices to a company, NOT when an SL invoices.
+**Important**: Retentions apply when autónomo invoices to a company, excluding SL invoices.
 
 ## US Sales Tax
 

@@ -154,7 +154,7 @@ interface CommissionSchedule {
 | Billings | Invoiced amount | When invoiced |
 | Revenue | Recognized per GAAP | When delivered |
 | ARR | Annualized recognized | Normalized |
-| Deferred Revenue | Billed, not recognized | Liability |
-| Unbilled AR | Recognized, not billed | Asset |
+| Deferred Revenue | Billed, awaiting recognition | Liability |
+| Unbilled AR | Recognized, awaiting billing | Asset |
 
 **Key insight:** Bookings ≠ Billings ≠ Revenue. Confusing them causes audit issues.
