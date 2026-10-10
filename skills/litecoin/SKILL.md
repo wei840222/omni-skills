@@ -27,6 +27,8 @@ Stateless domain skill for **Litecoin payments, address formats, fees, stuck-tx 
 
 ## Core defaults
 
+Keep always-on rules here; load at most one deep `references/` file per step (progressive disclosure).
+
 1. **Classify the layer first** — main-chain UTXO vs optional MWEB extension block. Do not treat MWEB as the default send path.
 2. **Match address prefix before blaming missing funds** — wrong script type or wrong network HRP is the usual root cause.
 3. **Never request seeds or private keys in chat** — guide local wallet UI or hardware on-device verification.
