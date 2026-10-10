@@ -85,7 +85,7 @@ Generate each as still or clip, transition between.
 
 ### Dream Logic Transitions
 Instead of physical continuity:
-- Match emotion, not location
+- Match emotion instead of location
 - Visual rhymes (shape A to shape B)
 - Symbolic links (blood red → rose petal → sunset)
 - Time non-linearity (future echoes, past ghosts)
@@ -95,7 +95,7 @@ Interpret text as metaphor:
 ```
 Text: "The weight of unspoken words"
 Visual: Figure with letters falling like rain, crushing flowers
-NOT: Person with speech bubble
+INSTEAD OF: Person with speech bubble
 ```
 
 ## Generative Approaches

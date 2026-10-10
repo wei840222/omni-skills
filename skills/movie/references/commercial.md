@@ -59,7 +59,7 @@ From one master:
 - :30 (standard)
 - :60 (full story)
 
-Each cut needs different pacing, not just trimming.
+Each cut requires distinct pacing rather than just trimming.
 
 ## Multi-Format Export
 
