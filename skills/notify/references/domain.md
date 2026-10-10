@@ -126,3 +126,7 @@ Store answers under `<state_root>/preferences.md` after consent.
 | "Reminder: X" daily until done | Harassment | Max three reminders, then ask if still relevant |
 | Notify on no-change | Pointless | Notify only when state changes or action is needed |
 | Breaking quiet hours for info digests | Fatigue | Queue until quiet hours end |
+
+## Recovery framing
+
+When a send is deferred, say what was queued, when it will release, and how the user can override quiet hours for true emergencies.
