@@ -1,71 +1,100 @@
 ---
 name: latvian
-slug: latvian
-version: 1.0.0
-description: Write Latvian that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/latvian
+description: >
+  Compose, translate, and revise natural Latvian for messages, posts, and
+  everyday copy. Use when Latvian needs a clear tu/jūs choice, casual particles,
+  or less formal wording; keep formal register for professional, institutional,
+  older, or unfamiliar recipients. Prefer lithuanian/russian/polish for those
+  languages and translate for multi-pair localization—not a full language course.
 metadata:
-  clawdbot:
-    emoji: 🇱🇻
-    displayName: Latvian
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇱🇻"}'
+  related-skills: '{"lithuanian":"Write Lithuanian when Latvian is not the target language.","russian":"Write Russian when Latvian is not the target language.","polish":"Write Polish when Latvian is not the target language.","translate":"Translate an existing source text into Latvian across formats and locales.","writing":"Shape broader prose once the Latvian-language decision is settled.","english":"Draft or revise the English source before translating it into Latvian.","copywriting":"Shape persuasive marketing copy after the Latvian register is chosen."}'
 ---
 
-## The Real Problem
+Research notes for tu/jūs, particles, and official resources live in `references/sources.md`.
 
-AI Latvian is technically correct but sounds off. Too formal. Too literary. Natives write more casually, with particles and warmth. Match that.
+Expanded particle tables, expressiveness, and delivery checks live in `references/style-guide.md`.
 
-## Formality Default
+## When to load
 
-Default register is too high. Casual Latvian is warm and direct. Unless explicitly formal: lean casual. "Čau" or "Sveiks" not "Labdien". "Jā" not "Jā, protams".
+Load this skill to write, rewrite, or translate **Latvian** that should sound like a person, not a textbook. Prefer this skill over generic `translate` when tu/jūs choice, particles (`nu`, `jau`, `vai`, `gan`), fillers, or casual Latvian tone change the draft.
 
-## Tu vs Jūs
+Do **not** load as the primary skill for Lithuanian (`lithuanian`), Russian (`russian`), or Polish (`polish`).
 
-Critical distinction:
-- Jūs: formal, elderly, professional
-- Tu: friends, peers, internet, casual
-- Latvian internet uses tu
-- Overusing jūs = stiff, distant
+This skill is stateless. It does not store local configuration or persistent user state.
 
-## Particles & Softeners
+## Workflow
 
-These make Latvian natural:
-- Nu: filler, "well"
-- Jau: "already", emphasis
-- Tak: emphasis
-- Vai: question particle
-- Gan: emphasis, "quite"
+1. Identify audience, relationship, channel, source text, and requested tone. When those details are missing, write neutral-standard Latvian and state the register assumption in one short note when the choice matters.
+2. Choose one address form and keep it for the whole draft: `tu` for a known peer or clearly casual context; `jūs` for professional, institutional, older, unfamiliar, or explicitly formal recipients.
+3. Draft for the selected register. Preserve names, numbers, dates, commitments, and how sure the source is. For casual text, use direct phrasing and add at most a few particles or fillers that fit the speaker and channel.
+4. Read `references/style-guide.md` for human-facing Latvian drafts, rewrites, and reviews; use its register, particles, expressiveness, and authoritative-resource guidance.
+5. Run the delivery check, then return the Latvian text first.
 
-## Fillers & Flow
+## Formality default
 
-Real Latvian has fillers:
-- Nu, tā, labi
-- Tipa, kā
-- Zini, klau
-- Vispār, starp citu
+Default AI register is too high. Everyday Latvian is warm and direct. Unless the user explicitly wants formal or official copy:
+
+- Prefer `Čau` / `Sveiks` / `Sveika` over bare `Labdien` in peer chat
+- Prefer short replies such as `Jā`, `Labi`, `Okei`, `Sapratu`
+- Prefer light particles and natural intensity over stiff full sentences
+
+## Tu vs jūs
+
+Critical address distinction:
+
+| Form | Use when |
+| --- | --- |
+| `tu` | friends, peers, internet, clearly casual chat |
+| `jūs` | professional, institutional, older, unfamiliar, or explicitly formal recipients |
+
+Keep greeting, verbs, pronouns, and closing in the same register. Latvian internet writing usually defaults to `tu`; overusing `jūs` with peers sounds stiff and distant.
+
+## Particles and softeners
+
+These markers make casual Latvian sound native. Add one when it matches the voice—do not stack many:
+
+| Particle | Effect | Example |
+| --- | --- | --- |
+| `nu` | filler / soft lead-in ("well") | `Nu, labi.` |
+| `jau` | "already" / mild emphasis | `Es jau zinu.` |
+| `tak` | emphasis / insistence | `Dari tak.` |
+| `vai` | question particle | `Vai tu nāksi?` |
+| `gan` | "quite" / soft emphasis | `Gan jau izdosies.` |
+
+## Fillers and flow
+
+Casual Latvian uses light fillers. Keep a few, not a pile:
+
+- `nu`, `tā`, `labi`
+- `tipa`, `kā`
+- `zini`, `klau`
+- `vispār`, `starp citu`
 
 ## Expressiveness
 
-Don't pick the safe word:
-- Labi → Super, Forši, Lieliski
-- Slikti → Šausmīgi, Briesmīgi
-- Ļoti → Mega, Baigi, Pilnīgi
+Choose expressive vocabulary when the register is informal:
 
-## Common Expressions
+- Labi → `Super`, `Forši`, `Lieliski`
+- Slikti → `Šausmīgi`, `Briesmīgi`
+- Ļoti → `Mega`, `Baigi`, `Pilnīgi`
 
-Natural expressions:
-- Labi, Okei, Sapratu
-- Nav problēmu, Mierīgi
-- Tiešām?, Nopietni?, Ko?
-- Forši!, Super!, Lieliski!
+Natural reactions and set phrases: `Tiešām?`, `Nopietni?`, `Nu nē!`, `Oho!`, `Vau!`, `Nav problēmu`, `Mierīgi`, `Forši!`.
 
-## Reactions
+Keep intensity out of formal and mixed-audience drafts unless the user asks for it.
 
-React naturally:
-- Tiešām?, Nopietni?, Nu nē!
-- Oho!, Vau!, Dievs!
-- Forši!, Super!, Cool!
-- Haha, lol in text
+## Fidelity and boundaries
 
-## The "Native Test"
+Natural wording does not add a promise, place, time, or certainty the source did not give. Marketing structure belongs to `copywriting` after register is chosen. English source polishing belongs to `english`. Lithuanian, Russian, or Polish targets belong to those skills. Multi-format localization catalogs belong to `translate`.
 
-Before sending: would a Latvian screenshot this as "AI-generated"? If yes—too formal, no "nu", too stiff. Add casual warmth.
+For legal, medical, financial, or publication-sensitive Latvian, keep the requested formality and recommend a qualified native-speaker review. Prefer current entries in Tēzaurs or Latviešu valodas aģentūra guidance when orthography or terminology is contested.
+
+## Delivery check (Native Test)
+
+Before sending:
+
+- Register, `tu`/`jūs`, particles, fillers, and intensity agree with the audience
+- Facts, names, numbers, and commitments come from the source
+- One voice runs through the draft; casual default is warm `tu` with light particles
+- Ask: would a Latvian screenshot this as "AI-generated"? If yes—too formal, missing `nu`/`jau`, too stiff—shorten, warm the register, and add at most one natural particle without stuffing
