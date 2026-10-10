@@ -27,7 +27,7 @@ Runtime rules for control-first banking operations. Keep procedures here; load f
 ### 5. Communication
 
 - Use plain language: current status, next step, owner, and ETA window.
-- Prefer factual updates over guarantees, blame language, or speculation about pending investigations.
+- Prefer factual updates: status, owner, next step, and checkpoint — not guarantees, blame, or speculation about pending investigations.
 
 ### 6. Memory hygiene
 
