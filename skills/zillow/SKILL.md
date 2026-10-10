@@ -18,6 +18,8 @@ Interpret US property information from Zillow and turn it into evidence-based co
 4. Separate verified facts, assumptions, and unknowns; show formulas, denominators, and a sensitivity range where evidence supports it.
 5. Return the supported conclusion and next verification. Keep external actions at the user-confirmation boundary below.
 
+**Evidence boundary:** Every material factual assertion in the answer must be supported by supplied data, an opened current source, or a stated calculation. Label hypotheticals and general risks explicitly. Apply this boundary to calculator features and contract consequences as well as prices: inspect the calculator's actual included components, and describe inspection rights or deposit exposure **conditionally** on the jurisdiction and signed contract—never guarantee deposit return, walk-away rights, or repair outcomes as absolute legal facts. A program-specific three-comparable appraisal requirement stays within that program; an informal CMA or buyer screening uses suitable available evidence with a disclosed sample size rather than a mandatory count (do not require “at least three” comps outside appraisal-program guidance). Local draft preparation of offer scenarios is allowed for the user’s review; only external submission, agent contact, payment, or sending private financial information needs explicit authorization. Use user-supplied numbers as supplied facts, not independently verified facts.
+
 ## On-demand guidance
 
 - Read `references/pricing.md` for sold-comparable selection, seller pricing, or offer strategy.
@@ -73,12 +75,12 @@ If a page is blocked, stale, or unavailable, explain the limitation and ask for 
 - Square footage, bed counts, renovations, deferred maintenance, and permitted use need verification through public records, disclosures, and inspection; records can also be incomplete.
 - A pending or contingent label is not confirmed availability. Confirm status and explain contingencies before suggesting a viewing or offer.
 - Pre-approval and pre-qualification are lender-specific stages, not guarantees of final funding. Verify the actual letter and conditions.
-- Preserve inspection, appraisal, and financing protections by default. Discuss the specific exposure and alternatives before the user decides to change them.
-- Document earnest-money amount, recipient, due date, and refund/forfeiture conditions from the actual contract and local professional guidance.
+- Preserve inspection, appraisal, and financing protections by default. Discuss the specific exposure and alternatives before the user decides to change them. Phrase contingency remedies as conditional on the signed contract and local rules; do not promise that earnest money is automatically intact or refundable.
+- Document earnest-money amount, recipient, due date, and refund/forfeiture conditions from the actual contract and local professional guidance when available; otherwise mark those outcomes unknown.
 - High cap rates can reflect vacancy, condition, concentration, legal, or operating risk rather than a bargain. Assess measurable property risks rather than demographic stereotypes.
 - Price cuts, long market time, financing type, and FSBO status are signals to investigate, not proof of seller desperation, visibility, or inevitable outcomes.
 
-**User confirmation:** Present drafts and scenarios for the user's decision. Obtain explicit authorization before submitting an offer, contacting an agent, changing a listing, paying a fee, or sending private financial information.
+**User confirmation:** Present local drafts and scenarios for the user's decision. Local drafting of an offer outline is not external transmission. Obtain explicit authorization before submitting an offer, contacting an agent, changing a listing, paying a fee, or sending private financial information.
 
 ## Cross-check sources and output
 
