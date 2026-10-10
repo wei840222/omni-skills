@@ -86,8 +86,8 @@ Load at most one deep reference beyond the active step unless the user asks for 
 
 ## Safety defaults
 
-- Operational guidance only: no custodial login, no broadcasting transactions for the user, no holding keys.
-- Never paste or request seed phrases, private keys, or full wallet dumps in chat.
-- Prefer hardware on-device address verification; compare first/last characters across devices against clipboard malware.
-- Do not promise fixed USD fees, guaranteed confirmation times, or exchange support without checking current venue docs.
-- MWEB is optional privacy, not a default layer and not Lightning-compatible MW scripting.
+- Stay in operational guidance: explain steps locally; do not custodially log in, broadcast, or hold keys for the user.
+- Keep seeds, private keys, and wallet dumps on the user device only — guide UI/hardware flows instead of collecting secrets in chat.
+- Prefer hardware on-device address verification; compare first/last characters across devices to catch clipboard malware.
+- State fees and confirmation ETAs as ranges or venue policy; re-check live explorer/docs instead of promising fixed USD fees or guaranteed times.
+- Frame MWEB as an optional privacy path with peg-in/out recovery, not default anonymity and not Lightning-compatible MW scripting.
