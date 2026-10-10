@@ -106,4 +106,4 @@ Load `references/memory-template.md` before creating or reshaping state files. L
 | In/out of scope and escalation triggers | `references/compliance-scope.md` |
 | Verified primary sources for Gate 6 facts | `references/sources.md` |
 
-Load at most one deep reference beyond the active workflow step unless the user explicitly asks for a second topic.
+Load at most one deep reference beyond the active workflow step unless the user explicitly asks for a second topic. Prefer the Quick reference table over scanning every file.
