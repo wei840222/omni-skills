@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Open Safari to https://example.com and tell me the page title using AppleScript on my Mac.",
+    "expected": "Use AppleScript real-session mode: navigate or reuse tab, then osascript read of current tab name/title (and optionally document.title via do JavaScript). Verify after navigation. Do not use safaridriver if the user wants the live Safari window. Cite permission preflight if Automation is missing.",
+    "actual": "Chose AppleScript mode for the live session. Preflight: osascript tell Safari get name of front window. Navigate current tab URL to https://example.com, then return name/URL of current tab (and optional do JavaScript document.title). Stated exit 0 alone is insufficient; re-read title after load. If Automation blocked, pause for terminal-app permission. Did not start safaridriver for a real-window title read.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need an isolated Safari automation session for a clean repro — not my open banking tabs. How do I start safaridriver correctly?",
+    "expected": "WebDriver/isolated mode: safaridriver --enable once, safaridriver -p 0 to start, optional --diagnose if unstable, optional BiDi flags only when client supports. Explicitly state WebDriver does not inherit daily tabs/cookies. Verify session launch and page load. Hand off to playwright for cross-browser product automation.",
+    "actual": "Selected isolated WebDriver mode. Steps: safaridriver --enable; safaridriver -p 0; Selenium webdriver.Safari() example get example.com and print title; quit. Warned that safaridriver does not automatically control already-open daily tabs or banking cookies. Added verify-launch and verify-page-load. Pointed to Apple Testing with WebDriver in Safari docs and sources.md. Offered playwright handoff for multi-browser runners.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Safari AppleScript worked in Terminal yesterday but fails in iTerm today when I try to read the current URL. What should I check first?",
+    "expected": "Permission ladder: Automation/Apple Events is per controlling app — Terminal approval does not cover iTerm. Run lowest-risk read probe first; then URL probe. Do not start with click/type. Screen Recording is separate if screenshots needed.",
+    "actual": "Diagnosed per-app Automation: iTerm needs its own Apple Events permission for Safari; Terminal grant does not transfer. Ordered failure ladder: confirm mode → Safari running → simplest read probe → permissions → one retry → verify. Gave osascript probes for front window name and current tab URL. Deferred screenshots/Screen Recording unless requested. Avoided blind clicks while permission state is unknown.",
+    "pass": true
+  }
+]
