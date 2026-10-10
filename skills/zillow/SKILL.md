@@ -1,6 +1,6 @@
 ---
 name: zillow
-description: Navigate Zillow for US property search, Zestimate interpretation, pricing strategy, and rental investment analysis. Use when the user asks about a Zillow listing, home estimate, buyer or seller comparison, or investment figures derived from Zillow.
+description: Interpret Zillow listings and Zestimates, compare US home prices, estimate ownership costs, and model rental returns. Use for Zillow property searches, listing comparisons, seller pricing, buyer offers, or rental underwriting from Zillow data; general home repairs and non-US property searches are outside this scope.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🏠"}'
@@ -9,6 +9,14 @@ metadata:
 # Zillow
 
 Interpret US property information from Zillow and turn it into evidence-based comparisons for buyers, sellers, investors, and agents. This is a stateless research guide, not a Zillow API integration or an appraisal service.
+
+## Default workflow
+
+1. Establish the user's role, US location, property type, objective, and supplied listing/estimate date. Ask only for missing inputs needed for the requested decision.
+2. Collect dated listing facts and corroborating records using available authorized tools or user-supplied material. If access fails, use the data-recency fallback below.
+3. Read the matching reference, then produce sold-comparable evidence, a monthly ownership-cost breakdown, or an annual investment model as requested.
+4. Separate verified facts, assumptions, and unknowns; show formulas, denominators, and a sensitivity range where evidence supports it.
+5. Return the supported conclusion and next verification. Keep external actions at the user-confirmation boundary below.
 
 ## On-demand guidance
 
