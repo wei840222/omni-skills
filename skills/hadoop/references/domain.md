@@ -52,7 +52,7 @@
   invent superuser access.
 - Keep keytabs mode `600`, principals explicit, and clocks NTP-synced (skew breaks
   Kerberos).
-- No secret material in `<state_root>/` — pointers only.
+- Keep secret material outside `<state_root>/` — record pointers only.
 
 ## Anti-patterns
 
