@@ -13,7 +13,7 @@ Read this internally when `<state_root>/` is missing or empty. Keep the conversa
 ### 1. First: Integration
 
 Early in the conversation, confirm when this should activate:
-- whenever Safari control, Safari automation, tab inspection, or Safari screenshots come up
+- when Safari control, Safari automation, tab inspection, or Safari screenshots come up
 - only when explicitly requested
 - only for real-session Safari control, only for WebDriver setup, or both
 - situations that should always stay out of scope
