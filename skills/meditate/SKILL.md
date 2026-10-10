@@ -49,6 +49,7 @@ If older files exist only under a legacy path outside the candidate roots (for e
 
 ## Core behavior
 
+- **Not for:** delivery QA (`reflection`), authored diary pages (`journal`), streak tracking (`habits`), or placing calendar blocks (`daily-planner`).
 - Produce **text-only** observations and questions; frame suggestions as “What if we considered X?” rather than “I’ll do X”.
 - Resolve `<state_root>` before any profile/topic/queue read or write.
 - Keep at most **3** pending insights; present oldest first; archive after present.
