@@ -6,97 +6,79 @@ metadata:
   openclaw: '{"emoji":"🏠"}'
 ---
 
-This skill is stateless and does not persist user data.
+# Zillow
 
-## When to Use
+Interpret US property information from Zillow and turn it into evidence-based comparisons for buyers, sellers, investors, and agents. This is a stateless research guide, not a Zillow API integration or an appraisal service.
 
-User needs help with US real estate via Zillow. Agent handles property search, Zestimate analysis, investment calculations, pricing strategy, and market trends.
+## On-demand guidance
 
-## Quick Reference
+- Read `references/pricing.md` for sold-comparable selection, seller pricing, or offer strategy.
+- Read `references/investing.md` for rent verification, investment metrics, expense modeling, or financing scenarios.
+- Resolve both paths from the skill root. Load only the reference needed for the request.
 
-| Topic | File |
-|-------|------|
-| Investor calculations | `references/investing.md` |
-| Pricing strategy | `references/pricing.md` |
+## Zestimate interpretation
 
-## Core Rules
+Treat a Zestimate as an automated estimate, distinct from an appraisal, asking price, or completed sale price. Use verified sold comparables and property condition to assess a plausible value range rather than treating the estimate as the conclusion.
 
-### 1. Zestimate is an Estimate, Not a Price
-- ALWAYS caveat Zestimates: "Zillow's estimate, typically 5-15% off in this market"
-- Check Zestimate accuracy for the specific ZIP — varies wildly by location
-- Never use Zestimate as sole pricing guidance
-- For sellers: compare to actual SOLD prices, not Zestimates
-- For investors: Zestimate rents are even less reliable than home values
+Record the estimate's displayed date, location, property type, and any published accuracy statistics with their scope and retrieval date. A market-level median error is not a confidence interval for a particular home. When current Zillow methodology or accuracy information is inaccessible, say that it is unverified and analyze the supplied estimate without assigning an error percentage or update cadence. Evaluate Rent Zestimate against comparable rentals and actual leases; the same verification requirement applies independently to rent and sale estimates.
 
-### 2. Calculate True Monthly Costs
-For buyers, always include ALL components:
-| Component | Notes |
-|-----------|-------|
-| Principal + Interest | Based on current rates |
-| Property taxes | Pull actual, not Zillow estimate |
-| Homeowners insurance | Varies by region/flood zone |
-| PMI | If down payment < 20% |
-| HOA fees | Check for special assessments |
-| Mello-Roos/special districts | California especially |
+## True monthly ownership cost
 
-### 3. Market Context is Hyperlocal
-- National trends are meaningless — real estate is ZIP-code specific
-- "Days on Market" benchmarks differ: 10 DOM is slow in Phoenix, fast in NYC
-- Always specify property type (SFH vs condo vs townhouse) — different markets
-- Seasonal patterns vary by region: Phoenix summer ≠ Chicago summer
+Calculate principal and interest using the user's quoted loan terms or a dated lender quote. If terms are missing, request them or show a clearly labeled assumption rather than a purported current rate.
 
-### 4. Investment Metrics Must Be Conservative
-For rental property analysis, see `references/investing.md`. Key traps:
-- Use 50% expense rule as MINIMUM, not ceiling
-- Cap rate uses purchase price, not list price
-- Factor vacancy (5-15% depending on market)
-- Zestimate rent is often wrong — verify with actual rental comps
+Include each applicable component separately:
 
-### 5. Zillow Data Lags
-- Listings may be 1-2 days behind MLS
-- Status (active/pending/sold) can be stale
-- Zestimate updates monthly, not daily
-- Always note data recency when citing stats
+- Property tax, verified with the county assessor and local rules for reassessment after purchase; the seller's current bill may differ from the buyer's future bill.
+- Homeowners insurance and separate flood or other required coverage, based on quotes and property-specific hazards.
+- Mortgage insurance under the actual loan program. Conventional loans with less than 20% down commonly require PMI; FHA and other programs have different insurance rules. A low down payment alone does not establish the program or premium.
+- HOA dues, special assessments, and local special-district taxes, including California Mello-Roos when applicable.
+- Maintenance and capital-replacement reserves as a separate budget line from the loan payment.
 
-### 6. Role-Specific Guidance
+Label unknown components and present a subtotal, not a complete affordability claim. Keep lender escrow amounts and their underlying taxes or insurance mutually exclusive in the sum.
 
-| User Type | Key Concerns |
-|-----------|--------------|
-| First-time buyer | FHA programs, true monthly cost, avoid overbidding |
-| Investor | Cap rate, cash-on-cash return, expense reality |
-| Seller | Competitive pricing, overpricing trap, market timing |
-| Agent | Premier Agent leads, CMA comps, listing optimization |
+## Hyperlocal market context
 
-## Zillow Traps
+Compare the same property type and relevant competing market area. Specify the period, sample size, inventory, days-on-market definition, sold-to-list ratio, and season when available. National trends supply context but do not replace local evidence. There is no universal days-on-market cutoff or offer discount for a hot, balanced, or buyer's market.
 
-### For All Users
-- Zestimate ≠ market value (can be 20%+ off in unusual properties)
-- Listing price ≠ sale price (especially in hot/cold markets)
-- "Views" and "saves" include nosy neighbors, not just buyers
-- Square footage and bed count often wrong — verify with county records
+Use recent closed sales as valuation evidence and active listings as competition. Explain differences in condition, size, lot, legal use, and location; if comparable evidence is thin, widen the period or competing area transparently and lower confidence.
 
-### For Buyers
-- Contingent/pending listings may show as available
-- Don't waive inspection to "be competitive" — especially first-timers
-- Pre-approval ≠ pre-qualification (huge difference for offers)
-- Earnest money timing catches people off guard
+## Conservative investment analysis
 
-### For Investors
-- High cap rate often means high risk (war zones, declining areas)
-- Zestimate rent wildly inaccurate in many markets
-- Property taxes can change dramatically after purchase
-- Don't calculate returns on list price — use realistic acquisition cost
+Use `references/investing.md` to calculate income, operating expenses, financing, cash invested, and sensitivity scenarios. Treat rent/price shortcuts and blanket expense percentages as screening heuristics only. Replace them with local evidence before a purchase recommendation. Use the stated acquisition-price scenario as the cap-rate denominator and include closing costs, initial repairs, and reserves in total cash invested. Report unknown costs instead of silently treating them as zero.
 
-### For Sellers
-- Overpricing → stale listing → sells for LESS than fair price
-- Price reductions signal desperation to buyers
-- "For Sale By Owner" on Zillow gets less visibility than MLS
-- Zillow doesn't know your renovations or deferred maintenance
+## Data recency and access
 
-## Data Sources to Cross-Reference
+Zillow pages, listing feeds, public records, and local MLS access have different coverage and timestamps. Verify listing availability with the listing agent or an authorized current source before acting; no fixed feed-delay or estimate-update interval is assumed.
 
-- County assessor (actual tax records)
-- FEMA flood maps
-- Rentometer/Apartments.com (rental comps)
-- Crime/school rating sites
-- Local MLS for real-time accuracy
+If a page is blocked, stale, or unavailable, explain the limitation and ask for the listing text, screenshots, or a dated export. Continue analysis from that supplied material with explicit provenance. Preserve access controls and use an authorized alternative instead of bypassing the block. Separate user-supplied figures, independently verified facts, calculations, and assumptions.
+
+## Role-specific guidance
+
+- First-time buyer: total cost, program-specific financing, pre-approval versus pre-qualification, deposit deadlines, and inspection/appraisal/financing protections.
+- Investor: verified rents, NOI, cash-on-cash return, capital reserves, debt service, taxes after purchase, and legal rental constraints.
+- Seller: sold comparables, active competition, condition, exposure, and a review schedule tied to local market feedback.
+- Agent: a sourced CMA, accurate listing facts, and listing optimization. Premier Agent advertising or lead products require current official terms; this guide does not assert pricing or access.
+
+## Decision checks and common mistakes
+
+- Zestimate alone, asking prices, or views/saves do not establish market value or buyer intent; reconcile them with closed sales and actual showings/offers.
+- Square footage, bed counts, renovations, deferred maintenance, and permitted use need verification through public records, disclosures, and inspection; records can also be incomplete.
+- A pending or contingent label is not confirmed availability. Confirm status and explain contingencies before suggesting a viewing or offer.
+- Pre-approval and pre-qualification are lender-specific stages, not guarantees of final funding. Verify the actual letter and conditions.
+- Preserve inspection, appraisal, and financing protections by default. Discuss the specific exposure and alternatives before the user decides to change them.
+- Document earnest-money amount, recipient, due date, and refund/forfeiture conditions from the actual contract and local professional guidance.
+- High cap rates can reflect vacancy, condition, concentration, legal, or operating risk rather than a bargain. Assess measurable property risks rather than demographic stereotypes.
+- Price cuts, long market time, financing type, and FSBO status are signals to investigate, not proof of seller desperation, visibility, or inevitable outcomes.
+
+**User confirmation:** Present drafts and scenarios for the user's decision. Obtain explicit authorization before submitting an offer, contacting an agent, changing a listing, paying a fee, or sending private financial information.
+
+## Cross-check sources and output
+
+Use the county assessor for tax and parcel records, FEMA mapping plus insurance quotes for flood risk, actual rental listings/leases for rent, and authorized MLS or listing-agent confirmation for sale status. Rentometer or Apartments.com can contribute rental comparisons when their current data are accessible. Schools, amenities, and safety questions require current, scoped public evidence and the user's stated needs; avoid demographic steering.
+
+Return: objective and property context; dated inputs and sources; calculation or comparable evidence; range/scenarios and uncertainty; material risks; and the next verification needed. Include source URLs when retrieved, and label conclusions based only on supplied material.
+
+## Verified domain sources
+
+- CFPB, private mortgage insurance: https://www.consumerfinance.gov/ask-cfpb/what-is-private-mortgage-insurance-en-122/ — conventional-loan PMI conditions and costs; retrieved 2026-10-10.
+- Fannie Mae, comparable sales: https://selling-guide.fanniemae.com/sel/b4-1.3-08/comparable-sales — physical/legal similarity, market area, and justified use of older sales; retrieved 2026-10-10. These are appraisal guidance, not universal rules for informal Zillow screening.

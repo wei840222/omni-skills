@@ -1,60 +1,33 @@
-# Pricing Strategy — Zillow
+# Zillow pricing and offer comparisons
 
-## For Sellers
+## Seller competitive analysis
 
-### Competitive Analysis Steps
-1. Pull recently SOLD homes (not active/pending) within 0.5 miles
-2. Filter by similar: beds, baths, sqft (±15%), lot size
-3. Note sold price AND days on market
-4. Adjust for condition differences (updated kitchen = +$X)
-5. Look at currently ACTIVE competitors — you're competing with them
+1. Identify property type, legal use, condition, finished area, lot, and competing market area.
+2. Find recent closed sales that appeal to the same buyer pool. A radius or size tolerance is a starting filter, not a universal rule. Prefer meaningful comparability over arbitrary distance.
+3. Record closing date, sale price, seller concessions when known, exposure, and source. Distinguish sale price from asking price and pending contracts.
+4. Explain adjustments for condition, location, lot, size, and timing. Use supported adjustment evidence; if dollar adjustments are unknown, show directional differences and a range rather than invented renovation premiums.
+5. Review active competitors separately, plus local inventory, showing feedback, and seasonal patterns.
+6. Present a supported list-price range and a review date tied to local exposure and feedback. Explain uncertainty and let the seller choose the trade-off between price and time.
 
-### Pricing Psychology
+Fannie Mae appraisal guidance requires at least three closed comparables for its sales comparison approach, generally favors sales within the last 12 months, and allows older or competing-area sales with explanation. These are program-specific appraisal requirements, not a universal minimum for this informal comparison. If fewer suitable closed sales are available, disclose the gap and request an agent CMA or professional appraisal before a consequential pricing decision.
 
-| Strategy | When to Use |
-|----------|-------------|
-| At market | Standard — aim for quick sale at fair value |
-| 5% under market | Want multiple offers, bidding war |
-| 10% over market | Unique property, testing the market |
-| Make Me Move | Not actively selling, opportunistic only |
+## Pricing scenarios
 
-### The Overpricing Trap
-1. List 10% high → no showings
-2. Sit 30+ days → listing goes "stale"
-3. Reduce price → signals desperation
-4. Sell for LESS than if priced right initially
+Compare pricing near supported value, below it to seek broader demand, or above it when specific evidence supports a premium. Quantify each scenario from the actual comparable range and seller priorities. A fixed 5% discount, 10% premium, or 30-day stale threshold has no universal justification.
 
-**Rule:** Better to price right and get multiple offers than overprice and chase the market down.
+Overpricing may reduce demand, but price cuts or longer exposure do not establish desperation or guarantee a lower final sale. Track inquiries, showings, offers, new competition, inventory, seasonality, and buyer financing conditions before recommending a revision. Historical Zillow product names are not assumed available; verify current official functionality before suggesting a platform-specific listing feature.
 
-### Timing Considerations
-- Check DOM trends: if inventory rising, price sharper
-- Seasonal patterns matter (spring ≠ winter)
-- Interest rate spikes reduce buyer pools
-- New competing listings = consider waiting or adjusting
+## Buyer offer workflow
 
-## For Buyers
+1. Use closed comparables, property condition, and the buyer's full cost budget to set a supported value range.
+2. Assess local competition with a dated sample of offers, sale-to-list ratios, inventory, and comparable market time. Classify market conditions only from that evidence.
+3. Compare price, earnest money, financing certainty, closing timing, seller needs, and protections together. Cash and larger down payments can alter execution risk but do not automatically beat other offers.
+4. Retain inspection, appraisal, and financing protections in the default draft. If the buyer asks to change them, explain repair exposure, appraisal-gap cash needs, deposit forfeiture, and lender/contract conditions; route the decision to the buyer and qualified local professional.
+5. Confirm the actual lender letter, funding conditions, deposit deadlines, and refund provisions. Pre-approval is useful evidence, not a guarantee or universally mandatory label.
+6. Show the proposed offer, supporting evidence, unknowns, and a fallback if appraisal or inspection reveals problems. Obtain the user's explicit approval before submission or external contact.
 
-### Offer Strategy by Market
+A Zestimate can inform the comparison but supplies neither an appraisal nor an automatic offer anchor. If current status or comparable sales cannot be verified, provide a conditional scenario from user-supplied material and name the exact evidence still needed.
 
-| Market Type | How to Identify | Offer Strategy |
-|-------------|-----------------|----------------|
-| Hot seller's | DOM <14, multiple offers common | At/above ask, minimize contingencies |
-| Balanced | DOM 30-60, some negotiation | At ask, standard contingencies |
-| Buyer's | DOM >60, price cuts common | 5-10% under, full contingencies |
+## Source
 
-### Zestimate vs Offer Price
-- Don't anchor to Zestimate — it's an algorithm, not an appraisal
-- Pull actual comps: what did similar homes SELL for?
-- In hot markets, Zestimate often LAGS actual values
-- In slow markets, Zestimate may be ABOVE actual values
-
-### What Affects Your Offer Strength
-
-| Factor | Impact |
-|--------|--------|
-| Cash vs financed | Cash wins, always |
-| Down payment size | 20%+ beats 3.5% FHA |
-| Contingencies | Fewer = stronger (but riskier) |
-| Close timeline | Flexible = attractive to sellers |
-| Pre-approval vs pre-qual | Pre-approval is mandatory |
-| Earnest money | Larger deposit = more serious |
+Fannie Mae, Comparable Sales, retrieved 2026-10-10: https://selling-guide.fanniemae.com/sel/b4-1.3-08/comparable-sales
