@@ -6,7 +6,7 @@
 // Stripe
 const sig = req.headers['stripe-signature'];
 const event = stripe.webhooks.constructEvent(
-  req.rawBody, // MUST be raw, not JSON-parsed
+  req.rawBody, // MUST be raw instead of JSON-parsed
   sig,
   process.env.STRIPE_WEBHOOK_SECRET
 );
@@ -53,13 +53,13 @@ Events arrive out of order. Example:
 2. `invoice.created` (for new plan)
 3. `invoice.paid` ← This might arrive BEFORE #1
 
-**Solution:** Event handlers should be stateless operations, not sequential flows.
+**Solution:** Event handlers should be stateless operations rather than sequential flows.
 
 ```typescript
 // BAD: Assumes order
 async function handleInvoicePaid(invoice) {
   const sub = await db.subscription.findFirst({...});
-  sub.status = 'active'; // Might not exist yet!
+  sub.status = 'active'; // Often delayed or pending creation!
 }
 
 // GOOD: Self-contained
