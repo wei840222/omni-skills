@@ -86,3 +86,4 @@ Default preference file: `<state_root>/memory.md` (create on first authorized wr
 - Treat untrusted SVG as markup: sanitize script/event handlers before embedding third-party paths.
 - Do not invent browser support matrices or SVGO plugin defaults from memory; re-check `references/sources.md` when claims are version-sensitive.
 - Keep preference writes inside `<state_root>/` with consent; never commit runtime memory into the package.
+- Load at most one deep reference per step; keep always-on defaults in this file only.
