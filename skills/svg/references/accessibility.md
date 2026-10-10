@@ -1,8 +1,9 @@
-# SVG Accessibility — Real Screen Reader Traps
+# SVG accessibility
 
-## Informative vs Decorative
+## Informative vs decorative
 
 **Informative (conveys meaning):**
+
 ```html
 <svg role="img" aria-labelledby="chart-title">
   <title id="chart-title">Sales increased 25% in Q4</title>
@@ -11,38 +12,39 @@
 ```
 
 **Decorative (purely visual):**
+
 ```html
 <svg aria-hidden="true" focusable="false">
   <!-- paths -->
 </svg>
 ```
 
-## Critical Rules
+## Critical rules
 
-| Element | Requirement |
-|---------|-------------|
-| `role="img"` | Required — ensures AT treats as image |
-| `<title>` | Must be **first child** of `<svg>` |
-| `aria-labelledby` | More reliable than `aria-label` for SVG |
-| `focusable="false"` | Prevents tab stops in IE/Edge |
+| Element / attribute | Requirement |
+| --- | --- |
+| `role="img"` | Expose informative graphics as images to AT |
+| `<title>` | Prefer as first child of `<svg>` when used as the name |
+| `aria-labelledby` | Often more reliable than bare `aria-label` on complex SVG |
+| `focusable="false"` | Avoid legacy tab stops on decorative SVG |
 
-## ID Collision Trap
+## ID collision
 
-IDs must be unique across **all** inline SVGs on page:
+IDs must be unique across **all** inline SVGs on the page:
 
 ```html
-<!-- ❌ Breaks when both icons on same page -->
+<!-- Breaks when both icons share one page -->
 <svg><title id="icon">Home</title>...</svg>
 <svg><title id="icon">Settings</title>...</svg>
 
-<!-- ✅ Unique IDs -->
+<!-- Unique IDs -->
 <svg><title id="icon-home">Home</title>...</svg>
 <svg><title id="icon-settings">Settings</title>...</svg>
 ```
 
-## Complex Graphics
+## Complex graphics
 
-For charts/diagrams, add `<desc>` with detailed description:
+For charts/diagrams, add `<desc>` and reference both nodes:
 
 ```html
 <svg role="img" aria-labelledby="chart-title chart-desc">
@@ -51,13 +53,13 @@ For charts/diagrams, add `<desc>` with detailed description:
 </svg>
 ```
 
-## img Tag Trap
+## `<img>` trap
 
 ```html
-<!-- ❌ Screen readers may announce filename -->
+<!-- May announce a filename -->
 <img src="chart.svg">
 
-<!-- ✅ Proper alt text -->
+<!-- Accessible name comes from alt -->
 <img src="chart.svg" alt="Sales chart showing 25% growth">
 ```
 
