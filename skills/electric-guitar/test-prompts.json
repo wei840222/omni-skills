@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm working on the intro solo to Comfortably Numb but my bends sound off.",
+    "expected": "Symptom-first bend fix: fretted target note first, bend to match pitch, re-check reference; optional offer to log repertoire/session under resolved state_root after confirm.",
+    "actual": "structural_dry_run: load references/domain.md bend row; instruct fretted target then bend-to-match; one correction only; if user wants logging, resolve <state_root> via configured → workspace/electric-guitar → memory/electric-guitar → ~/electric-guitar, confirm destination, append repertoire/session facts only. No skill-package write.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to get faster at alternate picking. I'm stuck at 100 BPM sixteenth notes and it gets sloppy.",
+    "expected": "Clean-before-speed plan: drop tempo (~60%), keep alternate picking even, rebuild only while clean, with an observable even-stroke cue and optional technique log.",
+    "actual": "structural_dry_run: workflow asks goal (speed/alternate picking), loads domain technique priorities, returns ordered block: drop to ~60-80 BPM; alternate 16ths until up/down strokes stay even; only then climb toward 100 BPM; stop if sloppy returns. Offer technique.md/session log after state_root confirm.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Please log today's 35-minute electric practice: Comfortably Numb intro bends, alternate picking at 80 then 100 BPM, next step hold 80 BPM longer.",
+    "expected": "Resolve state_root with precedence, confirm destination before write, and record only the stated session facts under sessions/ or equivalent progress files.",
+    "actual": "structural_dry_run: resolve <state_root> via configured → workspace/electric-guitar → memory/electric-guitar → ~/electric-guitar; report multi-copy conflict without merge; confirm destination; append session entry with 35 min, Comfortably Numb intro bends, 80→100 BPM alternate picking, next=hold 80 longer. No skill-package write.",
+    "pass": true
+  }
+]
