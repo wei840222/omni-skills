@@ -74,6 +74,8 @@ If older meal files exist outside the candidate roots, offer a one-time migrate 
 
 ## Progressive disclosure
 
+Depth on demand—load only the reference required for the current step.
+
 | Need | Load |
 | --- | --- |
 | Meal DB fields, weekly format, shopping aggregation, pantry, leftovers, ratings, batch cook, seasonal cues | `references/domain.md` |
