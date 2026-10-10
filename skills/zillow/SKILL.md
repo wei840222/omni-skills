@@ -1,20 +1,12 @@
 ---
 name: zillow
-slug: zillow
-version: 1.0.0
-description: Navigate Zillow for buying, selling, investing, and market research with Zestimate interpretation, pricing strategy, and ROI analysis.
-homepage: https://clawic.com/skills/zillow
+description: Navigate Zillow for US property search, Zestimate interpretation, pricing strategy, and rental investment analysis. Use when the user asks about a Zillow listing, home estimate, buyer or seller comparison, or investment figures derived from Zillow.
 metadata:
-  clawdbot:
-    emoji: 🏠
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Zillow
+  version: "1.0.0"
+  openclaw: '{"emoji":"🏠"}'
 ---
+
+This skill is stateless and does not persist user data.
 
 ## When to Use
 
@@ -24,8 +16,8 @@ User needs help with US real estate via Zillow. Agent handles property search, Z
 
 | Topic | File |
 |-------|------|
-| Investor calculations | `investing.md` |
-| Pricing strategy | `pricing.md` |
+| Investor calculations | `references/investing.md` |
+| Pricing strategy | `references/pricing.md` |
 
 ## Core Rules
 
@@ -54,7 +46,7 @@ For buyers, always include ALL components:
 - Seasonal patterns vary by region: Phoenix summer ≠ Chicago summer
 
 ### 4. Investment Metrics Must Be Conservative
-For rental property analysis, see `investing.md`. Key traps:
+For rental property analysis, see `references/investing.md`. Key traps:
 - Use 50% expense rule as MINIMUM, not ceiling
 - Cap rate uses purchase price, not list price
 - Factor vacancy (5-15% depending on market)
