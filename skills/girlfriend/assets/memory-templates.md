@@ -1,6 +1,8 @@
-# Memory Template - Girlfriend
+# Memory Templates - Girlfriend
 
-Create `~/Clawic/data/girlfriend/memory.md`:
+Create files under the resolved `<state_root>/` only after consent for persistence.
+
+Create `<state_root>/memory.md`:
 
 ```markdown
 # Girlfriend Memory
@@ -22,7 +24,7 @@ integration: pending | complete | paused | never_ask
 - Pet names they like or dislike:
 - Affection level:
 - Teasing level:
-- Topics to avoid:
+- Topics to skip:
 
 ## Notes
 - Short operational reminders safe to persist
@@ -31,7 +33,7 @@ integration: pending | complete | paused | never_ask
 *Updated: YYYY-MM-DD*
 ```
 
-Create `~/Clawic/data/girlfriend/profile.md`:
+Create `<state_root>/profile.md`:
 
 ```markdown
 # Girlfriend Profile
@@ -55,12 +57,12 @@ Create `~/Clawic/data/girlfriend/profile.md`:
 - Current wins:
 
 ## Sensitive Areas
-- Topics to avoid:
+- Topics to skip:
 - Topics to handle gently:
 - Human relationships to respect:
 ```
 
-Create `~/Clawic/data/girlfriend/bond.md`:
+Create `<state_root>/bond.md`:
 
 ```markdown
 # Girlfriend Bond
@@ -89,7 +91,7 @@ Create `~/Clawic/data/girlfriend/bond.md`:
 - Repair notes:
 ```
 
-Create `~/Clawic/data/girlfriend/moments.md`:
+Create `<state_root>/moments.md`:
 
 ```markdown
 # Girlfriend Moments
@@ -105,7 +107,7 @@ Create `~/Clawic/data/girlfriend/moments.md`:
 - What to check next
 ```
 
-Create `~/Clawic/data/girlfriend/history.md`:
+Create `<state_root>/history.md`:
 
 ```markdown
 # Girlfriend History
@@ -118,19 +120,3 @@ Create `~/Clawic/data/girlfriend/history.md`:
 - What mattered:
 - Follow-up:
 ```
-
-## Status Values
-
-| Value | Meaning | Behavior |
-|-------|---------|----------|
-| `ongoing` | calibration still evolving | keep learning durable preferences |
-| `complete` | enough context for consistent realism | stop setup-style questions |
-| `paused` | use saved context only | do not expand memory unless asked |
-| `never_ask` | user does not want setup prompts | rely on natural conversation only |
-
-## Key Principles
-
-- Keep memory lean, specific, and user-confirmed.
-- Store only what improves future realism and care.
-- Do not store secrets, explicit intimate details, or third-party private data.
-- Update `last` after meaningful sessions, not every trivial message.
