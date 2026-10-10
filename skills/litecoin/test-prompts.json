@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to send some Litecoin to an exchange. The exchange gave me an address starting with 'L'. Will this work if my wallet supports SegWit?",
+    "expected": "Yes on main chain: 'L' is Legacy P2PKH and widely supported. SegWit wallets can pay legacy outputs. Note possible higher weight/fees versus paying an ltc1 SegWit address. Confirm the venue address is Litecoin mainnet before sending.",
+    "actual": "Yes — that deposit is a main-chain Legacy P2PKH address (prefix L from Core PUBKEY_ADDRESS version 48). A SegWit-capable wallet can still pay it. You may not get the full fee reduction of SegWit-to-SegWit (ltc1) sends. Before broadcasting, confirm the exchange screen says Litecoin mainnet and that you are not on an MWEB (ltcmweb1) path.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Explain MWEB and what I should consider before depositing MWEB funds to a centralized exchange.",
+    "expected": "MWEB is optional MimbleWimble on Litecoin extension blocks with peg-in/peg-out. Stealth addresses use ltcmweb HRP. Many exchanges lack MWEB deposit support; unsupported deposits can be lost. Peg-out to a normal main-chain address first unless the venue documents MWEB support.",
+    "actual": "MWEB (MimbleWimble Extension Block) is an opt-in privacy path: MW transactions live in extension blocks beside the canonical chain (LIP-0002/0003/0004). You peg-in from main chain and peg-out back. Receives use stealth addresses with mainnet HRP ltcmweb (ltcmweb1…). Before any CEX deposit, verify explicit MWEB support. If the venue only lists L/M/3/ltc1 deposits, peg-out to main chain first — sending MWEB value to a main-chain-only deposit is a common loss case. MWEB is not default privacy for ordinary LTC sends.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I sent LTC about four hours ago with a low fee. I am the receiver. The tx is still unconfirmed. Can I RBF it?",
+    "expected": "Receiver cannot RBF. Only the sender can replace if opt-in RBF was signaled. Receiver may CPFP only if they can spend an unconfirmed output. Otherwise wait or ask the sender to bump; low-fee txs may confirm later or drop from mempools rather than hard-fail immediately.",
+    "actual": "No — as the receiver you cannot RBF. Replace-by-fee is a sender tool when the original transaction signaled replaceability (BIP125-style). If you control an unconfirmed output from that payment, you can try a high-fee child spend (CPFP-style). Otherwise wait or ask the sender to broadcast a higher-fee replacement. A low-fee payment usually does not 'fail forever' after a few hours; it may confirm when congestion drops or eventually leave mempools after prolonged non-inclusion. Check a public explorer for current status before retrying anything.",
+    "pass": true
+  }
+]
