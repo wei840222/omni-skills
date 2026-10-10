@@ -15,7 +15,7 @@ Official orientation:
 
 ## Service worker lifetime
 
-MV3 background is a **service worker**: it can start, stop, and restart. Do not rely on in-memory globals across events.
+MV3 background is a **service worker** that may restart between events—persist anything you need next time.
 
 - Persist with `chrome.storage.local` / `session` / `sync` as appropriate (APIs are async — always await).
 - Schedule with `chrome.alarms` instead of long-lived `setInterval`.
