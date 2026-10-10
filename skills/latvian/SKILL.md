@@ -12,9 +12,9 @@ metadata:
   related-skills: '{"lithuanian":"Write Lithuanian when Latvian is not the target language.","russian":"Write Russian when Latvian is not the target language.","polish":"Write Polish when Latvian is not the target language.","translate":"Translate an existing source text into Latvian across formats and locales.","writing":"Shape broader prose once the Latvian-language decision is settled.","english":"Draft or revise the English source before translating it into Latvian.","copywriting":"Shape persuasive marketing copy after the Latvian register is chosen."}'
 ---
 
-Research notes for tu/jūs, particles, and official resources live in `references/sources.md`.
+Research notes for tu/jūs, particles, and official resources live in `references/sources.md` (progressive disclosure).
 
-Expanded particle tables, expressiveness, and delivery checks live in `references/style-guide.md`.
+Expanded particle tables, expressiveness, and delivery checks live in `references/style-guide.md` (progressive disclosure).
 
 ## When to load
 
