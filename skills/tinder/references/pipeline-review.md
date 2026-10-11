@@ -1,6 +1,6 @@
 # Tinder Pipeline Review
 
-Use this for weekly review, not for obsessive daily scorekeeping.
+Use this for weekly review, keeping daily scorekeeping out of scope.
 
 ## Track Only What Changes Decisions
 
@@ -8,7 +8,7 @@ Use this for weekly review, not for obsessive daily scorekeeping.
 - opener categories that get replies from the right people
 - stage where chats usually stall
 - date formats that convert well
-- boundary failures the user wants to avoid repeating
+- boundary failures the user wants to correct
 
 ## Weekly Questions
 
@@ -17,8 +17,8 @@ Use this for weekly review, not for obsessive daily scorekeeping.
 3. Are chats dying before or after a plan is suggested?
 4. Are accepted dates actually the kind of dates the user wants?
 
-## Avoid Bad Analytics
+## Maintain Clean Analytics
 
-- do not optimize only for match count
-- do not interpret one hot or cold week as a permanent truth
-- do not save private detail just because it feels useful in the moment
+- optimize for quality dates over match count
+- treat weekly fluctuations as temporary variance
+- discard private details that lack long-term utility

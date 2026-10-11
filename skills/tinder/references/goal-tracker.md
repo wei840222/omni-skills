@@ -1,6 +1,6 @@
 # Tinder Goal Tracker
 
-Use this skill as an ongoing coach, not a one-off message generator.
+Use this skill as an ongoing coach rather than a one-off message generator.
 
 ## Start With One Objective
 

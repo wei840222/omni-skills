@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "I just matched with someone whose bio says 'I love dogs and hiking'. What should my opener be?",
+    "expected_outputs": ["opener", "profile", "reference", "match"],
+    "actual": "I suggest anchoring to their bio with a simple question that invites a low-pressure response: 'Important question: what kind of dogs, and what's your favorite hiking trail?' Here are two backup options:\n- Option A: 'I'm guessing your dog is the real star of the profile, but I'll say hi to you too. Where's your go-to hike?'\n- Option B: 'Dogs and hiking? Sounds like a solid weekend. What's the best trail you've been on lately?'",
+    "pass": true
+  },
+  {
+    "prompt": "We've been chatting for a few days, and it feels like we're just exchanging small talk about our jobs. How do I move this to a date without being pushy?",
+    "expected_outputs": ["date", "transition", "momentum", "plan"],
+    "actual": "The chat is stable but not moving, so it's time to pivot logistics. Suggest a low-friction public plan. Try this: 'I'm enjoying our chat, but texting about work only goes so far. Want to grab a coffee or a drink this Thursday evening?' Keep it simple so they can easily say yes or propose an alternative.",
+    "pass": true
+  }
+]
