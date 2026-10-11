@@ -1,179 +1,127 @@
 ---
 name: tinder
-slug: tinder
-version: 1.0.0
-description: Coach Tinder goals with profile reviews, opener feedback, chat triage, and local experiments that improve matches and dates over time.
-homepage: https://clawic.com/skills/tinder
-changelog: Refocused the skill as a local coaching system with explicit goals, progress tracking, and iterative improvement loops for Tinder.
+description: >
+  Coach Tinder goals with profile reviews, opener feedback, chat triage, and
+  local experiments that improve matches and dates over time. Use when the user
+  shares Tinder screenshots, bios, chats, match funnel questions, or wants help
+  turning warm chats into low-friction public date plans. Prefer `dates` for
+  offline date logging, `chat` for general tone preferences, and `coach` for
+  non-dating accountability.
 metadata:
-  clawdbot:
-    emoji: TD
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/tinder/
-    os:
-    - darwin
-    - linux
-    - win32
-    configPaths:
-    - ~/Clawic/data/tinder/
-    displayName: Tinder
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/tinder/
+  version: "1.0.1"
+  openclaw: '{"emoji":"💘"}'
+  related-skills: '{"dates":"Offline date logging and person notes once a match leaves the swipe funnel.","chat":"General communication tone and format preferences beyond Tinder threads.","coach":"Non-dating goal coaching and weekly accountability.","empathy":"Reading emotional subtext when a thread feels tense or ambiguous.","couple":"Established relationship milestones after dating becomes a partnership."}'
 ---
 
-## When to Use
+# Tinder
 
-User wants ongoing help performing better on Tinder without sounding scripted, wasting good matches, or dragging chats into nowhere.
-Use this skill as a local coach: the user can keep sending screenshots, bios, chats, and outcomes, and the agent helps improve profile positioning, opener quality, chat decisions, and date conversion over time.
+Local **Tinder coaching** for profile positioning, openers, chat momentum, and
+date conversion. Keeps optional funnel notes under a portable `<state_root>/`.
+Does not send messages, scrape Tinder, or invent verification.
 
-## Architecture
+## When to use
 
-Memory lives in `~/Clawic/data/tinder/`. If `~/Clawic/data/tinder/` does not exist, run `setup.md`. See `memory-template.md` for structure and starter files.
+- Review photos, bio, and prompts against a concrete dating goal
+- Draft match-specific openers from something real in the profile
+- Classify a thread as warming / stable-but-stuck / cold and pick the next move
+- Convert reciprocal chat into a short public plan with a narrow time window
+- Log weekly experiments (opener category, profile edit, stall stage)
+
+Prefer `dates` once the relationship is offline notes. Prefer `chat` for global
+tone defaults. Prefer `coach` when the goal is not dating.
+
+## State location
+
+Tinder state may exist in `<workspace>/tinder/`, `<workspace>/memory/tinder/`, or
+`~/tinder/`. Before reading or writing state, resolve `<state_root>` once per
+invocation:
+
+1. Use an explicitly configured path when the user or host provides one; resolve
+   it to an absolute directory.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/tinder/`, `<workspace>/memory/tinder/`, `~/tinder/`.
+3. If multiple candidates exist, keep only the highest-precedence directory,
+   report the conflict, and leave siblings unchanged.
+4. If none exists and state must be created, default to `<workspace>/tinder/`
+   only after brief consent.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd.
+   An existing `~/tinder/` may be read; otherwise ask before creating data.
+6. Keep the selected `<state_root>` fixed for the whole invocation.
+
+Use the selected `<state_root>` for every state path in this skill. Outside this
+section, every skill-state path uses `<state_root>/...`. Skill resources stay
+under `references/` and `assets/`. Do not treat the literal string
+`<state_root>` as a filesystem path. Do not write passwords, payment details,
+raw chat archives, or unnecessary third-party private data into tinder files.
+Do not write learned preferences into `SKILL.md`.
+
+Default layout (create files on first authorized write from
+`assets/data-templates.md`):
 
 ```text
-~/Clawic/data/tinder/
-|- memory.md         # Activation defaults, tone boundaries, and coaching preferences
-|- goals.md          # Current Tinder objective, bottleneck, and weekly targets
-|- profile-notes.md  # Photo stack, bio tests, and recurring positioning notes
-|- matches.md        # Active matches, stage, and next move
-|- experiments.md    # Openers, profile edits, and what changed response quality
-`- dates.md          # Proposed plans, logistics preferences, and post-date notes
+<state_root>/
+├── memory.md         # activation defaults, tone, coaching preferences
+├── goals.md          # active objective, bottleneck, weekly target
+├── profile-notes.md  # photo stack, bio tests, positioning
+├── matches.md        # active matches, stage, next move
+├── experiments.md    # opener/profile tests and outcomes
+└── dates.md          # proposed plans and post-date notes
 ```
 
-## Quick Reference
+If older notes still live under a legacy marketplace path, offer a one-time
+migrate into the resolved `<state_root>/` and say in one line what moved; do not
+keep marketplace homepage links.
 
-Use the smallest relevant guide for the current problem.
+## Core behavior
 
-| Topic | File |
-|-------|------|
-| Setup and activation behavior | `setup.md` |
-| Memory templates and local files | `memory-template.md` |
-| Goal setting and weekly coaching loop | `goal-tracker.md` |
-| Photo stack and bio review | `profile-audit.md` |
-| Match-specific first messages | `opener-lab.md` |
-| Reading reciprocity and pacing | `chat-momentum.md` |
-| Moving from chat to plan | `date-conversion.md` |
-| Weekly experiments and funnel review | `pipeline-review.md` |
-| Privacy and first-date guardrails | `safety-boundaries.md` |
+1. Start from the active goal and bottleneck (`references/goal-tracker.md`)
+   before generic dating theory.
+2. Fix positioning (`references/profile-audit.md`) before rewriting openers when
+   photos or bio are weak or mismatched.
+3. Anchor every opener to something real in the match profile
+   (`references/opener-lab.md`); give one primary line plus optional backups.
+4. Classify momentum (`references/chat-momentum.md`) by reciprocity and logistics
+   readiness, not message count.
+5. When reciprocity is clear, propose a low-friction public plan with a narrow
+   window (`references/date-conversion.md`).
+6. Keep the user's real-world voice; do not replace it with generic AI flirt copy.
+7. Log only durable experiment signals (`references/pipeline-review.md`).
+8. Safety overrides conversion (`references/safety-boundaries.md`).
 
-## Requirements
+## Progressive disclosure
 
-- Profile screenshots, bio text, prompt answers, or pasted chats if the user wants concrete edits
-- Explicit user confirmation before any irreversible send, unmatch, report, or block action
-- Permission before creating or updating persistent notes in `~/Clawic/data/tinder/`
+| Need | Load |
+| --- | --- |
+| Core rules and common traps | `references/domain.md` |
+| First-run activation and storage consent | `references/setup.md` |
+| File templates for `<state_root>/` | `assets/data-templates.md` |
+| Goal and weekly loop | `references/goal-tracker.md` |
+| Photo/bio audit | `references/profile-audit.md` |
+| Opener craft | `references/opener-lab.md` |
+| Momentum triage | `references/chat-momentum.md` |
+| Date conversion logistics | `references/date-conversion.md` |
+| Weekly funnel review | `references/pipeline-review.md` |
+| Safety and first-meet defaults | `references/safety-boundaries.md` |
+| Verified sources for Gate 6 claims | `references/sources.md` |
 
-If no screenshots or chat text are available, stay in strategy mode instead of pretending to see the match or thread.
+## Failure and safety
 
-## Data Storage
+- No screenshots or chat text: stay in strategy mode; do not pretend to see the
+  match or thread.
+- Missing `<state_root>/`: coach without persistence until the user consents to
+  create files via `references/setup.md`.
+- Conflicting multi-root state: use highest-precedence root only; never merge
+  silently.
+- Irreversible actions (send, unmatch, report, block): require explicit user
+  confirmation; never claim a message was sent unless a separate sending tool
+  confirms it.
+- Money, travel help, sensitive images, or coercive pressure: pull back and load
+  `references/safety-boundaries.md`.
+- First meetups with thin context: public place, short duration, easy exit, low
+  financial pressure.
+- Out of scope: auto-send, catfishing, manipulation, scraping Tinder/socials,
+  inventing verification or compatibility, storing credentials.
 
-Local notes stay in `~/Clawic/data/tinder/`.
-Before creating or changing local files, present the planned write and ask for user confirmation.
+## External endpoints
 
-## Core Rules
-
-### 1. Coach the Active Goal, Not Generic Tinder Theory
-Start from `goal-tracker.md` and the current bottleneck before giving advice.
-- identify whether the user is trying to get better matches, better replies, better dates, or cleaner filtering
-- optimize the next move against that goal instead of dumping broad dating advice
-
-### 2. Fix Positioning Before Chasing Better Openers
-Read `profile-audit.md` before rewriting messages if the user's profile is weak, confusing, or mismatched.
-- poor photos, muddy intent, or generic bios make even strong openers underperform
-- optimize for the kind of matches that lead to good dates, not just more matches
-
-### 3. Anchor Every Opener to the Match Profile
-Use `opener-lab.md` to build the first message from something real in the match's profile.
-- reference a photo, prompt, hobby, or vibe cue that actually exists
-- give one recommended opener plus two backup variants when the user wants options
-- avoid openers that could be pasted into fifty chats without changing anything
-
-### 4. Treat Momentum as a Funnel, Not a Vibe
-Use `chat-momentum.md` to decide whether the thread is:
-- warming
-- stable but not moving
-- cold and not worth more effort
-
-Do not confuse banter volume with real progress. Questions back, specificity, timing, and willingness to build a plan matter more than message count.
-
-### 5. Convert Good Chats Into Small Concrete Dates
-Use `date-conversion.md` when reciprocity is clear.
-- suggest a low-friction public plan with a narrow time window
-- keep logistics simple enough to accept quickly
-- if the other person dodges twice without offering an alternative, downgrade the thread instead of chasing
-
-### 6. Keep the User's Real-World Voice Intact
-This skill should sharpen the user's tone, not replace it with polished AI flirt theater.
-- preserve their baseline level of humor, directness, and seriousness
-- if a line would feel unnatural in person, do not recommend it just because it performs in text
-
-### 7. Log Experiments, Not Private Dossiers
-Use `pipeline-review.md` and `goal-tracker.md` to store only the smallest durable signal that improves future decisions.
-- opener category
-- profile edit
-- stage where chats stall
-- date formats that convert well
-
-Do not store intimate third-party details, raw chat archives, or anything creepy that is not needed for better judgment.
-
-### 8. Safety Overrides Conversion
-Read `safety-boundaries.md` before advice on first dates, verification claims, or moving off-app.
-- no manipulation, catfishing, or pretending to have seen proof that is not there
-- first meetups default to public, easy-exit plans
-- never pressure the user to keep engaging with disrespect, coercion, or obvious inconsistency
-
-## Common Traps
-
-- Sending interchangeable openers -> low reply rate and obvious bot energy.
-- Escalating to number, Instagram, or date before reciprocity exists -> friction and ghosting.
-- Keeping a weak chat alive for ego instead of quality -> time drain and worse framing.
-- Rewriting the user's personality into generic charisma copy -> mismatch when they meet in person.
-- Measuring success by match count only -> more volume with worse outcomes.
-- Saving unnecessary private details about matches -> privacy risk and avoidable creepiness.
-
-## External Endpoints
-
-This skill makes no external requests on its own.
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| None | None | N/A |
-
-No data is sent externally.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- None from this skill itself
-
-**Data that stays local:**
-- optional funnel notes in `~/Clawic/data/tinder/`
-- profile observations, active match stages, and date-conversion patterns approved by the user
-
-**This skill does NOT:**
-- auto-send messages
-- invent verification, intentions, or compatibility
-- scrape Tinder, social media, or private records
-- store credentials, payment details, or unnecessary third-party private data
-- make undeclared network requests
-
-## Trust
-
-This is an instruction-only Tinder coaching skill.
-No credentials are required and no third-party service access is needed.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dates` - shape simple, low-pressure date plans once a match is warm
-- `chat` - refine tone, brevity, and communication defaults across conversations
-- `network` - build low-pressure outreach and follow-up habits beyond swipe apps
-- `coach` - keep weekly accountability on profile tests and conversion goals
-- `empathy` - improve reading of tone, reciprocity, and compatibility cues
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/tinder
-- Latest version: https://clawic.com/skills/tinder
+This skill makes no external network requests on its own.

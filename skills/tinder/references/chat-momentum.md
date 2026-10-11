@@ -11,7 +11,7 @@ Use this to classify the thread before suggesting the next move.
 - new topics keep opening naturally
 
 ### Stable But Stuck
-- they reply politely but do not expand much
+- they reply politely without expanding much
 - banter exists without moving toward anything real
 - there is no clean bridge to a plan yet
 
@@ -25,9 +25,9 @@ Use this to classify the thread before suggesting the next move.
 
 - warming -> keep it light, then bridge toward a date
 - stable but stuck -> introduce one concrete direction or shared-topic pivot
-- cold -> reduce effort, send one clean final attempt at most, then stop
+- cold -> reduce effort, send one clean final attempt at most, then pause engagement
 
 ## Signals Over Message Count
 
-Do not judge momentum by how many messages were exchanged.
+Assess momentum by reciprocity rather than the raw number of messages exchanged.
 Judge it by reciprocity, specificity, and whether trust and logistics are getting easier.
