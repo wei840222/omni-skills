@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a new slide with a bar chart showing quarterly sales (Q1 500, Q2 600, Q3 750, Q4 900) using python-pptx. Add this slide to the end of an existing presentation named quarterly_report.pptx.",
+    "expected": "Loads Presentation('quarterly_report.pptx'); discovers a suitable layout instead of blind index assumptions; builds CategoryChartData with four categories and one series; uses XL_CHART_TYPE.COLUMN_CLUSTERED (or BAR_CLUSTERED) via shapes.add_chart with explicit Inches geometry; saves the file; mentions content+visual QA.",
+    "actual": "Loaded references/charts.md and domain.md. Opened Presentation('quarterly_report.pptx'), listed slide_layouts to pick a title-only or blank-friendly layout, appended a slide, built CategoryChartData categories=['Q1','Q2','Q3','Q4'] with series Sales=(500,600,750,900), added XL_CHART_TYPE.COLUMN_CLUSTERED chart with Inches box, saved. Noted category/series length match and a post-save visual check. Matched core workflow steps 2–5.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need to fix deck.pptx. The second slide has text overflowing its placeholder box. Also ensure the font sizes match the corporate guidelines (titles 40pt, body 20pt) for that slide.",
+    "expected": "Opens deck, targets slides[1] (second slide), identifies title/body shapes, sets text_frame.auto_size=None when needed, applies Pt(40)/Pt(20), saves, and re-checks overflow visually; loads design.md guidance.",
+    "actual": "Loaded references/design.md. Opened deck.pptx, targeted prs.slides[1], found title and body via shapes/placeholders, set auto_size=None on text frames, applied paragraph font sizes Pt(40) title and Pt(20) body, saved, and planned a render/thumbnail pass for overflow. Avoided changing other slides. Matched design font table and domain QA split.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "User has PowerPoint open on macOS in presenter view and wants the current slide notes updated live, plus a PDF export that matches what is on screen. Should powerpoint-pptx own this end-to-end?",
+    "expected": "Routes live window/presenter/export-from-app work to powerpoint; powerpoint-pptx stays offline PPTX/OOXML; cites related-skills boundary.",
+    "actual": "Declined end-to-end ownership. Live presenter view, on-screen notes mutation, and export that must match the open window → powerpoint (osascript). Offered powerpoint-pptx only if the user later wants offline structural PPTX edits without the app session. Matched SKILL when-to-use and related-skills map.",
+    "pass": true
+  }
+]
