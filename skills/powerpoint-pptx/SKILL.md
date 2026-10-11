@@ -57,7 +57,7 @@ Prefer sibling skills when they fit better:
 2. **Inventory first** on any existing deck: layouts, placeholders, notes,
    comments, media, theme fonts/colors, aspect ratio.
 3. **Match content to real placeholders** — count ideas/columns/charts before
-   choosing a layout; never assume layout index `1` is “Title and Content”.
+   choosing a layout; do not assume layout index `1` is “Title and Content”.
 4. **Edit with explicit geometry** (`Inches`/`Pt`); keep theme fonts and colors
    unless the user asked for a restyle.
 5. **Content QA then visual QA** — text/notes/chart semantics first; then
