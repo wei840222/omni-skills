@@ -16,7 +16,6 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
 | passkey                      | 2026-10-12 | 86/100 (#825)                    |
-| tinder                       | 2026-10-11 | 85/100 (#1234)                   |
 | umami                        | 2026-10-12 | 86/100 (#824)                    |
 | basque                       | 2026-10-11 | 86/100 (#823)                    |
 | united-states                | 2026-10-11 | 86/100 (#822)                    |
