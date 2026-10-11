@@ -59,6 +59,6 @@ integration: pending | complete | paused | never_ask
 ## Key Principles
 
 - Store only context the user explicitly approves.
-- Store only non-sensitive data, excluding policy numbers, government IDs, and payment credentials.
+- Keep entries non-sensitive: exclude policy numbers, government IDs, and payment credentials.
 - Keep notes concise and decision-focused.
 - Update `last` whenever memory changes.
