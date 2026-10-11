@@ -54,3 +54,4 @@ layout to `auth`.
 3. Implement registration then authentication with server challenges, origin checks, and sign-count updates.
 4. Add conditional UI (`mediation: "conditional"`) and clear recovery messaging when the product needs passwordless login UX.
 5. For mutable API/library claims, re-open URLs in `references/sources.md` rather than relying on memory.
+6. When a ceremony fails, load recovery checks in `references/implementation.md` and offer a clear next step (retry, another device, or password recovery) instead of only listing prohibitions.
