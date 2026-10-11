@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need help comparing a Silver plan vs a Gold plan for me and my wife. We expect normal checkups and maybe a couple of specialist visits this year.",
+    "expected": "Load coverage-framework and cost-model; lock household scope; ask premiums/deductibles/network/formulary inputs before ranking; model expected annual cost rather than premium alone.",
+    "actual": "Structural dry-run 2026-10-11: SKILL.md routes to references/coverage-framework.md + references/cost-model.md; Core Rules 1–4 require decision context, utilization, mechanics-before-premium, and scenario totals. No live agent transcript in this handoff.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My new employer is offering an HDHP with an HSA or a traditional PPO. I have asthma and take daily medication. How do I decide?",
+    "expected": "Treat daily medication as recurring cost; pull plan-year HSA/HDHP limits from cost-model/sources; ask employer HSA contribution and drug tier on both plans; compare expected and high-use paths.",
+    "actual": "Structural dry-run 2026-10-11: cost-model.md table includes 2024–2026 IRS limits with Rev. Proc. citations; Rule 4 requires source refresh; formulary/network checks appear in Rules 3 and 5. Pass on structure; dollar advice still requires live IRS confirm at answer time.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Open Enrollment is next week. What exact steps should I take after I pick a plan, and what proof should I keep?",
+    "expected": "Load enrollment-playbook; list pre-enrollment package, confirmation capture, 48h verification, and OEP/SEP deadline framing with HealthCare.gov baseline plus state caveat.",
+    "actual": "Structural dry-run 2026-10-11: references/enrollment-playbook.md covers pre/post enrollment, Nov 1–Jan 15 baseline, Dec 15 Jan-1 cutoff note, 60-day SEP hint, and proof artifacts. sources.md links HealthCare.gov deadlines.",
+    "pass": true
+  }
+]

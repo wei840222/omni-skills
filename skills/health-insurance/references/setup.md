@@ -1,6 +1,6 @@
 # Setup — Health Insurance
 
-Read this on first activation when `~/Clawic/data/health-insurance/` does not exist or is incomplete.
+Read this on first activation to initialize an incomplete or missing `<state_root>/`.
 
 ## Operating Attitude
 
@@ -12,12 +12,12 @@ Read this on first activation when `~/Clawic/data/health-insurance/` does not ex
 
 1. Propose local structure and ask for explicit approval before writing files:
 ```bash
-mkdir -p ~/Clawic/data/health-insurance/{comparisons,renewals,notes}
-touch ~/Clawic/data/health-insurance/memory.md
-chmod 700 ~/health-insurance
-chmod 600 ~/Clawic/data/health-insurance/memory.md
+mkdir -p <state_root>/{comparisons,renewals,notes}
+touch <state_root>/memory.md
+chmod 700 <state_root>   # after resolving a real absolute path
+chmod 600 <state_root>/memory.md
 ```
-2. If approved and `memory.md` is empty, initialize from `memory-template.md`.
+2. If approved and `memory.md` is empty, initialize from `references/memory.md`.
 3. Continue with the user request immediately after setup.
 
 ## Integration Priority
@@ -50,7 +50,8 @@ If details are missing, proceed with assumptions and label them clearly.
 ## Optional Depth
 
 If the user wants deeper support, load:
-- `coverage-framework.md` for plan structure and coverage fit
-- `cost-model.md` for annual cost scenario formulas
-- `comparison-checklist.md` for final decision QA
-- `enrollment-playbook.md` for timeline and execution
+- `references/coverage-framework.md` for plan structure and coverage fit
+- `references/cost-model.md` for annual cost scenario formulas
+- `references/comparison-checklist.md` for final decision QA
+- `references/enrollment-playbook.md` for timeline and execution
+- `references/sources.md` for IRS / marketplace primary URLs
