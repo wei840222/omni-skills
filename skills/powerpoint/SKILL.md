@@ -1,132 +1,160 @@
 ---
 name: powerpoint
-slug: powerpoint
-version: 1.0.0
-description: Control PowerPoint app sessions, slides, notes, export, and presentation state with osascript workflows.
-homepage: https://clawic.com/skills/powerpoint
-changelog: Initial release with live PowerPoint automation patterns for sessions, slides, export, slideshow state, and recovery.
+description: >
+  Control Microsoft PowerPoint live app sessions on macOS via osascript:
+  attach/launch, identify active presentation and slide, read/write slides and
+  notes, export PDF from the live deck, start/stop slideshow, and recover clean
+  session ownership. Use when the job depends on an open PowerPoint window or
+  presenter state. Prefer `powerpoint-pptx` for offline PPTX generation or
+  structural file edits; `applescript` for deeper dictionary design; `office`
+  for cross-app Office routing; `documents` for general document prep that
+  feeds a deck.
 metadata:
-  clawdbot:
-    emoji: 📽️
-    requires:
-      bins:
-      - osascript
-    os:
-    - darwin
-    configPaths:
-    - ~/Clawic/data/powerpoint/
-    displayName: PowerPoint
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/powerpoint/
+  version: "1.1.0"
+  openclaw: '{"emoji":"📽️","os":["darwin"],"requires":{"bins":["osascript"]}}'
+  related-skills: '{"applescript":"Deeper AppleScript/dictionary design beyond known-good PowerPoint snippets.","documents":"General document prep workflows that often feed deck content.","office":"Cross-app Office routing across documents, spreadsheets, and presentations.","powerpoint-pptx":"Offline PPTX generation and structural file editing without a live app session."}'
 ---
 
-## When to Use
+# PowerPoint
 
-User needs Microsoft PowerPoint controlled as a live application, not treated as a `.pptx` file format.
-Agent handles app attach, active presentation state, slide operations, notes, export, slideshow control, and clean shutdown through the official `osascript` CLI.
-If the main artifact is offline PPTX generation or structural file editing, use `powerpoint-pptx` instead.
+Own **live Microsoft PowerPoint control on macOS** through `osascript` and the app scripting dictionary: session attach, presentation/slide identity, notes, export, slideshow, and clean recovery. This skill does not rebuild decks as static `.pptx` files.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/powerpoint/`. If `~/Clawic/data/powerpoint/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+PowerPoint state may exist in `<workspace>/powerpoint/`, `<workspace>/memory/powerpoint/`, or `~/powerpoint/`.
+Before reading or writing state, resolve `<state_root>` once per invocation:
 
-```text
-~/Clawic/data/powerpoint/
-├── memory.md             # Environment facts, safe defaults, and last working control path
-├── incidents.md          # Reusable failures and proven recovery steps
-└── deck-notes.md         # Non-sensitive notes about trusted decks, layouts, and export targets
-```
+1. Use an explicitly configured path when the user or host provides one; resolve it to an absolute directory.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/powerpoint/`, `<workspace>/memory/powerpoint/`, `~/powerpoint/`.
+3. If multiple candidates exist, keep only the highest-precedence directory, report the conflict, and leave siblings unchanged.
+4. If none exists and state must be created, default to `<workspace>/powerpoint/` only after brief consent.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell cwd. An existing `~/powerpoint/` may be read; otherwise ask before creating data.
+6. Keep the selected `<state_root>` fixed for the whole invocation.
 
-## Quick Reference
+Use the selected `<state_root>` for every state path in this skill. Outside this section, every skill-state path uses `<state_root>/...`. Skill resources stay under `references/`. Do not treat the literal string `<state_root>` as a filesystem path. Do not write presentation body content, passwords, cloud tokens, or learned preferences into `SKILL.md` or package files.
 
-Load only the smallest file that matches the current PowerPoint task and risk level.
+Default note files (create on first authorized write):
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Interface selection | `execution-matrix.md` |
-| Live control patterns | `live-control-patterns.md` |
-| Destructive action guardrails | `safety-checklist.md` |
-| Debug and recovery | `troubleshooting.md` |
+| File | Purpose |
+| --- | --- |
+| `<state_root>/memory.md` | Environment facts, safe defaults, last working control path |
+| `<state_root>/incidents.md` | Reusable failures and proven recovery steps |
+| `<state_root>/deck-notes.md` | Non-sensitive identifiers, paths, layout quirks, export targets |
 
-## Requirements
+Load `references/memory-template.md` for templates. Load `references/setup.md` only when onboarding or `<state_root>` is empty.
 
-- Microsoft PowerPoint installed locally.
-- macOS with `osascript` available.
-- Explicit confirmation before destructive presentation actions.
+## When to use
 
-## Core Rules
+- Deck is already open in Microsoft PowerPoint and the job needs live app state
+- Read or update slides, notes, or view/slideshow state through the app
+- Export PDF (or similar) that must match the current live rendering
+- Start/stop slideshow or presenter-adjacent control
+- Recover from attach ambiguity, wrong slide, modal dialogs, or orphaned sessions
+
+Prefer adjacent skills when they fit better:
+
+- Offline PPTX create/edit without a live window → `powerpoint-pptx`
+- Deeper AppleScript design beyond known-good snippets → `applescript`
+- Cross-app Office routing → `office`
+- General document prep feeding a deck → `documents`
+
+## Workflow
+
+1. Classify: attach-existing vs launch-new vs save-copy-first (see `references/execution-matrix.md`).
+2. Resolve `<state_root>` only when memory/incidents matter; otherwise stay stateless for one-shot reads.
+3. Preflight the lowest-risk read: PowerPoint running → open presentations count → active presentation name → active slide index/view.
+4. One mutation → one verification (re-read name, slide index, notes, export path, or slideshow state).
+5. Re-open `references/sources.md` before restating version-sensitive PowerPoint dictionary or export claims.
+6. End with provenance: which deck, which slide, attach vs launched, export path, what stayed open.
+
+| Need | Load |
+| --- | --- |
+| Interface selection by job | `references/execution-matrix.md` |
+| Known-good osascript patterns | `references/live-control-patterns.md` |
+| Destructive action preflight | `references/safety-checklist.md` |
+| Onboarding and activation | `references/setup.md` |
+| State file templates | `references/memory-template.md` |
+| Failure ladder and recovery | `references/troubleshooting.md` |
+| Verified official sources | `references/sources.md` |
+
+## Minimum viable defaults
+
+1. **Live app path first** — use `osascript` against Microsoft PowerPoint when the job depends on current presenter/edit state; do not silently switch to offline PPTX libraries.
+2. **Identity before mutation** — confirm presentation name/path and slide index (or ID) before add/move/delete/notes/export.
+3. **Read → act → re-read** — exit code 0 is not proof the visible deck reached the requested state.
+4. **Separate reversible vs destructive** — view changes, slideshow start/stop, and non-overwrite export are usually reversible; delete slide, bulk notes replace, overwrite export, close-without-save need explicit confirmation.
+5. **Session ownership** — if you attached to a user session, keep unrelated decks open and leave PowerPoint running unless quit was approved; if you launched only for this task, close only what you created after reporting results.
+6. **Route adjacencies** — file-only PPTX → `powerpoint-pptx`; deep scripting → `applescript`; multi-app Office → `office`.
+
+## Core rules
 
 ### 1. Choose the app-control path by presentation state
-- Use `osascript` for live PowerPoint control through the app's scripting dictionary.
-- Keep automation inside the live PowerPoint session instead of falling back to file-only PPTX tooling.
-- Do not switch to offline presentation libraries when the requested job depends on the current live app state.
+
+- Prefer `osascript` for live control through PowerPoint's scripting dictionary.
+- Keep automation inside the live session when notes, animations, slideshow, or current view matter.
+- Hand off to `powerpoint-pptx` only when the artifact is offline file structure, not live window state.
 
 ### 2. Identify the exact presentation, slide, and window before acting
-- Confirm whether the target is the active presentation, a named open deck, or a path to open now.
-- Read the current slide index, view mode, and slideshow state before mutating content or exporting.
-- Never assume the frontmost deck is the intended one.
+
+- Confirm active presentation vs named open deck vs path to open now.
+- Read slide index, view mode, and slideshow state before mutating or exporting.
+- Re-verify frontmost deck identity; do not trust selection alone.
 
 ### 3. Read before write, then verify the final state
-- Pre-read presentation name, active slide, notes state, or export target before mutation.
-- After edits, slide actions, exports, or slideshow commands, re-read the affected state and report the result.
-- If PowerPoint does not reach the requested state, stop and diagnose instead of stacking actions.
+
+- Pre-read presentation name, active slide, notes state, or export target.
+- After edits, exports, or slideshow commands, re-read the affected state and report it.
+- If PowerPoint does not reach the requested state, halt and diagnose instead of stacking actions.
 
 ### 4. Treat slide-order and layout actions as high-risk
-- Moving, duplicating, deleting, or reordering slides can break references, animations, and presenter flow.
-- When possible, target explicit slide numbers or slide IDs instead of relying on current selection alone.
+
+- Move, duplicate, delete, or reorder can break references, animations, and presenter flow.
+- Prefer explicit slide numbers or slide IDs over current selection.
 - If slide identity is ambiguous, clarify first.
 
 ### 5. Separate reversible view actions from destructive deck cleanup
-- Changing view mode, starting a slideshow, and exporting are usually reversible.
-- Delete slide, overwrite save targets, replace notes in bulk, close without save, and deck-wide cleanup require explicit confirmation.
-- Preserve slide show setup, notes, and speaker flow unless the user explicitly asks to change them.
+
+- View mode, slideshow start/stop, and export-to-new-path are usually reversible.
+- Delete slide, overwrite save/export targets, bulk notes replace, close without save, and deck-wide cleanup require explicit confirmation.
+- Preserve slide show setup, notes, and speaker flow unless the user asked to change them.
 
 ### 6. Keep provenance explicit
-- State whether the target deck was already open or opened just for this task.
-- Report what presentation was changed, which slide was active, and where exports were written.
-- Preserve user-owned open decks that were outside the task scope.
 
-### 7. Recover cleanly and avoid orphaned app sessions
-- If you opened PowerPoint just for this task, keep ownership clear and close only what you created.
-- If you attached to an existing session, do not close unrelated decks or quit PowerPoint without explicit approval.
-- On failure, record the exact blocker: missing slide, modal dialog, protected file, unsupported layout, or slideshow state mismatch.
+- State whether the deck was already open or opened for this task.
+- Report presentation changed, active slide, and export destinations.
+- Leave user-owned open decks outside the task scope untouched.
 
-## PowerPoint Traps
+### 7. Recover cleanly and prevent orphaned app sessions
 
-- Treating a live deck like a static `.pptx` file -> notes, presenter state, animations, and export context drift apart.
-- Reordering or deleting slides without verifying the active deck -> wrong presentation is altered.
-- Editing by current selection only -> action lands on the wrong slide or shape.
-- Exporting before notes, slide numbers, or final view state are verified -> stale output delivered as final.
-- Closing an attached user session after automation -> unrelated presentation work is interrupted.
-- Ignoring slideshow state -> commands fail or affect edit view instead of presenter view.
+- Close only sessions/decks you created for the task, after verification.
+- On attach-existing, keep PowerPoint running and unrelated decks open unless quit was approved.
+- On failure, record the blocker: missing slide, modal dialog, protected file, unsupported layout, or slideshow mismatch (`references/troubleshooting.md`).
 
-## Security & Privacy
+## Failure branches
 
-**Data that stays local:**
-- Presentation paths, environment notes, and reusable fixes in `~/Clawic/data/powerpoint/`.
-- Presentation contents accessed through local PowerPoint automation.
+| Condition | Action |
+| --- | --- |
+| PowerPoint not running / no presentations | Launch intentionally or wait for an open deck; rerun name/count probe |
+| Wrong slide or deck mutated risk | Halt writes; re-read active presentation + slide index; prefer explicit slide refs |
+| Slideshow commands no-op | Confirm view/slideshow state first; rerun only after expected deck/slide reported |
+| PDF export looks stale | Verify final slide order/notes/view; export only after app reflects final state |
+| osascript dictionary/term errors | Shorten script; validate identity; retry after PowerPoint is frontmost with an open deck |
+| Modal / protected file | Surface dialog or protection; do not bypass prompts; ask user or stop |
 
-**Data that may leave your machine:**
-- Nothing by default from this skill itself.
-- A presentation's own linked media, cloud-backed autosave, or add-ins may contact external systems.
+## Safety defaults
 
-**This skill does NOT:**
-- Use cloud slide APIs or OAuth flows.
-- Disable presentation warnings silently.
-- Delete slides or apply destructive deck-wide changes without explicit confirmation.
-- Bypass PowerPoint protection prompts.
+- Requires macOS + Microsoft PowerPoint + `osascript` (`darwin`). Document platform honestly.
+- No cloud slide APIs or OAuth from this skill. Linked media / autosave / add-ins may still contact external systems via PowerPoint itself—report when relevant.
+- Do not disable presentation warnings silently or bypass protection prompts.
+- Keep writes inside resolved `<state_root>/` with consent; never commit runtime memory into the package.
+- Load at most one deep reference per step; keep always-on defaults in this file only.
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `office` — Broader Office task routing across documents, spreadsheets, and presentations.
-- `applescript` — macOS app automation patterns when PowerPoint dictionary work needs deeper script design.
-- `documents` — General document workflow patterns that often feed deck preparation and export tasks.
+## PowerPoint traps
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/powerpoint
-- Latest version: https://clawic.com/skills/powerpoint
+- Treating a live deck like a static `.pptx` → notes, presenter state, animations, and export context drift.
+- Reordering/deleting without verifying the active deck → wrong presentation altered.
+- Editing by current selection only → wrong slide or shape.
+- Exporting before notes/slide numbers/final view are verified → stale output delivered as final.
+- Closing an attached user session after automation → unrelated work interrupted.
+- Ignoring slideshow state → commands hit edit view instead of presenter view.

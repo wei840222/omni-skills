@@ -10,30 +10,30 @@ osascript -e 'tell application "Microsoft PowerPoint" to get name'
 
 ### 2. Initialize local memory
 
-Create the skill directory:
+Create the skill directory after `<state_root>` resolution and brief consent when creating new state:
 
 ```bash
-mkdir -p ~/powerpoint
+mkdir -p <state_root>
 ```
 
-Create `~/Clawic/data/powerpoint/memory.md` from `memory-template.md`.
+Create `<state_root>/memory.md` from `memory-template.md`.
 
 Create these optional note files if you expect repeated PowerPoint automation:
 
 ```bash
-touch ~/Clawic/data/powerpoint/incidents.md ~/Clawic/data/powerpoint/deck-notes.md
+touch <state_root>/incidents.md <state_root>/deck-notes.md
 ```
 
 ### 3. Capture the minimum environment facts
 
-Add a few stable facts to `~/Clawic/data/powerpoint/memory.md`:
+Add a few stable facts to `<state_root>/memory.md`:
 
 - platform in use: macOS
 - default control path: `osascript`
 - whether PowerPoint is usually already open before automation starts
 - preferred export folder for PDF or image outputs
 
-Do not store presentation contents, secrets, or credentials in these notes.
+Exclude presentation contents, secrets, or credentials in these notes.
 
 ### 4. Register the skill in workspace memory
 
@@ -69,13 +69,13 @@ end tell
 APPLESCRIPT
 ```
 
-If this fails, stop and use `troubleshooting.md` before attempting presentation changes.
+If this fails, halt and use `troubleshooting.md` before attempting presentation changes.
 
 ## When "Done"
 
 Setup is done when:
 
 - at least one official control path works
-- `~/Clawic/data/powerpoint/memory.md` exists
+- `<state_root>/memory.md` exists
 - safety defaults are written down
 - a minimal read-only app check succeeds

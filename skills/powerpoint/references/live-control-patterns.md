@@ -1,6 +1,6 @@
 # Live Control Patterns — PowerPoint
 
-These are operational patterns, not generic tutorials.
+These are operational patterns, rather than generic tutorials. Verify terminology against the local Microsoft PowerPoint dictionary on the target Mac before relying on any single verb.
 
 ## 1. Read the active presentation on macOS
 
@@ -26,7 +26,7 @@ end tell
 APPLESCRIPT
 ```
 
-Why: slide-aware actions fail fast when you do not confirm the active slide first.
+Why: slide-aware actions fail fast when you fail to confirm the active slide first.
 
 ## 3. Export the live deck to PDF
 
@@ -34,10 +34,10 @@ Why: slide-aware actions fail fast when you do not confirm the active slide firs
 osascript -e 'tell application "Microsoft PowerPoint" to save active presentation in "/absolute/path/to/output.pdf" as save as PDF'
 ```
 
-Why: this uses PowerPoint's own rendering path instead of rebuilding slides elsewhere.
+Why: this uses PowerPoint's own rendering path instead of rebuilding slides elsewhere. Use an absolute, non-colliding path; confirm before overwrite.
 
 ## 4. Leave the user's session intact
 
-- Do not quit PowerPoint if you attached to a user-owned session.
-- Do not close unrelated decks.
+- Keep PowerPoint running if you attached to a user-owned session.
+- Keep unrelated decks open.
 - Report which presentation and slide were left active at the end.

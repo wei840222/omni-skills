@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Get the title of the active slide in the currently open PowerPoint presentation on my Mac.",
+    "expected": "Attach to live Microsoft PowerPoint via osascript; verify the app is running and at least one presentation is open; read active presentation name and active slide index; then return the active slide title/text from the live session. Do not use offline PPTX libraries. If PowerPoint is closed or no deck is open, report that blocker instead of guessing.",
+    "actual": "Selected live osascript path (not powerpoint-pptx). Preflight plan: osascript tell Microsoft PowerPoint → running check → count presentations → name of active presentation → slide index of slide range of active window → read title/text from that slide. Stated exit 0 alone is insufficient; re-read identity after attach. If not running or zero presentations, halt with that blocker. Did not invent slide content without app readback.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Export the current presentation as a PDF without overwriting existing files, then close only the deck I opened for this task without saving changes.",
+    "expected": "Confirm deck identity and whether the session was attach-existing vs launch-new. Export via PowerPoint save-as-PDF to an absolute non-colliding path (ask or bump name on conflict). Re-read export target after write. Close-without-save and quitting require explicit confirmation; on attach-existing keep unrelated decks and PowerPoint running unless quit was approved. Close only agent-launched decks after verification.",
+    "actual": "Classified export as reversible only when target path is new; overwrite treated as destructive confirmation. Planned absolute PDF path under preferred export folder with conflict check. Required confirmation before close-without-save. Ownership rule: if attach-existing, leave PowerPoint and sibling decks open; if launch-new for this task, close only that deck after reporting export path and final slide/presentation identity. Pointed at references/safety-checklist.md and live-control-patterns.md export snippet. Did not bypass protection or save dialogs.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Start the slideshow for my open deck, but osascript returned success while nothing entered presenter view. What should I check?",
+    "expected": "Treat slideshow mismatch as a failure branch: re-read active presentation, view mode, and slideshow state; confirm the intended deck is frontmost; avoid stacking further mutations; use troubleshooting ladder (modal dialog, wrong deck, edit vs presenter view). Fix state then retry the smallest slideshow command. Cite sources/troubleshooting rather than inventing dictionary terms.",
+    "actual": "Diagnosed silent no-op as view/slideshow state mismatch, not success. Ordered checks: active presentation name → frontmost window → slide index → slideshow/view state → modal/protection. Instructed halt-and-diagnose per Core Rule 3 and Failure branches. Retry only after PowerPoint reports expected deck/slide; keep scripts short. Loaded references/troubleshooting.md slideshow section and sources.md for dictionary verification. Did not quit user-owned session.",
+    "pass": true
+  }
+]
