@@ -1,6 +1,6 @@
 # Memory Template - Proactivity
 
-Create `~/Clawic/data/proactivity/memory.md` with this structure:
+Create `<state_root>/proactivity/memory.md` with this structure:
 
 ```markdown
 # Proactivity Memory
@@ -20,7 +20,7 @@ integration: pending | complete | paused | never_ask
 - Safe actions it may do automatically
 - Actions it should suggest first
 - Actions that always require approval
-- Actions it should never take
+- Actions it must strictly avoid
 
 ## State Rules
 - What belongs in the session-state file
@@ -48,14 +48,18 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | Setup still evolving | Keep learning useful boundaries |
 | `complete` | Stable proactivity setup | Focus on execution and follow-through |
 | `paused` | User wants less proactivity | Run only on explicit request |
-| `never_ask` | User does not want setup prompts | Stop proactive setup questions |
+| `never_ask` | User does not want setup prompts | Halt proactive setup questions |
 
 ## Local Files to Initialize
 
 ```bash
-mkdir -p ~/Clawic/data/proactivity/{domains,memory}
-touch ~/Clawic/data/proactivity/{memory.md,session-state.md,heartbeat.md,patterns.md,log.md}
-touch ~/Clawic/data/proactivity/memory/working-buffer.md
+mkdir -p "${STATE_ROOT}/proactivity/domains" "${STATE_ROOT}/proactivity/memory"
+touch "${STATE_ROOT}/proactivity/memory.md" \
+  "${STATE_ROOT}/proactivity/session-state.md" \
+  "${STATE_ROOT}/proactivity/heartbeat.md" \
+  "${STATE_ROOT}/proactivity/patterns.md" \
+  "${STATE_ROOT}/proactivity/log.md" \
+  "${STATE_ROOT}/proactivity/memory/working-buffer.md"
 ```
 
 ## Templates for Other Files

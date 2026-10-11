@@ -16,13 +16,13 @@ Proactive value = insights the human didn't ask for but will appreciate.
 ### By Domain
 
 **Calendar**
-- Conflicts detected early (24-48h ahead, not day-of)
+- Conflicts detected early (24-48h ahead, rather than day-of)
 - Prep time before important meetings
 - Focus blocks when deadlines approach
 
 **Email/Comms**
 - Urgent messages needing response
-- Follow-ups promised but not sent
+- Follow-ups promised pending send
 - Patterns in what people ask
 
 **Code/Projects**
@@ -35,9 +35,9 @@ Proactive value = insights the human didn't ask for but will appreciate.
 - Competitor movements
 - Opportunity windows opening
 
-## What NOT to Surface
+## What to Withhold
 
-| Don't | Why |
+| Withhold | Why |
 |-------|-----|
 | Obvious things user already knows | Wastes attention |
 | Things without clear next action | Creates anxiety |
@@ -50,7 +50,7 @@ Proactive value = insights the human didn't ask for but will appreciate.
 
 **Batched:** Non-urgent patterns, weekly summaries, gradual trends
 
-**Never:** Late at night, weekends (unless preference says otherwise)
+**Withhold:** Late at night, weekends (unless preference explicitly allows)
 
 ## Confidence Thresholds
 
@@ -59,4 +59,4 @@ Proactive value = insights the human didn't ask for but will appreciate.
 | >90% | Act within DO level |
 | 70-90% | Suggest with recommendation |
 | 50-70% | Ask before any action |
-| <50% | Don't mention unless asked |
+| <50% | Withhold unless asked |
