@@ -167,3 +167,9 @@ when API names matter.
 - Aspect-ratio mismatches like `16:9` versus `4:3` can shift every placement
   decision even when each slide looks locally reasonable.
 - Treating a live PowerPoint window as a static file — use `powerpoint` instead.
+
+## Load order
+
+1. This file for workflow and traps
+2. `slides.md` / `charts.md` / `design.md` for patterns
+3. `sources.md` before restating API or OOXML facts
