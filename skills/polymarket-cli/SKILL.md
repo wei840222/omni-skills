@@ -57,6 +57,7 @@ outside the agent boundary. Skill preferences use a separate portable layout:
 - Installation, a command family, or CLI flag lookup: read `references/commands.md`
   and inspect the installed subcommand's `--help` before choosing version-specific flags.
 - Saving/updating preferences or interpreting status/integration: read `references/memory.md`.
+- Version drift, collateral/gas conflicts or endpoint provenance: read `references/sources.md`.
 - First consented preference save: copy `assets/memory-template.md` to the selected
   `<state_root>/memory.md`; inspect existing content before an update.
 
@@ -103,9 +104,9 @@ entry, credential-file reading and displaying keys are outside the agent scope.
 
 ### 5. Gas and allowances before on-chain mutations
 
-Direct Polygon writes (`approve set`, `ctf split/merge/redeem`) need the current
-native gas asset. Check the user-approved public balance and existing allowances
-before a confirmed mutation. Verify the installed CLI/current protocol collateral
+Direct Polygon writes (`approve set`, `ctf split/merge/redeem`) need POL, the current
+native gas asset (older CLI documentation still calls it MATIC). Check the
+user-approved public balance and existing allowances before a confirmed mutation. Verify the installed CLI/current protocol collateral
 and spender contracts first; an approval can grant broad spending authority.
 Transaction count and gas charges depend on current contracts and existing state.
 
@@ -148,7 +149,8 @@ polymarket clob spread TOKEN_ID
 Public queries send market IDs/search terms to Gamma (`https://gamma-api.polymarket.com`),
 CLOB (`https://clob.polymarket.com`) and public portfolio addresses to Data API
 (`https://data-api.polymarket.com`). Approved orders go to CLOB; direct transactions
-go to the configured Polygon RPC (historical default `https://polygon-rpc.com`).
+go to the configured Polygon RPC (current upstream default `https://polygon.drpc.org`;
+older versions used `https://polygon-rpc.com`).
 Bridge/relay and install/upgrade paths may contact additional official endpoints;
 inspect the installed version and current source before asserting an exhaustive list.
 Public wallet addresses can link the user to on-chain activity even without a key.
