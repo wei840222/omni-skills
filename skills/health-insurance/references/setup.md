@@ -14,7 +14,7 @@ Read this on first activation to initialize an incomplete or missing `<state_roo
 ```bash
 mkdir -p <state_root>/{comparisons,renewals,notes}
 touch <state_root>/memory.md
-chmod 700 <state_root>
+chmod 700 <state_root>   # after resolving a real absolute path
 chmod 600 <state_root>/memory.md
 ```
 2. If approved and `memory.md` is empty, initialize from `references/memory.md`.
@@ -54,3 +54,4 @@ If the user wants deeper support, load:
 - `references/cost-model.md` for annual cost scenario formulas
 - `references/comparison-checklist.md` for final decision QA
 - `references/enrollment-playbook.md` for timeline and execution
+- `references/sources.md` for IRS / marketplace primary URLs

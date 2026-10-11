@@ -12,9 +12,9 @@ Collect and verify:
 
 ## 2. Enrollment Execution
 
-- Submit enrollment through approved channel.
+- Submit enrollment through the approved channel with the user directing each step.
 - Capture confirmation ID and timestamp.
-- Save screenshots or confirmation artifacts.
+- Save screenshots or confirmation artifacts under `<state_root>/renewals/` only after approval.
 - Verify the submitted plan matches the recommended plan exactly.
 
 ## 3. Post-Enrollment Verification
@@ -27,10 +27,12 @@ Within 48 hours, confirm:
 ## 4. Renewal and Change Triggers
 
 Create reminders for:
-- Open enrollment start and end dates (e.g., ACA Open Enrollment typically runs Nov 1 – Jan 15 in most states).
-- Mid-year qualifying life events (must usually report within 60 days).
+- **Marketplace Open Enrollment** (HealthCare.gov baseline): typically **November 1 – January 15** for the coming coverage year; **December 15** is the usual last day for January 1 effective coverage. State-based marketplaces can differ — confirm the user's state page.
+- Mid-year qualifying life events / Special Enrollment Periods (often report within **60 days**).
 - Premium increase notifications
 - Provider network changes affecting continuity
+
+Source URLs: `references/sources.md`.
 
 ## 5. Dispute Preparedness
 
