@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are a B2B SaaS and want to know if we have product-market fit before scaling ads. What should we measure?",
+    "expected": "Recommend the Sean Ellis survey (share very disappointed if they could no longer use the product), target ~40%+ among recent active users with adequate sample, pair with retention-curve signal, and load references/validation.md plus references/sources.md. Do not jump straight to paid acquisition tactics.",
+    "actual": "Loaded product skill. Cited Sean Ellis PMF question from references/validation.md: measure % very disappointed if the product disappeared; ~40%+ among recent actives is the classic scale gate, with ~40+ respondents before treating it as decisive. Paired with retention-curve flattening from the same file. Pointed to references/sources.md (First Round Superhuman, pmfsurvey.com) and blocked scaling ads until PMF/retention signal exists.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to prioritize three app features for next quarter. Which framework should I use and how?",
+    "expected": "Use RICE (Reach × Impact × Confidence / Effort) from references/prioritization.md with explicit scoring scales; mention ICE for faster growth experiments or MoSCoW for release scoping when stakeholders need must/should language.",
+    "actual": "Opened references/prioritization.md. Applied RICE: score = (Reach × Impact × Confidence) / Effort with Impact 3/2/1/0.5/0.25 and Confidence as %. Walked one example table, warned against false precision, and offered MoSCoW if the need was release scoping rather than comparable feature ranking.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "What size and background does my Amazon main product image need?",
+    "expected": "State pure white RGB 255,255,255 main image, minimum ~1000px longest side for zoom eligibility, prefer 1600px+, product fill and no text/logo on main; require confirming live Seller Central image help from references/sources.md rather than inventing fee or max-size trivia.",
+    "actual": "From references/specs.md and references/amazon.md: main image on pure white (255,255,255), ≥1000px longest side (1600px+ preferred for zoom), high frame fill, no text/watermarks/logos on main. Directed the user to Seller Central help G200339940 links in references/sources.md before upload, and did not invent a frozen max file size as gospel.",
+    "pass": true
+  }
+]
