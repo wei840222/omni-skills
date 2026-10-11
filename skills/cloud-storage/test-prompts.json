@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Upload the local backup.tar.gz to S3 and verify the checksum before we delete the laptop copy.",
+    "expected": "Use aws s3 cp or equivalent, then verify size/ETag or MD5 as applicable; refuse delete until verification passes. Load references/domain.md critical rules and references/auth.md if credentials/region fail.",
+    "actual": "Loaded cloud-storage. Directed aws s3 cp backup.tar.gz s3://bucket/key with explicit region/profile, then aws s3api head-object / checksum comparison against local MD5/ETag caveats for multipart. Stated delete is blocked until size+checksum verification succeeds per references/domain.md. Offered s3 skill only if presign/lifecycle were needed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We need to migrate about 10TB from S3 us-east-1 to GCS europe-west1. Give a cost estimate and migration plan.",
+    "expected": "Separate storage vs egress vs operations; treat ~$0.09/GB-class egress as orientation only and require live AWS/GCS pricing URLs from references/sources.md; plan inventory, checkpoints/resume, rate limits, and post-copy verification before cutover. Mention transfer services where appropriate.",
+    "actual": "Opened references/costs.md and references/sources.md. Framed 10TB×orientation $0.09/GB egress ≈ $900 order-of-magnitude, plus destination write ops and ongoing GCS storage, with mandatory re-check on aws.amazon.com/s3/pricing and cloud.google.com/storage/pricing for the exact regions. Plan: inventory → cost gate → chunked copy or Storage Transfer → checksum/count verification → only then decommission source. Noted private interconnect/transfer programs can change economics.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should we serve a high-traffic public asset library from S3 or Cloudflare R2 if egress is most of the bill?",
+    "expected": "Compare egress-dominated economics using R2 documented free internet egress vs S3 egress orientation; still count R2 storage ($0.015/GB-mo docs) and Class A/B ops; require live sources.md confirmation; not a full architecture redesign (storage skill) unless asked.",
+    "actual": "From references/costs.md and R2 docs linked in sources.md: R2 Standard lists free egress to Internet and $0.015/GB-month storage plus Class A/B ops; S3 internet egress at common ~$0.09/GB orientation dominates multi-TB serve. Recommended verifying both live pricing pages, then pilot R2 or CDN shielding if egress is the bill driver. Did not expand into full multi-tier architecture (handed that to storage if needed).",
+    "pass": true
+  }
+]
