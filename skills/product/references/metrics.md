@@ -1,5 +1,7 @@
 # Product Metrics
 
+Formulas below are orientation definitions for product conversations. For production MRR movement bridges, dunning, or plan packaging, prefer the `saas` skill and re-check live finance definitions.
+
 ## Revenue Metrics
 
 ### MRR (Monthly Recurring Revenue)

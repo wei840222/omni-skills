@@ -54,7 +54,7 @@ Faster than RICE, more subjective. Best for growth experiments.
 | **Basic** | Expected; absence = dissatisfaction | Must have |
 | **Performance** | More is better, linear satisfaction | Competitive differentiator |
 | **Excitement** | Unexpected delight | Word-of-mouth drivers |
-| **Indifferent** | Users don't care | Deprioritize |
+| **Indifferent** | Users are indifferent | Deprioritize |
 | **Reverse** | Some want opposite | Segment carefully |
 
 **How to identify (Kano Questionnaire):**
@@ -93,7 +93,7 @@ Features important to users but poorly satisfied = biggest opportunities
 | | Low Effort | High Effort |
 |---------|------------|-------------|
 | **High Impact** | Quick wins — do first | Major projects — plan carefully |
-| **Low Impact** | Fill-ins — maybe later | Time sinks — avoid |
+| **Low Impact** | Fill-ins — maybe later | Time sinks — bypass |
 
 ## When to Use Which
 

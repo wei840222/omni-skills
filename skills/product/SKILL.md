@@ -1,14 +1,15 @@
 ---
 name: product
-slug: product
-version: 1.0.0
 description: Build, visualize, and launch products with strategy frameworks, AI imagery tools, and marketplace optimization.
-homepage: https://clawic.com/skills/product
 metadata:
-  clawdbot:
-    emoji: 📦
-    displayName: Product
+  version: "1.0.0"
+  openclaw: '{"emoji":"📦","displayName":"Product"}'
+  related-skills: '{"product-manager":"Pure PM discovery and roadmaps without marketplace imagery.","pricing":"Deep B2B list-price math beyond fee-aware product margins.","saas":"Subscription metrics once the product is recurring.","indie-hacker":"Solo bootstrap validation and time protection.","amazon":"Amazon channel ops beyond listing image checklists.","etsy":"Etsy shop diagnostics beyond cross-channel launch.","product-launch":"Go-to-market sequencing after the build decision.","growth":"Acquisition funnels after PMF."}'
 ---
+
+# Product
+
+Knowledge-only skill for product validation, prioritization, metrics, pricing, AI imagery, and marketplace listing specs. Does not persist runtime state.
 
 ## When to Use
 - Creating products (digital SaaS or physical goods)
@@ -21,42 +22,21 @@ metadata:
 
 | Need | File |
 |------|------|
-| Validate an idea | `strategy/validation.md` |
-| Prioritize features | `strategy/prioritization.md` |
-| Track metrics | `strategy/metrics.md` |
-| AI image tools | `visuals/ai-tools.md` |
-| Product photo prompts | `visuals/prompts.md` |
-| Image specs by platform | `visuals/specs.md` |
-| Amazon FBA | `commerce/amazon.md` |
-| Etsy selling | `commerce/etsy.md` |
-| Print-on-demand | `commerce/pod.md` |
-| Pricing strategies | `commerce/pricing.md` |
-| Manufacturing compliance | `manufacturing/compliance.md` |
-
-## Core Workflow
-
-**Digital Products (SaaS):**
-1. Validate → `strategy/validation.md` (interviews, smoke tests)
-2. Define MVP → strip to one core value proposition
-3. Prioritize → `strategy/prioritization.md` (RICE scoring)
-4. Launch → beta program, iterate fast
-5. Measure PMF → `strategy/metrics.md` (Sean Ellis 40%+)
-
-**Physical Products:**
-1. Design → ensure DFM compliance
-2. Source → `manufacturing/compliance.md` for certs by region
-3. Photograph → `visuals/prompts.md` for AI shots
-4. List → platform-specific files in `commerce/`
-5. Launch → limited drops, scarcity mechanics
-
-**Merchandising (logo on products):**
-1. Create design at highest resolution needed
-2. Use AI mockup tools → `visuals/ai-tools.md`
-3. Export platform-specific sizes → `visuals/specs.md`
-4. List across platforms → `commerce/pod.md`
+| Core workflows and rules | `references/domain.md` |
+| Validate an idea | `references/validation.md` |
+| Prioritize features | `references/prioritization.md` |
+| Track metrics | `references/metrics.md` |
+| AI image tools | `references/ai-tools.md` |
+| Product photo prompts | `references/prompts.md` |
+| Image specs by platform | `references/specs.md` |
+| Amazon FBA | `references/amazon.md` |
+| Etsy selling | `references/etsy.md` |
+| Print-on-demand | `references/pod.md` |
+| Pricing strategies | `references/pricing.md` |
+| Manufacturing compliance | `references/compliance.md` |
 
 ## Critical Rules
-- **Validate before building** — always test demand first
-- **Platform specs matter** — wrong dimensions = rejected listings
-- **Pricing includes fees** — calculate true margins after all platform cuts
-- **PMF before scaling** — 40%+ "very disappointed" on Sean Ellis test
+- Validate before building
+- Platform specs matter
+- Pricing includes fees
+- PMF before scaling

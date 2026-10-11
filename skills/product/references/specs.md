@@ -1,19 +1,21 @@
 # Image Specifications by Platform
 
+Confirm Amazon and POD numbers against the official help pages in `references/sources.md` when a listing is about to upload. Figures below are working defaults used across recent seller guidance.
+
 ## Amazon
 
 ### Product Images
-| Element | Requirement |
+| Element | Working default |
 |---------|-------------|
 | Main image background | Pure white (RGB 255,255,255) |
-| Minimum size | 1000px on longest side |
-| Optimal (zoom) | 1600px+ on longest side |
-| Maximum size | 10,000px |
-| Formats | JPEG (preferred), PNG, TIFF, GIF |
-| File size | Max 10MB |
-| Product fill | At least 85% of frame |
-| Main image rules | No text, watermarks, logos, borders |
-| Image count | Up to 9 (1 main + 8 additional) |
+| Minimum size | 1000px on longest side (zoom eligibility) |
+| Optimal (zoom) | 1600px+ on longest side common practice |
+| Maximum size | Check current Seller Central cap |
+| Formats | JPEG preferred; PNG/TIFF/GIF may be accepted per help page |
+| File size | Check current Seller Central cap |
+| Product fill | Often ≥85% of frame on main image |
+| Main image rules | No text, watermarks, logos, borders, or lifestyle props on main |
+| Image count | Main + additional slots per category help |
 
 ### A+ Content Images
 | Type | Dimensions |

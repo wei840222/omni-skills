@@ -6,14 +6,14 @@
 ```
 1. "Tell me about the last time you [experienced the problem]"
 2. "What did you do about it?"
-3. "What don't you love about that solution?"
+3. "What parts of that solution need improvement?"
 4. "If you could wave a magic wand, what would be different?"
 5. "How much time/money does this problem cost you?"
 ```
 
 ### The Mom Test (Key Principles)
-- Never pitch; only listen
-- Ask about the past, not hypothetical futures
+- Focus entirely on listening rather than pitching
+- Ask about the past rather than hypothetical futures
 - "Would you use X?" is worthless — ask what they did last time
 - Compliments are noise; commitments are signal
 - Get specifics: "When was the last time...?"
@@ -46,24 +46,24 @@
 ### Pre-Order Campaign
 - Take money before building
 - Refundable deposits = real commitment
-- **Benchmark:** if people won't pay, don't build
+- **Benchmark:** if people refuse to pay, bypass development
 
 ## Quantitative Validation
 
 ### Sean Ellis PMF Survey
 **Question:** "How would you feel if you could no longer use [product]?"
 - Very disappointed → Core users
-- Somewhat disappointed → Interested, not hooked
-- Not disappointed → Wrong segment
+- Somewhat disappointed → Interested but unhooked
+- Not disappointed / unfazed → Wrong segment or weak value
 
-**Target:** 40%+ "Very disappointed" = PMF signal
+**Target:** 40%+ "Very disappointed" among recent active users is the classic Sean Ellis scale signal (see `references/sources.md`: First Round Superhuman write-up, pmfsurvey.com).
 
 **Follow-ups:**
 1. "What type of people would most benefit?"
 2. "What is the primary benefit you receive?"
 3. "How can we improve for you?"
 
-**Sample size:** 40-50 active users minimum
+**Sample size:** aim for ~40+ recent active users before treating the percentage as decisive; smaller samples are directional only.
 
 ### Retention Curve Analysis
 - Plot retention by cohort over time
