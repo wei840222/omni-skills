@@ -1,13 +1,9 @@
 ---
 name: bengali
-slug: bengali
-version: 1.0.0
 description: Write Bengali that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/bengali
 metadata:
-  clawdbot:
-    emoji: 🇧🇩
-    displayName: Bengali
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇧🇩"}'
 ---
 
 ## The Real Problem
