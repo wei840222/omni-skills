@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are a Series A B2B SaaS startup. What partnership models should we prioritize right now to build credibility?",
+    "expected": "Routes to cbo stage table + partnerships; prioritizes channel/referral and co-marketing with low overhead; names owners and success metrics; avoids vague exclusivity; may hand live counters to negotiate.",
+    "actual": "Selected cbo for Series A BD. Loaded references/domain.md stage table (Series A: scalable BD, first channel partnerships) and references/partnerships.md. Recommended channel/referral plus co-marketing with shared audience, scored partners on strategic fit and capacity, proposed a pilot with clear KPIs rather than blanket exclusivity, and deferred hard-limit live counters to negotiate while keeping pipeline records in crm.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Our current enterprise customer accounts for 40% of our revenue. We are about to negotiate our contract renewal. How should we approach this from a CBO perspective?",
+    "expected": "Flags >30% concentration as critical; protects renewal with longer term without reckless discounting; forces parallel diversification plan; uses deals/revenue guidance and may hand live negotiation limits to negotiate.",
+    "actual": "Flagged 40% single-customer share as critical per references/revenue.md concentration table. For renewal: secure term length and clear scope first, avoid panic discounting that signals weakness, define BATNA and walk-away from references/deals.md, and run a parallel 12-month diversification plan (net-new + channel). Live commercial counters with hard limits go to negotiate; forecast and account hygiene stay in crm.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Should we enter Japan next quarter with a full local office, or is there a lighter path?",
+    "expected": "Uses expansion decision framework; checks PMF and resourcing; prefers validated beachhead and partner/distributor before direct presence; loads localization checklist; does not invent regulatory trivia without sources.",
+    "actual": "Loaded references/expansion.md. Asked whether core PMF and retention are solid, then compared distributor vs local partner vs direct presence on investment/speed/control. Defaulted to demand validation + beachhead segment with a local partner before a full office, ran localization checklist (payments, language context, support hours), and pointed statutory claims to references/sources.md rather than memorized Japan law.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Draft the commercial term-sheet headings we need before legal paper for a reseller deal.",
+    "expected": "Lists economics, scope, duration, protection, exit from deals.md; keeps exclusivity time-bounded and priced; does not replace counsel; points live negotiation to negotiate.",
+    "actual": "Used references/deals.md term-sheet essentials: economics (fees, timing, minimums), scope (included/excluded, geo), duration (term, renewal, notice), protection (IP, confidentiality, liability caps), exit (cause/convenience, wind-down, data). Flagged exclusivity as expensive and time-bounded. Clarified this is commercial structure only—legal drafting is out of band—and live counters with principal limits belong in negotiate.",
+    "pass": true
+  },
+  {
+    "id": 5,
+    "prompt": "Help me redesign our list prices and packaging tiers for the product catalog.",
+    "expected": "Does not over-claim cbo ownership; routes primary work to pricing (and billing for charge implementation), optionally keeps cbo only for deal-facing discount guardrails.",
+    "actual": "Recognized list-price and packaging as pricing's lane, not cbo core. Redirected to pricing for value metrics, tiers, WTP, and grandfathering; billing for charge/proration. Offered cbo only for deal-facing discount floors and channel conflict if a live partner motion exists.",
+    "pass": true
+  }
+]
