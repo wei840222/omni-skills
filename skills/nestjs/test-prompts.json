@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I fix a circular dependency between two NestJS modules that inject each other's services?",
+    "expected": "Names DI/module layer; requires forwardRef on both module imports and both providers with @Inject(forwardRef(() => ...)); warns about barrel index.ts cycles; points at sources.",
+    "actual": "Failing layer: DI / circular graph. Prefer breaking the cycle. If both modules must import each other, put `forwardRef(() => OtherModule)` in both `imports` arrays. For the services, inject with `@Inject(forwardRef(() => OtherService))` on both constructors. Avoid same-folder barrel `index.ts` re-exports that create false cycles—import concrete files. REQUEST-scoped providers inside a circular forwardRef graph can resolve as undefined; redesign if that appears. Re-open `references/sources.md` (circular-dependency).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My nested DTO is not validating in NestJS even though ValidationPipe is global. What am I missing?",
+    "expected": "Requires class DTO (not interface), class-validator decorators, transform/whitelist context, and both @ValidateNested and @Type(() => NestedDto) on nested properties.",
+    "actual": "Failing layer: validation/pipes. Confirm the parameter type is a concrete class (not an interface or `import type`), with class-validator decorators, and that `class-validator` + `class-transformer` are installed. Global `ValidationPipe` should usually set `transform: true` (plain → class instance) and often `whitelist` / `forbidNonWhitelisted`. For nested objects, decorate the property with both `@ValidateNested()` and `@Type(() => NestedDto)`—either alone leaves a plain object unvalidated. Array bodies need `ParseArrayPipe({ items: Dto })` or a wrapper class because generics emit no design:type metadata. Load `references/sources.md` (validation).",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "A guard cannot read the transformed body, my filter never runs when I return an HttpException, and e2e tests hang. How should Nest lifecycle and testing fit together?",
+    "expected": "Lifecycle order guards-before-pipes; throw not return for filters; e2e app.init/close; createTestingModule does not auto-mock.",
+    "actual": "Split layers: (1) Lifecycle is middleware → guards → interceptors(pre) → pipes → handler → interceptors(post) → filters. Guards run before pipes, so they never see ValidationPipe-transformed DTOs—authorize on raw request/user context instead. (2) Filters only handle uncaught throws; `return new HttpException(...)` skips the exceptions layer—`throw new BadRequestException(...)` (or subclass). Middleware errors hit global filters only. (3) Tests: list mocks in `providers` or `.overrideProvider(X).useValue(mock)` before `.compile()`; e2e needs `createNestApplication()`, `await app.init()`, and `await app.close()` in afterAll. Prefer singleton seams when REQUEST scope is not under test. Sources: request-lifecycle, exception-filters, unit-testing.",
+    "pass": true
+  }
+]
