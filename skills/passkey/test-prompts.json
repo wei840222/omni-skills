@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Review this WebAuthn registration snippet: `const options = { challenge: new Uint8Array(32), userVerification: 'preferred' };` What should change before production?",
+    "expected": "Rejects client-only challenge; requires server-generated unique challenge with short TTL; explains userVerification preferred may skip biometric/PIN; points at domain.md / implementation.md.",
+    "actual": "Read references/domain.md and implementation.md. Challenge must be generated and stored server-side per ceremony (CSPRNG, ~60–120s TTL), not only `new Uint8Array(32)` in the browser. userVerification 'preferred' may complete without UV — use 'required' when biometric/PIN is mandatory. Also validate origin/RP ID and persist credential ID, COSE public key, and sign count via a maintained library (e.g. SimpleWebAuthn).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are common authentication traps when implementing passkeys?",
+    "expected": "Covers empty allowCredentials / discoverable credentials, short timeouts on cross-device/QR, keeping the challenge alive through hybrid handshake, and mapping credential ID before verify.",
+    "actual": "Listed empty allowCredentials enabling discoverable flows (not all passkeys are discoverable), timeouts under ~120s failing QR/hybrid auth, dropping the server challenge during Bluetooth/cable handshake, and verifying assertions without loading the stored public key for the returned credential ID. Recommended ≥120s timeout for cross-device and server-side challenge lifecycle.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "User lost their only hardware key and has no password. What should the passkey design have included?",
+    "expected": "Multiple passkeys per account plus an explicit recovery path (password, email, or IdP); hardware loss must not permanent-lock.",
+    "actual": "Design should allow multiple passkeys per account and keep a recovery factor (password, email recovery, or federated IdP). Single-device passkey-only accounts without recovery permanently lock users after hardware loss — called out in core rules and domain UX section.",
+    "pass": true
+  }
+]
