@@ -20,4 +20,4 @@ Hurricane season runs June-November; flexible bookings and storm contingency mat
 ## Family Execution Notes
 
 - Theme-park days require reservation/queue strategy, hydration blocks, and rest windows.
-- Avoid stacking full-day parks without recovery days.
+- Schedule recovery days between full-day park visits.

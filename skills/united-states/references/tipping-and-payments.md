@@ -9,11 +9,11 @@
 
 - Full-service restaurants: tipping is generally expected.
 - Bars, rides, and hotel service roles usually involve smaller tip norms.
-- If service charge is already included, adjust to avoid double tipping.
+- If service charge is already included, adjust the tip to account for it.
 
 ## Tax at Checkout
 
-- Posted prices usually do not include sales tax.
+- Posted prices typically exclude sales tax, which is added at checkout.
 - Final checkout totals vary by state/locality.
 - Some states have no statewide sales tax, but local taxes may still apply.
 
@@ -25,8 +25,8 @@
 
 ## Practical Rule
 
-Always price the real total (room + taxes + fees + transport + tips), not just base rates.
+Always price the real total (room + taxes + fees + transport + tips), rather than just base rates.
 
 ## Source Reminder
 
-See `sources.md` for current sales-tax and transport payment references.
+See `references/sources.md` for current sales-tax and transport payment references.

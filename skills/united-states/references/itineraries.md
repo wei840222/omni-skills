@@ -8,7 +8,7 @@
 - Day 7: Buffer + departure
 
 ### Option B: Los Angeles + San Diego
-- Days 1-3: LA by zones (do not cross city repeatedly)
+- Days 1-3: LA by zones (stay within one zone per day)
 - Days 4-5: Pacific coast/Orange County stop
 - Days 6-7: San Diego + return
 
@@ -36,7 +36,7 @@
 - Region 1 (cities): 6-7 days
 - Region 2 (parks/coast): 7 days
 - Region 3 (culture/food/south): 6-7 days
-- Do not exceed 3 major regions unless trip is very transfer-tolerant
+- Limit trips to 3 major regions unless the traveler prefers high-transfer itineraries
 
 ## Itinerary Quality Checks
 

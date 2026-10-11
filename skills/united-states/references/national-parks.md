@@ -3,12 +3,13 @@
 ## Entrance and Pass Basics
 
 - Many national park sites are free, but major parks may require entrance fees.
-- America the Beautiful interagency passes cover federal recreation entrance/day-use fees at participating agencies.
-- Non-resident annual pass options now exist; verify current price and eligibility before purchase.
+- America the Beautiful **Resident** Annual Pass is **$80** for U.S. citizens/permanent residents and covers entrance/standard amenity fees at participating federal sites for the pass holder and passengers in a personal vehicle (subject to site rules).
+- America the Beautiful **Non-Resident** Annual Pass is **$250** and is the interagency option for non-U.S. residents; some parks also charge separate nonresident entrance add-ons without it.
+- Senior / Military / Access variants have different prices or free eligibility — verify current NPS pass table before promising savings.
 
 ## Reservation Systems (Critical)
 
-Some high-demand parks or corridors use timed entry or reservations seasonally. Never assume same-day access.
+Some high-demand parks or corridors use timed entry or reservations seasonally. Always verify same-day access availability in advance.
 
 ### High-impact examples
 
@@ -38,4 +39,4 @@ Some high-demand parks or corridors use timed entry or reservations seasonally. 
 
 ## Source Reminder
 
-See `sources.md` for NPS passes, Yosemite, RMNP, and NPS app links.
+See `references/sources.md` for NPS passes, Yosemite, RMNP, and NPS app links.

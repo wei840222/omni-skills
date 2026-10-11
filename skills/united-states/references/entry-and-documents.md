@@ -16,9 +16,12 @@
 
 ## ESTA Practical Notes
 
-- ESTA authorization allows travel attempt, not guaranteed admission.
+- ESTA authorization allows a travel attempt; admission is still decided at the port of entry.
+- HR-1 raised the ESTA authorization fee above the legacy $21 rate. FY 2026 total is **$40.27** per authorization; FY 2027 total is **$40.62**, assessed by CBP from **2026-10-16**.
+- Denied applications still incur the cost-recovery portion (FY 2026 **$10.27**; FY 2027 **$10.62**).
 - Approved ESTA is generally valid for 2 years or until passport expiry (whichever comes first).
 - Multiple trips are possible while valid, with each stay capped by VWP rules.
+- Always confirm the live total on the official ESTA site before payment; cite Federal Register HR-1 fee notices when quoting a number.
 
 ## I-94 Essentials
 
@@ -36,7 +39,7 @@
 
 For B-1/B-2 cases:
 - Visa interview wait times vary by post and season.
-- Apply early; avoid tight trips that depend on uncertain interview slots.
+- Apply early; ensure ample time before trips that depend on interview slots.
 
 ## Checklist Before Locking Non-Refundables
 
@@ -48,4 +51,4 @@ For B-1/B-2 cases:
 
 ## Source Reminder
 
-Use `sources.md` for official links and refresh targets.
+Use `references/sources.md` for official links and refresh targets.

@@ -15,7 +15,7 @@ Coastline + cities + parks in one state, with high variety and high transfer com
 
 ## Planning Rules
 
-- LA movement is zone-based; avoid multi-zone daily zig-zag.
+- LA movement is zone-based; group activities by zone to minimize transit time.
 - Pacific Coast segments need slower pacing than map distance suggests.
 - Yosemite/other park add-ons require permit and season checks.
 

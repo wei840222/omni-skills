@@ -33,4 +33,4 @@ No phone = no itinerary. Build redundancy for maps, payment, and reservations.
 
 ## Source Reminder
 
-See `sources.md` for OMNY, Metro TAP, BART, NPS App, and alerts links.
+See `references/sources.md` for OMNY, Metro TAP, BART, NPS App, and alerts links.

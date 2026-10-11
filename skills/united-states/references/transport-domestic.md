@@ -7,7 +7,7 @@
 | 250-600 miles urban corridor | Rail or short flight | Depends on station/airport access overhead |
 | Coast-to-coast or multi-time-zone | Flight | Time-efficient despite airport friction |
 | National park loops | Car | Last-mile access and schedule control |
-| Dense city core trips | Public transit + walking | Avoid parking, toll, and congestion cost |
+| Dense city core trips | Public transit + walking | Bypass parking, toll, and congestion costs |
 
 ## Flight Screening Reality
 
@@ -39,4 +39,4 @@ Renting a car for city-only itineraries in Manhattan, central San Francisco, cen
 
 ## Source Reminder
 
-See `sources.md` for TSA, Amtrak, OMNY, Metro TAP, and BART links.
+See `references/sources.md` for TSA, Amtrak, OMNY, Metro TAP, and BART links.

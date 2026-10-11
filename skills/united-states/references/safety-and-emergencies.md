@@ -16,7 +16,7 @@
 
 - Use licensed transport options late at night.
 - Keep hotel and transport addresses saved offline.
-- Avoid displaying valuables on crowded transit or nightlife corridors.
+- Keep valuables concealed on crowded transit and in nightlife corridors.
 
 ## Nature Safety Habits
 
@@ -32,10 +32,10 @@
 ## Incident Response Rule
 
 If an itinerary segment becomes unsafe due to weather, smoke, flood, or wildfire warnings:
-1. Stop movement
+1. Halt movement
 2. Rebase to a safer nearby city
 3. Rebuild remaining days around open/low-risk activities
 
 ## Source Reminder
 
-See `sources.md` for Ready.gov, 988 Lifeline, Poison Help, and AirNow links.
+See `references/sources.md` for Ready.gov, 988 Lifeline, Poison Help, and AirNow links.

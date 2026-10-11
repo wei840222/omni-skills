@@ -14,7 +14,7 @@ First-time U.S. city base with high museum density, strong public transit, and l
 
 - Use subway/bus tap payments (OMNY) for day-to-day movement.
 - Cluster days by zone (Downtown, Midtown, Uptown, Brooklyn sectors).
-- Avoid cross-city ping-pong between bookings.
+- Group daily activities in single neighborhoods.
 
 ## Timing Moves
 

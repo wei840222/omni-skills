@@ -34,4 +34,4 @@
 
 ## Source Reminder
 
-See `sources.md` for weather.gov and AirNow links.
+See `references/sources.md` for weather.gov and AirNow links.

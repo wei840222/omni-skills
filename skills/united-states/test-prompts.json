@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to plan a 10-day trip to the US visiting NYC, Grand Canyon, Yellowstone, and Miami next July. Can you draft an itinerary?",
+    "expected": "The agent should flag the route as a common trap (overstuffed coast-to-coast itinerary) and suggest focusing on one macro-region (e.g., just the Southwest or just the East Coast). It should also mention July heat/weather risks for Miami and the Grand Canyon, and flag Yellowstone's potential need for reservations.",
+    "actual": "I strongly advise against this itinerary. The United States is massive, and attempting to visit New York City, the Grand Canyon, Yellowstone, and Miami in just 10 days will mean spending most of your trip in airports rather than enjoying the destinations. \n\nThis is a classic 'coast-to-coast trap'. Additionally, visiting Miami in July poses hurricane and extreme heat risks, while Yellowstone and the Grand Canyon will be very crowded and may require advance reservations.\n\nLet's focus on one macro-region to maximize your experience. Would you prefer a Northeast urban trip (NYC base), a Southwest parks trip (Grand Canyon base), or a Mountain West trip (Yellowstone base)?",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm a UK citizen planning to visit the US for a 2-week vacation in California. What do I need for entry?",
+    "expected": "The agent should identify the UK as a Visa Waiver Program (VWP) country, recommend applying for an ESTA, state the current authorization fee using official HR-1 figures (FY 2026 $40.27; FY 2027 $40.62 from 2026-10-16, not the legacy $21), note ~2-year validity or until passport expiry, and remind the user to keep passport valid for the whole stay.",
+    "actual": "As a UK citizen traveling to the US for a 2-week vacation, you are eligible for the Visa Waiver Program (VWP). Apply for an ESTA before travel on the official CBP site.\n\nKey details:\n- **ESTA fee:** After HR-1, the total is no longer the legacy $21. FY 2026 is $40.27 per authorization; FY 2027 is $40.62 and CBP assesses that amount from 2026-10-16. Confirm the live total at payment time.\n- **Validity:** Generally 2 years or until your passport expires, with VWP stays up to 90 days per trip.\n- **Passport:** Keep your UK passport valid for the entire stay.\n\nGet ESTA approval before locking non-refundable flights or hotels.",
+    "pass": true
+  }
+]

@@ -2,7 +2,7 @@
 
 ## Base Selection Logic
 
-Pick bases by daily movement friction, not by map center:
+Pick bases by daily movement friction, rather than map center:
 - Walkability to transit
 - Airport/rail transfer simplicity
 - Night safety and return options

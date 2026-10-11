@@ -3,8 +3,8 @@
 ## Planning Priorities
 
 - Confirm step-free transit options in each city segment.
-- Verify hotel accessibility details directly, not only listing tags.
-- Avoid back-to-back transfer days when mobility support is needed.
+- Verify hotel accessibility details directly, rather than relying solely on listing tags.
+- Schedule rest days between major transfers when mobility support is needed.
 
 ## Airports and Security
 
