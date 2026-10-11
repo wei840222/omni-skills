@@ -46,11 +46,12 @@ Prefer adjacent skills when they fit better:
 | Provider-specific traps and APIs | `references/providers.md` |
 | Auth setup and credential traps | `references/auth.md` |
 | Cost model and orientation rates | `references/costs.md` |
+| Official pricing / docs anchors | `references/sources.md` |
 
 ## Core workflows
 
 **Object store transfer:** resolve credentials and region → dry-run path/key
-mapping → cost estimate from `references/costs.md` 
+mapping → cost estimate from `references/costs.md` + live `references/sources.md`
 → upload/copy with checkpointing → verify size/checksum → only then delete source
 if requested.
 
@@ -67,7 +68,7 @@ respect per-user rate limits.
 1. **Verify completion** — HTTP 200 is not enough; confirm object exists with
    expected size and checksum/ETag where the API provides one.
 2. **Price the whole job first** — storage, operations, and especially egress;
-   open `references/costs.md` (live source anchors added in research phase).
+   open `references/costs.md` then confirm live pages in `references/sources.md`.
 3. **Restorable backup before delete** — prove backup exists and restores before
    removing the only copy.
 4. **Checkpoint bulk work** — long jobs fail mid-way; design resume markers and
@@ -82,7 +83,7 @@ respect per-user rate limits.
 | Symptom | Recovery |
 |---------|----------|
 | Bucket/object not found after correct key | Check region/endpoint and credential account; load `references/auth.md` |
-| Cost quote disputed | Treat tables as orientation; re-check vendor pricing pages |
+| Cost quote disputed | Treat tables as orientation; open official pricing URLs in `references/sources.md` |
 | Job dies at 40% | Resume from last checkpoint; avoid full restart that doubles egress |
 | OAuth mid-job expiry | Refresh before start; split into shorter authenticated batches |
 | User wants lifecycle/CORS/presign only | Hand off to `s3` |
