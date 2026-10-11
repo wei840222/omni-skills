@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to set up a new backend on Tencent Cloud for users in both mainland China and Singapore. What should I be aware of?",
+    "expected": "Locks Tencent Cloud as the surface; separates mainland vs Singapore/international regions; calls out data residency/compliance and split-architecture options; routes via decision-framework/cloud-platform/mainland-vs-global; does not invent pricing; asks before any account-changing action.",
+    "actual": "Routed to Tencent Cloud (not generic China strategy). Loaded references/mainland-vs-global.md, references/cloud-platform.md, and references/decision-framework.md. Stated mainland and Singapore must be planned as separate residency/ops boundaries; recommended keeping mainland-regulated data local and treating cross-border traffic as an explicit compliance/latency decision rather than a pure networking choice. Listed operational minimums (region, VPC boundary, monitoring, backup/rollback, quota caveats). Offered optional state setup under resolved <state_root> only after consent. Did not claim prices or execute console changes.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How do I accept WeChat Pay in my app?",
+    "expected": "Routes to WeChat payments surface; asks mainland vs cross-border merchant entity; refuses raw tokens/secrets; points at official WeChat developer docs; does not execute payment APIs without explicit setup/approval.",
+    "actual": "Classified as WeChat ecosystem / payments via references/ecosystem-map.md. Asked whether the merchant entity is mainland or cross-border before naming onboarding path. Linked https://developers.weixin.qq.com for payment integration docs and marked merchant/admin ownership plus compliance review as external dependencies per references/rollout-checklist.md. Refused passwords, QR-login secrets, cookies, or API keys in chat. Did not call payment APIs or store secrets; would write only a durable decision record under <state_root>/decisions.md if the user approved persistence.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Compare Tencent Cloud COS vs a generic multi-cloud object-storage migration skill for moving 20TB from S3 to several providers including COS.",
+    "expected": "Keeps tencent for COS/region/Tencent-account planning; hands bulk multi-provider transfer/cost ops to cloud-storage; does not pretend tencent owns generic egress tooling.",
+    "actual": "Used related-skills boundary: tencent owns Tencent Cloud COS region, account, and mainland-vs-global planning; cloud-storage owns multi-provider upload/download/sync, checksums, and egress/API cost across S3/GCS/Azure/B2/R2/COS. Recommended starting with cloud-storage for the 20TB job design, then loading references/cloud-platform.md only for COS-specific residency and operational caveats. Avoided blending owners into one vague Tencent answer.",
+    "pass": true
+  }
+]

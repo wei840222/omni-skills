@@ -16,7 +16,7 @@ Use this file when the request is really about Tencent Cloud, not Tencent broadl
 
 ## AWS Analogy Trap
 
-Do not say "Tencent Cloud is basically AWS with different names."
+Address Tencent Cloud by its distinct operational reality rather than AWS analogies.
 
 Use analogies only as orientation:
 - CVM is closer to EC2-style compute
@@ -47,4 +47,4 @@ Every Tencent Cloud recommendation should include:
 - backup and rollback plan
 - cost and quota caveats
 
-If those are unknown, stop at planning and produce a gap list instead of pretending the architecture is ready.
+If those are unknown, halt at planning and produce a gap list instead of pretending the architecture is ready.

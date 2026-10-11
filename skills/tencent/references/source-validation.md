@@ -9,13 +9,13 @@ Use this file for any claim about product scope, pricing, limits, SDK support, r
 3. Tencent partner or official announcement pages
 4. Secondary analysis only to fill context gaps
 
-Do not invert this order because a blog post is easier to read in English.
+Maintain this priority order even if a blog post is easier to read in English.
 
 ## Translation Rules
 
 - If the English and Chinese versions differ, record both and prefer the fresher or more specific source.
 - If a machine translation is needed, preserve the original link next to the translation summary.
-- Never remove the uncertainty if the source language is part of the risk.
+- Preserve uncertainty explicitly if the source language is part of the risk.
 
 ## Freshness Rules
 
