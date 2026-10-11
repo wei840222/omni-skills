@@ -19,7 +19,7 @@ Expanded particle tables, expressiveness, and delivery checks live in `reference
 
 ## When to load
 
-Load this skill to write, rewrite, or translate **Basque** that should sound like a person, not a textbook. Prefer this skill over generic `translate` when zu/hi choice, batua vs dialect flavor, particles (`ba`, `ala`, `bada`, `ezta`), fillers, Spanish/French code-switching, or casual Basque tone change the draft.
+Load this skill to write, rewrite, or translate **Basque** that should sound like a person, not a textbook. Prefer this skill over generic `translate` when zu/hi choice, batua vs dialect flavor, particles (`ba`, `ala`, `bada`, `ezta`), fillers, Spanish/French code-switching, or casual Basque tone change the draft. Load references on demand rather than dumping every table into the first reply.
 
 For Spanish, French, Catalan, or Galician targets, load `spanish`, `french`, `catalan`, or `galician` as the primary skill instead. Hand off Spain/France travel logistics to `spain` or `france`.
 
