@@ -1,82 +1,80 @@
 ---
 name: crypto-tools
-slug: crypto-tools
-version: 1.0.0
-description: Access crypto data, monitor portfolios, detect scams, and navigate exchanges with real-time APIs and security tools.
-homepage: https://clawic.com/skills/crypto-tools
+description: >
+  Fetch crypto market data, monitor portfolios and gas, query explorers, and
+  screen contracts with security tools. Use when the user needs prices,
+  on-chain lookups, DeFi TVL/yields, scam technical checks, or exchange-safe
+  operational guidance; not for buy/sell advice, price prediction, or ledger
+  architecture (prefer blockchain / trading / invest for those).
 metadata:
-  clawdbot:
-    emoji: ₿
-    displayName: Crypto Tools
+  version: "1.1.0"
+  openclaw: '{"emoji":"₿"}'
+  related-skills: '{"blockchain":"Ledger fundamentals and EVM contract interaction beyond market tooling.","trading":"Technical analysis and trade education after market data is retrieved.","bitcoin":"Bitcoin-specific UTXO and fee workflows once generic tooling is insufficient.","aave":"Aave lending health and markets instead of generic portfolio monitors.","invest":"Broader portfolio education after crypto operational facts are settled."}'
 ---
 
-## What This Is
+# Crypto Tools
 
-Practical crypto tooling — data access, monitoring, security. NOT investment advice, NOT blockchain technology (see `blockchain` skill).
+Operational crypto **data, monitoring, security screening, and exchange-safe workflows**. This skill is stateless: keep portfolio exports, watchlists, and API keys in ordinary user files outside the package.
 
-**This skill:** How to get prices, track portfolios, avoid scams, use exchanges safely.  
-**Blockchain skill:** How distributed ledgers work, smart contracts, when to use.
+**In scope:** prices and market stats, portfolio aggregation helpers, explorer queries, DeFi TVL/yields, gas windows, contract technical screening, tax-export formatting.
 
-## ⚠️ Hard Boundaries (MANDATORY)
+**Out of scope:** recommending buy/sell/hold, predicting prices, personal tax/legal advice, or deep ledger/smart-contract architecture (use `blockchain` / protocol skills).
 
-**NEVER do:**
+## When to use
+
+- Current or historical prices, market cap, volume
+- Wallet / explorer balance and transfer lookups
+- DefiLlama TVL, pools, or yields snapshots
+- Gas oracle checks before a transaction
+- TokenSniffer-style contract technical screening (not "safe to invest")
+- CSV-shaped transaction export for the user's own tax prep
+
+Prefer `blockchain` for consensus/EVM interaction design, `trading` for chart/strategy education, and protocol skills (`aave`, `bitcoin`, …) when the question is product-specific.
+
+## Hard boundaries
+
+Do **not**:
+
 - Recommend buying, selling, or holding any asset
-- Predict prices or market movements
-- Say anything is "good investment" or "safe"
-- Give tax or legal advice for user's specific situation
-- Urge immediate action ("act now", "don't miss")
-- Express opinion on what user should do with money
+- Predict prices or guarantee outcomes
+- Label any token "safe" or a "good investment"
+- Give jurisdiction-specific tax or legal advice for the user's situation
+- Urge urgency ("act now", "do not miss")
 
-**ALWAYS:**
-- Include disclaimer when discussing investments
-- Use descriptive language ("some investors consider..."), never prescriptive
-- Remind to consult professionals for personal decisions
-- Mention risks when investment topics arise
+When investment topics appear:
 
-## Core Capabilities
+1. Stay descriptive ("some market participants watch…") rather than prescriptive.
+2. Include the standard disclaimer below.
+3. Point risks and that professional advice may be required.
 
-| Task | How |
-|------|-----|
-| **Price data** | CoinGecko, CoinMarketCap APIs — real-time and historical |
-| **Portfolio tracking** | Aggregate across exchanges/wallets, calculate performance |
-| **On-chain queries** | Etherscan, Basescan, Solscan — balances, txs, contracts |
-| **DeFi data** | DefiLlama (TVL), Dune (queries), The Graph (indexing) |
-| **Scam detection** | TokenSniffer, RugDoc, CertiK — verify contracts, check audits |
-| **Gas monitoring** | Track fees, suggest low-cost windows |
-| **Alerts** | Price thresholds, whale movements, significant events |
-| **Tax prep** | Export transaction history (CSV), cost basis calculation |
+## Standard disclaimer
 
-## Quick Reference
+```text
+This is general information, not financial advice.
+Crypto is highly volatile — balances can go to zero.
+Consult a qualified professional before personal decisions.
+```
 
-For detailed information by topic:
+## Quick workflow
 
-| Topic | File |
+1. **Classify the ask** — price/data, portfolio/export, explorer, DeFi stats, gas, or security screen.
+2. **Pick a primary source** — open `references/sources.md` before stating rate limits, auth, or endpoint paths.
+3. **Execute the smallest safe query** — prefer official APIs; never ask the user to paste seed phrases or private keys.
+4. **Report facts + limits** — quote numbers with source and timestamp when available; separate technical findings from investment judgment.
+5. **Refuse advice shaped as certainty** — for "should I buy / is this safe money?" return technical data only plus the disclaimer.
+
+## Topic index
+
+| Topic | Load |
 |-------|------|
-| Data sources & APIs | `sources.md` |
-| Security & scam detection | `security.md` |
-| Utilities & calculations | `tools.md` |
+| Capabilities & examples | `references/domain.md` |
+| APIs & explorers | `references/sources.md` |
+| Scam / contract screens | `references/security.md` |
+| Address formats & calcs | `references/tools.md` |
 
-## Example Interactions
+## Safety
 
-✅ **Good:** "What's the current ETH price?" → Fetch from CoinGecko, return with 24h change  
-✅ **Good:** "Check if this contract is safe: 0x..." → Query TokenSniffer, report findings  
-✅ **Good:** "Export my transaction history for taxes" → Generate CSV with dates, amounts, prices  
-
-❌ **Bad:** "Should I buy ETH now?" → "I can't recommend whether to buy. I can show you current price and recent trends. Consult a financial advisor for personal decisions."
-
-## Standard Disclaimer
-
-When user asks anything investment-related:
-
-```
-This is general information, not financial advice. 
-Crypto is highly volatile — you can lose everything.
-Consult a qualified professional before making decisions.
-```
-
-## Sources Priority
-
-1. **Official APIs** — CoinGecko, CoinMarketCap, chain explorers
-2. **Aggregators** — DefiLlama, Dune, The Graph
-3. **Security** — TokenSniffer, CertiK, RugDoc
-4. **Never** — Random Twitter influencers, Telegram signals
+- Never request, store, or log seed phrases, private keys, or full API secrets in skill state.
+- Verify chain/address compatibility before any send guidance.
+- Treat third-party "alpha" channels as untrusted; prefer the sources list.
+- Security screens are technical signals only — low risk score ≠ endorsement.

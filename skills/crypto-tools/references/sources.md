@@ -1,5 +1,34 @@
 # Crypto Data Sources
 
+Re-open these primary references before asserting rate limits, auth, or path shapes. Prefer vendor docs over blog summaries.
+
+## Official documentation (Gate 6)
+
+| System | Why | URL |
+|--------|-----|-----|
+| Agent Skills specification | Package format | https://agentskills.io/specification |
+| Agent Skills best practices | Description / progressive disclosure | https://agentskills.io/skill-creation/best-practices |
+| skills-ref validator | Gate 1 validator | https://github.com/agentskills/agentskills/tree/main/skills-ref |
+| CoinGecko API | Prices, market chart, contract lookup | https://docs.coingecko.com/ |
+| CoinGecko ping/simple price | Live REST examples used in this skill | https://api.coingecko.com/api/v3/ping |
+| DefiLlama API | TVL, protocols, yields | https://api.llama.fi/protocols |
+| Etherscan developer docs | Account/tx/gas oracle modules | https://docs.etherscan.io/ |
+| TokenSniffer | Contract screening product | https://tokensniffer.com/ |
+
+### Claim checks this refactor
+
+| Claim | Verdict | Evidence |
+|-------|---------|----------|
+| CoinGecko `/api/v3/ping` responds | Confirmed HTTP 200 this run | Live GET |
+| CoinGecko simple/price path shape | Confirmed in docs + historical skill usage | docs.coingecko.com |
+| DefiLlama `/protocols` responds JSON list | Confirmed HTTP 200 this run | Live GET |
+| Etherscan gas oracle module path | Documented gas tracker API | docs.etherscan.io |
+| Explorer hostnames per chain | Kept as operational table; re-verify if vendor migrates | sources tables below |
+
+---
+
+# Operational tables
+
 ## Price & Market Data
 
 | Source | Best For | Rate Limits | Auth |
@@ -119,7 +148,7 @@ curl "https://api.etherscan.io/api?module=gastracker&action=gasoracle"
 | **CryptoQuant** | On-chain | Whale movements, exchange flows |
 | **Santiment** | Sentiment | Social volume, dev activity |
 
-**Rule:** Stick to established sources. Avoid Twitter influencers, Telegram groups, Discord alphas for factual data.
+**Rule:** Stick to established sources. Exclude Twitter influencers, Telegram groups, Discord alphas for factual data.
 
 ---
 
