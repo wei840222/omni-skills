@@ -3,7 +3,7 @@
 ## Milestone Types
 
 ### Standard Milestones
-Track these in `~/Clawic/data/couple/timeline.md`:
+Track these in `<state_root>/timeline.md`:
 - Anniversary (main)
 - Partner's birthday
 - First date anniversary
