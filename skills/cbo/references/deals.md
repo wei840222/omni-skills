@@ -117,4 +117,4 @@ autonomy ladders, and commitment gates belong in `negotiate`.
 - Pressure to skip diligence
 
 Harvard PON and related sources in `references/sources.md` orient process
-(BATNA, interests). Do not treat any single percentage open as universal law.
+(BATNA, interests). Treat percentage opens as heuristics only; confirm with principal limits.

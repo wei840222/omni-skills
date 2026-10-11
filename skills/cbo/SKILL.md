@@ -34,7 +34,7 @@ Route away when the work is mainly:
 ## Stateless
 
 This skill is knowledge-only. It does not create a local persistent state tree.
-Do not write runtime notes into this package. Durable pipeline records belong in
+Keep runtime notes out of this package; use host CRM or negotiate state instead. Durable pipeline records belong in
 `crm` (or the host CRM); live counters belong in `negotiate`.
 
 ## Quick workflow
