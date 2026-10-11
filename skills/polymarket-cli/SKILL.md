@@ -1,6 +1,6 @@
 ---
 name: polymarket-cli
-description: Query Polymarket events and prices, manage public positions, and prepare explicitly confirmed trades with the official CLI. Use for Polymarket market discovery, token pricing, orders, and position queries.
+description: Query Polymarket events, outcome-token prices and public positions with the official CLI; prepare individually confirmed orders and on-chain actions. Use for Polymarket discovery, price/orderbook checks, CLI errors or position queries, not generic crypto research or autonomous trading.
 metadata:
   version: '1.0.0'
   openclaw: '{"emoji":"📊","requires":{"bins":["polymarket"]},"os":["linux","darwin"]}'
@@ -39,6 +39,34 @@ Use for Polymarket event discovery, outcome prices, public position data, and
 explicitly authorized order/on-chain operations. On first use or a changed use
 case, read `references/setup.md`; wallet onboarding is user-managed and trading-only.
 General cryptocurrency research or trading strategy alone is outside CLI scope.
+
+## Execution path
+
+1. Classify the request as public query, preference persistence, user-only wallet
+   guidance, authenticated read, or external mutation. Public queries stay wallet-free.
+2. Inspect installed version/help and load the directly routed resource for this
+   branch. For a private/mutation branch, resolve current protocol compatibility
+   before credentials or funds are involved.
+3. Discover the exact requested event/market; for category filtering use tagged
+   events. Define the ranking metric and scanned coverage for a trending request.
+4. Map the selected outcome to its token ID, then query the requested price/book
+   using JSON output. Check exit status, closure, timestamp and quote type.
+5. Apply the matching recovery branch below for absent data. Return verified
+   public results or the exact blocker. Persistence needs consent and a resolved
+   root; orders/on-chain actions need the pre-trade confirmation below.
+
+## Query recovery
+
+- `--tag` rejected by markets: use `events list --tag politics` (or the requested
+  category), then inspect each returned market rather than relabeling events as markets.
+- Slug 404: state that this exact market is unavailable, search the intended topic,
+  and present candidates for selection. Await selection before querying a different market.
+- Token/orderbook 404: verify outcome mapping and closure; report no current quote.
+  A settled outcome value or a different token is not a replacement current price.
+- API sorting 422: retry the same public query without sorting and disclose local
+  ranking/coverage limits. Empty results mean no matching results, not zero probability.
+- Persistent API/network error: follow bounded retry in `references/commands.md`,
+  return the diagnostic, and keep any related trade pending.
 
 ## Architecture
 
