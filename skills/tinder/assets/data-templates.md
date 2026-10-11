@@ -93,4 +93,3 @@ Create `<state_root>/goals.md`:
 - Weekly target:
 - What to review next:
 ```
-
