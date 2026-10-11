@@ -27,8 +27,8 @@ Within 48 hours, confirm:
 ## 4. Renewal and Change Triggers
 
 Create reminders for:
-- Open enrollment start and end dates
-- Mid-year qualifying life events
+- Open enrollment start and end dates (e.g., ACA Open Enrollment typically runs Nov 1 – Jan 15 in most states).
+- Mid-year qualifying life events (must usually report within 60 days).
 - Premium increase notifications
 - Provider network changes affecting continuity
 

@@ -1,6 +1,6 @@
 # Memory Template — Health Insurance
 
-Create `~/Clawic/data/health-insurance/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Health Insurance Memory
@@ -54,11 +54,11 @@ integration: pending | complete | paused | never_ask
 | `ongoing` | still learning profile | continue collecting context naturally |
 | `complete` | stable profile | optimize for quick decisions |
 | `paused` | user paused updates | keep read-only unless reopened |
-| `never_ask` | user wants no setup prompts | avoid follow-up setup questions |
+| `skip_setup` | user wants minimal setup prompts | bypass follow-up setup questions |
 
 ## Key Principles
 
 - Store only context the user explicitly approves.
-- Do not store policy numbers, government IDs, or payment credentials.
+- Store only non-sensitive data, excluding policy numbers, government IDs, and payment credentials.
 - Keep notes concise and decision-focused.
 - Update `last` whenever memory changes.

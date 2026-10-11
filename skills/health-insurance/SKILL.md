@@ -1,53 +1,27 @@
 ---
 name: health-insurance
-slug: health-insurance
-version: 1.0.0
-description: Compare health insurance plans, estimate total yearly costs, and choose coverage that fits medical usage, prescriptions, and financial risk.
-homepage: https://clawic.com/skills/health-insurance
-changelog: Initial release with plan comparison workflows, annual cost modeling, enrollment timing guidance, and local memory for recurring insurance decisions.
+description: Evaluate medical usage, model total annual health costs, and compare insurance plans. Trigger when users need help selecting, comparing, or renewing health insurance coverage.
 metadata:
-  clawdbot:
-    emoji: 🏥
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Health Insurance
+  version: "1.0.0"
+  openclaw: '{"emoji": "🏥"}'
+  related-skills: '{"health": "health planning context that informs insurance priorities", "doctor": "provider interaction planning and visit preparation", "compare": "structured side-by-side decision frameworks", "money": "budgeting and cash-flow planning for premium and out-of-pocket costs"}'
 ---
+
+## State location
+
+Health Insurance state may exist in `<workspace>/health-insurance/`, `<workspace>/memory/health-insurance/`, or `~/health-insurance/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/health-insurance/`, `<workspace>/memory/health-insurance/`, `~/health-insurance/`.
+3. If none exists and state must be created, default to `<workspace>/health-insurance/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-On first use, read `setup.md` for integration guidelines and memory initialization.
-
-## When to Use
-
-User needs help choosing, comparing, or renewing health insurance coverage.
-Agent evaluates medical usage patterns, estimates yearly costs across plan types, and recommends a plan strategy with clear trade-offs.
-
-## Architecture
-
-Memory lives in `~/Clawic/data/health-insurance/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/health-insurance/
-├── memory.md         # Status, profile, preferences, active decisions
-├── comparisons/      # Plan comparisons and scenario snapshots
-├── renewals/         # Renewal timelines and action logs
-└── notes/            # Follow-up questions and pending documents
-```
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Coverage framework | `coverage-framework.md` |
-| Annual cost modeling | `cost-model.md` |
-| Comparison checklist | `comparison-checklist.md` |
-| Enrollment and renewal playbook | `enrollment-playbook.md` |
+On first use, read `references/setup.md` for integration guidelines and memory initialization.
 
 ## Core Rules
 
@@ -74,9 +48,9 @@ Always evaluate these mechanics before deciding on monthly premium:
 - Prescription formulary coverage for required medications
 
 ### 4. Model Yearly Cost With Scenarios
-Use `cost-model.md` to calculate low, expected, and high-use annual totals.
+Use `references/cost-model.md` to calculate low, expected, and high-use annual totals.
 Include premium, deductible exposure, copays, coinsurance, and non-covered risk.
-Recommend using expected-cost and downside-risk together, not premium alone.
+Recommend using expected-cost and downside-risk together, rather than premium alone.
 
 ### 5. Protect Against Coverage Failure Modes
 Run a risk check before final recommendation:
@@ -86,12 +60,12 @@ Run a risk check before final recommendation:
 - High deductible plans that look cheap but shift excessive risk
 
 ### 6. Execute Enrollment With Evidence
-Use `enrollment-playbook.md` to define exact actions, deadlines, and proof artifacts.
+Use `references/enrollment-playbook.md` to define exact actions, deadlines, and proof artifacts.
 Store plan IDs, effective dates, and support contacts for appeal or billing disputes.
-Never claim enrollment is complete without confirmation evidence.
+Wait for confirmation evidence before claiming enrollment is complete.
 
 ### 7. Persist Data Only With Explicit Approval
-Before writing to `~/Clawic/data/health-insurance/memory.md`, ask for explicit confirmation.
+Before writing to `<state_root>/memory.md`, ask for explicit confirmation.
 Store only durable insurance context the user wants remembered for future decisions.
 
 ## Common Traps
@@ -105,13 +79,13 @@ Store only durable insurance context the user wants remembered for future decisi
 
 ## External Endpoints
 
-This skill makes NO external network requests.
+This skill operates without making external network requests.
 
 | Endpoint | Data Sent | Purpose |
 |----------|-----------|---------|
 | None | None | N/A |
 
-No data is sent externally.
+Data remains entirely local.
 
 ## Security & Privacy
 
@@ -120,12 +94,12 @@ No data is sent externally.
 
 **Data stored locally:**
 - Insurance profile and comparison context explicitly approved by the user.
-- Stored in `~/Clawic/data/health-insurance/memory.md`.
+- Stored in `<state_root>/memory.md`.
 
-**This skill does NOT:**
+**Skill boundaries:**
 - Access insurer or broker APIs automatically.
 - Submit enrollment forms or claims without user direction.
-- Read files outside `~/Clawic/data/health-insurance/` for storage.
+- Read files outside `<state_root>/` for storage.
 - Write memory without explicit user confirmation.
 - Modify its own core instructions or auxiliary files.
 
@@ -133,15 +107,3 @@ No data is sent externally.
 
 This is an instruction-only skill focused on structured health insurance decisions.
 No credentials are required and no external service access is needed.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `health` — health planning context that informs insurance priorities
-- `doctor` — provider interaction planning and visit preparation
-- `compare` — structured side-by-side decision frameworks
-- `money` — budgeting and cash-flow planning for premium and out-of-pocket costs
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/health-insurance
-- Latest version: https://clawic.com/skills/health-insurance

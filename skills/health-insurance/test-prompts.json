@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need help comparing a Silver plan vs a Gold plan for me and my wife. We expect normal checkups and maybe a couple of specialist visits this year.",
+    "expected": "The agent should load the comparison framework and cost model, asking for details on premiums, deductibles, copays, and any specific medications or providers to assess.",
+    "actual": "Agent successfully loaded `references/coverage-framework.md` and `references/cost-model.md`. It asked for the state/county to confirm network type, requested the monthly premiums and deductibles for both the Silver and Gold plans, and asked if we had any preferred doctors or ongoing prescriptions to check against the formularies before modeling the expected annual cost.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My new employer is offering an HDHP with an HSA or a traditional PPO. I have asthma and take daily medication. How do I decide?",
+    "expected": "The agent should identify the medication dependency, factor in the HSA contributions/limits based on the research update, and model the out-of-pocket costs to compare the HDHP against the PPO.",
+    "actual": "Agent noted the asthma medication as a recurring cost. It referenced the HSA limit updates from `references/cost-model.md` and asked for the employer's HSA contribution amount. It then outlined a comparison highlighting that the HDHP might have lower premiums and tax advantages, but the PPO might offer more predictable copays for the daily asthma medication. It asked for the drug tier/cost on both plans to run the final cost scenarios.",
+    "pass": true
+  }
+]
