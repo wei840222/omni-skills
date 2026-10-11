@@ -89,7 +89,7 @@ Complete the refactor through the following phases **in strict sequential order*
 - Create a pull request targeting `main` and assign a reviewer.
 - Populate the pull request description with `.agents/templates/pull-request-refactor.md`.
 - After GitHub assigns the PR number, update the root `CHANGELOG.md` table on the same branch with the skill name, PR number, date, and final Darwin score; commit and push that update so it lands with the merged PR.
-- Gate 8/9 scores and audit notes live in the PR body + root `CHANGELOG.md` only. Do not commit `darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`, or equivalent score dumps into `skills/<slug>/`, and do not link them from `SKILL.md`.
+- Gate 8/9 scores and audit notes live in the PR body + root `CHANGELOG.md` only. Do not commit `darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`, `.last-update-check`, `results.tsv`, or equivalent score/audit dumps into `skills/<slug>/`, and do not link them from `SKILL.md`.
 - Do not merge the PR or delete branches without explicit authorization.
 
 ---
@@ -102,7 +102,7 @@ Review an open GitHub Pull Request against:
 
 - Agent Skills specification + official validator
 - Gates 1–9 in `.agents/workflows/skill-refactor.md`
-- Three mandatory quality lenses: `code-review-and-quality` (`skills/agent-skills/skills/code-review-and-quality/SKILL.md`) + `writing-for-agents` (`skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`) + `darwin-skill` (`skills/darwin-skill/SKILL.md`)
+- Three mandatory quality lenses: `code-review-and-quality` (`.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md`) + `writing-for-agents` (`.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`) + `darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`)
 
 Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `main`.
 
@@ -127,9 +127,10 @@ Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `main
    - Audit against `.agents/workflows/skill-refactor.md` and classify each gap as Required / Optional / Nit.
 
 5. **Step 5: Three-lens quality review (mandatory)**
-   - Load and apply `code-review-and-quality` (`skills/agent-skills/skills/code-review-and-quality/SKILL.md`), `writing-for-agents` (`skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`), and `darwin-skill` (`skills/darwin-skill/SKILL.md`).
+   - Load and apply `code-review-and-quality` (`.agents/skills/agent-skills/skills/code-review-and-quality/SKILL.md`), `writing-for-agents` (`.agents/skills/mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`), and `darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`).
    - Block on wrong commands, unsafe defaults, broken recovery paths, and mixed security controls.
    - Do not treat a claimed Darwin number as sufficient evidence by itself.
+   - Distinguish true runtime drift (imperative single-runtime commands) from false positives (anti-pattern citations, meta-rules, audit commands).
 
 6. **Step 6: GitHub verdict**
    - **Request changes**: post a structured reject review immediately with concrete fixes.

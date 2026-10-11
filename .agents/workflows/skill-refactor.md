@@ -883,7 +883,16 @@ Requirements:
 
 #### Darwin evaluation iteration
 
-- Run `/darwin-skill` against the package and review dimension feedback.
+- Run `/darwin-skill` (`.agents/skills/darwin-skill/SKILL.md`) against the package and review dimension feedback.
+- **Runtime-neutrality scan & false-positive discrimination**:
+  - When Darwin performs Phase 1 red-light runtime-neutrality scanning (`grep -nE "(在 Claude Code|Claude Code skill|Claude Code 用户|Cursor only|Codex 中|^\[!\[Claude Code|~/\.claude/skills/[a-z]|/plugin install\b)" SKILL.md README.md"`), **never** mechanically treat non-empty output as a mandatory P0 defect.
+  - Inspect the context of every matched line:
+    - **False positive (do not change)**: The term appears as the *subject of description* (e.g. within an anti-pattern blacklist, negative example quotation, rule discrimination table, or grep audit command). Record `runtime_scan=false_positive`.
+    - **True red flag (must fix)**: The term is used *imperatively* (e.g. instructing the agent/user to run inside a single runtime, introductory marketing locking the skill to one platform, or runtime-specific installation requirements). Replace with vendor-neutral equivalents before advancing.
+- **Validation-gated hill-climbing**:
+  - Strictly enforce Darwin 2.0 validation-gating: keep an edit only when the new evaluation score is higher than the baseline (`新分高于旧分 → 保留；否则 → git revert`). Do not retain neutral or zero-delta marginal complexity.
+- **Silent self-check awareness**:
+  - Darwin 2.0 performs a 30-day silent version check (`.last-update-check`). This file is gitignored and must never be placed inside the skill package. Any update advisory displayed after task completion is informational and non-blocking.
 - Iterate on instructions based on valid feedback while preserving compliance gates and domain accuracy.
 - Achieve a final evaluation score of at least 80/100, and record the numeric score (formatted as `XX/100`) in root `CHANGELOG.md` and the PR body only.
 
@@ -950,20 +959,30 @@ Evaluation mechanisms (like Darwin) may encourage intrusive stop markers (`🔴 
 
 Scan the skill using the 4 skill-appropriate lenses:
 
-- **Lens 2: Positive vs Negative**: Rephrase prohibitions ("don't", "never", "avoid") into positive definitions ("do Y instead", "verify X before proceeding").
+- **Lens 2: Positive vs Negative & De-weighting**: Rephrase prohibitions ("don't", "never", "avoid") into positive execution definitions ("do Y instead", "verify X before proceeding"). When exclusion is genuinely required (scope boundaries, unsupported domains), use the de-weighting / out-of-scope framework ("X is out of scope / outside task boundary") rather than loud negative prohibitions that drag forbidden concepts directly onto the working memory stage (White Bear effect).
 - **Lens 3: Consistency**: Resolve conflicting or ambiguous instructions.
-- **Lens 4: Anchoring precision**: Replace vague advice with concrete decision heuristics and mental models.
-- **Lens 6: Working space hygiene**: Ensure critical instructions are clearly positioned and total working memory concepts remain within limits (<= 25 concepts).
+- **Lens 4: Anchoring precision**: Replace vague advice with concrete decision heuristics, mental models, and specific operational anchors.
+- **Lens 6: Working space hygiene**: Respect the agent's ~25 concept working space capacity:
+  - Keep rule budgets lean to prevent competing instructions from displacing each other.
+  - Position critical instructions prominently (at the end or as distinct, unbundled directives).
+  - Characterize anti-patterns by their traits rather than pasting large verbatim bad-case outputs (which occupy and pollute the working memory stage).
 
 _(Lenses 1 and 5 are skipped as they apply to personas, not skill packages)._
+
+#### Silent self-check & residue safety
+
+- `/freud-skill` includes a 30-day silent version check (`.last-update-check`).
+- `.last-update-check` is gitignored and must never be committed into any skill package under `skills/<slug>/`.
+- Any version update notice presented after task completion is informational and non-blocking.
 
 #### Gate 9 pass criteria
 
 - [ ] `/freud-skill` Mode 2 diagnostic optimization was performed across Lenses 2, 3, 4, and 6.
-- [ ] Prohibition statements ("don't", "never") were converted into positive execution definitions.
+- [ ] Prohibition statements ("don't", "never") were converted into positive execution definitions or de-weighted out-of-scope boundaries.
 - [ ] Visual stop markers (`🔴 STOP`, `🛑 CHECKPOINT`) causing white bear effects were removed or rephrased positively.
+- [ ] Anti-pattern guidance characterizes flaws conceptually rather than embedding verbatim bad-case outputs.
 - [ ] Critical instructions are prominently structured and concept load stays under cognitive thresholds (<= 25 concepts).
-- [ ] Freud findings are recorded in the PR body only; no `freud-audit.md` (or equivalent) was committed into the skill package.
+- [ ] Freud findings are recorded in the PR body only; no `freud-audit.md`, `.last-update-check`, or equivalent residue was committed into the skill package.
 - [ ] Re-ran reference validator to ensure Freud corrections did not break any Gate 1-5 compliance rules.
 
 ---
@@ -1017,7 +1036,7 @@ Before committing any phase:
 Do **not** commit author-only quality audit files into `skills/<slug>/`:
 
 - `references/darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`
-- Root-level score dumps with the same purpose
+- Root-level score dumps, audit logs, or temporary evaluation files (`results.tsv`, `.last-update-check`) with the same purpose
 - `SKILL.md` sections that route runtime agents to those audit files
 
 Record Darwin `XX/100` in root `CHANGELOG.md` and the PR body. Keep dimension tables, Freud lens notes, and triage narratives in the PR description only. `test-prompts.json` at the skill root remains the sole allowed Gate 8 harness file inside the package. Domain-content guides named `evaluation.md` that the skill teaches at runtime (RAG golden sets, investment rubrics, and similar) are not Gate 8 residues and may stay when `SKILL.md` routes to them as product guidance.
