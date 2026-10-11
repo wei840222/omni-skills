@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| bengali                      | 2026-10-12 | 95.5/100 (#830)                  |
 | powerpoint-pptx             | 2026-10-12 | 86/100 (#829)                    |
 | polymarket-cli               | 2026-10-12 | 88/100 (#828)                    |
 | passkey                      | 2026-10-12 | 86/100 (#825)                    |
