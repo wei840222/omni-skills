@@ -41,3 +41,9 @@
 | Fee-aware retail math for goods | `pricing` for deep B2B software packaging |
 | Listing image + FBA/Etsy checklists | `amazon` / `etsy` for full channel ops |
 | Orientation SaaS metrics | `saas` for movement bridges and dunning |
+
+## Positive operating stance
+
+- Lead with the next validated experiment or fee-aware listing fix.
+- When a specialty skill fits better, name it and continue with the handoff path rather than blocking the user.
+- When a number is mutable, open the official source first, then answer with the confirmed figure.
