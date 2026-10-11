@@ -122,7 +122,7 @@ Average price: $31,579 per BTC
 - Base58, 32-44 characters
 - Example: `7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU`
 
-**Never:** Send to wrong chain address (BTC to ETH address = lost)
+**Caution:** Verify chain address compatibility (BTC to ETH address = lost)
 
 ---
 
@@ -139,7 +139,7 @@ FDV (Fully Diluted) = Max Supply × Price
 If pool has $1M liquidity:
 - $10k trade: ~1% slippage
 - $100k trade: ~10% slippage
-- $500k trade: ~50% slippage (don't)
+- $500k trade: ~50% slippage (inadvisable)
 ```
 
 ### APY vs APR

@@ -2,7 +2,7 @@
 
 ## Contract Verification
 
-Before interacting with ANY new token/contract:
+Before interacting with any new token/contract:
 
 | Tool | What It Checks | URL |
 |------|---------------|-----|
@@ -47,7 +47,7 @@ Before interacting with ANY new token/contract:
 
 ### Fake Airdrops
 - "Claim your free tokens" → connects to malicious contract → drains wallet
-- **Defense:** Never interact with random tokens in your wallet
+- **Defense:** Ignore random tokens in your wallet
 
 ### Phishing Sites
 - Lookalike URLs (uniswap.org vs un1swap.org)
@@ -60,35 +60,35 @@ Before interacting with ANY new token/contract:
 
 ### Pump & Dump
 - Coordinated buy → price spikes → insiders sell → crashes
-- **Defense:** Avoid "guaranteed profit" groups, check holder distribution
+- **Defense:** Verify "guaranteed profit" claims and, check holder distribution
 
 ---
 
 ## Wallet Security Checklist
 
 ### Seed Phrase
-- [ ] Written on paper, NEVER digital
+- [ ] Written on paper, exclusively offline
 - [ ] Stored in multiple secure locations
-- [ ] NOT in cloud, email, photo, notes app
+- [ ] Keep off cloud, email, photos, and notes apps
 - [ ] Test recovery before storing funds
 
 ### Hot Wallet (MetaMask, etc.)
 - [ ] Only keep what you're actively using
 - [ ] Revoke unused approvals regularly (revoke.cash)
 - [ ] Different wallet for sketchy mints
-- [ ] Bookmark official sites, don't Google
+- [ ] Bookmark official sites, bypass search engines
 
 ### Cold Storage (Ledger, Trezor)
-- [ ] Buy ONLY from official store (never Amazon/eBay)
+- [ ] Buy ONLY from official store (exclude Amazon/eBay)
 - [ ] Verify firmware before setup
 - [ ] Use for long-term holdings
 - [ ] Separate device from daily browsing
 
 ### Exchange Security
-- [ ] 2FA with authenticator app (NOT SMS)
+- [ ] 2FA with authenticator app (exclude SMS)
 - [ ] Whitelist withdrawal addresses
 - [ ] Unique strong password
-- [ ] Don't store long-term on exchange
+- [ ] Transfer long-term holdings off exchanges
 
 ---
 
@@ -125,7 +125,7 @@ Let me look... [do checks]
 
 Results: [findings]
 
-⚠️ Reminder: This is technical analysis only. 
+⚠️ Reminder: This is technical analysis only.
 No token is "safe" — all crypto carries risk of total loss.
 Do your own research before any decision.
 ```
@@ -142,7 +142,7 @@ Do your own research before any decision.
 1. Go to revoke.cash
 2. Connect wallet
 3. Review all approvals
-4. Revoke anything you don't actively use
+4. Revoke anything you are inactive with
 5. Do this monthly or after major interactions
 ```
 
@@ -151,11 +151,11 @@ Do your own research before any decision.
 ## Emergency Response
 
 If compromised:
-1. **Immediately:** Transfer remaining assets to NEW wallet (not same seed)
+1. **Immediately:** Transfer remaining assets to NEW wallet (different seed)
 2. **Check:** revoke.cash for active approvals
-3. **Don't:** Use same seed phrase ever again
+3. **Retire:** The compromised seed phrase permanently
 4. **Report:** To relevant platform if applicable
 
 If unsure:
 - Move assets to cold storage while investigating
-- Don't interact with suspicious tokens (even to "check")
+- Ignore suspicious tokens (even to "check")

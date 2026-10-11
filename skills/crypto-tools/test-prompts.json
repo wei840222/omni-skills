@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "What is the current price of Ethereum and Bitcoin?",
+    "expected": "Call CoinGecko simple/price for bitcoin and ethereum vs USD; return both prices with 24h change when the API provides it; cite CoinGecko; no buy/sell advice.",
+    "actual": "Classified as price/data. GET https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true. Report BTC and ETH USD last and 24h change from the JSON, name CoinGecko as source, and note the response timestamp/local fetch time. If HTTP 429, say rate-limited and suggest backoff\u2014do not invent numbers. No investment recommendation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you check if this contract is a safe investment? 0x1234567890abcdef",
+    "expected": "Refuse investment-safety framing; optionally run technical screens (explorer verification, TokenSniffer signals, liquidity lock notes); state no token is risk-free; include disclaimer.",
+    "actual": "Refuse 'safe investment' judgment. Offer technical screen only: normalize address/chain, check explorer verification and TokenSniffer-style signals (honeypot, verified source, liquidity lock). Report findings as technical risk signals, state that no token is risk-free, and attach the standard non-advice disclaimer. Do not urge buying or selling.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Pull Uniswap TVL from DefiLlama and Ethereum gas from Etherscan before I send a tx.",
+    "expected": "Use DefiLlama protocol endpoint and Etherscan gas oracle; return numbers with sources; no urgency hype; warn if gas spike without telling user to rush.",
+    "actual": "DeFi + gas path. GET https://api.llama.fi/protocol/uniswap for TVL fields and https://api.etherscan.io/api?module=gastracker&action=gasoracle for Safe/Propose/Fast gas. Quote figures with source names. If either call fails, report the failure. Describe high gas as costly timing context\u2014not 'act now'. No trade recommendation.",
+    "pass": true
+  }
+]
