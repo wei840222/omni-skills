@@ -1,74 +1,73 @@
 ---
 name: cloud
-slug: cloud
-version: 1.0.0
-description: Choose, organize, sync, share, and back up personal files across iCloud, Google Drive, Dropbox, and OneDrive.
-homepage: https://clawic.com/skills/cloud
+description: >
+  Choose, organize, sync, share, and back up personal files across iCloud,
+  Google Drive, Dropbox, and OneDrive. Use for consumer storage-full cleanup,
+  photo backup setup, cross-device sync confusions, family sharing links, and
+  plan comparisons—not object-store transfers (`cloud-storage`), backup
+  architecture (`backups`), or storage system design (`storage`).
 metadata:
-  clawdbot:
-    emoji: ☁️
-    displayName: Cloud
+  version: "1.0.0"
+  openclaw: '{"emoji":"☁️","displayName":"Cloud"}'
+  related-skills: '{"cloud-storage":"Provider upload/download/sync ops and egress cost across object stores and drives.","backups":"3-2-1-1-0 backup architecture and verified restore drills.","storage":"Application storage architecture beyond consumer file sync.","icloud":"Authenticated local iCloud Drive/Photos/Find My operations.","s3":"S3-compatible object storage deep dive outside consumer plans."}'
 ---
 
-## Triggers
+## When to use
 
-Activate on: iCloud full, cloud storage, backup photos, sync between devices, share folder, Google Drive help, Dropbox issues, "where are my files", storage plan comparison.
+Consumer cloud storage questions: iCloud/Google Drive/Dropbox/OneDrive full,
+photo backups, device sync surprises, share-link setup, plan comparison, and
+what not to store unencrypted in the cloud.
 
-## Scope
+Prefer adjacent skills when they fit better:
 
-This skill covers **consumer cloud storage** — the services regular people use for photos, documents, and backups.
+- Bulk object-store / multi-provider file ops and cost → `cloud-storage`
+- Backup policy, immutability, restore testing → `backups`
+- App/database/object/block architecture → `storage`
+- Local authenticated iCloud Drive/Photos/Find My actions → `icloud`
+- S3 lifecycle, CORS, presign → `s3`
 
-**Not this skill:** AWS, Azure, S3 buckets, VPS, Docker, APIs → use `infrastructure`, `s3`, or `server`.
+## Stateless
 
-## Quick Service Picker
+This skill is knowledge-only. It does not create a local persistent state tree.
+Do not write runtime notes into this package.
 
-| Your devices | Best fit | Why |
-|--------------|----------|-----|
-| iPhone + Mac | iCloud | Native integration, seamless |
-| Android + Chrome | Google Drive | Included with Gmail, auto photo backup |
-| Windows PC | OneDrive | Built into Windows, Office integration |
-| Mixed devices | Dropbox | Works equally well everywhere |
+## Progressive disclosure
 
-For detailed pricing and features, see `services.md`.
+| Need | Load |
+|------|------|
+| Scope, confusions, security basics | `references/domain.md` |
+| Plan comparison and switching | `references/services.md` |
+| Freeing space per provider | `references/cleanup.md` |
+| 3-2-1 backup and sensitive data | `references/backup.md` |
+| Share links and permissions | `references/sharing.md` |
+| Official pricing / docs anchors | `references/sources.md` |
 
-## Common Confusions
+## Core workflows
 
-| What you think | What's actually happening |
-|----------------|---------------------------|
-| "I deleted it from my phone and now it's gone from my laptop" | Sync works as designed — one file, everywhere |
-| "iCloud storage full but my phone has space" | Phone storage ≠ iCloud storage |
-| "My photos are duplicated everywhere" | Multiple services backing up the same camera roll |
-| "I pay for 3 cloud services" | Pick one primary, cancel the rest |
+**Storage full:** separate device storage from cloud quota → open the provider
+usage page → empty trash / Recently Deleted → stop duplicate photo backups →
+offload archives. Use `references/cleanup.md`.
 
-## Storage Full — What to Do
+**Pick a primary service:** match the device ecosystem in
+`references/domain.md`, confirm live tiers in `references/services.md` +
+`references/sources.md`, cancel redundant paid plans after download.
 
-1. **Check what's using space** — Photos usually dominate
-2. **Empty trash** — Deleted files count until trash is emptied
-3. **Disable duplicate backups** — Pick one photo backup service
-4. **Offload old files** — Move archives to external drive
+**Photo backup:** choose exactly one auto-upload service; disable the others;
+verify “backed up” status monthly (`references/backup.md`).
 
-For service-specific cleanup steps, see `cleanup.md`.
+**Share a file:** minimum permission, expiration when available, encrypt
+sensitive docs first (`references/sharing.md`).
 
-## Backup Strategy
+## Critical rules
 
-- **3-2-1 rule:** 3 copies, 2 different media, 1 offsite
-- **Cloud counts as offsite** — but also keep a local backup
-- **Check backup status monthly** — don't assume it's working
-
-What to back up and what NOT to store in cloud: see `backup.md`.
-
-## Sharing Files
-
-| Need | Method |
-|------|--------|
-| Quick share with anyone | Link (set expiration) |
-| Ongoing family access | Shared folder |
-| Sensitive documents | Don't use cloud, or encrypt first |
-
-Step-by-step per service: see `sharing.md`.
-
-## Security Basics
-
-- **Enable 2FA** on all cloud accounts
-- **Review shared links** quarterly — revoke old ones
-- **Don't store unencrypted:** passwords, IDs, financial documents
+1. **Phone storage ≠ cloud quota** — iCloud/Drive full can happen while the
+   device still has free space.
+2. **One photo backup service** — multiple auto-uploads create duplicates and
+   burn quota.
+3. **Deleted ≠ gone** — empty trash / Recently Deleted on every provider.
+4. **Encrypt before storing IDs, financial, or medical scans** — or keep them
+   off cloud links entirely.
+5. **Re-open live pricing pages** before quoting plan prices
+   (`references/sources.md`); marketing pages change.
+6. **Route deep specialties** — do not re-implement `cloud-storage`,
+   `backups`, `storage`, or authenticated `icloud` ops here.
