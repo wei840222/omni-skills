@@ -60,7 +60,7 @@ Keep `SKILL.md` as the sole runtime rule surface; `references/sources.md` is cit
 
 ## Module Organization
 
-- Import the **module**, not a foreign provider class, in `imports: [UserModule]`. Do not list another module's service only under `providers` and expect DI to find the real implementation.
+- Import the **module**, not a foreign provider class, in `imports: [UserModule]`. List foreign collaborators via `imports` of the exporting module so DI resolves the shared instance.
 - `exports` is the module public API: without export, the provider stays private to its host module.
 - `@Global()` makes exported providers available without repeated imports — reserve for truly shared infrastructure (config, logging), not feature modules.
 - Dynamic modules: static `forRoot()` / `forRootAsync()` / `register()` / `forFeature()` return a `DynamicModule`. Use async variants when options depend on other providers or config factories.
@@ -68,7 +68,7 @@ Keep `SKILL.md` as the sole runtime rule surface; `references/sources.md` is cit
 ## Validation
 
 - Install `class-validator` and `class-transformer` when using the built-in `ValidationPipe` with DTO classes.
-- Decorate DTO **classes** (not interfaces or type-only imports). Type-only imports erase at runtime and leave nothing for the pipe to reflect.
+- Decorate DTO **classes** (concrete runtime classes). Use value imports so decorator metadata remains at runtime.
 - Enable useful defaults globally, for example:
 
 ```typescript
@@ -103,10 +103,10 @@ Inbound request lifecycle (official summary):
 
 Implications:
 
-- Guards run **before** pipes, so they cannot rely on ValidationPipe-transformed DTO instances.
+- Guards run **before** pipes, so authorize from request/user context rather than pipe-transformed DTO instances.
 - Global pipes still run after guards and before the handler.
 - Filters skip the rest of the lifecycle once an uncaught exception appears. Middleware errors reach **global** filters only (no route selected yet).
-- Returning an error object does not enter the exceptions layer — **throw** instead.
+- Enter the exceptions layer by **throwing** the error so filters can map status and body.
 
 ## Exception Handling
 
@@ -135,6 +135,6 @@ Implications:
 
 ## Safety boundaries
 
-- Treat env secrets, DB URLs, and JWT signing keys as host secrets — keep them out of skill files and example commits.
+- Keep env secrets, DB URLs, and JWT signing keys in host secret stores; examples use placeholders only.
 - Re-open `references/sources.md` before asserting Nest major-version defaults, pipe option names, or lifecycle order.
 - Route non-Nest Node/TS questions to `nodejs` / `typescript` rather than overloading this skill.
