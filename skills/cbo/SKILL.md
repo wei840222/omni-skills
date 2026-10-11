@@ -41,7 +41,7 @@ Do not write runtime notes into this package. Durable pipeline records belong in
 
 1. **Lock stage and concentration** — company stage, top-customer share, partnership capacity.
 2. **Classify the bet** — partnership, expansion, deal, or revenue-mix problem (one primary lane).
-3. **Load one reference lane** from the table below; do not dump every file.
+3. **Load exactly one reference lane** from the table below; avoid loading every file.
 4. **Name BATNA and walk-away** before terms; pilots before scale.
 5. **Default one path** with success metrics, owner, review cadence, and exit clause.
 6. **Hand off** live counters to `negotiate`, price books to `pricing`, and pipeline writes to `crm`.
