@@ -1,71 +1,90 @@
 ---
 name: cloud-storage
-slug: cloud-storage
-version: 1.0.1
-description: Manage files across cloud providers with authentication, cost awareness, and multi-provider operations.
-homepage: https://clawic.com/skills/cloud-storage
-changelog: Added When to Use section for consistency
+description: >
+  Manage multi-provider cloud file operations: upload, download, sync, migrate,
+  verify checksums, estimate egress/API cost, and recover partial bulk jobs across
+  S3, GCS, Azure Blob, B2, R2, Drive, Dropbox, OneDrive, and iCloud. Use when the
+  user moves or audits files across cloud providers with cost and auth awareness.
+  Prefer s3 for deep S3-only lifecycle/CORS/presign work, storage for architecture
+  selection, aws/azure for full-cloud infra beyond object/file ops, and backups
+  for backup-policy design.
 metadata:
-  clawdbot:
-    emoji: ☁️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Cloud Storage
+  version: "1.0.1"
+  openclaw: '{"emoji":"☁️"}'
+  related-skills: '{"s3":"Deep S3-compatible lifecycle, CORS, presigned URLs, and multipart patterns.","storage":"Storage architecture and system selection beyond day-to-day file ops.","aws":"Broader AWS infra, IAM, and billing outside object/file transfers.","azure":"Azure platform work beyond Blob/file operations.","backups":"Backup policy, retention, and restore drills rather than one-off transfers."}'
 ---
 
-## When to Use
+# Cloud Storage
 
-User needs to upload, download, sync, or manage files across cloud storage providers. Agent handles multi-provider operations with cost awareness.
+Operational guidance for **moving, verifying, and cost-checking files** across
+object stores and consumer cloud drives.
 
-## Quick Reference
+This skill is **knowledge-only**. It does not create a local persistent state
+tree. Do not write runtime notes into this package. Provider credentials stay in
+host env/profiles; never commit secrets.
 
-| Topic | File |
-|-------|------|
-| Provider-specific patterns | `providers.md` |
-| Authentication setup | `auth.md` |
-| Cost calculation | `costs.md` |
+## When to use
 
-## Scope
+- Upload, download, sync, or migrate files between cloud providers
+- Estimate storage + egress + request cost before a bulk job
+- Diagnose auth, region/endpoint, rate-limit, or partial-failure issues
+- Choose object-store vs consumer-drive patterns for the same workflow
 
-This skill covers operational cloud storage tasks across providers:
-- S3, GCS, Azure Blob, Backblaze B2, Cloudflare R2
-- Google Drive, Dropbox, OneDrive, iCloud
+Prefer adjacent skills when they fit better:
 
-For storage architecture decisions, see `storage` skill.
-For S3-specific deep patterns, see `s3` skill.
+- S3 lifecycle, CORS, presign, multipart deep dive → `s3`
+- Database/object/block/CDN architecture choice → `storage`
+- Broad AWS account/IAM/billing work → `aws`
+- Broad Azure platform work → `azure`
+- Backup policy and restore drills → `backups`
 
-## Critical Rules
+## Progressive disclosure
 
-1. **Verify operations completed** — API 200 ≠ success; check file exists with correct size/checksum
-2. **Calculate ALL costs before large transfers** — egress fees often exceed storage costs; check `costs.md`
-3. **Never delete without backup verification** — confirm backup exists AND is restorable before removing source
-4. **Handle partial failures** — long operations fail mid-way; implement checkpoints and resume logic
-5. **Rate limits vary wildly** — Google 750GB/day upload, Dropbox batch limits, S3 3500 PUT/s per prefix
+| Need | Load |
+|------|------|
+| Scope, critical rules, bulk checklist | `references/domain.md` |
+| Provider-specific traps and APIs | `references/providers.md` |
+| Auth setup and credential traps | `references/auth.md` |
+| Cost model and orientation rates | `references/costs.md` |
+| Official pricing / docs anchors | `references/sources.md` |
 
-## Authentication Traps
+## Core workflows
 
-- **OAuth tokens expire** — refresh before long operations, not during
-- **Service account ≠ user account** — different quotas, permissions, audit trails
-- **Wrong region/endpoint** — S3 bucket in `eu-west-1` won't work with `s3.amazonaws.com`
-- **MFA required** — some operations need session tokens, plan for interactive auth
+**Object store transfer:** resolve credentials and region → dry-run path/key
+mapping → cost estimate from `references/costs.md` + live `references/sources.md`
+→ upload/copy with checkpointing → verify size/checksum → only then delete source
+if requested.
 
-## Multi-Provider Gotchas
+**Cross-cloud migrate:** inventory source → estimate egress and destination PUTs
+→ choose tool (CLI, Storage Transfer, AzCopy, rclone) → chunked copy with resume
+→ spot-check and full count/checksum plan → cutover.
 
-| Concept | Translates differently |
-|---------|----------------------|
-| Shared folder | Drive "Shared with me" ≠ Dropbox "Team Folders" ≠ OneDrive "SharePoint" |
-| File ID | Drive uses IDs; Dropbox uses paths; S3 uses keys |
-| Versioning | S3 explicit enable; Drive automatic; Dropbox 180 days |
-| Permissions | S3 ACLs + policies; Drive roles; Dropbox link-based |
+**Consumer drive ops:** confirm OAuth scopes and shared-drive ownership model →
+treat shortcuts/links as non-copies → export Google Docs to concrete formats →
+respect per-user rate limits.
 
-## Before Any Bulk Operation
+## Critical rules
 
-- [ ] Estimated time calculated (size ÷ bandwidth)
-- [ ] Rate limits checked for both source AND destination
-- [ ] Cost estimate including egress + API calls
-- [ ] Checkpoint/resume strategy for failures
-- [ ] Verification method defined (checksum, count, spot-check)
+1. **Verify completion** — HTTP 200 is not enough; confirm object exists with
+   expected size and checksum/ETag where the API provides one.
+2. **Price the whole job first** — storage, operations, and especially egress;
+   open `references/costs.md` then confirm live pages in `references/sources.md`.
+3. **Restorable backup before delete** — prove backup exists and restores before
+   removing the only copy.
+4. **Checkpoint bulk work** — long jobs fail mid-way; design resume markers and
+   idempotent retries.
+5. **Match auth to the job** — service accounts/roles for automation; user OAuth
+   for interactive consumer drives; refresh tokens before long runs.
+6. **Route deep specialties** — do not re-implement full `s3`, `storage`, `aws`,
+   or `backups` guidance inside this skill.
+
+## Failure modes
+
+| Symptom | Recovery |
+|---------|----------|
+| Bucket/object not found after correct key | Check region/endpoint and credential account; load `references/auth.md` |
+| Cost quote disputed | Treat tables as orientation; open official pricing URLs in `references/sources.md` |
+| Job dies at 40% | Resume from last checkpoint; avoid full restart that doubles egress |
+| OAuth mid-job expiry | Refresh before start; split into shorter authenticated batches |
+| User wants lifecycle/CORS/presign only | Hand off to `s3` |
+| User wants DB vs object architecture | Hand off to `storage` |
