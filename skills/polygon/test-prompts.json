@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I add Polygon to MetaMask and what token do I need for gas?",
+    "expected": "Add Polygon Chain mainnet via ChainList chain 137 or docs RPC; gas token is POL (MATIC renamed/migrated). Amoy testnet is 80002. Update wallet currency symbol to POL if it still shows MATIC.",
+    "actual": "Loaded polygon. Directed ChainList https://chainlist.org/chain/137 (or manual RPC from docs: chain ID 137, symbol POL, explorer polygonscan.com). Stated native gas is POL, not ETH or bridged ERC-20s. Noted wallets may still label MATIC—change network currency symbol to POL. Mentioned Amoy 80002 + faucet only if they asked for testnet. Cited references/network.md and sources.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I sent ETH to Polygon zkEVM but now I want to use QuickSwap on Polygon PoS. Can I just use the same ETH?",
+    "expected": "No. zkEVM and Polygon Chain are separate. zkEVM is deprecated for new work. Bridge out via official Portal flows as applicable; PoS gas needs POL. Do not assume balances move because the address string matches.",
+    "actual": "Loaded polygon + references/zkevm.md. Explained networks are separate despite identical address format; funds on zkEVM are not on PoS. Flagged official docs: Polygon zkEVM is deprecated for new integrations. Advised Portal-based exit toward Ethereum/Polygon Chain rather than 'just switch network', and that PoS swaps need POL for gas plus the token on chain 137. Did not invent a same-tx hop.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I bridged USDC from Ethereum with Polygon Portal. Polygonscan shows the tx but my MetaMask on Polygon still has no USDC and I cannot move anything.",
+    "expected": "Confirm destination is chain 137; wait/finish Portal mint if pending; add the Polygon USDC contract as a custom token; obtain POL for gas before transfers. Do not re-bridge as first fix.",
+    "actual": "Opened references/bridging.md and troubleshooting.md. Checklist: (1) MetaMask network = Polygon 137 not Ethereum/zkEVM, (2) Portal status complete vs pending mint, (3) add verified Polygon USDC contract token, (4) ensure native POL for gas—USDC alone cannot pay fees. Advised against immediately bridging a second time. Pointed to polygonscan token page for the contract address verification.",
+    "pass": true
+  }
+]
