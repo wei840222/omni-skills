@@ -19,7 +19,7 @@ Proactivity works best when stable memory and live task state stay separate.
 ## Use the Working Buffer For
 
 - volatile breadcrumbs during long tasks
-- partial findings not ready for durable memory
+- partial findings pending durable memory
 - recovery hints after tool-heavy work
 - temporary notes that should be cleared later
 

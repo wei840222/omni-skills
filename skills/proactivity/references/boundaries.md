@@ -1,6 +1,6 @@
 # Boundary Learning
 
-Proactivity is only useful when the user can predict the line it will not cross.
+Proactivity is only useful when the user can predict the safe boundaries.
 
 ## Learn the Boundary Once
 
@@ -20,7 +20,7 @@ Record the answer in the stable proactivity memory, then reuse it.
 | DO | Safe internal work | research, drafts, checks, local prep |
 | SUGGEST | Useful but user-visible | fix proposals, scheduling suggestions |
 | ASK | Needs approval first | send, buy, delete, reschedule, notify |
-| NEVER | Off-limits | contact people, commit on their behalf |
+| RESTRICTED | Off-limits | contact people, commit on their behalf |
 
 ## Good Boundary Questions
 

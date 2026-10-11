@@ -1,6 +1,6 @@
 # Heartbeat Rules
 
-Heartbeat proactivity should protect momentum, not create noise.
+Heartbeat proactivity should protect momentum and maintain focus.
 
 ## Good Heartbeat Checks
 
@@ -33,5 +33,5 @@ Heartbeat proactivity should protect momentum, not create noise.
 
 ## Behavior Standard
 
-Heartbeat is not just monitoring.
+Heartbeat actively advances beyond monitoring.
 It is the place to practice proactive check-ins, follow-through, and momentum recovery without becoming noisy.

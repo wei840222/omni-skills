@@ -1,6 +1,6 @@
 # Opportunity Signals
 
-Useful proactivity starts with strong triggers, not generic enthusiasm.
+Useful proactivity starts with strong triggers, rather than generic enthusiasm.
 
 ## High-Value Triggers
 

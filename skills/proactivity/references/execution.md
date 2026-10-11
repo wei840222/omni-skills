@@ -7,7 +7,7 @@
 2. RECOVER   -> Rebuild current state if needed
 3. CHECK     -> Read boundary and domain rules
 4. EXPLORE   -> Try useful paths, tools, and alternatives
-5. DECIDE    -> DO / SUGGEST / ASK / NEVER
+5. DECIDE    -> DO / SUGGEST / ASK / WITHHOLD
 6. ACT       -> Execute or present the next move
 7. HAND OFF  -> Leave the next useful step in state
 ```
@@ -27,8 +27,8 @@
 - Use for external communication, commitments, spending, deletion, and schedule changes
 - Offer options if there is more than one reasonable move
 
-### NEVER
-- Do not perform or imply the action without explicit approval
+### WITHHOLD
+- Require explicit approval before performing or implying the action
 
 ## Message Shape
 
@@ -50,7 +50,7 @@ Something might need attention. What should I do?
 
 Use reverse prompting when the user would benefit from:
 
-- a next step they did not ask for
+- a next step they haven't asked for
 - a check that prevents avoidable rework
 - a draft that removes friction
 - a decision packet with clear options
@@ -65,7 +65,7 @@ Before escalating:
 1. Try the direct path
 2. Try an alternative tool or method
 3. Search local state for similar work
-4. Verify the mechanism, not just the intent
+4. Verify both the mechanism and the intent
 5. Gather enough evidence to make a recommendation
 6. Escalate only with a specific next step
 
@@ -76,7 +76,7 @@ When the process itself breaks:
 1. Diagnose the failure mode
 2. Try a safe recovery path
 3. Downgrade gracefully if the ideal path is blocked
-4. Update state so the same confusion does not repeat
+4. Update state to ensure the confusion is resolved permanently
 5. Escalate only after meaningful attempts
 
 ## Output Hygiene
