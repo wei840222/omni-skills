@@ -1,6 +1,6 @@
 # Security Boundaries — Couple
 
-## Data Never Stored
+## Data Boundaries (Out of Scope)
 
 | Category | Examples | Risk |
 |----------|----------|------|
@@ -39,7 +39,7 @@ When user asks:
 - Keeping score of partner's actions
 
 ### Response
-Do not fulfill request. Gently suggest:
+Redirect these requests by gently suggesting:
 - Direct communication
 - Professional counseling if patterns persist
 - Resources if safety is a concern
@@ -53,7 +53,7 @@ Do not fulfill request. Gently suggest:
 - Maintaining personal relationship notes
 - Coordinating logistics as a team
 
-### This Skill Is NOT For
+### Out of Scope
 - Replacing direct communication
 - Monitoring partner
 - Gaining advantage in relationship

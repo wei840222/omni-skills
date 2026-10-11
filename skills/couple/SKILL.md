@@ -1,70 +1,77 @@
 ---
 name: couple
-slug: couple
-version: 1.0.0
-description: Strengthen relationships with milestone tracking, personalized celebrations, date planning, and shared memory across all relationship stages.
-homepage: https://clawic.com/skills/couple
+description: Strengthen relationships with milestone tracking, personalized celebrations,
+  date planning, and shared memory across all relationship stages.
 metadata:
-  clawdbot:
-    emoji: 💑
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Couple
+  version: 1.0.0
+  openclaw: '{"emoji": "💑"}'
 ---
 
 ## When to Use
 
 User needs help with relationship milestones, date ideas, anniversary planning, shared memories, or coordinating as a couple. Agent maintains relationship context and suggests personalized actions.
 
+## State location
+
+Couple state may exist in `<workspace>/couple/`, `<workspace>/memory/couple/`, or `~/couple/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/couple/`, `<workspace>/memory/couple/`, `~/couple/`.
+3. If none exists and state must be created, default to `<workspace>/couple/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
+
 ## Architecture
 
-Memory lives in `~/Clawic/data/couple/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/`. See `references/setup.md` for setup.
 
 ```
-~/Clawic/data/couple/
+<state_root>/
 ├── memory.md          # HOT: active context, preferences
 ├── timeline.md        # Milestones, anniversaries, firsts
 ├── ideas.md           # Saved date/gift ideas
 └── archive/           # Past years, old notes
 ```
 
-## Quick Reference
+## Resource Routing
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Milestone tracking | `milestones.md` |
-| Date and gift ideas | `activities.md` |
-| Security limits | `boundaries.md` |
+Load the following resources when triggered by their respective conditions:
+
+| Trigger Condition | Resource Path |
+|-------------------|---------------|
+| First-time use or memory structure creation | `references/setup.md` & `assets/data-templates.md` |
+| Planning an anniversary, birthday, or relationship milestone | `references/milestones.md` |
+| Brainstorming date nights, long-distance ideas, or gifts | `references/activities.md` |
+| Handling requests that border on privacy, monitoring, or security | `references/boundaries.md` |
+| Facilitating a structured weekly meeting or resolving conflict | `references/checkins.md` |
+| Verifying relationship-framework or privacy claims against primary sources | `references/sources.md` |
 
 ## Scope
 
 This skill ONLY:
-- Stores relationship dates and milestones in `~/Clawic/data/couple/`
+- Stores relationship dates and milestones in `<state_root>/`
 - Suggests ideas for dates, gifts, celebrations
 - Tracks user's own preferences and notes
 - Helps plan shared activities
 
-This skill NEVER:
-- Tracks location or monitors partner activity
-- Stores information about partner without their input
-- Offers manipulation or persuasion techniques
-- Replaces direct communication between partners
-- Stores health, financial, or intimate data
+Out of Scope:
+- Location tracking or partner monitoring
+- Storing partner information without their input
+- Manipulation or persuasion techniques
+- Mediating or replacing direct communication
+- Health, financial, or intimate data
 
 ## Self-Modification
 
-This skill NEVER modifies its own SKILL.md.
-All data stored in `~/Clawic/data/couple/` directory.
+Treat SKILL.md as read-only.
+All data stored in `<state_root>/` directory.
 
 ## Core Rules
 
 ### 1. Check Memory First
-Before suggesting dates/gifts, read `~/Clawic/data/couple/memory.md` for partner preferences and past activities.
+Before suggesting dates/gifts, read `<state_root>/memory.md` for partner preferences and past activities.
 
 ### 2. Milestone Alerts
 | Days Before | Action |
@@ -74,9 +81,9 @@ Before suggesting dates/gifts, read `~/Clawic/data/couple/memory.md` for partner
 | 1 | Final reminder with logistics |
 
 ### 3. Personalize Everything
-Never suggest generic "flowers and dinner". Use stored preferences:
-- Partner's interests from memory.md
-- Past successful dates from timeline.md
+Base suggestions strictly on stored preferences rather than generic defaults:
+- Partner's interests from `<state_root>/memory.md`
+- Past successful dates from `<state_root>/timeline.md`
 - Budget constraints if mentioned
 
 ### 4. Stage-Aware Suggestions
@@ -99,4 +106,4 @@ If both partners use the skill, maintain separate preferences while enabling sha
 - Suggesting things partner dislikes (didn't check memory) → Always read preferences first
 - Generic anniversary ideas → Reference their specific history
 - Forgetting timezone for LDR couples → Store and use both timezones
-- Overplanning without user input → Suggest, don't dictate
+- Overplanning without user input → Wait for user input to confirm suggestions

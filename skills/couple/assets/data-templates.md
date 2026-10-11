@@ -1,15 +1,8 @@
-# Memory Setup — Couple
-
-## Initial Setup
-
-Create directory on first use:
-```bash
-mkdir -p ~/Clawic/data/couple/archive
-```
+# Data Templates — Couple
 
 ## memory.md Template
 
-Copy to `~/Clawic/data/couple/memory.md`:
+Copy to `<state_root>/memory.md`:
 
 ```markdown
 # Couple Memory
@@ -39,6 +32,8 @@ Copy to `~/Clawic/data/couple/memory.md`:
 
 ## timeline.md Template
 
+Copy to `<state_root>/timeline.md`:
+
 ```markdown
 # Our Timeline
 
@@ -61,6 +56,8 @@ Copy to `~/Clawic/data/couple/memory.md`:
 ```
 
 ## ideas.md Template
+
+Copy to `<state_root>/ideas.md`:
 
 ```markdown
 # Date & Gift Ideas
