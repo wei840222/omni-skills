@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I add Umami to a Next.js App Router project?",
+    "expected": "Loads integration.md; places script in root layout head or next/script; does not recommend a non-existent @umami/next package; notes SPA pageviews are automatic.",
+    "actual": "Read references/integration.md. Add the Umami script in the root layout <head> or via next/script with strategy afterInteractive and the correct data-website-id. Do not use @umami/next — that package is not the official integration. Client-side route changes are tracked automatically.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Self-hosted Umami shows zero pageviews even though I pasted the script.",
+    "expected": "Loads troubleshooting.md and configuration.md; checks data-website-id, Network tab, ad blockers/proxy, and APP_SECRET/PostgreSQL only as config context—not HASH_SALT or MySQL-as-current.",
+    "actual": "Read references/troubleshooting.md and configuration.md. Verify data-website-id, Network requests to the collect endpoint, and ad-blocker bypass via first-party proxy. Confirm the app uses PostgreSQL and APP_SECRET; do not set HASH_SALT or assume MySQL on v3.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Do I need to call umami.track() on every React Router navigation?",
+    "expected": "Says no for default setup; SPA History API auto-tracking; manual track only if auto pageviews disabled or custom payload needed.",
+    "actual": "No. With the default tracker, Umami listens to History API navigation and records SPA pageviews automatically. Call umami.track() for pageviews only if data-auto-pageview is false or you need a custom payload; use it for custom events as usual.",
+    "pass": true
+  }
+]
