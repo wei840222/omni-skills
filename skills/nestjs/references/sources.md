@@ -11,13 +11,13 @@ Authoritative references used for this refactor. Prefer these over blog posts wh
 - Provider scopes (docs source) — https://github.com/nestjs/docs.nestjs.com/blob/master/content/fundamentals/provider-scopes.md
 - Custom providers — https://docs.nestjs.com/fundamentals/custom-providers
 - Pipes — https://docs.nestjs.com/pipes
-- Validation (ValidationPipe options, whitelist, transform) — https://docs.nestjs.com/techniques/validation  
+- Validation (ValidationPipe options, whitelist, transform) — https://docs.nestjs.com/techniques/validation
   (docs source path: `content/application/validation.md` in nestjs/docs.nestjs.com)
 - Guards — https://docs.nestjs.com/guards
 - Interceptors — https://docs.nestjs.com/interceptors
 - Exception filters — https://docs.nestjs.com/exception-filters
 - Request lifecycle — https://docs.nestjs.com/faq/request-lifecycle
-- Testing — https://docs.nestjs.com/fundamentals/testing  
+- Testing — https://docs.nestjs.com/fundamentals/testing
   (docs source path: `content/fundamentals/unit-testing.md`)
 
 ## Validation libraries
