@@ -26,7 +26,7 @@ Stop [Pain]. Start [Desired State].
 ### Rules
 - Lead with transformation, not mechanism
 - Specificity beats cleverness ("47% More Opens" > "Revolutionary Results")
-- One idea per headline — never compound
+- One idea per headline — keep ideas separate
 
 ---
 
@@ -43,7 +43,7 @@ Stop [Pain]. Start [Desired State].
 ```
 
 ### Button Copy by Context
-| Context | Use | Avoid |
+| Context | Use | Omit |
 |---------|-----|-------|
 | Free offer | Get, Grab, Download | Buy, Purchase |
 | Paid | Start, Join, Unlock | Submit, Send |
@@ -88,7 +88,7 @@ RE-ENGAGEMENT:
 - Front-load keywords
 - Lowercase often outperforms Title Case
 - Preview text is part of headline
-- **Never:** ALL CAPS, multiple !!!, spam words
+- **Ensure:** Standard capitalization, single punctuation, professional words
 
 ---
 

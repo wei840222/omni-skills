@@ -12,7 +12,7 @@ echo 'John,"123 Main St, Apt 4",NYC' | cut -d',' -f2
 python3 -c "import csv,sys; r=csv.reader(sys.stdin); print(list(r))"
 ```
 
-**Rule:** For CSV, ALWAYS use `csvkit`, `pandas`, or language CSV library. Never split on comma.
+**Rule:** For CSV, use `csvkit`, `pandas`, or a language CSV library. Prefer parsers over delimiter splits.
 
 ### Detect Delimiter
 ```python
@@ -210,7 +210,7 @@ def normalize_phone(phone, country='US'):
 # Syslog
 ^(\w+\s+\d+\s+[\d:]+)\s+(\S+)\s+(\S+):\s+(.*)$
 
-# JSON logs - ALWAYS use jq
+# JSON logs - prefer jq
 cat app.log | jq -r 'select(.level=="error") | .message'
 ```
 
@@ -219,7 +219,7 @@ cat app.log | jq -r 'select(.level=="error") | .message'
 # INI - extract section
 sed -n '/^\[section\]/,/^\[/p' config.ini | grep -v '^\['
 
-# YAML - ALWAYS use yq
+# YAML - prefer yq
 yq '.database.host' config.yaml
 
 # .env files
