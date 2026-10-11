@@ -1,5 +1,7 @@
 # Print-on-Demand Selling
 
+Per-SKU template sizes differ by provider and garment. Confirm the active template in the POD dashboard before production upload; see Printful entry in `references/sources.md`.
+
 ## Platform Comparison
 
 | Platform | Best For | Margins | Product Range |
@@ -80,7 +82,7 @@ Create at largest needed size, scale down:
 **Problem:** White halos, semi-transparent pixels
 **Solution:**
 - Check edges at 200%+ zoom
-- Use hard edges, avoid anti-aliasing at boundaries
+- Use hard edges, prevent anti-aliasing at boundaries
 - Test PNG on colored background before upload
 
 ### Multi-Platform Management
@@ -119,7 +121,7 @@ Price = ($12 + $8) / (1 - 0.25) = $26.67 → round to $27
 7. Double down on winners, kill losers
 
 ### Trademark Safety
-**Never use:**
+**Prohibited:**
 - Team names, league names
 - Celebrity names
 - Movie/TV titles

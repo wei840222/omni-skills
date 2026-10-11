@@ -1,5 +1,7 @@
 # AI Product Imagery Tools
 
+Vendor tiers and model names change quickly. Treat pricing cells as orientation; confirm on the vendor site before committing budget. Prefer describing capability needs (text-on-product, bulk API, bg removal) over locking a single forever-winner.
+
 ## Best Tool by Need
 
 | Need | Best Tool | Why |
@@ -98,7 +100,7 @@
 ### AI Mockup (Midjourney/GPT-4o)
 - More realistic than templates
 - Less consistent, more setup
-- Best for hero shots, not bulk
+- Best for hero shots, rather than bulk
 
 ## Recommended Stacks
 

@@ -1,11 +1,13 @@
 # Etsy Selling
 
+Fee percentages and offsite-ads rules change. Before quoting take-rates, open the shop’s current Fees policy (see `references/sources.md`); automated fetches may be blocked.
+
 ## Listing Structure
 
 ### Title
 - **Max:** 140 characters
 - **Strategy:** Front-load primary keywords
-- **Readable:** Don't keyword stuff
+- **Readable:** Keep keywords natural
 
 ### Tags
 - **Count:** Exactly 13 allowed, USE ALL 13
@@ -32,18 +34,17 @@
 - **Sound:** None (auto-plays muted)
 - **Impact:** Huge ranking boost
 
-## Fee Structure
+## Fee Structure (orientation)
 
-| Fee | Amount |
+| Fee | Historical orientation |
 |-----|--------|
-| Listing | $0.20 (4-month renewal) |
-| Transaction | 6.5% of sale + shipping |
-| Payment Processing | 3% + $0.25 |
-| Offsite Ads (>$10K) | 15% mandatory |
-| Offsite Ads (<$10K) | 12% optional |
-| Currency Conversion | 2.5% |
+| Listing | Low fixed listing fee with multi-month renewal window |
+| Transaction | Percentage of item + shipping |
+| Payment Processing | Percentage + fixed cents per order |
+| Offsite Ads | Higher mandatory rate above revenue thresholds; optional below |
+| Currency Conversion | Extra % when currencies differ |
 
-**Total typical cut:** 25%+ of sale price
+**Planning cushion:** many shops model ~20–30%+ total platform cut before profit — replace with the live fee schedule before setting retail.
 
 ## Algorithm Ranking Factors
 
@@ -76,7 +77,7 @@ Evaluated monthly on rolling basis.
 
 ### Long-Tail Domination
 - Target: "personalized leather wallet for dad"
-- Avoid: "wallet" (too competitive)
+- Bypass: "wallet" (too competitive)
 
 ### Competitor Analysis
 - Study top sellers' tags (Shop by section)

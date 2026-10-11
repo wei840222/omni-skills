@@ -1,62 +1,83 @@
 ---
 name: product
-slug: product
-version: 1.0.0
-description: Build, visualize, and launch products with strategy frameworks, AI imagery tools, and marketplace optimization.
-homepage: https://clawic.com/skills/product
+description: >
+  Build and launch digital or physical products end-to-end: validate demand,
+  prioritize features (RICE/ICE/Kano), track PMF and SaaS metrics, price with
+  fee-aware margins, generate AI product imagery, and meet Amazon/Etsy/POD
+  listing specs. Use when the user needs product strategy plus marketplace or
+  visual execution in one flow. Prefer product-manager for pure PM process,
+  pricing for deep B2B list-price math, saas for subscription ops metrics,
+  amazon/etsy for channel-only ops, and indie-hacker for solo bootstrap sequencing.
 metadata:
-  clawdbot:
-    emoji: 📦
-    displayName: Product
+  version: "1.1.0"
+  openclaw: '{"emoji":"📦","displayName":"Product"}'
+  related-skills: '{"product-manager":"Pure PM discovery, roadmaps, and PRD craft without marketplace imagery.","pricing":"Deep B2B/SaaS list-price design and WTP research beyond fee-aware product margins.","saas":"Subscription MRR/NRR ops and packaging once the product is recurring.","indie-hacker":"Solo founder validation and time protection for side projects.","amazon":"Amazon buyer/seller ops beyond product listing image and FBA launch checklists.","etsy":"Etsy listing diagnostics and shop growth beyond cross-channel product launch.","product-launch":"Launch sequencing and go-to-market when the build is already decided.","growth":"Acquisition funnels after PMF and retention math are sound."}'
 ---
 
-## When to Use
-- Creating products (digital SaaS or physical goods)
-- Generating product mockups and photography with AI
-- Optimizing listings for marketplaces (Amazon, Etsy, Shopify)
-- Validating ideas and measuring product-market fit
-- Pricing strategy and launch planning
+# Product
 
-## Quick Reference
+Own **product creation workflows** that span validation → prioritization → metrics → pricing → AI visuals → marketplace listing specs for SaaS and physical goods.
 
-| Need | File |
+This skill is **knowledge-only**. It does not create or require a persistent state tree. Do not write runtime notes into this package.
+
+## When to use
+
+- Validating an idea, running Mom Test interviews, or checking Sean Ellis PMF
+- Prioritizing features with RICE, ICE, MoSCoW, or Kano
+- Tracking SaaS metrics (MRR, NRR, LTV:CAC) or stage-based focus
+- Fee-aware pricing for Amazon, Etsy, Shopify, or POD margins
+- AI product photography, mockups, and platform image specs
+- Amazon FBA listing basics, Etsy SEO structure, or multi-platform POD export
+
+Prefer adjacent skills when they fit better:
+
+- Pure PM process / PRDs / stakeholder craft → `product-manager`
+- Deep list-price math and WTP studies → `pricing`
+- Subscription billing ops and NRR movement → `saas`
+- Solo bootstrap time protection → `indie-hacker`
+- Amazon-only or Etsy-only shop ops → `amazon` / `etsy`
+
+## Progressive disclosure
+
+| Need | Load |
 |------|------|
-| Validate an idea | `strategy/validation.md` |
-| Prioritize features | `strategy/prioritization.md` |
-| Track metrics | `strategy/metrics.md` |
-| AI image tools | `visuals/ai-tools.md` |
-| Product photo prompts | `visuals/prompts.md` |
-| Image specs by platform | `visuals/specs.md` |
-| Amazon FBA | `commerce/amazon.md` |
-| Etsy selling | `commerce/etsy.md` |
-| Print-on-demand | `commerce/pod.md` |
-| Pricing strategies | `commerce/pricing.md` |
-| Manufacturing compliance | `manufacturing/compliance.md` |
+| Core workflows and critical rules | `references/domain.md` |
+| Idea validation, Mom Test, PMF survey | `references/validation.md` |
+| Feature prioritization frameworks | `references/prioritization.md` |
+| Revenue, retention, engagement metrics | `references/metrics.md` |
+| Pricing models and platform fee math | `references/pricing.md` |
+| AI imagery tool selection | `references/ai-tools.md` |
+| Product photo prompt templates | `references/prompts.md` |
+| Platform image dimensions | `references/specs.md` |
+| Amazon FBA listing and PPC basics | `references/amazon.md` |
+| Etsy listing, fees, ranking | `references/etsy.md` |
+| Print-on-demand multi-platform | `references/pod.md` |
+| Manufacturing compliance by region | `references/compliance.md` |
+| Gate 6 research anchors | `references/sources.md` |
 
-## Core Workflow
+## Core workflows
 
-**Digital Products (SaaS):**
-1. Validate → `strategy/validation.md` (interviews, smoke tests)
-2. Define MVP → strip to one core value proposition
-3. Prioritize → `strategy/prioritization.md` (RICE scoring)
-4. Launch → beta program, iterate fast
-5. Measure PMF → `strategy/metrics.md` (Sean Ellis 40%+)
+**Digital (SaaS):** validate → define one-value MVP → prioritize → beta → measure PMF (Sean Ellis 40%+ very disappointed) before scaling spend.
 
-**Physical Products:**
-1. Design → ensure DFM compliance
-2. Source → `manufacturing/compliance.md` for certs by region
-3. Photograph → `visuals/prompts.md` for AI shots
-4. List → platform-specific files in `commerce/`
-5. Launch → limited drops, scarcity mechanics
+**Physical goods:** DFM-aware design → regional compliance → photography → platform listing specs → limited launch.
 
-**Merchandising (logo on products):**
-1. Create design at highest resolution needed
-2. Use AI mockup tools → `visuals/ai-tools.md`
-3. Export platform-specific sizes → `visuals/specs.md`
-4. List across platforms → `commerce/pod.md`
+**Merch / POD:** highest-res master → AI mockups → platform-specific export sizes → multi-channel list with fee-aware price.
 
-## Critical Rules
-- **Validate before building** — always test demand first
-- **Platform specs matter** — wrong dimensions = rejected listings
-- **Pricing includes fees** — calculate true margins after all platform cuts
-- **PMF before scaling** — 40%+ "very disappointed" on Sean Ellis test
+## Critical rules
+
+1. **Validate before building** — past behavior and paid signal beat compliments.
+2. **Platform specs are hard gates** — wrong dimensions or white-background rules reject listings.
+3. **Price after fees** — quote retail only after Amazon/Etsy/POD cuts and desired margin.
+4. **PMF before scale** — treat Sean Ellis ≥40% "very disappointed" (adequate sample) as a scale gate, not a slogan.
+5. **Verify live vendor limits** — fee tables, image minima, and tool pricing change; open `references/sources.md` and the linked official page before locking a number in a customer-facing answer.
+6. **Route deep specialties** — do not re-implement `pricing`, `saas`, `amazon`, or `etsy` full ops inside this skill.
+
+## Failure modes
+
+| Symptom | Recovery |
+|---------|----------|
+| User wants only roadmap/PRD craft | Hand off to `product-manager` |
+| User needs Stripe/dunning/NRR rebuild | Hand off to `saas` / `billing` |
+| Exact Amazon/Etsy fee or image rule disputed | Open official Seller Central / Etsy policy URL from `references/sources.md`; do not invent |
+| AI tool tier price quoted from memory | Treat as orientation; confirm on vendor pricing page |
+| Feature priority without a metric | Require Reach/Impact/Effort inputs or switch to MoSCoW for release scope |

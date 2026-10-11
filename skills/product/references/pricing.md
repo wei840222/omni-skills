@@ -1,5 +1,7 @@
 # Product Pricing
 
+For deep B2B software list-price design, WTP studies, and grandfathering cohorts, prefer the `pricing` skill. This file covers product-launch fee-aware retail math and classic research methods.
+
 ## Pricing Models
 
 | Model | Best For | Example |
@@ -150,4 +152,4 @@ Large: $10
 **How:**
 - Grandfather existing customers (or offer upgrade path)
 - Add features to justify
-- Communicate value, not just price change
+- Communicate value, rather than just price change

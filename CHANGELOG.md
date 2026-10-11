@@ -22,6 +22,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | movie                        | 2026-10-11 | 86/100 (#804)                    |
 | nestjs                       | 2026-10-11 | 87/100 (#808)                    |
 | proactivity                  | 2026-10-11 | 88/100 (#810)                    |
+| product                      | 2026-10-11 | 86/100 (#811)                    |
 | safari                       | 2026-10-11 | 86/100 (#802)                    |
 | litecoin                     | 2026-10-11 | 86/100 (#801)                    |
 | chrome                       | 2026-10-10 | 88/100 (#800)                    |

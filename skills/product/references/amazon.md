@@ -1,5 +1,7 @@
 # Amazon FBA Selling
 
+Mutable image rules and fee schedules change by marketplace and category. Before customer-facing quotes, open the Seller Central image-requirements help entry and the category fee schedule linked from `references/sources.md`.
+
 ## Listing Requirements
 
 ### Title (2025 Rules)
@@ -18,7 +20,7 @@
 ### Backend Search Terms
 - **Limit:** 250 bytes
 - **Rules:** No brand names, no ASINs, no commas needed
-- **Critical:** Exceeding limit = entire field not indexed
+- **Critical:** Exceeding limit = entire field ignored
 
 ## A+ Content (EBC)
 
@@ -38,15 +40,17 @@
 
 **Premium A+ eligibility:** All ASINs have Brand Story + 5 approved projects in 12 months
 
-## Fees Structure
+## Fees Structure (orientation only)
 
-| Fee | Amount |
+| Fee | Typical range / note |
 |-----|--------|
-| Referral | 8-15% (category dependent) |
-| FBA Fulfillment | $3-5+ (size/weight) |
-| Monthly Storage | $0.87/cubic ft (Jan-Sep), $2.40 (Oct-Dec) |
-| Aged Inventory | Surcharge after 181+ days |
-| Inbound Placement | New fee for distributed inventory |
+| Referral | Often high-single to mid-teens % by category — confirm live schedule |
+| FBA Fulfillment | Varies by size tier and weight |
+| Monthly Storage | Seasonal; peak Q4 rates are higher — confirm Seller Central |
+| Aged Inventory | Surcharges apply after long dwell thresholds |
+| Inbound Placement | May apply when Amazon distributes inbound inventory |
+
+Do not present these cells as the shop’s current invoice rates.
 
 ## PPC Advertising
 
@@ -76,7 +80,7 @@
 1. Primary keyword in title (front-loaded)
 2. Secondary keywords in bullets
 3. Tertiary in backend
-4. Avoid repetition across fields
+4. Ensure uniqueness across fields
 
 ### Image Strategy
 1. Main: Product on white, 85%+ fill
