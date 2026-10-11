@@ -1,6 +1,6 @@
 # Execution Matrix — PowerPoint
 
-Use this matrix before writing automation. Choose the path that matches the app state, not the file format.
+Use this matrix before writing automation. Choose the path that matches the app state, rather than the file format.
 
 ## Default Interface by Job
 
@@ -19,6 +19,7 @@ Use this matrix before writing automation. Choose the path that matches the app 
 
 - Start with `osascript` for presentation, slide, notes, export, and slideshow actions.
 - Keep scripts short and verify active presentation identity before mutation.
+- Confirm Automation permission for the controlling terminal app when probes hang.
 
 ## Attach Strategy
 
@@ -38,4 +39,4 @@ Use this matrix before writing automation. Choose the path that matches the app 
 
 - the presentation is business-critical
 - slide reordering or deletion could be destructive
-- export or cleanup behavior is not yet trusted
+- export or cleanup behavior is untrusted

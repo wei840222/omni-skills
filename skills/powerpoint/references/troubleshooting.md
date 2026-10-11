@@ -14,7 +14,7 @@ Fix:
 Cause:
 - wrong active slide
 - selection changed
-- slide identity was not re-verified before write
+- slide identity lacked re-verification before write
 
 Fix:
 - re-read active presentation and slide index
@@ -34,7 +34,7 @@ Fix:
 ## PDF export looks stale
 
 Cause:
-- notes, numbering, or active content was not in the expected final state
+- notes, numbering, or active content lacked the expected final state
 
 Fix:
 - verify the active deck and slide order first
@@ -44,12 +44,14 @@ Fix:
 
 Cause:
 - wrong terminology for the PowerPoint dictionary
-- app not fully ready
+- app still initializing
+- Automation permission missing for this controlling app
 
 Fix:
 - keep scripts short
 - validate presentation identity first
 - retry only after confirming PowerPoint is frontmost and has an open deck
+- grant Automation for the current terminal host if probes hang
 
 ## `osascript` can see PowerPoint but actions still fail
 

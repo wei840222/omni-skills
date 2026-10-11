@@ -17,6 +17,7 @@ Use this before any risky PowerPoint Desktop action.
 3. State whether the action is reversible.
 4. State whether a copy or Save As path exists.
 5. State whether slideshow or presenter state matters.
+6. Confirm attach-existing vs launch-new ownership before close/quit.
 
 ## Safe fallback moves
 

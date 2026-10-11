@@ -1,13 +1,13 @@
 # Memory Template — PowerPoint
 
-Create `~/Clawic/data/powerpoint/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # PowerPoint Memory
 
 ## Status
 status: active
-version: 1.0.0
+version: 1.1.0
 last_verified: YYYY-MM-DD
 platform: macOS
 control_path: osascript
@@ -28,7 +28,7 @@ ppt_attach_mode: attach-existing | launch-new | mixed
 
 ## Deck Notes
 - Store only presentation identifiers, stable paths, and non-sensitive structure notes
-- Never paste slide contents, secrets, or personal information here
+- Exclude slide contents, secrets, or personal information here
 
 ## Recent Incidents
 - YYYY-MM-DD: short failure signature -> short fix
@@ -37,13 +37,13 @@ ppt_attach_mode: attach-existing | launch-new | mixed
 ## Storage Rules
 
 - Keep only reusable environment facts and safety preferences.
-- Do not store slide body content unless the user explicitly asks for a local note.
-- Put repeatable failures in `~/Clawic/data/powerpoint/incidents.md`.
-- Put non-sensitive recurring deck metadata in `~/Clawic/data/powerpoint/deck-notes.md`.
+- Exclude slide body content unless the user explicitly asks for a local note.
+- Put repeatable failures in `<state_root>/incidents.md`.
+- Put non-sensitive recurring deck metadata in `<state_root>/deck-notes.md`.
 
 ## Optional Companion Files
 
-`~/Clawic/data/powerpoint/incidents.md`:
+`<state_root>/incidents.md`:
 
 ```markdown
 # PowerPoint Incidents
@@ -55,7 +55,7 @@ ppt_attach_mode: attach-existing | launch-new | mixed
 - Fix:
 ```
 
-`~/Clawic/data/powerpoint/deck-notes.md`:
+`<state_root>/deck-notes.md`:
 
 ```markdown
 # Deck Notes
