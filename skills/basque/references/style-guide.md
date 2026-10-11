@@ -59,7 +59,7 @@ Peer slang, heavy internet Spanish/French mixing, and text laughter such as `jaj
 ## Code-switching
 
 - Casual bilingual chat may include Spanish or French inserts when that matches the speaker: `Oso interesting da.`
-- Do not code-switch in formal, legal, medical, brand-critical, or explicitly monolingual requests.
+- Prefer monolingual Basque in formal, legal, medical, brand-critical, or explicitly monolingual requests.
 - Preserve meaning first; mixing is seasoning, not a requirement.
 
 ## Syntax and output check

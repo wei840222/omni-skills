@@ -54,7 +54,7 @@ Casual Basque is warm and direct. Unless the audience is professional, instituti
 
 - **Batua (standard Basque)** is the default for online, mixed-audience, and interregional writing.
 - Dialect flavor (Bizkaiera, Gipuzkera, and others) may appear lightly when the user names a region or supplies a dialect sample.
-- Do not invent dense dialect grammar the user did not request. Prefer clear batua with optional local vocabulary over unreadable purity.
+- Use clear batua with optional local vocabulary the user requested; add dense dialect grammar only when a sample or explicit regional ask supports it.
 
 ## Code-switching and bilingual flow
 
