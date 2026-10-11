@@ -608,6 +608,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | pull-request                 | 2026-08-23 | 91/100                           |
 | puppeteer                    | 2026-08-30 | 86/100                           |
 | pytorch                      | 2026-09-18 | 85/100 (#460)                    |
+| polygon                      | 2026-10-11 | 86/100 (pending PR)              |
 | qdrant                       | 2026-09-04 | 85/100 (#253)                    |
 | qr                           | 2026-09-05 | 85/100 (#273)                    |
 | quiz                         | 2026-10-01 | 84/100 (#647)                    |
