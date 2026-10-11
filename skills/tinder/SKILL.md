@@ -125,4 +125,3 @@ keep marketplace homepage links.
 ## External endpoints
 
 This skill makes no external network requests on its own.
-

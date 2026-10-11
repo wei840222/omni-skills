@@ -25,4 +25,3 @@ Retrieval window for this refactor: 2026-10-12. Re-open these pages before resta
 - Do not claim identity verification that the user has not actually seen.
 - Do not prescribe medical, legal, or immigration advice inside this skill.
 - Do not keep promotional marketplace homepage or feedback URLs.
-
