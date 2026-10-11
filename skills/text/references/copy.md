@@ -1,5 +1,8 @@
 # Marketing Copy & Email
 
+Prefer concrete outcomes over clever phrasing when scoring headlines and CTAs.
+
+
 ## Headlines
 
 ### 4U Framework (Score Each 1-4, Aim for 12+)
