@@ -47,6 +47,8 @@ Prefer `nodejs` / `typescript` for non-Nest runtime or language work, `nextjs` /
 | `references/sources.md` | Official Nest / class-validator / Agent Skills URLs before citing defaults |
 | `test-prompts.json` | Evaluation harness only — do not load during normal user assistance |
 
+Keep `SKILL.md` as the sole runtime rule surface; `references/sources.md` is citation-only progressive disclosure.
+
 ## Dependency Injection
 
 - A provider is injectable in another module only when it is listed in that module's `providers` **and**, for cross-module use, `exports` of the host module while the consumer `imports` the host module.
