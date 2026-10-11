@@ -1,13 +1,13 @@
 # Memory Template - multi-engine-web-search
 
-Create `~/Clawic/data/multi-engine-web-search/memory.md`:
+Create `<state_root>/memory.md`:
 
 ```markdown
 # multi-engine-web-search Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | done | declined
 
@@ -38,4 +38,5 @@ style: speed | balanced | evidence
 
 - Keep memory minimal and preference-focused.
 - Update `last` whenever preferences change.
-- Do not store secrets or personal sensitive data.
+- Store only non-sensitive user preferences.
+- Never store credentials, private query logs, or personal identifiers.

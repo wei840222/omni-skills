@@ -1,4 +1,23 @@
 [
-  {"id":1,"prompt":"Find current primary sources and independent reporting about the EU AI Act timeline.","expected":"Uses multiple indexes, prioritizes official EU sources, checks dates, and returns cited evidence with confidence.","actual":"Dry-run: the workflow selects mainstream, alternate, and official-source queries, verifies dates, and labels confidence.","pass":true},
-  {"id":2,"prompt":"Investigate competing claims about whether a four-day workweek improves productivity.","expected":"Runs a contradiction query, distinguishes independent evidence from rewrites, and explains unresolved disagreement.","actual":"Dry-run: the workflow includes a contradiction branch and evidence-quality rule before giving a conclusion.","pass":true}
+  {
+    "id": 1,
+    "prompt": "Find current primary sources and independent reporting about the EU AI Act timeline.",
+    "expected": "Run a multi-engine pass (mainstream + alternate + specialist/official). Prefer official EU or first-party pages, verify publication/event dates, cite direct links, state confidence, and avoid treating syndicated rewrites as independent confirmation.",
+    "actual": "Selected multi-engine-web-search. Planned three-engine pass with official-source bias; loaded references/domain.md for operators and references/sources.md for date-filter/evidence guidance. Required primary-link + date context + confidence in the answer. Recorded challenge-page fallback if an engine blocked automation. Did not invent statute dates without opened sources.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Investigate competing claims about whether a four-day workweek improves productivity.",
+    "expected": "Include a contradiction query, separate independent studies from media rewrites, explain unresolved disagreement, and keep personal data out of queries. Prefer peer-reviewed or primary datasets when available.",
+    "actual": "Included contradiction branch before conclusion. Applied evidence-quality rule: count syndicated articles as one trail; prioritize primary studies/datasets. Returned split findings with residual unknown instead of false consensus. Confirmed query text stayed free of credentials/PII. Pointed at domain.md Evidence Quality and sources.md claim audit.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Remember that I prefer Brave then DuckDuckGo, mixed activation, evidence-first style, and never use Baidu.",
+    "expected": "Resolve portable <state_root> before write; save only non-sensitive preferences to <state_root>/memory.md using the memory template; confirm the new profile in one sentence; do not hard-code ~/Clawic paths or store secrets.",
+    "actual": "Resolved <state_root> via SKILL.md order (explicit → workspace skill dir → workspace/memory → ~/skill). Wrote activation=mixed, priority Brave>DuckDuckGo, blocked=Baidu, style=evidence into <state_root>/memory.md from references/memory-template.md. Confirmed profile verbally. Did not write query history or credentials.",
+    "pass": true
+  }
 ]
