@@ -31,7 +31,8 @@ memory when a standard must be verified.
 
 Prefer sibling skills when the job is primarily voice drafting (`writing`), paid
 or funnel copy (`copywriting`), Markdown syntax (`markdown`), heavy CSV pipelines
-(`csv`), deep regex design (`regex`), or grammar-only polish (`grammar`).
+(`csv`), deep regex design (`regex`), grammar-only polish (`grammar`), or long-form
+narrative/manuscript work (`storytelling` / `book-writing`).
 
 ## Progressive disclosure
 
