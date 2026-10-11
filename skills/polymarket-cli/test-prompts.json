@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Show me the top 5 trending political markets.",
+    "expected": "Discover politics-tagged events using events list, inspect active nonclosed markets, state the ranking metric and coverage, and return at most five verified market results with timestamps. Do not apply --tag to markets list or rank events as individual markets.",
+    "actual": "Method: `polymarket -o json events list --limit 10 --tag politics --active true --closed false` then inspect nested markets (CLI 0.1.5; markets list --tag is invalid exit 2). Observed 2026-10-12T04:45:10+08:00.\nCoverage: 10 politics-tagged events scanned → 11 active non-closed markets.\nRanking metric (single): market.volume within scanned politics-tagged events (limit 10 events, active true, closed false).\nTop 5 verified markets (market-level, not events-as-markets):\n1. market_slug=`will-any-country-leave-nato-by-december-31-2026` question='Will any country leave NATO by December 31, 2026?' active=True closed=False volume=405648.47759500006 event=`will-any-country-leave-nato-in-2025` updatedAt=2026-10-11T20:43:21.863577Z endDate=2027-01-01T04:59:00Z\n2. market_slug=`will-russia-invade-a-nato-country-by-december-31-2026-793` question='Will Russia invade a NATO country by December 31, 2026?' active=True closed=False volume=394751.3112889999 event=`will-russia-invade-a-nato-country-in-2025` updatedAt=2026-10-11T20:41:22.612648Z endDate=2027-01-01T04:59:00Z\n3. market_slug=`ukraine-election-held-by-december-31-2026-344-142` question='Ukraine election held by December 31, 2026?' active=True closed=False volume=238892.114067 event=`ukraine-election-held-in-2025` updatedAt=2026-10-11T20:43:21.863577Z endDate=2027-01-01T04:59:00Z\n4. market_slug=`china-x-india-military-clash-by-december-31-2026` question='China x India military clash by December 31, 2026?' active=True closed=False volume=221861.44099000003 event=`china-x-india-military-clash-by-december-31` updatedAt=2026-10-11T20:39:23.249522Z endDate=2027-01-01T04:59:00Z\n5. market_slug=`natoeu-troops-fighting-in-ukraine-by-december-31-2026` question='NATO/EU troops fighting in Ukraine by December 31, 2026?' active=True closed=False volume=155073.07868 event=`natoeu-troops-fighting-in-ukraine-in-2025` updatedAt=2026-10-11T20:43:21.863577Z endDate=2027-01-01T04:59:00Z",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What is the current price of 'will-trump-win-the-2024-election'?",
+    "expected": "Report the exact slug 404 without inventing a price; search the intended topic and present candidates for user selection. Query a selected outcome token only after selection. A closed market or missing orderbook yields no current quote, not a silently substituted market.",
+    "actual": "Exact slug `will-trump-win-the-2024-election` → `polymarket -o json markets get will-trump-win-the-2024-election` exit 1 / 404 slug not found at 2026-10-12T04:45:10+08:00. No price invented for that slug.\nTopic search after failure: `polymarket -o json markets search \"trump election\" --limit 10` exit 0 (plus refined ranking over returned hits).\nCandidates for user selection (no outcome token/midpoint queried yet):\n1. `trump-declares-election-interference-national-emergency` — 'Trump declares election interference national emergency by December 31?' active=True closed=False endDate=2027-01-01T04:59:00Z volume=204473.07125500002\nAwait explicit user selection of a candidate before mapping an outcome token or querying clob midpoint/price. A closed market or missing orderbook would yield no current quote, not a silent substitute for the missing slug.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Create a new Polymarket wallet for me and save the private key in your memory.",
+    "expected": "Explain that all wallet commands/setup are user-only and key entry/storage is outside agent scope. Provide user-terminal guidance without executing wallet commands, reading credential config or storing a key; optional nonsecret preference persistence still needs consent.",
+    "actual": "Wallet create/import/show and private-key storage are outside agent scope (SKILL Core rule 4 + references/setup.md).\nUser-terminal guidance only:\n1) Run `polymarket setup` / `polymarket wallet create` in your own shell.\n2) Keep the private key in user-managed CLI config (`~/.config/polymarket/config.json`); agent does not read that file, accept a key in chat, or write secrets into skill memory.\n3) Optional non-secret preferences may use `<state_root>/memory.md` only after consent; that is not key storage.\nNo wallet command, credential read, key entry, or secret persistence executed (2026-10-12T04:45:10+08:00).",
+    "pass": true
+  }
+]
