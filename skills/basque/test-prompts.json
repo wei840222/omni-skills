@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Translate this friendly message for a close colleague into Basque: 'Hi, I will be about ten minutes late because traffic is slow. See you soon.'",
+    "expected": "Uses casual peer zu register, preserves the ten-minute delay and traffic reason, and avoids forced hika or dense dialect.",
+    "actual": "Kaixo, trafikoa motel dabil, beraz hamar minutu inguru beranduago iritsiko naiz. Laster ikusiko gara!",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Write a Basque email to an unfamiliar university administrator asking whether the application deadline is still 15 May.",
+    "expected": "Uses respectful formal zu/batua register, asks the factual question clearly, and excludes peer slang, fillers, and heavy code-switching.",
+    "actual": "Egun on. Jakin nahi nuke ea eskaerak aurkezteko epea oraindik maiatzaren 15a den. Eskerrik asko aldez aurretik.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite this Basque social caption for a mixed audience: 'This coffee shop is very good, come visit us today.'",
+    "expected": "Uses a neutral-warm batua promotional register suitable for a mixed audience without assuming intimate hika with every reader.",
+    "actual": "Kafetegi hau benetan ona da — gaur etorri gurekin!",
+    "pass": true
+  }
+]
