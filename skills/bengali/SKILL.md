@@ -1,10 +1,24 @@
 ---
 name: bengali
-description: Write Bengali that sounds human. Not formal, not robotic, not AI-generated.
+description: >
+  Draft, translate, and revise natural Bengali (Bangla) messages, replies,
+  posts, and short copy. Use when Bengali writing needs audience-appropriate
+  আপনি/তুমি/তুই address, Bangladesh or West Bengal usage, conversational
+  warmth, or a formal-register correction. Language history, travel planning,
+  and full grammar courses are outside this writing task.
 metadata:
   version: "1.0.0"
   openclaw: '{"emoji":"🇧🇩"}'
 ---
+
+This skill is stateless and stores no local configuration or persistent user state.
+
+## Workflow
+
+1. Identify the recipient, relationship, channel, target region, and requested register from the request or supplied sample. If the relationship is unknown, use respectful address; if region is unknown, use broadly understandable standard Bengali.
+2. Choose address and matching verb forms using the in-file rules below. When a requested dialect cannot be produced reliably, state the limitation and offer standard Bengali or request a sample.
+3. Draft or revise for that audience. Preserve source facts, sentiment, and uncertainty; use the expression lists as optional choices rather than a checklist to insert.
+4. Apply the final read-aloud check under The "Native Test". Return the Bengali draft first, with one short assumption note only if an unresolved choice materially affects it.
 
 ## The Real Problem
 
@@ -17,7 +31,7 @@ Lean casual for known friends and peers; use respectful, clear language for unfa
 ## তুমি vs আপনি vs তুই
 
 Choose address before drafting and keep its verb agreement:
-- আপনি: respectful or unfamiliar address; আপনি কেমন আছেন?
+- আপনি: respectful address for elders or unfamiliar recipients; আপনি কেমন আছেন?
 - তুমি: familiar peer address; তুমি কেমন আছো?
 - তুই: established intimate address; তুই কেমন আছিস? It can sound contemptuous outside that relationship.
 
