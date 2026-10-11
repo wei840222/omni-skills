@@ -151,7 +151,7 @@ Cross-check the PR description and package against `.agents/workflows/skill-refa
 | 3 State location     | Knowledge-only skills omit section (or state non-persistence in 1 line); stateful skills document `<state_root>` resolution without erasing domain-specific data models                                                   |
 | 4 Related skills     | `metadata.related-skills` valid JSON map; targets exist; no fabricated relationships                                                                                                                                      |
 | 5 Clawic removal     | No `clawic.com` homepage/feedback promo; `_meta.json` removed when that is project policy                                                                                                                                 |
-| 6 Research           | PR lists verifiable full URLs grouped by topic; claims in the skill match cited guidance                                                                                                                                  |
+| 6 Research           | PR lists verifiable full URLs grouped by topic; claims in the skill match cited guidance; external research/extracted content treated as untrusted data                                                                    |
 | 7 Best practices     | Progressive disclosure; description is imperative and trigger-rich; always-needed content stays in `SKILL.md`                                                                                                             |
 | 8 Darwin + tests     | `test-prompts.json` present at skill root with valid object schema (`id`, `prompt`, `expected`, `actual`, `pass: true`), not bare string arrays; numeric Darwin score (`XX/100`) recorded in CHANGELOG + PR body only; **no** Gate 8/9 score residues (`darwin-evaluation.md`, `darwin-eval.md`, `evaluation-record.md`, `freud-audit.md`, or `SKILL.md` links to them) inside the skill package |
 | 9 Freud              | Prohibitions reframed positively where required; no disruptive stop-only markers that increase cognitive load without a recovery path; de-weighting framework used for out-of-scope boundaries; no verbatim bad-case outputs polluting working space |
@@ -180,15 +180,19 @@ Review the skill as an executable instruction surface:
 3. **Architecture / fit**
    - Matches refactor patterns used by recently merged skills.
    - Overlap with sibling skills is handled via `related-skills` or clear scope boundaries.
-4. **Security**
+4. **Security & destructive operations**
    - No secret leakage; OIDC/permissions/supply-chain guidance must not mix unrelated controls.
-   - Dangerous operations require explicit confirmation language when appropriate.
-5. **Performance**
+   - Destructive path operations require an allowlisted root (`<state_root>`), a depth floor, and user confirmation.
+   - Dangerous operations require explicit confirmation language; never overwrite existing state or incomplete plans without explicit confirmation.
+5. **Test discrimination (mutation check)**
+   - Answer whether tests catch regressions by experiment, not passive reading: test prompts in `test-prompts.json` must be discriminative and fail if core conditions are inverted.
+6. **Performance & scale**
    - Avoid instructions that force unnecessary full-context loads or unbounded scans when progressive disclosure is available.
+   - Multi-instance rate limiting and shared state operations must use appropriate shared stores.
 
 Severity rule of thumb from this lens:
 
-- Wrong command / unsafe default / broken path → **Required**
+- Wrong command / unsafe default / broken path / unconfirmed destructive overwrite → **Required**
 - Missing related-skill pointer / mild sprawl → **Optional**
 - Wording polish → **Nit**
 
@@ -200,16 +204,22 @@ Review the package as a model-facing skill:
    - Starts with what the skill does.
    - Includes trigger terms and “use when” situations.
    - Avoids vague filler and pure capability lists.
-2. **Information hierarchy**
+2. **Information hierarchy & progressive disclosure**
    - Default workflow and checkpoints appear before deep reference material.
-   - Rare platform detail can move to `references/`.
-3. **Failure modes**
-   - Prefer if-then recovery branches over “be careful” advice.
-4. **Anti-patterns**
-   - Gotchas / Common Mistakes / explicit don’t-do-this lists are present when the domain has footguns.
-5. **Specificity**
+   - Rare platform detail moves to `references/`.
+   - Splits by sequence (prevent premature rushing) and splits by invocation.
+3. **Instruction pruning & no-ops elimination**
+   - Hunt no-ops sentence by sentence: instructions the model already obeys by default pay context load for zero behavioral delta.
+   - Differentiate Cache vs. Environment: do not restate what the environment already exposes (CLI `--help`, directory layouts, config schemas); cache only non-obvious gotchas and rationales.
+   - Prevent sediment: reject stale layers that accumulate without adding behavioral value.
+4. **Failure modes & leading words**
+   - Prefer concrete if-then recovery branches and compact leading words over abstract “be careful” advice.
+5. **Anti-patterns & positive prompting**
+   - Steer with positive target behaviors rather than noisy negations; gotchas / anti-patterns are clearly characterized without inlining bloated bad-case outputs.
+6. **Specificity & negative space**
    - Concrete tools, thresholds, and commands beat abstract slogans.
-6. **Sprawl control**
+   - Ambiguous gaps in decision trees are resolved deliberately rather than left to agent priors.
+7. **Sprawl control**
    - Large always-loaded `SKILL.md` without progressive disclosure is a Consider finding, not always Required.
 
 #### Lens C — `darwin-skill` (structural / dry-run)

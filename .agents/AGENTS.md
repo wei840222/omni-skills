@@ -131,6 +131,8 @@ Default repository: `wei840222/omni-skills` on GitHub. Target base branch: `main
    - Block on wrong commands, unsafe defaults, broken recovery paths, and mixed security controls.
    - Do not treat a claimed Darwin number as sufficient evidence by itself.
    - Distinguish true runtime drift (imperative single-runtime commands) from false positives (anti-pattern citations, meta-rules, audit commands).
+   - Enforce `writing-for-agents` craft: prune no-ops sentence by sentence, steer by positive targets rather than noisy negations, and leave environment lookups to the environment.
+   - Apply `code-review-and-quality` standards: verify tests catch regressions by experiment (mutation over passive reading), enforce destructive path allowlists, and prevent unconfirmed plan or state overwrites.
 
 6. **Step 6: GitHub verdict**
    - **Request changes**: post a structured reject review immediately with concrete fixes.
