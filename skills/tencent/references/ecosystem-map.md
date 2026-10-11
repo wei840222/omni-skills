@@ -23,7 +23,7 @@ Ask the smallest set that removes ambiguity:
 3. Does the user need planning only, or do they expect account-level execution?
 4. Is WeChat, WeCom, or Tencent Cloud the real center of gravity?
 
-## Misroutes To Avoid
+## Common Misroutes
 
 - "Tencent" when the real request is Tencent Cloud architecture
 - "WeChat" when the task is actually enterprise collaboration in WeCom

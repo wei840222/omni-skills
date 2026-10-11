@@ -1,6 +1,6 @@
 # Memory Template - Tencent
 
-Create these baseline files inside `~/Clawic/data/tencent/`.
+Create these baseline files inside the resolved `<state_root>/`.
 
 ## `memory.md`
 
@@ -103,7 +103,7 @@ integration: pending | complete | paused | never_ask
 |-------|---------|----------|
 | `ongoing` | Context still evolving | Ask only what changes routing or risk materially |
 | `complete` | Stable defaults and trust rules exist | Focus on execution and verification |
-| `paused` | Memory stays but setup is paused | Avoid setup prompts unless the task forces new context |
+| `paused` | Memory stays but setup is paused | Bypass setup prompts unless the task forces new context |
 | `never_ask` | User wants no setup prompts | Use stored defaults unless a hard blocker requires confirmation |
 
 ## Rules
@@ -111,4 +111,4 @@ integration: pending | complete | paused | never_ask
 - Keep memory concise and Tencent-specific.
 - Update `last` after meaningful changes in scope, regions, or trust rules.
 - Save only what the user explicitly shares or approves for storage.
-- Never store secrets, raw tokens, or copied billing data.
+- Omit secrets, raw tokens, or copied billing data.

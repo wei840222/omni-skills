@@ -4,7 +4,7 @@ Use this file whenever Tencent recommendations could change by geography, langua
 
 ## The Default Assumption Is Unsafe
 
-Never assume a mainland recommendation works internationally, or that an international workflow is valid for mainland deployment.
+Treat mainland and international workflows as strictly separate; verify compatibility before assuming a recommendation works internationally, or that an international workflow is valid for mainland deployment.
 
 ## Questions That Change The Answer
 
