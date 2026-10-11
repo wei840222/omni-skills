@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My iPhone says iCloud storage is full but the phone still has free space. What should I do first?",
+    "expected": "Separates phone storage from iCloud quota, points to Manage Account Storage, prioritizes photos/trash/old backups, and avoids treating device free space as proof the cloud is fine.",
+    "actual": "Phone storage and iCloud quota are different. Open Settings → [Your Name] → iCloud → Manage Account Storage, check Photos and old device backups first, empty Recently Deleted, and only then decide whether to clean more or upgrade. Free space on the iPhone does not mean iCloud has room.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need to send a large video to someone who does not use Dropbox. Is a Dropbox link OK, and what should I set?",
+    "expected": "Allows a share link without requiring the recipient to keep Dropbox long-term, recommends view-only plus expiration/password when available, and does not claim every free-tier feature exists.",
+    "actual": "Yes—create a Dropbox share link so they can view or download without living inside Dropbox. Prefer Can view, add expiration or a password on paid plans when available, and avoid putting sensitive originals on an everlasting anyone-with-the-link URL.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is it safe to keep a scan of my passport in Google Drive?",
+    "expected": "Discourages unencrypted ID scans in everyday Drive folders; if stored at all, requires encryption plus tight sharing, and may suggest keeping it off cloud links.",
+    "actual": "Avoid storing an unencrypted passport scan in Drive. If you must keep a copy in cloud storage, put it in a password-protected archive first, share only with specific people (no public link), and prefer a password manager or secure local vault for identity documents whenever possible.",
+    "pass": true
+  }
+]
