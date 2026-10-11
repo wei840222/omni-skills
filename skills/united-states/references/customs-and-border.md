@@ -2,7 +2,7 @@
 
 ## What to Declare
 
-Declare goods, food, agricultural items, and monetary instruments as required. Border issues often come from under-declaration, not intent.
+Declare goods, food, agricultural items, and monetary instruments as required. Border issues often arise from under-declaration rather than malicious intent.
 
 ## Food and Agricultural Risk
 
@@ -26,7 +26,7 @@ Declare goods, food, agricultural items, and monetary instruments as required. B
 
 - Keep purchase receipts for high-value goods.
 - Keep medications in original packaging when possible.
-- Avoid carrying restricted food/meat unless confirmed admissible.
+- Carry only food/meat confirmed admissible by CBP.
 - If uncertain, declare and ask, instead of guessing.
 
 ## Common Border Mistakes
@@ -38,4 +38,4 @@ Declare goods, food, agricultural items, and monetary instruments as required. B
 
 ## Source Reminder
 
-Use `sources.md` for CBP duty, restricted items, and currency reporting links.
+Use `references/sources.md` for CBP duty, restricted items, and currency reporting links.

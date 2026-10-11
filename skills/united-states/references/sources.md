@@ -1,12 +1,16 @@
 # Sources — United States Skill
 
-Last checked: 2026-03-02
+Last checked: 2026-10-11
 
 ## Entry, Visa, and Border
 
 - U.S. Visitor Visa (State Department): https://travel.state.gov/content/travel/en/us-visas/tourism-visit/visitor.html
 - CBP Visa Waiver Program: https://www.cbp.gov/travel/international-visitors/visa-waiver-program
 - CBP ESTA overview: https://www.cbp.gov/travel/international-visitors/esta
+- Official ESTA application: https://esta.cbp.dhs.gov/
+- HR-1 ESTA fee FY2025 implementation (legacy $21 → $40): https://www.federalregister.gov/documents/2025/08/28/2025-16453/cbp-immigration-fees-required-by-hr-1-for-fiscal-year-2025
+- HR-1 ESTA fee FY2026 inflation ($40.27): https://www.federalregister.gov/documents/2025/11/19/2025-20304/certain-dhs-immigration-fees-required-by-hr-1-fiscal-year-2026-adjustments-for-inflation
+- HR-1 ESTA fee FY2027 inflation ($40.62 from 2026-10-16): https://www.federalregister.gov/documents/2026/10/01/2026-20185/certain-dhs-immigration-related-fees-required-by-hr-1-fiscal-year-2027-adjustments-for-inflation
 - CBP I-94 guidance: https://www.cbp.gov/travel/international-visitors/i-94
 - CBP restricted items: https://www.cbp.gov/travel/us-citizens/know-before-you-go/prohibited-and-restricted-items
 - CBP duty information: https://www.cbp.gov/travel/international-visitors/kbyg/customs-duty-info

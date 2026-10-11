@@ -1,139 +1,45 @@
 ---
 name: united-states
-slug: united-states
-version: 1.0.0
-description: Plan United States trips with region-specific routing, verified entry rules, transport logistics, and practical tourist safety.
-homepage: https://clawic.com/skills/united-states
-changelog: Initial release with verified U.S. entry rules, region playbooks, and practical tourism logistics.
+description: Plan United States itineraries. Use when users need entry requirement checks, route design, transport strategies, seasonal weather planning, and on-the-ground execution tips for U.S. travel.
 metadata:
-  clawdbot:
-    emoji: 🇺🇸
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/united-states/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: United States
+  version: 1.0.0
+  openclaw: '{"emoji": "\ud83c\uddfa\ud83c\uddf8"}'
+  related-skills: '{"booking": "Reservation workflows and confirmation hygiene.",
+    "car-rental": "Better rental strategy and handoff logistics.", "english": "Language
+    support for calls, bookings, and service interactions.", "food": "Deeper culinary
+    planning for each destination.", "travel": "General trip planning and itinerary
+    structure."}'
 ---
+
+
+## State location
+
+United States trip state may exist in `<workspace>/united-states/`, `<workspace>/memory/united-states/`, or `~/united-states/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/united-states/`, `<workspace>/memory/united-states/`, `~/united-states/`.
+3. If none exists and state must be created, default to `<workspace>/united-states/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Setup
 
-If `~/Clawic/data/united-states/` doesn't exist or is empty, read `setup.md` and start naturally.
+If `<state_root>/` doesn't exist or is empty, read `references/setup.md` and start naturally.
 
-## When to Use
+## Reference Router
 
-User is planning a U.S. trip and needs practical guidance beyond generic advice: entry requirements, region choice, route design, transport decisions, seasonal risks, and on-the-ground execution.
+Load references on-demand based on the user's focus:
 
-## Architecture
-
-Memory lives in `~/Clawic/data/united-states/`. See `memory-template.md` for structure.
-
-```
-~/Clawic/data/united-states/
-└── memory.md     # Trip context and evolving constraints
-```
-
-## Quick Reference
-
-| Topic | File |
-|-------|------|
-| **Entry and Border** | |
-| Visa, ESTA, I-94, IDs | `entry-and-documents.md` |
-| Customs, cash, restricted items | `customs-and-border.md` |
-| **Planning Backbone** | |
-| Regions and route strategy | `regions.md` |
-| Sample itineraries (7-21 days) | `itineraries.md` |
-| Accommodation strategy | `accommodation.md` |
-| Budget and cost planning | `budget-and-costs.md` |
-| Tipping and payment habits | `tipping-and-payments.md` |
-| **Transport** | |
-| Domestic flights, rail, transit | `transport-domestic.md` |
-| Driving and road trips | `road-trips-and-driving.md` |
-| **Nature and Parks** | |
-| Passes, reservations, seasonal access | `national-parks.md` |
-| **Major Regions and Cities** | |
-| New York City playbook | `new-york-city.md` |
-| Washington, DC playbook | `washington-dc.md` |
-| California playbook | `california.md` |
-| Florida playbook | `florida.md` |
-| Southwest and Rockies playbook | `southwest-and-rockies.md` |
-| Pacific Northwest playbook | `pacific-northwest.md` |
-| Great Lakes and Midwest playbook | `great-lakes-and-midwest.md` |
-| Deep South and New Orleans playbook | `deep-south-and-louisiana.md` |
-| Hawaii and Alaska playbook | `hawaii-and-alaska.md` |
-| **Lifestyle and Execution** | |
-| Food by region and style | `food-guide.md` |
-| Nightlife strategy by city type | `nightlife.md` |
-| Traveling with children | `family-travel.md` |
-| Accessibility strategy | `accessibility.md` |
-| **Safety and Conditions** | |
-| Emergencies, alerts, air quality | `safety-and-emergencies.md` |
-| Climate and seasonality planning | `weather-and-seasonality.md` |
-| **Tools** | |
-| Connectivity and essential apps | `telecoms-and-apps.md` |
-| Research sources map | `sources.md` |
-
-## Core Rules
-
-### 1. Route by Geography, Not by Bucket List
-Anchor around one macro-region per week of travel. U.S. distance and transfer friction are a bigger quality lever than attraction count.
-
-### 2. Entry and Compliance First
-Before itinerary work, confirm the correct travel pathway (`entry-and-documents.md`): visa vs ESTA, passport validity, I-94 context, and acceptable domestic ID rules.
-
-### 3. Make Every Plan Season-Aware
-Use `weather-and-seasonality.md` and `national-parks.md` before promising outdoor-heavy plans. Heat, storms, wildfire smoke, snow, and park reservation systems can invalidate perfect-looking schedules.
-
-### 4. Always Offer Two Transport Models
-For each route, provide at least two options with tradeoffs:
-- Flight-heavy (faster, higher airport overhead)
-- Rail/road-heavy (slower, more scenery, different logistics)
-
-### 5. Price Reality, Not Sticker Price
-Budget with real trip math: taxes at checkout, tips where expected, parking/toll risk, resort/destination fees, checked bag costs, and transfer costs.
-
-### 6. Flag Tourist Traps Proactively
-Call out common mistakes before users commit:
-- Overstuffed coast-to-coast itineraries
-- Peak-season parks without reservations
-- Car rental in dense cores where parking dominates cost
-- Theme-city weekends without crowd and weather buffers
-
-### 7. Deliver Actionable Plans
-Output should include:
-- Base city strategy
-- Day-by-day flow with transfer windows
-- Reservation deadlines
-- Backup plan for weather or delays
-- Safety and emergency quick notes
-
-## Common Traps
-
-- Treating the U.S. like a compact country where five cities in one trip is normal.
-- Ignoring entry/admin steps until the final week.
-- Using one fixed itinerary regardless of season or hazard conditions.
-- Underestimating domestic transfer time between airports, hotels, and final neighborhoods.
-- Choosing accommodation by nightly rate only, ignoring transport cost and time.
-- Assuming all parks and attractions allow same-day spontaneous access in peak windows.
+- **Entry & Admin:** `references/entry-and-documents.md` (visa/ESTA/IDs), `references/customs-and-border.md` (cash/restricted items).
+- **Core Strategy:** `references/regions.md` (route strategy), `references/itineraries.md` (sample routes), `references/domain.md` (core rules and common traps).
+- **Logistics:** `references/transport-domestic.md` (flights/rail), `references/road-trips-and-driving.md` (driving), `references/budget-and-costs.md` (pricing/math), `references/accommodation.md`.
+- **Destinations:** `references/national-parks.md`, `references/new-york-city.md`, `references/washington-dc.md`, `references/california.md`, `references/florida.md`, `references/southwest-and-rockies.md`, `references/pacific-northwest.md`, `references/great-lakes-and-midwest.md`, `references/deep-south-and-louisiana.md`, `references/hawaii-and-alaska.md`.
+- **Execution & Conditions:** `references/weather-and-seasonality.md`, `references/safety-and-emergencies.md`, `references/food-guide.md`, `references/nightlife.md`, `references/family-travel.md`, `references/accessibility.md`.
 
 ## Security & Privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/united-states/`
+**Data that stays local:** Trip preferences in `<state_root>/`
 
-**This skill does NOT:** Access files outside `~/Clawic/data/united-states/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structure
-- `car-rental` — Better rental strategy and handoff logistics
-- `booking` — Reservation workflows and confirmation hygiene
-- `food` — Deeper culinary planning for each destination
-- `english` — Language support for calls, bookings, and service interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/united-states
-- Latest version: https://clawic.com/skills/united-states
+**This skill does NOT:** Access files outside `<state_root>/` or make network requests.

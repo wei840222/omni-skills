@@ -5,7 +5,7 @@
 | Region | Signature style | What to prioritize |
 |--------|------------------|--------------------|
 | Northeast | Delis, seafood, Italian-American depth | Neighborhood institutions over landmark strips |
-| South | BBQ, soul food, Gulf seafood, Creole/Cajun | Regional specialties by city, not generic chains |
+| South | BBQ, soul food, Gulf seafood, Creole/Cajun | Regional specialties by city, rather than generic chains |
 | Midwest | Steak, tavern culture, farm-to-table, deep comfort classics | Local icons + modern neighborhood spots |
 | Southwest | Tex-Mex, New Mexican chile traditions, border-influenced cuisine | Heat-level and style distinctions by state |
 | West Coast | Hyper-diverse immigrant food, produce-forward dining | Area-specific neighborhoods and market halls |

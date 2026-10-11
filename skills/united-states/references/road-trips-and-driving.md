@@ -15,7 +15,7 @@
 ## Driver Documentation
 
 - International Driving Permit needs depend on country and state context.
-- U.S. government guidance warns to avoid unofficial IDP sellers.
+- U.S. government guidance warns to use only official IDP sellers.
 - Carry original license + passport + any required permit.
 
 ## Cost Structure Most Travelers Miss
@@ -30,14 +30,14 @@
 
 - Keep driving legs realistic: scenic roads are slower than map assumptions.
 - Build one no-driving evening after heavy transfer days.
-- Avoid red-eye arrivals immediately followed by long highway legs.
+- Schedule long highway legs on well-rested days, bypassing red-eye arrival days.
 
 ## Safety Notes
 
-- Do not rely on sparse-cell-coverage corridors for navigation continuity.
+- Download offline maps before entering sparse-cell-coverage corridors.
 - Download offline maps for mountain/desert sections.
 - In winter and heat extremes, carry water and a basic contingency kit.
 
 ## Source Reminder
 
-See `sources.md` for IDP and weather safety references.
+See `references/sources.md` for IDP and weather safety references.

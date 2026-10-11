@@ -39,4 +39,4 @@
 
 ## Planning Rule
 
-If total trip budget is tight, reduce region count first. Do not cut every day to minimum comfort.
+If total trip budget is tight, reduce region count first. Maintain baseline comfort by reducing region count instead of cutting daily budgets.
