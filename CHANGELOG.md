@@ -264,6 +264,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | crm                          | 2026-09-04 | 85/100 (#252)                    |
 | cro                          | 2026-09-21 | 85/100 (#529)                    |
 | croatian                     | 2026-09-10 | 85/100 (#333)                    |
+| crypto-tools                  | 2026-10-11 | 85/100 (#809)                    |
 | csharp                       | 2026-09-19 | 85/100 (#487)                    |
 | cso                          | 2026-08-23 | 90/100                           |
 | css                          | 2026-09-08 | 85/100 (#319)                    |
