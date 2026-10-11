@@ -42,6 +42,7 @@ or funnel copy (`copywriting`), Markdown syntax (`markdown`), heavy CSV pipeline
 | Voice, dialogue, pacing, show-vs-tell | `references/writing.md` |
 | Headlines, CTA, email copy skeletons | `references/copy.md` |
 | False friends, register, locale formats | `references/localization.md` |
+| Official anchors for fact checks | `references/sources.md` |
 
 ## Core rules
 
