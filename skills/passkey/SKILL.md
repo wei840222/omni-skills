@@ -1,62 +1,56 @@
 ---
 name: passkey
-slug: passkey
-version: 1.0.0
-description: Implement WebAuthn passkeys avoiding critical security and compatibility pitfalls.
-homepage: https://clawic.com/skills/passkey
+description: >
+  Implement and review WebAuthn passkeys for registration, authentication,
+  credential storage, and cross-platform UX. Use when the user builds or audits
+  passkey/WebAuthn flows, chooses libraries, sets userVerification/resident-key
+  options, or debugs challenge, origin, or sign-count failures. Prefer oauth or
+  passwords for those products; use auth for general auth architecture.
 metadata:
-  clawdbot:
-    emoji: 🔐
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Passkey
+  version: "1.0.1"
+  openclaw: '{"emoji":"🔐"}'
+  related-skills: '{"auth":"General authentication architecture beyond WebAuthn.","oauth":"OAuth/OIDC flows instead of passkeys.","passwords":"Password and recovery paths alongside passkeys.","security-best-practices":"Broader app security controls.","chrome":"Chrome WebAuthn DevTools and platform quirks.","safari":"Safari/Apple passkey and iCloud Keychain behavior."}'
 ---
 
-## Security-Critical Rules
-- Challenge must be unique per ceremony — reused challenges enable replay attacks
-- Origin validation is mandatory — missing check allows phishing from similar domains
-- Store and verify sign count — detects cloned authenticators when count doesn't increment
-- Never implement CBOR parsing manually — use established libraries, crypto is hard
+# Passkey
 
-## Server Implementation
-- Use battle-tested libraries — SimpleWebAuthn (JS), py_webauthn (Python), webauthn-rs (Rust)
-- Challenges expire quickly — 60-120 seconds max, store server-side
-- Store credential ID as base64 — binary data, needs encoding for database
-- Store public key in COSE format — libraries handle this, don't transform it
+WebAuthn / FIDO2 **passkeys** replace shared passwords with device-bound public-key
+credentials. This skill is **knowledge-only** and keeps no local runtime state tree.
 
-## Credential Storage Requirements
-- Credential ID — unique identifier, used in allowCredentials
-- Public key — COSE format, for signature verification
-- Sign count — integer, increment check detects cloning
-- Transports hint — helps browser suggest correct authenticator
+## When to use
 
-## Registration Traps
-- `userVerification: "required"` enforces biometric/PIN — "preferred" may skip verification
-- Attestation usually unnecessary — requiring it reduces device compatibility
-- Allow multiple passkeys per account — users have multiple devices
-- Resident key capability varies — don't assume all authenticators support discoverable credentials
+- Design or review registration / authentication ceremonies
+- Choose server libraries and credential storage fields
+- Set `userVerification`, resident keys, timeouts, and allowCredentials
+- Debug replay, phishing-adjacent origin mistakes, or cloned-authenticator signals
+- Plan password fallback and account recovery when hardware is lost
 
-## Authentication Traps
-- Empty allowCredentials enables discoverable credentials — but not all passkeys are discoverable
-- Timeout too short frustrates users — 120 seconds minimum for cross-device flows
-- Cross-device auth (QR code) adds latency — don't timeout during Bluetooth handshake
+Prefer `oauth` or `passwords` when the product is not WebAuthn. Hand general auth
+layout to `auth`.
 
-## User Experience
-- Provide password fallback — not all users have passkey-capable devices
-- Conditional UI (`mediation: "conditional"`) for autocomplete — passkeys appear in username field
-- Clear messaging on registration — users don't understand "security key" terminology
-- Account recovery path required — hardware loss shouldn't lock out account forever
+## Progressive disclosure
 
-## Platform Sync Behavior
-- Apple iCloud Keychain syncs across Apple devices — but not to Android/Windows
-- Google Password Manager syncs Android + Chrome — but not to Apple devices
-- Windows Hello is TPM-backed, local by default — doesn't sync
-- 1Password/Bitwarden provide cross-platform sync — broadest compatibility option
+| Need | Load |
+|------|------|
+| Security rules, storage, registration/auth traps | `references/domain.md` |
+| Ceremony workflow and library defaults | `references/implementation.md` |
+| Official anchors for fact checks | `references/sources.md` |
 
-## Testing
-- Chrome DevTools > Application > WebAuthn — simulate authenticators without hardware
-- Virtual authenticators in CI — no physical keys needed for automated tests
-- Test both resident and non-resident credentials — different flows
-- Cross-browser testing essential — Safari, Chrome, Firefox implementations vary
+## Core rules
+
+1. **Server-issued unique challenge** — Generate a fresh cryptographic challenge per ceremony, store it server-side, bind it to the session, and expire it quickly (about 60–120 seconds). Client-only `new Uint8Array(32)` is not a server challenge.
+2. **Validate origin / RP ID** — Verify `origin` and relying-party ID on every response so look-alike domains cannot complete the ceremony.
+3. **Persist credential ID, public key, and sign count** — Store credential ID (encoded), COSE public key material, and signature counter; reject or flag when the counter fails to advance (clone signal). Use established libraries for CBOR/COSE — do not hand-roll parsers.
+4. **Prefer battle-tested libraries** — SimpleWebAuthn (JS/TS), py_webauthn (Python), webauthn-rs (Rust), and platform stacks that implement the W3C WebAuthn verification steps.
+5. **`userVerification` is a product decision** — `"required"` enforces biometric/PIN; `"preferred"` may skip UV. Document the choice; do not assume UV always ran.
+6. **Attestation is optional for most RPs** — Requiring attestation reduces device compatibility; enable only when enterprise policy needs it.
+7. **Support multi-device + recovery** — Allow multiple passkeys per account; keep a password or other recovery path so hardware loss does not permanently lock the user.
+8. **UX timeouts for cross-device** — Cross-device (QR / hybrid) flows need generous timeouts (about 120s+); keep the session alive through the Bluetooth/cable handshake.
+
+## Workflow
+
+1. Confirm product scope (passkey vs OAuth vs password) and platforms (Apple / Google / Windows / security keys).
+2. Load `references/domain.md` for storage fields and traps; load `references/implementation.md` for ceremony steps.
+3. Implement registration then authentication with server challenges, origin checks, and sign-count updates.
+4. Add conditional UI (`mediation: "conditional"`) and clear recovery messaging when the product needs passwordless login UX.
+5. For mutable API/library claims, re-open URLs in `references/sources.md` rather than relying on memory.
