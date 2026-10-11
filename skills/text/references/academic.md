@@ -40,14 +40,14 @@ BIBLIOGRAPHY:
 Last, First. Title of Book. Place: Publisher, Year.
 ```
 
-**Rule:** Ask which style. Never mix styles in one document.
+**Rule:** Ask which style. Use one consistent style throughout the document.
 
 ---
 
 ## Paraphrasing Without Plagiarism
 
 ### The 4-Step Method
-1. Read & understand (don't look while writing)
+1. Read & understand (write from memory)
 2. Write from memory in your own words
 3. Compare to ensure meaning preserved
 4. Cite the source
@@ -122,7 +122,7 @@ points out, suggests, maintains, acknowledges, admits, disputes
 - Signposting: "First... Second... Finally..."
 - Passive (when appropriate): "The experiment was conducted"
 
-### Avoid
+### Omit
 - First person (unless discipline allows)
 - Contractions
 - Rhetorical questions

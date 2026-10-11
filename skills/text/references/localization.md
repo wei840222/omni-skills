@@ -2,7 +2,7 @@
 
 ## False Friends
 
-**Rule:** Maintain per-language-pair blocklist. Never auto-translate without context.
+**Rule:** Maintain per-language-pair blocklist. Translate only with full context.
 
 ### Spanish ↔ English
 | Word | ❌ Wrong | ✅ Correct |
@@ -44,7 +44,7 @@ Determine register ONCE, enforce throughout.
 | Informal | tú | "Introduce tu contraseña" |
 | Neutral (LATAM) | usted (softer) | "Ingrese su contraseña" |
 
-**Critical:** NEVER mix tú/usted in same document.
+**Critical:** Ensure consistent use of either tú or usted throughout the document.
 
 ```
 ❌ "Haz clic aquí para ver su cuenta" (mixed)
@@ -56,7 +56,7 @@ Determine register ONCE, enforce throughout.
 
 ## Date/Number/Currency Formatting
 
-**Rule:** Use locale-aware formatting. Never hardcode.
+**Rule:** Use locale-aware formatting. Use locale libraries instead.
 
 ### Dates
 | Locale | Format | Example |
@@ -79,7 +79,7 @@ Determine register ONCE, enforce throughout.
 
 ---
 
-## Do Not Translate (DNT) List
+## Preserve As Original List
 
 Categories to keep untranslated:
 1. **Brand names:** iPhone, Google, Netflix
@@ -135,7 +135,7 @@ es-ES ≠ es-MX ≠ es-AR. Treat as separate targets.
 | Phone | Móvil | Celular | Celular |
 | You (plural) | Vosotros | Ustedes | Ustedes |
 
-**If only one Spanish:** Default to "neutral" — avoid regional slang, use ustedes.
+**If only one Spanish:** Default to "neutral" — use standard neutral vocabulary, use ustedes.
 
 ---
 
@@ -158,7 +158,7 @@ es-ES ≠ es-MX ≠ es-AR. Treat as separate targets.
 
 ## Context Requirements
 
-**Never translate in isolation.** Always require:
+**Ensure all translations include full context.** Always require:
 
 1. **Where it appears:** Button? Header? Error?
 2. **Character limit**

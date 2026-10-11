@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Count unique lines in list.txt, then explain why a naive split on comma is unsafe for CSV row John,\"123 Main St, Apt 4\",NYC.",
+    "expected": "Uses sort -u | wc -l (or equivalent) for unique lines; rejects bare comma-split for CSV; points at a real CSV parser (python csv / csvkit / pandas) and references/data.md.",
+    "actual": "Loaded references/data.md. Unique lines: sort -u list.txt | wc -l. For the sample row, cut/split on comma breaks the quoted address field; correct path is python3 csv.reader, csvkit, or pandas.read_csv. SKILL core rule 2 and data.md CSV section matched.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Format this book in APA 7th: John Smith, Understanding Cognition, Oxford University Press, 2023. User also asks to mix MLA in the same bibliography.",
+    "expected": "Produces APA-like Smith, J. (2023). Understanding cognition. Oxford University Press. Refuses mixed styles in one document; loads references/academic.md; may cite sources.md APA URL.",
+    "actual": "Loaded references/academic.md. APA form: Smith, J. (2023). Understanding cognition. Oxford University Press. Declined mixing MLA into the same bibliography (one style per document). Pointed at references/sources.md APA examples for edition-specific checks.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "User wants a full brand voice rewrite of a 2,000-word essay and a Tinder opener. Should text handle both end-to-end?",
+    "expected": "Routes long voice-matched prose to writing and dating openers away from text; text stays on hygiene/style patterns; cites related-skills boundaries.",
+    "actual": "Declined end-to-end ownership. Long voice-matched essay → writing; dating opener / Tinder funnel → out of scope for text (dating skills, not this package). Offered text only for encoding/citation/locale hygiene slices if still needed. Matched SKILL when-to-use and related-skills.",
+    "pass": true
+  }
+]

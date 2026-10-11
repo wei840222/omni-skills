@@ -10,7 +10,7 @@ Before writing, define these anchors:
 - **Personality markers:** 3-5 specific quirks
 
 ### Voice Violations
-Each voice has words it would NEVER use. Define 10-20 forbidden words per voice.
+Each voice has forbidden words. Define 10-20 forbidden words per voice.
 
 ### Check
 After generating, count sentences. If >30% vary more than 2x from average length → rewrite.
@@ -20,12 +20,12 @@ After generating, count sentences. If >30% vary more than 2x from average length
 ## Dialogue Formatting
 
 ### Attribution Rules
-Pick ONE pattern per project — never mix:
+Pick ONE pattern per project — use consistently:
 - `"Dialogue," said Name.`
 - `Name said, "Dialogue."`
 
 ### Beat Ratio
-For every 3-4 dialogue lines, include 1 action beat. Never 6+ exchanges without grounding.
+For every 3-4 dialogue lines, include 1 action beat. Ground dialogue with action every 4 lines.
 
 ### Said-Bookism Ban
 Acceptable: said, asked, whispered, shouted, muttered. Everything else requires justification.
@@ -92,14 +92,14 @@ Climactic scenes get 2-3x words of setup scenes.
 ### Time Compression
 - **Action:** Real-time or slower (1 minute = 500+ words)
 - **Travel/routine:** Compressed (1 hour = 1 sentence)
-- Never mix these within a paragraph
+- Keep pace consistent within a paragraph
 
 ---
 
 ## Show vs Tell
 
 ### Emotion Ban List
-Never write "felt happy/sad/angry/scared" directly. Show through physical response.
+Demonstrate emotions through physical responses rather than stating them directly.
 
 ### Physical Tells Library
 Build per-emotion:
@@ -108,7 +108,7 @@ anger: jaw clenched, hands fisted, voice dropped
 fear: shallow breath, darting eyes, stepped back
 joy: eyes crinkled, shoulders lifted, voice pitched up
 ```
-Pick ONE per occurrence, not all.
+Pick ONE per occurrence, choose carefully.
 
 ### Tell Allowance
 Abstract emotions (nostalgia, existential dread) get ONE tell per scene, followed by concrete grounding.
@@ -117,7 +117,7 @@ Abstract emotions (nostalgia, existential dread) get ONE tell per scene, followe
 
 ## Chapter Endings
 
-Never end on resolution. End on:
+Conclude with unresolved tension. End on:
 - **Question Hook:** Unanswered question
 - **Reversal Hook:** New information that changes everything
 - **Decision Hook:** Character must choose — cut before they do
@@ -133,7 +133,7 @@ Never end on resolution. End on:
 | Character intro | 2 physical + 1 behavioral detail |
 | Ongoing scenes | 1 environmental detail per 500 words |
 
-**Never stack more than 3 descriptive sentences.** Action or dialogue must interrupt.
+**Limit consecutive descriptive sentences to a maximum of three.** Action or dialogue must interrupt.
 
 ---
 
