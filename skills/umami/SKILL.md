@@ -40,11 +40,11 @@ work to `pg`.
 
 ## Core rules
 
-1. **PostgreSQL only on current docs** — Installation requires PostgreSQL ≥ 12.14. MySQL is removed as a supported option in v3; migrate on v2 first if needed.
-2. **`APP_SECRET`, not `HASH_SALT`** — Use a unique `APP_SECRET` (`openssl rand -hex 32`). Do not tell users to set legacy `HASH_SALT`.
-3. **Tracker in `<head>`** — Copy the site Tracking code into `<head>` (or Next.js `Script` / root layout). Official collect-data guidance uses head, not body-only placement.
-4. **SPA pageviews are automatic** — The tracker watches History API / `popstate`. Do not require manual `umami.track()` for ordinary client-side navigations unless auto pageviews were disabled.
-5. **No `@umami/next` package** — That npm name is not the official integration. Use the script tag, `next/script`, or root layout as in official SPA docs.
+1. **PostgreSQL on current docs** — Install with PostgreSQL ≥ 12.14. For legacy MySQL on v2, finish MySQL→PostgreSQL migration before v3.
+2. **`APP_SECRET`** — Set a unique value (`openssl rand -hex 32`) for auth tokens. Current docs use `APP_SECRET` rather than legacy `HASH_SALT`.
+3. **Tracker in `<head>`** — Copy the site Tracking code into `<head>` (or Next.js `Script` / root layout) per collect-data guidance.
+4. **SPA pageviews are automatic** — The tracker watches History API / `popstate`. Use manual `umami.track()` pageviews only when auto pageviews are disabled or a custom payload is required.
+5. **Official Next.js embed** — Use the script tag, `next/script`, or root layout from the SPA guide; do not invent an `@umami/next` dependency.
 6. **Match `data-website-id`** — Wrong ID yields silent zero data. Keep dev and prod IDs separate.
 7. **Secrets stay out of the package** — `DATABASE_URL`, `APP_SECRET`, and API keys live in env/host secret stores only.
 
