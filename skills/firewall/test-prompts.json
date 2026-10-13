@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm hardening a new Ubuntu VPS over SSH. Help me enable UFW so only my office IP 203.0.113.10 can reach SSH, everything else inbound is denied, and I don't lock myself out.",
+    "expected": "Orders allow SSH from 203.0.113.10 before enable; sets default deny incoming / allow outgoing; keeps a second session or console break-glass; shows concrete ufw commands; does not enable before the allow rule.",
+    "actual": "Sequence: (1) confirm provider console/serial available; (2) `sudo ufw allow proto tcp from 203.0.113.10 to any port 22 comment 'ssh-admin'`; (3) `sudo ufw default deny incoming`; `sudo ufw default allow outgoing`; (4) keep second SSH session; (5) `sudo ufw --dry-run enable` then `sudo ufw enable`; (6) `sudo ufw status verbose` and external `nc -vz` from another path. Explicitly refused enabling before the allow rule. Pointed to references/operations.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "UFW denies 8080 but my Docker container published with -p 8080:80 is still reachable from the internet. Why, and what should I do instead?",
+    "expected": "Explains Docker/UFW incompatibility: published traffic is NATed and can bypass UFW INPUT. Offers localhost bind + reverse proxy, provider firewall, and/or DOCKER-USER restrictions; does not claim plain ufw deny 8080 is enough.",
+    "actual": "Cited Docker docs: bridge publish is diverted in nat before UFW INPUT/OUTPUT, so UFW deny 8080 is insufficient. Recommended publish `127.0.0.1:8080:80` plus host reverse proxy, keep cloud firewall in front, or insert filters in DOCKER-USER (established/related accept before source DROP). Warned against casually editing Docker-managed chains or setting iptables:false. Linked references/domain.md and sources.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "From home, SSH to my server times out. From the provider web console the sshd process is running and `ufw status` shows 22/tcp ALLOW. What else should I check?",
+    "expected": "Treats timeout as likely upstream filter/path issue; checks cloud security group/firewall attachment and source CIDR, IPv6 mismatch, and wrong public IP; distinguishes timeout vs connection refused; does not only re-add the same UFW allow.",
+    "actual": "Interpreted timeout as drop/filter rather than local reject. Checklist: (1) cloud firewall/security group attached and allows admin CIDR on 22/tcp (and UDP if somehow relevant); (2) same intent on IPv6 or confirm client path; (3) correct public IP/DNS; (4) provider drop logs; (5) external nc from another network. Connection refused would point at guest reject/no listener; timeout points at cloud ACL or path. Avoided blindly re-adding identical UFW allow. references/domain.md debugging table.",
+    "pass": true
+  }
+]
