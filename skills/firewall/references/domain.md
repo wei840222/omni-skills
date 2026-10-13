@@ -47,12 +47,12 @@ over stop-only warnings. Cite `references/sources.md` before hard vendor claims.
 
 - On Linux, Docker installs its own iptables/nftables rules for **bridge** networks (not for `ipvlan` / `macvlan` / `host`).
 - Docker and UFW are **incompatible** for published ports: Docker NATs container traffic so packets can miss UFW `INPUT`/`OUTPUT` chains and ignore UFW policy.
-- Do not edit Docker-managed chains casually; put extra filters in **`DOCKER-USER`** (processed before Docker's own forward rules).
+- Leave Docker-managed chains unchanged; put extra filters in **`DOCKER-USER`** (processed before Docker's own forward rules).
 - Safer public exposure patterns:
   1. Publish to `127.0.0.1` only and terminate TLS on a host reverse proxy.
   2. Rely on a **provider** firewall in front of the host.
   3. Restrict sources with explicit `DOCKER-USER` rules (match original dest with `conntrack` when needed).
-- Disabling Docker iptables (`iptables: false`) often breaks bridge networking; treat as advanced and out of default scope.
+- Keep Docker iptables/nftables management enabled for normal bridge networking; turning `iptables: false` is advanced and out of default scope because bridge networking usually breaks.
 
 ## IPv6
 

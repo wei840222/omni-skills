@@ -35,7 +35,7 @@ notes in ordinary operator files outside the skill package.
 Prefer `docker` when the problem is Compose publish or container networking.
 Prefer `wireguard` / `vpn` when the remaining work is tunnel config.
 Prefer `vps` for provider plan, snapshots, and full box lifecycle.
-Prefer `network` for generic offline/DNS/routing triage.
+Prefer `network` for generic offline/DNS/routing triage when packet-filter design is not the main decision.
 
 ## Safety order (always)
 
