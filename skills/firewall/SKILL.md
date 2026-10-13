@@ -76,3 +76,8 @@ Prefer `network` for generic offline/DNS/routing triage.
 - Broad connectivity triage → `network`
 - App-layer secure coding review → `security-best-practices`
 
+## Failure recovery
+
+- Locked out after enable: use provider console/serial first, open admin CIDR at the cloud layer, then fix guest rules with a second session (`references/operations.md`).
+- Published container still reachable with UFW deny: expect Docker NAT bypass; move to loopback publish, provider FW, or `DOCKER-USER` (`references/domain.md`).
+- Timeout with local ALLOW: inspect cloud attachment, IPv6 path, and public IP before rewriting the same UFW rule.
