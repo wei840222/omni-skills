@@ -1,20 +1,25 @@
 ---
 name: in-depth-research
-slug: in-depth-research
-version: 1.0.0
-description: Conduct exhaustive multi-source investigation with methodology tracking, source evaluation, and iterative depth.
-homepage: https://clawic.com/skills/in-depth-research
+description: >
+  Conduct exhaustive multi-source investigation with documented methodology,
+  source evaluation, iterative depth, and explicit halt criteria. Use when a
+  question needs structured deep research rather than a quick lookup, when claims
+  must be triangulated across independent sources, or when the user asks for
+  methodology, confidence, caveats, and gaps with the answer. Prefer
+  `multi-engine-web-search` for cross-engine discovery only, `synthesize` when the
+  user already provides the documents to combine, and `digest` for recurring
+  monitoring rather than one-shot deep dives.
 metadata:
-  clawdbot:
-    emoji: 🔬
-    displayName: Deep Research
+  version: "1.1.0"
+  openclaw: '{"emoji":"🔬"}'
+  related-skills: '{"multi-engine-web-search":"Cross-engine discovery and site/time filters before a full investigation.","synthesize":"Combine user-provided documents instead of sourcing the outside world.","digest":"Recurring curated monitoring instead of one-off deep research.","competitor-research":"Competitor audits and positioning when the question is market rivalry rather than general investigation."}'
 ---
 
 ## Core Role
 
-Deep Research = investigate thoroughly until the question is answered. Not surface search — systematic exploration with documented methodology.
+Deep research means investigate thoroughly until the question is answered: systematic exploration with a documented methodology, not surface search.
 
-**Not:** quick lookups (→ just search), combining existing docs (→ Synthesize), ongoing monitoring (→ Digest)
+Primary outcome: a direct answer plus confidence, key findings with sources, caveats, gaps, and a short methodology note.
 
 ## Protocol
 
@@ -25,67 +30,75 @@ Scope → Search → Evaluate → Deepen → Synthesize → Document → Deliver
 ### 1. Scope
 
 Before searching, clarify:
-- What exactly needs answering?
-- What depth is required? (Overview / Thorough / Exhaustive)
-- What's the decision this enables?
-- Time/effort budget?
 
-Reframe vague questions into specific, answerable queries.
+- What exactly needs answering?
+- What depth is required? (Quick / Standard / Thorough / Exhaustive)
+- What decision does this enable?
+- Time and effort budget?
+
+Reframe vague questions into specific, answerable queries. Confirm depth before spending the budget.
 
 ### 2. Search
 
-Multi-vector approach (see `methodology.md`):
+Multi-vector approach (see `references/methodology.md`):
+
 - Start broad, then narrow
-- Multiple search engines/sources
+- Use multiple search engines and source types
 - Follow citation trails
-- Check primary sources when secondary cite them
+- Check primary sources when secondary sources cite them
 - Look for contradicting viewpoints
 
-Track every source. Nothing unattributed.
+Track every source. Leave nothing unattributed.
 
 ### 3. Evaluate
 
-For each source (see `sources.md`):
-- Authority: Who wrote this? What credentials?
-- Recency: When? Still valid?
-- Evidence: Claims backed by data?
-- Bias: Any agenda or conflict?
-- Corroboration: Do others confirm this?
+For each source (see `references/sources.md`):
 
-Flag low-credibility sources. Weight findings accordingly.
+- Authority: who wrote this, and with what credentials?
+- Recency: when was it published, and is it still valid?
+- Evidence: are claims backed by data or method?
+- Bias: agenda, funding, or conflict of interest?
+- Corroboration: do independent sources confirm it?
+
+Flag low-credibility sources and weight findings accordingly. Prefer Tier 1–2 evidence for load-bearing claims.
 
 ### 4. Deepen
 
 Research is iterative:
+
 - Initial findings reveal new questions
 - Follow promising threads
-- Fill gaps identified
-- Stop when: answer is clear, returns diminish, or budget exhausted
+- Fill identified gaps
+- Halt when the answer is clear enough for the decision, returns diminish, or the budget is exhausted
 
-Document decision to stop and why.
+Document the decision to halt and why. “More research is possible” is always true — note what further work would buy.
 
 ### 5. Synthesize
 
-Merge findings (use Synthesize skill patterns):
+Merge findings (hand off to `synthesize` patterns when reconciling many documents):
+
 - Reconcile contradictions explicitly
-- Weight by source quality
+- Weight by source quality and independence
 - Note confidence levels
 - Identify remaining unknowns
 
 ### 6. Document
 
-Research trail matters:
+Keep a research trail:
+
 - Sources consulted (with links)
 - Search queries used
 - Why certain sources were weighted higher
-- What was NOT found (gaps)
+- What was missing or omitted (gaps)
 
 ### 7. Deliver
 
-Format per user needs (see `output-formats.md`):
+Format per user needs (see `references/output-formats.md`):
+
 - Executive: BLUF + key findings + confidence
-- Academic: Full methodology + citations
-- Working doc: All findings for further work
+- Academic: full methodology + citations
+- Working doc: all findings for further work
+- Quick answer: only when depth is not required
 
 ## Output Format (Default)
 
@@ -106,13 +119,13 @@ Format per user needs (see `output-formats.md`):
 • [Important limitation or uncertainty]
 
 🕳️ GAPS
-• [What couldn't be determined]
+• [What could not be determined]
 
 📚 SOURCES ([count])
 [Numbered list with credibility notes]
 
 🔎 METHODOLOGY
-[Brief: what was searched, how sources were evaluated]
+[Brief: what was searched, how sources were evaluated, why research halted]
 ```
 
 ## Depth Levels
@@ -124,8 +137,15 @@ Format per user needs (see `output-formats.md`):
 | Thorough | 2-4 hours | 20-30 | Important decisions |
 | Exhaustive | Days | 50+ | Critical, high-stakes |
 
-Confirm depth before starting. Adjust if findings warrant.
+Confirm depth before starting. Adjust if findings warrant a different level.
+
+## Hard Constraints
+
+- Do not present a single uncorroborated secondary source as settled fact for a load-bearing claim.
+- Do not hide contradictions; surface them under caveats or a dedicated contradictions section.
+- Do not invent URLs, quotes, dates, statistics, or study results. If evidence is missing, say so under Gaps.
+- Prefer primary or expert-tier sources for medical, legal, financial, and safety-critical claims; mark news-only coverage as provisional.
 
 ---
 
-*References: `methodology.md`, `sources.md`, `output-formats.md`*
+*References: `references/methodology.md`, `references/sources.md`, `references/output-formats.md`*
