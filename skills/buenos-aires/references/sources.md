@@ -38,3 +38,11 @@ Last bulk-checked: 2026-10-14 (handoff). Booking-critical and nationality-specif
 1. Prefer the agency that owns the rule (Migraciones for stay/residency, SUBE/city for transit products, tourism for visitor orientation).
 2. Never invent a fee, fare, or visa length when the page is unreachable—state the framework and mark the number unverified.
 3. Country-level parks, long-haul buses, and multi-province routing sources live primarily in the `argentina` skill `references/sources.md`.
+
+## Handoff live checks (2026-10-14)
+
+- Migraciones hub HTTP 200 (redirects under argentina.gob.ar/migraciones).
+- Residencias hub HTTP 200.
+- SUBE hub HTTP 200.
+- CABA tourism EN HTTP 200.
+- INDEC hub HTTP 200.
