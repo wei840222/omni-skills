@@ -53,8 +53,8 @@ alerts, proxy credentials, or personal reading lists in the package.
    only when newest additions matter more than influence.
 4. Open strong candidates; check venue, authors, date, abstract signals, and versions.
 5. Expand with **Cited by** (forward), references/backward reading, and **Related articles**.
-6. Resolve full text via library link, [PDF] / [HTML], All versions, or author request —
-   not cracked mirrors.
+6. Resolve full text via library link, [PDF] / [HTML], All versions, repository, or author request.
+   Default to those legal paths only.
 7. Hand off to `pubmed`, `in-depth-research`, or `web` when the remaining work leaves Scholar.
 
 ## Routing
