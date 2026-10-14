@@ -1,115 +1,70 @@
 ---
 name: korean
-slug: korean
-version: 1.0.0
-description: Write Korean that sounds human. Not formal, not robotic, not AI-generated.
-homepage: https://clawic.com/skills/korean
+description: >
+  Draft, translate, and revise natural Korean for messages, posts, emails,
+  and everyday copy. Use when Korean needs a clear 합쇼체/해요체/반말 choice,
+  consistent speech level, contractions, particles, or less textbook wording;
+  keep explicitly formal Korean for professional, institutional, older, or
+  unfamiliar recipients. Prefer `translate` for multi-pair localization jobs
+  and `japanese`/`chinese` when those languages are the target—not a full
+  language course or Korea travel planner.
 metadata:
-  clawdbot:
-    emoji: 🇰🇷
-    displayName: Korean
+  version: "1.0.0"
+  openclaw: '{"emoji":"🇰🇷"}'
+  related-skills: '{"japanese":"Write Japanese when Korean is not the target language.","chinese":"Write Mandarin Chinese when Korean is not the target language.","traditional-chinese":"Write Traditional Chinese when Korean is not the target language.","translate":"Translate an existing source text into Korean across formats and locales.","writing":"Shape broader prose once the Korean-language decision is settled.","english":"Draft or revise the English source before translating it into Korean.","copywriting":"Shape persuasive marketing copy after the Korean register is chosen."}'
 ---
 
-## The Real Problem
+Research notes for speech levels, honorifics, and authoritative resources live in `references/sources.md` (progressive disclosure).
 
-AI Korean is technically correct but sounds off. Too formal. Too textbook. Too stiff. Natives write with contractions, particles, and casual endings. Match that.
+Expanded register tables, contractions, particles, slang boundaries, and delivery checks live in `references/domain.md` (progressive disclosure).
 
-## Formality Default
+## When to load
 
-Default register is too high. Casual Korean is the norm online. Unless explicitly formal: lean casual. 반말 is normal among peers. 존댓말 isn't always needed.
+Load this skill to write, rewrite, or translate **Korean** that should sound like a person, not a textbook. Prefer this skill over generic `translate` when speech-level choice (합쇼체 / 해요체 / 반말), particle dropping, contractions, fillers, internet slang, or casual Korean tone change the draft. Load references on demand rather than dumping every table into the first reply.
 
-## Speech Levels
+For Japanese, Mandarin, or Traditional Chinese targets, load `japanese`, `chinese`, or `traditional-chinese` as the primary skill instead. Hand multi-pair localization catalogs to `translate`.
 
-Know the levels:
-- 합쇼체 (-습니다): very formal, news, presentations
-- 해요체 (-아/어요): polite, safe default, strangers
-- 해체/반말 (-아/어): casual, friends, peers
-- Online/texting: mostly 반말 or 해요체
-- Don't mix levels awkwardly
+This skill is stateless. It does not store local configuration or persistent user state.
 
-## Contractions
+## Workflow
 
-Casual Korean contracts heavily:
-- 하는 것 → 하는 거
-- 무엇 → 뭐
-- 그것 → 그거
-- 나는 → 난
-- 너는 → 넌
-- 것이 → 게
-- 아니야 → 아냐
+1. Identify audience, relationship, channel, source text, and requested tone. When those details are missing, write neutral 해요체 Korean and state the register assumption in one short note when the choice matters.
+2. Choose one speech level and keep it for the whole draft:
+   - 합쇼체 (-습니다): news, presentations, highly formal institutions
+   - 해요체 (-아/어요): polite default for strangers, mixed audiences, work chat
+   - 반말/해체 (-아/어): friends, peers, or an explicit casual request
+3. Draft for the selected register. Preserve names, numbers, dates, commitments, and how sure the source is. For casual text, use direct phrasing and add at most a few contractions, fillers, particles, or light slang that fit the speaker and channel.
+4. Read `references/domain.md` for human-facing Korean drafts, rewrites, and reviews; use its register, contractions, particles, expressiveness, and delivery guidance.
+5. Run the delivery check, then return the Korean text first.
+6. If speech level is unclear after drafting, rewrite once toward 해요체 and state the assumption briefly rather than stopping without a draft.
 
-## Sentence Endings
+## Formality default
 
-These add nuance:
-- ㅋㅋㅋ: laughter (more ㅋ = funnier)
-- ㅎㅎ: softer laugh
-- ㅠㅠ/ㅜㅜ: crying, sad
-- ~: softening (밥 먹었어~)
-- ㄱㄱ: 고고 (let's go)
-- ㅇㅇ: 응응 (yeah yeah)
+Casual Korean is warm and direct online among peers. Unless the audience is professional, institutional, older, unfamiliar, or explicitly formal, lean casual only when the relationship supports 반말. For unknown recipients, default to 해요체 rather than inventing intimacy.
 
-## Particles
+| Situation | Default | Delivery rule |
+| --- | --- | --- |
+| Official, academic, news, or unfamiliar institution | 합쇼체 or careful 해요체 | Full greetings, complete sentences, no slang or heavy particle drop |
+| Work chat with known colleagues | 해요체 | Clear and polite; light contractions only if that workplace already uses them |
+| Friend, peer chat, or social post | 반말 when relationship is clear | Short lines, natural fillers, selective ㅋㅋ / reactions |
+| Public or mixed audience | Neutral 해요체 | Stay readable; skip intimate 반말 and dense slang unless requested |
 
-Don't over-formal particles:
-- 을/를 often dropped in casual speech
-- 이/가 often dropped too
-- 은/는 sometimes dropped
-- Keep when needed for clarity
+## Address and speech level
 
-## Fillers & Flow
+- **해요체:** safe default for most written Korean, mixed audiences, and professional contexts.
+- **합쇼체:** reserved for news-style, ceremonial, or highly formal institutional copy.
+- **반말:** intimate or peer. Use only when the user or supplied sample clearly wants that relationship; do not invent 반말 for strangers or formal recipients.
+- Keep verb endings, pronouns, and honorifics aligned with the chosen level for the whole draft. Mid-text level drift is a Required failure.
 
-Real Korean has fillers:
-- 음, 어, 그
-- 아니 (sentence starter)
-- 근데, 그래서, 그러니까
-- 막, 좀, 되게
-- 진짜, 완전, 레알
+## Scope boundary
 
-## Expressiveness
+Use this skill for Korean-language writing, rewrites, and translations. Keep an explicitly formal or professional request formal. For a mixed or public audience, use neutral language rather than assuming familiarity or a speaker identity. This skill is not a travel planner, legal advisor, or full language course.
 
-Don't pick the safe word:
-- 좋다 → 대박, 미쳤다, 쩐다
-- 나쁘다 → 별로, 최악, 구리다
-- 많이 → 완전, 개, 존나 (crude)
-- 예쁘다 → 이쁘다, 존예
+## Delivery check
 
-## Internet Slang
+Before sending:
 
-Modern Korean uses:
-- ㅋㅋㅋ, ㄹㅇ (레알/리얼)
-- 개 (intensifier): 개웃김, 개맛있어
-- 존나 (crude intensifier)
-- 헐, 대박, 미쳤다
-- 인정, 공감
-- ㄴㄴ (노노), ㅇㅋ (오케이)
-
-## Common Expressions
-
-Natural expressions:
-- 알겠어/알았어, ㅇㅇ
-- 뭐해?, 밥 먹었어?
-- 그치?, 맞아맞아
-- 별로야, 그냥 그래
-- 대박, 헐, 미쳤다
-
-## Reactions
-
-React naturally:
-- 진짜?, 헐, 대박
-- 미쳤어?, 뭐야?
-- ㅋㅋㅋㅋ, ㅎㅎㅎ
-- 아 ㅋㅋ, 엌ㅋㅋ
-- 슬프다 ㅠㅠ, 귀여워 ㅠㅠ
-
-## Aegyo/Cute Writing
-
-Common in casual contexts:
-- 네 → 넹, 넵
-- 응 → 웅
-- 안녕 → 안뇽
-- Adding ㅎ: 좋아용, 고마워용
-- Use appropriately for context
-
-## The "Native Test"
-
-Before sending: would a Korean screenshot this as "AI-generated"? If yes—too formal, missing ㅋㅋ, no contractions. Casualize.
+1. Speech level is consistent end to end.
+2. Facts, commitments, and uncertainty from the source are preserved.
+3. Slang, 애교 endings, and crude intensifiers appear only when the channel and relationship support them.
+4. A native reader would not screenshot the draft as stiff textbook Korean for the chosen register.
