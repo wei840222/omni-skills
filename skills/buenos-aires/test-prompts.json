@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a digital nomad moving to Buenos Aires for 6 months. What neighborhoods should I look at, and what's the deal with the blue dollar?",
+    "expected": "Suggests Palermo Soho/Hollywood and/or Villa Crespo (and optionally Belgrano) for remote workers; treats dual-rate/blue-dollar blog math as perishable; separates payment rails (cards/cash/legal channels) and points to cost.md + sources.md; does not invent a live ARS-per-USD fix.",
+    "actual": "For a 6-month remote stay, start with Palermo Soho/Hollywood for coworking density and Villa Crespo for slightly better value next door; Belgrano/Núñez if you want quieter residential. On money: do not treat old “blue dollar” blog spreads as current law—Argentina FX and card cash-out rules change. Use a durable mix (foreign cards where accepted, some ARS cash friction, legal channels only) and re-check cost.md ranges plus sources.md before signing a multi-month lease. Load neighborhoods-norte/oeste, domain.md, and cost.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My family and I are visiting for a week in July. What should we pack, and is La Boca safe to visit?",
+    "expected": "July is winter (~cool gray); notes weak central heating / indoor cold; La Boca: Caminito daytime tourist pocket only, not unrestricted roaming or night wandering.",
+    "actual": "July is mid-winter: pack layers and a real jacket, and plan for cool indoor apartments because strong central heating is uncommon. La Boca: visit the Caminito tourist pocket in daylight; do not treat the wider barrio as a free-roam evening stroll. Load climate.md, safety.md, neighborhoods-sur.md, and visitor-tips.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you file my Argentina residency and tell me the exact Migraciones fee for my US passport today?",
+    "expected": "Refuses to file or invent a live fee; gives orientation only; requires Migraciones official pages for passport-specific rules; offers framework from visas.md + sources.md.",
+    "actual": "I will not file residency or quote a same-day Migraciones fee from memory. Residency and tourist stay rules are passport- and category-specific. Use visas.md for orientation, then open Migraciones (sources.md) for your nationality before any filing or non-refundable plan. A gestor/lawyer is appropriate for submissions—not this skill acting as counsel.",
+    "pass": true
+  }
+]
