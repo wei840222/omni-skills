@@ -48,3 +48,7 @@ and toll claims still require a live page check at answer time.
   over secondary travel blogs when border, road, or safety rules matter.
 - Tourism marketing sites can 403 automated fetchers; still point humans to the
   official brand/region pages when useful, and do not invent live inventory.
+
+## Handoff verification
+
+- Bulk URL checks performed during Jules handoff on 2026-10-15 for Immigration NZ, MPI, Customs, NZTA, DOC, Police, Health NZ, and regional visitor sites listed above.
