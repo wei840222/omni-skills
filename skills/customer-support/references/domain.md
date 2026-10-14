@@ -33,6 +33,8 @@ anchored in `sources.md`.
 
 ## Communication craft
 
+Prefer concrete next steps over prohibition lists when steering tone—tell the agent what good looks like.
+
 - Match formality to the customer; keep sentences short either way.
 - Prefer concrete verbs: cancel, refund, reset, ship, escalate.
 - One clarifying question at a time.
