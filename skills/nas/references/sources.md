@@ -16,11 +16,14 @@ restating product defaults, pricing, or UI labels.
   https://www.backblaze.com/blog/the-3-2-1-backup-strategy/
   Takeaways: three copies, two media types, one off-site; RAID is not a
   substitute for backup; test restores.
-- United States CISA — Data Backup Options (government plain-language backup
-  guidance):
-  https://www.cisa.gov/news-events/news/data-backup-options
+- United States CISA — Data Backup Options (PDF):
+  https://www.cisa.gov/sites/default/files/publications/data_backup_options.pdf
   Takeaways: regular backups, offline/off-site copies, and restore testing
   reduce ransomware and disaster impact.
+- CISA StopRansomware hub:
+  https://www.cisa.gov/stopransomware
+  Takeaways: backups are part of ransomware resilience; keep offline/immutable
+  copies where practical.
 
 ## Object storage / off-site (pricing changes — verify live)
 
