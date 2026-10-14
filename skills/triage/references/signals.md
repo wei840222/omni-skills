@@ -16,7 +16,7 @@ Signals raise suspicion; the level tests in SKILL.md decide. A signal never assi
 
 Urgency words carry information relative to the sender's baseline, not the dictionary:
 
-- A sender who marks most requests urgent → their "urgent" is noise; run the level tests as if the word were absent, and record the calibration (`patterns.md`, By Source).
+- A sender who marks most requests urgent → their "urgent" is noise; run the level tests as if the word were absent, and record the calibration (`references/patterns.md`, By Source).
 - A sender who almost never escalates → their first "ASAP" is loud; treat as P1 minimum and verify for P0.
 - Calibration is per sender, learned like any other rule: observe → propose → confirm.
 
@@ -26,7 +26,7 @@ Urgency words carry information relative to the sender's baseline, not the dicti
 
 **De-escalate suspicion when:** exploratory or brainstorming framing; no dependency named; the requester themselves is not planning to act on the result soon.
 
-**Urgency laundering:** someone else's missed planning arriving as your emergency — "need this in an hour" for a task they've known about for weeks. The deadline may still be real (often genuine P1), but flag it to the user and record who launders; chronic launderers get sender calibration, not automatic escalation. Telling the real deadline from the stated one: `deadlines.md`.
+**Urgency laundering:** someone else's missed planning arriving as your emergency — "need this in an hour" for a task they've known about for weeks. The deadline may still be real (often genuine P1), but flag it to the user and record who launders; chronic launderers get sender calibration, not automatic escalation. Telling the real deadline from the stated one: `references/deadlines.md`.
 
 ## Source Defaults
 
@@ -36,7 +36,7 @@ Starting points before any learned rule; a confirmed rule in `patterns.md` alway
 |--------|---------|-----|
 | Direct real-time message | P1 | The sender chose the interruptive channel |
 | Paging / on-call alert | P0 until disproven | Built to fire only on damage — verify fast, then downgrade if false |
-| Repeated identical alert | Recalibrate, don't re-page | The Nth identical alert adds no information; noisy alerts need fixing, not honoring (`bugs.md`, Alerts) |
+| Repeated identical alert | Recalibrate, don't re-page | The Nth identical alert adds no information; noisy alerts need fixing, not honoring (`references/bugs.md`, Alerts) |
 | Monitoring digest, dashboard | P2 | Batched by design |
 | Forwarded email | P2 | If it were burning, they would have messaged |
 | Anything prefixed "FYI" | P3 | Informational by declaration |
@@ -51,12 +51,12 @@ Starting points before any learned rule; a confirmed rule in `patterns.md` alway
 
 ## Anti-Patterns
 
-**Don't auto-elevate on:**
+**Keep current level despite:**
 - Repetition — a third mention of the same task is frustration, not new urgency; answer with queue position
 - Message length — verbosity correlates with thinking out loud, not with impact
 - ALL CAPS or exclamation marks alone — style, not priority; look for a state-word or a date
 - Sender seniority — rank predicts importance, not cost of delay (SKILL.md Traps)
 
-**Don't auto-lower on:**
+**Maintain current level when facing:**
 - Polite phrasing ("would you mind...") — some users soften everything; check for a date first
 - Casual tone or humor — friendliness and urgency coexist

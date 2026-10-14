@@ -18,7 +18,7 @@ Triage assigns the level; this file is the switch itself. A wrong switch turns o
 1. **Completed unit** — the work is in a done, verified state. Switch freely.
 2. **Consistent checkpoint** — tests green, document section complete, transaction closed. Switch after the check passes.
 3. **Parked mid-flight** — state written down via the protocol below. Acceptable for P0 only.
-4. **Mid-edit, nothing recorded** — never. Thirty seconds to reach state 3 is always affordable; a half-applied change is its own incident (SKILL.md Queue Discipline).
+4. **Mid-edit, nothing recorded** — park first. Thirty seconds to reach state 3 is always affordable; a half-applied change is its own incident (SKILL.md Queue Discipline).
 
 ## The Parking Protocol (before every mid-task switch)
 
@@ -48,4 +48,4 @@ At a natural boundary — never mid-task — a request that genuinely takes unde
 ## Self-Interruption
 
 - Checking the queue is itself an interrupt — batch queue checks at work-unit boundaries instead of polling.
-- Only paging-grade sources may push through focus time (signals.md, Source Defaults); everything else accumulates for the next boundary or sweep (batch.md).
+- Only paging-grade sources may push through focus time (`references/signals.md`, Source Defaults); everything else accumulates for the next boundary or sweep (`references/batch.md`).

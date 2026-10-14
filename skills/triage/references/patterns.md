@@ -1,12 +1,12 @@
 # Priority Patterns — Learning Protocol
 
-This file is the protocol. The learned data lives in `~/Clawic/data/triage/patterns.md` (create the directory on first confirmed rule; never write a rule the user hasn't confirmed).
+This file is the protocol. The learned data lives in `<state_root>/patterns.md` (create `<state_root>` on first confirmed rule; never write a rule the user hasn't confirmed).
 
 ## Confidence Ladder
 
 | Level | Enters when | Action |
 |-------|-------------|--------|
-| `observed` | 1 correction | Record only — never apply |
+| `observed` | 1 correction | Record only — hold automatic application |
 | `pattern` | 2 same-direction corrections | Propose: "Should [task type] default to P[n]?" |
 | `confirmed` | Explicit user yes | Apply automatically; cite the rule when applying |
 | `locked` | Confirmed + several applications with no pushback | Apply without citing each time; revisit only on contradiction |
@@ -27,7 +27,7 @@ refactoring: P2 (pattern) [deprioritized 2x: 03-12, 03-19]
 docs-updates: P3 (confirmed) [explicit: "docs are never urgent"]
 ```
 
-Sections of the memory file: **By Task Type** · **By Source** (incl. sender calibration, see `signals.md`) · **By Time** · **Override Log**.
+Sections of the memory file: **By Task Type** · **By Source** (incl. sender calibration, see `references/signals.md`) · **By Time** · **Override Log**.
 
 ## Worked Lifecycle
 

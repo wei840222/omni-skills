@@ -16,11 +16,11 @@ Ask what consumes the output. The meeting, decision, launch, or dependent person
 Soft-deadline tells (each lowers confidence in the date; none abolishes it without checking):
 
 - Round dates with no named consumer ("by the 1st", "end of month").
-- Habitual "EOD" from a sender whose EODs never had consequences — sender calibration applies (signals.md).
+- Habitual "EOD" from a sender whose EODs never had consequences — sender calibration applies (`references/signals.md`).
 - A date set by a middleman, not the consumer — buffers stack per hop; ask the middleman what THEIR deadline is.
 - A deadline nobody can trace to a consequence is a preference, not a deadline: triage it on value, schedule it as a dated P2, and say which date you are treating as real.
 
-**Urgency laundering** ("need it in an hour" for a task known for weeks — signals.md): the deadline may still be genuine. Honor the slack math, flag the pattern to the user separately. Slack and blame are separate ledgers.
+**Urgency laundering** ("need it in an hour" for a task known for weeks — `references/signals.md`): the deadline may still be genuine. Honor the slack math, flag the pattern to the user separately. Slack and blame are separate ledgers.
 
 ## Negotiating When Slack Is Negative
 
@@ -40,4 +40,4 @@ Re-triage the whole queue, not just the moved item (SKILL.md, Core Rules #7) —
 
 - Report negative slack the moment it is detected, not at the deadline. Discovered today, it is a negotiation (moves above); discovered at the deadline, it is an incident plus a trust debit.
 - When the miss is already certain: state the new realistic date and what changed, in one message, before being asked. The user learning it from you beats the user learning it from the consumer.
-- Log it: a miss with no external cause is a triage failure — Override Log with reason (patterns.md), so the pattern can surface.
+- Log it: a miss with no external cause is a triage failure — Override Log with reason (`references/patterns.md`), so the pattern can surface.

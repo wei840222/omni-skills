@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 5 tasks today: review a PR blocking my teammate, read a blog post, fix a production outage, write a feature for next week, and reply to a non-urgent email. Triage them.",
+    "expected": "Orders by P0-P3 cost-of-delay tests: outage P0 first, blocked PR review P1 same day, next-week feature dated P2, email and blog P3/backlog; announces ordered queue and does not start work mid-classify.",
+    "actual": "Applied level tests top-down. Queue: (1) Fix production outage — P0 accumulating damage, interrupt now; (2) Review blocking PR — P1 person stalled today, next work-unit boundary; (3) Write feature for next week — P2 dated/valuable, schedule; (4) Non-urgent email — P3; (5) Read blog — P3. Stated assumptions, no mid-triage fixes. Pointed to references/batch.md if the list were a large pile.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Drop everything — my boss just told me to look into an idea they had for next year!",
+    "expected": "Rejects false P0: no accumulating damage; caps at P2 (or P1 only if someone is blocked today); asks one closed question if boundary unclear; does not interrupt mid-task without parking protocol.",
+    "actual": "State-words check failed P0 test (no per-minute damage). Treated boss urgency as feeling-word; asked 'Is anyone blocked right now?'. With no stall today and horizon next year, classified P2 dated idea, gave queue position, did not interrupt. Cited Core Rules #3/#4 and references/signals.md sender calibration if the boss rarely escalates.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "UFW-style urgency: customer says SEV1 crash but only one internal admin tool user hit it once last month, and there is a documented workaround. What priority?",
+    "expected": "Separates severity from priority; scores severity × reach × trend; workaround drops one level; does not auto-P0 on SEV label alone.",
+    "actual": "Acknowledged impact, refused SEV label as priority. Severity high (crash) but reach=1 edge path, trend=static old, workaround documented → drop one level from blocked-without-workaround baseline; landed P2/P3 band with reason in one line. Linked references/bugs.md. Did not open incident theater.",
+    "pass": true
+  }
+]
