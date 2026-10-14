@@ -25,7 +25,7 @@ Central Otago
 ## Tasting Rules
 
 - Book ahead in peak season and weekends.
-- Do not stack too many cellar doors in one day; 3 is enough.
+- Limit cellar door visits in one day; 3 is enough.
 - In rural regions, designate a driver or book transport.
 - Winery lunches are often the real highlight.
 
@@ -48,4 +48,4 @@ Central Otago
 
 ### Waiheke
 - Best if the user wants a soft-landing Auckland day
-- Use ferry, do not bring a car unless there is a clear reason
+- Use ferry, rely on walking or local transport instead of bringing a car

@@ -18,7 +18,7 @@ New Zealand is safer than many wilderness destinations in terms of dangerous ani
 ## Wildlife Respect Rules
 
 - Stay back from seals and sea lions.
-- Do not feed kea, birds, or marine animals.
+- Keep food away from kea, birds, and marine animals.
 - Keep distance from penguin viewing areas.
 - Follow local DOC signs instead of trying to get the perfect photo.
 
@@ -33,4 +33,4 @@ New Zealand is safer than many wilderness destinations in terms of dangerous ani
 
 - Especially relevant on the West Coast, Fiordland, and some lake edges
 - Carry repellent
-- Do not linger outside the car after wet weather with no protection
+- Minimize time outside the car after wet weather with no protection

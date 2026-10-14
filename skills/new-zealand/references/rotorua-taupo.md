@@ -48,7 +48,7 @@ This is one of the easiest parts of New Zealand with kids:
 - Mountain biking and forest walking in Rotorua
 - Thermal plus lake mix prevents "all one kind of day" fatigue
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 - Doing Rotorua as a rushed day trip from Auckland
 - Choosing a low-quality cultural evening just because it is cheapest

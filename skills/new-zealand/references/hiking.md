@@ -17,7 +17,7 @@ New Zealand hiking is excellent because nature is real, not curated. That means 
 
 - Great Walk huts and campsites book early for peak season.
 - Shoulder season needs extra weather caution, not less planning.
-- Do not treat DOC huts like casual walk-ins in high season.
+- Book DOC huts in advance for high season; do not assume walk-in availability.
 
 ## Safety Rules
 

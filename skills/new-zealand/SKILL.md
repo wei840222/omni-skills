@@ -1,149 +1,143 @@
 ---
 name: new-zealand
-slug: new-zealand
-version: 1.0.0
-description: Discover New Zealand with island-aware routing, practical road-trip logistics, outdoor safety, and local food and region guidance.
-homepage: https://clawic.com/skills/new-zealand
-changelog: Initial release with island-aware routing, practical transport guidance, and deep New Zealand travel playbooks.
+description: >
+  Plan New Zealand trips with island-aware corridors, realistic driving pace,
+  outdoor safety, biosecurity, food, and regional bases. Use for Auckland,
+  Wellington, Rotorua/Taupo, Queenstown, Christchurch, Nelson/Abel Tasman,
+  Fiordland, road trips, ferries, Great Walks, wine, or family itineraries.
+  Prefer `travel` for multi-country trip systems, `booking` for reservation
+  completion after a base is chosen, `car-rental` for vehicle handoff details,
+  `food` for cuisine logging beyond NZ regional guidance, and `english` for
+  booking-language clarity.
 metadata:
-  clawdbot:
-    emoji: 🇳🇿
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/new-zealand/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: New Zealand
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇳🇿"}'
+  related-skills: '{"travel":"Multi-country or multi-destination trip systems when New Zealand is one stop among several.","booking":"Reservation search and booking completion after a New Zealand base or corridor is chosen.","car-rental":"Vehicle pickup, insurance, and handoff logistics for self-drive NZ itineraries.","food":"General cuisine classification and food memory beyond New Zealand regional dishes.","english":"Communication clarity for booking messages and host conversations."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/new-zealand/` doesn't exist or is empty, read `setup.md` and start naturally.
+Optional New Zealand trip context may exist in `<workspace>/new-zealand/`,
+`<workspace>/memory/new-zealand/`, or `~/new-zealand/`. Before reading or
+writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists (host config or user override).
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/new-zealand/`, `<workspace>/memory/new-zealand/`, `~/new-zealand/`.
+3. If several candidate directories exist, use only the highest-precedence one and
+   report the separate copies; do not merge or cross-write.
+4. If none exists and the user explicitly wants continuity, create
+   `<workspace>/new-zealand/` by default.
+5. If the host cannot supply `<workspace>`, read an existing `~/new-zealand/`
+   only; otherwise ask for a state root before creating data.
+6. If older data exists only under `~/Clawic/data/new-zealand/` or
+   `~/clawic/new-zealand/`, move it into the resolved `<state_root>/` after the
+   user confirms, and say in one line that you moved it and from where.
 
-User planning a trip to New Zealand or asking for local insights: which island to prioritize, where to base, how to drive safely, what to book early, and how to handle weather, food, costs, and outdoor logistics.
-
-## Architecture
-
-Memory lives in `~/Clawic/data/new-zealand/`. See `memory-template.md` for structure.
+Use the selected `<state_root>` for every state operation in this skill.
+Create or update `<state_root>/memory.md` only when the user wants planning
+context kept across sessions. Template: `assets/data-templates.md`.
 
 ```text
-~/Clawic/data/new-zealand/
-└── memory.md     # Trip context
+<state_root>/
+└── memory.md     # Trip context, bases, constraints
 ```
+
+Host-shared memory such as workspace `MEMORY.md` is outside `<state_root>` and
+needs separate user consent. Do not store passport numbers, booking
+confirmation secrets, or payment details in skill state.
+
+## When to use
+
+Load for **New Zealand** trip or local-insight questions:
+
+- which island or corridor to prioritize for the available days
+- bases for Auckland, Wellington, Rotorua/Taupo, Queenstown, Christchurch,
+  Nelson/Abel Tasman, or Fiordland/Southland
+- driving pace, ferries, domestic flights, and weather buffers
+- Great Walks / hut booking timing, beach and wildlife safety
+- food, wine regions, family pacing, and seasonal trade-offs
+
+Prefer progressive disclosure: answer from this file and `references/domain.md`
+first, then open only the topic files needed. Hand off when a sibling owns the
+remaining job:
+
+| Job | Skill |
+|-----|-------|
+| Multi-country trip systems | `travel` |
+| Reservation completion after a base is chosen | `booking` |
+| Vehicle pickup / insurance handoff detail | `car-rental` |
+| Cuisine logging beyond NZ regional guidance | `food` |
+| Booking-language clarity | `english` |
+
+## Critical verification path
+
+Before stating a **visa/NZeTA rule, biosecurity declaration list, DOC hut fee,
+ferry timetable, toll rule, or emergency number nuance** as current fact:
+
+1. Open `references/sources.md` for the canonical URL.
+2. Re-check the live official page for that traveler type and date.
+3. If the live page cannot be opened, say the claim is unverified and give the
+   URL to check — do not invent a fee, booking window, or border rule.
+
+Orientation ranges in this package are for routing only.
+
+## Core path
+
+1. Ask for **month**, **full days on the ground**, **island focus**, and
+   **transport mode** before locking a route.
+2. Prefer **one island or one corridor** for short trips; reject both-islands
+   fantasies that erase driving reality.
+3. Load `references/domain.md` for traps, then one leaf file for the active
+   region or topic.
+4. Add buffer before ferries, alpine days, Milford-type outings, and long drives
+   after long-haul arrival.
+5. Respect stored preferences in `<state_root>/memory.md` when present.
 
 ## Quick Reference
 
 | Topic | File |
 |-------|------|
+| **General Domain Rules** | `references/domain.md` |
+| **Official sources** | `references/sources.md` |
+| **First-use / memory** | `references/setup.md`, `assets/data-templates.md` |
 | **Major Hubs and Regions** | |
-| Auckland complete guide | `auckland.md` |
-| Wellington complete guide | `wellington.md` |
-| Rotorua and Taupo complete guide | `rotorua-taupo.md` |
-| Queenstown complete guide | `queenstown.md` |
-| Christchurch complete guide | `christchurch.md` |
-| Nelson, Abel Tasman, and Marlborough | `nelson-marlborough.md` |
-| Fiordland and Southland playbook | `fiordland-southland.md` |
+| Auckland complete guide | `references/auckland.md` |
+| Wellington complete guide | `references/wellington.md` |
+| Rotorua and Taupo complete guide | `references/rotorua-taupo.md` |
+| Queenstown complete guide | `references/queenstown.md` |
+| Christchurch complete guide | `references/christchurch.md` |
+| Nelson, Abel Tasman, and Marlborough | `references/nelson-marlborough.md` |
+| Fiordland and Southland playbook | `references/fiordland-southland.md` |
 | **Planning** | |
-| Core itineraries | `itineraries.md` |
-| Island and region differences | `regions.md` |
-| Where to stay by style | `accommodation.md` |
-| Entry and biosecurity planning | `entry-and-biosecurity.md` |
-| Useful apps | `apps.md` |
+| Core itineraries | `references/itineraries.md` |
+| Island and region differences | `references/regions.md` |
+| Where to stay by style | `references/accommodation.md` |
+| Entry and biosecurity planning | `references/entry-and-biosecurity.md` |
+| Useful apps | `references/apps.md` |
 | **Food and Drink** | |
-| Regional dishes and restaurant strategy | `food-guide.md` |
-| Wine regions and tasting logic | `wine.md` |
+| Regional dishes and restaurant strategy | `references/food-guide.md` |
+| Wine regions and tasting logic | `references/wine.md` |
 | **Experiences** | |
-| Signature experiences | `experiences.md` |
-| Beaches and coastal planning | `beaches.md` |
-| Hikes and track safety | `hiking.md` |
-| Nightlife by city type | `nightlife.md` |
+| Signature experiences | `references/experiences.md` |
+| Beaches and coastal planning | `references/beaches.md` |
+| Hikes and track safety | `references/hiking.md` |
+| Nightlife by city type | `references/nightlife.md` |
 | **Reference** | |
-| Culture, etiquette, expectations | `culture.md` |
-| Seasonality and climate strategy | `seasonality.md` |
-| Traveling with children | `with-kids.md` |
-| Wildlife and outdoor safety | `wildlife-safety.md` |
-| Official source map | `sources.md` |
+| Culture, etiquette, expectations | `references/culture.md` |
+| Seasonality and climate strategy | `references/seasonality.md` |
+| Traveling with children | `references/with-kids.md` |
+| Wildlife and outdoor safety | `references/wildlife-safety.md` |
 | **Practical** | |
-| Flights, ferries, trains, and driving | `transport.md` |
-| Phone and internet | `telecoms.md` |
-| Payments and cost planning | `payment-and-costs.md` |
-| Emergencies and safety | `emergencies.md` |
-
-## Core Rules
-
-### 1. Route by Island and Corridor
-Do not build New Zealand like Europe. For short trips, choose one island or one dominant corridor:
-- Upper North Island
-- Wellington and central plateau
-- Christchurch to Mackenzie and Queenstown
-- Nelson and Abel Tasman
-- Fiordland and deep south
-
-### 2. Ask for Month Before Locking the Route
-The right New Zealand plan changes with season:
-- Summer = longer days, peak demand, busy roads
-- Winter = ski strength but shorter daylight and alpine risk
-- Shoulder season = best value in many regions
-- Fiordland and West Coast weather can change the whole plan any month
-
-### 3. Driving Reality Beats Map Fantasy
-New Zealand roads are slower than visitors expect:
-- Two-lane roads dominate
-- One-lane bridges are common
-- Night driving is tiring
-- Mountain, rain, and gravel sections change timing fast
-- Add buffer before ferries, flights, and Milford-type day trips
-
-### 4. Biosecurity and Safety Are Real Constraints
-Check `entry-and-biosecurity.md` before promising a frictionless arrival.
-- Boots, food, hiking gear, and medications can matter at the border
-- Track weather, surf flags, and DOC alerts before outdoor plans
-- Great Walks and huts sell out early
-
-### 5. Specific Over Generic
-Do not say "see fjords and wineries." Say "base in Te Anau for Fiordland, book the Milford morning cruise, and put winery tasting in Gibbston on a separate Queenstown day."
-
-### 6. Match the Trip Style
-
-| Traveler | Focus on |
-|----------|----------|
-| Foodie | `food-guide.md`, `wine.md`, `wellington.md` |
-| Road trip | `transport.md`, `regions.md`, `itineraries.md` |
-| Hiking and outdoors | `hiking.md`, `wildlife-safety.md`, `fiordland-southland.md` |
-| Family | `with-kids.md`, `accommodation.md`, `rotorua-taupo.md` |
-| City plus nature | `auckland.md`, `wellington.md`, `christchurch.md` |
-| Adventure | `queenstown.md`, `experiences.md`, `seasonality.md` |
-
-## Common Traps
-
-- Trying to "do both islands" in one week.
-- Treating a 4-hour drive as an easy half-day with no stops.
-- Booking Queenstown or Fiordland late in summer.
-- Driving straight off a long-haul flight.
-- Assuming beaches are always safe because the weather looks calm.
-- Building outdoor days without rain, wind, or track-closure backup.
-- Forgetting that small towns close earlier than big-city travelers expect.
+| Flights, ferries, trains, and driving | `references/transport.md` |
+| Phone and internet | `references/telecoms.md` |
+| Payments and cost planning | `references/payment-and-costs.md` |
+| Emergencies and safety | `references/emergencies.md` |
 
 ## Security & Privacy
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/new-zealand/`
+**Data that stays local:** optional trip preferences in `<state_root>/`.
 
-**This skill does NOT:** Access files outside `~/Clawic/data/new-zealand/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structuring
-- `booking` — Reservation and timing support workflows
-- `car-rental` — Better self-drive planning and handoff logistics
-- `food` — Deeper dining and cuisine recommendations
-- `english` — Communication and booking clarity
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/new-zealand
-- Latest version: https://clawic.com/skills/new-zealand
+**This skill does NOT:** access files outside the resolved `<state_root>/`,
+scrape booking portals, or invent live visa/biosecurity/fee facts when official
+pages are unavailable.

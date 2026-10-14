@@ -32,7 +32,7 @@ New Zealand is relaxed, practical, and outdoors-oriented. People are usually hel
 ## Practical Etiquette
 
 - Take muddy boots off when appropriate indoors.
-- Do not feed wildlife.
+- Keep a respectful distance and leave wildlife natural food sources intact.
 - Respect private farmland and signed access rules.
 - Pack out rubbish on walks and beaches.
 - If locals say the weather can turn fast, believe them.

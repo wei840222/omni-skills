@@ -70,7 +70,7 @@
 - Wanaka, Queenstown, Fiordland, and one deep-south choice
 
 ### Key rule
-Even with 3 weeks, do not add every famous stop. Keep at least 2 nights in major bases.
+Even with 3 weeks, focus on depth over adding every famous stop. Keep at least 2 nights in major bases.
 
 ## Itinerary Filters
 

@@ -43,7 +43,7 @@ New Zealand food is strongest when it leans local, seasonal, and region-specific
 
 1. In small towns, book dinner earlier than you would in Spain or Italy.
 2. For road trips, bakeries are often a smarter lunch stop than random highway cafes.
-3. In Queenstown and hot tourist towns, avoid peak hours if the place is famous.
+3. In Queenstown and hot tourist towns, visit outside peak hours if the place is famous.
 4. For Maori-inspired food, favor places connected to strong cultural hosting rather than generic "buffet plus show" marketing.
 
 ## Reliable Local Patterns

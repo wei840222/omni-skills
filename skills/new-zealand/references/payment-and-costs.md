@@ -44,7 +44,7 @@ Not expected. Round up only if the user really wants to.
 ### Higher-end
 - wine lodges, scenic flights, premium Fiordland and Queenstown experiences
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 - Comparing only hotel rates and forgetting car, fuel, ferry, and activity costs
 - Leaving Queenstown summer booking too late
