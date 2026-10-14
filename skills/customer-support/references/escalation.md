@@ -12,7 +12,7 @@ Preferred steady posture: acknowledge the broken outcome, protect the account, a
 3. Separate the person from the failure mode—do not mirror insults.
 4. Offer one concrete next move immediately (refund path, restore access, supervisor route).
 
-Validation phrase pattern: “I would be frustrated too if X happened after Y.”  
+Validation phrase pattern: “I would be frustrated too if X happened after Y.”
 Avoid empty “Your feelings are valid” with no action.
 
 ## When to escalate (do it)
