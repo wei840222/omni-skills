@@ -48,4 +48,4 @@ At a natural boundary — never mid-task — a request that genuinely takes unde
 ## Self-Interruption
 
 - Checking the queue is itself an interrupt — batch queue checks at work-unit boundaries instead of polling.
-- Only paging-grade sources may push through focus time (signals.md, Source Defaults); everything else accumulates for the next boundary or sweep (batch.md).
+- Only paging-grade sources may push through focus time (`references/signals.md`, Source Defaults); everything else accumulates for the next boundary or sweep (`references/batch.md`).
