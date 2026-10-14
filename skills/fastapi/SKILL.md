@@ -66,7 +66,7 @@ Prefer `py` for plain Python. Prefer `pg` once the question is PostgreSQL engine
 tuning. Prefer `auth` for protocol-level identity design beyond FastAPI wiring.
 Prefer `rest-api` for framework-independent API contracts.
 
-Load deeper notes only on demand from the Quick reference table; do not preload every `references/` file.
+Load deeper notes on demand from the Quick reference table only; do not preload every `references/` file.
 
 ## Quick reference
 
