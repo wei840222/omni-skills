@@ -41,7 +41,7 @@ Two styles exist, both legitimate:
 
 ### The Rules
 - **Always cream-based** (New England style)
-- **Never tomato-based** (Manhattan style doesn't exist here)
+- **Always cream-based** (Manhattan style doesn't exist here)
 - **Good chowder**: Thick but not gluey, chunks of clam, potato, salt pork
 - **Bad chowder**: Too thick, rubbery clams, flour-heavy
 

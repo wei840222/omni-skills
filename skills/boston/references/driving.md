@@ -2,7 +2,7 @@
 
 ## Should You Have a Car?
 
-### You Probably Don't Need One If:
+### A Car Is Unnecessary If:
 - Living in Boston/Cambridge/Somerville near T
 - Working along transit lines
 - Budget-conscious (car costs $600-1,400/month total)
@@ -130,13 +130,13 @@ Boston is notoriously difficult to drive:
 - **Parking**: Near impossible downtown
 
 ### Navigation
-- **GPS essential**: Don't try without it
+- **GPS essential**: Always use GPS for navigation
 - **Waze**: Good for traffic avoidance
 - **Google Maps**: Reliable routing
 - **Apple Maps**: Improved, works fine
 
 ### Rush Hour
-**Avoid if possible:**
+**Consider alternatives:**
 - Morning: 7-9am
 - Evening: 4-7pm
 - I-93: Always bad
@@ -198,9 +198,9 @@ What to expect:
 
 ### Avoiding Traffic
 - Use Waze religiously
-- Avoid highways during rush
+- Take alternate routes or use transit during rush hour
 - Back roads sometimes faster
-- Red Sox games = avoid Fenway area
+- Red Sox games = take alternate routes around Fenway
 
 ---
 
@@ -242,7 +242,7 @@ Massachusetts uses E-ZPass and Pay By Plate:
 | **Total** | **$795-1,650** |
 
 ### Vs. No Car
-If you don't own a car:
+If you do not own a car:
 - T pass: $90/month
 - Occasional Uber: $100-200/month
 - Zipcar/rental: $50-100/month
@@ -312,7 +312,7 @@ Traditional rental:
 | Providence | 1 hour | Easy day trip |
 
 ### Tips
-- Leave early (avoid traffic)
+- Leave early (bypass traffic)
 - Check traffic before going
 - Weekend vs. weekday matters
 - Summer to Cape = plan for delays

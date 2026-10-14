@@ -41,7 +41,7 @@ Boston winters are **not mild**. Wind off the harbor makes it bitter. January-Fe
 | Insulated gloves | Fingers freeze fast |
 | Scarf/neck gaiter | Protect face |
 
-**Don't cheap out on winter gear.** Good coat and boots are investments.
+**Invest in high-quality winter gear.** Good coat and boots are investments.
 
 ### Winter Tips
 
@@ -101,7 +101,7 @@ Spring arrives late and inconsistently. "April showers" is real. May is usually 
 ### The Reality
 Boston summers are **hot and humid**. Not Southern-level, but significant. Heat index can be brutal.
 
-**AC note**: Many older buildings don't have central AC. Window units common.
+**AC note**: Many older buildings lack central AC. Window units common.
 
 ### Survival Tips
 
@@ -241,7 +241,7 @@ Boston has many old buildings:
 | Outdoor activities | May-Jun, Sep-Oct | Comfortable temps |
 | Holidays | Dec | Decorations, events |
 
-**Avoid if possible:**
+**Consider alternatives:**
 - January-February (brutal cold)
 - August (humid, many locals away)
 - September 1st (move-in chaos)

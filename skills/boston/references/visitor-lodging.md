@@ -111,7 +111,7 @@
 - Longer stays (1+ weeks)
 - Kitchen needs
 
-**Avoid:**
+**Not Recommended:**
 - Unregistered listings in strict buildings (risk of cancellation)
 - Anything too good to be true
 
@@ -141,7 +141,7 @@
 **Dana-Farber/Brigham:** Inn at Longwood, Holiday Inn Brookline
 **Boston Children's:** Same Longwood area
 
-## Neighborhoods to Avoid for Lodging
+## Suboptimal Neighborhoods for Lodging
 
 Not dangerous, but inconvenient for tourists:
 
@@ -169,9 +169,9 @@ Not dangerous, but inconvenient for tourists:
 
 ## Pro Tips
 
-1. **September 1st**: Avoid this exact date. City is chaos with student move-ins.
+1. **September 1st**: Plan around this exact date. City is chaos with student move-ins.
 
-2. **Parking**: Don't assume hotel parking. Add $40-60/night if driving.
+2. **Parking**: Check hotel parking availability and fees. Add $40-60/night if driving.
 
 3. **Historic buildings**: Beautiful but may lack AC, small elevators, thin walls.
 

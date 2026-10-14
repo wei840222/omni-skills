@@ -17,7 +17,7 @@ This is why you're here. Boston Harbor means fresh catch daily.
 
 **Must-try:**
 - Lobster roll (Maine style = cold/mayo, Connecticut = warm/butter)
-- New England clam chowder (never Manhattan style here)
+- New England clam chowder (always cream-based style here)
 - Oysters (Island Creek, local farms)
 - Fried clams (belly clams, not strips)
 

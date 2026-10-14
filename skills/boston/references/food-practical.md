@@ -103,7 +103,7 @@ Twice yearly: March and August.
 - Good for trying expensive places cheaper
 - Some restaurants phone it in
 - Best: high-end places with real value
-- Avoid: places that are always affordable
+- Extremely cheap places may indicate lower quality
 
 ### Tips
 - Book early (reservations go fast)

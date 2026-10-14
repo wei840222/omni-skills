@@ -10,7 +10,7 @@ Bostonians are often described as:
 - **Intellectual**: Education is highly valued
 - **Sports-obsessed**: Not optional
 
-**Don't mistake directness for rudeness.** It's cultural efficiency.
+**Recognize directness as cultural efficiency.** It's cultural efficiency.
 
 ### Regional Terms
 | Term | Meaning |
@@ -48,7 +48,7 @@ Long-term Boston residents ("townies") in traditional neighborhoods have distinc
 
 **As a newcomer:**
 - Be respectful
-- Don't gentrify aggressively
+- Respect existing community norms
 - Acknowledge you're new
 - Earn your place over time
 
@@ -57,7 +57,7 @@ Boston has reputation for "coldness." Reality:
 - Initial interactions are brief
 - People warm up over time
 - Once friends, very loyal
-- Don't expect instant friendship
+- Building relationships takes time
 
 **Making friends:**
 - Join activities/groups
@@ -99,7 +99,7 @@ Boston has reputation for "coldness." Reality:
 - Bars packed for major games
 - Jerseys worn proudly
 - Emotions run high
-- Don't mock local teams
+- Respect local teams
 
 ### Rivalries
 - Yankees (baseball): Deep hatred
@@ -129,7 +129,7 @@ Some tension between:
 ### Student Calendar Effects
 | Time | Impact |
 |------|--------|
-| September move-in | Chaos, avoid |
+| September move-in | Schedule carefully to bypass chaos |
 | October-April | Full population |
 | May move-out | Chaos again |
 | Summer | Quieter, locals reclaim city |
@@ -140,7 +140,7 @@ Some tension between:
 
 ### General
 - Be direct but polite
-- Don't waste people's time
+- Respect schedules and get to the point
 - Personal space respected
 - Punctuality expected
 

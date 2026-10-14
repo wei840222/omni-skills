@@ -273,7 +273,7 @@ Many open to public (reading access):
 **Best Times:**
 - Fall (Sept-Nov): Campus active
 - Spring (March-April): Accepted student days
-- Avoid: Finals (Dec, May), breaks
+- Best times to visit are mid-semester
 
 **Campus Tours:**
 - Most schools offer daily tours

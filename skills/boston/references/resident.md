@@ -59,7 +59,7 @@ Most Boston rentals require a broker fee: one month's rent to the broker.
 | Craigslist | Still works in Boston, watch for scams |
 | Facebook groups | "Boston Housing", neighborhood-specific |
 | Padmapper | Aggregates multiple sources |
-| Walk-ins | Some landlords don't list online |
+| Walk-ins | Some landlords rely on physical signs |
 
 ### Required Documents
 - Photo ID
@@ -70,7 +70,7 @@ Most Boston rentals require a broker fee: one month's rent to the broker.
 - Guarantor info (if needed)
 
 ### Guarantor Requirements
-Many landlords require income = 3x rent. If you don't meet this:
+Many landlords require income = 3x rent. If you fall short of this ratio:
 - Guarantor (usually parent) with 5x rent income
 - Larger security deposit
 - Prepay several months

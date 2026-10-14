@@ -29,7 +29,7 @@ Requirements:
 - Bank ATMs everywhere
 - CVS has ATMs
 - 7-Eleven ATMs (fee)
-- Avoid random ATMs (high fees)
+- Use bank ATMs to bypass (high fees)
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Overall Safety
 
-Boston is one of the **safest major US cities**. Violent crime is relatively low and concentrated in specific areas. Most tourists and residents never experience issues.
+Boston is one of the **safest major US cities**. Violent crime is relatively low and concentrated in specific areas. Most tourists and residents visit without encountering issues.
 
 ### Crime Statistics Context
 - Property crime more common than violent crime
@@ -48,7 +48,7 @@ Most common tourist crime. Hotspots:
 
 **Prevention:**
 - Front pocket or cross-body bag
-- Don't flash expensive items
+- Keep valuables discreet
 - Stay aware in crowds
 
 ### Phone Snatching
@@ -57,7 +57,7 @@ Growing problem on the T.
 **Method:** Snatcher grabs phone as train doors open, runs out.
 
 **Prevention:**
-- Don't use phone near doors
+- Keep phone secured when doors open
 - Maintain grip on device
 - Stay alert at stops
 
@@ -67,7 +67,7 @@ Serious problem. Boston has high bike theft rates.
 **Prevention:**
 - U-lock (not cable lock)
 - Lock both wheels and frame to fixed object
-- Don't leave overnight outside
+- Bring bikes inside overnight
 - Register with police (helps recovery)
 
 ### Package Theft
@@ -80,7 +80,7 @@ Common in apartment buildings without secure lobby.
 - Package lockbox
 
 ### Car Break-ins
-Don't leave valuables visible. Ever.
+Conceal all valuables inside vehicles at all times.
 
 **Hotspots:**
 - Beacon Hill side streets
@@ -151,7 +151,7 @@ Don't leave valuables visible. Ever.
 - Ashmont/Fields Corner areas improving
 - Some blocks have serious crime
 - ALWAYS research specific address
-- Don't generalize — huge neighborhood
+- Treat as a vast area with distinct sub-sections
 
 ### South Boston
 **Safe now.** Heavily gentrified.
@@ -168,7 +168,7 @@ The T is **generally safe**, even late night.
 **Tips:**
 - Stay in populated cars
 - Stand back from platform edge
-- Don't use phone at train doors
+- Keep phone secured at train doors
 - Have situational awareness
 
 ### Station Notes
@@ -193,7 +193,7 @@ Service ends ~12:30am. After:
 **What to know:**
 - Not typically dangerous to passersby
 - Can be uncomfortable to walk through
-- Avoid late night
+- Visit during daytime hours
 - Concentrated in small area
 
 ### Boston Common After Dark
@@ -262,7 +262,7 @@ Boston has complicated racial history.
 250,000 students, city is used to them.
 - Campus police in addition to BPD
 - Most crime = petty theft
-- Don't walk home drunk alone
+- Use rideshares or travel in groups late at night
 
 ---
 
@@ -290,9 +290,9 @@ Boston has complicated racial history.
 
 1. **Trust your instincts** — if something feels wrong, leave
 2. **Stay aware** — headphones fine, but know your surroundings
-3. **Avoid confrontation** — not worth it
+3. **De-escalate or walk away from conflicts** — not worth it
 4. **Know your route** — especially late night
 5. **Travel populated streets** — even if slightly longer
 6. **Keep phone charged** — for emergencies and navigation
 7. **Share location** — with friend when meeting someone new
-8. **Don't flash valuables** — common sense
+8. **Keep valuables concealed** — common sense

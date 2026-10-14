@@ -42,7 +42,7 @@ Victorian brownstones, tree-lined streets, Boston's "nice" neighborhood. Created
 - Expensive even by Boston standards
 - Old buildings mean small kitchens, window AC
 - Tourist traffic on Newbury
-- No dedicated parking (most don't have cars)
+- No dedicated parking (few residents own cars)
 
 ---
 
