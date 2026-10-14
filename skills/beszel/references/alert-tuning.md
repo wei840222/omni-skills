@@ -12,8 +12,8 @@ Tune alerts so incidents are surfaced early without creating constant noise.
 
 ## Step 2: Define Severity Tiers
 
-- `warning`: unusual but not urgent conditions.
-- `critical`: response required now to avoid impact.
+- `warning`: unusual yet non-urgent conditions.
+- `critical`: response required now to prevent impact.
 - `urgent`: active service disruption or severe risk.
 
 Apply clear response expectations for each tier.
@@ -28,7 +28,7 @@ Apply clear response expectations for each tier.
 
 - Every alert class must have a first responder.
 - Define escalation targets for unresolved critical alerts.
-- Avoid shared ownership with no clear accountable person.
+- Prevent shared ownership with no clear accountable person.
 
 ## Step 5: Review Weekly
 
@@ -42,3 +42,8 @@ Apply clear response expectations for each tier.
 - Repeated disk pressure alerts -> track growth trend and add capacity planning note.
 - CPU spikes at predictable times -> document workload schedule and tune threshold window.
 - Frequent node disconnect alerts -> investigate network stability and clock sync before changing alert logic.
+
+## Official references
+
+- Notifications overview: https://beszel.dev/guide/notifications
+- Keep product-specific channel setup aligned with `references/sources.md`.
