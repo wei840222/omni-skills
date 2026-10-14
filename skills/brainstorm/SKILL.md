@@ -1,58 +1,69 @@
 ---
 name: brainstorm
-slug: brainstorm
-version: 1.0.0
-description: Generate ideas fast. Adapt depth and structure to what the user actually needs.
-homepage: https://clawic.com/skills/brainstorm
+description: >
+  Generate idea volume fast with mode-aware structure, expansion prompts, and
+  SCAMPER lateral moves. Use when the user needs names, options, marketing
+  angles, creative unblockers, or "what else could we try?" lists. Prefer
+  `diverge` for multi-persona trade-off synthesis, `question` when the need is
+  interview or discovery questions rather than idea volume, and `loop` once a
+  chosen direction needs iterative execution.
 metadata:
-  clawdbot:
-    emoji: 💡
-    displayName: Brainstorm
+  version: "1.0.0"
+  openclaw: '{"emoji":"💡"}'
+  related-skills: '{"diverge":"Multi-perspective evaluation and synthesis when idea volume is not enough.","question":"Craft interview or discovery questions instead of generating option lists.","loop":"Iterate a chosen direction until success criteria are met."}'
 ---
 
-## Default: Ideas First
+## Default: ideas first
 
-When user asks for ideas, **generate immediately**. Don't interrogate first.
+When the user asks for ideas, generate immediately. Incomplete context is fine: the first list will reveal what to clarify.
 
-If context is missing, the ideas will show it — user will clarify naturally.
+Match energy to the ask. Quick request → short list. Deep request → fewer ideas with more development.
 
-## Adapt to the Request
+## Adapt to the request
 
 | Signal | Response |
 |--------|----------|
 | "Give me 5 ideas" | 5 ideas, simple list |
-| "I'm stuck on X" | 3-5 angles to unstick |
-| "Brainstorm names" | 10-20 options, varied styles |
-| "Help me think through X" | Explore, ask clarifying Qs |
-| "What are my options?" | Structured comparison |
+| "I'm stuck on X" | 3–5 angles that unblock |
+| "Brainstorm names" | 10–20 options with varied styles |
+| "Help me think through X" | Explore angles; ask at most one clarifying question if needed |
+| "What are my options?" | Structured comparison with trade-offs |
 
-Match the energy. Quick request → quick response. Deep request → go deep.
+## Clarify only when needed
 
-## Only Ask If
+Ask at most one clarifying question when:
 
-- Request is genuinely ambiguous (not just incomplete)
-- You're about to invest significant effort
-- Constraints would completely change the output
+- the request is genuinely ambiguous (not merely incomplete)
+- significant effort would be wasted without a constraint
+- a missing constraint would completely change the output
 
-One question max. Not five.
+Otherwise generate first and let the user steer.
 
-## Structure When It Helps
+## Structure when it clarifies
 
-Don't force categories. Use structure only when it clarifies:
-- **Comparisons:** Table with trade-offs
-- **Many ideas:** Group by theme
-- **Recommendations:** Highlight top pick with reasoning
+Use structure only when it helps:
 
-Flat list is fine for most requests.
+- **Comparisons:** table with trade-offs
+- **Many ideas:** group by theme
+- **Recommendations:** highlight a top pick with reasoning
 
-## After First Round
+A flat list is enough for most requests.
 
-If user wants more: go deeper, wider, or different direction.
-If user is silent: they got what they needed. Don't push.
+## Modes and expansion prompts
 
-Check `modes.md` for different brainstorm approaches.
-Check `prompts.md` for creative expansion techniques.
+Load `references/modes.md` when choosing Rapid Fire, Structured, Deep Dive, Provocative, or Collaborative delivery.
 
----
+Load `references/prompts.md` when the user is stuck, wants more variety, or asks for SCAMPER / lateral-thinking moves.
 
-**Related:** For multi-perspective exploration, see `diverge`. For iteration, see `loop`.
+## After the first round
+
+If the user wants more: go deeper, wider, or change direction.
+If the user is silent: treat the task as complete.
+
+## Routing boundaries
+
+- Load `diverge` when the user needs competing perspectives synthesized into a decision, not just more options.
+- Load `question` when the deliverable is better interview / discovery questions rather than idea lists.
+- Load `loop` after a direction is chosen and needs controlled iteration to a success criterion.
+
+Research notes and verified ideation sources live in `references/sources.md`.
