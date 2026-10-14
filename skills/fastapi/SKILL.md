@@ -99,7 +99,7 @@ Load deeper notes on demand from the Quick reference table only; do not preload 
 | Version-sensitive claim needs a source | `references/sources.md` |
 | Anything else | One-file minimal repro: one route, no middleware, no DB — then add layers |
 
-Read this file first; open **exactly one** reference when the situation matches.
+Read this file first; open exactly one matching reference when the situation is clear.
 
 ## Core rules
 
