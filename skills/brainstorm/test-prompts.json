@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Give me 5 names for a new coffee shop that focuses on cats and books.",
+    "expected": "Immediately returns about 5 creative names combining coffee, cats, and books; flat list is fine; no interrogation first.",
+    "actual": "1. The Feline Folio\n2. Purrfect Pages Cafe\n3. Whiskers & Words\n4. Lattes & Literature\n5. The Literary Leopard\nGenerated immediately as a flat list without clarifying questions.",
+    "pass": true,
+    "bm25_prompt": "brainstorm coffee shop names cats books rapid fire"
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "I'm stuck on how to market my new SaaS app for dog walkers. Help me think through some options using SCAMPER.",
+    "expected": "Uses SCAMPER lenses (Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Rearrange/Reverse) with concrete marketing options for a dog-walker SaaS; may load references/prompts.md; does not invent live pricing.",
+    "actual": "Loaded references/prompts.md SCAMPER section. Substitute: partner with local pet stores instead of only online ads. Combine: bundle subscription with a treat box. Adapt: borrow ride-share refer-a-friend. Modify/Magnify: emphasize safety features. Put to another use: market to pet sitters. Eliminate: drop free tier and sell premium. Rearrange/Reverse: let owners pitch available walkers. Kept answers domain-specific; no invented pricing.",
+    "pass": true,
+    "bm25_prompt": "SCAMPER marketing ideation dog walker SaaS stuck"
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "I need Sales, Product, and Finance perspectives on whether to add a freemium tier \u2014 then a recommendation.",
+    "expected": "Recognizes multi-perspective synthesis need and routes to or collaborates with `diverge` rather than only dumping more brainstorm options; may still offer a short option seed if helpful.",
+    "actual": "Noted that competing Sales/Product/Finance viewpoints need synthesis, so primary load is `diverge` (or hand off after a short option seed). Avoided treating the ask as pure name/option volume under brainstorm alone.",
+    "pass": true,
+    "bm25_prompt": "freemium multi perspective route diverge not brainstorm volume"
+  }
+]
