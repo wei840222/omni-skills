@@ -1,5 +1,7 @@
 # Cybersecurity domain
 
+Prefer concrete next owners, due dates, and attack paths removed over generic posture language.
+
 Load this file for configuration defaults, operational traps, and contested judgement calls.
 Play depth lives in `playbooks.md`. Citation URLs live in `sources.md`.
 
