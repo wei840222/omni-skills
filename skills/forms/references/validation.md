@@ -1,5 +1,7 @@
 # Form Validation Patterns
 
+Use browser constraints for fast feedback. Always re-check the same rules on the server before accepting a submission.
+
 ## Built-in Browser Validation
 
 | Attribute | Purpose | Example |
@@ -69,7 +71,7 @@
 | `onSubmit` | Final validation, catch-all |
 
 ### Error Display
-- Show errors near the field, not just top of form
+- Show errors near the field, rather than only at the top of the form
 - Use red color + icon for accessibility
 - Clear error when user starts fixing
 
@@ -85,7 +87,7 @@ const [strength, setStrength] = useState('weak');
 
 ## Server-Side Validation (Critical)
 
-**Never trust client-side validation alone.**
+**Always implement server-side validation alongside client-side checks.**
 
 ### Common Server Checks
 - All required fields present
@@ -94,7 +96,7 @@ const [strength, setStrength] = useState('weak');
 - Foreign keys exist (country code valid)
 - Permissions (can this user submit this?)
 - Rate limiting (prevent spam)
-- File validation (actual type, not just extension)
+- File validation (actual type, rather than relying solely on extension)
 
 ### Sanitization
 - Trim whitespace
@@ -106,7 +108,7 @@ const [strength, setStrength] = useState('weak');
 
 ### Email Availability
 ```ts
-// Debounce to avoid spam
+// Debounce to regulate request rate
 const checkEmail = debounce(async (email) => {
   const res = await fetch(`/api/check-email?email=${email}`);
   return res.ok ? null : 'Email already taken';

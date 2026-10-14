@@ -1,6 +1,8 @@
-# Code Generation for Forms
+# Code generation sketches
 
-## React (React Hook Form + Zod)
+Load this file when the user wants implementation snippets after the form product design is clear. Prefer platform-native builders when no-code is enough.
+
+React (React Hook Form + Zod)
 
 ### Basic Setup
 ```tsx
@@ -193,7 +195,7 @@ const schema = z.object({
   password: z.string().min(8),
   confirmPassword: z.string(),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
+  message: "Passwords must match",
   path: ['confirmPassword'],
 });
 ```

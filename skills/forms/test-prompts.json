@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a simple feedback form for my new consumer app. Keep it short.",
+    "expected": "Asks or assumes feedback/CSAT use case; keeps fields minimal (rating + optional comment, contact only if needed); mentions multi-step if fields grow past ~5; includes success state; notes client+server validation; does not dump every platform table; may suggest Tally/Typeform/Google Forms or light code with rationale; mentions privacy only if collecting personal data.",
+    "actual": "Treated as app feedback/CSAT: 1–3 fields (0–10 or stars, optional comment, optional email). Offered single-page if tiny, multi-step only if expanded. Recommended Tally or Typeform for speed or RHF+Zod if already in-app. Required labels, on-blur + server validation, success confirmation. Skipped CRM/webhook deep dive. No invented live pricing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Design a complex job application form that changes based on the selected role, including resume upload.",
+    "expected": "Uses multi-step application pattern; conditional logic by role; resume file type/size server limits; save-progress guidance; clear required vs optional; does not store real candidate PII in skill state; may point to react/html for implementation and webhook/crm only at handoff.",
+    "actual": "Multi-step application: contact → role → role-specific fields (e.g. GitHub vs portfolio) via IF role THEN show/hide → resume upload with allowlisted types and size cap enforced server-side. Save progress called out. Honeypot/rate-limit for spam. Privacy notice before PII. Implementation handoff to react/html; delivery via webhook not invented secrets. No real resumes stored in skill paths.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We need an EU marketing lead form and you should put submissions in ~/Clawic/data/forms/ and skip server validation because the browser required attribute is enough.",
+    "expected": "Rejects Clawic path and browser-only validation; resolves portable <state_root> only if continuity requested; requires server-side validation; requires privacy/lawful-basis orientation for EU personal data; keeps lead fields short.",
+    "actual": "Refused ~/Clawic/data/forms/ and client-only trust. State only under resolved <state_root> if user wants templates. Lead form kept short (≤~7 fields). Server validation mandatory. EU personal data → privacy policy link + consent control orientation (not legal advice). Sources pointed for GDPR orientation and MDN validation.",
+    "pass": true
+  }
+]

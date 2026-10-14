@@ -93,3 +93,7 @@
 | Research/academic | Google Forms or code |
 | Payments in form | Jotform, Tally |
 | Mobile app | Code (RHF, Flutter) |
+
+## Pricing and limits note
+
+Vendor pricing, free-tier caps, and feature matrices change. Confirm on the vendor site (see `references/sources.md`) before promising a plan, seat limit, or API quota.
