@@ -179,3 +179,10 @@ Preference areas recorded in `config.yaml` when stated:
 | `references/bugs.md` | Bug/ticket/SLA/alert priority |
 | `references/sources.md` | Before restating WSJF, interruption recovery, or GTD two-minute facts |
 | `test-prompts.json` | Evaluation harness only — not runtime guidance |
+
+## Failure recovery
+
+- Wrong P0 interrupt: restore the parked task from its resume note, announce the correction, log an override.
+- Split state roots detected: keep the highest-precedence root, report the others, do not merge silently.
+- Overflow without user choice: stop silent drops; present named cut options before changing dates.
+- Unconfirmed rule almost auto-applied: downgrade to a proposal with two evidence dates from the override log.
