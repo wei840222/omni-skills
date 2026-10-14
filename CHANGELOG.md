@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| new-zealand                  | 2026-10-15 | 86/100 (#848)                    |
 | fastapi                      | 2026-10-14 | 86/100 (#846)                    |
 | payments                     | 2026-10-14 | 86/100 (#847)                    |
 | customer-support             | 2026-10-14 | 86/100 (#845)                    |
