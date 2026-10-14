@@ -16,6 +16,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
 | question                     | 2026-10-14 | 86/100 (#834)                    |
+| dashboard                    | 2026-10-14 | 86/100 (#835)                    |
 | triage                       | 2026-10-14 | 86/100 (#833)                    |
 | firewall                     | 2026-10-14 | 86/100 (#832)                    |
 | tencent                      | 2026-10-12 | 90/100 (#831)                    |
