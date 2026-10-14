@@ -20,6 +20,8 @@ Before sending a question, verify:
 
 ## Default delivery shape
 
+Lead with what to do; keep the stack short so the working set stays small.
+
 When the user asks for questions:
 
 1. State the context and framework in one line.
