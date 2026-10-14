@@ -94,15 +94,15 @@ Classify the user first: visitor, planning-to-move, already-resident, tech/remot
 7. Spanish helps outside Palermo/tourist bubbles; do not assume English everywhere.
 8. For multi-province trips, hand off routing to `argentina` after the BA city block is set.
 
-## Common traps
+## Prefer these patterns
 
-- Treating dual-exchange-rate blog posts as current payment truth without a live check.
-- Planning La Boca like a full-day wanderable residential barrio.
-- Over-weighting Puerto Madero for short cultural trips (isolated, pricey).
-- Compressing BA + Iguazú + Patagonia into one short loop without `argentina` macro-region discipline.
-- Signing long rentals without understanding contrato type, deposit customs, and inflation adjustment clauses.
-- Assuming every nationality gets the same tourist stay or digital-nomad product.
-- Quoting exact Subte fares or residency fees from memory.
+- Re-check payment rails near travel; treat dual-rate blog posts as historical color only.
+- Visit La Boca as a daylight Caminito pocket with a clear exit plan.
+- For short culture trips, prefer walkable Recoleta/Palermo/San Telmo bases over isolated towers unless the user wants that quiet.
+- For multi-province routes, finish the CABA block here then hand off to `argentina`.
+- Before long rentals, map contrato type, deposit custom, and how rent adjusts with inflation.
+- Verify tourist stay and residency products per passport on Migraciones.
+- Quote Subte fares and agency fees only from live official pages (or mark unverified).
 
 ## Safety and privacy
 
