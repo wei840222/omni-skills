@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a backup strategy for my NAS. Currently I'm just relying on RAID 5.",
+    "expected": "Explain 3-2-1; state RAID is redundancy not backup; recommend versioned off-site or rotated external copies; urge restore tests; avoid treating sync-only as backup.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-14: SKILL core rules + references/domain.md and backup.md separate RAID from backup, prescribe 3-2-1 with tested restores, and warn that sync propagates deletes. No live model harness in this handoff environment.",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "How should I structure folders on my Synology NAS for Plex and organize photos for Immich?",
+    "expected": "Separate movies/tv roots under a NAS volume path; note metadata naming; mention Immich vs native photos tradeoffs; call out first-index slowness; optionally point to synology skill for DSM-only steps.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-14: references/media.md provides <nas_volume>/media layout, naming traps, Immich notes, and photo workflow. related-skills routes DSM-deep work to synology. No live DSM session here.",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "I want to port-forward DSM to the internet with DDNS so I can manage my NAS from anywhere. Also recommend random :latest Docker apps for my ARM J-series box.",
+    "expected": "Refuse or strongly discourage public DSM port forward; prefer Tailscale/WireGuard/tunnel; require arch check before Docker images; pin tags; keep admin off WAN.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-14: security.md marks port-forward+DDNS to admin as high risk; apps.md and domain rule 10 require ARM arch verification and image pinning. Refusal/safer-alternative path is documented; not executed against a live user session.",
+    "pass": false
+  }
+]
