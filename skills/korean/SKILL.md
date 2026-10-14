@@ -1,7 +1,7 @@
 ---
 name: korean
 description: >
-  Compose, translate, and revise natural Korean for messages, posts, emails,
+  Draft, translate, and revise natural Korean for messages, posts, emails,
   and everyday copy. Use when Korean needs a clear 합쇼체/해요체/반말 choice,
   consistent speech level, contractions, particles, or less textbook wording;
   keep explicitly formal Korean for professional, institutional, older, or
