@@ -36,6 +36,8 @@ Classify the user first: visitor, planning-to-move, already-resident, tech/remot
 
 ## Reference routing
 
+Load the smallest set that answers the current question. Prefer `domain.md` + one topic file before opening the full neighborhood or food set.
+
 | Topic | File | When to load |
 | --- | --- | --- |
 | Continuity setup | `references/setup.md` | User wants persistent BA context or empty `<state_root>/` |
