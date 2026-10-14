@@ -33,7 +33,7 @@
 | Fees | High for foreign cards |
 | Rate | Official (bad) |
 
-**Recommendation:** Avoid ATMs. Use Western Union or cuevas.
+**Recommendation:** Bypass ATMs. Use Western Union or cuevas.
 
 ### Crypto Adoption
 
@@ -119,7 +119,7 @@ Argentina has **one of the highest crypto adoption rates** globally:
 | Process | May need to pick up in person |
 | Delays | Common |
 
-**Recommendation:** Avoid shipping valuable items to Argentina if possible.
+**Recommendation:** Bypass shipping valuable items to Argentina if possible.
 
 ---
 
@@ -273,7 +273,7 @@ Many apartments have shared laundry or machines in unit.
 | Import taxes | 2-3x US prices |
 | Selection | Limited vs US |
 | Apple | Expensive, limited warranty |
-| Local purchase | Not recommended unless urgent |
+| Local purchase | Requires Caution unless urgent |
 
 **Recommendation:** Buy electronics before arrival.
 

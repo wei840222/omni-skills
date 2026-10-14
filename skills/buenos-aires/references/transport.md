@@ -1,5 +1,8 @@
 # Buenos Aires Transport Guide
 
+> Fares and product rules change. Prefer SUBE and CABA tourism mobility official pages in `sources.md` for live amounts. Last package pass: 2026-10-14.
+
+
 ## Overview
 
 Buenos Aires has excellent public transport, especially for a South American city. Most visitors won't need a car.
@@ -109,7 +112,7 @@ Most tourist areas: Centro -> Recoleta -> Palermo -> Belgrano
 |-------|----------|
 | 152 | Recoleta -> Centro -> San Telmo -> La Boca |
 | 29 | Centro -> Palermo -> Belgrano |
-| 59 | Centro -> Palermo -> Nunez |
+| 59 | Centro -> Palermo -> Núñez |
 | 130 | Palermo -> San Telmo -> Puerto Madero |
 | 93 | Centro -> Recoleta |
 
@@ -155,7 +158,7 @@ Most tourist areas: Centro -> Recoleta -> Palermo -> Belgrano
 ### Tips
 
 - **Meter:** Must be running
-- **Small bills:** Drivers often "don't have change"
+- **Small bills:** Drivers often "require small bills"
 - **Receipt:** Ask "factura" if needed
 - **Night surcharge:** 20% after 10pm
 - **Scam prevention:** Know rough fare, count change
@@ -220,7 +223,7 @@ Technically gray area legally, but widely used and functional.
 ### Safety
 
 - **Retiro area:** Fine during day, careful at night
-- **Constitucion:** More sketchy, don't linger
+- **Constitucion:** More sketchy, keep moving
 - **On trains:** Keep belongings close
 
 ---
@@ -242,9 +245,9 @@ Technically gray area legally, but widely used and functional.
 
 - **Sidewalks:** Often uneven, broken
 - **Dog poop:** Watch your step (seriously)
-- **Crossings:** Cars don't always stop
-- **Cobblestones:** Hard on feet, avoid heels
-- **Phone:** Don't walk looking at it
+- **Crossings:** Cars yield inconsistently
+- **Cobblestones:** Hard on feet, wear flat shoes
+- **Phone:** keep it concealed
 
 ---
 
@@ -309,9 +312,9 @@ Expanding network, especially:
 
 ---
 
-## Driving (Not Recommended)
+## Driving (Caution Advised)
 
-### Why Avoid
+### Why Bypass
 
 - Aggressive drivers
 - Confusing streets

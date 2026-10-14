@@ -1,5 +1,8 @@
 # Buenos Aires Safety Guide
 
+> Orientation, not a live crime map. Block-level risk changes; verify tourism/security guidance for current visitor advice. Last package pass: 2026-10-14.
+
+
 ## Overall Assessment
 
 Buenos Aires is **relatively safe** for a major Latin American city. Most visitors have no issues. However, petty crime is common and requires street smarts.
@@ -10,7 +13,7 @@ Buenos Aires is **relatively safe** for a major Latin American city. Most visito
 |------|--------------|
 | Buenos Aires | Moderate (requires awareness) |
 | Santiago | Slightly safer |
-| S o Paulo | Less safe |
+| São Paulo | Less safe |
 | Mexico City | Comparable |
 | European capitals | Safer |
 
@@ -29,9 +32,9 @@ Buenos Aires is **relatively safe** for a major Latin American city. Most visito
 | Pickpocketing | Medium |
 
 **Prevention:**
-- Don't use phone obviously on street
+- Keep phone concealed on street
 - Keep phone in front pocket or bag
-- Don't set phone on cafe table near street
+- Keep phone secured off tables near street
 - Consider cheap backup phone for navigation
 - AirTag your devices
 
@@ -47,14 +50,14 @@ Buenos Aires is **relatively safe** for a major Latin American city. Most visito
 - Front pockets only
 - Bag in front of body
 - Be aware in crowds
-- Don't flash cash
+- Handle cash discreetly
 
 ### 3. Express Kidnapping (Secuestro Express)
 
 **Rare but serious.** Victim taken briefly, forced to withdraw cash from ATMs.
 
 **Prevention:**
-- Don't display expensive jewelry/watches
+- Conceal expensive jewelry/watches
 - Use ATMs inside banks during business hours
 - Be cautious of anyone following you
 - Vary your routine
@@ -84,7 +87,7 @@ Buenos Aires is **relatively safe** for a major Latin American city. Most visito
 | Recoleta | Well-patrolled |
 | Belgrano | Residential, quiet |
 | Palermo (main areas) | Good, busy = safe |
-| Nunez | Quiet residential |
+| Núñez | Quiet residential |
 | Las Canitas | Small, safe |
 
 ### Safe Day, Caution at Night
@@ -95,21 +98,21 @@ Buenos Aires is **relatively safe** for a major Latin American city. Most visito
 | Palermo Hollywood | 4/5 | 3/5 (late night caution) |
 | San Telmo | 4/5 | 3/5 (main streets OK) |
 | Villa Crespo | 4/5 | 3/5 |
-| Centro/Microcentro | 3/5 | 2/5 (deserted, avoid) |
+| Centro/Microcentro | 3/5 | 2/5 (deserted, bypass) |
 | Caballito | 4/5 | 3/5 |
 | Almagro | 3/5 | 3/5 |
 
-### Avoid or Exercise Extreme Caution
+### Areas Requiring Extreme Caution
 
 | Area | Recommendation |
 |------|----------------|
-| La Boca (beyond Caminito) | Avoid |
-| Constitucion | Avoid |
-| Once (at night) | Avoid |
-| Villa 31 (Retiro) | Avoid |
+| La Boca (beyond Caminito) | Bypass |
+| Constitucion | Bypass |
+| Once (at night) | Bypass |
+| Villa 31 (Retiro) | Bypass |
 | Flores (parts) | Research specific areas |
-| Bajo Flores | Avoid |
-| Villa Lugano | Avoid |
+| Bajo Flores | Bypass |
+| Villa Lugano | Bypass |
 
 ---
 
@@ -122,16 +125,16 @@ Buenos Aires is **relatively safe** for a major Latin American city. Most visito
 | 6am-8pm | Lower | Normal caution |
 | 8pm-midnight | Moderate | Stay in busy areas |
 | Midnight-4am | Higher | Taxi between locations |
-| 4am-6am | Highest | Avoid streets, taxi only |
+| 4am-6am | Highest | Use taxis exclusively |
 
 ### Late Night Safety
 
 If out late:
 1. **Pre-arrange transport** - Uber/taxi ready
 2. **Stay in groups** - Safety in numbers
-3. **Avoid dark streets** - Main roads only
-4. **Don't walk drunk** - Take taxi
-5. **Know your route** - Don't wander
+3. **Bypass dark streets** - Main roads only
+4. **Use taxis when intoxicated** - Take taxi
+5. **Know your route** - Stick to planned routes
 
 ---
 
@@ -146,7 +149,7 @@ If out late:
 
 **Prevention:**
 - Keep walking if splashed
-- Don't let strangers touch you or your bags
+- Maintain physical distance from strangers
 - Say "No gracias" firmly and move
 
 ### Fake Police
@@ -156,11 +159,11 @@ If out late:
 2. Request to see wallet to "check for counterfeit"
 3. Steal money during "inspection"
 
-**Reality:** Real police don't do random wallet checks.
+**Reality:** Real police only do official wallet checks.
 
 **Prevention:**
 - Real police have proper uniforms, credentials
-- Never show wallet contents
+- Keep wallet contents concealed
 - Ask to go to police station
 - Insist on calling embassy
 
@@ -173,7 +176,7 @@ If out late:
 
 **Prevention:**
 - Use ATMs inside banks
-- Never accept "help"
+- Decline unsolicited help
 - Cover PIN pad
 - Check for skimmers
 
@@ -204,7 +207,7 @@ If out late:
 
 ### ATM Best Practices
 
-| Do | Don't |
+| Best Practices | Common Mistakes |
 |----|-------|
 | Use ATMs inside banks | Street ATMs at night |
 | During business hours | Accept help from strangers |
@@ -214,7 +217,7 @@ If out late:
 
 ### Cash Carrying Tips
 
-- **Spread money:** Don't keep all in one place
+- **Spread money:** Distribute all in one place
 - **Decoy wallet:** Small amount in accessible pocket
 - **Real money:** Hidden in bag/money belt
 - **Daily amount:** Only carry what you need
@@ -231,16 +234,16 @@ Buenos Aires is **generally safe for solo women**, but typical precautions apply
 
 | Situation | Advice |
 |-----------|--------|
-| Solo at night | Taxi, don't walk alone |
+| Solo at night | Taxi, use taxis instead of walking alone |
 | Clubs | Watch your drink |
 | Dating apps | Meet in public, tell someone |
 | Catcalling | Common, usually harmless, ignore |
 | Public transit | Rush hour can be grabby, stay alert |
 
-### Avoiding Unwanted Attention
+### Bypassing Unwanted Attention
 
 - "No gracias" is sufficient
-- Don't engage with persistent advances
+- Ignore persistent advances
 - Walk into a business if followed
 - Fake phone call can help
 
@@ -292,7 +295,7 @@ Buenos Aires is the **most LGBTQ+-friendly city in Latin America**. Same-sex mar
 
 ### Theft/Robbery
 
-1. **Don't resist** - Give up belongings
+1. **Cooperate peacefully** - Give up belongings
 2. **Stay calm** - Your safety first
 3. **Note details** - Description, direction fled
 4. **Go to comisaria** - Nearest police station
@@ -348,8 +351,8 @@ Protests are **very common** in Buenos Aires, especially near:
 
 - Usually peaceful
 - Can disrupt traffic
-- Avoid getting caught in crowd
-- Don't photograph aggressive confrontations
+- Bypass getting caught in crowd
+- Maintain distance from aggressive confrontations
 - Check news for major demonstrations
 
 ### If Caught Near One
@@ -357,4 +360,4 @@ Protests are **very common** in Buenos Aires, especially near:
 - Stay calm
 - Move perpendicular to crowd flow
 - Enter a cafe or business
-- Don't run (may escalate)
+- Move calmly away

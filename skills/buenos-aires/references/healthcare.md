@@ -285,7 +285,7 @@ No vaccinations required for entry from most countries.
 |---------|-------|
 | Routine vaccines | Up to date |
 | Hepatitis A | If eating out frequently |
-| COVID-19 | Not required but available |
+| COVID-19 | Optional but available |
 
 ### Where to Get
 

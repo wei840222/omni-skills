@@ -76,7 +76,7 @@ Buenos Aires is unique in Latin America-more European than South American in man
 | Culture | Art, music, literature |
 | Family | Important value |
 
-### Avoid or Approach Carefully
+### Bypass or Approach Carefully
 
 | Topic | Notes |
 |-------|-------|
@@ -151,7 +151,7 @@ Football is not a sport-it's a religion.
 | Team | Neighborhood | Character |
 |------|--------------|-----------|
 | Boca Juniors | La Boca | Working class, passionate |
-| River Plate | Nunez | More middle/upper class |
+| River Plate | Núñez | More middle/upper class |
 | Independiente | Avellaneda | "Rey de Copas" |
 | Racing | Avellaneda | Rival to Independiente |
 | San Lorenzo | Boedo | Pope's team |
@@ -167,7 +167,7 @@ Boca vs. River = one of world's biggest rivalries.
 
 | Aspect | Notes |
 |--------|-------|
-| Tickets | Official sites only, avoid scalpers |
+| Tickets | Official sites only, bypass scalpers |
 | Safety | Generally fine in designated areas |
 | Experience | Unforgettable atmosphere |
 | Tourist sections | Available, more controlled |
@@ -193,7 +193,7 @@ Boca vs. River = one of world's biggest rivalries.
 | Seating | Wait to be seated |
 | Bread | Often served, may be charged |
 | Sharing | Common and expected |
-| Rushing | Never rush an Argentine meal |
+| Rushing | Pace yourself during an Argentine meal |
 | Bill | Ask for it ("La cuenta") |
 | Tipping | 10% standard |
 
@@ -205,7 +205,7 @@ Boca vs. River = one of world's biggest rivalries.
 | The asador | Person grilling, honored role |
 | Timing | Takes hours, that's the point |
 | Conversation | Main activity while waiting |
-| No rushing | Never rush the meat |
+| No rushing | Cook the meat slowly |
 
 ---
 

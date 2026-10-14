@@ -107,13 +107,13 @@ Famous for colorful houses, Caminito, and Boca Juniors football. But understandi
 - Souvenir shops
 - Restaurants (overpriced, tourist quality)
 - Safe during daytime
-- NOT safe after dark
+- requires caution after dark
 
 **Rest of La Boca (Local):**
 - Working-class neighborhood
 - Port workers, families
-- NOT a tourist area
-- NOT safe for wandering foreigners
+- a local area
+- requires caution for wandering foreigners
 - Genuine but rough
 
 ### Overview (Caminito Area Only)
@@ -136,7 +136,7 @@ Famous for colorful houses, Caminito, and Boca Juniors football. But understandi
 - Watch tango dancers (tip if you photograph)
 - Visit La Bombonera (Boca Juniors stadium)
 
-**Don't:**
+**Do:**
 - Walk from San Telmo (sketchy route)
 - Stay after dark
 - Wander beyond the tourist area
@@ -228,7 +228,7 @@ Barracas is what Palermo was 20 years ago-before the boutiques and fancy restaur
 ### Best For
 - Artists needing studio space
 - Very budget-conscious long-term residents
-- Those who don't mind pioneers in gentrification
+- Those who enjoy pioneers in gentrification
 - Anyone with car (less transit dependent)
 
 ### Worst For
@@ -267,9 +267,9 @@ Barracas is what Palermo was 20 years ago-before the boutiques and fancy restaur
 | San Telmo (Defensa) | 4/5 | 3/5 | Generally fine |
 | San Telmo (side streets) | 3/5 | 2/5 | Careful |
 | Caminito | 4/5 | 1/5 | Day only |
-| La Boca (beyond tourist) | 2/5 | 1/5 | Avoid |
+| La Boca (beyond tourist) | 2/5 | 1/5 | Bypass |
 | Barracas | 3/5 | 2/5 | Stick to main |
-| Constitucion | 2/5 | 1/5 | Avoid |
+| Constitucion | 2/5 | 1/5 | Bypass |
 
 ### South Zone Decision
 
@@ -286,11 +286,11 @@ Barracas is what Palermo was 20 years ago-before the boutiques and fancy restaur
 - You have a car
 
 **Skip La Boca for living:**
-- Visit for a day, don't stay
+- Visit for a day, limit stay
 - Take taxi there and back
-- Don't wander off Caminito
+- Stick to planned routes off Caminito
 
-**Avoid Constitucion entirely:**
+**Bypass Constitucion:**
 - Sketchy train station area
 - No reason to be there
 - If arriving by train, exit quickly

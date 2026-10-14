@@ -7,7 +7,7 @@
 1. **9:00** - Cementerio de la Recoleta (1.5h)
    - Find Evita's tomb
    - Marvel at the architecture
-   - Go early to avoid crowds
+   - Go early to visit during off-peak hours
 2. **10:30** - Coffee at La Biela
    - Historic cafe across from cemetery
    - Watch the scene
@@ -51,7 +51,7 @@
 - 10:30 - Coffee at La Biela
 - 11:30 - MALBA museum
 
-**Lunch:** 
+**Lunch:**
 - Restaurant in MALBA or walk to Palermo Soho
 
 **Afternoon: Palermo**
@@ -89,7 +89,7 @@
 
 **Morning Option A: Football Fan**
 - 10:00 - La Bombonera tour (Boca Juniors)
-- 12:00 - Quick Caminito walk (don't linger)
+- 12:00 - Quick Caminito walk (keep moving)
 - 1:00 - Lunch at El Obrero (authentic, cash only)
 
 **Morning Option B: Non-Football**
@@ -156,7 +156,7 @@
 
 **Evening:**
 - 9:00 - Traditional milonga experience
-- Real tango, not tourist show
+- Real tango, authentic
 
 ### Day 7: Flexible / Favorites
 

@@ -56,7 +56,7 @@
 | Libertador | Always congested |
 | 9 de Julio | High volume |
 | Panamericana | Rush hour crawl |
-| Center/Microcentro | Avoid if possible |
+| Center/Microcentro | Use alternative options if possible |
 | Access routes | Morning/evening |
 
 ---
@@ -94,7 +94,7 @@
 |--------|------|------|
 | New | Warranty, financing | Very expensive |
 | Used | Cheaper | Risk, paperwork |
-| Leasing | Flexibility | Not common |
+| Leasing | Flexibility | Uncommon |
 
 ### New Car Prices
 
@@ -190,7 +190,7 @@ Significantly higher than US due to import taxes:
 - Centro: Nearly impossible
 - Palermo: Difficult on weekends
 - Residential areas: Varies
-- Never leave valuables visible
+- Secure all valuables out of sight visible
 
 ---
 
@@ -279,12 +279,12 @@ Very popular for savings:
 - Park in garages
 - Nothing visible
 - Lock doors while driving
-- Avoid isolated areas
+- Bypass isolated areas
 
 ### Insurance Claims
 
 For accidents:
-1. Don't move vehicles (if safe)
+1. Keep vehicles stationary vehicles (if safe)
 2. Call insurance
 3. Take photos
 4. Exchange information
@@ -353,6 +353,6 @@ For occasional use:
 1. Check vehicle thoroughly
 2. Carry cash for tolls
 3. Plan gas stops
-4. Avoid night driving
+4. Bypass night driving
 5. Weather check (especially mountains)
 6. Emergency kit

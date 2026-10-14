@@ -16,7 +16,7 @@ Buenos Aires' Wall Street. Banks, offices, and the famous pedestrian street Flor
 | Nighttime | 1/5 | Dead after 8pm |
 | Walkability | 5/5 | All pedestrian streets |
 | Safety Day | 4/5 | Police presence |
-| Safety Night | 2/5 | Avoid walking alone |
+| Safety Night | 2/5 | Bypass walking alone |
 | Restaurants | 3/5 | Business lunch spots |
 | Housing | 2/5 | Offices converted to lofts |
 | Transit | 5/5 | All subte lines |
@@ -31,7 +31,7 @@ Buenos Aires' Wall Street. Banks, offices, and the famous pedestrian street Flor
 
 ### Living Here?
 
-Mostly NOT recommended for residential, but:
+Mostly requires caution for residential, but:
 
 **Pros:**
 - Very cheap rent ($200-400/month for 1BR)
@@ -86,7 +86,7 @@ Home to the Obelisco landmark and the Teatro Colon. More residential than Microc
 
 ### Avenida Corrientes
 
-The street that never sleeps. Open 24/7:
+The street that operates 24/7. Open 24/7:
 - Pizzerias (Guerrin, Banchero, Las Cuartetas)
 - Bookstores (many open until midnight)
 - Theaters and cinemas
@@ -138,7 +138,7 @@ The most contrasting neighborhood in Buenos Aires. Luxury apartments next to one
 **Retiro "Malo" (Bad):**
 - Behind the bus terminal
 - Villa 31 (large informal settlement)
-- NOT dangerous to transit through, but not residential for expats
+- generally safe to transit through, but not residential for expats
 
 ### Transport Hub
 
@@ -147,7 +147,7 @@ The most contrasting neighborhood in Buenos Aires. Luxury apartments next to one
 - Long-distance bus terminal (to all of Argentina)
 - Subte Linea C terminus
 
-**Warning:** The area immediately around the bus terminal can be sketchy. Keep belongings close, don't flash phones.
+**Warning:** The area immediately around the bus terminal can be sketchy. Keep belongings close, keep phones concealed.
 
 ### Living Here
 
@@ -158,7 +158,7 @@ Only in specific areas:
 - Along Avenida del Libertador toward Recoleta
 - Near embassies
 
-**Avoid:**
+**Bypass:**
 - Anything behind/near bus terminal
 - Near Villa 31
 
@@ -186,7 +186,7 @@ Beautiful green space with:
 1. Work in the area and hate commuting
 2. Temporary stay (1-3 months)
 3. Tight budget, willing to trade comfort
-4. Night owl who's never home anyway
+4. Night owl who's rarely home anyway
 5. Theater/culture obsessed
 
 **Invalid reasons:**
@@ -236,7 +236,7 @@ Beautiful green space with:
 - Most restaurants closed
 - Police presence drops
 - Homeless population visible
-- Walking alone NOT recommended
+- Walking alone requires caution
 
 ---
 

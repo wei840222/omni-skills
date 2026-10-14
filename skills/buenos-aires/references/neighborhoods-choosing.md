@@ -8,7 +8,7 @@
 
 ```
 START HERE:
- 
+
     Budget over $800/month for rent?
         Yes -> Want waterfront/modern?
             Yes -> PUERTO MADERO
@@ -16,7 +16,7 @@ START HERE:
                 Yes -> RECOLETA
                 No -> Want trendy/foodie?
                     PALERMO SOHO
-     
+
         No -> Budget $400-800?
             Yes -> Want trendy dining/nightlife?
                 Yes -> VILLA CRESPO or PALERMO HOLLYWOOD
@@ -24,7 +24,7 @@ START HERE:
                     Yes -> BELGRANO or CABALLITO
                     No -> Want character/history?
                         SAN TELMO
-         
+
             No (under $400) -> Want some nightlife access?
                 Yes -> ALMAGRO
                 No -> CABALLITO or outer barrios
@@ -40,7 +40,7 @@ START HERE:
 |-------|---------------|--------------|
 | Maximum | Puerto Madero | $800-1,500 |
 | Very High | Recoleta, Belgrano | $500-1,000 |
-| High | Palermo, Nunez | $450-800 |
+| High | Palermo, Núñez | $450-800 |
 | Good | Villa Crespo, Caballito | $350-650 |
 | Moderate | San Telmo, Almagro | $300-500 |
 
@@ -70,7 +70,7 @@ START HERE:
 | Best for Families | Why |
 |-------------------|-----|
 | Belgrano | Schools, parks, safe |
-| Nunez | Quiet, green, space |
+| Núñez | Quiet, green, space |
 | Caballito | Parque Centenario, affordable |
 | Recoleta | Safe, cultural |
 | Palermo Chico | Quiet within Palermo |
@@ -102,7 +102,7 @@ START HERE:
 - 30% cheaper
 - Growing cafe scene
 
-**Avoid:** Puerto Madero (isolated), Microcentro (dead at night)
+**Bypass:** Puerto Madero (isolated), Microcentro (dead at night)
 
 ### Tech Worker (Remote for US/EU Company)
 
@@ -116,7 +116,7 @@ START HERE:
 - Quieter for focused work
 - Still good infrastructure
 
-**Avoid:** San Telmo (internet can be spotty), Barracas (limited infrastructure)
+**Bypass:** San Telmo (internet can be spotty), Barracas (limited infrastructure)
 
 ### Young Couple
 
@@ -130,7 +130,7 @@ START HERE:
 - If budget allows
 - More polished
 
-**Avoid:** Puerto Madero (boring for couples), outer barrios (nothing to do)
+**Bypass:** Puerto Madero (boring for couples), outer barrios (nothing to do)
 
 ### Family with Children
 
@@ -145,7 +145,7 @@ START HERE:
 - Good schools
 - Much cheaper
 
-**Avoid:** San Telmo (cobblestones, safety), La Boca, Microcentro
+**Bypass:** San Telmo (cobblestones, safety), La Boca, Microcentro
 
 ### Retiree/Long-term Expat
 
@@ -180,7 +180,7 @@ START HERE:
 - Good transit to universities
 - Authentic experience
 
-**Avoid:** Puerto Madero (expensive), Palermo Soho (tourist prices)
+**Bypass:** Puerto Madero (expensive), Palermo Soho (tourist prices)
 
 ---
 
@@ -251,7 +251,7 @@ START HERE:
 
 4. **Deposits:** Usually 1-2 months rent.
 
-5. **Utilities:** Often not included. Ask specifically.
+5. **Utilities:** Often excluded. Ask specifically.
 
 ### Red Flags
 

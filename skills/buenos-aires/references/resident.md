@@ -101,7 +101,7 @@
 
 | Item | Where | Notes |
 |------|-------|-------|
-| Bedding | Carrefour, Falabella | If not furnished |
+| Bedding | Carrefour, Falabella | If unfurnished |
 | Kitchen basics | Carrefour, Coto | Pots, utensils |
 | Cleaning supplies | Supermarket, Dia | Stock up |
 | Adapter plugs | Ferreterias | Argentina uses Type I |
@@ -280,7 +280,7 @@ Most medications available without prescription:
 | Language exchange | Free, informal |
 | Apps | Supplemental |
 
-**Reality:** Spanish helpful, not mandatory in Palermo/tourist areas.
+**Reality:** Spanish helpful, optional in Palermo/tourist areas.
 
 ### Expat Communities
 
@@ -331,7 +331,7 @@ Palermo cafes are generally work-friendly:
 |---------|-------|
 | Building security | Most have portero |
 | Apartment locks | Check quality |
-| Valuables | Don't keep all cash at home |
+| Valuables | Distribute all cash at home |
 | Insurance | Consider renter's insurance |
 
 ### Street Safety
