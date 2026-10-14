@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| cybersecurity               | 2026-10-14 | 86/100 (#841)                    |
 | scholar                      | 2026-10-14 | 86/100 (#840)                    |
 | nas                          | 2026-10-14 | 84/100 (#839)                    |
 | in-depth-research            | 2026-10-14 | 86/100 (#837)                    |
