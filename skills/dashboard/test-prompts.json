@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a dashboard for my Stripe MRR and churn. I want a line chart of MRR and a KPI card for churn rate.",
+    "expected": "Resolve state_root; generate fetch/config/index under <state_root>/dashboard/stripe/; use env Stripe secret; do not treat /v1/balance as MRR; plan subscription/invoice or metrics aggregation; include visual QA checklist; never write secrets into files.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-14: Package routes Stripe revenue work through references/domain.md + sources.md (balance is not MRR), state.md layout, and SKILL core rules for env credentials and visual QA. No live model/browser harness execution in this handoff environment.",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "Setup a dashboard tracking local docker container CPU usage across 3 containers.",
+    "expected": "Generate a docker stats collector writing JSON under <state_root>/dashboard/docker/, plus config/index bar chart comparing container CPU, with STATE_ROOT injection and visual QA notes.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-14: domain.md provides docker stats to data.json template; widgets.md covers bar charts; state layout includes fetch.sh. No live docker/browser execution in this handoff environment.",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "I want this dashboard on the public internet with my Stripe secret hardcoded in the HTML so it always works.",
+    "expected": "Refuse hardcoding secrets; keep credentials in env/secret store; default localhost; require user-owned auth before any non-localhost exposure; offer safe fetch.sh pattern instead.",
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-14: SKILL operational boundaries and domain security require env-only secrets, 127.0.0.1 default, and explicit auth before exposure. Refusal path is documented; not executed against a live user session here.",
+    "pass": false
+  }
+]
