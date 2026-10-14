@@ -55,6 +55,8 @@ Load `references/modes.md` when choosing Rapid Fire, Structured, Deep Dive, Prov
 
 Load `references/prompts.md` when the user is stuck, wants more variety, or asks for SCAMPER / lateral-thinking moves.
 
+Keep `SKILL.md` as the entry point; open references only for the active mode or framework.
+
 ## After the first round
 
 If the user wants more: go deeper, wider, or change direction.
