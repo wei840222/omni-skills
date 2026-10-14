@@ -12,7 +12,7 @@
 
 - Coverage is good in cities and major towns.
 - Coverage gets patchy fast in remote South Island, West Coast, Fiordland, and some Northland or East Cape stretches.
-- Do not rely on live signal for outdoor navigation.
+- Download maps offline rather than relying on live signal for outdoor navigation.
 
 ## Best Practices
 

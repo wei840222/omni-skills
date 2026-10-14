@@ -28,11 +28,11 @@ If gear is dirty, clean it before flying. "I forgot" is a bad strategy here.
 ## Practical Rules
 
 1. Keep digital and offline copies of passport, approvals, insurance, and bookings.
-2. Do not promise same-day domestic chains after landing if the user still has entry uncertainty.
+2. Allow buffer time before promising same-day domestic chains after landing if the user still has entry uncertainty.
 3. Tell users to re-check official immigration pages before paying for flights or campervans.
 4. If the user is arriving for hiking or camping, ask what gear they are carrying.
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 - Assuming old NZeTA or declaration rules are unchanged.
 - Packing food casually for the flight and deciding later whether to declare it.

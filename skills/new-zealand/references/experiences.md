@@ -35,7 +35,7 @@ Only recommend if:
 - they accept it is a polished commercial experience
 
 ### Glacier region helicopter flights
-Amazing if conditions align, but never promise them as guaranteed.
+Amazing if conditions align, but set expectations that flights are weather-dependent and never guaranteed.
 
 ## Booking Priorities
 

@@ -39,7 +39,7 @@ New Zealand beaches are beautiful but not automatically safe. Wind, surf, rips, 
 3. Use more sunscreen than you think you need.
 4. Wind can turn a pleasant beach stop into a short one very quickly.
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 - Treating all beaches as relaxed Mediterranean swimming beaches.
 - Taking children into exposed surf zones because locals are nearby.

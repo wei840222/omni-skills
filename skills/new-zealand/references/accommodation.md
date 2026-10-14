@@ -62,7 +62,7 @@ Pick accommodation by base logic, not by "best hotel in the country" lists.
 - **Merivale:** polished, food-friendly
 - **Sumner:** beach feel if staying longer
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 - Booking only one-night stops across the South Island.
 - Staying far outside Queenstown to save money, then burning the savings on driving and parking.

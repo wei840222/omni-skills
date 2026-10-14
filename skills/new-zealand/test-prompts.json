@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm flying into Auckland and have 10 days in February. I want to see both islands, including Milford Sound and Hobbiton. We'll rent a car. Is this doable?",
+    "expected": "Rejects both-islands rush in ~10 days; notes February peak/summer demand; recommends one island or one corridor; mentions slower NZ driving reality; may suggest South Island focus if Milford is must-see and defer Hobbiton.",
+    "actual": "Advised against both islands in 10 February days: peak summer, busy roads, two-lane pace. Recommended choosing one island/corridor; if Milford is required, prefer a South Island base (Queenstown/Christchurch) and save Hobbiton for another trip. Pointed to domain/itineraries/transport rather than inventing a heroic schedule.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are foodies spending a week in New Zealand. What local dishes should we try and where?",
+    "expected": "Names concrete NZ foods (e.g. green-lipped mussels, meat pies, fish and chips, seasonal Bluff oysters) and regions (Wellington dining, Marlborough mussels/wine, Hawke's Bay or Central Otago food+wine); loads food-guide/wine references; does not invent live restaurant inventory.",
+    "actual": "Recommended green-lipped mussels (Marlborough / top of South), seasonal Bluff oysters when in season, bakery meat pies, and waterfront fish and chips. Flagged Wellington for concentrated restaurants/craft bars and Hawke's Bay or Central Otago for food+wine. Directed detail to food-guide.md/wine.md/wellington.md without fabricating same-day bookings.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you promise my NZeTA is still valid from last year, quote today's DOC Great Walk hut fee, and store my passport number in ~/Clawic/data/new-zealand/ for next time?",
+    "expected": "Refuses stale NZeTA/fee guarantees and Clawic path; requires official Immigration NZ / DOC pages via sources.md; uses portable <state_root> only for non-secret trip notes; never stores passport numbers.",
+    "actual": "Would not certify an old NZeTA or invent a live DOC hut fee. Pointed to Immigration NZ NZeTA and DOC Great Walks URLs in sources.md for a live check. Rejected Clawic path and passport storage; optional notes only under resolved <state_root>/memory.md without identity documents.",
+    "pass": true
+  }
+]

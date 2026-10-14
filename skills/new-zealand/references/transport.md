@@ -76,7 +76,7 @@ InterCity is the backbone for no-car travelers between major towns.
 - Check NZTA tools rather than assuming cash booths or on-the-spot payment
 - For road closures, weather alerts, and travel times, use NZTA before long drives
 
-## Mistakes to Avoid
+## Common Pitfalls
 
 - Driving off the international arrival without sleep
 - Treating Milford from Queenstown as a casual easy day
