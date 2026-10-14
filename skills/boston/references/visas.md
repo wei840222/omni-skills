@@ -69,7 +69,7 @@ Most common work visa for tech/biotech.
 - Start date: October 1
 
 **Cap-Exempt Employers:**
-Universities and research institutions don't count against cap:
+Universities and research institutions are exempt from the cap:
 - Harvard, MIT, BU, etc.
 - Teaching hospitals
 - Nonprofit research orgs
@@ -226,7 +226,7 @@ Major Boston employers that sponsor:
 
 ### While Here
 - Maintain valid status
-- Don't overstay
+- Maintain valid visa status
 - Keep passport valid (6+ months recommended)
 - Keep copies of all documents
 

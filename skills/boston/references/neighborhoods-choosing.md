@@ -24,7 +24,7 @@ Best neighborhoods:
 3. **Porter Square** — Red Line direct
 4. **Back Bay** — Red Line (Charles/MGH) + walk
 
-Avoid: South Boston, Jamaica Plain (long commutes)
+South Boston and Jamaica Plain fall outside optimal commute zones (long commutes)
 
 ### Financial District / Downtown
 Best neighborhoods:
@@ -33,7 +33,7 @@ Best neighborhoods:
 3. **Beacon Hill** — walk
 4. **Cambridge** — Red Line (15-20 min)
 
-Avoid: Allston/Brighton (slow Green Line)
+Allston/Brighton falls outside optimal commute zones (slow Green Line)
 
 ### Seaport / Innovation District
 Best neighborhoods:
@@ -42,7 +42,7 @@ Best neighborhoods:
 3. **Financial District** — walk
 4. **Back Bay** — Silver Line or walk
 
-Avoid: Cambridge, Somerville (no direct transit)
+Cambridge and Somerville lack direct transit for this route (no direct transit)
 
 ### Longwood Medical Area
 Best neighborhoods:
@@ -182,13 +182,13 @@ Photos lie. Always visit apartments in person. Check:
 - **Broker fees**: One month rent, common in Boston
 - **Security deposit**: First, last, security = 3 months upfront
 - **No-fee apartments**: Exist but competitive
-- **September 1st**: Avoid moving on this exact date if possible
+- **September 1st**: Schedule moves for August 31 or September 2 if possible
 
 ### Resources
 - Zillow, Apartments.com
 - Craigslist (still works in Boston)
 - Facebook groups (Boston Housing, specific neighborhoods)
-- Walk-ins (some landlords don't list online)
+- Walk-ins (some landlords rely solely on local signs)
 
 ### Red Flags
 - Can't see apartment before signing

@@ -31,7 +31,7 @@ Boston's Little Italy. Oldest residential neighborhood, densely packed, incredib
 ### Who Lives Here
 - Long-term Italian-American families (shrinking)
 - Young professionals who love food
-- People who don't need cars
+- People who rely entirely on transit
 - Empty nesters
 
 ### Food Highlights

@@ -87,7 +87,7 @@ Some Boston institutions are cash-only:
 
 ### Boston Directness
 - Bostonians are direct, not rude
-- Don't expect Southern charm or Midwest friendliness
+- Expect direct, efficient communication
 - Locals warm up but initial interactions are brief
 
 ### Jaywalking
@@ -96,12 +96,12 @@ Some Boston institutions are cash-only:
 - Tourists sometimes get tickets (rare but happens)
 
 ### Sports
-- Don't mock Boston sports teams
-- Don't wear Yankees gear (you will get comments)
+- Respect the intense local passion for Boston sports teams
+- Yankees gear attracts commentary, consider neutral clothing
 - Game days: plan around traffic/crowds
 
 ### Townies vs. Transplants
-Boston has strong neighborhood identities. Lifelong residents ("townies") in Southie, Charlestown, Dorchester have distinct culture. Be respectful, don't gentrify too hard.
+Boston has strong neighborhood identities. Lifelong residents ("townies") in Southie, Charlestown, Dorchester have distinct culture. Be respectful, respect existing community structures.
 
 ## Food Tips
 
@@ -115,8 +115,8 @@ Boston has strong neighborhood identities. Lifelong residents ("townies") in Sou
 
 ### Clam Chowder
 - Always "New England" (cream-based) here
-- Never order "Manhattan" (tomato-based) chowder in Boston
-- Pronounced "chowdah" — don't mock it
+- Order New England (cream-based) chowder instead of Manhattan (tomato-based)
+- Pronounced "chowdah" — accept the local pronunciation
 
 ### Coffee Culture
 - Dunkin' (not Dunkin' Donuts) is religion here
@@ -144,7 +144,7 @@ Boston has strong neighborhood identities. Lifelong residents ("townies") in Sou
 **Getting there:** Commuter Rail from North Station
 **Reality:** Witch tourism is very kitschy
 **Worth it:** Peabody Essex Museum (world-class), architecture
-**When:** Avoid October unless you want Halloween chaos
+**When:** October is chaotic with Halloween; schedule visits in other fall months
 
 ### Newport, RI (1.5 hours)
 **Getting there:** Drive or bus
@@ -165,13 +165,13 @@ Boston has strong neighborhood identities. Lifelong residents ("townies") in Sou
 
 ### Generally Safe But...
 - **Pickpockets**: Faneuil Hall, crowded T platforms
-- **Phone snatching**: Don't use phone at T door opening
+- **Phone snatching**: Keep phone secured when T doors open
 - **Bike theft**: Lock both wheels, thieves are skilled
-- **Car break-ins**: Don't leave anything visible
+- **Car break-ins**: Conceal all belongings in vehicles
 
 ### Areas with Caution
 - **Late night T stations**: Fine but stay aware
-- **Methadone Mile** (Mass/Cass area): Avoid, especially at night
+- **Methadone Mile** (Mass/Cass area): Select alternate routes, especially at night
 - **Some parks after dark**: Boston Common, Esplanade — use main paths
 
 ### Emergency

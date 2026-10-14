@@ -14,7 +14,7 @@ America's oldest subway system (1897). Four color-coded lines plus buses, commut
 | **Green** | Multiple branches (B/C/D/E) | Copley, Kenmore, Park St | Trolley, slowest |
 
 ### Green Line Branches
-- **B (Boston College)**: Through Allston/Brighton. Slowest. Avoid if possible.
+- **B (Boston College)**: Through Allston/Brighton. Slowest. Consider alternatives.
 - **C (Cleveland Circle)**: Through Brookline. Better than B.
 - **D (Riverside)**: Through Brookline/Newton. Express sections, faster.
 - **E (Heath Street)**: Through Longwood Medical. Runs above ground.
@@ -61,7 +61,7 @@ The T has... problems. Be prepared:
 ### Rush Hour
 - **Peak times**: 7-9am, 5-7pm
 - **Most crowded**: Red Line (Harvard to Downtown), Orange Line (Oak Grove inbound)
-- **Avoid if possible**: Park Street transfers during rush
+- **Consider alternatives**: Park Street transfers during rush
 
 ---
 
@@ -178,7 +178,7 @@ Serious problem. Always:
 
 ### Should You Have a Car?
 
-**Don't need a car if:**
+**A car is unnecessary if:**
 - Living near T (Back Bay, Cambridge, Somerville)
 - Working along T line
 - Budget-conscious (parking expensive)
@@ -204,7 +204,7 @@ Serious problem. Always:
 - Seaport: $300-400
 
 ### Traffic
-Boston has consistently worst traffic in US (per capita). Avoid:
+Boston has consistently worst traffic in US (per capita). Not Recommended:
 - I-93 during rush hour
 - Storrow Drive (local highway) during rush
 - Route 2 inbound mornings

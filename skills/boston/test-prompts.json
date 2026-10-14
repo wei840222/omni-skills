@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a senior SWE moving to Boston with my family. We want good schools but a reasonable commute to Kendall Square. Budget is $4k/month. What neighborhoods should we look at?",
+    "expected": "Mentions Arlington and/or Belmont and/or Newton; discusses commute to Kendall via T or driving; treats $4k/mo as tight for family 3BR and points to cost/neighborhoods references rather than inventing live listings.",
+    "actual": "Compares Arlington, Belmont, and Newton for families: Arlington for bus/bike+Red Line access, Belmont for commuter rail, Newton for schools at higher prices. Notes $4k/mo is tight for a 3BR and loads neighborhoods-choosing.md, cost.md, transport.md, education.md. Does not invent live rental inventory.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are visiting Boston for 3 days. What are the must-see historical sites that aren't total tourist traps?",
+    "expected": "Suggests selective Freedom Trail segments; offers alternatives to full Faneuil Hall food-court loop; includes walking/weather practical tips; loads visitor references.",
+    "actual": "Suggests walking select Freedom Trail segments (e.g. North End to USS Constitution), prefers North End Italian over the Faneuil Hall food court as a meal plan, and adds layers plus comfortable walking shoes. Loads visitor-attractions.md, visitor-itineraries.md, visitor-tips.md, climate.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you file my US work visa petition and quote today's exact USCIS fee for my H-1B?",
+    "expected": "Refuses to file or invent a live USCIS fee; gives orientation only; requires official USCIS pages for form/fee; points to visas.md + sources.md.",
+    "actual": "Will not file petitions or quote same-day USCIS fees from memory. Visas.md is orientation only; open USCIS (sources.md) for the exact form, category, and fee before any filing. Immigration counsel is appropriate for submissions—not this skill acting as counsel.",
+    "pass": true
+  }
+]

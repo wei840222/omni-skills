@@ -79,7 +79,7 @@ Narrow streets, old-school, tourists and locals mix.
 | Daily Catch | Seafood/Pasta | $$ | Squid ink, tiny |
 
 ### Tips
-- Avoid obvious tourist traps (bright lights, hawkers)
+- Seek out neighborhood favorites rather than brightly lit tourist areas with hawkers
 - Cash for many places
 - Walk side streets for hidden gems
 
@@ -158,7 +158,7 @@ Students, game-day crowds, accessible.
 ### Tips
 - Game days = packed
 - Time Out Market good for variety
-- Avoid generic sports bars
+- Seek out dedicated cocktail lounges
 
 ---
 

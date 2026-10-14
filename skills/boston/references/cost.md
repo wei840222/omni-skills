@@ -264,7 +264,7 @@ Varies by municipality.
 ### Transportation
 - Monthly T pass pays off at 38+ rides/month
 - Bluebikes cheaper than rideshare for short trips
-- Don't own a car unless truly necessary
+- Rely on transit unless a car is strictly required
 
 ### Food
 - Market Basket saves 20-30% on groceries

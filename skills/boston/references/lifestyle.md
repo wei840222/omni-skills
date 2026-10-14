@@ -18,7 +18,7 @@ Boston generally has better work-life balance than NYC:
 | Dinner | 6-8pm |
 | Bedtime | 10pm-12am |
 
-Boston is early compared to NYC. Don't expect late-night scene.
+Boston is early compared to NYC. Expect nightlife to wrap up earlier than NYC.
 
 ---
 
