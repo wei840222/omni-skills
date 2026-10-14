@@ -4,7 +4,7 @@
 
 - Treat Beszel as a **hub + agent** monitoring system, not a generic Prometheus replacement.
 - Prefer official docs in `sources.md` for installation modes, notification channels, reverse-proxy needs, and known disconnect causes.
-- Keep skill state under `<state_root>/`; never store agent tokens, hub keys, or webhook secrets in notes.
+- Keep skill state under `<state_root>/`; keep agent tokens, hub keys, and webhook secrets out of notes.
 
 ## Core Rules
 
@@ -44,7 +44,7 @@
 - Upgrading hub and agents simultaneously -> hard-to-debug version mismatch issues.
 - Ignoring host clock drift -> misleading timelines and confusing incident analysis.
 - Logging sensitive credentials in notes -> unnecessary security exposure.
-- Assuming `localhost` works between separate Docker networks on the same host -> agent never connects.
+- Assuming `localhost` works between separate Docker networks on the same host -> agent stays disconnected.
 - Enabling gzip/encoding on SSE (`text/event-stream`) at the reverse proxy -> realtime stats or saves break.
 
 ## Security & Privacy

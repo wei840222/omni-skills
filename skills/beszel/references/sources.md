@@ -1,6 +1,6 @@
 # Beszel Official Sources
 
-Use these verified URLs when checking product facts. Do not invent pricing, version numbers, or unsupported metrics.
+Use these verified URLs when checking product facts. Re-check releases and docs before stating pricing, version numbers, or unsupported metrics.
 
 ## Product overview and architecture
 
