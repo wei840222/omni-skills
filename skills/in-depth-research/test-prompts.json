@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Provide a quick answer on what deep research is.",
+    "expected": "Returns a Quick Answer format defining deep research from Core Role / methodology, with source and confidence.",
+    "actual": "Structural dry-run against SKILL.md + references/output-formats.md Quick Answer template.\n\n**Q:** What is deep research?\n**A:** Deep research is systematic multi-source investigation with documented methodology, source evaluation, iterative depth, and explicit halt criteria until the question is answered.\n\nSource: SKILL.md Core Role\nConfidence: High (package-local definition)\n\nHarness note: no live model run in handoff VM; format and routing checked statically.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Provide a standard report on why multi-source verification matters for credibility.",
+    "expected": "Returns Standard Report shape with answer, confidence, key findings citing methodology triangulation (3+ independent sources), caveats/gaps, and methodology note.",
+    "actual": "Structural dry-run against SKILL.md protocol + references/methodology.md Source Triangulation + references/output-formats.md Standard Report.\n\n🔬 DEEP RESEARCH: Multi-Source Verification\n\n## Question\nWhy does multi-source verification matter for credibility?\n\n## Answer\nCross-checking important claims with at least three independent sources raises reliability by separating true independence from circular citation and by weighting higher-tier evidence over single secondary reports.\n\n## Confidence: High\nMatches package methodology requiring 3+ independent sources for key facts and primary-behind-secondary checks.\n\n## Key Findings\n### Independence\nFind 3+ independent sources and check whether they cite each other before treating them as independent. — references/methodology.md\n### Primary vs secondary\nPrefer the primary source behind secondary reports for load-bearing claims. — references/sources.md Tier 1\n\n## Contradictions & Uncertainties\nNone in package guidance; live topics may still disagree across tiers.\n\n## Gaps\nLive web execution and domain-specific corpora not run in this handoff environment.\n\n## Sources\n1. references/methodology.md (package Tier guidance)\n2. references/sources.md (hierarchy + traps)\n\n## Methodology Note\nStatic package read only; no external search executed.\n\nHarness note: pass reflects structural conformance of expected sections and citations inside the skill package, not a live agent research run.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "User already pasted three PDFs and asks only to reconcile them. Which skill boundary applies?",
+    "expected": "Routes away from deep external investigation toward synthesize; may still note attribution/contradiction habits without starting a fresh multi-engine search.",
+    "actual": "Structural dry-run of related-skills + description boundaries.\n\nDecision: hand off to `synthesize` because documents are user-provided; do not open a full in-depth-research sourcing loop. Retain contradiction and attribution discipline from synthesize/in-depth-research overlap notes.\n\nEvidence: metadata.related-skills synthesize reason; SKILL description not-for path.\nHarness note: routing check only.",
+    "pass": true
+  }
+]

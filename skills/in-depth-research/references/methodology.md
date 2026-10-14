@@ -31,9 +31,9 @@ Techniques for systematic investigation. Load when planning or executing researc
 
 ## Source Triangulation
 
-Never rely on single source for important claims:
+Cross-verify important claims with at least 3 independent sources:
 - Find 3+ independent sources for key facts
-- Check if sources cite each other (not truly independent)
+- Check if sources cite each other (to ensure true independence)
 - Look for primary source behind secondary reports
 
 ## Following Trails
@@ -44,9 +44,9 @@ When you find good source:
 3. Look at author's other work
 4. Check related papers/articles suggested
 
-## Knowing When to Stop
+## Knowing When to Halt
 
-Stop research when:
+Halt research when:
 - **Saturation**: New sources repeat what you already found
 - **Diminishing returns**: Effort >> incremental value
 - **Sufficient confidence**: Answer is clear enough for the decision
@@ -61,7 +61,7 @@ Be suspicious when:
 - Source has obvious financial interest
 - No methodology or data shown
 - Extraordinary claims, ordinary evidence
-- Consensus claimed but not demonstrated
+- Consensus claimed without supporting evidence
 
 ## Documentation During Research
 
@@ -70,6 +70,6 @@ Keep running log:
 [timestamp] Query: "..."
 [timestamp] Found: [source] — [key finding]
 [timestamp] Note: [observation about reliability]
-[timestamp] Gap: [what I'm not finding]
+[timestamp] Gap: [missing evidence or gaps]
 [timestamp] Decision: [stopped because...]
 ```

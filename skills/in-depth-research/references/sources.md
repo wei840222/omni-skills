@@ -59,7 +59,7 @@ Flag: Contradicted by higher-tier sources, major credibility issues
 - arXiv, ACM, IEEE, company engineering blogs, GitHub
 
 ### Medical/Health
-- PubMed, Cochrane, NIH, peer-reviewed journals (avoid news hype)
+- PubMed, Cochrane, NIH, peer-reviewed journals (prefer academic sources over news hype)
 
 ### Business/Finance
 - SEC filings, earnings calls, industry analysts, financial press
@@ -76,5 +76,5 @@ Flag: Contradicted by higher-tier sources, major credibility issues
 - **Correlation as causation**: Note if source does this
 - **Sample size ignored**: Small n = preliminary at best
 - **P-hacking / cherry-picking**: Look for preregistration
-- **Appeal to authority**: Credentials don't guarantee correctness
+- **Appeal to authority**: Credentials are distinct from correctness
 - **Outdated consensus**: Check if field has moved on
