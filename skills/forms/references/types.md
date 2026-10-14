@@ -5,7 +5,7 @@
 ### Minimal (2-3 fields)
 - Name, Email — highest conversion
 - Add Phone only if sales will call
-- Never ask company size on first touch
+- Request company size only after initial contact
 
 ### Quiz Funnel (5-8 steps)
 - Single question per screen
@@ -83,7 +83,7 @@
 
 | Data Type | Field Type | Notes |
 |-----------|------------|-------|
-| Name | Text | Don't split first/last for most cases |
+| Name | Text | Use a single full name field for most cases |
 | Email | Email input | Built-in validation |
 | Phone | Tel input | With country picker for international |
 | Date | Date picker | Native on mobile, custom on desktop |

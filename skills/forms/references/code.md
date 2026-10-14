@@ -193,7 +193,7 @@ const schema = z.object({
   password: z.string().min(8),
   confirmPassword: z.string(),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
+  message: "Passwords must match",
   path: ['confirmPassword'],
 });
 ```
