@@ -58,3 +58,7 @@ Do not copy a long application pattern onto a marketing lead form.
 
 Document branches as `IF field=value THEN show|hide|require field`.
 Implement with the platform’s native logic (Typeform logic jumps, SurveyJS conditions, RHF `watch`, etc.) — do not invent a universal DSL in production code without mapping it.
+
+## Positive steering (Gate 9)
+
+Prefer instructions that name the desired behavior ("validate on blur and on the server", "limit lead capture to the fields you will use this week") over stacks of bare prohibitions. Keep hard safety limits, but pair each with the allowed path.
