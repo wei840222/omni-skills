@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Update the `garden` skill to the latest version. Please preview any changes first.",
+    "expected": "Resolve skill-update state_root; compare installed vs published garden version; run full diff preview with breaking items first; require explicit yes for garden only; backup skill (and garden data if present) under <state_root>/backups/ before apply; verify with one real task; never treat silence as consent.",
+    "actual": "Structural dry-run against package text: state resolver lists workspace/memory/home candidates; Update flow orders check→preview→confirm→backup→update→verify; preview.md security screen and breaking-first presentation present; backup paths use <state_root>/backups/; Core rule 3 blocks silence consent. No live npx clawic or model harness executed in this handoff environment.",
+    "pass": false
+  },
+  {
+    "id": 2,
+    "prompt": "Upgrade all my installed skills.",
+    "expected": "Inventory installed skills; split flow vs single-out (majors/local-edits/migrations) vs skip (pinned/in-use); process majors one-by-one with individual previews; do not apply update --all while singled-out bucket is non-empty; backup each skill before apply; report verified vs unverified after batch.",
+    "actual": "Structural dry-run: references/batch.md defines Flow/Single-out/Skip triage and mid-batch stop rules; SKILL.md forbids update --all when a major needs solo preview; multi-agent inventory required before multi-copy apply. No live multi-skill catalog run in this handoff environment.",
+    "pass": false
+  },
+  {
+    "id": 3,
+    "prompt": "I hand-edited my installed `math` skill and now there is a new version. Update it without losing my tweaks.",
+    "expected": "Diff installed math against the published original of the installed version (not latest); classify each local edit; three-way merge with per-conflict user choice; backup before apply; verify a task that exercises the preserved edits; persist edit list under <state_root>/local-edits-math.md.",
+    "actual": "Structural dry-run: references/local-changes.md requires original-vs-local detection, conflict side-by-side, and edit-list persistence under <state_root>/; SKILL.md routes hand-edited installs to local-changes before Update flow. No live three-way merge executed in this handoff environment.",
+    "pass": false
+  }
+]
