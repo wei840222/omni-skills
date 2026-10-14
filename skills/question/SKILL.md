@@ -68,6 +68,14 @@ Defaults and the JSON shape live in `references/state.md`.
 5. If the user opted into session state, update `<state_root>` with context, topic,
    and key assumptions only.
 
+## Load order
+
+1. `SKILL.md` core path and non-negotiables (always)
+2. Matching section in `references/contexts.md`
+3. Only the technique blocks you need from `references/techniques.md`
+4. `references/anti-patterns.md` when rewriting a bad stem
+5. `references/state.md` only when persisting session notes
+
 ## Quick reference
 
 | Need | See |
