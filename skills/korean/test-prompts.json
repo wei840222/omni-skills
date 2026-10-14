@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a short Korean text to a known friend inviting them to lunch today. Use warm everyday language without assuming crude slang.",
+    "expected": "Uses clear peer 반말 or light casual tone with matching endings; preserves today and lunch invitation; no unrequested crude intensifiers or formal 합쇼체.",
+    "actual": "Draft: '야 오늘 점심 같이 먹을래? 시간 되면 말해~' (Note: peer 반말 invitation; preserves today/lunch; no crude 존나/개 stack.)",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "casual Korean friend lunch invitation banmal"
+  },
+  {
+    "id": 2,
+    "prompt": "Write a Korean email to an unfamiliar university administrator asking whether the application deadline is still 15 May. Their relationship is unknown.",
+    "expected": "Uses 해요체 or careful formal wording, preserves 15 May and uncertainty, no 반말, no slang, no invented deadline confirmation.",
+    "actual": "Draft: '안녕하세요. 입학 지원 마감일이 여전히 5월 15일인지 확인하고 싶어 메일 드립니다. 일정에 변동이 있는지 알려주시면 감사하겠습니다.' (Note: polite 해요체 for unfamiliar administrator; keeps 15 May inquiry and uncertainty; no banmal/slang.)",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "formal Korean email application deadline inquiry"
+  },
+  {
+    "id": 3,
+    "prompt": "Revise this Korean reply for an unfamiliar customer so it stays clear and polite: '지금 10분 안에는 전화 못 해. 아마 오후 5시에 할 수 있을 듯.' Do not invent a confirmed callback.",
+    "expected": "Moves to polite 해요체; preserves inability within 10 minutes and tentative possible 5 pm call; no false confirmation or intimate endings.",
+    "actual": "Draft: '지금은 10분 안에 전화드리기 어려울 것 같습니다. 오후 5시쯤에는 연락드릴 수 있을 수도 있어요.' (Note: polite customer register; keeps 10-minute inability and tentative 5 pm possibility without confirming the call.)",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "polite Korean customer callback uncertainty rewrite"
+  }
+]
