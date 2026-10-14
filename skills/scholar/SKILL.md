@@ -28,7 +28,7 @@ alerts, proxy credentials, or personal reading lists in the package.
 - Build or refine Google Scholar queries (author, title, source, phrases, OR)
 - Find recent work with **Since Year** or **Sort by date**, or set up alerts
 - Follow **Cited by**, **Related articles**, and **All versions**
-- Locate full text via library links, [PDF]/[HTML], repositories, or Unpaywall-style paths
+- Locate full text via library links, [PDF] / [HTML], repositories, or Unpaywall-style paths
 - Read author profiles and citation metrics with appropriate caveats
 - Prefer `pubmed` for clinical/biomedical evidence hierarchies and MeSH
 - Prefer `multi-engine-web-search` when the question is general web fact-finding
@@ -53,7 +53,7 @@ alerts, proxy credentials, or personal reading lists in the package.
    only when newest additions matter more than influence.
 4. Open strong candidates; check venue, authors, date, abstract signals, and versions.
 5. Expand with **Cited by** (forward), references/backward reading, and **Related articles**.
-6. Resolve full text via library link, [PDF]/[HTML], All versions, or author request —
+6. Resolve full text via library link, [PDF] / [HTML], All versions, or author request —
    not cracked mirrors.
 7. Hand off to `pubmed`, `in-depth-research`, or `web` when the remaining work leaves Scholar.
 
@@ -70,7 +70,7 @@ alerts, proxy credentials, or personal reading lists in the package.
 2. `author:"name"`, quoted titles, and advanced author/title/publication fields beat vague keywords.
 3. **Cited by** and **Related articles** are primary expansion tools; snowball from one good paper.
 4. Citation count and h-index measure influence/productivity proxies, not correctness.
-5. Full text: library links, [PDF]/[HTML], All versions, campus/off-campus library access.
+5. Full text: library links, [PDF] / [HTML], All versions, campus/off-campus library access.
 6. Combine Scholar with field databases (PubMed, IEEE, etc.) when coverage or quality filters matter.
 7. Preprints and dissertations are useful but preliminary or gray — label them.
 8. Do not stop at page one or the abstract alone when the decision is high-stakes.
