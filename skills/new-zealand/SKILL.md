@@ -58,8 +58,7 @@ Load for **New Zealand** trip or local-insight questions:
 - Great Walks / hut booking timing, beach and wildlife safety
 - food, wine regions, family pacing, and seasonal trade-offs
 
-Prefer progressive disclosure: answer from this file and `references/domain.md`
-first, then open only the topic files needed. Hand off when a sibling owns the
+Prefer progressive disclosure: answer from this file and `references/domain.md` first, then open only the topic files needed for the active island, base, or constraint. Hand off when a sibling owns the
 remaining job:
 
 | Job | Skill |
