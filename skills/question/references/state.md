@@ -29,6 +29,6 @@ chosen root fixed for the invocation.
 - Write only after the user opts into persistence.
 - Store labels and assumptions, not interview transcripts with PII unless the user
   explicitly requests a durable note and the host policy allows it.
-- Prefer portable paths under `<state_root>`; never invent a host absolute path.
+- Prefer portable paths under `<state_root>`; ask for a path instead of inventing a host absolute path.
 - If older notes exist only under a legacy Clawic path, move them into the resolved
   `<state_root>/` after the user confirms, and say in one line what moved and from where.

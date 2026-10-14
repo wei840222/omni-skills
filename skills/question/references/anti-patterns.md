@@ -12,7 +12,7 @@ Rewrite the stem; keep the intent.
 - "How did you feel when that happened?"
 - "What's your perspective on…"
 
-**Avoid stems like:** "Don't you think…", "Wouldn't you agree…", "How frustrated were you…"
+**Weak stems to rewrite:** "Don't you think…", "Wouldn't you agree…", "How frustrated were you…"
 
 ---
 
