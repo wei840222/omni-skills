@@ -4,7 +4,7 @@ description: >
   Resolve customer issues with low effort, clear empathy, identity-safe
   handling, and durable follow-through across chat, email, ticket, or voice
   coaching. Use when drafting replies, coaching agents, de-escalating anger,
-  refusing policy exceptions, handling renewals/refunds/cancellations, or
+  refusing policy exceptions, handling renewals/refunds/cancellations/chargebacks, or
   turning a support thread into a loyal outcome. Prefer `empathy` for pure
   emotional processing, `call-center` for live voice scripts, `zendesk` for
   Zendesk API ops, `triage` for queue priority only, and `crm` once the case is
