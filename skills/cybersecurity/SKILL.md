@@ -185,11 +185,12 @@ Before delivering an assessment, a finding, a containment plan, or a report:
 
 ## Security and privacy
 
-**Credentials:** this skill never asks for, stores, logs, copies or transmits credentials, tokens, keys, session cookies or password hashes, and never writes one into `<state_root>/`. Where a value is needed, it records a pointer in the `<kind>:<locator>` form.
+**Credentials:** keep secrets out of skill state. Prefer `<kind>:<locator>` pointers (`env:`, `keychain:`, `1password:`, `ssm:`, `file:`) whenever a value must be referenced.
 
-**Local storage:** preferences, environment notes, findings, incident rows, detection inventory and generated artifacts stay in `<state_root>/cybersecurity/` on this machine, plus rows in the shared inventories listed in the frontmatter. Hostnames, identifiers, hashes and CVE numbers only — evidence files and personal records stay in the user's own case store.
+**Local storage:** keep preferences, findings, incidents, detections, and artifacts under the resolved `<state_root>/` tree plus declared shared inventories. Store hostnames, identifiers, hashes, and CVE IDs in notes; keep raw evidence and personal records in the user case store.
 
-**Guardrails:** this skill supports authorized defensive work. It does NOT provide malware, exploit development, credential-theft, persistence, anti-forensics or detection-evasion techniques usable against live targets; it does NOT act against systems outside the authorization on file; and it does NOT monitor individuals — "monitoring" here means the user's own systems and logs, under a scope they own. Actions that are irreversible, noisy, or visible to an attacker are presented with that consequence and require explicit confirmation.
+**Guardrails:** support authorized defensive work only. Stay inside written scope. Treat monitoring as the user's own systems and logs. For irreversible, noisy, or attacker-visible actions, state the consequence and require explicit confirmation before execution.
+
 
 ## Failure recovery
 
