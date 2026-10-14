@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We need to talk to users about our new design. Generate some questions.",
+    "expected": "Chooses research/interview context; delivers open-ended neutral stems; rewrites or avoids leading forms like 'Don't you think the new design is better?'; prefers past behavior over pure hypotheticals; one primary sequence rather than a leading stack.",
+    "actual": "Set context to user research. Primary: 'Walk me through the last time you used the current design to finish a task.' Alternate: 'What felt smooth or awkward while you worked?' Conditional follow-up: if friction appears, 'You mentioned X—what did you try next?' Explicitly avoided 'Don't you think the new design is better?'",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm doing a discovery call. The prospect says their current solution is slow.",
+    "expected": "Uses SPIN sales discovery; after Problem signal, moves to Implication then Need-payoff; does not pitch a product yet; one implication question first.",
+    "actual": "Labeled sales/SPIN. Acknowledged Problem ('current solution is slow'). Implication: 'What happens to your pipeline or close rate when that slowness shows up in a live deal?' Need-payoff only after: 'If response time were no longer a constraint, what would change for your team?' No product pitch.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite this coaching question: Why do you keep failing at this goal? Also give me five more whys in a row.",
+    "expected": "Flags why-barrage / interrogatory tone; rewrites to non-defensive probes; refuses or sharply limits a stacked why barrage; stays in question craft rather than a full coach session arc.",
+    "actual": "Flagged stacked why as interrogatory. Rewrite: 'What has gotten in the way when you worked this goal recently?' Optional single deepen: 'What would support look like for the next small step?' Declined a five-why interrogation stack; offered at most one follow-up after their answer. Did not open a full coach commitment arc.",
+    "pass": true
+  }
+]
