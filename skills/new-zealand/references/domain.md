@@ -47,6 +47,8 @@ Instead of saying "see fjords and wineries," say "base in Te Anau for Fiordland,
 
 ## Common Traps
 
+Prefer recovery-oriented framing when steering users away from these patterns:
+
 - Trying to "do both islands" in one week.
 - Treating a 4-hour drive as an easy half-day with no stops.
 - Booking Queenstown or Fiordland late in summer.
