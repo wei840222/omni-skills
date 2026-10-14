@@ -1,220 +1,290 @@
 ---
 name: skill-update
-slug: skill-update
-version: 1.0.3
-description: 'Updates installed agent skills safely: version check, diff preview, backup, approval, data migration, and rollback. Use when updating or upgrading a skill, checking for newer versions, previewing what changed before applying, when a skill breaks, misbehaves, or loses data right after an update, when saved data or config must migrate across a version bump, when local edits to an installed skill would collide with the new version, or when bringing every skill or every agent''s copy current. Not for installing new skills (skill-finder) or publishing skills you own (skill-publish).'
-homepage: https://clawic.com/skills/skill-update
-changelog: Display name shown correctly
+description: >
+  Safely update installed agent skills: version check, diff preview, backup,
+  explicit approval, data migration, and rollback. Use when upgrading a skill,
+  checking for a newer version, previewing what changed before apply, recovering
+  after a bad update, migrating saved data across a version bump, preserving
+  local edits that would collide with upstream, or bringing every install or
+  every agent's copy current. Prefer skill-finder for first-time install
+  discovery, skill-publish for owner-side release, and skill-manager for broader
+  inventory/remove/cleanup beyond one upgrade.
 metadata:
-  clawdbot:
-    emoji: 🔄
-    displayName: Skill Update
-    configPaths:
-    - ~/Clawic/data/skill-update/
-    - ~/skill-update/
-    - ~/clawic/skill-update/
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/skill-update/
-      - ~/skill-update/
-      - ~/clawic/skill-update/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🔄","displayName":"Skill Update","requires":{"bins":["npx"]}}'
+  related-skills: '{"skill-finder":"Find and install skills you do not have yet.","skill-publish":"Owner-side sanitize, version, and publish a skill you own.","skill-manager":"Broader install/remove/list lifecycle and unused-skill cleanup beyond one upgrade."}'
 ---
 
-Updates installed skills safely: preview every change, back up before applying, migrate data only on approval, roll back on failure. Mode: act-as — it executes the update directly, never advises from the sideline. Backups, the update log, and config live under `~/Clawic/data/skill-update/`. If you have data at an old location (`~/skill-update/` or `~/clawic/skill-update/`), move it to `~/Clawic/data/skill-update/`, and say in one line that you moved it and from where.
+## State location
 
-## When To Use
+Skill-update backups, update log, config, and local-edit lists may live under
+`<workspace>/skill-update/`, `<workspace>/memory/skill-update/`, or
+`~/skill-update/`.
+
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/skill-update/`, `<workspace>/memory/skill-update/`,
+   `~/skill-update/`.
+3. If none exists and durable state must be created, default to
+   `<workspace>/skill-update/` only with user consent.
+4. When more than one candidate exists, use only the highest-precedence path,
+   report the conflict, and leave other copies unchanged.
+5. If the host cannot supply `<workspace>`, do not invent it from the shell
+   cwd. An existing `~/skill-update/` may be read; otherwise ask before
+   creating data.
+6. Once selected, keep the same `<state_root>` for the whole invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Outside this section, every skill-state path uses `<state_root>/...`.
+
+**Target skill data.** When the skill being updated declares its own data
+folder, treat that skill's resolved state root as a separate path (commonly
+documented as `<state_root>/<updated-slug>/` in migration notes). Do not write
+the literal string `<state_root>` to disk; pass the resolved filesystem path.
+
+**Legacy paths.** Historical notes may exist under
+`~/Clawic/data/skill-update/`, `~/clawic/skill-update/`, or similar Clawic-era
+folders. They are **not** in the active lookup order and must **not** be moved,
+merged, or deleted during ordinary sessions. Migration is a separate user
+decision with copy → verify → cutover → rollback.
+
+## When to use
 
 - User asks to update, upgrade, or version-check an installed skill.
-- A skill misbehaves, stops triggering, or loses data right after an update — diagnose and roll back.
-- A major bump is pending: preview breaking changes and migrate saved data before applying.
-- The installed copy was hand-edited, so a straight update would overwrite the user's changes.
-- Bringing everything current: `update --all`, or the same skill installed across several agents.
-- User mentions a skill that has a newer published version — flag it once, proactively.
-- Not for: publishing or versioning a skill you own (owner-side act → `skill-publish`); discovering or installing skills you don't have yet (→ `skill-finder`).
+- A skill misbehaves, stops triggering, or loses data right after an update.
+- A major bump is pending: preview breaking changes and migrate saved data.
+- The installed copy was hand-edited, so a straight update would overwrite it.
+- Bringing everything current: `update --all`, or the same skill across agents.
+- User mentions a skill that has a newer published version — flag it once.
 
-How updates break things (each maps to a preview check):
-- Renamed/moved files → user data and references orphaned.
-- Removed or rewritten instruction sections → the agent silently stops doing something the user relies on.
-- New setup requirements (binary, env var, account) → skill half-works until configured.
-- Changed data formats → previously saved state unreadable.
-- Overwritten local edits → the user's customizations vanish without an error anywhere.
+Do **not** use as the primary skill for first-time catalog discovery
+(`skill-finder`), owner-side publish (`skill-publish`), or broad inventory /
+remove / unused cleanup (`skill-manager`).
 
-## Quick Reference
+## Routing
+
+Load supporting resources only on demand:
+
+| Need | Load |
+|------|------|
+| Diff procedure, impact classes, security screen | `references/preview.md` |
+| Data migration patterns and failure handling | `references/migrate.md` |
+| Post-update breakage diagnosis and restore | `references/rollback.md` |
+| Detecting and preserving hand edits | `references/local-changes.md` |
+| Multi-skill batch and mid-batch failure | `references/batch.md` |
+| Version skew across agent installs | `references/multi-agent.md` |
+
+## Why updates break things
+
+| Failure mode | Preview check |
+|---|---|
+| Renamed/moved files | Orphaned user data and references |
+| Removed or rewritten instruction sections | Agent silently stops a relied-on behavior |
+| New setup requirements (binary, env, account) | Skill half-works until configured |
+| Changed data formats | Previously saved state unreadable |
+| Overwritten local edits | Customizations vanish with no error |
+
+## Quick reference
 
 | Situation | Play |
 |---|---|
-| Single skill, patch or minor pending | Diff, classified summary, apply on explicit yes (→ Update Flow) |
-| Major pending | Full preview + migration check → `preview.md`; never propose-and-apply in the same turn |
-| Skill broke right after an update | Symptom→cause chains and restore procedure → `rollback.md` |
-| Installed copy was hand-edited | Detect and merge before updating → `local-changes.md` |
-| Same skill in more than one agent | Inventory every copy before touching any → `multi-agent.md` |
-| "Update everything" | Patches/minors batched, majors one by one → `batch.md` |
-| Data format changed between versions | Read the real data, map, apply on approval → `migrate.md` |
-| Diff looks suspicious (new network calls, broadened file access) | Security screen → `preview.md`; do not apply, report to the user |
-| No version history, or delta unclear | Treat as major |
-| Anything else | Get the text diff first — it is the ground truth every other call rests on |
+| Single skill, patch or minor | Diff, classified summary, apply on explicit yes |
+| Major pending | Full preview + migration check → `references/preview.md`; propose, then apply only after a later approval |
+| Broke right after update | Symptom→cause + restore → `references/rollback.md` |
+| Hand-edited install | Detect and merge first → `references/local-changes.md` |
+| Same skill in several agents | Inventory every copy → `references/multi-agent.md` |
+| "Update everything" | Patches/minors batched, majors one by one → `references/batch.md` |
+| Data format changed | Read real data, map, apply on approval → `references/migrate.md` |
+| Suspicious diff (new network, broader file access) | Security screen → `references/preview.md`; report, do not apply |
+| No version history / unclear delta | Treat as major |
 
-Depth on demand: `preview.md` diff procedure, impact classes, security screen, recommend/defer call · `migrate.md` data migration patterns, script template, failure handling · `rollback.md` post-update breakage diagnosis and restore · `local-changes.md` detecting and preserving user edits · `batch.md` multi-skill updates and mid-batch failure · `multi-agent.md` version skew across agent installs.
+## Catalog commands
 
-Check installed against published:
+Primary CLI is **Clawic** via `npx clawic` (catalog list/show/update into
+detected agent skill directories). Confirm the slug and intended targets before
+any mutating call.
+
 ```bash
 npx clawic list              # installed skills + versions
 npx clawic show <slug>       # latest published version
+npx clawic update <slug>     # update one skill after explicit yes
+npx clawic update --all      # only when no pending major needs solo preview
 ```
-Catalog page mirrors the same version info: `https://clawic.com/skills/<slug>`.
 
-Version delta sets the default stance (semver semantics):
+### Version delta stance (semver claim, not a guarantee)
 
 | Delta | Assume | Action |
 |---|---|---|
 | Patch (1.2.3 → 1.2.4) | Fixes only | Quick diff, apply on approval |
-| Minor (1.2 → 1.3) | Additions | Diff; check modified sections, not just added ones |
-| Major (1.x → 2.0) | Breaking | Full preview + migration check; never propose-and-apply in the same turn |
-| Any delta, user mid-project on this skill | Risky timing | Mention once, defer until the work ships |
-| Else (delta unclear, or no version history) | Unknown risk | Treat as major |
+| Minor (1.2 → 1.3) | Additions | Diff; review modified sections, not only adds |
+| Major (1.x → 2.0) | Breaking | Full preview + migration; never propose-and-apply in one turn |
+| User mid-project on this skill | Risky timing | Mention once, defer until that work ships |
+| Unclear / no history | Unknown risk | Treat as major |
 
-## Core Rules
+## Core rules
 
-1. A skill is behavior-as-text: every text diff is a behavior diff. Never apply one the user hasn't seen and approved.
-2. The update order is load-bearing — check → detect local edits → preview → explain → confirm → backup → update → verify (→ Update Flow). Back up before applying; verify before deleting anything.
-3. Explicit "yes" only. Silence, "hmm", or a topic change is not consent. Approval for skill A is never approval for `update --all`.
-4. Diff even patch bumps. Semver is the publisher's claim, not a guarantee: a "patch" that rewrites an instruction section is a behavior change wearing a small number.
-5. Verify with one real task run against the updated skill, not a file listing. Files present ≠ skill works.
-6. Back up before ANY update. Retention: keep ≥`backup_retention_days` AND until the user confirms the new version works — whichever is later. Breakage surfaces on next real use, not at install.
-7. A migration that fails mid-way stops, reports, and restores — never leave partial state.
-8. Any breaking-change signal leads the summary and requires explicit approval (signals → Preview Before Update).
-9. The diff is ground truth; the changelog is the publisher's summary. Read the changelog to set expectations, never to skip the diff.
+1. A skill is behavior-as-text: every text diff is a behavior diff. Apply only
+   after the user has seen and approved it.
+2. Order is load-bearing: check → detect local edits → preview → explain →
+   confirm → backup → update → verify.
+3. Explicit "yes" only for **this** skill in **this** session. Silence, "hmm",
+   or a topic change is not consent. Approval for skill A is never approval for
+   `update --all`.
+4. Diff even patch bumps. Semver is the publisher's claim; a "patch" that
+   rewrites instructions is still a behavior change.
+5. Verify with one real task against the updated skill, not a file listing.
+6. Back up before any update. Retention: keep ≥`backup_retention_days` **and**
+   until the user confirms the new version works — whichever is later.
+7. A migration that fails mid-way stops, reports, and restores completely.
+8. Any breaking-change signal leads the summary and needs explicit approval.
+9. The diff is ground truth; the changelog sets expectations and never replaces
+   the diff.
 
-## Update Flow
+## Update flow
 
-Order is load-bearing: backup before apply, verify before deleting anything.
-
-1. **Check** — compare installed vs published version; inventory every install location (`multi-agent.md` if more than one).
-2. **Detect local edits** — installed copy vs its published original; edits found → `local-changes.md` before anything else.
-3. **Preview** — full diff, classified by impact, security-screened (`preview.md`).
+1. **Check** — installed vs published; inventory every install location
+   (`references/multi-agent.md` if more than one).
+2. **Detect local edits** — installed copy vs its published original; edits
+   found → `references/local-changes.md` first.
+3. **Preview** — full diff, impact classes, security screen
+   (`references/preview.md`).
 4. **Explain** — breaking changes first, in the user's workflow terms.
-5. **Confirm** — explicit yes (Core Rule 3).
-6. **Backup** — copy current state before touching anything (→ Backup & Update Log).
+5. **Confirm** — explicit yes (Core rule 3).
+6. **Backup** — copy current state before touching anything.
 7. **Update** — apply the new version to every inventoried copy.
 8. **Verify** — run one real task with the updated skill.
 
-## Preview Before Update
+## Preview before update
 
-Never apply without showing impact. For each changed file answer: what changed, does the user's workflow touch it, is migration needed. Procedure, impact classes, and the security screen of the diff: `preview.md`.
+Always show impact before applying. For each changed file answer: what changed,
+whether the user's workflow touches it, and whether migration is needed.
+Procedure and security screen: `references/preview.md`.
 
-Breaking-change signals — any one present means it leads the summary and requires explicit approval:
+Breaking-change signals (any one leads the summary and needs explicit approval):
+
 - File or folder renamed, moved, or deleted.
-- Instruction section removed or rewritten (breaking even with zero structural change).
+- Instruction section removed or rewritten.
 - New required setup step.
 - Format change in anything the skill saves.
-- Local edits on the installed copy that the update would overwrite.
+- Local edits the update would overwrite.
 
-Present changes in a digestible summary, breaking items first:
+Present breaking items first:
 
-> "Skill X has v2.0.0 available. Changes:
+> Skill X has v2.0.0 available.
 >
-> **⚠️ Breaking:** Config now in `config.md` (was in SKILL.md)
-> **Added:** New `templates/` folder with examples
-> **Removed:** Old `legacy.md` no longer needed
+> **Breaking:** Config now in `config.md` (was in SKILL.md)
+> **Added:** New `templates/` folder
+> **Removed:** Old `legacy.md`
 >
-> **Migration needed:** Your saved preferences need to move. I can help migrate. Proceed?"
+> **Migration needed:** Saved preferences must move. I can migrate. Proceed?
 
 Each skill with a pending major gets its own preview.
 
-## Applying the Update
+## Applying the update
 
 ```bash
-npx clawic update <slug>   # update one skill
-npx clawic update --all    # update every installed skill with a newer version
+npx clawic update <slug>
+npx clawic update --all
 ```
 
-`update` is the consumer-side pull — it fetches what the owner already published; publishing a new version is the owner's act, a different operation entirely (→ `skill-publish`). Reach for `--all` only when the user asked for all AND no pending update is a major (majors go one by one; sequencing and mid-batch failure → `batch.md`).
+`update` is the consumer-side pull of what the owner already published.
+Publishing a new version is a different act (`skill-publish`). Use `--all` only
+when the user asked for all **and** no pending update is a major (majors go one
+by one; sequencing → `references/batch.md`).
 
-**Proactive notification:** when the user mentions a skill that has a newer version, say so once (unless `proactive_notify` is off or the skill is in `pinned_skills`). Don't re-raise it in the same session.
+**Proactive notification:** when the user mentions a skill that has a newer
+version, say so once (unless `proactive_notify` is off or the skill is in
+`pinned_skills`). Do not re-raise it in the same session.
 
-## Backup & Update Log
+## Backup and update log
 
-Before ANY update:
-1. Copy the current skill folder to `~/Clawic/data/skill-update/backups/<slug>-<version>-<timestamp>/`.
-2. If the skill being updated declares a data folder (`~/Clawic/data/<slug>/`), back that up under the same timestamped folder — the update itself never touches it, but a migration might.
-3. State the backup path in your response.
-4. Append one line to `~/Clawic/data/skill-update/update-log.md`: date · slug · old→new version · backup path · agents updated. The log is what lets you answer "what version was I on last week?" after the session that updated it is long gone.
+Before any update:
+
+1. Copy the current skill folder to
+   `<state_root>/backups/<slug>-<version>-<timestamp>/`.
+2. If the skill being updated declares a data folder, back that up under the
+   same timestamped folder — the update itself never touches it, but a migration
+   might.
+3. State the backup path in your response (resolved filesystem path).
+4. Append one line to `<state_root>/update-log.md`: date · slug · old→new ·
+   backup path · agents updated.
 5. If the update fails → offer restore immediately.
 
-## Handling Migrations
+## Handling migrations
 
 When a data format changes:
-1. Read the user's actual current data first — never map from an assumed format.
+
+1. Read the user's actual current data first.
 2. Explain what moves and what defaults get added.
 3. Execute only with approval.
 4. Verify migrated data works.
 
-Patterns (rename, structure change, folder move, learned data), script template, and failure handling: `migrate.md`.
+Patterns and failure handling: `references/migrate.md`.
 
 ## Rollback
 
-Restore = copy the backup folder back over the installed skill — and its data folder from the same timestamp if a migration ran. Offer it unprompted the moment the user reports the skill misbehaving after an update:
+Restore = copy the backup folder back over the installed skill — and its data
+folder from the same timestamp if a migration ran. Offer it unprompted when the
+user reports misbehavior after an update:
 
+```text
+Something's not working? I have a backup from before the update.
+Want me to restore skill X to v1.2.3?
 ```
-"Something's not working? I have a backup from before the update.
-Want me to restore skill X to v1.2.3?"
-```
 
-Diagnosis first when the cause is unclear (symptom→cause chains, restore verification, what to do when no backup exists): `rollback.md`.
+Diagnosis when the cause is unclear: `references/rollback.md`.
 
-## Output Gates
+## Output gates
 
 Before applying any update, verify:
 
-- Explicit yes from the user for THIS skill, in this session?
-- Diff actually read — not just the changelog or the version number?
-- Local edits checked (installed copy vs its published original)?
-- Backup of the skill folder AND its data folder exists, path stated to the user?
-- Every install location inventoried, not just the first one found?
+- Explicit yes for **this** skill, this session?
+- Diff actually read (not only changelog or version number)?
+- Local edits checked (installed vs published original)?
+- Backup of the skill folder **and** its data folder exists, path stated?
+- Every install location inventoried?
 
 Before reporting success: one real task run against the updated skill?
 
 ## Configuration
 
-User-dependent variables. Defaults apply until the user states a preference; store them in `~/Clawic/data/skill-update/config.yaml`.
+User-dependent variables. Defaults apply until the user states a preference;
+store them in `<state_root>/config.yaml`.
 
 | Variable | Type | Default | Effect |
 |---|---|---|---|
-| backup_retention_days | number (days, ≥1) | 7 | Floor for deleting backups (Core Rule 6); "until the user confirms it works" still applies on top |
-| proactive_notify | bool | true | Whether to flag a newer version once when the user mentions an installed skill |
-| pinned_skills | list (slugs) | none | Excluded from proactive flags and `update --all`; updated only when the user names the skill explicitly |
-| preview_detail | summary \| full-diff | summary | Previews show the classified summary, or the raw diff inline for users who want to read every hunk |
+| backup_retention_days | number (days, ≥1) | 7 | Floor for deleting backups (Core rule 6); "until user confirms" still applies |
+| proactive_notify | bool | true | Flag a newer version once when the user mentions an installed skill |
+| pinned_skills | list (slugs) | none | Excluded from proactive flags and `update --all`; update only when named |
+| preview_detail | summary \| full-diff | summary | Classified summary vs raw diff inline |
 
-Preference areas — customizable dimensions; a stated preference gets recorded in config.yaml and applied:
-- **Tooling**: where skills live (project vs global installs, which agents) — affects the Check step's inventory and `multi-agent.md`
-- **Safety posture**: how majors are sequenced and how much confirmation ceremony — never below Core Rule 3's explicit-yes floor; affects Update Flow and `batch.md`
-- **Cadence**: when version sweeps happen (only on request vs at session start) — affects Check and proactive notification
-- **Conventions**: how previews and batch reports are worded (terse vs annotated) — affects Preview Before Update and `batch.md` reporting
+Preference areas (record in config.yaml when stated):
+
+- **Tooling** — project vs global installs, which agents (Check + multi-agent)
+- **Safety posture** — major sequencing and confirmation ceremony (never below
+  explicit-yes)
+- **Cadence** — version sweeps on request vs session start
+- **Conventions** — terse vs annotated previews and batch reports
 
 ## Traps
 
 | Trap | Why it fails | Do instead |
 |---|---|---|
-| Trusting a patch bump | For text skills any edit changes behavior | Diff every update regardless of number |
-| Verifying by file listing | Files present ≠ skill works | Run one real task with the updated skill |
-| `update --all` after one yes | Consent covered one skill | Per-skill preview for every pending major (`batch.md`) |
-| Deleting backup right after update | Breakage shows on next use, not at install | Hold ≥`backup_retention_days` and until user confirms |
-| Flagging moved text as removed | Diff shows delete + add; content just relocated | Search the new version for "deleted" text before calling it breaking |
-| Overwriting a hand-edited install | The user's customizations vanish with no error anywhere | Detect local edits before applying (`local-changes.md`) |
-| Restoring the skill folder but not its data | A migration already rewrote the data; old skill + new data = both broken | Restore skill and data folder from the same backup timestamp (`rollback.md`) |
-| Updating only the first copy found | The same skill installed in other agents keeps loading the stale version | Inventory all install locations first (`multi-agent.md`) |
-| Reading the changelog as the diff | It is the publisher's summary, written to be short | Changelog sets expectations; the diff is ground truth (Core Rule 9) |
+| Trusting a patch bump | Text skills change behavior on any edit | Diff every update |
+| Verifying by file listing | Files present ≠ skill works | Run one real task |
+| `update --all` after one yes | Consent covered one skill | Per-skill preview for every pending major |
+| Deleting backup right after update | Breakage shows on next use | Hold ≥ retention and until confirm |
+| Flagging moved text as removed | Diff shows delete + add | Search new version before calling it breaking |
+| Overwriting a hand-edited install | Customizations vanish silently | Detect local edits first |
+| Restoring skill but not data | Migrated data + old skill = both broken | Restore skill and data from same timestamp |
+| Updating only the first copy | Other agents keep loading stale | Inventory all installs first |
+| Reading changelog as the diff | Publisher summary, not ground truth | Changelog for expectations; diff decides |
 
-## Where Experts Disagree
+## Where experts disagree
 
-- **Update promptly vs pin and batch.** Prompt updates minimize drift from published fixes; pinning batches the review cost into scheduled sweeps. The boundary is criticality, not taste: skills inside daily load-bearing workflows get pinned (`pinned_skills`) and reviewed deliberately; peripheral skills update as bumps appear.
-
-## Related Skills
-
-More Clawic skills, get them at https://clawic.com/skills/skill-update (install if the user confirms):
-- `skill-finder` - Find, compare, and install skills you don't have yet, before there is anything to update.
-- `skill-publish` - The owner-side act `update` pulls from: sanitize, version, and publish a skill you own.
-- `skill-manager` - Broader install/remove/list lifecycle and unused-skill cleanup beyond one update.
-
-Part of [Clawic](https://clawic.com), the verified skill library. Get this skill: https://clawic.com/skills/skill-update.
+- **Update promptly vs pin and batch.** Prompt updates minimize drift from
+  published fixes; pinning batches review cost into scheduled sweeps. Skills
+  inside daily load-bearing workflows get pinned (`pinned_skills`) and reviewed
+  deliberately; peripheral skills update as bumps appear.
