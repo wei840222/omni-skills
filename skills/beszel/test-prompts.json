@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I want to set up Beszel for a few self-hosted servers. Where should I start, and what local notes will you keep?",
+    "expected": "Explains hub+agent architecture; asks confirmation before creating <state_root> files; mentions monitoring topology / nodes / alerts; may point to references/setup.md or sources.md; does not invent live pricing.",
+    "actual": "Described Beszel as hub + agent monitoring. Asked confirmation before writing <state_root>/ memory, nodes, alerts, and incidents notes. Pointed to references/setup.md and references/sources.md for official install paths. No undeclared credentials or external alert destinations.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My Beszel agent on the web server keeps disconnecting after I put the hub behind a reverse proxy. How should we triage this?",
+    "expected": "Loads diagnostics guidance; checks hub/agent connectivity order including WebSocket/TCP, firewall, and reverse-proxy SSE/WebSocket needs; isolates one variable; may cite references/diagnostics-playbook.md or official common-issues.",
+    "actual": "Opened references/diagnostics-playbook.md and sources common-issues path. Triaged hub reachability, agent WebSocket/TCP path, reverse-proxy WebSocket support, and firewall before changing thresholds. Warned that gzip/encoding on text/event-stream can break realtime UI. Kept one-variable isolation.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Beszel is spamming me with alerts overnight. Help me calm this down without hiding real outages.",
+    "expected": "Uses alert-tuning workflow; captures baseline; tunes with maintenance windows / business hours; asks before enabling new notification channels; does not delete history without confirmation.",
+    "actual": "Loaded references/alert-tuning.md. Recommended a short baseline, then threshold changes aligned to overnight maintenance windows rather than copying another environment. Required approval before adding external notification destinations. Kept incident history unless the user confirmed deletion.",
+    "pass": true
+  }
+]

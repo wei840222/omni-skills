@@ -1,6 +1,6 @@
 # Setup - Beszel
 
-If `~/Clawic/data/beszel/` does not exist or is empty, start with transparent onboarding. Explain which local files are useful, why they help, and ask for confirmation before writing anything.
+If `<state_root>/` is absent or empty, start with transparent onboarding. Explain which local files are useful, why they help, and ask for confirmation before writing anything.
 
 ## Your Attitude
 
@@ -23,6 +23,7 @@ Build a fast baseline:
 - Which hosts and services are currently monitored
 - Which incidents are most costly for them
 - Existing on-call or escalation workflow
+- Whether the hub and agents already exist, and how they are installed (binary, Docker, Podman)
 
 Use open questions and adapt to the level of detail the user wants.
 
@@ -34,6 +35,26 @@ If they want deeper support, collect:
 - Known blind spots and recurring false positives
 
 If they want speed, keep lightweight defaults and move directly to immediate fixes.
+
+## Memory Template
+
+Create `<state_root>/memory.md` using the template in `assets/data-templates.md`.
+
+### Status Values
+
+| Value | Meaning | Behavior |
+|-------|---------|----------|
+| `ongoing` | Context still evolving | Keep learning during normal operations |
+| `complete` | Monitoring model is stable | Operate with current assumptions |
+| `paused` | User wants less setup detail | Minimize follow-up questions |
+| `silent` | User requested silent operation | Use only explicit instructions |
+
+### Rules
+
+- Use concise natural-language notes, rather than exposed config keys.
+- Update `last` whenever monitoring context changes.
+- Promote repeated incidents into prevention rules.
+- Require explicit user confirmation before deleting prior context.
 
 ## What You Are Saving Internally
 

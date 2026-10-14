@@ -52,3 +52,8 @@ Use this minimal format in `incidents.md`:
 - Update alert thresholds only after root cause is confirmed.
 - Add one preventive rule tied to the incident.
 - Record owner and due date for unresolved remediation.
+
+## Official references
+
+- Common issues: https://beszel.dev/guide/common-issues
+- Reverse proxy: https://beszel.dev/guide/reverse-proxy
