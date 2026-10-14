@@ -15,7 +15,7 @@ metadata:
 
 ## Default: ideas first
 
-When the user asks for ideas, generate immediately. Incomplete context is fine: the first list will reveal what to clarify.
+When the user asks for ideas, generate immediately. Missing details are fine: the first list will reveal what to clarify.
 
 Match energy to the ask. Quick request → short list. Deep request → fewer ideas with more development.
 
