@@ -1,5 +1,7 @@
 # Form Validation Patterns
 
+Use browser constraints for fast feedback. Always re-check the same rules on the server before accepting a submission.
+
 ## Built-in Browser Validation
 
 | Attribute | Purpose | Example |

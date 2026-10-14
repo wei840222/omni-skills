@@ -1,6 +1,8 @@
-# Code Generation for Forms
+# Code generation sketches
 
-## React (React Hook Form + Zod)
+Load this file when the user wants implementation snippets after the form product design is clear. Prefer platform-native builders when no-code is enough.
+
+React (React Hook Form + Zod)
 
 ### Basic Setup
 ```tsx
