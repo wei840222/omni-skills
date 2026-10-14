@@ -36,6 +36,7 @@ This skill is stateless. It does not store local configuration or persistent use
 3. Draft for the selected register. Preserve names, numbers, dates, commitments, and how sure the source is. For casual text, use direct phrasing and add at most a few contractions, fillers, particles, or light slang that fit the speaker and channel.
 4. Read `references/domain.md` for human-facing Korean drafts, rewrites, and reviews; use its register, contractions, particles, expressiveness, and delivery guidance.
 5. Run the delivery check, then return the Korean text first.
+6. If speech level is unclear after drafting, rewrite once toward 해요체 and state the assumption briefly rather than stopping without a draft.
 
 ## Formality default
 
