@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Write a casual Slovak text message to a known friend asking if they want to grab a beer later. Keep it warm peer chat.",
+    "expected": "Uses clear peer ty address and matching casual greetings; preserves later beer invitation; includes at most light particles/fillers; no unrequested formal vy or textbook spisovná tone.",
+    "actual": "Draft: 'Ahoj, čo robíš? Nechceš ísť proste neskôr na pivo? V pohode, ak nestíhaš.' (Note: peer ty invitation; preserves later/beer; light proste/v pohode; no formal vy.)",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Reply in colloquial internet Slovak to an online comment saying you completely disagree and they are wrong. Stay informal but do not invent personal insults beyond the disagreement.",
+    "expected": "Uses casual internet Slovak with natural particles; clearly marks disagreement; avoids formal vy; does not switch into Czech wording.",
+    "actual": "Draft: 'No tak to je fakt blbosť. Vôbec s tebou nesúhlasím, akože úplne mimo.' (Note: casual ty internet disagreement; particles no/akože; keeps disagreement without Czech blend.)",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Rewrite this for an unfamiliar university administrator in clear polite Slovak: 'idem neskor, neviem ci stihnem.' Do not invent a confirmed arrival time.",
+    "expected": "Moves to careful vy or clear polite wording; preserves lateness and uncertainty; no intimate ty chat particles; no false confirmation of arrival.",
+    "actual": "Draft: 'Dobrý deň, budem neskôr a zatiaľ neviem, či stihnem prísť. Dám vedieť, keď budem mať istotu.' (Note: polite unfamiliar-recipient register; keeps lateness and uncertainty; no false confirmation.)",
+    "pass": true
+  }
+]
