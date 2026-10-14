@@ -123,7 +123,7 @@ Buenos Aires has a **humid subtropical climate**. Four distinct seasons, but mil
 
 | Challenge | Reality |
 |-----------|---------|
-| Air conditioning | Common but not universal |
+| Air conditioning | Common but variable |
 | Electricity | Can be expensive |
 | Power cuts | Occasional during heat waves |
 | Public transit | Subte can be brutal |
@@ -175,7 +175,7 @@ Strong southeastern wind bringing:
 - Occasional 40C+ days in summer
 - Can last several days
 - Power grid stressed
-- Stay hydrated, avoid midday sun
+- Stay hydrated, stay inside midday
 
 ---
 

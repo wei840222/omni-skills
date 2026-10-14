@@ -1,5 +1,8 @@
 # Buenos Aires Tech Industry Guide
 
+> Salary and hiring bands are illustrative. Confirm with current market sources for the user's stack and seniority. Last package pass: 2026-10-14.
+
+
 ## Overview
 
 Buenos Aires is **Latin America's leading tech hub**, with a thriving startup ecosystem, strong developer talent, and growing international presence.

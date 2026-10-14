@@ -13,7 +13,7 @@
 | **Palermo Parks (Bosques)** | Gorgeous green space, rose garden, lakes | FREE | 2-4h | Weekend morning |
 | **La Bombonera Stadium** | Football passion, Boca Juniors history | ~$20 tour | 1.5h | Not match day |
 | **El Ateneo Grand Splendid** | Bookstore in former theater, magical | FREE | 30min-1h | Anytime |
-| **Cafe Tortoni** | Historic cafe, touristy but worth it once | ~$10 coffee | 1h | Avoid peak |
+| **Cafe Tortoni** | Historic cafe, touristy but worth it once | ~$10 coffee | 1h | Visit off-peak |
 | **Puerto Madero Walk** | Modern waterfront, Puente de la Mujer | FREE | 1-2h | Sunset |
 | **Tango Show (quality)** | When done right, unforgettable | $50-150 | 2-3h | Evening |
 
@@ -23,18 +23,18 @@
 |------------|--------|----------------|
 | **Caminito (La Boca)** | Tourist trap, go early, safety concerns | Day only, 1-2 hours max, leave before dark |
 | **Casa Rosada Tour** | Interesting but bureaucratic booking | Book online weeks ahead, weekend only |
-| **Obelisco** | Just a monument, better at night | Photo op only, don't spend time there |
-| **Florida Street** | Crowded, tourist shops, pickpockets | Walk through once, don't shop |
+| **Obelisco** | Just a monument, better at night | Photo op only, limit time spent there |
+| **Florida Street** | Crowded, tourist shops, pickpockets | Walk through once, breeze through without shopping |
 | **Tigre Delta** | Can feel touristy, long travel time | Worth it if you have a full day |
 
 ---
 
-## Tourist Traps to AVOID [X]
+## Tourist Traps to Bypass [X]
 
 ### 1. **Overpriced Tango Shows**
 
 - **Problem:** Many charge $100+ for mediocre show + bad dinner
-- **Reality:** The best tango is in milongas, not tourist shows
+- **Reality:** The best tango is in milongas, authentics
 - **Alternative:** Go to a real milonga (La Catedral, Salon Canning) or quality show (Cafe de los Angelitos, Rojo Tango)
 
 ### 2. **La Boca Beyond Caminito**
@@ -168,15 +168,15 @@
 
 ## Pro Tips from Locals
 
-1. **Recoleta Cemetery:** Go early (opens 7am), avoid crowds
+1. **Recoleta Cemetery:** Go early (opens 7am), visit during off-peak hours
 2. **Sunday optimization:** San Telmo morning -> Palermo parks afternoon
-3. **Teatro Colon:** Book tour online, don't just show up
+3. **Teatro Colon:** Book tour online, book tour online in advance
 4. **Casa Rosada:** Free tour but book 2+ weeks ahead online
 5. **Skip the Obelisco:** Photo from taxi is fine
-6. **El Ateneo:** Visit on weekday to avoid crowds
-7. **La Boca:** Go Tuesday-Friday, avoid weekends (crowded)
+6. **El Ateneo:** Visit on weekday to visit during off-peak hours
+7. **La Boca:** Go Tuesday-Friday, visit on weekdays (crowded)
 8. **Feria de Mataderos:** Worth the trek, very local
-9. **Football match:** Buy from official sources only, not scalpers
+9. **Football match:** Buy from official sources only, official sources
 10. **Street art:** Coghlan neighborhood has amazing murals, less tourists
 
 ---
@@ -231,5 +231,5 @@
 
 - **Wednesday:** Many museums free or discounted
 - **Monday:** Many closed
-- **MALBA:** Best overall, don't miss
+- **MALBA:** Best overall, highly recommended
 - **CCK:** Stunning building, check events calendar

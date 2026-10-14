@@ -92,7 +92,7 @@ Argentina has currency controls. The "official" rate is for banks/cards. The "bl
 
 ### Street Smart Basics
 
-| Do | Don't |
+| Best Practices | Common Mistakes |
 |----|-------|
 | Use front pockets | Flash phone on street |
 | Carry copy of passport | Carry actual passport daily |
@@ -115,7 +115,7 @@ Argentina has currency controls. The "official" rate is for banks/cards. The "bl
 
 ### Safe Areas at Night
 
-| Generally Safe | Use Caution | Avoid |
+| Generally Safe | Use Caution | Bypass |
 |----------------|-------------|-------|
 | Palermo | San Telmo | La Boca (beyond Caminito) |
 | Recoleta | Almagro | Constitucion |
@@ -144,7 +144,7 @@ Argentina has currency controls. The "official" rate is for banks/cards. The "bl
 | Pay | SUBE card only |
 
 **Tips:**
-- Avoid rush hour (8-9am, 6-7pm)
+- Bypass rush hour (8-9am, 6-7pm)
 - Keep bag in front
 - Lines A and D most useful for tourists
 
@@ -176,7 +176,7 @@ Argentina has currency controls. The "official" rate is for banks/cards. The "bl
 Buenos Aires is very walkable. But:
 - Sidewalks can be uneven
 - Watch for dog poop
-- Cross carefully (drivers don't always yield)
+- Cross carefully (drivers yield inconsistently)
 - Cobblestones in San Telmo = hard on feet
 
 ---
@@ -193,7 +193,7 @@ Buenos Aires is very walkable. But:
 | The bill | La cuenta |
 | How much? |  Cuanto cuesta? |
 | Where is...? |  Donde esta...? |
-| I don't understand | No entiendo |
+| I need help understanding | No entiendo |
 | Do you speak English? |  Habla ingles? |
 
 ### Argentine Spanish Quirks
@@ -236,7 +236,7 @@ Buenos Aires is very walkable. But:
 | Dinner | 9-11pm |
 | Going out | After midnight |
 
-Don't show up at restaurants at 7pm expecting crowds.
+Plan to arrive later than at restaurants at 7pm expecting crowds.
 
 ### Tipping
 
@@ -312,8 +312,8 @@ Don't show up at restaurants at 7pm expecting crowds.
 
 | Scam | How It Works | Prevention |
 |------|--------------|------------|
-| Mustard scam | Someone "spills" on you, accomplice helps/steals | Keep walking, don't engage |
-| Fake police | Ask to see wallet for "drug check" | Real police don't do this |
+| Mustard scam | Someone "spills" on you, accomplice helps/steals | Keep walking, ignore |
+| Fake police | Ask to see wallet for "drug check" | Real police operate differently |
 | Taxi meter | Rigged or "broken" meter | Use Uber or agree price first |
 | Money switch | Give good bill, get bad bill "back" | Count your money |
 | ATM helpers | "Help" you, steal info | Use ATMs inside banks |
@@ -321,6 +321,6 @@ Don't show up at restaurants at 7pm expecting crowds.
 ### General Prevention
 
 - Look confident, purposeful
-- Don't stop for strangers offering help
+- Keep walking past for strangers offering help
 - Research prices before buying
 - Trust your instincts

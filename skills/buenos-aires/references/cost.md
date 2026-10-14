@@ -1,7 +1,10 @@
 # Buenos Aires Cost of Living Guide 2025-2026
 
-> Last updated: February 2026 | Currency: ARS (Argentine Peso)  
-> Blue dollar rate: ~1,200 ARS = $1 USD | Tax: High but income often untaxed for foreigners
+> Orientation ranges only. FX, rents, and listed USD bands drift quickly. Re-check listings and `sources.md` before lease or salary decisions. Last package pass: 2026-10-14.
+
+
+> Last updated: February 2026 | Currency: ARS (Argentine Peso)
+> Do not treat any fixed ARS-per-USD figure in this file as live. Confirm payment rails near travel.
 
 ## Overview
 
@@ -50,7 +53,7 @@ Buenos Aires is **extremely affordable** for dollar earners. One of the best cos
 - **Short-term (tourist):** USD cash common
 - **Long-term (contract):** Increasingly USD-indexed
 - **Traditional peso contracts:** Adjust with inflation (law changed)
-- **Foreigners:** Often pay USD, avoid peso inflation mess
+- **Foreigners:** Often pay USD, bypass peso inflation mess
 
 ---
 
@@ -314,7 +317,7 @@ One of BA's great values: affordable domestic help.
 
 ## [Tip] Money-Saving Tips
 
-1. **Exchange at blue rate** - Never use official rate
+1. **Exchange at blue rate** - Use parallel rate
 2. **Shop at Carrefour/Coto** - Best supermarket prices
 3. **Cook at home** - Quality ingredients, huge savings
 4. **Use public transport** - $0.40 vs $5 taxi

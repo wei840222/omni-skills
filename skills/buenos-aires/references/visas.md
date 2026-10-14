@@ -1,5 +1,8 @@
 # Buenos Aires Immigration & Visas
 
+> Not legal advice. Entry and residency rules are passport- and category-specific. Confirm on Migraciones before travel or filings. Last package pass: 2026-10-14.
+
+
 ## The Reality
 
 Argentina has historically been very welcoming to immigrants and has relatively accessible paths to long-term residence. For digital nomads and remote workers, the country operates in a gray zone-technically you need work authorization, but enforcement is minimal for those not working locally.
@@ -8,7 +11,7 @@ Argentina has historically been very welcoming to immigrants and has relatively 
 - **90-day tourist entry** - Renewable once for another 90 days
 - **Visa runs common** - Colonia del Sacramento is 1 hour away
 - **Digital nomad visa** - Launched 2022, underutilized
-- **Residency accessible** - Multiple paths, not impossible
+- **Residency accessible** - Multiple paths, achievable
 - **Citizenship fast** - 2 years residency (among fastest globally)
 - **Ancestry routes** - Italian/Spanish heritage = easier paths
 
@@ -32,7 +35,7 @@ Argentina has historically been very welcoming to immigrants and has relatively 
 | **Then what** | Must leave country, can return immediately |
 
 **How to extend:**
-1. Go to Direccion Nacional de Migraciones
+1. Go to Dirección Nacional de Migraciones
 2. Locations: Retiro (main), some regional offices
 3. Pay fee (in pesos, bring cash)
 4. Get stamp, enjoy 90 more days
@@ -92,7 +95,7 @@ Argentina has historically been very welcoming to immigrants and has relatively 
 |--------|---------|
 | **Uptake** | Low-many just do tourist visa runs |
 | **Advantages** | Legal peace of mind, 6-12 months |
-| **Disadvantages** | Bureaucratic, not a path to residency |
+| **Disadvantages** | Bureaucratic, outside the path to residency |
 | **Worth it?** | If you want to be fully legal and stay 6-12 months |
 
 **Key insight:** Most digital nomads skip this and do tourist entries + visa runs. The DN visa is more useful if you want official status or plan to eventually pursue residency.
@@ -190,7 +193,7 @@ Argentina has historically been very welcoming to immigrants and has relatively 
 | Get phone plan | Only prepaid |
 | Healthcare (obra social) | Private only |
 | Work legally | Gray area |
-| Eventually citizenship | Not possible |
+| Eventually citizenship | Unavailable |
 
 ### Getting DNI After Residency Approval
 

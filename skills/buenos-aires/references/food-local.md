@@ -24,7 +24,7 @@ A parrilla is both the grill itself and the restaurant specializing in grilled m
 | **Entrana** | Skirt, intense flavor | Hot and fast |
 | **Vacio** | Flank, chewy texture | Slow grilled |
 | **Tapa de asado** | Like flap meat, tender | A punto |
-| **Cuadril** | Rump, lean | Don't overcook |
+| **Cuadril** | Rump, lean | Cook lightly |
 
 ### Achuras (Offal)
 
@@ -53,11 +53,11 @@ Adventurous eaters should try:
 
 ### Parrilla Etiquette
 
-- **Don't rush.** Argentine meals last hours.
+- **Take your time.** Argentine meals last hours.
 - **Bread is for sopping up juices,** not eating before food arrives.
 - **Share cuts.** Order different ones for the table.
 - **Chimichurri:** Use sparingly on good meat-it's not ketchup.
-- **Don't ask for A1 sauce.** It doesn't exist here.
+- **Refrain from asking for A1 sauce.** It doesn't exist here.
 
 ---
 
@@ -229,7 +229,7 @@ Caramelized milk/cream. National obsession. On everything:
 - Ice cream (helado)
 - Crepes (panqueques)
 - Toast
-- Eaten from jar (don't judge)
+- Eaten from jar (a local favorite)
 
 ### Best Dulce de Leche Products
 

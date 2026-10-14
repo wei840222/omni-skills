@@ -29,12 +29,12 @@
 | Service | Tip |
 |---------|-----|
 | Restaurant (table service) | 10% |
-| Counter service | Not expected |
+| Counter service | Uncommon |
 | Delivery | Small amount or round up |
-| Bar (per drink) | Not expected |
+| Bar (per drink) | Uncommon |
 | Cafe | Round up or nothing |
 
-**Note:** Some restaurants add "cubierto" (cover charge, $1-3). This is NOT tip-tip separately.
+**Note:** Some restaurants add "cubierto" (cover charge, $1-3). This is a separate charge-tip separately.
 
 ---
 
@@ -74,7 +74,7 @@
 
 ### Timing
 
-- **Don't arrive at 7pm for dinner** - You'll be alone
+- **Bypass arriving at 7pm for dinner** - You'll be alone
 - **Normal dinner:** 9-10pm arrival
 - **Late dinner:** 10:30-11pm (common)
 - **Lunch:** 12:30-2pm
@@ -90,13 +90,13 @@
 | Sharing | Common and expected |
 | Lingering | Take your time, not rushed |
 | Bill | Ask "la cuenta, por favor" |
-| Splitting | Not common, figure out among yourselves |
+| Splitting | Uncommon, figure out among yourselves |
 
 ### Parrilla Specific
 
-- **Don't ask for A1 or ketchup** - Offensive
+- **Refrain from asking for A1 or ketchup** - Offensive
 - **Chimichurri sparingly** - Good meat doesn't need much
-- **Salt** - Applied during cooking, don't over-salt
+- **Salt** - Applied during cooking, salt gently
 - **Sides share** - Fries and salad family-style
 - **Pace yourself** - Meat is a lot
 
@@ -157,8 +157,8 @@
 |------|---------|
 | I'm vegetarian | Soy vegetariano/a |
 | I'm vegan | Soy vegano/a |
-| I don't eat meat | No como carne |
-| I don't eat fish | No como pescado |
+| I prefer no meat | No como carne |
+| I prefer no fish | No como pescado |
 | No gluten | Sin gluten / Sin TACC |
 | No dairy | Sin lacteos |
 | I'm allergic to... | Soy alergico/a a... |
@@ -172,7 +172,7 @@ Argentina has good celiac awareness:
 - Many products labeled
 - Some dedicated bakeries
 - Parrillas are usually safe (pure meat)
-- Empanadas and milanesas are NOT safe
+- Empanadas and milanesas are requires caution
 
 ### Vegetarian Survival
 
@@ -244,11 +244,11 @@ The national drink among young Argentines:
 
 ### What's Normal
 
-- **Slow by US standards** - Not rudeness, just pace
+- **Slow by US standards** - Cultural difference, just pace
 - **No hovering waiters** - You have to signal
-- **Bill not brought unsolicited** - Ask for it
-- **Water not automatic** - Order it
-- **Refills not automatic** - Order more
+- **Bill only brought when asked unsolicited** - Ask for it
+- **Water must be ordered** - Order it
+- **Refills must be ordered** - Order more
 - **Kids welcome everywhere** - Family-friendly culture
 
 ### Getting Attention
@@ -260,7 +260,7 @@ The national drink among young Argentines:
 
 ### Complaints
 
-Generally, Argentines don't complain much in restaurants. If you must:
+Generally, Argentines rarely complain much in restaurants. If you must:
 - Be polite
 - "Disculpe, pero..." (Excuse me, but...)
 - Escalating to manager is rare
@@ -283,7 +283,7 @@ Buenos Aires has good food safety standards:
 |------|-------|
 | Buffets | Standard buffet cautions |
 | Very cheap places | Use judgment |
-| Seafood | BA is not a seafood city-stick to reputable places |
+| Seafood | BA is a meat-centric city-stick to reputable places |
 | Market raw foods | Fine if you'll cook |
 
 ### Stomach Issues

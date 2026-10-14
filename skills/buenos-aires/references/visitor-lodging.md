@@ -2,7 +2,7 @@
 
 ## Neighborhood Overview for Visitors
 
-| Neighborhood | Best For | Avoid If | Price Level |
+| Neighborhood | Best For | Bypass If | Price Level |
 |--------------|----------|----------|-------------|
 | **Palermo Soho** | First-timers, foodies, nightlife | Want quiet, on tight budget | $$-$$$ |
 | **Palermo Hollywood** | Nightlife, young travelers | Light sleeper | $$-$$$ |
@@ -207,7 +207,7 @@
 
 ## Location Warnings
 
-### Avoid These Areas for Lodging
+### Bypass These Areas for Lodging
 
 | Area | Why |
 |------|-----|
@@ -234,7 +234,7 @@
 ### First Visit (3-7 days)
 
 1. Book hotel in Palermo Soho for convenience
-2. Don't overthink - location is manageable
+2. Keep it simple - location is manageable
 3. Use as base to explore all neighborhoods
 
 ### Extended Stay (1+ months)
@@ -274,7 +274,7 @@
 
 - **WiFi speed:** Test if remote working
 - **Laundry:** In-building or nearby
-- **Elevator:** Old buildings often don't have
+- **Elevator:** Old buildings often lack
 - **Kitchen:** Even basic saves money
 - **Safe:** For passport, electronics
 

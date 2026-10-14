@@ -43,7 +43,7 @@ Buenos Aires is a carnivore's paradise and one of the world's great food cities.
 ### Weaknesses
 - **Vegetables** - Afterthought in traditional cuisine
 - **Spice** - Virtually none in Argentine food
-- **Seafood** - Despite coast, not a seafood city
+- **Seafood** - Despite coast, a meat-centric city
 - **Asian food** - Improving but still limited
 - **Ethnic variety** - Less diverse than NYC/London
 
@@ -136,7 +136,7 @@ Buenos Aires is a carnivore's paradise and one of the world's great food cities.
 - **Cubierto:** Cover charge (~$1-2) at some restaurants
 - **Cards:** Widely accepted, but cash often gets better treatment (blue rate)
 - **Blue dollar:** Many restaurants accept USD at competitive rate
-- **Splitting bills:** Not common practice, groups usually split mentally
+- **Splitting bills:** Uncommon practice, groups usually split mentally
 
 ## Reservations
 

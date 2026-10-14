@@ -1,4 +1,4 @@
-# Buenos Aires North: Palermo, Belgrano, Nunez
+# Buenos Aires North: Palermo, Belgrano, Núñez
 
 > The city's most desirable residential areas. Tree-lined streets, excellent restaurants, and the safest neighborhoods.
 
@@ -179,7 +179,7 @@ Beautiful park with weekend craft fair. Apartments overlooking the park are prem
 
 ---
 
-## Nunez - River Plate & Quiet Living
+## Núñez - River Plate & Quiet Living
 
 Home to River Plate's Monumental stadium and some of BA's quietest residential streets.
 
@@ -239,7 +239,7 @@ Home to River Plate's Monumental stadium and some of BA's quietest residential s
 |------|-----------|--------|------|
 | Palermo Soho | Microcentro | Subte D | 20 min |
 | Belgrano | Microcentro | Subte D | 25-30 min |
-| Nunez | Microcentro | Train + Subte | 35-40 min |
+| Núñez | Microcentro | Train + Subte | 35-40 min |
 
 ### Supermarkets
 
@@ -282,7 +282,7 @@ Home to River Plate's Monumental stadium and some of BA's quietest residential s
 | Best restaurants + nightlife | Palermo Soho/Hollywood |
 | Quiet + family | Belgrano R |
 | Budget + still nice | Villa Crespo (next door) |
-| Waterfront + space | Nunez |
+| Waterfront + space | Núñez |
 | Central + upscale | Palermo Chico |
 | After-work scene | Las Canitas |
 | Asian food access | Near Chinatown, Belgrano |

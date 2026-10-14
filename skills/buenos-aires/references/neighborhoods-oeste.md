@@ -76,7 +76,7 @@ Plus dozens of excellent casual spots, cafes, and wine bars.
 - Good subte access
 
 **Cons:**
-- Not as polished as Palermo
+- More authentic as Palermo
 - Some blocks still rough
 - Less English spoken
 - Fewer coworking spaces
@@ -84,7 +84,7 @@ Plus dozens of excellent casual spots, cafes, and wine bars.
 
 ### Best For
 - Budget-conscious expats wanting quality
-- Foodies who don't need tourist conveniences
+- Foodies who prefer local conveniences
 - Long-term residents
 - Those who want local feel + walkability
 - Couples, young professionals
@@ -103,7 +103,7 @@ True residential Buenos Aires. Tango roots, empanada shops, and locals who've li
 | Rent | 5/5 | Very affordable |
 | Transit | 4/5 | Subte A, B |
 | Walkability | 4/5 | Good |
-| Restaurants | 3/5 | Local, not trendy |
+| Restaurants | 3/5 | Local, traditional |
 | Safety | 3/5 | Varies by block |
 | Expat Density | Low | Very local |
 | Character | 4/5 | Historic tango roots |
@@ -225,7 +225,7 @@ If you want park life in BA without Palermo prices, this is it.
 - Far from trendy dining
 - Minimal nightlife
 - Few expats
-- Not walkable to Palermo
+- Requires transit to Palermo
 - Can feel suburban
 
 ### Best For
