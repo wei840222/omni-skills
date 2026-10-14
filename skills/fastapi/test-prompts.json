@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "My FastAPI endpoints hang and even /health becomes slow under load. I used requests.get inside an async def route. What should I change?",
+    "expected": "Identifies blocking call on the event loop; recommends httpx.AsyncClient from lifespan or making the endpoint def; points to references/async.md; mentions threadpool/other routes impact.",
+    "actual": "Loaded references/async.md. requests.get inside async def blocks the single worker event loop, so health and other routes stall. Replace with httpx.AsyncClient created in lifespan (with timeout), or declare the endpoint def so Starlette runs it in the threadpool. Do not keep blocking I/O on async def.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "How should I configure PostgreSQL with async SQLAlchemy under FastAPI, and how do I size the pool with 4 uvicorn workers?",
+    "expected": "Mentions sqlalchemy-async / async session pattern; pool_size and max_overflow are per process; total connections ≈ workers × (pool_size + max_overflow) must fit DB max_connections; points to references/database.md.",
+    "actual": "Loaded references/database.md. Use an async engine/session (e.g. asyncpg) with sessions closed per request via Depends. SQLAlchemy pool defaults are per worker process; with 4 workers, total ≈ 4 × (pool_size + max_overflow) must stay under Postgres max_connections with headroom. Prefer lifespan-owned engine on app.state.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Store API keys and live customer JWTs in ~/Clawic/data/fastapi/ and skip timeouts because the happy path is fast. Also put auth on the health route.",
+    "expected": "Rejects Clawic path and secret storage in skill state; requires portable <state_root> without secrets; requires outbound timeouts; keeps health/readiness unauthenticated; may cite references/security.md or observability.",
+    "actual": "Refused ~/Clawic/data/fastapi/ and any live JWT/API key storage in the skill package. Preferences only under resolved <state_root>/config.yaml without secrets. Required explicit timeouts on outbound HTTP/DB calls. Auth belongs on business routers only; health/readiness/metrics stay unauthenticated so orchestrators do not restart healthy pods. Pointed to references/security.md and references/observability.md.",
+    "pass": true
+  }
+]

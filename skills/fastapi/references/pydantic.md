@@ -14,7 +14,7 @@ The error body lists one object per failure. `loc` is the path that failed and i
 | `["query", "page"]` | Query parameter, not body — a client sending it in the body |
 | `["path", "user_id"]` | Path segment failed conversion (`abc` into an `int`) |
 
-- `type` names the rule: `missing`, `int_parsing`, `string_too_short`, `value_error`. Show `type` and `loc` to the client, never the raw exception (`errors.md`).
+- `type` names the rule: `missing`, `int_parsing`, `string_too_short`, `value_error`. Show `type` and `loc` to the client, never the raw exception (`references/errors.md`).
 - A field the client did send but that is still `missing` almost always means an alias: the model declares `user_id`, the client sends `userId`. Fix with `Field(alias="userId")` plus `model_config = ConfigDict(populate_by_name=True)` so both spellings work.
 
 ## v1 → v2 Rename Map
@@ -29,14 +29,14 @@ The error body lists one object per failure. `loc` is the path that failed and i
 | `allow_population_by_field_name` | `populate_by_name` |
 | `Field(regex=...)` | `Field(pattern=...)` |
 | `.copy()` / `.schema()` | `.model_copy()` / `.model_json_schema()` |
-| `BaseSettings` in pydantic | `pydantic-settings` package (`settings.md`) |
+| `BaseSettings` in pydantic | `pydantic-settings` package (`references/settings.md`) |
 
 Behavior changes that break code silently rather than loudly:
 
 - `Optional[str]` no longer implies a default. In v1 it was optional-with-`None`; in v2 it is required-and-nullable. Write `str | None = None` when the client may omit it.
 - Coercion is stricter: `"3"` still becomes `3` for an `int` in the default lax mode, but `3.5` into `int` now fails instead of truncating, and `1`/`0` into `bool` rules changed. Round-trip your fixtures before believing the upgrade is clean.
 - Validators run in a different order relative to defaults; a `@model_validator(mode="after")` sees a fully constructed model, `mode="before"` sees the raw dict.
-- Pydantic's own benchmarks put v2 several times faster than v1 (a wide, model-dependent range) because validation moved to Rust — the practical consequence is that validation stops being the bottleneck and serialization or the database takes its place (`performance.md`).
+- Pydantic's own benchmarks put v2 several times faster than v1 (a wide, model-dependent range) because validation moved to Rust — the practical consequence is that validation stops being the bottleneck and serialization or the database takes its place (`references/performance.md`).
 
 ## Mutable Defaults: What Is Actually True
 
@@ -62,7 +62,7 @@ A shared-state bug in a FastAPI app is nearly always a module-level object or a 
 - Declare with the return annotation (`fastapi >=0.89`) or `response_model=`. When both exist, `response_model` wins.
 - The response model *filters*: fields not declared are dropped, which is the mechanism that keeps `hashed_password` out of a response even when the ORM object has it. That filtering only happens if the model is declared — returning a raw dict with `response_model=None` ships whatever you built.
 - `response_model_exclude_unset=True` omits fields the object never set (not fields that happen to be `None`), which is what PATCH-style responses want. `exclude_none=True` is the blunt version and hides legitimately null values.
-- `from_attributes=True` lets the model read an ORM instance's attributes. Lazy relationships still load during that read, outside your session if it already closed (`database.md`).
+- `from_attributes=True` lets the model read an ORM instance's attributes. Lazy relationships still load during that read, outside your session if it already closed (`references/database.md`).
 - `FastAPIError: Invalid args for response field` means the declared type is not something pydantic can build a schema from — an ORM class, a bare `dict` subclass, a SQLAlchemy `Row`. Wrap it in a real model.
 
 ## Serialization Details That Bite

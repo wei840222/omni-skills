@@ -21,7 +21,7 @@ async def send_receipt(order_id: UUID):
     async with SessionLocal() as db: ...
 ```
 
-- A `def` task runs in the threadpool (one of the 40 slots, SKILL.md rule 2); an `async def` task runs on the loop and blocks it if it blocks (`async.md`).
+- A `def` task runs in the threadpool (one of the 40 slots, SKILL.md rule 2); an `async def` task runs on the loop and blocks it if it blocks (`references/async.md`).
 - Exceptions inside a task never reach the client and, unhandled, only appear as a traceback in the log. Wrap the body in try/except and record the failure somewhere you actually watch.
 - Fair uses: sending a fire-and-forget notification, writing an audit row, warming a cache. Not: payments, anything a user is told happened, anything that must be retried.
 
@@ -40,11 +40,11 @@ Rules that apply to all of them:
 2. Enqueue *after* the transaction commits, or the worker can look up a row that was rolled back. Either commit first, then enqueue, or use a transactional outbox table that a relay drains.
 3. Every task is idempotent, because every queue redelivers. Key the effect (a unique constraint on `payment_id`, a "sent" flag checked inside the transaction) rather than trusting once-only delivery.
 4. Retries with exponential backoff plus jitter, a maximum attempt count, and a dead-letter destination. A task retrying forever on a poison message is an outage with no alert.
-5. Tasks live in `services/`, importable by both the API and the worker; a task module that imports `main.py` drags the whole web app into the worker (`structure.md`).
+5. Tasks live in `services/`, importable by both the API and the worker; a task module that imports `main.py` drags the whole web app into the worker (`references/structure.md`).
 
 ## Reporting Progress
 
-- Accept with 202 and return a job id plus a status URL; the client polls it or subscribes (`streaming.md`, `websockets.md`).
+- Accept with 202 and return a job id plus a status URL; the client polls it or subscribes (`references/streaming.md`, `references/websockets.md`).
 - Job state lives in the database or Redis with a TTL — `{status, progress, result_url, error}`. Reconstructing state from broker internals ties you to the broker.
 - Return the final artifact by link, not inline: a completed export is a URL, not a base64 blob in a status response.
 
@@ -57,6 +57,6 @@ Rules that apply to all of them:
 
 ## Long-Running Work Started By A Request
 
-- `asyncio.create_task` for anything longer than the request is a trap: the task dies with the worker, keeps no reference by default (garbage collection can cancel it), and never retries (`async.md`).
+- `asyncio.create_task` for anything longer than the request is a trap: the task dies with the worker, keeps no reference by default (garbage collection can cancel it), and never retries (`references/async.md`).
 - If it must run in-process, hold the task in a set, name it, log its exceptions with `add_done_callback`, and cancel it in the lifespan exit — and accept that a deploy kills it mid-flight.
 - The honest question is whether losing the work is acceptable. "No" means a queue; there is no in-process arrangement that survives a SIGKILL.

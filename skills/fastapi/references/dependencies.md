@@ -34,7 +34,7 @@ async def get_db() -> AsyncIterator[AsyncSession]:
 ```
 
 - The exit half runs after the response body is produced, in reverse dependency order, and runs even if the endpoint raised.
-- `fastapi >=0.106`: resources from `yield` dependencies are **not** usable inside `BackgroundTasks` — the session is already closed when the task runs. Open a new one inside the task (`background.md`).
+- `fastapi >=0.106`: resources from `yield` dependencies are **not** usable inside `BackgroundTasks` — the session is already closed when the task runs. Open a new one inside the task (`references/background.md`).
 - Exceptions raised by the endpoint propagate into the `yield` dependency, so `try/except/finally` around the yield is how you roll back and always close.
 - Never swallow the exception there: catching it and returning normally turns a 500 into a truncated 200.
 - `yield` dependencies used at app or router level still run per request, so a global `yield` dependency doing I/O adds that I/O to every route, including health checks.
@@ -62,7 +62,7 @@ class RateLimit:
 @router.post("/messages", dependencies=[Depends(RateLimit(per_minute=30))])
 ```
 
-- `Security(get_user, scopes=["items:write"])` is `Depends` plus scope propagation; scopes accumulate down the graph and appear in the OpenAPI security requirements (`auth.md`).
+- `Security(get_user, scopes=["items:write"])` is `Depends` plus scope propagation; scopes accumulate down the graph and appear in the OpenAPI security requirements (`references/auth.md`).
 
 ## Overrides
 
@@ -72,7 +72,7 @@ app.dependency_overrides[get_db] = lambda: test_session
 
 - The key is the exact callable object referenced in `Depends`. Importing `get_db` from a different module path (or re-exporting it) produces a different key and the override silently does nothing — the number one reason "my override is ignored".
 - Overrides replace the dependency everywhere in the app, including inside sub-dependencies.
-- Always clear them (`app.dependency_overrides.clear()`) in a fixture teardown; leaked overrides make later tests pass for the wrong reason (`testing.md`).
+- Always clear them (`app.dependency_overrides.clear()`) in a fixture teardown; leaked overrides make later tests pass for the wrong reason (`references/testing.md`).
 
 ## Sync vs Async Dependencies
 
@@ -83,4 +83,4 @@ A `def` dependency runs in the threadpool and consumes one of the 40 slots (SKIL
 1. A dependency returns a value or raises; it never returns a `Response`. Raise `HTTPException` for auth and validation failures so the handlers produce a consistent body.
 2. No dependency does more than one round trip. `get_current_user` that also loads the user's organization, permissions, and feature flags turns every route into four queries; split them and let routes ask for what they need.
 3. Anything expensive and stateless (settings, JWT public keys, tenant config) is cached at process level with an explicit refresh path, not fetched per request.
-4. Dependencies are the right home for cross-cutting request logic that needs typed access to the request; middleware is the right home for logic that must wrap the response as well (`middleware.md`).
+4. Dependencies are the right home for cross-cutting request logic that needs typed access to the request; middleware is the right home for logic that must wrap the response as well (`references/middleware.md`).

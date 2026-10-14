@@ -26,15 +26,15 @@ uvicorn app.main:app --proxy-headers --forwarded-allow-ips="10.0.0.0/8"
 - Without `--proxy-headers`, every client IP in your logs is the proxy and every generated URL is `http://`. `--forwarded-allow-ips` defaults to `127.0.0.1`, so a proxy on another host has its headers ignored — the most common cause of "we enabled proxy headers and nothing changed".
 - Never trust `X-Forwarded-For` from the internet: only accept it from the proxy's address range, and read the correct position in the chain.
 - Serving under a path prefix (`/api`) that the proxy strips: set `root_path="/api"` on the app (or `--root-path`). It fixes the docs, `openapi.json`, and `url_for`; it does not change route matching.
-- Proxy timeouts must exceed your slowest legitimate response, and the proxy's body-size limit is the real upload cap — nginx's `client_max_body_size` defaults to 1 MB and returns 413 before FastAPI sees a byte (`streaming.md`).
-- Buffering proxies break streaming and SSE; disable per-route (`streaming.md`).
+- Proxy timeouts must exceed your slowest legitimate response, and the proxy's body-size limit is the real upload cap — nginx's `client_max_body_size` defaults to 1 MB and returns 413 before FastAPI sees a byte (`references/streaming.md`).
+- Buffering proxies break streaming and SSE; disable per-route (`references/streaming.md`).
 
 ## Timeouts You Must Set
 
 | Setting | Default | Meaning |
 |---|---|---|
 | uvicorn `--timeout-keep-alive` | 5 s | How long an idle keep-alive connection is held; raise only to match a load balancer that reuses connections longer |
-| gunicorn `--timeout` | 30 s | Kills a worker that stops heartbeating. Uvicorn workers heartbeat during long requests, so this does **not** cut a slow request — you still need per-request deadlines (`async.md`) |
+| gunicorn `--timeout` | 30 s | Kills a worker that stops heartbeating. Uvicorn workers heartbeat during long requests, so this does **not** cut a slow request — you still need per-request deadlines (`references/async.md`) |
 | gunicorn `--graceful-timeout` | 30 s | Time given to finish in-flight requests on shutdown before SIGKILL |
 | Client/upstream timeouts | none | `httpx.AsyncClient(timeout=5.0)`; without it a hung upstream ties up the worker (SKILL.md rule 7) |
 
@@ -45,8 +45,8 @@ On SIGTERM, uvicorn stops accepting new connections and waits for in-flight requ
 - Being PID 1 in a container without signal handling: run the server as the container's actual entrypoint (exec form), or the signal never arrives and the platform SIGKILLs after its grace period.
 - The load balancer still routing to a pod that already stopped accepting: add a small pre-stop delay (a few seconds) so endpoints are deregistered before shutdown starts.
 - Lifespan teardown that hangs (a pool that will not drain, a queue consumer with no cancel path) — the platform kills the process mid-request instead.
-- Long-lived connections: WebSockets are not "in-flight requests" and are cut at shutdown; tell clients to reconnect (`websockets.md`).
-- Readiness must flip to failing *before* shutdown work begins, liveness must stay passing during it (`observability.md`).
+- Long-lived connections: WebSockets are not "in-flight requests" and are cut at shutdown; tell clients to reconnect (`references/websockets.md`).
+- Readiness must flip to failing *before* shutdown work begins, liveness must stay passing during it (`references/observability.md`).
 
 ## Containers
 
@@ -68,15 +68,15 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ## Serverless And PaaS
 
-- A per-request container means no warm pool: use `NullPool` and an external connection pooler, or the first burst exhausts the database (`database.md`).
+- A per-request container means no warm pool: use `NullPool` and an external connection pooler, or the first burst exhausts the database (`references/database.md`).
 - Lifespan may run per invocation; anything expensive at startup becomes per-request latency. Move model loading and JWKS fetching behind a lazy cache.
-- Long-running WebSockets and background tasks do not survive the response — use the platform's queue (`background.md`).
+- Long-running WebSockets and background tasks do not survive the response — use the platform's queue (`references/background.md`).
 
 ## Release Checklist
 
-- Migrations as a separate release step, never in lifespan (`database.md`)
+- Migrations as a separate release step, never in lifespan (`references/database.md`)
 - `--proxy-headers` plus a correct `--forwarded-allow-ips`, and `root_path` if the prefix is stripped
-- Docs disabled or protected if the API is internal (`openapi.md`)
-- Health and readiness endpoints unauthenticated and cheap (`observability.md`)
+- Docs disabled or protected if the API is internal (`references/openapi.md`)
+- Health and readiness endpoints unauthenticated and cheap (`references/observability.md`)
 - Worker count, pool size, and the database connection limit reconciled with the formula in SKILL.md rule 5
 - Structured logs to stdout with a request id; no secrets in the log or the environment dump

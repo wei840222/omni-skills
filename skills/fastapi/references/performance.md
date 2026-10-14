@@ -5,28 +5,28 @@ Order of investigation, because fixing them out of order wastes days: blocked lo
 ## Measure Before Touching Anything
 
 - Load-test with a tool that reports percentiles (`hey`, `wrk`, `k6`, `locust`) against a build that mirrors production: same worker count, same pool size, real database, no `--reload`.
-- Run the two-route test first: if a trivial `/health` degrades along with the endpoint under test, the loop is blocked and nothing else matters yet (`async.md`).
+- Run the two-route test first: if a trivial `/health` degrades along with the endpoint under test, the loop is blocked and nothing else matters yet (`references/async.md`).
 - Middleware timing per route gives you the split: total time minus handler time is framework and middleware; handler time minus query time is your code.
 - Profile a single slow request in process (`pyinstrument` as middleware, or `py-spy record` against the running worker) — a sampling profiler on a live worker is the fastest route to the offending frame.
-- Count queries per request in development. A list endpoint whose query count grows with page size is N+1 and no amount of tuning elsewhere will fix it (`database.md`).
+- Count queries per request in development. A list endpoint whose query count grows with page size is N+1 and no amount of tuning elsewhere will fix it (`references/database.md`).
 
 ## Where The Time Usually Is
 
 | Symptom | Likely cause |
 |---|---|
-| All routes slow together, including health | Blocked event loop or full threadpool (`async.md`) |
+| All routes slow together, including health | Blocked event loop or full threadpool (`references/async.md`) |
 | One route slow, latency flat with load | Slow query or slow upstream |
-| One route slow, latency grows with load | Pool exhaustion or lock contention (`database.md`) |
+| One route slow, latency grows with load | Pool exhaustion or lock contention (`references/database.md`) |
 | Fast locally, slow in production | Network round trips per request, cold caches, or a proxy with no keep-alive |
 | CPU pinned at 100% with modest traffic | JSON serialization of large payloads, or CPU work on the loop |
-| Memory grows until OOM | Unbounded concurrency, an unbounded in-process cache, or a response built fully in memory (`streaming.md`) |
+| Memory grows until OOM | Unbounded concurrency, an unbounded in-process cache, or a response built fully in memory (`references/streaming.md`) |
 
 ## Serialization
 
 - Response validation runs the whole payload through the response model a second time (SKILL.md rule 4). On a 5,000-item list that is the dominant cost; on a single object it is noise.
 - Levers, in order of preference: return fewer items (paginate), return fewer fields (a leaner response model), then skip validation on that one route (`response_model=None` and return an explicit response).
 - `ORJSONResponse` replaces the stdlib encoder with orjson, which its benchmarks put several times faster than `json` — visible on large payloads, invisible on small ones. Set it app-wide with `default_response_class=ORJSONResponse` once you have measured a serialization-bound route.
-- Never build a giant list in memory to return it: stream it (`streaming.md`) or paginate it.
+- Never build a giant list in memory to return it: stream it (`references/streaming.md`) or paginate it.
 - `GZipMiddleware(minimum_size=500)` trades CPU for bandwidth; on a mobile-facing JSON API it usually wins, on an internal service on the same network it usually loses.
 
 ## Pagination
@@ -43,7 +43,7 @@ Order of investigation, because fixing them out of order wastes days: blocked lo
 | Client/CDN | `Cache-Control`, `ETag` + `If-None-Match` → 304 | Cheapest possible response; needs a stable representation |
 | Shared cache | Redis, keyed by resource and version | Works across workers, unlike anything in-process (SKILL.md rule 6) |
 | Per-process | `@lru_cache` on pure, argument-hashable functions | Hit rate divided by the worker count; only for static data |
-| Per-request | A dependency computed once and reused | Free deduplication of repeated lookups (`dependencies.md`) |
+| Per-request | A dependency computed once and reused | Free deduplication of repeated lookups (`references/dependencies.md`) |
 
 Invalidation belongs with the write path: the code that updates the row deletes the key. A TTL alone means every reader can see stale data for the whole TTL, which is a product decision, not a technical default.
 

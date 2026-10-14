@@ -45,7 +45,7 @@ Every one of these is a real bypass when skipped:
 ## Passwords
 
 - Hash with bcrypt, scrypt, or Argon2id. These are deliberately slow: bcrypt at the common cost factor 12 lands in the hundreds of milliseconds on server hardware — that is per login, by design.
-- That cost is exactly why the login endpoint must not hash on the event loop. Declare the login route `def`, or `await run_in_threadpool(verify, ...)` from an async route (`async.md`).
+- That cost is exactly why the login endpoint must not hash on the event loop. Declare the login route `def`, or `await run_in_threadpool(verify, ...)` from an async route (`references/async.md`).
 - Compare with the library's `verify`, never `==`, and run the hash even when the user does not exist (compare against a dummy hash) so response time does not enumerate accounts.
 - Rehash on login when the cost factor has been raised: verify with the stored hash, then store a fresh one.
 
@@ -87,5 +87,5 @@ def require_scopes(*required: str):
 ## What Not To Leak
 
 - Login failures: one generic message for wrong user and wrong password.
-- Token errors: "Not authenticated" to the client, the decoded reason to the log with a correlation id (`errors.md`).
-- Never log the token, the cookie, or the `Authorization` header — scrub them in the logging config (`observability.md`).
+- Token errors: "Not authenticated" to the client, the decoded reason to the log with a correlation id (`references/errors.md`).
+- Never log the token, the cookie, or the `Authorization` header — scrub them in the logging config (`references/observability.md`).

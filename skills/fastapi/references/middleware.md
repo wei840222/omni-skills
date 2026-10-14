@@ -14,7 +14,7 @@ Request flows outermost → innermost; the response returns innermost → outerm
 
 - CORS outermost means even an error produced above your handlers still carries the headers. CORS registered first is the classic cause of "the browser shows a CORS error but the server logged a 500" — the 500 is real, the CORS message is the symptom.
 - GZip innermost, so it compresses the final body and nothing after it rewrites the payload without fixing `Content-Length`.
-- Authentication as middleware applies to `/health`, `/docs`, and `/openapi.json` too; auth belongs in dependencies where it can be scoped (`dependencies.md`).
+- Authentication as middleware applies to `/health`, `/docs`, and `/openapi.json` too; auth belongs in dependencies where it can be scoped (`references/dependencies.md`).
 
 ## CORS That Actually Works
 
@@ -35,7 +35,7 @@ app.add_middleware(CORSMiddleware,
 `BaseHTTPMiddleware` (the `@app.middleware("http")` decorator) is convenient and has three real costs:
 
 1. It runs the downstream app in a separate task, so a `contextvar` set by the endpoint is not visible to the middleware after `call_next`. Set context *before* calling down, never expect to read it back.
-2. Streaming responses lose backpressure: the body passes through an internal queue, so a large `StreamingResponse` can be buffered in memory instead of flowing to the client (`streaming.md`).
+2. Streaming responses lose backpressure: the body passes through an internal queue, so a large `StreamingResponse` can be buffered in memory instead of flowing to the client (`references/streaming.md`).
 3. Exceptions and cancellation cross a task boundary, which produces confusing tracebacks and makes client-disconnect handling unreliable.
 
 Pure ASGI middleware avoids all three and is barely longer:
@@ -82,7 +82,7 @@ Replaying buffers the whole body in memory — cap it, and skip the middleware f
 ## Built-Ins Worth Adding
 
 - `TrustedHostMiddleware(allowed_hosts=[...])` rejects Host-header attacks that turn into poisoned absolute URLs and password-reset links.
-- `HTTPSRedirectMiddleware` only works if the app knows the real scheme — behind a proxy that means correct forwarded headers first (`deployment.md`), otherwise it redirects forever.
+- `HTTPSRedirectMiddleware` only works if the app knows the real scheme — behind a proxy that means correct forwarded headers first (`references/deployment.md`), otherwise it redirects forever.
 - `GZipMiddleware(minimum_size=500)` compresses responses above 500 bytes; below that the header overhead exceeds the saving. Never compress already-compressed payloads (images, video).
 - `SessionMiddleware` signs a cookie but does not encrypt it: the contents are readable by the client.
 

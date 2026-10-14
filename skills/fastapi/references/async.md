@@ -25,7 +25,7 @@ Confirm from inside the process: run with asyncio debug mode (`PYTHONASYNCIODEBU
 
 ## The Blocking Offenders
 
-Sync drivers (`psycopg2`, `PyMySQL`, `sqlite3`, `pymongo`), `requests`/`urllib3`, `boto3` and most cloud SDKs, `time.sleep`, `subprocess.run`, reading or writing large files, `pandas`/`numpy`/PIL work, password hashing (deliberately slow — costs in `auth.md`), template rendering of large pages, and `json.dumps` of multi-megabyte payloads.
+Sync drivers (`psycopg2`, `PyMySQL`, `sqlite3`, `pymongo`), `requests`/`urllib3`, `boto3` and most cloud SDKs, `time.sleep`, `subprocess.run`, reading or writing large files, `pandas`/`numpy`/PIL work, password hashing (deliberately slow — costs in `references/auth.md`), template rendering of large pages, and `json.dumps` of multi-megabyte payloads.
 
 Not blocking, despite the reputation: small `json.dumps`, `logging` to stdout, and pydantic validation of ordinary models — each is microseconds to low milliseconds, so they never appear in the slow-callback log.
 
@@ -69,7 +69,7 @@ profile, orders_ = a.result(), b.result()
 
 - Lifespan runs on the loop: a synchronous migration or a blocking warm-up there delays the port opening and every health probe. Wrap it in `run_in_threadpool` if it must stay sync.
 - `uvicorn[standard]` installs uvloop and httptools; uvloop makes the loop itself faster and changes nothing about blocking — a blocked loop is blocked at any speed.
-- Async generators as dependencies keep the connection open across the whole request; cleanup after `yield` runs at the end of the request (`dependencies.md`).
+- Async generators as dependencies keep the connection open across the whole request; cleanup after `yield` runs at the end of the request (`references/dependencies.md`).
 
 ## When The Symptom Is Memory, Not Latency
 

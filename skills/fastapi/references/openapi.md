@@ -53,12 +53,12 @@ app = FastAPI(
 ```
 
 - `version` is your API's version, not FastAPI's; generated clients and changelogs read it.
-- `servers` matters behind a path prefix; combined with `root_path` it produces URLs clients can actually call (`deployment.md`).
+- `servers` matters behind a path prefix; combined with `root_path` it produces URLs clients can actually call (`references/deployment.md`).
 - Custom schema post-processing (adding a global security scheme, stripping internal tags) goes in an `app.openapi()` override that caches its result in `app.openapi_schema` — without the cache it regenerates on every docs request.
 
 ## Exposure
 
-- Internal API: `FastAPI(openapi_url=None)` disables the schema and both docs UIs in one setting; make it conditional on `environment` (`settings.md`).
+- Internal API: `FastAPI(openapi_url=None)` disables the schema and both docs UIs in one setting; make it conditional on `environment` (`references/settings.md`).
 - Keep docs but require auth: serve `/docs` behind an authenticated route that renders `get_swagger_ui_html`, with `openapi_url` pointing at an equally protected schema route.
 - The schema leaks your internal model names, field constraints, and every route including admin ones. That is fine for a public API and a gift to an attacker on an internal one.
 - The docs UIs load their JavaScript from a CDN by default; air-gapped deployments must self-host those assets or the docs page renders blank.

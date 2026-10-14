@@ -7,7 +7,7 @@ The goal is answering "what happened to this one request" in under a minute. Tha
 - Uvicorn configures its own loggers (`uvicorn`, `uvicorn.access`, `uvicorn.error`). Configure logging in your own `dictConfig` at startup with `disable_existing_loggers: False`, or half your libraries go silent and only uvicorn's lines appear.
 - Log to stdout as JSON in production (structlog or a JSON formatter). The platform collects stdout; writing files inside a container creates a disk to rotate and a volume to mount for nothing.
 - The default access log has no request id, no user, and no duration bucket. Either disable it (`--no-access-log`) and emit your own structured access line from middleware, or accept two log lines per request with different shapes.
-- Never log the `Authorization` header, cookies, tokens, or request bodies from auth routes. A redaction filter belongs in the logging config, not in the discipline of every caller (`auth.md`).
+- Never log the `Authorization` header, cookies, tokens, or request bodies from auth routes. A redaction filter belongs in the logging config, not in the discipline of every caller (`references/auth.md`).
 
 ## Request Correlation
 
@@ -20,10 +20,10 @@ class RequestContext(logging.Filter):
         return True
 ```
 
-- A pure ASGI middleware sets the contextvar and echoes the id back as a response header (`middleware.md`); `BaseHTTPMiddleware` cannot reliably read a contextvar set downstream.
+- A pure ASGI middleware sets the contextvar and echoes the id back as a response header (`references/middleware.md`); `BaseHTTPMiddleware` cannot reliably read a contextvar set downstream.
 - Accept an inbound `X-Request-ID` from your proxy when present, generate one when absent; a client-supplied id ties their bug report to your logs.
 - Propagate the id on outbound calls (`headers={"X-Request-ID": request_id_var.get()}`) so a request can be followed across services without full tracing.
-- Log the id on the error response too: the client sees an opaque message plus an id you can grep (`errors.md`).
+- Log the id on the error response too: the client sees an opaque message plus an id you can grep (`references/errors.md`).
 
 ## Health, Readiness, Startup
 
@@ -34,7 +34,7 @@ class RequestContext(logging.Filter):
 | Startup | "Has boot finished?" | Same as readiness, with a longer grace period for slow imports and model loading |
 
 - Both live on an unauthenticated router; a router-level auth dependency on them makes the orchestrator restart a healthy service in a loop (SKILL.md Traps).
-- Readiness must flip to failing *before* shutdown begins, and liveness must keep passing during the drain (`deployment.md`).
+- Readiness must flip to failing *before* shutdown begins, and liveness must keep passing during the drain (`references/deployment.md`).
 - Keep probes off the shared database pool if you can, or a pool exhaustion event also fails every readiness check and the platform kills the instances that were about to recover.
 
 ## Metrics
@@ -42,8 +42,8 @@ class RequestContext(logging.Filter):
 - The four that answer most questions: request rate, error rate, duration percentiles (p50/p95/p99) — all three labelled by *route template*, never by raw path — and in-flight requests.
 - Labelling by raw path (`/orders/7f3c...`) makes one time series per id and kills the metrics backend. Use `request.scope["route"].path` for the template.
 - Multiple workers behind one port each have their own registry; a Prometheus scrape hits a random worker. Either run one worker per container (the simple answer) or use the client's multiprocess mode with a shared directory.
-- Beyond HTTP: connection pool checkouts and waits (`database.md`), threadpool saturation (SKILL.md rule 2), queue depth and task age (`background.md`), WebSocket connection count (`websockets.md`).
-- Event-loop lag is the single best early warning for blocked loops: sample `loop.time()` drift from a background task and alert when it exceeds a few tens of milliseconds (`async.md`).
+- Beyond HTTP: connection pool checkouts and waits (`references/database.md`), threadpool saturation (SKILL.md rule 2), queue depth and task age (`references/background.md`), WebSocket connection count (`references/websockets.md`).
+- Event-loop lag is the single best early warning for blocked loops: sample `loop.time()` drift from a background task and alert when it exceeds a few tens of milliseconds (`references/async.md`).
 
 ## Tracing
 

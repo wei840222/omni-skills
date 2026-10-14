@@ -21,7 +21,7 @@ async def get_db() -> AsyncIterator[AsyncSession]:
 - Commit-at-the-end makes the request the transaction: either the whole handler's writes land or none do. The alternative — committing inside services — means a later failure leaves half the operation persisted.
 - `expire_on_commit=False` keeps attributes readable after the commit; the default expires every instance, so serializing the object after committing triggers a refresh query per attribute, or fails once the session is gone.
 - One session must never be shared by concurrent tasks. `asyncio.gather` over two coroutines using the same session raises `asyncpg ... another operation is in progress` or corrupts state; give each task its own session from the factory.
-- The session from a `yield` dependency is closed before background tasks run (fastapi >=0.106): open a fresh one inside the task (`background.md`).
+- The session from a `yield` dependency is closed before background tasks run (fastapi >=0.106): open a fresh one inside the task (`references/background.md`).
 
 ## Pool Sizing
 
@@ -74,9 +74,9 @@ Both the endpoint and the dependency become `def`, so they run in the threadpool
 - Enum changes on Postgres need explicit `ALTER TYPE ... ADD VALUE` outside a transaction block; autogenerate produces nothing.
 - Zero-downtime column removal is three deploys: stop writing it, stop reading it, then drop. A single deploy that drops a column breaks every old process still serving traffic during the rollout.
 - Adding a NOT NULL column with a default rewrites the table on older Postgres versions; add nullable, backfill in batches, then set NOT NULL.
-- Run migrations as a release step (a job, an init container, a manual command), never in lifespan — with N workers, N processes race the same migration (`structure.md`).
+- Run migrations as a release step (a job, an init container, a manual command), never in lifespan — with N workers, N processes race the same migration (`references/structure.md`).
 - Index creation on a live table: `CREATE INDEX CONCURRENTLY`, which Alembic must run with `autocommit_block()`.
 
 ## Testing Against a Real Database
 
-Use the real engine, not SQLite-in-memory: SQLite accepts SQL Postgres rejects, lacks the types you use, and hides constraint behavior. Isolation and fixture patterns: `testing.md`.
+Use the real engine, not SQLite-in-memory: SQLite accepts SQL Postgres rejects, lacks the types you use, and hides constraint behavior. Isolation and fixture patterns: `references/testing.md`.

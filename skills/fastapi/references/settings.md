@@ -63,7 +63,7 @@ def prod_is_locked_down(self):
 
 This turns the worst production misconfiguration into a container that refuses to start — visible in the deploy, not in a breach report.
 
-- Docs exposure is configuration too: `FastAPI(openapi_url=None)` when the environment is prod and the API is internal (`openapi.md`).
+- Docs exposure is configuration too: `FastAPI(openapi_url=None)` when the environment is prod and the API is internal (`references/openapi.md`).
 
 ## Validation at Startup
 
@@ -74,5 +74,5 @@ This turns the worst production misconfiguration into a container that refuses t
 ## Twelve-Factor Edges Worth Keeping
 
 - Configuration comes from the environment; the image is identical across environments. An image that bakes `staging` cannot be promoted.
-- The connection string carries the driver: `postgresql+asyncpg://` for async SQLAlchemy, `postgresql+psycopg://` for sync. A URL copied from a dashboard is usually the sync form and produces a driver mismatch at first query (`database.md`).
+- The connection string carries the driver: `postgresql+asyncpg://` for async SQLAlchemy, `postgresql+psycopg://` for sync. A URL copied from a dashboard is usually the sync form and produces a driver mismatch at first query (`references/database.md`).
 - Feature flags with more than three consumers belong in a flag service, not in settings — settings changes require a restart, flags should not.

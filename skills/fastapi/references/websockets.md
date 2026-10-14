@@ -40,7 +40,7 @@ Seeing only 1006 in the logs means the connection is being cut below the applica
 
 Browsers cannot set headers on a WebSocket handshake, so `Authorization: Bearer` is unavailable to browser clients. Options, in order of preference:
 
-1. Cookie set by the normal login flow — sent automatically on the handshake, `HttpOnly`, and validated in a dependency (`auth.md`).
+1. Cookie set by the normal login flow — sent automatically on the handshake, `HttpOnly`, and validated in a dependency (`references/auth.md`).
 2. Short-lived ticket: the client calls an authenticated HTTP endpoint for a one-time token valid for seconds, then connects with `?ticket=...`. Query strings land in access logs, so a long-lived token there is a leak; a single-use ticket is not.
 3. First-message authentication: accept, wait for an auth frame with a deadline (`asyncio.timeout`), close 1008 if it does not arrive. Costs an accepted connection per attacker.
 
@@ -69,13 +69,13 @@ An in-process registry (`dict[room, set[WebSocket]]`) only reaches the clients c
 
 ## Shutdown
 
-Graceful shutdown drains HTTP requests but cuts WebSockets (`deployment.md`). Close them deliberately on the lifespan's exit path with code 1001 so clients treat it as "reconnect", and keep the client's reconnect logic tested — a rolling deploy exercises it every time.
+Graceful shutdown drains HTTP requests but cuts WebSockets (`references/deployment.md`). Close them deliberately on the lifespan's exit path with code 1001 so clients treat it as "reconnect", and keep the client's reconnect logic tested — a rolling deploy exercises it every time.
 
 ## When Not To Use One
 
 | Need | Better tool |
 |---|---|
-| Server → client updates only | SSE: plain HTTP, automatic reconnect, no upgrade issues (`streaming.md`) |
+| Server → client updates only | SSE: plain HTTP, automatic reconnect, no upgrade issues (`references/streaming.md`) |
 | Updates every few minutes | Polling with `ETag`; a connection per client for that rate is waste |
-| Job progress until completion | 202 plus a status endpoint (`background.md`) |
+| Job progress until completion | 202 plus a status endpoint (`references/background.md`) |
 | Guaranteed delivery to offline clients | A queue plus push notifications; a socket only reaches who is connected |

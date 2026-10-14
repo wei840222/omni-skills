@@ -10,7 +10,7 @@ Two failure modes dominate: tests that pass because the app under test is not th
 | `httpx.AsyncClient(transport=ASGITransport(app=app), base_url="http://test")` | On the test's own loop, in-process | Everything async: concurrency, cancellation, real await behavior |
 | `httpx.AsyncClient(base_url=live_url)` | Over a real socket to a running server | Smoke tests against a deployed instance, proxy and header behavior |
 
-`TestClient` never exposes a blocked event loop, a missing await, or a race — the very bugs async code has (`async.md`). Use it for coverage, not for confidence in concurrency.
+`TestClient` never exposes a blocked event loop, a missing await, or a race — the very bugs async code has (`references/async.md`). Use it for coverage, not for confidence in concurrency.
 
 ## Lifespan In Tests
 
@@ -42,7 +42,7 @@ app.dependency_overrides[get_db] = lambda: session
 app.dependency_overrides.clear()      # always, in teardown
 ```
 
-- The key is the exact function object referenced in `Depends`; a re-import from a different module path is a different key and the override does nothing (`dependencies.md`).
+- The key is the exact function object referenced in `Depends`; a re-import from a different module path is a different key and the override does nothing (`references/dependencies.md`).
 - Override the *dependency*, not the internals: replacing `get_settings` beats monkeypatching `os.environ`, because it also proves the injection wiring works.
 - Overriding auth (`get_current_user` → a fixed user) is the standard way to test protected routes; add at least one test that exercises the real dependency with a real token, or a broken auth chain never fails a test.
 - Leaked overrides make later tests pass for the wrong reason — clear them in a fixture, not at the end of each test function.
@@ -63,7 +63,7 @@ async def session(engine):
 
 - The app's `get_db` is overridden to yield this session, so the endpoint's commit lands inside the outer transaction and disappears on rollback.
 - Code under test that commits and then expects a *new* session to see the data needs `begin_nested` (SAVEPOINT) plus a `after_transaction_end` listener, or a truncate-based strategy. Choose one and document it — mixing them produces tests that pass alone and fail in a suite.
-- Test against the real engine, not SQLite: dialect differences (JSONB, arrays, `ON CONFLICT`, enum types, case sensitivity) hide real failures until production (`database.md`).
+- Test against the real engine, not SQLite: dialect differences (JSONB, arrays, `ON CONFLICT`, enum types, case sensitivity) hide real failures until production (`references/database.md`).
 - Parallel test workers (`pytest-xdist`) need one schema or one database per worker; sharing one gives flaky unique-constraint failures.
 
 ## What To Test At Each Level
@@ -87,4 +87,4 @@ At least one test per route asserting the 401/403 path: a missing `dependencies=
 
 - Build the app once per session and override per test; recreating the app for every test re-imports and re-validates every model.
 - Reuse one database container for the whole run and roll back per test — schema creation per test is usually the slowest thing in a FastAPI suite.
-- Password hashing is deliberately slow (`auth.md`): drop the cost factor in the test settings, or a hundred login tests add minutes.
+- Password hashing is deliberately slow (`references/auth.md`): drop the cost factor in the test settings, or a hundred login tests add minutes.

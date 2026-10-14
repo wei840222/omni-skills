@@ -14,7 +14,7 @@ Routes are matched in declaration order, first match wins. That single fact expl
 Starlette's `redirect_slashes` (default on) answers `/items` with a 307 to `/items/` when only the slashed route exists, and vice versa.
 
 - 307 preserves method and body, so POSTs survive — but every client pays two round trips, and some HTTP clients drop the `Authorization` header on redirect.
-- Behind a proxy that terminates TLS without correct forwarded headers, the redirect `Location` comes back as `http://` and browsers block it as mixed content. Fix the proxy headers (`deployment.md`), not the route.
+- Behind a proxy that terminates TLS without correct forwarded headers, the redirect `Location` comes back as `http://` and browsers block it as mixed content. Fix the proxy headers (`references/deployment.md`), not the route.
 - Pick one convention (no trailing slash on collections is the common choice), and set `redirect_slashes=False` once the API is public so a wrong URL fails loudly instead of redirecting.
 
 ## Routers
@@ -26,8 +26,8 @@ app.include_router(router)
 
 - Prefixes must not end in `/`; FastAPI raises at startup if they do.
 - `include_router` can add its own prefix, tags, dependencies, and responses on top of the router's — they compose, they do not replace.
-- The same router can be included twice under different prefixes (API versioning by mount), but every route then has a duplicate `operation_id` unless you supply `generate_unique_id_function` (`openapi.md`).
-- Router-level dependencies apply to every route in the router, health checks included — keep probes in their own router (`observability.md`).
+- The same router can be included twice under different prefixes (API versioning by mount), but every route then has a duplicate `operation_id` unless you supply `generate_unique_id_function` (`references/openapi.md`).
+- Router-level dependencies apply to every route in the router, health checks included — keep probes in their own router (`references/observability.md`).
 
 ## Parameters: Where Each Kind Comes From
 
@@ -39,7 +39,7 @@ app.include_router(router)
 | `Annotated[str, Header()]` | Header (underscores map to hyphens automatically) |
 | `Annotated[str, Cookie()]` | Cookie |
 | `Annotated[str, Form()]` | Form body (requires `python-multipart`) |
-| `Annotated[UploadFile, File()]` | Multipart upload (`streaming.md`) |
+| `Annotated[UploadFile, File()]` | Multipart upload (`references/streaming.md`) |
 | Two models in one signature | Body with one key per parameter name |
 
 - One model plus scalars: the scalars become query parameters unless annotated `Body()`. `count: Annotated[int, Body()]` puts it in the body next to the model.
@@ -51,7 +51,7 @@ app.include_router(router)
 | Case | Declaration |
 |---|---|
 | Created a resource | `status_code=201` and a `Location` header or the resource body |
-| Accepted for async processing | `status_code=202` plus a status URL (`background.md`) |
+| Accepted for async processing | `status_code=202` plus a status URL (`references/background.md`) |
 | Deleted, nothing to return | `status_code=204` and return `None` — a body with 204 is a protocol error |
 | Conditional or cache-aware | Return `Response(status_code=304)` after comparing `If-None-Match` |
 | Per-response header or cookie | Take `response: Response` as a parameter and mutate it; no need to build a Response object |
@@ -61,7 +61,7 @@ app.include_router(router)
 
 - `app.mount("/static", StaticFiles(directory="static"))` — mounts are matched before routes only for their prefix; a route at `/static/{name}` declared elsewhere becomes unreachable.
 - Mounting a second FastAPI app gives it its own docs, exception handlers, and middleware; the parent's middleware still wraps it, the parent's exception handlers do not apply.
-- Mounted apps need `root_path` awareness for correct docs URLs behind a proxy (`deployment.md`).
+- Mounted apps need `root_path` awareness for correct docs URLs behind a proxy (`references/deployment.md`).
 - A catch-all SPA route (`/{full_path:path}`) must be registered last, or it shadows the API.
 
 ## Versioning

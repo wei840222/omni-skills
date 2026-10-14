@@ -7,7 +7,7 @@ The layout question is really a dependency-direction question: routers may impor
 ```
 src/app/
 ├── main.py            # create_app(), lifespan, middleware, include_router calls
-├── settings.py        # Settings + get_settings (settings.md)
+├── settings.py        # Settings + get_settings (references/settings.md)
 ├── deps.py            # shared Annotated dependency aliases: DbSession, CurrentUser
 ├── db.py              # engine, session factory, Base
 ├── api/
@@ -71,7 +71,7 @@ Rule of thumb: if module A needs something from module B and B needs something f
 |---|---|
 | Engine, pools, HTTP clients | `app.state`, created in lifespan |
 | Settings | `@lru_cache` factory in `settings.py` |
-| Per-request context (user, tenant, request id) | Dependencies, or a contextvar set by pure ASGI middleware (`middleware.md`) |
+| Per-request context (user, tenant, request id) | Dependencies, or a contextvar set by pure ASGI middleware (`references/middleware.md`) |
 | Anything two workers must agree on | Redis or the database — never a module-level dict (SKILL.md rule 6) |
 
 Accessing `app.state` from a route: `request.app.state.http`, or a dependency that returns it so the route stays testable.

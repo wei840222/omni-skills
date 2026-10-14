@@ -44,7 +44,7 @@ Services raise `OrderNotFound`; the HTTP mapping lives in one file; the same ser
 async def handle_http(request, exc): ...
 ```
 
-- Override validation errors with `RequestValidationError` when the client needs your envelope instead of pydantic's list. Keep `loc` and `type` in the payload — they are what makes a 422 debuggable (`pydantic.md`).
+- Override validation errors with `RequestValidationError` when the client needs your envelope instead of pydantic's list. Keep `loc` and `type` in the payload — they are what makes a 422 debuggable (`references/pydantic.md`).
 - Handlers run inside the middleware stack, so their responses get CORS headers; an exception that escapes to `ServerErrorMiddleware` does not (SKILL.md rule 9).
 - A handler that raises is a 500 with a confusing traceback: keep handlers free of I/O and of anything that can fail.
 - `raise HTTPException(...) from exc` preserves the cause in the log while the client sees only `detail`.
@@ -58,24 +58,24 @@ async def handle_http(request, exc): ...
 | Conflicting write (duplicate key, version mismatch) | 409, with the conflicting field named |
 | Client should slow down | 429 with `Retry-After` |
 | Upstream failed or timed out | 502 for a bad upstream response, 504 for a timeout — never 500, which says the bug is yours |
-| Accepted, still processing | 202 with a status URL (`background.md`) |
+| Accepted, still processing | 202 with a status URL (`references/background.md`) |
 
 422 vs 400 is the one real argument: 422 is FastAPI's default and distinguishes "well-formed but invalid" from "malformed"; teams standardizing on 400 must convert with a `RequestValidationError` handler, not with per-route code.
 
 ## Logging the Real Cause
 
 - Log at the boundary, once. Logging in the service *and* the handler produces duplicate stack traces and doubles the noise during an incident.
-- `logger.exception(...)` inside the generic handler captures the traceback; the client gets a generic message plus the request id that ties the two together (`observability.md`).
+- `logger.exception(...)` inside the generic handler captures the traceback; the client gets a generic message plus the request id that ties the two together (`references/observability.md`).
 - Never put upstream response bodies, SQL, or environment values in `detail` — they reach the client verbatim.
 - 4xx are the client's problem: log them at `INFO` or `WARNING` with the route and code, not with a stack trace. Only 5xx deserve `ERROR`.
 
 ## Errors In Special Contexts
 
-- Background tasks: raising there does nothing to the response, which already left. Catch, log, and record the failure yourself (`background.md`).
-- Dependencies with `yield`: exceptions from the endpoint pass through the exit half, so the teardown must rollback and re-raise, never swallow (`dependencies.md`).
-- WebSockets: `HTTPException` is meaningless after the handshake; close with a code (`websockets.md`).
-- Streaming responses: once the first byte is sent, the status is already committed — an error mid-stream can only truncate the body or emit an in-band error event (`streaming.md`).
+- Background tasks: raising there does nothing to the response, which already left. Catch, log, and record the failure yourself (`references/background.md`).
+- Dependencies with `yield`: exceptions from the endpoint pass through the exit half, so the teardown must rollback and re-raise, never swallow (`references/dependencies.md`).
+- WebSockets: `HTTPException` is meaningless after the handshake; close with a code (`references/websockets.md`).
+- Streaming responses: once the first byte is sent, the status is already committed — an error mid-stream can only truncate the body or emit an in-band error event (`references/streaming.md`).
 
 ## Client-Facing Contract
 
-Document errors in the schema so generated clients can handle them: `responses={404: {"model": ErrorBody}, 409: {"model": ErrorBody}}` on the route, or `responses=` on the router for the shared set (`openapi.md`). RFC 9457 `application/problem+json` (`type`, `title`, `status`, `detail`, `instance`) is the standard shape when the API is public; a house envelope is fine when the only consumer is your own front end, as long as it is the same everywhere.
+Document errors in the schema so generated clients can handle them: `responses={404: {"model": ErrorBody}, 409: {"model": ErrorBody}}` on the route, or `responses=` on the router for the shared set (`references/openapi.md`). RFC 9457 `application/problem+json` (`type`, `title`, `status`, `detail`, `instance`) is the standard shape when the API is public; a house envelope is fine when the only consumer is your own front end, as long as it is the same everywhere.
