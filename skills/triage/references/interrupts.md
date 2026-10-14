@@ -18,7 +18,7 @@ Triage assigns the level; this file is the switch itself. A wrong switch turns o
 1. **Completed unit** — the work is in a done, verified state. Switch freely.
 2. **Consistent checkpoint** — tests green, document section complete, transaction closed. Switch after the check passes.
 3. **Parked mid-flight** — state written down via the protocol below. Acceptable for P0 only.
-4. **Mid-edit, nothing recorded** — never. Thirty seconds to reach state 3 is always affordable; a half-applied change is its own incident (SKILL.md Queue Discipline).
+4. **Mid-edit, nothing recorded** — park first. Thirty seconds to reach state 3 is always affordable; a half-applied change is its own incident (SKILL.md Queue Discipline).
 
 ## The Parking Protocol (before every mid-task switch)
 

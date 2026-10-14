@@ -6,7 +6,7 @@ This file is the protocol. The learned data lives in `<state_root>/patterns.md` 
 
 | Level | Enters when | Action |
 |-------|-------------|--------|
-| `observed` | 1 correction | Record only — never apply |
+| `observed` | 1 correction | Record only — hold automatic application |
 | `pattern` | 2 same-direction corrections | Propose: "Should [task type] default to P[n]?" |
 | `confirmed` | Explicit user yes | Apply automatically; cite the rule when applying |
 | `locked` | Confirmed + several applications with no pushback | Apply without citing each time; revisit only on contradiction |
