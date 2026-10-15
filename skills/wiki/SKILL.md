@@ -66,6 +66,7 @@ Read [Wiki Guidelines](references/guidelines.md) for writing, linking, and maint
 ## Quality control
 
 - Review new pages for template compliance and link accuracy
+- If a rename already broke inbound links, restore a redirect/stub first, then fix high-traffic inbound pages
 - Periodic cleanup of orphaned pages and broken internal links
 - Prefer version control for history and revert
 - Keep a changelog or "recently updated" surface for team visibility
