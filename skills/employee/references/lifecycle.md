@@ -6,8 +6,8 @@
 
 **Actions:**
 ```bash
-mkdir -p ~/Clawic/data/employee/employees/{name}/memory
-mkdir -p ~/Clawic/data/employee/employees/{name}/logs
+mkdir -p <state_root>/employees/{name}/memory
+mkdir -p <state_root>/employees/{name}/logs
 # Create employee.json with role config
 # Update registry.json
 # Initialize memory/context.md
@@ -16,25 +16,28 @@ mkdir -p ~/Clawic/data/employee/employees/{name}/logs
 **Required info:**
 - Name (unique identifier)
 - Role (single domain)
-- Skill source (link existing, embed new, or ClawHub slug)
+- Skill source (link existing, embed new, or registry slug)
 - Initial permissions
 
 **Example:**
 ```
 User: "Hire Luna as a research assistant"
-→ Creates ~/Clawic/data/employee/employees/luna/
+→ Creates <state_root>/employees/luna/
 → Links to researcher skill
 → Sets autonomy: shadow
 → Updates registry.json
 ```
+
+Start new hires at `shadow` unless the user explicitly chooses another level
+that still respects the promotion ladder.
 
 ## Train
 
 **Syntax:** `train {name} on [documents/context]`
 
 **Actions:**
-- Append to `memory/context.md`
-- Optionally create domain-specific files
+- Append to `<state_root>/employees/{name}/memory/context.md`
+- Optionally create domain-specific memory files under the same employee tree
 - Update employee stats
 
 **Example:**
@@ -53,7 +56,7 @@ User: "Train Luna on our company style guide"
 - Load employee config
 - Load memory
 - Spawn as subagent
-- Execute task
+- Execute task inside permissions
 - Log result
 - Update stats
 
@@ -82,12 +85,14 @@ User: "Train Luna on our company style guide"
 - Ready for promotion to review level
 ```
 
+Load `references/autonomy.md` before recommending a promotion.
+
 ## Promote / Demote
 
 **Syntax:** `promote {name}` or `demote {name}`
 
 **Actions:**
-- Verify criteria (see autonomy.md)
+- Verify criteria (see `references/autonomy.md`)
 - Update `permissions.autonomyLevel`
 - Log change
 
@@ -100,15 +105,15 @@ User: "Train Luna on our company style guide"
 **Actions:**
 - Update `status` in employee.json
 - Update registry.json
-- Paused employees don't receive tasks
+- Paused employees stop receiving tasks
 
 ## Retire
 
 **Syntax:** `retire {name}`
 
 **Actions:**
-- Set status: "retired"
-- Archive folder (optional: move to ~/Clawic/data/employee/archive/)
+- Set status: `retired`
+- Optionally archive the folder under `<state_root>/archive/` after confirmation
 - Update registry.json
 - Employee no longer receives tasks
 
@@ -121,9 +126,9 @@ User: "Train Luna on our company style guide"
 **Actions:**
 - Copy employee.json (reset stats)
 - Create fresh memory/context.md
-- Don't copy logs
+- Omit logs when copying
 
-**Use case:** Create variant with different permissions or personality.
+**Use case:** Create a variant with different permissions or personality.
 
 ## List
 
