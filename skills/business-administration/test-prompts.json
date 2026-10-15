@@ -34,7 +34,7 @@
       "stakeholder",
       "vanity metrics"
     ],
-    "actual": "Lead with ROI, resource needs, and timeline; surface strategic trade-offs (if X, then Y waits). Map stakeholder resistance by role with mitigations, define 30/60/90 adoption metrics plus leading failure indicators, and strip vanity activity metrics that enable no decision. Tailor board vs department messaging and call out second-order investor/employee reactions before the announcement.",
+    "actual": "Lead with ROI, resource needs, and timeline; surface strategic trade-offs (if X, then Y waits). Map stakeholder resistance by role with mitigations, define 30/60/90 adoption metrics plus leading failure indicators, and strip vanity metrics that measure activity without enabling a decision. Tailor board vs department messaging and call out second-order investor/employee reactions before the announcement.",
     "pass": true
   }
 ]
