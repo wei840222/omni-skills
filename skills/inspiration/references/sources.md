@@ -327,3 +327,31 @@ Complete reference of inspiration sources organized by category.
 | **Uizard** | Wireframe to UI | https://uizard.io |
 | **Khroma** | AI color tool | https://khroma.co |
 | **Magician** | Figma AI plugin | https://magician.design |
+
+## Gate 6 source freshness (2026-10-16)
+
+Automation HEAD/GET checks during handoff:
+
+| URL | Result |
+|-----|--------|
+| https://agentskills.io/specification | HTTP 200 |
+| https://mobbin.com | HTTP 200 |
+| https://screenlane.com | HTTP 200 |
+| https://pageflows.com | HTTP 200 |
+| https://landingfolio.com | HTTP 200 |
+| https://lapa.ninja | HTTP 200 |
+| https://saaspages.xyz | HTTP 200 |
+| https://awwwards.com | HTTP 200 |
+| https://godly.website | HTTP 200 |
+| https://civitai.com | HTTP 200 |
+| https://prompthero.com | HTTP 200 |
+| https://lexica.art | HTTP 200 |
+| https://dribbble.com | HTTP 202 |
+| https://collectui.com | HTTP 200 |
+| https://coolors.co | HTTP 200 |
+| https://lottiefiles.com | HTTP 200 |
+| https://midjourney.com/showcase | HTTP 403 from automation UA — keep URL; verify in browser |
+| https://behance.net | HTTP 403 from automation UA — keep URL; verify in browser |
+
+Treat gallery catalogs as living indexes: prefer actively maintained sources (Mobbin, Godly, Awwwards, Civitai, PromptHero) when freshness matters. Do not invent pricing tiers from memory.
+
