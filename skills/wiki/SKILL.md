@@ -1,19 +1,10 @@
 ---
 name: wiki
-slug: wiki
-version: 1.0.0
-description: Build wikis people actually read — structure pages, cross-link, and keep content fresh.
-homepage: https://clawic.com/skills/wiki
+description: Build wikis people actually read — structure pages, cross-link, and keep content fresh. Use when creating wiki pages, fixing links/redirects, or auditing stale wiki content.
 metadata:
-  clawdbot:
-    displayName: Wiki
-    emoji: "📚"
-  os: all
-  tags:
-  - documentation
-  - knowledge-base
-  - content-management
-  author: Clawic
+  version: "1.0.0"
+  openclaw: '{"emoji":"📚"}'
+  related-skills: '{"documentation":"Product/README/API documentation systems rather than wiki page craft.","wiki-js":"Wiki.js deployment and configuration traps.","pkm":"Personal atomic-note knowledge bases.","notes":"Capture into note apps rather than wiki IA.","markdown":"Markdown syntax and parser compatibility."}'
 ---
 
 # Wiki Creation and Maintenance
@@ -25,26 +16,9 @@ metadata:
 - **Keep pages focused:** one topic per page, split when exceeding ~500 words
 - **Include Getting Started page** that maps the entire wiki structure
 
-## Writing Guidelines
+## Writing and Maintenance Guidelines
 
-- **Write for zero-context readers** — never assume prior knowledge
-- **Write procedures as numbered steps,** not paragraphs
-- **Include examples and diagrams** wherever possible — wikis without examples are just glossaries
-- **Mark uncertain content explicitly** — use "[needs verification]" or "[outdated]" tags
-
-## Linking and Organization
-
-- **Cross-link aggressively** — every mention of another concept should link to its page
-- **Use categories/tags** for discoverability beyond the link graph
-- **Create redirect pages** when renaming — never break existing links
-- **Maintain link integrity** when restructuring content
-
-## Content Maintenance
-
-- **When updating information,** update ALL pages that reference it (grep for mentions)
-- **Maintain a changelog** or "recently updated" page for team visibility
-- **Regular content audits** — mark outdated information before it misleads
-- **Enforce consistent formatting** across all contributors
+Read [Wiki Guidelines](references/guidelines.md) for detailed instructions on writing, linking, and maintaining content. Read [Structure](references/structure.md) for templates.
 
 ## Quality Control
 
