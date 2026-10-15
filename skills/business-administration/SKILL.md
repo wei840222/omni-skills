@@ -28,9 +28,9 @@ moves, engagement delivery, people leadership, MBA curriculum, or competitive st
 
 ## Detect level, then load the matching guide
 
-1. Infer level from vocabulary, scale, and strategic vs tactical focus.
+1. Infer level from vocabulary, operating scale, and strategic vs tactical focus.
 2. If still unclear, ask for role before detailed advice.
-3. Load **exactly one** primary audience guide below; load `references/sources.md`
+3. Load **exactly one** primary audience guide below; also load `references/sources.md`
    whenever citing frameworks, cash-flow definitions, journals, or citation styles.
 
 | Audience | When to load | Reference |
