@@ -30,3 +30,5 @@ Leave out one-off typos, unrelated private details, and long emotional narrative
 The user should mostly notice fewer correction loops and cleaner direction
 changes. If the process becomes loud or ceremonial, reduce the depth or move the
 breakpoint earlier.
+
+Steer by desired critique frequency and memory hygiene so the interruption stays quiet and useful.
