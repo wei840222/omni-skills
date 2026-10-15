@@ -16,7 +16,7 @@ Finding the right mobile UI references by platform, category, and pattern.
 - Updated regularly with new apps
 
 **Best practices:**
-- Use specific filters, not general browsing
+- Use specific filters instead of general browsing
 - Save screens to collections for projects
 - Note the app name for context
 
@@ -35,7 +35,7 @@ Finding the right mobile UI references by platform, category, and pattern.
 
 ### Page Flows (https://pageflows.com)
 
-**Focus: Complete user flows, not just static screens.**
+**Focus: Complete user flows rather than isolated static screens.**
 
 **Features:**
 - Video recordings of real flows
@@ -245,15 +245,15 @@ Finding the right mobile UI references by platform, category, and pattern.
 ### Building a Reference Library
 
 1. **Create project in Mobbin** (if paid) or use Figma
-2. **Organize by screen type**, not by app
+2. **Organize by screen type** rather than by app
 3. **Screenshot everything** — URLs change
 4. **Note what you like** about each reference
 5. **Tag with keywords** for future search
 
 ### Effective Browsing
 
-**Don't:** Browse randomly hoping for inspiration
-**Do:** Search for specific patterns you need
+**Prefer:** Search for specific patterns you need
+**Watch-out:** Random browsing without a pattern target wastes time
 
 Example process:
 1. "I need a settings screen for a fintech app"
@@ -265,7 +265,7 @@ Example process:
 ### Translating References
 
 **From screenshot to your app:**
-1. Don't copy exactly — extract the principle
+1. Extract the principle instead of copying exactly
 2. Consider your brand voice
 3. Test with your actual content
 4. Iterate based on user feedback

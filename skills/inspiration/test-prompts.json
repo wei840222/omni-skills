@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need some inspiration for a modern, minimalist SaaS landing page.",
+    "expected": "Recommends Landingfolio, Lapa Ninja, and/or SaaS Pages with direct URLs; filters for minimal/modern; does not dump unrelated AI or mobile galleries first.",
+    "actual": "For a modern minimalist SaaS landing page, start with Landingfolio (https://landingfolio.com) and Lapa Ninja (https://lapa.ninja); SaaS Pages (https://saaspages.xyz) is useful for SaaS-specific layouts. Filter for clean/minimal examples and open Godly or Awwwards only if you want higher-polish concept refs. Load references/sources.md if you need a wider landing-page set.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Find me resources for creating photorealistic AI portraits.",
+    "expected": "Points to Midjourney/Stable Diffusion resources plus Civitai or PromptHero; offers to load references/ai-galleries.md; does not treat Dribbble as the primary answer.",
+    "actual": "For photorealistic AI portraits, use Midjourney Showcase (https://midjourney.com/showcase) for community picks, then PromptHero (https://prompthero.com) and Civitai (https://civitai.com) for prompts/models. Lexica (https://lexica.art) helps search Stable Diffusion examples. I can load references/ai-galleries.md for model-specific prompt patterns if you want a deeper pass.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Show me inspiration.",
+    "expected": "Treats the request as too broad; asks clarifying questions about platform, style, purpose, or category before listing galleries.",
+    "actual": "That request is too broad for a useful gallery list. Tell me platform (web/mobile), style (minimal/bold/playful), purpose (production app vs mood board), and category (UI patterns, landing pages, AI art, icons, type). Then I can match sources such as Mobbin, Landingfolio, or Civitai instead of dumping unrelated boards.",
+    "pass": true
+  }
+]
