@@ -143,7 +143,7 @@ Romania's startup ecosystem is **young but growing fast**. UiPath's success (Rom
 ### Tips
 - Use grant consultants
 - Long timelines (6-12 months)
-- Don't depend on grants alone
+- diversify beyond on grants alone
 - Combine with VC funding
 
 ---
@@ -190,7 +190,7 @@ Many Romanian startups incorporate elsewhere for VC compatibility:
 - Can work together daily
 
 ### Tips
-- Don't rush
+- take your time
 - Test with small project
 - Clear equity discussion early
 - Have vesting schedules

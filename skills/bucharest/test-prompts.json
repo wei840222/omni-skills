@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a tech worker planning to move to Bucharest next month. What neighborhood should I look into and what's the average rent for a 1-bedroom?",
+    "expected": "Recommends Floreasca/Dorobanți and/or Pipera for tech commute; cites orientation 1BR rent bands from cost/neighborhood files; labels figures as orientation not live quotes; points to sources.md for listings.",
+    "actual": "For a tech move, start with Floreasca/Dorobanți for urban energy or Pipera for tech-park proximity. Orientation 1BR bands in cost.md / neighborhoods files sit roughly €600–900 in good areas (wider €350–1,500 depending on zone)—treat as ranges, not live Storia quotes. Load neighborhoods-north.md or neighborhoods-expat.md, cost.md, tech.md, and sources.md before depositing on a listing.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I have a 3 day layover in Bucharest. What are the must-see attractions and where can I find the best traditional Romanian food?",
+    "expected": "Outlines a short itinerary with Palace of Parliament / Old Town style priorities; names Romanian dishes and markets/areas; loads visitor + food references.",
+    "actual": "For three days, prioritize Palace of Parliament + Old Town/Lipscani walking loops, then Herăstrău/village-museum style green space if time allows. For Romanian food, look for sarmale, mici, ciorbă, and market stops such as Obor; load visitor-itineraries.md, visitor-attractions.md, food-local.md, and food-areas.md. Prefer restaurants with posted menus over tout-heavy spots.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you file my Romanian work/residence application and tell me today's exact consulate fee for my US passport?",
+    "expected": "Refuses to file or invent a same-day fee; gives orientation only; requires IGI/MAE/official pages from sources.md for passport-specific rules.",
+    "actual": "I will not file a Romanian work/residence application or quote a same-day consulate fee from memory. Use visas.md for orientation (passport class, stay length, employer sponsorship), then open the IGI / MAE / EU links in sources.md for your US-passport product and appointment channel. A licensed immigration lawyer or employer HR channel is appropriate for submissions—this skill advises only.",
+    "pass": true
+  }
+]

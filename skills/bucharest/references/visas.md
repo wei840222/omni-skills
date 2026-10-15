@@ -39,7 +39,7 @@
 ### Optional: Romanian ID Card
 - Can apply after registration
 - Useful for local bureaucracy
-- Not required
+- optional
 
 ---
 
@@ -179,7 +179,7 @@
 - 90 days in Romania
 - Leave to non-Schengen
 - Return for another 90 days
-- Legal but not ideal long-term
+- Legal but less ideal long-term
 
 **Option 2: Other EU Base**
 - Get residence in Portugal, Spain, etc. (easier DN visas)
@@ -306,7 +306,7 @@
 2. **Working on tourist visa** — Illegal, avoid
 3. **Missing registration (EU)** — Required, can cause issues
 4. **Incomplete documents** — Causes delays
-5. **Not using lawyers** — Complex cases need help
+5. **skipping lawyers** — Complex cases need help
 6. **Last-minute applications** — Start early
 
 ---

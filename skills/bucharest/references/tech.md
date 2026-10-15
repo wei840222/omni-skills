@@ -299,7 +299,7 @@ Bucharest offers:
 - Talent competition increasing
 - Salary expectations rising
 - Some exodus to remote/international
-- Infrastructure improving but not perfect
+- Infrastructure improving but still improving
 
 ### Opportunities
 - Lower competition than Western hubs

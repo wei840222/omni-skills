@@ -64,7 +64,7 @@ The "expat capital" of Bucharest. Modern apartment complexes, international scho
 
 ### Verdict
 **Great for**: Families with kids, tech workers, those wanting easy expat life
-**Avoid if**: Single, want urban energy, hate suburbs
+**Alternative Profile**: Single, want urban energy, hate suburbs
 
 ---
 
@@ -125,7 +125,7 @@ More established than Pipera, mix of old villas and new developments. Near Băne
 
 ### Verdict
 **Great for**: Families, nature lovers, frequent flyers, those who drive
-**Avoid if**: Don't have car, want urban life
+**Alternative Profile**: Car-free and wants denser urban life
 
 ---
 

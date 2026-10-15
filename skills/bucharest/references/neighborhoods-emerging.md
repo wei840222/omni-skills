@@ -62,11 +62,11 @@ Large residential area in eastern Bucharest, dominated by communist-era blocks b
 - Choose blocks near metro
 - Newer renovated apartments exist
 - IOR park area is nicest
-- Avoid isolated blocks far from main roads
+- Prefer blocks near main roads, transit, and evening foot traffic
 
 ### Verdict
 **Great for**: Budget-conscious, students, those wanting real Romania
-**Avoid if**: Need central access daily, sensitive to aesthetics
+**Alternative Profile**: Need central access daily, sensitive to aesthetics
 
 ---
 
@@ -122,8 +122,8 @@ Southern Bucharest, similar communist-era blocks as Titan but with M2 metro line
 - Less safe perception (mostly unfounded)
 
 ### Verdict
-**Great for**: Extreme budget, those who don't care about neighborhood
-**Avoid if**: Want any social life, comfort matters
+**Great for**: Extreme budget when neighborhood amenities are a low priority
+**Alternative Profile**: Want any social life, comfort matters
 
 ---
 
@@ -181,7 +181,7 @@ Western Bucharest neighborhood transformed by new M5 metro line (opened 2020). F
 
 ### Verdict
 **Great for**: Families on budget, those wanting value + metro
-**Avoid if**: Need central nightlife, want trendy
+**Alternative Profile**: Need central nightlife, want trendy
 
 ---
 
@@ -236,8 +236,8 @@ Western edge of Bucharest, large residential area with communist blocks and some
 - Aesthetically poor
 
 ### Verdict
-**Great for**: Extreme budget, don't care about area
-**Avoid if**: Safety concerns, need social life
+**Great for**: Extreme budget when area amenities are a low priority
+**Alternative Profile**: Safety concerns, need social life
 
 ---
 
@@ -275,6 +275,6 @@ Western edge of Bucharest, large residential area with communist blocks and some
 
 ### Safety
 - **Generally safe** — Bucharest overall is safe
-- **Petty crime** — lock doors, don't flash valuables
+- **Petty crime** — lock doors; keep phones and bags low-profile
 - **Night** — main streets fine, avoid isolated blocks
 - **Trust instincts** — if area feels off, look elsewhere

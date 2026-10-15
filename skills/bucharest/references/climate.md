@@ -117,7 +117,7 @@ Bucharest has a **humid continental climate**: hot summers, cold winters, with p
 - Drink water constantly
 - Malls/museums for AC
 - Light, loose clothing
-- Avoid alcohol in heat
+- Prefer water and shade during heatwaves; limit alcohol outdoors in peak heat
 
 ### Winter Cold Snaps
 - -15°C or colder possible

@@ -280,7 +280,7 @@ Most furnished apartments include:
 ### Standard Practice
 | Service | Tip |
 |---------|-----|
-| Restaurant | 10% (if not included) |
+| Restaurant | 10% (if excluded) |
 | Bar | Round up |
 | Delivery | 5-10 RON |
 | Cafe | Optional, round up |

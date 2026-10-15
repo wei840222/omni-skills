@@ -52,7 +52,7 @@ The historic heart of Bucharest, transformed from decaying ruins (2000s) to pede
 
 ### Verdict
 **Great for**: Short stays (1-3 nights), party people, those who love action
-**Avoid if**: You value sleep, have kids, staying 1+ month
+**Alternative Profile**: You value sleep, have kids, staying 1+ month
 
 ---
 
@@ -109,7 +109,7 @@ The geographic center of Bucharest, named after the University square. Mix of st
 
 ### Verdict
 **Great for**: Practical base, students, first month in Bucharest
-**Avoid if**: Want quiet residential feel, luxury
+**Alternative Profile**: Want quiet residential feel, luxury
 
 ---
 
@@ -165,7 +165,7 @@ Bucharest's "grand boulevard" — historic architecture, museums, luxury shops. 
 
 ### Verdict
 **Great for**: Culture lovers, those wanting elegance, medium-term stays
-**Avoid if**: Budget-conscious, need parking
+**Alternative Profile**: Budget-conscious, need parking
 
 ---
 
@@ -223,7 +223,7 @@ Academic neighborhood near University Politehnica and Cotroceni Palace (presiden
 
 ### Verdict
 **Great for**: Families, students, quiet-seekers, long-term
-**Avoid if**: Want nightlife, need to be in center daily
+**Alternative Profile**: Want nightlife, need to be in center daily
 
 ---
 

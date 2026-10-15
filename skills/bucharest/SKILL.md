@@ -1,186 +1,121 @@
 ---
 name: bucharest
-slug: bucharest
-version: 1.0.0
-description: Navigate Bucharest as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/bucharest
+description: >
+  Navigate Bucharest for visitors, residents, tech workers, students, and
+  entrepreneurs: neighborhoods (Old Town, Floreasca/Dorobanți, Pipera/Băneasa),
+  STB/metro + Bolt routing, cost bands in RON/EUR, EU/Schengen stay orientation,
+  Romanian food, climate, and local services. Use for Bucharest stay, move,
+  commute, or work-base decisions. Prefer `romania` for multi-city Romania
+  routing, `travel`/`travel-planning` for generic trip systems, and `expat` for
+  full cross-border move project tracking.
 metadata:
-  clawdbot:
-    emoji: 🏛️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Bucharest
+  version: "1.1.0"
+  openclaw: '{"emoji":"🏛️"}'
+  related-skills: '{"booking":"Lodging search and reservation completion after a Bucharest neighborhood base is chosen.","dubai":"Peer city-guide pattern for another dense metro when comparing city skills.","expat":"Cross-border move project tracking beyond Bucharest neighborhood and settling advice.","romania":"Country-level multi-city Romania routing when Bucharest is only one stop.","romanian":"Everyday Romanian for menus, bookings, and on-the-ground talk.","toronto":"Peer city-guide pattern with immigration-heavy framing when comparing city skills.","travel":"Standing multi-destination travel records when Bucharest is one city among several.","travel-planning":"Day-by-day multi-city itineraries when the trip leaves Bucharest."}'
 ---
 
-## When to Use
+## State location
 
-User asks about Bucharest for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Bucharest continuity state may exist in `<workspace>/bucharest/`, `<workspace>/memory/bucharest/`, or `~/bucharest/`. Before reading or writing state, resolve `<state_root>` as follows:
 
-## Quick Reference
+1. Use an explicitly configured path when one exists (host config or user override).
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/bucharest/`, `<workspace>/memory/bucharest/`, `~/bucharest/`.
+3. If several candidate directories exist, use only the highest-precedence one and report the separate copies; do not merge or cross-write.
+4. If none exists and the user explicitly wants continuity, create `<workspace>/bucharest/` by default.
+5. If the host cannot supply `<workspace>`, read an existing `~/bucharest/` only; otherwise ask for a state root before creating data.
 
-| Topic | File |
-|-------|------|
-| **Setup** | |
-| Memory template | `memory-template.md` |
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Old Town & Center | `neighborhoods-center.md` |
-| Floreasca & Dorobanți | `neighborhoods-north.md` |
-| Pipera & Băneasa | `neighborhoods-expat.md` |
-| Emerging & budget areas | `neighborhoods-emerging.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Romanian cuisine | `food-local.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Practical (markets, delivery) | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (metro, buses, taxis) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & seasonal tips | `climate.md` |
-| Local services (banking, SIM) | `local.md` |
-| **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & taxes | `business.md` |
-| Visas & residency | `visas.md` |
-| Startups & funding | `startup.md` |
-| **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Driving & car ownership | `driving.md` |
+Use the selected `<state_root>` for every state operation in this invocation. Create or update `<state_root>/memory.md` only when the user wants context kept across sessions. Legacy `~/Clawic/data/bucharest/` is a migration source only—keep it out of active lookup; move only with explicit user consent (copy, validate, cutover).
 
-## Core Rules
+Research notes and official source URLs live in `references/sources.md` (progressive disclosure).
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, entrepreneur
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
+Expanded domain rules, seasons, costs orientation, and local pitfalls live in `references/domain.md` (progressive disclosure).
 
-### 2. EU Member Advantage
-Romania joined EU in 2007. Key implications:
-- **EU/EEA citizens**: No visa needed, free movement
-- **Non-EU**: Schengen visa for short stays, work permit for employment
-- **Euro not adopted**: Uses Romanian Leu (RON), but EUR widely accepted in tourist areas
-- **Digital nomads**: Growing infrastructure, no specific visa yet but tourist visa allows 90 days
-See `visas.md` for current requirements and processes.
+## When to use
 
-### 3. Cultural Context
-Bucharest blends Eastern European traditions with rapid modernization:
-- **Language**: Romanian (Latin-based), English widely spoken by young people
-- **Religion**: Orthodox Christian majority, churches everywhere
-- **Tipping**: 10% standard, often not included in bill
-- **Smoking**: Banned indoors since 2016, but terraces common
-See `culture.md` for detailed guidance.
+Use for **Bucharest (city + metro area)** decisions: visit length and neighborhood base, relocation fit, metro/STB/ride-hailing routing, cost bands, safety street-smarts, tech/work base, visas and residency *orientation*, Romanian food, climate, schools, healthcare orientation, and driving-in-city tradeoffs.
 
-### 4. Weather Reality
-- **Summer (Jun-Aug)**: 30-35°C, can reach 40°C in heatwaves
-- **Winter (Dec-Feb)**: -5 to 5°C, snow common, can drop to -15°C
-- **Spring/Autumn**: Pleasant 15-25°C, ideal for visiting
-- **Indoor heating**: Universal, winters are comfortable indoors
-See `climate.md` for monthly breakdown and seasonal tips.
+Do **not** use this skill as the sole source for a multi-city Romania itinerary (`romania`), a multi-country standing travel system (`travel`), generic day packing across cities (`travel-planning`), or a full move project board (`expat`).
 
-### 5. Current Data (Feb 2026)
+Classify the user first: visitor, planning-to-move, already-resident, tech/remote worker, student, or entrepreneur. Ask only for the next missing detail that changes the recommendation (dates/month, budget currency, passport, kids, Romanian/English comfort, Old Town vs north-corridor priority).
 
-| Item | Range |
-|------|-------|
-| 1BR rent (Center) | €500-800/month |
-| 1BR rent (Floreasca) | €600-1,000/month |
-| Senior SWE salary | €3,500-6,000/month net |
-| Metro monthly pass | 80 RON (~€16) |
-| Dinner for two (mid-range) | 200-350 RON (~€40-70) |
-| International school fees | €8,000-20,000/year |
+## Reference routing
 
-### 6. Cost Reality
-Bucharest is very affordable compared to Western Europe:
-- **Housing**: 30-40% of budget, still cheap by EU standards
-- **Food**: Excellent value, local restaurants very affordable
-- **Healthcare**: Public free for residents, private affordable (~€50/consultation)
-- **Transport**: Extremely cheap, metro/bus passes under €20/month
-- **Utilities**: Low compared to Western Europe (~€100-150/month total)
+Load the smallest set that answers the current question. Prefer `domain.md` + one topic file before opening the full neighborhood or food set.
 
-### 7. Transit Options
-Bucharest has decent public transit:
-- **Metro**: 4 lines, covers main areas, fast and reliable
-- **Buses/Trams/Trolleys**: Extensive network, can be crowded
-- **Ride-hailing**: Bolt, Uber — very popular and cheap (~€3-5 most rides)
-- **Driving**: Possible but traffic is notorious, parking difficult in center
-Many residents use a combination. See `transport.md` and `driving.md`.
+| Topic | File | When to load |
+| --- | --- | --- |
+| Continuity setup | `references/setup.md` | User wants persistent Bucharest context or empty `<state_root>/` |
+| Memory structure | `assets/memory-template.md` | Creating/updating `<state_root>/memory.md` after consent |
+| Core rules, traps, context | `references/domain.md` | First substantive answer; always for money/season/visa framing |
+| Official source map | `references/sources.md` | Before booking-critical fares, entry rules, residency, or agency claims |
+| Visitor attractions | `references/visitor-attractions.md` | Must-see vs skip lists |
+| Visitor itineraries | `references/visitor-itineraries.md` | 1/3/7-day frames |
+| Visitor lodging | `references/visitor-lodging.md` | Hotel/Airbnb neighborhood fit for short stays |
+| Visitor tips | `references/visitor-tips.md` | Day trips, packing, practical visitor traps |
+| Neighborhoods index | `references/neighborhoods-index.md` | Quick neighborhood comparison |
+| Old Town & Center | `references/neighborhoods-center.md` | Historic core / nightlife bases |
+| Floreasca & Dorobanți | `references/neighborhoods-north.md` | North professional corridor |
+| Pipera & Băneasa | `references/neighborhoods-expat.md` | Expat / family / tech-park bases |
+| Emerging & budget areas | `references/neighborhoods-emerging.md` | Titan / Berceni / Drumul Taberei style value bases |
+| Choosing guide | `references/neighborhoods-choosing.md` | Profile → neighborhood matching |
+| Food overview | `references/food-overview.md` | Dining scene map |
+| Romanian cuisine | `references/food-local.md` | Local dishes and markets |
+| International / fine dining | `references/food-international.md` | Non-local options |
+| Food areas | `references/food-areas.md` | Where to eat by neighborhood |
+| Food practical | `references/food-practical.md` | Hours, tipping, delivery |
+| Moving & settling | `references/resident.md` | Contracts, utilities, everyday resident life |
+| Transport | `references/transport.md` | Metro, STB, Bolt/Uber |
+| Cost of living | `references/cost.md` | Rent bands and monthly budgets (ranges, not live quotes) |
+| Safety | `references/safety.md` | Street crime patterns and area awareness |
+| Climate | `references/climate.md` | Season, heat, winter |
+| Local services | `references/local.md` | Banking, SIM, paperwork orientation |
+| Tech industry | `references/tech.md` | Salaries, remote work, offices |
+| Business setup | `references/business.md` | Company / tax orientation |
+| Visas & residency | `references/visas.md` | Tourist stay, work, residency paths (verify passport) |
+| Startups | `references/startup.md` | Ecosystem and funding orientation |
+| Culture | `references/culture.md` | Customs, Orthodox calendar, tipping |
+| Healthcare | `references/healthcare.md` | Public / private orientation |
+| Education | `references/education.md` | Schools and universities orientation |
+| Lifestyle | `references/lifestyle.md` | Expat social life |
+| Driving | `references/driving.md` | Car ownership vs city transit |
 
-### 8. Neighborhood Matching
+## Core workflow
 
-| Profile | Best Areas |
-|---------|------------|
-| Young professionals | Floreasca, Dorobanți, Aviatorilor |
-| Families (expat) | Pipera, Băneasa, Corbeanca |
-| Students | Regie, Politehnica area, Cotroceni |
-| Budget-conscious | Titan, Berceni, Drumul Taberei |
-| Nightlife lovers | Old Town (Centru Vechi), Lipscani |
-| Quiet residential | Primăverii, Herăstrău area |
+1. **Lock context.** Role, month, length of stay, passport (for entry only), budget currency, language comfort, Old Town vs north/Pipera priority, and whether kids or office commute matter.
+2. **Answer the immediate question first.** Then load the smallest reference set from the table—do not dump every file.
+3. **Money and paperwork before bookings.** Treat rent bands, metro/STB fares, and visa fees as orientation. Re-open `references/sources.md` and official pages before non-refundable flights, multi-month leases, or residency filings.
+4. **Neighborhood from routine, not hype.** Match late-night return path, commute (metro vs Bolt), noise tolerance (Old Town nights), and budget.
+5. **Entry is passport-specific.** Tourist stay windows and visa needs vary. Orient with `references/visas.md`, then verify on IGI / MAE / EU pages for that nationality and travel date.
+6. **Persist only with consent.** Follow `references/setup.md`; keep passport numbers, bank credentials, and full address dumps out of reusable chat logs and `<state_root>/`.
 
-## Tech Hub Context
+## Core rules (durable)
 
-Bucharest is Romania's Silicon Valley:
-- **Major employers**: UiPath (unicorn), Bitdefender, eMag, local offices of Google, Amazon, Microsoft
-- **Tech parks**: Pipera area has most tech offices
-- **Outsourcing hub**: Many Western companies have dev centers
-- **Startup scene**: Growing fast, several incubators and VCs
-- **Salaries**: High for Romania, competitive for Eastern Europe
+1. Identify role and timeline before neighborhood or cost advice.
+2. Separate **orientation euro/RON ranges** from **live quotes** for rent, fares, and visa fees.
+3. Romania is EU; currency remains **RON** (EUR widely accepted in tourist zones)—quote both when budgeting.
+4. Prefer **metro + STB + Bolt/Uber** for city trips; center parking and rush-hour traffic are high-friction.
+5. Use **app-based or official taxi stands** for airport and night rides; treat street hailing as high-risk.
+6. Winters are cold and summers can spike to heatwave levels—pack and schedule around `climate.md`.
+7. Romanian is Latin-based; English is common among younger/tech crowds and uneven elsewhere—lead with Romanian basics when needed via `romanian`.
+8. For multi-city Romania trips, hand off routing to `romania` after the Bucharest city block is set.
 
-See `tech.md` and `startup.md` for detailed industry information.
+## Prefer these patterns
 
-## Bucharest-Specific Traps
+- Match Floreasca/Dorobanți for young professionals; Pipera/Băneasa for family/expat/tech-park routines; Old Town for short nightlife-heavy visits; Titan/Berceni/Drumul Taberei for budget bases.
+- Quote visa/residency figures only from live official pages (or mark unverified).
+- Visit rental listings in person before deposits; Storia / listing sites are search surfaces, not escrow.
+- For short culture trips, keep lodging walkable to Old Town / center unless the user wants north quiet.
+- Before long rentals, map deposit custom, building fees, and winter heating schedule quirks.
+- Verify tourist stay and residency products per passport on government sources listed in `references/sources.md`.
 
-- **Traffic underestimation** — Rush hours (7-10am, 5-8pm) are brutal. Metro is faster.
-- **Street numbering** — Often confusing, use Google Maps pin not address.
-- **Taxi scams** — ONLY use apps (Bolt, Uber). Never hail on street.
-- **ATM fees** — Use Revolut or withdraw from BRD/BCR ATMs to avoid fees.
-- **Card acceptance** — Improving but always carry some cash for small shops.
-- **Stray dogs** — Reduced dramatically but still present in suburbs.
-- **Winter potholes** — Streets deteriorate in winter, watch your step.
-- **Heating schedule** — Central heating in old buildings is on city schedule.
-- **Romanian time** — "5 minutes" can mean 20. Factor in flexibility.
-- **Sunday closures** — Many shops close or reduce hours on Sundays.
+## Safety and privacy
 
-## Legal Awareness
+- Advise; do not claim real-time crime maps or guarantee neighborhood safety block-by-block.
+- No live network actions, bookings, or government filings without explicit user instruction.
+- Keep credentials, passport images, residence-card numbers, and payment secrets out of `<state_root>/`.
+- Mark unverified mutable facts clearly when official pages cannot be opened.
 
-Key laws visitors/residents must know:
-- **Drugs**: Illegal, strictly enforced
-- **Alcohol**: Legal at 18+, no drinking in public spaces in some areas
-- **Smoking**: Banned in all enclosed public spaces
-- **LGBTQ+**: Legal, but social acceptance varies. Bucharest more liberal.
-- **Photography**: Generally free, but ask before photographing people
-- **Protests**: Common and legal, occasionally block traffic
+## Source freshness
 
-See `safety.md` for comprehensive guidance.
-
-## Architecture
-
-```
-~/Clawic/data/bucharest/
-├── memory.md          # User profile and history
-```
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dubai` — Middle East city guide with practical relocation insights
-- `toronto` — North American city guide with immigration focus
-- `travel` — General travel planning and itineraries
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/bucharest
-- Latest version: https://clawic.com/skills/bucharest
+Package orientation was bulk-aligned on 2026-10-16 against the URL map in `references/sources.md`. Before any booking-critical or legal claim, open the matching official page again for the user's passport and travel month.

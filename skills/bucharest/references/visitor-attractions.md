@@ -1,6 +1,6 @@
 # Bucharest Attractions
 
-## Must-See (Don't Miss)
+## Must-see (priority list)
 
 ### Palace of Parliament
 - **What**: Second-largest administrative building in the world (after Pentagon)
@@ -8,7 +8,7 @@
 - **Time needed**: 2-3 hours with guided tour
 - **Tips**: Book online, bring ID, tours in English available
 - **Cost**: ~50 RON (~€10)
-- **Skip if**: You're not interested in architecture or history
+- **Skip if**: You're less interested in architecture or history
 
 ### Old Town (Centru Vechi / Lipscani)
 - **What**: Historic center with cobblestone streets, bars, restaurants
@@ -24,7 +24,7 @@
 - **Time needed**: 2-3 hours
 - **Tips**: Combine with Herăstrău Park, go on weekdays for fewer crowds
 - **Cost**: ~30 RON (~€6)
-- **Skip if**: Not interested in folk culture
+- **Skip if**: less interested in folk culture
 
 ### Herăstrău Park
 - **What**: Largest park in Bucharest, surrounds lake
@@ -40,7 +40,7 @@
 - **Time needed**: 30 min - 1 hour
 - **Tips**: See the National Art Museum, former Royal Palace
 - **Cost**: Free (museum ~20 RON)
-- **Skip if**: Not interested in recent history
+- **Skip if**: less interested in recent history
 
 ### Romanian Athenaeum
 - **What**: Stunning 19th-century concert hall
@@ -77,14 +77,14 @@
 - **What**: Covered passage with yellow glass roof
 - **Why visit**: Photogenic, cafes, hookah bars
 - **Time needed**: 20-30 min
-- **Tips**: Go for the architecture, skip overpriced cafes
+- **Tips**: Go for the architecture; choose cafes with clear menus/reviews
 - **Cost**: Free
 
 ### Stavropoleos Church
 - **What**: Small 18th-century Orthodox church
 - **Why visit**: Beautiful architecture, serene courtyard
 - **Time needed**: 20-30 min
-- **Tips**: Hidden gem in Old Town, don't miss courtyard
+- **Tips**: Hidden gem in Old Town—make time for the courtyard
 - **Cost**: Free
 
 ## Skip Unless Interested
