@@ -1,18 +1,8 @@
-# Employee Template
-
-Copy this structure to initialize the employee system.
-
-## Initial Setup
-
-```bash
-mkdir -p ~/Clawic/data/employee/employees ~/Clawic/data/employee/shared
-echo '{"employees":{}}' > ~/Clawic/data/employee/registry.json
-touch ~/Clawic/data/employee/shared/protocols.md
-```
+# Data Templates
 
 ## Registry Template
 
-For `~/Clawic/data/employee/registry.json`:
+For `<state_root>/registry.json`:
 
 ```json
 {
@@ -35,7 +25,7 @@ After hiring employees:
 
 ## Employee Config Template
 
-For `~/Clawic/data/employee/employees/{name}/employee.json`:
+For `<state_root>/employees/{name}/employee.json`:
 
 ```json
 {
@@ -46,7 +36,7 @@ For `~/Clawic/data/employee/employees/{name}/employee.json`:
   "created": "2026-02-15T10:00:00Z",
   "skill": {
     "type": "linked",
-    "path": "~/clawd/skills/researcher/",
+    "path": "<workspace>/skills/researcher/",
     "model": "anthropic/claude-sonnet-4-20250514"
   },
   "personality": {
@@ -56,7 +46,7 @@ For `~/Clawic/data/employee/employees/{name}/employee.json`:
   "permissions": {
     "canSpawn": false,
     "canMessage": false,
-    "fileAccess": ["~/Documents/research/"],
+    "fileAccess": ["<workspace>/Documents/research/"],
     "autonomyLevel": "draft-only"
   },
   "escalation": [
@@ -74,15 +64,18 @@ For `~/Clawic/data/employee/employees/{name}/employee.json`:
 
 ## Skill Linking Modes
 
-| Mode | Use Case | Config |
+| Mode | Use case | Config |
 |------|----------|--------|
-| linked | Uses existing skill | `"type": "linked", "path": "~/path/to/skill/"` |
-| embedded | Skill inside employee folder | `"type": "embedded"` (uses `./skill/SKILL.md`) |
-| clawhub | Published skill | `"type": "clawhub", "slug": "author/skill-name"` |
+| linked | Uses an existing workspace skill | `"type": "linked", "path": "<workspace>/skills/<slug>/"` |
+| embedded | Skill package inside the employee folder | `"type": "embedded"` (uses `./skill/SKILL.md`) |
+| registry | Published skill identified by owner/slug | `"type": "registry", "slug": "owner/skill-name"` |
+
+Resolve linked paths against the host workspace. Do not treat the literal
+placeholder `<workspace>` as a filesystem path.
 
 ## Memory Template
 
-For `~/Clawic/data/employee/employees/{name}/memory/context.md`:
+For `<state_root>/employees/{name}/memory/context.md`:
 
 ```markdown
 # {Name} - Context Memory
@@ -99,7 +92,7 @@ For `~/Clawic/data/employee/employees/{name}/memory/context.md`:
 
 ## Log Template
 
-For `~/Clawic/data/employee/employees/{name}/logs/YYYY-MM-DD.md`:
+For `<state_root>/employees/{name}/logs/YYYY-MM-DD.md`:
 
 ```markdown
 # {Name} - YYYY-MM-DD
