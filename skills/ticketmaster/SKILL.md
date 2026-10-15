@@ -1,174 +1,105 @@
 ---
 name: ticketmaster
-slug: ticketmaster
-version: 1.0.0
-description: Search Ticketmaster events, venues, and attractions with Discovery API filters, market-aware queries, and copy-ready curl and shell helpers.
-homepage: https://clawic.com/skills/ticketmaster
-changelog: Added Discovery API workflows, venue filters, and a local shell helper for faster event lookups.
+description: >
+  Search Ticketmaster events, venues, and attractions with the open Discovery
+  API, market-aware filters, onsale windows, and copy-ready curl or shell
+  helpers. Use when the user needs live Ticketmaster listings, venue discovery,
+  attraction lookup, classification taxonomy, or API-ready search filters.
+  Prefer `booking` for reservation confirmation workflows, `events` for general
+  event-planning logistics outside Ticketmaster, and `api` for generic REST
+  request shaping unrelated to Discovery endpoints.
 metadata:
-  clawdbot:
-    emoji: 🎟️
-    requires:
-      env:
-      - TM_API_KEY
-      bins:
-      - curl
-      config:
-      - ~/Clawic/data/ticketmaster/
-    primaryEnv: TM_API_KEY
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: TicketMaster
+  version: "1.1.0"
+  openclaw: '{"emoji":"🎟️","requires":{"env":["TM_API_KEY"],"bins":["curl"]},"configPaths":["<state_root>/"]}'
+  related-skills: '{"api":"Generic REST request shaping and response inspection outside Ticketmaster Discovery.","booking":"Reservation confirmation and hold hygiene after discovery turns into an action.","events":"Event-planning schedules and logistics when Ticketmaster is not the data source."}'
 ---
 
-# TicketMaster
+# Ticketmaster
 
-Use the open Ticketmaster Discovery API for search and lookup work. Reach for the bundled `ticketmaster.sh` helper when terminal speed matters, and fall back to raw `curl` when exact response shapes matter.
+Use the open Ticketmaster Discovery API for search and lookup work. Reach for
+the bundled `assets/ticketmaster.sh` helper when terminal speed matters, and
+fall back to raw `curl` when exact response shapes matter. Persist reusable
+locale, market, city, and query defaults under `<state_root>/` (see
+`references/setup.md` on first use and `assets/data-templates.md` for formats).
 
-## When to Use
+## State location
 
-User needs live Ticketmaster listings, venue discovery, attraction lookup, onsale windows, or API-ready search filters. This skill stays inside the open Discovery API surface and keeps reusable defaults local.
+Ticketmaster search defaults may live under `<workspace>/ticketmaster/`,
+`<workspace>/memory/ticketmaster/`, or `~/ticketmaster/`.
+
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/ticketmaster/`, `<workspace>/memory/ticketmaster/`,
+   `~/ticketmaster/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable defaults must be created, default to
+   `<workspace>/ticketmaster/` when `<workspace>` is available; otherwise ask
+   for a state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
+
+Use the selected `<state_root>` for every state operation in this skill. If older
+notes exist only at `~/Clawic/data/ticketmaster/`, move them into the resolved
+`<state_root>/` after the user confirms, and say in one line that you moved them
+and from where. Scripts must receive the resolved filesystem path — never write
+the literal string `<state_root>` to disk.
+
+## When to use
+
+- Live Ticketmaster event search by keyword, city, country, venue, or attraction
+- Venue or attraction discovery before saving IDs for later watches
+- Onsale window and sales-field inspection for Discovery listings
+- Classification taxonomy lookups for segment / genre narrowing
+- Prefer `booking` once the ask becomes reservation confirmation
+- Prefer `events` for non-Ticketmaster planning logistics
+- Prefer `api` for generic REST work unrelated to Discovery endpoints
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/ticketmaster/`. If `~/Clawic/data/ticketmaster/` does not exist, run `setup.md`. See `memory-template.md` for structure.
-
 ```text
-~/Clawic/data/ticketmaster/
+<state_root>/
 ├── memory.md   # Preferred locale, market, city, and query defaults
 ├── queries.md  # Saved queries that worked well
 └── logs/       # Optional helper output captures
 ```
 
-## Quick Reference
+## Quick reference
 
 | Topic | File |
 |-------|------|
-| Setup and API key bootstrap | `setup.md` |
-| Memory template | `memory-template.md` |
-| Open endpoints and response map | `endpoints.md` |
-| Search recipes and curl examples | `query-patterns.md` |
-| Filters, paging, and sort rules | `filters-and-pagination.md` |
-| Error handling and quota limits | `errors.md` |
-| Local helper CLI wrapper | `ticketmaster.sh` |
+| Setup and API key bootstrap | `references/setup.md` |
+| Memory template | `assets/data-templates.md` |
+| Memory status values | `references/setup-memory.md` |
+| Open endpoints and response map | `references/endpoints.md` |
+| Search recipes and curl examples | `references/query-patterns.md` |
+| Filters, paging, and sort rules | `references/filters-and-pagination.md` |
+| Error handling and quota limits | `references/errors.md` |
+| Domain constraints and rules | `references/domain.md` |
+| Verified official sources | `references/sources.md` |
+| Local helper CLI wrapper | `assets/ticketmaster.sh` |
 
-Open only the smallest file needed for the task. Most daily work is `query-patterns.md` plus `errors.md`.
+Open only the smallest file needed for the task. Most daily work is
+`references/query-patterns.md` plus `references/errors.md`.
 
-## Quick Start
+## Quick start
 
 ```bash
 export TM_API_KEY="..."
 
-./ticketmaster.sh events "coldplay" --city Madrid --country ES --size 5
-./ticketmaster.sh venues "wizink" --city Madrid
+./assets/ticketmaster.sh events "coldplay" --city Madrid --country ES --size 5
+./assets/ticketmaster.sh venues "wizink" --city Madrid
 
 curl --get "https://app.ticketmaster.com/discovery/v2/events.json" \
-  --data-urlencode "apikey=$TM_API_KEY" \
+  --data-urlencode "apikey=***" \
   --data-urlencode "keyword=adele" \
   --data-urlencode "countryCode=GB" \
   --data-urlencode "size=3"
 ```
 
-## Open Surface
-
-- Open here: Discovery API search and lookup for events, venues, attractions, and classifications.
-- Not open here: partner-only offers, cart, checkout, hold, publish, or inventory mutation flows.
-- If the user asks for purchase automation, explain the boundary first instead of implying the open API can do it.
-
-## Core Rules
-
-### 1. Start with Discovery API, not purchase assumptions
-- Use search and lookup endpoints for events, venues, attractions, and classifications first.
-- Do not claim cart, order, hold, or refund actions are available through the open flow.
-
-### 2. Always pass `apikey` as a query parameter
-- Official open endpoints expect `apikey`.
-- Keep the key in `TM_API_KEY` and out of files, screenshots, and pasted examples.
-
-### 3. Constrain the search before paging
-- Prefer `keyword` plus location or identity filters such as `city`, `countryCode`, `dmaId`, `marketId`, `venueId`, or `attractionId`.
-- Ticketmaster documents deep paging only while `size * page < 1000`, so tighten filters early.
-
-### 4. Use UTC timestamps and read sales windows carefully
-- `startDateTime`, `endDateTime`, and onsale filters should be ISO-8601 UTC strings like `2026-05-01T00:00:00Z`.
-- Read `sales.public.startDateTime`, `sales.presales`, and `dates.start` before describing availability.
-
-### 5. Inspect embedded objects, not just the event headline
-- Read `_embedded.venues`, `_embedded.attractions`, classifications, locale, and price ranges when present.
-- Venue or city mismatches usually mean the query is too broad or the market is cross-listed.
-
-### 6. Respect documented quota and rate limits
-- Default quota is 5000 calls per day with 5 requests per second.
-- Cache event IDs and venue IDs locally when iterating on the same search space.
-
-### 7. Keep local defaults local
-- Store locale, country, city, market, and preferred sort order in `~/Clawic/data/ticketmaster/memory.md`.
-- Never persist API keys or any purchase data in skill memory.
-
 ## Requirements
 
 - `TM_API_KEY` from the Ticketmaster Developer Portal
-- `curl` for raw requests and the bundled `ticketmaster.sh` helper
-- Optional `jq` if you want prettier local output from `ticketmaster.sh`
-
-## Common Traps
-
-- Using `countryCode` alone for large markets -> noisy result sets and wasted quota.
-- Treating Discovery results as purchase confirmation -> the open API exposes listings, not checkout guarantees.
-- Paging deep without filters -> results stop being supported once `size * page` reaches 1000.
-- Using local time strings -> events shift or disappear; convert to UTC ISO timestamps.
-- Ignoring locale -> multilingual markets can return names or links that look inconsistent.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| `https://app.ticketmaster.com/discovery/v2/*.json` | Search keywords, locale, timestamps, IDs, filters, and `apikey` | Search and fetch events, venues, attractions, and classifications |
-
-Use GET discovery calls only. Keep everything else local.
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data that leaves your machine:**
-- Search terms, filters, locale, timestamps, and IDs sent to Ticketmaster Discovery API
-- Your API key sent as the documented `apikey` query parameter
-
-**Data that stays local:**
-- Preferences and defaults in `~/Clawic/data/ticketmaster/`
-- Saved command patterns and notes you choose to keep
-
-**This skill does NOT:**
-- Place orders, hold inventory, or bypass partner-only purchase flows
-- Store `TM_API_KEY` in skill memory
-- Access files outside `~/Clawic/data/ticketmaster/`
-
-## Scope
-
-This skill ONLY:
-- Uses the open Ticketmaster Discovery API surface
-- Provides copy-ready curl queries and the bundled `ticketmaster.sh` helper
-- Stores local search defaults in `~/Clawic/data/ticketmaster/`
-
-This skill NEVER:
-- Uses hidden or undocumented endpoints
-- Claims checkout, refunds, or seat locking through open Discovery API
-- Writes secrets into local memory
-
-## Trust
-
-By using this skill, data is sent to Ticketmaster (ticketmaster.com).
-Only install if you trust Ticketmaster with your search terms and event lookup data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `api` — General REST API patterns for request shaping and response inspection
-- `booking` — Reservation workflows and confirmation hygiene when discovery turns into action
-- `events` — Event-planning workflows around schedules, listings, and logistics
-
-## Feedback
-- If useful, star it: https://clawic.com/skills/ticketmaster
-- Latest version: https://clawic.com/skills/ticketmaster
+- `curl` for raw requests and the bundled `assets/ticketmaster.sh` helper
+- Optional `jq` if you want prettier local output from `assets/ticketmaster.sh`

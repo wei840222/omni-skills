@@ -13,13 +13,13 @@ BASE_URL="https://app.ticketmaster.com/discovery/v2"
 usage() {
   cat <<'EOF'
 Usage:
-  ./ticketmaster.sh events <keyword> [--city CITY] [--country CODE] [--classification NAME] [--start ISO] [--end ISO] [--size N] [--page N] [--locale LOCALE]
-  ./ticketmaster.sh event <event_id> [--locale LOCALE]
-  ./ticketmaster.sh venues <keyword> [--city CITY] [--country CODE] [--size N] [--page N] [--locale LOCALE]
-  ./ticketmaster.sh venue <venue_id> [--locale LOCALE]
-  ./ticketmaster.sh attractions <keyword> [--size N] [--page N] [--locale LOCALE]
-  ./ticketmaster.sh attraction <attraction_id> [--locale LOCALE]
-  ./ticketmaster.sh classifications [--locale LOCALE]
+  ./assets/ticketmaster.sh events <keyword> [--city CITY] [--country CODE] [--classification NAME] [--start ISO] [--end ISO] [--size N] [--page N] [--locale LOCALE]
+  ./assets/ticketmaster.sh event <event_id> [--locale LOCALE]
+  ./assets/ticketmaster.sh venues <keyword> [--city CITY] [--country CODE] [--size N] [--page N] [--locale LOCALE]
+  ./assets/ticketmaster.sh venue <venue_id> [--locale LOCALE]
+  ./assets/ticketmaster.sh attractions <keyword> [--size N] [--page N] [--locale LOCALE]
+  ./assets/ticketmaster.sh attraction <attraction_id> [--locale LOCALE]
+  ./assets/ticketmaster.sh classifications [--locale LOCALE]
 
 Environment:
   TM_API_KEY   Required Ticketmaster Discovery API key
