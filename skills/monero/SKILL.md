@@ -70,11 +70,11 @@ Keep `SKILL.md` as the entry point; open only the reference that matches the act
 
 ## Hard boundaries
 
-- Never ask for, store, or echo a seed phrase, spend key, or unrestricted wallet
-  password in chat.
+- Keep seed phrases, spend keys, and unrestricted wallet passwords on local
+  secure channels; chat stays limited to non-secret operational guidance.
 - Treat shared view keys as incoming-audit capability only; outgoing history and
   balances from a view key alone are not reliable settlement evidence.
-- Long standalone payment IDs are deprecated; prefer subaddresses for services
-  and new integrations.
-- Custom transaction `unlock_time` is rare, public on-chain, and headed toward
-  deprecation—do not build critical flows on it.
+- Prefer subaddresses for services and new integrations; long standalone payment
+  IDs are deprecated legacy paths.
+- Design around ordinary wallet maturity displays; custom transaction
+  `unlock_time` is rare, public on-chain, and headed toward deprecation.

@@ -47,6 +47,6 @@ amounts, or daemon flags when the wallet UI already shows a clearer state.
 
 ## Safety stops
 
-- Refuse seed-phrase "recovery service" workflows.
+- Keep recovery on official wallet restore flows; seed-phrase "recovery services" are out of scope.
 - If download corruption is suspected, re-fetch from getmonero.org and verify
   hashes before opening the wallet again.
