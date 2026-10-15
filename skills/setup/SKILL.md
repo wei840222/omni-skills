@@ -1,27 +1,30 @@
 ---
 name: setup
-slug: setup
-version: 1.0.0
-description: Configure OpenClaw installations with optimized settings, channel setup, security hardening, and production recommendations.
-homepage: https://clawic.com/skills/setup
+description: Configure OpenClaw installations — channels, security hardening,
+  gateway/Tailscale exposure, tools/exec policy, automation, and production
+  recommendations. Trigger for first-time setup, dmPolicy/allowlist changes,
+  remote gateway auth, or openclaw doctor/onboard follow-up.
 metadata:
-  clawdbot:
-    emoji: ⚙️
-    displayName: Setup
+  version: 1.0.0
+  openclaw: '{"emoji": "\u2699\ufe0f"}'
 ---
+This skill guides host OpenClaw configuration under `~/.openclaw/`. It is
+stateless and does not store local skill state or persistent user notes.
 
-## Quick Reference
+## Resource Loading
+
+Load these references as needed for specific configuration tasks:
 
 | Task | Load |
 |------|------|
-| Messaging channels (Telegram, WhatsApp, Discord, etc.) | `channels.md` |
-| Agent settings, models, workspaces | `agents.md` |
-| Security, auth, DM policies, allowlists | `security.md` |
-| Tools: exec, browser, web, media | `tools.md` |
-| Cron, hooks, heartbeats, automation | `automation.md` |
-| Recommendations by use case | `recommendations.md` |
-| Memory search, embeddings, QMD | `memory.md` |
-| Gateway: port, TLS, Tailscale, remote | `gateway.md` |
+| Messaging channels (Telegram, WhatsApp, Discord, etc.) | `references/channels.md` |
+| Agent settings, models, workspaces | `references/agents.md` |
+| Security, auth, DM policies, allowlists | `references/security.md` |
+| Tools: exec, browser, web, media | `references/tools.md` |
+| Cron, hooks, heartbeats, automation | `references/automation.md` |
+| Recommendations by use case | `references/recommendations.md` |
+| Memory search, embeddings, QMD | `references/memory.md` |
+| Gateway: port, TLS, Tailscale, remote | `references/gateway.md` |
 
 ---
 
@@ -54,7 +57,7 @@ openclaw doctor                    # Check issues
 
 ---
 
-## Common Mistakes to Avoid
+## Common Configuration Issues
 
 1. **Open DM policy without allowlist** → Anyone can message your bot
 2. **No auth token on remote gateway** → Exposed to internet

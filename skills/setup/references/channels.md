@@ -205,8 +205,8 @@ Settings you can customize per channel:
 
 | Problem | Solution |
 |---------|----------|
-| Bot not responding | Check `openclaw doctor`, verify token |
-| "Not allowed" messages | Add user to `allowFrom` |
+| Bot unresponsive | Check `openclaw doctor`, verify token |
+| Permission error messages | Add user to `allowFrom` |
 | Can't send to groups | Add group ID to `groups` config |
-| Media not working | Check `mediaMaxMb` limit |
+| Media upload fails | Check `mediaMaxMb` limit |
 | Slow responses | Check `timeoutSeconds`, model latency |

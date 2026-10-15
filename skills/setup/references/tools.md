@@ -198,13 +198,14 @@ Install and configure skills:
 
 **CLI commands:**
 ```bash
-npx clawic search <query>
-npx clawic add <slug>
-npx clawic update <slug>   # or: npx clawic update --all
-npx clawic list
+openclaw skills search "<query>"
+openclaw skills install @owner/<slug>
+openclaw skills update --all
+openclaw skills list
 ```
 
-Browse the catalog at `https://clawic.com/skills/<slug>` to confirm a slug before installing it.
+Docs: https://docs.openclaw.ai/cli/skills
+
 
 ---
 
