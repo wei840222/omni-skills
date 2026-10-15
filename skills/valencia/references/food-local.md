@@ -17,9 +17,9 @@
 - Water or stock
 - OPTIONAL: Snails (caracoles)
 
-**What it does NOT contain:**
+**Excluded Ingredients:**
 - Seafood (that's a different dish)
-- Chorizo (never, ever)
+- Chorizo (strictly excluded)
 - Peas (controversial, debated)
 - Mixed meat + seafood (tourist invention)
 
@@ -29,18 +29,18 @@
 |------|----------|---------------|
 | Paella Valenciana | Chicken, rabbit, beans, snails | Everywhere authentic |
 | Paella de Marisco | Seafood only | Beach restaurants |
-| Paella Mixta | Meat + seafood | Tourist places (not traditional) |
+| Paella Mixta | Meat + seafood | Tourist places (tourist adaptation) |
 | Arroz a banda | Rice cooked in fish stock, fish served separately | Coastal restaurants |
 | Arroz negro | Squid ink rice | Everywhere |
 | Arroz del senyoret | Seafood rice, all shellfish peeled | Upscale beach spots |
 
 ### Paella Rules
 
-1. **Eat it at LUNCH** (13:00-15:30) — Valencians eat paella midday, never dinner
-2. **Minimum 2 people** — Not served individually
+1. **Eat it at LUNCH** (13:00-15:30) — Valencians eat paella midday, strictly lunch
+2. **Minimum 2 people** — Served for minimum 2 people
 3. **Order 30-45 min ahead** — Real paella is cooked to order
 4. **Eat from the pan** — Traditional style, each person takes their section
-5. **The socarrat** — The crispy bottom is the prize, not burnt
+5. **The socarrat** — The crispy bottom is the prize, crispy and highly valued
 
 ### Best Paella Spots
 
@@ -159,7 +159,7 @@ Squid ink rice:
 - Cold drink made from chufa (tiger nuts)
 - Sweet, milky, refreshing
 - Served with fartons (elongated pastries)
-- NOT related to Mexican horchata (that's rice-based)
+- Distinct from Mexican horchata (that's rice-based)
 
 ### How to Drink It
 1. Order "horchata con fartons"
@@ -172,7 +172,7 @@ Squid ink rice:
 | Name | Location | Notes |
 |------|----------|-------|
 | Horchatería Daniel | Alboraya | Best in region, worth the trip |
-| Santa Catalina | Plaza Santa Catalina | Historic, touristy but good |
+| Santa Catalina | Plaza Santa Catalina | Historic, popular and historic |
 | Panach | Alboraya | Another classic |
 | El Siglo | Centro | Locals' alternative |
 
@@ -190,7 +190,7 @@ Squid ink rice:
 - Eat: tapas at stalls inside
 
 ### Mercado de Ruzafa
-- Local, not touristy
+- Local, authentic
 - Saturday morning is best
 - Great for produce shopping
 - Small but authentic
@@ -228,7 +228,7 @@ Squid ink rice:
 | Casa Roberto | Centro | Classic paella |
 | Navarro | Ruzafa | Traditional, local crowd |
 
-### Don't Miss
+### Must-See
 - **Almuerzo culture**: Mid-morning meal (10:30-11:30), bocadillo with beer
 - **Vermut hour**: Pre-lunch vermouth with olives (12:00-14:00)
-- **Sobremesa**: The post-meal chat — never rush a Spanish meal
+- **Sobremesa**: The post-meal chat — savor the post-meal time

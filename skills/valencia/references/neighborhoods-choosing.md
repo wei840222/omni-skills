@@ -55,7 +55,7 @@ If **rent + character** dominate → Benimaclet or El Cabanyal
 | €1,100-1,400/month | Add: Ruzafa, Centro (outskirts) |
 | €1,400+/month | El Carmen, prime Ruzafa, beachfront |
 
-**Note**: These are realistic ranges for decent apartments, not minimum or maximum.
+**Note**: These are realistic ranges for decent apartments, typical averages.
 
 ---
 
@@ -65,7 +65,7 @@ Check your non-negotiables:
 
 - ☐ **Must walk to Centro** → Ruzafa, Eixample, Carmen only
 - ☐ **Must have beach nearby** → Beach neighborhoods only
-- ☐ **Need absolute quiet** → Avoid Carmen, Ruzafa, Benimaclet center
+- ☐ **Need absolute quiet** → Bypass Carmen, Ruzafa, Benimaclet center
 - ☐ **No car, depend on metro** → Check station proximity carefully
 - ☐ **Need modern/new building** → Quatre Carreres, new builds elsewhere
 - ☐ **Must have parking** → Suburban neighborhoods better
@@ -89,7 +89,7 @@ Check your non-negotiables:
 
 ### Mistake 4: Ignoring metro access
 **Problem**: Some "central" areas have poor connections.
-**Solution**: Check actual walking distance to metro stop (Google Maps, not listing claims).
+**Solution**: Check actual walking distance to metro stop (Google Maps, verified distances).
 
 ### Mistake 5: Assuming August apartment availability
 **Problem**: Owners go on vacation. Viewings difficult.
@@ -116,9 +116,9 @@ Answer honestly:
 - E) Staying in, thanks → Anywhere with good apartment
 
 **3. What annoys you most?**
-- A) Boring, generic surroundings → Avoid suburbs
-- B) Noise → Avoid Carmen, Ruzafa center
-- C) Tourists → Avoid Centro
+- A) Boring, generic surroundings → Bypass suburbs
+- B) Noise → Bypass Carmen, Ruzafa center
+- C) Tourists → Bypass Centro
 - D) Long commutes → Stay central
 - E) High rent → Go Patraix, Benimaclet
 

@@ -264,7 +264,7 @@ Valencia consistently ranks among the best cities globally for quality of life. 
 ## Work-Life Balance
 
 ### Spanish Approach
-- Lunch is sacred (don't schedule calls)
+- Lunch is sacred (keep this time clear)
 - August vacation is real
 - Family comes first
 - After-work drinks common
@@ -309,7 +309,7 @@ Valencia consistently ranks among the best cities globally for quality of life. 
 1. **Learn Spanish** (biggest factor)
 2. **Build routines** (gym, cafe, etc.)
 3. **Mix communities** (expat + local)
-4. **Embrace the pace** (don't fight it)
+4. **Embrace the pace** (adapt to it)
 5. **Stay connected** (to home, to new friends)
 6. **Keep perspective** (every place has trade-offs)
 
@@ -328,7 +328,7 @@ Valencia consistently ranks among the best cities globally for quality of life. 
 ### Why People Leave
 - Career opportunities limited
 - Miss home
-- Language never clicked
+- Language barrier persisted
 - Wanted bigger city
 - Family reasons
 

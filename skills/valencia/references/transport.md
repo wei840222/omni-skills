@@ -55,7 +55,7 @@ Valencia has excellent public transport for a Spanish city. Unlike Madrid or Bar
 
 ### Network
 - 60+ lines covering the city
-- Complements metro for areas not reached
+- Complements metro for areas lacking coverage
 - Generally slower than metro
 
 ### Useful Lines
@@ -94,7 +94,7 @@ Valencia has excellent public transport for a Spanish city. Unlike Madrid or Bar
 | First 30 min | Free | Short hops |
 | 30-60 min | €0.52 | |
 | 60-90 min | €0.99 | |
-| 90+ min | €3/hour | Avoid this |
+| 90+ min | €3/hour | Choose alternatives |
 
 ### How to Use
 1. Register at valenbisi.es or machine
@@ -149,7 +149,7 @@ Valencia has excellent public transport for a Spanish city. Unlike Madrid or Bar
 
 ### Do You Need a Car?
 
-**Probably not if:**
+**Consider alternatives if:**
 - Living in Centro, Ruzafa, or beach areas
 - Working remotely or in Centro
 - Comfortable with public transit

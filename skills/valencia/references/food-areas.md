@@ -85,7 +85,7 @@ Historic atmosphere, best nightlife area, good for bar hopping with tapas. More 
 
 ### Tips
 - Tourist trap risk is higher here — check Google reviews
-- Avoid restaurants with picture menus outside
+- Seek authentic restaurants without outdoor picture menus
 - Side streets often better than main plazas
 - Good for pre-/post-sightseeing bites
 

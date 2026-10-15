@@ -111,13 +111,13 @@ For those with passive income who won't work in Spain.
 |-------------|---------|
 | Income | ~€2,500/month (varies by consulate) |
 | Source | Passive (investments, pension, rental) |
-| Work | Not permitted |
+| Work | Restricted |
 | Health insurance | Full coverage |
 
 ### Best For
 - Retirees with pension
 - People living off investments
-- Those who don't need to work
+- Financially independent individuals
 
 ### Limitations
 - Cannot work (at all)
@@ -232,7 +232,7 @@ Special tax regime for new tax residents.
 
 ### Benefits
 - Flat 24% income tax (vs progressive up to 47%)
-- Only Spanish-source income taxed (not worldwide)
+- Only Spanish-source income taxed (Spanish sources only)
 - Duration: 6 years
 
 ### Eligibility
@@ -315,7 +315,7 @@ Can bring:
 
 ### Renewals
 - Apply 60 days before expiration
-- Don't let status lapse
+- Maintain continuous legal status
 - Keep documentation organized
 
 ---

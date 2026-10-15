@@ -315,13 +315,13 @@ Process:
 
 ## Practical Tips
 
-1. **Don't drive in Centro** — Pedestrian zones, no parking
+1. **Use transit in Centro** — Pedestrian zones, no parking
 2. **Rush hour**: 08:00-09:30, 14:00-15:00, 18:00-20:00
 3. **Roundabouts**: Priority to traffic already in circle
 4. **Zebra crossings**: Pedestrians have right of way
 5. **Double parking**: Common but illegal
 6. **August**: Empty roads, great driving
-7. **Fallas**: Avoid Centro entirely by car
+7. **Fallas**: Bypass Centro by car
 8. **Rain**: Roads get very slippery (rare rain + oil)
 
 ---

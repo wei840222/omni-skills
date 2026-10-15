@@ -325,4 +325,4 @@ See `tech.md` for detailed breakdown.
 7. **Happy hour**: Vermouth hour ~12:00-14:00
 8. **Beach is free**: No entry fees ever
 9. **Negotiate rent**: Especially for long-term
-10. **Avoid tourist traps**: Plaza de la Reina mark-ups
+10. **Bypass tourist pricing**: Plaza de la Reina mark-ups

@@ -183,7 +183,7 @@ Valencia has a growing tech scene, smaller than Barcelona or Madrid but with adv
 
 **Tips:**
 - LinkedIn profile in English
-- Spanish helps but not always required
+- Spanish is beneficial though English may suffice
 - Portfolio/GitHub important
 - Network at meetups
 

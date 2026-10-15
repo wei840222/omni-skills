@@ -31,7 +31,7 @@ Valencia is one of the safest large cities in Spain and Europe. Normal precautio
 Valencia has no true "no-go" areas, but some zones require more awareness:
 - **Some parts of El Cabanyal** (improving rapidly)
 - **Orriols** (further from center, less relevant)
-- **Industrial zones** (not residential anyway)
+- **Industrial zones** (primarily commercial)
 
 None of these are dangerous in the traditional sense — just less polished.
 
@@ -48,19 +48,19 @@ None of these are dangerous in the traditional sense — just less polished.
 
 **Prevention:**
 - Use front pockets or crossbody bag
-- Don't flash valuables
+- Keep valuables concealed
 - Be aware in crowds
 - Use hotel safe for passports
 
 ### Theft from Vehicles
-- Don't leave anything visible in cars
+- Ensure cars are completely empty of visible items
 - Rental cars sometimes targeted (tourist items)
 - Use parking garages over street parking
 
 ### Apartment Break-ins
 - Rare in residential areas
 - Ground floor apartments slightly higher risk
-- Use locks, don't leave windows open when out
+- Use locks, close windows securely before leaving
 
 ---
 
@@ -70,10 +70,10 @@ None of these are dangerous in the traditional sense — just less polished.
 - Lifeguards in summer (flag zones)
 - Strong currents occasional (respect flags)
 - Red flag = no swimming
-- Don't swim drunk
+- Swim only when sober
 
 ### Belongings
-- Don't leave valuables unattended
+- Secure valuables continuously
 - Bring only what you need
 - Take turns watching things
 - Locker services at some beaches
@@ -92,17 +92,17 @@ Valencia has fewer scams than Barcelona or Madrid, but stay alert:
 
 ### Known Scams
 - **Fake petitions**: Clipboard people asking for signatures, then money
-- **Street games** (three-card monte): Always rigged, don't play
+- **Street games** (three-card monte): Always rigged, ignore them completely
 - **Friendship bracelets**: Tie on bracelet, demand payment
 - **Rose sellers**: Aggressive selling in restaurants
 
 ### Taxi/Ride-Share
 - Metered taxis: Reliable, regulated
-- Airport fixed fare: €20 (don't pay more)
+- Airport fixed fare: €20 (confirm this rate)
 - Use official stands or apps
 
 ### Rental Scams
-- Never pay before seeing apartment
+- Verify apartments in person before paying
 - Verify landlord owns property
 - Use established platforms (Idealista)
 - If too good to be true, it is
@@ -154,7 +154,7 @@ Valencia is LGBTQ+ friendly:
 - **Social acceptance**: High, especially in cities
 - **Pride**: Major annual event in June
 - **Scene**: Ruzafa has LGBTQ+ friendly bars
-- **Violence**: Hate crimes rare but not zero
+- **Violence**: Hate crimes rare but present
 
 ### Practical Tips
 - Public affection: Generally safe
@@ -170,7 +170,7 @@ Valencia is safe for women:
 - Solo travel: Common and safe
 - Night transport: Metro until 23:30, taxis safe
 - Harassment: Less common than many cities
-- Cat-calling: Occasional but not pervasive
+- Cat-calling: Occasional but infrequent
 
 ### Tips
 - Trust instincts (same as anywhere)
@@ -215,7 +215,7 @@ Valencia is safe for women:
 - **When**: September-October mainly
 - **What**: Intense Mediterranean storms
 - **Risk**: Flash flooding, especially in low areas
-- **What to do**: Stay indoors, don't drive through water
+- **What to do**: Stay indoors, avoid flooded roads
 
 ### Heat Waves
 - **When**: July-August
@@ -281,8 +281,8 @@ Valencia is safe for women:
 
 ## Practical Safety Tips
 
-1. **Be aware, not paranoid** — Valencia is safe
-2. **Carry less** — Don't need valuables everywhere
+1. **Be aware, prepared** — Valencia is safe
+2. **Carry less** — Carry only essentials
 3. **Use common sense** — Same as any city
 4. **Know emergency number** — 112
 5. **Learn basic Spanish** — Helps in emergencies

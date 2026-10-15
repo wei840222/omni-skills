@@ -19,10 +19,10 @@
   - Market stalls
   - Beach vendors
 - **ATMs**: Abundant, use bank ATMs (avoid standalone ones)
-- **Tipping**: Not obligatory. Round up or 5-10% for good service
+- **Tipping**: Optional. Round up or 5-10% for good service
 
 ### Timing
-- **Lunch**: 13:30-15:30 (don't expect to eat paella at 11am)
+- **Lunch**: 13:30-15:30 (plan meals within this window)
 - **Dinner**: 21:00-23:00 (restaurants often empty before 21:00)
 - **Siesta**: Many shops close 14:00-17:00
 - **Nightlife**: Bars fill after 23:00, clubs after 01:00
@@ -105,17 +105,17 @@
 - **Valencia is very safe** — among safest large cities in Spain
 - Normal precautions: watch bags in crowded areas
 - **Pickpockets**: Rare but possible in Mercado Central, metro, tourist crowds
-- **Scams**: Not common; watch for fake petitions or "friendship bracelet" sellers
+- **Scams**: Rare; watch for fake petitions or "friendship bracelet" sellers
 
 ### Beach Safety
 - **Lifeguards**: Summer only, flagged zones
-- **Belongings**: Don't leave valuables unattended
+- **Belongings**: Secure valuables continuously
 - **Sun**: SPF essential, even in "mild" weather
 
 ### Night Safety
 - El Carmen is safe but busy late at night
 - Ruzafa safe at all hours
-- Avoid deserted areas in any city
+- Stick to populated areas in any city
 - Taxis always available
 
 ### Health
@@ -131,25 +131,25 @@
 
 ### Do's
 - ✅ Say "Hola" when entering shops
-- ✅ Greet with two kisses (cheek, not lip) in social settings
+- ✅ Greet with two kisses on the cheek in social settings
 - ✅ Take your time at meals — rushing is rude
 - ✅ Dress slightly nicer than "full tourist"
 - ✅ Respect siesta hours and noise levels
 - ✅ Learn "por favor" and "gracias" — goes a long way
 
 ### Don'ts
-- ❌ Don't expect quick service — it's intentional relaxation
-- ❌ Don't skip the greeting ("Hola, buenos días")
-- ❌ Don't order paella for dinner (lunch only for locals)
-- ❌ Don't be loud after midnight in residential areas
-- ❌ Don't mistake Valenciano for "bad Spanish"
+- ✅ Expect relaxed, unhurried service
+- ✅ Always start interactions with "Hola, buenos días"
+- ✅ Order paella for lunch, following local tradition
+- ✅ Maintain quiet after midnight in residential areas
+- ✅ Recognize Valenciano as a distinct, co-official language
 
 ### Fallas-Specific (March 15-19)
 - Expect LOUD firecrackers at all hours
 - Book everything months ahead
-- Don't plan normal sightseeing — embrace the chaos
+- Embrace the chaos rather than planning structured sightseeing
 - Wear earplugs for sleeping (or join the party)
-- Mascletà at 14:00 daily in Plaza del Ayuntamiento — don't miss it
+- Mascletà at 14:00 daily in Plaza del Ayuntamiento is highly recommended
 
 ---
 
@@ -180,10 +180,10 @@
 1. **Menú del día**: Lunch 3-course menus €12-18 (huge savings vs à la carte)
 2. **Free museums**: Many free on Sundays (Bellas Artes always free)
 3. **Valenbisi**: €30/year unlimited bikes vs €15/day rental
-4. **Tap water**: "Agua del grifo" at restaurants, don't pay for bottles
+4. **Tap water**: "Agua del grifo" at restaurants, instead of paying for bottles
 5. **Metro bonos**: 10-trip passes cheaper than singles
 6. **Vermouth hour**: Cheap drinks 12:00-14:00 at traditional bars
-7. **Beach**: Free, obviously — don't pay €20 for sunbeds
+7. **Beach**: Free, obviously — bypassing €20 sunbeds
 8. **Walking**: Centro is compact, save transport money
 
 ---
@@ -191,7 +191,7 @@
 ## Common Mistakes
 
 1. **Expecting Barcelona pace**: Valencia is slower, embrace it
-2. **Eating paella at dinner**: It's a lunch dish (tourist restaurants don't care, but you'll know)
+2. **Eating paella at dinner**: It's a lunch dish (tourist restaurants often serve it all day, though locals restrict it to lunch)
 3. **Only visiting CAC**: The historic center is where the soul is
 4. **Ignoring Ruzafa**: Best neighborhood for eating and drinking
 5. **Renting a car for city only**: Unnecessary and parking is painful

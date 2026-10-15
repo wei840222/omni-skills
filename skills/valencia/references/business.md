@@ -88,7 +88,7 @@ Starting a business in Spain involves bureaucracy but is manageable. Options ran
 ### Step-by-Step Process
 
 **Week 1: Preparation**
-1. Get NIE (if not already done)
+1. Get NIE (as first step)
 2. Open bank account
 3. Choose your activity (CNAE code)
 4. Decide on gestoría or DIY
@@ -115,7 +115,7 @@ New autónomos get reduced Social Security:
 - **Month 25+**: Full rate (~€300+ based on income)
 
 **Eligibility**:
-- Not been autónomo in past 2 years
+- First-time autónomo status in recent years
 - No outstanding Social Security debts
 
 ---
@@ -342,5 +342,5 @@ For every €1,000 gross salary:
 4. **Track expenses** from day one
 5. **Save for taxes** (30-40% of profit)
 6. **Join startup ecosystem** for resources and connections
-7. **Invoice properly** to avoid problems later
-8. **Don't skip Social Security** — consequences are severe
+7. **Invoice properly** for compliance
+8. **Maintain Social Security payments strictly** — consequences are severe

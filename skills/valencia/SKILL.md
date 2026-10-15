@@ -1,201 +1,120 @@
 ---
 name: valencia
-slug: valencia
-version: 1.0.0
-description: Navigate Valencia as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, visas, and local insights.
-homepage: https://clawic.com/skills/valencia
+description: >
+  Navigate Valencia for visitors, residents, tech workers, students, and
+  entrepreneurs: neighborhoods, metro/EMT/Valenbisi, costs, visas, food,
+  climate, and local services. Use for Valencia stay, move, commute, or
+  work-base decisions. Prefer `spain` for multi-city Spain routing,
+  `travel`/`travel-planning` for generic trip systems, and `expat` for full
+  cross-border move project tracking.
 metadata:
-  clawdbot:
-    emoji: 🍊
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Valencia
+  version: "1.1.0"
+  openclaw: '{"emoji":"🍊"}'
+  related-skills: '{"booking":"Lodging search and reservation completion after a Valencia neighborhood base is chosen.","dubai":"Peer city-guide pattern for another dense metro when comparing city skills.","expat":"Cross-border move project tracking beyond Valencia neighborhood and settling advice.","spain":"Country-level multi-city Spain routing when Valencia is only one stop.","spanish":"Everyday Spanish for menus, bookings, and on-the-ground talk.","travel":"Standing multi-destination travel records when Valencia is one city among several.","travel-planning":"Day-by-day multi-city itineraries when the trip leaves Valencia."}'
 ---
 
-## When to Use
+## State location
 
-User asks about Valencia for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Valencia continuity state may exist in `<workspace>/valencia/`, `<workspace>/memory/valencia/`, or `~/valencia/`. Before reading or writing state, resolve `<state_root>` as follows:
 
-## Setup
+1. Use an explicitly configured path when one exists (host config or user override).
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/valencia/`, `<workspace>/memory/valencia/`, `~/valencia/`.
+3. If several candidate directories exist, use only the highest-precedence one and report the separate copies; do not merge or cross-write.
+4. If none exists and the user explicitly wants continuity, create `<workspace>/valencia/` by default.
+5. If the host cannot supply `<workspace>`, read an existing `~/valencia/` only; otherwise ask for a state root before creating data.
 
-See `setup.md` for first-time configuration and `memory-template.md` for tracking your Valencia journey.
+Use the selected `<state_root>` for every state operation in this invocation. Create or update `<state_root>/memory.md` only when the user wants context kept across sessions. Legacy `~/Clawic/data/valencia/` is a migration source only—keep it out of active lookup; move only with explicit user consent (copy, validate, cutover).
 
-## Quick Reference
+Research notes and official source URLs live in `references/sources.md` (progressive disclosure).
 
-| Topic | File |
-|-------|------|
-| **Setup** | |
-| First-time setup guide | `setup.md` |
-| Personal profile template | `memory-template.md` |
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips & day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Centro Histórico, Eixample, La Seu | `neighborhoods-centro.md` |
-| Ruzafa, Russafa | `neighborhoods-ruzafa.md` |
-| Poblats Marítims, Malvarrosa, El Cabanyal | `neighborhoods-beach.md` |
-| Patraix, Benimaclet, Campanar | `neighborhoods-residential.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview & dining scene | `food-overview.md` |
-| Valencian cuisine & paella | `food-local.md` |
-| International & fine dining | `food-international.md` |
-| Best areas for dining | `food-areas.md` |
-| Horarios, tipping, reservations | `food-practical.md` |
-| **Practical** | |
-| Moving & settling | `resident.md` |
-| Transport (metro, bus, Valenbisi) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety & laws | `safety.md` |
-| Weather & best times | `climate.md` |
-| Local services (banking, NIE) | `local.md` |
-| **Career** | |
-| Tech industry & salaries | `tech.md` |
-| Business setup & autónomo | `business.md` |
-| Visas (EU, non-EU, digital nomad) | `visas.md` |
-| Startups & ecosystem | `startup.md` |
-| **Lifestyle** | |
-| Culture & customs | `culture.md` |
-| Healthcare & insurance | `healthcare.md` |
-| Schools & education | `education.md` |
-| Expat lifestyle & social | `lifestyle.md` |
-| Driving & car ownership | `driving.md` |
+Expanded domain rules, seasons, costs orientation, and local pitfalls live in `references/domain.md` (progressive disclosure).
 
-## Core Rules
+## When to use
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, entrepreneur, digital nomad
-- **Timeline**: Short visit, planning to move, already there
-- **EU status**: EU citizen (easy move) vs non-EU (visa requirements)
-- Load relevant auxiliary file for details
+Use for **Valencia (city + metro area)** decisions: visit length and neighborhood base, relocation fit, metro/EMT/Valenbisi routing, cost bands, safety street-smarts, tech/work base, visas and residency *orientation*, food (including paella lunch culture), climate, schools, healthcare orientation, and driving-in-city tradeoffs.
 
-### 2. Third-Largest City
-Valencia is Spain's third-largest city (~800,000, metro ~1.8M):
-- More affordable than Madrid/Barcelona with similar quality of life
-- Mediterranean climate — 300+ sunny days per year
-- Beach + city combination rare in European capitals
-- Growing tech hub with foreign investment
-See `cost.md` for living expenses and `lifestyle.md` for quality of life.
+Do **not** use this skill as the sole source for a multi-city Spain itinerary (`spain`), a multi-country standing travel system (`travel`), generic day packing across cities (`travel-planning`), or a full move project board (`expat`).
 
-### 3. Language Reality
-Valencia is bilingual:
-- **Castellano (Spanish)**: Everyone speaks it, all business conducted in it
-- **Valenciano (Valencià)**: Co-official, used in some signage and government
-- English widely spoken in tourist areas, tech companies, and by younger generation
-- Learning basic Spanish essential for integration
-See `culture.md` for language tips.
+Classify the user first: visitor, planning-to-move, already-resident, tech/remote worker, student, or entrepreneur. Ask only for the next missing detail that changes the recommendation (dates/month, budget currency, passport, kids, Spanish level, beach vs Centro priority).
 
-### 4. Climate Advantage
-Mediterranean climate is Valencia's biggest draw:
-- **Summer (Jun-Sep)**: 28-35°C, beach weather, some humidity
-- **Winter (Dec-Feb)**: 10-18°C, mild, occasional rain
-- **Spring/Fall**: Perfect 20-26°C
-- 300+ sunny days per year — significant for northern Europeans
-See `climate.md` for monthly breakdown.
+## Reference routing
 
-### 5. Current Data (Feb 2026)
+Load the smallest set that answers the current question. Prefer `domain.md` + one topic file before opening the full neighborhood or food set.
 
-| Item | Range |
-|------|-------|
-| 1BR rent (Centro) | €800-1,200/month |
-| 1BR rent (Ruzafa) | €900-1,300/month |
-| 1BR rent (Periferia) | €550-800/month |
-| Senior SWE salary | €45,000-70,000/year |
-| Metro monthly pass | €45 (zones ABC) |
-| Lunch menú del día | €12-18 |
-| International school | €8,000-18,000/year |
+| Topic | File | When to load |
+| --- | --- | --- |
+| Continuity setup | `references/setup.md` | User wants persistent Valencia context or empty `<state_root>/` |
+| Memory structure | `assets/memory-template.md` | Creating/updating `<state_root>/memory.md` after consent |
+| Core rules, traps, context | `references/domain.md` | First substantive answer; always for money/season/visa framing |
+| Official source map | `references/sources.md` | Before booking-critical fares, entry rules, residency, or agency claims |
+| Visitor attractions | `references/visitor-attractions.md` | Must-see vs skip lists |
+| Visitor itineraries | `references/visitor-itineraries.md` | 1/3/7-day frames |
+| Visitor lodging | `references/visitor-lodging.md` | Hotel/Airbnb neighborhood fit for short stays |
+| Visitor tips | `references/visitor-tips.md` | Day trips, packing, practical visitor traps |
+| Neighborhoods index | `references/neighborhoods-index.md` | Quick neighborhood comparison |
+| Centro Histórico / Eixample / La Seu | `references/neighborhoods-centro.md` | Historic core bases |
+| Ruzafa / Russafa | `references/neighborhoods-ruzafa.md` | Food/nightlife / nomad density |
+| Beach / Cabanyal / Malvarrosa | `references/neighborhoods-beach.md` | Seafront bases |
+| Patraix / Benimaclet / Campanar | `references/neighborhoods-residential.md` | Residential value bases |
+| Choosing guide | `references/neighborhoods-choosing.md` | Profile → neighborhood matching |
+| Food overview | `references/food-overview.md` | Dining scene map |
+| Local cuisine / paella | `references/food-local.md` | Valencian dishes and lunch timing |
+| International / fine dining | `references/food-international.md` | Non-local options |
+| Food areas | `references/food-areas.md` | Where to eat by neighborhood |
+| Food practical | `references/food-practical.md` | Hours, tipping, reservations |
+| Moving & settling | `references/resident.md` | Contracts, utilities, everyday resident life |
+| Transport | `references/transport.md` | Metro, EMT, Valenbisi, taxis |
+| Cost of living | `references/cost.md` | Rent bands and monthly budgets (ranges, not live quotes) |
+| Safety | `references/safety.md` | Street crime patterns and area awareness |
+| Climate | `references/climate.md` | Season, heat, Fallas noise |
+| Local services | `references/local.md` | Banking, NIE, paperwork orientation |
+| Tech industry | `references/tech.md` | Salaries, remote work, offices |
+| Business setup | `references/business.md` | Autónomo / company orientation |
+| Visas & residency | `references/visas.md` | Tourist stay, Digital Nomad, residency paths (verify passport) |
+| Startups | `references/startup.md` | Ecosystem and funding orientation |
+| Culture | `references/culture.md` | Customs, timing, Valenciano |
+| Healthcare | `references/healthcare.md` | Public / private orientation |
+| Education | `references/education.md` | Schools and universities orientation |
+| Lifestyle | `references/lifestyle.md` | Expat social life |
+| Driving | `references/driving.md` | Car ownership vs city transit |
 
-### 6. Cost Reality
-Valencia offers excellent value for Western Europe:
-- **Housing**: 40-50% cheaper than Barcelona, 30% cheaper than Madrid
-- **Dining**: Quality restaurants at half Barcelona prices
-- **Transport**: Affordable public transit and bike-friendly
-- **Healthcare**: Public system free for residents; private €50-150/month
-- **Rising prices**: Post-2020 influx of remote workers has increased rents 20-30%
+## Core workflow
 
-### 7. Transit Excellence
-Unlike many Spanish cities, Valencia has excellent public transport:
-- **Metro/Tram**: 9 lines covering most of the city and airport
-- **EMT Buses**: Dense network, real-time apps
-- **Valenbisi**: 275 bike stations, €30/year subscription
-- **Walking**: Centro Histórico and Ruzafa highly walkable
-- **No car needed**: Unlike Madrid, you can live comfortably without a car
-See `transport.md` for details.
+1. **Lock context.** Role, month, length of stay, passport (for entry only), budget currency, Spanish comfort, beach vs Centro priority, and whether kids or office commute matter.
+2. **Answer the immediate question first.** Then load the smallest reference set from the table—do not dump every file.
+3. **Money and paperwork before bookings.** Treat rent bands, metro fares, and visa income floors as orientation. Re-open `references/sources.md` and official pages before non-refundable flights, multi-month leases, or residency filings.
+4. **Neighborhood from routine, not hype.** Match late-night return path, commute, noise tolerance (especially Fallas), and budget.
+5. **Entry is passport-specific.** Tourist stay windows and visa needs vary. Orient with `references/visas.md`, then verify on Spanish government pages for that nationality and travel date.
+6. **Persist only with consent.** Follow `references/setup.md`; never store passport numbers, bank credentials, or full address dumps in chat logs meant for reuse.
 
-### 8. Neighborhood Matching
+## Core rules (durable)
 
-| Profile | Best Areas |
-|---------|------------|
-| Young professionals | Ruzafa, Benimaclet, El Carmen |
-| Families | Campanar, Patraix, Benimaclet |
-| Beach lovers | El Cabanyal, Malvarrosa, Patacona |
-| Budget-conscious | Benimaclet, Patraix, La Saïdia |
-| Tech workers | Ruzafa, Ciudad de las Artes, Quatre Carreres |
-| Students | Benimaclet, Blasco Ibáñez area |
-| Digital nomads | Ruzafa, Centro, El Carmen |
+1. Identify role and timeline before neighborhood or cost advice.
+2. Separate **orientation euro ranges** from **live quotes** for rent, fares, and visa fees.
+3. Valencians treat **paella as a lunch dish** (roughly 13:00–15:00); tourist restaurants may ignore this—still teach the local pattern.
+4. Many shops observe **siesta-style afternoon closures**; plan errands around morning/evening windows and supermarket exceptions.
+5. Prefer metro + EMT + Valenbisi + walking for city-only stays; cars are usually a liability in Centro.
+6. **Fallas (mid-March)** is loud and booked-out—either embrace the festival or leave town.
+7. Spanish works citywide; Valenciano appears on some signage/services—Castilian Spanish remains legally accepted.
+8. For multi-city Spain trips, hand off routing to `spain` after the Valencia city block is set.
 
-## Startup & Tech Context
+## Prefer these patterns
 
-Valencia's tech ecosystem is growing rapidly:
-- **Marina de Empresas**: Major startup hub with Lanzadera accelerator
-- **Ciudad Politécnica**: University-linked innovation
-- **Foreign investment**: Growing presence of international companies
-- **Cost advantage**: 40-50% cheaper than Barcelona for office space and talent
-- **Quality of life**: Major attraction for recruiting international talent
+- Match Ruzafa for lively walkable food/cafes; Centro for monuments; beach barrios when sea access outranks short Centro walks.
+- Quote Digital Nomad / NIE / fare figures only from live official pages (or mark unverified).
+- Visit rental listings in person before deposits; Idealista/Fotocasa are search surfaces, not escrow.
+- For short culture trips, keep lodging walkable to Centro/Ruzafa unless the user wants beach quiet.
+- Before long rentals, map deposit custom, community fees, and August/Fallas service disruptions.
+- Verify tourist stay and residency products per passport on government sources listed in `references/sources.md`.
 
-See `startup.md` and `tech.md` for ecosystem details.
+## Safety and privacy
 
-## Valencia-Specific Traps
+- Advise; do not claim real-time crime maps or guarantee neighborhood safety block-by-block.
+- No live network actions, bookings, or government filings without explicit user instruction.
+- Keep credentials, passport images, NIE/TIE numbers, and payment secrets out of `<state_root>/`.
+- Mark unverified mutable facts clearly when official pages cannot be opened.
 
-- **Siesta hours** — Many shops close 14:00-17:00. Supermarkets stay open.
-- **Spanish bureaucracy** — NIE, empadronamiento, gestoría often needed. Budget time and patience.
-- **Rental scams** — Never pay without visiting. Idealista is safest. Watch for fake listings.
-- **August shutdown** — Many businesses close 2-3 weeks. Plan accordingly.
-- **Paella timing** — Valencians eat paella at LUNCH (13:00-15:00), never dinner. Tourist restaurants ignore this.
-- **Beach vs Centro trade-off** — Beach areas are 20-30 min from Centro. Choose based on lifestyle.
-- **Valenciano pressure** — Some government services prefer Valenciano. Spanish always accepted legally.
-- **Fallas chaos** — March 15-19: amazing but LOUD. Book early or leave entirely.
-- **Northern European expectations** — Things move slower. Adapt to local pace.
-- **Banking hours** — Most banks close at 14:00. Digital banking is easier.
+## Source freshness
 
-## Legal Awareness (Non-EU)
-
-Key requirements for non-EU citizens:
-- **Digital Nomad Visa**: Available since 2023, requires €2,520/month income
-- **Autónomo**: Self-employed visa requires business plan and startup capital
-- **Non-lucrative Visa**: For retirees/wealthy, no work permitted
-- **Student Visa**: Allows limited work (20h/week)
-- **EU family**: Spouses of EU citizens get residence card
-
-See `visas.md` for comprehensive requirements.
-
-## EU Citizen Advantage
-
-EU citizens can:
-- Move without visa, work immediately
-- Register (empadronamiento) and get NIE within weeks
-- Access public healthcare with EHIC initially, full access after registration
-- Bring non-EU family members relatively easily
-
-See `resident.md` for EU citizen process.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `dubai` — Compare with another popular expat destination
-- `travel` — Planning trips and itineraries
-- `spanish` — Learn the language for deeper integration
-- `business` — Business strategy and planning
-- `real-estate-skill` — Property buying and investment
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/valencia
-- Latest version: https://clawic.com/skills/valencia
+Package orientation was bulk-aligned on 2026-10-16 against the URL map in `references/sources.md`. Before any booking-critical or legal claim, open the matching official page again for the user's passport and travel month.

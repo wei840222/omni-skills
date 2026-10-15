@@ -50,7 +50,7 @@ Former village absorbed by the city, retaining its pueblo feel. Home to universi
 
 ### Verdict
 Best for: Students, budget seekers, those wanting community
-Avoid if: You dislike student areas or want polish
+Better suited elsewhere if: You dislike student areas or want polish
 
 ---
 
@@ -70,7 +70,7 @@ Middle-class residential area. Families, retirees, normal Spanish city life. Nea
 - Some metro coverage
 
 **Cons**:
-- Not walkable to Centro (15-20 min metro)
+- Requires transit to Centro (15-20 min metro)
 - Limited nightlife/dining
 - Suburban feel
 
@@ -92,7 +92,7 @@ Middle-class residential area. Families, retirees, normal Spanish city life. Nea
 
 ### Verdict
 Best for: Families, quiet-seekers, car-owners
-Avoid if: You want urban buzz or are car-free
+Better suited elsewhere if: You want urban buzz or are car-free
 
 ---
 
@@ -114,7 +114,7 @@ Working-class neighborhood south of Centro. Authentic, unpretentious, and the ch
 - Less attractive architecture
 - Some areas feel rough
 - Limited international amenities
-- Not Instagram-pretty
+- Functionally aesthetic
 
 ### Rental Market
 
@@ -123,14 +123,14 @@ Working-class neighborhood south of Centro. Authentic, unpretentious, and the ch
 | 1BR apartment | €550-800/month |
 | 2BR apartment | €700-1,000/month |
 
-**Note**: Best value if you don't need beauty
+**Note**: Best value for functionality
 
 ### The Trade-Off
-Patraix is for budget-conscious people who want to live in the city, not just survive. It's safe, functional, and close to Ruzafa without Ruzafa prices.
+Patraix is for budget-conscious people who want to live in the city, thrive. It's safe, functional, and close to Ruzafa without Ruzafa prices.
 
 ### Verdict
 Best for: Extreme budget seekers, those working nearby
-Avoid if: You care about aesthetics or want international scene
+Better suited elsewhere if: You care about aesthetics or want international scene
 
 ---
 
@@ -148,7 +148,7 @@ North of Centro, overlooked residential zone. Mix of old and new, some nice pock
 - Less crowded than southern areas
 
 **Cons**:
-- Not trendy or exciting
+- Quiet and residential
 - Variable quality (block by block)
 - Limited metro (buses better)
 
@@ -161,7 +161,7 @@ North of Centro, overlooked residential zone. Mix of old and new, some nice pock
 
 ### Verdict
 Best for: Those wanting Centro-adjacent without premium
-Avoid if: You want neighborhood character
+Better suited elsewhere if: You want neighborhood character
 
 ---
 
@@ -198,7 +198,7 @@ Modern development around Ciudad de las Artes y las Ciencias. New builds, tech c
 
 ### Verdict
 Best for: Modern amenities prioritizers, tech workers
-Avoid if: You want soul or nightlife
+Better suited elsewhere if: You want soul or nightlife
 
 ---
 
@@ -229,7 +229,7 @@ University district. Dominated by UV and UPV campuses. Students everywhere, chea
 
 ### Verdict
 Best for: Students, university staff
-Avoid if: Not a student
+Better suited elsewhere if: Non-students
 
 ---
 
@@ -260,7 +260,7 @@ Avoid if: Not a student
 
 ### Most Character
 1. Benimaclet
-2. (Everything else is functional, not charming)
+2. (Functional aesthetics)
 
 ### Best Metro
 1. Quatre Carreres

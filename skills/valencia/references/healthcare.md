@@ -94,7 +94,7 @@ Spain has excellent healthcare — ranked among the best in the world. Valencia 
 **Disadvantages**:
 - Monthly cost (€50-200)
 - May duplicate public coverage
-- Not always better quality
+- Varies in quality
 - Some procedures still sent to public
 
 ### Insurance Providers
@@ -162,7 +162,7 @@ Spain has excellent healthcare — ranked among the best in the world. Valencia 
 **Private**: Direct booking possible
 
 ### Dentists
-- NOT covered by public healthcare
+- Requires private arrangements
 - Private: €30-60 for checkup
 - Many dentists speak English
 - Dental insurance: €10-30/month extra

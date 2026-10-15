@@ -9,16 +9,16 @@ This skill helps you navigate Valencia for any purpose: visiting, moving, workin
 Create your Valencia knowledge base:
 
 ```
-~/Clawic/data/valencia/
-├── profile.md          # Your situation and goals
-├── progress.md         # What you've accomplished
+<state_root>/
+├── memory.md           # Profile + priorities (from assets/memory-template.md)
+├── progress.md         # Checklist of completed admin steps
 ├── bookmarks.md        # Saved places and resources
 └── notes.md            # Personal observations
 ```
 
 ### Step 2: Define Your Context
 
-Copy `memory-template.md` to `~/Clawic/data/valencia/profile.md` and fill in:
+Copy `assets/memory-template.md` to `<state_root>/profile.md` and fill in:
 
 1. **Your role**: Visitor, potential resident, new resident, established resident
 2. **Your timeline**: When arriving, how long staying
@@ -59,11 +59,11 @@ Be specific about your situation:
 
 ✅ Good: "I'm a US digital nomad earning $5k/month, want to live near the beach but be able to walk to cafes. What neighborhood?"
 
-❌ Vague: "Where should I live in Valencia?"
+Weak: "Where should I live in Valencia?" (missing role, budget, beach vs Centro)
 
 ### Tracking Progress
 
-Update `~/Clawic/data/valencia/progress.md` as you complete steps:
+Update `<state_root>/progress.md` as you complete steps:
 
 ```markdown
 ## Completed
@@ -177,7 +177,6 @@ Valencia changes — here's how to stay current:
 If this skill helped you navigate Valencia, let others know:
 
 ```
-# Star it at https://clawic.com/skills/valencia
 ```
 
 Found something outdated or wrong? Report it so it can be fixed.

@@ -23,7 +23,7 @@ Valencia blends traditional Spanish culture with its own Valencian identity. Und
 
 ### Language Politics
 - Less intense than Catalonia
-- Some prefer Valenciano, most don't mind Spanish
+- Some prefer Valenciano, most are comfortable with Spanish
 - Government documents often bilingual
 - Schools: Can choose instruction language
 - Speaking Spanish is always accepted
@@ -35,7 +35,7 @@ Valencia is excellent for learning:
 - Language schools abundant
 - Immersion opportunities
 
-**Basic Valenciano phrases** (not required, but appreciated):
+**Basic Valenciano phrases** (optional but appreciated):
 - Bon dia — Good morning
 - Gràcies — Thank you
 - Adeu — Goodbye
@@ -55,14 +55,14 @@ Valencia is excellent for learning:
 **Entering shops/restaurants**:
 - Always say "Hola" or "Buenos días"
 - Leaving: "Adiós" or "Hasta luego"
-- Not greeting is considered rude
+- Greeting upon entry is expected
 
 ### Time & Punctuality
 
 **Social time**:
 - 15-30 minutes late is normal for social events
 - "We'll arrive at 9" means maybe 9:30
-- Don't stress about exact timing
+- Embrace flexible timing
 
 **Business time**:
 - More punctual expected
@@ -93,10 +93,10 @@ Valencia is excellent for learning:
 | 23:00+ | Evening activities |
 
 ### Siesta Reality
-- Not everyone sleeps, but many rest
+- Many use this time for rest
 - Many shops close 14:00-17:00
 - Big supermarkets stay open
-- Don't schedule important calls at siesta time
+- Schedule important calls outside siesta time
 
 ### Weekend Rhythms
 - Saturday: Shopping morning, beach/activities afternoon, dinner out
@@ -112,7 +112,7 @@ Valencia is excellent for learning:
 - Main meal of the day
 - Extended, social
 - 2-3 courses minimum
-- Sobremesa: Post-meal chat (don't rush)
+- Sobremesa: Post-meal chat (take your time)
 
 **Dinner is lighter**:
 - Later than you expect (21:00-22:00)
@@ -120,15 +120,15 @@ Valencia is excellent for learning:
 - Or bigger if going out
 
 **Eating out**:
-- Don't expect quick service (it's a feature, not bug)
+- Expect relaxed, unhurried service (local pacing)
 - Bill comes only when requested
 - Sharing is normal
 - Kids welcome everywhere, late hours too
 
 ### Paella Rules
-- Lunch dish, NEVER dinner (for Valencians)
+- Lunch dish, exclusively lunch (for Valencians)
 - Minimum 2 people
-- Real paella has chicken/rabbit, not seafood
+- Real paella has chicken/rabbit, traditional recipe
 - Seafood rice = "arroz de marisco" (different dish)
 - The socarrat (crispy bottom) is the prize
 
@@ -244,7 +244,7 @@ Valencia is excellent for learning:
 
 ### Public Affection
 - Couples holding hands, kissing: Normal
-- Not excessive in most contexts
+- Moderate in most contexts
 - More conservative in smaller towns
 
 ### LGBTQ+
@@ -263,15 +263,15 @@ Valencia is excellent for learning:
 - ✅ Accept offers of food/drink (refusing can seem rude)
 - ✅ Take time with meals and conversation
 - ✅ Learn basic Spanish (effort appreciated)
-- ✅ Dress decently (Valencia is casual but not sloppy)
+- ✅ Dress decently (Valencia is casual but neat)
 
 ### Don'ts
-- ❌ Rush meals
-- ❌ Schedule meetings at siesta
-- ❌ Expect everything open Sunday
-- ❌ Order paella at dinner (tourist mistake)
-- ❌ Be too formal (relax)
-- ❌ Only speak English (try some Spanish)
+- Pace meals slowly and socially
+- Schedule meetings outside typical mid-afternoon closures
+- Confirm Sunday hours before relying on a shop
+- Order paella at lunch when seeking the local pattern
+- Prefer warm, lightly informal tone once rapport exists
+- Add basic Spanish greetings even when English is available
 
 ---
 

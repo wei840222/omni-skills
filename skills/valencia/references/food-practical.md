@@ -8,7 +8,7 @@
 | Lunch | 13:30 | 15:30-16:00 |
 | Dinner | 20:30-21:00 | 23:00-23:30 |
 
-**Key insight**: Kitchens close between meals. Don't expect food at 17:00.
+**Key insight**: Kitchens close between meals. Plan meals around kitchen hours.
 
 ### What's Open When
 | Time | Options |
@@ -59,8 +59,8 @@
 ## Tipping Culture
 
 ### The Basics
-- **Not obligatory** in Spain
-- **No one will judge you** for not tipping
+- **Optional** in Spain
+- Tipping is entirely discretionary
 - **Servers earn living wages** (unlike US)
 
 ### What Locals Do
@@ -88,7 +88,7 @@
 
 ### Getting the Bill
 - "La cuenta, por favor" — The bill, please
-- Servers won't bring it unsolicited (not rushing you)
+- Servers won't bring it unsolicited (giving you space)
 - May need to ask 2-3 times in busy places
 
 ### Splitting Bills
@@ -172,7 +172,7 @@ Valencia has a growing Muslim population.
 - Plan ahead for Ramadan dining
 
 ### General Tips
-- Spain is not halal by default
+- Halal requires specific verification in Spain
 - Pork is in MANY dishes (hidden too)
 - Be explicit about requirements
 
@@ -189,11 +189,11 @@ Valencia has a growing Muslim population.
 ### Mercado de Ruzafa
 - **Hours**: Mon-Sat 07:00-14:00
 - **Best time**: Saturday morning
-- **Vibe**: Local, not touristy
+- **Vibe**: Local, authentic
 
 ### Mercado de Colón
 - **Hours**: 08:00-01:00 (bars)
-- **Not a food market**: More restaurant/bar space
+- **Restaurant and bar venue rather than a food market**: More restaurant/bar space
 - **Good for**: Drinks, oysters, casual
 
 ### Supermarkets

@@ -277,7 +277,7 @@ Valencia has three models:
 ## Homeschooling
 
 ### Legal Status
-- **Technically**: Not explicitly legal in Spain
+- **Technically**: Operates outside explicit legal frameworks in Spain
 - **Practice**: Tolerated but gray area
 - **Requirements**: Register children as schooled somewhere
 - **Community**: Growing homeschool groups in Valencia

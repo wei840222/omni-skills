@@ -42,8 +42,8 @@ One of Europe's largest and most beautiful food markets.
 
 **Tips:**
 - Closes at 14:30, closed Sundays
-- Prices are fair (it's not just for tourists)
-- Don't miss the Nou Almodí restaurant inside
+- Prices are fair (it's fairly priced)
+- Visit the Nou Almodí restaurant inside
 
 **Cost:** Free entry, €10-20 for food tasting
 
@@ -112,14 +112,14 @@ Freshwater lagoon 10km south, rice paddies, sunset boat rides.
 
 **What to do:**
 - Boat ride at sunset — absolutely beautiful
-- Eat paella in El Palmar (authentic, not tourist version)
+- Eat paella in El Palmar (authentic, authentic experience)
 - Birdwatching if interested
 - Rent bikes to explore
 
 **Tips:**
 - Need transport (bus 25 or car)
 - Half-day trip minimum
-- Avoid summer midday (hot, mosquitoes)
+- Visit during morning or evening in summer (hot, mosquitoes)
 
 **Cost:** Boat ride €5-8
 
@@ -166,7 +166,7 @@ Valencia's biggest festival:
 - Fireworks every day at 14:00 (mascletà)
 - Burning of fallas on final night
 - EXTREMELY crowded, book 3+ months ahead
-- Not recommended if you dislike noise or crowds
+- Not recommended if seeking quiet
 
 ### Spring (April-May) & Fall (September-October)
 - Perfect weather 20-26°C
@@ -188,7 +188,7 @@ Valencia's biggest festival:
 ## Insider Tips
 
 1. **Free Walking Tours**: Daily from Plaza de la Virgen, tip-based
-2. **Horchata Break**: Stop at Horchatería Santa Catalina (historic, touristy but good) or Daniel (locals' choice)
+2. **Horchata Break**: Stop at Horchatería Santa Catalina (historic, popular and historic) or Daniel (locals' choice)
 3. **Sunset Spots**: L'Umbracle gardens, Malvarrosa beach, Torres de Serranos
 4. **Art Beyond Museums**: Street art in El Carmen, especially around CCCC
 5. **Valencia Card**: Metro + bus + museum discounts, worth it for 2-3 day visits

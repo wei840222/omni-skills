@@ -36,7 +36,7 @@
 ### ATMs
 - Abundant throughout city
 - CaixaBank ATMs everywhere
-- Use bank ATMs, avoid standalone machines
+- Use bank ATMs, prefer bank ATMs
 - Withdraw at your own bank's ATMs for free
 
 ---
@@ -96,7 +96,7 @@
 
 ### Receiving Packages
 - **Home delivery**: Works well
-- **Correos pickup**: If not home
+- **Correos pickup**: For missed deliveries
 - **Amazon lockers**: Throughout city
 - **International**: DHL, FedEx, UPS available
 
@@ -117,7 +117,7 @@ An administrative agent who handles bureaucracy:
 - Starting a business
 - Complex visa situation
 - Tax issues
-- Don't speak Spanish well
+- Limited Spanish proficiency
 
 ### Cost
 - Simple task: €50-100

@@ -158,7 +158,7 @@ The best deal in Spain:
 | Mid-range dinner | €25-40 |
 | Fine dining | €80-150+ |
 
-**Tipping**: Not obligatory. Round up or 5-10% for good service.
+**Tipping**: Optional. Round up or 5-10% for good service.
 
 ---
 

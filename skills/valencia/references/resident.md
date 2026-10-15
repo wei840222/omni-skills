@@ -126,7 +126,7 @@ See `visas.md` for detailed requirements.
 |------|--------------|-------|
 | N26 | No (passport OK) | German bank, app-based |
 | Revolut | No | UK-based, useful for transfers |
-| Wise | No | Multi-currency, not full bank |
+| Wise | No | Multi-currency, limited services |
 | Vivid | No | German, easy setup |
 
 ### Traditional Spanish Banks
@@ -292,9 +292,9 @@ See `healthcare.md` for details.
 
 ## Common Mistakes
 
-1. **Not booking NIE appointment early** — Can be weeks of wait
+1. **Delaying NIE appointments** — Can be weeks of wait
 2. **Expecting US-speed bureaucracy** — Spain is slower, accept it
-3. **Not getting empadronamiento** — Needed for everything
+3. **Delaying empadronamiento** — Needed for everything
 4. **Skipping Spanish bank** — Some services require it
 5. **Ignoring gestoría** — Worth hiring for first year
 6. **August apartment hunting** — Everyone's on vacation

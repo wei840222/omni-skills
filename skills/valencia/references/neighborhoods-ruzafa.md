@@ -60,7 +60,7 @@ Valencia's hippest neighborhood. Once working-class, now the epicenter of brunch
 ### Nightlife
 Less wild than El Carmen, more cocktail bars and late-night dining than clubs.
 
-**Noise level**: Moderate — busy weekend nights but not El Carmen crazy
+**Noise level**: Moderate — busy weekend nights though calmer than El Carmen
 
 ### Demographics
 - 25-45 year olds dominant
@@ -70,7 +70,7 @@ Less wild than El Carmen, more cocktail bars and late-night dining than clubs.
 
 ### Verdict
 Best for: Professionals, foodies, creatives, anyone wanting cool without chaos
-Avoid if: Tight budget or dislike gentrified areas
+Better suited elsewhere if: Tight budget or dislike gentrified areas
 
 ---
 
@@ -127,7 +127,7 @@ Valencia's 19th-century expansion grid. Wide boulevards, modernista buildings, b
 
 ### Verdict
 Best for: Those wanting central + practical without "scene"
-Avoid if: You want strong neighborhood identity
+Better suited elsewhere if: You want strong neighborhood identity
 
 ---
 
@@ -189,5 +189,5 @@ Ruzafa is Valencia's digital nomad hub:
 2. **Sunday rastro**: Small flea market near Mercado
 3. **Living near Calle Sueca**: Noisier but most convenient
 4. **Cuba/Puerto Rico streets**: Best residential quality
-5. **Avoid ground floor**: Street noise from bars
+5. **Choose upper floors**: Street noise from bars
 6. **Check afternoon sun**: Some streets get hot in summer

@@ -101,7 +101,7 @@
 **Regulations**: Valencia regulates tourist apartments. Look for:
 - License number (VT-XXXXX-V)
 - Minimum 5-night stays often required
-- Avoid unlicensed rentals (risk of cancellation)
+- Book licensed rentals only (risk of cancellation)
 
 **Best areas**:
 - **Ruzafa**: Best value, local feel
@@ -115,7 +115,7 @@
 - 2BR apartment: €90-150/night
 
 **Tips**:
-- Book on Airbnb or Vrbo (not Facebook groups)
+- Book on Airbnb or Vrbo (instead of Facebook groups)
 - Read reviews about noise (El Carmen weekends)
 - Confirm air conditioning for summer
 - Ask about parking if driving
@@ -184,9 +184,9 @@ Want to walk everywhere?
 
 ---
 
-## Where NOT to Stay
+## Areas Requiring Caution
 
-### Areas to Avoid
+### Areas Requiring Caution
 - **Orriols**: Far north, no tourist interest
 - **La Torre / Castellar**: Industrial outskirts
 - **Generic business parks**: No atmosphere, car-dependent
@@ -208,7 +208,7 @@ Want to walk everywhere?
 
 ### Kid-Friendly Features
 - Look for: pools, family rooms, kitchenette
-- Avoid: El Carmen (noisy), hostels, top-floor walkups
+- Consider alternatives to El Carmen (noisy), hostels, top-floor walkups
 
 ---
 

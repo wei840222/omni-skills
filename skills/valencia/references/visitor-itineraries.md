@@ -87,7 +87,7 @@ Best for: Cruise passengers, day-trippers, very short stays.
 - 15:30 — Museo de Bellas Artes (free, 1.5 hours)
 - 17:30 — Rent Valenbisi bikes
 - Ride through Jardín del Turia end to end
-- Stop at Gulliver Park if with kids
+- Stop at Gulliver Park for families
 
 **Evening**
 - Sunset drinks at L'Umbracle terrace (summer) or rooftop bar
@@ -129,7 +129,7 @@ Follow 3-day itinerary above.
 - Eat at Bioparc or nearby in Campanar
 
 **Afternoon**
-- 15:00 — IVAM if not done yet
+- 15:00 — IVAM if pending
 - 16:30 — Jardines de Monforte (romantic formal gardens, free)
 - 17:30 — Jardines del Real (Viveros) — larger park
 
@@ -230,7 +230,7 @@ Follow 3-day itinerary above.
 
 ### Best Months
 - **April-May, September-October**: Perfect weather, manageable crowds
-- **Avoid**: August (locals leave, heat) and March 15-19 (Fallas chaos unless you want it)
+- **Plan around**: August (locals leave, heat) and March 15-19 (Fallas—join deliberately or leave town)
 
 ### Book Ahead
 - Oceanogràfic: summer weekends
@@ -245,6 +245,6 @@ Follow 3-day itinerary above.
 
 ### Pace Yourself
 - Valencia rewards slow exploration
-- Don't rush between attractions
+- Pace your visits
 - Take the Spanish pace: long lunch, late dinner
 - Siesta time (14:00-17:00) = shop closures, embrace it

@@ -83,7 +83,7 @@ Mediterranean climate with hot summers, mild winters, and 300+ sunny days per ye
 | Rain days | 2-3 |
 | Sea temp | 22°C |
 
-**What to expect**: Hot but not extreme. Beach weather. Some humidity.
+**What to expect**: Hot but manageable. Beach weather. Some humidity.
 
 **What to do**: Beach, evening activities. Start avoiding midday sun.
 
@@ -168,7 +168,7 @@ Mediterranean climate with hot summers, mild winters, and 300+ sunny days per ye
 - **What**: Intense Mediterranean storms
 - **Effects**: Flash flooding, heavy rain in hours
 - **Impact**: Temporary but can be severe
-- **What to do**: Stay indoors, don't drive through floods
+- **What to do**: Stay indoors, bypass flooded areas
 
 ### Levante Wind
 - **When**: Variable, often spring/fall
@@ -220,8 +220,8 @@ Mediterranean climate with hot summers, mild winters, and 300+ sunny days per ye
 |----------|-------------|
 | Apartment hunting | January-March |
 | Good weather settling | April-May |
-| Avoid heat | October-November |
-| Avoid August | (Everyone gone) |
+| For cooler weather | October-November |
+| Bypass August | (Everyone gone) |
 
 ---
 

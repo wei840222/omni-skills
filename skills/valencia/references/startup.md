@@ -242,7 +242,7 @@ Valencia's startup scene is growing rapidly. Lower costs than Madrid/Barcelona, 
 ### Recommended Structure
 - **S.L. (Sociedad Limitada)**: Standard for raising investment
 - **Minimum capital**: €3,000
-- **Vesting**: Not automatic in Spain — must be contractually arranged
+- **Vesting**: Requires contractual arrangement in Spain — must be contractually arranged
 
 ### Key Legal Considerations
 - Shareholders' agreement essential
@@ -289,14 +289,14 @@ Notable Valencia-connected startups:
 - **Seed**: Possible locally
 - **Series A**: Likely need Madrid/Barcelona or international VCs
 - **Be prepared to travel** for bigger rounds
-- **Don't limit to Valencia** — Spanish investors look nationally
+- **Pitch nationally across Spain** — Spanish investors look nationally
 
 ### Common Mistakes
 - Underestimating bureaucracy time
-- Not getting proper legal setup early
+- Delaying proper legal setup
 - Ignoring employee contracts/equity complexity
 - Trying to do everything locally when network is bigger
-- Not learning Spanish (limits local hiring/networking)
+- Skipping Spanish language acquisition (limits local hiring/networking)
 
 ---
 
