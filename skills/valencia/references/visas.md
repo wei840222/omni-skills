@@ -2,6 +2,8 @@
 
 ## Overview
 
+> Freshness: income floors, fees, and consulate channels change. Re-check BOE / sede / consulate links in `sources.md` for the user passport and month before filing.
+
 Spain offers multiple visa pathways. EU citizens have it easy; non-EU citizens have increasingly good options including the Digital Nomad Visa (2023).
 
 ---

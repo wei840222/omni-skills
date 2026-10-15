@@ -1,5 +1,8 @@
 # Valencia Transport Guide
 
+
+> Freshness: euro fares below are package orientation. Operator sites often time out from automation—open Valenbisi/Metrovalencia/EMT live before trip-critical budgets.
+
 ## Overview
 
 Valencia has excellent public transport for a Spanish city. Unlike Madrid or Barcelona sprawl, the city is compact enough that many people live car-free.

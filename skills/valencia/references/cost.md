@@ -2,6 +2,8 @@
 
 ## Overview
 
+> Freshness: rent and budget tables are orientation bands only. Re-sample live listings before lease advice.
+
 Valencia offers excellent value for Western Europe. Significantly cheaper than Barcelona, Madrid, London, or Paris while maintaining high quality of life.
 
 ### Quick Comparison
