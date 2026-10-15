@@ -1,6 +1,6 @@
 # Market Position — Benchmarking And Staying Liquid
 
-The base rate behind this file: switchers outprice stayers by roughly 1-2 percentage points of annual wage growth (SKILL.md rule 3, Atlanta Fed). Knowing your number and keeping options warm is how you capture that without job-hopping.
+The base rate behind this file: switchers outprice stayers by roughly 1–2 percentage points of annual wage growth in most years (SKILL.md Rule 3; Atlanta Fed Wage Growth Tracker Stayer/Switcher series — https://www.atlantafed.org/chcs/wage-growth-tracker). Prefer the live series over a frozen print. Knowing your number and keeping options warm is how you capture that without job-hopping.
 
 ## Triangulating Your Band
 
