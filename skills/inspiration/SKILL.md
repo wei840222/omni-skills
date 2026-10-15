@@ -1,169 +1,125 @@
 ---
 name: inspiration
-slug: inspiration
-version: 1.0.0
-description: Find design and AI art inspiration from curated galleries, screenshot libraries, and creative showcases.
-homepage: https://clawic.com/skills/inspiration
+description: >
+  Retrieve visual design, UI pattern, landing-page, and AI-art inspiration from
+  curated galleries and screenshot libraries. Use when the user needs
+  references for UI/UX, mobile flows, landing pages, AI image styles/prompts,
+  colors, typography, icons, or motion. Prefer `design` for quantified visual
+  critique, `colors` for WCAG palettes/tokens, `ui` for component patterns,
+  `image-generation` for running generation workflows, and `frontend` for
+  implementation.
 metadata:
-  clawdbot:
-    emoji: ✨
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Inspiration
+  version: "1.1.0"
+  openclaw: '{"emoji":"✨"}'
+  related-skills: '{"colors":"Build accessible palettes and tokens after inspiration picks a visual direction.","design":"Apply quantified hierarchy, spacing, and critique rules to a chosen reference.","frontend":"Implement approved visual direction in interface code.","image-generation":"Run text-to-image or edit workflows once style references are chosen.","ui":"Map inspiration screens into reusable component and interaction patterns."}'
 ---
+
+## State location
+
+Inspiration preferences may exist in `<workspace>/inspiration/`, `<workspace>/memory/inspiration/`, or `~/inspiration/`. Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists (host config or user override).
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/inspiration/`, `<workspace>/memory/inspiration/`, `~/inspiration/`.
+3. If several candidate directories exist, use only the highest-precedence one and report the separate copies; do not merge or cross-write.
+4. If none exists and the user explicitly wants continuity, create `<workspace>/inspiration/` by default.
+5. If the host cannot supply `<workspace>`, read an existing `~/inspiration/` only; otherwise ask for a state root before creating data.
+
+Use the selected `<state_root>` for every state operation in this invocation. Create or update `<state_root>/preferences.md` only when the user wants preference continuity. Legacy `~/Clawic/data/inspiration/` is a migration source only—keep it out of active lookup; move only with explicit user consent (copy, validate, cutover).
+
+This skill is otherwise a knowledge guide: gallery browsing does not require state.
 
 ## Setup
 
-On first use, read `setup.md` for guidelines on helping users find the right references.
+On first use, or when the user asks how to narrow references, read `references/setup.md`.
 
-## When to Use
+## When to use
 
-User needs visual references, design inspiration, or examples for UI, landing pages, AI-generated images, or creative projects.
+Use for **visual reference retrieval**: UI/UX screens and flows, landing pages, AI art galleries/prompts, illustration/mood boards, color/type/icon/motion inspiration catalogs.
 
-## Architecture
+Do **not** use as the sole skill for quantified design critique (`design`), WCAG token systems (`colors`), component-library conventions (`ui`), running image models (`image-generation`), or shipping frontend code (`frontend`).
 
-Stateless by default. See `memory-template.md` for optional preference tracking.
+Ask only for the next missing filter that changes the source set: platform (web/mobile/desktop), style, purpose (production vs concept), and category.
 
-## Quick Reference
+## Resource loading
 
-| Topic | File |
-|-------|------|
-| Guidelines | `setup.md` |
-| Full source directory | `sources.md` |
-| AI image galleries | `ai-galleries.md` |
-| Mobile app screenshots | `mobile-screenshots.md` |
+| Need | Load |
+|------|------|
+| Clarifying questions and matching attitude | `references/setup.md` |
+| Full 100+ source directory by category | `references/sources.md` |
+| AI model/gallery deep dive | `references/ai-galleries.md` |
+| Mobile screenshot and flow research | `references/mobile-screenshots.md` |
+| Optional preference template | `assets/data-templates.md` |
 
-## Core Rules
+Load one deep reference when the request needs that depth. Prefer actively maintained galleries over stale showcases.
 
-### 1. Match Source to Need
-Different needs require different sources:
-- **UI patterns** → Mobbin, Screenlane, Page Flows
-- **Visual design** → Dribbble, Behance, Awwwards
-- **AI art** → Midjourney Showcase, Civitai, PromptHero
-- **Landing pages** → Landingfolio, Lapa, SaaS Pages
+## Core rules
 
-### 2. Provide Actionable Links
-Always give direct URLs, not vague recommendations. Include what makes each source valuable for the specific need.
+1. **Match source to need** — UI patterns → Mobbin / Screenlane / Page Flows; visual design → Dribbble / Behance / Awwwards / Godly; AI art → Midjourney Showcase / Civitai / PromptHero / Lexica; landing pages → Landingfolio / Lapa Ninja / SaaS Pages.
+2. **Give actionable links** — Return direct URLs and one sentence on why each source fits this request.
+3. **Filter with context** — Collect platform, style, and purpose before dumping a long list.
+4. **Go deep when needed** — For AI prompts, mobile flows, or niche industries, load the matching reference file instead of expanding every table in-chat.
+5. **Prefer live galleries** — Prioritize Mobbin, Godly, Awwwards, Civitai, PromptHero, and similar actively updated catalogs when freshness matters.
+6. **Treat aspirational boards carefully** — Dribbble/Behance are strong for concepts; call out when a reference is aspirational rather than production-ready.
 
-### 3. Consider Context
-Ask about platform (web/mobile/desktop), style (minimal/bold/playful), and purpose (production app/concept/pitch deck) to filter recommendations.
+## Quick start — top sources
 
-### 4. Go Deep When Needed
-For specialized needs (AI prompts, mobile flows, specific industries), load the relevant auxiliary file for comprehensive coverage.
+### UI/UX
 
-## Quick Start — Top Sources by Category
-
-### UI/UX Design
-
-| Source | Best For | URL |
+| Source | Best for | URL |
 |--------|----------|-----|
-| **Mobbin** | Mobile app screenshots, flows | https://mobbin.com |
-| **Screenlane** | Mobile UI patterns | https://screenlane.com |
-| **Page Flows** | User flow recordings | https://pageflows.com |
-| **Collect UI** | Curated UI components | https://collectui.com |
-| **UI Sources** | Design system refs | https://www.uisources.com |
-| **Godly** | Modern web design | https://godly.website |
+| Mobbin | Mobile screenshots and flows | https://mobbin.com |
+| Screenlane | Mobile UI patterns | https://screenlane.com |
+| Page Flows | User-flow recordings | https://pageflows.com |
+| Collect UI | Curated UI components | https://collectui.com |
+| Godly | Modern web design | https://godly.website |
 
-### Landing Pages & Web
+### Landing pages and web
 
-| Source | Best For | URL |
+| Source | Best for | URL |
 |--------|----------|-----|
-| **Landingfolio** | SaaS landing pages | https://landingfolio.com |
-| **Lapa Ninja** | Landing page gallery | https://lapa.ninja |
-| **SaaS Pages** | SaaS-specific designs | https://saaspages.xyz |
-| **One Page Love** | One-pagers | https://onepagelove.com |
-| **Awwwards** | Award-winning sites | https://awwwards.com |
-| **CSS Design Awards** | Innovative CSS | https://cssdesignawards.com |
-| **Site Inspire** | Clean web design | https://siteinspire.com |
+| Landingfolio | SaaS landing pages | https://landingfolio.com |
+| Lapa Ninja | Landing page gallery | https://lapa.ninja |
+| SaaS Pages | SaaS-specific layouts | https://saaspages.xyz |
+| Awwwards | Award-winning sites | https://awwwards.com |
+| Site Inspire | Clean web design | https://siteinspire.com |
 
-### AI-Generated Art
+### AI-generated art
 
-| Source | Best For | URL |
+| Source | Best for | URL |
 |--------|----------|-----|
-| **Midjourney Showcase** | MJ community picks | https://midjourney.com/showcase |
-| **Civitai** | SD models + images | https://civitai.com |
-| **PromptHero** | Prompts + results | https://prompthero.com |
-| **Lexica** | SD image search | https://lexica.art |
-| **OpenArt** | Multi-model gallery | https://openart.ai |
-| **PlaygroundAI** | AI art community | https://playgroundai.com |
-| **Krea** | AI design inspiration | https://krea.ai |
+| Midjourney Showcase | Community MJ picks | https://midjourney.com/showcase |
+| Civitai | SD models + images | https://civitai.com |
+| PromptHero | Prompts + results | https://prompthero.com |
+| Lexica | SD image search | https://lexica.art |
+| OpenArt | Multi-model gallery | https://openart.ai |
+| Krea | AI design inspiration | https://krea.ai |
 
-### Visual Design & Illustration
+### Visual design, color, type, icons, motion
 
-| Source | Best For | URL |
+| Source | Best for | URL |
 |--------|----------|-----|
-| **Dribbble** | Designer portfolios | https://dribbble.com |
-| **Behance** | Creative projects | https://behance.net |
-| **Pinterest** | Mood boards | https://pinterest.com |
-| **Designspiration** | Visual search | https://designspiration.com |
-| **Muzli** | Design aggregator | https://muz.li |
-| **Abduzeedo** | Design blog | https://abduzeedo.com |
+| Dribbble | Designer portfolios | https://dribbble.com |
+| Behance | Creative projects | https://behance.net |
+| Coolors | Palette generator | https://coolors.co |
+| Color Hunt | Curated palettes | https://colorhunt.co |
+| Typewolf | Font recommendations | https://typewolf.com |
+| Fonts In Use | Real-world type | https://fontsinuse.com |
+| Lucide / Heroicons | Icon sets | https://lucide.dev / https://heroicons.com |
+| unDraw / Storyset | Illustrations | https://undraw.co / https://storyset.com |
+| Lottie Files | Motion JSON | https://lottiefiles.com |
+| UI Movement | UI animation refs | https://uimovement.com |
 
-### Colors & Palettes
+For the complete catalog, load `references/sources.md`.
 
-| Source | Best For | URL |
-|--------|----------|-----|
-| **Coolors** | Palette generator | https://coolors.co |
-| **Color Hunt** | Curated palettes | https://colorhunt.co |
-| **Adobe Color** | Color wheel + trends | https://color.adobe.com |
-| **Realtime Colors** | Palette on real UI | https://realtimecolors.com |
-| **Happy Hues** | Palettes in context | https://happyhues.co |
-| **Culrs** | Curated colors | https://culrs.com |
-| **Picular** | Color from keywords | https://picular.co |
+## Prefer / watch-outs
 
-### Typography
+- Prefer clarifying platform/style/purpose over answering "show me inspiration" with a generic dump.
+- Prefer production-oriented libraries (Mobbin, Page Flows) when the user is shipping UI; keep Dribbble/Behance for concept exploration.
+- Prefer AI-specific galleries when the user needs prompts, models, or style refs for generation.
+- Watch for stale galleries; re-check URLs from `references/sources.md` when a site looks abandoned.
+- Watch for paywalled deep archives (Mobbin, Page Flows, UI Sources); say when a free tier may be limited.
 
-| Source | Best For | URL |
-|--------|----------|-----|
-| **Typewolf** | Font recommendations | https://typewolf.com |
-| **Fonts In Use** | Real-world examples | https://fontsinuse.com |
-| **Font Pair** | Font combinations | https://fontpair.co |
-| **Google Fonts** | Free fonts | https://fonts.google.com |
-| **Font Share** | Free quality fonts | https://fontshare.com |
-| **Fontjoy** | AI font pairing | https://fontjoy.com |
+## Optional preference continuity
 
-### Icons & Illustrations
-
-| Source | Best For | URL |
-|--------|----------|-----|
-| **Noun Project** | Icons | https://thenounproject.com |
-| **Feather Icons** | Minimal icons | https://feathericons.com |
-| **Heroicons** | Tailwind icons | https://heroicons.com |
-| **Lucide** | Open source icons | https://lucide.dev |
-| **Illustrations.co** | Free illustrations | https://illlustrations.co |
-| **unDraw** | Customizable SVGs | https://undraw.co |
-| **Blush** | Mix-and-match | https://blush.design |
-| **Storyset** | Animated illus. | https://storyset.com |
-
-### Motion & Animation
-
-| Source | Best For | URL |
-|--------|----------|-----|
-| **Lottie Files** | JSON animations | https://lottiefiles.com |
-| **UI Movement** | UI animations | https://uimovement.com |
-| **Animated Drawings** | Motion refs | https://animatedbackgrounds.me |
-| **GSAP Showcase** | GSAP examples | https://gsap.com/showcase |
-
-## Common Traps
-
-- **Too broad** → asking "show me inspiration" without context leads to generic results. Always clarify: mobile or web? What industry? What vibe?
-- **Ignoring context** → Dribbble is great for concepts but often impractical for production. Match source to whether user needs realistic or aspirational refs.
-- **Outdated sources** → Some galleries haven't updated in years. Prioritize actively maintained sources (Mobbin, Godly, Awwwards).
-- **Forgetting AI galleries** → For image generation prompts and style refs, AI-specific galleries (Civitai, PromptHero) are more relevant than traditional design sites.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `design` - design principles
-- `colors` - color theory and palettes
-- `ui` - UI component patterns
-- `image-generation` - AI image creation
-- `frontend` - frontend implementation
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/inspiration
-- Latest version: https://clawic.com/skills/inspiration
+When the user wants remembered filters, copy `assets/data-templates.md` to `<state_root>/preferences.md` and update it after useful sessions.
