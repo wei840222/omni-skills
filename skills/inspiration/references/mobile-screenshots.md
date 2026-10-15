@@ -252,8 +252,8 @@ Finding the right mobile UI references by platform, category, and pattern.
 
 ### Effective Browsing
 
-**Anti-pattern:** Browse randomly hoping for inspiration
-**Do:** Search for specific patterns you need
+**Prefer:** Search for specific patterns you need
+**Watch-out:** Random browsing without a pattern target wastes time
 
 Example process:
 1. "I need a settings screen for a fintech app"

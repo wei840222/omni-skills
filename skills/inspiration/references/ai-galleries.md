@@ -137,7 +137,7 @@ Best for: Curated picks from the community, trending styles, what's possible wit
 **Key approaches:**
 - Keep it simple (AI struggles with complex logos)
 - Multiple variations, then refine manually
-- Use as starting point rather than final output
+- Use as a starting point, then refine manually for final output
 
 ## Finding Prompts
 
@@ -212,7 +212,7 @@ Best for: Curated picks from the community, trending styles, what's possible wit
 
 1. Start with Midjourney or DALL-E for concepts
 2. Generate many variations quickly
-3. Use as mood board instead of final assets
+3. Use as a mood board, then hand polished assets to design
 4. Hand off to designer for refinement
 
 ### For Marketing / Social
