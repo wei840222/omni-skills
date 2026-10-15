@@ -122,7 +122,7 @@ Southern Bucharest, similar communist-era blocks as Titan but with M2 metro line
 - Less safe perception (mostly unfounded)
 
 ### Verdict
-**Great for**: Extreme budget, those who don't care about neighborhood
+**Great for**: Extreme budget when neighborhood amenities are a low priority
 **Alternative Profile**: Want any social life, comfort matters
 
 ---
@@ -236,7 +236,7 @@ Western edge of Bucharest, large residential area with communist blocks and some
 - Aesthetically poor
 
 ### Verdict
-**Great for**: Extreme budget, don't care about area
+**Great for**: Extreme budget when area amenities are a low priority
 **Alternative Profile**: Safety concerns, need social life
 
 ---

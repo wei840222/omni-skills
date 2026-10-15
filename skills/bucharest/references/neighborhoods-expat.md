@@ -125,7 +125,7 @@ More established than Pipera, mix of old villas and new developments. Near Băne
 
 ### Verdict
 **Great for**: Families, nature lovers, frequent flyers, those who drive
-**Alternative Profile**: Don't have car, want urban life
+**Alternative Profile**: Car-free and wants denser urban life
 
 ---
 
