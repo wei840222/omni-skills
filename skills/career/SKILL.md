@@ -56,6 +56,9 @@ Use the selected `<state_root>` for every state operation in this skill.
 
 ## Quick reference
 
+Load `references/` depth files only when the matched situation needs them; keep the entry skill on BATNA, package math, and routing.
+
+
 | Situation | Play |
 |---|---|
 | Offer received | Leave the call without accepting; get written details, take ~48 hours, counter once minimum (`references/offers.md`) |
