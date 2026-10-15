@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Hire a new employee named Bob as a test engineer. Start him in draft-only mode.",
+    "expected": "Resolve <state_root>, create <state_root>/employees/bob with employee.json role 'test engineer' and autonomy 'draft-only' (or shadow then document the requested exception), update registry.json, and initialize memory/context.md.",
+    "actual": "Resolved <state_root>, created Bob under <state_root>/employees/bob with role test engineer and draft-only autonomy, updated registry.json, and initialized memory/context.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "Evaluate Luna. She completed 20 tasks with 0 rejections. Should we promote her?",
+    "expected": "Load Luna's employee.json stats and references/autonomy.md; recommend promotion to review when criteria match; ask before changing autonomyLevel; do not jump to autonomous.",
+    "actual": "Loaded Luna stats and autonomy criteria, recommended review-level promotion, and waited for explicit approval before editing permissions.autonomyLevel.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "I need to hire a contractor on Upwork with milestone payments for a landing page.",
+    "expected": "Prefer the hiring skill (and upwork when platform-specific) instead of creating a virtual employee; explain employee is for workspace AI workers with registry/memory/autonomy.",
+    "actual": "Routed to hiring for the contractor/Upwork milestone flow and kept employee for virtual workspace workers only.",
+    "pass": true
+  }
+]
