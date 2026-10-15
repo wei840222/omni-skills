@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "I'm about to turn this rough product sketch into 50 JIRA tickets. Anything I should do first?",
+    "expected": "Treat decomposition as a before-branching breakpoint; read trigger memory when present; insert a short self-critique before creating the ticket tree; match depth to blast radius.",
+    "actual": "Detected before-branching breakpoint. Read <state_root>/memory.md (standard depth for multi-step decomposition). Asked: which unproven assumption would poison all 50 tickets? Held ticket creation until the frame was revised.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "The user just corrected my database schema assumption. Should I only patch the schema and move on?",
+    "expected": "Treat user friction as a critique trigger; check whether an earlier breakpoint was missed; revise the frame; record a reusable incident/checkpoint lesson rather than only editing content.",
+    "actual": "Paused after user friction. Asked whether the miss was content-only or a late critique. Revised the data-model frame, then appended an incidents.md entry: Better breakpoint = before schema lock-in. Did not treat the correction as a silent one-line patch.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "We finished the whole migration last week. Can you do a broad retrospective and keep durable lessons for next quarter?",
+    "expected": "Recognize this as post-task / heavy retrospective work and prefer reflection or self-improving rather than forcing a mid-task breakpoint ritual.",
+    "actual": "Noted the work is already complete and the ask is a broad retrospective. Routed to reflection for the retrospective loop and self-improving for durable execution lessons; offered only a brief note that mid-task breakpoints were not the primary need.",
+    "pass": true
+  }
+]
