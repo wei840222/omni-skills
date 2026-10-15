@@ -28,7 +28,7 @@ C) "We can add it to v2 backlog and revisit after launch data"
 Which do you prefer?
 ```
 
-Never accept additions without explicit tradeoffs.
+Require explicit tradeoffs for all scope additions.
 
 ---
 

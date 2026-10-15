@@ -1,6 +1,6 @@
 # Technical Founder MVP Guide
 
-You can build anything. Your challenge is knowing when to STOP.
+You can build anything. Your challenge is knowing when execution is complete.
 
 ## Your Specific Traps
 
@@ -22,7 +22,7 @@ You can build anything. Your challenge is knowing when to STOP.
 - Single-tenant when you'll need multi-tenant later
 - No admin panel (use database directly)
 
-❌ Not acceptable:
+❌ Requires correction:
 - Security holes (auth, data exposure)
 - Data corruption risks
 - Things that block the core user flow

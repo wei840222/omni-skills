@@ -1,28 +1,35 @@
 ---
 name: mvp
-slug: mvp
-version: 1.0.0
-description: Build, validate, and launch minimum viable products with scope discipline, user signals, and iteration speed.
-homepage: https://clawic.com/skills/mvp
+description: >
+  Guide technical and non-technical builders through MVP scope definition,
+  validation, and tradeoff management. Use when the user wants to launch a product
+  fast, validate assumptions, or reduce feature bloat. Prefer `product` for
+  end-to-end product + marketplace execution, `startup` for stage-wide founder
+  orchestration, `founder` for founder operating-system work, and `growth` once
+  retention math is sound.
 metadata:
-  clawdbot:
-    emoji: 🚀
-    displayName: MVP
+  version: "1.1.0"
+  openclaw: '{"emoji":"🚀"}'
+  related-skills: '{"founder":"Founder operating-system and psychology when the bottleneck is the person, not MVP scope.","growth":"Acquisition and retention systems after the MVP has validated demand.","indie-hacker":"Solo bootstrap sequencing and time protection for side-project MVPs.","product":"Broader product strategy, prioritization, and marketplace execution beyond MVP scope.","product-launch":"Go-to-market sequencing once the MVP scope is locked.","product-manager":"PM discovery, roadmaps, and stakeholder craft without MVP kill-criteria focus.","startup":"Stage-wide founder orchestration across PMF, hiring, and runway beyond a single MVP."}'
 ---
+
+# MVP
+
+Help builders ship the **smallest testable product** that can validate or invalidate one clear hypothesis.
+
+This skill is **knowledge-only**. It does not create or require a persistent state tree. Do not write runtime notes into this package.
 
 ## First: Identify the User's Role
 
-Before guidance, determine their context:
+Determine the user context to load the correct role guide:
 
 | Role | Key Focus | Load File |
 |------|-----------|-----------|
-| Technical Founder | Scope control, stop over-engineering | `roles/technical.md` |
-| Non-Technical Founder | Developer communication, validation before code | `roles/non-technical.md` |
-| Product Manager | Stakeholder alignment, scope defense | `roles/pm.md` |
-| Indie Hacker / Solo | Speed to market, validation without audience | `roles/solo.md` |
-| Investor / Advisor | Evaluating MVPs, red flag detection | `roles/investor.md` |
-
----
+| Technical Founder | Scope control, stop over-engineering | `references/technical.md` |
+| Non-Technical Founder | Developer communication, validation before code | `references/non-technical.md` |
+| Product Manager | Stakeholder alignment, scope defense | `references/pm.md` |
+| Indie Hacker / Solo | Speed to market, validation without audience | `references/solo.md` |
+| Investor / Advisor | Evaluating MVPs, red flag detection | `references/investor.md` |
 
 ## Universal MVP Principles
 
@@ -42,28 +49,16 @@ Before guidance, determine their context:
 3. You can measure success/failure
 4. Ship date is set and non-negotiable
 
----
+## Progressive disclosure
 
-## Scope Discipline
+- Scope matrices and decision logs → `references/scope.md`
+- Validation techniques and kill criteria → `references/validation.md`
+- Common anti-patterns → `references/traps.md`
+- Role-specific coaching → the matching file in the table above
 
-See `scope.md` for:
-- Feature prioritization matrix (must/should/could/won't)
-- "If we add X, we cut Y" template
-- Common scope traps by role
-- Decision log template
+Prefer adjacent skills when they fit better:
 
-## Validation Techniques
-
-See `validation.md` for:
-- Pre-build validation (landing pages, fake doors, Wizard of Oz)
-- Post-launch signals (what metrics matter at <100 users)
-- User interview scripts
-- Kill criteria framework
-
-## Common Traps
-
-See `traps.md` for anti-patterns:
-- Over-engineering for scale with zero users
-- Confusing "shipped" with "learned"
-- Building interesting features vs important features
-- Endless polish before anyone sees it
+- Broader product + marketplace execution → `product`
+- Stage-wide founder orchestration → `startup`
+- Founder psychology / operating system → `founder`
+- Post-validation acquisition systems → `growth`

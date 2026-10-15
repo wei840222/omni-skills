@@ -49,7 +49,7 @@ Your MVP is ready when:
 - You can explain what success looks like (specific metric)
 - You have 10 people ready to try it day one
 
-Your MVP is NOT ready when:
+Your MVP requires more validation when:
 - You're still adding features "to be safe"
 - Nobody outside your team has seen it
 - Success criteria is vague ("people like it")

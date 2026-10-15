@@ -12,7 +12,7 @@ When someone requests a feature, use this:
 > B) Slip launch by [X WEEKS]
 > Which do you prefer?"
 
-Never accept scope additions without explicit tradeoffs.
+Require explicit tradeoffs for all scope additions.
 
 ### Decision Log
 Keep a running document:
