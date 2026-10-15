@@ -16,6 +16,10 @@ metadata:
 
 # Employee
 
+## When to use
+
+Use this skill when the user wants workspace **virtual employees**: hire/train/evaluate/promote/pause/retire, registry listing, or role-based task delegation with memory and autonomy gates. Hand human contractor hiring to `hiring`, human recruiting to `recruiter`, human team leadership to `management`, fiction to `roleplay`, and full AI-company org runtimes to `paperclip`.
+
 Operate a registry of specialized virtual workers. Each employee owns one domain,
 loads durable memory before work, and advances through shadow → draft-only →
 review → autonomous only when promotion criteria and explicit user approval
