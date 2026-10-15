@@ -1,6 +1,6 @@
 # Market Position — Benchmarking And Staying Liquid
 
-The base rate behind this file: switchers outprice stayers by roughly 1-2 percentage points of annual wage growth (SKILL.md rule 3, Atlanta Fed). Knowing your number and keeping options warm is how you capture that without job-hopping.
+The base rate behind this file: switchers outprice stayers by roughly 1–2 percentage points of annual wage growth in most years (SKILL.md Rule 3; Atlanta Fed Wage Growth Tracker Stayer/Switcher series — https://www.atlantafed.org/chcs/wage-growth-tracker). Prefer the live series over a frozen print. Knowing your number and keeping options warm is how you capture that without job-hopping.
 
 ## Triangulating Your Band
 
@@ -19,7 +19,7 @@ The base rate behind this file: switchers outprice stayers by roughly 1-2 percen
 ## Handling Inbound Recruiter Pings
 
 - Every inbound is free band data: "Not looking right now, but for calibration — what's the comp band on this?"
-- Know who you're talking to: internal recruiters work for the employer and know the real band; contingency recruiters are paid a placement fee that scales with your comp (typically 15-25% of first-year salary) — their incentive to close is also an incentive to close HIGH, use that alignment; retained search is the executive game (`executive.md`).
+- Know who you're talking to: internal recruiters work for the employer and know the real band; contingency recruiters are paid a placement fee that scales with your comp (typically 15-25% of first-year salary) — their incentive to close is also an incentive to close HIGH, use that alignment; retained search is the executive game (`references/executive.md`).
 - Keep a warm list: reply to good recruiters even when declining. The recruiter answered politely in March is the BATNA generator in November (SKILL.md rule 1).
 
 ## Underpaid Diagnosis
@@ -31,7 +31,7 @@ The base rate behind this file: switchers outprice stayers by roughly 1-2 percen
 | Sub-inflation raises two consecutive years while performing | A real-terms cut; treat as a repricing trigger, not an insult |
 | Recruiter bands consistently well above current comp | Confirmed gap — proceed to the fix order below |
 
-Fix order: internal ask armed with band data (`promotion.md`, Internal Raises) → market test to a live offer → move. Skipping the internal ask forfeits the cheapest fix; skipping the market test makes the internal ask a bluff.
+Fix order: internal ask armed with band data (`references/promotion.md`, Internal Raises) → market test to a live offer → move. Skipping the internal ask forfeits the cheapest fix; skipping the market test makes the internal ask a bluff.
 
 ## Staying Findable
 

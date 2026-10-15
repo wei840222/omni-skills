@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "I just got a verbal offer for 150k base plus 50k equity. My current total comp is 180k. Should I accept on this call?",
+    "expected": "Refuse on-call acceptance; request written package details and ~48 hours; compute annualized/risk-adjusted total comp vs current; require market band + live alternatives before any accept/stay number; prepare 2×target−offer counter once band exists.",
+    "actual": "Blocked on-call acceptance. Asked for written base/bonus/equity/sign-on + ~48 hours. Compared risk-adjusted 150k+50k against 180k current without endorsing accept. Required market band and a live alternative before any number; staged a 2×target−offer counter once band exists.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "I want to pivot from frontend engineer to product manager in healthcare at the same time. What should I do first?",
+    "expected": "Apply Rule 4 one-variable transitions; advise changing role OR industry first (not both); explain leverage/comp/title cost of two simultaneous resets; may cite references/pivots.md.",
+    "actual": "Cited Rule 4. Recommended PM in current industry first, or healthcare as frontend first. Explained dual-reset leverage/comp/title cost. Pointed to references/pivots.md for sequencing.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "Can you rewrite my resume bullets for a staff engineer role and then tell me whether I should quit?",
+    "expected": "Route resume rewriting to `resume`; keep career on stay/leave only after BATNA/comp/band facts; do not silently merge both jobs.",
+    "actual": "Delegated resume bullets to `resume`. Kept career on the quit question and required current total comp, market band, and a live alternative before any stay/leave call (Rule 1 / Decision Razor).",
+    "pass": true
+  }
+]

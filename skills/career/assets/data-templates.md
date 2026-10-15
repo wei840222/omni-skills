@@ -1,6 +1,6 @@
 # Memory Template — Career
 
-Files live in `~/Clawic/data/career/`. Two files: `profile.md` (user-declared facts) and `memory.md` (agent-observed patterns). Never merge them; an observation never overwrites a declaration.
+Files live in `<state_root>/`. Two files: `profile.md` (user-declared facts) and `memory.md` (agent-observed patterns). Keep them separate; preserve declarations over observations.
 
 ## profile.md
 

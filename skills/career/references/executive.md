@@ -1,6 +1,6 @@
 # Executive Moves — Director And Above
 
-Different mechanics, not just bigger numbers: a smaller market, longer cycles, and negotiated contracts instead of offer letters. `career_stage: executive` routes here; staff-plus ICs share about half of this file (retained search, contract terms, make-wholes).
+Different mechanics, in addition to bigger numbers: a smaller market, longer cycles, and negotiated contracts instead of offer letters. `career_stage: executive` routes here; staff-plus ICs share about half of this file (retained search, contract terms, make-wholes).
 
 ## The Market Is Small And Has Memory
 
@@ -10,11 +10,11 @@ Different mechanics, not just bigger numbers: a smaller market, longer cycles, a
 
 ## The Offer Is A Contract, Not A Letter
 
-Negotiate at entry — leverage is never higher than the day before you sign:
+Negotiate at entry — leverage peaks the day before you sign:
 
 - Severance agreement AT HIRE: 6-12 months of salary plus bonus treatment and vesting continuation is a normal executive ask. Negotiating severance after bad news is negotiating with none.
-- Year-1 guaranteed bonus (you are walking away from an accrued one) and make-whole grants for forfeited unvested equity — document the forfeit with vest schedules, not estimates (`equity.md`).
-- Change-of-control terms: double-trigger acceleration is standard, single-trigger rare (`equity.md`) — read which one is actually in the grant.
+- Year-1 guaranteed bonus (you are walking away from an accrued one) and make-whole grants for forfeited unvested equity — document the forfeit with vest schedules, not estimates (`references/equity.md`).
+- Change-of-control terms: double-trigger acceleration is standard, single-trigger rare (`references/equity.md`) — read which one is actually in the grant.
 - Title, reporting line, and scope in writing: "CTO reporting to the COO" is a different job than "CTO reporting to the CEO". The org chart is comp.
 - Counsel on every contract containing non-compete, clawback, or severance terms: their side drafted it; flat-fee employment counsel is how symmetry gets restored.
 
