@@ -1,140 +1,99 @@
 ---
 name: self-criticism
-slug: self-criticism
-version: 1.0.0
-description: Insert breakpoint self-critique before branching work, after user friction, and at risky handoffs so agents catch errors early.
-homepage: https://clawic.com/skills/self-criticism
-changelog: Initial release with breakpoint-based self-critique, lightweight trigger memory, and workspace steering for SOUL and AGENTS.
+description: >
+  Insert breakpoint self-critique before branching work, after user friction,
+  and at risky handoffs so agents catch frame errors early. Use at inflection
+  points where one wrong assumption would multiply into downstream rework.
+  Prefer `self-improving` for durable execution lessons after outcomes,
+  `proactivity` for momentum and next-move anticipation, and `reflection` for
+  heavier retrospective loops once the task is complete.
 metadata:
-  clawdbot:
-    emoji: 🧪
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/self-criticism/
-    configPaths.optional:
-    - ./AGENTS.md
-    - ./SOUL.md
-    displayName: Self-Criticism
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/self-criticism/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🧪","configPaths":["<state_root>/"]}'
+  related-skills: '{"self-improving":"Compound durable execution lessons and corrections after outcomes.","proactivity":"Anticipate next moves and recover fragile context without mid-task critique.","agent":"Frame a single agent operating style when the need is identity rather than breakpoints.","agents":"Design multi-agent memory and control loops beyond one critique habit.","reflection":"Run heavier post-task retrospective analysis when a compact breakpoint is not enough."}'
 ---
 
-## When to Use
+# Self-Criticism
 
-Use when work has natural inflection points and one wrong assumption would spread into multiple downstream steps. This skill inserts a short critique between phases, especially before branching, after unexpected evidence, and after user feedback that suggests the process drifted.
+Insert a **short critique at breakpoints** so a weak frame is revised before it
+spreads into tickets, edits, handoffs, or external actions.
 
-## Architecture
+This skill is stateful. Trigger memory lives under a resolved `<state_root>`
+outside the package. Never write runtime state into this skill package.
 
-Memory lives in `~/Clawic/data/self-criticism/`. If `~/Clawic/data/self-criticism/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+## State location
 
-```
-~/Clawic/data/self-criticism/
-├── memory.md       # Durable trigger map, depth preferences, and integration status
+Self-criticism state may exist in `<workspace>/self-criticism/`,
+`<workspace>/memory/self-criticism/`, or `~/self-criticism/`.
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/self-criticism/`, `<workspace>/memory/self-criticism/`, `~/self-criticism/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable notes must be created, default to
+   `<workspace>/self-criticism/` when `<workspace>` is available; otherwise ask
+   for a state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Typical layout (create children only when needed):
+
+```text
+<state_root>/
+├── memory.md       # Durable trigger map, depth preferences, integration status
 ├── checkpoints.md  # Named breakpoint prompts by workflow phase
-├── incidents.md    # Late catches, misses, and better insertion points
+├── incidents.md    # Late catches that teach a better insertion point
 └── archive/        # Resolved incidents and retired checkpoints
 ```
 
-Setup should keep the integration small:
-- SOUL gets the breakpoint habit so critique happens at the right moment.
-- AGENTS gets the routing rules for where to read and write trigger memory.
-- HEARTBEAT is not required by default because this skill is about mid-task interruption, not background follow-up.
+Create or update state only after the user opts in. Store trigger timing and
+critique-depth preferences only—no credentials, private third-party data, or
+unrelated personal details.
 
-## Quick Reference
+## When to use
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Trigger families | `triggers.md` |
-| Critique depth levels | `levels.md` |
-| Memory routing | `routing.md` |
-| Boundaries and anti-noise rules | `boundaries.md` |
+- Work is about to branch into subtasks, commits, or delegated packets
+- Evidence or user friction contradicts the current frame
+- The next move is irreversible, external, or expensive to unwind
+- A handoff needs a clean frame before another agent or final answer
 
-## Core Rules
+Prefer adjacent skills when they fit better:
 
-### 1. Critique at breakpoints, not everywhere
-- Trigger self-critique when work is about to branch, commit, escalate, or become expensive to unwind.
-- Do not interrupt every tiny step. Overuse turns critique into noise.
+- Durable corrections that should compound across sessions → `self-improving`
+- Anticipating next moves / recovering interrupted context → `proactivity`
+- Single-agent operating identity → `agent`
+- Multi-agent system design → `agents`
+- Broad post-task retrospective → `reflection`
 
-### 2. Run critique before downstream work multiplies the mistake
-- Strong insertion points include framework drafts, decomposition into subtasks, irreversible edits, external actions, and major recommendations.
-- If the current choice will shape several later steps, pause before expanding it.
+## Load order
 
-### 3. Let the trigger decide the depth
-- Light critique for routine work with small blast radius.
-- Standard critique for multi-step work, visible deliverables, or uncertain framing.
-- Deep critique only when stakes, novelty, or prior misses justify it.
+1. `SKILL.md` state rules and operating path (always)
+2. Matching trigger family in `references/triggers.md` when the breakpoint is unclear
+3. `references/levels.md` when choosing critique depth
+4. `references/domain.md` for the full rule/trap set
+5. `references/routing.md` / `references/boundaries.md` before writing state
+6. `references/setup.md` and `assets/data-templates.md` only on first setup
 
-### 4. Store trigger lessons, not full postmortems
-- Save durable lessons about when critique should fire, how deep it should go, and what kind of miss it should catch.
-- Keep one concise incident entry only when a late catch reveals a reusable insertion point.
+## Operating path
 
-### 5. Learn from friction and rework
-- User corrections, repeated revision loops, or surprise failures are evidence that a critique checkpoint was missing or too shallow.
-- Convert those signals into a better future trigger instead of treating them as isolated mistakes.
+1. Detect a breakpoint (branching, commitment, surprising evidence, user friction, or risky handoff). Load `references/triggers.md` when the family is unclear.
+2. Read `<state_root>/memory.md` and only the smallest relevant lines from `<state_root>/checkpoints.md` when state exists.
+3. Choose light / standard / deep depth from `references/levels.md` by blast radius.
+4. Ask the smallest hard questions that can catch the likely frame error; if the frame fails, rewrite the plan before expanding work (`references/domain.md`).
+5. After friction or late catches, record a reusable trigger lesson in `<state_root>/` using `references/routing.md` and `references/boundaries.md`.
+6. On first setup or missing state, follow `references/setup.md` and seed files from `assets/data-templates.md` with explicit approval before writing SOUL/AGENTS.
 
-### 6. Revise early when critique invalidates the frame
-- If critique finds a framing error, rewrite the plan before continuing.
-- Do not keep building on top of a weak assumption just because work already started.
+## Quick reference
 
-### 7. Keep the interruption quiet and outcome-focused
-- Ask the smallest set of hard questions needed to catch the likely failure.
-- The goal is fewer downstream corrections, not a visible ritual.
-
-## Common Traps
-
-| Trap | Why It Fails | Better Move |
-|------|--------------|-------------|
-| Critiquing only at the very end | The mistake has already propagated | Insert a breakpoint before decomposition or commitment |
-| Running deep critique on every task | Burns time and momentum | Match depth to risk and blast radius |
-| Logging every imperfection | Memory becomes noisy and useless | Save only reusable trigger lessons |
-| Treating user frustration as only a content fix | Misses the broken process step | Ask where critique should have happened earlier |
-| Defending the current plan after critique flags it | Locks in sunk-cost behavior | Reset the frame while the work is still cheap to change |
-
-## Scope
-
-This skill ONLY:
-- adds breakpoint-based self-critique for live work
-- stores local trigger memory in `~/Clawic/data/self-criticism/`
-- proposes small workspace integration for SOUL and AGENTS when the user wants it
-- learns which checkpoints deserve more or less scrutiny over time
-
-This skill NEVER:
-- turns every response into a long reflection ritual
-- depends on heartbeat or background review loops by default
-- stores sensitive user data unrelated to critique timing or quality control
-- modifies its own `SKILL.md`
-
-## Security & Privacy
-
-Data that stays local:
-- trigger preferences and critique depth in `~/Clawic/data/self-criticism/memory.md`
-- reusable breakpoints in `~/Clawic/data/self-criticism/checkpoints.md`
-- late catches and lessons in `~/Clawic/data/self-criticism/incidents.md`
-
-This skill does NOT:
-- require network access
-- send critique logs to external services
-- edit files outside `~/Clawic/data/self-criticism/` unless the user explicitly approves workspace integration in that session
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-
-- `self-improving` — compound corrections and reusable execution lessons over time
-- `proactivity` — catch missing next steps and verify reality around active work
-- `agent` — frame the operating style and responsibilities of a single agent
-- `agents` — design agent systems, memory layers, and control loops
-- `reflection` — run heavier reflection loops when broader retrospective analysis is needed
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/self-criticism
-- Latest version: https://clawic.com/skills/self-criticism
+| Topic | File | Load when |
+|-------|------|-----------|
+| Domain rules and traps | `references/domain.md` | Need full rule set or trap table |
+| Trigger families | `references/triggers.md` | Unsure whether this is a breakpoint |
+| Critique depth | `references/levels.md` | Choosing light/standard/deep |
+| Memory routing | `references/routing.md` | Writing a durable lesson |
+| Boundaries | `references/boundaries.md` | Avoiding noisy critique or over-logging |
+| Setup / SOUL+AGENTS | `references/setup.md` | First use or missing state |
+| File templates | `assets/data-templates.md` | Seeding memory/checkpoints/incidents |
+| Sources | `references/sources.md` | Verifying research provenance |
