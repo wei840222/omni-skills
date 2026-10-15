@@ -1,86 +1,52 @@
 ---
 name: business-administration
-slug: business-administration
-version: 1.0.0
-description: Support business understanding from small ventures to corporate strategy and academic research.
-homepage: https://clawic.com/skills/business-administration
+description: >
+  Adapt business advice by audience — small-business cash-flow survival, MBA/case
+  frameworks (Porter, SWOT, BCG), executive ROI/trade-offs, research rigor, classroom
+  cases, and consulting structure. Use when the user needs role-aware business
+  judgment, framework application, or decision formats. Prefer `accounting` for
+  bookkeeping/GAAP work, `career` for personal stay/leave or offer decisions,
+  `consultant` for engagement scoping/delivery, `mba` for curriculum-style learning,
+  `management` for people-leadership routines, and `strategy` for competitive option
+  maps outside general business administration.
 metadata:
-  clawdbot:
-    emoji: 📊
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Business Administration
+  version: "1.1.0"
+  openclaw: '{"emoji":"📊"}'
+  related-skills: '{"accounting":"Entity bookkeeping, statements, and GAAP/IFRS judgment beyond admin framing.","agency":"Service-agency operations when the user runs a client delivery shop.","career":"Personal offer, promotion, and stay/leave decisions rather than firm strategy.","clients":"Client relationship ops, scope, and getting paid for freelancers/agencies.","consultant":"Engagement diagnosis, workstreams, and decision memos with owners.","contracts":"Contract register and renewal tracking after commercial terms are set.","management":"People-management, 1:1s, and org leadership routines.","mba":"MBA curriculum-style learning across finance, strategy, and operations.","strategy":"Competitive positioning and option maps beyond general admin framing."}'
 ---
 
-## Detect Level, Adapt Everything
-- Context reveals level: vocabulary, scale of operations, strategic vs tactical focus
-- When unclear, ask about their role before giving specific advice
-- Connect every concept to measurable outcomes and concrete decisions
+# Business Administration
 
-## For Small Business Owners: Survival and Growth
-- Prioritize cash flow over profit — lead with "when will cash hit your account" not theoretical margins; profitable businesses die from cash flow problems
-- Translate financial statements into decisions — "Your accounts receivable is 45 days means customers owe you X and you're giving them a free loan"
-- Challenge growth assumptions — "Can operations handle 2x volume? Do you have 3 months cash reserves if revenue doesn't materialize?"
-- Default to conservative hiring — calculate fully-loaded costs; suggest contractors or automation first; "What if revenue drops 30%—can you make payroll?"
-- Warn against underpricing — calculate what they need to charge for costs plus profit plus their own salary; challenge "competitors charge less" with differentiation
-- Separate business from personal finances — flag liability risks, tax complications, unsellability; recommend separate accounts, paying themselves salary
-- Recommend good enough systems — spreadsheet before accounting software; notebook before CRM; complexity kills small businesses
-- Ask about owner bandwidth — hours worked, bottleneck status, what happens when sick; frame advice around real constraints
+Role-aware business judgment skill. Infer the audience from vocabulary, operating
+scale, and whether the ask is survival, academic, executive, research, teaching, or
+consulting. When unclear, ask about role before prescribing tactics. Keep every
+recommendation tied to a measurable outcome and an explicit trade-off.
 
-## For Students: Frameworks and Application
-- Structure analysis with explicit frameworks — walk through Porter's Five Forces, SWOT, BCG Matrix systematically with industry evidence
-- Distinguish SWOT correctly — Strengths/Weaknesses are internal; Opportunities/Threats are external; flag misclassifications
-- Apply BCG with real portfolios — use actual company product lines with market share and growth data; explain resource allocation implications
-- Connect every concept to real cases — pair Porter's strategies with concrete examples: "Costco uses cost leadership by... Apple uses differentiation through..."
-- Enforce academic citation standards — proper APA/Harvard format; distinguish descriptive from analytical writing
-- Clarify common confusions — Strategy vs Tactics; Mission vs Vision; Competitive vs Comparative Advantage; Economies of Scale vs Scope
-- Teach framework limitations — SWOT is subjective; BCG oversimplifies; Porter assumes stable industries; modern strategy needs dynamic capabilities
-- Use case method language — "so what?" questions; push for recommendations; "what would you advise the CEO?"
+This skill is a knowledge guide: it does not own mutable state. Prefer sibling skills
+listed in `metadata.related-skills` when the ask is specialized bookkeeping, career
+moves, engagement delivery, people leadership, MBA curriculum, or competitive strategy.
 
-## For Executives: Decisions and Execution
-- Frame recommendations with ROI and timeline — include resource requirements, expected returns, implementation timelines; never present strategy abstractly
-- Surface strategic trade-offs — "if X, then Y cannot happen until Z"; present decisions as connected choices, not isolated options
-- Map stakeholder resistance before changes — identify likely resistance by role; suggest specific mitigation for each
-- Include adoption metrics in transformation — define success measures at 30/60/90 days; include leading indicators that predict failure early
-- Challenge vanity metrics — flag metrics measuring activity not outcomes; ask "what decision does this enable?"; recommend removing non-actionable metrics
-- Connect operational to strategic metrics — show causal chain from front-line to departmental to company-level priorities
-- Tailor communication by audience — board gets strategic summaries; departments get operational detail; external gets outcome-focused messaging
-- Anticipate second-order concerns — "if we announce X, investors ask Y, which triggers employee concerns about Z"
+## Detect level, then load the matching guide
 
-## For Researchers: Rigor and Evidence
-- Distinguish positive from normative — clarify "what is" (empirical) vs "what should be" (prescriptive); never present normative frameworks as validated facts
-- Cite methodology and limitations — specify case study, survey, experiment, archival; acknowledge generalizability constraints
-- Apply appropriate journal standards — top-tier (AMJ, AMR, ASQ) requires theoretical contribution; distinguish from practitioner outlets (HBR)
-- Acknowledge replication crisis — many classic management findings failed replication; treat effect sizes with appropriate skepticism
-- Present theoretical debates without false consensus — microfoundations, agency theory critiques, stakeholder capitalism are contested; present multiple positions
-- Differentiate levels of analysis — specify individual, team, organizational, field, societal; CEO findings don't automatically generalize to organizations
-- Apply critical perspective to fads — distinguish validated effects from consulting-driven hype in agile, ESG, digital transformation
-- Recognize context-dependence — most research is WEIRD contexts; flag industry, size, national context limitations
+1. Infer level from vocabulary, scale, and strategic vs tactical focus.
+2. If still unclear, ask for role before detailed advice.
+3. Load **exactly one** primary audience guide below; load `references/sources.md`
+   whenever citing frameworks, cash-flow definitions, journals, or citation styles.
 
-## For Educators: Cases and Reasoning
-- Anchor concepts with real company cases — name the company, situation, outcome; never teach in isolation
-- Use Socratic method — respond with probing questions before analysis: "What are constraints? Who are stakeholders? What's opportunity cost?"
-- Present dilemmas without clear answers — include scenarios where reasonable executives disagree; discuss what happened AND viable alternatives
-- Connect to measurable outcomes — tie to financial metrics (revenue, margin, CAC, LTV); "How would this affect the P&L?"
-- Simulate stakeholder perspectives — walk through CEO, CFO, employees, customers, shareholders views; business involves competing interests
-- Include failed strategies — analyze Kodak, Blockbuster, WeWork; identify decision points where things went wrong
-- Require defended recommendations — push past "it depends" to concrete proposals with assumptions, risks, and failure indicators
-- Bridge classroom to workplace — discuss presenting to non-MBA colleagues, gathering real data, organizational politics
-
-## For Consultants: Structure and Impact
-- Structure problems with explicit frameworks — use MECE, issue trees, hypothesis-driven approaches; state framework being used
-- Quantify impact before recommending — estimate financial impact, timeline, resources; use ranges when uncertain; avoid vague "significant"
-- Separate strategy from implementation — "what to do" needs market justification; "how to execute" needs owners, milestones, dependencies
-- Map stakeholders and resistance — who wins, who loses, who must approve; surface political dynamics proactively
-- Present in executive format — lead with answer then logic; pyramid principle; assume 5 minutes not 50
-- Stress-test proposals — "What would have to be true?" and "What's biggest risk?"; play devil's advocate
-- Ground in benchmarks — reference industry standards, competitor practices, past cases; avoid purely theoretical advice
-- Define success metrics upfront — how we'll know it's working; what would cause pivot; build in review checkpoints
+| Audience | When to load | Reference |
+|---|---|---|
+| Small business owner | Payroll, pricing, hiring, cash timing, owner bandwidth | `references/small-business.md` |
+| Student / MBA case | Porter, SWOT, BCG, citations, framework limits | `references/students.md` |
+| Executive | ROI, trade-offs, adoption metrics, stakeholder resistance | `references/executives.md` |
+| Researcher | Positive vs normative, methods, journals, replication | `references/researchers.md` |
+| Educator | Cases, Socratic prompts, stakeholder simulation | `references/educators.md` |
+| Consultant | MECE/issue trees, quantified impact, pyramid writing | `references/consultants.md` |
+| Sources | Any factual/framework citation or freshness note | `references/sources.md` |
 
 ## Always
-- Connect concepts to concrete business outcomes and financial metrics
-- Acknowledge that most management knowledge is context-dependent
-- Distinguish proven findings from popular but untested ideas
-- Present trade-offs explicitly; business decisions always have opportunity costs
+
+- Connect concepts to concrete business outcomes and financial metrics.
+- Treat most management knowledge as context-dependent; name industry, size, and geography limits.
+- Distinguish proven findings from popular but weakly tested ideas.
+- Present trade-offs explicitly; every recommendation has an opportunity cost.
+- Do not invent statutes, tax rates, valuation multiples, or journal rankings—open `references/sources.md` and verify.
