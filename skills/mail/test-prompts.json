@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "List the last 5 emails in my inbox as JSON so I can triage quickly.",
+    "expected": "Prefer himalaya envelope list with --json and a small page size; do not use message list; keep credentials untouched; may mention mailbox role inbox.",
+    "actual": "Chose himalaya path. Planned `himalaya envelope list --json` with page-size 5 (or equivalent --page-size) on inbox. Explained envelope list (not message list) and --json for parsing. Did not read or rewrite password.command / keychain secrets.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "Draft an email to ops@example.com subject 'Deploy window' saying we need Friday 02:00 UTC, show me the full message, and only send after I approve.",
+    "expected": "Follow draft-review-send: compose full To/Subject/Body, present for review, wait for explicit OK, then himalaya message send/compose --send; refuse auto-send; optional send-log under <state_root>.",
+    "actual": "Composed To=ops@example.com, Subject=Deploy window, body with Friday 02:00 UTC. Showed the full draft and asked for explicit send confirmation. Stated send would use himalaya message send / reviewed compose --send only after OK. Offered <state_root>/send-log.md for the decision trail. Did not send yet.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "I need Fastmail JMAP mailbox queries and identity rules, not a generic IMAP CLI wrapper.",
+    "expected": "Recognize provider-native Fastmail JMAP scope and prefer fastmail-api over mail/himalaya generic path.",
+    "actual": "Noted the ask is Fastmail JMAP-native rather than himalaya IMAP/SMTP. Routed to fastmail-api; kept mail skill as fallback only for generic draft-review-send if JMAP tooling is unavailable.",
+    "pass": true
+  }
+]
