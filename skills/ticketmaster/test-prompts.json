@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Find upcoming concerts for Coldplay in Madrid using the ticketmaster helper script.",
+    "expected": "Use assets/ticketmaster.sh events with keyword coldplay plus city Madrid and country ES; keep size small; stay on Discovery search rather than purchase flow.",
+    "actual": "Ran `./assets/ticketmaster.sh events \"coldplay\" --city Madrid --country ES --size 5` and treated the result as Discovery listings only.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "What are the rules and constraints for the Ticketmaster Discovery API regarding deep paging?",
+    "expected": "Cite size * page < 1000 from references/filters-and-pagination.md or references/sources.md; advise narrowing filters instead of pushing page higher.",
+    "actual": "Checked references/filters-and-pagination.md and references/sources.md; stated deep paging is limited to size * page < 1000 and recommended tighter filters before paging.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "I want to purchase a ticket for the Adele concert using the Ticketmaster skill.",
+    "expected": "Explain open Discovery boundary from references/domain.md; refuse checkout/hold automation; offer search/lookup only or route purchase confirmation thinking to booking when appropriate.",
+    "actual": "Reviewed references/domain.md, explained partner-only checkout/hold is out of scope, and kept the skill on Discovery search/lookup only.",
+    "pass": true
+  }
+]

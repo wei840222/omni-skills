@@ -49,14 +49,14 @@ curl --get "https://app.ticketmaster.com/discovery/v2/attractions.json" \
   --data-urlencode "size=3"
 ```
 
-## Helper commands with `ticketmaster.sh`
+## Helper commands with `assets/ticketmaster.sh`
 
 ```bash
-./ticketmaster.sh events "coldplay" --city Madrid --country ES --size 5
-./ticketmaster.sh event E123456
-./ticketmaster.sh venues "madison square garden" --country US --size 3
-./ticketmaster.sh attractions "fc barcelona" --size 5
-./ticketmaster.sh classifications
+./assets/ticketmaster.sh events "coldplay" --city Madrid --country ES --size 5
+./assets/ticketmaster.sh event E123456
+./assets/ticketmaster.sh venues "madison square garden" --country US --size 3
+./assets/ticketmaster.sh attractions "fc barcelona" --size 5
+./assets/ticketmaster.sh classifications
 ```
 
 ## Good inspection order
