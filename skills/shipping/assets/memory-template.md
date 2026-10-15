@@ -1,6 +1,6 @@
 # Memory Template - Shipping Operations
 
-Create `~/Clawic/data/shipping/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Shipping Operations Memory
@@ -45,7 +45,7 @@ integration: pending
 | `ongoing` | Default learning state | Keep collecting route and carrier evidence |
 | `complete` | Stable operating context | Use memory as primary default |
 | `paused` | User wants fewer prompts | Ask only when critical data is missing |
-| `never_ask` | User rejected setup prompts | Stop prompting and operate silently |
+| `never_ask` | User rejected setup prompts | Halt prompting and operate silently |
 
 ## Integration Values
 
@@ -57,7 +57,7 @@ integration: pending
 
 ## Key Principles
 
-- Record decisions that improve future shipments, not chat transcripts.
+- Record decisions that improve future shipments instead of chat transcripts.
 - Keep memory concise and route oriented.
 - Redact sensitive identifiers before storing notes.
 - Update `last` whenever memory is edited.

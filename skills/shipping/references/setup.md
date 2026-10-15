@@ -1,6 +1,6 @@
 # Setup - Shipping Operations
 
-Read this when `~/Clawic/data/shipping/` is missing or empty. Start helping immediately while collecting only the context needed to avoid shipping mistakes.
+Read this when `<state_root>/` is missing or empty. Start helping immediately while collecting only the context needed to prevent shipping mistakes.
 
 ## Your Attitude
 
@@ -15,7 +15,7 @@ In early conversation, confirm when this skill should activate:
 - Only when user asks for shipping help directly
 - Only for specific regions, carriers, or order types
 
-If user confirms, save activation preference in `~/Clawic/data/shipping/memory.md` only.
+If user confirms, save activation preference in `<state_root>/memory.md` only.
 
 ### 2. Then: Operational Context
 
@@ -26,7 +26,7 @@ Capture the minimum context that changes shipping decisions:
 - Primary carriers and account constraints
 - International vs domestic mix
 
-Avoid long onboarding. Learn while solving live requests.
+Keep onboarding short. Learn while solving live requests.
 
 ### 3. Finally: Decision Preferences
 
@@ -36,19 +36,19 @@ Infer and confirm the user operating style:
 - Aggressive vs conservative customs declarations
 - Preferred communication frequency during delays
 
-Store stable patterns, not one-off choices.
+Store stable patterns instead of one-off choices.
 
 ## What You Save Internally
 
-Persist only reusable information in `~/Clawic/data/shipping/memory.md`:
+Persist only reusable information in `<state_root>/memory.md`:
 - Integration preference
 - Route and carrier performance patterns
 - Known surcharge hotspots
 - Customs/documentation edge cases
 - Incident outcomes that should influence future choices
 
-Do not save secrets or unnecessary personal data.
+Omit secrets or unnecessary personal data.
 
 ## Golden Rule
 
-Answer the active shipping problem first. Use setup context to improve decisions, never to block execution.
+Answer the active shipping problem first. Use setup context to improve decisions rather than blocking execution.

@@ -1,46 +1,33 @@
 ---
 name: shipping
-slug: shipping
-version: 1.0.0
-description: Plan and manage parcel shipping decisions with carrier selection, landed-cost math, customs checks, and delivery exception playbooks.
-homepage: https://clawic.com/skills/shipping
-changelog: Initial release with carrier selection, customs checks, and exception handling workflows.
+description: Optimize parcel shipping decisions across carrier selection, landed-cost math, HS code compliance, and delivery exception playbooks. Trigger when evaluating shipping options, quoting rates, preparing international documentation, or responding to carrier delays.
 metadata:
-  clawdbot:
-    emoji: BOX
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/shipping/
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/shipping/
-    displayName: Shipping Operations
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/shipping/
+  version: 1.0.0
+  openclaw: '{"emoji": "\ud83d\udce6"}'
+  related-skills: '{"ecommerce": "Store operations and conversion workflows.", "marketplace": "Multi-platform selling and fulfillment strategy.", "inventory": "Stock planning and replenishment control.", "sell": "Listing, pricing, and sales execution.", "buy": "Purchasing decisions and supplier-side evaluation."}'
 ---
-
 ## Setup
 
-On first use, read `setup.md` for integration guidelines.
+On first use, read `references/setup.md` for integration guidelines.
 
-## When to Use
+## State location
 
-User needs to ship physical goods and wants reliable decisions across rates, packaging, customs, tracking, and delivery issues. Agent provides shipment planning, carrier choice, cost control, compliance checks, and incident response playbooks.
+Shipping state may exist in `<workspace>/shipping/`, `<workspace>/memory/shipping/`, or `~/shipping/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-This skill is advisory and workflow-focused. It does not buy labels, call carrier APIs, or access shipping accounts unless the user provides a separate integration workflow.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/shipping/`, `<workspace>/memory/shipping/`, `~/shipping/`.
+3. If none exists and state must be created, default to `<workspace>/shipping/`.
+
+Use the selected `<state_root>` for every state operation in this skill.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/shipping/`. See `memory-template.md` for structure and status fields.
+Memory lives in `<state_root>/`. See `assets/memory-template.md` for structure and status fields.
 
 ```text
-~/Clawic/data/shipping/
+<state_root>/
 |- memory.md             # Durable shipping context and preferences
 |- carrier-rules.md      # Preferred carriers and service constraints
 |- international.md      # Country and customs notes
@@ -49,15 +36,13 @@ Memory lives in `~/Clawic/data/shipping/`. See `memory-template.md` for structur
 
 ## Quick Reference
 
-Use the smallest relevant file for the current task.
+Load the smallest relevant reference for the current task on demand:
 
-| Topic | File |
-|-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Carrier selection | `carrier-selection.md` |
-| International customs | `international-customs.md` |
-| Delivery exception handling | `exception-playbook.md` |
+- `references/setup.md`: Load on first use to define primary carriers and operational context.
+- `assets/memory-template.md`: Load when writing to `<state_root>/memory.md`.
+- `references/carrier-selection.md`: Load when evaluating SLA options or calculating total landed cost.
+- `references/international-customs.md`: Load before creating cross-border shipping documentation.
+- `references/exception-playbook.md`: Load when responding to a delayed, lost, or damaged package.
 
 ## Core Rules
 
@@ -68,10 +53,10 @@ Before recommending any option, confirm:
 - Delivery deadline and budget ceiling
 - Value, fragility, and regulatory constraints
 
-Never optimize blind.
+Require all inputs before optimizing.
 
 ### 2. Price for Total Landed Cost
-Always show total cost, not just carrier label price:
+Show total cost rather than just carrier label price:
 - Transport fee
 - Packaging and handling
 - Fuel, remote, residential, signature, and insurance surcharges
@@ -79,7 +64,7 @@ Always show total cost, not just carrier label price:
 
 If any component is unknown, mark it as estimate and show risk.
 
-### 3. Select Carrier by SLA Risk, Not Sticker Price
+### 3. Select Carrier by SLA Risk Rather Than Sticker Price
 Pick service based on the real failure cost:
 - Time-critical shipment: prioritize reliability and claims process
 - Low-value shipment: prioritize cost efficiency
@@ -94,17 +79,17 @@ For cross-border shipments, verify:
 - Prohibited or restricted item checks
 - Incoterm and importer responsibilities
 
-Do not proceed when documentation is incomplete.
+Halt when documentation is incomplete.
 
 ### 5. Run Tracking Checkpoints Proactively
 Set checkpoints at minimum for:
-- Label created but not scanned within 24h
+- Label created without a scan within 24h
 - Customs hold or pending documents
 - Out for delivery delays beyond promised window
 
 For each checkpoint, provide next action and owner.
 
-### 6. Treat Exceptions as Playbooks, Not Improvisation
+### 6. Treat Exceptions as Playbooks Instead of Improvisation
 Use a defined response path for lost, damaged, delayed, returned, or refused shipments:
 - Capture facts and evidence first
 - Notify customer with realistic timeline
@@ -135,24 +120,11 @@ This turns shipping from reactive to compounding.
 - None by default from this skill itself.
 
 **Data that stays local:**
-- Shipping context and learned patterns under `~/Clawic/data/shipping/`.
+- Shipping context and learned patterns under `<state_root>/`.
 
 **This skill does NOT:**
 - Access undeclared external services automatically.
 - Buy labels or place shipping orders automatically.
 - Retrieve tracking events from carrier APIs automatically.
 - Store payment credentials or full card data.
-- Modify files outside `~/Clawic/data/shipping/` for memory.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `ecommerce` - Store operations and conversion workflows.
-- `marketplace` - Multi-platform selling and fulfillment strategy.
-- `inventory` - Stock planning and replenishment control.
-- `sell` - Listing, pricing, and sales execution.
-- `buy` - Purchasing decisions and supplier-side evaluation.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/shipping
-- Latest version: https://clawic.com/skills/shipping
+- Modify files outside `<state_root>/` for memory.
