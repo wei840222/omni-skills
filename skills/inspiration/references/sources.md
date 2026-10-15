@@ -354,4 +354,3 @@ Automation HEAD/GET checks during handoff:
 | https://behance.net | HTTP 403 from automation UA — keep URL; verify in browser |
 
 Treat gallery catalogs as living indexes: prefer actively maintained sources (Mobbin, Godly, Awwwards, Civitai, PromptHero) when freshness matters. Do not invent pricing tiers from memory.
-
