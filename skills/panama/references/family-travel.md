@@ -22,5 +22,5 @@
 ## Family Planning Rules
 
 - Keep one reliable food and sleep base before adventurous segments.
-- Do not build every day around transfers.
+- Anchor itineraries with rest bases instead of stacking transfer-heavy days.
 - In humid regions, prioritize shade, hydration, and shorter outdoor blocks.

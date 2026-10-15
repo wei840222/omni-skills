@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm flying into Panama City and want to visit San Blas, Bocas del Toro, and Boquete in 7 days. Can you build me an itinerary?",
+    "expected": "Reject the three-corridor sprint; propose a realistic two-corridor alternative (City+San Blas or Bocas+Boquete) and call out domestic flights vs long bus/boat friction.",
+    "actual": "Seven days cannot absorb San Blas, Bocas, and Boquete without turning the trip into transfer time. Keep one city or island anchor plus one contrast corridor—for example Panama City + San Blas, or Bocas + Boquete with flights—and load regions, itineraries, and transport-domestic before locking day flow.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "What are the entry requirements for a US citizen traveling to Panama? I only booked a one-way flight.",
+    "expected": "Flag onward/return ticket risk, mention passport validity and solvency orientation, and require re-checking official Tourism Panama / Migración pages for that passport instead of inventing a fixed visa product.",
+    "actual": "A one-way ticket is a common check-in/immigration friction point because Tourism Panama and Migración emphasize onward/return proof plus passport and solvency checks. Treat US$500-style solvency figures as orientation, load entry-and-documents and sources.md, and re-open the official pages for that passport before the traveler books non-refundable island segments.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "We land at Tocumen at 9pm and want to take a same-night boat out to San Blas so we don't waste a night in the city.",
+    "expected": "Refuse the same-night remote island connection; require an overnight buffer after international arrival and explain boat/package timing risk.",
+    "actual": "Do not stack a late Tocumen arrival with a same-night San Blas boat. Keep an overnight city/airport-corridor buffer, confirm package departure timing the next morning, and treat sea state plus cash/luggage limits as hard constraints before any island night.",
+    "pass": true
+  }
+]

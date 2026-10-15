@@ -15,7 +15,7 @@
 
 - 3 to 5 nights as a main beach block
 - 4 to 6 nights for surf or dive focus
-- Pair with Panama City, not with too many other bases
+- Pair with Panama City, rather than with too many other bases
 
 ## Common Friction
 

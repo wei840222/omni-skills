@@ -23,8 +23,8 @@
 
 ## Constraints
 - **Must-see places:**
-- **Must-avoid:**
-- **Boat comfort:** [fine / careful / avoid]
+- **Out of scope:**
+- **Boat comfort:** [fine / careful / exclude]
 - **Driving comfort:** [none / day drives only / full self-drive]
 - **Weather tolerance:** [heat / rain / humidity / rough water sensitivity]
 

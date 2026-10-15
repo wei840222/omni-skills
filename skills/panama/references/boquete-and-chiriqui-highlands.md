@@ -23,7 +23,7 @@
 
 - Packing only beach clothes
 - Assuming every viewpoint or hike works in wet weather
-- Forcing sunrise or summit plans on users who do not enjoy cold, dark starts
+- Forcing sunrise or summit plans on users who dislike cold, dark starts
 
 ## Best Pairings
 
