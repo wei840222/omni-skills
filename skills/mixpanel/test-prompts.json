@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Show me a Mixpanel retention curl for first-time Sign Up → App Open last month.",
+    "expected": "Loads query-api.md; uses GET /retention with Service Account Basic auth, project_id, YYYY-MM-DD dates, retention_type=birth, born_event, and event; does not invent a JSON POST body for retention.",
+    "actual": "Read references/query-api.md. Built curl -sG https://mixpanel.com/api/query/retention with --user $MP_SERVICE_ACCOUNT:$MP_SERVICE_SECRET, project_id, from_date/to_date as YYYY-MM-DD, retention_type=birth, born_event='Sign Up', event='App Open'. Did not use a JSON POST body.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can I keep using the Mixpanel Funnels Query API with a custom events array in the POST body?",
+    "expected": "States Funnels Query is maintenance mode; correct path is GET /funnels with funnel_id + dates or Insights Query for in-app funnel reports; rejects inventing a POST events-array body.",
+    "actual": "Cited docs: Funnels Query is in maintenance mode. Correct legacy shape is GET /funnels with project_id, funnel_id, from_date, to_date. Recommended building a Funnels report in-app and querying via Insights instead of a custom POST events array.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Where should Mixpanel query notes live, and can I put the service secret in memory.md?",
+    "expected": "Resolves <state_root> via workspace/mixpanel candidates; keeps secrets in env only; points to assets/data-templates.md.",
+    "actual": "Resolved <state_root> from <workspace>/mixpanel/, <workspace>/memory/mixpanel/, or ~/mixpanel/. Said credentials stay in MP_* env vars only; memory.md holds product context and insights via assets/data-templates.md, never the service secret.",
+    "pass": true
+  }
+]
