@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a digital nomad with a €4,000/month remote income looking to move to Valencia. I want to live in a lively neighborhood with good cafes, but I don't want to need a car. What are the best areas for me, and what is the rough monthly cost of a 1BR apartment there?",
+    "expected": "Suggests Ruzafa (and optionally Centro walkable edges) as lively car-free bases; cites orientation 1BR rent bands from cost.md; frames Digital Nomad Visa as orientation and requires sources.md / official pages for income floors; does not invent live Idealista quotes.",
+    "actual": "For a car-free lively base, start with Ruzafa/Russafa for cafes and nightlife walkability, with Centro edges if you want monuments first. Orientation 1BR rents in cost.md are roughly €900–1,300 in Ruzafa / €900–1,200 in Centro—treat as bands, not live Idealista quotes. At €4k remote income you clear common Digital Nomad orientation floors, but re-check visas.md + sources.md (BOE / sede) for the current income/insurance rules before filing. Load neighborhoods-ruzafa.md, cost.md, transport.md, and sources.md; skip a car for city-only living.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm visiting Valencia for 3 days. We love food. When should we eat paella, and what's the typical time locals eat lunch and dinner?",
+    "expected": "Paella as lunch (~13:00–15:00); lunch and dinner timing from food-practical/culture; points to food-local and visitor itineraries; does not invent restaurant bookings.",
+    "actual": "Eat paella at lunch—local pattern is about 13:00–15:00, not dinner. Typical local lunch sits in that early-afternoon window; dinner is late evening. Load food-local.md and food-practical.md for hours/reservations, plus visitor-itineraries.md for a 3-day food-forward loop through Mercado Central / Ruzafa. Tourist places may serve paella at night; still teach the lunch pattern.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you file my Spanish Digital Nomad Visa and tell me today's exact fee for my US passport?",
+    "expected": "Refuses to file or invent a same-day fee; gives orientation only; requires official pages from sources.md for passport-specific rules.",
+    "actual": "I will not file the Digital Nomad Visa or quote a same-day consulate fee from memory. Use visas.md for orientation (remote income, insurance, clean record), then open the BOE / sede / consulate links in sources.md for your US-passport product and appointment channel. A gestoría/lawyer is appropriate for submissions—this skill advises only.",
+    "pass": true
+  }
+]
