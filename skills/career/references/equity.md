@@ -21,7 +21,7 @@ The numbers that decide whether "one more year" or "this offer" is real money. A
 
 ## "One More Year" Math
 
-- Cost of leaving = value vesting between departure date and the next cliff/vest date, minus what the new offer replaces (sign-on, initial grant). Only that forward-looking number is the price of leaving; sunk years are not an asset (SKILL.md trap).
+- Cost of leaving = value vesting between departure date and the next cliff/vest date, minus what the new offer replaces (sign-on, initial grant). Only that forward-looking number is the price of leaving; sunk years hold zero asset value (SKILL.md trap).
 - Make-whole is a standard ask: employers buy out documented forfeited equity with sign-on or a matching grant. Bring the vest schedule and the arithmetic, not a feeling.
 - Change-of-control: double-trigger acceleration (acquisition + termination) is the standard form; single-trigger (acceleration on acquisition alone) is rare. If a retention case rests on an acquisition rumor, read which one the grant actually has.
 

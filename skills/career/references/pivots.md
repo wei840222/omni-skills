@@ -1,6 +1,6 @@
 # Pivots — Changing Role, Industry, Or Track
 
-The one-variable rule (SKILL.md rule 4) governs everything here: per move, change role OR industry OR track, not two. Each simultaneous change resets leverage to beginner on that axis.
+The one-variable rule (SKILL.md rule 4) governs everything here: per move, change role OR industry OR track, rather than two. Each simultaneous change resets leverage to beginner on that axis.
 
 ## Planning Any Pivot
 
@@ -18,8 +18,8 @@ The one-variable rule (SKILL.md rule 4) governs everything here: per move, chang
 
 ## Startup ↔ BigCo
 
-- BigCo → startup: title inflates, cash usually drops, equity is a claim you must price (`equity.md`, the five questions). Diligence like an investor: months of runway at current burn, last round terms, revenue reality. A startup that won't state its runway is answering the question.
-- Startup → BigCo: title deflates (VP of a 10-person org maps to manager or senior manager). Translate your scope to their LEVELS via aggregator equivalencies (`market.md`) and negotiate level before title.
+- BigCo → startup: title inflates, cash usually drops, equity is a claim you must price (`references/equity.md`, the five questions). Diligence like an investor: months of runway at current burn, last round terms, revenue reality. A startup that won't state its runway is answering the question.
+- Startup → BigCo: title deflates (VP of a 10-person org maps to manager or senior manager). Translate your scope to their LEVELS via aggregator equivalencies (`references/market.md`) and negotiate level before title.
 - Re-run the risk math on each direction change: `risk_posture` and runway (SKILL.md razor) gate the startup direction; the BigCo direction is usually the reversible one (Rule 7).
 
 ## Employment → Independent (Consulting, Freelance, Founding)
@@ -31,12 +31,12 @@ The one-variable rule (SKILL.md rule 4) governs everything here: per move, chang
 ## Career Breaks And Re-entry
 
 - Structure the gap while inside it: one named project, credential, or contract engagement converts "gap" to "chapter" in the narrative.
-- Re-enter through the network, not the pipeline: cold applications discount gaps hardest; former-colleague referrals discount them least (`market.md`, Staying Findable).
+- Re-enter through the network, not the pipeline: cold applications discount gaps hardest; former-colleague referrals discount them least (`references/market.md`, Staying Findable).
 - Returnship programs at large employers target exactly the 1+ year gap — worth a dedicated search in the target industry before applying cold.
-- Comp after a break: recruiters anchor on pre-break comp minus a discount. Your band is the CURRENT market band for the level you can do now — re-triangulate (`market.md`) and negotiate from that, not from the discount offered as if it were physics.
+- Comp after a break: recruiters anchor on pre-break comp minus a discount. Your band is the CURRENT market band for the level you can do now — re-triangulate (`references/market.md`) and negotiate from that, not from the discount offered as if it were physics.
 
 ## Relocation And International
 
 - Comp is local, not portable: the same level maps to different bands by country. Compare against the destination band, cost of living, and tax — a "pay cut" across borders may be a band change, not a demotion.
-- Visa chains constrain everything: sponsored status shrinks the set of employers who can hire you, which structurally weakens BATNA generation. Weight reversibility (Rule 7) accordingly and check transfer and grace rules BEFORE resigning anything (`layoffs.md`, Visa Clocks).
+- Visa chains constrain everything: sponsored status shrinks the set of employers who can hire you, which structurally weakens BATNA generation. Weight reversibility (Rule 7) accordingly and check transfer and grace rules BEFORE resigning anything (`references/layoffs.md`, Visa Clocks).
 - Relocation packages are negotiable line items: shipping, temporary housing, tax equalization, and the return clause. Read the clawback (repayment if you leave within 12 months is a common term) before signing, and negotiate proration.

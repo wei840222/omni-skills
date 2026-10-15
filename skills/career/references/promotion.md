@@ -1,6 +1,6 @@
 # Promotion — Levels, Calibration, Internal Raises
 
-Scope: getting promoted, raised, or re-scoped where you already work. External offers → `offers.md`; deciding whether to stop trying → SKILL.md, The Decision Razor.
+Scope: getting promoted, raised, or re-scoped where you already work. External offers → `references/offers.md`; deciding whether to stop trying → SKILL.md, The Decision Razor.
 
 ## How Calibration Actually Works
 
@@ -32,14 +32,14 @@ Scope: getting promoted, raised, or re-scoped where you already work. External o
 
 ## Internal Raises And Retention
 
-- Internal negotiation is a different game from offers: your performance is already known, internal peer equity matters more than market rate, and you need a champion in the room, not just a request.
-- Ask with band data (`market.md`), one number, and a business frame ("my position in band vs my scope"), never a threat.
-- Never wave an external offer you are unwilling to take. Waved and matched, you stay flagged — the counteroffer default in `offers.md` now applies to you.
+- Internal negotiation is a different game from offers: your performance is already known, internal peer equity matters more than market rate, and you need a champion in the room, in addition to a request.
+- Ask with band data (`references/market.md`), one number, and a business frame ("my position in band vs my scope"), never a threat.
+- Wave an external offer only if you are willing to take it. Waved and matched, you stay flagged — the counteroffer default in `references/offers.md` now applies to you.
 - Out-of-cycle asks work only when something changed: scope grew, a departed peer's work landed on you, or the market repriced the role (bring recruiter-band evidence). No change, no case — wait for the cycle.
 - Title-for-scope trade: take scope, budget, or reports over an inflated title; an inflated title with unchanged scope fails the next interview loop (SKILL.md trap).
 
 ## Internal Transfers
 
 - Transfer before quitting when the diagnosis is manager or team, not company (Decision Razor question a).
-- Move on strength: transfer windows close during PIPs and open after strong reviews. If a PIP is likely, transfer FIRST or accept that the option is gone (`layoffs.md`).
+- Move on strength: transfer windows close during PIPs and open after strong reviews. If a PIP is likely, transfer FIRST or accept that the option is gone (`references/layoffs.md`).
 - Diligence the target internally the way you would externally: interview the receiving manager, and ask what happened to the last person in the seat.
