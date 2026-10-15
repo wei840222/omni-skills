@@ -58,6 +58,8 @@ Route away when another skill owns the job:
 
 ## Progressive disclosure
 
+Keep `SKILL.md` as the entry point; open only the reference that matches the active branch.
+
 | Reference | Load when |
 |---|---|
 | `references/domain.md` | Privacy primitives, address types, view/spend keys, payment proofs, safety defaults |
