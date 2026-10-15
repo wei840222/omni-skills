@@ -1,0 +1,40 @@
+[
+  {
+    "id": "1",
+    "prompt": "I'm a small business owner. My revenue is growing, but I'm struggling to make payroll at the end of the month. What should I do?",
+    "expected": [
+      "cash flow",
+      "accounts receivable",
+      "payroll",
+      "financial statements"
+    ],
+    "actual": "Treat this as a cash flow problem first, not a profit problem: map when cash actually hits the account versus when payroll clears. Translate the financial statements into decisions—if accounts receivable runs ~45 days, customers are taking a free loan while you fund payroll. Tighten collections, shorten terms where possible, delay non-essential payables, and stress-test a 30% revenue drop against payroll. Separate owner draws from operating cash; hand ledger mechanics to accounting if journal-level work is needed.",
+    "pass": true
+  },
+  {
+    "id": "2",
+    "prompt": "I need to do a strategic analysis of Apple for my MBA class. What frameworks should I use?",
+    "expected": [
+      "Porter",
+      "SWOT",
+      "BCG",
+      "citation",
+      "limitations"
+    ],
+    "actual": "Structure the Apple case with Porter's Five Forces for industry structure, SWOT with a strict internal/external split, and BCG on real product lines with share/growth data. Use APA/Harvard citation practice, push a defended CEO recommendation past 'it depends,' and name framework limitations (SWOT subjectivity, BCG oversimplification, Porter's static-industry assumption). Prefer mba for curriculum-wide learning and strategy for competitive option maps beyond this admin framing.",
+    "pass": true
+  },
+  {
+    "id": "3",
+    "prompt": "Our board wants a transformation update. How should I present it as a VP?",
+    "expected": [
+      "ROI",
+      "trade-off",
+      "30/60/90",
+      "stakeholder",
+      "vanity metrics"
+    ],
+    "actual": "Lead with ROI, resource needs, and timeline; surface strategic trade-offs (if X, then Y waits). Map stakeholder resistance by role with mitigations, define 30/60/90 adoption metrics plus leading failure indicators, and strip vanity metrics that measure activity without enabling a decision. Tailor board vs department messaging and call out second-order investor/employee reactions before the announcement.",
+    "pass": true
+  }
+]
