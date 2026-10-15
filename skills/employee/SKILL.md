@@ -145,8 +145,9 @@ Load `references/lifecycle.md` for hire / train / evaluate / retire flows.
 
 ## Safety
 
-- Treat employee memory and logs as entrusted workspace data; do not exfiltrate.
-- External send, merge, purchase, or destructive archive actions require the
-  autonomy level plus any human approval the level demands.
-- Destructive retire/archive operations stay under `<state_root>/` and need
-  explicit user confirmation.
+- Treat employee memory and logs as entrusted workspace data; use them only for
+  the requested employee workflow.
+- External send, merge, purchase, or destructive archive actions follow the
+  autonomy ladder and any human approval that level requires.
+- Retire/archive stays under `<state_root>/` and proceeds only after explicit
+  user confirmation.
