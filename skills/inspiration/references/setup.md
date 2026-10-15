@@ -41,7 +41,7 @@ Ask only the filters that change the source set:
 
 ## Going deeper
 
-When users need comprehensive coverage of a topic, load the relevant auxiliary file:
+Load files relative to the skill root. When users need comprehensive coverage of a topic, load the relevant auxiliary file:
 
 - `references/sources.md` — full directory of 100+ sources by category
 - `references/ai-galleries.md` — AI image generation by model and style
