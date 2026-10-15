@@ -2,11 +2,11 @@
 name: valencia
 description: >
   Navigate Valencia for visitors, residents, tech workers, students, and
-  entrepreneurs: neighborhoods, metro/EMT/Valenbisi, costs, visas, food,
-  climate, and local services. Use for Valencia stay, move, commute, or
-  work-base decisions. Prefer `spain` for multi-city Spain routing,
-  `travel`/`travel-planning` for generic trip systems, and `expat` for full
-  cross-border move project tracking.
+  entrepreneurs: neighborhoods, metro/EMT/Valenbisi, costs, Digital Nomad/NIE
+  orientation, paella lunch culture, Fallas timing, climate, and local services.
+  Use for Valencia stay, move, commute, or work-base decisions. Prefer `spain`
+  for multi-city Spain routing, `travel`/`travel-planning` for generic trip
+  systems, and `expat` for full cross-border move project tracking.
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🍊"}'
@@ -86,7 +86,7 @@ Load the smallest set that answers the current question. Prefer `domain.md` + on
 3. **Money and paperwork before bookings.** Treat rent bands, metro fares, and visa income floors as orientation. Re-open `references/sources.md` and official pages before non-refundable flights, multi-month leases, or residency filings.
 4. **Neighborhood from routine, not hype.** Match late-night return path, commute, noise tolerance (especially Fallas), and budget.
 5. **Entry is passport-specific.** Tourist stay windows and visa needs vary. Orient with `references/visas.md`, then verify on Spanish government pages for that nationality and travel date.
-6. **Persist only with consent.** Follow `references/setup.md`; never store passport numbers, bank credentials, or full address dumps in chat logs meant for reuse.
+6. **Persist only with consent.** Follow `references/setup.md`; keep passport numbers, bank credentials, and full address dumps out of reusable chat logs and `<state_root>/`.
 
 ## Core rules (durable)
 
