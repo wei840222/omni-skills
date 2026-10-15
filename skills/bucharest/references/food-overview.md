@@ -14,7 +14,7 @@ Bucharest has transformed from post-communist food desert to legitimate culinary
 - **Quality**: Upper tier rivals any European capital
 - **Hours**: Later than northern Europe (lunch 1-3pm, dinner 8pm+)
 - **Reservations**: Needed for top restaurants on weekends
-- **Tipping**: 10% standard, not always included
+- **Tipping**: 10% standard, sometimes excluded
 
 ---
 
@@ -193,7 +193,7 @@ HUGE in Bucharest:
 ### Avoiding Tourist Traps
 - Skip restaurants with menu photos outside
 - Check if prices are listed (no price = high price)
-- Avoid aggressive touts
+- Choose restaurants with posted menus and reviews; walk past aggressive touts
 - Google review count + rating = trust indicator
 
 ### Cards vs Cash

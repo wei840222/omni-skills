@@ -294,7 +294,7 @@ On €3,000/month net:
 
 ### Housing
 - Negotiate rent (5-10% possible)
-- Avoid agencies (save 1 month)
+- Bypass agencies (save 1 month)
 - Consider emerging neighborhoods
 - Utilities included deals
 

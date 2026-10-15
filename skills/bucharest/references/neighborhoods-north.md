@@ -55,7 +55,7 @@ The "it" neighborhood of Bucharest. Once industrial, now home to the best restau
 
 ### Verdict
 **Great for**: Foodies, young professionals, those who want "modern Bucharest"
-**Avoid if**: Budget-conscious, want traditional atmosphere
+**Alternative Profile**: Budget-conscious, want traditional atmosphere
 
 ---
 
@@ -114,7 +114,7 @@ Old-money Bucharest. Tree-lined streets, embassies, expensive villas. More estab
 
 ### Verdict
 **Great for**: Executives, diplomats, families wanting prestige
-**Avoid if**: Young and social, budget matters
+**Alternative Profile**: Young and social, budget matters
 
 ---
 
@@ -172,7 +172,7 @@ The most exclusive residential area in Bucharest. Where Ceaușescu's government 
 
 ### Verdict
 **Great for**: Ultra-wealthy, diplomats, those needing maximum security
-**Avoid if**: You're not in the 0.1%
+**Alternative Profile**: You're not in the 0.1%
 
 ---
 
@@ -237,7 +237,7 @@ The neighborhoods surrounding Bucharest's largest park. Mix of residential build
 
 ### Verdict
 **Great for**: Active lifestyle, families, nature lovers, dog owners
-**Avoid if**: Want nightlife, prefer urban energy
+**Alternative Profile**: Want nightlife, prefer urban energy
 
 ---
 

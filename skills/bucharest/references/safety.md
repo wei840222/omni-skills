@@ -30,7 +30,7 @@
 
 **Prevention**:
 - Front pockets or cross-body bag
-- Don't flash valuables
+- keep phones and jewelry low-profile in crowded areas
 - Be aware in crowds
 - Secure backpack zippers
 
@@ -46,7 +46,7 @@
 **Prevention**:
 - **ONLY use apps** (Bolt, Uber)
 - Or call: Star Taxi 021-9424
-- Never hail from street
+- Prefer ride-hailing apps or an official stand
 - Check meter starts
 
 ### ATM Skimming
@@ -108,7 +108,7 @@
 
 ### LGBTQ+ Rights
 - Same-sex relations: Legal
-- Marriage: Not recognized
+- Marriage: unrecognized
 - Discrimination protection: Limited
 - Social acceptance: Improving
 - Public affection: Use discretion
@@ -185,7 +185,7 @@
 - Some peripheral areas
 - Abandoned industrial zones
 
-### Areas to Avoid at Night
+### Areas Outside Recommended Scope at Night
 - Ferentari (unless you know someone)
 - Rahova (some parts)
 - Far outskirts
@@ -228,7 +228,7 @@
 - Pedestrian deaths declining but notable
 
 ### Tips
-- Don't assume cars will stop
+- be aware cars will stop
 - Watch for bikes/scooters on sidewalks
 - Crosswalks aren't always respected
 - Night crossing: Extra caution
@@ -257,7 +257,7 @@
 
 **Fake Police**
 - Ask for badge number
-- Real police don't ask for bribes
+- Legitimate police interactions use official ID and documented procedures
 - Call 112 if suspicious
 
 ### Recognition
@@ -278,7 +278,7 @@
 
 ### If Encountered
 - Move away from center
-- Avoid engagement
+- Skip engagement
 - Usually no danger to observers
 - Can block traffic
 

@@ -230,7 +230,7 @@ Student energy, budget options, quick eats. Not destination dining, but good val
 ## Obor Market Area
 
 ### The Scene
-Not a "dining area" but essential foodie experience. Romania's largest market, plus surrounding local restaurants. Most authentic, least touristy.
+More than a dining area but essential foodie experience. Romania's largest market, plus surrounding local restaurants. Most authentic, least touristy.
 
 ### What to Expect
 - Raw, local

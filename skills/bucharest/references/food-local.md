@@ -171,7 +171,7 @@ Romanian cuisine reflects its history: peasant cooking elevated, Balkan influenc
 - 3-5 RON
 
 ### Shawarma
-- Not Romanian but beloved
+- outside Romanian but beloved
 - Every corner in Bucharest
 - Dristor Kebap chain famous
 - 20-35 RON for meal

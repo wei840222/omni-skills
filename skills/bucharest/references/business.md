@@ -326,6 +326,6 @@ With good preparation and professional help, can be operational in 1-2 weeks.
 2. **DIY without Romanian** — Use professionals
 3. **Ignoring accounting** — Set up from day 1
 4. **Wrong structure** — Get advice first
-5. **Not planning cash flow** — Tax timing matters
+5. **Skipping planning cash flow** — Tax timing matters
 6. **Verbal agreements** — Get contracts signed
 7. **Hiring too fast** — Hard to fire in Romania

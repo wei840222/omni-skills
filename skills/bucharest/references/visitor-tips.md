@@ -6,7 +6,7 @@
 - **Currency**: Romanian Leu (RON), ~5 RON = €1
 - **ATMs**: Everywhere, use BRD or BCR to avoid fees
 - **Cards**: Widely accepted in shops, restaurants; carry cash for small purchases
-- **Tipping**: 10% standard, not always included
+- **Tipping**: 10% standard, sometimes excluded
 - **Best option**: Revolut or Wise card — best exchange rates
 
 ### Phone & Internet
@@ -47,7 +47,7 @@
 | Bolt/Uber | 50-80 RON (~€10-16) | 30-45 min | Best value |
 | Private transfer | €25-35 | 30-45 min | Pre-booked, fixed price |
 
-**Warning**: NEVER take taxi from arrivals hall solicitors — scams guaranteed. Use app or official taxi stand only.
+**Airport pickup**: Use Bolt/Uber or the official taxi stand; treat arrivals-hall solicitors as high-risk.
 
 ### In-City Transport
 
@@ -72,12 +72,12 @@
 **Taxis**
 - Only use apps (Star Taxi, Speed Taxi)
 - Or call: 021-9424 (Star Taxi)
-- NEVER hail on street
+- Prefer apps (Star Taxi, Speed Taxi, Bolt, Uber) or a known dispatcher
 - Rate: ~2 RON/km
 
 ### Scam Prevention
 
-1. **Never take taxi from airport hall** — always go to official stand or use app
+1. **Airport hall solicitors** — walk to the official stand or open an app instead
 2. **Check meter is running** — if not, get out
 3. **Know approximate price** — Old Town to airport ~80 RON
 4. **Use apps** — Bolt has fixed prices shown upfront
@@ -185,8 +185,8 @@
 
 **Bucharest is generally safe**, but:
 - Watch for pickpockets in Old Town and metro
-- Don't flash expensive items
-- Avoid deserted areas late night
+- keep phones and jewelry low-profile in crowded areas
+- stick to lit, busy streets late at night
 - Use only ride-hailing apps or official taxis
 
 **Emergency numbers**:
@@ -227,7 +227,7 @@
 ## Common Mistakes
 
 1. **Taking street taxis** — Use apps only
-2. **Not carrying cash** — Some places still cash only
+2. **Carry modest RON cash** — some small shops remain cash-first
 3. **Underestimating winter** — It gets COLD
 4. **Only staying in Old Town** — Explore other neighborhoods
 5. **Eating at tourist trap restaurants** — Check reviews first
@@ -253,4 +253,4 @@
 
 **Best overall**: May-June or September-October
 **Budget travel**: January-February (except NYE)
-**Avoid if**: Hate cold — skip Dec-Feb
+**If cold-sensitive**: Prefer May–June or September–October instead of Dec–Feb

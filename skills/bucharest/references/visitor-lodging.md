@@ -38,7 +38,7 @@
 - Nightlife seekers
 - Those who sleep through noise
 
-### Avoid If
+### Alternative Profile
 - Light sleeper
 - Traveling with kids
 - Seeking authentic local feel
@@ -55,7 +55,7 @@
 
 ### Cons
 - Some streets still loud
-- Not as many budget options
+- Fewer budget options
 - Traffic noise on main boulevards
 
 ### Best Hotels
@@ -142,7 +142,7 @@
 ### Cons
 - Limited hotel options
 - Some areas feel empty at night
-- Not walkable to Old Town
+- Less walkable to Old Town
 
 ### Best Hotels
 | Hotel | Stars | Price/Night | Notes |

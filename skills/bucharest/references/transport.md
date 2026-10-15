@@ -145,7 +145,7 @@ Bucharest has decent public transport and excellent ride-hailing. Most residents
 - **Speed Taxi**: 021-9477
 - **Meridian**: 021-9444
 
-**NEVER** hail taxis on street (scam risk)
+**ALWAYS SKIP** hail taxis on street (scam risk)
 
 ### Rates
 - Start: 2-3 RON
@@ -191,7 +191,7 @@ Bucharest has decent public transport and excellent ride-hailing. Most residents
 - Good for center/north
 
 ### Tips
-- NEVER take taxi from arrivals hall
+- Prefer apps or the official stand at arrivals
 - Pre-book for early flights
 - Check traffic (rush hour = 90 min possible)
 - Bolt is usually best value
@@ -248,7 +248,7 @@ See driving.md for detailed driving guide.
 
 ### Tips
 - Use parks (Herăstrău) for cycling
-- Avoid main boulevards
+- Prefer metro corridors or side streets during peak congestion when routing by car
 - Lock well
 - Helmet recommended
 

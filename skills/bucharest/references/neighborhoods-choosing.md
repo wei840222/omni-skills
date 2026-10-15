@@ -139,7 +139,7 @@
 
 ## Step 5: Red Flags
 
-### Avoid These Situations
+### Skip these situations
 
 1. **Ground floor in center** — Noise, security issues
 2. **No metro access in budget area** — You'll be trapped
