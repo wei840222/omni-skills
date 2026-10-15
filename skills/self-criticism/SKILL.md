@@ -97,3 +97,5 @@ Prefer adjacent skills when they fit better:
 | Setup / SOUL+AGENTS | `references/setup.md` | First use or missing state |
 | File templates | `assets/data-templates.md` | Seeding memory/checkpoints/incidents |
 | Sources | `references/sources.md` | Verifying research provenance |
+
+Keep the entry skill short: load only the smallest reference needed for the current breakpoint.
