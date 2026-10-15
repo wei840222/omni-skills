@@ -5,7 +5,8 @@
 Before cross-border shipment, verify:
 - Legal shipper and receiver identity
 - Accurate product descriptions by line item
-- HS code per item where required
+- Minimum 6-digit HS code per item (mandatory for EU ICS2 and global standards)
+- EORI number (Economic Operators Registration and Identification) for EU imports
 - Country of origin
 - Declared value aligned with commercial invoice
 - Incoterm and duty/tax payer
@@ -20,7 +21,7 @@ Good description pattern:
 [Item type] + [material] + [use] + [model/part if relevant]
 ```
 
-Avoid vague descriptions like:
+Omit vague descriptions like:
 - gift
 - sample
 - accessory
@@ -43,7 +44,7 @@ Use one incoterm consistently across invoice and carrier docs.
 - Keep invoice totals consistent with label declaration.
 - Ensure restricted item checks are done before payment capture.
 - Attach required licenses or declarations when category requires.
-- Avoid under-declaration shortcuts that increase seizure risk.
+- Omit under-declaration shortcuts that increase seizure risk.
 
 ## Escalation on Hold
 

@@ -26,7 +26,7 @@ No evidence package means weak claim position.
 ## Customer Communication Rules
 
 - Acknowledge issue quickly with current facts only.
-- Give next update time, not vague promises.
+- Give next update time instead of vague promises.
 - State what you are doing and what is pending from carrier.
 - Offer options when threshold is met: wait, reship, or refund.
 
