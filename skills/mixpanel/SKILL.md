@@ -1,216 +1,112 @@
 ---
 name: mixpanel
-slug: mixpanel
-version: 1.0.1
-description: Query Mixpanel analytics with funnels, retention, segmentation, and event tracking via REST API.
-homepage: https://clawic.com/skills/mixpanel
-changelog: Improved security docs and env var declarations.
+description: >
+  Query Mixpanel product analytics with Service Account auth: Retention, Engage
+  profiles, Insights-first reporting, Raw Event Export, and legacy Funnels/JQL
+  caveats. Use when the user needs Mixpanel Query API or Export API curls,
+  funnel/retention cohort pulls, profile lookups, or rate-limit handling. Prefer
+  `analytics` for cross-vendor routing, `plausible`/`umami` for privacy-first web
+  analytics, `data-analysis` after numbers are in hand, and `api` for generic REST
+  shaping outside Mixpanel endpoints.
 metadata:
-  clawdbot:
-    emoji: 📊
-    requires:
-      bins:
-      - curl
-      - jq
-      env:
-      - MP_SERVICE_ACCOUNT
-      - MP_SERVICE_SECRET
-      - MP_PROJECT_ID
-      config:
-      - ~/Clawic/data/mixpanel/
-    primaryEnv: MP_SERVICE_SECRET
-    os:
-    - linux
-    - darwin
-    displayName: Mixpanel
+  version: "1.1.0"
+  openclaw: '{"emoji":"📊","requires":{"bins":["curl","jq"],"env":["MP_SERVICE_ACCOUNT","MP_SERVICE_SECRET","MP_PROJECT_ID"]},"primaryEnv":"MP_SERVICE_SECRET","os":["linux","darwin"],"displayName":"Mixpanel","configPaths":["<state_root>/"]}'
+  related-skills: '{"analytics":"Cross-vendor analytics routing when the ask is not Mixpanel-specific.","api":"Generic REST request shaping outside Mixpanel Query/Export endpoints.","data-analysis":"General analysis patterns after Mixpanel returns raw numbers.","plausible":"Privacy-first web analytics alternative to Mixpanel product analytics.","umami":"Self-hosted web analytics alternative when Mixpanel is not the product."}'
 ---
 
-## Setup
+# Mixpanel
 
-On first use, read `setup.md` for integration guidelines.
+Query **Mixpanel** report and profile data with Service Account Basic auth.
+Keep credentials in env vars only. Persist project context and saved query notes
+under `<state_root>/` (see `references/setup.md` and `assets/data-templates.md`).
 
-## When to Use
+## State location
 
-User needs product analytics from Mixpanel. Agent handles event queries, funnel analysis, retention cohorts, user segmentation, and profile lookups.
+Mixpanel notes may live under `<workspace>/mixpanel/`,
+`<workspace>/memory/mixpanel/`, or `~/mixpanel/`.
+
+Before reading or writing state, resolve `<state_root>` as follows:
+
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/mixpanel/`, `<workspace>/memory/mixpanel/`, `~/mixpanel/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable notes must be created, default to
+   `<workspace>/mixpanel/` when `<workspace>` is available; otherwise ask for a
+   state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
+
+Use the selected `<state_root>` for every state operation in this skill. If older
+notes exist only at `~/Clawic/data/mixpanel/`, move them into the resolved
+`<state_root>/` after the user confirms. Scripts must receive the resolved
+filesystem path — never write the literal string `<state_root>` to disk.
+
+## When to use
+
+- Retention cohorts, Engage profile pulls, Raw Event Export, Insights reports
+- Service Account setup and `project_id` query-parameter requirements
+- Rate-limit planning for Query API (60/hour, 5 concurrent) and Export API
+- Migrating away from maintenance-mode Funnels Query / JQL toward Insights or Export
+
+Prefer other skills when the ask is mainly:
+
+- Cross-vendor analytics choice → `analytics`
+- Plausible / Umami product deep dives → `plausible` / `umami`
+- Generic REST debugging → `api`
+- Post-query statistical framing → `data-analysis`
+
+## Progressive disclosure
+
+| Need | Load |
+|------|------|
+| First-use integration and credentials | `references/setup.md` |
+| Endpoint curls, params, residency hosts | `references/query-api.md` |
+| Official doc anchors for fact checks | `references/sources.md` |
+| Memory / saved-query templates | `assets/data-templates.md` |
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/mixpanel/`. See `memory-template.md` for structure.
-
 ```
-~/Clawic/data/mixpanel/
-├── memory.md        # Projects, saved queries, insights
-└── queries/         # Saved JQL queries
+<state_root>/
+├── memory.md        # Project context, key events, insights
+└── queries/         # Saved query notes (optional)
 ```
 
-## Quick Reference
+## Core rules
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
+1. **Service Account Basic auth** — Use `MP_SERVICE_ACCOUNT` + `MP_SERVICE_SECRET`
+   via HTTP Basic Auth. Include `project_id=$MP_PROJECT_ID` on Query API calls
+   when authenticating with a Service Account.
+2. **Dates are `YYYY-MM-DD`** — Query and Export date params are inclusive calendar
+   dates, not unix timestamps.
+3. **Prefer Insights over legacy Funnels Query** — The Funnels Query API is in
+   maintenance mode; build a Funnels report in-app and query it with Insights, or
+   use Export for raw events.
+4. **Treat JQL as legacy** — JQL is in maintenance mode; prefer Insights, Engage,
+   Export, or Data Pipelines for new work.
+5. **Respect rate limits** — Query API: 60 queries/hour and 5 concurrent. Raw
+   Export API: 60/hour, 3/sec, 100 concurrent. On HTTP 429, back off and batch.
+6. **Secrets stay in env** — Never store Service Account secrets in
+   `<state_root>/memory.md` or chat paste prompts.
 
-## Core Rules
+## Workflow
 
-### 1. Authentication
-Requires a Mixpanel Service Account:
+1. Resolve `<state_root>`; if `memory.md` is missing, load `references/setup.md`.
+2. Confirm env has `MP_SERVICE_ACCOUNT`, `MP_SERVICE_SECRET`, and `MP_PROJECT_ID`.
+3. Choose the endpoint family from `references/query-api.md` (Retention / Engage /
+   Insights / Export first; Funnels Query / JQL only with maintenance caveats).
+4. Run curl with Basic auth + required params; pipe through `jq` when JSON.
+5. Cache useful selectors and insights under `<state_root>/` without credentials.
+6. Re-open URLs in `references/sources.md` before asserting version-sensitive facts.
 
-```bash
-export MP_SERVICE_ACCOUNT="your-service-account"
-export MP_SERVICE_SECRET="your-service-secret"
-export MP_PROJECT_ID="123456"
-```
+## Security & privacy
 
-Create a service account in Mixpanel → Organization Settings → Service Accounts.
+**Data sent to Mixpanel over HTTPS:** Service Account credentials, `project_id`,
+query/export parameters (event names, dates, filters, cohort ids).
 
-### 2. Query API for Analysis
-Use the Query API for insights, funnels, retention:
+**Data that stays local:** Credentials in environment variables only; query notes
+and cached results under `<state_root>/`.
 
-```bash
-BASE="https://mixpanel.com/api/query"
-AUTH=$(echo -n "$MP_SERVICE_ACCOUNT:$MP_SERVICE_SECRET" | base64)
-
-# Insights query (event counts)
-curl -s "$BASE/insights?project_id=$MP_PROJECT_ID" \
-  -H "Authorization: Basic $AUTH" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "params": {
-      "event": ["Sign Up", "Purchase"],
-      "type": "general",
-      "unit": "day",
-      "from_date": "2024-01-01",
-      "to_date": "2024-01-31"
-    }
-  }' | jq
-```
-
-### 3. Funnel Analysis
-```bash
-curl -s "$BASE/funnels?project_id=$MP_PROJECT_ID" \
-  -H "Authorization: Basic $AUTH" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "params": {
-      "events": [
-        {"event": "Sign Up"},
-        {"event": "Complete Onboarding"},
-        {"event": "First Purchase"}
-      ],
-      "from_date": "2024-01-01",
-      "to_date": "2024-01-31",
-      "unit": "day"
-    }
-  }' | jq '.data.meta.overall'
-```
-
-### 4. Retention Cohorts
-```bash
-curl -s "$BASE/retention?project_id=$MP_PROJECT_ID" \
-  -H "Authorization: Basic $AUTH" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "params": {
-      "born_event": "Sign Up",
-      "event": "App Open",
-      "from_date": "2024-01-01",
-      "to_date": "2024-01-31",
-      "unit": "week",
-      "retention_type": "birth"
-    }
-  }' | jq
-```
-
-### 5. User Profiles
-```bash
-curl -s "https://mixpanel.com/api/query/engage?project_id=$MP_PROJECT_ID" \
-  -H "Authorization: Basic $AUTH" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "filter_by_cohort": {"id": 12345},
-    "output_properties": ["$email", "$name", "plan"]
-  }' | jq
-```
-
-### 6. Export Raw Events
-```bash
-curl -s "https://data.mixpanel.com/api/2.0/export?project_id=$MP_PROJECT_ID" \
-  -H "Authorization: Basic $AUTH" \
-  -d "from_date=2024-01-01" \
-  -d "to_date=2024-01-07" \
-  -d "event=[\"Purchase\"]"
-```
-
-### 7. JQL for Complex Queries
-```javascript
-// Mixpanel JQL (JavaScript Query Language)
-function main() {
-  return Events({
-    from_date: "2024-01-01",
-    to_date: "2024-01-31",
-    event_selectors: [{event: "Purchase"}]
-  })
-  .groupByUser(["properties.$city"], mixpanel.reducer.sum("properties.amount"))
-  .groupBy(["key.$city"], mixpanel.reducer.avg("value"))
-  .sortDesc("value")
-  .take(10);
-}
-```
-
-## Common Queries
-
-| Goal | Endpoint | Key Params |
-|------|----------|------------|
-| Event counts | `/insights` | event, type, unit, dates |
-| Conversion funnel | `/funnels` | events array, dates |
-| User retention | `/retention` | born_event, event, unit |
-| User segments | `/engage` | filter_by_cohort, properties |
-| Raw event export | `/export` | dates, event filter |
-
-## Mixpanel Traps
-
-- **Wrong date format** → use `YYYY-MM-DD`, not timestamps
-- **Missing project_id** → every Query API call needs it
-- **Rate limits** → 60 requests/hour for free tier, batch queries when possible
-- **JQL timeouts** → queries over 60s fail, add `.take(N)` to limit results
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
-|----------|-----------|---------|
-| mixpanel.com/api/query/* | Credentials, project ID, query params | Analytics queries |
-| data.mixpanel.com/api/2.0/* | Credentials, project ID, date range | Raw data export |
-
-No other data is sent externally.
-
-## Security & Privacy
-
-**Data sent to Mixpanel (over HTTPS):**
-- Service account credentials for authentication
-- Query parameters (event names, date ranges, filters)
-- Project ID
-
-**Data that stays local:**
-- Credentials stored ONLY in environment variables
-- Query results cached in ~/Clawic/data/mixpanel/
-
-**This skill does NOT:**
-- Store credentials in memory.md or any file
-- Send data to services other than mixpanel.com
-- Modify your Mixpanel tracking code or SDK
-
-## Trust
-
-By using this skill, analytics data is queried from Mixpanel.
-Only install if you trust Mixpanel with your product data.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `analytics` — multi-platform analytics
-- `data-analysis` — data processing patterns
-- `api` — REST API best practices
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/mixpanel
-- Latest version: https://clawic.com/skills/mixpanel
+**Boundaries:** Transmit analytics traffic only to the configured Mixpanel hosts;
+treat tracking SDKs and project write paths as outside this skill's mutation scope.
