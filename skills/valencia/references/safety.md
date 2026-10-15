@@ -215,12 +215,12 @@ Valencia is safe for women:
 - **When**: September-October mainly
 - **What**: Intense Mediterranean storms
 - **Risk**: Flash flooding, especially in low areas
-- **What to do**: Stay indoors, avoid flooded roads
+- **What to do**: Stay indoors and use only marked dry routes
 
 ### Heat Waves
 - **When**: July-August
 - **Risk**: Heat exhaustion, dehydration
-- **What to do**: Stay hydrated, avoid midday sun
+- **What to do**: Stay hydrated and shift outdoor time to morning/evening
 
 ### Earthquakes
 - Minor tremors occasionally

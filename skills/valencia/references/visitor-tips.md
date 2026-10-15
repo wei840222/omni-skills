@@ -18,7 +18,7 @@
   - Small bars and kiosks
   - Market stalls
   - Beach vendors
-- **ATMs**: Abundant, use bank ATMs (avoid standalone ones)
+- **ATMs**: Prefer bank-branch ATMs over standalone kiosks
 - **Tipping**: Optional. Round up or 5-10% for good service
 
 ### Timing
