@@ -4,7 +4,7 @@
 
 | Trap | Why it fails | Do instead |
 |---|---|---|
-| Accepting on the call | Peak-emotion decision at their anchor | 48 hours and written details, always |
+| Accepting on the call | Peak-emotion decision at their anchor | Leave the call; take ~48 hours with written details |
 | Naming your number first | Anchors at your guess of their band, usually low | Deflect once; if forced, range with target at the bottom |
 | Comparing offers on year-1 base | Bonus reality, vest schedule, and refreshers dominate by year 3 | Normalize to 4-year total value (`references/offers.md`) |
 | Resigning to force a counteroffer | Root cause persists and you are flagged as flight risk | Resign only when ready to leave |
