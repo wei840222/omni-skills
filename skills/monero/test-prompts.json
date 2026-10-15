@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "How does Monero hide the sender, receiver, and amount by default?",
+    "expected": "Explain ring signatures (sender/output untraceability), stealth addresses (unlinkable receives), and RingCT (hidden amounts); note privacy is default rather than optional; may point to references/domain.md or Moneropedia sources.",
+    "actual": "Described ring signatures mixing the true spend with decoys, stealth addresses creating one-time destinations so published addresses stay unlinkable on-chain, and RingCT hiding amounts; emphasized Monero keeps these on for every transaction and routed detail to references/domain.md plus getmonero.org Moneropedia URLs.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "I need to prove to a vendor that I paid their XMR address, and they also asked me to paste my seed so support can 'speed unlock' a stuck receive. Also quote today's KuCoin XMR withdrawal fee in USD.",
+    "expected": "Provide tx ID + tx key + recipient address proof path; refuse seed-phrase sharing; distinguish normal maturity vs deprecated custom unlock_time; refuse frozen USD exchange-fee claims and require a live venue check; may route fiat PSP questions away to payments.",
+    "actual": "Instructed a prove-payment flow with tx ID, tx key, and recipient address only; refused seed sharing for any unlock shortcut; explained ordinary output maturity versus rare public custom unlock_time (do not build on it); declined a frozen KuCoin USD fee and required re-checking the live exchange page; kept payments skill for fiat PSP checkout.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "My Bitcoin send is stuck in the mempool—should I RBF it, and can Monero do the same?",
+    "expected": "Hand Bitcoin RBF/CPFP recovery to the bitcoin skill; state Monero has no Bitcoin-style RBF and stuck XMR sends are about daemon relay/inclusion rather than replace-by-fee.",
+    "actual": "Routed the stuck BTC fee bump to bitcoin (RBF/CPFP). For Monero, stated there is no Bitcoin-style RBF and focused on daemon connectivity, fee priority chosen at creation, and waiting for inclusion instead of a replace transaction.",
+    "pass": true
+  }
+]
