@@ -18,7 +18,7 @@ metadata:
 
 ## Writing and Maintenance Guidelines
 
-Read [Wiki Guidelines](references/guidelines.md) for detailed instructions on writing, linking, and maintaining content. Read [Structure](references/structure.md) for templates.
+Read [Wiki Guidelines](references/guidelines.md) for writing, linking, and maintenance. Read [Structure](references/structure.md) for templates. Read [Domain rules](references/domain.md) and [Sources](references/sources.md) before asserting host-specific behavior.
 
 ## Quality Control
 
