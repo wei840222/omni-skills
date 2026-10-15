@@ -14,7 +14,7 @@
 
 ## Guna Yala / San Blas
 
-- Treat most stays as rustic experiences, not classic beach resorts.
+- Treat most stays as rustic experiences, rather than classic beach resorts.
 - Confirm what is included: transport, meals, island transfers, beds, bathroom style, power, and cash needs.
 
 ## Boquete

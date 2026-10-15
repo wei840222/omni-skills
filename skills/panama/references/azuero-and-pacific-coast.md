@@ -19,7 +19,7 @@
 ## Planning Rules
 
 - Car or private transfer usually improves the trip.
-- Do not promise urban convenience.
+- Set expectations for remote logistics.
 - Great fit for 3 to 5 nights, weak fit for one-night hopping.
 
 ## Tradeoff

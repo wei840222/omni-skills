@@ -6,11 +6,11 @@ When user mentions Panama travel for the first time:
 
 ### 1. Create Memory Structure
 ```bash
-mkdir -p ~/panama
+mkdir -p <state_root>
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/panama/memory.md` using `memory-template.md`.
+Create `<state_root>/memory.md` using `assets/memory-template.md`.
 
 ### 3. Gather Trip Context Naturally
 Ask in conversational flow:
@@ -22,11 +22,11 @@ Ask in conversational flow:
 - Pace: one base, two bases, or a more active route.
 
 ### 4. Save to Memory
-Update `~/Clawic/data/panama/memory.md` with current goals, constraints, open decisions, and transport tolerance.
+Update `<state_root>/memory.md` with current goals, constraints, open decisions, and transport tolerance.
 
 ## Returning Users
 
-If `~/Clawic/data/panama/memory.md` exists:
+If `<state_root>/memory.md` exists:
 1. Read it silently
 2. Reuse known preferences and friction points
 3. Ask only what changed

@@ -1,8 +1,8 @@
 # Entry and Documents
 
 - Panama tourism guidance currently points travelers to four core checks before arrival: passport validity, onward ticket, basic solvency, and any nationality-specific visa rule.
-- A common planning baseline is a passport with at least six months of validity.
-- Official travel requirements currently mention proof of onward travel and minimum solvency of US$500; some nationalities may be asked for more.
+- Tourism Panama currently frames entry checks around passport validity, onward/return travel, solvency proof, and nationality-specific visa rules; re-open `references/sources.md` before quoting a hard number for a given passport.
+- Official travel-requirements pages currently mention proof of onward travel and a solvency baseline around US$500; some nationalities may be asked for more. Treat amounts as orientation until re-checked for that traveler.
 - National Migration also states entry decisions happen at officially enabled air, land, or sea posts and may involve interview, baggage inspection, and biometric validation.
 - Do not guess visa status from language or region. Check nationality-specific rules before final booking.
 

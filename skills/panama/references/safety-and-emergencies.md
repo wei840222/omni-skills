@@ -9,7 +9,7 @@
 - Use trusted transport at arrival and late night.
 - Keep phones and wallets controlled in busy urban or transit areas.
 - Respect sea conditions and operator calls on island or dive days.
-- Do not normalize unplanned remote movement after dark.
+- Plan remote movement for daylight hours.
 
 ## Where Trips Break
 

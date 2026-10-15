@@ -14,6 +14,6 @@
 
 ## Planning Rules
 
-- Solve the whole movement chain, not just the hotel room.
+- Solve the whole movement chain, rather than just the hotel room.
 - Confirm vehicle type, pier access, bathroom setup, and distance from drop-off to room.
-- Avoid assuming island day trips are accessible because the water looks calm.
+- Verify island day trip accessibility because the water looks calm.

@@ -4,7 +4,7 @@
 
 ### Panama Canal
 - High-value first-time stop.
-- Better when the user understands this is about engineering spectacle and ship movement, not an all-day theme-park visit.
+- Better when the user understands this is about engineering spectacle and ship movement, rather than an all-day theme-park visit.
 
 ### Rainforest Edge
 - Metropolitan Natural Park or Chagres-side options work well for wildlife, hiking, and cooling the city-heavy pace.

@@ -1,130 +1,96 @@
 ---
 name: panama
-slug: panama
-version: 1.0.0
-description: Plan Panama trips with region-aware routing, verified entry rules, island and highland logistics, and practical tourist safety.
-homepage: https://clawic.com/skills/panama
-changelog: Initial release with verified Panama entry guidance, region playbooks, and practical trip logistics.
+description: >
+  Plan a Panama trip with region-aware routing, verified entry orientation,
+  island and highland logistics, and practical tourist safety. Use for Panama
+  City + Canal, Bocas del Toro, Guna Yala / San Blas, Boquete / Chiriquí,
+  Santa Catalina / Coiba, or Azuero surf corridors with realistic transfer
+  buffers. Not for inventing nationality-specific visa outcomes, stacking
+  San Blas + Bocas + Boquete into one short trip, or treating Panama as a tiny
+  country where everything fits without overnight buffers.
 metadata:
-  clawdbot:
-    emoji: 🇵🇦
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/panama/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Panama
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇵🇦"}'
+  related-skills: '{"booking":"Keep hotel, flight, and excursion reservation hygiene after the Panama route is chosen.","car-rental":"Decide when a self-drive segment in Azuero, highlands, or Pacific coast actually helps.","english":"Support calls, bookings, and service interactions when language scaffolding is the main need.","food":"Extend meal planning beyond the Panama food playbook.","spanish":"Everyday Spanish for menus, bookings, and on-the-ground talk once the route is set.","travel":"Build a multi-country itinerary when Panama is only one stop.","travel-planning":"Day-by-day multi-stop itineraries when the trip leaves Panama."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/panama/` doesn't exist or is empty, read `setup.md` and start naturally.
+Panama trip state may exist in `<workspace>/panama/`, `<workspace>/memory/panama/`, or `~/panama/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/panama/`, `<workspace>/memory/panama/`, `~/panama/`.
+3. If none exists and the user wants planning context kept, create `<workspace>/panama/`.
+4. If more than one candidate exists, use the highest-precedence directory and tell the user that other copies were found. Leave the other copies untouched.
+5. If `<workspace>` cannot be resolved, read an existing `~/panama/` only. Otherwise ask for a state root before creating files.
 
-User is planning a Panama trip and needs practical guidance beyond generic inspiration: entry rules, region choice, transport logic, seasonality, safety, and day-to-day execution.
+Use the selected `<state_root>` for every state operation in this skill. Create or update `<state_root>/memory.md` only when the user wants trip context kept across sessions. Legacy `~/Clawic/data/panama/` is a migration source only. Keep it out of the active lookup order, and move it only when the user asks.
 
-## Architecture
+## When to load
 
-Memory lives in `~/Clawic/data/panama/`. See `memory-template.md` for structure.
+Load this skill for a Panama trip plan, itinerary, entry/solvency orientation, domestic flight-versus-boat choice, region pairing, island package constraints, or seasonal safety question. Identify passport, dates/month, corridor preference, and transfer tolerance before locking a route.
 
-```
-~/Clawic/data/panama/
-└── memory.md     # Trip context and evolving constraints
-```
+Read `references/sources.md` before repeating a visa duration, solvency amount, metro fare, park rule, or emergency number. Re-check the official page for that nationality and travel date before the user books a non-refundable flight or island package.
 
-## Quick Reference
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/setup.md` |
+| Passport, onward ticket, solvency | `references/entry-and-documents.md` |
+| Affidavit, cash, Tocumen arrival | `references/customs-and-border.md` |
+| Corridor selection | `references/regions.md` |
+| Sample 4–12 day frames | `references/itineraries.md` |
+| Lodging strategy | `references/accommodation.md` |
+| Budget friction and cost traps | `references/budget-and-costs.md` |
+| Flights, buses, ferries, water taxis | `references/transport-domestic.md` |
+| Self-drive and road quality | `references/road-trips-and-driving.md` |
+| Panama City | `references/panama-city.md` |
+| Canal and nearby day trips | `references/canal-and-day-trips.md` |
+| Bocas del Toro | `references/bocas-del-toro.md` |
+| Guna Yala / San Blas | `references/guna-yala-and-san-blas.md` |
+| Boquete / Chiriquí Highlands | `references/boquete-and-chiriqui-highlands.md` |
+| Santa Catalina / Coiba | `references/santa-catalina-and-coiba.md` |
+| Azuero / Venao / Pedasí / Cambutal | `references/azuero-and-pacific-coast.md` |
+| Food, nightlife, family, access | `references/food-guide.md`, `references/nightlife.md`, `references/family-travel.md`, `references/accessibility.md` |
+| Safety and season | `references/safety-and-emergencies.md`, `references/weather-and-seasonality.md` |
+| Connectivity and apps | `references/telecoms-and-apps.md` |
+| Official source map | `references/sources.md` |
+| Persisted trip context | `assets/memory-template.md` |
 
-| Topic | File |
-|-------|------|
-| **Entry and Border** | |
-| Passport, visa, solvency, return ticket | `entry-and-documents.md` |
-| Customs, affidavit, cash, airport arrival logic | `customs-and-border.md` |
-| **Planning Backbone** | |
-| Regions and trip-shape strategy | `regions.md` |
-| Sample itineraries from 4 to 14 days | `itineraries.md` |
-| Where to stay by trip style | `accommodation.md` |
-| Budget realities and cost pressure points | `budget-and-costs.md` |
-| **Transport** | |
-| Domestic flights, buses, ferries, water taxis | `transport-domestic.md` |
-| Driving, parking, road quality, self-drive tradeoffs | `road-trips-and-driving.md` |
-| Connectivity, SIMs, cards, practical apps | `telecoms-and-apps.md` |
-| **Major Regions and Bases** | |
-| Panama City playbook | `panama-city.md` |
-| Canal, rainforest, Portobelo, Taboga, El Valle day trips | `canal-and-day-trips.md` |
-| Bocas del Toro islands playbook | `bocas-del-toro.md` |
-| Guna Yala and San Blas logistics | `guna-yala-and-san-blas.md` |
-| Boquete and Chiriqui Highlands playbook | `boquete-and-chiriqui-highlands.md` |
-| Santa Catalina and Coiba strategy | `santa-catalina-and-coiba.md` |
-| Azuero, Playa Venao, Pedasi, Cambutal | `azuero-and-pacific-coast.md` |
-| **Lifestyle and Execution** | |
-| Food and regional specialties | `food-guide.md` |
-| Nightlife by destination type | `nightlife.md` |
-| Traveling with children | `family-travel.md` |
-| Accessibility and mobility realities | `accessibility.md` |
-| **Safety and Conditions** | |
-| Emergencies, scams, marine and weather risk | `safety-and-emergencies.md` |
-| Rain, humidity, surf, whale, and hiking seasonality | `weather-and-seasonality.md` |
-| **Tools** | |
-| Research map and official sources | `sources.md` |
+## Core rules
 
-## Core Rules
+1. Route by corridor, not wish list: City + Canal, Caribbean islands, western highlands, and Pacific surf each behave like different trips.
+2. Lock entry compliance before non-refundable island or domestic segments.
+3. Ask for month first: rain, rough seas, whale season, surf, and trail access change what is realistic.
+4. Always offer two logistics models for multi-corridor routes (flight-heavy vs ground/boat-heavy) with tradeoffs.
+5. Budget friction, not just room rates: airport transfers, boats, cash-only stops, park fees, and last-mile access.
+6. Treat boat schedules, weather windows, cash needs, and indigenous-territory rules as hard constraints.
+7. Deliver action plans: base strategy, transfer buffers, reservation timing, weather/sea fallback, and a route-specific safety note.
 
-### 1. Route by Corridor, Not by Wish List
-Treat Panama as linked travel corridors, not a tiny country where everything fits easily. City + Canal, Caribbean islands, western highlands, and Pacific surf each behave like different trips.
+## Operating plan
 
-### 2. Lock Entry Compliance Before Booking Islands
-Confirm passport validity, visa status, onward ticket, and solvency expectations with `entry-and-documents.md` before locking island stays or domestic connections.
+Answer the immediate question first. When the user wants a route, return:
 
-### 3. Ask for Month First
-Use `weather-and-seasonality.md` before building routes. Rain, rough seas, whale season, surf conditions, and trail access change what is realistic.
+- Base / corridor logic
+- Day flow with transfer windows
+- Reservation deadlines
+- Weather or sea-state backup
+- Safety note for the chosen corridor
+- Cash vs card execution note for islands and remote stops
 
-### 4. Always Offer Two Logistics Models
-For most trips, provide two workable approaches:
-- Low-friction model using flights or direct transfers
-- Lower-cost model using buses, boats, and fewer bases
+For an empty state file, follow `references/setup.md` and copy the structure from `assets/memory-template.md` into `<state_root>/memory.md` only after the user wants memory kept.
 
-### 5. Budget Friction, Not Just Room Rates
-Panama cost mistakes usually come from transfer stacking: airport taxis, islands requiring boats, cash-only stops, park or day-trip fees, and last-mile hotel access.
+## Common traps
 
-### 6. Respect Local Operating Conditions
-Some destinations run on boat schedules, weather windows, cash payments, or indigenous territory rules. Treat those as hard constraints, not optional details.
-
-### 7. Deliver Actionable Plans
-Output should include:
-- Base strategy
-- Transfer plan with realistic buffers
-- Reservation timing
-- Weather or sea-state fallback
-- Quick safety notes for the exact route
-
-## Common Traps
-
-- Trying to combine Panama City, San Blas, Bocas, and Boquete in one short trip.
-- Treating island transfers as flexible even when sea conditions and first/last boats are the real bottleneck.
-- Booking San Blas or Coiba without confirming what is included, cash needs, and luggage limits.
-- Staying too far from the actual activity base and losing hours to transfers.
-- Underpacking for humidity and rain, then struggling with wet shoes, electronics, and boat rides.
+- Combining Panama City, San Blas, Bocas, and Boquete in one short trip.
+- Treating island transfers as flexible when sea conditions and first/last boats are the bottleneck.
+- Booking San Blas or Coiba without confirming inclusions, cash needs, and luggage limits.
+- Staying too far from the activity base and losing hours to transfers.
+- Underpacking for humidity and rain, then struggling with wet gear on boats.
 - Assuming cards work everywhere outside Panama City and major hotels.
+- Stacking same-day international arrival with a remote island connection and no overnight buffer.
 
-## Security & Privacy
+## Source freshness
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/panama/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/panama/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structure
-- `car-rental` — Better rental, pickup, and road-trip decisions
-- `booking` — Reservation workflows and confirmation hygiene
-- `food` — Deeper restaurant and cuisine recommendations
-- `english` — Language backup for calls, bookings, and service interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/panama
-- Latest version: https://clawic.com/skills/panama
+Domain claims in this package were last bulk-checked against the URLs in `references/sources.md` (see file header). Before any booking-critical statement, open the matching official page again for the user's passport and travel month.
