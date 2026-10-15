@@ -49,4 +49,4 @@ moves, engagement delivery, people leadership, MBA curriculum, or competitive st
 - Treat most management knowledge as context-dependent; name industry, size, and geography limits.
 - Distinguish proven findings from popular but weakly tested ideas.
 - Present trade-offs explicitly; every recommendation has an opportunity cost.
-- Do not invent statutes, tax rates, valuation multiples, or journal rankings—open `references/sources.md` and verify.
+- Verify statutes, tax rates, valuation multiples, and journal rankings via `references/sources.md` before stating them.
