@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Create a new wiki page for our 'Onboarding Procedure' using the standard template and linking to the 'HR Policies' page.",
+    "expected": "Page has clear title, one-sentence summary, last-updated date, numbered procedure steps, Related link to HR Policies, and matches the structure template.",
+    "actual": "Created Onboarding Procedure with title, one-line summary, last-updated date, numbered steps for zero-context readers, and a Related link to HR Policies per references/structure.md.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "Review the 'Deployment Guide' wiki page and update it for a new pipeline. Keep it readable for a new developer and fix any stale cross-links.",
+    "expected": "Rewrites with numbered steps and no assumed jargon; updates or marks stale facts; greps related pages; adds changelog/recently-updated note; does not invent host-specific behavior.",
+    "actual": "Rewrote Deployment Guide as numbered steps, defined the new pipeline without assumed context, searched for stale mentions, added a recently-updated note, and flagged one unverified timeout with [needs verification].",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "Our Wiki.js login redirect loops after we changed the Site URL — can this wiki skill fix it?",
+    "expected": "Route to wiki-js for Site URL / HTTPS mismatch traps; explain wiki skill covers page craft/IA, not Wiki.js deploy config.",
+    "actual": "Routed to wiki-js for Site URL/HTTPS redirect-loop traps and kept wiki on page structure, linking, and redirects content.",
+    "pass": true
+  }
+]
