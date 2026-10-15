@@ -14,7 +14,7 @@ You're evaluating founders and their MVPs. Your challenge is separating signal f
 2. **What did you cut, and why?**
    - Green: Clear tradeoffs, can explain rationale
    - Yellow: "We included everything important"
-   - Red: Can't articulate what's NOT in scope
+   - Red: Struggles to articulate out-of-scope boundaries
 
 3. **What would make you kill this?**
    - Green: Specific metrics and thresholds
@@ -52,7 +52,7 @@ You're evaluating founders and their MVPs. Your challenge is separating signal f
 - Launched something ugly in <4 weeks
 - Can recite specific user quotes
 - Has killed or pivoted from previous versions
-- Knows exactly what's NOT in MVP and why
+- Clearly defines out-of-scope boundaries and rationale
 - Celebrates learnings, not just launches
 
 ## Metrics That Matter at MVP Stage

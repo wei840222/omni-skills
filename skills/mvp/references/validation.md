@@ -124,3 +124,16 @@ Define BEFORE building:
 **The Rule:** If you hit the threshold, don't rationalize. Either pivot significantly or move on.
 
 Most ideas fail. Finding out fast is the goal.
+
+# Validation References
+## Benchmark Data
+- Lenny Rachitsky's retention benchmarks are framed as **6-month user retention** (and 12-month net revenue retention), not Day 7. Example directional bands from that research: consumer social ~25% GOOD / ~45% GREAT; consumer SaaS ~40% GOOD / ~70% GREAT. (Source: https://www.lennysnewsletter.com/p/what-is-good-retention-issue-29)
+- Early MVP tables above use **internal kill thresholds** (for example Day 7 retention <10%). Treat those as decision gates for tiny cohorts, not industry Day 7 leaderboards.
+
+## Testing Techniques
+- Fake Door / demand tests and other pre-build validation patterns are covered in YC's essential startup advice library entry. (Source: https://www.ycombinator.com/library/4D-yc-s-essential-startup-advice)
+- Wizard of Oz method: simulate backend automation while users interact with a real UI to test value and UX before building the full system. (Source: https://www.nngroup.com/articles/wizard-of-oz/)
+- Historical background on Wizard of Oz experiments in interactive systems. (Source: https://en.wikipedia.org/wiki/Wizard_of_Oz_experiment)
+
+## Post-Launch Signals
+- With <100 users, prioritize retention, willingness to pay, and breakage complaints over vanity totals. For conversion diagnostics after you have a funnel, see YC's conversion-rate guidance. (Source: https://www.ycombinator.com/library/6l-how-to-improve-conversion-rates)

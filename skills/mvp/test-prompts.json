@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a technical founder building a new email app. I want to add an AI feature that automatically sorts emails into folders. Should I include it in the MVP?",
+    "expected": "Uses Technical Founder guide to push back on over-engineering, asks to clarify the core assumption, and enforces scope tradeoff matrices.",
+    "actual": "Identified as Technical Founder. Asked for the one-sentence assumption being tested. Used references/scope.md Must/Should matrix and tradeoff script (add feature only by cutting something else or slipping the ship date). Recommended validating demand with a Fake Door or Wizard of Oz path before expanding scope.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We just launched our MVP to 50 users. Only 2 came back after a week. What should we build next to improve retention?",
+    "expected": "Loads validation.md for post-launch signals, recognizes low retention as a core failure, and advises against building more features before diagnosing the problem.",
+    "actual": "Loaded references/validation.md. Treated 2/50 Day 7 return (~4%) as below the skill's internal kill threshold (<10%) and advised against building new features. Recommended user interviews / churn diagnosis first, and noted Lenny's published benchmarks are 6-month retention bands rather than Day 7 leaderboards.",
+    "pass": true
+  }
+]
