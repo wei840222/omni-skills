@@ -179,7 +179,7 @@ Control whether agent can send to other channels:
 
 ## Sensitive Data
 
-Never put secrets directly in config. Use env vars:
+Store secrets in env vars rather than the config file. Use env vars:
 
 ```json
 {
@@ -202,9 +202,9 @@ TELEGRAM_BOT_TOKEN=1234567890:ABC...
 
 - [ ] DM policy set to `pairing` or `allowlist`
 - [ ] Gateway auth configured for remote access
-- [ ] Exec security set to `allowlist` (not `full`)
+- [ ] Exec security set to `allowlist` (rather than `full`)
 - [ ] Elevated permissions restricted to known users
-- [ ] Secrets in env vars, not config
+- [ ] Secrets stored in env vars rather than the config file
 - [ ] Group tools restricted appropriately
 - [ ] Cross-context messaging controlled
 

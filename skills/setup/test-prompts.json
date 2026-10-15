@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I set up a Telegram channel with a pairing policy?",
+    "expected": "Provide instructions for configuring `channels.telegram` with `dmPolicy: pairing` and point to `references/channels.md`.",
+    "actual": "I checked `references/channels.md` and here is how to configure Telegram with a pairing policy: you need to set `\"dmPolicy\": \"pairing\"` in the `channels.telegram` section of your configuration. This requires new users to get a code which you approve via CLI (`openclaw pairing approve telegram ABC123`).",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Configure OpenClaw to run Tailscale securely and restrict exec tool access to a whitelist.",
+    "expected": "Provide a combined configuration strategy using `references/gateway.md` for Tailscale and `references/security.md` for exec tool allowlist.",
+    "actual": "To run Tailscale securely, load `references/gateway.md`. Set `gateway.bind` to `tailnet` and `gateway.auth.allowTailscale` to `true`. For the exec tool, load `references/security.md` and configure `tools.exec.security` to `allowlist` and define allowed commands in `safeBins`.",
+    "pass": true
+  }
+]
