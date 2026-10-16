@@ -386,10 +386,10 @@ Hong Kong's startup ecosystem reached **record highs in 2025**, cementing its po
  Diverse founder community
 
 ### Challenges
-ï High living/operating costs
-ï Competitive talent market
-ï Small local market (7.5M)
-ï Need to expand regionally
+- High living/operating costs
+- Competitive talent market
+- Small local market (7.5M)
+- Need to expand regionally
 
 ### Best Fit For
 - FinTech startups targeting Asia

@@ -145,7 +145,7 @@ Moving to Hong Kong is an exciting but complex process. This guide covers everyt
 1. **Book appointment** at Immigration Department
    - Online booking available
    - Location: Immigration Tower, Wan Chai
-   
+
 2. **What to bring:**
    - Passport with valid visa
    - Proof of address
@@ -482,4 +482,4 @@ Moving to Hong Kong is an exciting but complex process. This guide covers everyt
 9. **Keep perspective** - challenges are temporary
 10. **Enjoy it** - HK is an incredible city
 
-Welcome to Hong Kong! ננ
+Welcome to Hong Kong!

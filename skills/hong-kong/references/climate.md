@@ -35,15 +35,15 @@ Hong Kong has a **subtropical climate** with distinct seasons. Summers are hot a
 | May | 26.3C (79F) | 291mm | 83% |
 
 **What to expect:**
-- π Pleasant early spring, warming rapidly
-- πο Rain increases, especially May
-- πο **Fog season** (Feb-Mar)-affects flights
-- π Light layers, umbrella essential
+- Pleasant early spring, warming rapidly
+- Rain increases, especially May
+- **Fog season** (Feb-Mar)-affects flights
+- Light layers, umbrella essential
 
 **Activities:**
 -  Great for hiking (Mar-Apr)
 -  Outdoor activities (before May heat)
-- ο May getting humid
+- May getting humid
 
 ---
 
@@ -57,16 +57,16 @@ Hong Kong has a **subtropical climate** with distinct seasons. Summers are hot a
 | September | 27.9C (82F) | 321mm | 78% |
 
 **What to expect:**
-- π **HOT and HUMID** - feels like 35C+
-- π Peak rainfall (June = wettest month)
-- π **Typhoon season** (June-September)
+- **HOT and HUMID** - feels like 35C+
+- Peak rainfall (June = wettest month)
+- **Typhoon season** (June-September)
 -  Frequent thunderstorms
 
 **Activities:**
-- π Beach/pool weather
-- π Indoor malls, museums (escape AC)
-- ο Outdoor hiking challenging
-- ο Check typhoon signals
+- Beach/pool weather
+- Indoor malls, museums (escape AC)
+- Outdoor hiking challenging
+- Check typhoon signals
 
 ---
 
@@ -78,10 +78,10 @@ Hong Kong has a **subtropical climate** with distinct seasons. Summers are hot a
 | November | 22.2C (72F) | 39mm | 72% |
 
 **What to expect:**
-- πο **BEST WEATHER** of the year
-- π Clear skies, low humidity
-- π Comfortable temperatures
-- ο Sunny and dry
+- **BEST WEATHER** of the year
+- Clear skies, low humidity
+- Comfortable temperatures
+- Sunny and dry
 
 **Activities:**
 -  Perfect for hiking
@@ -100,16 +100,16 @@ Hong Kong has a **subtropical climate** with distinct seasons. Summers are hot a
 | February | 17.1C (63F) | 39mm | 79% |
 
 **What to expect:**
-- ο Cool but **mild** (rarely below 10C)
-- πο Overcast, occasional cold snaps
-- π Need jacket, layers
-- πο Fog returns (Feb)
+- Cool but **mild** (rarely below 10C)
+- Overcast, occasional cold snaps
+- Need jacket, layers
+- Fog returns (Feb)
 
 **Activities:**
 -  Comfortable hiking weather
 -  Indoor activities comfortable
-- π Christmas markets/events
-- π Chinese New Year (Jan/Feb)
+- Christmas markets/events
+- Chinese New Year (Jan/Feb)
 
 ---
 
@@ -198,8 +198,8 @@ Hong Kong has a **subtropical climate** with distinct seasons. Summers are hot a
 
 ### Good: March - April
 -  Warming up, pleasant
-- ο Some fog (Mar)
-- ο Rain increasing (Apr)
+- Some fog (Mar)
+- Rain increasing (Apr)
 
 ### Challenging: June - September
 -  Very hot and humid
@@ -209,9 +209,9 @@ Hong Kong has a **subtropical climate** with distinct seasons. Summers are hot a
 -  Off-peak pricing
 
 ### Acceptable: January - February
-- π Cool, overcast
-- ο Chinese New Year crowds
-- ο Some fog (Feb)
+- Cool, overcast
+- Chinese New Year crowds
+- Some fog (Feb)
 
 ---
 

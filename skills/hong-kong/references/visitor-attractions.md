@@ -2,10 +2,10 @@
 
 > Last updated: February 2025
 
-## The Absolute Must-See Attractions
+## Priority attractions
 
 ### Victoria Peak
-**Verdict: MUST DO** 
+**Verdict: High priority**
 
 At 552m, Victoria Peak offers the most iconic Hong Kong views. Skip the overpriced Peak Tower shopping mall and head for the **Lugard Road loop trail** - a flat, accessible 3.4km path with panoramic viewpoints minus the crowds.
 
@@ -24,7 +24,7 @@ At 552m, Victoria Peak offers the most iconic Hong Kong views. Skip the overpric
 ---
 
 ### Star Ferry
-**Verdict: ESSENTIAL** 
+**Verdict: ESSENTIAL**
 
 The most iconic Hong Kong experience for HK$5 (~$0.65 USD). This 10-minute ride between Tsim Sha Tsui and Central has been running for 140+ years.
 
@@ -43,7 +43,7 @@ The most iconic Hong Kong experience for HK$5 (~$0.65 USD). This 10-minute ride 
 ---
 
 ### Big Buddha & Po Lin Monastery ( / )
-**Verdict: WORTH IT** 
+**Verdict: WORTH IT**
 
 The world's largest seated bronze Buddha at 34m tall. The setting in the mountains of Lantau Island is genuinely impressive.
 
@@ -62,7 +62,7 @@ The world's largest seated bronze Buddha at 34m tall. The setting in the mountai
 ---
 
 ### Temple Street Night Market
-**Verdict: FUN EXPERIENCE** 
+**Verdict: FUN EXPERIENCE**
 
 Classic Hong Kong night market atmosphere in Yau Ma Tei, Kowloon. Best for souvenirs, street food, and people-watching rather than quality shopping.
 
@@ -80,7 +80,7 @@ Classic Hong Kong night market atmosphere in Yau Ma Tei, Kowloon. Best for souve
 ---
 
 ### Ding Ding Trams
-**Verdict: MUST DO** 
+**Verdict: High priority**
 
 Double-decker trams have been running since 1904. At HK$3.20 (~$0.40 USD), it's the cheapest sightseeing in the city.
 
@@ -98,7 +98,7 @@ Double-decker trams have been running since 1904. At HK$3.20 (~$0.40 USD), it's 
 ## Hidden Gems (What Locals Know)
 
 ### Chi Lin Nunnery & Nan Lian Garden ( / )
-**Rating:** 
+**Rating:**
 
 Tang Dynasty-style Buddhist complex in Diamond Hill - wooden architecture built entirely without nails. The adjacent Nan Lian Garden features a stunning golden pavilion over lotus ponds.
 
@@ -110,7 +110,7 @@ Tang Dynasty-style Buddhist complex in Diamond Hill - wooden architecture built 
 ---
 
 ### Ex-Sham Shui Po Service Reservoir
-**Rating:** 
+**Rating:**
 
 Hong Kong's first circular underground reservoir, discovered in 2020. Roman-style red brick arches and granite columns - genuinely impressive.
 
@@ -122,7 +122,7 @@ Hong Kong's first circular underground reservoir, discovered in 2020. Roman-styl
 ---
 
 ### Lamma Island
-**Rating:** 
+**Rating:**
 
 Hippie vibes, car-free streets, craft beer shacks, and seafood restaurants. The ultimate escape from Hong Kong's intensity.
 
@@ -138,7 +138,7 @@ Hippie vibes, car-free streets, craft beer shacks, and seafood restaurants. The 
 ---
 
 ### PMQ
-**Rating:** 
+**Rating:**
 
 Former Police Married Quarters turned creative hub in Central. Local designers, boutiques, pop-ups, and markets.
 
@@ -150,7 +150,7 @@ Former Police Married Quarters turned creative hub in Central. Local designers, 
 ---
 
 ### Cat Street & Sheung Wan Antiques
-**Rating:** 
+**Rating:**
 
 Vintage curios, antiques (and clever fakes), and Old Hong Kong atmosphere along Upper Lascar Row.
 
@@ -163,17 +163,17 @@ Vintage curios, antiques (and clever fakes), and Old Hong Kong atmosphere along 
 
 ---
 
-### ï The Peak Galleria / Peak Tower
+### Skip: The Peak Galleria / Peak Tower
 **Manage expectations:** Overpriced mall with chain restaurants. Go for the view, skip the shopping. The Trick Eye Museum (HK$150) is only worth it if traveling with kids.
 
 ---
 
-### ï Avenue of Stars
+### Skip: Avenue of Stars
 **Manage expectations:** Hong Kong's Hollywood Walk of Fame. Cheesy piped music, but the Bruce Lee statue and harbour views are worth a quick stop. Don't spend more than 30 minutes.
 
 ---
 
-### ï Symphony of Lights
+### Skip: Symphony of Lights
 **Manage expectations:** Marketed as the world's "largest permanent light show" - it's basically colored lights on buildings. Watch from Star Ferry (free) rather than fighting crowds at TST waterfront.
 
 ---
@@ -183,7 +183,7 @@ Vintage curios, antiques (and clever fakes), and Old Hong Kong atmosphere along 
 
 ---
 
-### ï Ladies Market (Mong Kok)
+### Skip: Ladies Market (Mong Kok)
 **Manage expectations:** Mostly cheap clothes and fake goods. Can be fun for bargaining practice but don't expect quality. Temple Street has better atmosphere.
 
 ---

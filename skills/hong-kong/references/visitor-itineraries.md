@@ -124,7 +124,7 @@ Follow the 3-day itinerary above.
 
 ---
 
-### Day 4: Macau Day Trip ð
+### Day 4: Macau Day Trip
 
 **Getting There**
 - **Ferry** from Sheung Wan or TST: HK$170-200 (~$22-26 USD), 1 hour
