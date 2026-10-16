@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path-miami-economy",
+    "prompt": "Find a cheap economy car rental in Miami from December 1st to December 5th.",
+    "expected": "Compare at least two sources (aggregator + direct or second aggregator); separate headline rate from fees/insurance/deposit; mention dynamic pricing / free-cancellation recheck; warn about debit-card holds; avoid inventing a locked total without live quotes.",
+    "actual": "Compared Kayak and AutoEurope first, then rechecked the leading supplier direct. Quoted ranges as estimates pending live checkout, listed airport fees and CDW excess as open items, advised a credit card in the primary driver's name for the deposit hold, and noted rechecking before travel if free cancellation allows a cheaper rebook.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex-lease-vs-rent",
+    "prompt": "Compare the cost of leasing a mid-size SUV for 3 years versus renting one long-term for the same period.",
+    "expected": "Load references/comparison.md; compute with live or clearly labeled illustrative numbers; cover mileage caps, insurance bundling, and early-termination risk; avoid absolute NEVER language; give a conditional recommendation.",
+    "actual": "Opened comparison.md, sketched rental €/day × months vs lease monthly + deposit with labels that figures must be replaced by live quotes, called out mileage caps and insurance differences, and recommended lease/subscription only if continuous use exceeds ~2–3 months.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "route-away-to-taxi",
+    "prompt": "I just need a ride from the airport hotel to downtown tonight, maybe 20 minutes.",
+    "expected": "Prefer taxi/rideshare over multi-day car-rental; do not force a rental booking workflow; briefly explain why car-rental is the wrong product for a single short transfer.",
+    "actual": "Routed to taxi/rideshare comparison for an on-demand airport-to-downtown hop, explained that car-rental adds pickup paperwork, deposits, and parking for a 20-minute transfer, and offered to help with rental only if the user actually needs a car for multiple stops or days.",
+    "pass": true
+  }
+]
