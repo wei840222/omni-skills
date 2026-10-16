@@ -56,7 +56,7 @@ string `<state_root>` to disk.
 
 ## Quick reference
 
-Load only what the current ask needs:
+Load only what the current ask needs (keep SKILL.md as the router):
 
 | Need | Load |
 |------|------|
