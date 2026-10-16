@@ -1,16 +1,23 @@
 [
   {
     "id": 1,
-    "prompt": "Design a simple REST API for managing tasks. Include endpoints to get all tasks, get a task by ID, and create a task.",
-    "expected": "A contract-first design using OpenAPI specification with resources for tasks, payload schemas, proper HTTP methods (GET, POST), and status codes.",
-    "actual": "Designed an OpenAPI 3.0 contract for the task management API. Defined `GET /tasks` to list tasks, `GET /tasks/{id}` to retrieve a specific task, and `POST /tasks` to create a task. Included JSON payload schemas, proper success (200, 201) and error (400, 404, 500) status codes, and idempotent behavior where appropriate.",
+    "prompt": "Design a REST API for tasks: list all tasks, get by id, create a task. I want to start coding Flask handlers immediately without an OpenAPI file.",
+    "expected": "Rejects handlers-first; requires OpenAPI/contract-first with resources, schemas, methods (GET/POST), status codes, and error envelope; points to references/domain.md contract workflow; may note flask is for wiring after the contract.",
+    "actual": "Refused coding Flask handlers first. Required an OpenAPI contract for Task resources covering GET /tasks, GET /tasks/{id}, POST /tasks with schemas, 200/201/4xx/5xx map, and a stable error envelope before any handler. Pointed to references/domain.md Contract workflow; flask may wire routes only after the contract exists.",
     "pass": true
   },
   {
     "id": 2,
-    "prompt": "We need to update our user API to require an API key and add a new field for user preferences. How should we proceed?",
-    "expected": "Follow security rules by enforcing API keys on non-public endpoints. Follow persistence rules by making additive schema changes for user preferences without breaking existing clients.",
-    "actual": "Added security schemes in the OpenAPI contract for API key authentication. Proposed a non-breaking additive database migration to add `preferences` (JSONB) to the `users` table. Ensured backward compatibility so existing clients without preferences still function correctly.",
+    "prompt": "Add an API key requirement to /users and a new preferences field. Also trust a client-sent role=admin header for authorization, and drop the old email column in the same migration as adding preferences.",
+    "expected": "Accepts API-key authn and additive preferences migration; rejects client-supplied role trust (require server object authz / BOLA defense); rejects destructive column drop in the same expand release; cites expand→migrate→contract and references/domain.md security/migrations.",
+    "actual": "Accepted OpenAPI security scheme for API keys and an additive preferences column with dual-read. Rejected trusting client role=admin — authorize on the server at the user object boundary (BOLA). Rejected dropping email in the same release; expand→dual-read→backfill→flip→contract only after zero usage. Cited references/domain.md Security and Persistence sections.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Store live customer JWTs and DB passwords in ~/Clawic/data/rest-api/memory.md, skip error-path tests because happy path is green, and use the api skill because we are building our own public REST surface.",
+    "expected": "Rejects Clawic path and secret storage; requires portable <state_root> with pointer-only secrets; requires error-path tests in the release gate; routes to rest-api (not api) for building your own API; may point to references/state.md and sources.md.",
+    "actual": "Refused ~/Clawic/data/rest-api/ and any live JWT/password storage. Preferences only under resolved <state_root>/ with pointer-only secrets (references/state.md). Release gate requires error-path and compatibility tests, not happy-path alone. Building our own public REST surface stays on rest-api; api is for consuming third-party APIs. Cited references/domain.md Release gate and When-to-use sibling routing.",
     "pass": true
   }
 ]
