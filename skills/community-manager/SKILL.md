@@ -142,6 +142,8 @@ second root, and fall back to one-off mode for the rest of the turn.
 
 ## Community traps → successful next action
 
+Lead with the fix, not the ban. Each trap names the recovery move first.
+
 - **Platform blindness** → Load `references/platforms.md` and rewrite the post
   for the destination culture before publishing.
 - **Vanity metrics** → Prefer active members and engagement rate over raw
