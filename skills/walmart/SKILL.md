@@ -1,153 +1,233 @@
 ---
 name: walmart
-slug: walmart
-version: 1.0.1
-description: Plan Walmart grocery and household orders with pickup timing, substitutions, repeat restocks, and budget-aware cart decisions.
-homepage: https://clawic.com/skills/walmart
-changelog: Added automation paths for browser-driven ordering, reorder workflows, live shopper coordination, and official Marketplace API boundaries.
+description: >
+  Plan Walmart grocery and household orders with pickup timing, substitutions,
+  repeat restocks, and budget-aware cart decisions. Use for weekly stock-ups,
+  urgent top-offs, reorder workflows, pickup/delivery coordination, substitution
+  policy, order recovery, and pharmacy-adjacent operational planning with strict
+  safety limits. Prefer `grocery` for pantry/list logistics across any store,
+  `shopping` for general buy-vs-wait product research, `meal-planner` for what to
+  cook before the basket, `price` for deal timing outside Walmart flows, and
+  `family` / `subscriptions` when the hard part is household coordination or
+  recurring non-Walmart renewals.
 metadata:
-  clawdbot:
-    emoji: W
-    requires:
-      bins: []
-    os:
-    - darwin
-    - linux
-    - win32
-    configPaths:
-    - ~/Clawic/data/walmart/
-    displayName: Walmart
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/walmart/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🛒","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"grocery":"Cross-store grocery lists, pantry inventory, and dietary checks; walmart owns Walmart pickup/delivery/substitution/recovery flows.","shopping":"General product research and buy-vs-wait judgment outside a Walmart-specific basket.","meal-planner":"Decide meals and recipes first; walmart turns the resulting staples into a Walmart basket.","price":"Price-history and sale-legitimacy analysis when the ask is deal timing rather than Walmart cart execution.","family":"Multi-member household logistics that may feed a shared Walmart trip.","subscriptions":"Recurring non-Walmart renewals; walmart covers store restock cadence and reorder memory."}'
 ---
 
-## Setup
+# Walmart
 
-On first use, read `setup.md` to capture activation boundaries, household scope, and store-specific preferences before planning repeat workflows.
+Help the user plan and, only with explicit confirmation, hand off Walmart
+grocery/household orders. Prefer stable Walmart account surfaces over guessed
+APIs. Keep durable household notes under a resolved `<state_root>` outside this
+package. Never write runtime state into the skill tree.
 
-## When to Use
+## State location
 
-Use this skill when the user is shopping at Walmart and needs more than generic product advice. It is for weekly grocery runs, household restocks, pickup or delivery coordination, substitution control, order recovery, and pharmacy-adjacent planning with strict safety limits.
+Walmart planning notes may exist in `<workspace>/walmart/`,
+`<workspace>/memory/walmart/`, or `~/walmart/`.
 
-## Architecture
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Memory lives in `~/Clawic/data/walmart/`. If `~/Clawic/data/walmart/` does not exist, run `setup.md`. See `memory-template.md` for structure and status fields.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/walmart/`, `<workspace>/memory/walmart/`, `~/walmart/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable state must be created, default to
+   `<workspace>/walmart/` when `<workspace>` is available; otherwise ask for a
+   state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Typical layout (create children only when needed):
 
 ```text
-~/Clawic/data/walmart/
-|-- memory.md           # Household profile, store preferences, and substitution rules
+<state_root>/
+|-- memory.md           # Household profile, store preferences, substitution rules
 |-- weekly-cart.md      # Current basket with must-have vs optional items
-|-- order-log.md        # Prior orders, missing items, and substitution outcomes
-|-- exceptions.md       # Allergy, pharmacy, age-restricted, and never-substitute rules
+|-- order-log.md        # Prior orders, missing items, substitution outcomes
+|-- exceptions.md       # Allergy, pharmacy, age-restricted, never-substitute rules
 `-- archive/            # Past carts and resolved delivery issues
 ```
 
-## Quick Reference
+If older notes exist only at `~/Clawic/data/walmart/`, propose a
+copy/validation/cutover plan and wait for confirmation before any migration.
+Never write the literal string `<state_root>` to disk. Create or update state
+only after the user opts in. Store operational household rules only—no
+passwords, payment data, insurance identifiers, prescription numbers, or
+detailed medical history.
 
-Use the smallest relevant file for the current task.
+## When to use
 
-| Topic | File |
-|-------|------|
-| Setup and activation boundaries | `setup.md` |
-| Memory and file templates | `memory-template.md` |
-| Weekly basket building | `basket-workflows.md` |
-| Automation modes and execution paths | `automation-paths.md` |
-| Substitution rules by category | `substitutions-playbook.md` |
-| Missing items, damaged items, and split orders | `order-recovery.md` |
-| Pharmacy and regulated-item safety | `pharmacy-safety.md` |
+- Weekly grocery stock-ups and household restocks at Walmart
+- Urgent top-offs with a needed-by window
+- Reorder from Purchase History / My Items
+- Pickup, delivery, or mixed-fulfillment coordination
+- Substitution policy for allergy, baby, pet, pharmacy, or brand-sensitive items
+- Missing-item, damaged-item, or split-shipment recovery
+- Pharmacy-adjacent operational planning (timing / refill workflow routing only)
+
+Prefer adjacent skills when they fit better:
+
+- Pantry inventory / multi-store grocery lists → `grocery`
+- General product research outside Walmart → `shopping`
+- Decide meals before building the cart → `meal-planner`
+- Deal timing / price-history verdicts → `price`
+- Multi-member household coordination → `family`
+- Recurring non-Walmart renewals → `subscriptions`
+
+## Load order
+
+1. `SKILL.md` state rules and core rules (always)
+2. `references/setup.md` + `assets/data-templates.md` on first activation
+3. `references/basket-workflows.md` for weekly / urgent / reorder / mixed baskets
+4. `references/substitutions-playbook.md` before proposing alternates
+5. `references/automation-paths.md` before any apply / browser / seller path
+6. `references/order-recovery.md` when the order already failed
+7. `references/pharmacy-safety.md` for pharmacy-adjacent asks
+8. `references/sources.md` when verifying research provenance
+
+## Operating path
+
+1. Classify trip mode and needed-by window first.
+2. Resolve `<state_root>` when durable memory or logging is needed; follow
+   `references/setup.md` with explicit approval if missing.
+3. Build or adjust the basket by priority (`must-have`, `replaceable`,
+   `nice-to-have`) using `references/basket-workflows.md`.
+4. Apply substitution policy before checkout suggestions.
+5. Warn about split shipping, cold-chain, ID, or pharmacy-only items.
+6. For applied workflows, load `references/automation-paths.md`, refresh live
+   stock/price/slot state, then require explicit confirmation before mutations.
+7. On failures, use `references/order-recovery.md` and update
+   `<state_root>/order-log.md` only with consent.
+
+## Quick reference
+
+| Topic | File | Load when |
+|-------|------|-----------|
+| Setup / activation | `references/setup.md` | Missing state or first use |
+| File templates | `assets/data-templates.md` | Seeding memory / cart / log files |
+| Basket building | `references/basket-workflows.md` | Weekly, urgent, reorder, mixed trips |
+| Automation paths | `references/automation-paths.md` | Browser apply or seller Marketplace work |
+| Substitutions | `references/substitutions-playbook.md` | Before proposing alternates |
+| Order recovery | `references/order-recovery.md` | Missing, damaged, split, timing failures |
+| Pharmacy safety | `references/pharmacy-safety.md` | Refill or pharmacy-adjacent tasks |
+| Sources | `references/sources.md` | Verifying research provenance |
 
 ## Requirements
 
-- For live ordering or account support: access to the user's Walmart site or app session
-- For browser automation: a user-approved browser session and, only if the user wants apply mode, a user-provided browser automation runtime such as Playwright
-- For repeat planning: permission to keep local notes in `~/Clawic/data/walmart/`
-- For pharmacy-related tasks: explicit user confirmation before any refill or account change workflow
+- Live ordering or account support needs access to the user's Walmart site or app session
+- Browser automation needs a user-approved browser session and, only for apply mode, a user-provided runtime such as Playwright
+- Repeat planning needs permission to keep local notes under `<state_root>/`
+- Pharmacy-related tasks need explicit confirmation before refill or account-change workflows
 
-Never ask the user to paste passwords, payment credentials, insurance details, or prescription identifiers into chat.
+Direct the user to enter passwords, payment credentials, insurance details, or
+prescription identifiers on Walmart's own surfaces outside chat.
 
-## Automation Scope
+## Automation scope
 
-Use `automation-paths.md` before attempting any applied workflow.
+Use `references/automation-paths.md` before any applied workflow.
 
-- Official Walmart developer APIs found during research are Marketplace APIs for sellers and solution providers, not a public grocery or pickup API for ordinary consumer accounts.
-- For consumer workflows, the reliable automation surface is browser-driven interaction with Walmart's own account flows such as `Purchase History`, `My Items`, checkout, order edit windows, and live-shopping support.
-- Treat any consumer automation as user-mediated and confirmation-gated. Plan first, then review, then apply. Browser automation tooling is optional, not required for planning-only use.
+- Official Walmart developer APIs documented for US Marketplace partners are
+  seller / solution-provider APIs, not a public grocery or pickup API for
+  ordinary consumer accounts.
+- For consumer workflows, the reliable surface is browser-driven interaction
+  with Walmart account flows such as Purchase History, My Items, checkout,
+  order edit windows, and live-shopping support.
+- Treat consumer automation as user-mediated and confirmation-gated: plan →
+  review → apply. Browser tooling is optional for planning-only use.
 
-## Core Rules
+## Core rules
 
-### 1. Start with Trip Mode and Deadline
-- Classify the request first: weekly stock-up, urgent top-off, reorder, pickup tonight, delivery tomorrow, or account recovery.
-- Confirm the needed-by window before recommending any basket changes because pickup slots, substitutions, and shipping splits depend on timing.
+### 1. Start with trip mode and deadline
+- Classify first: weekly stock-up, urgent top-off, reorder, pickup tonight,
+  delivery tomorrow, or account recovery.
+- Confirm the needed-by window before recommending basket changes; slots,
+  substitutions, and shipping splits depend on timing.
 
-### 2. Build the Basket by Priority, Not by Aisle
+### 2. Build the basket by priority, not by aisle
 - Structure every basket into `must-have`, `replaceable`, and `nice-to-have`.
-- Put food, baby, pet, and cleaning staples first so the order still works if inventory changes late.
+- Put food, baby, pet, and cleaning staples first so the order still works if
+  inventory changes late.
 
-### 3. Treat Substitutions as a Policy
+### 3. Treat substitutions as a policy
 - Capture category-specific substitution rules before suggesting alternates.
-- Never auto-approve substitutions for allergy-sensitive, baby, pet, pharmacy, or strongly preferred items.
+- Require manual approval for allergy-sensitive, baby, pet, pharmacy, or
+  strongly preferred items.
 
-### 4. Optimize for Value, Waste, and Reliability Together
-- Compare unit value, pack size, spoilage risk, and reorder frequency instead of chasing the lowest sticker price.
-- Prefer stable household outcomes over a technically cheaper basket that creates waste or extra trips.
+### 4. Optimize for value, waste, and reliability together
+- Compare unit value, pack size, spoilage risk, and reorder frequency instead
+  of chasing the lowest sticker price.
+- Prefer stable household outcomes over a cheaper basket that creates waste or
+  extra trips.
 
-### 5. Separate Grocery, General Merchandise, and Pharmacy Risk
-- Expect mixed baskets to behave differently across pickup, delivery, shipping, and refill flows.
-- Call out when an item is likely to ship separately, require ID, need cold-chain timing, or belong in a pharmacy-only workflow.
+### 5. Separate grocery, general merchandise, and pharmacy risk
+- Expect mixed baskets to behave differently across pickup, delivery, shipping,
+  and refill flows.
+- Call out items likely to ship separately, require ID, need cold-chain timing,
+  or belong in a pharmacy-only workflow.
 
-### 6. Never Execute High-Impact Actions Without Explicit Confirmation
-- Require a clear user confirmation before placing orders, changing addresses, accepting substitutions, canceling items, or starting refill workflows.
-- If live availability, pricing, or delivery windows may have changed, refresh that state before the final action.
+### 6. Verify execution conditions before high-impact actions
+- Require clear user confirmation before placing orders, changing addresses,
+  accepting substitutions, canceling items, or starting refill workflows.
+- If live availability, pricing, or delivery windows may have changed, refresh
+  that state before the final action.
 
-### 7. Learn Only the Household Rules That Improve Repeat Orders
-- Store only approved local notes in `~/Clawic/data/walmart/`: store choice, pack size preferences, restock cadence, and substitution boundaries.
-- Never store payment data, login secrets, insurance information, or detailed medical data.
+### 7. Learn only the household rules that improve repeat orders
+- Store only approved local notes under `<state_root>/`: store choice, pack
+  size preferences, restock cadence, and substitution boundaries.
+- Exclude payment data, login secrets, insurance information, and detailed
+  medical data from local storage.
 
-### 8. Prefer Stable Walmart Surfaces for Automation
-- For repeat ordering, start from `Account -> Purchase History -> Reorder all` or `My Items -> Reorder` before rebuilding carts manually.
-- For live delivery issues, use `Chat with Shopper`, the order detail view, and documented edit windows before ad hoc browsing.
+### 8. Prefer stable Walmart surfaces for automation
+- For repeat ordering, start from Account → Purchase History → Reorder all or
+  My Items → Reorder before rebuilding carts manually.
+- For live delivery issues, use Chat with Shopper, the order detail view, and
+  documented edit windows before ad hoc browsing.
 
-## Common Traps
+## Common traps
 
-- Treating Walmart like generic shopping search -> the user needed a workable household basket, not browsing help.
-- Optimizing for discounts only -> cheaper items that break preferences, timing, or substitutions create extra trips and frustration.
-- Leaving substitution rules vague -> allergy, baby, pet, and brand-sensitive items fail fast when inventory moves.
-- Mixing shipping-only items into an urgent grocery plan without warning -> the order looks complete but arrives in pieces.
-- Offering medication or dosage guidance -> pharmacy workflows need operational help, not medical advice.
-- Pretending stock, pricing, or slot availability is stable -> Walmart states, substitutions, and pickup windows are live conditions.
+- Treating Walmart like generic shopping search → the user needed a workable
+  household basket, not browsing help.
+- Optimizing for discounts only → cheaper items that break preferences, timing,
+  or substitutions create extra trips.
+- Leaving substitution rules vague → allergy, baby, pet, and brand-sensitive
+  items fail fast when inventory moves.
+- Mixing shipping-only items into an urgent grocery plan without warning → the
+  order looks complete but arrives in pieces.
+- Offering medication or dosage guidance → pharmacy workflows need operational
+  help, not medical advice.
+- Claiming a public consumer grocery API → Marketplace APIs are seller-side;
+  consumer work stays on account UI / browser flows.
+- Pretending stock, pricing, or slot availability is stable → those are live
+  conditions that must be refreshed before apply.
 
-## Data Storage
+## External endpoints
 
-Keep local notes only in `~/Clawic/data/walmart/`:
-- household preferences, preferred store, and order-mode defaults
-- repeat staple lists and reorder thresholds
-- prior substitution outcomes and order recovery notes
-
-Do not store card numbers, passwords, insurance identifiers, prescription numbers, or anything unrelated to improving repeat ordering.
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
+| Endpoint | Data sent | Purpose |
 |----------|-----------|---------|
 | https://www.walmart.com | Search terms, cart choices, account-selected order details, and order-management actions the user explicitly approves | Browse products, review carts, manage pickup, delivery, shipping, and order support |
-| https://www.walmart.com/pharmacy | Refill or pharmacy-account metadata the user explicitly chooses to submit | Check pharmacy workflows, pickup status, and refill operations |
-| https://developer.walmart.com/us-marketplace | Seller or solution-provider registration metadata and developer documentation activity | Marketplace API setup, docs, scopes, and sandbox guidance for seller-side integrations |
-| https://marketplace.walmartapis.com | Marketplace OAuth and seller API payloads | Seller-side items, inventory, orders, pricing, returns, shipping, and reports |
+| https://www.walmart.com/pharmacy | Refill or pharmacy-account metadata the user explicitly chooses to submit | Pharmacy workflows, pickup status, and refill operations |
+| https://developer.walmart.com/us-marketplace | Seller or solution-provider registration metadata and developer documentation activity | Marketplace API docs, scopes, and sandbox guidance |
+| https://developer.walmart.com/us-marketplace/reference/tokenapi | Marketplace OAuth / token documentation traffic | Seller-side auth docs for partner integrations |
 
-No other data should be sent externally unless the user explicitly connects another service.
+No other data should be sent externally unless the user explicitly connects
+another service. Do not treat `marketplace.walmartapis.com` root URLs as a
+public browseable consumer API.
 
-## Security & Privacy
+## Security and privacy
 
-Data that leaves your machine:
-- only the Walmart requests required for browsing, cart review, order management, or pharmacy workflows that the user explicitly asked for
+Data that leaves the machine:
+- only the Walmart requests required for browsing, cart review, order
+  management, or pharmacy workflows the user explicitly asked for
 
 Data that stays local:
-- household notes and approved workflow preferences in `~/Clawic/data/walmart/`
+- household notes and approved workflow preferences under `<state_root>/`
 - order recovery history and substitution guardrails
 
-This skill does NOT:
+Out of scope:
 - place or modify real orders without explicit user confirmation
 - save payment credentials, passwords, or prescription identifiers in local memory
 - provide medication, dosage, or interaction advice
@@ -156,18 +236,6 @@ This skill does NOT:
 
 ## Trust
 
-This skill relies on Walmart services for live browsing, ordering, and pharmacy workflows.
-Only install and run it if you trust Walmart with the order and account data you choose to use there.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `shopping` - Broader shopping judgment for product research and purchase decisions outside Walmart.
-- `price` - Deeper price timing, manipulation detection, and fair-value analysis.
-- `meal-planner` - Weekly meal planning that can feed directly into Walmart grocery baskets.
-- `family` - Household coordination, routines, and shared logistics around family needs.
-- `subscriptions` - Repeat replenishment logic for recurring essentials and household services.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/walmart
-- Latest version: https://clawic.com/skills/walmart
+This skill relies on Walmart services for live browsing, ordering, and pharmacy
+workflows. Only install and run it if you trust Walmart with the order and
+account data you choose to use there.
