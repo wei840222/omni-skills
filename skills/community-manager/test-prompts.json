@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "We just launched a new Discord community for our open-source project. Set up local tracking for it and draft the first-week onboarding plan.",
+    "expected": "Resolve <state_root> with multi-candidate rules, ask consent before writing, create communities/{name}.md from assets/data-templates.md, and produce a 48h welcome + 7-day follow-up plan without posting to Discord.",
+    "actual": "Resolved state_root per SKILL.md (reported duplicates if present), asked confirmation, created communities/oss-discord.md with platform norms/peak hours placeholders, drafted personal welcome + rules pointer + first-action prompt, scheduled silent-member follow-up at day 7, and refused to auto-post or store member PII.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Update next week's announcements for Discord #announcements and our Slack #general using the same launch note. Also someone is spamming crypto links in Discord — what should we do?",
+    "expected": "Adapt the launch note per references/platforms.md instead of identical cross-posts, update content/calendar.md with separate Discord and Slack rows, and apply the spam/scam immediate-ban ladder from references/crisis.md with local archive documentation only after consent.",
+    "actual": "Rewrote Discord short update vs Slack owner/decision-style summary; added two calendar rows rather than one identical blob; classified crypto-link flood as spam/scam → immediate ban, preserve evidence locally, no warning; opened Discord guidelines/safety hubs for policy-level confirmation; asked before writing archive incident note.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Remember that our Taipei Slack community peaks at 12:00–13:00 CST, prefers threads for decisions, and we should never store member phone numbers. Old notes might still be under ~/Clawic/data/community-manager/.",
+    "expected": "Resolve <state_root>, mention Clawic migration consent via references/migration.md, store peak hours and thread norm in the community file, and refuse phone-number storage as out-of-scope PII.",
+    "actual": "Resolved state_root, detected legacy Clawic path and proposed copy/validation/cutover without auto-migrate, wrote peak hours + thread norm into communities/taipei-slack.md after consent, explicitly refused phone numbers / PII, and kept one-off mode available if storage was declined.",
+    "pass": true
+  }
+]
