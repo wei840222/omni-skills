@@ -33,9 +33,9 @@ Pick the smallest workflow that fits the task.
 ## 5. API or Product Research
 
 1. Separate public APIs, partner APIs, and no-public-API cases.
-2. Use `api-notes.md` for evidence, not guesswork.
+2. Use `api-notes.md` to ground your answers in concrete evidence.
 3. Distinguish facility discovery, pricing, booking, and occupancy APIs because providers rarely expose all four.
-4. Stop before claiming live booking automation if access appears partnership-only.
+4. Pause to confirm open access; if access is partnership-only, offer manual app handoff instead.
 
 ## Output Pattern
 
@@ -43,7 +43,7 @@ Prefer this response shape:
 - best option for the stated goal
 - fallback options
 - what is verified
-- what is not verified yet
+- pending verifications
 - one next action
 
 ## Availability Language
@@ -52,4 +52,4 @@ Use these exact meanings:
 - `Guaranteed reservation`: provider confirms a booking path and inventory for the requested window
 - `Reservable now`: a live booking flow exists, but full booking success still depends on checkout
 - `Payment app only`: the app helps pay after the user finds a bay
-- `Discovery only`: useful for location and facility details, not for committing a space
+- `Discovery only`: useful for finding location and facility details; require a reservation surface to commit a space
