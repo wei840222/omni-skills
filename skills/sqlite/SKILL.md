@@ -43,6 +43,6 @@ Server-engine vacuum/work_mem tuning and ORM schema modeling stay out of scope (
 
 - High-write web app on SQLite — one writer blocks; route to `pg` / `mysql`.
 - Relying on ROWID after `VACUUM` — use an explicit `INTEGER PRIMARY KEY`.
-- Skipping `busy_timeout` — intermittent `SQLITE_BUSY` under light concurrency.
+- Omit `busy_timeout` and light concurrency surfaces intermittent `SQLITE_BUSY`.
 - `':memory:'` per connection — each handle gets a different DB; use `file::memory:?cache=shared` when sharing is required.
 - Copying DB files while a writer is active — use `.backup` / backup API instead.
