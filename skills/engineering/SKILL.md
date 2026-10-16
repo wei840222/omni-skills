@@ -57,6 +57,10 @@ persistent state tree. Do not write runtime notes into this package.
 | `references/technicians.md` | Drawings, tolerances, LOTO, escalation. |
 | `references/sources.md` | Standards, ethics, exam, and publisher pins. |
 
+## Progressive disclosure
+
+Keep `SKILL.md` as the router. Load one audience file plus `core-rules.md`; open `sources.md` only for edition-sensitive claims.
+
 ## Guardrails
 
 - Lead with physical meaning, then equations as compact notation.
