@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| community-manager            | 2026-10-16 | 82/100 (#878)                    |
 | parking                      | 2026-10-16 | 86/100 (#877)                    |
 | engineering                  | 2026-10-16 | 86/100 (#874)                    |
 | graphic-design             | 2026-10-16 | 86/100 (#875)                    |

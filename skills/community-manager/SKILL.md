@@ -1,140 +1,189 @@
 ---
 name: community-manager
-slug: community-manager
-version: 1.0.0
-description: Manage online communities with engagement strategies, content planning, and audience growth.
-homepage: https://clawic.com/skills/community-manager
+description: >
+  Manage Discord, Slack, Telegram, forum, and similar online communities with
+  engagement planning, content calendars, member onboarding, moderation
+  playbooks, and health metrics. Use when the user needs community ops,
+  channel norms, crisis response, or local community memory. Prefer `cmo` for
+  marketing strategy and budget ownership, `growth` for acquisition-loop and
+  funnel constraint work, `branding` for identity and voice systems, and
+  `content-marketing` for funnel-stage content programs outside ongoing
+  community stewardship.
 metadata:
-  clawdbot:
-    emoji: 👥
-    requires:
-      bins: []
-      configPaths:
-      - ~/Clawic/data/community-manager/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Community Manager
+  version: "1.0.1"
+  openclaw: '{"emoji":"👥","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"branding":"Define voice, positioning, and visual identity that community channels must follow.","cmo":"Own marketing strategy, budget, and pipeline decisions above day-to-day community ops.","content-marketing":"Plan funnel-stage content programs and editorial calendars beyond community stewardship.","growth":"Diagnose acquisition and retention loops when community growth is the constraint."}'
 ---
 
-## When to Use
+# Community Manager
 
-User needs to manage communities on Discord, Slack, Telegram, or forums. Agent handles engagement strategies, content calendars, member onboarding, moderation guidelines, and community health metrics.
+Help the user run healthy online communities across Discord, Slack, Telegram,
+forums, and similar spaces. Keep platform norms distinct, favor engagement over
+broadcasting, and treat moderation as protection. Persist community memory only
+under a resolved `<state_root>` after consent. This skill does **not** log into
+platforms or post on the user's behalf.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/community-manager/`. See `memory-template.md` for setup.
+Community-manager state may exist in `<workspace>/community-manager/`,
+`<workspace>/memory/community-manager/`, or `~/community-manager/`.
 
-```
-~/Clawic/data/community-manager/
-├── memory.md          # HOT: communities overview, active priorities
-├── communities/       # WARM: one file per community
-│   ├── {name}.md      # Platform, channels, voice, metrics
-│   └── ...
-├── content/           # Content calendar and templates
-│   ├── calendar.md
-│   └── templates.md
-└── archive/           # COLD: past campaigns, old metrics
-```
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Quick Reference
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/community-manager/`, `<workspace>/memory/community-manager/`,
+   `~/community-manager/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable state must be created, default to
+   `<workspace>/community-manager/` when `<workspace>` is available; otherwise
+   ask for a state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Engagement tactics | `engagement.md` |
-| Crisis handling | `crisis.md` |
-| Platform tactics | `platforms.md` |
+Use the selected `<state_root>` for every state operation in this skill. If older
+notes exist only at `~/Clawic/data/community-manager/`, propose a
+copy/validation/cutover plan and **CHECKPOINT:** wait for user confirmation
+before any migration. If the user declines migration, keep working in one-off
+mode or the modern root only — do not read or copy the legacy tree. Never write
+the literal string `<state_root>` to disk.
 
-## Core Rules
+## When to use
 
-### 1. Know Each Community
-Before posting or engaging, read `~/Clawic/data/community-manager/communities/{name}.md`. Every community has different:
-- Platform norms (Discord vs Slack vs Telegram)
-- Tone and voice guidelines
-- Peak activity hours
-- Key members and influencers
+Trigger on standing community operations such as:
 
-### 2. Engagement Over Broadcasting
+- Standing Discord / Slack / Telegram / forum community operations
+- Content calendars and channel-native announcements for communities
+- Member onboarding, welcome flows, and first-week activation
+- Moderation ladders, crisis response, and incident documentation
+- Weekly health metrics: active members, engagement, sentiment, growth
+- Platform-norm research before adapting the same idea across channels
+
+## Quick reference
+
+Load only the smallest file needed. Keep `SKILL.md` as the router:
+
+| Need | Load |
+|------|------|
+| Setup / activation / directory layout | `references/setup.md` + `assets/data-templates.md` |
+| Engagement tactics | `references/engagement.md` |
+| Crisis / moderation ladder | `references/crisis.md` |
+| Platform norms (Discord / Slack / Telegram / forums) | `references/platforms.md` |
+| Verified source pins | `references/sources.md` |
+| Legacy Clawic path migration | `references/migration.md` |
+
+## Core rules
+
+### 1. Know each community
+
+Before posting or engaging, read
+`<state_root>/communities/{name}.md`. Capture platform norms, tone and voice,
+peak activity hours, and key members or influencers. Do not treat Discord,
+Slack, Telegram, and forum cultures as interchangeable.
+
+### 2. Engagement over broadcasting
+
 | Bad | Good |
 |-----|------|
-| Post and disappear | Post, reply to 5 comments, ask follow-up |
-| Announce only | Mix: 40% value, 30% engagement, 20% announcements, 10% fun |
-| Ignore criticism | Acknowledge, thank, address publicly |
+| Post and disappear | Post, reply to several comments, ask a follow-up |
+| Announce only | Mix roughly 40% value, 30% engagement, 20% announcements, 10% fun |
+| Ignore criticism | Acknowledge, thank, and address publicly when safe |
 
-### 3. Content Calendar Discipline
-- Plan 2 weeks ahead minimum
-- Check `~/Clawic/data/community-manager/content/calendar.md` before creating
-- Never post identical content across platforms without adapting
+### 3. Content calendar discipline
 
-### 4. Moderation Is Protection
+- Plan at least two weeks ahead.
+- Check `<state_root>/content/calendar.md` before creating new posts.
+- Adapt format, length, and CTA to each platform; never paste identical copy
+  across channels without adaptation.
+
+### 4. Moderation is protection
+
 | Severity | Response |
 |----------|----------|
-| Off-topic | Gentle redirect, move if possible |
-| Heated debate | Cool down, private DM if needed |
-| Harassment | Warn once, then ban, document in memory |
-| Spam/scam | Immediate ban, no warning |
+| Off-topic | Gentle redirect; move the thread when the platform allows |
+| Heated debate | Cool down; use a private DM when needed |
+| Harassment | Warn once, then ban; document in memory with consent |
+| Spam / scam | Immediate ban, no warning; preserve evidence locally |
 
-### 5. Metrics That Matter
-Track weekly in community memory:
-- **Active members** (posted in last 7 days)
+Escalate using the host platform's official safety / guidelines pages when the
+incident involves policy-level harm. See `references/crisis.md`.
+
+### 5. Metrics that matter
+
+Track weekly in the community file (not vanity follower counts alone):
+
+- **Active members** (posted in the last 7 days)
 - **Engagement rate** (reactions + replies / members)
-- **Sentiment** (positive/neutral/negative ratio)
-- **Growth** (new joins - leaves)
+- **Sentiment** (positive / neutral / negative ratio)
+- **Growth** (joins − leaves)
 
-### 6. Onboarding Sets the Tone
-New members in first 48h:
-- Welcome message (personal if <50 new/week)
-- Point to rules/guidelines
-- Suggest first action (introduce yourself, ask a question)
-- Follow up if silent after 7 days
+### 6. Onboarding sets the tone
 
-### 7. Update Memory After Actions
+In a new member's first 48 hours:
+
+- Send a welcome (personal when volume is under ~50 new members/week)
+- Point to rules / guidelines
+- Suggest a first action (introduce yourself, ask a question)
+- Follow up if the member is silent after 7 days
+
+### 7. Update memory after actions
+
 | Event | Update |
 |-------|--------|
-| New community added | Create `communities/{name}.md` |
-| Campaign launched | Add to `content/calendar.md` |
-| Crisis resolved | Document in `archive/` |
-| Metrics collected | Update community file |
+| New community added | Create `<state_root>/communities/{name}.md` |
+| Campaign launched | Add to `<state_root>/content/calendar.md` |
+| Crisis resolved | Document under `<state_root>/archive/` |
+| Metrics collected | Update the community file |
 
-## Community Traps
+**CHECKPOINT:** Ask before creating or expanding durable memory. If consent is
+refused, stay in one-off mode and keep plans in chat only. If a write fails
+(permissions, missing parent directory), report the error, do not invent a
+second root, and fall back to one-off mode for the rest of the turn.
 
-- **Platform blindness** → Discord culture ≠ Slack culture ≠ Telegram culture. Adapt.
-- **Vanity metrics** → Follower count means nothing if engagement is dead
-- **Over-moderation** → Killing discussions kills communities
-- **Under-moderation** → Toxic 1% drives away the 99%
-- **Posting without reading** → Miss context, look out of touch
-- **Same content everywhere** → Cross-posting without adapting feels lazy
+## Community traps → successful next action
 
-## Security & Privacy
+Lead with the fix, not the ban. Each trap names the recovery move first.
 
-**Local storage (persisted to disk):**
-- Creates and maintains `~/Clawic/data/community-manager/` directory
-- Stores: community metadata, content calendars, engagement notes
-- You control what to record about members
+- **Platform blindness** → Load `references/platforms.md` and rewrite the post
+  for the destination culture before publishing.
+- **Vanity metrics** → Prefer active members and engagement rate over raw
+  follower count.
+- **Over-moderation** → Protect safety, then leave room for disagreement; cool
+  heated threads instead of deleting every sharp take.
+- **Under-moderation** → Apply the harassment / spam ladder immediately so the
+  toxic minority cannot drive away everyone else.
+- **Posting without reading** → Skim the last day of the target channel first.
+- **Same content everywhere** → Adapt format and CTA per platform.
 
-**What gets stored:**
+## Security and privacy
+
+**Local storage (only after consent):**
+
+- Maintains `<state_root>/` with community metadata, calendars, and engagement
+  notes the user chooses to keep
+- May store generalized crisis / moderation logs under `archive/`
+
+**What may be stored:**
+
 - Community names, platforms, channel lists
 - Content calendar entries
-- Your notes on engagement patterns
-- Crisis/moderation logs you choose to keep
+- Engagement-pattern notes
+- Incident summaries the user elects to retain
 
-**This skill does NOT:**
-- Store passwords, API tokens, or credentials
-- Connect to any platform (you post manually)
-- Send data to external servers
+**Out of scope for this skill:**
 
-**Privacy note:**
-You decide what member data to record. Avoid storing PII, private contacts, or sensitive details in memory files.
+- Storing passwords, API tokens, or credentials
+- Connecting to or posting on any platform on the user's behalf
+- Sending community data to external servers
+- Storing PII, private contacts, or sensitive member details
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `cmo` — marketing strategy alignment
-- `growth` — audience growth tactics
-- `branding` — voice and identity consistency
+**Privacy note:** Prefer generalized engagement notes. Keep PII and private
+contacts out of memory files.
 
-## Feedback
+## Out of scope
 
-- If useful, star it: https://clawic.com/skills/community-manager
-- Latest version: https://clawic.com/skills/community-manager
+- Marketing strategy, budget, and pipeline ownership → `cmo`
+- Acquisition-loop diagnosis and experiment programs → `growth`
+- Brand identity and voice systems → `branding`
+- Funnel-stage content programs beyond community stewardship → `content-marketing`
+- Telegram Bot API request construction → `telegram-bot-api`
