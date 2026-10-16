@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Restock our weekly groceries: milk, eggs, bread, and dog food. Preferred store is the Supercenter on Main St. Prefer Great Value when possible, but no substitutions on the dog food.",
+    "expected": "Treat as weekly stock-up: resolve <state_root> if durable memory is used, split the basket into must-have/replaceable/nice-to-have, mark dog food as strict no-substitution, prefer Great Value for the flexible staples, and ask the user to review before any apply.",
+    "actual": "Classified as weekly stock-up with Main St Supercenter. Resolved <state_root> when present. Built must-have milk/eggs/bread/dog food, set dog food to strict match only, preferred Great Value for the staples, and requested explicit review before checkout.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "My pickup order is missing the baby formula. What should I do?",
+    "expected": "Load order-recovery and pharmacy-safety guidance: help report the missing baby item via order details / support flows, forbid automatic baby substitutions, and avoid dosage or medical advice while offering a next-basket rebuild for the must-have formula.",
+    "actual": "Opened order-recovery path for a missing must-have. Guided the user to the order detail / refund or reshop flow, refused automatic baby-formula substitution, kept pharmacy/medical advice out of scope, and offered to rebuild the next basket around the formula first.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "Can you just compare two blenders and tell me if this Amazon price is a good deal? I'm not ordering groceries.",
+    "expected": "Recognize non-Walmart general product research / deal timing and prefer shopping and/or price rather than forcing a Walmart basket workflow.",
+    "actual": "Noted the ask is general product research and price timing, not a Walmart cart. Routed to shopping for the blender comparison and price for deal legitimacy, keeping walmart for Walmart pickup/delivery/substitution flows.",
+    "pass": true
+  }
+]
