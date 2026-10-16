@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Generate a 5-second video of a futuristic city at sunset using Runway Gen-4. The camera should slowly pan from left to right.",
+    "expected": "Resolves Gen-4 to a documented Runway API ID such as gen4_turbo, builds a shot prompt with futuristic city / sunset / slow left-to-right pan, treats the job as async, and returns or stages a downloadable output URL before expiry.",
+    "actual": "Mapped Gen-4 to gen4_turbo via references/runway.md + sources.md, wrote a single continuous camera-pan shot prompt, submitted an async Runway job with polling/backoff, and provided the output video URL after completion.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a high-quality video of a coffee cup steaming on a wooden table using OpenAI Sora 2, and use the premium tier.",
+    "expected": "Selects sora-2-pro for premium tier, keeps the prompt to one continuous steaming-cup action, uses the OpenAI async video path, and downloads the result promptly.",
+    "actual": "Routed to sora-2-pro after alias resolution, kept subject/action/camera timing in one shot, polled the OpenAI video job to completion, and returned the downloadable video URL.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I already have a preferred provider saved somewhere from Clawic days. Set up local memory without losing it, then draft a cheap Veo clip before a premium rerender.",
+    "expected": "Resolves portable <state_root>, migrates legacy ~/Clawic/data/video-generation/ only after confirmation, drafts on a fast Veo tier (veo-3.1-fast-generate-001), and finishes winners on a premium tier.",
+    "actual": "Resolved <state_root> from workspace candidates, copied legacy Clawic memory after confirmation into <state_root>/memory.md, drafted on veo-3.1-fast-generate-001, then reran the chosen shot on veo-3.1-generate-001.",
+    "pass": true
+  }
+]
