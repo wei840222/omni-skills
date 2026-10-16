@@ -66,4 +66,4 @@ For each portfolio, always include:
 - financing,
 - risks,
 - first 12-month actions,
-- stop or revise conditions.
+- revise-or-exit conditions.

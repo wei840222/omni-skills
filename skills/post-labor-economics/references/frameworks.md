@@ -60,7 +60,7 @@ For each proposal, specify:
 - inflation sensitivity,
 - adjustment rule under downturns.
 
-Avoid binary framing: affordability is policy design plus macro conditions.
+Reframe binary constraints: affordability is policy design plus macro conditions.
 
 ## 6) Political Durability Lens
 

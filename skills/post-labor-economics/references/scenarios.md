@@ -63,5 +63,5 @@ Policy posture:
 
 ## Decision Rule
 
-Never pick one scenario permanently.
+Keep scenario choice provisional; shift the mix when signal thresholds move.
 Use signal thresholds to shift policy mix as reality changes.
