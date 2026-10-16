@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Cloud Run revision will not become ready: logs say the container failed to start and listen on the port. What should I check first?",
+    "expected": "Name the Cloud Run PORT contract ($PORT/8080 on 0.0.0.0) and startup probe timing before rewriting networking or IAM; keep credentials out of state.",
+    "actual": "Loaded references/domain.md Failure signatures. Identified top Cloud Run deploy failure as PORT contract / listen address / startup probe. Suggested read-only gcloud run services describe + revision logs, verify app binds to $PORT on 0.0.0.0, then probe timing. Named blast radius of changing VPC egress before the listen bug is fixed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We get 403 PERMISSION_DENIED calling a GCP API even though the principal has the role in the console. How do we debug?",
+    "expected": "Check SERVICE_DISABLED / API enablement first, then binding resource level, deny policy, and VPC-SC via Policy Troubleshooter; do not widen roles as the first move.",
+    "actual": "Routed through Failure signatures: classify 403 as API-disabled vs permission vs VPC-SC. Ordered checks enable API \u2192 Policy Troubleshooter with exact principal/resource/permission \u2192 deny policy \u2192 VPC-SC audit log. Explicitly rejected granting broader primitive roles first.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Help me write Kubernetes Deployment YAML for a GKE Autopilot workload and tune PostgreSQL indexes on Cloud SQL.",
+    "expected": "Prefer sibling skills: hand off manifest authoring to `k8s` and in-database query/index tuning to `pg`; keep this skill on GCP platform concerns (Autopilot constraints, Cloud SQL connectivity/private IP).",
+    "actual": "Applied related-skills routing from SKILL.md. Declined deep Deployment YAML and pg index work; pointed to `k8s` and `pg`. Offered GCP-side Autopilot unschedulable checks and Cloud SQL private IP / Auth Proxy connectivity from references/domain.md only.",
+    "pass": true
+  }
+]
