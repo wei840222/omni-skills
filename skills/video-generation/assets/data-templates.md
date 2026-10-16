@@ -1,8 +1,3 @@
-# Memory Template - AI Video Generation
-
-Copy this into `~/Clawic/data/video-generation/memory.md` on first use.
-
-```markdown
 # Video Generation Memory
 
 ## Status
@@ -28,8 +23,3 @@ integration: workspace
 ## Notes
 - Temporary experiments to revisit
 - Known failure modes and mitigations
-```
-
-## Optional History File
-
-Create `~/Clawic/data/video-generation/history.md` only if the user wants persistent run logs.

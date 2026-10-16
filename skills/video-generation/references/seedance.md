@@ -28,5 +28,5 @@ Public Seed and ByteDance pages reference:
 ## Reliability Tips
 
 - Ask for one dominant motion objective per shot
-- Avoid overloading a single prompt with many scene jumps
+- Focus a single prompt on one continuous action
 - Archive prompt + seed + model-version metadata for reruns

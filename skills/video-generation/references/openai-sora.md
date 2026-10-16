@@ -4,13 +4,15 @@
 
 ## Official Models
 
-- `sora-2`
-- `sora-2-pro`
+- `sora-2` — faster exploration / drafts
+- `sora-2-pro` — higher fidelity finals
+
+Source: OpenAI video generation guide (developers.openai.com).
 
 ## API Path
 
-Use the OpenAI Responses API with video modality.
-Key pattern: set `model` to Sora 2 variant and include `"video"` in `modalities`.
+Use the OpenAI **Videos API** (`/videos`) with async create → poll → download.
+Prefer the documented Videos API path; only use alternate modality shapes when current official docs show them.
 
 ## Practical Routing
 
@@ -22,4 +24,4 @@ Key pattern: set `model` to Sora 2 variant and include `"video"` in `modalities`
 
 - Treat jobs as async and poll status for completion
 - Keep prompts scoped to one shot objective to reduce drift
-- Store response IDs and download outputs immediately
+- Store response IDs and download outputs immediately before URL expiry
