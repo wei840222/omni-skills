@@ -1,12 +1,12 @@
 # Safety — Sevilla
 
-> Sevilla is generally very safe. The main concerns are petty theft and summer heat, not violent crime.
+> Sevilla is generally very safe. The main concerns are petty theft and summer heat, rare violent crime.
 
 ## Overall Safety
 
 | Concern | Level | Notes |
 |---------|-------|-------|
-| **Violent crime** | Very low | Rare, not tourist-targeted |
+| **Violent crime** | Very low | Rare, uncommon for visitors |
 | **Pickpocketing** | Moderate | Tourist areas, less than Barcelona |
 | **Scams** | Low-moderate | Tourist traps more than scams |
 | **Night safety** | High | Safe to walk late |
@@ -34,7 +34,7 @@
 1. **Front pocket or cross-body bag**
 2. **No backpack in crowds** (or wear it front)
 3. **Phone in front pocket, hand on it**
-4. **Don't flash valuables**
+4. **Keep valuables concealed**
 5. **Beware distraction techniques**
 6. **Terrace tables: bag on lap or leg through strap**
 
@@ -49,7 +49,7 @@
 
 ## Scams
 
-### Tourist Traps (Not Scams, Just Bad Value)
+### Tourist Traps (Low Value Options)
 
 | Trap | What |
 |------|------|
@@ -69,7 +69,7 @@
 | **Taxi meter off** | Insist on meter |
 
 ### Rental Scam Prevention
-- Never pay before viewing
+- View before paying
 - Use known platforms (Idealista, Fotocasa)
 - Meet landlord in person
 - Check property registration
@@ -93,7 +93,7 @@
 | Poligono Sur | ★★☆☆☆ | ★☆☆☆☆ |
 | Tres Mil Viviendas | ★☆☆☆☆ | ★☆☆☆☆ |
 
-### Areas to Avoid
+### Areas Outside Tourist Zones
 
 | Area | Why |
 |------|-----|
@@ -138,7 +138,7 @@
 
 ### Sevilla
 - Generally tolerant
-- Not as visible as Madrid/Barcelona
+- Less visible than Madrid/Barcelona
 - Alameda area most welcoming
 - Pride events (June)
 - PDA: same as straight couples (modest public)
@@ -146,7 +146,7 @@
 ### Venues
 - Concentrated around Alameda
 - Small but active scene
-- Mix of bars, not massive clubs
+- Mix of bars, smaller venues
 
 ---
 
@@ -171,7 +171,7 @@ Sevilla's heat is a genuine health hazard.
 
 ### Prevention
 1. **Hydrate constantly** — 3+ liters/day
-2. **Avoid 12:00-18:00 outdoors**
+2. **Stay indoors from 12:00-18:00**
 3. **Stay in AC during peak heat**
 4. **Sunscreen and hat always**
 5. **Know your limits**
@@ -189,8 +189,8 @@ Sevilla's heat is a genuine health hazard.
 ### Cannabis
 - Decriminalized for personal use (private)
 - Public consumption = fine
-- Not openly smoked like Amsterdam
-- Don't buy on street
+- Smoked privately like Amsterdam
+- Purchase through legal associations
 
 ### Other Drugs
 - Cocaine, etc: illegal
@@ -199,7 +199,7 @@ Sevilla's heat is a genuine health hazard.
 
 ### Clubs/Nightlife
 - Drug use exists (like everywhere)
-- Not especially open about it
+- Kept discreet
 - Standard awareness applies
 
 ---
@@ -255,7 +255,7 @@ Sevilla's heat is a genuine health hazard.
 
 ## COVID/Health Emergencies
 
-### Current Status (2026)
+### Current Status (2025)
 - No restrictions
 - Masks: optional
 - Testing: available at pharmacies

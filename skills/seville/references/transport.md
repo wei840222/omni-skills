@@ -28,7 +28,7 @@ Sevilla is very walkable for a Spanish city. Most attractions are within 30 minu
 | Macarena | 15 min |
 | Nervion | 25 min |
 
-**Reality:** Most visitors never need transport within the historic center.
+**Reality:** Most visitors can walk everywhere within the historic center.
 
 ### Pedestrian Zones
 - Centro historic core (Sierpes, Constitucion)
@@ -118,7 +118,7 @@ Short line through Centro:
 Plaza Nueva → Archivo de Indias → Puerta Jerez → San Sebastian
 ```
 
-**Not very useful** — covers area easily walked. Same tickets as bus/metro.
+**Limited utility** — covers area easily walked. Same tickets as bus/metro.
 
 ---
 
@@ -172,7 +172,7 @@ Many shops around Centro rent bikes EUR 10-15/day.
 - **Cabify** — Good alternative
 
 ### Airport Taxi
-Fixed rate EUR 23 from airport to Centro. Don't pay more.
+Fixed rate EUR 23 from airport to Centro. Refuse higher charges.
 
 ---
 
@@ -225,7 +225,7 @@ Main train station, 1.5 km northeast of Centro.
 
 ## Car
 
-### Don't Drive in Centro
+### Alternatives to Driving in Centro
 - ZBE (Low Emission Zone) restrictions
 - No parking
 - Narrow streets

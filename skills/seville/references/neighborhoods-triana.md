@@ -32,7 +32,7 @@ Real Sevillano life. Neighbors know each other. Traditional bars. Ceramic shops.
 - Terrace restaurants
 - Tourist-facing
 - More expensive
-- Great for drinks, not living
+- Great for drinks, visiting
 
 ### Calle Pureza / San Jacinto
 - Main streets through Triana
@@ -170,7 +170,7 @@ Some bars still give free tapa with drink:
 - ❌ Gentrifying (prices rising)
 - ❌ No metro
 - ❌ Parking difficult
-- ❌ Can feel insular if you don't speak Spanish
+- ❌ Can feel insular if you speak only English
 - ❌ Nightlife limited (Alameda better)
 
 ---
@@ -205,7 +205,7 @@ Very safe. Working-class doesn't mean dangerous. Neighbors watch out for each ot
 - Evening walk across bridge is magical
 - Less crowded than Santa Cruz
 
-### Why Not
+### Challenges
 - Slightly farther from monuments
 - Fewer hotels
 - Need to cross bridge daily
@@ -226,9 +226,9 @@ Very safe. Working-class doesn't mean dangerous. Neighbors watch out for each ot
 - River lifestyle
 - Manageable rent (still)
 
-### Why Not
+### Challenges
 - If you need metro
-- If you don't speak Spanish (harder to integrate)
+- If you speak only English (harder to integrate)
 - If you prefer modern over traditional
 
 ---
@@ -283,7 +283,7 @@ If you want to understand what makes Sevilla special, live in Triana.
 - Those who value authenticity over convenience
 - Anyone learning Spanish
 
-**Not ideal for:**
+**Less suitable for:**
 - First-time tourists with limited time
 - Those needing metro access
 - Non-Spanish speakers (short term ok, long term challenging)

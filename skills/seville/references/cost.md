@@ -18,7 +18,7 @@
 
 ---
 
-## Rent (February 2026)
+## Rent (February 2025)
 
 ### By Neighborhood
 
@@ -53,7 +53,7 @@
 - **Agencies charge 1 month fee** — Negotiate or find direct
 - **Deposit** — Usually 2 months
 - **Photos can lie** — Always visit in person
-- **Scams exist** — Never pay before seeing
+- **Scams exist** — Skip pay before seeing
 - **Short-term premium** — Under 1 year costs more
 - **No AC in old buildings** — Check before summer
 

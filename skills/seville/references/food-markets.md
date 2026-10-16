@@ -201,7 +201,7 @@ Various plazas host artisan markets:
 - **Gourmet halls**: 13:00-15:00 or 20:00-22:00
 - **Sunday flea market**: 09:00-12:00
 
-### Avoid
+### Skip
 - **Mondays**: Some stalls closed
 - **After 14:00**: Traditional markets closing
 - **August**: Reduced hours/closures

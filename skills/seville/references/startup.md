@@ -11,7 +11,7 @@
 | **Community** | Small but tight |
 
 ### Reality Check
-- Not Madrid or Barcelona level
+- Smaller than Madrid or Barcelona level
 - Fewer VCs, fewer exits
 - But: much cheaper, good quality of life
 - Growing especially since COVID
@@ -44,7 +44,7 @@
 
 **Cons:**
 - Personal liability
-- High social security even if not earning
+- High social security even if pre-revenue
 - Less professional perception
 
 ### SL (Most Common for Startups)
@@ -305,7 +305,7 @@ Employee pays ~6.5% from gross.
 1. **Use cost advantage**: Longer runway, lower burn
 2. **Remote-first team**: Access national/international talent
 3. **Madrid/Barcelona for fundraising**: Travel for investor meetings
-4. **International customers**: Don't limit to Andalucia
+4. **International customers**: Expand beyond Andalucia
 5. **Build local community**: Small pond, be a big fish
 
 ### Model Companies

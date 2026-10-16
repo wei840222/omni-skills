@@ -11,7 +11,7 @@
 - Deeply emotional, centuries-old tradition
 - The most important week in Sevillian calendar
 
-### 2026 Dates
+### 2025 Dates
 Check annually — moves with Easter. Usually late March or April.
 
 ### Key Elements
@@ -49,7 +49,7 @@ The famous all-night procession Thursday into Friday.
 **Booking:**
 - Hotels: 6+ months ahead
 - Prices: 3-4x normal
-- Don't even try last minute
+- Book months in advance
 
 **Viewing:**
 - Best spots along routes (marked in papers)
@@ -85,7 +85,7 @@ Every brotherhood has set route. Published in:
 - Traditional dress (traje de flamenca)
 - Horse parades by day, dancing by night
 
-### 2026 Dates
+### 2025 Dates
 Usually April/May. Check annually.
 
 ### Structure
@@ -170,7 +170,7 @@ Even without caseta access:
 - Triana's local festival
 - July 26th area
 - River fireworks
-- Local, not touristy
+- Local, local-focused
 
 ### Bienal de Flamenco (Even years, Sep)
 - World's most important flamenco festival

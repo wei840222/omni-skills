@@ -1,6 +1,6 @@
 # Weather and Climate — Sevilla
 
-> Sevilla has the hottest summers of any major European city. This is not an exaggeration.
+> Sevilla has the hottest summers of any major European city. This is a serious reality.
 
 ## Monthly Breakdown
 
@@ -25,13 +25,13 @@
 - Regular highs of 40-45C (104-113F)
 - Heat starts at 10:00, unbearable by 14:00
 - Evening relief only after 21:00
-- Some days don't drop below 30C at night
+- Some days stay above 30C at night
 - 2023 saw 12 consecutive days above 40C
 
 **What this means:**
 - Outdoor sightseeing: 08:00-11:00 only
-- Siesta is survival, not laziness
-- AC is mandatory, not luxury
+- Siesta is survival, cultural adaptation
+- AC is mandatory, an absolute necessity
 - Locals leave the city if they can
 - Tourist numbers drop significantly
 
@@ -69,7 +69,7 @@
 | 1st | Late March - Early May | Perfect weather, Semana Santa, Feria |
 | 2nd | October - Early November | Warm but comfortable, fewer tourists |
 | 3rd | February - Early March | Mild, cheap, authentic |
-| Avoid | July - August | Unless you love suffering |
+| Skip | July - August | Unless you love suffering |
 
 ## Seasonal Events Impact
 

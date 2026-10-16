@@ -182,7 +182,7 @@
 
 ### Summer (Jun-Sep)
 - **AC is non-negotiable**
-- Avoid top floors (heat rises)
+- Skip top floors (heat rises)
 - Cross-ventilation important
 - River proximity nice for walks
 
@@ -211,7 +211,7 @@
 
 **For expats/residents:** Alameda
 - Young, social, good value
-- Central but not touristy
+- Central but local-focused
 - Nightlife and cafes
 - Coworking friendly
 

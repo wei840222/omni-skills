@@ -147,7 +147,7 @@ Tripe stew. Not for everyone but traditional.
 | Dish | What |
 |------|------|
 | **Gambas al ajillo** | Prawns in garlic oil |
-| **Pulpo a la gallega** | Galician octopus (not local but popular) |
+| **Pulpo a la gallega** | Galician octopus (regional but popular) |
 | **Almejas a la marinera** | Clams in white wine |
 | **Solomillo de atun** | Tuna loin, often rare |
 | **Bacalao (various)** | Salt cod, many preparations |

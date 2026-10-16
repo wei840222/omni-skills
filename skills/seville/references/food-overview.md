@@ -4,7 +4,7 @@
 
 **Tapeo** = hopping from bar to bar, eating small plates, standing, socializing.
 
-This is not dining. It's a social ritual:
+This is a social ritual. It's a social ritual:
 - 1-2 tapas per bar, then move
 - Standing at the bar or on the street
 - Often free tapa with each drink
@@ -22,7 +22,7 @@ This is not dining. It's a social ritual:
 | Tapas | 20:30-23:00 | Evening tapeo |
 | Cena | 22:00-00:00 | If eating proper dinner |
 
-**Key insight:** Sevillanos don't eat dinner at restaurants the way tourists do. They do tapeo instead.
+**Key insight:** Sevillanos eat dinner via tapeo the way tourists do. They do tapeo instead.
 
 ### Free Tapas Culture
 
@@ -32,7 +32,7 @@ Many bars give a free tapa with each drink. This is dying in tourist areas but a
 - Macarena neighborhood (most bars)
 - Parts of Triana
 - Working-class areas
-- NOT: Santa Cruz, tourist Centro
+- Skip: Santa Cruz, tourist Centro
 
 **How it works:**
 1. Order a cana (small beer) or wine
@@ -97,7 +97,7 @@ The Spanish lunch special. Usually weekdays only, 13:00-16:00.
 - **Crowded 22:00** = good sign
 - **Empty 22:00** = tourist trap
 - **Chalkboard specials** = fresh
-- **Photos on menu** = avoid
+- **Photos on menu** = skip
 - **Near major monuments** = probably bad
 
 ## Best Food Areas
@@ -152,9 +152,9 @@ See `food-tapas.md` for specific bar recommendations.
 | Winter | Stews (cocido), heavier dishes |
 | Year-round | Jamon, pescaito frito, tortilla |
 
-## Where NOT to Eat
+## Where to Skip
 
-| Avoid | Why |
+| Skip | Why |
 |-------|-----|
 | Restaurants on Calle Sierpes | Tourist markup |
 | Plaza Nueva terraces | 3x price for view |

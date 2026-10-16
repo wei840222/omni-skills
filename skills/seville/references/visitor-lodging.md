@@ -60,12 +60,12 @@
 
 ## Airbnb Reality
 
-### Legal Status (2026)
+### Legal Status (2025)
 - Regulated heavily
 - License required
 - Many unlicensed (risk for both)
 - Best in Triana, Alameda (less regulated)
-- Avoid Centro/Santa Cruz (enforcement higher)
+- Skip Centro/Santa Cruz (enforcement higher)
 
 ### When Airbnb Works
 - Groups (split costs)
@@ -229,7 +229,7 @@ Some hotels offer better direct rates.
 ### Families with Kids
 - **Nervion**: Safe, parks, space
 - **Triana**: Character but practical
-- **Avoid**: Alameda (nightlife), Santa Cruz (narrow streets with strollers)
+- **Skip**: Alameda (nightlife), Santa Cruz (narrow streets with strollers)
 
 ### Romantic Trip
 - **Santa Cruz**: Classic choice
@@ -249,11 +249,11 @@ Some hotels offer better direct rates.
 ### Long Stay (1+ month)
 - **Airbnb monthly rates**: Significant discounts
 - **Triana/Alameda**: Best for living
-- **Avoid Santa Cruz**: Gets old fast
+- **Skip Santa Cruz**: Gets old fast
 
 ---
 
-## What to Avoid
+## What to Skip
 
 | Red Flag | Why |
 |----------|-----|
