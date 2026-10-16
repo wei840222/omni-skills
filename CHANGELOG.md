@@ -17,6 +17,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | ---------------------------- | ---------- | -------------------------------- |
 | engineering                  | 2026-10-16 | 86/100 (#874)                    |
 | graphic-design             | 2026-10-16 | 86/100 (#875)                    |
+| video-generation             | 2026-10-16 | 86/100 (#876)                    |
 | sqlite                       | 2026-10-16 | 86/100 (#872)                    |
 | post-labor-economics         | 2026-10-16 | 86/100 (#871)                    |
 | notes                        | 2026-10-16 | 86/100 (#870)                    |
