@@ -153,8 +153,8 @@ API found" cases.
 
 ## Common traps
 
-- Treating a pay-by-phone parking app as proof that a space can be reserved —
-  many apps start a session only after the driver finds a bay.
+- Start with reservation inventory when the user needs a guaranteed bay;
+  pay-by-phone apps often begin a session only after the driver finds a space.
 - Claiming "spots available" from a static listing page — treat open hours and
   active inventory as distinct concepts.
 - Ignoring plate, height, or vehicle-type restrictions — the booking looks fine
