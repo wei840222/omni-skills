@@ -26,7 +26,7 @@ An interface is nil only when **both** words are nil. Assigning any typed nil gi
 
 - The compile error is `T does not implement I (method M has pointer receiver)`. Fix by passing `&v`, not by changing the receiver — switching a mutating method to a value receiver makes it mutate a copy and compile cleanly.
 - Values inside a map or a slice of `T` are not addressable through the index expression in every position: `m["k"].M()` with a pointer-receiver method does not compile. Store `*T` in the map, or copy out to a local first.
-- Do not mix receiver kinds on one type. Pick pointer receivers if any method mutates or the struct is large, and use them everywhere on that type (`idioms.md`).
+- Unify receiver kinds on one type. Pick pointer receivers if any method mutates or the struct is large, and use them everywhere on that type (`idioms.md`).
 - Satisfaction is implicit and structural. Rename a method on your type and the compiler says nothing until an assignment fails somewhere far away. Assert it at compile time in the implementing package:
 
 ```go

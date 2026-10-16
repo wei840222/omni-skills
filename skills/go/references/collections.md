@@ -11,7 +11,7 @@ b = append(b, 99)  // writes into a[3]: a is now [0 1 2 99 4]
 ```
 
 - `append` writes in place whenever `len < cap`, and reallocates otherwise. Whether the caller sees your append is therefore a function of capacity — the same code silently changes behavior when the input grows.
-- The three-index form `a[1:3:3]` sets `cap = len`, so the next `append` must allocate. Use it whenever you hand a sub-slice to code you do not control.
+- The three-index form `a[1:3:3]` sets `cap = len`, so the next `append` must allocate. Use it whenever you hand a sub-slice to code you must decouple from.
 - Passing a slice to a function copies the header, not the data: element writes are visible to the caller, but `append` inside the function is not — the callee's new header is discarded. Return the slice or take a `*[]T`.
 - A small sub-slice keeps the **entire** backing array alive. Holding `bigBuf[:10]` from a 10 MB read retains all 10 MB. Copy the piece out when the parent is large (`memory.md`).
 

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Write an HTTP handler that updates a user's status. Make sure it won't leak memory or connections under load.",
+    "expected": "Load go skill; use a dedicated http.Server/Client with timeouts (not DefaultClient); pass ctx; drain and close bodies; defer cancel on WithTimeout; keep handler work cancellable; mention references/http.md / concurrency as needed.",
+    "actual": "Emitted handler with context.WithTimeout + defer cancel, explicit server/client timeouts, io.Copy(io.Discard, body) before Close, and no http.DefaultClient.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "failure-recovery",
+    "prompt": "CI prints 'fatal error: all goroutines are asleep - deadlock!' when one goroutine writes to an unbuffered channel. How do I fix it?",
+    "expected": "Explain total-deadlock semantics (every goroutine blocked); dump stacks with SIGQUIT; fix with a receiver goroutine, buffer of one, or select on ctx.Done(); never paper over with sleep; point to references/concurrency.md and references/debugging.md.",
+    "actual": "Described that the process only fatals when every goroutine is blocked, recommended SIGQUIT stacks, and offered receiver goroutine / buffer-1 / ctx select without sleep.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "My Deployment is CrashLoopBackOff after I changed the Go service probes. Can this Go skill fix the manifest?",
+    "expected": "Route to `k8s` for CrashLoopBackOff / probe / manifest work; optionally keep go only for binary-side health handler or timeout bugs, with an explicit handoff.",
+    "actual": "Declined to rewrite the Deployment here; handed off to k8s for probe/manifest diagnosis and offered to inspect the Go health endpoint only if the binary side is suspect.",
+    "pass": true
+  }
+]

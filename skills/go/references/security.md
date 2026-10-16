@@ -4,11 +4,11 @@ Go's standard library gets several security defaults right (contextual HTML esca
 
 ## Randomness and Secrets
 
-- `crypto/rand` for anything an attacker must not predict: tokens, session IDs, password reset links, nonces, salts. `math/rand` is deterministic from its seed and its output stream is reconstructible from a few samples — auto-seeding (`go >=1.20`) and `math/rand/v2` (`go >=1.22`) make it *unpredictable to you*, not to an attacker.
+- `crypto/rand` for anything an attacker must not predict: tokens, session IDs, password reset links, nonces, salts. `math/rand` is deterministic from its seed and its output stream is reconstructible from a few samples — auto-seeding (`go >=1.20`) and `math/rand/v2` (`go >=1.22`) make it *unpredictable to you*, leaving predictability for attackers.
 - Token generation: `b := make([]byte, 32); rand.Read(b)` with `crypto/rand`, then `base64.RawURLEncoding.EncodeToString(b)`. 32 bytes is the standard size for a session or API token.
 - Compare secrets with `subtle.ConstantTimeCompare(a, b) == 1`. `==` on strings short-circuits at the first differing byte, which leaks the prefix length through timing.
-- Passwords: a memory-hard KDF (`golang.org/x/crypto/argon2` or `bcrypt`), never SHA-256, never with a global salt. Store the parameters alongside the hash so they can be raised later.
-- Secrets come from the environment or a mounted file, never from a command-line argument (visible in the process list) and never from a source constant. `git`-committed keys survive rotation because history is forever.
+- Passwords: a memory-hard KDF (`golang.org/x/crypto/argon2` or `bcrypt`), instead of SHA-256 or global salts. Store the parameters alongside the hash so they can be raised later.
+- Secrets come from the environment or a mounted file, instead of command-line arguments (visible in the process list) and instead of source constants. `git`-committed keys survive rotation because history is forever.
 - Go cannot reliably zero a secret in memory: the GC may have copied the string already, and strings are immutable. Use `[]byte` and clear it when it matters, and accept this as a limit rather than a solved problem.
 
 ## Injection
@@ -22,7 +22,7 @@ Go's standard library gets several security defaults right (contextual HTML esca
 | URLs | String concatenation of user input | `url.URL` + `url.Values.Encode()` |
 | Log lines | Raw user input into a log message | Structured attributes, which quote values (`logging.md`) |
 
-- `html/template` escapes based on where the value lands in the parsed document — that context awareness is the whole point, and it is lost the moment you wrap a value in `template.HTML`, which means "trusted, do not escape". Every `template.HTML` on user data is an XSS.
+- `html/template` escapes based on where the value lands in the parsed document — that context awareness is the whole point, and it is lost the moment you wrap a value in `template.HTML`, which means "trusted, bypass escaping". Every `template.HTML` on user data is an XSS.
 - `filepath.Join` **cleans** the path, resolving `..` — so `Join("/data", "../etc/passwd")` yields `/etc/passwd` with no error. Containment requires an explicit check:
 
 ```go
@@ -32,7 +32,7 @@ if !strings.HasPrefix(p, filepath.Clean(root)+string(os.PathSeparator)) {
 }
 ```
 
-That still does not stop a symlink inside `root` pointing out of it. `os.Root` (`go >=1.24`) resolves every operation within the root and is the real answer where available.
+That still leaves open a symlink inside `root` pointing out of it. `os.Root` (`go >=1.24`) resolves every operation within the root and is the real answer where available.
 
 ## Untrusted Input Limits
 
@@ -46,10 +46,10 @@ That still does not stop a symlink inside `root` pointing out of it. `os.Root` (
 ## TLS
 
 - Defaults are sane: modern cipher suites, and a `MinVersion` of TLS 1.2 for clients — and, from `go >=1.22`, for servers too (before that, a zero-value server config accepted TLS 1.0/1.1; the `tls10server=1` GODEBUG still reverts it). Set `MinVersion: tls.VersionTLS12` (or `tls.VersionTLS13`) explicitly anyway: it is the only form that survives an older toolchain, a GODEBUG set elsewhere in the environment, and a config copied into a `go <1.22` module.
-- `InsecureSkipVerify: true` disables certificate verification entirely — it is not "skip the hostname check", it accepts any certificate from anyone. For a private CA, load it into a `RootCAs` pool instead.
+- `InsecureSkipVerify: true` disables certificate verification entirely — it is more than skipping the hostname check, it accepts any certificate from anyone. For a private CA, load it into a `RootCAs` pool instead.
 - Custom `RootCAs`: `x509.SystemCertPool()` then `AppendCertsFromPEM` — starting from an empty pool silently drops every public CA.
-- mTLS: `ClientAuth: tls.RequireAndVerifyClientCert` plus a `ClientCAs` pool. `RequireAnyClientCert` accepts unverified certificates and is almost never what was meant.
-- Certificate expiry is an outage with a date on it. Alert on remaining validity, do not discover it from a pager.
+- mTLS: `ClientAuth: tls.RequireAndVerifyClientCert` plus a `ClientCAs` pool. `RequireAnyClientCert` accepts unverified certificates and is rarely the intended behavior.
+- Certificate expiry is an outage with a date on it. Alert on remaining validity, rather than discovering it from a pager.
 
 ## HTTP Hardening
 
@@ -57,14 +57,14 @@ That still does not stop a symlink inside `root` pointing out of it. `os.Root` (
 - Security headers on HTML responses: `Content-Security-Policy`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Strict-Transport-Security` on HTTPS. Set them in one middleware so no route can forget.
 - CORS: an explicit origin allowlist. Reflecting the request's `Origin` header with `Access-Control-Allow-Credentials: true` grants every site authenticated access to your API.
 - Cookies: `HttpOnly`, `Secure`, `SameSite=Lax` or `Strict`, and a scoped `Path`. The zero-value `http.Cookie` has none of them.
-- Never expose `net/http/pprof` publicly — importing it registers on `http.DefaultServeMux`, so serving that mux publishes heap dumps and command-line arguments (`debugging.md`).
-- Errors returned to clients say what to do; stack traces, SQL text, and internal hostnames go to the log, not the response body.
+- Restrict exposure of `net/http/pprof` publicly — importing it registers on `http.DefaultServeMux`, so serving that mux publishes heap dumps and command-line arguments (`debugging.md`).
+- Errors returned to clients say what to do; stack traces, SQL text, and internal hostnames go to the log, rather than the response body.
 
 ## Dependencies and Supply Chain
 
-- `govulncheck ./...` (golang.org/x/vuln) reports vulnerabilities that your code **actually reaches** in the call graph, which is why its output is short enough to act on where a plain dependency scan is not. Run it in CI.
-- `go.sum` plus the checksum database verifies module content. A `checksum mismatch` is either a retagged release or tampering — investigate, never bypass with `GOFLAGS=-mod=mod` or `GONOSUMDB` (`modules.md`).
-- `GOPRIVATE` for internal paths, so private module names never leak to the public proxy and checksum database as lookups.
+- `govulncheck ./...` (golang.org/x/vuln) reports vulnerabilities that your code **actually reaches** in the call graph, which is why its output is short enough to act on where a plain dependency scan falls short. Run it in CI.
+- `go.sum` plus the checksum database verifies module content. A `checksum mismatch` is either a retagged release or tampering — investigate, resolve it instead of bypassing with `GOFLAGS=-mod=mod` or `GONOSUMDB` (`modules.md`).
+- `GOPRIVATE` for internal paths, so private module names remain hidden to the public proxy and checksum database as lookups.
 - Pin the toolchain and dependencies in CI; a build that silently upgrades is a build that can silently be compromised.
 - Every dependency ships in your binary. The stdlib covers HTTP, TLS, JSON, SQL, templating, and crypto — an added module for any of those is a supply-chain surface accepted in exchange for convenience.
 
@@ -75,7 +75,7 @@ That still does not stop a symlink inside `root` pointing out of it. `os.Root` (
 | `math/rand` for tokens | Predictable session IDs | `crypto/rand` |
 | `==` on a secret or MAC | Timing oracle | `subtle.ConstantTimeCompare` |
 | `text/template` for HTML | XSS on every user field | `html/template` |
-| `template.HTML(userInput)` | Escaping deliberately disabled | Never on untrusted data |
+| `template.HTML(userInput)` | Escaping deliberately disabled | Restrict to trusted data |
 | `filepath.Join(root, userPath)` alone | Path traversal | Prefix check, or `os.Root` |
 | `InsecureSkipVerify: true` to fix a cert error | Accepts any certificate from anyone | Add the CA to `RootCAs` |
 | Unbounded `io.ReadAll` on a request body | Memory exhaustion from one client | `MaxBytesReader` + `LimitReader` |
