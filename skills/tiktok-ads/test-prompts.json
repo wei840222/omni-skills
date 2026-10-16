@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How should I structure a TikTok Ads Manager conversion campaign and what daily budget floors apply?",
+    "expected": "One objective per campaign; focused ad groups/creatives; cites official daily floors exceeding $50 at campaign and $20 at ad group; points to learning-phase edit caution.",
+    "actual": "Use one conversion objective per campaign, then a focused set of ad groups and creatives (often ~3–5 each) so learning signals stay coherent. Official TikTok About Budget floors: daily campaign budget must exceed $50 and daily ad group budget must exceed $20 (lifetime minima scale with days). Keep major pauses/edits down during the learning phase; volatility usually eases after about 25 results or about 7 days. Open references/campaign-ops.md and references/sources.md before changing live account settings.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We have a strong organic TikTok post and weak website attribution on iOS. What should we do for Spark Ads and measurement?",
+    "expected": "Recommend Spark Ads with configurable creator/post authorization; Pixel + Events API with deduplication; treat iOS 14.5+ dedicated campaigns/quotas as a separate product path; avoid inventing auth-code day menus.",
+    "actual": "Spark the proven organic post so engagement stays on the original asset; authorize your own or a creator post and set authorization duration to match the flight (do not assume a fixed 7/30/365 menu without checking Ads Manager). For web signal loss, implement TikTok Pixel plus Events API with event deduplication rather than Pixel alone. If promoting an iOS app post-ATT, use TikTok iOS 14.5+ dedicated campaigns and confirm the current dedicated-campaign quota in-product (help documents limits such as 15 dedicated campaign IDs per app). Details: references/creative-and-spark.md and references/audiences-and-measurement.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I target a Custom Audience of 400 purchasers and claim learning needs exactly 50 conversions in 7 days?",
+    "expected": "Reject 400-person Custom Audience for ad-group use until 1000 matched users; correct the 50/7 absolute learning myth toward ~25 results or ~7 days guidance.",
+    "actual": "No. TikTok requires 1,000 total matched users in a Custom Audience before it can be used in an ad group, so a 400-person matched list is below the floor. Learning-phase guidance is that volatility typically declines after about 25 campaign results or about 7 days—not a hard universal rule of exactly 50 conversions in 7 days. Rebuild/expand the audience source, then re-check Available Audience size in Ads Manager.",
+    "pass": true
+  }
+]
