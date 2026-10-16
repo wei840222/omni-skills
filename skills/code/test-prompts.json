@@ -1,0 +1,38 @@
+[
+  {
+    "id": "code-plan-auth-feature",
+    "scenario": "new multi-step feature asks for a plan before coding",
+    "prompt": "I need to build a new feature: user authentication. How should we proceed?",
+    "expected": [
+      "Checks or offers to check coding preference memory first",
+      "Proposes a plan with independently testable steps",
+      "Waits for approval before executing the first step"
+    ],
+    "actual": "Read <state_root>/memory.md if present, then proposed Step 1 UI shell / Step 2 auth logic / Step 3 tests with a verification check each, and asked which step to run first.",
+    "pass": true
+  },
+  {
+    "id": "code-build-failure-needs-log",
+    "scenario": "build failure without an error message",
+    "prompt": "The build is failing. Help me fix it.",
+    "expected": [
+      "Asks for the failing log or error message before guessing",
+      "Suggests fixes only after seeing the error",
+      "Waits for the user's decision on how to proceed"
+    ],
+    "actual": "Asked for the exact compiler/CI log, outlined candidate fixes once the error was visible, and paused for the user to choose retry vs alternate approach.",
+    "pass": true
+  },
+  {
+    "id": "code-route-to-review-code",
+    "scenario": "existing PR review should leave this skill",
+    "prompt": "Please review this open pull request for security and merge risk; I already have a full diff.",
+    "expected": [
+      "Recognizes this is PR/diff review rather than stepwise implementation",
+      "Routes to or recommends the `review-code` skill",
+      "Does not start an implementation plan for a new feature"
+    ],
+    "actual": "Noted that a risk-first PR review belongs with `review-code`, offered to hand off, and did not invent an auth-feature implementation plan.",
+    "pass": true
+  }
+]

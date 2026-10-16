@@ -1,129 +1,166 @@
 ---
 name: code
-slug: code
-version: 1.0.4
-description: Coding workflow with planning, implementation, verification, and testing for clean software development.
-homepage: https://clawic.com/skills/code
-changelog: Improved description for better discoverability
+description: >
+  Guides coding work through plan → execute → verify → deliver with explicit
+  user approval between steps, preference memory, and screenshot/API evidence
+  before handoff. Use when the user asks to implement a feature, break work into
+  testable steps, track a multi-request queue, or verify UI/API changes before
+  delivery. Prefer `coding` for durable style/stack preference capture,
+  `agentic-coding` for PACT contract loops, `developer` for ticket-to-merge /
+  CI/CD / on-call loops, `review-code` for PR risk review, and language skills
+  (`go`, `javascript`, …) once implementation is language-specific. Not for
+  autonomous unattended coding or inventing production architecture alone.
 metadata:
-  clawdbot:
-    emoji: 💻
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Code
+  version: "1.1.0"
+  openclaw: '{"emoji":"💻","os":["linux","darwin","win32"],"displayName":"Code"}'
+  related-skills: '{"coding":"Capture and apply durable coding style, stack, and architecture preferences across sessions.","agentic-coding":"Contract-driven PACT loops when merge-ready agentic delivery is the primary ask.","developer":"Full ticket-to-merge, CI parity, migration, and on-call loop beyond stepwise coding guidance.","review-code":"Risk-first PR review and merge-readiness once a diff already exists.","software-engineer":"Architecture and production trade-off coaching beyond stepwise implementation guidance.","setup":"OpenClaw install, channel, and gateway configuration outside this coding workflow."}'
 ---
 
-## When to Use
+## State location
 
-User explicitly requests code implementation. Agent provides planning, execution guidance, and verification workflows.
+Optional coding preference state may exist in `<workspace>/code/`,
+`<workspace>/memory/code/`, or `~/code-skill/`. Before reading or writing state,
+resolve `<state_root>` as follows:
 
-## Architecture
+1. Use an explicitly configured path when one exists (host config or user override).
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/code/`, `<workspace>/memory/code/`, `~/code-skill/`.
+3. If several candidate directories exist, use only the highest-precedence one and
+   report the separate copies; do not merge or cross-write.
+4. If none exists and the user explicitly wants continuity, create
+   `<workspace>/code/` when `<workspace>` is available; otherwise ask for a
+   state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
 
-User preferences stored in `~/Clawic/data/code/` when user explicitly requests.
+Use the selected `<state_root>` for every state operation in this skill. Store
+preferences only in `<state_root>/memory.md` (see `assets/data-templates.md` and
+`references/setup.md`). Create or update that file only when the user explicitly
+asks to remember a preference.
 
-```
-~/Clawic/data/code/
-  - memory.md    # User-provided preferences only
-```
+Legacy `~/Clawic/data/code/` and `~/clawic/code/` are migration sources only—
+keep them out of the active lookup order, and move them into the resolved
+`<state_root>` only when the user asks; say in one line that you moved the data
+and from where.
 
-Create on first use: `mkdir -p ~/code`
+Scripts and shell examples must receive the resolved filesystem path; never
+write the literal string `<state_root>` to disk.
 
-## Quick Reference
+## When to use
+
+- User asks to implement, build, or fix code and wants a stepwise plan first
+- Multi-file work that needs testable chunks and approval between steps
+- UI or API changes that need screenshot or payload evidence before delivery
+- Multiple concurrent coding requests that need a visible queue
+- Preference memory for coding workflow habits the user explicitly asks to store
+
+Prefer other skills when:
+
+- Durable style/stack preference systems → `coding`
+- PACT / acceptance-contract agentic delivery → `agentic-coding`
+- Ticket sizing, CI/CD parity, migrations, on-call mitigation → `developer`
+- Reviewing an existing PR/diff for risk → `review-code`
+- Language-specific panics, modules, or idioms → the matching language skill
+
+## Quick reference
 
 | Topic | File |
 |-------|------|
-| Memory setup | `memory-template.md` |
-| Task breakdown | `planning.md` |
-| Execution flow | `execution.md` |
-| Verification | `verification.md` |
-| Multi-task state | `state.md` |
-| User criteria | `criteria.md` |
+| Memory setup | `references/setup.md` + `assets/data-templates.md` |
+| Task breakdown | `references/planning.md` |
+| Execution flow | `references/execution.md` |
+| Verification | `references/verification.md` |
+| Multi-task state | `references/state.md` |
+| Preference criteria | `references/criteria.md` |
+| Research sources | `references/sources.md` |
 
 ## Scope
 
-This skill ONLY:
-- Provides coding workflow guidance
-- Stores preferences user explicitly provides in `~/Clawic/data/code/`
-- Reads included reference files
+This skill provides:
 
-This skill NEVER:
-- Executes code automatically
-- Makes network requests
-- Accesses files outside `~/Clawic/data/code/` and the user's project
-- Modifies its own SKILL.md or auxiliary files
-- Takes autonomous action without user awareness
+- Coding workflow guidance (plan → execute → verify → deliver)
+- Preference storage the user explicitly requests under `<state_root>/memory.md`
+- Progressive disclosure into the reference files above
 
-## Core Rules
+Operational boundaries:
 
-### 1. Check Memory First
-Read `~/Clawic/data/code/memory.md` for user's stated preferences if it exists.
+- Wait for explicit user instruction before executing a step
+- Do not open network connections from this skill itself
+- Limit durable preference files to the resolved `<state_root>` plus the user's project checkout
+- Keep `SKILL.md` and packaged references immutable
+- Require user awareness before autonomous or sub-agent actions
 
-### 2. User Controls Execution
-- This skill provides GUIDANCE, not autonomous execution
-- User decides when to proceed to next step
-- Sub-agent delegation requires user's explicit request
+## Core rules
 
-### 3. Plan Before Code
-- Break requests into testable steps
-- Each step independently verifiable
-- See `planning.md` for patterns
+### 1. Check memory first
 
-### 4. Verify Everything
+If `<state_root>/memory.md` exists after State location resolution, read it for
+stated preferences before planning.
+
+### 2. User controls execution
+
+- Provide guidance and wait for manual approval between steps
+- The user decides when to proceed
+- Sub-agent delegation requires an explicit user request
+
+### 3. Plan before code
+
+- Break requests into independently testable steps
+- Each step names an output and a verification check
+- See `references/planning.md`
+
+### 4. Verify everything
+
 | After | Do |
 |-------|-----|
-| Each function | Suggest running tests |
-| UI changes | Suggest taking screenshot |
-| Before delivery | Suggest full test suite |
+| Each function / unit | Suggest the narrowest relevant tests |
+| UI changes | Capture and review screenshots before sending |
+| API changes | Show the actual response payload |
+| Before delivery | Suggest the full suite the change warrants |
 
-### 5. Store Preferences on Request
+### 5. Store preferences only on request
+
 | User says | Action |
 |-----------|--------|
-| "Remember I prefer X" | Add to memory.md |
-| "Never do Y again" | Add to memory.md Never section |
+| "Remember I prefer X" | Add to `<state_root>/memory.md` Preferences |
+| "Exclude Y from future tasks" | Add to `<state_root>/memory.md` Excluded |
 
-Only store what user explicitly asks to save.
+Only store what the user explicitly asks to save. See `references/criteria.md`.
 
 ## Workflow
 
 ```
-Request -> Plan -> Execute -> Verify -> Deliver
+Request → Plan → Execute → Verify → Deliver
 ```
 
-## Common Traps
+Show progress after each approved step. Pause on errors, credential needs, or
+A/B decisions. Details: `references/execution.md`, `references/state.md`.
 
-- **Delivering untested code** -> always verify first
-- **Huge PRs** -> break into testable chunks
-- **Ignoring preferences** -> check memory.md first
+## Planning upgrades
 
-## Self-Modification
+Prefer these positive defaults over vague delivery:
 
-This skill NEVER modifies its own SKILL.md or auxiliary files.
-User data stored only in `~/Clawic/data/code/memory.md` after explicit request.
+- Verify with tests or screenshots before claiming done
+- Split large changes into independently reviewable chunks
+- Re-read `<state_root>/memory.md` before choosing style or tooling
+- Ask for the failing log before guessing a build fix
+- Route language-deep or PR-review asks to the related skill above
 
-## External Endpoints
+## External endpoints
 
-This skill makes NO network requests.
+This skill makes no network requests of its own.
 
-| Endpoint | Data Sent | Purpose |
+| Endpoint | Data sent | Purpose |
 |----------|-----------|---------|
 | None | None | N/A |
 
-## Security & Privacy
+## Security and privacy
 
-**Data that stays local:**
-- Only preferences user explicitly asks to save
-- Stored in `~/Clawic/data/code/memory.md`
+**Stays local**
 
-**Data that leaves your machine:**
-- None. This skill makes no network requests.
+- Preferences the user explicitly asks to save in `<state_root>/memory.md`
 
-**This skill does NOT:**
-- Execute code automatically
-- Access network or external services  
-- Access files outside `~/Clawic/data/code/` and user's project
-- Take autonomous actions without user awareness
-- Delegate to sub-agents without user's explicit request
+**Leaves the machine**
+
+- None from this skill
+
+Do not commit secrets into preference memory. Prefer placeholders in examples.
