@@ -207,4 +207,4 @@ All work without a SIM card.
 ### Remote/Countryside Trip
 - Get Italian SIM with good coverage (TIM best)
 - Download everything offline
-- Don't rely on WiFi
+- Secure a local data plan

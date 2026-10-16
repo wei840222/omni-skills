@@ -163,3 +163,7 @@ Pre-dinner drinks (18:00-21:00) with included snacks/buffet.
 | Parmesan on fish pasta | Culinary sin | Only pecorino on Roman pastas |
 | Cappuccino after dinner | Marks you as tourist | Espresso or digestivo |
 | Tipping 15-20% | Over-tipping | Round up or €1-2 max |
+
+## Source freshness
+
+Restaurant names and price bands drift. Re-check official tourism pages and live menus before treating any listing as current; see `references/sources.md`.

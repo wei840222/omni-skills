@@ -45,7 +45,7 @@ Bacari (bah-CAH-ree) are Venice's answer to Spanish tapas bars. Small plates cal
 | Osteria Bea Vita | Fondamenta Tolentini, 178/B | Local, cheap | €20-30 | University area, honest prices |
 | Trattoria da Romano | Piazza Galuppi, 221 (Burano) | Risotto al go | €30-50 | On Burano island |
 
-## Tourist Traps to AVOID 🚩
+## Tourist Traps to Skip 🚩
 
 **RED FLAGS:**
 - Any restaurant on Piazza San Marco (€8 for coffee, €25 for basic pasta)
@@ -53,7 +53,7 @@ Bacari (bah-CAH-ree) are Venice's answer to Spanish tapas bars. Small plates cal
 - Waiters standing outside trying to seat you
 - Pizza or sushi in Venice (wrong city for both)
 
-**SPECIFIC PLACES TO AVOID:**
+**SPECIFIC PLACES TO SKIP:**
 - Restaurants facing the Grand Canal near Rialto Bridge
 - Most places on Lista di Spagna (train station street)
 - "Gondolier's restaurants" near gondola stations

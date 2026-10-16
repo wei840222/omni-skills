@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "I'm going to Italy next month, starting in Rome. I like food, but I want to avoid tourist traps. What should I eat and where?",
+    "expected": "Load Italy food/Rome guidance; name specific non-tourist restaurants (e.g. Da Enzo al 29 or Da Cesare al Casaletto); prefer Testaccio/Trastevere over Piazza Navona; list authentic Roman pastas (cacio e pepe, amatriciana, carbonara) without cream; offer to persist preferences under resolved <state_root> only if asked.",
+    "actual": "Routed as Rome foodie trip. Recommended Da Enzo al 29 (Trastevere) and Da Cesare al Casaletto, steered away from Piazza Navona tourist menus, and listed carbonara/cacio e pepe/amatriciana with no cream. Loaded references/rome.md and references/food-guide.md; offered optional <state_root> memory only after confirmation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "We are planning to rent a car and drive around Florence and the Tuscan countryside. Any tips?",
+    "expected": "Warn strongly about Florence ZTL cameras and fines; recommend parking outside the historic center; treat self-drive as countryside tool with rail for city hops; cite references/transport.md and sources ZTL pages; avoid inventing exact fine amounts without a live check.",
+    "actual": "Flagged Florence historic-center ZTL as a hard constraint with camera enforcement, advised park-and-walk outside the centro, and suggested rail for city pairs while keeping the car for Chianti countryside. Pointed to references/transport.md and references/sources.md Polizia ZTL URLs before quoting current fine/hour details.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "Can you confirm my US passport gets 90 visa-free days in Italy alone, and that I can do Rome, Venice, and Amalfi comfortably in five days with same-day trains between each?",
+    "expected": "Reject Italy-only Schengen framing and the overstuffed five-day three-corridor sprint; require live re-check of MFA/ETIAS/EES sources for that passport; prefer one corridor or fewer bases with overnight buffers; route multi-country systems to travel when needed.",
+    "actual": "Refused both claims as stated. Italy counts inside wider Schengen 90-in-180 logic, not a separate Italy-only allowance, and Rome+Venice+Amalfi in five days lacks transfer/overnight buffers. Directed a live open of references/sources.md (vistoperitalia / Travel Europe ETIAS-EES) before non-refundables, and recommended one primary corridor or fewer bases instead of a same-day three-corridor hop.",
+    "pass": true
+  }
+]

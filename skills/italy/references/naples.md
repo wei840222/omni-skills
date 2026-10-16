@@ -45,7 +45,7 @@ The birthplace of pizza, raw, chaotic, and absolutely unmissable. Naples rewards
 
 ### Quartieri Spagnoli (Spanish Quarters)
 - Authentic, working-class, narrow alleys
-- Safe during day, avoid after dark in deeper parts
+- Safe during day, visit during daylight in deeper parts
 - Where locals actually eat (Nennella territory)
 
 ### Chiaia
@@ -67,16 +67,16 @@ The birthplace of pizza, raw, chaotic, and absolutely unmissable. Naples rewards
 | Pickpockets | Common on metro, tourist areas | Front pocket, no flashy jewelry |
 | Scooter theft | Rare for tourists | Watch bags on sidewalks near street |
 | Scams | Menu prices differ, fake guides | Ask price BEFORE, only licensed guides |
-| Driving | Insane, ignore at your peril | Don't drive here |
+| Driving | Insane, ignore at your peril | Use public transit instead of driving |
 
 **At Night:**
 - Stick to main streets in Centro Storico
 - Chiaia and seafront are very safe
-- Quartieri Spagnoli deeper alleys — avoid after 23:00
+- Quartieri Spagnoli deeper alleys — visit before 23:00
 - Piazza Garibaldi (train station area) — pass through quickly
 
 **General Rules:**
-- Don't wear expensive watches
+- Leave expensive watches at home
 - Keep phones in front pockets
 - Cross streets WITH Italians (traffic won't stop)
 - If someone approaches aggressively, walk to nearest shop
@@ -128,7 +128,7 @@ The birthplace of pizza, raw, chaotic, and absolutely unmissable. Naples rewards
 - Beer: €3-5
 - Decent dinner: €20-35 per person
 
-### Tourist Traps to AVOID
+### Tourist Traps to Skip
 - Restaurants on Via San Gregorio Armeno (pay for location)
 - Any place with photos of food outside
 - "Guides" approaching you at Pompeii entrance

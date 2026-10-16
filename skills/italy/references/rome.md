@@ -44,14 +44,14 @@ The Eternal City. 3000 years of history, world-class food, and surprisingly liva
 
 ## Tourist Trap RED FLAGS 🚩
 
-**AVOID restaurants that:**
+**SKIP restaurants that:**
 - Have people outside soliciting you to enter
 - Display photos of food in the window
 - Have menus in 5+ languages with photos
 - Are directly facing major monuments
 - Offer "free" limoncello/grappa after meal
 
-**SPECIFIC TRAPS to avoid:**
+**SPECIFIC TRAPS to skip:**
 - Restaurants on Piazza Navona (€25 for basic pasta)
 - Most places on Via della Conciliazione (Vatican tourist zone)
 - Anywhere near Spanish Steps that approaches you

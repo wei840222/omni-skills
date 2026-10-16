@@ -139,7 +139,7 @@ See also: with-kids.md
 
 ## Practical Tips for Any Itinerary
 
-### Don't Over-Plan
+### Plan Moderately
 - **2-3 nights minimum** per city
 - **Moving daily is exhausting** — Build in rest
 - **Less is more** — See fewer places better

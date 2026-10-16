@@ -90,7 +90,7 @@ Italy has 20 regions, each with distinct culture, cuisine, and character. Here's
 
 ## Climate Guide
 
-### When to Avoid
+### When to Skip
 
 | Region | Period | Why |
 |--------|--------|-----|
