@@ -12,9 +12,9 @@
 | Goal | Better plan |
 |------|-------------|
 | 2-4 day first trip | Helsinki base with one side trip |
-| City plus nature | Add Nuuksio or Suomenlinna, not another hotel move |
+| City plus nature | Add Nuuksio or Suomenlinna as day trips from a single base |
 | Food and nightlife | Stay central and route by neighborhood blocks |
-| Family city break | Keep transit simple and avoid hotel hopping |
+| Family city break | Keep transit simple with a single stable hotel base |
 
 ## Why Helsinki Works
 

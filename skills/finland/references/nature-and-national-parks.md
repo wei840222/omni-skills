@@ -31,4 +31,4 @@
 
 ## Rule
 
-Use Finland nature to improve the trip's rhythm. Do not let nature days become the hardest logistics segment unless the user explicitly wants that tradeoff.
+Use Finland nature to improve the trip's rhythm. Ensure nature excursions remain logistically manageable.

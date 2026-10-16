@@ -18,7 +18,7 @@
 ## Transfer Reality
 
 - Helsinki works as the default entry and exit hub for most trips.
-- Lapland is not a casual side trip if the user hates flights, night trains, or winter transfer days.
+- Lapland requires dedicated planning, especially if the user prefers minimal transit and avoids winter transfer days.
 - Summer island and lake trips feel easy only when ferry schedules and daylight are already in the plan.
 
 ## First-Time Finland Route Suggestions

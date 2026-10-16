@@ -2,15 +2,18 @@
 
 ## First-Time Setup
 
-When user mentions Finland travel for the first time:
+When the user mentions Finland travel for the first time:
 
 ### 1. Create Memory Structure
 ```bash
-mkdir -p ~/finland
+mkdir -p <resolved_state_root>
 ```
 
+Replace `<resolved_state_root>` with the concrete path selected by the State
+location rules in `SKILL.md` (never the literal string `<state_root>`).
+
 ### 2. Initialize Memory File
-Create `~/Clawic/data/finland/memory.md` using `memory-template.md`.
+Create `<state_root>/memory.md` using `assets/finland-data-templates.md`.
 
 ### 3. Gather Trip Context Naturally
 Ask in conversational flow:
@@ -22,11 +25,11 @@ Ask in conversational flow:
 - Pace: one strong base, two bases, or transfer-heavy and willing to spend time in transit.
 
 ### 4. Save to Memory
-Update `~/Clawic/data/finland/memory.md` with the current intent, constraints, and decision status.
+Update `<state_root>/memory.md` with the current intent, constraints, and decision status.
 
 ## Returning Users
 
-If `~/Clawic/data/finland/memory.md` exists:
+If `<state_root>/memory.md` exists:
 1. Read it silently
 2. Reuse known constraints and preferences
 3. Ask only what changed (dates, region focus, budget, cold tolerance, mobility)

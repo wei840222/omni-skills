@@ -12,7 +12,7 @@
 |------|-------------|
 | Historic city plus coast | Turku base with day trips |
 | Island routing | One archipelago corridor with ferry timings checked first |
-| Mixed Finland summer | Helsinki plus Turku or archipelago, not all southern options at once |
+| Mixed Finland summer | Selectively pair Helsinki with Turku or the archipelago |
 
 ## Why It Works
 
@@ -24,7 +24,7 @@
 
 - Ferry frequency and weather decide whether the route works.
 - Shoulder season can make island plans feel half-open.
-- Driving can help, but it is not mandatory if the corridor is chosen carefully.
+- Driving remains optional if the travel corridor is chosen carefully.
 
 ## Planning Rule
 

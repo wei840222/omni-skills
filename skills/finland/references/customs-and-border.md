@@ -4,7 +4,7 @@
 
 - Customs rules matter most for food, alcohol, tobacco, medicines, and high-value shopping.
 - Cash declaration rules can apply for large amounts entering or leaving the EU.
-- Airport security and customs are different checks; do not merge them in advice.
+- Address airport security and customs as distinct and separate procedures.
 
 ## Border Reality
 
@@ -25,8 +25,8 @@
 
 - Ask where the traveler is arriving from before answering customs questions.
 - Use official customs guidance for exact thresholds instead of guessing from another EU country.
-- If the user is carrying gifts, specialty food, or expensive gear, warn them early that Finland and EU rules may not match their assumptions.
+- If the user is carrying specialty items or expensive gear, clarify the specific Finland and EU import rules.
 
 ## Source Reminder
 
-See `sources.md` for Finnish Customs and Finavia links.
+See `references/sources.md` for Finnish Customs and Finavia links; re-open Customs pages in a browser before quoting thresholds.

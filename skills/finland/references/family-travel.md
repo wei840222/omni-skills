@@ -29,4 +29,4 @@
 
 ## Rule
 
-Family Finland trips succeed when the adults sacrifice ambition before comfort, not the other way around.
+Family Finland trips succeed when adults protect comfort and pacing before stacking ambitious transfers.

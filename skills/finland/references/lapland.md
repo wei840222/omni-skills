@@ -18,9 +18,9 @@
 
 ## Winter Rules
 
-- Never promise aurora; promise probability management.
+- Frame aurora as probability management; never sell certainty.
 - Pick one base unless the user truly wants logistics-heavy movement.
-- Protect the first evening after arrival and do not stack too many late nights in a row.
+- Protect the first evening after arrival and balance late nights with daytime rest.
 
 ## Practical Friction
 
@@ -30,6 +30,6 @@
 
 ## Trap Avoidance
 
-- Do not combine multiple far-north bases in a short first trip.
-- Do not treat glass-igloo marketing as route logic.
-- Avoid forcing a northern plan in shoulder periods when the user's real goal would be better met in another season.
+- Select a single far-north base for shorter initial trips.
+- Design routes around transit connections before novelty accommodations.
+- Align northern plans precisely with seasonal strengths.

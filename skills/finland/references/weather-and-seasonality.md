@@ -13,7 +13,7 @@
 ## Winter Rule
 
 - Choose winter for snow, atmosphere, aurora probability, and specific activities.
-- Do not choose winter to replicate a summer multi-stop route with different scenery.
+- Design winter itineraries specifically around winter activities rather than replicating summer multi-stop routes.
 - Build around darkness, clothing, and energy management as much as around attractions.
 
 ## Summer Rule
@@ -24,7 +24,7 @@
 
 ## Aurora and Daylight Logic
 
-- Aurora improves with darkness, cloud luck, and location, not wishful thinking.
+- Aurora viewing requires managing probabilities based on darkness, location, and weather patterns.
 - Midnight sun is a meaningful travel feature in the far north, but it changes sleep and pacing.
 - South Finland and Lapland can feel like different countries in the same month.
 

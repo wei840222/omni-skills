@@ -28,4 +28,4 @@
 
 ## Rule
 
-Accessibility advice for Finland should be route-specific and season-specific. "Generally accessible" is not enough.
+Accessibility advice must be tailored to specific routes and seasons with concrete details.
