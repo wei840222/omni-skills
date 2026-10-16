@@ -19,7 +19,7 @@ Use this evidence map to ground recommendations.
 
 - ILO (2025): labor income share has trended downward globally relative to early 2000s benchmarks.
 - ILO (2025): wage growth has recovered in some regions but purchasing-power pressure remains uneven.
-- Implication: productivity gains do not automatically become broad wage gains.
+- Implication: productivity gains require explicit policy to translate into broad wage gains.
 
 ## Policy Experiment Signals
 
@@ -42,8 +42,17 @@ Use this evidence map to ground recommendations.
 
 ## Source Pointers
 
-- IMF AI and labor market note (January 2024)
-- ILO generative AI and jobs report (2023)
-- ILO World Employment and Social Outlook updates (2025)
-- OECD Employment Outlook and policy components (2024-2025)
-- WEF Future of Jobs Report 2025
+Verified reachable on 2026-10-16 from this handoff host (bot/CDN blocks noted where relevant):
+
+- Agent Skills specification: https://agentskills.io/specification (HTTP 200)
+- ILO generative AI and jobs report (2023): https://www.ilo.org/publications/generative-ai-and-jobs-global-analysis-potential-effects-job-quantity-and (HTTP 200)
+- ILO World Employment and Social Outlook: Trends 2025: https://www.ilo.org/publications/world-employment-and-social-outlook-trends-2025 (HTTP 200)
+- WEF Future of Jobs Report 2025 (PDF): https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf (HTTP 200)
+- OpenResearch cash-transfer findings: https://www.openresearchlab.org/findings (HTTP 200)
+
+Official pages that returned bot/CDN challenges from this host (keep titles; re-verify in a browser before quoting numbers):
+
+- IMF Staff Discussion Note — Gen-AI and the Future of Work (Jan 2024): https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379 (HTTP 403 Akamai)
+- OECD Employment Outlook series landing: https://www.oecd.org/en/publications/series/oecd-employment-outlook.html (HTTP 403 Cloudflare)
+
+When a claim depends on a blocked page, treat the numeric figure as unverified until a human-reachable fetch confirms it.

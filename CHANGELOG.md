@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| post-labor-economics         | 2026-10-16 | 86/100 (#871)                    |
 | notes                        | 2026-10-16 | 86/100 (#870)                    |
 | mixpanel                     | 2026-10-16 | 86/100 (#868)                    |
 | mvp                          | 2026-10-15 | 88/100 (#867)                    |

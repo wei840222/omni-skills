@@ -1,6 +1,6 @@
 # Memory Template - Post-Labor Economics
 
-Create `~/Clawic/data/post-labor-economics/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # Post-Labor Economics Memory
@@ -40,7 +40,7 @@ integration: pending
 
 ## portfolios.md Template
 
-Create `~/Clawic/data/post-labor-economics/portfolios.md`:
+Create `<state_root>/portfolios.md`:
 
 ```markdown
 # Policy Portfolios
@@ -57,7 +57,7 @@ Status: draft | tested | adopted | retired
 
 ## indicators.md Template
 
-Create `~/Clawic/data/post-labor-economics/indicators.md`:
+Create `<state_root>/indicators.md`:
 
 ```markdown
 # Indicators Dashboard
@@ -74,7 +74,7 @@ Notes: ...
 
 ## scenarios.md Template
 
-Create `~/Clawic/data/post-labor-economics/scenarios.md`:
+Create `<state_root>/scenarios.md`:
 
 ```markdown
 # Scenario Register
@@ -97,4 +97,4 @@ Policy response: ...
 | `ongoing` | Default state | Keep collecting context and updating assumptions |
 | `complete` | Stable decision frame | Refresh only when major shocks appear |
 | `paused` | User wants minimal depth | Provide concise outputs with existing context |
-| `never_ask` | User rejected setup prompts | Stop setup prompts and use current context only |
+| `never_ask` | User rejected setup prompts | Skip further setup prompts and continue with current context only |

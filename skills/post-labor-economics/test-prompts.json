@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a post-labor policy portfolio for a manufacturing region facing rapid factory automation. Primary concern: rising inequality and unemployment among mid-skill production workers.",
+    "expected": "Names a production mechanism (factory automation), then a portfolio with at least three categories: baseline security, socially necessary work coordination, and ownership/bargaining reform, plus phased financing and multi-profile effects.",
+    "actual": "Named manufacturing task automation as the mechanism. Proposed Block A conditional income floor, Block B regional apprenticeships for care/logistics public goods, Block C payroll automation levy funding shared-ownership stakes, and Block D transition income during retraining. Sequenced 0-3 / 3-10 year checkpoints and scored displaced production workers vs care workers.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Stress-test a proposed universal basic income as the only post-labor policy under slower growth and fragmenting political coalitions.",
+    "expected": "Rejects UBI-as-whole-system; evaluates fiscal/legitimacy stress; adds services and ownership/bargaining complements; tags claims as empirical/assumption/normative/constraint.",
+    "actual": "Flagged UBI-only as a trap. Under downturn/low-trust stress, kept a thinner income floor, protected high-impact services first, added ownership/bargaining levers, and labeled funding durability as a political constraint rather than a settled fact.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Someone says productivity will rise so wages will automatically follow after AI adoption. Respond using this skill.",
+    "expected": "Separates production from distribution; refuses automatic wage-pass-through; asks for ownership/allocation design and evidence-ledger tags before recommending a portfolio.",
+    "actual": "Separated production gains from distribution. Stated automation gains do not distribute automatically. Asked who captures AI rents and who absorbs transition risk, then required an evidence-tagged portfolio instead of a single wage forecast.",
+    "pass": true
+  }
+]

@@ -1,6 +1,6 @@
 # Setup - Post-Labor Economics
 
-Read this when `~/Clawic/data/post-labor-economics/` is missing or empty. Be transparent about what can be saved locally and ask before persisting memory.
+Read this when `<state_root>/` is missing or empty. Be transparent about what can be saved locally and ask before persisting memory.
 
 ## Your Attitude
 
@@ -26,7 +26,7 @@ Capture the minimum context needed for useful analysis:
 - Primary concern (employment, inequality, productivity, legitimacy, fiscal stability)
 - Policy constraints (budget, legal boundaries, political coalition limits)
 
-Ask only high-impact questions. Avoid long questionnaires.
+Ask only high-impact questions. Keep questionnaires brief and focused.
 
 ### 3. Finally: Calibrate Output Depth
 
@@ -46,8 +46,8 @@ Save stable context that improves future reasoning:
 - Scenario assumptions that user accepts or rejects
 - Decision outcomes and why they were chosen
 
-Do not store sensitive data that is unrelated to economic planning.
+Store only non-sensitive planning context that improves future economic analysis; leave unrelated private data out of skill memory.
 
 ## Golden Rule
 
-Answer the immediate policy question first. Use setup context to improve future decisions, never to delay useful analysis.
+Answer the immediate policy question first. Use setup context to improve future decisions without delaying useful analysis.
