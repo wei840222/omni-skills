@@ -35,7 +35,7 @@ Full URLs verified or attempted while refactoring this skill. Re-check before re
 
 - Printing Industries of America / printing.org: https://www.printing.org/
 - Pantone home (commercial color systems): https://www.pantone.com/
-  - Specific Pantone article URLs returned 404 during this pass; do not invent article paths or prices.
+  - Specific Pantone article URLs returned 404 during this pass; cite only live Pantone pages and skip unverified prices.
 - ISO / PDF/X landings often return bot-mitigation 403 to plain HTTP clients; treat PDF/X flavor as printer-specified (ISO 15930 family) rather than hard-coding an unverified edition URL.
 
 ## Notes on claims

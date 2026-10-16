@@ -22,7 +22,7 @@ Apply on every response before audience-specific guidance.
 
 - Prefer primary publisher pages (WCAG, printer specs, platform help) over remembered pixel tables.
 - Distinguish **required press specs** (from the printer) from **planning heuristics** (common starting points).
-- Do not invent Pantone numbers, trademark clearances, or "guaranteed print-perfect" claims without the printer's written spec.
+- Cite Pantone numbers, trademark clearances, or print-perfect guarantees only from the printer's or owner's written spec.
 - When platform sizes change often, tell the user to confirm in-product upload guidance for that surface.
 
 ## Routing

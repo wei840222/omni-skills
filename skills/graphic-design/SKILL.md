@@ -24,7 +24,7 @@ problem framing, accessibility, and verifiable production specs over
 taste-only feedback.
 
 This skill is **knowledge-only**. It does not create or require a
-persistent state tree. Do not write runtime notes into this package.
+persistent state tree. Keep runtime notes outside this package.
 
 ## Use this skill
 
