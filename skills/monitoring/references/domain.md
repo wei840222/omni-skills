@@ -13,8 +13,8 @@ Practical coverage ladders, checklists, and traps preserved from the pre-refacto
 | **Professional** | Prometheus, Grafana, Loki, Alertmanager | 1–2 days | Production systems |
 | **Enterprise** | Datadog, New Relic, or hardened OSS | Ongoing | Large-scale operations |
 
-Start at the smallest tier that answers the actual failure mode. Jumping
-straight to Prometheus for "tell me if the site is down" is a common mistake.
+Prefer the smallest tier that answers the actual failure mode. Jumping straight
+to Prometheus for "tell me if the site is down" is a common mistake.
 
 ## Three pillars (routing)
 
