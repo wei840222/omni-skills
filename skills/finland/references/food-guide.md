@@ -30,4 +30,4 @@
 
 ## Rule
 
-Use food to anchor neighborhoods, warmth, and pacing. Do not turn Finland dining into a prestige-only plan unless the user explicitly wants that.
+Balance prestige dining with casual, traditional food experiences that highlight local neighborhoods.

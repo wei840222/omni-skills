@@ -1,6 +1,6 @@
 # Road Trips and Driving — Finland
 
-## Driving Is About Conditions, Not Distance
+## Driving Is About Conditions Rather Than Distance
 
 Finland road trips look simple on the map and become season-dependent in real life.
 
@@ -33,5 +33,5 @@ Finland road trips look simple on the map and become season-dependent in real li
 
 1. Keep city car rental to the minimum needed days.
 2. Use rail or flight first, then rent locally if the remote area truly needs it.
-3. Put the hardest drive before, not after, the most important booking.
+3. Schedule the most challenging drive prior to the most important booking.
 4. Build a weather downgrade option into every winter or remote route.

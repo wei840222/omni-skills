@@ -5,7 +5,7 @@
 - Helsinki for the strongest mix of bars, live music, cocktails, clubs, and late-night food
 - Tampere for a smaller-scale student and local scene
 - Turku for summer terraces and coastal evening pacing
-- Lapland mainly for resort evenings and one or two social nights, not nonstop nightlife
+- Focus Lapland evenings on resort activities and targeted social nights.
 
 ## Night Planning Logic
 
@@ -23,10 +23,10 @@
 
 ## Trap Avoidance
 
-- Do not sell Lapland as a nightlife-first destination unless the user is in a resort context.
-- Avoid recommending a bar crawl on the same night as an aurora chase or pre-dawn transfer.
-- Do not assume a southern-Europe late-dinner, late-club rhythm.
+- Position Lapland primarily for outdoor and resort experiences.
+- Schedule bar crawls on nights free from aurora chases or early transfers.
+- Adapt plans to local dining and clubbing rhythms rather than southern-Europe expectations.
 
 ## Rule
 
-Nightlife in Finland works best when it is targeted, not sprawling: one area, one backup, and one realistic transport plan home.
+Nightlife in Finland is most effective when targeted: select one area, one backup, and secure transport home.

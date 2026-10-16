@@ -1,134 +1,132 @@
 ---
 name: finland
-slug: finland
-version: 1.0.0
-description: Plan Finland trips with verified entry rules, season-aware routing, rail-and-Lapland logistics, and practical tourist safety.
-homepage: https://clawic.com/skills/finland
-changelog: Initial release with verified Finland entry rules, seasonal routing, and practical travel logistics.
+description: >
+  Plan Finland trips with verified Schengen entry orientation, season-aware
+  corridor routing, rail-and-Lapland logistics, and practical tourist safety.
+  Use for Helsinki city breaks, Lapland aurora/winter bases, Lakeland cabins,
+  Turku/archipelago summers, VR night trains, HSL airport transfers, sauna
+  etiquette, or family pacing. Prefer `travel` for multi-country systems,
+  `booking` after a base is chosen, `car-rental` for vehicle handoff details,
+  `food` beyond the Finland food playbook, and `english` for booking-language
+  clarity. Not for inventing nationality-specific visa outcomes, promising
+  aurora certainty, or stacking Helsinki + Lapland + archipelago into one
+  short trip without transfer buffers.
 metadata:
-  clawdbot:
-    emoji: 🇫🇮
-    requires:
-      bins: []
-      config:
-      - ~/Clawic/data/finland/
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Finland
+  version: "1.1.0"
+  openclaw: '{"emoji":"🇫🇮"}'
+  related-skills: '{"travel":"Multi-country trip systems when Finland is one stop among several.","booking":"Reservation search and booking completion after a Finland base or corridor is chosen.","car-rental":"Vehicle pickup, insurance, and winter-equipment handoff for self-drive Finland segments.","food":"Deeper restaurant and cuisine planning beyond the Finland food playbook.","english":"Communication clarity for bookings, menus, and service interactions.","finnish":"Finnish language support when local wording is the main need.","travel-planning":"Day-by-day multi-stop itineraries when the trip leaves Finland."}'
 ---
 
-## Setup
+## State location
 
-If `~/Clawic/data/finland/` doesn't exist or is empty, read `setup.md` and start naturally.
+Optional Finland trip context may exist in `<workspace>/finland/`,
+`<workspace>/memory/finland/`, or `~/finland/`. Before reading or writing
+state, resolve `<state_root>` as follows:
 
-## When to Use
+1. Use an explicitly configured path when one exists (host config or user override).
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/finland/`, `<workspace>/memory/finland/`, `~/finland/`.
+3. If several candidate directories exist, use only the highest-precedence one and
+   report the separate copies; do not merge or cross-write.
+4. If none exists and the user explicitly wants continuity, create
+   `<workspace>/finland/` when `<workspace>` is available; otherwise ask for a
+   state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
 
-User is planning a Finland trip and needs operational guidance beyond generic Nordic inspiration: Schengen entry checks, Helsinki vs Lapland route choice, rail-flight-car tradeoffs, winter or summer season fit, cost reality, and on-the-ground execution.
+Use the selected `<state_root>` for every state operation in this skill. Create
+or update `<state_root>/memory.md` only when the user wants trip context kept
+across sessions. Legacy `~/Clawic/data/finland/` is a migration source only—
+keep it out of the active lookup order, and move it only when the user asks.
+Scripts and shell examples must receive the resolved filesystem path; never
+write the literal string `<state_root>` to disk.
+
+## When to load
+
+Load this skill for a Finland trip plan, itinerary, Schengen entry orientation,
+Helsinki-versus-Lapland corridor choice, domestic rail/flight/car tradeoffs,
+seasonal safety, sauna etiquette, or family pacing question. Identify passport
+or entry pathway, travel month, corridor preference, cold/transfer tolerance,
+and aurora expectation before locking a route.
+
+Read `references/sources.md` before repeating visa durations, EES/ETIAS status,
+customs thresholds, emergency numbers, or transport fares. Re-check the matching
+official page for that nationality and travel date before the user books
+non-refundable flights, cabins, or night trains.
+
+| Need | File |
+| --- | --- |
+| Empty state or first setup | `references/setup.md` |
+| Schengen stays, visas, EES/ETIAS | `references/entry-and-documents.md` |
+| Customs, food, cash, border reality | `references/customs-and-border.md` |
+| Macro-regions and corridor choice | `references/regions.md` |
+| Sample 4–14 day frames | `references/itineraries.md` |
+| Lodging strategy | `references/accommodation.md` |
+| Budget friction and hidden costs | `references/budget-and-costs.md` |
+| Cards, cash, tax-free, tipping | `references/payments-and-tax-free.md` |
+| Flights, trains, buses, ferries | `references/transport-domestic.md` |
+| Self-drive and winter roads | `references/road-trips-and-driving.md` |
+| Parks, cabins, trails | `references/nature-and-national-parks.md` |
+| Helsinki / capital region | `references/helsinki-and-capital-region.md` |
+| Lapland | `references/lapland.md` |
+| Lakeland / Tampere | `references/lakeland-and-tampere.md` |
+| Turku / archipelago | `references/turku-and-archipelago.md` |
+| Food, nightlife, family, access | `references/food-guide.md`, `references/nightlife.md`, `references/family-travel.md`, `references/accessibility.md` |
+| Sauna and culture | `references/sauna-and-culture.md` |
+| Safety and season | `references/safety-and-emergencies.md`, `references/weather-and-seasonality.md` |
+| Connectivity and apps | `references/telecoms-and-apps.md` |
+| Official source map | `references/sources.md` |
+| Persisted trip context | `assets/finland-data-templates.md` |
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/finland/`. If `~/Clawic/data/finland/` does not exist, run `setup.md`. See `memory-template.md` for structure.
-
 ```text
-~/Clawic/data/finland/
+<state_root>/
 └── memory.md     # Trip context, route logic, and evolving constraints
 ```
 
-## Quick Reference
+## Core rules
 
-Use this map to load only the Finland subtopic that changes the decision in front of you.
+1. Route by season and daylight first: July city-hopping, September foliage,
+   January aurora, and March family snow trips are different products.
+2. Confirm entry and border friction before non-refundables using
+   `references/entry-and-documents.md` and `references/customs-and-border.md`.
+3. Choose one primary corridor for short trips: Helsinki/south, Lapland, or
+   Lakeland/archipelago.
+4. For any route beyond Helsinki, offer two transport models (rail/flight-heavy
+   vs self-drive/bus-heavy) with tradeoffs.
+5. Budget secondary costs: airport transfers, sleeper supplements, winter
+   clothing, sauna/spa, groceries, alcohol, and activity pickups.
+6. Treat aurora as probability management, never a guarantee.
+7. Deliver operational plans: base strategy, transfer windows, booking risks,
+   weather downgrade, and a route-specific safety note.
 
-| Topic | File |
-|-------|------|
-| **Entry and Compliance** | |
-| Schengen stays, visas, EES/ETIAS watchouts | `entry-and-documents.md` |
-| Customs, food, cash, alcohol, border realities | `customs-and-border.md` |
-| **Planning Backbone** | |
-| Macro-regions and route logic | `regions.md` |
-| Sample itineraries for 4-14 days | `itineraries.md` |
-| Where to stay by trip style | `accommodation.md` |
-| Budget framing and hidden costs | `budget-and-costs.md` |
-| Cards, cash, tax-free, tipping | `payments-and-tax-free.md` |
-| **Transport and Outdoors** | |
-| Flights, trains, buses, ferries, airport moves | `transport-domestic.md` |
-| Self-drive, winter roads, parking, licenses | `road-trips-and-driving.md` |
-| Parks, cabins, trails, and outdoors logic | `nature-and-national-parks.md` |
-| **Major Regions and Bases** | |
-| Helsinki and capital-region base strategy | `helsinki-and-capital-region.md` |
-| Lapland route logic and winter fit | `lapland.md` |
-| Lakeland and Tampere balance | `lakeland-and-tampere.md` |
-| Turku and the archipelago | `turku-and-archipelago.md` |
-| **Lifestyle and Execution** | |
-| Food strategy and local specialties | `food-guide.md` |
-| Sauna etiquette, social rhythm, and culture | `sauna-and-culture.md` |
-| Nightlife by city style and season | `nightlife.md` |
-| Traveling with children or mixed ages | `family-travel.md` |
-| Accessibility and low-mobility planning | `accessibility.md` |
-| Emergencies, alerts, and outdoor risk | `safety-and-emergencies.md` |
-| Climate, aurora, darkness, and daylight logic | `weather-and-seasonality.md` |
-| Connectivity, apps, tickets, and payments | `telecoms-and-apps.md` |
-| Official source map | `sources.md` |
+## Operating plan
 
-## Core Rules
+Answer the immediate question first. When the user wants a route, return:
 
-### 1. Route by Season and Daylight, Not by the Map
-Finland is manageable only when the month is fixed first. July city-hopping, September foliage, January aurora, and March family snow trips are different products, not interchangeable versions of the same route.
+- Base / corridor logic
+- Day flow with transfer windows
+- Reservation deadlines or sellout risks
+- Weather or darkness backup
+- Safety note for the chosen corridor
+- Cash vs card execution note for remote stops
 
-### 2. Confirm Entry and Border Friction Before Non-Refundables
-Before locking flights, cabins, or night trains, use `entry-and-documents.md` and `customs-and-border.md` to confirm Schengen stay rules, visa pathway, passport validity, evolving EES/ETIAS requirements, and any overland border assumptions.
+For an empty state file, follow `references/setup.md` and copy the structure from
+`assets/finland-data-templates.md` into `<state_root>/memory.md` only after the
+user wants memory kept.
 
-### 3. One Main Corridor Wins Most Trips
-For short trips, choose one primary Finland logic:
-- Helsinki and the south for city, design, food, and easy transit
-- Lapland for aurora, snow, and winter activities
-- Lakeland or archipelago for slower summer nature
+## Common traps
 
-### 4. Always Offer Two Transport Models
-For any route beyond Helsinki, provide at least two workable patterns:
-- Rail or flight heavy: lower winter-driving risk, more timetable dependence
-- Self-drive or bus-heavy: more flexibility, more weather and fatigue exposure
-
-### 5. Budget the Real Finland
-Do not price from hotel headlines alone. Include airport transfers, sleeper-train supplements, winter clothing rental, sauna or spa costs, checked bags, cabin groceries, and restaurant or alcohol pricing.
-
-### 6. Never Sell Aurora or Winter Fantasy as Guaranteed
-Aurora is probability management, not certainty. Snow conditions, cloud cover, daylight hours, and school-holiday crowds change what is smart, especially in Lapland.
-
-### 7. Deliver Operational Plans
-Output should include:
-- Best base or base pair
-- Day-by-day flow with realistic transfer windows
-- Booking deadlines or sellout risks
-- Weather downgrade options
-- Safety and emergency quick notes
-
-## Common Traps
-
-- Treating Helsinki and Lapland as a casual add-on in a very short trip.
-- Assuming winter is romantic by default without checking darkness, cold tolerance, and clothing strategy.
+- Treating Helsinki and Lapland as a casual same-week add-on with no transfer buffer.
+- Assuming winter is romantic by default without checking darkness, cold tolerance, and clothing.
 - Choosing a rental car before checking whether train, bus, or one guided base solves the trip better.
 - Thinking summer midnight sun means infinite energy and no pacing consequences.
 - Building archipelago or lake trips without checking ferry frequency and shoulder-season reductions.
 - Carrying a U.S.-style tipping mindset into a mostly service-included culture.
-- Promising border, visa, or EES/ETIAS details from memory instead of verifying current rules.
+- Quoting border, visa, or EES/ETIAS details from memory instead of current official pages.
 
-## Security & Privacy
+## Source freshness
 
-**Data that stays local:** Trip preferences in `~/Clawic/data/finland/`
-
-**This skill does NOT:** Access files outside `~/Clawic/data/finland/` or make network requests.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — General trip planning and itinerary structure
-- `booking` — Reservation workflows and confirmation hygiene
-- `car-rental` — Better self-drive strategy and handoff logistics
-- `food` — Deeper restaurant and cuisine planning
-- `english` — Language support for bookings, menus, and practical interactions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/finland
-- Latest version: https://clawic.com/skills/finland
+Domain claims in this package were last bulk-checked against the URLs in
+`references/sources.md` (see file header). Before any booking-critical statement,
+open the matching official page again for the user's passport and travel month.

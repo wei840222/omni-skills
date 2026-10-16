@@ -403,6 +403,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | financial-literacy           | 2026-08-05 | 82.3/100                         |
 | find                         | 2026-08-26 | 92/100                           |
 | fine-tuning                  | 2026-09-28 | 80.8/100 (#592)                  |
+| finland                      | 2026-10-16 | 86/100 (#869)                    |
 | finnish                      | 2026-09-25 | 84/100 (#575)                    |
 | first-principles-thinking     | 2026-10-07 | 88/100 (#732)                    |
 | fishing                      | 2026-09-12 | 85/100 (#344)                    |

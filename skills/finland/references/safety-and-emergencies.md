@@ -3,7 +3,7 @@
 ## Baseline
 
 - Finland is generally a low-drama destination for visitors.
-- The main safety risk is often environment and weather, not street crime.
+- Focus primary safety planning on environmental and weather conditions.
 - Winter darkness, ice, isolation, and cold can matter more than city safety headlines.
 
 ## Emergency Stack

@@ -35,4 +35,4 @@
 - Last night before international departure stays in the departure city unless rail reliability is proven and risk tolerance is high
 - Every outdoor-heavy stretch has an indoor or weather-safe fallback
 - Winter trips protect at least one easy day after long transfer or late aurora nights
-- Family trips avoid stacking airport, gear rental, and activity booking on the same day
+- Family trips succeed by spacing out airport transfers, gear rentals, and activities across different days.

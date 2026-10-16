@@ -1,10 +1,10 @@
 # Budget and Costs — Finland
 
-## Finland Is Manageable, Not Cheap
+## Finland Is Manageable and Premium-Priced
 
 - Finland is usually less punishing than Norway for many travelers, but it still punishes vague budgeting.
 - Helsinki, Lapland winter dates, and alcohol-heavy nightlife can shift a trip from mid-range to premium fast.
-- The real budget lever is route design, not just hotel category.
+- Route design impacts the budget more significantly than hotel category alone.
 
 ## Cost Categories That Move the Plan
 
@@ -20,7 +20,7 @@
 
 - Use supermarkets, lunch specials, and one strong dinner instead of defaulting to sit-down meals every time.
 - If the user drives, include parking, fuel, and winter-equipment assumptions.
-- If the user does not drive, include station transfers, airport rail, and activity pickups.
+- For non-driving users, explicitly budget for station transfers, airport rail, and activity pickups.
 - Lapland "bucket list" trips should be priced as premium unless proven otherwise.
 
 ## Where Users Underbudget

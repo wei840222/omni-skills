@@ -3,7 +3,7 @@
 ## Base Strategy
 
 - Helsinki rewards staying near rail, tram, or walkable core neighborhoods rather than chasing the lowest nightly price.
-- Lapland lodging must be chosen around transfer friction and activity pickup logic, not only "glass igloo" appeal.
+- Prioritize transfer logic and activity pickups over novelty when choosing Lapland lodging.
 - Lakeland and archipelago stays should be filtered by car need, ferry timing, and grocery access.
 
 ## Best Fits by Trip Style
@@ -13,12 +13,12 @@
 | Short Helsinki trip | Central hotel or apartment near station or tram corridor |
 | Winter Lapland | One strong base near activities, airport bus, or ski shuttle |
 | Summer nature | Cabin or lakeside stay only if transport and shopping are solved |
-| Mixed city and nature | Split bases only when each stop adds something season-specific |
+| Mixed city and nature | Split bases to highlight distinct season-specific experiences |
 
 ## Cost Traps
 
 - Remote winter stays can create expensive transfer and meal dependence.
-- Airport hotels are for ugly arrival or departure timing, not default Helsinki strategy.
+- Reserve airport hotels strictly for inconvenient flight timings.
 - Cabin pricing can look reasonable until linen, cleaning, and car rental are added.
 
 ## Booking Advice

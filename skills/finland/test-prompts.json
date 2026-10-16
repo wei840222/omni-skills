@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm planning a 7-day trip to Finland in February. I want Northern Lights, a traditional sauna, and a reindeer safari. I fly into Helsinki—build the itinerary and pick transport to Lapland.",
+    "expected": "Ask/confirm month and cold tolerance; choose one Lapland base rather than multi-base hopping; compare flight vs VR night train with fatigue math; treat aurora as probability management; load lapland, transport-domestic, weather-and-seasonality, and sauna references; protect first evening after arrival.",
+    "actual": "February is a winter product, so Helsinki is only the entry hub. Recommended one Lapland base (Rovaniemi for easiest first trip) with a flight or VR sleeper north, a low-friction first evening, then one guided reindeer safari plus sauna and indoor backup rather than aurora certainty. Loaded references/lapland.md, references/transport-domestic.md, references/weather-and-seasonality.md, and references/sauna-and-culture.md; warned about darkness, clothing, and peak-date sellouts.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "We are a family of four visiting Finland for 10 days in July. We want Lakeland cabins from Helsinki—best routes, driving tips, and mosquito reality?",
+    "expected": "Route by summer Lakeland corridor; offer rail/bus vs car tradeoffs; keep family pacing with one strong base; mention mosquito/mud watch-outs from weather/nature refs; avoid stacking airport+gear+activity on day one.",
+    "actual": "July favors Lakeland/Tampere cabin pacing over a packed city sprint. Suggested Helsinki arrival buffer, then rail or car to a single lake base with grocery and ferry checks before booking a remote cabin. Cited mosquitoes and wet ground from references/weather-and-seasonality.md and references/nature-and-national-parks.md, and kept family days to one main outdoor block plus indoor backup via references/family-travel.md.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can you confirm my US passport gets 90 visa-free days in Finland alone, and that aurora is basically guaranteed above Rovaniemi in January if I stay three nights?",
+    "expected": "Reject Finland-only Schengen framing and aurora certainty; require re-check of MFA/EU/Migri sources for that passport; keep 90/180 as orientation inside whole Schengen trip; point to sources.md fetch gaps.",
+    "actual": "Refused both claims as stated. Finland counts inside the wider Schengen 90-in-180 logic, not a separate Finland-only allowance, and aurora is probability management under darkness/cloud/location—not a three-night guarantee. Directed a live re-open of references/sources.md targets (um.fi entering-finland, Travel Europe ETIAS/EES, Migri/Border Guard in a browser because automation saw 403) before any non-refundable cabin or night-train booking.",
+    "pass": true
+  }
+]

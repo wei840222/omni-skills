@@ -9,14 +9,14 @@
 ## Practical Payment Logic
 
 - Digital wallets are useful, but a physical card is still safer for hotels, transport, and edge cases.
-- Finland is not a tipping economy; modest rounding or a small extra for great service is enough.
+- Service is typically included in Finland; modest rounding is sufficient for great service.
 - Grocery stores and casual counters often beat restaurant-heavy spending by a wide margin.
 
 ## Tax-Free Shopping
 
-- Tax-free shopping matters mainly for meaningful retail purchases, not for normal trip budgeting.
+- Tax-free shopping applies to significant retail purchases rather than standard trip expenses.
 - Confirm retailer participation and paperwork rather than overselling it as a trip-saving tactic.
-- Do not let tax-free logic drive the route unless shopping is a core purpose of the trip.
+- Keep tax-free logic secondary to route design unless shopping is a primary trip goal.
 
 ## Money Mistakes
 
@@ -27,4 +27,4 @@
 
 ## Rule
 
-In Finland, payment friction is low. Budget friction comes from what the user buys and how far they move, not from lack of card acceptance.
+In Finland, card acceptance is nearly universal; budget friction stems primarily from movement and purchases.

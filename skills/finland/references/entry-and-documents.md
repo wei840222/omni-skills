@@ -16,7 +16,7 @@
 
 ## Practical Notes
 
-- Finland follows Schengen rules, so the user must frame Finland together with the rest of their Schengen trip, not as a separate allowance.
+- Finland follows Schengen rules, so the user must calculate their Schengen allowance across all participating countries.
 - EES and ETIAS details are evolving and should be checked again before departure using current EU and Finland sources.
 - If the route depends on crossing the eastern border, verify current restrictions first because overland assumptions can be wrong.
 - Users combining Finland with the Baltics or Sweden should still keep an eye on entry sequence, ferry bookings, and passport access during travel.
@@ -31,4 +31,4 @@
 
 ## Source Reminder
 
-Use `sources.md` for official Finland Abroad, Migri, EU, and Border Guard links.
+Use `references/sources.md` for official MFA, Migri, EU, and Border Guard links; re-open pages that returned automation 403 before quoting.
