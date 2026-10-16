@@ -18,9 +18,8 @@ metadata:
 
 # Monitoring
 
-Own the **coverage ladder**: pick the smallest stack that answers "is it
-broken?", then grow into APM and full metrics/logs/traces only when the failure
-modes demand it. This skill is **stateless by default**. Optional inventory of
+Own the **coverage ladder**: pick the smallest stack that answers "is it broken?",
+then grow into APM and full metrics/logs/traces only when failure modes demand it. This skill is **stateless by default**. Optional inventory of
 monitors, DSNs, and compose paths may live under a resolved `<state_root>` when
 the user wants continuity.
 
