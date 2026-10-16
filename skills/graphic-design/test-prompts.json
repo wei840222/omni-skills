@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to design a flyer for my bake sale but I don't know anything about design.",
+    "expected": "Routes to non-designers + core-rules. Recommends a template tool (Canva), enforces simple font/color limits, plain alignment/breathing-room advice, accessibility framing for contrast, and confirms output context before locking specs.",
+    "actual": "Loaded references/core-rules.md and references/non-designers.md. Asked for print vs digital size. Suggested Canva template, 2–3 fonts / 3–4 colors, left-aligned text blocks with breathing room, and framed contrast as readability. Flagged hiring a pro only if logo/brand identity was needed.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Review my poster for a Swiss Style exhibition. I'm using Helvetica Neue on a strict grid, but the hierarchy feels flat. What should I adjust?",
+    "expected": "Routes to students (or researchers) + core-rules. Uses formal vocabulary (hierarchy/contrast/proximity), Swiss Style / grid literacy, and one primary improvement rather than a full redesign.",
+    "actual": "Loaded references/core-rules.md and references/students.md. Named flat hierarchy as missing scale/weight contrast on a Müller-Brockmann-style grid. Suggested one primary focal change (larger/heavier title vs quieter body) and kept Swiss restraint instead of adding decoration.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm sending a billboard to print tomorrow. What specs should I ask the printer for before I finalize the file?",
+    "expected": "Routes to print-production + core-rules + sources caution. Asks for the printer's written bleed/safe-zone/color-profile/PDF flavor requirements; treats 5mm+/CMYK/300dpi as planning heuristics, not invented guarantees.",
+    "actual": "Loaded references/core-rules.md, references/print-production.md, and references/sources.md. Listed questions for the printer: final trim, bleed (often ≥5mm large format), safe zone, CMYK/ICC profile, resolution, font outline/embed rules, and PDF/X flavor. Labeled common numbers as heuristics pending their written spec.",
+    "pass": true
+  }
+]
