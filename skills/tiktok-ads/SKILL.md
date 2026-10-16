@@ -44,3 +44,7 @@ Route elsewhere when the ask is broader paid media (`ads`), organic creator brie
 - **Organic winner ready to pay**: Spark Ads path in `references/creative-and-spark.md` (authorize post, preserve engagement on the organic asset).
 - **CPA unstable after launch**: check learning-phase edits, budget step size, creative fatigue, and signal loss (iOS / Pixel gaps) via `references/campaign-ops.md` and `references/audiences-and-measurement.md`.
 - **iOS app promotion post-ATT**: use TikTok's iOS 14.5+ dedicated campaign product and quota rules; do not mix assumptions from Android auction data.
+
+## Freshness
+
+Open `references/sources.md` before quoting live floors, quotas, or authorization UI labels.
