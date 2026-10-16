@@ -290,3 +290,7 @@ Hong Kong's best views are UP - rooftops, skyscrapers, the Peak. And DOWN - unde
 ---
 
 *All information current as of 2024-2025. Prices and policies may change.*
+
+## Signal-first outdoor planning
+
+Plan outdoor blocks around the current typhoon signal and humidity; move indoor when T8+ is in force.
