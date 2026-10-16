@@ -1,6 +1,6 @@
 # Performance — Measure, Profile, Then Optimize
 
-Go makes it easy to write code that is fast enough and easy to guess wrong about why it is not. The discipline is fixed: reproduce with a benchmark, profile, fix the top line, re-measure. Anything else is decoration.
+Go makes it easy to write code that is fast enough and easy to guess wrong about why it falls short. The discipline is fixed: reproduce with a benchmark, profile, fix the top line, re-measure. Anything else is decoration.
 
 ## The Loop
 

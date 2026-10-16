@@ -20,7 +20,7 @@ main.handle(...)
 - The stack is newest-first: the top frame panicked, the bottom frame started the goroutine. The interesting line is usually the topmost one inside your own module.
 - `goroutine 42 [running]` — the bracketed word is the state. On a full dump the states are the diagnosis: `chan receive`, `chan send`, `select`, `semacquire` (waiting on a mutex), `IO wait`, `sync.WaitGroup.Wait`.
 - `created by main.serve in goroutine 7` at the bottom of a goroutine's stack tells you who started it, which is what you need for a leak.
-- `GOTRACEBACK=all` prints every goroutine, not just the panicking one; `GOTRACEBACK=system` adds runtime frames. Set it in production containers — the default hides the goroutines you need.
+- `GOTRACEBACK=all` prints every goroutine, alongside the panicking one; `GOTRACEBACK=system` adds runtime frames. Set it in production containers — the default hides the goroutines you need.
 - `fatal error:` instead of `panic:` means the runtime killed the process directly: no defer ran, no `recover` was possible (SKILL.md "Panics And Fatal Errors").
 
 ## Hangs: Dump The Goroutines
@@ -33,14 +33,14 @@ main.handle(...)
 | Test that hangs | Wait for `-timeout` (default 10 minutes) — the panic includes every stack |
 | Programmatically | `pprof.Lookup("goroutine").WriteTo(w, 2)` |
 
-Reading a deadlock from the dump: find two or more goroutines in `chan send`/`chan receive`/`semacquire` and trace what each is waiting for. A goroutine blocked on `semacquire` names the mutex's holder indirectly — the holder is the goroutine that is *not* blocked but is doing something slow.
+Reading a deadlock from the dump: find two or more goroutines in `chan send`/`chan receive`/`semacquire` and trace what each is waiting for. A goroutine blocked on `semacquire` names the mutex's holder indirectly — the holder is the goroutine that remains active but is doing something slow.
 
-`fatal error: all goroutines are asleep - deadlock!` only fires when **every** goroutine is blocked. A server with a live listener never qualifies, so partial deadlocks in production are silent forever and the dump is the only way to see them (`concurrency.md`).
+`fatal error: all goroutines are asleep - deadlock!` only fires when **every** goroutine is blocked. A server with a live listener bypasses this condition, so partial deadlocks in production are silent forever and the dump is the only way to see them (`concurrency.md`).
 
 ## The Race Detector
 
 - `go test -race ./...` and, for staging, `go build -race`. It costs roughly **2-20× in CPU time and 5-10× in memory** (the documented range), which is why it runs in CI and staging rather than production.
-- It detects only races that **actually executed**. Passing under `-race` proves nothing about untested paths.
+- It detects only races that **actually executed**. Passing under `-race` only provides assertions for untested paths.
 - A report has two stacks. The lower one — "Previous write at ... by goroutine N" — is the access that happened first and usually the one missing a lock. The "created by" lines at the bottom of each identify the spawn sites.
 - `-race` also detects some misuse the compiler cannot: unsynchronized map access, and races on interface and slice headers that look atomic but are two words.
 - Only under `-race`, `GORACE="halt_on_error=1"` stops at the first report, which keeps the output readable in a noisy suite.
@@ -62,7 +62,7 @@ Reading a deadlock from the dump: find two or more goroutines in `chan send`/`ch
 ## pprof For Diagnosis
 
 ```go
-import _ "net/http/pprof"    // registers on http.DefaultServeMux — do NOT expose publicly
+import _ "net/http/pprof"    // registers on http.DefaultServeMux — restrict exposure to internal networks
 
 go func() { log.Println(http.ListenAndServe("localhost:6060", nil)) }()
 ```
@@ -85,7 +85,7 @@ go func() { log.Println(http.ListenAndServe("localhost:6060", nil)) }()
 - Reduce before you investigate: a `main.go` under 30 lines that reproduces the behavior answers most questions on its own and is what you attach to a bug report.
 - `git bisect run go test ./pkg -run TestX -count=1` automates the search over commits; `-count=1` is required or the test cache returns a stale pass.
 - Flaky tests: `go test -race -count=100 -run TestFlaky ./pkg`, and `-shuffle=on` to expose order dependence (`testing.md`).
-- A bug that appears only in CI: compare Go version, GOARCH, `GOFLAGS`, and whether the runner enforces a CPU quota — a 2-core runner exposes races and scheduler assumptions a 10-core laptop never will (`deployment.md`).
+- A bug that appears only in CI: compare Go version, GOARCH, `GOFLAGS`, and whether the runner enforces a CPU quota — a 2-core runner exposes races and scheduler assumptions a 10-core laptop will bypass (`deployment.md`).
 - `go build -gcflags='-m'` prints escape-analysis and inlining decisions when the question is "why is this allocating" (`memory.md`).
 
 ## Common Mistakes

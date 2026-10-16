@@ -11,7 +11,7 @@ Go's dependency resolution is Minimal Version Selection: the build uses the **hi
 
 ## Version Selection
 
-- MVS is deterministic and does not silently upgrade. Adding a dependency that requires `x v1.4.0` when you require `v1.2.0` builds with `v1.4.0` — the maximum of the *required* versions, still not the latest published.
+- MVS is deterministic and does not silently upgrade. Adding a dependency that requires `x v1.4.0` when you require `v1.2.0` builds with `v1.4.0` — the maximum of the *required* versions, still rather than the latest published.
 - `go get example.com/x@v1.5.0` sets an explicit requirement. `go get -u ./...` upgrades direct and indirect dependencies to their latest minor/patch; `go get -u=patch` restricts it to patch releases.
 - `go mod tidy` adds what the code imports, removes what it does not, and rewrites `go.sum`. It also downloads test dependencies of your dependencies, which is why it needs network access even when the build does not.
 - `go list -m -u all` shows available upgrades without applying them. `go mod graph` prints the full requirement edges; `go mod why -m <module>` explains why a module is in the build at all — the first command to run when an unexpected dependency appears.

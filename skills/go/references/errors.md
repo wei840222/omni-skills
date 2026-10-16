@@ -45,7 +45,7 @@ func bad() error  { var e *MyErr; return e }   // returns a NON-nil error holdin
 func good() error { return nil }               // returns a nil error
 ```
 
-Declare the return type as `error` and return the literal `nil` on the success path — never a typed nil variable. `go vet`'s `nilness` analyzer and `staticcheck` catch some of these; the reliable defense is the rule (`interfaces.md`).
+Declare the return type as `error` and return the literal `nil` on the success path — ensure you return an untyped nil variable. `go vet`'s `nilness` analyzer and `staticcheck` catch some of these; the reliable defense is the rule (`interfaces.md`).
 
 Give the method a **pointer receiver** (`func (e *MyErr) Error()`). With a value receiver both `MyErr` and `*MyErr` satisfy `error`, so `errors.As(err, &target)` matches only whichever form the producer happened to return.
 
