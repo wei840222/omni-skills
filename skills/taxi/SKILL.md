@@ -1,154 +1,184 @@
 ---
 name: taxi
-slug: taxi
-version: 1.0.0
-description: Handle everything for ground transportation, from price comparison to booking, tracking, disputes, and expense management.
-homepage: https://clawic.com/skills/taxi
+description: >
+  Handle ground transportation for taxis, rideshares, and car services: live
+  price comparison, surge handling, scheduled vs on-demand booking assistance,
+  airport pickup rules, trip logging, dispute drafts, and lost-item recovery.
+  Use when the user needs a ride now or later, wants Uber/Lyft/local-taxi
+  options compared, is dealing with surge, airport transfers, accessibility or
+  pet needs, receipt/expense capture, or a fare/safety/lost-item problem. Prefer
+  `travel-planning` for whole-trip itineraries, `flight` for air legs and
+  disruption rights, `car-rental` for multi-day self-drive, `expenses` for
+  ledgering trip costs, and `travel` for standing travel documents and boxes.
 metadata:
-  clawdbot:
-    emoji: 🚕
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Taxi
+  version: "1.0.1"
+  openclaw: '{"emoji":"🚕"}'
+  related-skills: '{"travel-planning":"Whole-trip itineraries and budgets beyond a single ground leg.","flight":"Air segments, delay tracking inputs, and passenger-rights questions.","car-rental":"Multi-day or multi-stop self-drive instead of repeated rides.","expenses":"Ledger taxi costs into categories, reimbursements, and monthly totals.","travel":"Standing travel system, documents, and long-lived trip boxes."}'
 ---
 
-## When to Use
+# Taxi
 
-User needs ANY help with taxis, rideshares, car services, or ground transportation. Agent handles research, comparison, booking assistance, price monitoring, expense tracking, and problem resolution.
+Assist with ground transportation decisions and follow-through. Compare live
+options, help prepare booking steps the user must confirm, log durable trip
+state under `<state_root>/`, and guide disputes or lost-item recovery through
+the correct in-app channels.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/taxi/`. See `memory-template.md` for setup.
+Taxi preferences and trip logs may exist in `<workspace>/taxi/`,
+`<workspace>/memory/taxi/`, or `~/taxi/`.
 
-```
-~/Clawic/data/taxi/
-├── memory.md          # Preferences, saved addresses, default apps
-├── trips.md           # Trip history and expenses
-├── accounts.md        # Which apps user has, preferences per app
-└── promos.md          # Active promo codes, referral links
-```
+Before reading or writing state, resolve `<state_root>` as follows:
 
-## Quick Reference
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/taxi/`, `<workspace>/memory/taxi/`, `~/taxi/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable state must be created, default to
+   `<workspace>/taxi/` when `<workspace>` is available; otherwise ask for a
+   state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| City/app coverage | `cities.md` |
-| Fare estimation | `fares.md` |
-| Booking workflows | `booking.md` |
-| Problem resolution | `problems.md` |
+Use the selected `<state_root>` for every state operation in this skill. If older
+notes exist only at `~/Clawic/data/taxi/`, propose a copy/validation/cutover plan
+and wait for user confirmation before any migration. Never write the literal
+string `<state_root>` to disk.
 
-## Core Rules
+## When to use
 
-### 1. Know User Context First
-Before any recommendation, check `~/Clawic/data/taxi/memory.md` for:
+- Compare current Uber, Lyft, Bolt, taxi, shuttle, or car-service options
+- Decide whether to wait out surge, walk away from a venue, or schedule ahead
+- Airport transfers with terminal, pickup-zone, and flight-delay awareness
+- Accessibility, pet, child-seat, group, late-night, or VIP vehicle constraints
+- Draft fare disputes, lost-item contacts, or safety reports after a ride
+- Log business/personal trips and hand totals to `expenses` when asked
+
+## Quick reference
+
+Load only what the current ask needs:
+
+| Need | Load |
+|------|------|
+| Preferences / first setup | `references/memory.md` + `assets/taxi-data-templates.md` |
+| City and app coverage | `references/cities.md` |
+| Price, surge, promo checks | `references/fares.md` |
+| Booking workflow | `references/booking.md` |
+| Disputes, lost items, safety | `references/problems.md` |
+| Official source pins | `references/sources.md` |
+
+## Core rules
+
+### 1. Know user context first
+
+Before recommending a ride, read `<state_root>/memory.md` when it exists for:
+
 - Preferred apps and why
-- Saved addresses (home, work, airport)
-- Payment preferences (card, cash, business)
+- Saved addresses (home, work, airport/terminal)
+- Payment preferences (card nickname, cash, business profile)
 - Special needs (wheelchair, car seat, pet-friendly)
-- Budget sensitivity
+- Budget sensitivity and max acceptable surge
 
-### 2. Proactive Comparison
-| Task | Agent Action |
-|------|--------------|
-| User needs ride | Compare 3+ options with current prices |
-| Surge detected | Alert user, suggest waiting or alternatives |
-| Airport transfer | Compare rideshare vs shuttle vs taxi vs car service |
-| Group ride | Calculate if multiple rides or XL is cheaper |
-| Regular route | Track prices over time, suggest best booking window |
+If memory is missing, ask only the fields required for this trip and offer to
+persist them under `<state_root>/` after the user agrees.
 
-### 3. Maximize Savings
-- Search for active promo codes before any booking
-- Check if user has referral credits in any app
+### 2. Compare before booking
+
+| Task | Agent action |
+|------|----------------|
+| User needs a ride | Compare 3+ options with current estimates when available |
+| Surge detected | Show multipliers, suggest wait/walk/schedule/transit alternatives |
+| Airport transfer | Compare rideshare vs taxi vs shuttle vs car service and pickup rules |
+| Group ride | Check whether XL/van or multiple cars is cheaper |
+| Regular route | Note historical windows when prices were lower |
+
+### 3. Maximize savings without hiding trade-offs
+
+- Search active promos and referral credits before non-urgent bookings
 - Compare scheduled vs on-demand pricing
-- Suggest pool/shared when time permits
-- Monitor surge and alert when it drops
-- Find airport flat rates vs metered options
+- Suggest shared/pool only when time and luggage allow
+- Monitor surge and notify when it drops below the user's threshold
+- Prefer airport flat rates or taxi stands when they beat metered/surge options
 
-### 4. Assist Booking Process
-What agent CAN do:
-- Open booking websites/apps via browser
-- Pre-fill pickup and destination
-- Select vehicle type based on user needs
-- Apply promo codes
-- Set scheduled pickup time
-- Navigate to payment confirmation step
+### 4. Assist booking; user confirms payment
 
-What requires user:
-- Final payment confirmation
-- Entering new payment methods
-- Phone verification
+Agent can:
 
-### 5. Handle Special Scenarios
+- Open booking sites/apps
+- Prefill pickup, destination, vehicle type, promo, and schedule
+- Stop at the payment-confirmation step
 
-| Scenario | Agent Handles |
-|----------|---------------|
-| Airport pickup | Check terminal, flight tracking for delays, meet & greet options |
-| Business travel | Ensure receipt capability, corporate profile, expense categories |
-| Late night | Prioritize safety features, well-rated drivers, tracked rides |
-| Foreign country | Find local apps, check cash/card acceptance, language tips |
-| Large group | Calculate split options, find vans/minibuses, coordinate multiple cars |
-| Accessibility | Filter for wheelchair-accessible, verify with company if needed |
-| With pets | Find pet-friendly options, carrier requirements |
-| With kids | Car seat availability, family-friendly services |
-| VIP/Executive | Car services, black car, chauffeur options |
-| Event pickup | Coordinate pickup points, surge avoidance strategies |
+User must:
 
-### 6. Track Everything
-Log in `~/Clawic/data/taxi/trips.md`:
-- Date, route, app used
-- Price paid, promo applied
-- Category (personal, business, specific project)
-- Notes (late driver, surge, issues)
+- Confirm final payment
+- Enter new payment methods
+- Complete phone verification
 
-Provide:
-- Monthly expense summaries
-- Per-category totals
-- Comparison vs public transit
-- Year-over-year trends
+### 5. Special scenarios
 
-### 7. Resolve Problems
-When user has issue:
-1. Identify problem type (overcharge, route, driver, safety, lost item)
-2. Find correct channel (in-app, email, phone, social)
-3. Draft complaint with relevant details
-4. Track resolution status
-5. Escalate if no response (BBB, local regulator, social media)
+| Scenario | Handle |
+|----------|--------|
+| Airport pickup | Terminal, designated zone, flight tracking, meet-and-greet |
+| Business travel | Receipts, corporate profile, expense category |
+| Late night | Safety features, ratings, shared trip tracking |
+| Foreign city | Local apps, cash/card norms, language tips |
+| Accessibility | WAV / wheelchair filter and company confirmation when needed |
+| Pets / kids | Pet policy, carrier rules, car-seat availability |
+| Events | Exit-point planning and surge avoidance |
 
-See `problems.md` for dispute workflows by app.
+### 6. Track trips
 
-### 8. Stay Current
-- Check for new apps entering user's city
-- Monitor promo code sources (RetailMeNot, Honey, app-specific)
-- Track regulatory changes (some cities ban/restrict services)
-- Know seasonal patterns (holiday surge, airport construction)
+When the user asks to record a trip, append to `<state_root>/trips.md`:
 
-### 9. Multi-Modal Integration
-Sometimes taxi isn't best option:
-- Compare with public transit for cost/time
-- Suggest train + last-mile rideshare
-- Rental car for multi-day or multi-stop
-- Hotel shuttle for airport
-- Walking + rideshare vs door-to-door
+- Date, route, app, price, promo, category, notes
 
-### 10. Privacy & Security
-- Never store full payment details
-- Mask home address in logs if user prefers
-- Share trip tracking with emergency contacts
-- Verify driver details before user enters vehicle
+Offer monthly category totals and hand business rows to `expenses` when asked.
 
-## Common Traps
+### 7. Resolve problems
 
-- Booking without checking surge → Always show current multiplier
-- Assuming one app works everywhere → Check local alternatives first
-- Ignoring scheduled ride option → Often 10-20% cheaper
-- Not logging business trips immediately → Harder to categorize later
-- Using first promo code found → Some stack, some conflict, check terms
-- Recommending cheapest without context → Safety/reliability matter for some trips
-- Forgetting airport rules → Designated pickup areas, terminal-specific pricing
-- Not tracking flight delays → User waits, ride leaves or charges wait time
-- Ignoring user's past preferences → Check memory before suggesting
+1. Classify: overcharge, route, driver, safety, lost item, cancellation
+2. Use the in-app help path first (`references/problems.md`)
+3. Draft a factual complaint with trip IDs, times, screenshots needed
+4. Track status; escalate only after the platform path is exhausted
+
+### 8. Stay current and multi-modal
+
+- Prefer live app estimates over memorized regional price bands in
+  `references/fares.md`
+- Re-check city coverage in `references/cities.md` before assuming Uber/Lyft
+- Compare public transit, hotel shuttle, rental car, or walk + rideshare when
+  they beat door-to-door cost or wait time
+
+### 9. Privacy and safety
+
+- Store only masked payment references (last four / nickname), never full card
+  numbers, CVVs, or PINs
+- Mask home addresses in shared logs when the user prefers
+- Share live trip tracking with emergency contacts when requested
+- Verify plate, photo, and pin before the user enters the vehicle
+- For immediate danger, use the in-app emergency control and local emergency
+  services; keep distance and report through the app afterward
+
+Prefer concrete next actions over warning lists when guiding safety or
+dispute flows.
+
+## Common traps
+
+- Booking during surge without showing the multiplier → always surface it
+- Assuming one app works everywhere → check local alternatives first
+- Ignoring scheduled rides → often cheaper for early airport runs
+- Delaying business trip logging → harder to categorize later
+- Applying the first promo found → check stacking and expiry terms
+- Recommending cheapest alone → safety and reliability matter at night
+- Skipping airport pickup rules → wrong curb, terminal fee, or wait charges
+- Ignoring flight delays → ride arrives, user is still airborne
+- Skipping saved preferences → re-ask what memory already knows
+
+## Out of scope
+
+- Full multi-city itineraries → `travel-planning`
+- Flight search, fare rules, or aviation passenger rights → `flight`
+- Multi-day self-drive → `car-rental`
+- Lodging booking → `booking`
+- Standing passport/visa boxes → `travel`
+- General bookkeeping beyond trip evidence → `expenses` / `accountant`

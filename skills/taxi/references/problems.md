@@ -20,8 +20,8 @@
 
 **Escalation if denied:**
 - Reply to email explaining discrepancy
-- Tweet @Uber_Support or @AskLyft (public pressure)
-- Credit card dispute as last resort (may get account banned)
+- Public posts to official support handles can surface stalled cases; keep facts first
+- Card chargeback only after the platform path is exhausted (accounts may be restricted)
 
 ### 2. Driver Took Long Route
 
@@ -42,7 +42,7 @@
 1. Check if driver still nearby (call through app)
 2. Report lost item in app ASAP
 3. Provide detailed description
-4. Offer finder's fee ($15-20 typical)
+4. Optional thank-you / finder's fee if the user wants to offer one
 
 **By Platform:**
 
@@ -63,7 +63,7 @@
 - Use in-app emergency button
 - Share trip with trusted contact
 - Call 911 if immediate danger
-- DO NOT confront driver
+- Maintain distance and report via app rather than confronting driver
 
 **After Ride:**
 - Report in app immediately
@@ -82,7 +82,7 @@
 
 **Prevention:**
 - Verify pickup pin is correct
-- Use address, not "My Location"
+- Enter specific addresses instead of "My Location"
 - Note landmark for driver
 - Check driver is actually moving toward you
 
@@ -162,7 +162,7 @@
 - @Uber_Support on Twitter/X
 - @AskLyft on Twitter/X
 - Public posts get faster response
-- Be factual, not emotional
+- Provide factual details rather than emotional complaints
 
 ### Level 4: Executive Escalation
 - Find executive email pattern (firstname@company.com)
