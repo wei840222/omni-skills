@@ -127,6 +127,8 @@ typhoon-risk claims.
 
 ## Output gates
 
+- Ask for the next missing constraint before locking lodging or visa advice.
+
 - State which references were loaded.
 - Separate orientation from live-verified booking facts.
 - When a visa, fare, rent, or fee is material, point to the official URL and say
