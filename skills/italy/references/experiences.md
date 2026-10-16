@@ -157,7 +157,7 @@ See also: wine.md
 | Juventus | Allianz Stadium | €40-200 |
 | Napoli | Stadio Maradona | €25-100 |
 
-**How to buy:** Official team websites, avoid scalpers. Bring ID matching ticket name.
+**How to buy:** Official team websites, buy from official sources. Bring ID matching ticket name.
 
 ### Fashion/Design
 

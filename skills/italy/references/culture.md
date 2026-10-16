@@ -42,7 +42,7 @@ Italians care deeply about fare bella figura (making a good impression). These r
 6. **Caffè** — Espresso
 7. **Digestivo** — Amaro, grappa
 
-**You don't have to order all courses.** Primo + secondo or antipasto + primo is normal.
+**It is optional to order all courses.** Primo + secondo or antipasto + primo is normal.
 
 ### Coffee Rules
 
@@ -64,7 +64,7 @@ Italians care deeply about fare bella figura (making a good impression). These r
 | Hotels | €1-2/day housekeeping, €1-2 porters |
 | Tour guides | €5-10 for half-day, €10-20 full day |
 
-**Important:** Coperto (cover charge, €1-3/person) is NOT a scam. It's standard and legal.
+**Important:** Coperto (cover charge, €1-3/person) is a standard legal charge. It's standard and legal.
 
 ## Dress Code
 
@@ -78,7 +78,7 @@ Italians care deeply about fare bella figura (making a good impression). These r
 
 | Situation | Dress |
 |-----------|-------|
-| City walking | Smart casual, avoid gym clothes |
+| City walking | Smart casual, skip gym clothes |
 | Nice dinner | No shorts, smart shoes |
 | Clubs | No sneakers, no sportswear |
 | Beach towns | More relaxed (but not in restaurants) |
@@ -92,12 +92,12 @@ Italians talk with hands. Some meanings:
 | Gesture | Meaning |
 |---------|---------|
 | Fingertips together, hand moving up and down | "What do you want?" / "What are you saying?" |
-| Chin flick | "I don't care" / "Go away" |
+| Chin flick | "I am indifferent" / "Go away" |
 | Forearm pump | Insult (like giving the finger) |
 | Hand cupping ear | "What?" |
 | Finger twisting cheek | "Delicious!" |
 
-**Warning:** Don't use gestures you don't understand. Some are offensive.
+**Warning:** Only use familiar gestures. Some are offensive.
 
 ## Social Norms
 
@@ -117,7 +117,7 @@ Italians talk with hands. Some meanings:
 | Their region specifically | Generalizing "all Italians" |
 
 ### Personal Space
-- **Closer than Americans expect** — Don't back away
+- **Closer than Americans expect** — Maintain proximity
 - **Eye contact** — Expected and appreciated
 - **Volume** — Italians are louder than Nordic/Anglo cultures
 
@@ -133,13 +133,13 @@ Italians talk with hands. Some meanings:
 
 | Norm | Explanation |
 |------|-------------|
-| Build relationships first | Don't rush to business |
+| Build relationships first | Build relationships first |
 | Titles matter | Dottore, Ingegnere, Avvocato used liberally |
 | Dress formally | Suits expected in business |
 | Long lunches | Business lunch can be 2-3 hours |
-| August | Don't schedule important meetings |
+| August | Schedule around holidays |
 
-## What NOT to Do
+## Common Missteps
 
 | Don't | Why |
 |-------|-----|
@@ -176,7 +176,7 @@ Italians talk with hands. Some meanings:
 | Posso avere...? | May I have...? |
 | Il conto, per favore | The check, please |
 | Parla inglese? | Do you speak English? |
-| Non capisco | I don't understand |
+| Non capisco | I lack understanding |
 | Dov'è...? | Where is...? |
 | Quanto costa? | How much does it cost? |
 | Salute! | Cheers! (when toasting) |

@@ -174,7 +174,7 @@ Italian pharmacists are highly trained and can:
 Italy has seismic activity. If earthquake:
 1. **Drop, cover, hold** — Under table if indoors
 2. **Stay inside** — Away from windows
-3. **After shaking** — Exit carefully, avoid elevators
+3. **After shaking** — Exit carefully, use stairs
 4. **Outdoors** — Away from buildings, power lines
 
 ### Flooding (Acqua Alta - Venice)
@@ -190,7 +190,7 @@ Italy has seismic activity. If earthquake:
 
 Southern Italy and islands have fire risk in summer:
 - Follow local alerts
-- Don't throw cigarettes
+- Dispose of cigarettes properly
 - Report fires to 115
 
 ## Heat & Sun

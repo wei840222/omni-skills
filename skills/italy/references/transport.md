@@ -55,7 +55,7 @@ Italy has excellent trains, ferries, and public transit. Driving is an option bu
 
 ### How to Avoid ZTL Fines
 
-1. **Don't drive into historic centers** — Park outside, walk in
+1. **Park outside historic centers** — Park outside, walk in
 2. **Check with hotel** — Many can register your plate temporarily
 3. **Use ZTL maps** — ViaMichelin app shows zones
 4. **Look for signs** — White circle with "ZTL" and hours
@@ -128,7 +128,7 @@ Italy has excellent trains, ferries, and public transit. Driving is an option bu
 | Route | Time | Cost | Notes |
 |-------|------|------|-------|
 | Salerno-Amalfi | 35min | €8 | Good starting point |
-| Amalfi-Positano | 25min | €10 | Avoid bus hairpins |
+| Amalfi-Positano | 25min | €10 | Take alternative routes |
 | Positano-Capri | 45min | €20 | Day trip option |
 
 **Pro tip:** Ferries are often better than SITA buses on Amalfi — less nausea, better views.
