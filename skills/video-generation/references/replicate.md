@@ -22,7 +22,7 @@ export REPLICATE_API_TOKEN=r8_xxx
 ## Routing Advice
 
 - Use Replicate for model evaluation and fallback coverage
-- Do not hardcode temporary community aliases as stable IDs
+- Use stable IDs instead of temporary community aliases
 - Keep a provider-neutral abstraction so you can swap models quickly
 
 ## Reliability Tips

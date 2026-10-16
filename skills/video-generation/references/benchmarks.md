@@ -1,6 +1,6 @@
 # Model Snapshot
 
-Use this file as a dated routing snapshot, not a permanent truth.
+Use this file as a dated routing snapshot, rather than a permanent truth.
 
 ## Scope
 

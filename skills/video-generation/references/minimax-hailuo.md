@@ -11,7 +11,7 @@
 ## Practical Routing
 
 - Use Hailuo for dynamic character motion and energetic scene timing
-- Keep scene instructions direct and avoid over-complex camera stacks
+- Keep scene instructions direct and use simple camera stacks
 - Validate with short drafts before longer renders
 
 ## Reliability Tips

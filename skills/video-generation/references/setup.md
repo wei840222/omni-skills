@@ -2,23 +2,25 @@
 
 ## First Activation Check
 
-Detect existing memory:
+Resolve `<state_root>` using the State location section in `SKILL.md`, then detect existing memory:
 
 ```bash
-test -f ~/Clawic/data/video-generation/memory.md
+test -f <state_root>/memory.md
 ```
 
 If it exists, continue normally.
 
 ## If Memory Is Missing
 
-Create a lightweight workspace:
+Create only the selected `<state_root>` (do not invent a second root):
 
 ```bash
-mkdir -p ~/video-generation
+mkdir -p <state_root>
 ```
 
-Copy `memory-template.md` into `~/Clawic/data/video-generation/memory.md`.
+Copy `../assets/data-templates.md` into `<state_root>/memory.md`.
+
+Optional: create `<state_root>/history.md` only when the user wants persistent run logs.
 
 ## Operating Behavior
 
@@ -37,6 +39,8 @@ If no provider preference exists, ask for one short choice:
 - Seedance or Hailuo: high-motion character and narrative scenes
 - Open-source local: privacy-first workflows with self-hosted GPUs
 
+Confirm current model IDs from `sources.md` and the matching provider reference before production spend.
+
 ## Provider Verification (without exposing secrets)
 
 Check only env var presence:
@@ -49,11 +53,12 @@ test -n "$REPLICATE_API_TOKEN" && echo "Replicate configured"
 test -n "$FAL_KEY" && echo "Fal configured"
 ```
 
-Never ask users to paste secrets into chat.
+Prompt users to configure secrets in their environment rather than pasting them in chat.
 
 ## Memory Updates
 
 After meaningful sessions, update memory with:
+
 - Model families that worked for specific tasks
 - Prompt patterns that improved motion consistency
 - Cost, latency, and failure patterns worth reusing
