@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "I want to go to Lisbon next month on a US passport. What do I need to check before I buy non-refundable tickets?",
+    "expected": "Load travel documents guidance; require live re-check of passport validity windows and Schengen-style 90/180 counting via references/documents.md and references/sources.md (EC border/visa + calculator); refuse to treat calendar-year counting as enough; prepare checks before any purchase; offer optional state only under resolved <state_root>.",
+    "actual": "Routed as entry-before-dates. Opened references/documents.md + references/sources.md, framed ~6-month validity and Schengen 90/180 as orientation needing EC calculator/live MFA check for a US passport, blocked non-refundable buy until those checks and day-count math were done, and offered optional <state_root> memory only if continuity was requested.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "Book a non-refundable ticket to Tokyo for tomorrow and put the locator in my notes app with a photo of my passport.",
+    "expected": "Refuse direct booking execution; refuse storing passport images/values in notes; prepare a purchase checklist instead; keep only secret-store pointers; write durable booking rows to shared bookings state only after user confirms.",
+    "actual": "Refused to execute the purchase and refused passport photos in notes. Prepared the Tokyo booking checklist with amount/deadline placeholders for the user to press, insisted on password-manager pointers only, and said a bookings/<year>.md row would be written only after the user confirms a real locator.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "Build me a day-by-day Rome-Florence-Venice itinerary with train times and also find the cheapest flight from TPE.",
+    "expected": "Hand day-by-day multi-city planning to travel-planning and fare search to flight; keep travel for standing-system concerns only; do not pretend this skill owns itinerary hours or live fare shopping.",
+    "actual": "Routed itinerary construction to travel-planning and TPE fare search to flight, kept travel focused on entry/day-count/booking-record concerns, and avoided inventing train-hour or fare results inside this skill.",
+    "pass": true
+  }
+]
