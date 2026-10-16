@@ -1,3 +1,9 @@
+# Hong Kong Visas — Orientation
+
+Official ImmD pages in `references/sources.md` outrank every table below.
+Nationality-specific eligibility, quotas, funds proof, and work/study caps
+must be re-checked live before an application recommendation.
+
 # Hong Kong Visa & Immigration Guide 2025
 
 ## Overview: Immigration Pathways
@@ -284,57 +290,61 @@ After **7 years of continuous ordinary residence**, you can apply for:
 
 ## Working Holiday Visa
 
-### Eligible Countries/Regions
+Orientation only. Quotas, age caps, funds proof, employer-duration limits, and
+study/training caps are **nationality-specific** on the ImmD Working Holiday
+Scheme page. Re-check before advising:
 
-| Country | Annual Quota | Max Age |
-|---------|--------------|---------|
-| Australia | 5,000 | 30 |
-| Canada | 200 | 30 |
-| France | 750 | 30 |
-| Germany | 300 | 30 |
-| Ireland | 200 | 30 |
-| Japan | 1,500 | 30 |
-| New Zealand | 400 | 30 |
-| UK | 1,000 | 30 |
-| Austria | 100 | 30 |
-| Hungary | 200 | 30 |
-| Italy | 1,000 | 30 |
-| Netherlands | 100 | 30 |
-| Sweden | 500 | 30 |
-| South Korea | 500 | 30 |
+https://www.immd.gov.hk/eng/services/visas/working_holiday_scheme.html
 
-### Requirements
+### Eligible countries / regions (ImmD Note 1 snapshot)
 
-- Valid passport from eligible country
-- Age 18-30 at application
-- Primary purpose: holiday
-- No dependents accompanying
-- Sufficient funds (HK$25,000 minimum)
-- Return ticket or funds for one
-- Health insurance
+Bilateral partners listed on the ImmD page (quota figures change—verify live):
+Australia, Austria, Canada, France, Germany, Hungary, Ireland, Japan, Korea
+(Republic of), Netherlands, New Zealand, Sweden, United Kingdom. Italy is **not**
+assumed from older tables; only list partners that still appear on ImmD Note 1.
 
-### Working Holiday Rules
+### Common eligibility themes (still verify per passport)
 
-- Duration: 12 months (non-extendable)
-- Work: Allowed, but not with same employer >6 months
-- Study: Short courses allowed (max 6 months)
-- Multiple entries permitted
+- Valid passport from a bilateral Working Holiday partner
+- Age band set by the bilateral arrangement (often 18–30; confirm on ImmD)
+- Primary purpose: holiday, with temporary work and/or short study allowed under notes
+- No accompanying dependents under the Scheme notes reviewed
+- Financial proof amounts differ by nationality (ImmD Note 4 examples ranged roughly
+  HK$15,000–HK$25,000+ on the checked page—do not invent a single minimum)
+- Return travel arrangements / onward funds and health cover as required on the live form
+
+### Temporary employment (ImmD Note 2 — do not collapse)
+
+ImmD states temporary employment is allowed subject to nationality-specific caps.
+Examples from the checked page:
+
+- Same-employer caps of **three months**: Australia, Canada, Germany, Ireland, New Zealand
+- Same-employer caps of **six months**: Netherlands, France, Hungary, Japan, Korea, Sweden
+- Austria: not allowed to work for more than **six months** (overall phrasing on ImmD)
+- United Kingdom: not allowed to work for more than **12 months**
+
+Always quote the traveler's passport line from ImmD rather than a generic
+"same employer >6 months" rule.
+
+### Study / training (ImmD Note 3 — do not collapse)
+
+Course count and cumulative duration also vary by nationality (some allow multiple
+short courses; some allow only one; Ireland was listed as not allowed on the
+checked page). Confirm Note 3 for the passport in hand.
+
+### Stay length
+
+ImmD notes a Working Holiday Visa holder may be allowed to stay for not more than
+12 months; extension of stay is not normally considered, and a further working
+holiday under the same Scheme is not available after participation.
 
 ---
 
-## Visa Fees (2025)
+## Visa fees (orientation)
 
-| Visa Type | Fee (HKD) |
-|-----------|-----------|
-| Employment visa | $230 |
-| TTPS | $230 |
-| QMAS | $230 |
-| Investment visa | $230 |
-| Dependent visa | $230 |
-| Extension of stay | $230 |
-| Permanent ID | Free |
-
-*Note: As of January 2025, fees for talent schemes may be waived/reduced under government initiatives*
+Fee amounts and waivers change. Use ImmD / gov.hk fee tables for the product in
+hand rather than memorized HKD figures. Treat any historic "$230" style rows as
+stale orientation only until re-checked on the live form page for that visa.
 
 ---
 
