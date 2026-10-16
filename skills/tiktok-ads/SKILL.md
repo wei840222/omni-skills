@@ -1,98 +1,46 @@
 ---
 name: tiktok-ads
-slug: tiktok-ads
-version: 1.0.0
-description: TikTok advertising strategy, creative best practices, Spark Ads, and platform-specific optimization
-homepage: https://clawic.com/skills/tiktok-ads
+description: >
+  Plan and optimize TikTok Ads Manager campaigns: Spark Ads, native creative,
+  auction structure, budgets, learning-phase pacing, Custom Audiences, Pixel +
+  Events API measurement, and iOS 14.5+ dedicated campaign limits. Use when the
+  user asks for TikTok paid media setup, Spark/boost mechanics, TikTok CPA/ROAS
+  diagnosis, or TikTok-specific auction rules. Prefer `ads` for cross-platform
+  paid strategy, `ugc` for organic creator briefs before Spark, and
+  `apple-search-ads` for iOS Search Ads.
 metadata:
-  category: marketing
-  skills:
-  - tiktok
-  - ads
-  - social-ads
-  - video-ads
-  - short-form
-  clawdbot:
-    emoji: 📱
-    displayName: TikTok Ads
+  version: "1.0.0"
+  openclaw: '{"emoji":"📱"}'
+  related-skills: '{"ads":"Cross-platform paid acquisition principles when TikTok is one channel among Meta/Google/LinkedIn/YouTube.","apple-search-ads":"iOS App Store search campaigns and SKAN/AdServices attribution outside TikTok auction ads.","content-marketing":"Owned funnel content programs that paid TikTok traffic may feed.","copywriting":"Headline/body/CTA craft without TikTok Ads Manager mechanics.","digital-marketing":"Channel-mix planning around TikTok paid placements.","ugc":"Creator briefs and organic short-form craft before Spark authorization or boost.","video-captions":"Burn-in caption mechanics for sound-off TikTok creative.","video-generation":"Synthetic/video-model pipelines when generating TikTok creatives."}'
 ---
 
-## Creative Rules
+## When to load
 
-- First 1-3 seconds determine everything — if viewers don't stop scrolling immediately, the rest doesn't matter
-- Native content outperforms ads — shoot vertical (9:16), use trending sounds, avoid polished brand look
-- Hook patterns that work: pattern interrupt, bold claim, direct question, unexpected visual, POV setup
-- Text overlays are mandatory — 80%+ of users watch with sound off, burned-in captions aren't optional
-- Refresh creative every 7-14 days — fatigue hits faster than any other platform, have pipeline ready
+Load this skill for **TikTok Ads Manager** work: Spark Ads, auction campaign structure, TikTok budgets and learning-phase pacing, Custom/Lookalike audiences, Pixel + Events API measurement, and iOS 14.5+ dedicated campaign constraints.
 
-## Spark Ads
+Route elsewhere when the ask is broader paid media (`ads`), organic creator briefs without ad-account mechanics (`ugc`), pure copy (`copywriting`), or Apple Search Ads (`apple-search-ads`).
 
-- Spark Ads use organic posts as ads — keeps comments, likes, shares visible and accumulating
-- Organic engagement on Spark Ads compounds — viral potential unlike standard ads
-- Creator handles can be swapped — run ads from your brand handle or creator's handle
-- Require creator authorization code — valid for 7, 30, or 365 days, get longer duration upfront
-- Boosting already-performing organic posts is safer than untested creative — data before dollars
+## Resource guide
 
-## Targeting Mistakes
+| Resource | Load when |
+| --- | --- |
+| `references/campaign-ops.md` | Structuring campaigns/ad groups, bidding posture, learning-phase edits, scaling budgets |
+| `references/creative-and-spark.md` | Native creative rules, Spark Ads authorization, captions, creative refresh |
+| `references/audiences-and-measurement.md` | Custom/Lookalike audiences, Pixel + Events API, attribution caveats, iOS 14.5+ dedicated campaigns |
+| `references/sources.md` | Re-opening official TikTok Ads Manager / Business Help URLs before stating live limits |
 
-- Interest targeting is less accurate than Meta — TikTok's algorithm learns faster from creative signals
-- Start broad, let algorithm optimize — overtargeting restricts the machine learning that makes TikTok work
-- Custom Audiences need 1000+ users minimum — smaller lists won't deliver
-- Lookalike percentages are different scale — 1% on TikTok is broader than 1% on Meta
-- Behavior targeting (video completion, engagement) often outperforms interest targeting
+## Operating rules
 
-## Bidding Strategy
+1. Treat TikTok Ads Manager UI labels, budget floors, campaign quotas, and authorization durations as **live facts**. Open `references/sources.md` and the linked help article before asserting a number that can change.
+2. Keep `SKILL.md` as the router. Open one reference file for the current task; do not dump every tactic into the first reply.
+3. Separate **platform floors** (documented minima) from **performance heuristics** (directional creative/testing advice). Label heuristics as heuristics.
+4. Prefer native vertical creative and Spark Ads from proven organic posts when the goal is auction performance with social proof.
+5. For web conversions, plan Pixel + Events API together with deduplication rather than Pixel alone.
+6. Keep ad-account secrets, Spark authorization codes, customer lists, and private analytics out of the skill package and out of git.
 
-- Learning phase needs 50 conversions in 7 days — budget must support this or campaign never optimizes
-- Cost Cap is stabler than Bid Cap for beginners — limits volatility while algorithm learns
-- Lowest Cost burns budget fast on launch — switch to Cost Cap after gathering initial data
-- Minimum daily budget per ad group: $20-50 depending on objective — below this, delivery is inconsistent
-- Don't edit campaigns during learning phase — resets progress, wait until 50 conversions
+## Decision shortcuts
 
-## Campaign Structure
-
-- One campaign per objective — mixing awareness and conversion in same campaign confuses optimization
-- 3-5 ad groups per campaign is optimal — enough for testing, not so many that budget fragments
-- 3-5 creatives per ad group — algorithm needs options to test but too many dilutes learnings
-- Separate iOS and Android campaigns post-ATT — iOS tracking is limited, don't let it pollute Android data
-- Catalog ads for e-commerce — dynamic product ads outperform static for retargeting
-
-## Platform Mechanics
-
-- Content is served via For You algorithm, not follower graph — follower count matters less than Meta
-- Hashtag challenges are paid products — organic hashtags have minimal targeting value in ads
-- Comments section is public and active — negative comments kill CTR, moderate or disable if problematic
-- Video completion rate is primary signal — optimize for watch time, not just clicks
-- TikTok pixel has same iOS limitations as Meta — use Events API for server-side tracking
-
-## Creative Testing
-
-- Test hooks independently from body — first 3 seconds are separate variable from rest of video
-- A/B test in creative tools, not ad platform — TikTok's native split testing is limited
-- User-generated style beats studio quality — imperfect > polished on this platform
-- Test creator vs brand voice — same script performed differently converts at different rates
-- Winners emerge fast — if no signal in 3-5 days, creative likely won't work
-
-## Conversion Tracking
-
-- Standard pixel misses 40%+ of iOS conversions — implement Events API for accuracy
-- View-through window defaults to 7 days — conservative window (1 day) shows truer performance
-- Lead gen forms have high drop-off — keep fields to absolute minimum (name, email, phone)
-- TikTok Shop has native tracking — if selling via Shop, conversion data is more complete
-- Attribution is last-click by default — view-through conversions are modeled, not deterministic
-
-## Scaling Patterns
-
-- Increase budget 20-30% max per day — larger jumps reset learning phase
-- Horizontal scaling: duplicate ad groups with different targeting — avoids audience overlap issues
-- Creative is the scaling lever — same audience with new creative > same creative with forced reach
-- CPMs spike during holidays and elections — plan 2-3x budget for Q4 and avoid political seasons if possible
-- International markets have lower CPMs — test UK, Canada, Australia before saturating US
-
-## Common Failures
-
-- Repurposing Instagram Reels directly — TikTok users detect non-native content instantly
-- Logo in first 3 seconds — viewers skip ads, not content. Logo at end, not beginning
-- Long intros or brand statements — no one waits, hook must be immediate
-- Ignoring comments — negative comments are social proof against you, moderate actively
-- Expecting Meta-level tracking accuracy — TikTok attribution is less mature, expect discrepancies
+- **New conversion campaign**: one objective per campaign → enough budget to clear documented floors → 3–5 ad groups / 3–5 creatives → lock major edits while learning → measure with Pixel + Events API.
+- **Organic winner ready to pay**: Spark Ads path in `references/creative-and-spark.md` (authorize post, preserve engagement on the organic asset).
+- **CPA unstable after launch**: check learning-phase edits, budget step size, creative fatigue, and signal loss (iOS / Pixel gaps) via `references/campaign-ops.md` and `references/audiences-and-measurement.md`.
+- **iOS app promotion post-ATT**: use TikTok's iOS 14.5+ dedicated campaign product and quota rules; do not mix assumptions from Android auction data.
