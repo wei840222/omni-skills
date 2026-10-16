@@ -1,6 +1,11 @@
-# Memory Template — Car Rental
+# Memory Templates — Car Rental
 
-Create `~/Clawic/data/car-rental/memory.md` with this structure:
+Static templates only. Operating rules live in `SKILL.md` and
+`references/setup.md`.
+
+## `memory.md`
+
+Create `<state_root>/memory.md` with:
 
 ```markdown
 # Car Rental Memory
@@ -12,7 +17,6 @@ last: YYYY-MM-DD
 integration: pending
 
 ## Preferences
-<!-- Add as you learn from conversations -->
 
 ### Vehicle
 <!-- car class, transmission, fuel type, features -->
@@ -27,7 +31,7 @@ integration: pending
 <!-- memberships, tiers, benefits -->
 
 ## Frequent Locations
-<!-- airports, cities, countries they commonly rent in -->
+<!-- airports, cities, countries -->
 
 ## Active Alerts
 <!-- ongoing price monitoring -->
@@ -39,17 +43,15 @@ integration: pending
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
-| `ongoing` | Still learning | Add info when user shares it |
-| `complete` | Has enough context | Work normally |
-| `paused` | User said "not now" | Don't ask, work with what you have |
+| `ongoing` | Still learning | Add info when the user shares it |
+| `complete` | Enough context | Work normally |
+| `paused` | User said "not now" | Work silently with existing data |
 
-## Search Configuration
-
-For saved searches in `~/Clawic/data/car-rental/searches/`:
+## Saved search (`searches/`)
 
 ```markdown
 # Search: [Name]
@@ -68,16 +70,14 @@ frequency: immediate | daily | weekly
 active: true | false
 
 ## Price History
-<!-- snapshots for comparison -->
-YYYY-MM-DD: €XX (Site)
 YYYY-MM-DD: €XX (Site)
 
 ---
 *Created: YYYY-MM-DD*
 ```
 
-## Key Principles
+## Principles
 
-- **Store what user explicitly shares** — preferences, locations, alerts
-- **Update `last`** on each use
-- **Track price history** to identify good deals
+- Store what the user explicitly shares.
+- Update `last` on each meaningful use.
+- Track price history to spot genuine drops.

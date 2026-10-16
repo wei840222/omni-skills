@@ -1,182 +1,113 @@
 ---
 name: car-rental
-slug: car-rental
-version: 1.0.0
-description: Find the best car rental deals with price comparison, alerts, and lease vs rent analysis.
-homepage: https://clawic.com/skills/car-rental
-changelog: Initial release with monitoring, price tracking, and smart comparison features.
+description: >
+  Find and compare car rental deals, track dynamic pricing alerts, and analyze
+  rent vs lease vs buy for vehicle needs. Use when the user needs a hire car,
+  airport or city pickup quote, insurance and deposit guidance, one-way drop
+  fees, long-term rental or subscription comparison, or lease-vs-rent advice.
+  Prefer `travel` / `travel-planning` for whole-trip standing systems and
+  itineraries, `taxi` for on-demand rides rather than multi-day self-drive,
+  `parking` for bay search after a car is secured, `booking` for lodging, and
+  `buy` when the ask shifts to purchasing a vehicle.
 metadata:
-  clawdbot:
-    emoji: 🚗
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Car Rental
+  version: "1.1.0"
+  openclaw: '{"emoji":"🚗"}'
+  related-skills: '{"travel":"Standing travel docs, wishlists, and long-lived trip boxes that may include self-drive segments.","travel-planning":"Day-by-day itineraries where a hire car is only one leg.","taxi":"On-demand rideshares and car services instead of multi-day self-drive.","parking":"Bay search and reservation after a rental car is secured.","booking":"Lodging and non-vehicle reservation terms.","buy":"Vehicle purchase research when rent/lease is no longer the right path.","compare":"Generic option matrices outside rental-specific total-cost rules."}'
 ---
 
-## Setup
+# Car Rental
 
-On first use, read `setup.md`. Always ask user permission before creating ~/Clawic/data/car-rental/ folder or any files.
+Help the user find, compare, and decide on vehicle hire. Always compare more
+than one source, price the **total** cost (not the headline daily rate), and
+resolve durable preferences under `<state_root>/` only after consent.
 
-## When to Use
+## State location
 
-User needs to rent, lease, or find vehicle deals. Agent handles price comparison across sites, monitors for deals, tracks preferences, and analyzes rent vs lease vs buy decisions.
+Car-rental preferences, saved searches, and alerts may exist in
+`<workspace>/car-rental/`, `<workspace>/memory/car-rental/`, or `~/car-rental/`.
 
-## Architecture
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Memory lives in `~/Clawic/data/car-rental/`. See `memory-template.md` for structure.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/car-rental/`, `<workspace>/memory/car-rental/`, `~/car-rental/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable state must be created, default to
+   `<workspace>/car-rental/` when `<workspace>` is available; otherwise ask for a
+   state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
 
-```
-~/Clawic/data/car-rental/
-├── memory.md        # Preferences, active searches, alerts
-├── searches/        # Saved search configurations
-└── history/         # Past rentals and price snapshots
-```
+Use the selected `<state_root>` for every state operation in this skill. If older
+notes exist only at `~/Clawic/data/car-rental/`, propose a copy/validation/cutover
+plan and wait for user confirmation before any migration. Never write the
+literal string `<state_root>` to disk.
 
-## Quick Reference
+## When to use
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Sites and sources | `sites.md` |
-| Rent vs Lease | `comparison.md` |
+- Short airport or city rentals with multi-site price comparison
+- One-way drop-offs, mileage caps, young-driver or debit-card constraints
+- Insurance / CDW excess checks against the user's existing coverage
+- Price-drop or availability alerts the user explicitly requested
+- Rent vs long-term rental vs lease vs buy for a known duration
 
-## Core Rules
+## Quick reference
 
-### 1. Always Compare Multiple Sources
-Never recommend based on one site. Check at least 3 sources:
-- Aggregators: Kayak, Google Flights, Rentalcars.com
-- Direct: Hertz, Avis, Enterprise, Sixt, Europcar
-- Budget: AutoEurope, DiscoverCars, local options
+Load only the smallest file needed. Keep this SKILL.md as the router:
 
-### 2. Factor Total Cost
-Base price is misleading. Always calculate:
-- Insurance (CDW, theft, liability)
-- Fuel policy (full-to-full vs prepaid)
-- Airport fees and taxes
-- Mileage limits and overage charges
-- One-way drop-off fees
-- Young/senior driver surcharges
+| Need | Load |
+|------|------|
+| First-use setup / consent | `references/setup.md` + `assets/data-templates.md` |
+| Aggregators, fleets, subscriptions | `references/sites.md` |
+| Rent vs lease vs buy framework | `references/comparison.md` |
+| Verified source pins (Gate 6) | `references/sources.md` |
 
-### 3. Track User Preferences
-Save and apply:
-- Preferred car class (economy, SUV, luxury)
-- Insurance preferences (own coverage vs rental)
-- Transmission preference (auto vs manual)
-- Fuel type (petrol, diesel, electric, hybrid)
-- Loyalty programs (Hertz Gold, Avis Preferred, etc.)
+## Core rules
 
-### 4. Monitor With Permission
-When user explicitly requests an alert:
-- Ask how often they want updates
-- Check prices at requested intervals
-- Notify on significant drops (>15%)
-- Track availability for high-demand dates
-- User can disable alerts anytime
+1. **Compare multiple sources.** Check at least two distinct channels (for
+   example one aggregator and the winning company's direct site, or two
+   aggregators). Prefer three when time allows: aggregator, direct, budget.
+2. **Price total cost.** Include insurance (CDW / theft / liability), fuel
+   policy, airport fees and taxes, mileage overage, one-way fees, and age
+   surcharges before recommending.
+3. **Apply saved preferences.** Use preferred class, transmission, fuel,
+   insurance stance, and loyalty programs from `<state_root>/memory.md` when
+   present.
+4. **Alerts only with permission.** Ask frequency, notify on meaningful drops
+   (about 15%+), and let the user disable anytime.
+5. **Match product to duration.**
 
-### 5. Match Solution to Duration
-| Duration | Best Option |
-|----------|-------------|
-| 1-7 days | Standard rental |
-| 1-4 weeks | Long-term rental or subscription |
-| 1-6 months | Lease or subscription |
+| Duration | Prefer |
+|----------|--------|
+| 1–7 days | Standard rental |
+| 1–4 weeks | Long-term rental or subscription |
+| 1–6 months | Lease or subscription |
 | 6+ months | Lease, finance, or buy |
 
-### 6. Location Intelligence
-Prices vary dramatically by:
-- Airport vs city center (airport often 30-50% more)
-- Country regulations (some require IDP)
-- Local vs international companies
-- Seasonal demand (holidays, events)
+6. **Location intelligence.** Airport counters often cost more than city
+   depots; check IDP / local licence rules and seasonal demand before locking
+   a quote.
 
-## Car Rental Traps
+## Cost traps to navigate
 
-- **Prepaid fuel trap** → Often overpriced. Full-to-full policy is usually cheaper unless you genuinely cannot refuel before return.
-- **Basic insurance trap** → CDW often has high excess (€1000+). Check if your credit card or travel insurance covers this.
-- **One-way fee surprise** → Can be €100-500+. Always check before booking if picking up and dropping off in different locations.
-- **Manual transmission default** → In Europe, cheapest options are often manual. Filter for automatic if needed.
-- **Mileage caps** → Some "cheap" deals have 100km/day limits. Calculate your actual needs.
-- **Credit card hold trap** → Some companies block €1000-3000 on your card. Debit cards often refused.
+Steer the user toward safer defaults rather than scare lists:
 
-## Comparison Framework
+- Prefer **full-to-full fuel** unless refuelling before return is genuinely
+  impractical; prepaid fuel is often overpriced.
+- Treat basic CDW as incomplete when excess is high (€1000+); check credit-card
+  or travel-insurance secondary coverage first.
+- Confirm **one-way drop fees** before booking different cities.
+- In Europe, filter for **automatic** when needed — cheapest rows are often
+  manual.
+- Recalculate deals that advertise low daily rates with tight **mileage caps**.
+- Plan for **credit-card holds** (€1000–3000). Debit cards are frequently
+  refused or require extra proof; verify the primary driver's physical card.
 
-### Rent vs Lease vs Buy
+## Output expectations
 
-| Factor | Short Rental | Long-term Lease | Buy |
-|--------|--------------|-----------------|-----|
-| Duration | Days to weeks | Months to years | Permanent |
-| Upfront cost | Low | Medium | High |
-| Monthly cost | Highest | Medium | Lowest (once paid) |
-| Flexibility | Maximum | Medium | Low |
-| Maintenance | Included | Usually included | Your responsibility |
-| Best for | Travel, occasional use | Temporary relocation, testing | Permanent need |
-
-### When to Consider Leasing
-- Relocating 3-12 months
-- Testing a car before buying
-- Don't want maintenance hassle
-- Business use with tax benefits
-- Credit score issues (easier than financing)
-
-### When Short-term Rental Beats Leasing
-- Less than 2-3 months total use
-- Sporadic use (weekends only)
-- Different car needs each time
-- Peak season (leasing harder to find)
-
-## Alert Configuration
-
-Users can set alerts for:
-- **Price drop** — Notify when price falls below threshold
-- **Availability** — Notify when specific car becomes available
-- **Deal quality** — Notify when total cost is in bottom 20% historically
-- **Comparison** — Notify when better option found vs current booking
-
-Alert frequency options:
-- Immediate (any change)
-- Daily digest
-- Weekly summary
-
-## Data Storage
-
-**All data is stored locally in ~/Clawic/data/car-rental/ (created only with your permission):**
-- memory.md — your preferences and active alerts
-- searches/ — saved search configurations
-- history/ — past rental price snapshots
-
-**You control everything:**
-- View: Read any file in ~/Clawic/data/car-rental/
-- Delete: Remove files or the entire folder anytime
-- No cloud sync, no external storage
-
-## Security & Privacy
-
-**Data that stays local:**
-- All preferences and search history in ~/Clawic/data/car-rental/
-- No telemetry or cloud sync
-
-**When comparing prices:**
-- Agent searches rental sites using your specified criteria (location, dates, car type)
-- These search parameters are sent to rental sites (Kayak, Hertz, etc.) as part of normal searches
-- No account credentials, payment info, or personal identifiers are shared
-
-**This skill does NOT:**
-- Store payment information
-- Make bookings on your behalf
-- Access files outside ~/Clawic/data/car-rental/
-- Send data to any server we control
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `travel` — trip planning and logistics
-- `expenses` — track rental costs
-- `money` — budget decisions
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/car-rental
-- Latest version: https://clawic.com/skills/car-rental
+- Name the sources checked and the total-cost assumptions.
+- Separate headline rate from fees, insurance, and deposit holds.
+- When lease/buy enters the conversation, load `references/comparison.md`
+  before recommending.
+- Prefer other skills when the ask is itinerary-wide (`travel-planning`),
+  rideshare (`taxi`), parking only (`parking`), or vehicle purchase (`buy`).
