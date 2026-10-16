@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find a parking spot near the Eiffel Tower in Paris for 3 hours starting at 2 PM tomorrow. I need it to be underground and allow a vehicle height of 2.1m.",
+    "expected": "Classify as pre-book. Load references/provider-registry.md / city-patterns.md and prefer European reservation surfaces such as Parclick or Onepark. Verify 2.1m height and underground constraint before recommending; stop before payment.",
+    "actual": "Mode=pre-book; loaded provider-registry + city-patterns; shortlisted Parclick/Onepark underground facilities near the Eiffel Tower; filtered out lots below 2.1m clearance; returned a shortlist with reservation links and asked the user to confirm before any booking handoff.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am landing at SFO tonight and need guaranteed parking near Terminal 2. SpotHero looks cheap on a static listing — can I treat that as spots available?",
+    "expected": "Separate discovery/static listing from reservation inventory. Use SpotHero/ParkWhiz reservation path language (reservable now vs reported open). Check airport walking/shuttle and plate rules; refuse to claim live occupancy from a static page.",
+    "actual": "Rejected static-listing 'spots available' wording; required SpotHero/ParkWhiz booking-window confirmation; noted SFO terminal walking/shuttle and plate constraints; offered reservation shortlist only after the provider exposed a bookable window.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Remember that I always park at the 'City Center Garage' when I go to Boston, prefer PayByPhone for on-street sessions, and my van needs 2.1m clearance. Do not store my full plate beyond the last three characters I approve.",
+    "expected": "Resolve <state_root> with multi-candidate rules, ask confirmation before writing favorites/cities/memory, store vehicle height and masked plate only, and mention migration if only ~/Clawic/data/parking/ exists.",
+    "actual": "Resolved state_root per SKILL.md (reported duplicates if present), asked confirmation, wrote City Center Garage into favorites.md, PayByPhone Boston default into cities.md, 2.1m van constraint into memory.md, stored only user-approved plate suffix, and offered Clawic migration plan without copying receipts.",
+    "pass": true
+  }
+]
