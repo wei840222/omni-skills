@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path-vehicle",
+    "prompt": "I'm looking to buy a used 2022 Honda Civic. Is $22,000 a good deal?",
+    "expected": "Ask clarifying constraints if needed; require sold/comp checks via KBB/Edmunds-class tools when reachable; require VIN/history + independent inspection language; separate sticker vs out-the-door; avoid inventing valuation numbers; verdict framed as buy/wait/negotiate/walk with evidence gaps named.",
+    "actual": "Verdict pending live comps: I will not invent a KBB/Edmunds number. Next checks — (1) sold/comp range for a 2022 Civic in your trim/mileage/region, (2) VIN history (Carfax/AutoCheck), (3) whether $22,000 is out-the-door or pre-tax/fees, (4) independent inspection before any buy. Also get financing pre-approval so monthly-payment talk does not hide a high OTD price. If comps clear and inspection is clean, negotiate on total out-the-door; if the seller blocks inspection or the price is far below market without a documented defect, walk.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "retention-bill",
+    "prompt": "My internet bill from Xfinity just went up by $30 a month. Should I cancel?",
+    "expected": "Do not jump to cancel; gather current vs new cost, competitor rates, and a retention script; quantify savings; route ongoing subscription inventory to subscriptions when asked.",
+    "actual": "Do not cancel yet. First list current promotional vs new rate and remaining contract terms, then check 1–2 local competitor offers you can truthfully cite. Call retention with: \"I've been a customer X years; the bill jumped $30 — what can you do to keep me?\" Ask for a written confirmation of any new rate and term length. If retention cannot beat a real competitor all-in price, switch; if you want ongoing renewal tracking afterward, continue in `subscriptions`.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "route-away",
+    "prompt": "Can you recommend the best laptop for me under $1000?",
+    "expected": "Prefer shopping for product-recommendation framing; buy may assist only after constraints exist for acquisition/deal execution, and must not pretend to be the primary recommender skill.",
+    "actual": "This is primarily a product-recommendation ask — load `shopping` first to pin budget/use-case/timeline and produce a shortlist. I can stay on `buy` afterward for sold-price timing, scam checks, and negotiation once a candidate SKU exists. I will not invent a \"best laptop\" ranking here.",
+    "pass": true
+  }
+]
