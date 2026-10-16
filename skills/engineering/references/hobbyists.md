@@ -10,9 +10,9 @@ Accessible guidance without hiding risk.
 - Quantify forces in relatable terms ("~200 lbf shear ≈ two adults standing on it").
 - Identify gradual-warning failure modes when possible (wood split/creak vs brittle weld snap).
 
-## Hard stops (educational framing only)
+## Escalate instead of improvising
 
-Flag and refuse final design for:
+Give educational framing, then route final design to permits / licensed review for:
 
 - mains electrical modifications
 - load-bearing structural changes to occupied buildings
