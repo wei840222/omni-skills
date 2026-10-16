@@ -1,163 +1,126 @@
 ---
 name: seville
-slug: seville
-version: 1.0.0
-description: Navigate Seville as visitor, resident, tech worker, student, or entrepreneur with neighborhoods, transport, costs, flamenco, and local insights.
-homepage: https://clawic.com/skills/seville
+description: >
+  Navigate Seville for visitors, residents, tech workers, students, and
+  entrepreneurs: neighborhoods, TUSSAM/metro/bike, costs, tapeo culture,
+  flamenco authenticity, Semana Santa/Feria timing, extreme summer heat, and
+  local services. Use for Seville stay, move, commute, or work-base decisions.
+  Prefer `spain` for multi-city Spain routing, `travel`/`travel-planning` for
+  generic trip systems, and `expat` for full cross-border move project tracking.
 metadata:
-  clawdbot:
-    emoji: 🏛️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Seville
+  version: "1.1.0"
+  openclaw: '{"emoji":"🏛️"}'
+  related-skills: '{"booking":"Lodging search and reservation completion after a Seville neighborhood base is chosen.","dubai":"Peer dense-city guide when comparing city-skill patterns.","expat":"Cross-border move project tracking beyond Seville neighborhood and settling advice.","spain":"Country-level multi-city Spain routing when Seville is only one stop.","spanish":"Everyday Spanish for menus, bookings, and on-the-ground talk.","travel":"Standing multi-destination travel records when Seville is one city among several.","travel-planning":"Day-by-day multi-city itineraries when the trip leaves Seville.","valencia":"Peer Andalusian/Spanish city guide for Valencia comparisons."}'
 ---
 
-## When to Use
+## State location
 
-User asks about Sevilla for any purpose: visiting, moving, working, studying, or starting a business. Agent provides practical guidance with current data.
+Seville continuity state may exist in `<workspace>/seville/`, `<workspace>/memory/seville/`, or `~/seville/`. Before reading or writing state, resolve `<state_root>` as follows:
 
-## Quick Reference
+1. Use an explicitly configured path when one exists (host config or user override).
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/seville/`, `<workspace>/memory/seville/`, `~/seville/`.
+3. If several candidate directories exist, use only the highest-precedence one and report the separate copies; do not merge or cross-write.
+4. If none exists and the user explicitly wants continuity, create `<workspace>/seville/` by default.
+5. If the host cannot supply `<workspace>`, read an existing `~/seville/` only; otherwise ask for a state root before creating data.
 
-| Topic | File |
-|-------|------|
-| **Visitors** | |
-| Attractions (must-see vs skip) | `visitor-attractions.md` |
-| Itineraries (1/3/7 days) | `visitor-itineraries.md` |
-| Where to stay | `visitor-lodging.md` |
-| Tips and day trips | `visitor-tips.md` |
-| **Neighborhoods** | |
-| Quick comparison | `neighborhoods-index.md` |
-| Centro and Santa Cruz | `neighborhoods-centro.md` |
-| Triana | `neighborhoods-triana.md` |
-| La Macarena | `neighborhoods-macarena.md` |
-| Nervion and Los Remedios | `neighborhoods-modern.md` |
-| Choosing guide | `neighborhoods-choosing.md` |
-| **Food** | |
-| Overview and tapeo culture | `food-overview.md` |
-| Traditional Sevillian dishes | `food-traditional.md` |
-| Best tapas bars and areas | `food-tapas.md` |
-| Markets and food halls | `food-markets.md` |
-| Dietary tips and Ramadan | `food-practical.md` |
-| **Practical** | |
-| Moving and settling | `resident.md` |
-| Transport (metro, bus, bike) | `transport.md` |
-| Cost of living | `cost.md` |
-| Safety | `safety.md` |
-| Weather and survival tips | `climate.md` |
-| Local services (banks, SIM) | `local.md` |
-| **Career** | |
-| Tech industry and salaries | `tech.md` |
-| Startups and coworking | `startup.md` |
-| **Lifestyle** | |
-| Feria and Semana Santa | `fiestas.md` |
-| Flamenco (real vs tourist) | `flamenco.md` |
-| Students and universities | `student.md` |
+Use the selected `<state_root>` for every state operation in this invocation. Create or update `<state_root>/memory.md` only when the user wants context kept across sessions. Legacy `~/Clawic/data/seville/` is a migration source only—keep it out of active lookup; move only with explicit user consent (copy, validate, cutover).
 
-## Core Rules
+Scripts and shell examples must receive the resolved filesystem path; never write the literal string `<state_root>` to disk.
 
-### 1. Identify User Context First
-- **Role**: Tourist, resident, tech worker, student, entrepreneur
-- **Timeline**: Short visit, planning to move, already there
-- Load relevant auxiliary file for details
+Research notes and official source URLs live in `references/sources.md` (progressive disclosure).
 
-### 2. Heat Reality
-Sevilla has extreme summers that affect everything:
-- **Summer (Jun-Sep)**: 35-45C regularly, July-August brutal
-- **Best months**: Mar-May, Oct-Nov (20-28C, perfect)
-- **Siesta culture**: Many businesses close 14:00-17:00
-See `climate.md` for survival strategies.
+## When to use
 
-### 3. Tapeo Culture
-Sevilla's social life revolves around tapas hopping:
-- **Free tapas**: Many bars include free tapa with each drink
-- **Standing culture**: Crowded bars, no seats = good sign
-- **Timing**: Lunch tapas 13:30-16:00, dinner 20:30-midnight
-See `food-overview.md` and `food-tapas.md` for specifics.
+Use for **Seville (Sevilla city + metro area)** decisions: visit length and neighborhood base, relocation fit, TUSSAM/metro/bike routing, cost bands, safety street-smarts, tech/work base, visas and residency *orientation*, tapeo/food, flamenco authenticity, Semana Santa/Feria timing, climate survival, schools, healthcare orientation, and driving-in-city tradeoffs (including ZBE).
 
-### 4. Current Data (Feb 2026)
+Do **not** use this skill as the sole source for a multi-city Spain itinerary (`spain`), a multi-country standing travel system (`travel`), generic day packing across cities (`travel-planning`), or a full move project board (`expat`).
 
-| Item | Range |
-|------|-------|
-| 1BR rent (Centro) | EUR 700-1,000/month |
-| 1BR rent (Triana) | EUR 600-900/month |
-| 1BR rent (outer) | EUR 450-650/month |
-| Tech salary (mid) | EUR 28,000-42,000/year |
-| Tapa + beer | EUR 2.50-4.00 |
-| Monthly transport | EUR 40 (Tarjeta Multiviaje) |
-| Cerveza (cana) | EUR 1.50-2.50 |
+Classify the user first: visitor, planning-to-move, already-resident, tech/remote worker, student, or entrepreneur. Ask only for the next missing detail that changes the recommendation (dates/month, budget currency, passport, kids, Spanish level, quiet vs nightlife priority).
 
-### 5. Semana Santa and Feria Impact
-Two events transform the city annually:
-- **Semana Santa** (Easter week): Processions, crowds, emotional atmosphere
-- **Feria de Abril** (2 weeks after): Week-long party, casetas, flamenco dress
-These are NOT tourist shows — they're core Sevillian identity. Planning around them is essential.
-See `fiestas.md` for complete guide.
+## Reference routing
 
-### 6. Spanish Schedule
-Sevilla runs on late Spanish time:
-- **Lunch**: 14:00-16:00 (restaurants don't open earlier)
-- **Dinner**: 21:00-23:00 (earlier = tourist places)
-- **Nightlife**: Starts 01:00+
-- **Siesta**: 14:00-17:00, many shops closed
-Adjust expectations or suffer closed doors.
+Load the smallest set that answers the current question. Prefer `references/sources.md` before booking-critical fare, entry, residency, or heat-risk claims.
 
-### 7. Neighborhood Matching
+| Topic | File | When to load |
+| --- | --- | --- |
+| Continuity setup | `references/setup.md` | User wants persistent Seville context or empty `<state_root>/` |
+| Memory structure | `assets/memory-template.md` | Creating/updating `<state_root>/memory.md` after consent |
+| Official source map | `references/sources.md` | Before booking-critical fares, entry rules, residency, or agency claims |
+| Visitor attractions | `references/visitor-attractions.md` | Must-see vs skip lists |
+| Visitor itineraries | `references/visitor-itineraries.md` | 1/3/7-day frames |
+| Visitor lodging | `references/visitor-lodging.md` | Hotel/Airbnb neighborhood fit for short stays |
+| Visitor tips | `references/visitor-tips.md` | Day trips, packing, practical visitor traps |
+| Neighborhoods index | `references/neighborhoods-index.md` | Quick neighborhood comparison |
+| Centro / Santa Cruz | `references/neighborhoods-centro.md` | Historic core bases |
+| Triana | `references/neighborhoods-triana.md` | River / flamenco / local feel |
+| La Macarena | `references/neighborhoods-macarena.md` | Value residential / northern edge |
+| Nervión / Los Remedios | `references/neighborhoods-modern.md` | Modern / business / shopping bases |
+| Choosing guide | `references/neighborhoods-choosing.md` | Profile → neighborhood matching |
+| Food overview / tapeo | `references/food-overview.md` | Meal timing and social food culture |
+| Traditional dishes | `references/food-traditional.md` | Local specialties |
+| Tapas bars / areas | `references/food-tapas.md` | Bar routing |
+| Markets / food halls | `references/food-markets.md` | Market shopping |
+| Dietary / Ramadan notes | `references/food-practical.md` | Practical dietary constraints |
+| Moving / settling | `references/resident.md` | Empadronamiento, NIE orientation, move-in |
+| Transport | `references/transport.md` | Walk / bus / metro / bike / ZBE |
+| Cost of living | `references/cost.md` | Rent and monthly budget orientation |
+| Safety | `references/safety.md` | Petty theft + heat risk framing |
+| Climate survival | `references/climate.md` | Extreme summer planning |
+| Local services | `references/local.md` | Banks, SIM, admin surfaces |
+| Tech / salaries | `references/tech.md` | Local tech scene orientation |
+| Startups / coworking | `references/startup.md` | Coworking and startup hubs |
+| Fiestas | `references/fiestas.md` | Semana Santa and Feria de Abril |
+| Flamenco | `references/flamenco.md` | Authentic vs tourist tablao routing |
+| Students | `references/student.md` | Universities and student life |
 
-| Profile | Best Areas |
-|---------|------------|
-| Young professionals | Alameda, Feria, Centro |
-| Families | Nervion, Los Remedios, Porvenir |
-| Budget-conscious | Macarena, Cerro del Aguila, San Pablo |
-| Students | Macarena, Nervion (near universities) |
-| Beach lifestyle | N/A (beach is 1h+ away) |
-| Remote workers | Alameda, Triana, Centro |
-| Short-term visitors | Santa Cruz, Centro, Arenal |
+## Core rules
 
-### 8. Language Context
-- **Spanish**: Everyone speaks it, Sevillian accent is strong
-- **English**: Limited outside tourist areas and tech companies
-- **Accent**: Sevillanos "eat" consonants (s, d at end of words)
-- **Key phrases**: "Quillo" (mate), "mi arma" (endearment), "vamo a ve" (let's see)
-Learn basic Spanish — it transforms the experience.
+1. **Identify context first** — role, timeline, month, budget currency, passport, and Spanish level before locking a neighborhood or itinerary.
+2. **Heat is a planning constraint** — June–September regularly hits 35–45°C; treat afternoon outdoor sightseeing as a heat-risk decision, not a default. Prefer morning outdoor blocks and indoor/rest windows 14:00–17:00. See `references/climate.md`.
+3. **Tapeo is the social default** — many bars include a tapa with a drink; standing crowds often signal quality; lunch windows ~13:30–16:00 and dinner ~20:30–midnight. See `references/food-overview.md` and `references/food-tapas.md`.
+4. **Treat money and legal tables as orientation** — rent, salary, fare, and fee ranges expire. Re-open the matching page in `references/sources.md` before non-refundable bookings or filings.
+5. **Plan around civic festivals** — Semana Santa and Feria de Abril reshape lodging, noise, and access; book early and treat caseta access as invite-driven. See `references/fiestas.md`.
+6. **Use Spanish schedules** — lunch often opens ~14:00; dinner commonly 21:00–23:00; nightlife later. Early openings are usually tourist-oriented.
+7. **Prefer authentic flamenco routing** — Triana bars and peñas over Santa Cruz tourist tablaos when authenticity matters. See `references/flamenco.md`.
+8. **Prefer transit or walking in Centro** — ZBE, tickets, and theft risk make street parking a poor default.
 
-## Sevilla-Specific Traps
+## Orientation ranges (verify live)
 
-- **Summer heat underestimation** — 45C is real. July-August visitors must plan indoor activities.
-- **Siesta timing** — Shops close 14:00-17:00. Plan morning and evening activities.
-- **Eating too early** — Restaurant at 19:00 = empty tourist trap. Real places fill at 21:30+.
-- **Flamenco tourist shows** — Tablao in Santa Cruz = expensive mediocrity. Real flamenco is in Triana bars.
-- **Feria without caseta** — Feria casetas are private. Without local invite, limited access.
-- **Semana Santa weekend trip** — Book hotels 6+ months ahead. Everything triples in price.
-- **Street parking Centro** — Don't. ZBE zone, constant tickets, risk of theft.
-- **Cash assumptions** — Many tapas bars are card-only now, but smaller places still cash-only.
-- **Beach expectations** — Nearest beach is Matalascanas (1h+). Sevilla is NOT coastal.
-- **AC in old buildings** — Historic center apartments often lack proper AC. Verify before renting.
+| Item | Orientation range |
+| --- | --- |
+| 1BR Centro rent | EUR 700–1,000 / month |
+| 1BR outer rent | EUR 450–650 / month |
+| Modest monthly total | EUR 1,200–1,600 |
+| Comfortable monthly total | EUR 1,800–2,500 |
+| Best visit months | Mar–May, Oct–Nov |
+| Extreme heat months | Jul–Aug (often 40°C+) |
 
-## Comparing with Other Spanish Cities
+## Common planning upgrades
 
-| Aspect | Sevilla | Madrid | Barcelona |
-|--------|---------|--------|-----------|
-| Cost | Lower | Highest | High |
-| Heat | Extreme summers | Hot but manageable | Mediterranean |
-| Beach | 1h+ away | None | In city |
-| Tech scene | Growing | Largest | Second |
-| English | Limited | Good | Good |
-| Nightlife | 01:00+ start | 01:00+ start | Earlier |
+| Instead of | Prefer |
+| --- | --- |
+| Afternoon Alcázar / cathedral walk in July | Morning ticketed visit + indoor/rest window after lunch |
+| Santa Cruz tourist tablao as “real flamenco” | Triana peña / local bar routing after asking taste and budget |
+| Feria without a caseta plan | Local invite path or clear public-access expectations |
+| Semana Santa weekend hotel booked late | Book 6+ months ahead or shift dates |
+| Street parking in Centro | Walk, TUSSAM, metro, or park-and-walk outside ZBE |
+| Assuming Seville is coastal | Plan Matalascañas (~1h+) as a separate beach trip |
+| Renting a historic flat without checking AC | Confirm AC before summer leases |
+
+## Comparing with other Spanish cities
+
+| Axis | Seville | Madrid | Barcelona |
+| --- | --- | --- | --- |
+| Cost | Lower | Higher | Higher |
+| Heat | Extreme summers | Hot but milder peaks | Hot + humid |
 | Character | Traditional, festive | Cosmopolitan | Catalan, modern |
 
-Sevilla is cheaper, more traditional, and has the strongest local identity of major Spanish cities.
+Seville is typically cheaper and more traditional than Madrid/Barcelona, with a strong local festival identity.
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `dubai` — Expat-heavy city guide with neighborhoods, costs, visas
-- `travel` — General travel planning and trip organization
-- `spanish` — Spanish language learning and practice
+## Safety and honesty boundaries
 
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/seville
-- Latest version: https://clawic.com/skills/seville
+- Do not invent nationality-specific visa outcomes; point to BOE / sede / consulate pages and licensed advisors.
+- Do not treat packaged rent or salary tables as live quotes.
+- Do not store passport numbers, full NIE/TIE, bank credentials, or card numbers in `<state_root>/`.
+- Prefer official Visitasevilla / Spain.info / AEMET / BOE pages over secondary listicles for schedules, weather, and residency orientation.

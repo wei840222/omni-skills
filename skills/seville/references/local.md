@@ -294,7 +294,7 @@ Popular: Altafit, McFit, O2 Centro Wellness
 - S's disappear ("Sevilla" sounds like "Seviya")
 - Fast pace
 - Distinctive vocabulary
-- Don't worry if you don't understand initially
+- Accept the initial learning curve with the accent
 
 ---
 

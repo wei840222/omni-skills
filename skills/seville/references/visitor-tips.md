@@ -46,7 +46,7 @@
 - **Walking** — No transport costs needed
 - **Water fountains** — Refill bottles, safe water
 - **Vermouth hour** — Cheaper than evening drinks
-- **Morning attractions** — Avoid afternoon heat costs (AC cafes)
+- **Morning attractions** — Rest indoors during afternoon heat (AC cafes)
 
 ### Things That Feel Expensive But Aren't
 - **Good jamon** — EUR 8-12 for quality tapa
@@ -57,14 +57,14 @@
 
 ## Tourist Traps
 
-### Avoid
+### Skip
 
 | Trap | Why | Alternative |
 |------|-----|-------------|
 | Las Ramblas-style restaurants | 3x price, bad food | Walk 2 blocks away |
 | Cathedral area restaurants | Tourist menus | Alfalfa, El Rinconcillo |
 | Flamenco with dinner | Overpriced, rushed | Show only, eat elsewhere |
-| Horse carriage | EUR 50+, not worth it | Walk (better) |
+| Horse carriage | EUR 50+, low value | Walk (better) |
 | Tour bus | Limited value | Walking tour or self-guide |
 | Airport taxi negotiation | Should be EUR 23 fixed | Use meter or FreeNow |
 
@@ -80,10 +80,10 @@
 ## Cultural Notes
 
 ### Greetings
-- **Two kisses** — Standard greeting (cheeks, not lips)
+- **Two kisses** — Standard greeting (cheeks, cheeks only)
 - **"Hola"** — Start every interaction
 - **Eye contact** — More than northern Europe
-- **Don't rush** — Pace is slower
+- **Pace yourself** — Pace is slower
 
 ### Eating Culture
 - **Lunch is main meal** — Often 3 courses
@@ -94,7 +94,7 @@
 
 ### Social Norms
 - **Late everything** — Adjust expectations
-- **Loud conversation** — Normal, not rude
+- **Loud conversation** — Normal, accepted culturally
 - **Physical closeness** — More than Anglo cultures
 - **Dress sense** — Smart casual, no gym clothes for dinner
 
@@ -126,7 +126,7 @@
 - **English** — Limited outside tourist core
 - **Spanish basics** — Essential
 - **Google Translate** — Very helpful
-- **Sevillano accent** — Don't worry if you don't understand, they speak fast
+- **Sevillano accent** — Accept the fast pace and heavy accent
 
 ---
 
@@ -142,8 +142,8 @@
 ### Pickpockets
 - **Front pocket/crossbody bag**
 - **Beware crowds** — Cathedral, metro
-- **Terrace bags** — On lap, not chair
-- **Phone awareness** — Don't flash it
+- **Terrace bags** — On lap, keep secure
+- **Phone awareness** — Keep it secure
 
 ### Medical
 - **Pharmacy (Farmacia)** — For minor issues
@@ -188,7 +188,7 @@
 
 ### Cordoba (Must-Do)
 - **Train**: 45 min AVE, EUR 20-40
-- **Mezquita**: Book ahead (not as bad as Alhambra)
+- **Mezquita**: Book ahead (easier than Alhambra)
 - **Jewish Quarter**: Walking around
 - **Patios**: May festival, otherwise still pretty
 - **Day trip**: Easy, leave morning, back evening
@@ -205,7 +205,7 @@
 - **Alhambra**: Book 2-3 MONTHS ahead
 - **Day trip possible**: Tiring but doable
 - **Overnight better**: More relaxed
-- **Without Alhambra tickets**: Don't go specifically for Granada
+- **Without Alhambra tickets**: Plan a dedicated trip for Granada
 
 ### Jerez (Easy Half-Day)
 - **Train**: 1h, EUR 15-25
@@ -269,4 +269,4 @@
 ### Drone
 - Illegal in city center
 - Legal outside populated areas
-- Don't risk it
+- Plan ahead safely

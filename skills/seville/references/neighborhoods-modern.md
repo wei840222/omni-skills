@@ -84,7 +84,7 @@ Comfortable suburban feel within the city. Wide streets, apartment blocks, local
 - **Feria fairgrounds** (empty 50 weeks/year, chaos during Feria)
 - **Parque de los Principes** (park)
 - **Wide avenues**
-- **Local shops, not tourist businesses**
+- **Local shops, local businesses**
 
 ### Who Lives Here
 - Established Sevillano families
@@ -171,7 +171,7 @@ Utilitarian. Near train station, some university presence. Mix of old Sevilla an
 - ❌ Not pretty
 - ❌ Some industrial feel
 - ❌ Less character
-- ❌ Not a destination
+- ❌ Residential hub
 - ❌ Variable block quality
 
 ### Transit
@@ -220,7 +220,7 @@ Stay in Centro, Santa Cruz, or Triana instead.
 - Family with kids
 - Work in business district
 - Value safety and convenience
-- Don't care about "charming streets"
+- Prefer modern layouts over "charming streets"
 
 ### Choose Los Remedios If:
 - Family-focused
@@ -257,7 +257,7 @@ Stay in Centro, Santa Cruz, or Triana instead.
 
 ## Summary
 
-These neighborhoods are for LIVING, not VISITING. No tourist would choose them, but residents value them for:
+These neighborhoods are for LIVING, living. No tourist would choose them, but residents value them for:
 - Safety
 - Practical amenities
 - Reasonable prices

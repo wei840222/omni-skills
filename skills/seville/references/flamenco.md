@@ -57,7 +57,7 @@
 - Dinner shows often mediocre food at high price
 - Large group venues = worse intimacy
 - Earlier shows (19:00) less energetic
-- Book direct, not through hotels (markup)
+- Book direct, independently (markup)
 
 ---
 
@@ -68,7 +68,7 @@
 - Local audience
 - Raw emotion over polish
 - Late night (after midnight)
-- Often in bars, not theaters
+- Often in bars, intimate venues
 - Difficult to access as tourist
 
 ### Where to Find Real Flamenco
@@ -92,10 +92,10 @@
 ### Tips for Authentic Venues
 
 1. **Go late** — Real flamenco starts after midnight
-2. **Don't photograph** — Turn off camera, live the moment
-3. **Be quiet** — Never talk during performance
+2. **Keep cameras away** — Turn off camera, live the moment
+3. **Be quiet** — Skip talk during performance
 4. **Show appreciation** — "Ole!" at right moments (follow locals)
-5. **Don't request songs** — Let it flow naturally
+5. **Let the performance flow** — Let it flow naturally
 6. **Buy drinks** — Support the venue
 7. **Be patient** — May wait 1-2 hours for spontaneous cante
 
@@ -122,7 +122,7 @@
 | **Noche de San Juan** | June 23 | Beach celebrations, some flamenco |
 
 ### Bienal de Flamenco
-Every 2 years (2024, 2026...), September:
+Every 2 years (2024, 2025...), September:
 - 3 weeks of shows
 - World's best artists
 - Theater and street performances

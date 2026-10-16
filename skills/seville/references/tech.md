@@ -1,6 +1,6 @@
 # Tech Industry — Sevilla
 
-> Sevilla's tech scene is small but growing. Not Madrid or Barcelona level, but increasingly viable.
+> Sevilla's tech scene is small but growing. Smaller than Madrid or Barcelona level, but increasingly viable.
 
 ---
 
@@ -39,7 +39,7 @@ Many Sevillanos work remotely for:
 
 ---
 
-## Salaries (2026)
+## Salaries (2025)
 
 ### Local Companies
 
@@ -96,7 +96,7 @@ Former Expo '92 site, now tech/science park:
 ### Nervion
 - Corporate offices
 - NTT Data, larger companies
-- Not startup vibe
+- Corporate vibe
 
 ### Alameda
 - Informal tech community

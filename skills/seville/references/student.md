@@ -111,10 +111,10 @@
 | **Triana** | EUR 350-420 | Character, pricier |
 | **Centro** | EUR 350-450 | Central but tourist |
 
-### Avoid
+### Skip
 - **Santa Cruz** — Too expensive, touristy
 - **Far from university** — Transport adds up
-- **Scams** — Never pay before seeing
+- **Scams** — Skip pay before seeing
 
 ### Tips
 1. Visit in person before paying
@@ -146,7 +146,7 @@
 
 ### Cooking Reality
 - Shared kitchens vary
-- Spanish housemates may not cook much
+- Spanish housemates eat simply
 - Learn to make basic tapas
 - Pasta is universal student food
 
@@ -218,7 +218,7 @@ Outdoor drinking in plazas/parks:
 ## Learning Spanish
 
 ### Reality Check
-- Many Erasmus students DON'T learn much Spanish
+- Many Erasmus students often miss out on much Spanish
 - International bubble is real
 - Sevillano accent is challenging
 - Effort required to break out
@@ -312,7 +312,7 @@ Outdoor drinking in plazas/parks:
 ### Before Arriving
 1. Start searching housing July-August
 2. Join Facebook groups
-3. Don't expect to be fluent immediately
+3. Expect a learning curve to be fluent immediately
 4. Budget properly
 5. Bring documents (NIE, insurance, etc.)
 
@@ -325,7 +325,7 @@ Outdoor drinking in plazas/parks:
 
 ### Common Mistakes
 1. **Only hanging with compatriots** — Defeats purpose
-2. **Not learning Spanish** — Regret later
+2. **Missing Spanish practice** — Regret later
 3. **Spending too much first month** — Pace yourself
-4. **Missing local culture** — It's not just parties
+4. **Missing local culture** — It's cultural immersion
 5. **Terrible housing choice** — Visit before signing

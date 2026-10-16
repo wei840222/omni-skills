@@ -11,7 +11,7 @@ Moorish palace complex. Stunning gardens and architecture.
 | **Time** | 2-3 hours |
 | **Book** | REQUIRED — book 2+ weeks ahead |
 | **Cost** | EUR 14.50 (general), EUR 6 (students) |
-| **When** | Morning to avoid heat and crowds |
+| **When** | Morning to skip heat and crowds |
 | **Tip** | Skip the Royal Apartments add-on |
 
 **Warning:** Without advance booking, expect 2-3 hour queue. Book at alcazarsevilla.org.
@@ -41,7 +41,7 @@ World's largest Gothic cathedral. Columbus's tomb. Iconic bell tower.
 |------|---------|
 | **Why** | Iconic, photogenic, free |
 | **Time** | 30-60 minutes |
-| **Book** | Not needed |
+| **Book** | Walk-in friendly |
 | **Cost** | FREE |
 | **When** | Sunset or morning |
 | **Tip** | Row boats on the canal (EUR 6/35 min) |
@@ -160,7 +160,7 @@ Lesser-known palace with stunning tiles and patios.
 | **Bullring Museum** | Unless specifically interested in bullfighting |
 | **Flamenco tourist shows in Santa Cruz** | Overpriced, inauthentic |
 | **River cruises** | Not much to see, overpriced |
-| **Aquarium** | Small, not worth EUR 17 |
+| **Aquarium** | Small, low value EUR 17 |
 | **Isla Magica** | Unless traveling with kids |
 
 ---

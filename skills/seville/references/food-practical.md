@@ -71,14 +71,14 @@
 **Vegan Restaurants:**
 - Growing in Alameda
 - Search "restaurante vegano sevilla"
-- Not many, but they exist
+- Few, but they exist
 
 ### Gluten-Free
 
 **Better Than Expected:**
 
 **Naturally GF:**
-- Most tapas (not breaded)
+- Most tapas (unbreaded)
 - Meats, fish
 - Cheese, jamon
 - Tortilla
@@ -104,7 +104,7 @@
 - Eggs = huevos
 
 **Be Specific:**
-Spanish speakers may not automatically think of cross-contamination. Be clear.
+Spanish speakers require explicit reminders of cross-contamination. Be clear.
 
 ### Halal
 
@@ -179,7 +179,7 @@ Jerez (Sherry) is 30 minutes away. This is THE local drink.
 ## Tipping
 
 ### The Rule
-**Not expected. Round up if excellent.**
+**Optional. Round up if excellent.**
 
 ### In Practice
 - **Tapas bars**: Leave coins, maybe EUR 0.50-1
@@ -187,8 +187,8 @@ Jerez (Sherry) is 30 minutes away. This is THE local drink.
 - **Coffee**: Leave change
 - **Tour guides**: EUR 5-10 if group tour
 
-### Don't
-- Feel guilty not tipping
+### Mindset
+- Tip only for exceptional service
 - Tip like Americans (15-20%)
 - Hand tip to server (leave on table/bar)
 
@@ -202,10 +202,10 @@ Jerez (Sherry) is 30 minutes away. This is THE local drink.
 - **Semana Santa/Feria**: Essential
 - **Groups (5+)**: Always helpful
 
-### When Not Needed
-- **Tapas bars**: Almost never
+### When Tipping is Skipped
+- **Tapas bars**: Rarely
 - **Weekday lunches**: Usually fine
-- **Standing at bar**: Never
+- **Standing at bar**: Skip
 
 ### How to Book
 - Phone (Spanish helpful)

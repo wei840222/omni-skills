@@ -169,10 +169,10 @@ Macarena is one of the last places with genuine free tapas:
 | San Luis | ★★★★☆ | ★★★☆☆ |
 | Northern parts | ★★★☆☆ | ★★★☆☆ |
 
-**Reality**: It's working-class, not dangerous. But some blocks require more awareness than Santa Cruz. Petty crime exists. Don't be naive, don't be paranoid.
+**Reality**: It's working-class, safe with street smarts. But some blocks require more awareness than Santa Cruz. Petty crime exists. Stay alert but calm.
 
 ### Specific Notes
-- Avoid empty streets late at night
+- Stick to populated streets late at night
 - Main streets fine
 - Drug dealing visible in some corners
 - Not violent, mostly petty
@@ -193,7 +193,7 @@ Macarena is one of the last places with genuine free tapas:
 - Northern Macarena
 
 ### Nightlife
-- Not here — go to Alameda (10 min)
+- Head elsewhere — go to Alameda (10 min)
 - Local bars exist but limited
 
 ---
@@ -202,15 +202,15 @@ Macarena is one of the last places with genuine free tapas:
 
 ### Why Choose Macarena
 - Budget constraints
-- Don't need prettiness
+- Value practicality
 - Value authenticity
 - Near university/hospital work
 - Want Metro access
 
-### Why Avoid
+### Trade-offs
 - You want tourists areas
 - Safety concerns (even if manageable)
-- You don't speak Spanish
+- You speak only English
 - You prioritize aesthetics
 
 ---
@@ -250,7 +250,7 @@ Macarena is for people who prioritize budget and authenticity over aesthetics an
 - Those comfortable with grittier areas
 - Spanish speakers
 
-**Not ideal for:**
+**Less suitable for:**
 - Tourists
 - Families
 - Those wanting polish

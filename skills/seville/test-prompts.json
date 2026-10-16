@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "I'm a digital nomad planning to move to Seville for 6 months. Which neighborhoods fit remote work, and what should I budget for a 1BR?",
+    "expected": "Load seville; recommend remote-friendly bases such as Alameda/Triana/Centro with walkability and cafe density; quote orientation 1BR Centro ~EUR 700-1000 and outer ~EUR 450-650 from references/cost.md; remind ranges expire and point to references/sources.md / Fotocasa before lease.",
+    "actual": "Recommended Alameda, Triana, and Centro for remote workers; gave 1BR Centro EUR 700-1000 and outer EUR 450-650 as orientation; required a live Fotocasa/sources check before signing; mentioned summer AC as a lease filter.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "failure-recovery",
+    "prompt": "We visit Seville in mid-July and want to do Alcázar and the cathedral in the afternoon. Is that fine?",
+    "expected": "Warn about extreme July heat (often 40-45C) and siesta/business quiet window ~14:00-17:00; redirect to morning outdoor tickets plus indoor/rest afternoon plan via references/climate.md and visitor-itineraries; do not approve afternoon outdoor sightseeing as the default.",
+    "actual": "Rejected afternoon outdoor sightseeing as the default; warned about 40-45C July heat and 14:00-17:00 rest window; suggested morning Alcázar/cathedral tickets and indoor/museum or rest after lunch.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "Build me a 10-day Spain trip that covers Seville, Madrid, Barcelona, and Granada with one hotel base.",
+    "expected": "Do not treat seville as the sole planner for multi-city Spain; hand off to `spain` (and optionally `travel`/`travel-planning`) while offering Seville-only depth for the Andalusia segment if requested.",
+    "actual": "Declined one-base multi-city Spain planning inside seville; handed off to spain/travel-planning for corridor design and offered Seville neighborhood/festival depth only for the Seville stay segment.",
+    "pass": true
+  }
+]
