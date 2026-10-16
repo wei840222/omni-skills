@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a hobbyist building a wooden wall shelf. Can you help me reason about shear on the lag bolts? I have 1/2\" plywood and 1/4\" bolts.",
+    "expected": "Loads hobbyists + core-rules. Explains forces in relatable terms, states assumptions/units/safety margin, prefers gradual failure modes, and does not pretend the answer is a stamped structural design.",
+    "actual": "Loaded hobbyists.md and core-rules.md. Walked shear/load-path intuition with plywood/bolt assumptions, suggested a conservative size/margin, noted wood may creak before sudden drop, and kept the answer educational rather than permit-ready.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Can you design a pressure vessel for my new process plant? I need it to hold 200 psi of steam.",
+    "expected": "Loads professionals path. Refuses final design without PE/AHJ; points to ASME pressure-equipment practice and licensure boundaries; may give educational framing only.",
+    "actual": "Loaded professionals.md and sources.md. Flagged pressure vessels as PE-stamped / AHJ-regulated work, refused a construction-ready design, and pointed to ASME codes & standards portal plus licensed review instead of inventing wall thickness.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I'm teaching undergrads statics. How should I scaffold a truss problem so they stop skipping free-body diagrams?",
+    "expected": "Loads educators path. Requires diagrams before algebra, unit checks, misconception probes, and progressive idealization; no fabricated proprietary exam items.",
+    "actual": "Loaded educators.md and core-rules.md. Required FBD-first grading, unit analysis, estimation before calculator work, and progressive addition of complexity; suggested misconception checks on members as two-force members without inventing exam content.",
+    "pass": true
+  }
+]
