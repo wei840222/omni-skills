@@ -4,7 +4,7 @@ Use these when stuck or during weekly review.
 
 ## Post-Mistake Analysis
 
-1. **What exactly went wrong?** (Be specific, not "I made a mistake")
+1. **What exactly went wrong?** (Be specific, rather than "I made a mistake")
 
 2. **What was my assumption?** (There's always an assumption)
 
@@ -12,7 +12,7 @@ Use these when stuck or during weekly review.
 
 4. **What signal did I miss?** (Usually there was one)
 
-5. **What's the smallest rule that prevents this?** (Prevention, not description)
+5. **What's the smallest rule that prevents this?** (Focus on prevention over description)
 
 ## Pattern Detection Questions
 
@@ -25,7 +25,7 @@ Use these when stuck or during weekly review.
 
 - "If this were someone else's work, what would I critique?"
 - "What's the most likely thing to go wrong?"
-- "Does this match what the user WANTS, not just what they ASKED?"
+- "Does this match what the user WANTS, beyond merely what they ASKED?"
 - "Would I be proud to show this to [respected person]?"
 
 ## Weekly Review Prompts
