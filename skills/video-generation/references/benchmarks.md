@@ -1,6 +1,6 @@
 # Model Snapshot
 
-Use this file as a dated routing snapshot, rather than a permanent truth.
+Use this file as a dated routing snapshot (refreshed 2026-10-16), rather than a permanent truth. Confirm live IDs in `sources.md` before production spend.
 
 ## Scope
 

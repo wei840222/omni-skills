@@ -30,3 +30,8 @@ Prefer explicit `aspectRatio`, `durationSeconds`, and quality-tier selection.
 - Check allowlist/region availability before production rollout
 - Separate prompt templates for fast and premium tiers
 - Keep one cross-provider fallback when Veo capacity is constrained
+
+## Source Pin
+
+- Video overview / generate-from-text / Veo 3.1 model card on docs.cloud.google.com (Gemini Enterprise Agent Platform) verified HTTP 200 on 2026-10-16.
+- Confirm region allowlists before production spend; model cards supersede community aliases.
