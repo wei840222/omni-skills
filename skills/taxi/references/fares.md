@@ -1,5 +1,8 @@
 # Fare Estimation & Savings — Taxi
 
+> Planning heuristics only. Prefer live in-app estimates and the source pins in `references/sources.md` before any booking decision. Regional bands below drift and are not quotes.
+
+
 ## How Pricing Works
 
 ### Standard Formula
@@ -150,4 +153,4 @@ Agent can track:
 - Event calendar → predict surge days
 - Route alternatives → price comparison
 
-Store in `~/Clawic/data/taxi/trips.md` for analysis.
+Store in `<state_root>/trips.md` for analysis.

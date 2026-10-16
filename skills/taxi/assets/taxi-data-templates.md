@@ -1,15 +1,10 @@
-# Memory Setup — Taxi
+# Taxi state templates
 
-## Initial Setup
+Copy into the resolved `<state_root>/` only after the user asks to persist data.
 
-Create directory on first use:
-```bash
-mkdir -p ~/taxi
-```
+## memory.md template
 
-## memory.md Template
-
-Copy to `~/Clawic/data/taxi/memory.md`:
+Copy to `<state_root>/memory.md`:
 
 ```markdown
 # Taxi Preferences
@@ -30,9 +25,9 @@ Copy to `~/Clawic/data/taxi/memory.md`:
 | Local: | | |
 
 ## Payment
-- Preferred: 
-- Business profile: 
-- Expense category default: 
+- Preferred method nickname / last four:
+- Business profile:
+- Expense category default:
 
 ## Special Needs
 - Wheelchair accessible: no
@@ -45,13 +40,15 @@ Copy to `~/Clawic/data/taxi/memory.md`:
 - Willing to wait for lower surge: yes
 - Max acceptable surge: 2x
 - Prefer scheduled rides: when possible
-- Share trip tracking with: 
+- Share trip tracking with:
 
 ---
 *Last updated: YYYY-MM-DD*
 ```
 
-## trips.md Template
+## trips.md template
+
+Copy to `<state_root>/trips.md`:
 
 ```markdown
 # Trip History
@@ -68,32 +65,33 @@ Copy to `~/Clawic/data/taxi/memory.md`:
 - Promos saved: $0
 ```
 
-## accounts.md Template
+## accounts.md template
+
+Copy to `<state_root>/accounts.md`:
 
 ```markdown
 # App Accounts
 
 ## Uber
-- Email: 
-- Phone: 
-- Rating: 
+- Email:
+- Phone:
+- Rating:
 - Credits: $0
 - Business profile: no
 
 ## Lyft
-- Email: 
-- Rating: 
+- Email:
+- Rating:
 - Credits: $0
-
-## [Other Apps]
-...
 
 ## Referral Links
 | App | Your code | Bonus |
 |-----|-----------|-------|
 ```
 
-## promos.md Template
+## promos.md template
+
+Copy to `<state_root>/promos.md`:
 
 ```markdown
 # Active Promos
@@ -107,11 +105,10 @@ Copy to `~/Clawic/data/taxi/memory.md`:
 |-----|---------|-------|
 
 ## Sources to Check
-- RetailMeNot rideshare section
-- Honey browser extension
-- App-specific email promos
-- Credit card portal offers
+- In-app offers and email receipts
+- Credit card portal travel offers
 - Student/corporate discounts
+- Third-party aggregators (verify stacking rules in-app)
 
 ---
 *Last checked: YYYY-MM-DD*
