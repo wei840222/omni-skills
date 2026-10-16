@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I configure SQLite for better concurrency when multiple writers might be involved?",
+    "expected": "Recommends WAL via PRAGMA journal_mode=WAL, a busy_timeout, and notes the single-writer limit (hand off high-write apps).",
+    "actual": "Enable WAL with `PRAGMA journal_mode=WAL` so readers continue during a write, set `PRAGMA busy_timeout=5000` (or similar) so SQLite waits before SQLITE_BUSY, and use `BEGIN IMMEDIATE` for read-then-write flows. SQLite still allows only one writer at a time—route high-write multi-user workloads to PostgreSQL/MySQL via the pg/mysql skills.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I want to add a new NOT NULL column to my existing SQLite table. Can I just run ALTER TABLE ADD COLUMN?",
+    "expected": "Explains ADD COLUMN cannot add NOT NULL without DEFAULT; PRIMARY KEY/UNIQUE also forbidden on ADD COLUMN; rebuild path when needed.",
+    "actual": "You can run `ALTER TABLE … ADD COLUMN`, but a NOT NULL column must also supply a DEFAULT so existing rows can be filled. ADD COLUMN cannot introduce PRIMARY KEY or UNIQUE. If you need those constraints without a default, create a new table, copy data, drop the old table, and rename—preferably inside a transaction. DROP COLUMN is available since 3.35.0 with its own restrictions.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Do I need to turn foreign keys on once when I create the database, and is it safe to cp my .db file while the app is writing?",
+    "expected": "Foreign keys are per-connection (PRAGMA foreign_keys=ON each time). File copy during writes is unsafe; use .backup / backup API or VACUUM INTO.",
+    "actual": "Foreign keys are off by default and the setting is not stored in the database file—you must run `PRAGMA foreign_keys=ON` on every connection that should enforce them. Do not `cp` the database (or forget `-wal`/`-shm`) while a writer is active; use sqlite3 `.backup`, the backup API, or `VACUUM INTO 'backup.db'` for a consistent copy.",
+    "pass": true
+  }
+]

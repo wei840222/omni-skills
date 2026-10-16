@@ -1,90 +1,49 @@
 ---
 name: sqlite
-slug: sqlite
-version: 1.0.0
-description: Use SQLite correctly with proper concurrency, pragmas, and type handling.
-homepage: https://clawic.com/skills/sqlite
+description: >
+  Write correct SQLite queries, schemas, and pragmas for embedded or local
+  databases. Use when enabling WAL and busy_timeout, diagnosing SQLITE_BUSY,
+  turning on foreign keys per connection, choosing type affinity or STRICT
+  tables, planning ALTER TABLE / DROP COLUMN, reading EXPLAIN QUERY PLAN,
+  batching inserts, vacuuming, safely backing up a live database, or sharing
+  an in-memory DB via a shared-cache URI. Prefer `sql` for cross-engine SQL
+  craft, `pg` / `mysql` for server engines, and `backups` for policy-level
+  backup design beyond SQLite file/API mechanics.
 metadata:
-  clawdbot:
-    emoji: 🪶
-    requires:
-      bins:
-      - sqlite3
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: SQLite
+  version: "1.1.0"
+  openclaw: '{"emoji":"🪶","requires":{"bins":["sqlite3"]}}'
+  related-skills: '{"sql":"Cross-engine SQL craft, EXPLAIN patterns, and migrations when the ask is not SQLite-specific.","pg":"PostgreSQL server internals once the workload outgrows single-writer SQLite.","mysql":"MySQL/InnoDB production patterns when the target engine is MySQL rather than SQLite.","backups":"Backup policy, retention, and restore drills beyond SQLite .backup / VACUUM INTO mechanics."}'
 ---
 
-## Concurrency (Biggest Gotcha)
+# SQLite
 
-- Only one writer at a time—concurrent writes queue or fail; not for high-write workloads
-- Enable WAL mode: `PRAGMA journal_mode=WAL`—allows reads during writes, huge improvement
-- Set busy timeout: `PRAGMA busy_timeout=5000`—waits 5s before SQLITE_BUSY instead of failing immediately
-- WAL needs `-wal` and `-shm` files—don't forget to copy them with main database
-- `BEGIN IMMEDIATE` to grab write lock early—prevents deadlocks in read-then-write patterns
+SQLite-specific concurrency, pragmas, types, schema changes, and maintenance for
+embedded or local databases. This skill is knowledge-only: it does not store
+local configuration or persistent user state.
 
-## Foreign Keys (Off by Default!)
+## Core path
 
-- `PRAGMA foreign_keys=ON` required per connection—not persisted in database
-- Without it, foreign key constraints silently ignored—data integrity broken
-- Check before relying: `PRAGMA foreign_keys` returns 0 or 1
-- ON DELETE CASCADE only works if foreign_keys is ON
+1. Confirm you need **embedded / single-writer** storage; hand high-write multi-user apps to a server engine via `pg` / `mysql`.
+2. On every connection that writes under concurrency: set `PRAGMA journal_mode=WAL` and `PRAGMA busy_timeout=…`.
+3. On every connection that relies on FKs: `PRAGMA foreign_keys=ON` (not persisted).
+4. Prefer explicit `INTEGER PRIMARY KEY` over unstable ROWIDs; use `STRICT` only on SQLite ≥ 3.37.
+5. Load only the one reference file needed for the current job.
 
-## Type System
+## Depth on demand
 
-- Type affinity, not strict types—INTEGER column accepts "hello" without error
-- `STRICT` tables enforce types—but only SQLite 3.37+ (2021)
-- No native DATE/TIME—use TEXT as ISO8601 or INTEGER as Unix timestamp
-- BOOLEAN doesn't exist—use INTEGER 0/1; TRUE/FALSE are just aliases
-- REAL is 8-byte float—same precision issues as any float
+| Need | Load |
+| --- | --- |
+| WAL, busy_timeout, BEGIN IMMEDIATE, batch inserts, SAVEPOINT | `references/concurrency.md` |
+| Type affinity, STRICT, FK pragma, ALTER / DROP COLUMN limits | `references/schema.md` |
+| cache_size, indexes, VACUUM, `.backup`, VACUUM INTO | `references/maintenance.md` |
+| Official docs for version-sensitive claims | `references/sources.md` |
 
-## Schema Changes
+Server-engine vacuum/work_mem tuning and ORM schema modeling stay out of scope (`pg`, `mysql`, and `prisma` via `sql`).
 
-- `ALTER TABLE` very limited—can add column, rename table/column; that's mostly it
-- Can't change column type, add constraints, or drop columns (until 3.35)
-- Workaround: create new table, copy data, drop old, rename—wrap in transaction
-- `ALTER TABLE ADD COLUMN` can't have PRIMARY KEY, UNIQUE, or NOT NULL without default
+## Common traps
 
-## Performance Pragmas
-
-- `PRAGMA optimize` before closing long-running connections—updates query planner stats
-- `PRAGMA cache_size=-64000` for 64MB cache—negative = KB; default very small
-- `PRAGMA synchronous=NORMAL` with WAL—good balance of safety and speed
-- `PRAGMA temp_store=MEMORY` for temp tables in RAM—faster sorts and temp results
-
-## Vacuum & Maintenance
-
-- Deleted data doesn't shrink file—`VACUUM` rewrites entire database, reclaims space
-- `VACUUM` needs 2x disk space temporarily—ensure enough room
-- `PRAGMA auto_vacuum=INCREMENTAL` with `PRAGMA incremental_vacuum`—partial reclaim without full rewrite
-- After bulk deletes, always vacuum or file stays bloated
-
-## Backup Safety
-
-- Never copy database file while open—corrupts if write in progress
-- Use `.backup` command in sqlite3—or `sqlite3_backup_*` API
-- WAL mode: `-wal` and `-shm` must be copied atomically with main file
-- `VACUUM INTO 'backup.db'` creates standalone copy (3.27+)
-
-## Indexing
-
-- Covering indexes work—add extra columns to avoid table lookup
-- Partial indexes supported (3.8+): `CREATE INDEX ... WHERE condition`
-- Expression indexes (3.9+): `CREATE INDEX ON t(lower(name))`
-- `EXPLAIN QUERY PLAN` shows index usage—simpler than PostgreSQL EXPLAIN
-
-## Transactions
-
-- Autocommit by default—each statement is own transaction; slow for bulk inserts
-- Batch inserts: `BEGIN; INSERT...; INSERT...; COMMIT`—10-100x faster
-- `BEGIN EXCLUSIVE` for exclusive lock—blocks all other connections
-- Nested transactions via `SAVEPOINT name` / `RELEASE name` / `ROLLBACK TO name`
-
-## Common Mistakes
-
-- Using SQLite for web app with concurrent users—one writer blocks all; use PostgreSQL
-- Assuming ROWID is stable—`VACUUM` can change ROWIDs; use explicit INTEGER PRIMARY KEY
-- Not setting busy_timeout—random SQLITE_BUSY errors under any concurrency
-- In-memory database `':memory:'`—each connection gets different database; use `file::memory:?cache=shared` for shared
+- High-write web app on SQLite — one writer blocks; route to `pg` / `mysql`.
+- Relying on ROWID after `VACUUM` — use an explicit `INTEGER PRIMARY KEY`.
+- Omit `busy_timeout` and light concurrency surfaces intermittent `SQLITE_BUSY`.
+- `':memory:'` per connection — each handle gets a different DB; use `file::memory:?cache=shared` when sharing is required.
+- Copying DB files while a writer is active — use `.backup` / backup API instead.
