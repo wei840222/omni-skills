@@ -56,8 +56,8 @@ literal string `<state_root>` to disk.
 
 ## Quick reference
 
-Load only the smallest file needed for the current parking job (keep SKILL.md
-as the router):
+Load only the smallest file needed for the current parking job. Keep SKILL.md
+as the router and open references on demand:
 
 | Need | Load |
 |------|------|
