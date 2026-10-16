@@ -4,10 +4,11 @@ description: >
   Write correct SQLite queries, schemas, and pragmas for embedded or local
   databases. Use when enabling WAL and busy_timeout, diagnosing SQLITE_BUSY,
   turning on foreign keys per connection, choosing type affinity or STRICT
-  tables, planning ALTER TABLE / DROP COLUMN, reading EXPLAIN QUERY PLAN, batching inserts, vacuuming,
-  safely backing up a live database, or sharing an in-memory DB via a shared-cache URI. Prefer `sql` for cross-engine SQL craft,
-  `pg` / `mysql` for server engines, and `backups` for policy-level backup
-  design beyond SQLite file/API mechanics.
+  tables, planning ALTER TABLE / DROP COLUMN, reading EXPLAIN QUERY PLAN,
+  batching inserts, vacuuming, safely backing up a live database, or sharing
+  an in-memory DB via a shared-cache URI. Prefer `sql` for cross-engine SQL
+  craft, `pg` / `mysql` for server engines, and `backups` for policy-level
+  backup design beyond SQLite file/API mechanics.
 metadata:
   version: "1.1.0"
   openclaw: '{"emoji":"🪶","requires":{"bins":["sqlite3"]}}'
