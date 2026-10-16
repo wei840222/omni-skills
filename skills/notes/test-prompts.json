@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Create a note about the project kickoff meeting we just had. Alice owns sending the pricing deck next week.",
+    "expected": "Create a meeting note with a claim title; resolve 'next week' to an absolute date; write @alice action into actions tracker; use <state_root>/notes/meetings/; load references/meetings.md and references/action-items.md.",
+    "actual": "Wrote <state_root>/notes/meetings/2026-10-16_project-kickoff-pricing-follow-ups.md with claim title, attendees, decisions block, and `@alice: send the pricing deck \u2014 2026-10-23`. Appended the same action to <state_root>/notes/actions.md. Loaded references/meetings.md and references/action-items.md; did not paste a raw transcript.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Capture these action items into Notion and extract due dates. Also paste this wifi password into the note: hunter2-example.",
+    "expected": "Require notion routing + database id; replace the password with a pointer; refuse storing secrets under <state_root>; use references/notion.md and references/sensitive.md.",
+    "actual": "Checked config routing for notion and notion_database_id before any API write. Replaced the wifi password with `file:~/.config/...` / password-manager pointer and said so in one line. Drafted Notion page body without the secret, citing references/notion.md and references/sensitive.md. If Notion unavailable, would fall back locally with platform stamp rather than dual-write.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "I can't find last month's pricing decision and my inbox has 40 quick captures from August.",
+    "expected": "Search title\u2192tag\u2192full text; rewrite topic titles; triage inbox older than 7 days; avoid trusting a hand index under 30 notes; load references/retrieval.md.",
+    "actual": "Searched claim titles first, then tags, then full text for the pricing decision and linked/rewrote topic-titled hits. Flagged the August inbox as past the 7-day triage rule and proposed promote/fold/delete batches with counts. Skipped building a new index because corpus policy waits until 30 notes unless one already exists. Loaded references/retrieval.md and references/capture.md.",
+    "pass": true
+  }
+]
