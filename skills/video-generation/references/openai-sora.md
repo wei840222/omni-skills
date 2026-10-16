@@ -12,7 +12,7 @@ Source: OpenAI video generation guide (developers.openai.com).
 ## API Path
 
 Use the OpenAI **Videos API** (`/videos`) with async create → poll → download.
-Do not invent a Responses-API `"video"` modality path unless current official docs show it.
+Prefer the documented Videos API path; only use alternate modality shapes when current official docs show them.
 
 ## Practical Routing
 
