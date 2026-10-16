@@ -9,7 +9,7 @@ These are performance patterns, not immutable platform laws:
 - Assume many viewers watch **sound-off**; burned-in captions / text overlays carry the hook.
 - Refresh creatives on a short cycle (often about 7–14 days) because fatigue arrives quickly on For You delivery.
 - Test hooks separately from body; UGC-style usually beats glossy studio spots for direct response.
-- Keep logos and long brand intros out of the opening frames; show product early enough that drop-off still sees the offer.
+- Place logos and brand statements after the hook earns the stop; show product early enough that drop-off still sees the offer.
 
 Official creative best-practice articles in `sources.md` reinforce native storytelling, captions, and performance creative hygiene — re-open them before citing UI-specific recommendations.
 
