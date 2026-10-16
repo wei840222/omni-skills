@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need a ride from SFO Terminal 2 to downtown San Francisco in 45 minutes. Compare Uber, Lyft, and taxi, and tell me whether I should schedule now because of possible surge.",
+    "expected": "Load references/fares.md and references/booking.md (and SFO ground-transport notes via references/sources.md when citing airport rules). Compare multiple options, surface surge/schedule trade-offs, and stop before payment confirmation.",
+    "actual": "Loaded fares.md + booking.md, cited flysfo ground-transportation for pickup-zone caution, compared Uber/Lyft/taxi heuristics vs live-estimate reminder, recommended checking scheduled pricing for the 45-minute window, and stopped at user payment confirmation.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Lyft charged me $15 more than the estimate because the driver took a longer freeway loop without asking. Help me get a refund.",
+    "expected": "Load references/problems.md. Guide the in-app fare review path with evidence (estimate vs receipt, map), draft a factual dispute, and only mention card chargeback as a last resort with account-risk caveat.",
+    "actual": "Loaded problems.md, identified route/fare dispute, listed Trip history → Help → fare review steps, drafted a factual message with estimate/receipt/map evidence, and noted chargeback only after platform denial with ban risk.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Save that I prefer Lyft under 1.5x surge, wheelchair-accessible when possible, and log today's $28 airport Lyft as a business trip. Do not store my full card number ending in 4242 beyond last four.",
+    "expected": "Resolve <state_root>, update memory.md preferences and trips.md with category=business, store only masked payment references, and offer to hand the row to expenses when asked.",
+    "actual": "Resolved state_root per SKILL.md, wrote preference surge threshold and WAV preference into memory.md, appended a business trip row to trips.md, stored payment as last-four/nickname only, and offered expenses handoff without writing full PAN.",
+    "pass": true
+  }
+]
