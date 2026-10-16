@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "scenario": "happy-path",
+    "prompt": "Review my Python script before I ship it. I'm worried it might be brittle.",
+    "expected": "Treat as pre-delivery reflection: resolve <state_root> if state exists, run the 7-dimension scan with attention to robustness/completeness/clarity, and fix any dimension below 7/10 before giving ship-ready feedback.",
+    "actual": "Resolved <state_root> when present. Ran the 7-dimension checklist from references/dimensions.md, flagged robustness and completeness below 7, and revised error handling before returning ship-ready feedback instead of a generic LGTM.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "scenario": "complex",
+    "prompt": "I corrected you on the API limit. It's 100/min not 50/min. Update the plan.",
+    "expected": "Treat as post-mistake reflection: acknowledge the correction, analyze the root assumption, append Miss/Root/Fix to <state_root>/reflections.md, then update the plan. Do not silently patch the number only.",
+    "actual": "Paused and acknowledged the rate-limit correction. Named the missed assumption (stale 50/min figure), appended a Miss/Root/Fix entry to <state_root>/reflections.md under category assumptions, then revised the plan to 100/min.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "scenario": "routing",
+    "prompt": "I'm about to split this sketch into 40 tickets. Quick critique before I fan out?",
+    "expected": "Recognize a mid-task branching breakpoint and prefer self-criticism rather than forcing a full post-task reflection loop; mention reflection only if a heavier retrospective is also requested.",
+    "actual": "Noted the ask is a before-branching breakpoint. Routed to self-criticism for a compact frame check before ticket fan-out, and reserved reflection for post-task or recurring-pattern review.",
+    "pass": true
+  }
+]

@@ -25,7 +25,7 @@ For each dimension: 1-10 score (10 = excellent)
 ## Common Failure Modes
 
 ### Correctness
-- Solved the problem I assumed, not the one stated
+- Solved the problem I assumed, rather than the one stated
 - Optimized for wrong metric
 
 ### Completeness  

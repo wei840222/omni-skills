@@ -1,226 +1,133 @@
 ---
 name: reflection
-slug: reflection
-version: 1.1.0
-description: Learns when to stop and review. Self-critiques before showing you, fewer revision rounds.
-homepage: https://clawic.com/skills/reflection
-changelog: Major rewrite. Visual workflow, pattern detection system, proactive lesson injection, and multi-trigger architecture.
+description: >
+  Run continuous self-reflection and lesson retention: evaluate deliverables
+  against 7 dimensions before sending, log post-mistake corrections, detect
+  recurring blind spots, and inject past lessons before repeating them. Use
+  for pre-delivery QA, after user corrections, weekly pattern review, or when
+  a heavier retrospective is needed once work is complete. Prefer
+  `self-criticism` for short mid-task breakpoints, `self-improving` for durable
+  execution lessons after outcomes, `decide` for consequential branch choices,
+  and `memory` / `learning` when the need is fact storage or study practice.
 metadata:
-  clawdbot:
-    emoji: 🪞
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/reflection/
-    displayName: Self Reflection
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/reflection/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🪞","requires":{"config":["<state_root>/"]}}'
+  related-skills: '{"self-criticism":"Insert compact mid-task critique at branching or friction breakpoints; use reflection for heavier post-task retrospectives.","self-improving":"Compound durable execution lessons after outcomes; reflection owns the 7-dimension loop and pattern log.","decide":"Log consequential branch choices; reflection logs how work was evaluated, not which option to pick.","memory":"Long-term factual continuity; reflection stores evaluation lessons, not durable world facts.","learning":"Study and spaced practice; reflection captures agent performance lessons from corrections."}'
 ---
 
-Agents repeat mistakes. Not because they're incapable — because they forget. This skill changes that. Your agent pauses before delivering, catches its own blind spots, and remembers lessons for next time.
+# Reflection
 
-## When to Use
+Pause before delivery, capture corrections, and surface recurring patterns so
+the same miss does not return. State lives under a resolved `<state_root>`
+outside this package. Never write runtime state into the skill tree.
 
-User needs quality assurance beyond "looks good to me." Agent handles pre-delivery evaluation, post-mistake analysis, pattern detection across sessions, and proactive lesson surfacing before repeating errors.
+## State location
 
-## How It Works
+Reflection state may exist in `<workspace>/reflection/`,
+`<workspace>/memory/reflection/`, or `~/reflection/`.
+Before reading or writing state, resolve `<state_root>` as follows:
 
-```
-         ┌──────────────────────────────────────────────┐
-         │              SELF REFLECTION LOOP            │
-         └──────────────────────────────────────────────┘
-                              │
-         ┌────────────────────┼────────────────────┐
-         ▼                    ▼                    ▼
-    ┌─────────┐         ┌──────────┐         ┌─────────┐
-    │  PRE    │         │  POST    │         │PATTERN  │
-    │DELIVERY │         │ MISTAKE  │         │DETECTED │
-    └────┬────┘         └────┬─────┘         └────┬────┘
-         │                   │                    │
-         │  "Before I send   │  "User corrected   │  Same mistake
-         │   this, let me    │   me. Why?"        │  3 times...
-         │   double-check"   │                    │
-         │                   │                    │
-         └───────────────────┴────────────────────┘
-                              │
-                              ▼
-                    ┌─────────────────┐
-                    │ 7-DIMENSION     │
-                    │ EVALUATION      │
-                    │ (30 seconds)    │
-                    └────────┬────────┘
-                              │
-              ┌───────────────┴───────────────┐
-              ▼                               ▼
-       ┌─────────────┐                 ┌─────────────┐
-       │  ALL CLEAR  │                 │ ISSUE FOUND │
-       │  Deliver    │                 │ Fix first   │
-       └─────────────┘                 └──────┬──────┘
-                                              │
-                                              ▼
-                                    ┌─────────────────┐
-                                    │  LOG LESSON     │
-                                    │  Miss → Root    │
-                                    │  → Prevention   │
-                                    └────────┬────────┘
-                                              │
-                                              ▼
-                                    ┌─────────────────┐
-                                    │  INJECT NEXT    │
-                                    │  TIME           │
-                                    │  "Before we     │
-                                    │   proceed..."   │
-                                    └─────────────────┘
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/reflection/`, `<workspace>/memory/reflection/`, `~/reflection/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable state must be created, default to
+   `<workspace>/reflection/` when `<workspace>` is available; otherwise ask for
+   a state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
+
+Use the selected `<state_root>` for every state operation in this skill.
+Typical layout (create children only when needed):
+
+```text
+<state_root>/
+├── memory.md        # Status, preferences, streak, category counts
+├── reflections.md   # Correction log (most recent first)
+├── patterns.md      # Detected recurring blind spots
+└── archive/         # Monthly archives of processed reflections
 ```
 
-## The Three Triggers
+If older notes exist only at `~/Clawic/data/reflection/`, propose a
+copy/validation/cutover plan and wait for confirmation before any migration.
+Never write the literal string `<state_root>` to disk. Create or update state
+only after the user opts in. Store evaluation lessons only—no credentials or
+unrelated private data.
 
-### 1. 🔍 Pre-Delivery
-Before sending important work, pause. 30 seconds. Quick scan of 7 dimensions.
+## When to use
 
-**When:** Code, architecture, strategy, any deliverable the user will act on.
+- Pre-delivery QA on code, architecture, strategy, or any deliverable the user
+  will act on
+- After a user correction (`actually…`, `that's wrong`, frustration signals)
+- After five or more logged reflections, on weekly review, or when the same
+  category appears three or more times
+- When a completed task needs a heavier retrospective than a mid-task critique
 
-### 2. ❌ Post-Mistake  
-User corrected you. That's data. Capture it before the session ends.
+Prefer adjacent skills when they fit better:
 
-**When:** User says "actually...", "no, that's wrong", "I meant...", frustration signals.
+- Mid-task breakpoint critique before branching → `self-criticism`
+- Durable execution lessons after outcomes → `self-improving`
+- Consequential branch choices → `decide`
+- Long-term fact store → `memory`
+- Study / spaced practice → `learning`
 
-### 3. 🔄 Pattern Detection
-Same category appearing 3+ times? That's not coincidence — it's a blind spot.
+## Load order
 
-**When:** After logging 5 reflections, weekly review, or heartbeat trigger.
+1. `SKILL.md` state rules and operating path (always)
+2. `references/dimensions.md` for the 7-dimension scan
+3. `references/prompts.md` when stuck on root-cause or weekly review wording
+4. `references/setup.md` and `assets/data-templates.md` only on first setup
+5. `references/sources.md` when verifying research provenance
 
-## Architecture
+## Operating path
 
-Memory lives in `~/Clawic/data/reflection/`. See `memory-template.md` for setup.
+1. Detect the trigger: pre-delivery, post-mistake, or pattern review.
+2. Resolve `<state_root>`; if missing and durable logging is needed, follow
+   `references/setup.md` with explicit approval.
+3. Before significant work, scan `<state_root>/patterns.md` and surface any
+   relevant active lesson in one short line.
+4. For pre-delivery, run the 7-dimension checklist from
+   `references/dimensions.md` (~30 seconds). Any dimension below 7/10 → fix
+   before delivering.
+5. On user correction: acknowledge, analyze root cause, then append to
+   `<state_root>/reflections.md` using the Miss / Root / Fix shape. Categories:
+   `technical`, `communication`, `assumptions`, `process`, `scope`.
+6. After five reflections, or when a category repeats three or more times,
+   promote a prevention rule into `<state_root>/patterns.md` and track streak.
+7. Archive processed entries to `<state_root>/archive/YYYY-MM.md` when the live
+   log exceeds the archive threshold (default 20). Keep
+   `<state_root>/reflections.md` lean.
 
-```
-~/Clawic/data/reflection/
-├── memory.md           # Status + preferences + stats
-├── reflections.md      # Log (most recent first)
-├── patterns.md         # Detected patterns
-└── archive/            # Monthly archives
-```
+## Quick reference
 
-## Quick Reference
+| Topic | File | Load when |
+|-------|------|-----------|
+| 7-dimension checklist | `references/dimensions.md` | Pre-delivery scan |
+| Analysis prompts | `references/prompts.md` | Root-cause or weekly review |
+| First activation | `references/setup.md` | Missing state or first use |
+| File templates | `assets/data-templates.md` | Seeding memory / reflections / patterns |
+| Sources | `references/sources.md` | Verifying research provenance |
 
-| Topic | File |
-|-------|------|
-| Setup process | `setup.md` |
-| Memory template | `memory-template.md` |
-| Evaluation dimensions | `dimensions.md` |
-| Reflection prompts | `prompts.md` |
+## Core rules
 
-## Core Rules
+1. **Check lessons before acting.** Scan `<state_root>/patterns.md` before
+   significant work and mention a relevant prevention rule naturally.
+2. **Score before sending.** Use the seven dimensions; fix any score below 7/10
+   before delivery.
+3. **Log every correction.** Pause, acknowledge, write Miss / Root / Fix to
+   `<state_root>/reflections.md` before the session ends.
+4. **Promote patterns.** Same category three or more times → create or update a
+   prevention rule in `<state_root>/patterns.md`.
+5. **Archive monthly.** Move processed reflections to
+   `<state_root>/archive/YYYY-MM.md`.
+6. **Track streaks.** Days since repeated mistake; reset on recurrence.
 
-### 1. Check Lessons Before Acting
-Before significant work, scan `~/Clawic/data/reflection/patterns.md`. Surface relevant lessons:
-> "Before we proceed — I have a lesson from past work on [topic]: [summary]."
+## Common traps
 
-### 2. Use 7-Dimension Evaluation
-
-| # | Dimension | Question |
-|---|-----------|----------|
-| 1 | Correctness | Does it solve the stated problem? |
-| 2 | Completeness | Edge cases covered? Assumptions stated? |
-| 3 | Clarity | Immediately understandable? |
-| 4 | Robustness | What could break this? |
-| 5 | Efficiency | Unnecessary complexity? |
-| 6 | Alignment | What user actually wants? |
-| 7 | Pride | Would I sign my name on this? |
-
-If any dimension scores below 7/10 → fix before delivering.
-
-### 3. Log Every Correction
-When user corrects you:
-1. STOP and acknowledge
-2. Analyze root cause
-3. Log to `~/Clawic/data/reflection/reflections.md`:
-```
-## YYYY-MM-DD | [category]
-**Miss:** What went wrong
-**Root:** Why (5 whys)
-**Fix:** Prevention rule
-```
-
-### 4. Detect Patterns (After 5 Reflections)
-- Same category 3+ times → create prevention rule
-- Same mistake twice → escalate to pattern
-- Improvement trend → document what worked
-
-### 5. Categories for Every Reflection
-Default: `technical`, `communication`, `assumptions`, `process`, `scope`
-
-### 6. Archive Monthly
-Move processed reflections to `~/Clawic/data/reflection/archive/YYYY-MM.md`. Keep `reflections.md` lean.
-
-### 7. Track Streaks
-Days since repeated mistake. Resets on pattern recurrence. Celebrate milestones.
-
-## Pattern Lifecycle
-
-```
-┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   EMERGING   │ ──▶ │    ACTIVE    │ ──▶ │  MONITORING  │ ──▶ │   RESOLVED   │
-│  2 similar   │     │  3+ times    │     │  Prevention  │     │  30 days     │
-│  reflections │     │  → create    │     │  in place    │     │  clean       │
-└──────────────┘     │    rule      │     └──────────────┘     └──────────────┘
-                     └──────────────┘
-```
-
-Patterns in `~/Clawic/data/reflection/patterns.md`:
-```markdown
-## [Pattern Name]
-category: technical
-frequency: 4 occurrences
-status: active | monitoring | resolved
-
-**Pattern:** What keeps happening
-**Root:** Why this pattern exists
-**Prevention:** Rule to break it
-**Last seen:** YYYY-MM-DD
-**Streak:** X days without recurrence
-```
-
-## The "Inject Next Time" Superpower
-
-The skill's real value: surfacing lessons BEFORE you repeat mistakes.
-
-**How it works:**
-1. Before starting work, identify task domain
-2. Check `~/Clawic/data/reflection/patterns.md` for active patterns
-3. If relevant pattern exists → mention it naturally
-
-**Example:**
-> "Before we build this API — I have a lesson about timeout handling from a previous project. Let me make sure to include proper error timeouts this time."
-
-## Setup
-
-On first use, read `setup.md` for integration guidelines. Creates memory files in `~/Clawic/data/reflection/` (user is informed where data is stored if they ask).
-
-## Common Traps
-
-| Trap | Consequence |
+| Trap | Better move |
 |------|-------------|
-| Reflecting without logging | Lesson lost with session |
-| Vague root causes | "Made mistake" doesn't prevent recurrence |
-| No prevention rule | Same mistake WILL happen again |
-| Ignoring patterns | Individual mistakes are noise; patterns are signal |
-| Over-reflecting | 30 seconds pre-delivery, not 5 minutes |
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `memory` — persistent memory patterns
-- `decide` — decision-making autonomy
-- `learning` — adaptive learning system
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/reflection
-- Latest version: https://clawic.com/skills/reflection
+| Reflecting without logging | Write the Miss / Root / Fix entry before the session ends |
+| Vague root causes | Name the assumption and the missed signal |
+| Description without prevention | Add the smallest rule that would have blocked the miss |
+| Ignoring repeats | Treat three same-category hits as a pattern, not noise |
+| Over-scanning | Keep pre-delivery to ~30 seconds; deepen only when a score is low |
