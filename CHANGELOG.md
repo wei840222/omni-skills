@@ -779,6 +779,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 | tapo-camera                  | 2026-09-16 | 85/100 (#429)                    |
 | task-list                    | 2026-08-12 | 85/100                           |
 | tattoo                       | 2026-09-07 | 85/100 (#298)                    |
+| taxi                         | 2026-10-16 | 86/100 (#873)                    |
 | teacher                      | 2026-09-02 | 85/100 (#229)                    |
 | tech-debt                    | 2026-09-06 | 85/100 (#280)                    |
 | telegram-bot-api             | 2026-09-18 | 85/100 (#473)                    |
