@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "prompt": "I have 3 days in Hong Kong in November. Where should I stay and what should I do without renting a car?",
+    "expected": "Load visitor-lodging, visitor-itineraries, transport; recommend Island/Kowloon base by style; MTR+Octopus first; point to attractions/itineraries; avoid inventing live fares.",
+    "actual": "For a three-day November visit, pick one harbour-side base and ride MTR + Octopus instead of renting a car. Stay in Tsim Sha Tsui or Causeway Bay if you want walkable food and easy cross-harbour hops; choose Central/Sheung Wan if you want Island nightlife and Mid-Levels access. Day 1: harbour views + one Peak or trail block and a neighborhood dinner. Day 2: Kowloon markets/museums plus a night view. Day 3: outlying island or a Macau day trip only after checking separate entry rules. I would load references/visitor-lodging.md, references/visitor-itineraries.md, and references/transport.md, and re-check MTR/Octopus pages before quoting fares.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "Hong Kong 3 day itinerary stay MTR Octopus"
+  },
+  {
+    "id": 2,
+    "prompt": "I am 27 from Australia and want a Working Holiday in Hong Kong. Can I work for the same cafe for the whole year?",
+    "expected": "Load visas.md and sources.md; explain ImmD Note 2 is nationality-specific; Australia same-employer cap is three months on the checked ImmD page; do not use a generic >6 months rule; require live ImmD re-check.",
+    "actual": "Working Holiday rules are orientation-only until re-checked on ImmD. For Australian citizens, the ImmD Working Holiday Scheme Note 2 snapshot says you are not allowed to work for the same employer for more than three months\u2014not a full year at one cafe, and not a generic six-month same-employer rule. Study/training caps and funds proof also vary by nationality (Notes 3\u20134). I would open references/visas.md and references/sources.md and re-check https://www.immd.gov.hk/eng/services/visas/working_holiday_scheme.html for your passport before you apply or accept a long single-employer plan.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "Hong Kong Working Holiday Australia same employer limit ImmD"
+  },
+  {
+    "id": 3,
+    "prompt": "I got a tech job offer in Hong Kong. Is Causeway Bay or Discovery Bay better if I want nightlife sometimes but also a quieter home?",
+    "expected": "Load neighborhoods-choosing/causeway and lifestyle/transport; contrast commute and vibe; ask about budget and harbour preference; do not invent rent figures as guarantees.",
+    "actual": "Causeway Bay/Wan Chai puts nightlife and MTR convenience next door, so evenings out are easy but home is less quiet. Discovery Bay trades that for a quieter residential feel and ferry/bus logistics\u2014better if you want calm nights and accept a longer hop to Island nightlife. I would load references/neighborhoods-choosing.md, references/neighborhoods-causeway.md, references/lifestyle.md, and references/transport.md, then ask for your rent ceiling in HKD and whether you prioritize walkable bars or a quiet sleep more. Treat any rent bands as orientation and confirm with live listings.",
+    "pass": true,
+    "eval_mode": "full_test",
+    "bm25_prompt": "Hong Kong Causeway Bay vs Discovery Bay tech worker nightlife"
+  }
+]
