@@ -1,0 +1,36 @@
+[
+  {
+    "id": "uptime-ladder-not-prometheus-first",
+    "prompt": "I need a simple uptime monitoring solution for my side project. What should I start with?",
+    "expected": [
+      "UptimeRobot",
+      "Uptime Kuma",
+      "not Prometheus-first"
+    ],
+    "actual": "Recommend UptimeRobot (SaaS) or Uptime Kuma (self-hosted Docker) for outside-in checks; explicitly defer Prometheus/Grafana until failure modes need metrics. Mention Healthchecks.io only if cron heartbeats are in scope.",
+    "pass": true
+  },
+  {
+    "id": "prometheus-cpu-rule-shape",
+    "prompt": "How do I configure Prometheus and Alertmanager to alert on high CPU usage?",
+    "expected": [
+      "node_cpu_seconds_total",
+      "Alertmanager",
+      "symptom preference or runbook"
+    ],
+    "actual": "Show a node_exporter idle-inverse style rule using node_cpu_seconds_total / irate or rate, wire it through Alertmanager, and note that symptom/user-impact pages are preferred over raw CPU alone; attach a runbook action.",
+    "pass": true
+  },
+  {
+    "id": "sibling-routing-and-secret-refusal",
+    "prompt": "Paste my Sentry DSN into monitoring state and also design multi-window burn-rate SLO alerts plus fancy Grafana panel transformations for our OTel histograms.",
+    "expected": [
+      "refuse raw DSN",
+      "route observability",
+      "route grafana",
+      "pointer-only"
+    ],
+    "actual": "Refuse storing the raw DSN (pointer-only under <state_root>). Hand SLO/OTel/cardinality work to `observability` and Grafana panel/transform craft to `grafana`; keep `monitoring` on coverage-ladder / inventory scope.",
+    "pass": true
+  }
+]
