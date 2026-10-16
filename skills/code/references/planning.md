@@ -1,31 +1,36 @@
-# Planning Reference
+# Planning reference
 
 Consult when breaking down a multi-step request.
 
-## When to Plan
+## When to plan
+
 - Multiple files or components
 - Dependencies between parts
 - UI that needs visual verification
-- User says "build", "create", "implement"
+- User says "build", "create", or "implement"
 
-## Step Format
+## Step format
+
 ```
 Step N: [What]
 - Output: [What exists after]
 - Test: [How to verify]
 ```
 
-## Good Steps
+## Good steps
+
 - Clear output (file, endpoint, screen)
 - Testable independently
 - No ambiguity in what "done" means
 
-## Bad Steps
-- "Implement the thing" (vague output)
-- No test defined
-- Depends on undefined prior step
+## Anti-patterns
 
-## Don't Plan
+- Steps with vague outputs
+- Steps lacking a defined test
+- Steps relying on undefined prior steps
+
+## Bypass planning for
+
 - One-liner functions
 - Simple modifications
 - Questions about existing code
