@@ -125,6 +125,10 @@ user wants memory kept.
 - Eating dinner before kitchens open (~19:30–20:00 in many cities).
 - Accepting “free” gifts from street sellers who then demand payment.
 
+## Progressive disclosure
+
+Keep `SKILL.md` for routing and hard constraints. Load city and topic files only for the active corridor. Open `references/sources.md` before any visa, fine, fare, or ticket claim.
+
 ## Source freshness
 
 Domain claims in this package were last bulk-checked against the URLs in
