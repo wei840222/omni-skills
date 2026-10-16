@@ -55,6 +55,10 @@ User needs to generate, iterate, or scale AI videos with current models and APIs
 Use this skill to choose the right current model stack, write stronger motion
 prompts, and run reliable async video pipelines.
 
+Load `references/setup.md` only when state is missing, then provider references
+as needed. Keep `SKILL.md` as the router; do not dump every provider file into
+context on first turn.
+
 ## Quick Reference
 
 | Topic | File | When to load |
