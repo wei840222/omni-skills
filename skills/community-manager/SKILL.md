@@ -50,6 +50,8 @@ the literal string `<state_root>` to disk.
 
 ## When to use
 
+Trigger on standing community operations such as:
+
 - Standing Discord / Slack / Telegram / forum community operations
 - Content calendars and channel-native announcements for communities
 - Member onboarding, welcome flows, and first-week activation
