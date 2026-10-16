@@ -4,7 +4,7 @@ A vault is a folder of plain markdown, which makes Obsidian the only app-backed 
 
 **Contents:** [Requirements](#requirements) · [Choosing the Vault](#choosing-the-vault) · [Operations](#operations) · [Renames and Wikilinks](#renames-and-wikilinks) · [Direct File Editing](#direct-file-editing) · [Vault Layout](#vault-layout) · [Plugins and Portability](#plugins-and-portability) · [Fallback](#fallback) · [Obsidian Traps](#obsidian-traps)
 
-**Before writing**, read `vault_path` in `~/Clawic/data/notes/config.yaml` and `## Platform Facts` in `memory.md`. Most Obsidian mistakes are one mistake: writing into the wrong vault, where the note is not lost but is unfindable because nobody opens that vault.
+**Before writing**, read `vault_path` in `<state_root>/notes/config.yaml` and `## Platform Facts` in `memory.md`. Most Obsidian mistakes are one mistake: writing into the wrong vault, where the note is not lost but is unfindable because nobody opens that vault.
 
 ## Requirements
 
@@ -57,13 +57,13 @@ obsidian-cli create "Meetings/2026-07-26 Pricing" --content "$CONTENT"
 **This is the one rule that matters here.** `[[wikilinks]]` resolve by note name, so renaming a file outside Obsidian breaks every inbound link, silently and with no error.
 
 - **Always rename with `obsidian-cli move`** (or the app's own rename), which rewrites links across the vault.
-- **A rename done in Finder is repaired by grepping the old name** across the vault and fixing each hit in the same turn (`local.md`).
+- **A rename done in Finder is repaired by grepping the old name** across the vault and fixing each hit in the same turn (`references/local.md`).
 - **Backlinks are the reason to link at all here.** A vault whose links are broken has lost the only feature that justified the app.
-- **For notes expected to leave Obsidian**, prefer relative markdown links: wikilinks resolve nowhere else (`migration.md`).
+- **For notes expected to leave Obsidian**, prefer relative markdown links: wikilinks resolve nowhere else (`references/migration.md`).
 
 ## Direct File Editing
 
-A vault is a folder, so anything in `local.md` applies: grep, git, batch edits, frontmatter queries.
+A vault is a folder, so anything in `references/local.md` applies: grep, git, batch edits, frontmatter queries.
 
 ```bash
 VAULT=$(obsidian-cli print-default --path-only)
@@ -72,7 +72,7 @@ grep -rl '^tags:.*pricing' "$VAULT"
 
 - **Obsidian picks up external writes automatically**, but a file open in the app can be overwritten by the app's own save. Close the note before a batch edit.
 - **Do not write into dotted folders** (`.obsidian/`, `.trash/`): they are app state, and a note created there is invisible in the UI.
-- Bulk operations state how many files they will touch before running, and are not run while sync is mid-write (`sync.md`).
+- Bulk operations state how many files they will touch before running, and are not run while sync is mid-write (`references/sync.md`).
 
 ## Vault Layout
 
@@ -86,8 +86,8 @@ Mirror the type folders so a note keeps its identity across routing changes: `Me
 
 - **Plugin syntax is not markdown.** Dataview queries, callout variants, and templater expressions render as noise anywhere else, including in a future export. Keep them out of decisions, research, and anything with a long life.
 - **Community plugins can read and write the whole vault.** That is a supply-chain surface on a folder that may hold client material — a fact to state once, not to police.
-- **`.obsidian/workspace.json` churns on every window change** and conflicts on every synced device; exclude it from git and from selective sync (`sync.md`).
-- The vault is already plain markdown, so migration out is the cheapest of any app-backed platform: copy the folder (`migration.md`).
+- **`.obsidian/workspace.json` churns on every window change** and conflicts on every synced device; exclude it from git and from selective sync (`references/sync.md`).
+- The vault is already plain markdown, so migration out is the cheapest of any app-backed platform: copy the folder (`references/migration.md`).
 
 ## Fallback
 
@@ -106,4 +106,4 @@ If `obsidian-cli` is missing, write the file directly into the vault path — th
 | Dataview or templater syntax in a decision note | Unreadable in five years and in every other tool | Plain markdown for durable notes |
 | Committing `.obsidian/workspace.json` | A conflict on every device, every session | Exclude it |
 
-**Write triggers for this file** — in the same turn: the resolved vault path, the daily-note plugin setting and the attachment setting to `## Platform Facts` in `~/Clawic/data/notes/memory.md`; `vault_path` and the routing choice to `config.yaml` and `## Note Map`; every action item found in a vault note to `actions.md` with `Source: obsidian:[[Note]]`; a bulk rename or link repair to `artifacts/<kebab-name>.md` with how many files were touched. Formats and thresholds: `memory-template.md`.
+**Write triggers for this file** — in the same turn: the resolved vault path, the daily-note plugin setting and the attachment setting to `## Platform Facts` in `<state_root>/notes/memory.md`; `vault_path` and the routing choice to `config.yaml` and `## Note Map`; every action item found in a vault note to `actions.md` with `Source: obsidian:[[Note]]`; a bulk rename or link repair to `artifacts/<kebab-name>.md` with how many files were touched. Formats and thresholds: `assets/data-templates.md`.

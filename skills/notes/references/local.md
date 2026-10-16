@@ -1,15 +1,15 @@
 # Local Markdown
 
-The default, and the only platform with no dependency, no account, and no export problem. Everything is a file in `~/Clawic/data/notes/`.
+The default, and the only platform with no dependency, no account, and no export problem. Everything is a file in `<state_root>/notes/`.
 
 **Contents:** [Layout](#layout) · [Frontmatter](#frontmatter) · [Searching](#searching) · [Renaming Safely](#renaming-safely) · [Attachments](#attachments) · [Editors and Mobile](#editors-and-mobile) · [Local Traps](#local-traps)
 
-**Before writing**, read `## Conventions` in `~/Clawic/data/notes/memory.md`: the filename pattern and the frontmatter field set are already decided, and a note that departs from them is a note the greps will miss.
+**Before writing**, read `## Conventions` in `<state_root>/notes/memory.md`: the filename pattern and the frontmatter field set are already decided, and a note that departs from them is a note the greps will miss.
 
 ## Layout
 
 ```
-~/Clawic/data/notes/
+<state_root>/notes/
 ├── config.yaml        # declared preferences
 ├── memory.md          # corpus state, box index, due dates
 ├── actions.md         # the one tracker
@@ -25,11 +25,11 @@ The default, and the only platform with no dependency, no account, and no export
 └── artifacts/         # long texts read whole
 ```
 
-Every folder is created with its first file, never in advance. Naming rules and the reasoning behind them: `retrieval.md`.
+Every folder is created with its first file, never in advance. Naming rules and the reasoning behind them: `references/retrieval.md`.
 
 ## Frontmatter
 
-Frontmatter is what makes a plain-file corpus queryable without an index, and it is the metadata that survives every future migration (`migration.md`). Minimum set:
+Frontmatter is what makes a plain-file corpus queryable without an index, and it is the metadata that survives every future migration (`references/migration.md`). Minimum set:
 
 ```yaml
 ---
@@ -48,23 +48,23 @@ Optional by type: `attendees`, `absent`, `project`, `source`, `status`, `superse
 
 ## Searching
 
-Search order, and the rename that follows a full-text-only hit: `retrieval.md`.
+Search order, and the rename that follows a full-text-only hit: `references/retrieval.md`.
 
 ```bash
 # titles and filenames
-ls ~/Clawic/data/notes/meetings/ | grep -i pricing
-grep -ri '^title:.*pricing' ~/Clawic/data/notes/
+ls <state_root>/notes/meetings/ | grep -i pricing
+grep -ri '^title:.*pricing' <state_root>/notes/
 
 # by tag, by person, by project
-grep -rl '^tags:.*pricing' ~/Clawic/data/notes/
-grep -rl '^attendees:.*alice' ~/Clawic/data/notes/
-grep -rl '^project: atlas' ~/Clawic/data/notes/
+grep -rl '^tags:.*pricing' <state_root>/notes/
+grep -rl '^attendees:.*alice' <state_root>/notes/
+grep -rl '^project: atlas' <state_root>/notes/
 
 # full text with context
-grep -ri --include='*.md' -n -C2 'three tiers' ~/Clawic/data/notes/
+grep -ri --include='*.md' -n -C2 'three tiers' <state_root>/notes/
 
 # a date range
-ls ~/Clawic/data/notes/*/2026-07-*.md
+ls <state_root>/notes/*/2026-07-*.md
 ```
 
 `rg` is faster on large corpora; `grep` exists everywhere. Use whichever is installed rather than asking.
@@ -73,22 +73,22 @@ ls ~/Clawic/data/notes/*/2026-07-*.md
 
 Plain files have no link index, so a rename is two steps in one turn:
 
-1. Find inbound links first: `grep -rl 'old-slug' ~/Clawic/data/notes/`.
+1. Find inbound links first: `grep -rl 'old-slug' <state_root>/notes/`.
 2. Move the file, then update every hit.
 
-Skipping step 2 leaves dead links that surface only at the monthly sweep (`retrieval.md`). Prefer relative markdown links (`../decisions/2026-07-14_pricing-tiers.md`) over wikilinks here: they resolve in any editor, on a phone, and after a migration.
+Skipping step 2 leaves dead links that surface only at the monthly sweep (`references/retrieval.md`). Prefer relative markdown links (`../decisions/2026-07-14_pricing-tiers.md`) over wikilinks here: they resolve in any editor, on a phone, and after a migration.
 
 ## Attachments
 
 - **Next to the note, in `<type>/attachments/`**, linked relatively — copying the folder elsewhere still works.
 - **Name the attachment after its content**, never `IMG_4821.png`: the filename is the only searchable part of a binary.
-- **Keep binaries out of a git-versioned corpus**; history grows permanently and cannot be shrunk cheaply (`sync.md`).
+- **Keep binaries out of a git-versioned corpus**; history grows permanently and cannot be shrunk cheaply (`references/sync.md`).
 
 ## Editors and Mobile
 
 - **Any editor works**, which is the point: the corpus must never depend on one.
-- **Mobile capture is the real gap.** Options by friction: a synced folder plus any markdown editor; a native app used only for `quick/` and folded into local weekly (`capture.md`); or dictation into the agent. Whichever is chosen is recorded in `## Note Map`.
-- **A file left open in an editor on one device while another edits it** is the standard conflict recipe (`sync.md`).
+- **Mobile capture is the real gap.** Options by friction: a synced folder plus any markdown editor; a native app used only for `quick/` and folded into local weekly (`references/capture.md`); or dictation into the agent. Whichever is chosen is recorded in `## Note Map`.
+- **A file left open in an editor on one device while another edits it** is the standard conflict recipe (`references/sync.md`).
 
 ## Local Traps
 
@@ -99,7 +99,7 @@ Skipping step 2 leaves dead links that surface only at the monthly sweep (`retri
 | Renaming without checking inbound links | Dead links found a month later, cause forgotten | Grep, move, update, same turn |
 | Wikilinks in plain files | Resolve nowhere outside a wikilink-aware app | Relative markdown links |
 | Spaces and accents in filenames | Break shell pipelines and some sync clients | Lowercase, hyphens, ASCII slug |
-| A folder per subject | A note has three subjects and one folder | Folder by type (`retrieval.md`) |
+| A folder per subject | A note has three subjects and one folder | Folder by type (`references/retrieval.md`) |
 | One global attachments folder | The note and its image drift apart on any move | `<type>/attachments/` |
 
-**Write triggers for this file** — in the same turn: the note to its type folder with complete frontmatter; any filename or frontmatter convention that got settled to `## Conventions` in `~/Clawic/data/notes/memory.md`; the updated `corpus` count in `## Status` after a create or an archive; new entries in `index.md` if it exists. Formats and thresholds: `memory-template.md`.
+**Write triggers for this file** — in the same turn: the note to its type folder with complete frontmatter; any filename or frontmatter convention that got settled to `## Conventions` in `<state_root>/notes/memory.md`; the updated `corpus` count in `## Status` after a create or an archive; new entries in `index.md` if it exists. Formats and thresholds: `assets/data-templates.md`.

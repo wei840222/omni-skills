@@ -4,7 +4,7 @@ The only platform here that other people can read without a terminal, and the on
 
 **Contents:** [Requirements](#requirements) · [The Database](#the-database) · [Operations](#operations) · [Property Shapes](#property-shapes) · [Blocks for Notes](#blocks-for-notes) · [Limits That Bite](#limits-that-bite) · [Errors](#errors) · [Fallback](#fallback) · [Notion Traps](#notion-traps)
 
-**Before writing**, read `notion_database_id` in `~/Clawic/data/notes/config.yaml` and the property map in `## Platform Facts`. Notion rejects any property name it does not recognize, so writing without the map produces a 400 on every note until the map is read.
+**Before writing**, read `notion_database_id` in `<state_root>/notes/config.yaml` and the property map in `## Platform Facts`. Notion rejects any property name it does not recognize, so writing without the map produces a 400 on every note until the map is read.
 
 This file covers using Notion as a note store. Building against the API — OAuth, webhooks, bulk backfills, relation and rollup mechanics, pagination edge cases — is `notion-api-integration`.
 
@@ -12,12 +12,12 @@ This file covers using Notion as a note store. Building against the API — OAut
 
 A Notion account and an internal integration the user creates at notion.so/my-integrations. The user stores the key themselves; the skill only references it.
 
-- **The key is a secret**: never written under `~/Clawic/data/`. Record only its pointer — `env:NOTION_API_KEY` or `file:~/.config/notion/api_key` — in `## Platform Facts` (`memory-template.md`).
+- **The key is a secret**: never written under `<state_root>/`. Record only its pointer — `env:NOTION_API_KEY` or `file:~/.config/notion/api_key` — in `## Platform Facts` (`assets/data-templates.md`).
 - **Each page or database must be shared with the integration** in the Notion UI ("..." → Connect to → the integration). A database that was never shared returns 404 on an object the user can see in their browser — this is the single most common Notion failure and it is not a permissions bug in the code.
-- API version pinning is required on every request via the `Notion-Version` header. Header values and endpoint shapes below were current at 2026-07; confirm against Notion's changelog before assuming an old script still works.
+- API version pinning is required on every request via the `Notion-Version` header. Header values and endpoint shapes below must match a published `Notion-Version` from Notion's versioning docs; re-check `references/sources.md` before assuming an old script still works.
 
 ```bash
-NOTION_KEY=$(cat ~/.config/notion/api_key)   # the user's own file; never copied into ~/Clawic/data/
+NOTION_KEY=$(cat ~/.config/notion/api_key)   # the user's own file; never copied into <state_root>/
 AUTH=(-H "Authorization: Bearer $NOTION_KEY" -H "Notion-Version: 2025-09-03" -H "Content-Type: application/json")
 ```
 
@@ -96,13 +96,13 @@ Tables exist as `table` blocks and are laborious to build through the API. For a
 
 | Limit | Consequence |
 |---|---|
-| ~3 requests/second average | A 40-note import is a rate-limited job, not a loop; batch and pause |
+| Published request limits (see `references/sources.md`) | A bulk import is a rate-limited job, not a tight loop; batch and pause |
 | 100 results per page | Any listing needs `start_cursor` pagination or it silently returns a truncated corpus |
 | 100 blocks per append call | A long note is several PATCH calls, in order |
 | 2000 characters per rich-text object | A long paragraph must be split into multiple text objects |
 | Integration sees only what is shared with it | Search returns a partial corpus and looks like a working search |
 
-The pagination limit is the dangerous one: a search that stops at 100 looks successful. Any "not found" answer from Notion states whether pagination was followed (`retrieval.md`).
+The pagination limit is the dangerous one: a search that stops at 100 looks successful. Any "not found" answer from Notion states whether pagination was followed (`references/retrieval.md`).
 
 ## Errors
 
@@ -128,7 +128,7 @@ If the key is absent, the integration lacks access, or the API is unreachable: w
 | A typo in a `select` value | Creates a permanent bogus option in the dropdown | Validate against the map |
 | Building tables through the API | Slow, brittle, and hard to read afterwards | Bullets with fields inline |
 | Treating a partial two-call create as done | A titled page with no body, indistinguishable from an empty note | Check both calls, retry the second |
-| Storing the key anywhere in `~/Clawic/data/` | It syncs, it is backed up, it is now exposed | Pointer only |
-| Routing durable notes here without an export cadence | Databases flatten on export; relations and views do not survive | Quarterly export (`migration.md`) |
+| Storing the key anywhere in `<state_root>/` | It syncs, it is backed up, it is now exposed | Pointer only |
+| Routing durable notes here without an export cadence | Databases flatten on export; relations and views do not survive | Quarterly export (`references/migration.md`) |
 
-**Write triggers for this file** — in the same turn: the database id, the exact property names and the key's pointer (never the key) to `## Platform Facts` in `~/Clawic/data/notes/memory.md`; `notion_database_id` and the routing choice to `config.yaml` and `## Note Map`; every action item found in a Notion page to `actions.md` with `Source: notion:<Page>`; the quarterly export cadence to the `## Due` table. Formats and thresholds: `memory-template.md`.
+**Write triggers for this file** — in the same turn: the database id, the exact property names and the key's pointer (never the key) to `## Platform Facts` in `<state_root>/notes/memory.md`; `notion_database_id` and the routing choice to `config.yaml` and `## Note Map`; every action item found in a Notion page to `actions.md` with `Source: notion:<Page>`; the quarterly export cadence to the `## Due` table. Formats and thresholds: `assets/data-templates.md`.
