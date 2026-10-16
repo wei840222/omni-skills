@@ -4,13 +4,13 @@ Usually the source of a migration rather than a destination. Driven through the 
 
 **Contents:** [Requirements](#requirements) · [Operations](#operations) · [Notebooks](#notebooks) · [Writing a Note](#writing-a-note) · [What It Loses](#what-it-loses) · [Getting Out](#getting-out) · [Fallback](#fallback) · [Evernote Traps](#evernote-traps)
 
-**Before writing**, read `## Platform Facts` in `~/Clawic/data/notes/memory.md` for the notebook names in use. Evernote allows two notebooks with near-identical names, and a note filed in the wrong one is found only by full-text search.
+**Before writing**, read `## Platform Facts` in `<state_root>/notes/memory.md` for the notebook names in use. Evernote allows two notebooks with near-identical names, and a note filed in the wrong one is found only by full-text search.
 
 ## Requirements
 
 An Evernote account and the user's own installation of `clinote` (`go install github.com/TcM1911/clinote@latest`), authenticated once with `clinote login`. Nothing is installed on the user's behalf.
 
-- The auth token `clinote login` stores is a secret: it is never copied into `~/Clawic/data/`. Record only that authentication exists and where, as a pointer (`file:~/.config/clinote/...`), in `## Platform Facts`.
+- The auth token `clinote login` stores is a secret: it is never copied into `<state_root>/`. Record only that authentication exists and where, as a pointer (`file:~/.config/clinote/...`), in `## Platform Facts`.
 - Note content sent through `clinote` leaves the machine. Never route a type here that the user has not routed here.
 
 ## Operations
@@ -68,12 +68,12 @@ The practical consequence: notes routed to Evernote are **read-mostly text**. Ac
 
 ## Getting Out
 
-Export produces ENEX (XML) or HTML. What survives and what does not, plus the restore test that must run first: `migration.md`.
+Export produces ENEX (XML) or HTML. What survives and what does not, plus the restore test that must run first: `references/migration.md`.
 
 - **Export per notebook**, not the whole account at once: a single huge ENEX is slower to convert and harder to verify.
 - **Attachments are embedded base64 in ENEX** — the file is large and the images must be extracted during conversion, which is where most conversions quietly fail.
 - **Created and updated dates are in the ENEX** and should be written into frontmatter `date:` during conversion, or the whole corpus arrives dated today.
-- Keep the account read-only for a full month after migrating (`migration.md`).
+- Keep the account read-only for a full month after migrating (`references/migration.md`).
 
 ## Fallback
 
@@ -85,10 +85,10 @@ If `clinote` is missing, login has expired, or the service is unreachable: write
 |---|---|---|
 | Duplicate titles | Every command that addresses by title becomes ambiguous, including delete | Date in the title, always |
 | Expecting markdown to round-trip | The HTML conversion is lossy in both directions | Read-mostly text; structure lives in the local copy |
-| Relying on checkboxes as the task list | They do not survive the conversion | `actions.md` (`action-items.md`) |
+| Relying on checkboxes as the task list | They do not survive the conversion | `actions.md` (`references/action-items.md`) |
 | Notebooks with near-identical names | Notes split across two, found only by full text | Verify with `notebook list` first |
 | Leaving the note in `/tmp` | Readable on a shared machine, survives the session | Delete after creating |
 | Exporting the whole account in one pass | Huge ENEX, slow conversion, unverifiable result | Per notebook |
 | Migrating and closing the account the same week | Gaps surface after access is gone | Read-only for a month |
 
-**Write triggers for this file** — in the same turn: notebook names, the auth pointer (never the token) and any CLI limitation encountered to `## Platform Facts` in `~/Clawic/data/notes/memory.md`; the routing choice to `config.yaml` and `## Note Map`; every action item found in an Evernote note to `actions.md` with `Source: evernote:<Title>`; a migration plan and its fidelity findings to `artifacts/migration-evernote-to-<target>.md` with its `## Boxes` line. Formats and thresholds: `memory-template.md`.
+**Write triggers for this file** — in the same turn: notebook names, the auth pointer (never the token) and any CLI limitation encountered to `## Platform Facts` in `<state_root>/notes/memory.md`; the routing choice to `config.yaml` and `## Note Map`; every action item found in an Evernote note to `actions.md` with `Source: evernote:<Title>`; a migration plan and its fidelity findings to `artifacts/migration-evernote-to-<target>.md` with its `## Boxes` line. Formats and thresholds: `assets/data-templates.md`.

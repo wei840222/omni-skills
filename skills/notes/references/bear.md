@@ -4,7 +4,7 @@ Fast markdown capture with a nested tag tree, driven through the `grizzly` CLI, 
 
 **Contents:** [Requirements](#requirements) · [The Token](#the-token) · [Operations](#operations) · [Flags That Matter](#flags-that-matter) · [Tag Tree](#tag-tree) · [Append-Only Reality](#append-only-reality) · [Fallback](#fallback) · [Bear Traps](#bear-traps)
 
-**Before writing**, read `## Platform Facts` in `~/Clawic/data/notes/memory.md` for the tag roots already in use. Bear's tag tree is the whole retrieval model here; a new near-synonym root (`#meeting` beside `#meetings`) silently halves every future search.
+**Before writing**, read `## Platform Facts` in `<state_root>/notes/memory.md` for the tag roots already in use. Bear's tag tree is the whole retrieval model here; a new near-synonym root (`#meeting` beside `#meetings`) silently halves every future search.
 
 ## Requirements
 
@@ -16,7 +16,7 @@ Bear not running is the most common failure: the callback never returns and the 
 
 Some operations — `add-text`, `tags`, `open-note --selected` — require Bear's API token (Bear → Help → API Token). The user stores it themselves; the skill only references it.
 
-- **The token is a secret**: it never enters `~/Clawic/data/`. Record the pointer instead — `keychain:bear-token` or `file:~/.config/grizzly/token` — in `## Platform Facts` (`memory-template.md`).
+- **The token is a secret**: it never enters `<state_root>/`. Record the pointer instead — `keychain:bear-token` or `file:~/.config/grizzly/token` — in `## Platform Facts` (`assets/data-templates.md`).
 - Optional CLI config at `~/.config/grizzly/config.toml`:
 
 ```toml
@@ -78,10 +78,10 @@ Bear has no folders: tags are the structure, and nested tags render as a tree.
 | research | `#research`, plus the subject root |
 | quick | `#inbox` |
 
-- **Two levels maximum** (`tag_style: nested`), matching the corpus-wide rule in `retrieval.md`. Three levels is a folder tree pretending to be tags, and Bear's sidebar becomes unusable.
+- **Two levels maximum** (`tag_style: nested`), matching the corpus-wide rule in `references/retrieval.md`. Three levels is a folder tree pretending to be tags, and Bear's sidebar becomes unusable.
 - **A tag inside the note body creates it**; there is no separate tag field. A `#word` typed mid-sentence becomes a tag — watch for accidental tags in pasted text.
-- **Renaming a tag in Bear rewrites it in every note.** That is the correct way to run a tag merge here (`retrieval.md`), and it is not reversible in bulk.
-- **`#inbox` is the triage queue** and is emptied on the 7-day cadence like any other inbox (`capture.md`).
+- **Renaming a tag in Bear rewrites it in every note.** That is the correct way to run a tag merge here (`references/retrieval.md`), and it is not reversible in bulk.
+- **`#inbox` is the triage queue** and is emptied on the 7-day cadence like any other inbox (`references/capture.md`).
 
 ## Append-Only Reality
 
@@ -107,6 +107,6 @@ If `grizzly` is missing, Bear is not running, or the token is absent for an oper
 | Three-level tag trees | The sidebar becomes unnavigable and tags stop being remembered | Two levels |
 | Routing frequently-edited notes here | Append-only means every edit is an append | Local files for anything mutable |
 | Assuming a CLI delete removed the note | It did not; the note is still in Bear | Say what actually happened |
-| Depending on Bear for the corpus of record | Apple-only, and export loses the nested-tag hierarchy | Durable notes in local or Obsidian (`migration.md`) |
+| Depending on Bear for the corpus of record | Apple-only, and export loses the nested-tag hierarchy | Durable notes in local or Obsidian (`references/migration.md`) |
 
-**Write triggers for this file** — in the same turn: tag roots, the token pointer (never the token), the callback port and the app-running requirement to `## Platform Facts` in `~/Clawic/data/notes/memory.md`; the routing choice to `config.yaml` and `## Note Map`; every action item found in a Bear note to `actions.md` with `Source: bear:#tag/Title`; a tag merge run in Bear to `artifacts/tag-taxonomy.md`. Formats and thresholds: `memory-template.md`.
+**Write triggers for this file** — in the same turn: tag roots, the token pointer (never the token), the callback port and the app-running requirement to `## Platform Facts` in `<state_root>/notes/memory.md`; the routing choice to `config.yaml` and `## Note Map`; every action item found in a Bear note to `actions.md` with `Source: bear:#tag/Title`; a tag merge run in Bear to `artifacts/tag-taxonomy.md`. Formats and thresholds: `assets/data-templates.md`.

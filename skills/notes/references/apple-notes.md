@@ -4,7 +4,7 @@ Best-in-class capture on Apple devices, worst-in-class automation. Driven throug
 
 **Contents:** [Requirements](#requirements) · [Operations](#operations) · [Writing a Formatted Note](#writing-a-formatted-note) · [Folders](#folders) · [What It Cannot Do](#what-it-cannot-do) · [Fallback](#fallback) · [Apple Notes Traps](#apple-notes-traps)
 
-**Before routing anything here**, read `## Platform Facts` in `~/Clawic/data/notes/memory.md` for the folder names that already exist. Creating a second folder that differs by a capital letter splits the corpus in a place with no search across folders.
+**Before routing anything here**, read `## Platform Facts` in `<state_root>/notes/memory.md` for the folder names that already exist. Creating a second folder that differs by a capital letter splits the corpus in a place with no search across folders.
 
 ## Requirements
 
@@ -69,14 +69,14 @@ Folders are created by the user in Notes.app; the CLI does not create them. Veri
 
 | Limit | Consequence |
 |---|---|
-| No bulk plain-text export | Migration is note by note through the app (`migration.md`) |
+| No bulk plain-text export | Migration is note by note through the app (`references/migration.md`) |
 | Notes with images or attachments cannot be edited by the CLI | Any note the user illustrates becomes read-only to automation |
 | No tags reachable from the CLI | Retrieval here is by folder and full-text search only |
 | Interactive prompts for edit, move, delete | Nothing destructive can be scripted, which is a feature |
 | No stable note id exposed | Links into a note are not reliable; `Source` pointers use `apple-notes:<Title>` |
 | No table rendering | Structured content degrades to plain text |
 
-Everything above pushes the same conclusion: Apple Notes is a **capture** platform. Route `quick` here and fold captures into local at triage (`capture.md`); route anything that must be found in three years to local or Obsidian.
+Everything above pushes the same conclusion: Apple Notes is a **capture** platform. Route `quick` here and fold captures into local at triage (`references/capture.md`); route anything that must be found in three years to local or Obsidian.
 
 ## Fallback
 
@@ -93,4 +93,4 @@ If `memo` is missing, Notes.app is not installed, or Automation access is denied
 | Routing decisions or research here | No export path, no tags, no stable links | Local or Obsidian for anything durable |
 | Building a table in a note routed here | Renders as unaligned plain text | Bullets with the date inline |
 
-**Write triggers for this file** — in the same turn: folder names, the CLI's presence, and any Automation-permission fact to `## Platform Facts` in `~/Clawic/data/notes/memory.md`; the routing choice to `config.yaml` and `## Note Map`; every action item found in an Apple Note to `actions.md` with `Source: apple-notes:<Title>`; a fallback that stuck to `## Note Map`. Formats and thresholds: `memory-template.md`.
+**Write triggers for this file** — in the same turn: folder names, the CLI's presence, and any Automation-permission fact to `## Platform Facts` in `<state_root>/notes/memory.md`; the routing choice to `config.yaml` and `## Note Map`; every action item found in an Apple Note to `actions.md` with `Source: apple-notes:<Title>`; a fallback that stuck to `## Note Map`. Formats and thresholds: `assets/data-templates.md`.

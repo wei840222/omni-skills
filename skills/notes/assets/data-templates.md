@@ -1,23 +1,23 @@
 # Working File Templates — Notes
 
-Read this file only when WRITING. `config.yaml` is what the user **declared**; `memory.md` and everything it indexes is what you **observed** or produced. An observation never overwrites a declaration.
+Read this file only when WRITING. `config.yaml` is what the user **declared**; `memory.md` and everything it indexes is what you **observed** or produced. An observation preserves existing declarations.
 
 ## Where each thing goes
 
 | Data | Home | How it grows |
 |---|---|---|
-| Declared preferences — Configuration table keys and preference areas alike | `~/Clawic/data/notes/config.yaml` | Key by key, read-modify-write |
-| Corpus state: conventions settled, platform facts, note map, box index, due dates | `~/Clawic/data/notes/memory.md` | Rewritten in place; stays small |
-| The notes themselves, one file per note | `~/Clawic/data/notes/<type>/<name>.md` — `meetings/`, `decisions/`, `journal/`, `projects/`, `research/`, `quick/` | Born as its own file from the first note of that type; the folder is created with that note, never before |
-| Action items, open and recently closed | `~/Clawic/data/notes/actions.md` | One table, from the first action item; a commitments question reads it without loading anything else |
-| Tag, person and recency index over the corpus | `~/Clawic/data/notes/index.md` | Created at 30 notes (SKILL.md Rule 7), updated in the same turn a note is created |
-| Weekly and monthly review output | `~/Clawic/data/notes/reviews/<year>.md` | Append-only, cut by year |
-| A template the user reshaped | `~/Clawic/data/notes/templates/<type>.md` | One file per note type, created the first time the user changes its shape |
-| Attendees, action owners, anyone named in a note | `~/Clawic/data/contacts/contacts.md` (**shared**) | One row per person, every skill writing into one inventory |
-| The project a note belongs to | `~/Clawic/data/projects/<project>.md` (**shared**) | One file per project; the note keeps only the project name |
-| Things you produced that get re-read whole — a taxonomy decision, a migration plan, an export map, a handover | `~/Clawic/data/notes/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
-| **Anything durable this table does not name** | `~/Clawic/data/notes/<plural-noun>.md`, or `~/Clawic/data/notes/artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
-| Credentials of any kind | Nowhere under `~/Clawic/data/` | Pointer only — see Secrets |
+| Declared preferences — Configuration table keys and preference areas alike | `<state_root>/notes/config.yaml` | Key by key, read-modify-write |
+| Corpus state: conventions settled, platform facts, note map, box index, due dates | `<state_root>/notes/memory.md` | Rewritten in place; stays small |
+| The notes themselves, one file per note | `<state_root>/notes/<type>/<name>.md` — `meetings/`, `decisions/`, `journal/`, `projects/`, `research/`, `quick/` | Born as its own file from the first note of that type; the folder is created with that note, only when needed |
+| Action items, open and recently closed | `<state_root>/notes/actions.md` | One table, from the first action item; a commitments question reads it without loading anything else |
+| Tag, person and recency index over the corpus | `<state_root>/notes/index.md` | Created at 30 notes (SKILL.md Rule 7), updated in the same turn a note is created |
+| Weekly and monthly review output | `<state_root>/notes/reviews/<year>.md` | Append-only, cut by year |
+| A template the user reshaped | `<state_root>/notes/templates/<type>.md` | One file per note type, created the first time the user changes its shape |
+| Attendees, action owners, anyone named in a note | `<state_root>/contacts/contacts.md` (**shared**) | One row per person, every skill writing into one inventory |
+| The project a note belongs to | `<state_root>/projects/<project>.md` (**shared**) | One file per project; the note keeps only the project name |
+| Things you produced that get re-read whole — a taxonomy decision, a migration plan, an export map, a handover | `<state_root>/notes/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
+| **Anything durable this table does not name** | `<state_root>/notes/<plural-noun>.md`, or `<state_root>/notes/artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, based on its content; add its `## Boxes` line in the same turn |
+| Credentials of any kind | Nowhere under `<state_root>/` | Pointer only — see Secrets |
 
 ## When to write
 
@@ -25,7 +25,7 @@ No permission needed; every write is announced in one line that names the file. 
 
 | It happened | Write |
 |---|---|
-| A note of any type was produced | Its file under `~/Clawic/data/notes/<type>/` |
+| A note of any type was produced | Its file under `<state_root>/notes/<type>/` |
 | An action item was created, completed, rescheduled, or dropped | Its row in `actions.md` |
 | A decision was made, or an older one superseded | `decisions/<date>_<slug>.md`, plus the `supersedes` line in both |
 | Someone was named as an attendee or an owner | Their row in the shared `contacts.md` |
@@ -44,15 +44,15 @@ No permission needed; every write is announced in one line that names the file. 
 Everything except notes, actions, reviews, artifacts and the shared boxes begins inside `memory.md`. Splitting is a procedure, not a suggestion:
 
 1. Before appending to a section, count its entries.
-2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `~/Clawic/data/notes/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
-3. Keep the headings identical on both sides of the move, so the split is a copy-paste and never a rewrite.
-4. Never leave a copy behind. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
+2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `<state_root>/notes/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
+3. Keep the headings identical on both sides of the move, so the split is a copy-paste and ensure the split is a pure copy-paste.
+4. Ensure only one copy remains after splitting. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
 
 Notes, reviews and artifacts are the exception: each is born as its own file whatever its size, because it is read whole and only when its subject comes up.
 
 ## Secrets
 
-Nothing under `~/Clawic/data/` ever holds a secret value — not the files named here, not a note you create, not text the user pastes in and asks you to keep. Notes are the highest-risk domain for this: a dump written up after a call routinely carries the bridge PIN, the wifi password, and the key somebody read out loud. Store the pointer in its place, in this shape: `<kind>:<locator>`.
+Nothing under `<state_root>/` ever holds a secret value — not the files named here, not a note you create, not text the user pastes in and asks you to keep. Notes are the highest-risk domain for this: a dump written up after a call routinely carries the bridge PIN, the wifi password, and the key somebody read out loud. Store the pointer in its place, in this shape: `<kind>:<locator>`.
 
 `env:NOTION_API_KEY` · `keychain:bear-token` · `1password:Work/Notion/agent` · `bitwarden:Personal/Evernote` · `file:~/.config/notion/api_key` · `profile:work`
 
@@ -68,7 +68,7 @@ Two things are not secrets but still may not belong in a note: another person's 
 
 Keys come from the Configuration table in `SKILL.md`, plus free-form keys nested under a preference area. Write a key only when the user states the preference.
 
-**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `~/Clawic/data/notes/` if it does not exist.
+**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. refrain from generating `config.yaml` from this template — the template shows shape, not content. Create `<state_root>/notes/` if it does not exist.
 
 ```yaml
 default_platform: obsidian
@@ -79,7 +79,7 @@ routing:
   quick: apple-notes
   research: obsidian
 vault_path: ~/Documents/Vault
-notion_database_id: 1f2c9a...        # id only, never a token
+notion_database_id: 1f2c9a...        # id only, must be the id
 filename_pattern: date-first
 capture_verbosity: standard
 tag_style: nested
@@ -106,7 +106,7 @@ If you find a preference recorded in `memory.md`, move it here and note the move
 
 ## memory.md
 
-Write only the sections you have content for — a heading with nothing under it is noise, and it inflates the line count that decides a split. Never copy these hints into the user's file. `## Boxes` is the one section that is never dropped when `memory.md` is rewritten: deleting a line there orphans a file forever. This is what a populated file looks like:
+Write only the sections you have content for — a heading with nothing under it is noise, and it inflates the line count that decides a split. Keep hints out of the user file into the user's file. `## Boxes` is the one section that must remain when `memory.md` is rewritten: deleting a line there orphans a file forever. This is what a populated file looks like:
 
 ```markdown
 # Notes Memory
@@ -141,7 +141,7 @@ Where each type lands today, and why it is not the default:
 
 ## Platform Facts
 Facts that cost effort to find and would cost it again:
-- Obsidian default vault is "Work"; a second vault "Personal" exists and is never written to
+- Obsidian default vault is "Work"; a second vault "Personal" exists and is omitted from writes
 - Notion database "Notes" id 1f2c9a…, properties Name/Type/Date/Tags/Status
 - Bear must be running before any `grizzly` call; token at `keychain:bear-token`
 
@@ -162,7 +162,7 @@ Facts that cost effort to find and would cost it again:
 | Do we keep tier 3 pricing? | @bob | 2026-07-14 | `decisions/2026-07-14_pricing-tiers.md` |
 
 ## How They Work
-Dictates after calls, never during. Wants the note back in under 10 lines with the actions on top.
+Dictates after calls, always afterwards. Wants the note back in under 10 lines with the actions on top.
 
 ---
 *Updated: 2026-07-26*
@@ -170,7 +170,7 @@ Dictates after calls, never during. Wants the note back in under 10 lines with t
 
 Rules that keep this readable next month:
 
-- **`## Boxes`**: one line per file or folder that exists — `<what> (<volume>) → <file>; read when <condition>`. Written in the same turn the box is created. Never delete a line without deleting what it points to. A box with no index line does not exist.
+- **`## Boxes`**: one line per file or folder that exists — `<what> (<volume>) → <file>; read when <condition>`. Written in the same turn the box is created. Ensure index lines match actual files. A box with no index line does not exist.
 - **`## Due`**: check it against today's date at the start of a session and state any overdue item in one line — a statement, not a question. Cadences come from `review_cadence`, `review_day` and `archive_after_months`; every recurring thing this skill schedules belongs here.
 - **`## Status`**: `corpus` is the note count with the per-platform split, because it is what decides Rule 7 (index at 30) and it is expensive to recount. Update it whenever you create or archive notes.
 - **`## Note Map`** records the routing that is *live*, including fallbacks that stuck; `config.yaml` records what the user *asked for*. When they disagree, the user's declaration wins and the discrepancy gets said out loud once.
@@ -184,7 +184,7 @@ Rules that keep this readable next month:
 
 ## actions.md
 
-Created with the first action item, at `~/Clawic/data/notes/actions.md`. One table, sorted by due date ascending — sections by status go stale the moment a date passes; a sort does not.
+Created with the first action item, at `<state_root>/notes/actions.md`. One table, sorted by due date ascending — sections by status go stale the moment a date passes; a sort does not.
 
 ```markdown
 # Action Items
@@ -196,12 +196,12 @@ Created with the first action item, at `~/Clawic/data/notes/actions.md`. One tab
 | Draft the migration plan | @me | 2026-07-30 | done 2026-07-25 | `artifacts/migration-plan.md` |
 ```
 
-- **Identity is `Task` + `Owner`.** Read the file before adding: an item restated in a later meeting updates the existing row (new due date, new source appended), never a second row.
+- **Identity is `Task` + `Owner`.** Read the file before adding: an item restated in a later meeting updates the existing row (new due date, new source appended), rather than duplicating the row.
 - **`Due` is always an absolute date** (SKILL.md Rule 4). An item that genuinely has no date is not an action item — it is an `## Open Threads` row.
 - **`Source` is a pointer**: a local path, `notion:Page`, `bear:#tag/Title`, `obsidian:[[Note]]`, `apple-notes:Title`, `evernote:Title`. It is what lets the user reopen the context that produced the commitment.
-- **Owners are pointers too**: `@key` matching the `Key` column of the shared `contacts.md`. Never store the person's details here.
+- **Owners are pointers too**: `@key` matching the `Key` column of the shared `contacts.md`. Store only pointers here; person details belong in contacts.
 - **Closing is deleting, eventually.** `done <date>` stays in the table until the next weekly review, then moves to `reviews/<year>.md` under that week. A tracker that keeps every completed item stops being readable at about 80 rows.
-- **Scale cut**: one table while open items are ≤60. Past that, split by owner into `~/Clawic/data/notes/actions/<owner>.md` with the same columns and leave `actions.md` as the index (`Owner | Open | Next due | → file`).
+- **Scale cut**: one table while open items are ≤60. Past that, split by owner into `<state_root>/notes/actions/<owner>.md` with the same columns and leave `actions.md` as the index (`Owner | Open | Next due | → file`).
 - With `action_target: external`, this file holds only the items the external app does not: one row per commitment made *by someone else to the user*, plus a pointer to where the user's own tasks live.
 
 ## Note files
@@ -261,7 +261,7 @@ Keep `## Recent` to the last 20 rows; everything older is found by tag, person, 
 
 ## templates/
 
-One file per note type, created the first time the user reshapes that type: `~/Clawic/data/notes/templates/meeting.md`. A stored template overrides the shape in the reference file for that type, and the difference gets a one-line note at the top of the template ("no effectiveness score, actions first").
+One file per note type, created the first time the user reshapes that type: `<state_root>/notes/templates/meeting.md`. A stored template overrides the shape in the reference file for that type, and the difference gets a one-line note at the top of the template ("no effectiveness score, actions first").
 
 ## reviews/
 
@@ -284,7 +284,7 @@ The value is the pattern line, not the counts: a month whose meetings produce no
 
 ## artifacts/
 
-One file per thing, at `~/Clawic/data/notes/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a taxonomy or folder-structure decision and its reasoning**, **a migration or export plan with the fidelity findings**, **a handover pack**, **a template library the user wrote**, **a bulk-operation record** (what a tag merge or archive run touched, and how many files). Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
+One file per thing, at `<state_root>/notes/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a taxonomy or folder-structure decision and its reasoning**, **a migration or export plan with the fidelity findings**, **a handover pack**, **a template library the user wrote**, **a bulk-operation record** (what a tag merge or archive run touched, and how many files). Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
 
 ```markdown
 # Tag taxonomy — two levels, twelve roots
@@ -295,11 +295,11 @@ Rejected: flat tags — hit 47 tags in three months and search stopped discrimin
 Rule that follows: a tag over 10% of the corpus becomes a root; a tag used once is merged at the monthly sweep.
 ```
 
-If the artifact belongs to a project, its summary also belongs in the shared `~/Clawic/data/projects/<project>.md`, with the detail staying here and referenced by filename.
+If the artifact belongs to a project, its summary also belongs in the shared `<state_root>/projects/<project>.md`, with the detail staying here and referenced by filename.
 
 ## Shared contacts inventory
 
-Lives at `~/Clawic/data/contacts/contacts.md` and is shared with every other skill that deals with people — the user may not have any of them installed, so the format travels with this skill.
+Lives at `<state_root>/contacts/contacts.md` and is shared with every other skill that deals with people — the user may not have any of them installed, so the format travels with this skill.
 
 ```markdown
 # Contacts
@@ -309,16 +309,16 @@ Lives at `~/Clawic/data/contacts/contacts.md` and is shared with every other ski
 | Alice Ruiz | alice@acme.com | Head of Product, Acme | email | owns pricing decisions | 2026-07-26 | — |
 ```
 
-- **Identity is `Key`**: the lowercase email if there is one, else the handle they are known by, else `<kebab-name>` plus a stable disambiguator (`john-smith-acme`). The key is a column of the row, never implicit and never delegated to a per-person file. `Preferred channel` is the channel *type*, not an address, so it can never serve as the key.
-- **Read the file before adding.** If the key is already there, update the row in place — `Last contact`, `Role`, `Context` — and never append a second row for the same person. Rows written by other skills are theirs: add to their `Context` only, never rewrite them.
+- **Identity is `Key`**: the lowercase email if there is one, else the handle they are known by, else `<kebab-name>` plus a stable disambiguator (`john-smith-acme`). The key is a column of the row, explicit and kept inline to a per-person file. `Preferred channel` is the channel *type*, not an address, so it can never serve as the key.
+- **Read the file before adding.** If the key is already there, update the row in place — `Last contact`, `Role`, `Context` — and never append a second row for the same person. Rows written by other skills are theirs: add to their `Context` only, preserve rows written by other skills.
 - **Retirement**: when a person leaves the picture entirely, delete their row and note the date in `memory.md`. An inventory that only grows stops being an inventory.
-- **Scale cut**: one row per person while there are ≤15, or until one no longer fits on a line. Past that, `~/Clawic/data/contacts/<name>.md` per person with the same fields, and `contacts.md` becomes the index with the `File` pointer filled in. If you arrive and the folder already looks like that, follow it — do not start a parallel `contacts.md`.
-- **Foreign columns win.** If `contacts.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Never rewrite its header.
-- Never store a credential, a personal phone number the user did not ask you to keep, or anything from `sensitive.md`'s do-not-write list.
+- **Scale cut**: one row per person while there are ≤15, or until one no longer fits on a line. Past that, `<state_root>/contacts/<name>.md` per person with the same fields, and `contacts.md` becomes the index with the `File` pointer filled in. If you arrive and the folder already looks like that, follow it — avoid starting a parallel `contacts.md`.
+- **Foreign columns win.** If `contacts.md` already exists with a different column set, match its columns and add anything missing as a trailing note. preserve the existing header structure.
+- Exclude credentials, unrequested personal phone numbers, and items from the sensitive list.
 
 ## Shared projects box
 
-Lives at `~/Clawic/data/projects/<project>.md`, one file per project from the first, shared with every skill that tracks work.
+Lives at `<state_root>/projects/<project>.md`, one file per project from the first, shared with every skill that tracks work.
 
 ```markdown
 # Atlas
@@ -334,15 +334,15 @@ started: 2026-05-02
 - 2026-08-15 Beta with five customers
 ```
 
-- **Identity is the project name**, which is the filename slug. Read the folder before creating a file: a project that already exists gets updated, never duplicated under a second spelling.
+- **Identity is the project name**, which is the filename slug. Read the folder before creating a file: a project that already exists gets updated, rather than duplicating the project.
 - **The note stays here in `notes/`; only the one-line summary and the pointer go to the project file.** Duplicating the note content is how the two versions diverge.
-- **Closing is a status line, not a deletion**: `status: done — 2026-09-01` or `status: cancelled — 2026-09-01` inside the file, because the file is the record of what was delivered. Past ~20 closed projects, move them to `~/Clawic/data/projects/archive/<project>.md` without renaming.
+- **Closing is a status line, not a deletion**: `status: done — 2026-09-01` or `status: cancelled — 2026-09-01` inside the file, because the file is the record of what was delivered. Past ~20 closed projects, move them to `<state_root>/projects/archive/<project>.md` without renaming.
 - **Amounts carry their currency in the value** (`4200 EUR`, not `€4200`) and dates are ISO, because other skills add these columns up.
 - **Foreign structure wins.** If the project file already exists with different headings, add under the closest one rather than restructuring it.
 
 ## Split-out files
 
-Created only by the split procedure above, never on day one. Each keeps the exact headings it had inside `memory.md`.
+Created only by the split procedure above, only after observing volume. Each keeps the exact headings it had inside `memory.md`.
 
 `open-threads.md` — `## Open Threads`. Extracted when the table passes ~15 rows, which usually means the weekly review has stopped closing threads and that fact is itself the finding.
 
