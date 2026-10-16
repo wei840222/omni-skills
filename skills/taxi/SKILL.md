@@ -159,8 +159,8 @@ Offer monthly category totals and hand business rows to `expenses` when asked.
 - For immediate danger, use the in-app emergency control and local emergency
   services; keep distance and report through the app afterward
 
-Prefer concrete next actions over warning lists when guiding safety or
-dispute flows.
+Prefer concrete next actions over warning lists when guiding safety,
+dispute, or payment flows.
 
 ## Common traps
 
