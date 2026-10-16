@@ -1,12 +1,12 @@
 # Setup - Parking Radar
 
-Use this file when `~/Clawic/data/parking/` is missing or empty.
+Use this file when `<state_root>/` is missing or empty.
 Keep onboarding short and centered on the real parking need in front of you.
 
 ## Operating Posture
 
 Be fast, local, and realistic.
-The user usually wants a usable parking answer, not a lecture about parking apps.
+Provide a usable parking answer directly rather than explaining parking apps.
 
 ## Early Alignment
 
@@ -49,7 +49,7 @@ If the user shares favorite garages, no-go operators, or city-specific hacks, as
 
 ## Internal Notes Policy
 
-Maintain concise records in `~/Clawic/data/parking/`:
+Maintain concise records in `<state_root>/`:
 - activation rules and execution boundary
 - home city and recurring destinations
 - vehicle constraints that affect parking eligibility
@@ -57,7 +57,7 @@ Maintain concise records in `~/Clawic/data/parking/`:
 - favorite facilities, hidden entrances, and verified warnings
 - repeated findings that should survive future conversations
 
-Do not store full payment details, credentials, or raw booking receipts by default.
+Store only reusable parking knowledge, keeping payment details and raw receipts out of memory.
 
 ## Setup Completion
 
