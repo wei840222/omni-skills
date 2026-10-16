@@ -180,3 +180,7 @@ Italians talk with hands. Some meanings:
 | Dov'è...? | Where is...? |
 | Quanto costa? | How much does it cost? |
 | Salute! | Cheers! (when toasting) |
+
+## Cognitive note
+
+Prefer positive local defaults (where to go, when to eat, how to order) before listing traps. Use trap lists only to redirect to a better neighborhood or habit.
