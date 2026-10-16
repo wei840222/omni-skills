@@ -212,7 +212,7 @@ Hong Kong is safer than most Western cities by far.
 - **Smoking:** Banned in most public places
 
 ### Drugs Warning
-ï **Hong Kong has extremely strict drug laws**
+**Hong Kong has extremely strict drug laws**
 - Trafficking = potential death penalty (mainland) or life imprisonment
 - Possession = serious jail time
 - **Zero tolerance policy**

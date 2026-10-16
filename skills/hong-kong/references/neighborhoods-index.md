@@ -69,31 +69,31 @@ Hong Kong is divided into three main areas: **Hong Kong Island**, **Kowloon**, a
 
 ## Decision Matrix by Profile
 
-### נ Finance/Corporate Professional
+### Finance/Corporate Professional
 **Top picks:** Central, Admiralty, Mid-Levels West
 - Walk to work in CBD
 - High-end dining and networking spots
 - Premium pricing for convenience
 
-### ננ Young Professional / Digital Nomad
+### Young Professional / Digital Nomad
 **Top picks:** Sheung Wan, Wan Chai, TST
 - Vibrant social scene
 - Good coworking options
 - Balance of cost and convenience
 
-### ננננ Family with Kids
+### Family with Kids
 **Top picks:** Mid-Levels, Sha Tin, Discovery Bay
 - International schools access
 - Parks and outdoor space
 - Larger apartments available
 
-### נ Creative / Artist
+### Creative / Artist
 **Top picks:** Sheung Wan, Sai Kung, West Kowloon
 - Gallery scene and arts venues
 - More affordable studio space
 - Creative communities
 
-### נ Budget-Conscious
+### Budget-Conscious
 **Top picks:** Mong Kok, Tuen Mun, Tai Po
 - Significantly lower rents
 - Authentic local experience

@@ -76,7 +76,7 @@ A rechargeable contactless payment card used for almost EVERYTHING in Hong Kong:
 
 ## Day Trips From Hong Kong
 
-### Macau נ
+### Macau day trip
 **The Vegas of Asia** - casinos, Portuguese colonial heritage, egg tarts.
 
 **Getting There:**
@@ -101,7 +101,7 @@ A rechargeable contactless payment card used for almost EVERYTHING in Hong Kong:
 
 ---
 
-### Shenzhen ננ
+### Shenzhen day trip
 **Mainland China's tech hub** - shopping, electronics, massages.
 
 **Getting There:**
@@ -121,17 +121,17 @@ A rechargeable contactless payment card used for almost EVERYTHING in Hong Kong:
 
 ### Outlying Islands
 
-#### Lamma Island נן
+#### Lamma Island
 **Best for:** Seafood, hiking, escaping the city
 **Ferry:** Central Pier 4, HK$20-35, 30 min
 **Highlights:** Car-free, rainbow restaurants, beaches
 
-#### Cheung Chau Island נן
+#### Cheung Chau Island
 **Best for:** Day trip, local vibe, fish balls
 **Ferry:** Central Pier 5, HK$15-30, 35-55 min
 **Highlights:** Mini beaches, temples, bicycle rental
 
-#### Peng Chau Island נן
+#### Peng Chau Island
 **Best for:** Quiet afternoon, art spaces
 **Ferry:** Central Pier 6, HK$15-25, 25 min
 **Highlights:** Old leather factory gallery, tiny streets
@@ -290,3 +290,7 @@ Hong Kong's best views are UP - rooftops, skyscrapers, the Peak. And DOWN - unde
 ---
 
 *All information current as of 2024-2025. Prices and policies may change.*
+
+## Signal-first outdoor planning
+
+Plan outdoor blocks around the current typhoon signal and humidity; move indoor when T8+ is in force.

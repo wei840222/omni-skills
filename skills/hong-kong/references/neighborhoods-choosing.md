@@ -53,7 +53,7 @@ Hong Kong expats often spend **40-50%** of income on rent (vs. the traditional 3
 
 ## Step 3: Profile Matching
 
-### נ The Corporate Professional
+### The Corporate Professional
 
 **Profile:** Working in finance, law, or consulting in Central
 
@@ -68,7 +68,7 @@ Hong Kong expats often spend **40-50%** of income on rent (vs. the traditional 3
 
 ---
 
-### ננ The Young Professional
+### The Young Professional
 
 **Profile:** First 1-3 years in HK, building career and social network
 
@@ -83,7 +83,7 @@ Hong Kong expats often spend **40-50%** of income on rent (vs. the traditional 3
 
 ---
 
-### נ The Digital Nomad / Remote Worker
+### The Digital Nomad / Remote Worker
 
 **Profile:** Location-flexible work, values lifestyle over commute
 
@@ -98,7 +98,7 @@ Hong Kong expats often spend **40-50%** of income on rent (vs. the traditional 3
 
 ---
 
-### ננננ The Family with Young Kids
+### The Family with Young Kids
 
 **Profile:** Children under 10, prioritizing schools and safety
 
@@ -113,7 +113,7 @@ Hong Kong expats often spend **40-50%** of income on rent (vs. the traditional 3
 
 ---
 
-### ננננ The Family with School-Age Kids
+### The Family with School-Age Kids
 
 **Profile:** Children in secondary school, needs specific school access
 
@@ -128,7 +128,7 @@ Hong Kong expats often spend **40-50%** of income on rent (vs. the traditional 3
 
 ---
 
-### נ The Creative / Artist
+### The Creative / Artist
 
 **Profile:** Working in arts, design, media, or running creative business
 
@@ -143,7 +143,7 @@ Hong Kong expats often spend **40-50%** of income on rent (vs. the traditional 3
 
 ---
 
-### נ The Budget Optimizer
+### The Budget Optimizer
 
 **Profile:** Saving money is priority, willing to sacrifice convenience
 
