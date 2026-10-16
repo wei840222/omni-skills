@@ -63,6 +63,14 @@ persistent state tree. Do not write runtime notes into this package.
 Keep `SKILL.md` as the router. Load one audience file plus `core-rules.md`;
 open `sources.md` only for edition- or product-sensitive claims.
 
+## Out of scope
+
+- Product UI component systems and interaction states → `ui` / `design`
+- Brand strategy and positioning workshops → `branding`
+- Studio painting/drawing technique drills → `art`
+- Children's image-prompt generation → `drawing`
+- Figma auto-layout / variables mechanics → `figma`
+
 ## Guardrails
 
 - Tie aesthetics to a communication goal and audience.
