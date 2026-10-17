@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Find near-duplicate vacation photos in /Volumes/photos and delete the extras.",
+    "expected": "Build/use pHash groups, prefer highest-resolution/oldest EXIF original, write photos-pending or stage .photo-trash only after confirmation; refuse silent auto-delete.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: SKILL Constraints + references/duplicates-and-layout.md require pHash grouping, user review, trash staging, and forbid auto-empty. No live library mount in this handoff environment.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Strip GPS from IMG_2210.jpg before I post it, and convert the HEIC original to JPEG.",
+    "expected": "Use exiftool -gps:all= on a copy (-o), convert HEIC with sips or heif-convert into edited/ output, leave the original untouched.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: references/exif-and-formats.md documents exiftool -gps:all= -o share/\u2026 and sips/heif-convert into edited/; SKILL mutation boundary keeps originals. Commands not executed against a private photo here.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "How do I photograph my kid indoors with a 35mm lens?",
+    "expected": "Hand off to photography for exposure/AF advice; photos skill is for library indexing, not capture technique.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: description and related-skills route camera technique to photography; photos remains index/search/organize. Near-miss correctly excluded.",
+    "pass": true
+  }
+]
