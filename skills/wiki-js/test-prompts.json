@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "We are getting login redirect loops and images are broken after migrating Wiki.js to a new HTTPS domain behind nginx.",
+    "expected": "Agent loads references/troubleshooting.md (or Critical initial config), identifies Site URL scheme/host mismatch, and proposes setting Site URL to the public https URL while leaving TLS termination at the reverse proxy.",
+    "actual": "Agent loaded references/troubleshooting.md, called out HTTPS/HTTP Site URL mismatch after the domain move, and recommended updating Site URL to the public https host with TLS kept on nginx.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "Create a new architecture page in Wiki.js under /Engineering/System-Architecture@v1 for our multi-user team currently on SQLite.",
+    "expected": "Agent rejects the unsafe path characters, proposes a lowercase alphanumeric slug, and warns that multi-user concurrent writes should move from SQLite to PostgreSQL per requirements docs.",
+    "actual": "Agent corrected the path to /engineering/system-architecture-v1 and recommended migrating the multi-user site from SQLite to PostgreSQL 9.5+ before inviting the team.",
+    "pass": true
+  }
+]
