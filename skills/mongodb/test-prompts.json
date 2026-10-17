@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "prompt": "How do I fix a query showing COLLSCAN?",
+    "expected": "Instructions to read the explain plan, check the ESR rule, and create an appropriate index.",
+    "actual": "Skill routes COLLSCAN through explain(\"executionStats\"), ESR ordering in references/indexes.md / references/slow-queries.md, and Core Rule 1 examined:returned triage before creating another index.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "My application keeps throwing \"server selection timed out\" when the replica set primary steps down.",
+    "expected": "Instructions on handling replica set topology, driver retryable writes, and proper connection pooling.",
+    "actual": "Skill classifies server-selection timeout / stepped-down primary as topology/failover (Error Codes 10107/189), then routes to references/errors.md and references/connections.md for retryable writes and maxPoolSize pool math.",
+    "pass": true
+  }
+]

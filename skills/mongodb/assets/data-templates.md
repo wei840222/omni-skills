@@ -1,6 +1,6 @@
 # Memory Template — MongoDB
 
-Create `~/Clawic/data/mongodb/memory.md` with this structure:
+Create `<state_root>/memory.md` with this structure:
 
 ```markdown
 # MongoDB Memory
