@@ -1,6 +1,6 @@
-# Memory Template - Mindfulness (Tracker, Logger, Guided Practice)
+# Mindfulness Data Templates
 
-Create `~/Clawic/data/mindfulness/memory.md` with this structure:
+## `<state_root>/memory.md`
 
 ```markdown
 # Mindfulness Memory
@@ -42,18 +42,7 @@ what_to_avoid:
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
-
-| Value | Meaning | Behavior |
-|-------|---------|----------|
-| `ongoing` | Active support | Keep improving routine fit and recommendations |
-| `complete` | Stable routine | Maintain with lightweight check-ins |
-| `paused` | User paused support | Keep context read-only until resumed |
-| `never_ask` | No setup prompts wanted | Do not ask setup questions unless requested |
-
-## File Templates
-
-Create `~/Clawic/data/mindfulness/logs/sessions.md`:
+## `<state_root>/logs/sessions.md`
 
 ```markdown
 # Mindfulness Session Log
@@ -69,7 +58,7 @@ Create `~/Clawic/data/mindfulness/logs/sessions.md`:
 - friction_point:
 ```
 
-Create `~/Clawic/data/mindfulness/plans/current.md`:
+## `<state_root>/plans/current.md`
 
 ```markdown
 # Mindfulness Current Plan
@@ -92,7 +81,7 @@ Create `~/Clawic/data/mindfulness/plans/current.md`:
 - Adjustment rule:
 ```
 
-Create `~/Clawic/data/mindfulness/check-ins/weekly.md`:
+## `<state_root>/check-ins/weekly.md`
 
 ```markdown
 # Mindfulness Weekly Check-Ins
@@ -106,9 +95,3 @@ Create `~/Clawic/data/mindfulness/check-ins/weekly.md`:
 - Main friction:
 - Next-week single focus:
 ```
-
-## Key Principles
-
-- Keep logs short and consistent.
-- Track behavior and outcomes, not personal judgments.
-- Update `last` whenever mode, goals, or cadence changes.
