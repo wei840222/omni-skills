@@ -1,0 +1,38 @@
+[
+  {
+    "id": "synology-identify-before-storage-plan",
+    "scenario": "new family NAS without model/DSM context",
+    "prompt": "I need to set up a new Synology NAS for my family. What are the best practices for storage and backup?",
+    "expected": [
+      "Asks for exact NAS model and DSM version before promising SHR/Btrfs/package features",
+      "Loads or cites references/storage-and-shares.md and/or references/backup-and-recovery.md",
+      "Treats SHR/RAID as availability and requires a restore-tested backup layer such as Hyper Backup"
+    ],
+    "actual": "STRUCTURAL_ROUTING 2026-10-18: Use synology → ask model/DSM → references/storage-and-shares.md + references/backup-and-recovery.md + references/sources.md. Separate SHR from Hyper Backup; confirm feature gates before recommending snapshots.",
+    "pass": true
+  },
+  {
+    "id": "synology-exposure-prefer-private",
+    "scenario": "internet exposure for Drive/Photos",
+    "prompt": "How do I safely expose Synology Drive and Photos to the internet?",
+    "expected": [
+      "Prefers VPN or QuickConnect over raw DSM port forwarding",
+      "Loads or cites references/remote-access-and-networking.md",
+      "Requires MFA/update/least-privilege discipline if reverse proxy/public publish is still chosen"
+    ],
+    "actual": "STRUCTURAL_ROUTING 2026-10-18: references/remote-access-and-networking.md + Core Rule 4. Prefer VPN/QuickConnect; treat public reverse proxy as opt-in with MFA and rollback notes.",
+    "pass": true
+  },
+  {
+    "id": "synology-prefer-nas-or-backups-handoff",
+    "scenario": "multi-vendor NAS design vs DSM-only playbook",
+    "prompt": "Help me compare Synology, TrueNAS, and Unraid for a media library, then design a vendor-neutral 3-2-1 backup program with restore drills. I might use Synology later for DSM packages.",
+    "expected": [
+      "Prefers or hands primary multi-vendor comparison to nas",
+      "Hands vendor-neutral backup architecture / restore drills to backups",
+      "Keeps synology for DSM-specific package/Hyper Backup/Container Manager steps once the box is Synology-only"
+    ],
+    "actual": "STRUCTURAL_ROUTING 2026-10-18: Prefer nas for multi-vendor media/NAS comparison and backups for 3-2-1 restore program; keep synology for DSM Hyper Backup / Container Manager once the appliance is chosen.",
+    "pass": true
+  }
+]

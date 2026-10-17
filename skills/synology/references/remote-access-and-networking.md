@@ -18,7 +18,7 @@ Use this file for QuickConnect, VPN, reverse proxy, DDNS, SMB or NFS reachabilit
 
 ## DSM Exposure Guardrails
 
-- Never open DSM admin ports publicly by default.
+- Keep DSM admin ports private by default; public opening is an explicit exception with a written blast radius.
 - If public exposure is unavoidable, pair it with MFA, current updates, least-privilege accounts, and a rollback plan.
 - Treat SSH the same way: private access first, public exposure only by exception.
 

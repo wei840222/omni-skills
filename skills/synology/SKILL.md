@@ -1,64 +1,71 @@
 ---
 name: synology
-slug: synology
-version: 1.0.0
-description: Plan, harden, and recover Synology NAS and DSM setups with storage design, backup discipline, remote access, and Container Manager workflows.
-homepage: https://clawic.com/skills/synology
-changelog: Initial release with DSM-first planning, safer storage and backup decisions, remote access guardrails, and recovery playbooks.
+description: >
+  Plan, harden, and recover Synology NAS and DSM setups: storage and SHR layout,
+  Hyper Backup / Snapshot Replication discipline, QuickConnect vs VPN exposure,
+  package health, and Container Manager workflows. Use when the ask is
+  DSM-specific (model/package gates, shared folders, Hyper Backup restore order,
+  Drive/Photos, Container Manager on Synology). Prefer `nas` for multi-vendor
+  NAS design, `backups` for vendor-neutral 3-2-1 policy, `docker` for Compose
+  mechanics, `home-server`/`self-host` for broader homelab strategy, and
+  `wireguard` when only the tunnel remains.
 metadata:
-  clawdbot:
-    emoji: S
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    configPaths:
-    - ~/Clawic/data/synology/
-    displayName: Synology
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/synology/
+  version: "1.1.0"
+  openclaw: '{"emoji":"🗄️"}'
+  related-skills: '{"nas":"Multi-vendor NAS capacity, RAID-vs-backup, and media layout when the box is not DSM-only.","backups":"Vendor-neutral backup architecture, immutability, and restore drills beyond Hyper Backup.","self-host":"Service ownership and long-term ops once Synology is only the host.","docker":"Dockerfile/Compose debugging when Container Manager is mainly a Docker host.","home-server":"Full homelab design covering network, remote access, and household services.","wireguard":"WireGuard peer and AllowedIPs details after VPN is chosen over QuickConnect."}'
 ---
 
 ## When to Use
 
-Use this skill when the user needs Synology-specific execution, not generic NAS or Linux advice. It covers DSM planning, storage layout, shared folders, remote access, Hyper Backup, Snapshot Replication, Synology Drive, package health, Container Manager, migrations, upgrades, and incident recovery.
+Use this skill when the user needs **Synology-specific** execution: DSM planning, volume/SHR layout, shared folders, Hyper Backup, Snapshot Replication, QuickConnect, Synology Drive/Photos, package triage, Container Manager on Synology, migrations, upgrades, or DSM incident recovery.
 
-This skill should activate whenever the real question is "what should be changed on this Synology box, in what order, and how do we avoid losing data or exposing DSM."
+Prefer sibling skills when the ask is broader or narrower:
 
-## Architecture
+- `nas` — multi-vendor NAS / TrueNAS / QNAP / Unraid design
+- `backups` — retention, immutability, and restore program design beyond one appliance
+- `docker` — Compose, image, publish, and daemon mechanics
+- `home-server` / `self-host` — whole-homelab or service-strategy planning
+- `wireguard` — tunnel config once remote access choice is VPN
 
-This skill works statelessly for one-off Synology questions. If the user wants continuity across sessions, memory lives in `~/Clawic/data/synology/`. If `~/Clawic/data/synology/` does not exist, run `setup.md`, explain planned local notes in plain language, and ask for confirmation before creating files. See `memory-template.md` for structure.
+## State location
+
+Optional continuity notes may live under `<workspace>/synology/`, `<workspace>/memory/synology/`, or `~/synology/`. Resolve `<state_root>` once per invocation:
+
+1. Use an explicitly configured path when the user or host provides one.
+2. Otherwise use the first existing directory in that order.
+3. If none exists and durable state must be created, default to `<workspace>/synology/` only with user consent.
+4. When more than one candidate exists, use only the highest-precedence path, report the conflict, and leave other copies unchanged.
+5. Do not invent `<workspace>` from the shell cwd.
+
+If `<state_root>/` does not exist, read `references/setup.md`, explain planned local notes in plain language, and ask before creating files. See `assets/memory-template.md` for structure.
 
 ```text
-~/Clawic/data/synology/
+<state_root>/
 |- memory.md        # Model, DSM version, workloads, and guardrails
 |- inventory.md     # Volumes, shares, packages, and exposure notes
 |- services.md      # Container Manager, Drive, Photos, backup, and app notes
 `- incidents.md     # Failures, recoveries, and postmortems worth reusing
 ```
 
-## Quick Reference
+## Architecture
 
-Load only the smallest file that matches the task.
+This skill works statelessly for one-off Synology questions. Load only the smallest reference that changes the decision in front of you.
 
 | Topic | File | Use it for |
 |-------|------|------------|
-| Setup flow and saved defaults | `setup.md` | Activate safely and decide whether continuity is useful |
-| Memory schema and status values | `memory-template.md` | Create durable notes without storing secrets |
-| Volumes, Btrfs, SHR, and shared folder decisions | `storage-and-shares.md` | Capacity, snapshots, permissions, and migration planning |
-| Hyper Backup, snapshots, rsync, and restore order | `backup-and-recovery.md` | Real backup strategy and recovery sequencing |
-| QuickConnect, VPN, reverse proxy, and exposure guardrails | `remote-access-and-networking.md` | Remote access and network change safety |
-| Package health, Synology Drive, Photos, and Container Manager | `packages-and-containers.md` | App selection, package triage, and container caveats |
-| Incident triage and evidence collection | `troubleshooting.md` | Fast diagnosis before risky changes |
+| Setup flow and saved defaults | `references/setup.md` | Activate safely and decide whether continuity is useful |
+| Memory schema and status values | `assets/memory-template.md` | Create durable notes without storing secrets |
+| Volumes, Btrfs, SHR, and shared folders | `references/storage-and-shares.md` | Capacity, snapshots, permissions, migration planning |
+| Hyper Backup, snapshots, rsync, restore order | `references/backup-and-recovery.md` | Real backup strategy and recovery sequencing |
+| QuickConnect, VPN, reverse proxy, exposure | `references/remote-access-and-networking.md` | Remote access and network change safety |
+| Packages, Drive, Photos, Container Manager | `references/packages-and-containers.md` | App selection, package triage, container caveats |
+| Incident triage and evidence collection | `references/troubleshooting.md` | Fast diagnosis before risky changes |
+| Official source map | `references/sources.md` | Live Synology / Agent Skills URLs for refresh |
 
 ## Requirements
 
 - No credentials required for planning, review, or architecture work
-- Live DSM changes may require admin access to the web UI and optional SSH access
+- Live DSM changes may require admin access to the web UI and optional SSH
 - Confirm whether the target NAS is production, homelab, or backup-only before changing anything
 - Require explicit confirmation before deletions, package removals, share permission rewrites, exposure changes, restore operations, or storage migrations
 
@@ -78,12 +85,12 @@ Do not store passwords, QuickConnect credentials, OTP codes, serial numbers, or 
 ### 1. Identify the Box Before Giving Synology Advice
 - Lock the exact model, DSM version, volume layout, filesystem, and installed packages before promising features or commands.
 - Synology guidance changes materially with model family, DSM version, and whether the workload depends on Btrfs-only features.
-- If that context is missing, ask for it before acting like every NAS behaves the same.
+- If that context is missing, ask for it before treating every NAS as interchangeable.
 
 ### 2. Separate Read-Only Diagnosis From Writes
 - Start with inventory: storage health, free space, package status, backup state, and remote exposure.
 - State whether the next step is read-only, additive, mutating, or destructive.
-- Never jump straight from "it looks slow" to deleting data, changing shares, or reinstalling packages.
+- Prefer a read-only inventory before deleting data, changing shares, or reinstalling packages when the complaint is only "it looks slow."
 
 ### 3. Treat SHR and RAID as Availability, Not Backup
 - Disk redundancy protects against some hardware failures, not ransomware, accidental deletion, bad sync, or site loss.
@@ -93,12 +100,12 @@ Do not store passwords, QuickConnect credentials, OTP codes, serial numbers, or 
 ### 4. Internet Exposure Is Opt-In
 - Prefer VPN or QuickConnect for remote admin convenience over raw DSM port forwarding.
 - Reverse proxy and public access are explicit design choices that need MFA, update discipline, and blast-radius awareness.
-- Never recommend exposing DSM, SSH, or package dashboards to the public internet by default.
+- Default to private access methods rather than exposing DSM, SSH, or package dashboards to the public internet.
 
 ### 5. Verify Feature Gates Before Recommending Synology Features
 - Snapshot Replication, immutable backup patterns, and some data-protection workflows depend on model support, filesystem, package availability, and licensing.
 - Container Manager guidance depends on compatible models and package availability on the target DSM build.
-- When a recommendation depends on support status, verify it before presenting it as available.
+- When a recommendation depends on support status, verify it before presenting it as available (Download Center + package notes).
 
 ### 6. Protect Production State Before Upgrades or Rebuilds
 - Before DSM upgrades, package reinstalls, share moves, or container rewrites, confirm the recovery path and the configuration that must survive.
@@ -107,8 +114,7 @@ Do not store passwords, QuickConnect credentials, OTP codes, serial numbers, or 
 
 ### 7. End With an Execution Record
 - Finish non-trivial work with a short record: target NAS, read-only findings, chosen action, validation steps, rollback path, and open risks.
-- Save only that durable summary under `~/Clawic/data/synology/` if the user wants continuity.
-- This keeps later Synology work grounded in facts instead of re-discovering the same box every time.
+- Save only that durable summary under `<state_root>/` if the user wants continuity.
 
 ## Safety Checklist
 
@@ -122,13 +128,13 @@ Before high-impact Synology changes:
 
 ## Common Traps
 
-- Treating Synology like generic Ubuntu with disks attached -> wrong service assumptions and risky cleanup advice
-- Confusing SHR or RAID with backup -> false confidence until deletion, corruption, or ransomware happens
-- Promising snapshots or replication without confirming filesystem and package support -> recovery plan fails when it matters
-- Opening DSM or SSH to the internet "just for now" -> turns convenience into attack surface
-- Recommending package reinstalls before collecting evidence -> destroys the only clues needed to fix the issue safely
-- Blaming performance on CPU alone -> full volumes, indexing, broken thumbnails, parity checks, or bad remote sync often matter more
-- Restoring everything at once after an incident -> increases downtime and can overwrite evidence or good data
+- Treating Synology like generic Ubuntu with disks attached → wrong service assumptions and risky cleanup advice
+- Confusing SHR or RAID with backup → false confidence until deletion, corruption, or ransomware happens
+- Promising snapshots or replication without confirming filesystem and package support → recovery plan fails when it matters
+- Opening DSM or SSH to the internet "just for now" → turns convenience into attack surface
+- Recommending package reinstalls before collecting evidence → destroys the only clues needed to fix the issue safely
+- Blaming performance on CPU alone → full volumes, indexing, broken thumbnails, parity checks, or bad remote sync often matter more
+- Restoring everything at once after an incident → increases downtime and can overwrite evidence or good data
 
 ## External Endpoints
 
@@ -144,15 +150,18 @@ No other data should be sent externally unless the user explicitly approves thir
 ## Security & Privacy
 
 Data that may leave your machine:
+
 - documentation lookups against Synology-owned sites
 - account and session traffic only when the user explicitly performs Synology account or remote-access actions
 - QuickConnect identifiers and connection metadata only when remote access is actively configured or tested
 
 Data that stays local:
-- model, package, backup, and recovery notes in `~/Clawic/data/synology/`
+
+- model, package, backup, and recovery notes under `<state_root>/`
 - screenshots, exports, or runbooks the user chooses to keep locally
 
 This skill does NOT:
+
 - ask the user to paste DSM passwords, OTP codes, or private keys into chat
 - claim SHR, RAID, or sync are backups when they are not
 - expose DSM or SSH publicly by default
@@ -160,32 +169,20 @@ This skill does NOT:
 
 ## Trust
 
-This skill depends on Synology-owned documentation, account surfaces, and remote-access services when the user explicitly uses them.
-Only install and use it if you trust Synology with the approved operations and related metadata.
+This skill depends on Synology-owned documentation, account surfaces, and remote-access services when the user explicitly uses them. Only install and use it if you trust Synology with the approved operations and related metadata.
 
 ## Scope
 
 This skill ONLY:
+
 - plans and executes Synology DSM and NAS workflows with explicit safety gates
 - covers storage, backup, remote access, package health, and Container Manager decisions
-- keeps lightweight local memory in `~/Clawic/data/synology/` when the user wants continuity
+- keeps lightweight local memory under `<state_root>/` when the user wants continuity
 - emphasizes restore-first thinking for incidents and migrations
 
-This skill NEVER:
-- pretend all Synology models and DSM builds support the same features
-- treat redundancy as backup
-- run destructive storage or exposure changes without explicit confirmation
-- replace specialized camera automation, enterprise SAN design, or off-platform Kubernetes guidance
+Out of scope / hand off instead of forcing this package:
 
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `backups` - Backup strategy, retention, and restore planning beyond one vendor
-- `self-host` - Self-hosted service decisions around ownership, risk, and maintenance
-- `docker` - Container architecture once the Synology host and storage plan are stable
-- `home-server` - Home lab and household service tradeoffs once the NAS becomes a platform
-- `wireguard` - Private remote access when QuickConnect is not the right fit
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/synology
-- Latest version: https://clawic.com/skills/synology
+- feature claims that ignore model and DSM variance → verify Download Center / package notes first
+- redundancy-as-backup framing → route deeper policy work to `backups`
+- destructive storage or exposure changes without an explicit confirmation checkpoint
+- camera automation, enterprise SAN design, or off-platform Kubernetes → specialized skills
