@@ -15,6 +15,7 @@ This table is the canonical record of skill refactor pull requests merged into `
 
 | Skill                        | Date       | Darwin Score                     |
 | ---------------------------- | ---------- | -------------------------------- |
+| geology                      | 2026-10-17 | 88/100 (#901)                    |
 | word                         | 2026-10-17 | 88/100 (#900)                    |
 | notion-api-integration       | 2026-10-17 | 86/100 (#899)                    |
 | mindfulness                  | 2026-10-17 | 88/100 (#898)                    |

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "I'm a teacher planning a field trip to a local valley. What misconceptions might my 5th graders have about how valleys and rocks form?",
+    "expected": "Load teachers.md; correct eternal-rocks, continents-as-boats, dinosaur-only fossils, and random volcanoes; suggest handling rocks and local geology; no invented formation ages.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Use this skill \u2192 references/teachers.md (+ beginners.md if touchable demos). Would replace misconceptions with process models, keep deep-time analogies light, and avoid inventing local stratigraphy without a source.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I am analyzing U-Pb zircon ages from an outcrop. Can you reconstruct paleoclimate directly from those ages?",
+    "expected": "Load researchers.md + sources.md; clarify that U-Pb dates crystallization/cooling ages, not a climate proxy by themselves; require an explicit proxy chain, scale, and uncertainty; refuse inventing a paleoclimate curve from ages alone.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: researchers.md method-assumption + sources.md claim hygiene. Would separate geochronology from paleoclimate proxies, ask for the proxy record and assumptions, and keep age ranges with method limits.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Is the Anthropocene an official geologic epoch I should teach as settled fact?",
+    "expected": "Load sources.md; state Anthropocene formal-epoch status is rejected/debated rather than ICS-ratified; point to ICS chart for formal units; keep classroom framing as active debate.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: sources.md Nature 2024 Anthropocene reporting + ICS chart hub/PDF. Would teach it as contested/non-ratified epoch status and route formal names to the current ICS chart.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "Help me draw a world population choropleth and explain urban migration with plate tectonics.",
+    "expected": "Near-miss: route map/human geography to geography; keep geology only if rock/process tectonics is actually needed; do not force plate-tectonics into a human choropleth task.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: description + related-skills \u2192 prefer geography for choropleth/migration; geology would only add tectonic context if the user truly needs Earth-process framing.",
+    "pass": true
+  }
+]
