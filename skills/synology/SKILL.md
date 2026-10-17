@@ -49,7 +49,7 @@ If `<state_root>/` does not exist, read `references/setup.md`, explain planned l
 
 ## Architecture
 
-This skill works statelessly for one-off Synology questions. Load only the smallest reference that matches the task.
+This skill works statelessly for one-off Synology questions. Load only the smallest reference that changes the decision in front of you.
 
 | Topic | File | Use it for |
 |-------|------|------------|
