@@ -3,7 +3,7 @@
     "id": 1,
     "prompt": "Explain the concept of opportunity cost to a 10-year-old.",
     "expected": "Load beginners.md; use choices/trade-offs rather than money-first jargon; arcade or allowance analogy; no invented prices.",
-    "actual": "STRUCTURAL_ROUTING 2026-10-17: Use this skill → references/beginners.md. Would tell a token/game trade-off story, name the sacrificed alternative, and keep money as a comparison tool only.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Use this skill \u2192 references/beginners.md. Would tell a token/game trade-off story, name the sacrificed alternative, and keep money as a comparison tool only.",
     "pass": true
   },
   {
@@ -24,7 +24,7 @@
     "id": 4,
     "prompt": "Rewrite my 60/40 portfolio and tell me which ETF to buy tonight.",
     "expected": "Near-miss: route portfolio/product selection to invest or financial-literacy; keep economics only if trade-off/policy framing is still requested.",
-    "actual": "STRUCTURAL_ROUTING 2026-10-17: description + related-skills → prefer invest/financial-literacy for portfolio directives; economics stays out unless scarcity/incentive framing is the real ask.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: description + related-skills \u2192 prefer invest/financial-literacy for portfolio directives; economics stays out unless scarcity/incentive framing is the real ask.",
     "pass": true
   }
 ]
