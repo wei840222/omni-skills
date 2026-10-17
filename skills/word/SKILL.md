@@ -1,132 +1,153 @@
 ---
 name: word
-slug: word
-version: 1.0.0
-description: Control Word app sessions, documents, selections, comments, export, and review state with osascript workflows.
-homepage: https://clawic.com/skills/word
-changelog: Initial release with live Word automation patterns for sessions, selections, review actions, export, and recovery.
+description: >
+  Control live Microsoft Word on macOS with osascript: attach or launch sessions,
+  identify the exact document and view, selection-aware edits, comments, track
+  changes, field/TOC refresh, PDF/DOCX export, and clean recovery. Use when the
+  document is already open in Word, review markup or cursor state matters, or
+  export must match the live layout. Prefer `word-docx` for offline OOXML file
+  work, `office` for cross-app Office routing, and `applescript` when the task
+  is general Mac scripting rather than Word Desktop control.
 metadata:
-  clawdbot:
-    emoji: 📝
-    requires:
-      bins:
-      - osascript
-    os:
-    - darwin
-    configPaths:
-    - ~/Clawic/data/word/
-    displayName: Word
-  openclaw:
-    requires:
-      config:
-      - ~/Clawic/data/word/
+  version: "1.1.0"
+  openclaw: '{"emoji":"📝","os":["darwin"],"requires":{"bins":["osascript"]}}'
+  related-skills: '{"word-docx":"Offline DOCX/OOXML generation and structural edits when Word does not need to stay open.","office":"Broader Office task routing across documents, spreadsheets, and presentations.","applescript":"General macOS osascript patterns, dictionary discovery, and argv transport outside Word-specific workflows."}'
 ---
 
-## When to Use
+# Word
 
-User needs Microsoft Word controlled as a live application, not treated as a `.docx` file format.
-Agent handles app attach, active document state, selection-aware edits, comments, track changes, export, and clean shutdown through the official `osascript` CLI.
-If the main artifact is offline DOCX creation or structural file editing, use `word-docx` instead.
+Operate **live Microsoft Word Desktop** through `osascript` and Word's scripting
+dictionary. Keep automation inside the current app session; do not fall back to
+offline DOCX libraries when the job depends on live selection, comments, track
+changes, or Word's own layout/export path.
 
-## Architecture
+## State location
 
-Memory lives in `~/Clawic/data/word/`. If `~/Clawic/data/word/` does not exist, run `setup.md`. See `memory-template.md` for structure.
+Word memory, incidents, and document notes are persistent user state. Resolve
+`<state_root>` once per invocation before any read or write:
+
+1. Use a user- or host-configured state root when one is explicitly provided.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/word/`, `<workspace>/memory/word/`, then `~/word/`.
+3. If more than one candidate exists, use only the highest-precedence directory,
+   report the duplicates, and leave lower-precedence copies unchanged.
+4. If none exists and durable Word state is needed, propose
+   `<workspace>/word/` and create it only after the user confirms. If
+   `<workspace>` is unavailable, read an existing `~/word/` only; otherwise ask
+   for a state root before creating data.
+5. Keep `<state_root>` fixed for the invocation.
+
+After resolution, optional domain files live under:
 
 ```text
-~/Clawic/data/word/
-├── memory.md             # Environment facts, safe defaults, and last working control path
+<state_root>/
+├── memory.md             # Environment facts, safe defaults, last working control path
 ├── incidents.md          # Reusable failures and proven recovery steps
-└── document-notes.md     # Non-sensitive notes about trusted documents, views, and export targets
+└── document-notes.md     # Non-sensitive notes about trusted documents, views, exports
 ```
 
-## Quick Reference
+Legacy vendor path `~/Clawic/data/word/` is a migration source only. Do not put
+it in active lookup order. Copy into `<state_root>` only after explicit user
+authorization with validation and rollback. Never write the literal string
+`<state_root>` to disk.
 
-Load only the smallest file that matches the current Word task and risk level.
+## When to use
 
-| Topic | File |
-|-------|------|
-| Setup guide | `setup.md` |
-| Memory template | `memory-template.md` |
-| Interface selection | `execution-matrix.md` |
-| Live control patterns | `live-control-patterns.md` |
-| Destructive action guardrails | `safety-checklist.md` |
-| Debug and recovery | `troubleshooting.md` |
+- The document is already open in Word, or the job depends on live app state.
+- Selection-aware edits, comments, track changes, or review-mode actions.
+- Field/TOC refresh and PDF/DOCX export that must match the live Word layout.
+- Prefer `word-docx` for offline structural DOCX work; prefer `office` for
+  cross-app routing; prefer `applescript` for non-Word Mac automation.
 
 ## Requirements
 
-- Microsoft Word installed locally.
-- macOS with `osascript` available.
-- Explicit confirmation before destructive document actions.
+- Darwin host with `osascript` available (`/usr/bin/osascript`).
+- Microsoft Word installed locally and scriptable.
+- Explicit confirmation before destructive document actions (accept/reject all,
+  bulk comment deletion, close without save, overwrite exports, whole-document
+  replace).
+- Automation permission prompts accepted when macOS requires them for the
+  controlling process.
 
-## Core Rules
+## References
 
-### 1. Choose the app-control path by document state
-- Use `osascript` for live Word document control through the app's scripting dictionary.
-- Keep automation inside the live Word session instead of falling back to file-only DOCX tooling.
-- Do not switch to offline document libraries when the requested job depends on the current live Word app state.
+Load only the smallest file that matches the current Word task and risk level:
 
-### 2. Identify the exact document and view before acting
-- Confirm whether the target is the active document, a named open document, or a path to open now.
-- Read the current view, selection, and review mode before making edits tied to cursor position or markup state.
-- Never assume the frontmost Word window is the intended document.
+| File | Load when |
+| --- | --- |
+| `references/setup.md` | First use, state-root consent, or safety-default capture |
+| `references/execution-matrix.md` | Choosing attach / launch / save-copy-first or live vs `word-docx` |
+| `references/live-control-patterns.md` | Building bounded Word `osascript` read/write/export scripts |
+| `references/safety-checklist.md` | Before accept/reject-all, bulk cleanup, close-without-save, overwrite |
+| `references/troubleshooting.md` | Attach failures, wrong selection, silent review errors, stale PDF export |
+| `assets/data-templates.md` | Copying memory/incidents/document-notes skeletons into `<state_root>` |
 
-### 3. Read before write, then verify the final state
-- Pre-read document name, current selection, target paragraph, comment count, or export target before mutation.
-- After edits, comments, accept/reject actions, or exports, re-read the affected state and report what changed.
-- If Word does not reach the requested state, stop and diagnose instead of layering more edits.
+## Core rules
 
-### 4. Treat selection-driven actions as high-risk
-- Selection-based commands can land in the wrong paragraph, story range, header, or comment balloon.
-- When possible, anchor the action to a specific document object instead of only the current insertion point.
-- If the selection context is ambiguous, clarify first.
+1. **Choose the app-control path by document state.** Use `osascript` for live
+   Word dictionary control. Keep automation inside the live session when the
+   requested job depends on current app state; route offline structural DOCX
+   work to `word-docx` via `references/execution-matrix.md`.
+2. **Identify the exact document and view before acting.** Confirm whether the
+   target is the active document, a named open document, or a path to open now.
+   Read the current view, selection, and review mode before edits tied to cursor
+   position or markup. Verify the frontmost Word window is the intended document.
+3. **Read before write, then verify the final state.** Pre-read document name,
+   selection, target paragraph, comment count, or export target before mutation.
+   After edits, comments, accept/reject actions, or exports, re-read the affected
+   state and report what changed. If Word does not reach the requested state,
+   diagnose instead of layering more edits.
+4. **Treat selection-driven actions as high-risk.** Selection commands can land
+   in the wrong paragraph, story range, header, or comment balloon. Prefer
+   object-based anchors over the bare insertion point. If selection context is
+   ambiguous, clarify first.
+5. **Separate reversible review actions from destructive cleanup.** Comments,
+   view changes, and exports are usually reversible. Accept all / reject all /
+   remove comments / close without save / overwrite exports require explicit
+   confirmation per `references/safety-checklist.md`. Preserve track changes and
+   display settings unless the user explicitly asks to change them.
+6. **Keep provenance explicit.** State whether the target was already open or
+   opened for this task. Report the document changed, the review mode in force,
+   and where exports were written. Preserve user-owned open documents outside
+   the task scope.
+7. **Recover cleanly and leave attached sessions intact.** If you opened Word
+   for this task, close only what you created. If you attached to an existing
+   session, keep unrelated documents open and leave Word running unless the user
+   explicitly approves quitting. On failure, record the exact blocker: protected
+   document, modal dialog, compatibility mode, track changes mismatch, or missing
+   permissions; append durable notes to `<state_root>/incidents.md` only after
+   consent.
 
-### 5. Separate reversible review actions from destructive cleanup
-- Adding comments, changing view, and exporting are usually reversible.
-- Accept all changes, reject all changes, remove comments, close without save, and overwrite exports require explicit confirmation.
-- If review state matters, preserve track changes and display settings unless the user explicitly asks to change them.
+## Word traps
 
-### 6. Keep provenance explicit
-- State whether the target was already open or opened just for this task.
-- Report what document was changed, which review mode was active, and where exports were written.
-- Preserve user-owned open documents that were outside the task scope.
+- Treating a live document like a static `.docx` file → review state, comments,
+  fields, and view context drift apart.
+- Writing relative to the current cursor without verifying selection → text lands
+  in the wrong story range.
+- Accepting or rejecting changes globally when only one section was intended →
+  irreversible editorial loss.
+- Exporting before fields, references, or TOC are updated → stale output delivered
+  as final.
+- Closing an attached user session after automation → unrelated writing work is
+  interrupted.
+- Ignoring protected view or tracked-change mode → edits silently fail or create
+  the wrong markup history.
+- Guessing Word dictionary terms → prefer short verified scripts and
+  `applescript` dictionary discovery when terminology is unknown.
 
-### 7. Recover cleanly and avoid orphaned app sessions
-- If you opened Word just for this task, keep ownership clear and close only what you created.
-- If you attached to an existing session, do not close unrelated documents or quit Word without explicit approval.
-- On failure, record the exact blocker: protected document, modal dialog, compatibility mode, track changes mismatch, or missing permissions.
+## Security and privacy
 
-## Word Traps
+**Data that stays local:** document paths, environment notes, reusable fixes under
+`<state_root>/`, and document contents accessed through local Word automation.
 
-- Treating a live document like a static `.docx` file -> review state, comments, fields, and view context drift apart.
-- Writing relative to the current cursor without verifying selection -> text lands in the wrong story range.
-- Accepting or rejecting changes globally when only one section was intended -> irreversible editorial loss.
-- Exporting before fields, references, or TOC are updated -> stale output delivered as final.
-- Closing an attached user session after automation -> unrelated writing work is interrupted.
-- Ignoring protected view or tracked-change mode -> edits silently fail or create the wrong markup history.
+**Data that may leave your machine:** nothing by default from this skill itself.
+A document's own links, add-ins, macros, or cloud-backed autosave behavior may
+contact external systems.
 
-## Security & Privacy
+**This skill does not:**
 
-**Data that stays local:**
-- Document paths, environment notes, and reusable fixes in `~/Clawic/data/word/`.
-- Document contents accessed through local Word automation.
-
-**Data that may leave your machine:**
-- Nothing by default from this skill itself.
-- A document's own links, add-ins, macros, or cloud-backed autosave behavior may contact external systems.
-
-**This skill does NOT:**
 - Use Microsoft Graph, cloud document APIs, or OAuth flows.
 - Disable review warnings silently.
 - Accept destructive document-wide changes without explicit confirmation.
 - Bypass Word protection prompts.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `word-docx` — Offline DOCX generation and editing when Word does not need to stay open.
-- `office` — Broader Office task routing across documents, spreadsheets, and presentations.
-- `applescript` — macOS app automation patterns when Word dictionary work needs deeper script design.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/word
-- Latest version: https://clawic.com/skills/word
+- Lower the mandatory confirmation floor via memory preferences.
