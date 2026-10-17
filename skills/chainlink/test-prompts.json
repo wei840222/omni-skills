@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "prompt": "My Solidity lending pool reads ETH/USD. Which Chainlink call should I use and what stale-data checks matter on Arbitrum?",
+    "expected": "Routes to Data Feeds; requires latestRoundData (or equivalent) with updatedAt/round checks, official feed address verification, and L2 sequencer uptime awareness rather than a bare latestAnswer hardcode.",
+    "actual": "Load Data Feeds guidance: resolve the Arbitrum ETH/USD proxy from docs.chain.link or data.chain.link, call latestRoundData() so you get answeredInRound and updatedAt, reject stale or incomplete rounds, and gate risk actions on the L2 sequencer uptime feed when the sequencer may be down. Do not hardcode addresses or trust a single unchecked answer.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I need unpredictable NFT trait rolls onchain. Should I use VRF subscription or direct funding, and what breaks if my fulfillRandomWords reverts?",
+    "expected": "Selects VRF v2.5; contrasts subscription vs direct funding; warns that a reverting callback can lose that request's randomness and that underfunding fails silently/stuck.",
+    "actual": "Use Chainlink VRF v2.5. Prefer a subscription if you will request regularly or share funding across consumers; use direct funding for rare one-offs. Randomness is async. If fulfillRandomWords reverts, that fulfillment's randomness can be lost, so keep callbacks hardened and gas-realistic, and keep the subscription or contract funded.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Can I CCIP-send USDC from Ethereum to a chain that is not in the CCIP directory yet and assume instant finality?",
+    "expected": "Rejects unsupported lanes and instant-finality assumptions; requires directory/lane check, fee estimation, and destination execution/finality caveats.",
+    "actual": "No. Confirm the exact source→destination lane in the official CCIP directory first—unsupported pairs cannot be wished into existence. Estimate fees in LINK or native, then account for source finality plus destination execution latency (and possible manual execution). Instant settlement is not a safe assumption.",
+    "pass": true
+  },
+  {
+    "id": 4,
+    "prompt": "My ETH transfer is stuck on mainnet with a low tip—does the chainlink skill speed it up?",
+    "expected": "Near-miss route to ethereum for nonce/EIP-1559 replacement; chainlink is not the primary skill for generic stuck txs.",
+    "actual": "That is a generic Ethereum fee/nonce problem. Hand off to the ethereum skill to replace the pending transaction with the same nonce and a higher maxFeePerGas/maxPriorityFeePerGas. Chainlink guidance applies when the question is feeds, VRF, Automation, Functions, CCIP, Streams, or LINK staking—not stuck L1 transfers.",
+    "pass": true
+  }
+]
