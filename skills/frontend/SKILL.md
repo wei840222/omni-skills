@@ -32,6 +32,7 @@ tree and does not call network APIs or store user data.
 | Mobile patterns | Breakpoints, touch, stacking | `references/mobile.md` |
 | Animation | Motion budget, reduced-motion | `references/animation.md` |
 | Examples | Landing, dashboard, checkout prompts | `references/examples.md` |
+| Sources | Verified docs used for Gate 6 claims | `references/sources.md` |
 
 ## Core Rules
 
