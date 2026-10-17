@@ -21,7 +21,7 @@ def fetch_all(url, body=None, rps=3):
         payload = dict(body or {}, page_size=100)
         if cursor:
             payload["start_cursor"] = cursor
-        data = post(url, json=payload)          # with retry, see errors.md
+        data = post(url, json=payload)          # with retry, see references/errors.md
         results.extend(data["results"])
         if not data.get("has_more"):
             return results

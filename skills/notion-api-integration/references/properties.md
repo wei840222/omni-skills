@@ -109,4 +109,4 @@ curl 'https://api.notion.com/v1/pages/PAGE_ID/properties/PROPERTY_ID' \
 | title | Every database row has exactly one, and an empty title is legal and produces rows nobody can find in the UI |
 | unique_id | Read-only and workspace-assigned; it is not an external key you can set (SKILL.md Data Model Defaults) |
 
-**When a property write fails and re-reading the schema explains why**, update `~/Clawic/data/notion-api-integration/schemas/<data-source>.md` in the same turn — the corrected name, the real type, the current option list — and note the surprise in `## Gotchas` of `memory.md` if it will bite again.
+**When a property write fails and re-reading the schema explains why**, update `<state_root>/schemas/<data-source>.md` in the same turn — the corrected name, the real type, the current option list — and note the surprise in `## Gotchas` of `memory.md` if it will bite again.
