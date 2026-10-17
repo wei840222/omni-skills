@@ -2,9 +2,9 @@
 
 Use this file to classify failures fast and choose the next action.
 
-## Common Failure Classes
+## Common failure classes
 
-| Class | Typical Symptom | First Action |
+| Class | Typical symptom | First action |
 |------|------------------|--------------|
 | Merchant readiness failure | Button hidden or flow not available | Verify merchant profile and environment configuration |
 | Token processing failure | Authorization declined or token parsing error | Validate backend parsing and PSP mapping |
@@ -12,24 +12,25 @@ Use this file to classify failures fast and choose the next action.
 | Timeout or network errors | Checkout stalls before confirmation | Add retry strategy and clear user fallback |
 | Duplicate authorization | Repeated charges on retry | Verify idempotency key usage and retry policy |
 
-## Incident Response Loop
+## Incident response loop
 
-1. Record failure signature and affected scope.
-2. Check if issue is deterministic or intermittent.
+1. Record failure signature and affected scope (no raw tokens).
+2. Check whether the issue is deterministic or intermittent.
 3. Validate prerequisites before code-level changes.
-4. Apply smallest fix and rerun validation checklist.
-5. Log mitigation and preventive action in `incidents.md`.
+4. Apply the smallest fix and rerun the validation checklist.
+5. Log mitigation and preventive action in `<state_root>/incidents.md` when durable notes are enabled.
 
-## User-Facing Response Rules
+## User-facing response rules
 
 - Explain whether the user can retry immediately.
 - Offer fallback payment without losing cart context.
 - Avoid exposing internal error identifiers in UI text.
 
-## Hard Stop Conditions
+## Hard stop conditions
 
 Pause rollout when:
+
 - Merchant readiness fails in production.
-- Decline rates exceed normal baseline without explanation.
+- Decline rates exceed the normal baseline without explanation.
 - Fallback flow is broken for a significant segment.
 - Duplicate authorizations are detected in live traffic.

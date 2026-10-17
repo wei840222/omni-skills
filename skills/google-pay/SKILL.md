@@ -1,184 +1,177 @@
 ---
 name: google-pay
-slug: google-pay
-version: 1.0.0
-description: Implement Google Pay for web and Android with tokenization safety, gateway alignment, and production-ready checkout operations.
-homepage: https://clawic.com/skills/google-pay
-changelog: Initial release with implementation, validation, launch, and incident response playbooks for Google Pay.
+description: >
+  Implement Google Pay for web and Android with merchant prerequisites,
+  gateway tokenization, server-trusted totals, idempotent authorization, and
+  production rollout gates. Use when adding or debugging a Google Pay button,
+  wallet capability checks, PAYMENT_GATEWAY vs DIRECT tokenization, PSP token
+  handoff, launch validation, or payment-incident triage. Prefer `payments` for
+  provider selection and PCI boundaries, `billing` / `subscriptions` for
+  recurring lifecycle and dunning, `stripe-api-integration` or `paypal` for
+  PSP-specific API debugging, `webhook` for generic receiver security, and
+  `android` for non-payment Android build/release work.
 metadata:
-  clawdbot:
-    emoji: 💳
-    requires:
-      bins:
-      - curl
-      - jq
-      env:
-      - GOOGLE_PAY_MERCHANT_ID
-    os:
-    - darwin
-    - linux
-    - win32
-    displayName: Google Pay
+  version: "1.1.0"
+  openclaw: '{"emoji":"💳","requires":{"bins":["curl","jq"],"env":["GOOGLE_PAY_MERCHANT_ID"]},"configPaths":["<state_root>/"]}'
+  related-skills: '{"android":"Non-payment Android app build, Play packaging, and device tooling around an in-app Google Pay button.","billing":"Subscription billing state machines, proration, and dunning after Google Pay captures the initial method.","payments":"Provider selection, one-off checkout design, and PCI-safe payment handling beyond Google Pay wallet specifics.","paypal":"PayPal REST and wallet flows when the PSP path is PayPal rather than Google Pay.","stripe-api-integration":"Stripe call-level debugging once Google Pay tokens are handed to Stripe.","subscriptions":"Offer-shape and renewal product design when Google Pay is only the initial capture path.","webhook":"Generic webhook receiver security and idempotency for PSP async payment events."}'
 ---
 
-## Setup
+# Google Pay
 
-On first use, read `setup.md` and confirm platform, PSP, and release target before making code changes.
+Ship **wallet-safe Google Pay checkout** for web and Android: confirm merchant
+and gateway prerequisites, choose one tokenization mode, keep amounts
+server-trusted, forward tokens only to backend/PSP, and block production advice
+until validation evidence exists.
 
-## When to Use
+## State location
 
-User needs Google Pay in checkout, subscriptions, or wallet-first conversion flows. Agent handles architecture decisions, tokenization mode, gateway integration, rollout validation, and post-launch operations.
+Google Pay integration notes, validation evidence, and incident rows may exist
+in `<workspace>/google-pay/`, `<workspace>/memory/google-pay/`, or
+`~/google-pay/`.
 
-## Architecture
+Before reading or writing state, resolve `<state_root>` as follows:
 
-Memory lives in `~/Clawic/data/google-pay/`. See `memory-template.md` for setup and status fields.
+1. Use an explicitly configured path when one exists.
+2. Otherwise use the first existing directory in this order:
+   `<workspace>/google-pay/`, `<workspace>/memory/google-pay/`, `~/google-pay/`.
+3. If more than one exists, use only the highest-precedence directory and report
+   the duplicates; do not merge them.
+4. If none exists and durable state must be created, default to
+   `<workspace>/google-pay/` when `<workspace>` is available; otherwise ask for a
+   state root instead of guessing from the current directory.
+5. Keep `<state_root>` fixed for the invocation.
 
-```
-~/Clawic/data/google-pay/
-|-- memory.md                 # Project snapshot, risk status, and rollout state
-|-- implementations.md        # Selected approach and platform notes
-|-- validation-log.md         # Test evidence and environment results
-`-- incidents.md              # Failed payments, root causes, and fixes
-```
+Use the selected `<state_root>` for every state operation in this skill. If older
+notes exist only at `~/Clawic/data/google-pay/`, propose a copy/validation/cutover
+plan and wait for user confirmation before any migration. Never write the
+literal string `<state_root>` to disk. Never store PAN/CVV, private keys, full
+token payloads, or PSP secrets in state files.
 
-## Quick Reference
+## When to use
 
-Use the smallest relevant file for the current task.
+- Web or Android Google Pay button / wallet checkout
+- Merchant profile, origin, package, or gateway readiness checks
+- Choosing `PAYMENT_GATEWAY` vs `DIRECT` tokenization
+- Token handoff, idempotent auth/capture/refund, and launch gates
+- Decline, timeout, duplicate-charge, or missing-button incident triage
 
-| Topic | File |
-|-------|------|
-| Setup flow | `setup.md` |
-| Memory template | `memory-template.md` |
-| Implementation plan | `implementation-playbook.md` |
-| Validation matrix | `validation-checklist.md` |
-| Failure recovery | `failure-handling.md` |
-| Release and operations | `launch-playbook.md` |
-| Recurring and subscription flows | `recurring-payments.md` |
+## Quick reference
+
+Load only the smallest file needed. Keep this `SKILL.md` as the router:
+
+| Need | Load |
+|------|------|
+| First-use setup / consent | `references/setup.md` + `assets/data-templates.md` |
+| Path selection (web / Android / PSP) | `references/implementation-playbook.md` |
+| Pre-release validation matrix | `references/validation-checklist.md` |
+| Failure classes and response loop | `references/failure-handling.md` |
+| Progressive rollout and kill switches | `references/launch-playbook.md` |
+| Initial capture vs recurring renewals | `references/recurring-payments.md` |
+| Verified source pins (Gate 6) | `references/sources.md` |
 
 ## Requirements
 
-- Environment variable: `GOOGLE_PAY_MERCHANT_ID`
+- Environment variable: `GOOGLE_PAY_MERCHANT_ID` (merchant context for the active environment)
 - CLI tools for diagnostics: `curl`, `jq`
-- Access to Google Pay business console and target PSP account
+- Access to Google Pay business console and the target PSP account
 
-Never ask users to paste private keys, full token payloads, or PSP secrets into chat.
+Keep private keys, full token payloads, and PSP secrets outside of chat and
+local notes.
 
-## Data Storage
+## Architecture
 
-Local notes stay under `~/Clawic/data/google-pay/`:
-- memory file for current state and integration decisions
-- validation log file for test outcomes and evidence
-- incidents file for failure signatures and mitigations
+Optional durable notes live under the resolved `<state_root>/`:
 
-## Core Rules
+```text
+<state_root>/
+|-- memory.md              # Project snapshot, risk status, rollout state
+|-- implementations.md     # Selected path and platform notes
+|-- validation-log.md      # Test evidence and environment results
+`-- incidents.md           # Failure signatures, root causes, mitigations
+```
 
-### 1. Confirm Business Goal Before Choosing Integration Path
-Start by identifying the target outcome:
-- Higher mobile checkout conversion
-- Faster repeat purchases
-- Lower payment friction on Android and Chrome
-- Fewer payment failures
+Create optional files only when that work starts. Do not pre-create empty trees.
 
-Then choose one primary path:
-- Web with Google Pay API and gateway tokenization
-- Android with Google Pay API in app flow
-- PSP-mediated integration path
+## Core rules
 
-Do not mix paths in one patch unless the user asks for a migration plan.
+1. **Confirm the business goal before choosing a path.** Pick one primary path
+   per change: web Google Pay API + gateway tokenization, Android in-app Google
+   Pay API, or PSP-mediated integration. Do not mix incompatible patterns in one
+   patch unless the user requested an explicit migration.
+2. **Require merchant and environment prerequisites.** Confirm merchant profile,
+   gateway/PSP Google Pay support for target countries, isolated test vs
+   production credentials, and correct web origin or Android package
+   configuration before coding. If prerequisites are missing, pause and produce
+   a checklist.
+3. **Enforce server truth for amount and currency.** Client payment data
+   requests, server cart/order totals, and PSP authorization/capture must match.
+   Never trust client-supplied totals for the final charge.
+4. **Keep token handling minimal and auditable.** Forward the Google Pay token
+   only to backend or PSP. Persist metadata only (request id, status, amount,
+   currency). Exclude raw token payloads from logs, notes, and screenshots.
+5. **Choose tokenization explicitly.** Prefer `PAYMENT_GATEWAY` for most
+   integrations. Use `DIRECT` only when the user explicitly owns decryption and
+   PCI scope. Document risk review before switching modes.
+6. **Build idempotent recoverable payment steps.** Authorization, capture,
+   refund, and void retries must reuse stable idempotency keys per logical
+   attempt.
+7. **Separate test and production release gates.** Recommend production only
+   after success/decline/cancel/timeout paths, supported device/browser matrix,
+   fallback checkout, and failure alerts are evidenced.
 
-### 2. Require Environment and Merchant Prerequisites
-Before implementation, confirm:
-- Google Pay merchant profile exists for production
-- Gateway or PSP supports Google Pay in target countries
-- Test environment is isolated from production
-- Origin and app package configuration are correct
+## Workflow
 
-If prerequisites are missing, pause coding and produce a concrete prerequisite checklist.
+1. Read `references/setup.md` and resolve `<state_root>` before writing notes.
+2. Confirm platform, PSP, environment, and tokenization mode.
+3. Load `references/implementation-playbook.md` for the selected path only.
+4. Implement with server-trusted totals and token-forwarding boundaries.
+5. Run `references/validation-checklist.md` in the target environment.
+6. For recurring products, load `references/recurring-payments.md` and hand
+   renewals to `billing` / `subscriptions` + the PSP skill.
+7. For launch, follow `references/launch-playbook.md`; for incidents, follow
+   `references/failure-handling.md`.
+8. Refresh mutable API/product claims from `references/sources.md`.
 
-### 3. Enforce Server Truth for Amounts and Currency
-Amounts and currency must match across:
-- Client payment data request
-- Server-side cart or order totals
-- PSP authorization and capture calls
+## Common traps
 
-Never trust client totals for final charge amount.
+- Shipping test merchant/gateway config to production
+- Mismatched gateway merchant ids across environments
+- Skipping `isReadyToPay` / capability checks before rendering the button
+- Trusting client totals for authorization amount
+- Retrying without idempotency keys (duplicate charges)
+- Launching without a working fallback checkout
+- Treating one-time Google Pay payloads as if they alone own recurring renewals
 
-### 4. Keep Token Handling Minimal and Auditable
-Treat Google Pay token payloads as sensitive:
-- Forward payload only to backend or PSP
-- Persist metadata only (request id, status, amount, currency)
-- Never store raw token payload in logs, notes, or screenshots
+## External endpoints
 
-### 5. Choose Tokenization Path Explicitly
-Use one clear tokenization mode per project:
-- `PAYMENT_GATEWAY` for most integrations
-- `DIRECT` only when user explicitly owns decryption and PCI scope
-
-Do not mix tokenization modes without a documented migration and risk review.
-
-### 6. Build Idempotent and Recoverable Payment Steps
-Require idempotency and reconciliation for all critical calls:
-- Authorization request
-- Capture request
-- Refund or void operations
-
-Every retried request must reuse stable idempotency keys to prevent duplicates.
-
-### 7. Separate Test and Production Release Gates
-Do not recommend production rollout until all gates pass:
-- Test success, decline, cancellation, and timeout paths are covered
-- Device and browser matrix is complete for supported audience
-- Fallback card or alternative checkout works when Google Pay is unavailable
-- Failure observability and alerts are active
-
-## Common Traps
-
-- Shipping test environment config to production -> checkout fails for live users
-- Mismatching gateway merchant ids across environments -> token processing errors
-- Skipping `isReadyToPay` style capability checks -> broken wallet button behavior
-- Trusting client totals -> mismatch between authorized and captured amounts
-- Missing idempotency on retries -> duplicate charges and refund overhead
-- Launching without fallback checkout -> conversion loss when wallet is unavailable
-
-## External Endpoints
-
-| Endpoint | Data Sent | Purpose |
+| Endpoint | Data sent | Purpose |
 |----------|-----------|---------|
-| https://pay.google.com | Payment request and wallet flow payloads | Google Pay wallet interactions and client integration |
-| https://pay.google.com/gp/p/js/pay.js | Script request metadata | Load Google Pay JavaScript client library |
-| https://payments.developers.google.com | Documentation fetch traffic | Reference integration docs and test cards |
+| `https://pay.google.com` | Wallet / payment-request payloads | Google Pay client wallet interactions |
+| `https://pay.google.com/gp/p/js/pay.js` | Script request metadata | Load Google Pay JavaScript client |
+| Chosen PSP / backend endpoints | Payment token + order metadata | Authorization, capture, refunds |
 
-No other data should be sent externally unless the selected PSP requires it.
+Limit external transmission to what the selected PSP and backend require.
 
-## Security & Privacy
+## Security and privacy
 
-Data that leaves your machine:
-- Google Pay request payloads needed for wallet flow
-- Payment token payloads sent to configured PSP or backend
+Leaves the machine:
 
-Data that stays local:
-- Integration notes and rollout state under `~/Clawic/data/google-pay/`
-- Validation evidence and failure logs without raw token payloads
+- Google Pay request payloads needed for the wallet flow
+- Payment token payloads sent to the configured backend or PSP
 
-This skill does NOT:
-- Store raw token payloads in memory files
-- Skip mandatory merchant and gateway requirements
-- Enable production release without explicit readiness checks
+Stays local under `<state_root>/`:
+
+- Integration notes and rollout state
+- Validation evidence and failure logs **without** raw token payloads
+
+Out of scope:
+
+- Storing raw token payloads in memory files
+- Bypassing merchant/gateway prerequisites
+- Declaring production readiness without validation evidence
 
 ## Trust
 
 Google Pay integrations depend on Google infrastructure and the chosen PSP.
-Only install and run this skill if you trust those services and your payment backend.
-
-## Related Skills
-More Clawic skills, get them at https://clawic.com/skills/<slug> (install if the user confirms):
-- `payments` - General payment design and checkout decision frameworks
-- `android` - Android implementation and runtime troubleshooting patterns
-- `billing` - Billing models, reconciliation, and payment lifecycle decisions
-- `auth` - Authentication and session hardening in transaction flows
-- `api` - Reliable backend API contracts and failure-safe integrations
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/google-pay
-- Latest version: https://clawic.com/skills/google-pay
+Only continue if those services and the payment backend are trusted for the
+workload.
