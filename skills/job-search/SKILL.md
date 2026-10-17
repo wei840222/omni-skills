@@ -104,8 +104,8 @@ Use `references/research.md` for the diligence checklist and `references/sources
 
 ## Common Traps
 
-- **ATS stuffing** — keywords that pass filters but read robotic to humans
+- **ATS stuffing** — keep keywords that still sound like the user
 - **Stale salary data** — verify ranges are current, not multi-year snapshots
 - **"Perfect match" overconfidence** — partial requirement fit still often rejects
-- **Cold networking without context** — outreach needs a warm path or specific hook
+- **Cold networking without context** — lead with a warm path or a specific shared hook
 - **Long-term advice for urgent needs** — brand-building does not replace this month's rent
