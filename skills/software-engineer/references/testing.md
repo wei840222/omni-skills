@@ -32,7 +32,7 @@ test('calculateDiscount applies 10% for orders over 100', () => {
 
 ## What to Test
 
-| Test | Don't Test |
+| Test | Defer Testing |
 |------|------------|
 | Business logic | Framework internals |
 | Edge cases: null, empty, limits | Getters/setters |
@@ -57,18 +57,18 @@ Every function should test:
 - Time-dependent code
 - Random/non-deterministic behavior
 
-**Don't mock:**
+**Instead of mocking:**
 - Your own code (test the real thing)
 - Pure utility functions
 - Data structures
 
 ```typescript
-// ✅ Mock external service
+// Preferred: Mock external service
 const mockPaymentService = {
   charge: jest.fn().mockResolvedValue({ success: true })
 };
 
-// ❌ Don't mock your own functions
+// Anti-pattern: Mocking your own functions
 const mockCalculateTotal = jest.fn(); // Test the real one
 ```
 
@@ -107,11 +107,16 @@ describe('POST /users', () => {
 ## Assertions
 
 ```
-❌ expect(result).toBeTruthy()     // Too vague
-❌ expect(result).toBeDefined()    // Doesn't check value
-✅ expect(result).toBe(42)         // Exact value
-✅ expect(result).toEqual({ ... }) // Object equality
-✅ expect(fn).toThrow(CustomError) // Specific error type
+// Anti-pattern
+expect(result).toBeTruthy()     // Too vague
+// Anti-pattern
+expect(result).toBeDefined()    // Doesn't check value
+// Preferred
+expect(result).toBe(42)         // Exact value
+// Preferred
+expect(result).toEqual({ ... }) // Object equality
+// Preferred
+expect(fn).toThrow(CustomError) // Specific error type
 ```
 
 ## Test Cleanup
@@ -128,8 +133,8 @@ afterAll(async () => {
 
 ## Flaky Test Prevention
 
-- Don't depend on execution order
-- Don't share state between tests
+- Avoid depending on execution order
+- Isolate state between tests
 - Use fixed timestamps in tests
 - Seed random generators
 - Wait for async operations properly (no arbitrary sleeps)

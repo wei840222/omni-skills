@@ -16,7 +16,7 @@
 
 ### What Lives Where
 
-| Layer | Allowed | Forbidden |
+| Layer | Allowed | Out of Scope |
 |-------|---------|-----------|
 | Handler | Parse request, validate schema, call service | SQL, business rules |
 | Service | Business logic, coordinate repos | HTTP details, raw SQL |
@@ -30,7 +30,7 @@
 - You need to swap implementations (testing, different environments)
 - The boundary naturally exists (external API, database)
 
-**Do NOT abstract when:**
+**Defer abstraction when:**
 - You have 1 concrete case
 - "Maybe we'll need this later"
 - To follow a pattern for pattern's sake
@@ -40,7 +40,7 @@
 ```
 Domain ← Application ← Infrastructure
          ↑
-      Never reversed
+      Ensure one-way flow
 ```
 
 Domain/core should have no dependencies on infrastructure. Use interfaces/ports.
@@ -50,7 +50,7 @@ Domain/core should have no dependencies on infrastructure. Use interfaces/ports.
 **Environment-based:**
 ```
 .env.development    # Local defaults
-.env.production     # Production values (never committed)
+.env.production     # Production values (exclude from commits)
 .env.example        # Template with dummy values (committed)
 ```
 
@@ -64,7 +64,7 @@ const config = {
 };
 ```
 
-Never access `process.env` directly throughout codebase — centralize in config.
+Abstract `process.env` access throughout codebase — centralize in config.
 
 ## Database Decisions
 
@@ -76,8 +76,8 @@ Never access `process.env` directly throughout codebase — centralize in config
 | >1M rows, complex queries | PostgreSQL + read replicas |
 
 **Migration rules:**
-- Always reversible (up + down)
-- Never destructive without backup verified
+- Prefer reversible migrations (up + down)
+- Verify backups before destructive actions
 - Small, incremental changes
 - Test on production copy first
 
@@ -124,7 +124,13 @@ Or on error:
 | Memory pressure | Check for leaks, reduce in-memory data |
 | Single point of failure | Add health checks, basic redundancy |
 
-**Don't prematurely:**
+**Defer until necessary:**
 - Add microservices (monolith is fine for a long time)
 - Add Kubernetes (Docker Compose works to 100K users)
 - Add message queues (sync is fine until proven otherwise)
+
+
+## Industry Standard References
+
+- **The Twelve-Factor App**: Methodology for building software-as-a-service apps. Source: [https://12factor.net/](https://12factor.net/)
+- **OWASP Top 10**: Standard awareness document for developers and web application security. Source: [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/)

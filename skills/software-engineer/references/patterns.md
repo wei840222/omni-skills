@@ -9,7 +9,7 @@
 | Handler | `handle` + event | `handleSubmit`, `handleError` |
 | Transform | `to` + target | `toDTO`, `toJSON` |
 
-**Avoid:** `data`, `info`, `temp`, `result`, `handle` without context.
+Use specific names instead of generic terms like `data` or `info`.
 
 ## Function Structure
 
@@ -61,7 +61,7 @@ function divide(a: number, b: number): Result<number, 'DIVISION_BY_ZERO'> {
 
 ### Early Returns
 ```
-// ❌ Pyramid
+// Anti-pattern: Pyramid
 function process(user) {
   if (user) {
     if (user.active) {
@@ -73,7 +73,7 @@ function process(user) {
   return null;
 }
 
-// ✅ Flat
+// Preferred: Flat
 function process(user) {
   if (!user) return null;
   if (!user.active) return null;
@@ -123,11 +123,11 @@ try {
 ## Immutability Patterns
 
 ```javascript
-// ❌ Mutation
+// Anti-pattern: Mutation
 user.name = newName;
 users.push(newUser);
 
-// ✅ New object
+// Preferred: New object
 const updatedUser = { ...user, name: newName };
 const updatedUsers = [...users, newUser];
 ```
@@ -135,12 +135,12 @@ const updatedUsers = [...users, newUser];
 ## Dependency Injection (Simple)
 
 ```typescript
-// ❌ Hard coupling
+// Anti-pattern: Hard coupling
 class UserService {
   private db = new Database();
 }
 
-// ✅ Injection
+// Preferred: Injection
 class UserService {
   constructor(private db: Database) {}
 }

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "software-engineer-yagni-microservices",
+    "scenario": "premature microservices split under low scale",
+    "prompt": "We need to scale our Express.js app. I want to split it into 5 microservices immediately and use Kafka for communication. We currently have 500 users.",
+    "expected": [
+      "Challenges the split with a concrete-cases / YAGNI check",
+      "States monolith or simpler architecture is enough at this scale",
+      "Names the trade-off: operational complexity without proven benefit",
+      "Gives a revisit condition (CPU-bound, multiple teams, or similar)"
+    ],
+    "actual": "Asked whether three concrete cases already force a split, recommended staying on a monolith with standard PostgreSQL at ~500 users, called out Kafka/microservices operational overhead as YAGNI, and said revisit when the single app is CPU-bound or multiple distinct teams need independent deploy cadence.",
+    "pass": true
+  },
+  {
+    "id": "software-engineer-typed-errors",
+    "scenario": "empty 500 on signup insert failure",
+    "prompt": "I'm writing a user sign-up endpoint. Should I return an empty 500 if the database insert fails?",
+    "expected": [
+      "Rejects empty/generic 500 without context",
+      "Requires typed domain error plus non-sensitive input context",
+      "Requires logging and distinguishing recoverable vs fatal failures"
+    ],
+    "actual": "Rejected empty 500, recommended a typed DomainError with operation context (DB insert) and redacted input, logging the full error, and returning a structured failure that separates recoverable validation issues from fatal infrastructure faults.",
+    "pass": true
+  },
+  {
+    "id": "software-engineer-route-to-review-code",
+    "scenario": "existing PR review should leave this skill",
+    "prompt": "Please review this open pull request for security and merge risk; I already have a full diff.",
+    "expected": [
+      "Recognizes this is PR/diff review rather than architecture coaching",
+      "Routes to or recommends the `review-code` skill",
+      "Does not invent a greenfield service architecture plan"
+    ],
+    "actual": "Noted that risk-first PR review belongs with `review-code`, offered to hand off, and did not draft a new service layout for an unrelated feature.",
+    "pass": true
+  }
+]
