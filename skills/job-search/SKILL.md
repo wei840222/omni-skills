@@ -1,32 +1,37 @@
 ---
 name: job-search
-slug: job-search
-version: 1.0.1
-description: Navigate job hunting with application tracking, company research, and interview preparation.
-homepage: https://clawic.com/skills/job-search
-changelog: Minor refinements for consistency
+description: >
+  Manage job hunting with structured application tracking, company research,
+  offer diligence, and interview prep. Use when starting a search, logging
+  applications, researching employers, preparing interviews, or evaluating
+  remote/comp claims. Prefer `cv` or `resume` for resume drafting itself, and
+  `career` for longer-horizon career strategy outside an active hunt.
 metadata:
-  clawdbot:
-    emoji: 💼
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Job Search
+  version: "1.0.1"
+  openclaw: '{"emoji":"💼"}'
+  related-skills: '{"cv":"Tailor the actual resume/CV and bullet evidence for a target role.","resume":"Resume structure and ATS-aware rewriting when the artifact itself is the task.","career":"Longer-horizon career strategy, role sequencing, and growth planning outside an active application cycle."}'
 ---
 
-## When to Use
+## State location
 
-User is job hunting — searching for positions, applying to companies, or preparing for interviews. Agent handles opportunity tracking, company research, application materials, and interview prep.
+Resolve `<state_root>` before the first state operation using this order:
+
+1. `<workspace>/job-search/`
+2. `<workspace>/memory/job-search/`
+3. `~/job-search/`
+
+Never write hunt state into the skill package. Create directories only under the resolved `<state_root>`.
+
+## Purpose
+
+Use this skill when the user is actively job hunting: track opportunities, research target companies, organize application materials, prepare interviews, and keep next actions current.
 
 ## Architecture
 
-Memory lives in `~/Clawic/data/job-search/`. See `memory-template.md` for setup.
+Memory lives in `<state_root>/`. Load `references/setup.md` before first setup, then copy templates from `assets/data-templates.md`.
 
-```
-~/Clawic/data/job-search/
+```text
+<state_root>/
 ├── memory.md          # HOT: preferences, target criteria
 ├── applications.md    # Active pipeline
 ├── companies.md       # Research on target companies
@@ -36,42 +41,45 @@ Memory lives in `~/Clawic/data/job-search/`. See `memory-template.md` for setup.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Memory setup | `memory-template.md` |
-| Research patterns | `research.md` |
-| Interview prep | `interviews.md` |
+| Topic | File | Load when |
+|-------|------|-----------|
+| Memory setup | `references/setup.md` | First use or missing state files |
+| Research patterns | `references/research.md` | Company diligence, offer/comp checks |
+| Interview prep | `references/interviews.md` | Upcoming interview or thank-you/follow-up |
+| Verified sources | `references/sources.md` | Citing market, legal, or freshness-sensitive claims |
 
 ## Core Rules
 
 ### 1. Quality Over Volume
-- 5 targeted applications beat 50 generic ones
-- Each application needs company-specific customization
-- Never spray-and-pray — it burns reputation
+- Prefer a small set of tailored applications over mass spray.
+- Customize each packet to the company and role.
+- Keep reputation intact by targeting precise fits.
 
 ### 2. Verify "Remote" Claims
-Before recommending remote positions, check:
-- Geographic restrictions ("US only", "EU timezone required")
-- Tax/legal requirements in fine print
-- Actual timezone overlap expectations
+Before recommending remote roles, confirm:
+- Geographic or work-authorization limits ("US only", "EU timezone")
+- Tax/legal fine print
+- Real timezone overlap expectations
 
 ### 3. Detect Red Flags
 | Signal | Likely Meaning |
-|--------|---------------|
+|--------|----------------|
 | Posted 3+ months | Ghost job or high turnover |
-| "Rockstar/ninja" language | Overwork culture |
-| Vague salary ("competitive") | Below market |
-| "Young dynamic team" | Age bias risk |
+| "Rockstar/ninja" language | Overwork culture risk |
+| Vague salary ("competitive") | Below-market risk |
+| "Young dynamic team" | Age-bias risk |
 | Recent mass layoffs | Instability |
 
+Load `references/sources.md` before presenting discrimination-risk or job-scam guidance as settled fact.
+
 ### 4. Preserve User Voice
-- Materials must sound like the USER, not generic AI
-- Ask for writing samples to match tone
-- Never over-optimize with keywords at cost of authenticity
-- Recruiters detect AI-written content — personalization matters
+- Materials must sound like the user, not generic AI.
+- Ask for writing samples when tone matching matters.
+- Balance keywords with authentic voice.
+- Recruiters detect AI-written content; personalization wins.
 
 ### 5. Track Application State
-Maintain in ~/Clawic/data/job-search/applications.md:
+Maintain `<state_root>/applications.md` with:
 - Company, role, date applied
 - Current status, next action
 - Contacts, interview dates
@@ -80,22 +88,24 @@ Maintain in ~/Clawic/data/job-search/applications.md:
 ### 6. Research Before Applying
 For each target company, gather:
 - Financial health (funding, revenue trends)
-- Glassdoor sentiment (filter for recency)
+- Review sentiment filtered for recency
 - Recent news (layoffs, acquisitions)
-- Hiring manager profile if findable
+- Hiring-manager profile when findable
+
+Use `references/research.md` for the diligence checklist and `references/sources.md` for freshness-sensitive sources.
 
 ### 7. Adjust for User Context
 | User Type | Priority |
 |-----------|----------|
 | Senior (10+ yrs) | Network activation, discretion, salary negotiation |
-| Junior/New grad | Volume with quality, entry-level friendly companies |
-| Career changer | Transferable skills narrative, bridge roles |
+| Junior/New grad | Quality with enough volume, entry-friendly companies |
+| Career changer | Transferable-skills narrative, bridge roles |
 | Urgent need | Speed, temporary options, immediate income |
 
 ## Common Traps
 
-- **ATS optimization kills authenticity** — keyword stuffing passes filters but humans reject robotic text
-- **Salary data goes stale fast** — verify ranges are current, not 2-year-old estimates
-- **"Perfect match" overconfidence** — 60% requirement fit still means likely rejection
-- **Networking advice without context** — cold outreach fails without warm introduction strategy
-- **Long-term advice for urgent needs** — "build your brand" doesn't pay rent this month
+- **ATS stuffing** — keywords that pass filters but read robotic to humans
+- **Stale salary data** — verify ranges are current, not multi-year snapshots
+- **"Perfect match" overconfidence** — partial requirement fit still often rejects
+- **Cold networking without context** — outreach needs a warm path or specific hook
+- **Long-term advice for urgent needs** — brand-building does not replace this month's rent
