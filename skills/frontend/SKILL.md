@@ -22,6 +22,9 @@ purposeful color, accessible interaction, and Core Web Vitals targets. This
 skill is **knowledge-only guidance**: it does not create a persistent state
 tree and does not call network APIs or store user data.
 
+Keep always-needed rules in this file. Load a `references/` doc only when the
+current task needs that depth; do not preload every reference by default.
+
 ## Quick Reference
 
 | Topic | Load when | File |
