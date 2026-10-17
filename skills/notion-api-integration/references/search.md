@@ -57,4 +57,4 @@ After that, everything runs from stored ids and the discovery pass becomes a `##
 
 Search excludes archived objects. A page a user "deleted" yesterday is invisible here but still retrievable by id — which is how a sync job can keep updating a page nobody can find. Check `archived`/`in_trash` on read before treating a retrieve as proof the page is live (`sync.md`).
 
-**After a discovery pass**, write every id, name and purpose into `### Data Sources` in `~/Clawic/data/notion-api-integration/memory.md`, note anything reachable that the user did not expect under `### Known Gaps`, and record the pass date in `## Due`. A crawl whose result is not written down gets re-run every session.
+**After a discovery pass**, write every id, name and purpose into `### Data Sources` in `<state_root>/memory.md`, note anything reachable that the user did not expect under `### Known Gaps`, and record the pass date in `## Due`. A crawl whose result is not written down gets re-run every session.

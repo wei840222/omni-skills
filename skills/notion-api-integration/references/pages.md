@@ -118,4 +118,4 @@ There is no duplicate-page endpoint. Duplication is: retrieve the source page, r
 - Cost is one request per page plus one per ~100 blocks per level — a 50-block page is 3-4 requests, and a 200-page duplication run belongs in `bulk.md`.
 - Unsupported block types come back as `unsupported` and cannot be recreated; state which ones dropped rather than producing a silently incomplete copy.
 - A duplicated page does not inherit integration connections reliably (`auth.md`).
-- When a duplication pattern gets used more than once, save the block skeleton to `~/Clawic/data/notion-api-integration/artifacts/template-<what>.md` and index it in `## Boxes` — rebuilding a template payload from the UI is an hour nobody budgets twice.
+- When a duplication pattern gets used more than once, save the block skeleton to `<state_root>/artifacts/template-<what>.md` and index it in `## Boxes` — rebuilding a template payload from the UI is an hour nobody budgets twice.

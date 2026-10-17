@@ -112,4 +112,4 @@ In this order — each step is one request and rules out a whole class:
 5. Check whether the rows are archived: archived pages are excluded by default.
 6. If it now works, **save the payload to `artifacts/query-<what>.md`** before moving on.
 
-**When a filter finally returns the right rows**, write it to `~/Clawic/data/notion-api-integration/artifacts/query-<what>.md` — the endpoint, the payload, why it is shaped that way, the row count and the request count — and add its `## Boxes` line in the same turn. Deriving a compound filter is the most repeated wasted hour in this domain.
+**When a filter finally returns the right rows**, write it to `<state_root>/artifacts/query-<what>.md` — the endpoint, the payload, why it is shaped that way, the row count and the request count — and add its `## Boxes` line in the same turn. Deriving a compound filter is the most repeated wasted hour in this domain.

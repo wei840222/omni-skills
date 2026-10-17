@@ -1,4 +1,4 @@
-# Working File Templates — Notion API
+# Data Templates — Notion API Integration
 
 Read this file only when WRITING. `config.yaml` is what the user **declared**; `memory.md` and everything it indexes is what you **observed** or produced. An observation never overwrites a declaration.
 
@@ -6,17 +6,17 @@ Read this file only when WRITING. `config.yaml` is what the user **declared**; `
 
 | Data | Home | How it grows |
 |---|---|---|
-| Declared preferences — table keys and preference areas alike | `~/Clawic/data/notion-api-integration/config.yaml` | Key by key, read-modify-write |
-| Workspace context, data-source index, integrations, gotchas, due dates, box index | `~/Clawic/data/notion-api-integration/memory.md` | Rewritten in place; stays small |
-| The schema of a database or data source — property names, ids, types, options, relation targets | `~/Clawic/data/notion-api-integration/schemas/<data-source>.md` | Born as its own file, from the first one; re-read before writing to that target |
-| Things you produced that get re-read — filter payloads that finally worked, import runbooks, modeling decisions | `~/Clawic/data/notion-api-integration/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
-| Bulk runs: imports, exports, backfills — counts, where it stopped, what failed | `~/Clawic/data/notion-api-integration/runs/<year>.md` | Append-only, cut by year |
-| External id ↔ Notion page id mappings | `~/Clawic/data/notion-api-integration/mappings/<source>-to-notion.md` | One file per source system, grows by row |
+| Declared preferences — table keys and preference areas alike | `<state_root>/config.yaml` | Key by key, read-modify-write |
+| Workspace context, data-source index, integrations, gotchas, due dates, box index | `<state_root>/memory.md` | Rewritten in place; stays small |
+| The schema of a database or data source — property names, ids, types, options, relation targets | `<state_root>/schemas/<data-source>.md` | Born as its own file, from the first one; re-read before writing to that target |
+| Things you produced that get re-read — filter payloads that finally worked, import runbooks, modeling decisions | `<state_root>/artifacts/<kebab-name>.md` | Born as its own file, from the first one |
+| Bulk runs: imports, exports, backfills — counts, where it stopped, what failed | `<state_root>/runs/<year>.md` | Append-only, cut by year |
+| External id ↔ Notion page id mappings | `<state_root>/mappings/<source>-to-notion.md` | One file per source system, grows by row |
 | Integrations, capabilities, connected parent pages, webhook subscriptions | `## Integrations` in `memory.md` while it fits; `integrations.md` after the split | One entry per integration |
-| The project this integration serves | `~/Clawic/data/projects/<project>.md` (**shared**) | One file per project |
-| A client or workspace owner as a person | `~/Clawic/data/contacts/contacts.md` (**shared**) | One row per person, name only referenced from here |
-| **Anything durable this table does not name** | `~/Clawic/data/notion-api-integration/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
-| Tokens, secrets, signed URLs of any kind | Nowhere under `~/Clawic/data/` | Pointer only — see Secrets |
+| The project this integration serves | `<workspace>/projects/<project>.md` (**shared**) | One file per project |
+| A client or workspace owner as a person | `<workspace>/contacts/contacts.md` (**shared**) | One row per person, name only referenced from here |
+| **Anything durable this table does not name** | `<state_root>/<plural-noun>.md`, or `artifacts/<kebab-name>.md` if it is a long text read whole | Name the file after what it holds, never after when it was made; add its `## Boxes` line in the same turn |
+| Tokens, secrets, signed URLs of any kind | Nowhere under `<state_root>/` | Pointer only — see Secrets |
 
 ## When to write
 
@@ -40,7 +40,7 @@ No permission needed; every write is announced in one line that names the file. 
 Everything except schemas, artifacts, runs and mappings begins inside `memory.md`. Splitting is a procedure, not a suggestion:
 
 1. Before appending to a section, count its entries.
-2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `~/Clawic/data/notion-api-integration/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
+2. If the append would take it past **~15 entries or ~40 lines of real content** — scaffolding, headings and comments do not count — then, in the same turn: create the new file in `<state_root>/`, move the whole section into it, **delete the section from `memory.md`**, add its line to `## Boxes`, and append the new entry to the new file.
 3. Keep the headings identical on both sides of the move, so the split is a copy-paste and never a rewrite.
 4. Never leave a copy behind. If the same data ever appears in both places, the extracted file wins and the `memory.md` copy is deleted.
 
@@ -48,7 +48,7 @@ Schemas, artifacts, runs and mappings are the exception: each is born as its own
 
 ## Secrets
 
-Nothing under `~/Clawic/data/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. Store the pointer in its place, in this shape: `<kind>:<locator>`.
+Nothing under `<state_root>/` ever holds a secret value — not the files named here, not files you create, not text the user pastes in and asks you to keep. Store the pointer in its place, in this shape: `<kind>:<locator>`.
 
 `env:NOTION_API_KEY` · `keychain:notion-oauth` · `1password:Work/Notion/prod` · `bitwarden:Notion/client-secret` · `vault:secret/notion/prod` · `file:~/.config/notion/token`
 
@@ -64,7 +64,7 @@ In this domain — **not secrets, keep them**: page, block, database, data sourc
 
 Keys come from the Configuration table in `SKILL.md`, plus free-form keys nested under a preference area. Write a key only when the user states the preference.
 
-**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `~/Clawic/data/notion-api-integration/` if it does not exist.
+**Writing is read-modify-write**: load the existing file, set or replace only the key just declared, keep every other key byte for byte. Never emit a `config.yaml` from this template — the template shows shape, not content. Create `<state_root>/` if it does not exist.
 
 ```yaml
 api_version: "2025-09-03"
@@ -164,7 +164,7 @@ Rules that keep this readable next month:
 
 ## schemas/
 
-One file per data source, at `~/Clawic/data/notion-api-integration/schemas/<kebab-name>.md`, created the first time you retrieve it. This is the box that pays for itself: every `validation_error` about a property name is a session that did not have it.
+One file per data source, at `<state_root>/schemas/<kebab-name>.md`, created the first time you retrieve it. This is the box that pays for itself: every `validation_error` about a property name is a session that did not have it.
 
 ```markdown
 # Schema — Tasks
@@ -188,7 +188,7 @@ One file per data source, at `~/Clawic/data/notion-api-integration/schemas/<keba
 
 ## artifacts/
 
-One file per thing, at `~/Clawic/data/notion-api-integration/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a query payload that finally worked**, **an import or export runbook**, **a modeling decision**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
+One file per thing, at `<state_root>/artifacts/<kebab-name>.md`, created the first time it exists. Canonical types here: **a query payload that finally worked**, **an import or export runbook**, **a modeling decision**. Every artifact opens with when to read it, and gets its `## Boxes` line in the same turn.
 
 ```markdown
 # Query — overdue tasks by owner
@@ -210,7 +210,7 @@ Rejected: multi_select of company names — renames orphan history, and rollups 
 Cost of reversal: a backfill over ~4,200 pages, ≈24 min at 3 req/s.
 ```
 
-If the user tracks this work as a project, the decision summary also belongs in the shared `~/Clawic/data/projects/<project>.md`, with the payload staying here and referenced by name.
+If the user tracks this work as a project, the decision summary also belongs in the shared `<workspace>/projects/<project>.md`, with the payload staying here and referenced by name.
 
 ## runs/
 
@@ -251,7 +251,7 @@ One file per source system, at `mappings/<source>-to-notion.md`. Read before cre
 
 ## Shared project record
 
-Lives at `~/Clawic/data/projects/<project>.md` and is shared with every other skill — the user may not have any of them installed, so the format travels with this skill.
+Lives at `<workspace>/projects/<project>.md` and is shared with every other skill — the user may not have any of them installed, so the format travels with this skill.
 
 ```markdown
 # Project — Airtable to Notion migration
@@ -269,7 +269,7 @@ Milestones: import ✓ · backfill ✓ · sync — 2026-08.
 
 ## Shared contacts
 
-Lives at `~/Clawic/data/contacts/contacts.md`. Only people the user actually deals with — a client whose workspace this is, the admin who grants connections. Never the output of `/v1/users`.
+Lives at `<workspace>/contacts/contacts.md`
 
 ```markdown
 # Contacts
@@ -281,7 +281,7 @@ Lives at `~/Clawic/data/contacts/contacts.md`. Only people the user actually dea
 
 - **Identity is the email or handle.** Read the file before adding. If that person is already there, update the row in place — never a second row. Rows written by other skills are not yours to rewrite.
 - **Foreign columns win.** If `contacts.md` already exists with a different column set, match its columns and add anything missing as a trailing note. Never rewrite its header.
-- **Scale cut**: one row per person while there are ≤15. Past that, one file per person at `~/Clawic/data/contacts/<name>.md` with the same fields, and `contacts.md` becomes the index (`Name | Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `contacts.md`.
+- **Scale cut**: one row per person while there are ≤15. Past that, one file per person at `<workspace>/contacts/contacts.md`| Role | → file`). If you arrive and the folder already looks like that, follow it — do not start a parallel `contacts.md`.
 - **Removal is part of the box.** When a person is no longer involved, delete the row and note the date in `memory.md`.
 - Any amount recorded carries its currency in the value (`90 USD/mo`), because other skills add these columns up.
 - Never a token, password, or invite link — a pointer at most.

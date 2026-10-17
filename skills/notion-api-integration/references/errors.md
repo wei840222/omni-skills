@@ -43,7 +43,7 @@ Notion errors are well-shaped: a status, a `code`, and a `message` that usually 
 
 ## Rate Limits
 
-- **~3 requests per second per integration, averaged, with short bursts tolerated.** The budget belongs to the token, not to the process: your cron job, your migration and an interactive session all spend from it.
+- **plan-based per-connection budgets (default assume ~3 rps / 180 per minute unless Business/Enterprise), plus a shared per-workspace budget; short bursts inside the window are tolerated.** The budget belongs to the token, not to the process: your cron job, your migration and an interactive session all spend from it.
 - A 429 carries `Retry-After` in seconds. Honour it exactly; sleeping less is how a 429 becomes a wall of 429s.
 - Size limits produce 400, not 429: 500 KB request body, 2,000 characters per rich text object, 100 items per rich text array (SKILL.md Limits).
 - The fix for repeated 429s is pacing, not retrying. A central token bucket at `rate_limit_rps` is the design; retry handles the exception (`bulk.md`).
@@ -102,4 +102,4 @@ Each rung is one request and eliminates a class:
 5. Send the write with one property only — isolates which field the 400 belongs to.
 6. Add the rest back one at a time.
 
-**When a failure took real digging**, write the cause and the fix where it will be found again: a wrong property name or a stale option list goes into `~/Clawic/data/notion-api-integration/schemas/<data-source>.md`; a workspace-specific quirk goes into `## Gotchas` in `memory.md`; a payload that finally worked goes into `artifacts/query-<what>.md` with its `## Boxes` line, in the same turn.
+**When a failure took real digging**, write the cause and the fix where it will be found again: a wrong property name or a stale option list goes into `<state_root>/schemas/<data-source>.md`; a workspace-specific quirk goes into `## Gotchas` in `memory.md`; a payload that finally worked goes into `artifacts/query-<what>.md` with its `## Boxes` line, in the same turn.

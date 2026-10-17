@@ -127,4 +127,4 @@ Converting markdown to blocks is the most-rewritten piece of code in this domain
 - Tables need width declared up front and rows padded to it.
 - Long paragraphs need chunking at 2,000 characters at a word boundary you choose.
 
-**When a conversion or a page skeleton is worth reusing**, save it to `~/Clawic/data/notion-api-integration/artifacts/template-<what>.md` with the payload and the block-type mapping it assumes, and add its `## Boxes` line in the same turn.
+**When a conversion or a page skeleton is worth reusing**, save it to `<state_root>/artifacts/template-<what>.md` with the payload and the block-type mapping it assumes, and add its `## Boxes` line in the same turn.

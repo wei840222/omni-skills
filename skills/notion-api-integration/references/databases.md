@@ -4,7 +4,7 @@ Creating, reading and changing the container your rows live in. Endpoints below 
 
 **Contents:** [Read the Schema First](#read-the-schema-first) · [Query](#query) · [Create a Database](#create-a-database) · [Property Definition Shapes](#property-definition-shapes) · [Changing a Schema](#changing-a-schema) · [Renames, Ids, and Why Code Breaks](#renames-ids-and-why-code-breaks) · [Relations and Rollups](#relations-and-rollups) · [Deleting Things](#deleting-things) · [Finding Databases](#finding-databases)
 
-**Before writing to any database**, open its `schemas/<data-source>.md` box if `## Boxes` in `~/Clawic/data/notion-api-integration/memory.md` names one. If it does not exist, retrieve the schema and create it — that is the work, not overhead.
+**Before writing to any database**, open its `schemas/<data-source>.md` box if `## Boxes` in `<state_root>/memory.md` names one. If it does not exist, retrieve the schema and create it — that is the work, not overhead.
 
 ## Read the Schema First
 
@@ -125,4 +125,4 @@ curl -X POST 'https://api.notion.com/v1/search' \
 
 Returns only databases shared with the integration, subject to index lag (`search.md`). Use it once to discover, then work from stored ids.
 
-**After any schema read or change**, write the property table — names, ids, types, writable, option lists, relation targets — to `~/Clawic/data/notion-api-integration/schemas/<data-source>.md`, with the retrieval date and the API version, and add its line to `## Boxes` in the same turn. Update `### Data Sources` in `memory.md` with the row count and its date. This box is what stops the next session from paying for the same `validation_error`.
+**After any schema read or change**, write the property table — names, ids, types, writable, option lists, relation targets — to `<state_root>/schemas/<data-source>.md`, with the retrieval date and the API version, and add its line to `## Boxes` in the same turn. Update `### Data Sources` in `memory.md` with the row count and its date. This box is what stops the next session from paying for the same `validation_error`.
