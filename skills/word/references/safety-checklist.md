@@ -1,6 +1,6 @@
 # Safety Checklist — Word
 
-Use this before any risky Word Desktop action.
+Use this before any risky Word Desktop action. Memory preferences may raise the bar; they must not lower this floor.
 
 ## Destructive or high-risk actions
 
@@ -18,6 +18,7 @@ Use this before any risky Word Desktop action.
 3. State whether the action is reversible.
 4. State whether a copy or Save As path exists.
 5. State whether track changes or document protection is active.
+6. Obtain explicit user confirmation for every high-risk action above.
 
 ## Safe fallback moves
 

@@ -1,13 +1,15 @@
-# Memory Template — Word
+# Data Templates
 
-Create `~/Clawic/data/word/memory.md` with this structure:
+Copy these skeletons into the resolved `<state_root>` after consent. Do not write the literal string `<state_root>` to disk.
+
+## memory.md
 
 ```markdown
 # Word Memory
 
 ## Status
 status: active
-version: 1.0.0
+version: 1.1.0
 last_verified: YYYY-MM-DD
 platform: macOS
 control_path: osascript
@@ -28,22 +30,13 @@ word_attach_mode: attach-existing | launch-new | mixed
 
 ## Document Notes
 - Store only document identifiers, stable paths, and non-sensitive structure notes
-- Never paste document contents, secrets, or personal information here
+- Keep document contents and secrets out of this file
 
 ## Recent Incidents
 - YYYY-MM-DD: short failure signature -> short fix
 ```
 
-## Storage Rules
-
-- Keep only reusable environment facts and safety preferences.
-- Do not store document body text unless the user explicitly asks for a local note.
-- Put repeatable failures in `~/Clawic/data/word/incidents.md`.
-- Put non-sensitive recurring document metadata in `~/Clawic/data/word/document-notes.md`.
-
-## Optional Companion Files
-
-`~/Clawic/data/word/incidents.md`:
+## incidents.md
 
 ```markdown
 # Word Incidents
@@ -55,7 +48,7 @@ word_attach_mode: attach-existing | launch-new | mixed
 - Fix:
 ```
 
-`~/Clawic/data/word/document-notes.md`:
+## document-notes.md
 
 ```markdown
 # Document Notes

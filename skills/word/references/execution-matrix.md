@@ -2,7 +2,7 @@
 
 Use this matrix before writing automation. Choose the path that matches the app state, not the one you remember first.
 
-## Default Interface by Job
+## Default interface by job
 
 | Job | Preferred path | Why |
 |-----|----------------|-----|
@@ -13,15 +13,16 @@ Use this matrix before writing automation. Choose the path that matches the app 
 | Export current document to PDF | `osascript` | Uses Word's own layout and export path |
 | Offline structural DOCX editing | `word-docx` | Better fit than live app control |
 
-## Platform Notes
+## Platform notes
 
 ### macOS
 
 - Start with `osascript` for document, selection, comment, and export actions.
 - Keep scripts short and verify active document identity before mutation.
 - Use app-level commands only after a read-first step.
+- On non-Darwin hosts, stop; do not invent a Windows COM path inside this skill.
 
-## Attach Strategy
+## Attach strategy
 
 ### Choose `attach-existing` when
 
