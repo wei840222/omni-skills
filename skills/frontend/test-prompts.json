@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "I need to build a new landing page for a SaaS product. Can you help me set up the typography and color system following your guidelines?",
+    "expected": "Applies 70-20-10 color guidance, recommends distinctive fonts with ≥2x size jumps (not Inter/Roboto/Arial as hero), and starts mobile-first single-column before desktop enhancement; may point to references/colors.md and references/typography.md.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: SKILL Core Rules 1–3 + Frontend Traps encode 70-20-10, distinctive type with 2x jumps, and mobile-first single column. references/colors.md and references/typography.md exist with matching guidance. No live codegen run in this handoff environment.",
+    "pass": true
+  },
+  {
+    "id": 2,
+    "prompt": "I'm designing a form that updates data in our dashboard. How should I handle the loading state and errors?",
+    "expected": "Show loading feedback for >1s operations, prefer optimistic updates only when rollback is safe, preserve user input on errors, and do not clear fields on failure; may hand specialized form craft to forms.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: Core Rule 4 + Frontend Traps require immediate loading feedback and preserve-input error recovery. Scope routes specialized form UX to forms. Content-backed; no private dashboard API exercised here.",
+    "pass": true
+  },
+  {
+    "id": 3,
+    "prompt": "Critique the visual hierarchy of this mockup and tell me if the spacing system is consistent.",
+    "expected": "Hand off primary critique to design (quantified hierarchy/spacing); frontend may implement after critique, not replace design review.",
+    "actual": "STRUCTURAL_ROUTING 2026-10-17: description + related-skills + Scope send quantified visual critique to design; frontend remains implementation guidance. Near-miss correctly excluded.",
+    "pass": true
+  }
+]

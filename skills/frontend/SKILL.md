@@ -1,108 +1,110 @@
 ---
 name: frontend
-slug: frontend
-version: 1.0.2
-description: Frontend development with React, Next.js, Tailwind CSS. Build landing pages, dashboards, forms, components. Responsive, accessible, performant UI.
-homepage: https://clawic.com/skills/frontend
-changelog: Renamed to better reflect design-focused capabilities and guidance.
+description: >
+  Guide frontend UI implementation with React, Next.js, Tailwind, typography,
+  color systems, mobile-first layout, accessibility, Core Web Vitals, and
+  interaction feedback. Use when building landing pages, dashboards, forms,
+  component libraries, or polishing production web UI. Prefer `design` for
+  quantified visual critique, `css`/`tailwindcss` for stylesheet mechanics,
+  `react`/`nextjs` for framework internals, `ux` for heuristic flow review,
+  `forms`/`dashboard` for specialized surfaces, and `inspiration` for gallery
+  references before coding.
 metadata:
-  clawdbot:
-    emoji: 🖥️
-    requires:
-      bins: []
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Frontend Design
+  version: "1.0.2"
+  openclaw: '{"emoji":"🖥️"}'
+  related-skills: '{"css":"Cascade, layout bugs, and render-performance CSS outside Tailwind-first guidance.","dashboard":"Analytics dashboard IA and chart/table composition beyond generic frontend patterns.","design":"Quantified hierarchy, spacing, and visual critique before implementation.","design-system":"Token and component-system governance across products.","forms":"Multi-step form validation, error recovery, and field UX beyond general traps.","inspiration":"Gallery and screenshot references before committing to an aesthetic.","nextjs":"App Router, RSC, caching, and Next.js deployment mechanics.","react":"React component patterns, hooks, and state beyond stack recommendations.","tailwindcss":"Utility-class debugging, theme config, and Tailwind build setup.","ux":"Nielsen heuristics and cognitive-load review of flows rather than visual implementation."}'
 ---
 
-## When to Use
+# Frontend
 
-User needs web UI built. Agent handles landing pages, dashboards, forms, component libraries, and any frontend requiring production polish.
+Ship production web UI with a mobile-first stack, distinctive typography,
+purposeful color, accessible interaction, and Core Web Vitals targets. This
+skill is **knowledge-only guidance**: it does not create a persistent state
+tree and does not call network APIs or store user data.
+
+Keep always-needed rules in this file. Load a `references/` doc only when the
+current task needs that depth; do not preload every reference by default.
 
 ## Quick Reference
 
-| Topic | File |
-|-------|------|
-| Stack & tooling | `stack.md` |
-| Typography rules | `typography.md` |
-| Color systems | `colors.md` |
-| Mobile patterns | `mobile.md` |
-| Animation | `animation.md` |
-| Examples | `examples.md` |
+| Topic | Load when | File |
+|-------|-----------|------|
+| Stack & tooling | Choosing Next.js/Tailwind/shadcn defaults | `references/stack.md` |
+| Typography rules | Font pairing, scale, measure | `references/typography.md` |
+| Color systems | 70-20-10, themes, depth | `references/colors.md` |
+| Mobile patterns | Breakpoints, touch, stacking | `references/mobile.md` |
+| Animation | Motion budget, reduced-motion | `references/animation.md` |
+| Examples | Landing, dashboard, checkout prompts | `references/examples.md` |
+| Sources | Verified docs used for Gate 6 claims | `references/sources.md` |
 
 ## Core Rules
 
 ### 1. Mobile-First Always
-- Start with mobile layout, enhance upward
-- Every grid must collapse to single column
-- Touch targets minimum 44x44px
-- Test on real devices, not just simulators
+- Start with a single-column mobile layout, then enhance upward
+- Collapse every multi-column grid to one column below the first breakpoint
+- Keep interactive targets at least **44×44 CSS px** (WCAG 2.2 target-size guidance)
+- Validate on real devices, not only simulators
 
 ### 2. Typography Matters
-- Avoid generic fonts (Inter, Roboto, Arial)
-- Use dramatic size jumps (2x+), not timid increments
-- Body text 16-18px minimum
-- See `typography.md` for specific recommendations
+- Prefer distinctive fonts over generic stacks (Inter, Roboto, Arial)
+- Use dramatic size jumps (2×+), not timid increments
+- Keep body text at 16–18px minimum with ~65–75 character measure
+- See `references/typography.md` for pairings and scale
 
 ### 3. Color with Purpose
-- 70-20-10 rule: primary, secondary, accent
-- Commit to light OR dark — no muddy mid-grays
-- Never solid white backgrounds — add depth
-- See `colors.md` for CSS variables and patterns
+- Apply the 70-20-10 rule: primary, secondary, accent
+- Commit to light **or** dark; avoid muddy mid-gray themes
+- Prefer depth via gradients, grain, or layered surfaces instead of flat solid white
+- See `references/colors.md` for CSS variables and patterns
 
 ### 4. Feedback on Every Interaction
-- Acknowledge taps within 100ms
-- Optimistic updates for instant feel
-- Loading states for operations >1s
-- Preserve user input on errors
+- Acknowledge taps within ~100ms
+- Prefer optimistic updates when rollback is safe
+- Show loading states for operations longer than ~1s
+- Preserve user input when validation or submit fails
 
 ### 5. Accessibility Non-Negotiable
-- Color contrast 4.5:1 (text), 3:1 (UI)
-- Focus states on all interactive elements
-- Semantic HTML (nav, main, section, article)
-- Keyboard navigation works for everything
+- Text contrast ≥ 4.5:1; UI-component contrast ≥ 3:1
+- Visible focus on every interactive control
+- Semantic landmarks (`nav`, `main`, `section`, `article`)
+- Full keyboard paths for primary flows
 
 ### 6. Performance from Start
-- Lazy load below-fold content
-- Image placeholders prevent layout shift
-- Code split heavy components
-- Target LCP <2.5s, CLS <0.1
+- Lazy-load below-fold media and heavy widgets
+- Reserve image space to limit layout shift
+- Code-split large feature islands
+- Target **LCP < 2.5s** and **CLS < 0.1** (web.dev Core Web Vitals)
 
 ### 7. One Memorable Element
-- Every page needs one unforgettable design choice
-- Typography treatment, hero animation, unusual layout
-- Timid designs fail — commit to an aesthetic
+- Give each page one deliberate memorable treatment (type, hero motion, or layout)
+- Commit to an aesthetic; timid mid designs usually fail review
 
 ## Frontend Traps
 
 | Trap | Consequence | Fix |
 |------|-------------|-----|
-| Generic fonts | Looks like every other site | Use distinctive fonts |
-| Solid white backgrounds | Flat, lifeless | Add gradients, grain, depth |
-| Mobile as afterthought | Broken for 60% of users | Mobile-first always |
-| Form error clears input | User rage | Preserve input, highlight error |
-| No loading states | User thinks broken | Show progress immediately |
-| Timid type scale | No visual hierarchy | Use 2x+ jumps for headlines |
+| Generic fonts | Looks interchangeable | Distinctive display + body pairing |
+| Flat solid backgrounds | Lifeless surface | Gradients, grain, layered depth |
+| Desktop-first layout | Breaks majority mobile traffic | Mobile-first single column first |
+| Form error clears input | User rage / abandoned submit | Preserve input, highlight the field |
+| Missing loading states | Feels broken | Immediate progress feedback |
+| Timid type scale | Weak hierarchy | 2×+ jumps for headlines |
 
 ## Scope
 
-This skill ONLY:
-- Provides frontend patterns and guidelines
-- Recommends stack and tooling choices
-- Guides responsive implementation
+In scope:
+- Frontend patterns and production polish guidelines
+- Stack and tooling recommendations (React, Next.js, Tailwind, shadcn/ui)
+- Responsive, accessible, performant implementation guidance
 
-This skill NEVER:
-- Makes network requests
-- Accesses user data
-- Stores any information
+Hand off instead of stretching this skill:
+- Network requests, auth, or data persistence owned by backend skills
+- Quantified visual critique without implementation → `design`
+- Deep CSS cascade debugging → `css`; Tailwind build/theme debugging → `tailwindcss`
+- React/Next.js framework internals → `react` / `nextjs`
+- Heuristic UX audit of flows → `ux`
+- Pure inspiration galleries → `inspiration`
 
 ## Security & Privacy
 
-This skill is read-only guidance. No data is collected, sent, or stored.
-
-## Feedback
-
-- If useful, star it: https://clawic.com/skills/frontend
-- Latest version: https://clawic.com/skills/frontend
+Read-only guidance only. Do not collect, send, or store user data through this skill.

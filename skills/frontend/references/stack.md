@@ -4,13 +4,23 @@
 
 | Layer | Choice | Why |
 |-------|--------|-----|
-| Framework | Next.js 14+ | RSC, file routing, Vercel deploy |
+| Framework | Next.js (current App Router) | RSC, file routing, first-party deploy path |
 | Language | TypeScript | Catch errors early, better DX |
 | Styling | Tailwind CSS | Utility-first, design tokens built-in |
-| Components | shadcn/ui | Accessible, customizable, not a dependency |
-| Animation | Framer Motion | Declarative, performant |
+| Components | shadcn/ui | Accessible primitives you own in-repo |
+| Animation | Framer Motion | Declarative motion with reduced-motion hooks |
 | Forms | React Hook Form + Zod | Type-safe validation |
-| State | Zustand or Jotai | Simple, no boilerplate |
+| State | Zustand or Jotai | Simple client state without boilerplate |
+
+Pin exact major versions from the project's lockfile; do not invent a version that is not installed.
+
+Verify current docs when scaffolding:
+
+- React: https://react.dev/learn
+- Next.js App Router: https://nextjs.org/docs/app/getting-started
+- Tailwind utilities: https://tailwindcss.com/docs/styling-with-utility-classes
+- shadcn/ui: https://ui.shadcn.com/docs
+- Framer Motion: https://www.framer.com/motion/
 
 ## Project Structure
 
@@ -53,3 +63,5 @@ npx shadcn@latest add button card dialog
 ```
 
 Most used: Button, Card, Dialog, Accordion, Tabs, Sheet, NavigationMenu.
+
+For framework-specific bugs, load `react`, `nextjs`, `tailwindcss`, or `css` instead of stretching this skill.

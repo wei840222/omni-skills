@@ -2,15 +2,17 @@
 
 ## Font Selection
 
-**AVOID**: Inter, Roboto, Arial, Open Sans — overused, generic
+Avoid defaulting to Inter, Roboto, Arial, or Open Sans as the hero voice — they read generic on marketing surfaces.
 
-**USE** distinctive fonts:
+Prefer distinctive fonts:
 
 | Use Case | Recommendations |
 |----------|-----------------|
 | Display/Headlines | Clash Display, Cabinet Grotesk, Satoshi, Playfair Display |
 | Body Text | Plus Jakarta Sans, Instrument Sans, General Sans |
 | Monospace | JetBrains Mono, IBM Plex Mono, Fira Code |
+
+License and self-host constraints still win over taste. For deep measure/leading/optical-size work, prefer `typography`.
 
 ## Size Scale
 
@@ -28,13 +30,13 @@ fontSize: {
 
 ## Hierarchy Rules
 
-1. **One hero size per page** — don't compete for attention
-2. **Body text 16-18px minimum** — readability
-3. **Line height 1.5-1.7 for body** — dense for headlines (1.1-1.2)
-4. **Max width 65-75 characters** — optimal reading measure
+1. **One hero size per page** — do not compete for attention
+2. **Body text 16–18px minimum**
+3. **Line height 1.5–1.7 for body**; denser (1.1–1.2) for display headlines
+4. **Max width ~65–75 characters** for reading measure
 
 ## Pairing Strategy
 
-- Contrast weights: thin display + bold body
+- Contrast weights: thin display + medium/bold body
 - Contrast styles: serif headlines + geometric sans body
-- Never use more than 2 font families
+- Cap at two font families unless the design system already defines more

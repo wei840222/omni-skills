@@ -2,7 +2,7 @@
 
 ## Priority
 
-One orchestrated page load > scattered micro-interactions.
+One orchestrated page load beats scattered micro-interactions.
 
 ## High-Impact Moments
 
@@ -28,24 +28,36 @@ const item = {
 }
 
 <motion.div variants={container} initial="hidden" animate="show">
-  {items.map(i => <motion.div key={i} variants={item} />)}
+  {items.map((i) => (
+    <motion.div key={i} variants={item} />
+  ))}
 </motion.div>
 ```
+
+Docs: https://www.framer.com/motion/
 
 ## Timing Guidelines
 
 | Type | Duration |
 |------|----------|
-| Interactions (hover, click) | 150-300ms |
-| Transitions (page, modal) | 300-500ms |
-| Complex sequences | 500-800ms total |
+| Interactions (hover, click) | 150–300ms |
+| Transitions (page, modal) | 300–500ms |
+| Complex sequences | 500–800ms total |
 
 ## Accessibility
 
-Always respect `prefers-reduced-motion`:
+Always respect `prefers-reduced-motion`. Prefer disabling non-essential motion rather than only shrinking durations:
 
 ```css
 @media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.01ms !important; }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 ```
+
+In Framer Motion, gate decorative animation behind a reduced-motion check so essential UI remains usable without motion.
