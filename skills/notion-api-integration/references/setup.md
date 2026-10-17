@@ -30,4 +30,4 @@ When creating a file, copy structure from `assets/data-templates.md`. Announce e
 
 ## First questions to avoid
 
-Do not interrogate the user about their token or expertise. Work from defaults. Exception: if `api_version` is unset, **state** which `Notion-Version` you are assuming before acting.
+Work from defaults immediately; ask about tokens or expertise only when a concrete blocker requires it. Exception: if `api_version` is unset, **state** which `Notion-Version` you are assuming before acting.

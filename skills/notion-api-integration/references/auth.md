@@ -12,7 +12,7 @@ Access failures dominate Notion API debugging. A valid token that cannot see a p
 | Public OAuth access token | Multi-workspace install | Authorization-code flow; store access + refresh pointers only |
 | Personal access token (PAT) | Script acting as a specific user | User-scoped; no page picker; uses that user's permissions |
 
-Never write the raw token into `<state_root>/`. Store `env:NOTION_API_KEY`, `keychain:…`, or `1password:…` pointers only.
+Keep `<state_root>/` pointer-only for credentials: `env:NOTION_API_KEY`, `keychain:…`, or `1password:…`.
 
 ## Headers
 
