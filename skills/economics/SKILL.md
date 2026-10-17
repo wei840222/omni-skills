@@ -77,4 +77,4 @@ configuration or persistent user state.
 - Automation/UBI/post-employment policy portfolios → `post-labor-economics`
 
 Keep `SKILL.md` as the routing surface; load only the matching reference for
-the current audience or source check.
+the current audience or source check. Do not preload every audience file.
