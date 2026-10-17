@@ -20,7 +20,8 @@ trade-off stories.
 ## Guardrails
 
 - Prefer lived examples over jargon; introduce terms only after the story lands.
-- Do not invent prices, wages, or policy effects from memory; load
-  `references/sources.md` when a current number matters.
+- When a current price, wage, or policy effect matters, load
+  `references/sources.md` and cite the primary page instead of recalling a
+  figure from memory.
 - Keep wonder without implying that markets always deliver fairness or that
   every problem is solved by “just buy more.”

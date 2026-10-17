@@ -22,8 +22,8 @@ experiments.
 
 ## Guardrails
 
-- Do not invent local wage, tax, or inflation figures for a classroom handout;
-  load `references/sources.md` or leave a placeholder for the teacher to fill.
+- For classroom handouts that need local wage, tax, or inflation figures, load
+  `references/sources.md` or leave a dated placeholder for the teacher to fill.
 - Avoid stop-only language that freezes discussion; reframe traps as positive
   targets (“state the sacrificed alternative”) with a recovery path.
 - Keep depth matched to the grade level; escalate to `references/students.md`
