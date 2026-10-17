@@ -170,7 +170,7 @@ Preference areas — customizable dimensions; a stated preference gets recorded 
 
 | Trap | Why it fails | Do instead |
 |------|--------------|------------|
-| Vanity metrics | Impressions and followers correlate poorly with pipeline at early scale | Report cost per opportunity and pipeline $ per channel |
+| Vanity metrics | Impressions and followers correlate poorly with pipeline at early scale | Lead the dashboard with cost per opportunity and pipeline $ per channel (`references/measurement.md`) |
 | Rebrand as growth lever | Rebrands consume quarters and reset brand-asset equity; the real problem is usually positioning or product | Fix the positioning sentence first (`references/positioning.md`) |
 | MQL factory | Volume targets fill the CRM with leads sales won't touch; cross-team trust collapses | Score on fit × intent with a two-way SLA (`references/demand.md`) |
 | Copying a competitor's channel mix | Their mix reflects their ACV, margin, and stage — rather than yours | Derive channels from your ICP's watering holes and your ACV |
