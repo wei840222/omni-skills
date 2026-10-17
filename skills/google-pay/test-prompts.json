@@ -1,0 +1,38 @@
+[
+  {
+    "id": "google-pay-android-plan-setup",
+    "scenario": "new Android Google Pay integration without prerequisites",
+    "prompt": "We need to integrate Google Pay into our Android app. Create a plan.",
+    "expected": [
+      "Loads or cites references/setup.md and/or references/implementation-playbook.md",
+      "Requires merchant/gateway prerequisites and environment separation before coding",
+      "Chooses an explicit tokenization mode (prefer PAYMENT_GATEWAY) and server-trusted totals"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: google-pay → references/setup.md + Path B in references/implementation-playbook.md; confirm merchant profile, package name, test vs prod, PAYMENT_GATEWAY vs DIRECT; keep amounts server-side; no raw token persistence.",
+    "pass": true
+  },
+  {
+    "id": "google-pay-web-failure-triage",
+    "scenario": "web checkout failing at Google Pay button/auth",
+    "prompt": "Our web Google Pay integration is failing when users check out. Please review.",
+    "expected": [
+      "Loads or cites references/failure-handling.md",
+      "Asks for failure class evidence (merchant readiness, token processing, env mismatch, timeout, duplicate auth)",
+      "Forbids logging or chatting raw token payloads and checks idempotency/fallback"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: google-pay → references/failure-handling.md + references/validation-checklist.md; classify signature; verify merchant/env; no raw tokens in notes; confirm idempotency keys and fallback checkout.",
+    "pass": true
+  },
+  {
+    "id": "google-pay-prefer-billing-recurring",
+    "scenario": "user wants subscriptions powered only by Google Pay button",
+    "prompt": "Can Google Pay alone handle our monthly subscriptions and failed-renewal dunning?",
+    "expected": [
+      "Loads or cites references/recurring-payments.md",
+      "States Google Pay is typically initial method capture; renewals/dunning belong to billing/subscriptions + PSP",
+      "Prefers or hands off to billing and/or subscriptions rather than inventing a Google-Pay-only renewer"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: google-pay → references/recurring-payments.md; initial capture via Google Pay, reusable method + renewals via PSP; handoff to billing/subscriptions (+ stripe-api-integration/paypal as needed).",
+    "pass": true
+  }
+]

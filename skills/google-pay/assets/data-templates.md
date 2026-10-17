@@ -1,13 +1,16 @@
-# Memory Template - Google Pay
+# Google Pay data templates
 
-Create `~/Clawic/data/google-pay/memory.md` with this structure:
+Use these shapes only after `<state_root>` is resolved to a real directory.
+Never write the literal string `<state_root>` to disk.
+
+## `memory.md`
 
 ```markdown
 # Google Pay Memory
 
 ## Status
 status: ongoing
-version: 1.0.0
+version: 1.1.0
 last: YYYY-MM-DD
 integration: pending | complete | paused | never_ask
 
@@ -15,6 +18,7 @@ integration: pending | complete | paused | never_ask
 platform: web | android | hybrid
 psp: unknown
 environment: test | production
+tokenization: PAYMENT_GATEWAY | DIRECT
 merchant_id: configured | missing
 launch_state: planning | validating | ready | paused
 
@@ -43,7 +47,7 @@ launch_state: planning | validating | ready | paused
 *Updated: YYYY-MM-DD*
 ```
 
-## Status Values
+## Status values
 
 | Value | Meaning | Behavior |
 |-------|---------|----------|
@@ -52,9 +56,29 @@ launch_state: planning | validating | ready | paused
 | `paused` | User paused work | Keep context read-only until resumed |
 | `never_ask` | User wants no setup prompts | Do not request setup details unless user asks |
 
-## File Templates
+## Optional file templates
 
-Create `~/Clawic/data/google-pay/validation-log.md`:
+Create `<state_root>/implementations.md` when a path is selected:
+
+```markdown
+# Google Pay Implementations
+
+## Active path
+- platform:
+- tokenization:
+- psp:
+- environment:
+
+## Decisions
+- Why this path was chosen
+- Explicitly deferred alternatives
+
+## Notes
+- Package / origin configuration reminders
+- Idempotency key strategy
+```
+
+Create `<state_root>/validation-log.md` when tests run:
 
 ```markdown
 # Google Pay Validation Log
@@ -68,7 +92,7 @@ Create `~/Clawic/data/google-pay/validation-log.md`:
 - Follow-up:
 ```
 
-Create `~/Clawic/data/google-pay/incidents.md`:
+Create `<state_root>/incidents.md` when failures are triaged:
 
 ```markdown
 # Google Pay Incidents
@@ -81,8 +105,9 @@ Create `~/Clawic/data/google-pay/incidents.md`:
 - Preventive action:
 ```
 
-## Key Principles
+## Key principles
 
 - Keep persisted notes short and actionable.
 - Store evidence links, not raw sensitive payloads.
 - Update `last` whenever status changes.
+- Create optional files only when that workflow starts.
