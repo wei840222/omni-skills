@@ -58,7 +58,7 @@ Events are the highest-cost, highest-trust channel in B2B and the easiest to run
 | Technology / integration | Access to their user base, a product reason to be mentioned | A listing with no co-marketing is a directory entry |
 | Reseller / channel | Distribution and local presence | Margin stacking, and losing the customer relationship |
 | Referral / affiliate | Cheap incremental leads | Paying for customers who were already arriving (`measurement.md`) |
-| Agency / SI | Implementation capacity that unblocks deals | Their incentive is billable hours, not your renewal |
+| Agency / SI | Implementation capacity that unblocks deals | Their incentive is billable hours, rather than your renewal |
 
 Rules: co-marketing works when both audiences gain something, so lead with a joint customer story rather than a joint logo; enable partners like you enable sales (they will not read a PDF — give them the deck, the demo, and the objection list); and set a single attribution and deal-registration rule in writing before the first lead, because partner attribution fights are the ugliest kind.
 

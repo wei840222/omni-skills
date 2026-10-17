@@ -12,16 +12,16 @@ Most teams over-produce top-funnel volume and under-produce the dozen-odd bottom
 
 Build in this order — the reverse of volume-chasing:
 1. Pricing, comparison, alternatives, and integration pages.
-2. Problem pages phrased in the ICP's own words — mined from sales call recordings, not keyword tools alone.
+2. Problem pages phrased in the ICP's own words — mined from sales call recordings, rather than keyword tools alone.
 3. Pillar/cluster top-funnel pages for compounding traffic — only after 1 and 2 exist.
 
-Rankings take months, not weeks. That lag is why SEO gets killed at exactly the wrong time — set its kill line (SKILL.md Rule 6) in quarters, not weeks.
+Rankings take months, rather than weeks. That lag is why SEO gets killed at exactly the wrong time — set its kill line (SKILL.md Rule 6) in quarters, rather than weeks.
 
-Comparison pages you did not write are being written about you by review sites and competitors. Owning the "you vs. them" page is not arrogance; it is the only version of that page where the facts are yours and current.
+Comparison pages you bypassed are being written about you by review sites and competitors. Owning the "you vs. them" page is essential control; it is the only version of that page where the facts are yours and current.
 
 ## Content-Market Fit Signal
 
-You have it when: prospects mention specific pieces on sales calls; inbound messages cite content; subscribers match the ICP, not just traffic. Traffic growth with none of these = writing for the wrong audience or the wrong funnel stage (`diagnose.md`).
+You have it when: prospects mention specific pieces on sales calls; inbound messages cite content; subscribers match the ICP, rather than generic traffic. Traffic growth without these indicators signals writing for a broader audience or the wrong funnel stage (`diagnose.md`).
 
 ## The Portfolio, Not the Calendar
 
@@ -32,14 +32,14 @@ Budget content like an investment portfolio rather than a publishing schedule:
 | Money pages (BOFU) | Small, permanent | Direct conversion | Weeks |
 | Compounding assets (guides, tools, calculators) | Largest single block | Traffic and links that grow | Quarters |
 | Original research and data | Occasional, expensive | Links, press, authority (`comms.md`) | Quarters, then years |
-| Point-of-view and opinion | Steady, cheap | Memory in the 95%, recruiting, sales trust | Never attributable; judge by citation |
+| Point-of-view and opinion | Steady, cheap | Memory in the 95%, recruiting, sales trust | Difficult to attribute; judge by citation |
 | Refresh of past winners | Continuous, cheapest | Usually the highest ROI line in the plan | Weeks |
 
-A plan that is 90% new top-funnel posts is a content factory, not a strategy.
+A plan that is 90% new top-funnel posts is a content factory, rather than a strategy.
 
 ## Original Research
 
-The most reliable link and press magnet in B2B: run a survey or mine your own product data for a statistic nobody else can publish. Requirements: a defensible method (sample size and question wording published), a number that is genuinely new, and a single citable chart. Repeat annually — the second edition earns more than the first because it becomes a series people wait for. Never publish a proprietary-data statistic without checking customer contracts and privacy commitments (`compliance.md`).
+The most reliable link and press magnet in B2B: run a survey or mine your own product data for a statistic unique to your dataset. Requirements: a defensible method (sample size and question wording published), a number that is genuinely new, and a single citable chart. Repeat annually — the second edition earns more than the first because it becomes a series people wait for. Publish proprietary-data statistics only after checking customer contracts and privacy commitments (`compliance.md`).
 
 ## Visibility in AI Answer Engines
 
@@ -47,7 +47,7 @@ Assistants and AI search answer the buyer's question without a click, then cite 
 
 - Structure pages so a single paragraph answers the question completely, then elaborate below.
 - Keep pricing, capability, and comparison facts current on the page — stale facts get quoted back at you in a sales call.
-- Track brand mentions in answers as a visibility metric alongside rankings; treat "cited but not clicked" as brand impression, not as a loss.
+- Track brand mentions in answers as a visibility metric alongside rankings; treat "cited but unclicked" as brand impression, rather than a loss.
 - Expect this to move: verify current behaviour of the specific engine before making a big bet on it.
 
 ## Repurposing

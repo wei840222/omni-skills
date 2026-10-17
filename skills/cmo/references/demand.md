@@ -35,7 +35,7 @@ Bullseye (SKILL.md Rule 5): list channels where the ICP demonstrably is, run ~3 
 |---------|----------|----------------|-----------|
 | Paid search | Provable existing demand, high intent | Days-weeks | Branded-term spend inflating ROAS (`paid.md`) |
 | Paid social | Creative-led creation, retargeting | Weeks | Fatigue: frequency up + CTR down → rotate creative |
-| SEO/content | Compounding capture and creation | Months, not weeks | Traffic to pages no buyer reads (`content.md`) |
+| SEO/content | Compounding capture and creation | Months, rather than weeks | Traffic to pages no buyer reads (`content.md`) |
 | Outbound with marketing air cover | High ACV, definable account list | Weeks-months | Cold volume without warm-up burns deliverability |
 | Events and field | Enterprise trust, few large deals | Months | Counting badge scans as leads (`b2b.md`) |
 | Partnerships and integrations | Borrowed trust and distribution | Months | Roadmap dependence on the partner |

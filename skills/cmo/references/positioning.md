@@ -4,7 +4,7 @@
 
 Work the steps in this order (April Dunford, *Obviously Awesome*) — starting from "what are we?" produces category clichés:
 
-1. **Competitive alternatives** — what customers would actually do without you (often spreadsheets, an intern, or "nothing", not your named competitors).
+1. **Competitive alternatives** — what customers would actually do without you (often spreadsheets, an intern, or "nothing", rather than your named competitors).
 2. **Unique attributes** — capabilities the alternatives cannot claim.
 3. **Value with proof** — what those attributes let customers achieve, evidenced.
 4. **Who cares most** — the segment for whom that value is urgent.
