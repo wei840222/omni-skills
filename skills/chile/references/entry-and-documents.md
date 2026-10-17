@@ -45,4 +45,4 @@ For archaeological sites such as Orongo or Rano Raraku, Chile Travel says an acc
 - Tourist status is not the same as a residence permit.
 - Paid work is not automatically allowed under tourist entry.
 - Overstaying can trigger fines and exit problems.
-- If timing looks tight, use `sources.md` and refresh the exact rule before advising.
+- If timing looks tight, use `assets/sources.md` and refresh the exact rule before advising.

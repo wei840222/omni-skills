@@ -6,6 +6,7 @@ Chile is unusually strict about animal and plant biosecurity. Treat the SAG decl
 
 ## SAG Declaration Basics
 
+- Prefer the live SAG digital declaration portal when available: `https://dj.sag.gob.cl/declaracion-jurada`.
 - If carrying animal or plant products, declare them.
 - Honey and other bee products are especially sensitive for Chile and for Rapa Nui.
 - Even if an item seems harmless, declare first and let SAG decide.

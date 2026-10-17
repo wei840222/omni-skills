@@ -10,7 +10,7 @@ mkdir -p ~/chile
 ```
 
 ### 2. Initialize Memory File
-Create `~/Clawic/data/chile/memory.md` using `memory-template.md`.
+Create `<state_root>/memory.md` using `assets/memory-template.md`.
 
 ### 3. Gather Trip Context Naturally
 Ask in conversational flow:
@@ -22,11 +22,11 @@ Ask in conversational flow:
 - Reservation pressure: okay with fixed bookings, or prefers flexibility?
 
 ### 4. Save to Memory
-Update `~/Clawic/data/chile/memory.md` with the current intent, constraints, and decision status.
+Update `<state_root>/memory.md` with the current intent, constraints, and decision status.
 
 ## Returning Users
 
-If `~/Clawic/data/chile/memory.md` exists:
+If `<state_root>/memory.md` exists:
 1. Read it silently
 2. Reuse known constraints and preferences
 3. Ask only what changed: dates, region focus, budget, mobility, or trekking appetite
@@ -36,15 +36,15 @@ If `~/Clawic/data/chile/memory.md` exists:
 
 **"I want Santiago and Valparaiso"**
 -> Ask: total nights, first-time vs repeat, budget band, nightlife vs museums vs food.
--> Then use: `santiago.md`, `valparaiso-and-vina.md`, `budget-and-payments.md`.
+-> Then use: `references/santiago.md`, `references/valparaiso-and-vina.md`, `references/budget-and-payments.md`.
 
 **"I want Atacama"**
 -> Ask: month, altitude tolerance, astronomy interest, rental-car comfort.
--> Then use: `atacama.md`, `weather-and-seasonality.md`, `transport-domestic.md`.
+-> Then use: `references/atacama.md`, `references/weather-and-seasonality.md`, `references/transport-domestic.md`.
 
 **"I want Patagonia"**
 -> Ask: total days, trekking level, whether refugios/camps are acceptable, and if the trip is Torres-only or broader Patagonia.
--> Then use: `patagonia-and-torres-del-paine.md`, `national-parks.md`, `road-trips-and-driving.md`.
+-> Then use: `references/patagonia-and-torres-del-paine.md`, `references/national-parks.md`, `references/road-trips-and-driving.md`.
 
 ## Important Notes
 
