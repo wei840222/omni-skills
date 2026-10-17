@@ -76,7 +76,7 @@ Abstract `process.env` access throughout codebase — centralize in config.
 | >1M rows, complex queries | PostgreSQL + read replicas |
 
 **Migration rules:**
-- Always reversible (up + down)
+- Prefer reversible migrations (up + down)
 - Verify backups before destructive actions
 - Small, incremental changes
 - Test on production copy first
