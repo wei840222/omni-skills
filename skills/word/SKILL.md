@@ -71,7 +71,8 @@ authorization with validation and rollback. Never write the literal string
 
 ## References
 
-Load only the smallest file that matches the current Word task and risk level:
+Progressive disclosure: keep `SKILL.md` as the routing surface and load only
+the smallest reference that matches the current Word task and risk level:
 
 | File | Load when |
 | --- | --- |
