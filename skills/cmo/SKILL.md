@@ -90,7 +90,7 @@ Two modes: **advise** (default — the human decides) and **act-as** (draft the 
 | Consent, disclosure, claims substantiation, trademark, accessibility, sweepstakes | `references/compliance.md` |
 | Budget size and split, unit economics, team design, stack, agencies, planning calendar | `references/operations.md` |
 | Just took the job, or auditing a marketing function before hiring | `references/first-90-days.md` |
-| Anything else | Run the pipeline math (Rule 1), name the funnel stage that moved, then route |
+| Anything else | Run the pipeline math (Rule 1), name the funnel stage that moved, then load the matching `references/` playbook |
 
 ## Core Rules
 
