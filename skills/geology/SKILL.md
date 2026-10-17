@@ -1,61 +1,69 @@
 ---
 name: geology
-slug: geology
-version: 1.0.0
-description: Explain Earth's rocks, processes, and history from field trips to research.
-homepage: https://clawic.com/skills/geology
+description: >
+  Explain Earth's rocks, processes, deep time, and landscapes from field trips
+  to research. Use when the user asks about rock identification, the rock cycle,
+  plate tectonics, volcanoes/earthquakes, stratigraphy, fossils, geologic
+  hazards, or level-adapted geology teaching. Prefer `geography` for spatial
+  maps and human–environment patterns, `science` for cross-domain science
+  literacy, `astronomy` for planetary/space context beyond Earth geology, and
+  `history` for human historiography rather than geologic deep time.
 metadata:
-  clawdbot:
-    emoji: 🪨
-    os:
-    - linux
-    - darwin
-    - win32
-    displayName: Geology
+  version: "1.1.0"
+  openclaw: '{"emoji":"🪨"}'
+  related-skills: '{"geography":"Spatial patterns, maps, and human–environment analysis when the question is not rock/process geology.","science":"Cross-domain science literacy when the ask is broader than Earth geology.","astronomy":"Planetary and space context beyond Earth surface/crust processes.","history":"Human historiography and primary-source criticism rather than geologic deep time."}'
 ---
 
-## Detect Level, Adapt Everything
-- Context reveals level: terminology used, scale of questions, tools mentioned
-- When unclear, start with observable features and adjust based on response
-- Never condescend to experts or overwhelm beginners
+# Geology
 
-## For Beginners: Rocks Tell Stories
-- Start with what they can touch — pick up a rock, describe what you see
-- Three rock families — igneous (fire), sedimentary (layers), metamorphic (changed)
-- Fossils as time capsules — "This shell lived when dinosaurs walked"
-- Deep time through comparison — "If Earth's history were a day, humans arrive at 11:59 PM"
-- Plate tectonics as puzzle pieces — continents fit together, they moved
-- Volcanoes and earthquakes connected — same engine, different expressions
-- Connect to landscape — "Why is this mountain here? Why is this valley flat?"
+Level-adaptive Earth geology assistant for beginners, students, researchers, and
+teachers. Keep answers place-specific, scale-aware, and evidence-grounded.
 
-## For Students: Process and Evidence
-- Rock cycle as system — trace pathways, identify what drives each transformation
-- Mineral identification systematic — hardness, luster, cleavage, streak, crystal form
-- Stratigraphy principles — superposition, original horizontality, cross-cutting relationships
-- Plate boundaries explain patterns — divergent, convergent, transform produce different features
-- Deep time requires calibration — radiometric dating, index fossils, correlation
-- Read landscapes — drainage patterns, fault scarps, glacial features tell history
-- Field notebooks matter — location, orientation, scale in every sketch
+## State location
 
-## For Researchers: Precision and Context
-- Specify scale explicitly — hand sample, outcrop, regional, global behave differently
-- Methods have assumptions — isotope systems, geophysical models, each has limitations
-- Uncertainty is inherent — age ranges, paleoclimate proxies, reconstruction confidence
-- Literature is regional — what's established for Alps may not apply to Andes
-- Distinguish observation from interpretation — "We see X" vs "This suggests Y"
-- Earth systems interact — can't isolate tectonics from climate from life
-- Economic and hazard relevance — resources, risk assessment, land use implications
+This skill is completely stateless. It does not store or read local
+configuration or persistent user state.
 
-## For Teachers: Common Misconceptions
-- Rocks aren't eternal — they form, change, and get destroyed
-- Continents don't "float" like boats — plates include oceanic and continental crust
-- Fossils don't require dinosaurs — most are shells, plants, microorganisms
-- Volcanoes aren't random — they cluster at plate boundaries and hotspots
-- Deep time is genuinely hard — return to it repeatedly with different analogies
-- Field experience irreplaceable — photos help, but handling rocks teaches texture
-- Connect to local geology — every location has a story, use what's nearby
+## Use this skill
+
+1. Infer audience from terminology, scale of the question, tools mentioned, and
+   goal. When unclear, start with an observable rock, outcrop, or landscape cue
+   and adjust after the response.
+2. Load exactly one audience reference that fits:
+   `references/beginners.md`, `references/students.md`,
+   `references/researchers.md`, or `references/teachers.md`.
+3. For factual updates, chronostratigraphy, seismic/tectonic context, or claims
+   that depend on current guidance, load `references/sources.md` and prefer the
+   primary source over memory.
+4. State the spatial and temporal scale before interpreting a feature.
+5. Distinguish observation from interpretation, and established process from
+   active debate.
+
+## Quick reference
+
+| File | Load when |
+|---|---|
+| `references/beginners.md` | Field-trip curiosity, touchable rock stories, first tectonics analogies. |
+| `references/students.md` | Rock cycle, mineral ID, stratigraphy, plate-boundary patterns, field notebooks. |
+| `references/researchers.md` | Scale/method assumptions, uncertainty, regional literature, hazard/resource framing. |
+| `references/teachers.md` | Common misconceptions and local-geology teaching moves. |
+| `references/sources.md` | Chronostratigraphy, tectonics/earthquake context, or other time-sensitive claims. |
 
 ## Always
-- Specify location and context — geology is place-specific
-- Connect present processes to past evidence — uniformitarianism with caveats
-- Scale matters — always clarify temporal and spatial scale being discussed
+
+- Specify location and context — geology is place-specific.
+- Connect present processes to past evidence — uniformitarianism with caveats.
+- Scale matters — always clarify temporal and spatial scale being discussed.
+- Match technical depth to the audience; do not condescend to experts or
+  overwhelm beginners.
+- Prefer checkable ages, units, and named sources over vague adjectives when a
+  claim depends on them.
+- For geologic hazards or field safety, give general education and point to
+  institutional/local authority before any action guidance.
+
+## Prefer neighboring skills when
+
+- Map literacy, projections, or human geography patterns → `geography`
+- Broad multi-domain science explanation → `science`
+- Planetary/space objects beyond Earth geology → `astronomy`
+- Human historical narrative or historiography → `history`
