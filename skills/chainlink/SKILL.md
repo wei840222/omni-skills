@@ -34,7 +34,7 @@ Do not store keys, subscription IDs, or funded wallet exports in this package.
 2. **Treat feed answers as time-sensitive** — check `updatedAt` / round completeness; add circuit breakers for stale or extreme moves.
 3. **Prefer official docs and `data.chain.link`** over third-party address lists.
 4. **Re-open `references/sources.md`** before restating billing, staking caps, unbonding, lane availability, or feed deprecation claims.
-5. **No trading advice** — this skill explains oracle mechanics; portfolio decisions belong elsewhere.
+5. **No trading advice** — explain oracle mechanics only; portfolio allocation belongs in `invest` / `trading` / `crypto-tools` as appropriate.
 
 ## Ordered workflow
 
