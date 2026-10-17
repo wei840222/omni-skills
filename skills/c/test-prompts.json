@@ -1,0 +1,42 @@
+[
+  {
+    "id": "c-malloc-concat",
+    "scenario": "dynamic string concat must check allocation and free",
+    "prompt": "Write a C function that concatenates two C strings into a newly allocated buffer. It must not leak and must handle allocation failure.",
+    "expected": [
+      "Uses malloc/calloc sized with strlen(a)+strlen(b)+1",
+      "Checks NULL from allocation before write",
+      "Copies with strcpy/memcpy/snprintf and keeps NUL terminator",
+      "Documents caller frees the result or provides a free path"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: SKILL Critical Rules 1–4 + references/memory.md + references/strings.md require checked allocation, single cleanup owner, NUL room, and bounded copy guidance.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "c-sequence-point-ub",
+    "scenario": "detect sequence-point / unsequenced modification UB",
+    "prompt": "Review `int i = 0; i = i++ + 1;` for undefined behavior and explain the fix.",
+    "expected": [
+      "Flags undefined behavior / unsequenced modification of i",
+      "Mentions sequence points or C11+ sequencing rules",
+      "Recommends split statements such as `i = i + 1;` or `++i;`"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: Critical Rule 5 and references/undefined.md explicitly list modifying the same object twice between sequence points (`i = i++`).",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  },
+  {
+    "id": "c-prefer-cpp-raii",
+    "scenario": "C++ RAII ask should hand off to cpp",
+    "prompt": "This is a C++ codebase. Please refactor `new int[100]` to RAII so exceptions cannot leak. Which skill should lead?",
+    "expected": [
+      "Prefers cpp over c",
+      "Mentions unique_ptr/vector or Rule-of-zero guidance from cpp",
+      "Does not treat the task as ISO C malloc discipline alone"
+    ],
+    "actual": "STRUCTURAL_DRY_RUN 2026-10-18: description + Prefer other skills table route C++ RAII/modernization to `cpp`; related-skills metadata encodes the same boundary.",
+    "pass": true,
+    "eval_mode": "structural_dry_run"
+  }
+]
