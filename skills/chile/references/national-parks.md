@@ -25,7 +25,7 @@ Check access, ticketing, and season window before building the itinerary around 
 - Base the plan around Puerto Natales or lodge/refugio availability.
 - W and O circuits require much more commitment than a scenic park visit.
 - Strong wind, shoulder-season weather, and transport timing deserve explicit contingency space.
-- Use `patagonia-and-torres-del-paine.md` for trip architecture, not only park facts.
+- Use `references/patagonia-and-torres-del-paine.md` for trip architecture, not only park facts.
 
 ## Park Workflow
 

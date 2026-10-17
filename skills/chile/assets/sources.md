@@ -1,10 +1,10 @@
 # Sources — Chile Skill
 
-Last checked: 2026-03-09
+Last checked: 2026-10-18
 
 ## Entry, Visa, and Immigration
 
-- Chile Travel entry and visa requirements: https://stg.chile.travel/en/good-to-know/entry-and-visa-requirements/
+- Chile Travel entry and visa requirements: https://chile.travel/en/good-to-know/entry-and-visa-requirements/
 - SERMIG temporary stay extension (EN): https://serviciomigraciones.cl/en/permanencia-transitoria-permit/extension/
 - SERMIG temporary stay extension (ES): https://serviciomigraciones.cl/permanencia-transitoria/prorroga/
 - SERMIG immigration fees: https://serviciomigraciones.cl/en/immigration-fees/
@@ -12,9 +12,11 @@ Last checked: 2026-03-09
 
 ## Customs, SAG, and Border Declarations
 
-- SAG traveler declaration and animal/plant products: https://www.sag.gob.cl/ambitos-de-accion/declaracion-jurada-del-sag-para-viajeros
-- SAG animal or plant products overview: https://www.sag.gob.cl/ambitos-de-accion/productos-de-origen-animal-o-vegetal
+- SAG digital traveler declaration (DJ): https://dj.sag.gob.cl/declaracion-jurada
+- SAG declaration scope for animal/plant products on entry: https://www.sag.gob.cl/ambitos-de-accion/declaracion-jurada-sag-de-ingreso-chile
+- SAG procedure page for vegetal/animal product declaration: https://www.sag.gob.cl/tramites/declaracion-jurada-sag-sobre-ingreso-de-productos-de-origen-vegetal-o-animal-chile
 - Aduana "what can I bring?": https://www.aduana.cl/que-puedo-traer/aduana/2007-02-28/161116.html
+- Chile Travel entry page (SAG declaration reminder): https://chile.travel/en/good-to-know/entry-and-visa-requirements/
 
 ## Parks, Nature, and Tourism
 
@@ -45,6 +47,6 @@ Last checked: 2026-03-09
 
 ## Rapa Nui
 
-- Chile Travel Rapa Nui requirements in entry page: https://stg.chile.travel/en/good-to-know/entry-and-visa-requirements/
+- Chile Travel Rapa Nui requirements in entry page: https://chile.travel/en/good-to-know/entry-and-visa-requirements/
 - Chile Travel Rapa Nui law overview: https://chile.travel/en/blog/learn-about-the-new-regulations-and-residence-in-rapa-nui-law-2/
 - Chile Travel Rapa Nui reopening requirements: https://chile.travel/en/blog/requirements-rapa-nui/

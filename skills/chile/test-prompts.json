@@ -1,0 +1,38 @@
+[
+  {
+    "id": "chile-macroregion-triage-10d",
+    "scenario": "overpacked four-region itinerary",
+    "prompt": "I want to visit Chile for 10 days. Should I do Atacama, Santiago, Lake District, and Patagonia all in one trip?",
+    "expected": [
+      "Advises against packing Atacama + lakes + Patagonia into 10 days",
+      "Loads or cites references/regions.md and/or references/itineraries.md plus domestic transfer overhead",
+      "Offers a realistic 1–2 region plan such as Santiago+Atacama or Santiago+Patagonia with flight vs bus tradeoff"
+    ],
+    "actual": "STRUCTURAL_ROUTING 2026-10-18: Use chile → references/regions.md + references/itineraries.md + references/transport-domestic.md. Reject four-region packing; propose Northern (Santiago+Atacama) or Southern (Santiago+Patagonia) focus with transfer windows.",
+    "pass": true
+  },
+  {
+    "id": "chile-rapa-nui-entry-stack",
+    "scenario": "same-week Santiago arrival then Rapa Nui",
+    "prompt": "I'm flying into Santiago tomorrow and connecting to Easter Island the next day. What forms do I need?",
+    "expected": [
+      "Mentions SAG declaration for animal/plant products on Chile arrival",
+      "Lists Rapa Nui extras: FUI within 48h, round-trip with max 30-day stay, SERNATUR-registered lodging or invitation, park ticket",
+      "Does not invent a visa fee for every nationality; points to Chile Travel / SERMIG when nationality-specific"
+    ],
+    "actual": "STRUCTURAL_ROUTING 2026-10-18: references/entry-and-documents.md + references/customs-and-biosecurity.md + references/rapa-nui.md + assets/sources.md. Cover SAG DJ, FUI, 30-day round-trip, registered lodging/invitation, park ticket; refresh nationality visa path from sources.",
+    "pass": true
+  },
+  {
+    "id": "chile-prefer-travel-handoff",
+    "scenario": "multi-country standing system vs Chile package",
+    "prompt": "Help me keep a long-term wishlist across Japan, Chile, and Italy, track Schengen days, and watch points expiry. Also sketch a future Patagonia idea.",
+    "expected": [
+      "Prefers or hands primary standing-system work to travel",
+      "Uses chile only for Chile/Patagonia-specific routing once the Chile trip is active",
+      "Does not claim chile owns Schengen day counting or multi-country points ledgers"
+    ],
+    "actual": "STRUCTURAL_ROUTING 2026-10-18: Prefer travel for wishlist/Schengen/points ledger; keep chile for Patagonia macro-region, park reservation, and weather constraints when that trip becomes concrete.",
+    "pass": true
+  }
+]
