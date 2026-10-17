@@ -110,6 +110,8 @@ to initialize local boxes from `assets/data-templates.md`.
 | Errors & retries | `references/errors.md` | Status/code diagnosis |
 | Verified sources | `references/sources.md` | Version-sensitive claims |
 
+Load references on demand from the quick-reference table; keep SKILL.md as the routing surface.
+
 ## Core rules
 
 1. **Read the schema before writing.** Property names are case- and space-sensitive. Retrieve the database/data source, save `<state_root>/schemas/…`, and build payloads from that box (`references/databases.md`).
