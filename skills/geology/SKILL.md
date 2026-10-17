@@ -60,6 +60,8 @@ configuration or persistent user state.
   claim depends on them.
 - For geologic hazards or field safety, give general education and point to
   institutional/local authority before any action guidance.
+- On conflict or missing data, name one concrete blocker and the next source
+  check from `references/sources.md` instead of stacking prohibitions.
 
 ## Prefer neighboring skills when
 
